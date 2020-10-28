@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: bbd46237e0b3b21b822b088c545c91f678a8034e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792296"
+ms.locfileid: "92895225"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Security Center 트리거에 대 한 응답 자동화
 
@@ -139,5 +139,5 @@ ms.locfileid: "92792296"
 - [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)
 - [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 - [Azure Logic Apps 정보](../logic-apps/logic-apps-overview.md)
-- [Logic Apps 커넥터](/connectors/)
+- [Azure Logic Apps용 커넥터](../connectors/apis-list.md)
 - [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

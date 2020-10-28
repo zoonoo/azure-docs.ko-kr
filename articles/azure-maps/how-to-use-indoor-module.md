@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335350"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895463"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
@@ -77,7 +77,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Indoor Manager 인스턴스화
 
-실내 타일 세트와 타일의 맵 스타일을 로드하려면 *Indoor Manager*를 인스턴스화해야 합니다. *Map* 개체 및 해당 `tilesetId`를 제공하여 *Indoor Manager*를 인스턴스화합니다. [동적 맵 스타일 지정](indoor-map-dynamic-styling.md)을 지원하려면 `statesetId`를 전달해야 합니다. `statesetId` 변수 이름은 대/소문자를 구분합니다. 코드는 아래 JavaScript와 같아야 합니다.
+실내 타일 세트와 타일의 맵 스타일을 로드하려면 *Indoor Manager* 를 인스턴스화해야 합니다. *Map* 개체 및 해당 `tilesetId`를 제공하여 *Indoor Manager* 를 인스턴스화합니다. [동적 맵 스타일 지정](indoor-map-dynamic-styling.md)을 지원하려면 `statesetId`를 전달해야 합니다. `statesetId` 변수 이름은 대/소문자를 구분합니다. 코드는 아래 JavaScript와 같아야 합니다.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +89,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-제공한 상태 데이터의 폴링이 가능하도록 설정하려면 `statesetId`를 제공하고 `indoorManager.setDynamicStyling(true)`을 호출해야 합니다. 폴링 상태 데이터를 사용하면 *state* 또는 동적 속성의 상태를 동적으로 업데이트할 수 있습니다. 예를 들어 room과 같은 기능에는 `occupancy`라는 동적 속성(*상태*)이 있을 수 있습니다. 애플리케이션은 시각 맵 내부의 변화를 반영하기 위해 *state* 변경 사항이 있는지 폴링할 수 있습니다. 아래 코드는 상태 폴링을 사용하도록 설정하는 방법을 보여줍니다.
+제공한 상태 데이터의 폴링이 가능하도록 설정하려면 `statesetId`를 제공하고 `indoorManager.setDynamicStyling(true)`을 호출해야 합니다. 폴링 상태 데이터를 사용하면 *state* 또는 동적 속성의 상태를 동적으로 업데이트할 수 있습니다. 예를 들어 room과 같은 기능에는 `occupancy`라는 동적 속성( *상태* )이 있을 수 있습니다. 애플리케이션은 시각 맵 내부의 변화를 반영하기 위해 *state* 변경 사항이 있는지 폴링할 수 있습니다. 아래 코드는 상태 폴링을 사용하도록 설정하는 방법을 보여줍니다.
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +107,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Indoor Level Picker 컨트롤
 
- *Indoor Level Picker* 컨트롤을 사용하여 렌더링된 맵의 수준을 변경할 수 있습니다. 필요에 따라 *Indoor Manager*를 통해 *Indoor Level Picker* 컨트롤을 초기화할 수 있습니다. Level Control Picker를 초기화하는 코드는 다음과 같습니다.
+ *Indoor Level Picker* 컨트롤을 사용하여 렌더링된 맵의 수준을 변경할 수 있습니다. 필요에 따라 *Indoor Manager* 를 통해 *Indoor Level Picker* 컨트롤을 초기화할 수 있습니다. Level Control Picker를 초기화하는 코드는 다음과 같습니다.
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -147,7 +147,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 4. *Map* 개체를 초기화합니다. *Map* 개체는 다음과 같은 옵션을 지원합니다.
     - `Subscription key`는 Azure Maps 기본 구독 키입니다.
     - `center`는 실내 맵 가운데 위치의 위도와 경도를 정의합니다. `bounds` 값을 제공하지 않으려면 `center` 값을 제공합니다. 형식은 `center`: [-122.13315, 47.63637]과 같이 표시되어야 합니다.
-    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
+    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
     - `style`을 사용하면 배경색을 설정할 수 있습니다. 흰색 배경을 표시하려면 `style`을 "blank"로 정의합니다.
     - `zoom`을 사용하면 맵의 최소 및 최대 확대/축소 수준을 지정할 수 있습니다.
 
@@ -237,7 +237,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
   </html>
   ```
 
-실내 맵을 보려면 웹 브라우저에 로드합니다. 아래 이미지와 같은 모양입니다. 계단 공간을 클릭하면 *수준 선택기*가 오른쪽 위 모서리에 나타납니다.
+실내 맵을 보려면 웹 브라우저에 로드합니다. 아래 이미지와 같은 모양입니다. 계단 공간을 클릭하면 *수준 선택기* 가 오른쪽 위 모서리에 나타납니다.
 
   ![실내 맵 이미지](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
@@ -257,4 +257,4 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 > [Indoor Maps 동적 스타일 지정](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

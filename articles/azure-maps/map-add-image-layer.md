@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 4116028cc8c4668c897d7de7bbffb607b5e5daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310546"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892947"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "91310546"
 * 날씨 레이더 이미지
 
 > [!TIP]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) 은 지도에서 이미지를 오버레이 하는 쉬운 방법입니다. 브라우저에서 많은 이미지를 로드 하는 데 어려움이 있을 수 있습니다. 이 경우 이미지를 타일로 나누고 [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)로 맵에 로드 하는 것이 좋습니다.
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) 은 지도에서 이미지를 오버레이 하는 쉬운 방법입니다. 브라우저에서 많은 이미지를 로드 하는 데 어려움이 있을 수 있습니다. 이 경우 이미지를 타일로 나누고 [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)로 맵에 로드 하는 것이 좋습니다.
 
 이미지 계층은 다음과 같은 이미지 형식을 지원 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "91310546"
 
 ## <a name="add-an-image-layer"></a>이미지 레이어 추가
 
-다음 코드는 map에서 [1922의 New Jersey 뉴어크 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) 는 이미지에 URL을 전달 하 고 네 개의 모퉁이를 형식으로 조정 하 여 생성 됩니다 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
+다음 코드는 map에서 [1922의 New Jersey 뉴어크 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) 는 이미지에 URL을 전달 하 고 네 개의 모퉁이를 형식으로 조정 하 여 생성 됩니다 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -64,7 +64,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 이 샘플에서는 KML 그라운드 오버레이 정보를 지도에 이미지 계층으로 추가 하는 방법을 보여 줍니다. KML 접지 오버레이는 북쪽, 남쪽, 동쪽 및 서 부 좌표와 시계 반대 방향 회전을 제공 합니다. 그러나 이미지 계층에는 이미지의 각 모퉁이에 대 한 좌표가 필요 합니다. 이 샘플의 KML 그라운드 오버레이는 Chartres cathedral에 대 한 것 이며 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)에서 원본입니다.
 
-이 코드는 ImageLayer 클래스의 정적 함수를 사용 합니다 `getCoordinatesFromEdges` . [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) KML 접지 오버레이의 북쪽, 남부, 동부, 서 부 및 회전 정보를 사용 하 여 이미지의 네 모퉁이를 계산 합니다.
+이 코드는 ImageLayer 클래스의 정적 함수를 사용 합니다 `getCoordinatesFromEdges` . [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) KML 접지 오버레이의 북쪽, 남부, 동부, 서 부 및 회전 정보를 사용 하 여 이미지의 네 모퉁이를 계산 합니다.
 
 <br/>
 
@@ -85,10 +85,10 @@ map.layers.add(new atlas.layer.ImageLayer({
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 > [!div class="nextstepaction"]
-> [ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions)
+> [ImageLayerOptions](/javascript/api/azure-maps-control/atlas.imagelayeroptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 

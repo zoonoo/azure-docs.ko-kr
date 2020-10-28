@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448193"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893406"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -39,6 +39,9 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 ## <a name="installing-the-extension-in-your-vm"></a>VM에 확장 설치
 
 Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Portal을 통해 이 확장을 사용하도록 설정할 수 있습니다. 자세한 내용은 [확장 기능](features-linux.md)을 참조하세요.
+
+>[!NOTE]
+>진단 VM 확장의 특정 구성 요소는 [LOG ANALYTICS VM 확장](./oms-linux.md)에도 제공 됩니다. 이 아키텍처 때문에 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 이러한 설치 시간 충돌을 방지 하려면 [ `dependsOn` 지시문](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) 을 사용 하 여 확장이 순차적으로 설치 되도록 합니다. 이러한 확장은 한 순서에 따라 설치할 수 있습니다.
 
 이러한 설치 지침 및 [다운로드 가능한 샘플 구성](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json)은 다음을 수행할 수 있도록 LAD 3.0을 구성합니다.
 
@@ -67,7 +70,7 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](./update-linux-agent.md)에 따라 업데이트합니다.
+* **Azure Linux 에이전트 버전 2.2.0 이상** . 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](./update-linux-agent.md)에 따라 업데이트합니다.
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 기존 Azure 구독 및 데이터를 저장할 기존 범용 저장소 계정.  범용 저장소 계정은 필요한 테이블 저장소를 지원 합니다.  Blob 저장소 계정이 작동 하지 않습니다.
@@ -172,7 +175,7 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>이전 확장 버전에서 마이그레이션
 
-최신 확장 버전은 **3.0**입니다. **모든 이전 버전(2.x)은 사용되지 않으며 2018년 7월 31일부터는 게시되지 않을 수 있습니다**.
+최신 확장 버전은 **3.0** 입니다. **모든 이전 버전(2.x)은 사용되지 않으며 2018년 7월 31일부터는 게시되지 않을 수 있습니다** .
 
 > [!IMPORTANT]
 > 이 확장에서는 확장 구성에 대해 새로운 변경 사항을 도입했습니다. 이러한 변경 사항은 확장의 보안을 향상시키기 위한 것이며 이에 따라 이전 2.x 버전과는 호환되지 않습니다. 또한 이 확장의 확장 게시자는 2.x 버전의 게시자와 다릅니다.
@@ -206,7 +209,7 @@ Name | 값
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
-storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
+storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요* .
 mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
@@ -578,7 +581,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
-**참고**: JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
+**참고** : JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 

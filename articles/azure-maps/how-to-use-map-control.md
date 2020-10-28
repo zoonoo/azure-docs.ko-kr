@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335333"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895446"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 웹 페이지에서 맵 컨트롤를 사용 하려면 다음 필수 구성 요소 중 하나가 있어야 합니다.
 
 * [Azure Maps 계정을](quick-demo-map-app.md#create-an-azure-maps-account) 만들고 기본 키 또는 구독 키 라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-* [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용 하 여 AAD (Azure Active Directory) 자격 증명을 가져옵니다.
+* [인증 옵션](/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용 하 여 AAD (Azure Active Directory) 자격 증명을 가져옵니다.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>웹 페이지에 새 맵 만들기
 
@@ -75,7 +75,7 @@ ms.locfileid: "91335333"
     </style>
    ```
 
-4. 페이지 본문에 `<div>` 요소를 추가하고 **myMap**이라는 `id`를 부여합니다.
+4. 페이지 본문에 `<div>` 요소를 추가하고 **myMap** 이라는 `id`를 부여합니다.
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ ms.locfileid: "91335333"
     </body>
    ```
 
-5. 이제 지도 컨트롤을 초기화 합니다. 컨트롤을 인증 하려면 Azure Maps 구독 키를 소유 하거나 [인증 옵션과](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)함께 AAD (Azure Active Directory) 자격 증명을 사용 해야 합니다.
+5. 이제 지도 컨트롤을 초기화 합니다. 컨트롤을 인증 하려면 Azure Maps 구독 키를 소유 하거나 [인증 옵션과](/javascript/api/azure-maps-control/atlas.authenticationoptions)함께 AAD (Azure Active Directory) 자격 증명을 사용 해야 합니다.
 
     인증을 위해 구독 키를 사용 하는 경우 요소 내에 다음 스크립트 요소를 복사 하 여 `<head>` 첫 번째 요소 아래에 붙여 넣습니다 `<script>` . `<Your Azure Maps Key>`을 Azure Maps 기본 구독 키로 바꿉니다.
 
@@ -279,7 +279,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 > [맵 만들기](map-create.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)
 
 Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 다음을 참조 하세요.
 

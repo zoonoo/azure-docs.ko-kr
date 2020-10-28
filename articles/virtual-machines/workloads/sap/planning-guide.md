@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738119"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894103"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1832,7 +1832,7 @@ Azure managed disks는 연결 된 가상 머신의 장애 도메인에 자동으
 
 Azure 인프라 HA 및 Storage 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같습니다.
 
-![HA Azure 인프라를 활용하여 SAP 애플리케이션의 "더 높은" 가용성 확보][planning-guide-figure-2900]
+![Azure 인프라 HA 및 저장소 계정을 사용 하는 SAP NetWeaver 시스템을 보여 주는 다이어그램입니다.][planning-guide-figure-2900]
 
 Azure 인프라 HA 및 관리 디스크를 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같습니다.
 
@@ -1892,7 +1892,7 @@ Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Windows 로고.][Logo_Windows] Windows의 HA
 
-![Azure IaaS의 SQL Server를 사용한 SAP NetWeaver 애플리케이션 HA 아키텍처][planning-guide-figure-3200]
+![Azure IaaS에서 SQL Server SAP NetWeaver 응용 프로그램 HA 아키텍처를 보여 주는 다이어그램입니다.][planning-guide-figure-3200]
 
 다음 Azure 구성은 인프라 문제 및 호스트 패치에 의한 영향을 최소화하기 위해 SAP NetWeaver 시스템에서 사용됩니다.
 

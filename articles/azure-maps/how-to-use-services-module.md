@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 4368e71e0ae6185214a0e3e15773fbe1aef375de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335316"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895429"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
-Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다.
+Azure Maps 웹 SDK는 *서비스 모듈* 을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>웹 페이지에서 서비스 모듈 사용
 
@@ -191,19 +191,19 @@ Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl)
+> [MapsURL](/javascript/api/azure-maps-rest/atlas.service.mapsurl)
 
 > [!div class="nextstepaction"]
-> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)
+> [SearchURL](/javascript/api/azure-maps-rest/atlas.service.searchurl)
 
 > [!div class="nextstepaction"]
-> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl)
+> [RouteURL](/javascript/api/azure-maps-rest/atlas.service.routeurl)
 
 > [!div class="nextstepaction"]
-> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
+> [SubscriptionKeyCredential](/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
 
 > [!div class="nextstepaction"]
-> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential)
+> [TokenCredential](/javascript/api/azure-maps-rest/atlas.service.tokencredential)
 
 서비스 모듈을 사용 하는 더 많은 코드 샘플은 다음 문서를 참조 하세요.
 

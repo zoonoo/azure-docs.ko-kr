@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606277"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892930"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
@@ -33,6 +33,7 @@ ms.locfileid: "81606277"
 | [조회](data-flow-lookup.md) | 여러 입력/출력 | 다른 소스에서 데이터를 참조 합니다. |
 | [새 분기](data-flow-new-branch.md) | 여러 입력/출력 | 동일한 데이터 스트림에 대해 여러 작업 및 변환 집합을 적용 합니다. |
 | [피벗](data-flow-pivot.md) | Schema 한정자 | 하나 이상의 그룹화 열에 개별 열로 변환 된 고유 행 값이 있는 집계입니다. |
+| [순위](data-flow-rank.md) | Schema 한정자 | 정렬 조건에 따라 정렬 된 순위 생성 |
 | [Select](data-flow-select.md) | Schema 한정자 | 열 및 스트림 이름 별칭을 만들고 열을 삭제 하거나 순서를 변경 합니다. |
 | [싱크](data-flow-sink.md) | - | 데이터의 최종 대상 |
 | [Sort](data-flow-sort.md) | Row 한정자 | 현재 데이터 스트림의 들어오는 행 정렬 |

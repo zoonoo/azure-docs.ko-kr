@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761450"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893689"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -88,7 +88,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 분석 작업이 진행 중입니다. |
@@ -437,7 +437,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 비즈니스 경비를 확인 하는 것은 종종 수신 이미지에서 데이터를 수동으로 입력 하는 시간을 지출 합니다. 수신 API를 사용 하면 추출 된 필드를 사용 하 여이 프로세스를 부분적으로 자동화 하 고 확인을 신속 하 게 분석할 수 있습니다.  
 
-수신 API에는 간단한 JSON 출력이 있으므로 추출 된 필드 값을 여러 가지 방법으로 사용할 수 있습니다. 내부 비용 응용 프로그램과 통합 하 여 경비 보고서를 미리 채웁니다. 이 시나리오에 대 한 자세한 내용은 Acumatica에서 수신 API를 활용 하 여 [비용을 보고](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 확인 하는 방법을 참조 하세요.  
+수신 API에는 간단한 JSON 출력이 있으므로 추출 된 필드 값을 여러 가지 방법으로 사용할 수 있습니다. 내부 비용 응용 프로그램과 통합 하 여 경비 보고서를 미리 채웁니다. 이 시나리오에 대 한 자세한 내용은 Acumatica에서 수신 API를 활용 하 여 [비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 확인 하는 방법을 참조 하세요.  
 
 ### <a name="auditing-and-accounting"></a>감사 및 계정 
 

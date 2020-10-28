@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677961"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895803"
 ---
 # <a name="manage-azure-maps-creator"></a>Azure Maps Creator 관리
 
@@ -25,19 +25,19 @@ Azure Maps Creator를 이용하면 프라이빗 실내 지도 데이터를 만�
 
 1. [Azure 포털](https://portal.azure.com)
 
-2. Azure Maps 계정을 선택합니다. **최근 리소스**에 Azure Maps 계정이 표시되지 않으면 Azure Portal 메뉴로 이동합니다. **모든 리소스**를 선택합니다. Azure Maps 계정을 찾아 선택합니다.
+2. Azure Maps 계정을 선택합니다. **최근 리소스** 에 Azure Maps 계정이 표시되지 않으면 Azure Portal 메뉴로 이동합니다. **모든 리소스** 를 선택합니다. Azure Maps 계정을 찾아 선택합니다.
 
     ![Azure Maps 포털 홈페이지](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Azure Maps 계정 페이지에서 **Creator** 아래의 **개요** 옵션으로 이동합니다. **만들기**를 클릭하여 Azure Maps Creator 리소스를 만듭니다.
+3. Azure Maps 계정 페이지에서 **Creator** 아래의 **개요** 옵션으로 이동합니다. **만들기** 를 클릭하여 Azure Maps Creator 리소스를 만듭니다.
 
     ![Azure Maps Creator 만들기 페이지](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Creator 리소스에서 이름 및 위치를 입력합니다. 현재 Creator는 미국에서만 지원됩니다. **검토 + 만들기**를 클릭합니다.
+4. Creator 리소스에서 이름 및 위치를 입력합니다. 현재 Creator는 미국에서만 지원됩니다. **검토 + 만들기** 를 클릭합니다.
 
    ![Creator 계정 정보 페이지 입력](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. 설정을 검토하고 **만들기**를 클릭합니다.
+5. 설정을 검토하고 **만들기** 를 클릭합니다.
 
     ![Creator 계정 설정 페이지 확인](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ Azure Maps Creator를 이용하면 프라이빗 실내 지도 데이터를 만�
 
    ![리소스 배포 상태 페이지](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. **리소스로 이동**을 클릭합니다. Creator 리소스 보기 페이지에는 Creator 리소스의 상태와 선택된 인구 통계 지역이 표시됩니다.
+7. **리소스로 이동** 을 클릭합니다. Creator 리소스 보기 페이지에는 Creator 리소스의 상태와 선택된 인구 통계 지역이 표시됩니다.
 
     ![Creator 상태 페이지](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ Azure Maps Creator를 이용하면 프라이빗 실내 지도 데이터를 만�
 
 ## <a name="delete-creator-resource"></a>Creator 리소스 삭제
 
-Creator 리소스를 삭제하려면 Azure Maps 계정으로 이동합니다. **Creator**에서 **개요**를 선택합니다. **삭제** 단추를 클릭합니다.
+Creator 리소스를 삭제하려면 Azure Maps 계정으로 이동합니다. **Creator** 에서 **개요** 를 선택합니다. **삭제** 단추를 클릭합니다.
 
 >[!WARNING]
 >Azure Maps 계정의 Creator 리소스를 삭제하는 경우 Creator 서비스를 사용하여 만든 데이터 세트, 타일 세트 및 기능 상태 세트도 삭제됩니다.
@@ -69,7 +69,7 @@ Creator 리소스를 삭제하려면 Azure Maps 계정으로 이동합니다. **
 
 Creator는 IAM(Azure Maps Access Control) 설정을 상속합니다. 데이터 액세스에 대한 모든 API 호출은 인증 및 권한 부여 규칙과 함께 전송되어야 합니다.
 
-Creator 사용량 현황 데이터는 Azure Maps 사용량 차트 및 활동 로그에 통합됩니다.  자세한 내용은 [Azure Maps의 인증 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
+Creator 사용량 현황 데이터는 Azure Maps 사용량 차트 및 활동 로그에 통합됩니다.  자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="access-to-creator-services"></a>Creator 서비스에 대한 액세스
 

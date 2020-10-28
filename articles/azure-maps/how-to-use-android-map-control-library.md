@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330930"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895497"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -36,10 +36,10 @@ Azure Maps Android SDK를 설치하기 전에 Android Studio을 다운로드하�
 
 우선, 빈 작업으로 새 프로젝트를 만듭니다. Android Studio 프로젝트를 만들려면 다음 단계를 완료합니다.
 
-1. **프로젝트 선택**에서 **휴대폰 및 태블릿**을 선택합니다. 애플리케이션이 이 폼 팩터에서 실행됩니다.
-2. **휴대폰 및 태블릿** 탭에서 **빈 작업**을 선택하고 **다음**을 선택합니다.
-3. **프로젝트 구성**에서 최소 SDK로 `API 21: Android 5.0.0 (Lollipop)`을 선택합니다. 이는 Azure Maps Android SDK에서 지원하는 가장 초기 버전입니다.
-4. 기본 `Activity Name` 및 `Layout Name`을 적용하고 **마침**을 선택합니다.
+1. **프로젝트 선택** 에서 **휴대폰 및 태블릿** 을 선택합니다. 애플리케이션이 이 폼 팩터에서 실행됩니다.
+2. **휴대폰 및 태블릿** 탭에서 **빈 작업** 을 선택하고 **다음** 을 선택합니다.
+3. **프로젝트 구성** 에서 최소 SDK로 `API 21: Android 5.0.0 (Lollipop)`을 선택합니다. 이는 Azure Maps Android SDK에서 지원하는 가장 초기 버전입니다.
+4. 기본 `Activity Name` 및 `Layout Name`을 적용하고 **마침** 을 선택합니다.
 
 Android Studio를 설치하고 새 프로젝트를 만드는 방법에 대한 자세한 도움말은 [Android Studio 문서](https://developer.android.com/studio/intro/)를 참조하세요.
 
@@ -47,7 +47,7 @@ Android Studio를 설치하고 새 프로젝트를 만드는 방법에 대한 �
 
 ## <a name="set-up-a-virtual-device"></a>가상 디바이스 설정
 
-Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설정할 수 있습니다. 이렇게 하면 개발 중에 애플리케이션을 테스트하는 데 도움이 됩니다. 가상 디바이스를 설정하려면 프로젝트 화면의 오른쪽 상단 모서리에 있는 AVD(Android 가상 디바이스) 관리자 아이콘을 선택한 다음 **가상 디바이스 만들기**를 선택합니다. 도구 모음에서 **도구** > **Android** > **AVD 관리자**를 선택하여 AVD 관리자가 될 수도 있습니다. **휴대폰** 범주에서 **Nexus 5X**를 선택한 후 **다음**을 선택합니다.
+Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설정할 수 있습니다. 이렇게 하면 개발 중에 애플리케이션을 테스트하는 데 도움이 됩니다. 가상 디바이스를 설정하려면 프로젝트 화면의 오른쪽 상단 모서리에 있는 AVD(Android 가상 디바이스) 관리자 아이콘을 선택한 다음 **가상 디바이스 만들기** 를 선택합니다. 도구 모음에서 **도구** > **Android** > **AVD 관리자** 를 선택하여 AVD 관리자가 될 수도 있습니다. **휴대폰** 범주에서 **Nexus 5X** 를 선택한 후 **다음** 을 선택합니다.
 
 [Android Studio 문서](https://developer.android.com/studio/run/managing-avds)에서 AVD 설정 방법을 자세히 알아볼 수 있습니다.
 
@@ -57,7 +57,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 
 애플리케이션을 빌드하는 다음 단계에서 Azure Maps Android SDK를 설치합니다. SDK를 설치하려면 다음 단계를 완료합니다.
 
-1. 최상위 **build.gradle** 파일을 열고, **all projects**, **repositories** 블록에 다음 코드를 추가합니다.
+1. 최상위 **build.gradle** 파일을 열고, **all projects** , **repositories** 블록에 다음 코드를 추가합니다.
 
     ```
     maven {
@@ -65,9 +65,9 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     }
     ```
 
-2. **app/build.gradle**을 업데이트하고 다음 코드를 추가합니다.
+2. **app/build.gradle** 을 업데이트하고 다음 코드를 추가합니다.
     
-    1. 프로젝트의 **minSdkVersion**이 API 21 이상인지 확인합니다.
+    1. 프로젝트의 **minSdkVersion** 이 API 21 이상인지 확인합니다.
 
     2. Android 섹션에 다음 코드를 추가합니다.
 
@@ -83,7 +83,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. 도구 모음에서 **파일**로 이동한 다음, **Gradle 파일과 프로젝트 동기화**를 클릭합니다.
+    4. 도구 모음에서 **파일** 로 이동한 다음, **Gradle 파일과 프로젝트 동기화** 를 클릭합니다.
 3. 다음과 같이 기본 작업에 맵 조각을 추가합니다(res \> layout \> activity\_main.xml).
     
     ```XML
@@ -299,7 +299,7 @@ mapControl.onReady(map -> {
 > [Android 맵에 기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Android 맵에 도형 추가](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android 맵에서 맵 스타일 변경](./set-android-map-styles.md)

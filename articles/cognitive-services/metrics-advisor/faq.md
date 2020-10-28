@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131686"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893580"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>메트릭 관리자에 게 질문과 대답
 
 ### <a name="what-is-the-cost-of-my-instance"></a>내 인스턴스의 비용은 어떻습니까?
 
 현재 미리 보기 중에는 인스턴스를 사용 하는 데 비용이 들지 않습니다.
-
-### <a name="why-is-the-demo-website-readonly"></a>데모 웹 사이트가 readonly 인 이유는 무엇 인가요?
-
-[데모 웹 사이트](https://anomaly-detector.azurewebsites.net/) 는 공개적으로 사용할 수 있습니다. 이 인스턴스는 데이터의 실수로 인 한 업로드를 방지 하기 위해 읽기 전용으로 설정 됩니다.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>리소스를 만들 수 없는 이유는 무엇입니까? "가격 책정 계층"을 사용할 수 없으며 "이미이 구독에 대해 S0 1 개를 만들었습니다." 라는 메시지가 표시 되나요?
 
@@ -141,9 +137,8 @@ ms.locfileid: "92131686"
  
 예를 들어에서 변칙이 발생 하는 경우 변칙 `Service = S2 | Data Center = DC2 | Machine = M5` 의 편차는 부모 노드에 영향 `Service= S2` 을 주므로 비정상을 감지 했지만 이상에서는의 전체 데이터 센터 및 모든 서비스에 영향을 주지 않습니다 `DC2` `M5` . 인시던트 트리는 아래 스크린샷에 나와 있는 것 처럼 작성 되 고, 상위 변칙은에서 캡처되고 `Service = S2` , 근본 원인은 모두로 이어지는 두 경로에서 분석할 수 있습니다 `Service = S2 | Data Center = DC2 | Machine = M5` .
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 개의 서로 다른 경로를 포함 하는 꼭 짓 점 레이블이 S2 인 공통 노드를 사용 하 여 가장자리에 연결 합니다. Top 변칙은 Service = S2에서 캡처되고, 근본 원인은 서비스 = S2로 이어지는 두 경로에서 분석할 수 있습니다. 데이터 센터 = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 개의 서로 다른 경로를 포함 하는 꼭 짓 점 레이블이 S2 인 공통 노드를 사용 하 여 연결 합니다. Top 변칙은 Service = S2에서 캡처되고, 근본 원인은 서비스 = S2로 이어지는 두 경로에서 분석할 수 있습니다. 데이터 센터 = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>다음 단계
 - [Metrics Advisor 개요](overview.md)
-- [데모 사이트 사용해 보기](quickstarts/explore-demo.md)
 - [웹 포털 사용](quickstarts/web-portal.md)

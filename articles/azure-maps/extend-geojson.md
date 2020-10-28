@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037459"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895786"
 ---
 # <a name="extended-geojson-geometries"></a>확장 된 GeoJSON 기 하 도형
 
@@ -29,7 +29,7 @@ Azure Maps는 내부 및 지역별 기능을 검색할 수 있는 강력한 Api 
 * Point
 * Polygon
 
-일부 Azure Maps Api는 [GeoJSON 사양의][1]일부가 아닌 기 하 도형을 허용 합니다. 예를 들어 [Geometry API 내에서 검색](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) 은 원과 다각형을 허용 합니다.
+일부 Azure Maps Api는 [GeoJSON 사양의][1]일부가 아닌 기 하 도형을 허용 합니다. 예를 들어 [Geometry API 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry) 은 원과 다각형을 허용 합니다.
 
 이 문서에서는 Azure Maps가 [GeoJSON 사양][1]을 확장하여 특정 기하 도형을 나타내는 방법에 대한 자세한 설명을 제공합니다.
 
@@ -45,7 +45,7 @@ Azure Maps는 내부 및 지역별 기능을 검색할 수 있는 강력한 Api 
 
 - 반지름
 
-    원의 `radius`는 `GeoJSON Feature`의 속성을 사용하여 표현됩니다. 반지름 값은 미터(_meters_) 단위이고 `double` 형식이어야 합니다.
+    원의 `radius`는 `GeoJSON Feature`의 속성을 사용하여 표현됩니다. 반지름 값은 미터( _meters_ ) 단위이고 `double` 형식이어야 합니다.
 
 - 하위 유형
 

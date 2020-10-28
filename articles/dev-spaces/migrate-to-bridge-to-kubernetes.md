@@ -5,21 +5,21 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329801"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895259"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
 > [!IMPORTANT]
-> Azure Dev Spaces는 2023 년 10 월 31 일에 사용 중지 됩니다. 개발자는 클라이언트 개발자 도구인 Kubernetes에 대 한 Bridge 사용으로 이동 해야 합니다.
+> Azure Dev Spaces는 2023 년 10 월 31 일에 사용 중지 됩니다. 고객은 클라이언트 개발자 도구인 Kubernetes에 대 한 Bridge 사용으로 이동 해야 합니다.
 >
-> Azure Dev Spaces 목적은 개발자가 Kubernetes에서 개발 하는 것을 간소화 하는 것 이었습니다. Azure Dev Spaces 접근 방식의 중요 한 단점은 Docker 및 Kubernetes 구성 뿐만 아니라 Kubernetes 배포 개념을 이해 하기 위해 개발자에 게 추가 부담을 주는 것입니다. 시간이 지남에 따라 Azure Dev Spaces의 접근 방식이 Kubernetes에서 내부 루프 개발 속도를 효과적으로 저하 하지 않았음을 알 수 있습니다. Kubernetes에 연결 하면 내부 루프 개발 속도가 효과적으로 줄어들고 개발자에 대 한 불필요 한 부담을 피할 수 있습니다.
+> Azure Dev Spaces의 목적은 사용자가 Kubernetes에서 개발 하는 것을 간소화 하는 것입니다. Azure Dev Spaces 접근 방식의 중요 한 단점은 Docker 및 Kubernetes 구성 뿐만 아니라 Kubernetes 배포 개념을 이해 하는 사용자에 게 추가 부담을 주는 것입니다. 시간이 지남에 따라 Azure Dev Spaces의 접근 방식이 Kubernetes에서 내부 루프 개발 속도를 효과적으로 저하 하지 않았음을 알 수 있습니다. Kubernetes에 연결 하면 내부 루프 개발 속도가 효과적으로 줄어들고 사용자의 불필요 한 부담을 피할 수 있습니다.
 >
-> 핵심 업무는 변경 되지 않은 상태로 유지 됩니다. 더 큰 응용 프로그램의 컨텍스트에서 마이크로 서비스 코드를 개발, 테스트 및 디버그 하기 위한 최상의 개발자 환경을 구축 합니다.
+> 핵심 업무는 변경 되지 않은 상태로 유지 됩니다. 더 큰 응용 프로그램의 컨텍스트에서 마이크로 서비스 코드를 개발, 테스트 및 디버그 하는 최상의 환경을 구축 합니다.
 
 Kubernetes에 연결 하면 Azure Dev Spaces와 함께 작동 하는 여러 개발 시나리오에 대 한 보다 간단한 가중치를 제공 합니다. Kubernetes에 대 한 브리지는 [Visual Studio][vs]   및 [Visual Studio Code][vsc]에서 확장을 사용 하는 클라이언트 쪽 전용 환경입니다.  
 
@@ -44,7 +44,7 @@ Kubernetes에는 비슷한 기능이 포함 되어 있으며, 다음과 같은 �
 | 요구 사항  | Azure Dev Spaces  | Kubernetes에 대한 브리지  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | Azure 지역 15 개 | 모든 AKS 서비스 지역    |
-| **Security** |
+| **보안** |
 | 클러스터에 필요한 보안 액세스  | AKS 클러스터 기여자  | Kubernetes RBAC-배포 업데이트   |
 | 개발 컴퓨터에 필요한 보안 액세스  | 해당 없음  | 로컬 관리자/sudo   |
 | **유용성** |
@@ -85,7 +85,7 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 1. Visual Studio를 사용 하는 경우 Visual Studio IDE를 16.7 이상 버전으로 업데이트 하 고 [Visual Studio Marketplace][vs-marketplace]에서 Kubernetes 확장에 대 한 브리지를 설치 합니다. Visual Studio Code를 사용 하는 경우 [Kubernetes 확장에 대 한 브리지][vsc-marketplace]를 설치 합니다.
 1. Azure Portal 또는 [AZURE DEV SPACES CLI][azds-delete]를 사용 하 여 Azure Dev Spaces 컨트롤러를 사용 하지 않도록 설정 합니다.
 1. [Azure Cloud Shell](https://shell.azure.com)를 사용 합니다. 또는 bash가 설치 된 Mac, Linux 또는 Windows에서 bash 셸 프롬프트를 엽니다. 명령줄 환경에서 Azure CLI, docker, kubectl, 말아, tar, gunzip 등의 도구를 사용할 수 있는지 확인 합니다.
-1. 컨테이너 레지스트리를 만들거나 기존 항목을 사용 합니다. [Azure Container Registry](../container-registry/index.yml) 또는 [Docker Hub](https://hub.docker.com/)를 사용 하 여 Azure에서 컨테이너 레지스트리를 만들 수 있습니다.
+1. 컨테이너 레지스트리를 만들거나 기존 항목을 사용 합니다. [Azure Container Registry](../container-registry/index.yml) 또는 [Docker Hub](https://hub.docker.com/)를 사용 하 여 Azure에서 컨테이너 레지스트리를 만들 수 있습니다. Azure Cloud Shell 사용 하는 경우 docker 이미지를 호스팅하기 위한 Azure Container Registry만 사용할 수 있습니다.
 1. 마이그레이션 스크립트를 실행 하 Azure Dev Spaces 자산을 Kubernetes 자산으로 변환 합니다. 이 스크립트는 Kubernetes에 대 한 브리지와 호환 되는 새 이미지를 빌드하고, 지정 된 레지스트리에 업로드 한 후, [투구](https://helm.sh) 를 사용 하 여 이미지를 사용 하 여 클러스터를 업데이트 합니다. 리소스 그룹, AKS 클러스터의 이름 및 컨테이너 레지스트리를 제공 해야 합니다. 여기에 표시 된 다른 명령줄 옵션은 다음과 같습니다.
 
    ```azure-cli
@@ -102,6 +102,7 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
     -r Path to root of the project that needs to be migrated (default = current working directory)
     -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
     -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
     -y Doesn't prompt for non-tty terminals
     -d Helm Debug switch
    ```
@@ -116,7 +117,7 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 
 Kubernetes에 대 한 브리지가 있는 개발자 특정 라우팅을 사용할 수도 있습니다. Azure Dev Spaces 팀 개발 시나리오에서는 여러 Kubernetes 네임 스페이스를 사용 하 여 부모 및 자식 네임 스페이스의 개념을 사용 하 여 응용 프로그램의 나머지 부분에서 서비스를 격리 합니다. Kubernetes에 대 한 브리지는 동일한 기능을 제공 하지만 향상 된 성능 특성과 동일한 응용 프로그램 네임 스페이스 내에서 제공 됩니다.
 
-Kubernetes 및 Azure Dev Spaces에 대 한 브리지는 모두 응용 프로그램 전체에서 HTTP 헤더를 제공 하 고 전파 해야 합니다. Azure Dev Spaces에 대 한 헤더 전파를 처리 하도록 응용 프로그램을 이미 구성한 경우 헤더를 업데이트 해야 합니다. Azure Dev Spaces에서 Kubernetes로의 브리지로 전환 하려면 구성 된 헤더를 *azds* 에서 *Kubernetes*로 업데이트 합니다.
+Kubernetes 및 Azure Dev Spaces에 대 한 브리지는 모두 응용 프로그램 전체에서 HTTP 헤더를 제공 하 고 전파 해야 합니다. Azure Dev Spaces에 대 한 헤더 전파를 처리 하도록 응용 프로그램을 이미 구성한 경우 헤더를 업데이트 해야 합니다. Azure Dev Spaces에서 Kubernetes로의 브리지로 전환 하려면 구성 된 헤더를 *azds* 에서 *Kubernetes* 로 업데이트 합니다.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Kubernetes에 대 한 브리지 평가
 
@@ -146,9 +147,9 @@ Kubernetes에 대 한 브리지가 작동 하는 방법에 대해 자세히 알�
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro

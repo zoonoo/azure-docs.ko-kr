@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637210"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895344"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당
 
 1. 왼쪽 창에서 **통합 런타임** 을 선택한 다음, **+새로 만들기** 를 선택합니다.
 
-   ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
+   ![왼쪽 창에서 통합 런타임을 강조 표시 하 고 + 새로 만들기 단추를 표시 하는 스크린샷](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅** 을 차례로 선택 하 고 **계속** 을 선택 합니다. 
 

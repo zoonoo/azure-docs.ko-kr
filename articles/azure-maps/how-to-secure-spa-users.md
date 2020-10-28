@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 60d8dc45fb26ea210b1827a6938716474faa0304
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090287"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895616"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 단일 페이지 응용 프로그램 보호
 
@@ -27,19 +27,19 @@ ms.locfileid: "92090287"
 
 사용자가 로그인 할 수 있도록 Azure AD에서 웹 응용 프로그램을 만듭니다. 웹 응용 프로그램은 Azure Maps REST Api에 대 한 사용자 액세스를 위임 합니다.
 
-1. Azure Portal의 Azure 서비스 목록에서 **Azure Active Directory**  >  **앱 등록**  >  **새 등록**을 선택 합니다.  
+1. Azure Portal의 Azure 서비스 목록에서 **Azure Active Directory**  >  **앱 등록**  >  **새 등록** 을 선택 합니다.  
 
     > [!div class="mx-imgBorder"]
     > ![앱 등록](./media/how-to-manage-authentication/app-registration.png)
 
-2. **이름을**입력 하 고, **지원 계정 유형을**선택 하 고, Azure AD에서 토큰을 발급 하는 URL을 나타내는 리디렉션 URI를 제공 하 고, 맵 컨트롤이 호스트 되는 url을 제공 합니다. 자세한 샘플은 [Azure Maps AZURE AD 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant)을 참조 하세요. 그런 다음, **등록**을 선택합니다.  
+2. **이름을** 입력 하 고, **지원 계정 유형을** 선택 하 고, Azure AD에서 토큰을 발급 하는 URL을 나타내는 리디렉션 URI를 제공 하 고, 맵 컨트롤이 호스트 되는 url을 제공 합니다. 자세한 샘플은 [Azure Maps AZURE AD 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant)을 참조 하세요. 그런 다음, **등록** 을 선택합니다.  
 
-3. Azure Maps에 위임 된 API 권한을 할당 하려면 응용 프로그램으로 이동 합니다. 그런 다음 **앱 등록**에서 **API 권한**  >  **추가 권한 추가**를 선택 합니다. **내 조직에서 사용 하는 api**에서를 검색 하 고 **Azure Maps**를 선택 합니다.
+3. Azure Maps에 위임 된 API 권한을 할당 하려면 응용 프로그램으로 이동 합니다. 그런 다음 **앱 등록** 에서 **API 권한**  >  **추가 권한 추가** 를 선택 합니다. **내 조직에서 사용 하는 api** 에서를 검색 하 고 **Azure Maps** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![앱 API 권한 추가](./media/how-to-manage-authentication/app-permissions.png)
 
-4. **액세스 Azure Maps**옆의 확인란을 선택 하 고 **사용 권한 추가**를 선택 합니다.
+4. **액세스 Azure Maps** 옆의 확인란을 선택 하 고 **사용 권한 추가** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![앱 API 권한 선택](./media/how-to-manage-authentication/select-app-permissions.png)
@@ -75,7 +75,7 @@ ms.locfileid: "92090287"
 
 단일 페이지 응용 프로그램 시나리오에 대 한 추가 이해:
 > [!div class="nextstepaction"]
-> [단일 페이지 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [단일 페이지 애플리케이션](../active-directory/develop/scenario-spa-overview.md)
 
 Azure Maps 계정에 대 한 API 사용 메트릭을 찾습니다.
 > [!div class="nextstepaction"]

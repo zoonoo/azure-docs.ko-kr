@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272959"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895531"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
 흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
-맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-azure-maps-account)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
+맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-azure-maps-account)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 하 고 맵을 로드 해야 합니다.
 
 ## <a name="incidents-traffic-data"></a>인시던트 트래픽 데이터
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 특정 기능에 대 한 인시던트를 얻으려면 아래 코드를 사용할 수 있습니다. 기능을 클릭 하면 코드 논리에서 인시던트를 확인 하 고 인시던트에 대 한 메시지를 작성 합니다. 화면 맨 아래에 세부 정보를 표시 하는 메시지가 표시 됩니다.
 
-1. 먼저 **activity_main.xml> res > 레이아웃 **을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng` 및를 `mapcontrol_zoom` 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
+1. 먼저 **activity_main.xml> res > 레이아웃** 을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng` 및를 `mapcontrol_zoom` 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

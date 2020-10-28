@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb326c889a76eedd82c8918c705bdb5bbe5d195
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893611"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
 
@@ -30,15 +30,15 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 이 문서에서는 Azure CLI를 사용 하 여 사용자 할당 관리 id를 만들고, 나열 하 고, 삭제 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
-- Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
-- 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
-    - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다. 리소스를 만들려는 Azure 구독과 연결된 계정을 사용합니다.   
+## <a name="prerequisites"></a>사전 준비 사항
 
-> [!NOTE]
+- Azure 리소스에 대 한 관리 id에 익숙하지 [않은 경우 azure 리소스에 대 한 관리 되는 Id 란?](overview.md)을 참조 하세요. 시스템 할당 및 사용자 할당 관리 id 형식에 대 한 자세한 내용은 [관리 되는 id 유형](overview.md#managed-identity-types)을 참조 하세요.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+> [!NOTE]   
 > CLI를 사용 하 여 app service 사용자를 사용할 때 사용자 권한을 수정 하려면 CLI의 일부에서 Graph API에 대해 GET 요청을 수행 하는 서비스 주체에 게 Azure AD Graph API의 추가 권한을 제공 해야 합니다. 그렇지 않으면 ' 작업을 완료할 수 있는 권한이 없습니다. ' 메시지가 표시 될 수 있습니다. 이렇게 하려면 Azure Active Directory에서 앱 등록으로 이동 하 고, 앱을 선택 하 고, API 권한을 클릭 하 고, 아래로 스크롤하여 Azure Active Directory Graph를 선택 해야 합니다. 여기에서 응용 프로그램 사용 권한을 선택 하 고 적절 한 사용 권한을 추가 합니다. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 

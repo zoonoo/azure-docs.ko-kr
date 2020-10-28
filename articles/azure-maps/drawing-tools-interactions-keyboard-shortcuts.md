@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089312"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895820"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>그리기 도구 모듈의 상호 작용 형식 및 바로 가기 키
 
@@ -146,7 +146,7 @@ ms.locfileid: "90089312"
 그리기 도구 모듈의 클래스에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [드로잉 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [그리기 도구 모음](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

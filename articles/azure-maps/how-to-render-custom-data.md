@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311022"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895752"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
 
-이 문서에서는 이미지 컴퍼지션 기능과 함께 [정적 이미지 서비스](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 사용 하 여 래스터 맵 위에 오버레이를 허용 하는 방법을 설명 합니다. 이미지 컴포지션에는 사용자 지정 압정, 레이블 및 기 하 오버레이와 같은 추가 데이터를 사용 하 여 래스터 타일을 다시 가져오는 기능이 포함 되어 있습니다.
+이 문서에서는 이미지 컴퍼지션 기능과 함께 [정적 이미지 서비스](/rest/api/maps/render/getmapimage)를 사용 하 여 래스터 맵 위에 오버레이를 허용 하는 방법을 설명 합니다. 이미지 컴포지션에는 사용자 지정 압정, 레이블 및 기 하 오버레이와 같은 추가 데이터를 사용 하 여 래스터 타일을 다시 가져오는 기능이 포함 되어 있습니다.
 
-사용자 지정 압정, 레이블 및 기 하 도형 오버레이를 렌더링 하기 위해 Postman 응용 프로그램을 사용할 수 있습니다. Azure Maps [데이터 서비스 api](https://docs.microsoft.com/rest/api/maps/data) 를 사용 하 여 오버레이를 저장 하 고 렌더링할 수 있습니다.
+사용자 지정 압정, 레이블 및 기 하 도형 오버레이를 렌더링 하기 위해 Postman 응용 프로그램을 사용할 수 있습니다. Azure Maps [데이터 서비스 api](/rest/api/maps/data) 를 사용 하 여 오버레이를 저장 하 고 렌더링할 수 있습니다.
 
 > [!Tip]
 > Azure Maps Web SDK를 사용 하 여 웹 페이지에 정적 이미지 서비스를 사용 하는 것 보다 간단한 지도를 표시 하는 것이 훨씬 더 비용 효율적인 경우가 종종 있습니다. 웹 SDK는 지도 타일을 사용 하며 사용자가 맵을 계획 하 고이를 확대/축소 하는 경우가 아니면 맵 부하 당 트랜잭션의 일부만 생성 합니다. Azure Maps 웹 SDK에는 패닝 및 확대/축소를 사용 하지 않도록 설정 하는 옵션이 있습니다. 또한 Azure Maps 웹 SDK는 정적 지도 웹 서비스와는 다른 다양 한 데이터 시각화 옵션 집합을 제공 합니다.  
@@ -41,9 +41,9 @@ Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 �
 
 레이블 및 사용자 지정 이미지를 사용 하 여 압정를 렌더링 하려면 다음 단계를 완료 합니다.
 
-1. 요청을 저장할 컬렉션을 만듭니다. Postman 앱에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택합니다. 컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 
+1. 요청을 저장할 컬렉션을 만듭니다. Postman 앱에서 **새로 만들기** 를 선택 합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다. 컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 
 
-2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 압정에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장**을 선택합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 압정에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장** 을 선택합니다.
     
     ![Postman에서 요청 만들기](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 �
 > [!Note]
 > 이 섹션의 절차에는 가격 책정 계층 s 1의 Azure Maps 계정이 필요 합니다.
 
-[데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용 하 여 경로 및 pin 위치 정보를 가져올 수도 있습니다. 경로 및 핀 데이터를 업로드하려면 아래 단계를 수행합니다.
+[데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용 하 여 경로 및 pin 위치 정보를 가져올 수도 있습니다. 경로 및 핀 데이터를 업로드하려면 아래 단계를 수행합니다.
 
 1. Postman 앱에서 이전 섹션에서 만든 컬렉션의 새 탭을 엽니다. 작성기 탭에서 POST HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 POST 요청을 수행 합니다.
 
@@ -172,7 +172,7 @@ Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 �
 > 이 섹션의 절차에는 가격 책정 계층 s 1의 Azure Maps 계정이 필요 합니다.
 
 
-[경로 매개 변수](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)와 스타일 한정자를 사용하여 다각형의 모양을 수정할 수 있습니다.
+[경로 매개 변수](/rest/api/maps/render/getmapimage#uri-parameters)와 스타일 한정자를 사용하여 다각형의 모양을 수정할 수 있습니다.
 
 1. Postman 앱에서 이전에 만든 컬렉션의 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 색 및 불투명도를 사용 하 여 다각형을 렌더링 하도록 GET 요청을 구성 합니다.
     
@@ -192,7 +192,7 @@ Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 �
 > 이 섹션의 절차에는 가격 책정 계층 s 1의 Azure Maps 계정이 필요 합니다.
 
 
-스타일 한정자를 추가 하 여 핀의 모양을 수정할 수 있습니다. 예를 들어 압정 및 해당 레이블을 더 크거나 작게 만들려면 `sc` "크기 조정 스타일" 한정자를 사용 합니다. 이 한정자는 0 보다 큰 값을 사용 합니다. 값 1이 표준 배율입니다. 값이 1보다 크면 핀이 확대되고, 값이 1보다 작으면 축소됩니다. 스타일 한정자에 대 한 자세한 내용은 [정적 이미지 서비스 경로 매개 변수](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)를 참조 하세요.
+스타일 한정자를 추가 하 여 핀의 모양을 수정할 수 있습니다. 예를 들어 압정 및 해당 레이블을 더 크거나 작게 만들려면 `sc` "크기 조정 스타일" 한정자를 사용 합니다. 이 한정자는 0 보다 큰 값을 사용 합니다. 값 1이 표준 배율입니다. 값이 1보다 크면 핀이 확대되고, 값이 1보다 작으면 축소됩니다. 스타일 한정자에 대 한 자세한 내용은 [정적 이미지 서비스 경로 매개 변수](/rest/api/maps/render/getmapimage#uri-parameters)를 참조 하세요.
 
 
 사용자 지정 레이블을 사용 하 여 원과 압정를 렌더링 하려면 다음 단계를 따르세요.
@@ -222,6 +222,5 @@ Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 �
 ## <a name="next-steps"></a>다음 단계
 
 
-* [Azure Maps 지도 이미지 가져오기 API](https://docs.microsoft.com/rest/api/maps/render/getmapimage) 문서를 살펴봅니다.
-* Azure Maps Data Service에 대 한 자세한 내용은 [서비스 설명서](https://docs.microsoft.com/rest/api/maps/data)를 참조 하세요.
-
+* [Azure Maps 지도 이미지 가져오기 API](/rest/api/maps/render/getmapimage) 문서를 살펴봅니다.
+* Azure Maps Data Service에 대 한 자세한 내용은 [서비스 설명서](/rest/api/maps/data)를 참조 하세요.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 446a70a4399b7ec0e16fed2d33c9ec711acfe200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310835"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895331"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "91310835"
 
 ## <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
-다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소를 [거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)에 연결 합니다. 거품형 계층은 각 거품의 반지름을 5 픽셀 및 흰색 채우기 색으로 렌더링 합니다. 그리고, 파란색의 스트로크 색 및 6 픽셀의 스트로크 너비입니다. 
+다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소를 [거품형 계층](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)에 연결 합니다. 거품형 계층은 각 거품의 반지름을 5 픽셀 및 흰색 채우기 색으로 렌더링 합니다. 그리고, 파란색의 스트로크 색 및 6 픽셀의 스트로크 너비입니다. 
 
 ```javascript
 //Add point locations.
@@ -83,10 +83,10 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
@@ -100,4 +100,4 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 > [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

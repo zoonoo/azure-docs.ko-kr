@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4e37ae82b46ce06162d0a67d74af54cddaf3f6eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15dbe7d30652d0ace78bca4dc053757d57361c1a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030948"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895310"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도 스타일 설정
 
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 지도 스타일을 설정 하는 두 가지 방법을 보여 줍니다. Azure Maps에는 6 가지 맵 스타일을 선택할 수 있습니다. 지원 되는 지도 스타일에 대 한 자세한 내용은 [Azure Maps에서 지원 되는 맵 스타일](./supported-map-styles.md)을 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
-이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
+이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 
 
 ## <a name="set-map-style-in-the-layout"></a>레이아웃에서 지도 스타일 설정
 
-활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. **Res > 레이아웃 > activity_main.xml**를 편집 합니다. 그러면 아래와 같이 표시 됩니다.
+활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. **Res > 레이아웃 > activity_main.xml** 를 편집 합니다. 그러면 아래와 같이 표시 됩니다.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ ms.locfileid: "88030948"
 </FrameLayout>
 ```
 
-`mapcontrol_style`위의 특성은 지도 스타일을 **grayscale_dark**설정 합니다. 
+`mapcontrol_style`위의 특성은 지도 스타일을 **grayscale_dark** 설정 합니다. 
 
 <center>
 
@@ -59,7 +59,7 @@ ms.locfileid: "88030948"
 
 ## <a name="set-map-style-in-the-activity-class"></a>활동 클래스에서 지도 스타일 설정
 
-작업 클래스에서 지도 스타일을 설정할 수 있습니다. 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 `MainActivity.java` 합니다. 이 코드는 지도 스타일을 **satellite_road_labels**설정 합니다.
+작업 클래스에서 지도 스타일을 설정할 수 있습니다. 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 `MainActivity.java` 합니다. 이 코드는 지도 스타일을 **satellite_road_labels** 설정 합니다.
 
 ```Java
 mapControl.onReady(map -> {

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090253"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895599"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 
@@ -30,15 +30,15 @@ ms.locfileid: "92090253"
 
 Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로그램을 만듭니다. 
 
-1. Azure Portal에서 함수를 만듭니다. 자세한 내용은 [Azure Function 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)를 참조 하세요.
+1. Azure Portal에서 함수를 만듭니다. 자세한 내용은 [Azure Function 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조 하세요.
 
-2. 단일 페이지 웹 응용 프로그램에서 액세스할 수 있도록 Azure 함수에서 CORS 정책을 구성 합니다. 그러면 브라우저 클라이언트가 허용 된 웹 응용 프로그램 원본으로 보호 됩니다. [CORS 기능 추가](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality)를 참조 하세요.
+2. 단일 페이지 웹 응용 프로그램에서 액세스할 수 있도록 Azure 함수에서 CORS 정책을 구성 합니다. 그러면 브라우저 클라이언트가 허용 된 웹 응용 프로그램 원본으로 보호 됩니다. [CORS 기능 추가](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality)를 참조 하세요.
 
-3. Azure 함수에 [시스템 할당 id를 추가](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 하 여 azure AD에 인증 하는 서비스 주체를 만들 수 있습니다.  
+3. Azure 함수에 [시스템 할당 id를 추가](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) 하 여 azure AD에 인증 하는 서비스 주체를 만들 수 있습니다.  
 
 4. 시스템 할당 id에 대 한 역할 기반 액세스를 Azure Maps 계정에 부여 합니다. 자세한 내용은 [역할 기반 액세스 권한 부여](#grant-role-based-access) 를 참조 하세요.
 
-5. 지원 되는 메커니즘 또는 REST 프로토콜 중 하나를 사용 하 여 시스템 할당 id를 사용 하 여 Azure Maps 액세스 토큰을 가져오기 위해 Azure function에 대 한 코드를 작성 합니다. [Azure 리소스에 대 한 토큰 가져오기를](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 참조 하세요.
+5. 지원 되는 메커니즘 또는 REST 프로토콜 중 하나를 사용 하 여 시스템 할당 id를 사용 하 여 Azure Maps 액세스 토큰을 가져오기 위해 Azure function에 대 한 코드를 작성 합니다. [Azure 리소스에 대 한 토큰 가져오기를](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) 참조 하세요.
 
     샘플 REST 프로토콜 예:
 
@@ -64,8 +64,8 @@ Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로�
 
 6. Azure function HttpTrigger의 보안 구성
 
-   * [함수 액세스 키 만들기](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * 프로덕션 환경에서 Azure function에 대 한 [HTTP 끝점을 보호](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) 합니다.
+   * [함수 액세스 키 만들기](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * 프로덕션 환경에서 Azure function에 대 한 [HTTP 끝점을 보호](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) 합니다.
    
 7. 웹 응용 프로그램 Azure Maps 웹 SDK를 구성 합니다. 
 
@@ -102,25 +102,25 @@ Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로�
 
 ## <a name="grant-role-based-access"></a>역할 기반 액세스 권한 부여
 
-하나 이상의 Azure 역할 정의에 시스템 할당 id를 할당 하 여 azure *RBAC (역할 기반 액세스 제어)* 액세스 권한을 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다.
+하나 이상의 Azure 역할 정의에 시스템 할당 id를 할당 하 여 azure *RBAC (역할 기반 액세스 제어)* 액세스 권한을 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할** 을 선택한 다음 *Azure Maps* 로 시작 하는 역할을 검색 합니다.
 
-1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어 (IAM)**  >  **역할 할당**을 선택 합니다.
+1. **Azure Maps 계정** 으로 이동 합니다. **액세스 제어 (IAM)**  >  **역할 할당** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Azure RBAC를 사용 하 여 액세스 권한 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. **역할 할당** 탭의 **역할**에서 **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. **액세스 할당**대상에서 **함수 앱**을 선택 합니다. 이름으로 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
+2. **역할 할당** 탭의 **역할** 에서 **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자** 와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. **액세스 할당** 대상에서 **함수 앱** 을 선택 합니다. 이름으로 보안 주체를 선택 합니다. 그런 다음 **저장** 을 선택합니다.
 
-   * [역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)에 대 한 세부 정보를 참조 하세요.
+   * [역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)에 대 한 세부 정보를 참조 하세요.
 
 > [!WARNING]
-> Azure Maps 기본 제공 역할 정의는 많은 Azure Maps REST Api에 대 한 매우 큰 권한 부여 액세스를 제공 합니다. Api 액세스를 최소한으로 제한 하려면 [사용자 지정 역할 정의 만들기를 참조 하 고 시스템 할당 id](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 를 사용자 지정 역할 정의에 할당 합니다. 이렇게 하면 응용 프로그램에서 Azure Maps 액세스 하는 데 필요한 최소 권한을 사용할 수 있습니다.
+> Azure Maps 기본 제공 역할 정의는 많은 Azure Maps REST Api에 대 한 매우 큰 권한 부여 액세스를 제공 합니다. Api 액세스를 최소한으로 제한 하려면 [사용자 지정 역할 정의 만들기를 참조 하 고 시스템 할당 id](../role-based-access-control/custom-roles.md) 를 사용자 지정 역할 정의에 할당 합니다. 이렇게 하면 응용 프로그램에서 Azure Maps 액세스 하는 데 필요한 최소 권한을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 단일 페이지 응용 프로그램 시나리오에 대 한 추가 이해:
 > [!div class="nextstepaction"]
-> [단일 페이지 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [단일 페이지 애플리케이션](../active-directory/develop/scenario-spa-overview.md)
 
 Azure Maps 계정에 대 한 API 사용 메트릭을 찾습니다.
 > [!div class="nextstepaction"]

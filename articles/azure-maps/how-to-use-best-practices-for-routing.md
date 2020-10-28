@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874597"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895548"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
-Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 경로 방향 및 경로 행렬 api는 요청 된 각 경로에 대 한 etas (예상 도착 시간)를 계산 하는 데 사용할 수 있습니다. 경로 Api는 요청 된 요일 및 시간에 대 한 일반적인 이동 속도와 같이 실시간 트래픽 정보 및 기록 트래픽 데이터와 같은 요인을 고려 합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 또한 사용자는 워커, bicyclists 및 상업용 차량 (예: 트럭)에 대 한 특수 경로 및 세부 정보를 요청할 수 있습니다. 이 문서에서는 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)를 호출 하는 모범 사례를 공유 하 고 방법에 대해 알아봅니다.
+Azure Maps [Route Service](/rest/api/maps/route) 의 경로 방향 및 경로 행렬 api는 요청 된 각 경로에 대 한 etas (예상 도착 시간)를 계산 하는 데 사용할 수 있습니다. 경로 Api는 요청 된 요일 및 시간에 대 한 일반적인 이동 속도와 같이 실시간 트래픽 정보 및 기록 트래픽 데이터와 같은 요인을 고려 합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 또한 사용자는 워커, bicyclists 및 상업용 차량 (예: 트럭)에 대 한 특수 경로 및 세부 정보를 요청할 수 있습니다. 이 문서에서는 Azure Maps [Route Service](/rest/api/maps/route)를 호출 하는 모범 사례를 공유 하 고 방법에 대해 알아봅니다.
 
  * 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
  * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측된 이동 시간 요청
@@ -27,7 +27,7 @@ Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 �
  * 하나 이상의 중지 (waypoints)로 구성 된 경로 요청
  * 하나 이상의 중지 경로를 최적화 하 여 각 중지 (이동 경로)를 방문 하는 가장 좋은 순서 가져오기
  * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
- * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
+ * Azure Maps 웹 SDK를 사용 하 여 [Route Service](/rest/api/maps/route) 사용
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -113,7 +113,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-응답에는 아래와 같이 요약이 포함 되어 있습니다. 정체 때문에 **trafficDelaysInSeconds** 값이 0 보다 큽니다. **HistoricTrafficTravelTimeInSeconds**보다도 큽니다.
+응답에는 아래와 같이 요약이 포함 되어 있습니다. 정체 때문에 **trafficDelaysInSeconds** 값이 0 보다 큽니다. **HistoricTrafficTravelTimeInSeconds** 보다도 큽니다.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ![확장 된 요소 요소](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-경로 방향 Api는 **instructionsType** 매개 변수를 지정 하 여 사용할 수 있는 다양 한 형식의 명령을 지원 합니다. 컴퓨터를 쉽게 처리할 수 있도록 지침을 지정 하려면 **instructionsType = 코딩**을 사용 합니다. **InstructionsType = 태그** 를 사용 하 여 사용자에 게 지침을 텍스트로 표시 합니다. 또한 지침의 일부 요소가 표시 되는 텍스트로 표시 되 고 명령이 특수 한 서식으로 표시 될 수 있습니다. 자세한 내용은 [지원 되는 명령 유형 목록을](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype)참조 하세요.
+경로 방향 Api는 **instructionsType** 매개 변수를 지정 하 여 사용할 수 있는 다양 한 형식의 명령을 지원 합니다. 컴퓨터를 쉽게 처리할 수 있도록 지침을 지정 하려면 **instructionsType = 코딩** 을 사용 합니다. **InstructionsType = 태그** 를 사용 하 여 사용자에 게 지침을 텍스트로 표시 합니다. 또한 지침의 일부 요소가 표시 되는 텍스트로 표시 되 고 명령이 특수 한 서식으로 표시 될 수 있습니다. 자세한 내용은 [지원 되는 명령 유형 목록을](/rest/api/maps/route/postroutedirections#routeinstructionstype)참조 하세요.
 
 지침이 요청 되 면 응답은 라는 새 요소를 반환 합니다 `guidance` . `guidance`요소는 두 가지 정보, 즉 단계별 지침과 요약 된 지침을 포함 합니다.
 
@@ -186,7 +186,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ## <a name="request-traffic-information-along-a-route"></a>경로를 따라 트래픽 정보 요청
 
-개발자는 Azure Maps 경로 방향 Api를 사용 하 여 `sectionType` 요청에 매개 변수를 포함 하 여 각 섹션 유형에 대 한 세부 정보를 요청할 수 있습니다. 예를 들어 각 트래픽 걸림 세그먼트에 대 한 속도 정보를 요청할 수 있습니다. 요청할 수 있는 다양 한 세부 정보에 대 한 자세한 내용은 [섹션 유형 키의 값 목록을](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) 참조 하세요.
+개발자는 Azure Maps 경로 방향 Api를 사용 하 여 `sectionType` 요청에 매개 변수를 포함 하 여 각 섹션 유형에 대 한 세부 정보를 요청할 수 있습니다. 예를 들어 각 트래픽 걸림 세그먼트에 대 한 속도 정보를 요청할 수 있습니다. 요청할 수 있는 다양 한 세부 정보에 대 한 자세한 내용은 [섹션 유형 키의 값 목록을](/rest/api/maps/route/getroutedirections#sectiontype) 참조 하세요.
 
 ### <a name="sample-query"></a>샘플 쿼리
 
@@ -208,13 +208,13 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 현재 Azure Maps는 다음과 같은 두 가지 형식의 경로 최적화를 제공 합니다.
 
-* Waypoints의 순서를 변경 하지 않고 요청 된 경로 유형을 기반으로 하는 최적화입니다. [여기에서 지원 되는 경로 유형을](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype) 찾을 수 있습니다.
+* Waypoints의 순서를 변경 하지 않고 요청 된 경로 유형을 기반으로 하는 최적화입니다. [여기에서 지원 되는 경로 유형을](/rest/api/maps/route/postroutedirections#routetype) 찾을 수 있습니다.
 
 * 외판원 최적화를 통해 waypoints의 순서를 변경 하 여 각 중지를 방문 하는 가장 좋은 주문을 얻습니다.
 
 다중 중지 라우팅의 경우 단일 경로 요청에 최대 150 waypoints을 지정할 수 있습니다. 라운드트립의 경우와 마찬가지로 시작 좌표와 끝 좌표 위치가 동일할 수 있습니다. 하지만 경로 계산을 수행 하려면 하나 이상의 추가 중간 경로를 제공 해야 합니다. Waypoints은 원본 좌표와 대상 좌표 사이에서 쿼리에 추가 될 수 있습니다.
 
-지정 된 waypoints를 방문 하는 가장 좋은 순서를 최적화 하려면 **Ebestorder = true**를 지정 해야 합니다. 이 시나리오를 여행 외판원 최적화 문제 라고도 합니다.
+지정 된 waypoints를 방문 하는 가장 좋은 순서를 최적화 하려면 **Ebestorder = true** 를 지정 해야 합니다. 이 시나리오를 여행 외판원 최적화 문제 라고도 합니다.
 
 ### <a name="sample-query"></a>샘플 쿼리
 
@@ -262,11 +262,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 경로를 다시 생성 하 여 참조 경로에 대해 0 개 이상의 대체 경로를 계산 하려는 경우가 있을 수 있습니다. 예를 들어 소매 스토어를 통과 하는 고객 대체 경로를 표시 하려고 할 수 있습니다. 이 경우 지원 점수를 사용 하 여 위치를 보정 해야 합니다. 위치를 보정 하는 단계는 다음과 같습니다.
 
 1. 경로를 있는 그대로 계산 하 고 경로 응답에서 경로를 가져옵니다.
-2. 경로 경로를 사용 하 여 경로 경로를 따라 원하는 위치를 찾습니다. 예를 들어 Azure Maps [관련 API](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) 를 사용 하거나 데이터베이스에서 사용자 고유의 데이터를 쿼리할 수 있습니다.  
+2. 경로 경로를 사용 하 여 경로 경로를 따라 원하는 위치를 찾습니다. 예를 들어 Azure Maps [관련 API](/rest/api/maps/search/getsearchpoi) 를 사용 하거나 데이터베이스에서 사용자 고유의 데이터를 쿼리할 수 있습니다.  
 3. 경로의 시작 부분 으로부터의 거리를 기준으로 위치 정렬
-4. 이러한 위치를 새 경로 요청에 지원 지점으로 추가 하 여 [사후 경로 방향 API](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)에 추가 합니다. 지원 요소에 대 한 자세한 내용은 [경로 방향 게시 API 설명서](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints)를 참조 하세요. 
+4. 이러한 위치를 새 경로 요청에 지원 지점으로 추가 하 여 [사후 경로 방향 API](/rest/api/maps/route/postroutedirections)에 추가 합니다. 지원 요소에 대 한 자세한 내용은 [경로 방향 게시 API 설명서](/rest/api/maps/route/postroutedirections#supportingpoints)를 참조 하세요. 
 
-[사후 경로 방향 API](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)를 호출할 때 지원 지점과 함께 최소 편차 시간 또는 거리 제약 조건을 설정할 수 있습니다. 대체 경로를 제공 하려는 경우에는이 매개 변수를 사용 합니다. 또한 이동 시간을 제한 하려고 합니다. 이러한 제약 조건을 사용 하면 대체 경로가 지정 된 시간 또는 거리에 대 한 원본 지점에서 참조 경로를 따릅니다. 즉, 다른 경로는 지정 된 제약 조건에 따라 참조 경로에서 분기 됩니다.
+[사후 경로 방향 API](/rest/api/maps/route/postroutedirections)를 호출할 때 지원 지점과 함께 최소 편차 시간 또는 거리 제약 조건을 설정할 수 있습니다. 대체 경로를 제공 하려는 경우에는이 매개 변수를 사용 합니다. 또한 이동 시간을 제한 하려고 합니다. 이러한 제약 조건을 사용 하면 대체 경로가 지정 된 시간 또는 거리에 대 한 원본 지점에서 참조 경로를 따릅니다. 즉, 다른 경로는 지정 된 제약 조건에 따라 참조 경로에서 분기 됩니다.
 
 다음 이미지는 시간 및 거리에 대해 지정 된 편차 제한을 사용 하 여 대체 경로를 렌더링 하는 예입니다.
 
@@ -274,20 +274,20 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>웹 앱에서 라우팅 서비스 사용
 
-Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/api/azure-maps-rest/)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
+Azure Maps 웹 SDK는 [서비스 모듈](/javascript/api/azure-maps-rest/)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세히 알아보려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps Route Service](https://docs.microsoft.com/rest/api/maps/route)
+> [Azure Maps Route Service](/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [서비스 모듈을 사용 하는 방법](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [서비스 모듈을 사용 하는 방법](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [지도에 경로 표시](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [지도에 경로 표시](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps NPM 패키지](https://www.npmjs.com/package/azure-maps-rest  )
