@@ -8,12 +8,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090332"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674280"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>질문과 대답: SRE와 DevOps 간의 관계는 무엇입니까?
 
@@ -50,7 +50,7 @@ SRE와 DevOps에 대 한 정의가 여러 개 있기 때문에 이러한 비교�
 
 그러면 SRE 라는 단어가 "안정성" 이라고 말할 수 있습니다. 이름 중간에 바로 있는 경우이 클레임에 대 한 몇 가지 뛰어난 증거를 제공 합니다.
 
-[Azure Devops 리소스 센터](https://docs.microsoft.com/azure/devops/learn/)에서이 devops 정의를 사용 하는 경우:
+[Azure Devops 리소스 센터](/azure/devops/learn/)에서이 devops 정의를 사용 하는 경우:
 
 > DevOps는 최종 사용자에게 지속적으로 가치를 업데이트할 수 있는 사람, 프로세스 및 제품의 합집합입니다.
 
@@ -80,4 +80,4 @@ DevOps 엔지니어가 개발 환경에서 시작 하 고 프로덕션 단계를
 
 ## <a name="next-steps"></a>다음 단계
 
-사이트 안정성 엔지니어링 또는 DevOps에 대해 자세히 알고 싶으십니까? [사이트 안정성 엔지니어링 허브](../index.yml) 및 [Azure devops 리소스 센터](https://docs.microsoft.com/azure/devops/learn/)를 확인 하세요.
+사이트 안정성 엔지니어링 또는 DevOps에 대해 자세히 알고 싶으십니까? [사이트 안정성 엔지니어링 허브](../index.yml) 및 [Azure devops 리소스 센터](/azure/devops/learn/)를 확인 하세요.

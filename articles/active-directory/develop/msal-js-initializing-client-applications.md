@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027039"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674081"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
 
@@ -28,17 +28,17 @@ ms.locfileid: "87027039"
 
 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [MSAL의 공용 및 기밀 클라이언트 앱](msal-client-applications.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 응용 프로그램을 초기화 하기 전에 먼저 Azure Portal에 [등록](scenario-spa-app-registration.md)하 여 응용 프로그램과 Microsoft id 플랫폼 간의 트러스트 관계를 설정 해야 합니다.
 
 앱을 등록 한 후 Azure Portal에서 찾을 수 있는 다음 값의 일부 또는 모두가 필요 합니다.
 
-| 값 | 필수 | 설명 |
+| 값 | 필수 | Description |
 |:----- | :------: | :---------- |
 | 애플리케이션(클라이언트) ID | 필수 | Microsoft id 플랫폼 내에서 응용 프로그램을 고유 하 게 식별 하는 GUID입니다. |
-| Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스*) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관*을 구성 합니다. |
-| 디렉터리(테넌트) ID | 선택 사항 | 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (종종 *단일 테 넌 트 응용 프로그램*이라고 함)이를 지정 합니다. |
+| Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스* ) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관* 을 구성 합니다. |
+| 디렉터리(테넌트) ID | 선택 사항 | 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (종종 *단일 테 넌 트 응용 프로그램* 이라고 함)이를 지정 합니다. |
 | 리디렉션 URI | 선택 사항 | 웹 앱을 빌드하는 경우는 `redirectUri` id 공급자 (Microsoft id 플랫폼)에서 발급 한 보안 토큰을 반환 해야 하는 위치를 지정 합니다. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>MSAL.js 2.x 앱 초기화

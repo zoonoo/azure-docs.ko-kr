@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638332"
+ms.locfileid: "92674743"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
 Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
 
 ## <a name="_logoperation-function"></a>_LogOperation 함수
+
 Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 테이블에 모든 문제에 대 한 세부 정보를 보냅니다. **_LogOperation** 시스템 함수는 **작업** 테이블을 기반으로 하며 분석 및 경고에 대 한 간단한 정보 집합을 제공 합니다.
 
 ## <a name="columns"></a>열
@@ -36,6 +37,7 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://d
 
 
 ## <a name="categories"></a>범주
+
 다음 표에서는 _LogOperation 함수의 범주에 대해 설명 합니다. 
 
 | Category | Description |

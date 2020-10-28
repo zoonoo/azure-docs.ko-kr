@@ -3,18 +3,18 @@ title: 개념-Id 및 액세스
 description: Azure VMware 솔루션의 id 및 액세스 개념에 대해 알아보기
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750579"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674650"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 솔루션 id 개념
 
-사설 클라우드를 배포할 때 vCenter 서버와 NSX manager가 프로 비전 됩니다. VCenter를 사용 하 여 가상 컴퓨터 작업 및 NSX manager를 관리 하 여 사설 클라우드 소프트웨어 정의 네트워크를 확장 합니다.
+사설 클라우드를 배포할 때 vCenter server 및 NSX manager가 프로 비전 됩니다. VCenter를 사용 하 여 VM (가상 컴퓨터) 워크 로드를 관리 합니다. NSX-T 관리자를 사용 하 여 사설 클라우드 소프트웨어 정의 네트워크를 확장 합니다.
 
-액세스 및 id 관리에서는 NSX-T 관리자에 대 한 vCenter 및 제한 된 관리자 권한으로 CloudAdmin 그룹 권한을 사용 합니다. 이 정책을 통해 사설 클라우드 플랫폼을 자동으로 업그레이드할 수 있습니다. 이렇게 하면 최신 기능과 패치가 정기적으로 제공 됩니다. 사설 클라우드 업그레이드에 대 한 자세한 내용은 [사설 클라우드 업그레이드 개념 문서][concepts-upgrades] 를 참조 하세요.
+액세스 및 id 관리에서는 NSX-T 관리자에 대 한 vCenter 및 제한 된 관리자 권한으로 CloudAdmin 그룹 권한을 사용 합니다. 이를 통해 사설 클라우드 플랫폼은 최신 기능과 패치를 사용 하 여 자동으로 업그레이드 됩니다.  자세한 내용은 [사설 클라우드 업그레이드 개념 문서][concepts-upgrades]를 참조 하세요.
 
 ## <a name="vcenter-access-and-identity"></a>vCenter 액세스 및 id
 
@@ -36,7 +36,7 @@ CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
 |  호스트                    |  호스트. Hbr. HbrManagement      |        --          |  Microsoft는 다른 모든 호스트 작업을 수행 합니다.  |
 |  InventoryService        |  InventoryService      |        --          |  --  |
 |  네트워크                 |  Network.Assign    |                  |  Microsoft는 다른 모든 네트워크 작업을 수행 합니다.  |
-|  사용 권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
+|  권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
 |  프로필 기반 저장소  |  --  |        --       |  Microsoft는 모든 프로필 작업을 수행 합니다.  |
 |  리소스                |  CloudAdmin 사용자에 게 모든 리소스 권한이 있습니다.        |      --       | --   |
 |  예약된 태스크          |  CloudAdmin 사용자는 모든 ScheduleTask 권한을 가집니다.   |   --   | -- |
@@ -49,7 +49,7 @@ CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>NSX-T 관리자 액세스 및 id
 
-"관리자" 계정을 사용 하 여 NSX-T 관리자에 액세스 합니다. 이 계정에는 모든 권한이 있으며 T1 라우터, 논리 스위치 및 모든 서비스를 만들고 관리할 수 있습니다. NSX의 모든 권한은 NSX T0 라우터에 대 한 액세스 권한도 제공 합니다. T0 라우터를 변경 하면 네트워크 성능이 저하 되거나 사설 클라우드에 액세스할 수 없게 될 수 있습니다. 지원 요구 사항을 충족 하려면 Azure Portal에서 지원 요청을 열어 NSX-T T0 라우터에 대 한 변경 내용을 요청 해야 합니다.
+"관리자" 계정을 사용 하 여 NSX Manager에 액세스 합니다. 모든 권한을 가지 며, T1 라우터, 논리 스위치 및 모든 서비스를 만들고 관리할 수 있습니다. 이 권한은 NSX-T T0 라우터에 대 한 액세스 권한을 제공 합니다. T0 라우터를 변경 하면 네트워크 성능이 저하 되거나 사설 클라우드 액세스가 발생 하지 않을 수 있습니다. Azure Portal에서 지원 요청을 열어 NSX-T T0 라우터에 대 한 변경 내용을 요청 합니다.
   
 ## <a name="next-steps"></a>다음 단계
 

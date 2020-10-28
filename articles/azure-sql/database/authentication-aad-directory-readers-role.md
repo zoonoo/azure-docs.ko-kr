@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 0f9b6e0250acb53899ab0443a62db7c9cc51f992
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370103"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675064"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL용 Azure Active Directory의 Directory Readers 역할
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> 이 문서의이 기능은 **공개 미리 보기로**제공 됩니다.
+> 이 문서의이 기능은 **공개 미리 보기로** 제공 됩니다.
 
 Azure AD (Azure Active Directory)는 [클라우드 그룹을 사용 하 여 Azure Active Directory (미리 보기)에서 역할 할당을 관리 하](../../active-directory/roles/groups-concept.md)는 것을 소개 했습니다. 이렇게 하면 Azure AD 역할을 그룹에 할당할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에
 
 - SQL Managed Instance에 대 한 Azure AD 로그인 만들기
 - Azure SQL에서 Azure AD 사용자를 가장 합니다.
-- [ALTER USER (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) 명령을 사용 하 여 Windows 인증을 사용 하는 사용자 SQL SERVER Azure AD 인증을 사용 하 여 SQL Managed Instance로 마이그레이션
+- [ALTER USER (transact-sql)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) 명령을 사용 하 여 Windows 인증을 사용 하는 사용자 SQL SERVER Azure AD 인증을 사용 하 여 SQL Managed Instance로 마이그레이션
 - SQL Managed Instance에 대 한 Azure AD 관리자 변경
 - [서비스 사용자 (응용 프로그램)](authentication-aad-service-principal.md) 가 azure SQL에서 azure AD 사용자를 만들 수 있도록 허용
 
@@ -45,7 +45,7 @@ SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Azure AD 그룹에 디렉터리 판독기 역할 부여
 
-현재 **공개 미리 보기로**제공 되는 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 가 Azure AD 그룹을 만들고 해당 그룹에 대 한 [**디렉터리 독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 할당할 수 있습니다. 이렇게 하면이 그룹의 구성원에 대 한 Azure AD Graph API에 액세스할 수 있습니다. 또한이 그룹의 소유자 인 Azure AD 사용자는 Azure SQL 논리 서버의 id를 포함 하 여이 그룹의 새 구성원을 할당할 수 있습니다.
+현재 **공개 미리 보기로** 제공 되는 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 가 Azure AD 그룹을 만들고 해당 그룹에 대 한 [**디렉터리 독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 할당할 수 있습니다. 이렇게 하면이 그룹의 구성원에 대 한 Azure AD Graph API에 액세스할 수 있습니다. 또한이 그룹의 소유자 인 Azure AD 사용자는 Azure SQL 논리 서버의 id를 포함 하 여이 그룹의 새 구성원을 할당할 수 있습니다.
 
 이 솔루션에는 그룹을 만들고 사용자를 일회성 작업으로 할당 하기 위해 높은 권한 사용자 (전역 관리자 또는 권한 있는 역할 관리자)가 필요 하지만 Azure AD 그룹 소유자는 향후 추가 구성원을 할당할 수 있습니다. 이렇게 하면 나중에 Azure AD 테 넌 트에서 모든 SQL 데이터베이스, SQL 관리 되는 인스턴스 또는 Azure Synapse 서버를 구성할 수 있는 높은 권한 사용자를 포함할 필요가 없습니다.
 

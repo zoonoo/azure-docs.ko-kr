@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536575"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674505"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats Api
 
@@ -29,7 +29,7 @@ FarmBeats Api에는 Swagger 기술 설명서가 포함 되어 있습니다. 모�
 
 다음 표에는 FarmBeats Datahub의 모든 개체와 리소스가 요약 되어 있습니다.
 
-| 개체 및 리소스 | 설명
+| 개체 및 리소스 | Description
 --- | ---|
 팜 | 팜은 FarmBeats 시스템 내에서 관심 있는 실제 위치에 해당 합니다. 각 팜에는 팜 이름과 고유한 팜 ID가 있습니다. |
 디바이스  | 장치는 팜에 있는 물리적 장치에 해당 합니다. 각 장치에는 고유한 장치 ID가 있습니다. 일반적으로 장치는 팜 ID를 사용 하 여 팜으로 프로 비전 됩니다.
@@ -143,23 +143,23 @@ Azure FarmBeats Datahub Api는 표준 HTTP 오류를 반환 합니다. 가장 �
 
 Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록을 통해 액세스할 수 있습니다. Azure Active Directory에서 앱 등록을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **Azure Active Directory**  >  **App registrations**  >  **새 등록**앱 등록 Azure Active Directory를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **Azure Active Directory**  >  **App registrations**  >  **새 등록** 앱 등록 Azure Active Directory를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
 2. 새 계정에 대해 다음을 수행 합니다.
 
     - 이름을 입력합니다.
     - **이 조직 디렉터리에만 계정 (단일 테 넌 트)** 을 선택 합니다.
     - 나머지 필드에는 기본값을 사용 합니다.
-    - **등록**을 선택합니다.
+    - **등록** 을 선택합니다.
 
 3. 신규 및 기존 앱 등록 **개요** 창에서 다음을 수행 합니다.
 
-    - **클라이언트 id** 및 **테 넌 트 id**를 캡처합니다.
-    - 새 클라이언트 암호를 생성 하 고 **클라이언트 암호**를 캡처하려면 **인증서 및 암호** 로 이동 합니다.
-    - **개요**로 돌아가서 **로컬 디렉터리에서 응용 프로그램 관리**옆의 링크를 선택 합니다.
-    - **속성** 으로 이동 하 여 **개체 ID**를 캡처합니다.
+    - **클라이언트 id** 및 **테 넌 트 id** 를 캡처합니다.
+    - 새 클라이언트 암호를 생성 하 고 **클라이언트 암호** 를 캡처하려면 **인증서 및 암호** 로 이동 합니다.
+    - **개요** 로 돌아가서 **로컬 디렉터리에서 응용 프로그램 관리** 옆의 링크를 선택 합니다.
+    - **속성** 으로 이동 하 여 **개체 ID** 를 캡처합니다.
 
 4. Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html)로 이동 하 고 다음을 수행 합니다.
-    - **Roleassignment API**로 이동 합니다.
+    - **Roleassignment API** 로 이동 합니다.
     - 게시를 수행 하 여 방금 만든 **개체 ID** 에 대 한 **roleassignment** 개체를 만듭니다.
  
 ```json
@@ -172,7 +172,7 @@ Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록�
 ```
 
   > [!NOTE]
-  > 사용자를 추가 하 고 등록을 Active Directory 하는 방법에 대 한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)을 참조 하세요.
+  > 사용자를 추가 하 고 등록을 Active Directory 하는 방법에 대 한 자세한 내용은 [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md)을 참조 하세요.
 
 이전 단계를 완료 한 후에 앱 등록 (클라이언트)은 전달자 인증을 통해 액세스 토큰을 사용 하 여 Azure FarmBeats Api를 호출할 수 있습니다.
 

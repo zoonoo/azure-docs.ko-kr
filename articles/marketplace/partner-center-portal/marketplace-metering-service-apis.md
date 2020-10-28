@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278016"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674637"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 Api
 
@@ -34,7 +34,7 @@ TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 적용 됩�
 
 기간별 각 시간에 대해 하나의 사용 이벤트만 내보낼 수 있습니다. 한 시간에 두 개 이상의 단위를 사용 하는 경우에는 해당 시간에 사용 된 모든 단위를 누적 한 다음 단일 이벤트로 내보냅니다. 최근 24 시간 동안에만 사용 이벤트를 내보낼 수 있습니다. 언제 든 지 8:00과 8:59:59 사이의 사용 이벤트를 내보내고이를 허용 하 고 8:00과 8:59:59 사이에 같은 날에 대 한 추가 이벤트를 보내는 경우에는 중복으로 거부 됩니다.
 
-**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -67,7 +67,7 @@ TLS 버전 1.2 버전은 HTTPS 통신을 위한 최소 버전으로 적용 됩�
 >[!NOTE]
 >`resourceId` SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
 
-Azure 애플리케이션 관리 앱 계획의 경우 `resourceId`는 관리 앱 메타데이터 개체의 `billingDetails` 아래에 있는 `resourceUsageId`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
+관리 되는 앱 계획 Azure 애플리케이션의 경우 `resourceId` 이 관리 되는 앱입니다 `resource group Id` . 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 
 SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 대한 자세한 내용은 [구독 나열](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)을 참조하세요.
 
@@ -191,7 +191,7 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 리소스에
 >[!NOTE]
 >`resourceId` SaaS 앱과 관리 되는 앱 내보내기 사용자 지정 측정기에 대 한 의미가 다릅니다. 
 
-Azure 애플리케이션 관리 앱 계획의 경우 `resourceId`는 관리 앱 메타데이터 개체의 `billingDetails` 아래에 있는 `resourceUsageId`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
+관리 되는 앱 계획 Azure 애플리케이션의 경우 `resourceId` 이 관리 되는 앱입니다 `resource group Id` . 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 
 SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 대한 자세한 내용은 [구독 나열](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)을 참조하세요.
 

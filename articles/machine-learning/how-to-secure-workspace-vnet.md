@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461001"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672857"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -27,7 +27,7 @@ ms.locfileid: "92461001"
 
 이 시리즈의 다른 문서를 참조 하세요.
 
-[1. VNet 개요](how-to-network-security-overview.md)  >  **2. 작업 영역 3을 보호**합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+[1. VNet 개요](how-to-network-security-overview.md)  >  **2. 작업 영역 3을 보호** 합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
 이 문서에서는 가상 네트워크에서 다음 작업 영역 리소스를 사용 하도록 설정 하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ ms.locfileid: "92461001"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -62,7 +62,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 Azure Machine Learning는 서비스 끝점이 나 개인 끝점 중 하나를 사용 하도록 구성 된 저장소 계정을 지원 합니다. 이 섹션에서는 서비스 끝점을 사용 하 여 Azure storage 계정을 보호 하는 방법에 대해 알아봅니다. 전용 끝점은 다음 섹션을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Machine Learning의 _기본 스토리지 계정_이나 기본이 아닌 스토리지 계정 모두를 가상 네트워크에 배치할 수 있습니다.
+> Azure Machine Learning의 _기본 스토리지 계정_ 이나 기본이 아닌 스토리지 계정 모두를 가상 네트워크에 배치할 수 있습니다.
 >
 > 기본 스토리지 계정은 작업 영역을 만들 때 자동으로 프로비저닝됩니다.
 >
@@ -74,23 +74,28 @@ Azure Machine Learning는 서비스 끝점이 나 개인 끝점 중 하나를 �
 
    [![Azure Machine Learning 작업 영역에 연결된 스토리지](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Storage 서비스 계정 페이지에서 __방화벽 및 가상 네트워크__를 선택 합니다.
+1. Storage 서비스 계정 페이지에서 __방화벽 및 가상 네트워크__ 를 선택 합니다.
 
    ![Azure Portal에 있는 Azure Storage 페이지의 "방화벽 및 가상 네트워크" 영역](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. __방화벽 및 가상 네트워크__ 페이지에서 다음 작업을 수행합니다.
-    1. __선택한 네트워크__를 선택합니다.
-    1. __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
+    1. __선택한 네트워크__ 를 선택합니다.
+    1. __가상 네트워크__ 에서 __기존 가상 네트워크 추가__ 링크를 선택합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
 
         > [!IMPORTANT]
         > 스토리지 계정은 학습 또는 유추에 사용되는 컴퓨팅 인스턴스 또는 클러스터와 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
 
-    1. __신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다__ 확인란을 선택합니다.
+    1. __신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다__ 확인란을 선택합니다. 모든 Azure 서비스에 저장소 계정에 대 한 액세스 권한을 부여 하지는 않습니다.
+    
+        * **구독에 등록 된** 일부 서비스의 리소스는 선택 작업에 대해 **동일한 구독에서** 저장소 계정에 액세스할 수 있습니다. 예를 들어 로그를 작성 하거나 백업을 만듭니다.
+        * 일부 서비스의 리소스에는 해당 시스템 할당 관리 id에 __Azure 역할을 할당__ 하 여 저장소 계정에 대 한 명시적 액세스 권한을 부여할 수 있습니다.
+
+        자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
 
     > [!IMPORTANT]
     > Azure Machine Learning SDK를 사용하는 경우 개발 환경에서 Azure Storage 계정에 연결할 수 있어야 합니다. 스토리지 계정이 가상 네트워크 내에 있는 경우 방화벽에서 개발 환경 IP 주소의 액세스를 반드시 허용해야 합니다.
     >
-    > 스토리지 계정에 액세스가 가능하도록 설정하려면 개발 클라이언트의 웹 브라우저에서 스토리지 계정에 대한 __방화벽 및 가상 네트워크__를 방문하세요. 그런 다음, __클라이언트 IP 주소 추가__ 확인란을 사용하여 클라이언트의 IP 주소를 __주소 범위__에 추가합니다. __주소 범위__ 필드를 사용하여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가되고 나면 SDK를 사용하여 스토리지 계정에 액세스할 수 있습니다.
+    > 스토리지 계정에 액세스가 가능하도록 설정하려면 개발 클라이언트의 웹 브라우저에서 스토리지 계정에 대한 __방화벽 및 가상 네트워크__ 를 방문하세요. 그런 다음, __클라이언트 IP 주소 추가__ 확인란을 사용하여 클라이언트의 IP 주소를 __주소 범위__ 에 추가합니다. __주소 범위__ 필드를 사용하여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가되고 나면 SDK를 사용하여 스토리지 계정에 액세스할 수 있습니다.
 
    [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -170,12 +175,12 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 
 1. 작업 영역과 연결 된 Key Vault로 이동 합니다.
 
-1. __Key Vault__ 페이지의 왼쪽 창에서 __네트워킹__을 선택 합니다.
+1. __Key Vault__ 페이지의 왼쪽 창에서 __네트워킹__ 을 선택 합니다.
 
 1. __방화벽 및 가상 네트워크__ 탭에서 다음 작업을 수행 합니다.
-    1. 다음 __에서 액세스 허용에서__ __개인 끝점 및 선택한 네트워크__를 선택 합니다.
-    1. __가상 네트워크__에서 __기존 가상 네트워크 추가__를 선택하여 실험 컴퓨팅이 상주하는 가상 네트워크를 추가합니다.
-    1. __신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용 하 시겠습니까?__ 에서 __예__를 선택 합니다.
+    1. 다음 __에서 액세스 허용에서__ __개인 끝점 및 선택한 네트워크__ 를 선택 합니다.
+    1. __가상 네트워크__ 에서 __기존 가상 네트워크 추가__ 를 선택하여 실험 컴퓨팅이 상주하는 가상 네트워크를 추가합니다.
+    1. __신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용 하 시겠습니까?__ 에서 __예__ 를 선택 합니다.
 
    [![Key Vault 창의 "방화벽 및 가상 네트워크" 섹션](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556289"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674946"
 ---
 # <a name="msix-app-attach-glossary"></a>MSIX 앱 연결 용어집
 
@@ -25,7 +25,7 @@ MSIX 컨테이너는 MSIX 개 앱이 실행 되는 위치입니다. 자세히 �
 
 ## <a name="msix-application"></a>MSIX 응용 프로그램 
 
-MSIX 파일에 저장 된 응용 프로그램입니다.
+에 저장 된 응용 프로그램입니다. MSIX 파일.
 
 ## <a name="msix-package"></a>MSIX 패키지 
 
@@ -35,13 +35,17 @@ MSIX 패키지는 MSIX 파일 또는 응용 프로그램입니다.
 
 MSIX 공유는 확장 된 MSIX 패키지를 포함 하는 네트워크 공유입니다. MSIX 공유는 SMB 3 이상을 지원 합니다. 응용 프로그램은 응용 프로그램 파일을 시스템 드라이브로 이동 하지 않고도이 MSIX 공유에서 준비 됩니다.
 
+## <a name="msix-image"></a>MSIX 이미지
+
+MSIX 이미지는 하나 이상의 MSIX 패키지 응용 프로그램을 포함 하는 VHD, VHDx 또는 CIM 파일입니다. 각 응용 프로그램은 MSIXMGR 도구를 사용 하 여 MSIX 이미지로 배달 됩니다.
+
 ## <a name="repackage"></a>리
 
 다시 패키지는 msix이 아닌 응용 프로그램을 사용 하 여 MSIX 패키징 도구 (.MPT)를 사용 하 여 MSIX으로 변환 합니다. 자세한 내용은 [Msix 패키징 도구 개요](/windows/msix/packaging-tool/tool-overview)를 참조 하세요.
 
-## <a name="expand"></a>Expand
+## <a name="expand-an-msix-package"></a>MSIX 패키지 확장
 
-확장 MSIX 패키지는 여러 단계 프로세스입니다. MSIX 파일을 사용 하 여 해당 콘텐츠를 VHD (x) 또는 CIM 파일에 저장 합니다. 
+MSIX 패키지를 확장 하는 과정은 여러 단계로 진행 됩니다. 확장 하면 MSIX 파일이 사용 되 고 해당 콘텐츠가 VHD (x) 또는 CIM 파일에 저장 됩니다. 
 
 MSIX 패키지를 확장 하려면 다음을 수행 합니다.
 
@@ -63,11 +67,11 @@ MSIX 패키지를 업로드 하려면 확장 된 MSIX 패키지를 포함 하는
 
 Windows 가상 데스크톱에서 업로드는 MSIX 공유 당 한 번 수행 됩니다. 패키지를 업로드 하면 동일한 구독의 모든 호스트 풀에서 해당 패키지를 참조할 수 있습니다.
 
-## <a name="publish-an-msix-package"></a>MSIX 패키지 게시
+## <a name="add-an-msix-package"></a>MSIX 패키지 추가
 
-Windows 가상 데스크톱에서 MSIX 패키지를 게시 하면 원격 앱 또는 데스크톱에 연결 됩니다.
+Windows 가상 데스크톱에서 MSIX 패키지를 추가 하면 호스트 풀에 연결 됩니다.
 
-## <a name="assign-an-msix-package"></a>MSIX 패키지 할당 
+## <a name="publish-an-msix-package"></a>MSIX 패키지 게시 
 
 Windows 가상 데스크톱에서 게시 된 MSIX 패키지는 Active Directory 도메인 서비스 (AD DS) 또는 Azure Active Directory (Azure AD) 사용자 또는 사용자 그룹에 할당 되어야 합니다.
 
@@ -118,4 +122,3 @@ Destaging은 현재 실행 되 고 있지 않고 사용자에 대해 준비 되�
 ## <a name="next-steps"></a>다음 단계
 
 MSIX 앱 연결에 대해 자세히 알아보려면 [개요](what-is-app-attach.md) 및 [FAQ](app-attach-faq.md)를 확인 하세요. 그렇지 않으면 [앱 연결 설정](app-attach.md)을 시작 합니다.
-

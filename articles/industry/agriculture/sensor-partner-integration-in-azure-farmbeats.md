@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078924"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674322"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -48,7 +48,7 @@ API에는 Swagger 기술 문서가 포함되어 있습니다. API 및 해당 요
 
 FarmBeats는 Microsoft Azure Active Directory 인증을 사용합니다. Azure App Service는 기본 제공 인증 및 권한 부여를 지원합니다.
 
-자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조하세요.
+자세한 내용은 [Azure Active Directory](../../app-service/overview-authentication-authorization.md)를 참조하세요.
 
 FarmBeats Datahub는 전달자 인증을 사용하며 다음 자격 증명이 필요합니다.
    - 클라이언트 ID
@@ -126,12 +126,12 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메타데이터를 만들고 관리하는 데 사용할 수 있는 다음과 같은 API가 있습니다.
 
-- /**DeviceModel**: DeviceModel은 제조업체 및 디바이스 유형(게이트웨이 또는 노드)과 같은 디바이스 메타데이터에 해당합니다.
-- /**Device**: Device는 팜에 있는 물리적 디바이스에 해당합니다.
-- /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
-- /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
+- /**DeviceModel** : DeviceModel은 제조업체 및 디바이스 유형(게이트웨이 또는 노드)과 같은 디바이스 메타데이터에 해당합니다.
+- /**Device** : Device는 팜에 있는 물리적 디바이스에 해당합니다.
+- /**SensorModel** : SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
+- /**Sensor** : Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-  DeviceModel | 설명 |
+  DeviceModel | Description |
   --- | ---
   Type(node, gateway)  | 디바이스의 유형(노드 또는 게이트웨이)입니다. |
   제조업체  | 제조업체의 이름입니다. |
@@ -201,7 +201,7 @@ FarmBeats는 새 센서 측정 유형 및 단위를 추가하도록 지원합니
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>FarmBeats로 원격 분석 데이터 보내기
 
-FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석 데이터에 대한 자세한 내용은 [이벤트 허브로 원격 분석 보내기](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)를 참조하세요.
+FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석 데이터에 대한 자세한 내용은 [이벤트 허브로 원격 분석 보내기](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)를 참조하세요.
 
 다음은 클라이언트로서 원격 분석을 지정된 이벤트 허브에 보내는 샘플 Python 코드입니다.
 

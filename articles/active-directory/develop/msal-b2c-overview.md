@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442255"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673499"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
 
@@ -32,7 +32,7 @@ Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그
 - SPA (단일 페이지 응용 프로그램)에서의 로그인을 지원 하 고 보호 *된* 웹 API를 호출 합니다.
 - 암호 재설정 지원 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 없는 경우 [Azure AD B2C 테 넌 트](../../active-directory-b2c/tutorial-create-tenant.md)를 만듭니다.
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>3 단계: 인증 구성
 
-1. 샘플에서 `config.json` 파일을 엽니다.
+1. 샘플에서 파일 *에config.js* 를 엽니다.
 
 2. 응용 프로그램을 등록 하는 동안 이전에 가져온 응용 프로그램 자격 증명을 사용 하 여 샘플을 구성 합니다. 값을 테 넌 트 이름, 클라이언트 ID 및 정책 이름으로 바꿔 다음 코드 줄을 변경 합니다.
 
@@ -169,7 +169,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>2 단계: 로그인 메서드에서 인증 오류 Catch 및 처리
 
-사용자가 **암호 잊음**를 선택 하면 응용 프로그램에서 오류를 throw 하 고 코드에서 catch 한 다음 적절 한 사용자 흐름을 제시 하 여를 처리 합니다. 이 경우 `b2c_1_reset` 암호 다시 설정 흐름입니다.
+사용자가 **암호 잊음** 를 선택 하면 응용 프로그램에서 오류를 throw 하 고 코드에서 catch 한 다음 적절 한 사용자 흐름을 제시 하 여를 처리 합니다. 이 경우 `b2c_1_reset` 암호 다시 설정 흐름입니다.
 
 1. 다음과 같이 로그인 방법을 확장 합니다.
 

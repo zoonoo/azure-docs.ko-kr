@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652009"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674034"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
 
@@ -61,13 +61,16 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> 응용 프로그램을 사용 하 여 구성 된 소스 제어를 사용 하는 경우 소스 제어 통합의 일부로 Webjobs를 배포 해야 합니다. 소스 제어가 응용 프로그램을 사용 하 여 구성 되 면 WebJob을 Azure Portal에서 추가할 수 없습니다.
+
 1. [Azure Portal](https://portal.azure.com)에서 App Service 웹앱, API 앱 또는 모바일 앱의 **App Service** 페이지로 이동합니다.
 
-2. **WebJobs**를 선택합니다.
+2. **WebJobs** 를 선택합니다.
 
    ![WebJobs 선택](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. **WebJobs** 페이지에서 **추가**를 선택합니다.
+2. **WebJobs** 페이지에서 **추가** 를 선택합니다.
 
     ![WebJob 페이지](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -75,20 +78,20 @@ when making changes in one don't forget the other two.
 
    ![구성 해야 하는 WebJob 추가 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | 설정      | 샘플 값   | Description  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 계속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **크기 조정** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
 
-4. **확인**을 클릭합니다.
+4. **확인** 을 클릭합니다.
 
    새 WebJob이 **WebJobs** 페이지에 표시됩니다.
 
    ![WebJobs 목록](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. 연속 WebJob을 중지하거나 시작하려면 목록에서 WebJob을 마우스 오른쪽 단추로 클릭하고 **중지** 또는 **시작**을 클릭합니다.
+2. 연속 WebJob을 중지하거나 시작하려면 목록에서 WebJob을 마우스 오른쪽 단추로 클릭하고 **중지** 또는 **시작** 을 클릭합니다.
 
     ![연속 WebJob 중지](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -101,11 +104,11 @@ when making changes in one don't forget the other two.
 
 1. [Azure Portal](https://portal.azure.com)에서 App Service 웹앱, API 앱 또는 모바일 앱의 **App Service** 페이지로 이동합니다.
 
-2. **WebJobs**를 선택합니다.
+2. **WebJobs** 를 선택합니다.
 
    ![WebJobs 선택](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. **WebJobs** 페이지에서 **추가**를 선택합니다.
+2. **WebJobs** 페이지에서 **추가** 를 선택합니다.
 
     ![WebJob 페이지](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -113,20 +116,20 @@ when making changes in one don't forget the other two.
 
    ![수동으로 트리거된 WebJob을 만들기 위해 설정 해야 하는 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | 설정      | 샘플 값   | Description  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myTriggeredWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.|
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **트리거** | 설명서 | |
 
-4. **확인**을 클릭합니다.
+4. **확인** 을 클릭합니다.
 
    새 WebJob이 **WebJobs** 페이지에 표시됩니다.
 
    ![WebJobs 목록](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. 웹 작업을 실행하려면 목록에서 해당 이름을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다.
+7. 웹 작업을 실행하려면 목록에서 해당 이름을 마우스 오른쪽 단추로 클릭하고 **실행** 을 클릭합니다.
    
     ![WebJob 실행](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -139,11 +142,11 @@ when making changes in one don't forget the other two.
 
 1. [Azure Portal](https://portal.azure.com)에서 App Service 웹앱, API 앱 또는 모바일 앱의 **App Service** 페이지로 이동합니다.
 
-2. **WebJobs**를 선택합니다.
+2. **WebJobs** 를 선택합니다.
 
    ![WebJobs 선택](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. **WebJobs** 페이지에서 **추가**를 선택합니다.
+2. **WebJobs** 페이지에서 **추가** 를 선택합니다.
 
    ![WebJob 페이지](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -151,15 +154,15 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | 설정      | 샘플 값   | Description  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
    | **이름** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **트리거** | 예약 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
+   | **트리거** | 예약됨 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
    | **CRON 식** | 0 0/20 * * * * | [CRON 식](#ncrontab-expressions)이 다음 섹션에 설명되어 있습니다. |
 
-4. **확인**을 클릭합니다.
+4. **확인** 을 클릭합니다.
 
    새 WebJob이 **WebJobs** 페이지에 표시됩니다.
 
@@ -189,11 +192,11 @@ when making changes in one don't forget the other two.
    
    ![WebJob 세부 정보](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. **WebJob 실행 세부 정보** 페이지에서 **토글 출력**을 선택하여 로그 내용의 텍스트를 확인합니다.
+3. **WebJob 실행 세부 정보** 페이지에서 **토글 출력** 을 선택하여 로그 내용의 텍스트를 확인합니다.
    
     ![WebJob 실행 세부 작업](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   별도의 브라우저 창에서 출력 텍스트를 보려면 **다운로드**를 선택합니다. 텍스트 자체를 다운로드하려면 **다운로드**를 마우스 오른쪽 단추로 클릭하고 브라우저 옵션을 사용하여 파일 내용을 저장합니다.
+   별도의 브라우저 창에서 출력 텍스트를 보려면 **다운로드** 를 선택합니다. 텍스트 자체를 다운로드하려면 **다운로드** 를 마우스 오른쪽 단추로 클릭하고 브라우저 옵션을 사용하여 파일 내용을 저장합니다.
    
 5. 페이지 맨 위에 있는 **WebJobs** 이동 경로 탐색 링크를 선택하여 WebJobs의 목록으로 이동합니다.
 

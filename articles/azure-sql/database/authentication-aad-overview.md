@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444435"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675083"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
 
@@ -153,21 +153,21 @@ Azure AD 서버 보안 주체 (로그인)에 대해 지원 되는 인증 방법�
   - SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 추가 하면 역할에 추가할 수 있는 여러 Azure AD 서버 보안 주체 (로그인)를 만들 수 있습니다 `sysadmin` .
 - 서버에 대 한 Azure AD 관리자만 처음에 Azure Active Directory 계정을 사용 하 여 서버 또는 관리 되는 인스턴스에 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
-- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 응용 프로그램 (DAC 및 BACPAC)의 최신 버전은 Azure AD 인증을 사용할 수 있습니다.
+- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer** (.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 응용 프로그램 (DAC 및 BACPAC)의 최신 버전은 Azure AD 인증을 사용할 수 있습니다.
 - 15.0.1 버전부터 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 및 [bcp 유틸리티](/sql/tools/bcp-utility) 는 Multi-Factor Authentication를 사용 하 여 대화형 인증 Active Directory 지원 합니다.
-- Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure AD 사용자는 SSDT 개체 탐색기에 표시 되지 않습니다. 해결 방법으로 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
+- Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure AD 사용자는 SSDT 개체 탐색기에 표시 되지 않습니다. 해결 방법으로 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql)에서 사용자를 봅니다.
 - [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/download/details.aspx?id=11774)은 Azure AD 인증을 지원합니다. 또한 [연결 속성 설정](/sql/connect/jdbc/setting-the-connection-properties)을 참조하세요.
 - PolyBase는 Azure AD 인증을 사용하여 인증할 수 없습니다.
 - Azure AD 인증은 Azure Portal **가져오기 데이터베이스** 및 **내보내기 데이터베이스** 블레이드를 사용 하 여 Azure SQL Database 및 azure Synapse에 대해 지원 됩니다. Azure AD 인증을 사용한 가져오기 및 내보내기도 PowerShell 명령에서 지원 됩니다.
-- Azure AD 인증은 CLI를 사용 하 여 SQL Database, SQL Managed Instance 및 Azure Synapse에 대해 지원 됩니다. 자세한 내용은 [SQL Database 또는 Azure Synapse를 사용 하 여 AZURE AD 인증 구성 및 관리](authentication-aad-configure.md) 및 [SQL Server-az SQL Server](https://docs.microsoft.com/cli/azure/sql/server)를 참조 하세요.
+- Azure AD 인증은 CLI를 사용 하 여 SQL Database, SQL Managed Instance 및 Azure Synapse에 대해 지원 됩니다. 자세한 내용은 [SQL Database 또는 Azure Synapse를 사용 하 여 AZURE AD 인증 구성 및 관리](authentication-aad-configure.md) 및 [SQL Server-az SQL Server](/cli/azure/sql/server)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD 인스턴스를 만들고 채운 다음 Azure SQL Database, SQL Managed Instance 또는 Azure Synapse를 사용 하 여 구성 하는 방법을 알아보려면 [SQL Database, sql Managed Instance 또는 Azure Synapse를 사용 하 여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.
 - SQL Managed Instance에서 Azure AD 서버 보안 주체 (로그인)를 사용 하는 방법에 대 한 자습서는 SQL Managed Instance를 사용 하는 [AZURE ad 서버 보안 주체 (로그인)](../managed-instance/aad-security-configure-tutorial.md) 를 참조 하세요.
 - SQL Database의 로그인, 사용자, 데이터베이스 역할 및 권한에 대 한 개요는 [로그인, 사용자, 데이터베이스 역할 및 사용 권한](logins-create-manage.md)을 참조 하세요.
-- 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
-- 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
+- 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](/sql/relational-databases/security/authentication-access/principals-database-engine)를 참조하세요.
+- 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)을 참조하세요.
 - SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 만드는 구문은  [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)를 참조 하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](firewall-configure.md)을 참조하세요.
 

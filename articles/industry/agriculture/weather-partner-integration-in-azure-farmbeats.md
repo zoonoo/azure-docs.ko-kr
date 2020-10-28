@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86496998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674920"
 ---
 # <a name="weather-partner-integration"></a>날씨 파트너 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "86496998"
 - 날씨 파트너 시스템의 데이터에 액세스 하기 위한 고객 관련 API 키/자격 증명
 - VM SKU 세부 정보 (파트너는 docker에 특정 VM 요구 사항이 있는 경우이를 제공할 수 있습니다. 그렇지 않은 경우 고객은 Azure에서 지원 되는 VM Sku에서 선택할 수 있음)
 
-위의 docker 정보를 사용 하 여 고객은 FarmBeats 인스턴스에 날씨 파트너를 등록 합니다. 고객이 docker를 사용 하 여 FarmBeats에서 날씨 데이터를 수집 하는 방법에 대 한 자세한 내용은 [날씨 데이터를 가져오는](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner) 가이드를 참조 하세요.
+위의 docker 정보를 사용 하 여 고객은 FarmBeats 인스턴스에 날씨 파트너를 등록 합니다. 고객이 docker를 사용 하 여 FarmBeats에서 날씨 데이터를 수집 하는 방법에 대 한 자세한 내용은 [날씨 데이터를 가져오는](./get-weather-data-from-weather-partner.md) 가이드를 참조 하세요.
 
 ## <a name="connector-docker-development"></a>커넥터 docker 개발
 
@@ -71,9 +71,9 @@ headers = *{"Authorization": "Bearer " + access_token, …}*
    }
 }
 ```
-API 서비스는이 dict를 직렬화 하 여 [Keyvault](https://docs.microsoft.com/azure/key-vault/basic-concepts)에 저장 합니다.
+API 서비스는이 dict를 직렬화 하 여 [Keyvault](../../key-vault/general/basic-concepts.md)에 저장 합니다.
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) 는 날씨 작업을 오케스트레이션 하 고 docker 코드를 실행 하기 위해 리소스를 회전 하는 데 사용 됩니다. 또한 docker 작업이 실행 되는 VM에 데이터를 안전 하 게 푸시하는 메커니즘도 제공 합니다. API 자격 증명, 이제 키 자격 증명 모음에 안전 하 게 저장 된는 KeyVault의 보안 문자열로 읽고, activity.js(파일 경로는 "/mnt/working_dir/activity.json"으로) docker 컨테이너의 작업 디렉터리에서 확장 속성으로 사용할 수 있게 됩니다 .이는 런타임에 고객을 대신 하 여 파트너 측 Api에 액세스 하는 동안 docker 코드에서이 파일의 자격 증명을 읽을 수 있습니다. 자격 증명은 다음과 같이 파일에서 사용할 수 있습니다.
+[Azure Data Factory](../../data-factory/introduction.md) 는 날씨 작업을 오케스트레이션 하 고 docker 코드를 실행 하기 위해 리소스를 회전 하는 데 사용 됩니다. 또한 docker 작업이 실행 되는 VM에 데이터를 안전 하 게 푸시하는 메커니즘도 제공 합니다. API 자격 증명, 이제 키 자격 증명 모음에 안전 하 게 저장 된는 KeyVault의 보안 문자열로 읽고, activity.js(파일 경로는 "/mnt/working_dir/activity.json"으로) docker 컨테이너의 작업 디렉터리에서 확장 속성으로 사용할 수 있게 됩니다 .이는 런타임에 고객을 대신 하 여 파트너 측 Api에 액세스 하는 동안 docker 코드에서이 파일의 자격 증명을 읽을 수 있습니다. 자격 증명은 다음과 같이 파일에서 사용할 수 있습니다.
 
 ```json
 { 
@@ -89,7 +89,7 @@ FarmBeats lib는 파트너가 활동 속성에서 자격 증명을 읽을 수 �
 
 파일의 수명은 docker 코드를 실행 하는 동안에만 발생 하며 docker 실행이 종료 된 후 삭제 됩니다.
 
-ADF 파이프라인과 활동의 작동 방식에 대 한 자세한 내용은을 참조 [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping) 하세요.
+ADF 파이프라인과 활동의 작동 방식에 대 한 자세한 내용은을 참조 [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md) 하세요.
 
 **HTTP 요청 헤더**
 
@@ -107,7 +107,7 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 ## <a name="docker-specifications"></a>Docker 사양
 
-Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요소가 있어야 합니다. 둘 이상의 작업이 있을 수 있습니다.
+Docker 프로그램에는 **부트스트랩** 및 **작업** 의 두 구성 요소가 있어야 합니다. 둘 이상의 작업이 있을 수 있습니다.
 
 ### <a name="bootstrap"></a>부트스트랩
 
@@ -123,8 +123,8 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
  > [!NOTE]
  > [참조 구현](https://github.com/azurefarmbeats/noaa_docker)에서 설명한 대로 파일의 bootstrap_manifest.js를 업데이트 하 **는 경우 부트스트랩** 이 매니페스트 파일에 따라 동일한를 만들기 때문에 아래 메타 데이터를 만들 필요가 없습니다.
 
-- /**WeatherDataModel**: WeatherDataModel는 날씨 데이터를 나타내는 모델 이며 원본에서 제공 하는 다양 한 데이터 집합에 해당 합니다. 예를 들어 DailyForecastSimpleModel은 하루에 한 번 평균 온도, 습도 및 강 정보를 제공할 수 있는 반면, DailyForecastAdvancedModel는 시간별 세분성에서 훨씬 더 많은 정보를 제공할 수 있습니다. WeatherDataModels를 원하는 수 만큼 만들 수 있습니다.
-- /**JobType**: FarmBeats에는 확장 가능한 작업 관리 시스템이 있습니다. 날씨 데이터 공급자는 다른 데이터 집합/a p i를 갖게 됩니다 (예: GetDailyForecasts). FarmBeats에서 JobType로 사용할 수 있습니다. JobType 만들어지면 고객이 해당 유형의 작업을 트리거하여 관심 있는 위치/팜에 대 한 날씨 데이터를 가져올 수 있습니다 ( [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)의 JobType 및 Job api 참조).
+- /**WeatherDataModel** : WeatherDataModel는 날씨 데이터를 나타내는 모델 이며 원본에서 제공 하는 다양 한 데이터 집합에 해당 합니다. 예를 들어 DailyForecastSimpleModel은 하루에 한 번 평균 온도, 습도 및 강 정보를 제공할 수 있는 반면, DailyForecastAdvancedModel는 시간별 세분성에서 훨씬 더 많은 정보를 제공할 수 있습니다. WeatherDataModels를 원하는 수 만큼 만들 수 있습니다.
+- /**JobType** : FarmBeats에는 확장 가능한 작업 관리 시스템이 있습니다. 날씨 데이터 공급자는 다른 데이터 집합/a p i를 갖게 됩니다 (예: GetDailyForecasts). FarmBeats에서 JobType로 사용할 수 있습니다. JobType 만들어지면 고객이 해당 유형의 작업을 트리거하여 관심 있는 위치/팜에 대 한 날씨 데이터를 가져올 수 있습니다 ( [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)의 JobType 및 Job api 참조).
 
 ### <a name="jobs"></a>작업
 
@@ -134,7 +134,7 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
 
 ### <a name="details-of-the-objects"></a>개체의 세부 정보
 
-  WeatherDataModel | 설명 |
+  WeatherDataModel | Description |
   --- | ---
   Name  | 날씨 데이터 모델의 이름입니다. |
   Description  | 모델에 대한 의미 있는 설명을 제공합니다. |
@@ -180,7 +180,7 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
 
 ## <a name="weather-data-telemetry-specifications"></a>날씨 데이터 (원격 분석) 사양
 
-날씨 데이터는 처리를 위해 Azure 이벤트 허브로 푸시되는 정식 메시지에 매핑됩니다. Azure EventHub는 연결 된 장치 및 응용 프로그램에서 실시간 데이터 (원격 분석) 수집을 가능 하 게 하는 서비스입니다. FarmBeats에 날씨 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만들어야 합니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [이벤트 허브로 원격 분석 전송](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send) 을 참조 하세요.
+날씨 데이터는 처리를 위해 Azure 이벤트 허브로 푸시되는 정식 메시지에 매핑됩니다. Azure EventHub는 연결 된 장치 및 응용 프로그램에서 실시간 데이터 (원격 분석) 수집을 가능 하 게 하는 서비스입니다. FarmBeats에 날씨 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만들어야 합니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [이벤트 허브로 원격 분석 전송](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 을 참조 하세요.
 
 다음은 클라이언트로서 원격 분석을 지정된 이벤트 허브에 보내는 샘플 Python 코드입니다.
 

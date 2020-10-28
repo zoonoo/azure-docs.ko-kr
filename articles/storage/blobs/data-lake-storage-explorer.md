@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 088618c0f23f5cfd1b14c3c946ef735fadb893d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086101"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674867"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리
 
 이 문서에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -36,9 +36,9 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 |연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 스토리지 계정에 직접 액세스하는 데 사용할 수 있습니다. |
 |스토리지 계정 이름 및 키 사용| 스토리지 계정 이름과 스토리지 계정 키를 사용하여 Azure Storage에 연결합니다.|
 
-**Azure 계정 추가**를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
+**Azure 계정 추가** 를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
 
-![Microsoft Azure Storage Explorer - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Microsoft Azure Storage 탐색기 표시 하 고 Azure 계정 추가 옵션 및 로그인 단추를 강조 표시 하는 스크린샷](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 작업이 완료되면 Azure Storage Explorer는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
@@ -46,7 +46,7 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 디렉터리와 파일을 보관 합니다. 하나를 만들려면 계속 진행 단계에서 만든 저장소 계정을 확장 합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 컨테이너의 이름을 입력 합니다. 컨테이너 이름 지정에 대 한 규칙 및 제한 사항 목록은 [컨테이너 만들기](storage-quickstart-blobs-dotnet.md#create-a-container) 섹션을 참조 하세요. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. 컨테이너가 성공적으로 만들어지면 선택한 저장소 계정에 대 한 **Blob 컨테이너** 폴더 아래에 표시 됩니다.
+컨테이너는 디렉터리와 파일을 보관 합니다. 하나를 만들려면 계속 진행 단계에서 만든 저장소 계정을 확장 합니다. **Blob 컨테이너** 를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기** 를 선택합니다. 컨테이너의 이름을 입력 합니다. 컨테이너 이름 지정에 대 한 규칙 및 제한 사항 목록은 [컨테이너 만들기](storage-quickstart-blobs-dotnet.md#create-a-container) 섹션을 참조 하세요. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. 컨테이너가 성공적으로 만들어지면 선택한 저장소 계정에 대 한 **Blob 컨테이너** 폴더 아래에 표시 됩니다.
 
 ![Microsoft Azure Storage 탐색기-컨테이너 만들기](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -64,7 +64,7 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 ![Microsoft Azure Storage Explorer - Blob 업로드](media/data-lake-storage-explorer/upload-file.png)
 
-**확인**을 선택하면 선택한 파일들이 업로드 대기 상태가 되고 파일 하나하나가 업로드됩니다. 업로드가 완료되면 결과가 **활동** 창에 표시됩니다.
+**확인** 을 선택하면 선택한 파일들이 업로드 대기 상태가 되고 파일 하나하나가 업로드됩니다. 업로드가 완료되면 결과가 **활동** 창에 표시됩니다.
 
 ## <a name="view-blobs-in-a-directory"></a>디렉터리에서 Blob 보기
 
@@ -74,11 +74,11 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 ## <a name="download-blobs"></a>Blob 다운로드
 
-**Azure Storage 탐색기**를 사용 하 여 파일을 다운로드 하려면 파일을 선택한 상태로 리본에서 **다운로드** 를 선택 합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장** 을 선택 하 여 로컬 위치에 대 한 파일 다운로드를 시작 합니다.
+**Azure Storage 탐색기** 를 사용 하 여 파일을 다운로드 하려면 파일을 선택한 상태로 리본에서 **다운로드** 를 선택 합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장** 을 선택 하 여 로컬 위치에 대 한 파일 다운로드를 시작 합니다.
 
 ## <a name="managing-access"></a>액세스 관리
 
-컨테이너의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage Explorer에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 컨테이너를 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리**를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
+컨테이너의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage Explorer에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 컨테이너를 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리** 를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
 
 ![Microsoft Azure Storage Explorer - 디렉터리 액세스 관리](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -86,7 +86,7 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 액세스 제어 목록에 새 사용자 또는 그룹을 추가하려면 **사용자 또는 그룹 추가** 필드를 선택합니다.
 
-목록에 추가할 해당 AAD(Azure Active Directory) 항목을 입력하고 **추가**를 선택합니다.
+목록에 추가할 해당 AAD(Azure Active Directory) 항목을 입력하고 **추가** 를 선택합니다.
 
 이제 사용자 또는 그룹이 **사용자 및 그룹** 필드에 표시되며, 사용 권한 관리를 시작할 수 있습니다.
 
@@ -95,11 +95,11 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 할당할 수 있는 사용 권한의 두 가지 범주는 액세스 ACL 및 기본 ACL입니다.
 
-* **액세스**: 액세스 acl은 개체에 대 한 액세스를 제어 합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
+* **액세스** : 액세스 acl은 개체에 대 한 액세스를 제어 합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
-* **기본값**: 디렉터리에 생성 된 모든 자식 항목의 액세스 acl을 결정 하는 디렉터리와 연결 된 acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
+* **기본값** : 디렉터리에 생성 된 모든 자식 항목의 액세스 acl을 결정 하는 디렉터리와 연결 된 acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
-이러한 두 범주에는 파일 또는 디렉터리에 대 한 **읽기**, **쓰기**및 **실행**권한을 할당할 수 있는 세 가지 권한이 있습니다.
+이러한 두 범주에는 파일 또는 디렉터리에 대 한 **읽기** , **쓰기** 및 **실행** 권한을 할당할 수 있는 세 가지 권한이 있습니다.
 
 >[!NOTE]
 > 여기에서 선택하면 현재 디렉터리에 있는 기존 항목에는 사용 권한이 설정되지 않습니다. 파일이 이미 있는 경우 각 개별 항목으로 이동한 다음, 사용 권한을 수동으로 설정해야 합니다.

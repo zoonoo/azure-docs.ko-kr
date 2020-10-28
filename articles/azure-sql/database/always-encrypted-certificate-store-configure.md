@@ -12,28 +12,28 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 60dea826a12ea475806adb6db88faa88e26463a1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164519"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674836"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Windows 인증서 저장소를 사용 하 여 Always Encrypted 구성
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 [SSMS (SQL Server Management Studio](https://msdn.microsoft.com/library/hh213248.aspx)의 [Always Encrypted 마법사](/sql/relational-databases/security/encryption/always-encrypted-wizard) )를 사용 하 여 데이터베이스 암호화를 통해 Azure SQL Database 또는 Azure SQL Managed Instance의 중요 한 데이터를 보호 하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
+이 문서에서는 [SSMS (SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)의 [Always Encrypted 마법사](/sql/relational-databases/security/encryption/always-encrypted-wizard) )를 사용 하 여 데이터베이스 암호화를 통해 Azure SQL Database 또는 Azure SQL Managed Instance의 중요 한 데이터를 보호 하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 
-Always Encrypted은 클라이언트와 서버 간에 이동 하는 동안 서버에서 휴지 상태의 중요 한 데이터를 보호 하는 데 도움이 되는 데이터 암호화 기술입니다. 데이터를 사용 하는 동안에는 중요 한 데이터가 데이터베이스 시스템 내부에서 일반 텍스트로 나타나지 않도록 합니다. 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
+Always Encrypted은 클라이언트와 서버 간에 이동 하는 동안 서버에서 휴지 상태의 중요 한 데이터를 보호 하는 데 도움이 되는 데이터 암호화 기술입니다. 데이터를 사용 하는 동안에는 중요 한 데이터가 데이터베이스 시스템 내부에서 일반 텍스트로 나타나지 않도록 합니다. 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 참조하세요.
 
 상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 애플리케이션을 만들어 암호화된 데이터로 작업합니다.
 
 이 문서의 단계에 따라 SQL Database 또는 SQL Managed Instance에 대 한 Always Encrypted를 설정 하는 방법을 알아봅니다. 이 문서에서는 다음 작업을 수행하는 방법을 배웁니다.
 
-* SSMS의 Always Encrypted 마법사를 사용 하 여 [Always Encrypted 키](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)를 만듭니다.
-  * [CMK (열 마스터 키)](https://msdn.microsoft.com/library/mt146393.aspx)를 만듭니다.
-  * [열 암호화 키 (CEK)](https://msdn.microsoft.com/library/mt146372.aspx)를 만듭니다.
+* SSMS의 Always Encrypted 마법사를 사용 하 여 [Always Encrypted 키](/sql/relational-databases/security/encryption/always-encrypted-database-engine#Anchor_3)를 만듭니다.
+  * [CMK (열 마스터 키)](/sql/t-sql/statements/create-column-master-key-transact-sql)를 만듭니다.
+  * [열 암호화 키 (CEK)](/sql/t-sql/statements/create-column-encryption-key-transact-sql)를 만듭니다.
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
@@ -41,17 +41,17 @@ Always Encrypted은 클라이언트와 서버 간에 이동 하는 동안 서버
 
 이 자습서에는 다음이 필요합니다.
 
-* Azure 계정 및 구독 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
+* Azure 계정 및 구독 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - [Azure SQL Database](single-database-create-quickstart.md) 또는 [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md)의 데이터베이스입니다.
-* [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상.
-* [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서).
+* [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 버전 13.0.700.242 이상.
+* [.NET Framework 4.6](/dotnet/framework/) 이상(클라이언트 컴퓨터에서).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 
 ## <a name="enable-client-application-access"></a>클라이언트 응용 프로그램 액세스 사용
 
 AAD (Azure Active Directory) 응용 프로그램을 설정 하 고 응용 프로그램을 인증 하는 데 필요한 *응용 프로그램 ID* 및 *키* 를 복사 하 여 클라이언트 응용 프로그램이 SQL Database 또는 SQL Managed Instance에 액세스할 수 있도록 설정 해야 합니다.
 
-*애플리케이션 ID* 및 *키*를 가져오려면 [리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)의 단계를 수행합니다.
+*애플리케이션 ID* 및 *키* 를 가져오려면 [리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)의 단계를 수행합니다.
 
 
 
@@ -70,8 +70,8 @@ SSMS (SQL Server Management Studio)를 열고 서버에 연결 하거나 데이�
 
 이 섹션에서는 환자 데이터를 저장할 테이블을 만듭니다. 처음에는 일반 테이블이지만 다음 섹션에서 암호화를 구성합니다.
 
-1. **데이터베이스**를 확장합니다.
-2. **Clinic** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
+1. **데이터베이스** 를 확장합니다.
+2. **Clinic** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 클릭합니다.
 3. 새 쿼리 창에 다음 Transact-SQL(T-SQL)을 붙여넣고 **실행** 합니다.
     
     ```tsql
@@ -94,20 +94,20 @@ SSMS (SQL Server Management Studio)를 열고 서버에 연결 하거나 데이�
 
 SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
 
-1. **데이터베이스**  >  **클리닉**  >  **테이블**을 확장 합니다.
-2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
+1. **데이터베이스**  >  **클리닉**  >  **테이블** 을 확장 합니다.
+2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화** 를 선택하여 상시 암호화 마법사를 엽니다.
 
     ![암호화 된 열을 보여 주는 스크린샷 ... 환자 테이블의 메뉴 옵션을 선택 합니다.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
-상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
+상시 암호화 마법사에는 **열 선택** , **마스터 키 구성** (CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
 ### <a name="column-selection"></a>열 선택
 
-**소개** 페이지에서 **다음**을 클릭하여 **열 선택** 페이지를 엽니다. 이 페이지에서 암호화하려는 열, [암호화 형식 및 사용할 CEK(열 암호화 키)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) 를 선택합니다.
+**소개** 페이지에서 **다음** 을 클릭하여 **열 선택** 페이지를 엽니다. 이 페이지에서 암호화하려는 열, [암호화 형식 및 사용할 CEK(열 암호화 키)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) 를 선택합니다.
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. **SSN** 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. **BirthDate** 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
+**SSN** 열에 대한 **암호화 형식** 을 **결정적** 으로 설정하고 **BirthDate** 열을 **무작위** 로 설정합니다. **다음** 을 클릭합니다.
 
 ![열 암호화](./media/always-encrypted-certificate-store-configure/column-selection.png)
 
@@ -115,13 +115,13 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 **마스터 키 구성** 페이지는 CMK를 설치하고 CMK가 저장될 키 저장소 공급자를 선택합니다. 현재 Windows 인증서 저장소, Azure Key Vault 또는 하드웨어 보안 모듈(HSM)에 CMK를 저장할 수 있습니다. 이 자습서에는 Windows 인증서 저장소에 키를 저장하는 방법을 보여줍니다.
 
-**Windows 인증서 저장소**가 선택되었는지 확인하고 **다음**을 클릭합니다.
+**Windows 인증서 저장소** 가 선택되었는지 확인하고 **다음** 을 클릭합니다.
 
 ![마스터 키 구성](./media/always-encrypted-certificate-store-configure/master-key-configuration.png)
 
 ### <a name="validation"></a>유효성 검사
 
-이제 열을 암호화하거나 나중에 실행할 PowerShell 스크립트를 저장할 수 있습니다. 이 자습서의 경우 **지금 전체 과정 진행**을 선택하고 **다음**을 클릭합니다.
+이제 열을 암호화하거나 나중에 실행할 PowerShell 스크립트를 저장할 수 있습니다. 이 자습서의 경우 **지금 전체 과정 진행** 을 선택하고 **다음** 을 클릭합니다.
 
 ### <a name="summary"></a>요약
 
@@ -137,17 +137,17 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 * CEK를 만들었습니다.
 * 암호화에 선택한 열을 구성합니다. **Patients** 테이블에는 현재 데이터가 없지만 이제 선택된 열의 기존 데이터가 암호화됩니다.
 
-**클리닉**  >  **보안**  >  **Always Encrypted 키**로 이동 하 여 SSMS에서 키 만들기를 확인할 수 있습니다. 이제 마법사에서 생성한 새 키를 볼 수 있습니다.
+**클리닉**  >  **보안**  >  **Always Encrypted 키** 로 이동 하 여 SSMS에서 키 만들기를 확인할 수 있습니다. 이제 마법사에서 생성한 새 키를 볼 수 있습니다.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 애플리케이션 만들기
 
-상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다. 샘플 애플리케이션을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 애플리케이션을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
+상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택* 을 수행하는 애플리케이션을 빌드할 수 있습니다. 샘플 애플리케이션을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 애플리케이션을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
 
 > [!IMPORTANT]
-> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 
 1. Visual Studio를 열고 새 C# 콘솔 애플리케이션을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
-2. 프로젝트 이름을 **AlwaysEncryptedConsoleApp**으로 지정하고 **확인**을 클릭합니다.
+2. 프로젝트 이름을 **AlwaysEncryptedConsoleApp** 으로 지정하고 **확인** 을 클릭합니다.
 
 ![새로 명명 된 AlwaysEncryptedConsoleApp 프로젝트를 보여 주는 스크린샷](./media/always-encrypted-certificate-store-configure/console-app.png)
 
@@ -155,9 +155,9 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 이 섹션에는 데이터베이스 연결 문자열에서 상시 암호화를 사용하는 방법을 설명합니다. 다음 섹션 "상시 암호화 샘플 콘솔 애플리케이션"에서 실제로 방금 만든 콘솔 앱을 수정합니다.
 
-상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함**으로 설정해야 합니다.
+상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함** 으로 설정해야 합니다.
 
-이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여 줍니다.
+이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder** 를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 상시 암호화에 특정된 클라이언트 애플리케이션에서 필요한 유일한 변경 내용입니다. 외부(즉, 구성 파일)에서 연결 문자열을 저장하는 기존 애플리케이션이 있는 경우 코드를 변경하지 않고 상시 암호화를 사용할 수 있습니다.
@@ -170,7 +170,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>SqlConnectionStringBuilder로 상시 암호화 사용
 
-다음 코드는 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx)을 [사용함](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)으로 설정하여 상시 암호화를 사용하는 방법을 보여 줍니다.
+다음 코드는 [SqlConnectionStringBuilder.ColumnEncryptionSetting](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting)을 [사용함](/dotnet/api/system.data.sqlclient.sqlconnectioncolumnencryptionsetting)으로 설정하여 상시 암호화를 사용하는 방법을 보여 줍니다.
 
 ```csharp
 // Instantiate a SqlConnectionStringBuilder.
@@ -190,7 +190,7 @@ connStringBuilder.ColumnEncryptionSetting =
 * 암호화된 열에 데이터 삽입.
 * 암호화된 열에서 특정 값에 필터링하여 레코드 선택.
 
-**Program.cs**의 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
+**Program.cs** 의 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
 
 작업에서 상시 암호화를 확인하려면 앱을 실행합니다.
 
@@ -514,9 +514,9 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암호화 설정=활성화** 매개 변수를 연결에 추가할 수 있습니다.
 
-1. SSMS에서 **개체 탐색기**에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기**를 클릭합니다.
-2. **연결**  >  **데이터베이스 엔진** 을 클릭 하 여 **서버에 연결** 창을 열고 **옵션**을 클릭 합니다.
-3. **추가 연결 매개 변수**를 클릭하고 **열 암호화 설정=활성화**를 입력합니다.
+1. SSMS에서 **개체 탐색기** 에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기** 를 클릭합니다.
+2. **연결**  >  **데이터베이스 엔진** 을 클릭 하 여 **서버에 연결** 창을 열고 **옵션** 을 클릭 합니다.
+3. **추가 연결 매개 변수** 를 클릭하고 **열 암호화 설정=활성화** 를 입력합니다.
 
     ![상자에 입력 된 열 암호화 설정 = 활성화 된 추가 연결 매개 변수 탭을 보여 주는 스크린샷](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. **Clinic** 데이터베이스에 대해 다음 쿼리를 실행합니다.
@@ -537,14 +537,14 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 상시 암호화를 사용하는 데이터베이스를 만든 후에 다음을 수행할 수 있습니다.
 
 * 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다.
-* [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
-* [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
-* [다른 클라이언트 머신에 상시 암호화 인증서 배포](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) ("애플리케이션 및 사용자가 인증서를 사용할 수 있도록 지정" 섹션 참조).
+* [키 회전 및 정리](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio).
+* [상시 암호화로 이미 암호화된 데이터 마이그레이션](/sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted)
+* [다른 클라이언트 머신에 상시 암호화 인증서 배포](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted#Anchor_1) ("애플리케이션 및 사용자가 인증서를 사용할 수 있도록 지정" 섹션 참조).
 
 ## <a name="related-information"></a>관련 정보
 
-* [상시 암호화(클라이언트 개발)](https://msdn.microsoft.com/library/mt147923.aspx)
-* [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)
-* [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
-* [Always Encrypted 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted 블로그](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)
+* [상시 암호화(클라이언트 개발)](/sql/relational-databases/security/encryption/always-encrypted-client-development)
+* [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [SQL Server 암호화](/sql/relational-databases/security/encryption/sql-server-encryption)
+* [Always Encrypted 마법사](/sql/relational-databases/security/encryption/always-encrypted-wizard)
+* [Always Encrypted 블로그](/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

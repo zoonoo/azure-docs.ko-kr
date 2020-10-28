@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: ee1753932018d0ea3a627ff2a6c7b85dc0a65de1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674844"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 개발 환경 설정
 
@@ -37,13 +37,13 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역입니다. 아직 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (로컬 및 DSVM에만 해당) 작업 영역 구성 파일 만들기
 
-작업 영역 구성 파일은 SDK에서 Azure Machine Learning 작업 영역과 통신 하는 방법을 알려 주는 JSON 파일입니다. 파일 이름은 *config.json*이고 형식은 다음과 같습니다.
+작업 영역 구성 파일은 SDK에서 Azure Machine Learning 작업 영역과 통신 하는 방법을 알려 주는 JSON 파일입니다. 파일 이름은 *config.json* 이고 형식은 다음과 같습니다.
 
 ```json
 {
@@ -53,7 +53,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 }
 ```
 
-이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리, *.azureml*이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
+이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리, *.azureml* 이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
 
 코드에서이 파일을 사용 하려면 메서드를 사용 [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
 
@@ -61,13 +61,13 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Azure portal
 
-    **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.js켜기** 를 선택 합니다.
+    **파일 다운로드** : [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.js켜기** 를 선택 합니다.
 
     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning Python SDK
 
-    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 파일을 생성 하 고를 *azureml/config.js에*저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
+    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 파일을 생성 하 고를 *azureml/config.js에* 저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
 
     ```python
     from azureml.core import Workspace
@@ -122,6 +122,9 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 Azure Machine Learning 및 Jupyter 노트북을 시작 하려면 [Azure Machine Learning 노트북 리포지토리](https://github.com/Azure/MachineLearningNotebooks) 를 참조 하세요.
 
+> [!NOTE]
+> 커뮤니티 중심의 예제 리포지토리는에서 찾을 수 있습니다 https://github.com/Azure/azureml-examples .
+
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 개발에 Visual Studio Code를 사용 하려면 다음을 수행 합니다.
@@ -148,7 +151,7 @@ Jupyter Notebook 서버 및 JupyterLab 외에도 [Azure Machine Learning studio 
 
 Azure Machine Learning Visual Studio Code 확장을 사용 하 여 [Azure Machine Learning 계산 인스턴스를 원격 Jupyter Notebook 서버로 구성할](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server)수도 있습니다.
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 
 DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 이는 다음과 같은 미리 구성 된 도구 및 소프트웨어용 데이터 과학 작업을 위해 설계 되었습니다.
 
@@ -240,7 +243,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다. 자동화 된 ML의 경우 [자동화 된 기계 학습을 사용 하는 Databricks SDK 섹션](#sdk-for-databricks-with-automated-machine-learning)으로 건너뜁니다.
 
-1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  **Library**를 선택 합니다.
+1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  **Library** 를 선택 합니다.
 
 1. 다음 옵션을 선택 합니다 (다른 SDK 설치는 지원 되지 않음).
 
@@ -251,15 +254,15 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
    > [!Warning]
    > 다른 SDK 추가 기능을 설치할 수 없습니다. [ `databricks` ] 옵션만 선택 합니다.
 
-   * **모든 클러스터에 자동으로 연결을**선택 하지 않습니다.
+   * **모든 클러스터에 자동으로 연결을** 선택 하지 않습니다.
    * 클러스터 이름 옆에 있는  **연결** 을 선택 합니다.
 
-1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우:
+1. 상태가 **연결** 됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우:
 
    다음을 수행 하 여 클러스터를 다시 시작 합니다.
-   1. 왼쪽 창에서 **클러스터**를 선택합니다.
+   1. 왼쪽 창에서 **클러스터** 를 선택합니다.
    1. 테이블에서 클러스터 이름을 선택합니다.
-   1. **라이브러리** 탭에서 **다시 시작**을 선택합니다.
+   1. **라이브러리** 탭에서 **다시 시작** 을 선택합니다.
 
    다음 사항도 고려해 야 합니다.
    + AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수를 추가 합니다.
@@ -284,7 +287,7 @@ Databricks이 아닌 ML runtime 7.0 이하의 경우 [init 스크립트](https:/
 ### <a name="start-exploring"></a>다양한 콘텐츠 살펴보기
 
 사용해보기:
-+ 많은 샘플 노트북을 사용할 수 있지만 ** [이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
++ 많은 샘플 노트북을 사용할 수 있지만 **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
 
 + 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. ![ ](./media/how-to-configure-environment/azure-db-screenshot.png)
  ![ 가져오기 패널 가져오기 선택](./media/how-to-configure-environment/azure-db-import.png)

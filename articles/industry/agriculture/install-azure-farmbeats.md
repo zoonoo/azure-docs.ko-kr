@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5863dcc20fb13f1bb203c68ad168655371130601
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330481"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674561"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
 
@@ -18,9 +18,9 @@ ms.locfileid: "92330481"
 
 Azure FarmBeats는 Azure Marketplace에서 사용할 수 있는 B2B(Business-to-Business) 제품입니다. 이를 통해 공급자의 농업 데이터 집합을 집계 하 고 실행 가능한 정보를 생성할 수 있습니다. Azure FarmBeats는 퓨즈 데이터 집합을 기반으로 AI (인공 지능) 또는 기계 학습 (ML) 모델을 빌드할 수 있도록 하 여이를 수행 합니다. Azure FarmBeats의 두 가지 주요 구성 요소는 다음과 같습니다.
 
-- **Datahub**: 다양 한 공급자에 걸쳐 다양 한 농업 데이터 집합의 집계, 정규화 및 contextualization를 사용 하도록 설정 하는 API 계층입니다.
+- **Datahub** : 다양 한 공급자에 걸쳐 다양 한 농업 데이터 집합의 집계, 정규화 및 contextualization를 사용 하도록 설정 하는 API 계층입니다.
 
-- **Accelerator**: datahub 위에 빌드되는 웹 응용 프로그램입니다. 모델 개발 및 시각화를 바로 시작 합니다. 액셀러레이터는 Azure FarmBeats Api를 사용 하 여 수집 센서 데이터를 차트로 시각화 하 고 모델 출력의 시각화를 지도로 보여 줍니다.
+- **Accelerator** : datahub 위에 빌드되는 웹 응용 프로그램입니다. 모델 개발 및 시각화를 바로 시작 합니다. 액셀러레이터는 Azure FarmBeats Api를 사용 하 여 수집 센서 데이터를 차트로 시각화 하 고 모델 출력의 시각화를 지도로 보여 줍니다.
 
 ## <a name="general-information"></a>일반 정보
 
@@ -71,7 +71,7 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
@@ -87,13 +87,13 @@ Azure FarmBeats를 설치 하려면 Azure 테 넌 트에서 다음 권한이 필
 
 Marketplace에서 FarmBeats install을 실행 하는 사람은 FarmBeats가 설치 되는 리소스 그룹의 소유자 여야 합니다. 구독 소유자의 경우이는 리소스 그룹을 만들 때 자동으로 발생 합니다. 다른 사용자의 경우 리소스 그룹을 미리 만들고 리소스 그룹의 소유자가 되도록 구독 소유자에 게 요청 하세요.
 
-[Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/check-access)의 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
+[Azure 역할 기반 액세스 제어](../../role-based-access-control/check-access.md)의 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
 
 ### <a name="decide-subscription-and-region"></a>구독 및 지역 결정
 
 Azure FarmBeats를 설치 하려는 Azure 구독 ID 및 지역이 필요 합니다. [지원 되는 지역](#regions-supported) 섹션에 나열 된 지역 중 하나를 선택 합니다.
 
-**Azure 구독 ID** 와 **azure 지역을**적어 둡니다.
+**Azure 구독 ID** 와 **azure 지역을** 적어 둡니다.
 
 ### <a name="create-an-aad-application"></a>AAD 응용 프로그램 만들기
 
@@ -124,11 +124,11 @@ PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계
 
 4. 스크립트는 다음 세 가지 입력을 요청 합니다.
 
-    - **FarmBeats 웹 사이트 이름**: FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://에서 액세스할 수 \<FarmBeats-website-name> 있으며, Swagger api는 https://-api.azurewebsites.net에 있습니다. \<FarmBeats-website-name>
+    - **FarmBeats 웹 사이트 이름** : FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://에서 액세스할 수 \<FarmBeats-website-name> 있으며, Swagger api는 https://-api.azurewebsites.net에 있습니다. \<FarmBeats-website-name>
 
-    - **Azure 로그인 id**: FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 일반적으로입니다 john.doe@domain.com . Azure UPN도 지원 됩니다.
+    - **Azure 로그인 id** : FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 일반적으로입니다 john.doe@domain.com . Azure UPN도 지원 됩니다.
 
-    - **구독 id**: Azure FarmBeats을 설치 하려는 구독의 id입니다.
+    - **구독 id** : Azure FarmBeats을 설치 하려는 구독의 id입니다.
 
 5. AAD 스크립트는 실행 하는 데 2 분 정도 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에서 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
 
@@ -142,7 +142,7 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 2. 필요한 세부 정보 (이름, 성, 사용자 이름, 암호 및 전자 메일 ID)를 입력 하 고 양식을 완성 합니다.
 3. 확인 링크는 등록 된 전자 메일 ID로 전송 됩니다. 전자 메일에 제공 된 링크를 선택 하 고 확인을 완료 합니다.
 
-등록 프로세스가 완료 되었습니다. 확인이 완료 되 면 **센티널 사용자 이름** 및 **센티널 암호**를 기록해 둡니다.
+등록 프로세스가 완료 되었습니다. 확인이 완료 되 면 **센티널 사용자 이름** 및 **센티널 암호** 를 기록해 둡니다.
 
 ## <a name="install"></a>설치
 
@@ -152,7 +152,7 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 2. 포털 내의 Azure Marketplace로 이동 하 고 Marketplace에서 **Azure FarmBeats** 를 검색 합니다.
 
-3. Azure FarmBeats의 개요가 표시 된 새 창이 표시 됩니다. **만들기**를 선택합니다.
+3. Azure FarmBeats의 개요가 표시 된 새 창이 표시 됩니다. **만들기** 를 선택합니다.
 
 4. 새 창이 나타납니다. Azure FarmBeats를 설치 하려는 올바른 구독, 리소스 그룹 및 위치를 선택 하 여 등록 프로세스를 완료 합니다.
 
@@ -166,7 +166,7 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
     ![종속성 탭](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
-8. 입력 한 세부 정보의 유효성이 검사 되 면 **확인**을 선택 합니다. 사용 약관 페이지가 표시 됩니다. 용어를 검토 하 고 **만들기** 를 선택 하 여 설치를 시작 합니다. 설치 진행 상황을 따를 수 있는 페이지로 리디렉션됩니다.
+8. 입력 한 세부 정보의 유효성이 검사 되 면 **확인** 을 선택 합니다. 사용 약관 페이지가 표시 됩니다. 용어를 검토 하 고 **만들기** 를 선택 하 여 설치를 시작 합니다. 설치 진행 상황을 따를 수 있는 페이지로 리디렉션됩니다.
 
 설치가 완료 되 면 설치를 확인 하 고 설치 중에 제공한 웹 사이트 이름으로 이동 하 여 FarmBeats 포털 사용을 시작할 수 있습니다. https:// \<FarmBeats-website-name> . azurewebsites.net. 팜을 만들 수 있는 옵션이 포함 된 FarmBeats 사용자 인터페이스가 표시 되어야 합니다.
 
