@@ -11,18 +11,18 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
-ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e01e74f5086f7f1eb7e85661fbd35f452d8dae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319336"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790205"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
-> 9 월 2020 현재이 커넥터는 적극적으로 유지 관리 되지 않습니다. 그러나 이제는 [SQL Server 및 AZURE SQL 용 Apache Spark 커넥터](https://docs.microsoft.com/sql/connect/spark/connector) 를 사용할 수 있으며, Python 및 R 바인딩을 지원 하 고, 사용 하기 쉬운 인터페이스를 사용 하 여 데이터를 대량으로 삽입 하 고, 기타 여러 가지 기능을 향상 시킬 수 있습니다. 이 대신 새 커넥터를 평가 하 고 사용 하는 것이 좋습니다. 이전 커넥터 (이 페이지)에 대 한 정보는 보관 목적 으로만 유지 됩니다.
+> 9 월 2020 현재이 커넥터는 적극적으로 유지 관리 되지 않습니다. 그러나 이제는 [SQL Server 및 AZURE SQL 용 Apache Spark 커넥터](/sql/connect/spark/connector) 를 사용할 수 있으며, Python 및 R 바인딩을 지원 하 고, 사용 하기 쉬운 인터페이스를 사용 하 여 데이터를 대량으로 삽입 하 고, 기타 여러 가지 기능을 향상 시킬 수 있습니다. 이 대신 새 커넥터를 평가 하 고 사용 하는 것이 좋습니다. 이전 커넥터 (이 페이지)에 대 한 정보는 보관 목적 으로만 유지 됩니다.
 
 Spark 커넥터를 사용 하면 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server의 데이터베이스가 Spark 작업에 대 한 입력 데이터 원본 또는 출력 데이터 싱크로 작동할 수 있습니다. 빅 데이터 분석에서 실시간 트랜잭션 데이터를 활용 하 고 임시 쿼리 또는 보고에 대 한 결과를 유지할 수 있습니다. 기본 제공 JDBC 커넥터와 비교할 때이 커넥터는 데이터베이스에 데이터를 대량으로 삽입 하는 기능을 제공 합니다. 10 배를 사용 하 여 행 단위 삽입을 내지만 더 빠른 성능을 20x 수 있습니다. Spark 커넥터 Azure Active Directory (Azure AD) 인증을 지원 하 여 azure AD 계정을 사용 하 여 Azure Databricks에서 데이터베이스를 연결할 수 있도록 Azure SQL Database 및 Azure SQL Managed Instance에 연결 합니다. 기본 제공 JDBC 커넥터와 유사한 인터페이스를 제공합니다. 기존의 Spark 작업을 이 새로운 커넥터를 사용하도록 쉽게 마이그레이션할 수 있습니다.
 
@@ -35,7 +35,7 @@ Spark 커넥터를 사용 하면 Azure SQL Database, Azure SQL Managed Instance 
 | 구성 요소                             | 버전                  |
 | :-----------------------------------  | :----------------------- |
 | Apache Spark                          | 2.0.2 이상           |
-| 스칼라                                 | 2.10 이상            |
+| Scala                                 | 2.10 이상            |
 | SQL Server용 Microsoft JDBC Driver  | 6.2 이상             |
 | Microsoft SQL Server                  | SQL Server 2008 이상 |
 | Azure SQL Database                    | 지원됨                |
@@ -238,4 +238,4 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 - [Azure Databricks Notebooks 샘플](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [샘플 스크립트(Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-또한 [Apache Spark SQL, DataFrames 및 Datasets 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure Databricks 설명서](https://docs.microsoft.com/azure/azure-databricks/)를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrames 및 Datasets 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure Databricks 설명서](/azure/azure-databricks/)를 검토할 수도 있습니다.

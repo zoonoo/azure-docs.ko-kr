@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263184"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789984"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -69,7 +69,7 @@ ms.locfileid: "91263184"
    >[!NOTE]
    >경우에 따라 PowerShell을 사용하여 VNet 간 연결을 만들어야 할 수 있습니다. 예를 들어 다른 Azure 계정을 사용하는 경우 포털에서 연결을 구성할 수 없습니다. 이 경우 [Azure Portal에서 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
-1. [새 영역에서 도메인 컨트롤러를 만듭니다](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [새 영역에서 도메인 컨트롤러를 만듭니다](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    이 도메인 컨트롤러는 주 사이트의 도메인 컨트롤러를 사용할 수 없는 경우 인증을 제공합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "91263184"
    - 부하 분산 장치가 있는 동일한 지역의 가상 머신으로만 구성된 백 엔드 풀을 포함합니다.
    - IP 주소 고유의 TCP 포트 프로브를 사용합니다.
    - 동일한 지역의 SQL Server와 관련된 부하 분산 규칙이 있습니다.  
-   - 백 엔드 풀의 가상 머신이 단일 가용성 집합 또는 가상 머신 확장 집합에 포함되지 않는 경우 표준 Load Balancer여야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 참조하세요.
+   - 백 엔드 풀의 가상 머신이 단일 가용성 집합 또는 가상 머신 확장 집합에 포함되지 않는 경우 표준 Load Balancer여야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../../../load-balancer/load-balancer-overview.md)를 참조하세요.
 
 1. [장애 조치(Failover) 클러스터링 기능을 새 SQL Server에 추가합니다](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -96,11 +96,11 @@ ms.locfileid: "91263184"
 
 1. 클러스터에 IP 주소 리소스를 추가합니다.
 
-   장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 **클러스터 코어 리소스**에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
+   장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 **클러스터 코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
 
    ![클러스터 속성](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   **속성** 대화 상자에서 **IP 주소**아래의 **추가**를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **Ip 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 **확인** 을 다시 선택 하 여 새 ip 주소를 저장 합니다. 
+   **속성** 대화 상자에서 **IP 주소** 아래의 **추가** 를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **Ip 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 **확인** 을 다시 선택 하 여 새 ip 주소를 저장 합니다. 
 
    ![클러스터 IP 추가](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "91263184"
 
 1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가합니다. 
 
-   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가**, 추가 **리소스**를 선택한 다음 **IP 주소**를 선택 합니다.
+   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가** , 추가 **리소스** 를 선택한 다음 **IP 주소** 를 선택 합니다.
 
    ![IP 주소 만들기](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -161,7 +161,7 @@ ms.locfileid: "91263184"
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 애플리케이션 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 애플리케이션에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
-가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](https://msdn.microsoft.com/library/gg471494#Anchor_0)을 참조하세요.
+가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [시간 제한 오류 및 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없음](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)을 참조하세요.
 
@@ -169,17 +169,17 @@ ms.locfileid: "91263184"
 
 원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용합니다.
 
-1. **개체 탐색기**에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
-1. **AlwaysOn 가용성 그룹**, **가용성 그룹**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
-1. **일반** 페이지의 **가용성 복제본**에서 DR 사이트의 보조 복제본을 **동기 커밋** 가용성 모드 및 **자동** 장애 조치 모드를 사용하도록 설정합니다.
-1. 보조 복제본의 고가용성을 위해 주 복제본과 같은 사이트에 있는 경우 이 복제본을 **비동기 커밋** 및 **수동**으로 설정합니다.
+1. **개체 탐색기** 에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
+1. **AlwaysOn 가용성 그룹** , **가용성 그룹** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
+1. **일반** 페이지의 **가용성 복제본** 에서 DR 사이트의 보조 복제본을 **동기 커밋** 가용성 모드 및 **자동** 장애 조치 모드를 사용하도록 설정합니다.
+1. 보조 복제본의 고가용성을 위해 주 복제본과 같은 사이트에 있는 경우 이 복제본을 **비동기 커밋** 및 **수동** 으로 설정합니다.
 1. 확인을 선택합니다.
-1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **대시보드 표시**를 선택 합니다.
+1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **대시보드 표시** 를 선택 합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
-1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 선택 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
-1. **다음**을 선택 하 고 DR 사이트에서 SQL Server 인스턴스를 선택 합니다. **다음** 을 다시 선택 합니다.
-1. DR 사이트의 SQL Server 인스턴스에 연결 하 고 **다음**을 선택 합니다.
-1. **요약** 페이지에서 설정을 확인 하 고 **마침**을 선택 합니다.
+1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 선택 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
+1. **다음** 을 선택 하 고 DR 사이트에서 SQL Server 인스턴스를 선택 합니다. **다음** 을 다시 선택 합니다.
+1. DR 사이트의 SQL Server 인스턴스에 연결 하 고 **다음** 을 선택 합니다.
+1. **요약** 페이지에서 설정을 확인 하 고 **마침** 을 선택 합니다.
 
 연결을 테스트한 후에 주 복제본은 기본 데이터 센터로 다시 이동되고 가용성 모드는 일반 작동 설정으로 다시 지정됩니다. 다음 표에는 이 문서에서 설명하는 아키텍처에 대한 일반 작업 설정이 나와 있습니다.
 
@@ -194,12 +194,12 @@ ms.locfileid: "91263184"
 
 자세한 내용은 아래 항목을 참조하세요.
 
-- [가용성 그룹의 계획된 수동 장애 조치(Failover) 수행(SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [가용성 그룹의 계획된 수동 장애 조치(Failover) 수행(SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Azure Virtual Machines](../../../virtual-machines/windows/index.yml)
 * [Azure Load Balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure 가용성 집합](../../../virtual-machines/linux/manage-availability.md)
+* [Azure 가용성 집합](../../../virtual-machines/manage-availability.md)

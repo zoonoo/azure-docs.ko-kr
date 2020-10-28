@@ -12,12 +12,12 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.date: 03/10/2020
-  ms.openlocfilehash: 678d7b0094a4734fc76019cc20ed058744bbdc36
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 26a47465085e3cd013cf5b6dc0a937345690cec1
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89651473"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92790290"
 landingContent:
 - title: 모니터링 및 성능 튜닝 시작
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
     - text: 검색 가능한 성능 패턴
       url: intelligent-insights-troubleshoot-performance.md
     - text: 인텔리전트 쿼리 처리
-      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+      url: /sql/relational-databases/performance/intelligent-query-processing
   - linkListType: video
     links:
     - text: 인텔리전스 Insights
@@ -94,7 +94,7 @@ landingContent:
     - text: 애플리케이션 및 데이터베이스 튜닝
       url: performance-guidance.md
     - text: 쿼리 저장소 사용
-      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+      url: /sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
     - text: 확장 이벤트 사용
       url: xevent-db-diff-from-svr.md
     - text: 하이퍼스케일 성능 진단

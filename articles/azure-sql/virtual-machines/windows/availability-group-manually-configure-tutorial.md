@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168157"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790069"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>자습서: 가용성 그룹(Azure VM의 SQL Server) 수동 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "92168157"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서에서는 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server) 개요](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
+이 자습서에서는 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server) 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)를 참조하세요.
 
 자습서를 시작하기 전에 [Always On 가용성 그룹을 Azure Virtual Machines에 만들기 위한 필수 구성 요소를 완료](availability-group-manually-configure-prerequisites-tutorial.md)해야 합니다. 이러한 필수 구성 요소를 이미 완료한 경우 [클러스터 만들기](#CreateCluster)로 이동할 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "92168157"
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **설치 도메인 계정** | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
 
 >[!NOTE]
-> 이 자습서에서 제공되는 대부분의 단계는 이제 [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 및 Az CLI](availability-group-az-cli-configure.md) 및 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 자동화할 수 있습니다.
+> 이 자습서에서 제공되는 대부분의 단계는 이제 [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 및 Az CLI](./availability-group-az-commandline-configure.md) 및 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 자동화할 수 있습니다.
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ ms.locfileid: "92168157"
    ![노드 확인 추가](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 결과적으로 클러스터에서 스토리지 공간이 제거되고 PowerShell을 사용하여 다시 연결될 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](https://technet.microsoft.com/library/hh831739)을 참조하세요.
+   >만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 결과적으로 클러스터에서 스토리지 공간이 제거되고 PowerShell을 사용하여 다시 연결될 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11))을 참조하세요.
    >
 
 1. **다음** 을 선택합니다.
@@ -127,7 +127,7 @@ ms.locfileid: "92168157"
 
 ### <a name="add-a-cluster-quorum-file-share"></a>클러스터 쿼럼 파일 공유 추가
 
-다음 예에서는 Windows 클러스터에서 파일 공유를 사용하여 클러스터 쿼럼을 만듭니다. 이 자습서에서는 노드 및 파일 공유 과반수 쿼럼을 사용합니다. 자세한 내용은 [장애 조치(Failover) 클러스터의 쿼럼 구성 이해](https://technet.microsoft.com/library/cc731739.aspx)를 참조하세요.
+다음 예에서는 Windows 클러스터에서 파일 공유를 사용하여 클러스터 쿼럼을 만듭니다. 이 자습서에서는 노드 및 파일 공유 과반수 쿼럼을 사용합니다. 자세한 내용은 [장애 조치(Failover) 클러스터의 쿼럼 구성 이해](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11))를 참조하세요.
 
 1. 원격 데스크톱 세션으로 파일 공유 미러링 모니터 구성원 서버에 연결합니다.
 
@@ -176,7 +176,7 @@ ms.locfileid: "92168157"
 1. **쿼럼 감시 선택** 에서 **파일 공유 감시 구성** 을 선택합니다.
 
    >[!TIP]
-   >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
+   >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
    >
 
 1. **파일 공유 감시 구성** 에서 사용자가 만든 공유에 대한 경로를 입력합니다. **다음** 을 선택합니다.
@@ -347,7 +347,7 @@ Repeat these steps on the second SQL Server.
    ![장애 조치(failover) 클러스터 관리자의 가용성 그룹](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드** 에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
+   > 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드** 에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server)을 참조하세요.
     >
 
 이 시점에서 SQL Server의 두 인스턴스에는 복제본이 있는 가용성 그룹이 있습니다. 가용성 그룹을 인스턴스 간에 이동할 수 있습니다. 수신기가 없으므로 아직 가용성 그룹에 연결할 수 없습니다. Azure Virtual Machines에서 수신기에는 분산 장치가 필요합니다. 다음 단계는 Azure에서 부하 분산 장치를 만드는 것입니다.
@@ -535,7 +535,7 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다.
 
 > [!TIP]
-> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](https://technet.microsoft.com/library/cc753558.aspx)을 참조하세요.
+> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11))을 참조하세요.
 >
 
 ## <a name="next-steps"></a>다음 단계

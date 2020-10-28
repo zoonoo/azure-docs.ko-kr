@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533549"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790919"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 
@@ -68,6 +68,19 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
 
     경로가 정의 되어 있으면 클러스터가 배포 된 지역에 대 한 IP 주소에 대 한 경로가 있는지 확인 하 고 각 경로에 대 한 **NextHopType** 는 **인터넷** 입니다. 앞서 언급 한 문서에서 설명 하는 각 필수 IP 주소에 대해 정의 된 경로가 있어야 합니다.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"HDInsight 리소스 공급자와의 통신을 위해 클러스터에서 아웃 바운드 연결을 설정 하지 못했습니다. 아웃 바운드 연결이 허용 되는지 확인 하십시오. "
+
+### <a name="issue"></a>문제
+
+오류 설명에 "HDInsight 리소스 공급자와의 통신을 위해 클러스터에서 아웃 바운드 연결을 설정 하지 못했습니다."가 포함 되어 있습니다. 아웃 바운드 연결이 허용 되는지 확인 하십시오. "
+
+### <a name="cause"></a>원인
+
+사설 연결 된 HDInsight 클러스터를 사용 하는 경우 HDInsight 리소스 공급자에 대 한 연결을 허용 하도록 클러스터의 아웃 바운드 액세스를 구성 해야 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+* 이 문제를 해결 하려면 [개인 링크 설정](../hdinsight-private-link.md) 에서 HDInsight 개인 링크 설정 단계를 참조 하세요.
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"가상 네트워크 구성이 HDInsight 요구 사항과 호환 되지 않습니다."

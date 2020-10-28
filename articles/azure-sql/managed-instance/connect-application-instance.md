@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628369"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791259"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Sql Managed Instance에서 다른 가상 네트워크에 있는 경우 응용 �
 피어 링은 Microsoft 백본 네트워크를 사용 하기 때문에 더 좋습니다. 따라서 연결 관점에서 피어 링 가상 네트워크와 동일한 가상 네트워크에 있는 가상 컴퓨터 간의 대기 시간 차이가 크게 차이가 없습니다. 가상 네트워크 피어 링은 동일한 지역의 네트워크 간에 지원 됩니다. 전역 가상 네트워크 피어 링은 아래 참고에 설명 된 제한 사항으로도 지원 됩니다.  
 
 > [!IMPORTANT]
-> [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
+> [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
 
 ## <a name="connect-from-on-premises"></a>온-프레미스에서 연결 
 
@@ -71,10 +71,10 @@ Sql Managed Instance에서 다른 가상 네트워크에 있는 경우 응용 �
 
 ![가상 네트워크 피어링](./media/connect-application-instance/vnet-peering.png)
 
-기본 인프라를 설정한 후에는 VPN gateway가 SQL Managed Instance를 호스트 하는 가상 네트워크의 IP 주소를 볼 수 있도록 일부 설정을 수정 해야 합니다. 이렇게 하려면 **피어링 설정**에서 다음과 같이 매우 구체적으로 변경합니다.
+기본 인프라를 설정한 후에는 VPN gateway가 SQL Managed Instance를 호스트 하는 가상 네트워크의 IP 주소를 볼 수 있도록 일부 설정을 수정 해야 합니다. 이렇게 하려면 **피어링 설정** 에서 다음과 같이 매우 구체적으로 변경합니다.
 
-1. VPN gateway를 호스트 하는 가상 네트워크에서 **피어 링**으로 이동 하 여 SQL Managed Instance에 대 한 피어 링 가상 네트워크 연결로 이동한 다음 **게이트웨이 전송 허용**을 클릭 합니다.
-2. SQL Managed Instance를 호스트 하는 가상 네트워크에서 **피어 링**으로 이동 하 여 VPN gateway에 대 한 피어 링 가상 네트워크 연결로 이동한 다음 **원격 게이트웨이 사용**을 클릭 합니다.
+1. VPN gateway를 호스트 하는 가상 네트워크에서 **피어 링** 으로 이동 하 여 SQL Managed Instance에 대 한 피어 링 가상 네트워크 연결로 이동한 다음 **게이트웨이 전송 허용** 을 클릭 합니다.
+2. SQL Managed Instance를 호스트 하는 가상 네트워크에서 **피어 링** 으로 이동 하 여 VPN gateway에 대 한 피어 링 가상 네트워크 연결로 이동한 다음 **원격 게이트웨이 사용** 을 클릭 합니다.
 
 ## <a name="connect-azure-app-service"></a>연결 Azure App Service 
 
@@ -151,8 +151,8 @@ SQL Managed Instance에 Azure App Service를 연결 하는 특수 한 경우는 
 |JDBC 드라이버| 6.4.0 |
 |Node.js 드라이버| 2.1.1 |
 |OLEDB 드라이버| 18.0.2.0 |
-|SSMS| 18.0 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
+|SSMS| 18.0 [이상](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
 
 ## <a name="next-steps"></a>다음 단계
 

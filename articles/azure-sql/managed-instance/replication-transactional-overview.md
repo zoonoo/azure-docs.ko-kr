@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283211"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790817"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제 (미리 보기)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ ms.locfileid: "91283211"
 - Azure SQL Managed Instance의 인스턴스 데이터베이스
 
   > [!NOTE]
-  > Azure SQL Managed Instance의 모든 기능을 사용 하려면 최신 버전의 [SSMS (SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ) 및 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용 해야 합니다.
+  > Azure SQL Managed Instance의 모든 기능을 사용 하려면 최신 버전의 [SSMS (SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ) 및 [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용 해야 합니다.
 
 ### <a name="components"></a>구성 요소
 
-트랜잭션 복제의 주요 구성 요소는 다음 그림에 표시 된 것 처럼 **게시자**, **배포자**및 **구독자**입니다.  
+트랜잭션 복제의 주요 구성 요소는 다음 그림에 표시 된 것 처럼 **게시자** , **배포자** 및 **구독자** 입니다.  
 
 ![SQL Database를 사용한 복제](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -65,21 +65,21 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
    > [!NOTE]
    >
-   > - Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다.
+   > - Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다.
    > - 이전 버전을 사용하여 복제를 구성하는 시도는 오류 번호 MSSQL_REPL20084(프로세스가 구독자에 연결할 수 없습니다.) 및 MSSQ_REPL40532(로그인에서 요청한 서버 \<name>을 열 수 없습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.
 
 ### <a name="types-of-replication"></a>복제의 유형
 
-다음과 같은 여러 [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)이 있습니다.
+다음과 같은 여러 [복제 유형](/sql/relational-databases/replication/types-of-replication)이 있습니다.
 
 | 복제 | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 |
-| [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
-| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
-| [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
-| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
+| [**표준 트랜잭션**](/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 |
+| [**스냅샷**](/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
+| [**병합 복제**](/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
+| [**피어 투 피어**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
+| [**양방향**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
+| [**업데이트할 수 있는 구독**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>지원 가능성 매트릭스
@@ -106,7 +106,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>트랜잭션 복제와 데이터 동기화 비교
 
-| 범주 | 데이터 동기화 | 트랜잭션 복제 |
+| Category | 데이터 동기화 | 트랜잭션 복제 |
 |---|---|---|
 | 장점 | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 |
 | 단점 | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
@@ -148,7 +148,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 - 가상 네트워크가 서로 다른 경우 복제 참가자의 가상 네트워크 간에 VPN 피어 링을 구성 합니다.
 
 > [!NOTE]
-> 배포자가 Azure SQL Managed Instance 데이터베이스이 고 구독자가 온-프레미스 인 경우 아웃 바운드 NSG (네트워크 보안 그룹) 포트 445이 차단 되 면 Azure Storage 파일에 연결할 때 오류 53이 발생할 수 있습니다. 이 문제를 해결 하려면 [vNet NSG를 업데이트](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 합니다.
+> 배포자가 Azure SQL Managed Instance 데이터베이스이 고 구독자가 온-프레미스 인 경우 아웃 바운드 NSG (네트워크 보안 그룹) 포트 445이 차단 되 면 Azure Storage 파일에 연결할 때 오류 53이 발생할 수 있습니다. 이 문제를 해결 하려면 [vNet NSG를 업데이트](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) 합니다.
 
 ## <a name="with-failover-groups"></a>장애 조치 (failover) 그룹 사용
 
@@ -196,16 +196,16 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
 - [SQL Managed Instance 게시자와 구독자 간의 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [SQL Managed Instance 게시자, SQL Managed Instance 배포자 및 SQL Server 구독자 간의 복제 구성](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [게시를 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- 서버 이름을 구독자로 사용 하 여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) (예 `N'azuresqldbdns.database.windows.net` : **Adventureworks**와 같이 Azure SQL Database 이름의 데이터베이스를 대상 데이터베이스로 사용 합니다. )
+- [게시를 만듭니다](/sql/relational-databases/replication/publish/create-a-publication).
+- 서버 이름을 구독자로 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription) (예 `N'azuresqldbdns.database.windows.net` : **Adventureworks** 와 같이 Azure SQL Database 이름의 데이터베이스를 대상 데이터베이스로 사용 합니다. )
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 - [SQL Managed Instance 및 장애 조치 (failover) 그룹으로 복제](transact-sql-tsql-differences-sql-server.md#replication)
 - [SQL Database로 복제](../database/replication-to-sql-database.md)
 - [관리 되는 인스턴스로 복제](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [구독 초기화](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
+- [밀어넣기 구독 만들기](/sql/relational-databases/replication/create-a-push-subscription/)
+- [복제 유형](/sql/relational-databases/replication/types-of-replication)
+- [모니터링(복제)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [구독 초기화](/sql/relational-databases/replication/initialize-a-subscription)

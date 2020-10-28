@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271191"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790596"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 REST 엔드포인트 호출
 
@@ -27,6 +27,8 @@ ms.locfileid: "91271191"
   일반적으로 커넥터가 작동하려면 REST 엔드포인트가 다음 조건을 충족해야 합니다.
 
   * Swagger 파일은 공개적으로 액세스할 수 있는 HTTPS URL에 호스팅해야 합니다.
+  
+  * Swagger 파일은 `operationID` 정의의 각 작업에 대 한를 포함 해야 합니다. 그렇지 않으면 커넥터가 Swagger 파일의 마지막 작업만 표시 합니다. 
 
   * Swagger 파일은 [CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용해야 합니다.
 
@@ -48,7 +50,7 @@ ms.locfileid: "91271191"
 
    ![HTTP + Swagger 트리거 선택](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. **SWAGGER 엔드포인트 URL** 상자에 Swagger 파일의 URL을 입력하고 **다음**을 선택합니다.
+1. **SWAGGER 엔드포인트 URL** 상자에 Swagger 파일의 URL을 입력하고 **다음** 을 선택합니다.
 
    이 예에서는 [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)에 대해 미국 서부 지역에 있는 Swagger URL을 사용합니다.
 
@@ -72,7 +74,7 @@ ms.locfileid: "91271191"
 
 1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-1. 마치면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 마치면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 ## <a name="add-an-http--swagger-action"></a>HTTP + Swagger 동작 추가
 
@@ -80,15 +82,15 @@ ms.locfileid: "91271191"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. HTTP + Swagger 동작을 추가하려는 단계에서 **새 단계**를 선택합니다.
+1. HTTP + Swagger 동작을 추가하려는 단계에서 **새 단계** 를 선택합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
 1. 디자이너의 검색 상자에 필터로 "swagger"를 입력합니다. **동작** 목록에서 **HTTP + Swagger** 작업을 선택합니다.
 
     ![HTTP + Swagger 동작 선택](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. **SWAGGER 엔드포인트 URL** 상자에 Swagger 파일의 URL을 입력하고 **다음**을 선택합니다.
+1. **SWAGGER 엔드포인트 URL** 상자에 Swagger 파일의 URL을 입력하고 **다음** 을 선택합니다.
 
    이 예에서는 [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)에 대해 미국 서부 지역에 있는 Swagger URL을 사용합니다.
 
@@ -110,7 +112,7 @@ ms.locfileid: "91271191"
 
    HTTP + Swagger에 사용 가능한 인증 유형에 대한 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요.
 
-1. 마치면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 마치면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 <a name="host-swagger"></a>
 
@@ -120,7 +122,7 @@ Azure Storage 계정의 Blob 컨테이너에 Swagger 파일을 업로드하고 �
 
 1. [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)
 
-1. 이제 Blob에 CORS를 사용하도록 설정합니다. 스토리지 계정 메뉴에서 **CORS**를 선택합니다. **Blob service** 탭에서 이러한 값을 지정한 다음, **저장**을 선택합니다.
+1. 이제 Blob에 CORS를 사용하도록 설정합니다. 스토리지 계정 메뉴에서 **CORS** 를 선택합니다. **Blob service** 탭에서 이러한 값을 지정한 다음, **저장** 을 선택합니다.
 
    | 속성 | 값 |
    |----------|-------|
@@ -128,12 +130,12 @@ Azure Storage 계정의 Blob 컨테이너에 Swagger 파일을 업로드하고 �
    | **허용된 메서드** | `GET`, `HEAD`, `PUT` |
    | **허용된 헤더** | `*` |
    | **노출된 헤더** | `*` |
-   | **최대 기간**(초) | `200` |
+   | **최대 기간** (초) | `200` |
    |||
 
    이 예제에는 [Azure Portal](https://portal.azure.com)을 사용하지만 [Azure Storage Explorer](https://storageexplorer.com/) 등의 도구를 사용하거나, 이 샘플 [PowerShell 스크립트](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)를 사용하여 이 설정을 자동으로 구성할 수 있습니다.
 
-1. [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 컨테이너의 **개요** 창에서 **액세스 수준 변경**을 선택합니다. **공용 액세스 수준** 목록에서 **Blob(Blob에 대해서만 익명 읽기 액세스)** 을 선택하고 **확인**을 선택합니다.
+1. [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 컨테이너의 **개요** 창에서 **액세스 수준 변경** 을 선택합니다. **공용 액세스 수준** 목록에서 **Blob(Blob에 대해서만 익명 읽기 액세스)** 을 선택하고 **확인** 을 선택합니다.
 
 1. [[Azure Portal](https://portal.azure.com) 또는 [Azure Storage Explorer](https://storageexplorer.com/)를 통해 Swagger 파일을 ](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)Blob 컨테이너에 업로드합니다.
 
@@ -166,4 +168,3 @@ HTTP + Swagger 트리거 또는 동작의 출력에 대한 자세한 내용은 �
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
-

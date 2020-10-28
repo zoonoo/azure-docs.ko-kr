@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822284"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789678"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
-Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure Storage 리소스 공급자는 Azure Resource Manager를 기반으로 하며 Azure Storage의 관리 리소스에 대 한 액세스를 제공 하는 서비스입니다. Azure Storage 리소스 공급자를 사용 하 여 저장소 계정, 개인 끝점 및 계정 액세스 키와 같은 리소스를 만들고, 업데이트 하 고, 관리 하 고, 삭제할 수 있습니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)를 참조 하세요.
+Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure Storage 리소스 공급자는 Azure Resource Manager를 기반으로 하며 Azure Storage의 관리 리소스에 대 한 액세스를 제공 하는 서비스입니다. Azure Storage 리소스 공급자를 사용 하 여 저장소 계정, 개인 끝점 및 계정 액세스 키와 같은 리소스를 만들고, 업데이트 하 고, 관리 하 고, 삭제할 수 있습니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조 하세요.
 
 Azure Storage 리소스 공급자를 사용 하 여 저장소 계정 만들기 또는 삭제, 구독에서 저장소 계정 목록 가져오기 등의 작업을 수행할 수 있습니다. Azure Storage 리소스 공급자에 대 한 요청에 권한을 부여 하려면 Azure Active Directory (Azure AD)를 사용 합니다. 이 문서에서는 관리 리소스에 대 한 사용 권한을 할당 하는 방법을 설명 하 고 Azure Storage 리소스 공급자에 대 한 요청을 수행 하는 방법을 보여 주는 예제를 가리킵니다.
 
@@ -32,9 +32,9 @@ Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 �
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 액세스 제어를 사용 하 여 관리 권한 할당 (Azure RBAC)
 
-모든 Azure 구독에는 사용자, 그룹 및 응용 프로그램을 관리 하는 Azure Active Directory 연결 되어 있습니다. 사용자, 그룹 또는 응용 프로그램을 [Microsoft id 플랫폼](/azure/active-directory/develop/)의 컨텍스트에서 보안 주체 라고도 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Active Directory에 정의 된 보안 주체에 대 한 구독의 리소스에 대 한 액세스 권한을 부여할 수 있습니다.
+모든 Azure 구독에는 사용자, 그룹 및 응용 프로그램을 관리 하는 Azure Active Directory 연결 되어 있습니다. 사용자, 그룹 또는 응용 프로그램을 [Microsoft id 플랫폼](../../active-directory/develop/index.yml)의 컨텍스트에서 보안 주체 라고도 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Active Directory에 정의 된 보안 주체에 대 한 구독의 리소스에 대 한 액세스 권한을 부여할 수 있습니다.
 
-Azure 역할을 보안 주체에 할당 하는 경우 역할에서 부여 된 사용 권한이 적용 되는 범위를 표시 합니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 Azure 역할을 보안 주체에 할당할 수 있습니다.
+Azure 역할을 보안 주체에 할당 하는 경우 역할에서 부여 된 사용 권한이 적용 되는 범위를 표시 합니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 Azure 역할을 보안 주체에 할당할 수 있습니다.
 
 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md) 을 참조 하세요. 및 [클래식 구독 관리자 역할, azure 역할 및 AZURE AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -53,7 +53,7 @@ Azure는 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 �
 | **사용자 액세스 관리자** | 저장소 계정에 대 한 액세스를 관리할 수 있습니다.   | 예, 보안 주체가 자신 및 다른 사용자에 게 권한을 할당할 수 있습니다. |
 | **Virtual Machine 참가자** | 가상 컴퓨터를 관리할 수 있지만 연결 된 저장소 계정은 관리할 수 없습니다.   | 예, 저장소 계정 키를 확인 하 고 다시 생성할 수 있는 권한을 제공 합니다. |
 
-테이블의 세 번째 열은 기본 제공 역할이 **Microsoft. Storage/storageAccounts/listkeys/action**을 지원 하는지 여부를 나타냅니다. 이 작업은 저장소 계정 키를 읽고 다시 생성할 수 있는 권한을 부여 합니다. Azure Storage 관리 리소스에 대 한 액세스 권한은 데이터에 액세스할 수 있는 권한도 포함 하지 않습니다. 그러나 사용자에 게 계정 키에 대 한 액세스 권한이 있으면 계정 키를 사용 하 여 공유 키 권한 부여를 통해 Azure Storage 데이터에 액세스할 수 있습니다.
+테이블의 세 번째 열은 기본 제공 역할이 **Microsoft. Storage/storageAccounts/listkeys/action** 을 지원 하는지 여부를 나타냅니다. 이 작업은 저장소 계정 키를 읽고 다시 생성할 수 있는 권한을 부여 합니다. Azure Storage 관리 리소스에 대 한 액세스 권한은 데이터에 액세스할 수 있는 권한도 포함 하지 않습니다. 그러나 사용자에 게 계정 키에 대 한 액세스 권한이 있으면 계정 키를 사용 하 여 공유 키 권한 부여를 통해 Azure Storage 데이터에 액세스할 수 있습니다.
 
 ### <a name="custom-roles-for-management-operations"></a>관리 작업에 대 한 사용자 지정 역할
 
@@ -76,6 +76,6 @@ Azure 배포 모델에 대 한 자세한 내용은 [리소스 관리자 및 클�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)
+- [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
 - [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
 - [Azure Storage 리소스 공급자에 대 한 확장성 목표](scalability-targets-resource-provider.md)

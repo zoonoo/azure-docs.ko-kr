@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619817"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791276"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91619817"
 
 Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL Managed Instance의 강력한 기능 집합입니다.
 
-*XEvents*는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
+*XEvents* 는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
 확장 이벤트에 대 한 추가 정보는 다음 위치에서 제공 됩니다.
 
@@ -66,14 +66,14 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 - SQL Server에서 [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 그러나 Azure SQL Database에서는 **ON Database** 절을 대신 사용 합니다.
 - **ON DATABASE** 절은 [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) 및 [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql) Transact-SQL 명령에도 적용됩니다.
 
-- **CREATE EVENT SESSION** 또는 **ALTER EVENT SESSION** 문에 **STARTUP_STATE = ON**의 이벤트 세션 옵션을 포함하는 것이 가장 좋습니다.
+- **CREATE EVENT SESSION** 또는 **ALTER EVENT SESSION** 문에 **STARTUP_STATE = ON** 의 이벤트 세션 옵션을 포함하는 것이 가장 좋습니다.
   - **= ON** 값은 장애 조치(failover)로 인해 논리적 데이터베이스를 재구성한 다음 자동 재시작을 지원합니다.
 
 ## <a name="new-catalog-views"></a>새 카탈로그 뷰
 
-확장 이벤트 기능은 여러 [카탈로그 뷰](https://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
+확장 이벤트 기능은 여러 [카탈로그 뷰](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
-| 카탈로그 뷰의<br/>이름 | 설명 |
+| 카탈로그 뷰의<br/>이름 | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |이벤트 세션의 각 이벤트의 동작에 대해 한 행을 반환합니다. |
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
@@ -83,11 +83,11 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_* 가 아닌 *.server\_* 가 포함됩니다. 이름 패턴은 **sys.server_event_%** 와 같습니다.
 
-## <a name="new-dynamic-management-views-dmvs"></a>새로운 [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>새로운 [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
+Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
-| DMV의 이름 | 설명 |
+| DMV의 이름 | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |이벤트 세션 동작에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
@@ -95,9 +95,9 @@ Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰
 | **sys.dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
-Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름의 * \_ 데이터베이스* 부분 없이 이름이 지정 됩니다.
+Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름의 *\_ 데이터베이스* 부분 없이 이름이 지정 됩니다.
 
-- **sys.dm_xe_sessions**, 이름 대신<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions** , 이름 대신<br/>**sys.dm_xe_database_sessions** .
 
 ### <a name="dmvs-common-to-both"></a>둘 다에 공통적인 DMV
 
@@ -140,11 +140,11 @@ SELECT
 
 Azure SQL Database에서 이벤트 세션의 결과를 캡처할 수 있는 대상은 다음과 같습니다.
 
-- [링 버퍼 대상](https://msdn.microsoft.com/library/ff878182.aspx) - 이벤트 데이터를 메모리에 잠시 보관합니다.
-- [이벤트 카운터 대상](https://msdn.microsoft.com/library/ff878025.aspx) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
-- [이벤트 파일 대상](https://msdn.microsoft.com/library/ff878115.aspx) - Azure Storage 컨테이너에 전체 버퍼를 기록합니다.
+- [링 버퍼 대상](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) - 이벤트 데이터를 메모리에 잠시 보관합니다.
+- [이벤트 카운터 대상](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
+- [이벤트 파일 대상](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Azure Storage 컨테이너에 전체 버퍼를 기록합니다.
 
-Azure SQL Database의 확장 이벤트에는 [ETW(Windows용 이벤트 추적) (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API를 사용할 수 없습니다.
+Azure SQL Database의 확장 이벤트에는 [ETW(Windows용 이벤트 추적) (ETW)](/dotnet/framework/wcf/samples/etw-tracing) API를 사용할 수 없습니다.
 
 ## <a name="restrictions"></a>제한
 
@@ -178,16 +178,16 @@ Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **
 
 Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대상에서 네트워크 지연 또는 오류가 발생할 수 있습니다. Azure SQL Database의 다른 이벤트는 네트워크 통신이 완료 될 때까지 대기 하는 동안 지연 될 수 있습니다. 이 지연으로 인해 워크로드가 느려질 수 있습니다.
 
-- 이러한 성능 위험을 줄이려면 이벤트 세션 정의에서 **EVENT_RETENTION_MODE** 옵션을 **NO_EVENT_LOSS**로 설정하지 마십시오.
+- 이러한 성능 위험을 줄이려면 이벤트 세션 정의에서 **EVENT_RETENTION_MODE** 옵션을 **NO_EVENT_LOSS** 로 설정하지 마십시오.
 
 ## <a name="related-links"></a>관련 링크
 
 - [Azure Storage에서 Azure PowerShell 사용](/powershell/module/az.storage/)
-- [Azure Storage Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Azure Storage Cmdlet](/powershell/module/Azure.Storage)
 - [Azure Storage와 함께 Azure PowerShell 사용](/powershell/module/az.storage/)
 - [.NET에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL(Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION(Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL(Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION(Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - Azure SQL Database에 대한 매개 변수로 범위가 좁혀지는 Azure *서비스 업데이트* 웹 페이지:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855556"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790511"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Python에서 Azure Queue storage를 사용 하는 방법
 
@@ -299,7 +299,7 @@ queue_service.delete_queue(queue_name)
 
 * [Azure 큐 Python API 참조](/python/api/azure-storage-queue)
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
-* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage 서비스 REST API](/rest/api/storageservices/)
 
 [Python 용 Azure Queue storage 클라이언트 라이브러리]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Python용 Azure SDK]: https://github.com/azure/azure-sdk-for-python

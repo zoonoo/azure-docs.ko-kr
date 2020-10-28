@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031095"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791089"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>내 앱 포털에서 애플리케이션 사용 권한 편집 또는 해지
 
@@ -30,13 +30,13 @@ ms.locfileid: "90031095"
 
 ## <a name="manage-app-accounts"></a>앱 계정 관리
 
-사용자 또는 관리자가 동의한 앱을 보려면 **내 앱** 포털에서 앱을 마우스로 가리킬 때 ...를 선택 하 고 **응용 프로그램 관리**를 **선택 합니다.**
+사용자 또는 관리자가 동의한 앱을 보려면 **내 앱** 포털에서 앱을 마우스로 가리킬 때 ...를 선택 하 고 **응용 프로그램 관리** 를 **선택 합니다.**
 
-![내 앱 포털에서 애플리케이션 관리](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![내 앱 포털에서 애플리케이션 관리](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 사용 권한 창의 맨 위 부분에는 개인적으로 동의한 항목이 표시됩니다. 앱 사용 권한 예에는 일정, 연락처 또는 카메라에 액세스하는 기능이 있습니다.
 
-**사용 권한 취소**를 선택하여 동의한 권한을 취소할 수 있지만, 사용 권한을 제거하면 일부 앱 기능이 손상될 수 있습니다. 사용 권한이나 계정을 제거한 후에 문제가 발생하면 조직의 기술 지원 팀에 문의하여 추가 지원을 요청하세요.
+**사용 권한 취소** 를 선택하여 동의한 권한을 취소할 수 있지만, 사용 권한을 제거하면 일부 앱 기능이 손상될 수 있습니다. 사용 권한이나 계정을 제거한 후에 문제가 발생하면 조직의 기술 지원 팀에 문의하여 추가 지원을 요청하세요.
 
 ![내 앱 포털에서 애플리케이션에 대한 사용 권한 취소](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 

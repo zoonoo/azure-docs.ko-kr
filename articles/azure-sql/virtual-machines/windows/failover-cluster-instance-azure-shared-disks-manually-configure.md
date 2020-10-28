@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168242"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789763"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "92168242"
 다음을 수행 하 여 Azure 공유 디스크를 추가 합니다. 
 
 
-1. *SharedDiskConfig.js에*다음 스크립트를 저장 합니다. 
+1. *SharedDiskConfig.js에* 다음 스크립트를 저장 합니다. 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사�
 
 UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신 중 하나에서 다음을 수행 합니다.
 
-1. **서버 관리자**에서 **도구**를 선택한 다음 **장애 조치(failover) 클러스터 관리자**를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자**에서 **작업**을 선택한 다음 **구성 유효성 검사**를 선택합니다.
-1. **다음**을 선택합니다.
-1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. 
-1. **다음**을 선택합니다.
-1. **테스트 선택**에서 **저장소** 를 *제외한* 모든 테스트를 선택 합니다.
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 **저장소** 를 *제외한* 모든 테스트를 선택 합니다.
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치 테스트
 
-클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드**를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
+클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자** 에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드** 를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="코어 리소스를 다른 노드로 이동하여 클러스터 장애 조치(failover) 테스트":::
 
@@ -171,15 +171,15 @@ UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신
 
 1. 원격 데스크톱 프로토콜 (RDP)를 사용 하 여 첫 번째 가상 컴퓨터에 연결 합니다.
 
-1. **장애 조치(Failover) 클러스터 관리자**에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
+1. **장애 조치(Failover) 클러스터 관리자** 에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
 
 1. 설치 미디어를 찾습니다. 가상 머신이 Azure Marketplace 이미지 중 하나를 사용하는 경우 미디어는 `C:\SQLServer_<version number>_Full`에 있습니다. 
 
-1. **Setup**을 선택합니다.
+1. **Setup** 을 선택합니다.
 
-1. **SQL Server 설치 센터**에서 **설치**를 선택합니다.
+1. **SQL Server 설치 센터** 에서 **설치** 를 선택합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터 새로 설치**를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
+1. **SQL Server 장애 조치(failover) 클러스터 새로 설치** 를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
 FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다. 
 
@@ -187,12 +187,12 @@ FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다.
 
 1. 설치 프로그램이 첫 번째 노드에 FCI를 설치하면 RDP를 사용하여 두 번째 노드에 연결합니다.
 
-1. **SQL Server 설치 센터**를 연 다음 **설치**를 선택 합니다.
+1. **SQL Server 설치 센터** 를 연 다음 **설치** 를 선택 합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가**를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
+1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
 
    >[!NOTE]
-   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
+   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록

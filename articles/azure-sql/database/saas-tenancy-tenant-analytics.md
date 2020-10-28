@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331671"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790936"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,11 +69,11 @@ ms.locfileid: "92331671"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](../../sql-database/saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](./saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 - Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제* 해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/)
-- 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](../../sql-database/saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
-- 작업 계정과 jobaccount 데이터베이스가 생성되어 있어야 합니다. [**스키마 관리 자습서**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
+- 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](./saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
+- 작업 계정과 jobaccount 데이터베이스가 생성되어 있어야 합니다. [**스키마 관리 자습서**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
 
@@ -93,7 +93,7 @@ ms.locfileid: "92331671"
     - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3** 을 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics\<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 로그인 = *developer* , 암호 = *P\@ssword1* 입니다. 자세한 내용은 [입문용 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 로그인 = *developer* , 암호 = *P\@ssword1* 입니다. 자세한 내용은 [입문용 자습서](./saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![SQL Server에 연결하는 데 필요한 정보를 보여주는 스크린샷.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -240,6 +240,6 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [탄력적 작업](../../sql-database/elastic-jobs-overview.md).
-- [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [탄력적 작업](./elastic-jobs-overview.md).
+- [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](./saas-multitenantdb-tenant-analytics.md)

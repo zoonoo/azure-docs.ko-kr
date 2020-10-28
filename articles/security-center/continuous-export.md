@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789185"
 ---
-# <a name="continuously-export-security-alerts-and-recommendations"></a>계속 해 서 보안 경고 및 권장 사항 내보내기
+# <a name="continuously-export-security-center-data"></a>Security Center 데이터를 지속적으로 내보내기
 
 Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합니다. 포털에서 또는 프로그래밍 방식 도구를 통해 볼 수 있습니다. 사용자 환경에서 다른 모니터링 도구를 사용 하 여 추적 하기 위해이 정보 중 일부 또는 모두를 내보내야 할 수도 있습니다. 
 
@@ -28,7 +28,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 이 문서에서는 Log Analytics 작업 영역 또는 Azure Event Hubs에 연속 내보내기를 구성 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> SIEM과 Security Center를 통합 해야 하는 경우 옵션에 대해 [SIEM에 대 한 스트림 경고](export-to-siem.md) 를 검토 합니다.
+> SIEM과 Security Center를 통합 해야 하는 경우 [SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림](export-to-siem.md)을 참조 하세요.
 
 > [!TIP]
 > 또한 Security Center는 CSV로 일회성 수동 내보내기를 수행 하는 옵션을 제공 합니다. [경고 및 권장 사항의 수동 일회성 내보내기](#manual-one-time-export-of-alerts-and-recommendations)에서 자세히 알아보세요.
@@ -58,9 +58,9 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내기를 설정 하 고 있는지 여부에 따라 다음 단계가 필요 합니다.
 
-1. Security Center의 사이드바에서 **가격 책정 & 설정**을 선택 합니다.
+1. Security Center의 사이드바에서 **가격 책정 & 설정** 을 선택 합니다.
 1. 데이터 내보내기를 구성할 특정 구독을 선택 합니다.
-1. 해당 구독에 대 한 설정 페이지의 사이드바에서 **연속 내보내기**를 선택 합니다.
+1. 해당 구독에 대 한 설정 페이지의 사이드바에서 **연속 내보내기** 를 선택 합니다.
     [ ![ 내보내기 옵션 Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
 1. 선택 사항에 따라 이러한 4 가지 권장 사항 중 하나를 포함 하는 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
@@ -74,7 +74,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
 
 1. &quot;대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="use-the-rest-api"></a>[**REST API 사용**](#tab/rest-api)
 
@@ -129,7 +129,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
 1. &quot;대상 내보내기":::
     > 2. Azure Policy 메뉴에서 **정의** 를 선택 하 고 이름으로 검색 합니다. 
 
-1. 관련 Azure Policy 페이지에서 **할당**을 선택 합니다.
+1. 관련 Azure Policy 페이지에서 **할당** 을 선택 합니다.
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
 
 1. &quot;대상 내보내기":::
@@ -145,7 +145,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
 
 1. &quot;대상 내보내기" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. 필요에 따라이 할당을 기존 구독에 적용 하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택 합니다.
-1. 요약 페이지를 검토 하 고 **만들기**를 선택 합니다.
+1. 요약 페이지를 검토 하 고 **만들기** 를 선택 합니다.
 
 --- 
 
@@ -160,7 +160,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하
 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 Azure Defender를 사용 하는지 여부 (보안 (' 보안 및 감사 ') 또는 Securitycenter 무료)에 따라 다릅니다. 
 
 > [!TIP]
-> 대상 작업 영역에서 데이터를 보려면 이러한 솔루션 중 하나를 사용 하도록 설정 하거나 **securitycenter**를 사용 하도록 설정 해야 합니다 **보안 및 감사** .
+> 대상 작업 영역에서 데이터를 보려면 이러한 솔루션 중 하나를 사용 하도록 설정 하거나 **securitycenter** 를 사용 하도록 설정 해야 합니다 **보안 및 감사** .
 
 ![Log Analytics의 * SecurityAlert * 테이블](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -175,15 +175,15 @@ Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역
 
 Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log Analytics 쿼리 (로그 경고)를 기반으로 경고 규칙을 구성 합니다.
 
-1. Azure Monitor의 **경고** 페이지에서 **새 경고 규칙**을 선택 합니다.
+1. Azure Monitor의 **경고** 페이지에서 **새 경고 규칙** 을 선택 합니다.
 
     ![Azure Monitor의 경고 페이지](./media/continuous-export/azure-monitor-alerts.png)
 
 1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](../azure-monitor/platform/alerts-unified-log.md)을 구성 하는 것과 같은 방식으로).
 
-    * **리소스**에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택 합니다.
+    * **리소스** 에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택 합니다.
 
-    * **조건**에 대해 **사용자 지정 로그 검색**을 선택 합니다. 표시 되는 페이지에서 query, lookback period 및 frequency period를 구성 합니다. 검색 쿼리에서는 Log Analytics으로 연속 내보내기를 사용 하도록 설정 하는 경우 *Securityalert* 또는 *securityalert* 을 입력 하 여 Security Center 연속으로 내보낼 데이터 형식을 쿼리할 수 있습니다. 
+    * **조건** 에 대해 **사용자 지정 로그 검색** 을 선택 합니다. 표시 되는 페이지에서 query, lookback period 및 frequency period를 구성 합니다. 검색 쿼리에서는 Log Analytics으로 연속 내보내기를 사용 하도록 설정 하는 경우 *Securityalert* 또는 *securityalert* 을 입력 하 여 Security Center 연속으로 내보낼 데이터 형식을 쿼리할 수 있습니다. 
     
     * 필요에 따라 트리거할 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
     ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -210,6 +210,29 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 [Azure 이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)에 대해 자세히 알아보세요.
 
+
+### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>내보내기에 모든 리소스의 현재 상태에 대 한 데이터가 포함 됩니까?
+
+아니요. 연속 내보내기는 **이벤트** 스트리밍을 위해 작성 되었습니다.
+
+- 내보내기를 사용 하도록 설정 하기 전에 받은 **경고** 는 내보내지 않습니다.
+- **권장 사항은** 리소스의 호환성 상태가 변경 될 때마다 전송 됩니다. 예를 들어 리소스가 정상에서 비정상으로 전환 되는 경우입니다. 따라서 경고와 마찬가지로 내보내기를 사용 하도록 설정한 이후 상태를 변경 하지 않은 리소스에 대 한 권장 사항을 내보내지 않습니다.
+
+
+### <a name="why-are-recommendations-sent-at-different-intervals"></a>권장 사항이 다른 간격으로 전송되는 이유는 무엇인가요?
+
+권장 사항 마다 다른 규정 준수 평가 간격이 있습니다. 몇 분 마다 며칠 마다 달라질 수 있습니다. 따라서 권장 사항은 내보내기에 표시 되는 데 걸리는 시간에 따라 달라 집니다.
+
+### <a name="does-continuous-export-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>연속 내보내기는 BCDR (비즈니스 연속성 또는 재해 복구) 시나리오를 지원 하나요?
+
+대상 리소스에 가동 중단 또는 기타 재해가 발생 하는 BCDR 시나리오에 대 한 환경을 준비 하는 경우 Azure Event Hubs, Log Analytics 작업 영역 및 논리 앱의 지침에 따라 백업을 설정 하 여 데이터 손실을 방지 하는 것이 조직의 책임입니다.
+
+[Azure Event Hubs-지역 재해 복구](../event-hubs/event-hubs-geo-dr.md)에 대해 자세히 알아보세요.
+
+
+### <a name="is-continuous-export-available-with-azure-security-center-free"></a>연속 내보내기는 Azure Security Center 무료로 사용할 수 있나요?
+
+예. Azure Defender를 사용 하도록 설정한 경우에만 많은 Security Center 경고가 제공 됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시 된 경고를 확인 하는 것입니다.
 
 
 

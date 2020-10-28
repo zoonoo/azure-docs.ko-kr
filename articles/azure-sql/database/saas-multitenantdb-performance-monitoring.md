@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3307e31935377f55f792e640934e59017c1980c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37bf2c84b74dba76e5d1921ed67072af7f6c328
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619623"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790902"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL Database의 성능 모니터링 및 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,8 +36,8 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](../../sql-database/saas-multitenantdb-get-started-deploy.md)을 참조하세요.
-* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](./saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
 
@@ -45,10 +45,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 ### <a name="performance-management-strategies"></a>성능 관리 전략
 
-* 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스가 정상 범위를 벗어난 경우 트리거되는 경고를 설정**하는 것이 가장 효과적입니다.
-* 데이터베이스 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **DTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **데이터베이스 크기 조정을 자동으로 일어나도록 예약**할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
-* 더 장기적인 변동 또는 테넌트 변화에 대응하기 위해 **개별 테넌트를 다른 데이터베이스로 이동**할 수 있습니다.
-* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 컴퓨팅 크기를 할당**할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 다중 테넌트 데이터베이스에 있는 다른 테넌트에 영향을 미치지 않도록 테넌트를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
+* 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스가 정상 범위를 벗어난 경우 트리거되는 경고를 설정** 하는 것이 가장 효과적입니다.
+* 데이터베이스 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **DTU 수준을 확장하거나 축소할 수 있습니다** . 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **데이터베이스 크기 조정을 자동으로 일어나도록 예약** 할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
+* 더 장기적인 변동 또는 테넌트 변화에 대응하기 위해 **개별 테넌트를 다른 데이터베이스로 이동** 할 수 있습니다.
+* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 컴퓨팅 크기를 할당** 할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 다중 테넌트 데이터베이스에 있는 다른 테넌트에 영향을 미치지 않도록 테넌트를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스에 작업하는 경우 편리하지 않을 수 있습니다.
 
@@ -64,8 +64,8 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
-1. **$DemoScenario** = **1**, _Provision a batch of tenants_ 설정
+1. **PowerShell ISE** 에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* 을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **$DemoScenario** = **1** , _Provision a batch of tenants_ 설정
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
 스크립트는 몇 분 안에 다중 테넌트 데이터베이스에 17개의 테넌트를 배포합니다. 
@@ -85,21 +85,21 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(DTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
-1. **$DemoScenario** = **2**, _일반 강도 부하 생성_을 설정합니다.
+1. **PowerShell ISE** 에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* 을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **$DemoScenario** = **2** , _일반 강도 부하 생성_ 을 설정합니다.
 1. **F5** 키를 눌러 모든 테넌트에 부하를 적용합니다.
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐적이고 예측할 수 없습니다. 이를 시뮬레이션하기 위해 부하 생성기에서 모든 테넌트에 대해 분산된 임의의 부하를 생성합니다. 부하 패턴이 나타나기 위해서는 몇 분 정도 걸리므로, 다음 섹션의 부하 모니터링을 수행하기 전에 약 3~5분 동안 부하 생성기를 실행합니다.
 
 > [!IMPORTANT]
-> 부하 생성기가 새 PowerShell 창에서 일련의 작업으로 실행 중입니다. 세션을 닫으면 부하 생성시가 중단됩니다. 부하 생성기는 *job-invoking* 상태로 유지되어 부하 생성기가 시작된 후에 프로비전되는 모든 새 테넌트에서 부하를 생성합니다. *Ctrl-C*를 사용하여 새 작업 호출을 중지하고 스크립트를 종료합니다. 부하 생성기는 계속 실행되지만 기존 테넌트에만 실행됩니다.
+> 부하 생성기가 새 PowerShell 창에서 일련의 작업으로 실행 중입니다. 세션을 닫으면 부하 생성시가 중단됩니다. 부하 생성기는 *job-invoking* 상태로 유지되어 부하 생성기가 시작된 후에 프로비전되는 모든 새 테넌트에서 부하를 생성합니다. *Ctrl-C* 를 사용하여 새 작업 호출을 중지하고 스크립트를 종료합니다. 부하 생성기는 계속 실행되지만 기존 테넌트에만 실행됩니다.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스 사용 모니터링
 
-적용 중인 부하 때문에 발생하는 리소스 사용을 모니터링하려면 테넌트가 포함된 다중 테넌트 데이터베이스 **tenants1**의 포털을 엽니다.
+적용 중인 부하 때문에 발생하는 리소스 사용을 모니터링하려면 테넌트가 포함된 다중 테넌트 데이터베이스 **tenants1** 의 포털을 엽니다.
 
 1. [Azure Portal](https://portal.azure.com)을 열고 *tenants1-mt-&lt;USER&gt;* 서버로 이동합니다.
-1. 아래로 스크롤하여 데이터베이스를 찾은 다음 **tenants1**을 클릭합니다. 이 분할된 다중 테넌트 데이터베이스에는 지금까지 만든 모든 테넌트가 포함되어 있습니다.
+1. 아래로 스크롤하여 데이터베이스를 찾은 다음 **tenants1** 을 클릭합니다. 이 분할된 다중 테넌트 데이터베이스에는 지금까지 만든 모든 테넌트가 포함되어 있습니다.
 
 ![데이터베이스 차트](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
 
@@ -110,7 +110,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 데이터베이스에 대해 다음과 같이 사용률 \>75%일 때 트리거되는 경고를 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 *tenants1-mt-&lt;USER&gt;* 서버의 *tenants1* 데이터베이스를 엽니다.
-1. **경고 규칙**, **+ 경고 추가**를 차례로 클릭합니다.
+1. **경고 규칙** , **+ 경고 추가** 를 차례로 클릭합니다.
 
    ![경고 추가](./media/saas-multitenantdb-performance-monitoring/add-alert.png)
 
@@ -118,9 +118,9 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 1. 다음 값을 설정합니다.
    * **메트릭 = DTU 백분율**
    * **조건 = 보다 큼**
-   * **임계값 = 75**.
+   * **임계값 = 75** .
    * **기간 = 지난 30분 동안**
-1. *추가 관리자 전자 메일* 상자에 메일 주소를 추가하고 **확인**을 클릭합니다.
+1. *추가 관리자 전자 메일* 상자에 메일 주소를 추가하고 **확인** 을 클릭합니다.
 
    ![경고 설정](./media/saas-multitenantdb-performance-monitoring/set-alert.png)
 
@@ -134,17 +134,17 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 생성기에 의해 생성된 부하를 증가시켜 사용 중인 데이터베이스를 시뮬레이션할 수 있습니다. 테넌트가 더 자주 그리고 더 오래 버스트하도록 하면 개별 테넌트의 요구 사항을 변경하지 않고 다중 테넌트 데이터베이스에 대한 부하가 증가합니다. 데이터베이스 확장은 포털 내에서 또는 PowerShell에서 쉽게 수행됩니다. 이 연습에서는 포털을 사용합니다.
 
-1. *$DemoScenario* = **3**를 설정하고, _데이터베이스별로 더 오래 더 잦은 버스트를 사용하여 부하를 생성하여_ 각 테넌트 요구하는 최고 부하를 변경하지 않고 데이터베이스에 대한 집계 부하의 강도를 증가시킵니다.
-1. **F5**를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
+1. *$DemoScenario* = **3** 를 설정하고, _데이터베이스별로 더 오래 더 잦은 버스트를 사용하여 부하를 생성하여_ 각 테넌트 요구하는 최고 부하를 변경하지 않고 데이터베이스에 대한 집계 부하의 강도를 증가시킵니다.
+1. **F5** 를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
 1. Azure Portal에서 **tenants1** 데이터베이스로 이동합니다.
 
 상위 차트에서 증가한 데이터베이스 DTU 사용량을 모니터링합니다. 더 높은 새 부하를 시작하려면 몇 분 걸리지만 데이터베이스가 최대 사용률에 도달하기 시작하는 것을 보고 바로 알 수 있으며 부하가 새로운 패턴으로 안정됨에 따라 데이터베이스에 빠르게 과부하가 걸립니다.
 
 1. 데이터베이스를 확장하려면 설정 블레이드에서 **가격 책정 계층(배율 DTU)** 을 클릭합니다.
-1. **DTU** 설정을 **100**으로 조정합니다. 
-1. **적용**을 클릭하여 데이터베이스 크기 조정 요청을 제출합니다.
+1. **DTU** 설정을 **100** 으로 조정합니다. 
+1. **적용** 을 클릭하여 데이터베이스 크기 조정 요청을 제출합니다.
 
-**tenants1** > **개요**로 돌아가 모니터링 차트를 볼 수 있습니다. 데이터베이스에 더 많은 리소스를 제공한 효과를 모니터링합니다. (테넌트 수가 적고 부하가 임의의 값을 갖기 때문에 일정 시간 동안 실행할 때까지 확실한 결과를 보기가 어려울 수 있습니다.) 차트를 볼 때 하위 차트 100%는 여전히 50 DTU이지만 상위 차트의 100%가 이제 100 DTU를 나타낸다는 사실을 염두에 두세요.
+**tenants1** > **개요** 로 돌아가 모니터링 차트를 볼 수 있습니다. 데이터베이스에 더 많은 리소스를 제공한 효과를 모니터링합니다. (테넌트 수가 적고 부하가 임의의 값을 갖기 때문에 일정 시간 동안 실행할 때까지 확실한 결과를 보기가 어려울 수 있습니다.) 차트를 볼 때 하위 차트 100%는 여전히 50 DTU이지만 상위 차트의 100%가 이제 100 DTU를 나타낸다는 사실을 염두에 두세요.
 
 데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 애플리케이션 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
 
@@ -154,9 +154,9 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 자체 데이터베이스에서 새 테넌트를 프로비전했다면 아래의 단계를 건너뜁니다.
 
-1. **PowerShell ISE**에서 …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 엽니다. 
+1. **PowerShell ISE** 에서 …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* 을 엽니다. 
 1. **$TenantName = “Salix Sals”** 및 **$VenueType  = “dance”** 로 수정합니다.
-1. **$Scenario** = **2**, _새 단일 테넌트 데이터베이스에서 테넌트 프로비전_을 설정합니다.
+1. **$Scenario** = **2** , _새 단일 테넌트 데이터베이스에서 테넌트 프로비전_ 을 설정합니다.
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
 이 스크립트는 테넌트를 별도의 데이터베이스에서 프로비전하고, 데이터베이스와 테넌트를 카탈로그와 함께 등록하고, 브라우저에서 테넌트의 이벤트 페이지를 엽니다. 이벤트 허브 페이지를 새로 고치면 “Salix Salsa” 행사장이 추가된 것을 볼 수 있습니다.
@@ -168,11 +168,11 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 이 연습에서는 인기 있는 이벤트의 티켓을 판매할 때 높은 부하를 경험하는 Salix Salsa의 영향을 시뮬레이션합니다.
 
 1. ...\\*Demo-PerformanceMonitoringAndManagement.ps1* 스크립트를 엽니다.
-1. **$DemoScenario = 5**, _단일 테넌트에 표준 부하와 높은 부하 생성(약 90 DTU)_ 을 설정합니다.
-1. **$SingleTenantName = Salix Salsa**로 설정합니다.
-1. **F5**를 사용하여 스크립트를 실행합니다.
+1. **$DemoScenario = 5** , _단일 테넌트에 표준 부하와 높은 부하 생성(약 90 DTU)_ 을 설정합니다.
+1. **$SingleTenantName = Salix Salsa** 로 설정합니다.
+1. **F5** 를 사용하여 스크립트를 실행합니다.
 
-포털에서 **salixsalsa** > **개요**로 이동하여 모니터링 차트를 확인합니다. 
+포털에서 **salixsalsa** > **개요** 로 이동하여 모니터링 차트를 확인합니다. 
 
 ## <a name="other-performance-management-patterns"></a>기타 성능 관리 패턴
 

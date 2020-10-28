@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791361"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "91777074"
 
 일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에 SQL Database의 데이터베이스에 연결 하는 데 문제가 있을 수 있습니다. 데이터베이스에 연결 하는 응용 프로그램은 이러한 일시적인 오류를 발생 시킬 수 있도록 빌드해야 합니다. 이를 처리하기 위해 사용자에게 애플리케이션 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
 
-클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.
+클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException** 이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -70,7 +70,7 @@ ms.locfileid: "91777074"
 
 첫 번째 재시도 전에 5초간 대기하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설명은 [연결 풀링 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 참조 하세요.
+ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설명은 [연결 풀링 (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조 하세요.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -126,17 +126,17 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 
-클라이언트 프로그램이 SQL Database의 .NET Framework 클래스를 사용 하 여 데이터베이스에 연결 하는 경우 .NET 4.6.1 이상 (또는 .NET Core)을 사용 하 여 연결 다시 시도 **기능을 사용할**수 있습니다. 기능에 대 한 자세한 내용은 [SqlConnection 속성](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)을 참조 하세요.
+클라이언트 프로그램이 SQL Database의 .NET Framework 클래스를 사용 하 여 데이터베이스에 연결 하는 경우 .NET 4.6.1 이상 (또는 .NET Core)을 사용 하 여 연결 다시 시도 **기능을 사용할** 수 있습니다. 기능에 대 한 자세한 내용은 [SqlConnection 속성](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)을 참조 하세요.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+**SqlConnection** 개체에 대한 [연결 문자열](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
-- **ConnectRetryCount**: &nbsp; &nbsp; 기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval**: &nbsp; &nbsp; 기본값은 10 초입니다. 범위는 1에서 60입니다.
-- **연결 시간 제한**: &nbsp; &nbsp; 기본값은 15 초입니다. 범위는 0에서 2147483647입니다.
+- **ConnectRetryCount** : &nbsp; &nbsp; 기본값은 1입니다. 범위는 0에서 255입니다.
+- **ConnectRetryInterval** : &nbsp; &nbsp; 기본값은 10 초입니다. 범위는 1에서 60입니다.
+- **연결 시간 제한** : &nbsp; &nbsp; 기본값은 15 초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -189,7 +189,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 예를 들어 클라이언트 프로그램이 Windows 컴퓨터에 호스팅된 경우 호스트의 Windows 방화벽을 사용하여 포트 1433을 열 수 있습니다.
 
 1. 제어판을 엽니다.
-2. **모든 제어판 항목**  >  **Windows 방화벽**  >  **고급 설정**  >  **아웃 바운드 규칙**  >  **동작**  >  **새 규칙**을 선택 합니다.
+2. **모든 제어판 항목**  >  **Windows 방화벽**  >  **고급 설정**  >  **아웃 바운드 규칙**  >  **동작**  >  **새 규칙** 을 선택 합니다.
 
 클라이언트 프로그램이 Azure VM(가상 머신)에서 호스팅되는 경우 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](adonet-v12-develop-direct-route-ports.md)를 참조하세요.
 
@@ -199,7 +199,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 
 ### <a name="connection-adonet-462-or-later"></a>연결: ADO.NET 4.6.2 이상
 
-프로그램에서 **System.Data.SqlClient.SqlConnection**과 같은 ADO.NET 클래스를 사용하여 SQL Database에 연결하는 경우 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
+프로그램에서 **System.Data.SqlClient.SqlConnection** 과 같은 ADO.NET 클래스를 사용하여 SQL Database에 연결하는 경우 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
 
 #### <a name="starting-with-adonet-462"></a>ADO.NET 4.6.2를 사용하여 시작
 
@@ -227,7 +227,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 - ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-- [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 `sqlcmd.exe`
+- [ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server)를 사용하여 연결하는 `sqlcmd.exe`
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 
@@ -268,7 +268,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 SQL Database에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
-Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731.aspx)을 참조하세요.
+Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](/previous-versions/msp-n-p/dn440731(v=pandp.60))을 참조하세요.
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -276,10 +276,10 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 다음은 오류 로그 및 기타 정보를 쿼리하는 몇 가지 Transact-SQL SELECT 문입니다.
 
-| 로그 쿼리 | 설명 |
+| 로그 쿼리 | Description |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 뷰는 추가 진단에 대 한 이벤트 유형의 집계 된 개수를 제공 합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) 뷰는 추가 진단에 대 한 이벤트 유형의 집계 된 개수를 제공 합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -326,9 +326,9 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 
-Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이언트 SQL Database를 구현 하는 데 도움이 되는 .NET 클래스의 프레임 워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하세요.
+Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이언트 SQL Database를 구현 하는 데 도움이 되는 .NET 클래스의 프레임 워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](/previous-versions/msp-n-p/dn169621(v=pandp.10))을 참조하세요.
 
-일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 애플리케이션 블록 사용](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 참조하세요.
+일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 애플리케이션 블록 사용](/previous-versions/msp-n-p/dn440719(v=pandp.60))을 참조하세요.
 
 > [!NOTE]
 > EntLib60에 대한 소스 코드는 [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
@@ -339,7 +339,7 @@ Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이
 
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에서 찾을 수 있습니다.
 
-**Microsoft.practices.enterpriselibrary.transientfaulthandling**네임 스페이스에서 다음을 수행 합니다.
+**Microsoft.practices.enterpriselibrary.transientfaulthandling** 네임 스페이스에서 다음을 수행 합니다.
 
 - **RetryPolicy** 클래스
   - **ExecuteAction** 메서드
@@ -348,7 +348,7 @@ Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이
 - **ReliableSqlConnection** 클래스
   - **ExecuteCommand** 메서드
 
-**Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**네임스페이스의
+**Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** 네임스페이스의
 
 - **AlwaysTransientErrorDetectionStrategy** 클래스
 - **NeverTransientErrorDetectionStrategy** 클래스
@@ -369,7 +369,7 @@ Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이
   - 디버깅, 추적, 감사 및 일반 로깅 요구 사항에 유용한 문맥 정보를 수집합니다.
 - 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 애플리케이션 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
 
-자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
+자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](/previous-versions/msp-n-p/dn440731(v=pandp.60))을 참조하세요.
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -446,11 +446,11 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Database 및 SQL Server용 연결 라이브러리](connect-query-content-reference-guide.md#libraries)
-- [연결 풀링 (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-- [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 Python으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
+- [연결 풀링 (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [*Retrying* 은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 Python으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

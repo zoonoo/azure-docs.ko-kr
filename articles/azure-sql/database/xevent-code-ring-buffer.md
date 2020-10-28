@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619834"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791293"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-테스트 중 확장 이벤트에 대한 정보를 캡처하고 보고하는 가장 쉽고 빠른 방법을 위한 전체 코드 샘플이 필요할 수 있습니다. 확장 이벤트 데이터에 대한 가장 쉬운 대상은 [링 버퍼 대상](https://msdn.microsoft.com/library/ff878182.aspx)입니다.
+테스트 중 확장 이벤트에 대한 정보를 캡처하고 보고하는 가장 쉽고 빠른 방법을 위한 전체 코드 샘플이 필요할 수 있습니다. 확장 이벤트 데이터에 대한 가장 쉬운 대상은 [링 버퍼 대상](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130))입니다.
 
 이 항목에서는 다음을 수행하는 Transact-SQL 코드 샘플을 제공합니다.
 
 1. 시연하는 데 사용할 데이터를 포함하는 테이블을 만듭니다.
-2. 기존 확장 이벤트에 대한 세션 즉, **sqlserver.sql_statement_starting**을 만듭니다.
+2. 기존 확장 이벤트에 대한 세션 즉, **sqlserver.sql_statement_starting** 을 만듭니다.
 
-   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'**)으로 제한됩니다.
-   * 링 버퍼 유형의 대상 즉, **package0.ring_buffer**로 이벤트 출력을 보내도록 선택합니다.
+   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'** )으로 제한됩니다.
+   * 링 버퍼 유형의 대상 즉, **package0.ring_buffer** 로 이벤트 출력을 보내도록 선택합니다.
 3. 이벤트 세션을 시작합니다.
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.
 5. SQL SELECT 문을 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "91619834"
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전).
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
-  * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)항목
+  * [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)항목
   * [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>코드 샘플
@@ -349,6 +349,6 @@ Azure SQL Database의 확장 이벤트에 대한 기본 항목은 다음과 같�
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

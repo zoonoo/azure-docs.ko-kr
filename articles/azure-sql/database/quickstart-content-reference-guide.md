@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: cd1880f58d4ef457cdc411e065588204a5ad6672
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448763"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790307"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,15 @@ PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>가동 중지 시간을 최소화하면서 단일 데이터베이스 마이그레이션
 
-이러한 빠른 시작에 따라 `.bacpac` 파일을 사용하여 신속하게 데이터베이스를 만들거나 Azure로 가져올 수 있습니다. 그러나 `.bacpac` 및 `.dacpac` 파일은 서로 다른 버전의 SQL Server 및 Azure SQL 내에서 데이터베이스를 신속하게 이동하거나 DevOps 파이프라인에서 연속 통합을 구현하도록 설계되었습니다. 그러나 이 방법은 가동 중지 시간을 최소화하면서 프로덕션 데이터베이스를 마이그레이션하도록 설계되지는 않았습니다. 새 데이터 추가를 중지하고, 원본 데이터베이스를 `.bacpac` 파일로 내보낸 다음, Azure SQL Database로 가져오는 작업이 완료될 때까지 기다려야 합니다. 이 모든 대기 시간은 애플리케이션의 가동 중지 시간으로 이어지고, 특히 대형 데이터베이스에서 더 많이 발생합니다. 프로덕션 데이터베이스를 이동하려면 마이그레이션 가동 중지 시간을 최소화할 수 있는 더 좋은 마이그레이션 방법이 필요합니다. 이렇게 하려면 [DMS(Data Migration Service)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json)를 사용하여 최소한의 가동 중지 시간으로 데이터베이스를 마이그레이션하세요. DMS는 이를 위해 원본 데이터베이스의 변경 내용을 복원 중인 단일 데이터베이스에 점진적으로 푸시합니다. 이 방식을 사용하면 가동 중지 시간을 최소화하면서 원본에서 대상 데이터베이스로 애플리케이션을 신속하게 전환할 수 있습니다.
+이러한 빠른 시작에 따라 `.bacpac` 파일을 사용하여 신속하게 데이터베이스를 만들거나 Azure로 가져올 수 있습니다. 그러나 `.bacpac` 및 `.dacpac` 파일은 서로 다른 버전의 SQL Server 및 Azure SQL 내에서 데이터베이스를 신속하게 이동하거나 DevOps 파이프라인에서 연속 통합을 구현하도록 설계되었습니다. 그러나 이 방법은 가동 중지 시간을 최소화하면서 프로덕션 데이터베이스를 마이그레이션하도록 설계되지는 않았습니다. 새 데이터 추가를 중지하고, 원본 데이터베이스를 `.bacpac` 파일로 내보낸 다음, Azure SQL Database로 가져오는 작업이 완료될 때까지 기다려야 합니다. 이 모든 대기 시간은 애플리케이션의 가동 중지 시간으로 이어지고, 특히 대형 데이터베이스에서 더 많이 발생합니다. 프로덕션 데이터베이스를 이동하려면 마이그레이션 가동 중지 시간을 최소화할 수 있는 더 좋은 마이그레이션 방법이 필요합니다. 이렇게 하려면 [DMS(Data Migration Service)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json)를 사용하여 최소한의 가동 중지 시간으로 데이터베이스를 마이그레이션하세요. DMS는 이를 위해 원본 데이터베이스의 변경 내용을 복원 중인 단일 데이터베이스에 점진적으로 푸시합니다. 이 방식을 사용하면 가동 중지 시간을 최소화하면서 원본에서 대상 데이터베이스로 애플리케이션을 신속하게 전환할 수 있습니다.
 
 ## <a name="hands-on-learning-modules"></a>실습 학습 모듈
 
 다음 Microsoft Learn 모듈을 사용하면 Azure SQL Database에 대해 무료로 배울 수 있습니다.
 
-- [SQL Database에 데이터베이스를 프로비저닝하여 애플리케이션 데이터 저장](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션 개발 및 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Azure SQL Database에서 단일 데이터베이스 보호](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [SQL Database에 데이터베이스를 프로비저닝하여 애플리케이션 데이터 저장](/learn/modules/provision-azure-sql-db/)
+- [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션 개발 및 구성](/learn/modules/develop-app-that-queries-azure-sql/)
+- [Azure SQL Database에서 단일 데이터베이스 보호](/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>다음 단계
 

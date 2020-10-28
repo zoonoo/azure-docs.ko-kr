@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789627"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지리적으로 분산 된 데이터베이스 (Azure SQL Database) 구현
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
   > [!NOTE]
   > 이 자습서에서는 *AdventureWorksLT* 샘플 데이터베이스를 사용합니다.
 
-- Java 및 Maven. [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **Java**를 강조 표시한 다음 사용 중인 환경을 선택하고 해당하는 단계를 진행합니다.
+- Java 및 Maven. [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **Java** 를 강조 표시한 다음 사용 중인 환경을 선택하고 해당하는 단계를 진행합니다.
 
 > [!IMPORTANT]
 > 이 자습서의 단계를 수행하는 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정하세요. 데이터베이스 수준 방화벽 규칙은 보조 서버에 자동으로 복제됩니다.
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-데이터베이스를 선택한 다음 **설정**  >  **지역에서 복제**를 선택 하 여 Azure Portal에서 지역에서 복제 설정을 변경할 수도 있습니다.
+데이터베이스를 선택한 다음 **설정**  >  **지역에서 복제** 를 선택 하 여 Azure Portal에서 지역에서 복제 설정을 변경할 수도 있습니다.
 
 ![지역에서 복제 설정](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. **Y**를 입력하고 **Enter** 키를 누릅니다.
+1. **Y** 를 입력하고 **Enter** 키를 누릅니다.
 
 1. 디렉터리를 새 프로젝트로 변경합니다.
 

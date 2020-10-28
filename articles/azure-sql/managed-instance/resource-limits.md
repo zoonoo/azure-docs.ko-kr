@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618117"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790766"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
 | 최대 세션 | 30000 | 30000 |
-| 최대 동시 작업자(요청) | Gen4:210 * vCores 수 + 800<br>Gen5:105 * vCores 수 + 800 | Gen4:210 * vCore 수 + 800<br>Gen5:105 * vCore 수 + 800 |
+| 최대 동시 작업자(요청) | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 |
 | [읽기 전용 복제본](../database/read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
 | 계산 격리 | Gen5:<br/>-80 vCores에 지원 됨<br/>-다른 크기에 대해서는 지원 되지 않습니다.<br/><br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|Gen5:<br/>-60, 64, 80 vCores에 지원 됨<br/>-다른 크기에 대해서는 지원 되지 않습니다.<br/><br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|
 
@@ -120,7 +120,7 @@ SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지�
 
 - [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [CSP(클라우드 서비스 공급자)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [CSP(클라우드 서비스 공급자)](/partner-center/csp-documents-and-learning-resources)
 - [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio 구독자를 위한 월간 Azure 크레딧 구독](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -132,8 +132,8 @@ SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지�
 
 지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. SQL Managed Instance에는 Azure 지역 당 두 가지 기본 제한이 있습니다. 즉, 구독 유형의 유형에 따라 [Azure Portal에서 특수 지원 요청](../database/quota-increase-request.md) 을 만들어 요청 시 증가 시킬 수 있습니다.
 
-- **서브넷 제한**: SQL Managed Instance 인스턴스가 단일 지역에 배포 되는 최대 서브넷 수입니다.
-- **Vcore 단위 제한**: 단일 지역의 모든 인스턴스에 배포할 수 있는 최대 vcore 단위 수입니다. 하나의 GP vCore는 vCore 단위 하나를 사용 하 고 하나의 BC vCore는 4 개의 vCore를 사용 합니다. 총 인스턴스 수는 vCore 단위 제한 내에 있기만 하면 제한 되지 않습니다.
+- **서브넷 제한** : SQL Managed Instance 인스턴스가 단일 지역에 배포 되는 최대 서브넷 수입니다.
+- **Vcore 단위 제한** : 단일 지역의 모든 인스턴스에 배포할 수 있는 최대 vcore 단위 수입니다. 하나의 GP vCore는 vCore 단위 하나를 사용 하 고 하나의 BC vCore는 4 개의 vCore를 사용 합니다. 총 인스턴스 수는 vCore 단위 제한 내에 있기만 하면 제한 되지 않습니다.
 
 > [!Note]
 > 이러한 제한은 기술 제한이 아닌 기본 설정입니다. 현재 지역에서 더 많은 인스턴스가 필요한 경우 [Azure Portal에서 특수 지원 요청](../database/quota-increase-request.md) 을 만들어 요청 시 제한을 늘릴 수 있습니다. 대신 지원 요청을 보내지 않고 다른 Azure 지역에 SQL Managed Instance의 새 인스턴스를 만들 수 있습니다.
@@ -150,7 +150,7 @@ SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지�
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|
 
-\* 배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 SQL Managed Instance 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
+\* 배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 SQL Managed Instance 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수** 와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
 
 \*\* 더 큰 서브넷 및 vCore 제한은 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
 

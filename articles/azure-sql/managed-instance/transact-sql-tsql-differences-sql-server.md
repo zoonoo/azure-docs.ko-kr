@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790613"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없
 
 [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
-**해결 방법**: 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
+**해결 방법** : 인증서의 백업을 만들고 백업을 복원하는 대신 [인증서 이진 콘텐츠 및 프라이빗 키를 가져와서 .sql 파일로 저장하고 이진에서 만듭니다](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
 
 ```sql
 CREATE CERTIFICATE  
@@ -153,7 +153,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 - Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다.
 - [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) 절과 같이, 다른 Azure AD 보안 주체를 사용하여 Azure AD 서버 수준 보안 주체를 가장할 수 있습니다. EXECUTE AS 제한 사항은 다음과 같습니다.
 
-  - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER**를 만들 때 **LOGIN**에서 user_name을 동일한 login_name으로 지정합니다.
+  - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_ 를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER** 를 만들 때 **LOGIN** 에서 user_name을 동일한 login_name으로 지정합니다.
   - `sysadmin` 역할에 포함된 SQL 서버 수준 보안 주체(로그인)만이 Azure AD 보안 주체를 대상으로 하는 다음 작업을 실행할 수 있습니다.
 
     - EXECUTE AS USER
@@ -220,7 +220,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 
 - 다중 로그 파일은 지원되지 않습니다.
 - 메모리 내 개체는 범용 서비스 계층에서 지원되지 않습니다. 
-- 범용 인스턴스당 280개의 파일 제한이 있으며 이는 데이터베이스당 최대 280개의 파일을 의미합니다. 범용 계층의 데이터와 로그 파일은 모두 이 제한으로 계산됩니다. [중요 비즈니스용 계층은 데이터베이스당 32767개의 파일을 지원합니다](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- 범용 인스턴스당 280개의 파일 제한이 있으며 이는 데이터베이스당 최대 280개의 파일을 의미합니다. 범용 계층의 데이터와 로그 파일은 모두 이 제한으로 계산됩니다. [중요 비즈니스용 계층은 데이터베이스당 32767개의 파일을 지원합니다](./resource-limits.md#service-tier-characteristics).
 - 데이터베이스는 파일 스트림 데이터를 포함한 파일 그룹을 포함할 수 없습니다. .bak에 `FILESTREAM` 데이터가 포함된 경우 복원이 실패합니다. 
 - 모든 파일은 Azure Blob Storage에 배치됩니다. 파일별 IO 및 처리량은 각 개별 파일의 크기에 따라 달라집니다.
 
@@ -354,7 +354,7 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
 [분산 트랜잭션에](../database/elastic-transactions-overview.md) 대 한 부분 지원은 현재 공개 미리 보기 상태입니다. 지원 되는 시나리오는 다음과 같습니다.
-* 참가자가 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)의 일부인 Azure SQL 관리 인스턴스인 경우
+* 참가자가 [서버 신뢰 그룹](./server-trust-group-overview.md)의 일부인 Azure SQL 관리 인스턴스인 경우
 * .NET (TransactionScope 클래스) 및 Transact-sql에서 시작 된 트랜잭션입니다.
 
 현재 azure SQL Managed Instance는 MSDTC 온-프레미스 또는 Azure Virtual Machines에서 정기적으로 지원 되는 다른 시나리오를 지원 하지 않습니다.
@@ -482,7 +482,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
   - `remote proc trans`
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
 - `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
-- `Extended stored procedures`는 `sp_addextendedproc` 및 `sp_dropextendedproc`를 포함하여 지원되지 않습니다. [확장 저장 프로시저](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
+- `Extended stored procedures` 는 지원 되지 않습니다. 여기에는 및가 포함 됩니다 `sp_addextendedproc` `sp_dropextendedproc` . [확장 저장 프로시저](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
 ### <a name="system-functions-and-variables"></a>시스템 함수 및 변수
@@ -527,13 +527,13 @@ SQL Managed Instance의 다음 MSDB 스키마는 해당 하는 미리 정의 된
 
 - 일반 역할
   - TargetServersRole
-- [고정 데이터베이스 역할](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail 역할](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail 역할](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Integration Services 역할](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration Services 역할](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - msdb
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ SQL Managed Instance의 다음 MSDB 스키마는 해당 하는 미리 정의 된
 
 ### <a name="error-logs"></a>오류 로그
 
-SQL Managed Instance는 오류 로그에 자세한 정보를 저장 합니다. 내부 시스템 이벤트는 오류 로그에 많이 기록됩니다. 관련이 없는 항목을 필터링하는 사용자 지정 프로시저를 사용하여 오류 로그를 읽습니다. 자세한 내용은 Azure Data Studio에 대 한 [sql Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) 또는 [sql Managed Instance 확장 (미리 보기)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 을 참조 하세요.
+SQL Managed Instance는 오류 로그에 자세한 정보를 저장 합니다. 내부 시스템 이벤트는 오류 로그에 많이 기록됩니다. 관련이 없는 항목을 필터링하는 사용자 지정 프로시저를 사용하여 오류 로그를 읽습니다. 자세한 내용은 Azure Data Studio에 대 한 [sql Managed Instance – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) 또는 [sql Managed Instance 확장 (미리 보기)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

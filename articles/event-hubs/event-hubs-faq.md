@@ -2,13 +2,13 @@
 title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518027"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789372"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -175,7 +175,7 @@ TU(처리량 단위)는 시간 단위로 청구됩니다. 청구는 지정된 �
 예를 들어 2TU와 같이 낮은 TU(처리량 단위)로 시작하는 것이 좋습니다. 트래픽이 15TU까지 증가할 수 있다고 예상하는 경우 네임스페이스에서 자동 팽창 기능을 설정하고 최대 제한을 15TU로 설정합니다. 이제 트래픽이 증가함에 따라 TU를 자동으로 늘릴 수 있습니다.
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>자동 팽창 기능을 설정하면 관련 비용이 발생하나요?
-이 기능과 관련된 **비용은 없습니다**. 
+이 기능과 관련된 **비용은 없습니다** . 
 
 ### <a name="how-are-throughput-limits-enforced"></a>처리량 제한은 어떻게 적용되나요?
 전체 **수신** 처리량 또는 네임스페이스 내 모든 이벤트 허브에서의 전체 수신 이벤트 비율이 집계 처리량 단위 허용 한도를 초과하면, 발신자가 제한되고 수신 할당량을 초과했음을 나타내는 오류가 표시됩니다.
@@ -184,8 +184,19 @@ TU(처리량 단위)는 시간 단위로 청구됩니다. 청구는 지정된 �
 
 수신 및 송신 할당량은 별도로 적용되므로 발신자가 이벤트 사용 속도를 저하시키지 않으며 수신자가 이벤트 허브로의 이벤트 전송을 차단하지도 않습니다.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>예약/선택할 수 있는 TU(처리량 단위) 수에 제한이 있나요?
-다중 테넌트 제안에서 처리량 단위는 최대 40TU까지 늘릴 수 있습니다(포털에서 최대 20TU를 선택하고, 지원 티켓을 제출하여 동일한 네임스페이스에서 40TU로 늘릴 수 있음). 40TU를 초과하는 경우 Event Hubs는 **Event Hubs Dedicated 클러스터**라고 하는 리소스/용량 기반 모델을 제공합니다. Dedicated 클러스터는 CU(용량 단위)로 판매됩니다.
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>예약/선택할 수 있는 처리량 단위 수에 제한이 있나요?
+
+Azure Portal에서 기본 또는 표준 계층 네임 스페이스를 만들 때 네임 스페이스에 대해 최대 20 개의 Tu를 선택할 수 있습니다. **정확** 하 게 40 tu를 발생 시키려면 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출 합니다.  
+
+1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
+1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
+    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **문제 유형** 으로 **할당량** 을 선택합니다. 
+    1. **문제 하위 형식** 에 대해 **처리량 단위 증가 또는 감소 요청** 을 선택 합니다. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="지원 요청 페이지":::
+
+40TU를 초과하는 경우 Event Hubs는 Event Hubs Dedicated 클러스터라고 하는 리소스/용량 기반 모델을 제공합니다. Dedicated 클러스터는 CU(용량 단위)로 판매됩니다. 자세한 내용은 [Event Hubs Dedicated-개요](event-hubs-dedicated-overview.md)를 참조 하세요.
 
 ## <a name="dedicated-clusters"></a>Dedicated 클러스터
 
@@ -199,7 +210,7 @@ Event Hubs 전용 클러스터를 설정 하는 방법에 대 한 단계별 지�
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="partitions"></a>파티션
 
 ### <a name="how-many-partitions-do-i-need"></a>얼마나 많은 파티션이 필요한가요?
 파티션 수는 생성 시 지정 되며 1에서 32 사이 여야 합니다. 파티션 수는 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
@@ -209,6 +220,21 @@ Event Hubs 전용 클러스터를 설정 하는 방법에 대 한 단계별 지�
 Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 설계되었습니다. 대부분의 경우 기본 설정인 4개의 파티션만으로도 충분합니다. 이벤트 처리의 크기를 조정하려는 경우 추가 파티션을 추가할지 고려할 수 있습니다. 파티션에 대한 특정 처리량 제한은 없지만 네임스페이스에서 집계 처리량은 처리량 단위 수로 제한됩니다. 네임스페이스에서 처리량 단위 수를 늘리면 추가 파티션을 통해 동시 판독기가 고유한 최대 처리량을 달성하도록 할 수 있습니다.
 
 그러나 애플리케이션에 특정 파티션에 대한 선호도가 있는 모델인 경우 파티션 수를 늘리게 되면 사용자에게 혜택이 돌아오지 않습니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요.
+
+### <a name="increase-partitions"></a>파티션 늘리기
+지원 요청을 제출 하 여 파티션 수가 40 (정확한)로 증가 하도록 요청할 수 있습니다. 
+
+1. **이벤트 버스 네임 스페이스** 페이지의 왼쪽 메뉴에서 **새 지원 요청** 을 선택 합니다. 
+1. **새 지원 요청** 페이지에서 다음 단계를 수행 합니다.
+    1. **요약 하자면** , 문제를 몇 가지 단어로 설명 합니다. 
+    1. **문제 유형** 으로 **할당량** 을 선택합니다. 
+    1. **문제 하위 형식** 에 대해 **파티션 변경 요청** 을 선택 합니다. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="지원 요청 페이지":::
+
+파티션 수를 정확 하 게 40으로 늘릴 수 있습니다. 이 경우 Tu 수도 40로 늘려야 합니다. 나중에 TU 한도를 다시 <= 20으로 낮추는 것을 결정 하면 최대 파티션 한도가 32으로 줄어듭니다. 
+
+파티션은 이벤트 허브 수준에서 적용 되 고 허브를 만든 후에는 변경할 수 없으므로 파티션 감소는 기존 event hubs에 영향을 주지 않습니다. 
 
 ## <a name="pricing"></a>가격 책정
 
@@ -270,7 +296,7 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 
 예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 

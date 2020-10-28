@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439778"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789576"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새로운 DBA – 마이그레이션 후 Azure SQL Database 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,9 +65,9 @@ Azure SQL Database에서 백업을 만들지 않습니다 .이는 필요 하지 
 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
-|Basic|7|
-|표준|35|
-|Premium|35|
+|기본|7|
+|Standard|35|
+|프리미엄|35|
 |||
 
 또한 [LTR(장기 보존)](long-term-retention-overview.md) 기능을 사용하면 훨씬 더 긴 기간(최대 10년) 동안 백업 파일을 보유하고 해당 기간 내의 어느 시점이든 이러한 백업에서 데이터를 복원할 수 있습니다. 뿐만 아니라 데이터베이스 백업은 지역 복제 스토리지에 보관되므로 지역 참사에서 복원력이 확보됩니다. 또한 이러한 백업을 보존 기간 내의 어느 시점이든 Azure 지역에서 복원할 수 있습니다. [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
@@ -102,7 +102,7 @@ SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합
 SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 - [Azure Active Directory 인증](authentication-aad-overview.md)
-- [SQL 인증](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [SQL 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 기존 Windows 인증은 지원되지 않습니다. Azure Active Directory (Azure AD)는 중앙 집중식 id 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. 
 
@@ -113,7 +113,7 @@ Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview
 |Azure에서 Azure Active Directory (Azure AD)를 사용 하지 않는 것이 좋습니다.|[SQL 인증](security-overview.md) 사용|
 |AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../../active-directory/hybrid/whatis-hybrid-identity.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
 |Multi-Factor Authentication 적용 해야 합니다.|[Microsoft 조건부 액세스](conditional-access-configure.md)를 통해 정책으로 Multi-Factor Authentication 필요 하 고 [Multi-Factor Authentication 지원을 통해 Azure AD 유니버설 인증](authentication-mfa-ssms-overview.md)을 사용 합니다.|
-|Microsoft 계정(live.com, outlook.com) 또는 다른 도메인(gmail.com)의 게스트 계정이 있습니다.|Microsoft Azure SQL Database/Data Warehouse에서 [Azure AD Universal 인증](authentication-mfa-ssms-overview.md)을 사용하며, 이는 [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md)을 활용합니다.|
+|Microsoft 계정(live.com, outlook.com) 또는 다른 도메인(gmail.com)의 게스트 계정이 있습니다.|Microsoft Azure SQL Database/Data Warehouse에서 [Azure AD Universal 인증](authentication-mfa-ssms-overview.md)을 사용하며, 이는 [Azure AD B2B Collaboration](../../active-directory/external-identities/what-is-b2b.md)을 활용합니다.|
 |페더레이션된 도메인에서 Microsoft Azure Active Directory 자격 증명을 사용하여 Windows에 로그인|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
 |Azure와 페더레이션되지 않은 도메인에서 자격 증명을 사용하여 Windows에 로그인|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
 |SQL Database 또는 Azure Synapse Analytics에 연결 해야 하는 중간 계층 서비스 포함|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
@@ -222,7 +222,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 Express 경로를 사용 하면 추가 요금 없이 구입할 대역폭 제한을 2 배까지 버스트 할 수도 있습니다. Express 경로를 사용 하 여 지역 간 연결을 구성할 수도 있습니다. Express 경로 연결 공급자 목록을 보려면 [express 경로 파트너 및 피어 링 위치](../../expressroute/expressroute-locations.md)를 참조 하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../../expressroute/expressroute-introduction.md)
-- [필수 구성 요소](../../expressroute/expressroute-prerequisites.md)
+- [전제 조건](../../expressroute/expressroute-prerequisites.md)
 - [워크플로](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
@@ -304,7 +304,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 |**서비스 계층**|**일반적인 사용 사례 시나리오**|
 |---|---|
 |**기본**|소수의 사용자 및 높은 동시성, 배율 및 성능 요구 사항이 없는 데이터베이스를 가진 애플리케이션입니다. |
-|**Standard**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 애플리케이션입니다. |
+|**표준**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 애플리케이션입니다. |
 |**Premium**|많은 동시 사용자, 높은 CPU/메모리 및 높은 IO 수요를 가진 애플리케이션입니다. 높은 동시성, 높은 처리량 및 대기 시간에 민감한 앱은 Premium 수준을 이용할 수 있습니다. |
 |||
 
@@ -320,11 +320,11 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Azure Portal를 사용 하 여 SQL Database에서 BACPAC 파일로 데이터를 내보내고 가져올 어떻게 할까요?
 
-- **내보내기**: AZURE PORTAL에서 BACPAC 파일로 Azure SQL Database의 데이터베이스를 내보낼 수 있습니다.
+- **내보내기** : AZURE PORTAL에서 BACPAC 파일로 Azure SQL Database의 데이터베이스를 내보낼 수 있습니다.
 
    ![데이터베이스 내보내기](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **가져오기**: Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스에 BACPAC 파일로 데이터를 가져올 수도 있습니다.
+- **가져오기** : Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스에 BACPAC 파일로 데이터를 가져올 수도 있습니다.
 
    ![데이터베이스 가져오기](./media/manage-data-after-migrating-to-database/import1.png)
 

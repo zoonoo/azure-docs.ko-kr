@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533957"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790953"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한
 
@@ -24,7 +24,11 @@ ms.locfileid: "92533957"
 
 액세스 제한 기능은 코드가 실행 되는 작업자 호스트의 업스트림 인 App Service 프런트 엔드 역할에서 구현 됩니다. 따라서 액세스 제한은 사실상 네트워크 Acl입니다.
 
-Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능을 [서비스 끝점][serviceendpoints]이라고 합니다. 서비스 끝점을 사용 하면 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 사용 하도록 설정 된 서비스 뿐만 아니라 네트워킹 쪽에서 사용 하도록 설정 해야 합니다. App Service Environment에서 호스트 되는 앱에 대 한 트래픽을 제한 하는 것은 작동 하지 않습니다. App Service Environment에 있는 경우 IP 주소 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다.
+Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능을 [서비스 끝점][serviceendpoints]이라고 합니다. 서비스 끝점을 사용 하면 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. App Service Environment에서 호스트 되는 앱에 대 한 트래픽을 제한 하는 것은 작동 하지 않습니다. App Service Environment에 있는 경우 IP 주소 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다.
+
+> [!NOTE]
+> 서비스 끝점은 사용 하도록 설정 되는 Azure 서비스와 네트워킹 측 모두에서 사용 하도록 설정 되어야 합니다. 서비스 끝점을 지 원하는 Azure 서비스 목록은 [Virtual Network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 참조 하세요.
+>
 
 ![액세스 제한 흐름](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

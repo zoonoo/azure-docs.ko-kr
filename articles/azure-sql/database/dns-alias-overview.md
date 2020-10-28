@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145654"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790494"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,7 +60,7 @@ Azure SQL Database의 DNS 별칭 기능은 다음과 같은 시나리오에서 �
 - *서버 필수:* 정확히 한 서버를 참조하지 않는 한, DNS 별칭을 만들 수 없으며, 서버가 미리 존재해야 합니다. 업데이트된 별칭은 항상 정확히 하나의 기존 서버를 참조해야 합니다.
   - 서버를 삭제 하면 Azure 시스템은 서버를 참조 하는 모든 DNS 별칭을 삭제 합니다.
 - *어떤 지역에도 바인딩되지 않음:* DNS 별칭은 지역에 바인딩되지 않습니다. 모든 지역에 있는 서버를 참조 하도록 모든 DNS 별칭을 업데이트할 수 있습니다.
-  - 그러나 다른 서버를 참조하도록 별칭을 업데이트할 경우 두 서버 모두 동일한 Azure *구독*에 있어야 합니다.
+  - 그러나 다른 서버를 참조하도록 별칭을 업데이트할 경우 두 서버 모두 동일한 Azure *구독* 에 있어야 합니다.
 - *사용 권한:* DNS 별칭을 관리하려면 *서버 참가자* 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
 ## <a name="manage-your-dns-aliases"></a>DNS 별칭 관리
@@ -71,7 +71,7 @@ REST API와 PowerShell cmdlet을 사용하면 DNS 별칭을 프로그래밍 방�
 
 REST API에 대한 설명서는 다음 웹 위치 근처에서 사용할 수 있습니다.
 
-- [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)
+- [Azure SQL Database REST API](/rest/api/sql/)
 
 또한 REST API는 다음의 GitHub에서 볼 수 있습니다.
 
@@ -83,7 +83,7 @@ REST API에 대한 설명서는 다음 웹 위치 근처에서 사용할 수 있
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 REST API를 호출하는 PowerShell cmdlet을 사용할 수 있습니다.
 
@@ -93,10 +93,10 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 
 코드 예제에 사용된 cmdlet은 다음과 같습니다.
 
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 별칭은 서버 1을 참조 합니다.
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당 된 모든 DNS 별칭을 가져오고 나열 합니다.
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조 하도록 구성 된 서버 이름을 서버 1에서 서버 2로 수정 합니다.
-- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 서버 2에서 DNS 별칭을 제거 합니다.
+- [AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 별칭은 서버 1을 참조 합니다.
+- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당 된 모든 DNS 별칭을 가져오고 나열 합니다.
+- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조 하도록 구성 된 서버 이름을 서버 1에서 서버 2로 수정 합니다.
+- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 서버 2에서 DNS 별칭을 제거 합니다.
 
 ## <a name="limitations-during-preview"></a>미리 보기 중 제한 사항
 
@@ -104,7 +104,7 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 
 - *최대 2분 간 지연:* DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
   - 지연 시간이 길어지든, 짧아지든, 별칭은 레거시 서버에 대한 클라이언트 연결 참조를 즉시 중지합니다.
-- *DNS 조회:* 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
+- *DNS 조회:* 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
 - _테이블 감사는 지원 되지 않습니다._ 데이터베이스에서 *테이블 감사가* 설정 된 서버에는 DNS 별칭을 사용할 수 없습니다.
   - 테이블 감사는 더 이상 사용되지 않습니다.
   - 따라서 [Blob 감사](../../azure-sql/database/auditing-overview.md)로 전환하는 것이 좋습니다.
@@ -112,8 +112,8 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 ## <a name="related-resources"></a>관련 리소스
 
 - 재해 복구를 포함하는 [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md).
-- [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)
-- [서버 Dns 별칭 API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Azure REST API 참조](/rest/api/azure/)
+- [서버 Dns 별칭 API](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>다음 단계
 

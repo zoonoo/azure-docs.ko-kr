@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789916"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Azure Virtual Machines의 Always On 가용성 그룹은 [온-프레미스의 Alw
 
 ## <a name="vm-redundancy"></a>VM 중복성 
 
-중복성 및 고가용성을 강화하려면 SQL Server VM이 동일한 [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) 또는 다른 [가용성 영역](/azure/availability-zones/az-overview)에 있어야 합니다.
+중복성 및 고가용성을 강화하려면 SQL Server VM이 동일한 [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) 또는 다른 [가용성 영역](../../../availability-zones/az-overview.md)에 있어야 합니다.
 
 가용성 집합은 동일한 가용성 영역에 두 개의 하위 영역이 없도록 구성된 리소스의 그룹입니다. 이렇게 하면 배포를 롤아웃하는 중에 그룹의 여러 리소스에 영향을 주지 않습니다. 
 
@@ -74,7 +74,7 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 
 사용 가능한 옵션을 비교한 표는 다음과 같습니다. 
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](availability-group-az-cli-configure.md)**|**[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)**|**[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)**|**[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**SQL Server 버전** |2016 이상 |2016 이상|2016 이상|2012 이상|
 |**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -100,6 +100,6 @@ Azure IaaS VM 게스트 장애 조치 클러스터의 경우 서버(클러스터
 
 ## <a name="next-steps"></a>다음 단계
 
-[HADR 모범 사례](hadr-cluster-best-practices.md)를 검토한 다음, [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](availability-group-az-cli-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 가용성 그룹 배포를 시작하거나 [수동](availability-group-manually-configure-prerequisites-tutorial.md)으로 이 작업을 시작합니다.
+[HADR 모범 사례](hadr-cluster-best-practices.md)를 검토한 다음, [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 가용성 그룹 배포를 시작하거나 [수동](availability-group-manually-configure-prerequisites-tutorial.md)으로 이 작업을 시작합니다.
 
-또는 [클러스터가 없는 가용성 그룹](availability-group-clusterless-workgroup-configure.md) 또는 가용성 그룹을 [여러 지역](availability-group-manually-configure-multiple-regions.md)에 배포할 수 있습니다. 
+또는 [클러스터가 없는 가용성 그룹](availability-group-clusterless-workgroup-configure.md) 또는 가용성 그룹을 [여러 지역](availability-group-manually-configure-multiple-regions.md)에 배포할 수 있습니다.

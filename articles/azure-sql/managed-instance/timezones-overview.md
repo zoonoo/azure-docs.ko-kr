@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978376"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790630"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 표준 시간대
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ UTC (협정 세계시)는 클라우드 솔루션의 데이터 계층에 권장 �
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-[리소스 관리자 템플릿에서](https://aka.ms/sql-mi-create-arm-posh) timezoneId 속성을 지정 하 여 인스턴스를 만드는 동안 표준 시간대를 설정 합니다.
+[리소스 관리자 템플릿에서](./scripts/create-powershell-azure-resource-manager-template.md) timezoneId 속성을 지정 하 여 인스턴스를 만드는 동안 표준 시간대를 설정 합니다.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 
 ## <a name="limitations"></a>제한 사항
 
-- 기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 없습니다. 해결 방법으로 올바른 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 사용 하 여 [인스턴스 간 지정 시간 복원을](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database)수행 합니다.
+- 기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 없습니다. 해결 방법으로 올바른 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 사용 하 여 [인스턴스 간 지정 시간 복원을](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database)수행 합니다.
 - SQL Server 에이전트 작업에서 시작 된 외부 프로세스는 인스턴스의 표준 시간대를 준수 하지 않습니다.
 
 ## <a name="list-of-supported-time-zones"></a>지원 되는 표준 시간대 목록
@@ -241,9 +241,9 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 | 사모아 표준 시간 | (UTC + 13:00) 표준시 |
 | 라인 제도 표준시 | (UTC + 14:00) 키리티마티 섬 |
 
-## <a name="see-also"></a>추가 정보 
+## <a name="see-also"></a>참고 항목 
 
-- [CURRENT_TIMEZONE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE(Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID(Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE(Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-sql)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

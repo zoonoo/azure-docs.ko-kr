@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448809"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790341"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음과 같습니다.
+[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
 
 - 동일한 서버에 새 데이터베이스를 만들어 보존 기간 내의 지정 된 특정 시점으로 복구 합니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 되는 동일한 서버에 데이터베이스를 만듭니다.
@@ -64,7 +64,7 @@ Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원
 
-Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.)를 사용 하 여 독립 실행형, 풀링된 또는 인스턴스 데이터베이스를 이전 시점으로 복원할 수 있습니다. 요청은 복원 된 데이터베이스에 대 한 서비스 계층 또는 계산 크기를 지정할 수 있습니다. 데이터베이스를 복원할 서버에 충분 한 리소스가 있는지 확인 합니다. 
+Azure Portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase)또는 [REST API](/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.)를 사용 하 여 독립 실행형, 풀링된 또는 인스턴스 데이터베이스를 이전 시점으로 복원할 수 있습니다. 요청은 복원 된 데이터베이스에 대 한 서비스 계층 또는 계산 크기를 지정할 수 있습니다. 데이터베이스를 복원할 서버에 충분 한 리소스가 있는지 확인 합니다. 
 
 완료 되 면 복원 시 원본 데이터베이스와 동일한 서버에 새 데이터베이스가 만들어집니다. 복원 된 데이터베이스는 서비스 계층 및 계산 크기를 기준으로 정상 요금으로 청구 됩니다. 데이터베이스 복원이 완료 될 때까지 요금이 부과 되지 않습니다.
 
@@ -99,7 +99,7 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 
 
 ## <a name="deleted-database-restore"></a>삭제된 데이터베이스 복원
 
-삭제 된 데이터베이스를 동일한 서버나 동일한 관리 되는 인스턴스의 삭제 시간 또는 이전 시점으로 복원할 수 있습니다. Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)또는 [REST (Createmode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 통해이를 수행할 수 있습니다. 백업에서 새 데이터베이스를 만들어 삭제 된 데이터베이스를 복원 합니다.
+삭제 된 데이터베이스를 동일한 서버나 동일한 관리 되는 인스턴스의 삭제 시간 또는 이전 시점으로 복원할 수 있습니다. Azure Portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase)또는 [REST (Createmode = Restore)](/rest/api/sql/databases/createorupdate)를 통해이를 수행할 수 있습니다. 백업에서 새 데이터베이스를 만들어 삭제 된 데이터베이스를 복원 합니다.
 
 > [!IMPORTANT]
 > 서버 또는 관리 되는 인스턴스를 삭제 하면 모든 해당 데이터베이스도 삭제 되 고 복구할 수 없습니다. 삭제 된 서버 또는 관리 되는 인스턴스는 복원할 수 없습니다.
@@ -110,13 +110,13 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 
 
 #### <a name="sql-database"></a>SQL Database
 
-Azure Portal를 사용 하 여 삭제 된 데이터베이스를 삭제 시간으로 복구 하려면 서버 개요 페이지를 열고 **삭제 된 데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
+Azure Portal를 사용 하 여 삭제 된 데이터베이스를 삭제 시간으로 복구 하려면 서버 개요 페이지를 열고 **삭제 된 데이터베이스** 를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
 
   ![삭제 된 데이터베이스 복원의 스크린샷](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 관리 되는 인스턴스 개요 페이지를 열고 **삭제 된 데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
+Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 관리 되는 인스턴스 개요 페이지를 열고 **삭제 된 데이터베이스** 를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
 
   ![삭제 된 Azure SQL Managed Instance 데이터베이스 복원의 스크린샷](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,10 +154,10 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 선택한 지역 및 서버의 Azure Portal에서 단일 데이터베이스를 지역 복원 하려면 다음 단계를 수행 합니다.
 
-1. **대시보드**에서 **추가**  >  **SQL Database 만들기**를 선택 합니다. **기본 사항** 탭에서 필요한 정보를 입력 합니다.
-2. **추가 설정**을 선택합니다.
-3. **기존 데이터 사용**에 대해 **백업**을 선택 합니다.
-4. **Backup**의 경우 사용 가능한 지역 복원 백업 목록에서 백업을 선택 합니다.
+1. **대시보드** 에서 **추가**  >  **SQL Database 만들기** 를 선택 합니다. **기본 사항** 탭에서 필요한 정보를 입력 합니다.
+2. **추가 설정** 을 선택합니다.
+3. **기존 데이터 사용** 에 대해 **백업** 을 선택 합니다.
+4. **Backup** 의 경우 사용 가능한 지역 복원 백업 목록에서 백업을 선택 합니다.
 
     ![SQL Database 만들기 옵션의 스크린샷](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
@@ -165,11 +165,11 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행합니다.
+Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행하세요.
 
-1. **새 데이터베이스**를 선택 합니다.
+1. **새 데이터베이스** 를 선택 합니다.
 2. 원하는 데이터베이스 이름을 입력 합니다.
-3. **기존 데이터 사용**에서 **백업**을 선택 합니다.
+3. **기존 데이터 사용** 에서 **백업** 을 선택 합니다.
 4. 사용 가능한 지역 복원 백업 목록에서 백업을 선택 합니다.
 
     ![새 데이터베이스 옵션의 스크린샷](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
@@ -205,13 +205,13 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 SQL Database 및 SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az module 및 Azure Resource Manager 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
+> PowerShell Azure Resource Manager 모듈은 SQL Database 및 SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az module 및 Azure Resource Manager 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
 
 #### <a name="sql-database"></a>SQL Database
 
 독립 실행형 또는 풀링된 데이터베이스를 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)을 참조 하세요.
 
-  | cmdlet | 설명 |
+  | cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -225,7 +225,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 관리 되는 인스턴스 데이터베이스를 복원 하려면 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)을 참조 하세요.
 
-  | cmdlet | 설명 |
+  | cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
@@ -237,8 +237,8 @@ REST API를 사용 하 여 데이터베이스를 복원 하려면 다음을 수�
 
 | API | 설명 |
 | --- | --- |
-| [REST(createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |데이터베이스를 복원합니다. |
-| [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/operations) |복원 작업 중에 상태를 반환 합니다. |
+| [REST(createMode=Recovery)](/rest/api/sql/databases) |데이터베이스를 복원합니다. |
+| [데이터베이스 만들기 또는 업데이트 상태 가져오기](/rest/api/sql/operations) |복원 작업 중에 상태를 반환 합니다. |
 
 ### <a name="azure-cli"></a>Azure CLI
 

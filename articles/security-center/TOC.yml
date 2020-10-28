@@ -17,13 +17,13 @@
     - name: 새로운 기능
       items:
         - name: 릴리스 정보
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes.md
         - name: 예정된 중요한 변경 내용
-          displayName: 'release notes, changelog'
+          displayName: 'release notes, changelog, news'
           href: upcoming-changes.md
         - name: 보관된 릴리스 정보(6개월 이상)
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes-archive.md
     - name: Security Center 기본 사항
       items:
@@ -92,6 +92,7 @@
     - name: 이메일 알림 설정
       href: security-center-provide-security-contact-details.md
     - name: ARM 템플릿을 사용하여 경고에 대한 자동 응답 만들기
+      displayName: Resource Manager
       href: quickstart-automation-alert.md
 - name: 자습서
   items:
@@ -238,6 +239,7 @@
           displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
           href: export-to-siem.md
         - name: Log Analytics 작업 영역 또는 Azure Event Hub로 내보내기
+          displayName: continuous
           href: continuous-export.md
         - name: 모든 경고에 대한 CSV 보고서 다운로드
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations

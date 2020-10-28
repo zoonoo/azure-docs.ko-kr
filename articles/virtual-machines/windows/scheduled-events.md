@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978040"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788811"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -153,6 +153,10 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 > [!NOTE] 
 > 경우에 따라 Azure는 저하된 하드웨어로 인한 호스트 오류를 예측할 수 있으며, 마이그레이션을 예약하여 서비스 중단 완화를 시도합니다. 영향을 받는 가상 머신은 `NotBefore`(일반적으로 며칠 후)로 예약된 이벤트를 수신합니다. 실제 시간은 예상 오류 위험 평가에 따라 다릅니다. Azure는 가능한 경우 7일 전에 통지하려고 하지만, 실제 시간은 다르며, 하드웨어 오류가 곧 발생할 가능성이 높은 경우에는 이보다 빨리 통지할 수 있습니다. 시스템이 마이그레이션을 시작하기 전에 하드웨어에 장애가 발생하는 경우 서비스 위험을 최소화하기 위해 가능한 한 빨리 가상 머신을 자체 재배포하는 것이 좋습니다.
+
+### <a name="polling-frequency"></a>폴링 빈도
+
+끝점은 원하는 만큼 자주 또는 자주 업데이트 하지 않는 방식으로 폴링할 수 있습니다. 그러나 요청 간의 시간이 길수록 예정 된 이벤트에 반응 하는 데 더 많은 시간이 소요 됩니다. 대부분의 이벤트에는 5 ~ 15 분의 사전 알림이 있습니다. 하지만 일부 경우에는 미리 알림이 30 초 정도 걸릴 수 있습니다. 완화 작업을 수행할 수 있는 시간이 충분 한지 확인 하려면 초당 한 번 서비스를 폴링하는 것이 좋습니다.
 
 ### <a name="start-an-event"></a>이벤트 시작 
 

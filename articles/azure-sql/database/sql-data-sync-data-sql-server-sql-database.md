@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503337"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791429"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -32,7 +32,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 데이터 동기화는 허브 및 스포크 토폴로지를 사용하여 데이터를 동기화합니다. 동기화 그룹의 데이터베이스 중 하나를 허브 데이터베이스로 정의 합니다. 데이터베이스의 나머지 부분은 구성원 데이터베이스입니다. 동기화는 허브와 개별 구성원 간에만 발생 합니다.
 
-- **허브 데이터베이스**는 Azure SQL Database여야 합니다.
+- **허브 데이터베이스** 는 Azure SQL Database여야 합니다.
 - **멤버 데이터베이스** 는 Azure SQL Database 또는 SQL Server의 인스턴스에 있는 데이터베이스 일 수 있습니다.
 - **동기화 메타 데이터 데이터베이스** 에는 데이터 동기화에 대 한 메타 데이터 및 로그가 포함 되어 있습니다. 동기화 메타 데이터 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database 이어야 합니다. 동기화 메타 데이터 데이터베이스는 고객이 만들고 고객이 소유 합니다. 지역 및 구독 당 동기화 메타 데이터 데이터베이스는 하나만 있을 수 있습니다. 동기화 그룹 또는 동기화 에이전트가 있는 동안에는 동기화 메타 데이터 데이터베이스를 삭제 하거나 이름을 바꿀 수 없습니다. 동기화 메타데이터 데이터베이스로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다.
 
@@ -43,10 +43,10 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 동기화 그룹에는 다음과 같은 속성이 있습니다.
 
-- **동기화 스키마**는 동기화할 데이터에 대해 설명합니다.
-- **동기화 방향**은 양방향일 수도 있고 한 방향으로만 전달될 수 있습니다. 즉, 동기화 방향은 *허브에서 멤버로*또는 *구성원에서 허브*로 또는 둘 다 일 수 있습니다.
-- **동기화 간격**은 동기화가 발생하는 빈도를 설명합니다.
-- **충돌 해결 정책**은 그룹 수준 정책으로 *허브 우선*일 수도 있고 *구성원 우선*일 수도 있습니다.
+- **동기화 스키마** 는 동기화할 데이터에 대해 설명합니다.
+- **동기화 방향** 은 양방향일 수도 있고 한 방향으로만 전달될 수 있습니다. 즉, 동기화 방향은 *허브에서 멤버로* 또는 *구성원에서 허브* 로 또는 둘 다 일 수 있습니다.
+- **동기화 간격** 은 동기화가 발생하는 빈도를 설명합니다.
+- **충돌 해결 정책** 은 그룹 수준 정책으로 *허브 우선* 일 수도 있고 *구성원 우선* 일 수도 있습니다.
 
 ## <a name="when-to-use"></a>사용 시기
 
@@ -62,19 +62,19 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 |----------|----------------------------|
 | 재해 복구 | [Azure 지역 중복 백업](automated-backups-overview.md) |
 | 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)](read-scale-out.md) |
-| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 - **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행 하지 않습니다. FIRE_TRIGGERS 지정 하지 않으면 삽입 트리거가 실행 되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 - **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계 되었습니다. 허브는 각 멤버와 개별적으로 동기화 됩니다. 허브의 변경 내용이 구성원에 다운로드 된 다음 멤버의 변경 내용이 허브로 업로드 됩니다.
-- **충돌 해결:** 데이터 동기화는 충돌 해결을 위해 *허브 우선* 또는 *멤버 우선*이라는 두 가지 옵션을 제공합니다.
-  - *허브 우선*을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
-  - *구성원 우선*을 선택하는 경우 구성원의 변경 내용은 항상 허브의 변경 내용을 덮어씁니다. 구성원이 둘 이상인 경우 최종 값은 먼저 동기화된 구성원에 따라 달라집니다.
+- **충돌 해결:** 데이터 동기화는 충돌 해결을 위해 *허브 우선* 또는 *멤버 우선* 이라는 두 가지 옵션을 제공합니다.
+  - *허브 우선* 을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
+  - *구성원 우선* 을 선택하는 경우 구성원의 변경 내용은 항상 허브의 변경 내용을 덮어씁니다. 구성원이 둘 이상인 경우 최종 값은 먼저 동기화된 구성원에 따라 달라집니다.
 
 ## <a name="compare-with-transactional-replication"></a>트랜잭션 복제와 비교
 
@@ -101,7 +101,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 ### <a name="did-something-go-wrong"></a>잘못된 부분이 있나요?
 
-- [Azure SQL 데이터 동기화 문제 해결](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Azure SQL 데이터 동기화 문제 해결](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>일관성과 성능
 
@@ -126,7 +126,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 > - 동기화가 문제를 보고 하지 않더라도 허브와 구성원 간의 데이터는 손실 될 수 있습니다.
 > - 기본 키 변경으로 인해 추적 테이블의 원본에서 존재 하지 않는 행이 있으므로 동기화가 실패할 수 있습니다.
 
-- 동기화 구성원과 허브 모두에 대해 스냅숏 격리를 사용 하도록 설정 해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
+- 동기화 구성원과 허브 모두에 대해 스냅숏 격리를 사용 하도록 설정 해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
@@ -150,7 +150,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 
-데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예:
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들면 다음과 같습니다.
 
 - 계산된 열입니다.
 - 임시 테이블에 대한 시스템에서 생성된 열입니다.
@@ -175,8 +175,8 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 동기화 그룹이 설정 되 면 데이터 동기화 서비스는 허브 데이터베이스에 연결 해야 합니다. 동기화 그룹을 설정 하는 시점에 Azure SQL server의 해당 설정에 다음과 같은 구성이 있어야 합니다 `Firewalls and virtual networks` .
 
- * *공용 네트워크 액세스 거부* 가 *Off*로 설정 되어 있어야 합니다.
- * *이 서버에 액세스할 수 있는 Azure 서비스 및 리소스를* *예*로 설정 해야 합니다. 또는 [데이터 동기화 서비스에서 사용 하는 IP 주소](network-access-controls-overview.md#data-sync)에 대 한 ip 규칙을 만들어야 합니다.
+ * *공용 네트워크 액세스 거부* 가 *Off* 로 설정 되어 있어야 합니다.
+ * *이 서버에 액세스할 수 있는 Azure 서비스 및 리소스를* *예* 로 설정 해야 합니다. 또는 [데이터 동기화 서비스에서 사용 하는 IP 주소](network-access-controls-overview.md#data-sync)에 대 한 ip 규칙을 만들어야 합니다.
 
 동기화 그룹을 만들어 프로 비전 한 후에는 이러한 설정을 사용 하지 않도록 설정할 수 있습니다. 동기화 에이전트는 허브 데이터베이스에 직접 연결 하 고, 서버의 [방화벽 IP 규칙이](firewall-configure.md) 나 [개인 끝점](private-endpoint-overview.md) 을 사용 하 여 에이전트가 허브 서버에 액세스할 수 있도록 합니다.
 
@@ -240,7 +240,7 @@ SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 �
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>사용자 고유의 데이터베이스 (BYOD) 기능을 사용 하 여 Dynamics 365에서 내보낸 데이터를 동기화 하기 위해 데이터 동기화를 사용할 수 있나요?
 
-Dynamics 365 자체 데이터베이스 기능을 사용 하면 관리자가 응용 프로그램의 데이터 엔터티를 SQL database Microsoft Azure 자체에 내보낼 수 있습니다. **증분 푸시** 를 사용 하 여 데이터를 내보내고 (전체 푸시가 지원 되지 않음) **대상 데이터베이스에서 트리거 사용** 이 **예**로 설정 된 경우 데이터 동기화를 사용 하 여이 데이터를 다른 데이터베이스에 동기화 할 수 있습니다.
+Dynamics 365 자체 데이터베이스 기능을 사용 하면 관리자가 응용 프로그램의 데이터 엔터티를 SQL database Microsoft Azure 자체에 내보낼 수 있습니다. **증분 푸시** 를 사용 하 여 데이터를 내보내고 (전체 푸시가 지원 되지 않음) **대상 데이터베이스에서 트리거 사용** 이 **예** 로 설정 된 경우 데이터 동기화를 사용 하 여이 데이터를 다른 데이터베이스에 동기화 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -248,20 +248,19 @@ Dynamics 365 자체 데이터베이스 기능을 사용 하면 관리자가 응�
 
 동기화 그룹에서 데이터베이스의 스키마를 업데이트해야 하나요? 스키마 변경 내용은 자동으로 복제 되지 않습니다. 일부 솔루션의 경우 다음 문서를 참조하세요.
 
-- [Azure에서 SQL 데이터 동기화를 사용 하 여 스키마 변경 내용 복제 자동화](../../sql-database/sql-database-update-sync-schema.md)
+- [Azure에서 SQL 데이터 동기화를 사용 하 여 스키마 변경 내용 복제 자동화](./sql-data-sync-update-sync-schema.md)
 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>모니터링 및 문제 해결
 
 예상 대로 SQL 데이터 동기화 하 고 있습니까? 활동을 모니터링하고 문제를 해결하려면 다음 문서를 참조하세요.
 
-- [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Azure SQL 데이터 동기화 문제 해결](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](./monitor-tune-overview.md)
+- [Azure SQL 데이터 동기화 문제 해결](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Azure SQL Database에 대한 자세한 정보
 
 Azure SQL Database에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 - [SQL Database 개요](sql-database-paas-overview.md)
-- [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [데이터베이스 수명 주기 관리](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

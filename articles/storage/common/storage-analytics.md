@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: fe1b685a0209643332d798b875b9e62b02aa02da
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488778"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790528"
 ---
 # <a name="storage-analytics"></a>스토리지 분석
 
@@ -37,7 +37,7 @@ Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트�
 * 로깅용 Blob 작성 요청
 * 메트릭용 테이블 엔터티 작성 요청
 
-데이터 보존 정책을 구성한 경우에는 스토리지 분석에서 이전 로깅 및 메트릭 데이터를 삭제할 때 삭제 트랜잭션에 대해 요금이 부과되지 않습니다. 그러나 클라이언트의 삭제 트랜잭션에는 요금이 청구됩니다. 보존 정책에 대한 자세한 내용은 [스토리지 분석 데이터 보존 정책 설정](https://msdn.microsoft.com/library/azure/hh343263.aspx)을 참조하세요.
+데이터 보존 정책을 구성한 경우에는 스토리지 분석에서 이전 로깅 및 메트릭 데이터를 삭제할 때 삭제 트랜잭션에 대해 요금이 부과되지 않습니다. 그러나 클라이언트의 삭제 트랜잭션에는 요금이 청구됩니다. 보존 정책에 대한 자세한 내용은 [스토리지 분석 데이터 보존 정책 설정](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy)을 참조하세요.
 
 ### <a name="understanding-billable-requests"></a>청구 가능한 요청 이해
 

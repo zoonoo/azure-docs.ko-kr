@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789219"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -25,7 +25,7 @@ ms.locfileid: "92341943"
 Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같은 외부 도구를 통해 이러한 보안 경고를 볼 수 있습니다.
 
 - [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드 기본 siem. 센티널 커넥터는 Azure Security Center에서 경고를 가져오고 Azure 센티널의 [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) 으로 보냅니다.
-- 타사 SIEMs-Security Center의 [연속 내보내기](continuous-export.md) 도구를 사용 하 여 [Azure Event Hubs](../event-hubs/index.yml)에 데이터를 전송 합니다. 그런 다음 이벤트 허브 데이터를 타사 SIEM과 통합 합니다.
+- 타사 SIEMs- [Azure Event Hubs](../event-hubs/index.yml)에 데이터를 보냅니다. 그런 다음 이벤트 허브 데이터를 타사 SIEM과 통합 합니다. [SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림](export-to-siem.md)에서 자세히 알아보세요.
 - [REST API](/rest/api/securitycenter/) -REST API를 사용 하 여 경고에 액세스 하는 경우 [온라인 경고 API 설명서](/rest/api/securitycenter/alerts)를 참조 하세요.
 
 프로그래밍 방법을 사용 하 여 경고를 사용 하는 경우 적절 한 스키마를 사용 하 여 관련 필드를 찾아야 합니다. 또한 이벤트 허브로 내보내거나 일반 HTTP 커넥터를 사용 하 여 워크플로 자동화를 트리거하기를 시도 하는 경우 스키마를 사용 하 여 JSON 개체를 올바르게 구문 분석 합니다.
@@ -46,8 +46,9 @@ Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같�
 - Security Center의 워크플로 자동화에서 구성 된 Azure 논리 앱 인스턴스
 - Security Center의 연속 내보내기 기능을 사용 하는 Azure 이벤트 허브
 
-Workflow automation 기능에 대 한 자세한 내용은 [경고 및 권장 사항에 대 한 응답 자동화](workflow-automation.md)를 참조 하세요.
-연속 내보내기에 대 한 자세한 내용은 [경고 및 권장 사항 내보내기](continuous-export.md)를 참조 하세요.
+Workflow automation 기능에 대 한 자세한 내용은 [Security Center 트리거에 대 한 응답 자동화](workflow-automation.md)를 참조 하세요.
+
+연속 내보내기에 대 한 자세한 내용은 [데이터 Security Center 연속 내보내기](continuous-export.md)를 참조 하세요.
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -139,7 +140,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|설명|
+|필드|Description|
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|
@@ -185,5 +186,5 @@ MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 
 
 - [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드-기본 siem
 - [Azure Event Hubs](../event-hubs/index.yml) -Microsoft의 완전히 관리 되는 실시간 데이터 수집 서비스
-- Security Center의 [연속 내보내기 기능](continuous-export.md)
+- [Security Center 데이터를 지속적으로 내보내기](continuous-export.md)
 - [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) -데이터 및 구성 정보를 포함 하는 컨테이너 Log Analytics 작업 영역에 로그 데이터를 저장 Azure Monitor

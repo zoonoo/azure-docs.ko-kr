@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474855"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789015"
 ---
 # <a name="configure-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 구성
 
@@ -37,7 +37,7 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 
 - 릴리스 상태:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
-  - [Azure Files](/azure/storage/files/storage-files-introduction) (일반 공급)
+  - [Azure Files](../files/storage-files-introduction.md) (일반 공급)
   - Azure Data Lake Storage Gen2 (일반 공급)
 - 클라우드:<br>
     ✔ 상용 클라우드<br>
@@ -53,10 +53,10 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 Azure Security Center 표준 계층을 구독할 때 Azure Defender는 모든 저장소 계정에 자동으로 설정 됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대해 Azure Defender를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Security Center** 를 시작 합니다.
-1. 주 메뉴의 **관리**아래에서 **가격 책정 & 설정**을 선택 합니다.
+1. 주 메뉴의 **관리** 아래에서 **가격 책정 & 설정** 을 선택 합니다.
 1. Azure Defender를 사용 하거나 사용 하지 않도록 설정할 구독을 선택 합니다.
 1. Azure defender **on** 을 선택 하 여 구독에 대해 azure defender를 사용 하도록 설정 합니다.
-1. **리소스 유형별 Azure Defender 계획 선택**에서 **저장소** 행을 찾고 **계획** 열에서 **사용** 을 선택 합니다.
+1. **리소스 유형별 Azure Defender 계획 선택** 에서 **저장소** 행을 찾고 **계획** 열에서 **사용** 을 선택 합니다.
 1. 변경 내용을 저장합니다.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
@@ -66,8 +66,8 @@ Azure Defender는 이제이 구독의 모든 저장소 계정에 대해 사용 �
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com/)를 시작 합니다.
-1. 스토리지 계정으로 이동합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
-1. **저장소에 Azure Defender 사용**을 선택 합니다.
+1. 스토리지 계정으로 이동합니다. **설정** 아래에서 **고급 보안** 을 선택 합니다.
+1. **저장소에 Azure Defender 사용** 을 선택 합니다.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
@@ -138,4 +138,4 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 계정의 로그](/rest/api/storageservices/About-Storage-Analytics-Logging) 에 대해 자세히 알아보기
-- [Azure Security Center](../../security-center/security-center-intro.md)에 대한 자세한 정보
+- [Azure Security Center](../../security-center/security-center-introduction.md)에 대한 자세한 정보

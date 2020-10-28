@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789508"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Azure SQL Database는 사용자 개입 없이 업그레이드, 패치, 백업, �
 
 Azure SQL Database를 사용하면 Azure의 애플리케이션 및 솔루션을 위한 고가용성 고성능 데이터 스토리지 레이어를 만들 수 있습니다. Azure SQL Database는 다양한 최신 클라우드 애플리케이션에 적합한 선택이 될 수 있는데, 그 이유는 관계형 데이터와 [비관계형 구조](../multi-model-features.md)(예: 그래프, JSON, 공간 및 XML)를 모두 처리할 수 있기 때문입니다.
 
-Azure SQL Database는 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)을 기반으로 합니다. [고성능 메모리 내 기술](../in-memory-oltp-overview.md) 및 [지능형 쿼리 처리](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json)와 같은 고급 쿼리 처리 기능을 사용할 수 있습니다. 실제로 SQL Server의 최신 기능은 먼저 SQL Database에 릴리스된 후 SQL Server 자체에 릴리스됩니다. 수백만에 달하는 데이터베이스에 대해 테스트한 최신 SQL Server 기능을 패치나 업그레이드를 위한 오버헤드 없이 활용할 수 있습니다. 
+Azure SQL Database는 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json)을 기반으로 합니다. [고성능 메모리 내 기술](../in-memory-oltp-overview.md) 및 [지능형 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json)와 같은 고급 쿼리 처리 기능을 사용할 수 있습니다. 실제로 SQL Server의 최신 기능은 먼저 SQL Database에 릴리스된 후 SQL Server 자체에 릴리스됩니다. 수백만에 달하는 데이터베이스에 대해 테스트한 최신 SQL Server 기능을 패치나 업그레이드를 위한 오버헤드 없이 활용할 수 있습니다. 
 
 SQL Database는 서로 다른 두 구매 모델 내에서 성능을 쉽게 정의하고 확장할 수 있습니다([vCore 기반 구매 모델](service-tiers-vcore.md) 및 [DTU 기반 구매 모델](service-tiers-dtu.md)). SQL Database는 기본 제공되는 고가용성, 백업 및 다른 일반적인 유지 관리 작업이 포함된 완전 관리형 서비스입니다. Microsoft는 SQL 및 운영 체제 코드의 모든 패치 및 업데이트를 처리합니다. 기본 인프라를 관리할 필요가 없습니다.
 
@@ -37,7 +37,7 @@ Azure SQL Database를 처음 사용하는 경우에는 심층 [Azure SQL 비디�
 
 Azure SQL Database는 데이터베이스에 다음과 같은 옵션을 제공합니다.
 
-- [단일 데이터베이스](single-database-overview.md)는 완전 관리형의 격리된 데이터베이스를 나타냅니다. 안정적인 단일 데이터 원본이 필요한 최신 클라우드 애플리케이션 및 마이크로 서비스가 있는 경우, 이 옵션을 사용할 수 있습니다. 단일 데이터베이스는 [SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)에 [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json)와 유사합니다.
+- [단일 데이터베이스](single-database-overview.md)는 완전 관리형의 격리된 데이터베이스를 나타냅니다. 안정적인 단일 데이터 원본이 필요한 최신 클라우드 애플리케이션 및 마이크로 서비스가 있는 경우, 이 옵션을 사용할 수 있습니다. 단일 데이터베이스는 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json)에 [포함된 데이터베이스](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json)와 유사합니다.
 - [탄력적 풀](elastic-pool-overview.md)은 CPU, 메모리 등의 공유 리소스 집합이 포함된 [단일 데이터베이스](single-database-overview.md)의 컬렉션입니다. 단일 데이터베이스를 탄력적 풀로 이동하거나 탄력적 풀에서 제거할 수 있습니다.
 
 > [!IMPORTANT]
@@ -92,13 +92,13 @@ Azure SQL Database는 워크로드 특성에 대해 더욱 심층적인 인사�
  - 최신 버전의 SQL Server 데이터베이스 엔진에서 제공하는 기본 제공 모니터링 기능. 이 기능을 사용하면 실시간 성능 정보를 확인할 수 있습니다. 
  - Azure에서 제공하는 PaaS 모니터링 기능. 이 기능을 사용하면 다수의 데이터베이스 인스턴스를 모니터링하고 문제를 해결할 수 있습니다.
 
-기본적으로 제공되는 SQL Server 모니터링 기능인 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store)는 쿼리 성능을 실시간으로 기록하며, 잠재적인 성능 문제와 상위 리소스 소비자를 식별할 수 있습니다. 자동 조정 및 권장 사항은 재발된 성능 및 누락되거나 중복된 인덱스를 사용하여 쿼리에 관한 조언을 제공합니다. SQL Database 자동 조정 기능을 사용하면 문제를 해결할 수 있는 스크립트를 수동으로 적용할 수 있으며 또는 SQL Database가 픽스를 적용할 수 있습니다. 또한 SQL 데이터베이스는 픽스가 몇 가지 이점을 제공하는 것을 테스트 및 확인하고 그 결과에 따라 변경 사항을 유지하거나 되돌릴 수도 있습니다. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [DMV 및 XEvent](monitoring-with-dmvs.md)를 사용하여 워크로드 성능을 모니터링할 수 있습니다.
+기본적으로 제공되는 SQL Server 모니터링 기능인 [쿼리 저장소](/sql/relational-databases/performance/best-practice-with-the-query-store)는 쿼리 성능을 실시간으로 기록하며, 잠재적인 성능 문제와 상위 리소스 소비자를 식별할 수 있습니다. 자동 조정 및 권장 사항은 재발된 성능 및 누락되거나 중복된 인덱스를 사용하여 쿼리에 관한 조언을 제공합니다. SQL Database 자동 조정 기능을 사용하면 문제를 해결할 수 있는 스크립트를 수동으로 적용할 수 있으며 또는 SQL Database가 픽스를 적용할 수 있습니다. 또한 SQL 데이터베이스는 픽스가 몇 가지 이점을 제공하는 것을 테스트 및 확인하고 그 결과에 따라 변경 사항을 유지하거나 되돌릴 수도 있습니다. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [DMV 및 XEvent](monitoring-with-dmvs.md)를 사용하여 워크로드 성능을 모니터링할 수 있습니다.
 
 Azure는 성능 등급과 결합된 [기본 제공 성능 모니터링](performance-guidance.md) 및 [경고](alerts-insights-configure-portal.md) 도구를 제공하며, 이를 통해 수천 개의 데이터베이스 상태를 모니터링할 수 있습니다. 이러한 도구를 사용하면 현재 또는 예상되는 성능 요구 사항에 따라 확장 또는 축소함으로써 발생하는 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 리소스 로그를 내보낼](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
-- **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
-- **Azure Monitor 로그**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
+- **Azure Storage** : 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
+- **Azure Event Hubs** : 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
+- **Azure Monitor 로그** : 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
 ![Azure 모니터링 아키텍처 다이어그램](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ SQL Database를 기반으로 [SaaS 다중 테넌트 앱](saas-tenancy-app-design
 
 [SQL Database에서 사용할 수 있는](automatic-tuning-overview.md) 자동 튜닝은 다음의 두 가지 측면이 있습니다.
 
-- **자동 인덱스 관리**: 데이터베이스에 추가되어야 하는 인덱스 및 제거되어야 하는 인덱스를 식별합니다.
-- **자동 계획 수정**: 문제가 있는 계획을 식별하고 SQL 계획 성능 문제를 해결합니다.
+- **자동 인덱스 관리** : 데이터베이스에 추가되어야 하는 인덱스 및 제거되어야 하는 인덱스를 식별합니다.
+- **자동 계획 수정** : 문제가 있는 계획을 식별하고 SQL 계획 성능 문제를 해결합니다.
 
 ### <a name="adaptive-query-processing"></a>적응 쿼리 처리
 
@@ -158,7 +158,7 @@ SQL Database를 기반으로 [SaaS 다중 테넌트 앱](saas-tenancy-app-design
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수
 
-SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](../../active-directory/identity-protection/security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 합니다.
+SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](../../active-directory/identity-protection/concept-identity-protection-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 합니다.
 
 > [!IMPORTANT]
 > Microsoft는 다양한 규정 준수 표준에 대해 Azure SQL Database(모든 배포 옵션)를 인증했습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요. 여기서 최신 SQL Database 규정 준수 인증서 목록을 찾을 수 있습니다.
@@ -180,7 +180,7 @@ Azure Defender for SQL은 고급 SQL 보안 기능의 통합 패키지입니다.
 
 ### <a name="data-encryption"></a>데이터 암호화.
 
-SQL Database는 암호화를 제공하여 데이터를 보호합니다. 이동 중인 데이터의 경우에는 [전송 계층 보안](https://support.microsoft.com/kb/3135244)사용합니다. 미사용 데이터의 경우에는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용합니다. 사용 중인 데이터의 경우에는 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용합니다.
+SQL Database는 암호화를 제공하여 데이터를 보호합니다. 이동 중인 데이터의 경우에는 [전송 계층 보안](https://support.microsoft.com/kb/3135244)사용합니다. 미사용 데이터의 경우에는 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용합니다. 사용 중인 데이터의 경우에는 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용합니다.
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 
@@ -198,8 +198,8 @@ SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리하는 웹 기반 애플리케이션.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Windows, macOS 및 Linux에서 실행되는 플랫폼 간 데이터베이스 도구.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리하는 체험, 다운로드 가능한 클라이언트 애플리케이션.|
-|[Visual Studio의 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|SQL Server 관계형 데이터베이스, Azure SQL Database의 데이터베이스, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발하는 체험, 다운로드 가능한 클라이언트 애플리케이션.|
+|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리하는 체험, 다운로드 가능한 클라이언트 애플리케이션.|
+|[Visual Studio의 SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)|SQL Server 관계형 데이터베이스, Azure SQL Database의 데이터베이스, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발하는 체험, 다운로드 가능한 클라이언트 애플리케이션.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Windows, macOS 및 Linux용 오픈 소스 코드 편집기이며 무료로 다운로드할 수 있습니다. Microsoft SQL Server, Azure SQL Database 및 Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다.|
 
 SQL Database는 macOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 및 .NET을 사용하여 애플리케이션을 빌드하도록 지원합니다. SQL Database는 동일한 [연결 라이브러리](connect-query-content-reference-guide.md#libraries)를 SQL Server로 지원합니다.
@@ -218,7 +218,7 @@ SQL Database는 macOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 - [DBA 스택 교환](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리에 관해 질문합니다.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): 개발에 관한 질문을 합니다.
-- [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
+- [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
 - [사용자 의견](https://aka.ms/sqlfeedback): 버그 및 요청 기능을 보고합니다.
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server에 관하여 논의합니다.
 
@@ -237,4 +237,3 @@ SQL Database는 macOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 - 별도로 공지된 새로운 기능에 대한 내용은 [SQL Database용 Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)을 참조하세요.
 - [Azure SQL Database 블로그](https://azure.microsoft.com/blog/topics/database)를 참조하세요. SQL Database 뉴스 및 기능에 대한 SQL Server 제품 팀 구성원 블로그를 확인할 수 있습니다.
-

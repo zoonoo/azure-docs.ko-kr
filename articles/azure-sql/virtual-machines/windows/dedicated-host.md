@@ -13,20 +13,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677670"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789797"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트에서 SQL Server VM 실행 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 SQL Server 가상 머신(VM)을 [Azure 전용 호스트](/azure/virtual-machines/windows/dedicated-hosts)로 사용하는 방법에 대한 자세한 정보를 제공합니다. Azure 전용 호스트에 대한 자세한 내용은 [Azure 전용 호스트 소개](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/) 블로그 게시물에서 확인할 수 있습니다. 
+이 문서에서는 SQL Server 가상 머신(VM)을 [Azure 전용 호스트](../../../virtual-machines/dedicated-hosts.md)로 사용하는 방법에 대한 자세한 정보를 제공합니다. Azure 전용 호스트에 대한 자세한 내용은 [Azure 전용 호스트 소개](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/) 블로그 게시물에서 확인할 수 있습니다. 
 
 ## <a name="overview"></a>개요
-[Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts)는 하나의 Azure 구독 전용 물리적 서버(하나 이상의 가상 머신을 호스트)를 제공하는 서비스입니다. 전용 호스트는 리소스로 제공되는, Microsoft 데이터 센터에서 사용되는 것과 동일한 물리적 서버입니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로비저닝할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합한 구성으로 프로비저닝된 호스트에 직접 VM을 배치할 수 있습니다.
+[Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md)는 하나의 Azure 구독 전용 물리적 서버(하나 이상의 가상 머신을 호스트)를 제공하는 서비스입니다. 전용 호스트는 리소스로 제공되는, Microsoft 데이터 센터에서 사용되는 것과 동일한 물리적 서버입니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로비저닝할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합한 구성으로 프로비저닝된 호스트에 직접 VM을 배치할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -54,7 +54,7 @@ SQL Server VM을 Azure 전용 호스트에 설치할 때 두 가지 라이선스
 
 
 ## <a name="provisioning"></a>프로비전  
-SQL Server VM을 전용 호스트에 프로비저닝하는 작업은 다른 Azure 가상 머신과 다르지 않습니다. 여기에는 [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/windows/dedicated-hosts-portal.md), [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md)를 사용할 수 있습니다.
+SQL Server VM을 전용 호스트에 프로비저닝하는 작업은 다른 Azure 가상 머신과 다르지 않습니다. 여기에는 [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/dedicated-hosts-portal.md), [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md)를 사용할 수 있습니다.
 
 기존 SQL Server VM을 전용 호스트에 추가하는 과정에서 전용 호스트가 잠시 중단되지만 데이터에는 영향을 미치지 않으므로 데이터 손실은 발생하지 않습니다. 그러나 시스템 데이터베이스를 포함한 모든 데이터베이스는 이동 전에 백업해야 합니다.
 
@@ -78,5 +78,3 @@ A: 고객은 기존 Windows Server 및 SQL Server 라이선스의 가치를 소�
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.md)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
 * [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
-
-

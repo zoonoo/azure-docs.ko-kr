@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 578f3244381c94552a159589478781640629271f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92427283"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788641"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,8 +28,8 @@ ms.locfileid: "92427283"
 
 ### <a name="azure-sql-database-deployment-offers-covered-in-this-guide"></a>이 가이드에서 설명 하는 Azure SQL Database 배포 제품
 
-- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [서버](logical-servers.md) 에서 [단일 데이터베이스](single-database-overview.md) 및 [탄력적 풀](elastic-pool-overview.md)
-- [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
+- [Azure SQL Database](./index.yml): [서버](logical-servers.md) 에서 [단일 데이터베이스](single-database-overview.md) 및 [탄력적 풀](elastic-pool-overview.md)
+- [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>이 가이드에서 다루지 않는 배포 제안
 
@@ -80,18 +80,18 @@ ms.locfileid: "92427283"
 - 간단 하 고 유연한 권한 관리.
 - 대규모로 응용 프로그램 관리.
 
-**구현 방법**:
+**구현 방법** :
 
 - 중앙 집중식 id 관리를 위해 Azure AD (Azure Active Directory) 인증을 사용 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - Azure AD 테 넌 트를 만들고 [사용자를 만들어 사용자](../../active-directory/fundamentals/add-users-azure-active-directory.md) 에 게 앱, 서비스 및 자동화 도구를 나타내는 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md) 를 만듭니다. 서비스 주체는 Windows 및 Linux의 서비스 계정에 해당 합니다.
 
 - 그룹 할당을 통해 Azure AD 사용자에 게 리소스에 대 한 액세스 권한 할당: Azure AD 그룹을 만들고, 그룹에 액세스 권한을 부여 하 고, 그룹에 개별 멤버를 추가 합니다. 데이터베이스에서 Azure AD 그룹을 매핑하는 포함 된 데이터베이스 사용자를 만듭니다. 데이터베이스 내에서 사용 권한을 할당 하려면 적절 한 권한이 있는 데이터베이스 역할에서 Azure AD 그룹에 연결 된 사용자를 배치 합니다.
   - Sql을 사용한 인증에는 SQL을 사용 하 [여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md) 및 [sql 인증을 위해 Azure AD 사용](authentication-aad-overview.md)문서를 참조 하세요.
   > [!NOTE]
-  > SQL Managed Instance에서는 master 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [CREATE LOGIN (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조 하세요.
+  > SQL Managed Instance에서는 master 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [CREATE LOGIN (transact-sql)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조 하세요.
 
 - Azure AD 그룹을 사용 하 여 권한 관리 및 그룹 소유자를 간소화 하 고 리소스 소유자가 그룹에서 구성원을 추가/제거할 수 있습니다.
 
@@ -118,13 +118,13 @@ ms.locfileid: "92427283"
 
 Azure Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 하 여 추가 보안을 제공 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - 조건부 액세스를 사용 하 고 대화형 인증을 사용 하 여 Azure AD에서 Multi-Factor Authentication를 사용 [하도록 설정](../../active-directory/authentication/concept-mfa-howitworks.md) 합니다.
 
 - 대안은 전체 Azure AD 또는 AD 도메인에 대 한 Multi-Factor Authentication를 사용 하도록 설정 하는 것입니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - Azure AD에서 조건부 액세스를 활성화 합니다 (프리미엄 구독 필요).
   - [AZURE AD의 조건부 액세스](../../active-directory/conditional-access/overview.md)문서를 참조 하세요.  
@@ -136,12 +136,12 @@ Azure Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 하 �
 
 - Azure AD Interactive 인증 모드를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance에 대해 암호를 대화형으로 요청 하 고 그 뒤에 Multi-Factor Authentication 합니다.
   - SSMS에서 유니버설 인증을 사용 합니다. [Azure SQL Database에서 Multi-factor AZURE AD 인증 사용, SQL Managed Instance, Azure Synapse (Multi-Factor Authentication에 대 한 SSMS 지원)](authentication-mfa-ssms-overview.md)문서를 참조 하세요.
-  - SQL Server Data Tools에서 지원 되는 대화형 인증 (SSDT)을 사용 합니다. [SQL Server Data Tools에서 Azure Active Directory 지원 (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current)문서를 참조 하세요.
+  - SQL Server Data Tools에서 지원 되는 대화형 인증 (SSDT)을 사용 합니다. [SQL Server Data Tools에서 Azure Active Directory 지원 (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current)문서를 참조 하세요.
   - Multi-Factor Authentication를 지 원하는 다른 SQL 도구를 사용 합니다.
     - 데이터베이스 내보내기/추출/배포에 대 한 SSMS 마법사 지원  
-    - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): '/ua ' 옵션
-    - [Sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility): 옵션-G (대화형)
-    - [Bcp 유틸리티](https://docs.microsoft.com/sql/tools/bcp-utility): 옵션-G (대화형)
+    - [sqlpackage.exe](/sql/tools/sqlpackage): '/ua ' 옵션
+    - [Sqlcmd 유틸리티](/sql/tools/sqlcmd-utility): 옵션-G (대화형)
+    - [Bcp 유틸리티](/sql/tools/bcp-utility): 옵션-G (대화형)
 
 - Multi-Factor Authentication 지원과 함께 대화형 인증을 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 응용 프로그램을 구현 합니다.
   - [Azure Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결](active-directory-interactive-connect-azure-sql-db.md)문서를 참조 하세요.
@@ -154,11 +154,11 @@ Azure Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 하 �
 
 암호 기반 인증 방법은 더 약한 형태의 인증입니다. 자격 증명이 손상 되거나 실수로 제공 될 수 있습니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - 암호 사용을 제거 하는 Azure AD 통합 인증을 사용 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - Windows 자격 증명을 사용 하 여 Single Sign-On 인증을 사용 합니다. 온-프레미스 AD 도메인을 Azure AD와 페더레이션 하 고 Windows 통합 인증 (Azure AD에서 도메인에 가입 된 컴퓨터의 경우)을 사용 합니다.
   - [AZURE AD 통합 인증에 대 한 SSMS 지원](authentication-aad-configure.md#active-directory-integrated-authentication)문서를 참조 하세요.
@@ -167,11 +167,11 @@ Azure Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 하 �
 
 > 설명: OSA 사례 #4, ISO Access Control (AC)
 
-**구현 방법**:
+**구현 방법** :
 
 - Azure 관리 Id를 사용 하도록 설정 합니다. 또한 통합 또는 인증서 기반 인증을 사용할 수 있습니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - [Azure 리소스에 관리 되는 id를](../../active-directory/managed-identities-azure-resources/overview.md)사용 합니다.
   - [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
@@ -188,25 +188,25 @@ Azure Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 하 �
 
 암호가 갖추고 않는 경우 보안이 유지 되는지 확인 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - Azure Key Vault를 사용 하 여 암호 및 암호를 저장 합니다. 해당 하는 경우 Azure AD 사용자와 Azure SQL Database에 대 한 Multi-Factor Authentication를 사용 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 암호나 암호를 사용할 수 없는 경우 Azure Key Vault에 사용자 암호 및 응용 프로그램 암호를 저장 하 고 Key Vault 액세스 정책을 통해 액세스를 관리 합니다.
 
-- 다양 한 앱 개발 프레임 워크는 앱에서 비밀을 보호 하기 위한 프레임 워크 특정 메커니즘을 제공할 수도 있습니다. 예: [ASP.NET core 앱](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows).
+- 다양 한 앱 개발 프레임 워크는 앱에서 비밀을 보호 하기 위한 프레임 워크 특정 메커니즘을 제공할 수도 있습니다. 예: [ASP.NET core 앱](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>레거시 응용 프로그램에 SQL 인증 사용
 
 SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database 또는 SQL Managed Instance에 연결할 때 사용자의 인증을 나타냅니다. 각 서버 또는 관리 되는 인스턴스 및 각 데이터베이스에서 만든 사용자에 게 로그인을 만들어야 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - SQL 인증을 사용 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 서버 또는 인스턴스 관리자는 로그인 및 사용자를 만듭니다. 포함 된 데이터베이스 사용자에 게 암호를 사용 하지 않는 한 모든 암호는 master 데이터베이스에 저장 됩니다.
   - [SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 데이터베이스 액세스 제어 및 권한 부여](logins-create-manage.md)문서를 참조 하세요.
@@ -219,24 +219,24 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 > 설명: FedRamp controls AC-06, NIST: AC-6, OSA 연습 #3
 
-최소 권한의 원칙에 따라 사용자에 게 작업을 완료 하는 데 필요한 것 보다 많은 권한이 부여 되는 것은 아닙니다. 자세한 내용은 [충분 한 관리](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)문서를 참조 하세요.
+최소 권한의 원칙에 따라 사용자에 게 작업을 완료 하는 데 필요한 것 보다 많은 권한이 부여 되는 것은 아닙니다. 자세한 내용은 [충분 한 관리](/powershell/scripting/learn/remoting/jea/overview)문서를 참조 하세요.
 
-**구현 방법**:
+**구현 방법** :
 
-필요한 작업을 완료 하는 데 필요한 [권한만](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) 할당 합니다.
+필요한 작업을 완료 하는 데 필요한 [권한만](/sql/relational-databases/security/permissions-database-engine) 할당 합니다.
 
 - SQL 데이터베이스:
   - 세부적인 권한 및 사용자 정의 데이터베이스 역할 (또는 Managed Instance의 서버 역할)을 사용 합니다.
     1. 필요한 역할 만들기
-       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
-       - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
+       - [역할 만들기](/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE SERVER ROLE](/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
-       - [사용자 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
-       - [ALTER_ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
-       - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
+       - [ALTER_ROLE](/sql/t-sql/statements/alter-role-transact-sql)
+       - [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql)
     1. 그런 다음 역할에 사용 권한을 할당 합니다.
-       - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql)
+       - [GRANT](/sql/t-sql/statements/grant-transact-sql)
   - 불필요 한 역할에 사용자를 할당 하지 않아야 합니다.
 
 - Azure Resource Manager:
@@ -244,7 +244,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
     - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
     - [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
 
-**모범 사례**:
+**모범 사례** :
 
 다음 모범 사례는 선택 사항 이지만 보안 전략의 관리 효율성 및 지원 가능성을 향상 시킬 수 있습니다.
 
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - Developer
+  - 개발자
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -271,9 +271,9 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
   - 개체 (테이블, 뷰, 프로시저 등)
 
   > [!NOTE]
-  > 이 수준에서는 전체 구현에 불필요 한 복잡성이 추가 되기 때문에 개체 수준에 대 한 사용 권한을 적용 하지 않는 것이 좋습니다. 개체 수준 사용 권한을 사용 하기로 결정 한 경우이를 명확 하 게 문서화 해야 합니다. 열 수준 사용 권한에도 동일 하 게 적용 됩니다. 즉, 동일한 이유로 인해 것이 좋습니다 훨씬 줄어듭니다. 또한 기본적으로 테이블 수준 [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) 는 열 수준 GRANT를 재정의 하지 않습니다. 이렇게 하려면 [common criteria 호환성 서버 구성을](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) 활성화 해야 합니다.
+  > 이 수준에서는 전체 구현에 불필요 한 복잡성이 추가 되기 때문에 개체 수준에 대 한 사용 권한을 적용 하지 않는 것이 좋습니다. 개체 수준 사용 권한을 사용 하기로 결정 한 경우이를 명확 하 게 문서화 해야 합니다. 열 수준 사용 권한에도 동일 하 게 적용 됩니다. 즉, 동일한 이유로 인해 것이 좋습니다 훨씬 줄어듭니다. 또한 기본적으로 테이블 수준 [DENY](/sql/t-sql/statements/deny-object-permissions-transact-sql) 는 열 수준 GRANT를 재정의 하지 않습니다. 이렇게 하려면 [common criteria 호환성 서버 구성을](/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) 활성화 해야 합니다.
 
-- [VA (취약성 평가)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) 를 사용 하 여 정기적으로 검사를 수행 하 여 너무 많은 사용 권한을 테스트 합니다.
+- [VA (취약성 평가)](/sql/relational-databases/security/sql-vulnerability-assessment) 를 사용 하 여 정기적으로 검사를 수행 하 여 너무 많은 사용 권한을 테스트 합니다.
 
 ### <a name="implement-separation-of-duties"></a>의무 분리 구현
 
@@ -281,7 +281,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 의무의 분리 (분리 라고도 함)는 중요 한 작업을 여러 사용자에 게 할당 된 여러 작업으로 분할 하기 위한 요구 사항을 설명 합니다. 의무를 분리 하면 데이터 위반을 방지할 수 있습니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - 필요한 의무의 분리 수준을 식별 합니다. 예제:
   - 개발/테스트 및 프로덕션 환경 간
@@ -296,19 +296,19 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
   - 데이터베이스 수준 태스크에 대 한 데이터베이스 역할을 만듭니다.
 
 - 특정 한 중요 한 태스크의 경우 인증서로 서명 된 특수 저장 프로시저를 만들어 사용자를 대신 하 여 작업을 실행 하는 것이 좋습니다. 디지털 서명 된 저장 프로시저의 한 가지 중요 한 장점은 프로시저를 변경 하는 경우 이전 버전의 프로시저에 부여 된 사용 권한이 즉시 제거 된다는 것입니다.
-  - 예: [자습서: 인증서로 저장 프로시저 서명](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate)
+  - 예: [자습서: 인증서로 저장 프로시저 서명](/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate)
 
 - Azure Key Vault에서 고객 관리 키를 사용 하 여 TDE (투명한 데이터 암호화)를 구현 하 여 데이터 소유자와 보안 소유자 간에 업무를 분리할 수 있습니다.
-  - [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성](../../storage/common/storage-encryption-keys-portal.md)문서를 참조 하세요.
+  - [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성](../../storage/common/customer-managed-keys-configure-key-vault.md)문서를 참조 하세요.
 
 - DBA가 매우 중요 한 것으로 간주 되 고 DBA 작업을 수행할 수 있는 데이터를 볼 수 없도록 하려면 역할 구분과 함께 Always Encrypted를 사용할 수 있습니다.
-  - 역할 구분을 사용 하 여 [Always Encrypted에 대 한 키 관리 개요](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [역할 분리를 사용한 키 프로 비전](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)및 [열 마스터 키 회전](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation)에 대 한 개요 문서를 참조 하세요.
+  - 역할 구분을 사용 하 여 [Always Encrypted에 대 한 키 관리 개요](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [역할 분리를 사용한 키 프로 비전](/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)및 [열 마스터 키 회전](/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation)에 대 한 개요 문서를 참조 하세요.
 
 - Always Encrypted 사용을 불가능 하 게 하거나 최소한의 비용 및 노력 없이 시스템을 사용할 수 없는 상태로 만들 수 있는 경우 다음과 같은 보상 제어를 사용 하 여 손상 될 수 있습니다.
   - 사용자가 프로세스에서 작업 합니다.
   - 감사 내역 – 감사에 대 한 자세한 내용은 [중요 보안 이벤트 감사](#audit-critical-security-events)를 참조 하세요.
 
-**모범 사례**:
+**모범 사례** :
 
 - 개발/테스트 및 프로덕션 환경에 다른 계정이 사용 되는지 확인 합니다. 계정 마다 테스트와 프로덕션 시스템의 분리를 준수 하는 데 도움이 됩니다.
 
@@ -320,7 +320,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 - T-sql의 SQL 에이전트 작업 단계 내에서 또는 Azure 역할에 Azure PIM을 사용 하 여 역할 할당을 일시적으로 수행할 수도 있습니다 (DSD).
 
-- Dba에 게 암호화 키 또는 키 저장소에 대 한 액세스 권한이 없는지 확인 하 고 키에 대 한 액세스 권한이 있는 보안 관리자는 데이터베이스에 대 한 액세스 권한이 없습니다. [EKM (확장 가능 키 관리)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) 을 사용 하면 이러한 분리를 보다 쉽게 수행할 수 있습니다. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 를 사용 하 여 EKM을 구현할 수 있습니다.
+- Dba에 게 암호화 키 또는 키 저장소에 대 한 액세스 권한이 없는지 확인 하 고 키에 대 한 액세스 권한이 있는 보안 관리자는 데이터베이스에 대 한 액세스 권한이 없습니다. [EKM (확장 가능 키 관리)](/sql/relational-databases/security/encryption/extensible-key-management-ekm) 을 사용 하면 이러한 분리를 보다 쉽게 수행할 수 있습니다. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 를 사용 하 여 EKM을 구현할 수 있습니다.
 
 - 보안 관련 작업에 대 한 감사 내역이 항상 있는지 확인 합니다.
 
@@ -337,9 +337,9 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 - Azure SQL Database 및 SQL Managed Instance:  
   - [데이터베이스 액세스 제어 및 권한 부여](logins-create-manage.md)
-  - [응용 프로그램 개발자에 대 한 의무의 엔진 분리](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
+  - [응용 프로그램 개발자에 대 한 의무의 엔진 분리](/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
   - [의무 분리](https://www.microsoft.com/download/details.aspx?id=39269)
-  - [저장 프로시저 서명](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
+  - [저장 프로시저 서명](/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Azure 리소스 관리:
   - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
@@ -352,7 +352,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 의무의 분리는 데이터베이스의 데이터로 제한 되지 않지만 응용 프로그램 코드를 포함 합니다. 악의적인 코드는 잠재적으로 보안 제어를 우회할 수 있습니다. 사용자 지정 코드를 프로덕션에 배포 하기 전에 배포 되는 항목을 검토 하는 것이 중요 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - 원본 제어를 지 원하는 Azure Data Studio와 같은 데이터베이스 도구를 사용 합니다.
 
@@ -360,7 +360,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 - Main 분기에 커밋하기 전에 코드 자체의 작성자가 아닌 사람이 코드를 검사 하 여 악의적인 데이터 수정 뿐만 아니라 사기 행위 및 rogue 액세스 로부터 보호 하는 악의적인 데이터를 수정 해야 합니다. 원본 제어 메커니즘을 사용 하 여이 작업을 수행할 수 있습니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 표준화: 코드 업데이트에 대해 따라야 하는 표준 프로시저를 구현 하는 데 도움이 됩니다.
 
@@ -395,12 +395,12 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 미사용 데이터 암호화는 데이터베이스, 로그 및 백업 파일에 유지 되는 데이터의 암호화 보호입니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - 서비스 관리 키를 사용 하는 [TDE (투명 데이터베이스 암호화](transparent-data-encryption-tde-overview.md) )는 AZURE SQL DATABASE 및 SQL Managed Instance에서 2017 이후에 생성 된 모든 데이터베이스에 대해 기본적으로 사용 하도록 설정 됩니다.
 - 관리 되는 인스턴스에서 데이터베이스가 온-프레미스 서버를 사용 하 여 복원 작업에서 만들어진 경우 원본 데이터베이스의 TDE 설정이 적용 됩니다. 원본 데이터베이스에서 TDE를 사용 하도록 설정 하지 않은 경우 관리 되는 인스턴스에 대해 TDE를 수동으로 설정 하는 것이 좋습니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - Master 데이터베이스에서 미사용 암호화가 필요한 데이터는 저장 하지 않습니다. Master 데이터베이스는 TDE를 사용 하 여 암호화할 수 없습니다.
 
@@ -414,25 +414,25 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 중요 한 데이터를 결정 하는 정책 및 중요 한 데이터를 메모리에서 암호화 해야 하 고 일반 텍스트의 관리자가 액세스할 수 없는지 여부는 준수 해야 하는 조직 및 규정 준수 규정에 따라 결정 됩니다. 관련 요구 사항: [중요 한 데이터 식별 및 태그](#identify-and-tag-sensitive-data)지정을 참조 하세요.
 
-**구현 방법**:
+**구현 방법** :
 
-- [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 사용 하 여 메모리/사용 에서도 중요 한 데이터가 AZURE SQL DATABASE 또는 SQL Managed Instance에서 일반 텍스트로 노출 되지 않도록 합니다. Always Encrypted는 Dba (데이터베이스 관리자) 및 클라우드 관리자 (또는 권한이 없지만 권한이 없는 사용자를 가장할 수 있는 잘못 된 행위자)의 데이터를 보호 하 고 데이터에 액세스할 수 있는 사용자를 보다 강력 하 게 제어할 수 있도록 합니다.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 사용 하 여 메모리/사용 에서도 중요 한 데이터가 AZURE SQL DATABASE 또는 SQL Managed Instance에서 일반 텍스트로 노출 되지 않도록 합니다. Always Encrypted는 Dba (데이터베이스 관리자) 및 클라우드 관리자 (또는 권한이 없지만 권한이 없는 사용자를 가장할 수 있는 잘못 된 행위자)의 데이터를 보호 하 고 데이터에 액세스할 수 있는 사용자를 보다 강력 하 게 제어할 수 있도록 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - Always Encrypted은 미사용 데이터 (TDE) 또는 전송 중 (SSL/TLS)을 대체 하지 않습니다. 성능 및 기능 영향을 최소화 하기 위해 중요 하지 않은 데이터에는 Always Encrypted를 사용할 수 없습니다. TDE 및 TLS (전송 계층 보안)와 함께 Always Encrypted를 사용 하는 것은 미사용 데이터, 전송 중 및 사용 중인 데이터의 포괄적인 보호에 사용 하는 것이 좋습니다.
 
-- 프로덕션 데이터베이스에 Always Encrypted를 배포 하기 전에 식별 된 중요 한 데이터 열을 암호화할 때의 영향을 평가 합니다. 일반적으로 Always Encrypted는 암호화 된 열에 대 한 쿼리 기능을 줄이고 [Always Encrypted 기능 정보](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details)에 나열 된 다른 제한 사항이 있습니다. 따라서 응용 프로그램을 다시 구현 하 여 클라이언트에서 지원 하지 않는 기능을 다시 구현 하 고 저장 프로시저, 함수, 뷰 및 트리거의 정의를 포함 하 여 데이터베이스 스키마를 리팩터링 해야 할 수 있습니다. 기존 응용 프로그램은 Always Encrypted의 제한 및 제한 사항을 준수 하지 않는 경우 암호화 된 열에서 작동 하지 않을 수 있습니다. Always Encrypted를 지 원하는 Microsoft 도구, 제품 및 서비스의 에코 시스템은 증가 하지만 암호화 된 열에는 여러 가지 작업이 적용 되지 않습니다. 열을 암호화 하는 작업의 특징에 따라 쿼리 성능에 영향을 줄 수도 있습니다.
+- 프로덕션 데이터베이스에 Always Encrypted를 배포 하기 전에 식별 된 중요 한 데이터 열을 암호화할 때의 영향을 평가 합니다. 일반적으로 Always Encrypted는 암호화 된 열에 대 한 쿼리 기능을 줄이고 [Always Encrypted 기능 정보](/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details)에 나열 된 다른 제한 사항이 있습니다. 따라서 응용 프로그램을 다시 구현 하 여 클라이언트에서 지원 하지 않는 기능을 다시 구현 하 고 저장 프로시저, 함수, 뷰 및 트리거의 정의를 포함 하 여 데이터베이스 스키마를 리팩터링 해야 할 수 있습니다. 기존 응용 프로그램은 Always Encrypted의 제한 및 제한 사항을 준수 하지 않는 경우 암호화 된 열에서 작동 하지 않을 수 있습니다. Always Encrypted를 지 원하는 Microsoft 도구, 제품 및 서비스의 에코 시스템은 증가 하지만 암호화 된 열에는 여러 가지 작업이 적용 되지 않습니다. 열을 암호화 하는 작업의 특징에 따라 쿼리 성능에 영향을 줄 수도 있습니다.
 
 - Always Encrypted를 사용 하 여 악의적인 Dba 로부터 데이터를 보호 하는 경우 역할 구분을 사용 하 여 Always Encrypted 키를 관리 합니다. 역할 분리를 사용 하면 보안 관리자가 물리적 키를 만듭니다. DBA는 데이터베이스의 물리적 키를 설명 하는 열 마스터 키 및 열 암호화 키 메타 데이터 개체를 만듭니다. 이 과정에서 보안 관리자는 데이터베이스에 대 한 액세스가 필요 하지 않으며 DBA는 일반 텍스트의 물리적 키에 액세스할 필요가 없습니다.
-  - 자세한 내용은 [역할 구분을 사용 하 여 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) 문서를 참조 하세요.
+  - 자세한 내용은 [역할 구분을 사용 하 여 키 관리](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) 문서를 참조 하세요.
 
 - 관리를 용이 하 게 하기 위해 Azure Key Vault에 열 마스터 키를 저장 합니다. 키 관리를 지 원하는 Windows 인증서 저장소 (일반적으로 중앙 키 관리 솔루션과 달리 분산 키 저장소 솔루션)를 사용 하지 마십시오.
 
 - 여러 키 (열 마스터 키 또는 열 암호화 키) 사용의 장단점을 신중 하 게 고려해 야 합니다. 키 관리 비용을 줄이기 위해 키 수를 작게 유지 합니다. 단일 열 마스터 키와 데이터베이스당 하나의 열 암호화 키가 일반적으로 안정적인 상태 환경에서 충분 합니다 (키 회전이 아닌). 각각 서로 다른 키를 사용 하 고 다른 데이터에 액세스 하는 다른 사용자 그룹이 있는 경우 추가 키가 필요할 수 있습니다.  
 
 - 규정 준수 요구 사항에 따라 열 마스터 키를 회전 합니다. 열 암호화 키를 회전 해야 하는 경우 온라인 암호화를 사용 하 여 응용 프로그램 가동 중지 시간을 최소화 하는 것이 좋습니다.
-  - [성능 및 가용성 고려 사항](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-column-encryption-using-powershell#performance-and-availability-considerations)문서를 참조 하세요.
+  - [성능 및 가용성 고려 사항](/sql/relational-databases/security/encryption/configure-column-encryption-using-powershell#performance-and-availability-considerations)문서를 참조 하세요.
 
 - 데이터의 계산 (같음)을 지원 해야 하는 경우 결정적 암호화를 사용 합니다. 그렇지 않으면 임의 암호화를 사용 합니다. 낮은 엔트로피 데이터 집합 또는 공개적으로 알려진 배포가 포함 된 데이터 집합에는 결정적 암호화를 사용 하지 마십시오.
 
@@ -446,9 +446,9 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 암호화는 암호화 키에 대 한 액세스 권한이 있는 특정 응용 프로그램 사용자만 데이터를 보거나 업데이트할 수 있도록 하는 방법으로 사용할 수 있습니다.
 
-**구현 방법**:
+**구현 방법** :
 
-- CLE (셀 수준 암호화)를 사용 합니다. 자세한 내용은 [데이터 열 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) 문서를 참조 하세요.
+- CLE (셀 수준 암호화)를 사용 합니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) 문서를 참조 하세요.
 - Always Encrypted를 사용 하지만 제한 사항을 알고 있어야 합니다. 제한 사항은 다음과 같습니다.
 
 **모범 사례**
@@ -462,7 +462,7 @@ CLE를 사용 하는 경우:
 - 3DES를 사용 하지 않도록 비대칭 키/인증서 (암호 아님)를 사용 하 여 대칭 키를 보호 합니다.
 
 - 내보내기/가져오기 (bacpac 파일)를 통해 Cell-Level 암호화를 사용 하 여 데이터베이스를 마이그레이션할 때는 주의 해야 합니다.
-  - 데이터를 마이그레이션할 때 키 손실을 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) 및 기타 모범 사례 지침을 참조 하세요.
+  - 데이터를 마이그레이션할 때 키 손실을 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database) 및 기타 모범 사례 지침을 참조 하세요.
 
 Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 높은 권한 사용자가 사용 하는 중요 한 데이터를 보호 하기 위해 설계 되었습니다. 권한이 [높은 권한이 없는 사용자의 중요 한 데이터 보호](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)를 참조 하세요. Always Encrypted를 사용 하 여 응용 프로그램 사용자 로부터 데이터를 보호 하는 경우 다음과 같은 문제를 고려해 야 합니다.
 
@@ -472,20 +472,20 @@ Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 �
 
 권한이 없는 사용자가 데이터를 볼 수 없도록 방지 하는 또 다른 방법은 데이터 형식 및 형식을 유지 하면서 데이터를 난독 처리 하거나 마스킹하 여 사용자 응용 프로그램에서 데이터를 계속 처리 하 고 표시할 수 있도록 하는 것입니다.
 
-**구현 방법**:
+**구현 방법** :
 
-- [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) 를 사용 하 여 테이블 열을 난독 처리 합니다.
+- [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking) 를 사용 하 여 테이블 열을 난독 처리 합니다.
 
 > [!NOTE]
 > Always Encrypted은 동적 데이터 마스킹에서 작동 하지 않습니다. 동일한 열을 암호화 하 고 마스킹할 수는 없습니다 .이는 사용 중인 데이터 보호의 우선 순위를 지정 하 고 동적 데이터 마스킹를 통해 앱 사용자에 대 한 데이터를 마스킹 해야 함을 의미 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 > [!NOTE]
 > 동적 데이터 마스킹는 높은 권한 사용자의 데이터를 보호 하는 데 사용할 수 없습니다. 마스킹 정책은 db_owner와 같은 관리자 액세스 권한이 있는 사용자에 게는 적용 되지 않습니다.
 
 - 앱 사용자가 임시 쿼리를 실행 하는 것을 허용 하지 않습니다 (동적 데이터 마스킹를 해결할 수 있음).  
-  - 자세한 내용은 유추를 [사용 하 여 마스킹 또는 무차별 대입 기법 무시](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) 문서를 참조 하세요.  
+  - 자세한 내용은 유추를 [사용 하 여 마스킹 또는 무차별 대입 기법 무시](/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) 문서를 참조 하세요.  
 
 - 적절 한 액세스 제어 정책 (SQL 사용 권한, 역할, RLS를 통해)을 사용 하 여 마스킹된 열에서 업데이트를 수행할 수 있는 사용자 권한을 제한 합니다. 열에 대 한 마스크를 만들면 해당 열에 대 한 업데이트가 차단 되지 않습니다. 마스킹된 열을 쿼리할 때 마스킹된 데이터를 수신 하는 사용자는 쓰기 권한이 있는 경우 데이터를 업데이트할 수 있습니다.
 
@@ -499,20 +499,20 @@ Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 �
 
 잘 알려진 취약점 (예: 이전 TLS 프로토콜 및 암호 그룹 사용)에서 클라이언트 컴퓨터 및 응용 프로그램을 Azure SQL Database 및 SQL Managed Instance에 연결 하는 방법에 대 한 모범 사례입니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - Azure SQL Database 및 SQL Managed Instance에 연결 하는 클라이언트 컴퓨터가  [TLS (Transport Layer Security)](security-overview.md#transport-layer-security-encryption-in-transit)를 사용 하 고 있는지 확인 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 암호화를 사용 하 여 SQL Database에 연결 하도록 모든 앱 및 도구 구성
   - Encrypt = On, TrustServerCertificate = Off (또는 타사 드라이버와 동일).
 
 - 앱이 TLS를 지원 하지 않거나 이전 버전의 TLS를 지 원하는 드라이버를 사용 하는 경우 가능 하면 드라이버를 바꿉니다. 가능 하지 않은 경우 보안 위험을 신중 하 게 평가 합니다.
 
-- [Tls (Transport Layer Security) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-10)에 Azure SQL Database에 연결 하는 클라이언트 컴퓨터에서 ssl 2.0, ssl 3.0, tls 1.0 및 tls 1.1의 취약성을 통해 공격 벡터를 줄입니다.
+- [Tls (Transport Layer Security) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings#tls-10)에 Azure SQL Database에 연결 하는 클라이언트 컴퓨터에서 ssl 2.0, ssl 3.0, tls 1.0 및 tls 1.1의 취약성을 통해 공격 벡터를 줄입니다.
 
-- 클라이언트에서 사용할 수 있는 암호 그룹 확인: [TLS/SSL (SCHANNEL SSP)의 암호 그룹](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel)입니다. 특히, [TLS 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)에 따라 3des를 사용 하지 않도록 설정 합니다.
+- 클라이언트에서 사용할 수 있는 암호 그룹 확인: [TLS/SSL (SCHANNEL SSP)의 암호 그룹](/windows/desktop/SecAuthN/cipher-suites-in-schannel)입니다. 특히, [TLS 암호 그룹 순서 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)에 따라 3des를 사용 하지 않도록 설정 합니다.
 
 - Azure SQL Database 및 SQL Managed Instance의 경우 프록시 및 리디렉션 연결 형식 모두에 대해 암호화가 적용 됩니다. Azure SQL Managed Instance의 경우 서버 쪽에서 암호화를 적용 하는 **프록시** 연결 형식 (기본값)을 사용 합니다. **리디렉션** 연결 유형은 현재 암호화 적용을 지원 하지 않으며 개인 IP 연결에 대해서만 사용할 수 있습니다.
 
@@ -524,7 +524,7 @@ Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 �
 
 > 설명: OSA 사례 #5
 
-**구현 방법**:
+**구현 방법** :
 
 SQL Database:
 
@@ -536,7 +536,7 @@ SQL Managed Instance에서 다음을 수행 합니다.
 
 - [네트워크 요구 사항](../managed-instance/connectivity-architecture-overview.md#network-requirements)의 지침을 따릅니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 개인 끝점 (예: 전용 데이터 경로 사용)에 연결 하 여 Azure SQL Database 및 SQL Managed Instance에 대 한 액세스를 제한 합니다.
   - 외부 액세스를 방지 하기 위해 관리 되는 인스턴스를 가상 네트워크 내부에 격리할 수 있습니다. 동일한 지역에 있는 동일한 또는 피어 링 가상 네트워크에 있는 응용 프로그램 및 도구는 직접 액세스할 수 있습니다. 다른 지역의 응용 프로그램 및 도구는 가상 네트워크-가상 네트워크 연결 또는 Express 경로 회로 피어 링을 사용 하 여 연결을 설정할 수 있습니다. 고객은 NSG (네트워크 보안 그룹)를 사용 하 여 관리 되는 인스턴스에 액세스 해야 하는 리소스로만 포트 1433을 통해 액세스를 제한 해야 합니다.
@@ -555,24 +555,24 @@ SQL Managed Instance에서 다음을 수행 합니다.
   - [네트워크 보안에 대 한 Azure 모범 사례를](../../security/fundamentals/network-best-practices.md)따릅니다.
   - [Azure VIRTUAL NETWORK faq (질문과 대답)](../../virtual-network/virtual-networks-faq.md) 및 계획에 설명 된 모범 사례에 따라 Virtual Network 구성을 계획 합니다.
   - 가상 네트워크를 여러 서브넷으로 분할 하 고 유사한 역할에 대 한 리소스를 동일한 서브넷에 할당 합니다 (예: 프런트 엔드 및 백 엔드 리소스).
-  - [NSGs (네트워크 보안 그룹)](../../virtual-network/security-overview.md) 를 사용 하 여 Azure 가상 네트워크 경계 내의 서브넷 간 트래픽을 제어 합니다.
+  - [NSGs (네트워크 보안 그룹)](../../virtual-network/network-security-groups-overview.md) 를 사용 하 여 Azure 가상 네트워크 경계 내의 서브넷 간 트래픽을 제어 합니다.
   - 인바운드 및 아웃 바운드 네트워크 트래픽을 모니터링 하려면 구독에 대해 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) 를 사용 하도록 설정 합니다.
 
 ### <a name="configure-power-bi-for-secure-connections-to-sql-databasesql-managed-instance"></a>SQL Database/SQL Managed Instance에 대 한 보안 연결을 위한 Power BI 구성
 
-**모범 사례**:
+**모범 사례** :
 
 - Power BI Desktop의 경우 가능 하면 전용 데이터 경로를 사용 합니다.
 
-- Tls ( [전송 계층 보안)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 레지스트리 설정에 따라 클라이언트 컴퓨터에서 레지스트리 키를 설정 하 여 POWER BI DESKTOP가 tls 1.2를 사용 하 여 연결 되는지 확인 합니다.
+- Tls ( [전송 계층 보안)](/windows-server/security/tls/tls-registry-settings) 레지스트리 설정에 따라 클라이언트 컴퓨터에서 레지스트리 키를 설정 하 여 POWER BI DESKTOP가 tls 1.2를 사용 하 여 연결 되는지 확인 합니다.
 
-- [Power BI를 사용 하 여 RLS (행 수준 보안)](https://docs.microsoft.com/power-bi/service-admin-rls)를 통해 특정 사용자에 대 한 데이터 액세스를 제한 합니다.
+- [Power BI를 사용 하 여 RLS (행 수준 보안)](/power-bi/service-admin-rls)를 통해 특정 사용자에 대 한 데이터 액세스를 제한 합니다.
 
-- Power BI 서비스의 경우, [온-프레미스 데이터 게이트웨이](https://docs.microsoft.com/power-bi/service-gateway-onprem)를 사용 하 여 [제한 사항 및 고려 사항을](https://docs.microsoft.com/power-bi/service-gateway-deployment-guidance#installation-considerations-for-the-on-premises-data-gateway)염두에 두어야 합니다.
+- Power BI 서비스의 경우, [온-프레미스 데이터 게이트웨이](/power-bi/service-gateway-onprem)를 사용 하 여 [제한 사항 및 고려 사항을](/power-bi/service-gateway-deployment-guidance#installation-considerations-for-the-on-premises-data-gateway)염두에 두어야 합니다.
 
 ### <a name="configure-app-service-for-secure-connections-to-sql-databasesql-managed-instance"></a>SQL Database/SQL Managed Instance에 대 한 보안 연결을 위한 App Service 구성
 
-**모범 사례**:
+**모범 사례** :
 
 - 간단한 웹 앱의 경우 공용 끝점을 통해 연결 하려면 **Azure 서비스 허용** 을 설정 해야 합니다.
 
@@ -586,7 +586,7 @@ SQL Managed Instance에서 다음을 수행 합니다.
 
 ### <a name="configure-azure-virtual-machine-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>SQL Database/SQL Managed Instance에 대 한 보안 연결을 위한 Azure 가상 컴퓨터 호스팅 구성
 
-**모범 사례**:
+**모범 사례** :
 
 - Azure virtual machines의 NSGs에 대 한 허용 및 거부 규칙의 조합을 사용 하 여 VM에서 액세스할 수 있는 지역을 제어 합니다.
 
@@ -610,7 +610,7 @@ DDoS (배포 된 서비스 거부) 공격은 악의적인 사용자가 Azure 인
 
 > 설명: OSA 사례 #9
 
-**구현 방법**:
+**구현 방법** :
 
 DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정 됩니다. 여기에는 공용 끝점에 대 한 네트워크 수준 공격의 실시간 완화 및 상시 트래픽 모니터링이 포함 됩니다.
 
@@ -618,7 +618,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 - [Azure SQL Database에 대 한 Advanced Threat Protection](threat-detection-overview.md) 을 사용 하 여 데이터베이스에 대 한 Dos (서비스 거부) 공격을 감지 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - [공격 노출 영역 최소화](#minimize-attack-surface) 에 설명 된 지침에 따라 DDoS 공격 위협을 최소화 합니다.
 
@@ -637,7 +637,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 고급 위협 방지를 사용 하면 비정상적인 활동에 대 한 보안 경고를 제공 하 여 발생 하는 잠재적인 위협을 감지 하 고 대응할 수 있습니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - [SQL에 대 한 Advanced Threat Protection](threat-detection-overview.md#alerts) 을 사용 하 여 다음을 비롯 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 잠재적으로 유해한 시도를 검색 합니다.
   - SQL 삽입 공격입니다.
@@ -645,7 +645,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
   - 권한 남용.
   - 데이터 exfiltration.
 
-**모범 사례**:
+**모범 사례** :
 
 - 특정 서버 또는 관리 되는 인스턴스에 대해 [Azure Defender FOR SQL](azure-defender-for-sql.md)을 구성   합니다. [Azure Security Center 표준 계층](../../security-center/security-center-pricing.md)으로 전환 하 여 구독에 있는 모든 서버 및 관리 되는 인스턴스에 대해 SQL Azure Defender를 구성할 수도 있습니다.
 
@@ -655,36 +655,36 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 데이터베이스 이벤트를 추적 하면 데이터베이스 작업을 이해 하는 데 도움이 됩니다. 비즈니스 문제나 의심 스러운 보안 위반을 나타낼 수 있는 불일치 및 비정상을 파악할 수 있습니다. 또한 규정 준수 표준을 준수 하도록 설정 하 고 지원 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 -  [SQL Database 감사](../../azure-sql/database/auditing-overview.md) 또는 [Managed Instance 감사](../managed-instance/auditing-configure.md) 를 사용 하 여 데이터베이스 이벤트를 추적 하 고 Azure Storage 계정의 감사 로그, Log Analytics 작업 영역 (미리 보기) 또는 Event Hubs (미리 보기)에 기록할 수 있습니다.
 
 - 감사 로그는 Azure Storage 계정, Azure Monitor 로그에서 사용 하기 위한 Log Analytics 작업 영역 또는 이벤트 허브를 사용 하 여 사용 하기 위해 이벤트 허브에 기록 될 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
 
-**모범 사례**:
+**모범 사례** :
 
 - 서버에서 [SQL Database 감사](../../azure-sql/database/auditing-overview.md) 를 구성 하거나 감사 이벤트에 대 한 감사를 [Managed Instance](../managed-instance/auditing-configure.md) 하 여 해당 서버에 있는 모든 기존 및 새로 만든 데이터베이스를 감사 합니다.
-- 기본적으로 감사 정책에는 데이터베이스에 대 한 모든 작업 (쿼리, 저장 프로시저 및 성공 및 실패 한 로그인)이 포함 되어 많은 수의 감사 로그가 생성 될 수 있습니다. 사용자가 [PowerShell을 사용 하 여 다양 한 유형의 작업 및 작업 그룹에 대 한 감사를 구성](../../sql-database/sql-database-auditing.md#manage-auditing)하는 것이 좋습니다. 이렇게 구성 하면 감사 된 작업의 수를 제어 하 고 이벤트 손실의 위험을 최소화할 수 있습니다. 사용자 지정 감사 구성을 통해 고객은 필요한 감사 데이터만 캡처할 수 있습니다.
+- 기본적으로 감사 정책에는 데이터베이스에 대 한 모든 작업 (쿼리, 저장 프로시저 및 성공 및 실패 한 로그인)이 포함 되어 많은 수의 감사 로그가 생성 될 수 있습니다. 사용자가 [PowerShell을 사용 하 여 다양 한 유형의 작업 및 작업 그룹에 대 한 감사를 구성](./auditing-overview.md#manage-auditing)하는 것이 좋습니다. 이렇게 구성 하면 감사 된 작업의 수를 제어 하 고 이벤트 손실의 위험을 최소화할 수 있습니다. 사용자 지정 감사 구성을 통해 고객은 필요한 감사 데이터만 캡처할 수 있습니다.
 - 감사 로그는 [Azure Portal](https://portal.azure.com/)에서 직접 사용 하거나 구성 된 저장소 위치에서 사용할 수 있습니다.
 
 > [!NOTE]
 > Log Analytics 감사를 사용 하도록 설정 하면 수집 요금에 따라 비용이 발생 합니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다.
 
-**추가 리소스**:
+**추가 리소스** :
 
 - [SQL 데이터베이스 감사](../../azure-sql/database/auditing-overview.md)
-- [SQL Server 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [SQL Server 감사](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="secure-audit-logs"></a>보안 감사 로그
 
 저장소 계정에 대 한 액세스를 제한 하 여 업무 분리를 지원 하 고 감사자와 DBA를 분리 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - Azure Storage에 감사 로그를 저장 하는 경우 저장소 계정에 대 한 액세스가 최소한의 보안 원칙으로 제한 되는지 확인 합니다. 저장소 계정에 대 한 액세스 권한이 있는 사용자를 제어 합니다.
 - 자세한 내용은 [Azure Storage에 대 한 액세스 권한 부여](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조 하세요.
 
-**모범 사례**:
+**모범 사례** :
 
 - 감사 대상에 대 한 액세스를 제어 하는 것은 감사자에서 DBA를 분리 하는 주요 개념입니다.
 
@@ -698,13 +698,13 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 잠재적 데이터베이스 취약성을 검색 하 고 수정 하 여 데이터베이스 보안을 사전에 향상 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
-- [SQL 취약성 평가](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) (VA)를 사용 하 여 데이터베이스에서 보안 문제를 검색 하 고 데이터베이스에서 주기적으로 자동으로 실행 되도록 합니다.
+- [SQL 취약성 평가](/sql/relational-databases/security/sql-vulnerability-assessment) (VA)를 사용 하 여 데이터베이스에서 보안 문제를 검색 하 고 데이터베이스에서 주기적으로 자동으로 실행 되도록 합니다.
 
-**모범 사례**:
+**모범 사례** :
 
-- 처음에는 데이터베이스에서 VA를 실행 하 고 보안 모범 사례를 oppose 수정 실패 검사를 반복 합니다. 검사가 _깨끗_하거나 모든 검사가 통과 될 때까지 허용 되는 구성에 대 한 기준을 설정 합니다.  
+- 처음에는 데이터베이스에서 VA를 실행 하 고 보안 모범 사례를 oppose 수정 실패 검사를 반복 합니다. 검사가 _깨끗_ 하거나 모든 검사가 통과 될 때까지 허용 되는 구성에 대 한 기준을 설정 합니다.  
 
 - 정기적 되풀이 검색을 구성 하 여 매주 한 번 실행 하 고 요약 전자 메일을 받을 관련 사용자를 구성 합니다.
 
@@ -712,23 +712,23 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 - 확인을 해결 하 고 관련 된 기준을 업데이트 합니다. 작업을 확인 하 고 해결 될 때까지 추적 하는 데 사용할 티켓 항목을 만듭니다.
 
-**추가 리소스**:
+**추가 리소스** :
 
-- [SQL 취약성 평가](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment)
+- [SQL 취약성 평가](/sql/relational-databases/security/sql-vulnerability-assessment)
 - [SQL 취약성 평가 서비스는 데이터베이스 취약성을 식별하는 데 도움이 됩니다.](sql-vulnerability-assessment.md)
 
 ### <a name="identify-and-tag-sensitive-data"></a>중요 한 데이터 식별 및 태그 지정
 
 잠재적으로 중요 한 데이터가 포함 된 열을 검색 합니다. 중요 한 데이터로 간주 되는 것은 고객, 규정 준수 규정 등에 따라 달라 지 며, 해당 데이터를 담당 하는 사용자가 평가 해야 합니다. 고급 민감도 기반 감사 및 보호 시나리오를 사용 하도록 열을 분류 합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - [SQL 데이터 검색 및 분류](data-discovery-and-classification-overview.md) 를 사용 하 여 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 및 보호 합니다.
   - SQL 데이터 검색 및 분류 대시보드에서 자동 검색을 통해 생성 되는 분류 권장 사항을 봅니다. 중요 한 데이터에 분류 레이블로 영구적으로 태그를 지정 하는 관련 분류를 적용 합니다.
   - 자동화 된 메커니즘에 의해 검색 되지 않은 추가 중요 데이터 필드에 대 한 분류를 수동으로 추가 합니다.
-- 자세한 내용은 [SQL 데이터 검색 및 분류](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification)를 참조하세요.
+- 자세한 내용은 [SQL 데이터 검색 및 분류](/sql/relational-databases/security/sql-data-discovery-and-classification)를 참조하세요.
 
-**모범 사례**:
+**모범 사례** :
 
 - 정기적으로 분류 대시보드를 모니터링 하 여 데이터베이스의 분류 상태를 정확 하 게 평가 합니다. 데이터베이스 분류 상태에 대 한 보고서는 준수 및 감사를 위해 공유 하도록 내보내거나 인쇄할 수 있습니다.
 
@@ -740,12 +740,12 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 중요 한 데이터에 액세스 하는 사용자를 모니터링 하 고 감사 로그의 중요 한 데이터에 대해 쿼리를 캡처합니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - SQL 감사 및 데이터 분류를 함께 사용합니다.
   - [SQL Database 감사](../../azure-sql/database/auditing-overview.md) 로그에서 특히 중요 한 데이터에 대 한 액세스를 추적할 수 있습니다. 또한 액세스 한 데이터와 같은 정보 및 해당 민감도 레이블을 볼 수 있습니다. 자세한 내용은 [데이터 검색, 분류](data-discovery-and-classification-overview.md) 및 [중요 한 데이터에 대 한 액세스 감사](data-discovery-and-classification-overview.md#audit-sensitive-data)를 참조 하세요.
 
-**모범 사례**:
+**모범 사례** :
 
 - 감사 및 데이터 분류 섹션에 대 한 모범 사례를 참조 하세요.
   - [중요 보안 이벤트 감사](#audit-critical-security-events)
@@ -755,7 +755,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 데이터 센터의 보안 상태를 강화 하는 통합 인프라 보안 관리 시스템 (SQL Database의 데이터베이스 포함)을 사용 합니다. 데이터베이스의 보안 및 준수 상태와 관련 된 권장 사항 목록을 봅니다.
 
-**구현 방법**:
+**구현 방법** :
 
 - [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)에서 SQL 관련 보안 권장 사항 및 활성 위협을 모니터링 합니다.
 
@@ -769,11 +769,11 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 공용 끝점을 통해 서버에 연결 하면 고객이 방화벽을 공용 ip에 열어야 하므로 데이터 반출 위험이 있습니다.  
 
-**시나리오 1**: Azure VM의 응용 프로그램이 Azure SQL Database의 데이터베이스에 연결 합니다. Rogue 행위자는 VM에 대 한 액세스 권한을 가져오고이를 손상 시킵니다. 이 시나리오에서 데이터 반출은 rogue VM을 사용 하는 외부 엔터티가 데이터베이스에 연결 하 고, 개인 데이터를 복사 하 여 다른 구독에 있는 다른 SQL Database blob 저장소에 저장 하는 것을 의미 합니다.
+**시나리오 1** : Azure VM의 응용 프로그램이 Azure SQL Database의 데이터베이스에 연결 합니다. Rogue 행위자는 VM에 대 한 액세스 권한을 가져오고이를 손상 시킵니다. 이 시나리오에서 데이터 반출은 rogue VM을 사용 하는 외부 엔터티가 데이터베이스에 연결 하 고, 개인 데이터를 복사 하 여 다른 구독에 있는 다른 SQL Database blob 저장소에 저장 하는 것을 의미 합니다.
 
-**시나리오 2**: 불량 DBA 이 시나리오는 규정 된 업계의 보안 민감한 고객에 의해 발생 하는 경우가 많습니다. 이 시나리오에서 높은 권한 사용자는 데이터를 Azure SQL Database에서 데이터 소유자가 제어 하지 않는 다른 구독으로 복사할 수 있습니다.
+**시나리오 2** : 불량 DBA 이 시나리오는 규정 된 업계의 보안 민감한 고객에 의해 발생 하는 경우가 많습니다. 이 시나리오에서 높은 권한 사용자는 데이터를 Azure SQL Database에서 데이터 소유자가 제어 하지 않는 다른 구독으로 복사할 수 있습니다.
 
-**잠재적 완화**:
+**잠재적 완화** :
 
 현재 Azure SQL Database 및 SQL Managed Instance는 데이터 반출 위협을 완화 하기 위해 다음과 같은 기술을 제공 합니다.
 

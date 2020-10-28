@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3fd9136f78a332a22f973d211dec748c4fb260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317075"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789814"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Azure PowerShell를 사용 하 여 Azure Virtual Machines에서 SQL Server를 프로 비전 하는 방법
 
@@ -135,7 +135,7 @@ $OSDiskName = $VMName + "OSDisk"
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. 이 자습서에서는 SQL Server 2017 Developer Edition(**SQLDEV**)을 사용합니다. Developer Edition은 테스트 및 개발을 위해 무료로 사용이 허가되며 VM을 실행하는 요금만 지불하면 됩니다.
+1. 이 자습서에서는 SQL Server 2017 Developer Edition( **SQLDEV** )을 사용합니다. Developer Edition은 테스트 및 개발을 위해 무료로 사용이 허가되며 VM을 실행하는 요금만 지불하면 됩니다.
 
    ```powershell
    $Sku = "SQLDEV"
@@ -143,7 +143,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 관리자 배포 모델을 사용하여 만드는 첫 번째 개체는 리소스 그룹입니다. [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 Azure 리소스 그룹 및 해당 리소스를 만듭니다. 리소스 그룹 이름 및 위치에 대해 이전에 초기화한 변수를 지정합니다.
+리소스 관리자 배포 모델을 사용하여 만드는 첫 번째 개체는 리소스 그룹입니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 Azure 리소스 그룹 및 해당 리소스를 만듭니다. 리소스 그룹 이름 및 위치에 대해 이전에 초기화한 변수를 지정합니다.
 
 다음 cmdlet을 실행하여 새 리소스 그룹을 만듭니다.
 
@@ -153,7 +153,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 스토리지 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 저장소 계정 이름, 저장소 SKU 이름 및 위치에 대해 이전에 초기화 한 변수를 지정 합니다.
+가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 스토리지 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 저장소 계정 이름, 저장소 SKU 이름 및 위치에 대해 이전에 초기화 한 변수를 지정 합니다.
 
 다음 cmdlet을 실행하여 새 스토리지 계정을 만듭니다.
 
@@ -176,7 +176,7 @@ $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>가상 네트워크 서브넷 구성 만들기
 
-먼저 가상 네트워크에 대한 서브넷 구성을 만듭니다. 이 자습서에서는 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet을 사용하여 기본 서브넷을 만듭니다. 서브넷 이름 및 주소 접두사에 대해 이전에 초기화한 변수를 지정합니다.
+먼저 가상 네트워크에 대한 서브넷 구성을 만듭니다. 이 자습서에서는 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet을 사용하여 기본 서브넷을 만듭니다. 서브넷 이름 및 주소 접두사에 대해 이전에 초기화한 변수를 지정합니다.
 
 > [!NOTE]
 > 이 cmdlet을 사용하여 가상 네트워크 서브넷 구성의 추가 속성을 정의할 수 있지만, 이 내용은 이 자습서에서 다루지 않습니다.
@@ -189,7 +189,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-다음으로, [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet을 사용하여 새 리소스 그룹에 가상 네트워크를 만듭니다. 이름, 위치 및 주소 접두사에 대해 이전에 초기화한 변수를 지정합니다. 이전 단계에서 정의한 서브넷 구성을 사용합니다.
+다음으로, [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet을 사용하여 새 리소스 그룹에 가상 네트워크를 만듭니다. 이름, 위치 및 주소 접두사에 대해 이전에 초기화한 변수를 지정합니다. 이전 단계에서 정의한 서브넷 구성을 사용합니다.
 
 다음 cmdlet을 실행하여 가상 네트워크를 만듭니다.
 
@@ -201,7 +201,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### <a name="create-the-public-ip-address"></a>공용 IP 주소 만들기
 
-이제 가상 네트워크를 정의했으므로 가상 머신에 연결하기 위해 IP 주소를 구성해야 합니다. 이 자습서에서는 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet을 사용하여 새 리소스 그룹에 공용 IP 주소를 만듭니다. 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블에 대해 이전에 초기화한 변수를 지정합니다.
+이제 가상 네트워크를 정의했으므로 가상 머신에 연결하기 위해 IP 주소를 구성해야 합니다. 이 자습서에서는 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) cmdlet을 사용하여 새 리소스 그룹에 공용 IP 주소를 만듭니다. 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블에 대해 이전에 초기화한 변수를 지정합니다.
 
 > [!NOTE]
 > 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 프라이빗 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
@@ -243,7 +243,7 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
 
-이제 가상 머신에 대 한 네트워크 인터페이스를 만들 준비가 되었습니다. [AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) cmdlet을 사용 하 여 새 리소스 그룹에 네트워크 인터페이스를 만듭니다. 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소를 지정합니다.
+이제 가상 머신에 대 한 네트워크 인터페이스를 만들 준비가 되었습니다. [AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) cmdlet을 사용 하 여 새 리소스 그룹에 네트워크 인터페이스를 만듭니다. 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소를 지정합니다.
 
 다음 cmdlet을 실행하여 네트워크 인터페이스를 만듭니다.
 
@@ -265,7 +265,7 @@ $Interface = New-AzNetworkInterface -Name $InterfaceName `
 
 ### <a name="create-the-vm-object"></a>VM 개체 만들기
 
-먼저 가상 머신 크기를 지정합니다. 이 자습서의 경우 DS13을 지정합니다. [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) cmdlet을 사용하여 구성 가능한 가상 머신 개체를 만듭니다. 이름 및 크기에 대해 이전에 초기화한 변수를 지정합니다.
+먼저 가상 머신 크기를 지정합니다. 이 자습서의 경우 DS13을 지정합니다. [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) cmdlet을 사용하여 구성 가능한 가상 머신 개체를 만듭니다. 이름 및 크기에 대해 이전에 초기화한 변수를 지정합니다.
 
 다음 cmdlet을 실행하여 가상 머신 개체를 만듭니다.
 
@@ -275,7 +275,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>로컬 관리자 자격 증명에 대한 이름 및 암호를 저장하도록 자격 증명 개체 만들기
 
-가상 머신에 대한 운영 체제 속성을 설정하려면 먼저 보안 문자열로 로컬 관리자 계정의 자격 증명을 제공해야 합니다. 이렇게 하려면 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 사용합니다.
+가상 머신에 대한 운영 체제 속성을 설정하려면 먼저 보안 문자열로 로컬 관리자 계정의 자격 증명을 제공해야 합니다. 이렇게 하려면 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet을 사용합니다.
 
 다음 cmdlet을 실행합니다. PowerShell 자격 증명 요청 창에 VM의 로컬 관리자 이름과 암호를 입력 해야 합니다.
 
@@ -285,7 +285,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 속성 설정
 
-이제 [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet을 사용하여 가상 머신의 운영 체제 속성을 설정할 준비가 되었습니다.
+이제 [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet을 사용하여 가상 머신의 운영 체제 속성을 설정할 준비가 되었습니다.
 
 - 운영 체제 유형을 Windows로 설정합니다.
 - [가상 머신 에이전트](../../../virtual-machines/extensions/agent-windows.md)를 설치해야 합니다.
@@ -302,7 +302,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>가상 머신에 네트워크 인터페이스를 추가합니다.
 
-다음으로, [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet을 사용하여 이전에 정의한 변수를 사용하는 네트워크 인터페이스를 추가합니다.
+다음으로, [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet을 사용하여 이전에 정의한 변수를 사용하는 네트워크 인터페이스를 추가합니다.
 
 다음 cmdlet을 실행하여 가상 머신의 네트워크 인터페이스를 설정합니다.
 
@@ -322,7 +322,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>가상 머신에 대한 운영 체제 디스크 속성을 설정합니다.
 
-다음으로, [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) cmdlet을 사용하여 가상 머신의 운영 체제 디스크 속성을 설정합니다. 
+다음으로, [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) cmdlet을 사용하여 가상 머신의 운영 체제 디스크 속성을 설정합니다. 
 
 - 가상 머신의 운영 체제를 이미지에서 가져오도록 지정합니다.
 - 캐싱을 읽기 전용으로 설정합니다(SQL Server가 동일한 디스크에 설치되므로).
@@ -337,7 +337,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>가상 머신에 대한 플랫폼 이미지 지정
 
-마지막 구성 단계는 가상 머신에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서에서는 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) cmdlet을 사용하여 이전에 정의한 변수로 이 이미지를 사용합니다.
+마지막 구성 단계는 가상 머신에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서에서는 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) cmdlet을 사용하여 이전에 정의한 변수로 이 이미지를 사용합니다.
 
 다음 cmdlet을 실행하여 가상 머신의 플랫폼 이미지를 지정합니다.
 
@@ -349,7 +349,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## <a name="create-the-sql-vm"></a>SQL VM 만들기
 
-이제 구성 단계를 완료했으므로 가상 머신을 만들 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet을 사용하여 정의한 변수로 가상 머신을 만듭니다.
+이제 구성 단계를 완료했으므로 가상 머신을 만들 수 있습니다. [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet을 사용하여 정의한 변수로 가상 머신을 만듭니다.
 
 > [!TIP]
 > VM을 만드는 데 몇 분 정도 걸릴 수 있습니다.

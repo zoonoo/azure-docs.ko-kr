@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164570"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790103"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Azure Portal를 사용 하 여 Azure VM의 SQL Server에 대 한 가용성 그룹 (미리 보기) 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,10 +38,10 @@ Azure Portal를 사용 하 여 Always On 가용성 그룹을 구성 하려면 �
 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- Azure에서 하나 이상의 도메인에 가입 된 Vm은 *동일한* 가용성 집합 또는 [전체 관리 모드에서 SQL vm 리소스 공급자에 등록](sql-vm-resource-provider-register.md) 되어 있고 각 vm의 SQL Server 서비스에 대해 동일한 도메인 계정을 사용 하는 *다른* 가용성 영역에서 [SQL Server 2016 이상 Enterprise edition을 실행](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 합니다.
+- Azure에서 하나 이상의 도메인에 가입 된 Vm은 *동일한* 가용성 집합 또는 [전체 관리 모드에서 SQL vm 리소스 공급자에 등록](sql-vm-resource-provider-register.md) 되어 있고 각 vm의 SQL Server 서비스에 대해 동일한 도메인 계정을 사용 하는 *다른* 가용성 영역에서 [SQL Server 2016 이상 Enterprise edition을 실행](./create-sql-vm-portal.md) 합니다.
 - 2개의 사용 가능한(엔터티에서 사용하지 않음) IP 주소. 하나는 내부 부하 분산 장치용입니다. 다른 하나는 가용성 그룹과 동일한 서브넷 내의 가용성 그룹 수신기용입니다. 기존 부하 분산 장치를 사용 하는 경우 가용성 그룹 수신기에 대해 사용 가능한 IP 주소가 하나만 필요 합니다. 
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure Portal를 사용 하 여 가용성 그룹을 구성 하려면 다음 계정 권한이 필요 합니다. 
 
@@ -61,7 +61,7 @@ Azure Portal를 사용 하 여 클러스터를 구성 합니다. 새 클러스�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
-1. **설정**아래에서 **고가용성** 을 선택 합니다. 
+1. **설정** 아래에서 **고가용성** 을 선택 합니다. 
 1. **+ 새 Windows Server 장애 조치 클러스터** 를 선택 하 여 **Windows 장애 조치 (Failover) 클러스터 구성** 페이지를 엽니다.  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
@@ -70,7 +70,7 @@ Azure Portal를 사용 하 여 클러스터를 구성 합니다. 새 클러스�
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
 
-1. **Windows Server 장애 조치 (Failover) 클러스터 자격 증명** 을 확장 하 여 SQL Server 서비스 계정에 대 한 [자격 증명](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) 을 제공 하 고, SQL Server 서비스에 사용 되는 계정과 다른 경우 클러스터 운영자 및 부트스트랩 계정을 제공 합니다. 
+1. **Windows Server 장애 조치 (Failover) 클러스터 자격 증명** 을 확장 하 여 SQL Server 서비스 계정에 대 한 [자격 증명](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) 을 제공 하 고, SQL Server 서비스에 사용 되는 계정과 다른 경우 클러스터 운영자 및 부트스트랩 계정을 제공 합니다. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기"
     ```
@@ -81,11 +81,11 @@ Azure Portal를 사용 하 여 클러스터를 구성 합니다. 새 클러스�
 
 SQL Server VM 환경에 구성 된 클러스터가 이미 있는 경우 Azure Portal에서 등록할 수 있습니다.
 
-이렇게 하려면 다음 단계를 수행하세요.
+이렇게 하려면 다음 단계를 따르십시오.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
-1. **설정**아래에서 **고가용성** 을 선택 합니다. 
+1. **설정** 아래에서 **고가용성** 을 선택 합니다. 
 1. **기존 Windows Server 장애 조치 (Failover) 클러스터 온보드** 를 선택 하 여 **Windows Server 장애 조치 (failover) 클러스터** 등록 페이지를 엽니다. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
@@ -98,11 +98,11 @@ SQL Server VM 환경에 구성 된 클러스터가 이미 있는 경우 Azure Po
 
 ## <a name="create-availability-group"></a>가용성 그룹 만들기
 
-클러스터가 만들어지거나 등록 된 후 Azure Portal를 사용 하 여 가용성 그룹을 만듭니다. 이렇게 하려면 다음 단계를 수행하세요.
+클러스터가 만들어지거나 등록 된 후 Azure Portal를 사용 하 여 가용성 그룹을 만듭니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
-1. **설정**아래에서 **고가용성** 을 선택 합니다. 
+1. **설정** 아래에서 **고가용성** 을 선택 합니다. 
 1. **+ 새로 만들기 Always On 가용성 그룹** 을 선택 하 여 **가용성 그룹 만들기** 페이지를 엽니다.
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
@@ -138,8 +138,8 @@ SQL Server Management Studio를 사용 하 여 가용성 그룹에 데이터베�
 1. RDP (원격 데스크톱 연결)와 같은 선호 하는 방법을 사용 하 여 SQL Server Vm 중 하나에 연결 합니다. 
 1. SSMS(SQL Server Management Studio)를 엽니다.
 1. SQL Server 인스턴스에 연결 합니다. 
-1. **개체 탐색기**에서 **Always On 고가용성** 을 확장 합니다.
-1. **가용성 그룹**을 확장 하 고 가용성 그룹을 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 추가**...를 선택 합니다.
+1. **개체 탐색기** 에서 **Always On 고가용성** 을 확장 합니다.
+1. **가용성 그룹** 을 확장 하 고 가용성 그룹을 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 추가** ...를 선택 합니다.
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
 
@@ -157,14 +157,14 @@ SQL Server Management Studio를 사용 하 여 가용성 그룹에 데이터베�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
-1. **설정**아래에서 **고가용성** 을 선택 합니다. 
+1. **설정** 아래에서 **고가용성** 을 선택 합니다. 
 1. Windows **Server 장애 조치 (Failover) 클러스터 구성** 을 선택 하 여 **Windows Server 장애 조치 클러스터 구성** 페이지를 엽니다. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
 
 1. **Windows Server 장애 조치 (Failover) 클러스터 자격 증명** 을 확장 하 고 SQL Server 서비스, 클러스터 운영자 및 클러스터 부트스트랩 계정에 사용 되는 계정을 입력 합니다. 
 1. 클러스터에 추가 하려는 SQL Server Vm을 선택 합니다. 
-1. **적용**을 선택합니다. 
+1. **적용** 을 선택합니다. 
 
 위쪽 탐색 모음의 종 모양 아이콘에서 액세스할 수 있는 **활동 로그** 에서 배포 상태를 확인할 수 있습니다. 
 
@@ -172,7 +172,7 @@ SQL Server Management Studio를 사용 하 여 가용성 그룹에 데이터베�
 ## <a name="modify-availability-group"></a>가용성 그룹 수정 
 
 
-가용성 그룹 **에 복제본을 추가** 하거나, 수신기를 **구성**하거나, 가용성 그룹 옆에 있는 줄임표 (...)를 선택 하 여 Azure Portal의 **고가용성** 페이지에서 수신기를 **삭제할** 수 있습니다. 
+가용성 그룹 **에 복제본을 추가** 하거나, 수신기를 **구성** 하거나, 가용성 그룹 옆에 있는 줄임표 (...)를 선택 하 여 Azure Portal의 **고가용성** 페이지에서 수신기를 **삭제할** 수 있습니다. 
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="포털에서 + 새 클러스터를 선택 하 여 새 클러스터 만들기":::
 
@@ -245,7 +245,7 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 리소스 그룹으로 이동 합니다.
-1. **설정** 아래에서 **배포**를 선택합니다.
+1. **설정** 아래에서 **배포** 를 선택합니다.
 1. 배포에 대 한 자세한 내용을 보려면 관심 있는 배포를 선택 합니다. 
 
 

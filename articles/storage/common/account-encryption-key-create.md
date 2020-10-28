@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4ac76387f32b333d6d17d8d6f71ab0bc7de07ec0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474753"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789695"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -252,4 +252,4 @@ az storage account show /
 
 - [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
 - [Azure Storage 암호화를 위한 고객 관리 키](customer-managed-keys-overview.md)
-- [Azure Key Vault란](/azure/key-vault/key-vault-overview)?
+- [Azure Key Vault란](../../key-vault/general/overview.md)?

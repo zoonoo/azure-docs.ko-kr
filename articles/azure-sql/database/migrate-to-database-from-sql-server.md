@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 06763624231fde344990da6d0a4639bcccdedf00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790426"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,11 +41,11 @@ SQL Server 2005 이상의 데이터베이스를 Azure SQL Database으로 마이�
 
   ![VSSSDT 마이그레이션 다이어그램](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 
-1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)합니다.
+1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](/sql/dma/dma-assesssqlonprem)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
-3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅샷](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)을 참조하세요.  
+3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅샷](/sql/relational-databases/databases/create-a-database-snapshot-transact-sql)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)을 참조하세요.  
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
-5. Data Migration Assistant를 사용 하 여 Azure SQL Database의 새 데이터베이스로 데이터베이스 복사본을 [마이그레이션합니다](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) .
+5. Data Migration Assistant를 사용 하 여 Azure SQL Database의 새 데이터베이스로 데이터베이스 복사본을 [마이그레이션합니다](/sql/dma/dma-migrateonpremsql) .
 
 > [!NOTE]
 > DMA를 사용하는 대신, BACPAC 파일을 사용할 수도 있습니다. [Azure SQL Database에서 BACPAC 파일을 새 데이터베이스로 가져오기](database-import.md)를 참조 하세요.
@@ -63,11 +63,11 @@ SQL Server 2005 이상의 데이터베이스를 Azure SQL Database으로 마이�
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>마이그레이션이 완료된 후 성능 최적화
 
-마이그레이션이 완료된 후 전체 검색으로 [통계를 업데이트합니다](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql).
+마이그레이션이 완료된 후 전체 검색으로 [통계를 업데이트합니다](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="method-2-use-transactional-replication"></a>방법 2 트랜잭션 복제 사용
 
-마이그레이션이 진행 되는 동안 프로덕션에서 SQL Server 데이터베이스를 제거 하는 것을 감당할 수 없는 경우 마이그레이션 솔루션으로 트랜잭션 복제를 SQL Server 사용할 수 있습니다. 이 방법을 사용하려면 원본 데이터베이스가 [트랜잭션 복제의 요구 사항](https://msdn.microsoft.com/library/mt589530.aspx)을 충족해야 하고 Azure SQL Database와 호환되어야 합니다. AlwaysOn을 사용한 SQL 복제에 대한 자세한 내용은 [AlwaysOn 가용성 그룹에 대한 복제 구성(SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)을 참조하세요.
+마이그레이션이 진행 되는 동안 프로덕션에서 SQL Server 데이터베이스를 제거 하는 것을 감당할 수 없는 경우 마이그레이션 솔루션으로 트랜잭션 복제를 SQL Server 사용할 수 있습니다. 이 방법을 사용하려면 원본 데이터베이스가 [트랜잭션 복제의 요구 사항](./replication-to-sql-database.md)을 충족해야 하고 Azure SQL Database와 호환되어야 합니다. AlwaysOn을 사용한 SQL 복제에 대한 자세한 내용은 [AlwaysOn 가용성 그룹에 대한 복제 구성(SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)을 참조하세요.
 
 이 솔루션을 사용 하려면 Azure SQL Database에서 마이그레이션할 SQL Server 인스턴스의 구독자로 데이터베이스를 구성 합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자).
 
@@ -108,22 +108,21 @@ SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 원본 데이터베이스에 있는 SQL Server 버전과 마이그레이션하는 데이터베이스의 복잡성에 따라 발생할 수 있는 다양 한 호환성 문제가 있습니다. 이전 버전의 SQL Server에는 보다 많은 호환성 문제가 있습니다. 사용자가 선택한 검색 엔진을 사용하는 대상이 지정된 인터넷 검색 외에도 다음 리소스를 사용해 보세요.
 
 - [Azure SQL Database에서 지원되지 않는 하는 SQL Server 데이터베이스 기능](transact-sql-tsql-differences-sql-server.md)
-- [SQL Server 2016에서 지원되지 않는 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [SQL Server 2014에서 지원되지 않는 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [SQL Server 2012에서 지원되지 않는 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
-- [SQL Server 2008 R2에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
-- [SQL Server 2005에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
+- [SQL Server 2016에서 지원되지 않는 데이터베이스 엔진 기능](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server)
+- [SQL Server 2014에서 지원되지 않는 데이터베이스 엔진 기능](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server?viewFallbackFrom=sql-server-2014)
+- [SQL Server 2012에서 지원되지 않는 데이터베이스 엔진 기능](/previous-versions/sql/sql-server-2012/ms144262(v=sql.110))
+- [SQL Server 2008 R2에서 사용이 중단된 데이터베이스 엔진 기능](/previous-versions/sql/sql-server-2008-r2/ms144262(v=sql.105))
+- [SQL Server 2005에서 사용이 중단된 데이터베이스 엔진 기능](/previous-versions/sql/sql-server-2005/ms144262(v=sql.90))
 
-인터넷을 검색하고 이러한 리소스를 사용하는 것 외에도 [Azure SQL Database에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html) 또는 [StackOverflow](https://stackoverflow.com/)를 사용합니다.
+인터넷을 검색하고 이러한 리소스를 사용하는 것 외에도 [Azure SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html) 또는 [StackOverflow](https://stackoverflow.com/)를 사용합니다.
 
 > [!IMPORTANT]
 > Azure SQL Managed Instance를 사용 하면 최소한의 호환성 문제 없이 기존 SQL Server 인스턴스와 해당 데이터베이스를 마이그레이션할 수 있습니다. 관리 되는 [인스턴스](../managed-instance/sql-managed-instance-paas-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션하는 동안 tempdb 사용을 모니터링합니다](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
-- Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션이 진행되는 동안 데이터베이스의 트랜잭션 로그 공간을 모니터링합니다](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
-- BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
-- 마이그레이션 후 UTC 시간 연동에 대한 내용은 [현지 표준 시간대에 맞게 기본 표준 시간대 수정](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/)을 참조하세요.
-- 마이그레이션 후 데이터베이스의 기본 언어를 변경하는 방법에 대한 내용은 [Azure SQL Database의 기본 언어 변경 방법](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/)을 참조하세요.
- 
+- Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션하는 동안 tempdb 사용을 모니터링합니다](/archive/blogs/azuresqlemea/lesson-learned-10-monitoring-tempdb-usage).
+- Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션이 진행되는 동안 데이터베이스의 트랜잭션 로그 공간을 모니터링합니다](/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
+- BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files)을 참조하세요.
+- 마이그레이션 후 UTC 시간 연동에 대한 내용은 [현지 표준 시간대에 맞게 기본 표준 시간대 수정](/archive/blogs/azuresqlemea/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone)을 참조하세요.
+- 마이그레이션 후 데이터베이스의 기본 언어를 변경하는 방법에 대한 내용은 [Azure SQL Database의 기본 언어 변경 방법](/archive/blogs/azuresqlemea/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database)을 참조하세요.

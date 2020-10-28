@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f7b1255553334bfaa75c5c0c96ecd36afa2c27f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293767"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790137"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91293767"
 
 Azure Virtual Machines의 SQL Server를 사용하면 온-프레미스 하드웨어를 관리할 필요 없이 클라우드에서 SQL Server의 전체 버전을 사용할 수 있습니다. 또한 SQL Server VM을 사용하면 종량제로 지불하는 경우 라이선스 비용이 간소화됩니다.
 
-Azure 가상 머신은 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)에서 실행됩니다. 또한 다양한 [컴퓨터 크기](../../../virtual-machines/windows/sizes.md)가 제공됩니다. 가상 머신 이미지 갤러리를 통해 적합한 버전 운영 체제로 SQL Server VM을 만들 수 있습니다. 따라서 가상 머신은 다양한 SQL Server 워크로드에 적합한 옵션입니다. 
+Azure 가상 머신은 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)에서 실행됩니다. 또한 다양한 [컴퓨터 크기](../../../virtual-machines/sizes.md)가 제공됩니다. 가상 머신 이미지 갤러리를 통해 적합한 버전 운영 체제로 SQL Server VM을 만들 수 있습니다. 따라서 가상 머신은 다양한 SQL Server 워크로드에 적합한 옵션입니다. 
 
 Azure SQL을 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure VM의 SQL Server 개요* 비디오를 참조하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -55,7 +55,7 @@ Azure SQL을 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리
 
 Linux에서 SQL Server를 구성하는 경우 데이터베이스 엔진 패키지를 설치한 다음, 요구 사항에 따라 몇 가지 선택적 패키지를 설치합니다. SQL Server의 Linux 가상 머신 이미지는 대부분의 패키지를 자동으로 설치합니다. 다음 표에서는 각 배포에 설치된 패키지를 보여줍니다.
 
-| 배포 | [데이터베이스 엔진](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server 에이전트](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [전체 텍스트 검색](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA 추가 기능](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| 배포 | [데이터베이스 엔진](/sql/linux/sql-server-linux-setup) | [Tools](/sql/linux/sql-server-linux-setup-tools) | [SQL Server 에이전트](/sql/linux/sql-server-linux-setup-sql-agent) | [전체 텍스트 검색](/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](/sql/linux/sql-server-linux-setup-ssis) | [HA 추가 기능](/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![RHEL 및 데이터베이스 엔진](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 도구](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 SQL Server 에이전트](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 전체 텍스트 검색](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 HA 추가 기능](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 | SLES | ![SLES 및 데이터베이스 엔진](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 도구](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 SQL Server 에이전트](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 전체 텍스트 검색](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES 및 HA 추가 기능](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
@@ -79,7 +79,7 @@ Linux에서 SQL Server를 구성하는 경우 데이터베이스 엔진 패키�
 
 ### <a name="sql"></a>SQL
 
-* [Linux의 SQL Server 설명서](https://docs.microsoft.com/sql/linux)
+* [Linux의 SQL Server 설명서](/sql/linux)
 * [Azure SQL Database 비교](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>다음 단계

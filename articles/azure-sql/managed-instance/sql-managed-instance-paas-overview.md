@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424226"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790715"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,9 +44,9 @@ SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔�
 
 | **PaaS의 이점** | **비즈니스 연속성** |
 | --- | --- |
-|하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공되는 [고가용성](../database/high-availability-sla.md) <br>[자동화된 백업](../database/automated-backups-overview.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) <br>[특정 시점 데이터베이스 복원](../database/recovery-using-backups.md#point-in-time-restore) 기능 |
+|하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공되는 [고가용성](../database/high-availability-sla.md) <br>[자동화된 백업](../database/automated-backups-overview.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) <br>[특정 시점 데이터베이스 복원](../database/recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
-|격리된 환경([VNet 통합](connectivity-architecture-overview.md), 단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD(Azure Active Directory) 인증](../database/authentication-aad-overview.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체(로그인)</a>  <br>Azure SQL Database와 동일한 표준 준수 <br>[SQL 감사](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
+|격리된 환경([VNet 통합](connectivity-architecture-overview.md), 단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD(Azure Active Directory) 인증](../database/authentication-aad-overview.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체(로그인)</a>  <br>Azure SQL Database와 동일한 표준 준수 <br>[SQL 감사](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
 > [!IMPORTANT]
 > Azure SQL Managed Instance는 다양한 규정 준수 표준에 따라 인증을 받았습니다. 자세한 내용은 [Microsoft Azure 규정 준수 제안](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers)을 참조하세요. 여기서 **SQL Database** 아래에 최신 SQL Managed Instance 규정 준수 인증서 목록이 있습니다.
@@ -65,9 +65,9 @@ SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 | VNet - Azure Resource Manager 배포 | 예 |
 | VNet - 클래식 배포 모델 | 예 |
 | 포털 지원 | 예|
-| 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
-| 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
-| 기본 제공 보고 서비스(SSRS) | 아니요 - Azure VM에서 SSRS를 호스트하는 대신, [Power BI의 페이지 매김 보고서](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi)를 사용합니다. SQL Managed Instance는 SSRS를 서비스로 실행할 수는 없지만 SQL Server 인증을 사용하여 Azure Virtual Machine에 설치된 보고 서버용 [SSRS 카탈로그 데이터베이스](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements)를 호스트할 수 있습니다. |
+| 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |
+| 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](../../analysis-services/analysis-services-overview.md)입니다. |
+| 기본 제공 보고 서비스(SSRS) | 아니요 - Azure VM에서 SSRS를 호스트하는 대신, [Power BI의 페이지 매김 보고서](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi)를 사용합니다. SQL Managed Instance는 SSRS를 서비스로 실행할 수는 없지만 SQL Server 인증을 사용하여 Azure Virtual Machine에 설치된 보고 서버용 [SSRS 카탈로그 데이터베이스](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements)를 호스트할 수 있습니다. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
@@ -85,8 +85,8 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다.
 
-- **범용**: 일반적인 성능 및 I/O 대기 시간 요구 사항이 있는 애플리케이션용으로 설계되었습니다.
-- **중요 비즈니스용**: I/O 대기 시간 요구 사항이 낮고 기본 유지 관리 작업이 워크로드에 미치는 영향이 최소화된 애플리케이션용으로 설계되었습니다.
+- **범용** : 일반적인 성능 및 I/O 대기 시간 요구 사항이 있는 애플리케이션용으로 설계되었습니다.
+- **중요 비즈니스용** : I/O 대기 시간 요구 사항이 낮고 기본 유지 관리 작업이 워크로드에 미치는 영향이 최소화된 애플리케이션용으로 설계되었습니다.
 
 두 서비스 계층은 모두 99.99% 가용성을 보장하며 스토리지 크기와 컴퓨팅 용량을 독립적으로 선택할 수 있습니다. Azure SQL Managed Instance의 고가용성 아키텍처에 대한 자세한 내용은 [고가용성 및 Azure SQL Managed Instance](../database/high-availability-sla.md)를 참조하세요.
 
@@ -98,7 +98,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 - 고성능 Azure Blob Storage(8TB)
 - 신뢰할 수 있는 Azure Blob Storage 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) 기본 제공
 
-자세한 내용은 [범용 계층의 스토리지 레이어](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) 및 [SQL Managed Instance(범용)의 스토리지 성능 모범 사례 및 고려 사항](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)을 참조하세요.
+자세한 내용은 [범용 계층의 스토리지 레이어](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) 및 [SQL Managed Instance(범용)의 스토리지 성능 모범 사례 및 고려 사항](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose)을 참조하세요.
 
 서비스 계층 간의 차이점에 대한 자세한 내용은 [SQL Managed Instance 리소스 제한](resource-limits.md#service-tier-characteristics)을 참조하세요.
 
@@ -110,7 +110,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 
 - 최고의 성능과 HA 요구 사항을 가진 대부분의 비즈니스 애플리케이션용으로 설계됨
 - 초고속 로컬 SSD 스토리지(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨
-- [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)을 기반으로 [고가용성](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) 기본 제공
+- [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)을 기반으로 [고가용성](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) 기본 제공
 - 보고 및 기타 읽기 전용 워크로드에 사용할 수 있는 추가적인 [읽기 전용 데이터베이스 복제본](../database/read-scale-out.md) 기본 제공
 - 고성능 요구 사항이 있는 워크로드에 사용할 수 있는 [메모리 내 OLTP](../in-memory-oltp-overview.md)  
 
@@ -156,9 +156,9 @@ Azure SQL Managed Instance는 데이터를 보호하는 데 사용할 수 있는
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 통합
 
-SQL Managed Instance는 기존 SQL Server 데이터베이스 엔진 로그인 및 Azure AD와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure AD 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
+SQL Managed Instance는 기존 SQL Server 데이터베이스 엔진 로그인 및 Azure AD와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)( **공개 미리 보기** )는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure AD 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
 
-Azure AD 서버 보안 주체(로그인)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER**가 도입되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [SQL Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 살펴보세요.
+Azure AD 서버 보안 주체(로그인)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER** 가 도입되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [SQL Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 살펴보세요.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 다단계 인증
 
@@ -168,12 +168,12 @@ SQL Managed Instance를 사용하면 [Azure Active Directory 통합](../database
 
 SQL Managed Instance 인증은 사용자가 데이터베이스에 연결할 때 자신의 ID를 증명하는 방법을 나타냅니다. SQL Managed Instance는 두 가지 인증 유형을 지원합니다.  
 
-- **SQL 인증**:
+- **SQL 인증** :
 
   이 인증 방법은 사용자 이름과 암호를 사용합니다.
-- **Azure Active Directory 인증**:
+- **Azure Active Directory 인증** :
 
-  이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에 대해 지원됩니다. [가능한 경우](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) Active Directory 인증(통합 보안)을 사용합니다.
+  이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에 대해 지원됩니다. [가능한 경우](/sql/relational-databases/security/choose-an-authentication-mode) Active Directory 인증(통합 보안)을 사용합니다.
 
 ### <a name="authorization"></a>권한 부여
 
@@ -185,7 +185,7 @@ SQL Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현�
 
 ### <a name="backup-and-restore"></a>백업 및 복원  
 
-마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure Storage Blob에 저장된 백업은 [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
+마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure Storage Blob에 저장된 백업은 [T-SQL RESTORE 명령](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
 
 - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](restore-sample-database-quickstart.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 스토리지에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
 - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](migrate-to-instance-from-sql-server.md#native-restore-from-url)을 참조하세요.
@@ -195,7 +195,7 @@ SQL Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현�
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server로 이동하는 데 필요한 작업을 간소화합니다. [Database Migration Service를 사용하여 온-프레미스 데이터베이스를 SQL Managed Instance로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요.
+Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server로 이동하는 데 필요한 작업을 간소화합니다. [Database Migration Service를 사용하여 온-프레미스 데이터베이스를 SQL Managed Instance로 마이그레이션하는 방법](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능
 
@@ -213,12 +213,12 @@ Server Managed Instance는 클라우드에서 항상 최신 상태로 유지되�
 
 주요 차이점:
 
-- [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 기본 제공되고 미리 구성됩니다.
+- [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 기본 제공되고 미리 구성됩니다.
 - 자동 백업 및 특정 시점 복원만 있습니다. 고객은 자동 백업 체인을 방해하지 않는 `copy-only` 백업을 시작할 수 있습니다.
 - 전체 실제 경로 지정은 지원되지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다.
 - SQL Managed Instance는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](../database/authentication-aad-overview.md)을 지원합니다.
 - SQL Managed Instance는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- SQL Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, Azure Data Factory의 관리형 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [Data Factory에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SSIS 기능을 비교하려면 [SQL Managed Instance와 SQL Database 비교](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)를 참조하세요.
+- SQL Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, Azure Data Factory의 관리형 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [Data Factory에서 Azure-SSIS IR 만들기](../../data-factory/create-azure-ssis-integration-runtime.md)를 참조하세요. SSIS 기능을 비교하려면 [SQL Managed Instance와 SQL Database 비교](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)를 참조하세요.
 
 ### <a name="administration-features"></a>관리 기능
 
@@ -232,7 +232,7 @@ SQL Managed Instance 서비스는 사용자를 위해 작업을 수행하거나 
 
 |속성|값|의견|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이것이 SQL 엔진 버전 12(SQL Server 2014)를 나타내는 것은 **아닙니다**. SQL Managed Instance는 항상 안정적인 최신 SQL 엔진 버전을 실행합니다(사용 가능한 최신 RTM 버전 이상).  |
+|`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이것이 SQL 엔진 버전 12(SQL Server 2014)를 나타내는 것은 **아닙니다** . SQL Managed Instance는 항상 안정적인 최신 SQL 엔진 버전을 실행합니다(사용 가능한 최신 RTM 버전 이상).  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|
 |`SERVERPROPERTY('EngineEdition')`|8|이 값은 Managed Instance를 고유하게 식별합니다.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|`<instanceName>`.`<dnsPrefix>`.database.windows.net 형식의 전체 인스턴스 DNS 이름. 여기서 `<instanceName>`은 고객이 제공한 이름이고, `<dnsPrefix>`는 글로벌 DNS 이름의 고유성을 보장하기 위해 이름에서 자동으로 생성되는 부분(예: “wcus17662feb9ce98”)입니다.|예: my-managed-instance.wcus17662feb9ce98.database.windows.net|

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058219"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790868"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>자습서: 두 관리형 인스턴스 간 복제 구성
 
@@ -68,7 +68,7 @@ SQL Managed Instance가 게시자 및/또는 배포자로 작동하도록 구성
 
 ## <a name="3---create-an-azure-storage-account"></a>3 - Azure 스토리지 계정 만들기
 
-작업 디렉터리에 대한 [Azure 스토리지 계정](/azure/storage/common/storage-create-storage-account#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [파일 공유](../../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 
+작업 디렉터리에 대한 [Azure 스토리지 계정](../../storage/common/storage-account-create.md#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [파일 공유](../../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 
 
 파일 공유 경로를 `\\storage-account-name.file.core.windows.net\file-share-name` 형식으로 복사합니다.
 
@@ -326,4 +326,4 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-또한 [Azure SQL Managed Instance를 사용한 트랜잭션 복제](replication-transactional-overview.md)에 대해 자세히 알아보거나 [SQL Managed Instance 게시자/배포자와 Azure의 SQL VM 구독자](replication-two-instances-and-sql-server-configure-tutorial.md) 간에 복제를 구성하는 방법을 알아볼 수도 있습니다. 
+또한 [Azure SQL Managed Instance를 사용한 트랜잭션 복제](replication-transactional-overview.md)에 대해 자세히 알아보거나 [SQL Managed Instance 게시자/배포자와 Azure의 SQL VM 구독자](replication-two-instances-and-sql-server-configure-tutorial.md) 간에 복제를 구성하는 방법을 알아볼 수도 있습니다.

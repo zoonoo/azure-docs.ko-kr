@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426845"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790579"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Microsoft Azure Media Services v3 API로 개발
 
@@ -32,8 +32,8 @@ ms.locfileid: "92426845"
 
 Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. Microsoft Azure Media Services는 [Microsoft Azure AD(Azure Active Directory) 기반](../../active-directory/fundamentals/active-directory-whatis.md) 인증을 지원합니다. 다음은 두 가지 일반적인 인증 옵션입니다.
  
-* **서비스 주체 인증**: 서비스를 인증하는 데 사용됩니다 (예: 웹앱, 함수 앱, 논리 앱, API 및 마이크로서비스). 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업을 실행하는 앱입니다. 예를 들어 웹앱의 경우 서비스 주체로 Microsoft Azure Media Services에 연결하는 중간 계층이 항상 있어야 합니다.
-* **사용자 인증**: 앱을 사용하여 Microsoft Azure Media Services 리소스와 상호 작용하는 사용자를 인증하는 데 사용됩니다. 대화형 앱은 먼저 사용자에게 사용자의 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다.
+* **서비스 주체 인증** : 서비스를 인증하는 데 사용됩니다 (예: 웹앱, 함수 앱, 논리 앱, API 및 마이크로서비스). 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업을 실행하는 앱입니다. 예를 들어 웹앱의 경우 서비스 주체로 Microsoft Azure Media Services에 연결하는 중간 계층이 항상 있어야 합니다.
+* **사용자 인증** : 앱을 사용하여 Microsoft Azure Media Services 리소스와 상호 작용하는 사용자를 인증하는 데 사용됩니다. 대화형 앱은 먼저 사용자에게 사용자의 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다.
 
 Microsoft Azure Media Services API를 사용하려면 REST API 요청을 하는 사용자 또는 앱이 Microsoft Azure Media Services 계정 리소스에 액세스할 수 있고 **기여자** 또는 **소유자** 역할을 사용해야 합니다. **읽기 권한자** 역할로 API에 액세스할 수 있지만 **가져오기** 또는 **나열** 작업만 사용할 수 있습니다. 자세한 내용은 [Media Services 계정에 대 한 AZURE RBAC (역할 기반 액세스 제어)](rbac-overview.md)를 참조 하세요.
 
@@ -109,11 +109,11 @@ Microsoft Azure Media Services에는 다음과 같은 장기 실행 작업이 �
 * [StreamingEndpoint 중지](/rest/api/media/streamingendpoints/stop)
 * [StreamingEndpoint 스케일링](/rest/api/media/streamingendpoints/scale)
 
-장기 실행 작업 제출에 성공하면 '202 수락됨'이 수신되며 반환된 작업 ID를 사용하여 작업 완료를 폴링해야 합니다.
+긴 작업을 성공적으로 제출 하면 ' 201 Created '이 표시 되며 반환 된 작업 ID를 사용 하 여 작업 완료를 폴링하는 것이 좋습니다.
 
 [비동기 Azure 작업 추적](../../azure-resource-manager/management/async-operations.md) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
 
-지정된 라이브 이벤트 또는 이와 연결된 라이브 출력에는 하나의 장기 실행 작업만 지원됩니다. 일단 시작되면 동일한 LiveEvent 또는 연결된 라이브 출력에서 후속 장기 실행 작업을 시작하기 전에 먼저 시작된 장기 실행 작업을 완료해야 합니다. 라이브 출력이 여러 개 있는 라이브 이벤트의 경우 한 라이브 출력에서 장기 실행 작업이 완료될 때까지 기다렸다가 다른 라이브 출력에서 장기 실행 작업을 트리거해야 합니다. 
+지정된 라이브 이벤트 또는 이와 연결된 라이브 출력에는 하나의 장기 실행 작업만 지원됩니다. 일단 시작되면 동일한 LiveEvent 또는 연결된 라이브 출력에서 후속 장기 실행 작업을 시작하기 전에 먼저 시작된 장기 실행 작업을 완료해야 합니다. 라이브 출력이 여러 개 있는 라이브 이벤트의 경우 한 라이브 출력에서 장기 실행 작업이 완료될 때까지 기다렸다가 다른 라이브 출력에서 장기 실행 작업을 트리거해야 합니다.
 
 ## <a name="sdks"></a>SDK
 

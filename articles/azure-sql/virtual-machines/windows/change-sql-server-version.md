@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ec7ed958ac045c68fd7b616903f401dd07d8166
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293376"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789831"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 내부 변경
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치의 변경
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "91293376"
 SQL Server에 대 한 전체 업그레이드를 수행 하려면 다음 조건이 적용 됩니다.
 
 - 원하는 SQL Server 버전의 설치 미디어가 필요 합니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 최신 버전의 SQL Server (일반적으로 C:\SQLServerFull에 있음)를 포함 하는 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
-- 버전 업그레이드는 [지원 업그레이드 경로](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)를 따라야 합니다.
+- 버전 업그레이드는 [지원 업그레이드 경로](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)를 따라야 합니다.
 
 ## <a name="planning-for-version-change"></a>버전 변경 계획
 
@@ -40,34 +40,34 @@ SQL Server에 대 한 전체 업그레이드를 수행 하려면 다음 조건�
 
 1. 업그레이드할 계획인 버전의 새로운 기능을 확인 합니다.
 
-   - [SQL 2019](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15) 의 새로운 기능
-   - [SQL 2017](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15) 의 새로운 기능
-   - [SQL 2016](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15) 의 새로운 기능
-   - [SQL 2014](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014) 의 새로운 기능
+   - [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15) 의 새로운 기능
+   - [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15) 의 새로운 기능
+   - [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15) 의 새로운 기능
+   - [SQL 2014](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014) 의 새로운 기능
 
-1. 업그레이드의 영향을 최소화 하기 위해 데이터베이스 호환성 모드를 사용할 수 있도록 변경할 버전에 대 한 [호환성 인증](https://docs.microsoft.com/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) 을 확인 하는 것이 좋습니다.
+1. 업그레이드의 영향을 최소화 하기 위해 데이터베이스 호환성 모드를 사용할 수 있도록 변경할 버전에 대 한 [호환성 인증](/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) 을 확인 하는 것이 좋습니다.
 1. 성공적인 결과를 확인 하는 데 도움이 되도록 다음 문서를 검토할 수 있습니다.
 
    - [비디오: 현대화 SQL Server | Pam Lahoud & Pedro Lopes | 20 년의 통과](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
-   - [AB 테스트에 대 한 데이터베이스 실험 도우미](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
-   - [쿼리 튜닝 도우미를 사용하여 데이터베이스 업그레이드](https://docs.microsoft.com/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
-   - [데이터베이스 호환성 수준 변경 및 쿼리 저장소 사용](https://docs.microsoft.com/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
+   - [AB 테스트에 대 한 데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
+   - [쿼리 튜닝 도우미를 사용하여 데이터베이스 업그레이드](/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
+   - [데이터베이스 호환성 수준 변경 및 쿼리 저장소 사용](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
 
 ## <a name="upgrade-sql-version"></a>SQL 버전 업그레이드
 
 > [!WARNING]
 > SQL Server 버전을 업그레이드 하면 Analysis Services 및 R Services와 같은 관련 서비스 외에도 SQL Server 서비스를 다시 시작 합니다.
 
-SQL Server 버전을 업그레이드 하려면 SQL Server의 [업그레이드 경로를 지 원하는](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) 최신 버전의 SQL Server 설치 미디어를 다운로드 하 고 다음 단계를 수행 합니다.
+SQL Server 버전을 업그레이드 하려면 SQL Server의 [업그레이드 경로를 지 원하는](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) 최신 버전의 SQL Server 설치 미디어를 다운로드 하 고 다음 단계를 수행 합니다.
 
 1. 프로세스를 시작 하기 전에 시스템 (tempdb 제외) 및 사용자 데이터베이스를 포함 하 여 데이터베이스를 백업 합니다. Azure Backup 서비스를 사용 하 여 응용 프로그램 일치 VM 수준 백업을 만들 수도 있습니다.
 1. SQL Server 설치 미디어에서 Setup.exe를 시작 합니다.
-1. 설치 마법사가 SQL Server 설치 센터를 시작 합니다. SQL Server의 기존 인스턴스를 업그레이드 하려면 탐색 창에서 **설치** 를 선택한 다음 **이전 버전의 SQL Server에서 업그레이드**를 선택 합니다.
+1. 설치 마법사가 SQL Server 설치 센터를 시작 합니다. SQL Server의 기존 인스턴스를 업그레이드 하려면 탐색 창에서 **설치** 를 선택한 다음 **이전 버전의 SQL Server에서 업그레이드** 를 선택 합니다.
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
-1. **제품 키** 페이지에서 무료 버전의 SQL Server로 업그레이드할지 아니면 제품의 프로덕션 버전에 대 한 PID 키가 있는지를 나타내는 옵션을 선택 합니다. 자세한 내용은 [버전 및 지원 되는 기능 SQL Server 2019 ()](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) 및 지원 [되는 버전 및 버전 업그레이드 (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15)를 참조 하세요.
-1. **업그레이드 준비 완료** 페이지가 표시 될 때까지 **다음** 을 선택 하 고 **업그레이드**를 선택 합니다. 변경 내용을 적용 하는 동안 몇 분 동안 설치 창이 응답 하지 않을 수 있습니다. **전체** 페이지에서 업그레이드가 완료 되었음을 확인할 수 있습니다. 업그레이드 하는 단계별 절차는 [전체 절차](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure)를 참조 하세요.
+1. **제품 키** 페이지에서 무료 버전의 SQL Server로 업그레이드할지 아니면 제품의 프로덕션 버전에 대 한 PID 키가 있는지를 나타내는 옵션을 선택 합니다. 자세한 내용은 [버전 및 지원 되는 기능 SQL Server 2019 ()](/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) 및 지원 [되는 버전 및 버전 업그레이드 (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15)를 참조 하세요.
+1. **업그레이드 준비 완료** 페이지가 표시 될 때까지 **다음** 을 선택 하 고 **업그레이드** 를 선택 합니다. 변경 내용을 적용 하는 동안 몇 분 동안 설치 창이 응답 하지 않을 수 있습니다. **전체** 페이지에서 업그레이드가 완료 되었음을 확인할 수 있습니다. 업그레이드 하는 단계별 절차는 [전체 절차](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure)를 참조 하세요.
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 

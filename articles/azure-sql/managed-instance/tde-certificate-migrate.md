@@ -4,24 +4,24 @@ description: 투명한 데이터 암호화를 사용 하 여 데이터베이스�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618168"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790698"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>TDE로 보호 되는 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[TDE (투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) )로 보호 되는 데이터베이스를 기본 복원 옵션을 사용 하 여 Azure SQL Managed Instance 마이그레이션하는 경우에는 데이터베이스를 복원 하기 전에 SQL Server 인스턴스의 해당 인증서를 마이그레이션해야 합니다. 이 문서에서는 Azure SQL Managed Instance로 인증서를 수동으로 마이그레이션하는 과정을 안내 합니다.
+[TDE (투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption) )로 보호 되는 데이터베이스를 기본 복원 옵션을 사용 하 여 Azure SQL Managed Instance 마이그레이션하는 경우에는 데이터베이스를 복원 하기 전에 SQL Server 인스턴스의 해당 인증서를 마이그레이션해야 합니다. 이 문서에서는 Azure SQL Managed Instance로 인증서를 수동으로 마이그레이션하는 과정을 안내 합니다.
 
 > [!div class="checklist"]
 >
@@ -38,20 +38,20 @@ TDE로 보호 되는 데이터베이스와 해당 인증서를 원활 하 게 �
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 자체 포함 된 명령줄 환경인 [Enterprise Windows 드라이버 키트](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)의 일부입니다.
+* 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 자체 포함 된 명령줄 환경인 [Enterprise Windows 드라이버 키트](/windows-hardware/drivers/download-the-wdk)의 일부입니다.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) 버전 5.0 이상 설치.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 항목이 있는지 확인합니다.
 
-* 모듈 [을 설치 하 고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps)Azure PowerShell 합니다.
+* 모듈 [을 설치 하 고 업데이트](/powershell/azure/install-az-ps)Azure PowerShell 합니다.
 * [Az .sql module](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az module 및 AzureRM 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az module 및 AzureRM 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 PowerShell에서 다음 명령을 실행 하 여 모듈을 설치/업데이트 합니다.
 
@@ -125,7 +125,7 @@ SQL Server Management Studio를 사용 하 여 인증서를 내보내고 .pfx �
 
 2. 인증서 MMC 스냅인에서 경로 개인 > 인증서를 확장 하 여 인증서 목록을 표시 합니다.
 
-3. 인증서를 마우스 오른쪽 단추로 클릭 하 고 **내보내기**를 클릭 합니다.
+3. 인증서를 마우스 오른쪽 단추로 클릭 하 고 **내보내기** 를 클릭 합니다.
 
 4. 마법사에 따라 인증서와 개인 키를 .pfx 형식으로 내보냅니다.
 
@@ -160,7 +160,7 @@ SQL Server Management Studio를 사용 하 여 인증서를 내보내고 .pfx �
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-먼저 *.pfx* 파일을 사용 하 여 [Azure key vault를 설정](/azure/key-vault/key-vault-manage-with-cli2) 해야 합니다.
+먼저 *.pfx* 파일을 사용 하 여 [Azure key vault를 설정](../../key-vault/general/manage-with-cli2.md) 해야 합니다.
 
 1. PowerShell에서 준비 단계부터 시작합니다.
 

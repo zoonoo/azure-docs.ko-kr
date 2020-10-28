@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427039"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788828"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>VCore 및 DTU 구매 모델 중에서 선택-Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -127,7 +127,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 데이터베이스에
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>워크로드에 필요한 DTU 수 결정
 
-기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 SQL Database 워크 로드의 경우 [쿼리 성능 정보](query-performance-insight-use.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [SYS.DM_DB_RESOURCE_STATS](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 볼 수 있습니다. [Sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분 분량의 평균을 사용 합니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 SQL Database 워크 로드의 경우 [쿼리 성능 정보](query-performance-insight-use.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [SYS.DM_DB_RESOURCE_STATS](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 볼 수 있습니다. [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분 분량의 평균을 사용 합니다.
 
 ### <a name="determine-dtu-utilization"></a>DTU 사용률 확인
 
@@ -135,7 +135,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 데이터베이스에
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-이 수식에 대 한 입력 값은 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) dmv에서 가져올 수 있습니다. 즉, 데이터베이스 또는 탄력적 풀의 DTU/edtu 제한에 대 한 DTU/eDTU 사용률의 비율을 확인 하려면 `avg_cpu_percent` , `avg_data_io_percent` 및 `avg_log_write_percent` 지정 된 시간에서 가장 큰 비율 값을 선택 합니다.
+이 수식에 대 한 입력 값은 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) dmv에서 가져올 수 있습니다. 즉, 데이터베이스 또는 탄력적 풀의 DTU/edtu 제한에 대 한 DTU/eDTU 사용률의 비율을 확인 하려면 `avg_cpu_percent` , `avg_data_io_percent` 및 `avg_log_write_percent` 지정 된 시간에서 가장 큰 비율 값을 선택 합니다.
 
 > [!NOTE]
 > 데이터베이스의 DTU 한도는 데이터베이스에 사용할 수 있는 CPU, 읽기, 쓰기 및 메모리에 따라 결정 됩니다. 그러나 SQL Database 엔진은 일반적으로 데이터 캐시에 사용할 수 있는 모든 메모리를 사용 하 여 성능을 향상 시킬 수 있으므로 `avg_memory_usage_percent` 현재 데이터베이스 로드에 관계 없이 값은 일반적으로 100%에 가깝습니다. 따라서 메모리가 DTU 제한에 간접적으로 영향을 주는 경우에도 DTU 사용률 수식에서 사용 되지 않습니다.
@@ -150,13 +150,13 @@ DTU 기반 구매 모델에서 고객은 해당 데이터베이스에 사용 되
 
 예를 들어 다른 서비스 목표로 규모를 확장 또는 축소 하는 경우 또는 데이터 센터의 현재 인프라가 용량 제한에 도달 하거나, 수명 종료로 인해 현재 사용 된 하드웨어가 서비스 해제 되는 경우 다른 하드웨어 생성으로 데이터베이스를 이동할 수 있습니다.
 
-데이터베이스가 다른 하드웨어로 이동 되는 경우 작업 성능이 변경 될 수 있습니다. DTU 모델은 서비스 목표 (Dtu의 수)가 동일 하 게 유지 되는 한, 데이터베이스가 다른 하드웨어 생성으로 이동 하는 동안 [dtu 벤치 마크](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) 워크 로드의 처리량 및 응답 시간이 동일 하 게 유지 되도록 보장 합니다.
+데이터베이스가 다른 하드웨어로 이동 되는 경우 작업 성능이 변경 될 수 있습니다. DTU 모델은 서비스 목표 (Dtu의 수)가 동일 하 게 유지 되는 한, 데이터베이스가 다른 하드웨어 생성으로 이동 하는 동안 [dtu 벤치 마크](./service-tiers-dtu.md#dtu-benchmark) 워크 로드의 처리량 및 응답 시간이 동일 하 게 유지 되도록 보장 합니다.
 
 그러나 Azure SQL Database에서 실행 되는 광범위 한 고객 워크 로드에서 동일한 서비스 목표에 대해 다른 하드웨어를 사용 하는 경우에는 더 많은 영향을 줄 수 있습니다. 다양 한 워크 로드에서 다양 한 하드웨어 구성 및 기능을 활용 합니다. 따라서 DTU 벤치 마크 이외의 워크 로드의 경우에는 데이터베이스가 하드웨어 생성 간에 이동 하는 경우 성능 차이를 확인할 수 있습니다.
 
 예를 들어 네트워크 대기 시간에 민감한 응용 프로그램은 Gen5에서 가속화 된 네트워킹을 사용 하기 때문에 Gen5 하드웨어와 Gen4의 성능을 향상 시킬 수 있지만, 집약적 읽기 IO를 사용 하는 응용 프로그램은 Gen5에서 코어 비율 당 더 높은 메모리를 사용 하 여 Gen4 하드웨어 및 Gen4에서 더 나은 성능을 볼 수 있습니다.
 
-하드웨어 변경 또는 데이터베이스에 대 한 하드웨어 생성 선택을 제어 하려는 고객에 게 중요 한 작업을 수행 하는 고객은 [Vcore](service-tiers-vcore.md) 모델을 사용 하 여 데이터베이스를 만들고 크기를 조정 하는 동안 기본 설정 된 하드웨어 생성을 선택할 수 있습니다. VCore 모델에서는 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)모두에 대해 각 하드웨어 세대의 각 서비스 목표에 대 한 리소스 제한이 문서화 되어 있습니다. VCore 모델의 하드웨어 세대에 대 한 자세한 내용은 [하드웨어 생성](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations)을 참조 하세요.
+하드웨어 변경 또는 데이터베이스에 대 한 하드웨어 생성 선택을 제어 하려는 고객에 게 중요 한 작업을 수행 하는 고객은 [Vcore](service-tiers-vcore.md) 모델을 사용 하 여 데이터베이스를 만들고 크기를 조정 하는 동안 기본 설정 된 하드웨어 생성을 선택할 수 있습니다. VCore 모델에서는 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)모두에 대해 각 하드웨어 세대의 각 서비스 목표에 대 한 리소스 제한이 문서화 되어 있습니다. VCore 모델의 하드웨어 세대에 대 한 자세한 내용은 [하드웨어 생성](./service-tiers-vcore.md#hardware-generations)을 참조 하세요.
 
 ## <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 

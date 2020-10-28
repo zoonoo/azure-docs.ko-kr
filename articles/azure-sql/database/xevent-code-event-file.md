@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620191"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791310"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91620191"
 
 확장 이벤트에 대한 정보를 캡처하고 보고하는 확실한 방법을 위한 전체 코드 샘플이 필요할 수 있습니다.
 
-Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure Storage 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
+Microsoft SQL Server의 [이벤트 파일 대상](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure Storage 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
 
 이 항목에서는 2단계 코드 샘플을 제공합니다.
 
@@ -39,7 +39,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 - Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 - 테이블을 만들 수 있는 데이터베이스.
@@ -49,7 +49,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 - SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전).
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
-  - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)항목
+  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)항목
   - [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
@@ -62,7 +62,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
 
-1. PowerShell 스크립트를 Notepad.exe와 같은 간단한 텍스트 편집기로 붙여 넣은 다음 확장명을 **.ps1**으로 지정하여 스크립트를 파일로 저장합니다.
+1. PowerShell 스크립트를 Notepad.exe와 같은 간단한 텍스트 편집기로 붙여 넣은 다음 확장명을 **.ps1** 으로 지정하여 스크립트를 파일로 저장합니다.
 2. 관리자 권한으로 PowerShell ISE를 시작 합니다.
 3. 프롬프트에서<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>을 입력한 다음 Enter를 누릅니다.
 4. PowerShell ISE에서 **.ps1** 파일을 엽니다. 스크립트를 실행합니다.
@@ -258,7 +258,7 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 6. 저장한 다음 스크립트를 실행합니다.
 
 > [!WARNING]
-> 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다*. 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
+> 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다* . 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
 
 ### <a name="transact-sql-code"></a>Transact-SQL 코드
 
@@ -496,19 +496,19 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event_file을 읽었습니다.
 
-- [sys.fn_xe_file_target_read_file(Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file(Transact-SQL)](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
 
-- [확장된 이벤트의 대상 데이터에 대한 고급 보기](https://msdn.microsoft.com/library/mt752502.aspx)
+- [확장된 이벤트의 대상 데이터에 대한 고급 보기](/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>SQL Server 실행을 위해 코드 샘플 변환
 
 Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 가정하겠습니다.
 
-- 간단히 Azure Storage 컨테이너를 *C:\myeventdata.xel*과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
-- **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
-- **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=** 에 지정된 Http 값을 *C:\myfile.xel*와 같은 전체 경로 문자열로 바꾸겠습니다.
+- 간단히 Azure Storage 컨테이너를 *C:\myeventdata.xel* 과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
+- **CREATE MASTER KEY** 및 **CREATE CREDENTIAL** 에는 Transact-SQL 종류의 문이 필요하지 않습니다.
+- **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=** 에 지정된 Http 값을 *C:\myfile.xel* 와 같은 전체 경로 문자열로 바꾸겠습니다.
   
   - Azure Storage 계정은 사용하지 않습니다.
 
@@ -517,8 +517,8 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 - [.NET에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [1단원: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [2단원: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
-- [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+- [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [루트 컨테이너 사용](/rest/api/storageservices/Working-with-the-Root-Container)
+- [1단원: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [2단원: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
+- [Microsoft SQL Server의 확장 이벤트](/sql/relational-databases/extended-events/extended-events).

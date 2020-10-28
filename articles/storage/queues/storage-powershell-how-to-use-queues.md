@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425541"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791140"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>위치의 목록 검색
 
-사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이 연습에서는 **eastus**를 사용합니다. 이를 나중에 사용할 수 있도록 변수 **위치**에 저장합니다.
+사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이 연습에서는 **eastus** 를 사용합니다. 이를 나중에 사용할 수 있도록 변수 **위치** 에 저장합니다.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹 이름을 나중에 사용할 수 있도록 변수에 저장합니다. 이 예제에서는 *eastus* 지역에 *howtoqueuesrg*라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹 이름을 나중에 사용할 수 있도록 변수에 저장합니다. 이 예제에서는 *eastus* 지역에 *howtoqueuesrg* 라는 리소스 그룹을 만듭니다.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데이터 이름 지정](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
+Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데이터 이름 지정](/rest/api/storageservices/Naming-Queues-and-Metadata)을 참조하세요.
 
 ## <a name="retrieve-a-queue"></a>큐 검색
 
@@ -129,11 +129,11 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 메시지는 선입선출(FIFO) 순서로 읽힙니다. 이는 보장되지 않습니다. 큐에서 메시지를 읽으면 큐를 보는 모든 다른 프로세스는 표시되지 않습니다. 이는 하드웨어 또는 소프트웨어 실패로 인해 코드가 메시지 처리에 실패하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와 다시 시도하도록 합니다.  
 
-이 **표시 안 함 시간 제한**은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다.
+이 **표시 안 함 시간 제한** 은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다.
 
 코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. Microsoft Azure. .cdca [queue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 메서드를 호출 하면 큐에서 다음 메시지를 가져올 수 있습니다. **Getmessage** 에서 반환 된 메시지는이 큐에서 메시지를 읽는 다른 코드에는 표시 되지 않습니다. 큐에서 메시지의 제거를 완료 하려면 [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 메서드를 호출 합니다 .이 메서드는
 
-다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간 제한) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage**를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
+다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간 제한) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage** 를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue

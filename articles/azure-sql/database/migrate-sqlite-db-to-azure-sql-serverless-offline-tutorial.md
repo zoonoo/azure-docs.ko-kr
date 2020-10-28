@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448911"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790409"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>SQLite 데이터베이스를 Azure SQL Database 서버리스로 마이그레이션하는 방법
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Azure SQL Database 서버리스는 워크로드 수요 및 초당 사용된 컴�
     - ADF 설정(Azure Portal의 서비스에서 작성 및 모니터링)
     - 왼쪽의 "작성" 탭(파란색 연필) 클릭
     - 연결(왼쪽 하단), 통합 런타임을 차례로 클릭
-    - 새 자체 호스팅 통합 런타임을 추가하고 이름을 지정한 후 *옵션 2*를 선택합니다.
+    - 새 자체 호스팅 통합 런타임을 추가하고 이름을 지정한 후 *옵션 2* 를 선택합니다.
 
 5. Data Factory에서 원본 SQLite 데이터베이스에 연결된 서비스를 새로 만듭니다.
 
     ![Azure Data Factory에서 빈 연결된 서비스 블레이드를 보여 주는 스크린샷](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. **연결**, **연결된 서비스**에서 **새로 만들기**를 클릭합니다.
+6. **연결** , **연결된 서비스** 에서 **새로 만들기** 를 클릭합니다.
 
 7. "ODBC" 커넥터 검색 및 선택
 
@@ -109,4 +109,4 @@ Azure SQL Database 서버리스는 워크로드 수요 및 초당 사용된 컴�
 ## <a name="next-steps"></a>다음 단계
 
 - 시작하려면 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조하세요.
-- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.
+- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.
