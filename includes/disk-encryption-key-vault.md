@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file
-ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989408"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755647"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만들 수도 있습니다.
 
-1. Azure 빠른 시작 템플릿에서 **Azure에 배포**를 클릭합니다.
-2. 구독, 리소스 그룹, 리소스 그룹 위치, Key Vault 이름, 개체 ID, 약관 및 규약을 선택한 다음, **구매**를 클릭합니다. 
+1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
+2. 구독, 리소스 그룹, 리소스 그룹 위치, Key Vault 이름, 개체 ID, 약관 및 규약을 선택한 다음, **구매** 를 클릭합니다. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Key Vault 고급 액세스 정책 설정
@@ -117,10 +117,10 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
-2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
-3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **Save**을 클릭합니다.
+1. 키 자격 증명 모음을 선택하고, **액세스 정책** , **클릭하여 고급 액세스 정책 표시** 로 차례로 이동합니다.
+2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용** 이라는 레이블이 있는 상자를 선택합니다.
+3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 을 선택합니다. 
+4. **Save** 을 클릭합니다.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 

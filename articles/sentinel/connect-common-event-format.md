@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747908"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -44,7 +44,7 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-조직의 보안 정책에 따라 컴퓨터의 보안을 구성 해야 합니다. 예를 들어 회사 네트워크 보안 정책에 맞게 네트워크를 구성 하 고, 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다. 다음 지침을 사용 하 여 컴퓨터 보안 구성을 향상 시킬 수 있습니다.  [Azure에서 VM 보안](../virtual-machines/security-policy.md), [네트워크 보안에 대 한 모범 사례](../security/fundamentals/network-best-practices.md)를 참조 하세요.
+조직의 보안 정책에 따라 컴퓨터의 보안을 구성 해야 합니다. 예를 들어 회사 네트워크 보안 정책에 맞게 네트워크를 구성 하 고, 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다. 다음 지침을 사용 하 여 컴퓨터 보안 구성을 향상 시킬 수 있습니다.  [Azure에서 VM 보안](../virtual-machines/security-policy.md), [네트워크 보안에 대 한 모범 사례](../security/fundamentals/network-best-practices.md)를 참조 하세요.
 
 Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에서 통신 하도록 Syslog 데몬 (rsyslog 또는 syslog 기능)을 구성 해야 합니다. tls [-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), tls를 [사용 하 여 로그 메시지 암호화 – syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 사용 합니다.
  
@@ -55,14 +55,14 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
 - 64비트
   - CentOS 7 및 하위 버전 이상 (6 아님)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 및 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 및 하위 버전 이상 (6 아님)
   - Debian GNU/Linux 8 및 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32비트
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 및 9
    - Ubuntu Linux 14.04 LTS 및 16.04 LTS
@@ -76,10 +76,10 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
    - Syslog RFC 5424
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
-- 사용 권한
+- 권한
     - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
 - 소프트웨어 요구 사항
-    - 컴퓨터에서 Python (2.7 이상)이 실행 되 고 있는지 확인 합니다.
+    - 컴퓨터에서 python 2.7이 실행 되 고 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

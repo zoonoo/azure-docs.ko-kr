@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519442"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746812"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
 
@@ -19,7 +19,7 @@ ms.locfileid: "92519442"
 
 이 프로세스는 온-프레미스 디렉터리 서비스인 Active Directory Domain Services (AD DS)를 사용 합니다. Azure AD DS를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 자세한 내용은 [Azure Files를 사용 하 여 fslogix 프로필 컨테이너 만들기](create-profile-container-adds.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 도메인 컨트롤러가 Azure에 동기화 되 고 세션 호스트가 연결 된 Azure VNET (가상 네트워크)에서 확인할 수 있는지 확인 합니다.
 
@@ -33,18 +33,18 @@ ms.locfileid: "92519442"
 
 2. 검색 창에서 **저장소 계정을** 검색 합니다.
 
-3. **+추가**를 선택합니다.
+3. **+추가** 를 선택합니다.
 
 4. **저장소 계정 만들기** 페이지에 다음 정보를 입력 합니다.
 
-    - 새 리소스 그룹 만들기
+    - 새 리소스 그룹을 만듭니다.
     - 스토리지 계정에 고유한 이름을 입력합니다.
-    - **위치의**경우 Windows 가상 데스크톱 호스트 풀과 동일한 위치를 선택 하는 것이 좋습니다.
-    - **성능**은 **표준**을 선택합니다. (IOPS 요구 사항에 따라 달라 집니다. 자세한 내용은 [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
-    - **계정 유형**에서 **StorageV2** 또는 **FileStorage** (성능 계층이 프리미엄 인 경우에만 사용 가능)를 선택 합니다.
-    - **복제**에 대해 **LRS (로컬 중복 저장소)** 를 선택 합니다.
+    - **위치의** 경우 Windows 가상 데스크톱 호스트 풀과 동일한 위치를 선택 하는 것이 좋습니다.
+    - **성능** 은 **표준** 을 선택합니다. (IOPS 요구 사항에 따라 달라 집니다. 자세한 내용은 [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
+    - **계정 유형** 에서 **StorageV2** 또는 **FileStorage** (성능 계층이 프리미엄 인 경우에만 사용 가능)를 선택 합니다.
+    - **복제** 에 대해 **LRS (로컬 중복 저장소)** 를 선택 합니다.
 
-5. 완료 되 면 **검토 + 만들기**를 선택 하 고 **만들기**를 선택 합니다.
+5. 완료 되 면 **검토 + 만들기** 를 선택 하 고 **만들기** 를 선택 합니다.
 
 자세한 구성 지침이 필요한 경우 [지역 가용성](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability)을 참조 하세요.
 
@@ -54,13 +54,13 @@ ms.locfileid: "92519442"
 
 파일 공유를 만들려면,
 
-1. **리소스로 이동**을 선택합니다.
+1. **리소스로 이동** 을 선택합니다.
 
-2. 개요 페이지에서 **파일 공유**를 선택합니다.
+2. 개요 페이지에서 **파일 공유** 를 선택합니다.
 
-3. **+ 파일 공유**를 선택 하 고, **프로필**이라는 새 파일 공유를 만든 다음, 적절 한 할당량을 입력 하거나 할당량 없이 필드를 비워 둡니다.
+3. **+ 파일 공유** 를 선택 하 고, **프로필** 이라는 새 파일 공유를 만든 다음, 적절 한 할당량을 입력 하거나 할당량 없이 필드를 비워 둡니다.
 
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
 ## <a name="enable-active-directory-authentication"></a>Active Directory 인증 사용
 
@@ -68,9 +68,9 @@ ms.locfileid: "92519442"
 
 1. 도메인에 가입 된 VM에 원격 데스크톱 프로토콜 합니다.
 
-2. [Azure 파일 공유에 대해 azure AD DS 인증 사용](../storage/files/storage-files-identity-ad-ds-enable.md) 의 지침에 따라 AzFilesHybrid 모듈을 설치 하 고 인증을 사용 하도록 설정 합니다.
+2. AzFilesHybrid 모듈을 설치 하 고 인증을 사용 하도록 설정 하려면 [Azure 파일 공유에 대 한 AD DS 인증 사용](../storage/files/storage-files-identity-ad-ds-enable.md) 의 지침을 따르세요.
 
-3.  Azure Portal 열고 저장소 계정을 열고 **구성**을 선택한 다음 **AD (Active Directory)** 가 **사용**으로 설정 되어 있는지 확인 합니다.
+3.  Azure Portal 열고 저장소 계정을 열고 **구성** 을 선택한 다음 **AD (Active Directory)** 가 **사용** 으로 설정 되어 있는지 확인 합니다.
 
      > [!div class="mx-imgBorder"]
      > ![AD (Azure Active Directory)를 사용할 수 있는 구성 페이지의 스크린샷](media/active-directory-enabled.png)
@@ -92,17 +92,17 @@ Azure RBAC (역할 기반 액세스 제어) 권한을 할당 하려면:
 
 2. [저장소 계정 설정](#set-up-a-storage-account)에서 만든 저장소 계정을 엽니다.
 
-3. **파일 공유**를 선택한 다음 사용 하려는 파일 공유의 이름을 선택 합니다.
+3. **파일 공유** 를 선택한 다음 사용 하려는 파일 공유의 이름을 선택 합니다.
 
 4. **Access Control(IAM)** 을 선택합니다.
 
-5. **역할 할당 추가를**선택 합니다.
+5. **역할 할당 추가를** 선택 합니다.
 
 6. **역할 할당 추가** 탭에서 관리자 계정에 대 한 **저장소 파일 데이터 SMB 공유 승격 된 참가자** 를 선택 합니다.
 
      해당 FSLogix 프로필에 대한 사용자 권한을 할당하려면 이와 동일한 지침을 따릅니다. 그러나 5 단계를 시작할 때 **저장소 파일 데이터 SMB 공유 참가자** 를 대신 선택 합니다.
 
-7. **저장**을 선택합니다.
+7. **저장** 을 선택합니다.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Azure 파일 공유에 대 한 사용자 할당 권한
 
@@ -121,7 +121,7 @@ UNC 경로를 가져오는 방법은 다음과 같습니다.
 
 2. [저장소 계정 설정](#set-up-a-storage-account)에서 만든 저장소 계정을 엽니다.
 
-3. **설정**을 선택한 다음 **속성**을 선택 합니다.
+3. **설정** 을 선택한 다음 **속성** 을 선택 합니다.
 
 4. 선택한 텍스트 편집기에 **기본 파일 서비스 끝점** URI를 복사 합니다.
 
@@ -141,7 +141,7 @@ UNC 경로를 가져오는 방법은 다음과 같습니다.
 
 2. [저장소 계정 설정](#set-up-a-storage-account)에서 만든 저장소 계정을 엽니다.
 
-3. **저장소 계정** 탭에서 **액세스 키**를 선택 합니다.
+3. **저장소 계정** 탭에서 **액세스 키** 를 선택 합니다.
 
 4. **Key1** 또는 **key2** 를 로컬 컴퓨터의 파일에 복사 합니다.
 
@@ -179,7 +179,7 @@ NTFS 사용 권한을 구성 하려면:
      - <탑재 된 드라이브 문자>를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
      - 사용자 전자 메일> <을 공유에 대 한 액세스 권한이 필요한 사용자를 포함 하는 사용자 또는 Active Directory 그룹의 UPN으로 바꿉니다.
 
-     예:
+     예를 들면 다음과 같습니다.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -200,13 +200,13 @@ NTFS 사용 권한을 구성 하려면:
 
 5. [프로필 컨테이너 레지스트리 설정 구성](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings)의 지침을 따르세요.
 
-    - **컴퓨터**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **fslogix**로 이동 합니다.
+    - **컴퓨터**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **fslogix** 로 이동 합니다.
 
     - **프로필** 키를 만듭니다.
 
     - 값을 1로 설정 하 여 **, DWORD를** 만듭니다.
 
-    - **VHDLocations, MULTI_SZ를**만듭니다.
+    - **VHDLocations, MULTI_SZ를** 만듭니다.
 
     - **VHDLocations** 의 값을 [unc 경로 가져오기](#get-the-unc-path)에서 생성 한 unc 경로로 설정 합니다.
 

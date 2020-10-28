@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042969"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748473"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스를 인증하는 방법
 
@@ -182,7 +182,7 @@ Azure IoT 공용 모델 리포지토리에 모델을 게시 하려면 계정이 
 
 장치를 인증 하려면 먼저 새 프로젝트를 만들어야 합니다.
 
-[인증 포털로](https://aka.ms/acdp)이동 합니다. **프로젝트** 페이지에서 *+ 새 프로젝트 만들기*를 선택 합니다. 그런 다음 프로젝트 이름, 장치 이름을 입력 하 고 장치 클래스를 선택 합니다.
+[인증 포털로](https://aka.ms/acdp)이동 합니다. **프로젝트** 페이지에서 *+ 새 프로젝트 만들기* 를 선택 합니다. 그런 다음 프로젝트 이름, 장치 이름을 입력 하 고 장치 클래스를 선택 합니다.
 
 인증 프로세스 중에 제공 하는 제품 정보는 다음 네 가지 범주로 구분 됩니다.
 

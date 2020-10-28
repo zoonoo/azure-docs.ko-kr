@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure 파일
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428951"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747879"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 
@@ -32,7 +32,7 @@ Azure Red Hat OpenShift 4 클러스터를 구독에 배포 합니다. [Azure Red
 
 ### <a name="set-up-azure-storage-account"></a>Azure storage 계정 설정
 
-이 단계에서는 Azure Red Hat OpenShift 클러스터의 리소스 그룹 외부에 리소스 그룹을 만듭니다. 이 리소스 그룹은 Azure Red Hat OpenShift의 동적 provisioner에서 만든 Azure Files 공유를 포함 합니다.
+이 단계에서는 Azure Red Hat OpenShift (ARO) 클러스터의 리소스 그룹 외부에 리소스 그룹을 만듭니다. 이 리소스 그룹은 Azure Red Hat OpenShift의 동적 provisioner에서 만든 Azure Files 공유를 포함 합니다.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

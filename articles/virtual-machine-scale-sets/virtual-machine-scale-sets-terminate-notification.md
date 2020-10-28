@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747750"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
 확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.
@@ -28,11 +28,11 @@ ms.locfileid: "90603835"
 
 다음 단계는 새 확장 집합을 만들 때 종료 알림을 사용 하도록 설정 합니다. 
 
-1. **가상 머신 확장 집합**으로 이동 합니다.
+1. **가상 머신 확장 집합** 으로 이동 합니다.
 1. **+ 추가** 를 선택 하 여 새 확장 집합을 만듭니다.
 1. **관리** 탭으로 이동 합니다. 
 1. **인스턴스 종료** 섹션을 찾습니다.
-1. **인스턴스 종료 알림** **에서 켜기**를 선택 합니다.
+1. **인스턴스 종료 알림** **에서 켜기** 를 선택 합니다.
 1. **종료 지연 (분)** 의 경우 원하는 기본 시간 제한을 설정 합니다.
 1. 새 확장 집합 만들기를 완료 한 후 **검토 + 만들기** 단추를 선택 합니다. 
 
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-위의 블록은 확장 집합의 모든 인스턴스에 대 한 모든 종료 작업에 대해 5 분의 제한 시간 지연 ( *PT5M*로 표시 됨)을 지정 합니다. *NotBeforeTimeout* 필드는 ISO 8601 형식에서 5 분에서 15 분 사이의 값을 사용할 수 있습니다. 위에 설명 된 *terminateNotificationProfile* 에서 *notBeforeTimeout* 속성을 수정 하 여 종료 작업에 대 한 기본 시간 제한을 변경할 수 있습니다.
+위의 블록은 확장 집합의 모든 인스턴스에 대 한 모든 종료 작업에 대해 5 분의 제한 시간 지연 ( *PT5M* 로 표시 됨)을 지정 합니다. *NotBeforeTimeout* 필드는 ISO 8601 형식에서 5 분에서 15 분 사이의 값을 사용할 수 있습니다. 위에 설명 된 *terminateNotificationProfile* 에서 *notBeforeTimeout* 속성을 수정 하 여 종료 작업에 대 한 기본 시간 제한을 변경할 수 있습니다.
 
-크기 집합 모델에서 *scheduledEventsProfile* 를 사용 하도록 설정 하 고 *notBeforeTimeout*를 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.
+크기 집합 모델에서 *scheduledEventsProfile* 를 사용 하도록 설정 하 고 *notBeforeTimeout* 를 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.
 
 > [!NOTE]
 >확장 집합 인스턴스에 대 한 종료 알림은 API 버전 2019-03-01 이상 에서만 사용할 수 있습니다.
@@ -197,7 +197,7 @@ Scheduled Events를 통해 **종료** 이벤트를 가져오지 않는 경우 �
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>NotBefore 시간이 잘못 된 Terminate 이벤트를 가져오는 중  
-크기 집합 모델에서 *scheduledEventsProfile* 를 사용 하도록 설정 하 고 *notBeforeTimeout*를 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.
+크기 집합 모델에서 *scheduledEventsProfile* 를 사용 하도록 설정 하 고 *notBeforeTimeout* 를 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 가상 머신 확장 집합에 [애플리케이션을 배포하는 방법](virtual-machine-scale-sets-deploy-app.md)에 대해 알아봅니다.

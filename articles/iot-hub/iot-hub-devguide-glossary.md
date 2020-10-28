@@ -11,12 +11,13 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+- devx-track-azurecli
+ms.openlocfilehash: 3a75b3622ebc2085dac898e2a06e09f16466cbf5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547795"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746614"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -66,7 +67,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 [Azure PowerShell](/powershell/azure/)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -94,7 +95,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 디바이스에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [자동 디바이스 구성](./iot-hub-automatic-device-management.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
@@ -286,7 +287,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 reported 속성은 [desired 속성](#desired-properties)과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용되는 디바이스 쌍의 하위 섹션입니다. reported 속성은 [디바이스 앱](#device-app)에서만 설정할 수 있고 [백 엔드 앱](#back-end-app)에서 읽고 쿼리할 수 있습니다.
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
 [Azure Resource Manager](#azure-resource-manager)는 리소스 그룹을 사용하여 관련 리소스를 함께 그룹화합니다. 그룹에 있는 모든 리소스에 대해 작업을 동시에 수행하는 데 리소스 그룹을 사용할 수 있습니다.
 
@@ -318,7 +319,7 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 
 편의를 위해 많은 IoT Hub 자습서에서 시뮬레이션된 디바이스를 사용하여 로컬 머신에서 샘플을 실행할 수 있도록 합니다. 반면에, [물리적 디바이스](#physical-device)는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 디바이스입니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 _솔루션_ 은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_ 은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
 
 ## <a name="subscription"></a>Subscription
@@ -329,7 +330,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그
+## <a name="tags"></a>태그들
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 

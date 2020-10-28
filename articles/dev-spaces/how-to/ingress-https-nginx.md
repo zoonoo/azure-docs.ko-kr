@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: 사용자 지정 NGINX 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: 1ef462171199ce818b6146efbe705cca30b24564
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: e1918b5ce9c0fdba81174f0b36fd1ce51d0df70a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973090"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748824"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>사용자 지정 NGINX 수신 컨트롤러 사용 및 HTTPS 구성
 
@@ -100,8 +100,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 [값 .yaml][values-yaml] 을 열고 다음을 업데이트 합니다.
-* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 nginx로 바꿉니다 *. * *MY_CUSTOM_DOMAIN*에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
-* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Nginx # Custom ingress*. 
+* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 nginx로 바꿉니다 *.* *MY_CUSTOM_DOMAIN* 에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
+* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Nginx # Custom ingress* . 
 
 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> 테스트를 위해 *Clusterissuer*에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
+> 테스트를 위해 *Clusterissuer* 에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
 
 `kubectl`를 적용 하려면를 사용 `letsencrypt-clusterissuer.yaml` 합니다.
 

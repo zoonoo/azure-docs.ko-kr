@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748046"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (CLI)
 
@@ -21,7 +21,7 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 
 Azure Active Directory 응용 프로그램을 구성 하는 데 사용할 클러스터 관련 Url을 검색 합니다.
 
-클러스터의 OAuth 콜백 URL을 생성 하 고 **Oauthcallbackurl**변수에 저장 합니다. 사용자의 클러스터 이름으로 **aro-rg** 를 리소스 그룹의 이름 및 **aro-cluster** 로 바꾸어야 합니다.
+클러스터의 OAuth 콜백 URL을 생성 하 고 **Oauthcallbackurl** 변수에 저장 합니다. 사용자의 클러스터 이름으로 **aro-rg** 를 리소스 그룹의 이름 및 **aro-cluster** 로 바꾸어야 합니다.
 
 > [!NOTE]
 > `AAD`Oauth 콜백 URL의 섹션은 나중에 설정할 oauth id 공급자 이름과 일치 해야 합니다.
@@ -76,7 +76,7 @@ az account show --query tenantId -o tsv
 
 `email` `upn` `upn` Azure Active Directory에서 반환 하는 ID 토큰의 일부로를 추가 하 여 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
 
-파일 ** 에manifest.js** 를 만들어 Azure Active Directory 응용 프로그램을 구성 합니다.
+파일 **에manifest.js** 를 만들어 Azure Active Directory 응용 프로그램을 구성 합니다.
 
 ```bash
 cat > manifest.json<< EOF
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Azure Active Directory를 통해 로그인 확인
 
-이제 OpenShift 웹 콘솔을 로그 아웃 하 고 다시 로그인을 시도 하면 **AAD**를 사용 하 여 로그인 할 수 있는 새로운 옵션이 제공 됩니다. 몇 분 정도 기다려야 할 수 있습니다.
+이제 OpenShift 웹 콘솔을 로그 아웃 하 고 다시 로그인을 시도 하면 **AAD** 를 사용 하 여 로그인 할 수 있는 새로운 옵션이 제공 됩니다. 몇 분 정도 기다려야 할 수 있습니다.
 
 ![Azure Active Directory 옵션이 있는 로그인 화면](media/aro4-login-2.png)

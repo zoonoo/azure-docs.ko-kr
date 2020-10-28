@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563695"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746837"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -22,7 +22,7 @@ ms.locfileid: "90563695"
 1. 이 문서의 의견 섹션입니다.
 2. [Azure Storage에 대한 Microsoft Q&A 질문 페이지입니다](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
-4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
+4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 
 ## <a name="general"></a>일반
 * <a id="why-files-useful"></a>
@@ -107,7 +107,7 @@ ms.locfileid: "90563695"
     성능은 환경 설정, 구성 및 초기 동기화 인지 또는 진행 중인 동기화 인지에 따라 달라 집니다. 자세한 내용은 [Azure File Sync 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics) 을 참조 하세요.
 
 * <a id="afs-conflict-resolution"></a>**같은 파일이 두 서버에서 거의 동시에 변경하는 경우 어떻게 되나요?**  
-    Azure File Sync는 간단한 충돌 해결 전략을 사용 합니다. 두 끝점에서 변경 되는 파일에 대 한 변경 내용을 동시에 유지 합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일 (LastWriteTime에 의해 결정 됨)에는 파일 이름에 추가 된 끝점 이름 및 충돌 번호가 있습니다. 서버 끝점의 경우 끝점 이름은 서버 이름입니다. 클라우드 끝점의 경우 끝점 이름은 **cloud**입니다. 이름은 다음 분류를 따릅니다. 
+    Azure File Sync는 간단한 충돌 해결 전략을 사용 합니다. 두 끝점에서 변경 되는 파일에 대 한 변경 내용을 동시에 유지 합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일 (LastWriteTime에 의해 결정 됨)에는 파일 이름에 추가 된 끝점 이름 및 충돌 번호가 있습니다. 서버 끝점의 경우 끝점 이름은 서버 이름입니다. 클라우드 끝점의 경우 끝점 이름은 **cloud** 입니다. 이름은 다음 분류를 따릅니다. 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -133,7 +133,7 @@ ms.locfileid: "90563695"
   [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-force-tiering) 참조
 
 * <a id="afs-effective-vfs"></a>
-  **볼륨에 여러 서버 엔드포인트가 있는 경우 *사용 가능한 볼륨 공간*은 어떻게 해석되나요?**  
+  **볼륨에 여러 서버 엔드포인트가 있는 경우 *사용 가능한 볼륨 공간* 은 어떻게 해석되나요?**  
   [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-effective-vfs) 참조
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
@@ -257,7 +257,25 @@ ms.locfileid: "90563695"
 * <a id="ad-multiple-forest"></a>
 **Azure 파일 공유에 대한 온-프레미스 AD DS 인증은 여러 포리스트를 사용하는 AD DS 환경과의 통합을 지원하나요?**    
 
-    Azure Files 온-프레미스 AD DS 인증은 스토리지 계정이 등록된 도메인 서비스의 포리스트와만 통합됩니다. 다른 포리스트의 인증을 지원하려면 환경에서 포리스트 신뢰를 올바르게 구성해야 합니다. AD DS에서 Azure Files를 등록하는 방법은 인증을 위해 AD DS에서 ID(컴퓨터 또는 서비스 로그온 계정)를 생성하는 일반 파일 서버와 거의 동일합니다. 유일한 차이점은 스토리지 계정의 등록된 SPN이 도메인 접미사와 일치하지 않는 "file.core.windows.net"으로 끝나는 것입니다. 도메인 관리자에게 문의하여 다른 도메인 접미사로 인해 여러 포리스트 인증을 사용 하도록 설정하려면 DNS 라우팅 정책을 업데이트해야 하는지 여부를 확인하세요.
+    Azure Files 온-프레미스 AD DS 인증은 스토리지 계정이 등록된 도메인 서비스의 포리스트와만 통합됩니다. 다른 포리스트의 인증을 지원하려면 환경에서 포리스트 신뢰를 올바르게 구성해야 합니다. AD DS에서 Azure Files를 등록하는 방법은 인증을 위해 AD DS에서 ID(컴퓨터 또는 서비스 로그온 계정)를 생성하는 일반 파일 서버와 거의 동일합니다. 유일한 차이점은 스토리지 계정의 등록된 SPN이 도메인 접미사와 일치하지 않는 "file.core.windows.net"으로 끝나는 것입니다. 도메인 관리자에 게 문의 하 여 다른 도메인 접미사로 인해 여러 포리스트 인증을 사용 하도록 설정 하려면 접미사 라우팅 정책에 대 한 업데이트가 필요한 지 확인 합니다. 접미사 라우팅 정책을 구성 하려면 아래 예제를 제공 합니다.
+    
+    예: 포리스트의 사용자가 포리스트 B의 도메인에 대해 등록 된 저장소 계정을 사용 하 여 파일 공유에 연결 하려면 저장소 계정의 서비스 사용자에 게 포리스트 A에 있는 도메인의 접미사와 일치 하는 접미사가 없기 때문에이 작업은 자동으로 작동 하지 않습니다. 사용자 지정 접미사 "file.core.windows.net"에 대해 포리스트 A에서 포리스트 B로 접미사 라우팅 규칙을 수동으로 구성 하 여이 문제를 해결할 수 있습니다.
+    먼저 포리스트 B에 새 사용자 지정 접미사를 추가 해야 합니다. 구성을 변경할 수 있는 적절 한 관리 권한이 있는지 확인 한 후 다음 단계를 수행 합니다.   
+    1. 포리스트 B에 가입 된 컴퓨터 도메인에 로그온
+    2.  "Active Directory 도메인 및 트러스트" 콘솔을 엽니다.
+    3.  "Active Directory 도메인 및 트러스트"를 마우스 오른쪽 단추로 클릭 합니다.
+    4.  "속성"을 클릭 합니다.
+    5.  "추가"를 클릭 합니다.
+    6.  "File.core.windows.net"를 UPN 접미사로 추가 합니다.
+    7.  "적용"을 클릭 한 다음 "확인"을 클릭 하 여 마법사를 닫습니다.
+    
+    그런 다음 포리스트 B로 리디렉션하는 포리스트 A에 접미사 라우팅 규칙을 추가 합니다.
+    1.  포리스트 A에 가입 된 컴퓨터 도메인에 로그온
+    2.  "Active Directory 도메인 및 트러스트" 콘솔을 엽니다.
+    3.  파일 공유에 액세스 하려는 도메인을 마우스 오른쪽 단추로 클릭 한 다음 "트러스트" 탭을 클릭 하 고 보내는 트러스트에서 포리스트 B 도메인을 선택 합니다. 두 포리스트 간에 트러스트를 구성 하지 않은 경우 먼저 트러스트를 설정 해야 합니다.
+    4.  "속성 ..."을 클릭 합니다. 그런 다음 "이름 접미사 라우팅"
+    5.  "*. File.core.windows.net" surffix가 표시 되는지 확인 합니다. 그렇지 않은 경우 ' 새로 고침 '을 클릭 합니다.
+    6.  "*. File.core.windows.net"를 선택한 다음 "사용" 및 "적용"을 클릭 합니다.
 
 * <a id=""></a>
 **Azure Files AD DS 인증에 사용할 수 있는 지역은 어디 인가요?**
@@ -311,7 +329,7 @@ ms.locfileid: "90563695"
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
 
-    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
+    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용 *할 수 있습니다* .
 
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
@@ -353,7 +371,7 @@ ms.locfileid: "90563695"
 ### <a name="create-share-snapshots"></a>공유 스냅샷 만들기
 * <a id="file-snaphsots"></a>
 **개별 파일의 공유 스냅샷을 만들 수 있나요?**  
-    공유 스냅샷은 파일 공유 수준에서 만들어집니다. 파일 공유 스냅샷에서 개별 파일을 복원할 수 있지만 파일 수준 공유 스냅샷을 만들 수 없습니다. 그러나 공유 수준 공유 스냅샷을 작성했으며 특정 파일이 변경된 공유 스냅샷을 나열하려면 Windows 탑재 공유의 **이전 버전**에서 이 작업을 수행할 수 있습니다. 
+    공유 스냅샷은 파일 공유 수준에서 만들어집니다. 파일 공유 스냅샷에서 개별 파일을 복원할 수 있지만 파일 수준 공유 스냅샷을 만들 수 없습니다. 그러나 공유 수준 공유 스냅샷을 작성했으며 특정 파일이 변경된 공유 스냅샷을 나열하려면 Windows 탑재 공유의 **이전 버전** 에서 이 작업을 수행할 수 있습니다. 
     
     파일 스냅샷 기능이 필요하면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에 알려주세요.
 
@@ -431,7 +449,7 @@ ms.locfileid: "90563695"
 
 ## <a name="features-and-interoperability-with-other-services"></a>다른 서비스와의 기능 및 상호 운용성
 * <a id="cluster-witness"></a>
-**내 Windows Server 장애 조치(Failover) 클러스터에 대해 Azure 파일 공유를 *파일 공유 감시*로 사용할 수 있나요?**  
+**내 Windows Server 장애 조치(Failover) 클러스터에 대해 Azure 파일 공유를 *파일 공유 감시* 로 사용할 수 있나요?**  
     현재, 이 구성은 Azure 파일 공유에서 지원되지 않습니다. Azure Blob Storage에 대해 이 기능을 설정하는 방법에 대한 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요.
 
 * <a id="containers"></a>
@@ -444,7 +462,7 @@ ms.locfileid: "90563695"
 
 * <a id="nested-shares"></a>
 **중첩된 공유를 설정할 수 있나요? 즉, 공유 아래에 공유를 설정할 수 있나요?**  
-    아니요. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
+    아니요. 파일 공유 *는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
 
 * <a id="ibm-mq"></a>
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  

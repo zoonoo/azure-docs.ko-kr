@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812865"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746412"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -61,22 +61,18 @@ Stream Analytics 포털을 사용 하 여 키를 저장소 계정으로 업데�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. 
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다. 
 
 1.  **Analytics**   > 결과 목록에서 Analytics **Stream Analytics 작업**   을 선택 합니다. 
 
 1. 이름, 지역, 크기 등의 필요한 세부 정보를 사용 하 여 Stream Analytics 작업 페이지를 채웁니다. 
 
-1. *내 저장소 계정에서이 작업에 필요한 모든 개인 데이터 자산의 보안을 유지*하는 확인란을 선택 합니다.
+1. *내 저장소 계정에서이 작업에 필요한 모든 개인 데이터 자산의 보안을 유지* 하는 확인란을 선택 합니다.
 
 1. 구독에서 저장소 계정을 선택 합니다. 이 설정은 작업의 수명 주기 전체에서 수정할 수 없습니다. 
 
    ![개인 데이터 저장소 계정 설정](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>알려진 문제
-현재는 관리 id를 사용 하 여 입력 또는 출력을 인증할 때 고객 관리 키를 사용 하는 작업이 실패 하는 알려진 제한 사항이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

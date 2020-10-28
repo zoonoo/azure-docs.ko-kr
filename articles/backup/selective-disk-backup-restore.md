@@ -3,13 +3,13 @@ title: Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 1052e7e531f6762de660ba89e22c7fbb0d01f808
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628765"
+ms.locfileid: "92746989"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 

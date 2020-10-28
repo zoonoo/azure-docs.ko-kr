@@ -4,13 +4,13 @@ description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83122303"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746176"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -29,7 +29,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 1. 시작하려면 [Azure Portal]로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력 하 고 목록에서 선택 합니다. 
 
-2. 왼쪽 창의 **설정** 에서 **구성**을 선택 합니다.
+2. 왼쪽 창의 **설정** 에서 **구성** 을 선택 합니다.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Azure Portal의 함수 앱 개요":::
 
@@ -107,7 +107,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 ![Kudu 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 엔드포인트로 이동하여 **Kudu**를 시작할 수도 있습니다. 
+App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 엔드포인트로 이동하여 **Kudu** 를 시작할 수도 있습니다. 
 
 
 ### <a name="deployment-center"></a><a name="deployment"></a>배포 센터

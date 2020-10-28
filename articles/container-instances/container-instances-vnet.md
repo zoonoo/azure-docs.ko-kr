@@ -3,13 +3,13 @@ title: Azure virtual network에 컨테이너 그룹 배포
 description: Azure 명령줄 인터페이스를 사용 하 여 새 또는 기존 Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518129"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746896"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "92518129"
 
 가상 네트워크 및 서브넷 주소 접두사는 각각 가상 네트워크와 서브넷의 주소 공간을 지정합니다. 이러한 값은 `10.0.0.0/16`과 같이 CIDR(Classless Inter-Domain Routing) 표기법으로 표시됩니다. 서브넷 사용 방법에 대한 자세한 내용은 [가상 네트워크 서브넷 추가, 변경 또는 삭제](../virtual-network/virtual-network-manage-subnet.md)를 참조하세요.
 
-이 방법으로 첫 번째 컨테이너 그룹을 배포한 후에는 가상 네트워크 및 서브넷 이름이나 Azure에서 자동으로 생성한 네트워크 프로필을 지정하여 같은 서브넷에 컨테이너 그룹을 배포할 수 있습니다. 서브넷은 Azure Container Instances에 위임되므로 서브넷에는 컨테이너 그룹*만* 배포할 수 있습니다.
+이 방법으로 첫 번째 컨테이너 그룹을 배포한 후에는 가상 네트워크 및 서브넷 이름이나 Azure에서 자동으로 생성한 네트워크 프로필을 지정하여 같은 서브넷에 컨테이너 그룹을 배포할 수 있습니다. 서브넷은 Azure Container Instances에 위임되므로 서브넷에는 컨테이너 그룹 *만* 배포할 수 있습니다.
 
 ### <a name="example"></a>예제
 
@@ -69,7 +69,7 @@ az container create \
 
 다음 예에서는 이전에 만든 동일한 서브넷에 두 번째 컨테이너 그룹을 배포 하 고 두 컨테이너 인스턴스 간의 통신을 확인 합니다.
 
-먼저 첫 번째로 배포한 컨테이너 그룹인 *appcontainer*의 IP 주소를 가져옵니다.
+먼저 첫 번째로 배포한 컨테이너 그룹인 *appcontainer* 의 IP 주소를 가져옵니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -77,13 +77,13 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예:
+출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예를 들면 다음과 같습니다.
 
 ```console
 10.0.0.4
 ```
 
-이제 `CONTAINER_GROUP_IP`를 `az container show` 명령으로 검색한 IP로 설정하고 다음 `az container create` 명령을 실행합니다. 두 번째 컨테이너인 *commchecker*는 Alpine Linux 기반 이미지를 실행하며 첫 번째 컨테이너 그룹의 프라이빗 서브넷 IP 주소에 대해 `wget`을 실행합니다.
+이제 `CONTAINER_GROUP_IP`를 `az container show` 명령으로 검색한 IP로 설정하고 다음 `az container create` 명령을 실행합니다. 두 번째 컨테이너인 *commchecker* 는 Alpine Linux 기반 이미지를 실행하며 첫 번째 컨테이너 그룹의 프라이빗 서브넷 IP 주소에 대해 `wget`을 실행합니다.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ az network profile list --resource-group myResourceGroup \
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-네트워크 프로필 ID를 가져온 후 다음 YAML을 새 파일 *vnet-deploy-aci.yaml*에 복사합니다. `networkProfile` 아래의 `id` 값을 방금 검색한 ID로 바꾸고 파일을 저장합니다. 이 YAML은 가상 네트워크에 컨테이너 그룹 *appcontaineryaml*을 만듭니다.
+네트워크 프로필 ID를 가져온 후 다음 YAML을 새 파일 *vnet-deploy-aci.yaml* 에 복사합니다. `networkProfile` 아래의 `id` 값을 방금 검색한 ID로 바꾸고 파일을 저장합니다. 이 YAML은 가상 네트워크에 컨테이너 그룹 *appcontaineryaml* 을 만듭니다.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 스크립트를 실행하기 전에 `RES_GROUP` 변수를 삭제해야 하는 가상 네트워크 및 서브넷이 포함된 리소스 그룹의 이름으로 설정합니다. 이전에 제안 된 이름을 사용 하지 않은 경우 가상 네트워크의 이름을 업데이트 합니다 `aci-vnet` . 스크립트는 Bash 셸에 대해 서식이 지정됩니다. PowerShell이나 명령 프롬프트 등의 다른 셸을 사용하려는 경우 해당 셸에 따라 변수 할당과 접근자를 조정해야 합니다.
 
 > [!WARNING]
-> 이 스크립트는 리소스, 즉 가상 네트워크 및 해당 네트워크에 포함된 모든 서브넷을 삭제합니다. 그러므로 이 스크립트를 실행하기 전에 가상 네트워크에 포함된 서브넷을 비롯하여 가상 네트워크의 *모든* 리소스가 더 이상 필요하지 않은지 확인하세요. 삭제된 **리소스는 복구할 수 없습니다**.
+> 이 스크립트는 리소스, 즉 가상 네트워크 및 해당 네트워크에 포함된 모든 서브넷을 삭제합니다. 그러므로 이 스크립트를 실행하기 전에 가상 네트워크에 포함된 서브넷을 비롯하여 가상 네트워크의 *모든* 리소스가 더 이상 필요하지 않은지 확인하세요. 삭제된 **리소스는 복구할 수 없습니다** .
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

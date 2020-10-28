@@ -7,17 +7,17 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 012800806aeff81939baa2cee88e78191e4fb6c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: d81b6f5367efa92c9249956faa058441edf98561
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195267"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92756103"
 ---
 ### <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 
-[az identity create][az-identity-create] 명령을 사용하여 구독에서 *myACRTasksId*라는 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리 또는 다른 리소스 그룹을 만들 수 있습니다.
+[az identity create][az-identity-create] 명령을 사용하여 구독에서 *myACRTasksId* 라는 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리 또는 다른 리소스 그룹을 만들 수 있습니다.
 
 ```azurecli
 az identity create \

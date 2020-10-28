@@ -3,14 +3,14 @@ title: UI 정의 요소 만들기
 description: Azure Portal의 UI 정의를 생성할 때 사용하는 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3ba36fc3aaa98aec54b6c70cd416c589be27cfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923724"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747357"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 요소
 
@@ -36,7 +36,7 @@ ms.locfileid: "88923724"
 | 속성 | 필수 | Description |
 | -------- | -------- | ----------- |
 | name | 예 | 요소의 특정 인스턴스를 참조하는 내부 식별자입니다. 요소 이름의 가장 일반적인 사용법은 `outputs`에 있으며, 지정된 요소의 출력 값이 템플릿의 매개 변수에 매핑됩니다. 또한 요소의 출력 값을 다른 요소의 `defaultValue`에 바인딩하는 데 사용할 수 있습니다. |
-| type | 예 | 요소에 대해 렌더링할 UI 컨트롤입니다. 지원되는 형식 목록은 [요소](#elements)를 참조하세요. |
+| 형식 | 예 | 요소에 대해 렌더링할 UI 컨트롤입니다. 지원되는 형식 목록은 [요소](#elements)를 참조하세요. |
 | label | 예 | 요소의 표시 텍스트입니다. 일부 요소 형식에는 여러 개의 레이블이 포함되므로 값은 여러 문자열을 포함하는 개체가 될 수 있습니다. |
 | defaultValue | 아니요 | 요소의 기본값입니다. 일부 요소 형식에서 복잡한 기본값을 지원하므로 이 값은 개체가 될 수 있습니다. |
 | toolTip | 아니요 | 요소의 도구 설명에 표시할 텍스트입니다. `label`과 마찬가지로 일부 요소에서 여러 개의 도구 설명 문자열을 지원합니다. Markdown 구문을 사용하여 인라인 링크를 포함할 수 있습니다.
@@ -63,6 +63,7 @@ ms.locfileid: "88923724"
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [KeyVaultCertificateSelector](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft.managedidentity. IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
@@ -70,6 +71,7 @@ ms.locfileid: "88923724"
 - [Microsoft Solutions. ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft 저장소. StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## <a name="next-steps"></a>다음 단계
 

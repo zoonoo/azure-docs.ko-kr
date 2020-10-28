@@ -6,15 +6,15 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530814"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746264"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Synapse Studio (미리 보기)를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
@@ -34,7 +34,7 @@ Azure Synapse Analytics를 사용 하면 Spark 풀의 작업 영역에서 Spark�
 
 응용 프로그램 **Apache Spark** 를 선택 하 여 Apache Spark 응용 프로그램 목록을 확인 합니다.
 
- ![Spark 응용 프로그램 선택](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+ ![Spark 응용 프로그램 선택](./media/how-to-monitor-spark-applications/monitor-hub-nav-spark-applications.png)
 
 ## <a name="filter-your-apache-spark-applications"></a>Apache Spark 응용 프로그램 필터링
 

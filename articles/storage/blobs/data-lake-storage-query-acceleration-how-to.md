@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659866"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746418"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -32,7 +32,7 @@ ms.locfileid: "89659866"
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  적용할 수 없음
+  해당 없음
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -236,7 +236,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-적용할 수 없음
+해당 없음
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 

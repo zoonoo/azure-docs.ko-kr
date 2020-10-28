@@ -3,13 +3,13 @@ title: 인바운드/아웃 바운드 IP 주소
 description: Azure App Service에서 인바운드 및 아웃 바운드 IP 주소를 사용 하는 방법, 변경 될 때 그리고 앱에 대 한 주소를 찾는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050695"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746152"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -51,13 +51,13 @@ nslookup <app-name>.azurewebsites.net
 
 - 앱을 삭제 하 고 다른 리소스 그룹에 다시 만듭니다 (배포 단위는 변경 될 수 있음).
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제 하 고 다시 만듭니다 (배포 단위가 변경 될 수 있음).
-- 하위 계층 (**기본**, **표준**및 **프리미엄**)과 **프리미엄 V2** 계층 (IP 주소를 집합에 추가 하거나 집합에서 뺄 수 있음) 사이에 앱 크기를 조정 합니다.
+- 하위 계층 ( **기본** , **표준** 및 **프리미엄** )과 **프리미엄 V2** 계층 (IP 주소를 집합에 추가 하거나 집합에서 뺄 수 있음) 사이에 앱 크기를 조정 합니다.
 
 가격 책정 계층에 관계 없이 응용 프로그램에서 사용할 수 있는 모든 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 .이는 `possibleOutboundIpAddresses` Azure Portal의 **속성** 블레이드에서 속성 또는 **추가 아웃 바운드 ip 주소** 필드를 검색 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
 ## <a name="find-outbound-ips"></a>아웃바운드 IP 찾기
 
-Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 이러한 필드는 **아웃 바운드 IP 주소** 필드에 나열 됩니다.
+Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성** 을 클릭합니다. 이러한 필드는 **아웃 바운드 IP 주소** 필드에 나열 됩니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 

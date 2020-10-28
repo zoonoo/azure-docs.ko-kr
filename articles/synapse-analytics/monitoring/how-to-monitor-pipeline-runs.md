@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387322"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746389"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Synapse Studio를 사용 하 여 작업 영역 파이프라인 실행 모니터링
 
-Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, 데이터 변환 및 계산 작업을 자동화 하 고 오케스트레이션 할 수 있는 복잡 한 파이프라인을 만들 수 있습니다. Synapse Studio (미리 보기)를 사용 하 여 이러한 파이프라인을 작성 하 고 모니터링할 수 있습니다.
+Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, 데이터 변환 및 계산 작업을 자동화 하 고 통합할 수 있는 복잡 한 파이프라인을 만들 수 있습니다. Synapse Studio (미리 보기)를 사용 하 여 이러한 파이프라인을 작성 하 고 모니터링할 수 있습니다.
 
 이 문서에서는 파이프라인 실행을 모니터링 하 여 파이프라인의 최신 상태, 문제 및 진행률을 확인할 수 있는 방법을 설명 합니다.
 

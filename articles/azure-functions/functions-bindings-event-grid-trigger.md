@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214134"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748196"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -401,7 +401,7 @@ Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 경우 **통합**을 선택하고, **Event Grid 트리거**를 차례로 선택한 다음, **Event Grid 구독 만들기**를 선택합니다.
+Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 경우 **통합** 을 선택하고, **Event Grid 트리거** 를 차례로 선택한 다음, **Event Grid 구독 만들기** 를 선택합니다.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="포털에서 새 이벤트 구독을 트리거에 연결합니다.":::
 
@@ -514,7 +514,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 
 이벤트 메시지 캡처를 간소화하기 위해 이벤트 메시지를 표시하는, [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포할 수 있습니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
-**Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
+**Azure에 배포** 를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
 

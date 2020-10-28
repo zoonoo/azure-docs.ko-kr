@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f6cd943e381d53c36867ce960cd99552f3aea6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650768"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746549"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
@@ -41,7 +41,7 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 
     Contoso Shipping에는 이벤트를 분당 3회 내보내는 100,000개의 디바이스가 있습니다. 이벤트의 크기는 200바이트입니다. Azure Time Series Insights Gen2 이벤트 원본으로 4 개의 파티션이 있는 IoT Hub를 사용 하 고 있습니다.
 
-  * Azure Time Series Insights Gen2 환경에 대 한 수집 비율은 **10만 장치 * 200 바이트/이벤트 * (3/60 이벤트/초) = 1 MBps**입니다.
+  * Azure Time Series Insights Gen2 환경에 대 한 수집 비율은 **10만 장치 * 200 바이트/이벤트 * (3/60 이벤트/초) = 1 MBps** 입니다.
     * 분산 된 파티션이 있는 경우 파티션당 수집 률은 0.25 MBps가 됩니다.
     * Contoso 배송료의 수집 률은 크기 제한 내에 있습니다.
 
@@ -49,7 +49,7 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 
     Contoso 제 분석에는 1 초 마다 이벤트를 내보내는 4만 장치가 있습니다. Azure Time Series Insights Gen2 이벤트 원본으로 파티션 수가 2 인 이벤트 허브를 사용 하 고 있습니다. 이벤트의 크기는 200바이트입니다.
 
-  * 환경 수집 율은 **4만 장치 * 200 바이트/이벤트 * 1 이벤트/초 = 8 MBps**입니다.
+  * 환경 수집 율은 **4만 장치 * 200 바이트/이벤트 * 1 이벤트/초 = 8 MBps** 입니다.
     * 분산 된 파티션이 있다고 가정 하면 파티션 전송률이 4 MBps가 됩니다.
     * Contoso Fleet Analytics의 수집 속도는 환경 및 파티션 제한을 초과합니다. Azure Portal를 통해 Azure Time Series Insights Gen2 요청을 제출 하 여 환경에 대 한 수집 률을 높이고 제한 내에 추가 파티션이 있는 이벤트 허브를 만들 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 
 Azure Time Series Insights Gen2 환경을 계획할 때 Azure Time Series Insights Gen2에 연결할 이벤트 원본의 구성을 고려 하는 것이 중요 합니다. Azure IoT Hub 및 Event Hubs는 모두 파티션을 활용하여 이벤트 처리를 위한 수평 크기 조정을 사용하도록 설정합니다.
 
-*파티션*은 허브에서 저장되는 순서가 지정된 이벤트 시퀀스입니다. 파티션 수는 허브 만들기 중에 설정되며 변경할 수 없습니다.
+*파티션* 은 허브에서 저장되는 순서가 지정된 이벤트 시퀀스입니다. 파티션 수는 허브 만들기 중에 설정되며 변경할 수 없습니다.
 
 Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)를 검토하세요.
 
@@ -66,7 +66,7 @@ Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](ht
 
 Azure Time Series Insights Gen2 환경에 대 한 새 허브를 만들지, 아니면 기존 환경에서 사용할 수 있는지에 관계 없이 파티션 수집 율을 계산 하 여 제한 내에 있는지 확인 해야 합니다.
 
-Azure Time Series Insights Gen2는 현재 **파티션 제한인 0.5 MBps 당**일반적으로 발생 합니다.
+Azure Time Series Insights Gen2는 현재 **파티션 제한인 0.5 MBps 당** 일반적으로 발생 합니다.
 
 ### <a name="iot-hub-specific-considerations"></a>IoT Hub 관련 고려 사항
 
@@ -74,7 +74,7 @@ IoT Hub에서 디바이스가 만들어지면 파티션에 영구적으로 할�
 
 고정 파티션 할당은 IoT Hub 다운스트림에서 전송 된 데이터를 수집 Gen2 인스턴스에도 영향을 Azure Time Series Insights 줍니다. 여러 디바이스에서 동일한 게이트웨이 디바이스 ID를 사용하여 메시지를 허브로 전달하는 경우 동일한 파티션에 동시에 도달하여 파티션당 크기 제한을 초과할 수 있습니다.
 
-**영향**:
+**영향** :
 
 * 단일 파티션이 한도를 초과 하 여 수집 하는 비율이 지속 되는 경우 IoT Hub 데이터 보존 기간이 초과 되기 전에 Azure Time Series Insights Gen2가 모든 장치 원격 분석을 동기화 하지 않을 수 있습니다. 따라서 수집 제한이 지속적으로 초과되면 전송된 데이터가 손실될 수 있습니다.
 

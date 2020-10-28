@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124060"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746796"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 인스턴스 보호
 
@@ -50,11 +50,11 @@ Azure 가상 머신 확장 집합을 사용하면 [자동 크기 조정](virtual
 Azure Portal를 통해 확장 집합의 인스턴스에 규모 감축 보호를 적용할 수 있습니다. 한 번에 두 개 이상의 인스턴스를 조정할 수 없습니다. 보호하려는 각 인스턴스에 대해 이러한 단계를 반복합니다.
  
 1. 기존 가상 머신 확장 집합으로 이동합니다.
-1. 왼쪽의 메뉴에서 **설정** 아래의 **인스턴스**를 선택합니다.
+1. 왼쪽의 메뉴에서 **설정** 아래의 **인스턴스** 를 선택합니다.
 1. 보호하려는 인스턴스의 이름을 선택합니다.
 1. **보호 정책** 탭을 선택합니다.
 1. **보호 정책** 블레이드에서 **규모 감축으로부터 보호** 옵션을 선택합니다.
-1. **저장**을 선택합니다. 
+1. **저장** 을 선택합니다. 
 
 ### <a name="rest-api"></a>REST API
 
@@ -118,11 +118,11 @@ az vmss update \
 Azure Portal를 통해 확장 집합 작업에서 확장 집합의 인스턴스로 보호를 적용할 수 있습니다. 한 번에 두 개 이상의 인스턴스를 조정할 수 없습니다. 보호하려는 각 인스턴스에 대해 이러한 단계를 반복합니다.
  
 1. 기존 가상 머신 확장 집합으로 이동합니다.
-1. 왼쪽의 메뉴에서 **설정** 아래의 **인스턴스**를 선택합니다.
+1. 왼쪽의 메뉴에서 **설정** 아래의 **인스턴스** 를 선택합니다.
 1. 보호하려는 인스턴스의 이름을 선택합니다.
 1. **보호 정책** 탭을 선택합니다.
 1. **보호 정책** 블레이드에서 **확장 집합 작업으로부터 보호** 옵션을 선택합니다.
-1. **저장**을 선택합니다. 
+1. **저장** 을 선택합니다. 
 
 ### <a name="rest-api"></a>REST API
 

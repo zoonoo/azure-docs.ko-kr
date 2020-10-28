@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490240"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748078"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (포털)
 
@@ -44,7 +44,7 @@ Azure Portal에 로그인 하 여 [앱 등록 블레이드](https://ms.portal.az
 
 ![비밀 만들기](media/aro4-ad-clientsecret.png)
 
-**개요** 로 이동 하 여 **응용 프로그램 (클라이언트) id** 및 **디렉터리 (테 넌 트) id**를 기록 합니다. 이후 단계에서 필요 합니다.
+**개요** 로 이동 하 여 **응용 프로그램 (클라이언트) id** 및 **디렉터리 (테 넌 트) id** 를 기록 합니다. 이후 단계에서 필요 합니다.
 
 ![응용 프로그램 (클라이언트) 및 디렉터리 (테 넌 트) Id 검색](media/aro4-ad-ids.png)
 
@@ -60,7 +60,7 @@ Azure Portal에 로그인 하 여 [앱 등록 블레이드](https://ms.portal.az
 
 `email` `upn` `upn` Azure Active Directory에서 반환 하는 ID 토큰의 일부로를 추가 하 여 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
 
-**토큰 구성 (미리 보기)** 으로 이동 하 고 **선택적 클레임 추가**를 클릭 합니다. **ID** 를 선택 하 고 **전자 메일** 및 **upn** 클레임을 확인 합니다.
+**토큰 구성 (미리 보기)** 으로 이동 하 고 **선택적 클레임 추가** 를 클릭 합니다. **ID** 를 선택 하 고 **전자 메일** 및 **upn** 클레임을 확인 합니다.
 
 ![추가 된 전자 메일 및 upn 클레임을 보여 주는 스크린샷](media/aro4-ad-tokens.png)
 
@@ -100,12 +100,12 @@ az aro list-credentials \
 
 브라우저에서 콘솔 URL을 시작하고 `kubeadmin` 자격 증명을 사용하여 로그인합니다.
 
-**관리**로 이동 하 여 **클러스터 설정**을 클릭 한 다음 **전역 구성** 탭을 선택 합니다. 스크롤하여 **OAuth**를 선택 합니다.
+**관리** 로 이동 하 여 **클러스터 설정** 을 클릭 한 다음 **전역 구성** 탭을 선택 합니다. 스크롤하여 **OAuth** 를 선택 합니다.
 
-아래로 스크롤하여 **Id 공급자** 아래에서 **추가** 를 선택 하 고 **openid connect 연결**을 선택 합니다.
+아래로 스크롤하여 **Id 공급자** 아래에서 **추가** 를 선택 하 고 **openid connect 연결** 을 선택 합니다.
 ![Id 공급자 드롭다운에서 Openid connect Connect를 선택 합니다.](media/aro4-oauth-idpdrop.png)
 
-이름을 **AAD**로, **클라이언트 Id** 를 **응용 프로그램 id** 로, **클라이언트 암호**를 입력 합니다. **발급자 URL** 의 `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 형식은 다음과 같습니다. 자리 표시자를 이전에 검색 한 테 넌 트 ID로 바꿉니다.
+이름을 **AAD** 로, **클라이언트 Id** 를 **응용 프로그램 id** 로, **클라이언트 암호** 를 입력 합니다. **발급자 URL** 의 `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 형식은 다음과 같습니다. 자리 표시자를 이전에 검색 한 테 넌 트 ID로 바꿉니다.
 
 ![OAuth 정보 입력](media/aro4-oauth-idp-1.png)
 
@@ -115,6 +115,6 @@ az aro list-credentials \
 
 ## <a name="verify-login-through-azure-active-directory"></a>Azure Active Directory를 통해 로그인 확인
 
-이제 OpenShift 웹 콘솔을 로그 아웃 하 고 다시 로그인을 시도 하면 **AAD**로 로그인 할 수 있는 새로운 옵션이 제공 됩니다. 몇 분 정도 기다려야 할 수 있습니다.
+이제 OpenShift 웹 콘솔을 로그 아웃 하 고 다시 로그인을 시도 하면 **AAD** 로 로그인 할 수 있는 새로운 옵션이 제공 됩니다. 몇 분 정도 기다려야 할 수 있습니다.
 
 ![Azure Active Directory 옵션이 있는 로그인 화면](media/aro4-login-2.png)

@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에 대 한 업데이트 배포를 �
 description: 이 문서에서는 업데이트 배포를 예약 하 고 해당 상태를 검토 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637601"
+ms.locfileid: "92742290"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -75,9 +75,6 @@ ms.locfileid: "92637601"
 
    > [!NOTE]
    > 업데이트 배포에 포함하기 위해 대체된 업데이트를 지정할 수 없습니다.
-
-   > [!IMPORTANT]
-   > Red Hat Enterprise의 경우 커널 업그레이드는 YUM의 패키지로도 표시 됩니다. 커널 업그레이드를 포함 하는 업데이트를 제외 하지 않으면 업데이트 관리에서 해당 업데이트를 적용 합니다.
 
 9. **일정 설정** 을 선택합니다. 기본 시작 시간은 현재 시간으로부터 30분 후입니다. 앞으로 10분 이후부터 언제든지 시작 시간을 설정할 수 있습니다.
 

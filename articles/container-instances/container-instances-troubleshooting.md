@@ -3,13 +3,13 @@ title: 일반적인 문제 해결
 description: Azure Container Instances 배포, 실행 또는 관리할 때 발생 하는 일반적인 문제를 해결 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148610"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746912"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -99,7 +99,7 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 ## <a name="issues-during-container-group-runtime"></a>컨테이너 그룹 런타임 중에 발생 하는 문제
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>컨테이너가 계속 종료되고 다시 시작함(장기 실행 프로세스가 없음)
 
-컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상**이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
+컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상** 이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시** (OnFailure) 또는 **Never** (안 함)로 변경해야 합니다. **OnFailure** 를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
 
 장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이 문제를 해결 하려면 컨테이너 그룹 배포에 다음과 같은 시작 명령을 포함 하 여 컨테이너를 계속 실행 합니다.
 
@@ -213,7 +213,7 @@ Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. 의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다 `az container create` . **Ip**값을 찾습니다. 
+1. 의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다 `az container create` . **Ip** 값을 찾습니다. 
 1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예:)로 이동 `192.0.2.0:9000` 합니다. 
 
     "시작 Azure Container Instances!"가 표시 되어야 합니다. 웹 앱에 표시 되는 메시지입니다.

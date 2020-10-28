@@ -8,23 +8,23 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 16c9c103053c0cd36273feb84cd9b07fcf2627bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747809"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
-이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](./index.yml)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
+이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](./index.yml)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_ 이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다( _singlePlacementGroup=False_ ). 
 
 부하 분산 및 장애 도메인 등 대규모 확장 집합의 특정 측면은 표준 확장 집합과 다르게 동작합니다. 이 문서에서는 대규모 확장 세트의 특징에 대해 설명하고 애플리케이션에서 성공적으로 사용하기 위해 알아야 할 내용을 설명합니다. 
 
-큰 크기의 클라우드 인프라를 배포하기 위한 일반적인 방법은 여러 VNET 및 스토리지 계정에 대해 여러 VM 확장 집합을 만드는 것과 같이 _배율 단위_의 집합을 만드는 것입니다. 이는 단일 VM 관리보다 쉬운 방법이며, 여러 배율 단위는 여러 가상 네트워크와 엔드포인트 등 기타 스택 가능한 구성 요소를 필요로 하는 많은 애플리케이션에 특히 유용합니다. 그러나 애플리케이션이 하나의 대규모 클러스터를 필요로 하는 경우 최대 1,000대 VM의 단일 확장 세트을 간단히 배포할 수 있습니다. 예제 시나리오에는 중앙 집중화된 빅 데이터 배포 또는 작업자 노드의 대용량 풀을 간단하게 관리해야 하는 컴퓨팅 그리드가 있습니다. 가상 머신 확장 집합인 [연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)와 결합된 대규모 확장 집합을 사용하면 수천 개의 vCPU와 페타바이트 크기의 스토리지로 구성된 확장형 인프라를 단일 작업으로 배포할 수 있습니다.
+큰 크기의 클라우드 인프라를 배포하기 위한 일반적인 방법은 여러 VNET 및 스토리지 계정에 대해 여러 VM 확장 집합을 만드는 것과 같이 _배율 단위_ 의 집합을 만드는 것입니다. 이는 단일 VM 관리보다 쉬운 방법이며, 여러 배율 단위는 여러 가상 네트워크와 엔드포인트 등 기타 스택 가능한 구성 요소를 필요로 하는 많은 애플리케이션에 특히 유용합니다. 그러나 애플리케이션이 하나의 대규모 클러스터를 필요로 하는 경우 최대 1,000대 VM의 단일 확장 세트을 간단히 배포할 수 있습니다. 예제 시나리오에는 중앙 집중화된 빅 데이터 배포 또는 작업자 노드의 대용량 풀을 간단하게 관리해야 하는 컴퓨팅 그리드가 있습니다. 가상 머신 확장 집합인 [연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)와 결합된 대규모 확장 집합을 사용하면 수천 개의 vCPU와 페타바이트 크기의 스토리지로 구성된 확장형 인프라를 단일 작업으로 배포할 수 있습니다.
 
 ## <a name="placement-groups"></a>배치 그룹 
-_대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 포함된 _배치 그룹_의 수입니다. 배치 그룹은 자체 장애 도메인과 업그레이드 도메인이 있는 Azure 가용성 집합과 비슷한 구조입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. _singlePlacementGroup_이라고 하는 확장 집합 속성이 _false_로 설정된 경우, 확장 집합은 여러 배치 그룹으로 구성될 수 있으며 0-1,000대의 VM을 가집니다. 기본값을 _true_로 설정하면 확장 집합은 하나의 배치 그룹으로 구성되며 0-100대의 VM을 가집니다.
+_대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 포함된 _배치 그룹_ 의 수입니다. 배치 그룹은 자체 장애 도메인과 업그레이드 도메인이 있는 Azure 가용성 집합과 비슷한 구조입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. _singlePlacementGroup_ 이라고 하는 확장 집합 속성이 _false_ 로 설정된 경우, 확장 집합은 여러 배치 그룹으로 구성될 수 있으며 0-1,000대의 VM을 가집니다. 기본값을 _true_ 로 설정하면 확장 집합은 하나의 배치 그룹으로 구성되며 0-100대의 VM을 가집니다.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>대규모 확장 집합을 사용하는 경우 검사 목록
 애플리케이션이 대규모 확장 세트을 효과적으로 사용할 수 있는지 판단하기 위해서는 다음 요구 사항을 고려합니다.
@@ -38,10 +38,10 @@ _대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 �
 - Azure Application Gateway의 계층 7 부하 분산은 모든 확장 세트에 대해 지원됩니다.
 - 확장 집합은 단일 서브넷으로 정의됩니다. 필요한 모든 VM에 대해 서브넷의 주소 공간이 충분한지 확인합니다. 기본적으로 확장 집합은 오버프로비전하여(배포 또는 확장 시 VM을 추가로 생성하며 요금은 부과되지 않음) 배포 안정성 및 성능을 향상시킵니다. 주소 공간을 확장하려는 VM의 수보다 20% 크게 설정합니다.
 - 장애 도메인 및 업그레이드 도메인은 배치 그룹 내에서만 일관됩니다. 이 아키텍처는 VM이 고유한 물리적 하드웨어에 고르게 분산되어 확장 집합의 전체 가용성을 변경하지 않지만, 두 VM이 서로 다른 하드웨어에 있다는 것을 보장해야 하는 경우 동일한 배치 그룹의 다른 장애 도메인에 있도록 해야 함을 의미합니다. [가용성 옵션](../virtual-machines/availability.md) 링크를 참조하세요. 
-- 장애 도메인 및 배치 그룹 ID는 확장 집합 VM의 _인스턴스 보기_에 표시됩니다. [Azure Resource Explorer](https://resources.azure.com/)에서 확장 집합 VM의 인스턴스 보기를 볼 수 있습니다.
+- 장애 도메인 및 배치 그룹 ID는 확장 집합 VM의 _인스턴스 보기_ 에 표시됩니다. [Azure Resource Explorer](https://resources.azure.com/)에서 확장 집합 VM의 인스턴스 보기를 볼 수 있습니다.
 
 ## <a name="creating-a-large-scale-set"></a>대규모 확장 집합 만들기
-Azure Portal에서 확장 집합을 만들 때 *인스턴스 수* 값을 최대 1,000까지 지정할 수 있습니다. 인스턴스 수가 100개를 초과하는 경우 *100개 이상의 인스턴스로 확장 사용*이 *예*로 설정되고, 여러 배치 그룹으로 확장할 수 있게 됩니다. 
+Azure Portal에서 확장 집합을 만들 때 *인스턴스 수* 값을 최대 1,000까지 지정할 수 있습니다. 인스턴스 수가 100개를 초과하는 경우 *100개 이상의 인스턴스로 확장 사용* 이 *예* 로 설정되고, 여러 배치 그룹으로 확장할 수 있게 됩니다. 
 
 ![이 이미지는 Azure Portal의 인스턴스 블레이드를 표시 합니다. 인스턴스 수 및 인스턴스 크기를 선택 하는 옵션을 사용할 수 있습니다.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
@@ -58,7 +58,7 @@ az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 az vmss create --help
 ```
 
-Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만드는 경우 템플릿이 Azure Managed Disks에 기반하여 확장 집합을 만드는지 확인합니다. _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _속성_ 섹션에서 _singlePlacementGroup_ 속성을 _false_에 설정할 수 있습니다. 다음 JSON 조각은 1,000대의 VM 용량과 _"singlePlacementGroup": false_를 포함하여 확장 집합 템플릿의 시작 부분을 보여줍니다.
+Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만드는 경우 템플릿이 Azure Managed Disks에 기반하여 확장 집합을 만드는지 확인합니다. _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _속성_ 섹션에서 _singlePlacementGroup_ 속성을 _false_ 에 설정할 수 있습니다. 다음 JSON 조각은 1,000대의 VM 용량과 _"singlePlacementGroup": false_ 를 포함하여 확장 집합 템플릿의 시작 부분을 보여줍니다.
 
 ```json
 {
@@ -80,7 +80,7 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 대규모 확장 집합 템플릿의 전체 예제는 [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json)을 참조하세요.
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>여러 배치 그룹을 확장하기 위해 기존 확장 집합을 변환
-기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 확장 집합을 볼 수 있습니다.
+기존의 가상 머신 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singlePlacementGroup_ 속성을 _false_ 로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_ 을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 확장 집합을 볼 수 있습니다.
 
 > [!NOTE]
 > 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다.

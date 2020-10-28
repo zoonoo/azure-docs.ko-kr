@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
+ms.custom: seoapr2020, devx-track-azurecli
 ms.date: 09/02/2020
-ms.openlocfilehash: b3ff84f3f648ad08769a36a791f1679a0a57bc73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35c3901e9a48523a10c1a6aacbc52e6c165e278f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546248"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748695"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
 
@@ -21,7 +21,7 @@ Azure HDInsight는 사용자 지정 스크립트를 호출 하 여 클러스터�
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다. HDInsight 애플리케이션에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 도메인 조인 HDInsight 클러스터를 사용하는 경우 클러스터에서 스크립트 동작을 사용할 때 다음 두 가지 Apache Ambari 권한이 필요합니다.
 
@@ -133,7 +133,7 @@ Status            : Succeeded
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| 속성 | 스크립트 |
+| Name | 스크립트 |
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
@@ -158,7 +158,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
     | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__ 을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-    | 속성 |스크립트 작업의 이름을 지정합니다. |
+    | Name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | 헤드/작업자/사육 사 |스크립트가 실행 되는 노드 ( **헤드** , **작업자** 또는 **사육 사** )를 지정 합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -232,7 +232,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
     | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 고유의 스크립트를 사용 하려면 __사용자 지정__ 을 선택 합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-    | 속성 |스크립트 작업의 이름을 지정합니다. |
+    | Name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행 되는 노드 ( **헤드** , **작업자** 또는 **사육 사** )를 지정 합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -274,7 +274,7 @@ NodeTypes       : {HeadNode, WorkerNode}
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 정의합니다(예: `--roles headnode workernode`).
+    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. `--roles headnode workernode`)을 입력합니다.
 
     스크립트를 유지하려면 `--persist-on-success`를 추가합니다. 나중에 `az hdinsight script-action promote`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -321,7 +321,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-cli"></a>Azure CLI
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |클러스터의 지정 된 지속형 스크립트 작업을 삭제 합니다. 이 명령은 스크립트에 의해 수행 된 작업을 실행 취소 하지 않으며 지속형 플래그만 제거 합니다.|
 |[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다.|

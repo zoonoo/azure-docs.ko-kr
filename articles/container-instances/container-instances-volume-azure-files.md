@@ -3,13 +3,13 @@ title: 컨테이너 그룹에 Azure Files 볼륨 탑재
 description: Azure Container Instances를 사용하여 상태가 유지되도록 Azure Files 볼륨을 탑재하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259480"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746863"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
@@ -235,7 +235,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 컨테이너 인스턴스에서 여러 볼륨을 탑재 하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups), yaml 파일 또는 다른 프로그래밍 방식 메서드를 사용 하 여 배포 해야 합니다. 템플릿 또는 YAML 파일을 사용 하려면 공유 세부 정보를 제공 하 고 `volumes` 파일의 섹션에서 배열을 채워서 볼륨을 정의 합니다 `properties` . 
 
-예를 들어 저장소 계정 *Mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 `volumes` 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
+예를 들어 저장소 계정 *Mystorageaccount* 에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 `volumes` 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
 
 ```JSON
 "volumes": [{
@@ -256,7 +256,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 }]
 ```
 
-다음으로 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다. 예를 들어 다음은 이전에 정의한 *myvolume1* 및 *myvolume2*라는 두 개의 볼륨을 탑재합니다.
+다음으로 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다. 예를 들어 다음은 이전에 정의한 *myvolume1* 및 *myvolume2* 라는 두 개의 볼륨을 탑재합니다.
 
 ```JSON
 "volumeMounts": [{

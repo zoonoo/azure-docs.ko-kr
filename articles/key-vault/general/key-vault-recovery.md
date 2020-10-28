@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495187"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748500"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법
 
@@ -23,11 +23,11 @@ ms.locfileid: "92495187"
 
 일시 삭제 및 보호 제거는 두 가지 주요 자격 증명 모음 복구 기능입니다.
 > [!IMPORTANT]
-> 모든 주요 자격 증명 모음에서 일시 삭제 보호를 사용 하도록 설정 해야 합니다. 일시 삭제 보호를 사용 하지 않도록 설정 하는 기능은 12 월 2020 일까 지 사용 되지 않습니다. 자세한 내용은 [ **여기**를 참조 하세요.](soft-delete-change.md)
+> 모든 주요 자격 증명 모음에서 일시 삭제 보호를 사용 하도록 설정 해야 합니다. 일시 삭제 보호를 사용 하지 않도록 설정 하는 기능은 12 월 2020 일까 지 사용 되지 않습니다. 자세한 내용은 [ **여기** 를 참조 하세요.](soft-delete-change.md)
 
 **일시 삭제** 는 key vault 내에서 저장 된 키 자격 증명 모음 및 키, 암호 및 인증서를 실수로 삭제 하지 않도록 설계 되었습니다. 휴지통 같은 일시 삭제를 생각해 봅니다. 키 자격 증명 모음 또는 주요 자격 증명 모음 개체를 삭제 하는 경우 사용자 구성 가능한 보존 기간 또는 기본값 90 일에 대해 복구 가능한 상태로 유지 됩니다. 일시 삭제 된 상태의 키 자격 증명 모음은 영구적으로 삭제 되는 것을 의미 하는 **지울** 수도 있습니다. 이를 통해 키 자격 증명 모음 및 주요 자격 증명 모음 개체를 같은 이름으로 다시 만들 수 있습니다. 키 자격 증명 모음 및 개체를 복구 하 고 삭제 하려면 상승 된 액세스 정책 권한이 필요 합니다. **일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.**
 
-**주요 자격 증명 모음 이름은 전역적으로 고유**하므로 일시 삭제 된 상태에서 키 자격 증명 모음과 동일한 이름으로 key vault를 만들 수 없습니다. 마찬가지로 키, 암호 및 인증서의 이름은 키 자격 증명 모음 내에서 고유 합니다. 일시 삭제 된 상태에서 다른 이름과 동일한 이름으로 비밀, 키 또는 인증서를 만들 수 없습니다.
+**주요 자격 증명 모음 이름은 전역적으로 고유** 하므로 일시 삭제 된 상태에서 키 자격 증명 모음과 동일한 이름으로 key vault를 만들 수 없습니다. 마찬가지로 키, 암호 및 인증서의 이름은 키 자격 증명 모음 내에서 고유 합니다. 일시 삭제 된 상태에서 다른 이름과 동일한 이름으로 비밀, 키 또는 인증서를 만들 수 없습니다.
 
 **보호 제거** 는 악의적인 참가자가 키 자격 증명 모음, 키, 암호 및 인증서를 삭제할 수 없도록 설계 되었습니다. 이를 시간 기반 잠금을 사용 하는 휴지통으로 간주 합니다. 구성 가능한 보존 기간 동안 언제 든 지 항목을 복구할 수 있습니다. **보존 기간이 경과할 때까지 키 자격 증명 모음을 영구적으로 삭제 하거나 제거할 수 없습니다.** 보존 기간이 경과 하면 주요 자격 증명 모음 또는 주요 자격 증명 모음 개체가 자동으로 제거 됩니다.
 
@@ -241,14 +241,6 @@ ms.locfileid: "92495187"
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * 키 자격 증명 모음 삭제

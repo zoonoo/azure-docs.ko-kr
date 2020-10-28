@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: b75643d0d526bae4d7b2879dffab3d90dbcbe1eb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777744"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용 하 여 여러 끝점에서 장애 조치 (Failover)
 
@@ -28,7 +28,7 @@ Azure CDN은 전역으로 분산된 인프라를 사용하여 기본적으로 �
 
 Azure CDN에서 Azure Traffic Manager를 사용 하 여 다음에 대 한 여러 CDN 끝점 간의 부하를 분산 합니다.
  
-* 장애 조치
+* 장애 조치 
 * 지리적 부하 분산 
 
 일반적인 장애 조치 (failover) 시나리오에서 모든 클라이언트 요청은 기본 CDN 프로필로 전달 됩니다. 
@@ -39,8 +39,8 @@ Azure CDN에서 Azure Traffic Manager를 사용 하 여 다음에 대 한 여러
 
 이 문서에서는 다음에서 프로필을 사용 하 여 장애 조치를 구성 하는 방법에 대 한 지침을 제공 합니다. 
 
-* **Verizon의 Azure CDN Standard**
-* **Akamai의 Azure CDN Standard**
+* **Verizon의 Azure CDN 표준**
+* **Akamai의 Azure CDN 표준**
 
 **Microsoft의 Azure CDN** 도 지원 됩니다.
 
@@ -48,8 +48,8 @@ Azure CDN에서 Azure Traffic Manager를 사용 하 여 다음에 대 한 여러
 다른 공급자를 사용하여 두 개 이상의 Azure CDN 프로필 및 엔드포인트를 만듭니다.
 
 1. 두 개의 CDN 프로필을 만듭니다.
-    * **Verizon의 Azure CDN Standard**
-    * **Akamai의 Azure CDN Standard** 
+    * **Verizon의 Azure CDN 표준**
+    * **Akamai의 Azure CDN 표준** 
 
     [새 CDN 프로필 만들기](cdn-create-new-endpoint.md#create-a-new-cdn-profile)의 단계에 따라 프로필을 만듭니다.
  
@@ -60,22 +60,22 @@ Azure CDN에서 Azure Traffic Manager를 사용 하 여 다음에 대 한 여러
 ## <a name="create-traffic-manager-profile"></a>Traffic manager 프로필 만들기
 Azure Traffic Manager 프로필을 만들고 CDN 끝점에서 부하 분산을 구성 합니다. 
 
-1. [Traffic Manager 프로필 만들기](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile)의 단계를 수행하여 Azure Traffic Manager 프로필을 만듭니다. 
+1. [Traffic Manager 프로필 만들기](../traffic-manager/quickstart-create-traffic-manager-profile.md)의 단계를 수행하여 Azure Traffic Manager 프로필을 만듭니다. 
 
-    * **라우팅 방법**에서 **우선 순위**를 선택 합니다.
+    * **라우팅 방법** 에서 **우선 순위** 를 선택 합니다.
 
-2. [Traffic Manager 엔드포인트 추가](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)의 단계를 수행하여 Traffic Manager 프로필에서 CDN 엔드포인트 추가
+2. [Traffic Manager 엔드포인트 추가](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)의 단계를 수행하여 Traffic Manager 프로필에서 CDN 엔드포인트 추가
 
-    * **유형**, **외부 끝점**을 선택 합니다.
-    * **우선 순위**에서 숫자를 입력 합니다.
+    * **유형** , **외부 끝점** 을 선택 합니다.
+    * **우선 순위** 에서 숫자를 입력 합니다.
 
-    예를 들어 **1**의 우선 순위로 **cdndemo101akamai.azureedge.net**을 만들고 **2**의 우선 순위로 **cdndemo101verizon.azureedge.net**을 만듭니다.
+    예를 들어 **1** 의 우선 순위로 **cdndemo101akamai.azureedge.net** 을 만들고 **2** 의 우선 순위로 **cdndemo101verizon.azureedge.net** 을 만듭니다.
 
    ![CDN Traffic Manager 엔트포인트](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## <a name="configure-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Azure CDN 및 Azure Traffic Manager에서 사용자 지정 도메인 구성
-CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS 매핑을 추가 하 고 CDN 끝점에 사용자 지정 도메인을 등록 합니다. 예를 들어 사용자 지정 도메인 이름은 **cdndemo101.dustydogpetcare.online**입니다.
+CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS 매핑을 추가 하 고 CDN 끝점에 사용자 지정 도메인을 등록 합니다. 예를 들어 사용자 지정 도메인 이름은 **cdndemo101.dustydogpetcare.online** 입니다.
 
 1. GoDaddy 같은 사용자 지정 도메인의 도메인 공급자에 대한 웹 사이트로 이동하고 두 DNS CNAME 항목을 만듭니다. 
 
@@ -96,7 +96,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
     >
 
 
-2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 **cdndemo101. dustydogpetcare**를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
+2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 **cdndemo101. dustydogpetcare** 를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
 
     이 등록 프로세스를 완료하려면 Azure CDN은 **cdnverify** 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
     
@@ -110,7 +110,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가**를 선택 하 고 **cdndemo101. dustydogpetcare**를 입력 합니다.
+4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가** 를 선택 하 고 **cdndemo101. dustydogpetcare** 를 입력 합니다.
  
 이러한 단계를 완료 한 후 장애 조치 (failover) 기능이 포함 된 다중 CDN 서비스는 Azure Traffic Manager으로 구성 됩니다. 
 
@@ -121,7 +121,4 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
 ## <a name="next-steps"></a>다음 단계
 여러 CDN 끝점 간에 부하를 분산 하기 위해 지리적 등의 다른 라우팅 메서드를 구성할 수 있습니다. 
 
-자세한 내용은 [Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)을 참조하세요.
-
-
-
+자세한 내용은 [Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)을 참조하세요.

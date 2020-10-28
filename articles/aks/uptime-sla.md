@@ -4,13 +4,13 @@ description: AKS(Azure Kubernetes Service) API Server에 대한 선택적 작동
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749126"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748870"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -48,13 +48,13 @@ ms.locfileid: "88749126"
 
 작동 시간 SLA를 사용하여 새 클러스터를 만들려면 Azure CLI를 사용합니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-명령을 사용 [`az aks create`][az-aks-create] 하 여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 이 작업을 완료 하는 데 몇 분이 걸립니다.
+명령을 사용 [`az aks create`][az-aks-create] 하 여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료 하는 데 몇 분이 걸립니다.
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA

@@ -3,13 +3,13 @@ title: 컨테이너 인스턴스 로그 & 이벤트 가져오기
 description: 컨테이너 문제 해결에 도움이 되는 Azure Container Instances에서 컨테이너 로그 및 이벤트를 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc
-ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78249991"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746970"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 로그 및 이벤트 검색
 
