@@ -6,21 +6,21 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260413"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738535"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장 Apache Spark 기록 서버를 사용 하 여 Apache Spark 응용 프로그램 디버그 및 진단
 
 이 문서에서는 확장 Apache Spark 기록 서버를 사용 하 여 완료 된 Spark 응용 프로그램을 디버깅 및 진단 하는 방법에 대 한 지침을 제공 합니다.
 
-확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 합니다. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차**및 **실행자 사용 현황 분석이**표시 됩니다.
+확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 합니다. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기** , **시간 오차** 및 **실행자 사용 현황 분석이** 표시 됩니다.
 
 ## <a name="access-the-apache-spark-history-server"></a>Apache Spark 기록 서버에 액세스
 
@@ -30,7 +30,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 1. [Azure Synapse Analytics](https://web.azuresynapse.net/)를 엽니다.
 
-2. **모니터**를 선택한 다음 **Apache Spark 응용 프로그램**을 선택 합니다.
+2. **모니터** 를 선택한 다음 **Apache Spark 응용 프로그램** 을 선택 합니다.
 
     ![모니터를 선택 하 고 spark 응용 프로그램을 선택 합니다.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
@@ -38,13 +38,13 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
     ![로그 쿼리 창을 엽니다.](./media/apache-spark-history-server/open-application-window.png)
 
-4. **Spark 기록 서버**를 선택 하면 Spark 기록 서버 웹 UI가 표시 됩니다.
+4. **Spark 기록 서버** 를 선택 하면 Spark 기록 서버 웹 UI가 표시 됩니다.
 
     ![Spark 기록 서버를 엽니다.](./media/apache-spark-history-server/open-spark-history-server.png)
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>데이터 노드에서 Spark 기록 서버 웹 UI 열기
 
-1. Azure Synapse Studio 노트북에서 작업 실행 출력 셀 또는 노트북 문서의 아래쪽에 있는 상태 패널에서 **Spark 기록 서버** 를 선택 합니다. **세션 세부 정보**를 선택합니다.
+1. Azure Synapse Studio 노트북에서 작업 실행 출력 셀 또는 노트북 문서의 아래쪽에 있는 상태 패널에서 **Spark 기록 서버** 를 선택 합니다. **세션 세부 정보** 를 선택합니다.
 
    ![Spark 기록 서버 1 시작](./media/apache-spark-history-server/launch-history-server2.png "Spark 기록 서버 시작")
 
@@ -56,19 +56,19 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 보려는 작업의 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **데이터** 를 선택 하 여 데이터 뷰를 가져옵니다. 이 섹션에서는 데이터 탭에서 다양 한 작업을 수행 하는 방법을 보여 줍니다.
 
-* 각 탭을 선택하여 **입력**, **출력** 및 **테이블 작업**을 확인합니다.
+* 각 탭을 선택하여 **입력** , **출력** 및 **테이블 작업** 을 확인합니다.
 
     ![Spark 응용 프로그램 탭에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
-* **복사**를 선택 하 여 모든 행을 복사 합니다.
+* **복사** 를 선택 하 여 모든 행을 복사 합니다.
 
     ![Spark 응용 프로그램 복사에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-copy.png)
 
-* **Csv**를 선택 하 여 모든 데이터를 csv 파일로 저장 합니다.
+* **Csv** 를 선택 하 여 모든 데이터를 csv 파일로 저장 합니다.
 
     ![Spark 응용 프로그램 저장에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-save.png)
 
-* 필드 **검색**에 키워드를 입력 하 여 검색 합니다. 검색 결과가 즉시 표시 됩니다.
+* 필드 **검색** 에 키워드를 입력 하 여 검색 합니다. 검색 결과가 즉시 표시 됩니다.
 
     ![Spark 응용 프로그램 검색에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-search.png)
 
@@ -76,7 +76,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
     ![Spark 응용 프로그램 테이블에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-* **부분 다운로드**를 선택 하 여 단일 파일을 다운로드 합니다. 선택한 파일이 로컬에 다운로드 됩니다. 파일이 더 이상 존재 하지 않으면 오류 메시지가 표시 된 새 탭이 표시 됩니다.
+* **부분 다운로드** 를 선택 하 여 단일 파일을 다운로드 합니다. 선택한 파일이 로컬에 다운로드 됩니다. 파일이 더 이상 존재 하지 않으면 오류 메시지가 표시 된 새 탭이 표시 됩니다.
 
     ![Spark 응용 프로그램 다운로드 행에 대 한 데이터](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
@@ -92,7 +92,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
     ![Spark 응용 프로그램에 대 한 데이터 추가 정보](./media/apache-spark-history-server/sparkui-data-more-info.png)
 
-* **사용자 의견 제공**을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
+* **사용자 의견 제공** 을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
 
     ![Spark graph에서 피드백을 다시 제공 합니다.](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
@@ -102,7 +102,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 ### <a name="overview"></a>개요
 
-생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. 기본적으로 그래프는 모든 작업을 표시 합니다. **작업 ID**를 기준으로이 뷰를 필터링 할 수 있습니다.
+생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. 기본적으로 그래프는 모든 작업을 표시 합니다. **작업 ID** 를 기준으로이 뷰를 필터링 할 수 있습니다.
 
 ![Spark 응용 프로그램 및 작업 그래프 작업 ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
@@ -118,7 +118,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 ### <a name="playback"></a>재생
 
-작업을 재생 하려면 **재생**을 선택 합니다. 언제 든 지 **중지** 를 선택 하 여 중지할 수 있습니다. 작업 색은 재생할 때 다른 상태를 표시 합니다.
+작업을 재생 하려면 **재생** 을 선택 합니다. 언제 든 지 **중지** 를 선택 하 여 중지할 수 있습니다. 작업 색은 재생할 때 다른 상태를 표시 합니다.
 
 |색|의미|
 |-|-|
@@ -157,7 +157,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 작업 그래프 탭에서 단계에는 다음 조건을 충족 하는 작업이 있는 경우 도구 설명 및 작은 아이콘이 표시 됩니다.
 
-|조건|설명|
+|조건|Description|
 |-|-|
 |데이터 기울이기|데이터 읽기 크기 >이 단계 내의 모든 태스크에 대 한 평균 데이터 읽기 크기 * 2 및 데이터 읽기 크기 > 10mb|
 |시간차|실행 시간 >이 단계 내 모든 작업의 평균 실행 시간 * 2 및 실행 시간 > 2 분|
@@ -184,15 +184,15 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 ### <a name="provide-feedback"></a>피드백 제공
 
-**사용자 의견 제공**을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
+**사용자 의견 제공** 을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
 
 ![Spark 응용 프로그램 및 작업 그래프 피드백](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 ## <a name="explore-the-diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark 기록 서버에서 진단 탭 살펴보기
 
-진단 탭에 액세스 하려면 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 가져옵니다. 진단 탭에는 **데이터 기울이기**, **시간 기울이기** 및 **실행기 사용량 분석**이 포함되어 있습니다.
+진단 탭에 액세스 하려면 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 가져옵니다. 진단 탭에는 **데이터 기울이기** , **시간 기울이기** 및 **실행기 사용량 분석** 이 포함되어 있습니다.
 
-각 탭을 선택하여 **데이터 기울이기**, **시간 기울이기** 및 **실행기 사용량 분석**을 확인합니다.
+각 탭을 선택하여 **데이터 기울이기** , **시간 기울이기** 및 **실행기 사용량 분석** 을 확인합니다.
 
 ![SparkUI 진단 데이터 기울이기 탭 다시](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -214,9 +214,9 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 **시간 기울이기** 탭에는 작업 실행 시간을 기준으로 기울어진 작업이 표시됩니다.
 
-* **매개 변수 지정** - 첫 번째 섹션에는 시간 기울이기를 검색하는 데 사용되는 매개 변수가 표시됩니다. 시간 기울이기를 검색하는 기본 기준은 작업 실행 시간이 평균 실행 시간의 3배보다 크고 작업 실행 시간이 30초를 초과하는 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **기울어진 작업** 및 **기울이기 차트**에는 위의 **데이터 기울이기** 탭과 마찬가지로 해당 단계 및 작업 정보가 표시됩니다.
+* **매개 변수 지정** - 첫 번째 섹션에는 시간 기울이기를 검색하는 데 사용되는 매개 변수가 표시됩니다. 시간 기울이기를 검색하는 기본 기준은 작업 실행 시간이 평균 실행 시간의 3배보다 크고 작업 실행 시간이 30초를 초과하는 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **기울어진 작업** 및 **기울이기 차트** 에는 위의 **데이터 기울이기** 탭과 마찬가지로 해당 단계 및 작업 정보가 표시됩니다.
 
-* **시간 오차**를 선택 하 고 필터링 된 결과는 **매개 변수 지정**섹션에 설정 된 매개 변수에 따라 **기울어진 단계** 섹션에 표시 됩니다. **기울어진 단계** 섹션에서 한 항목을 선택 하 고 해당 차트가 section3에서 초안을 만든 다음 오른쪽 아래 패널에 작업 세부 정보가 표시 됩니다.
+* **시간 오차** 를 선택 하 고 필터링 된 결과는 **매개 변수 지정** 섹션에 설정 된 매개 변수에 따라 **기울어진 단계** 섹션에 표시 됩니다. **기울어진 단계** 섹션에서 한 항목을 선택 하 고 해당 차트가 section3에서 초안을 만든 다음 오른쪽 아래 패널에 작업 세부 정보가 표시 됩니다.
 
     ![sparkui 진단 시간 오차 섹션](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -224,7 +224,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 Executor 사용 그래프는 Spark 작업 실행 기의 할당 및 실행 상태를 시각화 합니다.  
 
-1. **Executor 사용 분석**을 선택 합니다. 그러면 **할당 된 실행자**, **실행 실행자**, **유휴 실행자**및 **Max executor 인스턴스**를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행 기의 경우 각 "Executor 추가" 또는 "Executor 제거" 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
+1. **Executor 사용 분석** 을 선택 합니다. 그러면 **할당 된 실행자** , **실행 실행자** , **유휴 실행자** 및 **Max executor 인스턴스** 를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행 기의 경우 각 "Executor 추가" 또는 "Executor 제거" 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
 
    ![sparkui 진단 실행자 탭](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

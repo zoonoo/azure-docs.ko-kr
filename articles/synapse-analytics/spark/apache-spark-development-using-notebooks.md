@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893087"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738745"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio (미리 보기) 노트북 만들기, 개발 및 유지 관리
 
@@ -32,7 +32,7 @@ Azure Synapse Studio Notebook을 사용하면 다음이 가능합니다.
 
 ## <a name="create-a-notebook"></a>Notebook 만들기
 
-Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기**에서 새 Notebook을 만들거나 Azure Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Azure Synapse Studio Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식할 수 있습니다.
+Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기** 에서 새 Notebook을 만들거나 Azure Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Azure Synapse Studio Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식할 수 있습니다.
 
 ![가져오기 노트북 만들기](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,15 +44,15 @@ Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기**에서 
 
 Notebook에 새 셀을 추가하는 방법은 여러 가지입니다.
 
-1. 왼쪽 위에 있는 **+ 셀** 단추를 펼치고 **코드 셀 추가** 또는 **텍스트 셀 추가**를 선택합니다.
+1. 왼쪽 위에 있는 **+ 셀** 단추를 펼치고 **코드 셀 추가** 또는 **텍스트 셀 추가** 를 선택합니다.
 
     ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. 두 셀 사이의 공간을 마우스로 가리키고 **코드 추가** 또는 **텍스트 추가**를 선택합니다.
+2. 두 셀 사이의 공간을 마우스로 가리키고 **코드 추가** 또는 **텍스트 추가** 를 선택합니다.
 
     ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
-3. [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용합니다. 현재 셀 위에 셀을 삽입하려면 **A** 를 누릅니다. 현재 셀 아래에 셀을 삽입하려면 **B**를 누릅니다.
+3. [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용합니다. 현재 셀 위에 셀을 삽입하려면 **A** 를 누릅니다. 현재 셀 아래에 셀을 삽입하려면 **B** 를 누릅니다.
 
 ### <a name="set-a-primary-language"></a>주 언어 설정
 
@@ -134,7 +134,7 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 ### <a name="move-a-cell"></a>셀 이동
 
-줄임표(...)를 선택하면 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스할 수 있습니다. 그런 다음, **위로 셀 이동** 또는 **아래로 셀 이동**을 선택하여 현재 셀을 이동합니다. 
+줄임표(...)를 선택하면 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스할 수 있습니다. 그런 다음, **위로 셀 이동** 또는 **아래로 셀 이동** 을 선택하여 현재 셀을 이동합니다. 
 
 [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 셀을 위로 이동하려면 **Ctrl+Alt+↑** 키를 누릅니다. 현재 셀을 아래로 이동하려면 **Ctrl+Alt+↓** 키를 누릅니다.
 
@@ -142,9 +142,9 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 ### <a name="delete-a-cell"></a>셀 삭제
 
-셀을 삭제하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스한 후 **셀 삭제**를 선택합니다. 
+셀을 삭제하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스한 후 **셀 삭제** 를 선택합니다. 
 
-[명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 행을 삭제하려면 **D,D**를 누릅니다.
+[명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 행을 삭제하려면 **D,D** 를 누릅니다.
   
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
@@ -172,7 +172,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, **셀 실행**을 선택합니다.
+2. 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, **셀 실행** 을 선택합니다.
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -186,7 +186,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 ### <a name="run-all-cells-above-or-below"></a>위 또는 아래 셀 모두 실행
 
-오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above**(위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
+오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above** (위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below** (아래 셀 실행)을 선택합니다.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -211,7 +211,7 @@ Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 
 
 ### <a name="spark-session-config"></a>Spark 세션 구성
 
-**세션 구성**에서 현재 Spark 세션에 제공할 실행기의 크기와 수, 제한 시간을 지정할 수 있습니다. Spark 세션을 다시 시작하면 구성 변경 사항이 적용됩니다. 캐시된 Notebook 변수는 모두 지워집니다.
+**세션 구성** 에서 현재 Spark 세션에 제공할 실행기의 크기와 수, 제한 시간을 지정할 수 있습니다. Spark 세션을 다시 시작하면 구성 변경 사항이 적용됩니다. 캐시된 Notebook 변수는 모두 지워집니다.
 
 [![세션 관리](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -267,7 +267,7 @@ df = spark.read.option("header", "true") \
 
 ### <a name="read-data-from-the-primary-storage-account"></a>기본 스토리지 계정에서 데이터 읽기
 
-기본 스토리지 계정의 데이터에 직접 액세스할 수 있습니다. 비밀 키를 제공할 필요가 없습니다. 데이터 탐색기에서 파일을 마우스 오른쪽 단추로 클릭하고 **새 Notebook**을 선택하여 데이터 추출기가 자동으로 생성된 새 Notebook을 확인합니다.
+기본 스토리지 계정의 데이터에 직접 액세스할 수 있습니다. 비밀 키를 제공할 필요가 없습니다. 데이터 탐색기에서 파일을 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 을 선택하여 데이터 추출기가 자동으로 생성된 새 Notebook을 확인합니다.
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
@@ -275,7 +275,7 @@ df = spark.read.option("header", "true") \
 
 ### <a name="produce-rendered-table-view"></a>렌더링 된 테이블 뷰 생성
 
-테이블 형식 결과 뷰에는 가로 막대형 차트, 꺾은선형 차트, 원형 차트, 분산형 차트, 영역 차트를 만드는 옵션이 제공됩니다. 코드를 작성하지 않고도 데이터를 시각화할 수 있습니다. 차트는 **차트 옵션**에서 사용자 지정할 수 있습니다. 
+테이블 형식 결과 뷰에는 가로 막대형 차트, 꺾은선형 차트, 원형 차트, 분산형 차트, 영역 차트를 만드는 옵션이 제공됩니다. 코드를 작성하지 않고도 데이터를 시각화할 수 있습니다. 차트는 **차트 옵션** 에서 사용자 지정할 수 있습니다. 
 
 **%%sql** 매직 명령의 출력은 기본적으로 렌더링된 테이블 뷰에 표시됩니다. <code>display(df)</code>Spark 데이터 프레임, Pandas 데이터 프레임, 목록 또는 RDD (복원 력 있는 분산 데이터 집합) 함수에서를 호출 하 여 렌더링 된 테이블 뷰를 생성할 수 있습니다.
 
@@ -294,9 +294,9 @@ df = spark.read.option("header", "true") \
 
 ### <a name="render-html-or-interactive-libraries"></a>HTML 또는 대화형 라이브러리 렌더링
 
-**Displayhtml ()** 을 사용 하 여 **빛 망 울**와 같은 Javascript, CSS, D3 또는 대화형 라이브러리를 비롯 한 HTML 코드를 렌더링할 수 있습니다.
+**Displayhtml ()** 을 사용 하 여 **빛 망 울** 와 같은 Javascript, CSS, D3 또는 대화형 라이브러리를 비롯 한 HTML 코드를 렌더링할 수 있습니다.
 
-다음 이미지는 **빛망울**을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
+다음 이미지는 **빛망울** 을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
 
    ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
@@ -357,7 +357,7 @@ Azure Synapse Studio 노트북에서 친숙 한 Jupyter 매직 명령을 사용�
 사용 가능한 셀 매직: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>노트북 오케스트레이션
+## <a name="integrate-a-notebook"></a>노트북 통합
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>파이프라인에 노트북 추가
 

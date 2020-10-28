@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837179"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736983"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -29,8 +29,8 @@ Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대�
 다시 부팅해야 하는 계획된 유지 관리는 웨이브에서 예약됩니다. 각 웨이브에는 서로 다른 범위(지역)가 있습니다.
 
 - 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 보내집니다. Azure [활동 로그 경고](../azure-monitor/platform/platform-logs-overview.md)를 사용하여 받는 사람 및 메시지 옵션(예: 이메일, SMS 및 웹후크)을 알림에 추가할 수 있습니다.  
-- 알림을 통해 *셀프 서비스 기간*을 사용할 수 있습니다. 이 기간 동안 일반적으로 35 일 동안 웨이브에 포함 된 Vm을 찾을 수 있습니다. 사용자 고유의 일정 요구 사항에 따라 사전에 유지 관리를 시작할 수 있습니다.
-- 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간*이 시작됩니다. 이 기간 동안의 어떤 시점에서 Azure는 VM에 필요한 유지 관리를 예약하고 적용합니다. 
+- 알림을 통해 *셀프 서비스 기간* 을 사용할 수 있습니다. 이 기간 동안 일반적으로 35 일 동안 웨이브에 포함 된 Vm을 찾을 수 있습니다. 사용자 고유의 일정 요구 사항에 따라 사전에 유지 관리를 시작할 수 있습니다.
+- 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간* 이 시작됩니다. 이 기간 동안의 어떤 시점에서 Azure는 VM에 필요한 유지 관리를 예약하고 적용합니다. 
 
 두 기간이 존재하는 이유는 Azure에서 유지 관리를 자동으로 시작할 시기를 파악하면서 유지 관리를 시작하고 VM을 다시 부팅하는 데 충분한 시간을 제공하기 위한 것입니다.
 
@@ -41,16 +41,16 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 다음 지침은 선택한 시간에 유지 관리를 시작할지 여부를 결정하는 데 도움이 됩니다.
 
 > [!NOTE] 
-> 일부 VM에는 셀프 서비스 유지 관리를 사용하지 못할 수도 있습니다. VM에 사전 예방적 재배포를 사용할 수 있는지 확인하려면 유지 관리 상태에서 **지금 시작**을 찾습니다. 현재 셀프 서비스 유지 관리는 Azure Cloud Services(웹/작업자 역할) 및 Azure Service Fabric에서 사용할 수 없습니다.
+> 일부 VM에는 셀프 서비스 유지 관리를 사용하지 못할 수도 있습니다. VM에 사전 예방적 재배포를 사용할 수 있는지 확인하려면 유지 관리 상태에서 **지금 시작** 을 찾습니다. 현재 셀프 서비스 유지 관리는 Azure Cloud Services(웹/작업자 역할) 및 Azure Service Fabric에서 사용할 수 없습니다.
 
 
-*가용성 집합*을 사용하는 배포에는 셀프 서비스 유지 관리가 권장되지 않습니다. 가용성 집합은 항상 하나의 업데이트 도메인만 영향을 받는 고가용성 설정입니다. 가용성 집합의 경우 다음과 같습니다.
+*가용성 집합* 을 사용하는 배포에는 셀프 서비스 유지 관리가 권장되지 않습니다. 가용성 집합은 항상 하나의 업데이트 도메인만 영향을 받는 고가용성 설정입니다. 가용성 집합의 경우 다음과 같습니다.
 
 - Azure에서 유지 관리를 트리거할 수 있습니다. 다시 부팅이 필요한 유지 관리의 경우 유지 관리가 업데이트 도메인별로 도메인을 업데이트합니다. 업데이트 도메인은 반드시 유지 관리를 순차적으로 받지는 않습니다. 업데이트 도메인 간에는 30분의 일시 중지가 있습니다.
 - 일부 용량이 일시적으로 손실되는 경우(1/업데이트 도메인 수), 유지 관리 기간 동안 추가 인스턴스를 할당하여 손실을 쉽게 보정할 수 있습니다.
 - 다시 부팅이 필요하지 않은 유지 관리의 경우 업데이트가 장애 도메인 수준에서 적용됩니다. 
     
-다음 시나리오에서는 셀프 서비스 유지 관리를 사용하지 **마세요**. 
+다음 시나리오에서는 셀프 서비스 유지 관리를 사용하지 **마세요** . 
 
 - DevTest Labs를 수동으로 사용하거나, 자동 종료를 사용하거나, 일정에 따라 VM을 자주 종료하는 경우. 이러한 시나리오에서 셀프 서비스 유지 관리를 수행하면 유지 관리 상태를 되돌리고 추가 가동 중지 시간이 발생할 수 있습니다.
 - 유지 관리 웨이브가 끝나기 전에 삭제될 것을 알고 있는 단기간용 VM. 
@@ -58,7 +58,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 - VM의 크기를 자주 변경하는 경우. 이 시나리오에서는 유지 관리 상태를 되돌릴 수 있습니다. 
 - 유지 관리 종료가 종료되기 15분 전에 워크로드의 사전 예방적 장애 조치 또는 정상 종료가 가능한 예약된 이벤트를 도입한 경우
 
-예약된 유지 관리 단계 동안 VM을 중단 없이 실행하려는 경우 셀프 서비스 유지 관리를 **사용**하고 앞에서 언급한 역기능이 적용되지 않습니다. 
+예약된 유지 관리 단계 동안 VM을 중단 없이 실행하려는 경우 셀프 서비스 유지 관리를 **사용** 하고 앞에서 언급한 역기능이 적용되지 않습니다. 
 
 다음과 같은 경우에는 셀프 서비스 유지 관리를 사용하는 것이 가장 좋습니다.
 
@@ -73,11 +73,11 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 계획된 유지 관리 웨이브가 예약되면 Azure Portal을 사용하여 예정된 유지 관리 웨이브의 영향을 받는 가상 머신 확장 집합 목록을 볼 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **가상 머신 확장 집합**을 선택합니다.
-3. **가상 머신 확장 집합** 아래에서 **열 편집**을 선택하여 사용 가능한 열 목록을 엽니다.
-4. **사용 가능한 열** 섹션에서 **셀프 서비스 유지 관리**를 선택한 다음, **선택한 열** 목록으로 이동합니다. **적용**을 선택합니다.  
+2. 왼쪽 메뉴에서 **모든 서비스** 를 선택한 다음, **가상 머신 확장 집합** 을 선택합니다.
+3. **가상 머신 확장 집합** 아래에서 **열 편집** 을 선택하여 사용 가능한 열 목록을 엽니다.
+4. **사용 가능한 열** 섹션에서 **셀프 서비스 유지 관리** 를 선택한 다음, **선택한 열** 목록으로 이동합니다. **적용** 을 선택합니다.  
 
-    **셀프 서비스 유지 관리** 항목을 더 쉽게 찾으려면 **사용 가능한 열** 섹션의 드롭다운 옵션을 **모두**에서 ** 속성**으로 변경할 수 있습니다.
+    **셀프 서비스 유지 관리** 항목을 더 쉽게 찾으려면 **사용 가능한 열** 섹션의 드롭다운 옵션을 **모두** 에서 **속성** 으로 변경할 수 있습니다.
 
 이제 **셀프 서비스 유지 관리** 열이 가상 머신 확장 집합 목록에 나타납니다. 각 가상 머신 확장 집합의 셀프 서비스 유지 관리 열에는 다음 값 중 하나가 표시될 수 있습니다.
 
@@ -92,12 +92,12 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. 활동 로그 경고를 만들어 받는 사람 및 채널을 이 통신에 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/platform-logs-overview.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
-3. **모니터 - 경고(클래식)** 창에서 **+ 활동 로그 경고 추가**를 선택합니다.
-4. **활동 로그 경고 추가** 페이지에서 필요한 정보를 선택하거나 입력합니다. **조건**에서 다음 값을 설정해야 합니다.
-   - **이벤트 범주**: **서비스 상태**를 선택합니다.
-   - **서비스**: **Virtual Machine Scale Sets 및 Virtual Machines**를 선택합니다.
-   - **유형**: **계획된 유지 관리**를 선택합니다. 
+2. 왼쪽 메뉴에서 **모니터** 를 선택합니다. 
+3. **모니터 - 경고(클래식)** 창에서 **+ 활동 로그 경고 추가** 를 선택합니다.
+4. **활동 로그 경고 추가** 페이지에서 필요한 정보를 선택하거나 입력합니다. **조건** 에서 다음 값을 설정해야 합니다.
+   - **이벤트 범주** : **서비스 상태** 를 선택합니다.
+   - **서비스** : **Virtual Machine Scale Sets 및 Virtual Machines** 를 선택합니다.
+   - **유형** : **계획된 유지 관리** 를 선택합니다. 
     
 활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../azure-monitor/platform/activity-log-alerts.md)를 참조하세요.
     
@@ -106,7 +106,7 @@ Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보�
 
 가상 머신 확장 집합의 개요에서 유지 관리 관련 세부 정보를 자세히 볼 수 있습니다. 가상 머신 확장 집합에 있는 하나 이상의 VM이 계획된 유지 관리 웨이브에 포함되면 페이지 위쪽에 새 알림 리본이 추가됩니다. 알림 리본을 선택하여 **유지 관리** 페이지로 이동합니다. 
 
-**유지 관리** 페이지에서 계획된 유지 관리의 영향을 받는 VM 인스턴스를 볼 수 있습니다. 유지 관리를 시작하려면 영향을 받는 VM에 해당하는 확인란을 선택합니다. 그런 다음, **유지 관리 시작**을 선택합니다.
+**유지 관리** 페이지에서 계획된 유지 관리의 영향을 받는 VM 인스턴스를 볼 수 있습니다. 유지 관리를 시작하려면 영향을 받는 VM에 해당하는 확인란을 선택합니다. 그런 다음, **유지 관리 시작** 을 선택합니다.
 
 유지 관리가 시작되면 가상 머신 확장 집합에서 영향을 받는 VM이 유지 관리를 받고 일시적으로 사용할 수 없게 됩니다. 셀프 서비스 기간을 놓친 경우에도 Azure에서 가상 머신 확장 집합을 유지 관리하는 시간 범위는 계속 볼 수 있습니다.
  
@@ -120,9 +120,9 @@ Azure PowerShell을 사용하여 가상 머신 확장 집합의 VM이 유지 관
 Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
-**MaintenanceRedeployStatus**아래에 다음 속성이 반환 됩니다. 
+**MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -135,7 +135,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>PowerShell을 사용하여 VM 인스턴스에서 유지 관리 시작
 
-**IsCustomerInitiatedMaintenanceAllowed**가 **true**로 설정되는 경우 VM에서 유지 관리를 시작할 수 있습니다. [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet을 `-PerformMaintenance` 매개 변수와 함께 사용합니다.
+**IsCustomerInitiatedMaintenanceAllowed** 가 **true** 로 설정되는 경우 VM에서 유지 관리를 시작할 수 있습니다. [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet을 `-PerformMaintenance` 매개 변수와 함께 사용합니다.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -153,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 각 VM 인스턴스에 대 한 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -165,7 +165,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>CLI를 사용하여 VM 인스턴스에서 유지 관리 시작
 
-`IsCustomerInitiatedMaintenanceAllowed`가 **true**로 설정되는 경우 다음 호출을 통해 VM 인스턴스에서 유지 관리를 시작합니다.
+`IsCustomerInitiatedMaintenanceAllowed`가 **true** 로 설정되는 경우 다음 호출을 통해 VM 인스턴스에서 유지 관리를 시작합니다.
 
 ```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
@@ -202,7 +202,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 **Q: 내 Vm에 대 한 유지 관리 정보가 표시 되지 않습니다. 무엇이 문제 인가요?**
 
 **A:** VM에 대한 유지 관리 정보가 전혀 표시되지 않는 데는 다음과 같은 몇 가지 이유가 있습니다.
-   - *Microsoft 내부*로 표시된 구독을 사용하고 있습니다.
+   - *Microsoft 내부* 로 표시된 구독을 사용하고 있습니다.
    - VM에 대한 유지 관리가 예약되어 있지 않습니다. VM이 더 이상 영향을 받지 않도록 유지 관리 웨이브가 종료되었거나, 취소되었거나, 수정되었을 수 있습니다.
    - VM 목록 보기에 **유지 관리** 열을 추가할 필요는 없습니다. 이 열을 기본 보기에 추가했지만 기본이 아닌 열을 표시하도록 보기를 구성한 경우 **유지 관리** 열을 VM 목록 보기에 수동으로 추가해야 합니다.
 
@@ -210,9 +210,9 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** 여러 사용 사례에서 이미 유지 관리를 완료하고 재배포한 후에 VM에 대한 유지 관리가 예약됩니다.
    - 유지 관리 주기를 취소하고 다른 페이로드에서 다시 시작합니다. 오류가 발생한 페이로드를 탐지했을 수 있으며, 추가 페이로드를 배포하기만 하면 됩니다.
-   - VM은 하드웨어 오류로 인해 다른 노드에 대해 *조정된 서비스*입니다.
+   - VM은 하드웨어 오류로 인해 다른 노드에 대해 *조정된 서비스* 입니다.
    - VM을 중지(할당 취소)하고 다시 시작하도록 선택했습니다.
-   - VM에 대해 **자동 종료**를 실행했습니다.
+   - VM에 대해 **자동 종료** 를 실행했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
-ms.author: metan
+ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: 리더, 언어 학습자, 사진 표시, 읽기 개선, 콘텐츠 읽기, 번역
-ms.openlocfilehash: a537845c0256316f9c47317a8805fa989a624f60
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985741"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631242"
 ---
 # <a name="what-is-immersive-reader"></a>몰입형 판독기란?
 

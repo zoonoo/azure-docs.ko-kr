@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425637"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736607"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -173,7 +173,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 예 여기에는 사용자 지정 역할을 정의 하는 기본으로 사용할 수 있는 사용자 지정 제안 역할 정의가 포함 된 몇 가지 일반적인 시나리오가 나와 있습니다.
 
-* __Data 과학자 Custom__: 데이터 과학자가 다음을 **제외 하 고**작업 영역 내의 모든 작업을 수행할 수 있습니다.
+* __Data 과학자 Custom__ : 데이터 과학자가 다음을 **제외 하 고** 작업 영역 내의 모든 작업을 수행할 수 있습니다.
 
     * 계산 만들기
     * 프로덕션 AKS 클러스터에 모델 배포
@@ -209,7 +209,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __데이터 과학자 제한 된 사용자 지정__: 허용 된 작업에 와일드 카드가 없는 더 제한적인 역할 정의입니다. 다음을 **제외 하 고**작업 영역 내에서 모든 작업을 수행할 수 있습니다.
+* __데이터 과학자 제한 된 사용자 지정__ : 허용 된 작업에 와일드 카드가 없는 더 제한적인 역할 정의입니다. 다음을 **제외 하 고** 작업 영역 내에서 모든 작업을 수행할 수 있습니다.
 
     * 계산 만들기
     * 프로덕션 AKS 클러스터에 모델 배포
@@ -270,7 +270,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
      
-* __Mlflow Data 과학자 Custom__: 데이터 과학자가 다음을 **제외한**모든 mlflow AzureML 지원 작업을 수행할 수 있도록 허용 합니다.
+* __Mlflow Data 과학자 Custom__ : 데이터 과학자가 다음을 **제외한** 모든 mlflow AzureML 지원 작업을 수행할 수 있도록 허용 합니다.
 
    * 계산 만들기
    * 프로덕션 AKS 클러스터에 모델 배포
@@ -310,7 +310,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```   
 
-* __Mlops 사용자 지정__: 서비스 주체에 역할을 할당 하 고이를 사용 하 여 mlops 파이프라인을 자동화할 수 있습니다. 예를 들어 이미 게시 된 파이프라인에 대해 실행을 제출 하려면 다음을 수행 합니다.
+* __Mlops 사용자 지정__ : 서비스 주체에 역할을 할당 하 고이를 사용 하 여 mlops 파이프라인을 자동화할 수 있습니다. 예를 들어 이미 게시 된 파이프라인에 대해 실행을 제출 하려면 다음을 수행 합니다.
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __작업 영역 관리자__: 다음을 **제외**하 고 작업 영역 범위 내에서 모든 작업을 수행할 수 있습니다.
+* __작업 영역 관리자__ : 다음을 **제외** 하 고 작업 영역 범위 내에서 모든 작업을 수행할 수 있습니다.
 
     * 새 작업 영역 만들기
     * 구독 또는 작업 영역 수준 할당량 할당
@@ -381,7 +381,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__: 레이블 데이터에만 한정 되는 역할을 정의할 수 있습니다.
+* __Labeler Custom__ : 레이블 데이터에만 한정 되는 역할을 정의할 수 있습니다.
 
     `labeler_custom_role.json` :
     ```json

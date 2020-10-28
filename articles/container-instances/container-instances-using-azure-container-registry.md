@@ -4,13 +4,13 @@ description: Azure container registry에서 컨테이너 이미지를 당겨 Azu
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173646"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736731"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -18,9 +18,9 @@ ms.locfileid: "92173646"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-**Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
+**Azure container registry** :이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
-**Azure CLI**: 이 문서의 명령줄 예제는 [Azure CLI](/cli/azure/)를 사용하며 Bash 셸용으로 형식이 지정됩니다. 로컬로 [Azure CLI를 설치](/cli/azure/install-azure-cli)하거나 [Azure Cloud Shell][cloud-shell-bash]을 사용할 수 있습니다.
+**Azure CLI** : 이 문서의 명령줄 예제는 [Azure CLI](/cli/azure/)를 사용하며 Bash 셸용으로 형식이 지정됩니다. 로컬로 [Azure CLI를 설치](/cli/azure/install-azure-cli)하거나 [Azure Cloud Shell][cloud-shell-bash]을 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -55,7 +55,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 이제 서비스 주체를 만들고 키 자격 증명 모음에 자격 증명을 저장 합니다.
 
-다음 명령은 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]를 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]을 사용하여 서비스 주체의 **암호**를 자격 증명 모음에 저장합니다.
+다음 명령은 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]를 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]을 사용하여 서비스 주체의 **암호** 를 자격 증명 모음에 저장합니다.
 
 ```azurecli
 # Create service principal, store its password in vault (the registry *password*)
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
+이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush* 로 변경합니다.
 
 다음으로, 인증을 위해 Azure Container Registry에 전달 하는 **사용자 이름인** 자격 증명 모음에 서비스 사용자의 *appId* 를 저장 합니다.
 
@@ -147,9 +147,9 @@ Azure Container Registry에서 컨테이너 이미지를 유지할 경우 Azure 
 
 1. Azure Portal에서 컨테이너 레지스트리로 이동합니다.
 
-1. 관리자 계정이 활성화되어 있는지 확인하려면 **액세스 키**를 선택하고 **관리 사용자**에서 **사용**을 선택합니다.
+1. 관리자 계정이 활성화되어 있는지 확인하려면 **액세스 키** 를 선택하고 **관리 사용자** 에서 **사용** 을 선택합니다.
 
-1. **리포지토리**를 선택하고, 배포할 리포지토리를 선택하고, 배포하려는 컨테이너 이미지의 태그를 마우스 오른쪽 단추로 클릭하고, **인스턴스 실행**을 선택합니다.
+1. **리포지토리** 를 선택하고, 배포할 리포지토리를 선택하고, 배포하려는 컨테이너 이미지의 태그를 마우스 오른쪽 단추로 클릭하고, **인스턴스 실행** 을 선택합니다.
 
     ![Azure Portal의 Azure Container Registry에 있는 "인스턴스 실행"][acr-runinstance-contextmenu]
 

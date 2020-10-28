@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074858"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737088"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>앱 구성 저장소 만들기
 
 다른 지역에 기본 및 보조 앱 구성 저장소를 만듭니다.
- `<primary_appconfig_name>`및를 `<secondary_appconfig_name>` 구성 저장소의 고유한 이름으로 바꿉니다. 각 매장 이름은 DNS 이름으로 사용 되므로 고유 해야 합니다.
+`<primary_appconfig_name>`및를 `<secondary_appconfig_name>` 구성 저장소의 고유한 이름으로 바꿉니다. 각 매장 이름은 DNS 이름으로 사용 되므로 고유 해야 합니다.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ az role assignment create \
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-이벤트를 트리거 했습니다. 잠시 후에 Event Grid는 큐에 이벤트 알림을 보냅니다. *다음에 예약 된 함수 실행 후*보조 저장소의 구성 설정을 보고 기본 저장소에서 업데이트 된 키 값이 포함 되어 있는지 확인 합니다.
+이벤트를 트리거 했습니다. 잠시 후에 Event Grid는 큐에 이벤트 알림을 보냅니다. *다음에 예약 된 함수 실행 후* 보조 저장소의 구성 설정을 보고 기본 저장소에서 업데이트 된 키 값이 포함 되어 있는지 확인 합니다.
 
 > [!NOTE]
 > 예약 된 타이머 트리거를 기다리지 않고 테스트 및 문제 해결 중에 [함수를 수동으로 트리거할](../azure-functions/functions-manually-run-non-http.md) 수 있습니다.

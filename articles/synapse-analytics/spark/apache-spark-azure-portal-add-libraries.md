@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826727"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737989"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
@@ -58,7 +58,7 @@ Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이�
    
 3. 페이지의 **패키지** 섹션에서 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다. 
    
-![풀을 만드는 동안 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Python 라이브러리 추가")
+    ![풀을 만드는 동안 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Python 라이브러리 추가")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Synapse 작업 영역에서 패키지 설치
@@ -68,11 +68,11 @@ Azure Synapse Analytics 포털에서 Spark 풀 (미리 보기)에 라이브러�
    
 2.  Azure Portal에서 Azure Synapse Analytics 작업 영역을 시작 합니다.
 
-3.  기본 탐색 패널에서 **관리** 를 선택한 다음 **Apache Spark 풀**을 선택 합니다.
+3.  기본 탐색 패널에서 **관리** 를 선택한 다음 **Apache Spark 풀** 을 선택 합니다.
    
 4. 단일 Spark 풀을 선택 하 고 페이지의  **패키지** 섹션에서 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
 
-![Synapse에서 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Python 라이브러리 추가")
+    ![Synapse에서 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Azure Portal에서 패키지 설치
 Azure Portal에서 직접 Spark 풀 (미리 보기)에 라이브러리를 설치 하려면 다음을 수행 합니다.
@@ -85,7 +85,7 @@ Azure Portal에서 직접 Spark 풀 (미리 보기)에 라이브러리를 설치
 
  4. 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
 
-![환경 구성 파일 업로드 단추를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Python 라이브러리 추가")
+    ![환경 구성 파일 업로드 단추를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Python 라이브러리 추가")
 
 ### <a name="verify-installed-libraries"></a>설치 된 라이브러리 확인
 
@@ -106,13 +106,13 @@ for i in pip.get_installed_distributions(local_only=True):
 
 3. **패키지** 섹션으로 이동 하 여 새 환경 구성 파일을 업로드 합니다.
    
-4. 변경 내용을 저장 한 후에는 활성 세션을 종료 하 고 풀을 다시 시작 하도록 해야 합니다. 필요에 따라 **새 설정을 강제 적용**하는 확인란을 선택 하 여 활성 세션을 강제로 종료할 수 있습니다.
+4. 변경 내용을 저장 한 후에는 활성 세션을 종료 하 고 풀을 다시 시작 하도록 해야 합니다. 필요에 따라 **새 설정을 강제 적용** 하는 확인란을 선택 하 여 활성 세션을 강제로 종료할 수 있습니다.
 
-![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Python 라이브러리 추가")
+    ![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Python 라이브러리 추가")
    
 
 > [!IMPORTANT]
-> **새 설정을 강제 적용**하는 옵션을 선택 하면 선택한 Spark 풀의 모든 현재 세션이 종료 됩니다. 세션이 종료 되 면 풀이 다시 시작 될 때까지 기다려야 합니다. 
+> **새 설정을 강제 적용** 하는 옵션을 선택 하면 선택한 Spark 풀의 모든 현재 세션이 종료 됩니다. 세션이 종료 되 면 풀이 다시 시작 될 때까지 기다려야 합니다. 
 >
 > 이 설정을 선택 하지 않으면 현재 Spark 세션이 종료 될 때까지 기다리거나 수동으로 중지 해야 합니다. 세션이 종료 되 면 풀을 다시 시작 하도록 해야 합니다. 
 

@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570380"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735572"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -29,17 +29,17 @@ AKS 아웃 바운드 종속성은 그 뒤에 정적 주소가 없는 Fqdn으로 
 기본적으로 AKS 클러스터에는 무제한 아웃바운드(송신) 인터넷 액세스가 있습니다. 이러한 수준의 네트워크 액세스가 있으면 사용자가 실행하는 노드와 서비스는 필요할 때마다 외부 리소스에 액세스할 수 있습니다. 송신 트래픽을 제한하려면 정상적인 클러스터 유지 관리 작업을 유지할 수 있도록 제한된 수의 포트 및 주소에 액세스할 수 있어야 합니다. 아웃 바운드 주소를 보호 하는 가장 간단한 방법은 도메인 이름을 기반으로 하는 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. 예를 들어 Azure 방화벽은 대상의 FQDN에 따라 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다. 이러한 필수 포트와 주소를 허용 하도록 기본 방화벽 및 보안 규칙을 구성할 수도 있습니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [***네트워크 정책을***][network-policy]사용 합니다.
+> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [ * *_네트워크 정책_* _][network-policy]을 사용 합니다.
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>AKS 클러스터에 대 한 필수 아웃 바운드 네트워크 규칙 및 Fqdn
 
 AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로그램 규칙이 필요 합니다. Azure 방화벽 이외의 솔루션을 구성 하려는 경우에는이 규칙을 사용할 수 있습니다.
 
-* IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
+_ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종속성
 * FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 * 와일드 카드 HTTP/HTTPS 끝점은 여러 한정자에 따라 AKS 클러스터에 따라 달라질 수 있는 종속성입니다.
 * AKS는 허용 컨트롤러를 사용 하 여 kube의 모든 배포에 대 한 환경 변수로 FQDN을 삽입 합니다 .이 시스템에서 노드 및 API 서버 간의 모든 시스템 통신은 api 서버 IP가 아닌 API 서버 FQDN을 사용 합니다. 
-* API 서버와 통신 해야 하는 앱 또는 솔루션을 사용 하는 경우 *api 서버의 IP 포트 443에 대 한 TCP 통신*을 허용 하는 **추가** 네트워크 규칙을 추가 해야 합니다.
+* API 서버와 통신 해야 하는 앱 또는 솔루션을 사용 하는 경우 *api 서버의 IP 포트 443에 대 한 TCP 통신* 을 허용 하는 **추가** 네트워크 규칙을 추가 해야 합니다.
 * 드문 경우 지만 API 서버 IP가 변경 될 수 있는 유지 관리 작업이 있는 경우가 있습니다. API 서버 IP를 변경할 수 있는 계획 된 유지 관리 작업은 항상 미리 전달 됩니다.
 
 

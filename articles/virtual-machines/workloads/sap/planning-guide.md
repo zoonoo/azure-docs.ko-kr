@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970625"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738119"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -339,7 +339,7 @@ Microsoft Azure Virtual Machine 서비스와 함께 Microsoft는 포괄적인 Ia
 * SAP 자산: 고객의 IT 자산 중 SAP 자산 전체를 의미합니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 애플리케이션 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됨을 의미합니다. 그러나 Azure 또는 온-프레미스에는 SAP 지형의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
 * 크로스-프레미스 또는 하이브리드: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 또는 하이브리드 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이는 SAP 자산을 Azure에 배포하는 가장 일반적이며 거의 독점적인 사례입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
-* Azure 모니터링 확장, 향상된 모니터링 및 Azure Extension for SAP: 하나 및 동일 항목을 설명합니다. Azure 인프라에 대한 몇 가지 기본 데이터를 SAP 호스트 에이전트에 제공하기 위해 배포해야 하는 VM 확장에 대해 설명합니다. SAP 노트에서 SAP는 모니터링 확장 또는 향상된 모니터링으로 언급될 수 있습니다. Azure에서는 **Azure Extension for SAP**라고 합니다.
+* Azure 모니터링 확장, 향상된 모니터링 및 Azure Extension for SAP: 하나 및 동일 항목을 설명합니다. Azure 인프라에 대한 몇 가지 기본 데이터를 SAP 호스트 에이전트에 제공하기 위해 배포해야 하는 VM 확장에 대해 설명합니다. SAP 노트에서 SAP는 모니터링 확장 또는 향상된 모니터링으로 언급될 수 있습니다. Azure에서는 **Azure Extension for SAP** 라고 합니다.
 
 > [!NOTE]
 > 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure Virtual Machines가 온-프레미스 도메인의 멤버인 SAP 시스템의 크로스-프레미스 또는 하이브리드 배포가 지원됩니다. 일부 또는 전체 SAP 환경을 Azure로 배포하는 데 크로스-프레미스 또는 하이브리드 구성이 지원됩니다. Azure에서 전체 SAP 지형을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS/OpenLDAP에 포함되어야 합니다.
@@ -494,7 +494,7 @@ SAP 워크로드의 경우, 특히 SAP HANA 워크로드에 대해서는 적합�
 또한, Azure는 전용 호스트 개념을 제공합니다. 전용 호스트 개념으로 Azure에서 제공하는 패칭 주기를 더욱 효과적으로 관리할 수 있습니다. 사용자는 자신의 일정에 맞게 패칭 시기를 결정할 수 있습니다. 이 제품은 일반적인 워크로드 주기를 따르지 않는 워크로드가 있는 고객을 대상으로 합니다. Azure 전용 호스트 제품의 개념에 대한 자세한 정보는 [Azure Dedicated Host](../../dedicated-hosts.md)를 참조하세요. 이 제품은 SAP 워크로드에 대해 지원되며, Microsoft의 인프라 패칭 및 그에 따른 유지관리 계획을 더욱 효과적으로 관리하고자 하는 SAP 고객 다수가 이를 사용하고 있습니다. Microsoft가 가상 머신을 호스팅하는 Azure 인프라를 관리하고 패치하는 방법에 대한 자세한 정보는 [Azure에서 가상 머신 유지관리](../../maintenance-and-updates.md) 문서를 참조하세요.
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>1세대 및 2세대 가상 머신
-Microsoft의 하이퍼바이저는 2세대의 가상 머신을 처리할 수 있습니다. 이런 형식을 **1세대**와 **2세대**라고 합니다. **2세대**는 2012년에 Windows Server 2012 하이퍼바이저와 함께 도입되었습니다. Azure는 1세대 가상 머신을 사용하는 것으로 시작했습니다. Azure 가상 머신을 배포할 때의 기본값은 1세대 형식을 사용하는 것이지만 2세대 VM 형식도 배포할 수 있습니다. [Azure의 2세대 VM 지원](../../generation-2.md) 문서에는 2세대 VM으로 배포할 수 있는 Azure VM 제품군이 나와 있습니다. 이 문서에는 Hyper-v 사설 클라우드 및 Azure에서 실행할 수 있는 2 세대 가상 컴퓨터의 중요 한 기능 차이가 나와 있습니다. 특히, Azure에서 실행될 때 1세대 가상 머신과 2세대 가상 머신의 기능적 차이도 설명합니다.
+Microsoft의 하이퍼바이저는 2세대의 가상 머신을 처리할 수 있습니다. 이런 형식을 **1세대** 와 **2세대** 라고 합니다. **2세대** 는 2012년에 Windows Server 2012 하이퍼바이저와 함께 도입되었습니다. Azure는 1세대 가상 머신을 사용하는 것으로 시작했습니다. Azure 가상 머신을 배포할 때의 기본값은 1세대 형식을 사용하는 것이지만 2세대 VM 형식도 배포할 수 있습니다. [Azure의 2세대 VM 지원](../../generation-2.md) 문서에는 2세대 VM으로 배포할 수 있는 Azure VM 제품군이 나와 있습니다. 이 문서에는 Hyper-v 사설 클라우드 및 Azure에서 실행할 수 있는 2 세대 가상 컴퓨터의 중요 한 기능 차이가 나와 있습니다. 특히, Azure에서 실행될 때 1세대 가상 머신과 2세대 가상 머신의 기능적 차이도 설명합니다.
 
 > [!NOTE]
 > Azure에서 실행되는 1세대 및 2세대 VM은 기능적 차이가 있습니다. [Azure의 2세대 VM 지원](../../generation-2.md) 문서에서 이러한 차이의 목록을 참조하세요.
@@ -882,22 +882,22 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 
 **PowerShell**
 
-* *Connect-AzAccount*를 사용하여 구독에 로그인
+* *Connect-AzAccount* 를 사용하여 구독에 로그인
 * *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext> 참조
-* *Add-AzVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd> 참조
-* (선택 사항) *New-AzDisk*를 사용하여 VHD에서 관리 디스크 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk> 참조
-* *Set-AzVMOSDisk*를 사용하여 새 VM 구성의 OS 디스크를 VHD 또는 관리 디스크로 설정 - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
-* *New-AzVM*을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm> 참조
-* *Add-AzVMDataDisk*를 사용하여 새 VM에 데이터 디스크 추가 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk> 참조
+* *Add-AzVhd* 를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd> 참조
+* (선택 사항) *New-AzDisk* 를 사용하여 VHD에서 관리 디스크 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk> 참조
+* *Set-AzVMOSDisk* 를 사용하여 새 VM 구성의 OS 디스크를 VHD 또는 관리 디스크로 설정 - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
+* *New-AzVM* 을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm> 참조
+* *Add-AzVMDataDisk* 를 사용하여 새 VM에 데이터 디스크 추가 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk> 참조
 
 **Azure CLI**
 
-* *az login*을 사용하여 구독에 로그인
+* *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
-* *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk 참조
-* *az vm create* 및 매개 변수 *--attach-os-disk*를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
-* *az vm disk attach* 및 매개 변수 *--new*를 사용하여 새 VM에 데이터 디스크 추가
+* *az storage blob upload* 를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
+* (선택 사항) *az disk create* 를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk 참조
+* *az vm create* 및 매개 변수 *--attach-os-disk* 를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
+* *az vm disk attach* 및 매개 변수 *--new* 를 사용하여 새 VM에 데이터 디스크 추가
 
 **템플릿**
 
@@ -908,28 +908,28 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 #### <a name="deployment-of-a-vm-image"></a>VM 이미지 배포
 Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 기존 VM 또는 VHD를 업로드하려면 이러한 VM 또는 VHD가 이 문서의 [SAP용 고객별 이미지를 사용하여 VM 배포 준비][planning-guide-5.2.2] 챕터에서 나열한 요구 사항을 충족해야 합니다.
 
-* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
-* *Connect-AzAccount*를 사용하여 구독에 로그인
+* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
+* *Connect-AzAccount* 를 사용하여 구독에 로그인
 * *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext> 참조
-* *Add-AzVhd*를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd> 참조
-* (선택 사항) *New-AzImage*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage> 참조
+* *Add-AzVhd* 를 사용하여 Azure Storage 계정에 VHD 업로드 - <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd> 참조
+* (선택 사항) *New-AzImage* 를 사용하여 VHD에서 관리 디스크 이미지 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage> 참조
 * 새 VM 구성의 OS 디스크를
-  * VHD로 설정(*Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
-  * 관리 디스크 이미지로 설정(*Set-AzVMSourceImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage> 참조
-* *New-AzVM*을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm> 참조
+  * VHD로 설정( *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk> 참조
+  * 관리 디스크 이미지로 설정( *Set-AzVMSourceImage* 사용) - <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage> 참조
+* *New-AzVM* 을 사용하여 VM 구성에서 새 VM 만들기 - <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm> 참조
 
 **Azure CLI**
 
-* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
-* *az login*을 사용하여 구독에 로그인
+* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
+* *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
-* *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image 참조
-* *az vm create* 및 매개 변수 *--image*를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
+* *az storage blob upload* 를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
+* (선택 사항) *az image create* 를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image 참조
+* *az vm create* 및 매개 변수 *--image* 를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**
 
-* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
+* Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * PowerShell 또는 Azure CLI를 사용하여 VHD 업로드
 * (선택 사항) PowerShell, Azure CLI 또는 Azure Portal을 사용하여 VHD에서 관리 디스크 이미지 만들기
 * [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)에 표시된 대로 이미지 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크 이미지를 사용하여 VM 배포
@@ -1007,7 +1007,7 @@ New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk 
 
 ##### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 VHD를 복사할 수 있습니다. 새 관리 디스크를 만들려면 다음 예제에 나와 있는 것처럼 *az disk create*를 사용합니다.
+Azure CLI를 사용하여 VHD를 복사할 수 있습니다. 새 관리 디스크를 만들려면 다음 예제에 나와 있는 것처럼 *az disk create* 를 사용합니다.
 
 ```azurecli
 az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --name <disk name> --resource-group <resource group name> --location <location>
@@ -1076,8 +1076,8 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 
 PS cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
-* *New-AzStorageContext*를 사용하여 **원본** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext> 참조
-* *New-AzStorageContext*를 사용하여 **대상** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext> 참조
+* *New-AzStorageContext* 를 사용하여 **원본** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext> 참조
+* *New-AzStorageContext* 를 사용하여 **대상** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext> 참조
 * 복사 시작
 
 ```powershell
@@ -1178,7 +1178,7 @@ OS를 포함 하는 디스크와 SAP 및 데이터베이스 (기본 VM)의 이�
 
 대부분의 시나리오에서는 VM으로 SAP 데이터베이스를 배포하기 위해 추가 디스크를 만들 필요가 있습니다. 이 문서의 [SAP 배포를 위한 VM/디스크 구조][planning-guide-5.5.1] 챕터에서 디스크 수에 대한 고려 사항을 설명했습니다. Azure Portal을 사용하면 기본 VM을 배포한 후 디스크를 연결 및 분리할 수 있습니다. VM이 가동 및 실행 중일 때와 중지될 때 디스크를 연결/분리할 수 있습니다. 디스크를 연결할 때 Azure Portal은 빈 디스크 또는 기존 디스크(이 시점에 다른 VM에 연결되지 않은)에 연결할 수 있도록 합니다.
 
-**참고**: 디스크는 언제나 한 번에 하나의 VM에만 연결할 수 있습니다.
+**참고** : 디스크는 언제나 한 번에 하나의 VM에만 연결할 수 있습니다.
 
 ![Azure Standard Storage에서 디스크 연결/분리][planning-guide-figure-1400]
 
@@ -1186,7 +1186,7 @@ OS를 포함 하는 디스크와 SAP 및 데이터베이스 (기본 VM)의 이�
 
 다음으로는 비어 있는 새 디스크를 만들지 아니면 이전에 업로드되었으며 이제 VM에 연결해야 하는 기존 디스크를 선택할지를 결정해야 합니다.
 
-**중요**: Azure Standard Storage에서 호스트 캐싱을 사용하지 **않도록** 합니다. 호스트 캐시 기본 설정을 기본값인 NONE으로 유지해야 합니다. Azure Premium Storage를 사용하는 경우 I/O 특성이 데이터베이스 데이터 파일에 대한 일반적인 I/O 트래픽으로 해석되는 경우 읽기 캐싱을 사용하도록 설정해야 합니다. 데이터베이스 트랜잭션 로그 파일의 경우 캐싱 없음이 권장됩니다.
+**중요** : Azure Standard Storage에서 호스트 캐싱을 사용하지 **않도록** 합니다. 호스트 캐시 기본 설정을 기본값인 NONE으로 유지해야 합니다. Azure Premium Storage를 사용하는 경우 I/O 특성이 데이터베이스 데이터 파일에 대한 일반적인 I/O 트래픽으로 해석되는 경우 읽기 캐싱을 사용하도록 설정해야 합니다. 데이터베이스 트랜잭션 로그 파일의 경우 캐싱 없음이 권장됩니다.
 
 ---
 > ![Windows 로고.][Logo_Windows] Windows
@@ -1269,13 +1269,13 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 > 기본적으로 Azure 배포 VM 내의 Windows 방화벽은 켜져 있습니다. 이제 SAP 포트가 열리도록 허용해야 하며 그러지 않으면 SAP GUI에 연결할 수 없게 됩니다.
 > 다음을 수행합니다.
 >
-> * 제어판\시스템 및 보안\Windows 방화벽의 **고급 설정**을 엽니다.
-> * 인바운드 규칙을 마우스 오른쪽 단추로 클릭하고 **새 규칙**을 선택합니다.
+> * 제어판\시스템 및 보안\Windows 방화벽의 **고급 설정** 을 엽니다.
+> * 인바운드 규칙을 마우스 오른쪽 단추로 클릭하고 **새 규칙** 을 선택합니다.
 > * 다음 마법사에서 새 **포트** 규칙을 만들도록 선택합니다.
 > * 마법사의 다음 단계에서 TCP의 설정을 그대로 두고 열려는 포트 번호를 입력합니다. 여기서 SAP 인스턴스 ID는 00이므로 3200을 사용했습니다. 인스턴스의 인스턴스 번호가 다른 경우 이전에 해당 인스턴스 번호를 기준으로 정의한 포트가 열립니다.
 > * 마법사의 다음 부분에서는 **연결 허용** 항목을 선택된 상태로 두어야 합니다.
 > * 마법사의 다음 단계에서는 해당 규칙이 도메인, 프라이빗 및 공용 네트워크에 적용될지 여부를 정의해야 합니다. 필요한 경우 필요에 따라 조정 합니다. 그러나 공용 네트워크를 통해 외부에서 SAP GUI에 연결하는 경우 해당 규칙을 공용 네트워크에 적용해야 합니다.
-> * 마법사의 마지막 단계에서 규칙 이름을 지정하고 **마침**을 눌러 규칙을 저장합니다.
+> * 마법사의 마지막 단계에서 규칙 이름을 지정하고 **마침** 을 눌러 규칙을 저장합니다.
 >
 > 규칙은 즉시 적용됩니다.
 >
@@ -1427,7 +1427,7 @@ Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -
 
 ##### <a name="cli"></a>CLI
 
-다음 코드 예제는 Linux에서 사용할 수 있습니다. Windows의 경우 위에서 설명한 것처럼 PowerShell을 사용하거나, 예제를 조정하여 $rgName 대신 %rgName%을 사용하고 Windows 명령 *set*를 사용하여 환경 변수를 설정합니다.
+다음 코드 예제는 Linux에서 사용할 수 있습니다. Windows의 경우 위에서 설명한 것처럼 PowerShell을 사용하거나, 예제를 조정하여 $rgName 대신 %rgName%을 사용하고 Windows 명령 *set* 를 사용하여 환경 변수를 설정합니다.
 
 * 모든 학습/데모 환경에 대한 새 리소스 그룹 만들기
 

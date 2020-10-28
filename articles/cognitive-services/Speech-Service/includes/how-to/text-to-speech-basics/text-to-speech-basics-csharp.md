@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e2631332be1ea2a9e63755ea53897ba0d7813ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fa1571721653b9a3829a91bb5659f0b8216e0037
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332516"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471012"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -64,7 +64,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만듭니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
+이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
 ```csharp
 public class Program 
@@ -198,7 +198,7 @@ SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변
 다음으로, XML 파일을 참조하도록 음성 합성 요청을 변경해야 합니다. 요청은 대부분 동일하지만 `SpeakTextAsync()` 함수를 사용하는 대신 `SpeakSsmlAsync()`를 사용합니다. 이 함수에는 XML 문자열이 필요하므로 먼저 `File.ReadAllText()`를 사용하여 SSML 구성을 문자열로 로드합니다. 여기서 결과 개체는 이전 예제와 정확히 동일합니다.
 
 > [!NOTE]
-> Visual Studio를 사용하는 경우 빌드 구성에서 기본적으로 XML 파일을 찾지 못할 수 있습니다. 이 문제를 해결하려면 마우스 오른쪽 단추로 XML 파일을 클릭하고, **속성**을 선택합니다. **빌드 작업**을*콘텐츠*로 변경하고, **출력 디렉터리에 복사**를 *항상 복사*로 변경합니다.
+> Visual Studio를 사용하는 경우 빌드 구성에서 기본적으로 XML 파일을 찾지 못할 수 있습니다. 이 문제를 해결하려면 마우스 오른쪽 단추로 XML 파일을 클릭하고, **속성** 을 선택합니다. **빌드 작업** 을 *콘텐츠* 로 변경하고, **출력 디렉터리에 복사** 를 *항상 복사* 로 변경합니다.
 
 ```csharp
 public static async Task SynthesizeAudioAsync() 
@@ -214,7 +214,7 @@ public static async Task SynthesizeAudioAsync()
 }
 ```
 
-출력은 작동하지만, 더 자연스럽게 들릴 수 있도록 간단히 변경할 몇 가지 추가 항목이 있습니다. 전반적인 말하기 속도가 너무 빠르므로 `<prosody>` 태그를 추가하고 속도를 기본 속도의 **90%** 로 줄입니다. 또한 문장에서 쉼표 뒤의 일시 중지는 너무 짧고 부자연스러운 소리입니다. 이 문제를 해결하려면 `<break>` 태그를 추가하여 음성을 지연시키고 시간 매개 변수를 **200ms**로 설정합니다. 합성을 다시 실행하여 이러한 사용자 지정이 출력에 미치는 영향을 확인합니다.
+출력은 작동하지만, 더 자연스럽게 들릴 수 있도록 간단히 변경할 몇 가지 추가 항목이 있습니다. 전반적인 말하기 속도가 너무 빠르므로 `<prosody>` 태그를 추가하고 속도를 기본 속도의 **90%** 로 줄입니다. 또한 문장에서 쉼표 뒤의 일시 중지는 너무 짧고 부자연스러운 소리입니다. 이 문제를 해결하려면 `<break>` 태그를 추가하여 음성을 지연시키고 시간 매개 변수를 **200ms** 로 설정합니다. 합성을 다시 실행하여 이러한 사용자 지정이 출력에 미치는 영향을 확인합니다.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -233,7 +233,7 @@ public static async Task SynthesizeAudioAsync()
 인공신경망 음성으로 전환하려면 `name`을 [인공신경망 음성 옵션](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) 중 하나로 변경합니다. 그런 다음, `mstts`에 대한 XML 네임스페이스를 추가하고, `<mstts:express-as>` 태그에서 텍스트를 래핑합니다. `style` 매개 변수를 사용하여 말하기 스타일을 사용자 지정합니다. 다음 예제에서는 `cheerful`을 사용하지만, 말하기 스타일의 차이를 확인하려면 `customerservice` 또는 `chat`으로 설정해 보세요.
 
 > [!IMPORTANT]
-> 인공신경망 음성은 *미국 동부*, *동남아시아*, *서유럽* 지역에서 만든 **음성 리소스에 대해서만** 지원됩니다.
+> 인공신경망 음성은 *미국 동부* , *동남아시아* , *서유럽* 지역에서 만든 **음성 리소스에 대해서만** 지원됩니다.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

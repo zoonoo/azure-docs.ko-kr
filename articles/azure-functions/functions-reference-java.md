@@ -3,13 +3,13 @@ title: Azure Functions에 대한 Java 개발자 참조
 description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519625"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736702"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -45,7 +45,7 @@ Java 함수를 보다 쉽게 만들 수 있도록 특정 함수 트리거를 사
 
 ### <a name="project-scaffolding"></a>프로젝트 스캐폴딩
 
-터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 가장 간단한 방법은 `Apache Maven` 아키타입을 사용하는 것입니다. Azure Functions의 Java Maven 아키타입은 다음 _groupId_:_artifactId_로 게시됩니다. [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 가장 간단한 방법은 `Apache Maven` 아키타입을 사용하는 것입니다. Azure Functions의 Java Maven 아키타입은 다음 _groupId_ : _artifactId_ 로 게시됩니다. [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 다음 명령은 이 아키타입을 사용하여 새 Java 함수 프로젝트를 생성합니다.
 
@@ -153,7 +153,7 @@ Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 
 
 Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
 
-| 요소 |  Java 8 값 | Java 11 값 | 설명 |
+| 요소 |  Java 8 값 | Java 11 값 | Description |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Maven-플러그 인에서 사용 하는 Java 버전입니다. |
 | **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트 하는 Java 버전입니다. |

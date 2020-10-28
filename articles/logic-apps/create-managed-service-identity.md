@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: bb146f03000f17d94d3d2ffc93b55c42eea20dac
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371480"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736408"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -63,12 +63,12 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 
 1. [Azure Portal](https://portal.azure.com)의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱 메뉴의 **설정**에서 **ID**를 선택합니다. **시스템 할당 항목** > **켜기** > **저장**을 차례로 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+1. 논리 앱 메뉴의 **설정** 에서 **ID** 를 선택합니다. **시스템 할당 항목** > **켜기** > **저장** 을 차례로 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
    ![시스템이 할당한 ID 사용](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
    > [!NOTE]
-   > 하나의 관리 ID만 있을 수 있다는 오류가 표시되면 논리 앱이 이미 사용자가 할당한 ID와 연결되어 있습니다. 시스템이 할당한 ID를 추가하려면 먼저 논리 앱에서 사용자가 할당한 ID를 *제거*해야 합니다.
+   > 하나의 관리 ID만 있을 수 있다는 오류가 표시되면 논리 앱이 이미 사용자가 할당한 ID와 연결되어 있습니다. 시스템이 할당한 ID를 추가하려면 먼저 논리 앱에서 사용자가 할당한 ID를 *제거* 해야 합니다.
 
    이제 논리 앱에서 시스템이 할당한 ID를 사용할 수 있습니다. ID는 Azure Active Directory에 등록되도 개체 ID로 표시됩니다.
 
@@ -148,35 +148,35 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 #### <a name="create-user-assigned-identity-in-the-azure-portal"></a>Azure Portal에서 사용자가 할당한 ID 만들기
 
-1. [Azure Portal](https://portal.azure.com)의 모든 페이지에 있는 검색 상자에서 `managed identities`를 입력하고 **관리 ID**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 모든 페이지에 있는 검색 상자에서 `managed identities`를 입력하고 **관리 ID** 를 선택합니다.
 
    !["관리 ID" 찾기 및 선택](./media/create-managed-service-identity/find-select-managed-identities.png)
 
-1. **관리 ID** 아래에서 **추가**를 선택합니다.
+1. **관리 ID** 아래에서 **추가** 를 선택합니다.
 
    ![새 관리 ID 추가](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. 관리 ID에 대한 정보를 제공한 다음, **만들기**를 선택합니다. 예를 들어 다음과 같습니다.
+1. 관리 id에 대 한 정보를 제공 하 고 **검토 + 만들기** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![사용자가 할당한 관리 ID 만들기](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **리소스 이름** | 예 | <*user-assigned-identity-name*> | 사용자가 할당한 ID를 제공하는 이름입니다. 이 예에서는 "Fabrikam-user-assigned-identity"를 사용합니다. |
    | **구독** | 예 | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
-   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예에서는 "fabrikam-managed-identities-RG"라는 새 그룹을 만듭니다. |
-   | **위치** | 예 | <*Azure-region*> | 리소스에 대한 정보를 저장할 Azure 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
+   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예에서는 라는 새 그룹을 만듭니다 `fabrikam-managed-identities-RG` . |
+   | **지역** | 예 | <*Azure-region*> | 리소스에 대한 정보를 저장할 Azure 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
+   | **이름** | 예 | <*user-assigned-identity-name*> | 사용자가 할당한 ID를 제공하는 이름입니다. 이 예에서는 `Fabrikam-user-assigned-identity`를 사용합니다. |
    |||||
 
-   이제 사용자가 할당한 ID를 논리 앱에 추가할 수 있습니다. 사용자가 할당한 ID를 둘 이상 논리 앱에 추가할 수 없습니다.
+   이러한 세부 정보를 확인 한 후 Azure에서 관리 id를 만듭니다. 이제 사용자가 할당한 ID를 논리 앱에 추가할 수 있습니다. 사용자가 할당한 ID를 둘 이상 논리 앱에 추가할 수 없습니다.
 
 1. Azure Portal의 Logic Apps 디자이너에서 논리 앱을 찾아서 엽니다.
 
-1. 논리 앱 메뉴의 **설정** 아래에서 **ID**를 선택한 다음, **사용자 할당 항목** > **추가**를 차례로 선택합니다.
+1. 논리 앱 메뉴의 **설정** 아래에서 **ID** 를 선택한 다음, **사용자 할당 항목** > **추가** 를 차례로 선택합니다.
 
    ![사용자가 할당한 관리 ID 추가](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
-1. 아직 선택하지 않은 경우 **사용자가 할당한 관리 ID 추가** 창의 **구독** 목록에서 Azure 구독을 선택합니다. 해당 구독의 *모든* 관리 ID를 표시하는 목록에서 원하는 사용자가 할당한 ID를 선택합니다. 목록을 필터링하려면 **사용자가 할당한 관리 ID** 검색 상자에서 ID 또는 리소스 그룹의 이름을 입력합니다. 완료되면 **추가**를 선택합니다.
+1. 아직 선택하지 않은 경우 **사용자가 할당한 관리 ID 추가** 창의 **구독** 목록에서 Azure 구독을 선택합니다. 해당 구독의 *모든* 관리 ID를 표시하는 목록에서 원하는 사용자가 할당한 ID를 선택합니다. 목록을 필터링하려면 **사용자가 할당한 관리 ID** 검색 상자에서 ID 또는 리소스 그룹의 이름을 입력합니다. 완료되면 **추가** 를 선택합니다.
 
    ![사용할 사용자가 할당한 ID 선택](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
@@ -287,7 +287,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 * [Azure Portal](#azure-portal-assign-access)
 * [Azure Resource Manager 템플릿](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - 자세한 내용은 [Azure RBAC 및 Azure PowerShell을 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
-* Azure CLI([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
+* Azure CLI([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -296,16 +296,16 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 1. [Azure Portal](https://portal.azure.com)에서 관리 ID를 사용하여 액세스하려는 Azure 리소스로 이동합니다.
 
-1. 리소스의 메뉴에서 **액세스 제어(IAM)**  > **역할 할당**을 차례로 선택하면 해당 리소스에 대한 현재 역할 할당을 검토할 수 있습니다. 도구 모음에서 **추가** > **역할 할당 추가**를 차례로 선택합니다.
+1. 리소스의 메뉴에서 **액세스 제어(IAM)**  > **역할 할당** 을 차례로 선택하면 해당 리소스에 대한 현재 역할 할당을 검토할 수 있습니다. 도구 모음에서 **추가** > **역할 할당 추가** 를 차례로 선택합니다.
 
    !["추가" > "역할 할당 추가" 선택](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
    > **역할 할당 추가** 옵션을 사용하지 않도록 설정되면 대부분 권한이 없을 가능성이 높습니다. 리소스에 대한 역할을 관리할 수 있는 권한에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
-1. **역할 할당 추가** 아래에서 대상 리소스에 대한 필수 액세스 권한을 ID에 부여하는 **역할**을 선택합니다.
+1. **역할 할당 추가** 아래에서 대상 리소스에 대한 필수 액세스 권한을 ID에 부여하는 **역할** 을 선택합니다.
 
-   이 항목의 예에서는 ID에 [Azure Storage 컨테이너의 Blob에 액세스할 수 있는 역할](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다.
+   이 항목의 예에서는 id에 [Azure Storage 컨테이너의 blob에 액세스할 수 있는 역할이](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)필요 하므로 관리 되는 id에 대 한 **저장소 blob 데이터 참가자** 역할을 선택 합니다.
 
    !["Storage Blob 데이터 기여자" 역할 선택](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -313,7 +313,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
    * **시스템이 할당한 ID**
 
-     1. **다음에 대한 액세스 할당** 상자에서 **Logic App**을 선택합니다. **구독** 속성이 표시되면 ID와 연결된 Azure 구독을 선택합니다.
+     1. **다음에 대한 액세스 할당** 상자에서 **Logic App** 을 선택합니다. **구독** 속성이 표시되면 ID와 연결된 Azure 구독을 선택합니다.
 
         ![시스템이 할당한 ID에 대한 액세스 선택](./media/create-managed-service-identity/assign-access-system.png)
 
@@ -323,7 +323,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
    * **사용자가 할당한 ID**
 
-     1. **다음에 대한 액세스 할당** 상자에서 **사용자가 할당한 관리 ID**를 선택합니다. **구독** 속성이 표시되면 ID와 연결된 Azure 구독을 선택합니다.
+     1. **다음에 대한 액세스 할당** 상자에서 **사용자가 할당한 관리 ID** 를 선택합니다. **구독** 속성이 표시되면 ID와 연결된 Azure 구독을 선택합니다.
 
         ![사용자가 할당한 ID에 대한 액세스 선택](./media/create-managed-service-identity/assign-access-user.png)
 
@@ -331,7 +331,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
         ![사용자가 할당한 ID 선택](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
-1. 완료되면 **저장**을 선택합니다.
+1. 완료되면 **저장** 을 선택합니다.
 
    이제 대상 리소스의 역할 할당 목록에 선택한 관리 ID 및 역할이 표시됩니다. 이 예에서는 시스템이 할당한 ID를 한 논리 앱에 사용하고, 사용자가 할당한 ID를 다른 논리 앱 그룹에 사용하는 방법을 보여 줍니다.
 
@@ -378,28 +378,28 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
    |----------|----------|---------------|-------------|
    | **메서드** | 예 | `PUT`| Blob 스냅샷 작업에서 사용하는 HTTP 메서드 |
    | **URI** | 예 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | 이 구문을 사용하는 Azure 글로벌(퍼블릭) 환경의 Azure Blob Storage 파일에 대한 리소스 ID |
-   | **헤더** | 예(Azure Storage의 경우) | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Azure Storage 작업에 필요한 `x-ms-blob-type` 및 `x-ms-version` 헤더 값 <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **쿼리** | 예(이 작업의 경우) | `comp` = `snapshot` | Blob 스냅샷 작업에 대한 쿼리 매개 변수 이름 및 값 |
+   | **헤더** | Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | `x-ms-blob-type` `x-ms-version` `x-ms-date` Azure Storage 작업에는, 및 헤더 값이 필요 합니다. <p><p>**중요** : Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. 는 `x-ms-date` 현재 날짜 여야 합니다. 그렇지 않으면 논리 앱은 오류와 함께 실패 `403 FORBIDDEN` 합니다. 현재 날짜를 필수 형식으로 가져오려면 예제 값에 식을 사용할 수 있습니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **쿼리** | Snapshot Blob 작업에만 해당 | `comp` = `snapshot` | 작업에 대 한 쿼리 매개 변수 이름 및 값입니다. |
    |||||
 
    다음은 이러한 속성 값을 모두 보여 주는 HTTP 작업 예입니다.
 
    ![Azure 리소스에 액세스하기 위한 HTTP 작업 추가](./media/create-managed-service-identity/http-action-example.png)
 
-1. 이제 **인증** 속성을 HTTP 작업에 추가합니다. **새 매개 변수 추가** 목록에서 **인증**을 선택합니다.
+1. 이제 **인증** 속성을 HTTP 작업에 추가합니다. **새 매개 변수 추가** 목록에서 **인증** 을 선택합니다.
 
    ![HTTP 작업에 "인증" 속성 추가](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
    > 일부 트리거 및 작업만 인증 유형을 추가할 수 있도록 지원합니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요.
 
-1. **인증 유형** 목록에서 **관리 ID**를 선택합니다.
+1. **인증 유형** 목록에서 **관리 ID** 를 선택합니다.
 
    !["인증"에 대해 "관리 ID" 선택](./media/create-managed-service-identity/select-managed-identity.png)
 
 1. 관리 ID 목록에서 시나리오에 따라 사용 가능한 옵션 중에서 선택합니다.
 
-   * 시스템이 할당한 ID를 설정하는 경우 **시스템이 할당한 관리 ID**를 선택합니다(아직 선택하지 않은 경우).
+   * 시스템이 할당한 ID를 설정하는 경우 **시스템이 할당한 관리 ID** 를 선택합니다(아직 선택하지 않은 경우).
 
      !["시스템이 할당한 관리 ID" 선택](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
 
@@ -407,12 +407,12 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
      ![사용자가 할당한 ID 선택](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
 
-   이 예에서는 **시스템이 할당한 관리 ID**를 사용하여 계속 진행합니다.
+   이 예에서는 **시스템이 할당한 관리 ID** 를 사용하여 계속 진행합니다.
 
 1. 일부 트리거 및 작업에서는 대상 리소스 ID를 설정하기 위한 **대상 그룹** 속성도 표시됩니다. **대상 그룹** 속성을 [대상 리소스 또는 서비스에 대한 리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)로 설정합니다. 그렇지 않으면 **대상 그룹** 속성에서 기본적으로 Azure Resource Manager에 대한 리소스 ID인 `https://management.azure.com/` 리소스 ID를 사용합니다.
 
    > [!IMPORTANT]
-   > 대상 리소스 ID는 필수 후행 슬래시를 포함하여 Azure AD(Active Directory)에 필요한 값과 *정확히 일치*해야 합니다. 예를 들어 모든 Azure Blob Storage 계정에 대한 리소스 ID에는 후행 슬래시가 필요합니다. 그러나 특정 스토리지 계정에 대한 리소스 ID에는 후행 슬래시가 필요하지 않습니다. [Azure AD를 지원하는 Azure 서비스에 대한 리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 확인하세요.
+   > 대상 리소스 ID는 필수 후행 슬래시를 포함하여 Azure AD(Active Directory)에 필요한 값과 *정확히 일치* 해야 합니다. 예를 들어 모든 Azure Blob Storage 계정에 대한 리소스 ID에는 후행 슬래시가 필요합니다. 그러나 특정 스토리지 계정에 대한 리소스 ID에는 후행 슬래시가 필요하지 않습니다. [Azure AD를 지원하는 Azure 서비스에 대한 리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 확인하세요.
 
    다음 예에서는 인증에 사용되는 액세스 토큰이 모든 스토리지 계정에 유효하도록 **대상 그룹** 속성을 `https://storage.azure.com/`으로 설정합니다. 그러나 특정 스토리지 계정에 대한 루트 서비스 URL(`https://fabrikamstorageaccount.blob.core.windows.net`)도 지정할 수 있습니다.
 
@@ -457,9 +457,9 @@ Azure Portal에서 먼저 [대상 리소스](#disable-identity-target-resource)�
 
 1. [Azure Portal](https://portal.azure.com)에서 관리 ID에 대한 액세스를 제거하려는 대상 Azure 리소스로 이동합니다.
 
-1. 대상 리소스의 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 도구 모음 아래에서 **역할 할당**을 선택합니다.
+1. 대상 리소스의 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 도구 모음 아래에서 **역할 할당** 을 선택합니다.
 
-1. 역할 목록에서 제거하려는 관리 ID를 선택합니다. 도구 모음에서 **제거**를 선택합니다.
+1. 역할 목록에서 제거하려는 관리 ID를 선택합니다. 도구 모음에서 **제거** 를 선택합니다.
 
    > [!TIP]
    > **제거** 옵션을 사용하지 않도록 설정되면 대부분 권한이 없을 가능성이 높습니다. 리소스에 대한 역할을 관리할 수 있는 권한에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
@@ -472,13 +472,13 @@ Azure Portal에서 먼저 [대상 리소스](#disable-identity-target-resource)�
 
 1. [Azure Portal](https://portal.azure.com)의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱 메뉴의 **설정** 아래에서 **ID**를 선택한 다음, ID에 대한 단계를 수행합니다.
+1. 논리 앱 메뉴의 **설정** 아래에서 **ID** 를 선택한 다음, ID에 대한 단계를 수행합니다.
 
-   * **시스템 할당 항목** > **켜기** > **저장**을 차례로 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+   * **시스템 할당 항목** > **켜기** > **저장** 을 차례로 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
      ![시스템이 할당한 ID 사용 안 함](./media/create-managed-service-identity/disable-system-assigned-identity.png)
 
-   * **사용자 할당 항목** 및 관리 ID를 선택한 다음, **제거**를 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+   * **사용자 할당 항목** 및 관리 ID를 선택한 다음, **제거** 를 선택합니다. Azure에서 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
      ![사용자가 할당한 ID 제거](./media/create-managed-service-identity/remove-user-assigned-identity.png)
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81728810"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735939"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
 
@@ -52,7 +52,7 @@ Azure IoT Hub는 다음을 제공합니다.
 
 * [디바이스에서 파일 업로드](iot-hub-devguide-file-upload.md) - 디바이스에서 파일을 업로드하는 방법을 설명합니다. 이 문서에는 업로드 프로세스에서 보낼 수 있는 알림과 같은 항목에 대한 정보도 포함되어 있습니다.
 
-* [IoT Hub에서 디바이스 ID 관리](iot-hub-devguide-identity-registry.md) - 각 IoT Hub의 ID 레지스트리에 어떤 정보가 저장되는지 설명합니다. 또한 이러한 항목에 액세스하여 수정하는 방법도 설명합니다.
+* [IoT Hub에서 디바이스 ID 관리](iot-hub-devguide-identity-registry.md)에서는 각 IoT Hub의 ID 레지스트리에 어떤 정보가 저장되는지 설명합니다. 또한 이러한 항목에 액세스하여 수정하는 방법도 설명합니다.
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) - 디바이스 및 클라우드 구성 요소에 대한 IoT Hub 기능에 액세스 권한을 부여하는 데 사용되는 보안 모델을 설명합니다. 이 문서에서는 토큰 및 X.509 인증서 사용에 대한 정보와 부여할 수 있는 권한 정보를 포함합니다.
 

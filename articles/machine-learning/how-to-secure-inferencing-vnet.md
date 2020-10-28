@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735478"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -26,7 +26,7 @@ ms.locfileid: "92496029"
 
 이 시리즈의 다른 문서를 참조 하세요.
 
-[1. VNet 개요](how-to-network-security-overview.md)  >  [작업 영역 3을 보호](how-to-secure-workspace-vnet.md)  >  [합니다. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  **. 추론 환경 5를 보호**합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+[1. VNet 개요](how-to-network-security-overview.md)  >  [작업 영역 3을 보호](how-to-secure-workspace-vnet.md)  >  [합니다. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  **. 추론 환경 5를 보호** 합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
 이 문서에서는 가상 네트워크에서 다음 추론 리소스의 보안을 유지 하는 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ ms.locfileid: "92496029"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -64,11 +64,11 @@ ms.locfileid: "92496029"
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 로그인한 다음, 구독과 작업 영역을 선택합니다.
 
-1. 왼쪽에서 __Compute__를 선택합니다.
+1. 왼쪽에서 __Compute__ 를 선택합니다.
 
-1. 가운데에서 __유추 클러스터__를 선택한 다음, __+__ 를 선택합니다.
+1. 가운데에서 __유추 클러스터__ 를 선택한 다음, __+__ 를 선택합니다.
 
-1. __새 유추 클러스터__ 대화 상자에서 __네트워크 구성__ 아래 __고급__을 선택합니다.
+1. __새 유추 클러스터__ 대화 상자에서 __네트워크 구성__ 아래 __고급__ 을 선택합니다.
 
 1. 컴퓨팅 리소스가 가상 네트워크를 사용하도록 구성하려면 다음 작업을 수행합니다.
 
@@ -119,8 +119,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
 
-* __PRIVATE AKS cluster__:이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
-* __내부 AKS 부하 분산 장치__:이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
+* __PRIVATE AKS cluster__ :이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
+* __내부 AKS 부하 분산 장치__ :이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
 
 > [!WARNING]
 > 내부 부하 분산 장치는 kubenet를 사용 하는 AKS 클러스터에서 작동 하지 않습니다. 내부 부하 분산 장치 및 개인 AKS 클러스터를 동시에 사용 하려면 CNI (Azure Container 네트워킹 인터페이스)를 사용 하 여 개인 AKS 클러스터를 구성 합니다. 자세한 내용은 [Azure Kubernetes Service에서 azure CNI 네트워킹 구성](../aks/configure-azure-cni.md)을 참조 하세요.
@@ -138,7 +138,7 @@ AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법
 
 기본적으로 AKS 배포는 [공용 부하 분산 장치](../aks/load-balancer-standard.md)를 사용 합니다. 이 섹션에서는 내부 부하 분산 장치를 사용 하도록 AKS를 구성 하는 방법에 대해 알아봅니다. 내부 (또는 개인) 부하 분산 장치는 개인 Ip만 프런트 엔드로 허용 되는 경우에 사용 됩니다. 내부 부하 분산 장치는 가상 네트워크 내에서 트래픽 부하를 분산 하는 데 사용 됩니다.
 
-_내부 부하 분산_장치를 사용 하도록 AKS를 구성 하 여 전용 부하 분산 장치를 사용 하도록 설정 합니다. 
+_내부 부하 분산_ 장치를 사용 하도록 AKS를 구성 하 여 전용 부하 분산 장치를 사용 하도록 설정 합니다. 
 
 #### <a name="network-contributor-role"></a>네트워크 참가자 역할
 
@@ -147,7 +147,7 @@ _내부 부하 분산_장치를 사용 하도록 AKS를 구성 하 여 전용 �
 >
 > 네트워크 참가자로 id를 추가 하려면 다음 단계를 사용 합니다.
 
-1. AKS에 대 한 서비스 주체 또는 관리 id ID를 찾으려면 다음 Azure CLI 명령을 사용 합니다. `<aks-cluster-name>`을 클러스터의 이름으로 바꿉니다. `<resource-group-name>`을 _AKS 클러스터를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+1. AKS에 대 한 서비스 주체 또는 관리 id ID를 찾으려면 다음 Azure CLI 명령을 사용 합니다. `<aks-cluster-name>`을 클러스터의 이름으로 바꿉니다. `<resource-group-name>`을 _AKS 클러스터를 포함_ 하는 리소스 그룹의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -159,7 +159,7 @@ _내부 부하 분산_장치를 사용 하도록 AKS를 구성 하 여 전용 �
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. 가상 네트워크를 포함 하는 리소스 그룹의 ID를 찾으려면 다음 명령을 사용 합니다. `<resource-group-name>`을 _가상 네트워크를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+1. 가상 네트워크를 포함 하는 리소스 그룹의 ID를 찾으려면 다음 명령을 사용 합니다. `<resource-group-name>`을 _가상 네트워크를 포함_ 하는 리소스 그룹의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -244,7 +244,7 @@ aks_target.wait_for_completion(show_output = True)
 
 ## <a name="enable-azure-container-instances-aci"></a>Azure Container Instances 사용 (ACI)
 
-Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__을 활성화해야 합니다.
+Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__ 을 활성화해야 합니다.
 
 > [!WARNING]
 > 가상 네트워크에서 Azure Container Instances를 사용 하는 경우 가상 네트워크가 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있어야 합니다.

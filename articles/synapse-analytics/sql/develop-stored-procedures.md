@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279073"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737850"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Synapse SQL의 저장 프로시저 사용
 
@@ -24,6 +24,9 @@ ms.locfileid: "92279073"
 ## <a name="what-to-expect"></a>필요한 항목
 
 Synapse SQL은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
+
+> [!NOTE]
+> 프로시저 본문에서 Synapse SQL 노출 영역에서 지원 되는 기능만 사용할 수 있습니다. 저장 프로시저에서 사용할 수 있는 개체를 식별 하려면 [이 문서](overview-features.md) 를 검토 하세요. 이 문서의 예제에서는 서버 리스 및 프로 비전 된 노출 영역 둘 다에서 사용할 수 있는 일반 기능을 사용 했습니다.
 
 SQL 풀의 규모와 성능을 유지 하기 위해 동작 차이가 있는 일부 기능과 기능이 지원 되지 않습니다.
 

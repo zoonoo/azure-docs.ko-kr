@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: f983c0f5fc951376246fdbed9869211c8b495402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: d275a7ca97ac26257a83ad696df780669a00646e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977953"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737722"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
@@ -61,7 +61,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. 나중에 디스크를 암호화할 때 사용하기 위해 반환되는 **자격 증명 모음 이름**, **리소스 그룹 이름**, **리소스 ID**, **자격 증명 모음 URI** 및 **개체 ID**를 적어 둡니다. 
+4. 나중에 디스크를 암호화할 때 사용하기 위해 반환되는 **자격 증명 모음 이름** , **리소스 그룹 이름** , **리소스 ID** , **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a> Azure CLI를 사용하여 키 자격 증명 모음 만들기
@@ -80,14 +80,14 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. 나중에 사용하기 위해 반환되는 **자격 증명 모음 이름**(name), **리소스 그룹 이름**, **리소스 ID**(ID), **자격 증명 모음 URI** 및 **개체 ID**를 적어 둡니다. 
+4. 나중에 사용하기 위해 반환되는 **자격 증명 모음 이름** (name), **리소스 그룹 이름** , **리소스 ID** (ID), **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a> Resource Manager 템플릿을 사용하여 키 자격 증명 모음 만들기
 
 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만들 수 있습니다.
 
-1. Azure 빠른 시작 템플릿에서 **Azure에 배포**를 클릭합니다.
-2. 구독, 리소스 그룹, 리소스 그룹 위치, Key Vault 이름, 개체 ID, 약관 및 규약을 선택한 다음, **구매**를 클릭합니다. 
+1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
+2. 구독, 리소스 그룹, 리소스 그룹 위치, Key Vault 이름, 개체 ID, 약관 및 규약을 선택 하 고 **구매** 를 클릭 합니다. 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a> Azure AD 응용 프로그램 및 서비스 주체 설정 
@@ -161,11 +161,11 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a> 포털을 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
 
 1. 키 자격 증명 모음을 사용하여 리소스 그룹을 엽니다.
-2. 키 자격 증명 모음을 선택하고, **액세스 정책**으로 이동한 다음, **새로 추가**를 클릭합니다.
+2. 키 자격 증명 모음을 선택하고, **액세스 정책** 으로 이동한 다음, **새로 추가** 를 클릭합니다.
 3. **보안 주체 선택** 아래에서 만든 Azure AD 애플리케이션을 검색하여 선택합니다. 
-4. **키 권한**에 대해 **암호화 작업** 아래에서 **키 래핑**을 선택합니다.
-5. **비밀 권한**에 대해 **비밀 관리 작업** 아래에서 **설정**을 선택합니다.
-6. **확인**을 클릭하여 액세스 정책을 저장합니다. 
+4. **키 권한** 에 대해 **암호화 작업** 아래에서 **키 래핑** 을 선택합니다.
+5. **비밀 권한** 에 대해 **비밀 관리 작업** 아래에서 **설정** 을 선택합니다.
+6. **확인** 을 클릭하여 액세스 정책을 저장합니다. 
 
 ![Azure Key Vault 암호화 작업 - 키 래핑](../media/disk-encryption/keyvault-portal-fig3.png)
 
@@ -175,7 +175,7 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vault의 암호화 키 또는 비밀에 액세스해야 합니다. 키 자격 증명 모음에서 디스크 암호화를 사용하도록 설정하지 않으면 배포가 실패합니다.  
 
 ### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a> Azure PowerShell을 사용하여 키 자격 증명 모음에 대한 고급 액세스 정책 설정
- Key vault PowerShell cmdlet [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) 을 사용 하 여 키 자격 증명 모음에 대 한 디스크 암호화를 사용 하도록 설정 합니다.
+ [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) 키 자격 증명 모음 PowerShell cmdlet을 사용하여 키 자격 증명 모음에 대한 디스크 암호화를 사용하도록 설정합니다.
 
   - **디스크 암호화에 Key Vault 사용:** Azure Disk Encryption에 EnabledForDiskEncryption이 필요합니다.
       
@@ -217,16 +217,16 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a> Azure Portal을 통해 키 자격 증명 모음에 대한 고급 액세스 정책 설정
 
-1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
-2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
-3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **Save**을 클릭합니다.
+1. 키 자격 증명 모음을 선택하고, **액세스 정책** , **클릭하여 고급 액세스 정책 표시** 로 차례로 이동합니다.
+2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용** 이라는 레이블이 있는 상자를 선택합니다.
+3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 을 선택합니다. 
+4. **저장** 을 클릭합니다.
 
 ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](../media/disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="set-up-a-key-encryption-key-optional"></a>주요 암호화 키 설정(선택 사항)
-암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용 하 여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/keys/hsm-protected-keys.md)를 참조 하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 
+암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용 하 여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/keys/hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 
 
 * 키를 생성할 때 RSA 키 유형을 사용 합니다. Azure Disk Encryption은 아직 타원 Curve 키 사용을 지원 하지 않습니다.
 

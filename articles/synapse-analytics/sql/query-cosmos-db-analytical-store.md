@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670704"
+ms.locfileid: "92737836"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
 
-Synapse 서버를 사용 하지 않는 SQL 풀 (이전에는 SQL 요청 시)을 사용 하 여 트랜잭션 워크 로드의 성능에 영향을 주지 않고 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 거의 실시간으로 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
+Synapse 서버 리스 SQL 풀을 사용 하면 트랜잭션 워크 로드의 성능에 영향을 주지 않고 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 거의 실시간으로 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
 Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
 이 문서에서는 Synapse 링크를 사용 하는 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 배웁니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
 > [!IMPORTANT]
-> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation) 와 함께 컨테이너를 사용 하 여 나중에 지원 되는 쿼리 환경을 제공 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 될 임시 동작입니다. `OPENROWSET`쿼리 experinece 변경 되 고 잘 정의 된 스키마를 사용 하 여 정렬 될 수 있으므로 공개 미리 보기 중에 함수에서 제공 하는 스키마에 의존 하지 마십시오. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
+> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 될 임시 동작입니다. `OPENROWSET` `WITH` 쿼리 환경이 변경 되 고 잘 정의 된 스키마에 맞게 정렬 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절이 없는 함수의 결과 집합 스키마를 사용 하지 마세요. 의견을 제공 하려면 [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 또는 contact [synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 의견을 게시 하세요.
 
 ## <a name="overview"></a>개요
 
@@ -76,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-위의 예에서는 서버를 사용 하지 않는 SQL 풀에서 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 합니다. 그러면 `EcdcCases` 지역에서 컨테이너의 분석 저장소에 액세스 하 게 `West US 2` 됩니다. 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다.
+위의 예에서는 서버를 사용 하지 않는 SQL 풀에서 `covid` `MyCosmosDbAccount` Azure Cosmos DB 키 (위 예제의 더미)를 사용 하 여 인증 된 Azure Cosmos DB 계정에서 데이터베이스에 연결 하도록 지시 합니다. 그러면 `EcdcCases` 지역에서 컨테이너의 분석 저장소에 액세스 하 게 `West US 2` 됩니다. 특정 속성의 프로젝션이 없으므로 `OPENROWSET` 함수는 Azure Cosmos DB 항목의 모든 속성을 반환 합니다. 
+
+Cosmos DB 컨테이너의 항목에 `date_rep` , 및 속성이 있는 경우 `cases` `geo_id` 이 쿼리의 결과는 다음 표에 나와 있습니다.
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 동일한 Azure Cosmos DB 데이터베이스의 다른 컨테이너에서 데이터를 탐색 해야 하는 경우 동일한 연결 문자열을 사용 하 고 세 번째 매개 변수로 필요한 컨테이너를 참조할 수 있습니다.
 
@@ -180,7 +188,6 @@ FROM
 > [!IMPORTANT]
 > 대신 텍스트에서 예기치 않은 문자가 표시 `MÃƒÂ©lade` `Mélade` 되는 경우 데이터베이스 데이터 정렬이 [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 데이터 정렬로 설정 되지 않습니다. 
 > 과 같은 일부 SQL 문을 사용 하 여 [데이터베이스의 데이터 정렬을](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) 일부 UTF8 데이터 정렬로 변경 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 합니다.
-
 
 ## <a name="flattening-nested-arrays"></a>중첩 된 배열 평면화
 
@@ -286,12 +293,16 @@ FROM OPENROWSET(
 사례 수는 값으로 저장 된 정보 `int32` 이지만 10 진수로 입력 된 값이 하나 있습니다. 이 값의 `float64` 형식은입니다. 가장 큰 수를 초과 하는 값이 있는 경우 `int32` 형식으로 저장 됩니다 `int64` . `geo_id`이 예제의 모든 값은 형식으로 저장 됩니다 `string` .
 
 > [!IMPORTANT]
-> Full 충실도 스키마는 예상 형식 및 형식이 잘못 입력 된 값을 모두 제공 합니다.
+> `OPENROWSET` 절이 없는 함수 `WITH` 는 예상 되는 형식의 값과 형식이 잘못 입력 된 값을 모두 노출 합니다. 이 funcion는 데이터 탐색을 위해 설계 되었으며 보고에는 적합 하지 않습니다. 이 함수에서 반환 된 JSON 값을 구문 분석 하 여 보고서를 작성 하 고 explicit [WITH 절](#querying-items-with-full-fidelity-schema) 을 사용 하 여 보고서를 만듭니다.
 > 전체 품질 분석 저장소에서 corection를 적용 하려면 Azure Cosmos DB 컨테이너에 잘못 된 형식의 값을 정리 해야 합니다. 
 
 Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리하려면 [여기](../../cosmos-db/analytical-store-introduction.md#analytical-schema)에서 사용할 확장 속성 이름 및 분석 저장소에서 전체 충실도 스키마 표현에 대해 자세히 알아볼 수 있습니다.
 
-Full 충실도 스키마를 쿼리 하는 동안 SQL 형식을 명시적으로 지정 하 고 절에 속성 유형 Cosmos DB 필요 `WITH` 합니다. 다음 예제에서는 속성에 대해 `string` 가 올바른 형식이 `geo_id` 고 `int32` 속성에 올바른 형식이 있다고 가정 합니다 `cases` .
+### <a name="querying-items-with-full-fidelity-schema"></a>전체 충실도 스키마를 사용 하 여 항목 쿼리
+
+Full 충실도 스키마를 쿼리 하는 동안 SQL 형식을 명시적으로 지정 하 고 절에 속성 유형 Cosmos DB 필요 `WITH` 합니다. `OPENROWSET` `WITH` 사용자 의견에 따라 미리 보기에서 결과 집합의 형식이 변경 될 수 있으므로 보고서에 with 절을 사용 하지 마십시오.
+
+다음 예제에서는 속성에 대해 `string` 가 올바른 형식이 `geo_id` 고 `int32` 속성에 올바른 형식이 있다고 가정 합니다 `cases` .
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -305,7 +316,9 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-다른 형식의 값은 및 열에 반환 되지 `geo_id` 않으며 `cases` 쿼리는 `NULL` 이러한 셀의 값을 반환 합니다. 이 쿼리는 `cases` 식에서 지정 된 형식의만 참조 합니다 ( `cases.int32` ). Cosmos DB 컨테이너에서 정리할 수 없는 다른 형식 (,)의 값이 있는 경우 `cases.int64` `cases.float64` 절에서 명시적으로 참조 하 `WITH` 고 결과를 결합 해야 합니다. 다음 쿼리는 `int32` `int64` `float64` 열에 저장 된, 및를 집계 합니다 `cases` .
+`geo_id` `cases` 다른 형식이 있는 및의 값은 값으로 반환 됩니다 `NULL` . 이 쿼리는 `cases` 식에서 지정 된 형식의만 참조 합니다 ( `cases.int32` ).
+
+Cosmos DB 컨테이너에서 정리할 수 없는 다른 형식 (,)의 값이 있는 경우 `cases.int64` `cases.float64` 절에서 명시적으로 참조 하 `WITH` 고 결과를 결합 해야 합니다. 다음 쿼리는 `int32` `int64` `float64` 열에 저장 된, 및를 집계 합니다 `cases` .
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -326,7 +339,7 @@ GROUP BY geo_id
 ## <a name="known-issues"></a>알려진 문제
 
 - 함수 뒤에 별칭을 지정 **해야** 합니다 `OPENROWSET` (예: `OPENROWSET (...) AS function_alias` ). 별칭을 생략 하면 연결 문제가 발생할 수 있으며 서버를 사용 하지 않는 SQL 끝점은 일시적으로 사용할 수 없습니다 Synapse. 이 문제는 11 월 2020에 해결 될 예정입니다.
-- 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET`쿼리 환경이 잘 정의 된 스키마에 맞게 정렬 될 수 있으므로 공개 미리 보기 중에 함수에서 제공 하는 스키마를 사용 하지 마십시오. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
+- 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 잘 정의 된 스키마를 사용 하 여 쿼리 환경을 정렬할 수 있으므로, 절이 없는 함수는 공개 미리 보기 중에 제공 하는 스키마를 사용 하지 마세요. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 

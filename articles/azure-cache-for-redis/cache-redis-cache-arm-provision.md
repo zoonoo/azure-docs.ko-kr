@@ -7,14 +7,14 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545330"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735968"
 ---
-# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Redis 용 Azure Cache 만들기
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용 하 여 Redis 용 Azure Cache 만들기
 
 Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿 (ARM 템플릿)을 만드는 방법에 대해 알아봅니다. 기존 스토리지 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
 
