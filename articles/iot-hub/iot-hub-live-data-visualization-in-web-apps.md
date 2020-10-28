@@ -11,12 +11,13 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146673"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740995"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -103,13 +104,13 @@ web-apps-node-iot-hub-data-visualization 디렉터리에서 즐겨 사용하는 
 
 잠시 시간을 내서 다음 파일을 살펴보겠습니다.
 
-* **Server.js**는 웹 소켓과 이벤트 허브 래퍼 클래스를 초기화하는 서비스 쪽 스크립트입니다. 클래스가 들어오는 메시지를 웹 소켓에 브로드캐스트하는 데 사용하는 이벤트 허브 래퍼 클래스에 대한 콜백을 제공합니다.
+* **Server.js** 는 웹 소켓과 이벤트 허브 래퍼 클래스를 초기화하는 서비스 쪽 스크립트입니다. 클래스가 들어오는 메시지를 웹 소켓에 브로드캐스트하는 데 사용하는 이벤트 허브 래퍼 클래스에 대한 콜백을 제공합니다.
 
-* **Event-hub-reader.js**는 지정된 연결 문자열 및 소비자 그룹을 사용하여 IoT Hub의 기본 제공 엔드포인트에 연결하는 서비스 쪽 스크립트입니다. 들어오는 메시지에 대한 메타데이터에서 DeviceId 및 EnqueuedTimeUtc를 추출한 다음, server.js에서 등록한 콜백 메서드를 사용하여 메시지를 릴레이합니다.
+* **Event-hub-reader.js** 는 지정된 연결 문자열 및 소비자 그룹을 사용하여 IoT Hub의 기본 제공 엔드포인트에 연결하는 서비스 쪽 스크립트입니다. 들어오는 메시지에 대한 메타데이터에서 DeviceId 및 EnqueuedTimeUtc를 추출한 다음, server.js에서 등록한 콜백 메서드를 사용하여 메시지를 릴레이합니다.
 
-* **Chart-device-data.js**는 웹 소켓에서 수신 대기하고, 각 DeviceId를 추적하고, 각 디바이스에 대해 마지막 50개의 수신 데이터 요소를 저장하는 클라이언트 쪽 스크립트입니다. 그런 다음, 선택한 디바이스 데이터를 차트 개체에 바인딩합니다.
+* **Chart-device-data.js** 는 웹 소켓에서 수신 대기하고, 각 DeviceId를 추적하고, 각 디바이스에 대해 마지막 50개의 수신 데이터 요소를 저장하는 클라이언트 쪽 스크립트입니다. 그런 다음, 선택한 디바이스 데이터를 차트 개체에 바인딩합니다.
 
-* **Index.html**은 웹 페이지에 대한 UI 레이아웃을 처리하고 클라이언트 쪽 논리에 필요한 스크립트를 참조합니다.
+* **Index.html** 은 웹 페이지에 대한 UI 레이아웃을 처리하고 클라이언트 쪽 논리에 필요한 스크립트를 참조합니다.
 
 ## <a name="configure-environment-variables-for-the-web-app"></a>웹앱에 대한 환경 변수 구성
 
@@ -252,9 +253,9 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 ### <a name="azure-app-service-issues"></a>Azure App Service 이슈
 
-* Azure Portal에서 웹앱으로 이동합니다. 왼쪽 창의 **모니터링**에서 **App Service 로그**를 선택합니다. **애플리케이션 로깅(파일 시스템)** 을 켜짐으로 설정하고 **수준**을 오류로 설정한 후 **저장**을 선택합니다. 그런 다음, **모니터링**에서 **로그 스트림**을 엽니다.
+* Azure Portal에서 웹앱으로 이동합니다. 왼쪽 창의 **모니터링** 에서 **App Service 로그** 를 선택합니다. **애플리케이션 로깅(파일 시스템)** 을 켜짐으로 설정하고 **수준** 을 오류로 설정한 후 **저장** 을 선택합니다. 그런 다음, **모니터링** 에서 **로그 스트림** 을 엽니다.
 
-* Azure Portal의 웹앱의 **개발 도구**에서 **콘솔**을 선택하고 `node -v` 및 `npm -v`를 사용하여 node 및 npm 버전의 유효성을 검사합니다.
+* Azure Portal의 웹앱의 **개발 도구** 에서 **콘솔** 을 선택하고 `node -v` 및 `npm -v`를 사용하여 node 및 npm 버전의 유효성을 검사합니다.
 
 * 패키지를 찾을 수 없다는 오류가 표시되면 진행하는 단계의 순서가 잘못된 것일 수 있습니다. 사이트가 배포될 때(`git push`) App Service는 구성된 현재 노드 버전에 따라 실행되는 `npm install`을 실행합니다. 나중에 구성에서 변경된 경우에는 코드에 대해 의미 없는 변경을 수행하고 다시 푸시해야 합니다.
 

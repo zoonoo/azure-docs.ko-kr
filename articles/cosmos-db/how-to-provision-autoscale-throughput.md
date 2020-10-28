@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486160"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740878"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로 비전
 
@@ -29,11 +29,11 @@ ms.locfileid: "92486160"
 
 1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
 
-1. **새 컨테이너**를 선택합니다. 데이터베이스, 컨테이너 및 파티션 키의 이름을 입력합니다. **처리량**에서 **자동 크기 조정** 옵션을 선택하고 데이터베이스 또는 컨테이너의 크기를 조정하려는 [최대 처리량(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)을 설정합니다.
+1. **새 컨테이너** 를 선택합니다. 데이터베이스, 컨테이너 및 파티션 키의 이름을 입력합니다. **처리량** 에서 **자동 크기 조정** 옵션을 선택하고 데이터베이스 또는 컨테이너의 크기를 조정하려는 [최대 처리량(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)을 설정합니다.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성":::
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 공유 처리량 데이터베이스에 자동 크기 조정을 프로비전하려면 새 데이터베이스를 만들 때 **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 
 
@@ -46,9 +46,9 @@ ms.locfileid: "92486160"
 
 1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
 
-1. 컨테이너에 대한 **크기 조정 및 설정** 또는 데이터베이스에 대한 **크기 조정**을 선택합니다.
+1. 컨테이너에 대한 **크기 조정 및 설정** 또는 데이터베이스에 대한 **크기 조정** 을 선택합니다.
 
-1. **크기 조정**에서 **자동 크기 조정** 옵션, **저장**을 선택합니다.
+1. **크기 조정** 에서 **자동 크기 조정** 옵션, **저장** 을 선택합니다.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성":::
 
@@ -246,7 +246,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ---
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 Azure Resource Manager 템플릿을 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 예제는 [Azure Cosmos DB Azure Resource Manager 템플릿을](./templates-samples-sql.md) 참조 하세요.
 

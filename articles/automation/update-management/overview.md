@@ -5,36 +5,23 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d26354d8c247f0839bb96564c4e004158743bd88
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677710"
+ms.locfileid: "92742206"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
 Azure Automation의 업데이트 관리를 사용하면 Azure, 온-프레미스 환경 및 다른 클라우드 환경에서 Windows 및 Linux 머신의 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 머신에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버의 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
-VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설정할 수 있습니다.
-
-- 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Azure Automation 계정](enable-from-automation-account.md) 에서
-
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 등록 된 컴퓨터 또는 서버를 포함 하 여 비 azure 컴퓨터의 경우 수동으로.
-
-- Azure Portal의 [가상 컴퓨터 페이지](enable-from-vm.md) 에서 단일 Azure VM의 경우 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
-
-- [여러 Azure VM](enable-from-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
-
-> [!NOTE]
-> 업데이트 관리를 사용하려면 Log Analytics 작업 영역을 Automation 계정에 연결해야 합니다. 지원되는 지역 목록은 [Azure 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 VM을 관리하는 기능에 영향을 주지 않습니다.
-
-[Azure Resource Manager 템플릿을](enable-from-template.md) 사용 하 여 새 또는 기존 Automation 계정 및 구독의 Log Analytics 작업 영역에서 업데이트 관리 기능을 사용 하도록 설정할 수 있습니다. 기능을 사용 하 여 Azure 또는 비 Azure Vm을 사용 하도록 설정 하는 것이 아니라 앞에서 설명한 방법 중 하나를 사용 하 여 해당 단계가 나중에 수행 됩니다.
-
 > [!NOTE]
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
 
 Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다운로드 하 여 설치 하려면 Windows Vm에 대 한 [자동 VM 게스트 패치](../../virtual-machines/windows/automatic-vm-guest-patching.md) 를 검토 합니다.
+
+업데이트 관리를 배포 하 고 관리를 위해 컴퓨터를 사용 하도록 설정 하기 전에 다음 섹션의 정보를 이해 하 고 있어야 합니다.  
 
 ## <a name="about-update-management"></a>업데이트 관리에 대해 자세히 알아보기
 
@@ -44,6 +31,7 @@ Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다
 * Linux용 PowerShell DSC(필요한 상태 구성)
 * Automation Hybrid Runbook Worker
 * Windows 머신용 Microsoft Update 또는 WSUS(Windows Server Update Services)
+* Linux 컴퓨터에 대 한 개인 또는 공용 업데이트 리포지토리입니다.
 
 다음 다이어그램은 업데이트 관리 작업 영역에서 연결 된 모든 Windows Server 및 Linux 서버에 보안 업데이트를 평가 하 고 적용 하는 방법을 보여 줍니다.
 
@@ -79,7 +67,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 다음 표에는 업데이트 평가 및 패치를 위해 지원 되는 운영 체제가 나와 있습니다. 패치를 사용하려면 Hybrid Runbook Worker가 필요합니다. Hybrid Runbook Worker 요구 사항에 대한 자세한 내용은 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md) 및 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)를 참조하세요.
 
 > [!NOTE]
-> Linux 머신의 업데이트 평가는 Automation 계정 및 Log Analytics 작업 영역 [매핑 테이블](../how-to/region-mappings.md#supported-mappings)에 안내된 대로 특정 지역에서만 지원됩니다. 
+> Linux 머신의 업데이트 평가는 Automation 계정 및 Log Analytics 작업 영역 [매핑 테이블](../how-to/region-mappings.md#supported-mappings)에 안내된 대로 특정 지역에서만 지원됩니다.
 
 |운영 체제  |메모  |
 |---------|---------|
@@ -109,7 +97,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 #### <a name="windows"></a>Windows
 
-Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. Windows용 Log Analytics 에이전트를 설치하는 방법은 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [windows azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
+Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. Log Analytics 에이전트에 대 한 자세한 내용은 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조 하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [windows azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
 
 업데이트 관리를 Microsoft Endpoint Configuration Manager와 함께 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 To learn more about integration scenarios, see [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. Configuration Manager 환경에서 사이트에 의해 관리되는 Windows 서버에는 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md)가 필요합니다. 
 
@@ -125,7 +113,7 @@ Linux의 경우 머신에 업데이트 리포지토리에 대한 프라이빗 �
 > [!NOTE]
 > Linux 머신의 업데이트 평가는 특정 지역에서만 지원됩니다. Automation 계정 및 Log Analytics 작업 영역 [매핑 테이블](../how-to/region-mappings.md#supported-mappings)을 참조하세요.
 
-Linux용 Log Analytics 에이전트를 설치하고 최신 버전을 다운로드하는 방법은 [Linux용 Log Analytics 에이전트](../../azure-monitor/platform/agent-linux.md)를 참조하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [Linux Azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 Windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
+Log Analytics 에이전트에 대 한 자세한 내용은 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조 하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [linux Azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 linux 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
 
 Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../../virtual-machines/workloads/redhat/redhat-rhui.md) 에 액세스 하도록 등록 됩니다. 다른 모든 Linux 배포판은 해당 배포판에서 지원되는 방법을 사용하여 배포판의 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
@@ -206,7 +194,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것�
 
 ## <a name="update-classifications"></a>업데이트 분류
 
-다음 표에서는 업데이트 관리가 Windows 업데이트에 대해 지원하는 분류를 정의합니다. 
+다음 표에서는 업데이트 관리가 Windows 업데이트에 대해 지원하는 분류를 정의합니다.
 
 |분류  |Description  |
 |---------|---------|
@@ -253,14 +241,18 @@ PC, 서버 및 모바일 디바이스를 관리하기 위해 Microsoft Endpoint 
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 
-신규 또는 기존 Automation 계정과 구독의 Azure Monitor Log Analytics 작업 영역으로 업데이트 관리를 배포하는 데 도움이 되는 Azure [Resource Manager 템플릿](enable-from-template.md)이 있습니다. 템플릿은 관리해야 하는 머신의 범위를 구성하지는 않습니다. 이 작업은 템플릿을 사용한 후 별도의 단계로 수행됩니다.
-
 다음은 업데이트 관리를 사용하도록 설정하고 관리할 머신을 선택하는 방법입니다.
 
-* [Azure 가상 컴퓨터에서](enable-from-vm.md)
-* [여러 Azure 가상 머신 검색에서](enable-from-portal.md)
-* [Azure Automation 계정에서](enable-from-automation-account.md)
-* Arc 사용 서버 (미리 보기) 또는 비 Azure 컴퓨터의 경우 [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 를 설치한 다음 [작업 영역에서 컴퓨터](enable-from-automation-account.md#enable-machines-in-the-workspace) 를 업데이트 관리 하도록 설정 합니다.
+- Azure [리소스 관리자 템플릿을](enable-from-template.md) 사용 하 여 신규 또는 기존 Automation 계정에 업데이트 관리를 배포 하 고 구독의 Log Analytics 작업 영역을 Azure Monitor 합니다. 템플릿은 관리해야 하는 머신의 범위를 구성하지는 않습니다. 이 작업은 템플릿을 사용한 후 별도의 단계로 수행됩니다.
+
+- Arc 사용 서버를 포함 하 여 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Automation 계정](enable-from-automation-account.md) 에서.
+
+- Azure Portal의 가상 컴퓨터 페이지에서 [선택한 AZURE VM](enable-from-vm.md) 의 경우 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
+
+- [여러 Azure VM](enable-from-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
+
+> [!NOTE]
+> 업데이트 관리를 사용하려면 Log Analytics 작업 영역을 Automation 계정에 연결해야 합니다. 지원되는 지역 목록은 [Azure 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 VM을 관리하는 기능에 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

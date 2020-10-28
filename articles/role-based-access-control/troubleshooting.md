@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368233"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741066"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "92368233"
 
 ## <a name="azure-role-assignments-limit"></a>Azure 역할 할당 제한
 
-Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
+Azure는 구독당 최대 **2000** 개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
 
 > [!NOTE]
 > 구독 당 **2000** 역할 할당 제한은 고정 되어 있으므로 늘릴 수 없습니다.
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Azure 역할 할당 문제
 
-- 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add**있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
+- 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add** 있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
 - 서비스 주체를 사용 하 여 역할을 할당 하는 경우 "작업을 완료 하는 데 필요한 권한이 없습니다." 오류가 발생할 수 있습니다. 예를 들어 소유자 역할이 할당 되 고 Azure CLI를 사용 하 여 서비스 주체로 다음 역할 할당을 만들려고 하는 서비스 사용자가 있다고 가정해 보겠습니다.
 
     ```azurecli
@@ -120,7 +120,7 @@ Azure Portal에 대 한 역할 할당 목록에서 보안 주체 (사용자, 그
 
 그러나이 보안 주체가 최근에 초대 된 사용자가 아닌 경우 삭제 된 보안 사용자 일 수 있습니다. 보안 주체에 역할을 할당 한 다음 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 보안 주체는 **id를 찾을** 수 없음으로 표시 되 고 **알 수 없는** 형식이 됩니다.
 
-Azure PowerShell를 사용 하 여이 역할 할당을 나열 하는 경우 빈 `DisplayName` 및 `ObjectType` **알 수 없음**으로 설정 된가 표시 될 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음 출력과 유사한 역할 할당을 반환 합니다.
+Azure PowerShell를 사용 하 여이 역할 할당을 나열 하는 경우 빈 `DisplayName` 및 `ObjectType` **알 수 없음** 으로 설정 된가 표시 될 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음 출력과 유사한 역할 할당을 반환 합니다.
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -202,13 +202,13 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 따라서 사용자에게 웹앱에 대한 권한만 부여하면 Azure Portal에서 웹 사이트 블레이드의 기능을 대부분 사용할 수 없게 됩니다.
 
-다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획**에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획** 에 대한 **쓰기** 권한이 필요합니다.  
 
 * 웹앱의 가격 책정 계층 보기(무료 또는 표준)  
 * 크기 조정 구성(인스턴스 수, 가상 머신 크기, 자동 크기 조정 설정)  
 * 할당량(스토리지, 대역폭, CPU)  
 
-다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹** 에 대한 **쓰기** 권한이 필요합니다.  
 
 * TLS/SSL 인증서 및 바인딩 (TLS/SSL 인증서는 동일한 리소스 그룹 및 지리적 위치의 사이트 간에 공유 될 수 있음)  
 * 경고 규칙  
@@ -222,14 +222,14 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 가상 머신은 도메인 이름, 가상 네트워크, 스토리지 계정 및 경고 규칙과 관련이 있습니다.
 
-다음 항목을 사용하려면 **가상 머신**에 대한 **쓰기** 권한이 필요합니다.
+다음 항목을 사용하려면 **가상 머신** 에 대한 **쓰기** 권한이 필요합니다.
 
 * 엔드포인트  
 * IP 주소  
 * 디스크  
 * 확장  
 
-다음 항목을 사용하려면 **가상 머신**와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 **가상 머신** 와 가상 머신이 속한 **리소스 그룹** (도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 
 * 가용성 집합  
 * 부하 분산된 집합  
@@ -243,7 +243,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 ![함수 앱 액세스 권한 없음](./media/troubleshooting/functionapps-noaccess.png)
 
-판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다. 이러한 기능에 액세스 하려면 [참가자](built-in-roles.md#contributor) 역할이 필요 합니다.
+판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정** 을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다. 이러한 기능에 액세스 하려면 [참가자](built-in-roles.md#contributor) 역할이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dd5d05ff6ed2368308f90f61ea0a6f107e43acd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674920"
+ms.locfileid: "92740781"
 ---
 # <a name="weather-partner-integration"></a>날씨 파트너 통합
 
@@ -180,7 +180,7 @@ Docker 프로그램에는 **부트스트랩** 및 **작업** 의 두 구성 요�
 
 ## <a name="weather-data-telemetry-specifications"></a>날씨 데이터 (원격 분석) 사양
 
-날씨 데이터는 처리를 위해 Azure 이벤트 허브로 푸시되는 정식 메시지에 매핑됩니다. Azure EventHub는 연결 된 장치 및 응용 프로그램에서 실시간 데이터 (원격 분석) 수집을 가능 하 게 하는 서비스입니다. FarmBeats에 날씨 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만들어야 합니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [이벤트 허브로 원격 분석 전송](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 을 참조 하세요.
+날씨 데이터는 처리를 위해 Azure 이벤트 허브로 푸시되는 정식 메시지에 매핑됩니다. Azure Event Hubs는 연결된 디바이스 및 애플리케이션으로부터 실시간 데이터(원격 분석) 수집을 가능하게 하는 서비스입니다. FarmBeats에 날씨 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만들어야 합니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [이벤트 허브로 원격 분석 전송](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 을 참조 하세요.
 
 다음은 클라이언트로서 원격 분석을 지정된 이벤트 허브에 보내는 샘플 Python 코드입니다.
 

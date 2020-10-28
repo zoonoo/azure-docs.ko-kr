@@ -224,7 +224,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -556,8 +556,6 @@
               href: platform/alerts-managing-smart-groups.md
             - name: 경고 및 스마트 그룹 상태 관리
               href: platform/alerts-managing-alert-states.md
-            - name: 다른 모니터링 서비스의 경고 관리
-              href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: 알림 API
           href: platform/api-alerts.md
         - name: 경고 문제 해결
@@ -576,8 +574,6 @@
               href: platform/itsmc-service-manager-script.md
             - name: ServiceNow ITSM 동기화 문제 수정
               href: platform/itsmc-resync-servicenow.md
-        - name: 경고 관리 솔루션
-          href: platform/alert-management-solution.md
         - name: 클래식 경고 규칙 마이그레이션
           items:
             - name: 클래식 경고 정보
@@ -1138,6 +1134,8 @@
               href: insights/vmware.md
             - name: 유선 데이터 솔루션
               href: insights/wire-data.md
+            - name: 경고 관리 솔루션
+              href: platform/alert-management-solution.md
     - name: 통합 문서
       items:
         - name: 개요

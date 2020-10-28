@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: c8228086eb67478d80aa041004e0da3eed71f896
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372674"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741795"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)
 
@@ -125,7 +125,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
          Get-AzVmDiskEncryptionStatus -ResourceGroupName MyVirtualMachineResourceGroup -VMName MySecureVM
      ```
     
-- **디스크 암호화 사용 안 함: ** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
+- **디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
      
      ```azurepowershell-interactive 
          Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
@@ -142,13 +142,13 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | keyVaultName | 키가 업로드되어야 하는 Key Vault의 이름. `az keyvault show --name "MySecureVault" --query KVresourceGroup` Azure CLI cmdlet을 사용하여 가져올 수 있습니다. |
 |  keyEncryptionKeyURL | 생성된 키를 암호화하는 데 사용되는 키 암호화 키의 URL. **UseExistingKek** 드롭다운 목록에서 **nokek** 를 선택 하는 경우이 매개 변수는 선택 사항입니다. **UseExistingKek** 드롭다운 목록에서 **kek** 를 선택 하는 경우 _하면 keyencryptionkeyurl_ 값을 입력 해야 합니다. |
-| volumeType | 암호화 작업을 수행할 볼륨의 유형. 지원 되는 유효한 값은 _OS_ 또는 _모두_입니다. 앞의 전제 조건 섹션에서 지원 되는 Linux 배포판 및 OS 및 데이터 디스크에 대 한 해당 버전을 참조 하세요. |
+| volumeType | 암호화 작업을 수행할 볼륨의 유형. 지원 되는 유효한 값은 _OS_ 또는 _모두_ 입니다. 앞의 전제 조건 섹션에서 지원 되는 Linux 배포판 및 OS 및 데이터 디스크에 대 한 해당 버전을 참조 하세요. |
 | sequenceVersion | BitLocker 작업의 시퀀스 버전. 동일한 VM에서 디스크 암호화 작업이 수행될 때마다 이 버전 번호가 증가합니다. |
 | vmName | 암호화 작업을 수행할 VM의 이름. |
 | 암호 | 데이터 암호화 키로 강력한 암호를 입력합니다. |
@@ -180,7 +180,7 @@ EncryptFormatAll 옵션을 사용 하려면 Linux VM을 암호화 하 고 AzureD
 
 1. 예를 들어 [Resource Manager 템플릿을 사용하여 실행 중인 Linux IaaS VM을 암호화](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm)합니다. 
 2. Azure 빠른 시작 템플릿에서 **azure에 배포를** 선택 합니다.
-3. \Operation **EncryptionOperation** 필드를 **Enableencryption** 에서 **enable\formatal**으로 변경 합니다.
+3. \Operation **EncryptionOperation** 필드를 **Enableencryption** 에서 **enable\formatal** 으로 변경 합니다.
 4. 구독, 리소스 그룹, 리소스 그룹 위치, 기타 매개 변수, 약관 및 규약을 선택합니다. **만들기** 를 선택 하 여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용 하도록 설정 합니다.
 
 
@@ -341,7 +341,7 @@ Azure PowerShell, Azure CLI 또는 리소스 관리자 템플릿을 사용 하 �
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 - **리소스 관리자 템플릿으로 암호화 사용 안 함:** 암호화를 사용 하지 않도록 설정 하려면 [실행 중인 LINUX VM에서 암호화 사용 안 함](https://aka.ms/decrypt-linuxvm) 템플릿을 사용 합니다.
-     1. **Azure에 배포를**선택 합니다.
+     1. **Azure에 배포를** 선택 합니다.
      2. 구독, 리소스 그룹, 위치, VM, 약관 및 규약을 선택합니다.
      3. 실행 중인 Windows VM에서 디스크 암호화를 사용 하지 않도록 설정 하려면 **구매** 를 선택 합니다. 
 
