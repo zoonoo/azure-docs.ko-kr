@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 05a409faedb2093637b3d93045b35eb4e4929626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310750"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896398"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>지도에 드로잉 도구 모음 추가
 
-이 문서에서는 그리기 도구 모듈을 사용 하 고 지도에 드로잉 도구 모음을 표시 하는 방법을 보여 줍니다. [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) 컨트롤은 지도에 그리기 도구 모음을 추가 합니다. 하나 및 모든 그리기 도구를 사용 하 여 지도를 만드는 방법과 드로잉 관리자에서 그리기 셰이프의 렌더링을 사용자 지정 하는 방법을 배웁니다.
+이 문서에서는 그리기 도구 모듈을 사용 하 고 지도에 드로잉 도구 모음을 표시 하는 방법을 보여 줍니다. [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) 컨트롤은 지도에 그리기 도구 모음을 추가 합니다. 하나 및 모든 그리기 도구를 사용 하 여 지도를 만드는 방법과 드로잉 관리자에서 그리기 셰이프의 렌더링을 사용자 지정 하는 방법을 배웁니다.
 
 ## <a name="add-drawing-toolbar"></a>그리기 도구 모음 추가
 
@@ -143,10 +143,10 @@ CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그�
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [그리기 도구 모음](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [드로잉 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

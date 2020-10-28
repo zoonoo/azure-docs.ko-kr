@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362674"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896245"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체 시작
 
-<Token>**적용 대상:** ![ 녹색 확인 표시입니다. ](media/power-bi-visual/yes.png) ***소비자*** ![ 녹색 확인 표시에 대 한 Power BI 서비스입니다. ](media/power-bi-visual/yes.png) 디자이너 & 개발자 ![ 녹색 확인 표시를 Power BI 서비스 합니다. ](media/power-bi-visual/yes.png) ![아니요를 나타내는 X Power BI Desktop입니다. ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다. </Token>
+<Token>**적용 대상:** ![ 녹색 확인 표시입니다. ](media/power-bi-visual/yes.png) * *_소비자_* _ 녹색 확인 표시에 대 한 Power BI 서비스 ![ 입니다. ](media/power-bi-visual/yes.png) 디자이너 & 개발자 ![ 녹색 확인 표시를 Power BI 서비스 합니다. ](media/power-bi-visual/yes.png) ![아니요를 나타내는 X Power BI Desktop입니다. ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다.</Token>
 
 이 문서에서는 Power BI에 대 한 Microsoft Azure Maps 시각적 개체를 사용 하는 방법을 보여 줍니다.
 
@@ -47,9 +47,9 @@ Azure Maps와 관련 된 개인 정보 및 사용 약관에 대해 자세히 알
 
 ## <a name="preview-behavior-and-requirements"></a>미리 보기 동작 및 요구 사항
 
-이 **Azure Maps**Preview 릴리스에 대 한 몇 가지 고려 사항 및 요구 사항은 다음과 같습니다.
+이 시험판 릴리스의 _ * Azure Maps * *에 대 한 몇 가지 고려 사항 및 요구 사항이 있습니다.
 
--   **Azure Maps** 시각적 개체는 미리 보기 상태 이며 Power BI Desktop에서 사용 하도록 설정 해야 합니다. **Azure Maps**를 사용 하도록 설정 하려면 **파일** &gt; **옵션 및 설정** &gt; **옵션** &gt; **미리 보기 기능**을 선택한 다음 **Azure Maps 시각적 개체** 확인란을 선택 합니다. 이 작업을 수행한 후 Azure Maps 시각적 개체를 사용할 수 없는 경우 관리 포털에서 테 넌 트 관리자 스위치를 사용 하도록 설정 해야 할 수 있습니다.
+-   **Azure Maps** 시각적 개체는 미리 보기 상태 이며 Power BI Desktop에서 사용 하도록 설정 해야 합니다. **Azure Maps** 를 사용 하도록 설정 하려면 **파일** &gt; **옵션 및 설정** &gt; **옵션** &gt; **미리 보기 기능** 을 선택한 다음 **Azure Maps 시각적 개체** 확인란을 선택 합니다. 이 작업을 수행한 후 Azure Maps 시각적 개체를 사용할 수 없는 경우 관리 포털에서 테 넌 트 관리자 스위치를 사용 하도록 설정 해야 할 수 있습니다.
 -   데이터 집합에는 **위도** 및 **경도** 정보를 포함 하는 필드가 있어야 합니다. 지 오 코딩 of location 필드는 이후 업데이트에서 추가 될 예정입니다.
 -   Power BI에 대 한 기본 제공 범례 컨트롤이 현재이 미리 보기에 표시 되지 않습니다. 이후 업데이트에서 추가 될 예정입니다.
 
@@ -173,7 +173,7 @@ Azure Maps Power BI 시각적 개체에 대해 자세히 알아보세요.
 시각적 개체를 사용자 지정 합니다.
 
 > [!div class="nextstepaction"]
-> [Power BI의 색 서식을 위한 팁과 힌트](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Power BI의 색 서식을 위한 팁과 힌트](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [시각화 제목, 배경 및 범례 사용자 지정](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [시각화 제목, 배경 및 범례 사용자 지정](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

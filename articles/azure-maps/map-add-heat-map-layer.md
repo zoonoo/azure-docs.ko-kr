@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310631"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896381"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -24,9 +24,9 @@ ms.locfileid: "91310631"
 
 다음과 같은 다양 한 시나리오에서 열 지도를 사용할 수 있습니다.
 
-- **온도 데이터**: 두 데이터 요소 사이의 온도에 대 한 근사치을 제공 합니다.
-- **노이즈 센서에 대 한 데이터**: 센서가 있는 노이즈의 강도 뿐만 아니라 거리를 통한 분산에 대 한 통찰력을 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 범위 영역이 겹치면 겹치는 영역에서 더 높은 의미의 소음을 겪을 수 있습니다. 따라서 겹쳐진 영역은 열 지도에 표시 됩니다.
-- **GPS 추적**: 속도를 가중치 높이 맵으로 포함 합니다. 여기서 각 데이터 요소의 강도는 속도를 기반으로 합니다. 예를 들어이 기능을 통해 차량의 속도를 빠르게 확인할 수 있습니다.
+- **온도 데이터** : 두 데이터 요소 사이의 온도에 대 한 근사치을 제공 합니다.
+- **노이즈 센서에 대 한 데이터** : 센서가 있는 노이즈의 강도 뿐만 아니라 거리를 통한 분산에 대 한 통찰력을 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 범위 영역이 겹치면 겹치는 영역에서 더 높은 의미의 소음을 겪을 수 있습니다. 따라서 겹쳐진 영역은 열 지도에 표시 됩니다.
+- **GPS 추적** : 속도를 가중치 높이 맵으로 포함 합니다. 여기서 각 데이터 요소의 강도는 속도를 기반으로 합니다. 예를 들어이 기능을 통해 차량의 속도를 빠르게 확인할 수 있습니다.
 
 > [!TIP]
 > 열 지도 계층은 기본적으로 데이터 원본에 있는 모든 기 하 도형의 좌표를 렌더링 합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 `['==', ['geometry-type'], 'Point']` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 속성을로 설정 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 합니다.
@@ -120,10 +120,10 @@ CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://cod
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 

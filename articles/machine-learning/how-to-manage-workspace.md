@@ -10,15 +10,14 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633708"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897163"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
-
 
 이 문서에서는 Azure Portal 또는 [Python 용 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 를 사용 하 여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.
 
@@ -33,48 +32,82 @@ ms.locfileid: "92633708"
 
 # <a name="python"></a>[Python](#tab/python)
 
-이 첫 번째 예제에는 최소 사양만 필요 하며, 모든 종속 리소스와 리소스 그룹이 자동으로 만들어집니다.
+* **기본 사양입니다.** 기본적으로 리소스 그룹 뿐만 아니라 종속 리소스도 자동으로 생성 됩니다. 이 코드에서는 이라는 작업 영역 `myworkspace` 및에 라는 리소스 그룹을 만듭니다 `myresourcegroup` `eastus2` .
+    
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.create(name='myworkspace',
+                   subscription_id='<azure-subscription-id>',
+                   resource_group='myresourcegroup',
+                   create_resource_group=True,
+                   location='eastus2'
+                   )
+    ```
+    `create_resource_group`작업 영역에 사용 하려는 기존 Azure 리소스 그룹이 있는 경우 False로 설정 합니다.
 
-```python
-from azureml.core import Workspace
-   ws = Workspace.create(name='myworkspace',
-               subscription_id='<azure-subscription-id>',
-               resource_group='myresourcegroup',
-               create_resource_group=True,
-               location='eastus2'
-               )
-```
-`create_resource_group`작업 영역에 사용 하려는 기존 Azure 리소스 그룹이 있는 경우 False로 설정 합니다.
+* <a name="create-multi-tenant"></a>**다중 테 넌 트.**  계정이 여러 개인 경우 사용 하려는 Azure Active Directory의 테 넌 트 ID를 추가 합니다.  **Azure Active Directory, 외부 id** 의 [Azure Portal](https://portal.azure.com) 에서 테 넌 트 ID를 찾습니다.
 
-Azure 리소스 ID 형식으로 기존 Azure 리소스를 사용 하는 작업 영역을 만들 수도 있습니다. Azure Portal 또는 SDK를 사용 하 여 특정 Azure 리소스 Id를 찾습니다. 이 예에서는 리소스 그룹, 저장소 계정, key vault, App Insights 및 container registry가 이미 있는 것으로 가정 합니다.
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
 
-```python
-import os
+* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)** . 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* **기존 Azure 리소스를 사용** 합니다.  Azure 리소스 ID 형식으로 기존 Azure 리소스를 사용 하는 작업 영역을 만들 수도 있습니다. Azure Portal 또는 SDK를 사용 하 여 특정 Azure 리소스 Id를 찾습니다. 이 예에서는 리소스 그룹, 저장소 계정, key vault, App Insights 및 container registry가 이미 있는 것으로 가정 합니다.
+
+   ```python
+   import os
    from azureml.core import Workspace
    from azureml.core.authentication import ServicePrincipalAuthentication
 
    service_principal_password = os.environ.get("AZUREML_PASSWORD")
 
    service_principal_auth = ServicePrincipalAuthentication(
-       tenant_id="<tenant-id>",
-       username="<application-id>",
-       password=service_principal_password)
+      tenant_id="<tenant-id>",
+      username="<application-id>",
+      password=service_principal_password)
 
-   ws = Workspace.create(name='myworkspace',
-                         auth=service_principal_auth,
-                         subscription_id='<azure-subscription-id>',
-                         resource_group='myresourcegroup',
-                         create_resource_group=False,
-                         location='eastus2',
-                         friendly_name='My workspace',
-                         storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                         key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                         app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                         container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                         exist_ok=False)
-```
+                        auth=service_principal_auth,
+                             subscription_id='<azure-subscription-id>',
+                             resource_group='myresourcegroup',
+                             create_resource_group=False,
+                             location='eastus2',
+                             friendly_name='My workspace',
+                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
+                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
+                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
+                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
+                             exist_ok=False)
+   ```
 
-자세한 내용은 [작업 영역 SDK 참조](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) 를 참조 하세요.
+자세한 내용은 [작업 영역 SDK 참조](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)를 참조 하세요.
+
+구독에 액세스 하는 데 문제가 있는 경우 [Azure Machine Learning 노트북의 인증](https://aka.ms/aml-notebook-auth) 뿐만 아니라 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -92,7 +125,7 @@ import os
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|Description 
+   필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
@@ -237,6 +270,37 @@ ws.write_config()
 
 Python 스크립트 또는 Jupyter Notebook을 사용하여 파일을 디렉터리 구조에 배치합니다. 동일한 디렉터리, *.azureml* 이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다. 계산 인스턴스를 만들 때이 파일은 VM의 올바른 디렉터리에 추가 됩니다.
 
+## <a name="connect-to-a-workspace"></a>작업 영역에 연결
+
+Python 코드에서 작업 영역에 연결 하는 작업 영역 개체를 만듭니다.  이 코드는 구성 파일의 내용을 읽고 작업 영역을 찾습니다.  아직 인증 하지 않은 경우 로그인 하 라는 메시지가 표시 됩니다.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+* <a name="connect-multi-tenant"></a>**다중 테 넌 트.**  계정이 여러 개인 경우 사용 하려는 Azure Active Directory의 테 넌 트 ID를 추가 합니다.  **Azure Active Directory, 외부 id** 의 [Azure Portal](https://portal.azure.com) 에서 테 넌 트 ID를 찾습니다.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
+* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)** . 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
+구독에 액세스 하는 데 문제가 있는 경우 [Azure Machine Learning 노트북의 인증](https://aka.ms/aml-notebook-auth) 뿐만 아니라 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요.
 
 ## <a name="find-a-workspace"></a><a name="view"></a>작업 영역 찾기
 
@@ -312,7 +376,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 작업 영역을 만드는 예는 다음과 같습니다.
 * Azure Portal를 사용 하 여 [작업 영역 및 계산 인스턴스 만들기](tutorial-1st-experiment-sdk-setup.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938342"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896262"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -24,7 +24,7 @@ ms.locfileid: "91938342"
 
 **봇**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Bot 프레임 워크-관심 지점 기술](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | 관심 지점 기술은 Azure Bot Service 및 봇 프레임 워크와 함께 Azure Maps를 사용 하 여 가상 비서에 게 POI 관련 기능을 제공 합니다. |
 | [BotBuilder 위치](https://github.com/Microsoft/BotBuilder-Location) | Bing 지도 REST 서비스에서 제공 하는 Microsoft Bot Framework에 대 한 오픈 소스 위치 선택 컨트롤입니다. |
@@ -35,7 +35,7 @@ ms.locfileid: "91938342"
 
 다음은 Azure Maps 웹 SDK의 기능을 확장 하는 오픈 소스 프로젝트의 목록입니다.
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Azure Maps 애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations) | Azure Maps 웹 SDK와 함께 사용 하기 위한 풍부한 애니메이션 라이브러리입니다. |
 | [지리적 위치 제어 모듈 Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | 브라우저의 지리적 위치 API를 사용 하 여 맵에서 사용자를 찾는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
@@ -48,7 +48,7 @@ ms.locfileid: "91938342"
 
 **샘플**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
@@ -59,7 +59,7 @@ ms.locfileid: "91938342"
 
 **도구 및 리소스**
 
-| 프로젝트 이름 | Description |
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [문서 Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | 모든 Azure Location Based Services 설명서의 원본입니다. |
 | [Azure Maps Creator 도구](https://github.com/Azure-Samples/AzureMapsCreator) | Azure Maps Creator tools 용 Python 도구 |
@@ -82,4 +82,4 @@ ms.locfileid: "91938342"
 더 많은 오픈 소스 Azure Maps 프로젝트를 찾습니다.
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

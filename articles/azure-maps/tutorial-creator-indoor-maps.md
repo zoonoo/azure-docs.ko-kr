@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371425"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896782"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>자습서: Creator를 사용하여 실내 맵 만들기
 
@@ -44,13 +44,13 @@ ms.locfileid: "91371425"
 
 ## <a name="upload-a-drawing-package"></a>그리기 패키지 업로드
 
-[데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용하여 그리기 패키지를 Azure Maps 리소스에 업로드합니다.
+[데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용하여 그리기 패키지를 Azure Maps 리소스에 업로드합니다.
 
 데이터 업로드 API는 여기에 정의된 패턴을 구현하는 장기 실행 트랜잭션입니다. 작업이 완료되면 `udid`를 사용하여 변환하기 위한 업로드된 패키지에 액세스합니다. 아래 단계에 따라 `udid`를 가져옵니다.
 
-1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **컬렉션**을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
+1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
 
-2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 요청에 대한 **요청 이름**을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장**을 선택합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
 
 3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 그리기 패키지를 Azure Maps 서비스에 업로드합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "91371425"
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. **헤더** 탭에서 `Content-Type` 키의 값을 지정합니다. 그리기 패키지는 압축된 폴더이므로 `application/octet-stream` 값을 사용합니다. **본문** 탭에서 **이진**을 선택합니다. **파일 선택**을 클릭하고 그리기 패키지를 선택합니다.
+4. **헤더** 탭에서 `Content-Type` 키의 값을 지정합니다. 그리기 패키지는 압축된 폴더이므로 `application/octet-stream` 값을 사용합니다. **본문** 탭에서 **이진** 을 선택합니다. **파일 선택** 을 클릭하고 그리기 패키지를 선택합니다.
 
      ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "91371425"
 
  이제 그리기 패키지가 업로드되었으므로 업로드된 패키지에 대해 `udid`를 사용하여 패키지를 맵 데이터로 변환합니다. Conversion API는 [여기](creator-long-running-operation.md)에 정의된 패턴을 구현하는 장기 실행 트랜잭션을 사용합니다. 작업이 완료되면 `conversionId`를 사용하여 변환된 데이터에 액세스합니다. 아래 단계에 따라 `conversionId`를 가져옵니다.
 
-1. **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. **저장**을 클릭합니다.
+1. **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. **저장** 을 클릭합니다.
 
 2. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 업로드된 그리기 패키지를 맵 데이터로 변환합니다. 업로드된 패키지에 대해 `udid`를 사용합니다.
 
@@ -164,11 +164,11 @@ ms.locfileid: "91371425"
 
 ## <a name="create-a-dataset"></a>데이터 세트 만들기
 
-데이터 세트는 건물, 수준 및 방과 같은 맵 기능의 컬렉션입니다. 데이터 세트를 만들려면 [데이터 세트 만들기 API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview)를 사용합니다. 데이터 세트 만들기 API는 변환된 그리기 패키지에 대해 `conversionId`를 사용하고, 만든 데이터 세트에 대한 `datasetId`를 반환합니다. 아래 단계에서는 데이터 세트를 만드는 방법을 보여 줍니다.
+데이터 세트는 건물, 수준 및 방과 같은 맵 기능의 컬렉션입니다. 데이터 세트를 만들려면 [데이터 세트 만들기 API](/rest/api/maps/dataset/createpreview)를 사용합니다. 데이터 세트 만들기 API는 변환된 그리기 패키지에 대해 `conversionId`를 사용하고, 만든 데이터 세트에 대한 `datasetId`를 반환합니다. 아래 단계에서는 데이터 세트를 만드는 방법을 보여 줍니다.
 
-1. Postman 애플리케이션에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
+1. Postman 애플리케이션에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
 
-2. 새 데이터 세트를 만들기 위해 [데이터 세트 만들기 API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview)에 대한 **POST** 요청을 수행합니다. 요청을 제출하기 전에 변환 프로세스의 5단계에서 가져온 `conversionId`를 사용하여 구독 키와 `conversionId`를 모두 추가합니다.  요청은 다음 URL과 같습니다.
+2. 새 데이터 세트를 만들기 위해 [데이터 세트 만들기 API](/rest/api/maps/dataset/createpreview)에 대한 **POST** 요청을 수행합니다. 요청을 제출하기 전에 변환 프로세스의 5단계에서 가져온 `conversionId`를 사용하여 구독 키와 `conversionId`를 모두 추가합니다.  요청은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -197,9 +197,9 @@ ms.locfileid: "91371425"
 
 타일 세트는 맵에서 렌더링하는 벡터 타일 세트입니다. 타일 세트는 기존 데이터 세트에서 만들어집니다. 그러나 타일 세트는 원본 데이터 세트와 독립적입니다. 데이터 세트를 삭제해도 타일 세트는 계속 존재합니다. 타일 세트를 만들려면 다음 단계를 수행합니다.
 
-1. Postman 애플리케이션에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
+1. Postman 애플리케이션에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
 
-2. 작성기 탭에서 **POST**를 수행합니다. 요청 URL은 다음 URL과 같습니다.
+2. 작성기 탭에서 **POST** 를 수행합니다. 요청 URL은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -224,9 +224,9 @@ ms.locfileid: "91371425"
 
 ## <a name="query-datasets-with-wfs-api"></a>WFS API를 사용하여 데이터 세트 쿼리
 
- 데이터 세트는 [WFS API](https://docs.microsoft.com/rest/api/maps/wfs)를 사용하여 쿼리할 수 있습니다. WFS API를 사용하면 기능 컬렉션, 특정 컬렉션 또는 기능 **ID**가 있는 특정 기능을 쿼리할 수 있습니다. 기능 **ID**는 데이터 세트 내에서 기능을 고유하게 식별합니다. 예를 들어 지정된 상태 세트에서 업데이트해야 하는 기능 상태를 식별하는 데 사용됩니다.
+ 데이터 세트는 [WFS API](/rest/api/maps/wfs)를 사용하여 쿼리할 수 있습니다. WFS API를 사용하면 기능 컬렉션, 특정 컬렉션 또는 기능 **ID** 가 있는 특정 기능을 쿼리할 수 있습니다. 기능 **ID** 는 데이터 세트 내에서 기능을 고유하게 식별합니다. 예를 들어 지정된 상태 세트에서 업데이트해야 하는 기능 상태를 식별하는 데 사용됩니다.
 
-1. Postman 애플리케이션에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
+1. Postman 애플리케이션에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
 
 2. 데이터 세트의 컬렉션 목록을 표시하는 **GET** 요청을 수행합니다. `<dataset-id>`를 `datasetId`로 바꿉니다. 자리 표시자 대신 Azure Maps 기본 키를 사용합니다. 요청은 다음 URL과 같습니다.
 
@@ -234,7 +234,7 @@ ms.locfileid: "91371425"
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. 응답 본문은 GeoJSON 형식으로 전달되며 데이터 세트의 모든 컬렉션을 포함합니다. 간단히 하기 위해 다음 예제에서는 `unit` 컬렉션만 보여 줍니다. 모든 컬렉션이 포함된 예제를 보려면 [WFS 컬렉션 설명 API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview)를 참조하세요. 컬렉션에 대해 자세히 알아보려면 `link` 요소 내의 URL을 클릭하면 됩니다.
+3. 응답 본문은 GeoJSON 형식으로 전달되며 데이터 세트의 모든 컬렉션을 포함합니다. 간단히 하기 위해 다음 예제에서는 `unit` 컬렉션만 보여 줍니다. 모든 컬렉션이 포함된 예제를 보려면 [WFS 컬렉션 설명 API](/rest/api/maps/wfs/collectiondescriptionpreview)를 참조하세요. 컬렉션에 대해 자세히 알아보려면 `link` 요소 내의 URL을 클릭하면 됩니다.
 
     ```json
     {
@@ -302,15 +302,15 @@ ms.locfileid: "91371425"
 
 ## <a name="create-a-feature-stateset"></a>기능 상태 세트 만들기
 
-1. Postman 애플리케이션에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
+1. Postman 애플리케이션에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
 
-2. [상태 세트 만들기 API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview)에 대한 **POST** 요청을 수행합니다. 수정하려는 상태가 포함된 데이터 세트의 `datasetId`를 사용합니다. 요청은 다음 URL과 같습니다.
+2. [상태 세트 만들기 API](/rest/api/maps/featurestate/createstatesetpreview)에 대한 **POST** 요청을 수행합니다. 수정하려는 상태가 포함된 데이터 세트의 `datasetId`를 사용합니다. 요청은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. **POST** 요청의 **헤더**에서 `Content-Type`을 `application/json`으로 설정합니다. `occupied` 및 `temperature` *상태*에 대한 변경 내용을 반영하려면 **본문**에서 아래 스타일을 제공합니다. 완료되면 **보내기**를 클릭합니다.
+3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. `occupied` 및 `temperature` *상태* 에 대한 변경 내용을 반영하려면 **본문** 에서 아래 스타일을 제공합니다. 완료되면 **보내기** 를 클릭합니다.
 
     ```json
     {
@@ -383,7 +383,7 @@ ms.locfileid: "91371425"
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. **POST** 요청의 **헤더**에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문**에서 JSON을 복사하여 아래 샘플에 붙여넣습니다.
+6. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문** 에서 JSON을 복사하여 아래 샘플에 붙여넣습니다.
 
     ```json
     {
@@ -402,7 +402,7 @@ ms.locfileid: "91371425"
 
 7. 업데이트에 성공하면 `200 OK` HTTP 상태 코드를 받습니다. [동적 스타일 지정](indoor-map-dynamic-styling.md)을 실내 맵에 구현한 경우 업데이트가 지정된 타임스탬프에 렌더링된 맵에 표시됩니다.
 
-[기능 상태 가져오기 API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview)를 사용하면 기능 `ID`를 사용하여 기능의 상태를 검색할 수 있습니다. 또한 [기능 상태 삭제 API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview)를 사용하여 상태 세트 및 해당 리소스를 삭제할 수도 있습니다.
+[기능 상태 가져오기 API](/rest/api/maps/featurestate/getstatespreview)를 사용하면 기능 `ID`를 사용하여 기능의 상태를 검색할 수 있습니다. 또한 [기능 상태 삭제 API](/rest/api/maps/featurestate/deletestatesetpreview)를 사용하여 상태 세트 및 해당 리소스를 삭제할 수도 있습니다.
 
 이 문서에서 설명하는 다양한 Azure Maps Creator 서비스에 대한 자세한 내용은 [실내 맵용 Creator](creator-indoor-maps.md)를 참조하세요.
 

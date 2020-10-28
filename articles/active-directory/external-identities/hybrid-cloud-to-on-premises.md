@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896469"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory) B2B 협업 기능을 사용하여 파트너 조
 다음을 모두 수행해야 합니다.
 
 - [Saml 기반 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)에 설명 된 대로 saml을 사용 하 여 앱을 통합 합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
--  Azure AD 애플리케이션 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../manage-apps/application-proxy-add-on-premises-application.md)를 참조하세요. 
+-  Azure AD 애플리케이션 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory** 와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../manage-apps/application-proxy-add-on-premises-application.md)를 참조하세요. 
 
    **내부 URL** 설정을 구성하는 경우 비갤러리 애플리케이션 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 애플리케이션 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
  
@@ -39,8 +39,8 @@ Azure AD(Azure Active Directory) B2B 협업 기능을 사용하여 파트너 조
 
 B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 애플리케이션에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
 
-- **Azure AD 애플리케이션 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [애플리케이션 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-add-on-premises-application.md) 및 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션을 게시](../manage-apps/application-proxy-add-on-premises-application.md)를 참조하세요.
-- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
+- **Azure AD 애플리케이션 프록시를 통해 인증** 합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](../manage-apps/application-proxy-add-on-premises-application.md)를 참조 하세요.
+- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여** 합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    > [!NOTE]
    > Azure AD 응용 프로그램 프록시를 구성 하는 경우 Windows 통합 인증에 대 한 Single Sign-On 구성 (IWA)에서 **위임 된 로그온 id** 가 **사용자 계정 이름** (기본값)으로 설정 되어 있는지 확인 합니다.

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441847"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896092"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -30,7 +30,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 그렇습니다. [이 기능에 대한 블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)을 참조하세요. 조직의 로그인 페이지를 사용자 지정하는 방법에 대한 자세한 내용은 [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)를 참조하세요.
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 협업 사용자가 SharePoint Online 및 OneDrive에 액세스할 수 있습니까?
-예. 그러나 사용자 선택을 사용하여 SharePoint Online에서 기존 게스트 사용자를 검색하는 기능은 기본적으로 **꺼져** 있습니다. 기존 게스트 사용자를 검색하는 옵션을 설정하려면 **ShowPeoplePickerSuggestionsForGuestUsers**를 **켜기**로 설정합니다. 테넌트 수준 또는 사이트 컬렉션 수준에서 이 설정을 사용할 수 있습니다. Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 설정을 변경할 수 있습니다. 구성원은 이러한 cmdlet을 사용하여 디렉터리에 있는 기존의 모든 게스트 사용자를 검색할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SharePoint Online 사이트에 영향을 주지 않습니다.
+예. 그러나 사용자 선택을 사용하여 SharePoint Online에서 기존 게스트 사용자를 검색하는 기능은 기본적으로 **꺼져** 있습니다. 기존 게스트 사용자를 검색하는 옵션을 설정하려면 **ShowPeoplePickerSuggestionsForGuestUsers** 를 **켜기** 로 설정합니다. 테넌트 수준 또는 사이트 컬렉션 수준에서 이 설정을 사용할 수 있습니다. Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 설정을 변경할 수 있습니다. 구성원은 이러한 cmdlet을 사용하여 디렉터리에 있는 기존의 모든 게스트 사용자를 검색할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SharePoint Online 사이트에 영향을 주지 않습니다.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>CSV 업로드 기능이 계속 지원되나요?
 예. .csv 파일 업로드 기능을 사용하는 방법에 대한 자세한 내용은 [이 PowerShell 샘플](code-samples.md)을 참조하세요.
@@ -64,17 +64,17 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 예. 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-2. Azure Portal에서 **Azure Active Directory**를 선택 합니다. 
-3. **관리**에서 **보안**을 선택 합니다.
-4. **보호**아래에서 **조건부 액세스**를 선택 합니다. **새 정책**을 선택합니다.
+2. Azure Portal에서 **Azure Active Directory** 를 선택 합니다. 
+3. **관리** 에서 **보안** 을 선택 합니다.
+4. **보호** 아래에서 **조건부 액세스** 를 선택 합니다. **새 정책** 을 선택합니다.
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력 합니다 (예: "게스트가 포털에 액세스 하지 못하도록 차단").
-6. **할당**에서 **사용자 및 그룹**을 선택합니다.
-7. **포함** 탭에서 **사용자 및 그룹 선택**을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
+6. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+7. **포함** 탭에서 **사용자 및 그룹 선택** 을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
 9. **완료** 를 선택합니다.
-10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업**을 선택 합니다.
-11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택**을 선택한 다음 **선택**을 선택 합니다.
-12. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 선택합니다.
-13. **클라우드 앱 또는 작업** 페이지에서 **완료**를 선택 합니다.
+10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업** 을 선택 합니다.
+11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택** 을 선택한 다음 **선택** 을 선택 합니다.
+12. **선택** 페이지에서 **Microsoft Azure 관리** 를 선택한 후 **선택** 을 선택합니다.
+13. **클라우드 앱 또는 작업** 페이지에서 **완료** 를 선택 합니다.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 협업에서는 Multi-Factor Authentication 및 소비자 이메일 계정을 지원하나요?
 예. Multi-Factor Authentication 및 소비자 이메일 계정은 둘 다 Azure AD B2B 협업에 지원됩니다.
@@ -130,7 +130,7 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 예. Azure AD B2B 협업은 허용 목록 및 거부 목록을 지원합니다. 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Azure AD B2B를 사용해야 하는 라이선스는 무엇인가요?
-조직이 Azure AD B2B를 사용해야 하는 라이선스에 대한 정보는 [Azure Active Directory B2B 협업 라이선스 지침](licensing-guidance.md)을 참조하세요.
+조직에서 Azure AD B2B를 사용 해야 하는 라이선스에 대 한 자세한 내용은 [외부 id 가격](external-identities-pricing.md)을 참조 하세요.
 
 ### <a name="next-steps"></a>다음 단계
 

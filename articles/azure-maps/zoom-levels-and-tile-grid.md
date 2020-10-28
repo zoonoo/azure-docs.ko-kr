@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896585"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(너비-1, 높이-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
+각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(너비-1, 높이-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2 <sup>zoom</sup>– 1, tileSize \* 2 <sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="세계 지도 타일":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-각 타일에는 오른쪽 아래에서 (0, 0) 왼쪽 위에서 ( *2<sup>확대/축소</sup>– 1, 2<sup>줌</sup>– 1)* 까지의 XY 좌표가 지정 됩니다. 예를 들어 확대/축소 수준 3에서 타일은 (0, 0)에서 (7, 7) 사이의 범위를 다음과 같이 조정 합니다.
+각 타일에는 오른쪽 아래에서 (0, 0) 왼쪽 위에서 ( *2 <sup>확대/축소</sup>– 1, 2 <sup>줌</sup>– 1)* 까지의 XY 좌표가 지정 됩니다. 예를 들어 확대/축소 수준 3에서 타일은 (0, 0)에서 (7, 7) 사이의 범위를 다음과 같이 조정 합니다.
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="세계 지도 타일":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Azure Maps SDK의 대화형 맵 컨트롤에는 지리 공간적 위치와 뷰포트 픽셀 간을 변환 하기 위한 도우미 함수가 있습니다. 
-> - [웹 SDK: 지도 픽셀 및 위치 계산](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [웹 SDK: 지도 픽셀 및 위치 계산](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Maps REST 서비스에서 지도 타일에 직접 액세스 합니다.
 
 > [!div class="nextstepaction"]
-> [지도 타일 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [지도 타일 가져오기](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [트래픽 흐름 타일 가져오기](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [트래픽 흐름 타일 가져오기](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [트래픽 인시던트 타일 가져오기](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [트래픽 인시던트 타일 가져오기](/rest/api/maps/traffic/gettrafficincidenttile)
 
 지리 공간적 개념에 대해 자세히 알아보세요.
 

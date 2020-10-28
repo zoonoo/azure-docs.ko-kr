@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896211"
 ---
 # <a name="add-a-tile-layer"></a>타일 레이어 추가
 
@@ -57,11 +57,11 @@ Azure Maps 시각적 개체는 다음과 같은 세 가지 타일 서비스 명�
 -   `{quadkey}` - `quadkey` Bing 지도 타일 시스템 명명 규칙을 기반으로 하는 타일 식별자입니다.
 -   `{bbox-epsg-3857}` - `{west},{south},{east},{north}` EPSG 3857 공간 참조 시스템에서 형식의 경계 상자 문자열입니다.
 
-예를 들어 다음은 Azure Maps의 [날씨 레이더 타일 서비스](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) 에 대 한 서식이 지정 된 타일 URL입니다. 는 `[subscription-key]` Azure Maps 구독 키에 대 한 자리 표시자입니다.
+예를 들어 다음은 Azure Maps의 [날씨 레이더 타일 서비스](/rest/api/maps/renderv2/getmaptilepreview) 에 대 한 서식이 지정 된 타일 URL입니다. 는 `[subscription-key]` Azure Maps 구독 키에 대 한 자리 표시자입니다.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-바둑판식 배열 시스템 Azure Maps에 대 한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조 하세요.
+바둑판식 배열 시스템 Azure Maps에 대 한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

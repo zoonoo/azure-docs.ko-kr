@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030897"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896177"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps 라우팅 적용 범위
 
@@ -37,7 +37,7 @@ ms.locfileid: "88030897"
 <br>  
 
 
-## <a name="africa"></a>아프리카
+## <a name="africa"></a>Africa
 
 | 국가/지역                 | 라우팅         | 트래픽 라우팅 | 트럭 라우팅 |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -245,4 +245,4 @@ ms.locfileid: "88030897"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 라우팅에 대 한 자세한 내용은 [라우팅](https://docs.microsoft.com/rest/api/maps/route) 참조 페이지를 참조 하세요.
+Azure Maps 라우팅에 대 한 자세한 내용은 [라우팅](/rest/api/maps/route) 참조 페이지를 참조 하세요.

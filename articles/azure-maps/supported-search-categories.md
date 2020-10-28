@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 240bc8429ca786eb2f474a5a0b6ee296deb3b356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9cf9e031c73b1412ab9fc20f5ffe94736d28eb4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310125"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896908"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps에서 지원되는 범주
 
-관심 지점에 대해 [범주 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory)을 수행하는 경우 지원되는 범주는 백 가지가 넘습니다. 아래는 지원되는 범주 이름에 대한 카테고리 코드 목록입니다. 범주 코드는 최상위 수준 범주에 대해 생성됩니다. 모든 하위 범주는 동일한 범주 코드를 공유합니다. 이 범주 목록은 새로운 데이터가 릴리스에 따라 변경될 수 있습니다.
+관심 지점에 대해 [범주 검색](/rest/api/maps/search/getsearchpoicategory)을 수행하는 경우 지원되는 범주는 백 가지가 넘습니다. 아래는 지원되는 범주 이름에 대한 카테고리 코드 목록입니다. 범주 코드는 최상위 수준 범주에 대해 생성됩니다. 모든 하위 범주는 동일한 범주 코드를 공유합니다. 이 범주 목록은 새로운 데이터가 릴리스에 따라 변경될 수 있습니다.
 
 <br/>
 

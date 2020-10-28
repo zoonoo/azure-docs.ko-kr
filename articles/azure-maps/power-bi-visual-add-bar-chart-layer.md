@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896279"
 ---
 # <a name="add-a-bar-chart-layer"></a>가로 막대형 차트 레이어 추가
 
@@ -71,7 +71,7 @@ ms.locfileid: "87288158"
 시각적 개체를 사용자 지정 합니다.
 
 > [!div class="nextstepaction"]
-> [Power BI의 색 서식을 위한 팁과 힌트](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Power BI의 색 서식을 위한 팁과 힌트](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [시각화 제목, 배경 및 범례 사용자 지정](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [시각화 제목, 배경 및 범례 사용자 지정](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

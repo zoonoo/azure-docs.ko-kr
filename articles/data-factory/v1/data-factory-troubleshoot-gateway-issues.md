@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896568"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "85319070"
 또는 다운로드 센터에 액세스할 수있는 다른 컴퓨터의 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 게이트웨이의 설치 파일을 다운로드할 수 있습니다. 그런 다음 설치 프로그램 파일을 게이트웨이 호스트 컴퓨터에 복사한 다음 수동으로 실행하여 게이트웨이를 설치하고 업데이트할 수 있습니다.
 
 ### <a name="2-problem"></a>2. 문제
-Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트웨이를 설치하려고 할 때 이 오류가 표시됩니다.
+Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트웨이를 설치하려고 할 때 이 오류가 표시됩니다.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
 
@@ -86,7 +86,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![게이트웨이 키가 잘못되었거나 비어 있음](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![게이트웨이 키가 잘못 되었거나 비어 있음을 나타내는 오류 메시지를 강조 표시 하는 스크린샷](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>원인
 게이트웨이 키가 다시 생성되었거나 게이트웨이가 Azure Portal에서 삭제되었습니다. 데이터 관리 게이트웨이 설치가 최신이 아닌 경우에도 발생할 수 있습니다.
@@ -107,14 +107,14 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 게이트웨이가 삭제되었거나 연결된 게이트웨이 키가 다시 생성되었기 때문에 이 오류가 발생할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
-게이트웨이가 삭제된 경우 포털에서 게이트웨이를 다시 만들고 **등록**을 클릭한 다음 포털에서 키를 복사하여 붙여넣고 게이트웨이를 등록합니다.
+게이트웨이가 삭제된 경우 포털에서 게이트웨이를 다시 만들고 **등록** 을 클릭한 다음 포털에서 키를 복사하여 붙여넣고 게이트웨이를 등록합니다.
 
 게이트웨이가 여전히 존재하지만 해당 키가 다시 생성된 경우 새 키를 사용하여 게이트웨이를 등록합니다. 키가 없는 경우 포털에서 키를 다시 생성합니다.
 
 ### <a name="7-problem"></a>7. 문제
 게이트웨이를 등록할 때 인증서의 경로와 암호를 입력해야 할 수 있습니다.
 
-![인증서 지정](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![인증서의 경로와 암호를 입력 하는 위치를 보여 주는 스크린샷](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>원인
 게이트웨이가 이전에 다른 컴퓨터에 등록되었습니다. 게이트웨이의 초기 등록 과정에서 암호화 인증서가 게이트웨이에 연결되었습니다. 이 인증서는 게이트웨이에서 자체 생성되었거나 사용자가 제공했을 수 있습니다.  이 인증서는 데이터 저장소(연결된 서비스)의 자격 증명을 암호화하는 데 사용됩니다.  
@@ -233,8 +233,8 @@ SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 
 
 1. 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
 2. **진단** 탭으로 전환 합니다.
-3. **연결 테스트**에서 게이트웨이 그룹 값을 추가합니다.
-4. **연결 테스트**를 클릭하여 연결 정보와 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.
+3. **연결 테스트** 에서 게이트웨이 그룹 값을 추가합니다.
+4. **연결 테스트** 를 클릭하여 연결 정보와 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.
 
 ![진단 탭의 연결 테스트](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
@@ -245,18 +245,18 @@ SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 
 1. 데이터 관리 게이트웨이 구성 관리자의 **진단** 탭으로 전환합니다.
 
     ![데이터 관리 게이트웨이 - 진단 탭](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
-2. **로그 보내기**를 클릭하여 다음 대화 상자를 표시합니다.
+2. **로그 보내기** 를 클릭하여 다음 대화 상자를 표시합니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
-3. (선택 사항) **로그 보기**를 클릭하여 이벤트 뷰어에서 로그를 검토합니다.
-4. (선택 사항) **개인 정보 취급 방침**을 클릭하여 Microsoft 웹 서비스 개인 정보 취급 방침을 검토합니다.
-5. 업로드할 항목에 만족하면 **로그 보내기**를 클릭하여 문제를 해결하기 위해 지난 7일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
+3. (선택 사항) **로그 보기** 를 클릭하여 이벤트 뷰어에서 로그를 검토합니다.
+4. (선택 사항) **개인 정보 취급 방침** 을 클릭하여 Microsoft 웹 서비스 개인 정보 취급 방침을 검토합니다.
+5. 업로드할 항목에 만족하면 **로그 보내기** 를 클릭하여 문제를 해결하기 위해 지난 7일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
 
-    ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![로그 보내기 작업의 상태를 볼 수 있는 위치를 보여 주는 스크린샷](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. 작업이 완료되면 다음 스크린샷과 같은 대화 상자가 표시됩니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. **보고서 ID**를 저장하고 Microsoft 지원과 공유합니다. 보고서 ID는 문제를 해결하기 위해 업로드한 게이트웨이 로그를 찾는 데 사용됩니다.  또한 보고서 ID는 이벤트 뷰어에도 저장됩니다.  "25" 이벤트 ID를 확인하여 찾을 수 있으며 날짜와 시간을 확인할 수 있습니다.
+7. **보고서 ID** 를 저장하고 Microsoft 지원과 공유합니다. 보고서 ID는 문제를 해결하기 위해 업로드한 게이트웨이 로그를 찾는 데 사용됩니다.  또한 보고서 ID는 이벤트 뷰어에도 저장됩니다.  "25" 이벤트 ID를 확인하여 찾을 수 있으며 날짜와 시간을 확인할 수 있습니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 보고서 ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
@@ -278,7 +278,7 @@ SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 
 ### <a name="locate-gateway-logs"></a>게이트웨이 로그 찾기
 Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인할 수 있습니다.
 
-1. Windows **이벤트 뷰어**를 시작합니다.
+1. Windows **이벤트 뷰어** 를 시작합니다.
 2. **응용 프로그램 및 서비스 로그**  >  **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
 
    게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.

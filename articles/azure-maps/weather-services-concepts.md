@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972032"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896730"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
 
-이 문서에서는 [Azure Maps 날씨 서비스](https://aka.ms/AzureMapsWeatherService)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
+이 문서에서는 [Azure Maps 날씨 서비스](/rest/api/maps/weather)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
 
 ## <a name="unit-types"></a>단위 유형
 
@@ -47,7 +47,7 @@ ms.locfileid: "90972032"
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |정수             |
+|22      |integer             |
 
 
 ## <a name="weather-icons"></a>날씨 아이콘
@@ -100,7 +100,7 @@ ms.locfileid: "90972032"
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>방사형 및 위성 이미지 색 눈금
 
-[맵 가져오기 타일 V2 API](https://aka.ms/AzureMapsWeatherTiles) 를 통해 사용자는 최신 레이더 및 적외선 위성 이미지를 요청할 수 있습니다. 방사형 및 위성 타일에 사용 되는 색을 해석 하려면 아래 가이드를 참조 하세요.
+[맵 가져오기 타일 V2 API](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자는 최신 레이더 및 적외선 위성 이미지를 요청할 수 있습니다. 방사형 및 위성 타일에 사용 되는 색을 해석 하려면 아래 가이드를 참조 하세요.
 
 ### <a name="radar-images"></a>방사형 이미지
 
@@ -475,7 +475,7 @@ ms.locfileid: "90972032"
 
 ## <a name="index-ids-and-index-groups-ids"></a>인덱스 Id 및 인덱스 그룹 Id
 
-[일일 인덱스 가져오기 API](https://aka.ms/AzureMapsWeatherDailyIndices) 를 사용 하면 사용자가 반환 된 결과를 특정 인덱스 유형 또는 인덱스 그룹으로 제한할 수 있습니다.
+[일일 인덱스 가져오기 API](/rest/api/maps/weather) 를 사용 하면 사용자가 반환 된 결과를 특정 인덱스 유형 또는 인덱스 그룹으로 제한할 수 있습니다.
 
 아래에는 사용 가능한 인덱스 Id, 해당 이름 및 해당 범위 집합에 대 한 링크가 나와 있습니다. 다음 표에서는 다양 한 인덱스 그룹을 나열 하는 표를 표시 합니다.
 
@@ -547,7 +547,7 @@ ms.locfileid: "90972032"
 
 ## <a name="daily-index-range-sets"></a>일일 인덱스 범위 집합
 
-[매일 인덱스 가져오기 API](https://aka.ms/AzureMapsWeatherDailyIndices) 는 각 인덱스 ID에 대해 원거리 값과 관련 된 범주 이름을 반환 합니다. 모든 인덱스에 대해 범위 집합이 동일 하지는 않습니다. 아래 표에는 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids)에 나열 된 지원 되는 인덱스에서 사용 하는 다양 한 범위 집합이 나와 있습니다. 범위 집합을 사용 하는 인덱스를 확인 하려면이 문서의 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids) 섹션으로 이동 합니다.
+[매일 인덱스 가져오기 API](/rest/api/maps/weather) 는 각 인덱스 ID에 대해 원거리 값과 관련 된 범주 이름을 반환 합니다. 모든 인덱스에 대해 범위 집합이 동일 하지는 않습니다. 아래 표에는 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids)에 나열 된 지원 되는 인덱스에서 사용 하는 다양 한 범위 집합이 나와 있습니다. 범위 집합을 사용 하는 인덱스를 확인 하려면이 문서의 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids) 섹션으로 이동 합니다.
 
 ### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
@@ -557,7 +557,7 @@ ms.locfileid: "90972032"
   보통              |  3  |               4.99
   좋음              |  5  |              6.99
   아주 좋아요         |  7  |               8.99
-  최고         |  9  |               10
+  우수         |  9  |               10
 
 ### <a name="poor-excellent-2"></a>Poor-Excellent 2
 
@@ -567,13 +567,13 @@ ms.locfileid: "90972032"
   보통           |3.01           |  6
   좋음           |6.01           |  7.5
   아주 좋아요      |7.51           |  8.99
-  최고      |9              |  10
+  우수      |9              |  10
 
 ### <a name="excellent-poor"></a>Excellent-Poor
 
  | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
-  최고      |     0.00        |    1.00
+  우수      |     0.00        |    1.00
   아주 좋아요        |   1.01          |  3.00
   좋음             |   3.01          |  5.00
   보통             |   5.01          |  7.00
@@ -624,9 +624,9 @@ ms.locfileid: "90972032"
 | 범주 이름 | 시작 범위 | 끝 범위 |
   ----------------|--------------|------------
   많지         |  0     |          2.99
-  조사식            |  3     |          4.99
+  보기            |  3     |          4.99
   권고         |  5     |          6.99
-  Warning          |  7     |          8.99
+  경고          |  7     |          8.99
   응급        |  9     |          10
 
 ### <a name="beneficial-at-extreme-risk"></a>심각한 위험 Beneficial-At

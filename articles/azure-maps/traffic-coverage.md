@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310036"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896874"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
@@ -135,4 +135,4 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 교통 데이터에 대한 자세한 내용은 [교통](https://docs.microsoft.com/rest/api/maps/traffic) 참조 페이지를 참조하세요.
+Azure Maps 교통 데이터에 대한 자세한 내용은 [교통](/rest/api/maps/traffic) 참조 페이지를 참조하세요.

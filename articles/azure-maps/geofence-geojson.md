@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037408"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897197"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
 
@@ -30,7 +30,7 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 * `expiredTime`은 지오펜싱 데이터의 만료 날짜 및 시간입니다. 요청의 `userTime` 값이 이 값보다 이후이면 해당 지오펜스 데이터는 만료된 데이터로 간주되며 쿼리되지 않습니다. 이 경우 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `expiredGeofenceGeometryId` 배열에 포함됩니다.
 * `validityPeriod`는 지오펜스의 유효 기간 목록입니다. 요청의 `userTime` 값이 유효 기간을 벗어난 경우 해당 지오펜스 데이터는 잘못된 데이터로 간주되며 쿼리되지 않습니다. 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `invalidPeriodGeofenceGeometryId` 배열에 포함됩니다. 다음 표에는 validityPeriod 요소의 속성이 나와 있습니다.
 
-| Name | 유형 | 필수  | 설명 |
+| Name | Type | 필수  | 설명 |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
 | endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |
@@ -40,7 +40,7 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 
 * 모든 좌표 값은에 정의 된 [경도, 위도]로 표시 됩니다 `WGS84` .
 * `MultiPoint`, `MultiLineString`, `MultiPolygon` 또는 `GeometryCollection`을 포함하는 각 기능의 경우 속성이 모든 요소에 적용됩니다. 예를 들어의 모든 지점은 `MultiPoint` 동일한 반경을 사용 하 여 여러 원 지 오를 형성 합니다.
-* 점-원형 시나리오에서는 [GeoJSON 기하 도형 확장](https://docs.microsoft.com/azure/azure-maps/extend-geojson)에 자세히 설명된 속성을 가진 `Point` 기하 도형 개체를 사용하여 원형 기하 도형을 표시할 수 있습니다.      
+* 점-원형 시나리오에서는 [GeoJSON 기하 도형 확장](./extend-geojson.md)에 자세히 설명된 속성을 가진 `Point` 기하 도형 개체를 사용하여 원형 기하 도형을 표시할 수 있습니다.      
 
 다음은 중심점과 반경을 사용하여 `GeoJSON`에서 원형 지오펜싱 기하 도형으로 표시된 지오펜스에 대한 샘플 요청 본문입니다. 지오펜스 데이터의 유효 기간은 2018년 10월 22일 오전 9시-오후 5시에 시작되며 주말을 제외하고 매일 반복됩니다. `expiredTime`은 요청의 `userTime`이 `2019-01-01`보다 이후인 경우 이 지오펜스 데이터가 만료된 데이터로 간주됨을 나타냅니다.  
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311091"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897095"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
 
@@ -37,9 +37,9 @@ ms.locfileid: "91311091"
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}` -하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
-이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
+이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>지도에 타일 계층 추가
@@ -179,4 +179,4 @@ ms.locfileid: "91311091"
 지도 스타일을 설정 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android 맵에서 맵 스타일 변경](./set-android-map-styles.md)

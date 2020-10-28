@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037442"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897214"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
-Azure Maps [search 서비스](https://docs.microsoft.com/rest/api/maps/search) 는 지 오 코딩을 지원 합니다. 즉, API 요청에서 주소 또는 위치의 이름과 같은 검색 용어를 포함 하 고 결과를 위도 및 경도 좌표로 반환할 수 있습니다. 예를 들어 Azure Maps [가져오기 검색 주소 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) 는 위치 정보를 포함 하는 쿼리를 받고 결과를 위도 및 경도 좌표로 반환 합니다.
+Azure Maps [search 서비스](/rest/api/maps/search) 는 지 오 코딩을 지원 합니다. 즉, API 요청에서 주소 또는 위치의 이름과 같은 검색 용어를 포함 하 고 결과를 위도 및 경도 좌표로 반환할 수 있습니다. 예를 들어 Azure Maps [가져오기 검색 주소 API](/rest/api/maps/search/getsearchaddress) 는 위치 정보를 포함 하는 쿼리를 받고 결과를 위도 및 경도 좌표로 반환 합니다.
 
-그러나 Azure Maps [Search 서비스](https://docs.microsoft.com/rest/api/maps/search) 는 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요.
+그러나 Azure Maps [Search 서비스](/rest/api/maps/search) 는 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요.
 
 국가/지역에서 코드를 geocode는 기능은 지 오 코딩 서비스의도로 데이터 검사 및 지 오 코딩 정밀도에 따라 달라 집니다. 다음 분류는 각 국가/지역에서 지 오 코딩 지원 수준을 지정 하는 데 사용 됩니다.
 
@@ -301,4 +301,4 @@ Azure Maps [search 서비스](https://docs.microsoft.com/rest/api/maps/search) �
 
 Azure Maps 지 오 코딩에 대해 자세히 알아보세요.
 > [!div class="nextstepaction"]
-> [Azure Maps Search Service](https://docs.microsoft.com/rest/api/maps/search)
+> [Azure Maps Search Service](/rest/api/maps/search)

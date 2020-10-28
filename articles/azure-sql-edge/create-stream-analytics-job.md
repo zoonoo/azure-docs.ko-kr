@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888099"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896143"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
 
@@ -103,7 +103,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 
 3. CREATE EXTERNAL DATA SOURCE를 사용하여 외부 데이터 원본을 만듭니다. 다음 예제를 참조하세요.
 
-    * *Localsqloutput*이라는 외부 데이터 원본을 만듭니다.
+    * *Localsqloutput* 이라는 외부 데이터 원본을 만듭니다.
     * 외부 데이터 원본(LOCATION = '<vendor>://<server>[:<port>]')을 식별합니다. 이 예제에서는 Azure SQL Edge의 로컬 인스턴스를 가리킵니다.
     * 이전에 만든 자격 증명을 사용 합니다.
 
@@ -117,7 +117,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
     go
     ```
 
-4. 외부 스트림 개체를 만듭니다. 다음 예에서는 dbo 테이블을 가리키는 외부 stream 개체를 만듭니다 *. *데이터베이스 *MySQLDatabase*의 TemperatureMeasurements.
+4. 외부 스트림 개체를 만듭니다. 다음 예에서는 dbo 테이블을 가리키는 외부 stream 개체를 만듭니다 *.* 데이터베이스 *MySQLDatabase* 의 TemperatureMeasurements.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

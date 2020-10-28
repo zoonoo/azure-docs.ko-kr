@@ -1,15 +1,16 @@
 ---
 title: Azure Functions 네트워킹 옵션
 description: Azure Functions에서 사용할 수 있는 모든 네트워킹 옵션에 대한 개요입니다.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897078"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -66,11 +67,30 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>가상 네트워크 (미리 보기)에 대 한 저장소 계정 제한
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 현재 이 계정에 대한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용하는 스토리지 계정에서 가상 네트워크 서비스 엔드포인트를 구성하는 경우 해당 구성은 앱을 중단합니다.
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다.  이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다.  이 미리 보기 기능은 현재 유럽 서부의 Windows Premium 요금제 에서만 작동 합니다.  개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
 
-자세한 내용은 [스토리지 계정 요구 사항](./functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+> [!NOTE]
+> 현재 유럽 서부에서 Windows를 사용 하는 프리미엄 기능에 대해서만 저장소 계정 제한
+
+1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
+1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.
+1. 다른 저장소 계정을 만들거나 구성 합니다.  서비스 끝점을 사용 하 여 보안을 설정 하 고 함수를 연결 하는 저장소 계정입니다.
+1. 보안 저장소 계정에서 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share) .
+1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
+    * 서비스 끝점을 사용 하는 경우 함수 앱 전용 서브넷을 사용 하도록 설정 해야 합니다.
+    * 개인 끝점을 사용 하는 경우 DNS 레코드를 만들고 [개인 끝점 끝점과 함께 작동](#azure-dns-private-zones) 하도록 앱을 구성 해야 합니다.  저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 `file` `blob` 합니다.  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 필요 하 고 액세스할 수도 있습니다.
+1. 필드 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
+1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
+1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
+    - `AzureWebJobsStorage` 보안 저장소 계정에 대 한 연결 문자열입니다.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 보안 저장소 계정에 대 한 연결 문자열입니다.
+    - `WEBSITE_CONTENTSHARE` 보안 저장소 계정에 생성 된 파일 공유의 이름입니다.
+    - 의 이름과 값을 사용 하 여 새 설정을 만듭니다 `WEBSITE_CONTENTOVERVNET` `1` .
+1. 응용 프로그램 설정을 저장 합니다.  
+
+함수 앱이 다시 시작 되 고 이제 보안 저장소 계정에 연결 됩니다.
 
 ## <a name="use-key-vault-references"></a>Key Vault 참조 사용
 
@@ -87,7 +107,7 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
 
-프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정**아래 Azure Portal에 있습니다.
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정** 아래 Azure Portal에 있습니다.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -136,8 +156,8 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 ## <a name="automation"></a>Automation
 다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
-+ **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
-+ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
++ **Azure CLI** : [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
++ **ARM 템플릿** : 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

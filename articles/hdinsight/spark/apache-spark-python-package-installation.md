@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547336"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896415"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -129,6 +129,24 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
     4. 변경 내용을 저장하고 영향을 받은 서비스를 다시 시작합니다. 이러한 변경을 하면 Spark2 서비스를 다시 시작해야 합니다. Ambari UI에서 필수 다시 시작 알림이 표시되면 다시 시작을 클릭하여 영향을 받는 모든 서비스를 다시 시작합니다.
 
         ![서비스 다시 시작](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. 작업이 업데이트 된 spark 구성 (및)을 가리키도록 하기 위해 Spark 세션에 두 속성을 설정 `spark.yarn.appMasterEnv.PYSPARK_PYTHON` 합니다 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+
+        터미널 또는 노트북을 사용 하 여 함수를 사용 `spark.conf.set` 합니다.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Livy를 사용 하는 경우 요청 본문에 다음 속성을 추가 합니다.
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. Jupyter에서 새로 만든 가상 환경을 사용하려는 경우 다음과 같이 합니다. Jupyter 구성을 변경하고 Jupyter를 다시 시작합니다. 아래의 문을 사용하여 모든 헤더 노드에서 스크립트 작업을 실행하여 Jupyter가 새로 생성된 가상 환경을 가리키도록 합니다. 가상 환경을 대상으로 지정한 접두사의 경로를 수정해야 합니다. 이 스크립트 작업을 실행한 후 Ambari UI를 통해 Jupyter 서비스를 다시 시작하여 이 변경 내용을 적용합니다.
 
