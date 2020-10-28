@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787468"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 
@@ -50,7 +50,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 1. **파일**  >  **새로 만들기**  >  **프로젝트** 를 선택 합니다.
 2. **플랫폼**  >  **창** 선택
 3. **콘솔 앱 (.NET Framework)을** 선택 합니다.
-4. **다음**을 선택합니다.
+4. **다음** 을 선택합니다.
 5. **프로젝트 이름** 필드에 응용 프로그램의 이름을 입력 합니다.
 6. **만들기**
 
@@ -69,9 +69,9 @@ Azure 클라우드 서비스, 웹 앱, 데스크톱 및 모바일 응용 프로�
 - [.Net 용 Azure Storage 큐 라이브러리](https://www.nuget.org/packages/Azure.Storage.Queues/):이 패키지를 사용 하면 클라이언트에서 액세스할 수 있는 메시지를 저장 하기 위해 Azure Storage 큐 서비스 작업할 수 있습니다.
 - [.Net 용 Configuration Manager 라이브러리](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/):이 패키지는 클라이언트 응용 프로그램의 구성 파일에 대 한 액세스를 제공 합니다.
 
-NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
+NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행하세요.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **찾아보기** 선택
 1. 온라인에서 "Azure. Queue"를 검색 하 고 **설치** 를 선택 하 여 저장소 클라이언트 라이브러리와 해당 종속성을 설치 합니다. 이렇게 하면 큐 라이브러리의 종속성 인 Azure. Common 및 Azure Core 라이브러리도 설치 됩니다.
 1. 온라인에서 "System.Configuration.ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Configuration Manager를 설치 합니다.
@@ -84,9 +84,9 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 - [.Net 용 Microsoft Azure Storage Queue library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/):이 클라이언트 라이브러리를 사용 하면 클라이언트에서 액세스할 수 있는 메시지를 저장 하기 위해 Microsoft Azure Storage 큐 서비스 작업할 수 있습니다.
 - [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
-NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
+NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행하세요.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **찾아보기** 선택
 1. 온라인에서 "Microsoft. Azure. Queue"를 검색 하 고 **설치** 를 선택 하 여 저장소 클라이언트 라이브러리와 해당 종속성을 설치 합니다. 이렇게 하면 큐 라이브러리의 종속성 인 Microsoft Azure. Storage. Common library도 설치 됩니다.
 1. 온라인에서 "Microsoft.Azure.ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Azure Configuration Manager를 설치 합니다.
@@ -113,7 +113,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 스토리지 계정을 찾습니다.
-3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
+3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
 
     ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>일반적인 Queue Storage API와 함께 Async-Await 패턴 사용
 
-이 예제에서는 일반적인 Queue Storage API와 함께 Async- Await 패턴을 사용하는 방법을 보여 줍니다. 샘플의 경우 지정된 각 메서드의 비동기 버전을 호출하는데, 이 버전은 각 메서드의 *Async* 접미사로 표시됩니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async-Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) 를 참조 하세요.
+이 예제에서는 일반적인 Queue Storage API와 함께 Async- Await 패턴을 사용하는 방법을 보여 줍니다. 샘플의 경우 지정된 각 메서드의 비동기 버전을 호출하는데, 이 버전은 각 메서드의 *Async* 접미사로 표시됩니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async-Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET의 Async-Await 패턴 사용에 대 한 자세한 내용은 [Async And wait (c # 및 Visual Basic)](/previous-versions/hh191443(v=vs.140)) 를 참조 하세요.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
 - 사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하십시오.
-  - [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Storage Client Library for .NET 참조](/dotnet/api/overview/azure/storage)
+  - [REST API 참조](/rest/api/storageservices/)
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-  - [.NET을 사용하여 Azure Table Storage를 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md) 하여 구조화된 데이터를 저장합니다.
-  - [.NET을 사용하여 Azure Blob Storage를 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
+  - [.NET을 사용하여 Azure Table Storage를 시작](../../cosmos-db/tutorial-develop-table-dotnet.md) 하여 구조화된 데이터를 저장합니다.
+  - [.NET을 사용하여 Azure Blob Storage를 시작](../blobs/storage-quickstart-blobs-dotnet.md) 하여 구조화되지 않은 데이터를 저장합니다.
   - [.NET(C#)을 사용하여 SQL Database에 연결](../../azure-sql/database/connect-query-dotnet-core.md)하여 관계형 데이터를 저장합니다.
 - [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 사용하여 Azure Storage 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.

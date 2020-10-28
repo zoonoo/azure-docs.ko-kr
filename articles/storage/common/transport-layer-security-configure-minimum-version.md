@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018580"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785802"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "90018580"
 
 저장소 계정에 최소 TLS 버전을 적용 하면 이전 버전의 TLS로 데이터를 전송 하는 클라이언트의 요청을 거부할 위험이 있습니다. 최소 TLS 버전을 구성 하는 것이 클라이언트 응용 프로그램에 영향을 줄 수 있는 방법을 이해 하려면 사용 중인 TLS 클라이언트 응용 프로그램 버전을 검색 하는 시간 간격 후에 Azure Storage 계정에 대 한 로깅을 사용 하도록 설정 하 고 로그를 분석 하는 것이 좋습니다.
 
-Azure Storage 계정에 요청을 기록 하 고 클라이언트에서 사용 하는 TLS 버전을 확인 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](monitor-storage.md)을 참조 하세요.
+Azure Storage 계정에 요청을 기록 하 고 클라이언트에서 사용 하는 TLS 버전을 확인 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../blobs/monitor-blob-storage.md)을 참조 하세요.
 
 Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
 
@@ -44,16 +44,16 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. 요청을 기록 하려는 Azure Storage 서비스를 선택 합니다. 예를 들어 blob 저장소에 요청을 기록 하려면 **blob** 을 선택 합니다.
-1. **진단 설정 추가**를 선택 합니다.
+1. **진단 설정 추가** 를 선택 합니다.
 1. 진단 설정의 이름을 제공 합니다.
-1. **범주 세부 정보**의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 읽기, 쓰기 및 삭제 요청을 기록할 수 있습니다. 예를 들어 **StorageRead** 및 **storagewrite** 를 선택 하면 선택한 서비스에 대 한 읽기 및 쓰기 요청이 기록 됩니다.
-1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
+1. **범주 세부 정보** 의 **로그** 섹션에서 로깅할 요청 형식을 선택 합니다. 읽기, 쓰기 및 삭제 요청을 기록할 수 있습니다. 예를 들어 **StorageRead** 및 **storagewrite** 를 선택 하면 선택한 서비스에 대 한 읽기 및 쓰기 요청이 기록 됩니다.
+1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 합니다. 다음 이미지와 같이 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
 진단 설정을 만든 후에는 해당 설정에 따라 저장소 계정에 대 한 요청이 나중에 기록 됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
 
-Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대 한 참조는 [리소스 로그 (미리 보기)](monitor-storage-reference.md#resource-logs-preview)를 참조 하세요.
+Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대 한 참조는 [리소스 로그 (미리 보기)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview)를 참조 하세요.
 
 ### <a name="query-logged-requests-by-tls-version"></a>TLS 버전에 의해 기록 된 요청 쿼리
 
@@ -91,9 +91,6 @@ StorageBlobLogs
 
 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
 
-> [!NOTE]
-> 현재 **버전** 속성은 Azure 공용 클라우드의 저장소 계정에 대해서만 사용할 수 있습니다.
-
 # <a name="portal"></a>[포털](#tab/portal)
 
 Azure Portal를 사용 하 여 저장소 계정을 만드는 경우 최소 TLS 버전은 기본적으로 1.2로 설정 됩니다.
@@ -102,7 +99,7 @@ Azure Portal를 사용 하 여 기존 저장소 계정에 대 한 최소 TLS 버
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. **구성** 설정을 선택 합니다.
-1. **최소 tls 버전**에서 다음 이미지에 표시 된 것 처럼 드롭다운을 사용 하 여이 저장소 계정의 데이터에 액세스 하는 데 필요한 최소 버전의 tls를 선택 합니다.
+1. **최소 tls 버전** 에서 다음 이미지에 표시 된 것 처럼 드롭다운을 사용 하 여이 저장소 계정의 데이터에 액세스 하는 데 필요한 최소 버전의 tls를 선택 합니다.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
@@ -110,7 +107,7 @@ Azure Portal를 사용 하 여 기존 저장소 계정에 대 한 최소 TLS 버
 
 PowerShell을 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 [Azure PowerShell 버전 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 이상을 설치 합니다. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
 
-PowerShell을 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null**인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
+PowerShell을 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null** 인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 다음 예에서는 저장소 계정을 만들고, **이를 tls 1.1로 설정** 하 고, 계정을 업데이트 하 고, 다음 **버전** 을 tls 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -142,7 +139,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 Azure CLI를 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 Azure CLI 버전 2.9.0 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
 
-Azure CLI를 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null**인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
+Azure CLI를 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null** 인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 다음 예제에서는 저장소 계정을 만들고, 이상 **버전** 을 TLS 1.1으로 설정 합니다. 그런 다음 계정을 업데이트 하 고, **버전** 속성을 TLS 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -176,9 +173,9 @@ az storage account show \
 
 템플릿을 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 다음 **버전** 속성을, 또는로 설정 하 여 템플릿을 `TLS1_0` 만듭니다 `TLS1_1` `TLS1_2` . 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
-1. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
-1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포) (미리 보기)** 를 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
+1. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
+1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포) (미리 보기)** 를 선택 하 고 **만들기** 를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 합니다.
 1. 템플릿 편집기에서 다음 JSON을 붙여넣어 새 계정을 만들고 최소 TLS 버전을 TLS 1.2로 설정 합니다. 꺾쇠 괄호 안의 자리 표시자를 사용자 고유의 값으로 대체 해야 합니다.
 
     ```json
@@ -221,7 +218,7 @@ az storage account show \
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>여러 계정에 필요한 최소 TLS 버전 확인
 
-최적의 성능을 가진 일련의 저장소 계정에서 필요한 최소 TLS 버전을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](/azure/governance/resource-graph/first-query-portal)을 참조 하세요.
+최적의 성능을 가진 일련의 저장소 계정에서 필요한 최소 TLS 버전을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](../../governance/resource-graph/first-query-portal.md)을 참조 하세요.
 
 리소스 그래프 탐색기에서 다음 쿼리를 실행 하면 저장소 계정 목록이 반환 되 고 각 계정에 대 한 최소 TLS 버전이 표시 됩니다.
 
@@ -249,11 +246,11 @@ Azure Policy은 리소스에 대해 정책 규칙을 평가할 때 발생 하는
 Azure Portal의 최소 TLS 버전에 대 한 감사 효과를 사용 하 여 정책을 만들려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **제작** 섹션에서 **정의**를 선택 합니다.
+1. **제작** 섹션에서 **정의** 를 선택 합니다.
 1. **정책 정의 추가** 를 선택 하 여 새 정책 정의를 만듭니다.
 1. **정의 위치** 필드의 경우 **자세히** 단추를 선택 하 여 감사 정책 리소스가 있는 위치를 지정 합니다.
 1. 정책의 이름을 지정 합니다. 설명 및 범주를 선택적으로 지정할 수 있습니다.
-1. **정책 규칙**에서 다음 정책 정의를 **policyrule** 섹션에 추가 합니다.
+1. **정책 규칙** 에서 다음 정책 정의를 **policyrule** 섹션에 추가 합니다.
 
     ```json
     {
@@ -286,12 +283,12 @@ Azure Portal의 최소 TLS 버전에 대 한 감사 효과를 사용 하 여 정
 정책을 Azure Portal 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **제작** 섹션에서 **할당**을 선택 합니다.
+1. **제작** 섹션에서 **할당** 을 선택 합니다.
 1. **정책 할당** 을 선택 하 여 새 정책 할당을 만듭니다.
 1. **범위** 필드에서 정책 할당의 범위를 선택 합니다.
 1. **정책 정의** 필드에서 **자세히** 단추를 선택한 다음, 목록에서 이전 섹션에서 정의한 정책을 선택 합니다.
 1. 정책 할당의 이름을 제공 합니다. 설명은 선택 사항입니다.
-1. **정책 적용** 을 *사용*으로 설정 된 상태로 둡니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
+1. **정책 적용** 을 *사용* 으로 설정 된 상태로 둡니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
 1. **검토 + 만들기** 를 선택 하 여 할당을 만듭니다.
 
 ### <a name="view-compliance-report"></a>준수 보고서 보기
@@ -303,7 +300,7 @@ Azure Portal의 최소 TLS 버전에 대 한 감사 효과를 사용 하 여 정
 Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
-1. **준수**를 선택 합니다.
+1. **준수** 를 선택 합니다.
 1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
 1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
 

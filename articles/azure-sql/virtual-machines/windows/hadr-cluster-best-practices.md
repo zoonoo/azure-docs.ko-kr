@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167953"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786431"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [디스크 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원되는 OS**: 모두   
+**지원되는 OS** : 모두   
 
 
 ### <a name="cloud-witness"></a>클라우드 감시
@@ -66,7 +66,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 시작 하려면 [클라우드 감시 구성](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)을 참조 하세요.
 
 
-**지원되는 OS**: Windows Server 2016 이상   
+**지원되는 OS** : Windows Server 2016 이상   
 
 
 ### <a name="file-share-witness"></a>파일 공유 감시
@@ -78,7 +78,7 @@ Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 �
 시작 하려면 [파일 공유 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원되는 OS**: Windows Server 2012 이상   
+**지원되는 OS** : Windows Server 2012 이상   
 
 ## <a name="connectivity"></a>연결
 
@@ -89,7 +89,7 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 다음 표에서는 HADR 연결 지원 가능성을 비교 합니다. 
 
-| |**VNN(가상 네트워크 이름)**  |**DNN(분산 네트워크 이름)**  |
+| |**VNN (Virtual Network 이름)**  |**DNN (분산 네트워크 이름)**  |
 |---------|---------|---------|
 |**최소 OS 버전**| 모두 | Windows Server 2016 |
 |**최소 SQL Server 버전** |모두 |SQL Server 2019 CU2 (FCI 용)<br/> SQL Server 2019 CU8 (AG)|
@@ -104,9 +104,9 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [가용성 그룹](availability-group-vnn-azure-load-balancer-configure.md) 에 대 한 Azure Load Balancer를 구성 하는 방법을 알아봅니다.
 
-**지원되는 OS**: 모두   
-**지원되는 SQL 버전**: 모두   
-**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
+**지원되는 OS** : 모두   
+**지원되는 SQL 버전** : 모두   
+**지원 되는 HADR 솔루션** : 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN(분산 네트워크 이름)
@@ -124,9 +124,9 @@ DNN를 사용 하는 경우 대부분의 SQL Server 기능은 FCI 및 가용성 
 
 시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가용성 그룹](availability-group-distributed-network-name-dnn-listener-configure.md) 에 대 한 분산 네트워크 이름 리소스를 구성 하는 방법을 알아봅니다.
 
-**지원되는 OS**: Windows Server 2016 이상   
-**지원 되는 SQL 버전**: fci (SQL SERVER 2019 CU2) 및 AG (SQL SERVER 2019 CU8)   
-**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
+**지원되는 OS** : Windows Server 2016 이상   
+**지원 되는 SQL 버전** : fci (SQL SERVER 2019 CU2) 및 AG (SQL SERVER 2019 CU8)   
+**지원 되는 HADR 솔루션** : 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ## <a name="limitations"></a>제한 사항
@@ -135,7 +135,7 @@ FCI 또는 가용성 그룹을 사용 하 고 Azure Virtual Machines에서 SQL S
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines는 CSV(클러스터형 공유 볼륨)의 스토리지와 [Azure 표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 또는 Azure 공유 디스크를 사용하는 SQL Server VM에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다. 
+Azure Virtual Machines는 CSV(클러스터형 공유 볼륨)의 스토리지와 [Azure 표준 Load Balancer](../../../load-balancer/load-balancer-overview.md)가 있는 Windows Server 2019에서 또는 Azure 공유 디스크를 사용하는 SQL Server VM에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다. 
 
 Azure Virtual Machines는 클러스터링된 공유 볼륨이 있는 Windows Server 2016 또는 이전 버전에서 MSDTC를 지원하지 않으며, 이유는 다음과 같습니다.
 
@@ -145,5 +145,4 @@ Azure Virtual Machines는 클러스터링된 공유 볼륨이 있는 Windows Ser
 
 ## <a name="next-steps"></a>다음 단계
 
-솔루션에 대 한 적절 한 모범 사례를 확인 한 후에는 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](availability-group-az-cli-configure.md)또는 [Azure 빠른 시작 템플릿을](availability-group-quickstart-template-configure.md)사용 하 여 [fci에 대 한 SQL Server VM 준비](failover-cluster-instance-prepare-vm.md) 하거나 가용성 그룹을 만들어 시작 하세요. 
-
+솔루션에 대 한 적절 한 모범 사례를 확인 한 후에는 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)또는 [Azure 빠른 시작 템플릿을](availability-group-quickstart-template-configure.md)사용 하 여 [fci에 대 한 SQL Server VM 준비](failover-cluster-instance-prepare-vm.md) 하거나 가용성 그룹을 만들어 시작 하세요.

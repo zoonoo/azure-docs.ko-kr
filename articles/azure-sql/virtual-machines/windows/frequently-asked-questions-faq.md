@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566995"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786499"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ ms.locfileid: "91566995"
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > 일반화된 사용자 지정 이미지에서 배포된 VM을 포함하여 Azure VM의 SQL Server는 규정 준수 요구 사항을 충족하고 자동화된 패치 및 자동 백업 등의 선택적 기능을 활용하기 위해 [SQL VM 리소스 공급자](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash)에 등록해야 합니다. 또한 리소스 공급자를 사용하여 각 SQL Server VM에 대해 [라이선스 유형을 지정](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal)할 수 있습니다.
+   > 일반화된 사용자 지정 이미지에서 배포된 VM을 포함하여 Azure VM의 SQL Server는 규정 준수 요구 사항을 충족하고 자동화된 패치 및 자동 백업 등의 선택적 기능을 활용하기 위해 [SQL VM 리소스 공급자](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash)에 등록해야 합니다. 또한 리소스 공급자를 사용하여 각 SQL Server VM에 대해 [라이선스 유형을 지정](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal)할 수 있습니다.
 
 1. **내 자체 VHD를 사용하여 SQL Server VM을 배포할 수 있나요?**
 
@@ -118,7 +118,7 @@ ms.locfileid: "91566995"
 
    1. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)를 통한 [라이선스 이동](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2)이 가능합니다. 
    1. 수동 SQL Server 인스턴스는 클라이언트에 SQL Server 데이터를 제공하거나 활성 SQL Server 워크로드를 실행하지 않습니다. 주 서버와 동기화하고 그 외 수동 데이터베이스를 웜 대기 상태에서 유지 관리하는 데만 사용됩니다. 활성 SQL Server 워크로드를 실행하는 클라이언트에 대한 보고서 등의 데이터를 제공하거나 제품 약관에 지정된 것 외의 다른 작업을 수행하는 경우에는 유료 라이선스 SQL Server 인스턴스여야 합니다. 보조 인스턴스에서는 데이터베이스 일관성 검사 또는 CheckDB, 전체 백업, 트랜잭션 로그 백업 및 리소스 사용 현황 데이터 모니터링과 같은 작업을 수행할 수 있습니다. 90일마다 짧은 재해 복구 테스트 기간 동안 주 인스턴스 및 해당 재해 복구 인스턴스를 동시에 실행할 수도 있습니다. 
-   1. 활성 SQL Server 라이선스는 Software Assurance의 적용을 받으며 사용이 허가된 활성 서버와 동일한 용량의 계산을 포함하는 **하나**의 수동 보조 SQL Server 인스턴스를 허용합니다. 
+   1. 활성 SQL Server 라이선스는 Software Assurance의 적용을 받으며 사용이 허가된 활성 서버와 동일한 용량의 계산을 포함하는 **하나** 의 수동 보조 SQL Server 인스턴스를 허용합니다. 
    1. 보조 SQL Server VM은 Azure Portal의 [재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) 라이선스를 활용합니다.
    
 1. **수동 인스턴스로 간주되는 항목은 무엇인가요?**
@@ -145,11 +145,11 @@ ms.locfileid: "91566995"
  
    예. 클래식 모델이 아닌 Resource Manager 모델을 사용하여 공용 클라우드에서 SQL Server VM을 배포한 경우에는 가능합니다. 다른 모든 고객이 새 SQL Server VM 리소스 공급자에 등록할 수 있습니다. 그러나 [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) 혜택이 있는 고객만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)를 활성화하여 자신의 라이선스를 사용할 수 있습니다. 
 
-1. **VM 리소스가 이동되거나 삭제되면 리소스 공급자(_Microsoft.SqlVirtualMachine_) 리소스는 어떻게 되나요?** 
+1. **VM 리소스가 이동되거나 삭제되면 리소스 공급자( _Microsoft.SqlVirtualMachine_ ) 리소스는 어떻게 되나요?** 
 
    Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
 
-1. **리소스 공급자(_Microsoft.SqlVirtualMachine_) 리소스가 삭제되면 VM은 어떻게 되나요??**
+1. **리소스 공급자( _Microsoft.SqlVirtualMachine_ ) 리소스가 삭제되면 VM은 어떻게 되나요??**
 
     Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다. 
 
@@ -169,13 +169,13 @@ ms.locfileid: "91566995"
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
-   예, 그러나 몇 가지 고려 사항이 있습니다. 첫째, SQL Server와 관련된 청구는 VM의 라이선스 모델에 따라 계속해서 발생할 수 있습니다. 둘째, 이전 응답에서 설명한 대로 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 따라 다른 기능이 있습니다. IaaS 확장을 제거하지 않고 기본 인스턴스를 제거하는 경우에도 확장은 기본 인스턴스를 계속 찾고 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
+   예, 그러나 몇 가지 고려 사항이 있습니다. 첫째, SQL Server와 관련된 청구는 VM의 라이선스 모델에 따라 계속해서 발생할 수 있습니다. 둘째, 이전 응답에서 설명한 대로 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 따라 다른 기능이 있습니다. IaaS 확장을 제거하지 않고 기본 인스턴스를 제거하는 경우에도 확장은 기본 인스턴스를 계속 찾고 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트** 에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
       SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)도 제거합니다. 
 
-1. **IaaS 확장에서 SQL Server의 명명된 인스턴스를 사용할 수 있나요**?
+1. **IaaS 확장에서 SQL Server의 명명된 인스턴스를 사용할 수 있나요** ?
    
    예. 명명된 인스턴스가 SQL Server의 유일한 인스턴스이고 원래 기본 인스턴스가 [제대로 제거되지 않은](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance) 경우에는 가능합니다. 기본 인스턴스가 없고 단일 SQL Server VM에 명명된 인스턴스가 여러 개 있는 경우에는 SQL Server IaaS 에이전트 확장을 설치할 수 없습니다. 
 
@@ -210,7 +210,7 @@ ms.locfileid: "91566995"
 
 1. **SQL Server 2008/2008 R2 인스턴스를 SQL Server VM 리소스 공급자에 등록한 후에 업그레이드할 수 있나요?**
 
-   예. 임의 설치 미디어를 사용하여 SQL Server 버전 및 에디션을 업그레이드한 다음 [SQL IaaS 확장 모드](sql-vm-resource-provider-register.md#management-modes)를 _에이전트 없음_에서 _전체_로 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화된 백업 및 자동화된 패치 등 SQL IaaS 확장의 모든 혜택에 액세스할 수 있습니다. 
+   예. 임의 설치 미디어를 사용하여 SQL Server 버전 및 에디션을 업그레이드한 다음 [SQL IaaS 확장 모드](sql-vm-resource-provider-register.md#management-modes)를 _에이전트 없음_ 에서 _전체_ 로 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화된 백업 및 자동화된 패치 등 SQL IaaS 확장의 모든 혜택에 액세스할 수 있습니다. 
 
 1. **SQL Server 2008 및 SQL Server 2008 R2 인스턴스 지원 종료에 대한 확장된 무료 보안 업데이트를 얻으려면 어떻게 해야 하나요?**
 
@@ -241,7 +241,7 @@ ms.locfileid: "91566995"
 
 ## <a name="resources"></a>리소스
 
-**Windows VM**:
+**Windows VM** :
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM에서 SQL Server 프로 비전](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ ms.locfileid: "91566995"
 * [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)
 * [Azure Virtual Machines에서 SQL Server에 대 한 응용 프로그램 패턴 및 개발 전략](application-patterns-development-strategies.md)
 
-**Linux VM**:
+**Linux VM** :
 
 * [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Linux VM에 SQL Server 프로 비전](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ(Linux)](../linux/frequently-asked-questions-faq.md)
-* [Linux의 SQL Server 설명서](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Linux의 SQL Server 설명서](/sql/linux/sql-server-linux-overview)

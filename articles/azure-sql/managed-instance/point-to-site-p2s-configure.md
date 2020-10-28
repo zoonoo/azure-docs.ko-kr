@@ -12,25 +12,25 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 3baf2d7ed7c326895ae40948fc2d0a4cc03021f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331909"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788369"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Managed Instance로의 지점 및 사이트 간 연결 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Managed Instance에 연결하는 방법을 보여 줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../../vpn-gateway/point-to-site-about.md)를 참조하세요.
+이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Managed Instance에 연결하는 방법을 보여 줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../../vpn-gateway/point-to-site-about.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작의 특징은 다음과 같습니다.
 
 - [관리되는 인스턴스 만들기](instance-create-quickstart.md)에서 만든 리소스를 시작점으로 사용합니다.
-- 온-프레미스 클라이언트 컴퓨터에 PowerShell 5.1 및 Azure PowerShell 1.4.0 이상이 설치되어 있어야 합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module) 지침을 참조하세요.
-- 온-프레미스 클라이언트 컴퓨터에 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)가 설치되어 있어야 합니다.
+- 온-프레미스 클라이언트 컴퓨터에 PowerShell 5.1 및 Azure PowerShell 1.4.0 이상이 설치되어 있어야 합니다. 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps#install-the-azure-powershell-module) 지침을 참조하세요.
+- 온-프레미스 클라이언트 컴퓨터에 최신 버전의 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)가 설치되어 있어야 합니다.
 
 ## <a name="attach-a-vpn-gateway-to-a-virtual-network"></a>가상 네트워크에 VPN 게이트웨이 연결
 

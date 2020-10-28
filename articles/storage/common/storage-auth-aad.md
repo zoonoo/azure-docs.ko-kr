@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488727"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787587"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -37,7 +37,7 @@ Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되�
 
 인증 단계에서는 응용 프로그램이 런타임에 OAuth 2.0 액세스 토큰을 요청 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 blob 또는 큐에 액세스할 수 있습니다. 관리 id를 사용 하 여 Azure Blob 또는 큐 서비스에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad-msi.md)를 참조 하세요.
 
-권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Storage는 blob 및 큐 데이터에 대 한 일반적인 사용 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Storage에 대 한 Azure 역할 할당에 대해 자세히 알아보려면 [AZURE RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
+권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Storage는 blob 및 큐 데이터에 대 한 일반적인 사용 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Storage에 대 한 Azure 역할 할당에 대해 자세히 알아보려면 [AZURE RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](./storage-auth-aad-rbac-portal.md)를 참조 하세요.
 
 Azure Blob 또는 큐 서비스에 요청 하는 네이티브 응용 프로그램 및 웹 응용 프로그램은 Azure AD를 사용 하 여 액세스 권한을 부여할 수도 있습니다. 액세스 토큰을 요청 하 고이를 사용 하 여 blob 또는 큐 데이터에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure Storage 응용 프로그램에서 AZURE AD를 사용 하 여 Azure Storage에 대 한 액세스 권한 부여](storage-auth-aad-app.md)를 참조 하세요.
 
@@ -75,7 +75,7 @@ Azure 기본 제공 역할을 보안 주체에 할당 하는 방법을 알아보
 
 Azure Portal는 azure AD 계정 또는 계정 액세스 키를 사용 하 여 Azure storage 계정의 blob 및 큐 데이터에 액세스할 수 있습니다. Azure Portal에서 사용 하는 권한 부여 체계는 할당 된 Azure 역할에 따라 다릅니다.
 
-Blob 또는 큐 데이터에 액세스 하려고 하면 Azure Portal는 먼저 **Microsoft. Storage/storageAccounts/listkeys/action**을 사용 하 여 Azure 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할을 할당 한 경우 Azure Portal는 공유 키 인증을 통해 blob 및 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업에 역할을 할당 하지 않은 경우 Azure Portal는 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
+Blob 또는 큐 데이터에 액세스 하려고 하면 Azure Portal는 먼저 **Microsoft. Storage/storageAccounts/listkeys/action** 을 사용 하 여 Azure 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할을 할당 한 경우 Azure Portal는 공유 키 인증을 통해 blob 및 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업에 역할을 할당 하지 않은 경우 Azure Portal는 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
 
 Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터에 액세스 하려면 blob 및 큐 데이터에 액세스할 수 있는 권한이 필요 하며, Azure Portal 저장소 계정 리소스를 탐색할 수 있는 권한도 필요 합니다. Azure Storage에서 제공 하는 기본 제공 역할은 blob 및 큐 리소스에 대 한 액세스 권한을 부여 하지만 저장소 계정 리소스에 대 한 사용 권한은 부여 하지 않습니다. 이러한 이유로 포털에 대 한 액세스에는 저장소 계정 수준으로 범위가 지정 된 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할과 같은 Azure Resource Manager 역할의 할당도 필요 합니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다. Azure AD 계정으로 Azure Portal에서 데이터 액세스에 대 한 사용 권한을 사용자에 게 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스할 수 있도록 azure 역할 할당](storage-auth-aad-rbac-portal.md)을 참조 하세요.
 
@@ -83,7 +83,7 @@ Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 �
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>PowerShell 또는 Azure CLI에서 데이터 액세스
 
-Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](authorize-active-directory-powershell.md)를 참조 하세요.
+Azure CLI 및 PowerShell은 Azure AD 자격 증명으로 로그인을 지원 합니다. 로그인 하면 해당 자격 증명으로 세션이 실행 됩니다. 자세한 내용은 [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](../blobs/authorize-active-directory-powershell.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

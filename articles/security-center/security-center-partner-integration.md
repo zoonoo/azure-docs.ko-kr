@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340430"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785887"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -26,9 +26,9 @@ ms.locfileid: "92340430"
 ## <a name="integrated-azure-security-solutions"></a>통합된 Azure 보안 솔루션
 Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 이점은 다음과 같습니다.
 
-- **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 가상 머신에서 에이전트를 프로 비전 할 수 Security Center. 방화벽 어플라이언스의 경우 필요한 네트워크 구성의 대부분을 처리할 수 Security Center.
-- **통합**된 검색: 파트너 솔루션의 보안 이벤트는 자동으로 수집 되 고 집계 되며 Security Center 경고 및 인시던트의 일부로 표시 됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
-- **통합된 상태 모니터링 및 관리**: 고객은 통합된 상태 이벤트를 사용하여 한 눈에 모든 파트너 솔루션을 모니터링할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
+- **배포 간소화** : Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 가상 머신에서 에이전트를 프로 비전 할 수 Security Center. 방화벽 어플라이언스의 경우 필요한 네트워크 구성의 대부분을 처리할 수 Security Center.
+- **통합** 된 검색: 파트너 솔루션의 보안 이벤트는 자동으로 수집 되 고 집계 되며 Security Center 경고 및 인시던트의 일부로 표시 됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
+- **통합된 상태 모니터링 및 관리** : 고객은 통합된 상태 이벤트를 사용하여 한 눈에 모든 파트너 솔루션을 모니터링할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
 
 현재 통합 보안 솔루션은 [Qualys](https://www.qualys.com/public-cloud/#azure) 및 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft Application Gateway 웹 응용 프로그램 방화벽에의 한 취약성 평가를 포함 합니다.
 
@@ -49,9 +49,9 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>통합된 Azure 보안 솔루션 및 다른 데이터 원본 관리
 
-1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 **Security Center**를 엽니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 **Security Center** 를 엽니다.
 
-1. Security Center의 메뉴에서 **보안 솔루션**을 선택 합니다.
+1. Security Center의 메뉴에서 **보안 솔루션** 을 선택 합니다.
 
 **보안 솔루션** 페이지에서 통합 된 Azure 보안 솔루션의 상태를 확인 하 고 기본 관리 작업을 실행할 수 있습니다.
 
@@ -95,7 +95,7 @@ Security Center와 통합 하기 위해 솔루션에서 **연결** 을 선택 �
 
 ### <a name="add-data-sources"></a>데이터 원본 추가
 
-**데이터 원본 추가** 섹션에는 연결할 수 있는 다른 사용 가능한 데이터 원본이 포함됩니다. 이러한 원본의 데이터를 추가하는 방법에 대한 지침은 **추가**를 클릭합니다.
+**데이터 원본 추가** 섹션에는 연결할 수 있는 다른 사용 가능한 데이터 원본이 포함됩니다. 이러한 원본의 데이터를 추가하는 방법에 대한 지침은 **추가** 를 클릭합니다.
 
 ![데이터 원본](./media/security-center-partner-integration/add-data-sources.png)
 
@@ -105,5 +105,5 @@ Security Center와 통합 하기 위해 솔루션에서 **연결** 을 선택 �
 
 이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. 관련 정보는 다음 문서를 참조 하세요.
 
-* [보안 경고 및 권장 사항을 내보냅니다](continuous-export.md). Azure 센티널 또는 다른 SIEM과의 통합을 설정 하는 방법에 대해 알아봅니다.
+* [Security Center 데이터를 지속적으로 내보냅니다](continuous-export.md). Azure 센티널 또는 다른 SIEM과의 통합을 설정 하는 방법에 대해 알아봅니다.
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

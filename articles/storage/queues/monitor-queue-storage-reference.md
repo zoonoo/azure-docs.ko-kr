@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425174"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787485"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure 큐 저장소 모니터링 데이터 참조
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="queue-storage"></a>Queue Storage
 
-다음 표에서는 [큐 저장소 메트릭을](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)보여 줍니다.
+다음 표에서는 [큐 저장소 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |

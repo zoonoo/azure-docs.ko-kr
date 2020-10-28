@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440564"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785921"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
@@ -46,7 +46,7 @@ ms.locfileid: "91440564"
 
    ![Security Center의 보안 경고](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. 표시 되는 경고를 필터링 하려면 **필터**를 클릭 하 고, 열리는 **필터** 블레이드에서 적용 하려는 필터 옵션을 선택 합니다. 목록은 선택한 필터에 따라 업데이트 됩니다. 필터링은 매우 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
+1. 표시 되는 경고를 필터링 하려면 **필터** 를 클릭 하 고, 열리는 **필터** 블레이드에서 적용 하려는 필터 옵션을 선택 합니다. 목록은 선택한 필터에 따라 업데이트 됩니다. 필터링은 매우 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
 
     ![보안 센터에서 경고 필터링](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
@@ -75,9 +75,9 @@ ms.locfileid: "91440564"
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 이 문서에서는 보안 경고를 보는 방법에 대해 알아보았습니다. 관련 자료는 다음 페이지를 참조 하세요.
 
 - [경고 억제 규칙 구성](alerts-suppression-rules.md)
-- [워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 응답 자동화](workflow-automation.md)
+- [Security Center 트리거에 대 한 응답 자동화](workflow-automation.md)

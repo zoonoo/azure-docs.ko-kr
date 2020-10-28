@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044638"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787196"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -26,19 +26,19 @@ ms.locfileid: "92044638"
 
 2. [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스를 찾습니다. 포털 검색 표시줄에 이름을 입력 하 여 페이지를 열 수 있습니다. 
 
-    인스턴스의 메뉴에서 **메트릭**을 선택 합니다.
+    인스턴스의 메뉴에서 **메트릭** 을 선택 합니다.
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
 
     이 페이지에는 Azure Digital Twins 인스턴스의 메트릭이 표시 됩니다. 목록에서 보려는 메트릭을 선택 하 여 메트릭의 사용자 지정 보기를 만들 수도 있습니다.
     
-3. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정 추가**를 선택 하 여 Event Hubs 끝점 또는 Azure Storage 계정에 메트릭 데이터를 보내도록 선택할 수 있습니다.
+3. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정 추가** 를 선택 하 여 Event Hubs 끝점 또는 Azure Storage 계정에 메트릭 데이터를 보내도록 선택할 수 있습니다.
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
 
     이 프로세스에 대 한 자세한 내용은 [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)을 참조 하세요.
 
-4. 메뉴에서 **경고** 를 선택 하 고 **+ 새 경고 규칙**을 선택 하 여 메트릭 데이터에 대 한 경고를 설정 하도록 선택할 수 있습니다.
+4. 메뉴에서 **경고** 를 선택 하 고 **+ 새 경고 규칙** 을 선택 하 여 메트릭 데이터에 대 한 경고를 설정 하도록 선택할 수 있습니다.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
 
     이 프로세스에 대 한 자세한 내용은 [*문제 해결: 경고 설정*](troubleshoot-alerts.md)을 참조 하세요.
@@ -53,44 +53,44 @@ Azure Digital Twins는 인스턴스 상태와 연결 된 리소스의 상태에 
 
 API 요청으로 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | API 요청 (미리 보기) | 개수 | 합계 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대해 생성 된 API 요청의 수입니다. |  인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트 |
-| ApiRequestsFailureRate | API 요청 실패율 (미리 보기) | 백분율 | 평균 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대 한 내부 오류 (500) 응답 코드를 제공 하는 서비스에서 인스턴스에 대해 수신 하는 API 요청의 백분율입니다. | 인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트
-| ApiRequestsLatency | API 요청 대기 시간 (미리 보기) | 밀리초 | 평균 | API 요청에 대 한 응답 시간입니다. 이는 서비스가 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대 한 성공/실패 결과를 보낼 때까지 Azure Digital Twins에서 요청을 수신 하는 시간을 나타냅니다. | 인증은 <br>연산의 <br>프로토콜 |
+| ApiRequests | API 요청 | 개수 | 합계 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대해 생성 된 API 요청의 수입니다. |  인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트 |
+| ApiRequestsFailureRate | API 요청 실패율 | 백분율 | 평균 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대 한 내부 오류 (500) 응답 코드를 제공 하는 서비스에서 인스턴스에 대해 수신 하는 API 요청의 백분율입니다. | 인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트
+| ApiRequestsLatency | API 요청 대기 시간 | 밀리초 | 평균 | API 요청에 대 한 응답 시간입니다. 이는 서비스가 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대 한 성공/실패 결과를 보낼 때까지 Azure Digital Twins에서 요청을 수신 하는 시간을 나타냅니다. | 인증은 <br>연산의 <br>프로토콜 |
 
 #### <a name="billing-metrics"></a>청구 메트릭
 
 청구로 수행 해야 하는 메트릭:
 
 >[!NOTE]
-> 미리 보기가 제공 **되는 동안 청구 비용은 0**입니다. 이러한 메트릭은 선택 가능한 목록에 계속 표시 되지만 미리 보기 중에는 적용 되지 않으며 서비스가 미리 보기 이상으로 이동할 때까지 0으로 유지 됩니다.
+> 미리 보기가 제공 **되는 동안 청구 비용은 0** 입니다. 이러한 메트릭은 선택 가능한 목록에 계속 표시 되지만 미리 보기 중에는 적용 되지 않으며 서비스가 미리 보기 이상으로 이동할 때까지 0으로 유지 됩니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | 청구 API 작업 (미리 보기) | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
-| BillingMessagesProcessed | 청구 메시지 처리 됨 (미리 보기) | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | 측정기 Id |
-| BillingQueryUnits | 청구 쿼리 단위 (미리 보기) | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) 도 있습니다. | 측정기 Id |
+| BillingApiOperations | 청구 API 작업 | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
+| BillingMessagesProcessed | 처리 된 청구 메시지 | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | 측정기 Id |
+| BillingQueryUnits | 청구 쿼리 단위 | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) 도 있습니다. | 측정기 Id |
 
 #### <a name="ingress-metrics"></a>수신 메트릭
 
 데이터 수신으로 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | 수신 이벤트 (미리 보기) | 개수 | 합계 | Azure Digital Twins로 들어오는 원격 분석 이벤트의 수입니다. | 결과 |
-| IngressEventsFailureRate | 수신 이벤트 실패율 (미리 보기) | 백분율 | 평균 | 서비스에서 내부 오류 (500) 응답 코드를 반환 하는 들어오는 원격 분석 이벤트의 백분율입니다. | 결과 |
-| IngressEventsLatency | 수신 이벤트 대기 시간 (미리 보기) | 밀리초 | 평균 | Azure Digital Twins에 의해 egressed 될 준비가 되 면 이벤트가 도착 하는 데 걸리는 시간입니다 .이 시점에서 서비스는 성공/실패 결과를 전송 합니다. | 결과 |
+| IngressEvents | 수신 이벤트 | 개수 | 합계 | Azure Digital Twins로 들어오는 원격 분석 이벤트의 수입니다. | 결과 |
+| IngressEventsFailureRate | 수신 이벤트 실패율 | 백분율 | 평균 | 서비스에서 내부 오류 (500) 응답 코드를 반환 하는 들어오는 원격 분석 이벤트의 백분율입니다. | 결과 |
+| IngressEventsLatency | 수신 이벤트 대기 시간 | 밀리초 | 평균 | Azure Digital Twins에 의해 egressed 될 준비가 되 면 이벤트가 도착 하는 데 걸리는 시간입니다 .이 시점에서 서비스는 성공/실패 결과를 전송 합니다. | 결과 |
 
 #### <a name="routing-metrics"></a>라우팅 메트릭
 
 라우팅을 사용 하 여 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | 메시지 라우팅 (미리 보기) | 개수 | 합계 | Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 메시지 수입니다. | 끝점 형식, <br>결과 |
-| RoutingFailureRate | 라우팅 실패율 (미리 보기) | 백분율 | 평균 | Azure Digital Twins에서 Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 오류를 발생 시키는 이벤트의 백분율입니다. | 끝점 형식, <br>결과 |
-| RoutingLatency | 라우팅 대기 시간 (미리 보기) | 밀리초 | 평균 | Azure Digital Twins에서 라우팅하는 이벤트 사이에 경과 된 시간은 이벤트 허브, Service Bus 또는 Event Grid와 같은 끝점 Azure 서비스에 게시 될 때까지 적용 됩니다. | 끝점 형식, <br>결과 |
+| MessagesRouted | 메시지 라우팅 | 개수 | 합계 | Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 메시지 수입니다. | 끝점 형식, <br>결과 |
+| RoutingFailureRate | 라우팅 실패 율 | 백분율 | 평균 | Azure Digital Twins에서 Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 오류를 발생 시키는 이벤트의 백분율입니다. | 끝점 형식, <br>결과 |
+| RoutingLatency | 라우팅 대기 시간 | 밀리초 | 평균 | Azure Digital Twins에서 라우팅하는 이벤트 사이에 경과 된 시간은 이벤트 허브, Service Bus 또는 Event Grid와 같은 끝점 Azure 서비스에 게시 될 때까지 적용 됩니다. | 끝점 형식, <br>결과 |
 
 ## <a name="dimensions"></a>차원
 

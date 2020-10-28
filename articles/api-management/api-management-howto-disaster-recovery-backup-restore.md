@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075334"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787230"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -56,33 +56,33 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 ### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory**의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
+2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory** 의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
 
     > [!NOTE]
     > Azure Active Directory 기본 디렉터리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요.
 
-3. **새 애플리케이션 등록**을 클릭합니다.
+3. **새 애플리케이션 등록** 을 클릭합니다.
 
     **만들기** 창이 오른쪽에 나타납니다. 여기에 AAD 앱 관련 정보를 입력합니다.
 
 4. 애플리케이션의 이름을 입력합니다.
-5. 애플리케이션 형식에서 **네이티브**를 선택합니다.
-6. **리디렉션 URI**로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
-7. **만들기**를 클릭합니다.
+5. 애플리케이션 형식에서 **네이티브** 를 선택합니다.
+6. **리디렉션 URI** 로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
+7. **만들기** 를 클릭합니다.
 
 ### <a name="add-an-application"></a>애플리케이션 추가
 
-1. 응용 프로그램을 만든 후 **API 사용 권한**을 클릭 합니다.
-2. **+ 권한 추가**를 클릭합니다.
-4. **Microsoft Api 선택**을 누릅니다.
-5. **Azure 서비스 관리**를 선택 합니다.
-6. **선택**을 누릅니다.
+1. 응용 프로그램을 만든 후 **API 사용 권한** 을 클릭 합니다.
+2. **+ 권한 추가** 를 클릭합니다.
+4. **Microsoft Api 선택** 을 누릅니다.
+5. **Azure 서비스 관리** 를 선택 합니다.
+6. **선택** 을 누릅니다.
 
     ![권한 추가](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
-8. **선택**을 누릅니다.
-9. **권한 부여**를 클릭합니다.
+7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한** 을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
+8. **선택** 을 누릅니다.
+9. **권한 부여** 를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
 다음 지침을 사용하여 `{tenant id}`, `{application id}` 및 `{redirect uri}`을 바꿉니다.
 
-1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록**끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  **Endpoints**.
+1. `{tenant id}`를 사용자가 만든 Azure Active Directory 애플리케이션의 테넌트 ID로 바꿉니다. **앱 등록** 끝점을 클릭 하 여 ID에 액세스할 수 있습니다  ->  **Endpoints** .
 
     ![엔드포인트][api-management-endpoint]
 
@@ -152,7 +152,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version` -다음으로 바꾸기 `2018-06-01-preview`
+-   `api-version` -다음으로 바꾸기 `2019-12-01`
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -171,14 +171,14 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>백업 또는 복원 요청을 만들 때의 제약 조건
 
--   요청 본문에 지정된 **Container**가 **있어야 합니다**.
+-   요청 본문에 지정된 **Container** 가 **있어야 합니다** .
 -   백업이 진행 중인 동안에는 SKU 업그레이드 또는 다운 그레이드, 도메인 이름 변경 등의 **서비스에서 관리를 변경 하지 않습니다** .
--   백업 복원은 생성 시점부터 **30일 동안만 보장**됩니다.
--   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다**.
+-   백업 복원은 생성 시점부터 **30일 동안만 보장** 됩니다.
+-   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경** 하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다** .
 -   [방화벽이][azure-storage-ip-firewall] 사용 하도록 설정 된 경우 제어 평면에서 Azure Storage 계정으로의 액세스를 **허용** 합니다. 고객은 저장소 계정에서 백업 또는 복원에 대 한 [Azure API Management 제어 평면 IP 주소][control-plane-ip-address] 집합을 열어야 합니다. 이는 Azure Storage에 대 한 요청이 계산 > (Azure Api Management 제어 평면)의 공용 IP에는 없는 것 이기 때문입니다. 지역 간 저장소 요청은 SNATed
 
 #### <a name="what-is-not-backed-up"></a>백업 되지 않는 항목
--   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
+-   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터** 는 백업에 **포함되지 않습니다** . [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
 -   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서
 -   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md)
 -   [가상 네트워크](api-management-using-with-vnet.md) 통합 설정
@@ -202,7 +202,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
 -   `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
--   `api-version` -다음으로 바꾸기 `2018-06-01-preview`
+-   `api-version` -다음으로 바꾸기 `api-version=2019-12-01`
 
 요청 본문에서 백업 파일 위치를 지정합니다. 즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 추가합니다.
 
@@ -220,9 +220,9 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 복원은 오랫동안 실행되는 작업으로, 완료되려면 30분 이상이 걸릴 수 있습니다. 요청이 성공하고 복원 프로세스가 시작된 경우 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 복원이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 복원 작업이 정상적으로 완료된 것입니다.
 
 > [!IMPORTANT]
-> 백업을 복원할 서비스의 **SKU**는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.
+> 백업을 복원할 서비스의 **SKU** 는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.
 >
-> 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용**을 **덮어쓸 수 있습니다**.
+> 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용** 을 **덮어쓸 수 있습니다** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

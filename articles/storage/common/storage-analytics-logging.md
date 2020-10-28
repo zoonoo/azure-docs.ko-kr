@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488795"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787672"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
- 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다.
+ 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](./storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다.
 
  서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "92488795"
  }  
  ```  
 
-프로그래밍 방식으로 Blob을 나열하는 방법에 대한 자세한 내용은 [Blob 리소스 열거](https://msdn.microsoft.com/library/azure/hh452233.aspx) 및 [Blob 리소스의 속성과 메타데이터 설정 및 검색](https://msdn.microsoft.com/library/azure/dd179404.aspx)을 참조하세요.  
+프로그래밍 방식으로 Blob을 나열하는 방법에 대한 자세한 내용은 [Blob 리소스 열거](/rest/api/storageservices/Enumerating-Blob-Resources) 및 [Blob 리소스의 속성과 메타데이터 설정 및 검색](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources)을 참조하세요.  
 
 ### <a name="log-naming-conventions"></a>로그 명명 규칙
 
@@ -131,7 +131,7 @@ Azure Portal, PowerShell 및 Storage SDK를 사용하여 Storage 로깅을 사�
 
 ### <a name="enable-storage-logging-using-the-azure-portal"></a>Azure Portal을 사용하여 Storage 로깅 사용  
 
-Azure Portal에서 **진단 설정(클래식)** 블레이드를 사용하여 스토리지 계정의 **메뉴 블레이드**의 **모니터링(클래식)** 섹션에서 액세스할 수 있는 Storage 로깅을 제어합니다.
+Azure Portal에서 **진단 설정(클래식)** 블레이드를 사용하여 스토리지 계정의 **메뉴 블레이드** 의 **모니터링(클래식)** 섹션에서 액세스할 수 있는 Storage 로깅을 제어합니다.
 
 기록할 스토리지 서비스와 기록된 데이터의 보존 기간(일)을 지정할 수 있습니다.  
 
@@ -139,7 +139,7 @@ Azure Portal에서 **진단 설정(클래식)** 블레이드를 사용하여 스
 
  **AzStorageServiceLoggingProperty** cmdlet을 사용 하 여 현재 설정을 검색 하 고 **AzStorageServiceLoggingProperty** cmdlet을 Azure PowerShell 사용 하 여 현재 설정을 변경 하 여 저장소 계정에서 저장소 로깅을 구성 하려면 로컬 컴퓨터에서 PowerShell을 사용할 수 있습니다.  
 
- Storage 로깅을 제어하는 cmdlet은 로그에 대한 요청 유형의 쉼표로 구분된 목록이 포함된 문자열인 **LoggingOperations** 매개 변수를 사용합니다. 가능한 세 가지 요청 유형은 **읽기**, **쓰기** 및 **삭제**입니다. 로깅을 해제하려면 **LoggingOperations** 매개 변수에 **none** 값을 사용합니다.  
+ Storage 로깅을 제어하는 cmdlet은 로그에 대한 요청 유형의 쉼표로 구분된 목록이 포함된 문자열인 **LoggingOperations** 매개 변수를 사용합니다. 가능한 세 가지 요청 유형은 **읽기** , **쓰기** 및 **삭제** 입니다. 로깅을 해제하려면 **LoggingOperations** 매개 변수에 **none** 값을 사용합니다.  
 
  다음 명령은 기본 스토리지 계정의 큐 서비스의 읽기, 쓰기 및 삭제 요청에 대해 보존 기간이 5일로 설정된 로깅을 설정합니다.  
 
@@ -153,7 +153,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,w
 Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.  
+ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
 
 ### <a name="enable-storage-logging-programmatically"></a>프로그래밍 방식으로 Storage 로깅을 사용하도록 설정하는 방법  
 
@@ -179,9 +179,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ---
 
 
- .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 참조하세요.  
+ .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요.  
 
- REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](https://msdn.microsoft.com/library/azure/hh360996.aspx)을 참조하세요.  
+ REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.  
 
 ## <a name="download-storage-logging-log-data"></a>스토리지 로깅 로그 데이터 다운로드
 
@@ -204,7 +204,7 @@ AzCopy를 시작하려면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조�
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-특정 파일을 다운로드하는 방법에 대한 자세한 내용은 [특정 파일 다운로드](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files)를 참조하세요.
+특정 파일을 다운로드하는 방법에 대한 자세한 내용은 [특정 파일 다운로드](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files)를 참조하세요.
 
 로그 데이터를 다운로드하면 파일의 로그 항목을 볼 수 있습니다. 이러한 로그 파일은 많은 로그 읽기 도구가 구문 분석할 수 있는 분리 된 텍스트 형식을 사용 합니다 (자세한 내용은 [모니터링, 진단 및 문제 Microsoft Azure Storage 해결](storage-monitoring-diagnosing-troubleshooting.md)가이드 참조). 다양한 도구에는 로그 파일의 콘텐츠를 형식 지정, 필터링, 정렬 및 검색하기 위한 다양한 기능이 포함되어 있습니다. 스토리지 로깅 로그 파일 형식 및 콘텐츠에 대한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 및 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요.
 

@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 2dbd4b9af3db122703a7f2b4e0140ec3305f1c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17d430946f3cba1aa4680d1eaf8979fa4338bc22
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620055"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788403"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 최소 TLS 버전 구성
 최소 [tls (전송 계층 보안)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 버전 설정을 사용 하면 고객이 Azure SQL Managed Instance에서 사용 하는 tls 버전을 제어할 수 있습니다.
@@ -37,7 +37,7 @@ Login failed with invalid TLS version
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트는 `Get` `Set` 인스턴스 수준에서 및 **최소 TLS 버전** 속성을 보여 줍니다.
 
@@ -52,7 +52,7 @@ Set-AzSqlInstance -Name sql-instance-name -ResourceGroupName resource-group -Min
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Azure CLI를 통해 최소 TLS 버전 설정
 
 > [!IMPORTANT]
-> 이 섹션의 모든 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)필요 합니다.
+> 이 섹션의 모든 스크립트에는 [Azure CLI](/cli/azure/install-azure-cli)필요 합니다.
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
 

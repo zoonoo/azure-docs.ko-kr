@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887653"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788553"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "90887653"
 
 먼저 SQL Managed Instance 응용 프로그램의 데이터베이스 요구 사항과 호환 되는지 확인 합니다. SQL Managed Instance는 SQL Server를 사용 하는 대부분의 기존 응용 프로그램에 대 한 간편한 리프트 및 이동 마이그레이션을 제공 하도록 설계 되었습니다. 그러나 아직 지원 되지 않는 기능 또는 기능을 필요로 하는 경우가 있으며 해결 방법을 구현 하는 비용이 너무 높습니다.
 
-[Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) 를 사용 하 여 Azure SQL Database의 데이터베이스 기능에 영향을 주는 잠재적 호환성 문제를 검색 합니다. 일부 보고 된 차단 문제가 있는 경우 [AZURE VM의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해 야 할 수 있습니다. 몇 가지 예제는 다음과 같습니다.
+[Data Migration Assistant](/sql/dma/dma-overview) 를 사용 하 여 Azure SQL Database의 데이터베이스 기능에 영향을 주는 잠재적 호환성 문제를 검색 합니다. 일부 보고 된 차단 문제가 있는 경우 [AZURE VM의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해 야 할 수 있습니다. 몇 가지 예제는 다음과 같습니다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스 해야 하는 경우 (예를 들어 SQL Server를 사용 하 여 동일한 가상 컴퓨터에 타사 또는 사용자 지정 에이전트를 설치 하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원 되지 않는 기능에 대해 엄격한 종속성이 있는 경우
@@ -69,8 +69,8 @@ SQL Server에서 실행 되는 원래 워크 로드와 관리 되는 인스턴�
 SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 같습니다.
 
 - [SQL Server 인스턴스의 cpu 사용량을 모니터링](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) 하 고 평균 및 최대 cpu 사용량을 기록 합니다.
-- [SQL Server 인스턴스의 메모리 사용량을 모니터링](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) 하 고 버퍼 풀, 계획 캐시, 열 저장소 풀, [메모리 내 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)등의 여러 구성 요소에서 사용 하는 메모리 양을 확인 합니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 피크 값을 찾아야 합니다.
-- [Sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 뷰 또는 [성능 카운터](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)를 사용 하 여 원본 SQL Server 인스턴스에서 디스크 IO 사용량을 모니터링 합니다.
+- [SQL Server 인스턴스의 메모리 사용량을 모니터링](/sql/relational-databases/performance-monitor/monitor-memory-usage) 하 고 버퍼 풀, 계획 캐시, 열 저장소 풀, [메모리 내 OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)등의 여러 구성 요소에서 사용 하는 메모리 양을 확인 합니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 피크 값을 찾아야 합니다.
+- [Sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 뷰 또는 [성능 카운터](/sql/relational-databases/performance-monitor/monitor-disk-usage)를 사용 하 여 원본 SQL Server 인스턴스에서 디스크 IO 사용량을 모니터링 합니다.
 - SQL Server 2016 이상 버전에서 마이그레이션하는 경우 동적 관리 뷰 또는 쿼리 저장소를 검토 하 여 워크 로드 및 쿼리 성능 또는 SQL Server 인스턴스를 모니터링할 수 있습니다. 작업에서 가장 중요 한 쿼리의 평균 기간 및 CPU 사용량을 확인 하 여 관리 되는 인스턴스에서 실행 되는 쿼리와 비교 합니다.
 
 > [!Note]
@@ -116,7 +116,7 @@ SQL Managed Instance는 다음과 같은 데이터베이스 마이그레이션 �
 
 [Azure Database Migration Service](../../dms/dms-overview.md) 은 가동 중지 시간을 최소화 하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동 하는 데 필요한 작업을 간소화 합니다. 공개 미리 보기의 배포 옵션에는 Azure SQL Database 데이터베이스와 Azure 가상 컴퓨터의 SQL Server 데이터베이스가 포함 됩니다. Database Migration Service은 엔터프라이즈 워크 로드에 대해 권장 되는 마이그레이션 방법입니다.
 
-SQL Server 온-프레미스에서 SSIS (SQL Server Integration Services)를 사용 하는 경우 Database Migration Service는 SSIS 패키지를 저장 하는 SSISDB (ssis 카탈로그) 마이그레이션을 아직 지원 하지 않지만, Azure Data Factory에서 IR (Azure-SSIS Integration Runtime)을 프로 비전 할 수 있습니다. 그러면 관리 되는 인스턴스에서 새 SSISDB를 만들어 패키지를 다시 배포할 수 있습니다. [Azure Data Factory에서 Azure-SSIS IR 만들기를](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)참조 하세요.
+SQL Server 온-프레미스에서 SSIS (SQL Server Integration Services)를 사용 하는 경우 Database Migration Service는 SSIS 패키지를 저장 하는 SSISDB (ssis 카탈로그) 마이그레이션을 아직 지원 하지 않지만, Azure Data Factory에서 IR (Azure-SSIS Integration Runtime)을 프로 비전 할 수 있습니다. 그러면 관리 되는 인스턴스에서 새 SSISDB를 만들어 패키지를 다시 배포할 수 있습니다. [Azure Data Factory에서 Azure-SSIS IR 만들기를](../../data-factory/create-azure-ssis-integration-runtime.md)참조 하세요.
 
 이 시나리오 및 Database Migration Service 구성 단계에 대 한 자세한 내용은 Database Migration Service를 [사용 하 여 온-프레미스 데이터베이스를 관리 되는 인스턴스로 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.  
 
@@ -133,8 +133,8 @@ SQL Server 온-프레미스에서 SSIS (SQL Server Integration Services)를 사�
 |단계|SQL 엔진 및 버전|백업/복원 방법|
 |---|---|---|
 |Azure Storage에 백업 저장|2012 SP1 이전 CU2|.Bak 파일을 Azure Storage에 직접 업로드|
-||2012 SP1 CU2~2016|사용되지 않는 [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) 구문을 사용하여 직접 백업|
-||2016 이상|[WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) 구문을 사용하여 직접 백업|
+||2012 SP1 CU2~2016|사용되지 않는 [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) 구문을 사용하여 직접 백업|
+||2016 이상|[WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 구문을 사용하여 직접 백업|
 |Azure Storage에서 관리 되는 인스턴스로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ SAS 자격 증명을 사용하여 데이터베이스 백업을 관리되는 인�
 - 다양 한 인스턴스, 데이터베이스, tempdb 설정 및 구성을 조사 하 여 관리 되는 인스턴스의 설정을 원본 SQL Server 인스턴스의 설정과 맞춥니다. 첫 번째 성능 비교를 실행 하기 전에 호환성 수준 또는 암호화와 같은 설정을 변경 하지 않았는지 확인 하거나 사용 하도록 설정한 일부 새로운 기능이 일부 쿼리에 영향을 줄 수 있다는 것을 허용 합니다. 마이그레이션 위험을 줄이려면 성능 모니터링 후에만 데이터베이스 호환성 수준을 변경합니다.
 - 더 나은 성능을 얻기 위해 파일 크기를 미리 할당 하는 등 [일반적인 용도로 저장소 모범 사례 지침](https://techcommunity.microsoft.com)을 구현 합니다.
 - [관리 되는 인스턴스와 SQL Server 간의 성능 차이를 일으킬 수 있는 주요 환경 차이점](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)에 대해 알아보고 성능에 영향을 줄 수 있는 위험을 식별 합니다.
-- 관리 되는 인스턴스에서 쿼리 저장소 및 자동 조정을 계속 사용 하도록 설정 해야 합니다. 이러한 기능을 사용 하 여 워크 로드 성능을 측정 하 고 잠재적인 성능 문제를 자동으로 해결할 수 있습니다. [최신 SQL Server 버전으로 업그레이드 하는 동안 성능 안정성 유지](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)의 설명에 따라 데이터베이스 호환성 수준 변경 전후에 워크 로드 성능에 대 한 정보를 얻기 위한 최적의 도구로 쿼리 저장소를 사용 하는 방법을 알아봅니다.
+- 관리 되는 인스턴스에서 쿼리 저장소 및 자동 조정을 계속 사용 하도록 설정 해야 합니다. 이러한 기능을 사용 하 여 워크 로드 성능을 측정 하 고 잠재적인 성능 문제를 자동으로 해결할 수 있습니다. [최신 SQL Server 버전으로 업그레이드 하는 동안 성능 안정성 유지](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)의 설명에 따라 데이터베이스 호환성 수준 변경 전후에 워크 로드 성능에 대 한 정보를 얻기 위한 최적의 도구로 쿼리 저장소를 사용 하는 방법을 알아봅니다.
 온-프레미스 환경과 최대한 유사한 환경을 준비한 후에는 워크 로드 실행을 시작 하 고 성능을 측정할 수 있습니다. 측정 프로세스 [에는 원본 SQL Server 인스턴스에서 작업 측정값의 기준선 성능을 생성 하는 동안](#create-a-performance-baseline)측정 한 것과 동일한 매개 변수가 포함 되어야 합니다.
 결과적으로 성능 매개 변수를 기준선과 비교 하 고 중요 한 차이점을 식별 해야 합니다.
 
@@ -194,16 +194,16 @@ SQL Managed Instance는 모니터링 및 문제 해결을 위한 다양 한 고�
 
 완전히 관리 되는 플랫폼을 사용 하 고 있고 워크 로드 성능이 SQL Server 워크 로드 성능과 일치 하는지 확인 한 후에는 서비스의 일부로 자동으로 제공 되는 이점을 활용 합니다.
 
-마이그레이션하는 동안 관리 되는 인스턴스를 일부 변경 하지 않는 경우에도 최신 데이터베이스 엔진의 향상 된 기능을 활용 하기 위해 인스턴스를 운영 하는 동안 몇 가지 새로운 기능을 설정할 가능성이 높습니다. 일부 변경 내용은 [데이터베이스 호환성 수준이 변경](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)된 후에만 사용할 수 있습니다.
+마이그레이션하는 동안 관리 되는 인스턴스를 일부 변경 하지 않는 경우에도 최신 데이터베이스 엔진의 향상 된 기능을 활용 하기 위해 인스턴스를 운영 하는 동안 몇 가지 새로운 기능을 설정할 가능성이 높습니다. 일부 변경 내용은 [데이터베이스 호환성 수준이 변경](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)된 후에만 사용할 수 있습니다.
 
 예를 들어 관리 되는 인스턴스에서 백업을 만들 필요가 없습니다. 서비스에서 자동으로 백업을 수행 합니다. 백업 예약, 가져오기 및 관리에 대해 더 이상 걱정할 필요가 없습니다. SQL Managed Instance는 [PITR (지정 시간 복구)](../database/recovery-using-backups.md#point-in-time-restore)를 사용 하 여이 보존 기간 내의 특정 시점으로 복원 하는 기능을 제공 합니다. 또한 고가용성이 기본적으로 제공 되므로 고가용성을 설정 하 [는 것에](../database/high-availability-sla.md) 대해 걱정할 필요가 없습니다.
 
-보안을 강화 하려면 [Azure Active Directory 인증](../database/security-overview.md), [감사](auditing-configure.md), [위협 검색](../database/azure-defender-for-sql.md), [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
+보안을 강화 하려면 [Azure Active Directory 인증](../database/security-overview.md), [감사](auditing-configure.md), [위협 검색](../database/azure-defender-for-sql.md), [행 수준 보안](/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
 
-관리 되는 인스턴스는 고급 관리 및 보안 기능 외에도 [워크 로드를 모니터링 하 고 조정](../database/monitor-tune-overview.md)하는 데 도움이 되는 고급 도구 집합을 제공 합니다. [Azure SQL 분석](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) 를 사용 하면 많은 수의 관리 되는 인스턴스를 모니터링 하 고 많은 수의 인스턴스와 데이터베이스를 중앙 집중식으로 모니터링할 수 있습니다. 관리 되는 인스턴스에서 [자동 튜닝](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) 은 SQL 계획 실행 통계의 성능을 지속적으로 모니터링 하 고 식별 된 성능 문제를 자동으로 해결 합니다.
+관리 되는 인스턴스는 고급 관리 및 보안 기능 외에도 [워크 로드를 모니터링 하 고 조정](../database/monitor-tune-overview.md)하는 데 도움이 되는 고급 도구 집합을 제공 합니다. [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md) 를 사용 하면 많은 수의 관리 되는 인스턴스를 모니터링 하 고 많은 수의 인스턴스와 데이터베이스를 중앙 집중식으로 모니터링할 수 있습니다. 관리 되는 인스턴스에서 [자동 튜닝](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) 은 SQL 계획 실행 통계의 성능을 지속적으로 모니터링 하 고 식별 된 성능 문제를 자동으로 해결 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL Managed Instance에 대 한 자세한 내용은 [AZURE sql Managed Instance?](sql-managed-instance-paas-overview.md)을 참조 하세요.
 - 백업에서 복원을 포함한 자습서는 [관리되는 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
-- Database Migration Service를 사용 하 여 마이그레이션을 보여 주는 자습서는 Database Migration Service를 사용 하 여 [온-프레미스 데이터베이스를 AZURE SQL Managed Instance로](../../dms/tutorial-sql-server-to-managed-instance.md)마이그레이션을 참조 하세요.  
+- Database Migration Service를 사용 하 여 마이그레이션을 보여 주는 자습서는 Database Migration Service를 사용 하 여 [온-프레미스 데이터베이스를 AZURE SQL Managed Instance로](../../dms/tutorial-sql-server-to-managed-instance.md)마이그레이션을 참조 하세요.

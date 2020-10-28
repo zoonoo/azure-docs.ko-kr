@@ -4,14 +4,14 @@ description: Azure App Service에서 사용자 지정 컨테이너를 구성 하
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264578"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787060"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 컨테이너 구성
+# <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
 이 문서에서는 Azure App Service에서 실행 되도록 사용자 지정 컨테이너를 구성 하는 방법을 보여 줍니다.
 
@@ -212,7 +212,7 @@ Docker 로그에 액세스 하는 방법에는 여러 가지가 있습니다.
 
 ### <a name="in-azure-portal"></a>Azure Portal에서
 
-Docker 로그는 포털의 앱 **컨테이너 설정** 페이지에 표시 됩니다. 로그가 잘리고 **다운로드**를 클릭 하 여 모든 로그를 다운로드할 수 있습니다. 
+Docker 로그는 포털의 앱 **컨테이너 설정** 페이지에 표시 됩니다. 로그가 잘리고 **다운로드** 를 클릭 하 여 모든 로그를 다운로드할 수 있습니다. 
 
 ### <a name="from-the-kudu-console"></a>Kudu 콘솔에서
 
@@ -272,7 +272,7 @@ Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 
 ## <a name="customize-health-ping-behavior"></a>상태 ping 동작 사용자 지정
 
-App Service 컨테이너를 시작 하 고 HTTP ping에 응답할 때 컨테이너가 성공적으로 시작 되는 것으로 간주 합니다. 상태 ping 요청 컨테이너 헤더 `User-Agent= "App Service Hyper-V Container Availability Check"` 입니다. 컨테이너가 시작 되지만 특정 시간 후에 ping에 응답 하지 않는 경우 App Service는 Docker 로그에 이벤트를 기록 하 여 컨테이너를 시작 하지 않았다는 것을 알려 주는 것입니다. 
+App Service 컨테이너를 시작 하 고 HTTP ping에 응답할 때 컨테이너가 성공적으로 시작 되는 것으로 간주 합니다. 상태 ping 요청에 헤더가 포함 되어 있습니다 `User-Agent= "App Service Hyper-V Container Availability Check"` . 컨테이너가 시작 되지만 특정 시간 후에 ping에 응답 하지 않는 경우 App Service는 Docker 로그에 이벤트를 기록 하 여 컨테이너를 시작 하지 않았다는 것을 알려 주는 것입니다. 
 
 응용 프로그램이 리소스를 많이 사용 하는 경우 컨테이너는 시간에 HTTP ping에 응답 하지 않을 수 있습니다. HTTP ping이 실패할 때의 작업을 제어 하려면 `CONTAINER_AVAILABILITY_CHECK_MODE` 앱 설정을 설정 합니다. [Cloud Shell](https://shell.azure.com)를 통해 설정할 수 있습니다. Bash:
 
@@ -290,7 +290,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 | 값 | 설명 |
 | - | - |
-| **복구한** | 3 회 연속 가용성 검사 후 컨테이너를 다시 시작 합니다. |
+| **Repair** | 3 회 연속 가용성 검사 후 컨테이너를 다시 시작 합니다. |
 | **ReportOnly** | 기본값입니다. 3 개의 연속 가용성 검사 후 컨테이너를 다시 시작 하지 않고 컨테이너의 Docker 로그에 보고 합니다. |
 | 해제 | 가용성을 확인 하지 않습니다. |
 

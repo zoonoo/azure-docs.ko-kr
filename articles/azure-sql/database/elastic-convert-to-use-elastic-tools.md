@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787145"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,11 +72,11 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<passw
 
 ![목록 매핑][1]
 
-다중 테넌트 모델은 개별 데이터베이스에 여러 테넌트를 할당합니다. 여러 데이터베이스에 테넌트 그룹을 분산시킬 수도 있습니다. 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
+다중 테넌트 모델은 개별 데이터베이스에 여러 테넌트를 할당합니다. 여러 데이터베이스에 테넌트 그룹을 분산시킬 수도 있습니다. 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑** 을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
 
 ![범위 매핑][2]
 
-여러 테넌트를 개별 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
+여러 테넌트를 개별 데이터베이스에 할당하는 *목록 매핑* 을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
 
 ![단일 DB의 다중 테넌트][3]
 
@@ -168,7 +168,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-질문에 대해서 [는 Microsoft Q&SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) 및 기능 요청에 대 한 질문 페이지를 사용 하 여 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가 하세요.
+질문에 대해서 [는 Microsoft Q&SQL Database](/answers/topics/azure-sql-database.html) 및 기능 요청에 대 한 질문 페이지를 사용 하 여 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가 하세요.
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

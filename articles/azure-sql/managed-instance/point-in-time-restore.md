@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616519"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788352"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Azure SQL Managed Instance의 데이터베이스를 이전 시점으로 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,7 +67,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 기존 데이터베�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Azure PowerShell 아직 설치 하지 않은 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+Azure PowerShell 아직 설치 하지 않은 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 PowerShell을 사용 하 여 데이터베이스를 복원 하려면 다음 명령에서 매개 변수의 값을 지정 합니다. 그런 다음 명령을 실행 합니다.
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-자세한 내용은 [AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조 하세요.
+자세한 내용은 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조 하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-사용 가능한 매개 변수에 대 한 자세한 내용은 [SQL Managed Instance에서 데이터베이스를 복원 하는 CLI 설명서](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore)를 참조 하세요.
+사용 가능한 매개 변수에 대 한 자세한 내용은 [SQL Managed Instance에서 데이터베이스를 복원 하는 CLI 설명서](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore)를 참조 하세요.
 
 ---
 
@@ -139,7 +139,7 @@ PowerShell 또는 Azure Portal를 사용 하 여 삭제 된 데이터베이스�
 ### <a name="portal"></a>포털 
 
 
-Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 SQL Managed Instance 개요 페이지를 열고 **삭제 된 데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
+Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 SQL Managed Instance 개요 페이지를 열고 **삭제 된 데이터베이스** 를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
 
   ![삭제 된 Azure SQL 인스턴스 데이터베이스 복원의 스크린샷](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 다음 방법 중 하나를 사용 하 여 SQL Managed Instance의 데이터베이스에 연결 합니다.
 
-- [Azure 가상 머신을 통한 SSMS/Azure Data Studio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [지점 및 사이트 간](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [공용 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Azure 가상 머신을 통한 SSMS/Azure Data Studio](./connect-vm-instance-configure.md)
+- [지점 및 사이트 간](./point-to-site-p2s-configure.md)
+- [공용 엔드포인트](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal에서 SQL Managed Instance 데이터베이스를 선택 하 고 **삭제**를 선택 합니다.
+Azure Portal에서 SQL Managed Instance 데이터베이스를 선택 하 고 **삭제** 를 선택 합니다.
 
    ![Azure Portal를 사용 하 여 데이터베이스 삭제](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 다음 방법 중 하나를 사용 하 여 SQL Managed Instance의 데이터베이스에 연결 합니다.
 
-- [Azure 가상 머신](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [지점 및 사이트 간](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [공용 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Azure 가상 머신](./connect-vm-instance-configure.md)
+- [지점 및 사이트 간](./point-to-site-p2s-configure.md)
+- [공용 엔드포인트](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>다음 단계
 

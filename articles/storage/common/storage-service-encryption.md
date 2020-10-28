@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488574"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785785"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -38,7 +38,7 @@ Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 W
 
 새 저장소 계정의 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 사용자 고유의 키를 사용 하 여 암호화를 관리할 수 있습니다. 사용자 고유의 키로 암호화를 관리 하도록 선택 하는 경우 두 가지 옵션이 있습니다. 두 가지 유형의 키 관리 또는 두 가지 모두를 사용할 수 있습니다.
 
-- Blob storage 및 Azure Files에서 데이터를 암호화 하 고 암호 해독 하는 데 사용할 *고객 관리 키* 를 지정할 수 있습니다. <sup>1, 2</sup> 고객 관리 키는 Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 되어야 합니다. 고객 관리 키에 대 한 자세한 내용은 [Azure Storage 암호화를 위해 고객이 관리 하는 키 사용](encryption-customer-managed-keys.md)을 참조 하세요.
+- Blob storage 및 Azure Files에서 데이터를 암호화 하 고 암호 해독 하는 데 사용할 *고객 관리 키* 를 지정할 수 있습니다. <sup>1, 2</sup> 고객 관리 키는 Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 되어야 합니다. 고객 관리 키에 대 한 자세한 내용은 [Azure Storage 암호화를 위해 고객이 관리 하는 키 사용](./customer-managed-keys-overview.md)을 참조 하세요.
 - Blob storage 작업에서 *고객이 제공한 키* 를 지정할 수 있습니다. Blob 저장소에 대 한 읽기 또는 쓰기 요청을 수행 하는 클라이언트에는 blob 데이터의 암호화 및 암호 해독 방법에 대 한 세부적인 제어를 요청 하는 암호화 키가 포함 될 수 있습니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](../blobs/encryption-customer-provided-keys.md)을 참조 하세요.
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
@@ -101,8 +101,8 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정에 대 한 
 
 암호화 범위가 Azure Key Vault의 고객 관리 키로 보호 되는 경우 암호화 범위를 사용 하지 않도록 설정 하기 위해 키 자격 증명 모음에서 연결 된 키를 삭제할 수도 있습니다. Azure Key Vault의 고객 관리 키는 일시 삭제 및 제거 보호로 보호 되 고 삭제 된 키는 해당 속성에 대해 정의 된 동작의 영향을 받습니다. 자세한 내용은 Azure Key Vault 설명서에서 다음 항목 중 하나를 참조 하세요.
 
-- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-powershell.md)
-- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-cli.md)
+- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
+- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > 암호화 범위를 삭제할 수는 없습니다.

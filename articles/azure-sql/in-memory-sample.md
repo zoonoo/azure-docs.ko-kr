@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616808"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786584"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,9 +47,9 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 ### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [Azure SQL Database에 첫 번째 데이터베이스 만들기](database/single-database-create-quickstart.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스** 를 설정합니다. 자세한 지침은 [Azure SQL Database에 첫 번째 데이터베이스 만들기](database/single-database-create-quickstart.md)를 참조하세요.
 
-2. SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
+2. SQL Server Management Studio [(SSMS.exe)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 데이터베이스에 연결합니다.
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
@@ -70,11 +70,11 @@ T-SQL 스크립트를 실행할 때 오류 40536을 받게 되면 다음 T-SQL �
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
-**0**이라는 결과는 메모리 내가 지원되지 않음을 나타내고 **1**은 지원됨을 나타냅니다. 문제를 진단하려면 데이터베이스가 프리미엄 서비스 계층에 있어야 합니다.
+**0** 이라는 결과는 메모리 내가 지원되지 않음을 나타내고 **1** 은 지원됨을 나타냅니다. 문제를 진단하려면 데이터베이스가 프리미엄 서비스 계층에 있어야 합니다.
 
 ### <a name="about-the-created-memory-optimized-items"></a>생성된 메모리 최적화된 항목에 대한 정보
 
-**테이블**: 샘플은 다음과 같은 메모리 최적화 테이블을 포함합니다.
+**테이블** : 샘플은 다음과 같은 메모리 최적화 테이블을 포함합니다.
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-SSMS의 **개체 탐색기**를 통해 메모리 최적화 테이블을 검사할 수 있습니다. **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화됨**을 마우스 오른쪽 단추로 클릭합니다. 값은 1과 같습니다.
+SSMS의 **개체 탐색기** 를 통해 메모리 최적화 테이블을 검사할 수 있습니다. **테이블** > **필터** > **필터 설정** > **메모리 액세스에 최적화됨** 을 마우스 오른쪽 단추로 클릭합니다. 값은 1과 같습니다.
 
 또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**고유하게 컴파일된 저장 프로시저**: 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
+**고유하게 컴파일된 저장 프로시저** : 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -122,7 +122,7 @@ ostress.exe를 실행하는 경우 다음 모두에 대해 설계된 매개 변�
 
 이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
 
-다음 스크립트는 다음과 같은 메모리 최적화 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
+다음 스크립트는 다음과 같은 메모리 최적화 *테이블* 에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-ostress.exe용 이전 T-SQL 스크립트의 *_ondisk* 버전을 만들려면 *_inmem* 하위 문자열의 두 항목을 *_ondisk*로 바꿉니다. 이렇게 대체하면 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe용 이전 T-SQL 스크립트의 *_ondisk* 버전을 만들려면 *_inmem* 하위 문자열의 두 항목을 *_ondisk* 로 바꿉니다. 이렇게 대체하면 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 #### <a name="install-rml-utilities-and-ostress"></a>RML 유틸리티 및 `ostress` 설치
 
@@ -160,8 +160,8 @@ VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 
 
 자세한 내용은 다음을 참조하세요.
 
-- [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
-- [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)
+- [메모리 내 OLTP에 대한 샘플 데이터베이스](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp)의 ostress.exe 설명
+- [메모리 내 OLTP에 대한 샘플 데이터베이스](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp)
 - [ostress.exe 설치에 대한 블로그](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910)
 
 <!--
@@ -205,7 +205,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>*_ondisk*에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>*_ondisk* 에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
 
 *_inmem* 실행에서 결과를 얻은 후 *_ondisk* 실행에 대해 다음 단계를 수행합니다.
 
@@ -215,7 +215,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. ostress.exe 명령줄을 편집하여 모든 *_inmem*을 *_ondisk*로 대체합니다.
+2. ostress.exe 명령줄을 편집하여 모든 *_inmem* 을 *_ondisk* 로 대체합니다.
 
 3. ostress.exe를 두 번째로 실행하고 기간 결과를 캡처합니다.
 
@@ -223,7 +223,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="expected-comparison-results"></a>예상된 비교 결과
 
-데이터베이스와 동일한 Azure 지역의 Azure VM에서 `ostress`를 실행할 때 이렇게 간단한 워크로드에서 메모리 내 테스트의 성능이 **9배**까지 향상되었습니다.
+데이터베이스와 동일한 Azure 지역의 Azure VM에서 `ostress`를 실행할 때 이렇게 간단한 워크로드에서 메모리 내 테스트의 성능이 **9배** 까지 향상되었습니다.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -233,7 +233,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 이 섹션에서는 columnstore 인덱스 및 전형적인 b-트리 인덱스를 사용하는 경우의 IO 및 통계 결과를 비교합니다.
 
-OLTP 워크로드의 실시간 분석의 경우 비클러스터형 columnstore 인덱스를 사용하는 것이 좋습니다. 자세한 내용은 [설명한 Columnstore 인덱스](https://msdn.microsoft.com/library/gg492088.aspx)를 참조하세요.
+OLTP 워크로드의 실시간 분석의 경우 비클러스터형 columnstore 인덱스를 사용하는 것이 좋습니다. 자세한 내용은 [설명한 Columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview)를 참조하세요.
 
 ### <a name="prepare-the-columnstore-analytics-test"></a>columnstore 분석 테스트 준비
 
@@ -335,7 +335,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
+- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
 
@@ -349,17 +349,17 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [메모리 내 OLTP에 대해 알아보기](https://msdn.microsoft.com/library/dn133186.aspx)
+- [메모리 내 OLTP에 대해 알아보기](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
-- [columnstore 인덱스에 대해 알아보기](https://msdn.microsoft.com/library/gg492088.aspx)
+- [columnstore 인덱스에 대해 알아보기](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
-- [실시간 운영 성과 분석에 대해 알아보기](https://msdn.microsoft.com/library/dn817827.aspx)
+- [실시간 운영 성과 분석에 대해 알아보기](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-- [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](https://msdn.microsoft.com/library/dn673538.aspx)를 참조하세요. 여기에서 메모리 내 OLTP가 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
+- [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](/previous-versions/dn673538(v=msdn.10))를 참조하세요. 여기에서 메모리 내 OLTP가 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
 
 #### <a name="application-design"></a>애플리케이션 설계
 
-- [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [메모리 내 OLTP(메모리 내 최적화)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](in-memory-oltp-configure.md)
 
@@ -367,6 +367,6 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [Azure Portal](https://portal.azure.com/)
 
-- [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
+- [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)
 
-- [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84032024"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786907"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Elastic Database 도구 관련 FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ ms.locfileid: "84032024"
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>내 애플리케이션을 시작할 때마다 분할된 데이터베이스 맵 관리자를 만들고 분할을 채워야 하나요?
 
-아니요. 분할된 데이터베이스 맵 관리자(예: [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager))는 한 번만 만들면 됩니다.  애플리케이션 시작 시 애플리케이션에서 [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) 호출을 사용해야 합니다.  응용 프로그램 도메인당 이러한 호출이 하나만 있어야 합니다.
+아니요. 분할된 데이터베이스 맵 관리자(예: [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager))는 한 번만 만들면 됩니다.  애플리케이션 시작 시 애플리케이션에서 [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) 호출을 사용해야 합니다.  응용 프로그램 도메인당 이러한 호출이 하나만 있어야 합니다.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>탄력적 데이터베이스 도구 사용과 관련된 질문이 있는 경우 답변을 받으려면 어떻게 해야 하나요?
 
-[SQL Database에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html)에서 문의하세요.
+[SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)에서 문의하세요.
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>분할 키를 사용하여 데이터베이스에 연결하는 경우 동일한 분할의 다른 분할 키에 대한 데이터도 쿼리할 수 있습니다.  의도한 동작인가요?
 

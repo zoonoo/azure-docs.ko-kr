@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488812"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787689"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
@@ -31,37 +31,37 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 역할 할당
 
-Azure Storage 응용 프로그램에서 보안 주체를 인증 하려면 먼저 해당 보안 주체에 대 한 Azure RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Storage는 컨테이너 및 큐에 대 한 사용 권한을 포함 하는 기본 제공 역할을 정의 합니다. Azure 역할이 보안 주체에 할당 되 면 해당 보안 주체에 게 해당 리소스에 대 한 액세스 권한이 부여 됩니다. 자세한 내용은 azure [Blob에 대 한 액세스 권한 관리 및 AZURE RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
+Azure Storage 응용 프로그램에서 보안 주체를 인증 하려면 먼저 해당 보안 주체에 대 한 Azure RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Storage는 컨테이너 및 큐에 대 한 사용 권한을 포함 하는 기본 제공 역할을 정의 합니다. Azure 역할이 보안 주체에 할당 되 면 해당 보안 주체에 게 해당 리소스에 대 한 액세스 권한이 부여 됩니다. 자세한 내용은 azure [Blob에 대 한 액세스 권한 관리 및 AZURE RBAC를 사용 하 여 큐 데이터](./storage-auth-aad-rbac-portal.md)를 참조 하세요.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
-Azure AD를 사용 하 여 저장소 리소스에 대 한 액세스 권한을 부여 하는 첫 번째 단계는 클라이언트 응용 프로그램을 [Azure Portal](https://portal.azure.com)의 azure ad 테 넌 트에 등록 하는 것입니다. 클라이언트 응용 프로그램을 등록할 때 응용 프로그램에 대 한 정보를 Azure AD에 제공 합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID*라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Storage 응용 프로그램을 등록 하려면 [퀵 스타트: Microsoft id 플랫폼에 응용 프로그램 등록](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 표시 된 단계를 따르세요. 
+Azure AD를 사용 하 여 저장소 리소스에 대 한 액세스 권한을 부여 하는 첫 번째 단계는 클라이언트 응용 프로그램을 [Azure Portal](https://portal.azure.com)의 azure ad 테 넌 트에 등록 하는 것입니다. 클라이언트 응용 프로그램을 등록할 때 응용 프로그램에 대 한 정보를 Azure AD에 제공 합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID( *애플리케이션 ID* 라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Storage 응용 프로그램을 등록 하려면 [퀵 스타트: Microsoft id 플랫폼에 응용 프로그램 등록](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 표시 된 단계를 따르세요. 
 
 다음 이미지는 웹 응용 프로그램을 등록 하는 일반적인 설정을 보여 줍니다. 이 예제에서 리디렉션 URI는 `http://localhost:5000/signin-oidc` 개발 환경에서 응용 프로그램 예제를 테스트 하기 위해로 설정 됩니다. Azure Portal에서 등록 된 응용 프로그램에 대 한 **인증** 설정에서 나중에이 설정을 수정할 수 있습니다.
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
 > [!NOTE]
-> 응용 프로그램을 네이티브 응용 프로그램으로 등록 하는 경우 **리디렉션 uri**에 대 한 유효한 uri를 지정할 수 있습니다. 네이티브 응용 프로그램의 경우이 값은 실제 URL 일 필요가 없습니다. 웹 응용 프로그램의 경우 리디렉션 URI는 토큰을 제공 하는 URL을 지정 하므로 유효한 URI 여야 합니다.
+> 응용 프로그램을 네이티브 응용 프로그램으로 등록 하는 경우 **리디렉션 uri** 에 대 한 유효한 uri를 지정할 수 있습니다. 네이티브 응용 프로그램의 경우이 값은 실제 URL 일 필요가 없습니다. 웹 응용 프로그램의 경우 리디렉션 URI는 토큰을 제공 하는 URL을 지정 하므로 유효한 URI 여야 합니다.
 
 애플리케이션을 등록한 후에 **설정** 아래에 애플리케이션 ID(또는 클라이언트 ID)가 표시됩니다.
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
-Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v2-register-an-app.md)을 참조하세요.
+Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
 ### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Azure Storage에 등록된 앱 사용 권한 부여
 
 다음으로 응용 프로그램에 Azure Storage Api를 호출할 수 있는 권한을 부여 합니다. 이 단계를 통해 응용 프로그램은 Azure AD로 Azure Storage 요청에 권한을 부여할 수 있습니다.
 
-1. 등록 된 응용 프로그램에 대 한 **API 권한** 페이지에서 **사용 권한 추가**를 선택 합니다.
-1. **Microsoft api** 탭에서 **Azure Storage**를 선택 합니다.
-1. **요청 API 권한** 창에서 **응용 프로그램에 필요한 사용 권한 유형**아래에서 사용 가능한 권한 유형이 **위임 된 권한**인지 확인 합니다. 이 옵션은 기본적으로 선택 되어 있습니다.
-1. **사용 권한**아래에서 **user_impersonation**옆의 확인란을 선택 하 고 **사용 권한 추가** 단추를 선택 합니다.
+1. 등록 된 응용 프로그램에 대 한 **API 권한** 페이지에서 **사용 권한 추가** 를 선택 합니다.
+1. **Microsoft api** 탭에서 **Azure Storage** 를 선택 합니다.
+1. **요청 API 권한** 창에서 **응용 프로그램에 필요한 사용 권한 유형** 아래에서 사용 가능한 권한 유형이 **위임 된 권한** 인지 확인 합니다. 이 옵션은 기본적으로 선택 되어 있습니다.
+1. **사용 권한** 아래에서 **user_impersonation** 옆의 확인란을 선택 하 고 **사용 권한 추가** 단추를 선택 합니다.
 
     :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷":::
 
-1. 다음으로, **기본 디렉터리에 대 한 관리자 동의 부여**를 클릭 하 여 이러한 권한에 대해 관리자 동의를 부여 합니다.
+1. 다음으로, **기본 디렉터리에 대 한 관리자 동의 부여** 를 클릭 하 여 이러한 권한에 대해 관리자 동의를 부여 합니다.
 
 이제 **api 권한** 창에는 등록 된 Azure AD 응용 프로그램이 Microsoft Graph 및 Azure Storage api 모두에 대 한 액세스 권한이 있고 기본 디렉터리에 대 한 동의가 부여 되어 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Microsoft Graph에 대한 사용 권한이 부여됩니다.
 
@@ -73,7 +73,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. **인증서 & 암호** 설정을 선택 합니다.
-1. **클라이언트 암호**에서 **새 클라이언트 암호** 를 클릭 하 여 새 암호를 만듭니다.
+1. **클라이언트 암호** 에서 **새 클라이언트 암호** 를 클릭 하 여 새 암호를 만듭니다.
 1. 비밀에 대 한 설명을 제공 하 고 원하는 만료 간격을 선택 합니다.
 1. 새 암호의 값을 안전한 위치에 즉시 복사 합니다. 전체 값은 한 번만 표시 됩니다.
 
@@ -81,7 +81,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 ### <a name="enable-implicit-grant-flow"></a>암시적 허용 흐름 사용
 
-다음으로 응용 프로그램에 대 한 암시적 권한 부여 흐름을 구성 합니다. 다음 단계를 수행합니다.
+다음으로 응용 프로그램에 대 한 암시적 권한 부여 흐름을 구성 합니다. 다음 단계를 수행하세요.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. **관리** 섹션에서 **인증** 설정을 선택 합니다.
@@ -93,7 +93,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 응용 프로그램을 등록 하 고 Azure Blob 저장소 또는 큐 저장소의 데이터에 액세스할 수 있는 권한을 부여 하면 응용 프로그램에 보안 주체를 인증 하 고 OAuth 2.0 토큰을 획득 하는 코드를 추가할 수 있습니다. 토큰을 인증 하 고 얻으려면 [Microsoft id 플랫폼 인증 라이브러리나](../../active-directory/develop/reference-v2-libraries.md) openid connect Connect 1.0을 지 원하는 다른 오픈 소스 라이브러리 중 하나를 사용할 수 있습니다. 그러면 응용 프로그램에서 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청을 인증할 수 있습니다.
 
-토큰 획득을 지 원하는 시나리오 목록은 [MSAL (Microsoft 인증 라이브러리)](/azure/active-directory/develop/msal-overview) 설명서의 [인증 흐름](/en-us/azure/active-directory/develop/msal-authentication-flows) 섹션을 참조 하세요.
+토큰 획득을 지 원하는 시나리오 목록은 [MSAL (Microsoft 인증 라이브러리)](../../active-directory/develop/msal-overview.md) 설명서의 [인증 흐름](../../active-directory/develop/msal-authentication-flows.md) 섹션을 참조 하세요.
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Azure AD를 사용하여 인증하기 위해 잘 알려진 값
 
@@ -101,7 +101,7 @@ Azure AD를 사용하여 보안 주체를 인증하려면 코드에서 잘 알�
 
 ### <a name="azure-ad-authority"></a>Azure AD 권한
 
-Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 같습니다. 여기서 *tenant-id*는 Active Directory 테넌트 ID(또는 디렉터리 ID)입니다.
+Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 같습니다. 여기서 *tenant-id* 는 Active Directory 테넌트 ID(또는 디렉터리 ID)입니다.
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
@@ -140,7 +140,7 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 #### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
 
-Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치 합니다.
+Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **NuGet 패키지 관리자** , **패키지 관리자 콘솔** 을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치 합니다.
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -220,7 +220,7 @@ private static async Task<string> CreateBlob(string accessToken)
 
 위의 예제에서 .NET 클라이언트 라이브러리는 블록 Blob 만들기 요청의 권한 부여를 처리합니다. 다른 언어에 대 한 Azure Storage 클라이언트 라이브러리는 요청에 대 한 권한 부여도 처리 합니다. 그러나 REST API를 사용 하 여 OAuth 토큰을 사용 하 여 Azure Storage 작업을 호출 하는 경우 OAuth 토큰을 사용 하 여 **인증** 헤더를 구성 해야 합니다.
 
-OAuth 액세스 토큰을 사용하여 Blob 및 큐 서비스 작업을 호출하려면, **Bearer**(전달자) 체계를 사용하여 **Authorization**(권한 부여) 헤더에 액세스 토큰을 전달하고 2017-11-09 이상의 서비스 버전을 지정합니다.
+OAuth 액세스 토큰을 사용하여 Blob 및 큐 서비스 작업을 호출하려면, **Bearer** (전달자) 체계를 사용하여 **Authorization** (권한 부여) 헤더에 액세스 토큰을 전달하고 2017-11-09 이상의 서비스 버전을 지정합니다.
 
 ```https
 GET /container/file.txt HTTP/1.1
@@ -255,7 +255,7 @@ public async Task<IActionResult> Blob()
 
 ### <a name="provide-values-in-the-settings-file"></a>설정 파일에 값 제공
 
-다음과 같이 사용자 고유의 값으로 파일 * 의appsettings.js* 를 업데이트 합니다.
+다음과 같이 사용자 고유의 값으로 파일 *의appsettings.js* 를 업데이트 합니다.
 
 ```json
 {
@@ -290,6 +290,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft ID 플랫폼](/azure/active-directory/develop/)
-- [Azure RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)
+- [Microsoft ID 플랫폼](../../active-directory/develop/index.yml)
+- [Azure RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](./storage-auth-aad-rbac-portal.md)
 - [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 인증](storage-auth-aad-msi.md)
