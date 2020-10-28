@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202211"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631277"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -40,9 +40,10 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 내 확보 대역폭을 초과 하는 기능을 사용할 수 있나요?
 
-예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이는 일정 기간 동안 지속되지 않으며 보장되지 않습니다.  트래픽이 ExpressRoute Gateway를 지나가는 경우 SKU에 대한 대역폭이 고정되고 확장되지 않습니다.
+예, Express 경로 회로의 보조 연결에서 사용할 수 있는 대역폭을 사용 하 여 확보 한 대역폭 제한의 최대 2 배를 사용할 수 있습니다. 회로의 기본 제공 중복성은 두 개의 Microsoft Enterprise Edge 라우터 (MSEEs)에 대 한 기본 및 보조 연결 (각 확보 대역폭)을 사용 하 여 구성 됩니다. 필요한 경우 보조 연결을 통해 사용할 수 있는 대역폭을 추가 트래픽에 사용할 수 있습니다. 그러나 보조 연결은 중복성을 위해 사용 되기 때문에 보장 되지 않으며 지속적으로 추가 트래픽에 사용 되어서는 안 됩니다. 대를 사용 하 여 트래픽을 전송 하는 방법에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)를 참조 하세요.
+기본 연결을 사용 하 여 트래픽을 전송 하려는 경우에는 연결에 대 한 대역폭이 고정 되 고 oversubscribe 시도 하면 패킷이 늘어납니다. 트래픽이 Express 경로 게이트웨이를 통해 이동 하는 경우 SKU에 대 한 대역폭이 고정 되 고 안정화 되지 않습니다.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 프라이빗 네트워크 연결을 동시에 사용할 수 있나요?
 
@@ -50,7 +51,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>VNet은 ExpressRoute 개인 피어링에서 어떻게 보급되나요?
 
-ExpressRoute 게이트웨이는 Azure VNet의 *주소 공간*을 보급하며, 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급된 VNet 주소 공간입니다. 또한 VNet 피어링을 사용하고 피어링된 VNet에 "원격 게이트웨이 사용"을 설정하면 피어링된 VNet의 주소 공간도 보급됩니다.
+ExpressRoute 게이트웨이는 Azure VNet의 *주소 공간* 을 보급하며, 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급된 VNet 주소 공간입니다. 또한 VNet 피어링을 사용하고 피어링된 VNet에 "원격 게이트웨이 사용"을 설정하면 피어링된 VNet의 주소 공간도 보급됩니다.
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>ExpressRoute 개인 피어링의 VNet에서 온-프레미스로 보급할 수 있는 접두사는 몇 개입니까?
 
@@ -418,7 +419,7 @@ Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
 
-## <a name="privacy"></a>개인 정보 보호
+## <a name="privacy"></a>개인 정보 취급 방침
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Express 경로 서비스에서 고객 데이터를 저장 하나요?
 

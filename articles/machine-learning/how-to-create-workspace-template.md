@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631050"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -28,14 +28,14 @@ ms.locfileid: "92057844"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독** . 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
 
 * 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
 
     * __CMK (고객이 관리 하는 키)가 있는 개인 링크 사용 작업 영역__
-    * __가상 네트워크 뒤의 작업 영역에 대 한 Azure Container Registry__
+    * __가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry__
 
     자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
@@ -59,7 +59,7 @@ ms.locfileid: "92057844"
 
     선택한 위치는 템플릿에서 대부분의 리소스에 사용됩니다. 단, 다른 서비스를 사용할 수 있는 일부 위치에서 사용할 수 없는 Application Insights 서비스는 예외입니다. 서비스를 사용할 수 없는 위치를 선택하면 미국 중남부 위치에 서비스가 생성됩니다.
 
-* Azure Machine Learning 작업 영역의 이름인 **workspaceName**입니다.
+* Azure Machine Learning 작업 영역의 이름인 **workspaceName** 입니다.
 
     > [!NOTE]
     > 작업 영역 이름은 대/소문자를 구분하지 않습니다.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 다음 템플릿 예에서는 세 가지 설정으로 작업 영역을 만드는 방법을 보여 줍니다.
 
-* 작업 영역에 대해 높은 기밀성 설정 사용
-* 작업 영역에 대한 암호화 사용
-* 기존 Azure Key Vault를 사용하여 고객 관리형 키 검색
+* 작업 영역에 대해 높은 기밀성 설정을 사용 하도록 설정 합니다. 그러면 새 Cosmos DB 인스턴스가 만들어집니다.
+* 작업 영역에 대해 암호화를 사용 하도록 설정 합니다.
+* 기존 Azure Key Vault를 사용 하 여 고객 관리 키를 검색 합니다. 고객 관리 키를 사용 하 여 작업 영역에 대 한 새 Cosmos DB 인스턴스를 만듭니다.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
@@ -217,7 +219,7 @@ New-AzResourceGroupDeployment `
 
 고객 관리 키를 사용 하도록 설정 하려면 템플릿을 배포할 때 다음 매개 변수를 설정 합니다.
 
-* **Encryption_status** **사용 하도록 설정**합니다.
+* **Encryption_status** **사용 하도록 설정** 합니다.
 * **cmk_keyvault** `cmk_keyvault` 이전 단계에서 얻은 값을 cmk_keyvault 합니다.
 * **resource_cmk_uri** `resource_cmk_uri` 이전 단계에서 얻은 값을 resource_cmk_uri 합니다.
 
@@ -252,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
 
-데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true**로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
+데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true** 로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
 
 * Azure Machine Learning 계산 클러스터에 대 한 로컬 스크래치 디스크 암호화를 시작 하 여 구독에 이전 클러스터를 만들지 않았습니다. 이전에 구독에서 클러스터를 만든 경우 지원 티켓을 열어 계산 클러스터에 대해 사용 하도록 설정 된 스크래치 디스크를 암호화 합니다.
 * 실행 간에 로컬 스크래치 디스크를 정리 합니다.
@@ -547,8 +549,8 @@ New-AzResourceGroupDeployment `
    * 지역: 리소스가 생성 될 Azure 지역을 선택 합니다.
    * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
    * 위치: 리소스가 생성될 위치를 선택합니다.
-1. __검토 + 만들기__를 선택합니다.
-1. __검토 + 만들기__ 화면에서 나열 된 사용 약관에 동의 하 고 __만들기__를 선택 합니다.
+1. __검토 + 만들기__ 를 선택합니다.
+1. __검토 + 만들기__ 화면에서 나열 된 사용 약관에 동의 하 고 __만들기__ 를 선택 합니다.
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 
@@ -578,7 +580,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
 * Key Vault 리소스가 이미 있는지 확인합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새로 만드는 대신 기존 Key Vault를 사용하려면 템플릿을 다음과 같이 변경합니다.
 
-    * 기존 Key Vault 리소스의 ID를 허용하는 매개 변수를 **추가**합니다.
+    * 기존 Key Vault 리소스의 ID를 허용하는 매개 변수를 **추가** 합니다.
 
         ```json
         "keyVaultId":{
@@ -589,7 +591,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
         }
       ```
 
-    * Key Vault 리소스를 만드는 섹션을 **제거**합니다.
+    * Key Vault 리소스를 만드는 섹션을 **제거** 합니다.
 
         ```json
         {
@@ -609,7 +611,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
         },
         ```
 
-    * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거**합니다. 또한 `keyVaultId` 매개 변수를 참조하여 작업 영역의 `properties` 섹션에서 `keyVault` 항목을 **변경**합니다.
+    * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거** 합니다. 또한 `keyVaultId` 매개 변수를 참조하여 작업 영역의 `properties` 섹션에서 `keyVault` 항목을 **변경** 합니다.
 
         ```json
         {
@@ -653,7 +655,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>개인 DNS 영역에 연결 되지 않은 가상 네트워크
 
-개인 끝점을 사용 하 여 작업 영역을 만들 때 템플릿은 __privatelink.api.azureml.ms__이라는 사설 DNS 영역을 만듭니다. __가상 네트워크 링크가__ 이 개인 DNS 영역에 자동으로 추가 됩니다. 링크는 리소스 그룹에서 만든 첫 번째 작업 영역 및 개인 끝점에 대해서만 추가 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 다른 가상 네트워크 및 작업 영역을 만드는 경우 두 번째 가상 네트워크는 개인 DNS 영역에 추가 되지 않을 수 있습니다.
+개인 끝점을 사용 하 여 작업 영역을 만들 때 템플릿은 __privatelink.api.azureml.ms__ 이라는 사설 DNS 영역을 만듭니다. __가상 네트워크 링크가__ 이 개인 DNS 영역에 자동으로 추가 됩니다. 링크는 리소스 그룹에서 만든 첫 번째 작업 영역 및 개인 끝점에 대해서만 추가 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 다른 가상 네트워크 및 작업 영역을 만드는 경우 두 번째 가상 네트워크는 개인 DNS 영역에 추가 되지 않을 수 있습니다.
 
 개인 DNS 영역에 대해 이미 존재 하는 가상 네트워크 링크를 보려면 다음 Azure CLI 명령을 사용 합니다.
 

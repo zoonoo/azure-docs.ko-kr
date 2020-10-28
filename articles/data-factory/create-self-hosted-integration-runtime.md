@@ -153,7 +153,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
 - FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1

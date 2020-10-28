@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546673"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632688"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 개인 링크
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure에서 다양 한 PaaS (platform as a service) 배포에 연결할 수 있습니다. 개인 끝점은 특정 가상 네트워크 및 서브넷의 개인 IP 주소입니다. 개인 링크 기능을 지 원하는 PaaS 배포 목록은 [개인 링크 설명서](https://docs.microsoft.com/azure/private-link/)를 참조 하세요. 
+Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure에서 다양 한 PaaS (platform as a service) 배포에 연결할 수 있습니다. 개인 끝점은 특정 가상 네트워크 및 서브넷의 개인 IP 주소입니다. 개인 링크 기능을 지 원하는 PaaS 배포 목록은 [개인 링크 설명서](../private-link/index.yml)를 참조 하세요. 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>고객 네트워크와 Azure Data Factory 간의 보안 통신 
 Azure 가상 네트워크를 클라우드에서 네트워크의 논리적 표현으로 설정할 수 있습니다. 이렇게 하면 다음과 같은 이점이 있습니다.
@@ -67,7 +67,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 > 연결 된 서비스를 만들 때 자격 증명이 Azure key vault에 저장 되어 있는지 확인 합니다. 그렇지 않으면 Azure Data Factory에서 개인 링크를 사용 하도록 설정 하는 경우 자격 증명이 작동 하지 않습니다.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 개인 링크 설정
-[Azure Portal를](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)사용 하 여 개인 끝점을 만들 수 있습니다.
+[Azure Portal를](../private-link/create-private-endpoint-portal.md)사용 하 여 개인 끝점을 만들 수 있습니다.
 
 Azure Portal에서 Azure 데이터 팩터리로 이동 하 여 다음과 같이 개인 끝점을 만들 수도 있습니다.
 
@@ -89,4 +89,3 @@ Azure data factory에 대 한 공용 액세스를 차단 하 고 개인 링크�
 - [Azure Data Factory UI를 사용 하 여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)
 - [Azure Data Factory 소개](introduction.md)
 - [Azure Data Factory에서 시각적 작성](author-visually.md)
-

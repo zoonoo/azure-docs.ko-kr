@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632110"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 
@@ -29,14 +29,14 @@ Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 
 - [데이터 이동 작업](copy-activity-overview.md)은 [지원되는 원본 및 싱크 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
 - [데이터 변환 작업](transform-data.md)은 Azure HDInsight, Azure Batch, Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 변환하는 작업입니다.
 
-Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, Data Factory에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업**을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
+Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, Data Factory에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 * [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
-* Azure Batch 계정을 만드는 [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 또는 Azure Portal을 사용하여 Azure Batch 계정을 만드는 [Azure Portal](../batch/batch-account-create-portal.md). 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
+* Azure Batch 계정을 만드는 [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 또는 Azure Portal을 사용하여 Azure Batch 계정을 만드는 [Azure Portal](../batch/batch-account-create-portal.md). 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) 문서를 참조하세요.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet을 사용하여 Azure Batch 풀을 만듭니다.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
@@ -100,11 +100,11 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | 설명                              | 필수 |
+| 속성              | Description                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
+| type                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정** 입니다. | 예      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  | 예      |
 | 명령을 사용합니다.               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 애플리케이션이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
@@ -120,7 +120,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 ## <a name="custom-activity-permissions"></a>사용자 지정 활동 권한
 
-사용자 지정 활동은 Azure Batch 자동 사용자 계정을 *태스크 범위를 사용하는 비관리자 액세스*(기본 자동 사용자 사양)로 설정합니다. 자동 사용자 계정의 권한 수준은 변경할 수 없습니다. 자세한 내용은 [Batch에서 사용자 계정으로 태스크 실행 | 자동 사용자 계정](../batch/batch-user-accounts.md#auto-user-accounts)을 참조하세요.
+사용자 지정 활동은 Azure Batch 자동 사용자 계정을 *태스크 범위를 사용하는 비관리자 액세스* (기본 자동 사용자 사양)로 설정합니다. 자동 사용자 계정의 권한 수준은 변경할 수 없습니다. 자세한 내용은 [Batch에서 사용자 계정으로 태스크 실행 | 자동 사용자 계정](../batch/batch-user-accounts.md#auto-user-accounts)을 참조하세요.
 
 ## <a name="executing-commands"></a>명령 실행
 
@@ -265,7 +265,7 @@ Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-사용자 지정 애플리케이션의 **stdout** 및 **stderr**은 작업의 GUID를 사용하여 Azure Batch 연결된 서비스를 만들 때 정의한 Azure Storage 연결된 서비스의 **adfjobs** 컨테이너에 저장됩니다. 다음 코드 조각에 나와 있는 것처럼 작업 실행 출력에서 자세한 경로를 얻을 수 있습니다.
+사용자 지정 애플리케이션의 **stdout** 및 **stderr** 은 작업의 GUID를 사용하여 Azure Batch 연결된 서비스를 만들 때 정의한 Azure Storage 연결된 서비스의 **adfjobs** 컨테이너에 저장됩니다. 다음 코드 조각에 나와 있는 것처럼 작업 실행 출력에서 자세한 경로를 얻을 수 있습니다.
 
 ```
 Pipeline ' MyCustomActivity' run finished. Result:
@@ -310,7 +310,7 @@ Activity Error section:
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들어:
+이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "extendedProperties": {
@@ -356,7 +356,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
   - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다.
   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다.
 
-Data Factory 버전 1 문서에서 설명된 엔드투엔드 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
+Data Factory 버전 1 문서에서 설명된 엔드투엔드 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](./v1/data-factory-use-custom-activities.md)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](../batch/batch-automatic-scaling.md)을 참조하세요.
 
-풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다. 풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
+풀에 기본 [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다. 풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.

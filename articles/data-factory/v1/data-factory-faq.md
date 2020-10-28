@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ae12355dddbae40eb84730549ccebcd004ff6be
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371769"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631702"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "92371769"
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-data-factory"></a>Azure Data Factory란?
-Data Factory는 **데이터의 이동과 변환을 자동화**하는 클라우드 기반 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 작동하는 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
+Data Factory는 **데이터의 이동과 변환을 자동화** 하는 클라우드 기반 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 작동하는 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
 
 Data Factory를 사용하면 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있을 뿐 아니라, Azure HDInsight 및 Azure Data Lake 분석과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리/변환할 수 있습니다. 필요한 작업을 수행하는 파이프라인을 만든 후 정기적(매시간, 매일, 매주 등...)으로 실행되도록 예약할 수 있습니다.   
 
@@ -37,11 +37,11 @@ Azure Data Factory에 대 한 가격 정보는 [Data Factory 가격 정보 페�
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 * Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
-* 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-* HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요.
+* 복사 작업을 사용하여 **데이터를 이동/복사** 하는 방법에 대한 자습서는 [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+* HDInsight Hive 작업을 사용하여 **데이터를 변환** 하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요.
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Data Factory를 사용할 수 있는 지역은 어디인가요?
-Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 컴퓨팅 및 스토리지 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
+Data Factory는 **미국 서부** 및 **북유럽** 에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 컴퓨팅 및 스토리지 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>데이터 팩터리/파이프라인/작업/데이터 세트의 수에 대한 제한은 어떻게 되나요?
 **Azure 구독 및 서비스 제한, 할당량 및 제약 조건** 문서의 [Azure Data Factory 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션을 참조하세요.
@@ -139,9 +139,9 @@ Microsoft Mvp (가장 중요 한 전문가) 중 하나에서 [Azure Data Factory
 
 ## <a name="slices---faq"></a>조각 - FAQ
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>내 입력 조각이 준비 상태가 아닌 이유는 무엇인가요?
-일반적인 실수는 입력 데이터가 데이터 팩터리 외부의 데이터일 때(데이터 팩터리에 의해 생성되지 않음) 입력 데이터 세트에 대해 **external** 속성을 **true**로 설정하지 않는 것입니다.
+일반적인 실수는 입력 데이터가 데이터 팩터리 외부의 데이터일 때(데이터 팩터리에 의해 생성되지 않음) 입력 데이터 세트에 대해 **external** 속성을 **true** 로 설정하지 않는 것입니다.
 
-다음 예제에서는 **dataset1**에 대해서만 **external**을 true로 설정해야 합니다.  
+다음 예제에서는 **dataset1** 에 대해서만 **external** 을 true로 설정해야 합니다.  
 
 **DataFactory1** 파이프라인 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 파이프라인 2: dataset3-> activity3 -> dataset4
 
@@ -163,13 +163,13 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
     "offset": "06:00:00"
 }
 ```
-기본값인 자정 대신 **오전 6시**에 시작하는 일별 조각입니다.     
+기본값인 자정 대신 **오전 6시** 에 시작하는 일별 조각입니다.     
 
 ### <a name="how-can-i-rerun-a-slice"></a>어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
 * 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   
-* Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
+* Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행** 을 클릭합니다.
 * 상태를 조각 **대기 중** 으로 설정 하 여 **AzDataFactorySliceStatus** cmdlet을 실행 합니다.   
 
     ```powershell
@@ -205,4 +205,4 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://docs.microsoft.com/archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive
+[hdinsight-alternate-storage-2]: /archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

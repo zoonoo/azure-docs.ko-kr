@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3241bc16c0613189faa169032632303788dac3e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254619"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634133"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원 되는 파일 형식 및 압축 코덱 (레거시)
 
@@ -30,7 +30,7 @@ ms.locfileid: "85254619"
 >[!NOTE]
 >[구분 기호로 분리 된 텍스트 서식](format-delimited-text.md) 문서에서 새 모델에 대해 알아봅니다. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat**으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
+텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat** 으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
@@ -39,8 +39,8 @@ ms.locfileid: "85254619"
 | escapeChar |입력 파일의 내용에서 열 구분 기호를 이스케이프하는 데 사용되는 특수 문자입니다. <br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표 (', ')를 사용 하지만 텍스트에 쉼표 문자를 포함 하려는 경우 (예: "Hello, 세계") 이스케이프 문자로 ' $ '를 정의 하 고 원본에서 "Hello $, 세계" 문자열을 사용할 수 있습니다. |아니요 |
 | quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
 | nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |아니요 |
-| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8**입니다. |아니요 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |아니요 |
+| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](/dotnet/api/system.text.encoding)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8** 입니다. |아니요 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |참<br/><b>False(기본값)</b> |아니요 |
 | skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |예 |
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. |**True (기본값)**<br/>False |예 |
 
@@ -86,14 +86,14 @@ ms.locfileid: "85254619"
 
 **Azure Cosmos DB에서 JSON 파일을 그대로 가져오거나 내보내려면**[Azure Cosmos DB 간에 데이터 이동](connector-azure-cosmos-db.md) 문서에서 JSON 문서 가져오기/내보내기 섹션을 참조하세요.
 
-JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat**으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
+JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat** 으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
 | 속성 | Description | 필수 |
 | --- | --- | --- |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값** 은 **Setofobjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
-| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8**입니다. |아니요 |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects** 이고 **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
+| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8** 입니다. |아니요 |
 | nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
 
 >[!NOTE]
@@ -230,7 +230,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 **JsonFormat** 형식을 사용 하는 입력 데이터 집합은 (관련 부분만 포함 된 부분 정의)와 같이 정의 됩니다. 더 구체적으로 살펴보면 다음과 같습니다.
 
-- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 [원본 데이터 세트 열을 대상 데이터 세트 열에 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적** 입니다. 자세한 내용은 [원본 데이터 세트 열을 대상 데이터 세트 열에 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 - `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 배열의 데이터를 복사하려면 `array[x].property`를 사용하여 `xth` 개체에서 지정된 속성의 값을 추출하거나 `array[*].property`를 사용하여 이러한 속성을 포함하는 개체의 값을 찾으면 됩니다.
 
 ```json
@@ -305,7 +305,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 **JsonFormat** 형식을 사용 하는 입력 데이터 집합은 (관련 부분만 포함 된 부분 정의)와 같이 정의 됩니다. 더 구체적으로 살펴보면 다음과 같습니다.
 
-- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 [원본 데이터 세트 열을 대상 데이터 세트 열에 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적** 입니다. 자세한 내용은 [원본 데이터 세트 열을 대상 데이터 세트 열에 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 - `jsonNodeReference`는 **array** `orderlines` 줄에서 동일한 패턴을 사용하는 개체에서 데이터를 반복하고 추출하도록 지정합니다.
 - `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 다음 예제에서 `ordernumber`, `orderdate` 및 `city`는 `$.`로 시작하는 JSON 경로를 사용하는 루트 개체 아래에 있는 반면 `order_pd` 및 `order_price`는 `$.`를 포함하지 않는 배열 요소에서 파생된 경로를 사용하여 정의됩니다.
 
@@ -375,7 +375,7 @@ SQL Database에 다음 테이블이 있는 경우:
 }
 ```
 
-**JsonFormat** 형식의 출력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 좀 더 구체적으로 말하면, `structure` 섹션은 대상 파일의 사용자 지정된 속성 이름을 정의하며 `nestingSeparator`(기본값: ".")는 이름에서 중첩 레이어를 식별하는 데 사용됩니다. 이 섹션은 원본 열 이름과 비교하여 속성 이름을 변경하거나 일부 속성을 중첩하지 않으려는 경우를 제외하고는 **선택적**입니다.
+**JsonFormat** 형식의 출력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 좀 더 구체적으로 말하면, `structure` 섹션은 대상 파일의 사용자 지정된 속성 이름을 정의하며 `nestingSeparator`(기본값: ".")는 이름에서 중첩 레이어를 식별하는 데 사용됩니다. 이 섹션은 원본 열 이름과 비교하여 속성 이름을 변경하거나 일부 속성을 중첩하지 않으려는 경우를 제외하고는 **선택적** 입니다.
 
 ```json
 "properties": {
@@ -411,7 +411,7 @@ SQL Database에 다음 테이블이 있는 경우:
 >[!NOTE]
 >[Parquet format](format-parquet.md) 의 새 모델 문서를 알아보세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat** 으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
 "format":
@@ -427,15 +427,15 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 * Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory는 LZO를 제외한 압축 형식의 Parquet 파일에서 데이터 읽기를 지원합니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 > [!IMPORTANT]
-> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
+> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
 Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
-- **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
-- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+- **JRE를 사용 하려면** : 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용** : IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 >[!TIP]
->자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
+>자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space** ”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
 ![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -457,7 +457,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 | Single | Float | 해당 없음 | 해당 없음 |
 | Double | Double | 해당 없음 | 해당 없음 |
 | Decimal | 이진 | Decimal | Decimal |
-| 문자열 | 이진 | Utf8 | Utf8 |
+| String | 이진 | Utf8 | Utf8 |
 | DateTime | Int96 | 해당 없음 | 해당 없음 |
 | TimeSpan | Int96 | 해당 없음 | 해당 없음 |
 | DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
@@ -471,7 +471,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 >[!NOTE]
 >[ORC format](format-orc.md) 의 새 모델 문서를 알아보세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat** 으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
 "format":
@@ -487,12 +487,12 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 * ORC 파일에는 3개의 [압축 관련 옵션](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 > [!IMPORTANT]
-> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
+> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
 ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
-- **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
-- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+- **JRE를 사용 하려면** : 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용** : IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 파일에 대한 데이터 형식 매핑
 
@@ -506,8 +506,8 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | 문자열 |
-| Single | Float |
+| UInt64 | String |
+| 단일 | Float |
 | Double | Double |
 | Decimal | Decimal |
 | String | String |
@@ -515,7 +515,7 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 | DateTimeOffset | 타임스탬프 |
 | TimeSpan | 타임스탬프 |
 | ByteArray | 이진 |
-| GUID | 문자열 |
+| GUID | String |
 | Char | Char(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a> AVRO 형식 (레거시)
@@ -523,7 +523,7 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 >[!NOTE]
 >[Avro 형식의](format-avro.md) 새 모델 문서에 대해 알아봅니다. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat** 으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
 "format":
@@ -575,25 +575,25 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 **압축** 섹션에는 두 가지 속성이 있습니다.
 
-* **유형:** **GZIP**, **Deflate**, **BZIP2**또는 **ZipDeflate**수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` .
-* **수준:****최적** 또는 **가장 빠름**이 될 수 있는 압축 비율입니다.
+* **유형:** **GZIP** , **Deflate** , **BZIP2** 또는 **ZipDeflate** 수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` .
+* **수준:****최적** 또는 **가장 빠름** 이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
-  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
+  * **최적** : 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
 
-    자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요.
+    자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 
 > [!NOTE]
-> 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
+> 현재 **AvroFormat** , **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>지원 되지 않는 파일 형식 및 압축 형식
 
 Azure Data Factory의 확장성 기능을 사용 하 여 지원 되지 않는 파일을 변환할 수 있습니다.
 Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 작업을 포함 하는 두 가지 옵션이 있습니다.
 
-Azure 함수를 사용 하 여 [tar 파일의 콘텐츠를 추출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)하는 샘플을 볼 수 있습니다. 자세한 내용은 [Azure Functions 작업](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)을 참조 하세요.
+Azure 함수를 사용 하 여 [tar 파일의 콘텐츠를 추출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)하는 샘플을 볼 수 있습니다. 자세한 내용은 [Azure Functions 작업](./control-flow-azure-function-activity.md)을 참조 하세요.
 
-사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수도 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) 에 있습니다.
+사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수도 있습니다. 자세한 내용은 [여기](./transform-data-using-dotnet-custom-activity.md) 에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

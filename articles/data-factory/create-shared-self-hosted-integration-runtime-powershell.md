@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136051"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632892"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
@@ -55,9 +55,9 @@ Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR을 만들려�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
+- **Azure 구독** . Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 
-- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
+- **Azure PowerShell** . [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/install-az-ps)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
 
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
@@ -66,7 +66,7 @@ Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR을 만들려�
 
 1. Windows PowerShell ISE(통합 스크립팅 환경)를 시작합니다.
 
-1. 변수를 만듭니다. 다음 스크립트를 복사하여 붙여넣습니다. **SubscriptionName** 및 **ResourceGroupName**과 같은 변수를 실제 값으로 바꿉니다. 
+1. 변수를 만듭니다. 다음 스크립트를 복사하여 붙여넣습니다. **SubscriptionName** 및 **ResourceGroupName** 과 같은 변수를 실제 값으로 바꿉니다. 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -99,7 +99,7 @@ Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR을 만들려�
     > [!NOTE]  
     > 이 단계는 선택 사항입니다. 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 
 
-    [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
+    [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +155,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 #### <a name="create-another-data-factory"></a>다른 데이터 팩터리 만들기
 
 > [!NOTE]  
-> 이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 그러나 다른 데이터 팩터리에 역할 할당을 추가 하거나 제거 하려면 `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)와 같은 및 사용 권한이 있어야 합니다.
+> 이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 그러나 다른 데이터 팩터리에 역할 할당을 추가 하거나 제거 하려면 `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](../role-based-access-control/built-in-roles.md#owner)와 같은 및 사용 권한이 있어야 합니다.
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -216,6 +216,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory의 통합 런타임 개념](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)을 검토합니다.
+- [Azure Data Factory의 통합 런타임 개념](./concepts-integration-runtime.md)을 검토합니다.
 
-- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) 방법을 알아봅니다.
+- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](./create-self-hosted-integration-runtime.md) 방법을 알아봅니다.

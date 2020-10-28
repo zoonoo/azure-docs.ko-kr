@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368828"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631753"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용 하 여 Azure Machine Learning Studio (클래식) 모델 업데이트
 
@@ -26,8 +26,8 @@ ms.locfileid: "92368828"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -42,9 +42,9 @@ ms.locfileid: "92368828"
 시간이 지남에 따라 Azure Machine Learning Studio (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Studio (클래식) 모델을 다시 학습 하 고 업데이트 하는 일반적인 단계는 다음과 같습니다.
 
 1. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에서 실험을 만듭니다.
-2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/**예측 실험**에 대 한 웹 서비스를 게시 합니다.
+2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/ **예측 실험** 에 대 한 웹 서비스를 게시 합니다.
 
-다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 다시 학습 Azure Machine Learning Studio (클래식) 모델](../../machine-learning/studio/retrain-machine-learning-model.md) 을 참조 하세요.
+다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 다시 학습 Azure Machine Learning Studio (클래식) 모델](../../machine-learning/classic/retrain-machine-learning-model.md) 을 참조 하세요.
 
 - **학습 웹 서비스** - 학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob Storage에서 .ilearner 파일입니다. 웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 엔드포인트** 가 자동으로 만들어집니다. 더 많은 엔드포인트를 만들 수 있지만 예제에서는 기본 엔드포인트만 사용합니다.
 - **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력에는 실험의 구성에 따라 .csv 파일 또는 Azure SQL Database의 행과 같은 다양 한 형식이 있을 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 엔드포인트가 자동으로 만들어집니다. 
@@ -53,14 +53,14 @@ ms.locfileid: "92368828"
 
 ![웹 서비스](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-**Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업**을 사용 하 여 **학습 웹 서비스** 를 호출할 수 있습니다. 학습 웹 서비스를 호출 하는 것은 점수 매기기 데이터를 위한 Azure Machine Learning Studio (클래식) 웹 서비스 (점수 매기기 웹 서비스)를 호출 하는 것과 같습니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure Machine Learning Studio (클래식) 웹 서비스를 호출 하는 방법에 대해 자세히 설명 합니다. 
+**Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업** 을 사용 하 여 **학습 웹 서비스** 를 호출할 수 있습니다. 학습 웹 서비스를 호출 하는 것은 점수 매기기 데이터를 위한 Azure Machine Learning Studio (클래식) 웹 서비스 (점수 매기기 웹 서비스)를 호출 하는 것과 같습니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure Machine Learning Studio (클래식) 웹 서비스를 호출 하는 방법에 대해 자세히 설명 합니다. 
 
 **Azure Machine Learning Studio (클래식) 리소스 업데이트 작업** 을 사용 하 여 새로 학습 된 모델로 웹 서비스를 업데이트 하 여 **점수 매기기 웹 서비스** 를 호출할 수 있습니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>웹 서비스 점수 매기기는 클래식 웹 서비스입니다.
-점수 매기기 웹 서비스가 **기존 웹 서비스인**경우 Azure Portal를 사용 하 여 두 번째 **기본이 아닌 업데이트 가능한 끝점** 을 만듭니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/studio/create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
+점수 매기기 웹 서비스가 **기존 웹 서비스인** 경우 Azure Portal를 사용 하 여 두 번째 **기본이 아닌 업데이트 가능한 끝점** 을 만듭니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/classic/create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
 
-* **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
+* **배치 실행** 을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
 * **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 엔드포인트 페이지 자체의 오른쪽 하단에 있습니다.
 
 ![업데이트 가능한 엔드포인트](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
@@ -82,7 +82,7 @@ ms.locfileid: "92368828"
 ```
 
 ## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>웹 서비스 점수 매기기는 Azure Resource Manager 웹 서비스입니다. 
-웹 서비스가 Azure Resource Manager 엔드포인트를 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 엔드포인트를 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint**는 다음 형식을 갖습니다. 
+웹 서비스가 Azure Resource Manager 엔드포인트를 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 엔드포인트를 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint** 는 다음 형식을 갖습니다. 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
@@ -208,13 +208,13 @@ Azure Storage는 다음 데이터를 보관합니다.
 }
 ```
 
-**Azure Machine Learning Studio (클래식)** 에서 다음을 수행 하 여 **Mlendpoint** 및 **apikey**에 대 한 값을 가져옵니다.
+**Azure Machine Learning Studio (클래식)** 에서 다음을 수행 하 여 **Mlendpoint** 및 **apikey** 에 대 한 값을 가져옵니다.
 
 1. 왼쪽 메뉴에서 **웹 서비스** 를 클릭합니다.
 2. 웹 서비스 목록에서 **학습 웹 서비스** 를 클릭합니다.
 3. **API 키** 텍스트 상자 옆의 복사를 클릭합니다. 클립보드의 키를 Data Factory JSON 편집기에 붙여넣습니다.
 4. **Azure Machine Learning Studio (클래식)** 에서 **BATCH 실행** 링크를 클릭 합니다.
-5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
+5. **요청** 섹션에서 **요청 URI** 를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
 
 ### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Studio (클래식) 업데이트 가능한 점수 매기기 끝점에 대 한 연결 된 서비스:
 다음 JSON 코드 조각은 점수 매기기 웹 서비스의 기본이 아닌 업데이트 가능한 끝점을 가리키는 Studio (클래식) 연결 된 서비스를 정의 합니다.  
@@ -260,7 +260,7 @@ Studio (클래식) 리소스 업데이트 작업은 출력을 생성 하지 않�
 ```
 
 ### <a name="pipeline"></a>파이프라인
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure Machine Learning Studio (클래식) Batch 실행 작업은 학습 데이터를 입력으로 사용 하 고 iLearner 파일을 출력으로 생성 합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource** 라는 두 활동이 있습니다. Azure Machine Learning Studio (클래식) Batch 실행 작업은 학습 데이터를 입력으로 사용 하 고 iLearner 파일을 출력으로 생성 합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
 ![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e468007e0e5ea849ac4d7f945b0aaf6377e580
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438945"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633810"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -29,52 +29,52 @@ ms.locfileid: "89438945"
 기능 추가 사항:
 
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
-  * [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
-  * [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
-  * [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
+  * [OnPremisesMongoDbLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisesmongodblinkedservice)
+  * [AmazonRedshiftLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.amazonredshiftlinkedservice)
+  * [AwsAccessKeyLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.awsaccesskeylinkedservice)
 * 다음과 같은 데이터 세트가 추가 되었습니다.
-  * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
-  * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
+  * [MongoDbCollectionDataset](/dotnet/api/microsoft.azure.management.datafactories.models.mongodbcollectiondataset)
+  * [AmazonS3Dataset](/dotnet/api/microsoft.azure.management.datafactories.models.amazons3dataset)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
-  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
+  * [MongoDbSource](/dotnet/api/microsoft.azure.management.datafactories.models.mongodbsource)
 
 ## <a name="version-4100"></a>4.10.0 버전
 * 다음 선택적 속성이 TextFormat에 추가되었습니다.
-  * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
-  * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [SkipLineCount](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
+  * [FirstRowAsHeader](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
+  * [TreatEmptyAsNull](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
-  * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
-  * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
+  * [OnPremisesCassandraLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice)
+  * [SalesforceLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.salesforcelinkedservice)
 * 다음과 같은 데이터 세트가 추가 되었습니다.
-  * [OnPremisesCassandraTableDataset](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset.aspx)
+  * [OnPremisesCassandraTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
-  * [CassandraSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.cassandrasource.aspx)
-* [WebServiceInputs](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity.webserviceinputs.aspx) 속성을 AzureMLBatchExecutionActivity에 추가합니다.
+  * [CassandraSource](/dotnet/api/microsoft.azure.management.datafactories.models.cassandrasource)
+* [WebServiceInputs](/dotnet/api/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity) 속성을 AzureMLBatchExecutionActivity에 추가합니다.
   * 다중 웹 서비스 입력을 Azure Machine Learning 실험에 전달하도록 설정합니다.
 
 ## <a name="version-491"></a>버전 4.9.1
 ### <a name="bug-fix"></a>버그 수정
-* [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx)에 대한 WebApi 기반 인증이 더 이상 사용되지 않습니다.
+* [WebLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.weblinkedservice)에 대한 WebApi 기반 인증이 더 이상 사용되지 않습니다.
 
 ## <a name="version-490"></a>버전 4.9.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* CopyActivity에 [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) 및 [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) 속성을 추가합니다. 기능에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
+* CopyActivity에 [EnableStaging](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity) 및 [StagingSettings](/dotnet/api/microsoft.azure.management.datafactories.models.stagingsettings) 속성을 추가합니다. 기능에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
 
 ### <a name="bug-fix"></a>버그 수정
-* [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) 인스턴스를 사용하는 [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx) 메서드의 오버로드를 지정합니다.
-* [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) 및 [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx)를 CopySink에 옵션으로 표시합니다.
+* [ActivityWindowOperationExtensions.List](/dotnet/api/microsoft.azure.management.datafactories.activitywindowoperationsextensions) 인스턴스를 사용하는 [ActivityWindowsByActivityListParameters](/dotnet/api/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters) 메서드의 오버로드를 지정합니다.
+* [WriteBatchSize](/dotnet/api/microsoft.azure.management.datafactories.models.copysink) 및 [WriteBatchTimeout](/dotnet/api/microsoft.azure.management.datafactories.models.copysink)를 CopySink에 옵션으로 표시합니다.
 
 ## <a name="version-480"></a>버전 4.8.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 복사 성능을 조정할 수 있도록 하기 위해 복사 작업 유형에 다음과 같은 옵션 속성이 추가되었습니다.
-  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
-  * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+  * [ParallelCopies](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity)
+  * [CloudDataMovementUnits](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity)
 
 ## <a name="version-470"></a>버전 4.7.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 형식이 추가되었습니다.
-* [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
+* 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) 형식이 추가되었습니다.
+* [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
   * PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 복사할 수 있도록 합니다.
 
 ## <a name="version-461"></a>버전 4.6.1
@@ -84,55 +84,55 @@ ms.locfileid: "89438945"
 
 ## <a name="version-460"></a>버전 4.6.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* 다음 속성이 [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)에 추가되었습니다.
-  * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
-  * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
-  * [데이터 세트](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
-* 다음 속성이 [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)에 추가되었습니다.
-  * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-* 데이터가 JSON 형식인 데이터 세트를 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 유형 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 유형이 새로 추가되었습니다.
+* 다음 속성이 [PipelineProperties](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)에 추가되었습니다.
+  * [PipelineMode](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+  * [ExpirationTime](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+  * [데이터 세트](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+* 다음 속성이 [PipelineRuntimeInfo](/dotnet/api/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo)에 추가되었습니다.
+  * [PipelineState](/dotnet/api/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo)
+* 데이터가 JSON 형식인 데이터 세트를 정의하는 [StorageFormat](/dotnet/api/microsoft.azure.management.datafactories.models.storageformat) 유형 [JsonFormat](/dotnet/api/microsoft.azure.management.datafactories.models.jsonformat) 유형이 새로 추가되었습니다.
 
 ## <a name="version-450"></a>버전 4.5.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* [작업 창에 대한 작업 목록](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)이 추가되었습니다.
+* [작업 창에 대한 작업 목록](/dotnet/api/microsoft.azure.management.datafactories.activitywindowoperationsextensions)이 추가되었습니다.
   * 엔터티 형식(즉, 데이터 팩터리, 데이터 세트, 파이프라인 및 작업)을 기준으로 필터를 사용하여 작업 창을 검색하는 메서드가 추가되었습니다.
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
-  * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
+  * [ODataLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.odatalinkedservice), [WebLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.weblinkedservice)
 * 다음과 같은 데이터 세트가 추가 되었습니다.
-  * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
+  * [ODataResourceDataset](/dotnet/api/microsoft.azure.management.datafactories.models.odataresourcedataset), [WebTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.webtabledataset)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.     
-  * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
+  * [WebSource](/dotnet/api/microsoft.azure.management.datafactories.models.websource)
 
 ## <a name="version-440"></a>버전 4.4.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 다음 연결된 서비스 유형이 복사 작업에 대한 데이터 원본 및 싱크로 추가되었습니다.
-  * [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). 개념 정보 및 예제는 [Azure Storage SAS 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 를 참조하세요.
+  * [AzureStorageSasLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice). 개념 정보 및 예제는 [Azure Storage SAS 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 를 참조하세요.
 
 ## <a name="version-430"></a>버전 4.3.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 다음 연결된 서비스 유형이 복사 작업에 대한 데이터 원본으로 추가되었습니다.
-  * [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). 개념 정보 및 예제는 [Data Factory를 사용하여 HDFS에서 데이터 이동](data-factory-hdfs-connector.md) 을 참조하세요.
-  * [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). 개념 정보 및 예제는 [Azure Data Factory를 사용하여 ODBC 데이터 저장소에서 데이터 이동](data-factory-odbc-connector.md) 을 참조하세요.
+  * [HdfsLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.hdfslinkedservice). 개념 정보 및 예제는 [Data Factory를 사용하여 HDFS에서 데이터 이동](data-factory-hdfs-connector.md) 을 참조하세요.
+  * [OnPremisesOdbcLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice). 개념 정보 및 예제는 [Azure Data Factory를 사용하여 ODBC 데이터 저장소에서 데이터 이동](data-factory-odbc-connector.md) 을 참조하세요.
 
 ## <a name="version-420"></a>버전 4.2.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* 다음과 같은 새 활동 유형을 추가되었습니다. [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx) [업데이트 리소스 활동을 사용하여 Azure ML 모델 업데이트](data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
-* 새 선택 속성 [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx)가 [AzureMLLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx)에 추가되었습니다.
-* [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) 및 [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) 속성이 [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx) 클래스에 추가되었습니다.
+* 다음과 같은 새 활동 유형을 추가되었습니다. [AzureMLUpdateResourceActivity](/dotnet/api/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity) [업데이트 리소스 활동을 사용하여 Azure ML 모델 업데이트](data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
+* 새 선택 속성 [updateResourceEndpoint](/dotnet/api/microsoft.azure.management.datafactories.models.azuremllinkedservice)가 [AzureMLLinkedService class](/dotnet/api/microsoft.azure.management.datafactories.models.azuremllinkedservice)에 추가되었습니다.
+* [LongRunningOperationInitialTimeout](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) 및 [LongRunningOperationRetryTimeout](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) 속성이 [DataFactoryManagementClient](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) 클래스에 추가되었습니다.
 * 데이터 팩터리 서비스에 대한 클라이언트 호출의 시간 제한 구성을 허용합니다.
 
 ## <a name="version-410"></a>Version 4.1.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
-  * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
-  * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+  * [AzureDataLakeStoreLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice)
+  * [AzureDataLakeAnalyticsLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice)
 * 다음 활동 유형이 추가 되었습니다.
-  * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
+  * [DataLakeAnalyticsUSQLActivity](/dotnet/api/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity)
 * 다음과 같은 데이터 세트가 추가 되었습니다.
-  * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
+  * [AzureDataLakeStoreDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoredataset)
 * 다음 복사 작업에 대한 원본 및 싱크 유형은 추가 되었습니다.
-  * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
-  * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+  * [AzureDataLakeStoreSource](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoresource)
+  * [AzureDataLakeStoreSink](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoresink)
 
 ## <a name="version-401"></a>버전 4.0.1
 ### <a name="breaking-changes"></a>주요 변경 내용
@@ -140,12 +140,12 @@ ms.locfileid: "89438945"
 
 | 4.0.0의 이름 | 4.0.1의 이름 |
 |:--- |:--- |
-| AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx) |
-| AzureSqlDataset |[AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx) |
-| AzureDataset |[AzureTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuretabledataset.aspx) |
-| OracleDataset |[OracleTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.oracletabledataset.aspx) |
-| RelationalDataset |[RelationalTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.relationaltabledataset.aspx) |
-| SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
+| AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset) |
+| AzureSqlDataset |[AzureSqlTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuresqltabledataset) |
+| AzureDataset |[AzureTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuretabledataset) |
+| OracleDataset |[OracleTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.oracletabledataset) |
+| RelationalDataset |[RelationalTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.relationaltabledataset) |
+| SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>버전 4.0.0
 ### <a name="breaking-changes"></a>주요 변경 내용
@@ -153,15 +153,15 @@ ms.locfileid: "89438945"
 
 | 이전 이름 | 새 이름 |
 |:--- |:--- |
-| ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| 테이블 |[데이터 세트](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
-| TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
-| TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
-| TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
-| TableCreateOrUpdateResponse |[DatasetCreateOrUpdateResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateresponse.aspx) |
-| TableGetResponse |[DatasetGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetgetresponse.aspx) |
-| TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
-| CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
+| ITableOperations |[IDatasetOperations](/dotnet/api/microsoft.azure.management.datafactories.idatasetoperations) |
+| 테이블 |[데이터 세트](/dotnet/api/microsoft.azure.management.datafactories.models.dataset) |
+| TableProperties |[DatasetProperties](/dotnet/api/microsoft.azure.management.datafactories.models.datasetproperties) |
+| TableTypeProprerties |[DatasetTypeProperties](/dotnet/api/microsoft.azure.management.datafactories.models.datasettypeproperties) |
+| TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters) |
+| TableCreateOrUpdateResponse |[DatasetCreateOrUpdateResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdateresponse) |
+| TableGetResponse |[DatasetGetResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetgetresponse) |
+| TableListResponse |[DatasetListResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetlistresponse) |
+| CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters) |
 
 * **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 애플리케이션은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  다음은 예제입니다.
 
@@ -181,5 +181,5 @@ ms.locfileid: "89438945"
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 Azure Azure Synapse Analytics에 대 한 idempotent 복사를 지원 하기 위해 **SliceIdentifierColumnName** 및 **sql cleanupscript**라는 두 개의 새로운 속성을 지원 합니다. 이러한 속성에 대 한 자세한 내용은 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조 하세요.
-* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure Synapse 분석 소스에 대 한 저장 프로시저 실행을 지원 합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대 한 자세한 내용은 Azure.com의 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure Synapse 분석](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조 하세요.  
+* [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 클래스는 Azure Azure Synapse Analytics에 대 한 idempotent 복사를 지원 하기 위해 **SliceIdentifierColumnName** 및 **sql cleanupscript** 라는 두 개의 새로운 속성을 지원 합니다. 이러한 속성에 대 한 자세한 내용은 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조 하세요.
+* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure Synapse 분석 소스에 대 한 저장 프로시저 실행을 지원 합니다. [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource)와 [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) 클래스에는 **SqlReaderStoredProcedureName** 과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대 한 자세한 내용은 Azure.com의 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure Synapse 분석](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조 하세요.

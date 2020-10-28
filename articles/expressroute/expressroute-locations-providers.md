@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 820fec5fd782d66e5b681f5fbb9bbb8f8d4f6648
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2890c8f37106ef124fe1a11206d13127d93eed1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106521"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633572"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -69,9 +69,9 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 
 다음 테이블에서는 각 위치에 대한 연결 위치 및 서비스 공급자를 보여 줍니다. 서비스를 제공할 수 있는 서비스 공급자 및 위치를 보려면 [서비스 공급자별 위치](expressroute-locations.md)를 참조하세요.
 
-* **로컬 Azure 지역**은 각 피어링 위치에서 액세스할 수 있는 [ExpressRoute 로컬](expressroute-faqs.md)입니다. **n/a**는 해당 피어링 위치에서 ExpressRoute 로컬을 사용할 수 없음을 나타냅니다.
+* **로컬 Azure 지역** 은 각 피어링 위치에서 액세스할 수 있는 [ExpressRoute 로컬](expressroute-faqs.md)입니다. **n/a** 는 해당 피어링 위치에서 ExpressRoute 로컬을 사용할 수 없음을 나타냅니다.
 
-* **영역**은 [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)을 참조합니다.
+* **영역** 은 [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)을 참조합니다.
 
 
 ### <a name="global-commercial-azure"></a>글로벌 상업용 Azure
@@ -111,7 +111,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 프랑스 남부 | 해당 없음 | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **멜버른** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | 오스트레일리아 남동부 | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **마이애미** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | 해당 없음 | 10G, 100G | Claro, C3ntro, Equinix, Megaport, Neutrona Networks |
-| **밀라노** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | 해당 없음 | 10G | Colt, Retelit, |
+| **밀라노** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | 해당 없음 | 10G | Colt, Equinix, Fastweb, Retelit |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) | 1 | 해당 없음 | 10G, 100G | Cologix |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | 해당 없음 | 10G, 100G | 종 캐나다, Cologix, Fibrenoire, Megaport, Telus, Zayo |
 | **뭄바이** | Tata Communications | 2 | 인도 서부 | 10G | Gcx x, GCX (Global), Jio, Sify, Tata 통신, Verizon |

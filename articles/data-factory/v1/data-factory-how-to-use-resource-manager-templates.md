@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194453"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631481"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -27,9 +27,9 @@ ms.locfileid: "84194453"
 
 전 세계에 10개 제조 공장이 있는 조직의 상황을 고려해 보겠습니다. 각 플랜트의 로그는 별도의 SQL Server 데이터베이스에 저장 됩니다. 이 회사는 ad hoc 분석을 위해 클라우드에서 단일 데이터 웨어하우스를 구축 하려고 합니다. 또한 논리는 동일하면서 구성은 다른 개발, 테스트 및 프러덕션 환경이 필요합니다.
 
-이 경우 동일한 환경에서 작업을 반복하지만 각 제조 공장에 대해 서로 다른 값을 갖는 10개 데이터 팩터리가 생깁니다. 실제로 **반복**되는 것입니다. 템플릿에서는 이 고유 흐름(즉 각 데이터 팩터리에서 동일한 활동의 파이프라인)의 추상이 가능하지만 각 제조 공장마다 별도의 매개 변수 파일을 사용합니다.
+이 경우 동일한 환경에서 작업을 반복하지만 각 제조 공장에 대해 서로 다른 값을 갖는 10개 데이터 팩터리가 생깁니다. 실제로 **반복** 되는 것입니다. 템플릿에서는 이 고유 흐름(즉 각 데이터 팩터리에서 동일한 활동의 파이프라인)의 추상이 가능하지만 각 제조 공장마다 별도의 매개 변수 파일을 사용합니다.
 
-나아가 조직이 서로 다른 환경에서 수차례 이 10개 데이터 팩터리를 배포하려 하므로 템플릿은 개발, 테스트 및 프러덕션 환경에 별도의 매개 변수 파일을 적용함으로써 이러한 **재사용성**을 활용할 수 있습니다.
+나아가 조직이 서로 다른 환경에서 수차례 이 10개 데이터 팩터리를 배포하려 하므로 템플릿은 개발, 테스트 및 프러덕션 환경에 별도의 매개 변수 파일을 적용함으로써 이러한 **재사용성** 을 활용할 수 있습니다.
 
 ## <a name="templating-with-azure-resource-manager"></a>Azure Resource Manager의 템플릿
 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)은 Azure Data Factory에서 템플릿을 만드는 좋은 방법입니다. Resource Manager 템플릿은 JSON 파일을 통해 Azure 솔루션의 인프라와 구성을 정의합니다. Azure Resource Manager 템플릿이 모든/대부분의 Azure 서비스에서 작동하므로 광범위한 사용을 통해 Azure 자산의 모든 리소스를 간편하게 관리할 수 있습니다. Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
@@ -228,12 +228,12 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>데이터 팩터리 템플릿 매개 변수화
-매개 변수화의 모범 사례는 [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/resource-manager-template-best-practices.md)를 참조하세요. 일반적으로 매개 변수는 최소로 사용해야 합니다. 특히 그 대신 변수를 사용할 수 있는 경우가 그렇습니다. 다음 시나리오에서는 매개 변수만 제공합니다.
+매개 변수화의 모범 사례는 [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/templates/template-best-practices.md)를 참조하세요. 일반적으로 매개 변수는 최소로 사용해야 합니다. 특히 그 대신 변수를 사용할 수 있는 경우가 그렇습니다. 다음 시나리오에서는 매개 변수만 제공합니다.
 
 * 설정은 환경에 따라 달라집니다(예: 개발, 테스트, 프러덕션 환경).
 * 암호(Secret)(예: 암호(password))
 
-템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/general/overview.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음**과 **암호 이름**을 표시합니다.
+템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/general/overview.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음** 과 **암호 이름** 을 표시합니다.
 
 ```JSON
 "parameters": {

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123752"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632807"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -39,9 +39,9 @@ Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다
 
 Data Factory에 대 한 관리 id는 다음과 같이 생성 됩니다.
 
-- **Azure Portal 또는 PowerShell**을 통해 데이터 팩터리를 만들 때 관리 id는 항상 자동으로 만들어집니다.
-- **SDK**를 통해 데이터 팩터리를 만들 때 관리 id는 생성을 위해 팩터리 개체에 "identity = new FactoryIdentity ()"를 지정 하는 경우에만 생성 됩니다. [.NET 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)에서 예제를 참조하세요.
-- **REST API**를 통해 데이터 팩터리를 만들 때 요청 본문에 "identity" 섹션을 지정 하는 경우에만 관리 id가 만들어집니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
+- **Azure Portal 또는 PowerShell** 을 통해 데이터 팩터리를 만들 때 관리 id는 항상 자동으로 만들어집니다.
+- **SDK** 를 통해 데이터 팩터리를 만들 때 관리 id는 생성을 위해 팩터리 개체에 "identity = new FactoryIdentity ()"를 지정 하는 경우에만 생성 됩니다. [.NET 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)에서 예제를 참조하세요.
+- **REST API** 를 통해 데이터 팩터리를 만들 때 요청 본문에 "identity" 섹션을 지정 하는 경우에만 관리 id가 만들어집니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
 
 데이터 팩터리가 관리 [id를 검색](#retrieve-managed-identity) 하는 것과 관련 된 관리 id가 없는 경우 데이터 팩터리를 프로그래밍 방식으로 id 초기자로 업데이트 하 여 명시적으로 생성할 수 있습니다.
 
@@ -79,7 +79,7 @@ ProvisioningState : Succeeded
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**요청 본문**: "identity": { "type": "SystemAssigned" }를 추가합니다.
+**요청 본문** : "identity": { "type": "SystemAssigned" }를 추가합니다.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**응답**: 관리 id가 자동으로 생성 되 고 "identity" 섹션이 그에 따라 채워집니다.
+**응답** : 관리 id가 자동으로 생성 되 고 "identity" 섹션이 그에 따라 채워집니다.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 관리 id 생성
 
-**템플릿**: "identity": { "type": "SystemAssigned" }를 추가합니다.
+**템플릿** : "identity": { "type": "SystemAssigned" }를 추가합니다.
 
 ```json
 {
@@ -201,7 +201,7 @@ Type                  : ServicePrincipal
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**응답**: 아래 예제에서와 같이 응답을 받게 됩니다. "Id" 섹션이 그에 따라 채워집니다.
+**응답** : 아래 예제에서와 같이 응답을 받게 됩니다. "Id" 섹션이 그에 따라 채워집니다.
 
 ```json
 {
@@ -252,4 +252,4 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
 - [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
 
-Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 배경 정보는 Azure 리소스에 대 한 [관리 Id 개요](/azure/active-directory/managed-identities-azure-resources/overview) 를 참조 하세요. 
+Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 배경 정보는 Azure 리소스에 대 한 [관리 Id 개요](../active-directory/managed-identities-azure-resources/overview.md) 를 참조 하세요.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545993"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629445"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -235,11 +235,11 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
-| 도우미 사용 | 설명 |
+| 도우미 사용 | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
 | `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
-| `test_is_headnode` |클러스터 헤드 노드에서 실행한 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
+| `test_is_headnode` |스크립트가 클러스터 헤드 노드에서 실행 된 경우 1을 반환 합니다. 그렇지 않으면 0입니다. |
 | `test_is_datanode` |현재 노드가 데이터(작업자) 노드인 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
 | `test_is_first_datanode` |현재 노드가 첫 번째 데이터(작업자) 노드(workernode0이라는 이름)인 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
 | `get_headnodes` |클러스터에서 헤드 노드의 정규화된 도메인 이름을 반환합니다. 이름은 쉼표로 구분됩니다. 빈 문자열이 오류에 반환됩니다. |
@@ -268,7 +268,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 VARIABLENAME=value
 ```
 
-여기서 VARIABLENAME은 변수의 이름입니다. 변수에 액세스하려면 `$VARIABLENAME`을 사용합니다. 예를 들어 위치 매개 변수에서 제공하는 값을 PASSWORD라는 환경 변수로 할당하려면 다음 문을 사용합니다.
+위의 예에서 `VARIABLENAME` 은 변수의 이름입니다. 변수에 액세스하려면 `$VARIABLENAME`을 사용합니다. 예를 들어 위치 매개 변수에서 제공하는 값을 PASSWORD라는 환경 변수로 할당하려면 다음 문을 사용합니다.
 
 ```bash
 PASSWORD=$1

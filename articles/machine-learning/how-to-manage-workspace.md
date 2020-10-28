@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: fd1a25e3fae49feb731cd1b472c99da679eee4f4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495669"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633708"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
@@ -80,37 +80,37 @@ import os
 
 1. Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
-1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기** 를 선택합니다.
 
       ![새 리소스 만들기](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. 검색 창을 사용하여 **Machine Learning**을 찾습니다.
+1. 검색 창을 사용하여 **Machine Learning** 을 찾습니다.
 
-1. **Machine Learning**을 선택합니다.
+1. **Machine Learning** 을 선택합니다.
 
-1. **Machine Learning** 창에서 **만들기**를 선택하여 시작합니다.
+1. **Machine Learning** 창에서 **만들기** 를 선택하여 시작합니다.
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|설명 
+   필드|Description 
    ---|---
-   작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
+   작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
-   리소스 그룹 | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
-   지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
+   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml** 을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
+   Azure 지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
 
     ![작업 영역 구성](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. 작업 영역 구성을 마쳤으면 **검토 + 만들기**를 선택 합니다. 필요에 따라 [네트워킹](#networking) 및 [고급](#advanced) 섹션을 사용 하 여 작업 영역에 대 한 추가 설정을 구성 합니다.
+1. 작업 영역 구성을 마쳤으면 **검토 + 만들기** 를 선택 합니다. 필요에 따라 [네트워킹](#networking) 및 [고급](#advanced) 섹션을 사용 하 여 작업 영역에 대 한 추가 설정을 구성 합니다.
 
-1. 설정을 검토 하 고 추가 변경 또는 수정 작업을 수행 합니다. 설정에 만족 하는 경우 **만들기**를 선택 합니다.
+1. 설정을 검토 하 고 추가 변경 또는 수정 작업을 수행 합니다. 설정에 만족 하는 경우 **만들기** 를 선택 합니다.
 
    > [!Warning] 
    > 클라우드에서 작업 영역을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
    프로세스가 완료되면 배포 성공 메시지가 표시됩니다. 
  
- 1. 새 작업 영역을 보려면 **리소스로 이동**을 선택합니다.
+ 1. 새 작업 영역을 보려면 **리소스로 이동** 을 선택합니다.
  
 ---
 
@@ -126,7 +126,7 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __공용 끝점__을 사용 하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 __연결 방법__으로 __개인 끝점__ (미리 보기)을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다.   
+1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __공용 끝점__ 을 사용 하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 __연결 방법__ 으로 __개인 끝점__ (미리 보기)을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="개인 끝점 선택":::  
 
@@ -134,7 +134,7 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="개인 끝점 선택":::   
 
-1. 네트워킹 구성을 완료 한 후 __검토 + 만들기__를 선택 하거나 __고급__ 구성 (선택 사항)으로 이동할 수 있습니다.
+1. 네트워킹 구성을 완료 한 후 __검토 + 만들기__ 를 선택 하거나 __고급__ 구성 (선택 사항)으로 이동할 수 있습니다.
 
 ---
 
@@ -147,8 +147,8 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 개인 끝점을 만들 때 __privatelink.api.azureml.ms__ 이라는 새 사설 DNS 영역이 만들어집니다. 여기에는 가상 네트워크에 대 한 링크가 포함 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 여러 작업 영역을 만드는 경우 첫 번째 개인 끝점에 대 한 가상 네트워크만 DNS 영역에 추가할 수 있습니다. 추가 작업 영역/개인 끝점에서 사용 하는 가상 네트워크에 대 한 항목을 추가 하려면 다음 단계를 사용 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 포함 하는 리소스 그룹을 선택 합니다. 그런 다음 __privatelink.api.azureml.ms__ 이라는 사설 DNS 영역 리소스를 선택 합니다.
-2. __설정__에서 __가상 네트워크 링크__를 선택 합니다.
-3. __추가__를 선택합니다. __가상 네트워크 링크 추가__ 페이지에서 고유한 __링크 이름을__제공한 다음 추가할 __가상 네트워크__ 를 선택 합니다. __확인__ 을 선택 하 여 네트워크 링크를 추가 합니다.
+2. __설정__ 에서 __가상 네트워크 링크__ 를 선택 합니다.
+3. __추가__ 를 선택합니다. __가상 네트워크 링크 추가__ 페이지에서 고유한 __링크 이름을__ 제공한 다음 추가할 __가상 네트워크__ 를 선택 합니다. __확인__ 을 선택 하 여 네트워크 링크를 추가 합니다.
 
 자세한 내용은 [Azure 개인 끝점 DNS 구성](/azure/private-link/private-endpoint-dns)을 참조 하세요.
 
@@ -167,7 +167,11 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 
 #### <a name="use-your-own-key"></a>사용자 고유의 키 사용
 
-데이터 암호화를 위해 고유한 키를 제공할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. 다음 단계를 사용 하 여 사용자 고유의 키를 제공 합니다.
+데이터 암호화를 위해 고유한 키를 제공할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+다음 단계를 사용 하 여 사용자 고유의 키를 제공 합니다.
 
 > [!IMPORTANT]  
 > 이러한 단계를 수행 하기 전에 먼저 다음 작업을 수행 해야 합니다.   
@@ -201,7 +205,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. __고객 관리 키__를 선택 하 고 __키를 선택 하려면 클릭__하십시오 .를 선택 합니다.
+1. __고객 관리 키__ 를 선택 하 고 __키를 선택 하려면 클릭__ 하십시오 .를 선택 합니다.
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="개인 끝점 선택":::
 
@@ -225,13 +229,13 @@ ws.write_config()
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-로컬 환경에서 이 작업 영역을 참조하는 코드를 사용하려면 작업 영역의 **개요** 섹션에서 **config.json 다운로드**를 선택합니다.  
+로컬 환경에서 이 작업 영역을 참조하는 코드를 사용하려면 작업 영역의 **개요** 섹션에서 **config.json 다운로드** 를 선택합니다.  
 
    ![config.json 다운로드](./media/how-to-manage-workspace/configure.png)
 
 ---
 
-Python 스크립트 또는 Jupyter Notebook을 사용하여 파일을 디렉터리 구조에 배치합니다. 동일한 디렉터리, *.azureml*이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다. 계산 인스턴스를 만들 때이 파일은 VM의 올바른 디렉터리에 추가 됩니다.
+Python 스크립트 또는 Jupyter Notebook을 사용하여 파일을 디렉터리 구조에 배치합니다. 동일한 디렉터리, *.azureml* 이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다. 계산 인스턴스를 만들 때이 파일은 VM의 올바른 디렉터리에 추가 됩니다.
 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>작업 영역 찾기
@@ -252,9 +256,9 @@ Workspace.list('<subscription-id>')
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 위쪽 검색 필드에 **Machine Learning**을 입력 합니다.  
+1. 위쪽 검색 필드에 **Machine Learning** 을 입력 합니다.  
 
-1. **Machine Learning**을 선택합니다.
+1. **Machine Learning** 을 선택합니다.
 
    ![Azure Machine Learning 작업 영역 검색](./media/how-to-manage-workspace/find-workspaces.png)
 

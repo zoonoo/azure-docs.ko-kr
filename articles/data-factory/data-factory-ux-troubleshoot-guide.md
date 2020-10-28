@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426228"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632570"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Azure Data Factory UX 문제 해결
 
@@ -42,7 +42,7 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>ADF UX만 쿠키를 사용할 수 있도록 허용
 모든 쿠키를 허용 하지 않으려는 경우 ADF UX를 선택적으로 허용할 수 있습니다.
-1. **Chrome://settings/cookies**을 방문 하세요.
+1. **Chrome://settings/cookies** 을 방문 하세요.
 1. **항상 쿠키를 사용할 수 있는 사이트** 에서 **추가** 를 선택 합니다. 옵션 
 
     ![Chrome의 허용 된 사이트에 ADF UX 추가](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
@@ -63,7 +63,7 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 모든 쿠키를 허용 하지 않으려는 경우 ADF UX를 선택적으로 허용할 수 있습니다.
 
-1. **Edge://settings/content/cookies**을 방문 하세요.
+1. **Edge://settings/content/cookies** 을 방문 하세요.
 1. **허용** 섹션에서 **추가** 를 선택 하 고 **adf.azure.com** site를 추가 합니다. 
 
     ![Edge의 허용 된 사이트에 ADF UX 추가](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
@@ -71,17 +71,17 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 ## <a name="connection-failed-on-adf-ux"></a>ADF UX에서 연결 실패
 
-경우에 따라 **연결 테스트**, **미리 보기**등을 클릭 한 후 아래 스크린샷 처럼 ADF UX에서 "연결 하지 못했습니다." 오류가 표시 될 수 있습니다.
+경우에 따라 **연결 테스트** , **미리 보기** 등을 클릭 한 후 아래 스크린샷 처럼 ADF UX에서 "연결 하지 못했습니다." 오류가 표시 될 수 있습니다.
 
 ![연결 실패](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 이 경우 먼저 브라우저에서 InPrivate 브라우징 모드를 사용 하 여 동일한 작업을 시도해 볼 수 있습니다.
 
-여전히 작동 하지 않는 경우 브라우저에서 F12 키를 눌러 **개발자 도구**을 엽니다. **네트워크** 탭으로 이동 하 여 **캐시 사용 안 함**을 선택 하 고 실패 한 작업을 다시 시도 하 여 실패 한 요청 (빨간색)을 찾습니다.
+여전히 작동 하지 않는 경우 브라우저에서 F12 키를 눌러 **개발자 도구** 을 엽니다. **네트워크** 탭으로 이동 하 여 **캐시 사용 안 함** 을 선택 하 고 실패 한 작업을 다시 시도 하 여 실패 한 요청 (빨간색)을 찾습니다.
 
 ![실패 한 요청](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-그런 다음 실패 한 요청의 **요청 URL** 에서 **호스트 이름** (이 경우 **dpnortheurope.svc.datafactory.azure.com**)을 찾습니다.
+그런 다음 실패 한 요청의 **요청 URL** 에서 **호스트 이름** (이 경우 **dpnortheurope.svc.datafactory.azure.com** )을 찾습니다.
 
 브라우저의 주소 표시줄에 직접 **호스트 이름을** 입력 합니다. 브라우저에서 404이 표시 되는 경우이는 일반적으로 클라이언트 쪽이 양호 하 고 ADF 서비스 쪽에 문제가 있음을 의미 합니다. ADF UX 오류 메시지의 **활동 ID** 를 사용 하 여 지원 티켓을 제출 합니다.
 
@@ -91,7 +91,7 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 ![클라이언트 쪽 오류](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-**명령 프롬프트** 를 열고 **nslookup dpnortheurope.svc.datafactory.azure.com**을 입력 합니다. 일반적인 응답은 다음과 같습니다.
+**명령 프롬프트** 를 열고 **nslookup dpnortheurope.svc.datafactory.azure.com** 을 입력 합니다. 일반적인 응답은 다음과 같습니다.
 
 ![명령 응답 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -120,4 +120,4 @@ ADF 제작 UI에서 복사, 조회, GetMetadata, 삭제 작업 등의 작업에�
 * [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 * [Azure 비디오](https://azure.microsoft.com/resources/videos/index/)
-* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Microsoft Q&A 질문 페이지](/answers/topics/azure-data-factory.html)

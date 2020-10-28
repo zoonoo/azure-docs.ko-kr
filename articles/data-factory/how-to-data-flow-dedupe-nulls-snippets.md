@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458169"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632450"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>데이터 흐름 코드 조각을 사용 하 여 행 중복 제거 및 null 찾기
 
@@ -25,7 +25,7 @@ ms.locfileid: "92458169"
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-1. **새 파이프라인**을 선택 합니다.
+1. **새 파이프라인** 을 선택 합니다.
 
 1. 데이터 흐름 작업을 추가 합니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "92458169"
 
     중복 제거 및 null 검사 조각은 데이터 흐름 스키마 드리프트를 활용 하는 일반 패턴을 사용 합니다. 이 코드 조각은 데이터 집합의 스키마 또는 미리 정의 된 스키마가 없는 데이터 집합을 사용 하 여 작업 합니다.
 
-1. [데이터 흐름 스크립트 (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)의 "모든 열을 사용 하는 고유 행" 섹션에서 DistinctRows에 대 한 코드 조각을 복사 합니다.
+1. [데이터 흐름 스크립트 (DFS)](./data-flow-script.md#distinct-row-using-all-columns)의 "모든 열을 사용 하는 고유 행" 섹션에서 DistinctRows에 대 한 코드 조각을 복사 합니다.
 
-1. 데이터 흐름 디자이너 UI의 오른쪽 위에 있는 **스크립트** 단추를 선택 하 여 데이터 흐름 그래프 뒤에 있는 스크립트 편집기를 엽니다.
+1. [데이터 흐름 스크립트 설명서 페이지로 이동 하 여 개별 행에 대 한 코드 조각을 복사 합니다.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![소스 코드 조각의 스크린샷.](media/data-flow/snippet-adf-3.png)
 
@@ -53,9 +53,9 @@ ms.locfileid: "92458169"
 
    이제 데이터 흐름은 모든 열 값에서 일반 해시를 사용 하 여 모든 행을 기준으로 그룹화 하는 집계 변환을 사용 하 여 원본에서 중복 행을 제거 합니다.
     
-1. Null을 포함 하는 행과 다른 스트림을 포함 하는 하나의 스트림으로 데이터를 분할 하는 코드 조각을 추가 합니다. 이렇게 하려면 다음을 수행합니다.
+1. Null을 포함 하는 행과 다른 스트림을 포함 하는 하나의 스트림으로 데이터를 분할 하는 코드 조각을 추가 합니다. 이를 수행하려면:
 
-   a. [조각 라이브러리로](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)돌아가서 null 검사를 위해 코드를 복사 합니다.
+1. [조각 라이브러리로 돌아가서 NULL 검사를 위해 코드를 복사 합니다.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. 데이터 흐름 디자이너에서 **스크립트** 를 다시 선택 하 고 맨 아래에이 새 변환 코드를 붙여넣습니다. 이 작업은 붙여 넣은 코드 조각 앞에 해당 변환의 이름을 배치 하 여 스크립트를 이전 변환에 연결 합니다.
 

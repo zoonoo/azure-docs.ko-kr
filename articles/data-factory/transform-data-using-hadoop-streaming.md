@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 7cc8e2e02aef9e323da9859ce6fd0bebea2ce036
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 85dd75b2af5d14d835db8aacc415069a2d67298e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368913"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631838"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -78,7 +78,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | mapper            | mapper 실행 파일의 이름을 지정합니다. | 예      |
 | reducer           | reducer 실행 파일의 이름을 지정합니다. | 예      |
 | combiner          | combiner 실행 파일의 이름을 지정합니다. | 예       |
-| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 여기서는 **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** 및 **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** 연결 서비스만 지원됩니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 예       |
+| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 여기서는 **[Azure Blob Storage](./connector-azure-blob-storage.md)** 및 **[ADLS Gen2](./connector-azure-data-lake-storage.md)** 연결 서비스만 지원됩니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 예       |
 | filePath          | fileLinkedService에서 참조하는 Azure Storage에 저장된 Mapper, Combiner 및 Reducer 프로그램의 경로 배열을 제공합니다. 경로는 대/소문자를 구분합니다. | 예      |
 | input             | Mapper에 대한 입력 파일의 WASB 경로를 지정합니다. | 예      |
 | output            | Reducer에 대한 출력 파일의 WASB 경로를 지정합니다. | 예      |
