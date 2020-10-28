@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480652"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785598"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -27,7 +27,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
 ## <a name="recommended-steps"></a>권장되는 단계
 
-1. [스토리지 분석 로그](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data)를 다운로드 합니다.
+1. [스토리지 분석 로그](./storage-analytics-logging.md#download-storage-logging-log-data)를 다운로드 합니다.
 
 2. 원시 형식 로그를 테이블 형식으로 변환 하려면 다음 PowerShell 스크립트를 사용 합니다.
 
@@ -99,10 +99,10 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    | Blob 유형 |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장|
    |---|---|---|---|
-   |GetBlob|예|예|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
-   |GetBlob|예|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|예|예|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
-   |PutBlob|예|예|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|예|아니요|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
+   |GetBlob|아니요|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|예|아니요|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
+   |PutBlob|아니요|예|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>상태 결과
 
@@ -114,7 +114,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 * Server-Latency
 * Client-Latency
 
-**Requeststatus가 Success**인 **Getblob 작업** 에서 **최대 시간이** **클라이언트 대기**시간에 소요 되는 경우이는 Azure Storage에서 클라이언트에 데이터를 쓰는 데 많은 시간을 소비 하 고 있음을 나타냅니다. 이 지연은 Client-Side 문제를 나타냅니다.
+**Requeststatus가 Success** 인 **Getblob 작업** 에서 **최대 시간이** **클라이언트 대기** 시간에 소요 되는 경우이는 Azure Storage에서 클라이언트에 데이터를 쓰는 데 많은 시간을 소비 하 고 있음을 나타냅니다. 이 지연은 Client-Side 문제를 나타냅니다.
 
 **권장 사항:**
 
@@ -129,7 +129,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 * Server-Latency
 * Client-Latency
 
-**Requeststatus = (SAS) NetworkError**를 사용 하는 **Getblob 작업** 에서 **최대 시간이** **클라이언트 대기**시간에 소요 되는 경우 가장 일반적인 문제는 저장소 서비스에서 시간 제한이 만료 되기 전에 클라이언트의 연결을 끊는 것입니다.
+**Requeststatus = (SAS) NetworkError** 를 사용 하는 **Getblob 작업** 에서 **최대 시간이** **클라이언트 대기** 시간에 소요 되는 경우 가장 일반적인 문제는 저장소 서비스에서 시간 제한이 만료 되기 전에 클라이언트의 연결을 끊는 것입니다.
 
 **권장 사항:**
 
@@ -144,7 +144,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 * Server-Latency
 * Client-Latency
 
-**Requeststatus가 Success**인 **Put 작업** 에서 **최대 시간이** **클라이언트 대기**시간에 소요 되는 경우 클라이언트에서 Azure Storage 데이터를 전송 하는 데 더 많은 시간이 소요 됨을 나타냅니다. 이 지연은 Client-Side 문제를 나타냅니다.
+**Requeststatus가 Success** 인 **Put 작업** 에서 **최대 시간이** **클라이언트 대기** 시간에 소요 되는 경우 클라이언트에서 Azure Storage 데이터를 전송 하는 데 더 많은 시간이 소요 됨을 나타냅니다. 이 지연은 Client-Side 문제를 나타냅니다.
 
 **권장 사항:**
 
@@ -159,10 +159,9 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 * Server-Latency
 * Client-Latency
 
-**Requeststatus = (SAS) NetworkError**를 사용 하는 **Putblob 작업** 에서 **최대 시간이** **클라이언트 대기**시간에 소요 되는 경우 가장 일반적인 문제는 저장소 서비스에서 시간 제한이 만료 되기 전에 클라이언트의 연결을 끊는 것입니다.
+**Requeststatus = (SAS) NetworkError** 를 사용 하는 **Putblob 작업** 에서 **최대 시간이** **클라이언트 대기** 시간에 소요 되는 경우 가장 일반적인 문제는 저장소 서비스에서 시간 제한이 만료 되기 전에 클라이언트의 연결을 끊는 것입니다.
 
 **권장 사항:**
 
 * 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
 * Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용 하 여 클라이언트에서 네트워크 연결 문제를 조사 합니다.
-

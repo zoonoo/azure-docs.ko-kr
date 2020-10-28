@@ -9,23 +9,23 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996867"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784425"
 ---
 # <a name="managed-hsm-access-control"></a>관리형 HSM 액세스 제어
 
 > [!NOTE]
-> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm**이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어 **는 관리 되는 hsm**에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공](../general/rbac-guide.md)을 참조 하세요.
+> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm** 이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어 **는 관리 되는 hsm** 에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공](../general/rbac-guide.md)을 참조 하세요.
 
 Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하므로 권한이 부여된 애플리케이션과 사용자만 관리형 HSM에 액세스할 수 있도록 허용하여 이러한 관리형 HSM에 대한 액세스를 보호해야 합니다. 이 문서에는 관리형 HSM 액세스 제어 모델에 대한 개요를 제공합니다. 인증, 권한 부여 및 관리형 HSM에 대한 액세스를 보호하는 방법에 대해 설명합니다.
 
 ## <a name="access-control-model"></a>액세스 제어 모델
 
-관리 되는 HSM에 대 한 액세스는 **관리 평면과** **데이터 평면**이라는 두 가지 인터페이스를 통해 제어 됩니다. 관리 평면에서는 HSM 자체를 관리 합니다. 이 평면의 작업에는 관리 되는 hsm 만들기 및 삭제 및 관리 되는 HSM 속성 검색이 포함 됩니다. 데이터 평면에서는 HSM 지원 암호화 키인 관리 되는 HSM에 저장 된 데이터를 사용 합니다. 키를 추가, 삭제, 수정 및 사용 하 여 암호화 작업을 수행 하 고, 역할 할당을 관리 하 여 키에 대 한 액세스를 제어 하 고, 전체 HSM 백업을 만들고, 전체 백업을 복원 하 고, 데이터 평면 인터페이스에서 보안 도메인을 관리할 수 있습니다.
+관리 되는 HSM에 대 한 액세스는 **관리 평면과** **데이터 평면** 이라는 두 가지 인터페이스를 통해 제어 됩니다. 관리 평면에서는 HSM 자체를 관리 합니다. 이 평면의 작업에는 관리 되는 hsm 만들기 및 삭제 및 관리 되는 HSM 속성 검색이 포함 됩니다. 데이터 평면에서는 HSM 지원 암호화 키인 관리 되는 HSM에 저장 된 데이터를 사용 합니다. 키를 추가, 삭제, 수정 및 사용 하 여 암호화 작업을 수행 하 고, 역할 할당을 관리 하 여 키에 대 한 액세스를 제어 하 고, 전체 HSM 백업을 만들고, 전체 백업을 복원 하 고, 데이터 평면 인터페이스에서 보안 도메인을 관리할 수 있습니다.
 
 두 평면에서 관리 되는 HSM에 액세스 하려면 모든 호출자에 게 적절 한 인증 및 권한 부여가 있어야 합니다. 인증은 호출자의 ID를 설정합니다. 권한은 호출자가 실행할 수 있는 작업을 결정합니다. 호출자는 Azure Active Directory 사용자, 그룹, 서비스 주체 또는 관리 id에 정의 된 [보안 주체](../../role-based-access-control/overview.md#security-principal) 중 하나일 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서�
 
 Azure 구독에서 관리 되는 HSM을 만들 때 구독의 Azure Active Directory 테 넌 트에 자동으로 연결 됩니다. 두 평면의 모든 호출자를이 테 넌 트에 등록 하 고 관리 되는 HSM에 액세스 하려면 인증 해야 합니다.
 
-응용 프로그램은 두 평면을 호출 하기 전에 Azure Active Directory을 사용 하 여 인증 합니다. 응용 프로그램은 응용 프로그램 유형을 기반으로 하 여 [지원 되는 모든 인증 방법을](../../active-directory/develop/authentication-scenarios.md) 사용할 수 있습니다. 응용 프로그램은 평면에서 리소스에 대 한 토큰을 획득 하 여 액세스 권한을 얻습니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 응용 프로그램은 토큰을 사용 하 고 관리 되는 HSM 끝점에 REST API 요청을 보냅니다. 자세한 내용은 [전체 인증 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
+응용 프로그램은 두 평면을 호출 하기 전에 Azure Active Directory을 사용 하 여 인증 합니다. 응용 프로그램은 응용 프로그램 유형을 기반으로 하 여 [지원 되는 모든 인증 방법을](../../active-directory/develop/authentication-vs-authorization.md) 사용할 수 있습니다. 응용 프로그램은 평면에서 리소스에 대 한 토큰을 획득 하 여 액세스 권한을 얻습니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 응용 프로그램은 토큰을 사용 하 고 관리 되는 HSM 끝점에 REST API 요청을 보냅니다. 자세한 내용은 [전체 인증 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
 
 두 평면에 대해 단일 인증 메커니즘을 사용 하는 경우 다음과 같은 여러 가지 이점이 있습니다.
 
@@ -63,18 +63,18 @@ Azure 구독에서 관리 되는 HSM을 만들 때 구독의 Azure Active Direct
 | 액세스&nbsp;평면 | 액세스 엔드포인트 | 작업 | 액세스 제어 메커니즘 |
 | --- | --- | --- | --- |
 | 관리 평면 | **전역:**<br> management.azure.com:443<br> | 관리 되는 Hsm 만들기, 읽기, 업데이트, 삭제 및 이동<br>관리 되는 HSM 태그 설정 | Azure RBAC |
-| 데이터 평면 | **전역:**<br> &lt;hsm-name &gt; . vault.azure.net:443<br> | **키**: 암호 해독, 암호화,<br> 래핑 해제, 줄 바꿈, 확인, 서명, 가져오기, 목록, 업데이트, 만들기, 가져오기, 삭제, 백업, 복원, 제거<br/><br/> **데이터 평면 역할-관리 (관리 되는 HSM 로컬 RBAC) * * *: 역할 정의 나열, 역할 할당, 역할 할당 삭제, 사용자 <br/> <br/> 지정 역할 정의** 백업/복원 **: 백업, 복원, 상태 확인 백업/복원 작업 <br/> <br/> **보안 도메인 * *: 보안 도메인 다운로드 및 업로드 | 관리 되는 HSM 로컬 RBAC |
+| 데이터 평면 | **전역:**<br> &lt;hsm-name &gt; . vault.azure.net:443<br> | **키** : 암호 해독, 암호화,<br> 래핑 해제, 줄 바꿈, 확인, 서명, 가져오기, 목록, 업데이트, 만들기, 가져오기, 삭제, 백업, 복원, 제거<br/><br/> **데이터 평면 역할 관리 (관리 되는 HSM 로컬 RBAC)**_: 역할 정의 나열, 역할 할당, 역할 할당 삭제, 사용자 지정 <br/> <br/> 역할 정의_ * 백업/복원 **: 백업, 복원, 상태 확인 백업/ <br/> <br/> 복원 작업** 보안 도메인 * *: 보안 도메인 다운로드 및 업로드 | 관리 되는 HSM 로컬 RBAC |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>관리 평면 및 Azure RBAC
 
-관리 평면에서 Azure RBAC를 사용 하 여 호출자가 실행할 수 있는 작업에 권한을 부여 합니다. RBAC 모델에서 각 Azure 구독은 Azure Active Directory의 인스턴스를 포함 합니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용합니다.
+관리 평면에서 Azure RBAC를 사용 하 여 호출자가 실행할 수 있는 작업에 권한을 부여 합니다. RBAC 모델에서 각 Azure 구독은 Azure Active Directory의 인스턴스를 포함 합니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](/rest/api/authorization/roleassignments)를 사용합니다.
 
 리소스 그룹에 키 자격 증명 모음을 만들고 Azure Active Directory를 사용 하 여 액세스를 관리 합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절한 RBAC 역할을 할당하여 특정 범위 수준에서 액세스 권한을 부여합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. 다음 범위 수준을 RBAC 역할에 할당할 수 있습니다.
 
-- **관리 그룹**: 구독 수준에서 할당 된 RBAC 역할은 해당 관리 그룹의 모든 구독에 적용 됩니다.
-- **구독**: 구독 수준에서 할당된 RBAC 역할은 해당 구독 내 모든 리소스 그룹 및 리소스에 적용됩니다.
-- **리소스 그룹**: 리소스 그룹 수준에서 할당된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용됩니다.
-- **특정 리소스**: 특정 리소스에 할당된 RBAC 역할이 해당 리소스에 적용됩니다. 이 경우 리소스는 특정 Key Vault입니다.
+- **관리 그룹** : 구독 수준에서 할당 된 RBAC 역할은 해당 관리 그룹의 모든 구독에 적용 됩니다.
+- **구독** : 구독 수준에서 할당된 RBAC 역할은 해당 구독 내 모든 리소스 그룹 및 리소스에 적용됩니다.
+- **리소스 그룹** : 리소스 그룹 수준에서 할당된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용됩니다.
+- **특정 리소스** : 특정 리소스에 할당된 RBAC 역할이 해당 리소스에 적용됩니다. 이 경우 리소스는 특정 Key Vault입니다.
 
 미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
@@ -82,8 +82,8 @@ Azure 구독에서 관리 되는 HSM을 만들 때 구독의 Azure Active Direct
 
 보안 주체에 역할을 할당 하 여 특정 키 작업을 실행할 수 있는 액세스 권한을 부여 합니다. 각 역할 할당에 대해 해당 할당이 적용 되는 역할 및 범위를 지정 해야 합니다. 관리 되는 HSM 로컬 RBAC의 경우 두 가지 범위를 사용할 수 있습니다.
 
-- **"/" 또는 "/키"**: HSM 수준 범위입니다. 이 범위에서 역할이 할당 된 보안 주체는 관리 되는 HSM의 모든 개체 (키)에 대해 역할에 정의 된 작업을 수행할 수 있습니다.
-- **"/keys/ &lt; 키-이름 &gt; "**: 키 수준 범위입니다. 이 범위에서 역할이 할당 된 보안 주체는 지정 된 키의 모든 버전에 대해서만이 역할에 정의 된 작업을 수행할 수 있습니다.
+- **"/" 또는 "/키"** : HSM 수준 범위입니다. 이 범위에서 역할이 할당 된 보안 주체는 관리 되는 HSM의 모든 개체 (키)에 대해 역할에 정의 된 작업을 수행할 수 있습니다.
+- **"/keys/ &lt; 키-이름 &gt; "** : 키 수준 범위입니다. 이 범위에서 역할이 할당 된 보안 주체는 지정 된 키의 모든 버전에 대해서만이 역할에 정의 된 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

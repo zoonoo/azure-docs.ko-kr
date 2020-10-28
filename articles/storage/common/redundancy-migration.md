@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487894"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784221"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -39,10 +39,10 @@ Azure Storage는 다음과 같은 유형의 복제를 제공 합니다.
 
 | 켜기 | ... LRS에 | ... to GRS/RA-GRS | ... ZRS에 | ... to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... LRS에서</b> | N/A | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> GRS/RA-GRS로 전환한 다음 실시간 마이그레이션<sup>1</sup> 을 요청 합니다. |
-| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | N/A | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 먼저 LRS로 전환한 다음 실시간 마이그레이션을 요청 합니다. | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 실시간 마이그레이션 요청 |
-| <b>... ZRS에서</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | N/A | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1, 2</sup> 를 변경 합니다. |
-| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | N/A |
+| <b>... LRS에서</b> | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> GRS/RA-GRS로 전환한 다음 실시간 마이그레이션<sup>1</sup> 을 요청 합니다. |
+| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 먼저 LRS로 전환한 다음 실시간 마이그레이션을 요청 합니다. | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 실시간 마이그레이션 요청 |
+| <b>... ZRS에서</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1, 2</sup> 를 변경 합니다. |
+| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 |
 
 <sup>1</sup> 은 일회성 송신 요금을 발생 시킵니다.<br />
 <sup>2</sup> 미국 동부 2, 미국 동부, 유럽 서 부 지역에서는 ZRS에서 GZRS/RA로 또는 그 반대로 변환할 수 없습니다.
@@ -123,30 +123,30 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 실시간 마이그레이션은 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 통해 요청할 수 있습니다. 포털에서 ZRS로 변환하려는 스토리지 계정을 선택합니다.
 
-1. **새 지원 요청**을 선택 합니다.
+1. **새 지원 요청** 을 선택 합니다.
 2. 계정 정보를 기반으로 **기본 사항을** 완료 합니다. 
-    - **문제 유형**: **기술**을 선택 합니다.
-    - **서비스**: **내 서비스** 및 **저장소 계정 관리**를 선택 합니다.
-    - **리소스**: ZRS로 변환 하려는 리소스를 선택 합니다.
-3. **다음**을 선택합니다.
+    - **문제 유형** : **기술** 을 선택 합니다.
+    - **서비스** : **내 서비스** 및 **저장소 계정 관리** 를 선택 합니다.
+    - **리소스** : ZRS로 변환 하려는 리소스를 선택 합니다.
+3. **다음** 을 선택합니다.
 4. **문제** 섹션에서 다음 값을 지정합니다.
-    - **심각도**: 기본값을 그대로 둡니다.
-    - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
-    - **범주**: **ZRS로 마이그레이션을**선택 합니다.
-    - **제목**: 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션**을 입력합니다.
-    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 \_ \_ 합니다.
-5. **다음**을 선택합니다.
+    - **심각도** : 기본값을 그대로 둡니다.
+    - **문제 유형** : **데이터 마이그레이션** 을 선택합니다.
+    - **범주** : **ZRS로 마이그레이션을** 선택 합니다.
+    - **제목** : 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션** 을 입력합니다.
+    - **세부 정보** : **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 \_ \_ 합니다.
+5. **다음** 을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
-7. **만들기**를 선택합니다.
+7. **만들기** 를 선택합니다.
 
 지원 담당자가 사용자에게 연락하여 필요한 모든 지원을 제공합니다.
 
 > [!NOTE]
 > 실시간 마이그레이션은 프리미엄 파일 공유에 현재 지원 되지 않습니다. 현재 데이터를 수동으로 복사 하거나 이동 하는 것만 지원 됩니다.
 >
-> GZRS 저장소 계정은 현재 보관 계층을 지원 하지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요.
+> GZRS 저장소 계정은 현재 보관 계층을 지원 하지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md) 을 참조 하세요.
 >
-> 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 HDD 저장소에 표준 SSD 관리 디스크에 대 한 스냅숏 및 이미지를 저장 하 고 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다. 가용성 집합과의 통합에 대 한 자세한 내용은 [Azure managed Disks 소개](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)를 참조 하세요.
+> 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 HDD 저장소에 표준 SSD 관리 디스크에 대 한 스냅숏 및 이미지를 저장 하 고 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다. 가용성 집합과의 통합에 대 한 자세한 내용은 [Azure managed Disks 소개](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets)를 참조 하세요.
 
 ## <a name="switch-from-zrs-classic"></a>ZRS 클래식에서 전환
 
@@ -157,7 +157,7 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비동기적으로 복제합니다. 복제된 데이터는 Microsoft가 보조 지역에 장애 조치(failover)를 시작하지 않는 한 사용할 수 없습니다. ZRS 클래식 계정을 LRS, GRS 또는 RA-GRS 계정으로 변환하거나, 이러한 계정에서 ZRS 클래식 계정으로 변환할 수 없습니다. 또한 ZRS 클래식 계정은 메트릭이나 로깅을 지원하지 않습니다.
 
-ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob**에서만 사용할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob** 에서만 사용할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 LRS, GRS, ZRS 또는 AzCopy 클래식 계정으로 ZRS 계정 데이터를 수동으로 마이그레이션하려면, Azure Storage 탐색기, PowerShell 또는 Azure CLI 도구 중 하나를 사용 합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
 
@@ -165,7 +165,7 @@ LRS, GRS, ZRS 또는 AzCopy 클래식 계정으로 ZRS 계정 데이터를 수�
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-Azure Portal에서 ZRS로 업그레이드 하려면 계정의 **구성** 설정으로 이동 하 고 **업그레이드**를 선택 합니다.
+Azure Portal에서 ZRS로 업그레이드 하려면 계정의 **구성** 설정으로 이동 하 고 **업그레이드** 를 선택 합니다.
 
 ![포털에서 ZRS 클래식을 ZRS로 업그레이드](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

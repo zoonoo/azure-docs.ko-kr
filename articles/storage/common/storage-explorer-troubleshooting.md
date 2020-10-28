@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488625"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783796"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -23,7 +23,7 @@ Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC 사용 권한 문제
 
-Azure 역할 기반 access control [AZURE RBAC](/azure/role-based-access-control/overview) 는 권한 집합을 _역할로_결합 하 여 azure 리소스의 매우 세부적인 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 가장 적합 한 Azure RBAC를 얻기 위한 몇 가지 전략이 있습니다.
+Azure 역할 기반 access control [AZURE RBAC](../../role-based-access-control/overview.md) 는 권한 집합을 _역할로_ 결합 하 여 azure 리소스의 매우 세부적인 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 가장 적합 한 Azure RBAC를 얻기 위한 몇 가지 전략이 있습니다.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Storage 탐색기에서 내 리소스에 액세스 어떻게 할까요??
 
@@ -46,7 +46,7 @@ Azure RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발�
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Storage 탐색기 내 리소스를 보려면 관리 계층 역할이 필요한 이유는 무엇 인가요?
 
-Azure Storage에는 _관리_ 및 _데이터_의 두 가지 액세스 계층이 있습니다. 구독 및 저장소 계정은 관리 계층을 통해 액세스 됩니다. 컨테이너, blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스 됩니다. 예를 들어 Azure에서 저장소 계정 목록을 가져오려는 경우 관리 끝점에 요청을 보냅니다. 계정에 blob 컨테이너 목록을 원하는 경우 적절 한 서비스 끝점에 요청을 보냅니다.
+Azure Storage에는 _관리_ 및 _데이터_ 의 두 가지 액세스 계층이 있습니다. 구독 및 저장소 계정은 관리 계층을 통해 액세스 됩니다. 컨테이너, blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스 됩니다. 예를 들어 Azure에서 저장소 계정 목록을 가져오려는 경우 관리 끝점에 요청을 보냅니다. 계정에 blob 컨테이너 목록을 원하는 경우 적절 한 서비스 끝점에 요청을 보냅니다.
 
 Azure 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수 있습니다. 예를 들어 판독기 역할은 관리 계층 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 
@@ -65,30 +65,30 @@ Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명�
 3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 클릭합니다.
 4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음을 클릭합니다. 연결을 클릭합니다.
 
-다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
+다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
 Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 Azure 기본 제공 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
-- [Owner](/azure/role-based-access-control/built-in-roles#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
-- [참가자](/azure/role-based-access-control/built-in-roles#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): 리소스를 읽고 나열 합니다.
-- [Storage 계정 참가자](/azure/role-based-access-control/built-in-roles#storage-account-contributor): 저장소 계정에 대 한 전체 관리 **참고**:이 역할은 키 액세스를 제공 합니다.
-- [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
-- [저장소 Blob 데이터 참여자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
-- [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
+- [Owner](../../role-based-access-control/built-in-roles.md#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다. **참고** :이 역할은 키 액세스를 제공 합니다.
+- [참가자](../../role-based-access-control/built-in-roles.md#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다. **참고** :이 역할은 키 액세스를 제공 합니다.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): 리소스를 읽고 나열 합니다.
+- [Storage 계정 참가자](../../role-based-access-control/built-in-roles.md#storage-account-contributor): 저장소 계정에 대 한 전체 관리 **참고** :이 역할은 키 액세스를 제공 합니다.
+- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
+- [저장소 Blob 데이터 참여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
+- [저장소 Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명 된 인증서 (및 유사한 오류)
 
 인증서 오류는 일반적으로 다음과 같은 경우에 발생 합니다.
 
-- 앱이 _투명 프록시_를 통해 연결 됩니다. 즉, 서버 (예: 회사 서버)는 HTTPS 트래픽을 가로채 고, 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 하는 것을 의미 합니다.
+- 앱이 _투명 프록시_ 를 통해 연결 됩니다. 즉, 서버 (예: 회사 서버)는 HTTPS 트래픽을 가로채 고, 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 하는 것을 의미 합니다.
 - 받은 HTTPS 메시지에 자체 서명 된 TLS/SSL 인증서를 삽입 하는 응용 프로그램을 실행 하 고 있습니다. 인증서를 삽입 하는 응용 프로그램의 예로는 바이러스 백신 및 네트워크 트래픽 검사 소프트웨어가 있습니다.
 
 Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증서가 표시 되 면 수신 된 HTTPS 메시지의 변경 여부를 더 이상 알 수 없습니다. 자체 서명 된 인증서의 복사본이 있는 경우 다음 단계에 따라 해당 인증서를 신뢰 하도록 Storage 탐색기에 지시할 수 있습니다.
 
 1. Base-64 인코딩된 x.509 (.cer) 인증서 복사본을 가져옵니다.
-2. **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
+2. **Edit**  >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
 
 여러 인증서 (루트 및 중간)가 있는 경우에도이 문제가 발생할 수 있습니다. 이 오류를 해결 하려면 두 인증서를 모두 추가 해야 합니다.
 
@@ -98,12 +98,12 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 모든 조명 버전이 면 충분 합니다.
     * Mac 및 Linux: 운영 체제에 포함 되어야 합니다.
 2. OpenSSL를 실행 합니다.
-    * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe**를 두 번 클릭 합니다.
+    * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe** 를 두 번 클릭 합니다.
     * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
 3. `s_client -showcerts -connect microsoft.com:443`를 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
-6. Storage 탐색기를 열고 **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
+6. Storage 탐색기를 열고 **Edit**  >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
 
 이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. 플래그를 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다 `--ignore-certificate-errors` . 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
 
@@ -113,10 +113,10 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램**  >  **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
+1. 왼쪽 세로 도구 모음에서 **설정** 을 엽니다. 설정 패널에서 **응용 프로그램**  >  **로그인** 으로 이동 합니다. **장치 코드 흐름 로그인 사용** 을 사용 하도록 설정 합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
-4. **로그인**을 선택합니다.
+4. **로그인** 을 선택합니다.
 5. 다음 패널의 지침을 따릅니다.
 
 기본 브라우저가 이미 다른 계정에 로그인 되어 있으므로 사용 하려는 계정에 로그인 할 수 없는 경우 다음 중 하나를 수행 합니다.
@@ -130,7 +130,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 1. 모든 계정을 제거한 후 Storage 탐색기를 닫습니다.
 2. 컴퓨터에서 .IdentityService 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
-3. Mac 또는 Linux를 실행 하는 경우 운영 체제의 키 저장소에서 IdentityService 항목을 삭제 해야 합니다. Mac에서 키 저장소은 *Gnome 키 집합* 응용 프로그램입니다. Linux에서 응용 프로그램은 일반적으로 인증 _키 라고 하지만_배포에 따라 이름이 다를 수 있습니다.
+3. Mac 또는 Linux를 실행 하는 경우 운영 체제의 키 저장소에서 IdentityService 항목을 삭제 해야 합니다. Mac에서 키 저장소은 *Gnome 키 집합* 응용 프로그램입니다. Linux에서 응용 프로그램은 일반적으로 인증 _키 라고 하지만_ 배포에 따라 이름이 다를 수 있습니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 
@@ -141,7 +141,7 @@ Storage 탐색기에서 사용 하는 Azure AD 라이브러리의 제한으로 �
 MacOS 키 집합은 Storage 탐색기 인증 라이브러리에 대 한 문제를 일으키는 상태를 입력 하는 경우도 있습니다. 이 상태에서 키 집합을 가져오려면 다음 단계를 수행 합니다.
 
 1. Storage Explorer를 닫습니다.
-2. 키 집합을 열고 (명령 + 스페이스바를 누르고 키 **집합**을 입력 한 다음 enter 키를 누릅니다.)
+2. 키 집합을 열고 (명령 + 스페이스바를 누르고 키 **집합** 을 입력 한 다음 enter 키를 누릅니다.)
 3. "로그인" 키 집합을 선택 합니다.
 4. 자물쇠 아이콘을 선택 하 여 키 집합을 잠급니다. (프로세스가 완료 되 면 자물쇠가 잠깁니다. 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있습니다.
 
@@ -230,7 +230,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>연결 문자열에 전체 구성 설정이 없습니다.
 
-이 오류 메시지가 표시 되 면 저장소 계정에 대 한 키를 가져오는 데 필요한 권한이 없을 수 있습니다. 이 경우에 해당 하는지 확인 하려면 포털로 이동 하 여 저장소 계정을 찾습니다. 저장소 계정에 대 한 노드를 마우스 오른쪽 단추로 클릭 하 고 **포털에서 열기**를 선택 하 여이 작업을 수행할 수 있습니다. 그런 다음 **액세스 키** 블레이드로 이동 합니다. 키를 볼 수 있는 권한이 없으면 "액세스할 수 없습니다." 라는 메시지가 표시 됩니다. 이 문제를 해결 하려면 다른 사용자의 계정 키를 가져와서 이름 및 키를 통해 연결 하거나, 다른 사용자에 게 저장소 계정에 대 한 SAS를 요청 하 고이를 사용 하 여 저장소 계정을 연결할 수 있습니다.
+이 오류 메시지가 표시 되 면 저장소 계정에 대 한 키를 가져오는 데 필요한 권한이 없을 수 있습니다. 이 경우에 해당 하는지 확인 하려면 포털로 이동 하 여 저장소 계정을 찾습니다. 저장소 계정에 대 한 노드를 마우스 오른쪽 단추로 클릭 하 고 **포털에서 열기** 를 선택 하 여이 작업을 수행할 수 있습니다. 그런 다음 **액세스 키** 블레이드로 이동 합니다. 키를 볼 수 있는 권한이 없으면 "액세스할 수 없습니다." 라는 메시지가 표시 됩니다. 이 문제를 해결 하려면 다른 사용자의 계정 키를 가져와서 이름 및 키를 통해 연결 하거나, 다른 사용자에 게 저장소 계정에 대 한 SAS를 요청 하 고이를 사용 하 여 저장소 계정을 연결할 수 있습니다.
 
 계정 키가 표시 되 면 문제를 해결 하는 데 도움이 될 수 있도록 GitHub에서 문제를 파일 합니다.
 
@@ -238,7 +238,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 사용자 지정 연결을 추가 하려고 할 때이 오류 메시지가 표시 되 면 로컬 자격 증명 관리자에 저장 된 연결 데이터가 손상 될 수 있습니다. 이 문제를 해결 하려면 손상 된 로컬 연결을 삭제 한 다음 다시 추가 하십시오.
 
-1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말**  >  **설정/해제 개발자 도구**로 이동 합니다.
+1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말**  >  **설정/해제 개발자 도구** 로 이동 합니다.
 2. 열린 창의 **응용 프로그램** 탭에서 **로컬 저장소** (왼쪽) > **file://** 로 이동 합니다.
 3. 문제가 발생 하는 연결 유형에 따라 해당 키를 찾은 다음 해당 값을 텍스트 편집기에 복사 합니다. 값은 다음과 같이 사용자 지정 연결 이름으로 이루어진 배열입니다.
     * Storage 계정
@@ -265,13 +265,13 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. **시작** 메뉴에서 **자격 증명 관리자** 를 검색 하 여 엽니다.
-2. **Windows 자격 증명**으로 이동 합니다.
-3. **일반 자격 증명**에서 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
+2. **Windows 자격 증명** 으로 이동 합니다.
+3. **일반 자격 증명** 에서 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. 스포트라이트 (명령 + 스페이스바)를 열고 키 **집합 액세스**를 검색 합니다.
+1. 스포트라이트 (명령 + 스페이스바)를 열고 키 **집합 액세스** 를 검색 합니다.
 2. 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425471"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785581"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,20 +22,20 @@ ms.locfileid: "92425471"
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Microsoft Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Ruby Azure API를 사용하여 작성되었습니다.
-여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
+여기서 다루는 시나리오에는 **큐 만들기 및 삭제** 뿐만 아니라 큐 메시지 **삽입** , **보기** , **가져오기** 및 **삭제** 가 포함됩니다.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
-Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](/azure/app-service/quickstart-ruby)를 참조하세요.
+Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](../../app-service/quickstart-ruby.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
-1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
+1. **PowerShell** (Windows), **Terminal** (Mac) 또는 **Bash** (Unix)와 같은 명령줄 인터페이스를 사용합니다.
 2. 명령 창에 "gem install azure"를 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
-Azure 모듈 **은 azure storage 계정 및 azure storage \_ \_ ** ** \_ \_ ACCESS_KEY** 환경 변수를 읽고 azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure 모듈 **은 azure storage 계정 및 azure storage \_ \_** **\_ \_ ACCESS_KEY** 환경 변수를 읽고 azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -57,7 +57,7 @@ Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 스토리지 계정으로 이동합니다.
-3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
+3. 오른쪽의 설정 블레이드에서 **액세스 키** 를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 
 

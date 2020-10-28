@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783575"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "89072960"
 
 독립 클라우드 중 한 곳에서 Azure Storage를 사용하려면 Azure Public이 아닌 해당 클라우드에 연결합니다. Azure Public이 아닌 독립 클라우드 중 하나를 사용하려면
 
-* 연결할 *환경*을 지정합니다.
+* 연결할 *환경* 을 지정합니다.
 * 사용 가능한 지역을 결정하여 사용합니다.
 * Azure Public과 달리 정확한 엔드포인트 접미사를 사용합니다.
 
@@ -51,7 +51,7 @@ Get-AzEnvironment
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-중국 클라우드에 액세스하려면 **AzureChinaCloud** 환경을 사용합니다. 독일 클라우드에 액세스하려면 **AzureGermanCloud**를 사용합니다.
+중국 클라우드에 액세스하려면 **AzureChinaCloud** 환경을 사용합니다. 독일 클라우드에 액세스하려면 **AzureGermanCloud** 를 사용합니다.
 
 이 시점에서 스토리지 계정을 만들 위치나 다른 리소스 목록이 필요한 경우 [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용하여 선택한 클라우드에 사용 가능한 위치를 쿼리할 수 있습니다.
 
@@ -69,7 +69,7 @@ Get-AzLocation | select Location, DisplayName
 
 ## <a name="endpoint-suffix"></a>엔드포인트 접미사
 
-이러한 각각의 환경에 대한 엔드포인트 접미사는 Azure Public 엔드포인트와 다릅니다. 예를 들어 Azure Public의 Blob 엔드포인트 접미사는 **blob.core.windows.net**입니다. 독일 클라우드의 Blob 엔드포인트 접미사는 **blob.core.usgovcloudapi.net**합니다.
+이러한 각각의 환경에 대한 엔드포인트 접미사는 Azure Public 엔드포인트와 다릅니다. 예를 들어 Azure Public의 Blob 엔드포인트 접미사는 **blob.core.windows.net** 입니다. 독일 클라우드의 Blob 엔드포인트 접미사는 **blob.core.usgovcloudapi.net** 합니다.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment를 사용하여 엔드포인트 가져오기
 
@@ -92,7 +92,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-지정된 환경에 대해 모든 속성을 검색하려면 **Get-AzEnvironment**를 호출하고 클라우드 이름을 지정합니다. 이 코드 조각은 속성 목록을 반환합니다. 목록에서 **StorageEndpointSuffix**를 찾습니다. 다음은 독일 클라우드에 대한 예제입니다.
+지정된 환경에 대해 모든 속성을 검색하려면 **Get-AzEnvironment** 를 호출하고 클라우드 이름을 지정합니다. 이 코드 조각은 속성 목록을 반환합니다. 목록에서 **StorageEndpointSuffix** 를 찾습니다. 다음은 독일 클라우드에 대한 예제입니다.
 
 ```powershell
 Get-AzEnvironment -Name AzureGermanCloud
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 * [PowerShell 세션 간 사용자 로그인 유지](/powershell/azure/context-persistence)
-* [Azure Government 저장소](../../azure-government/documentation-government-services-storage.md)
+* [Azure Government 저장소](../../azure-government/compare-azure-government-global-azure.md)
 * [Microsoft Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md)
 * [Azure 중국 21Vianet 응용 프로그램 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Germany 설명서](../../germany/germany-welcome.md)

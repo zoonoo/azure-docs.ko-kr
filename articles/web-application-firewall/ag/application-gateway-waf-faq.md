@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 3bc71e10167b21b65616dd20f8edb9a1d902527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbe930780ff026be748bc42104f821ee9e5c443
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83798342"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785105"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Application Gateway의 Azure 웹 애플리케이션 방화벽에 대한 질문과 대답
 
@@ -58,6 +58,9 @@ WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229),
 
 예. Application Gateway가 배포된 가상 네트워크에서 DDoS Protection을 사용하도록 설정할 수 있습니다. 이 설정은 Azure DDoS Protection 서비스가 애플리케이션 게이트웨이 VIP(가상 IP)도 보호하도록 합니다.
 
+### <a name="does-waf-store-customer-data"></a>WAF는 고객 데이터를 저장 하나요?
+
+아니요, WAF는 고객 데이터를 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

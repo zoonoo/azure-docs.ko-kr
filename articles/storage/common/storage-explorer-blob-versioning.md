@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783830"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure Storage 탐색기 blob 버전 관리 가이드
 
-Microsoft Azure Storage 탐색기는 blob 버전을 간편 하 게 액세스 하 고 관리할 수 있습니다. 이 가이드는 Storage 탐색기에서 blob 버전 관리가 작동 하는 방식을 이해 하는 데 도움이 됩니다. 계속 하기 전에 [blob 버전 관리](/azure/storage/blobs/versioning-overview)에 대 한 자세한 내용을 확인 하는 것이 좋습니다.
+Microsoft Azure Storage 탐색기는 blob 버전을 간편 하 게 액세스 하 고 관리할 수 있습니다. 이 가이드는 Storage 탐색기에서 blob 버전 관리가 작동 하는 방식을 이해 하는 데 도움이 됩니다. 계속 하기 전에 [blob 버전 관리](../blobs/versioning-overview.md)에 대 한 자세한 내용을 확인 하는 것이 좋습니다.
 
 ## <a name="terminology"></a>용어
 
 이 섹션에서는이 문서에서 사용법을 이해 하는 데 도움이 되는 몇 가지 정의를 제공 합니다.
 
-- 일시 삭제: 대체 자동 데이터 보호 기능입니다. [여기](/azure/storage/blobs/soft-delete-blob-overview)에서 일시 삭제에 대해 자세히 알아볼 수 있습니다.
+- 일시 삭제: 대체 자동 데이터 보호 기능입니다. [여기](../blobs/soft-delete-blob-overview.md)에서 일시 삭제에 대해 자세히 알아볼 수 있습니다.
 - 활성 blob: blob 또는 blob 버전이 활성 상태에서 만들어집니다. 활성 상태의 blob 또는 blob 버전 에서만 작동할 수 있습니다.
 - 일시 삭제 된 blob: 일시 삭제 된 것으로 표시 된 blob 또는 blob 버전입니다. 일시 삭제 된 blob은 보존 기간 동안만 유지 됩니다.
 - Blob 버전: blob 버전 관리를 사용 하 여 만든 blob입니다. 각 blob 버전은 버전 ID와 연결 됩니다.
@@ -36,9 +36,9 @@ Storage 탐색기는 blob을 볼 수 있는 네 가지 보기를 지원 합니�
 
 | 보기 | 활성 버전이 아닌 blob | 일시 삭제 된 버전이 아닌 blob | Blob 버전 |
 | ---- | :----------: | :-----------: | :------------------: |
-| 활성 blob | 예 | 예 | 현재 버전만 |
+| 활성 blob | 예 | 아니요 | 현재 버전만 |
 | 활성 blob 및 일시 삭제 된 blob | 예 | 예 | 현재 버전만 |
-| 현재 버전이 없는 활성 blob 및 blob | 예 | 예 | 현재 버전 또는 최신 활성 버전 |
+| 현재 버전이 없는 활성 blob 및 blob | 예 | 아니요 | 현재 버전 또는 최신 활성 버전 |
 | 현재 버전이 없는 모든 blob 및 blob | 예 | 예 | 최신 버전 또는 최신 버전 |
 
 ### <a name="active-blobs"></a>활성 blob
@@ -117,5 +117,5 @@ Blob 버전은 개별적으로 삭제 취소할 수 없습니다. 한 번에 모
 
 ## <a name="see-also"></a>참고 항목
 
-* [Blob 버전 관리](/azure/storage/blobs/versioning-overview)
-* [Blob에 대한 일시 삭제](/azure/storage/blobs/soft-delete-blob-overview)
+* [Blob 버전 관리](../blobs/versioning-overview.md)
+* [Blob에 대한 일시 삭제](../blobs/soft-delete-blob-overview.md)

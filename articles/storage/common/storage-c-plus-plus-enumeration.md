@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 008991a6eda8a2eac9e7a39074c9e0bddb0c51b5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488710"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784101"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
 
@@ -34,7 +34,7 @@ Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼�
 
 ## <a name="asynchronous-versus-synchronous"></a>비동기 및 동기
 
-Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예:
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예를 들면 다음과 같습니다.
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -59,8 +59,8 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 
 분할된 목록 작업에 대한 응답에는 다음이 포함됩니다.
 
-* *_segment*은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
-* *continuation_token*은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
+* *_segment* 은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
+* *continuation_token* 은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
 
 예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)에서 사용할 수 있습니다.
 
@@ -153,7 +153,7 @@ greedy 목록에 잠재적인 문제가 발생했어도 컨테이너에 너무 �
 
 또한 사용자가 C# 또는 Oracle Java SDK를 사용하는 경우, 필요한 경우 특정 오프셋의 데이터만 가져오는 lazy 스타일의 목록을 제공하는 열거 프로그래밍 모델에 친숙해야 합니다. C++에서는 반복기 기반 템플릿이 유사한 방식을 제공합니다.
 
-예를 들어, **list_blobs**를 사용하는 일반적인 lazy 목록 API는 다음과 같습니다.
+예를 들어, **list_blobs** 를 사용하는 일반적인 lazy 목록 API는 다음과 같습니다.
 
 ```cpp
 list_blob_item_iterator list_blobs() const;
@@ -198,7 +198,7 @@ Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용
 
 * [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
+* [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)
 * [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
 * [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

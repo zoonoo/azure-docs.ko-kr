@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342334"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784170"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -78,7 +78,7 @@ Security Center는 azure Defender에서 보호 하지 않는 Azure 구독 또는
 
 아티클    
 * [인시던트 대응에 Azure Security Center 사용](./tutorial-security-incident.md)
-* [워크플로 자동화를 사용하여 응답 자동화](workflow-automation.md)
+* [자동화를 사용 하 여 Security Center 트리거에 응답](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 

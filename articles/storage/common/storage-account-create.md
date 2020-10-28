@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488897"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784357"
 ---
 # <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -25,7 +25,7 @@ Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 A
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -98,7 +98,7 @@ az login
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -199,7 +199,7 @@ az storage account create \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-Azure PowerShell 또는 Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하 여 저장소 계정을 만들 수 있습니다. 이 방법 문서에 사용 된 템플릿은 [Azure Resource Manager 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/101-storage-account-create/)사용 됩니다. 스크립트를 실행 하려면 **시도** 를 선택 하 여 Azure Cloud Shell 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+Azure PowerShell 또는 Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하 여 저장소 계정을 만들 수 있습니다. 이 방법 문서에 사용 된 템플릿은 [Azure Resource Manager 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/101-storage-account-create/)사용 됩니다. 스크립트를 실행 하려면 **시도** 를 선택 하 여 Azure Cloud Shell 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 이 템플릿을 수정 하거나 새 템플릿을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [설명서를 Azure Resource Manager](/azure/azure-resource-manager/).
+- [설명서를 Azure Resource Manager](../../azure-resource-manager/index.yml).
 - [스토리지 계정 템플릿 참조](/azure/templates/microsoft.storage/allversions).
 - [추가 스토리지 계정 템플릿 샘플](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
@@ -236,7 +236,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동 합니다.
-1. **삭제**를 클릭합니다.
+1. **삭제** 를 클릭합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 > [!WARNING]
 > 삭제된 스토리지 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.
 >
-> Azure 가상 머신과 연결된 스토리지 계정을 삭제하려고 하는 경우 아직 사용 중인 스토리지 계정에 대한 오류가 발생할 수 있습니다. 이 오류를 해결 하는 방법에 대 한 도움말은 [저장소 계정을 삭제할 때 오류 문제 해결](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)을 참조 하세요.
+> Azure 가상 머신과 연결된 스토리지 계정을 삭제하려고 하는 경우 아직 사용 중인 스토리지 계정에 대한 오류가 발생할 수 있습니다. 이 오류를 해결 하는 방법에 대 한 도움말은 [저장소 계정을 삭제할 때 오류 문제 해결](../../virtual-machines/troubleshooting/index.yml)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

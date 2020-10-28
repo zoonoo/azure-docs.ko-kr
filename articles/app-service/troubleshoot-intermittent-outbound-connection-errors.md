@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408218"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785054"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
-이 문서는 [Azure App Service](./overview.md)에서 간헐적 연결 오류 및 관련 된 성능 문제를 해결 하는 데 도움이 됩니다. 이 항목에서는에 대 한 자세한 내용 및 문제 해결 방법론을 제공 하 고, SNAT (원본 주소 네트워크 변환) 포트를 소모 합니다. 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+이 문서는 [Azure App Service](./overview.md)에서 간헐적 연결 오류 및 관련 된 성능 문제를 해결 하는 데 도움이 됩니다. 이 항목에서는에 대 한 자세한 내용 및 문제 해결 방법론을 제공 하 고, SNAT (원본 주소 네트워크 변환) 포트를 소모 합니다. 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기** 를 선택 합니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -32,7 +32,7 @@ Azure 앱 서비스에서 호스트 되는 응용 프로그램 및 함수는 다
 이러한 증상의 주요 원인은 응용 프로그램 인스턴스가 다음 제한 중 하나에 도달 하 여 외부 끝점에 대 한 새 연결을 열 수 없는 것입니다.
 
 * TCP 연결: 설정할 수 있는 아웃 바운드 연결 수에 제한이 있습니다. 이는 사용 되는 작업자의 크기와 연결 됩니다.
-* SNAT 포트: azure [의 아웃 바운드 연결](../load-balancer/load-balancer-outbound-connections.md)에 설명 된 대로, AZURE는 snat (원본 네트워크 주소 변환) 및 Load Balancer (고객에 게 노출 되지 않음)를 사용 하 여 공용 IP 주소 공간에 있는 azure 외부의 끝점 뿐만 아니라 서비스 끝점을 활용 하지 않는 azure 내부의 끝점을 통신 합니다. Azure 앱 서비스의 각 인스턴스에는 처음에 할당 된 **128** SNAT 포트 수가 지정 됩니다. 이 제한은 동일한 호스트 및 포트 조합에 대 한 열린 연결에 영향을 줍니다. 앱이 혼합 된 주소 및 포트 조합에 대 한 연결을 만드는 경우 SNAT 포트를 사용 하지 않습니다. SNAT 포트는 동일한 주소 및 포트 조합에 대 한 호출이 반복 될 때 사용 됩니다. 포트를 해제한 후에는 필요에 따라 포트를 재사용할 수 있습니다. Azure 네트워크 부하 분산 장치는 4 분 동안 기다린 후에만 닫힌 연결에서 SNAT 포트를 회수 합니다.
+* SNAT 포트: azure [의 아웃 바운드 연결](../load-balancer/load-balancer-outbound-connections.md)에 설명 된 대로, AZURE는 snat (원본 네트워크 주소 변환) 및 Load Balancer (고객에 게 노출 되지 않음)를 사용 하 여 공용 IP 주소 공간에 있는 azure 외부의 끝점 뿐만 아니라 서비스/개인 끝점을 활용 하지 않는 azure 내부의 끝점을 통신 합니다. Azure 앱 서비스의 각 인스턴스에는 처음에 할당 된 **128** SNAT 포트 수가 지정 됩니다. 이 제한은 동일한 호스트 및 포트 조합에 대 한 열린 연결에 영향을 줍니다. 앱이 혼합 된 주소 및 포트 조합에 대 한 연결을 만드는 경우 SNAT 포트를 사용 하지 않습니다. SNAT 포트는 동일한 주소 및 포트 조합에 대 한 호출이 반복 될 때 사용 됩니다. 포트를 해제한 후에는 필요에 따라 포트를 재사용할 수 있습니다. Azure 네트워크 부하 분산 장치는 4 분 동안 기다린 후에만 닫힌 연결에서 SNAT 포트를 회수 합니다.
 
 응용 프로그램 또는 함수가 새 연결을 신속 하 게 열면 128 포트의 미리 할당 된 할당량을 빠르게 고갈 시킬 수 있습니다. 그러면 추가 SNAT 포트를 동적으로 할당 하거나 회수 된 SNAT 포트를 다시 사용 하 여 새 SNAT 포트를 사용할 수 있게 될 때까지 차단 됩니다. 새 연결을 만들 수 없기 때문에 차단 된 응용 프로그램이 나 함수는이 문서의 **현상** 단원에 설명 된 문제 중 하나 이상이 발생 하기 시작 합니다.
 
@@ -114,7 +114,7 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 
 아웃 바운드 TCP 제한을 방지 하는 것은 작업자의 크기에 따라 제한이 설정 되므로 더 쉽게 해결할 수 있습니다. [샌드박스에서 VM 간 숫자 제한-TCP 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 의 제한을 확인할 수 있습니다.
 
-|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 
@@ -130,7 +130,7 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 
 [App Service 진단을](./overview-diagnostics.md) 사용 하 여 snat 포트 할당 정보를 찾고 App Service 사이트의 snat 포트 할당 메트릭을 확인할 수 있습니다. SNAT 포트 할당 정보를 찾으려면 다음 단계를 수행 합니다.
 
-1. App Service 진단에 액세스 하려면 App Service 웹 앱으로 이동 하거나 [Azure Portal](https://portal.azure.com/)에서 App Service Environment 합니다. 왼쪽 탐색 영역에서 **문제 진단 및 해결**을 선택 합니다.
+1. App Service 진단에 액세스 하려면 App Service 웹 앱으로 이동 하거나 [Azure Portal](https://portal.azure.com/)에서 App Service Environment 합니다. 왼쪽 탐색 영역에서 **문제 진단 및 해결** 을 선택 합니다.
 2. 가용성 및 성능 범주를 선택 합니다.
 3. 범주 아래의 사용 가능한 타일 목록에서 SNAT 포트 소모 타일을 선택 합니다. 이 방법은 128 미만으로 유지 하는 것입니다.
 필요한 경우 지원 티켓을 열 수 있습니다. 그러면 지원 엔지니어가 백 엔드에서 메트릭을 받게 됩니다.
@@ -146,7 +146,7 @@ TCP 연결 및 SNAT 포트는 직접 관련 되지 않습니다. TCP 연결 사�
 * TCP 연결 제한은 작업자 인스턴스 수준에서 발생 합니다. Azure 네트워크 아웃 바운드 부하 분산에서는 SNAT 포트 제한에 TCP 연결 메트릭을 사용 하지 않습니다.
 * TCP 연결 제한은 [샌드박스 교차 VM 숫자 제한-Tcp 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 에 설명 되어 있습니다.
 
-|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 

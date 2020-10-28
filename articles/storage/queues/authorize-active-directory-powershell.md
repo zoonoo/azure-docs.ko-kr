@@ -10,18 +10,18 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715478"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785666"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 
 Azure Storage는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 로그인 하 고 스크립팅 명령을 실행할 수 있는 PowerShell에 대 한 확장을 제공 합니다. Azure AD 자격 증명을 사용 하 여 PowerShell에 로그인 하면 OAuth 2.0 액세스 토큰이 반환 됩니다. 이 토큰은 PowerShell에서 자동으로 사용 되어 큐 저장소에 대해 후속 데이터 작업에 권한을 부여 합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 데이터를 큐에 추가할 수 있는 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 데이터 Azure Storage에 대 한 액세스 권한 관리](../common/storage-auth-aad-rbac.md)를 참조 하세요.
+Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 데이터를 큐에 추가할 수 있는 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 데이터 Azure Storage에 대 한 액세스 권한 관리](../common/storage-auth-aad-rbac-portal.md)를 참조 하세요.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
@@ -68,7 +68,7 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 큐를 만들기 전에 [저장소 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 azure 역할 할당](../common/storage-auth-aad-rbac.md)을 참조 하세요.
+1. 큐를 만들기 전에 [저장소 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조 하세요.
 
     > [!IMPORTANT]
     > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.

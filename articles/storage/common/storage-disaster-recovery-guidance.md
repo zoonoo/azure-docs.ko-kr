@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783983"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -54,9 +54,9 @@ Azure Storage의 중복성에 대 한 자세한 내용은 [중복성 Azure Stora
 또한 Azure Storage 데이터에 대해 고가용성을 유지하기 위한 다음 모범 사례도 참조하세요.
 
 - **디스크:** [Azure Backup](https://azure.microsoft.com/services/backup/) 를 사용 하 여 Azure 가상 머신에서 사용 하는 VM 디스크를 백업 합니다. 또한 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 사용하여 지역 재해 발생 시 VM을 보호하는 것이 좋습니다.
-- **블록 blob:** [일시 삭제](../blobs/storage-blob-soft-delete.md) 를 설정 하 여 개체 수준 삭제 및 덮어쓰기를 방지 하거나 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)또는 [Azure 데이터 이동 라이브러리](storage-use-data-movement-library.md)를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 블록 blob을 복사 합니다.
-- **파일:** [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](/powershell/module/az.storage/) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정으로 파일을 복사 합니다.
-- **테이블:**[AzCopy](storage-use-azcopy.md)를 사용하여 다른 지역에 있는 다른 스토리지 계정으로 테이블 데이터를 내보냅니다.
+- **블록 blob:** [일시 삭제](../blobs/soft-delete-blob-overview.md) 를 설정 하 여 개체 수준 삭제 및 덮어쓰기를 방지 하거나 [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)또는 [Azure 데이터 이동 라이브러리](storage-use-data-movement-library.md)를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 블록 blob을 복사 합니다.
+- **파일:** [AzCopy](./storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정으로 파일을 복사 합니다.
+- **테이블:**[AzCopy](./storage-use-azcopy-v10.md)를 사용하여 다른 지역에 있는 다른 스토리지 계정으로 테이블 데이터를 내보냅니다.
 
 ## <a name="track-outages"></a>중단 추적
 
@@ -132,7 +132,7 @@ Azure Storage 리소스 공급자는 장애 조치 (failover) 되지 않으므�
 
 ### <a name="azure-virtual-machines"></a>Azure 가상 머신
 
-Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 또한 계정 장애 조치 (failover)와 관련 된 잠재적인 데이터 손실이 있습니다. Azure의 가상 머신과 관련 하 여 다음과 같은 고가용성 및 [재해 복구](../../virtual-machines/windows/backup-recovery.md) 지침을 [사용](../../virtual-machines/windows/manage-availability.md) 하는 것이 좋습니다.
+Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 또한 계정 장애 조치 (failover)와 관련 된 잠재적인 데이터 손실이 있습니다. Azure의 가상 머신과 관련 하 여 다음과 같은 고가용성 및 [재해 복구](../../virtual-machines/backup-recovery.md) 지침을 [사용](../../virtual-machines/manage-availability.md) 하는 것이 좋습니다.
 
 ### <a name="azure-unmanaged-disks"></a>Azure 관리되지 않는 디스크
 
@@ -143,7 +143,7 @@ Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애
 1. 시작하기 전에 관리되지 않는 디스크, 해당 LUN(논리 단위 번호) 및 해당 디스크가 연결된 VM을 기록해 둡니다. 이렇게 하면 장애 조치(failover) 후에 디스크를 보다 쉽게 다시 연결할 수 있습니다.
 2. VM을 종료합니다.
 3. VM을 삭제하지만 관리되지 않는 디스크의 VHD 파일은 유지합니다. VM을 삭제한 시간을 기록해 둡니다.
-4. VM을 삭제한 이후에 해당하는 **마지막 동기화 시간**이 업데이트될 때까지 기다립니다. 장애 조치(failover)가 발생할 때 보조 엔드포인트가 VHD 파일로 완전히 업데이트되지 않은 경우 새 주 지역에서 VM이 제대로 작동하지 않을 수 있으므로 이 단계가 필요합니다.
+4. VM을 삭제한 이후에 해당하는 **마지막 동기화 시간** 이 업데이트될 때까지 기다립니다. 장애 조치(failover)가 발생할 때 보조 엔드포인트가 VHD 파일로 완전히 업데이트되지 않은 경우 새 주 지역에서 VM이 제대로 작동하지 않을 수 있으므로 이 단계가 필요합니다.
 5. 계정 장애 조치(failover)를 시작합니다.
 6. 계정 장애 조치(failover)가 완료되고 보조 지역이 새 주 지역이 될 때까지 기다립니다.
 7. 새 주 지역에서 VM을 만들고 VHD를 다시 연결합니다.
@@ -162,7 +162,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>장애 조치(failover) 대신 데이터 복사
 
-저장소 계정이 보조에 대 한 읽기 액세스로 구성 된 경우 보조 끝점에서 읽도록 응용 프로그램을 디자인할 수 있습니다. 주 지역에서 중단이 발생할 경우 장애 조치(failover)하지 않으려는 경우 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) 또는 [Azure 데이터 이동 라이브러리](../common/storage-use-data-movement-library.md)와 같은 도구를 사용하여 보조 지역의 스토리지 계정에 있는 데이터를 영향을 받지 않는 지역의 다른 스토리지 계정으로 복사할 수 있습니다. 그런 다음, 읽기 및 쓰기 가용성을 위해 애플리케이션에서 해당 스토리지 계정을 가리키도록 할 수 있습니다.
+저장소 계정이 보조에 대 한 읽기 액세스로 구성 된 경우 보조 끝점에서 읽도록 응용 프로그램을 디자인할 수 있습니다. 주 지역에서 중단이 발생할 경우 장애 조치(failover)하지 않으려는 경우 [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/) 또는 [Azure 데이터 이동 라이브러리](../common/storage-use-data-movement-library.md)와 같은 도구를 사용하여 보조 지역의 스토리지 계정에 있는 데이터를 영향을 받지 않는 지역의 다른 스토리지 계정으로 복사할 수 있습니다. 그런 다음, 읽기 및 쓰기 가용성을 위해 애플리케이션에서 해당 스토리지 계정을 가리키도록 할 수 있습니다.
 
 > [!CAUTION]
 > 계정 장애 조치 (failover)는 데이터 마이그레이션 전략의 일부로 사용해 서는 안 됩니다.

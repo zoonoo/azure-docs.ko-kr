@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284162"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785122"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 고급 위협 방지
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Advanced Threat Protection은 비정상적인 활동에 대 한 보안 경고를
 
 ## <a name="alerts"></a>경고
 
-Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center에서 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse)를 참조 하세요.
+Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center에서 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 경고](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse)를 참조 하세요.
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>의심 스러운 이벤트 검색 살펴보기
 
@@ -65,5 +65,5 @@ Advanced Threat Protection은 경고를 [Azure security center](https://azure.mi
 - [AZURE SQL Managed Instance의 Advanced Threat Protection](../managed-instance/threat-detection-configure.md)에 대해 자세히 알아보세요.
 - [SQL 용 Azure Defender](azure-defender-for-sql.md)에 대해 자세히 알아보세요.
 - [Azure SQL Database 감사](../../azure-sql/database/auditing-overview.md) 에 대 한 자세한 정보
-- [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
-- 가격 책정에 대 한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.  
+- [Azure security center](../../security-center/security-center-introduction.md) 에 대 한 자세한 정보
+- 가격 책정에 대 한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.

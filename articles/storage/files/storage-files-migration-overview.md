@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654262"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785615"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -34,11 +34,11 @@ Azure에는 사용 가능한 클라우드 저장소 유형이 여러 개 있습�
 
 파일의 두 가지 기본 구성 요소는 다음과 같습니다.
 
-- **데이터 스트림**: 파일의 데이터 스트림은 파일 콘텐츠를 저장 합니다.
-- **파일 메타 데이터**: 파일 메타 데이터에는 다음과 같은 하위 구성 요소가 있습니다.
+- **데이터 스트림** : 파일의 데이터 스트림은 파일 콘텐츠를 저장 합니다.
+- **파일 메타 데이터** : 파일 메타 데이터에는 다음과 같은 하위 구성 요소가 있습니다.
    * 읽기 전용 같은 파일 특성
    * *NTFS 권한* 또는 *파일 및 폴더 acl* 이라고 하는 파일 사용 권한
-   * 타임 스탬프, 특히 생성 및 마지막 수정 타임 스탬프
+   * 타임 스탬프, 가장 특히 만든 타임 스탬프 및 마지막으로 수정 된 타임 스탬프
    * 더 많은 양의 비표준 속성을 저장 하는 데 사용할 수 있는 공간에 해당 하는 대체 데이터 스트림입니다.
 
 마이그레이션의 파일 충실도는 다음과 같은 기능으로 정의할 수 있습니다.
@@ -111,7 +111,7 @@ Microsoft 및 기타에서 사용할 수 있는 몇 가지 파일 복사 도구�
 
     도구를 처음 실행 하면 데이터가 대량 복사 됩니다. 이 초기 실행은 잠시 동안 지속 될 수 있습니다. 비즈니스 프로세스에 대 한 데이터 원본을 오프 라인으로 전환 하는 데 걸리는 시간이 오래 지속 되는 경우가 많습니다.
 
-    소스를 대상으로 미러링 ( **robocopy/MIR**) 하 여 동일한 원본 및 대상에서 도구를 다시 실행할 수 있습니다. 이전 실행 후에 발생 하는 원본 변경 내용만 전송 해야 하므로 실행 속도가 훨씬 빠릅니다. 이러한 방식으로 복사 도구를 다시 실행 하면 가동 중지 시간을 크게 줄일 수 있습니다.
+    소스를 대상으로 미러링 ( **robocopy/MIR** ) 하 여 동일한 원본 및 대상에서 도구를 다시 실행할 수 있습니다. 이전 실행 후에 발생 하는 원본 변경 내용만 전송 해야 하므로 실행 속도가 훨씬 빠릅니다. 이러한 방식으로 복사 도구를 다시 실행 하면 가동 중지 시간을 크게 줄일 수 있습니다.
 
 다음 표에서는 Microsoft 도구 및 Azure 파일 공유에 대 한 현재 적합성을 분류 합니다.
 
@@ -121,7 +121,7 @@ Microsoft 및 기타에서 사용할 수 있는 몇 가지 파일 복사 도구�
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure 파일 동기화 | 기본적으로 Azure 파일 공유에 통합 됩니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| 스토리지 마이그레이션 서비스 | 간접적으로 지원 됩니다. Azure 파일 공유를 SMS 대상 서버에 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, 버전 10.4 이상| 지원됨. | 완전 한 충실도 * |
-|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | 지원됨. | 메타 데이터를 복사 하지 않습니다. [Data Box은 Azure File Sync와 함께 사용할 수 있습니다](storage-sync-offline-data-transfer.md). |
+|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 지원됨. | 이제 DataBox는 메타 데이터를 완벽 하 게 지원 합니다. [Data Box은 Azure File Sync와 함께 사용할 수도 있습니다](storage-sync-offline-data-transfer.md). |
 |![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage 탐색기 버전 1.14 | 지원됨. | Acl을 복사 하지 않습니다. 타임 스탬프를 지원 합니다.  |
 |![권장하지 않음](media/storage-files-migration-overview/circle-red-x.png)| Azure 데이터 팩터리 | 지원됨. | 메타 데이터를 복사 하지 않습니다. |
 |||||
