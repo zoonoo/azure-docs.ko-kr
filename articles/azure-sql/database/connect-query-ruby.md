@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: ruby
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 57e364d8cbd3cb9e1e2996786ee6414b7d7e04a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0434a99d28b4f71594e0ca9ce312087dee5b0ee2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86504958"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672536"
 ---
 # <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Ruby를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,11 +46,11 @@ ms.locfileid: "86504958"
   
 - 운영 체제용 Ruby 및 관련 소프트웨어:
   
-  - **macOS**: Homebrew, rbenv and ruby-build, Ruby, FreeTDS 및 TinyTDS를 설치합니다. [macOS에서 SQL Server를 사용하여 Ruby 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/)에서 1.2, 1.3, 1.4, 1.5 및 2.1 단계를 참조하세요.
+  - **macOS** : Homebrew, rbenv and ruby-build, Ruby, FreeTDS 및 TinyTDS를 설치합니다. [macOS에서 SQL Server를 사용하여 Ruby 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/)에서 1.2, 1.3, 1.4, 1.5 및 2.1 단계를 참조하세요.
   
-  - **Ubuntu**: Ruby, rbenv and ruby-build, Ruby, FreeTDS 및 TinyTDS에 대한 필수 구성 요소를 설치합니다. [Ubuntu에서 SQL Server를 사용하여 Ruby 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/)에서 1.2, 1.3, 1.4, 1.5 및 2.1 단계를 참조하세요.
+  - **Ubuntu** : Ruby, rbenv and ruby-build, Ruby, FreeTDS 및 TinyTDS에 대한 필수 구성 요소를 설치합니다. [Ubuntu에서 SQL Server를 사용하여 Ruby 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/)에서 1.2, 1.3, 1.4, 1.5 및 2.1 단계를 참조하세요.
   
-  - **Windows**: Ruby, Ruby Devkit 및 TinyTDS를 설치합니다. [Ruby 개발을 위한 개발 환경 구성](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development)을 참조하세요.
+  - **Windows** : Ruby, Ruby Devkit 및 TinyTDS를 설치합니다. [Ruby 개발을 위한 개발 환경 구성](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development)을 참조하세요.
 
 ## <a name="get-server-connection-information"></a>서버 연결 정보 가져오기
 
@@ -67,7 +67,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 
 ## <a name="create-code-to-query-your-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스를 쿼리할 코드 만들기
 
-1. 텍스트 또는 코드 편집기에서 *sqltest.rb*라는 새 파일을 만듭니다.
+1. 텍스트 또는 코드 편집기에서 *sqltest.rb* 라는 새 파일을 만듭니다.
 
 1. 다음 코드를 추가합니다. Azure SQL Database의 데이터베이스 값을 `<server>`, `<database>`, `<username>` 및 `<password>`로 대체합니다.
 
@@ -108,4 +108,4 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 - [Azure SQL Database에서 첫 번째 데이터베이스 디자인](design-first-database-tutorial.md)
 - [TinyTDS에 대한 GitHub 리포지토리](https://github.com/rails-sqlserver/tiny_tds)
 - [TinyTDS에 관한 문제 보고 또는 질문](https://github.com/rails-sqlserver/tiny_tds/issues)
-- [SQL Server용 Ruby 드라이버](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+- [SQL Server용 Ruby 드라이버](/sql/connect/ruby/ruby-driver-for-sql-server/)

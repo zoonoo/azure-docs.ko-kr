@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b08013e9d015d3c987c0032761bebccd4b57ec72
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331926"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678024"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
 
 Azure FarmBeats는 Azure Marketplace에서 사용할 수 있는 B2B(Business-to-Business) 제품입니다. 여러 공급자의 농업 데이터 세트를 집계할 수 있습니다. Azure FarmBeats를 통해 융합된 데이터 세트를 기반으로 AI(인공 지능) 또는 ML(기계 학습) 모델을 구축할 수 있습니다. Azure FarmBeats를 사용하면 농업 비즈니스가 미분화된 데이터 엔지니어링 대신 핵심 부가 가치에 중점을 둘 수 있습니다.
 
 > [!NOTE]
-> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 지원 포럼](https://aka.ms/farmbeatssupport)을 사용하세요.
+> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 지원 포럼](/answers/topics/azure-farmbeats.html)을 사용하세요.
 
 ![Farm Beats 프로젝트](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -66,7 +66,7 @@ Azure FarmBeats 액셀러레이터는 Datahub를 기반으로 구축된 샘플 �
 Azure FarmBeats는 추가 요금 없이 제공되며, 사용하는 Azure 리소스에 대해서만 요금을 지불합니다. 다음 리소스를 사용하여 제품에 대한 자세한 정보를 알아볼 수 있습니다.
 
 - [Azure FarmBeats 블로그](https://aka.ms/farmbeatsblog)를 방문하면 최신 Azure FarmBeats 뉴스에 대한 정보를 얻을 수 있습니다.
-- [Azure FarmBeats 지원 포럼](https://aka.ms/farmbeatssupport)에 질문을 게시하면 도움을 받을 수 있습니다.
+- [Azure FarmBeats 지원 포럼](/answers/topics/azure-farmbeats.html)에 질문을 게시하면 도움을 받을 수 있습니다.
 - [Azure FarmBeats 피드백 포럼](https://aka.ms/farmbeatsfeedback)에 기능 아이디어를 게시하거나 투표하여 피드백을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,13 +4,13 @@ description: Azure Portal 및 Azure CLI를 사용하여 웹앱이 실행되는 P
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018749"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743803"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -22,9 +22,9 @@ ms.locfileid: "92018749"
 
 다음과 같이 [Azure Portal](https://portal.azure.com) 또는 Azure CLI를 사용하여 구성할 수 있습니다.
 
-- **Azure Portal**: [Azure Portal에서 App Service 앱 구성](configure-common.md)의 설명에 따라 앱의 **설정** > **구성** 페이지를 사용합니다.
+- **Azure Portal** : [Azure Portal에서 App Service 앱 구성](configure-common.md)의 설명에 따라 앱의 **설정** > **구성** 페이지를 사용합니다.
 
-- **Azure CLI**: 다음과 같은 두 가지 옵션이 있습니다.
+- **Azure CLI** : 다음과 같은 두 가지 옵션이 있습니다.
 
     - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../cloud-shell/overview.md)에서 명령을 실행합니다.
     - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 명령을 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
@@ -34,9 +34,9 @@ ms.locfileid: "92018749"
 
 ## <a name="configure-python-version"></a>Python 버전 구성
 
-- **Azure Portal**: Linux 컨테이너의 [일반 설정 구성](configure-common.md#configure-general-settings)에 설명된 대로 **구성** 페이지의 **일반 설정** 탭을 사용합니다.
+- **Azure Portal** : Linux 컨테이너의 [일반 설정 구성](configure-common.md#configure-general-settings)에 설명된 대로 **구성** 페이지의 **일반 설정** 탭을 사용합니다.
 
-- **Azure CLI**:
+- **Azure CLI** :
 
     -  [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show) 명령을 사용하여 현재 Python 버전을 표시합니다.
     
@@ -69,7 +69,7 @@ ms.locfileid: "92018749"
 
 1. `PRE_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 전 스크립트를 실행합니다.
 1. `pip install -r requirements.txt`을 실행합니다. *requirements.txt* 파일은 프로젝트의 루트 폴더에 있어야 합니다. 그렇지 않으면 빌드 프로세스에서 오류를 보고합니다. "setup.py 또는 requirements.txt 파일을 찾을 수 없습니다. pip 설치를 실행하고 있지 않습니다."
-1. 리포지토리의 루트에 *manage.py*가 있는 경우(Django 앱이라는 의미) *manage.py collectstatic*을 실행합니다. 그러나 `DISABLE_COLLECTSTATIC` 설정이 `true`인 경우 이 단계를 건너뜁니다.
+1. 리포지토리의 루트에 *manage.py* 가 있는 경우(Django 앱이라는 의미) *manage.py collectstatic* 을 실행합니다. 그러나 `DISABLE_COLLECTSTATIC` 설정이 `true`인 경우 이 단계를 건너뜁니다.
 1. `POST_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 후 스크립트를 실행합니다.
 
 기본적으로 `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` 및 `DISABLE_COLLECTSTATIC` 설정은 비어 있습니다. 
@@ -90,7 +90,7 @@ Linux에서 App Service를 실행하고 Python 앱을 빌드하는 방법에 대
 > `SCM_DO_BUILD_DURING_DEPLOYMENT` 설정은 `true` 또는 1을 포함하는 경우 배포 중에 Oryx 빌드를 트리거합니다. git, Azure CLI 명령 `az webapp up` 및 Visual Studio Code를 사용하여 배포하는 경우 이 설정은 true입니다.
 
 > [!NOTE]
-> Oryx가 실행되는 빌드 컨테이너는 앱이 실행되는 런타임 컨테이너와 다르므로 모든 빌드 전 및 빌드 후 스크립트에서 항상 상대 경로를 사용해야 합니다. 컨테이너 내에서 앱 프로젝트 폴더의 정확한 배치를 사용하지 마세요(예를 들어 *site/wwwroot*에 배치됨).
+> Oryx가 실행되는 빌드 컨테이너는 앱이 실행되는 런타임 컨테이너와 다르므로 모든 빌드 전 및 빌드 후 스크립트에서 항상 상대 경로를 사용해야 합니다. 컨테이너 내에서 앱 프로젝트 폴더의 정확한 배치를 사용하지 마세요(예를 들어 *site/wwwroot* 에 배치됨).
 
 ## <a name="production-settings-for-django-apps"></a>Django 앱의 프로덕션 설정
 
@@ -102,7 +102,7 @@ Azure App Service와 같은 프로덕션 환경의 경우 Django 앱은 Django�
 | --- | --- |
 | `SECRET_KEY` | [환경 변수로 앱 설정에 액세스](#access-app-settings-as-environment-variables)에 설명된 대로 App Service 설정에 값을 저장합니다. [값을 Azure Key Vault에 "비밀"로 저장](/azure/key-vault/secrets/quick-create-python)할 수도 있습니다. |
 | `DEBUG` | App Service에서 값이 0(false)인 `DEBUG` 설정을 만든 다음, 해당 값을 환경 변수로 로드합니다. 개발 환경에서 값이 1(true)인 `DEBUG` 환경 변수를 만듭니다. |
-| `ALLOWED_HOSTS` | Django 앱을 프로덕션 환경에서 사용하려면 *settings.py*의 `ALLOWED_HOSTS` 배열에 앱 URL을 포함해야 합니다. 이 URL은 런타임에 `os.environ['WEBSITE_HOSTNAME']` 코드를 사용하여 검색할 수 있습니다. App Service는 자동으로 `WEBSITE_HOSTNAME` 환경 변수를 앱의 URL로 설정합니다. |
+| `ALLOWED_HOSTS` | Django 앱을 프로덕션 환경에서 사용하려면 *settings.py* 의 `ALLOWED_HOSTS` 배열에 앱 URL을 포함해야 합니다. 이 URL은 런타임에 `os.environ['WEBSITE_HOSTNAME']` 코드를 사용하여 검색할 수 있습니다. App Service는 자동으로 `WEBSITE_HOSTNAME` 환경 변수를 앱의 URL로 설정합니다. |
 | `DATABASES` | App Service에서 데이터베이스 연결에 대한 설정을 정의한 다음, 해당 설정을 환경 변수로 로드하여 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 사전을 채웁니다. 값(특히 사용자 이름 및 암호)을 [Azure Key Vault 비밀](/azure/key-vault/secrets/quick-create-python)로 저장할 수도 있습니다. |
 
 ## <a name="container-characteristics"></a>컨테이너 특성
@@ -144,7 +144,7 @@ Django 앱의 경우 App Service는 앱 코드 내에서 `wsgi.py`라는 파일�
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-시작 명령을 보다 구체적으로 제어하려면 [사용자 지정 시작 명령](#customize-startup-command)을 사용하고, `<module>`을 *wsgi.py*가 포함된 폴더 이름으로 바꾸고, 해당 모듈이 프로젝트 루트에 있지 않은 경우에는 `--chdir` 인수를 추가합니다. 예를 들어 *wsgi.py*가 프로젝트 루트의 *knboard/backend/config*에 있는 경우 `--chdir knboard/backend config.wsgi` 인수를 사용합니다.
+시작 명령을 보다 구체적으로 제어하려면 [사용자 지정 시작 명령](#customize-startup-command)을 사용하고, `<module>`을 *wsgi.py* 가 포함된 폴더 이름으로 바꾸고, 해당 모듈이 프로젝트 루트에 있지 않은 경우에는 `--chdir` 인수를 추가합니다. 예를 들어 *wsgi.py* 가 프로젝트 루트의 *knboard/backend/config* 에 있는 경우 `--chdir knboard/backend config.wsgi` 인수를 사용합니다.
 
 프로덕션 로깅을 사용하려면 [사용자 지정 시작 명령](#customize-startup-command)에 대한 예제에 표시된 대로 `--access-logfile` 및 `--error-logfile` 매개 변수를 추가합니다.
 
@@ -172,15 +172,15 @@ App Service에서 사용자 지정 명령, Django 앱 또는 Flask 앱을 찾지
 
 이 문서의 앞부분에서 언급했듯이, [Gunicorn 구성 개요](https://docs.gunicorn.org/en/stable/configure.html#configuration-file)에 설명된 대로 프로젝트 루트의 *gunicorn.conf.py* 파일을 통해 Gunicorn의 구성 설정을 제공할 수 있습니다.
 
-이러한 구성으로 충분하지 않은 경우 사용자 지정 시작 명령을 제공하거나 시작 명령 파일의 여러 명령을 제공하여 컨테이너의 시작 동작을 제어할 수 있습니다. 시작 명령 파일의 이름은 *startup.sh*, *startup.cmd*, *startup.txt* 등과 같이 원하는 대로 지정할 수 있습니다.
+이러한 구성으로 충분하지 않은 경우 사용자 지정 시작 명령을 제공하거나 시작 명령 파일의 여러 명령을 제공하여 컨테이너의 시작 동작을 제어할 수 있습니다. 시작 명령 파일의 이름은 *startup.sh* , *startup.cmd* , *startup.txt* 등과 같이 원하는 대로 지정할 수 있습니다.
 
 모든 명령은 프로젝트 루트 폴더에 대한 상대 경로를 사용해야 합니다.
 
 시작 명령 또는 명령 파일을 지정하는 방법은 다음과 같습니다.
 
-- **Azure Portal**: 앱의 **구성** 페이지를 선택한 다음, **일반 설정**을 선택합니다. **시작 명령** 필드에서 시작 명령의 전체 텍스트 또는 시작 명령 파일의 이름을 입력합니다. 그런 다음, **저장**을 선택하여 변경 내용을 적용합니다. Linux 컨테이너의 [ 일반 설정 구성](configure-common.md#configure-general-settings)을 참조하세요.
+- **Azure Portal** : 앱의 **구성** 페이지를 선택한 다음, **일반 설정** 을 선택합니다. **시작 명령** 필드에서 시작 명령의 전체 텍스트 또는 시작 명령 파일의 이름을 입력합니다. 그런 다음, **저장** 을 선택하여 변경 내용을 적용합니다. Linux 컨테이너의 [ 일반 설정 구성](configure-common.md#configure-general-settings)을 참조하세요.
 
-- **Azure CLI**: [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) 명령과 `--startup-file` 매개 변수를 사용하여 시작 명령 또는 파일을 설정합니다.
+- **Azure CLI** : [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) 명령과 `--startup-file` 매개 변수를 사용하여 시작 명령 또는 파일을 설정합니다.
 
     ```azurecli-interactive
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -192,7 +192,7 @@ App Service는 사용자 지정 시작 명령 또는 파일을 처리할 때 발
 
 ### <a name="example-startup-commands"></a>시작 명령 예제
 
-- **추가된 Gunicorn 인수**: 다음 예제에서는 Django 앱을 시작하기 위해 Gunicorn 명령줄에 `--workers=4`를 추가합니다. 
+- **추가된 Gunicorn 인수** : 다음 예제에서는 Django 앱을 시작하기 위해 Gunicorn 명령줄에 `--workers=4`를 추가합니다. 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +202,7 @@ App Service는 사용자 지정 시작 명령 또는 파일을 처리할 때 발
 
     자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
 
-- **Django에 프로덕션 로깅을 사용하도록 설정**: 다음과 같이 `--access-logfile '-'` 및 `--error-logfile '-'` 인수를 명령줄에 추가합니다.
+- **Django에 프로덕션 로깅을 사용하도록 설정** : 다음과 같이 `--access-logfile '-'` 및 `--error-logfile '-'` 인수를 명령줄에 추가합니다.
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +213,7 @@ App Service는 사용자 지정 시작 명령 또는 파일을 처리할 때 발
 
     자세한 내용은 [Gunicorn 로깅](https://docs.gunicorn.org/en/stable/settings.html#logging)(docs.gunicorn.org)을 참조하세요.
     
-- **사용자 지정 Flask 기본 모듈**: 기본적으로 App Service는 Flask 앱의 기본 모듈이 *application.py* 또는 *app.py*라고 가정합니다. 기본 모듈이 다른 이름을 사용하는 경우 시작 명령을 사용자 지정해야 합니다. 예를 들어 기본 모듈이 *hello.py*이고 해당 파일에서 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 명령은 다음과 같습니다.
+- **사용자 지정 Flask 기본 모듈** : 기본적으로 App Service는 Flask 앱의 기본 모듈이 *application.py* 또는 *app.py* 라고 가정합니다. 기본 모듈이 다른 이름을 사용하는 경우 시작 명령을 사용자 지정해야 합니다. 예를 들어 기본 모듈이 *hello.py* 이고 해당 파일에서 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 명령은 다음과 같습니다.
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +225,7 @@ App Service는 사용자 지정 시작 명령 또는 파일을 처리할 때 발
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **비-Gunicorn 서버 사용**: [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 다른 웹 서버를 사용하려면 다음과 같이 적절한 명령을 시작 명령으로 또는 시작 명령 파일에 사용합니다.
+- **비-Gunicorn 서버 사용** : [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 다른 웹 서버를 사용하려면 다음과 같이 적절한 명령을 시작 명령으로 또는 시작 명령 파일에 사용합니다.
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -256,7 +256,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-Azure Portal을 통해 로그에 액세스하려면 앱의 왼쪽 메뉴에서 **모니터링** > **로그 스트림**을 선택합니다.
+Azure Portal을 통해 로그에 액세스하려면 앱의 왼쪽 메뉴에서 **모니터링** > **로그 스트림** 을 선택합니다.
 
 ## <a name="open-ssh-session-in-browser"></a>브라우저에서 SSH 세션 열기
 
@@ -282,7 +282,7 @@ Azure Portal을 통해 로그에 액세스하려면 앱의 왼쪽 메뉴에서 *
 
     - 오류 메시지에 대한 [로그 스트림](#access-diagnostic-logs)을 검사합니다.
 
-- **로그 스트림에 "setup.py 또는 requirements.txt 파일을 찾을 수 없습니다. pip 설치를 실행하고 있지 않습니다"라는 메시지가 표시되는 경우**: Oryx 빌드 프로세스에서 *requirements.txt* 파일을 찾지 못했습니다.
+- **로그 스트림에 "setup.py 또는 requirements.txt 파일을 찾을 수 없습니다. pip 설치를 실행하고 있지 않습니다"라는 메시지가 표시되는 경우** : Oryx 빌드 프로세스에서 *requirements.txt* 파일을 찾지 못했습니다.
 
     - SSH 또는 Kudu 콘솔을 사용하여 App Service에 직접 연결하고, *site/wwwroot* 아래에 *requirements.txt* 파일이 있는지 확인합니다. 파일이 없으면 리포지토리에 파일을 만들고 배포에 포함시킵니다. 파일이 별도의 폴더에 있으면 루트로 이동합니다.
 

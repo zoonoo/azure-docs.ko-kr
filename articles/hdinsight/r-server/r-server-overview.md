@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3a6fc2ff45d61d63118edc23f40f69f16db9131
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85849914"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536150"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
-Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services**라고 합니다. 이 기능을 사용하면 HDInsight에서 융통성 있는 분산형 분석 메서드에 주문형으로 액세스할 수 있습니다.
+Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services** 라고 합니다. 이 기능을 사용하면 HDInsight에서 융통성 있는 분산형 분석 메서드에 주문형으로 액세스할 수 있습니다.
 
 HDInsight의 ML Services는 거의 모든 규모의 데이터 세트에 R 기반 분석을 수행할 수 있는 최신 기능을 제공합니다. 데이터 세트는 Azure Blob 또는 Data Lake Storage에 로드할 수 있습니다. R 기반 애플리케이션은 오픈 소스 R 패키지를 8000개 이상 사용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용할 수 있습니다.
 
 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하기에 편리한 위치를 제공합니다. 에지 노드를 사용하면 서버 코어 전체에서 ScaleR 병렬화된 분산형 함수를 실행할 수 있습니다. 또한 ScaleR의 Hadoop Map Reduce를 사용하여 클러스터의 노드에서 실행할 수도 있습니다. Apache Spark 컴퓨팅 컨텍스트를 사용할 수도 있습니다.
 
-분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 Azure의 다른 곳에서 `operationalized`일 수 있습니다. 특히 [Azure Machine Learning Studio(클래식)](https://studio.azureml.net)와 [웹 서비스](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)를 통해 가능합니다.
+분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 Azure의 다른 곳에서 `operationalized`일 수 있습니다. 특히 [Azure Machine Learning Studio(클래식)](https://studio.azureml.net)와 [웹 서비스](../../machine-learning/classic/deploy-a-machine-learning-web-service.md)를 통해 가능합니다.
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight에서 ML Services 시작
 
@@ -35,7 +35,7 @@ HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
 
 ### <a name="ai-innovation-from-microsoft-and-open-source"></a>Microsoft 및 오픈-소스의 AI 혁신
 
-  ML Services에는 [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package)과 같이 융통성이 높은 분산형 알고리즘 세트가 포함됩니다. 이러한 알고리즘은 실제 메모리보다 크기가 큰 데이터에 대해 작동할 수 있습니다. 또한 매우 다양한 플랫폼에서 분산 방식으로 실행됩니다. 이 제품에 포함되어 있는 Microsoft의 사용자 지정 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) 및 [Python 패키지](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) 모음에 대해 자세히 알아보세요.
+  ML Services에는 [RevoscaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), [microsoftML](/machine-learning-server/python-reference/microsoftml/microsoftml-package)과 같이 융통성이 높은 분산형 알고리즘 세트가 포함됩니다. 이러한 알고리즘은 실제 메모리보다 크기가 큰 데이터에 대해 작동할 수 있습니다. 또한 매우 다양한 플랫폼에서 분산 방식으로 실행됩니다. 이 제품에 포함되어 있는 Microsoft의 사용자 지정 [R 패키지](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) 및 [Python 패키지](/machine-learning-server/python-reference/introducing-python-package-reference) 모음에 대해 자세히 알아보세요.
   
   ML Services는 이러한 Microsoft의 혁신 기술과 오픈 소스 커뮤니티(R, Python 및 AI 도구 키트)의 기여를 이어주는 가교 역할을 하며, 단일 엔터프라이즈급 플랫폼을 기반으로 합니다. 모든 R 또는 Python 오픈 소스 기계 학습 패키지는 Microsoft의 독자적인 혁신 기능과 함께 작동될 수 있습니다.
 
@@ -43,7 +43,7 @@ HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
 
   기존 운용 패러다임 및 환경에 의존하는 기업은 이 영역으로 전환하기 위해 많은 시간과 노력을 투자해야 합니다. 이러한 조치를 취하면 모델의 변환 시간, 유효한 최신 상태로 유지하기 위한 반복 작업, 규제 승인 및 사용 권한 관리 등에 따른 비용 증가와 지연 문제가 발생합니다.
 
-  ML Services는 엔터프라이즈급 [운용화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)를 제공합니다. 기계 학습 모델이 완성되면 몇 번의 클릭만으로 웹 서비스 API를 생성할 수 있습니다. 이러한 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)는 클라우드의 서버 그리드에서 호스트되며, LOB(기간 업무) 애플리케이션에 통합될 수 있습니다. 탄력적 그리드에 배포할 수 있으므로 일괄 처리 및 실시간 채점에 대한 비즈니스 요구에 맞춰 원활하게 확장 가능합니다. 지침을 보려면 [HDInsight에서 ML Services 운용](r-server-operationalize.md)을 참조하세요.
+  ML Services는 엔터프라이즈급 [운용화](/machine-learning-server/what-is-operationalization)를 제공합니다. 기계 학습 모델이 완성되면 몇 번의 클릭만으로 웹 서비스 API를 생성할 수 있습니다. 이러한 [웹 서비스](/machine-learning-server/operationalize/concept-what-are-web-services)는 클라우드의 서버 그리드에서 호스트되며, LOB(기간 업무) 애플리케이션에 통합될 수 있습니다. 탄력적 그리드에 배포할 수 있으므로 일괄 처리 및 실시간 채점에 대한 비즈니스 요구에 맞춰 원활하게 확장 가능합니다. 지침을 보려면 [HDInsight에서 ML Services 운용](r-server-operationalize.md)을 참조하세요.
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -60,9 +60,9 @@ HDInsight의 ML Services에는 다음 기능이 포함됩니다.
 
 | 기능 범주 | Description |
 |------------------|-------------|
-| R 지원 | R로 작성된 솔루션용 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)(R의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함) |
-| Python 지원 | Python으로 작성된 솔루션용 [Python 모듈](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)(Python의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함)
-| [미리 학습된 모델](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | 시각적 분석 및 텍스트 감정 분석(사용자가 제공한 데이터를 채점할 수 있음) |
+| R 지원 | R로 작성된 솔루션용 [R 패키지](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)(R의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함) |
+| Python 지원 | Python으로 작성된 솔루션용 [Python 모듈](/machine-learning-server/python-reference/introducing-python-package-reference)(Python의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함)
+| [미리 학습된 모델](/machine-learning-server/install/microsoftml-install-pretrained-models) | 시각적 분석 및 텍스트 감정 분석(사용자가 제공한 데이터를 채점할 수 있음) |
 | [배포 및 사용](r-server-operationalize.md) | `Operationalize` 서버 및 솔루션을 웹 서비스로 배포합니다. |
 | [원격 실행](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | 클라이언트 워크스테이션에서 네트워크의 ML Services에 대한 원격 세션을 시작합니다. |
 
@@ -96,7 +96,7 @@ Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://
 
 ### <a name="score-on-premises"></a>온-프레미스 점수 매기기
 
-모델을 만든 후 온-프레미스 점수를 매기려면 R에서 모델을 직렬화하여 다운로드하고 역직렬화한 다음, 새 데이터의 점수를 매기는 데 사용합니다. [HDInsight에서 점수 매기기]에서 설명한 접근 방식을 사용하여 또는 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)를 사용하여 새 데이터의 점수를 매길 수 있습니다.
+모델을 만든 후 온-프레미스 점수를 매기려면 R에서 모델을 직렬화하여 다운로드하고 역직렬화한 다음, 새 데이터의 점수를 매기는 데 사용합니다. [HDInsight에서 점수 매기기]에서 설명한 접근 방식을 사용하여 또는 [웹 서비스](/machine-learning-server/operationalize/concept-what-are-web-services)를 사용하여 새 데이터의 점수를 매길 수 있습니다.
 
 ## <a name="maintain-the-cluster"></a>클러스터 유지 관리
 
@@ -104,7 +104,7 @@ Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://
 
 R 스크립트의 단계 대부분이 에지 노드에서 실행되므로 사용하는 R 패키지 대부분이 에지 노드에 필요합니다. 에지 노드에 추가 R 패키지를 설치하려면 R에서 `install.packages()` 메서드를 사용할 수 있습니다.
 
-ScaleR 라이브러리 루틴만 사용하는 경우에는 일반적으로 R 패키지가 추가로 필요하지 않습니다. 데이터 노드에서 **rxExec** 또는 **RxDataStep**을 실행하기 위한 추가 패키지가 필요할 수 있습니다.
+ScaleR 라이브러리 루틴만 사용하는 경우에는 일반적으로 R 패키지가 추가로 필요하지 않습니다. 데이터 노드에서 **rxExec** 또는 **RxDataStep** 을 실행하기 위한 추가 패키지가 필요할 수 있습니다.
 
 추가 패키지는 클러스터를 만든 후 스크립트 작업을 통해 설치할 수 있습니다. 자세한 내용은 [HDInsight 클러스터에서 ML Services 관리](r-server-hdinsight-manage.md)를 참조하세요.
 
@@ -134,7 +134,7 @@ HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영�
 
 데스크톱 IDE는 원격 MapReduce 또는 Spark 컴퓨팅 컨텍스트를 통해 클러스터에 액세스할 수 있습니다. 옵션은 다음과 같습니다. Microsoft의 [RTVS](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019)(Visual Studio용 R 도구), RStudio 및 Walware의 Eclipse 기반 StatET.
 
-명령 프롬프트에 **R**을 입력하여 에지 노드의 R 콘솔에 액세스합니다. 콘솔 인터페이스를 사용하는 경우 텍스트 편집기에서 R 스크립트를 개발하는 것이 편리합니다. 그런 다음, 필요에 맞게 스크립트의 섹션을 잘라내어 R 콘솔에 붙여넣습니다.
+명령 프롬프트에 **R** 을 입력하여 에지 노드의 R 콘솔에 액세스합니다. 콘솔 인터페이스를 사용하는 경우 텍스트 편집기에서 R 스크립트를 개발하는 것이 편리합니다. 그런 다음, 필요에 맞게 스크립트의 섹션을 잘라내어 R 콘솔에 붙여넣습니다.
 
 ## <a name="pricing"></a>가격 책정
 

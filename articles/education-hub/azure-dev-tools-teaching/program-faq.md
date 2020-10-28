@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89567812"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675706"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Education Hub에 대한 질문과 대답
 
@@ -46,7 +46,7 @@ Azure for Students 구독을 통해 특정 소프트웨어 개발자 도구에 �
 
 ### <a name="what-is-microsoft-learn"></a>Microsoft Learn이란?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/)은 Azure 기술을 원하는 속도로 학습할 수 있는 체험 온라인 학습 플랫폼입니다. 학습 경로에는 기본 방법으로 시작한 다음, 실제 과제를 처리하는 고급 방법으로 이동할 수 있는 모듈이 결합되어 있습니다.
+[Microsoft Learn](/learn/)은 Azure 기술을 원하는 속도로 학습할 수 있는 체험 온라인 학습 플랫폼입니다. 학습 경로에는 기본 방법으로 시작한 다음, 실제 과제를 처리하는 고급 방법으로 이동할 수 있는 모듈이 결합되어 있습니다.
 
 ### <a name="can-azure-for-students-be-used-for-production-or-only-for-development"></a>Azure for Students를 프로덕션 또는 개발 용도로만 사용할 수 있나요?
 
@@ -97,7 +97,7 @@ Azure for Students 구독을 통해 무료로 다운로드할 수 있는 특정 
 
 ### <a name="what-is-microsoft-learn"></a>Microsoft Learn이란?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/)은 Azure 기술을 원하는 속도로 학습할 수 있는 체험 온라인 학습 플랫폼입니다. 학습 경로에는 기본 방법으로 시작한 다음, 실제 과제를 처리하는 고급 방법으로 이동할 수 있는 모듈이 결합되어 있습니다.
+[Microsoft Learn](/learn/)은 Azure 기술을 원하는 속도로 학습할 수 있는 체험 온라인 학습 플랫폼입니다. 학습 경로에는 기본 방법으로 시작한 다음, 실제 과제를 처리하는 고급 방법으로 이동할 수 있는 모듈이 결합되어 있습니다.
 
 ## <a name="azure-academic-grant"></a>Azure Academic Grant
 
@@ -149,7 +149,7 @@ Azure 과정 크레딧은 Azure 스폰서쉽 제안을 활성화한 시점부터
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>내 구독이 Azure 과정 크레딧 제안에 있는지 여부를 어떻게 알 수 있나요?
 
-Azure Portal의 [구독] 블레이드에서 특정 구독을 살펴보면 **제안 이름**이 속성 중 하나로 표시됩니다. [제안 이름]이 과정 크레딧에 연결된 경우 **Azure 스폰서쉽**으로 표시됩니다. **Azure 스폰서쉽**이 표시되지 않으면 지원에 문의하여 변환하세요.
+Azure Portal의 [구독] 블레이드에서 특정 구독을 살펴보면 **제안 이름** 이 속성 중 하나로 표시됩니다. [제안 이름]이 과정 크레딧에 연결된 경우 **Azure 스폰서쉽** 으로 표시됩니다. **Azure 스폰서쉽** 이 표시되지 않으면 지원에 문의하여 변환하세요.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -252,8 +252,8 @@ Azure Dev Tools for Teaching 구독의 관리자는 [Azure Dev Tools for Teachin
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>내 구독자 ID를 확인하려면 어떻게 해야 하나요?
 
-- **프로그램에 처음 등록하는 경우**: 구독자 ID 번호는 받은 구독 환영 이메일에 있습니다.
-- **구독을 갱신한 경우**: 구독자 ID는 구독 관리자가 받은 갱신 이메일에 있습니다.
+- **프로그램에 처음 등록하는 경우** : 구독자 ID 번호는 받은 구독 환영 이메일에 있습니다.
+- **구독을 갱신한 경우** : 구독자 ID는 구독 관리자가 받은 갱신 이메일에 있습니다.
 
 또한 구독자 ID는 Visual Studio 구독 포털에도 있습니다. 로그인한 후 **내 계정** 페이지의 **내 구독** 아래에서 확인합니다.
 

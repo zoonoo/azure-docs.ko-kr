@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092956"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735591"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -222,7 +222,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. 이전 단계에서 빌드된 JAR 파일을 사용하여 Azure Spring Cloud 마이크로서비스를 만듭니다. **gateway**, **auth-service** 및 **account-service**라는 3개의 앱을 만들게 됩니다.
+1. 이전 단계에서 빌드된 JAR 파일을 사용하여 Azure Spring Cloud 마이크로서비스를 만듭니다. **gateway** , **auth-service** 및 **account-service** 라는 3개의 앱을 만들게 됩니다.
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -297,7 +297,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 1. 이 자습서의 원본 리포지토리를 다운로드하여 압축을 풀거나 Git: `git clone https://github.com/Azure-Samples/piggymetrics`를 사용하여 복제합니다. 
 
-1. IntelliJ **시작** 대화 상자를 열고 **프로젝트 가져오기**를 선택하여 가져오기 마법사를 엽니다.
+1. IntelliJ **시작** 대화 상자를 열고 **프로젝트 가져오기** 를 선택하여 가져오기 마법사를 엽니다.
 
 1. `piggymetric` 폴더를 선택합니다.
 
@@ -306,32 +306,32 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Azure Spring Cloud에 게이트웨이 앱 배포
 Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
 
-1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포**를 선택합니다.
+1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
 
     ![Azure 1에 배포](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. **이름** 필드에서 *:게이트웨이*를 기존 **이름**에 추가합니다.
-1. **아티팩트** 텍스트 상자에서 *com.piggymetrics:gateway:1.0-SNAPSHOT*을 선택합니다.
+1. **이름** 필드에서 *:게이트웨이* 를 기존 **이름** 에 추가합니다.
+1. **아티팩트** 텍스트 상자에서 *com.piggymetrics:gateway:1.0-SNAPSHOT* 을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
 1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./spring-cloud-quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
-1. **퍼블릭 엔드포인트**를 *사용*으로 설정합니다.
+1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
-1. *게이트웨이*를 입력한 다음, **확인**을 클릭합니다.
+1. *게이트웨이* 를 입력한 다음, **확인** 을 클릭합니다.
 
     ![Azure OK에 배포](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. 대화 상자의 **시작하기 전에** 섹션에서 *Maven 목표 실행*을 두 번 클릭합니다.
+1. 대화 상자의 **시작하기 전에** 섹션에서 *Maven 목표 실행* 을 두 번 클릭합니다.
 1. **작업 디렉터리** 텍스트 상자에서 *piggymetrics/gateway* 폴더로 이동합니다.
-1. **명령줄** 텍스트 상자에 *package -DskipTests*를 입력합니다. **확인**을 클릭합니다.
+1. **명령줄** 텍스트 상자에 *package -DskipTests* 를 입력합니다. **확인** 을 클릭합니다.
 1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 클릭하여 배포를 시작합니다. 플러그 인은 `gateway` 앱에서 `mvn package` 명령을 실행하고 `package` 명령으로 생성된 jar을 배포합니다.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Azure Spring Cloud에 auth-service 및 account-service 앱 배포
 위의 단계를 반복하여 `auth-service` 및 `account-service` 앱을 Azure Spring Cloud에 배포할 수 있습니다.
 
-1. **이름** 및 **아티팩트**를 수정하여 `auth-service` 앱을 식별합니다.
+1. **이름** 및 **아티팩트** 를 수정하여 `auth-service` 앱을 식별합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택하여 `auth-service` 앱을 만듭니다.
-1. **퍼블릭 엔드포인트** 옵션이 *사용 안 함*으로 설정되어 있는지 확인합니다.
-1. 대화 상자의 **시작하기 전에** 섹션에서 **작업 디렉터리**를 *piggymetrics/auth-service* 폴더로 전환합니다.
+1. **퍼블릭 엔드포인트** 옵션이 *사용 안 함* 으로 설정되어 있는지 확인합니다.
+1. 대화 상자의 **시작하기 전에** 섹션에서 **작업 디렉터리** 를 *piggymetrics/auth-service* 폴더로 전환합니다.
 1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 클릭하여 배포를 시작합니다. 
 1. `account-service`를 구성하고 배포하려면 다음 절차를 반복합니다.
 ---

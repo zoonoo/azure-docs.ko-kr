@@ -3,19 +3,19 @@ title: Azure의 Cloudyn에 대한 질문과 대답
 description: Cloudyn 포털을 사용하여 일반적인 간접 엔터프라이즈 설정 문제를 해결하고 기타 질문과 대답을 확인하는 방법을 알아봅니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b78d9d7bf725e3d82c88360c822455de1301ef6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 92a62de4223d2ec6d0441840b90fdce20c656d02
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688031"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546231"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 
@@ -31,20 +31,20 @@ Cloudyn 포털을 처음 사용할 때 기업 계약 또는 CSP(클라우드 솔
 - “직접 등록 – 아니요”가 기업 계약 포털에 표시됨
 - “지난 30일 간의 사용량 현황 데이터가 없습니다. 배포자에게 Azure 계정에 대해 표시를 사용하도록 설정했는지 문의하세요”가 Cloudyn 포털에 표시
 
-앞의 메시지는 재판매인 또는 CSP를 통해 Azure 기업계약을 구입했음을 나타냅니다. Cloudyn에서 데이터를 볼 수 있도록 재판매인 또는 CSP가 Azure 계정에 대해 _표시_를 사용하도록 설정해야 합니다.
+앞의 메시지는 재판매인 또는 CSP를 통해 Azure 기업계약을 구입했음을 나타냅니다. Cloudyn에서 데이터를 볼 수 있도록 재판매인 또는 CSP가 Azure 계정에 대해 _표시_ 를 사용하도록 설정해야 합니다.
 
 다음은 문제를 해결하는 방법입니다.
 
-1. 재판매인은 계정에 대해 _표시_를 사용하도록 설정해야 합니다. 지침은 [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)(간접 고객 온보딩 가이드)를 참조하세요.
+1. 재판매인은 계정에 대해 _표시_ 를 사용하도록 설정해야 합니다. 지침은 [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)(간접 고객 온보딩 가이드)를 참조하세요.
 
-2. Cloudyn에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure EA 추가](quick-register-ea.md#register-with-cloudyn) 또는 [EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.
+2. Cloudyn에 사용할 기업 계약 키를 생성합니다.
 
 Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다.
 
 Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하려면 먼저 다음 지침에 따라 Azure Billing API를 사용하도록 설정해야 합니다.
 
 - [기업 고객을 위한 보고 API 개요](../manage/enterprise-api.md)
-- **API에 대한 데이터 액세스 사용**의 [Microsoft Azure Enterprise Portal 보고 API](https://ea.azure.com/helpdocs/reportingAPI)
+- **API에 대한 데이터 액세스 사용** 의 [Microsoft Azure Enterprise Portal 보고 API](https://ea.azure.com/helpdocs/reportingAPI)
 
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
@@ -61,10 +61,10 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 계정을 활성화하려면
 
-1.    Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 계정**을 선택합니다.
+1.    Cloudyn 포털의 오른쪽 위에서 **설정** 을 클릭하고 **클라우드 계정** 을 선택합니다.
 2.    Microsoft Azure 계정 탭에서 **활성화되지 않은** 구독이 있는 계정을 찾습니다.
 3.    활성화되지 않은 계정의 오른쪽에서 연필 모양인 **편집** 기호를 클릭합니다.
-4.    테넌트 ID와 등급 ID가 자동으로 검색됩니다. **다음**을 클릭합니다.
+4.    테넌트 ID와 등급 ID가 자동으로 검색됩니다. **다음** 을 클릭합니다.
 5.    Azure Portal로 리디렉션됩니다. 포털에 로그인하고 Cloudyn Collector에게 Azure 데이터 액세스 권한을 부여합니다.
 6.    다음으로 Cloudyn 계정 관리 페이지로 리디렉션되며 해당 구독이 **활성** 계정 상태로 업데이트됩니다. 녹색 확인 표시가 기호가 나타납니다.
 7.    하나 이상의 구독에 대해 녹색 확인 표시가 나타나지 않는다면 해당 구독에 대해 판독기 앱(CloudynCollector)을 만들 권한이 없는 것입니다. 구독에 대해 더 높은 권한이 있는 사용자가 3, 4단계를 반복해야 합니다.  
@@ -74,11 +74,11 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>일시 중단되거나 잠긴 사용자를 활성화하려면 어떻게 할까요?
 
-먼저 사용자 계정이 *initiallySuspended*를 가져오는 가장 일반적인 시나리오를 살펴보겠습니다.
+먼저 사용자 계정이 *initiallySuspended* 를 가져오는 가장 일반적인 시나리오를 살펴보겠습니다.
 
-> Admin1은 Microsoft 클라우드 솔루션 공급자 또는 기업계약 사용자일 수 있습니다. 해당 조직에서 Cloudyn을 사용할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cloudyn 서비스를 등록하고 Cloudyn 포털에 로그인하는 사용자로서 Admin1은 *기본 관리자*가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용하여 Azure 계정을 만들고 엔터티 계층을 설정합니다. Admin1이 테넌트 관리자인 Admin2에게 Cloudyn에 등록하고 Cloudyn 포털에 로그인해야 한다고 알립니다.
+> Admin1은 Microsoft 클라우드 솔루션 공급자 또는 기업계약 사용자일 수 있습니다. 해당 조직에서 Cloudyn을 사용할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cloudyn 서비스를 등록하고 Cloudyn 포털에 로그인하는 사용자로서 Admin1은 *기본 관리자* 가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용하여 Azure 계정을 만들고 엔터티 계층을 설정합니다. Admin1이 테넌트 관리자인 Admin2에게 Cloudyn에 등록하고 Cloudyn 포털에 로그인해야 한다고 알립니다.
 >
-> Admin2가 Azure Portal을 통해 등록합니다. 그러나 Cloudyn 포털에 로그인하려고 하면 해당 계정이 **일시 중단**되었다는 오류가 표시됩니다. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
+> Admin2가 Azure Portal을 통해 등록합니다. 그러나 Cloudyn 포털에 로그인하려고 하면 해당 계정이 **일시 중단** 되었다는 오류가 표시됩니다. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
 
 
 사용자에 대한 액세스를 허용하라는 경고 요청을 받으면 사용자 계정을 활성화해야 합니다.
@@ -86,9 +86,9 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 사용자 계정을 활성화하려면:
 
 1. Cloudyn을 설정하는 데 사용한 Azure 관리자 사용자 계정을 사용하여 Cloudyn에 로그인합니다. 또는 관리자 액세스 권한이 부여된 사용자 계정으로 로그인합니다.
-2. 오른쪽 위의 기어 기호를 선택하고 **사용자 관리**를 선택합니다.
+2. 오른쪽 위의 기어 기호를 선택하고 **사용자 관리** 를 선택합니다.
 3. 사용자를 찾아 연필 기호를 선택한 다음 사용자를 편집합니다.
-4. **사용자 상태**에서 상태를 **일시 중단됨**에서 **활성**으로 변경합니다.
+4. **사용자 상태** 에서 상태를 **일시 중단됨** 에서 **활성** 으로 변경합니다.
 
 Cloudyn 사용자 계정은 Azure에서 Single Sign-On을 사용하여 연결합니다. 사용자가 암호를 잘못 입력하면 Azure에 계속 액세스할 수는 있지만 Cloudyn에 잠겨 있을 수 있습니다.
 
@@ -106,7 +106,7 @@ Cloudyn에서 Azure 계정을 발견하면 즉시 비용 기반 보고서에 비
 
 계정에 Azure 자격 증명을 추가하려면 Cloudyn 포털에서 구독이 아닌 계정 이름 오른쪽에 있는 편집 기호를 선택합니다.
 
-Azure 자격 증명이 Cloudyn에 추가될 때까지 계정은 _비활성화_로 표시됩니다.
+Azure 자격 증명이 Cloudyn에 추가될 때까지 계정은 _비활성화_ 로 표시됩니다.
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>기존 구독에 여러 계정 및 엔터티를 추가하려면 어떻게 할까요?
 
@@ -114,7 +114,7 @@ Azure 자격 증명이 Cloudyn에 추가될 때까지 계정은 _비활성화_�
 
 CSP의 경우:
 
-엔터티에 CSP 계정을 추가하려면 새 엔터티를 만들 때 **엔터프라이즈** 대신 **MSP 액세스**를 선택합니다. 계정이 기업계약으로 등록되어 있고 CSP 자격 증명을 추가하려는 경우 Cloudyn 지원 담당자가 계정 설정을 수정해야 할 수 있습니다. 유료 Azure 구독자인 경우 Azure Portal에서 새 지원 요청을 만들 수 있습니다. **도움말 + 지원**을 선택한 다음 **새 지원 요청**을 선택합니다.
+엔터티에 CSP 계정을 추가하려면 새 엔터티를 만들 때 **엔터프라이즈** 대신 **MSP 액세스** 를 선택합니다. 계정이 기업계약으로 등록되어 있고 CSP 자격 증명을 추가하려는 경우 Cloudyn 지원 담당자가 계정 설정을 수정해야 할 수 있습니다. 유료 Azure 구독자인 경우 Azure Portal에서 새 지원 요청을 만들 수 있습니다. **도움말 + 지원** 을 선택한 다음 **새 지원 요청** 을 선택합니다.
 
 ## <a name="currency-symbols-in-cloudyn-reports"></a>Cloudyn 보고서의 통화 기호
 
@@ -128,9 +128,9 @@ Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고
 
 Cloudyn에는 다음과 같은 데이터 새로 고침 타임라인이 있습니다.
 
-- **초기**: 설정 후 Cloudyn에서 비용 데이터를 보려면 최대 24시간이 걸릴 수 있습니다. 또한 Cloudyn이 크기 조정 권장 사항을 표시하기 위해 충분한 데이터를 수집하는 데 최대 10일이 소요될 수 있습니다.
-- **매일**: 매월 10일부터 말일까지 Cloudyn은 다음 날 약 UTC+3 이후에 이전 날짜의 데이터를 최신으로 표시합니다.
-- **매월**: 매월 1일부터 10일 사이에 Cloudyn은 지난 달 말까지의 데이터만 표시할 수 있습니다.
+- **초기** : 설정 후 Cloudyn에서 비용 데이터를 보려면 최대 24시간이 걸릴 수 있습니다. 또한 Cloudyn이 크기 조정 권장 사항을 표시하기 위해 충분한 데이터를 수집하는 데 최대 10일이 소요될 수 있습니다.
+- **매일** : 매월 10일부터 말일까지 Cloudyn은 다음 날 약 UTC+3 이후에 이전 날짜의 데이터를 최신으로 표시합니다.
+- **매월** : 매월 1일부터 10일 사이에 Cloudyn은 지난 달 말까지의 데이터만 표시할 수 있습니다.
 
 Cloudyn은 이전 날짜의 전체 데이터를 사용할 수 있을 때 이전 날짜 데이터를 처리합니다. 이전 날짜의 데이터는 일반적으로 매일 약 UTC+3까지 Cloudyn에서 사용할 수 있습니다. 태그와 같은 일부 데이터는 처리하는 데 24시간이 추가로 걸릴 수 있습니다.
 

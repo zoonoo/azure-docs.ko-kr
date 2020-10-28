@@ -4,13 +4,13 @@ description: 앱에 대해 미리 빌드된 Ruby 컨테이너를 구성하는 �
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88083769"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743688"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 
@@ -51,7 +51,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> 즉 프로젝트에 구성된 Ruby 버전이 실행 중인 컨테이너에 설치된 버전과 다릅니다(위의 예제에서 `2.3.3`). 위의 예제에서 *Gemfile* 및 *.ruby-version*을 모두 확인하고, Ruby 버전이 설정되어 있지 않거나 실행 중인 컨테이너에 설치된 버전으로 설정되어 있는지 확인합니다(위의 예제에서 `2.3.3`).
+> 즉 프로젝트에 구성된 Ruby 버전이 실행 중인 컨테이너에 설치된 버전과 다릅니다(위의 예제에서 `2.3.3`). 위의 예제에서 *Gemfile* 및 *.ruby-version* 을 모두 확인하고, Ruby 버전이 설정되어 있지 않거나 실행 중인 컨테이너에 설치된 버전으로 설정되어 있는지 확인합니다(위의 예제에서 `2.3.3`).
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
@@ -65,7 +65,7 @@ ENV['WEBSITE_SITE_NAME']
 
 빌드 프로세스가 작동하는 상태에서 [Git 리포지토리](deploy-local-git.md) 또는 [Zip 패키지](deploy-zip.md)를 배포하면 기본적으로 배포 엔진(Kudu)에서 다음과 같은 배포 후 단계를 자동으로 실행합니다.
 
-1. *Gemfile*이 있는지 확인합니다.
+1. *Gemfile* 이 있는지 확인합니다.
 1. `bundle clean`을 실행합니다. 
 1. `bundle install --path "vendor/bundle"`을 실행합니다.
 1. `bundle package`를 실행하여 gem을 vendor/cache 폴더에 패키지합니다.

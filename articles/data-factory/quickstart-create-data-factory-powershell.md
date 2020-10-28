@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292390"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637584"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "91292390"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다** . Azure Data Factory를 사용하여 데이터를 **변환** 하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -43,7 +43,7 @@ ms.locfileid: "91292390"
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
-1. 컴퓨터에서 **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+1. 컴퓨터에서 **PowerShell** 을 시작합니다. 이 빠른 시작을 완료할 때까지 PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 
 2. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 동일한 Azure사용자 이름 및 암호를 입력합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "91292390"
     Get-AzSubscription
     ```
 
-4. 계정과 연결된 구독이 여러 개인 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
+4. 계정과 연결된 구독이 여러 개인 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId** 를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -105,9 +105,9 @@ ms.locfileid: "91292390"
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
+* Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자** 이어야 합니다.
 
-* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
@@ -115,10 +115,10 @@ ms.locfileid: "91292390"
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 빠른 시작에서 원본 및 싱크 저장소로 사용되는 Azure Storage 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
 >[!TIP]
->이 빠른 시작에서는 *계정 키*를 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)의 해당 섹션을 참조하세요.
->데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
+>이 빠른 시작에서는 *계정 키* 를 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI* , *서비스 주체* 및 *관리 ID* 를 선택합니다. 자세한 내용은 [이 문서](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](./store-credentials-in-key-vault.md)를 참조하세요.
 
-1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.)
+1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.)
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure Storage 계정의 이름과 키로 바꿉니다.
@@ -136,9 +136,9 @@ ms.locfileid: "91292390"
     }
     ```
 
-    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. `AzureStorageLinkedService.json.txt`)을 입력합니다. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일** 을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. `AzureStorageLinkedService.json.txt`)을 입력합니다. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
 
-2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
+2. **PowerShell** 에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
@@ -164,9 +164,9 @@ ms.locfileid: "91292390"
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
 이 프로시저에서는 두 개의 데이터 세트를 만듭니다. **InputDataset** 및 **OutputDataset** 이러한 데이터 세트는 **Binary** 유형입니다. 이 데이터 집합은 이전 섹션에서 만든 Azure Storage 연결된 서비스를 참조합니다.
-입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너(**adftutorial**), 폴더(**input**) 및 파일(**emp.txt**)을 지정합니다.
-출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너(**adftutorial**), 폴더(**output**) 및 데이터가 복사될 파일을 지정합니다. 
-1. 다음 콘텐츠가 포함된 **InputDataset.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
+입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너( **adftutorial** ), 폴더( **input** ) 및 파일( **emp.txt** )을 지정합니다.
+출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너( **adftutorial** ), 폴더( **output** ) 및 데이터가 복사될 파일을 지정합니다. 
+1. 다음 콘텐츠가 포함된 **InputDataset.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
     ```json
     {
@@ -190,7 +190,7 @@ ms.locfileid: "91292390"
     }
     ```
 
-2. 데이터 세트 **InputDataset**을 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
+2. 데이터 세트 **InputDataset** 을 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -208,7 +208,7 @@ ms.locfileid: "91292390"
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. 단계를 반복하여 출력 데이터 세트를 만듭니다. 다음 콘텐츠가 포함된 **OutputDataset.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
+3. 단계를 반복하여 출력 데이터 세트를 만듭니다. 다음 콘텐츠가 포함된 **OutputDataset.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
     ```json
     {
@@ -231,7 +231,7 @@ ms.locfileid: "91292390"
     }
     ```
 
-4. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 **OutDataset**를 만듭니다.
+4. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 **OutDataset** 를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -252,7 +252,7 @@ ms.locfileid: "91292390"
 
 이 절차에서는 입력 및 출력 데이터 세트를 사용하는 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 입력 데이터 세트 설정에 지정된 파일의 데이터를 출력 데이터 세트 설정에 지정된 파일로 복사합니다.  
 
-1. 다음 콘텐츠가 포함된 **Adfv2QuickStartPipeline.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
+1. 다음 콘텐츠가 포함된 **Adfv2QuickStartPipeline.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
     ```json
     {
@@ -306,7 +306,7 @@ ms.locfileid: "91292390"
     }
     ```
 
-2. 파이프라인 **Adfv2QuickStartPipeline**을 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
+2. 파이프라인 **Adfv2QuickStartPipeline** 을 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

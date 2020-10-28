@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946079"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741493"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Python)
 
@@ -80,14 +80,14 @@ pip install azure-iot-hub
 1. *registry_manager_pnp_sample.py* 파일을 열고 코드를 검토합니다. 이 샘플에서는 **IoTHubRegistryManager** 클래스를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트**에서 **IoTHubRegistryManager** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트** 에서 **IoTHubRegistryManager** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 
 ### <a name="get-the-device-twin"></a>디바이스 쌍 가져오기
 
 [IoT 플러그 앤 플레이 빠른 시작 및 자습서](set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
 
-* **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING** : 이전에 기록한 IoT 허브 연결 문자열입니다.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
 **서비스** 터미널에서 다음 명령을 사용하여 이 샘플을 실행합니다.
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-다음 코드 조각은 *registry_manager_pnp_sample.py*의 샘플 코드를 보여줍니다.
+다음 코드 조각은 *registry_manager_pnp_sample.py* 의 샘플 코드를 보여줍니다.
 
 ```python
     # Create IoTHubRegistryManager

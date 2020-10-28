@@ -3,14 +3,14 @@ title: '빠른 시작: Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작하세요.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813188"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741096"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -114,13 +114,13 @@ cd python-docs-hello-django
     flask run
     ```
     
-    기본적으로 서버는 샘플에서 사용되는 것처럼 앱의 진입 모듈이 *app.py*에 있다고 간주합니다. (다른 모듈 이름을 사용하는 경우 `FLASK_APP` 환경 변수를 해당 이름으로 설정합니다.)
+    기본적으로 서버는 샘플에서 사용되는 것처럼 앱의 진입 모듈이 *app.py* 에 있다고 간주합니다. (다른 모듈 이름을 사용하는 경우 `FLASK_APP` 환경 변수를 해당 이름으로 설정합니다.)
 
 1. 웹 브라우저를 열고 `http://localhost:5000/`의 샘플 앱으로 이동합니다. 앱에 **Hello World!** 메시지가 표시됩니다.
 
     ![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. 터미널 창에서 **Ctrl**+**C**를 눌러 개발 서버를 종료합니다.
+1. 터미널 창에서 **Ctrl**+**C** 를 눌러 개발 서버를 종료합니다.
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
@@ -142,14 +142,14 @@ cd python-docs-hello-django
 
     ![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. 터미널 창에서 **Ctrl**+**C**를 눌러 개발 서버를 종료합니다.
+1. 터미널 창에서 **Ctrl**+**C** 를 눌러 개발 서버를 종료합니다.
 ::: zone-end
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="deploy-the-sample"></a>샘플 배포
 
-`az webapp up` 명령을 사용하여 로컬 폴더(*python-docs-hello-world*)에 코드를 배포합니다.
+`az webapp up` 명령을 사용하여 로컬 폴더( *python-docs-hello-world* )에 코드를 배포합니다.
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,7 +157,7 @@ az webapp up --sku F1 --name <app-name>
 
 - `az` 명령이 인식되지 않는 경우 [초기 환경 설정](#set-up-your-initial-environment)에서 설명한 대로 Azure CLI가 설치되어 있는지 확인합니다.
 - `webapp` 명령이 인식되지 않는 경우 Azure CLI 버전이 2.0.80 이상이기 때문입니다. 그렇지 않은 경우 [최신 버전을 설치합니다](/cli/azure/install-azure-cli).
-- `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다(*유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
+- `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다( *유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
 - `--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.
 - 선택적으로 인수 `--location <location-name>`을 포함할 수 있습니다. 여기서 `<location_name>`은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
 - "앱의 런타임 스택을 자동으로 검색할 수 없습니다."라는 오류가 표시되면 *requirements.txt* 파일이 포함된 *python-docs-hello-world* 폴더(Flask) 또는 *python-docs-hello-django* 폴더(Django)에서 명령을 실행하고 있는지 확인합니다. ([az webapp up으로 자동 검색 문제 해결](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)(GitHub)을 참조하세요.)
@@ -187,7 +187,7 @@ Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에�
 이 섹션에서는 작은 코드를 변경한 다음, 코드를 Azure에 다시 배포합니다. 코드 변경 사항은 다음 섹션에서 작업하는 로깅 출력을 생성하기 위해 `print` 문을 포함합니다.
 
 ::: zone pivot="python-framework-flask"
-편집기에서 *app.py*를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다. 
+편집기에서 *app.py* 를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다. 
 
 ```python
 def hello():
@@ -196,7 +196,7 @@ def hello():
 ```
 ::: zone-end
 ::: zone pivot="python-framework-django"
-편집기에서 *hello/views.py*를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다.
+편집기에서 *hello/views.py* 를 열고 다음 코드와 일치하도록 `hello` 함수를 업데이트합니다.
 
 ```python
 def hello(request):
@@ -238,13 +238,13 @@ az webapp log tail
 
 `https://<app-name>.scm.azurewebsites.net/api/logs/docker`의 브라우저에서 로그 파일을 검사할 수도 있습니다.
 
-언제든지 로그 스트리밍을 중지하려면 터미널에서 **Ctrl**+**C**를 누릅니다.
+언제든지 로그 스트리밍을 중지하려면 터미널에서 **Ctrl**+**C** 를 누릅니다.
 
 [문제가 있나요? 알려주세요.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services**를 검색하여 선택합니다.
+만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services** 를 검색하여 선택합니다.
 
 ![Azure Portal의 App Services로 이동](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

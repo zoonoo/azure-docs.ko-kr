@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564785"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543817"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버
 
@@ -55,7 +55,7 @@ MySQL 커뮤니티 버전에서 제공하는 [Azure Database for MySQL](overview
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 
-단일 서버 서비스는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 기본 계층은 저렴한 개발과 낮은 동시성 워크로드에 가장 적합합니다. 범용 및 메모리 최적화는 높은 동시성, 규모 및 예측 가능한 성능이 필요한 프로덕션 워크로드에 더 적합합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 스토리지 스케일링은 온라인으로 수행되며 스토리지 자동 확장을 지원합니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 사용하는 리소스 비용만 지불하면 됩니다. 자세한 내용은  [가격 책정 계층](concepts-service-tiers.md)을 참조하세요.
+단일 서버 서비스는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 기본 계층은 저렴한 개발과 낮은 동시성 워크로드에 가장 적합합니다. 범용 및 메모리 최적화는 높은 동시성, 규모 및 예측 가능한 성능이 필요한 프로덕션 워크로드에 더 적합합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 스토리지 스케일링은 온라인으로 수행되며 스토리지 자동 확장을 지원합니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 사용하는 리소스 비용만 지불하면 됩니다. 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>엔터프라이즈급 보안, 규정 준수 및 거버넌스
 
@@ -63,7 +63,7 @@ MySQL 커뮤니티 버전에서 제공하는 [Azure Database for MySQL](overview
 
 이 서비스는 [프라이빗 링크](concepts-data-access-security-private-link.md)를 사용하여 서버에 대한 프라이빗 액세스를 허용하고 [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) 기능을 제공합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다.
 
-기본 인증 외에도, 단일 서버 서비스는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 인증을 지원합니다. Azure AD 인증은 Azure AD에서 정의되고 관리되는 ID를 사용하여 MySQL 서버에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 중앙 위치에서 데이터베이스 사용자 ID 및 기타 Azure 서비스를 관리할 수 있으므로, 액세스 제어가 간소화되고 중앙 집중화됩니다.
+기본 인증 외에도, 단일 서버 서비스는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 인증을 지원합니다. Azure AD 인증은 Azure AD에서 정의되고 관리되는 ID를 사용하여 MySQL 서버에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 중앙 위치에서 데이터베이스 사용자 ID 및 기타 Azure 서비스를 관리할 수 있으므로, 액세스 제어가 간소화되고 중앙 집중화됩니다.
 
 [감사 로깅](concepts-audit-logs.md)은 모든 데이터베이스 수준 활동을 추적하는 데 사용할 수 있습니다. 
 
@@ -80,7 +80,7 @@ Azure Database for MySQL 보안 기능에 대한 자세한 내용은 [보안 개
 이 서비스는 커뮤니티 버전의 MySQL을 실행합니다. 따라서 전체 애플리케이션이 호환되며, MySQL 엔진에서 개발된 기존 애플리케이션을 단일 서버로 마이그레이션하기 위한 리팩터링 비용이 최소화됩니다. 다음 옵션 중 하나를 사용하여 단일 서버로 마이그레이션할 수 있습니다.
 
 - **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우 mysqldump/mydumper 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠르게 마이그레이션할 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](concepts-migrate-dump-restore.md)을 참조하세요. 
-- **Azure Database Migration Service** – [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online)를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. 
+- **Azure Database Migration Service** – [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md)를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. 
 - **데이터 내부 복제** – 마이그레이션할 때 데이터 내부 복제를 사용하여 가동 중지 시간을 최소화할 수도 있습니다. 데이터 내부 복제는 binlog 기반 복제를 사용합니다. 데이터 내부 복제는 마이그레이션에 대한 추가 제어를 원하는 실습 전문가들이 가동 중지 시간을 최소화하기 위해 선호하는 방법입니다. 자세한 내용은 [데이터 내부 복제](concepts-data-in-replication.md)를 참조하세요.
 
 ## <a name="contacts"></a>연락처
@@ -108,4 +108,3 @@ Azure Database for MySQL 단일 서버 배포 모드에 대한 소개를 읽어 
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

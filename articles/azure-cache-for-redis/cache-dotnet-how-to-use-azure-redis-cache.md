@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88211360"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537068"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>빠른 시작: .NET Framework 애플리케이션에서 Azure Cache for Redis 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "88211360"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-컴퓨터에 *CacheSecrets.config*라는 파일을 만들고 이 파일을 샘플 애플리케이션의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 여기에서 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
+컴퓨터에 *CacheSecrets.config* 라는 파일을 만들고 이 파일을 샘플 애플리케이션의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 여기에서 *C:\AppSecrets\CacheSecrets.config* 에 있습니다.
 
 *CacheSecrets.config* 파일을 편집하여 다음 콘텐츠를 추가합니다.
 
@@ -47,9 +47,9 @@ ms.locfileid: "88211360"
 
 ## <a name="create-a-console-app"></a>콘솔 앱 만들기
 
-Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
+Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클릭합니다.
 
-**콘솔 앱(.NET Framework)** 을 선택하고 **다음**을 선택하여 앱을 구성합니다. **프로젝트 이름**을 입력하고 **만들기**를 클릭하여 새 콘솔 애플리케이션을 만듭니다.
+**콘솔 앱(.NET Framework)** 을 선택하고 **다음** 을 선택하여 앱을 구성합니다. **프로젝트 이름** 을 입력하고 **만들기** 를 클릭하여 새 콘솔 애플리케이션을 만듭니다.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -57,7 +57,7 @@ Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클�
 
 이 섹션에서는 .NET용 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용하도록 콘솔 애플리케이션을 구성합니다.
 
-Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
+Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -81,9 +81,9 @@ Visual Studio에서 *App.config* 파일을 열고 *CacheSecrets.config* 파일�
 </configuration>
 ```
 
-솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다. **System.Configuration** 어셈블리에 참조를 추가합니다.
+솔루션 탐색기에서 **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가** 를 클릭합니다. **System.Configuration** 어셈블리에 참조를 추가합니다.
 
-*Program.cs*에 다음 `using` 문을 추가합니다.
+*Program.cs* 에 다음 `using` 문을 추가합니다.
 
 ```csharp
 using StackExchange.Redis;
@@ -92,9 +92,9 @@ using System.Configuration;
 
 Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 애플리케이션 전체에서 공유하고 다시 사용해야 합니다. 각 작업에 대해 새 연결을 만들지 마세요. 
 
-소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 외부 비밀 구성 파일만을 사용합니다. 더 나은 방법은 [인증서로 Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios)를 사용하는 것입니다.
+소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 외부 비밀 구성 파일만을 사용합니다. 더 나은 방법은 [인증서로 Azure Key Vault](/rest/api/keyvault/certificate-scenarios)를 사용하는 것입니다.
 
-*Program.cs*에서 콘솔 애플리케이션의 `Program` 클래스에 다음 멤버를 추가합니다.
+*Program.cs* 에서 콘솔 애플리케이션의 `Program` 클래스에 다음 멤버를 추가합니다.
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -186,19 +186,19 @@ Azure Cache for Redis는 .NET 개체 및 기본 데이터 유형을 캐시할 �
 
 개체를 직렬화하는 간단한 방법 중 하나는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)에서 `JsonConvert` 직렬화 메서드를 사용하고 JSON 간에 직렬화하는 것입니다. 이 섹션에서는 .NET 개체를 캐시에 추가합니다.
 
-Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
+Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
 
 ```powershell
 Install-Package Newtonsoft.Json
 ```
 
-다음 `using` 문을 *Program.cs*의 맨 위쪽에 추가합니다.
+다음 `using` 문을 *Program.cs* 의 맨 위쪽에 추가합니다.
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-다음 `Employee` 클래스 정의를 *Program.cs*에 추가합니다.
+다음 `Employee` 클래스 정의를 *Program.cs* 에 추가합니다.
 
 ```csharp
 class Employee
@@ -216,7 +216,7 @@ class Employee
 }
 ```
 
-*Program.cs*의 `Main()` 프로시저의 맨 아래쪽에서 `Dispose()`에 대한 호출 앞에 직렬화된 .NET 개체를 캐시하고 검색하도록 다음 코드 줄을 추가합니다.
+*Program.cs* 의 `Main()` 프로시저의 맨 아래쪽에서 `Dispose()`에 대한 호출 앞에 직렬화된 .NET 개체를 캐시하고 검색하도록 다음 코드 줄을 추가합니다.
 
 ```csharp
     // Store .NET object to cache
@@ -247,13 +247,13 @@ class Employee
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
-[Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
+[Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹** 을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제** 를 클릭합니다.
 
 ![DELETE](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
+리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제** 를 클릭합니다.
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
@@ -271,4 +271,4 @@ class Employee
 클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
 
 > [!div class="nextstepaction"]
-> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Cost Management를 통한 비용 분석 시작](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

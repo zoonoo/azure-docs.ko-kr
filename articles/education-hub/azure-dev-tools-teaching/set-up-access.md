@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87101125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676533"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Azure Dev 도구에 대한 액세스 설정
 
@@ -30,7 +30,7 @@ Visual Studio Subscription에 대한 액세스를 요청하기 위해 [관리 �
 ## <a name="for-students-faculty-and-administrators"></a>학생, 교직원 및 관리자의 경우
 학생은 [Education Hub](https://aka.ms/devtoolsforteaching)를 통해 Azure 개발자 도구에 액세스합니다.
 
-학생 및 교직원은 Education Hub를 통해 모든 소프트웨어 다운로드 혜택을 이용할 수 있습니다. Education Hub는 Azure Portal 내에 빌드되고 학생들이 전체 소프트웨어 카탈로그에 액세스하고 전체 [Microsoft Learn](https://docs.microsoft.com/learn/) 카탈로그에 액세스할 수 있습니다.
+학생 및 교직원은 Education Hub를 통해 모든 소프트웨어 다운로드 혜택을 이용할 수 있습니다. Education Hub는 Azure Portal 내에 빌드되고 학생들이 전체 소프트웨어 카탈로그에 액세스하고 전체 [Microsoft Learn](/learn/) 카탈로그에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [학생 계정 관리](manage-students.md)

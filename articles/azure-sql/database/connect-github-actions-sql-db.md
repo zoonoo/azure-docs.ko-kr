@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: cd08b02cb3b67ce615ffa1003ee1e4441a281c17
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285070"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669753"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "92285070"
 - dacpac 패키지(`Database.dacpac`)가 있는 GitHub 리포지토리. GitHub 계정이 없는 경우 [평가판에 가입](https://github.com/join)하세요.  
 - Azure SQL Database.
     - [빠른 시작: Azure SQL Database 단일 데이터베이스 만들기](single-database-create-quickstart.md)
-    - [기존 SQL Server 데이터베이스에서 dacpac 패키지를 만드는 방법](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [기존 SQL Server 데이터베이스에서 dacpac 패키지를 만드는 방법](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## <a name="workflow-file-overview"></a>워크플로 파일 개요
 
@@ -194,4 +194,4 @@ Azure SQL 데이터베이스 및 리포지토리가 더 이상 필요하지 않�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 및 GitHub 통합에 대해 알아보기](https://docs.microsoft.com/azure/developer/github/)
+> [Azure 및 GitHub 통합에 대해 알아보기](/azure/developer/github/)

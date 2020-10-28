@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86231236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638247"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 
@@ -28,7 +28,7 @@ ms.locfileid: "86231236"
 
 | 기능 | 버전 1 | 현재 버전 | 
 | ------- | --------- | --------- | 
-| 데이터 세트 | 활동에서 입력 및 출력으로 사용하려는 데이터를 참조하는 데이터의 명명된 보기입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트은 활동에서 데이터를 읽어 들여야 하는 Azure Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.<br/><br/>**가용성**은 데이터 세트에 대한 처리 기간 조각화 모델을 정의합니다(예: 매시간, 매일 등). | 데이터 세트는 현재 버전에서 동일합니다. 하지만 데이터 세트에 대한 **가용성** 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md#trigger-execution) 및 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. | 
+| 데이터 세트 | 활동에서 입력 및 출력으로 사용하려는 데이터를 참조하는 데이터의 명명된 보기입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트은 활동에서 데이터를 읽어 들여야 하는 Azure Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.<br/><br/>**가용성** 은 데이터 세트에 대한 처리 기간 조각화 모델을 정의합니다(예: 매시간, 매일 등). | 데이터 세트는 현재 버전에서 동일합니다. 하지만 데이터 세트에 대한 **가용성** 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md#trigger-execution) 및 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. | 
 | 연결된 서비스 | 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. | 연결된 서비스는 Data Factory V1에서와 동일하지만 현재 버전의 Data Factory에 포함된 Integration Runtime 컴퓨팅 환경을 활용하는 새로운 **connectVia** 속성이 있습니다. 자세한 내용은 [Azure Data Factory의 통합 런타임](concepts-integration-runtime.md) 및 [Azure Blob Storage의 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)을 참조하세요. |
 | 파이프라인 | 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. startTime, endTime 및 isPaused를 사용하여 파이프라인을 예약하고 실행합니다. | 파이프라인은 데이터에 수행되는 활동의 그룹입니다. 단, 파이프 라인에서 활동의 일정 계획이 새로운 트리거 리소스로 분리되었습니다. 현재 버전의 Data Factory에 포함된 파이프라인이 트리거를 통해 개별적으로 예약하는 "워크플로 단위"라고 생각할 수 있습니다. <br/><br/>현재 버전의 Data Factory에서는 파이프라인에 시간 실행의 "기간"이 없습니다. Data Factory V1의 startTime, endTime, isPaused 개념은 현재 버전의 Data Factory에 더 이상 존재하지 않습니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)와 [파이프라인 및 활동](concepts-pipelines-activities.md)을 참조하세요. |
 | 활동 | 활동은 파이프라인 내에서 데이터에 수행할 동작을 정의합니다. 데이터 이동(복사 활동) 및 데이터 변환 활동(예: Hive, Pig 및 MapReduce)이 지원됩니다. | 최신 버전 Data Factory의 활동은 여전히 파이프라인 내에 정의된 동작입니다. 최신 버전의 Data Factory에는 새 [제어 흐름 활동](concepts-pipelines-activities.md#control-flow-activities)이 도입되었습니다. 이러한 활동은 제어 흐름(루핑 및 분기)에서 사용합니다. V1에서 지원되었던 데이터 이동 및 데이터 변환 활동이 현재 버전에서 지원됩니다. 현재 버전에서는 데이터 세트를 사용하지 않고 변환 활동을 정의할 수 있습니다. |
@@ -87,7 +87,7 @@ SSIS 워크로드를 클라우드로 이동하고 현재 버전을 사용하여 
 
 Azure-SSIS Integration Runtime은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. Azure-SSIS Integration Runtime을 프로비전한 후에 온-프레미스 SSIS 환경에 SSIS 패키지를 배포하는 데 사용한 것과 동일한 도구를 사용할 수 있습니다. 
 
-예를 들어 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS 패키지를 배포할 수 있습니다. 단계별 지침은 자습서 [Azure에 SQL Server 통합 서비스 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)를 참조하세요. 
+예를 들어 SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS 패키지를 배포할 수 있습니다. 단계별 지침은 자습서 [Azure에 SQL Server 통합 서비스 패키지 배포](./tutorial-deploy-ssis-packages-azure.md)를 참조하세요. 
 
 ## <a name="flexible-scheduling"></a>유연한 일정 계획
 현재 버전의 Data Factory에서는 데이터 세트 가용성 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 유연한 일정 예약/실행 모델을 위해 트리거에서 파이프라인으로 매개 변수를 전달할 수도 있습니다. 
@@ -118,13 +118,13 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 ## <a name="sdks"></a>SDK
  현재 버전의 Data Factory는 파이프라인을 작성, 관리 및 모니터링하는 데 사용할 수 있는 다양한 SDK 집합을 제공합니다.
 
-- **.NET SDK**: .NET SDK가 현재 버전에서 업데이트되었습니다.
+- **.NET SDK** : .NET SDK가 현재 버전에서 업데이트되었습니다.
 
-- **PowerShell**: PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2**가 포함됩니다. 예를 들면 Get-AzDataFactoryV2. 
+- **PowerShell** : PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2** 가 포함됩니다. 예를 들면 Get-AzDataFactoryV2. 
 
-- **Python SDK**: 이 SDK는 현재 버전의 새로운 기능입니다.
+- **Python SDK** : 이 SDK는 현재 버전의 새로운 기능입니다.
 
-- **REST API**: REST API가 현재 버전에서 업데이트되었습니다. 
+- **REST API** : REST API가 현재 버전에서 업데이트되었습니다. 
 
 현재 버전에서 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니다. 
 
@@ -133,11 +133,11 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 | | 버전 2 | 버전 1 |
 | ------ | -- | -- | 
 | **Azure Portal** | [예](quickstart-create-data-factory-portal.md) | 예 |
-| **Azure PowerShell** | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
-| **.NET SDK** | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
-| **REST API** | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Azure PowerShell** | [예](quickstart-create-data-factory-powershell.md) | [예](./v1/data-factory-build-your-first-pipeline-using-powershell.md) |
+| **.NET SDK** | [예](quickstart-create-data-factory-dot-net.md) | [예](./v1/data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [예](quickstart-create-data-factory-rest-api.md) | [예](./v1/data-factory-build-your-first-pipeline-using-rest-api.md) |
 | **Python SDK** | [예](quickstart-create-data-factory-python.md) | 예 |
-| **Resource Manager 템플릿** | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Resource Manager 템플릿** | [예](quickstart-create-data-factory-resource-manager-template.md) | [예](./v1/data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>역할 및 권한
 
@@ -148,4 +148,4 @@ Data Factory 버전 1 기여자 역할을 사용하여 현재 버전의 Data Fac
 
 
 ## <a name="next-steps"></a>다음 단계
-다음 빠른 시작의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아보기: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 
+다음 빠른 시작의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아보기: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md).

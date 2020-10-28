@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6050dd43b91299cd776d1121d7398f46e95bc096
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678198"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정
 
@@ -231,4 +231,4 @@ cmdlet 및 해당 매개 변수에 대한 자세한 내용은 [Azure Attestation
 ## <a name="next-steps"></a>다음 단계
 
 - [증명 정책을 작성하고 서명하는 방법](author-sign-policy.md)
-- [코드 샘플을 사용하여 SGX enclave 증명](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [코드 샘플을 사용하여 SGX enclave 증명](/samples/browse/?expanded=azure&terms=attestation)

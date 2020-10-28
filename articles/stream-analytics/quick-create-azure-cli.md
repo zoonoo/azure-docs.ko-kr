@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86231270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742742"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -59,7 +59,7 @@ ms.locfileid: "86231270"
 
    모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-   이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg*라는 리소스 그룹을 만듭니다.
+   이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg* 라는 리소스 그룹을 만듭니다.
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus
@@ -71,7 +71,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
 
 다음 Azure CLI 코드 블록은 작업에 필요한 입력 데이터를 준비합니다. 코드를 이해하려면 섹션을 검토합니다.
 
-1. [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub**라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
+1. [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub** 라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
@@ -83,7 +83,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice**라는 디바이스를 만듭니다.
+2. [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -249,7 +249,7 @@ az stream-analytics transformation create
 
 2. 15행의 자리 표시자를 이전 섹션에서 저장한 Azure IoT Hub 디바이스 전체 연결 문자열로 바꿉니다.
 
-3. **실행**을 클릭합니다. IoT Hub로 전송 중인 센서 데이터와 메시지가 출력에 표시되어야 합니다.
+3. **실행** 을 클릭합니다. IoT Hub로 전송 중인 센서 데이터와 메시지가 출력에 표시되어야 합니다.
 
     ![Raspberry Pi Azure IoT 온라인 시뮬레이터](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

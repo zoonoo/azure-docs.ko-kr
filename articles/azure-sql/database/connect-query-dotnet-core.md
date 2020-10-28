@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: f1908e243b7cb1def2eac8a1d46d5f087a25f8c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32ea1dd2141a8df1fb495af64848f87e9f152328
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669736"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: .NET Core(C#)를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "88936404"
 이 빠른 시작에서는 [.NET Core](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리합니다.
 
 > [!TIP]
-> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
+> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -68,7 +68,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 
 ## <a name="get-adonet-connection-information-optional---sql-database-only"></a>ADO.NET 연결 정보 가져오기(선택 사항 - SQL Database 전용)
 
-1. **mySampleDatabase** 페이지로 이동한 다음, **설정** 아래에서 **연결 문자열**을 선택합니다.
+1. **mySampleDatabase** 페이지로 이동한 다음, **설정** 아래에서 **연결 문자열** 을 선택합니다.
 
 2. **ADO.NET** 연결 문자열 전체를 검토합니다.
 
@@ -78,15 +78,15 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
   
 ## <a name="create-a-new-net-core-project"></a>새로운 .NET Core 프로젝트 만들기
 
-1. 명령 프롬프트를 열고 **sqltest**라는 폴더를 만듭니다. 이 폴더로 이동하여 이 명령을 실행합니다.
+1. 명령 프롬프트를 열고 **sqltest** 라는 폴더를 만듭니다. 이 폴더로 이동하여 이 명령을 실행합니다.
 
     ```cmd
     dotnet new console
     ```
 
-    이 명령은 초기 C# 코드 파일(**Program.cs**), XML 구성 파일(**sqltest.csproj**) 및 필요한 이진 파일을 포함하여 새로운 앱 프로젝트 파일을 만듭니다.
+    이 명령은 초기 C# 코드 파일( **Program.cs** ), XML 구성 파일( **sqltest.csproj** ) 및 필요한 이진 파일을 포함하여 새로운 앱 프로젝트 파일을 만듭니다.
 
-2. 텍스트 편집기에서 **sqltest.csproj**를 열고 `<Project>` 태그 사이에 다음 XML을 붙여넣습니다. 이 XML은 `System.Data.SqlClient`를 종속성으로 추가합니다.
+2. 텍스트 편집기에서 **sqltest.csproj** 를 열고 `<Project>` 태그 사이에 다음 XML을 붙여넣습니다. 이 XML은 `System.Data.SqlClient`를 종속성으로 추가합니다.
 
     ```xml
     <ItemGroup>
@@ -96,7 +96,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 
 ## <a name="insert-code-to-query-the-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스를 쿼리할 코드 삽입하기
 
-1. 텍스트 편집기에서 **Program.cs**를 엽니다.
+1. 텍스트 편집기에서 **Program.cs** 를 엽니다.
 
 2. 내용을 다음 코드로 바꾸고 서버, 데이터베이스, 사용자 이름 및 암호에 대해 적절한 값을 추가합니다.
 
@@ -200,11 +200,11 @@ namespace sqltest
    Done. Press enter.
    ```
 
-3. **Enter**를 선택하여 애플리케이션 창을 닫습니다.
+3. **Enter** 를 선택하여 애플리케이션 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [.NET Framework 및 Visual Studio를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance를 연결 및 쿼리하는 방법](connect-query-dotnet-visual-studio.md)을 알아봅니다.  
 - [SSMS를 사용하여 첫 번째 데이터베이스를 디자인](design-first-database-tutorial.md)하거나 [데이터베이스를 디자인하고 C# 및 ADO.NET에 연결](design-first-database-csharp-tutorial.md)하는 방법을 알아봅니다.
-- .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
+- .NET에 대한 자세한 내용은 [.NET 설명서](/dotnet/)를 참조하세요.

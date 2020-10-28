@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372309"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369661"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -39,8 +39,8 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
 
 1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 엽니다.
-1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.
-1. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
+1. 확인하려는 구독을 선택한 다음 **설정** 에서 확인합니다.
+1. **속성** 을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>관리자 권한으로 사용자를 할당하려면
 
@@ -54,7 +54,7 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 
     ![역할 할당을 보여주는 스크린샷](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. **추가** > **역할 할당 추가**를 클릭하여 **역할 할당 추가** 창을 엽니다.
+1. **추가** > **역할 할당 추가** 를 클릭하여 **역할 할당 추가** 창을 엽니다.
 
     역할을 할당할 수 있는 권한이 없으면 옵션이 비활성화됩니다.
 
@@ -64,7 +64,7 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 
     ![선택한 소유자 역할을 보여 주는 스크린샷](./media/add-change-subscription-administrator/add-role.png)
 
-1. **저장**을 클릭하여 역할을 할당합니다.
+1. **저장** 을 클릭하여 역할을 할당합니다.
 
     몇 분이 지나면 사용자에게는 구독 범위의 소유자 역할이 할당됩니다.
 
@@ -73,7 +73,7 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 * [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
 * [Azure의 다양한 역할 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Azure Active Directory의 관리자 역할 사용 권한](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Azure Active Directory의 관리자 역할 사용 권한](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

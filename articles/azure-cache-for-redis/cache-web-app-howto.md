@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 963021e26036969a51f77641376c693e94ac5061
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b880762d43cd4e105b79613aadb476611228a47e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460343"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536609"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 
@@ -25,7 +25,7 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. Visual Studio를 연 다음, **파일** >**새로 만들기** > **프로젝트**를 선택합니다.
+1. Visual Studio를 연 다음, **파일** >**새로 만들기** > **프로젝트** 를 선택합니다.
 
 2. **새 프로젝트** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -33,21 +33,21 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
     a. **템플릿** 목록에서 **Visual C#** 노드를 확장합니다.
 
-    b. **클라우드**를 선택합니다.
+    b. **클라우드** 를 선택합니다.
 
-    다. **ASP.NET 웹 애플리케이션**을 선택합니다.
+    다. **ASP.NET 웹 애플리케이션** 을 선택합니다.
 
     d. **.NET Framework 4.5.2** 이상이 선택되었는지 확인합니다.
 
-    e. **이름** 상자에서 프로젝트에 이름을 지정합니다. 이 예제의 경우 **ContosoTeamStats**을 사용했습니다.
+    e. **이름** 상자에서 프로젝트에 이름을 지정합니다. 이 예제의 경우 **ContosoTeamStats** 을 사용했습니다.
 
-    f. **확인**을 선택합니다.
+    f. **확인** 을 선택합니다.
    
 3. 프로젝트 유형으로 **MVC** 를 선택합니다.
 
-4. **인증** 설정에 **인증 없음**을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본 **인증**을 설정할 수 있습니다. 변경하려면 **인증 변경** 및 **인증 없음**을 차례로 선택합니다.
+4. **인증** 설정에 **인증 없음** 을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본 **인증** 을 설정할 수 있습니다. 변경하려면 **인증 변경** 및 **인증 없음** 을 차례로 선택합니다.
 
-5. **확인**을 선택하여 프로젝트를 만듭니다.
+5. **확인** 을 선택하여 프로젝트를 만듭니다.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 
@@ -59,7 +59,7 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
 
-1. *CacheSecrets.config*라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
+1. *CacheSecrets.config* 라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config* 에 있습니다.
 
 1. *CacheSecrets.config* 파일을 편집합니다. 그런 다음, 다음 내용을 추가합니다.
 
@@ -89,12 +89,12 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트
 
-애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
+애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config* 의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
 
 *CacheSecrets.config* 파일이 애플리케이션과 함께 Azure에 배포되지 않으므로 애플리케이션을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
 
 #### <a name="to-update-the-webconfig-file"></a>*Web.config* 파일을 업데이트하려면
-1. **솔루션 탐색기**에서 *web.config* 파일을 두 번 클릭하여 엽니다.
+1. **솔루션 탐색기** 에서 *web.config* 파일을 두 번 클릭하여 엽니다.
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
@@ -107,7 +107,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 애플리케이션을 구성하려면
 
-1. Visual Studio용 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 패키지를 사용하여 앱을 구성하려면 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 선택합니다.
+1. Visual Studio용 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 패키지를 사용하여 앱을 구성하려면 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔** 을 선택합니다.
 
 2. `Package Manager Console` 창에서 다음 명령을 실행합니다.
 
@@ -119,7 +119,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>HomeController 및 레이아웃을 업데이트하려면
 
-1. **솔루션 탐색기**에서 **컨트롤러** 폴더를 확장한 다음, *HomeController.cs* 파일을 엽니다.
+1. **솔루션 탐색기** 에서 **컨트롤러** 폴더를 확장한 다음, *HomeController.cs* 파일을 엽니다.
 
 2. 파일 맨 위에 다음 두 개의 `using` 문을 추가하여 캐시 클라이언트 및 앱 설정을 지원합니다.
 
@@ -189,7 +189,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
     ```
 
-4. **솔루션 탐색기**에서 **뷰** > **공유됨** 폴더를 확장합니다. 그런 다음, *_Layout.cshtml* 파일을 엽니다.
+4. **솔루션 탐색기** 에서 **뷰** > **공유됨** 폴더를 확장합니다. 그런 다음, *_Layout.cshtml* 파일을 엽니다.
 
     다음을
     
@@ -205,9 +205,9 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="to-add-a-new-rediscache-view"></a>새 RedisCache 뷰를 추가하려면
 
-1. **솔루션 탐색기**에서 **뷰** 폴더를 확장한 다음, **Home** 폴더를 마우스 오른쪽 단추로 클릭합니다. **추가** > **뷰...** 를 선택합니다.
+1. **솔루션 탐색기** 에서 **뷰** 폴더를 확장한 다음, **Home** 폴더를 마우스 오른쪽 단추로 클릭합니다. **추가** > **뷰...** 를 선택합니다.
 
-2. **뷰 추가** 대화 상자에서 뷰 이름으로 **RedisCache**를 입력합니다. 그런 다음, **추가**를 선택합니다.
+2. **뷰 추가** 대화 상자에서 뷰 이름으로 **RedisCache** 를 입력합니다. 그런 다음, **추가** 를 선택합니다.
 
 3. *RedisCache.cshtml* 파일의 코드를 다음 코드로 바꿉니다.
 
@@ -249,12 +249,12 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-기본적으로 프로젝트는 테스트 및 디버깅을 위해 [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview)에서 앱을 로컬로 호스팅하도록 구성됩니다.
+기본적으로 프로젝트는 테스트 및 디버깅을 위해 [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)에서 앱을 로컬로 호스팅하도록 구성됩니다.
 
 ### <a name="to-run-the-app-locally"></a>로컬에서 앱을 실행하려면
-1. Visual Studio에서 **디버그** > **디버깅 시작**을 선택하여 테스트 및 디버깅을 위해 앱을 로컬로 빌드하고 시작합니다.
+1. Visual Studio에서 **디버그** > **디버깅 시작** 을 선택하여 테스트 및 디버깅을 위해 앱을 로컬로 빌드하고 시작합니다.
 
-2. 브라우저의 탐색 모음에서 **Azure Cache for Redis 테스트**를 선택합니다.
+2. 브라우저의 탐색 모음에서 **Azure Cache for Redis 테스트** 를 선택합니다.
 
 3. 다음 예제에서 `Message` 키에는 이전에 포털에서 Azure Cache for Redis 콘솔을 사용하여 설정된 캐시된 값이 있습니다. 앱에서 캐시된 값을 업데이트했습니다. 또한 앱에서 `PING` 및 `CLIENT LIST` 명령을 실행했습니다.
 
@@ -266,11 +266,11 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="to-publish-the-app-to-azure"></a>Azure에 앱을 게시하려면
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **게시**를 선택합니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **게시** 를 선택합니다.
 
     ![게시](./media/cache-web-app-howto/cache-publish-app.png)
 
-2. **Microsoft Azure App Service** 및 **새로 만들기**를 차례로 선택한 다음, **게시**를 선택합니다.
+2. **Microsoft Azure App Service** 및 **새로 만들기** 를 차례로 선택한 다음, **게시** 를 선택합니다.
 
     ![앱 서비스에 게시](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
@@ -280,12 +280,12 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
     | ------- | :---------------: | ----------- |
     | **앱 이름** | 기본값을 사용하세요. | 앱 이름은 Azure에 배포할 때 앱에 사용하는 호스트 이름입니다. 필요한 경우 이름을 고유하게 만들려면 타임스탬프 접미사가 추가될 수 있습니다. |
     | **구독** | Azure 구독을 선택합니다. | 이 구독은 모든 관련된 호스팅 비용이 청구됩니다. 여러 Azure 구독이 있는 경우 원하는 구독이 선택되어 있는지 확인합니다.|
-    | **리소스 그룹** | 캐시를 만든 것과 동일한 리소스 그룹을 사용합니다(예를 들어 *TestResourceGroup*). | 리소스 그룹은 모든 리소스를 그룹으로 관리하는 경우 유용합니다. 나중에 앱을 삭제하려는 경우 그룹만 삭제할 수 있습니다. |
-    | **App Service 계획** | **새로 만들기**를 선택하여 *TestingPlan*이라는 새 App Service 계획을 만듭니다. <br />캐시를 만들 때 사용했던 것과 동일한 **위치**를 사용합니다. <br />크기에 대해 **무료**를 선택합니다. | App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. |
+    | **리소스 그룹** | 캐시를 만든 것과 동일한 리소스 그룹을 사용합니다(예를 들어 *TestResourceGroup* ). | 리소스 그룹은 모든 리소스를 그룹으로 관리하는 경우 유용합니다. 나중에 앱을 삭제하려는 경우 그룹만 삭제할 수 있습니다. |
+    | **App Service 계획** | **새로 만들기** 를 선택하여 *TestingPlan* 이라는 새 App Service 계획을 만듭니다. <br />캐시를 만들 때 사용했던 것과 동일한 **위치** 를 사용합니다. <br />크기에 대해 **무료** 를 선택합니다. | App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. |
 
     ![App Service 대화 상자](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-4. App Service 호스팅 설정을 구성한 후 **만들기**를 선택합니다.
+4. App Service 호스팅 설정을 구성한 후 **만들기** 를 선택합니다.
 
 5. Visual Studio에서 **출력** 창을 모니터링하여 게시 상태를 확인합니다. 앱이 게시된 후 앱에 대한 URL이 기록됩니다.
 
@@ -301,7 +301,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
     ![앱 찾기](./media/cache-web-app-howto/cache-find-app-service.png)
 
-2. 캐시에 연결하는 데 사용할 앱에 대해 **CacheConnection**이란 이름의 새 앱 설정을 추가합니다. 사용자의 *CacheSecrets.config* 파일에서 `CacheConnection`에 대해 구성한 것과 동일한 값을 사용합니다. 키에는 캐시 호스트 이름 및 액세스 키가 포함됩니다.
+2. 캐시에 연결하는 데 사용할 앱에 대해 **CacheConnection** 이란 이름의 새 앱 설정을 추가합니다. 사용자의 *CacheSecrets.config* 파일에서 `CacheConnection`에 대해 구성한 것과 동일한 값을 사용합니다. 키에는 캐시 호스트 이름 및 액세스 키가 포함됩니다.
 
     ![앱 설정 추가](./media/cache-web-app-howto/cache-add-app-setting.png)
 
@@ -309,7 +309,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 브라우저에서 앱에 대한 URL로 이동합니다. URL은 Visual Studio의 출력 창에 게시 작업의 결과로 표시됩니다. 또한 사용자가 만든 앱의 개요 페이지에서 Azure Portal에도 제공됩니다.
 
-캐시 액세스를 테스트하려면 탐색 모음에서 **Azure Cache for Redis 테스트**를 선택합니다.
+캐시 액세스를 테스트하려면 탐색 모음에서 **Azure Cache for Redis 테스트** 를 선택합니다.
 
 ![간단한 테스트가 완료된 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -324,13 +324,13 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="to-delete-a-resource-group"></a>리소스 그룹을 삭제하려면
 
-1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, **리소스 그룹**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, **리소스 그룹** 을 선택합니다.
 
-2. **이름을 기준으로 필터링...** 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+2. **이름을 기준으로 필터링...** 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
     ![DELETE](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 다음, **삭제**를 선택합니다.
+리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 다음, **삭제** 를 선택합니다.
 
 잠시 후, 리소스 그룹 및 모든 해당 리소스가 삭제됩니다.
 

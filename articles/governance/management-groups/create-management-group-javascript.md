@@ -3,13 +3,13 @@ title: '빠른 시작: JavaScript를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 JavaScript를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604557"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676220"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>빠른 시작: JavaScript를 사용하여 관리 그룹 만들기
 
@@ -60,7 +60,7 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
 
 ## <a name="create-the-management-group"></a>관리 그룹 만들기
 
-1. _index.js_라는 새 파일을 만들고 다음 코드를 입력합니다.
+1. _index.js_ 라는 새 파일을 만들고 다음 코드를 입력합니다.
 
    ```javascript
    const argv = require("yargs").argv;
@@ -90,7 +90,7 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   각 토큰 `<>` 자리 표시자는 각각 _관리 그룹 ID_ 및 _관리 그룹 식별 이름_으로 바꾸어야 합니다.
+   각 토큰 `<>` 자리 표시자는 각각 _관리 그룹 ID_ 및 _관리 그룹 식별 이름_ 으로 바꾸어야 합니다.
 
    스크립트가 인증을 시도할 때 다음 메시지와 유사한 메시지가 터미널에 표시됩니다.
 

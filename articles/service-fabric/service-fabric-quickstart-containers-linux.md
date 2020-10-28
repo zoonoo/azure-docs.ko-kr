@@ -3,13 +3,13 @@ title: Azure의 Service Fabric에서 Linux 컨테이너 앱 만들기
 description: 이 빠른 시작에서 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 클러스터에 컨테이너를 배포합니다.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91541512"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741920"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -89,7 +89,7 @@ Service Fabric은 클러스터 및 해당 애플리케이션을 관리하는 데
 
 이 빠른 시작에서는 Service Fabric CLI 및 Service Fabric Explorer(웹 기반 도구)를 사용합니다. Service Fabric Explorer를 사용하려면 인증서 PFX 파일을 브라우저로 가져와야 합니다. 기본적으로 PFX 파일에는 암호가 없습니다.
 
-Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
+Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션** 을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기** 를 클릭하고 **Your Certificates** (인증서) 탭을 선택하고 **가져오기** 를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -107,7 +107,7 @@ Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Fi
     ./install.sh
     ```
 
-3. 웹 브라우저를 열고 클러스터의 Service Fabric Explorer 엔드포인트로 이동합니다. 엔드포인트의 형식은 **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**입니다(예: `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`). </br>
+3. 웹 브라우저를 열고 클러스터의 Service Fabric Explorer 엔드포인트로 이동합니다. 엔드포인트의 형식은 **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer** 입니다(예: `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`). </br>
 
 4. **애플리케이션** 노드를 확장하여 만든 Voting 애플리케이션 유형 및 생성한 인스턴스에 대한 항목이 표시되는지 확인합니다.
 
@@ -132,7 +132,7 @@ Service Fabric은 장애가 발생할 경우 컨테이너 인스턴스가 클러
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`
 2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다. 트리 뷰에서 노드 이름을 확인합니다. 컨테이너에서 현재 실행 중인 노드를 보여 줍니다. 예: `_nodetype_1`
 3. 트리 뷰에서 **노드** 노드를 확장합니다. 컨테이너를 실행 중인 노드 옆에 있는 줄임표(...)를 클릭합니다.
-4. **다시 시작**을 선택하여 해당 노드를 다시 시작하고 다시 시작 작업을 확인합니다. 다시 시작하면 컨테이너를 클러스터의 다른 노드로 장애 조치(failover)합니다.
+4. **다시 시작** 을 선택하여 해당 노드를 다시 시작하고 다시 시작 작업을 확인합니다. 다시 시작하면 컨테이너를 클러스터의 다른 노드로 장애 조치(failover)합니다.
 
     ![Service Fabric Explorer의 노드 보기][sfxquickstartshownodetype]
 
@@ -143,13 +143,13 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음 단계를 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://containertestcluster.eastus.cloudapp.azure.com:19080`
-2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service**(서비스 크기 조정)를 선택합니다.
+2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service** (서비스 크기 조정)를 선택합니다.
 
     ![Service Fabric Explorer 크기 조정 서비스 시작][containersquickstartscale]
 
     이제 웹 프런트 엔드 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 이 수를 **2**로 변경하고 **Scale Service**를 클릭합니다.
+3. 이 수를 **2** 로 변경하고 **Scale Service** 를 클릭합니다.
 4. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
     ![Service Fabric Explorer 크기 조정 서비스 완료][containersquickstartscaledone]
@@ -178,7 +178,7 @@ az group delete --name $ResourceGroupName
 ```
 
 클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예를 들면 다음과 같습니다.
-- Windows에서: [인증서 MMC 스냅인](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
+- Windows에서: [인증서 MMC 스냅인](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정** 을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
 - Mac에서: 키 집합 앱을 사용합니다.
 - Ubuntu에서: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7b4620c739b2f94cb6b96743280cd1decbbb746e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326121"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541267"
 ---
 # <a name="use-github-actions-to-connect-to-azure-mysql"></a>GitHub Actions를 사용하여 Azure MySQL에 연결
 
@@ -39,7 +39,7 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 `server-name` 자리 표시자를 Azure에서 호스팅되는 MySQL 서버의 이름으로 바꿉니다. `subscription-id` 및 `resource-group`을 MySQL 서버에 연결된 구독 ID 및 리소스 그룹으로 바꿉니다.  
 
@@ -191,4 +191,4 @@ Azure MySQL 데이터베이스 및 리포지토리가 더 이상 필요하지 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 및 GitHub 통합에 대해 알아보기](https://docs.microsoft.com/azure/developer/github/)
+> [Azure 및 GitHub 통합에 대해 알아보기](/azure/developer/github/)

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906566"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541403"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for MySQL 서버 만들기
 
@@ -24,13 +24,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 웹 브라우저를 연 다음 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-정의된 [컴퓨팅 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트를 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
+정의된 [컴퓨팅 및 스토리지 리소스](./concepts-pricing-tiers.md) 세트를 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
 
 다음 단계에 따라 Azure Database for MySQL 서버를 만듭니다.
 
-1. 포털의 왼쪽 위 모서리에서 **리소스 만들기**(+)를 선택합니다.
+1. 포털의 왼쪽 위 모서리에서 **리소스 만들기** (+)를 선택합니다.
 
-2. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다. 검색 상자에서 **MySQL**을 입력하여 해당 서비스를 찾을 수도 있습니다.
+2. **데이터베이스** > **Azure Database for MySQL** 을 차례로 선택합니다. 검색 상자에서 **MySQL** 을 입력하여 해당 서비스를 찾을 수도 있습니다.
 
   
 >[!div class="mx-imgBorder"]
@@ -46,36 +46,36 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 Subscription | 사용자의 구독 | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
 Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다. 리소스 그룹은 단일 프로젝트에 속한 종속성을 구성하는 데 사용할 수 있습니다.
 서버 이름 | 고유 서버 이름 | Azure Database for MySQL 서버를 식별하는 고유한 이름을 입력합니다. 예를 들면 'mysqldbserver'입니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
-데이터 원본 |*없음* | 새 서버를 처음부터 만들려면 *없음*을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만든 경우 *백업*을 선택합니다).
-서버 관리자 로그인 | myadmin | 서버 관리자의 사용자 이름을 입력합니다. 관리자 사용자 이름으로 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**을 사용할 수 없습니다.
+데이터 원본 |*없음* | 새 서버를 처음부터 만들려면 *없음* 을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만든 경우 *백업* 을 선택합니다).
+서버 관리자 로그인 | myadmin | 서버 관리자의 사용자 이름을 입력합니다. 관리자 사용자 이름으로 **azure_superuser** , **admin** , **administrator** , **root** , **guest** 또는 **public** 을 사용할 수 없습니다.
 암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 암호는 대문자 또는 소문자, 숫자 및 영숫자가 아닌 문자(!, $, #, % 등)를 조합하여 8~128자 길이여야 합니다.
 암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
 위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
 버전 | *최신 주 버전*| 최신 주 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
-컴퓨팅 + 스토리지 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** |새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성**을 선택합니다. 다음으로 적절한 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. **확인**을 선택합니다.
+컴퓨팅 + 스토리지 | **범용** , **5세대** , **vCore 2개** , **5GB** , **7일** , **지역 중복** |새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. 다음으로 적절한 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션** 에서 **지역 중복** 을 선택합니다. **확인** 을 선택합니다.
 
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 
 
-4. **검토 + 만들기**를 선택하여 서버를 프로비저닝합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
+4. **검토 + 만들기** 를 선택하여 서버를 프로비저닝합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
    
-5. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(벨 아이콘)을 클릭합니다.
+5. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** (벨 아이콘)을 클릭합니다.
    
-기본적으로 서버 아래에 **information_schema**, **mysql**, **performance_schema** 및 **sys** 데이터베이스가 만들어집니다.
+기본적으로 서버 아래에 **information_schema** , **mysql** , **performance_schema** 및 **sys** 데이터베이스가 만들어집니다.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
-기본적으로 만들어진 서버는 방화벽으로 보호되며 공개적으로 액세스할 수 없습니다. IP에 대한 액세스 권한을 부여하려면 Azure Portal의 서버 리소스로 이동하여 서버 리소스의 왼쪽 메뉴에서 **연결 보안**을 선택합니다. 리소스를 찾는 방법을 모를 경우 [리소스를 여는 방법](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)을 참조하세요.
+기본적으로 만들어진 서버는 방화벽으로 보호되며 공개적으로 액세스할 수 없습니다. IP에 대한 액세스 권한을 부여하려면 Azure Portal의 서버 리소스로 이동하여 서버 리소스의 왼쪽 메뉴에서 **연결 보안** 을 선택합니다. 리소스를 찾는 방법을 모를 경우 [리소스를 여는 방법](../azure-resource-manager/management/manage-resources-portal.md#open-resources)을 참조하세요.
 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Azure Database for MySQL 옵션":::
    
-이제 **현재 클라이언트 IP 주소 추가**를 선택한 다음, **저장**을 선택합니다. 추가 IP를 추가하거나 IP 범위를 제공하여 해당 IP에서 서버에 연결할 수 있습니다. 자세한 내용은 [Azure Database for MySQL 서버에서 방화벽 규칙을 관리하는 방법](./concepts-firewall-rules.md)을 참조하세요.
+이제 **현재 클라이언트 IP 주소 추가** 를 선택한 다음, **저장** 을 선택합니다. 추가 IP를 추가하거나 IP 범위를 제공하여 해당 IP에서 서버에 연결할 수 있습니다. 자세한 내용은 [Azure Database for MySQL 서버에서 방화벽 규칙을 관리하는 방법](./concepts-firewall-rules.md)을 참조하세요.
 
 > [!NOTE]
 > 네트워크에서 연결 문제를 방지하기 위해 Azure Database for MySQL에서 사용하는 포트 3306을 통한 아웃바운드 트래픽을 허용하는지 확인합니다.  
 
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>mysql 명령줄 클라이언트를 사용하여 Azure Database for MySQL 서버에 연결
-[mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 또는 [MySQL 워크벤치](./connect-workbench.md)를 선택하여 로컬 환경에서 서버에 연결할 수 있습니다. 이 빠른 시작에서는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 **mysql.exe**를 실행하여 서버에 연결합니다.
+[mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 또는 [MySQL 워크벤치](./connect-workbench.md)를 선택하여 로컬 환경에서 서버에 연결할 수 있습니다. 이 빠른 시작에서는 [Azure Cloud Shell](../cloud-shell/overview.md)에서 **mysql.exe** 를 실행하여 서버에 연결합니다.
 
 1. 왼쪽 위에 있는 강조 표시된 아이콘을 클릭하여 포털에서 Azure Cloud Shell을 시작합니다. 아래 이미지와 같이 **개요** 섹션에서 새로 만든 서버에 대한 서버 이름, 서버 관리자 로그인 이름, 암호 및 구독 ID를 기록해 둡니다.
 
@@ -115,12 +115,12 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
   mysql>
   ```
-3. 동일한 Azure Cloud Shell 터미널에서 데이터베이스 **게스트**를 만듭니다. 
+3. 동일한 Azure Cloud Shell 터미널에서 데이터베이스 **게스트** 를 만듭니다. 
   ```
   mysql> CREATE DATABASE guest;
   Query OK, 1 row affected (0.27 sec)
   ```
-4. 데이터베이스 **게스트**로 변경
+4. 데이터베이스 **게스트** 로 변경
   ```
   mysql> USE guest;
   Database changed 
@@ -129,10 +129,10 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 리소스 그룹에서 Azure Database for MySQL 서버를 성공적으로 만들었습니다.  이러한 리소스가 나중에 필요하지 않을 경우에는 리소스 그룹을 삭제하거나 MySQL 서버만 삭제하여 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제하려면 다음 단계를 수행합니다.
-1. Azure Portal에서 **리소스 그룹**을 검색하고 선택합니다. 
+1. Azure Portal에서 **리소스 그룹** 을 검색하고 선택합니다. 
 2. 리소스 그룹 목록에서 리소스 그룹의 이름을 선택합니다.
-3. 리소스 그룹의 개요 페이지에서 **리소스 그룹 삭제**를 선택합니다.
-4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제**를 선택합니다.
+3. 리소스 그룹의 개요 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
+4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
 
 서버를 삭제하려면 아래와 같이 서버의 **개요** 페이지에서 **삭제** 단추를 클릭하면 됩니다.
 > [!div class="mx-imgBorder"]
@@ -140,6 +140,6 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
->[MySQL을 사용하여 Windows에서 PHP 앱 빌드](../app-service/app-service-web-tutorial-php-mysql.md)
->[MySQL을 사용하여 Linux에서 PHP 앱 빌드](../app-service/containers/tutorial-php-mysql-app.md)
->[MySQL을 사용하여 Java 기반 Spring 앱 빌드](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[MySQL을 사용하여 Windows에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md)
+>[MySQL을 사용하여 Linux에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
+>[MySQL을 사용하여 Java 기반 Spring 앱 빌드](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

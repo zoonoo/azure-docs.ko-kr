@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670532"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation(미리 보기)
 
@@ -73,7 +73,7 @@ Azure Attestation은 다음과 같은 이점을 제공하므로 TEE를 증명하
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>BCDR(비즈니스 연속성 및 재해 복구) 지원
 
-Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](/azure/best-practices-availability-paired-regions)을 사용하면 지역의 심각한 가용성 문제 또는 재해 이벤트로 인한 서비스 중단을 완화할 수 있습니다.
+Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](../best-practices-availability-paired-regions.md)을 사용하면 지역의 심각한 가용성 문제 또는 재해 이벤트로 인한 서비스 중단을 완화할 수 있습니다.
 
 현재 BCDR에서 지원되는 지역은 다음과 같습니다.
 - 미국 동부 2 => 미국 중부와 쌍을 이룹니다.
@@ -91,4 +91,3 @@ Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](/azure/bes
 - [Azure Attestation 기본 개념](basic-concepts.md)에 대해 알아보기
 - [증명 정책을 작성하고 서명하는 방법](author-sign-policy.md)
 - [PowerShell을 사용하여 Azure Attestation 설정](quickstart-powershell.md)
-

@@ -7,14 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.custom: contentperfq2
+ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447689"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668861"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Azure Portal의 계정 관리자 작업
 
@@ -27,9 +28,9 @@ ms.locfileid: "91447689"
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>구독의 결제 방법으로 이동
 
-1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 계정 관리자 권한으로 Azure Portal에 로그인합니다.
 
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 
     ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/account-admin-tasks/search-bar.png)
 
@@ -40,7 +41,7 @@ ms.locfileid: "91447689"
    > [!NOTE]
    > 여기에 일부 구독이 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 이러한 구독의 경우 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
 
-1. **결제 방법**을 선택합니다.
+1. **결제 방법** 을 선택합니다.
 
     ![스크린샷은 결제 방법을 추가할 수 있는 지불 방법 페이지를 보여줍니다.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -62,7 +63,7 @@ ms.locfileid: "91447689"
 
     ![카드를 활성 결제 방법으로 설정하기 위한 확인란을 보여주는 스크린샷](./media/account-admin-tasks/subscription-make-active-payment-method-x.png)
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
 활성 결제 방법을 이미 저장된 신용 카드로 변경하려면 다음을 수행합니다.
 
@@ -70,7 +71,7 @@ ms.locfileid: "91447689"
 
     ![신용 카드 옆의 확인란이 선택된 모습을 보여주는 스크린샷](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. 명령 모음에서 **활성 설정**을 클릭합니다.
+1. 명령 모음에서 **활성 설정** 을 클릭합니다.
 
     ![활성 설정 단추를 보여주는 스크린샷](./media/account-admin-tasks/subscription-checked-payment-method-set-active.png)
 
@@ -80,7 +81,7 @@ ms.locfileid: "91447689"
 
 ![선택한 신용 카드를 보여주는 스크린샷](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-신용 카드 세부 정보를 업데이트하고 **저장**을 클릭합니다.
+신용 카드 세부 정보를 업데이트하고 **저장** 을 클릭합니다.
 
 ### <a name="remove-a-credit-card-from-the-account"></a>계정에서 신용 카드 제거
 
@@ -88,7 +89,7 @@ ms.locfileid: "91447689"
 
     ![신용 카드 옆의 확인란이 선택된 모습을 보여주는 스크린샷](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. 명령 모음에서 **삭제**를 클릭합니다.
+1. 명령 모음에서 **삭제** 를 클릭합니다.
 
     ![삭제 단추를 보여주는 스크린샷](./media/account-admin-tasks/subscription-checked-payment-method-delete.png)
 
@@ -98,27 +99,27 @@ ms.locfileid: "91447689"
 
 청구서로 지불할 수 있는 경우(수표/전신 송금) Azure Portal에서 구독을 청구서 결제(수표/전신 송금)로 전환할 수 있습니다.
 
-1. 명령 모음에서 **청구서로 지불**을 선택합니다.
+1. 명령 모음에서 **청구서로 지불** 을 선택합니다.
 
     ![스크린샷은 청구서로 지불이 선택된 결제 방법 페이지를 보여줍니다.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. 청구서 지불 방법에 사용할 주소를 입력합니다.
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
 
 청구서로 지불하기 위해 승인이 필요한 경우 [청구서로 지불하는 방법 알아보기](pay-by-invoice.md)를 참조하세요.
 
 ### <a name="edit-invoice-payment-address"></a>청구서 결불 주소 편집
 
-청구서 결제 방법의 주소를 편집하려면 구독에 대한 결제 방법 목록에서 **청구서**를 클릭합니다. 주소 양식이 오른쪽에 열립니다.
+청구서 결제 방법의 주소를 편집하려면 구독에 대한 결제 방법 목록에서 **청구서** 를 클릭합니다. 주소 양식이 오른쪽에 열립니다.
 
 ## <a name="remove-spending-limit"></a>지출 한도 제거
 
 Azure에서 지출 한도는 크레딧 금액을 초과하여 지출하는 것을 방지하기 위함입니다. 유효한 결제 방법이 Azure 구독과 연결되어 있는 경우 언제든지 지출 한도를 제거할 수 있습니다. Visual Studio Enterprise 및 Visual Studio Professional과 같이 여러 달에 대한 크레딧이 있는 구독 유형의 경우 다음 청구 기간이 시작될 때 지출 한도를 사용하도록 선택할 수 있습니다.
 
-약정 플랜 또는 종량제 가격 책정을 사용하는 구독에서는 지출 한도를 사용할 수 없습니다. [전체 Azure 구독 유형 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
+약정 플랜 또는 종량제 가격 책정을 사용하는 구독에서는 지출 한도를 사용할 수 없습니다.
 
-1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.
+1. 계정 관리자 권한으로 Azure Portal에 로그인합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 
     ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/account-admin-tasks/search-bar.png)
 
@@ -137,16 +138,16 @@ Azure에서 지출 한도는 크레딧 금액을 초과하여 지출하는 것�
 
    ![지출 한도 제거 블레이드를 보여주는 스크린샷](./media/account-admin-tasks/remove-spending-limit-blade-x.png)
 
-1. **결제 방법 선택**을 클릭하여 구독에 대한 지불 방법을 선택합니다. 이는 구독에 대한 활성 지불 방법이 됩니다.
+1. **결제 방법 선택** 을 클릭하여 구독에 대한 지불 방법을 선택합니다. 이는 구독에 대한 활성 지불 방법이 됩니다.
 
-1. **Finish**를 클릭합니다.
+1. **Finish** 를 클릭합니다.
 
 ## <a name="add-credits-to-azure-in-open-subscription"></a>Azure In Open 구독에 크레딧 추가
 
 Azure in Open 라이선스 구독이 있는 경우 제품 키를 사용하거나 신용 카드로 크레딧을 구매하여 Azure Portal의 구독에 크레딧을 추가할 수 있습니다.
 
-1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.
+1. 계정 관리자 권한으로 Azure Portal에 로그인합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 
     ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/account-admin-tasks/search-bar.png)
 
@@ -157,7 +158,7 @@ Azure in Open 라이선스 구독이 있는 경우 제품 키를 사용하거나
    > [!NOTE]
    > 여기에 구독이 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 구독의 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
 
-1. **크레딧 기록**을 선택합니다.
+1. **크레딧 기록** 을 선택합니다.
 
     ![크레딧 기록을 보여주는 스크린샷](./media/account-admin-tasks/aio-credit-history-blade.png)
 
@@ -171,13 +172,13 @@ Azure in Open 라이선스 구독이 있는 경우 제품 키를 사용하거나
 
 1. 제품 키를 선택한 경우:
     - 제품 키를 입력합니다.
-    - **유효성 검사**를 클릭합니다.
+    - **유효성 검사** 를 클릭합니다.
 
 1. 신용 카드를 선택한 경우:
-    - **지불 방법 선택**을 클릭하여 신용 카드를 추가하거나 기존 카드를 선택합니다.
+    - **지불 방법 선택** 을 클릭하여 신용 카드를 추가하거나 기존 카드를 선택합니다.
     - 추가하려는 크레딧의 양을 지정합니다.
 
-1. **적용**을 클릭합니다.
+1. **적용** 을 클릭합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 가상 카드 또는 선불 카드는 지원하지 않습니다. 유효한 신용 카드를 추가하거나 업데이트할 때 오류가 발생하면 프라이빗 모드에서 브라우저를 열어 보세요.

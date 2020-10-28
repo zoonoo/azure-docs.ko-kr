@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739335"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 
@@ -78,7 +78,7 @@ Azure Logic Apps용 빠른 시작 템플릿을 추가로 찾으려면 갤러리�
 
    ![빠른 시작 템플릿에 대한 정보 제공](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. 완료되면 **검토 + 만들기**를 선택합니다.
+1. 완료되면 **검토 + 만들기** 를 선택합니다.
 
 1. [배포된 리소스 검토](#review-deployed-resources)의 단계를 계속 진행합니다.
 
@@ -234,7 +234,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 1. Logic Apps 디자이너가 열리면 빠른 시작 템플릿에서 만든 논리 앱을 검토합니다.
 
-1. 논리 앱을 테스트하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
+1. 논리 앱을 테스트하려면 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -288,7 +288,7 @@ GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/
 
 1. Azure Portal에서 삭제하려는 리소스 그룹(이 예에서는 `Check-Azure-Status-RG`)을 찾아서 선택합니다.
 
-1. 아직 선택하지 않은 경우 리소스 그룹 메뉴에서 **개요**를 선택합니다. 개요 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+1. 아직 선택하지 않은 경우 리소스 그룹 메뉴에서 **개요** 를 선택합니다. 개요 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 
 1. 확인하려면 리소스 그룹의 이름을 입력합니다.
 

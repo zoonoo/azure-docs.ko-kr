@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: c581eb79a158dcb2645bcb9fd830a4f83dba1e0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87101194"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674965"
 ---
 # <a name="azure-for-students-starter"></a>Azure for Students Starter
 
@@ -37,4 +37,4 @@ Azure for Students Starter 제품에는 신용 카드가 필요하지 않습니�
 - [로그인 오류에 대한 도움말 보기](troubleshoot-login.md)
 - [소프트웨어 다운로드(Azure for Students Starter)](download-software.md)
 - [Azure for Students 프로그램](azure-students-program.md)
-- [Microsoft Learn: 무료 온라인 학습 플랫폼](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: 무료 온라인 학습 플랫폼](/learn/)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830862"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540978"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -73,7 +73,7 @@ SQL Azure 및 Azure Storage로 이동 하는 트랙픽을 제외하고 ASE에서
 
 2. Azure SQL를 통해 서비스 엔드포인트 그리고 ASE 서브넷을 통해 Azure Storage를 사용하도록 설정합니다.  이 단계를 완료한 후에 강제 터널링을 사용하여 VNet을 구성할 수 있습니다.
 
-온-프레미스에서 모든 트래픽을 라우팅하도록 이미 구성된 가상 네트워크의 ASE를 만들려면 리소스 관리자 템플릿을 사용하여 ASE를 만들어야 합니다.  포털을 사용하여 기존 서브넷에 ASE를 만들 수는 없습니다.  온-프레미스에서 아웃바운드 트래픽을 라우팅하도록 이미 구성된 VNet에 ASE를 배포하는 경우 리소스 관리자 템플릿을 사용하여 ASE를 만들어야 합니다. 여기에서는 기존 서브넷을 지정하도록 허용할 수 있습니다. 템플릿 사용하여 ASE를 배포하는 방법에 대한 세부 정보는 [템플릿을 사용하여 App Service 환경 만들기][template]를 참조하세요.
+템플릿 사용하여 ASE를 배포하는 방법에 대한 세부 정보는 [템플릿을 사용하여 App Service 환경 만들기][template]를 참조하세요.
 
 서비스 엔드포인트를 사용하면 Azure 가상 네트워크 및 서브넷의 집합에 다중 테넌트 서비스에 대한 액세스를 제한할 수 있습니다. 서비스 엔드포인트에 대한 자세한 내용은 [Virtual Network 서비스 엔드포인트][serviceendpoints] 설명서에서 확인할 수 있습니다. 
 
@@ -95,15 +95,15 @@ Azure Storage로 이동하는 트래픽을 제외하고 ASE에서 모든 아웃�
 
 3. App Service Environment에서 인터넷으로의 모든 아웃바운드 트래픽에 사용될 주소를 가져옵니다. 온-프레미스에서 트래픽을 라우팅하는 경우 이러한 주소는 NAT 또는 게이트웨이 IP입니다. App Service Environment 아웃바운드 트래픽을 NVA를 통해 라우팅하려면 송신 주소는 NVA의 공용 IP입니다.
 
-4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resources.azure.com으로 이동하여 Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
+4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resources.azure.com으로 이동하여 Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기** 가 표시되는지 확인합니다. **편집** 을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null** 에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
     ```
 
-   맨 위에서 **PUT**을 선택합니다. 이 옵션은 App Service Environment에서 크기 조정 작업을 트리거하고 방화벽을 조정합니다.
+   맨 위에서 **PUT** 을 선택합니다. 이 옵션은 App Service Environment에서 크기 조정 작업을 트리거하고 방화벽을 조정합니다.
 
-_송신 주소를 사용하여 ASE를 만들려면_ [템플릿을 사용하여 App Service Environment 만들기][template]의 지침을 따르고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges**에 대해 선을 포함합니다.
+_송신 주소를 사용하여 ASE를 만들려면_ [템플릿을 사용하여 App Service Environment 만들기][template]의 지침을 따르고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges** 에 대해 선을 포함합니다.
 
 ```json
 "resources": [

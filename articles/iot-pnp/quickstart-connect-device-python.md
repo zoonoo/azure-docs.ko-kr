@@ -7,13 +7,13 @@ ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574032"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737317"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결(Python)
 
@@ -37,7 +37,7 @@ python --version
 pip install azure-iot-device
 ```
 
-Python SDK IoT 리포지토리를 복제하고 **마스터**를 체크 아웃합니다.
+Python SDK IoT 리포지토리를 복제하고 **마스터** 를 체크 아웃합니다.
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -61,15 +61,15 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
     1. 디바이스 SDK를 사용하여 디바이스 클라이언트를 만들고 IoT 허브에 연결합니다.
 
-    1. 속성을 업데이트합니다. 현재 사용하는 모델인 **자동 온도 조절기**는 자동 온도 조절기의 두 가지 속성으로 `targetTemperature`와 `maxTempSinceLastReboot`를 정의하기 때문에 해당 속성을 사용하겠습니다. 속성은 `device_client`에 정의된 `patch_twin_reported_properties` 메서드를 사용하여 업데이트됩니다.
+    1. 속성을 업데이트합니다. 현재 사용하는 모델인 **자동 온도 조절기** 는 자동 온도 조절기의 두 가지 속성으로 `targetTemperature`와 `maxTempSinceLastReboot`를 정의하기 때문에 해당 속성을 사용하겠습니다. 속성은 `device_client`에 정의된 `patch_twin_reported_properties` 메서드를 사용하여 업데이트됩니다.
 
     1. **execute_command_listener** 함수를 사용하여 명령 요청 수신 대기를 시작합니다. 이 함수는 서비스가 보내는 명령을 수신 대기하는 '수신기'를 설정합니다. 수신기를 설정할 때 `method_name`, `user_command_handler` 및 `create_user_response_handler`를 제공합니다.
         - `user_command_handler` 함수는 디바이스가 명령을 수신할 때 수행할 작업을 정의합니다. 예를 들어 알람이 울릴 때 이 명령을 수신한 효과는 깨어나는 것입니다. 이것을 호출되는 명령의 '효과'라고 간주합니다.
         - `create_user_response_handler` 함수는 명령이 성공적으로 실행될 때 IoT 허브로 전송할 응답을 만듭니다. 예를 들어 알람이 울릴 때 다시 알림을 눌러서 응답하면 이것이 서비스에 대한 피드백입니다. 이것을 서비스에 대한 응답이라고 간주합니다. 포털에서 이 응답을 볼 수 있습니다.
 
-    1. 원격 분석 보내기를 시작합니다. **pnp_send_telemetry**는 pnp_methods.py 파일에 정의되어 있습니다. 샘플 코드는 루프를 사용하여 8초마다 이 함수를 호출합니다.
+    1. 원격 분석 보내기를 시작합니다. **pnp_send_telemetry** 는 pnp_methods.py 파일에 정의되어 있습니다. 샘플 코드는 루프를 사용하여 8초마다 이 함수를 호출합니다.
 
-    1. **Q** 또는 **q**를 누르면 모든 수신기 및 작업을 사용하지 않도록 설정하고 루프를 종료합니다.
+    1. **Q** 또는 **q** 를 누르면 모든 수신기 및 작업을 사용하지 않도록 설정하고 루프를 종료합니다.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

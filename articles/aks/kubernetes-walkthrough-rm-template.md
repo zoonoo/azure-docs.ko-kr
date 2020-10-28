@@ -4,13 +4,13 @@ description: Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러�
 services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc,subject-armqs, devx-track-azurecli
+ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070744"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740281"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -70,7 +70,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-*appId* 및 *암호*를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
+*appId* 및 *암호* 를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -88,22 +88,22 @@ AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templat
 
 2. 다음 값을 선택하거나 입력합니다.
 
-    이 빠른 시작에서는 *OS 디스크 크기 GB*, *에이전트 수*, *에이전트 VM 크기*, *OS 종류* 및 *Kubernetes 버전*에 대한 기본 값을 유지합니다. 다음 템플릿 매개 변수에 대해서는 직접 값을 제공합니다.
+    이 빠른 시작에서는 *OS 디스크 크기 GB* , *에이전트 수* , *에이전트 VM 크기* , *OS 종류* 및 *Kubernetes 버전* 에 대한 기본 값을 유지합니다. 다음 템플릿 매개 변수에 대해서는 직접 값을 제공합니다.
 
-    * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택합니다. 리소스 그룹에 대한 고유 이름(예: *myResourceGroup*)을 입력한 다음, **확인**을 선택합니다.
-    * **위치**: 위치(예: **미국 동부**)를 선택합니다.
-    * **클러스터 이름**: AKS 클러스터에 대한 고유 이름(예: *myAKSCluster*)을 입력합니다.
-    * **DNS 접두사**: 클러스터에 대한 고유 DNS 접두사(예: *myakscluster*)를 입력합니다.
-    * **Linux 관리자 사용자 이름**: SSH를 사용하여 연결할 사용자 이름(예: *azureuser*)을 입력합니다.
-    * **SSH RSA 공개 키**: SSH 키 쌍의 *public* 부분(기본적으로 *~/.ssh/id_rsa.pub*의 콘텐츠)을 복사하여 붙여넣습니다.
-    * **서비스 주체 클라이언트 ID**: `az ad sp create-for-rbac` 명령에서 서비스 주체의 *앱ID*를 복사하여 붙여넣습니다.
-    * **서비스 주체 클라이언트 비밀**: `az ad sp create-for-rbac` 명령에서 서비스 주체의 *암호*를 복사하여 붙여넣습니다.
-    * **위에 명시된 사용 약관에 동의함**: 동의하려면 이 확인란을 선택합니다.
+    * **구독** : Azure 구독을 선택합니다.
+    * **리소스 그룹** : **새로 만들기** 를 선택합니다. 리소스 그룹에 대한 고유 이름(예: *myResourceGroup* )을 입력한 다음, **확인** 을 선택합니다.
+    * **위치** : 위치(예: **미국 동부** )를 선택합니다.
+    * **클러스터 이름** : AKS 클러스터에 대한 고유 이름(예: *myAKSCluster* )을 입력합니다.
+    * **DNS 접두사** : 클러스터에 대한 고유 DNS 접두사(예: *myakscluster* )를 입력합니다.
+    * **Linux 관리자 사용자 이름** : SSH를 사용하여 연결할 사용자 이름(예: *azureuser* )을 입력합니다.
+    * **SSH RSA 공개 키** : SSH 키 쌍의 *public* 부분(기본적으로 *~/.ssh/id_rsa.pub* 의 콘텐츠)을 복사하여 붙여넣습니다.
+    * **서비스 주체 클라이언트 ID** : `az ad sp create-for-rbac` 명령에서 서비스 주체의 *앱ID* 를 복사하여 붙여넣습니다.
+    * **서비스 주체 클라이언트 비밀** : `az ad sp create-for-rbac` 명령에서 서비스 주체의 *암호* 를 복사하여 붙여넣습니다.
+    * **위에 명시된 사용 약관에 동의함** : 동의하려면 이 확인란을 선택합니다.
 
     ![포털에서 Azure Kubernetes Service 클러스터를 만드는 Resource Manager 템플릿](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. **구매**를 선택합니다.
+3. **구매** 를 선택합니다.
 
 AKS 클러스터를 만드는 데 몇 분이 걸립니다. 다음 단계로 넘어가기 전에 클러스터가 성공적으로 배포될 때까지 기다립니다.
 
@@ -129,7 +129,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 이전 단계에서 만든 노드를 보여줍니다. 모든 노드의 상태가 *준비됨*인지 확인합니다.
+다음 예제 출력은 이전 단계에서 만든 노드를 보여줍니다. 모든 노드의 상태가 *준비됨* 인지 확인합니다.
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,14 +257,14 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP* 가 *보류 중* 으로 표시됩니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

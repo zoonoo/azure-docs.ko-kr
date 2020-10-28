@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5257e8730830c6b51808d5d014bc3bdec6036bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3cbda70fd836482448aa381f6e781ed15666f2c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843966"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675176"
 ---
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Python을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "87843966"
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Homebrew와 Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치하려면 [macOS에서 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)의 **1.2**, **1.3** 및 **2.1** 단계를 사용합니다.
+  Homebrew와 Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치하려면 [macOS에서 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)의 **1.2** , **1.3** 및 **2.1** 단계를 사용합니다.
 
   자세한 내용은 [macOS의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)를 참조하세요.
 
@@ -92,7 +92,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 
 ## <a name="create-code-to-query-your-database"></a>데이터베이스를 쿼리할 코드 만들기 
 
-1. 텍스트 편집기에서 *sqltest.py*라는 새 파일을 만듭니다.  
+1. 텍스트 편집기에서 *sqltest.py* 라는 새 파일을 만듭니다.  
    
 1. 다음 코드를 추가합니다. \<server>, \<database>, \<username> 및 \<password>에 대한 고유한 값을 대체합니다.
    
@@ -130,6 +130,5 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure SQL Database에서 첫 번째 데이터베이스 디자인](design-first-database-tutorial.md)
-- [SQL Server용 Microsoft Python 드라이버](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [SQL Server용 Microsoft Python 드라이버](/sql/connect/python/python-driver-for-sql-server/)
 - [Python 개발자 센터](https://azure.microsoft.com/develop/python/?v=17.23h)
-
