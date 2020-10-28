@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069877"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781484"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -30,10 +30,10 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 다음 단계를 수행하여 사용자 프로비저닝의 **매핑** 기능에 액세스합니다.
 
 1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인합니다.
-1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 갤러리에서 추가된 앱을 포함하여 구성된 모든 앱 목록이 표시됩니다.
+1. 왼쪽 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 갤러리에서 추가된 앱을 포함하여 구성된 모든 앱 목록이 표시됩니다.
 1. 앱을 선택하여 보고서를 보고 앱 설정을 관리할 수 있는 앱 관리 창을 로드합니다.
-1. **프로비저닝**을 선택하여 선택한 앱의 사용자 계정 프로비저닝 설정을 관리합니다.
-1. **매핑**를 확장하여 Azure AD와 대상 애플리케이션 사이에 흐르는 사용자 특성을 살펴보고 편집합니다. 대상 애플리케이션에서 지원하는 경우 이 섹션에서 그룹 및 사용자 계정의 프로비저닝을 선택적으로 구성할 수 있습니다.
+1. **프로비저닝** 을 선택하여 선택한 앱의 사용자 계정 프로비저닝 설정을 관리합니다.
+1. **매핑** 를 확장하여 Azure AD와 대상 애플리케이션 사이에 흐르는 사용자 특성을 살펴보고 편집합니다. 대상 애플리케이션에서 지원하는 경우 이 섹션에서 그룹 및 사용자 계정의 프로비저닝을 선택적으로 구성할 수 있습니다.
 
    ![매핑을 사용하여 사용자 특성 보기 및 편집](./media/customize-application-attributes/21.png)
 
@@ -43,7 +43,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
    이 스크린샷에서는 Salesforce에서 관리된 개체의 **Username** 특성이 연결된 Azure Active Directory 개체의 **userPrincipalName** 값으로 채워지는 것을 볼 수 있습니다.
 
-1. 기존 **특성 매핑**을 선택하여 **특성 편집** 화면을 엽니다. 여기에서는 Azure AD와 대상 애플리케이션 사이에 흐르는 사용자 특성을 편집할 수 있습니다.
+1. 기존 **특성 매핑** 을 선택하여 **특성 편집** 화면을 엽니다. 여기에서는 Azure AD와 대상 애플리케이션 사이에 흐르는 사용자 특성을 편집할 수 있습니다.
 
    ![특성 편집을 사용하여 사용자 특성 편집](./media/customize-application-attributes/23.png)
 
@@ -90,7 +90,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 ![프로비저닝된 그룹 및 사용자 개체가 있는 ServiceNow를 보여주는 예제](./media/customize-application-attributes/24.png)
 
-**매핑**에서 그룹 매핑을 선택하고 **특성 매핑** 화면에서 원하는 옵션에 대해 **사용**을 설정하여 그룹 프로비저닝을 선택적으로 사용하거나 사용하지 않도록 설정할 수 있습니다.
+**매핑** 에서 그룹 매핑을 선택하고 **특성 매핑** 화면에서 원하는 옵션에 대해 **사용** 을 설정하여 그룹 프로비저닝을 선택적으로 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 그룹 개체의 일부로 프로비전된 특성은 이전에 설명한 사용자 개체와 동일한 방식으로 사용자 지정할 수 있습니다. 
 
@@ -101,15 +101,18 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 지정된 애플리케이션에 지원되는 사용자 특성은 미리 구성됩니다. 대부분의 애플리케이션 사용자 관리 API는 스키마 검색을 지원하지 않습니다. 따라서 Azure AD 프로비저닝 서비스가 애플리케이션을 호출하여 지원되는 특성 목록을 동적으로 생성할 수 없습니다.
 
-하지만 일부 애플리케이션은 사용자 지정 특성을 지원하며 Azure AD 프로비저닝 서비스는 사용자 지정 특성을 읽고 쓸 수 있습니다. Azure Portal에 정의를 입력하려면 **특성 매핑** 화면 아래쪽에서 **고급 옵션 표시** 확인란을 선택한 다음, 앱**의 특성 목록 편집**을 선택합니다.
+하지만 일부 애플리케이션은 사용자 지정 특성을 지원하며 Azure AD 프로비저닝 서비스는 사용자 지정 특성을 읽고 쓸 수 있습니다. Azure Portal에 정의를 입력하려면 **특성 매핑** 화면 아래쪽에서 **고급 옵션 표시** 확인란을 선택한 다음, 앱 **의 특성 목록 편집** 을 선택합니다.
 
 특성 목록의 사용자 지정을 지원하는 애플리케이션 및 시스템은 다음과 같습니다.
 
 - Salesforce
 - ServiceNow
-- Workday
+- Workday에서 Active Directory/Workday Azure Active Directory
+- SuccessFactors to Active Directory/SuccessFactors to Azure Active Directory
 - Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
+- Workday 또는 SuccessFactors에 대 한 쓰기 저장 (writeback) Azure Active Directory의 경우 지원 되는 특성 (XPATH 및 JSONPath)에 대 한 관련 메타 데이터를 업데이트할 수 있지만, 기본 스키마에 포함 된 것 보다는 새 Workday 또는 SuccessFactors 특성을 추가 하는 것은 지원 되지 않습니다.
+
 
 > [!NOTE]
 > 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다.
@@ -133,16 +136,16 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>SCIM 규격 애플리케이션에 사용자 지정 확장 특성 프로비저닝
 SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의하는 동시에 애플리케이션의 요구를 충족하기 위한 스키마 확장을 허용합니다. SCIM 애플리케이션에 사용자 지정 특성을 추가하려면 다음을 수행합니다.
-   1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인하여 **엔터프라이즈 애플리케이션**을 선택한 다음, 애플리케이션을 선택하고 **프로비저닝**을 선택합니다.
-   2. **매핑**에서 사용자 지정 특성을 추가할 개체(사용자 또는 그룹)를 선택합니다.
-   3. 페이지 맨 아래에서 **고급 옵션 표시**를 선택합니다.
-   4. **AppName의 특성 목록 편집**을 선택합니다.
-   5. 특성 목록의 맨 아래에, 제공된 필드에 사용자 지정 특성에 대한 정보를 입력합니다. 그런 다음, **특성 추가**를 선택합니다.
+   1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인하여 **엔터프라이즈 애플리케이션** 을 선택한 다음, 애플리케이션을 선택하고 **프로비저닝** 을 선택합니다.
+   2. **매핑** 에서 사용자 지정 특성을 추가할 개체(사용자 또는 그룹)를 선택합니다.
+   3. 페이지 맨 아래에서 **고급 옵션 표시** 를 선택합니다.
+   4. **AppName의 특성 목록 편집** 을 선택합니다.
+   5. 특성 목록의 맨 아래에, 제공된 필드에 사용자 지정 특성에 대한 정보를 입력합니다. 그런 다음, **특성 추가** 를 선택합니다.
 
 SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName"과 "CustomAttribute"를 애플리케이션의 요구 사항에 따라 사용자 지정할 수 있습니다. 예를 들면 다음과 같습니다.  
  * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
  * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+ * urn: ietf: params: scim: 스키마: 확장: CustomExtensionName: 2.0: User: CustomAttributeName: value
 
 이러한 지침은 SCIM 사용 애플리케이션에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 애플리케이션은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 특정 네임스페이스가 필요하지 않습니다.
 
@@ -174,7 +177,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {
@@ -192,7 +195,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
 ## <a name="provisioning-a-role-to-a-scim-app"></a>SCIM 앱에 역할 프로비저닝
 아래 단계를 사용하여 사용자의 역할을 애플리케이션에 프로비저닝합니다. 아래 설명은 사용자 지정 SCIM 애플리케이션에만 해당합니다. Salesforce 및 ServiceNow와 같은 갤러리 애플리케이션은 미리 정의된 역할 매핑을 사용합니다. 아래 글머리 기호는 AppRoleAssignments 특성을 애플리케이션에 필요한 형식으로 변환하는 방법을 설명합니다.
 
-- Azure AD의 appRoleAssignment를 애플리케이션의 역할에 매핑하려면 [식](../app-provisioning/functions-for-customizing-application-data.md)를 사용하여 특성을 변환해야 합니다. 역할 세부 정보를 구문 분석하는 식을 사용하지 않고 appRoleAssignment 특성을 역할 특성에 **직접 매핑하면 안 됩니다**. 
+- Azure AD의 appRoleAssignment를 애플리케이션의 역할에 매핑하려면 [식](../app-provisioning/functions-for-customizing-application-data.md)를 사용하여 특성을 변환해야 합니다. 역할 세부 정보를 구문 분석하는 식을 사용하지 않고 appRoleAssignment 특성을 역할 특성에 **직접 매핑하면 안 됩니다** . 
 
 - **SingleAppRoleAssignment** 
   - **사용 시기:** SingleAppRoleAssignment 식은 사용자에게 단일 역할을 프로비저닝하고 기본 역할을 지정하는 경우에 사용합니다. 
@@ -304,7 +307,7 @@ phoneNumbers 및 emails와 같은 특정 특성은 다양한 유형의 전화 �
 이 옵션을 선택하면 프로비저닝 서비스가 실행 중일 때 모든 사용자의 재동기화가 효과적으로 적용됩니다.
 
 > [!IMPORTANT]
-> 이 옵션을 호출하기 전에 **프로비저닝 상태**를 반드시 **꺼짐**으로 설정하는 것이 좋습니다.
+> 이 옵션을 호출하기 전에 **프로비저닝 상태** 를 반드시 **꺼짐** 으로 설정하는 것이 좋습니다.
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 

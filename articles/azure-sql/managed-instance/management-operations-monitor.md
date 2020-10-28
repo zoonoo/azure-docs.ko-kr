@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996843"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782453"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 모니터링
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 다음 표에서는 관리 작업 모니터링 옵션을 비교 합니다. 
 
-| 옵션 | 보존 | 취소 지원 | 생성 | 업데이트 | DELETE | 취소 | 단계 |
+| 옵션 | 보존 | 취소 지원 | 만들기 | 업데이트 | 삭제 | 취소 | 단계 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 리소스 그룹 배포 | 무한<sup>1</sup> | 아니요<sup>2</sup> | 표시 | 표시 | 표시되지 않음 | 표시 | 표시되지 않음 |
 | 활동 로그 | 90일 | 아니요 | 표시 | 표시 | 표시 | 표시 |  표시되지 않음 |
@@ -60,11 +60,11 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 Api는 다음과 같습니다. 
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
-|[Managed Instance 작업-가져오기](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|관리 되는 인스턴스의 관리 작업을 가져옵니다.|
-|[Managed Instance 작업-취소](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|관리 되는 인스턴스에서 비동기 작업을 취소 합니다.|
-|[Managed Instance 작업-Managed Instance 별로 나열](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|관리 되는 인스턴스에서 수행 된 작업 목록을 가져옵니다.|
+|[Managed Instance 작업-가져오기](/rest/api/sql/managedinstanceoperations/get)|관리 되는 인스턴스의 관리 작업을 가져옵니다.|
+|[Managed Instance 작업-취소](/rest/api/sql/managedinstanceoperations/cancel)|관리 되는 인스턴스에서 비동기 작업을 취소 합니다.|
+|[Managed Instance 작업-Managed Instance 별로 나열](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|관리 되는 인스턴스에서 수행 된 작업 목록을 가져옵니다.|
 
 > [!NOTE]
 > API 버전 2020-02-02을 사용 하 여 작업 목록에서 관리 되는 인스턴스 만들기 작업을 확인할 수 있습니다. Azure Portal와 최신 PowerShell 및 Azure CLI 패키지에 사용 되는 기본 버전입니다.
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-자세한 명령 설명은 [AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)를 참조 하세요.
+자세한 명령 설명은 [AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation)를 참조 하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ Az sql mi op 목록은 관리 되는 인스턴스에서 수행 된 작업 목록
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-자세한 명령 설명은 [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op)를 참조 하세요.
+자세한 명령 설명은 [az sql mi op](/cli/azure/sql/mi/op)를 참조 하세요.
 
 ---
 

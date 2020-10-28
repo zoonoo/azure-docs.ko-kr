@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330709"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781212"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91330709"
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>계산 리소스 변경 (vCores 또는 Dtu)
 
-VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)또는 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update)를 사용 하 여 실제 환경에 따라 탄력적 풀을 동적으로 확장 또는 축소할 수 있습니다.
+VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)또는 [REST API](/rest/api/sql/elasticpools/update)를 사용 하 여 실제 환경에 따라 탄력적 풀을 동적으로 확장 또는 축소할 수 있습니다.
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경의 영향
 
@@ -51,13 +51,13 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic
 |**기본 단일 데이터베이스, </br> 표준 (S0-S1)**|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**기본 탄력적 풀, </br> 표준 (S2-s 12), 범용 </br> 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;단일 데이터베이스의 경우 사용 되는 공간과 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 단일 데이터베이스의 경우 5 분 미만</br>&bull;&nbsp;탄력적 풀의 경우 데이터베이스 수에 비례|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
 |**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
-|**하이퍼스케일**|N/A|N/A|N/A|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 2 분 미만|
+|**하이퍼스케일**|해당 없음|해당 없음|해당 없음|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 2 분 미만|
 
 > [!NOTE]
 >
 > - 탄력적 풀에 대 한 서비스 계층 또는 크기 조정 계산을 변경 하는 경우에는 풀의 모든 데이터베이스에서 사용 되는 공간의 합계를 사용 하 여 예상 값을 계산 해야 합니다.
 > - 탄력적 풀에서 데이터베이스를 이동 하는 경우 데이터베이스에 사용 되는 공간만 탄력적 풀에서 사용 하는 공간이 아니라 대기 시간에 영향을 줍니다.
-> - 표준 및 범용 탄력적 풀의 경우 탄력적 풀 또는 탄력적 풀 간에 데이터베이스 이동의 대기 시간은 탄력적 풀에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(프리미엄 파일 공유) 저장소를 사용 하는 경우 데이터베이스 크기에 비례 합니다. 풀에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 풀에 있는 모든 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 또는 인 경우 `PremiumFileStorage` 풀은 `PremiumFileStorage-ZRS` PFS 저장소를 사용 합니다.
+> - 표준 및 범용 탄력적 풀의 경우 탄력적 풀 또는 탄력적 풀 간에 데이터베이스 이동의 대기 시간은 탄력적 풀에서[PFS](../../storage/files/storage-files-introduction.md)(프리미엄 파일 공유) 저장소를 사용 하는 경우 데이터베이스 크기에 비례 합니다. 풀에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 풀에 있는 모든 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 또는 인 경우 `PremiumFileStorage` 풀은 `PremiumFileStorage-ZRS` PFS 저장소를 사용 합니다.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> 진행 중인 작업을 모니터링 하려면 [sql REST API를 사용 하 여 작업 관리](https://docs.microsoft.com/rest/api/sql/operations/list), [CLI를 사용](/cli/azure/sql/db/op)하 여 작업 관리, [t-sql을 사용 하 여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 및 다음 두 가지 PowerShell 명령 ( [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity)](/powershell/module/az.sql/stop-azsqldatabaseactivity)을 참조 하세요.
+> 진행 중인 작업을 모니터링 하려면 [sql REST API를 사용 하 여 작업 관리](/rest/api/sql/operations/list), [CLI를 사용](/cli/azure/sql/db/op)하 여 작업 관리, [t-sql을 사용 하 여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 및 다음 두 가지 PowerShell 명령 ( [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity)](/powershell/module/az.sql/stop-azsqldatabaseactivity)을 참조 하세요.
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경 시 추가 고려 사항
 
@@ -100,7 +100,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ### <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
 - 탄력적 풀에 대한 eDTU 가격에는 특정 크기의 스토리지가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 스토리지는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 스토리지 용량 및 최대 크기 제한에 대한 자세한 내용은 [탄력적 풀: 스토리지 크기 및 컴퓨팅 크기](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)를 참조하세요.
-- 탄력적 풀에 대한 추가 스토리지는 [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
+- 탄력적 풀에 대한 추가 스토리지는 [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
 - 탄력적 풀에 대한 추가 스토리지 가격은 추가 스토리지 용량에 해당 서비스 계층의 추가 스토리지 단가를 곱한 것입니다. 추가 스토리지 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 > [!IMPORTANT]

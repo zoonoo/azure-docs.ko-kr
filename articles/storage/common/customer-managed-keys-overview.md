@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578226"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782232"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
 
@@ -65,7 +65,7 @@ Blob 저장소 및 Azure Files의 데이터는 고객 관리 키가 저장소 �
 > [!IMPORTANT]
 > 고객 관리 키는 Azure AD의 기능인 Azure 리소스에 대 한 관리 되는 id를 사용 합니다. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에서 고객 관리 키를 구성 하는 경우 관리 id는 저장소 계정에 자동으로 할당 됩니다. 이후에 구독, 리소스 그룹 또는 저장소 계정을 Azure AD 디렉터리 간에 이동 하는 경우 저장소 계정과 연결 된 관리 id는 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 내용은 Faq에서 **AZURE AD 디렉터리 간 구독 전송** [및 azure 리소스에 대 한 관리 id의 알려진 문제](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조 하세요.  
 
-Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
+Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 [키](../../key-vault/keys/about-keys.md)정보를 참조 하세요.
 
 주요 자격 증명 모음 또는 관리 되는 HSM을 사용 하는 경우 비용을 연결 합니다. 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조 하세요.
 
@@ -109,7 +109,7 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 이 섹션에 나열 되지 않은 모든 데이터 작업은 고객이 관리 하는 키가 해지 되거나 키가 비활성화 되거나 삭제 된 후에도 계속 될 수 있습니다.
 
-고객 관리 키에 대 한 액세스를 취소 하려면 [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) 또는 [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys)를 사용 합니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) 또는 [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys)를 사용 합니다.
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Azure managed disks에 대 한 고객 관리 키
 

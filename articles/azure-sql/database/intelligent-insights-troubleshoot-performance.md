@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450296"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782963"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Intelligent Insights에서 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-이 페이지에서는 [Intelligent Insights](intelligent-insights-overview.md) 리소스 로그를 통해 검색 된 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제에 대 한 정보를 제공 합니다. 메트릭 및 리소스 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](intelligent-insights-overview.md) 리소스 로그를 통해 검색 된 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제에 대 한 정보를 제공 합니다. 메트릭 및 리소스 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights 사용 하는 빠른 성능 문제 해결 가이드는이 문서의 [권장 되는 문제 해결 흐름](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조 하세요.
@@ -74,7 +74,7 @@ Azure SQL Database의 리소스는 일반적으로 [DTU](service-tiers-dtu.md) �
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 애플리케이션을 최적화할 수 있습니다. 응용 프로그램에서 데이터베이스로의 로그인 수를 줄일 수 없는 경우 데이터베이스 구독의 가격 책정 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대 한 자세한 내용은 [최대 로그인의 제한을 처리](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)하는 방법을 참조 하세요. 서버 및 구독 수준 제한에 대 한 자세한 내용은 [서버의 리소스 제한 개요](resource-limits-logical-server.md) 를 참조 하세요.
+세션 제한 해결에 대 한 자세한 내용은 [최대 로그인의 제한을 처리](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins)하는 방법을 참조 하세요. 서버 및 구독 수준 제한에 대 한 자세한 내용은 [서버의 리소스 제한 개요](resource-limits-logical-server.md) 를 참조 하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 
@@ -118,7 +118,7 @@ Azure SQL Database의 리소스는 일반적으로 [DTU](service-tiers-dtu.md) �
 
 이 성능 패턴은 지난 7일간의 성능 기준과 비교하여 과도한 데이터베이스 잠금이 감지된 현재 데이터베이스의 성능 저하를 나타냅니다.
 
-최신 RDBMS 잠금은 여러 동시 작업자와 가능한 경우 병렬 데이터베이스 트랜잭션을 실행하여 성능이 최대화되는 다중 스레드 시스템을 구현하는 데 필수적입니다. 이 컨텍스트의 잠금은 단일 트랜잭션만 단독으로 필요한 행, 페이지, 테이블 및 파일에 액세스할 수 있고, 다른 트랜잭션과 리소스에 대해 경쟁하지 않는 기본 제공 액세스 메커니즘을 의미합니다. 사용할 리소스를 잠근 트랜잭션이 완료되면 해당 리소스에 대한 잠금이 해제되어 다른 트랜잭션에서 필요한 리소스에 액세스할 수 있습니다. 잠금에 대한 자세한 내용은 [데이터베이스 엔진에서의 잠금](https://msdn.microsoft.com/library/ms190615.aspx)을 참조하세요.
+최신 RDBMS 잠금은 여러 동시 작업자와 가능한 경우 병렬 데이터베이스 트랜잭션을 실행하여 성능이 최대화되는 다중 스레드 시스템을 구현하는 데 필수적입니다. 이 컨텍스트의 잠금은 단일 트랜잭션만 단독으로 필요한 행, 페이지, 테이블 및 파일에 액세스할 수 있고, 다른 트랜잭션과 리소스에 대해 경쟁하지 않는 기본 제공 액세스 메커니즘을 의미합니다. 사용할 리소스를 잠근 트랜잭션이 완료되면 해당 리소스에 대한 잠금이 해제되어 다른 트랜잭션에서 필요한 리소스에 액세스할 수 있습니다. 잠금에 대한 자세한 내용은 [데이터베이스 엔진에서의 잠금](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105))을 참조하세요.
 
 SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소스에 액세스하는 데 오랫동안 대기하는 경우 이로 인해 워크로드 실행 성능이 느려집니다.
 
@@ -144,7 +144,7 @@ MAXDOP 서버 구성 옵션은 동일한 쿼리를 병렬로 실행 하는 데 �
 
 진단 로그는 정상보다 더 병렬 처리되어 실행 기간이 증가한 쿼리와 관련된 쿼리 해시를 출력합니다. 또한 CXP 대기 시간도 출력합니다. 이 시간은 단일 구성 도우미/코디네이터 스레드(스레드 0)에서 결과를 병합하고 예정대로 진행하기 전에 다른 모든 스레드가 완료될 때까지 대기하는 시간을 나타냅니다. 또한 진단 로그는 성능이 느린 쿼리가 실행 시 대기한 시간을 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-가장 먼저 복잡한 쿼리를 최적화 또는 간소화합니다. 시간이 오래 걸리는 일괄 처리 작업을 더 작은 작업으로 분할하는 것이 좋습니다. 또한 반드시 쿼리를 지원하기 위한 인덱스를 만듭니다. 또한 성능이 느린 것으로 플래그 지정된 쿼리에 대해 MAXDOP(최대 병렬 처리 수준 옵션)를 수동으로 적용할 수 있습니다. T-SQL을 사용하여 이 작업을 구성하려면 [MAXDOP 서버 구성 옵션 구성](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)을 참조하세요.
+가장 먼저 복잡한 쿼리를 최적화 또는 간소화합니다. 시간이 오래 걸리는 일괄 처리 작업을 더 작은 작업으로 분할하는 것이 좋습니다. 또한 반드시 쿼리를 지원하기 위한 인덱스를 만듭니다. 또한 성능이 느린 것으로 플래그 지정된 쿼리에 대해 MAXDOP(최대 병렬 처리 수준 옵션)를 수동으로 적용할 수 있습니다. T-SQL을 사용하여 이 작업을 구성하려면 [MAXDOP 서버 구성 옵션 구성](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)을 참조하세요.
 
 MAXDOP 서버 구성 옵션을 기본값인 0으로 설정 하면 데이터베이스에서 사용 가능한 모든 CPU 코어를 사용 하 여 단일 쿼리를 실행 하기 위해 스레드를 병렬화 할 수 있음을 나타냅니다. MAXDOP를 1로 설정할 경우 단일 쿼리 실행 시 하나의 코어만 사용할 수 있음을 나타냅니다. 실제로는 병렬 처리가 해제된 것을 의미합니다. 사례 기준별 사례, 데이터베이스에 사용 가능한 코어 수, 진단 로그 정보에 따라 MAXDOP 옵션을 해당 문제를 해결할 수 있는 병렬 쿼리 실행에 대한 코어 수로 조정할 수 있습니다.
 
@@ -196,7 +196,7 @@ MAXDOP 서버 구성 옵션을 기본값인 0으로 설정 하면 데이터베�
 
 이 성능 패턴은 7일 성능 기준과 비교하여 성능이 저하되고 워크로드 성능에 영향을 미치고 있는 새 쿼리가 검색되었음을 나타냅니다.
 
-양호한 성능의 쿼리를 작성하는 것은 어려운 과제일 수 있습니다. 쿼리 작성에 대한 자세한 내용은 [SQL 쿼리 작성(영문)](https://msdn.microsoft.com/library/bb264565.aspx)을 참조하세요. 기존 쿼리 성능을 최적화하려면 [쿼리 튜닝](https://msdn.microsoft.com/library/ms176005.aspx)을 참조하세요.
+양호한 성능의 쿼리를 작성하는 것은 어려운 과제일 수 있습니다. 쿼리 작성에 대한 자세한 내용은 [SQL 쿼리 작성(영문)](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90))을 참조하세요. 기존 쿼리 성능을 최적화하려면 [쿼리 튜닝](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105))을 참조하세요.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -210,7 +210,7 @@ Azure SQL Database에서 [Query Performance Insight](query-performance-insight-u
 
 검색 가능한 이 성능 패턴은 지난 7일간의 워크로드 기준과 비교하여 성능이 저하된 쿼리가 식별된 워크로드 성능 저하를 나타냅니다.
 
-이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 대기 통계도 노출되는 *대기 통계 증가*를 사용하여 쿼리로 간주합니다.
+이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 대기 통계도 노출되는 *대기 통계 증가* 를 사용하여 쿼리로 간주합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -218,7 +218,7 @@ Azure SQL Database에서 [Query Performance Insight](query-performance-insight-u
 
 시스템은 성능이 저하된 쿼리의 근본 원인을 성공적으로 식별할 수 없으므로 가장 먼저 진단 정보를 사용하여 문제를 수동으로 해결할 수 있습니다. 이러한 쿼리의 성능을 최적화할 수 있습니다. 사용해야 하는 데이터만 가져오고 복잡한 쿼리를 간소화하여 작게 분할하는 것이 좋습니다.
 
-쿼리 성능 최적화에 대 한 자세한 내용은 [쿼리 튜닝](https://msdn.microsoft.com/library/ms176005.aspx)을 참조 하세요.
+쿼리 성능 최적화에 대 한 자세한 내용은 [쿼리 튜닝](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105))을 참조 하세요.
 
 ## <a name="tempdb-contention"></a>TempDB 경합
 
@@ -230,7 +230,7 @@ Azure SQL Database에서 [Query Performance Insight](query-performance-insight-u
 
 진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다.
 
-자세한 내용은 메모리 액세스에 [최적화 된 테이블 소개](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조 하세요.
+자세한 내용은 메모리 액세스에 [최적화 된 테이블 소개](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조 하세요.
 
 ## <a name="elastic-pool-dtu-shortage"></a>탄력적 풀 DTU 부족
 
@@ -260,7 +260,7 @@ DUT 사용량이 가장 높은 데이터베이스에서 현재 워크로드의 �
 
 새 계획 회귀 상태는 데이터베이스 엔진이 이전 계획 만큼 효율적이 지 않은 새 쿼리 실행 계획을 실행 하기 시작 하는 상태를 나타냅니다. 이전 계획 회귀 상태는 데이터베이스 엔진에서 새로운 계획을 더 효율적으로 사용 하지 않고 이전 계획으로 전환할 때 상태를 나타냅니다. 기존 계획 변경 워크로드 회귀는 이전 계획과 새 계획이 성능이 낮은 계획으로 균형을 이동하면서 계속해서 이전 계획과 새 계획을 교대하는 상태를 나타냅니다.
 
-계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)을 참조하세요.
+계획 회귀에 대한 자세한 내용은 [SQL 서버의 계획 회귀란?(영문)](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server)을 참조하세요.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -268,7 +268,7 @@ DUT 사용량이 가장 높은 데이터베이스에서 현재 워크로드의 �
 
 제공된 쿼리 해시로 식별할 수 있는 특정 쿼리에 대해 성능을 향상시킬 수 있는 계획을 분석할 수 있습니다. 쿼리에 대해 더 효율적으로 작동하는 계획을 결정한 후에는 계획을 수동으로 적용할 수 있습니다.
 
-자세한 내용은 [SQL Server에서 계획 회귀를 방지하는 방법 알아보기(영문)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)를 참조하세요.
+자세한 내용은 [SQL Server에서 계획 회귀를 방지하는 방법 알아보기(영문)](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions)를 참조하세요.
 
 > [!TIP]
 > 기본 제공 인텔리전스 기능을 통해 데이터베이스에 대해 가장 적합 한 쿼리 실행 계획을 자동으로 관리할 수 있다는 것을 알고 계십니까?
@@ -287,7 +287,7 @@ DUT 사용량이 가장 높은 데이터베이스에서 현재 워크로드의 �
 
 진단 로그는 지난 7일간의 워크로드 동작과 비교하여 성능 저하를 초래한 데이터베이스 범위 구성 변경 내용을 출력합니다. 구성 변경 사항을 이전 값으로 되돌릴 수 있습니다. 또한 원하는 성능 레벨에 도달할 때까지 각 값을 조정할 수 있습니다. 만족할 만한 성능과 유사한 데이터베이스의 데이터베이스 범위 구성 값을 복사할 수 있습니다. 성능 문제를 해결할 수 없는 경우 기본값으로 되돌리고이 기준에서 시작 하 여 미세 조정을 시도 합니다.
 
-구성 변경에 대한 데이터베이스 범위 구성 및 T-SQL 구문을 최적화하는 방법에 대한 자세한 내용은 [데이터베이스 범위 구성 변경(Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx)을 참조하세요.
+구성 변경에 대한 데이터베이스 범위 구성 및 T-SQL 구문을 최적화하는 방법에 대한 자세한 내용은 [데이터베이스 범위 구성 변경(Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)을 참조하세요.
 
 ## <a name="slow-client"></a>느린 클라이언트
 
@@ -326,11 +326,11 @@ Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight�
 > [!TIP]
 > PDF 버전을 다운로드하려면 순서도를 선택하세요.
 
-Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1 시간 이내입니다.) 자세한 내용은 [쿼리 저장소를 사용 하 여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조 하세요.
+Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1 시간 이내입니다.) 자세한 내용은 [쿼리 저장소를 사용 하 여 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Intelligent Insights](intelligent-insights-overview.md) 개념을 알아봅니다.
 - [Intelligent Insights 성능 진단 로그](intelligent-insights-use-diagnostics-log.md)를 사용 합니다.
-- [Azure SQL 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)를 사용 하 여 모니터링 합니다.
+- [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md)를 사용 하 여 모니터링 합니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](../../azure-monitor/platform/platform-logs-overview.md)하는 방법을 알아봅니다.

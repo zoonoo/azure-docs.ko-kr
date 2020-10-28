@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362132"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780957"
 ---
 # <a name="replication-to-azure-sql-database"></a>Azure SQL Database로 복제
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "91362132"
 Azure SQL Database를 단방향 트랜잭션 또는 스냅숏 복제 토폴로지에서 밀어넣기 구독자로 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure SQL Database에서 [트랜잭션 복제](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) 를 사용 하는 방법을 설명 합니다. 이는 개별 데이터베이스의 완전 한 읽기 가능한 복제본을 만들 수 있도록 하는 Azure SQL Database 기능인 [활성 지역 복제](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication)와는 관련이 없습니다.
+> 이 문서에서는 Azure SQL Database에서 [트랜잭션 복제](/sql/relational-databases/replication/transactional/transactional-replication) 를 사용 하는 방법을 설명 합니다. 이는 개별 데이터베이스의 완전 한 읽기 가능한 복제본을 만들 수 있도록 하는 Azure SQL Database 기능인 [활성 지역 복제](./active-geo-replication-overview.md)와는 관련이 없습니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
   
@@ -50,16 +50,16 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 
 ### <a name="types-of-replication"></a>복제의 유형
 
-다음과 같은 여러 [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)이 있습니다.
+다음과 같은 여러 [복제 유형](/sql/relational-databases/replication/types-of-replication)이 있습니다.
 
 | 복제 | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
-| [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
-| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
-| [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
-| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 예|
+| [**표준 트랜잭션**](/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
+| [**스냅샷**](/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
+| [**병합 복제**](/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
+| [**피어 투 피어**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
+| [**양방향**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
+| [**업데이트할 수 있는 구독**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -73,7 +73,7 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 - Azure SQL Database 구독자는 모든 지역에 있을 수 있습니다.  
 - SQL Server에서 단일 게시는 Azure SQL Database 및 SQL Server(온-프레미스 및 Azure 가상 머신의 SQL Server) 구독자를 모두 지원할 수 있습니다.  
 - 복제 관리, 모니터링 및 문제 해결은 Azure SQL Database가 아닌 SQL Server에서 수행 해야 합니다.  
-- `@subscriber_type = 0`만 SQL Database에 대한 **sp_addsubscription**에서 지원됩니다.  
+- `@subscriber_type = 0`만 SQL Database에 대한 **sp_addsubscription** 에서 지원됩니다.  
 - Azure SQL Database은 양방향, 즉시, 업데이트 또는 피어 투 피어 복제를 지원 하지 않습니다.
 
 ## <a name="replication-architecture"></a>복제 아키텍처  
@@ -126,14 +126,14 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 서버 이름 (예 **: n'azuresqldbdns.database.windows.net '**) 및 대상 데이터베이스로 Azure SQL Database 이름 (예: **AdventureWorks**)을 사용 하 여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) .  
+- [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
+- 서버 이름 (예 **: n'azuresqldbdns.database.windows.net '** ) 및 대상 데이터베이스로 Azure SQL Database 이름 (예: **AdventureWorks** )을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
 
 ## <a name="see-also"></a>참고 항목  
 
 - [트랜잭션 복제](../managed-instance/replication-transactional-overview.md)
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [구독 초기화](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
+- [밀어넣기 구독 만들기](/sql/relational-databases/replication/create-a-push-subscription/)
+- [복제 유형](/sql/relational-databases/replication/types-of-replication)
+- [모니터링(복제)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [구독 초기화](/sql/relational-databases/replication/initialize-a-subscription)

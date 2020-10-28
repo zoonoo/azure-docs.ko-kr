@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3d691692553a8201b3e3eccfaead82a2cbb9ca0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479700"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781739"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -292,7 +292,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--s2s-핸들-잘못** 된 메타 데이터 문자열은 잘못 된 메타 데이터 키를 처리 하는 방법을 지정 합니다. 사용 가능한 옵션: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (기본값 `ExcludeIfInvalid` ). (기본 "ExcludeIfInvalid")
 
-**--s2s-보존-액세스 계층**   서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 합니다. (기본값 `true` ).  (기본값 "true")
+**--s2s-보존-액세스 계층**   서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 합니다. (기본값 `true` ).  (기본값 "true")
 
 **--s2s-preserve-속성**   서비스에서 서비스를 복사 하는 동안 전체 속성을 유지 합니다. AWS S3 및 Azure 파일 비 단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성을 반환 하지 않습니다. 전체 속성을 유지 하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송 해야 합니다. (기본값 true)
 

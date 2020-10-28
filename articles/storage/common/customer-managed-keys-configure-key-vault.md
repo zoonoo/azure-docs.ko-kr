@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90995989"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782385"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성
 
@@ -35,15 +35,15 @@ Azure Storage 암호화와 함께 고객 관리 키를 사용 하려면 키 자�
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal를 사용 하 여 주요 자격 증명 모음 만들기](../../key-vault/general/quick-create-portal.md)를 참조 하세요. 키 자격 증명 모음을 만들 때 다음 그림에 표시 된 것 처럼 **보호 제거 사용**을 선택 합니다.
+Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal를 사용 하 여 주요 자격 증명 모음 만들기](../../key-vault/general/quick-create-portal.md)를 참조 하세요. 키 자격 증명 모음을 만들 때 다음 그림에 표시 된 것 처럼 **보호 제거 사용** 을 선택 합니다.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="주요 자격 증명 모음을 만들 때 보호 제거를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 기존 키 자격 증명 모음에 대 한 보호 제거를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 주요 자격 증명 모음으로 이동 합니다.
-1. **설정**에서 **속성**을 선택 합니다.
-1. **보호 제거** 섹션에서 **보호 제거 사용**을 선택 합니다.
+1. **설정** 에서 **속성** 을 선택 합니다.
+1. **보호 제거** 섹션에서 **보호 제거 사용** 을 선택 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-PowerShell을 사용 하 여 기존 주요 자격 증명 모음에 대 한 보호 제거를 사용 하도록 설정 하는 방법을 알아보려면 [powershell에서 일시 삭제를 사용 하는 방법](../../key-vault/general/soft-delete-powershell.md)을 참조 하세요.
+PowerShell을 사용 하 여 기존 주요 자격 증명 모음에 대 한 보호 제거를 사용 하도록 설정 하는 방법을 알아보려면 [powershell에서 일시 삭제를 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 그런 다음 시스템 할당 관리 id를 저장소 계정에 할당 합니다. 이 관리 되는 id를 사용 하 여 저장소 계정에 키 자격 증명 모음에 액세스할 수 있는 권한을 부여 합니다. 시스템 할당 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Azure CLI를 사용 하 여 기존 주요 자격 증명 모음에 대 한 보호 제거를 사용 하도록 설정 하는 방법은 [CLI에서 일시 삭제를 사용 하는 방법](../../key-vault/general/soft-delete-cli.md)을 참조 하세요.
+Azure CLI를 사용 하 여 기존 주요 자격 증명 모음에 대 한 보호 제거를 사용 하도록 설정 하는 방법은 [CLI에서 일시 삭제를 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
 
 그런 다음 시스템 할당 관리 id를 저장소 계정에 할당 합니다. 이 관리 되는 id를 사용 하 여 저장소 계정에 키 자격 증명 모음에 액세스할 수 있는 권한을 부여 합니다. 시스템 할당 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 다음으로 키 자격 증명 모음에 키를 추가 합니다.
 
-Azure Storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
+Azure Storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 [키](../../key-vault/keys/about-keys.md)정보를 참조 하세요.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -175,12 +175,12 @@ Azure Storage는 암호화에 사용 되는 고객 관리 키를 최신 키 버�
 Azure Portal에서 키 버전의 자동 업데이트를 사용 하 여 고객 관리 키를 구성 하려면 다음 단계를 수행 합니다.
 
 1. 스토리지 계정으로 이동합니다.
-1. 스토리지 계정에 대한 **설정** 블레이드에서 **암호화**를 클릭합니다. 다음 그림에 표시 된 것 처럼 **고객 관리 키** 옵션을 선택 합니다.
+1. 스토리지 계정에 대한 **설정** 블레이드에서 **암호화** 를 클릭합니다. 다음 그림에 표시 된 것 처럼 **고객 관리 키** 옵션을 선택 합니다.
 
     ![암호화 옵션을 보여 주는 포털 스크린샷](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 1. **Key Vault에서 선택** 옵션을 선택합니다.
-1. **키 자격 증명 모음 및 키 선택**을 선택 합니다.
+1. **키 자격 증명 모음 및 키 선택** 을 선택 합니다.
 1. 사용할 키를 포함 하는 키 자격 증명 모음을 선택 합니다.
 1. 키 자격 증명 모음에서 키를 선택 합니다.
 

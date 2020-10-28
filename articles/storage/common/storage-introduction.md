@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490801"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781960"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -46,7 +46,7 @@ Azure Storage 플랫폼은 다음과 같은 데이터 서비스를 포함 합니
 | **Azure 파일** |는 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 어디에서 나 액세스할 수 있는 완전히 관리 되는 클라우드 파일 공유를 제공 합니다.<br><br>Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에서 Azure 파일 공유를 탑재할 수 있습니다. | 이미 네이티브 파일 시스템 Api를 사용 하는 클라우드로 응용 프로그램을 "리프트 앤 시프트" 하 여 Azure에서 실행 되는 응용 프로그램과 다른 응용 프로그램 간에 데이터를 공유 하려고 합니다.<br/><br/>온-프레미스 파일 서버 또는 NAS 장치를 교체 하거나 보충 하려고 합니다.<br><br> 여러 가상 머신에서 액세스해야 하는 개발 및 디버깅 도구를 저장하려고 합니다. |
 | **Azure Blob** | 구조화 되지 않은 데이터를 블록 blob에서 대규모로 저장 하 고 액세스할 수 있습니다.<br/><br/>엔터프라이즈 빅 데이터 분석 솔루션을 위한 [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)도 지원합니다. | 애플리케이션에서 스트리밍 및 임의 액세스 시나리오를 지원하도록 하려고 합니다.<br/><br/>어디에서든 애플리케이션 데이터에 액세스할 수 있게 되기를 원합니다.<br/><br/>Azure에서 엔터프라이즈 Data Lake를 빌드하고 빅 데이터 분석을 수행하려고 합니다. |
 | **Azure 디스크** | 연결 된 가상 하드 디스크에서 데이터를 영구적으로 저장 하 고 액세스할 수 있습니다. | 네이티브 파일 시스템 Api를 사용 하는 응용 프로그램을 "리프트 앤 시프트" 하 여 데이터를 영구적 디스크로 읽고 쓰는 것이 좋습니다.<br/><br/>가상 머신 외부에서 액세스할 필요가 없는 데이터를 디스크가 연결된 컴퓨터에 저장하려고 합니다. |
-| **Azure 큐** | 응용 프로그램 구성 요소 간의 비동기 메시지 큐를 허용 합니다. | 응용 프로그램 구성 요소를 분리 하 고 비동기 메시징을 사용 하 여 서로 통신 하려고 합니다.<br><br>큐 저장소와 Service Bus 큐를 사용 하는 경우에 대 한 지침은 [저장소 큐 및 Service Bus 큐-비교 및 대조](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)를 참조 하세요. |
+| **Azure 큐** | 응용 프로그램 구성 요소 간의 비동기 메시지 큐를 허용 합니다. | 응용 프로그램 구성 요소를 분리 하 고 비동기 메시징을 사용 하 여 서로 통신 하려고 합니다.<br><br>큐 저장소와 Service Bus 큐를 사용 하는 경우에 대 한 지침은 [저장소 큐 및 Service Bus 큐-비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조 하세요. |
 | **Azure Tables** | 구조화 된 NoSQL 데이터를 클라우드에 저장 하 여 스키마 없는 디자인에 키/특성 저장소를 제공할 수 있습니다. | 웹 응용 프로그램, 주소록, 장치 정보 또는 서비스에 필요한 다른 유형의 메타 데이터에 대 한 사용자 데이터와 같은 유연한 데이터 집합을 저장 하려고 합니다. <br/><br/>테이블 저장소와 Azure Cosmos DB Table API를 사용 하는 경우에 대 한 지침은 [Azure Cosmos DB Table API 및 Azure Table storage](../../cosmos-db/table-support.md)를 사용 하 여 개발을 참조 하세요. |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -93,7 +93,7 @@ Azure 큐에 대한 자세한 내용은 [큐 소개](../queues/storage-queues-in
 
 ## <a name="table-storage"></a>Table Storage
 
-Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB Table API](https://aka.ms/premiumtables)를 참조 하세요.
+Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md)를 참조 하세요.
 
 Table Storage에 대한 자세한 내용은 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요.
 
@@ -115,7 +115,7 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 - **Azure Files에 대 한 SMB를 통한 Azure AD 권한 부여.** Azure Files은 Azure Active Directory Domain Services (Azure AD DS) 또는 온-프레미스 Active Directory Domain Services (미리 보기)를 통해 SMB (서버 메시지 블록)를 통한 id 기반 권한 부여를 지원 합니다. 도메인에 가입 된 Windows Vm은 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 id 기반 인증 지원 Azure Files 개요](../files/storage-files-active-directory-overview.md) 및 [Azure Files 배포에 대 한 계획](../files/storage-files-planning.md#identity)을 참조 하세요.
 - **공유 키를 사용 하는 권한 부여입니다.** Azure Storage Blob, 파일, 큐 및 테이블 서비스는 공유 키를 사용 하 여 권한 부여를 지원 합니다. 공유 키 인증을 사용 하는 클라이언트는 저장소 계정 액세스 키를 사용 하 여 서명 된 모든 요청과 함께 헤더를 전달 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 - **SAS (공유 액세스 서명)를 사용 하는 권한 부여** SAS (공유 액세스 서명)는 저장소 리소스에 대 한 URI에 추가할 수 있는 보안 토큰을 포함 하는 문자열입니다. 보안 토큰은 권한 및 액세스 간격과 같은 제약 조건을 캡슐화 합니다. 자세한 내용은 [SAS (공유 액세스 서명) 사용](storage-sas-overview.md)을 참조 하세요.
-- **컨테이너 및 blob에 대 한 익명 액세스.** 컨테이너 및 해당 blob은 공개적으로 사용할 수 있습니다. 컨테이너 또는 blob을 공용으로 지정 하면 누구나이를 익명으로 읽을 수 있습니다. 인증이 필요 하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.
+- **컨테이너 및 blob에 대 한 익명 액세스.** 컨테이너 및 해당 blob은 공개적으로 사용할 수 있습니다. 컨테이너 또는 blob을 공용으로 지정 하면 누구나이를 익명으로 읽을 수 있습니다. 인증이 필요 하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/anonymous-read-access-configure.md)를 참조하세요.
 
 ## <a name="encryption"></a>암호화
 
@@ -131,7 +131,7 @@ Azure Storage 클라이언트 라이브러리는 네트워크를 통해 전송 �
 
 ## <a name="redundancy"></a>중복
 
-데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)을 참조하세요.
+데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)을 참조하세요.
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Azure Storage 간 데이터 전송
 
@@ -160,7 +160,7 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 
 - [Storage 리소스 공급자 REST API](/rest/api/storagerp/)
 - [.NET용 Storage 리소스 공급자 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/management)
-- [Storage 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [Storage 서비스 관리 REST API(클래식](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage 데이터 이동 API 및 라이브러리 참조
 

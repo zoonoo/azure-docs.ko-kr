@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254041"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782980"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>응용 프로그램 개발 개요-SQL Managed Instance & SQL Database
 
@@ -27,7 +27,7 @@ ms.locfileid: "85254041"
 
 다양한 [프로그래밍 언어와 플랫폼](connect-query-content-reference-guide.md)을 사용하여 Azure SQL Database에 연결하고 쿼리할 수 있습니다. 데이터베이스에 연결 하는 데 사용할 수 있는 [예제 응용 프로그램](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) 을 찾을 수 있습니다.
 
-[cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다. Azure Portal, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
+[cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)와 같은 Microsoft 도구로 작동합니다. Azure Portal, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
 
 ## <a name="authentication"></a>인증
 
@@ -39,7 +39,7 @@ Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩
 
 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다. 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
 
-[연결 풀](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
+[연결 풀](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
 
 인프라 또는 연결 오류로 인해 트랜잭션이 롤백 될 수 있기 때문에 장기 실행 트랜잭션은 피합니다. 가능하면 여러 개의 작은 트랜잭션으로 트랜잭션을 분할하고 [일괄 처리를 사용하여 성능을 향상시킵니다](../performance-improve-use-batching.md).
 

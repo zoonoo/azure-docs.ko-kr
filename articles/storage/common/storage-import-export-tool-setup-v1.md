@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054078"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782079"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Azure Import/Export 도구 v1 설정
 Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 기능을 위해 이 도구를 사용할 수 있습니다.  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [내보내기 작업에 대 한 드라이브 사용량 미리 보기](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [복사 로그 파일을 사용하여 작업 상태 검토](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [가져오기 작업을 위한 하드 드라이브 준비](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [내보내기 작업에 대 한 드라이브 사용량 미리 보기](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [복사 로그 파일을 사용하여 작업 상태 검토](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [가져오기 작업 복구](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [내보내기 작업 복구](./storage-import-export-tool-repairing-an-export-job-v1.md)

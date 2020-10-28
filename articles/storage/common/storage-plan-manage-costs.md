@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781841"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
 
@@ -56,19 +56,19 @@ Blob 저장소에 대 한 비용은 Azure 청구서의 월별 비용 중 일부�
 
 Azure Storage reserved capacity를 사용 하 여 blob 데이터에 대 한 저장소 비용을 절감할 수 있습니다. Azure Storage reserved capacity는 1 년 또는 3 년간의 예약을 커밋할 때 블록 blob에 대 한 용량과 standard Storage 계정에 있는 Azure Data Lake Storage Gen2 데이터에 대 한 할인을 제공 합니다. 예약은 예약 기간에 고정 된 크기의 저장소 용량을 제공 합니다. 예약 된 용량 Azure Storage 블록 blob 및 Azure Data Lake Storage Gen2 데이터에 대 한 용량 비용을 크게 줄일 수 있습니다. 
 
-자세히 알아보려면 [예약 된 용량으로 Blob storage에 대 한 비용 최적화](/azure/storage/blobs/storage-blob-reserved-capacity)를 참조 하세요.
+자세히 알아보려면 [예약 된 용량으로 Blob storage에 대 한 비용 최적화](../blobs/storage-blob-reserved-capacity.md)를 참조 하세요.
 
 #### <a name="organize-data-into-access-tiers"></a>액세스 계층으로 데이터 구성
 
 Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치 하 여 비용을 줄일 수 있습니다. 데이터 사용과 관련 하 여 비용을 최적화 하도록 설계 된 세 가지 계층에서 선택 합니다. 예를 들어, *핫* 계층의 저장소 비용은 더 높고 액세스 비용은 낮아집니다. 따라서 데이터에 자주 액세스할 계획인 경우 핫 계층이 가장 비용 효율적인 선택이 될 수 있습니다. 데이터에 자주 액세스 하는 경우 *콜드* 또는 *보관* 계층은 데이터에 액세스 하는 비용을 발생 시키고 데이터를 저장 하는 데 드는 비용을 줄이는 것이 가장 적합 합니다.    
 
-자세히 알아보려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)을 참조 하세요.
+자세히 알아보려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal)을 참조 하세요.
 
 #### <a name="automatically-move-data-between-access-tiers"></a>액세스 계층 간에 데이터를 자동으로 이동
 
 수명 주기 관리 정책을 사용 하 여 정기적으로 계층 간에 데이터를 이동 하 여 비용을 절감할 수 있습니다. 이러한 정책은 사용자가 지정 하는 규칙을 사용 하 여 데이터를로 이동할 수 있습니다. 예를 들어 blob이 90 일 이내에 수정 되지 않은 경우 blob을 보관 계층으로 이동 하는 규칙을 만들 수 있습니다. 데이터의 액세스 계층을 조정 하는 정책을 만들어 요구에 가장 저렴 한 저장소 옵션을 디자인할 수 있습니다.
 
-자세히 알아보려면 [Azure Blob 저장소 수명 주기 관리](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) 를 참조 하세요.
+자세히 알아보려면 [Azure Blob 저장소 수명 주기 관리](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) 를 참조 하세요.
 
 ## <a name="create-budgets"></a>예산 만들기
 
@@ -87,11 +87,11 @@ Azure Storage에서 Azure 리소스를 사용 하는 경우 비용이 발생 합
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구** 창을 열고 메뉴에서 **비용 관리** 를 선택한 다음 **비용 분석**을 선택 합니다. 그런 다음 **범위** 드롭다운에서 특정 구독에 대 한 범위를 변경할 수 있습니다.
+2. **Cost Management + 청구** 창을 열고 메뉴에서 **비용 관리** 를 선택한 다음 **비용 분석** 을 선택 합니다. 그런 다음 **범위** 드롭다운에서 특정 구독에 대 한 범위를 변경할 수 있습니다.
 
    ![범위를 보여 주는 스크린샷](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Azure Storage에 대 한 비용만 보려면 **필터 추가** 를 선택한 다음 **서비스 이름**을 선택 합니다. 그런 다음 목록에서 **저장소** 를 선택 합니다. 
+4. Azure Storage에 대 한 비용만 보려면 **필터 추가** 를 선택한 다음 **서비스 이름** 을 선택 합니다. 그런 다음 목록에서 **저장소** 를 선택 합니다. 
 
    Azure Storage에 대 한 비용을 보여 주는 예제는 다음과 같습니다.
 

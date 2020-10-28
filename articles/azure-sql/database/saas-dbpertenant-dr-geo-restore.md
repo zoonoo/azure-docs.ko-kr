@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330107"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780889"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "92330107"
 
 이 자습서를 완료하려면 다음과 같은 필수 구성 요소를 완료해야 합니다.
 * Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요. 
-* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
+* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>지역 복원 복구 패턴 소개
 
@@ -58,17 +58,17 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
  * 가동 중단이 해결되면 테넌트에 미치는 영향을 최소화하면서 원래 지역으로 데이터베이스를 송환합니다.  
 
 > [!NOTE]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.   
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.   
 
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
-* [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 원래 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다. 또한 새 테넌트를 프로비전하기 위해 별도의 서버 및 풀이 만들어집니다.
+* [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 원래 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다. 또한 새 테넌트를 프로비전하기 위해 별도의 서버 및 풀이 만들어집니다.
 * [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](elastic-database-client-library.md) - 테넌트 데이터베이스 카탈로그를 만들고 유지 관리합니다. 확장된 카탈로그는 정기적으로 새로 고친 풀 및 데이터베이스 구성 정보를 포함합니다.
 * EDCL의 [분할된 관리 복구 기능](elastic-database-recovery-manager.md) - 복구 및 송환하는 동안 카탈로그에 데이터베이스 위치 항목을 유지 관리합니다.  
 * [지역 복원](../../key-vault/general/disaster-recovery-guidance.md) - 자동으로 유지 관리되는 지역 중복 백업에서 카탈로그 및 테넌트 데이터베이스를 복구합니다. 
-* [비동기 복원 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) - 시스템에서 각 풀에 대해 큐에 넣고 풀이 오버로드되지 않도록 일괄적으로 처리하여 테넌트 우선 순위로 보내집니다. 이러한 작업은 필요에 따라 실행 전이나 실행 중에 취소할 수 있습니다.   
+* [비동기 복원 작업](../../azure-resource-manager/management/async-operations.md) - 시스템에서 각 풀에 대해 큐에 넣고 풀이 오버로드되지 않도록 일괄적으로 처리하여 테넌트 우선 순위로 보내집니다. 이러한 작업은 필요에 따라 실행 전이나 실행 중에 취소할 수 있습니다.   
 * [지역 복제](active-geo-replication-overview.md) - 가동 중단 후 데이터베이스를 원래 지역으로 송환합니다. 지역 복제를 사용하면 데이터 손실이 없고 테넌트에 미치는 영향을 최소화할 수 있습니다.
-* [SQL Server DNS 별칭](../../sql-database/dns-alias-overview.md) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
+* [SQL Server DNS 별칭](./dns-alias-overview.md) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>재해 복구 스크립트 가져오기
 
@@ -104,7 +104,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 이 작업에서는 서버, 탄력적 풀 및 데이터베이스의 구성을 테넌트 카탈로그로 동기화하는 프로세스를 시작합니다. 이 정보는 나중에 복구 지역에서 미러 이미지 환경을 구성하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> 편의상, 이러한 샘플에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 참조하세요. 
+> 편의상, 이러한 샘플에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요. 
 
 1. PowerShell ISE에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다. 파일을 저장합니다.
 
@@ -180,7 +180,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일단의 PowerShell 작업이 시작됩니다. 이러한 작업은 서버, 풀 및 데이터베이스를 복구 지역에 복원합니다.
 
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
 
@@ -374,7 +374,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 > * DNS 별칭을 사용하여 애플리케이션을 재구성하지 않고 테넌트 카탈로그 전체에 연결할 수 있습니다.
 > * 가동 중단이 해결되면 지역 복제를 사용하여 복구된 데이터베이스를 원래 지역으로 송환합니다.
 
-지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](../../sql-database/saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
+지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](./saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

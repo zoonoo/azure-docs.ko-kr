@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619800"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780906"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>다중 테넌트 Azure SQL Database SaaS 앱을 사용하여 Azure Monitor 로그 설정 및 사용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 자습서에서는 [Azure Monitor 로그](/azure/log-analytics/log-analytics-overview)를 설정하고 사용하여 탄력적 풀 및 데이터베이스를 모니터링합니다. 이 자습서는 [성능 모니터링 및 관리 자습서](saas-dbpertenant-performance-monitoring.md)를 기반으로 합니다. 이는 Azure Portal에서 제공된 모니터링 및 경고를 강화하기 위해 Azure Monitor 로그를 사용하는 방법을 보여 줍니다. Azure Monitor 로그를 사용하면 수천 개의 탄력적 풀과 수십만 개의 데이터베이스를 모니터링할 수 있습니다. Azure Monitor 로그는 여러 Azure 구독에서 다양한 애플리케이션과 Azure 서비스의 모니터링을 통합할 수 있는 단일 모니터링 솔루션을 제공합니다.
+이 자습서에서는 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)를 설정하고 사용하여 탄력적 풀 및 데이터베이스를 모니터링합니다. 이 자습서는 [성능 모니터링 및 관리 자습서](saas-dbpertenant-performance-monitoring.md)를 기반으로 합니다. 이는 Azure Portal에서 제공된 모니터링 및 경고를 강화하기 위해 Azure Monitor 로그를 사용하는 방법을 보여 줍니다. Azure Monitor 로그를 사용하면 수천 개의 탄력적 풀과 수십만 개의 데이터베이스를 모니터링할 수 있습니다. Azure Monitor 로그는 여러 Azure 구독에서 다양한 애플리케이션과 Azure 서비스의 모니터링을 통합할 수 있는 단일 모니터링 솔루션을 제공합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,8 +33,8 @@ ms.locfileid: "91619800"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 테넌트별 데이터베이스 앱이 배포되어 있습니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포 및 살펴보기](../../sql-database/saas-dbpertenant-get-started-deploy.md)를 참조하세요.
-* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
+* Wingtip Tickets SaaS 테넌트별 데이터베이스 앱이 배포되어 있습니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포 및 살펴보기](./saas-dbpertenant-get-started-deploy.md)를 참조하세요.
+* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
 SaaS 시나리오 및 패턴에 대한 논의와 모니터링 솔루션의 요구 사항에 미치는 영향은 [성능 모니터링 및 관리 자습서](saas-dbpertenant-performance-monitoring.md)를 참조하세요.
 
@@ -48,16 +48,16 @@ OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log 
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>테넌트에서 워크로드를 시뮬레이션하여 성능 진단 데이터 만들기 
 
-1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서에서 몇 가지 부하 생성 시나리오를 실행할 수도 있으므로 이 스크립트를 계속 열어 둡니다.
+1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1* 을 엽니다. 이 자습서에서 몇 가지 부하 생성 시나리오를 실행할 수도 있으므로 이 스크립트를 계속 열어 둡니다.
 1. 더욱 유용한 모니터링 컨텍스트를 만들기 위해 일군의 테넌트를 프로비전합니다(아직 수행하지 않은 경우). 이 작업에는 몇 분이 소요됩니다.
 
-   a. **$DemoScenario = 1**, _테넌트의 배치 프로비전_을 설정합니다.
+   a. **$DemoScenario = 1** , _테넌트의 배치 프로비전_ 을 설정합니다.
 
    b. F5 키를 눌러 스크립트를 실행하여 추가로 17개의 테넌트를 배포합니다.
 
 1. 이제 로드 생성기를 시작하여 모든 테넌트에서 시뮬레이션된 로드를 실행합니다.
 
-    a. **$DemoScenario = 2**, _표준 강도 부하 생성(약 30 DTU)_ 을 설정합니다.
+    a. **$DemoScenario = 2** , _표준 강도 부하 생성(약 30 DTU)_ 을 설정합니다.
 
     b. 스크립트를 실행하려면 F5 키를 누릅니다.
 
@@ -69,7 +69,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 Azure Monitor는 구성이 필요한 별도의 서비스입니다. Azure Monitor 로그는 Log Analytics 작업 영역에서 로그 데이터, 원격 분석 및 메트릭을 수집합니다. Log Analytics 작업 영역은 Azure의 다른 리소스와 마찬가지로 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 애플리케이션과 동일한 리소스 그룹에서 만들 필요는 없습니다. 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip Tickets 앱의 경우 하나의 리소스 그룹을 사용하면 작업 영역이 애플리케이션과 함께 삭제되도록 할 수 있습니다.
 
-1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*을 엽니다.
+1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1* 을 엽니다.
 1. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 이제 Azure Portal에서 Azure Monitor 로그를 열 수 있습니다. Log Analytics 작업 영역에서 원격 분석을 수집하여 표시하는 데는 몇 분 정도 시간이 걸립니다. 시스템의 데이터 수집 시간이 길어질수록 더 유용한 데이터가 수집됩니다. 
@@ -79,13 +79,13 @@ Azure Monitor는 구성이 필요한 별도의 서비스입니다. Azure Monitor
 
 이 연습에서는 Azure Portal에서 Log Analytics 작업 영역을 열어 데이터베이스 및 풀에 대해 수집된 원격 분석을 살펴봅니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Log Analytics 작업 영역을 엽니다. 그런 다음, Log Analytics를 검색합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스** 를 선택하여 Log Analytics 작업 영역을 엽니다. 그런 다음, Log Analytics를 검색합니다.
 
    ![Log Analytics 작업 영역 열기](./media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
 1. 이름이 _wtploganalytics-&lt;user&gt;_ 인 작업 영역을 선택합니다.
 
-1. **개요**를 선택하여 Azure Portal에서 Log Analytics 솔루션을 엽니다.
+1. **개요** 를 선택하여 Azure Portal에서 Log Analytics 솔루션을 엽니다.
 
    ![개요](./media/saas-dbpertenant-log-analytics/click-overview.png)
 
@@ -102,7 +102,7 @@ Azure Monitor는 구성이 필요한 별도의 서비스입니다. Azure Monitor
 
     ![Log Analytics 대시보드](./media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. 필터 설정을 변경하여 시간 범위를 수정합니다. 이 자습서에서는 **마지막 1시간**을 선택합니다.
+1. 필터 설정을 변경하여 시간 범위를 수정합니다. 이 자습서에서는 **마지막 1시간** 을 선택합니다.
 
     ![시간 필터](./media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
@@ -127,7 +127,7 @@ Azure Monitor는 구성이 필요한 별도의 서비스입니다. Azure Monitor
     ![풀 메트릭](./media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Log Analytics 작업 영역으로 돌아가서 **OMS Portal**을 선택하여 작업 영역을 엽니다.
+1. Log Analytics 작업 영역으로 돌아가서 **OMS Portal** 을 선택하여 작업 영역을 엽니다.
 
     ![Log Analytics 작업 영역](./media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
@@ -135,7 +135,7 @@ Log Analytics 작업 영역에서 로그와 메트릭 데이터를 자세히 살
 
 Azure Monitor 로그의 모니터링 및 경고는 Azure Portal의 각 리소스에 정의된 경고와 달리 작업 영역에 있는 데이터에 대한 쿼리를 바탕으로 합니다. 쿼리가 경고를 바탕으로 하기 때문에 데이터베이스마다 일일이 경고를 설정하는 대신 모든 데이터베이스를 대상으로 하는 하나의 경고를 정의할 수 있습니다. 쿼리는 작업 영역에서 사용 가능한 데이터를 통해서만 제한됩니다.
 
-Azure Monitor 로그를 사용하여 쿼리를 실행하고 경고를 설정하는 방법에 대한 자세한 내용은 [Azure Monitor 로그에서 경고 규칙 작업](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)을 참조하세요.
+Azure Monitor 로그를 사용하여 쿼리를 실행하고 경고를 설정하는 방법에 대한 자세한 내용은 [Azure Monitor 로그에서 경고 규칙 작업](../../azure-monitor/platform/alerts-metric.md)을 참조하세요.
 
 SQL Database용 Azure Monitor 로그는 작업 영역의 데이터 크기에 따라 과금됩니다. 이 자습서에서는 일일 500MB로 제한되는 무료 작업 영역을 만들었습니다. 이 한도에 도달하면 작업 영역에 더 이상 데이터가 추가되지 않습니다.
 

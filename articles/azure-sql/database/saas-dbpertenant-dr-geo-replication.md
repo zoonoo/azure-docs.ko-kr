@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330124"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781025"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "92330124"
 
 이 자습서를 시작하기 전에 먼저 다음 필수 조건이 완료되었는지 확인합니다.
 * 테넌트 앱별 Wingtip Tickets SaaS 데이터베이스가 배포되어 있습니다. 5분 안에 배포를 마치려면 [테넌트 애플리케이션별로 Wingtip Tickets SaaS 데이터베이스 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.  
-* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
+* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>지역에서 복제 복구 패턴 소개
 
@@ -66,11 +66,11 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
-* [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 프로덕션 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다.
+* [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 프로덕션 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다.
 * [지역에서 복제](active-geo-replication-overview.md) - 모든 데이터베이스에 대해 비동기적으로 복제된 읽기 전용 보조 데이터베이스를 만듭니다. 작동 중단이 발생하는 동안 복구 지역의 복제본으로 장애 조치(Failover)합니다.  작동 중단이 해결되면 데이터 손실 없이 원래 지역의 데이터베이스로 장애 복구(Failback)합니다.
-* [비동기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) - 많은 수의 데이터베이스에 대한 장애 조치(Failover) 시간을 최소화하기 위해 테넌트 우선 순위에 따라 장애 조치(Failover) 작업이 전송됩니다.
+* [비동기](../../azure-resource-manager/management/async-operations.md) - 많은 수의 데이터베이스에 대한 장애 조치(Failover) 시간을 최소화하기 위해 테넌트 우선 순위에 따라 장애 조치(Failover) 작업이 전송됩니다.
 * [분할된 관리 복구 기능](elastic-database-recovery-manager.md) - 복구 및 송환하는 동안 카탈로그의 데이터베이스 항목을 변경합니다. 이러한 기능을 사용하면 앱을 다시 구성하지 않고도 위치에 관계없이 테넌트 데이터베이스에 연결할 수 있습니다.
-* [SQL Server DNS 별칭](../../sql-database/dns-alias-overview.md) - 앱이 작동되는 지역에 관계없이 새 테넌트를 원활하게 프로비전할 수 있도록 합니다. 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 하기 위해 DNS 별칭도 사용됩니다.
+* [SQL Server DNS 별칭](./dns-alias-overview.md) - 앱이 작동되는 지역에 관계없이 새 테넌트를 원활하게 프로비전할 수 있도록 합니다. 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 하기 위해 DNS 별칭도 사용됩니다.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>재해 복구 스크립트 가져오기 
 
@@ -85,7 +85,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 나중에, 별도의 송환 단계에서 복구 지역의 카탈로그 및 테넌트 데이터베이스를 원래 지역으로 장애 조치(Failover)합니다. 애플리케이션 및 데이터베이스는 송환이 진행되는 동안 계속 사용할 수 있습니다. 완료되면 애플리케이션은 원래 지역에서 완벽하게 작동합니다.
 
 > [!Note]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_ 에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_ 에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.
 
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 
@@ -106,7 +106,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 이 작업에서는 서버, 탄력적 풀 및 데이터베이스의 구성을 테넌트 카탈로그로 동기화하는 프로세스를 시작합니다. 이 프로세스에서는 이 정보가 카탈로그에 최신 상태로 유지됩니다.  또한 원래 지역에 있든, 복구 지역에 있든 관계없이 활성 카탈로그가 프로세스에서 사용됩니다. 구성 정보는 복구 환경이 원래 환경과 일치하고, 나중에 송환 동안에는 원래 지역이 복구 환경에서 수행된 변경 내용과 일치하도록 복구 프로세스의 일부로 사용됩니다. 테넌트 리소스의 복구 상태를 추적하는 데 카탈로그도 사용됩니다.
 
 > [!IMPORTANT]
-> 편의상, 이러한 자습서에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 참조하세요.
+> 편의상, 이러한 자습서에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
 1. _PowerShell ISE_ 에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다.  파일을 저장합니다.
 
@@ -186,7 +186,7 @@ Azure 지역 맵에서 원래 지역의 주 복제본과 복구 지역의 보조
 
 2. **F5** 키를 눌러 스크립트를 실행합니다.  
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일련의 PowerShell 작업이 시작됩니다. 이러한 작업은 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover)합니다.
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_ 입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_ 입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
     ![장애 조치(Failover) 프로세스](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

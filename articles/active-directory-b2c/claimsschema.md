@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201364"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781722"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -52,7 +52,7 @@ ms.locfileid: "85201364"
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | DataType | 1:1 | 클레임의 형식입니다. |
-| DefaultPartnerClaimTypes | 0:1 | 지정된 프로토콜에 사용할 파트너 기본 클레임 형식입니다. **InputClaim** 또는 **OutputClaim** 요소에 지정된 **PartnerClaimType**에서 값을 덮어쓸 수 있습니다. 이 요소를 사용하여 프로토콜의 기본 이름을 지정합니다.  |
+| DefaultPartnerClaimTypes | 0:1 | 지정된 프로토콜에 사용할 파트너 기본 클레임 형식입니다. **InputClaim** 또는 **OutputClaim** 요소에 지정된 **PartnerClaimType** 에서 값을 덮어쓸 수 있습니다. 이 요소를 사용하여 프로토콜의 기본 이름을 지정합니다.  |
 | Mask | 0:1 | 클레임을 표시할 때 적용할 수 있는 마스킹 문자로 구성된 선택적 문자열입니다. 예를 들어 전화 번호 324-232-4343은 XXX-XXX-4343으로 마스킹할 수 있습니다. |
 | UserHelpText | 0:1 | 사용자가 클레임의 용도를 파악하는 데 도움이 될 수 있는 클레임 형식의 설명입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | UserInputType | 0:1 | 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용자에게 제공해야 하는 입력 컨트롤 유형입니다. 이 페이지 아래쪽에 정의되어 있는 사용자 입력 형식을 참조하세요. |
@@ -66,7 +66,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DataType** 요소는 다음 값을 지원 합니다.
 
-| 유형 | Description |
+| Type | Description |
 | ------- | ----------- |
 |boolean|부울(`true` 또는 `false`) 값을 나타냅니다.|
 |date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
@@ -82,7 +82,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
-**DefaultPartnerClaimTypes**는 다음 요소를 함할 수 있습니다.
+**DefaultPartnerClaimTypes** 는 다음 요소를 함할 수 있습니다.
 
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
@@ -174,7 +174,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
-| 패턴 | 1:1 | 사용할 정규식입니다. |
+| 무늬 | 1:1 | 사용할 정규식입니다. |
 
 #### <a name="enumeration"></a>열거형
 
@@ -207,7 +207,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ![드롭다운 컨트롤이 브라우저에서 렌더링 되었으며 기본값을 표시 합니다.](./media/claimsschema/dropdownsingleselect.png)
 
-### <a name="pattern"></a>패턴
+### <a name="pattern"></a>무늬
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
@@ -228,7 +228,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -284,7 +284,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

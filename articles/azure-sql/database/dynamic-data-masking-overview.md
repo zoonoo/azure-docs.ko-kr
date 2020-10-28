@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398615"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781450"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ SQL Database 구성 창의 **보안** 에서 **동적 데이터 마스킹** 블�
 
 ### <a name="dynamic-data-masking-permissions"></a>동적 데이터 마스킹 사용 권한
 
-Azure SQL Database 관리자, 서버 관리자 또는 [SQL 보안 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
+Azure SQL Database 관리자, 서버 관리자 또는 [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
 
 ### <a name="dynamic-data-masking-policy"></a>동적 데이터 마스킹 정책
 
@@ -45,30 +45,30 @@ Azure SQL Database 관리자, 서버 관리자 또는 [SQL 보안 관리자](htt
 | 마스킹 함수 | 마스킹 논리 |
 | --- | --- |
 | **기본값** |**지정된 필드의 데이터 형식에 따라 모든 데이터 마스킹**<br/><br/>• 문자열 데이터 형식(nchar, ntext, nvarchar)의 필드 크기가 4자 미만이면 XXXX개 이하의 X를 사용합니다.<br/>• 숫자 데이터 형식(bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real)의 경우 0 값을 사용합니다.<br/>• 날짜/시간 데이터 형식(date, datetime2, datetime, datetimeoffset, smalldatetime, time)의 경우 01-01-1900을 사용합니다.<br/>• SQL 변형의 경우 현재 형식의 기본값이 사용됩니다.<br/>• XML의 경우 \<masked/> 문서가 사용됩니다.<br/>• 특수 데이터 형식(타임스탬프 테이블, hierarchyid, GUID, 이진, 이미지, varbinary 공간 형식)의 경우 빈 값을 사용합니다. |
-| **신용 카드** |**지정된 필드의 마지막 4자리를 표시**하고 신용 카드 형식 접두사로 상수 문자열을 추가하는 마스킹 방법입니다.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Email** |메일 주소 형식의 상수 문자열 접두사를 사용하여 **첫 글자를 표시하고 도메인을 XXX.com으로 바꾸는 마스킹 메서드**입니다.<br/><br/>aXX@XXXX.com |
-| **난수** |선택한 경계 및 실제 데이터 형식에 따라 **난수를 생성하는 마스킹 메서드**입니다. 지정된 경계가 같으면 마스킹 함수로 상수가 사용됩니다.<br/><br/>![난수를 생성 하는 마스킹 방법을 보여 주는 스크린샷](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
-| **사용자 지정 텍스트** |**첫 문자와 마지막 문자를 표시**하고 가운데에 사용자 지정 패딩 문자열을 추가하는 마스킹 메서드입니다. 원래 문자열이 노출된 접두사 및 접미사보다 짧은 경우 패딩 문자열만 사용됩니다. <br/>접두사[여백]접미사<br/><br/>![탐색 창](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
+| **신용 카드** |**지정된 필드의 마지막 4자리를 표시** 하고 신용 카드 형식 접두사로 상수 문자열을 추가하는 마스킹 방법입니다.<br/><br/>XXXX-XXXX-XXXX-1234 |
+| **Email** |메일 주소 형식의 상수 문자열 접두사를 사용하여 **첫 글자를 표시하고 도메인을 XXX.com으로 바꾸는 마스킹 메서드** 입니다.<br/><br/>aXX@XXXX.com |
+| **난수** |선택한 경계 및 실제 데이터 형식에 따라 **난수를 생성하는 마스킹 메서드** 입니다. 지정된 경계가 같으면 마스킹 함수로 상수가 사용됩니다.<br/><br/>![난수를 생성 하는 마스킹 방법을 보여 주는 스크린샷](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
+| **사용자 지정 텍스트** |**첫 문자와 마지막 문자를 표시** 하고 가운데에 사용자 지정 패딩 문자열을 추가하는 마스킹 메서드입니다. 원래 문자열이 노출된 접두사 및 접미사보다 짧은 경우 패딩 문자열만 사용됩니다. <br/>접두사[여백]접미사<br/><br/>![탐색 창](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>마스크 권장 필드
 
-DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가**를 클릭한 다음 **저장**을 클릭하기만 하면 됩니다.
+DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가** 를 클릭한 다음 **저장** 을 클릭하기만 하면 됩니다.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
 ### <a name="data-masking-policies"></a>데이터 마스킹 정책
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>데이터 마스킹 규칙
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>REST API를 사용 하 여 데이터베이스에 대 한 동적 데이터 마스킹 설정
 
@@ -76,10 +76,10 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 
 ### <a name="data-masking-policies"></a>데이터 마스킹 정책
 
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): 데이터베이스 데이터 마스킹 정책을 만들거나 업데이트 합니다.
-- [가져오기](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): 데이터베이스 데이터 마스킹 정책을 가져옵니다. 
+- [만들기 또는 업데이트](/rest/api/sql/datamaskingpolicies/createorupdate): 데이터베이스 데이터 마스킹 정책을 만들거나 업데이트 합니다.
+- [가져오기](/rest/api/sql/datamaskingpolicies/get): 데이터베이스 데이터 마스킹 정책을 가져옵니다. 
 
 ### <a name="data-masking-rules"></a>데이터 마스킹 규칙
 
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): 데이터베이스 데이터 마스킹 규칙을 만들거나 업데이트합니다.
-- [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): 데이터베이스 데이터 마스킹 규칙 목록을 가져옵니다.
+- [만들기 또는 업데이트](/rest/api/sql/datamaskingrules/createorupdate): 데이터베이스 데이터 마스킹 규칙을 만들거나 업데이트합니다.
+- [데이터베이스별 목록](/rest/api/sql/datamaskingrules/listbydatabase): 데이터베이스 데이터 마스킹 규칙 목록을 가져옵니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17a29621d3d70d56745d2e51e0ce80974876a9ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487877"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782164"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
 
@@ -55,13 +55,13 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>내보내기 작업을 만들 때 디스크를 준비해야 하나요?
 
-아니요. 일부 사전 검사를 수행하는 것이 좋습니다. 필요한 디스크 수를 확인하려면 WAImportExport 도구의 PreviewExport 명령을 사용합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 명령을 통해 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob의 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽고 쓸 수 있는지 확인합니다.
+아니요. 일부 사전 검사를 수행하는 것이 좋습니다. 필요한 디스크 수를 확인하려면 WAImportExport 도구의 PreviewExport 명령을 사용합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)를 참조하세요. 명령을 통해 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob의 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽고 쓸 수 있는지 확인합니다.
 
 ## <a name="importexport-jobs"></a>Import/Export 작업
 
 ### <a name="can-i-cancel-my-job"></a>작업을 취소할 수 있나요?
 
-예. 작업 상태가 **만드는 중** 또는 **운송 중**인 경우 작업을 취소할 수 있습니다. 이러한 단계를 넘으면 작업을 취소할 수 없고 최종 단계까지 계속됩니다.
+예. 작업 상태가 **만드는 중** 또는 **운송 중** 인 경우 작업을 취소할 수 있습니다. 이러한 단계를 넘으면 작업을 취소할 수 없고 최종 단계까지 계속됩니다.
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Azure Portal에서 완료된 작업의 상태는 얼마나 오랫동안 볼 수 있나요?
 
@@ -132,7 +132,7 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>이 서비스를 통해 가져오는 데이터에 액세스하려면 어떻게 하나요?
 
-Azure Portal 또는 [Storage 탐색기](/azure/vs-azure-tools-storage-manage-with-storage-explorer) 를 사용 하 여 Azure Storage 계정에 있는 데이터에 액세스 합니다.  
+Azure Portal 또는 [Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 를 사용 하 여 Azure Storage 계정에 있는 데이터에 액세스 합니다.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 스토리지 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
 
@@ -144,7 +144,7 @@ Azure Portal 또는 [Storage 탐색기](/azure/vs-azure-tools-storage-manage-wit
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 도구는 32비트 운영 체제와 호환되나요?
 
-아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](/azure/storage/common/storage-import-export-requirements)로 이동합니다.
+아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](./storage-import-export-requirements.md)로 이동합니다.
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
 

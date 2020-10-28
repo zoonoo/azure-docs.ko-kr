@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676801"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782011"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 
@@ -27,7 +27,7 @@ ms.locfileid: "92676801"
 >
 > Azure Files는 현재 스토리지 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 >
-> 프리미엄 성능 블록 Blob Storage 계정은 스토리지 분석 메트릭을 지원하지 않지만 로깅은 지원합니다. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 로깅을 사용하도록 설정할 수 있습니다. 프리미엄 성능 블록 Blob Storage 계정을 사용하여 메트릭을 보려면 [Azure Monitor에서 Azure Storage 메트릭](storage-metrics-in-azure-monitor.md)을 사용하는 것이 좋습니다.
+> 프리미엄 성능 블록 Blob Storage 계정은 스토리지 분석 메트릭을 지원하지 않지만 로깅은 지원합니다. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 로깅을 사용하도록 설정할 수 있습니다. 프리미엄 성능 블록 Blob Storage 계정을 사용하여 메트릭을 보려면 [Azure Monitor에서 Azure Storage 메트릭](../blobs/monitor-blob-storage.md)을 사용하는 것이 좋습니다.
 >
 > 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >

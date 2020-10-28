@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5eacd84d2ff37c10702896127adcb67f5459b6be
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461671"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782402"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -21,7 +21,7 @@ ms.locfileid: "92461671"
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
@@ -29,7 +29,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`.
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. `C:\WaImportExport`)을 입력합니다.
 - FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -50,14 +50,14 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. 도구가 있는 루트 폴더에서 *dataset.csv* 파일을 수정합니다. 파일 또는 폴더 중 하나 또는 둘 다를 가져올지에 따라 다음 예제와 비슷한 *dataset.csv* 파일에 항목을 추가합니다.  
 
-   - **파일을 가져오려면**다음 예제에서 복사할 데이터가 F: 드라이브에 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1*의 루트에 복사합니다. *MyAzureFileshare1*이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
+   - **파일을 가져오려면** 다음 예제에서 복사할 데이터가 F: 드라이브에 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1* 의 루트에 복사합니다. *MyAzureFileshare1* 이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
+   - **폴더를 가져오려면** : *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -70,28 +70,28 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     [데이터 세트 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md)에 대해 자세히 알아보세요.
+     [데이터 세트 CSV 파일 준비](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)에 대해 자세히 알아보세요.
 
 
 4. 도구가 있는 루트 폴더에서 *driveset.csv* 파일을 수정합니다. 다음 예제와 비슷한 *driveset.csv* 파일에 항목을 추가합니다. 드라이브 집합 파일에는 디스크 및 해당하는 드라이브 문자 목록이 있으므로 도구는 준비해야 할 디스크 목록을 올바르게 선택할 수 있습니다.
 
     이 예제에서는 두 개의 디스크가 연결되어 있고 기본 NTFS 볼륨 G:\ 및 H:\가 생성되었다고 가정합니다. G:가 이미 암호화된 반면 H:\는 암호화되지 않았습니다. 도구는 H:\만을 호스트하는 디스크를 포맷하고 암호화합니다(G:\) 제외).
 
-   - **암호화되지 않은 디스크의 경우**: *암호화*를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
+   - **암호화되지 않은 디스크의 경우** : *암호화* 를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **이미 암호화되어 있는 디스크의 경우**: *AlreadyEncrypted*를 지정하고 BitLocker 키를 제공합니다.
+   - **이미 암호화되어 있는 디스크의 경우** : *AlreadyEncrypted* 를 지정하고 BitLocker 키를 제공합니다.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     여러 드라이브에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. [드라이브 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md)에 대해 자세히 알아보세요.
+     여러 드라이브에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다. [드라이브 집합 CSV 파일 준비](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)에 대해 자세히 알아보세요.
 
 5. `PrepImport` 옵션을 사용하여 디스크 드라이브에 대한 데이터를 복사하고 준비합니다. 새 복사 세션을 사용하여 디렉터리 및/또는 파일을 복사하는 첫 번째 복사 세션의 경우 다음과 같은 명령을 실행합니다.
 
@@ -118,17 +118,17 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 1. https://portal.azure.com/에 로그온합니다.
-2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기**로 차례로 이동합니다.
+2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기** 로 차례로 이동합니다.
 
     ![가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. **가져오기/내보내기 작업 만들기**를 클릭 합니다.
+3. **가져오기/내보내기 작업 만들기** 를 클릭 합니다.
 
     ![작업 가져오기/내보내기 클릭](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. **기본 사항**에서
+4. **기본 사항** 에서
 
-    - **Azure로 가져오기**를 선택합니다.
+    - **Azure로 가져오기** 를 선택합니다.
     - 가져오기 작업을 설명하는 이름을 입력합니다. 작업이 진행 중인 동안 그리고 작업이 완료되면 이 이름을 사용하여 작업을 추적합니다.
         -  이 이름에는 소문자, 숫자, 하이픈 및 밑줄만 사용할 수 있습니다.
         -  이름은 문자로 시작해야 하며, 공백은 포함할 수 없습니다.
@@ -137,7 +137,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
         ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. **작업 세부 정보**에서:
+3. **작업 세부 정보** 에서:
 
     - 이전 [1단계: 드라이브 준비](#step-1-prepare-the-drives) 중에 만든 업무 일지 파일을 업로드합니다.
     - 데이터를 가져올 수 있는 스토리지 계정을 선택합니다.
@@ -145,7 +145,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
        ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. **반송 정보**에서:
+4. **반송 정보** 에서:
 
     - 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
     - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다.
@@ -157,10 +157,10 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
        ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
 
-5. **요약**에서:
+5. **요약** 에서:
 
     - Azure로의 반송 디스크에 Azure 데이터 센터 운송 주소를 입력합니다. 작업 이름 및 전체 주소가 배송 레이블에 언급되어 있는지 확인합니다.
-    - **확인**을 클릭하여 가져오기 작업 만들기를 완료합니다.
+    - **확인** 을 클릭하여 가져오기 작업 만들기를 완료합니다.
 
         ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
@@ -258,9 +258,9 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 ## <a name="samples-for-journal-files"></a>업무 일지 파일에 대한 샘플
 
-**드라이브를 추가**하려면 새 드라이브 집합 파일을 만들고 아래 명령을 실행합니다.
+**드라이브를 추가** 하려면 새 드라이브 집합 파일을 만들고 아래 명령을 실행합니다.
 
-*InitialDriveset .csv* 파일에 지정된 것과 다른 디스크 드라이브에 대한 후속 복사 세션의 경우 새 드라이브 집합 *.csv* 파일을 지정하고 `AdditionalDriveSet` 매개 변수에 값으로 제공합니다. **동일한 저널 파일** 이름을 사용하고 **새 세션 ID**를 제공합니다. AdditionalDriveset CSV 파일의 형식은 InitialDriveSet 형식과 같습니다.
+*InitialDriveset .csv* 파일에 지정된 것과 다른 디스크 드라이브에 대한 후속 복사 세션의 경우 새 드라이브 집합 *.csv* 파일을 지정하고 `AdditionalDriveSet` 매개 변수에 값으로 제공합니다. **동일한 저널 파일** 이름을 사용하고 **새 세션 ID** 를 제공합니다. AdditionalDriveset CSV 파일의 형식은 InitialDriveSet 형식과 같습니다.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -275,7 +275,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 추가 데이터를 동일한 드라이브 집합에 추가하려면 후속 복사 세션에 PrepImport 명령을 사용하여 추가 파일/디렉터리를 복사합니다.
 
-*InitialDriveset.csv* 파일에서 지정된 동일한 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 **동일한 업무 일지 파일** 이름을 지정하고, **새 세션 ID**를 제공합니다. 스토리지 계정 키를 제공하지 않아도 됩니다.
+*InitialDriveset.csv* 파일에서 지정된 동일한 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 **동일한 업무 일지 파일** 이름을 지정하고, **새 세션 ID** 를 제공합니다. 스토리지 계정 키를 제공하지 않아도 됩니다.
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

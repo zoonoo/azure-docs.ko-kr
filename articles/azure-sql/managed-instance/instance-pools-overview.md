@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325167"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782657"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀 (미리 보기) 이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 
 인스턴스 풀은 다음과 같은 이점을 제공 합니다.
 
-1. 2 vCore 인스턴스를 호스트할 수 있습니다. * \* 인스턴스 풀의 인스턴스에만 해당*됩니다.
+1. 2 vCore 인스턴스를 호스트할 수 있습니다. *\* 인스턴스 풀의 인스턴스에만 해당* 됩니다.
 2. 예측 가능 하 고 빠른 인스턴스 배포 시간 (최대 5 분)
 3. 최소 IP 주소 할당.
 
@@ -59,9 +59,9 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 
 ## <a name="architecture"></a>Architecture
 
-인스턴스 풀은 일반 (*단일*) 관리 되는 인스턴스의 아키텍처와 유사 합니다.  [Azure 가상 네트워크 내에서 배포](../../virtual-network/virtual-network-for-azure-services.md)를 지원 하   고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](connectivity-architecture-overview.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
+인스턴스 풀은 일반 ( *단일* ) 관리 되는 인스턴스의 아키텍처와 유사 합니다. [Azure 가상 네트워크 내에서 배포](../../virtual-network/virtual-network-for-azure-services.md) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](connectivity-architecture-overview.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
 
-두 배포 모델의 주요 차이점은 인스턴스 풀이 [Windows 작업 개체](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하는 반면 단일 인스턴스는 항상 가상 컴퓨터 노드에 있는 경우입니다.
+두 배포 모델의 주요 차이점은 인스턴스 풀이 [Windows 작업 개체](/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하는 반면 단일 인스턴스는 항상 가상 컴퓨터 노드에 있는 경우입니다.
 
 다음 다이어그램에서는 인스턴스 풀과 동일한 서브넷에 배포 된 두 개의 개별 인스턴스를 보여 주고 두 배포 모델에 대 한 주요 아키텍처 세부 정보를 보여 줍니다.
 
@@ -76,7 +76,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 - 인스턴스 풀은 Gen5 하드웨어 에서만 사용할 수 있습니다.
 - 풀 내의 관리 되는 인스턴스에는 전용 CPU와 RAM이 있으므로 모든 인스턴스의 집계 된 vCores 수는 풀에 할당 된 vCores의 수보다 작거나 같아야 합니다.
 - 모든 [인스턴스 수준 제한은](resource-limits.md#service-tier-characteristics) 풀 내에 생성 된 인스턴스에 적용 됩니다.
-- 인스턴스 수준 제한 외에도 *인스턴스 풀 수준에*적용 되는 두 가지 제한이 있습니다.
+- 인스턴스 수준 제한 외에도 *인스턴스 풀 수준에* 적용 되는 두 가지 제한이 있습니다.
   - 풀 당 총 저장소 크기 (8TB)
   - 풀 당 총 데이터베이스 수 (100)입니다.
 - 인스턴스 풀 내에 배포 된 인스턴스에 대해 AAD 관리자를 설정할 수 없으므로 AAD 인증을 사용할 수 없습니다.
@@ -137,8 +137,8 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 
 계산 가격 (vCores로 측정)의 경우 두 가지 가격 책정 옵션을 사용할 수 있습니다.
 
-  1. *라이선스 포함*: SQL Server 라이선스 가격이 포함 됩니다. 이는 소프트웨어 보증이 적용 되는 기존 SQL Server 라이선스를 적용 하지 않도록 선택 하는 고객을 위한 것입니다.
-  2. *Azure 하이브리드 혜택*: SQL Server의 Azure 하이브리드 혜택를 포함 하는 절감 된 가격입니다. 고객은 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 사용 하 여이 가격을 옵트인 (opt in) 할 수 있습니다. 자격 및 기타 세부 정보는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조 하세요.
+  1. *라이선스 포함* : SQL Server 라이선스 가격이 포함 됩니다. 이는 소프트웨어 보증이 적용 되는 기존 SQL Server 라이선스를 적용 하지 않도록 선택 하는 고객을 위한 것입니다.
+  2. *Azure 하이브리드 혜택* : SQL Server의 Azure 하이브리드 혜택를 포함 하는 절감 된 가격입니다. 고객은 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 사용 하 여이 가격을 옵트인 (opt in) 할 수 있습니다. 자격 및 기타 세부 정보는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조 하세요.
 
 풀의 개별 인스턴스에 대해 다른 가격 책정 옵션을 설정할 수 없습니다. 부모 풀의 모든 인스턴스는 라이선스 포함 가격 또는 Azure 하이브리드 혜택 가격 중 하나 여야 합니다. 풀을 만든 후에 풀의 라이선스 모델을 변경할 수 있습니다.
 

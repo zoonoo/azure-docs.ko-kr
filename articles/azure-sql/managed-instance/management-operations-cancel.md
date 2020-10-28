@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997240"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782504"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 취소
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 다음 표에서는 관리 작업을 취소할 수 있는지 여부와 일반적인 전체 지속 시간을 요약 하 여 보여 줍니다.
 
-범주  |작업(Operation)  |취소  |예상 취소 기간  |
+Category  |작업(Operation)  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 만들기 |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아니요 |  |
@@ -44,8 +44,8 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 |업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(범용) |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(중요 비즈니스용) |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 서비스 계층 변경(범용에서 중요 비즈니스용으로 및 그 반대로) |예 |작업의 90%가 5분 후에 완료됩니다. |
-|DELETE |인스턴스 삭제 |아니요 |  |
-|DELETE |가상 클러스터 삭제(사용자 시작 작업) |아니요 |  |
+|삭제 |인스턴스 삭제 |아니요 |  |
+|삭제 |가상 클러스터 삭제(사용자 시작 작업) |아니요 |  |
 
 ## <a name="cancel-management-operation"></a>관리 작업 취소
 
@@ -75,7 +75,7 @@ Azure Portal를 사용 하 여 관리 작업을 취소 하려면 다음 단계�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Azure PowerShell 아직 설치 하지 않은 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+Azure PowerShell 아직 설치 하지 않은 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 관리 작업을 취소 하려면 관리 작업 이름을 지정 해야 합니다. 따라서 먼저 get 명령을 사용 하 여 작업 목록을 검색 한 다음 특정 작업을 취소 합니다.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-자세한 명령 설명은 [AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) 및 [AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)를 참조 하세요.
+자세한 명령 설명은 [AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) 및 [AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation)를 참조 하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-자세한 명령 설명은 [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op)를 참조 하세요.
+자세한 명령 설명은 [az sql mi op](/cli/azure/sql/mi/op)를 참조 하세요.
 
 ---
 
 ## <a name="canceled-deployment-request"></a>취소 된 배포 요청
 
-API 버전 2020-02-02을 사용 하는 경우 인스턴스 생성 요청이 수락 되는 즉시 인스턴스는 배포 프로세스의 진행 상황에 관계 없이 리소스로 존재 하기 시작 합니다 (관리 되는 인스턴스 상태는 **프로 비전**됨). 인스턴스 배포 요청 (새 인스턴스 만들기)을 취소 하면 관리 되는 인스턴스가 **프로 비전** 상태에서 **failedtocreate**로 이동 합니다.
+API 버전 2020-02-02을 사용 하는 경우 인스턴스 생성 요청이 수락 되는 즉시 인스턴스는 배포 프로세스의 진행 상황에 관계 없이 리소스로 존재 하기 시작 합니다 (관리 되는 인스턴스 상태는 **프로 비전** 됨). 인스턴스 배포 요청 (새 인스턴스 만들기)을 취소 하면 관리 되는 인스턴스가 **프로 비전** 상태에서 **failedtocreate** 로 이동 합니다.
 
 만들지 못한 인스턴스는 여전히 리소스로 존재 하 고 다음을 수행 합니다. 
 

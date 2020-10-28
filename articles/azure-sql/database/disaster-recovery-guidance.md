@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e88c1b976ce1de0ce0be4b6a5f85af6790802323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321631"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782997"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대 한 장애 조치
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 가동 중지 시간에 대한 애플리케이션 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
 
-[Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*)를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
+[Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* )를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
 
 ## <a name="wait-for-service-recovery"></a>서비스 복구 대기
 

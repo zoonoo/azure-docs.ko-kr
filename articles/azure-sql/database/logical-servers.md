@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441717"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782895"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse의 논리 SQL server는 무엇 인가요?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ SQL Database 및 Azure Synapse의 서버:
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 상위 리소스입니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스에 대 한 네임 스페이스를 제공 합니다.
 - 강력한 수명 의미 체계를 사용 하는 논리적 컨테이너입니다. 서버를 삭제 하 고 해당 데이터베이스, 탄력적 풀 및 SQK 풀을 삭제 합니다.
-- Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 에 참여-서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스는 서버에서 액세스 권한을 상속 합니다.
+- Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 에 참여-서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스는 서버에서 액세스 권한을 상속 합니다.
 - Azure 리소스 관리를 위해 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스 id의 상위 요소입니다 (데이터베이스 및 풀에 대 한 URL 구성표 참조).
 - 지역에 리소스 배치
 - 데이터베이스 액세스에 대한 연결 엔드포인트를 제공합니다(`<serverName>`.database.windows.net).
@@ -83,7 +83,7 @@ SQL Database 및 Azure Synapse의 서버:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 PowerShell cmdlet을 사용 합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
@@ -96,7 +96,7 @@ Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 �
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|리소스 그룹 만들기|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|서버 만들기|
 |[AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|서버에 대한 정보 반환|
-|[AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|서버의 속성 수정|
+|[AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|서버의 속성 수정|
 |[AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|서버 제거|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|서버 수준 방화벽 규칙 만들기 |
 |[AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|서버의 방화벽 규칙 가져오기|
@@ -110,7 +110,7 @@ Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 �
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure CLI를 사용 하 여 서버, 데이터베이스 및 방화벽 관리
 
-[Azure CLI](/cli/azure)를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용 합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
+[Azure CLI](/cli/azure)를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용 합니다. [Cloud Shell](../../cloud-shell/overview.md)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
 | cmdlet | Description |
 | --- | --- |
@@ -150,7 +150,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 |[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Azure SQL Database에서 새로운 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 |[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 | [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |데이터베이스 또는 탄력적 풀을 수정 합니다. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|데이터베이스에 대 한 버전 (서비스 계층), 서비스 목표 (가격 책정 계층) 및 탄력적 풀 이름 (있는 경우)을 반환 합니다. 서버에 대 한 master 데이터베이스에 로그온 한 경우는 모든 데이터베이스에 대 한 정보를 반환 합니다. Azure Synapse의 경우 master 데이터베이스에 연결 해야 합니다.|
 |[sys.dm_db_resource_stats(Azure SQL 데이터베이스)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Azure SQL Database의 데이터베이스에 대 한 CPU, IO 및 메모리 소비량을 반환 합니다. 데이터베이스에서 활동이 없더라도 15초 간격으로 한 행이 있습니다.|
@@ -173,22 +173,22 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 | 명령 | Description |
 | --- | --- |
-|[서버-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|서버를 삭제 합니다.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|서버를 가져옵니다.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
-|[서버-리소스 그룹별 목록](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
-|[데이터베이스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|데이터베이스를 삭제합니다.|
-|[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[데이터베이스-탄력적 풀 별 목록](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스-서버 별로 나열](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
-|[방화벽 규칙-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
-|[방화벽 규칙-삭제](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
-|[방화벽 규칙-가져오기](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
-|[방화벽 규칙-서버 별로 나열](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
+|[서버-만들기 또는 업데이트](/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|서버를 삭제 합니다.|
+|[Servers - Get](/rest/api/sql/servers/get)|서버를 가져옵니다.|
+|[Servers - List](/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
+|[서버-리소스 그룹별 목록](/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
+|[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
+|[데이터베이스-만들기 또는 업데이트](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[Databases - Delete](/rest/api/sql/databases/delete)|데이터베이스를 삭제합니다.|
+|[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스-탄력적 풀 별 목록](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스-서버 별로 나열](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[방화벽 규칙-만들기 또는 업데이트](/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
+|[방화벽 규칙-삭제](/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
+|[방화벽 규칙-가져오기](/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
+|[방화벽 규칙-서버 별로 나열](/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

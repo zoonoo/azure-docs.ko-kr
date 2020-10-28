@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441020"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780464"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용 하 여 테 넌 트 별 데이터베이스 패턴을 사용 하는 다중 테 넌 트 SaaS 앱 소개
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,11 +43,11 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 | 자습서 | Description |
 |:--|:--|
 | [SQL Database 다중 테넌트 SaaS 앱 예제에 대한 지침 및 팁](saas-tenancy-wingtip-app-guidance-tips.md) | PowerShell 스크립트를 다운로드한 후 실행하여 애플리케이션 부분을 준비하세요. |
-|[Wingtip SaaS 애플리케이션 배포 및 탐색](../../sql-database/saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
-|[프로비전 및 카탈로그 테넌트](../../sql-database/saas-dbpertenant-provision-and-catalog.md)| 카탈로그 데이터베이스를 사용하여 애플리케이션을 테넌트에 연결하는 방법 및 카탈로그가 테넌트를 해당 데이터에 매핑하는 방법을 알아봅니다. |
-|[성능 모니터링 및 관리](../../sql-database/saas-dbpertenant-performance-monitoring.md)| SQL Database의 모니터링 기능을 사용하고 성능 임계값이 초과된 경우 경고를 설정하는 방법을 알아봅니다. |
-|[Azure Monitor 로그로 모니터링](../../sql-database/saas-dbpertenant-log-analytics.md) | [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md) 를 사용 하 여 여러 풀에서 많은 양의 리소스를 모니터링 하는 방법을 알아봅니다. |
-|[단일 테넌트 복원](../../sql-database/saas-dbpertenant-restore-single-tenant.md)| 테넌트 데이터베이스를 이전 시점으로 복원하는 방법을 알아봅니다. 또한 기존 테넌트 데이터베이스를 온라인 상태로 유지하여 병렬 데이터베이스로 복원하는 방법도 알아봅니다. |
+|[Wingtip SaaS 애플리케이션 배포 및 탐색](./saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
+|[프로비전 및 카탈로그 테넌트](./saas-dbpertenant-provision-and-catalog.md)| 카탈로그 데이터베이스를 사용하여 애플리케이션을 테넌트에 연결하는 방법 및 카탈로그가 테넌트를 해당 데이터에 매핑하는 방법을 알아봅니다. |
+|[성능 모니터링 및 관리](./saas-dbpertenant-performance-monitoring.md)| SQL Database의 모니터링 기능을 사용하고 성능 임계값이 초과된 경우 경고를 설정하는 방법을 알아봅니다. |
+|[Azure Monitor 로그로 모니터링](./saas-dbpertenant-log-analytics.md) | [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md) 를 사용 하 여 여러 풀에서 많은 양의 리소스를 모니터링 하는 방법을 알아봅니다. |
+|[단일 테넌트 복원](./saas-dbpertenant-restore-single-tenant.md)| 테넌트 데이터베이스를 이전 시점으로 복원하는 방법을 알아봅니다. 또한 기존 테넌트 데이터베이스를 온라인 상태로 유지하여 병렬 데이터베이스로 복원하는 방법도 알아봅니다. |
 |[테넌트 데이터베이스 스키마 관리](saas-tenancy-schema-management.md)| 모든 테넌트 데이터베이스를 대상으로 스키마와 참조 데이터를 업데이트하는 방법을 알아봅니다. |
 |[교차 테넌트 분산 쿼리 실행](saas-tenancy-cross-tenant-reporting.md) | 임시 분석 데이터베이스를 만들고 모든 테 넌 트에서 실시간 분산 쿼리를 실행 합니다.  |
 |[추출된 테넌트 데이터를 이용하여 분석 실행](saas-tenancy-tenant-analytics.md) | 오프라인 분석 쿼리를 실행하기 위해 테넌트 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출합니다. |
@@ -56,4 +56,4 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 ## <a name="next-steps"></a>다음 단계
 
 - [Wingtip Tickets SaaS 앱 예제를 배포하고 사용하기 위한 일반 지침과 팁](saas-tenancy-wingtip-app-guidance-tips.md)
-- [Wingtip SaaS 애플리케이션 배포](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- [Wingtip SaaS 애플리케이션 배포](./saas-dbpertenant-get-started-deploy.md)
