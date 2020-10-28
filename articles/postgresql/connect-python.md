@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707900"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481196"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
 이 빠른 시작에서는 macOS, Ubuntu Linux 또는 Windows에서 Python을 사용하여 Azure Database for PostgreSQL로 작업합니다. 이 빠른 시작에서는 데이터베이스에 연결하고 SQL 문을 사용하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 사용자가 Python에 익숙하지만 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 > [!TIP]
-> PostgreSQL을 사용하여 Django 애플리케이션을 빌드하려는 경우 자습서를 체크 아웃하고 [PostgreSQL 자습서를 사용하여 Django 웹앱을 배포](../app-service/containers/tutorial-python-postgresql-app.md)합니다.
+> PostgreSQL을 사용하여 Django 애플리케이션을 빌드하려는 경우 자습서를 체크 아웃하고 [PostgreSQL 자습서를 사용하여 Django 웹앱을 배포](../app-service/tutorial-python-postgresql-app.md)합니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -42,7 +42,7 @@ ms.locfileid: "91707900"
 Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. Azure Portal에서 이 정보를 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Database for PostgreSQL 서버 이름을 선택합니다. 
-1. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름**을 복사합니다. 정규화된 **서버 이름**은 항상 *\<my-server-name>my-server-name>.postgres.database.azure.com* 형식을 가지며, **관리 사용자 이름**은 항상 *\<my-admin-username>@\<my-server-name>* 형식을 갖습니다. 
+1. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름** 을 복사합니다. 정규화된 **서버 이름** 은 항상 *\<my-server-name>my-server-name>.postgres.database.azure.com* 형식을 가지며, **관리 사용자 이름** 은 항상 *\<my-admin-username>@\<my-server-name>* 형식을 갖습니다. 
    
    관리자 암호도 필요합니다. 이 암호를 잊어버린 경우 이 페이지에서 다시 설정할 수 있습니다. 
    
@@ -57,9 +57,9 @@ Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된
 1. 파일에 코드 예제를 추가합니다. 코드에서 다음과 같이 바꿉니다.
    - `<server-name>` 및 `<admin-username>`을 Azure Portal에서 복사한 값으로 바꿉니다.
    - `<admin-password>`를 서버 암호로 바꿉니다.
-   - `<database-name>`을 Azure Database for PostgreSQL 데이터베이스의 이름으로 바꿉니다. *postgres*라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 새 데이터베이스를 만들 수 있습니다. 
+   - `<database-name>`을 Azure Database for PostgreSQL 데이터베이스의 이름으로 바꿉니다. *postgres* 라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 새 데이터베이스를 만들 수 있습니다. 
    
-1. 프로젝트 폴더의 파일을 *.py* 확장명을 사용하여 저장합니다(예: *postgres-insert.py*). Windows의 경우 파일을 저장할 때 UTF-8 인코딩을 선택해야 합니다. 
+1. 프로젝트 폴더의 파일을 *.py* 확장명을 사용하여 저장합니다(예: *postgres-insert.py* ). Windows의 경우 파일을 저장할 때 UTF-8 인코딩을 선택해야 합니다. 
    
 1. 이 파일을 실행하려면 명령줄 인터페이스에서 프로젝트 폴더로 변경하고 `python` 다음에 파일 이름을 입력합니다(예: `python postgres-insert.py`).
 
@@ -108,7 +108,7 @@ conn.close()
 :::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Azure Database for PostgreSQL 서버 이름":::
 
 ## <a name="read-data"></a>데이터 읽기
-다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **SELECT**를 사용하여 데이터를 읽습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall)을 사용하여 반복할 결과 세트를 반환합니다. 
+다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **SELECT** 를 사용하여 데이터를 읽습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall)을 사용하여 반복할 결과 세트를 반환합니다. 
 
 ```Python
 import psycopg2
@@ -142,7 +142,7 @@ conn.close()
 ```
 
 ## <a name="update-data"></a>데이터 업데이트
-다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **UPDATE**를 사용하여 데이터를 업데이트합니다. 
+다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **UPDATE** 를 사용하여 데이터를 업데이트합니다. 
 
 ```Python
 import psycopg2

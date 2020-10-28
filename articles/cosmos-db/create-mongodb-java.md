@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 301bedc75d243f427120c955bda539508ff43200
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323641"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475960"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB에서 Java 및 MongoDB API를 사용하여 콘솔 앱 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "87323641"
 
 ## <a name="add-a-collection"></a>컬렉션 추가
 
-새 사용자 데이터베이스 이름을 **db**로 지정하고 새로운 컬렉션 이름을 **coll**로 지정합니다.
+새 사용자 데이터베이스 이름을 **db** 로 지정하고 새로운 컬렉션 이름을 **coll** 로 지정합니다.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -111,7 +111,7 @@ ms.locfileid: "87323641"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. Azure Cosmos DB 계정에서 **빠른 시작**을 선택하고 **Java**를 선택한 다음, 연결 문자열을 클립보드에 복사합니다.
+1. Azure Cosmos DB 계정에서 **빠른 시작** 을 선택하고 **Java** 를 선택한 다음, 연결 문자열을 클립보드에 복사합니다.
 
 2. *Program.java* 파일을 열고 MongoClientURI 생성자에 대한 인수를 연결 문자열로 바꿉니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
     
@@ -136,4 +136,4 @@ ms.locfileid: "87323641"
 이 빠른 시작에서는 Azure Cosmos DB API for Mongo DB 계정을 만들고, Data Explorer를 사용하여 데이터베이스 및 컨테이너를 추가하고, Java 콘솔 앱을 사용하여 데이터를 추가하는 방법을 알아보았습니다. 이제 Cosmos 데이터베이스에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157890"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438983"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -201,4 +201,4 @@ func endCall()
 
 ## <a name="sample-code"></a>샘플 코드
 
-샘플 앱은 [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)에서 다운로드할 수 있습니다.
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.

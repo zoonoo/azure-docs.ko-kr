@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 9fc7ecd633e92c22c8d2a65e4bf45371dab9697a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c3101b69b7ebf55367dbb52d0c2fd6d265cf33f5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282403"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475637"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
@@ -52,7 +52,7 @@ Azure Cosmos DB는 MongoDB에 대한 유선 프로토콜을 구현합니다. 이
 
 * [Azure Cosmos DB에 MongoDB 애플리케이션 연결](connect-mongodb-account.md) 자습서에 따라 계정 연결 문자열 정보를 가져오는 방법을 알아봅니다.
 * [Azure Cosmos DB에 Studio 3T 사용](mongodb-mongochef.md) 자습서에 따라 Studio 3T에서 Cosmos 데이터베이스와 MongoDB 앱을 연결하는 방법을 알아봅니다.
-* [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md) 자습서에 따라 Cosmos 데이터베이스로 데이터를 가져옵니다.
+* [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) 자습서에 따라 Cosmos 데이터베이스로 데이터를 가져옵니다.
 * [Robo 3T](mongodb-robomongo.md)를 사용하여 Cosmos 계정에 연결
 * [전역적으로 분산되는 앱의 읽기 기본 설정 구성](../cosmos-db/tutorial-global-distribution-mongodb.md) 방법을 알아봅니다.
 * [문제 해결 가이드](mongodb-troubleshoot.md)에서 일반적으로 발견되는 오류에 대한 솔루션 찾기

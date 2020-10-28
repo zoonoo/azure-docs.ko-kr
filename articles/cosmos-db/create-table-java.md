@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a430af4bd0cb8ec0db468ed4bfe605ce1fd3b8c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10a1a13deaaa6e61eacef3e68e19a1cfe97ef3c1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487554"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>빠른 시작: Azure Cosmos DB Table API 데이터를 관리하는 Java 앱 빌드
 
@@ -22,7 +22,7 @@ ms.locfileid: "87322791"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.JS](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 이 빠른 시작에서는 Azure Cosmos DB Table API 계정을 만들고 GitHub에서 복제된 Data Explorer 및 Java 앱을 사용하여 테이블과 엔터티를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
@@ -157,13 +157,13 @@ ms.locfileid: "87322791"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
    :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="연결 문자열 창에서 연결 문자열 정보 보기":::
 
 2. 오른쪽의 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
-3. *C:\git-samples\storage-table-java-getting-started\src\main\resources* 폴더에서 *config.properties*를 엽니다. 
+3. *C:\git-samples\storage-table-java-getting-started\src\main\resources* 폴더에서 *config.properties* 를 엽니다. 
 
 5. 첫 번째 줄을 주석으로 처리하고 두 번째 줄의 주석 처리를 제거합니다. 이제 처음 두 줄은 아래와 같은 모양입니다.
 

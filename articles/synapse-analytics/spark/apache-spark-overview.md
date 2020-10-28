@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87498925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369355"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark
 
@@ -45,7 +45,7 @@ Azure Synapse의 Spark 풀은 완전 관리형 Spark 서비스를 제공합니�
 
 Azure Synapse의 Spark 풀에는 풀에서 기본적으로 사용할 수 있는 다음 구성 요소가 포함됩니다.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Spark Core, Spark SQL, GraphX 및 MLlib가 포함됩니다.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Spark Core, Spark SQL, GraphX 및 MLlib가 포함됩니다.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Nteract 노트북](https://nteract.io/)
@@ -81,7 +81,7 @@ Apache Spark에는 Synapse Analytics의 Spark 풀에서 사용할 수 있는 Spa
 - [빠른 시작: Azure Synapse에서 Spark 풀 만들기](../quickstart-create-apache-spark-pool-portal.md)
 - [빠른 시작: Apache Spark Notebook 만들기](../quickstart-apache-spark-notebook.md)
 - [자습서: Apache Spark를 사용한 기계 학습](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark 공식 설명서](https://spark.apache.org/docs/latest/)
+- [Apache Spark 공식 설명서](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > 일부 공식 Apache Spark 설명서는 Spark 콘솔 사용에 의존하지만, Azure Synapse Spark에서는 사용할 수 없으므로 노트북 또는 IntelliJ 환경을 대신 사용합니다.

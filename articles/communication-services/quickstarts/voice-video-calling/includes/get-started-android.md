@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779893"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438326"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법을 알아봅니다.
 
@@ -167,7 +167,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 레이아웃이 만들어지면 바인딩과 활동의 기본 스캐폴딩을 추가할 수 있습니다. 이 활동은 런타임 권한을 요청하고, 통화 에이전트를 만들고, 단추가 눌러지면 전화를 겁니다. 각각에 대해 해당 섹션에서 설명합니다. `onCreate` 메서드는 `getAllPermissions` 및 `createAgent`를 호출하고 통화 단추에 대한 바인딩을 추가하도록 재정의됩니다. 이는 활동이 만들어질 때 한 번만 발생합니다. `onCreate`에 대한 자세한 내용은 [활동 수명 주기에 관한 이해](https://developer.android.com/guide/components/activities/activity-lifecycle) 가이드를 참조하세요.
 
-**MainActivity.java**로 이동하고, 내용을 다음 코드로 바꿉니다.
+**MainActivity.java** 로 이동하고, 내용을 다음 코드로 바꿉니다.
 
 ```java
 package com.contoso.acsquickstart;
@@ -321,4 +321,4 @@ private void startCall() {
 
 ## <a name="sample-code"></a>샘플 코드
 
-샘플 앱은 [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)에서 다운로드할 수 있습니다.
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.

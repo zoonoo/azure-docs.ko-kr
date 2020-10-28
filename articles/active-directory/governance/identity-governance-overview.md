@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306466"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362453"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -42,7 +42,7 @@ ID 거버넌스는 온-프레미스와 클라우드에서 직원, 비즈니스 �
 
 ## <a name="identity-lifecycle"></a>ID 수명 주기
 
-조직에서는 ID 거버넌스를 통해 *생산성*(사용자가 조직에 가입할 때처럼 필요한 리소스에 액세스하는 속도)과 *보안*(고용 상태의 변화처럼 시간에 따른 사용자의 액세스 권한 변화) 간에 적절한 균형을 유지할 수 있습니다.  ID 수명 주기 관리는 ID 거버넌스의 기반이며 효과적인 대규모 거버넌스를 원한다면 애플리케이션의 ID 수명 주기 관리 인프라를 현대화해야 합니다.
+조직에서는 ID 거버넌스를 통해 *생산성* (사용자가 조직에 가입할 때처럼 필요한 리소스에 액세스하는 속도)과 *보안* (고용 상태의 변화처럼 시간에 따른 사용자의 액세스 권한 변화) 간에 적절한 균형을 유지할 수 있습니다.  ID 수명 주기 관리는 ID 거버넌스의 기반이며 효과적인 대규모 거버넌스를 원한다면 애플리케이션의 ID 수명 주기 관리 인프라를 현대화해야 합니다.
 
 ![ID 수명 주기](./media/identity-governance-overview/identity-lifecycle.png)
 
@@ -58,7 +58,7 @@ ID 거버넌스는 온-프레미스와 클라우드에서 직원, 비즈니스 �
 
 IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승인 결정에 액세스합니다.  또한 IT에는 사용자가 스스로가 포함될 수 있습니다.  예를 들어 유럽에 있는 회사의 마케팅 애플리케이션에서 기밀 고객 데이터에 액세스하는 사용자는 회사의 정책을 알아야 합니다. 게스트 사용자는 초대된 조직의 데이터에 대해 처리 중인 요구 사항을 인식하지 못할 수 있습니다.
 
-조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../app-provisioning/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../external-identities/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.   또한 [Azure AD 권한 관리](entitlement-management-overview.md)을 사용하여 사용자가 그룹과 팀 멤버 자격, 애플리케이션 역할 및 SharePoint Online 역할의 패키지에서 액세스를 요청하는 방법을 정의할 수도 있습니다.
+조직은 [동적 그룹](../enterprise-users/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../app-provisioning/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../external-identities/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.   또한 [Azure AD 권한 관리](entitlement-management-overview.md)을 사용하여 사용자가 그룹과 팀 멤버 자격, 애플리케이션 역할 및 SharePoint Online 역할의 패키지에서 액세스를 요청하는 방법을 정의할 수도 있습니다.
 
 사용자가 애플리케이션에 액세스하려고 하는 경우 Azure AD는 [조건부 액세스](../conditional-access/index.yml) 정책을 적용합니다. 예를 들어 조건부 액세스 정책에는 애플리케이션에 액세스하기 전에 [사용 약관](../conditional-access/terms-of-use.md)을 표시하고 [사용자가 해당 약관에 동의했는지 확인](../conditional-access/require-tou.md)하는 작업이 포함될 수 있습니다.
 
@@ -90,7 +90,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ## <a name="getting-started"></a>시작
 
-Azure Portal에서 **ID 거버넌스**의 시작 탭을 확인하여 권한 관리, 액세스 검토, Privileged Identity Management 및 사용 약관 사용을 시작하세요.
+Azure Portal에서 **ID 거버넌스** 의 시작 탭을 확인하여 권한 관리, 액세스 검토, Privileged Identity Management 및 사용 약관 사용을 시작하세요.
 
 ![ID 거버넌스 시작](./media/identity-governance-overview/getting-started.png)
 
@@ -100,7 +100,7 @@ ID 거버넌스 기능에 대한 피드백이 있는 경우 Azure Portal에서 *
 모든 고객에게 맞는 완벽한 솔루션이나 권장 사항은 없지만, 다음 구성 가이드에서는 직원의 보안과 생산성을 보다 높일 수 있는 Microsoft의 권장 기준 정책을 제공합니다.
 
 - [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md)
+- [권한 있는 액세스 보안](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>부록 - ID 거버넌스 기능을 관리하기 위한 최소 권한 역할
 

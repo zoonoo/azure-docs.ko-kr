@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: f81a44af4a90ccda1875c0a9f2bfaa8dc0b73441
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945808"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489696"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Azure에서 적절한 PostgreSQL 서버 옵션 선택
 
@@ -86,7 +86,7 @@ Azure Database for PostgreSQL을 선택하면 계속해서 직접 데이터베�
 
 또한 다른 데이터 센터에 고가용성을 구성하는 데 필요한 구성 및 관리가 최소화됩니다.
 
-- PostgreSQL on Azure VMs를 선택하면 운영 체제와 PostgreSQL 서버 인스턴스 구성을 완벽하게 제어할 수 있습니다. VM과 함께 운영 체제 및 데이터베이스 소프트웨어를 업데이트 또는 업그레이드할 시기와 적용할 패치를 결정합니다. 또한 바이러스 백신 애플리케이션과 같은 추가 소프트웨어를 설치할 시기를 결정합니다. 자동화된 일부 기능이 제공되므로 패치, 백업 및 고가용성이 크게 간소화됩니다. VM 크기, 디스크 수 및 해당 스토리지 구성을 제어할 수 있습니다. 자세한 내용은 [Azure를 위한 가상 머신 및 클라우드 서비스 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)를 참조하세요.
+- PostgreSQL on Azure VMs를 선택하면 운영 체제와 PostgreSQL 서버 인스턴스 구성을 완벽하게 제어할 수 있습니다. VM과 함께 운영 체제 및 데이터베이스 소프트웨어를 업데이트 또는 업그레이드할 시기와 적용할 패치를 결정합니다. 또한 바이러스 백신 애플리케이션과 같은 추가 소프트웨어를 설치할 시기를 결정합니다. 자동화된 일부 기능이 제공되므로 패치, 백업 및 고가용성이 크게 간소화됩니다. VM 크기, 디스크 수 및 해당 스토리지 구성을 제어할 수 있습니다. 자세한 내용은 [Azure를 위한 가상 머신 및 클라우드 서비스 크기](../virtual-machines/sizes.md)를 참조하세요.
 
 ## <a name="time-to-move-to-azure-postgresql-service-paas"></a>Azure PostgreSQL Service(PaaS)로 전환할 시간
 
@@ -98,4 +98,3 @@ Azure Database for PostgreSQL을 선택하면 계속해서 직접 데이터베�
 
 - Azure Database for [PostgreSQL 가격 책정](https://azure.microsoft.com/pricing/details/postgresql/server/)을 확인하세요.
 - 첫 번째 서버를 만들어서 시작합니다.
-

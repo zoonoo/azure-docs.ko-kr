@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: cc4f775c3cf4c016173c485d57f203b4665c6393
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397728"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370647"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -64,7 +64,7 @@ Azure 계정은 청구 관계를 나타냅니다. Azure 계정은 사용자 ID�
 
 Azure 구독을 사용하여 Azure 리소스에 대한 액세스를 구성할 수 있습니다. 리소스 사용을 보고하고, 요금을 청구하고, 지불하는 방식을 제어할 수도 있습니다. 각 구독은 청구 및 지불 설정이 다를 수 있으므로 사무실, 부서, 프로젝트 등에 따라 구독 및 계획이 다를 수 있습니다. 모든 서비스는 구독에 소속되며, 구독 ID는 프로그래밍 방식 작업에 필요할 수 있습니다.
 
-각 구독은 Azure AD 디렉터리와 연결됩니다. 구독이 연결된 디렉터리를 찾으려면 Azure Portal에서 **구독**을 열고 구독을 선택하여 해당 디렉터리를 확인합니다.
+각 구독은 Azure AD 디렉터리와 연결됩니다. 구독이 연결된 디렉터리를 찾으려면 Azure Portal에서 **구독** 을 열고 구독을 선택하여 해당 디렉터리를 확인합니다.
 
 계정 및 구독은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 관리합니다.
 
@@ -99,11 +99,11 @@ Azure AD 역할은 사용자 만들기 또는 편집, 다른 사용자에게 관
 
 | Azure AD 역할 | 사용 권한 | 메모 |
 | --- | --- | --- |
-| [전역 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Azure Active Directory에 페더레이션하는 서비스를 비롯하여 Azure Active Directory의 모든 관리 기능에 대한 액세스 관리</li><li>다른 사람에게 관리자 역할 할당</li><li>모든 사용자 및 다른 관리자의 암호 다시 설정</li></ul> | Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. |
-| [사용자 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
-| [대금 청구 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>구매</li><li>구독 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li></ul> |  |
+| [전역 관리자](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>Azure Active Directory에 페더레이션하는 서비스를 비롯하여 Azure Active Directory의 모든 관리 기능에 대한 액세스 관리</li><li>다른 사람에게 관리자 역할 할당</li><li>모든 사용자 및 다른 관리자의 암호 다시 설정</li></ul> | Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. |
+| [사용자 관리자](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
+| [대금 청구 관리자](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>구매</li><li>구독 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li></ul> |  |
 
-Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목록을 볼 수 있습니다. Azure AD 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목록을 볼 수 있습니다. Azure AD 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
 ![Azure Portal의 Azure AD 역할](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -129,5 +129,5 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure RBAC(Azure 역할 기반 액세스 제어)란?](overview.md)
-- [Azure Active Directory의 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory의 관리자 역할 사용 권한](../active-directory/roles/permissions-reference.md)
 - [Azure 클래식 구독 관리자](classic-administrators.md)

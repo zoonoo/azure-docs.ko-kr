@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439954"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532665"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
 
@@ -90,11 +90,9 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 서비스는 커뮤니티 버전의 PostgreSQL을 실행합니다. 이를 통해 전체 애플리케이션 호환이 가능하며, PostgreSQL 엔진에서 개발된 기존 애플리케이션을 유연한 서버로 마이그레이션하기 위한 최소 리팩터링 비용이 필요합니다. 
 
-- **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우, pg_dump 및 pg_restore 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠른 마이그레이션 방법이 될 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)을 참조하세요.
-- **Azure Database Migration Service** – 가동 중지 시간을 최소화한 유연한 서버로의 원활하고 간소화된 마이그레이션을 위해 Azure Database Migration Service를 활용할 수 있습니다. [포털을 통한 DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) 및 [CLI를 통한 DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)를 참조하세요. Azure Database for PostgreSQL - 단일 서버에서 유연한 서버로 마이그레이션할 수 있습니다. 자세한 내용은 [DMS 문서](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal)를 참조하세요.
+- **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우, pg_dump 및 pg_restore 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠른 마이그레이션 방법이 될 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](../howto-migrate-using-dump-and-restore.md)을 참조하세요.
+- **Azure Database Migration Service** – 가동 중지 시간을 최소화한 유연한 서버로의 원활하고 간소화된 마이그레이션을 위해 Azure Database Migration Service를 활용할 수 있습니다. [포털을 통한 DMS](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) 및 [CLI를 통한 DMS](../../dms/tutorial-postgresql-azure-postgresql-online.md)를 참조하세요. Azure Database for PostgreSQL - 단일 서버에서 유연한 서버로 마이그레이션할 수 있습니다. 자세한 내용은 [DMS 문서](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Database for PostgreSQL 유연한 서버 배포 모드에 대한 소개를 읽어 보았습니다. 이제 첫 번째 서버를 만들 준비가 된 것입니다. [Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버 만들기](./quickstart-create-server-portal.md)
-
-

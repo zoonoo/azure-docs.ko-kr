@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107490"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489322"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -208,7 +208,7 @@ Azure Cosmos DB Cassandra API는 관리되는 서비스 플랫폼입니다. 그�
 
 **Windows:**
 
-Windows를 사용하는 경우 [Linux용 Windows 파일 시스템](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)을 사용하도록 설정하는 것이 좋습니다. 그런 다음, 아래의 linux 명령을 따를 수 있습니다.
+Windows를 사용하는 경우 [Linux용 Windows 파일 시스템](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)을 사용하도록 설정하는 것이 좋습니다. 그런 다음, 아래의 linux 명령을 따를 수 있습니다.
 
 **Unix/Linux/Mac:**
 
@@ -255,7 +255,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>일관성 매핑 
 
-Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다.  일관성 매핑에 대한 자세한 내용은 [여기](consistency-levels-across-apis.md#cassandra-mapping)를 참조하세요.
+Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다.  일관성 매핑에 대한 자세한 내용은 [여기](./cassandra-consistency.md#mapping-consistency-levels)를 참조하세요.
 
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 

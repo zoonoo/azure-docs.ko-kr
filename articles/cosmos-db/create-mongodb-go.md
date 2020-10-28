@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85299197"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476028"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Go 애플리케이션을 Azure Cosmos DB의 API for MongoDB에 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "85299197"
 
 Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다. 이 빠른 시작에서는 Azure Cloud Shell를 사용하여 Azure Cosmos DB 계정을 생성 및 관리하고, GitHub에서 기존 샘플 애플리케이션을 복제하고, Azure Cosmos DB에서 작동하도록 구성합니다. 
 
-샘플 애플리케이션은 Go로 작성된 명령줄 기반의 `todo` 관리 도구입니다. Azure Cosmos DB의 API for MongoDB는 [MongoDB 유선 프로토콜과 호환](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility)되므로 모든 MongoDB 클라이언트 드라이버에 연결할 수 있습니다. 이 애플리케이션은 애플리케이션에 투명한 방식으로 [MongoDB용 Go 드라이버](https://github.com/mongodb/mongo-go-driver)를 사용하기 때문에 데이터가 Azure Cosmos DB 데이터베이스에 저장됩니다.
+샘플 애플리케이션은 Go로 작성된 명령줄 기반의 `todo` 관리 도구입니다. Azure Cosmos DB의 API for MongoDB는 [MongoDB 유선 프로토콜과 호환](./mongodb-introduction.md#wire-protocol-compatibility)되므로 모든 MongoDB 클라이언트 드라이버에 연결할 수 있습니다. 이 애플리케이션은 애플리케이션에 투명한 방식으로 [MongoDB용 Go 드라이버](https://github.com/mongodb/mongo-go-driver)를 사용하기 때문에 데이터가 Azure Cosmos DB 데이터베이스에 저장됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 연결 문자열 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`와 함께 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
@@ -258,7 +258,7 @@ az login
 
 다음 예제에서는 서유럽 지역의 리소스 그룹을 만듭니다. 리소스 그룹에 고유한 이름을 선택합니다.
 
-Azure Cloud Shell을 사용하는 경우 **시도**를 선택하고, 화면의 지시에 따라 로그인한 다음, 명령 프롬프트에 명령을 복사합니다.
+Azure Cloud Shell을 사용하는 경우 **시도** 를 선택하고, 화면의 지시에 따라 로그인한 다음, 명령 프롬프트에 명령을 복사합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -279,7 +279,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
 
 > [!NOTE]
-> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
+> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
 
 ```json
 {
@@ -420,7 +420,7 @@ Azure Cosmos DB에 저장된 데이터는 Azure Portal에서 살펴보고 쿼리
 
 이전 단계에서 만든 사용자 데이터를 보고 쿼리하고 사용하려면 웹 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-맨 위 검색 상자에 **Azure Cosmos DB**를 입력합니다. Cosmos 계정 블레이드가 열리면 Cosmos 계정을 선택합니다. 왼쪽 탐색에서 **데이터 탐색기**를 선택합니다. 컬렉션 창에서 컬렉션을 확장하면 컬렉션에서 문서를 보고, 데이터를 쿼리하고 저장된 프로시저, 트리거 및 UDF를 만들고 실행합니다. 
+맨 위 검색 상자에 **Azure Cosmos DB** 를 입력합니다. Cosmos 계정 블레이드가 열리면 Cosmos 계정을 선택합니다. 왼쪽 탐색에서 **데이터 탐색기** 를 선택합니다. 컬렉션 창에서 컬렉션을 확장하면 컬렉션에서 문서를 보고, 데이터를 쿼리하고 저장된 프로시저, 트리거 및 UDF를 만들고 실행합니다. 
 
 :::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="새로 만든 문서를 표시하는 데이터 탐색기&quot;:::
 
@@ -457,4 +457,4 @@ ID를 사용하여 `todo` 삭제
 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 Azure Cosmos DB MongoDB API 계정을 만들고, Go 명령줄 앱을 만들고 실행하여 `todo`를 관리하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

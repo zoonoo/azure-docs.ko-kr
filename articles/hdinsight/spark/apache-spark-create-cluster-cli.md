@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9827c50d034b1c49700869c3274800c194c631a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 91c88d1084329ea3681ef39c1d8d755ed31d9ddd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499452"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490886"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -24,13 +24,13 @@ ms.locfileid: "87499452"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Azure Cloud Shell을 사용하지 않으려는 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용합니다.
+- Azure Cloud Shell을 사용하지 않으려는 경우 [Azure CLI](/cli/azure/install-azure-cli)를 사용합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Apache Spark 클러스터 만들기
 
-1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 다음 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않으면 다음 명령을 입력합니다.
+1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 다음 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기** 를 선택합니다. 그렇지 않으면 다음 명령을 입력합니다.
 
     ```azurecli-interactive
     az login

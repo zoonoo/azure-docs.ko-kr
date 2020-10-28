@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011466"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425884"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "89011466"
 - [Windows용 .NET Core](https://www.microsoft.com/net/download/windows) 또는 [.NET Framework](https://www.microsoft.com/net/download/windows)(Windows용 Visual Studio에 포함)를 설치합니다.
 - [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.  
 
-.NET Core와 .NET Framework 중에서 선택하는 방법에 대한 내용은 [서버 앱에 .NET Core와 .NET Framework 중에서 무엇을 사용할지 선택하는 방법](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)을 참조하세요.
+.NET Core와 .NET Framework 중에서 선택하는 방법에 대한 내용은 [서버 앱에 .NET Core와 .NET Framework 중에서 무엇을 사용할지 선택하는 방법](/dotnet/standard/choosing-core-framework-server)을 참조하세요.
 
 ### <a name="linux"></a>Linux
 
@@ -56,7 +56,7 @@ ms.locfileid: "89011466"
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 *storage-queues-dotnet-quickstart* 폴더를 찾아서 열고 *storage-queues-dotnet-quickstart.sln*을 두 번 클릭합니다. 
+이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 *storage-queues-dotnet-quickstart* 폴더를 찾아서 열고 *storage-queues-dotnet-quickstart.sln* 을 두 번 클릭합니다. 
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -148,7 +148,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해, 샘플은 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
+샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해, 샘플은 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse** 가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true** 를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -266,14 +266,14 @@ Azure Queues를 사용하는 .NET 개발에 대한 다음 추가 리소스를 �
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
-- 최신 버전의 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)에 대한 NuGet 패키지를 다운로드합니다.
+- 최신 버전의 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)에 대한 NuGet 패키지를 다운로드합니다.
     - [일반](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [큐](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - GitHub에서 [.NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 찾아보세요.
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
-- .NET 클라이언트 라이브러리에 대한 자세한 내용은 [.NET API 참조](https://docs.microsoft.com/dotnet/api/overview/azure/storage)를 참조하세요.
+- .NET 클라이언트 라이브러리에 대한 자세한 내용은 [.NET API 참조](/dotnet/api/overview/azure/storage)를 참조하세요.
 - .NET 클라이언트 라이브러리를 사용하여 작성된 [큐 스토리지 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues)을 살펴보세요.
 
 ## <a name="next-steps"></a>다음 단계
@@ -281,6 +281,6 @@ Azure Queues를 사용하는 .NET 개발에 대한 다음 추가 리소스를 �
 이 빠른 시작에서 .NET을 사용하여 큐에 메시지를 추가하고, 큐의 메시지를 피킹하고, 메시지를 큐에서 제거하고 처리하는 방법을 알아보았습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Queue Storage로 애플리케이션 간 통신](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Azure Queue Storage로 애플리케이션 간 통신](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.

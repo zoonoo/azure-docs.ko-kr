@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486500"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 Python 앱 빌드
 
@@ -113,7 +113,7 @@ ms.locfileid: "87873044"
 
 라이브 Azure Cosmos DB 계정에 대해 코드를 테스트하려면 연결 문자열 정보를 가져옵니다. 그런 다음 앱에 복사합니다.
 
-1. Azure Portal의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 선택한 다음, **읽기-쓰기 키**를 선택합니다. 화면 오른쪽에 있는 복사 단추를 사용하여 사용자 이름, 연결 문자열 및 암호를 복사합니다. 
+1. Azure Portal의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열** 을 선택한 다음, **읽기-쓰기 키** 를 선택합니다. 화면 오른쪽에 있는 복사 단추를 사용하여 사용자 이름, 연결 문자열 및 암호를 복사합니다. 
 
 2. 루트 디렉터리에 있는 *app.py* 파일을 엽니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "87873044"
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 앱을 배포하려면 Azure에서 새 웹앱을 만들고 이 GitHub 리포지토리의 포크로 지속적인 배포를 사용하도록 설정할 수 있습니다. 이 [자습서](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)에 따라 Azure에서 GitHub를 사용하여 지속적인 배포를 설정합니다.
+이 앱을 배포하려면 Azure에서 새 웹앱을 만들고 이 GitHub 리포지토리의 포크로 지속적인 배포를 사용하도록 설정할 수 있습니다. 이 [자습서](../app-service/deploy-continuous-deployment.md)에 따라 Azure에서 GitHub를 사용하여 지속적인 배포를 설정합니다.
 
 Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 주석 처리되어 있지 않은지 확인해야 합니다.
 
@@ -137,7 +137,7 @@ Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 �
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)를 참조하세요.
+그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](../app-service/configure-common.md#configure-app-settings)를 참조하세요.
 
 이 리포지토리의 포크를 만들지 않으려면 아래의 **Azure에 배포** 단추를 선택할 수도 있습니다. 그런 다음, Azure로 이동하고 Azure Cosmos DB 계정 정보를 사용하여 애플리케이션 설정을 지정해야 합니다.
 
@@ -161,4 +161,4 @@ Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 �
 이 빠른 시작에서는 Azure Cosmos DB for Mongo DB API 계정을 만들고 Azure Cosmos DB 에뮬레이터를 사용하여 GitHub에서 복제된 Python Flask To-Do 웹앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

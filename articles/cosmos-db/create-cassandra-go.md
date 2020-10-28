@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86535650"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491243"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: `gocql` 클라이언트를 통해 Go 앱을 빌드하여 Azure Cosmos DB Cassandra API 데이터 관리
 
@@ -85,7 +85,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-Azure Cosmos DB Cassandra 호스트는 [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) 함수에 전달되어 [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) 구조체를 가져온 다음, 사용자 이름, 암호, 포트 및 적절한 TLS 버전([HTTPS/SSL/TLS 암호화 보안 요구 사항](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))을 사용하도록 구성됩니다.
+Azure Cosmos DB Cassandra 호스트는 [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) 함수에 전달되어 [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) 구조체를 가져온 다음, 사용자 이름, 암호, 포트 및 적절한 TLS 버전([HTTPS/SSL/TLS 암호화 보안 요구 사항](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))을 사용하도록 구성됩니다.
 
 그런 다음, `main` 함수(`main.go`)에서 `GetSession` 함수를 호출합니다.
 
@@ -225,7 +225,7 @@ func mapToUser(m map[string]interface{}) model.User {
 
 앞에서 설명한 것처럼 애플리케이션은 환경 변수 형식으로 연결 및 자격 증명을 허용합니다. 
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
     :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="Azure Portal의 연결 문자열 페이지에서 세부 정보 보기 및 복사":::
 
@@ -252,7 +252,7 @@ go run main.go
 
 3. 터미널 창에는 키스페이스 및 테이블 설정, 사용자 만들기 등의 다양한 작업에 대한 알림이 표시됩니다.
 
-4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+4. Azure Portal에서 **데이터 탐색기** 를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
     :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Azure Portal의 연결 문자열 페이지에서 세부 정보 보기 및 복사":::
 

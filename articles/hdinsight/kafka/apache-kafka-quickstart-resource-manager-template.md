@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 79f9b6f1ec801b67c8600df0131554cbb51f1030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12988feeb26bc5821e8f08db3e688a2e1c429e19
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858205"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532631"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -53,17 +53,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |속성 |Description |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
-    |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택합니다.|
+    |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
     |위치|이 값은 리소스 그룹에 사용되는 위치로 자동 입력됩니다.|
     |클러스터 이름|전역적으로 고유한 이름을 입력합니다. 이 템플릿의 경우 소문자와 숫자만 사용합니다.|
-    |클러스터 로그인 사용자 이름|사용자 이름을 입력합니다. 기본값은 **admin**입니다.|
+    |클러스터 로그인 사용자 이름|사용자 이름을 입력합니다. 기본값은 **admin** 입니다.|
     |클러스터 로그인 암호|암호를 입력합니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외)를 각각 하나 이상 포함해야 합니다. |
-    |SSH 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser**입니다.|
+    |SSH 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser** 입니다.|
     |SSH 암호|암호를 입력합니다.|
 
     ![템플릿 속성의 스크린샷](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. **사용 약관**을 검토합니다. 그런 다음, **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포가 진행 중이라는 알림이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다.
+1. **사용 약관** 을 검토합니다. 그런 다음, **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포가 진행 중이라는 알림이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -133,7 +133,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka 토픽 관리
 
-Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하는 데 `kafka-topics.sh` 유틸리티를 사용할 수 있습니다.
+Kafka는 *토픽* 에 데이터 스트림을 저장합니다. 토픽을 관리하는 데 `kafka-topics.sh` 유틸리티를 사용할 수 있습니다.
 
 * **토픽을 만들려면** SSH 연결에서 다음 명령을 사용합니다.
 
@@ -141,7 +141,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    이 명령은 `$KAFKAZKHOSTS`에 저장된 호스트 정보를 사용하여 Zookeeper에 연결합니다. 그런 후 **test**라는 Kafka 토픽을 만듭니다.
+    이 명령은 `$KAFKAZKHOSTS`에 저장된 호스트 정보를 사용하여 Zookeeper에 연결합니다. 그런 후 **test** 라는 Kafka 토픽을 만듭니다.
 
     * 이 토픽에 저장된 데이터는 8개의 파티션에 분할됩니다.
 
@@ -151,7 +151,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
         
         세 개의 장애 도메인 지역에서는 3의 복제 인수를 사용하면 복제본을 오류 도메인에 분산할 수 있습니다. 두 개의 장애 도메인 지역에서는 4의 복제 인수로 복제본을 도메인에 동일하게 분산할 수 있습니다.
         
-        영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
+        영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
         Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 
@@ -190,7 +190,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
 
 ## <a name="produce-and-consume-records"></a>레코드 생성 및 소비
 
-Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드를 생성하고, *소비자*에서 이 레코드를 소비합니다. 생산자와 소비자는 *Kafka broker* 서비스와 통신합니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker 호스트입니다.
+Kafka는 토픽에 *레코드* 를 저장합니다. *생산자* 에서 레코드를 생성하고, *소비자* 에서 이 레코드를 소비합니다. 생산자와 소비자는 *Kafka broker* 서비스와 통신합니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker 호스트입니다.
 
 앞에서 만든 test 토픽에 레코드를 저장한 다음, 소비자를 통해 레코드를 읽으려면 다음 단계를 사용합니다.
 
@@ -222,11 +222,11 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
-Azure Portal에서 클러스터로 이동하여 **삭제**를 선택합니다.
+Azure Portal에서 클러스터로 이동하여 **삭제** 를 선택합니다.
 
 ![Resource Manager 템플릿 HBase](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight 클러스터와 기본 스토리지 계정을 삭제합니다.
+또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제** 를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight 클러스터와 기본 스토리지 계정을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

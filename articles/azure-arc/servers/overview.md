@@ -2,14 +2,14 @@
 title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200970"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460855"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -29,7 +29,7 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 - 비 Azure Windows 또는 Linux 머신에 대해 지원되는 [Azure VM 확장](manage-vm-extensions.md)을 사용하여 Azure Automation [상태 구성](../../automation/automation-dsc-overview.md) 및 Azure Monitor Log Analytics 작업 영역과 같은 다른 Azure 서비스와의 배포를 간소화합니다. 여기에는 사용자 지정 스크립트 확장을 사용하여 배포 후 구성 또는 소프트웨어 설치를 수행하는 작업이 포함됩니다.
 
-- Azure Automation의 [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다. 먼저 [Hybrid Runbook worker](../../automation/automation-hybrid-runbook-worker.md) 역할을 배포한 다음, 비 Azure Windows 또는 Linux 머신에서 [업데이트 관리를 사용하도록 설정](../../automation/update-management/update-mgmt-enable-portal.md)하는 단계를 따릅니다.
+- Azure Automation의 [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다.
 
 - 위협 탐지를 위한 비 Azure 서버를 포함하고 [Azure Security Center](../../security-center/security-center-introduction.md)를 사용하여 잠재적인 보안 위협을 사전에 모니터링합니다.
 
@@ -45,7 +45,7 @@ Azure Arc 지원 서버를 사용하여 지원되는 지역의 명확한 목록�
 
 ### <a name="agent-status"></a>에이전트 상태
 
-Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 서비스가 머신에서 이러한 하트비트 메시지 수신을 중지하면 해당 머신은 오프라인으로 간주되며 15~30분 내에 포털에서 상태가 자동으로 **연결 끊김**으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨**으로 변경됩니다.
+Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 서비스가 머신에서 이러한 하트비트 메시지 수신을 중지하면 해당 머신은 오프라인으로 간주되며 15~30분 내에 포털에서 상태가 자동으로 **연결 끊김** 으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨** 으로 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

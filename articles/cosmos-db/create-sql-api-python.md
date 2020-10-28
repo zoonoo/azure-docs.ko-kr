@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319013"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487588"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -39,7 +39,7 @@ ms.locfileid: "91319013"
     * Azure 활성 구독 내에서:
         * [Azure 체험 계정 만들기](https://azure.microsoft.com/free) 또는 기존 구독 사용 
         * [Visual Studio 월간 크레딧](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB 체험 계층](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB 체험 계층](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Azure 활성 구독이 없는 경우:
         * 30일 동안 지속되는 테스트 환경인 [Azure Cosmos DB를 무료로 사용해 보세요](https://azure.microsoft.com/try/cosmosdb/).
         * [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator) 
@@ -57,7 +57,7 @@ ms.locfileid: "91319013"
 
 이제 Azure Portal에서 Data Explorer 도구를 사용하여 데이터베이스 및 컨테이너를 만들 수 있습니다. 
 
-1. **Data Explorer** > **새 컨테이너**를 선택합니다. 
+1. **Data Explorer** > **새 컨테이너** 를 선택합니다. 
     
     맨 오른쪽에 **컨테이너 추가** 영역이 표시되는데, 안 보이면 오른쪽으로 스크롤해야 합니다.
 
@@ -67,14 +67,14 @@ ms.locfileid: "91319013"
 
     |설정|제안 값|Description
     |---|---|---|
-    |**데이터베이스 ID**|작업|새 데이터베이스의 이름으로 *작업*을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
+    |**데이터베이스 ID**|작업|새 데이터베이스의 이름으로 *작업* 을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 
-    |**컨테이너 ID**|Items|새 컨테이너의 이름으로 *Items*를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
-    |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.|
+    |**컨테이너 ID**|Items|새 컨테이너의 이름으로 *Items* 를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
+    |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category* 를 사용합니다.|
     
-    앞의 설정 외에도, 필요에 따라 컨테이너의 **고유 키**를 추가할 수 있습니다. 이 예에서 필드는 비워 두겠습니다. 고유 키는 데이터베이스에 데이터 무결성 계층을 추가할 수 있는 기능을 개발자에게 제공합니다. 컨테이너를 만드는 동안 고유 키 정책을 만들면 파티션 키당 하나 이상의 값에 대한 고유성이 보장됩니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md) 문서를 참조하세요.
+    앞의 설정 외에도, 필요에 따라 컨테이너의 **고유 키** 를 추가할 수 있습니다. 이 예에서 필드는 비워 두겠습니다. 고유 키는 데이터베이스에 데이터 무결성 계층을 추가할 수 있는 기능을 개발자에게 제공합니다. 컨테이너를 만드는 동안 고유 키 정책을 만들면 파티션 키당 하나 이상의 값에 대한 고유성이 보장됩니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md) 문서를 참조하세요.
     
-    **확인**을 선택합니다. Data Explorer에 새 데이터베이스와 컨테이너가 표시됩니다.
+    **확인** 을 선택합니다. Data Explorer에 새 데이터베이스와 컨테이너가 표시됩니다.
 
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
@@ -115,17 +115,17 @@ ms.locfileid: "91319013"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **키**를 선택합니다. 다음 단계에서는 화면 오른쪽의 복사 단추를 사용하여 **URI** 및 **기본 키**를 *cosmos_get_started.py* 파일에 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **키** 를 선택합니다. 다음 단계에서는 화면 오른쪽의 복사 단추를 사용하여 **URI** 및 **기본 키** 를 *cosmos_get_started.py* 파일에 복사합니다.
 
     :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
 
-2. Visual Studio Code의 *\git-samples\azure-cosmos-db-python-getting-started*에서 *cosmos_get_started.py* 파일을 엽니다.
+2. Visual Studio Code의 *\git-samples\azure-cosmos-db-python-getting-started* 에서 *cosmos_get_started.py* 파일을 엽니다.
 
-3. 복사 단추를 사용하여 포털에서 **URI** 값을 복사하고, 이 값을 *cosmos_get_started.py*의 **endpoint** 변수 값으로 만듭니다. 
+3. 복사 단추를 사용하여 포털에서 **URI** 값을 복사하고, 이 값을 *cosmos_get_started.py* 의 **endpoint** 변수 값으로 만듭니다. 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. 그런 다음, 포털에서 **기본 키** 값을 복사하고, 이 값을 *cosmos_get_started.py*의 **키** 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+4. 그런 다음, 포털에서 **기본 키** 값을 복사하고, 이 값을 *cosmos_get_started.py* 의 **키** 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
     `key = 'FILLME'`
 
@@ -163,13 +163,13 @@ ms.locfileid: "91319013"
    
 ## <a name="run-the-app"></a>앱 실행
 
-1. Visual Studio Code에서 **보기** > **명령 팔레트**를 선택합니다. 
+1. Visual Studio Code에서 **보기** > **명령 팔레트** 를 선택합니다. 
 
-2. 프롬프트에서 **Python: Select Interpreter**를 입력한 다음, 사용할 Python 버전을 선택합니다.
+2. 프롬프트에서 **Python: Select Interpreter** 를 입력한 다음, 사용할 Python 버전을 선택합니다.
 
     선택한 인터프리터를 나타내도록 Visual Studio Code의 바닥글이 업데이트됩니다. 
 
-3. **보기** > **통합 터미널**을 선택하여 Visual Studio Code 통합 터미널을 엽니다.
+3. **보기** > **통합 터미널** 을 선택하여 Visual Studio Code 통합 터미널을 엽니다.
 
 4. 통합 터미널 창에서 *azure-cosmos-db-python-getting-started* 폴더를 실행 중인지 확인합니다. 이 폴더에 있지 않으면 다음 명령을 실행하여 샘플 폴더로 전환합니다. 
 
@@ -191,7 +191,7 @@ ms.locfileid: "91319013"
     python cosmos_get_started.py
     ```
 
-7. 새 항목이 만들어져 저장되었는지 확인하려면 Azure Portal에서 **Data Explorer** > **AzureSampleFamilyDatabase** > **항목**을 차례로 선택합니다. 만든 항목이 표시됩니다. 예를 들어 다음은 Andersen 제품군에 대한 JSON 문서 샘플입니다.
+7. 새 항목이 만들어져 저장되었는지 확인하려면 Azure Portal에서 **Data Explorer** > **AzureSampleFamilyDatabase** > **항목** 을 차례로 선택합니다. 만든 항목이 표시됩니다. 예를 들어 다음은 Andersen 제품군에 대한 JSON 문서 샘플입니다.
    
    ```json
    {
@@ -237,5 +237,3 @@ ms.locfileid: "91319013"
 
 > [!div class="nextstepaction"]
 > [SQL API에 대한 Azure Cosmos DB로 데이터 가져오기](import-data.md)
-
-

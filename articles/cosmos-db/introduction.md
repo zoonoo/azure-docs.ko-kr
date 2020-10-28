@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cd6bbe963f0cee89c188053d0770816fdabc1b93
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278434"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490393"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -40,7 +40,7 @@ Cosmos DB는 Azure 인프라 및 [투명 다중 지역 쓰기 복제](global-dis
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>전 세계의 처리량 및 스토리지에 대한 탄력적 확장성
 
-투명한 수평 분할 및 다중 지역 쓰기 복제를 사용하도록 설계된 Cosmos DB는 전 세계의 모든 쓰기 및 읽기 작업에 대해 전례가 없는 탄력적 확장성을 제공합니다. 단일 API 호출을 통해 전 세계에 걸쳐 있는 수천에서 수억 개의 요청/초 단위로 탄력적으로 크기 조정할 수 있으며 필요한 처리량(및 스토리지)에 대한 요금만 지불하면 됩니다. 이 기능을 사용하면 최대 사용량을 초과하여 프로비전하지 않고도 워크로드에서 예기치 않은 스파이크를 처리할 수 있습니다. 자세한 내용은 [Cosmos DB에서 분할](partitioning-overview.md), [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md) 및 [글로벌로 프로비저닝된 처리량 크기 조정](scaling-throughput.md)을 참조하세요.
+투명한 수평 분할 및 다중 지역 쓰기 복제를 사용하도록 설계된 Cosmos DB는 전 세계의 모든 쓰기 및 읽기 작업에 대해 전례가 없는 탄력적 확장성을 제공합니다. 단일 API 호출을 통해 전 세계에 걸쳐 있는 수천에서 수억 개의 요청/초 단위로 탄력적으로 크기 조정할 수 있으며 필요한 처리량(및 스토리지)에 대한 요금만 지불하면 됩니다. 이 기능을 사용하면 최대 사용량을 초과하여 프로비전하지 않고도 워크로드에서 예기치 않은 스파이크를 처리할 수 있습니다. 자세한 내용은 [Cosmos DB에서 분할](partitioning-overview.md), [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md) 및 [글로벌로 프로비저닝된 처리량 크기 조정](./request-units.md)을 참조하세요.
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>전 세계적으로 99번째 백분위 수의 짧은 대기 시간 보장
 
@@ -48,7 +48,7 @@ Cosmos DB를 사용하면 응답성이 뛰어나고 세계적 규모의 애플�
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>정확하게 정의된 다중 일관성 선택 항목
 
-Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 지역 쓰기 복제 프로토콜은 전역적으로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성* , *제한된 부실* , *세션 일관성* , *일관된 접두사* 및 *최종 일관성* 을 제공하도록 신중하게 설계되었습니다.
+Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](./consistency-levels.md)할 필요가 없습니다. Cosmos DB의 다중 지역 쓰기 복제 프로토콜은 전역적으로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성* , *제한된 부실* , *세션 일관성* , *일관된 접두사* 및 *최종 일관성* 을 제공하도록 신중하게 설계되었습니다.
 
 ### <a name="no-schema-or-index-management"></a>스키마 또는 인덱스 관리 없음
 
@@ -76,11 +76,11 @@ Cosmos DB는 99.999%의 고가용성, 99번째 백분위수의 대기 시간, �
 
 ### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>기본적으로 기본 제공 Apache Spark를 통해 전역적으로 분산된 운영 분석 및 AI
 
-Cosmos DB에 저장된 데이터에 대해 [Spark](spark-connector.md)를 실행할 수 있습니다. 이 기능을 사용하면 Cosmos DB에 대해 직접 작동하는 트랜잭션 워크로드에 영향을 주지 않으면서 짧은 대기 시간의 운영 분석을 세계적 규모로 수행할 수 있습니다. 자세한 내용은 [글로벌로 분산된 운영 분석](lambda-architecture.md)을 참조하세요.
+Cosmos DB에 저장된 데이터에 대해 [Spark](spark-connector.md)를 실행할 수 있습니다. 이 기능을 사용하면 Cosmos DB에 대해 직접 작동하는 트랜잭션 워크로드에 영향을 주지 않으면서 짧은 대기 시간의 운영 분석을 세계적 규모로 수행할 수 있습니다. 자세한 내용은 [글로벌로 분산된 운영 분석](./synapse-link.md)을 참조하세요.
 
 ### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>인기 있는 OSS(Open Source Software) API를 사용하여 Cosmos DB에서 애플리케이션 개발
 
-Cosmos DB는 Cosmos 데이터베이스에 저장된 데이터를 사용하는 API에 대한 선택 항목을 제공합니다. 기본적으로 [SQL(코어 API)을 사용](how-to-sql-query.md)하여 Cosmos 데이터베이스를 쿼리할 수 있습니다. 또한 Cosmos DB는 [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) 및 [Azure Table Storage](table-introduction.md)용 API도 구현합니다. 일반적으로 사용되는 NoSQL(예: MongoDB, Cassandra, Gremlin)용 클라이언트 드라이버 및 도구를 Cosmos 데이터베이스에 직접 연결할 수 있습니다. 일반적으로 사용되는 NoSQL API의 유선 프로토콜을 지원함에 따라 Cosmos DB에서 수행할 수 있는 작업은 다음과 같습니다.
+Cosmos DB는 Cosmos 데이터베이스에 저장된 데이터를 사용하는 API에 대한 선택 항목을 제공합니다. 기본적으로 [SQL(코어 API)을 사용](./sql-query-getting-started.md)하여 Cosmos 데이터베이스를 쿼리할 수 있습니다. 또한 Cosmos DB는 [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) 및 [Azure Table Storage](table-introduction.md)용 API도 구현합니다. 일반적으로 사용되는 NoSQL(예: MongoDB, Cassandra, Gremlin)용 클라이언트 드라이버 및 도구를 Cosmos 데이터베이스에 직접 연결할 수 있습니다. 일반적으로 사용되는 NoSQL API의 유선 프로토콜을 지원함에 따라 Cosmos DB에서 수행할 수 있는 작업은 다음과 같습니다.
 
 * 애플리케이션 논리의 상당 부분을 유지하면서 애플리케이션을 Cosmos DB로 쉽게 마이그레이션합니다.
 * 클라우드 공급업체와 관계없이 애플리케이션을 이식 가능한 상태로 계속 유지합니다.

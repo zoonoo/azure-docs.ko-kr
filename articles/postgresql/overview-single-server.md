@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 469235957ebe26dd44cc6ce464a68167629099ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945813"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476147"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버
 
@@ -81,8 +81,8 @@ Azure Database for PostgreSQL 보안 기능에 대한 자세한 내용은 [보�
 
 이 서비스는 커뮤니티 버전의 PostgreSQL을 실행합니다. 따라서 전체 애플리케이션이 호환되며, PostgreSQL 엔진에서 개발된 기존 애플리케이션을 단일 서버로 마이그레이션하기 위한 리팩터링 비용이 최소화됩니다. 다음 옵션 중 하나를 사용하여 단일 서버로 마이그레이션할 수 있습니다.
 
-- **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우, Pg_dump 및 Pg_restore 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠른 마이그레이션 방법이 될 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)을 참조하세요.
-- **Azure Database Migration Service** – Azure Database Migration Service를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. [포털을 통한 DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) 및 [CLI를 통한 DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)를 참조하세요.
+- **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우, Pg_dump 및 Pg_restore 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠른 마이그레이션 방법이 될 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](./howto-migrate-using-dump-and-restore.md)을 참조하세요.
+- **Azure Database Migration Service** – Azure Database Migration Service를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. [포털을 통한 DMS](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) 및 [CLI를 통한 DMS](../dms/tutorial-postgresql-azure-postgresql-online.md)를 참조하세요.
 
 ## <a name="contacts"></a>연락처
 
@@ -98,4 +98,3 @@ Azure Database for PostgreSQL 작업에 대해 궁금한 점이나 제안하고 
 
 Azure Database for PostgreSQL 단일 서버 배포 모드에 대한 소개를 읽어 보았으므로 이제 다음을 할 수 있습니다.
 - 첫 번째 서버를 만듭니다.
-  

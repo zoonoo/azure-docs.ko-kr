@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c044e9dc7b8ee622b157a93726e7700e62ba2dfa
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499212"
 ---
 Communication Services C# SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -41,7 +41,7 @@ Communication Services C# SMS 클라이언트 라이브러리를 사용하여 SM
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `SmsQuickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs**라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `SmsQuickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs** 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -62,7 +62,7 @@ dotnet build
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
 ```
 
-**Program.cs**의 맨 위에 `using` 지시어를 추가하여 `Azure.Communication` 네임스페이스를 포함합니다.
+**Program.cs** 의 맨 위에 `using` 지시어를 추가하여 `Azure.Communication` 네임스페이스를 포함합니다.
 
 ```csharp
 
@@ -82,7 +82,7 @@ using Azure.Communication.Sms;
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
- 텍스트 편집기에서 **Program.cs**를 열고 `Main` 메서드의 본문을 코드로 바꿔 연결 문자열로 `SmsClient`를 초기화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+ 텍스트 편집기에서 **Program.cs** 를 열고 `Main` 메서드의 본문을 코드로 바꿔 연결 문자열로 `SmsClient`를 초기화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
 
 
 ```csharp
@@ -95,7 +95,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## <a name="send-an-sms-message"></a>SMS 메시지 보내기
 
-Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **Program.cs**에서 `Main` 메서드의 끝에 추가합니다.
+Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **Program.cs** 에서 `Main` 메서드의 끝에 추가합니다.
 
 ```csharp
 smsClient.Send(
@@ -117,3 +117,7 @@ smsClient.Send(
 ```console
 dotnet run
 ```
+
+## <a name="sample-code"></a>샘플 코드
+
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)에서 다운로드할 수 있습니다.

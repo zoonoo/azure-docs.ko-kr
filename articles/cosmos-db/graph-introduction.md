@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279839"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490614"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
 
@@ -32,7 +32,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 * **탄력적으로 확장 가능한 처리량 및 스토리지**
 
-  실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB는 거의 제한 없이 스토리지 및 프로비저닝된 처리량을 제공하도록 수평적으로 확장할 수 있는 그래프 데이터베이스를 지원합니다. 그래프 데이터베이스 규모가 증가하면 데이터는 [그래프 분할](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)을 사용하여 자동으로 분산됩니다.
+  실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB는 거의 제한 없이 스토리지 및 프로비저닝된 처리량을 제공하도록 수평적으로 확장할 수 있는 그래프 데이터베이스를 지원합니다. 그래프 데이터베이스 규모가 증가하면 데이터는 [그래프 분할](./graph-partitioning.md)을 사용하여 자동으로 분산됩니다.
 
 * **다중 지역 복제**
 
@@ -52,7 +52,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 * **자동 인덱싱** :
 
-  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](https://docs.microsoft.com/azure/cosmos-db/index-overview)에 대해 자세히 알아봅니다.
+  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](/azure/cosmos-db/index-overview)에 대해 자세히 알아봅니다.
 
 * **Apache TinkerPop과의 호환성**
 
