@@ -23,7 +23,7 @@ ms.locfileid: "92546826"
 > [!IMPORTANT]
 > 저장소는 다운 되지 않고 확장만 가능 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

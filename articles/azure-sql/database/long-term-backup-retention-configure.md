@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629139"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Azure SQL Database에서 [장기 백업 보존](long-term-retention-overview.md)
 
 서비스 계층의 보존 기간보다 긴 기간 동안 [자동화된 백업을 유지](long-term-retention-overview.md)하도록 SQL Database를 구성할 수 있습니다.
 
-1. Azure Portal에서 SQL Server 인스턴스를 선택 하 고 **백업 관리**를 클릭 합니다. **정책 구성** 탭에서 장기 백업 보존 정책을 설정 하거나 수정 하려는 데이터베이스에 대 한 확인란을 선택 합니다. 데이터베이스 옆의 확인란을 선택하지 않으면 정책에 대한 변경 내용이 해당 데이터베이스에 적용되지 않습니다.  
+1. Azure Portal에서 SQL Server 인스턴스를 선택 하 고 **백업 관리** 를 클릭 합니다. **정책 구성** 탭에서 장기 백업 보존 정책을 설정 하거나 수정 하려는 데이터베이스에 대 한 확인란을 선택 합니다. 데이터베이스 옆의 확인란을 선택하지 않으면 정책에 대한 변경 내용이 해당 데이터베이스에 적용되지 않습니다.  
 
    ![백업 관리 링크](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Azure SQL Database에서 [장기 백업 보존](long-term-retention-overview.md)
 
    ![정책 구성](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. 완료되면 **적용**을 클릭합니다.
+3. 완료되면 **적용** 을 클릭합니다.
 
 > [!IMPORTANT]
 > 장기 백업 보존 정책을 사용 하도록 설정 하는 경우 첫 번째 백업이 표시 되 고 복원 하는 데 사용할 수 있는 최대 7 일이 걸릴 수 있습니다. LTR backup cadance에 대 한 자세한 내용은 [장기 백업 보존](long-term-retention-overview.md)을 참조 하세요.
@@ -48,7 +48,7 @@ Azure SQL Database에서 [장기 백업 보존](long-term-retention-overview.md)
 
 LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보고 해당 백업에서 복원 합니다.
 
-1. Azure Portal에서 서버를 선택한 다음 **백업 관리**를 클릭 합니다. **사용 가능한 백업** 탭에서 사용 가능한 백업을 보려는 데이터베이스를 선택합니다.
+1. Azure Portal에서 서버를 선택한 다음 **백업 관리** 를 클릭 합니다. **사용 가능한 백업** 탭에서 사용 가능한 백업을 보려는 데이터베이스를 선택합니다.
 
    ![데이터베이스 선택](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -82,7 +82,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>장기 보존을 관리 하기 위한 Azure 역할
 
-**AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase**의 경우 다음 역할 중 하나가 있어야 합니다.
+**AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase** 의 경우 다음 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - SQL Server 참가자 역할 또는
@@ -90,7 +90,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 
    LongTermRetentionBackups/위치/a s s/longTermRetentionServers/longTermRetentionBackups/read Microsoft/위치/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-**AzSqlDatabaseLongTermRetentionBackup**의 경우 다음 역할 중 하나가 있어야 합니다.
+**AzSqlDatabaseLongTermRetentionBackup** 의 경우 다음 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - 다음 권한이 있는 사용자 지정 역할:
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하고, 이 데이터베이스에서 약간의 데이터를 추출하여 기존 데이터베이스에 복사하거나 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경하는 등 필요한 작업을 수행할 수 있습니다. [특정 시점 복원](recovery-using-backups.md#point-in-time-restore)을 참조하세요.
+
+## <a name="limitations"></a>제한 사항
+- LTR 백업에서 복원 하는 경우에는 읽기 크기 조정 속성이 비활성화 됩니다. 복원 된 데이터베이스의 크기를 설정 하려면 데이터베이스를 만든 후 데이터베이스를 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

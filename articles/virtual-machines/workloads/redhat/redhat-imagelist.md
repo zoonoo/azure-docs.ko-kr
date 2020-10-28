@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 628e9098eefa311f3ee5603b9eaf633d67d60c5f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994333"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629224"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
 Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공 합니다.
@@ -28,10 +28,10 @@ Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 �
 
 제안| SKU | 분할 | 프로비전 | 메모
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux 에이전트 |
-|             | 6.8      | RAW    | Linux 에이전트 |
-|             | 6.9      | RAW    | Linux 에이전트 |
-|             | 6.10     | RAW    | Linux 에이전트 |
+RHEL          | 6.7      | RAW    | Linux 에이전트 | 
+|             | 6.8      | RAW    | Linux 에이전트 | 
+|             | 6.9      | RAW    | Linux 에이전트 | 
+|             | 6.10     | RAW    | Linux 에이전트 | 
 |             | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님).
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님). 배포할 표준 RHEL 이미지를 찾고 있는 경우이 이미지 집합 및/또는 해당 하는 2 세대를 사용 합니다.
 |             | 7lvm-gen2| LVM    | Linux 에이전트 | 2 세대, RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님). 배포할 표준 RHEL 이미지를 찾고 있는 경우이 이미지 집합 및/또는 해당 하는 1 세대를 사용 합니다.
@@ -48,6 +48,8 @@ RHEL          | 6.7      | RAW    | Linux 에이전트 |
 |             | 77-gen2  | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
 |             | 7.8      | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.8에 대해 EUS를 사용할 수 없음)
 |             | 78-gen2  | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.8에 대해 EUS를 사용할 수 없음)
+|             | 7.9      | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.9에 대해 EUS를 사용할 수 없음)
+|             | 79-gen2  | LVM    | Linux 에이전트 | 일반 리포지토리에 연결 됨 (RHEL 7.9에 대해 EUS를 사용할 수 없음)
 |             | 8-LVM    | LVM    | Linux 에이전트 | RHEL .x 이미지 패밀리입니다. 일반 리포지토리에 연결 됩니다.
 |             | 8lvm-gen2| LVM    | Linux 에이전트 | Hyper-v 세대 2-RHEL 8. x 이미지 제품군 일반 리포지토리에 연결 됩니다.
 |             | 8        | LVM    | Linux 에이전트 | RHEL 8.0 이미지
@@ -65,14 +67,17 @@ RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니�
 |             | 7.6       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.6. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 76sap-gen2| LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.6. 2 세대 이미지입니다. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 7.7       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.7. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
-RHEL-SAP-HANA | 6.7       | RAW    | Linux 에이전트 | SAP HANA RHEL 6.7입니다. 오래 된 RHEL 이미지를 선호 합니다.
-|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.2입니다. 오래 된 RHEL 이미지를 선호 합니다.
-|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.3입니다. 오래 된 RHEL 이미지를 선호 합니다.
+RHEL (2020 년 10 월 일에 Marketplace에서 제거 됨) | 6.7       | RAW    | Linux 에이전트 | SAP HANA RHEL 6.7입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
+|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.2입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
+|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.3입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
 RHEL-SAP-APPS | 6.8       | RAW    | Linux 에이전트 | RHEL 6.8 for SAP Business Applications. 오래 된 RHEL 이미지를 선호 합니다.
 |             | 7.3       | LVM    | Linux 에이전트 | RHEL 7.3 for SAP Business Applications. 오래 된 RHEL 이미지를 선호 합니다.
-RHEL-HA       | 7.4       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.4. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다.
-|             | 7.5       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.5. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다.
-|             | 7.6       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.6. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다.
+|             | 7.4       | LVM    | Linux 에이전트 | RHEL 7.4 for SAP Business Applications.
+|             | 7.6       | LVM    | Linux 에이전트 | RHEL 7.6 for SAP Business Applications.
+|             | 7.7       | LVM    | Linux 에이전트 | RHEL 7.7 for SAP Business Applications.
+RHEL-HA       | 7.4       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.4. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
+|             | 7.5       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.5. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
+|             | 7.6       | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.6. 는 기본 계산 요금을 RHEL HA 및에 대 한 프리미엄을 부과 합니다. RHEL--------------HA 이미지를 선호 합니다.
 RHEL-HA   | 7.4          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.4. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 74sapha-gen2 | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.4. 2 세대 이미지입니다. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 7.5          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.5. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.

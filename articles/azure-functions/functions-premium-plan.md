@@ -47,7 +47,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 > [!NOTE]
 > 모든 프리미엄 요금제에는 항상 하나 이상의 활성 (청구) 인스턴스가 있습니다.
 
-**함수 앱**를 선택 하 고 **플랫폼 기능** 탭으로 이동한 다음 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 항상 준비 인스턴스 수를 구성할 수 있습니다. 함수 앱 편집 창에서 항상 준비 인스턴스는 해당 앱에만 적용 됩니다.
+**함수 앱** 를 선택 하 고 **플랫폼 기능** 탭으로 이동한 다음 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 항상 준비 인스턴스 수를 구성할 수 있습니다. 함수 앱 편집 창에서 항상 준비 인스턴스는 해당 앱에만 적용 됩니다.
 
 ![탄력적 크기 조정 설정](./media/functions-premium-plan/scale-out.png)
 
@@ -99,7 +99,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 앱이 항상 준비 인스턴스를 초과 하는 인스턴스를 필요로 하는 경우 인스턴스 수가 최대 버스트 제한에 도달할 때까지 계속 규모를 확장할 수 있습니다.  실행 중 이며 사용자에 게 할당 되는 경우에만 계획 크기를 초과 하는 인스턴스에 대 한 요금은 초 단위로 청구 됩니다.  앱을 정의 된 최대 제한까지 확장 하는 것이 가장 좋습니다.
 
-계획의 **Scale Out** 옵션 또는 해당 계획에 배포 된 함수 앱 ( **플랫폼 기능**아래)을 선택 하 여 Azure Portal의 계획 크기 및 최대값을 구성할 수 있습니다.
+계획의 **Scale Out** 옵션 또는 해당 계획에 배포 된 함수 앱 ( **플랫폼 기능** 아래)을 선택 하 여 Azure Portal의 계획 크기 및 최대값을 구성할 수 있습니다.
 
 Azure CLI에서 최대 버스트 제한을 늘릴 수도 있습니다.
 
@@ -141,7 +141,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 여기에서 함수의 전체 지역 가용성을 참조 하세요. [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|지역| Windows | Linux |
+|Azure 지역| Windows | Linux |
 |--| -- | -- |
 |오스트레일리아 중부| 100 | 사용할 수 없음 |
 |오스트레일리아 중부 2| 100 | 사용할 수 없음 |

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617692"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331909"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Managed Instance로의 지점 및 사이트 간 연결 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,38 +67,38 @@ ms.locfileid: "91617692"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 가상 네트워크 게이트웨이를 만든 리소스 그룹을 연 다음, 가상 네트워크 게이트웨이 리소스를 엽니다.
-3. **지점 및 사이트 간 구성**을 선택하고 **VPN 클라이언트 다운로드**를 선택합니다.
+3. **지점 및 사이트 간 구성** 을 선택하고 **VPN 클라이언트 다운로드** 를 선택합니다.
 
     ![VPN 클라이언트 다운로드](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. 온-프레미스 클라이언트 컴퓨터에서 Zip 파일의 파일을 추출한 후 파일을 추출한 폴더를 엽니다.
 5. **WindowsAmd64** 폴더를 열고 **VpnClientSetupAmd64.exe** 파일을 엽니다.
-6. **Windows의 PC 보호** 메시지가 표시되면 **추가 정보**를 클릭한 다음 **실행**을 클릭합니다.
+6. **Windows의 PC 보호** 메시지가 표시되면 **추가 정보** 를 클릭한 다음 **실행** 을 클릭합니다.
 
     ![VPN 클라이언트 설치](./media/point-to-site-p2s-configure/vpn-client-defender.png)
-7. 사용자 계정 컨트롤 대화 상자에서 **예**를 클릭하여 계속합니다.
-8. 가상 네트워크를 참조하는 대화 상자에서 **예**를 선택하여 가상 네트워크에 대한 VPN 클라이언트를 설치합니다.
+7. 사용자 계정 컨트롤 대화 상자에서 **예** 를 클릭하여 계속합니다.
+8. 가상 네트워크를 참조하는 대화 상자에서 **예** 를 선택하여 가상 네트워크에 대한 VPN 클라이언트를 설치합니다.
 
 ## <a name="connect-to-the-vpn-connection"></a>VPN 연결에 연결
 
-1. 온-프레미스 클라이언트 컴퓨터에서 **네트워크 및 인터넷**의 **VPN**으로 이동하고 SQL Managed Instance 가상 네트워크를 선택하여 이 VNet에 대한 연결을 설정합니다. 다음 이미지에서 VNet 이름은 **MyNewVNet**입니다.
+1. 온-프레미스 클라이언트 컴퓨터에서 **네트워크 및 인터넷** 의 **VPN** 으로 이동하고 SQL Managed Instance 가상 네트워크를 선택하여 이 VNet에 대한 연결을 설정합니다. 다음 이미지에서 VNet 이름은 **MyNewVNet** 입니다.
 
     ![VPN 연결](./media/point-to-site-p2s-configure/vpn-connection.png)  
-2. **연결**을 선택합니다.
-3. 대화 상자에서 **연결**을 선택합니다.
+2. **연결** 을 선택합니다.
+3. 대화 상자에서 **연결** 을 선택합니다.
 
-    ![VPN 연결](./media/point-to-site-p2s-configure/vpn-connection2.png)  
-4. 경로 테이블을 업데이트하려는 경우 연결 관리자에 상승된 권한이 필요하다는 메시지가 나타나면 **계속**을 선택합니다.
-5. [사용자 계정 컨트롤] 대화 상자에서 **예**를 선택하여 계속 진행합니다.
+    ![연결 단추를 강조 표시하는 스크린샷.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+4. 경로 테이블을 업데이트하려는 경우 연결 관리자에 상승된 권한이 필요하다는 메시지가 나타나면 **계속** 을 선택합니다.
+5. [사용자 계정 컨트롤] 대화 상자에서 **예** 를 선택하여 계속 진행합니다.
 
    SQL Managed Instance VNet에 대한 VPN 연결이 설정되었습니다.
 
-    ![VPN 연결](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![연결을 설정할 때 연결된 메시지를 강조 표시하는 스크린샷.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>SSMS를 사용하여 연결
 
 1. 온-프레미스 클라이언트 컴퓨터에서 SQL Server Management Studio를 엽니다.
-2. **서버에 연결** 대화 상자에서 **서버 이름** 상자에 관리되는 인스턴스의 정규화된 **호스트 이름**을 입력합니다.
-3. **SQL Server 인증**을 선택하고, 로그인 및 암호를 입력한 다음, **연결**을 선택합니다.
+2. **서버에 연결** 대화 상자에서 **서버 이름** 상자에 관리되는 인스턴스의 정규화된 **호스트 이름** 을 입력합니다.
+3. **SQL Server 인증** 을 선택하고, 로그인 및 암호를 입력한 다음, **연결** 을 선택합니다.
 
     ![SSMS 연결](./media/point-to-site-p2s-configure/ssms-connect.png)  
 

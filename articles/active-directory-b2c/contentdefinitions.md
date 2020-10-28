@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202860"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628663"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -24,7 +24,7 @@ ms.locfileid: "85202860"
 
 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 모양과 느낌을 사용자 지정할 수 있습니다. Azure Active Directory B2C (Azure AD B2C)는 고객의 브라우저에서 코드를 실행 하 고 CORS (원본 간 리소스 공유) 라는 최신 방법을 사용 합니다.
 
-사용자 인터페이스를 사용자 지정하려면 사용자 지정 HTML 콘텐츠가 포함된 **ContentDefinition** 요소에 URL을 지정합니다. 자체 어설션된 기술 프로필 또는 **OrchestrationStep**에서 해당 콘텐츠 정의 식별자를 가리킵니다. 콘텐츠 정의에는 로드할 지역화된 리소스 목록을 지정하는 **LocalizedResourcesReferences** 요소가 포함될 수 있습니다. Azure AD B2C는 URL에서 로드된 HTML 콘텐츠와 사용자 인터페이스 요소를 병합한 다음, 사용자에게 해당 페이지를 표시합니다.
+사용자 인터페이스를 사용자 지정하려면 사용자 지정 HTML 콘텐츠가 포함된 **ContentDefinition** 요소에 URL을 지정합니다. 자체 어설션된 기술 프로필 또는 **OrchestrationStep** 에서 해당 콘텐츠 정의 식별자를 가리킵니다. 콘텐츠 정의에는 로드할 지역화된 리소스 목록을 지정하는 **LocalizedResourcesReferences** 요소가 포함될 수 있습니다. Azure AD B2C는 URL에서 로드된 HTML 콘텐츠와 사용자 인터페이스 요소를 병합한 다음, 사용자에게 해당 페이지를 표시합니다.
 
 **ContentDefinitions** 요소는 사용자 경험에 사용할 수 있는 HTML5 템플릿에 대한 URL을 포함합니다. HTML5 페이지 URI는 지정한 사용자 인터페이스 단계에 사용됩니다. 로그인/등록, 암호 재설정, 오류 페이지 등을 예로 들 수 있습니다. HTML5 파일의 LoadUri를 재정의하여 모양과 느낌을 수정할 수 있습니다. 필요에 따라 새 콘텐츠 정의를 만들 수 있습니다. 이 요소는 [Localization](localization.md) 요소에 지정된 지역화 식별자에 대한 지역화된 리소스 참조를 포함할 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "85202860"
     ...
 ```
 
-**LocalAccountSignUpWithLogonEmail** 자체 어설션된 기술 프로필의 메타데이터는 `api.localaccountsignup`으로 설정된 콘텐츠 정의 식별자 **ContentDefinitionReferenceId**를 포함합니다.
+**LocalAccountSignUpWithLogonEmail** 자체 어설션된 기술 프로필의 메타데이터는 `api.localaccountsignup`으로 설정된 콘텐츠 정의 식별자 **ContentDefinitionReferenceId** 를 포함합니다.
 
 ```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -90,7 +90,7 @@ ms.locfileid: "85202860"
 
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
-와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-samples.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . 예: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`
+와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-samples.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`)을 입력합니다.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ ms.locfileid: "85202860"
 
 #### <a name="migrating-to-page-layout"></a>페이지 레이아웃으로 마이그레이션
 
-값 형식에는 `contract` _urn: com: microsoft: aad: b2c: elements:**contract**:p age-name: version_이라는 단어가 포함 되어야 합니다. 이전 **Datauri** 값을 사용 하는 사용자 지정 정책에서 페이지 레이아웃을 지정 하려면 다음 표를 사용 하 여 새 형식으로 마이그레이션합니다.
+값 형식에는 `contract` _urn: com: microsoft: aad: b2c: elements: **contract** :p age-name: version_ 이라는 단어가 포함 되어야 합니다. 이전 **Datauri** 값을 사용 하는 사용자 지정 정책에서 페이지 레이아웃을 지정 하려면 다음 표를 사용 하 여 새 형식으로 마이그레이션합니다.
 
 | 이전 DataUri 값 | 새 DataUri 값 |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ ms.locfileid: "85202860"
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+다음 예제에서는 페이지 계약이 포함 된 콘텐츠 정의 식별자와 해당 하는 **Datauri** 를 보여 줍니다. 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>메타데이터
 
@@ -145,7 +178,7 @@ ms.locfileid: "85202860"
 
 콘텐츠 정의는 다음 메타 데이터 항목을 지원 합니다.
 
-| Key | 필수 | Description |
+| 키 | 필수 | Description |
 | --------- | -------- | ----------- |
 | DisplayName | 아니요 | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
 

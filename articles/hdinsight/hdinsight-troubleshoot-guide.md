@@ -1,20 +1,20 @@
 ---
 title: Azure HDInsight 문제 해결 가이드
-description: Azure HDInsight를 사용하여 Apache Hadoop 워크로드 문제를 해결합니다. 단계별 설명서에서는 HDInsight를 사용하여 Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS 및 Apache Storm의 일반적인 문제를 해결하는 방법을 보여 줍니다.
+description: Azure HDInsight 문제 해결. 단계별 설명서에서는 HDInsight를 사용하여 Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS 및 Apache Storm의 일반적인 문제를 해결하는 방법을 보여 줍니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 12448d3e5e77d05f3b8fbd474179c4fcf7c57acc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 343ddbb28be21d4352b4817937dc22442115003e
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535079"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628748"
 ---
-# <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 문제 해결
+# <a name="troubleshoot-azure-hdinsight"></a>Azure HDInsight 문제 해결
 
 | Apache 워크로드 | 가장 많이 하는 질문 |
 |---|---|

@@ -39,14 +39,14 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **연결 모드: 직접 모드 사용**
     
-  클라이언트에서 Azure Cosmos DB에 연결하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. *ConnectionMode*는 클라이언트 *ConnectionPolicy*를 구성하는 데 사용할 수 있는 핵심 구성 설정입니다. Azure Cosmos DB Async Java SDK v2의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
+  클라이언트에서 Azure Cosmos DB에 연결하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. *ConnectionMode* 는 클라이언트 *ConnectionPolicy* 를 구성하는 데 사용할 수 있는 핵심 구성 설정입니다. Azure Cosmos DB Async Java SDK v2의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
       
   * [게이트웨이(기본값)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [수동으로 설치](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
   
   게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본적으로 구성되는 옵션입니다. 응용 프로그램이 엄격한 방화벽 제한이 있는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다.   그러나 성능 향상은 Azure Cosmos DB에 데이터를 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
   
-  *ConnectionMode*는 *ConnectionPolicy* 매개 변수로 *DocumentClient* 인스턴스를 생성하는 동안 구성됩니다.
+  *ConnectionMode* 는 *ConnectionPolicy* 매개 변수로 *DocumentClient* 인스턴스를 생성하는 동안 구성됩니다.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -84,13 +84,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   Azure Cosmos DB Async Java SDK v2에서 직접 모드는 대부분의 워크로드에서 데이터베이스 성능을 향상시키는 가장 좋은 방법입니다. 
 
-  * ***직접 모드 개요**_
+  * ***직접 모드 개요** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 연결 정책 그림" border="false":::
   
-  직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _*채널**을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점**에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐**는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
+  직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널* *을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점** 에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
-  * ***직접 모드용 Connectionpolicy 구성 옵션**_
+  * ***직접 모드용 Connectionpolicy 구성 옵션** _
 
     첫 번째 단계로 다음과 같은 권장 구성 설정을 사용합니다. 이 특정 토픽에 대해 이슈가 발생하는 경우 [Azure Cosmos DB 팀](mailto:CosmosDBPerformanceSupport@service.microsoft.com)에 문의하세요.
 
@@ -113,7 +113,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***직접 모드에 대 한 프로그래밍 팁**_
+* ***직접 모드에 대 한 프로그래밍 팁** _
 
   SDK 문제를 해결 하기 위한 기준으로 Azure Cosmos DB Async Java SDK v2 [문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토 합니다.
   
@@ -131,13 +131,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   Azure Cosmos DB Async Java SDK v2는 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
 
-  * ***튜닝 setMaxDegreeOfParallelism \: ** _
+  * ***튜닝 setMaxDegreeOfParallelism \:** _
     
     병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 setMaxDegreeOfParallelism을 사용하여 파티션 수를 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 setMaxDegreeOfParallelism을 사용하여 더 높은 값을 설정할 수 있습니다. 그러면 시스템에서 최소값(사용자가 제공한 입력인 파티션 수)을 최대 병렬 처리 수준으로 선택합니다.
 
     데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
-  _ ***튜닝 setMaxBufferedItemCount \: **_
+  _ * **튜닝 setMaxBufferedItemCount \:** _
     
     병렬 쿼리는 클라이언트에서 현재 결과 일괄 처리를 처리하는 동안 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. setMaxBufferedItemCount는 프리페치된 결과의 수를 제한합니다. setMaxBufferedItemCount를 설정하면 반환된 결과의 예상 수(또는 더 높은 수)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
 

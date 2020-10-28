@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958364"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370324"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -50,14 +50,14 @@ ms.locfileid: "85958364"
     |Resource group|Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.|
     |위치|리소스 그룹의 위치를 지정합니다. |
     |ClusterName|HBase 클러스터의 이름을 입력합니다.|
-    |클러스터 로그인 이름 및 암호|기본 로그인 이름은 **admin**입니다.|
-    |SSH 사용자 이름 및 암호|기본 사용자 이름은 **sshuser**입니다.|
+    |클러스터 로그인 이름 및 암호|기본 로그인 이름은 **admin** 입니다.|
+    |SSH 사용자 이름 및 암호|기본 사용자 이름은 **sshuser** 입니다.|
 
     다른 매개 변수는 선택 사항입니다.  
 
     각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 스토리지 계정에 유지됩니다. 클러스터 기본 스토리지 계정 이름은 &quot;스토리지&quot;가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩되어 있습니다.
 
-3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
+3. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
 HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다. 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
 
@@ -207,9 +207,51 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 1. ssh 연결을 종료하려면 `exit`를 사용합니다.
 
+### <a name="separate-hive-and-hbase-clusters"></a>별도의 Hive 및 Hbase 클러스터
+
+HBase 데이터에 액세스하는 Hive 쿼리는 HBase 클러스터에서 실행할 필요가 없습니다. 다음 단계가 완료되면 Hive와 함께 제공되는 클러스터(Spark, Hadoop, HBase 또는 Interactive Query 포함)를 사용하여 HBase 데이터를 쿼리할 수 있습니다.
+
+1. 두 클러스터는 모두 동일한 가상 네트워크 및 서브넷에 연결되어야 합니다.
+2. `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml`을 HBase 클러스터 헤드 노드에서 Hive 클러스터 헤드 노드로 복사합니다.
+
+### <a name="secure-clusters"></a>보안 클러스터
+
+HBase 데이터는 ESP 사용 HBase를 사용하여 Hive에서 쿼리할 수도 있습니다. 
+
+1. 다중 클러스터 패턴을 따르는 경우 두 클러스터에서 모두 ESP를 사용하도록 설정해야 합니다. 
+2. Hive에서 HBase 데이터를 쿼리할 수 있도록 하려면 `hive` 사용자에게 Hbase Apache Ranger 플러그 인을 통해 HBase 데이터에 액세스할 수 있는 권한이 부여되었는지 확인합니다.
+3. 별도의 ESP 사용 클러스터를 사용하는 경우 HBase 클러스터 헤드 노드에 있는 `/etc/hosts`의 콘텐츠를 Hive 클러스터 헤드 노드의 `/etc/hosts`에 추가해야 합니다. 
+> [!NOTE]
+> 클러스터 중 하나의 크기가 조정되면 `/etc/hosts`를 다시 추가해야 합니다.
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
 
 REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+
+1. HDInsight 클러스터에서 HBase REST API를 사용하도록 설정하려면 다음 사용자 지정 시작 스크립트를 **스크립트 동작** 섹션에 추가합니다. 시작 스크립트는 클러스터를 만들 때 또는 클러스터를 만든 후에 추가할 수 있습니다. **노드 형식** 에 대해 **영역 서버** 를 선택하여 스크립트가 HBase 영역 서버에서만 실행되도록 합니다.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. 사용 편의성을 위해 환경 변수를 설정합니다. `MYPASSWORD`를 클러스터 로그인 암호로 바꾸어 아래 명령을 편집합니다. `MYCLUSTERNAME`을 HBase 클러스터의 이름으로 바꿉니다. 그런 다음, 명령을 입력합니다.
 
@@ -288,9 +330,9 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 1. `https://CLUSTERNAME.azurehdinsight.net`에서 Ambari 웹 UI에 로그인합니다. 여기서 `CLUSTERNAME`은 HBase 클러스터의 이름입니다.
 
-1. 왼쪽 메뉴에서 **HBase**를 선택합니다.
+1. 왼쪽 메뉴에서 **HBase** 를 선택합니다.
 
-1. 페이지 위쪽에서 **빠른 링크**를 선택하고 활성 Zookeeper 노드 링크를 가리킨 다음, **HBase Master UI**를 선택합니다.  UI는 다른 브라우저 탭에서 열립니다.
+1. 페이지 위쪽에서 **빠른 링크** 를 선택하고 활성 Zookeeper 노드 링크를 가리킨 다음, **HBase Master UI** 를 선택합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
    ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -307,10 +349,10 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다. HBase 명령 `disable 'Contacts'`를 사용할 수 있습니다. 이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 생성된 HBase 클러스터를 삭제합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 맨 위에 있는 **검색** 상자에 **HDInsight**를 입력합니다.
-1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
+1. 맨 위에 있는 **검색** 상자에 **HDInsight** 를 입력합니다.
+1. **서비스** 에서 **HDInsight 클러스터** 를 선택합니다.
 1. 표시되는 HDInsight 클러스터 목록에서 이 자습서용으로 만든 클러스터 옆에 있는 **...** 를 클릭합니다.
-1. **삭제**를 클릭합니다. **예**를 클릭합니다.
+1. **삭제** 를 클릭합니다. **예** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -54,7 +54,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 기본적으로 스토리지 계정은 네트워크에 있는 모든 클라이언트로부터의 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 먼저 기본 동작을 변경해야 합니다.
 
 > [!WARNING]
-> 네트워크 규칙을 변경하면 Azure Storage에 연결하는 애플리케이션의 기능에 영향을 미칠 수 있습니다. 기본 네트워크 규칙을 **거부**로 설정하면 액세스를 **허용**하는 특정 네트워크 규칙이 적용되지 않는 한 데이터에 대한 모든 액세스가 차단됩니다. 액세스를 거부하도록 기본 규칙을 변경하기 전에 네트워크 규칙을 사용하여 허용된 모든 네트워크에 대한 액세스를 허가해야 합니다.
+> 네트워크 규칙을 변경하면 Azure Storage에 연결하는 애플리케이션의 기능에 영향을 미칠 수 있습니다. 기본 네트워크 규칙을 **거부** 로 설정하면 액세스를 **허용** 하는 특정 네트워크 규칙이 적용되지 않는 한 데이터에 대한 모든 액세스가 차단됩니다. 액세스를 거부하도록 기본 규칙을 변경하기 전에 네트워크 규칙을 사용하여 허용된 모든 네트워크에 대한 액세스를 허가해야 합니다.
 
 ### <a name="managing-default-network-access-rules"></a>기본 네트워크 액세스 규칙 관리
 
@@ -64,11 +64,11 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
+1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
 
-1. 기본적으로 액세스를 거부하려면 **선택한 네트워크**에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크**에서 액세스를 허용하도록 선택합니다.
+1. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
-1. **저장**을 클릭하여 변경 내용을 적용합니다.
+1. **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -133,7 +133,7 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](/azure/virtual-n
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
-가상 네트워크 규칙을 스토리지 계정에 적용하려면 추가되는 서브넷에 대한 적절한 권한이 사용자에게 있어야 합니다. 필요한 권한은 *서브넷에 서비스 조인*이며, *스토리지 계정 기여자* 기본 제공 역할에 포함됩니다. 사용자 지정 역할 정의에 추가할 수도 있습니다.
+가상 네트워크 규칙을 스토리지 계정에 적용하려면 추가되는 서브넷에 대한 적절한 권한이 사용자에게 있어야 합니다. 필요한 권한은 *서브넷에 서비스 조인* 이며, *스토리지 계정 기여자* 기본 제공 역할에 포함됩니다. 사용자 지정 역할 정의에 추가할 수도 있습니다.
 
 스토리지 계정 및 가상 네트워크에 허용된 액세스 권한은 다른 구독(다른 Azure AD 테넌트의 일부인 구독 포함)에 있을 수 있습니다.
 
@@ -148,20 +148,20 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
+1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
 
-1. **선택한 네트워크**에서 액세스를 허용하도록 선택했는지 확인합니다.
+1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. 새 네트워크 규칙을 사용하여 가상 네트워크에 대한 액세스 권한을 부여하려면 **가상 네트워크** 아래에서 **기존 가상 네트워크 추가**를 클릭하고, **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음, **추가**를 클릭합니다. 새 가상 네트워크를 만들고 액세스 권한을 부여하려면 **새 가상 네트워크 추가**를 클릭합니다. 새 가상 네트워크를 만드는 데 필요한 정보를 제공한 다음, **만들기**를 클릭합니다.
+1. 새 네트워크 규칙을 사용하여 가상 네트워크에 대한 액세스 권한을 부여하려면 **가상 네트워크** 아래에서 **기존 가상 네트워크 추가** 를 클릭하고, **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음, **추가** 를 클릭합니다. 새 가상 네트워크를 만들고 액세스 권한을 부여하려면 **새 가상 네트워크 추가** 를 클릭합니다. 새 가상 네트워크를 만드는 데 필요한 정보를 제공한 다음, **만들기** 를 클릭합니다.
 
     > [!NOTE]
     > 이전에 Azure Storage에 대한 서비스 엔드포인트가 선택한 가상 네트워크 및 서브넷에 구성되지 않은 경우 이 작업의 일환으로 구성할 수 있습니다.
     >
     > 현재, 규칙을 만드는 동안 동일한 Azure Active Directory 테넌트에 속한 가상 네트워크만 선택할 수 있도록 표시됩니다. 다른 테넌트에 속한 가상 네트워크의 서브넷에 대한 액세스 권한을 부여하려면 Powershell, CLI 또는 REST API를 사용하세요.
 
-1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 **...** 를 클릭하여 가상 네트워크 또는 서브넷에 대한 상황에 맞는 메뉴를 열고 **제거**를 클릭합니다.
+1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 **...** 를 클릭하여 가상 네트워크 또는 서브넷에 대한 상황에 맞는 메뉴를 열고 **제거** 를 클릭합니다.
 
-1. **저장**을 클릭하여 변경 내용을 적용합니다.
+1. **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -197,7 +197,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -235,13 +235,13 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>인터넷 IP 범위의 액세스 허가
 
 특정 공용 인터넷 IP 주소 범위에서 액세스할 수 있도록 스토리지 계정을 구성할 수 있습니다. 이 구성은 특정 인터넷 기반 서비스와 온-프레미스 네트워크에 대한 액세스 권한을 부여하고 일반 인터넷 트래픽을 차단합니다.
 
-*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19*)를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
+*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19* )를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
 
    > [!NOTE]
    > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
@@ -272,15 +272,15 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
+1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
 
-1. **선택한 네트워크**에서 액세스를 허용하도록 선택했는지 확인합니다.
+1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
 1. 인터넷 IP 범위에 대한 액세스 권한을 부여하려면 **방화벽** > **주소 범위** 아래에서 IP 주소 또는 주소 범위(CIDR 형식)를 입력합니다.
 
 1. IP 네트워크 규칙을 제거하려면 주소 범위 옆에 있는 휴지통 아이콘을 클릭합니다.
 
-1. **저장**을 클릭하여 변경 내용을 적용합니다.
+1. **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -317,7 +317,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -354,11 +354,11 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 ## <a name="exceptions"></a>예외
 
-네트워크 규칙은 대부분의 시나리오에서 애플리케이션과 데이터 간의 연결을 위한 보안 환경을 만드는 데 유용합니다. 그러나 일부 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 고유하게 격리될 수 없는 Azure 서비스에 종속됩니다. 그러나 전체 애플리케이션 기능을 사용하려면 이러한 서비스에 스토리지에 대한 액세스 권한을 부여해야 합니다. 이러한 경우 **_신뢰할 수 있는 Microsoft 서비스 허용_* ...을 사용할 수 있습니다. _ 해당 서비스에서 데이터, 로그 또는 분석에 액세스 하도록 설정 하는 설정입니다.
+네트워크 규칙은 대부분의 시나리오에서 애플리케이션과 데이터 간의 연결을 위한 보안 환경을 만드는 데 유용합니다. 그러나 일부 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 고유하게 격리될 수 없는 Azure 서비스에 종속됩니다. 그러나 전체 애플리케이션 기능을 사용하려면 이러한 서비스에 스토리지에 대한 액세스 권한을 부여해야 합니다. 이러한 경우 * *_신뢰할 수 있는 Microsoft 서비스 허용_* ...을 사용할 수 있습니다. _ 해당 서비스에서 데이터, 로그 또는 분석에 액세스 하도록 설정 하는 설정입니다.
 
 ### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
 
@@ -388,7 +388,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아보기](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아봅니다](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
@@ -396,7 +396,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure Synapse Analytics(이전의 SQL Data Warehouse)       | Microsoft.Sql                          | COPY 문이나 PolyBase를 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Synapse Analytics(이전의 SQL Data Warehouse)       | Microsoft.Sql                          | COPY 문이나 PolyBase를 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure SQL Database       | Microsoft.Sql                          | 저장소 계정에서 데이터를 [가져오고](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 감사 데이터를 방화벽 뒤의 저장소 계정에 [쓸](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) 수 있습니다. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
@@ -414,13 +414,13 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
+1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
 
-1. **선택한 네트워크**에서 액세스를 허용하도록 선택했는지 확인합니다.
+1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
 1. **예외** 아래에서 허용하려는 예외를 선택합니다.
 
-1. **저장**을 클릭하여 변경 내용을 적용합니다.
+1. **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -445,7 +445,7 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -470,7 +470,7 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
     ```
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

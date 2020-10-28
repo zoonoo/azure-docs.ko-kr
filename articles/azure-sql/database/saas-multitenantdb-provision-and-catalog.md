@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619624"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331943"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL Database를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비저닝하고 카탈로그로 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,12 +70,12 @@ ms.locfileid: "91619624"
 
 ### <a name="elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리
 
-Wingtip에서 카탈로그는 *tenantcatalog* 데이터베이스에서 구현됩니다. *tenantcatalog*는 [EDCL(Elastic Database 클라이언트 라이브러리)](elastic-database-client-library.md)의 분할 관리 기능을 사용하여 생성됩니다. 라이브러리는 애플리케이션에서 데이터베이스에 저장된 기반 *분할 맵*을 생성, 관리 및 사용할 수 있게 해줍니다. 분할 맵은 분할된 데이터베이스인 해당 분할을 통해 테넌트 키를 상호 참조합니다.
+Wingtip에서 카탈로그는 *tenantcatalog* 데이터베이스에서 구현됩니다. *tenantcatalog* 는 [EDCL(Elastic Database 클라이언트 라이브러리)](elastic-database-client-library.md)의 분할 관리 기능을 사용하여 생성됩니다. 라이브러리는 애플리케이션에서 데이터베이스에 저장된 기반 *분할 맵* 을 생성, 관리 및 사용할 수 있게 해줍니다. 분할 맵은 분할된 데이터베이스인 해당 분할을 통해 테넌트 키를 상호 참조합니다.
 
 테넌트를 프로비전하는 동안 분할 맵에서 항목을 만들도록 애플리케이션 또는 PowerShell 스크립트에서 EDCL 함수를 사용할 수 있습니다. 나중에 올바른 데이터베이스에 연결하도록 EDCL 함수를 사용할 수 있습니다. EDCL은 연결 정보를 캐시하여 카탈로그 데이터베이스에 대한 트래픽을 최소화하고 연결 속도를 높입니다.
 
 > [!IMPORTANT]
-> 직접 액세스를 통해 카탈로그 데이터베이스에서 데이터를 편집하지 *마십시오*! 직접 업데이트는 데이터 손상의 위험이 높아 지원되지 않습니다. 대신, EDCL API만 사용하여 매핑 데이터를 편집합니다.
+> 직접 액세스를 통해 카탈로그 데이터베이스에서 데이터를 편집하지 *마십시오* ! 직접 업데이트는 데이터 손상의 위험이 높아 지원되지 않습니다. 대신, EDCL API만 사용하여 매핑 데이터를 편집합니다.
 
 ## <a name="tenant-provisioning-pattern"></a>테넌트 프로비전 패턴
 
@@ -109,7 +109,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 - 테넌트를 다른 테넌트와 공유하는 기존 데이터베이스에 프로비전.
 - 테넌트를 자체 데이터베이스에 프로비전.
 
-그런 다음 테넌트 데이터가 초기화되고 카탈로그 분할 맵에 등록됩니다. 샘플 앱에서 여러 테넌트를 포함하는 데이터베이스는 *tenants1* 또는 *tenants2*와 같은 제네릭 이름이 지정됩니다. 단일 테넌트를 포함하는 데이터베이스에는 테넌트의 이름이 지정됩니다. 샘플에 사용 되는 특정 명명 규칙은 패턴에서 중요한 부분이 아닙니다. 카탈로그를 사용하면 데이터베이스에 아무 이름이나 할당할 수 있기 때문입니다.
+그런 다음 테넌트 데이터가 초기화되고 카탈로그 분할 맵에 등록됩니다. 샘플 앱에서 여러 테넌트를 포함하는 데이터베이스는 *tenants1* 또는 *tenants2* 와 같은 제네릭 이름이 지정됩니다. 단일 테넌트를 포함하는 데이터베이스에는 테넌트의 이름이 지정됩니다. 샘플에 사용 되는 특정 명명 규칙은 패턴에서 중요한 부분이 아닙니다. 카탈로그를 사용하면 데이터베이스에 아무 이름이나 할당할 수 있기 때문입니다.
 
 <a name="goto_1_tutorial"></a>
 
@@ -143,35 +143,35 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 
 다음은 단계별로 실행하는 프로비전 워크플로의 주요 요소입니다.
 
-- **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
-- **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
-- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
-- **카탈로그에 테넌트 등록**: 새 테넌트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
-- **테넌트의 이름을 카탈로그 확장 테이블에 추가**: 카탈로그의 테넌트 테이블에 장소 이름이 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
-- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Bushwillow Blues* 이벤트 페이지가 열립니다.
+- **새 테넌트 키 계산** : 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
+- **테넌트 키의 존재 여부 확인** :카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
+- **기본 테넌트 데이터베이스에서 테넌트 초기화** : 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
+- **카탈로그에 테넌트 등록** : 새 테넌트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
+- **테넌트의 이름을 카탈로그 확장 테이블에 추가** : 카탈로그의 테넌트 테이블에 장소 이름이 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
+- **새 테넌트에 대한 이벤트 페이지 열기** : 브라우저에 *Bushwillow Blues* 이벤트 페이지가 열립니다.
 
-   ![events](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![새 테넌트의 이벤트 페이지를 보여주는 스크린샷.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>디버거 단계
 
 Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 방법을 이해하려면 중단점을 추가하여 워크플로를 단계별로 실행합니다.
 
-1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 다음 매개 변수를 설정합니다.
-   - **$TenantName** = **Bushwillow 블루스**: 새 장소의 이름.
-   - **$VenueType** = **블루스**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
-   - **$DemoScenario** = **1**: 다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전.
+1. *PowerShell ISE* 에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* 을 열고 다음 매개 변수를 설정합니다.
+   - **$TenantName** = **Bushwillow 블루스** : 새 장소의 이름.
+   - **$VenueType** = **블루스** : 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
+   - **$DemoScenario** = **1** : 다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전.
 
-2. 커서를 38행(*New-Tenant `*)의 아무 위치에 두고 중단점을 추가한 다음 **F9** 키를 누릅니다.
+2. 커서를 38행( *New-Tenant `* )의 아무 위치에 두고 중단점을 추가한 다음 **F9** 키를 누릅니다.
 
-   ![중단점](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![새 테넌트가 포함된 줄을 강조 표시하는 스크린샷.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 
-4. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.
+4. 스크립트 실행이 중단점에서 중지된 후 **F11** 을 눌러 한 단계씩 코드를 실행합니다.
 
    ![디버그 메뉴가 열려 있고 한 단계씩 코드 실행이 선택되어 있는 Windows PowerShell ISE를 보여 주는 스크린샷](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
-5. **디버그** 메뉴 옵션(**F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
+5. **디버그** 메뉴 옵션( **F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
 
 PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
 
@@ -181,14 +181,14 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 
 다음은 스크립트를 추적하는 동안 단계별로 실행하는 워크플로의 주요 요소입니다.
 
-- **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
-- **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
-- **새 테넌트 데이터베이스 만들기**: Resource Manager 템플릿을 사용해 *basetenantdb*를 복사하여 데이터베이스를 만듭니다.  새 데이터베이스 이름은 테넌트 이름을 기반으로 합니다.
-- **데이터베이스를 카탈로그에 추가**: 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
-- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
-- **카탈로그에 테넌트 등록**: 새 테넌트 키와 *sequoiasoccer* 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
-- **테넌트 이름이 카탈로그에 추가됨**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
-- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Sequoia Soccer* 이벤트 페이지가 열립니다.
+- **새 테넌트 키 계산** : 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
+- **테넌트 키의 존재 여부 확인** :카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
+- **새 테넌트 데이터베이스 만들기** : Resource Manager 템플릿을 사용해 *basetenantdb* 를 복사하여 데이터베이스를 만듭니다.  새 데이터베이스 이름은 테넌트 이름을 기반으로 합니다.
+- **데이터베이스를 카탈로그에 추가** : 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
+- **기본 테넌트 데이터베이스에서 테넌트 초기화** : 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
+- **카탈로그에 테넌트 등록** : 새 테넌트 키와 *sequoiasoccer* 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
+- **테넌트 이름이 카탈로그에 추가됨** : 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
+- **새 테넌트에 대한 이벤트 페이지 열기** : 브라우저에 *Sequoia Soccer* 이벤트 페이지가 열립니다.
 
    ![events](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -196,27 +196,27 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 
 이제 자체 데이터베이스에 테넌트를 만드는 스크립트 프로세스를 단계별로 알아보겠습니다.
 
-1. ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 다음 매개 변수를 설정합니다.
-   - **$TenantName** = **Sequoia Soccer**: 새 장소의 이름.
-   - **$VenueType** = **축구**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
-   - **$DemoScenario** = **2**: 자체 데이터베이스에 테넌트 프로비전.
+1. ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* 을 열고 다음 매개 변수를 설정합니다.
+   - **$TenantName** = **Sequoia Soccer** : 새 장소의 이름.
+   - **$VenueType** = **축구** : 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
+   - **$DemoScenario** = **2** : 자체 데이터베이스에 테넌트 프로비전.
 
-2. 커서를 57행( *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* )의 아무 위치에 두고 새로운 중단점을 추가한 다음 **F9**를 누릅니다.
+2. 커서를 57행( *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* )의 아무 위치에 두고 새로운 중단점을 추가한 다음 **F9** 를 누릅니다.
 
    ![중단점](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 
-4. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.  **F10** 및 **F11** 키를 사용하여 함수를 건너뛰거나 시작하면서 실행을 추적합니다.
+4. 스크립트 실행이 중단점에서 중지된 후 **F11** 을 눌러 한 단계씩 코드를 실행합니다.  **F10** 및 **F11** 키를 사용하여 함수를 건너뛰거나 시작하면서 실행을 추적합니다.
 
 ## <a name="provision-a-batch-of-tenants"></a>테넌트의 배치 프로비전
 
 이 연습에서는 17개의 테넌트의 배치를 프로비전합니다. 데이터베이스가 여러 개 있도록 다른 Wingtip Tickets 자습서를 시작하기 전에 이 테넌트의 일괄 처리를 프로비전하는 것이 좋습니다.
 
-1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 *$DemoScenario* 매개 변수를 4로 변경합니다.
-   - **$DemoScenario** = **4**: 공유 데이터베이스에 테넌트 일괄 처리 프로비전.
+1. *PowerShell ISE* 에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* 을 열고 *$DemoScenario* 매개 변수를 4로 변경합니다.
+   - **$DemoScenario** = **4** : 공유 데이터베이스에 테넌트 일괄 처리 프로비전.
 
-2. **F5**를 누르고 스크립트를 실행합니다.
+2. **F5** 를 누르고 스크립트를 실행합니다.
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>배포된 테넌트 집합 확인
 
@@ -224,7 +224,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 
    ![데이터베이스 목록](./media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
-Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터베이스 *내부*의 테넌트는 볼 수 없습니다. 테넌트 전체 목록은 Wingtip **Events Hub** 페이지에서 카탈로그를 탐색하여 확인할 수 있습니다.
+Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터베이스 *내부* 의 테넌트는 볼 수 없습니다. 테넌트 전체 목록은 Wingtip **Events Hub** 페이지에서 카탈로그를 탐색하여 확인할 수 있습니다.
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Wingtip 티켓 이벤트 허브 페이지 사용
 
@@ -237,13 +237,13 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 - 테넌트 이름이 테넌트 테이블에 저장됩니다.
 - 데이터베이스 이름은 분할 관리 테이블에 저장됩니다.
 
-1. SSMS(SQL Server Management Studio)에서 로그인 = **developer**, 암호 = **P\@ssword1**을 사용하여 **catalog-mt.\<USER\>.database.windows.net**의 테넌트 서버에 연결합니다.
+1. SSMS(SQL Server Management Studio)에서 로그인 = **developer** , 암호 = **P\@ssword1** 을 사용하여 **catalog-mt.\<USER\>.database.windows.net** 의 테넌트 서버에 연결합니다.
 
     ![SSMS 연결 대화 상자](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
 2. SSMS 개체 탐색기에서 *tenantcatalog* 데이터베이스의 보기를 찾습니다.
 
-3. *TenantsExtended* 보기를 마우스 오른쪽 단추로 클릭하고 **상위 1000개 행 선택**을 선택합니다. 테넌트 이름과 다른 테넌트의 데이터베이스 간 매핑을 확인합니다.
+3. *TenantsExtended* 보기를 마우스 오른쪽 단추로 클릭하고 **상위 1000개 행 선택** 을 선택합니다. 테넌트 이름과 다른 테넌트의 데이터베이스 간 매핑을 확인합니다.
 
     ![SSMS의 ExtendedTenants 보기](./media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
 

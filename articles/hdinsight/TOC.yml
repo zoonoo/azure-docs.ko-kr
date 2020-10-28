@@ -137,7 +137,7 @@
                 - name: 사용자 지정 앱 설치
                   href: hdinsight-apps-install-custom-applications.md
                 - name: REST를 사용하여 앱 설치
-                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                  href: /rest/api/hdinsight/hdinsight-application
                 - name: Azure Marketplace에 HDInsight 앱 게시
                   href: hdinsight-apps-publish-applications.md
         - name: 보안
@@ -301,7 +301,7 @@
         - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
         - name: Microsoft Q&A 질문 페이지에 대한 도움말 보기
-          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
+          href: /answers/topics/azure-hdinsight.html
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: HDInsight에 대한 Windows 도구
@@ -433,8 +433,6 @@
                   href: ./spark/apache-spark-use-with-data-lake-store.md
                 - name: Azure SQL Database에 연결
                   href: ./spark/apache-spark-connect-to-sql-database.md
-                - name: Apache Spark 및 Cosmos DB를 사용하여 람다 아키텍처 구현
-                  href: ../cosmos-db/lambda-architecture.md
                 - name: AutoML로 Azure ML 워크로드 실행
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: 문제 해결

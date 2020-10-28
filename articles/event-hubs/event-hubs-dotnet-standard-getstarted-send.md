@@ -4,12 +4,12 @@ description: 이 문서에서는 최신 Azure.Messaging.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 170484b5a24367eb19e69f0a72918d99b6595fca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4949d68750e95e5b62b8387f03c77c082fbaf7f4
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728508"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329324"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET(Azure.Messaging.EventHubs) 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -24,9 +24,9 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-- **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
+- **Microsoft Azure 구독** . Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
 - **Microsoft Visual Studio 2019** Azure Event Hubs 클라이언트 라이브러리는 C# 8.0에 도입된 새 기능을 사용합니다.  이전 C# 언어 버전으로 라이브러리를 계속 사용할 수 있지만 새 구문은 사용할 수 없습니다. 전체 구문을 사용하려면 [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 이상으로 컴파일하고 [언어 버전](/dotnet/csharp/language-reference/configure-language-version#override-a-default)을 `latest`로 설정하는 것이 좋습니다. Visual Studio를 사용하는 경우 Visual Studio 2019 이전 버전은 C# 8.0 프로젝트를 빌드하는 데 필요한 도구와 호환되지 않습니다. 체험 Community 버전을 비롯한 Visual Studio 2019는 [여기](https://visualstudio.microsoft.com/vs/)서 다운로드할 수 있습니다.
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열** 을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
@@ -34,21 +34,21 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 1. Visual Studio 2019를 시작합니다. 
-1. **새 프로젝트 만들기**를 선택합니다. 
-1. **새 프로젝트 만들기** 대화 상자에서 다음 단계를 수행합니다. 이 대화 상자가 표시되지 않으면 메뉴에서 **파일**을 선택하고 **새로 만들기**를 선택한 다음, **프로젝트**를 선택합니다. 
+1. **새 프로젝트 만들기** 를 선택합니다. 
+1. **새 프로젝트 만들기** 대화 상자에서 다음 단계를 수행합니다. 이 대화 상자가 표시되지 않으면 메뉴에서 **파일** 을 선택하고 **새로 만들기** 를 선택한 다음, **프로젝트** 를 선택합니다. 
     1. 프로그래밍 언어로 **C#** 을 선택합니다.
-    1. 애플리케이션 유형으로 **콘솔**을 선택합니다. 
+    1. 애플리케이션 유형으로 **콘솔** 을 선택합니다. 
     1. 결과 목록에서 **콘솔 앱(.NET Core)** 을 선택합니다. 
-    1. 그다음에 **다음**을 선택합니다. 
+    1. 그다음에 **다음** 을 선택합니다. 
 
         ![새 프로젝트 대화 상자](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
-1. 프로젝트 이름으로 **EventHubsSender**, 솔루션 이름으로 **EventHubsQuickStart**를 입력한 다음, **확인**을 선택하여 프로젝트를 만듭니다. 
+1. 프로젝트 이름으로 **EventHubsSender** , 솔루션 이름으로 **EventHubsQuickStart** 를 입력한 다음, **확인** 을 선택하여 프로젝트를 만듭니다. 
 
     ![C# > 콘솔 앱](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-1. 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 
+1. 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다. 
 1. 다음 명령을 실행하여 **Azure.Messaging.EventHubs** NuGet 패키지를 설치합니다.
 
     ```cmd
@@ -61,6 +61,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.EventHubs;
@@ -127,13 +128,13 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 
 ### <a name="create-a-project-for-the-receiver"></a>수신기에 대한 프로젝트 만들기
 
-1. 솔루션 탐색기 창에서 **EventHubQuickStart** 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가**를 가리키고, **새 프로젝트**를 선택합니다. 
-1. **콘솔 앱(.NET Core)** 을 선택하고, **다음**을 선택합니다. 
-1. **프로젝트 이름**에 **EventHubsReceiver**를 입력하고 **만들기**를 선택합니다. 
+1. 솔루션 탐색기 창에서 **EventHubQuickStart** 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 를 가리키고, **새 프로젝트** 를 선택합니다. 
+1. **콘솔 앱(.NET Core)** 을 선택하고, **다음** 을 선택합니다. 
+1. **프로젝트 이름** 에 **EventHubsReceiver** 를 입력하고 **만들기** 를 선택합니다. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-1. 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 
+1. 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다. 
 1. 다음 명령을 실행하여 **Azure.Messaging.EventHubs** NuGet 패키지를 설치합니다.
 
     ```cmd
@@ -150,6 +151,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 1. **Program.cs** 파일 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Storage.Blobs;
@@ -230,4 +232,4 @@ GitHub에서 다음 샘플을 확인합니다.
 
 - [GitHub에 대한 Event Hubs 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [GitHub의 이벤트 처리기 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
-- [RBAC(역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+- [Azure RBAC(Azure 역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

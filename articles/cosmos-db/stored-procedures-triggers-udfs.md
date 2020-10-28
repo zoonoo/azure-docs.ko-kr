@@ -16,7 +16,7 @@ ms.locfileid: "92480227"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
-Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저**, **트리거**및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
+Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저** , **트리거** 및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
 
 ## <a name="benefits-of-using-server-side-programming"></a>서버 쪽 프로그래밍 사용의 이점
 
@@ -41,7 +41,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 
 ## <a name="transactions"></a>트랜잭션
 
-일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장**을 제공합니다. ACID **는 tomicity,** **C**onsistency, **I** **등을**나타내는 잘 알려진 머리글자어입니다. 
+일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장** 을 제공합니다. ACID **는 tomicity,** **C** onsistency, **I** **등을** 나타내는 잘 알려진 머리글자어입니다. 
 
 * 원자성은 트랜잭션 내부에서 수행된 모든 작업이 하나의 단위로 처리되어 모두 커밋되거나 커밋되지 않도록 합니다. 
 

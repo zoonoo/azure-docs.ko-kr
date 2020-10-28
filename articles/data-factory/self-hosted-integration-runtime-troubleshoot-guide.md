@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427225"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629390"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "92427225"
 
     ![로그 보내기](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. 보내려는 로그를 선택할 수 있습니다. *자체 호스팅 ir*의 경우 실패 한 작업 또는 자체 호스팅 ir 노드의 모든 로그와 관련 된 로그를 업로드할 수 있습니다. *공유 IR*의 경우 실패 한 작업에 관련 된 로그만 업로드할 수 있습니다.
+1. 보내려는 로그를 선택할 수 있습니다. *자체 호스팅 ir* 의 경우 실패 한 작업 또는 자체 호스팅 ir 노드의 모든 로그와 관련 된 로그를 업로드할 수 있습니다. *공유 IR* 의 경우 실패 한 작업에 관련 된 로그만 업로드할 수 있습니다.
 
     ![로그 선택](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "92427225"
 
 #### <a name="symptoms"></a>증상
 
-**자체 호스팅 IR 구성 관리자** -> **인트라넷에서 원격 액세스**에서 TLS/SSL 인증서(고급)를 사용하려고 설정할 때 TLS/SSL 인증서를 선택하면 아래 오류가 표시됩니다.
+**자체 호스팅 IR 구성 관리자** -> **인트라넷에서 원격 액세스** 에서 TLS/SSL 인증서(고급)를 사용하려고 설정할 때 TLS/SSL 인증서를 선택하면 아래 오류가 표시됩니다.
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +65,7 @@ ms.locfileid: "92427225"
 #### <a name="resolution"></a>해결 방법
 
 와일드카드 인증서는 Azure Data Factory v2 자체 호스팅 IR에서 지원됩니다. 이 문제는 일반적으로 SSL 인증서가 올바르지 않기 때문에 발생합니다. SAN의 마지막 DNSName이 유효해야 합니다. 아래 단계를 수행하여 확인합니다. 
-1.  관리 콘솔을 열고 인증서 세부 정보에서 *주체* 및 *주체 대체 이름* 둘 다를 두 번 확인 합니다. 예를 들어 위의 경우에는 "DNS 이름 = microsoft.com.com" 인 *주체 대체 이름의*마지막 항목이 합법적이 지 않습니다.
+1.  관리 콘솔을 열고 인증서 세부 정보에서 *주체* 및 *주체 대체 이름* 둘 다를 두 번 확인 합니다. 예를 들어 위의 경우에는 "DNS 이름 = microsoft.com.com" 인 *주체 대체 이름의* 마지막 항목이 합법적이 지 않습니다.
 2.  잘못 된 DNS 이름을 제거 하려면 인증서 문제 회사에 문의 하세요.
 
 ### <a name="concurrent-jobs-limit-issue"></a>동시 작업 제한 문제
@@ -102,7 +102,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 - 다음은 x.509 인증서 체인 빌드 실패 문제를 해결 하는 빠르고 직관적인 방법입니다.
  
-    1. 확인해야 하는 인증서를 내보냅니다. 컴퓨터 인증서 관리로 이동하여 확인하려는 인증서를 찾아 마우스 오른쪽 단추로 클릭한 다음 **모든 작업** -> **내보내기**를 클릭합니다.
+    1. 확인해야 하는 인증서를 내보냅니다. 컴퓨터 인증서 관리로 이동하여 확인하려는 인증서를 찾아 마우스 오른쪽 단추로 클릭한 다음 **모든 작업** -> **내보내기** 를 클릭합니다.
     
         ![작업 내보내기](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. 그런 다음 **URL 검색 도구**가 열립니다. **검색** 단추를 클릭하여 AIA, CDP 및 OCSP에서 인증서를 확인할 수 있습니다.
+    1. 그런 다음 **URL 검색 도구** 가 열립니다. **검색** 단추를 클릭하여 AIA, CDP 및 OCSP에서 인증서를 확인할 수 있습니다.
 
         ![검색 단추](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -152,7 +152,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예를 들면 다음과 같습니다. 
+예를 들어: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -164,8 +164,8 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 > [!TIP] 
 > 아래 스크린샷에 표시 된 것 처럼 필터를 설정할 수 있습니다.
-> **System.valuetuple** DLL은 GAC 관련 폴더 또는 *C:\program Files\Microsoft integration Runtime\4.0\Gateway*또는 *c:\program Files\Microsoft integration Runtime\4.0\Shared* 폴더에 있지 않음을 나타냅니다.
-> 기본적으로 *GAC* 폴더에서 먼저 dll을 로드하고, 그다음 *Shared*에서, 마지막으로 *Gateway* 폴더에서 dll을 로드합니다. 따라서 도움이 될 수 있는 경로에 dll을 배치할 수 있습니다.
+> **System.valuetuple** DLL은 GAC 관련 폴더 또는 *C:\program Files\Microsoft integration Runtime\4.0\Gateway* 또는 *c:\program Files\Microsoft integration Runtime\4.0\Shared* 폴더에 있지 않음을 나타냅니다.
+> 기본적으로 *GAC* 폴더에서 먼저 dll을 로드하고, 그다음 *Shared* 에서, 마지막으로 *Gateway* 폴더에서 dll을 로드합니다. 따라서 도움이 될 수 있는 경로에 dll을 배치할 수 있습니다.
 
 ![필터 설정](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +179,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 *%Windir%\Microsoft.NET\assembly* 및 *%windir%\assembly* 아래에 System.ValueTuple.dll 표시 되는 이유는 .net 동작 이라고 하는 것입니다. 
 
-아래 오류에서 어셈블리 시스템을 명확 하 게 볼 수 있습니다 *. system.valuetuple* 가 없습니다. 이러한 문제는 응용 프로그램이 어셈블리 *System.ValueTuple.dll*를 확인 하려고 할 때 발생 합니다.
+아래 오류에서 어셈블리 시스템을 명확 하 게 볼 수 있습니다 *. system.valuetuple* 가 없습니다. 이러한 문제는 응용 프로그램이 어셈블리 *System.ValueTuple.dll* 를 확인 하려고 할 때 발생 합니다.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -201,7 +201,7 @@ GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotne
 
 #### <a name="resolution"></a>해결 방법
 
-위의 원인이 모두 적용 되지 않는 경우 *%Programdata%\Microsoft\Data Transfer\DataManagementGateway*폴더로 이동 하 여 **구성** 파일이 삭제 되었는지 여부를 확인할 수 있습니다. 삭제된 경우 [여기](https://www.netwrix.com/how_to_detect_who_deleted_file.html) 지침에 따라 누가 파일을 삭제했는지 감사합니다.
+위의 원인이 모두 적용 되지 않는 경우 *%Programdata%\Microsoft\Data Transfer\DataManagementGateway* 폴더로 이동 하 여 **구성** 파일이 삭제 되었는지 여부를 확인할 수 있습니다. 삭제된 경우 [여기](https://www.netwrix.com/how_to_detect_who_deleted_file.html) 지침에 따라 누가 파일을 삭제했는지 감사합니다.
 
 ![구성 파일 확인](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotne
 
 #### <a name="symptoms"></a>증상
 
-원본 및 대상 데이터 저장소에 대해 자체 호스팅 IR을 만든 후 두 IR을 함께 연결하여 복사본을 완성하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다*. *대상 IR에서 원본에 액세스할 수 없습니다*.
+원본 및 대상 데이터 저장소에 대해 자체 호스팅 IR을 만든 후 두 IR을 함께 연결하여 복사본을 완성하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다* . *대상 IR에서 원본에 액세스할 수 없습니다* .
  
 #### <a name="cause"></a>원인
 
@@ -288,14 +288,14 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 
 ![IR 이벤트 로그](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-오류가 위의 *system.unauthorizedaccessexception*표시 되는 경우 아래 지침을 따르세요.
+오류가 위의 *system.unauthorizedaccessexception* 표시 되는 경우 아래 지침을 따르세요.
 
 
 1. Windows 서비스 패널에서 *Diahostservice* 로그온 서비스 계정을 확인 합니다.
 
     ![로그온 서비스 계정](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. 로그온 서비스 계정에 *%programdata%\Microsoft\DataTransfer\DataManagementGateway*폴더에 대 한 R/W 권한이 있는지 확인 합니다.
+2. 로그온 서비스 계정에 *%programdata%\Microsoft\DataTransfer\DataManagementGateway* 폴더에 대 한 R/W 권한이 있는지 확인 합니다.
 
     - 기본적으로 서비스 로그온 계정이 변경 되지 않은 경우에는 R/W의 사용 권한이 있어야 합니다.
 
@@ -305,7 +305,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
         1. 현재 자체 호스팅 IR을 완전히 제거 합니다.
         1. 자체 호스팅 IR 비트를 설치 합니다.
         1. 서비스 계정을 변경 하려면 아래 지침을 따르세요. 
-            1. Selfhosted IR의 설치 폴더로 이동 하 여 *Microsoft Integration Runtime\4.0\Shared*폴더로 전환 합니다.
+            1. Selfhosted IR의 설치 폴더로 이동 하 여 *Microsoft Integration Runtime\4.0\Shared* 폴더로 전환 합니다.
             1. 승격 된 권한을 사용 하 여 명령줄을 시작 합니다. 및를 사용자 *\<user>* *\<password>* 이름 및 암호로 바꾸고 아래 명령을 실행 합니다.
                        
                 ```
@@ -325,7 +325,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
             1. IR 서비스 로그온 계정에 로컬/도메인 사용자를 사용할 수 있습니다.            
         1. Integration Runtime를 등록 합니다.
 
-오류가로 표시 되는 경우: *서비스 ' Integration Runtime 서비스 ' (DIAHostService)을 (를) 시작 하지 못했습니다. 시스템 서비스를 시작할 수 있는 권한이 있는지 확인*하 고 아래 지침을 따르세요.
+오류가로 표시 되는 경우: *서비스 ' Integration Runtime 서비스 ' (DIAHostService)을 (를) 시작 하지 못했습니다. 시스템 서비스를 시작할 수 있는 권한이 있는지 확인* 하 고 아래 지침을 따르세요.
 
 1. Windows 서비스 패널에서 *Diahostservice* 로그온 서비스 계정을 확인 합니다.
    
@@ -351,7 +351,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 
 #### <a name="cause"></a>원인
 
-*3.0 Integration Runtime*릴리스 이후에는 기존 Integration Runtime 노드의 **등록** 단추가 제거 되어 더 깔끔하고 안전 하 게 환경을 사용할 수 있습니다. 노드가 온라인 상태인지 여부에 관계없이 Integration Runtime에 등록되어 있는 경우 다른 Integration Runtime에 다시 등록하려면 이전 노드를 제거한 다음 노드를 설치하고 등록해야 합니다.
+*3.0 Integration Runtime* 릴리스 이후에는 기존 Integration Runtime 노드의 **등록** 단추가 제거 되어 더 깔끔하고 안전 하 게 환경을 사용할 수 있습니다. 노드가 온라인 상태인지 여부에 관계없이 Integration Runtime에 등록되어 있는 경우 다른 Integration Runtime에 다시 등록하려면 이전 노드를 제거한 다음 노드를 설치하고 등록해야 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -431,7 +431,7 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
     ```
         
    > [!NOTE]     
-   > 서비스 URL은 Data Factory 위치에 따라 다를 수 있습니다. **ADF UI** > **연결** > **Integration Runtime** > **셀프 호스팅 IR 편집** > **노드** > **서비스 URL 보기**에서 서비스 URL을 찾을 수 있습니다.
+   > 서비스 URL은 Data Factory 위치에 따라 다를 수 있습니다. **ADF UI** > **연결** > **Integration Runtime** > **셀프 호스팅 IR 편집** > **노드** > **서비스 URL 보기** 에서 서비스 URL을 찾을 수 있습니다.
             
     예상되는 응답은 다음과 같습니다.
             
@@ -441,7 +441,7 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
             
     * "원격 이름을 확인할 수 없습니다"라는 메시지가 표시되는 경우 DNS(Domain Name System) 문제가 있는 것입니다. 이 문제를 해결하려면 네트워크 팀에 문의하세요.
     * "ssl/tls 인증서를 신뢰할 수 없습니다"라는 메시지가 표시되면 머신에서 https://wu2.frontend.clouddatahub.net/ 에 대한 인증서를 신뢰할 수 있는지 확인하고 인증서 관리자를 사용하여 퍼블릭 인증서를 설치합니다. 이 작업을 수행하면 문제가 완화됩니다.
-    * **Windows** > **이벤트 뷰어(로그)**  > **애플리케이션 및 서비스 로그** > **Integration Runtime**으로 이동하고 DNS, 방화벽 규칙 또는 회사 네트워크 설정으로 인해 발생한 오류를 확인합니다. 이러한 오류가 발생하면 연결을 강제로 닫습니다. 모든 회사에서 네트워크 설정을 사용자 지정했으므로 네트워크 팀에 문의하여 이러한 문제를 해결하세요.
+    * **Windows** > **이벤트 뷰어(로그)**  > **애플리케이션 및 서비스 로그** > **Integration Runtime** 으로 이동하고 DNS, 방화벽 규칙 또는 회사 네트워크 설정으로 인해 발생한 오류를 확인합니다. 이러한 오류가 발생하면 연결을 강제로 닫습니다. 모든 회사에서 네트워크 설정을 사용자 지정했으므로 네트워크 팀에 문의하여 이러한 문제를 해결하세요.
 
 1. 자체 호스팅 Integration Runtime에 "프록시"가 구성된 경우 프록시 서버에서 서비스 엔드포인트에 액세스할 수 있는지 확인합니다. 샘플 명령은 [PowerShell, 웹 요청 및 프록시](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies)를 참조하세요.    
                 
@@ -484,7 +484,7 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
 
 #### <a name="resolution"></a>해결 방법
 
-1. 노드 호스팅 VM에 로그인합니다. **애플리케이션 및 서비스 로그** > **Integration Runtime**에서 이벤트 뷰어을 열고 모든 오류 로그를 필터링합니다.
+1. 노드 호스팅 VM에 로그인합니다. **애플리케이션 및 서비스 로그** > **Integration Runtime** 에서 이벤트 뷰어을 열고 모든 오류 로그를 필터링합니다.
 
 1. 오류 로그에 다음 오류가 포함되어 있는지 확인합니다. 
     
@@ -569,7 +569,7 @@ Netmon 추적을 사용 하 고 추가로 분석 합니다.
  
     *Linux System A의 네트워크 패키지 TTL 64-> B TTL 64-1 = 63-> C TTL 63-1 = 62-> TTL 62 빼기 1 = 61 자체 호스팅 IR*
 
-- 이상적인 상황에서 TTL은 128이 되며,이는 Windows 시스템에서 Data Factory를 실행 하는 것을 의미 합니다. 아래 예제에 표시 된 것 처럼 *128 – 107 = 21 홉*이 있습니다. 즉, TCP 3 핸드셰이크 중에 패키지에 대 한 21 개의 홉을 Data Factory에서 자체 호스팅 IR로 보냈습니다.
+- 이상적인 상황에서 TTL은 128이 되며,이는 Windows 시스템에서 Data Factory를 실행 하는 것을 의미 합니다. 아래 예제에 표시 된 것 처럼 *128 – 107 = 21 홉* 이 있습니다. 즉, TCP 3 핸드셰이크 중에 패키지에 대 한 21 개의 홉을 Data Factory에서 자체 호스팅 IR로 보냈습니다.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +587,11 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
 ![netmon 추적 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-즉, 포트 **888**을 기반으로 **8.8.8.8** 서버 쪽에 TCP 연결을 설정할 수 없으므로 두 개의 **sy재전송** 추가 패키지를 볼 수 있습니다. 원본 **자체 host2.contoso.com** 는 첫 번째 패키지에서 **8.8.8.8** 에 연결할 수 없기 때문에 연결 하는 동안 유지 됩니다.
+즉, 포트 **888** 을 기반으로 **8.8.8.8** 서버 쪽에 TCP 연결을 설정할 수 없으므로 두 개의 **sy재전송** 추가 패키지를 볼 수 있습니다. 원본 **자체 host2.contoso.com** 는 첫 번째 패키지에서 **8.8.8.8** 에 연결할 수 없기 때문에 연결 하는 동안 유지 됩니다.
 
 > [!TIP]
-> - **부하 필터**  ->  **표준 필터**  ->  **주소**  ->  **IPv4 주소**를 클릭 하면 됩니다.
-> - 입력 **IPv4. Address = = 8.8.8.8** as filter를 입력 하 고 **적용**을 클릭 합니다. 그 후에는 로컬 컴퓨터에서 대상 **8.8.8.8**에 대 한 통신만 표시 됩니다.
+> - **부하 필터**  ->  **표준 필터**  ->  **주소**  ->  **IPv4 주소** 를 클릭 하면 됩니다.
+> - 입력 **IPv4. Address = = 8.8.8.8** as filter를 입력 하 고 **적용** 을 클릭 합니다. 그 후에는 로컬 컴퓨터에서 대상 **8.8.8.8** 에 대 한 통신만 표시 됩니다.
 
 ![필터 주소 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -630,7 +630,7 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
 ##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>시나리오 1: 온-프레미스에서 실행 되는 자체 호스트 된 Integration Runtime의 아웃 바운드 통신을 회사 방화벽 뒤에서 실행
 영향을 받는지 확인 하는 방법:
 - 이 문서에서 설명 하는 방법을 사용 하 여 FQDN 이름에 따라 방화벽 규칙을 정의 하는 경우에는 영향을 받지 않습니다. [ip 주소에 대 한 방화벽 구성 및 허용 목록 설정](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)입니다.
-- 그러나 회사 방화벽에서 아웃 바운드 Ip를 명시적으로 허용 목록 하는 경우에는 영향을 받습니다.
+- 회사 방화벽에서 아웃 바운드 Ip에 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
 영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 구성을 업데이트 하도록 네트워크 인프라 팀에 게 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
 
@@ -639,16 +639,55 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
 - 개인 네트워크에 자체 호스팅 Integration Runtime 포함 된 아웃 바운드 NSG 규칙이 있는지 확인 합니다. 아웃 바운드 제한이 없는 경우에는 영향을 주지 않습니다.
 - 아웃 바운드 규칙 제한이 있는 경우 서비스 태그를 사용 하는지 여부를 확인 합니다. 서비스 태그를 사용 하는 경우 기존 서비스 태그 아래에 새 IP 범위를 변경 하거나 추가할 필요가 없습니다. 
  ![대상 검사](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- 그러나 Azure 가상 네트워크의 NSG 규칙 설정에서 아웃 바운드 IP 주소를 명시적으로 허용 목록 하는 경우에는 영향을 받습니다.
+- 그러나 Azure 가상 네트워크의 NSG 규칙에서 아웃 바운드 IP 주소에 대 한 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
 영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>시나리오 3: 고객이 관리 하는 Azure virtual network에서 SSIS Integration Runtime의 아웃 바운드 통신
 - SSIS Integration Runtime를 포함 하는 아웃 바운드 NSG 규칙이 개인 네트워크에 있는지 확인 합니다. 아웃 바운드 제한이 없는 경우에는 영향을 주지 않습니다.
 - 아웃 바운드 규칙 제한이 있는 경우 서비스 태그를 사용 하는지 여부를 확인 합니다. 서비스 태그를 사용 하는 경우 기존 서비스 태그 아래에 새 IP 범위를 변경 하거나 추가할 필요가 없습니다.
-- 그러나 Azure 가상 네트워크의 NSG 규칙 설정에서 아웃 바운드 IP 주소를 명시적으로 허용 목록 하는 경우에는 영향을 받습니다.
+- 그러나 Azure 가상 네트워크의 NSG 규칙에서 아웃 바운드 IP 주소에 대 한 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
 영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
+
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>SSLTLS 보안 채널에 대 한 트러스트 관계를 설정할 수 없습니다. 
+
+#### <a name="symptoms"></a>증상
+
+자체 호스팅 IR은 ADF 서비스에 연결할 수 없습니다.
+
+CustomLogEvent 테이블에서 SHIR 이벤트 로그 또는 클라이언트 알림 로그를 확인 하 여 다음과 같은 오류 메시지를 찾을 수 있습니다.
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+ADF 서비스의 서버 인증서를 확인 하는 방법:
+
+브라우저에서 ADF 서비스 URL을 여는 것이 가장 간단한 방법입니다. 예를 들어 https://eu.frontend.clouddatahub.net/ SHIR가 설치 된 컴퓨터에서를 열고 서버 인증서 정보를 볼 수 있습니다.
+
+  ![ADF 서비스의 서버 인증서 확인](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![서버 인증서 경로 확인](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>원인
+
+이 문제가 발생 하는 두 가지 가능한 이유는 다음과 같습니다.
+
+- SHIR이 설치 된 컴퓨터에서 ADF 서비스 서버 인증서의 루트 CA를 신뢰할 수 없습니다. 
+- 사용자 환경에서 프록시를 사용 하 고 있으며, ADF 서비스의 서버 인증서가 프록시로 바뀌고, 대체 된 서버 인증서는 SHIR이 설치 된 컴퓨터에서 트러스트 되지 않습니다.
+
+#### <a name="solution"></a>해결 방법
+
+- 이유 1에서는 SHIR이 설치 된 컴퓨터에서 ADF 서버 인증서와 인증서 체인을 신뢰할 수 있는지 확인 합니다.
+- 이유 2에서는 SHIR 컴퓨터에서 대체 된 루트 CA를 신뢰 하거나 ADF 서버 인증서를 교체 하지 않도록 프록시를 구성 합니다.
+
+Windows에서 인증서를 신뢰 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) 를 참조 하세요.
+
+#### <a name="additional-info"></a>추가 정보
+DigiCert에서 서명 된 새 SSL 인증서를 배포 하는 중입니다. DigiCert Global Root G2가 신뢰할 수 있는 루트 CA에 있는지 확인 하세요.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+그렇지 않은 경우 [여기](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt )에서 다운로드 합니다. 
 
 ## <a name="self-hosted-ir-sharing"></a>자체 호스팅 IR 공유
 
