@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310376"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890788"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 
-이 문서에서는 [맵 이벤트 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events)를 사용하는 방법을 보여 줍니다. 속성은 맵과 맵의 여러 계층에 대한 이벤트를 강조 표시합니다. HTML 표식과 상호 작용할 때 이벤트를 강조 표시할 수도 있습니다.
+이 문서에서는 [맵 이벤트 클래스](/javascript/api/azure-maps-control/atlas.map#events)를 사용하는 방법을 보여 줍니다. 속성은 맵과 맵의 여러 계층에 대한 이벤트를 강조 표시합니다. HTML 표식과 상호 작용할 때 이벤트를 강조 표시할 수도 있습니다.
 
 ## <a name="interact-with-the-map"></a>맵과 상호 작용
 
-아래의 맵을 재생하고 오른쪽에 강조 표시된 해당 마우스 이벤트를 확인합니다. **JS 탭**을 클릭하면 JavaScript 코드를 보고 편집할 수 있습니다. **CodePen에서 편집**을 클릭하여 CodePen에서 코드를 수정할 수도 있습니다.
+아래의 맵을 재생하고 오른쪽에 강조 표시된 해당 마우스 이벤트를 확인합니다. **JS 탭** 을 클릭하면 JavaScript 코드를 보고 편집할 수 있습니다. **CodePen에서 편집** 을 클릭하여 CodePen에서 코드를 수정할 수도 있습니다.
 
 <br/>
 
@@ -117,4 +117,4 @@ ms.locfileid: "91310376"
 > [Azure Maps 서비스 모듈 사용](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

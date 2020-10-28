@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: af31ab04653beb440655c4ab1a75946bed17c01b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e4004379340912051204786da592fe33a5bd63
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285097"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890754"
 ---
 # <a name="get-information-from-a-coordinate"></a>좌표에서 정보 가져오기
 
 이 문서에서는 클릭한 팝업 위치의 주소를 표시하는 역방향 주소 검색을 수행하는 방법을 보여줍니다.
 
-역방향 주소 검색을 수행하는 두 가지 방법이 있습니다. 한 가지 방법은 서비스 모듈을 통해 [Azure Maps 역방향 주소 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)를 쿼리하는 것입니다. 다른 방법은 [Fetch API](https://fetch.spec.whatwg.org/)를 사용하여 [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)를 요청하여 주소를 찾는 것입니다. 두 가지 방법 모두 아래에서 조사합니다.
+역방향 주소 검색을 수행하는 두 가지 방법이 있습니다. 한 가지 방법은 서비스 모듈을 통해 [Azure Maps 역방향 주소 검색 API](/rest/api/maps/search/getsearchaddressreverse)를 쿼리하는 것입니다. 다른 방법은 [Fetch API](https://fetch.spec.whatwg.org/)를 사용하여 [Azure Maps Reverse Address Search API](/rest/api/maps/search/getsearchaddressreverse)를 요청하여 주소를 찾는 것입니다. 두 가지 방법 모두 아래에서 조사합니다.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>서비스 모듈을 통해 역방향 검색 요청
 
@@ -29,15 +29,15 @@ ms.locfileid: "91285097"
 
 위의 코드에서 첫 번째 블록은 맵 개체를 생성하고 액세스 토큰을 사용하도록 인증 메커니즘을 설정합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 액세스 토큰을 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `TokenCredential`을 만듭니다. 그런 다음, `TokenCredential`을 `atlas.service.MapsURL.newPipeline()`에 전달하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+두 번째 코드 블록은 액세스 토큰을 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `TokenCredential`을 만듭니다. 그런 다음, `TokenCredential`을 `atlas.service.MapsURL.newPipeline()`에 전달하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
-세 번째 코드 블록은 마우스 커서의 스타일을 포인터로 업데이트하고 [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) 개체를 만듭니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
+세 번째 코드 블록은 마우스 커서의 스타일을 포인터로 업데이트하고 [popup](/javascript/api/azure-maps-control/atlas.popup#open) 개체를 만듭니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
 
-네 번째 코드 블록은 마우스 클릭 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)를 추가합니다. 트리거되면 클릭한 지점의 좌표를 사용하여 검색 쿼리를 만듭니다. 그런 다음, [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) 메서드를 사용하여 좌표 주소에 대해 [Get Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)를 쿼리합니다. 그런 다음, 응답에서 `geojson.getFeatures()` 메서드를 사용하여 GeoJSON 기능 컬렉션을 추출합니다.
+네 번째 코드 블록은 마우스 클릭 [이벤트 수신기](/javascript/api/azure-maps-control/atlas.map#events)를 추가합니다. 트리거되면 클릭한 지점의 좌표를 사용하여 검색 쿼리를 만듭니다. 그런 다음, [getSearchAddressReverse](/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) 메서드를 사용하여 좌표 주소에 대해 [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse)를 쿼리합니다. 그런 다음, 응답에서 `geojson.getFeatures()` 메서드를 사용하여 GeoJSON 기능 컬렉션을 추출합니다.
 
 다섯 번째 코드 블록은 클릭한 좌표 위치의 응답 주소를 표시하도록 HTML 팝업 콘텐츠를 설정합니다.
 
-커서의 변경 내용, popup 개체 및 클릭 이벤트는 모두 맵의 [로드 이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)에 생성됩니다. 이 코드 구조는 좌표 정보를 검색하기 전에 맵이 완전히 로드되도록 합니다.
+커서의 변경 내용, popup 개체 및 클릭 이벤트는 모두 맵의 [로드 이벤트 수신기](/javascript/api/azure-maps-control/atlas.map#events)에 생성됩니다. 이 코드 구조는 좌표 정보를 검색하기 전에 맵이 완전히 로드되도록 합니다.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Fetch API를 통해 역방향 검색 요청 만들기
 
@@ -48,11 +48,11 @@ ms.locfileid: "91285097"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 생성하고 액세스 토큰을 사용하도록 인증 메커니즘을 설정합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 포인터에 마우스 커서의 스타일을 업데이트합니다. [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) 개체를 인스턴스화합니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
+두 번째 코드 블록은 포인터에 마우스 커서의 스타일을 업데이트합니다. [popup](/javascript/api/azure-maps-control/atlas.popup#open) 개체를 인스턴스화합니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
 
-세 번째 코드 블록은 마우스 클릭에 대한 이벤트 수신기를 추가합니다. 마우스 클릭 시 [Fetch API](https://fetch.spec.whatwg.org/)를 사용하여 [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)에서 클릭한 좌표 주소를 쿼리합니다. 성공적인 응답의 경우 클릭한 위치의 주소를 수집합니다. popup 클래스의 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) 함수를 사용하여 팝업 콘텐츠 및 위치를 정의합니다.
+세 번째 코드 블록은 마우스 클릭에 대한 이벤트 수신기를 추가합니다. 마우스 클릭 시 [Fetch API](https://fetch.spec.whatwg.org/)를 사용하여 [Azure Maps Reverse Address Search API](/rest/api/maps/search/getsearchaddressreverse)에서 클릭한 좌표 주소를 쿼리합니다. 성공적인 응답의 경우 클릭한 위치의 주소를 수집합니다. popup 클래스의 [setOptions](/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) 함수를 사용하여 팝업 콘텐츠 및 위치를 정의합니다.
 
-커서의 변경 내용, popup 개체 및 클릭 이벤트는 모두 맵의 [로드 이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)에 생성됩니다. 이 코드 구조는 좌표 정보를 검색하기 전에 맵이 완전히 로드되도록 합니다.
+커서의 변경 내용, popup 개체 및 클릭 이벤트는 모두 맵의 [로드 이벤트 수신기](/javascript/api/azure-maps-control/atlas.map#events)에 생성됩니다. 이 코드 구조는 좌표 정보를 검색하기 전에 맵이 완전히 로드되도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -62,10 +62,10 @@ ms.locfileid: "91285097"
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [팝업](/javascript/api/azure-maps-control/atlas.popup)
 
 전체 코드 예제는 다음 문서를 참조하세요.
 

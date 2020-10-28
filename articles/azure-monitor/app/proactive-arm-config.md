@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87309344"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890516"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -21,15 +21,15 @@ ms.locfileid: "87309344"
 ## <a name="smart-detection-rule-configuration"></a>스마트 검색 규칙 구성
 
 스마트 검색 규칙에 대한 다음 설정을 구성할 수 있습니다.
-- 규칙이 사용 되 면이 고, 기본값은 **true**입니다.
-- 검색이 검색 될 때 구독의 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 연결 된 사용자에 게 전자 메일을 보내야 하는 경우 (기본값은 **true**입니다.)
+- 규칙이 사용 되 면이 고, 기본값은 **true** 입니다.
+- 검색이 검색 될 때 구독의 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 연결 된 사용자에 게 전자 메일을 보내야 하는 경우 (기본값은 **true** 입니다.)
 - 항목이 검색되었을 때 알림을 받아야 하는 추가 메일 수신인
-    -  _미리 보기로_표시 된 스마트 검색 규칙에는 전자 메일 구성을 사용할 수 없습니다.
+    -  _미리 보기로_ 표시 된 스마트 검색 규칙에는 전자 메일 구성을 사용할 수 없습니다.
 
-Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이제 스마트 검색 규칙 구성은 Application Insights 리소스 내부에서 **ProactiveDetectionConfigs**라고 하는 내부 리소스로 제공됩니다.
+Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이제 스마트 검색 규칙 구성은 Application Insights 리소스 내부에서 **ProactiveDetectionConfigs** 라고 하는 내부 리소스로 제공됩니다.
 유연성을 극대화하기 위해 고유한 알림 설정을 사용하여 각 스마트 검색 규칙을 구성할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 아래는 Azure Resource Manager 템플릿을 사용하여 스마트 검색 규칙 설정을 구성하는 방법을 보여주는 몇 가지 예입니다.
 모든 샘플은 _“myApplication”_ 이라는 Application Insights 리소스 및 내부에서 _“longdependencyduration”_ 이라고 부르는 "긴 종속성 기간 스마트 검색 규칙"을 참조합니다.
@@ -44,7 +44,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 62aa8f966126d95af003478e7f43d3ccea2b48cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833b6413cc5dfde1129075a286e5fe93a06e159f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890924"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "91310410"
 
 ## <a name="loading-a-map"></a>지도 로드
 
-지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 DIV 요소 ID를 전달 하 여 맵을 렌더링 하 고 지도를 로드할 때 사용할 옵션 집합을 전달 합니다. 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 `atlas` 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 이벤트를 맵에 연결한 `load` 다음 맵과 상호 작용 하는 추가 코드를 이벤트 처리기에 추가 합니다. `ready`이 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load`이 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
+지도를 로드 하려면 [map 클래스](/javascript/api/azure-maps-control/atlas.map)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 DIV 요소 ID를 전달 하 여 맵을 렌더링 하 고 지도를 로드할 때 사용할 옵션 집합을 전달 합니다. 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 `atlas` 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 이벤트를 맵에 연결한 `load` 다음 맵과 상호 작용 하는 추가 코드를 이벤트 처리기에 추가 합니다. `ready`이 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load`이 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
 
 <br/>
 
@@ -48,10 +48,10 @@ CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eqM
 
 지도를 만들 때에는 아래 나열 된 것 처럼 map의 기능을 사용자 지정 하기 위해 전달할 수 있는 여러 가지 유형의 옵션이 있습니다.
 
-- [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) 및 [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) 를 사용 하 여 지도에서 표시 해야 하는 영역을 지정 합니다.
-- [Serviceoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) 는 map이 지도를 구동 하는 서비스와 상호 작용 하는 방법을 지정 하는 데 사용 됩니다.
-- [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) 를 사용 하 여 지도를 지정 하 고 렌더링 해야 합니다.
-- [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) 는 사용자가 지도와 상호 작용할 때 map에 도달 하는 방법을 지정 하는 데 사용 됩니다. 
+- [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) 및 [CameraBoundOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions) 를 사용 하 여 지도에서 표시 해야 하는 영역을 지정 합니다.
+- [Serviceoptions](/javascript/api/azure-maps-control/atlas.serviceoptions) 는 map이 지도를 구동 하는 서비스와 상호 작용 하는 방법을 지정 하는 데 사용 됩니다.
+- [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions) 를 사용 하 여 지도를 지정 하 고 렌더링 해야 합니다.
+- [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) 는 사용자가 지도와 상호 작용할 때 map에 도달 하는 방법을 지정 하는 데 사용 됩니다. 
 
 `setCamera`,, `setServiceOptions` `setStyle` 및 함수를 사용 하 여 맵을 로드 한 후에도 이러한 옵션을 업데이트할 수 있습니다 `setUserInteraction` . 
 
@@ -81,7 +81,7 @@ map.setCamera({
 });
 ```
 
-다음 코드에서는 [Map 개체가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 만들어지고 중심 및 확대/축소 옵션이 설정 됩니다. 가운데 및 확대/축소 수준과 같은 지도 속성은 [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다.
+다음 코드에서는 [Map 개체가](/javascript/api/azure-maps-control/atlas.map) 만들어지고 중심 및 확대/축소 옵션이 설정 됩니다. 가운데 및 확대/축소 수준과 같은 지도 속성은 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다.
 
 <br/>
 
@@ -101,7 +101,7 @@ map.setCamera({
 });
 ```
 
-다음 코드에서 [Map 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 는을 통해 생성 됩니다 `new atlas.Map()` . `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
+다음 코드에서 [Map 개체](/javascript/api/azure-maps-control/atlas.map) 는을 통해 생성 됩니다 `new atlas.Map()` . `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](/javascript/api/azure-maps-control/atlas.map) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
 
 <br/>
 
@@ -110,7 +110,7 @@ map.setCamera({
 
 ### <a name="animate-map-view"></a>맵 보기 애니메이션
 
-지도의 카메라 옵션을 설정할 때 [애니메이션 옵션도](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) 설정할 수 있습니다. 이러한 옵션은 카메라를 이동 하기 위해 수행 해야 하는 애니메이션의 유형 및 기간을 지정 합니다.
+지도의 카메라 옵션을 설정할 때 [애니메이션 옵션도](/javascript/api/azure-maps-control/atlas.animationoptions) 설정할 수 있습니다. 이러한 옵션은 카메라를 이동 하기 위해 수행 해야 하는 애니메이션의 유형 및 기간을 지정 합니다.
 
 ```javascript
 map.setCamera({
@@ -135,7 +135,7 @@ map.setCamera({
 - 타일 요청에 헤더를 추가 합니다. 이 작업은 암호로 보호 된 서비스에 대해 수행 되는 경우가 많습니다.
 - 프록시 서비스를 통해 요청을 실행 하는 Url을 수정 합니다.
 
-맵의 [서비스 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) 에는 `transformRequest` 맵의 모든 요청을 생성 하기 전에 수정 하는 데 사용할 수 있는가 있습니다. `transformRequest`옵션은 두 개의 매개 변수, 즉 문자열 URL과 요청이 사용 된 항목을 나타내는 리소스 형식 문자열을 사용 하는 함수입니다. 이 함수는 [Requestparameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) 결과를 반환 해야 합니다.
+맵의 [서비스 옵션](/javascript/api/azure-maps-control/atlas.serviceoptions) 에는 `transformRequest` 맵의 모든 요청을 생성 하기 전에 수정 하는 데 사용할 수 있는가 있습니다. `transformRequest`옵션은 두 개의 매개 변수, 즉 문자열 URL과 요청이 사용 된 항목을 나타내는 리소스 형식 문자열을 사용 하는 함수입니다. 이 함수는 [Requestparameters](/javascript/api/azure-maps-control/atlas.requestparameters) 결과를 반환 해야 합니다.
 
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
@@ -171,7 +171,7 @@ var map = new atlas.Map('myMap', {
 
 ## <a name="try-out-the-code"></a>코드 사용해 보기
 
-코드 샘플을 확인 합니다. **JS 탭** 내에서 JavaScript 코드를 편집 하 고 **결과 탭**에서 맵 보기 변경 내용을 볼 수 있습니다. 오른쪽 위 모서리에서 **CodePen에서 편집**을 클릭 하 고 CodePen에서 코드를 수정할 수도 있습니다.
+코드 샘플을 확인 합니다. **JS 탭** 내에서 JavaScript 코드를 편집 하 고 **결과 탭** 에서 맵 보기 변경 내용을 볼 수 있습니다. 오른쪽 위 모서리에서 **CodePen에서 편집** 을 클릭 하 고 CodePen에서 코드를 수정할 수도 있습니다.
 
 <a id="relatedReference"></a>
 
@@ -180,7 +180,7 @@ var map = new atlas.Map('myMap', {
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)
@@ -197,4 +197,4 @@ var map = new atlas.Map('myMap', {
 > [맵에 컨트롤 추가](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

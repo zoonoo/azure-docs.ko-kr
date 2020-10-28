@@ -10,28 +10,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dc3792b5eff1b0ba51f5d7938e52e6914660109a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678177"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889887"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
-Azure Maps에서는 요청을 인증 하는 두 가지 방법인 공유 키 인증 및 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 인증을 지원 합니다. 이 문서에서는 Azure Maps 서비스의 구현을 안내 하는 데 도움이 되는 두 가지 인증 방법을 설명 합니다.
+Azure Maps에서는 요청을 인증 하는 두 가지 방법인 공유 키 인증 및 [Azure Active Directory (AZURE AD)](../active-directory/fundamentals/active-directory-whatis.md) 인증을 지원 합니다. 이 문서에서는 Azure Maps 서비스의 구현을 안내 하는 데 도움이 되는 두 가지 인증 방법을 설명 합니다.
 
 > [!NOTE]
-> Azure Maps와의 보안 통신을 개선 하기 위해 이제 TLS (Transport Layer Security) 1.2를 지원 하 고 TLS 1.0 및 1.1에 대 한 지원을 중단 하 고 있습니다. 현재 TLS 1.x를 사용 하는 경우 tls 1.2 준비 상태를 평가 하 고 [tls 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)에 설명 된 테스트를 사용 하 여 마이그레이션 계획을 개발 합니다.
+> Azure Maps와의 보안 통신을 개선 하기 위해 이제 TLS (Transport Layer Security) 1.2를 지원 하 고 TLS 1.0 및 1.1에 대 한 지원을 중단 하 고 있습니다. 현재 TLS 1.x를 사용 하는 경우 tls 1.2 준비 상태를 평가 하 고 [tls 1.0 문제 해결](/security/solving-tls1-problem)에 설명 된 테스트를 사용 하 여 마이그레이션 계획을 개발 합니다.
 
 ## <a name="shared-key-authentication"></a>공유 키 인증
 
  Azure Maps 계정이 만들어진 후 기본 및 보조 키가 생성 됩니다. 공유 키 인증을 사용 하 여 Azure Maps를 호출할 때 기본 키를 구독 키로 사용 하는 것이 좋습니다. 공유 키 인증은 Azure Maps 계정에서 생성 된 키를 Azure Maps 서비스에 전달 합니다. Azure Maps 서비스에 대 한 각 요청에 대해 *구독 키* 를 URL에 매개 변수로 추가 합니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용할 수 있습니다.  
 
-Azure Portal에서 키를 보는 방법에 대 한 자세한 내용은 [인증 관리](https://aka.ms/amauthdetails)를 참조 하세요.
+Azure Portal에서 키를 보는 방법에 대 한 자세한 내용은 [인증 관리](./how-to-manage-authentication.md#view-authentication-details)를 참조 하세요.
 
 > [!TIP]
-> 보안을 위해 기본 키와 보조 키 사이를 회전 하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)을 참조하세요.
+> 보안을 위해 기본 키와 보조 키 사이를 회전 하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](../key-vault/secrets/tutorial-rotation-dual.md)을 참조하세요.
 
 ## <a name="azure-ad-authentication"></a>Azure AD 인증
 
@@ -45,17 +45,17 @@ Azure Maps는 Azure Maps 계정을 포함하고 있는 Azure 구독과 연결된
 
 Azure Maps는 각 Azure Maps 계정에 대해 *고유 식별자(클라이언트 ID)* 를 생성합니다. 이 클라이언트 ID를 추가 매개 변수와 함께 사용 하는 경우 Azure AD에서 토큰을 요청할 수 있습니다.
 
-Azure AD를 구성하고 Azure Maps에 대한 토큰을 요청하는 방법에 대한 자세한 내용은 [Azure Maps의 인증 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
+Azure AD를 구성하고 Azure Maps에 대한 토큰을 요청하는 방법에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
-Azure AD를 사용 하 여 인증 하는 방법에 대 한 일반 정보 [는 인증 이란?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)을 참조 하세요.
+Azure AD를 사용 하 여 인증 하는 방법에 대 한 일반 정보 [는 인증 이란?](../active-directory/develop/authentication-vs-authorization.md)을 참조 하세요.
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Azure 리소스 및 Azure Maps에 대한 관리형 ID
 
-Azure [리소스에 대 한 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 는 azure AD를 사용 하 여 인증할 수 있는 자동으로 관리 되는 응용 프로그램 기반 보안 주체를 azure 서비스에 제공 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id 보안 주체에 Azure Maps 서비스에 액세스할 수 있는 권한을 부여할 수 있습니다. 관리 되는 id의 몇 가지 예는 Azure App Service, Azure Functions 및 Azure Virtual Machines입니다. 관리 id 목록은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조 하세요.
+Azure [리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 는 azure AD를 사용 하 여 인증할 수 있는 자동으로 관리 되는 응용 프로그램 기반 보안 주체를 azure 서비스에 제공 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id 보안 주체에 Azure Maps 서비스에 액세스할 수 있는 권한을 부여할 수 있습니다. 관리 되는 id의 몇 가지 예는 Azure App Service, Azure Functions 및 Azure Virtual Machines입니다. 관리 id 목록은 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조 하세요.
 
 ### <a name="configuring-application-azure-ad-authentication"></a>응용 프로그램 Azure AD 인증 구성
 
-응용 프로그램은 Azure AD에서 제공 하는 하나 이상의 지원 되는 시나리오를 사용 하 여 Azure AD 테 넌 트로 인증 합니다. 각 Azure AD 응용 프로그램 시나리오는 비즈니스 요구에 따라 다양 한 요구 사항을 나타냅니다. 일부 응용 프로그램에는 사용자 로그인 환경이 필요할 수 있으며, 다른 응용 프로그램에는 응용 프로그램 로그인 환경이 필요할 수 있습니다. 자세한 내용은 [인증 흐름 및 응용 프로그램 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios)를 참조 하세요.
+응용 프로그램은 Azure AD에서 제공 하는 하나 이상의 지원 되는 시나리오를 사용 하 여 Azure AD 테 넌 트로 인증 합니다. 각 Azure AD 응용 프로그램 시나리오는 비즈니스 요구에 따라 다양 한 요구 사항을 나타냅니다. 일부 응용 프로그램에는 사용자 로그인 환경이 필요할 수 있으며, 다른 응용 프로그램에는 응용 프로그램 로그인 환경이 필요할 수 있습니다. 자세한 내용은 [인증 흐름 및 응용 프로그램 시나리오](../active-directory/develop/authentication-flows-app-scenarios.md)를 참조 하세요.
 
 응용 프로그램이 액세스 토큰을 받은 후 SDK 및/또는 응용 프로그램은 다른 REST API HTTP 헤더 외에도 다음과 같은 필수 HTTP 헤더 집합을 사용 하 여 HTTPS 요청을 보냅니다.
 
@@ -76,21 +76,21 @@ x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
-클라이언트 ID를 보는 방법에 대한 내용은 [인증 세부 정보 보기](https://aka.ms/amauthdetails)를 참조하세요.
+클라이언트 ID를 보는 방법에 대한 내용은 [인증 세부 정보 보기](./how-to-manage-authentication.md#view-authentication-details)를 참조하세요.
 
 ## <a name="authorization-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하는 권한 부여
 
-Azure Maps은 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 관리 되는 id를 포함 하 여 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 의 모든 보안 주체 유형에 대 한 액세스를 지원 합니다. 보안 주체 유형에는 역할 정의 라고도 하는 권한 집합이 부여 됩니다. 역할 정의는 REST API 작업에 대 한 권한을 제공 합니다. 하나 이상의 Azure Maps 계정에 대 한 액세스를 적용 하는 것을 범위 라고 합니다. 보안 주체, 역할 정의 및 범위를 적용 하는 경우 역할 할당이 만들어집니다. 
+Azure Maps은 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 관리 되는 id를 포함 하 여 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 의 모든 보안 주체 유형에 대 한 액세스를 지원 합니다. 보안 주체 유형에는 역할 정의 라고도 하는 권한 집합이 부여 됩니다. 역할 정의는 REST API 작업에 대 한 권한을 제공 합니다. 하나 이상의 Azure Maps 계정에 대 한 액세스를 적용 하는 것을 범위 라고 합니다. 보안 주체, 역할 정의 및 범위를 적용 하는 경우 역할 할당이 만들어집니다. 
 
 다음 섹션에서는 Azure RBAC와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명 합니다. Azure Maps 계정을 설정 하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결 됩니다. 
 
-Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당에 적용 합니다. Azure Portal에 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 참조 하세요.
+Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당에 적용 합니다. Azure Portal에 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 ### <a name="picking-a-role-definition"></a>역할 정의 선택
 
 응용 프로그램 시나리오를 지원 하기 위해 다음 역할 정의 형식이 있습니다.
 
-| Azure 역할 정의       | Description                                                                                              |
+| Azure 역할 정의       | 설명                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Azure Maps 데이터 읽기 권한자      | 변경할 수 없는 Azure Maps REST Api에 대 한 액세스를 제공 합니다.                                                       |
 | Azure Maps 데이터 기여자 | 변경 가능한 Azure Maps REST Api에 대 한 액세스를 제공 합니다. 가변성는 write 및 delete 작업으로 정의 됩니다. |
@@ -110,7 +110,7 @@ Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에
 
 응용 프로그램 보안의 한 가지 측면은 최소 권한의 원칙을 적용 하는 것입니다. 이 원칙은 보안 주체가 필요한 액세스 권한만 허용 하 고 추가 액세스 권한이 없는 것을 의미 합니다. 사용자 지정 역할 정의를 만드는 것은 액세스 제어에 추가 세분성이 필요한 사용 사례를 지원할 수 있습니다. 사용자 지정 역할 정의를 만들려면 정의에 포함 하거나 제외할 특정 데이터 작업을 선택할 수 있습니다.
 
-그런 다음 사용자 지정 역할 정의를 모든 보안 주체에 대 한 역할 할당에 사용할 수 있습니다. Azure 사용자 지정 역할 정의에 대해 자세히 알아보려면 [azure 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조 하세요.
+그런 다음 사용자 지정 역할 정의를 모든 보안 주체에 대 한 역할 할당에 사용할 수 있습니다. Azure 사용자 지정 역할 정의에 대해 자세히 알아보려면 [azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 사용자 지정 역할이 응용 프로그램 보안을 향상 시킬 수 있는 몇 가지 예제 시나리오는 다음과 같습니다.
 
@@ -123,7 +123,7 @@ Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에
 
 ### <a name="understanding-scope"></a>범위 이해
 
-역할 할당을 만들 때 Azure 리소스 계층 구조 내에서 정의 됩니다. 계층의 맨 위에는 [관리 그룹이](https://docs.microsoft.com/azure/governance/management-groups/overview) 있고, 가장 낮은 것은 Azure Maps 계정과 같은 Azure 리소스입니다.
+역할 할당을 만들 때 Azure 리소스 계층 구조 내에서 정의 됩니다. 계층의 맨 위에는 [관리 그룹이](../governance/management-groups/overview.md) 있고, 가장 낮은 것은 Azure Maps 계정과 같은 Azure 리소스입니다.
 리소스 그룹에 역할 할당을 할당 하면 그룹의 여러 Azure Maps 계정 또는 리소스에 대 한 액세스를 설정할 수 있습니다.
 
 > [!TIP]
@@ -133,12 +133,12 @@ Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에
 
 Azure RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
 > [!div class="nextstepaction"]
-> [Azure 역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)
 
 Azure AD 및 Azure Maps로 응용 프로그램을 인증 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 > [!div class="nextstepaction"]
-> [Azure Maps의 인증 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
+> [Azure Maps의 인증 관리](./how-to-manage-authentication.md)
 
 Azure AD에서 Azure Maps 맵 컨트롤을 인증 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 > [!div class="nextstepaction"]
-> [Azure Maps 맵 컨트롤 사용](https://aka.ms/amaadmc)
+> [Azure Maps 맵 컨트롤 사용](./how-to-use-map-control.md)

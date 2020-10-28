@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891464"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
 이 문서에서는 [가상 머신에 대 한 Azure Automanage](automanage-virtual-machines.md)에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 제공 합니다.
 
-Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. Azure 지원 요청을 제출할 수도 있습니다. 지원 요청을 제출 하려면 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 **지원 받기**를 선택 합니다.
+Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. Azure 지원 요청을 제출할 수도 있습니다. 지원 요청을 제출 하려면 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 **지원 받기** 를 선택 합니다.
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
@@ -32,7 +32,6 @@ Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소�
 - Vm은 지원 되는 지역에 있어야 합니다.
 - 사용자에 게 올바른 사용 권한이 있어야 합니다.
 - 확장 되지 않은 집합 Vm만
-- Vm은 다른 구독의 log analytics 작업 영역에 연결 하면 안 됩니다.
 - 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
 **Automanage를 사용 하도록 설정 하는 데 필요한 Azure RBAC 권한은 무엇입니까?**
@@ -106,7 +105,7 @@ VM이 기존 Log Analytics 작업 영역에 연결 된 경우 해당 작업 영�
 
 **Automanage 포털에서 VM의 상태가 실패 인 이유는 무엇 인가요?**
 
-상태가 *실패*로 표시 되는 경우 VM이 있는 리소스 그룹을 통해 배포 문제를 해결할 수 있습니다. **리소스 그룹**으로 이동 하 여 리소스 그룹을 선택 하 고 **배포** 를 클릭 한 다음 오류 정보와 함께 *실패* 상태를 확인 합니다.
+상태가 *실패* 로 표시 되는 경우 VM이 있는 리소스 그룹을 통해 배포 문제를 해결할 수 있습니다. **리소스 그룹** 으로 이동 하 여 리소스 그룹을 선택 하 고 **배포** 를 클릭 한 다음 오류 정보와 함께 *실패* 상태를 확인 합니다.
 
 **자동 관리에 대 한 문제 해결 지원을 받으려면 어떻게 해야 하나요?**
 

@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310257"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890771"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
-이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능 기 하 도형을 입체 도형으로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 된 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 렌더링을 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 될 수 있습니다. 모든 기능 기 하 도형은 atlas로 래핑할 때 쉽게 업데이트할 수 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) 클래스입니다.
+이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능 기 하 도형을 입체 도형으로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 된 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 렌더링을 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 될 수 있습니다. 모든 기능 기 하 도형은 atlas로 래핑할 때 쉽게 업데이트할 수 있습니다 [. Shape](/javascript/api/azure-maps-control/atlas.shape) 클래스입니다.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용
 
-[다각형 입체 면 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) 을 데이터 원본에 연결 합니다. 그런 다음 맵에 로드 합니다. 다각형 입체 면 계층은 및 기능의 영역을 `Polygon` `MultiPolygon` 입체 도형으로 렌더링 합니다. `height` `base` 다각형 입체 면 계층의 및 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터**단위로 정의 합니다. 다음 코드에서는 다각형을 만들고 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
+[다각형 입체 면 계층](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) 을 데이터 원본에 연결 합니다. 그런 다음 맵에 로드 합니다. 다각형 입체 면 계층은 및 기능의 영역을 `Polygon` `MultiPolygon` 입체 도형으로 렌더링 합니다. `height` `base` 다각형 입체 면 계층의 및 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터** 단위로 정의 합니다. 다음 코드에서는 다각형을 만들고 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
 
 > [!Note]
 > `base`다각형 입체 면 계층에 정의 된 값은의 값 보다 작거나 같아야 합니다 `height` .
@@ -45,7 +45,7 @@ CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYY
 
 ## <a name="add-a-circle-to-the-map"></a>맵에 원 추가
 
-Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터**단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예를 들면 다음과 같습니다.
+Azure Maps에는 [여기](./extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터** 단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 {
@@ -83,10 +83,10 @@ CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [다각형 입체 면 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [다각형 입체 면 계층](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 추가 리소스:
 

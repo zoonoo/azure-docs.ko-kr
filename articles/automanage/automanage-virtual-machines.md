@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891505"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,18 +37,20 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
 - Windows Server Vm에만 해당
 - Vm이 실행 되 고 있어야 함
 - Vm은 지원 되는 지역에 있어야 합니다.
-- 사용자에 게 올바른 사용 권한이 있어야 합니다.
-- Vm은 다른 구독의 log analytics 작업 영역에 연결 하면 안 됩니다.
+- 사용자에 게 올바른 사용 권한이 있어야 합니다 (아래 단락 참조).
 - 지금은 automanage에서 샌드박스 구독을 지원 하지 않습니다.
 
-기존 Automanage 계정을 사용하여 Automanage를 사용하도록 설정하려면 **기여자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용하도록 설정하는 경우 다음 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
+기존 Automanage 계정을 사용 하 여 Vm에서 Automanage를 사용 하도록 설정 하려면 Vm이 포함 된 리소스 그룹에 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다. 
+
+> [!NOTE]
+> 다른 구독의 작업 영역에 연결 된 VM에서 Automanage를 사용 하려면 각 구독에서 위에 설명 된 사용 권한이 있어야 합니다.
 
 Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부 및 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
 
@@ -67,7 +69,7 @@ Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 
 
 Azure Portal에서 기존 가상 컴퓨터에 대해 자동 관리를 사용 하도록 설정 하거나 새 가상 컴퓨터를 만들 수 있습니다. 이 프로세스에 대 한 간결한 단계는 [virtual machines의 Automanage 빠른](quick-create-virtual-machines-portal.md)시작을 참조 하세요.
 
-VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure virtual machines 모범 사례**에 대 한 Azure Portal에서 검색할 수 있습니다. **기존 vm에서 사용**을 클릭 하 고, 등록 하려는 vm을 선택 하 고, **선택**, **사용**을 차례로 클릭 한 후 완료 합니다.
+VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure virtual machines 모범 사례** 에 대 한 Azure Portal에서 검색할 수 있습니다. **기존 vm에서 사용** 을 클릭 하 고, 등록 하려는 vm을 선택 하 고, **선택** , **사용** 을 차례로 클릭 한 후 완료 합니다.
 
 이러한 서비스를 관리 하기 위해이 VM과 상호 작용 해야 하는 경우에는 VM을 수정 하려고 했지만 그렇게 하지 못한 이벤트에 있습니다. VM을 성공적으로 재구성 한 경우 경고를 표시 하지 않고 다시 준수 상태로 전환 합니다.
 
@@ -105,7 +107,7 @@ Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 �
 Azure Portal 환경에서 Vm에 대해 Automanage를 사용 하도록 설정 하는 경우 Automanage 계정을 할당 하거나 수동으로 만들 수 있는 **AZURE VM 모범 사례 사용** 블레이드에서 고급 드롭다운이 있습니다.
 
 > [!NOTE]
-> 기존 Automanage 계정을 사용하여 Automanage를 사용하도록 설정하려면 **기여자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용하도록 설정하는 경우 다음 권한이 필요합니다. **소유자** 역할 또는 **기여자**와 **사용자 액세스 관리자** 역할
+> 기존 Automanage 계정을 사용 하 여 Vm에서 Automanage를 사용 하도록 설정 하려면 Vm이 포함 된 리소스 그룹에 **참가자** 역할이 있어야 합니다. 새 Automanage 계정으로 Automanage를 사용 하도록 설정 하는 경우 **사용자 액세스 관리자** 역할과 함께 **소유자** 역할 또는 **참가자** 에 대 한 다음 권한이 필요 합니다.
 
 
 ## <a name="status-of-vms"></a>Vm의 상태
@@ -121,7 +123,7 @@ Azure Portal에서 자동 관리 되는 모든 Vm을 나열 하는 **Automanage 
 - *구성* 됨-VM이 구성 되 고 드리프트가 검색 되지 않습니다.
 - *실패* -VM이 데이터베이스가 드리프트을 수정할 수 없습니다.
 
-**상태가** *실패*로 표시 되는 경우 VM이 있는 리소스 그룹을 통해 배포 문제를 해결할 수 있습니다. **리소스 그룹**으로 이동 하 여 리소스 그룹을 선택 하 고 **배포** 를 클릭 한 다음 오류 정보와 함께 *실패* 상태를 확인 합니다.
+**상태가** *실패* 로 표시 되는 경우 VM이 있는 리소스 그룹을 통해 배포 문제를 해결할 수 있습니다. **리소스 그룹** 으로 이동 하 여 리소스 그룹을 선택 하 고 **배포** 를 클릭 한 다음 오류 정보와 함께 *실패* 상태를 확인 합니다.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Vm에 대해 Automanage를 사용 하지 않도록 설정
@@ -132,7 +134,7 @@ Azure Portal에서이 작업을 수행 하려면 자동 관리 되는 모든 Vm�
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="지능적으로 서비스를 등록 합니다.":::
 
-**사용 안 함**에 동의하기 전에 결과 팝업의 메시지를 자세히 읽어 보세요.
+**사용 안 함** 에 동의하기 전에 결과 팝업의 메시지를 자세히 읽어 보세요.
 
 > [!NOTE]
 > VM에서 automanagement를 사용 하지 않도록 설정 하면 다음과 같은 동작이 발생 합니다.

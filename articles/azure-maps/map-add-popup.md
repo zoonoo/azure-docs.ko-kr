@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310478"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891039"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "91310478"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-다음 코드에서는 `name` `description` 기호 계층을 사용 하 여 및 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 기호 계층에 마우스 이벤트를 추가 하 여 팝업을 열고 닫는 팝업을 트리거합니다. 표식 기호가 가리킴 이면 팝업의 `position` 속성이 표식의 위치로 업데이트 되 고 `content` 옵션은  `name` 가리키는 point 기능의 및 속성을 래핑하는 일부 HTML로 업데이트 됩니다 `description` . 그런 다음 함수를 사용 하 여 맵에 팝업을 표시 합니다 `open` .
+다음 코드에서는 `name` `description` 기호 계층을 사용 하 여 및 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](/javascript/api/azure-maps-control/atlas.popup) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 기호 계층에 마우스 이벤트를 추가 하 여 팝업을 열고 닫는 팝업을 트리거합니다. 표식 기호가 가리킴 이면 팝업의 `position` 속성이 표식의 위치로 업데이트 되 고 `content` 옵션은  `name` 가리키는 point 기능의 및 속성을 래핑하는 일부 HTML로 업데이트 됩니다 `description` . 그런 다음 함수를 사용 하 여 맵에 팝업을 표시 합니다 `open` .
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [팝업](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 전체 코드 샘플에 대한 다음 문서를 참조하세요.
 

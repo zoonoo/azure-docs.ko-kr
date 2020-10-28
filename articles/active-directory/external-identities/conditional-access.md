@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274149"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892454"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대 한 조건부 액세스
 
@@ -25,7 +25,7 @@ Azure AD B2B 협업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-
 
 예제:
 1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 애플리케이션에 초대합니다.
-2. 회사 A의 애플리케이션 *Foo*는 액세스 시 MFA를 요구하도록 구성됩니다.
+2. 회사 A의 애플리케이션 *Foo* 는 액세스 시 MFA를 요구하도록 구성됩니다.
 3. 회사 B의 사용자가 회사 A 테넌트에서 *Foo* 앱에 액세스하려고 하면 MFA 챌린지를 완료하도록 요구됩니다.
 4. 사용자는 회사 A와 MFA를 설정할 수 있고 해당 MFA 옵션을 선택합니다.
 5. 이러한 시나리오는 어떤 ID에도 잘 맞습니다(Azure AD 또는 회사 B의 사용자가 소셜 ID를 사용하여 인증을 받는 경우 MSA).
@@ -110,5 +110,5 @@ B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 * [Azure AD B2B 협업이란?](what-is-b2b.md)
-* [Azure AD B2B 협업 라이선스](licensing-guidance.md)
+* [외부 ID 가격](external-identities-pricing.md)
 * [Azure Active Directory B2B 협업 자주 묻는 질문(FAQ)](faq.md)

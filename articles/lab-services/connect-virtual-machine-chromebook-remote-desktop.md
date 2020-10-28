@@ -6,32 +6,32 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445664"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892233"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Chromebook에서 원격 데스크톱 프로토콜을 사용하여 VM에 연결
 이 섹션에서는 학생이 RDP를 사용하여 Chromebook에서 교실 랩 VM에 연결할 수 있는 방법을 보여 줍니다.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Chromebook에서 Microsoft 원격 데스크톱 설치
-1. Chromebook에서 App Store를 열고 **Microsoft 원격 데스크톱**을 검색합니다.
+1. Chromebook에서 App Store를 열고 **Microsoft 원격 데스크톱** 을 검색합니다.
 
     ![Microsoft 원격 데스크톱](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
 1. 최신 버전의 Microsoft 원격 데스크톱를 설치합니다. 
 
 ## <a name="access-the-vm-from-your-chromebook-using-rdp"></a>RDP를 사용하여 Chromebook에서 VM에 액세스
-1. **Microsoft 원격 데스크톱**이 설치된 컴퓨터에서 다운로드한 **RDP** 파일을 엽니다. VM에 대한 연결이 시작되어야 합니다. 
+1. **Microsoft 원격 데스크톱** 이 설치된 컴퓨터에서 다운로드한 **RDP** 파일을 엽니다. VM에 대한 연결이 시작되어야 합니다. 
 
     ![VM에 연결](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. 메시지가 표시되면 암호를 입력합니다.
-    ![VM에 연결](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![사용자 이름 및 암호를 입력 하는 로그온 화면을 보여 주는 스크린샷](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
-1. 다음 경고가 표시되면 **계속**을 선택합니다. 
+1. 다음 경고가 표시되면 **계속** 을 선택합니다. 
 
     ![인증서 경고](./media/how-to-use-classroom-lab/certificate-error-chromebook.png)
 

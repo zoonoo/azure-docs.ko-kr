@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892318"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>연결 문제 해결-Azure Event Grid
 
@@ -22,7 +22,7 @@ ms.locfileid: "86119007"
 
 응용 프로그램에서 event grid에 연결할 수 없는 경우이 섹션의 단계에 따라 문제를 해결 합니다.
 
-### <a name="check-if-there-is-a-service-outage"></a>서비스 중단이 있는지 확인 합니다.
+### <a name="check-if-theres-a-service-outage"></a>서비스 중단이 있는지 확인 합니다.
 
 [Azure 서비스 상태 사이트](https://azure.microsoft.com/status/)에서 Azure Event Grid 서비스 중단을 확인 하세요.
 
@@ -50,6 +50,8 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 주소 범위 또는 Url을 사용 하 여 사용 하거나 사용 하려는 모든 Azure 서비스에 액세스 해야 하는 경우가 있습니다. Event Grid에서 사용 하는 IP 주소에서 트래픽이 허용 되는지 확인 합니다. Azure Event Grid에서 사용 하는 IP 주소에 대해서는 [AZURE IP 범위 및 서비스 태그-공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519) 및 [서비스 태그-azureeventgrid](network-security.md#service-tags)를 참조 하세요.
 
+[AZURE Ip 범위 및 서비스 태그-공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519) 문서에는 **지역별** IP 주소도 나열 됩니다. 회사 방화벽 또는 프록시에서 **항목의 지역과** **쌍을 이루는 지역** 에 대 한 주소 범위를 허용할 수 있습니다. 지역에 대 한 쌍을 이루는 지역의 경우 [BCDR (비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는](/azure/best-practices-availability-paired-regions)지역을 참조 하세요. 
+
 > [!NOTE]
 > 새 IP 주소는 일반적이 지 않지만 AzureEventGrid 서비스 태그에 추가할 수 있습니다. 따라서 서비스 태그를 매주 확인 하는 것이 좋습니다.
 
@@ -63,7 +65,7 @@ Azure를 사용 하는 경우 회사 방화벽이 나 프록시에서 특정 IP 
 
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한 인터넷에서 Event Grid 토픽/도메인에 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
 
-IP 방화벽 규칙은 Event Grid 토픽/도메인 수준에서 적용 됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Event Grid 토픽/도메인에서 허용 되는 IP 규칙과 일치 하지 않는 IP 주소에서의 모든 연결 시도가 금지 된 것으로 거부 됩니다. 응답은 IP 규칙을 언급하지 않습니다.
+IP 방화벽 규칙은 Event Grid 토픽/도메인 수준에서 적용 됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Event Grid 토픽/도메인에서 허용 되는 IP 규칙과 일치 하지 않는 IP 주소에서의 모든 연결 시도가 금지 된 것으로 거부 됩니다. 응답은 IP 규칙을 언급 하지 않습니다.
 
 자세한 내용은 [Azure Event Grid 토픽/도메인에 대 한 IP 방화벽 규칙 구성](configure-firewall.md)을 참조 하세요.
 

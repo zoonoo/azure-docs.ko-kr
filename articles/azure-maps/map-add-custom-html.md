@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 25ed41be53c114c258e5c63437ff2b5df875af75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310733"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891196"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
 이 문서에서는 맵에 이미지 파일과 같은 사용자 지정 HTML을 추가하는 방법을 보여줍니다.
 
 > [!NOTE]
-> HTML 표식은 데이터 원본에 연결하지 않습니다. 대신 위치 정보가 표식에 직접 추가되고 표식이 [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)인 맵 `markers` 속성에 추가됩니다.
+> HTML 표식은 데이터 원본에 연결하지 않습니다. 대신 위치 정보가 표식에 직접 추가되고 표식이 [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)인 맵 `markers` 속성에 추가됩니다.
 
 > [!IMPORTANT]
 > WebGL을 사용하여 렌더링하는 Azure Maps 웹 컨트롤의 대부분 계층과는 달리, HTML 표식은 렌더링에 기존 DOM 요소를 사용합니다. 따라서 HTML 표식이 페이지를 더 추가할수록 DOM 요소가 더 많아집니다. HTML 표식을 매우 많이 추가하고 나면 성능이 저하될 수 있습니다. 더 큰 데이터 세트의 경우 데이터를 클러스터링하거나 기호 또는 거품형 계층을 사용하는 것이 좋습니다.
 
 ## <a name="add-an-html-marker"></a>HTML 표식 추가
 
-[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker) 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HTML 표식 클래스의 기본 스타일은 `{color}` 및 `{text}` 자리 표시자가 있는 SVG 템플릿입니다. 빠른 사용자 지정을 위해 HTML 표식 옵션에서 색 및 텍스트 속성을 설정합니다. 
+[HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker) 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HTML 표식 클래스의 기본 스타일은 `{color}` 및 `{text}` 자리 표시자가 있는 SVG 템플릿입니다. 빠른 사용자 지정을 위해 HTML 표식 옵션에서 색 및 텍스트 속성을 설정합니다. 
 
 다음 코드에서는 HTML 표식을 만들고 color 속성을 "DodgerBlue"로 설정하고 text 속성을 "10"으로 설정합니다. 팝업은 표식에 연결되고 `click` 이벤트는 팝업의 표시 여부를 전환하는 데 사용됩니다.
 
@@ -103,13 +103,13 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+> [HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
+> [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 

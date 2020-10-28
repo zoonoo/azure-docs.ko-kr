@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994442"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890465"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -16,14 +16,12 @@ ms.locfileid: "91994442"
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
-다음 구성은 컨테이너에 대 한 Azure Monitor에서 공식적으로 지원 됩니다.
+다음 구성은 컨테이너에 대 한 Azure Monitor에서 공식적으로 지원 됩니다. 다른 버전의 Kubernetes 및 운영 체제 버전을 사용할 경우로 메일을 보내 주시기 바랍니다 askcoin@microsoft.com .
 
 - 에서는
 
     - Kubernetes 온-프레미스
-    
-    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 을 참조 하세요.
-    
+    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true) 을 참조 하세요.
     - [Openshift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 버전 4 이상, 온-프레미스 또는 기타 클라우드 환경.
 
 - Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
@@ -34,7 +32,7 @@ ms.locfileid: "91994442"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -110,7 +108,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    **SubscriptionId**의 값을 복사 합니다.
+    **SubscriptionId** 의 값을 복사 합니다.
 
 2. 다음 명령을 사용 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
 
@@ -124,7 +122,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
+    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
 4. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
@@ -204,7 +202,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list)를 실행 한 후 **지역** 값을 복사 합니다.
+7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true)를 실행 한 후 **지역** 값을 복사 합니다.
 
 8. 이 파일을 로컬 폴더에 containerSolutionParams.js로 저장 합니다.
 
@@ -260,13 +258,13 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    출력의 필드 **이름**아래에서 작업 영역 이름을 찾은 다음 해당 Log Analytics 작업 영역의 작업 영역 ID를 필드 **customerID**아래에 복사 합니다.
+    출력의 필드 **이름** 아래에서 작업 영역 이름을 찾은 다음 해당 Log Analytics 작업 영역의 작업 영역 ID를 필드 **customerID** 아래에 복사 합니다.
 
 2. 다음 명령을 실행 하 여 작업 영역에 대 한 기본 키를 식별 합니다.
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    출력에서 **Primarysharedkey**필드 아래에 있는 기본 키를 찾은 다음 값을 복사 합니다.
+    출력에서 **Primarysharedkey** 필드 아래에 있는 기본 키를 찾은 다음 값을 복사 합니다.
 
 >[!NOTE]
 >다음 명령은 투구 버전 2에만 적용 됩니다. 매개 변수를 사용 하는 `--name` 것은 투구 버전 3에는 적용 되지 않습니다. 
@@ -277,14 +275,14 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 3. 다음 명령을 실행 하 여 Azure 차트 리포지토리를 로컬 목록에 추가 합니다.
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. 다음 명령을 실행 하 여 차트를 설치 합니다.
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     Log Analytics 작업 영역이 Azure 중국 21Vianet에 있는 경우 다음 명령을 실행 합니다.
@@ -305,7 +303,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 API 모델이 라고도 하는 AKS 엔진 클러스터 사양 json 파일에서 추가 기능을 지정할 수 있습니다. 이 추가 기능에서 `WorkspaceGUID` `WorkspaceKey` 수집 된 모니터링 데이터가 저장 되는 Log Analytics 작업 영역 및의 base64 인코딩 버전을 제공 합니다. `WorkspaceGUID` `WorkspaceKey` 이전 섹션에서 1 단계와 2 단계를 사용 하 여 및를 찾을 수 있습니다.
 
-Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제에서 [kubernetes-container-monitoring_existing_workspace_id_and_key.js에](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json)있습니다. 특히 **kubernetesConfig**에서 **addons** 속성을 찾습니다.
+Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제에서 [kubernetes-container-monitoring_existing_workspace_id_and_key.js에](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json)있습니다. 특히 **kubernetesConfig** 에서 **addons** 속성을 찾습니다.
 
 ```json
 "orchestratorType": "Kubernetes",
@@ -349,13 +347,13 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-예: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+`omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
+프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-하이브리드 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 동안 오류가 발생 하는 경우 PowerShell 스크립트 [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) 을 복사 하 여 컴퓨터의 폴더에 저장 합니다. 이 스크립트는 발생 한 문제를 검색 하 고 해결 하는 데 도움이 됩니다. 검색 하 고 수정을 시도 하기 위해 설계 된 문제는 다음과 같습니다.
+하이브리드 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 동안 오류가 발생 하는 경우 PowerShell 스크립트 [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) 을 복사 하 여 컴퓨터의 폴더에 저장 합니다. 이 스크립트는 발생 한 문제를 검색 하 고 해결 하는 데 도움이 됩니다. 검색 하 고 수정을 시도 하기 위해 설계 된 문제는 다음과 같습니다.
 
 - 지정한 Log Analytics 작업 영역이 올바릅니다.
 - Log Analytics 작업 영역은 컨테이너 솔루션에 대 한 Azure Monitor를 사용 하 여 구성 됩니다. 그렇지 않은 경우 작업 영역을 구성 합니다.

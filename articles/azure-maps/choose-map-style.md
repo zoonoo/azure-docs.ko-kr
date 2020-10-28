@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285165"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889802"
 ---
 # <a name="change-the-style-of-the-map"></a>맵 스타일 변경
 
-지도 컨트롤은 다양 한 지도 [스타일 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) 및 [기본 지도 스타일](supported-map-styles.md)을 지원 합니다. 지도 컨트롤이 초기화 될 때 모든 스타일을 설정할 수 있습니다. 또는 map 컨트롤의 함수를 사용 하 여 스타일을 설정할 수 있습니다 `setStyle` . 이 문서에서는 이러한 스타일 옵션을 사용 하 여 지도의 모양을 사용자 지정 하는 방법을 보여 줍니다. 또한 맵에서 스타일 선택 컨트롤을 구현 하는 방법을 배웁니다. 스타일 선택 컨트롤을 사용 하면 사용자가 다른 기본 스타일 사이를 전환할 수 있습니다.
+지도 컨트롤은 다양 한 지도 [스타일 옵션](/javascript/api/azure-maps-control/atlas.styleoptions) 및 [기본 지도 스타일](supported-map-styles.md)을 지원 합니다. 지도 컨트롤이 초기화 될 때 모든 스타일을 설정할 수 있습니다. 또는 map 컨트롤의 함수를 사용 하 여 스타일을 설정할 수 있습니다 `setStyle` . 이 문서에서는 이러한 스타일 옵션을 사용 하 여 지도의 모양을 사용자 지정 하는 방법을 보여 줍니다. 또한 맵에서 스타일 선택 컨트롤을 구현 하는 방법을 배웁니다. 스타일 선택 컨트롤을 사용 하면 사용자가 다른 기본 스타일 사이를 전환할 수 있습니다.
 
 ## <a name="set-map-style-options"></a>지도 스타일 옵션 설정
 
-웹 컨트롤 초기화 중 스타일 옵션을 설정할 수 있습니다. 또는 맵 컨트롤의 함수를 호출 하 여 스타일 옵션을 업데이트할 수 있습니다 `setStyle` . 사용 가능한 모든 스타일 옵션을 보려면 [스타일 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)을 참조 하세요.
+웹 컨트롤 초기화 중 스타일 옵션을 설정할 수 있습니다. 또는 맵 컨트롤의 함수를 호출 하 여 스타일 옵션을 업데이트할 수 있습니다 `setStyle` . 사용 가능한 모든 스타일 옵션을 보려면 [스타일 옵션](/javascript/api/azure-maps-control/atlas.styleoptions)을 참조 하세요.
 
 ```javascript
 //Set the style options when creating the map.
@@ -82,7 +82,7 @@ var map = new atlas.Map('map', {
 map.setStyle({ style: 'satellite' });
 ```
 
-다음 코드에서 map 인스턴스가 로드 된 후 `grayscale_dark` `satellite` [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) 함수를 사용 하 여 지도 스타일이에서로 업데이트 됩니다.
+다음 코드에서 map 인스턴스가 로드 된 후 `grayscale_dark` `satellite` [system.windows.forms.control.setstyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) 함수를 사용 하 여 지도 스타일이에서로 업데이트 됩니다.
 
 <br/>
 
@@ -93,7 +93,7 @@ map.setStyle({ style: 'satellite' });
 
 스타일 선택 컨트롤은 최종 사용자가 기본 스타일을 전환 하는 데 사용할 수 있는 플라이 아웃 패널의 사용 하기 쉬운 단추를 제공 합니다.
 
-스타일 선택기에는 두 가지 레이아웃 옵션인 `icon` 및가 `list` 있습니다. 또한 스타일 선택기를 사용 하 여 두 가지 스타일 선택 컨트롤 `style` 옵션인 및를 선택할 `light` 수 `dark` 있습니다. 이 예제에서 스타일 선택은 레이아웃을 사용 하 `icon` 고 기본 지도 스타일의 select 목록을 아이콘 형식으로 표시 합니다. 스타일 제어 선택기에는 스타일의 기본 집합이 포함 되어 있습니다 `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . 스타일 선택 컨트롤 옵션에 대 한 자세한 내용은 [스타일 컨트롤 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)을 참조 하세요.
+스타일 선택기에는 두 가지 레이아웃 옵션인 `icon` 및가 `list` 있습니다. 또한 스타일 선택기를 사용 하 여 두 가지 스타일 선택 컨트롤 `style` 옵션인 및를 선택할 `light` 수 `dark` 있습니다. 이 예제에서 스타일 선택은 레이아웃을 사용 하 `icon` 고 기본 지도 스타일의 select 목록을 아이콘 형식으로 표시 합니다. 스타일 제어 선택기에는 스타일의 기본 집합이 포함 되어 있습니다 `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . 스타일 선택 컨트롤 옵션에 대 한 자세한 내용은 [스타일 컨트롤 옵션](/javascript/api/azure-maps-control/atlas.stylecontroloptions)을 참조 하세요.
 
 아래 이미지는 레이아웃에 표시 되는 스타일 선택기 컨트롤을 보여 줍니다 `icon` .
 
@@ -118,16 +118,16 @@ map.setStyle({ style: 'satellite' });
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아려보면 다음 항목을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
 지도에 컨트롤을 추가 합니다.
 
