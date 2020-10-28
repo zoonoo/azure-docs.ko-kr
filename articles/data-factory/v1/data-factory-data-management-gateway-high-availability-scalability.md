@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80065202"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896041"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -29,10 +29,10 @@ ms.locfileid: "80065202"
 > [!NOTE]
 > 이 문서에서는 사용자가 이미 Integration Runtime(이전의 데이터 관리 게이트웨이)에 대한 기본 사항을 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
 > 
-> **이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다**. 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
+> **이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다** . 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
 
 ## <a name="overview"></a>개요
-여러 온-프레미스 컴퓨터에 설치된 데이터 관리 게이트웨이를 포털의 단일 논리 게이트웨이와 연결할 수 있습니다. 이러한 컴퓨터를 **노드**라고 합니다. 논리 게이트웨이와 연결되는 **노드는 4개까지** 갖출 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다.  
+여러 온-프레미스 컴퓨터에 설치된 데이터 관리 게이트웨이를 포털의 단일 논리 게이트웨이와 연결할 수 있습니다. 이러한 컴퓨터를 **노드** 라고 합니다. 논리 게이트웨이와 연결되는 **노드는 4개까지** 갖출 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다.  
 
 - 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능을 향상시킵니다.  
 - 노드 중 하나가 어떤 이유로 중단되는 경우 다른 노드를 사용하여 데이터를 계속 이동할 수 있습니다. 
@@ -42,18 +42,18 @@ ms.locfileid: "80065202"
 
 Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 있으며, 이는 논리 게이트웨이에서 노드를 추가하거나 제거할지 여부를 결정하는 데 도움이 됩니다. 
 
-## <a name="architecture"></a>Architecture 
+## <a name="architecture"></a>아키텍처 
 다음 다이어그램에서는 데이터 관리 게이트웨이의 확장성 및 가용성 기능에 대한 아키텍처 개요를 제공합니다. 
 
 ![데이터 관리 게이트웨이 - 고가용성 및 확장성](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
 
-**논리 게이트웨이**는 Azure Portal에서 데이터 팩터리에 추가하는 게이트웨이입니다. 이전에는 온-프레미스 Windows 컴퓨터 하나만 논리 게이트웨이가 설치된 데이터 관리 게이트웨이와 연결할 수 있었습니다. 이 온-프레미스 게이트웨이 컴퓨터를 노드라고 합니다. 이제는 최대 **4개의 실제 노드**를 논리 게이트웨이와 연결할 수 있습니다. 여러 노드가 있는 논리 게이트웨이를 **다중 노드 게이트웨이**라고 합니다.  
+**논리 게이트웨이** 는 Azure Portal에서 데이터 팩터리에 추가하는 게이트웨이입니다. 이전에는 온-프레미스 Windows 컴퓨터 하나만 논리 게이트웨이가 설치된 데이터 관리 게이트웨이와 연결할 수 있었습니다. 이 온-프레미스 게이트웨이 컴퓨터를 노드라고 합니다. 이제는 최대 **4개의 실제 노드** 를 논리 게이트웨이와 연결할 수 있습니다. 여러 노드가 있는 논리 게이트웨이를 **다중 노드 게이트웨이** 라고 합니다.  
 
 이러한 노드는 모두 **활성** 상태입니다. 이러한 노드 모두에서 데이터 이동 작업을 처리하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동할 수 있습니다. 노드 중 하나는 디스패처와 작업자 역할을 모두 수행합니다. 그룹의 다른 노드는 작업자 노드입니다. **디스패처** 노드는 클라우드 서비스에서 데이터 이동 태스크/작업을 가져와서 작업자 노드(자체 포함)에 전달합니다. **작업자** 노드는 데이터 이동 작업을 실행하여 온-프레미스 및 클라우드 데이터 저장소 간에 데이터를 이동합니다. 모든 노드는 작업자입니다. 하나의 노드만 디스패처 및 작업자가 모두 될 수 있습니다.    
 
-일반적으로 하나의 노드로 시작하고, 기존 노드의 데이터 이동 부하가 심한 경우 **규모 확장**하여 더 많은 노드를 추가할 수 있습니다. 또한 노드에서 실행하도록 허용된 동시 작업의 수를 늘림으로써 게이트웨이 노드의 데이터 이동 기능을 **강화**할 수도 있습니다. 이 기능은 단일 노드 게이트웨이에서도 사용할 수 있습니다(확장성 및 가용성 기능을 사용할 수 없는 경우에도 적용됨). 
+일반적으로 하나의 노드로 시작하고, 기존 노드의 데이터 이동 부하가 심한 경우 **규모 확장** 하여 더 많은 노드를 추가할 수 있습니다. 또한 노드에서 실행하도록 허용된 동시 작업의 수를 늘림으로써 게이트웨이 노드의 데이터 이동 기능을 **강화** 할 수도 있습니다. 이 기능은 단일 노드 게이트웨이에서도 사용할 수 있습니다(확장성 및 가용성 기능을 사용할 수 없는 경우에도 적용됨). 
 
-여러 노드가 있는 게이트웨이는 모든 노드에서 데이터 저장소 자격 증명을 동기화 상태로 유지합니다. 노드 간 연결 문제가 있는 경우 자격 증명이 동기화 되지 않을 수 있습니다. 게이트웨이를 사용 하는 온-프레미스 데이터 저장소에 대 한 자격 증명을 설정 하는 경우 디스패처/worker 노드에 자격 증명을 저장 합니다. 디스패처 노드는 다른 작업자 노드와 동기화됩니다. 이 프로세스를 **자격 증명 동기화**라고 합니다. 노드 간 통신 채널은 공용 SSL/TLS 인증서로 **암호화** 될 수 있습니다. 
+여러 노드가 있는 게이트웨이는 모든 노드에서 데이터 저장소 자격 증명을 동기화 상태로 유지합니다. 노드 간 연결 문제가 있는 경우 자격 증명이 동기화 되지 않을 수 있습니다. 게이트웨이를 사용 하는 온-프레미스 데이터 저장소에 대 한 자격 증명을 설정 하는 경우 디스패처/worker 노드에 자격 증명을 저장 합니다. 디스패처 노드는 다른 작업자 노드와 동기화됩니다. 이 프로세스를 **자격 증명 동기화** 라고 합니다. 노드 간 통신 채널은 공용 SSL/TLS 인증서로 **암호화** 될 수 있습니다. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>다중 노드 게이트웨이 설정
 이 섹션에서는 다음 두 가지 문서를 살펴보았거나 해당 문서의 개념을 잘 알고 있다고 가정합니다. 
@@ -73,22 +73,22 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 
     > [!NOTE]
     > 기본 설치 옵션을 사용하면 암호화 없이 노드 간 통신이 수행됩니다. 노드 이름은 컴퓨터 이름과 동일합니다. 노드 간 통신을 암호화해야 하거나 원하는 노드 이름을 지정하려면 수동 설치를 사용하세요. 노드 이름은 나중에 편집할 수 없습니다.
-3. **기본 설치**를 선택하는 경우
+3. **기본 설치** 를 선택하는 경우
     1. 게이트웨이가 성공적으로 설치되면 다음 메시지가 표시됩니다.
 
         ![데이터 관리 게이트웨이 - 성공적인 기본 설치](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
     2. [여기서 설명하는 지침](data-factory-data-management-gateway.md#configuration-manager)에 따라 게이트웨이에 대한 데이터 관리 구성 관리자를 시작합니다. 게이트웨이 이름, 노드 이름, 상태 등이 표시됩니다.
 
-        ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
-4. **수동 설치**를 선택하는 경우 :
+        ![게이트웨이 이름, 노드 이름 및 상태를 볼 수 있는 위치를 보여 주는 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+4. **수동 설치** 를 선택하는 경우 :
     1. Microsoft 다운로드 센터에서 설치 패키지를 다운로드하고 실행하여 게이트웨이를 컴퓨터에 설치합니다.
-    2. **구성** 페이지에서 **인증 키**를 사용하여 게이트웨이를 등록합니다.
+    2. **구성** 페이지에서 **인증 키** 를 사용하여 게이트웨이를 등록합니다.
     
-        ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
-    3. **새 게이트웨이 노드** 페이지에서 게이트웨이 노드에 사용자 지정 **이름**을 제공할 수 있습니다. 기본적으로 노드 이름은 컴퓨터 이름과 동일합니다.    
+        ![인증 키를 사용할 위치를 보여 주는 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+    3. **새 게이트웨이 노드** 페이지에서 게이트웨이 노드에 사용자 지정 **이름** 을 제공할 수 있습니다. 기본적으로 노드 이름은 컴퓨터 이름과 동일합니다.    
 
         ![데이터 관리 게이트웨이 - 이름 지정](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. 다음 페이지에서 **노드 간 통신에 암호화 사용** 여부를 선택할 수 있습니다. 암호화를 사용하지 않으려면(기본값) **건너뛰기**를 클릭합니다.
+    4. 다음 페이지에서 **노드 간 통신에 암호화 사용** 여부를 선택할 수 있습니다. 암호화를 사용하지 않으려면(기본값) **건너뛰기** 를 클릭합니다.
 
         ![데이터 관리 게이트웨이 - 암호화 사용](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
@@ -99,23 +99,23 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
     5. 게이트웨이가 성공적으로 설치된 후 [구성 관리자 시작]을 클릭합니다.
     
         ![수동 설치 - 구성 관리자 시작](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
-    6. 연결 상태, **게이트웨이 이름** 및 **노드 이름**을 보여 주는 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 구성 관리자가 표시됩니다.  
+    6. 연결 상태, **게이트웨이 이름** 및 **노드 이름** 을 보여 주는 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 구성 관리자가 표시됩니다.  
 
         ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
         > Azure VM에서 게이트웨이를 프로비전하는 경우 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
 6. Azure Portal에서 **게이트웨이** 페이지를 시작합니다. 
-    1. 포털의 데이터 팩터리 홈페이지에서 **연결된 서비스**를 클릭합니다.
+    1. 포털의 데이터 팩터리 홈페이지에서 **연결된 서비스** 를 클릭합니다.
     
-        ![데이터 팩터리 홈페이지](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
-    2. **게이트웨이**를 선택하여 **게이트웨이** 페이지를 표시합니다.
+        ![연결 된 서비스 타일을 강조 표시 하는 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+    2. **게이트웨이** 를 선택하여 **게이트웨이** 페이지를 표시합니다.
     
         ![데이터 팩터리 홈페이지](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
     4. **게이트웨이** 페이지가 표시됩니다.   
 
         ![단일 노드가 있는 게이트웨이 보기](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
-7. 도구 모음에서 **노드 추가**를 클릭하여 논리 게이트웨이에 노드를 추가합니다. 기본 설치를 사용하려는 경우 게이트웨이에 노드로 추가될 온-프레미스 컴퓨터에서 이 단계를 수행합니다. 
+7. 도구 모음에서 **노드 추가** 를 클릭하여 논리 게이트웨이에 노드를 추가합니다. 기본 설치를 사용하려는 경우 게이트웨이에 노드로 추가될 온-프레미스 컴퓨터에서 이 단계를 수행합니다. 
 
     ![데이터 관리 게이트웨이 - 노드 추가 메뉴](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 8. 이 단계는 첫 번째 노드 설정과 비슷합니다. 수동 설치 옵션을 선택한 경우 구성 관리자 UI를 사용하여 노드 이름을 설정할 수 있습니다. 
@@ -127,16 +127,16 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 10. 포털에서 **게이트웨이** 페이지를 열면 두 개의 게이트웨이 노드가 다음과 같이 표시됩니다. 
 
     ![포털에 표시된 두 개의 노드가 있는 게이트웨이](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
-11. 게이트웨이 노드를 삭제하려면 도구 모음에서 **노드 삭제**를 클릭하고, 삭제할 노드를 선택한 다음, 도구 모음에서 **삭제**를 클릭합니다. 이 작업은 선택한 노드를 그룹에서 삭제합니다. 이 작업은 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 소프트웨어를 제거하는 것이 아닙니다. 게이트웨이를 제거하려면 온-프레미스의 [제어판]에 있는 **프로그램 추가/제거**를 사용합니다. 노드에서 게이트웨이를 제거하면 포털에서 자동으로 삭제됩니다.   
+11. 게이트웨이 노드를 삭제하려면 도구 모음에서 **노드 삭제** 를 클릭하고, 삭제할 노드를 선택한 다음, 도구 모음에서 **삭제** 를 클릭합니다. 이 작업은 선택한 노드를 그룹에서 삭제합니다. 이 작업은 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 소프트웨어를 제거하는 것이 아닙니다. 게이트웨이를 제거하려면 온-프레미스의 [제어판]에 있는 **프로그램 추가/제거** 를 사용합니다. 노드에서 게이트웨이를 제거하면 포털에서 자동으로 삭제됩니다.   
 
 ## <a name="upgrade-an-existing-gateway"></a>기존 게이트웨이 업그레이드
 고가용성 및 확장성 기능을 사용하도록 기존 게이트웨이를 업그레이드할 수 있습니다. 이 기능은 2.12.xxxx 버전 이상의 데이터 관리 게이트웨이가 있는 노드에서만 작동합니다. 데이터 관리 게이트웨이 구성 관리자의 **도움말** 탭에서 컴퓨터에 설치된 데이터 관리 게이트웨이의 버전을 확인할 수 있습니다. 
 
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하고 실행하여 온-프레미스 컴퓨터의 게이트웨이를 최신 버전으로 업데이트합니다. 자세한 내용은 [설치](data-factory-data-management-gateway.md#installation) 섹션을 참조하세요.  
-2. Azure Portal로 이동합니다. 데이터 팩터리에 대한 **Data Factory 페이지**를 시작합니다. [연결된 서비스] 타일을 클릭하여 **연결된 서비스 페이지**를 시작합니다. 게이트웨이를 선택 하 여 **게이트웨이 페이지**를 시작 합니다. 다음 이미지와 같이 **미리 보기 기능**을 클릭하여 활성화합니다. 
+2. Azure Portal로 이동합니다. 데이터 팩터리에 대한 **Data Factory 페이지** 를 시작합니다. [연결된 서비스] 타일을 클릭하여 **연결된 서비스 페이지** 를 시작합니다. 게이트웨이를 선택 하 여 **게이트웨이 페이지** 를 시작 합니다. 다음 이미지와 같이 **미리 보기 기능** 을 클릭하여 활성화합니다. 
 
     ![데이터 관리 게이트웨이 - 미리 보기 기능 활성화](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
-2. 포털에서 미리 보기 기능이 활성화되면 모든 페이지를 닫습니다. 새 미리 보기 UI(사용자 인터페이스)를 확인하려면 **게이트웨이 페이지**를 다시 엽니다.
+2. 포털에서 미리 보기 기능이 활성화되면 모든 페이지를 닫습니다. 새 미리 보기 UI(사용자 인터페이스)를 확인하려면 **게이트웨이 페이지** 를 다시 엽니다.
  
     ![데이터 관리 게이트웨이 - 성공적인 미리 보기 기능 활성화](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
 
@@ -144,7 +144,7 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 
     > [!NOTE]
     > 업그레이드하는 동안 첫 번째 노드의 이름은 컴퓨터의 이름입니다. 
-3. 이제 노드를 추가합니다. **게이트웨이** 페이지에서 **노드 추가**를 클릭합니다.  
+3. 이제 노드를 추가합니다. **게이트웨이** 페이지에서 **노드 추가** 를 클릭합니다.  
 
     ![데이터 관리 게이트웨이 - 노드 추가 메뉴](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -164,8 +164,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - 각 Integration Runtime 노드는 자격 증명 관리자 애플리케이션을 실행하는 클라이언트 컴퓨터 뿐만 아니라 이 인증서를 신뢰해야 합니다. 
   > [!NOTE]
   > 자격 증명 관리자 애플리케이션은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/프라이빗 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
-- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
-- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예를 들어 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
+- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com** 인 경우 인증서의 주체 이름으로 * *_. domain.contoso.com_* 을 사용할 수 있습니다.
+- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예를 들어 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com** 인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com** 인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - 는 TLS/SSL 인증서에 대해 Windows Server 2012 r 2에서 지 원하는 모든 키 크기를 지원 합니다.
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.
 
@@ -181,11 +181,11 @@ Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리�
 
 ![데이터 관리 게이트웨이 - 다중 노드 모니터링](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-**게이트웨이** 페이지에서 **고급 설정**을 활성화하여 **네트워크**(수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업**(실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
+**게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크** (수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업** (실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :---------- 
-속성 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
+Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요. 
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). 
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다. 
@@ -198,7 +198,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 ### <a name="gateway-status"></a>게이트웨이 상태
 
-다음 표에서는 **게이트웨이 노드**에 가능한 상태에 대해 설명합니다. 
+다음 표에서는 **게이트웨이 노드** 에 가능한 상태에 대해 설명합니다. 
 
 상태  | 설명/시나리오
 :------- | :------------------
@@ -209,9 +209,9 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다.<br/><br/> 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다. 
 
 
-다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다. 
+다음 표에서는 **논리 게이트웨이** 에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다. 
 
-상태 | 의견
+상태 | 주석
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.
@@ -252,7 +252,7 @@ Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환�
 ## <a name="rolling-back-from-the-preview"></a>미리 보기에서 롤백 
 미리 보기에서 롤백하려면 하나의 노드만 제외한 모든 노드를 삭제합니다. 어떤 노드를 삭제해도 문제가 되지 않지만 논리 게이트웨이에 하나 이상의 노드가 있도록 합니다. 컴퓨터에서 게이트웨이를 제거하거나 Azure Portal을 사용하여 노드를 삭제할 수 있습니다. Azure Portal의 **Data Factory** 페이지에서 [연결된 서비스]를 클릭하여 **연결된 서비스** 페이지를 시작합니다. 게이트웨이를 선택하여 **게이트웨이** 페이지를 시작합니다. [게이트웨이] 페이지에서 게이트웨이와 연결된 노드를 확인할 수 있습니다. 이 페이지에서는 게이트웨이에서 노드를 삭제할 수 있습니다.
  
-삭제한 후에는 동일한 Azure Portal 페이지에서 **미리 보기 기능**을 클릭하고 미리 보기 기능을 비활성화합니다. 게이트웨이를 하나의 노드 GA(일반 가용성) 게이트웨이로 다시 설정했습니다.
+삭제한 후에는 동일한 Azure Portal 페이지에서 **미리 보기 기능** 을 클릭하고 미리 보기 기능을 비활성화합니다. 게이트웨이를 하나의 노드 GA(일반 가용성) 게이트웨이로 다시 설정했습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

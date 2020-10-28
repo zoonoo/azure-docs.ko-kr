@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378290"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895990"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -25,15 +25,15 @@ Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- 이 기능을 사용 하면 **새 Recovery Services 자격 증명 모음만**암호화할 수 있습니다. 등록 하거나 등록 하려고 시도 하는 기존 항목을 포함 하는 모든 자격 증명 모음은 지원 되지 않습니다.
+- 이 기능을 사용 하면 **새 Recovery Services 자격 증명 모음만** 암호화할 수 있습니다. 등록 하거나 등록 하려고 시도 하는 기존 항목을 포함 하는 모든 자격 증명 모음은 지원 되지 않습니다.
 
 - Recovery Services 자격 증명 모음에 대해 사용 하도록 설정 된 경우, 고객 관리 키를 사용 하는 암호화는 플랫폼 관리 키 (기본값)를 사용 하 여 되돌릴 수 없습니다. 요구 사항에 따라 암호화 키를 변경할 수 있습니다.
 
-- 이 기능은 현재 **MARS 에이전트를 사용 하 여 백업을 지원 하지**않으며, 동일한 경우 cmk 암호화 자격 증명 모음을 사용 하지 못할 수 있습니다. MARS 에이전트는 사용자 암호 기반 암호화를 사용 합니다. 또한이 기능은 클래식 Vm의 백업을 지원 하지 않습니다.
+- 이 기능은 현재 **MARS 에이전트를 사용 하 여 백업을 지원 하지** 않으며, 동일한 경우 cmk 암호화 자격 증명 모음을 사용 하지 못할 수 있습니다. MARS 에이전트는 사용자 암호 기반 암호화를 사용 합니다. 또한이 기능은 클래식 Vm의 백업을 지원 하지 않습니다.
 
 - 이 기능은 BitLocker (Windows) 및 DM-Crypt (Linux)를 사용 하 여 VM 디스크의 게스트 기반 암호화를 사용 하는 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)와 관련이 없습니다.
 
-- Recovery Services 자격 증명 모음은 **동일한 지역**에 있는 Azure Key Vault에 저장 된 키로만 암호화할 수 있습니다. 또한 키는 **RSA 2048 키** 여야 하며 **사용** 상태 여야 합니다.
+- Recovery Services 자격 증명 모음은 **동일한 지역** 에 있는 Azure Key Vault에 저장 된 키로만 암호화할 수 있습니다. 또한 키는 **RSA 2048 키** 여야 하며 **사용** 상태 여야 합니다.
 
 - 리소스 그룹 및 구독에서 CMK 암호화 된 Recovery Services 자격 증명 모음을 이동 하는 것은 현재 지원 되지 않습니다.
 
@@ -66,7 +66,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![Id 설정](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. **상태** 를 **켜기** 로 변경 하 고 **저장**을 선택 합니다.
+1. **상태** 를 **켜기** 로 변경 하 고 **저장** 을 선택 합니다.
 
 1. 자격 증명 모음의 시스템 할당 관리 id 인 개체 ID가 생성 됩니다.
 
@@ -74,11 +74,11 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 이제 Recovery Services 자격 증명 모음에서 암호화 키를 포함 하는 Azure Key Vault에 액세스 하도록 허용 해야 합니다. 이 작업은 Recovery Services 자격 증명 모음의 관리 되는 id가 Key Vault에 액세스 하도록 허용 하 여 수행 됩니다.
 
-1. Azure Key Vault > **액세스 정책**으로 이동 합니다. **+ 액세스 정책 추가**로 계속 진행 합니다.
+1. Azure Key Vault > **액세스 정책** 으로 이동 합니다. **+ 액세스 정책 추가** 로 계속 진행 합니다.
 
     ![액세스 정책 추가](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. **키 권한**에서 **가져오기**, **나열**, **키 래핑** 및 **키 래핑** 작업을 선택 합니다. 허용 되는 키에 대 한 동작을 지정 합니다.
+1. **키 권한** 에서 **가져오기** , **나열** , **키 래핑** 및 **키 래핑** 작업을 선택 합니다. 허용 되는 키에 대 한 동작을 지정 합니다.
 
     ![키 사용 권한 할당](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -94,7 +94,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 암호화 키를 저장 하는 Azure Key Vault에 대해 **일시 삭제 및 제거 보호를 사용 하도록 설정** 해야 합니다. 다음과 같이 Azure Key Vault UI에서이 작업을 수행할 수 있습니다. 또는 Key Vault를 만드는 동안 이러한 속성을 설정할 수 있습니다. 이러한 Key Vault 속성에 대 한 자세한 내용은 [여기](../key-vault/general/soft-delete-overview.md)를 참조 하세요.
 
-![일시 삭제 및 보호 제거 사용](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+![일시 삭제 및 제거 보호 사용](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 다음 단계를 사용 하 여 PowerShell을 통해 일시 삭제 및 제거 보호를 사용 하도록 설정할 수도 있습니다.
 
@@ -148,7 +148,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![암호화 설정](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. **암호화 설정**에서 **업데이트** 를 선택 합니다.
+1. **암호화 설정** 에서 **업데이트** 를 선택 합니다.
 
 1. 암호화 설정 창에서 다음 방법 중 하나를 사용 하 여 **사용자 고유의 키를 사용** 하 고 계속 키를 지정 합니다 .를 선택 합니다. **사용할 키가 사용 상태에 있는 RSA 2048 키 인지 확인 합니다.**
 
@@ -160,9 +160,9 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
         ![키 자격 증명 모음에서 키 선택](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
-1. **암호화 키 업데이트 진행률 추적:** Recovery Services 자격 증명 모음의 **활동 로그** 를 사용 하 여 키 할당의 진행률을 추적할 수 있습니다. 상태는 곧 **성공**으로 변경 됩니다. 이제 자격 증명 모음에서 지정 된 키를 사용 하 여 모든 데이터를 KEK로 암호화 합니다.
+1. **암호화 키 업데이트 진행률 추적:** Recovery Services 자격 증명 모음의 **활동 로그** 를 사용 하 여 키 할당의 진행률을 추적할 수 있습니다. 상태는 곧 **성공** 으로 변경 됩니다. 이제 자격 증명 모음에서 지정 된 키를 사용 하 여 모든 데이터를 KEK로 암호화 합니다.
 
     ![활동 로그를 사용 하 여 진행률 추적](./media/encryption-at-rest-with-cmk/activity-log.png)
 
@@ -184,7 +184,6 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 >[!IMPORTANT]
 > 보호를 구성 하기 전에 다음 단계를 **성공적으로** 완료 해야 합니다.
 >
->1. 구독에서 백업 자격 증명 모음에 대 한 고객 관리 키를 사용 하도록 설정 했습니다.
 >1. 백업 자격 증명 모음을 만들었습니다.
 >1. 백업 자격 증명 모음의 시스템 할당 관리 Id 사용
 >1. Key Vault에서 암호화 키에 액세스할 수 있도록 백업 자격 증명 모음에 할당 된 권한
@@ -193,7 +192,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 >
 >위의 모든 단계를 확인 한 후에만 백업 구성을 진행 합니다.
 
-고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에 대 한 백업을 구성 하 고 수행 하는 프로세스는 **환경을 변경 하지 않고**플랫폼 관리 키를 사용 하는 자격 증명 모음과 동일 합니다. 이는 VM 내에서 실행 되는 워크 로드 (예: [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) 데이터베이스)의 백업 뿐만 아니라 [Azure vm의 백업](./quick-backup-vm-portal.md) 에도 적용 됩니다.
+고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에 대 한 백업을 구성 하 고 수행 하는 프로세스는 **환경을 변경 하지 않고** 플랫폼 관리 키를 사용 하는 자격 증명 모음과 동일 합니다. 이는 VM 내에서 실행 되는 워크 로드 (예: [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) 데이터베이스)의 백업 뿐만 아니라 [Azure vm의 백업](./quick-backup-vm-portal.md) 에도 적용 됩니다.
 
 ## <a name="restoring-data-from-backup"></a>백업에서 데이터 복원
 
@@ -215,7 +214,7 @@ Recovery Services 자격 증명 모음에 저장 된 데이터는 [여기](./bac
 
 디스크 암호화 집합은 아래와 같이 복원 창의 암호화 설정에서 지정 됩니다.
 
-1. 키를 **사용 하 여 디스크 암호화**에서 **예**를 선택 합니다.
+1. 키를 **사용 하 여 디스크 암호화** 에서 **예** 를 선택 합니다.
 
 1. 드롭다운에서 복원 된 디스크에 사용할 DES를 선택 합니다. **DES에 액세스할 수 있는지 확인 합니다.**
 

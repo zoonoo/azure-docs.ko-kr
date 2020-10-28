@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441626"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896075"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -32,25 +32,25 @@ ms.locfileid: "92441626"
 Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한이 있는 Azure AD 테 넌 트의 응용 프로그램으로 승인 시스템을 등록 해야 합니다. [Microsoft Graph에 대 한 인증 및 권한 부여 기본 사항](/graph/auth/auth-concepts)에 대해 자세히 알아보세요.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **앱 등록**를 선택 하 고 **새 등록**을 선택 합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **앱 등록** 를 선택 하 고 **새 등록** 을 선택 합니다.
 4. 응용 프로그램의 **이름** (예: _등록 승인)_ 을 입력 합니다.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. **등록**을 선택합니다. 다른 필드의 기본값을 그대로 둘 수 있습니다.
+5. **등록** 을 선택합니다. 다른 필드의 기본값을 그대로 둘 수 있습니다.
 
-   ![애플리케이션 페이지 등록](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![등록 단추를 강조 표시 하는 스크린샷](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. 왼쪽 메뉴의 **관리** 에서 **API 권한**을 선택 하 고 **사용 권한 추가**를 선택 합니다.
-7. **API 권한 요청** 페이지에서 **Microsoft Graph**를 선택 하 고 **응용 프로그램 사용 권한**을 선택 합니다.
-8. **권한 선택**에서 **사용자**를 확장 한 다음, **사용자. ReadWrite** 확인란을 선택 합니다. 이 사용 권한을 통해 승인 시스템은 승인 될 때 사용자를 만들 수 있습니다. 그런 다음 **권한 추가**를 선택합니다.
+6. 왼쪽 메뉴의 **관리** 에서 **API 권한** 을 선택 하 고 **사용 권한 추가** 를 선택 합니다.
+7. **API 권한 요청** 페이지에서 **Microsoft Graph** 를 선택 하 고 **응용 프로그램 사용 권한** 을 선택 합니다.
+8. **권한 선택** 에서 **사용자** 를 확장 한 다음, **사용자. ReadWrite** 확인란을 선택 합니다. 이 사용 권한을 통해 승인 시스템은 승인 될 때 사용자를 만들 수 있습니다. 그런 다음 **권한 추가** 를 선택합니다.
 
    ![애플리케이션 페이지 등록](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. **API 사용 권한** 페이지에서 **(테 넌 트 이름)에 대해 관리자 동의 부여**를 선택 하 고 **예**를 선택 합니다.
-10. 왼쪽 메뉴의 **관리** 에서 **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.
-11. 비밀에 대 한 **설명** (예: _승인 클라이언트 암호_)을 입력 하 고 클라이언트 암호가 **만료**되는 기간을 선택 합니다. 그런 다음, **추가**를 선택합니다.
+9. **API 사용 권한** 페이지에서 **(테 넌 트 이름)에 대해 관리자 동의 부여** 를 선택 하 고 **예** 를 선택 합니다.
+10. 왼쪽 메뉴의 **관리** 에서 **인증서 & 암호** 를 선택 하 고 **새 클라이언트 암호** 를 선택 합니다.
+11. 비밀에 대 한 **설명** (예: _승인 클라이언트 암호_ )을 입력 하 고 클라이언트 암호가 **만료** 되는 기간을 선택 합니다. 그런 다음, **추가** 를 선택합니다.
 12. 클라이언트 암호의 값을 복사 합니다.
 
     ![승인 시스템에서 사용할 클라이언트 암호를 복사 합니다.](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한�
 
 다음으로 셀프 서비스 등록 사용자 흐름에 대 한 [API 커넥터를 만듭니다](self-service-sign-up-add-api-connector.md#create-an-api-connector) . 승인 시스템 API에는 아래에 표시 된 예제와 같이 두 개의 커넥터와 해당 끝점이 필요 합니다. 이러한 API 커넥터는 다음을 수행 합니다.
 
-- **승인 상태를 확인**합니다. 사용자가 id 공급자를 사용 하 여 로그인 한 후 즉시 승인 시스템에 대 한 호출을 보내 사용자에 게 기존 승인 요청이 있는지 또는 이미 거부 되었는지 확인 합니다. 승인 시스템에서 자동 승인 결정만 수행 하는 경우에는이 API 커넥터가 필요 하지 않을 수 있습니다. "승인 상태 확인" API 커넥터의 예입니다.
+- **승인 상태를 확인** 합니다. 사용자가 id 공급자를 사용 하 여 로그인 한 후 즉시 승인 시스템에 대 한 호출을 보내 사용자에 게 기존 승인 요청이 있는지 또는 이미 거부 되었는지 확인 합니다. 승인 시스템에서 자동 승인 결정만 수행 하는 경우에는이 API 커넥터가 필요 하지 않을 수 있습니다. "승인 상태 확인" API 커넥터의 예입니다.
 
   ![승인 상태 API 커넥터 구성 확인](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -76,17 +76,17 @@ Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한�
 이제 다음 단계를 사용 하 여 셀프 서비스 등록 사용자 흐름에 API 커넥터를 추가 합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
-3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
+2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
+3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
 4. **사용자 흐름 (미리 보기)** 을 선택한 다음 API 커넥터를 사용 하도록 설정 하려는 사용자 흐름을 선택 합니다.
-5. **Api 커넥터**를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
+5. **Api 커넥터** 를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
 
-   - **Id 공급자를 사용 하 여 로그인 한 후**승인 상태 API 커넥터를 선택 합니다. 예를 들어 _승인 상태를 확인_합니다.
-   - **사용자를 만들기 전에**: 승인 요청 API 커넥터 (예: _승인 요청_)를 선택 합니다.
+   - **Id 공급자를 사용 하 여 로그인 한 후** 승인 상태 API 커넥터를 선택 합니다. 예를 들어 _승인 상태를 확인_ 합니다.
+   - **사용자를 만들기 전에** : 승인 요청 API 커넥터 (예: _승인 요청_ )를 선택 합니다.
 
    ![사용자 흐름에 Api 추가](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>API 응답을 사용 하 여 등록 흐름 제어
 
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                           | 필수 | Description                                                                                                                                                            |
+| 매개 변수                                           | 필수 | 설명                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | 예      | `email`API에 전송 된 클레임을 사용 하 여를 생성 하 고, `@` 문자를로 바꾸고 `_` ,을로 미리 보류할 수 있습니다 `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | 예      | `true`로 설정해야 합니다.                                                                                                                                                 |

@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 75d2833a5b270fcfdcffa668ec0e308399edab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311453"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895922"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
 Azure Maps 웹 SDK는 데이터 원본에 데이터를 저장 합니다. 데이터 원본을 사용 하 여 쿼리 및 렌더링을 위한 데이터 작업을 최적화 합니다. 현재 다음과 같은 두 가지 유형의 데이터 원본이 있습니다.
 
-- **GeoJSON source**: 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
-- **벡터 타일 원본**: 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
+- **GeoJSON source** : 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
+- **벡터 타일 원본** : 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
 
 ## <a name="geojson-data-source"></a>GeoJSON 데이터 원본
 
-GeoJSON 기반 데이터 소스는 클래스를 사용 하 여 데이터를 로컬에서 로드 하 고 저장 `DataSource` 합니다. GeoJSON 네임 스페이스의 도우미 클래스를 사용 하 여 수동으로 데이터를 만들거나 만들 수 [있습니다.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) `DataSource`클래스는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. `DataSource`클래스는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 그리고 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다 `DataSource` . 다음 코드는 Azure Maps에서 GeoJSON 데이터를 만드는 방법을 보여 줍니다.
+GeoJSON 기반 데이터 소스는 클래스를 사용 하 여 데이터를 로컬에서 로드 하 고 저장 `DataSource` 합니다. GeoJSON 네임 스페이스의 도우미 클래스를 사용 하 여 수동으로 데이터를 만들거나 만들 수 [있습니다.](/javascript/api/azure-maps-control/atlas.data) `DataSource`클래스는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. `DataSource`클래스는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 그리고 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다 `DataSource` . 다음 코드는 Azure Maps에서 GeoJSON 데이터를 만드는 방법을 보여 줍니다.
 
 ```javascript
 //Create raw GeoJSON object.
@@ -46,7 +46,7 @@ var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
 }); 
 ```
 
-데이터 원본을 만든 후에는 `map.sources` [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)인 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다. 다음 코드에서는를 만들어 맵에 추가 하는 방법을 보여 줍니다 `DataSource` .
+데이터 원본을 만든 후에는 `map.sources` [sourcemanager](/javascript/api/azure-maps-control/atlas.sourcemanager)인 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다. 다음 코드에서는를 만들어 맵에 추가 하는 방법을 보여 줍니다 `DataSource` .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>벡터 타일 원본
 
-벡터 타일 소스는 벡터 타일 계층에 액세스 하는 방법을 설명 합니다. [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) 클래스를 사용 하 여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 계층은 타일 계층과 비슷하지만 동일 하지는 않습니다. 타일 계층은 래스터 이미지입니다. 벡터 타일 계층은 압축 파일 ( **Pf** 형식)입니다. 이 압축 파일은 벡터 맵 데이터 및 하나 이상의 계층을 포함 합니다. 각 계층의 스타일에 따라 파일을 클라이언트에서 렌더링 하 고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 요소, 선 및 다각형 형식의 지리적 기능이 포함 되어 있습니다. 래스터 타일 계층 대신 벡터 타일 계층을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
+벡터 타일 소스는 벡터 타일 계층에 액세스 하는 방법을 설명 합니다. [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) 클래스를 사용 하 여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 계층은 타일 계층과 비슷하지만 동일 하지는 않습니다. 타일 계층은 래스터 이미지입니다. 벡터 타일 계층은 압축 파일 ( **Pf** 형식)입니다. 이 압축 파일은 벡터 맵 데이터 및 하나 이상의 계층을 포함 합니다. 각 계층의 스타일에 따라 파일을 클라이언트에서 렌더링 하 고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 요소, 선 및 다각형 형식의 지리적 기능이 포함 되어 있습니다. 래스터 타일 계층 대신 벡터 타일 계층을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
 
  - 벡터 타일의 파일 크기는 일반적으로 해당 하는 래스터 타일 보다 훨씬 작습니다. 따라서 대역폭이 줄어듭니다. 낮은 대기 시간, 더 빠른 맵 및 더 나은 사용자 환경을 의미 합니다.
  - 벡터 타일은 클라이언트에서 렌더링 되므로 표시 되는 장치의 해상도에 맞게 조정 됩니다. 따라서 렌더링 된 맵은 명확 하 고 명확한 레이블이 있는 잘 정의 된 것으로 나타납니다.
@@ -83,10 +83,10 @@ dataSource.setShapes(geoJsonData);
 
 Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수 합니다. Azure Maps는 플랫폼의 일부로 다음 벡터 타일 서비스를 제공 합니다.
 
-- 도로 타일 [설명서](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- 트래픽 인시던트 [설명서](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- 트래픽 흐름 [설명서](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
+- 도로 타일 [설명서](/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
 
 > [!TIP]
 > 웹 SDK를 사용 하 여 Azure Maps render service에서 벡터 또는 래스터 이미지 타일을 사용 하는 경우를 `atlas.microsoft.com` 자리 표시자로 바꿀 수 있습니다 `{azMapsDomain}` . 이 자리 표시자는 맵에 사용 되는 동일한 도메인으로 바뀌고 동일한 인증 세부 정보도 자동으로 추가 됩니다. 이렇게 하면 Azure Active Directory 인증을 사용 하는 경우 렌더링 서비스에 대 한 인증이 매우 간단해 집니다.
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
+> [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
+> [VectorTileSourceOptions](/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
@@ -248,4 +248,4 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 > [열 지도 추가](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

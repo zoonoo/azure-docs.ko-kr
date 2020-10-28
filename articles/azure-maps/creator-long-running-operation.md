@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83596052"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895871"
 ---
 # <a name="creator-long-running-operation-api"></a>작성자 장기 실행 작업 API
 
-Azure Maps의 일부 API는 [비동기 요청-회신 패턴](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)을 사용합니다. 이 패턴을 통해 Azure Maps는 고가용성의 응답성이 뛰어난 서비스를 제공할 수 있습니다. 이 문서에서는 장기 실행 비동기 백그라운드 처리의 Azure Map 특정 구현을 설명합니다.
+Azure Maps의 일부 API는 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply)을 사용합니다. 이 패턴을 통해 Azure Maps는 고가용성의 응답성이 뛰어난 서비스를 제공할 수 있습니다. 이 문서에서는 장기 실행 비동기 백그라운드 처리의 Azure Map 특정 구현을 설명합니다.
 
 ## <a name="submitting-a-request"></a>요청 제출
 

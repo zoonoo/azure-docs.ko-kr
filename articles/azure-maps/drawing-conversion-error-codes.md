@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361537"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895939"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>그리기 변환 오류 및 경고
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
+[Azure Maps Conversion 서비스](/rest/api/maps/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
 
 변환 경고가 있으면 Conversion 서비스가 성공합니다. 그러나 모든 경고를 검토하고 해결하는 것이 좋습니다. 경고는 변환의 일부가 무시되거나 자동으로 수정되었음을 의미합니다. 경고가 해결되지 않으면 후자의 프로세스에서 오류가 발생할 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "91361537"
 
 #### <a name="description-for-geometrywarning"></a>*geometryWarning에 대한 설명*
 
-그리기에 잘못된 엔터티가 포함되면 **geometryWarning**이 발생합니다. 잘못된 엔터티는 기하학적 제약 조건을 따르지 않는 엔터티입니다. 잘못된 엔터티의 예로 닫힌 기하 도형만 지원하는 레이어에 자체 교차 다각형 또는 닫히지 않은 폴리라인이 있습니다.
+그리기에 잘못된 엔터티가 포함되면 **geometryWarning** 이 발생합니다. 잘못된 엔터티는 기하학적 제약 조건을 따르지 않는 엔터티입니다. 잘못된 엔터티의 예로 닫힌 기하 도형만 지원하는 레이어에 자체 교차 다각형 또는 닫히지 않은 폴리라인이 있습니다.
 
 Conversion 서비스는 잘못된 엔터티에서 맵 기능을 만들 수 없으며 대신 이 기능을 무시합니다.
 
@@ -45,7 +45,7 @@ Conversion 서비스는 잘못된 엔터티에서 맵 기능을 만들 수 없�
 
 #### <a name="how-to-fix-geometrywarning"></a>*geometryWarning을 해결하는 방법*
 
-각 엔터티에 대해 **geometryWarning**을 검사하여 기하학적 제약 조건을 따르는지 확인합니다.
+각 엔터티에 대해 **geometryWarning** 을 검사하여 기하학적 제약 조건을 따르는지 확인합니다.
 
 ### <a name="unexpectedgeometryinlayer"></a>**unexpectedGeometryInLayer**
 
@@ -159,13 +159,13 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="how-to-fix-redundantattribution"></a>*redundantAttribution을 해결하는 방법*
 
-**redundantAttribution* 경고를 해결하려면 중복되거나 충돌하는 개체 속성을 제거합니다.
+* *redundantAttribution* 경고를 해결하려면 중복되거나 충돌하는 개체 속성을 제거합니다.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
 #### <a name="description-for-manifestwarning"></a>*manifestWarning에 대한 설명*
 
-변환 중에 사용되지 않는 unitProperties 또는 zoneProperties 개체가 매니페스트에 포함되면 **manifestWarning**이 발생합니다.
+변환 중에 사용되지 않는 unitProperties 또는 zoneProperties 개체가 매니페스트에 포함되면 **manifestWarning** 이 발생합니다.
 
 #### <a name="examples-for-manifestwarning"></a>*manifestWarning의 예*
 
@@ -175,7 +175,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="how-to-fix-manifestwarning"></a>*manifestWarning을 해결하는 방법*
 
-**manifestWarning**을 해결하려면 매니페스트에서 사용되지 않는 `unitProperties` 또는 `zoneProperties` 개체를 제거하거나 변환 중에 속성 개체가 사용되도록 단위/영역 레이블을 그리기에 추가합니다.
+**manifestWarning** 을 해결하려면 매니페스트에서 사용되지 않는 `unitProperties` 또는 `zoneProperties` 개체를 제거하거나 변환 중에 속성 개체가 사용되도록 단위/영역 레이블을 그리기에 추가합니다.
 
 ## <a name="wall-warnings"></a>벽 경고
 
@@ -257,7 +257,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="description-for-zonewarning"></a>*zoneWarning에 대한 설명*
 
-레이블이 영역에 없으면 **zoneWarning**이 발생합니다. Conversion 서비스에서 레이블이 없는 영역을 삭제합니다.
+레이블이 영역에 없으면 **zoneWarning** 이 발생합니다. Conversion 서비스에서 레이블이 없는 영역을 삭제합니다.
 
 #### <a name="example-for-zonewarning"></a>*zoneWarning의 예*
 
@@ -267,7 +267,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="how-to-fix-zonewarning"></a>*zoneWarning을 해결하는 방법*
 
-**zoneWarning**을 해결하려면 단일 레이블이 각 영역에 있는지 확인합니다.
+**zoneWarning** 을 해결하려면 단일 레이블이 각 영역에 있는지 확인합니다.
 
 ## <a name="label-warnings"></a>레이블 경고
 
@@ -275,9 +275,9 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="description-for-labelwarning"></a>*labelWarning에 대한 설명*
 
-모호하거나 모순되는 레이블 기능이 그리기에 포함되면 **labelWarning**이 발생합니다.
+모호하거나 모순되는 레이블 기능이 그리기에 포함되면 **labelWarning** 이 발생합니다.
 
-다음 이유 중 하나 이상으로 인해 **labelWarning**이 발생합니다.
+다음 이유 중 하나 이상으로 인해 **labelWarning** 이 발생합니다.
 
 * 단위 레이블이 단위에 없습니다.
 * 영역 레이블이 영역에 없습니다.
@@ -291,7 +291,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
 #### <a name="how-to-fix-labelwarning"></a>*labelWarning을 해결하는 방법*
 
-**labelWarning**을 해결하려면 다음을 확인합니다.
+**labelWarning** 을 해결하려면 다음을 확인합니다.
 
 * 모든 단위 레이블이 단위 내에 있습니다.
 * 모든 영역 레이블이 영역 내에 있습니다.
@@ -311,7 +311,7 @@ ZIP 보관 파일이 비어 있는 경우에도 **invalidArchiveFormat** 오류�
 
 **invalidArchiveFormat** 오류를 해결하려면 다음을 확인합니다.
 
-* 보관 파일 이름이 _.zip_으로 끝납니다.
+* 보관 파일 이름이 _.zip_ 으로 끝납니다.
 * 데이터가 ZIP 보관 파일에 포함되어 있습니다.
 * ZIP 보관 파일을 열 수 있습니다.
 
@@ -337,9 +337,9 @@ Conversion 서비스에서 스토리지의 사용자 데이터 개체를 읽을 
 
 #### <a name="description-for-dwgerror"></a>*dwgError에 대한 설명*
 
-**dwgError**는 업로드된 ZIP 보관 파일에 있는 하나 이상의 DWG 파일과 관련된 문제가 그리기 패키지에 있는 경우 발생합니다.
+**dwgError** 는 업로드된 ZIP 보관 파일에 있는 하나 이상의 DWG 파일과 관련된 문제가 그리기 패키지에 있는 경우 발생합니다.
 
-잘못되었거나 손상되어 열 수 없는 DWG 파일이 그리기 패키지에 포함되면 **dwgError**가 발생합니다.
+잘못되었거나 손상되어 열 수 없는 DWG 파일이 그리기 패키지에 포함되면 **dwgError** 가 발생합니다.
 
 * DWG 파일이 유효한 AutoCAD DWG 파일 형식 그리기가 아닙니다.
 * DWG 파일이 손상되었습니다.
@@ -347,10 +347,10 @@ Conversion 서비스에서 스토리지의 사용자 데이터 개체를 읽을 
 
 #### <a name="how-to-fix-dwgerror"></a>*dwgError를 해결하는 방법*
 
-**dwgError**를 해결하려면 _manifest.json_ 파일을 검사하여 다음을 확인합니다.
+**dwgError** 를 해결하려면 _manifest.json_ 파일을 검사하여 다음을 확인합니다.
 
 * ZIP 보관 파일의 모든 DWG 파일은 유효한 AutoCAD DWG 형식 그리기이며, AutoCAD에서 각 DWG 파일을 하나씩 엽니다. 잘못된 그리기를 모두 제거하거나 수정합니다.
-* _manifest.json_의 DWG 파일 목록이 ZIP 보관 파일의 DWG 파일과 일치합니다.
+* _manifest.json_ 의 DWG 파일 목록이 ZIP 보관 파일의 DWG 파일과 일치합니다.
 
 ## <a name="manifest-errors"></a>매니페스트 오류
 
@@ -385,12 +385,12 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 다음 이유 중 하나 이상으로 인해 **missingManifest** 오류가 발생합니다.
 
 * _manifest.json_ 파일의 철자가 잘못되었습니다.
-* _manifest.json_이 없습니다.
-* _manifest.json_이 ZIP 보관 파일의 루트 디렉터리 내에 없습니다.
+* _manifest.json_ 이 없습니다.
+* _manifest.json_ 이 ZIP 보관 파일의 루트 디렉터리 내에 없습니다.
 
 #### <a name="how-to-fix-missingmanifest"></a>*missingManifest를 해결하는 방법*
 
-**missingManifest** 오류를 해결하려면 _manifest.json_이라는 파일이 ZIP 보관 파일의 루트 수준에 있는지 확인합니다.
+**missingManifest** 오류를 해결하려면 _manifest.json_ 이라는 파일이 ZIP 보관 파일의 루트 수준에 있는지 확인합니다.
 
 ### <a name="conflict"></a>**conflict**
 
@@ -422,7 +422,7 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 
 #### <a name="how-to-fix-conflict"></a>*conflict를 해결하는 방법*
 
-**conflict** 오류를 해결하려면 _manifest.json_을 검사하고 충돌하는 모든 정보를 제거합니다.
+**conflict** 오류를 해결하려면 _manifest.json_ 을 검사하고 충돌하는 모든 정보를 제거합니다.
 
 ### <a name="invalidgeoreference"></a>**invalidGeoreference**
 
@@ -461,7 +461,7 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 
 #### <a name="description-for-wallerror"></a>*wallError에 대한 설명*
 
-벽 기능을 만드는 중에 오류가 그리기에 포함되면 **wallError**가 발생합니다.
+벽 기능을 만드는 중에 오류가 그리기에 포함되면 **wallError** 가 발생합니다.
 
 #### <a name="example-scenario-for-wallerror"></a>*wallError 예제 시나리오*
 
@@ -479,9 +479,9 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 
 #### <a name="description-for-verticalpenetrationerror"></a>*verticalPenetrationError에 대한 설명*
 
-모호한 수직 침투 기능이 그리기에 포함되면 **verticalPenetrationError**가 발생합니다.
+모호한 수직 침투 기능이 그리기에 포함되면 **verticalPenetrationError** 가 발생합니다.
 
-다음 이유 중 하나 이상으로 인해 **verticalPenetrationError**가 발생합니다.
+다음 이유 중 하나 이상으로 인해 **verticalPenetrationError** 가 발생합니다.
 
 * 그리기에 위 또는 아래 수준에서 겹치지 않는 수직 침투 영역이 있는 수직 침투 영역이 포함되어 있습니다.
 * 그리기 패키지에 둘 이상의 수직 침투 기능이 있는 수준이 포함되어 있으며, 이 두 기능은 바로 위 또는 아래의 다른 수준에서 단일 수직 침투 기능과 겹칩니다.

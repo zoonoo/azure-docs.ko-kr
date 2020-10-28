@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1f25aadf716b7768b6122a4fb165466aef7f8a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053395"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895837"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
-[Azure Maps 변환 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용 하 여 업로드 된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 이 문서에서는 Conversion API의 그리기 패키지 요구 사항에 대해 설명합니다. 패키지 샘플을 보려면 [그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 샘플을 다운로드하면 됩니다.
+[Azure Maps 변환 서비스](/rest/api/maps/conversion)를 사용 하 여 업로드 된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 이 문서에서는 Conversion API의 그리기 패키지 요구 사항에 대해 설명합니다. 패키지 샘플을 보려면 [그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 샘플을 다운로드하면 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "90053395"
 
 드로잉 패키지에서 드로잉을 생성할 CAD 소프트웨어를 선택할 수 있습니다.  
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)는 그리기 패키지를 맵 데이터로 변환합니다. 변환 서비스는 AutoCAD DWG 파일 형식으로 작동 합니다. `AC1032` 는 DWG 파일의 내부 형식 버전 이며 `AC1032` 내부 dwg 파일 형식 버전에 대해 선택 하는 것이 좋습니다.  
+[Azure Maps Conversion 서비스](/rest/api/maps/conversion)는 그리기 패키지를 맵 데이터로 변환합니다. 변환 서비스는 AutoCAD DWG 파일 형식으로 작동 합니다. `AC1032` 는 DWG 파일의 내부 형식 버전 이며 `AC1032` 내부 dwg 파일 형식 버전에 대해 선택 하는 것이 좋습니다.  
 
 ## <a name="glossary-of-terms"></a>용어집
 
@@ -50,13 +50,13 @@ ms.locfileid: "90053395"
 
 ## <a name="dwg-files-requirements"></a>DWG 파일 요구 사항
 
-각 시설 수준에는 단일 DWG 파일이 필요합니다. 수준의 데이터는 단일 DWG 파일에 포함되어야 합니다. 외부 참조(_xrefs_)는 부모 그리기에 바인딩되어야 합니다. 또한 각 DWG 파일은 다음과 같습니다.
+각 시설 수준에는 단일 DWG 파일이 필요합니다. 수준의 데이터는 단일 DWG 파일에 포함되어야 합니다. 외부 참조( _xrefs_ )는 부모 그리기에 바인딩되어야 합니다. 또한 각 DWG 파일은 다음과 같습니다.
 
-* _실외_ 및 _단위_ 레이어를 정의해야 합니다. 필요에 따라 _벽_, _도어_, 단위 _레이블_, _영역_및 _ZoneLabel_등의 선택적 계층을 정의할 수 있습니다.
+* _실외_ 및 _단위_ 레이어를 정의해야 합니다. 필요에 따라 _벽_ , _도어_ , 단위 _레이블_ , _영역_ 및 _ZoneLabel_ 등의 선택적 계층을 정의할 수 있습니다.
 * 여러 수준의 기능을 포함할 수 없습니다.
 * 여러 시설의 기능을 포함할 수 없습니다.
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)는 DWG 파일에서 다음 기능 클래스를 추출할 수 있습니다.
+[Azure Maps Conversion 서비스](/rest/api/maps/conversion)는 DWG 파일에서 다음 기능 클래스를 추출할 수 있습니다.
 
 * Levels
 * Units
@@ -73,11 +73,11 @@ DWG 레이어에는 단일 클래스의 기능이 포함되어야 합니다. 클
 
 * 모든 DWG 파일의 그리기 원점은 동일한 위도와 경도에 맞춰야 합니다.
 * 각 수준은 다른 수준과 동일한 방향이어야 합니다.
-* 자체 교차 다각형이 자동으로 복구 되 고 [Azure Maps 변환 서비스](https://docs.microsoft.com/rest/api/maps/conversion) 에서 경고가 발생 합니다. 예상한 결과와 일치 하지 않을 수 있으므로 복구 된 결과를 수동으로 검사 해야 합니다.
+* 자체 교차 다각형이 자동으로 복구 되 고 [Azure Maps 변환 서비스](/rest/api/maps/conversion) 에서 경고가 발생 합니다. 예상한 결과와 일치 하지 않을 수 있으므로 복구 된 결과를 수동으로 검사 해야 합니다.
 
 모든 레이어 엔터티는 선, 다중선, 다각형, 원호, 원 또는 텍스트 (한 줄) 형식 중 하나 여야 합니다. 다른 모든 엔터티 형식은 무시 됩니다.
 
-다음 표에서는 각 계층에 대해 지원 되는 엔터티 형식 및 지원 되는 기능을 간략하게 설명 합니다. 계층에 지원 되지 않는 엔터티 형식이 포함 된 경우 [Azure Maps 변환 서비스](https://docs.microsoft.com/rest/api/maps/conversion) 는 이러한 엔터티를 무시 합니다.  
+다음 표에서는 각 계층에 대해 지원 되는 엔터티 형식 및 지원 되는 기능을 간략하게 설명 합니다. 계층에 지원 되지 않는 엔터티 형식이 포함 된 경우 [Azure Maps 변환 서비스](/rest/api/maps/conversion) 는 이러한 엔터티를 무시 합니다.  
 
 | 계층 | 엔터티 형식 | 기능 |
 | :----- | :-------------------| :-------
@@ -168,11 +168,11 @@ ZoneLabel 계층에서 텍스트 개체를 만들고 영역 범위 내에 텍스
 
 ## <a name="manifest-file-requirements"></a>매니페스트 파일 요구 사항
 
-zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 포함해야 하며, 파일 이름은 **manifest.json**이어야 합니다. 이는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)에서 콘텐츠를 구문 분석할 수 있도록 하는 DWG 파일에 대해 설명합니다. 매니페스트에서 식별 된 파일만 수집 됩니다. Zip 폴더에 있지만 매니페스트에 제대로 나열 되지 않은 파일은 무시 됩니다.
+zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 포함해야 하며, 파일 이름은 **manifest.json** 이어야 합니다. 이는 [Azure Maps Conversion 서비스](/rest/api/maps/conversion)에서 콘텐츠를 구문 분석할 수 있도록 하는 DWG 파일에 대해 설명합니다. 매니페스트에서 식별 된 파일만 수집 됩니다. Zip 폴더에 있지만 매니페스트에 제대로 나열 되지 않은 파일은 무시 됩니다.
 
 매니페스트 파일의 개체에 있는 파일 경로는 `buildingLevels` zip 폴더의 루트에 대 한 상대 경로 여야 합니다. DWG 파일 이름은 시설 수준의 이름과 정확히 일치해야 합니다. 예를 들어 "지하실" 수준의 DWG 파일은 "지하실"입니다. 수준 2에 대 한 DWG 파일의 이름은 "level_2. DWG"로 지정 됩니다. 수준 이름에 공백이 있는 경우 밑줄을 사용합니다.
 
-매니페스트 개체를 사용 하는 경우에는 요구 사항이 있지만 일부 개체는 필요 하지 않습니다. 다음 표에서는 [Azure Maps 변환 서비스](https://docs.microsoft.com/rest/api/maps/conversion)버전 1.1에 대 한 필수 및 선택적 개체를 보여 줍니다.
+매니페스트 개체를 사용 하는 경우에는 요구 사항이 있지만 일부 개체는 필요 하지 않습니다. 다음 표에서는 [Azure Maps 변환 서비스](/rest/api/maps/conversion)버전 1.1에 대 한 필수 및 선택적 개체를 보여 줍니다.
 
 | Object | 필수 | Description |
 | :----- | :------- | :------- |
@@ -188,7 +188,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `directoryInfo`
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 | `name`      | 문자열 | true   |  건물의 이름입니다. |
 | `streetAddress`|    문자열 |    false    | 건물의 주소입니다. |
@@ -209,7 +209,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `buildingLevels` 개체에는 건물 수준의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`levelName`    |문자열    |true |    설명이 포함된 수준 이름입니다. 예: 층 1, 로비, Blue 주차장 또는 지하실.|
 |`ordinal` | integer |    true | 수준 세로 순서를 결정 합니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
@@ -219,7 +219,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `georeference`
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |`lon`    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -227,7 +227,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `dwgLayers`
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |`exterior`    |문자열 배열|    true|    외부 빌딩 프로필을 정의 하는 계층의 이름입니다.|
 |`unit`|    문자열 배열|    true|    단위를 정의 하는 레이어의 이름입니다.|
@@ -241,7 +241,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `unitProperties` 개체에는 단위 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`unitName`    |문자열    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. 이 레코드는 계층에서 레이블 일치를 찾은 경우에만 유효 합니다 `unitName` `unitLabel` . |
 |`categoryName`|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -261,7 +261,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `zoneProperties` 개체에는 영역 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |zoneName        |문자열    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -404,7 +404,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ## <a name="next-steps"></a>다음 단계
 
-그리기 패키지가 요구 사항을 충족 하는 경우 [Azure Maps 변환 서비스](https://docs.microsoft.com/rest/api/maps/conversion) 를 사용 하 여 패키지를 맵 데이터 집합으로 변환할 수 있습니다. 그런 다음, 데이터 집합을 사용 하 여 실내 지도 모듈을 통해 실내 지도를 생성할 수 있습니다.
+그리기 패키지가 요구 사항을 충족 하는 경우 [Azure Maps 변환 서비스](/rest/api/maps/conversion) 를 사용 하 여 패키지를 맵 데이터 집합으로 변환할 수 있습니다. 그런 다음, 데이터 집합을 사용 하 여 실내 지도 모듈을 통해 실내 지도를 생성할 수 있습니다.
 
 > [!div class="nextstepaction"]
 >[실내 맵용 Creator](creator-indoor-maps.md)

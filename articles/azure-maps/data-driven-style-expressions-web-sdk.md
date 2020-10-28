@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311379"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895973"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -90,11 +90,11 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 |------------|-------------|-------------|
 | `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
@@ -475,13 +475,13 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색*및 *파랑* 구성 요소 `0` `255` 와의 알파 구성 요소에서 색 값을 만듭니다 `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
-| `['rgba', number, number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색*, *파랑* 구성 요소 `0` `255` 와 및 범위 내의 알파 구성 요소에서 색 값을 만듭니다 `0` `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
-| `['to-rgba']` | \[숫자, 숫자, 숫자, 숫자\] | 입력 색의 *빨간색*, *녹색*, *파랑*및 *알파* 구성 요소를 포함 하는 4 개 요소 배열을 해당 순서로 반환 합니다. |
+| `['rgb', number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강* , *녹색* 및 *파랑* 구성 요소 `0` `255` 와의 알파 구성 요소에서 색 값을 만듭니다 `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
+| `['rgba', number, number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강* , *녹색* , *파랑* 구성 요소 `0` `255` 와 및 범위 내의 알파 구성 요소에서 색 값을 만듭니다 `0` `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
+| `['to-rgba']` | \[숫자, 숫자, 숫자, 숫자\] | 입력 색의 *빨간색* , *녹색* , *파랑* 및 *알파* 구성 요소를 포함 하는 4 개 요소 배열을 해당 순서로 반환 합니다. |
 
 **예제**
 
-다음 예에서는 *빨강* 값이이 `255` 고 속성 값을 곱하여 계산 되는 *녹색* 및 *파랑* 값을 가진 RGB 색 값을 만듭니다 `2.5` `temperature` . 온도가 변경 됨에 따라 색은 *빨간색*의 다른 음영으로 변경 됩니다.
+다음 예에서는 *빨강* 값이이 `255` 고 속성 값을 곱하여 계산 되는 *녹색* 및 *파랑* 값을 가진 RGB 색 값을 만듭니다 `2.5` `temperature` . 온도가 변경 됨에 따라 색은 *빨간색* 의 다른 음영으로 변경 됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="heat-map-density-expression"></a>열 지도 밀도 식
 
-열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 정의 됩니다 `['heatmap-density']` . 이 값은에서 사이의 숫자 `0` 입니다 `1` . 또는 식과 함께 사용 되어 `interpolation` `step` 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) 에만 사용할 수 있습니다.
+열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 정의 됩니다 `['heatmap-density']` . 이 값은에서 사이의 숫자 `0` 입니다 `1` . 또는 식과 함께 사용 되어 `interpolation` `step` 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) 에만 사용할 수 있습니다.
 
 > [!TIP]
 > 보간 식의 인덱스 0에 있는 색 또는 단계 색의 기본 색은 데이터가 없는 영역의 색을 정의 합니다. 인덱스 0에 있는 색은 배경색을 정의 하는 데 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다.
@@ -954,16 +954,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 식을 지 원하는 계층 옵션에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)
