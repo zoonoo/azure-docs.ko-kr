@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4d825d2e4daee5778c7f8e3ef216c3e72d89b1c4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78675530"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747485"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
+1. 방금 등록한 디바이스의 *디바이스 연결 문자열* 을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-3. 또한 서비스 쪽 애플리케이션을 IoT Hub에 연결하고 디바이스 스트림을 설정하기 위해 IoT Hub에서 *서비스 연결 문자열*이 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
+3. 또한 서비스 쪽 애플리케이션을 IoT Hub에 연결하고 디바이스 스트림을 설정하기 위해 IoT Hub에서 *서비스 연결 문자열* 이 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
 
    > [!NOTE]
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.

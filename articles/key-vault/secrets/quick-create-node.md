@@ -7,19 +7,19 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 045589d3b1f0e376eaf854562d271a4483702997
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 35713a2e854cf65054d162ce0191bf2dfde4e90b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047899"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786142"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>빠른 시작: JavaScript용 Azure Key Vault 클라이언트 라이브러리(v4)
 
 JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
-[API 참조 설명서](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [패키지(npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API 참조 설명서](/javascript/api/overview/azure/key-vault-index) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [패키지(npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -30,7 +30,7 @@ JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작�
 이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
 ## <a name="setting-up"></a>설치
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/javascript/api/overview/azure/identity-readme)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 

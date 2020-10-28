@@ -2,18 +2,18 @@
 title: 빠른 시작 - Java용 Azure Key Vault 클라이언트 라이브러리
 description: Azure SDK 클라이언트 라이브러리에 대한 빠른 시작을 작성하기 위한 형식과 콘텐츠 조건을 제공합니다.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019633"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786210"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -37,7 +37,7 @@ Java용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니�
 
 ## <a name="setting-up"></a>설치
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 또한 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 또한 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/java/api/overview/azure/identity-readme)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 

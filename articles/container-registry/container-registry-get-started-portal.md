@@ -3,13 +3,13 @@ title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 프라이빗 Azure 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031827"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746675"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 컨테이너 레지스트리 만들기
 
@@ -25,15 +25,15 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-**리소스 만들기** > **컨테이너** > **컨테이너 레지스트리**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **컨테이너 레지스트리** 를 선택합니다.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="포털의 컨테이너 레지스트리로 이동":::
 
-**기본** 탭에서 **리소스 그룹** 및 **레지스트리 이름**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 빠른 시작에서는 `West US` 위치에 `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**로 '기본'을 선택합니다.
+**기본** 탭에서 **리소스 그룹** 및 **레지스트리 이름** 에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 빠른 시작에서는 `West US` 위치에 `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU** 로 '기본'을 선택합니다.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="포털의 컨테이너 레지스트리로 이동":::
 
-나머지 설정에 대해 기본값을 그대로 적용합니다. 그런 다음, **검토 + 만들기**를 선택합니다. 설정을 검토한 후 **만들기**를 선택합니다.
+나머지 설정에 대해 기본값을 그대로 적용합니다. 그런 다음, **검토 + 만들기** 를 선택합니다. 설정을 검토한 후 **만들기** 를 선택합니다.
 
 이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층(SKU)에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
@@ -41,7 +41,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="포털의 컨테이너 레지스트리로 이동":::
 
-레지스트리 이름과 **로그인 서버**의 값을 기록해 둡니다. Docker를 사용하여 이미지를 밀어넣고 끌어올 때 다음 단계에서 이러한 값을 사용합니다.
+레지스트리 이름과 **로그인 서버** 의 값을 기록해 둡니다. Docker를 사용하여 이미지를 밀어넣고 끌어올 때 다음 단계에서 이러한 값을 사용합니다.
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
@@ -63,7 +63,7 @@ az acr login --name mycontainerregistry
 
 ## <a name="list-container-images"></a>컨테이너 이미지 나열
 
-레지스트리의 이미지를 나열하려면 포털에서 레지스트리로 이동하여 **리포지토리**를 선택한 다음, `docker push`를 사용하여 만든 **hello-world** 리포지토리를 선택합니다.
+레지스트리의 이미지를 나열하려면 포털에서 레지스트리로 이동하여 **리포지토리** 를 선택한 다음, `docker push`를 사용하여 만든 **hello-world** 리포지토리를 선택합니다.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="포털의 컨테이너 레지스트리로 이동":::
 
@@ -73,7 +73,7 @@ az acr login --name mycontainerregistry
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스를 정리하려면 포털에서 **myResourceGroup** 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제**를 클릭하여 리소스 그룹, 컨테이너 레지스트리 및 저장된 컨테이너 이미지를 제거합니다.
+리소스를 정리하려면 포털에서 **myResourceGroup** 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제** 를 클릭하여 리소스 그룹, 컨테이너 레지스트리 및 저장된 컨테이너 이미지를 제거합니다.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="포털의 컨테이너 레지스트리로 이동":::
 

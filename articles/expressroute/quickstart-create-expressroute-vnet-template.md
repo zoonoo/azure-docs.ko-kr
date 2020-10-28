@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 37f0b890cd4942e5dcb47b496d661eb7c54db94d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093517"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789729"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 
@@ -34,16 +34,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet)에서 나온 것입니다.
 
-이 빠른 시작에서는 *Equinix*를 서비스 공급자로 사용하여 ExpressRoute 회로를 만듭니다. 회로는 대역폭이 *50Mbps*이고 피어링 위치가 *Washington DC*인 *프리미엄 SKU*를 사용합니다. 프라이빗 피어링은 *192.168.10.16/30* 및 *192.168.10.20/30*의 기본 및 보조 서브넷에서 사용하도록 설정됩니다. 가상 네트워크도 *HighPerformance ExpressRoute 게이트웨이*와 함께 생성됩니다.
+이 빠른 시작에서는 *Equinix* 를 서비스 공급자로 사용하여 ExpressRoute 회로를 만듭니다. 회로는 대역폭이 *50Mbps* 이고 피어링 위치가 *Washington DC* 인 *프리미엄 SKU* 를 사용합니다. 프라이빗 피어링은 *192.168.10.16/30* 및 *192.168.10.20/30* 의 기본 및 보조 서브넷에서 사용하도록 설정됩니다. 가상 네트워크도 *HighPerformance ExpressRoute 게이트웨이* 와 함께 생성됩니다.
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
+:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings)(회로에서 프라이빗 피어링을 사용하도록 설정하는 데 사용됨)
 * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups)(네트워크 보안 그룹은 가상 네트워크의 서브넷에 적용됨)
-* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks) 
+* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicIPAddresses)(공용 IP는 ExpressRoute 게이트웨이에서 사용됨)
 * [**Microsoft.Network/virtualNetworkGateways**](/azure/templates/microsoft.network/virtualNetworkGateways)(ExpressRoute 게이트웨이는 VNet을 회로에 연결하는 데 사용됨)
 
@@ -51,7 +51,7 @@ ExpressRoute와 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 코드 블록에서 **사용해 보기**를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다. 
+1. 다음 코드 블록에서 **사용해 보기** 를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -68,13 +68,13 @@ ExpressRoute와 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시
 
     콘솔에서 프롬프트가 표시될 때까지 기다립니다.
 
-1. 이전 코드 블록에서 **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
+1. 이전 코드 블록에서 **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
 
-1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기**를 선택합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기** 를 선택합니다.
 
 1. 값을 입력합니다.
 
-    리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+    리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
     템플릿을 배포하는 데 20분 정도 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
 
@@ -88,13 +88,13 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 왼쪽 패널에서 **리소스 그룹** 을 선택합니다.
 
-1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
 1. 리소스 그룹에는 여기에 표시된 다음 리소스가 포함되어야 합니다.
 
      :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
 
-1. ExpressRoute 회로 **er-ck01**을 선택하여 회로 상태가 **활성화됨**이고, 공급자 상태가 **프로비저닝되지 않음**이고, 프라이빗 피어링이 **프로비저닝됨** 상태인지 확인합니다.
+1. ExpressRoute 회로 **er-ck01** 을 선택하여 회로 상태가 **활성화됨** 이고, 공급자 상태가 **프로비저닝되지 않음** 이고, 프라이빗 피어링이 **프로비저닝됨** 상태인지 확인합니다.
 
     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
 
@@ -114,6 +114,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 다음을 만들었습니다.
+
 * ExpressRoute 회로
 * Virtual Network
 * VPN Gateway

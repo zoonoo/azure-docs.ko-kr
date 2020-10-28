@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87826503"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781467"
 ---
 # <a name="what-are-azure-queues"></a>Azure 큐란?
 
@@ -35,11 +35,11 @@ Azure Queue Storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 * **스토리지 계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [표준 스토리지 계정의 확장성 및 성능 목표](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요.
 
-* **큐:** 큐에는 메시지 집합이 포함됩니다. 큐 이름은 **반드시** 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
+* **큐:** 큐에는 메시지 집합이 포함됩니다. 큐 이름은 **반드시** 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](/rest/api/storageservices/Naming-Queues-and-Metadata)을 참조하세요.
 
 * **메시지:** 최대 64KB인 임의 형식의 메시지입니다. 2017-07-29 미만 버전에서 허용되는 최대 TTL(Time to Live)은 7일입니다. 2017-07-29 이상 버전에서 허용되는 최대 TTL(Time to Live)은 모든 양수 또는 메시지가 만료되지 않는 -1입니다. 이 매개 변수를 생략하면 기본 TTL(Time to Live)은 7일입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스토리지 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [스토리지 계정을 만드는](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
 * [.NET을 사용하여 큐 시작하기](storage-dotnet-how-to-use-queues.md)

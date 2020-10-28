@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/09/2020
-ms.openlocfilehash: d4baa97794f53e59169d0e9cbbcbf80bc84ad9bb
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 1610c51b613712c06410247e2eb673a50a9988b3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935882"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792245"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
@@ -33,43 +33,41 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/)에서 나온 것입니다.
 
-
 :::code language="json" source="~/quickstart-templates/101-azure-api-management-create/azuredeploy.json":::
 
 템플릿에 다음 리소스가 정의되어 있습니다.
 
-- **[Microsoft.ApiManagement/service](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service)**
+- **[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service)**
 
 추가 Azure API Management 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Apimanagement&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 자동으로 생성된 이름으로 API Management 서비스 인스턴스를 만듭니다. 
-  
+1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 자동으로 생성된 이름으로 API Management 서비스 인스턴스를 만듭니다.
+
     [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
 
     이 예제에서 인스턴스는 Azure API Management를 평가하는 경제적인 옵션인 개발자 계층에서 구성됩니다. 이 계층은 프로덕션 용도가 아닙니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요.
 
 1. 다음 값을 선택하거나 입력합니다.
-    * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인**을 선택합니다.
-    * **지역**: 리소스 그룹에 대한 위치를 선택합니다. 예제: **미국 중부**
-    * **게시자 이메일**: 알림을 받을 이메일 주소를 입력합니다.
-    * **게시자 이름**: API 게시자에 대해 선택한 이름을 입력합니다.
-    * **Sku**: **개발자**의 기본값을 적용합니다. 
-    * **Sku 수**: 기본값을 적용합니다.
-    * **위치**: API Management 서비스에 대해 생성된 위치를 적용합니다.
+    - **구독** : Azure 구독을 선택합니다.
+    - **리소스 그룹** : **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 선택합니다.
+    - **지역** : 리소스 그룹에 대한 위치를 선택합니다. 예제: **미국 중부**
+    - **게시자 이메일** : 알림을 받을 이메일 주소를 입력합니다.
+    - **게시자 이름** : API 게시자에 대해 선택한 이름을 입력합니다.
+    - **Sku** : **개발자** 의 기본값을 적용합니다.
+    - **Sku 수** : 기본값을 적용합니다.
+    - **위치** : API Management 서비스에 대해 생성된 위치를 적용합니다.
 
     :::image type="content" source="media/quickstart-arm-template/create-instance-template.png" alt-text="API Management 템플릿 속성":::
 
+1. **검토 + 만들기** 를 선택한 다음, 사용 약관을 검토합니다. 동의하면 **만들기** 를 선택합니다.
 
- 1. **검토 + 만들기**를 선택한 다음, 사용 약관을 검토합니다. 동의하면 **만들기**를 선택합니다.
-    
     > [!TIP]
-    >  개발자 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 
+    >  개발자 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다.
 
- 1. 인스턴스가 성공적으로 만들어지면 다음과 같이 알림을 받게 됩니다.
- 
+1. 인스턴스가 성공적으로 만들어지면 다음과 같이 알림을 받게 됩니다.
+
     :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="API Management 템플릿 속성":::
 
  Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
@@ -78,8 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Portal을 사용하여 배포된 리소스를 확인하거나 Azure CLI 또는 Azure PowerShell과 같은 도구를 사용하여 배포된 리소스를 나열합니다.
 
-
-1. [Azure Portal](https://portal.azure.com)에서 **API Management 서비스**를 검색하여 선택하고 만든 서비스 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **API Management 서비스** 를 검색하여 선택하고 만든 서비스 인스턴스를 선택합니다.
 1. **개요** 페이지에서 서비스의 속성을 검토합니다.
 
 :::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="API Management 템플릿 속성":::
@@ -90,13 +87,12 @@ API Management 서비스 인스턴스가 온라인 상태이면 사용할 준비
 
 후속 자습서를 계속 사용하려는 경우 API Management 인스턴스를 그대로 두는 것이 좋습니다. 더 이상 필요 없으면 리소스 그룹을 삭제합니다. 그러면 리소스 그룹의 리소스가 삭제됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 검색하여 선택합니다. **홈**페이지에서 **리소스 그룹**을 선택할 수도 있습니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 검색하여 선택합니다. **홈** 페이지에서 **리소스 그룹** 을 선택할 수도 있습니다.
 1. **리소스 그룹** 페이지에서 리소스 그룹을 선택합니다.
-1. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+1. 리소스 그룹 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 
     리소스 그룹 삭제
-1. 리소스 그룹의 이름을 입력하고 **삭제**를 선택합니다.
-
+1. 리소스 그룹의 이름을 입력하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

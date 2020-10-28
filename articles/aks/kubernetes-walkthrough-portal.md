@@ -5,13 +5,13 @@ description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 �
 services: container-service
 ms.topic: quickstart
 ms.date: 10/06/2020
-ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.custom: mvc, seo-javascript-october2019, devx-track-azurecli
+ms.openlocfilehash: 30c00b1dfda3e30f047faf0deed7151aaf8c3fae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91850445"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745776"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -31,33 +31,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
-2. **컨테이너** >  **Kubernetes Service**를 선택합니다.
+2. **컨테이너** >  **Kubernetes Service** 를 선택합니다.
 
 3. **기본** 페이지에서 다음 옵션을 구성합니다.
-    - **프로젝트 세부 정보**: Azure **구독**을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹**을 선택하거나 만듭니다.
-    - **클러스터 세부 정보**: *myAKSCluster* 같은 **Kubernetes 클러스터 이름**을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전**을 선택합니다.
-    - **주 노드 풀**: AKS 노드의 VM **노드 크기**를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*.
-            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다*.
+    - **프로젝트 세부 정보** : Azure **구독** 을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹** 을 선택하거나 만듭니다.
+    - **클러스터 세부 정보** : *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전** 을 선택합니다.
+    - **주 노드 풀** : AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다* .
+            - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다* .
     
     ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    완료되면 **다음: 노드 풀**을 선택합니다.
+    완료되면 **다음: 노드 풀** 을 선택합니다.
 
-4. **노드 풀** 페이지에서 기본 옵션을 유지합니다. 화면 아래쪽에서 **다음: 인증**을 클릭합니다.
+4. **노드 풀** 페이지에서 기본 옵션을 유지합니다. 화면 아래쪽에서 **다음: 인증** 을 클릭합니다.
     > [!CAUTION]
     > 새 AAD 서비스 주체를 만드는 작업이 전파되고 사용할 수 있게 되기까지 몇 분이 걸릴 수 있으므로, Azure Portal에서 서비스 주체를 찾을 수 없음 오류와 유효성 검사 오류가 발생할 수 있습니다. 이 문제가 발생할 경우 완화하는 방법은 [여기](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster)를 참조하세요.
 
 5. **인증** 페이지에서 다음 옵션을 구성합니다.
-    - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자**로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성*을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
+    - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자** 로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성* 을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
     - Kubernetes RBAC(역할 기반 액세스 제어)의 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
 
     또는 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
-기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기**를 클릭한 후 유효성 검사가 완료되면 **만들기**를 선택합니다.
+기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기** 를 클릭한 후 유효성 검사가 완료되면 **만들기** 를 선택합니다.
 
-AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되면 **리소스로 이동**을 클릭하거나 AKS 클러스터 리소스 그룹(예: *myResourceGroup*)으로 이동하여 AKS 리소스(예: *myAKSCluster*)를 선택합니다. 다음 예제처럼 AKS 클러스터 대시보드가 표시됩니다.
+AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되면 **리소스로 이동** 을 클릭하거나 AKS 클러스터 리소스 그룹(예: *myResourceGroup* )으로 이동하여 AKS 리소스(예: *myAKSCluster* )를 선택합니다. 다음 예제처럼 AKS 클러스터 대시보드가 표시됩니다.
 
 ![Azure Portal의 AKS 대시보드 예제](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -69,7 +69,7 @@ Azure Portal 위쪽에 있는 `>_` 단추를 사용하여 Cloud Shell을 엽니�
 
 ![포털에서 Azure Cloud Shell을 엽니다.](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 *myAKSCluster*라는 클러스터의 자격 증명을 가져옵니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다. 다음 예제는 *myResourceGroup* 이라는 리소스 그룹에서 *myAKSCluster* 라는 클러스터의 자격 증명을 가져옵니다.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -81,7 +81,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비*인지 확인합니다.
+다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비* 인지 확인합니다.
 
 ```output
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -207,14 +207,14 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP* 가 *보류 중* 으로 표시됩니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -230,16 +230,16 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 이 데이터로 Azure Portal을 채우는 데 몇 분 정도 걸릴 수 있습니다. Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 Azure Portal에서 *myAKSCluster* 같은 AKS 리소스로 돌아갑니다. 그런 다음, 다음과 같이 상태에 액세스할 수 있습니다.
 
-1. 왼쪽에 있는 **모니터링**에서 **인사이트**를 선택합니다.
-1. 상단에서 **+ 필터 추가**를 클릭합니다.
-1. *네임스페이스*를 속성으로 선택한 다음, *\<All but kube-system\>* 를 선택합니다.
+1. 왼쪽에 있는 **모니터링** 에서 **인사이트** 를 선택합니다.
+1. 상단에서 **+ 필터 추가** 를 클릭합니다.
+1. *네임스페이스* 를 속성으로 선택한 다음, *\<All but kube-system\>* 를 선택합니다.
 1. **컨테이너** 보기를 선택합니다.
 
 다음 예와 같이 *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 드롭다운에서 **컨테이너 로그 보기**를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 드롭다운에서 **컨테이너 로그 보기** 를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
 ![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

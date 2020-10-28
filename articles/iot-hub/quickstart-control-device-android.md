@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: bd23483997b94f16e926c2849e0879b41316fba3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a1166874ed743efa599743fa6db8341e94c0fe1f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747670"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -66,18 +67,18 @@ az extension add --name azure-iot
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyAndroidDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyAndroidDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyAndroidDevice** : 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyAndroidDevice** 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create \
       --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -94,9 +95,9 @@ az extension add --name azure-iot
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
-또한 백 엔드 서비스 애플리케이션을 IoT 허브에 연결하여 메서드를 실행하고 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+또한 백 엔드 서비스 애플리케이션을 IoT 허브에 연결하여 메서드를 실행하고 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_ 이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
-**YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+**YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -116,13 +117,13 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 1. Android Studio에서 GitHub 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제되거나 다운로드된 사본인 *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* 디렉터리에 있습니다.
 
-2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 열고 **Device_Connection_String** 자리 표시자를 이전에 기록한 디바이스 연결 문자열로 바꿉니다.
+2. Android Studio에서 샘플 프로젝트의 *gradle.properties* 를 열고 **Device_Connection_String** 자리 표시자를 이전에 기록한 디바이스 연결 문자열로 바꿉니다.
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화**를 클릭합니다. 빌드가 완료되는지 확인합니다.
+3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화** 를 클릭합니다. 빌드가 완료되는지 확인합니다.
 
    > [!NOTE]
    > 프로젝트 동기화에 실패하는 경우는 다음 이유 중 하나일 수 있습니다.
@@ -130,7 +131,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
    > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
    > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
 
-4. 빌드가 완료되면 **실행** >  **'앱' 실행**을 클릭합니다. 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
+4. 빌드가 완료되면 **실행** >  **'앱' 실행** 을 클릭합니다. 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 
 5. 앱이 로드되면 **시작** 단추를 클릭하여 IoT Hub로 원격 분석 데이터를 보내기 시작합니다.
 
@@ -144,7 +145,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -166,14 +167,14 @@ IoT Hub 백 엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 �
 
 1. Android Studio에서 GitHub 서비스 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제되거나 다운로드된 사본인 *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample* 디렉터리에 있습니다.
 
-2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 엽니다. **ConnectionString** 및 **DeviceId** 속성의 값을 앞서 본 서비스 연결 문자열 및 등록된 Android 디바이스 ID로 업데이트합니다.
+2. Android Studio에서 샘플 프로젝트의 *gradle.properties* 를 엽니다. **ConnectionString** 및 **DeviceId** 속성의 값을 앞서 본 서비스 연결 문자열 및 등록된 Android 디바이스 ID로 업데이트합니다.
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}
     DeviceId=MyAndroidDevice
     ```
 
-3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화**를 클릭합니다. 빌드가 완료되는지 확인합니다.
+3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화** 를 클릭합니다. 빌드가 완료되는지 확인합니다.
 
    > [!NOTE]
    > 프로젝트 동기화에 실패하는 경우는 다음 이유 중 하나일 수 있습니다.
@@ -181,9 +182,9 @@ IoT Hub 백 엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 �
    > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
    > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
 
-4. 빌드가 완료되면 **실행** >  **'앱' 실행**을 클릭합니다. 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
+4. 빌드가 완료되면 **실행** >  **'앱' 실행** 을 클릭합니다. 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 
-5. 앱이 로드되면**메시징 간격 설정** 값을 **1000**으로 업데이트하고 **호출**을 클릭합니다.
+5. 앱이 로드되면 **메시징 간격 설정** 값을 **1000** 으로 업데이트하고 **호출** 을 클릭합니다.
 
     원격 분석 메시징 간격은 밀리초 단위입니다. 디바이스 샘플의 기본 원격 분석 간격은 5초로 설정됩니다. 이와 같이 변경하면 원격 분석 데이터를 1초마다 전송하도록 Android IoT 디바이스가 업데이트됩니다.
 

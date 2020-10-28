@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 997d74b1afc59e72b2c3fe7a7d47166d5efb8715
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 69571afceddab61c2a6134516e237facfb7a5073
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89072981"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746883"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -78,7 +78,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az account set --subscription "<your subscription>"
     ```
 
-2. [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub**라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
+2. [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub** 라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
@@ -90,7 +90,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice**라는 디바이스를 만듭니다.
+3. [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -112,7 +112,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 다음 Azure PowerShell 코드 블록은 명령을 사용하여 작업 출력에 사용되는 Blob 스토리지를 만듭니다. 코드를 이해하려면 섹션을 검토합니다.
 
-1. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet을 사용하여 표준 범용 스토리지 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 **myasaquickstartstorage**라는 스토리지 계정을 만듭니다.
+1. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet을 사용하여 표준 범용 스토리지 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 **myasaquickstartstorage** 라는 스토리지 계정을 만듭니다.
 
 2. 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트 `$storageAccount.Context`를 검색합니다. 스토리지 계정으로 작업할 때 자격 증명을 반복적으로 제공하는 대신 컨텍스트를 참조합니다.
 
@@ -304,7 +304,7 @@ New-AzStreamAnalyticsTransformation `
 
 2. 15행의 자리 표시자를 이전 섹션에서 저장한 Azure IoT Hub 디바이스 전체 연결 문자열로 바꿉니다.
 
-3. **실행**을 클릭합니다. IoT Hub로 전송 중인 센서 데이터와 메시지가 출력에 표시되어야 합니다.
+3. **실행** 을 클릭합니다. IoT Hub로 전송 중인 센서 데이터와 메시지가 출력에 표시되어야 합니다.
 
     ![Raspberry Pi Azure IoT 온라인 시뮬레이터](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

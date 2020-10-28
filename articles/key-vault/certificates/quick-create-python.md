@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d06d7b328525f9d6329f17a10dea9c89a753d533
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: a5ba1699e082741db851ee2af3eb688ea8aa7843
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748050"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 인증서 클라이언트 라이브러리
 
@@ -98,7 +98,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 Python용 Azure Key Vault 인증서 클라이언트 라이브러리를 사용하면 인증서를 관리할 수 있습니다. 다음 코드 샘플에서는 클라이언트 생성, 인증서 설정, 인증서 검색 및 인증서 삭제 방법을 보여줍니다.
 
-이 코드가 포함된 *kv_certificates.py*라는 파일을 만듭니다.
+이 코드가 포함된 *kv_certificates.py* 라는 파일을 만듭니다.
 
 ```python
 import os
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>코드 실행
 
-이전 섹션의 코드가 *kv_certificates.py*라는 파일에 있는지 확인합니다. 그런 다음, 다음 명령을 사용하여 코드를 실행합니다.
+이전 섹션의 코드가 *kv_certificates.py* 라는 파일에 있는지 확인합니다. 그런 다음, 다음 명령을 사용하여 코드를 실행합니다.
 
 ```terminal
 python kv_certificates.py

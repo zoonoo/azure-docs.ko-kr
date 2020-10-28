@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84667644"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791072"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 
@@ -43,13 +43,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
-1. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL 가상 머신** 타일에서 **세부 정보 표시**를 선택하여 추가 정보를 볼 수 있습니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 *Azure SQL* 을 입력합니다.
+1. **+추가** 를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL 가상 머신** 타일에서 **세부 정보 표시** 를 선택하여 추가 정보를 볼 수 있습니다.
 1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 드롭다운에서 선택합니다.
 
    ![새 검색 창](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
    ![새 검색 창](./media/sql-vm-create-portal-quickstart/create-sql-2017-vm-image.png)
 
@@ -57,24 +57,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-1. **프로젝트 세부 정보** 섹션에서 Azure 구독을 선택한 후 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다. 이름에 _SQLVM-RG_를 입력합니다.
+1. **프로젝트 세부 정보** 섹션에서 Azure 구독을 선택한 후 **새로 만들기** 를 선택하여 새 리소스 그룹을 만듭니다. 이름에 _SQLVM-RG_ 를 입력합니다.
 
    ![Subscription](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
-1. **인스턴스 세부 정보**에서
-    1. **가상 머신 이름**에 _SQLVM_을 입력합니다. 
-    1. **영역**에 위치를 선택합니다. 
-    1. 이 빠른 시작에서는 **가용성 옵션**을 _인프라 중복성 필요 없음_으로 설정합니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../../virtual-machines/windows/availability.md)을 참조하세요. 
+1. **인스턴스 세부 정보** 에서
+    1. **가상 머신 이름** 에 _SQLVM_ 을 입력합니다. 
+    1. **영역** 에 위치를 선택합니다. 
+    1. 이 빠른 시작에서는 **가용성 옵션** 을 _인프라 중복성 필요 없음_ 으로 설정합니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../../virtual-machines/availability.md)을 참조하세요. 
     1. **이미지** 목록에서 _무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer_ 이미지를 선택합니다. 
-    1. 가상 머신의 **크기**에서 **크기 변경**을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 
+    1. 가상 머신의 **크기** 에서 **크기 변경** 을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 
 
    ![인스턴스 세부 정보](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. **관리자 계정**에서 _azureuser_와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+1. **관리자 계정** 에서 _azureuser_ 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 
    ![관리자 계정](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
-1. **인바운드 포트 규칙**에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **RDP(3389)** 를 선택합니다. 
+1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운에서 **RDP(3389)** 를 선택합니다. 
 
    ![인바운드 포트 규칙](./media/sql-vm-create-portal-quickstart/basics-inbound-port-rules.png)
 
@@ -82,39 +82,39 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **SQL Server 설정** 탭에서 다음 옵션을 구성합니다.
 
-1. **보안 및 네트워킹**에서 **SQL 연결**에 _공개(인터넷_)를 선택하고 포트를 `1401`로 변경하여 공개 시나리오에서 잘 알려진 포트 번호를 사용하지 않도록 합니다. 
-1. **SQL 인증** 아래에서 **사용**을 선택합니다. SQL 로그인 자격 증명은 VM에 구성한 것과 동일한 사용자 이름 및 암호로 설정됩니다. [**Azure Key Vault 통합**](azure-key-vault-integration-configure.md)에 대한 기본 설정을 사용합니다. **스토리지 구성**은 기본 SQL Server VM 이미지에 사용할 수 없지만 [스토리지 구성](storage-configuration.md#new-vms)에서 다른 이미지에 사용할 수 있는 옵션에 대한 자세한 정보를 찾을 수 있습니다.  
+1. **보안 및 네트워킹** 에서 **SQL 연결** 에 _공개(인터넷_ )를 선택하고 포트를 `1401`로 변경하여 공개 시나리오에서 잘 알려진 포트 번호를 사용하지 않도록 합니다. 
+1. **SQL 인증** 아래에서 **사용** 을 선택합니다. SQL 로그인 자격 증명은 VM에 구성한 것과 동일한 사용자 이름 및 암호로 설정됩니다. [**Azure Key Vault 통합**](azure-key-vault-integration-configure.md)에 대한 기본 설정을 사용합니다. **스토리지 구성** 은 기본 SQL Server VM 이미지에 사용할 수 없지만 [스토리지 구성](storage-configuration.md#new-vms)에서 다른 이미지에 사용할 수 있는 옵션에 대한 자세한 정보를 찾을 수 있습니다.  
 
    ![SQL 서버 보안 설정](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
 
 
-1. 필요한 경우 다른 설정을 변경한 후 **검토 + 만들기**를 선택합니다. 
+1. 필요한 경우 다른 설정을 변경한 후 **검토 + 만들기** 를 선택합니다. 
 
    ![검토 + 만들기](./media/sql-vm-create-portal-quickstart/review-create.png)
 
 
 ## <a name="create-the-sql-server-vm"></a>SQL Server VM 만들기
 
-**검토 + 만들기** 탭에서 요약을 검토하고 **만들기**를 선택하여 이 VM에 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
+**검토 + 만들기** 탭에서 요약을 검토하고 **만들기** 를 선택하여 이 VM에 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
 
 Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에 있는 **알림** 단추는 배포의 기본 상태를 표시합니다. 배포에는 몇 분 정도 걸릴 수 있습니다. 
 
 ## <a name="connect-to-sql-server"></a>SQL Server에 연결
 
-1. 포털에 있는 가상 머신 속성의 **개요** 섹션에서 SQL Server VM의 **공용 IP 주소**를 찾습니다.
+1. 포털에 있는 가상 머신 속성의 **개요** 섹션에서 SQL Server VM의 **공용 IP 주소** 를 찾습니다.
 
 1. 인터넷에 연결된 다른 컴퓨터에서 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 엽니다.
 
 
-1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. VM의 공용 IP 주소를 입력합니다. 그런 다음, 쉼표를 추가하고 새 VM을 구성할 때 지정한 사용자 지정 포트(**1401**)를 추가합니다. 예들 들어 `11.22.33.444,1401`입니다.
+1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. VM의 공용 IP 주소를 입력합니다. 그런 다음, 쉼표를 추가하고 새 VM을 구성할 때 지정한 사용자 지정 포트( **1401** )를 추가합니다. 예들 들어 `11.22.33.444,1401`입니다.
 
-1. **인증** 상자에 **SQL Server 인증**을 선택합니다.
+1. **인증** 상자에 **SQL Server 인증** 을 선택합니다.
 
 1. **로그인** 상자에 올바른 SQL 로그인 이름을 입력합니다.
 
 1. **암호** 상자에 로그인 암호를 입력합니다.
 
-1. **연결**을 선택합니다.
+1. **연결** 을 선택합니다.
 
     ![ssms 연결](./media/sql-vm-create-portal-quickstart/ssms-connect.png)
 

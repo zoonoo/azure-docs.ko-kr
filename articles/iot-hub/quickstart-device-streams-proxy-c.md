@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e2182ee67683c4dfb963aeb320984a82d78b26c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148848"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747427"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -138,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
+1. 방금 등록한 디바이스의 *디바이스 연결 문자열* 을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
@@ -157,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="run-the-device-local-proxy-application"></a>디바이스-로컬 프록시 애플리케이션 실행
 
-1. `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` 폴더에서 원본 파일 **iothub_client_c2d_streaming_proxy_sample.c**를 편집하고 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 SSH 포트 22를 제공합니다.
+1. `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` 폴더에서 원본 파일 **iothub_client_c2d_streaming_proxy_sample.c** 를 편집하고 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 SSH 포트 22를 제공합니다.
 
    ```C
    /* Paste in your device connection string  */

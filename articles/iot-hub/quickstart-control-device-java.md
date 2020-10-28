@@ -14,13 +14,14 @@ ms.custom:
 - seo-java-september2019
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 2865d0fc082244e1b135275ecda58edc5649d82b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 915199a619ff7596596b92362de38338bda03029
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150724"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747541"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>빠른 시작: Java를 사용하여 Azure IoT Hub에 연결된 디바이스 제어
 
@@ -32,7 +33,7 @@ ms.locfileid: "92150724"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?view=azure-java-stable)의 **장기 지원** 에서 **Java 8** 을 선택합니다.
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
@@ -78,18 +79,18 @@ az extension add --name azure-iot
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyJavaDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyJavaDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyJavaDevice** : 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyJavaDevice** 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create \
       --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -106,9 +107,9 @@ az extension add --name azure-iot
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
-또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_ 이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
-**YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+**YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -128,7 +129,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
 
-    `connString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.java**에 저장합니다.
+    `connString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.java** 에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 빌드합니다.
 
@@ -154,7 +155,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** 파일을 엽니다.
 
-    `iotHubConnectionString` 변수의 값을 이전에 기록해 둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.java**에 저장합니다.
+    `iotHubConnectionString` 변수의 값을 이전에 기록해 둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.java** 에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 빌드합니다.
 

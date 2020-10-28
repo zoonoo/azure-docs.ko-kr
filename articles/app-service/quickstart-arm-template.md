@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152355"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746183"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -136,16 +136,16 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 > 로컬 Git에서 배포
 
 > [!div class="nextstepaction"]
-> SQL Database를 사용한 ASP.NET Core
+> [SQL Database를 사용한 ASP.NET Core](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > Postgres를 사용하는 Python
 
 > [!div class="nextstepaction"]
-> MySQL을 사용하는 PHP
+> [MySQL을 사용하는 PHP](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
->  [Java를 사용하여 Azure SQL 데이터베이스에 연결](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Java를 사용하여 Azure SQL 데이터베이스에 연결](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> 사용자 지정 도메인 매핑
+> [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)

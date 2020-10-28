@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4086a8f354e5e906325d9c324410f3546a32f658
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996132"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778900"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 
@@ -40,9 +40,9 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 스토리지 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 
-1. Azure Portal의 왼쪽 위에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
+1. Azure Portal의 왼쪽 위에서 **리소스 만들기** 를 선택합니다. **새로 만들기** 창이 나타납니다.
 
-1. **스토리지 계정**을 검색하고, 드롭다운 목록에서 **스토리지 계정 - BLOB, 파일, 테이블, 큐**를 선택합니다. **만들기**를 선택합니다.
+1. **스토리지 계정** 을 검색하고, 드롭다운 목록에서 **스토리지 계정 - BLOB, 파일, 테이블, 큐** 를 선택합니다. **만들기** 를 선택합니다.
     
     ![스토리지 리소스 선택](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
@@ -50,17 +50,17 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     | 설정 | 값 | 
     | --- | --- |
-    | 프로젝트 세부 정보 > 리소스 그룹 | **새로 만들기**를 선택하고, 이름으로 *CDNQuickstart-rg*를 사용합니다. 원한다면 기존 리소스 그룹을 사용할 수도 있습니다. |
+    | 프로젝트 세부 정보 > 리소스 그룹 | **새로 만들기** 를 선택하고, 이름으로 *CDNQuickstart-rg* 를 사용합니다. 원한다면 기존 리소스 그룹을 사용할 수도 있습니다. |
     | 인스턴스 세부 정보 > 스토리지 계정 이름 | 소문자와 숫자만 사용하여 계정 이름을 3-24자 사이에서 입력합니다. 이름은 Azure에서 고유해야 하며 구독에 대한 BLOB, 큐 또는 테이블 리소스의 주소를 지정하는 데 사용되는 URL 내의 호스트 이름이 됩니다. Blob 스토리지에서 컨테이너 리소스의 주소를 지정하려면 http:// *&lt;storageaccountname&gt;* .blob.core.windows.net/ *&lt;container-name&gt;* 형식의 URI를 사용합니다.
     | 인스턴스 세부 정보 > 위치 | 드롭다운 목록에서 가까운 Azure 지역을 선택합니다. |
     
-    나머지 정보는 기본값으로 두고 **검토 + 만들기**를 선택합니다.
+    나머지 정보는 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
 
-1. 스토리지 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 만들기가 완료되면 **리소스로 이동**을 선택하여 다음 단계에 사용할 스토리지 계정 페이지를 엽니다.
+1. 스토리지 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 만들기가 완료되면 **리소스로 이동** 을 선택하여 다음 단계에 사용할 스토리지 계정 페이지를 엽니다.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>스토리지 계정에 대해 Azure CDN 활성화
 
-1. 스토리지 계정에 대한 페이지의 왼쪽 메뉴에서 **Blob service** > **Azure CDN**을 선택합니다. **Azure CDN** 페이지가 나타납니다.
+1. 스토리지 계정에 대한 페이지의 왼쪽 메뉴에서 **Blob service** > **Azure CDN** 을 선택합니다. **Azure CDN** 페이지가 나타납니다.
 
     ![CDN 엔드포인트 만들기](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
     
@@ -68,12 +68,12 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     | 설정  | 값 |
     | -------- | ----- |
-    | **CDN 프로필** | **새로 만들기**를 선택하고 프로필 이름을 입력합니다(예: *cdn-profile-123*). 프로필은 엔드포인트의 컬렉션입니다. |
-    | **가격 책정 계층** | **표준 Microsoft**와 같은 **표준** 옵션 중 하나를 선택합니다. |
-    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름을 입력합니다(예: *cdn-endpoint-123*). 이 이름은 URL _&lt;endpoint-name&gt;_ .azureedge.net의 캐시된 리소스에 액세스하는 데 사용되므로 Azure에서 전역적으로 고유해야 합니다. |
+    | **CDN 프로필** | **새로 만들기** 를 선택하고 프로필 이름을 입력합니다(예: *cdn-profile-123* ). 프로필은 엔드포인트의 컬렉션입니다. |
+    | **가격 책정 계층** | **표준 Microsoft** 와 같은 **표준** 옵션 중 하나를 선택합니다. |
+    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름을 입력합니다(예: *cdn-endpoint-123* ). 이 이름은 URL _&lt;endpoint-name&gt;_ .azureedge.net의 캐시된 리소스에 액세스하는 데 사용되므로 Azure에서 전역적으로 고유해야 합니다. |
     | **원본 호스트 이름** | 기본적으로 새 CDN 엔드포인트는 스토리지 계정의 호스트 이름을 원본 서버로 사용합니다. |
 
-1. **만들기**를 선택합니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다.
+1. **만들기** 를 선택합니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다.
 
     ![스토리지 새 CDN 엔드포인트](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -95,7 +95,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 사용합니다. 캐시된 Blob에 대한 주소는 다음 형식을 갖습니다.
 
-http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
+http://< *endpoint-name*\>.azureedge.net/< *myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
 > 스토리지 계정에 대한 Azure CDN 액세스를 사용하도록 설정하면 공개적으로 사용 가능한 모든 개체가 CDN POP 캐싱에 적합합니다. 현재 CDN에 캐시된 개체를 수정하는 경우 캐시된 콘텐츠 TTL(Time-to-Live) 기간이 만료된 후에 Azure CDN에서 해당 콘텐츠를 새로 고쳐야 Azure CDN을 통해 새 콘텐츠를 사용할 수 있습니다.
@@ -104,7 +104,7 @@ http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 더 이상 Azure CDN에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
-- 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+- 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/anonymous-read-access-configure.md)를 참조하세요.
 - Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
 - 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
 
@@ -114,13 +114,13 @@ Azure CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 �
 
 이전 단계에서 리소스 그룹에 CDN 프로필 및 엔드포인트를 만들었습니다. [다음 단계](#next-steps)로 이동하려는 경우 이러한 리소스를 저장하고, 엔드포인트에 사용자 지정 도메인을 추가하는 방법에 대해 알아봅니다. 하지만 이러한 리소스를 나중에 사용하지 않을 경우 리소스 그룹을 삭제한 다음, 추가 요금을 방치하여 해당 리소스를 삭제할 수 있습니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, *CDNQuickstart-rg*\* 를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택한 다음, *CDNQuickstart-rg*\* 를 선택합니다.
 
-2. **리소스 그룹** 페이지에서 **리소스 그룹 삭제**를 선택하고, 텍스트 상자에 *CDNQuickstart-rg*를 입력한 다음, **삭제**를 선택합니다.
+2. **리소스 그룹** 페이지에서 **리소스 그룹 삭제** 를 선택하고, 텍스트 상자에 *CDNQuickstart-rg* 를 입력한 다음, **삭제** 를 선택합니다.
 
     그러면 이 빠른 시작에서 만든 리소스 그룹, 프로필 및 엔드포인트를 삭제합니다.
 
-3. 스토리지 계정을 삭제하려면 대시보드에서 선택한 다음, 상단 메뉴에서 **삭제**를 선택합니다.
+3. 스토리지 계정을 삭제하려면 대시보드에서 선택한 다음, 상단 메뉴에서 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

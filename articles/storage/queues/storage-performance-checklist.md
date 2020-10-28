@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008406"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787383"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Queue storage에 대한 성능 및 확장성 검사 목록
 
@@ -52,7 +52,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장�
 
 애플리케이션이 확장성 목표에 도달하거나 목표를 초과하는 경우 트랜잭션 대기 시간이 길어지거나 제한이 증가할 수 있습니다. Azure Storage에서 애플리케이션을 제한하면 서비스에서 503(서버 작업 중) 또는 500(작업 시간 제한) 오류 코드를 반환하기 시작합니다. 확장성 목표의 한도 내에서 유지하여 이러한 오류를 방지하는 것은 애플리케이션의 성능을 향상시키는 데 중요한 부분입니다.
 
-큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage)를 참조하세요.
+큐 서비스의 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](./scalability-targets.md#scale-targets-for-queue-storage)를 참조하세요.
 
 ### <a name="maximum-number-of-storage-accounts"></a>최대 스토리지 계정 수
 
@@ -128,7 +128,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 기타 프로그래밍 언어의 경우 해당 언어의 설명서에서 연결 제한을 설정하는 방법을 확인하세요.  
 
-자세한 내용은 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/) 블로그 게시물을 참조하세요.  
+자세한 내용은 [웹 서비스: 동시 연결](/archive/blogs/darrenj/web-services-concurrent-connections) 블로그 게시물을 참조하세요.  
 
 ### <a name="increase-minimum-number-of-threads"></a>최소 스레드 수 늘리기
 
@@ -146,7 +146,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>클라이언트 라이브러리 및 도구
 
-최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다. 자세한 내용은 [Azure Storage 참조 설명서](/azure/storage/#reference)를 참조하세요.
+최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다. 자세한 내용은 [Azure Storage 참조 설명서](./reference.md)를 참조하세요.
 
 ## <a name="handle-service-errors"></a>서비스 오류 처리
 
@@ -184,7 +184,7 @@ Nagle 알고리즘은 네트워크 성능을 개선하기 위한 수단으로 TC
 
 ## <a name="use-update-message"></a>메시지 업데이트 사용
 
-**메시지 업데이트** 작업을 사용하여 표시 안 함 시간 제한을 늘리거나 메시지의 상태 정보를 업데이트할 수 있습니다. 작업의 각 단계가 완료될 때 작업을 한 큐에서 다음 큐로 전달하는 워크플로보다 **메시지 업데이트**를 사용하는 것이 더 효율적인 방법일 수 있습니다. 단계가 완료될 때마다 작업의 다음 단계에 대한 메시지를 큐에 다시 넣는 대신, 애플리케이션에서 작업 상태를 메시지에 저장한 후에 작업을 계속할 수 있습니다. 각 **메시지 업데이트** 작업은 확장성 목표의 계산에 포함됩니다.
+**메시지 업데이트** 작업을 사용하여 표시 안 함 시간 제한을 늘리거나 메시지의 상태 정보를 업데이트할 수 있습니다. 작업의 각 단계가 완료될 때 작업을 한 큐에서 다음 큐로 전달하는 워크플로보다 **메시지 업데이트** 를 사용하는 것이 더 효율적인 방법일 수 있습니다. 단계가 완료될 때마다 작업의 다음 단계에 대한 메시지를 큐에 다시 넣는 대신, 애플리케이션에서 작업 상태를 메시지에 저장한 후에 작업을 계속할 수 있습니다. 각 **메시지 업데이트** 작업은 확장성 목표의 계산에 포함됩니다.
 
 ## <a name="application-architecture"></a>애플리케이션 아키텍처
 

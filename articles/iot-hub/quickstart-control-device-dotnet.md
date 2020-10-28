@@ -12,19 +12,20 @@ ms.custom:
 - mvc
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: 1b3b8382c81015e3278954dd0443ba44520e2e3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2f6d858275ca5a51ea7d8ef6edc23b741cc2466
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87315143"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747561"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또는 처리를 위해 클라우드에 다량의 디바이스 원격 분석 데이터를 수집할 수 있는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 디바이스를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
+IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또는 처리를 위해 클라우드에 다량의 디바이스 원격 분석 데이터를 수집할 수 있는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드* 를 사용하여 IoT 허브에 연결된 시뮬레이션된 디바이스를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
 
 빠른 시작은 두 가지 미리 작성된 .NET 애플리케이션을 사용합니다.
 
@@ -74,18 +75,18 @@ az extension add --name azure-iot
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyDotnetDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyDotnetDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyDotnetDevice** : 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyDotnetDevice** 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create \
       --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -102,7 +103,7 @@ az extension add --name azure-iot
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
-백 엔드 애플리케이션을 허브에 연결하여 메시지를 검색할 수 있게 하려면 IoT 허브 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+백 엔드 애플리케이션을 허브에 연결하여 메시지를 검색할 수 있게 하려면 IoT 허브 _서비스 연결 문자열_ 이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -122,7 +123,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 2. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
-    `s_connectionString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.cs**에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.cs** 에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션에 필요한 패키지를 설치합니다.
 
@@ -148,7 +149,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 2. 원하는 텍스트 편집기에서 **BackEndApplication.cs** 파일을 엽니다.
 
-    `s_connectionString` 변수의 값을 이전에 기록해 둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.cs**에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 기록해 둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.cs** 에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 

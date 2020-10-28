@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 1decb3e9915f0595afb05b46be8ba9fae836081d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ce53da1b51acb2ce17ef20a046424921f8987be9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150656"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748663"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(C#)으로 읽습니다.
 
@@ -57,13 +58,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 환경의 경우 다음 패키지 및 라이브러리를 설치하여 SDK를 사용할 수 있습니다.
 
-* **Linux**: apt-get 패키지는 CPU 아키텍처인 amd64, arm64, armhf 및 i386을 사용하여 Ubuntu 16.04 및 18.04에서 사용할 수 있습니다. 자세한 내용은 [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)(apt-get을 사용하여 Ubuntu에서 C 디바이스 클라이언트 프로젝트 만들기)를 참조하세요.
+* **Linux** : apt-get 패키지는 CPU 아키텍처인 amd64, arm64, armhf 및 i386을 사용하여 Ubuntu 16.04 및 18.04에서 사용할 수 있습니다. 자세한 내용은 [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)(apt-get을 사용하여 Ubuntu에서 C 디바이스 클라이언트 프로젝트 만들기)를 참조하세요.
 
-* **mbed**: mbed 플랫폼에서 디바이스 애플리케이션을 만드는 개발자를 위해 Azure IoT Hub를 통해 몇 분 안에 시작할 수 있는 라이브러리 및 샘플을 게시했습니다. 자세한 내용은 [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)(mbed 라이브러리 사용)를 참조하세요.
+* **mbed** : mbed 플랫폼에서 디바이스 애플리케이션을 만드는 개발자를 위해 Azure IoT Hub를 통해 몇 분 안에 시작할 수 있는 라이브러리 및 샘플을 게시했습니다. 자세한 내용은 [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)(mbed 라이브러리 사용)를 참조하세요.
 
-* **Arduino**: Arduino에서 개발 중이라면 Arduino IDE 라이브러리 관리자에서 제공되는 Azure IoT 라이브러리를 사용할 수 있습니다. 자세한 내용은 [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino)(Arduino용 Azure IoT Hub 라이브러리)를 참조하세요.
+* **Arduino** : Arduino에서 개발 중이라면 Arduino IDE 라이브러리 관리자에서 제공되는 Azure IoT 라이브러리를 사용할 수 있습니다. 자세한 내용은 [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino)(Arduino용 Azure IoT Hub 라이브러리)를 참조하세요.
 
-* **iOS**: IoT Hub 디바이스 SDK는 Mac 및 iOS 디바이스 개발용 CocoaPods로 사용할 수 있습니다. 자세한 내용은 [iOS Samples for Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient)(Microsoft Azure IoT용 iOS 샘플)를 참조하세요.
+* **iOS** : IoT Hub 디바이스 SDK는 Mac 및 iOS 디바이스 개발용 CocoaPods로 사용할 수 있습니다. 자세한 내용은 [iOS Samples for Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient)(Microsoft Azure IoT용 iOS 샘플)를 참조하세요.
 
 그러나 이 빠른 시작에서는 GitHub에서 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 복제하고 빌드하는 데 사용되는 개발 환경을 준비합니다. GitHub의 SDK에는 이 빠른 시작에 사용된 샘플 코드가 포함됩니다.
 
@@ -124,17 +125,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyCDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyCDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyCDevice** : 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyCDevice** 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
@@ -163,7 +164,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     static const char* connectionString = "[device connection string]";
     ```
 
-    `connectionString` 상수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **iothub_convenience_sample.c**에 저장합니다.
+    `connectionString` 상수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **iothub_convenience_sample.c** 에 저장합니다.
 
 3. 로컬 터미널 창에서 Azure IoT C SDK로 만든 CMake 디렉터리의 *iothub_convenience_sample* 프로젝트 디렉터리로 이동합니다. 작업 디렉터리에서 다음 명령을 입력합니다.
 
@@ -193,7 +194,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName** : 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table

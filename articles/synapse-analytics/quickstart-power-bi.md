@@ -6,15 +6,15 @@ author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171826"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746333"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
 
@@ -29,19 +29,19 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Synapse 작업 영역에 Power BI 작업 영역 연결
 
-1. Synapse Studio에서 시작하여 **관리**를 클릭합니다.
+1. Synapse Studio에서 시작하여 **관리** 를 클릭합니다.
 
     ![Synapse Studio에서 관리를 클릭합니다.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. **외부 연결**에서 **연결된 서비스**를 클릭합니다.
+2. **외부 연결** 에서 **연결된 서비스** 를 클릭합니다.
 
     ![강조 표시된 연결된 서비스입니다.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. **+새로 만들기**를 클릭합니다.
+3. **+새로 만들기** 를 클릭합니다.
 
     ![+ 새 연결된 서비스가 강조 표시됩니다.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. **Power BI**를 클릭하고 **계속**을 클릭합니다.
+4. **Power BI** 를 클릭하고 **계속** 을 클릭합니다.
 
     ![Power BI 연결된 서비스를 표시합니다.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
     ![Power BI 연결된 서비스 설정을 표시합니다.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. **만들기**를 클릭합니다.
+6. **만들기** 를 클릭합니다.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Synapse Studio에서 Power BI 작업 영역 보기
 
 작업 영역이 연결되면 Synapse Studio에서 Power BI 데이터 세트를 찾아보고, 새 Power BI 보고서를 편집/만들 수 있습니다.
 
-1. **개발**을 클릭합니다.
+1. **개발** 을 클릭합니다.
 
     ![Synapse Studio에서 개발을 클릭합니다.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 

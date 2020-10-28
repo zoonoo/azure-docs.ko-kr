@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mimckitt, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: d040215968b0ebb433edba03e4839ffe7add0e5c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648635"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745855"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기
 
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 템플릿은 사용자 지정 스크립트 확장을 사용하여 [Bottle](https://bottlepy.org/docs/dev/), Python 웹 프레임워크 및 간단한 HTTP 서버를 설치합니다.
 
-두 스크립트는 **fileUris** - *installserver.sh* 및 *workserver.py*에 정의되어 있습니다. 이러한 파일은 GitHub에서 다운로드한 다음, *commandToExecute*에서 `bash installserver.sh`를 실행하여 앱을 설치하고 구성합니다.
+두 스크립트는 **fileUris** - *installserver.sh* 및 *workserver.py* 에 정의되어 있습니다. 이러한 파일은 GitHub에서 다운로드한 다음, *commandToExecute* 에서 `bash installserver.sh`를 실행하여 앱을 설치하고 구성합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327511"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895204"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Endpoint 만들기
 
@@ -50,7 +50,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | 리소스 그룹   | **CreatePrivateEndpointQS-rg** 를 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **\<your-web-app-region>** 을 선택합니다. </br> 웹앱이 배포되는 지역을 선택합니다.|
+    | 지역           | **서유럽** 를 선택합니다.|
 
 3. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -101,7 +101,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | 리소스 그룹 | **CreatePrivateEndpointQS-rg** 를 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **\<your-web-app-region>** 을 선택합니다. </br> 웹앱이 배포되는 지역을 선택합니다. |
+    | Azure 지역 | **서유럽** 를 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -149,7 +149,7 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
     | Resource group | **CreatePrivateEndpointQS-rg** 를 선택합니다. 이전 섹션에서 이 리소스 그룹을 만들었습니다.|
     | **인스턴스 세부 정보** |  |
     | 속성  | **myPrivateEndpoint** 를 입력합니다. |
-    | Azure 지역 | **\<your-web-app-region>** 을 선택합니다. </br> 웹앱이 배포되는 지역을 선택합니다. |
+    | Azure 지역 | **서유럽** 를 선택합니다. |
 
 6. 페이지 아래쪽에서 **리소스** 탭 또는 **다음: 리소스** 단추를 선택합니다.
     

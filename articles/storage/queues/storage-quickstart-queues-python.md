@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 12c2652b4dcef46c5affde2c3fb9ef9288176eb9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852262"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783303"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>빠른 시작: Python용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -31,15 +31,15 @@ Python용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하�
 
 추가 리소스:
 
-* [API 참조 설명서](https://docs.microsoft.com/python/api/azure-storage-queue/index)
+* [API 참조 설명서](/python/api/azure-storage-queue/index)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-queue/)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [샘플](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 * 운영 체제에 맞는 [Python](https://www.python.org/downloads/) - 2.7, 3.5 이상
 
 ## <a name="setting-up"></a>설치
@@ -48,7 +48,7 @@ Python용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하�
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*queues-quickstart-v12*라는 Python 애플리케이션을 만듭니다.
+*queues-quickstart-v12* 라는 Python 애플리케이션을 만듭니다.
 
 1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 프로젝트에 대한 새 디렉터리를 만듭니다.
 
@@ -93,7 +93,7 @@ pip install azure-storage-queue
 
     ```
 
-1. 새 파일을 *queues-quickstart-v12* 디렉터리에 *queues-quickstart-v12.py*로 저장합니다.
+1. 새 파일을 *queues-quickstart-v12* 디렉터리에 *queues-quickstart-v12.py* 로 저장합니다.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -111,9 +111,9 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 Python 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueServiceClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` 클래스는 큐에서 [receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` 클래스는 큐에서 [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -149,9 +149,9 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 새 큐의 이름을 결정합니다. 아래 코드는 큐 이름의 고유성을 보장하기 위해 이름에 UUID 값을 추가합니다.
 
 > [!IMPORTANT]
-> 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
+> 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
 
-[QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
+[QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
 
 이 코드를 `try` 블록의 끝에 추가합니다.
 
@@ -171,7 +171,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ### <a name="add-messages-to-a-queue"></a>큐에 메시지 추가
 
-다음 코드 조각은 [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, 세 번째 `send_message` 호출에서 반환된 [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage)를 저장합니다. `saved_message`는 나중에 프로그램에서 메시지 콘텐츠를 업데이트하는 데 사용됩니다.
+다음 코드 조각은 [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, 세 번째 `send_message` 호출에서 반환된 [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage)를 저장합니다. `saved_message`는 나중에 프로그램에서 메시지 콘텐츠를 업데이트하는 데 사용됩니다.
 
 이 코드를 `try` 블록의 끝에 추가합니다.
 
@@ -186,7 +186,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ### <a name="peek-at-messages-in-a-queue"></a>큐의 메시지 피킹(Peeking)
 
-[peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peek_messages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
+[peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peek_messages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
 
 이 코드를 `try` 블록의 끝에 추가합니다.
 
@@ -203,7 +203,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ### <a name="update-a-message-in-a-queue"></a>큐의 메시지 업데이트
 
-[update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `update_message` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 신규 콘텐츠와 함께 이전에 코드에 저장된 메시지의 값을 전달합니다. `saved_message` 값은 업데이트할 메시지를 식별합니다.
+[update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `update_message` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 신규 콘텐츠와 함께 이전에 코드에 저장된 메시지의 값을 전달합니다. `saved_message` 값은 업데이트할 메시지를 식별합니다.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -215,7 +215,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ### <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 
-[receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다.
+[receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다.
 
 이 코드를 `try` 블록의 끝에 추가합니다.
 
@@ -249,7 +249,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 ### <a name="delete-a-queue"></a>큐 삭제
 
-다음 코드는 [delete_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
+다음 코드는 [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
 
 이 코드를 `try` 블록의 끝에 추가하고 파일을 저장합니다.
 
@@ -314,7 +314,7 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Python 개발자용 Azure](https://docs.microsoft.com/azure/python/)
+> [Python 개발자용 Azure](/azure/python/)
 
 * 자세한 내용은 [Python용 Azure Storage 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage)를 참조하세요.
 * 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage v12 Python 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)을 계속 진행하세요.

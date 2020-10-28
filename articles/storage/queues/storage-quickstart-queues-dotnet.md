@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783473"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -34,12 +34,12 @@ ms.locfileid: "91939205"
 * [API 참조 설명서](/dotnet/api/azure.storage.queues)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [샘플](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 * 현재 운영 체제의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)입니다. 런타임이 아니라 SDK가 있어야 합니다.
 
 ## <a name="setting-up"></a>설치
@@ -48,9 +48,9 @@ ms.locfileid: "91939205"
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*QueuesQuickstartV12*라는 .NET Core 애플리케이션을 만듭니다.
+*QueuesQuickstartV12* 라는 .NET Core 애플리케이션을 만듭니다.
 
-1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 *QueuesQuickstartV12*라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 *QueuesQuickstartV12* 라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs* 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -77,7 +77,7 @@ dotnet add package Azure.Storage.Queues
 1. 편집기에서 *Program.cs* 파일 열기
 1. `Console.WriteLine("Hello World!");` 문 제거
 1. `using` 지시문 추가
-1. [비동기 코드를 지원](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)하도록 `Main` 메서드 선언 업데이트
+1. [비동기 코드를 지원](/dotnet/csharp/whats-new/csharp-7#async-main)하도록 `Main` 메서드 선언 업데이트
 
 
 
@@ -334,7 +334,7 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음 자료를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [.NET 및.NET Core 개발자용 Azure](https://docs.microsoft.com/dotnet/azure/)
+> [.NET 및.NET Core 개발자용 Azure](/dotnet/azure/)
 
 * 자세한 내용은 [.NET용 Azure Storage 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage)를 참조하세요.
 * 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage v12 .NET 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)을 계속 진행하세요.

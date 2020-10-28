@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ad26cba30986ee9a5f642755840ad5ec281219aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320288"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783422"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -31,15 +31,15 @@ JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12를 사용�
 
 추가 리소스:
 
-* [API 참조 설명서](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [API 참조 설명서](/javascript/api/@azure/storage-queue/)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-queue)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [샘플](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 * 현재 운영 체제의 [Node.js](https://nodejs.org/en/download/)입니다.
 
 ## <a name="setting-up"></a>설치
@@ -48,7 +48,7 @@ JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12를 사용�
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*queues-quickstart-v12*라는 Node.js 애플리케이션을 만듭니다.
+*queues-quickstart-v12* 라는 Node.js 애플리케이션을 만듭니다.
 
 1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 프로젝트에 대한 새 디렉터리를 만듭니다.
 
@@ -62,7 +62,7 @@ JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12를 사용�
     cd queues-quickstart-v12
     ```
 
-1. *package.json*라는 새 텍스트 파일을 만듭니다. 이 파일은 Node.js 프로젝트를 정의합니다. *queues-quickstart-v12* 디렉터리에 이 파일을 저장합니다. 파일 콘텐츠는 다음과 같습니다.
+1. *package.json* 라는 새 텍스트 파일을 만듭니다. 이 파일은 Node.js 프로젝트를 정의합니다. *queues-quickstart-v12* 디렉터리에 이 파일을 저장합니다. 파일 콘텐츠는 다음과 같습니다.
 
     ```json
     {
@@ -118,7 +118,7 @@ npm install
 
     ```
 
-1. 새 파일을 *queues-quickstart-v12* 디렉터리에 *queues-quickstart-v12.js*로 저장합니다.
+1. 새 파일을 *queues-quickstart-v12* 디렉터리에 *queues-quickstart-v12.js* 로 저장합니다.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -136,9 +136,9 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 JavaScript 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueServiceClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` 클래스는 큐에서 [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient?view=azure-node-latest#receivemessages-queuereceivemessageoptions-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` 클래스는 큐에서 [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -174,9 +174,9 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 새 큐의 이름을 결정합니다. 아래 코드는 큐 이름의 고유성을 보장하기 위해 이름에 UUID 값을 추가합니다.
 
 > [!IMPORTANT]
-> 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
+> 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
 
-[QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
+[QueueClient](/javascript/api/@azure/storage-queue/queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -197,7 +197,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### <a name="add-messages-to-a-queue"></a>큐에 메시지 추가
 
-다음 코드 조각은 [sendMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, 세 번째 `sendMessage` 호출에서 반환된 [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage)를 저장합니다. 반환된 `sendMessageResponse`는 나중에 프로그램에서 메시지 콘텐츠를 업데이트하는 데 사용됩니다.
+다음 코드 조각은 [sendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, 세 번째 `sendMessage` 호출에서 반환된 [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage)를 저장합니다. 반환된 `sendMessageResponse`는 나중에 프로그램에서 메시지 콘텐츠를 업데이트하는 데 사용됩니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -214,7 +214,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### <a name="peek-at-messages-in-a-queue"></a>큐의 메시지 피킹(Peeking)
 
-[peekMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peekMessages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
+[peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peekMessages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -232,7 +232,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### <a name="update-a-message-in-a-queue"></a>큐의 메시지 업데이트
 
-[updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `updateMessage` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 신규 콘텐츠와 함께 이전에 코드에 저장된 응답에서 `messageId` 및 `popReceipt`를 전달합니다. `sendMessageResponse` 속성은 업데이트할 메시지를 식별합니다.
+[updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `updateMessage` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 신규 콘텐츠와 함께 이전에 코드에 저장된 응답에서 `messageId` 및 `popReceipt`를 전달합니다. `sendMessageResponse` 속성은 업데이트할 메시지를 식별합니다.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 
-[receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다.  `numberOfMessages` 필드에서 이 호출에 대해 받을 최대 메시지 수를 전달합니다.
+[receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다.  `numberOfMessages` 필드에서 이 호출에 대해 받을 최대 메시지 수를 전달합니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -266,7 +266,7 @@ console.log("Messages received, requestId:", receivedMessagesResponse.requestId)
 
 메시지를 받아서 처리한 후 큐에서 메시지를 삭제합니다. 이 경우 처리는 콘솔에 메시지를 표시하는 것뿐입니다.
 
-[deleteMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) 메서드를 호출하여 메시지를 삭제합니다. 명시적으로 삭제되지 않은 메시지는 다시 처리될 수 있도록 큐에 다시 표시됩니다.
+[deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) 메서드를 호출하여 메시지를 삭제합니다. 명시적으로 삭제되지 않은 메시지는 다시 처리될 수 있도록 큐에 다시 표시됩니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -289,7 +289,7 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### <a name="delete-a-queue"></a>큐 삭제
 
-다음 코드는 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
+다음 코드는 [delete](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
 
 이 코드를 `main` 함수의 끝에 추가하고 파일을 저장합니다.
 
@@ -354,7 +354,7 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [JavaScript용 Azure 설명서](https://docs.microsoft.com/azure/developer/javascript/)
+> [JavaScript용 Azure 설명서](/azure/developer/javascript/)
 
 * 자세한 내용은 [JavaScript용 Azure Storage Queue 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)를 참조하세요.
 * 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)을 계속 진행하세요.

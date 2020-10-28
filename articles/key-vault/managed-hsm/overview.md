@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320560"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787927"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리형 HSM(미리 보기)이란?
 
@@ -24,21 +24,21 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>완전 관리형, 고가용성, 서비스로 제공되는 단일 테넌트 HSM
 
-- **완전 관리형**: HSM 프로비저닝, 구성, 패치 및 유지 관리는 서비스에 의해 처리됩니다. 
-- **고가용성 및 영역 복원력**(가용성 영역이 지원되는 경우): 각 HSM 클러스터는 두 개 이상의 가용성 영역에 걸쳐 있는 여러 HSM 파티션으로 구성됩니다. 하드웨어에 오류가 발생하면 HSM 클러스터에 대한 멤버 파티션이 정상 노드로 자동 마이그레이션됩니다.
-- **단일 테넌트**: 각 관리형 HSM 인스턴스는 단일 고객 전용이며 여러 HSM 파티션의 클러스터로 구성됩니다. 각 HSM 클러스터는 각 고객의 HSM 클러스터를 암호화로 격리하는 별도의 고객 관련 보안 도메인을 사용합니다.
+- **완전 관리형** : HSM 프로비저닝, 구성, 패치 및 유지 관리는 서비스에 의해 처리됩니다. 
+- **고가용성 및 영역 복원력** (가용성 영역이 지원되는 경우): 각 HSM 클러스터는 두 개 이상의 가용성 영역에 걸쳐 있는 여러 HSM 파티션으로 구성됩니다. 하드웨어에 오류가 발생하면 HSM 클러스터에 대한 멤버 파티션이 정상 노드로 자동 마이그레이션됩니다.
+- **단일 테넌트** : 각 관리형 HSM 인스턴스는 단일 고객 전용이며 여러 HSM 파티션의 클러스터로 구성됩니다. 각 HSM 클러스터는 각 고객의 HSM 클러스터를 암호화로 격리하는 별도의 고객 관련 보안 도메인을 사용합니다.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>액세스 제어, 향상된 데이터 보호 & 준수
 
-- **중앙 집중식 키 관리**: 조직 전체에서 중요하고 가치가 높은 키를 한 곳에서 관리합니다. 키당 세분화된 권한으로 '최소 권한 있는 액세스' 원칙에 따라 각 키에 대한 액세스를 제어합니다.
-- **격리된 액세스 제어**: 관리형 HSM "로컬 RBAC" 액세스 제어 모델을 통해 지정된 HSM 클러스터 관리자는 관리 그룹, 구독 또는 리소스 그룹 관리자도 재정의할 수 없는 HSM을 완벽하게 제어할 수 있습니다.
-- **FIPS 140-2 수준 3 유효성이 검사된 HSM**: FIPS((Federal Information Protection Standard)) 140-2 수준 3 유효성이 검사된 HSM을 사용하여 데이터를 보호하고 규정 준수 요구 사항을 충족합니다. 관리형 HSM은 Marvell LiquidSecurity HSM 어댑터를 사용합니다.
-- **모니터링 및 감사**: Azure Monitor와 완전히 통합됩니다. Azure Monitor를 통해 모든 활동의 전체 로그를 가져옵니다. 분석 및 경고에 Azure Log Analytics를 사용합니다.
+- **중앙 집중식 키 관리** : 조직 전체에서 중요하고 가치가 높은 키를 한 곳에서 관리합니다. 키당 세분화된 권한으로 '최소 권한 있는 액세스' 원칙에 따라 각 키에 대한 액세스를 제어합니다.
+- **격리된 액세스 제어** : 관리형 HSM "로컬 RBAC" 액세스 제어 모델을 통해 지정된 HSM 클러스터 관리자는 관리 그룹, 구독 또는 리소스 그룹 관리자도 재정의할 수 없는 HSM을 완벽하게 제어할 수 있습니다.
+- **FIPS 140-2 수준 3 유효성이 검사된 HSM** : FIPS((Federal Information Protection Standard)) 140-2 수준 3 유효성이 검사된 HSM을 사용하여 데이터를 보호하고 규정 준수 요구 사항을 충족합니다. 관리형 HSM은 Marvell LiquidSecurity HSM 어댑터를 사용합니다.
+- **모니터링 및 감사** : Azure Monitor와 완전히 통합됩니다. Azure Monitor를 통해 모든 활동의 전체 로그를 가져옵니다. 분석 및 경고에 Azure Log Analytics를 사용합니다.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Azure 및 Microsoft PaaS/SaaS 서비스와 통합 
 
-- 키를 생성(또는 [BYOK](hsm-protected-keys-byok.md)를 사용하여 가져오기)하고 이 키를 사용하여 [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md) 및 [Azure Information Protection](/azure/information-protection/byok-price-restrictions) 등의 Azure 서비스에서 미사용 데이터를 암호화합니다.
+- 키를 생성(또는 [BYOK](hsm-protected-keys-byok.md)를 사용하여 가져오기)하고 이 키를 사용하여 [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md) 및 [Azure Information Protection](/azure/information-protection/byok-price-restrictions) 등의 Azure 서비스에서 미사용 데이터를 암호화합니다.
 
 ### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Key Vault와 동일한 API 및 관리 인터페이스 사용
 

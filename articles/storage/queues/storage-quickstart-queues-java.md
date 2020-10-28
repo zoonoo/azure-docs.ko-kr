@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90015027"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783439"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -33,14 +33,14 @@ Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 
 * [API 참조 설명서](/java/api/overview/azure/storage-queue-readme)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [샘플](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [샘플](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>설치
 
@@ -48,9 +48,9 @@ Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-*queues-quickstart-v12*라는 Java 애플리케이션을 만듭니다.
+*queues-quickstart-v12* 라는 Java 애플리케이션을 만듭니다.
 
-1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *queues-quickstart-v12*라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 입력하여 "Hello world!"를 생성합니다. Java 프로젝트를 만듭니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 *queues-quickstart-v12* 라는 새 콘솔 앱을 만듭니다. 다음 **mvn** 명령을 입력하여 "Hello world!"를 생성합니다. Java 프로젝트를 만듭니다.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \

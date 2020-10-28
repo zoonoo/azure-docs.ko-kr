@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
+ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042646"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896517"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -37,7 +38,7 @@ ms.locfileid: "92042646"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) 창으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -48,15 +49,15 @@ ms.locfileid: "92042646"
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. Azure Portal 검색 창에서 **앱 등록**을 검색하여 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록**을 선택합니다.
+> 1. Azure Portal 검색 창에서 **앱 등록** 을 검색하여 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+> 1. **새 등록** 을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-> 1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Daemon-console`)을 입력한 다음, **등록**을 선택하여 애플리케이션을 만듭니다.
+> 1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Daemon-console`)을 입력한 다음, **등록** 을 선택하여 애플리케이션을 만듭니다.
 > 1. 등록되면 **인증서 및 비밀** 메뉴를 선택합니다.
-> 1. **클라이언트 비밀** 아래에서 **+ 새 클라이언트 비밀**을 선택합니다. 이름을 지정하고 **추가**를 선택합니다. 비밀을 안전한 위치에 복사합니다. 코드에서 사용하기 위해 필요하며 포털에 다시 표시되지 않습니다.
-> 1. 이제 **API 사용 권한** 메뉴를 선택하고, **+ 권한 추가** 단추를 선택하고, **Microsoft Graph**를 선택합니다.
-> 1. **애플리케이션 권한**을 선택합니다.
-> 1. **사용자** 노드 아래에서 **User.Read.All**을 선택한 다음, **권한 추가**를 선택합니다.
+> 1. **클라이언트 비밀** 아래에서 **+ 새 클라이언트 비밀** 을 선택합니다. 이름을 지정하고 **추가** 를 선택합니다. 비밀을 안전한 위치에 복사합니다. 코드에서 사용하기 위해 필요하며 포털에 다시 표시되지 않습니다.
+> 1. 이제 **API 사용 권한** 메뉴를 선택하고, **+ 권한 추가** 단추를 선택하고, **Microsoft Graph** 를 선택합니다.
+> 1. **애플리케이션 권한** 을 선택합니다.
+> 1. **사용자** 노드 아래에서 **User.Read.All** 을 선택한 다음, **권한 추가** 를 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
@@ -89,9 +90,9 @@ ms.locfileid: "92042646"
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 >
-> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-> 1. Visual Studio - **1-Call-MSGraph\daemon-console.sln**에서 솔루션을 엽니다(선택 사항).
-> 1. **appsettings.json**을 편집하고 `ClientId`, `Tenant` 및 `ClientSecret` 필드의 값을 다음으로 바꿉니다.
+> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples** )로 추출합니다.
+> 1. Visual Studio - **1-Call-MSGraph\daemon-console.sln** 에서 솔루션을 엽니다(선택 사항).
+> 1. **appsettings.json** 을 편집하고 `ClientId`, `Tenant` 및 `ClientSecret` 필드의 값을 다음으로 바꿉니다.
 >
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -99,13 +100,13 @@ ms.locfileid: "92042646"
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
 >   위치:
->   - `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
->   - `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+>   - `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름** (예: contoso.microsoft.com)으로 바꿉니다.
 >   - `Enter_the_Client_Secret_Here` - 1단계에서 만든 클라이언트 비밀로 이 값을 바꿉니다.
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다. 새 키를 생성하려면 **인증서 및 비밀** 페이지로 이동합니다.
+> > **애플리케이션(클라이언트) ID** , **디렉터리(테넌트) ID** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다. 새 키를 생성하려면 **인증서 및 비밀** 페이지로 이동합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>3단계: 관리자 동의
@@ -113,7 +114,7 @@ ms.locfileid: "92042646"
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>4단계: 관리자 동의
 
-이 시점에서 애플리케이션을 실행하려고 시도하면 *HTTP 403 - 사용할 수 없음* 오류: `Insufficient privileges to complete the operation` 메시지가 표시됩니다. 모든 *앱 전용 권한*에는 관리자 동의가 필요하기 때문에 이 오류가 발생합니다. 즉, 디렉터리의 글로벌 관리자가 애플리케이션에 동의해야 합니다. 역할에 따라 아래 옵션 중 하나를 선택합니다.
+이 시점에서 애플리케이션을 실행하려고 시도하면 *HTTP 403 - 사용할 수 없음* 오류: `Insufficient privileges to complete the operation` 메시지가 표시됩니다. 모든 *앱 전용 권한* 에는 관리자 동의가 필요하기 때문에 이 오류가 발생합니다. 즉, 디렉터리의 글로벌 관리자가 애플리케이션에 동의해야 합니다. 역할에 따라 아래 옵션 중 하나를 선택합니다.
 
 ##### <a name="global-tenant-administrator"></a>글로벌 테넌트 관리자
 
@@ -121,7 +122,7 @@ ms.locfileid: "92042646"
 > 글로벌 테넌트 관리자인 경우 Azure Portal에서 **엔터프라이즈 애플리케이션** > 앱 등록 클릭 > 왼쪽 탐색 창의 보안 섹션에서 **"권한"** 선택으로 이동합니다. **{테넌트 이름}에 대한 관리자 동의 부여** 레이블이 지정된 큰 단추를 클릭합니다(여기서 {테넌트 이름}은 디렉터리 이름임).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> 글로벌 관리자인 경우 **API 사용 권한** 페이지로 이동하고 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여**를 선택합니다.
+> 글로벌 관리자인 경우 **API 사용 권한** 페이지로 이동하고 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여** 를 선택합니다.
 > > [!div id="apipermissionspage"]
 > > [API 사용 권한 페이지로 이동]()
 
@@ -135,8 +136,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> 위치:
->> * `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->> * `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
+>> * `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름** (예: contoso.microsoft.com)으로 바꿉니다.
+>> * `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 
 > [!NOTE]
 > 위의 URL을 사용하여 앱에 동의를 부여한 후 오류 *'AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.'* 가 표시될 수 있습니다. 이는 이 애플리케이션 및 URL에 리디렉션 URI가 없기 때문에 발생합니다. 오류를 무시하세요.
@@ -147,9 +148,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>5단계: 애플리케이션 실행
 
-Visual Studio 또는 Mac용 Visual Studio를 사용하는 경우 **F5**를 눌러 애플리케이션을 실행합니다. 그렇지 않으면 명령 프롬프트, 콘솔 또는 터미널을 통해 애플리케이션을 실행합니다.
+Visual Studio 또는 Mac용 Visual Studio를 사용하는 경우 **F5** 를 눌러 애플리케이션을 실행합니다. 그렇지 않으면 명령 프롬프트, 콘솔 또는 터미널을 통해 애플리케이션을 실행합니다.
 
-```console
+```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
@@ -171,10 +172,9 @@ dotnet run
 
 MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. 설명한 것과 같이 이 빠른 시작은 위임된 권한 대신 애플리케이션 소유 ID를 사용하여 토큰을 요청합니다. 이 경우에 사용되는 인증 흐름을 *[클라이언트 자격 증명 oauth 흐름](v2-oauth2-client-creds-grant-flow.md)* 이라고 합니다. 클라이언트 자격 증명 흐름과 함께 MSAL.NET을 사용하는 방법에 대한 자세한 내용은 [이 문서](https://aka.ms/msal-net-client-credentials)를 참조하세요.
 
- Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행하여 MSAL.NET을 설치할 수 있습니다.
+ Visual Studio의 **패키지 관리자 콘솔** 에서 다음 명령을 실행하여 MSAL.NET을 설치할 수 있습니다.
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 
@@ -199,7 +199,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | 위치: | Description |
 > |---------|---------|
 > | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
-> | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
+> | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 > | `config.Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드에 대한 `https://login.microsoftonline.com/{tenant}`입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
 
 자세한 내용은 [`ConfidentialClientApplication`에 대한 참조 설명서](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)를 참조하세요.

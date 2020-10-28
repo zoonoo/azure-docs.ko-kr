@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926725"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897265"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -74,8 +74,8 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
 
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
 
-- [Azure AD 권한 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)를 사용하여 [외부 사용자에 대한 액세스를 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다.
-- [B2B 협업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 온보딩 환경을 사용자 지정합니다.
+- [Azure AD 권한 관리](../governance/entitlement-management-overview.md)를 사용하여 [외부 사용자에 대한 액세스를 관리](../governance/entitlement-management-external-users.md#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다.
+- [B2B 협업 초대 API](/graph/api/resources/invitation)를 사용하여 온보딩 환경을 사용자 지정합니다.
 
 ## <a name="integrate-with-identity-providers"></a>ID 공급자와 통합
 
@@ -95,6 +95,6 @@ Azure AD는 Facebook, Microsoft 계정, Google 또는 엔터프라이즈 ID 공�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 협업 라이선스 지침](licensing-guidance.md)
+- [외부 ID 가격](external-identities-pricing.md)
 - [포털에서 B2B 협업 게스트 사용자 추가](add-users-administrator.md)
 - [초대 사용 프로세스 이해](redemption-experience.md)

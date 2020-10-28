@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042561"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784612"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 키 클라이언트 라이브러리
 
@@ -24,14 +24,14 @@ Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. �
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Python 2.7+ 또는 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ 또는 3.5.3+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
 ## <a name="set-up-your-local-environment"></a>로컬 환경 설정
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/java/api/overview/azure/identity-readme)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -98,7 +98,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 Python용 Azure Key Vault 키 클라이언트 라이브러리를 사용하면 암호화 키를 관리할 수 있습니다. 다음 코드 샘플에서는 클라이언트를 만들고, 키를 설정하고, 키를 검색하고, 키를 삭제하는 방법을 보여줍니다.
 
-이 코드가 포함된 *kv_keys.py*라는 파일을 만듭니다.
+이 코드가 포함된 *kv_keys.py* 라는 파일을 만듭니다.
 
 ```python
 import os
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>코드 실행
 
-이전 섹션의 코드가 *kv_keys.py*라는 파일에 있는지 확인합니다. 그런 후, 다음 명령을 사용하여 코드를 실행합니다.
+이전 섹션의 코드가 *kv_keys.py* 라는 파일에 있는지 확인합니다. 그런 다음, 다음 명령을 사용하여 코드를 실행합니다.
 
 ```terminal
 python kv_keys.py

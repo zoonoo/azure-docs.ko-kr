@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297150"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748085"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
@@ -65,7 +65,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
 JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브를 리소스 그룹에 만듭니다. Azure Resource Manager 템플릿을 사용하여 기존 프로비전 서비스나 IoT 허브를 변경할 수도 있습니다.
 
-1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **template.json**이라는 Azure Resource Manager 템플릿을 만듭니다. 
+1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **template.json** 이라는 Azure Resource Manager 템플릿을 만듭니다. 
 
    ```json
    {
@@ -133,9 +133,9 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
    ``` 
 
-5. 프로비전 서비스를 만들려면 **resources** 컬렉션의 IoT 허브 사양 뒤에 다음 줄을 추가합니다. 프로비저닝 서비스의 **이름** 및 **위치**는 매개 변수로 전달됩니다. **iotHubs** 컬렉션은 프로비저닝 서비스에 연결할 IoT 허브를 지정합니다. 최소한, 연결된 IoT 허브마다 **connectionString** 및 **location** 속성을 지정해야 합니다. IoT 허브마다 **allocationWeight** 및 **applyAllocationPolicy**와 같은 속성을 설정할 수 있을 뿐만 아니라 프로비전 서비스 자체에 **allocationPolicy** 및 **authorizationPolicies**와 같은 속성을 설정할 수 있습니다. 자세히 알아보려면 [Microsoft.Devices/provisioningServices 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)를 참조하세요.
+5. 프로비전 서비스를 만들려면 **resources** 컬렉션의 IoT 허브 사양 뒤에 다음 줄을 추가합니다. 프로비저닝 서비스의 **이름** 및 **위치** 는 매개 변수로 전달됩니다. **iotHubs** 컬렉션은 프로비저닝 서비스에 연결할 IoT 허브를 지정합니다. 최소한, 연결된 IoT 허브마다 **connectionString** 및 **location** 속성을 지정해야 합니다. IoT 허브마다 **allocationWeight** 및 **applyAllocationPolicy** 와 같은 속성을 설정할 수 있을 뿐만 아니라 프로비전 서비스 자체에 **allocationPolicy** 및 **authorizationPolicies** 와 같은 속성을 설정할 수 있습니다. 자세히 알아보려면 [Microsoft.Devices/provisioningServices 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)를 참조하세요.
 
-   **dependsOn** 속성은 Resource Manager가 프로비전 서비스를 만들기 전에 IoT 허브를 만들도록 하는 데 사용됩니다. 템플릿에 허브와 해당 키가 먼저 생성되도록 프로비전 서비스에 대한 링크를 지정하는 IoT 허브의 연결 문자열이 필요합니다. 템플릿은 **concat**이나 **listKeys** 같은 함수를 사용하여 매개 변수가 있는 변수로 연결 문자열을 만듭니다. 자세히 알아보려면 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 참조하세요.
+   **dependsOn** 속성은 Resource Manager가 프로비전 서비스를 만들기 전에 IoT 허브를 만들도록 하는 데 사용됩니다. 템플릿에 허브와 해당 키가 먼저 생성되도록 프로비전 서비스에 대한 링크를 지정하는 IoT 허브의 연결 문자열이 필요합니다. 템플릿은 **concat** 이나 **listKeys** 같은 함수를 사용하여 매개 변수가 있는 변수로 연결 문자열을 만듭니다. 자세히 알아보려면 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 참조하세요.
 
    ```json
         {
@@ -236,7 +236,7 @@ JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브�
 
 마지막 단계에서 정의한 템플릿은 매개 변수를 사용하여 IoT 허브의 이름, 프로비저닝 서비스의 이름 및 해당 항목이 만들어질 위치(Azure 지역)를 지정합니다. 이러한 매개 변수를 별도의 파일로 템플릿에 전달합니다. 이렇게 하면 여러 배포에 대해 동일한 템플릿을 다시 사용할 수 있습니다. 매개 변수 파일을 만들려면 다음 단계를 수행합니다.
 
-1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **parameters.json**이라는 Azure Resource Manager 매개 변수 파일을 만듭니다. 
+1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **parameters.json** 이라는 Azure Resource Manager 매개 변수 파일을 만듭니다. 
 
    ```json
    {

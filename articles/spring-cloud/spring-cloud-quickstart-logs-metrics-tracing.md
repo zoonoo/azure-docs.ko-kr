@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093058"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746642"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
@@ -32,7 +32,7 @@ Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡�
 
 ## <a name="logs"></a>로그
 
-Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics**.
+Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics** .
 
 ### <a name="log-streaming"></a>스트리밍 로그
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그**를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행**을 선택합니다.
+1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 선택합니다.
 
    [ ![Logs Analytics 항목](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,21 +75,21 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>메트릭
 
-1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭**을 선택합니다. **메트릭** 드롭다운의 **성능(.NET)** 또는 **요청(.NET**)에서 .NET 메트릭 중 하나를 선택하여 첫 번째 메트릭을 추가하고 해당 메트릭에 대한 타임라인을 확인하려면 **집계**의 `Avg`를 선택합니다.
+1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. **메트릭** 드롭다운의 **성능(.NET)** 또는 **요청(.NET** )에서 .NET 메트릭 중 하나를 선택하여 첫 번째 메트릭을 추가하고 해당 메트릭에 대한 타임라인을 확인하려면 **집계** 의 `Avg`를 선택합니다.
 
    [ ![메트릭 항목 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
-1. 도구 모음에서 **필터 추가**를 클릭하고, `App=solar-system-weather`를 선택하여 **solar-system-weather** 앱에 대해서만 CPU 사용량을 확인합니다.
+1. 도구 모음에서 **필터 추가** 를 클릭하고, `App=solar-system-weather`를 선택하여 **solar-system-weather** 앱에 대해서만 CPU 사용량을 확인합니다.
 
    [ ![메트릭에서 필터 사용 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. 이전 단계에서 만든 필터를 해제하여 **분할 적용**을 선택하고, **값**에 대해 `App`을 선택하여 다른 앱의 CPU 사용량을 확인합니다.
+1. 이전 단계에서 만든 필터를 해제하여 **분할 적용** 을 선택하고, **값** 에 대해 `App`을 선택하여 다른 앱의 CPU 사용량을 확인합니다.
 
    [ ![메트릭에 분할 적용 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
 ## <a name="distributed-tracing"></a>분산된 추적
 
-1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **분산 추적**을 선택합니다. 그런 다음, 오른쪽의 있는 **애플리케이션 맵 보기** 탭을 선택합니다.
+1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **분산 추적** 을 선택합니다. 그런 다음, 오른쪽의 있는 **애플리케이션 맵 보기** 탭을 선택합니다.
 
    [ ![분산 추적 항목 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -97,7 +97,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![분산 추적 개요 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png#lightbox)
     
-1. **solar-system-weather**와 **planet-weather-provider** 사이의 링크를 선택하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
+1. **solar-system-weather** 와 **planet-weather-provider** 사이의 링크를 선택하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
 
    [![ 분산 추적 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png#lightbox)
     
@@ -119,7 +119,7 @@ Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡�
 
 ## <a name="logs"></a>로그
 
-Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics**.
+Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics** .
 
 ### <a name="log-streaming"></a>스트리밍 로그
 
@@ -142,15 +142,15 @@ az spring-cloud app logs -s <service instance name> -g <resource group name> -n 
 
 Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 수행합니다.
 
-1. **Azure Explorer**를 선택한 다음, **Spring Cloud**를 선택합니다.
+1. **Azure Explorer** 를 선택한 다음, **Spring Cloud** 를 선택합니다.
 
 1. 실행 중인 앱을 마우스 오른쪽 단추로 클릭합니다.
 
-1. 드롭다운 목록에서 **스트리밍 로그**를 선택합니다.
+1. 드롭다운 목록에서 **스트리밍 로그** 를 선택합니다.
 
    ![스트리밍 로그 선택](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. **인스턴스**를 선택합니다.
+1. **인스턴스** 를 선택합니다.
 
    ![인스턴스 선택](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -161,7 +161,7 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 ---
 ### <a name="log-analytics"></a>Log Analytics
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그**를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행**을 클릭합니다. 
+1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 클릭합니다. 
 
    [ ![Logs Analytics 항목](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -171,21 +171,21 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
 ## <a name="metrics"></a>메트릭
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭**을 선택합니다. 전체 CPU 사용량에 대한 타임라인을 보려면 **메트릭**에 대해 `system.cpu.usage`를 선택하고 **집계**에 대해 `Avg`를 선택하여 첫 번째 메트릭을 추가합니다.
+1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. 전체 CPU 사용량에 대한 타임라인을 보려면 **메트릭** 에 대해 `system.cpu.usage`를 선택하고 **집계** 에 대해 `Avg`를 선택하여 첫 번째 메트릭을 추가합니다.
 
    [ ![메트릭 항목](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
-1. 위의 도구 모음에서 **필터 추가**를 클릭하고, `App=Gateway`를 선택하여 **게이트웨이** 앱에 대해서만 CPU 사용량을 확인합니다.
+1. 위의 도구 모음에서 **필터 추가** 를 클릭하고, `App=Gateway`를 선택하여 **게이트웨이** 앱에 대해서만 CPU 사용량을 확인합니다.
 
    [ ![메트릭에서 필터 사용](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
 
-1. 위에서 만든 필터를 해제하여 **분할 적용**을 클릭하고, **값**에 대해 `App`을 선택하여 다른 앱의 CPU 사용량을 확인합니다.
+1. 위에서 만든 필터를 해제하여 **분할 적용** 을 클릭하고, **값** 에 대해 `App`을 선택하여 다른 앱의 CPU 사용량을 확인합니다.
 
    [ ![메트릭에 분할 적용](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
 
 ## <a name="distributed-tracing"></a>분산된 추적
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **분산 추적**을 선택합니다. 그런 다음, 오른쪽의 있는 **애플리케이션 맵 보기** 탭을 클릭합니다.
+1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **분산 추적** 을 선택합니다. 그런 다음, 오른쪽의 있는 **애플리케이션 맵 보기** 탭을 클릭합니다.
 
    [ ![분산 추적 항목](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -193,7 +193,7 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
    [![ 분산 추적 개요](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png#lightbox)
     
-1. **게이트웨이**와 **계정 서비스** 간의 링크를 클릭하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
+1. **게이트웨이** 와 **계정 서비스** 간의 링크를 클릭하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
 
    [ ![ 분산 추적](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png#lightbox)
     

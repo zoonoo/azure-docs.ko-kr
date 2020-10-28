@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 082695069a66efb3919be0667407ba73d963c572
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91285335"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889955"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -60,29 +60,29 @@ Azure Maps는 Azure 애플리케이션에 지리적 컨텍스트를 제공할 �
 
 ### <a name="data-service"></a>데이터 서비스
 
-데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service 설명서](https://docs.microsoft.com/rest/api/maps/data)를 참조하세요.
+데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service 설명서](/rest/api/maps/data)를 참조하세요.
 
 ### <a name="geolocation-service"></a>지리적 위치 서비스
 
 Geolocation Service를 사용하여 IP 주소에 대해 검색된 2자 길이의 국가/지역 코드를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정된 애플리케이션 콘텐츠를 제공하여 사용자 환경을 개선하는 데 도움을 줄 수 있습니다.
 
-자세한 내용은 [Geolocation Service 설명서](https://docs.microsoft.com/rest/api/maps/geolocation)를 참조하세요.
+자세한 내용은 [Geolocation Service 설명서](/rest/api/maps/geolocation)를 참조하세요.
 
 ### <a name="mobility-service"></a>모바일 서비스
 
 Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류장 등의 대중 교통 기능을 사용하여 애플리케이션 개발 시간을 단축합니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 사용자는 Mobility Service를 통해 정류장 및 노선 기하학, 정류장/노선/서비스 영역 알림, 실시간 대중 교통 도착 및 서비스 알림을 검색할 수 있습니다. 뿐만 아니라 Mobility Service는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
 
-이 서비스에 대한 자세한 내용은 [Mobility Service 설명서](https://docs.microsoft.com/rest/api/maps/mobility)를 참조하세요.
+이 서비스에 대한 자세한 내용은 [Mobility Service 설명서](/rest/api/maps/mobility)를 참조하세요.
 
 ### <a name="render-service"></a>Render Service
 
-현재 미리 보기로 제공되는 [Render Service V2](https://docs.microsoft.com/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
+현재 미리 보기로 제공되는 [Render Service V2](/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
 
-자세한 내용은 [Render Service V2 설명서](https://docs.microsoft.com/rest/api/maps/renderv2)를 참조하세요.
+자세한 내용은 [Render Service V2 설명서](/rest/api/maps/renderv2)를 참조하세요.
 
-현재 GA(일반 공급) 상태인 Render Service V1에 대한 자세한 내용은 [Render Service V1 설명서](https://docs.microsoft.com/rest/api/maps/render)를 참조하세요.  
+현재 GA(일반 공급) 상태인 Render Service V1에 대한 자세한 내용은 [Render Service V1 설명서](/rest/api/maps/render)를 참조하세요.  
 
 ### <a name="route-service"></a>Route Service
 
@@ -96,7 +96,7 @@ Route Service는 다음과 같은 고급 기능 세트를 제공합니다.
 * 원본과 대상 세트 간 여행 시간 및 거리의 매트릭스.
 * 시간 또는 연료 요구 사항에 기반한 사용자가 여행할 수 있는 경로 또는 거리 찾기.
 
-라우팅 기능에 대한 자세한 내용은 [Route Service 설명서](https://docs.microsoft.com/rest/api/maps/route)를 참조하세요.
+라우팅 기능에 대한 자세한 내용은 [Route Service 설명서](/rest/api/maps/route)를 참조하세요.
 
 ### <a name="search-service"></a>Search 서비스
 
@@ -111,13 +111,13 @@ Search Service는 개발자가 주소, 장소, 비즈니스 목록을 이름이�
 * 검색 요청의 그룹 일괄 처리.
 * 브랜드 이름별로 전기차 충전소 및 POI(관심 지점) 데이터 검색
 
-검색 기능에 대한 자세한 내용은 [Search Service 설명서](https://docs.microsoft.com/rest/api/maps/search)를 참조하세요.
+검색 기능에 대한 자세한 내용은 [Search Service 설명서](/rest/api/maps/search)를 참조하세요.
 
 ### <a name="spatial-service"></a>공간 서비스
 
 Spatial Service는 위치 정보를 신속하게 분석하여 고객에게 시간 및 공간에서 발생하고 있는 실시간 이벤트를 알려줍니다. 이벤트를 거의 실시간으로 분석하고 예측 모델링을 수행할 수 있습니다.
 
-이 서비스를 통해 고객은 일반적인 지리 공간적 수학 계산 라이브러리를 사용하여 위치 인텔리전스를 개선할 수 있습니다. 일반적인 계산에는 가장 가까운 지점, 대원 거리 및 버퍼가 포함됩니다. 이 서비스와 다양한 기능에 대한 자세한 내용은 [Spatial Service 설명서](https://docs.microsoft.com/rest/api/maps/spatial)를 참조하세요.
+이 서비스를 통해 고객은 일반적인 지리 공간적 수학 계산 라이브러리를 사용하여 위치 인텔리전스를 개선할 수 있습니다. 일반적인 계산에는 가장 가까운 지점, 대원 거리 및 버퍼가 포함됩니다. 이 서비스와 다양한 기능에 대한 자세한 내용은 [Spatial Service 설명서](/rest/api/maps/spatial)를 참조하세요.
 
 ### <a name="timezone-service"></a>Timezone Service
 
@@ -155,7 +155,7 @@ Time Zone Service에 대한 쿼리의 일반적인 JSON 응답은 다음 샘플�
 }
 ```
 
-이 서비스에 대한 자세한 내용은 [Time Zone Service 설명서](https://docs.microsoft.com/rest/api/maps/timezone)를 참조하세요.
+이 서비스에 대한 자세한 내용은 [Time Zone Service 설명서](/rest/api/maps/timezone)를 참조하세요.
 
 ### <a name="traffic-service"></a>Traffic Service
 
@@ -166,15 +166,15 @@ Traffic Service는 교통 정보가 필요한 웹 및 모바일 애플리케이�
 
 ![교통 정보를 사용한 맵의 예제](media/about-azure-maps/intro_traffic.png)
 
-자세한 내용은 [Traffic Service 설명서](https://docs.microsoft.com/rest/api/maps/traffic)를 참조하세요.
+자세한 내용은 [Traffic Service 설명서](/rest/api/maps/traffic)를 참조하세요.
 
 ### <a name="weather-service"></a>Weather Service
 
 Weather Service는 개발자가 특정 위치의 날씨 정보를 검색하는 데 사용할 수 있는 API를 제공합니다. 이 정보에는 관측 날짜 및 시간, 기후 조건에 대한 간단한 설명, 날씨 아이콘, 강수량 지표 플래그, 온도, 바람 속도 정보 등의 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선 지수 같은 추가 세부 정보도 반환됩니다.
 
-개발자는 [Get Weather along route API](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview)를 사용하여 특정 경로를 따라 날씨 정보를 검색할 수 있습니다. 또한 이 서비스는 홍수나 장마 같은 기후 재난의 영향을 받는 중간 지점에 대한 날씨 알림 생성을 지원합니다.
+개발자는 [Get Weather along route API](/rest/api/maps/weather/getweatheralongroutepreview)를 사용하여 특정 경로를 따라 날씨 정보를 검색할 수 있습니다. 또한 이 서비스는 홍수나 장마 같은 기후 재난의 영향을 받는 중간 지점에 대한 날씨 알림 생성을 지원합니다.
 
-[Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)를 사용하여 과거, 현재, 미래의 레이더 및 위성 타일을 요청할 수 있습니다.
+[Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview)를 사용하여 과거, 현재, 미래의 레이더 및 위성 타일을 요청할 수 있습니다.
 
 ![실시간 날씨 레이더 타일이 포함된 맵의 예](media/about-azure-maps/intro_weather.png)
 
@@ -184,21 +184,21 @@ Maps Creator Service는 개발자가 실내 맵 데이터 기반의 맵 기능�
 
 Maps Creator Service는 다음과 같은 세 가지 주요 서비스를 제공합니다.
 
-* [데이터 세트 서비스](https://docs.microsoft.com/rest/api/maps/dataset). 데이터 세트 서비스를 사용하여 변환된 그리기 패키지 데이터에서 데이터 세트를 만듭니다. 그리기 패키지 요구 사항에 대한 자세한 내용은 그리기 패키지 요구 사항을 참조하세요.
+* [데이터 세트 서비스](/rest/api/maps/dataset). 데이터 세트 서비스를 사용하여 변환된 그리기 패키지 데이터에서 데이터 세트를 만듭니다. 그리기 패키지 요구 사항에 대한 자세한 내용은 그리기 패키지 요구 사항을 참조하세요.
 
-* [변환 서비스](https://docs.microsoft.com/rest/api/maps/dataset). 변환 서비스를 사용하여 DWG 디자인 파일을 실내 맵에 대한 그리기 패키지 데이터로 변환할 수 있습니다.
+* [변환 서비스](/rest/api/maps/dataset). 변환 서비스를 사용하여 DWG 디자인 파일을 실내 맵에 대한 그리기 패키지 데이터로 변환할 수 있습니다.
 
-* [타일 세트 서비스](https://docs.microsoft.com/rest/api/maps/tileset). 타일 세트 서비스를 사용하여 데이터 세트의 벡터 기반 표현을 만듭니다. 애플리케이션에서 타일 세트를 사용하여 데이터 세트의 시각적 타일 기반 보기를 표시할 수 있습니다.
+* [타일 세트 서비스](/rest/api/maps/tileset). 타일 세트 서비스를 사용하여 데이터 세트의 벡터 기반 표현을 만듭니다. 애플리케이션에서 타일 세트를 사용하여 데이터 세트의 시각적 타일 기반 보기를 표시할 수 있습니다.
 
-* [기능 상태 서비스](https://docs.microsoft.com/rest/api/maps/featurestate). 기능 상태 서비스를 사용하여 동적 맵 스타일 지정을 지원할 수 있습니다. 동적 맵 스타일 지정을 통해 실시간 이벤트를 IoT 시스템에서 제공하는 공간에 반영할 수 있습니다.
+* [기능 상태 서비스](/rest/api/maps/featurestate). 기능 상태 서비스를 사용하여 동적 맵 스타일 지정을 지원할 수 있습니다. 동적 맵 스타일 지정을 통해 실시간 이벤트를 IoT 시스템에서 제공하는 공간에 반영할 수 있습니다.
 
-* [WFS 서비스](https://docs.microsoft.com/rest/api/maps/featurestate) WFS 서비스를 사용하여 실내 맵 데이터를 쿼리할 수 있습니다. WFS 서비스는 단일 데이터 세트 쿼리에 대한 [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) 표준을 따릅니다.
+* [WFS 서비스](/rest/api/maps/featurestate) WFS 서비스를 사용하여 실내 맵 데이터를 쿼리할 수 있습니다. WFS 서비스는 단일 데이터 세트 쿼리에 대한 [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) 표준을 따릅니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 개발하는 데 유용할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
+Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 개발하는 데 유용할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
 
-또한 Azure Maps는 간단한 프로그래밍 모델을 사용하는 간편한 [JavaScript 맵 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다. 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있습니다.
+또한 Azure Maps는 간단한 프로그래밍 모델을 사용하는 간편한 [JavaScript 맵 컨트롤](/javascript/api/azure-maps-control)을 제공합니다. 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있습니다.
 
 ## <a name="power-bi-visual"></a>Power BI 시각적 개체
 

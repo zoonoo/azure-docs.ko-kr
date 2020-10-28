@@ -3,16 +3,16 @@ title: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영
 description: ARM 템플릿을 사용하여 Log Analytics 작업 영역 및 Azure Monitor 로그에 활동 로그를 보내는 진단 설정을 만듭니다.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747034"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "91631854"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-다음 템플릿은 빈 Log Analytics 작업 영역을 만듭니다. 이 템플릿을 *CreateWorkspace.json*으로 저장합니다.
+다음 템플릿은 빈 Log Analytics 작업 영역을 만듭니다. 이 템플릿을 *CreateWorkspace.json* 으로 저장합니다.
 
 ```json
 {
@@ -134,7 +134,7 @@ ms.locfileid: "91631854"
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
-CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹**, **workspaceName** 및 **위치**의 샘플 값을 각자 환경에 맞는 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
+CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** , **workspaceName** 및 **위치** 의 샘플 값을 각자 환경에 맞는 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -160,7 +160,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ### <a name="validate-the-deployment"></a>배포 유효성 검사
 
-다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹** 및 **workspaceName**의 샘플 값을 위에서 사용한 값으로 바꿉니다.
+다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹** 및 **workspaceName** 의 샘플 값을 위에서 사용한 값으로 바꿉니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-다음 템플릿은 활동 로그를 Log Analytics 작업 영역으로 보내는 진단 설정을 만듭니다. 이 템플릿을 *CreateDiagnosticSetting.json*으로 저장합니다.
+다음 템플릿은 활동 로그를 Log Analytics 작업 영역으로 보내는 진단 설정을 만듭니다. 이 템플릿을 *CreateDiagnosticSetting.json* 으로 저장합니다.
 
 ```json
 {
@@ -248,7 +248,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
-CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹**, **workspaceName** 및 **위치**의 샘플 값을 각자 환경에 맞는 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
+CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** , **workspaceName** 및 **위치** 의 샘플 값을 각자 환경에 맞는 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -281,15 +281,15 @@ az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-000
 
 ## <a name="retrieve-data-with-a-log-query"></a>로그 쿼리를 사용하여 데이터 검색
 
-Azure Portal에서 Log Analytics를 사용하여 작업 영역의 데이터를 검색합니다. Azure Portal에서 **모니터**를 검색하여 선택합니다.
+Azure Portal에서 Log Analytics를 사용하여 작업 영역의 데이터를 검색합니다. Azure Portal에서 **모니터** 를 검색하여 선택합니다.
 
 ![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-**Azure Monitor** 메뉴에서 **로그**를 선택합니다. **예제 쿼리** 페이지를 닫습니다. 범위를 앞에서 만든 작업 영역으로 설정하지 않은 경우 **범위 선택**을 클릭하여 앞에서 만든 작업 영역을 찾습니다.
+**Azure Monitor** 메뉴에서 **로그** 를 선택합니다. **예제 쿼리** 페이지를 닫습니다. 범위를 앞에서 만든 작업 영역으로 설정하지 않은 경우 **범위 선택** 을 클릭하여 앞에서 만든 작업 영역을 찾습니다.
 
 ![Log Analytics 범위](media/quick-collect-activity-log/log-analytics-scope.png)
 
-쿼리 창에서 `AzureActivity`를 입력하고 **실행**을 클릭합니다. 활동 로그에서 보낸 모든 레코드를 포함하는 *AzureActivity* 테이블의 모든 레코드를 반환하는 단순 쿼리입니다.
+쿼리 창에서 `AzureActivity`를 입력하고 **실행** 을 클릭합니다. 활동 로그에서 보낸 모든 레코드를 포함하는 *AzureActivity* 테이블의 모든 레코드를 반환하는 단순 쿼리입니다.
 
 ![단순 쿼리](media/quick-collect-activity-log/query-01.png)
 

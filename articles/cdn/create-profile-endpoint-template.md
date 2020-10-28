@@ -9,15 +9,15 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: aca3c9c52260d3ea2ab8def37566377fa67e712d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0612445d0a1bfa10182eb8ce827001d0856f4d9b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705931"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777913"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기 - ARM 템플릿
 
@@ -46,7 +46,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure CDN(Conten
 
 템플릿에 다음과 같은 Azure 리소스 하나가 정의되어 있습니다.
 
-* **[Microsoft.Cdn/profiles](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
+* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -88,7 +88,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 2. 왼쪽 패널에서 **리소스 그룹** 을 선택합니다.
 
-3. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **myResourceGroupCDN**입니다.
+3. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **myResourceGroupCDN** 입니다.
 
 4. 다음 리소스가 리소스 그룹에서 만들어졌는지 확인합니다.
 
@@ -107,7 +107,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="powershell"></a>PowerShell
 
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -115,7 +115,7 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### <a name="portal"></a>포털
 
-더 이상 필요하지 않으면 리소스 그룹, CDN 프로필 및 모든 관련 리소스를 삭제합니다. CDN 프로필 및 엔드포인트가 포함된 **myResourceGroupCDN** 리소스 그룹을 선택한 다음, **삭제**를 선택합니다.
+더 이상 필요하지 않으면 리소스 그룹, CDN 프로필 및 모든 관련 리소스를 삭제합니다. CDN 프로필 및 엔드포인트가 포함된 **myResourceGroupCDN** 리소스 그룹을 선택한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499554"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747175"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
 
 이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic?view=azure-cli-latest)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
 
 > [!WARNING]
-> Azure CLI Logic Apps 확장은 현재 *실험 단계*이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
+> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다* . 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -61,7 +61,7 @@ az group create --name testResourceGroup --location westus
 
 ## <a name="workflow-definition"></a>워크플로 정의
 
-Azure CLI를 사용하여 [새 논리 앱을 만들거나](#create-logic-apps-from-cli) [기존 논리 앱을 업데이트](#update-logic-apps-from-cli)하려면 논리 앱에 대한 워크플로 정의가 필요합니다. Azure Portal에서 **디자이너** 보기를 **코드 보기**로 전환하면 논리 앱의 기본 워크플로 정의를 JSON 형식으로 볼 수 있습니다.
+Azure CLI를 사용하여 [새 논리 앱을 만들거나](#create-logic-apps-from-cli) [기존 논리 앱을 업데이트](#update-logic-apps-from-cli)하려면 논리 앱에 대한 워크플로 정의가 필요합니다. Azure Portal에서 **디자이너** 보기를 **코드 보기** 로 전환하면 논리 앱의 기본 워크플로 정의를 JSON 형식으로 볼 수 있습니다.
 
 논리 앱을 만들거나 업데이트하는 명령을 실행하면 워크플로 정의가 필수 매개 변수(`--definition`)로 업로드됩니다. [워크플로 정의 언어 스키마](./logic-apps-workflow-definition-language.md)를 따르는 JSON 파일로 워크플로 정의를 만들어야 합니다.
 

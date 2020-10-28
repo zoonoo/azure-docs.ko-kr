@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88783814"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778339"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure의 콘텐츠 배달 네트워크란?
 CDN(콘텐츠 배달 네트워크)은 사용자에게 웹 콘텐츠를 효율적으로 제공할 수 있는 서버의 분산 네트워크입니다. CDN은 최종 사용자와 가까운 POP(point-of-presence) 위치의 에지 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다. 
@@ -59,7 +59,7 @@ Azure 구독마다 다음 리소스에 대한 기본 제한이 있습니다.
  - CDN 프로필에서 만들 수 있는 엔드포인트의 수 
  - 엔드포인트에 매핑할 수 있는 사용자 지정 도메인의 수
 
-CDN 구독 제한에 대한 자세한 정보는 [CDN 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
+CDN 구독 제한에 대한 자세한 정보는 [CDN 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
     
 ## <a name="azure-cdn-features"></a>Azure CDN 기능
 Azure CDN은 다음과 같은 주요 기능을 제공합니다.

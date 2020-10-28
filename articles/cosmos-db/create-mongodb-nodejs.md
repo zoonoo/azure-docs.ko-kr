@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 5af929991e96d1307c32d219a9807c6e6a58387c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7b2a302d491ee7985207943f08e8a47afd1d7f3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253364"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747279"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>빠른 시작: 기존 MongoDB Node.js 웹앱을 Azure Cosmos DB로 마이그레이션 
 
@@ -94,7 +94,7 @@ az login
 
 다음 예제에서는 서유럽 지역의 리소스 그룹을 만듭니다. 리소스 그룹에 고유한 이름을 선택합니다.
 
-Azure Cloud Shell을 사용하는 경우 **시도**를 선택하고, 화면의 지시에 따라 로그인한 다음, 명령 프롬프트에 명령을 복사합니다.
+Azure Cloud Shell을 사용하는 경우 **시도** 를 선택하고, 화면의 지시에 따라 로그인한 다음, 명령 프롬프트에 명령을 복사합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -115,7 +115,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
 
 > [!NOTE]
-> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
+> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
 
 ```json
 {
@@ -198,7 +198,7 @@ npm start
 
 이제 콘솔 메시지에서는 개발 환경이 실행된다고 알려 주어야 합니다. 
 
-브라우저에서 `http://localhost:3000`으로 이동합니다. 맨 위 메뉴에서 **등록**을 선택하여 두 개의 더미 사용자를 만듭니다. 
+브라우저에서 `http://localhost:3000`으로 이동합니다. 맨 위 메뉴에서 **등록** 을 선택하여 두 개의 더미 사용자를 만듭니다. 
 
 MEAN.js 샘플 애플리케이션은 데이터베이스에 사용자 데이터를 저장합니다. 성공해서 MEAN.js가 생성된 사용자로 자동 로그인하면 Azure Cosmos DB 연결이 작동합니다. 
 
@@ -210,7 +210,7 @@ Cosmos 데이터베이스에 저장된 데이터는 Azure Portal에서 살펴보
 
 이전 단계에서 만든 사용자 데이터를 보고 쿼리하고 사용하려면 웹 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-맨 위 검색 상자에 **Azure Cosmos DB**를 입력합니다. Cosmos 계정 블레이드가 열리면 Cosmos 계정을 선택합니다. 왼쪽 탐색에서 **데이터 탐색기**를 선택합니다. 컬렉션 창에서 컬렉션을 확장하면 컬렉션에서 문서를 보고, 데이터를 쿼리하고 저장된 프로시저, 트리거 및 UDF를 만들고 실행합니다. 
+맨 위 검색 상자에 **Azure Cosmos DB** 를 입력합니다. Cosmos 계정 블레이드가 열리면 Cosmos 계정을 선택합니다. 왼쪽 탐색에서 **데이터 탐색기** 를 선택합니다. 컬렉션 창에서 컬렉션을 확장하면 컬렉션에서 문서를 보고, 데이터를 쿼리하고 저장된 프로시저, 트리거 및 UDF를 만들고 실행합니다. 
 
 :::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="MEAN.js가 MongoDB 연결에 성공":::
 
@@ -249,4 +249,4 @@ git commit -m "configured MongoDB connection string"
 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 Azure Cosmos DB MongoDB API 계정을 만들고, MEAN .js 앱을 만들고 실행하여 사용자를 계정에 추가하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

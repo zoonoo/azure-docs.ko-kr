@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28397d36a611f26544fefb9f4fa7593a0fdf3f73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014531"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748175"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "92014531"
 
 계정 소유자와 연결된 등록 계정에 귀하가 추가되면 Azure는 계정-등록 관계를 사용하여 구독 요금을 청구할 위치를 결정합니다. 계정에서 만든 모든 구독은 계정이 있는 EA 등록에 청구됩니다. 구독을 만들려면 등록 계정 및 구독을 소유하는 사용자 계정에 대한 값을 전달해야 합니다.
 
-다음 명령을 실행하려면 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리*에 로그인해야 합니다.
+다음 명령을 실행하려면 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리* 에 로그인해야 합니다.
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest-getEnrollments)
 
@@ -119,7 +119,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-subscriptions-under-a-specific-enrollment-account"></a>특정 등록 계정 아래에서 구독 만들기
 
-다음 예에서는 이전 단계에서 선택한 등록 계정에 *Dev Team Subscription*이라는 구독을 만듭니다. 
+다음 예에서는 이전 단계에서 선택한 등록 계정에 *Dev Team Subscription* 이라는 구독을 만듭니다. 
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest-EA)
 
@@ -183,7 +183,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 `New-AzSubscriptionAlias` cmdlet을 포함하는 최신 버전의 모듈을 설치하려면 `Install-Module Az.Subscription`을 실행합니다. 최신 버전의 PowerShellGet을 설치하려면 [PowerShellGet 모듈 가져오기](/powershell/scripting/gallery/installing-psget)를 참조하세요.
 
-청구 범위 `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`을 사용하여 다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 명령을 실행합니다. 
+청구 범위 `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`을 사용하여 다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 명령을 실행합니다. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
@@ -281,7 +281,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?ap
 }
 ```
 
-`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftCustomerAgreement*인지 확인합니다. 계정의 `name`을 복사합니다.  예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
+`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftCustomerAgreement* 인지 확인합니다. 계정의 `name`을 복사합니다.  예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -400,7 +400,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>청구서 섹션에 대한 구독 만들기
 
-다음 예제에서는 *Development* 청구서 섹션에 대한 *Dev Team subscription*이라는 구독을 만듭니다. 이 구독은 *Contoso 청구 프로필*로 요금이 청구되며 청구서의 *Development* 섹션에 표시됩니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`를 사용합니다. 
+다음 예제에서는 *Development* 청구서 섹션에 대한 *Dev Team subscription* 이라는 구독을 만듭니다. 이 구독은 *Contoso 청구 프로필* 로 요금이 청구되며 청구서의 *Development* 섹션에 표시됩니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`를 사용합니다. 
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest-MCA)
 
@@ -463,7 +463,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 `New-AzSubscriptionAlias` cmdlet을 포함하는 최신 버전의 모듈을 설치하려면 `Install-Module Az.Subscription`을 실행합니다. 최신 버전의 PowerShellGet을 설치하려면 [PowerShellGet 모듈 가져오기](/powershell/scripting/gallery/installing-psget)를 참조하세요.
 
-다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 명령 및 청구 범위 `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`를 실행합니다. 
+다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 명령 및 청구 범위 `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`를 실행합니다. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
@@ -553,7 +553,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?ap
 }
 ```
 
-`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftPartnerAgreement*인지 확인합니다. 계정의 `name`을 복사합니다. 예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
+`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftPartnerAgreement* 인지 확인합니다. 계정의 `name`을 복사합니다. 예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
@@ -678,7 +678,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-for-a-customer"></a>고객을 위한 구독 만들기
 
-다음 예에서는 *Fabrikam toys*에 대한 *Dev Team subscription*이라는 구독을 만들고 *Wingtip* 재판매인을 구독에 연결합니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`를 사용합니다. 
+다음 예에서는 *Fabrikam toys* 에 대한 *Dev Team subscription* 이라는 구독을 만들고 *Wingtip* 재판매인을 구독에 연결합니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`를 사용합니다. 
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest-MPA)
 
@@ -736,13 +736,13 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 진행 중 상태는 `provisioningState` 아래에 `Accepted` 상태로 반환됩니다. 
 
-API 요청 본문의 두 번째 단계에서 복사한 선택적 *resellerId*를 전달합니다.
+API 요청 본문의 두 번째 단계에서 복사한 선택적 *resellerId* 를 전달합니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-MPA)
 
 `New-AzSubscriptionAlias` cmdlet을 포함하는 최신 버전의 모듈을 설치하려면 `Install-Module Az.Subscription`을 실행합니다. 최신 버전의 PowerShellGet을 설치하려면 [PowerShellGet 모듈 가져오기](/powershell/scripting/gallery/installing-psget)를 참조하세요.
 
-청구 범위 `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`를 사용하여 다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 명령을 실행합니다. 
+청구 범위 `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`를 사용하여 다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 명령을 실행합니다. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
@@ -762,7 +762,7 @@ New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Sub
 }
 ```
 
-`New-AzSubscriptionAlias` 호출의 두 번째 단계에서 복사한 선택적 *resellerId*를 전달합니다.
+`New-AzSubscriptionAlias` 호출의 두 번째 단계에서 복사한 선택적 *resellerId* 를 전달합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-MPA)
 
@@ -788,7 +788,7 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 }
 ```
 
-`az account alias create` 호출의 두 번째 단계에서 복사한 선택적 *resellerId*를 전달합니다.
+`az account alias create` 호출의 두 번째 단계에서 복사한 선택적 *resellerId* 를 전달합니다.
 
 ---
 
@@ -838,7 +838,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?ap
 }
 ```
 
-`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftCustomerAgreement*인지 확인합니다. 계정의 `name`을 복사합니다. 예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
+`displayName` 속성을 사용하여 구독을 생성하려는 청구 계정을 식별합니다. 계정의 agreementType이 *MicrosoftCustomerAgreement* 인지 확인합니다. 계정의 `name`을 복사합니다. 예를 들어 청구 계정 `Contoso`에 대한 구독을 만들려면 `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`를 복사합니다. 다음 단계에서 사용할 수 있도록 이 값을 어딘가에 붙여넣습니다.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -958,7 +958,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-and-resource-group-with-a-template"></a>템플릿을 사용하여 구독 및 리소스 그룹 만들기
 
-다음 ARM 템플릿은 *Development* 청구서 섹션에 대한 *Dev Team subscription*이라는 구독을 만듭니다. 이 구독은 *Contoso 청구 프로필*로 요금이 청구되며 청구서의 *Development* 섹션에 표시됩니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`를 사용합니다. 
+다음 ARM 템플릿은 *Development* 청구서 섹션에 대한 *Dev Team subscription* 이라는 구독을 만듭니다. 이 구독은 *Contoso 청구 프로필* 로 요금이 청구되며 청구서의 *Development* 섹션에 표시됩니다. 이전 단계에서 복사한 청구 범위 `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`를 사용합니다. 
 
 #### <a name="request"></a>요청
 

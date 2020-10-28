@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d60c604ecde8607c0da8a125108e13683bdf6c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786159"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 비밀 클라이언트 라이브러리(SDK v4)
 
@@ -31,7 +31,7 @@ ms.locfileid: "92058542"
 
 ## <a name="setup"></a>설치 프로그램
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -122,7 +122,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ### <a name="add-directives"></a>지시문 추가
 
-다음 지시문을 *Program.cs*의 위쪽에 추가합니다.
+다음 지시문을 *Program.cs* 의 위쪽에 추가합니다.
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -149,7 +149,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ### <a name="retrieve-a-secret"></a>비밀 검색
@@ -177,7 +177,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -218,7 +218,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 다음 단계를 완료하여 Key Vault와 상호 작용하도록 .NET Core 콘솔 앱을 수정합니다.
 
-1. *Program.cs*의 코드를 다음 코드로 바꿉니다.
+1. *Program.cs* 의 코드를 다음 코드로 바꿉니다.
 
     ```csharp
     using System;

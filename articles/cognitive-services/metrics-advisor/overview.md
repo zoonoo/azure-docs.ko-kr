@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047576"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890246"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Metrics Advisor(미리 보기)란? 
 
@@ -53,16 +53,14 @@ Metrics Advisor는 다음을 포함한 여러 데이터 저장소의 [다차원 
 워크플로는 간단합니다. 데이터를 온보딩한 후 변칙 검색을 미세 조정하고 시나리오에 맞게 구성을 만들 수 있습니다.
 
 1. Metrics Advisor용 [Azure 리소스를 만듭니다](../cognitive-services-apis-create-account.md). 
-2. 데모 사이트를 사용해 보고 미리 구성된 샘플 데이터를 사용하는 예제 Metrics Advisor 인스턴스를 확인하세요. 
-3. 웹 포털을 사용하여 첫 번째 모니터를 빌드합니다.
+2. 웹 포털을 사용하여 첫 번째 모니터를 빌드합니다.
     1. 데이터 온보딩
     2. 변칙 검색 미세 조정
     3. 알림 구독
     4. 진단 인사이트 보기
-1. REST API를 사용하여 인스턴스를 사용자 지정합니다.
+3. REST API를 사용하여 인스턴스를 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데모 사이트](quickstarts/explore-demo.md)를 사용해 보세요.
 * 빠른 시작 살펴보기: [웹에서 첫 번째 메트릭 모니터링](quickstarts/web-portal.md)
 * 빠른 시작 살펴보기: [REST API를 사용하여 솔루션 사용자 지정](quickstarts/rest-api.md)

@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303100"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747442"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -82,7 +82,7 @@ az extension add --name azure-iot
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. 백 엔드 애플리케이션에서 IoT Hub에 연결하여 메시지를 검색할 수 있게 하려면 *서비스 연결 문자열*도 필요합니다. 다음 명령은 IoT Hub에 대한 문자열을 검색합니다.
+1. 백 엔드 애플리케이션에서 IoT Hub에 연결하여 메시지를 검색할 수 있게 하려면 *서비스 연결 문자열* 도 필요합니다. 다음 명령은 IoT Hub에 대한 문자열을 검색합니다.
 
    > [!NOTE]
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
@@ -128,7 +128,7 @@ az extension add --name azure-iot
    SET PROXY_PORT=2222
    ```
 
-   ServiceConnectionString 자리 표시자를 서비스 연결 문자열과 일치하도록 변경하고 다른 이름을 지정한 경우 디바이스 ID와 일치하도록 **MyDevice**를 변경합니다.
+   ServiceConnectionString 자리 표시자를 서비스 연결 문자열과 일치하도록 변경하고 다른 이름을 지정한 경우 디바이스 ID와 일치하도록 **MyDevice** 를 변경합니다.
 
 1. 압축을 푼 프로젝트 폴더에서 `Quickstarts/device-streams-service` 디렉터리로 이동합니다. 다음 코드를 사용하여 서비스-로컬 프록시 애플리케이션을 실행합니다.
 

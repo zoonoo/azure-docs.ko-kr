@@ -2,14 +2,14 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Recovery Services 자격 증명 모음을 만들기 위한 빠른 시작입니다.
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684119"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745874"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "88684119"
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하려면 **구독**, **리소스 그룹**및 **자격 증명 모음 이름**이 필요합니다.
+템플릿을 배포하려면 **구독** , **리소스 그룹** 및 **자격 증명 모음 이름** 이 필요합니다.
 
 1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포** 이미지를 선택합니다.
 
@@ -52,13 +52,13 @@ ms.locfileid: "88684119"
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Recovery Services 자격 증명 모음을 만드는 템플릿":::
 
-   - **구독**: Azure 구독을 선택합니다.
-   - **리소스 그룹**: 기존 그룹을 선택하거나 **새로 만들기**를 선택하여 그룹을 추가합니다.
-   - **위치**: 리소스 그룹의 위치를 기본값으로 설정하고 리소스 그룹을 선택한 후에는 사용할 수 없게 됩니다.
-   - **자격 증명 모음 이름**: 자격 증명 모음의 이름을 입력합니다.
-   - **스토리지 유형 변경**: 기본값은 **false**입니다. 자격 증명 모음의 스토리지 유형을 변경해야 하는 경우에만 **true**를 선택합니다.
-   - **자격 증명 모음 스토리지 유형**: 기본값은 **GloballyRedundant**입니다. 스토리지 유형이 **true**로 설정된 경우 **LocallyRedundant**를 선택합니다.
-   - **위치**: `[resourceGroup().location]` 함수는 기본적으로 리소스 그룹의 위치로 설정됩니다. 위치를 변경하려면 **미국 서부**와 같은 값을 입력합니다.
+   - **구독** : Azure 구독을 선택합니다.
+   - **리소스 그룹** : 기존 그룹을 선택하거나 **새로 만들기** 를 선택하여 그룹을 추가합니다.
+   - **위치** : 리소스 그룹의 위치를 기본값으로 설정하고 리소스 그룹을 선택한 후에는 사용할 수 없게 됩니다.
+   - **자격 증명 모음 이름** : 자격 증명 모음의 이름을 입력합니다.
+   - **스토리지 유형 변경** : 기본값은 **false** 입니다. 자격 증명 모음의 스토리지 유형을 변경해야 하는 경우에만 **true** 를 선택합니다.
+   - **자격 증명 모음 스토리지 유형** : 기본값은 **GloballyRedundant** 입니다. 스토리지 유형이 **true** 로 설정된 경우 **LocallyRedundant** 를 선택합니다.
+   - **위치** : `[resourceGroup().location]` 함수는 기본적으로 리소스 그룹의 위치로 설정됩니다. 위치를 변경하려면 **미국 서부** 와 같은 값을 입력합니다.
    - **위에 명시된 사용 약관에 동의함** 확인란을 선택합니다.
 
 1. 자격 증명 모음의 배포를 시작하려면 **구매** 단추를 선택합니다. 성공적으로 배포된 후 알림이 표시됩니다.
