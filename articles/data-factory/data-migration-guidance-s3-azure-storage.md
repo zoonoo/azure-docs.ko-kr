@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616927"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638043"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용하여 Amazon S3에서 Azure Storage로 데이터 마이그레이션 
 
@@ -41,9 +41,9 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아
 
 위의 그림은 다양한 병렬 처리 수준을 통해 뛰어난 데이터 이동 속도를 달성할 수 있는 방법을 보여 줍니다.
  
-- 단일 복사 작업은 확장 가능한 컴퓨팅 리소스를 활용할 수 있습니다. Azure Integration Runtime을 사용하는 경우 서버리스 방식으로 각 복사 작업에 대해 [최대 256 DIU](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units)를 지정할 수 있습니다. 자체 호스팅 Integration Runtime을 사용하는 경우 수동으로 머신을 스케일 업하거나 여러 머신([최대 4개의 노드](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability))으로 스케일 아웃할 수 있으며 단일 복사 작업은 모든 노드에서 해당 파일 세트를 분할합니다. 
+- 단일 복사 작업은 확장 가능한 컴퓨팅 리소스를 활용할 수 있습니다. Azure Integration Runtime을 사용하는 경우 서버리스 방식으로 각 복사 작업에 대해 [최대 256 DIU](./copy-activity-performance.md#data-integration-units)를 지정할 수 있습니다. 자체 호스팅 Integration Runtime을 사용하는 경우 수동으로 머신을 스케일 업하거나 여러 머신([최대 4개의 노드](./create-self-hosted-integration-runtime.md#high-availability-and-scalability))으로 스케일 아웃할 수 있으며 단일 복사 작업은 모든 노드에서 해당 파일 세트를 분할합니다. 
 - 단일 복사 작업은 여러 스레드를 사용하여 데이터 저장소에서 읽고 씁니다. 
-- ADF 제어 흐름은 여러 복사 작업을 병렬로 시작할 수 있습니다(예: [For Each 루프](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity) 사용). 
+- ADF 제어 흐름은 여러 복사 작업을 병렬로 시작할 수 있습니다(예: [For Each 루프](./control-flow-for-each-activity.md) 사용). 
 
 ## <a name="resilience"></a>복원력
 
@@ -81,10 +81,10 @@ S3에서 Blob으로, S3에서 ADLS Gen2로 이진 복사를 수행하면 ADF는 
 
 ### <a name="authentication-and-credential-management"></a>인증 및 자격 증명 관리 
 
-- Amazon S3 계정 인증을 받으려면 [IAM 계정에 대 한 액세스 키](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties)를 사용해야 합니다. 
-- Azure Blob 스토리지에 연결하기 위해 여러 인증 유형이 지원됩니다.  [Azure 리소스용 관리 ID](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity)를 사용하는 것이 좋습니다. Azure AD에서 자동으로 관리되는 ADF ID를 토대로 구축되므로 연결된 서비스 정의에서 자격 증명을 제공하지 않고 파이프라인을 구성할 수 있습니다.  또는 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [공유 액세스 서명](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication) 또는 [스토리지 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication)를 사용하여 Azure Blob 스토리지에서 인증을 받을 수 있습니다. 
-- Azure Data Lake Storage Gen2에 연결하는 데도 여러 인증 형식이 지원됩니다.  [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [스토리지 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)도 사용할 수 있지만 [Azure 리소스에 대해 관리 ID](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)를 사용하는 것이 좋습니다. 
-- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 ADF 연결된 서비스를 수정하지 않고 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)하는 것이 좋습니다.  [CI/CD에 대한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 중 하나이기도 합니다. 
+- Amazon S3 계정 인증을 받으려면 [IAM 계정에 대 한 액세스 키](./connector-amazon-simple-storage-service.md#linked-service-properties)를 사용해야 합니다. 
+- Azure Blob 스토리지에 연결하기 위해 여러 인증 유형이 지원됩니다.  [Azure 리소스용 관리 ID](./connector-azure-blob-storage.md#managed-identity)를 사용하는 것이 좋습니다. Azure AD에서 자동으로 관리되는 ADF ID를 토대로 구축되므로 연결된 서비스 정의에서 자격 증명을 제공하지 않고 파이프라인을 구성할 수 있습니다.  또는 [서비스 주체](./connector-azure-blob-storage.md#service-principal-authentication), [공유 액세스 서명](./connector-azure-blob-storage.md#shared-access-signature-authentication) 또는 [스토리지 계정 키](./connector-azure-blob-storage.md#account-key-authentication)를 사용하여 Azure Blob 스토리지에서 인증을 받을 수 있습니다. 
+- Azure Data Lake Storage Gen2에 연결하는 데도 여러 인증 형식이 지원됩니다.  [서비스 주체](./connector-azure-data-lake-storage.md#service-principal-authentication) 또는 [스토리지 계정 키](./connector-azure-data-lake-storage.md#account-key-authentication)도 사용할 수 있지만 [Azure 리소스에 대해 관리 ID](./connector-azure-data-lake-storage.md#managed-identity)를 사용하는 것이 좋습니다. 
+- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 ADF 연결된 서비스를 수정하지 않고 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md)하는 것이 좋습니다.  [CI/CD에 대한 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd) 중 하나이기도 합니다. 
 
 ### <a name="initial-snapshot-data-migration"></a>초기 스냅샷 데이터 마이그레이션 
 
@@ -138,16 +138,16 @@ S3에서 Azure Blob 스토리지로 데이터를 마이그레이션하기 위해
 ![예상 가격은 표 스크린샷에 표시 됩니다.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>추가 참조 
-- [Amazon Simple Storage Service 커넥터](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [자체 호스팅 Integration Runtime 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [자체 호스팅 Integration Runtime HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
-- [시간 분할 파일 이름에 따라 증분 방식으로 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [LastModifiedDate에 따라 새 파일 및 변경된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Amazon Simple Storage Service 커넥터](./connector-amazon-simple-storage-service.md)
+- [Azure Blob Storage 커넥터](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2 커넥터](./connector-azure-data-lake-storage.md)
+- [복사 작업 성능 조정 가이드](./copy-activity-performance.md)
+- [자체 호스팅 Integration Runtime 만들기 및 구성](./create-self-hosted-integration-runtime.md)
+- [자체 호스팅 Integration Runtime HA 및 확장성](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [데이터 이동 보안 고려 사항](./data-movement-security-considerations.md)
+- [Azure Key Vault에 자격 증명 저장](./store-credentials-in-key-vault.md).
+- [시간 분할 파일 이름에 따라 증분 방식으로 파일 복사](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [LastModifiedDate에 따라 새 파일 및 변경된 파일 복사](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [ADF 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>템플릿

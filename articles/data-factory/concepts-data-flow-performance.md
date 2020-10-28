@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637873"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -80,7 +80,7 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포�
 
 분할 된 데이터 열 내에서 값의 고정 범위를 제공 하는 식을 작성 합니다. 파티션 기울이기를 방지 하려면이 옵션을 사용 하기 전에 데이터를 잘 이해 해야 합니다. 식에 대해 입력 하는 값은 파티션 함수의 일부로 사용 됩니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-### <a name="key"></a>Key
+### <a name="key"></a>키
 
 데이터의 카디널리티에 대해 잘 알고 있다면 키 분할이 좋은 전략이 될 수 있습니다. 키 분할은 열에서 각 고유 값에 대 한 파티션을 만듭니다. 숫자가 데이터의 고유 값을 기반으로 하기 때문에 파티션 수를 설정할 수 없습니다.
 
@@ -109,7 +109,7 @@ Spark 클러스터 분리의 유형에 사용할 수 있는 세 가지 옵션이
 
 기본 클러스터 크기는 4 개의 드라이버 노드와 4 개의 작업자 노드입니다.  더 많은 데이터를 처리 하는 경우 더 큰 클러스터를 권장 합니다. 가능한 크기 조정 옵션은 다음과 같습니다.
 
-| 작업자 코어 | 드라이버 코어 | 총 코어 | 참고 |
+| 작업자 코어 | 드라이버 코어 | 총 코어 | 메모 |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | 계산에 최적화 된 경우 사용할 수 없음 |
 | 8 | 8 | 16 | |
@@ -155,7 +155,7 @@ Azure SQL Database에는 ' 원본 ' 분할 이라는 고유한 분할 옵션이 
 
 #### <a name="isolation-level"></a>격리 수준
 
-Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)를 참조 하세요.
+Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)를 참조 하세요.
 
 #### <a name="read-using-query"></a>쿼리를 사용 하 여 읽기
 
@@ -163,7 +163,7 @@ Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse 분석 소스
 
-Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 [하면 ADF를 사용 하](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)여 Synapse에서 읽기 성능을 크게 향상 시킬 수 있습니다. PolyBase를 사용 하도록 설정 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
+Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 [하면 ADF를 사용 하](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)여 Synapse에서 읽기 성능을 크게 향상 시킬 수 있습니다. PolyBase를 사용 하도록 설정 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
 
 ![준비 사용](media/data-flow/enable-staging.png "준비 사용")
 
@@ -198,7 +198,7 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 ![인덱스 사용 안 함](media/data-flow/disable-indexes-sql.png "인덱스 사용 안 함")
 
 > [!WARNING]
-> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) 에 대 한 자세한 내용
+> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) 에 대 한 자세한 내용
 
 #### <a name="scaling-up-your-database"></a>데이터베이스 확장
 
@@ -206,7 +206,7 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics 싱크
 
-Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF를 사용 하 여 대량의 데이터를 효과적으로 로드 하는 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 를 작성할 수 있습니다. PolyBase를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
+Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF를 사용 하 여 대량의 데이터를 효과적으로 로드 하는 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 를 작성할 수 있습니다. PolyBase를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
 
 PolyBase 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
 
@@ -226,7 +226,7 @@ PolyBase 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Syn
 
 명명 **패턴** 을 설정 하면 각 파티션 파일의 이름이 사용자에 게 친숙 한 이름으로 바뀝니다. 이 작업은 쓰기 후에 수행 되며 기본값을 선택 하는 것 보다 약간 느립니다. 파티션당 각 개별 파티션의 이름을 수동으로 지정할 수 있습니다.
 
-열이 데이터를 출력 하는 방법에 해당 하는 경우 **열에서 데이터로**를 선택할 수 있습니다. 이렇게 하면 데이터가 reshuffles 열이 균등 하 게 분산 되지 않은 경우 성능에 영향을 줄 수 있습니다.
+열이 데이터를 출력 하는 방법에 해당 하는 경우 **열에서 데이터로** 를 선택할 수 있습니다. 이렇게 하면 데이터가 reshuffles 열이 균등 하 게 분산 되지 않은 경우 성능에 영향을 줄 수 있습니다.
 
 **단일 파일로 출력** 은 모든 데이터를 단일 파티션으로 결합 합니다. 이렇게 하면 특히 대량 데이터 집합의 경우 긴 쓰기 시간이 발생 합니다. Azure Data Factory 팀은 명시적인 비즈니스 이유가 없으면이 옵션을 선택 **하지** 않는 것이 좋습니다.
 
@@ -247,7 +247,7 @@ CosmosDB에 쓸 때 데이터 흐름을 실행 하는 동안 처리량과 일괄
 
 #### <a name="broadcasting"></a>아니거나
 
-조인, 조회 및 존재 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞게 충분히 작은 경우 **브로드캐스팅을**사용 하도록 설정 하 여 성능을 최적화할 수 있습니다. 브로드캐스트는 작은 데이터 프레임을 클러스터의 모든 노드에 보내는 경우입니다. 이를 통해 Spark 엔진은 데이터를 단지 섞는 하지 않고도 조인을 수행할 수 있습니다. 기본적으로 Spark 엔진은 조인의 한 쪽을 브로드캐스트하도록 여부를 자동으로 결정 합니다. 들어오는 데이터에 대해 잘 알고 있고 한 스트림이 다른 스트림으로 크게 작은 경우 **고정** 브로드캐스트를 선택할 수 있습니다. 브로드캐스트를 고정 하 여 선택한 스트림을 브로드캐스트합니다. 
+조인, 조회 및 존재 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞게 충분히 작은 경우 **브로드캐스팅을** 사용 하도록 설정 하 여 성능을 최적화할 수 있습니다. 브로드캐스트는 작은 데이터 프레임을 클러스터의 모든 노드에 보내는 경우입니다. 이를 통해 Spark 엔진은 데이터를 단지 섞는 하지 않고도 조인을 수행할 수 있습니다. 기본적으로 Spark 엔진은 조인의 한 쪽을 브로드캐스트하도록 여부를 자동으로 결정 합니다. 들어오는 데이터에 대해 잘 알고 있고 한 스트림이 다른 스트림으로 크게 작은 경우 **고정** 브로드캐스트를 선택할 수 있습니다. 브로드캐스트를 고정 하 여 선택한 스트림을 브로드캐스트합니다. 
 
 브로드캐스트 데이터의 크기가 Spark 노드에 비해 너무 크면 메모리 부족 오류가 발생할 수 있습니다. 메모리 부족 오류를 방지 하려면 메모리 액세스에 **최적화** 된 클러스터를 사용 합니다. 데이터 흐름을 실행 하는 동안 브로드캐스트 시간 제한이 발생 하는 경우 브로드캐스트 최적화를 해제할 수 있습니다. 그러나 이로 인해 데이터 흐름이 더 느리게 수행됩니다.
 

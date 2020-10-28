@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570138"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638111"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -36,7 +36,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | 실행 시작 | 파이프라인 실행에 대한 시작 날짜 및 시간(MM/DD/YYYY, HH: MM: SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 파이프라인을 시작한 트리거의 이름입니다. |
-| 상태 | **실패**, **성공**, **진행 중**, **취소** 또는 **큐 대기** |
+| 상태 | **실패** , **성공** , **진행 중** , **취소** 또는 **큐 대기** |
 | 주석 | 파이프라인에 연결된 필터링 가능한 태그  |
 | 매개 변수 | 파이프라인 실행 매개 변수 (이름/값 쌍) |
 | Error | 파이프라인이 실패한 경우 실행 오류 |
@@ -55,11 +55,11 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | **열 이름** | **설명** |
 | --- | --- |
 | 작업 이름 | 파이프라인 내 작업 이름 |
-| 작업 유형 | **복사**, **ExecuteDataFlow** 또는 **AzureMLExecutePipeline** 같은 작업 유형 |
+| 작업 유형 | **복사** , **ExecuteDataFlow** 또는 **AzureMLExecutePipeline** 같은 작업 유형 |
 | 동작 | JSON 입력 정보, JSON 출력 정보 또는 자세한 작업 관련 모니터링 환경을 볼 수 있는 아이콘 | 
 | 실행 시작 | 작업 실행에 대한 시작 날짜 및 시간(MM/DD/YYYY, HH: MM: SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
-| 상태 | **실패**, **성공**, **진행 중** 또는 **취소** |
+| 상태 | **실패** , **성공** , **진행 중** 또는 **취소** |
 | 통합 런타임 | 작업이 실행된 Integration Runtime |
 | 사용자 속성 | 작업의 사용자 정의 속성 |
 | Error | 작업이 실패한 경우 실행 오류 |
@@ -69,7 +69,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ### <a name="promote-user-properties-to-monitor"></a>모니터링하도록 사용자 속성 승격
 
-모니터링하는 엔터티가 되도록 파이프라인 작업 속성을 사용자 속성으로 승격합니다. 예를 들어 파이프라인에서 복사 작업의 **원본** 및 **대상** 속성을 사용자 속성으로 승격할 수 있습니다. **자동 생성**을 선택하여 복사 작업의 **원본** 및 **대상** 사용자 속성을 생성할 수도 있습니다.
+모니터링하는 엔터티가 되도록 파이프라인 작업 속성을 사용자 속성으로 승격합니다. 예를 들어 파이프라인에서 복사 작업의 **원본** 및 **대상** 속성을 사용자 속성으로 승격할 수 있습니다. **자동 생성** 을 선택하여 복사 작업의 **원본** 및 **대상** 사용자 속성을 생성할 수도 있습니다.
 
 ![사용자 속성 만들기](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -93,8 +93,8 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | **열 이름** | **설명** |
 | --- | --- |
 | 파이프라인 이름 | 파이프라인 이름으로 필터링합니다. |
-| 실행 시작 |  표시되는 파이프라인 실행의 시간 범위를 확인합니다. 옵션에는 **마지막 24시간**, **마지막 주**, **마지막 30일**에 대한 빠른 필터 또는 사용자 지정 날짜 시간 선택이 포함됩니다. |
-| 실행 상태 | 상태별로 필터 실행: **성공**, **실패**, **큐 대기**, **취소** 또는 **진행 중**입니다. |
+| 실행 시작 |  표시되는 파이프라인 실행의 시간 범위를 확인합니다. 옵션에는 **마지막 24시간** , **마지막 주** , **마지막 30일** 에 대한 빠른 필터 또는 사용자 지정 날짜 시간 선택이 포함됩니다. |
+| 실행 상태 | 상태별로 필터 실행: **성공** , **실패** , **큐 대기** , **취소** 또는 **진행 중** 입니다. |
 | 주석 | 각 파이프라인에 적용된 태그로 필터링 |
 | 실행 | 다시 실행된 파이프라인을 표시할지 여부 필터링 |
 
@@ -110,7 +110,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>파이프라인 내부에서 활동 다시 실행
 
-파이프라인 내부에서 활동을 다시 실행할 수 있습니다. **활동 실행 보기**를 선택하고 파이프라인을 다시 실행하려는 지점에서 파이프라인의 활동을 선택합니다.
+파이프라인 내부에서 활동을 다시 실행할 수 있습니다. **활동 실행 보기** 를 선택하고 파이프라인을 다시 실행하려는 지점에서 파이프라인의 활동을 선택합니다.
 
 ![활동 실행 보기](media/monitor-visually/rerun-activities-image1.png)
 
@@ -118,7 +118,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ### <a name="rerun-from-failed-activity"></a>실패한 활동에서 다시 실행
 
-작업이 실패하나, 시간이 초과하거나, 취소되는 경우 **실패한 작업에서 다시 실행**을 선택하여 실패한 작업에서 파이프라인을 다시 실행할 수 있습니다.
+작업이 실패하나, 시간이 초과하거나, 취소되는 경우 **실패한 작업에서 다시 실행** 을 선택하여 실패한 작업에서 파이프라인을 다시 실행할 수 있습니다.
 
 ![실패한 작업 다시 실행](media/monitor-visually/rerun-failed-activity.png)
 
@@ -162,13 +162,13 @@ Gantt 보기를 사용하여 파이프라인 및 활동 실행을 빠르게 시�
 ![Gantt 차트 기간](media/monitor-visually/gantt3.png)
 
 ## <a name="guided-tours"></a>둘러보기
-왼쪽 아래에서 **정보** 아이콘을 선택합니다. 그런 다음, **둘러보기**를 선택하여 파이프라인 및 작업 실행을 모니터링하는 방법에 대한 단계별 지침을 가져옵니다.
+왼쪽 아래에서 **정보** 아이콘을 선택합니다. 그런 다음, **둘러보기** 를 선택하여 파이프라인 및 작업 실행을 모니터링하는 방법에 대한 단계별 지침을 가져옵니다.
 
 ![둘러보기](media/monitor-visually/guided-tours.png)
 
 ## <a name="alerts"></a>경고
 
-Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. 시작하려면 Data Factory 모니터링 페이지에서 **모니터링** > **경고 및 메트릭**을 선택합니다.
+Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. 시작하려면 Data Factory 모니터링 페이지에서 **모니터링** > **경고 및 메트릭** 을 선택합니다.
 
 ![데이터 팩터리 모니터링 페이지](media/monitor-visually/start-page.png)
 
@@ -178,7 +178,7 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
 ### <a name="create-alerts"></a>경고 만들기
 
-1.  **새로운 경고 규칙**을 선택하여 새 경고를 만듭니다.
+1.  **새로운 경고 규칙** 을 선택하여 새 경고를 만듭니다.
 
     ![새 경고 규칙 단추](media/monitor-visually/new-alerts.png)
 
@@ -212,4 +212,4 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) 문서를 참조하세요.
+파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](./monitor-programmatically.md) 문서를 참조하세요.

@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85320984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637856"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업에서 저장 프로시저 호출
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 저장 프로시저 작업을 사용하여 데이터 변환](../transform-data-using-stored-procedure.md)을 참조하세요.
 
 
-[SQL Server](data-factory-sqlserver-connector.md) 또는 [Azure SQL Database](data-factory-azure-sql-connector.md)로 데이터를 복사할 때 복사 작업에 저장 프로시저를 호출할 **SqlSink**를 구성할 수 있습니다. 대상 테이블에 데이터를 삽입하기 전에 추가 처리(열 병합, 값 검색, 여러 테이블에 삽입 등)를 수행하는 저장 프로시저를 사용할 수 있습니다. 이 기능은 [테이블 값 매개 변수](https://msdn.microsoft.com/library/bb675163.aspx)을 활용합니다. 
+[SQL Server](data-factory-sqlserver-connector.md) 또는 [Azure SQL Database](data-factory-azure-sql-connector.md)로 데이터를 복사할 때 복사 작업에 저장 프로시저를 호출할 **SqlSink** 를 구성할 수 있습니다. 대상 테이블에 데이터를 삽입하기 전에 추가 처리(열 병합, 값 검색, 여러 테이블에 삽입 등)를 수행하는 저장 프로시저를 사용할 수 있습니다. 이 기능은 [테이블 값 매개 변수](/dotnet/framework/data/adonet/sql/table-valued-parameters)을 활용합니다. 
 
 다음 샘플에서는 Data Factory 파이프라인(복사 작업)에서 SQL Server Database의 저장 프로시저를 호출하는 방법을 보여 줍니다.  
 
 ## <a name="output-dataset-json"></a>출력 데이터 세트 JSON
-출력 데이터 세트 JSON에서 **형식**을 **SqlServerTable**로 설정합니다. **AzureSqlTable** 로 설정 하 여 Azure SQL Database에 사용 합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
+출력 데이터 세트 JSON에서 **형식** 을 **SqlServerTable** 로 설정합니다. **AzureSqlTable** 로 설정 하 여 Azure SQL Database에 사용 합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
 
 ```json
 {
@@ -68,7 +68,7 @@ ms.locfileid: "85320984"
 ```
 
 ## <a name="stored-procedure-definition"></a>저장 프로시저 정의 
-데이터베이스에서 **SqlWriterStoredProcedureName**와 동일한 이름을 사용 하 여 저장 프로시저를 정의 합니다. 저장 프로시저는 원본 데이터 저장소의 입력 데이터를 처리하고 데이터를 대상 데이터베이스의 테이블에 삽입합니다. 저장 프로시저의 첫 번째 매개 변수 이름은 데이터 세트 JSON(Marketing)에 정의된 tableName과 일치해야 합니다.
+데이터베이스에서 **SqlWriterStoredProcedureName** 와 동일한 이름을 사용 하 여 저장 프로시저를 정의 합니다. 저장 프로시저는 원본 데이터 저장소의 입력 데이터를 처리하고 데이터를 대상 데이터베이스의 테이블에 삽입합니다. 저장 프로시저의 첫 번째 매개 변수 이름은 데이터 세트 JSON(Marketing)에 정의된 tableName과 일치해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +81,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>테이블 유형 정의
-데이터베이스에서 **sqlwritertabletype과**와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터 세트의 스키마와 일치해야 합니다.
+데이터베이스에서 **sqlwritertabletype과** 와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터 세트의 스키마와 일치해야 합니다.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

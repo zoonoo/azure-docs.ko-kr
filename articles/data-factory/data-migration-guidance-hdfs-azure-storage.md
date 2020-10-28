@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417123"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638128"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -26,8 +26,8 @@ Azure Data Factory은 온-프레미스 HDFS에서 Azure Blob storage 또는 Azur
 
 Data Factory은 온-프레미스 HDFS에서 Azure로 데이터를 마이그레이션하는 두 가지 기본적인 방법을 제공 합니다. 시나리오에 따라 방법을 선택할 수 있습니다. 
 
-- **Data Factory distcp 모드** (권장): Data Factory에서 [distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (분산 복사)를 사용 하 여 Azure Blob storage (준비 된 복사 포함) Azure Data Lake Store 또는 Gen2 ( [준비 된 복사](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)포함)로 파일을 복사할 수 있습니다. DistCp와 통합 된 Data Factory를 사용 하 여 기존의 강력한 클러스터를 활용 하 여 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 예약 및 통합 모니터링 환경을 활용 하는 이점을 얻을 수 있습니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 생성 하 고, 데이터를 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링 합니다. 온-프레미스 Hadoop 클러스터에서 Azure로 데이터를 마이그레이션하기 위해 DistCp 모드 Data Factory 하는 것이 좋습니다.
-- **Data Factory native integration runtime 모드**: distcp는 모든 시나리오에서 옵션이 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
+- **Data Factory distcp 모드** (권장): Data Factory에서 [distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (분산 복사)를 사용 하 여 Azure Blob storage (준비 된 복사 포함) Azure Data Lake Store 또는 Gen2 ( [준비 된 복사](./copy-activity-performance.md#staged-copy)포함)로 파일을 복사할 수 있습니다. DistCp와 통합 된 Data Factory를 사용 하 여 기존의 강력한 클러스터를 활용 하 여 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 예약 및 통합 모니터링 환경을 활용 하는 이점을 얻을 수 있습니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 생성 하 고, 데이터를 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링 합니다. 온-프레미스 Hadoop 클러스터에서 Azure로 데이터를 마이그레이션하기 위해 DistCp 모드 Data Factory 하는 것이 좋습니다.
+- **Data Factory native integration runtime 모드** : distcp는 모든 시나리오에서 옵션이 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
 
 이 문서에서는 두 가지 방법에 대 한 다음 정보를 제공 합니다.
 > [!div class="checklist"]
@@ -45,11 +45,11 @@ DistCp는 MapReduce를 사용 하 여 배포, 오류 처리 및 복구, 보고�
 
 Data Factory native integration runtime 모드에서는 서로 다른 수준에서 병렬 처리를 수행할 수도 있습니다. 병렬 처리를 사용 하 여 네트워크 대역폭, 저장소 IOPS 및 대역폭을 완벽 하 게 활용 하 여 데이터 이동 처리량을 최대화할 수 있습니다.
 
-- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. 자체 호스팅 통합 런타임을 사용 하면 컴퓨터를 수동으로 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 걸쳐 해당 파일 집합을 분할 합니다. 
+- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. 자체 호스팅 통합 런타임을 사용 하면 컴퓨터를 수동으로 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 걸쳐 해당 파일 집합을 분할 합니다. 
 - 단일 복사 작업은 여러 스레드를 사용 하 여 데이터 저장소에서 읽고 씁니다. 
-- Data Factory 제어 흐름은 동시에 여러 복사 작업을 시작할 수 있습니다. 예를 들어 [For each 루프](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)를 사용할 수 있습니다. 
+- Data Factory 제어 흐름은 동시에 여러 복사 작업을 시작할 수 있습니다. 예를 들어 [For each 루프](./control-flow-for-each-activity.md)를 사용할 수 있습니다. 
 
-자세한 내용은 [복사 작업 성능 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)를 참조 하세요.
+자세한 내용은 [복사 작업 성능 가이드](./copy-activity-performance.md)를 참조 하세요.
 
 ## <a name="resilience"></a>복원력
 
@@ -93,10 +93,10 @@ Data Factory native integration runtime 모드에서 단일 복사 작업 실행
 
 ### <a name="authentication-and-credential-management"></a>인증 및 자격 증명 관리 
 
-- HDFS에 인증 하려면 [Windows (Kerberos) 또는 익명](https://docs.microsoft.com/azure/data-factory/connector-hdfs#linked-service-properties)을 사용할 수 있습니다. 
-- Azure Blob storage에 연결 하는 데 여러 인증 유형이 지원 됩니다.  [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity)사용 하는 것이 좋습니다. Azure Active Directory (Azure AD)에서 자동으로 관리 되는 Data Factory id를 기반으로 구축 된 관리 되는 id를 사용 하면 연결 된 서비스 정의에 자격 증명을 제공 하지 않고 파이프라인을 구성할 수 있습니다. 또는 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [공유 액세스 서명](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication)를 사용 하 여 Blob 저장소에 인증할 수 있습니다. 
-- Data Lake Storage Gen2에 연결 하는 경우에도 여러 인증 유형이 지원 됩니다.  [Azure 리소스에 관리 되는 id](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)를 사용 하는 것이 좋지만 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)를 사용할 수도 있습니다. 
-- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 하 여 Data Factory 연결 된 서비스를 수정 하지 않고 키를 중앙에서 보다 쉽게 관리 하 고 회전할 수 있도록 하는 것이 좋습니다. 이는 [CI/CD에 대 한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)이기도 합니다. 
+- HDFS에 인증 하려면 [Windows (Kerberos) 또는 익명](./connector-hdfs.md#linked-service-properties)을 사용할 수 있습니다. 
+- Azure Blob storage에 연결 하는 데 여러 인증 유형이 지원 됩니다.  [Azure 리소스에 관리 되는 id를](./connector-azure-blob-storage.md#managed-identity)사용 하는 것이 좋습니다. Azure Active Directory (Azure AD)에서 자동으로 관리 되는 Data Factory id를 기반으로 구축 된 관리 되는 id를 사용 하면 연결 된 서비스 정의에 자격 증명을 제공 하지 않고 파이프라인을 구성할 수 있습니다. 또는 [서비스 주체](./connector-azure-blob-storage.md#service-principal-authentication), [공유 액세스 서명](./connector-azure-blob-storage.md#shared-access-signature-authentication)또는 [저장소 계정 키](./connector-azure-blob-storage.md#account-key-authentication)를 사용 하 여 Blob 저장소에 인증할 수 있습니다. 
+- Data Lake Storage Gen2에 연결 하는 경우에도 여러 인증 유형이 지원 됩니다.  [Azure 리소스에 관리 되는 id](./connector-azure-data-lake-storage.md#managed-identity)를 사용 하는 것이 좋지만 [서비스 주체](./connector-azure-data-lake-storage.md#service-principal-authentication) 또는 [저장소 계정 키](./connector-azure-data-lake-storage.md#account-key-authentication)를 사용할 수도 있습니다. 
+- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md) 하 여 Data Factory 연결 된 서비스를 수정 하지 않고 키를 중앙에서 보다 쉽게 관리 하 고 회전할 수 있도록 하는 것이 좋습니다. 이는 [CI/CD에 대 한 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd)이기도 합니다. 
 
 ### <a name="initial-snapshot-data-migration"></a>초기 스냅샷 데이터 마이그레이션 
 
@@ -110,7 +110,7 @@ Data Factory native integration runtime 모드에서는 데이터 파티션이 �
 
 Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수를 사용 하 고, `-update` 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 기록 하 여 델타 데이터를 마이그레이션할 수 있습니다.
 
-Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv*)의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
+Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv* )의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
 
 또는 HDFS의 데이터가 시간 분할 되지 않은 경우 **LastModifiedDate** 값을 사용 하 여 새 파일 또는 변경 된 파일을 식별할 수 Data Factory. Data Factory는 HDFS에서 모든 파일을 검색 하 고, 마지막으로 수정 된 타임 스탬프가 설정 된 값 보다 큰 새 파일 및 업데이트 된 파일만 복사 합니다. 
 
@@ -141,16 +141,16 @@ HDFS에서 Azure Blob storage로 데이터를 마이그레이션하기 위한 �
 
 ### <a name="additional-references"></a>추가 참조
 
-- [HDFS 커넥터](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
-- [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [자체 호스팅 통합 런타임 고가용성 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
-- [시간이 분할 된 파일 이름에 따라 증분 방식으로 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [LastModifiedDate에 따라 새 파일 및 변경된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [HDFS 커넥터](./connector-hdfs.md)
+- [Azure Blob storage 커넥터](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2 커넥터](./connector-azure-data-lake-storage.md)
+- [복사 작업 성능 조정 가이드](./copy-activity-performance.md)
+- [자체 호스팅 통합 런타임 만들기 및 구성](./create-self-hosted-integration-runtime.md)
+- [자체 호스팅 통합 런타임 고가용성 및 확장성](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [데이터 이동 보안 고려 사항](./data-movement-security-considerations.md)
+- [Azure Key Vault에 자격 증명 저장](./store-credentials-in-key-vault.md).
+- [시간이 분할 된 파일 이름에 따라 증분 방식으로 파일 복사](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [LastModifiedDate에 따라 새 파일 및 변경된 파일 복사](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [가격 책정 페이지 Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>다음 단계

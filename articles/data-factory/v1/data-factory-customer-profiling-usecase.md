@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021894"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637890"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
@@ -29,13 +29,13 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 이 솔루션에서는 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가하려고 합니다. 원시 게임 로그로 시작하여, 지리적 위치 데이터를 처리하고 보강하고, 광고 참조 데이터와 조인하고 마지막으로 Azure SQL Database에 복사하여 캠페인의 영향을 분석합니다.
 
 ## <a name="deploy-solution"></a>솔루션 배포
-액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../../storage/common/storage-account-create.md) 및 [Azure SQL Database](../../sql-database/sql-database-get-started.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
+액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../../storage/common/storage-account-create.md) 및 [Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
 
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.
 
     ![샘플 파이프라인 타일](./media/data-factory-samples/SamplePipelinesTile.png)
-3. **샘플 파이프라인** 블레이드에서 배포할 **고객 프로파일링**을 클릭합니다.
+3. **샘플 파이프라인** 블레이드에서 배포할 **고객 프로파일링** 을 클릭합니다.
 
     ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
 4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure storage 계정 이름 및 키, 논리적 SQL server 이름, 데이터베이스, 사용자 ID, 암호 등이 있습니다.
@@ -65,4 +65,3 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 
 ## <a name="benefits"></a>이점
 사용자 프로필 분석을 최적화하고 비즈니스 목표에 맞추어 게임 회사는 신속하게 사용 패턴을 수집하고 마케팅 캠페인의 효과를 분석할 수 있습니다.
-

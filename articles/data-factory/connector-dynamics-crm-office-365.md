@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
-ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332103"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638179"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,16 +56,16 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 
 이 커넥터는 재무, 작업 및 인재 같은 다른 응용 프로그램 유형을 지원 하지 않습니다.
 
-이 Dynamics 커넥터는 [DYNAMICS XRM 도구](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
+이 Dynamics 커넥터는 [DYNAMICS XRM 도구](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
 
 >[!TIP]
 >Dynamics 365 재무 및 작업에서 데이터를 복사 하려면 [DYNAMICS AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
+Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -77,7 +77,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM online
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics online의 경우이 값은 "Online" 이어야 합니다. | 예 |
@@ -172,9 +172,9 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>IFD로 Dynamics 365 및 Dynamics CRM 온-프레미스
 
-Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포트**입니다.
+Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포트** 입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예. |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용 하는 Dynamics 온-프레미스의 경우이 값은 "OnPremisesWithIfd" 이어야 합니다.| 예. |
@@ -220,7 +220,7 @@ Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포
 
 Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 "DynamicsEntity", "DynamicsCrmEntity" 또는 "CommonDataServiceForAppsEntity"로 설정 해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 작업 원본이 "query"로 지정 되 고 싱크에 대해 예로 지정 된 경우 원본에 대해 아니요 |
@@ -252,10 +252,10 @@ Dynamics에서 Dynamics로 데이터를 복사 하려면 다음 속성이 지원
 
 Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 "DynamicsSource", "DynamicsCrmSource" 또는 "CommonDataServiceForAppsSource"로 설정 해야 합니다. | 예 |
-| Query | FetchXML은 Dynamics online 및 온-프레미스에서 사용 되는 전용 쿼리 언어입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조 하세요. | `entityName`데이터 집합에서이 지정 되지 않은 경우 |
+| Query | FetchXML은 Dynamics online 및 온-프레미스에서 사용 되는 전용 쿼리 언어입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8))을 참조 하세요. | `entityName`데이터 집합에서이 지정 되지 않은 경우 |
 
 >[!NOTE]
 >PK 열은 FetchXML 쿼리에서 구성한 열 프로젝트에 포함되지 않은 경우에도 항상 복사됩니다.
@@ -320,18 +320,18 @@ Dynamics에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션
 
 Dynamics에 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션은 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 "DynamicsSink", "DynamicsCrmSink" 또는 "CommonDataServiceForAppsSink"로 설정 해야 합니다. | 예. |
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert" 이어야 합니다. | 예 |
 | alternateKeyName | Upsert을 수행 하기 위해 엔터티에 정의 된 대체 키 이름입니다. | 아니요. |
 | writeBatchSize | 각 일괄 처리에서 Dynamics에 작성된 데이터의 행 수입니다. | 아니요. 기본값은 10입니다. |
-| ignoreNullValues | 쓰기 작업 중에 키 필드가 아닌 입력 데이터에서 null 값을 무시할지 여부를 지정 합니다.<br/><br/>유효한 값은 **TRUE** 및 **FALSE**입니다.<ul><li>**TRUE**: upsert 또는 update 작업을 수행할 때 대상 개체의 데이터를 변경 하지 않고 유지 합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.</li><li>**FALSE**: upsert 또는 Update 작업을 수행할 때 대상 개체의 데이터를 null 값으로 업데이트 합니다. 삽입 작업을 수행 하는 경우 null 값을 삽입 합니다.</li></ul> | 아니요. 기본값은 **FALSE**입니다. |
+| ignoreNullValues | 쓰기 작업 중에 키 필드가 아닌 입력 데이터에서 null 값을 무시할지 여부를 지정 합니다.<br/><br/>유효한 값은 **TRUE** 및 **FALSE** 입니다.<ul><li>**TRUE** : upsert 또는 update 작업을 수행할 때 대상 개체의 데이터를 변경 하지 않고 유지 합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.</li><li>**FALSE** : upsert 또는 Update 작업을 수행할 때 대상 개체의 데이터를 null 값으로 업데이트 합니다. 삽입 작업을 수행 하는 경우 null 값을 삽입 합니다.</li></ul> | 아니요. 기본값은 **FALSE** 입니다. |
 
 >[!NOTE]
 >Dynamics 싱크에 대 한 싱크 **Writebatchsize** 및 복사 작업 **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** 의 기본값은 10입니다. 따라서 100 레코드는 기본적으로 Dynamics에 동시에 전송 됩니다.
 
-Dynamics 365 online의 경우 [조직 당 두 개의 동시 일괄 처리 호출](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations)수가 제한 됩니다. 이 제한을 초과 하면 첫 번째 요청이 실행 되기 전에 "서버 사용 중" 예외가 throw 됩니다. 동시 호출의 제한을 방지 하려면 **Writebatchsize** 를 10 개 이하로 유지 합니다.
+Dynamics 365 online의 경우 [조직 당 두 개의 동시 일괄 처리 호출](/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)#Run-time%20limitations)수가 제한 됩니다. 이 제한을 초과 하면 첫 번째 요청이 실행 되기 전에 "서버 사용 중" 예외가 throw 됩니다. 동시 호출의 제한을 방지 하려면 **Writebatchsize** 를 10 개 이하로 유지 합니다.
 
 **Writebatchsize** 및 **parallelCopies** 의 최적 조합은 엔터티의 스키마에 따라 결정 됩니다. 스키마 요소에는 열 수, 행 크기 및 해당 호출에 연결 된 플러그 인, 워크플로 또는 워크플로 작업 수가 포함 됩니다. **Writebatchsize** (10) &times; **parallelCopies** (10)의 기본 설정은 Dynamics 서비스에 따라 권장 되는 사항입니다. 이 값은 최상의 성능을 제공 하지 않을 수 있지만 대부분의 Dynamics 엔터티에 대해 작동 합니다. 복사 작업 설정의 조합을 조정하여 성능을 튜닝할 수 있습니다.
 
@@ -397,7 +397,7 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Dynamics 데이터 형식 **attributetype. CalendarRules**, **Attributetype. Multiselectpicklist**및 **attributetype.partylist** 는 지원 되지 않습니다.
+> Dynamics 데이터 형식 **attributetype. CalendarRules** , **Attributetype. Multiselectpicklist** 및 **attributetype.partylist** 는 지원 되지 않습니다.
 
 ## <a name="writing-data-to-a-lookup-field"></a>조회 필드에 데이터 쓰기
 
@@ -413,15 +413,15 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 
 예를 들어 원본에 다음 두 개의 열이 있다고 가정 합니다.
 
-- **GUID**형식의 **Customerfield** 열 (Dynamics의 대상 엔터티의 기본 키 값)입니다.
-- 대상 엔터티의 논리적 이름인 **String**형식의 **대상** 열입니다.
+- **GUID** 형식의 **Customerfield** 열 (Dynamics의 대상 엔터티의 기본 키 값)입니다.
+- 대상 엔터티의 논리적 이름인 **String** 형식의 **대상** 열입니다.
 
-또한 이러한 데이터를 **Customer**형식의 싱크 Dynamics 엔터티 필드인 **customerfield** 로 복사 하려는 경우를 가정 합니다.
+또한 이러한 데이터를 **Customer** 형식의 싱크 Dynamics 엔터티 필드인 **customerfield** 로 복사 하려는 경우를 가정 합니다.
 
 복사-작업 열 매핑에서 두 열을 다음과 같이 매핑합니다.
 
-- **CustomerField** Customerfield를 **customerfield**로 이 매핑은 표준 필드 매핑입니다.
-- **Customerfield \@ EntityReference**를 **대상** 으로 합니다. 싱크 열은 엔터티 참조를 나타내는 가상 열입니다. 스키마를 가져오면 표시 되지 않으므로 매핑에 이러한 필드 이름을 입력 합니다.
+- **CustomerField** Customerfield를 **customerfield** 로 이 매핑은 표준 필드 매핑입니다.
+- **Customerfield \@ EntityReference** 를 **대상** 으로 합니다. 싱크 열은 엔터티 참조를 나타내는 가상 열입니다. 스키마를 가져오면 표시 되지 않으므로 매핑에 이러한 필드 이름을 입력 합니다.
 
 ![Dynamics 조회-필드 열 매핑](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

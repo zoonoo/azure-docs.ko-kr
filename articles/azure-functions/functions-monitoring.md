@@ -4,13 +4,13 @@ description: Azure Application Insights를 Azure Functions와 함께 사용하�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2
-ms.openlocfilehash: 85851c896d32d2e15efa0a39260af4331f99f862
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js
+ms.openlocfilehash: 87c31df6ecb92acd5bedaee274f9886383e5c617
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217153"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668738"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -33,7 +33,7 @@ Application Insights 계측이 Azure Functions에 기본 제공 되므로 함수
 
 ## <a name="application-insights-integration"></a>Application Insights 통합
 
-일반적으로 함수 앱을 만들 때 Application Insights 인스턴스를 만듭니다. 이 경우 통합에 필요한 계측 키는 *APPINSIGHTS_INSTRUMENTATIONKEY*라는 응용 프로그램 설정으로 이미 설정 되어 있습니다. 일부 이유로 함수 앱에 계측 키가 설정 되지 않은 경우 [Application Insights 통합을 사용 하도록 설정](configure-monitoring.md#enable-application-insights-integration)해야 합니다.  
+일반적으로 함수 앱을 만들 때 Application Insights 인스턴스를 만듭니다. 이 경우 통합에 필요한 계측 키는 *APPINSIGHTS_INSTRUMENTATIONKEY* 라는 응용 프로그램 설정으로 이미 설정 되어 있습니다. 일부 이유로 함수 앱에 계측 키가 설정 되지 않은 경우 [Application Insights 통합을 사용 하도록 설정](configure-monitoring.md#enable-application-insights-integration)해야 합니다.  
 
 ## <a name="collecting-telemetry-data"></a>원격 분석 데이터 수집
 
@@ -95,9 +95,9 @@ Application Insights은 수집 된 종속성 데이터의 _응용 프로그램 �
 
 함수 실행에 의해 생성 되는 로그 데이터의 스트림을 확인 하는 방법에는 두 가지가 있습니다.
 
-* **기본 제공 로그 스트리밍**: App Service 플랫폼을 사용하여 애플리케이션 로그 파일의 스트림을 볼 수 있습니다. 이 스트림은 [로컬 개발](functions-develop-local.md) 중 및 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력에 해당 합니다. 모든 로그 기반 정보가 표시됩니다. 자세한 내용은 [로그 스트리밍](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원하며, 사용 계획을 사용하는 Linux에서 실행되는 앱에는 사용할 수 없습니다.
+* **기본 제공 로그 스트리밍** : App Service 플랫폼을 사용하여 애플리케이션 로그 파일의 스트림을 볼 수 있습니다. 이 스트림은 [로컬 개발](functions-develop-local.md) 중 및 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력에 해당 합니다. 모든 로그 기반 정보가 표시됩니다. 자세한 내용은 [로그 스트리밍](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원하며, 사용 계획을 사용하는 Linux에서 실행되는 앱에는 사용할 수 없습니다.
 
-* **라이브 메트릭 스트림**: 함수 앱이 [Application Insights에 연결](configure-monitoring.md#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 사용 계획을 사용하는 여러 인스턴스 또는 Linux에서 실행되는 함수를 모니터링할 때 이 방법을 사용합니다. 이 방법은 [샘플링된 데이터](configure-monitoring.md#configure-sampling)를 사용합니다.
+* **라이브 메트릭 스트림** : 함수 앱이 [Application Insights에 연결](configure-monitoring.md#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 사용 계획을 사용하는 여러 인스턴스 또는 Linux에서 실행되는 함수를 모니터링할 때 이 방법을 사용합니다. 이 방법은 [샘플링된 데이터](configure-monitoring.md#configure-sampling)를 사용합니다.
 
 로그 스트림은 포털과 대부분의 로컬 개발 환경에서 볼 수 있습니다. 로그 스트림을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure Functions에서 스트리밍 실행 로그 사용](streaming-logs.md)을 참조 하세요.
 

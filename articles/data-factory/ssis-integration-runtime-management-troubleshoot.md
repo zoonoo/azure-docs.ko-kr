@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86172029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637924"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
 
@@ -82,7 +82,7 @@ IR을 실행 하는 동안 오류가 발생 하는 경우 네트워크 보안 �
 
 ## <a name="custom-setup-issues"></a>사용자 지정 설치 문제
 
-사용자 지정 설정은 SSIS IR의 프로비전 또는 재구성 중에 자체 설정 단계를 추가하는 인터페이스를 제공합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 위한 사용자 지정 설정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)을 참조하세요.
+사용자 지정 설정은 SSIS IR의 프로비전 또는 재구성 중에 자체 설정 단계를 추가하는 인터페이스를 제공합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 위한 사용자 지정 설정](./how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
 
 컨테이너에 필요한 사용자 지정 설정 파일만 포함되어 있는지 확인합니다. 컨테이너의 모든 파일이 SSIS IR 작업자 노드에 다운로드됩니다. SSIS IR에서 스크립트를 실행하기 전에 스크립트 실행 이슈를 해결하려면 로컬 컴퓨터에서 사용자 지정 설정 스크립트를 테스트하는 것이 좋습니다.
 
@@ -114,7 +114,7 @@ IR이 실행 중인 경우 IR을 중지하고 새 사용자 지정 설정 컨테
 
 ## <a name="virtual-network-configuration"></a>가상 네트워크 구성
 
-SSIS IR을 Azure Virtual Network에 조인할 때 SSIS IR은 사용자 구독에 속한 가상 네트워크를 사용합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
+SSIS IR을 Azure Virtual Network에 조인할 때 SSIS IR은 사용자 구독에 속한 가상 네트워크를 사용합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 SSIS IR이 성공적으로 시작 된 후 네트워크 연결 문제가 발생 하는 경우 [연결 진단 도구](ssis-integration-runtime-diagnose-connectivity-faq.md) 를 사용 하 여 문제를 직접 진단할 수 있습니다.
 Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표시됩니다.
 
@@ -141,7 +141,7 @@ Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표�
 
 이러한 종류의 오류 메시지는 다음과 같습니다. "VNet에서 Integration Runtime를 프로 비전 하지 못했습니다. DNS 서버 또는 NSG 설정이 구성 된 경우 DNS 서버에 액세스할 수 있고 NSG가 올바르게 구성 되어 있는지 확인 하십시오. "
 
-이 경우에는 사용자 지정된 DNS 서버 또는 NSG 설정 구성이 있을 수 있습니다. 그러면 SSIS IR에 필요한 Azure 서버 이름을 확인하거나 액세스할 수 없습니다. 자세한 내용은 [SSIS IR Virtual Network 구성](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
+이 경우에는 사용자 지정된 DNS 서버 또는 NSG 설정 구성이 있을 수 있습니다. 그러면 SSIS IR에 필요한 Azure 서버 이름을 확인하거나 액세스할 수 없습니다. 자세한 내용은 [SSIS IR Virtual Network 구성](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
 
 ### <a name="vnetresourcegrouplockedduringupgrade"></a>VNetResourceGroupLockedDuringUpgrade
 
@@ -157,11 +157,11 @@ SSIS IR을 중지하면 모든 Virtual Network 관련 리소스가 삭제됩니�
 
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
-이 오류는 IR이 실행 중일 때 발생하며 IR이 비정상 상태임을 의미합니다. 이 오류는 항상 SSIS IR이 필요한 서비스에 연결되지 않도록 차단하는 DNS 서버 또는 NSG 구성의 변경으로 인해 발생합니다. DNS 서버 및 NSG의 구성은 고객에 의해 제어되므로 결국 고객이 차단 이슈를 해결해야 합니다. 자세한 내용은 [SSIS IR Virtual Network 구성](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
+이 오류는 IR이 실행 중일 때 발생하며 IR이 비정상 상태임을 의미합니다. 이 오류는 항상 SSIS IR이 필요한 서비스에 연결되지 않도록 차단하는 DNS 서버 또는 NSG 구성의 변경으로 인해 발생합니다. DNS 서버 및 NSG의 구성은 고객에 의해 제어되므로 결국 고객이 차단 이슈를 해결해야 합니다. 자세한 내용은 [SSIS IR Virtual Network 구성](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
 
 ## <a name="static-public-ip-addresses-configuration"></a>고정 공용 IP 주소 구성
 
-Azure-SSIS IR를 Azure Virtual Network에 조인 하는 경우 IR이 특정 IP 주소에 대 한 액세스를 제한 하는 데이터 원본에 액세스할 수 있도록 IR에 대 한 고정 공용 IP 주소를 가져올 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
+Azure-SSIS IR를 Azure Virtual Network에 조인 하는 경우 IR이 특정 IP 주소에 대 한 액세스를 제한 하는 데이터 원본에 액세스할 수 있도록 IR에 대 한 고정 공용 IP 주소를 가져올 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
 위의 가상 네트워크 문제 외에도 고정 공용 IP 주소 관련 문제를 충족할 수 있습니다. 도움이 필요 하면 다음 오류를 확인 하십시오.
 
@@ -174,7 +174,7 @@ Azure-SSIS IR를 Azure Virtual Network에 조인 하는 경우 IR이 특정 IP �
 | 제공 된 고정 공용 IP 주소는 이미 사용 중입니다. Azure-SSIS Integration Runtime에 사용 되지 않는 두 개의 주소를 제공 하세요. | 사용 되지 않는 고정 공용 IP 주소를 두 개 선택 하거나 지정 된 공용 IP 주소에 대 한 현재 참조를 제거한 후 Azure-SSIS IR를 다시 시작 해야 합니다. |
 | 제공 된 고정 공용 IP 주소에 DNS 이름이 없습니다. Azure-SSIS Integration Runtime에 대 한 DNS 이름으로 두 개를 제공 하십시오. | 아래 그림에 나와 있는 것 처럼 Azure Portal에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 특정 단계는 다음과 같습니다. (1) Azure Portal을 열고이 공용 IP 주소의 리소스 페이지로 이동 합니다. (2) **구성** 섹션을 선택 하 고 DNS 이름을 설정한 다음 **저장** 단추를 클릭 합니다. (3) Azure-SSIS IR을 다시 시작 합니다. |
 | Azure-SSIS Integration Runtime에 대해 제공 된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공 하 고 Azure-SSIS IR를 다시 시작 하세요. |
-| 제공 된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS Integration Runtime에 대 한 두 가지 표준 이름을 제공 하세요. | 도움말은 [공용 IP 주소의 sku](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 를 참조 하세요. |
+| 제공 된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS Integration Runtime에 대 한 두 가지 표준 이름을 제공 하세요. | 도움말은 [공용 IP 주소의 sku](../virtual-network/public-ip-addresses.md#sku) 를 참조 하세요. |
 
 ![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 

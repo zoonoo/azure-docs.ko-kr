@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8192b1351d54acbb553bacb8b36474cba271cb05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638077"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
@@ -41,13 +41,13 @@ Azure Data Factory은 다양 한 수준에서 병렬 처리를 허용 하는 서
 
 위의 다이어그램은 다음과 같이 해석할 수 있습니다.
 
-- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. Azure Integration Runtime를 사용 하는 경우 서버를 사용 하지 않는 방식으로 각 복사 작업에 대해 [최대 256 DIUs를](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) 지정할 수 있습니다. 자체 호스팅 통합 런타임 (자체 호스팅 IR)을 사용 하면 컴퓨터를 수동으로 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 파티션을 배포 합니다. 
+- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. Azure Integration Runtime를 사용 하는 경우 서버를 사용 하지 않는 방식으로 각 복사 작업에 대해 [최대 256 DIUs를](./copy-activity-performance.md#data-integration-units) 지정할 수 있습니다. 자체 호스팅 통합 런타임 (자체 호스팅 IR)을 사용 하면 컴퓨터를 수동으로 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 파티션을 배포 합니다. 
 
 - 단일 복사 작업은 여러 스레드를 사용 하 여 데이터 저장소에서 읽고 씁니다. 
 
-- Azure Data Factory 제어 흐름은 동시에 여러 복사 작업을 시작할 수 있습니다. 예를 들어 [For each 루프](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)를 사용 하 여 시작할 수 있습니다. 
+- Azure Data Factory 제어 흐름은 동시에 여러 복사 작업을 시작할 수 있습니다. 예를 들어 [For each 루프](./control-flow-for-each-activity.md)를 사용 하 여 시작할 수 있습니다. 
 
-자세한 내용은 [복사 작업 성능 및 확장성 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)를 참조 하세요.
+자세한 내용은 [복사 작업 성능 및 확장성 가이드](./copy-activity-performance.md)를 참조 하세요.
 
 ## <a name="resilience"></a>복원력
 
@@ -95,33 +95,33 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 ### <a name="manage-authentication-and-credentials"></a>인증 및 자격 증명 관리 
 
-- Netezza에 인증 하기 위해 [연결 문자열을 통해 ODBC 인증](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties)을 사용할 수 있습니다. 
+- Netezza에 인증 하기 위해 [연결 문자열을 통해 ODBC 인증](./connector-netezza.md#linked-service-properties)을 사용할 수 있습니다. 
 
 - Azure Blob storage에 인증 하려면: 
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity)사용 하는 것이 좋습니다. Azure Active Directory (Azure AD)에서 자동으로 관리 되는 Azure Data Factory id를 기반으로 구축 된 관리 되는 id를 사용 하면 연결 된 서비스 정의에 자격 증명을 제공 하지 않고도 파이프라인을 구성할 수 있습니다.  
+   - [Azure 리소스에 관리 되는 id를](./connector-azure-blob-storage.md#managed-identity)사용 하는 것이 좋습니다. Azure Active Directory (Azure AD)에서 자동으로 관리 되는 Azure Data Factory id를 기반으로 구축 된 관리 되는 id를 사용 하면 연결 된 서비스 정의에 자격 증명을 제공 하지 않고도 파이프라인을 구성할 수 있습니다.  
 
-   - 또는 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [공유 액세스 서명](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication)를 사용 하 여 Azure Blob storage에 인증할 수 있습니다. 
+   - 또는 [서비스 주체](./connector-azure-blob-storage.md#service-principal-authentication), [공유 액세스 서명](./connector-azure-blob-storage.md#shared-access-signature-authentication)또는 [저장소 계정 키](./connector-azure-blob-storage.md#account-key-authentication)를 사용 하 여 Azure Blob storage에 인증할 수 있습니다. 
 
 - Azure Data Lake Storage Gen2에 인증 하려면: 
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)사용 하는 것이 좋습니다.
+   - [Azure 리소스에 관리 되는 id를](./connector-azure-data-lake-storage.md#managed-identity)사용 하는 것이 좋습니다.
    
-   - [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)를 사용할 수도 있습니다. 
+   - [서비스 주체](./connector-azure-data-lake-storage.md#service-principal-authentication) 또는 [저장소 계정 키](./connector-azure-data-lake-storage.md#account-key-authentication)를 사용할 수도 있습니다. 
 
 - Azure Synapse Analytics에 인증 하려면:
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity)사용 하는 것이 좋습니다.
+   - [Azure 리소스에 관리 되는 id를](./connector-azure-sql-data-warehouse.md#managed-identity)사용 하는 것이 좋습니다.
    
-   - 또한 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) 또는 [SQL 인증](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication)을 사용할 수 있습니다.
+   - 또한 [서비스 주체](./connector-azure-sql-data-warehouse.md#service-principal-authentication) 또는 [SQL 인증](./connector-azure-sql-data-warehouse.md#sql-authentication)을 사용할 수 있습니다.
 
-- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장 하는](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 것이 좋습니다. Azure Data Factory 연결 된 서비스를 수정할 필요 없이 중앙에서 키를 중앙에서 관리 하 고 회전할 수 있습니다. [CI/CD에 대한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 중 하나이기도 합니다. 
+- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장 하는](./store-credentials-in-key-vault.md) 것이 좋습니다. Azure Data Factory 연결 된 서비스를 수정할 필요 없이 중앙에서 키를 중앙에서 관리 하 고 회전할 수 있습니다. [CI/CD에 대한 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd) 중 하나이기도 합니다. 
 
 ### <a name="migrate-initial-snapshot-data"></a>초기 스냅숏 데이터 마이그레이션 
 
 작은 테이블 (즉, 볼륨이 100 GB 미만 이거나 2 시간 내에 Azure로 마이그레이션할 수 있는 테이블)의 경우 각 복사 작업에서 테이블당 데이터를 로드 하도록 할 수 있습니다. 처리량을 높이기 위해 여러 Azure Data Factory 복사 작업을 실행 하 여 별도의 테이블을 동시에 로드할 수 있습니다. 
 
-각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [ `parallelCopies` 속성 설정을](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
+각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [ `parallelCopies` 속성 설정을](./copy-activity-performance.md#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
 
 - 효율성을 높이기 위해 데이터 조각에서 시작 하는 것이 좋습니다.  설정의 값 `parallelCopies` 이 Netezza 서버에 있는 테이블의 전체 데이터 조각 파티션 수보다 적은지 확인 합니다.  
 
@@ -192,18 +192,18 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 자세한 내용은 다음 문서 및 가이드를 참조 하세요.
 
 - [Azure Data Factory를 사용 하 여 온-프레미스 관계형 데이터 웨어하우스 데이터베이스에서 Azure로 데이터 마이그레이션](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
-- [Netezza 커넥터](https://docs.microsoft.com/azure/data-factory/connector-netezza)
-- [ODBC 커넥터](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure Synapse Analytics 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [자체 호스팅 Integration Runtime HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
-- [한 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
-- [여러 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Netezza 커넥터](./connector-netezza.md)
+- [ODBC 커넥터](./connector-odbc.md)
+- [Azure Blob storage 커넥터](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2 커넥터](./connector-azure-data-lake-storage.md)
+- [Azure Synapse Analytics 커넥터](./connector-azure-sql-data-warehouse.md)
+- [복사 작업 성능 조정 가이드](./copy-activity-performance.md)
+- [자체 호스팅 통합 런타임 만들기 및 구성](./create-self-hosted-integration-runtime.md)
+- [자체 호스팅 Integration Runtime HA 및 확장성](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [데이터 이동 보안 고려 사항](./data-movement-security-considerations.md)
+- [Azure Key Vault에 자격 증명 저장](./store-credentials-in-key-vault.md).
+- [한 테이블에서 증분 방식으로 데이터 복사](./tutorial-incremental-copy-portal.md)
+- [여러 테이블에서 증분 방식으로 데이터 복사](./tutorial-incremental-copy-multiple-tables-portal.md)
 - [Azure Data Factory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>다음 단계

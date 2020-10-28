@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372262"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638332"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
-Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
+Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
 
-## <a name="_logsoperation-function"></a>_LogsOperation 함수
-Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure-monitor/reference/tables/operation) 테이블에 모든 문제에 대 한 세부 정보를 보냅니다. **_LogsOperation** 시스템 함수는 **작업** 테이블을 기반으로 하며 분석 및 경고에 대 한 간단한 정보 집합을 제공 합니다.
+## <a name="_logoperation-function"></a>_LogOperation 함수
+Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 테이블에 모든 문제에 대 한 세부 정보를 보냅니다. **_LogOperation** 시스템 함수는 **작업** 테이블을 기반으로 하며 분석 및 경고에 대 한 간단한 정보 집합을 제공 합니다.
 
 ## <a name="columns"></a>열
 
-**_LogsOperation** 함수는 다음 표의 열을 반환 합니다.
+**_LogOperation** 함수는 다음 표의 열을 반환 합니다.
 
 | 열 | Description |
 |:---|:---|
@@ -36,9 +36,9 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure-mo
 
 
 ## <a name="categories"></a>범주
-다음 표에서는 _LogsOperations 함수의 범주에 대해 설명 합니다. 
+다음 표에서는 _LogOperation 함수의 범주에 대해 설명 합니다. 
 
-| Category | 설명 |
+| Category | Description |
 |:---|:---|
 | 수집           | 데이터 수집 프로세스의 일부인 작업입니다. 자세한 내용은 다음을 참조하세요. |
 | 에이전트               | 에이전트 설치에 문제가 있음을 나타냅니다. |
@@ -53,20 +53,20 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure-mo
 
 | 작업(Operation) | Level | 세부 정보 | 관련 문서 |
 |:---|:---|:---|:---|
-| 사용자 지정 로그 | Error   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 사용자 지정 로그 | Error   | 사용자 지정 로그를 수집 하지 못했습니다. | |
-| 메타데이터입니다. | Error | 구성 오류가 발생 했습니다. | |
-| 데이터 수집 | Error   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](manage-cost-storage.md#alert-when-daily-cap-reached)
+| 사용자 지정 로그 | 오류   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 사용자 지정 로그 | 오류   | 사용자 지정 로그를 수집 하지 못했습니다. | |
+| 메타데이터입니다. | 오류 | 구성 오류가 발생 했습니다. | |
+| 데이터 수집 | 오류   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](manage-cost-storage.md#alert-when-daily-cap-reached)
 | 데이터 수집 | 정보    | 수집 컴퓨터 구성이 검색 되었습니다.| |
 | 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 수집 | Warning | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 처리 | Error   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](data-collector-api.md#request-body) | 
-| 데이터 처리 | Warning | 값이 최대 허용 크기로 잘렸습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 데이터 처리 | Warning | 크기 제한에 도달 하 여 필드 값이 잘립니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) | 
+| 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| 데이터 처리 | 오류   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](data-collector-api.md#request-body) | 
+| 데이터 처리 | 경고 | 값이 최대 허용 크기로 잘렸습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 데이터 처리 | 경고 | 크기 제한에 도달 하 여 필드 값이 잘립니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) | 
 | 수집 율 | 정보 | 수집 비율 제한이 70%에 근접 합니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 수집 율 | Warning | 수집 속도로 제한에 근접 하 고 있습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 수집 율 | Error   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 스토리지 | Error   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
+| 수집 율 | 경고 | 수집 속도로 제한에 근접 하 고 있습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 수집 율 | 오류   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 스토리지 | 오류   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
 
 
 
@@ -82,8 +82,8 @@ Azure Monitor의 [로그 쿼리 경고](../platform/alerts-log-query.md) 를 사
 
 | 쿼리 | 임계값 | 기간 | 빈도 |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 이러한 경고 규칙은 오류 또는 경고가 발생 한 모든 작업과 동일 하 게 응답 합니다. 경고를 생성 하는 작업에 더 익숙해지면 특정 작업에 대 한 응답을 다르게 할 수 있습니다. 예를 들어 특정 작업에 대 한 알림을 다른 사용자에 게 보낼 수 있습니다. 
 

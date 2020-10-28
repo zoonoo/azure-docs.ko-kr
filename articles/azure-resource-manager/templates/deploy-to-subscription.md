@@ -2,15 +2,15 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729120"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668884"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
+# <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 구독 배포
 
 리소스 관리를 간소화 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 [정책](../../governance/policy/overview.md) 및 [azure 역할 기반 액세스 제어 (azure RBAC)](../../role-based-access-control/overview.md) 를 배포 하 여 구독 전체에 적용할 수 있습니다. 구독 내에서 리소스 그룹을 만들고 구독의 리소스 그룹에 리소스를 배포할 수도 있습니다.
 
@@ -71,32 +71,26 @@ Azure RBAC (역할 기반 액세스 제어)의 경우 다음을 사용 합니다
 템플릿의 경우 다음을 사용합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 매개 변수 파일에 대한 스키마는 모든 배포 범위에 대해 동일합니다. 매개 변수 파일의 경우 다음을 사용합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>배포 범위
-
-구독에 배포 하는 경우 구독 내에서 구독 및 리소스 그룹 하나를 대상으로 지정할 수 있습니다. 대상 구독과 다른 구독에는 배포할 수 없습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
-
-템플릿의 resources 섹션 내에 정의 된 리소스는 구독에 적용 됩니다.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-구독 내의 리소스 그룹을 대상으로 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `rg2` 합니다.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-이 문서에서는 다양 한 범위에 리소스를 배포 하는 방법을 보여 주는 템플릿을 찾을 수 있습니다. 리소스 그룹을 만들고 저장소 계정을 배포 하는 템플릿의 경우 [리소스 그룹 및 리소스 만들기](#create-resource-group-and-resources)를 참조 하세요. 리소스 그룹을 만들고 해당 그룹에 잠금을 적용 하 고 리소스 그룹에 역할을 할당 하는 템플릿의 경우 [액세스 제어](#access-control)를 참조 하세요.
 
 ## <a name="deployment-commands"></a>배포 명령
 
-구독 수준 배포에 대한 명령은 리소스 그룹 배포에 대한 명령과 다릅니다.
+구독에 배포 하려면 구독 수준 배포 명령을 사용 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
@@ -108,7 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) 또는 **New-AzSubscriptionDeployment**를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) 또는 **New-AzSubscriptionDeployment** 를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -119,35 +115,52 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-REST API의 경우 [배포 - 구독 범위에서 만들기](/rest/api/resources/deployments/createorupdateatsubscriptionscope)를 사용합니다.
+---
+
+ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 내용은 다음을 참조 하세요.
+
+* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](deploy-portal.md)
+* [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](deploy-cli.md)
+* [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)
+* [ARM 템플릿 및 Azure Resource Manager REST API를 사용 하 여 리소스 배포](deploy-rest.md)
+* [배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
+* [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>배포 범위
+
+구독에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
+
+* 작업의 대상 구독
+* 구독 내의 리소스 그룹
+* 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
+
+대상 구독과 다른 구독에는 배포할 수 없습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+
+이 섹션에서는 다양 한 범위를 지정 하는 방법을 보여 줍니다. 단일 템플릿에서 이러한 여러 범위를 결합할 수 있습니다.
+
+### <a name="scope-to-subscription"></a>구독 범위
+
+대상 구독에 리소스를 배포 하려면 템플릿의 리소스 섹션에 해당 리소스를 추가 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+구독에 배포 하는 예제는 [리소스 그룹 만들기](#create-resource-groups) 및 [정책 정의 할당](#assign-policy-definition)을 참조 하세요.
+
+### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
+
+구독 내의 리소스 그룹에 리소스를 배포 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `demoResourceGroup` 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+리소스 그룹에 배포 하는 예제는 [리소스 그룹 및 리소스 만들기](#create-resource-group-and-resources)를 참조 하세요.
 
 ## <a name="deployment-location-and-name"></a>배포 위치 및 이름
 
 구독 수준 배포의 경우 배포를 위한 위치를 제공해야 합니다. 배포의 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다.
 
-배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json**이라는 템플릿을 배포하면 **azuredeploy**라는 기본 배포 이름을 만듭니다.
+배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
 
 각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
-
-## <a name="use-template-functions"></a>템플릿 함수 사용
-
-구독 수준 배포의 경우 템플릿 함수를 사용할 때 몇 가지 중요한 고려 사항이 있습니다.
-
-* [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
-* [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
-* 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 얻으려면 [resourceId ()](template-functions-resource.md#resourceid) 를 사용 하지 마세요. 대신, [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 합니다.
-
-  예를 들어 구독에 배포 되는 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  반환된 리소스 ID 형식은 다음과 같습니다.
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>리소스 그룹
 

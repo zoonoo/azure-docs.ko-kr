@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83690239"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638009"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Azure Data Factory의 비용 계획 및 관리
 
@@ -56,15 +56,15 @@ Azure Data Factory는 클라우드 스케일링을 위한 탄력적 서버리스
 
 ## <a name="use-budgets-and-cost-alerts"></a>예산 및 비용 경고 사용
 
-[예산](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 경고를 만들 수 있습니다.  경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다.  예산을 만들 때 리소스 ID 및 미터 이름과 같은 필터를 추가하면 구독 수준이나 그보다 더 하위 수준에서 예산을 만들 수 있습니다.  그러나 센터 내 개별 파이프라인에 대한 예산을 만들 수는 없습니다.
+[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 경고를 만들 수 있습니다.  경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다.  예산을 만들 때 리소스 ID 및 미터 이름과 같은 필터를 추가하면 구독 수준이나 그보다 더 하위 수준에서 예산을 만들 수 있습니다.  그러나 센터 내 개별 파이프라인에 대한 예산을 만들 수는 없습니다.
 
 ## <a name="monitor-costs-at-factory-level"></a>센터 수준에서 비용 모니터링
 
-Azure Data Factory 사용을 시작하면 Azure Portal의 [비용 분석](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) 창에서 발생한 비용을 볼 수 있습니다.
+Azure Data Factory 사용을 시작하면 Azure Portal의 [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md) 창에서 발생한 비용을 볼 수 있습니다.
 
-1. [비용 분석](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis)를 보려면 **Cost Management + Billing** 창을 열고 메뉴에서 **Cost Management**를 선택한 다음, **비용 분석 열기**를 선택합니다.
+1. [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md)를 보려면 **Cost Management + Billing** 창을 열고 메뉴에서 **Cost Management** 를 선택한 다음, **비용 분석 열기** 를 선택합니다.
 2. 기본 보기에는 이번 달의 누적 비용이 표시됩니다.  다른 시간 범위, 다른 세분성(예: 일일 또는 월간)으로 전환할 수 있습니다.
-3. Azure Data Factory와 같은 단일 서비스로 비용 범위를 좁히려면 **필터 추가**를 선택한 다음, **서비스 이름**을 선택합니다.  그런 다음, 목록에서 **Azure Data Factory v2**를 선택합니다.
+3. Azure Data Factory와 같은 단일 서비스로 비용 범위를 좁히려면 **필터 추가** 를 선택한 다음, **서비스 이름** 을 선택합니다.  그런 다음, 목록에서 **Azure Data Factory v2** 를 선택합니다.
 4. 특정 센터 인스턴스와 특정 ADF 미터 세분성의 비용을 분석하는 필터를 더 추가할 수 있습니다.
 
    ![비용 분석](media/plan-manage-costs/cost-analysis.png)
@@ -81,12 +81,12 @@ Azure Data Factory 사용자 환경에서 개별 파이프라인 실행에 대�
 
 ![파이프라인 사용량 세부 정보](media/plan-manage-costs/pipeline-consumption-details.png)
 
-파이프라인 실행 사용량 보기에서는 특정 파이프라인 실행의 각 ADF 미터별 사용량을 보여 주지만 사용자에게 청구되는 금액은 보유하고 있는 Azure 계정의 유형과 사용하는 통화의 유형에 따라 달라지므로 실제 청구 금액은 표시되지 않습니다.  지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data)를 참조하세요.
+파이프라인 실행 사용량 보기에서는 특정 파이프라인 실행의 각 ADF 미터별 사용량을 보여 주지만 사용자에게 청구되는 금액은 보유하고 있는 Azure 계정의 유형과 사용하는 통화의 유형에 따라 달라지므로 실제 청구 금액은 표시되지 않습니다.  지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md)를 참조하세요.
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>활동 실행 수준에서 사용량 모니터링
 파이프라인 실행 수준에서 집계된 사용량을 이해한 후에는 필요에 따라 더 깊이 들어가서 파이프라인 내에서 가장 비용이 많이 드는 활동을 식별해야 합니다.
 
-활동 실행 수준에서 사용량을 확인하려면 데이터 팩터리 **작성자 및 모니터** UI로 이동합니다. 파이프라인 실행 목록이 표시되는 **모니터** 탭에서 **파이프라인 이름** 링크를 클릭하여 파이프라인 실행의 활동 실행 목록에 액세스합니다.  활동 이름 옆의 출력 **단추**를 클릭하고 JSON 출력에서 **billableDuration** 속성을 찾습니다.
+활동 실행 수준에서 사용량을 확인하려면 데이터 팩터리 **작성자 및 모니터** UI로 이동합니다. 파이프라인 실행 목록이 표시되는 **모니터** 탭에서 **파이프라인 이름** 링크를 클릭하여 파이프라인 실행의 활동 실행 목록에 액세스합니다.  활동 이름 옆의 출력 **단추** 를 클릭하고 JSON 출력에서 **billableDuration** 속성을 찾습니다.
 
 다음은 복사 작업 실행의 샘플입니다.
 
@@ -101,5 +101,5 @@ Azure Data Factory 사용자 환경에서 개별 파이프라인 실행에 대�
 Azure Data Factory에서 가격 책정이 작동하는 방식에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 - [Azure Data Factory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [예제를 통한 Azure Data Factory 이해](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [예제를 통한 Azure Data Factory 이해](./pricing-concepts.md)
 - [Azure Data Factory 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=data-factory)
