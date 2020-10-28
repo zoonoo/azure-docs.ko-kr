@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230828"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792381"
 ---
 # <a name="key-vault-versions"></a>키 자격 증명 모음 버전
 
@@ -33,7 +33,7 @@ Key Vault용 Azure Monitor는 현재 미리 보기로 제공됩니다.  Azure Mo
 ## <a name="2019"></a>2019
 
 - 차세대 Azure Key Vault SDK가 출시되었습니다. 사용 방법은 [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) 및 [Node.js](../secrets/quick-create-node.md)에 대한 Azure Key Vault 비밀 빠른 시작을 참조하세요.
-- 키 자격 증명 모음 인증서를 관리하는 새로운 Azure 정책. [Key Vault에 대한 Azure Policy 기본 제공 정의](../policy-samples.md)를 참조하세요.
+- 키 자격 증명 모음 인증서를 관리하는 새로운 Azure 정책. [Key Vault에 대한 Azure Policy 기본 제공 정의](../policy-reference.md)를 참조하세요.
 - Azure Key Vault 가상 머신 확장은 이제 일반 공급됩니다.  [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) 및 [Windows용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-windows.md)을 참조하세요.
 - Azure Key Vault에 대한 이벤트 기반 비밀 관리는 현재 Azure Event Grid에서 사용할 수 있습니다. [Azure Key Vault의 이벤트에 대한 Event Grid 스키마](../../event-grid/event-schema-key-vault.md]에서 자세한 내용을 확인하고, [Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답](event-grid-tutorial.md) 방법을 알아보세요.
 
@@ -49,8 +49,8 @@ Key Vault용 Azure Monitor는 현재 미리 보기로 제공됩니다.  Azure Mo
 
 올해 출시된 새로운 기능:
 
-- 관리형 스토리지 계정 키. Azure Storage와 더 쉽게 통합되는 스토리지 계정 키 기능을 추가했습니다. 자세한 내용은 개요 토픽 [관리 스토리지 계정 키 개요](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)를 참조하세요.
-- 일시 삭제. 일시 삭제 기능은 키 자격 증명 모음 및 키 자격 증명 모음 개체의 데이터 보호를 개선합니다. 자세한 내용은 [일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 토픽을 참조하세요.
+- 관리형 스토리지 계정 키. Azure Storage와 더 쉽게 통합되는 스토리지 계정 키 기능을 추가했습니다. 자세한 내용은 개요 토픽 [관리 스토리지 계정 키 개요](../secrets/overview-storage-keys.md)를 참조하세요.
+- 일시 삭제. 일시 삭제 기능은 키 자격 증명 모음 및 키 자격 증명 모음 개체의 데이터 보호를 개선합니다. 자세한 내용은 [일시 삭제 개요](./soft-delete-overview.md) 토픽을 참조하세요.
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ Key Vault용 Azure Monitor는 현재 미리 보기로 제공됩니다.  Azure Mo
 - 키 복원 - "사용" 필드를 제거했습니다.     
 - RSA 알고리즘에 대한 "RSA_OAEP"를 "RSA-OAEP"로 변경했습니다. [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-certificates.md)를 참조하세요.    
  
-두 번째 미리보기 버전(2015-02-01-preview)은 2015년 4월 20일에 발표되었습니다. 자세한 내용은 [REST API 업데이트](https://docs.microsoft.com/archive/blogs/kv/rest-api-update)를 참조하세요. 다음 작업을 업데이트했습니다.
+두 번째 미리보기 버전(2015-02-01-preview)은 2015년 4월 20일에 발표되었습니다. 자세한 내용은 [REST API 업데이트](/archive/blogs/kv/rest-api-update)를 참조하세요. 다음 작업을 업데이트했습니다.
  
 - 자격 증명 모음에 키 나열 - 작업에 페이지 매김 지원을 추가했습니다.
 - 키 버전 나열 - 키 버전을 나열하는 작업을 추가했습니다.  

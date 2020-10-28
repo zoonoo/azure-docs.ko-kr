@@ -11,16 +11,17 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152172"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792466"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 
-Azure IoT Hub ‘디바이스 스트림’은 다양한 클라우드-디바이스 통신 시나리오를 위한 보안 양방향 TCP 터널을 쉽게 만들 수 있도록 합니다.** 디바이스 스트림은 디바이스와 서비스 엔드포인트 간의 프록시 역할을 하는 IoT Hub ‘스트리밍 엔드포인트’에 의해 조정됩니다.** 아래 다이어그램에 표시된 이 설정은 디바이스가 네트워크 방화벽 뒤에 있거나 사설망 내부에 있을 때 특히 유용합니다. 따라서 IoT Hub 디바이스 스트림은 수신 또는 발신 네트워크 방화벽 포트를 광범위하게 열지 않고도 방화벽에 편리한 방식으로 IoT 디바이스에 연결해야 하는 고객의 요구를 처리하는 데 도움이 됩니다.
+Azure IoT Hub ‘디바이스 스트림’은 다양한 클라우드-디바이스 통신 시나리오를 위한 보안 양방향 TCP 터널을 쉽게 만들 수 있도록 합니다.  디바이스 스트림은 디바이스와 서비스 엔드포인트 간의 프록시 역할을 하는 IoT Hub ‘스트리밍 엔드포인트’에 의해 조정됩니다.  아래 다이어그램에 표시된 이 설정은 디바이스가 네트워크 방화벽 뒤에 있거나 사설망 내부에 있을 때 특히 유용합니다. 따라서 IoT Hub 디바이스 스트림은 수신 또는 발신 네트워크 방화벽 포트를 광범위하게 열지 않고도 방화벽에 편리한 방식으로 IoT 디바이스에 연결해야 하는 고객의 요구를 처리하는 데 도움이 됩니다.
 
 !["IoT Hub 장치 스트림 개요"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
 
@@ -56,7 +57,7 @@ SDK를 사용하여 디바이스 스트림을 프로그래밍 방식으로 만�
 
 1. 디바이스 애플리케이션은 디바이스에 대해 새 디바이스 스트림이 시작될 때 알림을 받기 위해 미리 콜백을 등록합니다. 이 단계는 일반적으로 디바이스가 부팅되고 IoT Hub에 연결할 때 수행됩니다.
 
-2. 서비스 쪽 프로그램이 디바이스 ID(IP 주소가 ‘아님’)를 제공하여 필요할 때 디바이스 스트림을 시작합니다.__
+2. 서비스 쪽 프로그램이 디바이스 ID(IP 주소가 ‘아님’)를 제공하여 필요할 때 디바이스 스트림을 시작합니다. 
 
 3. IoT 허브는 1단계에서 등록된 콜백을 호출하여 디바이스 쪽 프로그램에 알립니다. 디바이스는 스트림 시작 요청을 수락하거나 거부할 수 있습니다. 이 논리는 애플리케이션 시나리오에만 해당할 수 있습니다. 디바이스가 스트림 요청을 거부하면 IoT Hub가 그에 따라 서비스에 알립니다. 거부하지 않은 경우 아래 단계가 수행됩니다.
 
@@ -82,7 +83,7 @@ SDK를 사용하여 디바이스 스트림을 프로그래밍 방식으로 만�
 
 ## <a name="connectivity-requirements"></a>연결 요구 사항
 
-디바이스 스트림의 디바이스 쪽과 서비스 쪽 둘 다에서 IoT Hub 및 해당 스트리밍 엔드포인트에 대해 TLS 지원 연결을 설정할 수 있어야 합니다. 이렇게 하려면 포트 443을 통해 이 엔드포인트에 대한 아웃바운드 연결이 필요합니다. 이 엔드포인트와 연결된 호스트 이름은 아래 그림과 같이 IoT Hub의 ‘개요’ 탭에서 확인할 수 있습니다.**
+디바이스 스트림의 디바이스 쪽과 서비스 쪽 둘 다에서 IoT Hub 및 해당 스트리밍 엔드포인트에 대해 TLS 지원 연결을 설정할 수 있어야 합니다. 이렇게 하려면 포트 443을 통해 이 엔드포인트에 대한 아웃바운드 연결이 필요합니다. 이 엔드포인트와 연결된 호스트 이름은 아래 그림과 같이 IoT Hub의 ‘개요’ 탭에서 확인할 수 있습니다. 
 
 !["장치 스트림 끝점"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
@@ -103,7 +104,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. [설치 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 페이지에서 최신 버전을 다운로드할 수 있습니다.
+> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. [설치 Azure CLI](/cli/azure/install-azure-cli) 페이지에서 최신 버전을 다운로드할 수 있습니다.
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>장치 스트리밍 끝점에 대 한 아웃 바운드 연결 허용
@@ -119,28 +120,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. [설치 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 페이지에서 최신 버전을 다운로드할 수 있습니다.
+> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. [설치 Azure CLI](/cli/azure/install-azure-cli) 페이지에서 최신 버전을 다운로드할 수 있습니다.
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>디바이스 스트림 활동 로그를 통해 문제 해결
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>장치 스트림 리소스 로그를 통해 문제 해결
 
-Azure Monitor 로그를 설정 하 여 IoT Hub에서 장치 스트림의 활동 로그를 수집할 수 있습니다. 이 기능은 문제 해결 시나리오에서 매우 유용할 수 있습니다.
+IoT Hub에서 내보내는 [장치 스트림의 리소스 로그](monitor-iot-hub-reference.md#device-streams-preview) 를 수집 하도록 Azure Monitor를 설정할 수 있습니다. 이 기능은 문제 해결 시나리오에서 매우 유용할 수 있습니다.
 
-IoT Hub의 장치 스트림 작업에 대 한 Azure Monitor 로그를 구성 하려면 다음 단계를 수행 합니다.
+IoT Hub에 대 한 장치 스트림 로그를 Azure Monitor 로그에 보내도록 진단 설정을 만들려면 아래 단계를 따르세요.
 
-1. IoT Hub의 ‘진단 설정’ 탭으로 이동한 다음, ‘진단 켜기’ 링크를 클릭합니다.****
+1. Azure Portal에서 IoT hub로 이동 합니다. 왼쪽 창의 **모니터링** 아래에서 **진단 설정** 을 선택 합니다. 그런 다음 **진단 설정 추가** 를 선택 합니다.
 
-   !["진단 로그 사용"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. 진단 설정의 이름을 제공 하 고 로그 목록에서 **DeviceStreams** 를 선택 합니다. 그런 다음 **Log Analytics 보내기를** 선택 합니다. 기존 Log Analytics 작업 영역을 선택 하거나 새 작업 영역을 만드는 방법을 안내 합니다.
 
-2. 진단 설정의 이름을 제공하고 ‘Log Analytics에 보내기’ 옵션을 선택합니다.** 기존 Log Analytics 작업 영역 리소스를 선택 하거나 새 리소스를 만드는 방법에 대해 안내 합니다. 또한 목록에서 *DeviceStreams*를 확인합니다.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="장치 스트림 로그 사용":::
 
-    !["장치 스트림 로그 사용"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. 이제 IoT Hub 포털의 ‘로그’ 탭에서 해당 디바이스 스트림 로그에 액세스할 수 있습니다.** 디바이스 스트림 활동 로그는 `AzureDiagnostics` 테이블에 표시되고 `Category=DeviceStreams`로 설정됩니다.
+3. 장치 스트림 로그를 Log Analytics 작업 영역으로 보내는 진단 설정을 만든 후 Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 에서 **로그** 를 선택 하 여 로그에 액세스할 수 있습니다. 장치 스트림 로그가 테이블에 표시 되 `AzureDiagnostics` 고가 `Category=DeviceStreams` 있습니다. 테이블에 로그를 표시 하는 작업을 수행 하는 데 몇 분 정도 걸릴 수 있습니다.
 
    아래 표시 된 것 처럼 대상 장치의 id와 작업의 결과를 로그 에서도 사용할 수 있습니다.
 
    !["장치 스트림 로그 액세스"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+IoT Hub에서 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [Monitor IoT Hub](monitor-iot-hub.md)를 참조 하세요. IoT Hub에서 사용할 수 있는 모든 리소스 로그, 메트릭 및 테이블에 대 한 자세한 내용은 [데이터 참조 모니터링 Azure IoT Hub](monitor-iot-hub-reference.md)을 참조 하세요.
 
 ## <a name="regional-availability"></a>국가별 가용성
 
@@ -164,7 +165,7 @@ IoT Hub 페이지에는 두 개의 [빠른 시작 샘플이](./index.yml) 있습
 
 이러한 샘플은 아래에 자세히 설명하고 있습니다.
 
-### <a name="echo-sample"></a>에코 샘플
+### <a name="echo-sample"></a>Echo 샘플
 
 에코 샘플은 서비스와 디바이스 애플리케이션 간에 바이트를 보내고 받는 디바이스 스트림을 프로그래밍 방식으로 사용하는 방법을 보여 줍니다. 서비스 및 장치 프로그램은 다양 한 언어로 사용할 수 있습니다. 예를 들어 c # 서비스 프로그램에서 C 장치 프로그램을 사용할 수 있습니다.
 
@@ -182,7 +183,7 @@ IoT Hub 페이지에는 두 개의 [빠른 시작 샘플이](./index.yml) 있습
 
 이 섹션에서는 사용자가 디바이스 스트림을 통해 디바이스에 대한 SSH 연결을 수행할 수 있도록 디바이스 스트림을 사용하는 방법에 대해 설명합니다(RDP 또는 다른 클라이언트/서버 애플리케이션의 경우 프로토콜의 해당 포트를 사용하여 비슷함).
 
-이 설정은 아래 그림에 표시된 두 개의 ‘로컬 프록시’ 프로그램(‘디바이스-로컬 프록시’ 및 ‘서비스-로컬 프록시’)을 활용합니다.****** 로컬 프록시 프로그램은 IoT Hub를 사용하여 [디바이스 스트림 시작 핸드셰이크](#device-stream-creation-flow)를 수행하고 일반 클라이언트/서버 소켓을 사용하여 SSH 클라이언트 및 SSH 디먼과 상호 작용해야 합니다.
+이 설정은 아래 그림에 표시된 두 개의 ‘로컬 프록시’ 프로그램(‘디바이스-로컬 프록시’ 및 ‘서비스-로컬 프록시’)을 활용합니다.  로컬 프록시 프로그램은 IoT Hub를 사용하여 [디바이스 스트림 시작 핸드셰이크](#device-stream-creation-flow)를 수행하고 일반 클라이언트/서버 소켓을 사용하여 SSH 클라이언트 및 SSH 디먼과 상호 작용해야 합니다.
 
 !["SSH/RDP에 대 한 장치 스트림 프록시 설정"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

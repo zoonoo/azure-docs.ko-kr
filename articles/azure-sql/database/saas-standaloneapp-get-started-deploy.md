@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: 1545f9cde15f010ba3d7d52c6fea1ef233d2fac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793282"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,21 +57,21 @@ ms.locfileid: "91619477"
 2. 각각의 배포에 필요한 매개 변수 값을 입력합니다.
 
     > [!IMPORTANT]
-    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
+    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다** .  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
     리소스 이름에는 소문자, 숫자 및 하이픈만 사용하는 것이 가장 좋습니다.
-    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 공백이 없는 장소 이름으로 바꿉니다. \<user\>의 경우 아래의 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
-    * 드롭다운 목록에서 **위치**를 선택합니다.
+    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 공백이 없는 장소 이름으로 바꿉니다. \<user\>의 경우 아래의 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* , *wingtip-sa-fabrikamjazzclub-af1* 이 될 수 있습니다.
+    * 드롭다운 목록에서 **위치** 를 선택합니다.
 
-    * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1*).
+    * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1* ).
 
 
-3. **애플리케이션을 배포**합니다.
+3. **애플리케이션을 배포** 합니다.
 
     * 사용 약관에 동의하려면 클릭합니다.
-    * **구매**를 클릭합니다.
+    * **구매** 를 클릭합니다.
 
-4. **알림**(검색 상자 오른쪽의 벨 아이콘)을 클릭하여 세 가지 전체 배포의 배포 상태를 모니터링합니다. 앱 배포에 약 5분이 걸립니다.
+4. **알림** (검색 상자 오른쪽의 벨 아이콘)을 클릭하여 세 가지 전체 배포의 배포 상태를 모니터링합니다. 앱 배포에 약 5분이 걸립니다.
 
 
 ## <a name="run-the-applications"></a>애플리케이션 실행
@@ -91,7 +91,7 @@ ms.locfileid: "91619477"
 들어오는 요청의 배포를 제어하기 위해 앱에서는 [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트 관련 앱 인스턴스는 URL에 도메인 이름의 일부로 테넌트 이름을 포함합니다. 모든 테넌트 URL에는 특정 **사용자** 값이 포함됩니다. URL은 다음 형식을 따릅니다.
 - http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
-각 테넌트의 데이터베이스 **위치**는 배포된 해당 앱의 앱 설정에 포함됩니다.
+각 테넌트의 데이터베이스 **위치** 는 배포된 해당 앱의 앱 설정에 포함됩니다.
 
 프로덕션 환경에서는 일반적으로 CNAME DNS 레코드를 만들어 [*회사 인터넷 도메인*](../../traffic-manager/traffic-manager-point-internet-domain.md)이 트래픽 관리자 프로필의 URL을 가리키도록 합니다.
 
@@ -109,9 +109,9 @@ ms.locfileid: "91619477"
 ## <a name="additional-resources"></a>추가 리소스
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
@@ -131,5 +131,3 @@ ms.locfileid: "91619477"
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
 다음 단계로, [프로비저닝 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서를 참고하여 스키마 관리, 테넌트 분석과 같은 다양한 교차 테넌트 시나리오를 지원하는 테넌트 카탈로그의 용도를 살펴보세요.
- 
-

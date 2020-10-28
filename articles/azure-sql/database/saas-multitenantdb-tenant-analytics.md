@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 917839b0963477de21062290515d36fd21163a93
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619596"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793316"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
  
 이 자습서에서는 다중 테넌트 구현에 대한 하나의 완전한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오에서는 기업에서 스마트한 의사 결정을 내리는 데 분석을 어떻게 이용할 수 있는지 보여줍니다. 분할된 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작을 살펴보게 됩니다. 테넌트가 샘플 애플리케이션인 Wingtip Tickets SaaS 애플리케이션을 사용하는 방식도 확인하게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
 
-1.  각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출**합니다.
-2.  분석 처리를 위해 **추출된 데이터를 최적화**합니다.
+1.  각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출** 합니다.
+2.  분석 처리를 위해 **추출된 데이터를 최적화** 합니다.
 3.  **비즈니스 인텔리전스** 도구를 사용하여 의사 결정에 도움이 되는 유용한 인사이트를 얻습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -70,31 +70,31 @@ ms.locfileid: "91619596"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션이 배포되어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](../../sql-database/saas-multitenantdb-get-started-deploy.md)을 참조하세요.
-- Wingtip SaaS 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB)를 GitHub에서 다운로드해야 합니다. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션이 배포되어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](./saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+- Wingtip SaaS 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB)를 GitHub에서 다운로드해야 합니다. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제* 해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/)
-- 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](../../sql-database/saas-multitenantdb-provision-and-catalog.md)를 참조하세요.
-- 작업 에이전트 및 작업 에이전트 데이터베이스가 생성되었습니다. [**스키마 관리 자습서**](../../sql-database/saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
+- 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](./saas-multitenantdb-provision-and-catalog.md)를 참조하세요.
+- 작업 에이전트 및 작업 에이전트 데이터베이스가 생성되었습니다. [**스키마 관리 자습서**](./saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
 
-이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다*. 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
+이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다* . 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
 
-1. **PowerShell ISE**에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*을 열고 다음 값을 설정합니다.
+1. **PowerShell ISE** 에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 을 열고 다음 값을 설정합니다.
     - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입
 2. **F5** 키를 눌러 스크립트를 실행하고 모든 행사장의 모든 이벤트에 대한 티켓 구매 이력을 생성합니다.  스크립트가 몇 분 동안 실행되며 수만 개의 티켓을 생성합니다.
 
 ### <a name="deploy-the-analytics-store"></a>분석 저장소 배포하기
 모든 테넌트 데이터가 여러 트랜잭션 분할된 데이터베이스에 분산되어 저장되는 경우가 많습니다. 분할된 데이터베이스의 테넌트 데이터를 하나의 분석 저장소로 집계해야 합니다. 이렇게 하면 데이터를 효율적으로 쿼리할 수 있습니다. 이 자습서에서는 집계된 데이터를 저장하는 데 Azure SQL Database 데이터베이스를 사용합니다.
 
-이어지는 단계에서는 **tenantanalytics**라는 분석 저장소를 배포합니다. 자습서 뒷부분에서 자동으로 입력되게 되는 사전 정의된 테이블도 배포합니다.
-1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*을 엽니다. 
+이어지는 단계에서는 **tenantanalytics** 라는 분석 저장소를 배포합니다. 자습서 뒷부분에서 자동으로 입력되게 되는 사전 정의된 테이블도 배포합니다.
+1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 을 엽니다. 
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다. 학습 목적에 맞게 열 저장소가 없는 데이터베이스를 사용하는 것이 좋습니다.
-    - 열 저장소가 없는 SQL Database를 사용하려면 **$DemoScenario** = **2**를 설정합니다.
-    - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3**을 설정합니다.  
+    - 열 저장소가 없는 SQL Database를 사용하려면 **$DemoScenario** = **2** 를 설정합니다.
+    - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3** 을 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics\<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-mt-\<User\>** 서버와 **catalog-mt-\<User\>** 서버를 연결합니다. 이때 로그인 = *developer*, 암호 = *P\@ssword1*입니다.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-mt-\<User\>** 서버와 **catalog-mt-\<User\>** 서버를 연결합니다. 이때 로그인 = *developer* , 암호 = *P\@ssword1* 입니다.
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "91619596"
 SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 같은 데이터베이스 항목을 확인합니다.
 
 - **TicketsRawData** 테이블과 **EventsRawData** 테이블은 테넌트 데이터베이스에서 추출된 원시 데이터를 포함합니다.
-- 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates**입니다.
+- 스타 스키마 테이블은 **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** , **dim_Dates** 입니다.
 - 스타 스키마 테이블에 원시 데이터 테이블을 입력하는 데 **sp_ShredRawExtractedData** 저장 프로시저가 사용됩니다.
 
 ![테이블, 뷰 및 노드를 포함한 분석 저장소 노드에 대한 SSMS 개체 탐색기를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
@@ -120,7 +120,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 계속하기 전에 작업 계정과 jobaccount 데이터베이스가 배포되었는지 확인해야 합니다. 이어지는 단계에서는 탄력적 작업을 사용하여 분할된 테넌트 데이터베이스에서 데이터를 추출하고 추출한 데이터를 분석 저장소에 저장합니다. 그런 다음 두 번째 작업을 사용하여 데이터를 단편화하고 단편화된 데이터를 스타 스키마 테이블에 저장합니다. 이 두 개의 작업은 **TenantGroup** 그룹과 **AnalyticsGroup** 그룹이라는 서로 다른 그룹을 대상으로 실행됩니다. 추출 작업은 모든 테넌트 데이터베이스를 포함하는 TenantGroup을 대상으로 실행됩니다. 단편화 작업은 분석 저장소만 포함하는 AnalyticsGroup을 대상으로 실행됩니다. 다음 단계에 따라 대상 그룹을 만듭니다.
 
 1. SSMS에서 catalog-mt-\<User\>의 **jobaccount** 데이터베이스에 연결합니다.
-2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql*을 엽니다. 
+2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 을 엽니다. 
 3. 스크립트 상단의 @User 변수를 수정합니다. 즉, Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 값으로 `<User>`를 변경합니다.
 4. **F5** 키를 눌러 스크립트를 실행하여 두 개의 대상 그룹을 만듭니다.
 
@@ -134,14 +134,14 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 각 작업은 데이터를 추출하고 추출한 데이터를 분석 저장소에 저장합니다. 분석 저장소에서는 데이터가 또 다른 작업에 의해 분석 스타 스키마로 단편화됩니다.
 
 1. SSMS에서 catalog-mt-\<User\>의 **jobaccount** 데이터베이스에 연결합니다.
-2. SSMS에서 *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*을 엽니다.
+2. SSMS에서 *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql* 을 엽니다.
 3. 스크립트 상단의 @User를 수정하고 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용한 사용자 이름으로 `<User>`를 변경합니다. 
 4. **F5** 키를 눌러 스크립트를 실행합니다. 각 테넌트 데이터베이스에서 티켓 및 고객 데이터를 추출하는 작업이 생성되고 실행됩니다. 추출된 데이터는 분석 저장소에 저장됩니다.
 5. tenantanalytics 데이터베이스의 TicketsRawData 테이블을 쿼리하여 모든 테넌트의 티켓 정보가 테이블에 입력되었는지 확인합니다.
 
 ![개체 탐색기에서 dbo.TicketsRawData가 선택된 상태의 ExtractTickets 데이터베이스를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
-위 단계를 반복합니다. 이번에는 2단계에서 **\ExtractTickets.sql** 대신 **\ExtractVenuesEvents.sql**을 사용합니다.
+위 단계를 반복합니다. 이번에는 2단계에서 **\ExtractTickets.sql** 대신 **\ExtractVenuesEvents.sql** 을 사용합니다.
 
 작업이 성공적으로 실행되면 분석 저장소의 EventsRawData 테이블에 모든 테넌트의 이벤트 및 행사장 정보가 입력됩니다. 
 
@@ -154,10 +154,10 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 이 섹션에서는 추출된 원시 데이터와 스타 스키마 테이블의 데이터를 병합하는 작업을 정의하고 실행합니다. 병합 작업이 완료되면 원시 데이터가 삭제되고 테이블에 다음번 테넌트 데이터 추출 작업에 의해 추출된 데이터를 입력할 준비가 됩니다.
 
 1. SSMS에서 catalog-mt-\<User\>의 **jobaccount** 데이터베이스에 연결합니다.
-2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*을 엽니다.
+2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql* 을 엽니다.
 3. **F5** 키를 눌러 스크립트를 실행합니다. 분석 저장소의 sp_ShredRawExtractedData 저장 프로시저를 호출하는 작업이 정의됩니다.
 4. 작업이 완료될 때까지 기다립니다.
-    - jobs.jobs_execution 테이블의 **Lifecycle** 열에서 작업의 상태를 확인합니다. 작업의 상태가 **Succeeded**로 바뀌면 다음 단계로 넘어갑니다. 작업이 성공적으로 완료되면 데이터가 아래 그림과 같이 표시됩니다.
+    - jobs.jobs_execution 테이블의 **Lifecycle** 열에서 작업의 상태를 확인합니다. 작업의 상태가 **Succeeded** 로 바뀌면 다음 단계로 넘어갑니다. 작업이 성공적으로 완료되면 데이터가 아래 그림과 같이 표시됩니다.
 
 ![sp_ShredRawExtractedData 프로시저를 성공적으로 실행한 결과를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
@@ -165,22 +165,22 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 ### <a name="visualize-tenant-data"></a>테넌트 데이터 시각화하기
 
-스타 스키마 테이블에 입력된 데이터에는 분석에 필요한 모든 티켓 판매량 데이터가 포함되어 있습니다. 이처럼 방대한 데이터 집합에서 추세를 쉽게 파악하기 위해서는 데이터를 그래픽으로 시각화해야 합니다.  이 섹션에서는 앞에서 추출하고 구성한 테넌트 데이터를 **Power BI**를 사용하여 조작하고 시각화하는 방법을 알아봅니다.
+스타 스키마 테이블에 입력된 데이터에는 분석에 필요한 모든 티켓 판매량 데이터가 포함되어 있습니다. 이처럼 방대한 데이터 집합에서 추세를 쉽게 파악하기 위해서는 데이터를 그래픽으로 시각화해야 합니다.  이 섹션에서는 앞에서 추출하고 구성한 테넌트 데이터를 **Power BI** 를 사용하여 조작하고 시각화하는 방법을 알아봅니다.
 
 다음 단계에 따라 Power BI에 접속하고 앞에서 만든 보기를 가져옵니다.
 
 1. Power BI Desktop을 실행합니다.
-2. 홈 리본에서 **데이터 가져오기**를 선택하고 메뉴에서 **자세히…** 를 선택합니다. (채널 만들기...)을 선택합니다.
+2. 홈 리본에서 **데이터 가져오기** 를 선택하고 메뉴에서 **자세히…** 를 선택합니다. (채널 만들기...)을 선택합니다.
 3. **데이터 가져오기** 창에서 Azure SQL Database를 선택합니다.
-4. 데이터베이스 로그인 창에 서버 이름(catalog-mt-\<User\>.database.windows.net)을 입력합니다. **데이터 연결 모드**에서 **가져오기**를 선택하고 확인을 클릭합니다. 
+4. 데이터베이스 로그인 창에 서버 이름(catalog-mt-\<User\>.database.windows.net)을 입력합니다. **데이터 연결 모드** 에서 **가져오기** 를 선택하고 확인을 클릭합니다. 
 
     ![서버 및 데이터베이스를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스**를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1*을 입력합니다. **연결**을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer* , 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
 
     ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
+6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드** 를 선택합니다. 
 
 축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
@@ -210,7 +210,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에 동일한 요금을 부과하는 대신 서로 다른 컴퓨팅 크기를 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
 
-한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값**을 선택합니다. **AverageTicketsSold**라는 새 측정값에 다음과 같은 식을 입력합니다.
+한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값** 을 선택합니다. **AverageTicketsSold** 라는 새 측정값에 다음과 같은 식을 입력합니다.
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
@@ -241,6 +241,6 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="additional-resources"></a>추가 리소스
 
-[Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [탄력적 작업](../../sql-database/elastic-jobs-overview.md).
-- [추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱](saas-tenancy-tenant-analytics.md) 
+[Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
+- [탄력적 작업](./elastic-jobs-overview.md).
+- [추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱](saas-tenancy-tenant-analytics.md)

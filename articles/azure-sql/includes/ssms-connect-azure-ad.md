@@ -5,14 +5,14 @@ ms.topic: include
 author: markingmyname
 ms.author: maghan
 ms.reviewer: drskwier
-ms.openlocfilehash: e22049ef2acfd952689e386ff75b9a8a73658365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d1a58fa7d5a54386baed71356ea1b2bc79b494
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596136"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886669"
 ---
 > [!NOTE]
 > 2021년 12월부터 18.6 이전 SSMS 릴리스는 MFA가 있는 Azure Active Directory를 통해 더 이상 인증되지 않습니다.
 >
-> MFA가 있는 Azure Active Directory 인증을 계속 사용하려면 [SSMS 18.6 이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)이 필요합니다.
+> MFA가 있는 Azure Active Directory 인증을 계속 사용하려면 [SSMS 18.6 이상](/sql/ssms/download-sql-server-management-studio-ssms)이 필요합니다.

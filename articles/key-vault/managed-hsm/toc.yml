@@ -53,7 +53,7 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
@@ -75,6 +75,6 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: 블로그
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

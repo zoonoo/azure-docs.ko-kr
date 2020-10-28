@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c54da3621df1e5d49e7269781e6ae33fc9c0923
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675652"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791956"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>C # .NET 응용 프로그램에서 Azure.Search.Documents를 사용 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "92675652"
 
 ## <a name="about-version-11"></a>버전 11 정보
 
-.NET 용 azure SDK는 Azure SDK 팀의 새 클라이언트 라이브러리를 Microsoft와 기능적으로 동일 하 게 추가 합니다. 클라이언트 라이브러리를 [검색](/dotnet/api/overview/azure/search/client10) 하지만 해당 하는 경우 일반적인 접근 방법 및 규칙을 활용 합니다. 일부 예제 [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) 에는 키 인증과 [System.Text.Js있습니다. ](/dotnet/api/system.text.json.serialization) JSON serialization에 대 한 직렬화입니다.
+.NET 용 azure SDK는 uments와 동일한 기능을 하는 Azure SDK 팀에서 새 [**Azure.Search.Doc**](/dotnet/api/overview/azure/search) client 라이브러리를 추가 합니다. 클라이언트 라이브러리를 [검색](/dotnet/api/overview/azure/search/client10) 하지만 해당 하는 경우 일반적인 접근 방법 및 규칙을 활용 합니다. 일부 예제 [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) 에는 키 인증과 [System.Text.Js있습니다. ](/dotnet/api/system.text.json.serialization) JSON serialization에 대 한 직렬화입니다.
 
 이전 버전과 마찬가지로이 라이브러리를 사용 하 여 다음 작업을 수행할 수 있습니다.
 

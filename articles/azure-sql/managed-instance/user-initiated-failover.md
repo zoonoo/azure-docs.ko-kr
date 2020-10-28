@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617760"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791633"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-다음 예제와 함께 PowerShell 명령 [AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) 를 사용 하 여 BC 및 GP 서비스 계층 모두에 적용 되는 주 노드의 장애 조치 (failover)를 시작 합니다.
+다음 예제와 함께 PowerShell 명령 [AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) 를 사용 하 여 BC 및 GP 서비스 계층 모두에 적용 되는 주 노드의 장애 조치 (failover)를 시작 합니다.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Rest API 사용
 
-연속 테스트 파이프라인 또는 자동화 된 성능 mitigators을 구현 하기 위해 SQL 관리 되는 인스턴스의 장애 조치 (failover)를 자동화 해야 하는 고급 사용자의 경우 API 호출을 통해 장애 조치 (failover)를 시작 하 여이 함수를 수행할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스-장애 조치 (Failover) REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) 를 참조 하세요.
+연속 테스트 파이프라인 또는 자동화 된 성능 mitigators을 구현 하기 위해 SQL 관리 되는 인스턴스의 장애 조치 (failover)를 자동화 해야 하는 고급 사용자의 경우 API 호출을 통해 장애 조치 (failover)를 시작 하 여이 함수를 수행할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스-장애 조치 (Failover) REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) 를 참조 하세요.
 
 REST API 호출을 사용 하 여 장애 조치 (failover)를 시작 하려면 먼저 선택한 API 클라이언트를 사용 하 여 인증 토큰을 생성 합니다. 생성 된 인증 토큰은 API 요청 헤더에서 권한 부여 속성으로 사용 되며 필수입니다.
 
@@ -140,7 +140,7 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 > [!IMPORTANT]
 > 사용자가 시작한 수동 장애 조치 (failover)의 기능 제한 사항은 다음과 같습니다.
-> - **30 분**마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
+> - **30 분** 마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
 > - BC 인스턴스의 경우 장애 조치 (failover) 요청이 허용 되려면 복제본의 쿼럼이 있어야 합니다.
 > - BC 인스턴스의 경우 장애 조치 (failover)를 시작할 읽을 수 있는 보조 복제본을 지정할 수 없습니다.
 

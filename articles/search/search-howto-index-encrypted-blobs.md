@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91543205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791990"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 blob 인덱서 및 기술력과를 사용 하 여 암호화 된 blob을 인덱싱하는 방법
 
@@ -56,7 +56,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. **Azure Key Vault 인스턴스가 존재** 하는 구독을 선택 하 고 (다른 구독을 선택 하는 경우이 가이드는 작동 하지 않음) 기존 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 배포할 지역을 선택 해야 합니다.
 
-1. **검토 + 만들기**를 선택 하 고 약관에 동의 했는지 확인 한 다음 **만들기** 를 선택 하 여 Azure 함수를 배포 합니다.
+1. **검토 + 만들기** 를 선택 하 고 약관에 동의 했는지 확인 한 다음 **만들기** 를 선택 하 여 Azure 함수를 배포 합니다.
 
     ![포털의 ARM 템플릿](media/indexing-encrypted-blob-files/arm-template.jpg "포털의 ARM 템플릿")
 
@@ -64,13 +64,13 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. 포털에서 Azure Key Vault 인스턴스로 이동 합니다. 사용자 지정 기술에 대 한 키 액세스 권한을 부여 하는 [액세스 정책을](../key-vault/general/assign-access-policy-portal.md) Azure Key Vault에 만듭니다.
  
-    1. **설정**에서 **액세스 정책**을 선택 하 고 **액세스 정책 추가** 를 선택 합니다.
+    1. **설정** 에서 **액세스 정책** 을 선택 하 고 **액세스 정책 추가** 를 선택 합니다.
      
        ![Keyvault 액세스 정책 추가](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Keyvault 액세스 정책")
 
-    1. **템플릿에서 구성**아래에서 **Azure Data Lake Storage 또는 Azure Storage**을 선택 합니다.
+    1. **템플릿에서 구성** 아래에서 **Azure Data Lake Storage 또는 Azure Storage** 을 선택 합니다.
 
-    1. 보안 주체에 대해 배포한 Azure Function 인스턴스를 선택 합니다. 2 단계에서 생성 하는 데 사용 된 리소스 접두사를 사용 하 여 검색할 수 있습니다. 여기에는 기본 접두사 값 **psdbf-app**이 포함 됩니다.
+    1. 보안 주체에 대해 배포한 Azure Function 인스턴스를 선택 합니다. 2 단계에서 생성 하는 데 사용 된 리소스 접두사를 사용 하 여 검색할 수 있습니다. 여기에는 기본 접두사 값 **psdbf-app** 이 포함 됩니다.
 
     1. 권한 있는 응용 프로그램 옵션에는 아무것도 선택 하지 마십시오.
      
@@ -86,7 +86,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     
         ![함수 URL](media/indexing-encrypted-blob-files/function-uri.jpg "Azure 함수 URL을 찾을 수 있는 위치")
 
-    1. 호스트 키 코드- **앱 키**로 이동 하 고 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 하 여 찾을 수 있습니다.
+    1. 호스트 키 코드- **앱 키** 로 이동 하 고 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 하 여 찾을 수 있습니다.
      
         ![함수 호스트 키 코드](media/indexing-encrypted-blob-files/function-host-key.jpg "Azure 함수 호스트 키 코드를 찾을 수 있는 위치")
 
@@ -106,9 +106,9 @@ Azure 함수를 사용 하는 것 처럼 잠시 시간을 걸리고 관리 키�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 검색 서비스의 이름을 확인합니다. 엔드포인트 URL을 검토하여 서비스 이름을 확인할 수 있습니다. 엔드포인트 URL이 `https://mydemo.search.windows.net`인 경우 서비스 이름은 `mydemo`입니다.
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-javascript/service-name-and-keys.png)
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
@@ -119,9 +119,9 @@ Postman을 설치하고 설정합니다.
 ### <a name="download-and-install-postman"></a>Postman 다운로드 및 설치
 
 1. [Postman 컬렉션 소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json)를 다운로드합니다.
-1. **파일** > **가져오기**를 차례로 선택하여 소스 코드를 Postman으로 가져옵니다.
+1. **파일** > **가져오기** 를 차례로 선택하여 소스 코드를 Postman으로 가져옵니다.
 1. **컬렉션** 탭, **...** (줄임표) 단추를 차례로 선택합니다.
-1. **편집**을 선택합니다. 
+1. **편집** 을 선택합니다. 
    
    ![탐색 결과를 표시하는 Postman 앱](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Postman의 [편집] 메뉴로 이동")
 1. **편집** 대화 상자에서 **변수** 탭을 선택합니다. 
@@ -137,24 +137,24 @@ Postman을 설치하고 설정합니다.
 |-------------|-----------------|
 | `admin-key` | Azure Cognitive Search 서비스의 **키** 페이지.  |
 | `search-service-name` | Azure Cognitive Search 서비스의 이름. URL은 `https://{{search-service-name}}.search.windows.net`입니다. | 
-| `storage-connection-string` | 스토리지 계정의 **액세스 키** 탭에서 **key1** > **연결 문자열**을 차례로 선택합니다. | 
+| `storage-connection-string` | 스토리지 계정의 **액세스 키** 탭에서 **key1** > **연결 문자열** 을 차례로 선택합니다. | 
 | `storage-container-name` | 인덱싱할 암호화 된 파일을 포함 하는 blob 컨테이너의 이름입니다. | 
 | `function-uri` |  기본 페이지의 **Essentials** 아래에 있는 Azure 함수 | 
-| `function-code` | Azure 함수에서 **앱 키**로 이동한 후 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 합니다. | 
-| `api-version` | **2020-06-30**으로 둡니다. |
-| `datasource-name` | **암호화 된-blob-ds**로 둡니다. | 
-| `index-name` | **암호화 된 blob-idx**로 남겨 둡니다. | 
-| `skillset-name` | **암호화 된 blob-ss**로 둡니다. | 
-| `indexer-name` | **Ixr**로 남겨 둡니다. | 
+| `function-code` | Azure 함수에서 **앱 키** 로 이동한 후 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 합니다. | 
+| `api-version` | **2020-06-30** 으로 둡니다. |
+| `datasource-name` | **암호화 된-blob-ds** 로 둡니다. | 
+| `index-name` | **암호화 된 blob-idx** 로 남겨 둡니다. | 
+| `skillset-name` | **암호화 된 blob-ss** 로 둡니다. | 
+| `indexer-name` | **Ixr** 로 남겨 둡니다. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Postman에서 요청 컬렉션 검토
 
 이 가이드를 실행 하는 경우 4 개의 HTTP 요청을 발급 해야 합니다. 
 
-- **인덱스를 만들기 위한 PUT 요청**: 이 인덱스는 Azure Cognitive Search에서 사용하고 반환하는 데이터를 포함합니다.
-- **데이터 원본을 만들기 위한 POST 요청**:이 데이터 원본은 Azure Cognitive Search 서비스를 저장소 계정에 연결 하 고 따라서 암호화 된 blob 파일에 연결 합니다. 
-- **기술을 만들기 위한 PUT 요청**: 기술은 blob 파일 데이터를 암호 해독 하는 Azure Function에 대 한 사용자 지정 기술 정의를 지정 하 고, 문서를 해독 한 후 각 문서에서 텍스트를 추출 하는 [Documentextractionskill](cognitive-search-skill-document-extraction.md) 지정 합니다.
-- **인덱서를 만들기 위한 PUT 요청**: 인덱서를 실행하면 데이터를 읽고, 기술 세트를 적용하고, 결과를 저장합니다. 이 요청은 마지막으로 실행해야 합니다.
+- **인덱스를 만들기 위한 PUT 요청** : 이 인덱스는 Azure Cognitive Search에서 사용하고 반환하는 데이터를 포함합니다.
+- **데이터 원본을 만들기 위한 POST 요청** :이 데이터 원본은 Azure Cognitive Search 서비스를 저장소 계정에 연결 하 고 따라서 암호화 된 blob 파일에 연결 합니다. 
+- **기술을 만들기 위한 PUT 요청** : 기술은 blob 파일 데이터를 암호 해독 하는 Azure Function에 대 한 사용자 지정 기술 정의를 지정 하 고, 문서를 해독 한 후 각 문서에서 텍스트를 추출 하는 [Documentextractionskill](cognitive-search-skill-document-extraction.md) 지정 합니다.
+- **인덱서를 만들기 위한 PUT 요청** : 인덱서를 실행하면 데이터를 읽고, 기술 세트를 적용하고, 결과를 저장합니다. 이 요청은 마지막으로 실행해야 합니다.
 
 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) 에는 네 개의 요청 뿐만 아니라 몇 가지 유용한 추가 요청을 포함 하는 postman 컬렉션이 포함 되어 있습니다. 요청을 실행 하려면 Postman에서 요청에 대 한 탭을 선택 하 고 각각에 대해 **보내기** 를 선택 합니다.
 

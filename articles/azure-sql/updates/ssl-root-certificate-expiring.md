@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343766"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792534"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Managed Instance에 대 한 루트 CA 변경 내용 이해
 
@@ -79,4 +79,4 @@ Azure SQL Database & SQL Managed Instance에서 사용 하는 이러한 인증�
 이 구성은 클라이언트 쪽 이므로 서버 쪽에서는 정보를 사용할 수 없습니다.
 
 ### <a name="what-if-i-have-further-questions"></a>추가 질문이 있으면 어떻게 하나요?
-지원 계획이 있고 기술 도움말이 필요한 경우 azure 지원 요청 만들기를 참조 하세요. [azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요.
+지원 계획이 있고 기술 도움말이 필요한 경우 azure 지원 요청 만들기를 참조 하세요. [azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요.

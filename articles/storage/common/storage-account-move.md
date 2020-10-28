@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488829"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792993"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
@@ -31,7 +31,7 @@ ms.locfileid: "92488829"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 
@@ -55,7 +55,7 @@ Azure Portal을 사용하여 템플릿을 내보내려면:
 
 2. **모든 리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
 
-3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기** 를 선택 합니다.
 
 4. **템플릿 내보내기** 블레이드에서 **다운로드** 를 선택 합니다.
 
@@ -101,21 +101,21 @@ PowerShell을 사용 하 여 템플릿을 내보내려면:
 
 Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
+2. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
 
-3. **템플릿 배포**를 선택 합니다.
+3. **템플릿 배포** 를 선택 합니다.
 
     ![Azure Resource Manager 템플릿 라이브러리](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
 5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 
-6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
+6. **파일 로드** 를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
-7. 파일 ** 의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+7. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
          "location": "centralus"
          }]          
     ```
-    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
+    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus** 지역 이름입니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. 파일 ** 의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+1. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -182,15 +182,15 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 파일 ** 에template.js** 을 저장 합니다.
+1. 파일 **에template.js** 을 저장 합니다.
 
 2. 속성 값을 입력 하거나 선택 합니다.
 
-- **구독**: Azure 구독을 선택합니다.
+- **구독** : Azure 구독을 선택합니다.
 
-- **리소스 그룹**: **새로 만들기**를 클릭하고 리소스 그룹에 이름을 지정합니다.
+- **리소스 그룹** : **새로 만들기** 를 클릭하고 리소스 그룹에 이름을 지정합니다.
 
-- **위치**: Azure 위치를 선택 합니다.
+- **위치** : Azure 위치를 선택 합니다.
 
 3. **위에 명시 된 사용 약관에 동의 함** 확인란을 클릭 한 다음 **구매 선택** 단추를 클릭 합니다.
 
@@ -255,9 +255,9 @@ Azure Portal을 사용하여 스토리지 계정을 제거하려면:
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장 하 여 서비스의 메뉴를 열고 **저장소 계정** 을 선택 하 여 저장소 계정 목록을 표시 합니다.
 
-2. 삭제할 대상 저장소 계정을 찾고 목록 오른쪽에 있는 **자세히** 단추 (**...**)를 마우스 오른쪽 단추로 클릭 합니다.
+2. 삭제할 대상 저장소 계정을 찾고 목록 오른쪽에 있는 **자세히** 단추 ( **...** )를 마우스 오른쪽 단추로 클릭 합니다.
 
-3. **삭제**를 선택 하 고 확인을 선택 합니다.
+3. **삭제** 를 선택 하 고 확인을 선택 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 이 자습서에서는 Azure storage 계정을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](/azure/azure-resource-manager/resource-group-move-resources)
-- [다른 지역으로 Azure VM 이동](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [다른 지역으로 Azure VM 이동](../../site-recovery/azure-to-azure-tutorial-migrate.md)

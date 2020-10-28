@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 26052441d19abb6a0c423a3b3d6f6c2d21478814
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8bee990074debf09cc9bfd19f96470a029b50c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272058"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793129"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server 가상 머신에 연결
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "91272058"
 
 클라이언트가 SQL Server VM에 연결하는 방법은 클라이언트의 위치 및 네트워킹 구성에 따라 달라집니다.
 
-Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 형식을 지정하는 옵션이 있습니다.
+Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결** 의 형식을 지정하는 옵션이 있습니다.
 
 ![프로비전 중 공용 SQL 연결 옵션](./media/ways-to-connect-to-sql/sql-vm-portal-connectivity.png)
 
@@ -49,7 +49,7 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 
 ## <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결
 
-인터넷에서 SQL Server 데이터베이스 엔진에 연결하려는 경우 프로비전하는 동안 포털에서 **SQL 연결** 형식에 대해 **공용**을 선택합니다. 포털에서 다음 단계를 자동으로 수행합니다.
+인터넷에서 SQL Server 데이터베이스 엔진에 연결하려는 경우 프로비전하는 동안 포털에서 **SQL 연결** 형식에 대해 **공용** 을 선택합니다. 포털에서 다음 단계를 자동으로 수행합니다.
 
 * SQL Server에 대해 TCP/IP 프로토콜을 활성화합니다.
 * SQL Server TCP 포트(기본값 1433)를 열도록 방화벽 규칙을 구성합니다.
@@ -65,7 +65,7 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>
 ```
 
-이 문자열은 인터넷을 통한 클라이언트의 연결이 사용하도록 설정하지만 누구나 SQL Server 인스턴스에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호를 사용해야 합니다. 그러나 추가 보안을 위해 잘 알려진 포트 1433을 피할 수 있습니다. 예를 들어 1500 포트에서 수신하도록 SQL Server를 구성하고 적절한 방화벽 및 네트워크 보안 그룹 규칙을 설정할 경우 서버 이름에 포트 번호를 추가하여 연결할 수 있습니다. 다음 예제에서는 서버 이름에 사용자 지정 포트 번호, **1500**을 추가하여 이전 항목을 변경합니다.
+이 문자열은 인터넷을 통한 클라이언트의 연결이 사용하도록 설정하지만 누구나 SQL Server 인스턴스에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호를 사용해야 합니다. 그러나 추가 보안을 위해 잘 알려진 포트 1433을 피할 수 있습니다. 예를 들어 1500 포트에서 수신하도록 SQL Server를 구성하고 적절한 방화벽 및 네트워크 보안 그룹 규칙을 설정할 경우 서버 이름에 포트 번호를 추가하여 연결할 수 있습니다. 다음 예제에서는 서버 이름에 사용자 지정 포트 번호, **1500** 을 추가하여 이전 항목을 변경합니다.
 
 ```
 Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
@@ -76,7 +76,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>가상 네트워크 내에서 SQL Server에 연결
 
-포털에서 **SQL 연결** 형식에 대해 **프라이빗**을 선택하는 경우 Azure는 대부분의 설정을 **공용**과 동일하게 구성합니다. 한 가지 차이점은 SQL Server 포트(기본값 1433)에서 외부 트래픽을 허용하는 네트워크 보안 그룹 규칙이 없다는 점입니다.
+포털에서 **SQL 연결** 형식에 대해 **프라이빗** 을 선택하는 경우 Azure는 대부분의 설정을 **공용** 과 동일하게 구성합니다. 한 가지 차이점은 SQL Server 포트(기본값 1433)에서 외부 트래픽을 허용하는 네트워크 보안 그룹 규칙이 없다는 점입니다.
 
 > [!IMPORTANT]
 > SQL Server Developer 및 Express 버전용 가상 머신 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
@@ -97,13 +97,13 @@ Server=mysqlvm;Integrated Security=true
 
 Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할 수 있습니다.
 
-1. Azure Portal에서 **SQL 가상 머신**을 선택합니다.
+1. Azure Portal에서 **SQL 가상 머신** 을 선택합니다.
 
 2. SQL Server VM을 선택합니다.
 
-3. **설정**에서 **보안**을 선택합니다.
+3. **설정** 에서 **보안** 을 선택합니다.
 
-4. **SQL 연결 수준**을 필요한 설정으로 변경합니다. 필요에 따라 이 영역을 사용하여 SQL Server 포트 또는 SQL 인증 설정을 변경할 수 있습니다.
+4. **SQL 연결 수준** 을 필요한 설정으로 변경합니다. 필요에 따라 이 영역을 사용하여 SQL Server 포트 또는 SQL 인증 설정을 변경할 수 있습니다.
 
    ![SQL 연결 변경](./media/ways-to-connect-to-sql/sql-vm-portal-connectivity-change.png)
 
@@ -119,7 +119,7 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
-다음으로 **SQL Server 구성 관리자**를 사용하여 TCP/IP 프로토콜을 활성화합니다.
+다음으로 **SQL Server 구성 관리자** 를 사용하여 TCP/IP 프로토콜을 활성화합니다.
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
@@ -138,9 +138,9 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 | 요구 사항 | Description |
 |---|---|
 | [SQL Server 인증 모드 사용](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | 가상 네트워크에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
-| [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
+| [SQL 로그인 만들기](/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
 | [TCP/IP 프로토콜 사용](#manualtcp) | SQL Server에서 TCP를 통한 연결을 허용해야 합니다. |
-| [SQL Server 포트에 방화벽 규칙 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |
+| [SQL Server 포트에 방화벽 규칙 사용](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |
 | [TCP 1433에 대한 네트워크 보안 그룹 규칙 만들기](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | 인터넷을 통해 연결하려면 VM에서 SQL Server 포트(기본값 1433)에서 트래픽을 받도록 허용해야 합니다. 로컬 및 가상 네트워크 전용 연결에는 이 기능이 필요하지 않습니다. 이는 Azure Portal에서 요구되는 유일한 단계입니다. |
 
 > [!TIP]

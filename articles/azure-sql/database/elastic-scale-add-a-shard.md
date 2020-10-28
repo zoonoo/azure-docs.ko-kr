@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 50e7e597a4fb02919739633529abdbf772bcecea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443061"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792058"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91443061"
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>예 : 기존 분할된 데이터베이스 맵에 분할된 데이터베이스 및 해당 범위 추가
 
-이 샘플에서는 TryGetShard([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 메서드를 사용하며 ShardLocation([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) 클래스의 인스턴스를 만듭니다. 아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample_shard_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만들었습니다.  
+이 샘플에서는 TryGetShard([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](/previous-versions/azure/dn823929(v=azure.100))) CreateShard([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 메서드를 사용하며 ShardLocation([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) 클래스의 인스턴스를 만듭니다. 아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample_shard_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만들었습니다.  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**중요**: 업데이트 된 매핑의 범위가 비어 있는 것이 확실 한 경우에만이 기술을 사용 합니다.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
+**중요** : 업데이트 된 매핑의 범위가 비어 있는 것이 확실 한 경우에만이 기술을 사용 합니다.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

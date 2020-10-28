@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324398"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791718"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "84324398"
 
 다음 대기 유형 ( [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/))은 기본 계산 복제본에서 로그 전송률이 제한 될 수 있는 이유를 설명 합니다.
 
-|대기 유형    |설명                         |
+|대기 유형    |Description                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | 페이지 서버에서 로그 사용량이 지연 되어 하이퍼 크기 조정 데이터베이스 기본 계산 노드 로그 생성 비율이 제한 될 때 발생 합니다.         |
 |RBIO_RG_DESTAGE        | 장기 로그 저장소에의 한 로그 사용 지연으로 인해 Hyperscale 데이터베이스 계산 노드 로그 생성 비율이 제한 될 때 발생 합니다.         |
@@ -97,13 +97,13 @@ Azure SQL Database에서 [sys.dm_io_virtual_file_stats ()](/sql/relational-datab
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>리소스 사용률 통계의 데이터 IO
 
-Hyperscale이 아닌 데이터베이스에서 [리소스 거 버 넌 스](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) 데이터 iops 제한에 상대적인 데이터 파일에 대 한 읽기 및 쓰기 IOPS는 열에 있는 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기에서 보고 됩니다 `avg_data_io_percent` . 동일한 값이 Azure Portal에서 _데이터 IO 비율로_보고 됩니다.
+Hyperscale이 아닌 데이터베이스에서 [리소스 거 버 넌 스](./resource-limits-logical-server.md#resource-governance) 데이터 iops 제한에 상대적인 데이터 파일에 대 한 읽기 및 쓰기 IOPS는 열에 있는 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기에서 보고 됩니다 `avg_data_io_percent` . 동일한 값이 Azure Portal에서 _데이터 IO 비율로_ 보고 됩니다.
 
 하이퍼 규모의 데이터베이스에서이 열은 계산 복제본의 로컬 저장소에 대 한 제한, 특히 RBPEX 및에 대 한 IO를 기준으로 데이터 IOPS 사용률을 보고 `tempdb` 합니다. 이 열에서 100% 값은 리소스 관리에서 로컬 저장소 IOPS를 제한 하 고 있음을 나타냅니다. 이로 인해 성능 문제가 발생 하는 경우에는 작업을 튜닝 하 여 더 작은 IO를 생성 하거나 데이터베이스 서비스 목표를 늘려 리소스 관리 _최대 데이터 IOPS_ [제한을](resource-limits-vcore-single-databases.md)늘려야 합니다. RBPEX 읽기 및 쓰기에 대 한 리소스 관리를 위해 시스템은 SQL Server 데이터베이스 엔진에서 실행할 수 있는 큰 Io가 아닌 개별 8kb IOs를 계산 합니다.
 
 원격 페이지 서버에 대 한 데이터 IO는 리소스 사용률 뷰나 포털에는 보고 되지 않지만 앞에서 설명한 대로 [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF 보고 됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - 하이퍼 규모의 단일 데이터베이스에 대 한 vCore 리소스 제한의 경우 하이퍼 [크기 조정 서비스 계층 vCore 제한](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) 을 참조 하세요.
 - Azure SQL Database 성능 튜닝에 대 한 자세한 내용은 [의 쿼리 성능](performance-guidance.md) 을 참조 하십시오 Azure SQL Database

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6d0dcecf6a0da1fbd3561dadcbe001c0ef8d4ebc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479462"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792840"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
@@ -340,7 +340,7 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 | **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **예제** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](/azure/storage/files/storage-snapshots-files)를 참조 하세요.
+공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](../files/storage-snapshots-files.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

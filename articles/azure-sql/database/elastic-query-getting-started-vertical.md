@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443329"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792126"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다. 이 사용 권한은 A
 
 ## <a name="create-the-sample-databases"></a>샘플 데이터베이스 만들기
 
-먼저 동일한 서버 또는 다른 서버에 두 개의 데이터베이스, 즉 **Customers** 와 **Orders**를 만듭니다.
+먼저 동일한 서버 또는 다른 서버에 두 개의 데이터베이스, 즉 **Customers** 와 **Orders** 를 만듭니다.
 
 **주문** 데이터베이스에서 다음 쿼리를 실행하여 **주문 정보** 테이블을 만들고 샘플 데이터를 입력합니다.
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 
 현재 Azure SQL Database 가격에는 Elastic Database 쿼리 기능이 포함되어 있습니다.  
 
@@ -129,4 +129,4 @@ ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 * 수직 분할된 데이터에 대한 구문 및 예제 쿼리는 [수직 분할된 데이터 쿼리하기](elastic-query-vertical-partitioning.md)를 참조하세요.
 * 행 분할(분할) 자습서는 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](elastic-query-getting-started.md)를 참조하세요.
 * 행 분할된 데이터에 대한 구문 및 예제 쿼리는 [행 분할된 데이터 쿼리하기](elastic-query-horizontal-partitioning.md)를 참조하세요.
-* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)을 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514489"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791599"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -46,6 +46,16 @@ ms.locfileid: "92514489"
 인덱서 v1 및 인덱서 v2를 사용 하는 고객은 기본 오디오 분석 사전 설정으로 마이그레이션해야 합니다.
 
 기본 오디오 분석기 모드에 대 한 자세한 내용은 [비디오 및 오디오 파일 분석](analyzing-video-audio-files-concept.md)을 참조 하세요.  REST API에서 기본 오디오 분석기 모드를 사용 하는 방법에 대 한 자세한 내용은 [기본 오디오 변환을 만드는 방법](how-to-create-basic-audio-transform.md)을 참조 하세요.
+
+## <a name="live-events"></a>라이브 이벤트
+
+이제 라이브 이벤트가 중지 될 때 대부분의 속성에 대 한 업데이트가 허용 됩니다. 또한 사용자는 라이브 이벤트의 입력 및 미리 보기 Url에 대 한 정적 호스트 이름에 대 한 접두사를 지정할 수 있습니다. 이제 `useStaticHostName` 속성의 의도를 보다 잘 반영 하기 위해 VanityUrl가 호출 됩니다.
+
+이제 라이브 이벤트에는 대기 상태가 있습니다.  [Media Services에서 라이브 이벤트 및 라이브 출력을](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept)참조 하세요.
+
+라이브 이벤트는 다양 한 입력 가로 세로 비율 수신을 지원 합니다. 스트레치 모드를 사용 하면 고객이 출력의 스트레치 동작을 지정할 수 있습니다.
+
+이제 라이브 인코딩은 고정 키 프레임 간격 조각을 0.5 ~ 20 초 사이에 출력 하는 기능을 추가 합니다.
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -99,7 +109,7 @@ Azure Media Player 문서가 [Azure 설명서](../azure-media-player/azure-media
 
 ### <a name="azure-government-cloud-updates"></a>Azure Government 클라우드 업데이트
 
-Media Services가 일반 공급되는 Azure Government 지역은 *USGov 애리조나* 및 *USGov 텍사스*입니다.
+Media Services가 일반 공급되는 Azure Government 지역은 *USGov 애리조나* 및 *USGov 텍사스* 입니다.
 
 ## <a name="december-2019"></a>2019년 12월
 
@@ -163,7 +173,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기*의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는  [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는  [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
 
@@ -181,7 +191,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
+WAME( *Windows Azure Media Encoder* ) 및 AME( *Azure Media Encoder* ) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
 
 자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-windows-azure-media-encoder.md) 및 [AME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-azure-media-encoder.md)을 참조하세요.
  
@@ -265,10 +275,10 @@ MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 �
 
 V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
        
-* **PresentationTimeRange** 속성은 **자산 필터** 및 **계정 필터**에 대해 더 이상 '필수'가 아닙니다. 
-* **작업** 및 **변환**의 $top 및 $skip 쿼리 옵션이 제거되었으며 $orderby가 추가되었습니다. 새 순서 지정 기능을 추가되면서, $top 및 $skip 옵션을 이전에 구현하지 않았어도 실수로 노출되는 것으로 확인되었습니다.
+* **PresentationTimeRange** 속성은 **자산 필터** 및 **계정 필터** 에 대해 더 이상 '필수'가 아닙니다. 
+* **작업** 및 **변환** 의 $top 및 $skip 쿼리 옵션이 제거되었으며 $orderby가 추가되었습니다. 새 순서 지정 기능을 추가되면서, $top 및 $skip 옵션을 이전에 구현하지 않았어도 실수로 노출되는 것으로 확인되었습니다.
 * 열거형 확장성을 다시 사용하도록 설정했습니다. 이 기능은 미리 보기 버전의 SDK에서 사용하도록 설정되며 GA 버전에서는 실수로 사용하지 않도록 설정되었습니다.
-* 두 개의 미리 정의된 스트리밍 정책 이름이 바뀌었습니다. **SecureStreaming**은 이제 **MultiDrmCencStreaming**입니다. **SecureStreamingWithFairPlay**는 이제 **Predefined_MultiDrmStreaming**입니다.
+* 두 개의 미리 정의된 스트리밍 정책 이름이 바뀌었습니다. **SecureStreaming** 은 이제 **MultiDrmCencStreaming** 입니다. **SecureStreamingWithFairPlay** 는 이제 **Predefined_MultiDrmStreaming** 입니다.
 
 ## <a name="november-2018"></a>2018년 11월
 
@@ -397,12 +407,12 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 .NET SDK에는 다음과 같은 기능이 있습니다.
 
-* 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
-* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.
-* 콘텐츠를 전송할 때 키 전송 및 콘텐츠 보호(DRM)를 구성하는 **스트리밍 정책** 및 **콘텐츠 키 정책**.
-* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **라이브 이벤트** 및 **라이브 스트리밍**.
-* Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset**. 
-* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성하고 확장하는 **스트리밍 엔드포인트**.
+* 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job** . 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
+* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터** .
+* 콘텐츠를 전송할 때 키 전송 및 콘텐츠 보호(DRM)를 구성하는 **스트리밍 정책** 및 **콘텐츠 키 정책** .
+* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **라이브 이벤트** 및 **라이브 스트리밍** .
+* Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset** . 
+* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성하고 확장하는 **스트리밍 엔드포인트** .
 
 ### <a name="known-issues"></a>알려진 문제
 

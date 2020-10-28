@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209541"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792585"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "88209541"
 | [개방형 과학 데이터 클라우드 데이터](https://www.opensciencedatacloud.org/projects/) | "개방형 과학 데이터 클라우드는 테라바이트 및 페타바이트 크기의 과학 데이터 세트를 저장, 공유 및 분석하기 위한 리소스를 포함하는 과학 커뮤니티를 제공합니다."| 데이터 집합은 다양한 형식으로 제공됩니다. |
 | [전 세계 기후 데이터 - WorldClim](https://worldclim.org/) | "WorldClim은 약 1km2의 공간 해상도를 갖는 글로벌 기후 계층(표 형식의 날씨 데이터) 집합입니다. 이러한 데이터는 매핑 및 공간 모델링에 사용할 수 있습니다." | 이러한 파일에는 지리 공간 데이터가 포함됩니다. 자세한 내용은 [데이터 형식](https://worldclim.org/formats1)을 참조하세요. |
 | [인간 사회 관련 데이터 - GDELT 프로젝트](https://www.gdeltproject.org/data.html) | "GDELT 프로젝트는 현존하는 가장 크고 가장 포괄적이고 해상도가 가장 높은 개방형 인간 사회 데이터베이스입니다." | 원시 데이터 파일은 CSV 형식입니다. |
-| [Criteo의 Machine Learning을 위한 광고 클릭 예측 데이터](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "공개적으로 출시된 가장 큰 ML 데이터 세트입니다." 자세한 내용은 [Criteo의 1TB 클릭 예측 데이터 세트](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)를 참조하세요. | |
+| [Criteo의 Machine Learning을 위한 광고 클릭 예측 데이터](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "공개적으로 출시된 가장 큰 ML 데이터 세트입니다." 자세한 내용은 [Criteo의 1TB 클릭 예측 데이터 세트](/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset)를 참조하세요. | |
 | [Lemur 프로젝트이 ClueWeb09 텍스트 마이닝 데이터 집합](https://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 데이터 세트는 정보 검색 및 관련된 인간 언어 기술에 대한 연구를 지원하기 위해 만들어졌습니다. 이 데이터 집합은 2009년 1월과 2월에 수집된 10억 개의 웹 페이지를 10개 언어로 제공합니다." | [데이터 세트 정보](https://www.lemurproject.org/clueweb09/datasetInformation.php)를 참조하세요.|
 
 ## <a name="online-service-data"></a>온라인 서비스 데이터

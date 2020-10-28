@@ -4,12 +4,12 @@ description: Azure Kubernetes Service와 Azure NetApp Files를 통합 하는 방
 services: container-service
 ms.topic: article
 ms.date: 09/26/2019
-ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bbf0ccaffecd05570848ab487f6d35f5ae5f01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465646"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791565"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
 
@@ -21,7 +21,7 @@ ms.locfileid: "84465646"
 > [!IMPORTANT]
 > 또한 AKS 클러스터 [는 Azure NetApp Files를 지 원하는 지역에][anf-regions]있어야 합니다.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -47,7 +47,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > 이 작업을 완료하는 데 약간의 시간이 걸릴 수 있습니다.
 
-AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup*에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
+AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup* 에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -106,7 +106,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -118,7 +118,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 

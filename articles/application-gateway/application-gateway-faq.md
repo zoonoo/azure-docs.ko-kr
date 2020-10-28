@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278637"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791548"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -69,13 +69,13 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 공용 IP 주소를 엔드포인트로 사용하는 경우 공용 IP 주소 리소스에서 IP 및 DNS 정보를 찾을 수 있습니다. 또는 포털의 애플리케이션 게이트웨이에 대한 개요 페이지에서 찾을 수 있습니다. 내부 IP 주소를 사용하는 경우 개요 페이지에서 정보를 확인하세요.
 
-v2 SKU의 경우 공용 IP 리소스를 열고 **구성**을 선택합니다. **DNS 이름 레이블(옵션)** 필드를 사용하여 DNS 이름을 구성할 수 있습니다.
+v2 SKU의 경우 공용 IP 리소스를 열고 **구성** 을 선택합니다. **DNS 이름 레이블(옵션)** 필드를 사용하여 DNS 이름을 구성할 수 있습니다.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Keep-Alive 시간 제한 및 TCP 유휴 시간 제한의 설정은 어떻게 되나요?
 
-*Keep-Alive 시간 제한*은 클라이언트가 영구 연결에 대한 요청을 다른 HTTP 요청으로 보낼 때까지 Application Gateway가 대기하는 시간을 조정합니다. 이 시간이 지나면 Application Gateway가 연결을 재사용하거나 종료합니다. *TCP 유휴 시간 제한*은 작업이 없을 때 TCP 연결이 열린 상태로 유지되는 시간을 제어합니다. 
+*Keep-Alive 시간 제한* 은 클라이언트가 영구 연결에 대한 요청을 다른 HTTP 요청으로 보낼 때까지 Application Gateway가 대기하는 시간을 조정합니다. 이 시간이 지나면 Application Gateway가 연결을 재사용하거나 종료합니다. *TCP 유휴 시간 제한* 은 작업이 없을 때 TCP 연결이 열린 상태로 유지되는 시간을 제어합니다. 
 
-Application Gateway v1 SKU의 *Keep-Alive 시간 제한*은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한*은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. V1 및 v2 Application gateway에서 4 분에서 30 분 사이의 TCP 유휴 시간 제한 값을 구성할 수 있습니다. V1 및 v2 응용 프로그램 게이트웨이의 경우, Application Gateway 공용 IP로 이동 하 여 포털에서 공용 IP의 "구성" 블레이드에서 TCP 유휴 시간 제한을 변경 해야 합니다. 다음 명령을 실행 하 여 PowerShell을 통해 공용 IP의 TCP 유휴 시간 제한 값을 설정할 수 있습니다. 
+Application Gateway v1 SKU의 *Keep-Alive 시간 제한* 은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한* 은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. V1 및 v2 Application gateway에서 4 분에서 30 분 사이의 TCP 유휴 시간 제한 값을 구성할 수 있습니다. V1 및 v2 응용 프로그램 게이트웨이의 경우, Application Gateway 공용 IP로 이동 하 여 포털에서 공용 IP의 "구성" 블레이드에서 TCP 유휴 시간 제한을 변경 해야 합니다. 다음 명령을 실행 하 여 PowerShell을 통해 공용 IP의 TCP 유휴 시간 제한 값을 설정할 수 있습니다. 
 
 ```azurepowershell-interactive
 $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -138,7 +138,7 @@ v2 SKU를 사용하는 대부분의 배포는 프로비저닝하는 데 약 6분
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
 예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 
 
-이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.
+이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure* . 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.
 
 ## <a name="performance"></a>성능
 
@@ -249,11 +249,11 @@ Application Gateway v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사�
 2. 공용 프런트 엔드 IP 주소용 수신기를 만들지 않습니다. 공용 IP 주소용 수신기를 만들지 않으면 Application Gateway는 공용 IP 주소의 트래픽을 수신 대기하지 않습니다.
 3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 만들고 연결합니다.
     
-    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두**, 대상 포트 **65200-65535**의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
+    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두** , 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
     
-    b. 원본 **AzureLoadBalancer** 서비스 태그, 대상 및 대상 포트 **모두**의 트래픽을 허용합니다.
+    b. 원본 **AzureLoadBalancer** 서비스 태그, 대상 및 대상 포트 **모두** 의 트래픽을 허용합니다.
     
-    다. 원본 **인터넷** 서비스 태그, 대상 및 대상 포트는 **모두**의 모든 인바운드 트래픽을 거부합니다. 인바운드 규칙에서 이 규칙에 *가장 낮은 우선 순위*를 지정합니다.
+    다. 원본 **인터넷** 서비스 태그, 대상 및 대상 포트는 **모두** 의 모든 인바운드 트래픽을 거부합니다. 인바운드 규칙에서 이 규칙에 *가장 낮은 우선 순위* 를 지정합니다.
     
     d. 개인 IP 주소에 대한 액세스가 차단되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지합니다.
     
@@ -350,7 +350,7 @@ CA (인증 기관) 브라우저 구성원 최근에 게시 된 보고서는 고�
 * [버그 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [버그 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-업계의 규정 준수 요구 사항에 따라, CA 공급 업체는 비준수 Ca를 해지 하 고 고객이 인증서를 다시 발급 해야 하는 호환 Ca를 발급 하기 시작 했습니다.Microsoft는 이러한 공급 업체와 긴밀 하 게 협력 하 여 Azure 서비스에 미칠 수 있는 영향을 최소화 **하지만, "사용자의 인증서 가져오기" (BYOC) 시나리오에서 사용 되는 자체 발급 된 인증서 또는 인증서는 여전히 예기치 않게 해지 될 위험이**있습니다.
+업계의 규정 준수 요구 사항에 따라, CA 공급 업체는 비준수 Ca를 해지 하 고 고객이 인증서를 다시 발급 해야 하는 호환 Ca를 발급 하기 시작 했습니다.Microsoft는 이러한 공급 업체와 긴밀 하 게 협력 하 여 Azure 서비스에 미칠 수 있는 영향을 최소화 **하지만, "사용자의 인증서 가져오기" (BYOC) 시나리오에서 사용 되는 자체 발급 된 인증서 또는 인증서는 여전히 예기치 않게 해지 될 위험이** 있습니다.
 
 응용 프로그램에서 사용 하는 인증서가 해지 되었는지 확인 하려면 참조 [DigiCert의 알림](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) 및 [인증서 해지 추적기](https://misissued.com/#revoked)를 확인 합니다. 인증서가 해지 되었거나 해지 되 면 응용 프로그램에서 사용 되는 CA 공급 업체의 새 인증서를 요청 해야 합니다. 인증서가 예기치 않게 해지 되거나 해지 된 인증서를 업데이트 하기 때문에 응용 프로그램의 가용성이 중단 되지 않도록 하려면 BYOC를 지 원하는 다양 한 Azure 서비스의 재구성 링크를 보려면 Azure 업데이트 게시물을 참조 하세요. https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -434,9 +434,9 @@ AKS 추가 기능을 통해 배포 된 AGIC의 차이점을 참조 하세요. [�
 
 Application Gateway는 다음 세 가지 로그를 제공합니다. 
 
-* **ApplicationGatewayAccessLog**: 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
-* **ApplicationGatewayPerformanceLog**: 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
-* **ApplicationGatewayFirewallLog**: WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
+* **ApplicationGatewayAccessLog** : 이 액세스 로그에는 애플리케이션 게이트웨이 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함되어 있습니다. 애플리케이션 게이트웨이마다 하나의 레코드가 포함됩니다.
+* **ApplicationGatewayPerformanceLog** : 성능 로그는 각 애플리케이션 게이트웨이의 성능 정보를 캡처합니다. 이 정보에는 처리량(바이트), 처리된 총 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
+* **ApplicationGatewayFirewallLog** : WAF를 사용하여 구성하는 애플리케이션 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함됩니다.
 
 모든 로그는 60초마다 수집됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
@@ -450,7 +450,7 @@ PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` 또는 포털을 사�
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Application Gateway에 대한 감사 로그를 어떻게 얻나요?
 
-포털의 애플리케이션 게이트웨이 메뉴 블레이드에서 **활동 로그**를 선택하여 감사 로그에 액세스하면 됩니다. 
+포털의 애플리케이션 게이트웨이 메뉴 블레이드에서 **활동 로그** 를 선택하여 감사 로그에 액세스하면 됩니다. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway로 경고를 설정할 수 있나요?
 
@@ -472,6 +472,10 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 - Application Gateway v2를 배포했습니다.
 - 애플리케이션 게이트웨이 서브넷에 NSG가 있습니다.
 - 이 NSG에서 NSG 흐름 로그를 사용하도록 설정했습니다.
+
+### <a name="does-application-gateway-store-customer-data"></a>고객 데이터를 저장 Application Gateway 합니까?
+
+아니요, Application Gateway는 고객 데이터를 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

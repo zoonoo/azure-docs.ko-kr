@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443038"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792075"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ ms.locfileid: "91443038"
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **찾고 content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고, **찾습니다** 하위 디렉터리에서 Split-Merge PowerShell 스크립트 (및 필수 클라이언트 dll)를 찾습니다.
+파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x* 는 버전 번호를 나타냅니다. **찾고 content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고, **찾습니다** 하위 디렉터리에서 Split-Merge PowerShell 스크립트 (및 필수 클라이언트 dll)를 찾습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL Database 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
+1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL Database 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database** 를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
-1. 서버에서 Azure 서비스에 연결할 수 있는지 확인 합니다. 포털의 **방화벽 설정**에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
+1. 서버에서 Azure 서비스에 연결할 수 있는지 확인 합니다. 포털의 **방화벽 설정** 에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On** 으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
 
 1. 진단 출력에 사용할 Azure Storage 계정을 만듭니다.
 
@@ -51,14 +51,14 @@ ms.locfileid: "91443038"
 
 ### <a name="split-merge-service-configuration"></a>분할/병합 서비스 구성
 
-1. 분할/병합 어셈블리를 다운로드한 폴더에서 *SplitMergeService.cspkg*와 함께 제공된 *ServiceConfiguration.Template.cscfg* 파일의 복사본을 만들고 이름을 *ServiceConfiguration.cscfg*로 바꿉니다.
+1. 분할/병합 어셈블리를 다운로드한 폴더에서 *SplitMergeService.cspkg* 와 함께 제공된 *ServiceConfiguration.Template.cscfg* 파일의 복사본을 만들고 이름을 *ServiceConfiguration.cscfg* 로 바꿉니다.
 
 1. Visual Studio와 같은 텍스트 편집기에서 인증서 지문 형식과 같은 입력의 유효성을 검사하는 *ServiceConfiguration.cscfg* 를 엽니다.
 
 1. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다.
 
    > [!IMPORTANT]
-   > 지금은 상태 데이터베이스에서 라틴어 데이터 정렬(SQL\_Latin1\_General\_CP1\_CI\_AS)을 사용해야 합니다. 자세한 내용은 [Windows 데이터 정렬 이름(Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)을 참조하세요.
+   > 지금은 상태 데이터베이스에서 라틴어 데이터 정렬(SQL\_Latin1\_General\_CP1\_CI\_AS)을 사용해야 합니다. 자세한 내용은 [Windows 데이터 정렬 이름(Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql)을 참조하세요.
 
    Azure SQL Database를 사용 하는 경우 연결 문자열은 일반적으로 다음과 같은 형식입니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "91443038"
 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-새 디렉터리를 만들고 이 디렉터리에서 [Visual Studio용 개발자 명령 프롬프트](https://msdn.microsoft.com/library/ms229859.aspx) 창을 사용하여 다음 명령을 실행합니다.
+새 디렉터리를 만들고 이 디렉터리에서 [Visual Studio용 개발자 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs) 창을 사용하여 다음 명령을 실행합니다.
 
    ```cmd
    makecert ^
@@ -99,17 +99,17 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>개인 저장소로 클라이언트 인증서 가져오기
 
-1. Windows 탐색기에서 *MyCert.pfx*를 두 번 클릭합니다.
-2. **인증서 가져오기 마법사**에서 **현재 사용자**를 선택하고 **다음**을 클릭합니다.
-3. 파일 경로를 확인하고 **다음**을 클릭합니다.
-4. 암호를 입력하고 **확장 속성 모두 포함**을 선택된 상태로 두고 **다음**을 클릭합니다.
-5. **인증서 저장소를 자동으로 선택[…]** 을 선택된 상태로 두고 **다음**을 클릭합니다.
-6. **마침**, **확인**을 차례로 클릭합니다.
+1. Windows 탐색기에서 *MyCert.pfx* 를 두 번 클릭합니다.
+2. **인증서 가져오기 마법사** 에서 **현재 사용자** 를 선택하고 **다음** 을 클릭합니다.
+3. 파일 경로를 확인하고 **다음** 을 클릭합니다.
+4. 암호를 입력하고 **확장 속성 모두 포함** 을 선택된 상태로 두고 **다음** 을 클릭합니다.
+5. **인증서 저장소를 자동으로 선택[…]** 을 선택된 상태로 두고 **다음** 을 클릭합니다.
+6. **마침** , **확인** 을 차례로 클릭합니다.
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>클라우드 서비스에 PFX 파일 업로드
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **Cloud Services**를 선택합니다.
+2. **Cloud Services** 를 선택합니다.
 3. 분할/병합 서비스에 대해 위에서 만든 클라우드 서비스를 선택합니다.
 4. 최상위 메뉴에서 **인증서** 를 클릭합니다.
 5. 아래쪽 메뉴 모음에서 **업로드** 를 클릭합니다.
@@ -143,8 +143,8 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 1. [Azure Portal](https://portal.azure.com)로 이동
 2. 이전에 만든 클라우드 서비스를 선택합니다.
-3. **개요**를 클릭합니다.
-4. 스테이징 환경을 선택하고 **업로드**를 클릭합니다.
+3. **개요** 를 클릭합니다.
+4. 스테이징 환경을 선택하고 **업로드** 를 클릭합니다.
 5. 대화 상자에서 배포 레이블을 입력합니다. '패키지'와 '구성' 모두에 대해, '로컬에서'를 클릭하고 *SplitMergeService.cspkg* 파일 및 이전에 구성한 cscfg 파일을 선택합니다.
 6. **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란이 선택되어 있는지 확인합니다.
 7. 오른쪽 아래의 눈금 단추를 눌러 배포를 시작합니다. 배포를 완료하려면 몇 분 정도 걸립니다.
@@ -168,7 +168,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### <a name="connect-with-a-web-browser"></a>웹 브라우저와 연결
 
-분할/병합 서비스의 웹 엔드포인트를 확인합니다. 포털에서 클라우드 서비스의 **개요**로 이동한 다음, 오른쪽의 **사이트 URL**에서 찾아봅니다. 기본 보안 설정을 통해 HTTP 엔드포인트를 사용하지 않도록 설정되므로 **http://** 를 **https://** 로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
+분할/병합 서비스의 웹 엔드포인트를 확인합니다. 포털에서 클라우드 서비스의 **개요** 로 이동한 다음, 오른쪽의 **사이트 URL** 에서 찾아봅니다. 기본 보안 설정을 통해 HTTP 엔드포인트를 사용하지 않도록 설정되므로 **http://** 를 **https://** 로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
 
 ### <a name="test-with-powershell-scripts"></a>PowerShell 스크립트로 테스트
 
@@ -324,8 +324,8 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 1. 각 분할된 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”), 테이블 이름 및 분할 키가 포함된 해당 테이블의 열 이름을 설명하는 **ShardedTableInfo** 개체를 만듭니다.
 2. 각 참조 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”) 및 테이블 이름을 설명하는 **ReferenceTableInfo** 개체를 만듭니다.
 3. 새 **SchemaInfo** 개체에 위의 TableInfo 개체를 추가합니다.
-4. **ShardMapManager** 개체에 대한 참조를 가져와 **GetSchemaInfoCollection**을 호출합니다.
-5. **SchemaInfo**를 **SchemaInfoCollection**에 추가하고 분할된 데이터베이스 맵 이름을 입력합니다.
+4. **ShardMapManager** 개체에 대한 참조를 가져와 **GetSchemaInfoCollection** 을 호출합니다.
+5. **SchemaInfo** 를 **SchemaInfoCollection** 에 추가하고 분할된 데이터베이스 맵 이름을 입력합니다.
 
 이러한 예는 SetupSampleSplitMergeEnvironment.ps1 스크립트에서 찾아볼 수 있습니다.
 
@@ -343,7 +343,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-이 경우 구성 파일, 특히 **WorkerRoleSynchronizationStorageAccountConnectionString**에 대한 설정을 확인합니다. 이 오류는 일반적으로 작업자 역할이 처음 사용할 때 메타데이터 데이터베이스를 성공적으로 초기화하지 못했을 때 나타납니다.
+이 경우 구성 파일, 특히 **WorkerRoleSynchronizationStorageAccountConnectionString** 에 대한 설정을 확인합니다. 이 오류는 일반적으로 작업자 역할이 처음 사용할 때 메타데이터 데이터베이스를 성공적으로 초기화하지 못했을 때 나타납니다.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

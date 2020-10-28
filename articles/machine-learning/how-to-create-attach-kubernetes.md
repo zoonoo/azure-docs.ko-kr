@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667863"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792007"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -34,7 +34,7 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
 - BLB (기본 Load Balancer) 대신 클러스터에 **표준 Load Balancer (SLB)** 를 배포 해야 하는 경우 AKS PORTAL/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 **연결** 합니다.
 
-- 공용 IP 주소 만들기를 제한 하는 Azure Policy 있는 경우 AKS 클러스터를 만들 수 없습니다. AKS에는 [송신 트래픽에](/azure/aks/limit-egress-traffic)대 한 공용 IP가 필요 합니다. 또한이 송신 트래픽 문서에서는 일부 정규화 된 도메인 이름을 제외 하 고 공용 IP를 통해 클러스터에서 송신 트래픽을 잠그는 지침을 제공 합니다. 공용 IP를 사용 하도록 설정 하는 방법에는 두 가지가 있습니다.
+- 공용 IP 주소 만들기를 제한 하는 Azure Policy 있는 경우 AKS 클러스터를 만들 수 없습니다. AKS에는 [송신 트래픽에](/azure/aks/limit-egress-traffic)대 한 공용 IP가 필요 합니다. 또한 송신 트래픽 문서에서는 일부 정규화 된 도메인 이름을 제외 하 고 공용 IP를 통해 클러스터에서 송신 트래픽을 잠그는 지침을 제공 합니다. 공용 IP를 사용 하도록 설정 하는 방법에는 두 가지가 있습니다.
     - 클러스터는 기본적으로 BLB 또는 SLB와 함께 생성 된 공용 IP를 사용할 수 있습니다.
     - 공용 ip 없이 클러스터를 만들 수 있으며, 공용 IP는 사용자 정의 경로를 사용 하 여 방화벽으로 구성 됩니다. 자세한 내용은 [사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정](/azure/aks/egress-outboundtype)을 참조 하세요.
     
@@ -54,12 +54,12 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
    
  - **GPU** 노드나 **FPGA** 노드 (또는 특정 sku)에 모델을 배포 하려면 특정 sku를 사용 하 여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포 하는 것은 지원 되지 않습니다.
  
-- 클러스터를 만들거나 연결할 때 __개발-테스트__ 또는 __프로덕션__을 위해 클러스터를 만들지 여부를 선택할 수 있습니다. 프로덕션 대신 __개발__, __유효성 검사__및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 __클러스터 용도__ 를 개발 __-테스트__로 설정 합니다. 클러스터 용도를 지정 하지 않으면 __프로덕션__ 클러스터가 만들어집니다. 
+- 클러스터를 만들거나 연결할 때 __개발-테스트__ 또는 __프로덕션__ 을 위해 클러스터를 만들지 여부를 선택할 수 있습니다. 프로덕션 대신 __개발__ , __유효성 검사__ 및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 __클러스터 용도__ 를 개발 __-테스트__ 로 설정 합니다. 클러스터 용도를 지정 하지 않으면 __프로덕션__ 클러스터가 만들어집니다. 
 
     > [!IMPORTANT]
     > __개발-테스트__ 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다.
 
-- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__에 사용 되는 경우에는 __가상 cpu__를 12 개 이상 포함 해야 합니다. 클러스터의 __노드 수__ 를 선택한 VM 크기에서 제공 하는 __코어 수__ 와 곱하여 가상 cpu 수를 계산할 수 있습니다. 예를 들어 가상 코어가 4 개 있는 "Standard_D3_v2"의 VM 크기를 사용 하는 경우 노드 수로 3 이상을 선택 해야 합니다.
+- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용 되는 경우에는 __가상 cpu__ 를 12 개 이상 포함 해야 합니다. 클러스터의 __노드 수__ 를 선택한 VM 크기에서 제공 하는 __코어 수__ 와 곱하여 가상 cpu 수를 계산할 수 있습니다. 예를 들어 가상 코어가 4 개 있는 "Standard_D3_v2"의 VM 크기를 사용 하는 경우 노드 수로 3 이상을 선택 해야 합니다.
 
     __개발-테스트__ 클러스터의 경우 2 개 이상의 가상 cpu를 다시 명령 합니다.
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-**사용 가능한 버전을 프로그래밍 방식으로 확인**하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
+**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
 
 Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 기본 버전을 찾으려면 `orchestratorType` 가이 `Kubernetes` 고 `default` 가 인 항목을 찾습니다 `true` . 연결 된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각은 예제 항목을 보여 줍니다.
 
@@ -147,7 +147,7 @@ Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 �
 
 ## <a name="create-a-new-aks-cluster"></a>새 AKS 클러스터 만들기
 
-**예상 시간**: 약 10 분
+**예상 시간** : 약 10 분
 
 작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
 
@@ -284,7 +284,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 작업 영역에서 클러스터를 분리 하려면 다음 방법 중 하나를 사용 합니다.
 
 > [!WARNING]
-> 기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 **해도 AKS 클러스터는 삭제 되지 않습니다**. 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](/azure/aks/kubernetes-walkthrough#delete-the-cluster)을 참조 하세요.
+> 기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 **해도 AKS 클러스터는 삭제 되지 않습니다** . 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](/azure/aks/kubernetes-walkthrough#delete-the-cluster)을 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Machine Learning studio에서 __계산__, __유추 클러스터__및 제거 하려는 클러스터를 선택 합니다. __분리__ 링크를 사용 하 여 클러스터를 분리 합니다.
+Azure Machine Learning studio에서 __계산__ , __유추 클러스터__ 및 제거 하려는 클러스터를 선택 합니다. __분리__ 링크를 사용 하 여 클러스터를 분리 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

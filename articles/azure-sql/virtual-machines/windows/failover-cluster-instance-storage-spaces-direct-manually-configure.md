@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165247"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792517"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>스토리지 공간 다이렉트를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,11 +68,11 @@ ms.locfileid: "92165247"
 
    UI에서 장애 조치 (failover) 클러스터링을 설치 하려면 두 가상 컴퓨터에서 다음을 수행 합니다.
 
-   1. **서버 관리자**에서 **관리**를 선택한 다음, **역할 및 기능 추가**를 선택합니다.
-   1. **역할 및 기능 추가** 마법사에서 **다음** 을 선택 하 여 **기능을 선택**합니다.
-   1. **기능 선택**에서 **장애 조치(failover) 클러스터링**을 선택합니다. 필요한 모든 기능 및 관리 도구를 포함합니다. 
-   1. **기능 추가**를 선택합니다.
-   1. **다음**을 선택하고 **마침**을 선택하여 기능을 설치합니다.
+   1. **서버 관리자** 에서 **관리** 를 선택한 다음, **역할 및 기능 추가** 를 선택합니다.
+   1. **역할 및 기능 추가** 마법사에서 **다음** 을 선택 하 여 **기능을 선택** 합니다.
+   1. **기능 선택** 에서 **장애 조치(failover) 클러스터링** 을 선택합니다. 필요한 모든 기능 및 관리 도구를 포함합니다. 
+   1. **기능 추가** 를 선택합니다.
+   1. **다음** 을 선택하고 **마침** 을 선택하여 기능을 설치합니다.
 
    PowerShell을 사용 하 여 장애 조치 (failover) 클러스터링을 설치 하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "92165247"
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-다음 단계에 대 한 자세한 내용은 [Windows Server 2016의 스토리지 공간 다이렉트를 사용 하 여 하이퍼 수렴 형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 "3 단계: 스토리지 공간 다이렉트 구성" 섹션의 지침을 참조 하세요.
+다음 단계에 대 한 자세한 내용은 [Windows Server 2016의 스토리지 공간 다이렉트를 사용 하 여 하이퍼 수렴 형 솔루션](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 "3 단계: 스토리지 공간 다이렉트 구성" 섹션의 지침을 참조 하세요.
 
 
 ## <a name="validate-the-cluster"></a>클러스터 유효성 검사
@@ -90,18 +90,18 @@ UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사�
 
 UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신 중 하나에서 다음을 수행 합니다.
 
-1. **서버 관리자**에서 **도구**를 선택한 다음 **장애 조치(failover) 클러스터 관리자**를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자**에서 **작업**을 선택한 다음 **구성 유효성 검사**를 선택합니다.
-1. **다음**을 선택합니다.
-1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. 
-1. **다음**을 선택합니다.
-1. **테스트 선택**에서 다음과 같이 **스토리지**를 제외한 모든 테스트를 선택합니다.
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 다음과 같이 **스토리지** 를 제외한 모든 테스트를 선택합니다.
 
    ![클러스터 유효성 검사 테스트 선택](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. **다음**을 선택합니다.
-1. **확인**에서 **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
+1. **확인** 에서 **다음** 을 선택합니다.
 
     **구성 유효성 검사** 마법사는 유효성 검사 테스트를 실행 합니다.
 
@@ -150,9 +150,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="add-storage"></a>스토리지 추가
 
-스토리지 공간 다이렉트용 디스크는 비어 있어야 하며 파티션 또는 다른 데이터를 포함할 수 없습니다. 디스크를 정리 하려면 [스토리지 공간 다이렉트 배포](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives)의 지침을 따르세요.
+스토리지 공간 다이렉트용 디스크는 비어 있어야 하며 파티션 또는 다른 데이터를 포함할 수 없습니다. 디스크를 정리 하려면 [스토리지 공간 다이렉트 배포](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives)의 지침을 따르세요.
 
-1. [스토리지 공간 다이렉트를 사용 하도록 설정](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)합니다.
+1. [스토리지 공간 다이렉트를 사용 하도록 설정](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct)합니다.
 
    다음 PowerShell 스크립트는 스토리지 공간 다이렉트를 활성화합니다.  
 
@@ -160,9 +160,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
    Enable-ClusterS2D
    ```
 
-   **장애 조치(Failover) 클러스터 관리자**에서 이제 스토리지 풀을 볼 수 있습니다.
+   **장애 조치(Failover) 클러스터 관리자** 에서 이제 스토리지 풀을 볼 수 있습니다.
 
-1. [볼륨을 만듭니다](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [볼륨을 만듭니다](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
    스토리지 공간 다이렉트를 활성화하면 스토리지 풀이 자동으로 만들어집니다. 이제 볼륨을 만들 준비가 되었습니다. PowerShell cmdlet `New-Volume`은 볼륨 만들기 프로세스를 자동화합니다. 이 프로세스에는 형식을 포함 하며 클러스터에 볼륨을 추가 하 고 CSV를 만듭니다. 이 예제에서는 800 기가바이트 (GB) CSV를 만듭니다.
 
@@ -180,7 +180,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치 테스트
 
-클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드**를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
+클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자** 에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드** 를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="코어 리소스를 다른 노드로 이동하여 클러스터 장애 조치(failover) 테스트":::
 
@@ -190,13 +190,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. RDP를 사용하여 첫 번째 가상 머신에 연결합니다.
 
-1. **장애 조치(Failover) 클러스터 관리자**에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
+1. **장애 조치(Failover) 클러스터 관리자** 에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
 
-1. 설치 미디어를 찾습니다. 가상 머신이 Azure Marketplace 이미지 중 하나를 사용하는 경우 미디어는 `C:\SQLServer_<version number>_Full`에 있습니다. **Setup**을 선택합니다.
+1. 설치 미디어를 찾습니다. 가상 머신이 Azure Marketplace 이미지 중 하나를 사용하는 경우 미디어는 `C:\SQLServer_<version number>_Full`에 있습니다. **Setup** 을 선택합니다.
 
-1. **SQL Server 설치 센터**에서 **설치**를 선택합니다.
+1. **SQL Server 설치 센터** 에서 **설치** 를 선택합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터 새로 설치**를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
+1. **SQL Server 장애 조치(failover) 클러스터 새로 설치** 를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
    FCI 데이터 디렉터리는 클러스터형 스토리지에 있어야 합니다. 스토리지 공간 다이렉트를 사용 하는 경우 공유 디스크가 아니라 각 서버의 볼륨에 대 한 탑재 지점입니다. 스토리지 공간 다이렉트는 두 노드 간에 볼륨을 동기화합니다. 볼륨은 CSV로 클러스터에 표시 됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
 
@@ -206,12 +206,12 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 설치 프로그램이 첫 번째 노드에 FCI를 설치하면 RDP를 사용하여 두 번째 노드에 연결합니다.
 
-1. **SQL Server 설치 센터**를 엽니다. **설치**를 선택합니다.
+1. **SQL Server 설치 센터** 를 엽니다. **설치** 를 선택합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가**를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
+1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
 
    >[!NOTE]
-   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
+   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
    >
 
 
@@ -237,7 +237,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="limitations"></a>제한 사항
 
-- Azure virtual machines는 Csv의 저장소와 [표준 부하 분산 장치](../../../load-balancer/load-balancer-standard-overview.md)를 사용 하는 Windows Server 2019에서 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 지원 합니다.
+- Azure virtual machines는 Csv의 저장소와 [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 사용 하는 Windows Server 2019에서 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 지원 합니다.
 - NTFS 형식 디스크로 연결 된 디스크는 클러스터에 저장소를 추가 하는 경우 디스크 자격 옵션을 선택 취소 하거나 선택 취소 하는 경우에만 스토리지 공간 다이렉트와 함께 사용할 수 있습니다. 
 - [경량 관리 모드](sql-vm-resource-provider-register.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다.
 

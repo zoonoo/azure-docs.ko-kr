@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829437"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793435"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ ms.locfileid: "85829437"
 
 ## <a name="to-obtain-certificates"></a>인증서를 얻으려면
 
-공용 CA(인증 기관) 또는 [Windows 인증서 서비스](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
+공용 CA(인증 기관) 또는 [Windows 인증서 서비스](/windows/win32/seccrypto/certificate-services)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
 
-이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서**를 생성할 수 있습니다.
+이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서** 를 생성할 수 있습니다.
 
 ## <a name="tools-to-generate-certificates"></a>인증서를 생성하는 도구
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>도구를 실행하려면
 
-* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](https://msdn.microsoft.com/library/ms229859.aspx) 
+* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     설치되어 있는 경우 다음으로 이동합니다.
   
@@ -124,7 +124,7 @@ ms.locfileid: "85829437"
 기본 구성에서는 HTTPS 엔드포인트에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
 
 ### <a name="changing-the-configuration"></a>구성 변경
-및 끝점에 적용 되는 액세스 제어 규칙 그룹은 **\<EndpointAcls>** **서비스 구성 파일**의 섹션에서 구성 됩니다.
+및 끝점에 적용 되는 액세스 제어 규칙 그룹은 **\<EndpointAcls>** **서비스 구성 파일** 의 섹션에서 구성 됩니다.
 
 ```xml
 <EndpointAcls>
@@ -437,35 +437,35 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 * 클라이언트 인증서 구성
 
 ## <a name="find-certificate"></a>인증서를 찾습니다.
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. Mmc.exe를 실행합니다.
 2. 파일-> 스냅인 추가/제거로 이동합니다.
-3. **인증서**를 선택합니다.
-4. **추가**를 클릭합니다.
+3. **인증서** 를 선택합니다.
+4. **추가** 를 클릭합니다.
 5. 인증서 저장소 위치를 선택합니다.
-6. **Finish**를 클릭합니다.
-7. **확인**을 클릭합니다.
-8. **인증서**를 확장합니다.
+6. **마침** 을 클릭합니다.
+7. **확인** 을 클릭합니다.
+8. **인증서** 를 확장합니다.
 9. 인증서 저장소 노드를 확장합니다.
 10. 인증서 하위 노드를 확장합니다.
 11. 목록에서 인증서를 선택합니다.
 
 ## <a name="export-certificate"></a>인증서 내보내기
-**인증서 내보내기 마법사**에서 다음을 수행합니다.
+**인증서 내보내기 마법사** 에서 다음을 수행합니다.
 
-1. **다음**을 클릭합니다.
-2. **예**를 선택한 다음, **프라이빗 키 내보내기**를 선택합니다.
-3. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
+2. **예** 를 선택한 다음, **프라이빗 키 내보내기** 를 선택합니다.
+3. **다음** 을 클릭합니다.
 4. 원하는 출력 파일 형식을 선택합니다.
 5. 원하는 옵션을 선택합니다.
-6. **암호**를 확인합니다.
+6. **암호** 를 확인합니다.
 7. 강력한 암호를 입력하고 이를 확인합니다.
-8. **다음**을 클릭합니다.
+8. **다음** 을 클릭합니다.
 9. 인증서를 저장할 파일 이름을 입력하거나 찾습니다(.PFX 확장명을 사용하여).
-10. **다음**을 클릭합니다.
-11. **Finish**를 클릭합니다.
-12. **확인**을 클릭합니다.
+10. **다음** 을 클릭합니다.
+11. **Finish** 를 클릭합니다.
+12. **확인** 을 클릭합니다.
 
 ## <a name="import-certificate"></a>인증서 가져오기
 인증서 가져오기 마법사에서:
@@ -474,26 +474,26 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
    
    * 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우 **현재 사용자** 를 선택합니다.
    * 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우 **로컬 컴퓨터** 를 선택합니다.
-2. **다음**을 클릭합니다.
+2. **다음** 을 클릭합니다.
 3. 파일에서 가져오는 경우 파일 경로를 확인합니다.
 4. .PFX 파일을 가져오는 경우:
    1. 프라이빗 키를 보호하는 암호를 입력합니다.
    2. 가져오기 옵션을 선택합니다.
 5. 다음 저장소에 인증서 저장을 선택합니다.
-6. **찾아보기**를 클릭합니다.
+6. **찾아보기** 를 클릭합니다.
 7. 원하는 저장소를 선택합니다.
-8. **Finish**를 클릭합니다.
+8. **마침** 을 클릭합니다.
    
-   * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
+   * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예** 를 클릭합니다.
 9. 모든 대화 상자 창에서 **확인** 을 클릭합니다.
 
 ## <a name="upload-certificate"></a>인증서 업로드
 [Azure Portal](https://portal.azure.com/)
 
-1. **Cloud Services**를 선택합니다.
+1. **Cloud Services** 를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
-3. 최상위 메뉴에서 **인증서**를 클릭합니다.
-4. 아래쪽 메뉴 모음에서 **업로드**를 클릭합니다.
+3. 최상위 메뉴에서 **인증서** 를 클릭합니다.
+4. 아래쪽 메뉴 모음에서 **업로드** 를 클릭합니다.
 5. 인증서 파일을 선택합니다.
 6. .PFX 파일인 경우 프라이빗 키에 대한 암호를 입력합니다.
 7. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
@@ -508,4 +508,3 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

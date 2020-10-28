@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793061"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
 
@@ -30,14 +30,14 @@ Linux 또는 Windows에서 이 빠른 시작을 실행할 수 있습니다. 이 
 
 Linux에서 이 빠른 시작을 완료하려면 로컬 Linux 환경에 다음 소프트웨어를 설치해야 합니다.
 
-`apt-get` 명령을 사용하여 **GCC**, **Git**, **cmake** 및 필요한 모든 종속성을 설치합니다.
+`apt-get` 명령을 사용하여 **GCC** , **Git** , **cmake** 및 필요한 모든 종속성을 설치합니다.
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-`cmake` 버전이 **2.8.12**보다 크고, **GCC** 버전이 **4.4.7**보다 큰지 확인합니다.
+`cmake` 버전이 **2.8.12** 보다 크고, **GCC** 버전이 **4.4.7** 보다 큰지 확인합니다.
 
 ```sh
 cmake --version
@@ -67,7 +67,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 > [!TIP]
 > Azure IoT 탐색기 도구를 사용하여 IoT 허브 연결 문자열을 찾을 수도 있습니다.
 
-다음 명령을 실행하여 허브에 추가한 디바이스에 대한 _디바이스 연결 문자열_을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
+다음 명령을 실행하여 허브에 추가한 디바이스에 대한 _디바이스 연결 문자열_ 을 가져옵니다. 이 연결 문자열을 기록해 두었다가 이 빠른 시작의 뒷부분에서 사용합니다.
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
@@ -79,7 +79,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 아래 단계에서 코드를 다운로드 하면 폴더 아래에 샘플 모델 파일이 포함 됩니다 `pnpbridge/docs/schema` . Azure IoT 탐색기를 준비 하려면:
 
-1. *모델*이라는 폴더를 로컬 머신에 만듭니다.
+1. *모델* 이라는 폴더를 로컬 머신에 만듭니다.
 1. [EnvironmentalSensor.js](https://aka.ms/iot-pnp-bridge-env-model) 를 보고 JSON 파일을 *모델* 폴더에 저장 합니다.
 1. [RootBridgeSampleDevice.js를](https://aka.ms/iot-pnp-bridge-root-model) 보고 JSON 파일을 *모델* 폴더에 저장 합니다.
 
@@ -107,9 +107,13 @@ git submodule update --init --recursive
 
 IoT 플러그 앤 플레이 브리지 리포지토리를 컴퓨터에 복제 한 후에 `pnpbridge/docs/schema` [구성 JSON](https://aka.ms/iot-pnp-bridge-env-config) 또는 `config.json` 브리지의 환경적 센서 샘플을 찾을 수 있는 복제 된 리포지토리의 디렉터리로 이동 합니다. 구성 파일에 대 한 자세한 내용은 [IoT 플러그 앤 플레이 bridge 개념 문서](concepts-iot-pnp-bridge.md)에서 확인할 수 있습니다.
 
-필드의 경우 `root-_interface_model_id` 장치에 대 한 모델을 식별 하는 IoT 플러그 앤 플레이 모델 ID를 복사 해야 합니다. 이 예제에서는 `dtmi:com:example:SampleDevice;1`입니다. '에 있는 파일의 **pnp_bridge_parameters** 노드 아래에서 다음 매개 변수를 수정 합니다 `config.json` .
+필드의 경우 `root-_interface_model_id` 장치에 대 한 모델을 식별 하는 IoT 플러그 앤 플레이 모델 ID를 복사 해야 합니다. 이 예제에서는 `dtmi:com:example:SampleDevice;1`입니다. 파일의 **pnp_bridge_parameters** 노드 아래에서 다음 매개 변수를 수정 합니다 `config.json` .
 
-  연결 문자열 사용 (참고: symmetric_key은 연결 문자열의 SAS 키와 일치 해야 함):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> Symmetric_key는 연결 문자열의 SAS 키와 일치 해야 합니다.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ IoT 플러그 앤 플레이 브리지 리포지토리를 컴퓨터에 복제 한
   }
   ```
 
- 파일을 채운 후에는 `config.json` 다음과 유사 합니다.
+ 입력 한 후 파일은 `config.json` 다음과 유사 합니다.
 
    ```JSON
     {

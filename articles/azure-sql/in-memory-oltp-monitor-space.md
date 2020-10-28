@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 2134cf1fda5f0f1699feb46582813d198304f92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e4ec1e7b3b5ec935bb9d5d819b4562e7fd3e5a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616383"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791701"
 ---
 # <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 In-Memory OLTP 저장소 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "91616383"
 - 메모리 최적화 테이블에서 유지하는 데 필요한 데이터에 대한 충분한 메모리 내 스토리지가 있는 서비스 계층을 업그레이드합니다.
 
 > [!NOTE]
-> 드문 경우지만 오류 41823 및 41840은 일시적일 수 있습니다. 즉, 메모리 내 OLTP 스토리지 용량이 충분하고 작업을 다시 시도하면 성공할 수 있습니다. 따라서 사용 가능한 전체 메모리 내 OLTP 스토리지를 모니터링하고 처음 41823 또는 41840 오류가 발생하는 경우에는 다시 시도하는 것이 좋습니다. 다시 시도 논리에 대한 자세한 내용은 [메모리 내 OLTP를 통해 충돌 검색 및 다시 시도 논리](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic)를 참조하세요.
+> 드문 경우지만 오류 41823 및 41840은 일시적일 수 있습니다. 즉, 메모리 내 OLTP 스토리지 용량이 충분하고 작업을 다시 시도하면 성공할 수 있습니다. 따라서 사용 가능한 전체 메모리 내 OLTP 스토리지를 모니터링하고 처음 41823 또는 41840 오류가 발생하는 경우에는 다시 시도하는 것이 좋습니다. 다시 시도 논리에 대한 자세한 내용은 [메모리 내 OLTP를 통해 충돌 검색 및 다시 시도 논리](/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

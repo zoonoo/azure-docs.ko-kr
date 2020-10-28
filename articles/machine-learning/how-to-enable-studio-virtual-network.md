@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503218"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792024"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -36,10 +36,10 @@ ms.locfileid: "92503218"
 
 
 > [!IMPORTANT]
-> 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
+> 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "92503218"
 
 가상 네트워크 내의 리소스 (예: 계산 인스턴스 또는 가상 머신)에서 studio에 액세스 하는 경우 가상 네트워크에서 스튜디오로의 아웃 바운드 트래픽을 허용 해야 합니다. 
 
-예를 들어 NSG (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽을 제한 하는 경우 __AzureFrontDoor__의 __서비스 태그__ 대상에 규칙을 추가 합니다.
+예를 들어 NSG (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽을 제한 하는 경우 __AzureFrontDoor__ 의 __서비스 태그__ 대상에 규칙을 추가 합니다.
 
 ## <a name="access-data-using-the-studio"></a>Studio를 사용 하 여 데이터 액세스
 
@@ -66,9 +66,6 @@ ms.locfileid: "92503218"
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
-> [!NOTE]
-> [ML 지원 데이터 labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 는 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정에는 기본이 아닌 스토리지 계정을 사용해야 합니다. 기본이 아닌 스토리지 계정은 가상 네트워크 뒤에서 보호할 수 있습니다. 
-
 스튜디오는 가상 네트워크의 다음 데이터 저장소 형식에서 데이터를 읽을 수 있도록 지원 합니다.
 
 * Azure Blob
@@ -76,17 +73,21 @@ ms.locfileid: "92503218"
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### <a name="configure-datastores-to-use-managed-identity"></a>관리 id를 사용 하도록 데이터 저장소 구성
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>저장소 개인 링크에 대 한 작업 영역 관리 id __판독기__ 액세스 권한 부여
+
+이 단계는 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 경우에만 필요 합니다. 자세한 내용은 [판독기](../role-based-access-control/built-in-roles.md#reader) 기본 제공 역할을 참조 하세요.
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>작업 영역 관리 id를 사용 하도록 데이터 저장소 구성
 
 Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](concept-data.md#datastores) 계정에 연결 합니다. 관리 id를 사용 하도록 데이터 저장소를 구성 하려면 다음 단계를 사용 합니다. 
 
-1. 스튜디오에서 __Datastores__를 선택 합니다.
+1. 스튜디오에서 __Datastores__ 를 선택 합니다.
 
-1. 새 데이터 저장소를 만들려면 __+ 새 데이터 저장소__를 선택 합니다.
+1. 새 데이터 저장소를 만들려면 __+ 새 데이터 저장소__ 를 선택 합니다.
 
-    기존 데이터 저장소를 업데이트 하려면 데이터 저장소를 선택 하 고 __자격 증명 업데이트__를 선택 합니다.
+    기존 데이터 저장소를 업데이트 하려면 데이터 저장소를 선택 하 고 __자격 증명 업데이트__ 를 선택 합니다.
 
-1. 데이터 저장소 설정에서 __작업 영역 관리 id를 사용 하 여 Azure Machine Learning 서비스에서 저장소에 액세스 하도록 허용__에 대해 __예__ 를 선택 합니다.
+1. 데이터 저장소 설정에서 __작업 영역 관리 id를 사용 하 여 Azure Machine Learning 서비스에서 저장소에 액세스 하도록 허용__ 에 대해 __예__ 를 선택 합니다.
 
 
 이러한 단계는 azure 리소스 기반 액세스 제어 (Azure RBAC)를 사용 하 여 작업 영역 관리 id를 저장소 서비스에 __판독기__ 로 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 고 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다.
@@ -100,7 +101,7 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-__Azure blob storage__의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
+__Azure blob storage__ 의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 access control
 
@@ -127,15 +128,15 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 파이프라인에 대 한 새 기본 저장소를 설정 하려면 다음을 수행 합니다.
 
 1. 파이프라인 초안에서 파이프라인 제목 근처의 **설정 기어 아이콘** 을 선택 합니다.
-1. **기본 데이터 저장소 선택**을 선택 합니다.
+1. **기본 데이터 저장소 선택** 을 선택 합니다.
 1. 새 데이터 저장소를 지정 합니다.
 
 모듈 별로 기본 데이터 저장소를 재정의할 수도 있습니다. 이를 통해 각 개별 모듈의 저장소 위치를 제어할 수 있습니다.
 
 1. 출력을 지정 하려는 모듈을 선택 합니다.
 1. **출력 설정** 섹션을 확장 합니다.
-1. **기본 출력 설정 재정의**를 선택 합니다.
-1. **출력 설정 설정**을 선택 합니다.
+1. **기본 출력 설정 재정의** 를 선택 합니다.
+1. **출력 설정 설정** 을 선택 합니다.
 1. 새 데이터 저장소를 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계

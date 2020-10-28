@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614430"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793146"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및
 |-|**범용**|**중요 비즈니스용**|**하이퍼스케일**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산에 맞게 균형 있고 확장 가능한 컴퓨팅 및 스토리지 옵션을 제공합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
-|스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
-|IOPS 및 처리량 (근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.<br/>**Sql Managed Instance**: [개요 Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md#service-tier-characteristics)을 참조 하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크 로드에 따라 달라 집니다.|
+|스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database** :<br/>5GB~4TB<br/>**서버** 를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance** : 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database** :<br/>5GB~4TB<br/>**SQL Managed Instance** :<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
+|IOPS 및 처리량 (근사치)|**SQL Database** : [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.<br/>**Sql Managed Instance** : [개요 Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md#service-tier-characteristics)을 참조 하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](read-scale-out.md)|
 |Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Fsv2 시리즈     |-Intel® 8168 (Skylake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-최대 72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-최대 136 GB 프로 비전|
 |M 시리즈     |-Intel® E7-8890 v3 2.5 GHz 및 Intel® 8280M 2.7 GHz (캐스케이드 Lake) 프로세서<br>-최대 128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-최대 3.7 TB 프로 비전|
 
-\*[Sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 동적 관리 뷰에서는 INTEL® SP-8160 (Skylake) 프로세서를 사용 하는 데이터베이스에 대 한 하드웨어 생성이 Gen6로 표시 되 고 INTEL® 8272CL (Cascade Lake)를 사용 하는 데이터베이스에 대 한 하드웨어 생성은 Gen7로 표시 됩니다. 모든 Gen5 데이터베이스에 대 한 리소스 제한은 프로세서 유형 (Broadwell, Skylake 또는 Cascade Lake)에 관계 없이 동일 합니다.
+\*[Sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 동적 관리 뷰에서는 INTEL® SP-8160 (Skylake) 프로세서를 사용 하는 데이터베이스에 대 한 하드웨어 생성이 Gen6로 표시 되 고 INTEL® 8272CL (Cascade Lake)를 사용 하는 데이터베이스에 대 한 하드웨어 생성은 Gen7로 표시 됩니다. 모든 Gen5 데이터베이스에 대 한 리소스 제한은 프로세서 유형 (Broadwell, Skylake 또는 Cascade Lake)에 관계 없이 동일 합니다.
 
 리소스 제한에 대 한 자세한 내용은 [단일 데이터베이스에 대 한 리소스 제한 (vcore)](resource-limits-vcore-single-databases.md)또는 [탄력적 풀에 대 한 리소스 제한 (vcore)](resource-limits-vcore-elastic-pools.md)을 참조 하세요.
 
@@ -138,7 +138,7 @@ Azure Portal에서 만들 때 SQL Database의 데이터베이스 또는 풀에 �
 
   ![하드웨어 변경](./media/service-tiers-vcore/change-hardware.png)
 
-풀의 경우 개요 페이지에서 **구성**을 선택 합니다.
+풀의 경우 개요 페이지에서 **구성** 을 선택 합니다.
 
 단계에 따라 구성을 변경 하 고 이전 단계에서 설명한 대로 하드웨어 생성을 선택 합니다.
 
@@ -168,7 +168,7 @@ SQL Managed Instance 페이지에서 설정 섹션 아래에 있는 **가격 책
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) 명령을 확인 하세요.
+자세한 내용은 [AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) 명령을 확인 하세요.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-자세한 내용은 [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) 명령을 확인 하세요.
+자세한 내용은 [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) 명령을 확인 하세요.
 
 ---
 
@@ -238,5 +238,4 @@ Approved support requests are typically fulfilled within 5 business days.
 
 - [Azure SQL Database에 대 한 Vcore 기반 리소스 제한](resource-limits-vcore-single-databases.md)입니다.
 - [풀링된 Azure SQL Database에 대 한 Vcore 기반 리소스 제한](resource-limits-vcore-elastic-pools.md)입니다.
-- [AZURE SQL Managed Instance에 대 한 Vcore 기반 리소스 제한](../managed-instance/resource-limits.md)입니다. 
-
+- [AZURE SQL Managed Instance에 대 한 Vcore 기반 리소스 제한](../managed-instance/resource-limits.md)입니다.

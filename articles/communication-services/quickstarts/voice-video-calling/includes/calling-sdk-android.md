@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886670"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -114,11 +114,21 @@ Call groupCall = callAgent.call(participants, startCallOptions);
 > 현재 하나의 나가는 로컬 비디오 스트림도 비디오를 사용 하 여 전화를 걸 수 있습니다. API를 사용 하 여 로컬 카메라를 열거 해야 `deviceManager` `getCameraList` 합니다.
 원하는 카메라를 선택한 후에는이를 사용 하 여 인스턴스를 생성 하 `LocalVideoStream` 고이를 `videoOptions` 배열의 항목으로 `localVideoStream` `call` 메서드에 전달 합니다.
 호출이 연결 되 면 선택한 카메라에서 다른 참가자로 비디오 스트림을 자동으로 보내기 시작 합니다.
+
+> [!NOTE]
+> 개인 정보 보호 문제 때문에 비디오를 로컬로 미리 볼 수 없는 경우에는 통화가 통화와 공유 되지 않습니다.
+자세한 내용은 [로컬 카메라 미리 보기](#local-camera-preview) 를 참조 하세요.
 ```java
 Context appContext = this.getApplicationContext();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+
+// Render a local preview of video so the user knows that their video is being shared
+Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+// Attach the uiView to a viewable location on the app at this point
+layout.addView(uiView);
 
 CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
@@ -141,7 +151,7 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>개요
 모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 을 참조 하세요.
 또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
@@ -607,9 +617,9 @@ currentVideoStream = new LocalVideoStream(videoDevice, appContext);
 videoOptions = new VideoOptions(currentVideoStream);
 
 Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
-// Attach the renderingSurface to a viewable location on the app at this point
+// Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
 

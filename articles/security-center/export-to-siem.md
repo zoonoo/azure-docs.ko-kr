@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341807"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791905"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림
 
@@ -63,14 +63,14 @@ Security Center에는 Microsoft Graph Security API와의 기본 통합 기능이
 - **Power BI**  -  [Power BI Desktop에서 Microsoft Graph 보안 API에 연결](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [지침에 따라 ServiceNow 저장소에서 Microsoft Graph SECURITY API 응용 프로그램을 설치 하 고 구성](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html) 합니다.
 - **Qradar**  -  [MICROSOFT GRAPH API를 통한 Azure Security Center 용 IBM의 장치 지원 모듈](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo Alto Networks**, **Anomali**, **망루**, **InSpark**및 [Microsoft Graph 보안 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo Alto Networks** , **Anomali** , **망루** , **InSpark** 및 [Microsoft Graph 보안 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Microsoft Graph 보안 API에 대해 자세히 알아보세요](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Azure Monitor를 사용 하 여 경고 스트림 
 
-경고를 **Arcsight**, **Splunk**, **sumologic**, Syslog 서버, **LogRhythm**, **Logz.io Cloud 관찰성 Platform**및 기타 모니터링 솔루션으로 스트리밍합니다. Azure Event Hubs를 통해 Azure monitor를 사용 하 여 Security Center 연결:
+경고를 **Arcsight** , **Splunk** , **sumologic** , Syslog 서버, **LogRhythm** , **Logz.io Cloud 관찰성 Platform** 및 기타 모니터링 솔루션으로 스트리밍합니다. Azure Event Hubs를 통해 Azure monitor를 사용 하 여 Security Center 연결:
 
 1. 구독 수준에서 전용 Azure 이벤트 허브로 Security Center 경고를 스트리밍하려면 [연속 내보내기를](continuous-export.md) 사용 하도록 설정 합니다. 
     > [!TIP]
@@ -90,4 +90,4 @@ Security Center에는 Microsoft Graph Security API와의 기본 통합 기능이
 
 - [Azure Sentinel이란?](../sentinel/overview.md)
 - [Azure Security Center의 경고 유효성 검사](security-center-alert-validation.md) -경고가 올바르게 구성 되었는지 확인
-- [계속 해 서 보안 경고 및 권장 사항 내보내기](continuous-export.md)
+- [Security Center 데이터를 지속적으로 내보내기](continuous-export.md)

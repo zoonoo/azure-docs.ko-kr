@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620106"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792653"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Managed Instance에 대 한 경고 만들기
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Managed Instance에 대한 경고 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Managed Instance 데이터베이스의 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 경고는 이메일을 보내거나, 웹 후크를 호출하거나, Azure Function을 실행하거나, runbook을 실행하거나, 외부 ITSM 호환 티켓 시스템을 호출하거나, 일부 메트릭(예: 인스턴스 스토리지 크기 또는 CPU 사용량)이 미리 정의된 임계값에 도달할 때 휴대폰으로 연락하거나 문자 메시지를 보낼 수 있습니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.
@@ -50,7 +50,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 경고 구성에 사용할 수 있는 관리 되는 인스턴스 메트릭은 다음과 같습니다.
 
-| 메트릭 | 설명 | 측정 단위 (가능한 값) |
+| 메트릭 | Description | 측정 단위 (가능한 값) |
 | :--------- | --------------------- | ----------- |
 | 평균 CPU 비율 | 선택한 기간의 평균 CPU 사용률입니다. | 0-100 (%) |
 | 읽은 IO 바이트 | 선택한 기간에서 읽은 IO 바이트 수입니다. | 바이트 |
@@ -145,5 +145,5 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * Azure Monitor 경고 시스템에 대 한 자세한 내용은의 [경고 개요](../../azure-monitor/platform/alerts-overview.md) 를 참조 하세요 Microsoft Azure
 * 메트릭 경고에 대 한 자세한 내용은 [메트릭 경고 작동 방법 이해 Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
 * 경고에서 웹 후크를 구성 하는 방법에 대 한 자세한 내용은 [클래식 메트릭 경고로 Webhook 호출](../../azure-monitor/platform/alerts-webhooks.md)
-* PowerShell을 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [작업 규칙](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* API를 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor REST API 참조](https://docs.microsoft.com/rest/api/monitor/) 
+* PowerShell을 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [작업 규칙](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* API를 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor REST API 참조](/rest/api/monitor/)

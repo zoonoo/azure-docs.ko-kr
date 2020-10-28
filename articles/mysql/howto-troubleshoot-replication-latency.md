@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096099"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791582"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 대기 시간 문제 해결
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 [복제본 읽기](concepts-read-replicas.md) 기능을 사용 하면 Azure Database for MySQL 서버에서 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 응용 프로그램에서 복제 서버로 읽기 및 보고 쿼리를 라우팅하여 워크 로드를 확장할 수 있습니다. 이 설정은 원본 서버의 압력을 줄입니다. 또한 확장 될 때 응용 프로그램의 전반적인 성능 및 대기 시간을 향상 시킵니다. 
 
@@ -31,9 +33,9 @@ ms.locfileid: "92096099"
 
 ## <a name="replication-concepts"></a>복제 개념
 
-이진 로그를 사용 하도록 설정 하면 원본 서버가 커밋된 트랜잭션을 이진 로그에 기록 합니다. 이진 로그는 복제에 사용 됩니다. 최대 16TB의 저장소를 지 원하는 새로 프로 비전 된 모든 서버에 대해 기본적으로 설정 되어 있습니다. 복제 서버에서는 두 개의 스레드가 각 복제 서버에서 실행 됩니다. 한 스레드는 *IO 스레드*이 고 다른 하나는 *SQL 스레드*입니다.
+이진 로그를 사용 하도록 설정 하면 원본 서버가 커밋된 트랜잭션을 이진 로그에 기록 합니다. 이진 로그는 복제에 사용 됩니다. 최대 16TB의 저장소를 지 원하는 새로 프로 비전 된 모든 서버에 대해 기본적으로 설정 되어 있습니다. 복제 서버에서는 두 개의 스레드가 각 복제 서버에서 실행 됩니다. 한 스레드는 *IO 스레드* 이 고 다른 하나는 *SQL 스레드* 입니다.
 
-- IO 스레드는 원본 서버에 연결 되 고 업데이트 된 이진 로그를 요청 합니다. 이 스레드는 이진 로그 업데이트를 수신 합니다. 이러한 업데이트는 복제 서버, *릴레이 로그*라는 로컬 로그에 저장 됩니다.
+- IO 스레드는 원본 서버에 연결 되 고 업데이트 된 이진 로그를 요청 합니다. 이 스레드는 이진 로그 업데이트를 수신 합니다. 이러한 업데이트는 복제 서버, *릴레이 로그* 라는 로컬 로그에 저장 됩니다.
 - SQL 스레드는 릴레이 로그를 읽은 다음 복제본 서버에 데이터 변경 내용을 적용 합니다.
 
 ## <a name="monitoring-replication-latency"></a>복제 대기 시간 모니터링

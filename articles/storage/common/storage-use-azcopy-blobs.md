@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792857"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -22,7 +22,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 > [!TIP]
 > 이 문서의 예에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외 하 고 모든 명령 셸에서 작은따옴표를 사용 합니다. cmd.exe (Windows 명령 셸)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조 하 여 AzCopy를 다운로드 하 고, 저장소 서비스에 권한 부여 자격 증명을 제공할 수 있는 방법에 대해 알아보세요.
 
@@ -31,7 +31,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`를 예로 들 수 있습니다.
+> 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -260,7 +260,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 [Blob 버전 관리](../blobs/versioning-enable.md)를 사용 하도록 설정한 경우 blob의 이전 버전을 하나 이상 다운로드할 수 있습니다. 
 
-먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예: 
+먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예를 들면 다음과 같습니다. 
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -363,7 +363,7 @@ AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest
 `--delete-destination`플래그를 AzCopy로 설정 하면 `true` 프롬프트를 제공 하지 않고 파일이 삭제 됩니다. AzCopy에서 파일을 삭제 하기 전에 프롬프트가 표시 되도록 하려면 플래그를로 설정 `--delete-destination` `prompt` 합니다.
 
 > [!NOTE]
-> 실수로 인 한 삭제를 방지 하려면 플래그를 사용 하기 전에 [일시 삭제](/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용 하도록 설정 해야 합니다 `--delete-destination=prompt|true` .
+> 실수로 인 한 삭제를 방지 하려면 플래그를 사용 하기 전에 [일시 삭제](../blobs/soft-delete-blob-overview.md) 기능을 사용 하도록 설정 해야 합니다 `--delete-destination=prompt|true` .
 
 > [!TIP]
 > 선택적 플래그를 사용 하 여 동기화 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.

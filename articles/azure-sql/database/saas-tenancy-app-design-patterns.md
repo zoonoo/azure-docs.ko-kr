@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250715"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793231"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,11 +26,11 @@ ms.locfileid: "85250715"
 
 ## <a name="a-saas-concepts-and-terminology"></a>A. SaaS 개념 및 용어
 
-Saas(Software as a Service) 모델에서 회사는 소프트웨어에 대한 *라이선스*를 판매하지 않습니다. 대신 각 고객은 회사에 임대료를 지불하여 각 고객을 회사의 *테넌트*로 만듭니다.
+Saas(Software as a Service) 모델에서 회사는 소프트웨어에 대한 *라이선스* 를 판매하지 않습니다. 대신 각 고객은 회사에 임대료를 지불하여 각 고객을 회사의 *테넌트* 로 만듭니다.
 
 각 테넌트는 임대료를 지불하는 대가로 SaaS 애플리케이션 구성 요소에 대한 액세스 권한을 받고, SaaS 시스템에 해당 데이터를 저장합니다.
 
-*테넌트 모델*이라는 용어는 테넌트의 저장된 데이터가 구성되는 방법을 가리킵니다.
+*테넌트 모델* 이라는 용어는 테넌트의 저장된 데이터가 구성되는 방법을 가리킵니다.
 
 - *단일 테 넌 트:* &nbsp; 각 데이터베이스는 하나의 테 넌 트 에서만 데이터를 저장 합니다.
 - *다중 테 넌 트:* &nbsp; 각 데이터베이스는 데이터 개인 정보 보호를 위한 메커니즘을 사용 하 여 여러 개별 테 넌 트의 데이터를 저장 합니다.
@@ -82,7 +82,7 @@ Saas(Software as a Service) 모델에서 회사는 소프트웨어에 대한 *�
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. 테넌트별 데이터베이스가 있는 다중 테넌트 앱
 
-이러한 다음 패턴은 모두 단일 테넌트 데이터베이스에 해당하는 많은 데이터베이스를 포함하는 다중 테넌트 애플리케이션을 사용합니다.  새 데이터베이스는 각 새로운 테넌트용으로 프로비전됩니다.  애플리케이션 계층의 경우 노드당 더 많은 리소스를 추가하여 수직으로 규모를 *확장*합니다.  또는 노드를 더 추가하여 앱을 수평으로 스케일 *아웃*합니다.  크기 조정은 워크로드를 기준으로 하며, 개별 데이터베이스의 수나 크기와는 별개입니다.
+이러한 다음 패턴은 모두 단일 테넌트 데이터베이스에 해당하는 많은 데이터베이스를 포함하는 다중 테넌트 애플리케이션을 사용합니다.  새 데이터베이스는 각 새로운 테넌트용으로 프로비전됩니다.  애플리케이션 계층의 경우 노드당 더 많은 리소스를 추가하여 수직으로 규모를 *확장* 합니다.  또는 노드를 더 추가하여 앱을 수평으로 스케일 *아웃* 합니다.  크기 조정은 워크로드를 기준으로 하며, 개별 데이터베이스의 수나 크기와는 별개입니다.
 
 ![테넌트별 데이터베이스가 있는 다중 테넌트 앱 디자인][image-mt-app-db-per-tenant-132d]
 
@@ -204,7 +204,7 @@ SQL Database는 분할 라이브러리 및 카탈로그 데이터베이스와 �
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ SQL Database는 분할 라이브러리 및 카탈로그 데이터베이스와 �
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "탄력적 풀을 사용하여 테넌트별 데이터베이스가 있는 다중 테넌트 앱 디자인"
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "공유되는 다중 테넌트 데이터베이스가 있는 다중 테넌트 앱 디자인"
-

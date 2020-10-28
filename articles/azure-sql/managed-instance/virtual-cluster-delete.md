@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 0b8ceee1260e4209420778d7f327d771b858a899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed8f6dc90debddd17282f8f96962ffd78055030
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617726"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791667"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>SQL Managed Instance의 관리 되는 인스턴스를 삭제 한 후 서브넷을 삭제 합니다.
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91617726"
 
 > [!IMPORTANT]
 > - 삭제를 성공적으로 수행 하려면 가상 클러스터에 관리 되는 인스턴스가 없어야 합니다. 
-> - 가상 클러스터를 삭제 하는 작업은 약 1.5 시간 동안 지속 되는 장기 실행 작업입니다 (최신 가상 클러스터 삭제 시간에 대 한 [관리 되는 인스턴스 관리 작업](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 참조). 이 프로세스가 완료 될 때까지 가상 클러스터는 포털에 계속 표시 됩니다.
+> - 가상 클러스터를 삭제 하는 작업은 약 1.5 시간 동안 지속 되는 장기 실행 작업입니다 (최신 가상 클러스터 삭제 시간에 대 한 [관리 되는 인스턴스 관리 작업](./sql-managed-instance-paas-overview.md#management-operations) 참조). 이 프로세스가 완료 될 때까지 가상 클러스터는 포털에 계속 표시 됩니다.
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>Azure Portal에서 가상 클러스터를 삭제 합니다.
 
@@ -37,7 +37,7 @@ Azure Portal를 사용 하 여 가상 클러스터를 삭제 하려면 가상 �
 
 ![검색 상자가 강조 표시 된 Azure Portal의 스크린샷](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
-삭제 하려는 가상 클러스터를 찾은 후이 리소스를 선택 하 고 **삭제**를 선택 합니다. 가상 클러스터 삭제를 확인 하는 메시지가 표시 됩니다.
+삭제 하려는 가상 클러스터를 찾은 후이 리소스를 선택 하 고 **삭제** 를 선택 합니다. 가상 클러스터 삭제를 확인 하는 메시지가 표시 됩니다.
 
 ![삭제 옵션이 강조 표시 된 Azure Portal 가상 클러스터 대시보드의 스크린샷](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
@@ -48,7 +48,7 @@ Azure Portal 알림은 가상 클러스터 삭제 요청이 성공적으로 전�
 
 ## <a name="delete-a-virtual-cluster-by-using-the-api"></a>API를 사용 하 여 가상 클러스터 삭제
 
-API를 통해 가상 클러스터를 삭제 하려면 [가상 클러스터 삭제 방법](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)에 지정 된 URI 매개 변수를 사용 합니다.
+API를 통해 가상 클러스터를 삭제 하려면 [가상 클러스터 삭제 방법](/rest/api/sql/virtualclusters/delete)에 지정 된 URI 매개 변수를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

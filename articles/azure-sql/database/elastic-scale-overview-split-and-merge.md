@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034654"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793469"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "84034654"
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](elastic-scale-configure-deploy-split-and-merge.md)
 2. [분할-병합 보안 구성](elastic-scale-split-merge-security-configuration.md)
@@ -43,7 +43,7 @@ ms.locfileid: "84034654"
 
 ## <a name="why-use-the-split-merge-tool"></a>분할-병합 도구를 사용하는 이유
 
-- **유연성**
+- **수행할**
 
   응용 프로그램은 Azure SQL Database에서 단일 데이터베이스의 제한을 초과 하 여 유연 하 게 확장 해야 합니다. 무결성을 유지하면서 필요에 따라 데이터를 새 데이터베이스로 이동하기 위해 이 도구를 사용합니다.
 
@@ -220,7 +220,7 @@ ms.locfileid: "84034654"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -244,13 +244,13 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 ## <a name="retrieve-diagnostics"></a>진단 검색
 
-서버 탐색기 트리의 Azure 부분에 있는 Visual Studio 서버 탐색기에서 진단에 쉽게 액세스할 수 있습니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 보기와 서버 탐색기를 차례로 클릭합니다. Azure 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Azure -&gt; 스토리지-&gt; `<your storage account>`-&gt; 테이블 -&gt; WADLogsTable로 이동합니다. 자세한 내용은 [서버 탐색기](https://msdn.microsoft.com/library/x603htbk.aspx)를 참조하세요.
+서버 탐색기 트리의 Azure 부분에 있는 Visual Studio 서버 탐색기에서 진단에 쉽게 액세스할 수 있습니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 보기와 서버 탐색기를 차례로 클릭합니다. Azure 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Azure -&gt; 스토리지-&gt; `<your storage account>`-&gt; 테이블 -&gt; WADLogsTable로 이동합니다. 자세한 내용은 [서버 탐색기](/previous-versions/x603htbk(v=vs.140))를 참조하세요.
 
 ![WADLogsTable][2]
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![Configuration][3]
+![구성][3]
 
 ## <a name="performance"></a>성능
 

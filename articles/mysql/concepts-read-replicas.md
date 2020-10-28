@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537969"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791973"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -36,9 +36,6 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 복제본은 읽기 전용이기 때문에 마스터에 대한 쓰기 용량 부담을 직접적으로 줄이지는 못합니다. 이 기능은 쓰기 작업이 많은 워크로드를 대상으로 하지 않습니다.
 
 읽기 복제본 기능은 MySQL 동기식 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 원본 및 복제본 간의 지연 시간이 측정 됩니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
-
-> [!IMPORTANT]
-> Azure Database for MySQL은 **행** 기반 이진 로깅을 사용합니다. 테이블에 기본 키가 없는 경우 DML 작업은 테이블의 모든 행을 검색합니다. 이로 인해 복제 지연 시간이 증가했습니다. 복제본이 원본의 변경 사항을 따라갈 수 있도록 하려면 일반적으로 복제본 서버를 생성하기 전에 원본 서버의 테이블에 기본 키를 추가하거나 기본 기가 이미 있는 경우 복제본 서버를 다시 만드는 것이 좋습니다.
 
 ## <a name="cross-region-replication"></a>지역 간 복제
 원본 서버에서 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
@@ -95,7 +92,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 Azure Database for MySQL은 Azure Monitor에 **복제 지연 시간(초)** 메트릭을 제공합니다. 이 메트릭은 복제본에만 사용할 수 있습니다. 이 메트릭은 `seconds_behind_master`MySQL에서 사용할 수 있는 메트릭`SHOW SLAVE STATUS` 명령을 사용하여 계산됩니다. 복제 지연 시간이 워크로드에 적합하지 않은 값에 도달하면 알리도록 경고를 설정합니다.
 
-복제 지연 [시간이 늘어나면 복제 대기 시간 문제](howto-troubleshoot-replication-latency.md) 해결을 참조 하 여 문제를 해결 하 고 가능한 원인을 파악 합니다.
+복제 지연 [시간이 늘어나면 복제 대기 시간 문제 해결](howto-troubleshoot-replication-latency.md) 을 참조 하 여 문제를 해결 하 고 가능한 원인을 파악 하십시오.
 
 ## <a name="stop-replication"></a>복제 중지
 

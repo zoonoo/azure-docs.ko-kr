@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617437"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793112"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "91617437"
 |풀 내 인스턴스에서 데이터베이스 만들기|예|예|
 |SQL Managed Instance에서 데이터베이스 삭제|예|예|
 
-사용 가능한 [PowerShell 명령](https://docs.microsoft.com/powershell/module/az.sql/):
+사용 가능한 [PowerShell 명령](/powershell/module/az.sql/):
 
 |cmdlet |Description |
 |:---|:---|
@@ -52,7 +52,7 @@ ms.locfileid: "91617437"
 |[Get-AzSQLInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | SQL Managed Instance 풀 사용에 대 한 정보를 반환 합니다. |
 
 
-PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](https://docs.microsoft.com/powershell/azure/install-az-ps).
+PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-az-ps).
 
 풀 및 단일 인스턴스 내부의 인스턴스와 모두 관련된 작업의 경우 표준 [관리되는 인스턴스 명령](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances)을 사용하지만 풀의 인스턴스에 대해 이러한 명령을 사용할 때는 ‘인스턴스 풀 이름’ 속성을 채워야 합니다.
 

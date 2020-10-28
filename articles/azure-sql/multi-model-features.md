@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073319"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791650"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Managed Instance의 다중 모델 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL 제품 제품군은 다음과 같은 다중 모델 기능을 제공 �
 - 키-값 쌍은 기본적으로 두 열 테이블로 모델링할 수 있으므로 [키-값 쌍](#key-value-pairs) 은 특별 한 기능으로 명시적으로 지원 되지 않습니다.
 
   > [!Note]
-  > 동일한 Transact-SQL 쿼리에서 JSON 경로 식, XQuery/XPath 식, 공간 함수 및 그래프-쿼리 식을 사용하여 데이터베이스에 저장한 데이터에 액세스할 수 있습니다. Transact-SQL 쿼리를 실행할 수 있는 도구나 프로그래밍 언어도 해당 쿼리 인터페이스를 사용하여 다중 모델 데이터에 액세스할 수 있습니다. 이는 다양한 데이터 모델에 대한 특수화된 API를 제공하는 [Azure Cosmos DB](/azure/cosmos-db/)와 같은 다중 모델 데이터베이스와 비교되는 주요 차이점입니다.
+  > 동일한 Transact-SQL 쿼리에서 JSON 경로 식, XQuery/XPath 식, 공간 함수 및 그래프-쿼리 식을 사용하여 데이터베이스에 저장한 데이터에 액세스할 수 있습니다. Transact-SQL 쿼리를 실행할 수 있는 도구나 프로그래밍 언어도 해당 쿼리 인터페이스를 사용하여 다중 모델 데이터에 액세스할 수 있습니다. 이는 다양한 데이터 모델에 대한 특수화된 API를 제공하는 [Azure Cosmos DB](../cosmos-db/index.yml)와 같은 다중 모델 데이터베이스와 비교되는 주요 차이점입니다.
 
 다음 섹션에서는 Azure SQL 제품 제품군의 가장 중요 한 다중 모델 기능에 대해 알아볼 수 있습니다.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 제약 조건 없이 필요에 맞게 이 키-값 구조를 사용자 지정할 수 있습니다. 예를 들어 값은 `nvarchar(max)` 형식 대신 XML 문서일 수 있습니다. 값이 JSON 문서인 경우 JSON 콘텐츠의 유효성을 확인하는 `CHECK` 제약 조건을 넣을 수 있습니다. 하나의 키에 관련된 여러 값을 추가 열에 넣고, 계산 열 및 인덱스를 추가하여 데이터 액세스를 간소화 및 최적화하고, 테이블을 메모리/최적화 스키마 전용 테이블로 정의하여 성능을 개선할 수 있습니다.
 
-실제로 관계형 모델을 키-값 쌍 솔루션으로 효과적으로 사용할 수 있는 방법의 예로, 초당 1.200.000개 배치를 수행한 ASP.NET 캐싱 솔루션에 대한 [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)(BWin이 메모리 내 OLTP를 사용하여 전례 없는 성능 및 규모를 사용하는 방법)을 참조하세요.
+실제로 관계형 모델을 키-값 쌍 솔루션으로 효과적으로 사용할 수 있는 방법의 예로, 초당 1.200.000개 배치를 수행한 ASP.NET 캐싱 솔루션에 대한 [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale)(BWin이 메모리 내 OLTP를 사용하여 전례 없는 성능 및 규모를 사용하는 방법)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

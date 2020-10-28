@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488863"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793010"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -60,7 +60,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 - 응용 프로그램은 트랜잭션 집약적 이거나 상당한 지역 복제 대역폭을 사용 하지만 용량이 많이 필요 하지 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
 
-- 2014-02-14 보다 이전 버전의 [저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 보다 낮은 버전의 클라이언트 라이브러리를 사용 합니다. 응용 프로그램을 업그레이드할 수 없습니다.
+- 2014-02-14 보다 이전 버전의 [저장소 서비스 REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) 또는 보다 낮은 버전의 클라이언트 라이브러리를 사용 합니다. 응용 프로그램을 업그레이드할 수 없습니다.
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 계정
 
@@ -127,18 +127,18 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 스토리지 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
 
-예를 들어 범용 스토리지 계정의 이름이 *mystorageaccount*일 경우 이 스토리지 계정의 기본 엔드포인트는 다음과 같습니다.
+예를 들어 범용 스토리지 계정의 이름이 *mystorageaccount* 일 경우 이 스토리지 계정의 기본 엔드포인트는 다음과 같습니다.
 
 - Blob 저장소: `https://*mystorageaccount*.blob.core.windows.net`
 - 테이블 저장소: `https://*mystorageaccount*.table.core.windows.net`
 - 큐 저장소: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` ( [빅 데이터에 대해 특별히 최적화 된 abfs 드라이버](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)를 사용 합니다.)
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` ( [빅 데이터에 대해 특별히 최적화 된 abfs 드라이버](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)를 사용 합니다.)
 
 > [!NOTE]
 > 블록 blob 및 blob 저장소 계정은 Blob service 끝점만 노출 합니다.
 
-저장소 계정의 개체 위치를 끝점에 추가 하 여 저장소 계정의 개체에 액세스 하기 위한 URL을 생성 합니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
+저장소 계정의 개체 위치를 끝점에 추가 하 여 저장소 계정의 개체에 액세스 하기 위한 URL을 생성 합니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob*
 
 Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정을 구성할 수도 있습니다. 자세한 내용은 [Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.  
 
@@ -167,7 +167,7 @@ Microsoft는 온-프레미스 스토리지 디바이스나 타사 클라우드 �
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 스토리지 계정의 데이터를 Blob Storage 계정으로 복사하거나, 온-프레미스 스토리지 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
+AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 스토리지 계정의 데이터를 Blob Storage 계정으로 복사하거나, 온-프레미스 스토리지 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)을 참조 하세요.
 
 ### <a name="data-movement-library"></a>데이터 이동 라이브러리
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372058"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792415"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -30,7 +30,7 @@ ms.locfileid: "92372058"
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 및 .NET Core 응용 프로그램
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>소스 제어 폴더 외부의 사용자 비밀 저장소에 비밀 설정 저장
-빠른 프로토타입을 수행 중이거나 인터넷에 액세스할 수 없는 경우 소스 제어 폴더 외부의 비밀 설정을 User Secret 저장소로 이동하는 것부터 시작합니다. 사용자 비밀 저장소는 사용자 프로필 폴더 아래에 저장된 파일이므로 비밀이 소스 제어로 체크 인되지 않습니다. 다음 다이어그램은 [사용자 비밀](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)의 작동 원리를 보여줍니다.
+빠른 프로토타입을 수행 중이거나 인터넷에 액세스할 수 없는 경우 소스 제어 폴더 외부의 비밀 설정을 User Secret 저장소로 이동하는 것부터 시작합니다. 사용자 비밀 저장소는 사용자 프로필 폴더 아래에 저장된 파일이므로 비밀이 소스 제어로 체크 인되지 않습니다. 다음 다이어그램은 [사용자 비밀](/aspnet/core/security/app-secrets?tabs=visual-studio)의 작동 원리를 보여줍니다.
 
 ![사용자 비밀은 비밀 설정을 소스 컨트롤 외부에 유지합니다.](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -39,11 +39,11 @@ ms.locfileid: "92372058"
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Azure Key Vault에 비밀 설정 저장
 프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.
 
-1. Azure 구독에 Key Vault를 만듭니다. UI에서 필수 필드를 모두 채우고 블레이드 아래쪽에서 *만들기*를 클릭합니다.
+1. Azure 구독에 Key Vault를 만듭니다. UI에서 필수 필드를 모두 채우고 블레이드 아래쪽에서 *만들기* 를 클릭합니다.
 
     ![Azure Key Vault 만들기](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 나와 나의 팀 멤버에게 Key Vault에 대한 액세스 권한을 부여합니다. 팀이 큰 경우 [Azure Active Directory 그룹](../../active-directory/active-directory-groups-create-azure-portal.md)을 만들어서 해당 보안 그룹 액세스를 Key Vault에 추가할 수 있습니다. *비밀 권한* 드롭다운에서 *비밀 관리 작업* 아래의 *가져오기*와 *목록*을 선택합니다.
+2. 나와 나의 팀 멤버에게 Key Vault에 대한 액세스 권한을 부여합니다. 팀이 큰 경우 [Azure Active Directory 그룹](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)을 만들어서 해당 보안 그룹 액세스를 Key Vault에 추가할 수 있습니다. *비밀 권한* 드롭다운에서 *비밀 관리 작업* 아래의 *가져오기* 와 *목록* 을 선택합니다.
 웹 앱을 이미 만든 경우에는 앱 설정 또는 파일에 비밀 구성을 저장 하지 않고 키 자격 증명 모음에 액세스할 수 있도록 웹 앱에 Key Vault에 대 한 액세스 권한을 부여 합니다. 이름으로 웹 앱을 검색 하 고 사용자에 게 액세스 권한을 부여 하는 것과 동일한 방식으로 웹 앱을 추가 합니다.
 
     ![Key Vault 액세스 정책 추가](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
@@ -103,7 +103,7 @@ ms.locfileid: "92372058"
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>소스 제어 폴더 외부에 있는 비밀 파일에 비밀 설정 저장
 빠른 프로토타입을 작성하면서 Azure 리소스를 프로비전하지 않으려면 이 옵션을 사용하세요.
 
-1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **사용자 암호 관리**를 선택 합니다. 이렇게 하면 urationBuilders에서 NuGet **Microsoft.Configuration.Config** 패키지를 설치 하 고, web.config 파일 외부에 비밀 설정을 저장 하기 위한 파일을 만들고, web.config 파일에 **configbuilders** 섹션을 추가 합니다.
+1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **사용자 암호 관리** 를 선택 합니다. 이렇게 하면 urationBuilders에서 NuGet **Microsoft.Configuration.Config** 패키지를 설치 하 고, web.config 파일 외부에 비밀 설정을 저장 하기 위한 파일을 만들고, web.config 파일에 **configbuilders** 섹션을 추가 합니다.
 
 2. 비밀 설정을 root 요소 아래에 배치 합니다. 예는 다음과 같습니다.
 

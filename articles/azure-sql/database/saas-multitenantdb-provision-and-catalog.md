@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793333"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL Database를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비저닝하고 카탈로그로 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-- Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
+- Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
-- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](../../sql-database/saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](./saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 
 - Wingtip 스크립트 및 소스 코드를 가져옵니다.
     - Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다.
@@ -173,7 +173,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
 
 5. **디버그** 메뉴 옵션( **F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
 
-PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
+PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>테넌트를 *자체* 데이터베이스에 프로비전
 
@@ -263,9 +263,9 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 
 ## <a name="additional-resources"></a>추가 리소스
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Elastic Database 클라이언트 라이브러리](elastic-database-client-library.md)
-- [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -277,5 +277,4 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 > * 추가 테넌트의 배치 프로비전
 > * 테넌트를 프로비전하고 카탈로그에 테넌트를 등록하는 구체적인 방법을 단계별로 알아봅니다.
 
-[성능 모니터링 자습서](../../sql-database/saas-multitenantdb-performance-monitoring.md)를 시도해 봅니다.
-
+[성능 모니터링 자습서](./saas-multitenantdb-performance-monitoring.md)를 시도해 봅니다.

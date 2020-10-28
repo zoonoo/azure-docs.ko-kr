@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332198"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793248"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "92332198"
 
 ## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 애플리케이션 패턴
 
-독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 애플리케이션의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 애플리케이션은 애플리케이션 수준 구성 요소와 Azure SQL Database로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 애플리케이션 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)이 제공됩니다.
+독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 애플리케이션의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 애플리케이션은 애플리케이션 수준 구성 요소와 Azure SQL Database로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 애플리케이션 프로그램](../../azure-resource-manager/managed-applications/overview.md)이 제공됩니다.
 
    ![app-per-tenant 패턴](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
-* 세 가지 샘플 테넌트 앱이 배포되어 있습니다. 앱을 5분 내에 배포하려면 [Wingtip Tickets SaaS 독립 실행형 애플리케이션 배포 및 탐색](../../sql-database/saas-standaloneapp-get-started-deploy.md)을 참조하세요.
+* Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
+* 세 가지 샘플 테넌트 앱이 배포되어 있습니다. 앱을 5분 내에 배포하려면 [Wingtip Tickets SaaS 독립 실행형 애플리케이션 배포 및 탐색](./saas-standaloneapp-get-started-deploy.md)을 참조하세요.
 
 ## <a name="provision-the-catalog"></a>카탈로그 프로비전
 
@@ -92,7 +92,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 1.  스크립트 실행이 중단점에서 중지된 후 **F11** 을 눌러 New-Catalog.ps1 스크립트를 한 단계씩 이동합니다.
 1.  디버그 메뉴 옵션(F10 및 F11 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
-    *   PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
+    *   PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
 
 스크립트가 완료되면 카탈로그가 존재하며 모든 샘플 테넌트가 등록됩니다.
 
@@ -156,4 +156,4 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-[Wingtip Tickets SaaS 애플리케이션](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)의 테넌트별 데이터베이스 버전을 사용하여 다양한 교차 테넌트 시나리오를 지원하는 데 카탈로그가 어떻게 사용되는지 살펴볼 수 있습니다.
+[Wingtip Tickets SaaS 애플리케이션](./saas-dbpertenant-wingtip-app-overview.md)의 테넌트별 데이터베이스 버전을 사용하여 다양한 교차 테넌트 시나리오를 지원하는 데 카탈로그가 어떻게 사용되는지 살펴볼 수 있습니다.

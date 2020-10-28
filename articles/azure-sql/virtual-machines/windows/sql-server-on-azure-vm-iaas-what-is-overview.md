@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272160"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793095"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란(Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91272160"
 
 [Azure Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)를 사용하면 온-프레미스 하드웨어를 관리할 필요 없이 클라우드에서 SQL Server의 전체 버전을 사용할 수 있습니다. SQL Server VM(가상 머신)은 종량제로 지불하는 경우 라이선스 비용도 간소화됩니다.
 
-Azure 가상 머신은 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)에서 실행됩니다. 또한 다양한 [컴퓨터 크기](../../../virtual-machines/windows/sizes.md)가 제공됩니다. 가상 머신 이미지 갤러리를 통해 적합한 버전 운영 체제로 SQL Server VM을 만들 수 있습니다. 따라서 가상 머신은 다양한 SQL Server 워크로드에 적합한 옵션입니다.
+Azure 가상 머신은 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)에서 실행됩니다. 또한 다양한 [컴퓨터 크기](../../../virtual-machines/sizes.md)가 제공됩니다. 가상 머신 이미지 갤러리를 통해 적합한 버전 운영 체제로 SQL Server VM을 만들 수 있습니다. 따라서 가상 머신은 다양한 SQL Server 워크로드에 적합한 옵션입니다.
 
 Azure VM의 SQL Server를 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure VM의 SQL Server 개요* 비디오를 참조하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -42,7 +42,7 @@ Azure Virtual Machines의 SQL Server는 [자동화된 패치](automated-patching
 
 Azure Virtual Machines의 SQL Server는 정기적으로 Blob Storage에 데이터베이스의 백업을 만드는 [자동화된 Backup](automated-backup.md)을 활용할 수 있습니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server Backup 및 복원에 Azure Storage 사용](azure-storage-sql-server-backup-restore-use.md)을 참조하세요.
 
-Azure는 Azure VM에서 실행 중인 SQL Server에 대한 엔터프라이즈 클래스 백업 솔루션도 제공합니다. 완전히 관리되는 백업 솔루션인 Azure는 Always On 가용성 그룹, 장기 보존, 지정 시간 복구, 중앙 관리 및 모니터링을 지원합니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-sql-database)을 참조하세요.
+Azure는 Azure VM에서 실행 중인 SQL Server에 대한 엔터프라이즈 클래스 백업 솔루션도 제공합니다. 완전히 관리되는 백업 솔루션인 Azure는 Always On 가용성 그룹, 장기 보존, 지정 시간 복구, 중앙 관리 및 모니터링을 지원합니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Backup](../../../backup/backup-azure-sql-database.md)을 참조하세요.
   
 
 ## <a name="high-availability"></a>고가용성
@@ -109,18 +109,18 @@ SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 �
 
 Azure Portal은 SQL 가상 머신을 포함하여 [모든 Azure SQL 리소스](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql)를 관리할 수 있는 단일 페이지를 제공합니다.
 
-**Azure SQL 리소스** 페이지에 액세스하려면 Azure Portal 메뉴에서 **Azure SQL**을 선택하거나, 아무 페이지에서나 **Azure SQL**를 검색하고 선택합니다.
+**Azure SQL 리소스** 페이지에 액세스하려면 Azure Portal 메뉴에서 **Azure SQL** 을 선택하거나, 아무 페이지에서나 **Azure SQL** 를 검색하고 선택합니다.
 
 ![Azure SQL 검색](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > Azure SQL은 모든 Azure SQL 데이터베이스, 탄력적 풀, 논리 서버, 관리되는 인스턴스 및 가상 머신에 액세스할 수 있는 빠르고 쉬운 방법을 제공합니다. Azure SQL은 서비스 또는 리소스가 아닙니다. 
 
-기존 리소스를 관리하려면 목록에서 원하는 항목을 선택합니다. 새 Azure SQL 리소스를 만들려면 **+ 추가**를 선택합니다. 
+기존 리소스를 관리하려면 목록에서 원하는 항목을 선택합니다. 새 Azure SQL 리소스를 만들려면 **+ 추가** 를 선택합니다. 
 
 ![Azure SQL 리소스 만들기](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-**+ 추가**를 선택한 후에는 타일에서 **세부 정보 표시**를 선택하여 다양한 옵션에 대한 추가 정보를 확인합니다.
+**+ 추가** 를 선택한 후에는 타일에서 **세부 정보 표시** 를 선택하여 다양한 옵션에 대한 추가 정보를 확인합니다.
 
 ![데이터베이스 타일 세부 정보](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,7 +135,7 @@ Azure Portal은 SQL 가상 머신을 포함하여 [모든 Azure SQL 리소스](h
 Azure는 지원되는 각 운영 체제, 버전 및 버전 조합에 대한 하나의 가상 머신 이미지만 유지 관리합니다. 즉, 시간이 지남에 따라 이미지를 새로 고치고 이전 이미지는 제거됩니다. 자세한 내용은 [SQL Server VM FAQ](frequently-asked-questions-faq.md#images)의 **이미지** 섹션을 참조하세요.
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP(사용자 환경 개선 프로그램)
-CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://docs.microsoft.com/sql/sql-server/sql-server-privacy)을 참조하세요.
+CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](/sql/sql-server/sql-server-privacy)을 참조하세요.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
 ### <a name="windows-virtual-machines"></a>Windows 가상 머신
@@ -150,7 +150,7 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 * [Azure 포털에서 정규화된 도메인 이름 만들기](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
-* [SQL Server 설명서](https://docs.microsoft.com/sql/index)
+* [SQL Server 설명서](/sql/index)
 * [Azure SQL Database 비교](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
@@ -165,5 +165,5 @@ SQL Server VM에 대한 일반적인 질문에 대한 답변 구하기:
 
 IaaS의 SQL Server에서 N 계층 애플리케이션을 실행하기 위한 참조 아키텍처 보기
 
-* [SQL Server를 사용한 Azure의 Windows N 계층 애플리케이션](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [여러 Azure 지역에서 N 계층 애플리케이션을 실행하여 고가용성 구현](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [SQL Server를 사용한 Azure의 Windows N 계층 애플리케이션](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [여러 Azure 지역에서 N 계층 애플리케이션을 실행하여 고가용성 구현](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

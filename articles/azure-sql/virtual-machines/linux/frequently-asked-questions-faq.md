@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669465"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792551"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>SQL Server on Linux 가상 컴퓨터에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "84669465"
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
-   먼저 Linux OS 전용 가상 컴퓨터를 만듭니다. 그런 다음 Linux 배포에 대한 [SQL Server 설치 단계](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms)를 실행합니다. SQL Server의 무료 라이선스 버전 중 하나를 설치하지 않은 한 SQL Server 라이선스와 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 필요합니다.
+   먼저 Linux OS 전용 가상 컴퓨터를 만듭니다. 그런 다음 Linux 배포에 대한 [SQL Server 설치 단계](/sql/linux/sql-server-linux-setup#platforms)를 실행합니다. SQL Server의 무료 라이선스 버전 중 하나를 설치하지 않은 한 SQL Server 라이선스와 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 필요합니다.
 
 1. **SQL Server에 대한 BYOL(사용자 라이선스 필요) Linux 가상 컴퓨터 이미지가 있나요?**
 
@@ -75,7 +75,7 @@ ms.locfileid: "84669465"
 
 1. **SSMS (SQL Server Management Studio)를 사용 하 여 SQL Server를 실행 하는 Linux 가상 머신을 관리할 수 있나요?**
 
-   예, 하지만 SSMS는 현재 Windows 전용 도구입니다. SQL Server를 실행 하는 Linux Vm과 함께 SSMS를 사용 하려면 Windows 컴퓨터에서 원격으로 연결 해야 합니다. 새 [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) 도구는 Linux에서 로컬로 다양한 관리 작업을 수행할 수 있습니다. 플랫폼 간 데이터베이스 관리 도구는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is)를 참조하세요.
+   예, 하지만 SSMS는 현재 Windows 전용 도구입니다. SQL Server를 실행 하는 Linux Vm과 함께 SSMS를 사용 하려면 Windows 컴퓨터에서 원격으로 연결 해야 합니다. 새 [mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf) 도구는 Linux에서 로컬로 다양한 관리 작업을 수행할 수 있습니다. 플랫폼 간 데이터베이스 관리 도구는 [Azure Data Studio](/sql/azure-data-studio/what-is)를 참조하세요.
 
 1. **SQL Server VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
@@ -85,7 +85,7 @@ ms.locfileid: "84669465"
 
 1. **Azure VM에서 SQL Server의 새 버전을 업그레이드하려면 어떻게 합니까?**
 
-   현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server 버전으로 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+   현재는 Azure VM에서 실행 중인 SQL Server를 전체 업그레이드할 수 없습니다. 원하는 SQL Server 버전으로 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](/sql/linux/sql-server-linux-migrate-overview)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
 
 ## <a name="general"></a>일반
 
@@ -95,13 +95,13 @@ ms.locfileid: "84669465"
 
 ## <a name="resources"></a>리소스
 
-**Linux VM**:
+**Linux VM** :
 
 * [Linux VM의 SQL Server 개요](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Linux VM에 SQL Server 프로 비전](sql-vm-create-portal-quickstart.md)
-* [Linux의 SQL Server 설명서](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Linux의 SQL Server 설명서](/sql/linux/sql-server-linux-overview)
 
-**Windows VM**:
+**Windows VM** :
 
 * [Windows VM에서 SQL Server 개요](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM에서 SQL Server 프로 비전](../windows/sql-vm-create-portal-quickstart.md)
