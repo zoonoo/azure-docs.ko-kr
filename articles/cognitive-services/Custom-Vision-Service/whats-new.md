@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602526"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146292"
 ---
 # <a name="whats-new-in-custom-vision"></a>Custom Vision의 새로운 기능
 
@@ -23,9 +23,9 @@ ms.locfileid: "90602526"
 
 ## <a name="july-2020"></a>2020년 7월
 
-### <a name="role-based-access-control"></a>역할 기반 액세스 제어
+### <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-* Custom Vision은 Azure 리소스에 대한 개별 액세스를 관리하는 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. Custom Vision 프로젝트에 대한 액세스를 관리하는 방법을 알아보려면 [역할 기반 액세스 제어](./role-based-access-control.md)를 참조하세요.
+* Custom Vision은 Azure 리소스에 대한 개별 액세스를 관리하는 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. Custom Vision 프로젝트에 대한 액세스를 관리하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어](./role-based-access-control.md)를 참조하세요.
 
 ### <a name="subset-training"></a>하위 집합 학습
 

@@ -10,26 +10,26 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048222"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070353"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>전화 통신 및 SMS 솔루션 계획
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(공중 전화망)을 통해 음성 통화를 하고 SMS 메시지를 보낼 수 있습니다. 이 문서에서는 Communication Services를 사용하여 전화 통신 및 SMS 솔루션을 계획하기 위한 전화 번호 유형, 플랜 및 지역 가용성을 검토합니다.
+Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(공중 전화망)을 통해 음성 통화를 하고 SMS 메시지를 보낼 수 있습니다. 이 문서에서는 Communication Services를 사용하여 전화 통신 및 SMS 솔루션을 계획하기 위한 전화 번호 유형, 구성 옵션 및 지역 가용성을 검토합니다.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
  
-Communication Services는 **현지** 및 **무료**라는 두 가지 유형의 전화 번호를 제공합니다. 
+Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 전화 번호를 제공합니다. 
 
 ### <a name="local-numbers"></a>현지 전화 번호
 현지(지역) 전화 번호는 미국의 현지 지역 코드로 구성된 10자리 전화 번호입니다. 예를 들어 `+1 (206) XXX-XXXX`는 지역 코드가 `206`인 현지 전화 번호입니다. 이 지역 코드는 시애틀 시로 지정됩니다. 이러한 전화 번호는 일반적으로 개인 및 지역 비즈니스에서 사용됩니다. Azure Communication Services는 미국에서 현지 전화 번호를 제공합니다. 이러한 번호는 전화를 거는 데 사용할 수 있지만 SMS 메시지를 보내는 데는 사용할 수 없습니다. 
@@ -48,18 +48,18 @@ Communication Services는 **현지** 및 **무료**라는 두 가지 유형의 �
 | 전화 번호 유형 | 예제                              | 국가별 가용성    | 전화 번호 기능 |일반적인 사용 사례                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | 현지(지역)        | +1(현지 지역 코드) XXX XX XX  | US                      | 통화(아웃바운드) | 애플리케이션에서 전화 번호를 사용자에게 할당  |
-| 수신자 부담         | +1(수신자 부담 지역 *코드*) XXX XX XX | US                      | 통화(아웃바운드), SMS(인바운드/아웃바운드)| 전화 번호를 IVR(대화형 음성 응답) 시스템/봇, SMS 애플리케이션에 할당                                        |
+| 수신자 부담         | +1(수신자 부담 지역 *코드* ) XXX XX XX | US                      | 통화(아웃바운드), SMS(인바운드/아웃바운드)| 전화 번호를 IVR(대화형 음성 응답) 시스템/봇, SMS 애플리케이션에 할당                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 플랜 
+## <a name="phone-number-features-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 기능 
 
-대부분의 전화 번호에 대해 "a la carte(맞춤형)" 플랜을 구성할 수 있습니다. 일부 개발자는 아웃바운드 통화 플랜만 필요하고, 다른 일부 개발자는 아웃바운드 통화 및 아웃바운드 SMS 플랜을 모두 선택할 수도 있습니다. 이러한 플랜은 Azure Communication Services 내에서 전화 번호를 임대할 때 선택할 수 있습니다.
+대부분의 전화 번호에 대해 "a la carte(맞춤형)" 기능을 구성할 수 있습니다. 이러한 기능은 Azure Communication Services 내에서 전화 번호를 임대할 때 선택할 수 있습니다.
 
-사용할 수 있는 플랜은 운영 중인 국가, 사용 사례 및 선택한 전화 번호 유형에 따라 달라집니다. 이러한 플랜은 규정 요구 사항으로 인해 국가마다 다릅니다. Azure Communication Services에서 제공하는 플랜은 다음과 같습니다.
+사용할 수 있는 기능은 운영 중인 국가, 사용 사례 및 선택한 전화 번호 유형에 따라 달라집니다. 이러한 기능은 규정 요구 사항으로 인해 국가마다 다릅니다. Azure Communication Services에서 제공하는 전화 번호 기능은 다음과 같습니다.
 
-- **단방향 아웃바운드 SMS** 이 플랜을 사용하면 사용자에게 SMS 메시지를 보낼 수 있습니다. 이 플랜은 알림 및 2단계 인증 경고와 같은 시나리오에 유용합니다. 
-- **양방향 인바운드 및 아웃바운드 SMS** 이 플랜을 사용하면 전화 번호를 사용하여 사용자로부터 메시지를 보내고 받을 수 있습니다. 이 플랜은 고객 서비스 시나리오에서 유용합니다.
-- **단방향 아웃바운드 전화 통화** 이 플랜을 사용하면 사용자에게 전화를 걸고 서비스에서 전화를 거는 아웃바운드 통화에 대한 호출자 ID를 구성할 수 있습니다. 이 플랜은 고객 서비스 및 음성 알림 시나리오에서 유용합니다.
+- **단방향 아웃바운드 SMS** 이 옵션을 사용하면 사용자에게 SMS 메시지를 보낼 수 있습니다. 이는 알림 및 2단계 인증 시나리오에서 유용할 수 있습니다. 
+- **양방향 인바운드 및 아웃바운드 SMS** 이 옵션을 사용하면 전화 번호를 사용하여 사용자로부터 메시지를 보내고 받을 수 있습니다. 이는 고객 서비스 시나리오에서 유용할 수 있습니다.
+- **단방향 아웃바운드 전화 통화** 이 옵션을 사용하면 사용자에게 전화를 걸고 서비스에서 전화를 거는 아웃바운드 통화에 대한 호출자 ID를 구성할 수 있습니다. 이는 고객 서비스 및 음성 알림 시나리오에서 유용할 수 있습니다.
 
 ## <a name="countryregion-availability"></a>국가/지역 가용성
 

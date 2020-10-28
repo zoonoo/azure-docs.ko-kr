@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe017476993872a989fc10564caa94983b9071c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253431"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164281"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -169,7 +169,7 @@ ms.locfileid: "91253431"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
 1. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
@@ -241,7 +241,7 @@ ms.locfileid: "91253431"
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
-5. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+5. Azure Portal에서 **데이터 탐색기** 를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
     :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사"::: 
 

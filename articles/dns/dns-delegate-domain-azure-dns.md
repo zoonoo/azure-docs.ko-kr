@@ -1,18 +1,18 @@
 ---
 title: '자습서: 도메인 및 하위 도메인 호스트 - Azure DNS'
-description: 이 문서에서는 DNS 영역을 호스팅하도록 Azure DNS를 구성하는 방법에 대해 알아봅니다.
+description: 이 자습서에서는 DNS 영역을 호스팅하도록 Azure DNS를 구성하는 방법에 대해 알아봅니다.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077996"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282176"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
 
@@ -36,16 +36,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
-이 예제에서는 부모 도메인을 **contoso.net**으로 참조합니다.
+이 예제에서는 부모 도메인을 **contoso.net** 으로 참조합니다.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
-1. [Azure Portal](https://portal.azure.com/)로 이동하여 DNS 영역을 만듭니다. **DNS 영역**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 DNS 영역을 만듭니다. **DNS 영역** 을 검색하여 선택합니다.
 
    ![DNS 영역](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. **DNS 영역 만들기**를 선택합니다.
-1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음, **만들기**를 선택합니다(예: **contoso.net**).
+1. **DNS 영역 만들기** 를 선택합니다.
+1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음, **만들기** 를 선택합니다(예: **contoso.net** ).
       > [!NOTE] 
       > 만드는 새 영역이 자식 영역(예: 부모 영역 = contoso.net 자식 영역 = child.contoso.net)인 경우 [새 자식 DNS 영역 만들기 자습서](./tutorial-public-dns-zones-child.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
     | **프로젝트 세부 정보:**  |  |  |
     | **리소스 그룹**    | ContosoRG | 리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹의 위치는 DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "글로벌"이므로 표시되지 않습니다. |
     | **인스턴스 세부 정보:** |  |  |
-    | **영역 자식**        | 선택하지 않은 상태로 유지 | 이 영역은 [자식 영역](./tutorial-public-dns-zones-child.md)이 **아니**므로 선택하지 않은 상태로 두어야 합니다. |
+    | **영역 자식**        | 선택하지 않은 상태로 유지 | 이 영역은 [자식 영역](./tutorial-public-dns-zones-child.md)이 **아니** 므로 선택하지 않은 상태로 두어야 합니다. |
     | **이름**              | contoso.net | 부모 영역 이름 필드      |
     | **위치**          | 미국 동부 | 이 필드는 리소스 그룹 생성의 일부로 선택한 위치를 기반으로 합니다.  |
     
@@ -63,9 +63,9 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
 
 DNS 영역을 Azure DNS에 위임하려면 해당 영역에 대한 이름 서버를 알아야 합니다. Azure DNS는 영역이 만들어질 때마다 풀에서 이름 서버를 할당합니다.
 
-1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 선택합니다. **모든 리소스** 페이지에서 DNS 영역을 선택합니다. 선택한 구독에 이미 여러 리소스가 있는 경우 **이름 기준으로 필터링** 상자에 도메인 이름을 입력하면 애플리케이션 게이트웨이에 쉽게 액세스할 수 있습니다. 
+1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스** 를 선택합니다. **모든 리소스** 페이지에서 DNS 영역을 선택합니다. 선택한 구독에 이미 여러 리소스가 있는 경우 **이름 기준으로 필터링** 상자에 도메인 이름을 입력하면 애플리케이션 게이트웨이에 쉽게 액세스할 수 있습니다. 
 
-1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 contoso.com 영역에 이름 서버 *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* 및 *ns4-01.azure-dns.info*가 할당되었습니다.
+1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 contoso.com 영역에 이름 서버 *ns1-01.azure-dns.com* , *ns2-01.azure-dns.net* , *ns3-01.azure-dns.org* 및 *ns4-01.azure-dns.info* 가 할당되었습니다.
 
    ![이름 서버 목록](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
@@ -82,7 +82,7 @@ DNS 영역을 만들었고 이름 서버를 확보했으니, 이제 Azure DNS �
 > [!NOTE]
 > 각 이름 서버 주소를 복사하면 주소 끝에 마침표를 복사해야 합니다. 마침표는 정규화된 도메인 이름의 끝을 나타냅니다. 일부 등록 기관에서는 DNS 이름 끝에 마침표가 없는 경우 이를 추가합니다. DNS RFC를 준수하려면 후행 마침표를 포함합니다.
 
-고유 영역에서 이름 서버를 사용하는 위임(*베니티 이름 서버*라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
+고유 영역에서 이름 서버를 사용하는 위임( *베니티 이름 서버* 라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
 
 ## <a name="verify-the-delegation"></a>위임 확인
 
@@ -116,7 +116,7 @@ Azure DNS 이름 서버를 지정할 필요가 없습니다. 위임이 올바르
 
 그 다음 자습서를 계속 진행하려는 분들은 **contosoRG** 리소스 그룹을 그대로 유지하시면 됩니다. 그렇지 않으면 **contosoRG** 리소스 그룹을 삭제하여 이 자습서에서 만든 리소스를 삭제하세요.
 
-- **contosoRG** 리소스 그룹을 선택한 다음, **리소스 그룹 삭제**를 선택합니다. 
+- **contosoRG** 리소스 그룹을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

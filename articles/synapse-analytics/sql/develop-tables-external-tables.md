@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6c76fcc0fefdf8aa3ae97a4c131481f7ea6ada81
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288854"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167538"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -165,6 +165,8 @@ Azure Blob Storage 또는 Azure Data Lake Storage에 저장된 외부 데이터�
 
 ### <a name="syntax-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 구문
 
+#### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool)
+
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -192,6 +194,40 @@ WITH (
     | Encoding = {'UTF8' | 'UTF16'}
 }
 ```
+
+#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+
+```syntaxsql
+-- Create an external file format for PARQUET files.  
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = PARQUET  
+    [ , DATA_COMPRESSION = {  
+        'org.apache.hadoop.io.compress.SnappyCodec'  
+      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
+    ]);  
+
+--Create an external file format for DELIMITED TEXT files
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
+    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
+    );  
+
+<format_options> ::=  
+{  
+    FIELD_TERMINATOR = field_terminator  
+    | STRING_DELIMITER = string_delimiter
+    | First_Row = integer
+    | USE_TYPE_DEFAULT = { TRUE | FALSE }
+    | Encoding = {'UTF8' | 'UTF16'}
+    | PARSER_VERSION = {'parser_version'}
+}
+```
+
+---
+
 
 ### <a name="arguments-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 인수
 
@@ -245,6 +281,8 @@ DELIMITEDTEXT 파일 형식 유형은 다음 압축 메서드를 지원합니다
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
+PARSER_VERSION = 'parser_version': 파일을 읽을 때 사용할 파서 버전을 지정합니다. 자세한 내용은 [OPENROWSET 인수](develop-openrowset.md#arguments)의 PARSER_VERSION 인수를 확인하세요.
+
 ### <a name="example-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 예제
 
 다음 예제에서는 인구 조사 파일에 대한 외부 파일 형식을 만듭니다.
@@ -285,7 +323,7 @@ column_name <data_type>
 
 만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 SQL 주문형은 테이블 메타데이터만 저장합니다. SQL 주문형에서는 실제 데이터가 이동하거나 저장되지 않습니다.
 
-<column_definition>, ...*n* ]
+<column_definition>, ... *n* ]
 
 CREATE EXTERNAL TABLE은 열 이름, 데이터 형식, Null 허용 여부 및 데이터 정렬을 구성하는 기능을 지원합니다. 외부 테이블에 DEFAULT CONSTRAINT를 사용할 수 없습니다.
 
@@ -294,7 +332,7 @@ CREATE EXTERNAL TABLE은 열 이름, 데이터 형식, Null 허용 여부 및 �
 
 Parquet 파일에서 읽는 경우 읽으려는 열만 지정하고 나머지는 건너뛸 수 있습니다.
 
-LOCATION = '*folder_or_filepath*'
+LOCATION = ' *folder_or_filepath* '
 
 Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및 파일 이름을 지정합니다. 위치는 루트 폴더에서 시작합니다. 루트 폴더는 외부 데이터 원본에 지정된 데이터 위치입니다.
 
@@ -345,13 +383,13 @@ SELECT TOP 1 * FROM census_external_table
 
 이제 Data Lake 검색 기능을 사용하면 마우스 오른쪽 단추로 파일을 간단히 클릭하여 SQL 풀 또는 SQL 주문형에서 외부 테이블을 만들고 쿼리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 ARM 액세스 역할 이상)이 있어야 합니다.
 
 - SQL 풀 또는 SQL OD에서 외부 테이블을 [만들고 쿼리할 수 있는 권한](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) 이상이 있어야 합니다.
 
-- ADLS Gen2 계정과 연결되는 연결된 서비스에는 **파일에 대한 액세스 권한**이 있어야 합니다. 예를 들어 연결된 서비스 인증 메커니즘이 관리 ID인 경우 작업 영역 관리 ID에는 스토리지 계정에 대한 Storage Blob 읽기 권한자 이상의 권한이 있어야 합니다.
+- ADLS Gen2 계정과 연결되는 연결된 서비스에는 **파일에 대한 액세스 권한** 이 있어야 합니다. 예를 들어 연결된 서비스 인증 메커니즘이 관리 ID인 경우 작업 영역 관리 ID에는 스토리지 계정에 대한 Storage Blob 읽기 권한자 이상의 권한이 있어야 합니다.
 
 [데이터] 패널에서 외부 테이블을 만드는 데 사용할 파일을 선택합니다.
 > [!div class="mx-imgBorder"]

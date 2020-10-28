@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430726"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168208"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -31,7 +31,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 가장 기
 
 이 문서에서는 레거시 **개발자** 포털의 페이지에서 요소 스타일을 사용자 지정하고 변경 내용을 확인하는 방법에 대해 알아봅니다.
 
-![스타일 사용자 지정](./media/modify-developer-portal-style/developer_portal.png)
+![레거시 개발자 포털에서 설정을 변경하는 위치를 보여주는 스크린샷.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -45,14 +45,14 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 가장 기
 
 ## <a name="customize-the-developer-portal"></a>개발자 포털 사용자 지정
 
-1. **개요**를 선택합니다.
+1. **개요** 를 선택합니다.
 2. **개요** 창 위쪽의 **개발자 포털(레거시)** 단추를 클릭합니다.
 3. 화면 왼쪽 위에는 두 개의 페인트 브러시로 구성된 아이콘이 표시됩니다. 이 아이콘 위로 마우스를 가져가 포털 사용자 지정 메뉴를 엽니다.
 
-    ![스타일 사용자 지정](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
-4. 메뉴에서 **스타일**을 선택하여 스타일 사용자 지정 창을 엽니다.
+    ![두 개의 페인트 브러시로 아이콘을 강조 표시하는 스크린샷.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. 메뉴에서 **스타일** 을 선택하여 스타일 사용자 지정 창을 엽니다.
 
-    **스타일**을 사용하여 사용자 지정할 수 있는 모든 요소가 페이지에 표시됩니다.
+    **스타일** 을 사용하여 사용자 지정할 수 있는 모든 요소가 페이지에 표시됩니다.
 5. **변수 값을 변경하여 개발자 포털 모양 사용자 지정:** 필드에 "headings-color"를 입력합니다.
 
     **\@headings-color** 요소가 페이지에 나타납니다. 이 변수는 텍스트의 색을 제어합니다.
@@ -67,8 +67,8 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 가장 기
     > [!TIP]
     > 실시간 미리 보기는 모든 변경 내용에 사용할 수 있습니다. 사용자 지정 창 맨 위에 있는 진행률 표시기가 나타납니다. 몇 초 후에 헤더 텍스트가 새로 선택한 색상으로 변경됩니다.
 
-8. 사용자 지정 창 메뉴의 왼쪽 아래에서 **게시**를 선택합니다.
-9. **사용자 지정 게시**를 선택하여 변경 내용을 공개적으로 사용할 수 있게 제공합니다.
+8. 사용자 지정 창 메뉴의 왼쪽 아래에서 **게시** 를 선택합니다.
+9. **사용자 지정 게시** 를 선택하여 변경 내용을 공개적으로 사용할 수 있게 제공합니다.
 
 ## <a name="view-your-change"></a>변경 내용 보기
 

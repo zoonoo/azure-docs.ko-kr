@@ -4,24 +4,24 @@ titleSuffix: Azure App Configuration
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure App Configuration 저장소를 만드는 방법을 알아봅니다.
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824188"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149001"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 
 이 빠른 시작에서는 다음을 수행하는 방법을 설명합니다.
 
-- ARM 템플릿을 사용하여 App Configuration 저장소 배포
-- ARM 템플릿을 사용하여 App Configuration 저장소에서 키-값 만들기
-- ARM 템플릿에서 App Configuration 저장소의 키-값 읽기
+- ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 App Configuration 저장소를 배포합니다.
+- ARM 템플릿을 사용하여 App Configuration 저장소에서 키-값을 만듭니다.
+- ARM 템플릿에서 App Configuration 저장소의 키-값을 읽습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -35,14 +35,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/)에서 나온 것입니다. 두 개의 키-값이 내부에 있는 새 App Configuration 저장소를 만듭니다. 그런 다음, `reference` 함수를 사용하여 두 개의 키-값 리소스에 대한 값을 출력합니다. 키의 값을 이러한 방식으로 읽으면 템플릿의 다른 위치에서 키를 사용할 수 있습니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/)에서 나온 것입니다. 두 개의 키-값이 내부에 있는 새 App Configuration 저장소를 만듭니다. 그런 다음, `reference` 함수를 사용하여 두 개의 키-값 리소스에 대한 값을 출력합니다. 키의 값을 이러한 방식으로 읽으면 템플릿의 다른 위치에서 키를 사용할 수 있습니다.
 
 빠른 시작에서는 `copy` 요소를 사용하여 키-값 리소스의 여러 인스턴스를 만듭니다. `copy` 요소에 대한 자세한 내용은 [ARM 템플릿의 리소스 반복](../azure-resource-manager/templates/copy-resources.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 이 템플릿에는 App Configuration 리소스 공급자 버전 `2020-07-01-preview` 이상이 필요합니다. 이 버전에서는 `reference` 함수를 사용하여 키-값을 읽습니다. 이전 버전에서 키-값을 읽는 데 사용된 `listKeyValue` 함수는 `2020-07-01-preview` 버전부터 사용할 수 없습니다.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -83,10 +83,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-1. [Azure 포털](https://portal.azure.com)
-1. Azure Portal 검색 상자에서 **App Configuration**을 입력합니다. 목록에서 **App Configuration**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal 검색 상자에서 **App Configuration** 을 입력합니다. 목록에서 **App Configuration** 을 선택합니다.
 1. 새로 만든 App Configuration 리소스를 선택합니다.
-1. **작업** 아래에서 **구성 탐색기**를 클릭합니다.
+1. **작업** 아래에서 **구성 탐색기** 를 클릭합니다.
 1. 두 개의 키-값이 있는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
-ms.openlocfilehash: 2ca6ceb326a1fd6f7aaf5a9871d043377e60de83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52c00359fb4e759d9517dee958e31c00feb2b33e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85508557"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149250"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1이란?
 
@@ -60,7 +60,7 @@ Data Lake Storage Gen1은 Azure AD(Azure Active Directory)를 인증 및 ACL(액
 
 | 기능 | 설명 |
 | --- | --- |
-| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스를 관리할 수 있도록 Azure AD와 통합됩니다. 통합에 따라 Data Lake Storage Gen1에서 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 애플리케이션 사용 현황 모니터링, 보안 모니터링 및 경고 등과 같은 모든 Azure AD 기능을 활용할 수 있습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Data Lake Storage Gen1 인증](data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
+| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스를 관리할 수 있도록 Azure AD와 통합됩니다. 통합에 따라 Data Lake Storage Gen1에서 다단계 인증, 조건부 액세스, Azure 역할 기반 액세스 제어, 애플리케이션 사용 현황 모니터링, 보안 모니터링 및 경고 등과 같은 모든 Azure AD 기능을 활용할 수 있습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Data Lake Storage Gen1 인증](data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
 | Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. 루트 폴더, 하위 폴더 및 개별 파일에서 ACL을 사용하도록 설정할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL이 작동하는 방법에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화도 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요. |
 

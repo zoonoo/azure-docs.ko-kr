@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1454be235c98e5348d1b57028d988252191ad270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c522ae70314a5f9bf691e935f1f171cd66c938b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528049"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122384"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>자습서: SKYSITE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -49,15 +49,15 @@ SKYSITE가 Azure AD에 통합되도록 구성하려면 갤러리에서 SKYSITE�
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **SKYSITE**를 입력합니다.
-1. 결과 패널에서 **SKYSITE**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **SKYSITE** 를 입력합니다.
+1. 결과 패널에서 **SKYSITE** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-skysite"></a>SKYSITE에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 SKYSITE에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 SKYSITE의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 SKYSITE에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 SKYSITE의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 SKYSITE에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -72,15 +72,15 @@ SKYSITE에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **SKYSITE** 애플리케이션 통합 페이지에서 **속성 탭**을 클릭하고, 다음 단계를 수행합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 **SKYSITE** 애플리케이션 통합 페이지에서 **속성 탭** 을 클릭하고, 다음 단계를 수행합니다. 
 
     ![Single Sign-On 속성](./media/skysite-tutorial/config05.png)
 
-    * **사용자 액세스 URL**을 복사하여 자습서의 뒷부분에서 설명하는 **SKYSITE SSO 구성 섹션**에 붙여넣어야 합니다.
+    * **사용자 액세스 URL** 을 복사하여 자습서의 뒷부분에서 설명하는 **SKYSITE SSO 구성 섹션** 에 붙여넣어야 합니다.
 
-1. **SKYSITE** 애플리케이션 통합 페이지에서 **Single Sign-On**으로 이동합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SKYSITE** 애플리케이션 통합 페이지에서 **Single Sign-On** 으로 이동합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -88,23 +88,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SKYSITE 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도 SKYSITE 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
-    a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
+    a. **클레임에서 반환되는 그룹** 옆에 있는 **펜** 을 클릭합니다.
 
-    ![이미지](./media/skysite-tutorial/config01.png)
+    ![스크린샷은 새 클레임을 추가하는 옵션이 있는 사용자 클레임을 보여줍니다.](./media/skysite-tutorial/config01.png)
 
-    ![이미지](./media/skysite-tutorial/config02.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 클레임 관리 대화 상자를 보여줍니다.](./media/skysite-tutorial/config02.png)
 
-    b. 라디오 단추 목록에서 **모든 그룹**을 선택합니다.
+    b. 라디오 단추 목록에서 **모든 그룹** 을 선택합니다.
 
-    다. **그룹 ID**의 **원본 특성**을 선택합니다.
+    다. **그룹 ID** 의 **원본 특성** 을 선택합니다.
 
-    d. **저장**을 클릭합니다.
+    d. **저장** 을 클릭합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -116,29 +116,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 SKYSITE에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **SKYSITE**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **SKYSITE** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -146,19 +146,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 새 웹 브라우저 창을 열고, SKYSITE 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
-4. 페이지의 오른쪽 위에서 **설정**을 클릭한 다음, **계정 설정**으로 이동합니다.
+4. 페이지의 오른쪽 위에서 **설정** 을 클릭한 다음, **계정 설정** 으로 이동합니다.
 
-    ![구성](./media/skysite-tutorial/config03.png)
+    ![스크린샷은 설정에서 선택한 계정 설정을 보여줍니다.](./media/skysite-tutorial/config03.png)
 
 5. **SSO(Single Sign-On)** 탭으로 전환하고 다음 단계를 수행합니다.
 
-    ![구성](./media/skysite-tutorial/config04.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 Single Sign-On 탭을 보여줍니다.](./media/skysite-tutorial/config04.png)
 
-    a. Azure Portal의 **속성** 탭에서 복사한 **사용자 액세스 URL** 값을 **Identity Provider sign in URL**(ID 공급자 로그인 URL) 텍스트 상자에 붙여넣습니다.
+    a. Azure Portal의 **속성** 탭에서 복사한 **사용자 액세스 URL** 값을 **Identity Provider sign in URL** (ID 공급자 로그인 URL) 텍스트 상자에 붙여넣습니다.
 
-    b. **Upload certificate**(인증서 업로드)를 클릭하여 Azure Portal에서 다운로드한 Base64로 인코딩된 인증서 파일을 업로드합니다.
+    b. **Upload certificate** (인증서 업로드)를 클릭하여 Azure Portal에서 다운로드한 Base64로 인코딩된 인증서 파일을 업로드합니다.
 
-    다. **저장**을 클릭합니다.
+    다. **저장** 을 클릭합니다.
 
 ### <a name="create-skysite-test-user"></a>SKYSITE 테스트 사용자 만들기
 

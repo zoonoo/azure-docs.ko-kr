@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305786"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203623"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정
 
@@ -43,15 +43,15 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
 
 애플리케이션에 대한 Single Sign-On을 설정하는 방법은 다음과 같습니다.
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션**을 선택합니다. 그런 다음, Single Sign-On을 설정하려는 애플리케이션을 찾아서 선택합니다.
-1. **관리** 섹션에서 **Single Sign-On**을 선택하여 편집할 **Single Sign-On** 창을 엽니다.
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, Single Sign-On을 설정하려는 애플리케이션을 찾아서 선택합니다.
+1. **관리** 섹션에서 **Single Sign-On** 을 선택하여 편집할 **Single Sign-On** 창을 엽니다.
 
     > [!IMPORTANT]
     > 앱이 SSO에 OIDC(OpenID Connect) 표준을 사용하는 경우 탐색에 Single Sign-On 옵션이 표시되지 않습니다. 설정 방법을 알아보려면 OIDC 기반 SSO의 빠른 시작을 참조하세요.
 
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="스크린샷이 Azure AD Portal의 Single Sign-On 구성 페이지를 표시합니다.":::
 
-1. **SAML**을 선택하여 SSO 구성 페이지를 엽니다. 이 예제에서 SSO를 구성할 애플리케이션은 GitHub입니다. GitHub가 설정되면 사용자는 Azure AD 테넌트에서 자신의 자격 증명을 사용하여 GitHub에 로그인할 수 있습니다.
+1. **SAML** 을 선택하여 SSO 구성 페이지를 엽니다. 이 예제에서 SSO를 구성할 애플리케이션은 GitHub입니다. GitHub가 설정되면 사용자는 Azure AD 테넌트에서 자신의 자격 증명을 사용하여 GitHub에 로그인할 수 있습니다.
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="스크린샷이 Azure AD Portal의 Single Sign-On 구성 페이지를 표시합니다.":::
 
@@ -68,7 +68,7 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작 시리즈를 완료한 후에는 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.
+이 빠른 시작 시리즈를 완료했다면 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

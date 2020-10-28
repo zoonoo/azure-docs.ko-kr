@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858424"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216082"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Azure Arc 지원 Kubernetes 미리 보기란?
 
@@ -72,7 +72,7 @@ Azure Arc 지원 Kubernetes는 다음 시나리오를 지원합니다.
 
     아니요. Azure Monitor, Azure Policy(Gatekeeper)와 같은 Azure Arc를 지원하는 Kubernetes의 모든 기능은 Azure에서 이미 리소스를 표시하는 AKS에서 기본적으로 사용할 수 있습니다.
     
-* Azure Stack HCI의 AKS 클러스터를 Azure Arc에 연결해야 하나요? Azure Stack Hub 또는 Azure Stack Engine에서 실행되는 Kubernetes 클러스터는 어떻게 되나요?
+* Azure Stack HCI의 AKS 클러스터를 Azure Arc에 연결해야 하나요? Azure Stack Hub 또는 Azure Stack Edge에서 실행되는 Kubernetes 클러스터는 어떻게 되나요?
 
     예, 이러한 클러스터를 Azure Arc에 연결하면 이점이 있습니다. Azure Resource Manager에서 이러한 Kubernetes 클러스터에 대한 리소스 표현을 제공합니다. 이 리소스 표현을 사용하여 클러스터 구성, Azure Monitor, Azure Policy(Gatekeeper) 등의 기능을 이러한 Kubernetes 클러스터로 확장할 수 있습니다.
 

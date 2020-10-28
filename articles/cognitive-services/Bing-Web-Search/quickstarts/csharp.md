@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921701"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217289"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>빠른 시작: Bing Web Search REST API 및 C#을 사용하여 웹 검색
 
@@ -29,14 +29,14 @@ ms.locfileid: "88921701"
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * Windows: [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* 구독 키
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) 및 [.NET Core](https://dotnet.microsoft.com/download)
+* [평가판 Azure 구독](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>프로젝트 만들기 및 종속성 선언
 
-Visual Studio 또는 Mono에서 새 프로젝트를 만듭니다. 다음 코드를 사용하여 필요한 네임스페이스 및 형식을 가져옵니다.
+Visual Studio 또는 VS Code에서 콘솔 프로젝트를 만듭니다. 다음 코드를 사용하여 필요한 네임스페이스 및 형식을 가져옵니다.
 
 ```csharp
 using System;

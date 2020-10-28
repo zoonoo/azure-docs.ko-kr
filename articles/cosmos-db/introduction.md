@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569871"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278434"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -48,7 +48,7 @@ Cosmos DB를 사용하면 응답성이 뛰어나고 세계적 규모의 애플�
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>정확하게 정의된 다중 일관성 선택 항목
 
-Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 지역 쓰기 복제 프로토콜은 전역적으로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성*, *제한된 부실*, *세션 일관성*, *일관된 접두사* 및 *최종 일관성*을 제공하도록 신중하게 설계되었습니다.
+Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일관성, 가용성, 대기 시간, 처리량을 더 이상 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 지역 쓰기 복제 프로토콜은 전역적으로 분산된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md) - , 즉 *강력한 일관성* , *제한된 부실* , *세션 일관성* , *일관된 접두사* 및 *최종 일관성* 을 제공하도록 신중하게 설계되었습니다.
 
 ### <a name="no-schema-or-index-management"></a>스키마 또는 인덱스 관리 없음
 
@@ -60,7 +60,7 @@ Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB�
 
 ### <a name="ubiquitous-regional-presence"></a>유비쿼터스 지역 현재 상태
 
-Cosmos DB는 퍼블릭 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Cosmos DB의 지역 현재 상태](regional-presence.md)를 참조하세요.
+Cosmos DB는 퍼블릭 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Azure Cosmos DB의 고가용성](high-availability.md)을 참조하세요.
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>기본적인 엔터프라이즈 수준 보안
 

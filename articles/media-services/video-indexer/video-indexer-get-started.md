@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/19/2020
 ms.author: juliako
-ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85130758"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219793"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -39,24 +39,28 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 ### <a name="upload-a-video"></a>비디오 업로드
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
-2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
+1. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
 
     > [!NOTE]
     > 비디오 이름은 80자를 넘지 않아야 합니다.
 
-    ![업로드](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="업로드":::
+1. 비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다. 진행률이 표시됩니다. 
 
-    비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드":::
+1. Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 이메일을 받게 됩니다. 예: 사람, 음성 및 필기 단어, 토픽 및 명명된 엔터티.
+1. 나중에 라이브러리 목록에서 비디오를 찾아 다른 작업을 수행할 수 있습니다. 예: 검색, 다시 인덱싱, 편집.
 
-    ![업로드됨](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 알림을 받게 됩니다. 예: 사람, 주제, OCR.
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="업로드":::
+ 
 ## <a name="see-also"></a>참고 항목
 
 자세한 내용은 [비디오 업로드 및 인덱싱](upload-index-videos.md)을 참조하세요.
 
-비디오를 업로드하고 인덱싱한 후 [Video Indexer](video-indexer-view-edit.md) 웹 사이트 또는 [Video Indexer 개발자 포털](video-indexer-use-apis.md)을 사용하여 비디오의 인사이트를 확인할 수 있습니다. 
+비디오를 업로드하고 인덱싱한 후 [Video Indexer 웹 사이트](video-indexer-view-edit.md) 또는 [Video Indexer 개발자 포털](video-indexer-use-apis.md)을 사용하여 비디오의 인사이트를 확인할 수 있습니다. 
 
 [API 사용 시작](video-indexer-use-apis.md)
 

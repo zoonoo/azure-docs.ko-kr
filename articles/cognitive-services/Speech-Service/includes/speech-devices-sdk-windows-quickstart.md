@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226316"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169099"
 ---
 이 빠른 시작에서는 Windows용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 대화 전사의 경우 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다. 다른 음성의 경우 마이크 배열 기하 도형을 제공하는 선형 마이크 배열이 지원됩니다.
 
@@ -42,19 +42,19 @@ ms.locfileid: "88226316"
 
 1. Eclipse를 시작합니다.
 
-1. **Eclipse IDE Launcher**의 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작**을 선택합니다.
+1. **Eclipse IDE Launcher** 의 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작** 을 선택합니다.
 
-   ![Eclipse Launcher의 스크린샷](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![작업 영역 디렉터리의 이름을 입력하는 Eclipse Launcher를 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. 잠시 후 Eclipse IDE의 주 창이 표시됩니다. 시작 화면이 표시되는 경우 시작 화면을 닫습니다.
 
-1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **Java 프로젝트**를 선택하여 새 프로젝트를 만듭니다. 사용할 수 없는 경우 **프로젝트**를 선택한 다음, **Java 프로젝트**를 선택합니다.
+1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **Java 프로젝트** 를 선택하여 새 프로젝트를 만듭니다. 사용할 수 없는 경우 **프로젝트** 를 선택한 다음, **Java 프로젝트** 를 선택합니다.
 
-1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다**. **마침**을 선택합니다.
+1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다** . **마침** 을 선택합니다.
 
-   ![새 Java 프로젝트 마법사의 스크린샷](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![새 Java 프로젝트 마법사를 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **구성** > **Maven 프로젝트로 변환**을 선택합니다. **마침**을 선택합니다.
+1. **패키지 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **구성** > **Maven 프로젝트로 변환** 을 선택합니다. **마침** 을 선택합니다.
 
    ![패키지 탐색기의 스크린샷](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -79,9 +79,9 @@ ms.locfileid: "88226316"
     </dependencies>
    ```
 
-1. **Windows-x64**의 내용을 Java 프로젝트 위치에 복사합니다(예: **C:\SDSDK\JRE-Sample-Release**).
+1. **Windows-x64** 의 내용을 Java 프로젝트 위치에 복사합니다(예: **C:\SDSDK\JRE-Sample-Release** ).
 
-1. `kws.table`, `participants.properties` 및 `Microsoft.CognitiveServices.Speech.extension.pma.dll`을 프로젝트 폴더 **target\classes**로 복사합니다.
+1. `kws.table`, `participants.properties` 및 `Microsoft.CognitiveServices.Speech.extension.pma.dll`을 프로젝트 폴더 **target\classes** 로 복사합니다.
 
 ## <a name="configure-the-sample-application"></a>샘플 애플리케이션 구성
 
@@ -121,29 +121,29 @@ ms.locfileid: "88226316"
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Eclipse에서 샘플 애플리케이션 실행
 
-1. Eclipse 메뉴 모음에서 **실행** > **다음 계정으로 실행** > **Java 애플리케이션**을 선택합니다. 그런 다음, **FunctionsList** 및 **확인**을 선택합니다.
+1. Eclipse 메뉴 모음에서 **실행** > **다음 계정으로 실행** > **Java 애플리케이션** 을 선택합니다. 그런 다음, **FunctionsList** 및 **확인** 을 선택합니다.
 
    ![Java 애플리케이션 선택 스크린샷](../media/speech-devices-sdk/eclipse-run-sample.png)
 
 1. Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
 
-   ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![샘플 Speech Devices SDK 애플리케이션 및 옵션의 스크린샷.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start**를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes**의 `participants.properties` 파일에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
+1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start** 를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes** 의 `participants.properties` 파일에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
 
-   ![데모 대화 전사 애플리케이션](../media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![데모 대화 전사 애플리케이션의 스크린샷.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>독립 실행형 애플리케이션 만들기 및 실행
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 선택합니다.
+1. **패키지 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기** 를 선택합니다.
 
-1. **내보내기** 창이 나타납니다. **Java**를 펼치고 **실행 가능한 JAR 파일**을 선택한 후, **다음**을 선택합니다.
+1. **내보내기** 창이 나타납니다. **Java** 를 펼치고 **실행 가능한 JAR 파일** 을 선택한 후, **다음** 을 선택합니다.
 
-   ![내보내기 창의 스크린샷](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![실행 가능한 JAR 파일을 선택하는 내보내기 창을 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. **실행 가능한 JAR 파일 내보내기** 창이 나타납니다. 애플리케이션에 대한 **내보내기 대상**을 선택한 다음, **마침**을 선택합니다.
+1. **실행 가능한 JAR 파일 내보내기** 창이 나타납니다. 애플리케이션에 대한 **내보내기 대상** 을 선택한 다음, **마침** 을 선택합니다.
 
-   ![실행 가능한 JAR 파일 내보내기 스크린샷](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![내보내기 대상을 선택하는 실행 가능한 JAR 파일 내보내기 창을 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` 및 `Microsoft.CognitiveServices.Speech.extension.pma.dll`은 애플리케이션에서 필요하므로 위에서 선택한 대상 폴더에 넣습니다.
 

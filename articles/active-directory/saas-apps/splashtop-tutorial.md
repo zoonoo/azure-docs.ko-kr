@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 934953437c2d156f220d5b0a1847e16358e3bfb8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524570"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>자습서: Splashtop과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -49,15 +49,15 @@ Splashtop이 Azure AD에 통합되도록 구성하려면 갤러리의 Splashtop�
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **Splashtop**을 입력합니다.
-1. 결과 패널에서 **Splashtop**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Splashtop** 을 입력합니다.
+1. 결과 패널에서 **Splashtop** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-splashtop"></a>Splashtop에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 Splashtop에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Splashtop의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Splashtop에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Splashtop의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Splashtop에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -72,9 +72,9 @@ Splashtop에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 �
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Splashtop** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Splashtop** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -82,11 +82,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **로그온 URL** 텍스트 상자에 `https://my.splashtop.com/login/sso` URL을 입력합니다.
 
-1. Splashtop 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성 목록을 보여 주지만, **nameidentifier**는 **user.userprincipalname**과 매핑됩니다. TicketManager 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
+1. Splashtop 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성 목록을 보여 주지만, **nameidentifier** 는 **user.userprincipalname** 과 매핑됩니다. TicketManager 애플리케이션에서는 **nameidentifier** 가 **user.mail** 과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -98,29 +98,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Splashtop에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Splashtop**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Splashtop** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -129,15 +129,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 이 섹션에서는 [Splashtop 웹 포털](https://my.splashtop.com/login)에서 새 SSO 방법을 신청해야 합니다.
 1. Splashtop 웹 포털에서 **Account info(계정 정보)**  / **Team(팀)** 탭으로 차례로 이동하고, 아래로 스크롤하여 **Single Sign On** 섹션을 찾습니다. 그런 다음, **Apply for new SSO method(새 SSO 방법 신청)** 를 클릭합니다.
 
-    ![이미지](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![스크린샷은 새 SSO 방법 신청을 선택할 수 있는 Single Sign-On 페이지를 보여줍니다.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
-1. 신청 창에서 **SSO name(SSO 이름)** 을 제공합니다. 예를 들어 [New Azure(새 Azure)]를 선택한 다음, IDP 유형으로 **Azure**를 선택하고, Azure Portal의 Splashtop 애플리케이션에서 복사한 **로그인 URL** 및 **Azure AD 식별자**를 삽입합니다.
+1. 신청 창에서 **SSO name(SSO 이름)** 을 제공합니다. 예를 들어 [New Azure(새 Azure)]를 선택한 다음, IDP 유형으로 **Azure** 를 선택하고, Azure Portal의 Splashtop 애플리케이션에서 복사한 **로그인 URL** 및 **Azure AD 식별자** 를 삽입합니다.
 
-    ![이미지](media/splashtop-tutorial/azure-sso-1.png)
+    ![스크린샷은 이름 및 기타 정보를 입력할 수 있는 SSO 방법 신청 페이지를 보여줍니다.](media/splashtop-tutorial/azure-sso-1.png)
 
 1. 인증서 정보의 경우 마우스 오른쪽 단추로 Azure Portal의 Splashtop 애플리케이션에서 다운로드한 인증서 파일을 클릭하고, 메모장에서 편집한 다음, 내용을 복사하여 **Download Certificate (Base64)(인증서(Base64) 다운로드)** 필드에 붙여넣습니다.
 
-    ![이미지](media/splashtop-tutorial/cert-1.png) ![이미지](media/splashtop-tutorial/cert-2.png) ![이미지](media/splashtop-tutorial/azure-sso-2.png)
+    ![스크린샷은 인증서 파일을 선택하고 메모장에서 여는 것을 보여줍니다.](media/splashtop-tutorial/cert-1.png)
+    ![스크린샷은 인증서 파일의 내용을 보여줍니다.](media/splashtop-tutorial/cert-2.png)
+    ![스크린샷은 인증서 다운로드 텍스트 상자를 보여줍니다.](media/splashtop-tutorial/azure-sso-2.png)
 
 1. 이것으로 끝입니다. **Save(저장)** 를 클릭합니다. 그러면 Splashtop SSO 유효성 검사 팀에서 사용자에게 확인 정보를 요청한 다음, SSO 방법을 활성화합니다.
 
@@ -145,11 +147,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SSO 방법이 활성화되면 새로 만든 SSO 방법을 확인하여 **Single Sign On** 섹션에서 사용하도록 설정합니다.
 
-    ![이미지](media/splashtop-tutorial/enable.png)
+    ![스크린샷은 새 메서드를 활성화할 수 있는 Single Sign-On 페이지를 보여줍니다.](media/splashtop-tutorial/enable.png)
 
 1. 새로 만든 SSO 방법을 사용하여 테스트 사용자(예: `B.Simon@contoso.com`)를 Splashtop 팀에 초대합니다.
 
-    ![이미지](media/splashtop-tutorial/invite.png)
+    ![스크린샷은 새 메서드를 선택할 수 있는 사용자 초대 페이지를 보여줍니다.](media/splashtop-tutorial/invite.png)
 
 1. 기존 Splashtop 계정을 SSO 계정으로 변경할 수도 있습니다([지침](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-) 참조).
 

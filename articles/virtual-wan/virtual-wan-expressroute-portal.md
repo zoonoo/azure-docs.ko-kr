@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 07053c096ce001b322e5f05556bd041519ca9d2e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054817"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102479"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 
@@ -48,8 +48,8 @@ ms.locfileid: "92054817"
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기**를 클릭합니다. 검색 상자에 **Virtual WAN**을 입력하고 Enter를 선택합니다.
-2. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 클릭하여 WAN 만들기 페이지를 엽니다.
+1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기** 를 클릭합니다. 검색 상자에 **Virtual WAN** 을 입력하고 Enter를 선택합니다.
+2. 결과에서 **Virtual WAN** 을 선택합니다. Virtual WAN 페이지에서 **만들기** 를 클릭하여 WAN 만들기 페이지를 엽니다.
 3. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
 
    ![WAN 만들기](./media/virtual-wan-expressroute-portal/createwan.png)
@@ -58,9 +58,9 @@ ms.locfileid: "92054817"
    * **리소스 그룹** - 새로 만들거나 기존 항목을 사용합니다.
    * **리소스 그룹 위치** - 드롭다운에서 리소스 위치를 선택합니다. WAN은 전역 리소스이며 특정 지역에 상주하지 않습니다. 하지만 만든 WAN 리소스를 보다 쉽게 관리하고 찾으려면 지역을 선택해야 합니다.
    * **이름** - WAN을 호출할 이름을 입력합니다.
-   * **유형** - **표준**을 선택합니다. 기본 SKU를 사용해서는 ExpressRoute 게이트웨이를 만들 수 없습니다.
-4. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
-5. 유효성 검사를 통과하면 **만들기**를 선택하여 Virtual WAN을 만듭니다.
+   * **유형** - **표준** 을 선택합니다. 기본 SKU를 사용해서는 ExpressRoute 게이트웨이를 만들 수 없습니다.
+4. 필드 작성을 완료한 후 **검토 + 만들기** 를 선택합니다.
+5. 유효성 검사를 통과하면 **만들기** 를 선택하여 Virtual WAN을 만듭니다.
 
 ## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>가상 허브 및 게이트웨이 만들기
 
@@ -80,13 +80,13 @@ ExpressRoute 게이트웨이는 2Gbps 단위로 프로비저닝됩니다. 1 배�
 
 1. 편집하려는 가상 허브로 이동하여 선택합니다.
 2. **가상 허브 편집** 페이지에서 **ExpressRoute 게이트웨이 포함** 확인란을 선택합니다.
-3. **확인**을 선택하여 변경 내용을 확인합니다. 허브와 허브 리소스를 완전히 만드는 데 30분 정도 걸립니다.
+3. **확인** 을 선택하여 변경 내용을 확인합니다. 허브와 허브 리소스를 완전히 만드는 데 30분 정도 걸립니다.
 
    ![기존 허브](./media/virtual-wan-expressroute-portal/edithub.png "허브 편집")
 
 ### <a name="to-view-a-gateway"></a>게이트웨이를 보려면
 
-ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를 볼 수 있습니다. 허브로 이동하여 **ExpressRoute**를 선택하고 게이트웨이를 봅니다.
+ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를 볼 수 있습니다. 허브로 이동하여 **ExpressRoute** 를 선택하고 게이트웨이를 봅니다.
 
 ![게이트웨이 보기](./media/virtual-wan-expressroute-portal/viewgw.png "게이트웨이 보기")
 
@@ -94,8 +94,8 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 이 섹션에서는 허브와 VNet 간의 피어링 연결을 만듭니다. 연결하려는 각 VNet에 대해 이 단계를 반복합니다.
 
-1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결**을 클릭합니다.
-2. 가상 네트워크 연결 페이지에서 **+연결 추가**를 클릭합니다.
+1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결** 을 클릭합니다.
+2. 가상 네트워크 연결 페이지에서 **+연결 추가** 를 클릭합니다.
 3. **연결 추가** 페이지에서 다음 필드를 채웁니다.
 
     * **연결 이름** - 연결의 이름을 지정합니다.
@@ -105,14 +105,14 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>회로를 허브 게이트웨이에 연결
 
-게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach 지원 위치에 있는 ExpressRoute 표준 또는 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결하고 모든 Virtual WAN 전송 기능(VPN 간, VPN 및 ExpressRoute 전송)을 사용할 수 있습니다. 비 Global Reach 위치에 있는 ExpressRoute 표준 및 프리미엄 회로는 Azure 리소스에 연결할 수 있지만 Virtual WAN 전송 기능을 사용할 수 없습니다. ExpressRoute 로컬은 Azure Virtual WAN에서 지원되지 않습니다.
+게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach 지원 위치에 있는 ExpressRoute 표준 또는 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결하고 모든 Virtual WAN 전송 기능(VPN 간, VPN 및 ExpressRoute 전송)을 사용할 수 있습니다. 비 Global Reach 위치에 있는 ExpressRoute 표준 및 프리미엄 회로는 Azure 리소스에 연결할 수 있지만 Virtual WAN 전송 기능을 사용할 수 없습니다. ExpressRoute 로컬은 Virtual WAN 허브에 연결된 스포크 VNET이 Virtual WAN Hub와 동일한 지역에 있는 한 Azure Virtual WAN 허브에서 지원됩니다.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>회로를 허브 게이트웨이에 연결하려면
 
 포털에서 **가상 허브 -> 연결 -> ExpressRoute** 페이지로 이동합니다. ExpressRoute 회로에 대한 구독에 액세스할 수 있으면 회로 목록에서 사용할 회로를 볼 수 있습니다. 회로를 볼 수 없어도 인증 키와 피어 회로 URI가 있으면 회로를 사용하고 연결할 수 있습니다. [인증 키를 사용하여 연결하려면](#authkey)을 참조하세요.
 
 1. 회로를 선택합니다.
-2. **회로 연결**을 선택합니다.
+2. **회로 연결** 을 선택합니다.
 
    ![회로 연결](./media/virtual-wan-expressroute-portal/cktconnect.png "회로 연결")
 
@@ -120,13 +120,13 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 연결하기 위해 제공된 인증 키와 회로 URI를 사용합니다.
 
-1. ExpressRoute 페이지에서 **+인증 키 사용**을 클릭합니다.
+1. ExpressRoute 페이지에서 **+인증 키 사용** 을 클릭합니다.
 
    ![스크린샷은 권한 부여 키 사용이 선택된 가상 허브의 ExpressRoute를 표시합니다.](./media/virtual-wan-expressroute-portal/redeem.png "사용")
 2. 인증 키 사용 페이지에 값을 입력합니다.
 
    ![키 값 사용](./media/virtual-wan-expressroute-portal/redeemkey2.png "키 값 사용")
-3. **추가**를 선택하여 키를 추가합니다.
+3. **추가** 를 선택하여 키를 추가합니다.
 4. 회로를 봅니다. 사용된 회로는 사용자의 구독과 다른 구독에 있으므로 유형, 공급자, 기타 정보 없이 이름만 표시됩니다.
 
 ## <a name="to-test-connectivity"></a>연결 테스트
@@ -145,11 +145,11 @@ ExpressRoute 게이트웨이의 크기를 변경하려면 허브 내에서 Expre
 
 Azure 가상 허브가 기본 경로 0.0.0.0/0을 ExpressRoute 엔드포인트에 알리게 하려면 ‘기본 경로 전파’를 사용하도록 설정해야 합니다.
 
-1. **회로 ->…-> 연결 편집**을 선택합니다.
+1. **회로 ->…-> 연결 편집** 을 선택합니다.
 
    ![연결 편집](./media/virtual-wan-expressroute-portal/defaultroute1.png "연결 편집")
 
-2. **사용**을 선택하여 기본 경로를 전파하도록 합니다.
+2. **사용** 을 선택하여 기본 경로를 전파하도록 합니다.
 
    ![기본 경로 전파](./media/virtual-wan-expressroute-portal/defaultroute2.png "기본 경로 전파")
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421291"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315996"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정
 
@@ -186,7 +186,7 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-지원되는 TEE 형식은 "sgxenclave" 및 "vbsenclave"입니다.
+지원되는 TEE 형식은 "SgxEnclave", "OpenEnclave" 및 "VbsEnclave"입니다.
 
 Set-AttestationPolicy는 지정된 TEE에 대한 새 정책을 설정합니다. cmdlet은 텍스트 또는 JWT 형식의 정책을 허용하며 PolicyFormat 매개 변수로 제어됩니다. "Text"는 PolicyFormat의 기본값입니다. 
 

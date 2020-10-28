@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ab6b339d6cb71bf46340e458bcc93cd73e2ba9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548934"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>자습서: QuickHelp와 Azure Active Directory 통합
 
@@ -41,7 +41,7 @@ QuickHelp와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* QuickHelp는 **SP**에서 시작된 SSO를 지원합니다.
+* QuickHelp는 **SP** 에서 시작된 SSO를 지원합니다.
 
 * QuickHelp는 **Just In Time** 사용자 프로비전을 지원합니다.
 
@@ -55,7 +55,7 @@ QuickHelp의 Azure AD 통합을 구성하려면 갤러리의 QuickHelp를 관리
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ QuickHelp의 Azure AD 통합을 구성하려면 갤러리의 QuickHelp를 관리
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **QuickHelp**를 입력하고 결과 패널에서 **QuickHelp**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **QuickHelp** 를 입력하고 결과 패널에서 **QuickHelp** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 QuickHelp](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 QuickHelp의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -87,7 +87,7 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **QuickHelp** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **QuickHelp** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -110,7 +110,7 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 조직의 빠른 도움말 관리자 또는 브레인스토밍 클라이언트 성공 관리자에게 문의하여 값을 가져옵니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -128,23 +128,23 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 1. QuickHelp 회사 사이트에 관리자로 로그인합니다.
 
-2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
+2. 위쪽의 메뉴에서 **관리자** 를 클릭합니다.
    
-    ![Single Sign-on 구성][21]
+    ![스크린샷은 Brainstorm용 관리 메뉴 항목을 보여줍니다.][21]
 
-3. **QuickHelp 관리자** 메뉴에서 **설정**을 클릭합니다.
+3. **QuickHelp 관리자** 메뉴에서 **설정** 을 클릭합니다.
    
-    ![Single Sign-on 구성][22]
+    ![스크린샷은 QuickHelp 관리 메뉴에서 선택한 설정을 보여줍니다.][22]
 
-4. **인증 설정**을 클릭합니다.
+4. **인증 설정** 을 클릭합니다.
 
 5. **인증 설정** 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성][23]
+    ![스크린샷은 설명된 값을 입력할 수 있는 인증 설정 페이지를 보여줍니다.][23]
    
-    a. **SSO 형식**으로 **WSFederation**을 선택합니다.
+    a. **SSO 형식** 으로 **WSFederation** 을 선택합니다.
    
-    b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일로 이동한 다음 **메타데이터 업로드**를 클릭합니다.
+    b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기** 를 클릭하여 파일로 이동한 다음 **메타데이터 업로드** 를 클릭합니다.
    
     다. **전자 메일 주소** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
    
@@ -152,17 +152,17 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
    
     e. **성** 텍스트 상자에 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
    
-    f. **작업 모음**에서 **저장**을 클릭합니다.
+    f. **작업 모음** 에서 **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -170,35 +170,35 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 QuickHelp에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **QuickHelp**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **QuickHelp** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **QuickHelp**를 선택합니다.
+2. 애플리케이션 목록에서 **QuickHelp** 를 선택합니다.
 
     ![애플리케이션 목록의 QuickHelp 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 

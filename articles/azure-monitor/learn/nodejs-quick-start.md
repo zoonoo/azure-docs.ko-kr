@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 76cc09ab5283e10e8f25af3aba4278ec6cca4838
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333276"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173887"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -31,7 +31,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
+2. **리소스 만들기** > **개발자 도구** > **Application Insights** 를 선택합니다.
 
    ![Azure Application Insights 리소스 추가](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -46,11 +46,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    | **리소스 그룹**     | myResourceGroup      | AppInsights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
 ## <a name="configure-appinsights-sdk"></a>AppInsights SDK 구성
 
-1. **개요**를 선택하고, 애플리케이션의 **계측 키**를 복사합니다.
+1. **개요** 를 선택하고, 애플리케이션의 **계측 키** 를 복사합니다.
 
    ![Application Insights 계측 키 보기](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 
@@ -60,7 +60,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    npm install applicationinsights --save
    ```
 
-3. 앱의 첫 번째 *.js* 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 앱](../../app-service/quickstart-nodejs.md)을 사용하는 경우 *index.js* 파일을 수정합니다. `<instrumentation_key>`를 애플리케이션의 계측 키로 바꿉니다. 
+3. 앱의 첫 번째 *.js* 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 앱](../../app-service/quickstart-nodejs.md)을 사용하는 경우 *index.js* 파일을 수정합니다. `<instrumentation_key>`를 애플리케이션 인사이트의 계측 키로 바꿉니다. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -78,11 +78,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![Application Insights 개요 메뉴](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
-2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **애플리케이션 맵**을 선택합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **애플리케이션 맵** 을 선택합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
    ![Application Insights 애플리케이션 맵](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. **앱 분석** 아이콘 ![애플리케이션 맵 아이콘](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Analytics에서 보기**를 선택합니다.  이 작업은 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**를 엽니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘 ![애플리케이션 맵 아이콘](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Analytics에서 보기** 를 선택합니다.  이 작업은 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics** 를 엽니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![Application Insights Analytics 그래프](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -112,7 +112,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    </script>
    ```
 
-5. 왼쪽에서 **메트릭**을 선택합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 선택하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 "브라우저 페이지 로드 시간"과 집계의 "Avg"를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 방문하세요.
+5. 왼쪽에서 **메트릭** 을 선택합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가** 를 선택하여 사용자 지정 보기를 추가로 만들거나, **편집** 을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 "브라우저 페이지 로드 시간"과 집계의 "Avg"를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 방문하세요.
 
    ![Application Insights Server 메트릭 그래프](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
@@ -125,8 +125,8 @@ Node.js 모니터링에 대한 자세한 내용은 [AppInsights Node.js 추가 �
 > [!NOTE]
 > 기존 리소스 그룹을 사용하는 경우 아래 지침이 작동하지 않으므로 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때마다 해당 그룹의 구성원인 모든 underyling 리소스가 삭제됩니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, **myResourceGroup**을 선택합니다.
-2. 리소스 그룹 페이지에서 **삭제**를 선택하고, 텍스트 상자에서 **myResourceGroup**을 입력한 다음, **삭제**를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택한 다음, **myResourceGroup** 을 선택합니다.
+2. 리소스 그룹 페이지에서 **삭제** 를 선택하고, 텍스트 상자에서 **myResourceGroup** 을 입력한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

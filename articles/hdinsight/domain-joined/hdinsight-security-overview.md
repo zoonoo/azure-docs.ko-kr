@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292982"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150803"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -82,14 +82,16 @@ Azure 규정 준수 제품은 공식 인증을 비롯한 다양한 유형의 보
 |  | 클러스터 내 통신에 TLS 및 IPSec을 사용하려면 [전송 중 암호화](./encryption-in-transit.md) 기능이 활성화되어 있는지 확인합니다. | Customer |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
 |  | [고객 잠금 장치](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)를 사용하여 Azure 지원을 통해 데이터에 대한 액세스 제어 | Customer |
-| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [ESP 구성](apache-domain-joined-configure-using-azure-adds.md) 또는 [OAuth 인증용 HIB](identity-broker.md) 사용| Customer |
 |  | Apache [Ranger 권한 부여](apache-domain-joined-run-hive.md) 정책 구성 | Customer |
 |  | [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 사용 | Customer |
 | 운영 체제 보안 | 최신의 보안 기본 이미지를 사용하여 클러스터 만들기 | Customer |
 |  | 정기적인 간격에 따른 [OS 패치](../hdinsight-os-patching.md) 보장 | Customer |
+|  | [VM에 대한 CMK 디스크 암호화](../disk-encryption.md) 확인 | Customer |
 | 네트워크 보안 | [가상 네트워크](../hdinsight-plan-virtual-network-deployment.md) 구성 |
-|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../control-network-traffic.md) 구성 | Customer |
+|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../control-network-traffic.md) 또는 [프라이빗 링크](../hdinsight-private-link.md) 구성 | Customer |
 |  | 방화벽을 사용하여 [아웃바운드 트래픽 제한](../hdinsight-restrict-outbound-traffic.md) 구성 | Customer |
+|  | 클러스터 노드 간 [전송 중 IPSec 암호화](encryption-in-transit.md) 구성 | Customer |
 | 가상화된 인프라 | 해당 없음 | HDInsight(클라우드 공급자) |
 | 물리적 인프라 보안 | 해당 없음 | HDInsight(클라우드 공급자) |
 

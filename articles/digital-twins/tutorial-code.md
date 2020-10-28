@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057487"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201354"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -31,7 +31,7 @@ Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 �
 
 시작하기 위해 필요한 사항:
 * 코드 편집기
-* 개발 머신에 설치된 **.NET Core 3.1**. [.NET Core 3.1 다운로드](https://dotnet.microsoft.com/download/dotnet-core/3.1)에서 여러 플랫폼을 위한 .NET Core SDK의 이 버전을 다운로드할 수 있습니다.
+* 개발 머신에 설치된 **.NET Core 3.1** . [.NET Core 3.1 다운로드](https://dotnet.microsoft.com/download/dotnet-core/3.1)에서 여러 플랫폼을 위한 .NET Core SDK의 이 버전을 다운로드할 수 있습니다.
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
@@ -39,7 +39,7 @@ Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 �
 
 Azure Digital Twins 인스턴스로 이동할 준비가 되면 클라이언트 앱 프로젝트 설정을 시작합니다. 
 
-머신에서 명령 프롬프트 또는 다른 콘솔 창을 열고, 이 자습서를 진행하는 동안 작업을 저장할 빈 프로젝트 디렉터리를 만듭니다. 디렉터리 이름을 원하는 대로 지정합니다(예: *DigitalTwinsCodeTutorial*).
+머신에서 명령 프롬프트 또는 다른 콘솔 창을 열고, 이 자습서를 진행하는 동안 작업을 저장할 빈 프로젝트 디렉터리를 만듭니다. 디렉터리 이름을 원하는 대로 지정합니다(예: *DigitalTwinsCodeTutorial* ).
 
 새 디렉터리로 이동합니다.
 
@@ -49,7 +49,7 @@ Azure Digital Twins 인스턴스로 이동할 준비가 되면 클라이언트 �
 dotnet new console
 ```
 
-그러면 대부분의 코드를 작성할 *Program.cs*라는 파일을 포함하여 디렉터리 내에 여러 파일이 만들어집니다.
+그러면 대부분의 코드를 작성할 *Program.cs* 라는 파일을 포함하여 디렉터리 내에 여러 파일이 만들어집니다.
 
 다음으로, Azure Digital Twins를 사용하는 데 필요한 두 개의 종속성을 추가합니다.
 
@@ -104,40 +104,21 @@ using Azure.Identity;
 
 이 앱이 수행할 첫 번째 작업은 Azure Digital Twins 서비스에 대해 인증하는 것입니다. 그런 다음, 서비스 클라이언트 클래스를 만들어 SDK 함수에 액세스할 수 있습니다.
 
-인증하려면 다음과 같은 세 가지 정보가 필요합니다.
-* 구독을 위한 *디렉터리(테넌트) ID*
-* 이전에 Azure Digital Twins 인스턴스를 설정할 때 생성된 *애플리케이션(클라이언트) ID*
-* Azure Digital Twins 인스턴스의 *hostName*
+인증하려면 Azure Digital Twins 인스턴스의 *hostName* 이 필요합니다.
 
->[!TIP]
-> *디렉터리(테넌트) ID*를 모르는 경우 [Azure Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행하여 가져올 수 있습니다.
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-*Program.cs*에서 "Hello, World!" 출력 줄 아래의 `Main` 메서드에 다음 코드를 붙여넣습니다. `adtInstanceUrl`을 Azure Digital Twins 인스턴스 *호스트 이름*으로, `clientId`를 *애플리케이션 ID*로, `tenantId`를 *디렉터리 ID*로 값을 설정합니다.
+*Program.cs* 에서 "Hello, World!" 출력 줄 아래의 `Main` 메서드에 다음 코드를 붙여넣습니다. `adtInstanceUrl` 값을 Azure Digital Twins 인스턴스 *hostName* 으로 설정합니다.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 파일을 저장합니다. 
 
-이 예제에서는 대화형 브라우저 자격 증명을 사용합니다.
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-이 유형의 자격 증명을 사용하면 브라우저 창이 열리고 Azure 자격 증명을 제공하라는 메시지가 표시됩니다. 
-
 >[!NOTE]
-> 다른 유형의 자격 증명에 대한 자세한 내용은 [Microsoft ID 플랫폼 인증 라이브러리](../active-directory/develop/reference-v2-libraries.md) 설명서를 참조하세요.
+> 이 예제에서는 `DefaultAzureCredential`을 인증에 사용합니다. 다른 유형의 자격 증명에 대한 자세한 내용은 [Microsoft ID 플랫폼 인증 라이브러리](../active-directory/develop/reference-v2-libraries.md) 설명서 또는 [클라이언트 애플리케이션 인증](how-to-authenticate-client.md)에 대한 Azure Digital Twins 문서를 참조하세요.
 
 명령 창에서 다음 명령을 사용하여 코드를 실행합니다. 
 
@@ -146,16 +127,16 @@ dotnet run
 ```
 
 그러면 처음 실행될 때 종속성이 복원된 다음, 프로그램이 실행됩니다. 
-* 오류가 발생하지 않으면 *Service client created - ready to go*가 출력됩니다.
+* 오류가 발생하지 않으면 *Service client created - ready to go* 가 출력됩니다.
 * 이 프로젝트에는 아직 오류 처리가 없으므로 문제가 생기면 코드에 의해 throw된 예외가 표시됩니다.
 
 ### <a name="upload-a-model"></a>모델 업로드
 
-Azure Digital Twins에는 내장 도메인 어휘가 없습니다. Azure Digital Twins에서 나타낼 수 있는 환경의 요소 유형은 사용자가 **모델**을 사용하여 정의합니다. [모델](concepts-models.md)은 개체 지향 프로그래밍 언어의 클래스와 유사하며, 나중에 [디지털 트윈](concepts-twins-graph.md)이 따르고 인스턴스화할 수 있도록 사용자 정의 템플릿을 제공합니다. 이 템플릿은 **DTDL(Digital Twins Definition Language)** 이라는 JSON과 유사한 언어로 작성됩니다.
+Azure Digital Twins에는 내장 도메인 어휘가 없습니다. Azure Digital Twins에서 나타낼 수 있는 환경의 요소 유형은 사용자가 **모델** 을 사용하여 정의합니다. [모델](concepts-models.md)은 개체 지향 프로그래밍 언어의 클래스와 유사하며, 나중에 [디지털 트윈](concepts-twins-graph.md)이 따르고 인스턴스화할 수 있도록 사용자 정의 템플릿을 제공합니다. 이 템플릿은 **DTDL(Digital Twins Definition Language)** 이라는 JSON과 유사한 언어로 작성됩니다.
 
 Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 하나 이상의 모델을 정의하는 것입니다.
 
-프로젝트를 만든 디렉터리에서 *SampleModel.json*이라는 새 *.json* 파일을 만듭니다. 다음 파일 본문을 붙여넣습니다. 
+프로젝트를 만든 디렉터리에서 *SampleModel.json* 이라는 새 *.json* 파일을 만듭니다. 다음 파일 본문을 붙여넣습니다. 
 
 ```json
 {
@@ -178,12 +159,12 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 �
 ```
 
 > [!TIP]
-> 이 자습서의 진행을 위해 Visual Studio를 사용하는 경우, 새로 만든 JSON 파일을 선택하고 속성 검사기에서 *출력 디렉터리로 복사* 속성을 *변경된 내용만 복사* 또는 *항상 복사*로 설정합니다. 이렇게 하면 자습서의 나머지 부분에서 **F5**를 사용하여 프로그램을 실행할 때 Visual Studio에서 기본 경로를 사용하여 JSON 파일을 찾을 수 있습니다.
+> 이 자습서의 진행을 위해 Visual Studio를 사용하는 경우, 새로 만든 JSON 파일을 선택하고 속성 검사기에서 *출력 디렉터리로 복사* 속성을 *변경된 내용만 복사* 또는 *항상 복사* 로 설정합니다. 이렇게 하면 자습서의 나머지 부분에서 **F5** 를 사용하여 프로그램을 실행할 때 Visual Studio에서 기본 경로를 사용하여 JSON 파일을 찾을 수 있습니다.
 
 > [!TIP] 
 > DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-parse-models.md)를 참조하세요.
 
-다음으로 *Program.cs*에 코드를 추가하여 방금 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
+다음으로 *Program.cs* 에 코드를 추가하여 방금 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
 
 먼저, 파일 맨 위에 몇 개의 `using`문을 추가합니다.
 
@@ -283,7 +264,7 @@ Type name: : dtmi:com:contoso:SampleModel;1
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-Azure Digital Twins에 모델을 업로드했으므로 이제 이 모델 정의를 사용하여 **디지털 트윈**을 만들 수 있습니다. [디지털 트윈](concepts-twins-graph.md)은 모델의 인스턴스이며, 비즈니스 환경 내의 엔터티(예: 농장의 센서, 건물의 방, 자동차의 조명)를 나타냅니다. 이 섹션에서는 이전에 업로드한 모델에 따라 몇 개의 디지털 트윈을 만듭니다.
+Azure Digital Twins에 모델을 업로드했으므로 이제 이 모델 정의를 사용하여 **디지털 트윈** 을 만들 수 있습니다. [디지털 트윈](concepts-twins-graph.md)은 모델의 인스턴스이며, 비즈니스 환경 내의 엔터티(예: 농장의 센서, 건물의 방, 자동차의 조명)를 나타냅니다. 이 섹션에서는 이전에 업로드한 모델에 따라 몇 개의 디지털 트윈을 만듭니다.
 
 `System.Text.Json`에 기본 제공 .NET JSON 직렬 변환기가 필요하므로 맨 위에 새로운 `using` 문을 추가합니다.
 
@@ -318,15 +299,22 @@ for(int i=0; i<3; i++) {
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음으로, 앞에서 만든 트윈 간의 **관계**를 만들어 **트윈 그래프**로 연결할 수 있습니다. [트윈 그래프](concepts-twins-graph.md)는 전체 환경을 나타내는 데 사용됩니다.
+다음으로, 앞에서 만든 트윈 간의 **관계** 를 만들어 **트윈 그래프** 로 연결할 수 있습니다. [트윈 그래프](concepts-twins-graph.md)는 전체 환경을 나타내는 데 사용됩니다.
 
-관계를 만들 수 있으려면 `Azure.DigitalTwins.Core.Serialization` 네임스페이스가 필요합니다. 이 `using` 문을 사용하여 이전에 프로젝트에 추가했습니다.
+관계를 만드는 데 도움이 되도록 이 코드 샘플에서는 `Azure.DigitalTwins.Core.Serialization` 네임스페이스를 사용합니다. 이 `using` 문을 사용하여 이전에 프로젝트에 추가했습니다.
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization`은 디지털 트윈 및 관계을 사용할 필요가 없으며, 데이터를 올바른 형식으로 가져오는 데 도움이 되는 선택적 네임스페이스입니다. 이를 사용하는 몇 가지 대안은 다음과 같습니다.
+>* 문자열을 연결하여 JSON 개체 구성
+>* JSON 파서(예: `System.Text.Json`)를 사용하여 JSON 개체를 동적으로 빌드
+>* C#에서 사용자 지정 형식 모델링, 인스턴스화 및 문자열로 직렬화
+
 `Main` 메서드 아래에 있는 `Program` 클래스에 새 정적 메서드를 추가합니다.
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +336,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-그런 다음, `Main` 메서드의 끝에 다음 코드를 추가하여 `CreateRelationship` 코드를 호출합니다.
+다음으로, 다음 코드를 `Main` 메서드의 끝에 추가하여 `CreateRelationship` 메서드를 호출하고 방금 작성한 코드를 사용합니다.
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -434,7 +423,7 @@ await foreach (string twin in result)
 
 ## <a name="complete-code-example"></a>전체 코드 예제
 
-자습서의 이 지점에는 Azure Digital Twins에 대한 기본 작업을 수행할 수 있는 전체 클라이언트 앱이 있습니다. 참조용으로 *Program.cs*의 프로그램 코드 전체가 아래에 나와 있습니다.
+자습서의 이 지점에는 Azure Digital Twins에 대한 기본 작업을 수행할 수 있는 전체 클라이언트 앱이 있습니다. 참조용으로 *Program.cs* 의 프로그램 코드 전체가 아래에 나와 있습니다.
 
 ```csharp
 using System;
@@ -455,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
