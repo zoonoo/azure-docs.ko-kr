@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249655"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637261"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>복사 활동의 스키마 및 데이터 형식 매핑
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "85249655"
 2. 정의 된 매핑을 적용 합니다.
 3. 싱크에 데이터를 씁니다.
 
-다음에 대해 자세히 알아봅니다.
+다음에 대해 자세히 알아보세요.
 
 - [테이블 형식 소스에서 테이블 형식 싱크로](#tabular-source-to-tabular-sink)
 - [계층적 원본에서 테이블 형식 싱크로](#hierarchical-source-to-tabular-sink)
@@ -54,13 +54,13 @@ UI를 제작 하는 Data Factory > 복사 작업-> 매핑 탭에서 매핑을 �
 | 경로     | 추출 하거나 매핑할 각 필드에 대 한 JSON 경로 식입니다. 계층 구조 원본 및 싱크에 대해 적용 합니다 (예: Cosmos DB, MongoDB 또는 REST 커넥터).<br>루트 개체 아래에 있는 필드의 경우 JSON 경로는 root로 시작 하 `$` 고, 속성으로 선택한 배열 내에 있는 필드의 경우 `collectionReference` json 경로는를 사용 하지 않고 배열 요소에서 시작 `$` 합니다. | 예       |
 | type     | 원본 또는 싱크 열의 중간 데이터 형식을 Data Factory 합니다. 일반적으로이 속성을 지정 하거나 변경할 필요가 없습니다. [데이터 형식 매핑에](#data-type-mapping)대해 자세히 알아보세요. | 예       |
 | culture  | 원본 또는 싱크 열의 문화권입니다. Type이 또는 인 경우에 적용 됩니다 `Datetime` `Datetimeoffset` . 기본값은 `en-us`입니다.<br>일반적으로이 속성을 지정 하거나 변경할 필요가 없습니다. [데이터 형식 매핑에](#data-type-mapping)대해 자세히 알아보세요. | 예       |
-| format   | 형식이 또는 일 때 사용할 서식 문자열입니다 `Datetime` `Datetimeoffset` . 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. 일반적으로이 속성을 지정 하거나 변경할 필요가 없습니다. [데이터 형식 매핑에](#data-type-mapping)대해 자세히 알아보세요. | 아니요       |
+| format   | 형식이 또는 일 때 사용할 서식 문자열입니다 `Datetime` `Datetimeoffset` . 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. 일반적으로이 속성을 지정 하거나 변경할 필요가 없습니다. [데이터 형식 매핑에](#data-type-mapping)대해 자세히 알아보세요. | 아니요       |
 
 다음은 외에도에서 지원 되는 속성 `translator` 입니다 `mappings` .
 
 | 속성            | Description                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | 계층 구조 원본에서 데이터를 복사 하는 경우 (예: Cosmos DB, MongoDB 또는 REST 커넥터)에 적용 됩니다.<br>동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 아니요       |
+| collectionReference | 계층 구조 원본에서 데이터를 복사 하는 경우 (예: Cosmos DB, MongoDB 또는 REST 커넥터)에 적용 됩니다.<br>동일한 패턴으로 **배열 필드 내부** 의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 아니요       |
 
 #### <a name="tabular-source-to-tabular-sink"></a>테이블 형식 소스에서 테이블 형식 싱크로
 
@@ -174,21 +174,21 @@ UI를 제작 하는 Data Factory > 복사 작업-> 매핑 탭에서 매핑을 �
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
-| 01          | 20170122  | P1       | 23          | Seattle |
-| 01          | 20170122  | P2       | 13          | Seattle |
-| 01          | 20170122  | P3       | 231         | Seattle |
+| 01          | 20170122  | P1       | 23          | 시애틀 |
+| 01          | 20170122  | P2       | 13          | 시애틀 |
+| 01          | 20170122  | P3       | 231         | 시애틀 |
 
 Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 
 1. 복사 작업-> 매핑 탭에서 **스키마 가져오기** 단추를 클릭 하 여 원본 및 싱크 스키마를 모두 가져옵니다. 스키마를 가져올 때 최상위 개체를 샘플링 하는 Data Factory, 필드가 표시 되지 않는 경우 계층 구조에서 올바른 계층에 추가 하 고 기존 필드 이름을 마우스로 가리킨 다음 노드, 개체 또는 배열을 추가 하도록 선택할 수 있습니다.
 
-2. 데이터를 반복 하 고 추출할 배열을 선택 합니다. 이는 자동으로 **컬렉션 참조**로 채워집니다. 참고 이러한 작업에는 단일 배열만 지원 됩니다.
+2. 데이터를 반복 하 고 추출할 배열을 선택 합니다. 이는 자동으로 **컬렉션 참조** 로 채워집니다. 참고 이러한 작업에는 단일 배열만 지원 됩니다.
 
 3. 필요한 필드를 싱크에 매핑합니다. Data Factory는 계층 구조 쪽에 해당 하는 JSON 경로를 자동으로 결정 합니다.
 
 ![UI를 사용 하 여 테이블 형식에 계층적 매핑](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-**고급 편집기**로 전환할 수도 있습니다 .이 경우 필드의 JSON 경로를 직접 보고 편집할 수 있습니다. 이 보기에서 새 매핑을 추가 하도록 선택한 경우 JSON 경로를 지정 합니다.
+**고급 편집기** 로 전환할 수도 있습니다 .이 경우 필드의 JSON 경로를 직접 보고 편집할 수 있습니다. 이 보기에서 새 매핑을 추가 하도록 선택한 경우 JSON 경로를 지정 합니다.
 
 ![고급 편집기를 사용 하 여 테이블 형식에 계층적 매핑](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -283,7 +283,7 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 
 원본에서 싱크로의 중간 형식 간에는 다음과 같은 데이터 형식 변환이 지원 됩니다.
 
-| Source\Sink | 부울 | 바이트 배열 | Decimal | 날짜/시간 <small>(1)</small> | 부동 소수점 <small>(2)</small> | GUID | 정수 <small>(3)</small> | 문자열 | TimeSpan |
+| Source\Sink | 부울 | 바이트 배열 | Decimal | 날짜/시간 <small>(1)</small> | 부동 소수점 <small>(2)</small> | GUID | 정수 <small>(3)</small> | String | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | 부울     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | 바이트 배열  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
@@ -292,7 +292,7 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 | 부동 소수점 | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | 정수     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| 문자열      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) 날짜/시간에는 DateTime 및 DateTimeOffset이 포함 됩니다.
@@ -314,9 +314,9 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 | *에서 `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | 복사 중에 다른 유형의 싱크로 원본 데이터를 변환할 때 데이터 잘림을 허용 합니다 (예: decimal에서 integer로, DatetimeOffset에서 Datetime으로). <br>기본값은 true입니다. | 아니요       |
 | treatBooleanAsNumber             | 부울을 숫자로 처리 합니다 (예: 1).<br>기본값은 false입니다. | 아니요       |
-| dateTimeFormat                   | 표준 시간대 오프셋과 문자열 (예:)이 없는 날짜 사이를 변환할 때의 형식 문자열 `yyyy-MM-dd HH:mm:ss.fff` 입니다.  자세한 내용은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) 을 참조 하세요. | 아니요       |
-| dateTimeOffsetFormat             | 표준 시간대 오프셋과 문자열 (예:)을 사용 하 여 날짜 사이를 변환할 때의 형식 문자열 `yyyy-MM-dd HH:mm:ss.fff zzz` 입니다.  자세한 내용은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) 을 참조 하세요. | 아니요       |
-| Times및 형식                   | 기간과 문자열을 변환할 때 형식 문자열입니다 (예:) `dd\.hh\:mm` . 자세한 내용은 [사용자 지정 TimeSpan 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) 을 참조 하세요. | 예       |
+| dateTimeFormat                   | 표준 시간대 오프셋과 문자열 (예:)이 없는 날짜 사이를 변환할 때의 형식 문자열 `yyyy-MM-dd HH:mm:ss.fff` 입니다.  자세한 내용은 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings) 을 참조 하세요. | 아니요       |
+| dateTimeOffsetFormat             | 표준 시간대 오프셋과 문자열 (예:)을 사용 하 여 날짜 사이를 변환할 때의 형식 문자열 `yyyy-MM-dd HH:mm:ss.fff zzz` 입니다.  자세한 내용은 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings) 을 참조 하세요. | 아니요       |
+| Times및 형식                   | 기간과 문자열을 변환할 때 형식 문자열입니다 (예:) `dd\.hh\:mm` . 자세한 내용은 [사용자 지정 TimeSpan 형식 문자열](/dotnet/standard/base-types/custom-timespan-format-strings) 을 참조 하세요. | 예       |
 | culture                          | 형식 (예: 또는)을 변환할 때 사용할 문화권 정보 `en-us` 입니다 `fr-fr` . | 예       |
 
 **예:**
@@ -411,7 +411,7 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 }
 ```
 
-다음 JSON은 파이프라인으로 복사 작업을 정의합니다. 원본에서 열은 **변환기**열  ->  **매핑** 속성을 사용 하 여 싱크의 열에 매핑됩니다.
+다음 JSON은 파이프라인으로 복사 작업을 정의합니다. 원본에서 열은 **변환기** 열  ->  **매핑** 속성을 사용 하 여 싱크의 열에 매핑됩니다.
 
 ```json
 {
@@ -455,8 +455,8 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 | 속성            | Description                                                  | 필수 |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | 복사 작업 변환기의 type 속성은 **TabularTranslator** 로 설정 해야 합니다. | 예      |
-| schemaMapping       | **소스 쪽에서 싱크 쪽으로의**매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 원본을 나타냅니다. **테이블 형식 원본의**경우 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층 구조 원본**에서 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크에**대해 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층적 싱크에**대해 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다. <br>계층적 데이터의 경우 루트 개체 아래의 필드에 대해 JSON 경로는 root $로 시작 합니다. 속성으로 선택한 배열 내에 있는 필드의 경우 `collectionReference` JSON 경로는 배열 요소에서 시작 합니다. | 예      |
-| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아니요       |
+| schemaMapping       | **소스 쪽에서 싱크 쪽으로의** 매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 원본을 나타냅니다. **테이블 형식 원본의** 경우 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층 구조 원본** 에서 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크에** 대해 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층적 싱크에** 대해 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다. <br>계층적 데이터의 경우 루트 개체 아래의 필드에 대해 JSON 경로는 root $로 시작 합니다. 속성으로 선택한 배열 내에 있는 필드의 경우 `collectionReference` JSON 경로는 배열 요소에서 시작 합니다. | 예      |
+| collectionReference | 동일한 패턴으로 **배열 필드 내부** 의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아니요       |
 
 **예: MongoDB에서 Oracle로 복사 합니다.**
 
@@ -491,9 +491,9 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
-| 01          | 20170122  | P1       | 23          | Seattle |
-| 01          | 20170122  | P2       | 13          | Seattle |
-| 01          | 20170122  | P3       | 231         | Seattle |
+| 01          | 20170122  | P1       | 23          | 시애틀 |
+| 01          | 20170122  | P2       | 13          | 시애틀 |
+| 01          | 20170122  | P3       | 231         | 시애틀 |
 
 다음 복사 작업 JSON 샘플처럼 스키마-매핑 규칙을 구성합니다.
 

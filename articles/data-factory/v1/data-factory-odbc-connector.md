@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707381"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636870"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -47,9 +47,9 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 ODBC 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio** , **Azure PowerShell** **Azure Resource Manager 템플릿** , **.net API** 및 **REST API** . 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -64,7 +64,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 ODBC 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 다음으로 설정해야 함: **OnPremisesOdbc** |예 |
 | connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예 |
@@ -94,7 +94,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>암호화된 자격 증명으로 기본 인증 사용
-[AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (1.0 버전의 Azure PowerShell) Cmdlet 또는 [new-azuredatafactoryencryptvalue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 또는 이전 버전의 Azure PowerShell)를 사용 하 여 자격 증명을 암호화할 수 있습니다.
+[AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (1.0 버전의 Azure PowerShell) Cmdlet 또는 [new-azuredatafactoryencryptvalue](/previous-versions/azure/dn834940(v=azure.100)) (0.9 또는 이전 버전의 Azure PowerShell)를 사용 하 여 자격 증명을 암호화할 수 있습니다.
 
 ```json
 {
@@ -136,7 +136,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **RelationalTable** 형식(ODBC 데이터 세트를 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예 |
 
@@ -293,7 +293,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 **ODBC 원본(RelationalSource) 및 Blob 싱크 (BlobSink)를 사용하는 파이프라인의 복사 작업**
 
-파이프라인은 이러한 입력 및 출력 데이터 세트를 사용하도록 구성되며 매시간 실행되도록 예약되는 복사 활동을 포함합니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 이러한 입력 및 출력 데이터 세트를 사용하도록 구성되며 매시간 실행되도록 예약되는 복사 활동을 포함합니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {
@@ -346,7 +346,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식 매핑](https://msdn.microsoft.com/library/cc668763.aspx) 토픽에서 설명된 대로 ODBC 데이터 형식은 .NET 형식에 매핑됩니다.
+ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식 매핑](/dotnet/framework/data/adonet/odbc-data-type-mappings) 토픽에서 설명된 대로 ODBC 데이터 형식은 .NET 형식에 매핑됩니다.
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
@@ -355,17 +355,17 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기를](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)참조 하세요.
 
 ## <a name="troubleshoot-connectivity-issues"></a>연결 문제 해결
-연결 문제를 해결하려면 **데이터 관리 게이트웨이 구성 관리자**의 **진단** 탭을 사용합니다.
+연결 문제를 해결하려면 **데이터 관리 게이트웨이 구성 관리자** 의 **진단** 탭을 사용합니다.
 
-1. **데이터 관리 게이트웨이 구성 관리자**를 시작합니다. "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이**를 검색하여 **Microsoft 데이터 관리 게이트웨이** 애플리케이션에 대한 링크를 찾을 수 있습니다.
+1. **데이터 관리 게이트웨이 구성 관리자** 를 시작합니다. "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이** 를 검색하여 **Microsoft 데이터 관리 게이트웨이** 애플리케이션에 대한 링크를 찾을 수 있습니다.
 
     ![게이트웨이 검색](./media/data-factory-odbc-connector/search-gateway.png)
 2. **진단** 탭으로 전환 합니다.
 
     ![게이트웨이 진단](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
-3. 데이터 저장소(연결된 서비스)의 **형식**을 선택합니다.
-4. **인증**을 지정하고 데이터 저장소에 연결된 **자격 증명**을 입력하거나 **연결 문자열**을 입력합니다.
-5. **연결 테스트**를 클릭하여 데이터 저장소에 대한 연결을 테스트합니다.
+3. 데이터 저장소(연결된 서비스)의 **형식** 을 선택합니다.
+4. **인증** 을 지정하고 데이터 저장소에 연결된 **자격 증명** 을 입력하거나 **연결 문자열** 을 입력합니다.
+5. **연결 테스트** 를 클릭하여 데이터 저장소에 대한 연결을 테스트합니다.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

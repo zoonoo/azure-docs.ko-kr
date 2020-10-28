@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 10/26/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dc7458dd905ff84455927c81b4ea93765d4f5cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928822"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635465"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -24,7 +24,10 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 고객 관리 키를 사용 하는 암호화는 해당 개체가 생성 될 때 개별 인덱스나 동의어 맵에 적용 되며 검색 서비스 수준 자체에는 지정 되지 않습니다. 새 개체만 암호화할 수 있습니다. 이미 존재 하는 콘텐츠는 암호화할 수 없습니다.
 
-키가 모두 동일한 키 자격 증명 모음에 있을 필요는 없습니다. 단일 검색 서비스는 서로 다른 키 자격 증명 모음에 저장 된 고유한 고객 관리 암호화 키로 암호화 된 여러 암호화 된 인덱스 또는 동의어 맵을 호스트할 수 있습니다. 고객 관리 키를 사용 하 여 암호화 되지 않은 동일한 서비스에 인덱스 및 동의어 맵을 포함할 수도 있습니다. 
+키가 모두 동일한 키 자격 증명 모음에 있을 필요는 없습니다. 단일 검색 서비스는 서로 다른 키 자격 증명 모음에 저장 된 고유한 고객 관리 암호화 키로 암호화 된 여러 암호화 된 인덱스 또는 동의어 맵을 호스트할 수 있습니다. 고객 관리 키를 사용 하 여 암호화 되지 않은 동일한 서비스에 인덱스 및 동의어 맵을 포함할 수도 있습니다.
+
+>[!Important]
+> 고객 관리 키를 구현 하는 경우 주요 자격 증명 모음 키를 정기적으로 회전 하 고 응용 프로그램 암호 및 등록을 Active Directory 하는 엄격한 절차를 수행 해야 합니다. 이전 암호 및 키를 삭제 하기 전에 새 비밀 및 키를 사용 하도록 모든 암호화 된 콘텐츠를 항상 업데이트 합니다. 이 단계를 수행 하지 않은 경우 콘텐츠의 암호를 해독할 수 없습니다.
 
 ## <a name="double-encryption"></a>이중 암호화
 
@@ -38,24 +41,32 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 CMK 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 예제에서는 다음 서비스와 서비스를 사용 합니다. 
+이 예제에서 사용 되는 도구 및 서비스는 다음과 같습니다. 
 
-+ [Azure Cognitive Search 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
++ [Cognitive Search 서비스를 만들거나 기존 서비스](search-create-service-portal.md) 를 [찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Azure Key Vault 리소스를 만들거나](../key-vault/secrets/quick-create-portal.md#create-a-vault) Azure Cognitive Search와 동일한 구독에서 기존 자격 증명 모음을 찾습니다. 이 기능에는 동일한 구독 요구 사항이 있습니다.
++ [Azure Key Vault 리소스를 만들거나 기존 리소스](../key-vault/secrets/quick-create-portal.md#create-a-vault) 를 찾습니다. Key Vault와 Cognitive Search는 모두 동일한 구독에 있어야 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
 
-+ [Azure PowerShell](/powershell/azure/) 또는 [Azure CLI](/cli/azure/install-azure-cli) 는 구성 작업에 사용 됩니다.
++ 응용 프로그램을 등록 하 고 응용 프로그램에서 인증에 사용 하는 암호 문자열을 만들려면 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 합니다. 새 테 넌 트를 설치 하지 않은 경우에 [는 새 테 넌 트를 설정](../active-directory/develop/quickstart-create-new-tenant.md)합니다.
 
-+ [Postman](search-get-started-postman.md), [AZURE POWERSHELL](./search-get-started-powershell.md) 및 [.net SDK 미리 보기](https://aka.ms/search-sdk-preview) 를 사용 하 여 암호화 키 매개 변수를 포함 하는 인덱스 및 동의어 맵을 만드는 REST API를 호출할 수 있습니다. 현재는 인덱스 또는 동의어 맵에 키를 추가할 수 있는 포털이 지원 되지 않습니다.
+암호화 된 개체를 만들 수 있는 검색 응용 프로그램이 있어야 합니다. 이 코드에는 주요 자격 증명 모음 키를 참조 하 고 등록 정보를 Active Directory 합니다. 이 코드는 작업 중인 앱 또는 [c # 코드 샘플 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)같은 프로토타입 코드 일 수 있습니다.
 
->[!Note]
-> Azure 키 자격 증명 모음 키가 삭제 된 경우 Azure Cognitive Search는 고객 관리 키를 사용 하 여 암호화의 특성으로 인해 데이터를 검색할 수 없습니다. Key Vault 실수로 키 삭제로 인 한 데이터 손실을 방지 하려면 키 자격 증명 모음에 대해 일시 삭제 및 제거 보호를 사용 하도록 설정 해야 합니다. 일시 삭제는 기본적으로 사용 하도록 설정 되어 있으므로 의도적으로 사용 하지 않도록 설정한 경우에만 문제가 발생 합니다. 제거 보호는 기본적으로 사용 하도록 설정 되어 있지 않지만 Azure Cognitive Search CMK 암호화에 필요 합니다. 자세한 내용은 [일시 삭제](../key-vault/general/soft-delete-overview.md) 및 [보호 제거](../key-vault/general/soft-delete-overview.md#purge-protection) 개요를 참조 하세요.
+> [!TIP]
+> [Postman](search-get-started-postman.md) 또는 [Azure PowerShell](./search-get-started-powershell.md) 를 사용 하 여 암호화 키 매개 변수를 포함 하는 인덱스 및 동의어 맵을 만드는 REST api를 호출할 수 있습니다. 현재는 인덱스 또는 동의어 맵에 키를 추가할 수 있는 포털이 지원 되지 않습니다.
 
 ## <a name="1---enable-key-recovery"></a>1-키 복구 사용
 
-키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다. 이러한 기능은 포털 또는 다음 PowerShell 또는 Azure CLI 명령을 사용 하 여 설정할 수 있습니다.
+고객 관리 키를 사용 하는 암호화의 특성으로 인해 Azure Key vault 키가 삭제 되 면 아무도 데이터를 검색할 수 없습니다. Key Vault 실수로 키 삭제로 인 한 데이터 손실을 방지 하려면 키 자격 증명 모음에 대해 일시 삭제 및 제거 보호를 사용 하도록 설정 해야 합니다. 일시 삭제는 기본적으로 사용 하도록 설정 되어 있으므로 의도적으로 사용 하지 않도록 설정한 경우에만 문제가 발생 합니다. 제거 보호는 기본적으로 사용 하도록 설정 되어 있지 않지만 Azure Cognitive Search CMK 암호화에 필요 합니다. 자세한 내용은 [일시 삭제](../key-vault/general/soft-delete-overview.md) 및 [보호 제거](../key-vault/general/soft-delete-overview.md#purge-protection) 개요를 참조 하세요.
+
+Portal, PowerShell 또는 Azure CLI 명령을 사용 하 여 두 속성을 모두 설정할 수 있습니다.
+
+### <a name="using-azure-portal"></a>Azure Portal 사용
+
+1. [Azure Portal에 로그인](https://portal.azure.com) 하 고 키 자격 증명 모음 개요 페이지를 엽니다.
+
+1. **개요** 페이지의 **Essentials** 에서 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 합니다.
 
 ### <a name="using-powershell"></a>PowerShell 사용
 
@@ -87,98 +98,85 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
-```azurecli-interactive
-az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
-```
++ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)을 설치한 경우 다음 명령을 실행 하 여 필수 속성을 사용 하도록 설정할 수 있습니다.
 
-## <a name="2---create-a-new-key"></a>2-새 키 만들기
+   ```azurecli-interactive
+   az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
+   ```
 
-기존 키를 사용 하 여 Azure Cognitive Search 콘텐츠를 암호화 하는 경우이 단계를 건너뜁니다.
+## <a name="2---create-a-key-in-key-vault"></a>2-Key Vault에서 키 만들기
+
+Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com) 하 고 키 자격 증명 모음 개요 페이지를 엽니다.
 
-1. 왼쪽 탐색 창에서 **키** 설정을 선택 하 고 **+ 생성/가져오기**를 클릭 합니다.
+1. 왼쪽에서 **키** 를 선택 하 고 **+ 생성/가져오기** 를 선택 합니다.
 
-1. **키 만들기** 창에 있는 **옵션**목록에서 키를 만드는 데 사용할 방법을 선택 합니다. 새 키를 **생성** 하거나 기존 키를 **업로드** 하거나 **복원 백업을** 사용 하 여 키 백업을 선택할 수 있습니다.
+1. **키 만들기** 창에 있는 **옵션** 목록에서 키를 만드는 데 사용할 방법을 선택 합니다. 새 키를 **생성** 하거나 기존 키를 **업로드** 하거나 **복원 백업을** 사용 하 여 키 백업을 선택할 수 있습니다.
 
 1. 키의 **이름을** 입력 하 고 필요에 따라 다른 키 속성을 선택 합니다.
 
-1. **만들기** 단추를 클릭 하 여 배포를 시작 합니다.
+1. **만들기** 를 선택 하 여 배포를 시작 합니다.
 
-키 식별자를 적어 둡니다 .이는 키 **값 Uri**, **키 이름**및 **키 버전**으로 구성 됩니다. Azure Cognitive Search에서 암호화 된 인덱스를 정의 하는 데 필요 합니다.
- 
-![새 key vault 키 만들기](./media/search-manage-encryption-keys/create-new-key-vault-key.png "새 key vault 키 만들기")
+1. 키 식별자를 적어둡니다. 키 **값은 Uri** , **키 이름** 및 키 **버전** 으로 구성 됩니다. Azure Cognitive Search에서 암호화 된 인덱스를 정의 하려면 식별자가 필요 합니다.
 
-## <a name="3---create-a-service-identity"></a>3-서비스 id 만들기
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="새 key vault 키 만들기":::
 
-검색 서비스에 id를 할당 하면 검색 서비스에 대 한 Key Vault 액세스 권한을 부여할 수 있습니다. 검색 서비스는 해당 id를 사용 하 여 Azure Key vault에 인증 합니다.
+## <a name="3---register-an-app-in-active-directory"></a>3-Active Directory에 앱 등록
 
-Azure Cognitive Search는 id를 할당 하는 두 가지 방법, 즉 관리 되는 id 또는 외부에서 관리 되는 Azure Active Directory 응용 프로그램을 지원 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 구독에 대 한 Azure Active Directory 리소스를 찾습니다.
 
-가능 하면 관리 되는 id를 사용 합니다. 검색 서비스에 id를 할당 하는 가장 간단한 방법은 대부분의 시나리오에서 작동 해야 합니다. 인덱스 및 동의어 맵에 대해 여러 키를 사용 하는 경우 또는 솔루션이 id 기반 인증을 정규화 하지 않는 분산 아키텍처에 있는 경우이 문서의 끝에 설명 된 대로 [외부에서 관리 되는 고급 Azure Active Directory 방법을](#aad-app) 사용 합니다.
+1. 왼쪽의 **관리** 에서 **앱 등록** 를 선택 하 고 **새 등록** 을 선택 합니다.
 
- 일반적으로 관리 되는 id를 사용 하면 검색 서비스에서 코드에 자격 증명을 저장 하지 않고 Azure Key Vault에 인증할 수 있습니다. 이러한 유형의 관리 되는 id의 수명 주기는 관리 id를 하나만 포함할 수 있는 검색 서비스의 수명 주기에 연결 됩니다. [관리 id에 대해 자세히 알아보세요](../active-directory/managed-identities-azure-resources/overview.md).
+1. 검색 응용 프로그램 이름과 비슷한 이름을 등록 이름을 지정 합니다. **등록** 을 선택합니다.
 
-1. [Azure Portal에 로그인](https://portal.azure.com) 하 고 search 서비스 개요 페이지를 엽니다. 
+1. 앱 등록을 만든 후 응용 프로그램 ID를 복사 합니다. 응용 프로그램에이 문자열을 제공 해야 합니다. 
 
-1. 왼쪽 탐색 창에서 **id** 를 클릭 하 고 상태를 **켜기**로 변경 하 고 **저장**을 클릭 합니다.
+   [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)를 단계별로 실행 하는 경우이 값을 파일 **의appsettings.js** 에 붙여넣습니다.
 
-![관리 id 사용](./media/search-enable-msi/enable-identity-portal.png "관리 되 id 사용")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="새 key vault 키 만들기":::
+
+1. 그런 다음 왼쪽에서 **인증서 & 암호** 를 선택 합니다.
+
+1. **새 클라이언트 비밀** 을 선택합니다. 비밀에 표시 이름을 지정 하 고 **추가** 를 선택 합니다.
+
+1. 응용 프로그램 암호를 복사 합니다. 샘플을 단계별로 실행 하는 경우이 값을 파일 **의appsettings.js** 에 붙여넣습니다.
+
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="새 key vault 키 만들기":::
 
 ## <a name="4---grant-key-access-permissions"></a>4-키 액세스 권한 부여
 
-검색 서비스에서 Key Vault 키를 사용 하도록 설정 하려면 검색 서비스에 특정 액세스 권한을 부여 해야 합니다.
+이 단계에서는 Key Vault에서 액세스 정책을 만듭니다. 이 정책은 사용자가 등록 한 응용 프로그램에 고객이 관리 하는 키를 사용할 수 있는 권한을 부여 Active Directory 합니다.
 
 지정 된 시간에 액세스 권한이 취소 될 수 있습니다. 해지 되 면 해당 키 자격 증명 모음을 사용 하는 모든 검색 서비스 인덱스 또는 동의어 맵을 사용할 수 없게 됩니다. 나중에 Key vault 액세스 권한을 복원 하면 index\synonym 맵 액세스가 복원 됩니다. 자세한 내용은 [key vault에 대 한 보안 액세스](../key-vault/general/secure-your-key-vault.md)를 참조 하세요.
 
-1. [Azure Portal에 로그인](https://portal.azure.com) 하 고 키 자격 증명 모음 개요 페이지를 엽니다. 
+1. 계속 Azure Portal에서 키 자격 증명 모음 **개요** 페이지를 엽니다. 
 
-1. 왼쪽 탐색 창에서 **액세스 정책** 설정을 선택 하 고 **+ 새로 추가**를 클릭 합니다.
+1. 왼쪽에서 **액세스 정책을** 선택 하 고 **+ 액세스 정책 추가** 를 선택 합니다.
 
-   ![새 키 자격 증명 모음 액세스 정책 추가](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "새 키 자격 증명 모음 액세스 정책 추가")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="새 key vault 키 만들기":::
 
-1. **보안 주체 선택** 을 클릭 하 고 Azure Cognitive Search 서비스를 선택 합니다. 이름 또는 관리 id를 사용 하도록 설정한 후 표시 된 개체 ID를 기준으로 검색할 수 있습니다.
+1. **보안 주체 선택** 을 선택 하 고 Active Directory에 등록 한 응용 프로그램을 선택 합니다. 이름을 기준으로 검색할 수 있습니다.
 
-   ![키 자격 증명 모음 액세스 정책 주체를 선택 합니다.](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "키 자격 증명 모음 액세스 정책 주체를 선택 합니다.")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="새 key vault 키 만들기":::
 
-1. **키 사용 권한** 을 클릭 하 고 *가져오기*, *키 래핑* 및 *키 래핑*을 선택 합니다. *Azure Data Lake Storage 또는 Azure Storage* 템플릿을 사용 하 여 필요한 사용 권한을 빠르게 선택할 수 있습니다.
+1. **키 권한** 에서 *가져오기* , *키 래핑* 및 *키 래핑* 을 선택 합니다.
 
-   Azure Cognitive Search는 다음 [액세스 권한](../key-vault/keys/about-keys.md#key-operations)으로 부여 되어야 합니다.
+1. **비밀 권한** 에서 *가져오기* 를 선택 합니다.
 
-   * *Get* -검색 서비스를 사용 하 여 Key Vault에서 키의 공개 부분을 검색할 수 있습니다.
-   * *키 래핑* -검색 서비스에서 키를 사용 하 여 내부 암호화 키를 보호할 수 있습니다.
-   * *래핑 해제 키* -검색 서비스에서 키를 사용 하 여 내부 암호화 키를 래핑 해제할 수 있습니다.
+1. **인증서 사용 권한** 에서 *가져오기* 를 선택 합니다.
 
-   ![키 자격 증명 모음 액세스 정책 키 사용 권한 선택](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "키 자격 증명 모음 액세스 정책 키 사용 권한 선택")
-
-1. **비밀 사용 권한에**대해 *가져오기*를 선택 합니다.
-
-1. **인증서 사용 권한에**대해 *가져오기*를 선택 합니다.
-
-1. **확인** 을 클릭 하 고 액세스 정책 변경 내용을 **저장** 합니다.
+1. **추가** 를 선택한 다음 **저장** 을 선택 합니다.
 
 > [!Important]
-> Azure Cognitive Search의 암호화 된 콘텐츠는 특정 **버전**의 특정 Azure Key Vault 키를 사용 하도록 구성 됩니다. 키 또는 버전을 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 새 key\version을 사용 하도록 인덱스 또는 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 인덱스 또는 동의어 맵을 사용할 수 없게 되며 키 액세스가 손실 된 후에는 콘텐츠의 암호를 해독할 수 없습니다.   
+> Azure Cognitive Search의 암호화 된 콘텐츠는 특정 **버전** 의 특정 Azure Key Vault 키를 사용 하도록 구성 됩니다. 키 또는 버전을 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 새 key\version을 사용 하도록 인덱스 또는 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 인덱스 또는 동의어 맵을 사용할 수 없게 되며 키 액세스가 손실 된 후에는 콘텐츠의 암호를 해독할 수 없습니다.
 
 ## <a name="5---encrypt-content"></a>5-콘텐츠 암호화
 
-인덱스 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 [검색 REST API](/rest/api/searchservice/) 또는 SDK를 사용 해야 합니다. 포털은 동의어 맵 또는 암호화 속성을 노출 하지 않습니다. 유효한 API를 사용 하는 경우 인덱스와 동의어 맵이 모두 최상위 **encryptionKey** 속성을 지원 합니다. 
+인덱스 또는 동의어 맵에 고객이 관리 하는 키를 추가 하려면 REST API 또는 SDK를 사용 하 여 해당 정의에가 포함 된 개체를 만듭니다 `encryptionKey` .
 
-주요 자격 증명 모음 키의 주요 **자격 증명 모음 Uri**, **키 이름** 및 **키 버전** 을 사용 하 여 다음과 같이 **encryptionKey** 정의를 만듭니다.
+이 예에서는 Azure Key Vault 및 Azure Active Directory에 대 한 값과 함께 REST API를 사용 합니다.
 
-```json
-{
-  "encryptionKey": {
-    "keyVaultUri": "https://demokeyvault.vault.azure.net",
-    "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
-  }
-}
-```
-> [!Note] 
-> 이러한 주요 자격 증명 모음 세부 정보는 비밀로 간주 되지 않으며 Azure Portal의 관련 Azure Key Vault 키 페이지로 이동 하 여 쉽게 검색할 수 있습니다.
-
-관리 id를 사용 하는 대신 Key Vault 인증을 위해 AAD 응용 프로그램을 사용 하는 경우 AAD 응용 프로그램 **액세스 자격 증명** 을 암호화 키에 추가 합니다. 
 ```json
 {
   "encryptionKey": {
@@ -193,8 +191,16 @@ Azure Cognitive Search는 id를 할당 하는 두 가지 방법, 즉 관리 되�
 }
 ```
 
-## <a name="example-index-encryption"></a>예: 인덱스 암호화
-REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용은 [인덱스 만들기 (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index)에서 찾을 수 있습니다. 여기서 유일한 차이점은 인덱스 정의의 일부로 암호화 키 세부 정보를 지정 하는 것입니다. 
+> [!Note]
+> 이러한 주요 자격 증명 모음 세부 정보는 비밀로 간주 되지 않으며 Azure Portal의 관련 Azure Key Vault 키 페이지로 이동 하 여 쉽게 검색할 수 있습니다.
+
+## <a name="rest-examples"></a>REST 예제
+
+이 섹션에서는 암호화 된 인덱스 및 동의어 맵에 대 한 전체 JSON을 보여 줍니다.
+
+### <a name="index-encryption"></a>인덱스 암호화
+
+REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용은 인덱스 [만들기 (REST API)](/rest/api/searchservice/create-index)에서 찾을 수 있습니다. 여기서 유일한 차이점은 인덱스 정의의 일부로 암호화 키 세부 정보를 지정 하는 것입니다.
 
 ```json
 {
@@ -211,18 +217,23 @@ REST API를 통해 새 인덱스를 만드는 방법에 대 한 자세한 내용
   {"name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true},
   {"name": "Location", "type": "Edm.GeographyPoint", "filterable": true, "sortable": true},
  ],
- "encryptionKey": {
-   "keyVaultUri": "https://demokeyvault.vault.azure.net",
-   "keyVaultKeyName": "myEncryptionKey",
-   "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
- }
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
 }
 ```
+
 이제 인덱스 생성 요청을 보낸 다음 인덱스를 정상적으로 사용 하기 시작할 수 있습니다.
 
-## <a name="example-synonym-map-encryption"></a>예: 동의어 맵 암호화
+### <a name="synonym-map-encryption"></a>동의어 맵 암호화
 
-REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 내용은 동의어 맵 [만들기 (Azure Cognitive Search REST API)](/rest/api/searchservice/create-synonym-map)에서 찾을 수 있습니다. 여기서 유일한 차이점은 동의어 맵 정의의 일부로 암호화 키 세부 정보를 지정 하는 것입니다. 
+REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 내용은 동의어 맵 [만들기 (REST API)](/rest/api/searchservice/create-synonym-map)에서 찾을 수 있습니다. 여기서 유일한 차이점은 동의어 맵 정의의 일부로 암호화 키 세부 정보를 지정 하는 것입니다. 
 
 ```json
 {   
@@ -233,39 +244,55 @@ REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 �
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "activeDirectoryAccessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
   }
 }
 ```
+
 이제 동의어 맵 만들기 요청을 보낸 다음 일반적으로 사용을 시작할 수 있습니다.
 
->[!Important] 
-> **EncryptionKey** 는 기존 Azure Cognitive Search 인덱스 또는 동의어 맵에 추가할 수 없지만 세 가지 주요 자격 증명 모음 세부 정보 (예: 키 버전 업데이트)에 대해 다른 값을 제공 하 여 업데이트할 수 있습니다. 새 Key Vault 키 또는 새 키 버전으로 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 먼저 새 key\version을 사용 하도록 해당 키를 사용 하는 모든 Azure Cognitive Search 인덱스나 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 키 액세스가 손실 된 후 콘텐츠를 해독할 수 없으므로 인덱스나 동의어 맵을 사용할 수 없게 됩니다.   
-> 나중에 Key vault 액세스 권한을 복원 하면 콘텐츠 액세스가 복원 됩니다.
-
-## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a> 고급: 외부에서 관리 되는 Azure Active Directory 응용 프로그램 사용
-
-관리 id를 사용할 수 없는 경우 Azure Cognitive Search 서비스의 보안 주체를 사용 하 여 Azure Active Directory 응용 프로그램을 만들 수 있습니다. 특히 관리 되는 id는 다음과 같은 경우에는 실행 되지 않습니다.
-
-* 검색 서비스가 Azure Key Vault와 다른 Active Directory 테 넌 트에 있는 경우와 같이 검색 서비스에 대 한 액세스 권한을 키 자격 증명 모음에 직접 부여할 수는 없습니다.
-
-* 단일 검색 서비스는 각각 다른 키 자격 증명 모음에서 다른 키를 사용 하 여 각각 다른 키 자격 증명 모음에서 다른 키를 사용 해야 하는 여러 암호화 된 indexes\synonym 맵을 호스트 해야 합니다. 여기서 각 키 자격 증명 모음은 인증에 **다른 id** 다른 id를 사용 하 여 다른 키 자격 증명 모음을 관리 하는 것은 요구 사항이 아닙니다. 위의 관리 id 옵션을 사용 하십시오.  
-
-이러한 토폴로지를 수용 하기 위해 Azure Cognitive Search는 Azure Active Directory (AAD) 응용 프로그램을 사용 하 여 검색 서비스와 Key Vault 간의 인증을 지원 합니다.    
-포털에서 AAD 응용 프로그램을 만들려면 다음을 수행 합니다.
-
-1. [Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md).
-
-1. 암호화 된 인덱스를 만드는 데 필요한 [응용 프로그램 ID 및 인증 키를 가져옵니다](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) . 제공 해야 하는 값에는 **응용 프로그램 ID** 및 **인증 키**가 포함 됩니다.
-
 >[!Important]
-> 관리 되는 id 대신 AAD 응용 프로그램 인증을 사용 하기로 결정 하는 경우 Azure Cognitive Search 사용자 대신 aad 응용 프로그램을 관리할 수 있는 권한이 없다는 사실을 고려 하 고, 응용 프로그램 인증 키의 주기적인 회전과 같은 AAD 응용 프로그램을 관리 하는 것이 좋습니다.
-> AAD 응용 프로그램 또는 해당 인증 키를 변경 하는 경우 이전 응용 프로그램 또는 해당 권한 부여 키를 삭제 **하기 전에** 새 응용 프로그램 ID\key를 사용 하도록 먼저 업데이트 하 고이에 대 한 Key Vault 액세스를 취소 하기 전에 해당 응용 프로그램을 사용 하는 모든 Azure Cognitive Search 인덱스 또는 동의어 맵을 업데이트 해야 합니다.
-> 이렇게 하지 않으면 키 액세스가 손실 된 후 콘텐츠를 해독할 수 없으므로 인덱스나 동의어 맵을 사용할 수 없게 됩니다.
+> 는 `encryptionKey` 기존 검색 인덱스 또는 동의어 맵에 추가할 수 없지만 세 가지 주요 자격 증명 모음 세부 정보 (예: 키 버전 업데이트)에 대해 다른 값을 제공 하 여 업데이트할 수 있습니다. 새 Key Vault 키 또는 새 키 버전으로 변경 하는 경우 이전 key\versiona를 삭제 **하기 전에** 먼저 새 key\version을 사용 하도록 해당 키를 사용 하는 모든 검색 인덱스나 동의어 맵을 업데이트 해야 합니다. 이렇게 하지 않으면 키 액세스가 손실 된 후 콘텐츠를 해독할 수 없으므로 인덱스나 동의어 맵을 사용할 수 없게 됩니다. 키 자격 증명 모음 액세스 권한을 나중에 복원 해도 콘텐츠 액세스가 복원 됩니다.
+
+## <a name="simpler-alternative-trusted-service"></a>더 간단한 대안: 신뢰할 수 있는 서비스
+
+테 넌 트 구성 및 인증 요구 사항에 따라 주요 자격 증명 모음 키에 액세스 하기 위한 간단한 방법을 구현할 수 있습니다. Active Directory 응용 프로그램을 만들고 사용 하는 대신 시스템 관리 id를 사용 하도록 설정 하 여 검색 서비스를 신뢰할 수 있는 서비스로 만들 수 있습니다. 그런 다음 키 자격 증명 모음 키에 액세스 하기 위해 AD에 등록 된 응용 프로그램이 아닌 보안 원칙으로 신뢰할 수 있는 검색 서비스를 사용 합니다.
+
+이 방법을 사용 하면 응용 프로그램 등록 및 응용 프로그램 암호에 대 한 단계를 생략 하 고 키 자격 증명 모음 구성 요소 (URI, 자격 증명 모음 이름, 키 버전)에만 암호화 키 정의를 단순화할 수 있습니다.
+
+일반적으로 관리 되는 id를 사용 하면 검색 서비스에서 코드에 자격 증명 (ApplicationID 또는 ApplicationSecret)을 저장 하지 않고 Azure Key Vault에 인증할 수 있습니다. 이러한 유형의 관리 되는 id의 수명 주기는 관리 id를 하나만 포함할 수 있는 검색 서비스의 수명 주기에 연결 됩니다. 관리 id의 작동 방식에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
+
+1. 검색 서비스를 신뢰할 수 있는 서비스로 설정 합니다.
+
+   ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
+
+1. Azure Key Vault에서 액세스 정책을 설정할 때 AD에 등록 된 응용 프로그램 대신 신뢰 된 검색 서비스를 보안 주체로 선택 합니다. 액세스 키 권한 부여 단계에 설명 된 것 처럼 동일한 권한 (여러 개의 가져오기, 래핑, 래핑 해제)을 할당 합니다.
+
+1. `encryptionKey`Active Directory 속성을 생략 하는의 단순화 된 생성을 사용 합니다.
+
+    ```json
+    {
+      "encryptionKey": {
+        "keyVaultUri": "https://demokeyvault.vault.azure.net",
+        "keyVaultKeyName": "myEncryptionKey",
+        "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+      }
+    }
+    ```
+
+이 단순화 된 방법을 채택할 수 없게 되는 조건은 다음과 같습니다.
+
++ 검색 서비스가 Azure Key Vault와 다른 Active Directory 테 넌 트에 있는 경우와 같이 검색 서비스에 대 한 액세스 권한을 키 자격 증명 모음에 직접 부여할 수는 없습니다.
+
++ 단일 검색 서비스는 각각 다른 키 자격 증명 모음에서 다른 키를 사용 하 여 각각 다른 키 자격 증명 모음에서 다른 키를 사용 해야 하는 여러 암호화 된 indexes\synonym 맵을 호스트 해야 합니다. 여기서 각 키 자격 증명 모음은 인증에 **다른 id** 검색 서비스에는 관리 id가 하나만 있을 수 있기 때문에 여러 id에 대 한 요구 사항은 시나리오에 대 한 단순화 된 접근 방식을 규정 하지 않습니다.  
 
 ## <a name="work-with-encrypted-content"></a>암호화 된 콘텐츠 작업
 
-CMK 암호화를 사용 하는 경우 추가 암호화/암호 해독 작업으로 인해 인덱싱 및 쿼리 모두에 대 한 대기 시간을 알 수 있습니다. Azure Cognitive Search는 암호화 작업을 기록 하지 않지만 key vault 로깅을 통해 키 액세스를 모니터링할 수 있습니다. 키 자격 증명 모음의 일부로 [로깅을 사용 하도록](../key-vault/general/logging.md) 설정 하는 것이 좋습니다.
+CMK 암호화를 사용 하는 경우 추가 암호화/암호 해독 작업으로 인해 인덱싱 및 쿼리 모두에 대 한 대기 시간을 알 수 있습니다. Azure Cognitive Search는 암호화 작업을 기록 하지 않지만 key vault 로깅을 통해 키 액세스를 모니터링할 수 있습니다. 키 자격 증명 모음 구성의 일부로 [로깅을 사용](../key-vault/general/logging.md) 하는 것이 좋습니다.
 
 키 회전은 시간이 지남에 따라 발생 합니다. 키를 회전할 때마다 다음 순서를 따르는 것이 중요 합니다.
 

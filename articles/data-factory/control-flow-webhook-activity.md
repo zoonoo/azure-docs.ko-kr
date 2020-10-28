@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417881"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634983"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 Webhook 활동
 
@@ -60,9 +60,9 @@ ms.locfileid: "81417881"
 **방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열. 지원 되는 형식은 "POST"입니다. | 예 |
 **url** | 대상 끝점과 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예 |
 **머리글과** | 요청에 전송되는 헤더입니다. 요청에 대 한 언어 및 형식을 설정 하는 예제는 다음과 같습니다 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예. `Content-Type`같은 헤더가 `"headers":{ "Content-Type":"application/json"}` 필요 합니다. |
-**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) 를 참조 하세요. | 예 |
-**인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 아니요 |
-**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d*입니다. *hh*:*mm*:*ss*. | 문자열 | 아니요 |
+**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema) 를 참조 하세요. | 예 |
+**인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 아니요 |
+**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d* 입니다. *hh* : *mm* : *ss* . | String | 아니요 |
 **콜백에 대 한 보고서 상태** | 사용자가 webhook 활동의 실패 상태를 보고할 수 있습니다. | 부울 | 아니요 |
 
 ## <a name="authentication"></a>인증
@@ -73,7 +73,7 @@ Webhook 활동은 다음 인증 유형을 지원 합니다.
 
 인증이 필요 하지 않은 경우에는 **authentication** 속성을 포함 하지 마세요.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>기본
 
 기본 인증에 사용할 사용자 이름 및 암호를 지정 합니다.
 
@@ -99,7 +99,7 @@ PFX 파일의 Base64 인코딩 콘텐츠 및 암호를 지정 합니다.
 
 ### <a name="managed-identity"></a>관리 ID
 
-데이터 팩터리의 관리 되는 id를 사용 하 여 액세스 토큰을 요청 하는 리소스 URI를 지정 합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 id의 작동 방식에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id 개요](/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
+데이터 팩터리의 관리 되는 id를 사용 하 여 액세스 토큰을 요청 하는 리소스 URI를 지정 합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 id의 작동 방식에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 ```json
 "authentication": {
@@ -119,7 +119,7 @@ Data Factory는 URL 끝점으로 전송 된 본문에서 추가 속성 **Callbac
 
 모든 REST API 호출에 대해 끝점이 1 분 이내에 응답 하지 않으면 클라이언트 시간이 초과 됩니다. 이 동작은 표준 HTTP 모범 사례입니다. 이 문제를 해결 하려면 202 패턴을 구현 합니다. 현재 경우 끝점이 202 (수락 됨)를 반환 하 고 클라이언트에서 폴링합니다.
 
-요청에 대 한 1 분 제한 시간은 작업 시간 제한에 대해 수행할 작업이 없습니다. 후자는 **Callbackuri**로 지정 된 콜백을 대기 하는 데 사용 됩니다.
+요청에 대 한 1 분 제한 시간은 작업 시간 제한에 대해 수행할 작업이 없습니다. 후자는 **Callbackuri** 로 지정 된 콜백을 대기 하는 데 사용 됩니다.
 
 콜백 URI로 다시 전달 되는 본문은 유효한 JSON 이어야 합니다. `Content-Type` 헤더를 `application/json`으로 설정합니다.
 

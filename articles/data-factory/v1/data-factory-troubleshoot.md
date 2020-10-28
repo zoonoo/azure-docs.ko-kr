@@ -13,12 +13,12 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195909"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637074"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -62,12 +62,12 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 * 포털의 같은 블레이드에 표시되어 있는 **수동 설치** 링크를 사용합니다. 이 방식을 사용하여 설치 파일을 다운로드해 수동으로 실행합니다. 설치가 정상적으로 완료되면 데이터 관리 게이트웨이 구성 대화 상자가 표시됩니다. 포털 화면에서 **키** 를 복사하고 구성 관리자에서 이 키를 사용하여 게이트웨이를 서비스에 등록합니다.  
 
 ### <a name="problem-fail-to-connect-to-sql-server"></a>문제: SQL Server에 연결 하지 못함
-게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.   
+게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.   
 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>문제: 입력 조각이 무기한 대기 상태입니다.
-이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true**로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
+이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true** 로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
-**external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 선택적으로 **externalData***를 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 필요에 따라 **externalData** _을 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [데이터 세트](data-factory-create-datasets.md) 문서를 참조하세요.
 
@@ -97,7 +97,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 }
 ```
 
-오류를 해결하려면 입력 테이블의 JSON 정의에 **external** 속성과 **externalData** 섹션을 추가하고 테이블을 다시 만듭니다.
+오류를 해결 하려면 _ *external* * 속성과 선택적 **externalData** 섹션을 입력 테이블의 JSON 정의에 추가 하 고 테이블을 다시 만듭니다.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>문제: 하이브리드 복사 작업 실패
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
@@ -130,9 +130,9 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
+[json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/
 

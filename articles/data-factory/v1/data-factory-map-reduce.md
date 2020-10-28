@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 98e352024ceea322f09947baf1bc759459a2af19
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359971"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636853"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359971"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -49,7 +49,7 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 Windows/Linux 기�
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업에 대한 JSON
 HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다: 
 
-1. **activity**의 **type**을 **HDInsight**로 설정합니다.
+1. **activity** 의 **type** 을 **HDInsight** 로 설정합니다.
 2. **className** 속성의 클래스 이름을 지정합니다.
 3. **jarFilePath** 속성에 대해 파일 이름을 포함한 JAR 파일 경로를 지정합니다.
 4. **jarLinkedService** 속성에 대해 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.   
@@ -181,9 +181,9 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### <a name="pipeline"></a>파이프라인
 이 예제의 파이프라인은 HDInsightMapReduce 형식의 작업을 하나만 포함합니다. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다. 
 
-| 속성 | 참고 |
+| 속성 | 메모 |
 |:--- |:--- |
-| 형식 |type은 **HDInsightMapReduce**로 설정되어야 합니다. |
+| 형식 |type은 **HDInsightMapReduce** 로 설정되어야 합니다. |
 | className |클래스 이름은 **wordcount** |
 | jarFilePath |클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. |
 | jarLinkedService |jar 파일을 포함하는 Azure Storage 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 스토리지를 지칭합니다. |
@@ -235,14 +235,14 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ## <a name="run-spark-programs"></a>Spark 프로그램 실행
 MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) 을 참조하세요.  
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
 [Azure Portal]: https://portal.azure.com
 
 ## <a name="see-also"></a>참고 항목
@@ -251,4 +251,3 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
-

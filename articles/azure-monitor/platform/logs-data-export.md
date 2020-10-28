@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441111"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637346"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -36,6 +36,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 현재 CLI 또는 REST 요청을 사용 해야만 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell을 사용할 수 없습니다.
+- ```--export-all-tables```CLI 및 REST의 옵션은 지원 되지 않으며 제거 됩니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공 해야 합니다.
 - 지원 되는 테이블은 현재 아래의 [지원 되는 테이블](#supported-tables) 섹션에 한정 되어 있습니다. 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 작업이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 데이터 내보내기 규칙이 존재 하지 않는 테이블을 포함 하는 경우 오류와 함께 실패 합니다. ```Table <tableName> does not exist in the workspace.```
 - Log Analytics 작업 영역은 다음을 제외 하 고 모든 지역에 있을 수 있습니다.
   - 스위스 북부
@@ -63,9 +64,9 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="export-destinations"></a>내보내기 대상
 
 ### <a name="storage-account"></a>스토리지 계정
-데이터는 매시간 저장소 계정으로 전송 됩니다. 데이터 내보내기 구성에서는 이름이 *am* 인 저장소 계정에 테이블의 각 테이블에 대 한 컨테이너를 만든 다음 테이블 이름을 입력 합니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent*라는 컨테이너로 전송 됩니다.
+데이터는 매시간 저장소 계정으로 전송 됩니다. 데이터 내보내기 구성에서는 이름이 *am* 인 저장소 계정에 테이블의 각 테이블에 대 한 컨테이너를 만든 다음 테이블 이름을 입력 합니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 컨테이너로 전송 됩니다.
 
-저장소 계정 blob 경로는 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json*입니다. 추가 blob은 저장소에서 50K 쓰기로 제한 되기 때문에, 추가의 수가 높으면 내보낸 blob 수가 확장 될 수 있습니다. 이러한 경우 blob의 명명 패턴은 PT1H_입니다. 여기서 #은 증분 blob 수입니다.
+저장소 계정 blob 경로는 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json* 입니다. 추가 blob은 저장소에서 50K 쓰기로 제한 되기 때문에, 추가의 수가 높으면 내보낸 blob 수가 확장 될 수 있습니다. 이러한 경우 blob의 명명 패턴은 PT1H_입니다. 여기서 #은 증분 blob 수입니다.
 
 저장소 계정 데이터 형식은 [JSON 줄입니다](diagnostic-logs-append-blobs.md). 즉, 각 레코드는 바깥쪽 레코드는 없고 JSON 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
 
@@ -74,7 +75,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용 하도록 설정한 경우 변경할 수 없는 저장소 계정에 추가 blob을 쓸 수 있습니다. 이를 통해 추가 blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [Protected 추가 blob 쓰기 허용](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)을 참조 하세요.
 
 ### <a name="event-hub"></a>이벤트 허브
-데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent*라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 모든 테이블을 내보낼 수 있습니다.
+데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 정의 된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
@@ -98,7 +99,7 @@ Log Analytics 데이터 내보내기를 사용 하도록 설정 하려면 다음
 
 - Microsoft.Insights
 
-이 리소스 공급자는 대부분의 Azure Monitor 사용자에 대해 이미 등록 되어 있을 것입니다. 확인 하려면 Azure Portal의 **구독** 으로 이동 합니다. 구독을 선택한 후 메뉴의 **설정** 섹션에서 **리소스 공급자** 를 클릭 합니다. **Microsoft Insights**를 찾습니다. 해당 상태가 **등록**됨 인 경우에는 이미 등록 되어 있습니다. 그렇지 않은 **경우 등록을 클릭 하** 여 등록 합니다.
+이 리소스 공급자는 대부분의 Azure Monitor 사용자에 대해 이미 등록 되어 있을 것입니다. 확인 하려면 Azure Portal의 **구독** 으로 이동 합니다. 구독을 선택한 후 메뉴의 **설정** 섹션에서 **리소스 공급자** 를 클릭 합니다. **Microsoft Insights** 를 찾습니다. 해당 상태가 **등록** 됨 인 경우에는 이미 등록 되어 있습니다. 그렇지 않은 **경우 등록을 클릭 하** 여 등록 합니다.
 
 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)에 설명 된 대로 사용 가능한 방법 중 하나를 사용 하 여 리소스 공급자를 등록할 수도 있습니다. 다음은 PowerShell을 사용 하는 샘플 명령입니다.
 
@@ -107,13 +108,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스 허용
-선택한 네트워크에서 액세스할 수 있도록 저장소 계정을 구성한 경우 Azure Monitor 계정에 쓸 수 있도록 허용 하는 예외를 추가 해야 합니다. 저장소 계정에 대 한 **방화벽 및 가상 네트워크** 에서 **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용**을 선택 합니다.
+선택한 네트워크에서 액세스할 수 있도록 저장소 계정을 구성한 경우 Azure Monitor 계정에 쓸 수 있도록 허용 하는 예외를 추가 해야 합니다. 저장소 계정에 대 한 **방화벽 및 가상 네트워크** 에서 **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용** 을 선택 합니다.
 
 [![Storage 계정 방화벽 및 가상 네트워크](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
-데이터 내보내기 규칙은 모든 테이블 또는 특정 테이블 집합에서 단일 대상으로 내보낼 데이터를 정의 합니다. 여러 대상으로 전송 해야 하는 경우 여러 규칙을 만듭니다.
+데이터 내보내기 규칙은 테이블 집합에 대해 내보낼 데이터를 단일 대상으로 정의 합니다. 각 대상에 대 한 규칙을 만들 수 있습니다.
+
+다음 CLI 명령을 사용 하 여 작업 영역의 테이블을 볼 수 있습니다. 이를 통해 원하는 테이블을 복사 하 고 데이터 내보내기 규칙에 포함할 수 있습니다.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 CLI를 사용 하 여 저장소 계정에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다.
 
@@ -142,8 +148,8 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
         "enable": true
     }
 }
-
 ```
 
+다음은 이벤트 허브 이름이 제공 되는 이벤트 허브에 대 한 REST 요청에 대 한 샘플 본문입니다. 이 경우 내보낸 모든 데이터가이 이벤트 허브로 전송 됩니다.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>데이터 내보내기 구성 보기
 CLI를 사용 하 여 데이터 내보내기 규칙의 구성을 보려면 다음 명령을 사용 합니다.
@@ -406,7 +429,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | 업데이트 | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | UpdateRunProgress | |
 | UpdateSummary | |
-| 사용 | |
+| 사용량 | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
 | 관심 목록 | |

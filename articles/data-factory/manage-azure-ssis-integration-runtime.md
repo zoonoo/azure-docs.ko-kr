@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: f609cfb0945d79cfa8ae21b786a5761b92b9dabb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324626"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636275"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 다시 구성
 
@@ -28,10 +28,10 @@ ms.locfileid: "84324626"
 Data Factory UI를 사용하여 Azure-SSIS IR을 중지하거나, 편집/다시 구성하거나 삭제할 수 있습니다. 
 
 1. 데이터 팩터리의 홈 페이지에서 **작성자 & 모니터** 타일을 선택 하 여 Data Factory UI를 엽니다.
-2. **홈**아래에서 허브 **관리** , **편집**및 **모니터링** 허브를 선택 하 여 **연결** 창을 표시 합니다.
+2. **홈** 아래에서 허브 **관리** , **편집** 및 **모니터링** 허브를 선택 하 여 **연결** 창을 표시 합니다.
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Azure-SSIS IR을 다시 구성하려면
-**관리** 허브의 **연결** 창에서 **통합 런타임** 페이지로 전환하여 **새로 고침**을 선택합니다. 
+**관리** 허브의 **연결** 창에서 **통합 런타임** 페이지로 전환하여 **새로 고침** 을 선택합니다. 
 
    ![[연결] 창](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 
@@ -92,7 +92,7 @@ Azure-SSIS 통합 런타임 인스턴스를 프로비전하고 시작한 후에�
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
-- [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 단계별 지침을 제공 합니다. 
+- [자습서: Azure에 SSIS 패키지 배포](./tutorial-deploy-ssis-packages-azure.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 단계별 지침을 제공 합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 Azure SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 연결 하는 방법에 대 한 지침을 제공 합니다. 
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다.

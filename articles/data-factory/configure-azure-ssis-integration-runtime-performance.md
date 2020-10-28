@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635323"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -69,7 +69,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation**은 통합 런타임 작업자 노드의 위치입니다. 작업자 노드는 Azure SQL Database에서 SSISDB (SSIS 카탈로그 데이터베이스)에 대 한 일정 한 연결을 유지 관리 합니다. **AzureSSISLocation** 를 SSISDB를 호스팅하는 [논리 SQL server](../azure-sql/database/logical-servers.md) 와 동일한 위치로 설정 합니다 .이를 통해 통합 런타임을 최대한 효율적으로 작동할 수 있습니다.
+**AzureSSISLocation** 은 통합 런타임 작업자 노드의 위치입니다. 작업자 노드는 Azure SQL Database에서 SSISDB (SSIS 카탈로그 데이터베이스)에 대 한 일정 한 연결을 유지 관리 합니다. **AzureSSISLocation** 를 SSISDB를 호스팅하는 [논리 SQL server](../azure-sql/database/logical-servers.md) 와 동일한 위치로 설정 합니다 .이를 통해 통합 런타임을 최대한 효율적으로 작동할 수 있습니다.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Azure-SSIS IR을 포함하여 Data Factory는 다음 옵션을 지원합니다.
@@ -118,11 +118,11 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber**는 통합 런타임의 확장성을 조정합니다. 통합 런타임의 처리량은 **AzureSSISNodeNumber**에 비례합니다. 우선 **AzureSSISNodeNumber**를 작은 값으로 설정하고 통합 런타임의 처리량을 모니터링한 다음 시나리오에 맞게 값을 조정합니다. 작업자 노드 수를 다시 구성하려면 [Azure-SSIS 통합 런타임 관리](manage-azure-ssis-integration-runtime.md)를 참조하세요.
+**AzureSSISNodeNumber** 는 통합 런타임의 확장성을 조정합니다. 통합 런타임의 처리량은 **AzureSSISNodeNumber** 에 비례합니다. 우선 **AzureSSISNodeNumber** 를 작은 값으로 설정하고 통합 런타임의 처리량을 모니터링한 다음 시나리오에 맞게 값을 조정합니다. 작업자 노드 수를 다시 구성하려면 [Azure-SSIS 통합 런타임 관리](manage-azure-ssis-integration-runtime.md)를 참조하세요.
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 최대 값을 늘리려면 Azure PowerShell를 사용 하 여 **AzureSSISMaxParallelExecutionsPerNode**를 업데이트 해야 합니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
+이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode** 를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 최대 값을 늘리려면 Azure PowerShell를 사용 하 여 **AzureSSISMaxParallelExecutionsPerNode** 를 업데이트 해야 합니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/sizes-general.md)를 참조하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -161,7 +161,7 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 -   로깅 수준이 자세히로 설정 된 경우 s3과 같은 더 강력한 데이터베이스를 선택 합니다. 비공식 사내 테스트에 따르면 s3 가격 책정 계층은 2 개 노드, 128 병렬 개수 및 자세한 로깅 수준으로 SSIS 패키지 실행을 지원할 수 있습니다.
 
-Azure Portal에서 사용할 수 있는 DTU([데이터베이스 트랜잭션 단위](../sql-database/sql-database-what-is-a-dtu.md)) 사용량 정보를 기반으로 데이터베이스 가격 책정 계층을 조정할 수도 있습니다.
+Azure Portal에서 사용할 수 있는 DTU([데이터베이스 트랜잭션 단위](../azure-sql/database/service-tiers-dtu.md)) 사용량 정보를 기반으로 데이터베이스 가격 책정 계층을 조정할 수도 있습니다.
 
 ## <a name="design-for-high-performance"></a>고성능을 위한 디자인
 Azure에서 실행할 SSIS 패키지를 설계하는 것은 온-프레미스 실행을 위한 패키지를 설계하는 것과 다릅니다. 동일한 패키지에서 여러 개의 독립적인 작업을 결합하는 대신 Azure-SSIS IR에서 보다 효율적인 실행을 위해 여러 패키지로 분리합니다. 서로 완료될 때까지 기다릴 필요가 없도록 각 패키지에 대한 패키지 실행을 만듭니다. 이러한 방식은 Azure-SSIS 통합 런타임의 확장성을 활용하여 전반적인 처리량을 향상시킵니다.

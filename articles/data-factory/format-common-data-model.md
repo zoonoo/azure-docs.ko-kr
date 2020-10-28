@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042595"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636411"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 공통 데이터 모델 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-CDM (Common Data Model) 메타 데이터 시스템을 사용 하면 데이터 및 해당 의미가 응용 프로그램 및 비즈니스 프로세스에서 쉽게 공유 될 수 있습니다. 자세히 알아보려면 [Common Data Model](https://docs.microsoft.com/common-data-model/) 개요를 참조 하세요.
+CDM (Common Data Model) 메타 데이터 시스템을 사용 하면 데이터 및 해당 의미가 응용 프로그램 및 비즈니스 프로세스에서 쉽게 공유 될 수 있습니다. 자세히 알아보려면 [Common Data Model](/common-data-model/) 개요를 참조 하세요.
 
 Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 ADLS Gen2 ( [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) )에 저장 된 model.js및 매니페스트 양식의 CDM 엔터티에서 데이터를 변환할 수 있습니다. 분할 된 폴더에서 데이터를 CSV 또는 Parquet 형식으로 지정 하는 CDM 엔터티 참조를 사용 하 여 CDM 형식으로 데이터를 싱크 할 수도 있습니다. 
 
@@ -35,7 +35,7 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 
 아래 표에서는 CDM 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
@@ -114,7 +114,7 @@ source(output(
 
 아래 표에서는 CDM 싱크에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |

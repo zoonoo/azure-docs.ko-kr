@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
-ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761552"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636530"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>몰입 형 판독기 JavaScript SDK 참조 (v. 1.1)
 
@@ -43,12 +43,12 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>launchAsync 매개 변수
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | `token` | 문자열 | Azure AD 인증 토큰입니다. 자세한 내용은 [몰입 형 판독기 리소스를 만드는 방법을](./how-to-create-immersive-reader.md) 참조 하세요. |
 | `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. 자세한 내용은 [몰입 형 판독기 리소스를 만드는 방법을](./how-to-create-immersive-reader.md) 참조 하세요. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
-| `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. (선택 사항) |
+| `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
 
 #### <a name="returns"></a>반환
 
@@ -84,7 +84,7 @@ SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스
 
 다음 특성을 사용 하 여 단추의 모양과 느낌을 구성할 수 있습니다.
 
-| attribute | 설명 |
+| attribute | Description |
 | --------- | ----------- |
 | `data-button-style` | 단추의 스타일을 설정 합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
 | `data-locale` | 로캘을 설정 합니다. 예를 들어 `en-US` 또는 `fr-FR`입니다. 기본값은 영어 `en` 입니다. |
@@ -115,9 +115,9 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderButtons 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
-| `options` | [renderButtons 옵션](#renderbuttons-options) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. (선택 사항) |
+| `options` | [renderButtons 옵션](#renderbuttons-options) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. 선택 사항입니다. |
 
 ### <a name="renderbuttons-options"></a>renderButtons 옵션
 
@@ -131,7 +131,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-options-parameters"></a>renderButtons 옵션 매개 변수
 
-| 설정 | 유형 | 설명 |
+| 설정 | Type | Description |
 | ------- | ---- | ----------- |
 | 요소 | HTMLDivElement[] | 몰입 형 판독기 단추를 렌더링할 요소입니다. |
 
@@ -156,12 +156,12 @@ Required: false
 
 #### <a name="launchresponse-parameters"></a>LaunchResponse 매개 변수
 
-| 설정 | 유형 | 설명 |
+| 설정 | Type | 설명 |
 | ------- | ---- | ----------- |
 | container | HTMLDivElement | 몰입 형 판독기 iframe을 포함 하는 HTML 요소입니다. |
 | sessionID | String | 이 세션의 guid (Globally unique identifier)로, 디버깅에 사용 됩니다. |
  
-## <a name="error"></a>Error
+## <a name="error"></a>오류
 
 오류에 대 한 정보를 포함 합니다.
 
@@ -174,7 +174,7 @@ Required: false
 
 #### <a name="error-parameters"></a>오류 매개 변수
 
-| 설정 | 유형 | 설명 |
+| 설정 | Type | 설명 |
 | ------- | ---- | ----------- |
 | code | String | 오류 코드 집합 중 하나입니다. [오류 코드](#error-codes)를 참조하세요. |
 | message | String | 사람이 읽을 수 있는 오류 표현입니다. |
@@ -190,9 +190,9 @@ Required: false
 
 <br>
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
-### <a name="content"></a>Content
+### <a name="content"></a>콘텐츠
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -205,7 +205,7 @@ Required: false
 
 #### <a name="content-parameters"></a>콘텐츠 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | title | String | 몰입 형 판독기의 위쪽에 표시 되는 제목 텍스트입니다 (선택 사항). |
 | 청크 | [청크 []](#chunk) | 청크 배열 |
@@ -240,7 +240,7 @@ Default value: null
 
 #### <a name="chunk-parameters"></a>청크 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | 콘텐츠 | String | 몰입 형 판독기로 전송 된 콘텐츠를 포함 하는 문자열입니다. |
 | lang | String | 텍스트의 언어 값은 IETF BCP 47 언어 태그 형식 (예: en, es)에 있습니다. 지정 하지 않으면 언어가 자동으로 검색 됩니다. [지원되는 언어](#supported-languages)를 참조하세요. |
@@ -272,7 +272,7 @@ Default value: "text/plain"
 | MIME 형식 | Description |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
-| 텍스트/html | HTML 콘텐츠입니다. [자세한 정보](#html-support)|
+| 텍스트/html | HTML 콘텐츠입니다. [자세히 알아보기](#html-support)|
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아봅니다](./how-to/display-math.md).
 | 응용 프로그램/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx 형식 문서입니다.
 
@@ -305,7 +305,7 @@ Default value: "text/plain"
 
 #### <a name="options-parameters"></a>옵션 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | uiLang | String | UI의 언어, 값은 IETF BCP 47 언어 태그 형식 (예: en, es)으로 되어 있습니다. 지정 하지 않으면 기본적으로 브라우저 언어가 지정 됩니다. |
 | 시간 제한 | 숫자 | 시간 초과 오류가 발생 하 여 [launchAsync](#launchasync) 가 실패 하기 전 까지의 기간 (밀리초)입니다 (기본값은 15000 밀리초). 이 시간 제한은 판독기 페이지의 초기 시작에만 적용 되며 판독기 페이지가 열리고 회전자가 시작 될 때 성공률이 관찰 됩니다. 제한 시간을 조정 해야 하는 것은 아닙니다. |
@@ -314,7 +314,7 @@ Default value: "text/plain"
 | onExit | 함수 | 몰입 형 판독기가 종료 될 때 실행 됩니다. |
 | allowFullscreen | 부울 | 전체 화면을 토글할 수 있습니다 (기본값은 true 임). |
 | hideExitButton | 부울 | 몰입 형 판독기의 종료 단추 화살표 (기본값은 false)를 숨길지 여부입니다. 이는 몰입 형 판독기를 종료 하기 위해 다른 메커니즘이 제공 된 경우에만 적용 됩니다 (예: 모바일 도구 모음의 뒤로 화살표). |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | 몰입 형 판독기의 쿠키 사용에 대 한 설정입니다 (기본값은 *CookiePolicy*). EU 쿠키 준수 정책에 따라 필요한 사용자 동의를 얻으려면 호스트 응용 프로그램의 책임입니다. [쿠키 정책 옵션](#cookiepolicy-options)을 참조 하세요. |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | 몰입 형 판독기의 쿠키 사용에 대 한 설정입니다 (기본값은 *CookiePolicy* ). EU 쿠키 준수 정책에 따라 필요한 사용자 동의를 얻으려면 호스트 응용 프로그램의 책임입니다. [쿠키 정책 옵션](#cookiepolicy-options)을 참조 하세요. |
 | disableFirstRun | 부울 | 첫 실행 환경을 사용 하지 않도록 설정 합니다. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | 소리내어 읽기를 구성 하는 옵션입니다. |
 | translationOptions | [TranslationOptions](#translationoptions) | 번역을 구성 하는 옵션입니다. |
@@ -390,7 +390,7 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>ReadAloudOptions 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | voice | String | 음성, "여성" 또는 "남성" 중 하나입니다. 모든 언어가 성별을 지 원하는 것은 아닙니다. |
 | speed | 숫자 | 재생 속도는 0.5에서 2.5 (포함) 사이 여야 합니다. |
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>TranslationOptions 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | 언어 | String | 변환 언어를 설정 합니다. 값은 IETF BCP 47 언어 태그 형식 (예: fr-fr, es-MX, zh-cn-Hans)에 있습니다. Word 또는 문서 번역을 자동으로 활성화 하는 데 필요 합니다. |
 | autoEnableDocumentTranslation | 부울 | 전체 문서를 자동으로 변환 합니다. |
@@ -457,7 +457,7 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>DisplayOptions 매개 변수
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | textSize | 숫자 | 선택한 텍스트 크기를 설정 합니다. |
 | increaseSpacing | 부울 | 텍스트 간격을 설정 또는 해제할지 여부를 설정 합니다. |
@@ -487,11 +487,11 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**아래에 나열 된 설정은**참조용 으로만 사용 됩니다. 몰입 형 판독기는 쿠키에 해당 설정 또는 사용자 기본 설정을 저장 합니다. 이 *cookiePolicy* 옵션은 EU 쿠키 규정 준수 법을 준수 하기 위해 기본적으로 쿠키를 사용 **하지 않도록 설정** 합니다. 쿠키를 다시 사용 하도록 설정 하 고 몰입 형 판독기 사용자 기본 설정에 대 한 기본 기능을 복원 하려면 웹 사이트 또는 응용 프로그램이 쿠키를 사용 하도록 설정 하는 사용자 로부터 적절 한 동의를 얻도록 해야 합니다. 그런 다음 몰입 형 판독기에서 쿠키를 다시 사용 하도록 설정 하려면 몰입 형 판독기를 시작할 때 *cookiePolicy* 옵션을 cookiePolicy로 명시적으로 설정 해야 합니다 *.* 다음 표에서는 *cookiePolicy* 옵션을 사용 하도록 설정 된 경우 몰입 판독기가 쿠키에 저장 하는 설정에 대해 설명 합니다.
+**아래에 나열 된 설정은** 참조용 으로만 사용 됩니다. 몰입 형 판독기는 쿠키에 해당 설정 또는 사용자 기본 설정을 저장 합니다. 이 *cookiePolicy* 옵션은 EU 쿠키 규정 준수 법을 준수 하기 위해 기본적으로 쿠키를 사용 **하지 않도록 설정** 합니다. 쿠키를 다시 사용 하도록 설정 하 고 몰입 형 판독기 사용자 기본 설정에 대 한 기본 기능을 복원 하려면 웹 사이트 또는 응용 프로그램이 쿠키를 사용 하도록 설정 하는 사용자 로부터 적절 한 동의를 얻도록 해야 합니다. 그런 다음 몰입 형 판독기에서 쿠키를 다시 사용 하도록 설정 하려면 몰입 형 판독기를 시작할 때 *cookiePolicy* 옵션을 cookiePolicy로 명시적으로 설정 해야 합니다 *.* 다음 표에서는 *cookiePolicy* 옵션을 사용 하도록 설정 된 경우 몰입 판독기가 쿠키에 저장 하는 설정에 대해 설명 합니다.
 
 #### <a name="settings-parameters"></a>설정 매개 변수
 
-| 설정 | 유형 | 설명 |
+| 설정 | Type | Description |
 | ------- | ---- | ----------- |
 | textSize | 숫자 | 선택한 텍스트 크기를 설정 합니다. |
 | fontFamily | String | 선택한 글꼴 ("맑은 고딕", "ComicSans" 또는 "Sitka")을 설정 합니다. |

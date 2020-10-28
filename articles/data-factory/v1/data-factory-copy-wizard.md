@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086911"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636921"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
@@ -62,7 +62,7 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -73,11 +73,11 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 ...
 ```
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{Day}** 로, **02** 를 **{hour}** 로 바꾸고 tab 키를 누릅니다. 이러한 네 가지 변수에 대 한 형식을 선택 하는 드롭다운 목록이 표시 됩니다.
+**파일 또는 폴더** 의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택** 을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{Day}** 로, **02** 를 **{hour}** 로 바꾸고 tab 키를 누릅니다. 이러한 네 가지 변수에 대 한 형식을 선택 하는 드롭다운 목록이 표시 됩니다.
 
 ![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}** 으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.     
+다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}** 으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.     
 
 ![사용자 지정 변수 사용](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
-

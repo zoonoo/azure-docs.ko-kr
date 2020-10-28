@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635374"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-매핑 데이터 흐름에서는 많은 변환 속성이 식으로 입력 됩니다. 이러한 식은 런타임에 Spark 데이터 형식으로 계산 되는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성 됩니다. 데이터 흐름을 매핑하면 **식 작성기**라는 이러한 식을 작성 하는 데 도움이 되는 전용 환경이 있습니다. 강조 표시, 구문 검사 및 자동 완성을 위해  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) 코드 완성 기능을 활용 하 여 식 작성기는 데이터 흐름을 쉽게 작성할 수 있도록 설계 되었습니다. 이 문서에서는 식 작성기를 사용 하 여 비즈니스 논리를 효과적으로 작성 하는 방법을 설명 합니다.
+매핑 데이터 흐름에서는 많은 변환 속성이 식으로 입력 됩니다. 이러한 식은 런타임에 Spark 데이터 형식으로 계산 되는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성 됩니다. 데이터 흐름을 매핑하면 **식 작성기** 라는 이러한 식을 작성 하는 데 도움이 되는 전용 환경이 있습니다. 강조 표시, 구문 검사 및 자동 완성을 위해  [IntelliSense](/visualstudio/ide/using-intellisense) 코드 완성 기능을 활용 하 여 식 작성기는 데이터 흐름을 쉽게 작성할 수 있도록 설계 되었습니다. 이 문서에서는 식 작성기를 사용 하 여 비즈니스 논리를 효과적으로 작성 하는 방법을 설명 합니다.
 
 ![식 작성기](media/data-flow/expresion-builder.png "식 작성기")
 
@@ -32,7 +32,7 @@ ms.locfileid: "90531056"
 
 ![Blue 식 상자](media/data-flow/expressionbox.png "식 작성기")
 
-일치 또는 그룹별 조건에서 열을 참조 하는 경우 식이 열에서 값을 추출할 수 있습니다. 식을 만들려면 **계산 열**을 선택 합니다.
+일치 또는 그룹별 조건에서 열을 참조 하는 경우 식이 열에서 값을 추출할 수 있습니다. 식을 만들려면 **계산 열** 을 선택 합니다.
 
 ![계산 열 옵션](media/data-flow/computedcolumn.png "식 작성기")
 

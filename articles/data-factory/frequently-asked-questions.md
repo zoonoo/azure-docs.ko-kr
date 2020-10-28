@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440510"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635765"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 
@@ -67,10 +67,10 @@ Data Factory V2는 선호 하는 IDE를 사용 하 여 파이프라인을 작성
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>시각적 도구를 사용 하 여 반복적인 개발 및 디버깅
 Azure Data Factory 비주얼 도구를 사용 하면 반복적인 개발 및 디버깅이 가능 합니다. 파이프라인을 만들고 한 줄의 코드를 작성 하지 않고 파이프라인 캔버스에서 **디버그** 기능을 사용 하 여 테스트 실행을 수행할 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 테스트 실행 결과를 볼 수 있습니다. 테스트를 성공적으로 실행 한 후에는 파이프라인에 더 많은 활동을 추가 하 고 반복적으로 디버깅을 계속할 수 있습니다. 또한 진행 중인 테스트 실행을 취소할 수 있습니다. 
 
-**디버그**를 선택 하기 전에 데이터 팩터리 서비스에 변경 내용을 게시할 필요가 없습니다. 이 기능은 개발, 테스트 또는 프로덕션 환경에서 데이터 팩터리 워크플로를 업데이트 하기 전에 새로운 추가 또는 변경 내용이 예상 대로 작동 하는지 확인 하려는 경우에 유용 합니다. 
+**디버그** 를 선택 하기 전에 데이터 팩터리 서비스에 변경 내용을 게시할 필요가 없습니다. 이 기능은 개발, 테스트 또는 프로덕션 환경에서 데이터 팩터리 워크플로를 업데이트 하기 전에 새로운 추가 또는 변경 내용이 예상 대로 작동 하는지 확인 하려는 경우에 유용 합니다. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지를 배포 하는 기능 
-SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure SSIS integration runtime은 클라우드에서 SSIS 패키지를 실행 하기 위한 전용 Azure Vm (노드)의 완전히 관리 되는 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md) 자습서를 참조하세요. 
+SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure SSIS integration runtime은 클라우드에서 SSIS 패키지를 실행 하기 위한 전용 Azure Vm (노드)의 완전히 관리 되는 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](./tutorial-deploy-ssis-packages-azure.md) 자습서를 참조하세요. 
  
 ### <a name="sdks"></a>SDK
 고급 사용자로 서 프로그래밍 인터페이스를 찾고 있는 경우 즐겨 사용 하는 IDE를 사용 하 여 파이프라인을 작성, 관리 또는 모니터링 하는 데 사용할 수 있는 다양 한 Sdk를 Data Factory 제공 합니다. .NET, PowerShell, Python 및 REST를 비롯한 언어를 지원합니다.
@@ -95,9 +95,9 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 ## <a name="what-is-the-integration-runtime"></a>Integration runtime 이란?
 Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데이터 통합 기능을 제공 하기 위해 Azure Data Factory 사용 하는 계산 인프라입니다.
 
-- **데이터 이동**: 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
-- **디스패치 활동**: 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
-- **Ssis 패키지 실행**: integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 ssis 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
+- **데이터 이동** : 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
+- **디스패치 활동** : 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
+- **Ssis 패키지 실행** : integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 ssis 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
 
 데이터를 이동 하 고 변환 하는 데 필요한 만큼 하나 이상의 통합 런타임 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 [VPC])에서 실행할 수 있습니다. 
 
@@ -127,7 +127,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.
 
 - SQL Server 인스턴스, Oracle 데이터베이스 인스턴스, 파일 공유 또는 Azure Blob storage 계정을 포함 하지만이에 국한 되지 않는 *데이터 저장소* 를 나타냅니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
-- 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.
+- 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스* 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.
 
 ### <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 시작할 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. 
@@ -159,7 +159,7 @@ Azure Data Factory에 대한 가격 정보는 [Data Factory 가격 책정 정보
 Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 이동하세요.
 
 - [블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [설명서 홈페이지](/azure/data-factory)
+- [설명서 홈페이지](./index.yml)
 - [제품 홈페이지](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>기술 심층 분석 
@@ -257,7 +257,7 @@ ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자
 * nchar
 * varchar
 * nvarchar
-* 정수
+* integer
 * int
 * bit
 * boolean

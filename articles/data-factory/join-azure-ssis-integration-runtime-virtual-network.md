@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6f502374996f01363ad27ff10dff3b34964a3474
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220757"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637227"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -49,7 +49,7 @@ Data Factory를 사용 하면 클래식 배포 모델 또는 Azure Resource Mana
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 
-SSIS 패키지가 온-프레미스 데이터 저장소에 액세스 하는 경우 온-프레미스 네트워크에 연결 된 가상 네트워크에 Azure-SSIS IR를 조인할 수 있습니다. 또는 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR을 구성 하 고 관리할 수 있습니다. 자세한 내용은 [Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)을 참조 하세요. 
+SSIS 패키지가 온-프레미스 데이터 저장소에 액세스 하는 경우 온-프레미스 네트워크에 연결 된 가상 네트워크에 Azure-SSIS IR를 조인할 수 있습니다. 또는 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR을 구성 하 고 관리할 수 있습니다. 자세한 내용은 [Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](./self-hosted-integration-runtime-proxy-ssis.md)을 참조 하세요. 
 
 Azure-SSIS IR 가상 네트워크에 가입 하는 경우 다음과 같은 중요 한 사항을 기억해 야 합니다. 
 
@@ -73,7 +73,7 @@ SSIS 패키지가 [가상 네트워크 서비스 끝점](../virtual-network/virt
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>IP 방화벽 규칙으로 보호 되는 데이터 원본에 대 한 액세스
 
-SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저장소/리소스에 액세스 하 고 Azure-SSIS IR에서 해당 리소스에 대 한 액세스를 보호 하려는 경우 가상 네트워크에 연결 하는 동안 Azure-SSIS IR에 대 한 사용자 고유의 [공용 ip 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) 를 가져와서 해당 ip 주소에서의 액세스를 허용 하는 관련 리소스에 ip 방화벽 규칙을 추가할 수 있습니다.
+SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저장소/리소스에 액세스 하 고 Azure-SSIS IR에서 해당 리소스에 대 한 액세스를 보호 하려는 경우 가상 네트워크에 연결 하는 동안 Azure-SSIS IR에 대 한 사용자 고유의 [공용 ip 주소](../virtual-network/virtual-network-public-ip-address.md) 를 가져와서 해당 ip 주소에서의 액세스를 허용 하는 관련 리소스에 ip 방화벽 규칙을 추가할 수 있습니다.
 
 모든 경우에 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 
@@ -99,7 +99,7 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저�
 
 - 가상 네트워크의 리소스 그룹 (또는 사용자 고유의 공용 IP 주소를 가져오는 경우 공용 IP 주소의 리소스 그룹)이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인 합니다. 자세한 내용은 [리소스 그룹 설정](#resource-group)을 참조 하세요. 
 
-- [Azure-SSIS IR에 대 한 사용자 지정 설정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)에 설명 된 대로 Azure-SSIS IR를 사용자 지정 하는 경우 Azure-SSIS IR 노드가 미리 정의 된 172.16.0.0에서 172.31.255.255으로 개인 IP 주소를 가져옵니다. 따라서 가상 또는 온-프레미스 네트워크의 개인 IP 주소 범위가이 범위와 충돌 하지 않는지 확인 합니다.
+- [Azure-SSIS IR에 대 한 사용자 지정 설정](./how-to-configure-azure-ssis-ir-custom-setup.md)에 설명 된 대로 Azure-SSIS IR를 사용자 지정 하는 경우 Azure-SSIS IR 노드가 미리 정의 된 172.16.0.0에서 172.31.255.255으로 개인 IP 주소를 가져옵니다. 따라서 가상 또는 온-프레미스 네트워크의 개인 IP 주소 범위가이 범위와 충돌 하지 않는지 확인 합니다.
 
 이 다이어그램은 Azure-SSIS IR에 필요한 연결을 보여 줍니다.
 
@@ -133,7 +133,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 
 - 다른 Azure 리소스와 아직 연결 되지 않은 사용 하지 않는 항목은 정확히 두 개 제공 되어야 합니다. Azure-SSIS IR를 정기적으로 업그레이드 하는 경우 추가 사용 됩니다. 활성 Azure SSIS IRs에서 하나의 공용 IP 주소를 공유할 수 없습니다.
 
-- 둘 다 표준 유형의 정적 이어야 합니다. 자세한 내용은 [공용 IP 주소의 sku](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 를 참조 하세요.
+- 둘 다 표준 유형의 정적 이어야 합니다. 자세한 내용은 [공용 IP 주소의 sku](../virtual-network/public-ip-addresses.md#sku) 를 참조 하세요.
 
 - 둘 다 DNS 이름이 있어야 합니다. DNS 이름을 제공 하지 않은 경우에는 Azure Portal에서 DNS 이름을 제공 하지 않아도 됩니다.
 
@@ -151,7 +151,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. 
 
 > [!NOTE]
-> 개인 호스트 이름에 FQDN (정규화 된 도메인 이름)을 사용 하세요 (예: 대신를 사용 `<your_private_server>.contoso.com` `<your_private_server>` ). 또는 Azure-SSIS IR에서 표준 사용자 지정 설치 프로그램을 사용 하 여 정규화 되지 않은 단일 레이블 도메인 이름에 고유한 DNS 접미사 (예:)를 자동으로 추가 하 `contoso.com` 고 dns 쿼리에 사용 하기 전에 FQDN으로 전환할 수 있습니다. [표준 사용자 지정 설정 샘플](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples)을 참조 하세요. 
+> 개인 호스트 이름에 FQDN (정규화 된 도메인 이름)을 사용 하세요 (예: 대신를 사용 `<your_private_server>.contoso.com` `<your_private_server>` ). 또는 Azure-SSIS IR에서 표준 사용자 지정 설치 프로그램을 사용 하 여 정규화 되지 않은 단일 레이블 도메인 이름에 고유한 DNS 접미사 (예:)를 자동으로 추가 하 `contoso.com` 고 dns 쿼리에 사용 하기 전에 FQDN으로 전환할 수 있습니다. [표준 사용자 지정 설정 샘플](./how-to-configure-azure-ssis-ir-custom-setup.md#standard-custom-setup-samples)을 참조 하세요. 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> NSG 설정
 Azure-SSIS IR에서 사용 하는 서브넷에 대 한 NSG를 구현 해야 하는 경우 다음 포트를 통해 인바운드 및 아웃 바운드 트래픽을 허용 합니다. 
@@ -170,13 +170,13 @@ Azure-SSIS IR에서 사용 하는 서브넷에 대 한 NSG를 구현 해야 하�
 |---|---|---|---|---|---|---|
 | 아웃바운드 | TCP | VirtualNetwork | * | AzureCloud | 443 | 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
 | 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상의 범위를 특정 Fqdn으로 세분화 하려면 **Azure express 경로 또는 UDR 섹션 사용** 을 참조 하세요.|
-| 아웃바운드 | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | 필드 이 규칙은 가상 네트워크에 있는 Azure-SSIS IR 노드가 서버에서 호스팅하는 SSISDB에 액세스할 때만 필요 합니다. 서버 연결 정책이 **리디렉션**대신 **프록시** 로 설정 된 경우에는 포트 1433만 필요 합니다. <br/><br/> 이 아웃 바운드 보안 규칙은 가상 네트워크의 SQL Managed Instance에서 호스트 하는 SSISDB 또는 개인 끝점으로 구성 된 SQL Database에는 적용 되지 않습니다. |
-| 아웃바운드 | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | 필드 이 규칙은 가상 네트워크의 Azure-SSIS IR 노드가 가상 네트워크의 SQL Managed Instance에서 호스트 하는 SSISDB에 액세스 하거나 개인 끝점을 사용 하 여 구성 SQL Database 경우에만 필요 합니다. 서버 연결 정책이 **리디렉션**대신 **프록시** 로 설정 된 경우에는 포트 1433만 필요 합니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | 필드 이 규칙은 가상 네트워크에 있는 Azure-SSIS IR 노드가 서버에서 호스팅하는 SSISDB에 액세스할 때만 필요 합니다. 서버 연결 정책이 **리디렉션** 대신 **프록시** 로 설정 된 경우에는 포트 1433만 필요 합니다. <br/><br/> 이 아웃 바운드 보안 규칙은 가상 네트워크의 SQL Managed Instance에서 호스트 하는 SSISDB 또는 개인 끝점으로 구성 된 SQL Database에는 적용 되지 않습니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | 필드 이 규칙은 가상 네트워크의 Azure-SSIS IR 노드가 가상 네트워크의 SQL Managed Instance에서 호스트 하는 SSISDB에 액세스 하거나 개인 끝점을 사용 하 여 구성 SQL Database 경우에만 필요 합니다. 서버 연결 정책이 **리디렉션** 대신 **프록시** 로 설정 된 경우에는 포트 1433만 필요 합니다. |
 | 아웃바운드 | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Azure Express 경로 또는 UDR 사용
-Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하려는 경우 [Azure express](https://azure.microsoft.com/services/expressroute/) 경로 force 터널링 (BGP 경로, 0.0.0.0/0을 가상 네트워크에 보급) 또는 Nva (네트워크 가상 어플라이언스)를 통해 [udrs](../virtual-network/virtual-networks-udr-overview.md) [를 통해 온](https://docs.microsoft.com/azure/firewall/) -프레미스 방화벽 어플라이언스로 Azure-SSIS IR 시작 된 트래픽을 라우팅할 수 있습니다. 
+Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하려는 경우 [Azure express](https://azure.microsoft.com/services/expressroute/) 경로 force 터널링 (BGP 경로, 0.0.0.0/0을 가상 네트워크에 보급) 또는 Nva (네트워크 가상 어플라이언스)를 통해 [udrs](../virtual-network/virtual-networks-udr-overview.md) [를 통해 온](../firewall/index.yml) -프레미스 방화벽 어플라이언스로 Azure-SSIS IR 시작 된 트래픽을 라우팅할 수 있습니다. 
 
 ![Azure-SSIS IR에 대 한 NVA 시나리오](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
 
@@ -184,9 +184,9 @@ Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하려는 경우 [Azure ex
    -   Azure Batch management services와 Azure-SSIS IR 간의 인바운드 트래픽은 방화벽 어플라이언스를 통해 라우팅할 수 없습니다.
    -   방화벽 어플라이언스는 Azure-SSIS IR에 필요한 아웃 바운드 트래픽을 허용 해야 합니다.
 
-Azure Batch management services와 Azure-SSIS IR 간의 인바운드 트래픽은 방화벽 어플라이언스로 라우팅할 수 없습니다. 그렇지 않으면 비대칭 라우팅 문제로 인해 트래픽이 중단 됩니다. 트래픽이 들어오는 것과 같은 방식으로 다시 응답할 수 있도록 인바운드 트래픽에 대 한 경로를 정의 해야 합니다. 다음 홉 유형이 **인터넷**인 Azure Batch 관리 서비스와 Azure-SSIS IR 간에 트래픽을 라우팅하는 특정 udrs를 정의할 수 있습니다.
+Azure Batch management services와 Azure-SSIS IR 간의 인바운드 트래픽은 방화벽 어플라이언스로 라우팅할 수 없습니다. 그렇지 않으면 비대칭 라우팅 문제로 인해 트래픽이 중단 됩니다. 트래픽이 들어오는 것과 같은 방식으로 다시 응답할 수 있도록 인바운드 트래픽에 대 한 경로를 정의 해야 합니다. 다음 홉 유형이 **인터넷** 인 Azure Batch 관리 서비스와 Azure-SSIS IR 간에 트래픽을 라우팅하는 특정 udrs를 정의할 수 있습니다.
 
-예를 들어 Azure-SSIS IR에 있는 경우 `UK South` Azure 방화벽을 통해 아웃 바운드 트래픽을 검사 하려는 경우 `BatchNodeManagement.UKSouth` 서비스 태그 [ip 범위 다운로드 링크](https://www.microsoft.com/download/details.aspx?id=56519) 또는 [서비스 태그 검색 API](https://aka.ms/discoveryapi)를 통해 서비스 태그의 ip 범위 목록을 먼저 가져옵니다. 그런 다음, 다음 홉 유형이 **Virtual 어플라이언스**인 0.0.0.0/0 경로를 사용 하 여 다음 홉 유형으로 **인터넷** 으로 다음 홉 유형 경로를 적용 합니다.
+예를 들어 Azure-SSIS IR에 있는 경우 `UK South` Azure 방화벽을 통해 아웃 바운드 트래픽을 검사 하려는 경우 `BatchNodeManagement.UKSouth` 서비스 태그 [ip 범위 다운로드 링크](https://www.microsoft.com/download/details.aspx?id=56519) 또는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 서비스 태그의 ip 범위 목록을 먼저 가져옵니다. 그런 다음, 다음 홉 유형이 **Virtual 어플라이언스** 인 0.0.0.0/0 경로를 사용 하 여 다음 홉 유형으로 **인터넷** 으로 다음 홉 유형 경로를 적용 합니다.
 
 ![Azure Batch UDR 설정](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -269,10 +269,10 @@ else
 > [!NOTE]
 > Azure SQL 및 저장소의 경우 서브넷에서 Virtual Network 서비스 끝점을 구성 하는 경우 동일한 지역 또는 쌍을 이루는 지역에 있는 동일한 지역 \ Azure Storage의 Azure-SSIS IR와 Azure SQL 간의 트래픽이 방화벽 어플라이언스 대신 직접 Microsoft Azure 백본 네트워크로 라우팅됩니다.
 
-Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하는 기능이 필요 하지 않은 경우에는 단순히 경로를 적용 하 여 다음 홉 유형 **인터넷**으로 모든 트래픽을 강제로 수행할 수 있습니다.
+Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하는 기능이 필요 하지 않은 경우에는 단순히 경로를 적용 하 여 다음 홉 유형 **인터넷** 으로 모든 트래픽을 강제로 수행할 수 있습니다.
 
 -   Azure Express 경로 시나리오에서는 Azure-SSIS IR를 호스팅하는 서브넷에서 다음 홉 유형이 **인터넷** 인 0.0.0.0/0 경로를 적용할 수 있습니다. 
--   NVA 시나리오에서는 Azure-SSIS IR을 호스트 하는 서브넷에 적용 된 기존 0.0.0.0/0 경로를 **가상 어플라이언스** 에서 **인터넷**으로의 다음 홉 유형에 서 수정할 수 있습니다.
+-   NVA 시나리오에서는 Azure-SSIS IR을 호스트 하는 서브넷에 적용 된 기존 0.0.0.0/0 경로를 **가상 어플라이언스** 에서 **인터넷** 으로의 다음 홉 유형에 서 수정할 수 있습니다.
 
 ![경로 추가](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
@@ -282,9 +282,9 @@ Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하는 기능이 필요 �
 ### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> 리소스 그룹 설정
 
 Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 해당 리소스는 다음과 같습니다.
-- 이름이 * \<Guid> -azurebatch-cloudserviceloadbalancer*인 Azure 부하 분산 장치
-- 이름이 * \<Guid> -azurebatch-cloudservicepublicip*인 Azure 공용 IP 주소입니다.
-- 이름이 * \<Guid> -azurebatch-cloudservicenetworksecuritygroup*인 네트워크 작업 보안 그룹입니다. 
+- 이름이 *\<Guid> -azurebatch-cloudserviceloadbalancer* 인 Azure 부하 분산 장치
+- 이름이 *\<Guid> -azurebatch-cloudservicepublicip* 인 Azure 공용 IP 주소입니다.
+- 이름이 *\<Guid> -azurebatch-cloudservicenetworksecuritygroup* 인 네트워크 작업 보안 그룹입니다. 
 
 > [!NOTE]
 > 이제 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져올 수 있습니다. 이 시나리오에서는 가상 네트워크 대신 고정 공용 IP 주소와 동일한 리소스 그룹에 Azure 부하 분산 장치 및 네트워크 보안 그룹을 만듭니다.
@@ -306,7 +306,7 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
  
   현재 Azure-SSIS IR 가상 네트워크에 연결 되 면 공용 IP 주소가 자동으로 생성 됩니다. Azure Batch 관리 서비스만 인바운드-Azure-SSIS IR에 연결 하도록 허용 하는 NIC 수준 NSG가 있습니다. 인바운드 보호를 위해 서브넷 수준 NSG를 지정할 수도 있습니다.
 
-  공용 IP 주소를 노출 하지 않으려면 사용자의 시나리오에 적용 되는 경우 가상 네트워크에 Azure-SSIS IR를 조인 하는 대신 [자체 호스팅 IR을 Azure-SSIS IR에 대 한 프록시로 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) 하는 것이 좋습니다.
+  공용 IP 주소를 노출 하지 않으려면 사용자의 시나리오에 적용 되는 경우 가상 네트워크에 Azure-SSIS IR를 조인 하는 대신 [자체 호스팅 IR을 Azure-SSIS IR에 대 한 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md) 하는 것이 좋습니다.
  
 - 내 데이터 원본에 대 한 방화벽의 허용 목록에 내 Azure-SSIS IR의 공용 IP 주소를 추가할 수 있나요?
 
@@ -315,7 +315,7 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
   - 온-프레미스 네트워크에 가상 네트워크를 연결 하 고 Azure-SSIS IR를 가상 네트워크 서브넷에 조인한 후 데이터 원본이 온-프레미스에 있는 경우 해당 서브넷의 개인 IP 주소 범위를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있습니다.
   - 데이터 원본이 virtual network 서비스 끝점을 지 원하는 Azure 서비스인 경우 가상 네트워크 서브넷에서 가상 네트워크 서비스 끝점을 구성 하 고 해당 서브넷에 Azure-SSIS IR을 조인할 수 있습니다. 그런 다음 해당 서브넷을 사용 하 여 가상 네트워크 규칙을 데이터 원본에 대 한 방화벽에 추가할 수 있습니다.
   - 데이터 원본이 비 Azure 클라우드 서비스인 경우 UDR을 사용 하 여 고정 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure 방화벽으로 아웃 바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 NVA/Azure 방화벽의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있습니다.
-  - 위의 옵션 중 요구 사항을 충족 하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성 하는](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)것이 좋습니다. 그런 다음 자체 호스팅 IR을 호스트 하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있습니다.
+  - 위의 옵션 중 요구 사항을 충족 하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성 하는](./self-hosted-integration-runtime-proxy-ssis.md)것이 좋습니다. 그런 다음 자체 호스팅 IR을 호스트 하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있습니다.
 
 - Azure-SSIS IR에 대 한 자체 작업을 수행 하려는 경우 두 개의 고정 공용 주소를 제공 해야 하는 이유는 무엇 인가요?
 
@@ -340,27 +340,27 @@ Azure-SSIS IR 가상 네트워크에 연결 하기 전에 가상 네트워크를
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-1. **추가 서비스**를 선택 합니다. **가상 네트워크**를 필터링하여 선택합니다. 
+1. **추가 서비스** 를 선택 합니다. **가상 네트워크** 를 필터링하여 선택합니다. 
 
 1. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
 
-1. **가상 네트워크** 페이지에서 **속성**을 선택합니다. 
+1. **가상 네트워크** 페이지에서 **속성** 을 선택합니다. 
 
-1. **리소스 ID**에 대한 복사 단추를 선택하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
+1. **리소스 ID** 에 대한 복사 단추를 선택하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
 
-1. 왼쪽 메뉴에서 **서브넷**을 선택 합니다. 사용 가능한 주소 수가 Azure-SSIS IR의 노드 보다 큰지 확인 합니다. 
+1. 왼쪽 메뉴에서 **서브넷** 을 선택 합니다. 사용 가능한 주소 수가 Azure-SSIS IR의 노드 보다 큰지 확인 합니다. 
 
 1. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록 합니다. 구독에 Azure Batch 계정이 이미 있는 경우에는 Azure Batch에 대 한 구독이 등록 됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
 
-   1. Azure Portal의 왼쪽 메뉴에서 **구독**을 선택 합니다. 
+   1. Azure Portal의 왼쪽 메뉴에서 **구독** 을 선택 합니다. 
 
    1. 구독을 선택합니다. 
 
-   1. 왼쪽에서 **리소스 공급자**를 선택 하 고 **Microsoft.Batch** 가 등록 된 공급자 인지 확인 합니다. 
+   1. 왼쪽에서 **리소스 공급자** 를 선택 하 고 **Microsoft.Batch** 가 등록 된 공급자 인지 확인 합니다. 
 
    !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   목록에서 **Microsoft.Batch**가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
+   목록에서 **Microsoft.Batch** 가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
 
 ### <a name="configure-a-classic-virtual-network"></a>클래식 가상 네트워크 구성
 
@@ -370,29 +370,29 @@ Azure-SSIS IR에 연결 하기 전에 포털을 사용 하 여 클래식 가상 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-1. **추가 서비스**를 선택 합니다. **가상 네트워크(클래식)** 를 필터링하여 선택합니다. 
+1. **추가 서비스** 를 선택 합니다. **가상 네트워크(클래식)** 를 필터링하여 선택합니다. 
 
 1. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
 
-1. **가상 네트워크(클래식)** 페이지에서 **속성**을 선택합니다. 
+1. **가상 네트워크(클래식)** 페이지에서 **속성** 을 선택합니다. 
 
    ![클래식 가상 네트워크 리소스 ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
-1. **RESOURCE ID**에 대한 복사 단추를 선택하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
+1. **RESOURCE ID** 에 대한 복사 단추를 선택하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
 
-1. 왼쪽 메뉴에서 **서브넷**을 선택 합니다. 사용 가능한 주소 수가 Azure-SSIS IR의 노드 보다 큰지 확인 합니다. 
+1. 왼쪽 메뉴에서 **서브넷** 을 선택 합니다. 사용 가능한 주소 수가 Azure-SSIS IR의 노드 보다 큰지 확인 합니다. 
 
    ![가상 네트워크에서 사용 가능한 주소 수](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
-1. **MicrosoftAzureBatch**를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
+1. **MicrosoftAzureBatch** 를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
 
    1. 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 선택 하 고 **역할 할당** 탭을 선택 합니다. 
 
        !["액세스 제어" 및 "추가" 단추](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-   1. **역할 할당 추가**를 선택합니다.
+   1. **역할 할당 추가** 를 선택합니다.
 
-   1. **역할 할당 추가** 페이지에서 **역할**에 대해 **클래식 가상 머신 참가자**를 선택 합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864 붙여넣고**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch** 을 선택 합니다. 
+   1. **역할 할당 추가** 페이지에서 **역할** 에 대해 **클래식 가상 머신 참가자** 를 선택 합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864 붙여넣고** 를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch** 을 선택 합니다. 
 
        !["역할 할당 추가" 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
@@ -400,21 +400,21 @@ Azure-SSIS IR에 연결 하기 전에 포털을 사용 하 여 클래식 가상 
 
        ![액세스 설정 저장](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-   1. 참가자 목록에 **Microsoft Azure Batch**가 보이는지 확인합니다. 
+   1. 참가자 목록에 **Microsoft Azure Batch** 가 보이는지 확인합니다. 
 
        ![Azure Batch 액세스 확인](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
 1. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록 합니다. 구독에 Azure Batch 계정이 이미 있는 경우에는 Azure Batch에 대 한 구독이 등록 됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
 
-   1. Azure Portal의 왼쪽 메뉴에서 **구독**을 선택 합니다. 
+   1. Azure Portal의 왼쪽 메뉴에서 **구독** 을 선택 합니다. 
 
    1. 구독을 선택합니다. 
 
-   1. 왼쪽에서 **리소스 공급자**를 선택 하 고 **Microsoft.Batch** 가 등록 된 공급자 인지 확인 합니다. 
+   1. 왼쪽에서 **리소스 공급자** 를 선택 하 고 **Microsoft.Batch** 가 등록 된 공급자 인지 확인 합니다. 
 
    !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   목록에서 **Microsoft.Batch**가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
+   목록에서 **Microsoft.Batch** 가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
 
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Azure-SSIS IR을 가상 네트워크에 조인
 
@@ -422,7 +422,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재 이러한 웹 브라우저만 Data Factory UI를 지원 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리**를 선택 합니다. 메뉴에 **데이터 팩터리** 가 표시 되지 않으면 **추가 서비스**를 선택한 다음 **인텔리전스 + 분석** 섹션에서 **데이터 팩터리**를 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리** 를 선택 합니다. 메뉴에 **데이터 팩터리** 가 표시 되지 않으면 **추가 서비스** 를 선택한 다음 **인텔리전스 + 분석** 섹션에서 **데이터 팩터리** 를 선택 합니다. 
 
    ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
@@ -430,7 +430,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-1. 데이터 팩터리 UI에서 **편집** 탭으로 전환하고 **연결**을 선택한 다음, **통합 런타임** 탭으로 전환합니다. 
+1. 데이터 팩터리 UI에서 **편집** 탭으로 전환하고 **연결** 을 선택한 다음, **통합 런타임** 탭으로 전환합니다. 
 
    !["통합 런타임" 탭](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
@@ -448,29 +448,29 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    1. **참가할 VNet 선택 Azure-SSIS Integration Runtime 선택 하 고 ADF가 특정 네트워크 리소스를 만들도록 허용 하 고 선택적으로 고정 공용 IP 주소를 가져옵니다** . 확인란을 선택 합니다. 
 
-   1. **구독**에 대해서는 가상 네트워크가 있는 Azure 구독을 선택합니다.
+   1. **구독** 에 대해서는 가상 네트워크가 있는 Azure 구독을 선택합니다.
 
-   1. **위치**에는 통합 런타임의 동일한 위치가 선택됩니다.
+   1. **위치** 에는 통합 런타임의 동일한 위치가 선택됩니다.
 
-   1. **유형**에 대해 가상 네트워크의 유형 (클래식 또는 Azure Resource Manager)을 선택 합니다. 클래식 가상 네트워크는 곧 사용 되지 않으므로 Azure Resource Manager 가상 네트워크를 선택 하는 것이 좋습니다.
+   1. **유형** 에 대해 가상 네트워크의 유형 (클래식 또는 Azure Resource Manager)을 선택 합니다. 클래식 가상 네트워크는 곧 사용 되지 않으므로 Azure Resource Manager 가상 네트워크를 선택 하는 것이 좋습니다.
 
-   1. **VNet 이름**에서 가상 네트워크의 이름을 선택합니다. 가상 네트워크 서비스 끝점 또는 SQL Managed Instance에서 SSISDB를 호스트 하는 개인 끝점이 있는 SQL Database에 사용 되는 것과 동일 해야 합니다. 또는 온-프레미스 네트워크에 연결 된 것과 동일 해야 합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 만들 수 있는 가상 네트워크가 될 수 있습니다.
+   1. **VNet 이름** 에서 가상 네트워크의 이름을 선택합니다. 가상 네트워크 서비스 끝점 또는 SQL Managed Instance에서 SSISDB를 호스트 하는 개인 끝점이 있는 SQL Database에 사용 되는 것과 동일 해야 합니다. 또는 온-프레미스 네트워크에 연결 된 것과 동일 해야 합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 만들 수 있는 가상 네트워크가 될 수 있습니다.
 
-   1. **서브넷 이름**에서 가상 네트워크의 서브넷 이름을 선택합니다. 가상 네트워크 서비스 끝점에서 SSISDB를 호스트 하는 SQL Database에 사용 되는 것과 동일 해야 합니다. 또는 SQL Managed Instance에 사용 된 것과 다른 서브넷 이어야 합니다 .이 서브넷은 SSISDB를 호스트 하기 위해 개인 끝점을 사용 합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 서브넷이 될 수 있습니다.
+   1. **서브넷 이름** 에서 가상 네트워크의 서브넷 이름을 선택합니다. 가상 네트워크 서비스 끝점에서 SSISDB를 호스트 하는 SQL Database에 사용 되는 것과 동일 해야 합니다. 또는 SQL Managed Instance에 사용 된 것과 다른 서브넷 이어야 합니다 .이 서브넷은 SSISDB를 호스트 하기 위해 개인 끝점을 사용 합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 서브넷이 될 수 있습니다.
 
    1. **Azure-SSIS Integration Runtime에 대 한 고정 공용 ip 주소 가져오기** 확인란을 선택 하 여 Azure-SSIS IR에 대 한 고정 공용 ip 주소를 만들지 여부를 선택 하 여 데이터 원본에 대 한 방화벽에서 허용할 수 있습니다.
 
       확인란을 선택 하는 경우 다음 단계를 완료 합니다.
 
-      1. **첫 번째 고정 공용 ip 주소**에 대해 Azure-SSIS IR [요구 사항을 충족](#publicIP) 하는 첫 번째 고정 공용 ip 주소를 선택 합니다. 가 없으면 **새 링크 만들기** 를 클릭 하 여 Azure Portal에서 고정 공용 IP 주소를 만든 다음 새로 고침 단추를 클릭 하 여 선택할 수 있습니다.
+      1. **첫 번째 고정 공용 ip 주소** 에 대해 Azure-SSIS IR [요구 사항을 충족](#publicIP) 하는 첫 번째 고정 공용 ip 주소를 선택 합니다. 가 없으면 **새 링크 만들기** 를 클릭 하 여 Azure Portal에서 고정 공용 IP 주소를 만든 다음 새로 고침 단추를 클릭 하 여 선택할 수 있습니다.
       
-      1. **두 번째 고정 공용 ip 주소**에 대해 Azure-SSIS IR [요구 사항을 충족](#publicIP) 하는 두 번째 고정 공용 ip 주소를 선택 합니다. 가 없으면 **새 링크 만들기** 를 클릭 하 여 Azure Portal에서 고정 공용 IP 주소를 만든 다음 새로 고침 단추를 클릭 하 여 선택할 수 있습니다.
+      1. **두 번째 고정 공용 ip 주소** 에 대해 Azure-SSIS IR [요구 사항을 충족](#publicIP) 하는 두 번째 고정 공용 ip 주소를 선택 합니다. 가 없으면 **새 링크 만들기** 를 클릭 하 여 Azure Portal에서 고정 공용 IP 주소를 만든 다음 새로 고침 단추를 클릭 하 여 선택할 수 있습니다.
 
-   1. **VNet 유효성 검사**를 선택 합니다. 유효성 검사에 성공 하면 **계속**을 선택 합니다. 
+   1. **VNet 유효성 검사** 를 선택 합니다. 유효성 검사에 성공 하면 **계속** 을 선택 합니다. 
 
    ![가상 네트워크 관련 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-1. **요약** 섹션에서 Azure-SSIS IR에 대 한 모든 설정을 검토 합니다. 그런 다음 **업데이트**를 선택 합니다.
+1. **요약** 섹션에서 Azure-SSIS IR에 대 한 모든 설정을 검토 합니다. 그런 다음 **업데이트** 를 선택 합니다.
 
 1. Azure-SSIS IR의 **작업** 열에서 **시작** 단추를 선택 하 여 Azure-SSIS IR를 시작 합니다. 가상 네트워크에 연결 하는 Azure-SSIS IR를 시작 하는 데 약 20 ~ 30 분이 소요 됩니다. 
 
@@ -601,7 +601,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 Azure-SSIS IR에 대 한 자세한 내용은 다음 문서를 참조 하세요. 
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR를 포함 하 여 IRs에 대 한 일반적인 개념 정보를 제공 합니다. 
-- [자습서: SSIS 패키지를 Azure에 배포](tutorial-create-azure-ssis-runtime-portal.md)합니다. 이 자습서에서는 Azure-SSIS IR을 만드는 단계별 지침을 제공 합니다. Azure SQL Database를 사용하여 SSIS 카탈로그를 호스트합니다. 
+- [자습서: SSIS 패키지를 Azure에 배포](./tutorial-deploy-ssis-packages-azure.md)합니다. 이 자습서에서는 Azure-SSIS IR을 만드는 단계별 지침을 제공 합니다. Azure SQL Database를 사용하여 SSIS 카탈로그를 호스트합니다. 
 - [Azure-SSIS IR를 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 합니다. 가상 네트워크의 가상 네트워크 서비스 끝점 또는 SQL Managed Instance에서 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 방법에 대 한 지침을 제공 합니다. Azure-SSIS IR를 가상 네트워크에 연결 하는 방법을 보여 줍니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR에 대 한 정보를 가져오는 방법을 보여 줍니다. 반환 된 정보에 대 한 상태 설명을 제공 합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서에서는 Azure-SSIS IR를 중지, 시작 또는 삭제 하는 방법을 보여 줍니다. 또한 노드를 추가하여 Azure-SSIS IR을 규모 확장하는 방법을 보여줍니다.

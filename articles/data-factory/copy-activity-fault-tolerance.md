@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440646"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634780"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -93,7 +93,7 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 > - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
 >
 > 원본 및 대상 저장소 간에 일치 하지 않는 것으로 확인 되는 특정 파일을 건너뛰는 경우:
-> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)
+> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](./copy-activity-data-consistency.md)
 
 ### <a name="monitoring"></a>모니터링 
 
@@ -154,14 +154,14 @@ Timestamp,Level,OperationName,OperationItem,Message
 
     다음은 그 예입니다.  6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개를 초과하는 많은 열을 포함하는 CSV 파일 행은 호환되지 않는 것으로 감지하고 건너뜁니다.
 
-- **SQL Server/Azure SQL 데이터베이스/Azure Cosmos DB에 쓸 때 기본 키 위반**.
+- **SQL Server/Azure SQL 데이터베이스/Azure Cosmos DB에 쓸 때 기본 키 위반** .
 
     다음은 그 예입니다.  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
 >- PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정 하 여 polybase의 기본 내결함성 설정을 구성 합니다. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
 >- [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
->- [SQL 싱크의 저장 프로시저](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
+>- [SQL 싱크의 저장 프로시저](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 
 ### <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
@@ -298,5 +298,3 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 성능](copy-activity-performance.md)
-
-

@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c308bd038f273a7cec0442e42f8a749bc4bb8fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073559"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636632"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리
 
@@ -160,7 +160,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Transact-SQL을 사용하여 로그 정리
 
-다음 샘플 Transact-SQL 스크립트는 SSISDB 로그 정리를 위한 저장 프로시저를 트리거하는 새 탄력적 작업을 만듭니다. 자세한 내용은 [T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리](../sql-database/elastic-jobs-tsql.md)를 참조하세요.
+다음 샘플 Transact-SQL 스크립트는 SSISDB 로그 정리를 위한 저장 프로시저를 트리거하는 새 탄력적 작업을 만듭니다. 자세한 내용은 [T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리](../azure-sql/database/elastic-jobs-tsql-create-manage.md)를 참조하세요.
 
 1. SSISDB 정리 작업 데이터베이스인 빈 S0 이상 Azure SQL Database를 만들고 식별합니다. 그런 다음, [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent)에서 탄력적 작업 에이전트를 만듭니다.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927585"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634541"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법
 
@@ -25,11 +25,11 @@ ms.locfileid: "87927585"
 이 문서에서는 Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법을 설명 합니다.
 Azure Data Factory은 Self-Hosted Integration Runtime의 공식 windows 컨테이너 지원을 제공 합니다. Docker 빌드 소스 코드를 다운로드 하 고 빌드 및 실행 중인 프로세스를 고유한 연속 배달 파이프라인에서 결합할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소 
-- [Windows의 컨테이너 요구 사항](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+## <a name="prerequisites"></a>사전 요구 사항 
+- [Windows의 컨테이너 요구 사항](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker 버전 2.3 이상 
 - Self-Hosted Integration Runtime 버전 4.11.7512.1 이상 
-## <a name="get-started"></a>시작 
+## <a name="get-started"></a>시작하기 
 1.  Docker 설치 및 Windows 컨테이너 사용 
 2.  https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container에서 소스 코드 다운로드
 3.  ' SHIR ' 폴더에서 최신 버전 SHIR 다운로드 
@@ -61,7 +61,5 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 - 자동 업데이트 
 
 ### <a name="next-steps"></a>다음 단계
-- [Azure Data Factory의 통합 런타임 개념](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)을 검토합니다.
-- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) 방법을 알아봅니다.
-
-
+- [Azure Data Factory의 통합 런타임 개념](./concepts-integration-runtime.md)을 검토합니다.
+- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](./create-self-hosted-integration-runtime.md) 방법을 알아봅니다.

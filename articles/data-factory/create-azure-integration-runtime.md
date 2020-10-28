@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659703"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637210"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,27 +41,27 @@ Integration Runtime는 **AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet�
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Azure IR의 경우 형식은 **Managed**로 설정되어야 합니다. 컴퓨팅 세부 정보는 클라우드에서 탄력적으로 완전히 관리되므로 지정할 필요가 없습니다. Azure-SSIS IR을 만들려는 경우 노드 크기 및 노드 개수와 같은 컴퓨팅 세부 정보를 지정합니다. 자세한 내용은 [Azure SSIS IR 만들기 및 구성](create-azure-ssis-integration-runtime.md)을 참조하세요.
+Azure IR의 경우 형식은 **Managed** 로 설정되어야 합니다. 컴퓨팅 세부 정보는 클라우드에서 탄력적으로 완전히 관리되므로 지정할 필요가 없습니다. Azure-SSIS IR을 만들려는 경우 노드 크기 및 노드 개수와 같은 컴퓨팅 세부 정보를 지정합니다. 자세한 내용은 [Azure SSIS IR 만들기 및 구성](create-azure-ssis-integration-runtime.md)을 참조하세요.
 
 Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당 위치를 변경 하도록 기존 Azure IR를 구성할 수 있습니다. Azure IR의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요.
 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Azure Data Factory UI를 통해 Azure IR 만들기
 다음 단계를 사용 하 여 Azure Data Factory UI를 사용 하 여 Azure IR를 만듭니다.
 
-1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 선택합니다.
+1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](./author-management-hub.md)을 선택합니다.
 
    ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
 
-1. 왼쪽 창에서 **통합 런타임**을 선택한 다음, **+새로 만들기**를 선택합니다.
+1. 왼쪽 창에서 **통합 런타임** 을 선택한 다음, **+새로 만들기** 를 선택합니다.
 
    ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
+1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅** 을 차례로 선택 하 고 **계속** 을 선택 합니다. 
 
-1. 다음 페이지에서 **Azure** 를 선택 하 여 Azure IR를 만든 후 **계속**을 선택 합니다.
+1. 다음 페이지에서 **Azure** 를 선택 하 여 Azure IR를 만든 후 **계속** 을 선택 합니다.
    ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Azure IR에 대 한 이름을 입력 하 고 **만들기**를 선택 합니다.
+1. Azure IR에 대 한 이름을 입력 하 고 **만들기** 를 선택 합니다.
    ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. 만들기가 완료 되 면 팝업 알림이 표시 됩니다. **통합 런타임** 페이지에서 새로 만든 IR이 목록에 표시 되는지 확인 합니다.
@@ -92,4 +92,3 @@ Azure IR을 만든 후 연결된 서비스 정의에서 참조할 수 있습니�
 
 - [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
 - [Azure SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)
- 

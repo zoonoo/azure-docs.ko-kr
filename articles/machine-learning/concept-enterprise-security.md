@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637091"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -111,7 +111,7 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 ## <a name="data-encryption"></a>데이터 암호화.
 
 > [!IMPORTANT]
-> __학습__중에 프로덕션 등급 암호화의 경우 계산 클러스터 Azure Machine Learning를 사용 하는 것이 좋습니다. __유추__중 프로덕션 등급 암호화의 경우 Azure Kubernetes Service를 사용 하는 것이 좋습니다.
+> __학습__ 중에 프로덕션 등급 암호화의 경우 계산 클러스터 Azure Machine Learning를 사용 하는 것이 좋습니다. __유추__ 중 프로덕션 등급 암호화의 경우 Azure Kubernetes Service를 사용 하는 것이 좋습니다.
 >
 > Azure Machine Learning 계산 인스턴스는 개발/테스트 환경입니다. 이를 사용 하는 경우 파일 공유에 전자 필기장 및 스크립트와 같은 파일을 저장 하는 것이 좋습니다. 데이터를 데이터 저장소에 저장 해야 합니다.
 
@@ -135,7 +135,7 @@ Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법�
 
 일반적으로 학습 데이터는 Azure Blob Storage에 저장되므로 학습 컴퓨팅 대상에 액세스할 수 있습니다. 이 스토리지는 Azure Machine Learning으로 관리되지 않지만 컴퓨팅 대상에 원격 파일 시스템으로 탑재됩니다.
 
-키를 __순환 또는 철회__해야 하는 경우 언제든지 그렇게 할 수 있습니다. 키를 순환하면 스토리지 계정은 새 키(최신 버전)를 사용하여 미사용 데이터를 암호화하기 시작합니다. 키를 철회(비활성화)하면 스토리지 계정이 실패한 요청을 처리합니다. 순환 또는 철회가 적용되려면 대개 1시간이 걸립니다.
+키를 __순환 또는 철회__ 해야 하는 경우 언제든지 그렇게 할 수 있습니다. 키를 순환하면 스토리지 계정은 새 키(최신 버전)를 사용하여 미사용 데이터를 암호화하기 시작합니다. 키를 철회(비활성화)하면 스토리지 계정이 실패한 요청을 처리합니다. 순환 또는 철회가 적용되려면 대개 1시간이 걸립니다.
 
 액세스 키 다시 생성에 대한 자세한 내용은 [스토리지 액세스 키 다시 생성](how-to-change-storage-access-key.md)을 참조하세요.
 
@@ -158,14 +158,9 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데
         > [!NOTE]
         > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 
-이 Cosmos DB 인스턴스는 구독에서 필요한 리소스와 함께 Microsoft에서 관리 하는 리소스 그룹에 만들어집니다. 관리형 리소스 그룹의 이름은 `<AML Workspace Resource Group Name><GUID>` 형식으로 지정됩니다. Azure Machine Learning 작업 영역에서 개인 끝점을 사용 하는 경우 Cosmos DB 인스턴스에 대해 가상 네트워크도 생성 됩니다. 이 VNet은 Cosmos DB와 Azure Machine Learning 간의 통신을 보호 하는 데 사용 됩니다.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
-> [!IMPORTANT]
-> * 이 Cosmos DB 인스턴스 또는이 그룹에 자동으로 생성 된 리소스를 포함 하는 리소스 그룹을 삭제 하지 마십시오. 리소스 그룹, Cosmos DB 인스턴스 등을 삭제 해야 하는 경우이를 사용 하는 Azure Machine Learning 작업 영역을 삭제 해야 합니다. 연결 된 작업 영역을 삭제 하면 리소스 그룹, Cosmos DB 인스턴스 및 자동으로 만들어진 기타 리소스가 삭제 됩니다.
-> * Cosmos DB 계정의 기본 [__요청 단위__](../cosmos-db/request-units.md)는 __8000__으로 설정되어 있습니다. 이 값을 변경하는 것은 지원되지 않습니다.
-> * 만든 Cosmos DB 인스턴스에 사용할 사용자 고유의 VNet을 제공할 수 없습니다. 가상 네트워크를 수정할 수도 없습니다. 예를 들어 사용 하는 IP 주소 범위를 변경할 수 없습니다.
-
-키를 __순환 또는 철회__해야 하는 경우 언제든지 그렇게 할 수 있습니다. 키를 순환하면 Cosmos DB는 새 키(최신 버전)를 사용하여 미사용 데이터를 암호화하기 시작합니다. 키를 철회(비활성화)하면 Cosmos DB가 실패한 요청을 처리합니다. 순환 또는 철회가 적용되려면 대개 1시간이 걸립니다.
+키를 __순환 또는 철회__ 해야 하는 경우 언제든지 그렇게 할 수 있습니다. 키를 순환하면 Cosmos DB는 새 키(최신 버전)를 사용하여 미사용 데이터를 암호화하기 시작합니다. 키를 철회(비활성화)하면 Cosmos DB가 실패한 요청을 처리합니다. 순환 또는 철회가 적용되려면 대개 1시간이 걸립니다.
 
 Cosmos DB의 고객 관리형 키에 대한 자세한 내용은 [Azure Cosmos DB 계정에 대한 고객 관리형 키 구성](../cosmos-db/how-to-setup-cmk.md)을 참조하세요.
 
@@ -261,7 +256,7 @@ Microsoft는 진단을 목적으로 리소스 이름(예: 데이터 세트 이�
 
 ### <a name="metrics"></a>메트릭
 
-Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 대한 메트릭을 보고 모니터링할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택한 다음, **메트릭**을 선택합니다.
+Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 대한 메트릭을 보고 모니터링할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택한 다음, **메트릭** 을 선택합니다.
 
 [![작업 영역에 대한 예제 메트릭을 보여주는 스크린샷](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -371,8 +366,8 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 
 [Azure Policy](/azure/governance/policy) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
 
-* **고객 관리 키**: 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
-* **개인 링크**: 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
+* **고객 관리 키** : 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
+* **개인 링크** : 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
 
 Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](/azure/governance/policy/overview)를 참조 하세요.
 

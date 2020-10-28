@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: ddae4a99964e438c003fe0ff0db91c5808fa7631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761110"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636547"
 ---
 # <a name="how-to-store-user-preferences"></a>사용자 기본 설정을 저장 하는 방법
 
-이 문서에서는 [-기본](./reference.md#options) 설정 및 [-OnPreferencesChanged](./reference.md#options) 몰입 형 판독기 SDK 옵션을 통해 사용자가 **공식적으로 알려진 사용자의**UI 설정을 저장 하는 방법을 보여 줍니다.
+이 문서에서는 [-기본](./reference.md#options) 설정 및 [-OnPreferencesChanged](./reference.md#options) 몰입 형 판독기 SDK 옵션을 통해 사용자가 **공식적으로 알려진 사용자의** UI 설정을 저장 하는 방법을 보여 줍니다.
 
-[CookiePolicy](./reference.md#cookiepolicy-options) SDK 옵션이 *Enabled*로 설정 된 경우 몰입 형 판독기 응용 프로그램은 특정 브라우저 및 장치에 로컬인 쿠키에 **사용자 기본 설정** (텍스트 크기, 테마 색, 글꼴 등)을 저장 합니다. 사용자는 동일한 브라우저와 장치에서 몰입 형 판독기를 시작할 때마다 해당 장치에 대 한 마지막 세션에서 사용자의 기본 설정을 사용 하 여 열립니다. 그러나 사용자가 다른 브라우저 또는 장치에서 몰입 형 판독기를 열 경우 처음에는 몰입 형 판독기의 기본 설정으로 설정이 구성 되며 사용자가 사용 하는 각 장치에 대해 해당 기본 설정을 다시 설정 해야 합니다. `-preferences`및 몰입 형 판독기 SDK 옵션을 사용 하면 응용 프로그램에서 사용자가 `-onPreferencesChanged` 응용 프로그램을 사용 하는 모든 위치에 일관 된 환경을 제공할 수 있도록 다양 한 브라우저 및 장치에서 사용자의 기본 설정을 로밍할 수 있습니다.
+[CookiePolicy](./reference.md#cookiepolicy-options) SDK 옵션이 *Enabled* 로 설정 된 경우 몰입 형 판독기 응용 프로그램은 특정 브라우저 및 장치에 로컬인 쿠키에 **사용자 기본 설정** (텍스트 크기, 테마 색, 글꼴 등)을 저장 합니다. 사용자는 동일한 브라우저와 장치에서 몰입 형 판독기를 시작할 때마다 해당 장치에 대 한 마지막 세션에서 사용자의 기본 설정을 사용 하 여 열립니다. 그러나 사용자가 다른 브라우저 또는 장치에서 몰입 형 판독기를 열 경우 처음에는 몰입 형 판독기의 기본 설정으로 설정이 구성 되며 사용자가 사용 하는 각 장치에 대해 해당 기본 설정을 다시 설정 해야 합니다. `-preferences`및 몰입 형 판독기 SDK 옵션을 사용 하면 응용 프로그램에서 사용자가 `-onPreferencesChanged` 응용 프로그램을 사용 하는 모든 위치에 일관 된 환경을 제공할 수 있도록 다양 한 브라우저 및 장치에서 사용자의 기본 설정을 로밍할 수 있습니다.
 
 첫 번째는 몰입 형 판독기 `-onPreferencesChanged` 응용 프로그램을 시작할 때 CALLBACK SDK 옵션을 제공 하 여 `-preferences` 사용자가 몰입 형 판독기 세션 중에 기본 설정을 변경할 때마다 몰입 형 판독기가 다시 호스트 응용 프로그램에 문자열을 보냅니다. 그런 다음 호스트 응용 프로그램은 사용자 기본 설정을 자신의 시스템에 저장 합니다. 그런 다음 동일한 사용자가 몰입 형 판독기를 다시 시작 하면 호스트 응용 프로그램이 저장소에서 해당 사용자의 기본 설정을 검색 하 고 `-preferences` 사용자의 기본 설정이 복원 되도록 몰입 형 판독기 응용 프로그램을 시작할 때 문자열 SDK 옵션으로 제공할 수 있습니다.
 

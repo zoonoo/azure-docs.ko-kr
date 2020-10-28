@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082871"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636071"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082871"
 
 조직은 매일 계속 증가 하는 복잡 한 데이터를 정확 하 게 분석 하기 위해 데이터 준비 및 랭 글 링을 수행 해야 합니다. 조직에서 다양 한 비즈니스 프로세스의 데이터를 사용 하 고 시간 값을 줄일 수 있도록 데이터를 준비 해야 합니다.
 
-Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](https://docs.microsoft.com/power-query/) 과 통합 되며, 파워 쿼리 M 함수를 data factory 사용자가 사용할 수 있도록 합니다.
+Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](/power-query/) 과 통합 되며, 파워 쿼리 M 함수를 data factory 사용자가 사용할 수 있도록 합니다.
 
 랭 글 링 데이터 흐름은 파워 쿼리 온라인 매시업 편집기에 의해 생성 된 M을 클라우드 규모 실행을 위한 spark 코드로 변환 합니다.
 

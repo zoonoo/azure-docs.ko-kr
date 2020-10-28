@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440561"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635816"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -51,8 +51,8 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
-- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **클라우드 시나리오** : 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
+- **하이브리드 시나리오** : 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,14 +60,14 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 ### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
 
-- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/fundamentals/storage-overview.md)를 참조하세요.
-- **Azure Key Vault에 자격 증명을 저장**합니다. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
+- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다** . Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../storage/blobs/security-recommendations.md)를 참조하세요.
+- **Azure Key Vault에 자격 증명을 저장** 합니다. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
 
 > [!NOTE]
-> Azure SQL Database 및 Azure Synapse Analytics에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS** 를 사용할 수 있습니다.
+> Azure SQL Database 및 Azure Synapse Analytics에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true** 로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS** 를 사용할 수 있습니다.
 
 > [!NOTE]
 > Oracle에서 데이터를 이동하면서 전송 중에 암호화를 사용하려면 아래 옵션 중 하나를 따르세요.
@@ -84,7 +84,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 Azure Synapse Analytics의 TDE (투명한 데이터 암호화)는 미사용 데이터에 대 한 실시간 암호화 및 암호 해독을 수행 하 여 악의적인 활동의 위협 으로부터 보호 합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure Synapse Analytics에서 데이터베이스 보안](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)을 참조 하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
+Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
@@ -102,7 +102,7 @@ Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지�
 Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios"></a>하이브리드 시나리오
-하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
+하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](./create-self-hosted-integration-runtime.md)을 참조하세요. 
 
 ![자체 호스팅 통합 런타임 채널](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -111,11 +111,11 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 ### <a name="on-premises-data-store-credentials"></a>온-프레미스 데이터 저장소 자격 증명
 자격 증명은 데이터 팩터리 내에 저장 하거나 Azure Key Vault 런타임 중에 [data factory에서 참조할](store-credentials-in-key-vault.md) 수 있습니다. 데이터 팩터리 내에 자격 증명을 저장 하는 경우 자체 호스팅 통합 런타임에서 항상 암호화 된 상태로 저장 됩니다. 
  
-- **자격 증명을 로컬로 저장**합니다. JSON에서 연결 문자열 및 자격 증명과 함께 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 자체 호스팅 통합 런타임에 암호화 되어 저장 됩니다.  이 경우 자격 증명은 가장 안전 하 게 Azure 백엔드 서비스를 통해 전달 되 고,이는 마지막으로 암호화 되 고 저장 되는 자체 호스팅 통합 컴퓨터에 전달 됩니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다.
+- **자격 증명을 로컬로 저장** 합니다. JSON에서 연결 문자열 및 자격 증명과 함께 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 자체 호스팅 통합 런타임에 암호화 되어 저장 됩니다.  이 경우 자격 증명은 가장 안전 하 게 Azure 백엔드 서비스를 통해 전달 되 고,이는 마지막으로 암호화 되 고 저장 되는 자체 호스팅 통합 컴퓨터에 전달 됩니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](/previous-versions/ms995355(v=msdn.10))를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다.
 
-- **Azure Key Vault에 자격 증명을 저장**합니다. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
+- **Azure Key Vault에 자격 증명을 저장** 합니다. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
-- **Azure 백 엔드를 통해 자격 증명을 자체 호스팅 통합 런타임으로 이동 하지 않고 자격 증명을 로컬에 저장**합니다. 데이터 팩터리 백 엔드를 통해 자격 증명을 전달 하지 않고 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화 하 고 저장 하려면 [Azure Data Factory에서 온-프레미스 데이터 저장소에 대 한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르세요. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다. 
+- **Azure 백 엔드를 통해 자격 증명을 자체 호스팅 통합 런타임으로 이동 하지 않고 자격 증명을 로컬에 저장** 합니다. 데이터 팩터리 백 엔드를 통해 자격 증명을 전달 하지 않고 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화 하 고 저장 하려면 [Azure Data Factory에서 온-프레미스 데이터 저장소에 대 한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르세요. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](/previous-versions/ms995355(v=msdn.10))를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다. 
 
    **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 연결 된 서비스 자격 증명 및 연결 된 서비스의 중요 한 세부 정보를 암호화할 수 있습니다. 그런 다음 반환 된 JSON (연결 문자열의 **Encryptedcredential** 요소 포함)을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 사용 하 여 연결 된 서비스를 만들 수 있습니다.  
 
@@ -159,7 +159,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 > 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 테이블은 Azure SQL Database, Azure Synapse Analytics 및 Azure Data Lake Store를 예제로만 사용 합니다.
 
 > [!NOTE] 
-> Azure Data Factory를 통한 데이터 액세스 전략에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory)를 참조 하세요.
+> Azure Data Factory를 통한 데이터 액세스 전략에 대 한 자세한 내용은 [이 문서](./data-access-strategies.md#data-access-strategies-through-azure-data-factory)를 참조 하세요.
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항    
 기업에서는 기업 방화벽이 조직의 중앙 라우터에서 실행됩니다. Windows 방화벽은 자체 호스팅 통합 런타임이 설치된 로컬 컴퓨터에서 디먼으로 실행됩니다. 
@@ -173,7 +173,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
-| 인바운드 포트 | 설명                              |
+| 인바운드 포트 | Description                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
@@ -185,9 +185,9 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 다음 클라우드 데이터 저장소를 사용 하려면 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 합니다. 이러한 데이터 저장소 중 일부에는 기본적으로 허용 목록이 필요 하지 않을 수 있습니다. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Storage](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -204,4 +204,3 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory 복사 활동 성능에 대한 자세한 내용은 [복사 활동 성능 및 조정 가이드](copy-activity-performance.md)를 참조하세요.
 
- 

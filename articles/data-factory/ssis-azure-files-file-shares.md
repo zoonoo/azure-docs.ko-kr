@@ -8,12 +8,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 36660854b9a7ae13431545392ef551694b48e97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2b95e0de642dc17865643ec569e7220fe5581b2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82628915"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637499"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Azure에 배포된 SSIS 패키지로 온-프레미스 및 Azure에서 파일 열기 및 저장
 
@@ -27,13 +27,13 @@ ms.locfileid: "82628915"
 
 ## <a name="use-on-premises-file-shares"></a>온-프레미스 파일 공유 사용
 
-**온-프레미스 파일 공유**를 계속해서 사용하려면 Azure에서 로컬 파일 시스템을 SSIS로 사용하는 패키지를 리프트 앤 시프트할 때 다음 작업을 수행합니다.
+**온-프레미스 파일 공유** 를 계속해서 사용하려면 Azure에서 로컬 파일 시스템을 SSIS로 사용하는 패키지를 리프트 앤 시프트할 때 다음 작업을 수행합니다.
 
 1. 로컬 파일 시스템에서 온-프레미스 파일 공유로 파일을 전송합니다.
 
 2. 온-프레미스 파일 공유를 Azure 가상 네트워크에 조인합니다.
 
-3. Azure SSIS IR을 동일한 가상 네트워크에 조인합니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
+3. Azure SSIS IR을 동일한 가상 네트워크에 조인합니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
 4. Windows 인증을 사용하는 액세스 자격 증명을 설정하여 Azure SSIS IR을 동일한 가상 네트워크 내의 온-프레미스 파일 공유에 연결합니다. 자세한 정보는 [Windows 인증으로 데이터 및 파일 공유에 연결](ssis-azure-connect-with-windows-auth.md)을 참조합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82628915"
 
 ## <a name="use-azure-file-shares"></a>Azure 파일 공유 사용
 
-**Azure Files**를 사용하려면 Azure에서 로컬 파일 시스템을 SSIS로 사용하는 패키지를 리프트 앤 시프트할 때 다음 작업을 수행합니다.
+**Azure Files** 를 사용하려면 Azure에서 로컬 파일 시스템을 SSIS로 사용하는 패키지를 리프트 앤 시프트할 때 다음 작업을 수행합니다.
 
 1. 로컬 파일 시스템에서 Azure Files로 파일을 전송합니다. 자세한 내용은 [Azure Files](https://azure.microsoft.com/services/storage/files/)를 참조하세요.
 
@@ -51,6 +51,6 @@ ms.locfileid: "82628915"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 패키지를 배포합니다. 자세한 내용은 [SSMS를 사용하여 Azure에 SSIS 프로젝트 배포](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms)를 참조합니다.
-- 패키지를 실행합니다. 자세한 내용은 [SSMS를 사용하여 Azure에서 SSIS 패키지 실행](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms)을 참조합니다.
-- 패키지를 예약합니다. 자세한 내용은 [Azure에서 SSIS 패키지 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)을 참조 하세요.
+- 패키지를 배포합니다. 자세한 내용은 [SSMS를 사용하여 Azure에 SSIS 프로젝트 배포](/sql/integration-services/ssis-quickstart-deploy-ssms)를 참조합니다.
+- 패키지를 실행합니다. 자세한 내용은 [SSMS를 사용하여 Azure에서 SSIS 패키지 실행](/sql/integration-services/ssis-quickstart-run-ssms)을 참조합니다.
+- 패키지를 예약합니다. 자세한 내용은 [Azure에서 SSIS 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)을 참조 하세요.

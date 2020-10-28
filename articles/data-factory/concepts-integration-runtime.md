@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371208"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636649"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -24,10 +24,10 @@ ms.locfileid: "92371208"
 
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
 
-- **데이터 흐름**: 관리 되는 Azure 계산 환경에서 [데이터 흐름](concepts-data-flow-overview.md) 을 실행 합니다.  
-- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크 (온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사 합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
-- **활동 디스패치**: Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 합니다.
-- **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
+- **데이터 흐름** : 관리 되는 Azure 계산 환경에서 [데이터 흐름](concepts-data-flow-overview.md) 을 실행 합니다.  
+- **데이터 이동** : 공용 네트워크의 데이터 저장소 및 개인 네트워크 (온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사 합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
+- **활동 디스패치** : Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 합니다.
+- **SSIS 패키지 실행** : SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
 Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  연결 된 서비스 또는 활동에서 참조 되며 활동이 실행 되거나 디스패치되는 계산 환경을 제공 합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
 
@@ -113,7 +113,7 @@ Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Az
 
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
-- [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 단계별 지침을 제공 합니다. 
+- [자습서: Azure에 SSIS 패키지 배포](./tutorial-deploy-ssis-packages-azure.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 단계별 지침을 제공 합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 가입 하는 방법에 대 한 지침을 제공 합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
@@ -180,9 +180,9 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 복사 작업의 경우 데이터 흐름의 방향을 정의하기 위해 소스 및 싱크 연결된 서비스가 필요합니다. 다음 논리를 사용하여 복사를 수행하는 데 사용하는 통합 런타임 인스턴스를 결정합니다. 
 
-- **두 클라우드 데이터 원본 간 복사**: 원본 및 싱크 연결 된 서비스가 모두 Azure IR를 사용 하는 경우 ADF는 지정 된 경우 지역 Azure IR를 사용 하 고 [통합 런타임 위치](#integration-runtime-location) 섹션에서 설명한 대로 IR 자동 해결 (기본값)을 선택 하는 경우 Azure IR 위치를 자동으로 결정 합니다.
-- **클라우드 데이터 소스와 프라이빗 네트워크의 데이터 소스 간 복사**: 소스 또는 싱크 연결된 서비스 중 하나가 자체 호스팅 IR을 가리키는 경우 해당 자체 호스팅 통합 런타임에서 복사 작업을 실행합니다.
-- **개인 네트워크에서 두 데이터 원본 간 복사**: 원본 및 싱크 연결 된 서비스는 모두 integration runtime의 동일한 인스턴스를 가리켜야 하며, 통합 런타임을 사용 하 여 복사 작업을 실행 합니다.
+- **두 클라우드 데이터 원본 간 복사** : 원본 및 싱크 연결 된 서비스가 모두 Azure IR를 사용 하는 경우 ADF는 지정 된 경우 지역 Azure IR를 사용 하 고 [통합 런타임 위치](#integration-runtime-location) 섹션에서 설명한 대로 IR 자동 해결 (기본값)을 선택 하는 경우 Azure IR 위치를 자동으로 결정 합니다.
+- **클라우드 데이터 소스와 프라이빗 네트워크의 데이터 소스 간 복사** : 소스 또는 싱크 연결된 서비스 중 하나가 자체 호스팅 IR을 가리키는 경우 해당 자체 호스팅 통합 런타임에서 복사 작업을 실행합니다.
+- **개인 네트워크에서 두 데이터 원본 간 복사** : 원본 및 싱크 연결 된 서비스는 모두 integration runtime의 동일한 인스턴스를 가리켜야 하며, 통합 런타임을 사용 하 여 복사 작업을 실행 합니다.
 
 ### <a name="lookup-and-getmetadata-activity"></a>조회 및 GetMetadata 작업
 
@@ -202,4 +202,4 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 - [Azure 통합 런타임 만들기](create-azure-integration-runtime.md)
 - [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
-- [AZURE SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 가입 하는 방법에 대 한 지침을 제공 합니다. 
+- [AZURE SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 가입 하는 방법에 대 한 지침을 제공 합니다.

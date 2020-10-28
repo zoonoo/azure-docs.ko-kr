@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93c697162bfcb51b77c2e6f48b5824b81070bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6120283ec240441cc62cad642bbeda0b735abc0f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637329"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -31,7 +31,7 @@ ms.locfileid: "91816404"
 
 먼저 Azure Portal의 **인증/권한 부여** 페이지에서 사용하도록 설정하려는 각 ID 공급자를 구성합니다.
 
-**요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
+**요청이 인증되지 않은 경우 수행할 작업** 에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
 로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
 
@@ -170,21 +170,21 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 [세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 이 호출 되 면 App Service는 인증 된 사용자에 대 한 [토큰 저장소](overview-authentication-authorization.md#token-store) 의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
 
-- **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
-- **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
-- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) 참조).
-- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
-- **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
-    1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
-    2. 왼쪽 브라우저에서 **구독** > * *_ \<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자**  >  **Microsoft. 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**로 이동 합니다. 
-    3. **편집**을 클릭합니다.
+- **Google** : `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
+- **Facebook** : 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
+- **Twitter** : 액세스 토큰이 만료되지 않습니다( [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) 참조).
+- **Microsoft 계정** : [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
+- **Azure Active Directory** : [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
+    1. 페이지의 위쪽에서 **읽기/쓰기** 를 선택합니다.
+    2. 왼쪽 브라우저에서 **구독** > * * _\<subscription\_name_** > **resourcegroups** > * *_ * \<resource\_group\_name> _* > **공급자**  >  **Microsoft. 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
+    3. **편집** 을 클릭합니다.
     4. 다음 속성을 수정합니다. 을 _\<app\_id>_ 액세스 하려는 서비스의 Azure Active Directory 응용 프로그램 ID로 바꿉니다.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. **배치**를 클릭합니다. 
+    5. **배치** 를 클릭합니다. 
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>로그인 계정의 도메인 제한
 
-Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예:)로 직접 사용자를 가속화 하는 것이 좋습니다 `contoso.com` . 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
+Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_ , _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예:)로 직접 사용자를 가속화 하는 것이 좋습니다 `contoso.com` . 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-에서 [https://resources.azure.com](https://resources.azure.com) **구독** > * *_ \<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자**인  >  **Microsoft 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**로 이동 합니다. 
+에서 [https://resources.azure.com](https://resources.azure.com) **구독** > * * _\<subscription\_name_** > **resourcegroups** > * *_ * \<resource\_group\_name> _* > **공급자** 인  >  **Microsoft 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** 로 이동 합니다. 
 
-**편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. 을 _\<domain\_name>_ 원하는 도메인으로 바꾸어야 합니다.
+**편집** 을 클릭하고 다음 속성을 수정한 다음, **배치** 를 클릭합니다. 을 _\<domain\_name>_ 원하는 도메인으로 바꾸어야 합니다.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="server-level-windows-apps-only"></a>서버 수준 (Windows 앱에만 해당)
 
-모든 Windows 앱의 경우 *Web.config* 파일을 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *Web.config*를 통해 구성할 수 없습니다.
+모든 Windows 앱의 경우 *Web.config* 파일을 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *Web.config* 를 통해 구성할 수 없습니다.
 
 1. `https://<app-name>.scm.azurewebsites.net/DebugConsole` 로 이동합니다.
 
-1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config* 없는 경우 **+**  >  **새 파일**을 선택 하 여 만듭니다. 
+1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot* 로 이동 합니다. *Web.config* 없는 경우 **+**  >  **새 파일** 을 선택 하 여 만듭니다. 
 
-1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장**을 클릭 합니다. *Web.config* 이미 있는 경우 `<authorization>` 요소를 모든 항목에 추가 하면 됩니다. 요소에 허용 하려는 계정을 추가 `<allow>` 합니다.
+1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장** 을 클릭 합니다. *Web.config* 이미 있는 경우 `<authorization>` 요소를 모든 항목에 추가 하면 됩니다. 요소에 허용 하려는 계정을 추가 `<allow>` 합니다.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -393,7 +393,7 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },

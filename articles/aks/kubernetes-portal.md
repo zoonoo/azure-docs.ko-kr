@@ -2,16 +2,14 @@
 title: Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
 description: Kubernetes 리소스와 상호 작용 하 여 Azure Portal에서 AKS (Azure Kubernetes Service) 클러스터를 관리 하는 방법에 대해 알아봅니다.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070642"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635612"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
 
@@ -24,7 +22,7 @@ Azure Portal의 Kubernetes 리소스 뷰가 사용 중단에 대해 설정 된 [
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다.
 
@@ -62,7 +60,7 @@ Kubernetes 리소스 뷰에는 YAML 편집기도 포함 되어 있습니다. 기
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Azure Portal에 표시 되는 Kubernetes pod 정보입니다.":::
 
-YAML을 편집한 후에는 **검토 + 저장**을 선택 하 고 변경 내용을 확인 한 후 다시 저장 하 여 변경 내용을 적용 합니다.
+YAML을 편집한 후에는 **검토 + 저장** 을 선택 하 고 변경 내용을 확인 한 후 다시 저장 하 여 변경 내용을 적용 합니다.
 
 >[!WARNING]
 > UI 나 CLI를 통해 직접 프로덕션 변경을 수행 하지 않는 것이 좋습니다. [CI (지속적인 통합) 및 CD (지속적인 배포) 모범 사례](kubernetes-action.md)를 활용 하는 것이 좋습니다. Azure Portal Kubernetes 관리 기능 및 YAML 편집기는 개발 및 테스트 설정에서 새 배포를 학습 하 고이를 위한 새 배포를 위해 작성 되었습니다.

@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 45f9f61712903436d63f483673705650f5470b3f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426360"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635952"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -24,9 +24,9 @@ ms.locfileid: "92426360"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독** . 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **로컬 환경**에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
 
@@ -160,18 +160,17 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
 
-> [!IMPORTANT]
-> `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
->
-> 1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.
-> 1. [고객 관리 키 구성](/azure/cosmos-db/how-to-setup-cmk) 의 단계에 따라 다음을 수행 합니다.
->     * Azure Cosmos DB 공급자 등록
->     * Azure Key Vault 만들기 및 구성
->     * 키 생성
->
->     Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-resource-group-name>_<GUID>` .
->
-> 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다. 작업 영역에서 사용 하는 Azure Cosmos DB를 삭제 하는 경우 해당 작업 영역을 사용 하는 작업 영역도 삭제 해야 합니다.
+`--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
+
+1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.
+1. [고객 관리 키 구성](/azure/cosmos-db/how-to-setup-cmk) 의 단계에 따라 다음을 수행 합니다.
+    * Azure Cosmos DB 공급자 등록
+    * Azure Key Vault 만들기 및 구성
+    * 키 생성
+
+Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 `--hbi-workspace` 매개 변수를 사용 합니다. 
 
@@ -187,7 +186,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 > [!IMPORTANT]
 > 기존 리소스를 모두 지정할 필요는 없습니다. 하나 이상의 리소스를 지정할 수 있습니다. 예를 들어, 기존 스토리지 계정을 지정할 수 있으며 작업 영역에서는 다른 리소스를 만듭니다.
 
-+ **Azure Storage 계정**: `az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage 계정** : `az storage account show --name <storage-account-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 스토리지 계정의 ID입니다.
 
@@ -196,7 +195,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
     > [!IMPORTANT]
     > 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
 
-+ **Azure Application Insights**:
++ **Azure Application Insights** :
 
     1. Application Insights 확장을 선택합니다.
 
@@ -214,13 +213,13 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 Key Vault의 ID입니다.
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 컨테이너 레지스트리의 ID입니다.
 

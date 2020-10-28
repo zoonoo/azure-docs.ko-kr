@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629390"
+ms.locfileid: "92637193"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -152,7 +152,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예를 들어: 
+예를 들면 다음과 같습니다. 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -183,7 +183,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/framework/app-domains/gac)를 참조 하세요.
+GAC에 대 한 자세한 내용은 [이 문서](/dotnet/framework/app-domains/gac)를 참조 하세요.
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>자체 호스팅 IR 키 누락을 감사하는 방법
@@ -468,7 +468,7 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
 
 > [!NOTE] 
 > 프록시 고려 사항:
-> *    수신 허용 - 받는 사람 목록에 프록시 서버를 추가해야 하는지 여부를 확인합니다. 추가해야 하는 경우 [이러한 도메인](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network)이 수신 허용 - 받는 사람 목록에 있는지 확인합니다.
+> *    수신 허용 - 받는 사람 목록에 프록시 서버를 추가해야 하는지 여부를 확인합니다. 추가해야 하는 경우 [이러한 도메인](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network)이 수신 허용 - 받는 사람 목록에 있는지 확인합니다.
 > *    프록시 서버에서 TLS/SSL 인증서 "wu2.frontend.clouddatahub.net/"을 신뢰할 수 있는지 확인합니다.
 > *    프록시에서 Active Directory 인증을 사용하는 경우 서비스 계정을 프록시에 "Integration Runtime Service"로 액세스할 수 있는 사용자 계정으로 변경합니다.
 
@@ -632,7 +632,7 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
 - 이 문서에서 설명 하는 방법을 사용 하 여 FQDN 이름에 따라 방화벽 규칙을 정의 하는 경우에는 영향을 받지 않습니다. [ip 주소에 대 한 방화벽 구성 및 허용 목록 설정](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)입니다.
 - 회사 방화벽에서 아웃 바운드 Ip에 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
-영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 구성을 업데이트 하도록 네트워크 인프라 팀에 게 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
+영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 구성을 업데이트 하도록 네트워크 인프라 팀에 게 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>시나리오 2: 고객이 관리 하는 Azure virtual network 내에서 Azure VM에서 실행 되는 자체 호스팅 Integration Runtime의 아웃 바운드 통신
 영향을 받는지 확인 하는 방법:
@@ -641,14 +641,14 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
  ![대상 검사](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - 그러나 Azure 가상 네트워크의 NSG 규칙에서 아웃 바운드 IP 주소에 대 한 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
-영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
+영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>시나리오 3: 고객이 관리 하는 Azure virtual network에서 SSIS Integration Runtime의 아웃 바운드 통신
 - SSIS Integration Runtime를 포함 하는 아웃 바운드 NSG 규칙이 개인 네트워크에 있는지 확인 합니다. 아웃 바운드 제한이 없는 경우에는 영향을 주지 않습니다.
 - 아웃 바운드 규칙 제한이 있는 경우 서비스 태그를 사용 하는지 여부를 확인 합니다. 서비스 태그를 사용 하는 경우 기존 서비스 태그 아래에 새 IP 범위를 변경 하거나 추가할 필요가 없습니다.
 - 그러나 Azure 가상 네트워크의 NSG 규칙에서 아웃 바운드 IP 주소에 대 한 허용 목록을 명시적으로 사용 하도록 설정 하는 경우에는 영향을 받습니다.
 
-영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
+영향을 받는 경우 수행할 작업: 2020 년 11 월 8 일에 최신 Data Factory IP 주소를 사용 하도록 네트워크 인프라 팀에 Azure 가상 네트워크 구성에 대 한 NSG 규칙을 업데이트 하도록 알립니다.  최신 IP 주소를 다운로드 하려면 [서비스 태그 IP 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)로 이동 합니다.
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>SSLTLS 보안 채널에 대 한 트러스트 관계를 설정할 수 없습니다. 
 
@@ -709,7 +709,7 @@ Azure Data Factory UI에서 자체 호스팅 IR을 공유 하는 동안 다른 �
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A 질문 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대 한 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 *  [데이터 흐름 매핑 성능 가이드](concepts-data-flow-performance.md)

@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368862"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637686"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 
@@ -49,7 +49,7 @@ Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인]
 
 ### <a name="wrangling-data-flows"></a>랭 글 링 데이터 흐름
 
-Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](https://docs.microsoft.com/power-query/) 과 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링에 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [랭 글 링 data](wrangling-data-flow-overview.md)flow을 참조 하세요.
+Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](/power-query/) 과 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링에 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [랭 글 링 data](wrangling-data-flow-overview.md)flow을 참조 하세요.
 
 ## <a name="external-transformations"></a>외부 변환
 
@@ -103,8 +103,8 @@ R이 설치된 HDInsight 클러스터에서 R 스크립트를 실행하는 사�
 ### <a name="compute-environments"></a>컴퓨팅 환경
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다. 
 
-- **주문형**: 이 경우 데이터 팩터리에서 완전히 컴퓨팅 환경을 관리합니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 주문형 컴퓨팅 환경의 세부적인 설정을 구성 및 제어할 수 있습니다. 
-- **자체 환경 사용**: 이 경우 사용자 고유의 컴퓨팅 환경(예: HDInsight 클러스터)을 데이터 팩터리에 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다. 
+- **주문형** : 이 경우 데이터 팩터리에서 완전히 컴퓨팅 환경을 관리합니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 주문형 컴퓨팅 환경의 세부적인 설정을 구성 및 제어할 수 있습니다. 
+- **자체 환경 사용** : 이 경우 사용자 고유의 컴퓨팅 환경(예: HDInsight 클러스터)을 데이터 팩터리에 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다. 
 
 데이터 팩터리에서 지원하는 컴퓨팅 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. 
 
