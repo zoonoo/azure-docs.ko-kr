@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f928df7b2e2da59b716950d4e7757cc508cb8936
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92446364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>자습서: Saba TalentSpace와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "91944243"
 * 사용자가 해당 Azure AD 계정으로 Saba TalentSpace에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Saba TalentSpace에서 **SP** 시작 SSO를 지원합니다.
-* Saba TalentSpace가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Saba TalentSpace가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-saba-talentspace-from-the-gallery"></a>갤러리에서 Saba TalentSpace 추가
 
@@ -48,14 +48,14 @@ Saba TalentSpace가 Azure AD에 통합되도록 구성하려면 갤러리의 Sab
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **Saba TalentSpace**를 입력합니다.
-1. 결과 패널에서 **Saba TalentSpace**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Saba TalentSpace** 를 입력합니다.
+1. 결과 패널에서 **Saba TalentSpace** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-saba-talentspace"></a>Saba TalentSpace에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 Saba TalentSpace에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Saba TalentSpace의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Saba TalentSpace에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Saba TalentSpace의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Saba TalentSpace에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -70,9 +70,9 @@ Saba TalentSpace에서 Azure AD SSO를 구성하고 테스트하려면 다음 �
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Saba TalentSpace** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Saba TalentSpace** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Saba TalentSpace 클라이언트 지원 팀](https://support.saba.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -99,29 +99,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Saba TalentSpace에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Saba TalentSpace**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Saba TalentSpace** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -133,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
   
     !["옵션" 탭이 선택된 "Saba TalentSpace" 홈페이지를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
-3. 왼쪽 탐색 창에서 **SAML 구성**을 클릭합니다.
+3. 왼쪽 탐색 창에서 **SAML 구성** 을 클릭합니다.
   
     !["SAML 구성"이 선택된 "사용자 인터페이스" 왼쪽 탐색 창을 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
@@ -141,20 +141,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     !["설정" 옵션이 강조 표시된 "SAML 구성" 페이지를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
-    a. **고유 식별자**로 **NameID**를 선택합니다.
+    a. **고유 식별자** 로 **NameID** 를 선택합니다.
 
-    b. **고유 식별자 매핑 대상**으로 **Username**을 선택합니다.
+    b. **고유 식별자 매핑 대상** 으로 **Username** 을 선택합니다.
   
-    다. 다운로드한 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일을 선택하고 **파일 업로드**를 클릭합니다.
+    다. 다운로드한 메타데이터 파일을 업로드하려면 **찾아보기** 를 클릭하여 파일을 선택하고 **파일 업로드** 를 클릭합니다.
 
-    d. 구성을 테스트하려면 **테스트 실행**을 클릭합니다.
+    d. 구성을 테스트하려면 **테스트 실행** 을 클릭합니다.
 
     > [!NOTE]
-    > "*SAML 테스트가 완료되었습니다. 이 창을 닫으십시오.* " 메시지가 표시될 때까지 기다려야 합니다. 그런 다음 열려 있는 브라우저 창을 닫습니다. **SAML 사용** 확인란은 테스트가 완료된 경우에만 사용하도록 설정됩니다.
+    > " *SAML 테스트가 완료되었습니다. 이 창을 닫으십시오.* " 메시지가 표시될 때까지 기다려야 합니다. 그런 다음 열려 있는 브라우저 창을 닫습니다. **SAML 사용** 확인란은 테스트가 완료된 경우에만 사용하도록 설정됩니다.
 
-    e. **SAML 사용**을 선택합니다.
+    e. **SAML 사용** 을 선택합니다.
 
-    f. **변경 내용 저장**을 클릭합니다.
+    f. **변경 내용 저장** 을 클릭합니다.
 
 ### <a name="create-saba-talentspace-test-user"></a>Saba TalentSpace 테스트 사용자 만들기
 
@@ -164,7 +164,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Saba TalentSpace** 애플리케이션에 관리자 권한으로 로그온합니다.
 
-2. **사용자 센터** 탭을 클릭한 후 **사용자 만들기**를 클릭합니다.
+2. **사용자 센터** 탭을 클릭한 후 **사용자 만들기** 를 클릭합니다.
 
     !["사용자 센터" 탭과 선택된 "사용자 만들기"를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
@@ -172,30 +172,30 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Azure AD Connect의 정의](./media/halogen-software-tutorial/tutorial-halogen-301.png)
 
-    a. **이름** 텍스트 상자에서 사용자의 이름(예: **B**)을 입력합니다.
+    a. **이름** 텍스트 상자에서 사용자의 이름(예: **B** )을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
 
-    다. **사용자 이름** 텍스트 상자에서 Azure Portal에서와 동일한 사용자 이름인 **B.Simon**을 입력합니다.
+    다. **사용자 이름** 텍스트 상자에서 Azure Portal에서와 동일한 사용자 이름인 **B.Simon** 을 입력합니다.
 
     d. **암호** 텍스트 상자에서 B.Simon에 대한 암호를 입력합니다.
 
-    e. **저장**을 클릭합니다.
+    e. **저장** 을 클릭합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Saba TalentSpace 타일을 클릭하면 SSO를 설정한 Saba TalentSpace에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Saba TalentSpace 타일을 클릭하면 SSO를 설정한 Saba TalentSpace에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD에서 Saba TalentSpace 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
