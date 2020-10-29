@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318775"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477286"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 
@@ -41,7 +41,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 스토리지 REST 서비
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 
-1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
+1. **PowerShell** (Windows), **Terminal** (Mac) 또는 **Bash** (Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
 2. 명령 창에 **npm install azure-storage** 를 입력합니다. 명령 출력은 다음 예제와 비슷합니다.
 
    ```bash
@@ -81,7 +81,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
 
-Azure Cosmos DB 연결을 추가하려면 `TableService` 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예를 들면 다음과 같습니다.
+Azure Cosmos DB 연결을 추가하려면 `TableService` 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열** 에서 이러한 값을 복사할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -115,7 +115,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 function handle (requestOptions, next)
 ```
 
-요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 **next**를 호출해야 합니다.
+요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 **next** 를 호출해야 합니다.
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -132,14 +132,14 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 개체를 만듭니다. 모든 엔터티에는 엔터티의 고유 식별자인 **PartitionKey**와 **RowKey**를 포함해야 합니다.
+엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 개체를 만듭니다. 모든 엔터티에는 엔터티의 고유 식별자인 **PartitionKey** 와 **RowKey** 를 포함해야 합니다.
 
 * **PartitionKey** - 엔터티가 저장된 파티션을 확인합니다.
 * **RowKey** - 파티션에 있는 엔터티를 고유하게 식별합니다.
 
-**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
+**PartitionKey** 와 **RowKey** 는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
 
-다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 `Edm.DateTime` 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
+다음은 엔터티를 정의하는 경우의 예입니다. **dueDate** 는 `Edm.DateTime` 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
 ```javascript
 var task = {
@@ -268,7 +268,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 
 ## <a name="retrieve-an-entity-by-key"></a>키를 통해 엔터티 검색
 
-**PartitionKey** 및 **RowKey**를 기준으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
+**PartitionKey** 및 **RowKey** 를 기준으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -299,7 +299,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-**select**가 사용되지 않기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
+**select** 가 사용되지 않기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities** 를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -309,7 +309,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이*null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
+성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null* 이 아닌 값이 되므로 **queryEntities** 의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
 
 ### <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
 
@@ -357,7 +357,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-테이블이 있는지 확실하지 않은 경우에는 **deleteTableIfExists**를 사용합니다.
+테이블이 있는지 확실하지 않은 경우에는 **deleteTableIfExists** 를 사용합니다.
 
 ## <a name="use-continuation-tokens"></a>연속토큰 사용
 
@@ -392,7 +392,7 @@ dc.table.queryEntities(tableName,
 
 SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **TableService** 의 **generateSharedAccessSignature** 를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 
@@ -455,7 +455,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
+다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl** 을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
 
 ```javascript
 var extend = require('extend');
@@ -483,6 +483,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * GitHub의 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
-* [Node.js 개발자용 Azure](https://docs.microsoft.com/azure/developer/javascript/)
+* [Node.js 개발자용 Azure](/azure/developer/javascript/)
 * [Azure에서 Node.js 웹앱 만들기](../app-service/quickstart-nodejs.md)
 * [Node.js 애플리케이션 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)

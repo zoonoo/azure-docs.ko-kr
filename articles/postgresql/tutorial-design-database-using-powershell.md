@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d60fbf57847c26d03fab4eb98fd74607984369da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73f5dc6bdc976bd0166cfb1f2621f57f558f944c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707604"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478595"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 
@@ -32,7 +32,7 @@ Azure Database for PostgreSQL은 PostgreSQL 커뮤니티 버전 데이터베이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!IMPORTANT]
 > Az.PostgreSql PowerShell 모듈이 미리 보기에 있지만 `Install-Module -Name Az.PostgreSql -AllowPrerelease` 명령을 사용하여 Az PowerShell 모듈과 별도로 설치해야 합니다.
@@ -46,7 +46,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet을 사용하여 특정 구독 ID를 선택합니다.
+여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용하여 특정 구독 ID를 선택합니다.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -54,9 +54,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
-다음 예제에서는 **myresourcegroup**이라는 리소스 그룹을 **미국 서부** 지역에 만듭니다.
+다음 예제에서는 **myresourcegroup** 이라는 리소스 그룹을 **미국 서부** 지역에 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 `New-AzPostgreSqlServer` cmdlet을 사용하여 Azure Database for PostgreSQL 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
 
-다음 예제에서는 **myadmin**의 서버 관리자 로그인을 사용하여 **myresourcegroup** 리소스 그룹의 **mydemoserver**라는 PostgreSQL 서버를 **미국 서부** 지역에 만듭니다. 이는 2개 vCore 및 지역 중복 백업을 사용하도록 설정된 범용 가격 책정 계층의 5세대 서버입니다. PostgreSQL 서버 관리자 계정의 암호이므로 예제의 첫 번째 줄에 사용되는 암호를 문서화합니다.
+다음 예제에서는 **myadmin** 의 서버 관리자 로그인을 사용하여 **myresourcegroup** 리소스 그룹의 **mydemoserver** 라는 PostgreSQL 서버를 **미국 서부** 지역에 만듭니다. 이는 2개 vCore 및 지역 중복 백업을 사용하도록 설정된 범용 가격 책정 계층의 5세대 서버입니다. PostgreSQL 서버 관리자 계정의 암호이므로 예제의 첫 번째 줄에 사용되는 암호를 문서화합니다.
 
 > [!TIP]
 > 서버 이름은 DNS 이름에 매핑되며 Azure에서 글로벌하게 고유해야 합니다.
@@ -93,7 +93,7 @@ New-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sk
 
 `New-AzPostgreSqlFirewallRule` cmdlet을 사용하여 Azure Database for PostgreSQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 `psql` 명령줄 도구 또는 외부 애플리케이션(예: PostgreSQL Workbench)에서 Azure Database for PostgreSQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다.
 
-다음 예제에서는 특정 192.168.0.1 IP 주소에서 연결하도록 허용하는 **AllowMyIP**라는 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꿉니다.
+다음 예제에서는 특정 192.168.0.1 IP 주소에서 연결하도록 허용하는 **AllowMyIP** 라는 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꿉니다.
 
 ```azurepowershell-interactive
 New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -127,7 +127,7 @@ mydemoserver.postgresql.database.azure.com       myadmin
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   예를 들어 다음 명령은 액세스 자격 증명을 사용하여 PostgreSQL 서버 `mydemoserver.postgres.database.azure.com`의 **postgres**라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
+   예를 들어 다음 명령은 액세스 자격 증명을 사용하여 PostgreSQL 서버 `mydemoserver.postgres.database.azure.com`의 **postgres** 라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
 
    ```azurepowershell-interactive
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres

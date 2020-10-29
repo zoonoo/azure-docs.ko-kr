@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47b3706d1fb46ab7e115d79c2f06f6264c8b423e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9001d9982a26875f814b635533bebd7579339fa5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666517"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476725"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -44,13 +44,13 @@ Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우�
 
 Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이션을 비롯한 모든 .NET 애플리케이션 형식에서 Azure Cosmos DB Table Library를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
-1. **File** > **New** > **Project**를 선택합니다.
+1. **File** > **New** > **Project** 를 선택합니다.
 
-1. **콘솔 앱(.NET Core)** 을 선택한 후 **다음**을 선택합니다.
+1. **콘솔 앱(.NET Core)** 을 선택한 후 **다음** 을 선택합니다.
 
-1. **프로젝트 이름** 필드에 애플리케이션의 이름(예: **CosmosTableSamples**)을 입력합니다. (필요에 따라 다른 이름을 제공할 수 있습니다.)
+1. **프로젝트 이름** 필드에 애플리케이션의 이름(예: **CosmosTableSamples** )을 입력합니다. (필요에 따라 다른 이름을 제공할 수 있습니다.)
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 이 샘플에 예시로 나온 모든 코드는 콘솔 애플리케이션의 **Program.cs** 파일의 Main() 메서드에 추가할 수 있습니다.
 
@@ -58,21 +58,21 @@ Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 �
 
 NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택합니다.
 
-1. 온라인에서 [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)를 검색하고 **설치**를 선택하여 Microsoft Azure Cosmos DB Table Library를 설치합니다.
+1. 온라인에서 [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)를 검색하고 **설치** 를 선택하여 Microsoft Azure Cosmos DB Table Library를 설치합니다.
 
 ## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정 또는 Table Storage 계정으로 이동합니다. 
 
-1. **연결 문자열** 또는 **액세스 키** 창을 엽니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
+1. **연결 문자열** 또는 **액세스 키** 창을 엽니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열** 을 복사합니다.
 
    :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="연결 문자열 창에서 기본 연결 문자열 보기 및 복사":::
    
 1. 연결 문자열을 구성하려면 Visual Studio에서 마우스 오른쪽 단추로 **CosmosTableSamples** 프로젝트를 클릭합니다.
 
-1. **추가**를 선택한 다음, **새 항목**을 선택합니다. 파일 유형이 **TypeScript JSON 구성** 파일인 **Settings.json**이라는 새 파일을 만듭니다. 
+1. **추가** 를 선택한 다음, **새 항목** 을 선택합니다. 파일 유형이 **TypeScript JSON 구성** 파일인 **Settings.json** 이라는 새 파일을 만듭니다. 
 
 1. Settings.json 파일의 코드를 다음 코드로 바꾸고 기본 연결 문자열을 할당합니다.
 
@@ -82,7 +82,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
    }
    ```
 
-1. **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 항목**을 선택하고 **AppSettings.cs**라는 클래스를 추가합니다.
+1. **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가** , **새 항목** 을 선택하고 **AppSettings.cs** 라는 클래스를 추가합니다.
 
 1. 다음 코드를 AppSettings.cs 파일에 추가합니다. 이 파일은 Settings.json 파일에서 연결 문자열을 읽고 이를 구성 매개 변수에 할당합니다.
 
@@ -90,7 +90,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 ## <a name="parse-and-validate-the-connection-details"></a>연결 세부 정보의 구문 분석 및 확인
 
-1. **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 항목**을 선택하고 **Common.cs**라는 클래스를 추가합니다. 연결 세부 정보를 확인하는 코드를 작성하고 이 클래스 내에 테이블을 만듭니다.
+1. **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가** , **새 항목** 을 선택하고 **Common.cs** 라는 클래스를 추가합니다. 연결 세부 정보를 확인하는 코드를 작성하고 이 클래스 내에 테이블을 만듭니다.
 
 1. `CreateStorageAccountFromConnectionString` 메서드를 아래와 같이 정의합니다. 이 메서드는 연결 문자열 세부 정보를 구문 분석하고, “Settings.json” 파일에 제공된 계정 이름과 계정 키 세부 정보가 올바른지 확인합니다.
 
@@ -98,7 +98,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 ## <a name="create-a-table"></a>테이블 만들기 
 
-[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) 클래스를 사용하면 Table Storage에 저장된 테이블 및 엔터티를 검색할 수 있습니다. Cosmos DB Table API 계정에 테이블이 없으므로 `CreateTableAsync` 메서드를 **Common.cs** 클래스에 추가하여 테이블을 만들어보겠습니다.
+[CloudTableClient](/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) 클래스를 사용하면 Table Storage에 저장된 테이블 및 엔터티를 검색할 수 있습니다. Cosmos DB Table API 계정에 테이블이 없으므로 `CreateTableAsync` 메서드를 **Common.cs** 클래스에 추가하여 테이블을 만들어보겠습니다.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
 
@@ -110,25 +110,25 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="define-the-entity"></a>엔터티 정의 
 
-엔터티는 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity)에서 파생된 사용자 지정 클래스를 사용하여 C# 개체에 매핑됩니다. 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다.
+엔터티는 [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity)에서 파생된 사용자 지정 클래스를 사용하여 C# 개체에 매핑됩니다. 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다.
 
-**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 폴더**를 선택하고 이름을 **Model**로 지정합니다. Model 폴더 내에 **CustomerEntity.cs**라는 클래스를 추가하고, 여기에 다음 코드를 추가합니다.
+**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가** , **새 폴더** 를 선택하고 이름을 **Model** 로 지정합니다. Model 폴더 내에 **CustomerEntity.cs** 라는 클래스를 추가하고, 여기에 다음 코드를 추가합니다.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
-이 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 엔터티 클래스를 정의합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있지만 다양한 파티션 키를 사용하면 병렬 작업 확장성이 커집니다. 테이블에 저장되는 엔터티는 예를 들어 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) 클래스에서 파생되는 지원되는 형식이어야 합니다. 테이블에 저장하려는 엔터티 속성은 해당 형식의 공용 속성이어야 하며 값의 가져오기 및 설정하기를 모두 지원해야 합니다. 또한 엔터티 형식은 매개 변수가 없는 생성자를 표시해야 합니다.
+이 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 엔터티 클래스를 정의합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있지만 다양한 파티션 키를 사용하면 병렬 작업 확장성이 커집니다. 테이블에 저장되는 엔터티는 예를 들어 [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity) 클래스에서 파생되는 지원되는 형식이어야 합니다. 테이블에 저장하려는 엔터티 속성은 해당 형식의 공용 속성이어야 하며 값의 가져오기 및 설정하기를 모두 지원해야 합니다. 또한 엔터티 형식은 매개 변수가 없는 생성자를 표시해야 합니다.
 
 ## <a name="insert-or-merge-an-entity"></a>엔터티 삽입 또는 병합
 
-다음 코드 예제에서는 엔터티 개체를 만들고 테이블에 추가합니다. [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스 내의 InsertOrMerge 메서드는 엔터티를 삽입 또는 병합하는 데 사용됩니다. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) 메서드가 호출되어 작업이 실행됩니다. 
+다음 코드 예제에서는 엔터티 개체를 만들고 테이블에 추가합니다. [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스 내의 InsertOrMerge 메서드는 엔터티를 삽입 또는 병합하는 데 사용됩니다. [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) 메서드가 호출되어 작업이 실행됩니다. 
 
-**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 항목**을 선택하고 **SamplesUtils.cs**라는 클래스를 추가합니다. 이 클래스는 엔터티에 대한 CRUD 작업을 수행하는 데 필요한 모든 코드를 저장합니다. 
+**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가** , **새 항목** 을 선택하고 **SamplesUtils.cs** 라는 클래스를 추가합니다. 이 클래스는 엔터티에 대한 CRUD 작업을 수행하는 데 필요한 모든 코드를 저장합니다. 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
 ## <a name="get-an-entity-from-a-partition"></a>파티션에서 엔터티 가져오기
 
-[TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스에서 검색 메서드를 사용하여 파티션에서 엔터티를 가져올 수 있습니다. 다음 코드 예제에서는 고객 엔터티의 파티션 키 행 키, 이메일 및 전화 번호를 가져옵니다. 또한 이 예제에서는 엔터티에 대한 쿼리에 사용되는 요청 단위를 출력합니다. 엔터티를 쿼리하려면 다음 코드를 **SamplesUtils.cs** 파일에 추가합니다.
+[TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스에서 검색 메서드를 사용하여 파티션에서 엔터티를 가져올 수 있습니다. 다음 코드 예제에서는 고객 엔터티의 파티션 키 행 키, 이메일 및 전화 번호를 가져옵니다. 또한 이 예제에서는 엔터티에 대한 쿼리에 사용되는 요청 단위를 출력합니다. 엔터티를 쿼리하려면 다음 코드를 **SamplesUtils.cs** 파일에 추가합니다.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
@@ -140,7 +140,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>샘플 데이터에서 CRUD 작업 실행
 
-테이블 만들기, 엔터티 삽입 또는 병합 메서드를 정의한 후, 샘플 데이터에서 이러한 메서드를 실행합니다. 수행하려면 **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 항목**을 선택하고 **BasicSamples.cs**라는 클래스를 추가하고 여기에 다음 코드를 추가합니다. 이 코드는 테이블을 만들고 여기에 엔터티를 추가합니다.
+테이블 만들기, 엔터티 삽입 또는 병합 메서드를 정의한 후, 샘플 데이터에서 이러한 메서드를 실행합니다. 수행하려면 **CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가** , **새 항목** 을 선택하고 **BasicSamples.cs** 라는 클래스를 추가하고 여기에 다음 코드를 추가합니다. 이 코드는 테이블을 만들고 여기에 엔터티를 추가합니다.
 
 프로젝트의 마지막에 엔터티 및 테이블을 삭제하지 않으려면 다음 코드에서 `await table.DeleteIfExistsAsync()` 및 `SamplesUtils.DeleteEntityAsync(table, customer)` 메서드를 주석 처리합니다. 테이블을 삭제하기 전에 이러한 메서드를 주석 처리하고 데이터의 유효성을 검사하는 것이 가장 좋습니다.
 
@@ -152,7 +152,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="run-the-project"></a>프로젝트 실행
 
-**CosmosTableSamples** 프로젝트에서 **Program.cs**라는 클래스를 열고 프로젝트가 실행될 때 BasicSamples를 호출하기 위해 다음 코드를 추가합니다.
+**CosmosTableSamples** 프로젝트에서 **Program.cs** 라는 클래스를 열고 프로젝트가 실행될 때 BasicSamples를 호출하기 위해 다음 코드를 추가합니다.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Program.cs":::
 

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282564"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481519"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 .NET 예제
 
@@ -38,7 +38,7 @@ ms.locfileid: "92282564"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 개발 워크플로가 설치된 Visual Studio 2019
-- **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다. 
+- **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 을 사용하도록 설정합니다. 
 
 [Microsoft.Azure.DocumentDB NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
@@ -90,7 +90,7 @@ Azure 구독 또는 Cosmos DB 체험 계정
 | [문서가 변경된 경우에만 문서 읽기](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>청구 예제
-*IndexManagement* 프로젝트 샘플의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 인덱싱에 대해 알아보려면 [인덱스 정책](index-policy.md), [인덱스 유형](index-types.md) 및 [인덱스 경로](index-paths.md)를 참조하세요. 
+*IndexManagement* 프로젝트 샘플의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 인덱싱에 대해 알아보려면 [인덱스 정책](index-policy.md), [인덱스 유형](index-overview.md#index-kinds) 및 [인덱스 경로](index-policy.md#include-exclude-paths)를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -102,7 +102,7 @@ Azure 구독 또는 Cosmos DB 체험 계정
 | [인덱스 변환 수행](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L318-L370) |[ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>지리 공간 예제
-*Geospatial* 프로젝트 샘플의 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) 메서드는 다음 작업을 수행하는 방법을 보여줍니다.  다음 샘플을 실행하기 전에 GeoJSON 및 지리 공간 데이터에 대해 알아보려면 [지리 공간 및 GeoJSON 위치 데이터 사용](geospatial.md)을 참조하세요. 
+*Geospatial* 프로젝트 샘플의 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) 메서드는 다음 작업을 수행하는 방법을 보여줍니다.  다음 샘플을 실행하기 전에 GeoJSON 및 지리 공간 데이터에 대해 알아보려면 [지리 공간 및 GeoJSON 위치 데이터 사용](./sql-query-geospatial-intro.md)을 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -114,7 +114,7 @@ Azure 구독 또는 Cosmos DB 체험 계정
 | [지점 및 다각형 데이터 유효성 검사](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br>[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>쿼리 예제
-*Queries* 프로젝트 샘플의 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) 메서드는 SQL 쿼리 문법, 쿼리를 사용하는 LINQ 공급 기업 및 람다를 사용하여 다음 작업을 수행하는 방법을 보여줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 SQL 쿼리 참조에 대해 알아보려면 [Azure Cosmos DB에 대한 SQL 쿼리 예제](how-to-sql-query.md)를 참조하세요. 
+*Queries* 프로젝트 샘플의 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) 메서드는 SQL 쿼리 문법, 쿼리를 사용하는 LINQ 공급 기업 및 람다를 사용하여 다음 작업을 수행하는 방법을 보여줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 SQL 쿼리 참조에 대해 알아보려면 [Azure Cosmos DB에 대한 SQL 쿼리 예제](./sql-query-getting-started.md)를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -164,4 +164,3 @@ Azure 구독 또는 Cosmos DB 체험 계정
 | [사용자 만들기](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L93) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [컬렉션 또는 문서에 권한 설정](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L97) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |
 | [사용자의 사용 권한 목록 가져오기](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L241) |[DocumentClient.ReadUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readuserasync)<br>[DocumentClient.ReadPermissionFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpermissionfeedasync) |
-

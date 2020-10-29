@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329409"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481366"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
 
@@ -110,7 +110,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>AzCopy를 사용하여 데이터 마이그레이션
 
-AzCopy 명령줄 유틸리티를 사용하는 것은 Azure Table Storage에서 Azure Cosmos DB 테이블 API로 데이터를 마이그레이션하는 다른 옵션입니다. AzCopy를 사용하려면 먼저 [Table Storage에서 데이터 내보내기](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage)에 설명된 대로 데이터를 내보낸 다음 [Azure Cosmos DB 테이블 API](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage)에 설명된 대로 Azure Cosmos DB로 데이터를 가져옵니다.
+AzCopy 명령줄 유틸리티를 사용하는 것은 Azure Table Storage에서 Azure Cosmos DB 테이블 API로 데이터를 마이그레이션하는 다른 옵션입니다. AzCopy를 사용하려면 먼저 [Table Storage에서 데이터 내보내기](/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage)에 설명된 대로 데이터를 내보낸 다음 [Azure Cosmos DB 테이블 API](/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage)에 설명된 대로 Azure Cosmos DB로 데이터를 가져옵니다.
 
 Azure Cosmos DB에서 가져오기를 수행할 때는 다음 예제를 참조하세요. /Dest 값이 코어가 아닌 cosmosdb를 사용한다는 점을 참고하세요.
 

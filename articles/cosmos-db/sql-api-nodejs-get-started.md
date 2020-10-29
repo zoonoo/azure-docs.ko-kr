@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297881"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478000"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [비동기 Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [비동기 Java](./create-sql-api-java.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
 1. 즐겨찾는 텍스트 편집기에서 *config.js* 파일을 엽니다.
 
-1. 다음 코드 조각을 복사하여 *config.js* 파일에 붙여넣고 `endpoint` 및 `key` 속성을 Azure Cosmos DB 엔드포인트 URI 및 기본 키로 설정합니다. 데이터베이스, 컨테이너 이름은 **작업** 및 **항목**으로 설정되어 있습니다. 이 애플리케이션에 사용할 파티션 키는 **/category**입니다.
+1. 다음 코드 조각을 복사하여 *config.js* 파일에 붙여넣고 `endpoint` 및 `key` 속성을 Azure Cosmos DB 엔드포인트 URI 및 기본 키로 설정합니다. 데이터베이스, 컨테이너 이름은 **작업** 및 **항목** 으로 설정되어 있습니다. 이 애플리케이션에 사용할 파티션 키는 **/category** 입니다.
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Azure Portal에서 키 가져오기 스크린샷":::
 
-JavaScript SDK는 일반 용어인 *컨테이너* 및 *항목*을 사용합니다. 컨테이너는 컬렉션, 그래프 또는 테이블입니다. 항목은 문서, 에지/꼭짓점 또는 행이며, 컨테이너 내부의 콘텐츠입니다. 이전 코드 조각에서 `module.exports = config;` 코드는 *app.js* 파일 내에서 참조할 수 있도록 구성 개체를 내보내는 데 사용됩니다.
+JavaScript SDK는 일반 용어인 *컨테이너* 및 *항목* 을 사용합니다. 컨테이너는 컬렉션, 그래프 또는 테이블입니다. 항목은 문서, 에지/꼭짓점 또는 행이며, 컨테이너 내부의 콘텐츠입니다. 이전 코드 조각에서 `module.exports = config;` 코드는 *app.js* 파일 내에서 참조할 수 있도록 구성 개체를 내보내는 데 사용됩니다.
 
 ## <a name="create-a-database-and-a-container"></a>데이터베이스 및 컨테이너 만들기
 
@@ -123,7 +123,7 @@ JavaScript SDK는 일반 용어인 *컨테이너* 및 *항목*을 사용합니�
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> **Cosmos DB 에뮬레이터**에 연결하는 경우 노드 프로세스에 대한 TLS 확인을 사용하지 않도록 설정합니다.
+> **Cosmos DB 에뮬레이터** 에 연결하는 경우 노드 프로세스에 대한 TLS 확인을 사용하지 않도록 설정합니다.
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -216,11 +216,11 @@ node app.js
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이러한 리소스가 더 이상 필요하지 않은 경우 리소스 그룹, Azure Cosmos DB 계정 및 모든 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 Azure Cosmos DB 계정에 사용한 리소스 그룹을 선택하고, **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
+이러한 리소스가 더 이상 필요하지 않은 경우 리소스 그룹, Azure Cosmos DB 계정 및 모든 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 Azure Cosmos DB 계정에 사용한 리소스 그룹을 선택하고, **삭제** 를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB 계정 모니터링](monitor-accounts.md)
+> [Azure Cosmos DB 계정 모니터링](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account

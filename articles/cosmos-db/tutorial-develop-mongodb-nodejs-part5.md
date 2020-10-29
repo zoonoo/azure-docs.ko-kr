@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: bd2b28b516f0043bb64e175bfa901557cdb78de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b855f8d967e2812884f5be79652fcd33cd080ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334415"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476640"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * 이 자습서를 시작하기 전에 [4부](tutorial-develop-mongodb-nodejs-part4.md)의 단계를 완료해야 합니다.
 
-* 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 * 이 자습서에서는 애플리케이션을 빌드하는 방법을 단계별로 안내합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
@@ -50,7 +50,7 @@ Mongoose는 MongoDB 및 Node.js에 사용되는 ODM(개체 데이터 모델링) 
     npm i mongoose --save
     ```
 
-1. **server** 폴더에 **mongo.js**라는 파일을 만듭니다. 이 파일에 Azure Cosmos DB 계정의 연결 세부 정보를 추가할 것입니다.
+1. **server** 폴더에 **mongo.js** 라는 파일을 만듭니다. 이 파일에 Azure Cosmos DB 계정의 연결 세부 정보를 추가할 것입니다.
 
 1. 다음 코드를 **mongo.js** 파일에 복사합니다. 이 코드는 다음과 같은 기능을 제공합니다.
 
@@ -84,7 +84,7 @@ Mongoose는 MongoDB 및 Node.js에 사용되는 ODM(개체 데이터 모델링) 
      };
      ```
     
-1. 탐색기 창에서 **server** 아래에 **environment**라는 폴더를 만듭니다. **environment** 폴더에 **environment.js**라는 파일을 만듭니다.
+1. 탐색기 창에서 **server** 아래에 **environment** 라는 폴더를 만듭니다. **environment** 폴더에 **environment.js** 라는 파일을 만듭니다.
 
 1. mongo.js 파일에서 `dbName`, `key` 및 `cosmosPort` 매개 변수의 값을 포함해야 합니다. 다음 코드를 **environment.js** 파일에 복사합니다.
 
@@ -126,9 +126,9 @@ Mongoose는 MongoDB 및 Node.js에 사용되는 ODM(개체 데이터 모델링) 
 
 ## <a name="create-a-hero-model"></a>Hero 모델 만들기
 
-다음으로, 모델 파일을 정의하여 Azure Cosmos DB에 저장할 데이터의 스키마를 정의해야 합니다. 다음 단계에 따라 데이터의 스키마를 정의하는 _Hero 모델_을 만듭니다.
+다음으로, 모델 파일을 정의하여 Azure Cosmos DB에 저장할 데이터의 스키마를 정의해야 합니다. 다음 단계에 따라 데이터의 스키마를 정의하는 _Hero 모델_ 을 만듭니다.
 
-1. 탐색기 창의 **server** 폴더 아래에 **hero.model.js**라는 파일을 만듭니다.
+1. 탐색기 창의 **server** 폴더 아래에 **hero.model.js** 라는 파일을 만듭니다.
 
 1. 다음 코드를 **hero.model.js** 파일에 복사합니다. 이 코드는 다음과 같은 기능을 제공합니다.
 
@@ -161,9 +161,9 @@ Mongoose는 MongoDB 및 Node.js에 사용되는 ODM(개체 데이터 모델링) 
 
 ## <a name="create-a-hero-service"></a>Hero 서비스 만들기
 
-hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 및 업데이트 작업을 수행하는 서비스를 정의해야 합니다. 다음 단계에 따라 Azure Cosmos DB에서 데이터를 쿼리하는 _Hero 서비스_를 만듭니다.
+hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 및 업데이트 작업을 수행하는 서비스를 정의해야 합니다. 다음 단계에 따라 Azure Cosmos DB에서 데이터를 쿼리하는 _Hero 서비스_ 를 만듭니다.
 
-1. 탐색기 창의 **server** 폴더 아래에 **hero.service.js**라는 파일을 만듭니다.
+1. 탐색기 창의 **server** 폴더 아래에 **hero.service.js** 라는 파일을 만듭니다.
 
 1. 다음 코드를 **hero.service.js** 파일에 복사합니다. 이 코드는 다음과 같은 기능을 제공합니다.
 
@@ -199,7 +199,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 ## <a name="configure-routes"></a>경로 구성
 
-다음으로, 가져오기, 만들기, 읽기 및 삭제 요청에 대한 URL을 처리하는 경로를 설정해야 합니다. 라우팅 메서드는 콜백 함수(_처리기 함수_라고도 함)를 지정합니다. 애플리케이션이 지정된 엔드포인트 및 HTTP 메서드에 대한 요청을 수신하면 이러한 함수가 호출됩니다. 다음 단계에 따라 Hero 서비스를 추가하고 경로를 정의합니다.
+다음으로, 가져오기, 만들기, 읽기 및 삭제 요청에 대한 URL을 처리하는 경로를 설정해야 합니다. 라우팅 메서드는 콜백 함수( _처리기 함수_ 라고도 함)를 지정합니다. 애플리케이션이 지정된 엔드포인트 및 HTTP 메서드에 대한 요청을 수신하면 이러한 함수가 호출됩니다. 다음 단계에 따라 Hero 서비스를 추가하고 경로를 정의합니다.
 
 1. Visual Studio Code의 **routes.js** 파일에서 샘플 Hero 데이터를 보내는 `res.send` 함수를 주석으로 처리합니다. `heroService.getHeroes` 함수를 대신 호출하는 줄을 추가합니다.
 
@@ -224,7 +224,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
     function getHeroes(req, res) {
     ```
 
-여기서 잠시 시간을 내어 이전 코드를 검토하고 살펴보겠습니다. 노드 서버를 설정하는 index.js 파일부터 보겠습니다. 이 파일은 경로를 설정하고 정의합니다. 다음으로, routes.js 파일은 Hero 서비스와 통신하고 **getHeroes** 같은 함수를 가져와서 요청 및 응답을 전달하도록 지시합니다. hero.service.js 파일은 모델을 가져와서 Mongo에 연결합니다. 그런 다음, 사용자의 호출이 있으면 **getHeroes**를 실행하고 응답 200을 반환합니다. 
+여기서 잠시 시간을 내어 이전 코드를 검토하고 살펴보겠습니다. 노드 서버를 설정하는 index.js 파일부터 보겠습니다. 이 파일은 경로를 설정하고 정의합니다. 다음으로, routes.js 파일은 Hero 서비스와 통신하고 **getHeroes** 같은 함수를 가져와서 요청 및 응답을 전달하도록 지시합니다. hero.service.js 파일은 모델을 가져와서 Mongo에 연결합니다. 그런 다음, 사용자의 호출이 있으면 **getHeroes** 를 실행하고 응답 200을 반환합니다. 
 
 ## <a name="run-the-app"></a>앱 실행
 
@@ -232,7 +232,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 1. Visual Studio Code에서 모든 변경 내용을 저장합니다. 왼쪽에서 **디버그** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png":::를 선택한 다음 **디버깅 시작** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::를 선택합니다.
 
-1. 이제 브라우저로 전환합니다. **개발자 도구**를 열고 **네트워크 탭**을 엽니다. `http://localhost:3000`으로 이동하면 애플리케이션을 볼 수 있습니다.
+1. 이제 브라우저로 전환합니다. **개발자 도구** 를 열고 **네트워크 탭** 을 엽니다. `http://localhost:3000`으로 이동하면 애플리케이션을 볼 수 있습니다.
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
@@ -243,8 +243,8 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 리소스가 더 이상 필요하지 않은 경우 리소스 그룹, Azure Cosmos DB 계정 및 모든 관련 리소스를 삭제해도 됩니다. 다음 단계에 따라 리소스 그룹을 삭제합니다.
 
  1. Azure Cosmos DB 계정을 만든 리소스 그룹으로 이동합니다.
- 1. **리소스 그룹 삭제**를 선택합니다.
- 1. 삭제할 리소스 그룹의 이름을 확인하고 **삭제**를 선택합니다.
+ 1. **리소스 그룹 삭제** 를 선택합니다.
+ 1. 삭제할 리소스 그룹의 이름을 확인하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,19 +9,19 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: d50f3015be4ce12d5980fde7d039d87ef06da164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330471"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477354"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-이 문서에서는 테이블을 만들고, 데이터를 저장하고, 데이터에 대한 CRUD 작업을 수행하는 방법을 보여줍니다. Azure Table service 또는 Azure Cosmos DB Table API 중 하나를 선택합니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
+이 문서에서는 테이블을 만들고, 데이터를 저장하고, 데이터에 대한 CRUD 작업을 수행하는 방법을 보여줍니다. Azure Table service 또는 Azure Cosmos DB Table API 중 하나를 선택합니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating** , **listing** , **deleting** 테이블과 테이블의 **inserting** , **querying** , **modifying** , **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
 > [!NOTE]
 > SDK는 Android 디바이스에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
@@ -62,7 +62,7 @@ Azure 스토리지 계정 또는 Azure Cosmos DB Table API 계정에 연결할 �
 
 ### <a name="add-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 추가
 
-Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 **AccountName**과 **AccountKey** 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 이름과 기본 선택키를 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 **AccountName** 과 **AccountKey** 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 이름과 기본 선택키를 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 
 
 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
@@ -76,7 +76,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Azure Cosmos DB Table API 연결 문자열 추가
 
-Azure Cosmos DB 계정은 연결 문자열을 사용하여 테이블 엔드포인트와 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, **AccountName**과 **AccountKey** 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정의 이름과 기본 선택키를 사용하여 다음 형식의 Azure Cosmos DB 연결 문자열을 제공해야 합니다. 
+Azure Cosmos DB 계정은 연결 문자열을 사용하여 테이블 엔드포인트와 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, **AccountName** 과 **AccountKey** 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정의 이름과 기본 선택키를 사용하여 다음 형식의 Azure Cosmos DB 연결 문자열을 제공해야 합니다. 
 
 이 예제에서는 고정 필드가 Azure Cosmos DB 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.
 
@@ -88,7 +88,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-Azure의 역할 내에서 실행되는 애플리케이션에서는 이 문자열을 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장할 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString** 인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
+Azure의 역할 내에서 실행되는 애플리케이션에서는 이 문자열을 서비스 구성 파일 *ServiceConfiguration.cscfg* 에 저장할 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString** 인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +434,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>엔티티 수정
 
-엔터티를 수정하려면 테이블 서비스에서 엔터티를 검색하고 엔터티 개체를 변경한 후, 바꾸기 또는 병합 작업으로 변경 사항을 테이블 서비스에 다시 저장하세요. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 삽입할 때처럼 **TableOperation.insert**를 호출하는 대신, 이 코드는 **TableOperation.replace**를 호출합니다. 이 애플리케이션에서 엔터티를 검색한 이후에 다른 애플리케이션에서 엔터티를 변경하지 않은 경우 **CloudTable.execute** 메서드가 테이블 서비스를 호출하고 엔터티는 교체됩니다. 다른 응용 프로그램에서 엔터티를 변경한 경우에는 예외가 발생하고 엔터티를 다시 검색하고 수정한 다음 저장해야 합니다. 이 낙관적 동시성 다시 시도 패턴은 분산된 스토리지 시스템에서 일반적으로 발생합니다.
+엔터티를 수정하려면 테이블 서비스에서 엔터티를 검색하고 엔터티 개체를 변경한 후, 바꾸기 또는 병합 작업으로 변경 사항을 테이블 서비스에 다시 저장하세요. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 삽입할 때처럼 **TableOperation.insert** 를 호출하는 대신, 이 코드는 **TableOperation.replace** 를 호출합니다. 이 애플리케이션에서 엔터티를 검색한 이후에 다른 애플리케이션에서 엔터티를 변경하지 않은 경우 **CloudTable.execute** 메서드가 테이블 서비스를 호출하고 엔터티는 교체됩니다. 다른 응용 프로그램에서 엔터티를 변경한 경우에는 예외가 발생하고 엔터티를 다시 검색하고 수정한 다음 저장해야 합니다. 이 낙관적 동시성 다시 시도 패턴은 분산된 스토리지 시스템에서 일반적으로 발생합니다.
 
 ```java
 try
@@ -518,7 +518,7 @@ catch (Exception e)
 
 ## <a name="insert-or-replace-an-entity"></a>엔터티 삽입 또는 바꾸기
 
-엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **Cloud Table** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 스토리지 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [Azure 테이블: Upsert 및 쿼리 프로젝션 소개][Azure 테이블: Upsert 및 쿼리 프로젝션 소개]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
+엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **Cloud Table** 개체에 대해 **execute** 를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 스토리지 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [Azure 테이블: Upsert 및 쿼리 프로젝션 소개][Azure 테이블: Upsert 및 쿼리 프로젝션 소개]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
 
 ```java
 try
@@ -630,5 +630,5 @@ catch (Exception e)
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage 클라이언트 SDK 참조]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: /rest/api/storageservices/
 [Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

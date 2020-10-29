@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 10da2f3a84a4c1e6d761c86901f3249972cc0f5b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278228"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477847"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
     * Azure 활성 구독 내에서:
         * [Azure 체험 계정 만들기](https://azure.microsoft.com/free) 또는 기존 구독 사용 
         * [Visual Studio 월간 크레딧](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB 체험 계층](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB 체험 계층](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Azure 활성 구독이 없는 경우:
         * 30일 동안 지속되는 테스트 환경인 [Azure Cosmos DB를 무료로 사용해 보세요](https://azure.microsoft.com/try/cosmosdb/).
         * [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator) 
@@ -90,7 +90,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
 
 ## <a name="indexing-examples"></a>청구 예제
 
-[index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python 샘플에서는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](index-policy.md), [인덱싱 유형](index-types.md) 및 [인덱싱 경로](index-paths.md) 개념 문서를 참조하세요.
+[index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python 샘플에서는 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](index-policy.md), [인덱싱 유형](index-overview.md#index-kinds) 및 [인덱싱 경로](index-policy.md#include-exclude-paths) 개념 문서를 참조하세요.
 
 | Task | API 참조 |
 | --- | --- |

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/31/2020
 ms.author: mjbrown
-ms.openlocfilehash: ab4313f02d233b3eac33b7da202fca559bffa147
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 74c95fe8a7d113fc9aad77fa5819dc18f740d68c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281928"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481740"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB - Table API용 테이블 나열 및 가져오기
 
@@ -39,12 +39,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
-| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | 계정의 Table API 테이블을 나열하거나 계정에 지정된 Table API 테이블을 가져옵니다. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
+| [Get-AzCosmosDBTable](/powershell/module/az.cosmosdb/get-azcosmosdbtable) | 계정의 Table API 테이블을 나열하거나 계정에 지정된 Table API 테이블을 가져옵니다. |
 |**Azure 리소스 그룹**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.

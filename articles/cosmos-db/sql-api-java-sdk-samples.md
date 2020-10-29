@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: ead5ab6f914db951027406e43437ac30a4f85247
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: afc9633c32174cbe1d94535d68e4c8f85f3d137b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279245"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478069"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 예제
 
@@ -87,7 +87,7 @@ ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account primary key
 com.azure.cosmos.examples.sample.synchronicity.MainClass
 ```
 
-여기서 *sample.synchronicity.MainClass*는 다음이 될 수 있습니다.
+여기서 *sample.synchronicity.MainClass* 는 다음이 될 수 있습니다.
 * crudquickstart.sync.SampleCRUDQuickstart
 * crudquickstart.async.SampleCRUDQuickstartAsync
 * indexmanagement.sync.SampleIndexManagement
@@ -124,7 +124,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 
 ## <a name="autoscale-collection-examples"></a>자동 크기 조정 컬렉션 예제
 
-이러한 샘플을 실행하기 전에 자동 크기 조정에 대해 자세히 알아보려면 [계정](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) 및 [데이터베이스 및 컨테이너](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale)에서 자동 크기 조정을 사용하도록 설정하는 방법에 대한 다음 지침을 참조하세요.
+이러한 샘플을 실행하기 전에 자동 크기 조정에 대해 자세히 알아보려면 [계정](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) 및 [데이터베이스 및 컨테이너](./provision-throughput-autoscale.md)에서 자동 크기 조정을 사용하도록 설정하는 방법에 대한 다음 지침을 참조하세요.
 
 [자동 크기 조정 데이터베이스 CRUD 샘플](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다.
 
@@ -163,7 +163,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 | [문서가 변경된 경우에만 문서 읽기](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
 
 ## <a name="indexing-examples"></a>청구 예제
-[컬렉션 CRUD 샘플](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](index-policy.md), [인덱싱 유형](index-types.md) 및 [인덱싱 경로](index-paths.md) 개념 문서를 참조하세요. 
+[컬렉션 CRUD 샘플](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](index-policy.md), [인덱싱 유형](index-overview.md#index-kinds) 및 [인덱싱 경로](index-policy.md#include-exclude-paths) 개념 문서를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |
@@ -180,7 +180,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ## <a name="query-examples"></a>쿼리 예제
-[쿼리 예제](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) 파일에서는 SQL 쿼리 문법을 사용하여 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 SQL 쿼리 참조에 대해 알아보려면 [Azure Cosmos DB에 대한 SQL 쿼리 예제](how-to-sql-query.md)를 참조하세요. 
+[쿼리 예제](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) 파일에서는 SQL 쿼리 문법을 사용하여 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB의 SQL 쿼리 참조에 대해 알아보려면 [Azure Cosmos DB에 대한 SQL 쿼리 예제](./sql-query-getting-started.md)를 참조하세요. 
 
 | Task | API 참조 |
 | --- | --- |

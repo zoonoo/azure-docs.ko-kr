@@ -8,16 +8,16 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd76a6848c9ff6a5c7a29e328814fe0054655691
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136000"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476436"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md)는 SQL을 사용하여 문서를 쿼리할 수 있도록 지원합니다. 이 문서에서는 샘플 문서 및 두 가지 샘플 SQL 쿼리와 결과를 제공합니다.
+Azure Cosmos DB [SQL API](./introduction.md)는 SQL을 사용하여 문서를 쿼리할 수 있도록 지원합니다. 이 문서에서는 샘플 문서 및 두 가지 샘플 SQL 쿼리와 결과를 제공합니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
@@ -149,4 +149,3 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [전 세계로 데이터 배포](tutorial-global-distribution-sql-api.md)
-

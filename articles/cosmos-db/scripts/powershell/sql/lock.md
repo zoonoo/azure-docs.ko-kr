@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: 667d6a6726e6adfa84073c3bbd20ee4dc7c879cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 66352cd298d83e6ce5b2616644d9c80e628c2d7c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481876"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-sql-api-database-and-container-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos SQL API 데이터베이스 및 컨테이너에 대한 리소스 잠금 만들기
 
@@ -42,11 +42,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure 리소스**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | 리소스 잠금을 만듭니다. |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | 리소스 잠금을 가져오거나 리소스 잠금을 나열합니다. |
-| [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | 리소스 잠금을 제거합니다. |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | 리소스 잠금을 만듭니다. |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | 리소스 잠금을 가져오거나 리소스 잠금을 나열합니다. |
+| [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | 리소스 잠금을 제거합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.

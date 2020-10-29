@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: a1de4143d07bc2e5f73e7d216013e3d27c90c778
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7a316a13ecc5683474411e3ac185f2136914186
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282603"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481978"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 및 컨테이너 나열 및 가져오기
 
@@ -39,13 +39,13 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
-| [Get-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | 계정의 Cosmos DB Databases를 나열하거나 계정에 지정된 Cosmos DB Databases를 가져옵니다. |
-| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | 데이터베이스의 Cosmos DB 컨테이너를 나열하거나 데이터베이스에 지정된 Cosmos DB 컨테이너를 가져옵니다. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
+| [Get-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | 계정의 Cosmos DB Databases를 나열하거나 계정에 지정된 Cosmos DB Databases를 가져옵니다. |
+| [Get-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | 데이터베이스의 Cosmos DB 컨테이너를 나열하거나 데이터베이스에 지정된 Cosmos DB 컨테이너를 가져옵니다. |
 |**Azure 리소스 그룹**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.

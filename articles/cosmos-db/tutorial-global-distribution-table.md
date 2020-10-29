@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2497a1fe5bfd3618246c9590685d08894e897f3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568655"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476521"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -28,7 +28,7 @@ ms.locfileid: "91568655"
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Table API를 사용하여 기본 설정 지역에 연결
 
-[글로벌 배포](distribute-data-globally.md)를 활용하려면 클라이언트 애플리케이션이 애플리케이션을 실행하는 현재 위치를 지정해야 합니다. 이 작업은 `CosmosExecutorConfiguration.CurrentRegion` 속성을 설정하여 수행됩니다. `CurrentRegion` 속성은 단일 위치를 포함해야 합니다. 각 클라이언트 인스턴스는 짧은 대기 시간 읽기를 위해 자체 지역을 지정할 수 있습니다. “미국 서부”와 같은 [표시 이름](https://msdn.microsoft.com/library/azure/gg441293.aspx)을 사용하여 지역 이름을 지정해야 합니다. 
+[글로벌 배포](distribute-data-globally.md)를 활용하려면 클라이언트 애플리케이션이 애플리케이션을 실행하는 현재 위치를 지정해야 합니다. 이 작업은 `CosmosExecutorConfiguration.CurrentRegion` 속성을 설정하여 수행됩니다. `CurrentRegion` 속성은 단일 위치를 포함해야 합니다. 각 클라이언트 인스턴스는 짧은 대기 시간 읽기를 위해 자체 지역을 지정할 수 있습니다. “미국 서부”와 같은 [표시 이름](/previous-versions/azure/reference/gg441293(v=azure.100))을 사용하여 지역 이름을 지정해야 합니다. 
 
 Azure Cosmos DB Table API SDK는 계정 구성 및 현재 가용성에 따라 최상의 엔드포인트를 선택하여 통신합니다. 클라이언트에 더 나은 대기 시간을 제공하기 위해 가장 가까운 지역의 우선 순위를 지정합니다. 현재 `CurrentRegion` 속성을 설정한 후 읽기 및 쓰기 요청은 다음과 같이 전달됩니다.
 
@@ -47,4 +47,3 @@ Azure Cosmos DB Table API SDK는 계정 구성 및 현재 가용성에 따라 �
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 전역 배포 구성
 > * Azure Cosmos DB Table API를 사용하여 전역 배포를 설정하는 방법
-

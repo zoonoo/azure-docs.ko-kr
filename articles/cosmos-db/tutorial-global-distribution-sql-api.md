@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ebb6bdf6e5072d1024ba7abcd1db1cf7bebfcd3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9594e8cf3e16e9e7e9a009b8edb7dbbd5a6ca92
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334381"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476572"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "91334381"
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 전역 배포 구성
-> * [SQL API](sql-api-introduction.md)를 사용하여 전역 배포 구성
+> * [SQL API](./introduction.md)를 사용하여 전역 배포 구성
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -240,4 +240,3 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 > [에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-

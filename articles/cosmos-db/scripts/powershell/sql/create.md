@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 699bdeb34d4a7134cd9fc4938427a2bd813069fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3ee4036a605e74ff43b3951b41ee3b4d1325004d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282624"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482046"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-api"></a>Azure Cosmos DB에 대한 데이터베이스 및 컨테이너 만들기 - SQL API
 
@@ -41,20 +41,20 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cosmos DB 계정을 만듭니다. |
-| [New-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Cosmos DB SQL Database를 만듭니다. |
-| [New-AzCosmosDBSqlUniqueKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | New-AzCosmosDBSqlUniqueKeyPolicy에 대한 매개 변수로 사용되는 PSSqlUniqueKey 개체를 만듭니다. |
-| [New-AzCosmosDBSqlUniqueKeyPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | New-AzCosmosDBSqlContainer에 대한 매개 변수로 사용되는 PSSqlUniqueKeyPolicy 개체를 만듭니다. |
-| [New-AzCosmosDBSqlCompositePath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | New-AzCosmosDBSqlIndexingPolicy에 대한 매개 변수로 사용되는 PSCompositePath 개체를 만듭니다. |
-| [New-AzCosmosDBSqlIncludedPathIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | New-AzCosmosDBSqlIncludedPath에 대한 매개 변수로 사용되는 PSIndexes 개체를 만듭니다. |
-| [New-AzCosmosDBSqlIncludedPath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | New-AzCosmosDBSqlIndexingPolicy에 대한 매개 변수로 사용되는 PSIncludedPath 개체를 만듭니다. |
-| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | New-AzCosmosDBSqlContainer의 매개 변수로 사용되는 PSSqlIndexingPolicy 개체를 만듭니다. |
-| [New-AzCosmosDBSqlConflictResolutionPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | New-AzCosmosDBSqlContainer에 대한 매개 변수로 사용되는 PSSqlConflictResolutionPolicy 개체를 만듭니다. |
-| [New-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | 새 Cosmos DB SQL 컨테이너를 만듭니다. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cosmos DB 계정을 만듭니다. |
+| [New-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Cosmos DB SQL Database를 만듭니다. |
+| [New-AzCosmosDBSqlUniqueKey](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | New-AzCosmosDBSqlUniqueKeyPolicy에 대한 매개 변수로 사용되는 PSSqlUniqueKey 개체를 만듭니다. |
+| [New-AzCosmosDBSqlUniqueKeyPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | New-AzCosmosDBSqlContainer에 대한 매개 변수로 사용되는 PSSqlUniqueKeyPolicy 개체를 만듭니다. |
+| [New-AzCosmosDBSqlCompositePath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | New-AzCosmosDBSqlIndexingPolicy에 대한 매개 변수로 사용되는 PSCompositePath 개체를 만듭니다. |
+| [New-AzCosmosDBSqlIncludedPathIndex](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | New-AzCosmosDBSqlIncludedPath에 대한 매개 변수로 사용되는 PSIndexes 개체를 만듭니다. |
+| [New-AzCosmosDBSqlIncludedPath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | New-AzCosmosDBSqlIndexingPolicy에 대한 매개 변수로 사용되는 PSIncludedPath 개체를 만듭니다. |
+| [New-AzCosmosDBSqlIndexingPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | New-AzCosmosDBSqlContainer의 매개 변수로 사용되는 PSSqlIndexingPolicy 개체를 만듭니다. |
+| [New-AzCosmosDBSqlConflictResolutionPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | New-AzCosmosDBSqlContainer에 대한 매개 변수로 사용되는 PSSqlConflictResolutionPolicy 개체를 만듭니다. |
+| [New-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | 새 Cosmos DB SQL 컨테이너를 만듭니다. |
 |**Azure 리소스 그룹**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
