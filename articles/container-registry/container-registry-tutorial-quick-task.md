@@ -3,17 +3,17 @@ title: 자습서 - 빠른 컨테이너 이미지 빌드
 description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)을 사용하여 Azure에서 Docker 컨테이너 이미지를 빌드한 다음, Azure Container Instances에 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259495"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739541"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
-**ACR 작업**은 Azure에서 간편하고 효율적인 Docker 컨테이너 이미지 빌드를 제공하는 Azure Container Registry 내의 기능 모음입니다. 이 문서에서는 ACR 작업의 *빠른 작업* 기능을 사용하는 방법에 대해 알아봅니다.
+**ACR 작업** 은 Azure에서 간편하고 효율적인 Docker 컨테이너 이미지 빌드를 제공하는 Azure Container Registry 내의 기능 모음입니다. 이 문서에서는 ACR 작업의 *빠른 작업* 기능을 사용하는 방법에 대해 알아봅니다.
 
 "내부 루프" 개발 주기는 소스 제어를 커밋하기 전에 애플리케이션 코드를 작성, 빌드 및 테스트하는 반복적인 프로세스입니다. 빠른 작업은 내부 루프를 클라우드로 확장하여 빌드 성공 유효성 검사 및 성공적으로 빌드된 이미지를 컨테이너 레지스트리에 자동으로 푸시하는 기능을 제공합니다. 사용자의 이미지는 기본적으로 레지스트리에 가까운 클라우드에 빌드되므로 더 빠르게 배포할 수 있습니다.
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-이제 레지스트리가 있으므로 ACR 작업을 사용하여 코드 샘플에서 컨테이너 이미지를 빌드합니다. [az acr build][az-acr-build] 명령을 실행하여 *빠른 작업*을 수행합니다.
+이제 레지스트리가 있으므로 ACR 작업을 사용하여 코드 샘플에서 컨테이너 이미지를 빌드합니다. [az acr build][az-acr-build] 명령을 실행하여 *빠른 작업* 을 수행합니다.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -188,7 +188,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 이제 서비스 주체를 만들고 해당 자격 증명을 주요 자격 증명 모음에 저장해야 합니다.
 
-[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]를 사용하여 서비스 주체의 **암호**를 자격 증명 모음에 저장합니다.
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]를 사용하여 서비스 주체의 **암호** 를 자격 증명 모음에 저장합니다.
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -203,9 +203,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
+이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush* 로 변경합니다.
 
-다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**인 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
+다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username** 인 서비스 주체의 *appId* 를 자격 증명 모음에 저장합니다.
 
 ```azurecli-interactive
 # Store service principal ID in AKV (the registry *username*)
@@ -295,7 +295,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 빠른 작업을 통해 내부 루프를 테스트했으므로 소스 코드를 Git 리포지토리에 커밋할 때 컨테이너 이미지 빌드를 트리거하도록 **빌드 작업**을 구성합니다.
+이제 빠른 작업을 통해 내부 루프를 테스트했으므로 소스 코드를 Git 리포지토리에 커밋할 때 컨테이너 이미지 빌드를 트리거하도록 **빌드 작업** 을 구성합니다.
 
 > [!div class="nextstepaction"]
 > [작업을 사용하여 자동 빌드 트리거](container-registry-tutorial-build-task.md)

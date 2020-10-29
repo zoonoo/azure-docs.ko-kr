@@ -3,13 +3,13 @@ title: Azure의 Service Fabric 클러스터에 Java 앱 배포
 description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 애플리케이션을 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738908"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -176,10 +176,10 @@ ms.locfileid: "91532061"
     }
     ```
 
-13. **sfdeploy.parameters.json**이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
-    - **clusterName**. 소문자와 숫자만 사용합니다.
-    - **adminUserName**(빈 값이 아닌 값)
-    - **adminPassword**(빈 값이 아닌 값)
+13. **sfdeploy.parameters.json** 이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
+    - **clusterName** . 소문자와 숫자만 사용합니다.
+    - **adminUserName** (빈 값이 아닌 값)
+    - **adminPassword** (빈 값이 아닌 값)
 
 14. Service Fabric 클러스터를 만들려면 다음 명령 실행
 

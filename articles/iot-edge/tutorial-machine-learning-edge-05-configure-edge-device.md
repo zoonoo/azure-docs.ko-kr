@@ -8,13 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: amqp, devx-track-azurecli
+ms.openlocfilehash: b85984207742e0b8991ab65875dd22505b918185
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974552"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736740"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -35,15 +35,15 @@ ms.locfileid: "91974552"
 
 2. `c:\edgeCertificates` 경로 및 이름으로 새 폴더를 만듭니다.
 
-3. 아직 실행하지 않은 경우 Windows 시작 메뉴에서 **Windows용 Docker**를 시작합니다.
+3. 아직 실행하지 않은 경우 Windows 시작 메뉴에서 **Windows용 Docker** 를 시작합니다.
 
 4. Visual Studio Code를 엽니다.
 
-5. **파일** > **폴더 열기...** 를 선택하고, **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates**를 선택합니다.
+5. **파일** > **폴더 열기...** 를 선택하고, **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates** 를 선택합니다.
 
-6. Explorer 창에서 **dockerfile**을 마우스 오른쪽 단추로 클릭하고 **이미지 빌드**를 선택합니다.
+6. Explorer 창에서 **dockerfile** 을 마우스 오른쪽 단추로 클릭하고 **이미지 빌드** 를 선택합니다.
 
-7. 대화 상자에서 이미지 이름 및 태그의 기본값 **createcertificates: latest**를 적용합니다.
+7. 대화 상자에서 이미지 이름 및 태그의 기본값 **createcertificates: latest** 를 적용합니다.
 
     ![Visual Studio Code에서 인증서 만들기](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
@@ -58,11 +58,11 @@ ms.locfileid: "91974552"
     docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker가 **c:\\** 드라이브에 대한 액세스를 요청합니다. **공유**를 선택합니다.
+10. Docker가 **c:\\** 드라이브에 대한 액세스를 요청합니다. **공유** 를 선택합니다.
 
 11. 자격 증명을 입력하라는 메시지가 표시되면 입력합니다.
 
-12. 컨테이너 실행이 완료되면 **c:\\edgeCertificates**에 다음 파일이 있는지 확인합니다.
+12. 컨테이너 실행이 완료되면 **c:\\edgeCertificates** 에 다음 파일이 있는지 확인합니다.
 
     * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
     * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
@@ -102,7 +102,7 @@ Azure IoT Edge 디바이스를 IoT Hub에 연결하기 위해, 먼저 허브의 
 
 2. Visual Studio Code 탐색기 보기에서 **Azure IoT Hub** 프레임을 엽니다.
 
-3. 줄임표를 클릭하고 **IoT Edge 디바이스 만들기**를 선택합니다.
+3. 줄임표를 클릭하고 **IoT Edge 디바이스 만들기** 를 선택합니다.
 
 4. 디바이스 이름을 지정합니다. 편의를 위해 **aaTurbofanEdgeDevice** 이름을 사용하여 나열된 디바이스 위쪽에 정렬합니다.
 
@@ -120,15 +120,15 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 1. Azure Portal에 로그인합니다.
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스** 를 선택합니다.
 
-1. 검색창에 **Marketplace**를 입력하고 선택합니다.
+1. 검색창에 **Marketplace** 를 입력하고 선택합니다.
 
-1. Marketplace 검색 창에 **Azure IoT Edge on Ubuntu**를 입력하고 선택합니다.
+1. Marketplace 검색 창에 **Azure IoT Edge on Ubuntu** 를 입력하고 선택합니다.
 
 1. 프로그래밍 방식으로 배포하려면 **시작** 하이퍼링크를 선택합니다.
 
-1. **사용** 단추를 선택한 다음, **저장**을 선택합니다.
+1. **사용** 단추를 선택한 다음, **저장** 을 선택합니다.
 
     ![VM에 프로그래밍 방식 배포 사용](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
@@ -152,11 +152,11 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 3. 각 매개 변수의 값을 입력하라는 메시지가 표시되면 입력합니다. 구독, 리소스 그룹 및 위치의 경우 이 자습서 전체에서 동일한 값을 사용하는 것이 좋습니다.
 
-    * **Azure 구독 ID**: Azure Portal에서 확인합니다.
-    * **리소스 그룹 이름**: 이 자습서의 리소스를 그룹화하는 기억하기 쉬운 이름입니다.
-    * **위치**: 가상 머신이 만들어지는 Azure 위치입니다. 예: westus2 또는 northeurope. 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.
-    * **AdminUsername**: 가상 머신에 로그인할 때 사용하는 관리자 계정의 이름입니다.
-    * **AdminPassword**: 가상 머신에서 AdminUsername에 대해 설정하는 암호입니다.
+    * **Azure 구독 ID** : Azure Portal에서 확인합니다.
+    * **리소스 그룹 이름** : 이 자습서의 리소스를 그룹화하는 기억하기 쉬운 이름입니다.
+    * **위치** : 가상 머신이 만들어지는 Azure 위치입니다. 예: westus2 또는 northeurope. 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.
+    * **AdminUsername** : 가상 머신에 로그인할 때 사용하는 관리자 계정의 이름입니다.
+    * **AdminPassword** : 가상 머신에서 AdminUsername에 대해 설정하는 암호입니다.
 
 4. 스크립트에서 VM을 설정하려면 사용하는 Azure 구독과 연결된 자격 증명으로 Azure에 로그인해야 합니다.
 
@@ -183,7 +183,7 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
     ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
     ```
 
-2. 호스트의 신뢰성을 검사하라는 메시지가 표시되면 **yes**를 입력하고 **Enter**를 선택합니다.
+2. 호스트의 신뢰성을 검사하라는 메시지가 표시되면 **yes** 를 입력하고 **Enter** 를 선택합니다.
 
 3. 암호를 입력하라는 메시지가 표시되면 입력합니다.
 
@@ -230,13 +230,13 @@ Marketplace의 이미지를 스크립트 방식 배포에 사용하려면 이미
 
 IoT Edge 런타임은 `/etc/iotedge/config.yaml` 파일을 사용하여 구성을 유지합니다. 이 파일의 세 가지 정보를 업데이트해야 합니다.
 
-* **디바이스 연결 문자열**: IoT Hub의 이 디바이스 ID에서 연결 문자열 부분
+* **디바이스 연결 문자열** : IoT Hub의 이 디바이스 ID에서 연결 문자열 부분
 * **인증서:** 다운스트림 디바이스로 연결할 때 사용되는 인증서
 * **호스트 이름:** VM IoT Edge 디바이스의 FQDN(정규화된 도메인 이름)
 
 IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 config.yaml을 연결 문자열로 업데이트하는 셸 스크립트가 함께 제공됩니다.
 
-1. Visual Studio Code에서 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭한 다음, **디바이스 연결 문자열 복사**를 선택합니다.
+1. Visual Studio Code에서 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭한 다음, **디바이스 연결 문자열 복사** 를 선택합니다.
 
     ![Visual Studio Code에서 연결 문자열 복사](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
 

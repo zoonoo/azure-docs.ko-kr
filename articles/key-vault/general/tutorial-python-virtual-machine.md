@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 89118f13bc009ce60d4fd1c82dfe7688bf1e551b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336703"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741263"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>자습서: Python에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -58,7 +58,7 @@ az login
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-다음 방법 중 하나를 사용하여 **myVM**이라는 VM을 만듭니다.
+다음 방법 중 하나를 사용하여 **myVM** 이라는 VM을 만듭니다.
 
 | Linux | Windows |
 |--|--|
@@ -66,7 +66,7 @@ az login
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Azure 포털](../../virtual-machines/windows/quick-create-portal.md) |
 
-Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser*라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh*)에 배치하는 데 사용됩니다. 
+Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser* 라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh* )에 배치하는 데 사용됩니다. 
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>샘플 Python 스크립트 만들기 및 편집
 
-가상 머신에서 **sample.py**라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고, "<your-unique-keyvault-name>"을 키 자격 증명 모음의 이름으로 바꿉니다.
+가상 머신에서 **sample.py** 라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고, "<your-unique-keyvault-name>"을 키 자격 증명 모음의 이름으로 바꿉니다.
 
 ```python
 from azure.keyvault.secrets import SecretClient

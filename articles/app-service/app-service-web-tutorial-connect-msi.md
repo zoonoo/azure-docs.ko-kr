@@ -4,13 +4,13 @@ description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안�
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 19e1d71cd766a99a32e90e2f83dc717ba56b795f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
+ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984035"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737890"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "90984035"
 > * Visual Studio에서 Azure AD 인증을 사용하여 SQL Database에 연결
 
 > [!NOTE]
->Azure AD 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure AD는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Azure AD Domain Services 설명서](../active-directory-domain-services/index.yml)를 참조하세요.
+>Azure AD 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_ . AD DS 및 Azure AD는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Azure AD Domain Services 설명서](../active-directory-domain-services/index.yml)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,9 +75,9 @@ Active Directory 관리자를 추가하는 방법에 대한 자세한 내용은 
 ## <a name="set-up-visual-studio"></a>Visual Studio 설정
 
 ### <a name="windows-client"></a>Windows 클라이언트
-Windows용 Visual Studio는 Azure AD 인증과 통합됩니다. Visual Studio에서 개발 및 디버깅을 사용하도록 설정하려면 Visual Studio의 메뉴에서 **파일** > **계정 설정**을 선택하여 Azure AD 사용자를 추가하고 **계정 추가**를 클릭합니다.
+Windows용 Visual Studio는 Azure AD 인증과 통합됩니다. Visual Studio에서 개발 및 디버깅을 사용하도록 설정하려면 Visual Studio의 메뉴에서 **파일** > **계정 설정** 을 선택하여 Azure AD 사용자를 추가하고 **계정 추가** 를 클릭합니다.
 
-Azure 서비스 인증의 Azure AD 사용자를 설정하려면 메뉴에서 **도구** > **옵션**을 선택한 후 **Azure 서비스 인증** > **계정 선택**을 선택합니다. 추가한 Azure AD 사용자를 선택하고 **확인**을 클릭합니다.
+Azure 서비스 인증의 Azure AD 사용자를 설정하려면 메뉴에서 **도구** > **옵션** 을 선택한 후 **Azure 서비스 인증** > **계정 선택** 을 선택합니다. 추가한 Azure AD 사용자를 선택하고 **확인** 을 클릭합니다.
 
 이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
 
@@ -107,7 +107,7 @@ Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Servi
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-*Web.config*에서 파일 위쪽부터 다음과 같은 변경 작업을 수행합니다.
+*Web.config* 에서 파일 위쪽부터 다음과 같은 변경 작업을 수행합니다.
 
 - `<configSections>`에서 다음과 같은 섹션 선언을 추가합니다.
 
@@ -142,13 +142,13 @@ Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Servi
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-[ASP.NET Core 및 SQL Database 자습서](tutorial-dotnetcore-sqldb-app.md)에서는 로컬 개발 환경에서 Sqlite 데이터베이스 파일을 사용하고 Azure 프로덕션 환경에서 App Service의 연결 문자열을 사용하기 때문에 `MyDbConnection` 연결 문자열은 전혀 사용되지 않습니다. Active Directory 인증을 사용하여 두 환경에서 동일한 연결 문자열을 사용하려고 합니다. *appsettings.json*에서 연결 문자열 `MyDbConnection`의 값을 다음으로 바꿉니다.
+[ASP.NET Core 및 SQL Database 자습서](tutorial-dotnetcore-sqldb-app.md)에서는 로컬 개발 환경에서 Sqlite 데이터베이스 파일을 사용하고 Azure 프로덕션 환경에서 App Service의 연결 문자열을 사용하기 때문에 `MyDbConnection` 연결 문자열은 전혀 사용되지 않습니다. Active Directory 인증을 사용하여 두 환경에서 동일한 연결 문자열을 사용하려고 합니다. *appsettings.json* 에서 연결 문자열 `MyDbConnection`의 값을 다음으로 바꿉니다.
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs*에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
+다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs* 에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
 
 ```csharp
 var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
@@ -194,7 +194,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 ### <a name="grant-permissions-to-managed-identity"></a>관리 ID에 사용 권한 부여
 
 > [!NOTE]
-> 원하는 경우 [Azure AD 그룹](../active-directory/fundamentals/active-directory-manage-groups.md)에 ID를 추가한 다음, ID 대신 Azure AD 그룹에 SQL Database 액세스 권한을 부여할 수 있습니다. 예를 들어 다음 명령은 이전 단계의 관리 ID를 _myAzureSQLDBAccessGroup_이라는 새 그룹에 추가합니다.
+> 원하는 경우 [Azure AD 그룹](../active-directory/fundamentals/active-directory-manage-groups.md)에 ID를 추가한 다음, ID 대신 Azure AD 그룹에 SQL Database 액세스 권한을 부여할 수 있습니다. 예를 들어 다음 명령은 이전 단계의 관리 ID를 _myAzureSQLDBAccessGroup_ 이라는 새 그룹에 추가합니다.
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -220,16 +220,16 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
+*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup* ).
 
 `EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다.
 
 > [!NOTE]
-> 또한 관리 ID의 백 엔드 서비스는 만료된 경우에만 대상 리소스에 대한 토큰을 업데이트하는 [토큰 캐시를 유지 관리](overview-managed-identity.md#obtain-tokens-for-azure-resources)합니다. SQL Database 사용 권한을 구성하는 실수를 하고 앱을 사용하여 토큰을 가져오려고 시도한 *후*에 사용 권한을 수정하려고 하는 경우 캐시된 토큰이 만료될 때까지 실제로 업데이트된 권한으로 새 토큰을 얻을 수 없습니다.
+> 또한 관리 ID의 백 엔드 서비스는 만료된 경우에만 대상 리소스에 대한 토큰을 업데이트하는 [토큰 캐시를 유지 관리](overview-managed-identity.md#obtain-tokens-for-azure-resources)합니다. SQL Database 사용 권한을 구성하는 실수를 하고 앱을 사용하여 토큰을 가져오려고 시도한 *후* 에 사용 권한을 수정하려고 하는 경우 캐시된 토큰이 만료될 때까지 실제로 업데이트된 권한으로 새 토큰을 얻을 수 없습니다.
 
 ### <a name="modify-connection-string"></a>연결 문자열 수정
 
-*Web.config* 또는 *appsettings.json*에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령을 사용하되 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
+*Web.config* 또는 *appsettings.json* 에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령을 사용하되 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
 
 ```azurecli-interactive
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
@@ -239,11 +239,11 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 이제 Azure에 변경 내용을 게시하면 됩니다.
 
-**[자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)** 를 진행 중이었다면 Visual Studio에서 변경 내용을 게시합니다. **솔루션 탐색기**에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+**[자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)** 를 진행 중이었다면 Visual Studio에서 변경 내용을 게시합니다. **솔루션 탐색기** 에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-게시 페이지에서 **게시**를 클릭합니다. 
+게시 페이지에서 **게시** 를 클릭합니다. 
 
 **[자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](tutorial-dotnetcore-sqldb-app.md)** 를 진행 중이었다면 다음 명령으로 Git을 사용하여 변경 내용을 게시합니다.
 

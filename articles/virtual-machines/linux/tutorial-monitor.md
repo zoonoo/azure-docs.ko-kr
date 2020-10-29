@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89011738"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740297"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링
 
@@ -40,19 +40,19 @@ Azure 모니터링은 에이전트를 사용하여 Azure VM에서 부팅 및 성
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-vm"></a>VM 만들기
 
-작동 중인 진단과 메트릭을 확인하려면 VM이 필요합니다. 먼저 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupMonitor*라는 리소스 그룹을 만듭니다.
+작동 중인 진단과 메트릭을 확인하려면 VM이 필요합니다. 먼저 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupMonitor* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만들고 SSH 키가 *~/.ssh/* 에 없으면 생성합니다.
+이제 [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고 SSH 키가 *~/.ssh/* 에 없으면 생성합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -108,7 +108,7 @@ az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-다음과 같이 [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) 명령을 사용하여 *myVM*에 대한 부팅 진단 데이터를 얻을 수 있습니다.
+다음과 같이 [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) 명령을 사용하여 *myVM* 에 대한 부팅 진단 데이터를 얻을 수 있습니다.
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -118,8 +118,8 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다. 이 호스트에 대한 메트릭이 자동으로 수집되며, 다음과 같이 Azure Portal에서 볼 수 있습니다.
 
-1. Azure Portal에서 **리소스 그룹**을 선택하고, **myResourceGroupMonitor**를 선택한 다음, 리소스 목록에서 **myVM**을 선택합니다.
-1. 호스트 VM의 성능을 보려면 VM 창에서 **메트릭**을 클릭한 다음, **사용 가능한 메트릭**에서 *[호스트]* 메트릭 중 하나를 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 선택하고, **myResourceGroupMonitor** 를 선택한 다음, 리소스 목록에서 **myVM** 을 선택합니다.
+1. 호스트 VM의 성능을 보려면 VM 창에서 **메트릭** 을 클릭한 다음, **사용 가능한 메트릭** 에서 *[호스트]* 메트릭 중 하나를 선택합니다.
 
     ![호스트 메트릭 보기](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -127,11 +127,11 @@ Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다.
 
 VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. Azure Portal에서 **리소스 그룹**을 클릭하고 **myResourceGroupMonitor**를 선택한 다음 리소스 목록에서 **myVM**을 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 클릭하고 **myResourceGroupMonitor** 를 선택한 다음 리소스 목록에서 **myVM** 을 선택합니다.
 
 2. VM 페이지에 **모니터링** 섹션에서 **인사이트(미리 보기)** 를 선택합니다.
 
-3. **인사이트(미리 보기)** 페이지에서 **지금 시도해 보기**를 선택합니다.
+3. **인사이트(미리 보기)** 페이지에서 **지금 시도해 보기** 를 선택합니다.
 
     ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
@@ -150,7 +150,7 @@ VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 
 
 VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. VM에서 액세스하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **리소스 그룹**을 클릭하고 **myResourceGroupMonitor**를 선택한 다음 리소스 목록에서 **myVM**을 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 클릭하고 **myResourceGroupMonitor** 를 선택한 다음 리소스 목록에서 **myVM** 을 선택합니다.
 
 2. VM 페이지에 **모니터링** 섹션에서 **인사이트(미리 보기)** 를 선택합니다.
 
@@ -164,15 +164,15 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 
 다음 예제에서는 평균 CPU 사용량에 대한 경고를 만듭니다.
 
-1. Azure Portal에서 **리소스 그룹**을 클릭하고 **myResourceGroupMonitor**를 선택한 다음 리소스 목록에서 **myVM**을 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 클릭하고 **myResourceGroupMonitor** 를 선택한 다음 리소스 목록에서 **myVM** 을 선택합니다.
 
-2. VM 블레이드에서 **경고 규칙**을 클릭한 다음, 경고 블레이드 위쪽에 있는 **메트릭 경고 추가**를 클릭합니다.
+2. VM 블레이드에서 **경고 규칙** 을 클릭한 다음, 경고 블레이드 위쪽에 있는 **메트릭 경고 추가** 를 클릭합니다.
 
-3. *myAlertRule*과 같이 경고에 대한 **이름**을 입력합니다.
+3. *myAlertRule* 과 같이 경고에 대한 **이름** 을 입력합니다.
 
 4. CPU 사용률이 5분 동안 1.0을 초과할 때 경고를 트리거하려면 다른 모든 기본값을 선택한 상태로 둡니다.
 
-5. 필요한 경우 전자 메일 알림을 보내도록 *전자 메일 소유자, 참가자 및 읽기 권한자*의 확인란을 선택합니다. 기본 작업은 포털에서 알림을 제공하는 것입니다.
+5. 필요한 경우 전자 메일 알림을 보내도록 *전자 메일 소유자, 참가자 및 읽기 권한자* 의 확인란을 선택합니다. 기본 작업은 포털에서 알림을 제공하는 것입니다.
 
 6. **확인** 단추를 클릭합니다.
 

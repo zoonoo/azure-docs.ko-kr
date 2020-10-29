@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 7964f96afc59464c28cabb9e1d5c7961fc765a3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4a790c51cd0caa2c81275e7eafdd663f2f2f0116
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501775"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740202"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 TLS/SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
 웹 서버를 보호하기 위해 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(Transport Layer Security) 인증서를 사용하여 웹 트래픽을 암호화할 수 있습니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -30,7 +30,7 @@ ms.locfileid: "86501775"
 > * VM 만들기 및 NGINX 웹 서버 설치
 > * VM에 인증서를 삽입하고 TLS 바인딩으로 NGINX 구성
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -42,7 +42,7 @@ Azure Key Vault는 암호화 키 및 비밀(인증서 또는 암호)을 보호�
 
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
-Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupSecureWeb*이라는 리소스 그룹을 만듭니다.
+Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupSecureWeb* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
@@ -84,7 +84,7 @@ vm_secret=$(az vm secret format --secrets "$secret" -g myResourceGroupSecureWeb 
 
 VM을 만들 때 인증서와 키는 보호되는 */var/lib/waagent/* 디렉터리에 저장됩니다. VM에 인증서 추가 및 웹 서버 구성을 자동화하려면 cloud-init를 사용합니다. 이 예제에서는 NGINX 웹 서버를 설치하고 구성합니다. 동일한 프로세스를 사용하여 Apache를 설치하고 구성할 수 있습니다. 
 
-*cloud-init-web-server.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다.
+*cloud-init-web-server.txt* 라는 파일을 만들고 다음 구성을 붙여 넣습니다.
 
 ```yaml
 #cloud-config

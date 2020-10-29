@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336686"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741386"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 
@@ -85,7 +85,7 @@ dotnet run
 
 ### <a name="initialize-the-git-repository"></a>Git 리포지토리 초기화
 
-터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.  .NET Core 프로젝트에 대해 Git 리포지토리를 초기화합니다.
+터미널 창에서 **Ctrl+C** 를 눌러 웹 서버를 종료합니다.  .NET Core 프로젝트에 대해 Git 리포지토리를 초기화합니다.
 
 ```bash
 git init
@@ -95,7 +95,7 @@ git commit -m "first commit"
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 
-FTP 및 로컬 Git는 *배포 사용자*를 통해 Azure 웹앱에 배포할 수 있습니다. 일단 배포 사용자를 구성하면 모든 Azure 배포에 사용할 수 있습니다. 계정 수준 배포 사용자 이름 및 암호는 Azure 구독 자격 증명과 다릅니다. 
+FTP 및 로컬 Git는 *배포 사용자* 를 통해 Azure 웹앱에 배포할 수 있습니다. 일단 배포 사용자를 구성하면 모든 Azure 배포에 사용할 수 있습니다. 계정 수준 배포 사용자 이름 및 암호는 Azure 구독 자격 증명과 다릅니다. 
 
 배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 실행합니다. 다음 지침을 준수하는 사용자 이름과 암호를 선택합니다. 
 
@@ -323,7 +323,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-**Hello World**를 확인하기 전에 이제 다음과 같이 비밀 값이 표시됩니다. **성공!**
+**Hello World** 를 확인하기 전에 이제 다음과 같이 비밀 값이 표시됩니다. **성공!**
 
 ## <a name="next-steps"></a>다음 단계
 

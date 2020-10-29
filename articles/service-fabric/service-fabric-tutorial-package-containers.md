@@ -3,13 +3,13 @@ title: 컨테이너 패키지 및 배포
 description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539880"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738852"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -80,7 +80,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
 
 Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
-1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
+1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer* )
 2. `yo azuresfcontainer:AddService`을 실행합니다.
 3. 'azurevoteback' 서비스 이름 지정
 4. Redis - 'alpine:redis'에 대한 컨테이너 이미지 경로 제공
@@ -108,7 +108,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Azure Container Registry의 자격 증명으로 애플리케이션 매니페스트 구성
 
-Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌어오려면 **ApplicationManifest.xml**에서 자격 증명을 제공해야 합니다.
+Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌어오려면 **ApplicationManifest.xml** 에서 자격 증명을 제공해야 합니다.
 
 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
@@ -124,7 +124,7 @@ az acr login --name <acrName>
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-**ApplicationManifest.xml**에서 프런트 엔드 서비스에 대한 **ServiceManifestImport** 요소 아래에 있는 코드 조각을 추가합니다. **acrName**을 **AccountName** 필드에 삽입하고 이전 명령에서 반환된 암호를 **암호** 필드에 사용합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 제공합니다.
+**ApplicationManifest.xml** 에서 프런트 엔드 서비스에 대한 **ServiceManifestImport** 요소 아래에 있는 코드 조각을 추가합니다. **acrName** 을 **AccountName** 필드에 삽입하고 이전 명령에서 반환된 암호를 **암호** 필드에 사용합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml** 을 제공합니다.
 
 ```xml
 <Policies>
@@ -152,7 +152,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ```
 
-마찬가지로 백 엔드 서비스에 대한 서비스 매니페스트를 수정합니다. *./TestContainer/azurevotebackPkg/ServiceManifest.xml*을 열고 **ServiceManifest** 요소에서 엔드포인트 리소스를 선언합니다. 이 자습서에서 6379라는 Redis 기본값이 유지 관리됩니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
+마찬가지로 백 엔드 서비스에 대한 서비스 매니페스트를 수정합니다. *./TestContainer/azurevotebackPkg/ServiceManifest.xml* 을 열고 **ServiceManifest** 요소에서 엔드포인트 리소스를 선언합니다. 이 자습서에서 6379라는 Redis 기본값이 유지 관리됩니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
 
 ```xml
 <Resources>
@@ -165,11 +165,11 @@ az acr credential show -n <acrName> --query passwords[0].value
 </Resources>
 ```
 
-**UriScheme**을 입력하면 컨테이너 엔드포인트가 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
+**UriScheme** 을 입력하면 컨테이너 엔드포인트가 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
 
 ### <a name="map-container-ports-to-a-service"></a>서비스에 컨테이너 포트 매핑
 
-또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **엔드포인트**를 참조합니다. 이러한 엔드포인트에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 엔드포인트에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 사용할 수 있습니다.
+또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **엔드포인트** 를 참조합니다. 이러한 엔드포인트에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 엔드포인트에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml** 을 사용할 수 있습니다.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -185,7 +185,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>백 엔드 서비스에 DNS 이름 추가
 
-Service Fabric이 백 엔드 서비스에 이 DNS 이름을 할당하려면 **ApplicationManifest.xml**에서 이름을 지정해야 합니다. 표시된 대로 **ServiceDnsName** 특성을 **서비스** 요소에 추가합니다.
+Service Fabric이 백 엔드 서비스에 이 DNS 이름을 할당하려면 **ApplicationManifest.xml** 에서 이름을 지정해야 합니다. 표시된 대로 **ServiceDnsName** 특성을 **서비스** 요소에 추가합니다.
 
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">

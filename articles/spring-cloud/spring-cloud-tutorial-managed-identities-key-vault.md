@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 3f54139bc22ef85b016aabd2512bdf030efee91c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088587"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737169"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
 
@@ -79,7 +79,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
 ```
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Spring Boot 스타터를 사용하여 Spring Boot 앱 샘플 빌드
-이 앱에는 Azure Key Vault에서 비밀을 가져올 수 있는 액세스 권한이 있습니다. 스타터 앱([Azure Key Vault 비밀 Spring Boot 스타터](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets))을 사용합니다.  Azure Key Vault는 Spring **PropertySource**의 인스턴스로 추가됩니다.  Azure Key Vault에 저장된 비밀은 외부화된 구성 속성(예: 파일의 속성)과 같이 편리하게 액세스하고 사용할 수 있습니다. 
+이 앱에는 Azure Key Vault에서 비밀을 가져올 수 있는 액세스 권한이 있습니다. 스타터 앱([Azure Key Vault 비밀 Spring Boot 스타터](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets))을 사용합니다.  Azure Key Vault는 Spring **PropertySource** 의 인스턴스로 추가됩니다.  Azure Key Vault에 저장된 비밀은 외부화된 구성 속성(예: 파일의 속성)과 같이 편리하게 액세스하고 사용할 수 있습니다. 
 
 1. Azure Key Vault Spring 스타터를 사용하여 start.spring.io에서 프로젝트 샘플을 생성합니다. 
     ```azurecli
@@ -184,7 +184,7 @@ Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 토큰, �
     vim src/main/resources/application.properties
     ```
 
-    관리 ID를 Azure Spring Cloud 앱에 사용하려면 다음 내용이 포함된 속성을 *src/main/resources/application.properties*에 추가합니다.
+    관리 ID를 Azure Spring Cloud 앱에 사용하려면 다음 내용이 포함된 속성을 *src/main/resources/application.properties* 에 추가합니다.
 
     ```
     azure.keyvault.enabled=true

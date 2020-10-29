@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091069"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742671"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>자습서: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "92091069"
 2. Azure Spring Cloud **개요** 페이지로 이동합니다.
 3. 서비스가 포함된 리소스 그룹을 선택합니다.
 4. 왼쪽 탐색 창에 있는 메뉴에서 **설정** 아래의 **앱** 탭을 선택합니다.
-5. 자동 스케일링을 구성하려는 애플리케이션을 선택합니다. 이 예제에서는 **demo**라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
+5. 자동 스케일링을 구성하려는 애플리케이션을 선택합니다. 이 예제에서는 **demo** 라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
 6. 왼쪽 탐색 창에 있는 메뉴에서 **설정** 아래의 **스케일 아웃** 탭으로 이동합니다.
 7. 자동 스케일링을 설정하려는 배포를 선택합니다. 자동 스케일링 옵션이 다음 섹션에 표시됩니다.
 

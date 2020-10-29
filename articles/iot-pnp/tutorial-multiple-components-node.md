@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js
-ms.openlocfilehash: ea7b1ba159aa5d11a20ff565390ce0b24e38c1d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577189"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736049"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>자습서: 샘플 IoT 플러그 앤 플레이 여러 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(Node.js)
 
@@ -105,7 +105,7 @@ npm install
 
   - `desiredPropertyPatchListener`를 사용하여 속성 업데이트를 수신 대기합니다.
 
-  - **Q** 또는 **q**를 누르면 모든 수신기 및 작업을 사용하지 않도록 설정하고 루프를 종료합니다.
+  - **Q** 또는 **q** 를 누르면 모든 수신기 및 작업을 사용하지 않도록 설정하고 루프를 종료합니다.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

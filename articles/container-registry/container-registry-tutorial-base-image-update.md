@@ -3,13 +3,13 @@ title: 자습서 - 기본 이미지 업데이트 시 이미지 빌드 트리거
 description: 이 자습서에서는 기본 이미지가 동일한 레지스트리에서 업데이트 될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: 0b87f4ca138e0da76efd184e87f12bec32e3960e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: f6dfc5b6cfe3312f2b3b4663ab5211cc60309eb6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262249"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741119"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -113,7 +113,7 @@ FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-작업이 완료된 후 다음의 선택적 단계를 수행하려면 **실행 ID**(예: "da6")를 적어 둡니다.
+작업이 완료된 후 다음의 선택적 단계를 수행하려면 **실행 ID** (예: "da6")를 적어 둡니다.
 
 ### <a name="optional-run-application-container-locally"></a>선택 사항: 로컬로 애플리케이션 컨테이너 실행
 
@@ -164,13 +164,13 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 ## <a name="update-the-base-image"></a>기본 이미지 업데이트
 
-여기서는 기본 이미지의 프레임워크 패치를 시뮬레이션합니다. **Dockerfile-base**를 편집하고, `NODE_VERSION`에 정의된 버전 번호 뒤에 "a"를 추가합니다.
+여기서는 기본 이미지의 프레임워크 패치를 시뮬레이션합니다. **Dockerfile-base** 를 편집하고, `NODE_VERSION`에 정의된 버전 번호 뒤에 "a"를 추가합니다.
 
 ```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
-빠른 작업을 실행하여 수정된 기본 이미지를 빌드합니다. 출력에 있는 **실행 ID**를 적어 둡니다.
+빠른 작업을 실행하여 수정된 기본 이미지를 빌드합니다. 출력에 있는 **실행 ID** 를 적어 둡니다.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .

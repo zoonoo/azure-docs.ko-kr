@@ -3,13 +3,13 @@ title: 자습서 - 지역 복제 레지스트리 만들기
 description: Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다.
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148397"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739491"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
@@ -44,22 +44,22 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-**리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Registry** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 새 레지스트리를 다음 설정으로 구성합니다. **기본 사항** 탭에서 다음을 수행합니다.
 
-* **레지스트리 이름**: Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
-* **리소스 그룹**: **새로 만들기** > `myResourceGroup`
-* **위치**: `West US`
-* **SKU**: `Premium` (지역에서 복제에 필요)
+* **레지스트리 이름** : Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
+* **리소스 그룹** : **새로 만들기** > `myResourceGroup`
+* **위치** : `West US`
+* **SKU** : `Premium` (지역에서 복제에 필요)
 
-**검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 레지스트리 인스턴스를 만듭니다.
+**검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 레지스트리 인스턴스를 만듭니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
-이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
+이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름** 의 자리 표시자로 `<acrName>`을 사용합니다.
 
 > [!TIP]
 > Azure Container Registry는 일반적으로 여러 컨테이너 호스트에서 사용되는 수명이 긴 리소스이기 때문에 자체 리소스 그룹에 레지스트리를 만드는 것이 좋습니다. 지리적 복제 레지스트리와 webhook를 구성할 때 이러한 추가 리소스는 동일한 리소스 그룹에 배치됩니다.
@@ -68,7 +68,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 프리미엄 레지스트리가 있으니 이제 지역에서 복제를 구성할 수 있습니다. 두 지역에서 실행되도록 다음 자습서에서 구성하는 웹앱은 가장 가까운 레지스트리에서 컨테이너 이미지를 끌어올 수 있습니다.
 
-Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제**를 선택합니다.
+Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
@@ -76,11 +76,11 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
-녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기**에서 **만들기**를 선택합니다.
+녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기** 에서 **만들기** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
-복제가 완료되면 포털에서 두 영역 모두에 *준비*가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
+복제가 완료되면 포털에서 두 영역 모두에 *준비* 가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
@@ -89,7 +89,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 후속 자습서에서는 레지스트리의 컨테이너 이미지를 Web App for Containers에 직접 배포합니다. 이 기능을 사용하도록 설정하려면 레지스트리의 [관리자 계정](container-registry-authentication.md#admin-account)도 사용하도록 설정해야 합니다.
 
-Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키**를 선택합니다. **관리 사용자**에서 **사용**을 선택합니다.
+Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키** 를 선택합니다. **관리 사용자** 에서 **사용** 을 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
@@ -169,7 +169,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-다음으로, 레지스트리의 로그인 서버의 FQDN으로 `ENV DOCKER_REGISTRY` 줄을 업데이트합니다. 이 예제에서는 예제 레지스트리 이름, *uniqueregistryname*을 반영합니다.
+다음으로, 레지스트리의 로그인 서버의 FQDN으로 `ENV DOCKER_REGISTRY` 줄을 업데이트합니다. 이 예제에서는 예제 레지스트리 이름, *uniqueregistryname* 을 반영합니다.
 
 ```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
