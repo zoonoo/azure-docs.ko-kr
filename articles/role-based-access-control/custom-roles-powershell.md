@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790214"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909576"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 역할 만들기 또는 업데이트
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 다음 예제에서는 선택한 구독에 할당할 수 있는 사용자 지정 역할만을 나열합니다.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 PowerShell을 사용하여 사용자 지정 역할을 만들 때는 [기본 제공 역할](built-in-roles.md) 중 하나를 출발점으로 사용하거나 처음부터 시작할 수 있습니다. 이 섹션의 첫 번째 예제에서는 기본 제공 역할로 시작한 다음, 추가 권한으로 사용자 지정합니다. 속성을 편집하여 원하는 `Actions`, `NotActions` 또는 `AssignableScopes`를 추가한 다음, 변경 내용을 새 역할로 저장합니다.
 
-다음 예제에서는 [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) 기본 제공 역할로 시작하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
+다음 예제에서는 [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) 기본 제공 역할로 시작하여 *Virtual Machine Operator* 라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute* , *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"

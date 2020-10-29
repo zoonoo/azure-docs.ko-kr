@@ -16,6 +16,7 @@
     - name: Python
       href: quick-create-python.md
     - name: ARM 템플릿
+      displayName: Resource Manager
       href: quick-create-template.md
 - name: 자습서
   items:

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ffed14c1877f92b8f8989ea65500f441506fa34
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea82724ec534aa896fa012332c10e28050caf825
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977292"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909389"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
 
@@ -37,7 +37,7 @@ Windows Vm은 [다양 한 크기로](../sizes-general.md)사용할 수 있습니
 
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-Azure Disk Encryption [2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities) 및 [Lsv2 시리즈 vm](../lsv2-series.md)에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
+[2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities)에서는 Azure Disk Encryption을 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 

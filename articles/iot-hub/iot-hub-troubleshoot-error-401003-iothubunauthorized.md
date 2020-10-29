@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538275"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909644"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -52,9 +52,9 @@ MQTT의 경우 일부 Sdk는 IoT Hub를 사용 하 여 SAS 토큰이 만료 될 
 
 ### <a name="cause-2"></a>원인 2
 
-IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다.
+IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다. 증상에 명시 된 이유 중 하나가 원인일 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="solution-1"></a>해결 방법 1
 
@@ -66,10 +66,13 @@ IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다.
 
 일반적으로 오류를 해결 하는 방법을 설명 하는 오류 메시지가 표시 됩니다. 어떤 이유로 인해 오류 메시지 세부 정보에 액세스할 수 없는 경우 다음을 확인 합니다.
 
-- 사용 하는 SAS 또는 기타 보안 토큰이 만료 되지 않았습니다. 
-- 권한 부여 자격 증명은 사용 하는 프로토콜에 대해 잘 구성 됩니다. 자세히 알아보려면 [IoT Hub access control](iot-hub-devguide-security.md)을 참조 하세요.
+- 사용 하는 SAS 또는 기타 보안 토큰이 만료 되지 않았습니다.
+- X.509 인증서 인증의 경우 장치와 연결 된 장치 인증서 또는 CA 인증서가 만료 되지 않았습니다. IoT Hub를 사용 하 여 x.509 CA 인증서를 등록 하는 방법을 알아보려면 [Azure IoT Hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조 하세요.
+- X.509 인증서 지문 인증의 경우 장치 인증서의 지문이 IoT Hub 등록 됩니다.
+- 권한 부여 자격 증명은 사용 하는 프로토콜에 대해 잘 구성 됩니다. 자세히 알아보려면 [IoT Hub에 대 한 액세스 제어](iot-hub-devguide-security.md)를 참조 하세요.
 - 사용 된 권한 부여 규칙에 요청 된 작업에 대 한 권한이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub에 대 한 인증을 용이 하 게 하려면 [Azure IoT sdk](iot-hub-devguide-sdks.md)를 사용 하는 것이 좋습니다.
+- IoT Hub에 대 한 인증을 용이 하 게 하려면 [Azure IoT sdk](iot-hub-devguide-sdks.md)를 사용 하는 것이 좋습니다.
+- IoT Hub 인증에 대 한 자세한 내용은 [IoT Hub에 대 한 액세스 제어](iot-hub-devguide-security.md)를 참조 하세요.

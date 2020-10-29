@@ -101,7 +101,7 @@
           items:
             - name: 개요
               href: network-security-groups-overview.md
-            - name: 작동 방식
+            - name: 작동 방법
               href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹
           href: application-security-groups.md
@@ -112,7 +112,7 @@
         - name: Kubernetes 네트워크 정책
           href: kubernetes-network-policies.md
         - name: DDoS 보호
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: 가상 네트워크 TAP
           href: virtual-network-tap-overview.md
         - name: Azure Policy의 보안 컨트롤
@@ -299,9 +299,9 @@
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: DDoS 보호 관리
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: DDoS Protection 표준에 파트너 온보딩
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: 네트워크 보안 그룹 관리
           href: manage-network-security-group.md
         - name: 보안 시나리오

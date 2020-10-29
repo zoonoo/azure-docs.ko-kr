@@ -1,5 +1,5 @@
 ---
-title: Power BI Professional에 연결
+title: Power BI Professional을 사용하여 Synapse SQL에 연결
 description: 이 자습서에서는 Power BI 데스크톱을 SQL 주문형(미리 보기)에 연결하는 방법의 단계를 안내합니다.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288701"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899122"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Power BI Professional을 사용하여 Synapse SQL에 연결
 
@@ -98,7 +98,7 @@ Power BI 데스크톱 애플리케이션을 열고 **데이터 가져오기** �
 
 ### <a name="step-1---select-data-source"></a>1단계 - 데이터 원본 선택
 
-메뉴에서 **Azure**를 선택한 다음, **Azure SQL Database**를 선택합니다.
+메뉴에서 **Azure** 를 선택한 다음, **Azure SQL Database** 를 선택합니다.
 ![데이터 원본을 선택합니다.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>2단계 - 데이터베이스 선택
