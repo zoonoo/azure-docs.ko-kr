@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448278"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521036"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Azure CLI를 사용하여 관리형 HSM 관리
 
 > [!NOTE]
-> Key Vault는 자격 증명 모음과 관리형 HSM의 두 가지 종류의 리소스를 지원합니다. 이 문서에서는 **관리형 HSM**에 대해 설명합니다. 자격 증명 모음을 관리하는 방법을 알아보려면 [Azure CLI를 사용하여 Key Vault 관리](../general/manage-with-cli2.md)를 참조하세요.
+> Key Vault는 자격 증명 모음과 관리형 HSM의 두 가지 종류의 리소스를 지원합니다. 이 문서에서는 **관리형 HSM** 에 대해 설명합니다. 자격 증명 모음을 관리하는 방법을 알아보려면 [Azure CLI를 사용하여 Key Vault 관리](../general/manage-with-cli2.md)를 참조하세요.
 
 관리형 HSM에 대한 개요는 [관리형 HSM이란?](overview.md)을 참조하세요.
 
@@ -45,7 +45,7 @@ az login
 CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조하세요.
 
 > [!NOTE]
-> 아래의 모든 명령은 두 가지 사용 방법을 보여 줍니다. 하나는 **--hsm-name** 및 **--name**(키 이름) 매개 변수를 사용하고, 다른 하나는 해당하는 경우 키 이름을 포함하여 전체 URL을 지정할 수 있는 **--id** 매개 변수를 사용합니다. 후자의 방법은 호출자(사용자 또는 애플리케이션)에게 컨트롤 플레인에 대한 읽기 액세스 권한이 없고 데이터 평면에 대한 제한된 액세스 권한만 있는 경우에 유용합니다.
+> 아래의 모든 명령은 두 가지 사용 방법을 보여 줍니다. 하나는 **--hsm-name** 및 **--name** (키 이름) 매개 변수를 사용하고, 다른 하나는 해당하는 경우 키 이름을 포함하여 전체 URL을 지정할 수 있는 **--id** 매개 변수를 사용합니다. 후자의 방법은 호출자(사용자 또는 애플리케이션)에게 컨트롤 플레인에 대한 읽기 액세스 권한이 없고 데이터 평면에 대한 제한된 액세스 권한만 있는 경우에 유용합니다.
 
 ## <a name="create-an-hsm-key"></a>HSM 키 만들기
 
@@ -69,7 +69,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsak
 
 ### <a name="create-an-ec-key"></a>EC 키 만들기
 
-아래 예제에서는 P-256 곡선을 사용하여 **서명 및 확인** 작업(-ops)에만 사용되고 두 개의 태그(**usage** 및 **appname**)가 있는 **EC** 키를 만드는 방법을 보여 줍니다. 태그는 추적 및 관리를 위해 추가 메타데이터를 키에 추가하는 데 도움이 됩니다.
+아래 예제에서는 P-256 곡선을 사용하여 **서명 및 확인** 작업(-ops)에만 사용되고 두 개의 태그( **usage** 및 **appname** )가 있는 **EC** 키를 만드는 방법을 보여 줍니다. 태그는 추적 및 관리를 위해 추가 메타데이터를 키에 추가하는 데 도움이 됩니다.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
@@ -90,7 +90,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## <a name="view-key-attributes-and-tags"></a>키 특성 및 태그 보기

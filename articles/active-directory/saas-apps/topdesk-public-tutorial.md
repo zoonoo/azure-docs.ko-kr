@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a18cb583b246c3cfbf09f43b9921497de37a3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524272"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>자습서: TOPdesk - Public과 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ TOPdesk - Public을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 * 사용자가 자신의 Azure AD 계정으로 TOPdesk - Public에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -53,7 +53,7 @@ TOPdesk - Public이 Azure AD에 통합되도록 구성하려면 갤러리의 TOP
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ TOPdesk - Public이 Azure AD에 통합되도록 구성하려면 갤러리의 TOP
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **TOPdesk - Public**을 입력하고, 결과 패널에서 **TOPdesk - Public**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에서 **TOPdesk - Public** 을 입력하고, 결과 패널에서 **TOPdesk - Public** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 TOPdesk-Public](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 TOPdesk - Public에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 TOPdesk - Public에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 TOPdesk - Public의 해당 사용자 간에 연결 관계를 설정해야 합니다.
 
 TOPdesk-Public에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ TOPdesk-Public에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **TOPdesk - Public** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **TOPdesk - Public** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -97,16 +97,16 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4.  **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4.  **서비스 공급자 메타데이터 파일** 이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     >[!NOTE]
-    >**서비스 공급자 메타데이터 파일**은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 구할 수 있습니다.
+    >**서비스 공급자 메타데이터 파일** 은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 구할 수 있습니다.
 
-    a. **메타데이터 파일 업로드**를 클릭합니다.
+    a. **메타데이터 파일 업로드** 를 클릭합니다.
     
     ![메타데이터 파일 업로드](common/upload-metadata.png)
 
-    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+    b. **폴더 로고** 를 클릭하여 메타데이터 파일을 선택하고 **업로드** 를 클릭합니다.
 
     ![메타데이터 파일 선택](common/browse-upload-metadata.png)
 
@@ -121,9 +121,9 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     f. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > **식별자**와 **회신 URL** 값이 자동으로 채워지지 않으면 수동으로 입력해야 합니다. 식별자의 경우 앞서 언급한 패턴을 따르고 회신 URL은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 가져옵니다. **로그온 URL** 값은 실제가 아니므로 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이 값을 얻으려면 [TOPdesk - Public 클라이언트 지원 팀](https://help.topdesk.com/saas/enterprise/user/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > **식별자** 와 **회신 URL** 값이 자동으로 채워지지 않으면 수동으로 입력해야 합니다. 식별자의 경우 앞서 언급한 패턴을 따르고 회신 URL은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 가져옵니다. **로그온 URL** 값은 실제가 아니므로 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이 값을 얻으려면 [TOPdesk - Public 클라이언트 지원 팀](https://help.topdesk.com/saas/enterprise/user/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -141,15 +141,15 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 1. **TOPdesk - Public** 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2. **TOPdesk** 메뉴에서 **설정**을 클릭합니다.
+2. **TOPdesk** 메뉴에서 **설정** 을 클릭합니다.
    
     ![설정](./media/topdesk-public-tutorial/ic790598.png "설정")
 
-3. **로그인 설정**을 클릭합니다.
+3. **로그인 설정** 을 클릭합니다.
    
     ![로그인 설정](./media/topdesk-public-tutorial/ic790599.png "로그인 설정")
 
-4. **로그인 설정** 메뉴를 확장한 다음 **일반**을 클릭합니다.
+4. **로그인 설정** 메뉴를 확장한 다음 **일반** 을 클릭합니다.
    
     ![일반](./media/topdesk-public-tutorial/ic790600.png "일반")
 
@@ -171,13 +171,13 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     
     a. Azure Portal에서 다운로드한 메타데이터 파일을 엽니다.
     
-    b. **fed:ApplicationServiceType**의 **xsi:type**을 가진 **RoleDescriptor** 노드를 확장합니다.
+    b. **fed:ApplicationServiceType** 의 **xsi:type** 을 가진 **RoleDescriptor** 노드를 확장합니다.
     
     다. **X509Certificate** 노드의 값을 복사합니다.
     
     d. 복사한 **X509Certificate** 값을 컴퓨터에 파일로 로컬 저장합니다.
 
-7. **공용** 섹션에서 **추가**를 클릭합니다.
+7. **공용** 섹션에서 **추가** 를 클릭합니다.
     
     ![SAML 로그인](./media/topdesk-public-tutorial/ic790625.png "공용")
 
@@ -185,27 +185,27 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     
     ![SAML 구성 도우미](./media/topdesk-public-tutorial/ic790608.png "SAML 구성 도우미")
     
-    a. Azure Portal에서 다운로드한 메타데이터 파일을 업로드하려면 **페더레이션 메타데이터**에서 **찾아보기**를 클릭합니다.
+    a. Azure Portal에서 다운로드한 메타데이터 파일을 업로드하려면 **페더레이션 메타데이터** 에서 **찾아보기** 를 클릭합니다.
 
-    b. 인증서 파일을 업로드하려면 **인증서(RSA)** 에서 **찾아보기**를 클릭합니다.
+    b. 인증서 파일을 업로드하려면 **인증서(RSA)** 에서 **찾아보기** 를 클릭합니다.
 
-    다. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
+    다. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘** 에서 **찾아보기** 를 클릭합니다.
 
     d. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
     e. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
 
-    f. **저장**을 클릭합니다.
+    f. **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -213,35 +213,35 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 TOPdesk - Public에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **TOPdesk - Public**을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **TOPdesk - Public** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **TOPdesk-Public**을 선택합니다.
+2. 애플리케이션 목록에서 **TOPdesk-Public** 을 선택합니다.
 
     ![애플리케이션 목록의 TOPdesk-Public 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -269,7 +269,7 @@ Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 T
  
     다. 계정에 대한 **사이트** 를 선택합니다.
  
-    d. **저장**을 클릭합니다.
+    d. **저장** 을 클릭합니다.
 
 > [!NOTE]
 > 다른 TOPdesk - Public 사용자 계정 생성 도구 또는 TOPdesk - Public에서 제공하는 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다.
@@ -278,12 +278,12 @@ Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 T
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 TOPdesk - Public 타일을 클릭하면 SSO를 설정한 TOPdesk - Public에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 TOPdesk - Public 타일을 클릭하면 SSO를 설정한 TOPdesk - Public에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
