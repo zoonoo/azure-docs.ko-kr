@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
-ms.openlocfilehash: bd15798e9b642f3abc617c0fa224c530d90b5dd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0433c0fdc1584ce209eb0409b0e8f5cbfc2719ed
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555571"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>자습서: EasySSO for BitBucket과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "88555571"
 * 사용자가 자신의 Azure AD 계정으로 EasySSO for BitBucket에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
+Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,7 +41,7 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 
 * EasySSO for BitBucket에서 SP 시작 및 IdP 시작 SSO를 지원합니다.
 * EasySSO for BitBucket에서 "Just-In-Time" 사용자 프로비저닝을 지원합니다.
-* EasySSO for BitBucket을 구성한 후 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* EasySSO for BitBucket을 구성한 후 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-easysso-for-bitbucket-from-the-gallery"></a>갤러리에서 EasySSO for BitBucket 추가
 
@@ -49,15 +49,15 @@ EasySSO for BitBucket이 Azure AD에 통합되도록 구성하려면 갤러리�
 
 1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **EasySSO for BitBucket**을 입력합니다.
-1. 결과에서 **EasySSO for BitBucket**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **EasySSO for BitBucket** 을 입력합니다.
+1. 결과에서 **EasySSO for BitBucket** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-bitbucket"></a>EasySSO for BitBucket용 Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 EasySSO for BitBucket에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 EasySSO for BitBucket의 관련 사용자 간에 연결된 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 EasySSO for BitBucket에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 EasySSO for BitBucket의 관련 사용자 간에 연결된 관계를 설정해야 합니다.
 
 EasySSO for BitBucket에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 완료합니다.
 
@@ -72,9 +72,9 @@ EasySSO for BitBucket에서 Azure AD SSO를 구성하고 테스트하려면 다�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **EasySSO for BitBucket** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **EasySSO for BitBucket** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
 
    ![연필 아이콘이 강조 표시된 SAML로 Single Sign-On 설정 페이지의 스크린샷](common/edit-urls.png)
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/easysso/saml` 패턴을 사용하는 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 선택하고, 다음 단계를 수행합니다.
 
     - **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<server-base-url>/login.jsp`
 
@@ -105,54 +105,54 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | urn:oid:2.5.4.4 | user.surname |
     | urn:oid:2.5.4.42 | user.givenname |
     
-    Azure AD 사용자가 **sAMAccountName**을 구성한 경우 **urn:oid:0.9.2342.19200300.100.1.1**을 **sAMAccountName** 특성에 매핑해야 합니다.
+    Azure AD 사용자가 **sAMAccountName** 을 구성한 경우 **urn:oid:0.9.2342.19200300.100.1.1** 을 **sAMAccountName** 특성에 매핑해야 합니다.
     
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 또는 **페더레이션 메타데이터 XML** 옵션의 다운로드 링크를 선택합니다. 하나 또는 둘 다를 컴퓨터에 저장합니다. 나중에 BitBucket EasySSO를 구성하는 데 필요합니다.
 
     ![다운로드 링크가 강조 표시된 SAML 서명 인증서 섹션 스크린샷](./media/easysso-for-bitbucket-tutorial/certificate.png)
     
-    인증서를 사용하여 EasySSO for BitBucket을 수동으로 구성하려면 **로그인 URL**과 **Azure AD 식별자**도 복사하여 컴퓨터에 저장해야 합니다.
+    인증서를 사용하여 EasySSO for BitBucket을 수동으로 구성하려면 **로그인 URL** 과 **Azure AD 식별자** 도 복사하여 컴퓨터에 저장해야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** > **사용자** > **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름**에 `B.Simon`를 입력합니다.  
-   1. **사용자 이름**으로 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **이름** 에 `B.Simon`를 입력합니다.  
+   1. **사용자 이름** 으로 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, 암호를 적어둡니다.
-   1. **만들기**를 선택합니다.
+   1. **만들기** 를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 EasySSO for BitBucket에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 차례로 선택합니다.
-1. 애플리케이션 목록에서 **EasySSO for BitBucket**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 차례로 선택합니다.
+1. 애플리케이션 목록에서 **EasySSO for BitBucket** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹** 을 선택합니다.
 
    ![사용자 및 그룹이 강조 표시된 관리 섹션의 스크린샷](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가가 강조 표시된 사용자 및 그룹 페이지의 스크린샷](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택**을 선택합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면 하단에서 **선택**을 누릅니다.
-1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면 하단에서 **선택** 을 누릅니다.
+1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
 
 ## <a name="configure-easysso-for-bitbucket-sso"></a>EasySSO for BitBucket SSO 구성
 
 1. 관리자 권한으로 Atlassian BitBucket 인스턴스에 로그인하고 **관리** 섹션으로 이동합니다. 
 
     ![기어 아이콘이 강조 표시된 BitBucket 인스턴스 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-1.png)
-1. **EasySSO**를 찾아서 선택합니다.
+1. **EasySSO** 를 찾아서 선택합니다.
 
     ![Easy SSO 옵션 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-2.png)
 
-1. **SAML**을 선택합니다. SAML 구성 섹션으로 이동됩니다.
+1. **SAML** 을 선택합니다. SAML 구성 섹션으로 이동됩니다.
 
     ![SAML이 강조 표시된 EasySSO 관리 페이지 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-3.png)
 
@@ -160,17 +160,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![다양한 옵션이 강조 표시된 인증서 탭 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-4.png)
 
-1. 이 자습서의 이전 섹션에서 저장한 **인증서(Base64)** 또는 **메타데이터 파일**을 찾습니다. 다음 중 한 가지 방법으로 진행할 수 있습니다.
+1. 이 자습서의 이전 섹션에서 저장한 **인증서(Base64)** 또는 **메타데이터 파일** 을 찾습니다. 다음 중 한 가지 방법으로 진행할 수 있습니다.
 
-    - 컴퓨터에 로컬 파일로 다운로드한 앱 페더레이션 **메타데이터 파일**을 사용합니다. **업로드** 라디오 단추를 선택하고 운영 체제별 경로를 따릅니다.
+    - 컴퓨터에 로컬 파일로 다운로드한 앱 페더레이션 **메타데이터 파일** 을 사용합니다. **업로드** 라디오 단추를 선택하고 운영 체제별 경로를 따릅니다.
 
-    - 일반 텍스트 편집기에서 앱 페더레이션 **메타데이터 파일**을 열어서 파일 내용을 볼 수 있습니다. 클립보드에 복사합니다. **입력**을 선택하고 텍스트 필드에 클립보드 콘텐츠를 붙여넣습니다.
+    - 일반 텍스트 편집기에서 앱 페더레이션 **메타데이터 파일** 을 열어서 파일 내용을 볼 수 있습니다. 클립보드에 복사합니다. **입력** 을 선택하고 텍스트 필드에 클립보드 콘텐츠를 붙여넣습니다.
  
     - 완전 수동 구성을 수행합니다. 일반 텍스트 편집기에서 앱 페더레이션 **인증서(Base64)** 를 열어서 파일 내용을 볼 수 있습니다. 클립보드에 복사하고 **IdP 토큰 서명 인증서** 텍스트 필드에 붙여넣습니다. 그런 다음, **일반** 탭으로 이동하여 **POST 바인딩 URL** 및 **엔터티 ID** 필드를 각각 앞에서 저장한 **로그인 URL** 및 **Azure AD 식별자** 값으로 채웁니다.
  
-1. 페이지 아래쪽에서 **저장**을 선택합니다. 구성 필드로 구문 분석된 메타데이터 및 인증서 파일의 내용을 볼 수 있습니다. EasySSO for BitBucket 구성이 완료되었습니다.
+1. 페이지 아래쪽에서 **저장** 을 선택합니다. 구성 필드로 구문 분석된 메타데이터 및 인증서 파일의 내용을 볼 수 있습니다. EasySSO for BitBucket 구성이 완료되었습니다.
 
-1. 구성을 테스트하려면 **모양 및 느낌** 탭으로 이동하여 **SAML 로그인 단추**를 선택합니다. 이렇게 하면 특히 BitBucket 로그인 화면에서 별도의 단추를 사용하여 Azure AD SAML 통합을 엔드투엔드로 테스트할 수 있습니다. 이 단추를 켜 놓고 프로덕션 모드의 배치, 색 및 변환을 구성할 수도 있습니다.
+1. 구성을 테스트하려면 **모양 및 느낌** 탭으로 이동하여 **SAML 로그인 단추** 를 선택합니다. 이렇게 하면 특히 BitBucket 로그인 화면에서 별도의 단추를 사용하여 Azure AD SAML 통합을 엔드투엔드로 테스트할 수 있습니다. 이 단추를 켜 놓고 프로덕션 모드의 배치, 색 및 변환을 구성할 수도 있습니다.
 
     ![SAML 로그인 단추가 강조 표시된 SAML 페이지의 모양 및 느낌 탭 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-5.png)
     > [!NOTE]
@@ -190,7 +190,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-EasySSO for BitBucket 타일을 선택하면 SSO를 설정한 BitBucket 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+EasySSO for BitBucket 타일을 선택하면 SSO를 설정한 BitBucket 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ### <a name="sp-initiated-workflow"></a>SP 시작 워크플로
 
@@ -198,7 +198,7 @@ EasySSO for BitBucket 타일을 선택하면 SSO를 설정한 BitBucket 인스�
 
 ![SAML 로그인이 강조 표시된 로그인 화면 스크린샷](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-7.png)
 
-이 시나리오에서는 BitBucket EasySSO 구성 페이지의 **모양 및 느낌** 탭에서 **SAML 로그인 단추**를 사용하도록 설정했다고 가정합니다. 기존 세션의 간섭을 방지하려면 브라우저 시크릿 모드에서 BitBucket 로그인 URL을 엽니다. **SAML 로그인**을 선택하면 Azure AD 사용자 인증 흐름으로 리디렉션됩니다. 이 과정이 완료되면 SAML을 통해 인증된 사용자로 BitBucket 인스턴스로 다시 리디렉션됩니다.
+이 시나리오에서는 BitBucket EasySSO 구성 페이지의 **모양 및 느낌** 탭에서 **SAML 로그인 단추** 를 사용하도록 설정했다고 가정합니다. 기존 세션의 간섭을 방지하려면 브라우저 시크릿 모드에서 BitBucket 로그인 URL을 엽니다. **SAML 로그인** 을 선택하면 Azure AD 사용자 인증 흐름으로 리디렉션됩니다. 이 과정이 완료되면 SAML을 통해 인증된 사용자로 BitBucket 인스턴스로 다시 리디렉션됩니다.
 
 Azure AD에서 다시 리디렉션된 후 다음 화면이 나타날 수 있습니다.
 
@@ -210,14 +210,14 @@ Azure AD에서 다시 리디렉션된 후 다음 화면이 나타날 수 있습�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD로 EasySSO for BitBucket 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 EasySSO for BitBucket 보호](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [고급 표시 유형 및 컨트롤을 사용하여 EasySSO for BitBucket 보호](/cloud-app-security/proxy-intro-aad)
