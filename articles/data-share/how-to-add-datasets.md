@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513492"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910545"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Azure 데이터 공유의 기존 공유에 데이터 집합을 추가 하는 방법
 
@@ -23,13 +23,13 @@ ms.locfileid: "87513492"
 
 Azure 데이터 공유에서 보낸 공유로 이동 하 여 **데이터 집합** 탭을 선택 합니다. **+ 데이터 집합 추가** 단추를 클릭 하 여 데이터 집합을 더 추가 합니다.
 
-![데이터 세트 추가](./media/how-to/how-to-add-datasets/add-datasets.png)
+![선택한 데이터 집합 추가가 스크린샷에 표시 됩니다.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-오른쪽 패널에서 추가 하려는 데이터 집합 유형을 선택 하 고 **다음**을 클릭 합니다. 추가 하려는 데이터의 구독 및 리소스 그룹을 선택 합니다. 드롭다운 화살표를 사용 하 여 추가할 데이터 옆의 상자를 찾아 선택 합니다.
+오른쪽 패널에서 추가 하려는 데이터 집합 유형을 선택 하 고 **다음** 을 클릭 합니다. 추가 하려는 데이터의 구독 및 리소스 그룹을 선택 합니다. 드롭다운 화살표를 사용 하 여 추가할 데이터 옆의 상자를 찾아 선택 합니다.
 
-![데이터 세트 추가](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![데이터를 선택할 수 있는 추가 Blob Storage 창이 스크린샷으로 표시 됩니다.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-**데이터 집합 추가**를 클릭 하면 데이터 집합이 공유에 추가 됩니다. 참고: 새 데이터 집합을 보려면 소비자가 스냅숏을 트리거해야 합니다. 구성 된 스냅숏 설정이 있는 경우 소비자는 다음에 예약 된 스냅숏이 완료 되 면 새 데이터 집합을 볼 수 있습니다. 스냅숏 설정이 구성 되지 않은 경우 소비자는 업데이트를 받기 위해 데이터의 전체 또는 증분 복사본을 수동으로 트리거해야 합니다. 스냅숏에 대 한 자세한 내용은 [스냅숏](terminology.md)을 참조 하십시오.
+**데이터 집합 추가** 를 클릭 하면 데이터 집합이 공유에 추가 됩니다. 참고: 새 데이터 집합을 보려면 소비자가 스냅숏을 트리거해야 합니다. 구성 된 스냅숏 설정이 있는 경우 소비자는 다음에 예약 된 스냅숏이 완료 되 면 새 데이터 집합을 볼 수 있습니다. 스냅숏 설정이 구성 되지 않은 경우 소비자는 업데이트를 받기 위해 데이터의 전체 또는 증분 복사본을 수동으로 트리거해야 합니다. 스냅숏에 대 한 자세한 내용은 [스냅숏](terminology.md)을 참조 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 [기존 데이터 공유에 받는 사람을 추가](how-to-add-recipients.md)하는 방법에 대해 자세히 알아보세요.

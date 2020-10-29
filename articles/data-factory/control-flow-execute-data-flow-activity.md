@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485040"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910766"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -60,7 +60,7 @@ ms.locfileid: "89485040"
 integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 아니요
 compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 아니요
 계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 아니요
-linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
+linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정을 지정 합니다.<br/><br/>Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요. 또한 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아봅니다.<br/> | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
 스테이징. folderPath | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob storage 계정의 폴더 경로 | String | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
@@ -116,7 +116,7 @@ Azure Integration runtime 자동 확인을 사용 하 고 compute. coreCount 및
 
 ## <a name="monitoring-the-data-flow-activity"></a>데이터 흐름 작업 모니터링
 
-데이터 흐름 작업은 분할, 단계 시간 및 데이터 계보 정보를 볼 수 있는 특별 한 모니터링 환경을 포함 합니다. **작업**아래의 안경 아이콘을 통해 모니터링 창을 엽니다. 자세한 내용은 [데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조 하세요.
+데이터 흐름 작업은 분할, 단계 시간 및 데이터 계보 정보를 볼 수 있는 특별 한 모니터링 환경을 포함 합니다. **작업** 아래의 안경 아이콘을 통해 모니터링 창을 엽니다. 자세한 내용은 [데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조 하세요.
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>후속 작업에서 데이터 흐름 활동 결과 사용
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276947"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911718"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
@@ -41,9 +41,9 @@ ms.locfileid: "91276947"
 
 ## <a name="upload-your-training-data"></a>학습 데이터 업로드
 
-학습에 사용할 양식 문서 집합을 함께 배치한 경우 Azure blob storage 컨테이너에 업로드 해야 합니다. 컨테이너를 사용 하 여 Azure storage 계정을 만드는 방법을 모를 경우 [에는 Azure Portal에 대 한 Azure Storage 빠른](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)시작을 수행 합니다. 표준 성능 계층을 사용 합니다.
+학습에 사용할 양식 문서 집합을 함께 배치한 경우 Azure blob storage 컨테이너에 업로드 해야 합니다. 컨테이너를 사용 하 여 Azure storage 계정을 만드는 방법을 모를 경우 [에는 Azure Portal에 대 한 Azure Storage 빠른](../../storage/blobs/storage-quickstart-blobs-portal.md)시작을 수행 합니다. 표준 성능 계층을 사용 합니다.
 
-수동으로 레이블이 지정 된 데이터를 사용 하려는 경우 학습 문서에 해당 하는 파일에 * 대 한.labels.js* 및 *.ocr.js* 를 업로드 해야 합니다. [샘플 레이블 도구](./quickstarts/label-tool.md) (또는 사용자 고유의 UI)를 사용 하 여 이러한 파일을 생성할 수 있습니다.
+수동으로 레이블이 지정 된 데이터를 사용 하려는 경우 학습 문서에 해당 하는 파일에 *대 한.labels.js* 및 *.ocr.js* 를 업로드 해야 합니다. [샘플 레이블 도구](./quickstarts/label-tool.md) (또는 사용자 고유의 UI)를 사용 하 여 이러한 파일을 생성할 수 있습니다.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>하위 폴더의 데이터 구성 (선택 사항)
 

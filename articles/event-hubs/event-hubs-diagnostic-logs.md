@@ -2,19 +2,19 @@
 title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
 description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927734"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912602"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그**를 선택하여 활동 로그 항목을 볼 수 있습니다. 예를 들면 다음과 같습니다. "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
+* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그** 를 선택하여 활동 로그 항목을 볼 수 있습니다. 예를 들면 다음과 같습니다. "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
 
     ![Event Hubs 네임스페이스에 대한 활동 로그](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)** : 진단 로그는 API를 사용하거나 언어 SDK의 관리 클라이언트를 통해 네임스페이스에 대해 수행된 작업 및 동작에 대한 자세한 정보를 제공합니다. 
@@ -25,14 +25,14 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)에서 Event Hubs 네임스페이스로 이동합니다. 
-2. 왼쪽 창의 **모니터링**에서 **진단 설정**을 선택한 다음 **+ 진단 설정 추가**를 선택합니다. 
+2. 왼쪽 창의 **모니터링** 에서 **진단 설정** 을 선택한 다음 **+ 진단 설정 추가** 를 선택합니다. 
 
     ![진단 설정 페이지 - 진단 설정 추가](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. **범주 세부 정보** 섹션에서 사용하도록 설정할 **진단 로그 형식**을 선택합니다. 이러한 범주에 대한 자세한 내용은 이 문서의 뒷부분에 있습니다. 
+4. **범주 세부 정보** 섹션에서 사용하도록 설정할 **진단 로그 형식** 을 선택합니다. 이러한 범주에 대한 자세한 내용은 이 문서의 뒷부분에 있습니다. 
 5. **대상 세부 정보** 섹션에서 스토리지 계정, 이벤트 허브 또는 Log Analytics 작업 영역 등 원하는 보관 대상(대상)을 설정합니다.
 
     ![진단 설정 추가 페이지](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
-6.  도구 모음에서 **저장**을 선택하여 진단 설정을 저장합니다.
+6.  도구 모음에서 **저장** 을 선택하여 진단 설정을 저장합니다.
 
     새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
@@ -97,7 +97,7 @@ Name | Description
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-Name | 설명
+Name | Description
 ------- | -------
 `ActivityId` | 추적 목적으로 사용되는 내부 ID |
 `EventName` | 작업 이름 |
@@ -129,7 +129,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| Name | Description |
 | ---- | ----------- | 
 | `TrackingId` | 추적 목적으로 사용되는 내부 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
@@ -148,7 +148,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| Name | Description |
 | ---- | ----------- | 
 | `RequestId` | 추적 목적으로 사용되는 요청 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID |
@@ -188,7 +188,6 @@ Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포�
 | `Message` | 오류에 대한 세부 정보를 제공하는 정보 메시지 |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
-
 Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
 | Name | Description |
@@ -196,10 +195,12 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 | `SubscriptionId` | Azure 구독 ID |
 | `NamespaceName` | 네임스페이스 이름 |
 | `IPAddress` | Event Hubs 서비스에 연결하는 클라이언트의 IP 주소 |
-| `Action` | 연결 요청을 평가할 때 Event Hubs 서비스에서 수행된 작업입니다. 지원되는 작업은 **연결 허용** 및 **연결 거부**입니다. |
+| `Action` | 연결 요청을 평가할 때 Event Hubs 서비스에서 수행된 작업입니다. 지원되는 작업은 **연결 허용** 및 **연결 거부** 입니다. |
 | `Reason` | 작업이 완료된 이유를 제공합니다. |
 | `Count` | 지정된 작업의 발생 수 |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
+
+가상 네트워크 로그는 네임 스페이스에서 **선택한 네트워크** 또는 **특정 ip 주소** (ip 필터 규칙)의 액세스를 허용 하는 경우에만 생성 됩니다. 이러한 기능을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 하지 않고, Event Hubs 네임 스페이스에 연결 하는 클라이언트의 IP 주소를 추적 하는 가상 네트워크 로그를 계속 가져오려는 경우 다음 해결 방법을 사용할 수 있습니다. IP 필터링을 사용 하도록 설정 하 고 주소 지정 가능한 총 IPv4 범위 (1.0.0.0/1-255.0.0.0/1)를 추가 합니다. Event Hubs는 IPv6 범위를 지원 하지 않습니다. 
 
 ### <a name="example"></a>예제
 
@@ -219,7 +220,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| Name | Description |
 | ---- | ----------- | 
 | `Category` | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | `ResourceId` | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |

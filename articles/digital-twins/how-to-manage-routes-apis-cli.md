@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 2ea8840a4c66ff05bea22c5c7c063e31d09f9dc8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494811"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911752"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -64,15 +64,15 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-이제 event grid 토픽은 인수를 사용 하 여 지정 된 이름으로 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 해당 이름을 **이벤트 경로의**대상으로 사용 합니다. [이는이 문서의 뒷부분에서](#create-an-event-route) Azure DIGITAL twins 서비스 API를 사용 하 여 만듭니다.
+이제 event grid 토픽은 인수를 사용 하 여 지정 된 이름으로 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 해당 이름을 **이벤트 경로의** 대상으로 사용 합니다. [이는이 문서의 뒷부분에서](#create-an-event-route) Azure DIGITAL twins 서비스 API를 사용 하 여 만듭니다.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Event Hubs 또는 Service Bus 엔드포인트 만들기
 
 Event Hubs 또는 Service Bus 끝점을 만드는 프로세스는 위에 표시 된 Event Grid 프로세스와 비슷합니다.
 
 먼저 끝점으로 사용할 리소스를 만듭니다. 필요한 항목은 다음과 같습니다.
-* Service Bus: _Service Bus 네임 스페이스_, _Service Bus 항목_, _권한 부여 규칙_
-* Event Hubs: _Event Hubs 네임 스페이스_, _이벤트 허브_, _권한 부여 규칙_
+* Service Bus: _Service Bus 네임 스페이스_ , _Service Bus 항목_ , _권한 부여 규칙_
+* Event Hubs: _Event Hubs 네임 스페이스_ , _이벤트 허브_ , _권한 부여 규칙_
 
 그런 다음, 다음 명령을 사용 하 여 Azure Digital Twins에서 끝점을 만듭니다. 
 
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
 
-끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다.
+끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다.
 
 배달 못 한 편지 처리를 사용 하도록 설정 된 끝점을 만들려면 [ARM api](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 끝점을 만들어야 합니다. 
 
@@ -152,11 +152,11 @@ SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사�
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
 
-실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로**를 정의 해야 합니다. 개발자는 Azure Digital Twins **Eventroutes 경로 api** 를 사용 하 여 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
+실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로** 를 정의 해야 합니다. 개발자는 Azure Digital Twins **Eventroutes 경로 api** 를 사용 하 여 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
 
 이 단원의 샘플에서는 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)를 사용 합니다.
 
-**필수 조건**: 경로 만들기로 이동 하기 전에이 문서의 앞부분에서 설명한 대로 끝점을 만들어야 합니다. 끝점 설정이 완료 되 면 이벤트 경로를 계속 만들 수 있습니다.
+**필수 조건** : 경로 만들기로 이동 하기 전에이 문서의 앞부분에서 설명한 대로 끝점을 만들어야 합니다. 끝점 설정이 완료 되 면 이벤트 경로를 계속 만들 수 있습니다.
 
 >[!NOTE]
 >최근에 끝점을 배포한 경우 새 이벤트 경로에 대 한 사용을 시도 **하기 전에** 배포를 완료 했는지 확인 합니다. 끝점이 준비 되지 않았기 때문에 경로 배포가 실패 하면 몇 분 정도 기다렸다가 다시 시도 하세요.
@@ -179,27 +179,29 @@ SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사�
 `CreateEventRoute` 는 이벤트 경로를 추가 하는 데 사용 되는 SDK 호출입니다. 사용법의 예는 다음과 같습니다.
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
+EventRoute er = new EventRoute("<your-endpointName>");
 er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+await CreateEventRoute(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
 ### <a name="event-route-sample-code"></a>이벤트 경로 샘플 코드
 
-다음 코드 샘플에서는 이벤트 경로를 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
+다음 샘플 메서드는 이벤트 경로를 만들고 나열 하 고 삭제 하는 방법을 보여 줍니다.
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
+    Pageable<EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
@@ -210,11 +212,12 @@ try
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>이벤트 필터링

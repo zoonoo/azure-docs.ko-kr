@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476164"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911820"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
 
@@ -287,7 +287,7 @@ cat /etc/fstab
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>암호화 된 계층 위에 LVM 구성
 #### <a name="create-the-physical-volumes"></a>실제 볼륨 만들기
-파일 시스템 서명을 지울 수 있는지 확인 하는 경고 메시지가 표시 됩니다. **Y**를 입력 하 여 계속 하거나 다음과 같이 **echo "y"** 를 사용 합니다.
+파일 시스템 서명을 지울 수 있는지 확인 하는 경고 메시지가 표시 됩니다. **Y** 를 입력 하 여 계속 하거나 다음과 같이 **echo "y"** 를 사용 합니다.
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![실제 볼륨이 생성 되었는지 확인](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->/Dev/mapper/device 이름은 **lsblk**의 출력을 기반으로 하는 실제 값을 대체 해야 합니다.
+>/Dev/mapper/device 이름은 **lsblk** 의 출력을 기반으로 하는 실제 값을 대체 해야 합니다.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>실제 볼륨에 대 한 정보 확인
 ```bash
@@ -368,9 +368,9 @@ mount -a
 lsblk -fs
 df -h
 ```
-![탑재 된 파일 시스템에 대 한 정보](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Data0 및 data1으로 탑재 된 파일 시스템이 있는 콘솔 창을 보여 주는 스크린샷](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-이러한 **lsblk**변형에서 종속성을 역순으로 표시 하는 장치를 나열 하 고 있습니다. 이 옵션을 사용 하면 원래/dev/sd [disk] 장치 이름 대신 논리 볼륨 별로 그룹화 된 장치를 식별할 수 있습니다.
+이러한 **lsblk** 변형에서 종속성을 역순으로 표시 하는 장치를 나열 하 고 있습니다. 이 옵션을 사용 하면 원래/dev/sd [disk] 장치 이름 대신 논리 볼륨 별로 그룹화 된 장치를 식별할 수 있습니다.
 
 Azure Disk Encryption를 통해 암호화 된 장치 위에 생성 된 LVM 볼륨의 탑재 지점 옵션에 **nofail** 옵션이 추가 되었는지 확인 하는 것이 중요 합니다. 부팅 프로세스 중 또는 유지 관리 모드에서 OS가 중단 되지 않도록 합니다.
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Mdadm 명령을 통해 구성 된 RAID 정보](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->/Dev/mapper/device 이름은 **lsblk**의 출력을 기반으로 하는 실제 값으로 바꾸어야 합니다.
+>/Dev/mapper/device 이름은 **lsblk** 의 출력을 기반으로 하는 실제 값으로 바꾸어야 합니다.
 
 ### <a name="checkmonitor-raid-creation"></a>RAID 만들기 확인/모니터링
 ```bash
@@ -437,7 +437,7 @@ done
 lsblk -fs
 df -h
 ```
-![탑재 된 파일 시스템에 대 한 정보](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Raiddata로 탑재 된 파일 시스템이 있는 콘솔 창을 보여 주는 스크린샷](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Azure Disk Encryption를 통해 암호화 된 장치 위에 생성 된 RAID 볼륨의 탑재 지점 옵션에 **nofail** 옵션이 추가 되었는지 확인 하는 것이 중요 합니다. 부팅 프로세스 중 또는 유지 관리 모드에서 OS가 중단 되지 않도록 합니다.
 

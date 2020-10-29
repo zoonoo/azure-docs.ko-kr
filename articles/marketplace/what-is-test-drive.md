@@ -7,66 +7,65 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121870"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911140"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
-시험 (시험) 드라이브는 *구매 하기 전에 사용해 볼*수 있는 옵션을 제공 하 여 잠재 고객에 게 제품을 보여 줄 수 있는 좋은 방법입니다 .이로 인해 우량 잠재 고객의 변환과 생성이 증가 합니다. 시험 이용은 매우 많은 잠재 고객을 생성 하는 동시에 실제 구현 시나리오에서 제품을 개발 하 고 있습니다.
+시험 (시험) 드라이브는 구매 하기 전에 시도 하는 옵션을 제공 하 고, 우량으로 선별 된 잠재 고객을 생성 하 고, 향상 된 변환을 제공 하 여 잠재 고객에 게 제품을 소개 하는 좋은 방법입니다. 테스트 드라이브는 실제 구현 시나리오에서 제품을 최신 상태로 만듭니다. 제품을 시험 하는 고객은 비슷한 솔루션을 구입 하기 위한 명확한 의도를 보여 줍니다. 이를 통해 더 많은 고급 잠재 고객을 사용 하 여 혜택을 얻을 수 있습니다.
 
-테스트 드라이브는 솔루션 또는 응용 프로그램을 요청 하는 고객을 위해 주문형 응용 프로그램을 배포 하는 관리 되는 인스턴스입니다. 테스트 드라이브 인스턴스가 할당 되 면 설정 된 시간 동안 사용할 수 있으며 다른 고객을 위한 공간을 만들기 위해 삭제 됩니다.
-
-게시자는 파트너 센터에서 테스트 드라이브 설정을 관리 하 고 구성 합니다. 기술 구성 세부 정보는 사용 하는 제품 유형에 따라 달라 집니다. 자세한 지침은이 항목의 끝에 있는 [다음 단계](#next-step) 에 있는 링크를 참조 하세요.
-
-상업적 marketplace에서 테스트 드라이브를 검색 하는 잠재 고객 연락처 정보를 제공 하 고 제품의 사용 약관 및 개인 정보 취급 방침에 동의한 후 미리 구성 된 환경에 액세스 하 여 고정 기간 동안 사용해 볼 수 있습니다. 고객은 제품의 주요 기능 및 혜택에 대 한 실습 자체 기반 평가판을 받고 귀중 한 잠재 고객을 받게 됩니다.
+고객은 테스트 드라이브를 활용 하는 것도 좋습니다. 제품을 먼저 사용해 볼 수 있도록 허용 하면 구매 프로세스의 마찰을 줄일 수 있습니다. 또한 테스트 드라이브가 미리 프로 비전 됩니다. 즉, 고객이 제품을 다운로드 하거나 설정 하거나 구성할 필요가 없습니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 
-게시자는 파트너 센터 내에서 테스트 드라이브 설정을 관리 하 고 구성 합니다. 설치 후에는 요청 시 고객에 게 요청 시 배포 되는 관리 되는 인스턴스가 됩니다. 테스트 드라이브 인스턴스가 할당 되 면 설정 된 시간 동안 사용할 수 있으며 다른 고객을 위한 공간을 만들기 위해 삭제 됩니다.
+테스트 드라이브는 솔루션을 요청 하는 고객에 대해 주문형 응용 프로그램 또는 응용 프로그램을 실행 하는 관리 되는 인스턴스입니다. 테스트 드라이브 인스턴스가 할당 되 면 해당 고객이 설정 된 기간 동안 사용할 수 있습니다. 기간이 종료 된 후에는 다른 고객을 위한 공간을 확보 하기 위해 삭제 됩니다.
+
+게시자는 파트너 센터에서 테스트 드라이브 설정을 관리 하 고 구성 합니다. 기술 구성 세부 정보는 제품 유형에 따라 달라 집니다. 자세한 지침은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요.
+
+잠재적 고객은 [Appsource](https://appsource.microsoft.com/en-US/)에서 제품의 cta로 테스트 드라이브를 검색할 수 있습니다. 연락처 정보를 제공 하 고 제품의 사용 약관 및 개인 정보 취급 방침에 동의한 다음, 미리 구성 된 환경에 대 한 액세스 권한을 획득 하 여 고정 된 기간 동안 시험해 보세요. 고객은 제품의 주요 기능 및 혜택에 대 한 실습 자체 기반 평가판을 받고 귀중 한 잠재 고객을 받게 됩니다.
 
 ## <a name="types-of-test-drives"></a>테스트 드라이브 유형
 
 사용 중인 제품, 시나리오 및 marketplace의 유형에 따라 상업용 marketplace에서 선택할 수 있는 다양 한 테스트 드라이브가 있습니다.
 
-- Azure 리소스 관리자
+- Azure Resource Manager
+    - Azure 응용 프로그램
+    - SaaS
+    - Virtual Machines
 - 호스트 된 테스트 드라이브
-    - Dynamics 365 for Business Central
+    - Dynamics 365 for Business Central (현재 지원 되지 않음)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- 논리 앱
+- 논리 앱 (지원 모드 에서만)
 - Power BI
 
-이러한 테스트 드라이브 중 하나를 구성 하는 방법에 대 한 자세한 내용은이 항목의 끝에 있는 [다음 단계](#next-step) 에 있는 링크를 참조 하세요.
+이러한 테스트 드라이브 중 하나를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요. 
 
 ### <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
 이 배포 템플릿에는 솔루션을 구성 하는 모든 Azure 리소스가 포함 되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 이러한 제안 유형에는 Azure Resource Manager 테스트 드라이브를 사용할 수 있습니다. 
 
 - Azure 애플리케이션
-- Dynamics 365 for Business Central
-- 고객 Engagement & PowerApps의 Dynamics 365
-- Dynamics 365 for Operations
 - SaaS
 - 가상 머신
 
 >[!NOTE]
 >가상 컴퓨터 및 Azure 응용 프로그램 제품에 대 한 유일한 테스트 드라이브 옵션입니다.
 
-### <a name="hosted-test-drive"></a>호스트 된 테스트 드라이브
+### <a name="hosted-test-drive-recommended"></a>호스트 된 테스트 드라이브 (권장)
 
-호스팅된 테스트 드라이브를 사용 하면 Microsoft 호스트에서 테스트 드라이브 사용자 프로 비전, 배포 및 프로 비전 해제를 수행 하는 서비스를 관리할 수 있으므로 설치의 복잡성이 제거 됩니다. Microsoft AppSource에 대 한 제안이 있는 경우 Dynamics AX/CRM 인스턴스 또는 Azure 외의 다른 리소스에 연결 하는 테스트 드라이브를 빌드합니다. 이러한 Dynamics 365 제품에 연결 하려면 AppSource 제품에이 유형을 사용 합니다.
+호스트 된 테스트 드라이브를 사용 하면 Microsoft 호스트에서 테스트 드라이브 사용자 프로 비전 및 프로 비전 해제를 수행 하는 서비스를 관리할 수 있으므로 설치의 복잡성이 제거 됩니다. Microsoft AppSource에 대 한 제안이 있는 경우 Dynamics AX/CRM 인스턴스를 사용 하 여 연결 하는 테스트 드라이브를 빌드합니다. 다음 AppSource 제품 유형을 사용할 수 있습니다.
 
-- 재무, 운영, 공급망 및 CRM과 같은 비즈니스 중심 엔터프라이즈 리소스 계획 시스템에는 [Dynamics 365 For Business central](partner-center-portal/create-new-operations-offer.md) 을 사용 합니다.
 - 판매, 서비스, 프로젝트 서비스 및 현장 서비스와 같은 고객 engagement 시스템에 대해 [고객 engagement에 Dynamics 365](partner-center-portal/create-new-customer-engagement-offer.md) 을 사용 합니다.
 - 재무, 운영, 제조, 공급망 등의 재무 및 운영 enterprise 리소스 계획 시스템에 대해 [Dynamics 365](partner-center-portal/create-new-operations-offer.md) 을 사용 합니다.
 
 ### <a name="logic-app-test-drive"></a>논리 앱 테스트 드라이브
 
-이 유형의 테스트 드라이브는 Microsoft에서 호스팅하지 않습니다. Dynamics 365 제품 또는 기타 사용자 지정 리소스에 연결 하는 데 사용 합니다.
+이 유형의 테스트 드라이브는 Microsoft에서 호스팅되지 않으며 Dynamics AX/CRM 제품 유형에 대 한 ARM (Azure Resource Manager) 템플릿을 사용 합니다. Azure 구독에 필요한 리소스를 만들려면 ARM 템플릿을 실행 해야 합니다. 논리 앱 테스트 드라이브는 현재 지원 모드 전용 이며 Microsoft에서 논리 앱 테스트 드라이브를 구성 하는 방법에 대 한 자세한 내용은 [테스트 드라이브 기술 구성](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)을 참조 하세요.
 
 ### <a name="power-bi-test-drive"></a>Power BI 시험 사용
 
@@ -88,11 +87,11 @@ ms.locfileid: "88121870"
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 
-## <a name="other-resources"></a>관련 자료
+## <a name="other-resources"></a>다른 리소스
 
 추가 시험 사용 리소스:
 
-- [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [시험 드라이브 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF. 팝업 차단이 해제되어 있는지 확인)
 
 ## <a name="next-step"></a>다음 단계

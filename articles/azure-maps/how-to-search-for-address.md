@@ -3,21 +3,22 @@ title: Azure Maps Search services를 사용 하 여 위치 검색
 description: Azure Maps Search 서비스에 대해 알아봅니다. 지 오 코딩, 역방향 지 오 코딩, 유사 항목 검색 및 역방향 교차 번 검색에 대해이 Api 집합을 사용 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895701"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910987"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
 
 [Azure Maps Search Service](/rest/api/maps/search) 는 개발자가 이름, 범주 및 기타 지리적 정보를 기준으로 주소, 위치 및 비즈니스 목록을 검색 하는 데 도움이 되도록 설계 된 RESTful api 집합입니다. 서비스는 기존 지 오 코딩 지원 외에도 위도 및 경도를 기반으로 하는 역방향 geocode 주소 및 교차 거리를 설정할 수 있습니다. 검색에서 반환 된 위도 및 경도 값은 [경로](/rest/api/maps/route) 및 [날씨](/rest/api/maps/weather) 서비스와 같은 다른 Azure Maps 서비스에서 매개 변수로 사용할 수 있습니다.
+
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -44,9 +45,7 @@ ms.locfileid: "92895701"
 
 2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
 
-3. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청에서 특정 주소를 검색 하는 중 `400 Braod St, Seattle, WA 98109` 입니다.
-
-    이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
+3. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청에서 특정 주소를 검색 하는 중 `400 Braod St, Seattle, WA 98109` 입니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -60,7 +59,7 @@ ms.locfileid: "92895701"
 
 6. 그런 다음 키를로 설정 해 봅니다 `query` `400 Broa` .
 
-7. **보내기** 단추를 클릭합니다.  이제 응답에 여러 국가의 응답이 포함 되어 있음을 알 수 있습니다. 사용자에 대 한 관련 영역에 ias 결과를 추가 하려면 항상 가능한 한 많은 위치 세부 정보를 요청에 추가 합니다.
+7. **보내기** 단추를 클릭합니다. 이제 응답에 여러 국가의 응답이 포함 되어 있음을 알 수 있습니다. 사용자에 대 한 관련 영역에 ias 결과를 추가 하려면 항상 가능한 한 많은 위치 세부 정보를 요청에 추가 합니다.
 
 ## <a name="using-fuzzy-search-api"></a>유사 항목 검색 API 사용
 
@@ -78,7 +77,7 @@ Azure Maps [유사 항목 검색 API](/rest/api/maps/search/getsearchfuzzy) 는 
 
 1. Postman 앱을 열고 **새로 만들기** 를 클릭 한 다음 **요청** 을 선택 합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택 하거나 새 컬렉션을 만든 다음 **저장** 을 선택 합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 URL을 입력 합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza

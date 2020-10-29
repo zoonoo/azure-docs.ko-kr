@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044124"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911854"
 ---
 # <a name="create-human-reviews"></a>사용자 리뷰 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "73044124"
 ## <a name="image-reviews"></a>이미지 검토
 
 1. [검토 도구로](https://contentmoderator.cognitive.microsoft.com/)이동 하 여 **시도** 탭을 선택 하 고 검토할 이미지를 업로드 합니다.
-1. 업로드 된 이미지의 처리가 완료 되 면 **검토** 탭으로 이동 하 여 **이미지**를 선택 합니다.
+1. 업로드 된 이미지의 처리가 완료 되 면 **검토** 탭으로 이동 하 여 **이미지** 를 선택 합니다.
 
     ![검토 이미지 옵션이 강조 표시된 검토 도구를 보여주는 Chrome 브라우저](images/review-images-1.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "73044124"
 
     ![검토에 대한 태그가 지정된 이미지를 사용하는 검토 도구를 보여주는 Chrome 브라우저](images/review-images-2.png)
 
-1. 이미지에 대 한 자세한 내용을 보려면 축소판 그림에서 줄임표를 클릭 하 고 **세부 정보 보기**를 선택 합니다. **이동** 옵션을 사용 하 여 이미지를 만듦에 할당할 수 있습니다. 하위 팀에 대해 자세히 알아보려면 [팀](./configure.md#manage-team-and-subteams) 섹션을 참조 하세요.
+1. 이미지에 대 한 자세한 내용을 보려면 축소판 그림에서 줄임표를 클릭 하 고 **세부 정보 보기** 를 선택 합니다. **이동** 옵션을 사용 하 여 이미지를 만듦에 할당할 수 있습니다. 하위 팀에 대해 자세히 알아보려면 [팀](./configure.md#manage-team-and-subteams) 섹션을 참조 하세요.
 
     ![보기 세부 정보 옵션이 강조 표시된 이미지](images/review-images-3.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "73044124"
 
     ![별도 창에서 나열된 조정 세부 정보를 사용하는 이미지](images/review-images-4.png)
 
-1. 태그 할당을 검토하여 필요에 따라 업데이트한 후에는 **다음**을 클릭하여 검토를 제출합니다. 제출 후에는 약 5초 이내에 **이전** 단추를 클릭하여 이전 화면으로 돌아가 이미지를 다시 검토합니다. 그 후에는 이미지가 제출 큐에 더 이상 없으며 **이전** 단추를 더 이상 사용할 수 없습니다.
+1. 태그 할당을 검토하여 필요에 따라 업데이트한 후에는 **다음** 을 클릭하여 검토를 제출합니다. 제출 후에는 약 5초 이내에 **이전** 단추를 클릭하여 이전 화면으로 돌아가 이미지를 다시 검토합니다. 그 후에는 이미지가 제출 큐에 더 이상 없으며 **이전** 단추를 더 이상 사용할 수 없습니다.
 
 ## <a name="text-reviews"></a>텍스트 검토
 
@@ -56,4 +56,4 @@ ms.locfileid: "73044124"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../dotnet-sdk-quickstart.md) 를 참조 하세요.
+이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 참조 하세요.

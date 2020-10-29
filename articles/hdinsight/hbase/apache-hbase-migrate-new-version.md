@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89503995"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910273"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -52,9 +52,9 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 
 1. 동일한 스토리지 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
 
-    ![동일한 스토리지 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+   ![동일한 스토리지 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-1. 업그레이드 하는 클러스터 인 원본 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase는 클러스터의 저장소 계정에 장기 저장을 위해 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
+1. 업그레이드 하는 클러스터 인 원본 HBase 클러스터를 플러시합니다. HBase는 들어오는 데이터를 _memstore_ 라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase는 클러스터의 저장소 계정에 장기 저장을 위해 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
 
     ```bash
     #!/bin/bash
@@ -182,20 +182,50 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 
     ![HBase에 대한 [유지 관리 모드 켜기] 확인란을 선택한 다음, 확인함](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
+1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
+
+   원본 클러스터의 모든 아웃 들 노드 또는 작업자 노드에 있는 ssh 세션에서 아래 명령을 실행 하 여 HDFS에서 WAL 디렉터리를 백업 합니다.
+   
+   ```bash
+   hdfs dfs -mkdir /hbase-wal-backup**
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   ```
+    
 1. 새 HDInsight 클러스터의 Ambari에 로그인 합니다. 원래 클러스터에서 사용한 컨테이너 이름을 가리키도록 `fs.defaultFS` HDFS 설정을 변경합니다. 이 설정은 **HDFS > 구성> 고급 > 고급 코어 사이트** 아래에 있습니다.
 
-    ![Ambari에서 서비스 > HDFS > Configs > 고급을 클릭 합니다.](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+   ![Ambari에서 서비스 > HDFS > Configs > 고급을 클릭 합니다.](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
-    ![Ambari에서 컨테이너 이름을 변경함](./media/apache-hbase-migrate-new-version/change-container-name.png)
+   ![Ambari에서 컨테이너 이름을 변경함](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
 1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
 
    `hbase.rootdir`원본 클러스터의 컨테이너를 가리키도록 경로를 변경 합니다.
 
-    ![Ambari에서 HBase rootdir의 컨테이너 이름을 변경 합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+   ![Ambari에서 HBase rootdir의 컨테이너 이름을 변경 합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 하며 원래 클러스터가 향상 된 쓰기 기능을 가진 HBase 클러스터 인 경우에만 필요 합니다.
 
+   이 새 클러스터에 대 한 사육 사 및 WAL FS 데이터를 정리 합니다. 모든 사육 사 노드 또는 작업자 노드에서 다음 명령을 실행 합니다.
+
+   ```bash
+   hbase zkcli
+   rmr /hbase-unsecure
+   quit
+
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   ```
+
+1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
+   
+   새 클러스터의 모든 아웃 들 노드 또는 작업자 노드에 있는 ssh 세션에서 새 클러스터의 HDFS로 WAL 디렉터리를 복원 합니다.
+   
+   ```bash
+   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   ```
+   
 1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 하 고, 그렇지 않은 경우에는 10 단계로 건너뜁니다.
-    1. **서비스**  >  **다시 시작 필요**를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
+
+    1. **서비스**  >  **다시 시작 필요** 를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
     1. HBase 서비스를 중지 합니다.
     1. 아웃 들 노드에 대해 SSH를 수행 하 고 [Zkcli](https://github.com/go-zkcli/zkcli) 명령을 실행 `rmr /hbase-unsecure` 하 여 사육 사에서 HBase 루트 znode를 제거 합니다.
     1. HBase를 다시 시작 합니다.

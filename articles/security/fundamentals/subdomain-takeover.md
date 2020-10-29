@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447374"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911395"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -51,7 +51,7 @@ ms.locfileid: "91447374"
 
     1. 위협 행위자는 이전에 제어 한 리소스와 동일한 FQDN을 사용 하 여 Azure 리소스를 프로 비전 합니다. 이 예제에서 해당 이름은 `app-contogreat-dev-001.azurewebsites.net`입니다.
 
-    1. 하위 도메인으로 전송 되 `myapp.contoso.com` 는 트래픽은 이제 콘텐츠를 제어 하는 악의적인 행위자의 리소스로 라우팅됩니다.
+    1. 하위 도메인으로 전송 되 `greatapp.contoso.com` 는 트래픽은 이제 콘텐츠를 제어 하는 악의적인 행위자의 리소스로 라우팅됩니다.
 
 
 
@@ -86,7 +86,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 도구는 다음 표에 나열 된 Azure 리소스를 지원 합니다. 도구는 모든 테 넌 트의 CNAMEs를 추출 하거나 입력으로 사용 합니다.
 
 
-| 서비스                   | 유형                                        | FQDNproperty                               | 예제                         |
+| 서비스                   | 형식                                        | FQDNproperty                               | 예제                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | microsoft.network/frontdoors                | 속성. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | microsoft.storage/storageaccounts           | 속성. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -100,7 +100,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음을 가진 사용자로 쿼리를 실행 합니다.
 
@@ -119,7 +119,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 ### <a name="run-the-script"></a>스크립트 실행
 
-PowerShell 스크립트 및 **Get-DanglingDnsRecords.ps1**에 대해 자세히 알아보고 GitHub에서 다운로드 https://aka.ms/DanglingDNSDomains 합니다.
+PowerShell 스크립트 및 **Get-DanglingDnsRecords.ps1** 에 대해 자세히 알아보고 GitHub에서 다운로드 https://aka.ms/DanglingDNSDomains 합니다.
 
 ## <a name="remediate-dangling-dns-entries"></a>현 항목 DNS 항목 재구성 
 

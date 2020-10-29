@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 05e29278f6b9ce5436979c0533551763e2f90462
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520941"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911038"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -44,7 +44,7 @@ ms.locfileid: "92520941"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 America | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 북부, 노르웨이 동부, 노르웨이 서 부, 프랑스 중부
+유럽 | 영국 서부, 영국 남부, 유럽 서 부, 유럽 서부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부, 노르웨이 동부, 노르웨이 서 부, 프랑스 중부, 스위스 북부
 아시아 | 인도 남부, 인도 중부, 인도 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부
 오스트레일리아    | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부
@@ -54,7 +54,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 
 >[!NOTE]
 >
-> - **브라질 남부**의 경우 다음 지역으로 복제 및 장애 조치(failover)할 수 있습니다. 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중북부.
+> - **브라질 남부** 의 경우 다음 지역으로 복제 및 장애 조치(failover)할 수 있습니다. 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중북부.
 > - 브라질 남부는 VM이 Site Recovery를 사용하여 복제할 수 있는 원본 지역으로만 사용할 수 있습니다. 대상 지역으로 사용할 수는 없습니다. 이는 지리적 거리로 인한 대기 시간 문제 때문입니다. 브라질 남부를 원본 지역으로 대상 지역에 장애 조치(failover)하는 경우 대상 지역에서 브라질 남부로 장애 복구(failback)가 지원됩니다.
 > - 적절한 액세스 권한이 있는 지역 내에서 작업을 수행할 수 있습니다.
 > - 자격 증명 모음을 만들 지역이 표시되지 않는 경우 구독에 해당 지역에서 리소스를 만들 수 있는 권한이 있는지 확인하세요.
@@ -280,7 +280,7 @@ NIC | 특정 Azure VM 크기에 대해 지원되는 최대 수 | 장애 조치(f
 공용 IP 주소 | 지원됨 | 기존 공용 IP 주소를 NIC에 연결합니다. 또는 공용 IP 주소를 만들고 복구 계획에서 Azure Automation 스크립트를 사용하여 NIC에 연결합니다.
 NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결합니다.
 서브넷의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 서브넷에 연결합니다.
-예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> **복제된 항목** > **설정** > **계산 및 네트워크** > **네트워크 인터페이스**에서 고정 IP 주소 및 서브넷을 지정할 수도 있습니다.
+예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> **복제된 항목** > **설정** > **계산 및 네트워크** > **네트워크 인터페이스** 에서 고정 IP 주소 및 서브넷을 지정할 수도 있습니다.
 동적 IP 주소 | 지원됨 | 원본의 NIC에 동적 IP 주소가 있는 경우 장애 조치(failover)된 VM의 NIC도 기본적으로 동적으로 설정됩니다.<br/><br/> 필요한 경우 이 주소를 고정 IP 주소로 수정할 수 있습니다.
 여러 IP 주소 | 지원되지 않음 | 여러 IP 주소가 할당된 NIC가 있는 VM을 장애 조치(failover)하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지됩니다. 여러 IP 주소를 할당하려면 [복구 계획](recovery-plan-overview.md)에 VM을 추가하고 스크립트를 연결하여 계획에 추가 IP 주소를 할당하거나, 장애 조치(failover) 후 수동으로 또는 스크립트를 사용해 변경할 수 있습니다.
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.

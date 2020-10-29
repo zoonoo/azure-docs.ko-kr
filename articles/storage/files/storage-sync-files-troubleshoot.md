@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164230"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911633"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -21,7 +21,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 1. [Azure Storage에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure?product=storage)
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)
-3. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
+3. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>서버의 Azure 파일 동기화에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -70,7 +70,7 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<
 
 PowerShell 5.1에 Az 또는 AzureRM 모듈을 설치하려면 다음 단계를 수행합니다.
 
-1. 관리자 권한 명령 프롬프트에서 **powershell**을 입력하고 Enter 키를 누릅니다.
+1. 관리자 권한 명령 프롬프트에서 **powershell** 을 입력하고 Enter 키를 누릅니다.
 2. 설명서에 따라 최신 Az 또는 AzureRM 모듈을 설치합니다.
     - [Az 모듈(.NET 4.7.2 필요)](https://go.microsoft.com/fwlink/?linkid=2062890)
     - [AzureRM 모듈]( https://go.microsoft.com/fwlink/?linkid=856959)
@@ -102,17 +102,20 @@ Reset-StorageSyncServer
 3. ServerRegistration.exe를 실행하고 마법사를 완료하여 서버를 Storage 동기화 서비스에 등록합니다.
 
 ## <a name="sync-group-management"></a>동기화 그룹 관리
+
+### <a name="cloud-endpoint-creation-errors"></a>클라우드 끝점 생성 오류
+
 <a id="cloud-endpoint-using-share"></a>**다음 오류로 인해 클라우드 엔드포인트 생성 실패: “지정된 Azure FileShare가 이미 다른 클라우드 엔드포인트에서 사용되고 있습니다.”**  
 Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용되고 있으면 이 오류가 발생합니다. 
 
 이 메시지가 표시되고 Azure 파일 공유가 현재 클라우드 엔드포인트에서 사용되고 있지 않으면 다음 단계를 수행하여 Azure 파일 공유에서 Azure 파일 동기화 메타데이터를 지웁니다.
 
 > [!Warning]  
-> 클라우드 엔드포인트에서 현재 사용 중인 Azure 파일 공유에서 메타데이터를 삭제하면 Azure 파일 동기화 작업이 실패합니다. 
+> 클라우드 엔드포인트에서 현재 사용 중인 Azure 파일 공유에서 메타데이터를 삭제하면 Azure 파일 동기화 작업이 실패합니다. 
 
-1. Azure Portal에서 Azure 파일 공유로 이동합니다.  
-2. Azure 파일 공유를 마우스 오른쪽 단추로 클릭하고 **메타데이터 편집**을 선택합니다.
-3. **SyncService**를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
+1. Azure Portal에서 Azure 파일 공유로 이동합니다.  
+2. Azure 파일 공유를 마우스 오른쪽 단추로 클릭하고 **메타데이터 편집** 을 선택합니다.
+3. **SyncService** 를 마우스 오른쪽 단추로 클릭하고 **삭제** 를 선택합니다.
 
 <a id="cloud-endpoint-authfailed"></a>**다음 오류로 인해 클라우드 엔드포인트 생성 실패: “AuthorizationFailed”**  
 이 오류는 사용자 계정에 클라우드 엔드포인트 생성을 위한 권한이 없는 경우 발생합니다. 
@@ -128,13 +131,15 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 * 사용자 액세스 관리자
 
 사용자의 계정 역할에 필요한 사용 권한이 있는지 확인하려면  
-1. Azure Portal에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 선택합니다.
 2. 스토리지 계정이 있는 리소스 그룹을 선택하고 **IAM(Access Control)** 를 선택합니다.
 3. **역할 할당** 탭을 선택합니다.
-4. 사용자 계정에 대한 **역할**(예: 소유자 또는 Contributor)을 선택합니다.
-5. **리소스 공급자** 목록에서 **Microsoft 인증**을 선택합니다. 
-    * **역할 할당**에 **읽기** 권한과 **쓰기** 권한이 있어야 합니다.
-    * **역할 정의**에 **읽기**  권한과 **쓰기** 권한이 있어야 합니다.
+4. 사용자 계정에 대한 **역할** (예: 소유자 또는 Contributor)을 선택합니다.
+5. **리소스 공급자** 목록에서 **Microsoft 인증** 을 선택합니다. 
+    * **역할 할당** 에 **읽기** 권한과 **쓰기** 권한이 있어야 합니다.
+    * **역할 정의** 에 **읽기**  권한과 **쓰기** 권한이 있어야 합니다.
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>서버 끝점 만들기 및 삭제 오류
 
 <a id="-2134375898"></a>**다음 오류로 인해 서버 엔드포인트 생성 실패: "MgmtServerJobFailed"(오류 코드: -2134375898 또는 0x80c80226)**  
 이 오류는 서버 엔드포인트 경로가 시스템 볼륨에 있고 클라우드 계층화를 사용하도록 설정한 경우 발생합니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 엔드포인트를 만들려면 서버 엔드포인트를 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
@@ -166,6 +171,8 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 <a id="-2134347757"></a>**다음 오류로 인해 서버 엔드포인트 삭제 실패: "MgmtServerJobExpired"(오류 코드: -2134347757 또는 0x80c87013)**  
 이 오류는 서버가 오프라인 상태이거나 네트워크에 연결되어 있지 않은 경우 발생합니다. 서버를 더 이상 사용할 수 없는 경우 Azure Portal에서 서버의 등록을 취소하여 서버 엔드포인트를 삭제합니다. 서버 엔드포인트를 삭제하려면 [Azure 파일 동기화에서 서버 등록 취소](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)에 설명된 단계를 따릅니다.
 
+### <a name="server-endpoint-health"></a>서버 끝점 상태
+
 <a id="server-endpoint-provisioningfailed"></a>**서버 엔드포인트 속성 페이지를 열거나 클라우드 계층화 정책을 업데이트할 수 없습니다.**  
 이 문제는 서버 엔드포인트에서 관리 작업이 실패하는 경우 발생합니다. Azure Portal에서 서버 엔드포인트 속성 페이지가 열리지 않는 경우, 서버에서 PowerShell 명령을 사용하여 서버 엔드포인트를 업데이트하면 이 문제가 해결될 수 있습니다. 
 
@@ -189,15 +196,15 @@ Set-AzStorageSyncServerEndpoint `
 
 포털에서 "오프라인으로 나타남"으로 표시되는 서버의 원격 분석 이벤트 로그(이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있음)에서 이벤트 ID 9301을 확인하여 서버가 Azure 파일 동기화 서비스에 액세스할 수 없는 이유를 확인합니다. 
 
-- **GetNextJob completed with status: 0**이 기록되는 경우 서버는 Azure 파일 동기화 서비스와 통신할 수 있는 것입니다. 
+- **GetNextJob completed with status: 0** 이 기록되는 경우 서버는 Azure 파일 동기화 서비스와 통신할 수 있는 것입니다. 
     - 서버에서 작업 관리자를 열고 Storage 동기화 모니터링 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인합니다. 프로세스가 실행되지 않으면 먼저 서버를 다시 시작합니다. 서버를 다시 시작해도 문제가 해결되지 않으면 최신 Azure 파일 동기화 [에이전트 버전](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes)으로 업그레이드합니다. 
 
-- **GetNextJob completed with status: -2134347756**이 기록되는 경우 서버는 방화벽 또는 프록시로 인해 Azure 파일 동기화 서비스와 통신할 수 없는 것입니다. 
+- **GetNextJob completed with status: -2134347756** 이 기록되는 경우 서버는 방화벽 또는 프록시로 인해 Azure 파일 동기화 서비스와 통신할 수 없는 것입니다. 
     - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
     - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
     - Test-StorageSyncNetworkConnectivity cmdlet을 사용하여 서비스 엔드포인트에 대한 네트워크 연결을 확인합니다. 자세한 내용은 [서비스 엔드포인트에 대한 네트워크 연결 테스트](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints)를 참조하세요.
 
-- **GetNextJob completed with status: -2134347764**가 기록되는 경우 서버는 인증서 만료 또는 삭제 때문에 Azure 파일 동기화 서비스와 통신할 수 없는 것입니다.  
+- **GetNextJob completed with status: -2134347764** 가 기록되는 경우 서버는 인증서 만료 또는 삭제 때문에 Azure 파일 동기화 서비스와 통신할 수 없는 것입니다.  
     - 서버에서 다음 PowerShell 명령을 실행하여 인증에 사용되는 인증서를 다시 설정합니다.
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -338,16 +345,18 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 충돌 파일이 최대 수에 도달했기 때문에 파일을 동기화할 수 없습니다. Azure 파일 동기화는 파일당 100개의 충돌 파일을 지원합니다. 파일 충돌에 대해 자세히 알아보려면 Azure 파일 동기화 [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)를 참조하세요. | 이 문제를 해결하려면 충돌 파일 수를 줄입니다. 충돌 파일 수가 100 미만이면 파일이 동기화됩니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
-**FileSyncErrorsReport.ps1** PowerShell 스크립트에 지원 되지 않는 문자 (오류 코드 0x8007007b 또는 0x80c80255)로 인 한 항목당 동기화 오류가 표시 되는 경우 해당 파일 이름에서 오류 시 문자를 제거 하거나 이름을 바꾸어야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다. 데이터 집합에 잘못 된 문자를 포함 하는 파일이 여러 개 있는 경우 [Scanunsupportedchars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) 스크립트를 사용 하 여 지원 되지 않는 문자가 포함 된 파일의 이름을 바꿉니다.
+**FileSyncErrorsReport.ps1** PowerShell 스크립트에 지원 되지 않는 문자 (오류 코드 0x8007007b 또는 0x80c80255)로 인 한 항목당 동기화 오류가 표시 되는 경우 해당 파일 이름에서 오류 시 문자를 제거 하거나 이름을 바꾸어야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. 
+> [!Note]  
+> [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다. 데이터 집합에 잘못 된 문자를 포함 하는 파일이 여러 개 있는 경우 [Scanunsupportedchars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) 스크립트를 사용 하 여 지원 되지 않는 문자가 포함 된 파일의 이름을 바꿉니다.
 
 아래 표에서 Azure 파일 동기화에서 지원하지 않는 모든 유니코드 문자가 포함되어 있습니다.
 
 | 문자 집합 | 문자 수 |
 |---------------|-----------------|
 | <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF(아라비아식 표현꼴-a) | 32 |
+| 0x0000FDD0 - 0x0000FDEF(Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF(specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 프라이빗 사용 영역)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2(noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2(noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2(noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2(noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2(noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2(noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2(noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2(noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2(noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2(noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2(undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 프라이빗 사용 영역)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
@@ -518,9 +527,9 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
     ![스토리지 계정에 연결된 클라우드 엔드포인트 세부 정보를 보여주는 스크린샷.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-5. **파일**을 선택하여 파일 공유 목록을 봅니다.
+5. **파일** 을 선택하여 파일 공유 목록을 봅니다.
 6. 클라우드 엔드포인트가 참조하는 Azure 파일 공유에 대한 행의 끝에서 세 점을 클릭합니다.
-7. **사용량**이 **할당량** 미만인지 확인합니다. 다른 할당량이 지정되지 않은 이상, 할당량은 [Azure 파일 공유의 최대 크기](storage-files-scale-targets.md)와 일치합니다.
+7. **사용량** 이 **할당량** 미만인지 확인합니다. 다른 할당량이 지정되지 않은 이상, 할당량은 [Azure 파일 공유의 최대 크기](storage-files-scale-targets.md)와 일치합니다.
 
     ![Azure 파일 공유 속성의 스크린샷.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -975,8 +984,8 @@ if ($storageAccount -eq $null) {
 
 <a id="troubleshoot-azure-file-share"></a>**Azure 파일 공유가 있는지 확인합니다.**  
 # <a name="portal"></a>[포털](#tab/azure-portal)
-1. 왼쪽의 목차에서 **개요**를 클릭하여 기본 스토리지 계정 페이지로 돌아갑니다.
-2. **파일**을 선택하여 파일 공유 목록을 봅니다.
+1. 왼쪽의 목차에서 **개요** 를 클릭하여 기본 스토리지 계정 페이지로 돌아갑니다.
+2. **파일** 을 선택하여 파일 공유 목록을 봅니다.
 3. 클라우드 엔드포인트에서 참조하는 파일 공유가 파일 공유 목록에 나타나는지 확인합니다(위의 1단계에서 적어두었어야 합니다).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -996,15 +1005,15 @@ if ($fileShare -eq $null) {
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. 왼쪽 목차에서 **액세스 제어(IAM)** 를 클릭합니다.
 1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다.
-1. **Microsoft.StorageSync** 또는 **하이브리드 파일 동기화 서비스**(이전 애플리케이션 이름)가 **읽기 권한자 및 데이터 액세스** 역할이 있는 목록에 나타나는지 확인합니다. 
+1. **Microsoft.StorageSync** 또는 **하이브리드 파일 동기화 서비스** (이전 애플리케이션 이름)가 **읽기 권한자 및 데이터 액세스** 역할이 있는 목록에 나타나는지 확인합니다. 
 
     ![스토리지 계정의 액세스 제어 탭에 표시된 하이브리드 파일 동기화 서비스의 서비스 사용자 스크린샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     **Microsoft.StorageSync** 또는 **하이브리드 파일 동기화** 서비스가 목록에 나타나지 않으면 다음 단계를 수행합니다.
 
-    - **추가**를 클릭합니다.
-    - **역할** 필드에서 **읽기 권한자 및 데이터 액세스**를 선택합니다.
-    - **선택** 필드에 **Microsoft.StorageSync**를 입력하고 역할을 선택한 다음 **저장**을 클릭합니다.
+    - **추가** 를 클릭합니다.
+    - **역할** 필드에서 **읽기 권한자 및 데이터 액세스** 를 선택합니다.
+    - **선택** 필드에 **Microsoft.StorageSync** 를 입력하고 역할을 선택한 다음 **저장** 을 클릭합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1269,8 +1278,8 @@ AFSDiag를 실행 하려면 다음 단계를 수행 합니다.
     Debug-Afs c:\output # Note: Use the path created in step 1.
     ```
 
-3. Azure 파일 동기화 커널 모드 추적 수준에 대해 **1**을 입력하고(더 자세한 추적을 만들기 위해 다르게 지정되지 않은 경우) Enter 키를 누릅니다.
-4. Azure 파일 동기화 사용자 모드 추적 수준에 대해 **1**을 입력하고(더 자세한 추적을 만들기 위해 다르게 지정되지 않은 경우) Enter 키를 누릅니다.
+3. Azure 파일 동기화 커널 모드 추적 수준에 대해 **1** 을 입력하고(더 자세한 추적을 만들기 위해 다르게 지정되지 않은 경우) Enter 키를 누릅니다.
+4. Azure 파일 동기화 사용자 모드 추적 수준에 대해 **1** 을 입력하고(더 자세한 추적을 만들기 위해 다르게 지정되지 않은 경우) Enter 키를 누릅니다.
 5. 이슈를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
 6. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다.
 

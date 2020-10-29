@@ -1,27 +1,35 @@
 ---
 title: Azure HDInsight에서 Hive 쿼리를 최적화
-description: 이 문서에서는 HDInsight에서 Hadoop에 대한 Apache Hive 쿼리를 최적화하는 방법을 설명합니다.
+description: 이 문서에서는 Azure HDInsight에서 Apache Hive 쿼리를 최적화 하는 방법을 설명 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085296"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910885"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
-Azure HDInsight에는 Apache Hive 쿼리를 실행할 수 있는 여러 클러스터 유형과 기술이 있습니다. 적절 한 클러스터 유형을 선택 하 여 워크 로드 요구 사항에 대 한 성능을 최적화 합니다.
+이 문서에서는 Apache Hive 쿼리의 성능을 개선 하는 데 사용할 수 있는 가장 일반적인 성능 최적화 중 일부를 설명 합니다.
 
-예를 들어 대화형 쿼리를 위해 최적화할 **대화형 쿼리** 클러스터 유형을 선택 `ad hoc` 합니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
+## <a name="cluster-type-selection"></a>클러스터 유형 선택
 
-Hadoop 클러스터 유형의 HDInsight 클러스터는 기본적으로 성능에 맞게 최적화 되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법을 설명합니다.
+Azure HDInsight에서는 몇 가지 다른 클러스터 형식에서 Apache Hive 쿼리를 실행할 수 있습니다. 
+
+적절 한 클러스터 유형을 선택 하 여 워크 로드 요구 사항에 대 한 성능을 최적화 합니다.
+
+* 대화형 쿼리를 위해 최적화할 **대화형 쿼리** 클러스터 유형 `ad hoc` 을 선택 합니다. 
+* 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. 
+* 또한 **Spark** 및 **HBase** 클러스터 유형은 Hive 쿼리를 실행할 수 있으며 이러한 작업을 실행 하는 경우 적합할 수 있습니다. 
+
+다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
 
 ## <a name="scale-out-worker-nodes"></a>작업자 노드 확장
 
@@ -45,11 +53,11 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
 
-* **MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행**합니다. DAG를 사용하려면 각 매퍼 집합 다음에 하나의 리듀서 집합이 나와야 합니다. 이 요구 사항으로 인해 각 Hive 쿼리에 대해 여러 MapReduce 작업을 분리 수 있습니다. Tez는 이러한 제약 조건이 없으며 작업 시작 오버 헤드를 최소화 하는 하나의 작업으로 복잡 한 DAG를 처리할 수 있습니다.
-* **불필요한 쓰기를 방지**합니다. MapReduce 엔진의 동일한 Hive 쿼리를 처리하기 위해 여러 작업이 사용됩니다. 각 MapReduce 작업의 출력은 중간 데이터에 대한 HDFS에 기록됩니다. Tez는 각 Hive 쿼리에 대 한 작업 수를 최소화 하므로 불필요 한 쓰기를 방지할 수 있습니다.
-* **시작 지연을 최소화**합니다. Tez는 시작하는데 필요한 매퍼의 수를 줄여 시작 지연 시간을 최소화할 수 있으며 최적화 처리량을 개선하기도 합니다.
-* **컨테이너를 다시 사용**합니다. 가능 하면 Tez에서 컨테이너를 다시 사용 하 여 컨테이너 시작의 대기 시간을 줄일 수 있습니다.
-* **연속 최적화 기술**. 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
+* **MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행** 합니다. DAG를 사용하려면 각 매퍼 집합 다음에 하나의 리듀서 집합이 나와야 합니다. 이 요구 사항으로 인해 각 Hive 쿼리에 대해 여러 MapReduce 작업을 분리 수 있습니다. Tez는 이러한 제약 조건이 없으며 작업 시작 오버 헤드를 최소화 하는 하나의 작업으로 복잡 한 DAG를 처리할 수 있습니다.
+* **불필요한 쓰기를 방지** 합니다. MapReduce 엔진의 동일한 Hive 쿼리를 처리하기 위해 여러 작업이 사용됩니다. 각 MapReduce 작업의 출력은 중간 데이터에 대한 HDFS에 기록됩니다. Tez는 각 Hive 쿼리에 대 한 작업 수를 최소화 하므로 불필요 한 쓰기를 방지할 수 있습니다.
+* **시작 지연을 최소화** 합니다. Tez는 시작하는데 필요한 매퍼의 수를 줄여 시작 지연 시간을 최소화할 수 있으며 최적화 처리량을 개선하기도 합니다.
+* **컨테이너를 다시 사용** 합니다. 가능 하면 Tez에서 컨테이너를 다시 사용 하 여 컨테이너 시작의 대기 시간을 줄일 수 있습니다.
+* **연속 최적화 기술** . 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
 
 이러한 개념에 대한 자세한 내용은 [Apache TEZ](https://tez.apache.org/)를 참조하세요.
 
@@ -89,7 +97,7 @@ STORED AS TEXTFILE;
 
 분할된 테이블을 만든 후 정적 분할 또는 동적 분할을 만들 수 있습니다.
 
-* **정적 분할**은 이미 적절한 디렉터리에 공유 데이터가 있다는 의미입니다. 정적 파티션을 사용하는 경우 디렉터리 위치에 따라 수동으로 Hive 파티션을 추가합니다. 다음 코드 조각은 예제로 제공됩니다.
+* **정적 분할** 은 이미 적절한 디렉터리에 공유 데이터가 있다는 의미입니다. 정적 파티션을 사용하는 경우 디렉터리 위치에 따라 수동으로 Hive 파티션을 추가합니다. 다음 코드 조각은 예제로 제공됩니다.
   
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
@@ -124,9 +132,9 @@ STORED AS TEXTFILE;
 
 Hive는 다양한 파일 형식을 지원합니다. 예를 들면 다음과 같습니다.
 
-* **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
-* **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
-* **ORC/Parquet**: 성능에 가장 적합합니다.
+* **텍스트** : 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
+* **Avro** : 상호 운용성 시나리오에 대해 제대로 작동합니다.
+* **ORC/Parquet** : 성능에 가장 적합합니다.
 
 ORC(최적화된 행 칼럼 형식) 형식은 Hive 데이터를 저장하는 매우 효율적인 방법입니다. 다른 형식에 비해, ORC는 다음과 같은 이점이 있습니다.
 
@@ -135,7 +143,7 @@ ORC(최적화된 행 칼럼 형식) 형식은 Hive 데이터를 저장하는 매
 * 행을 건너뛸 수 있는 10,000행마다 인덱스
 * 런타임 실행 시 현저하게 감소
 
-ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭니다.
+ORC 형식을 사용하려면 먼저 *Stored as ORC* 절로 테이블을 만듭니다.
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -197,7 +205,6 @@ set hive.vectorized.execution.enabled = true;
 
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [Apache Hive 최적화](./optimize-hive-ambari.md)
 * [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data-linux.md)

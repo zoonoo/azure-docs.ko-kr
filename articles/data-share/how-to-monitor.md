@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511890"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910477"
 ---
 # <a name="monitor-azure-data-share"></a>Azure Data Share 모니터링  
 
@@ -36,13 +36,13 @@ ms.locfileid: "87511890"
 
 ## <a name="monitor-share-subscriptions"></a>공유 구독 모니터링
 
-전송 된 공유로 이동 하 여 공유 구독의 상태를 확인 합니다. 구독 공유를 > 합니다. 그러면 초대를 승인한 후 데이터 소비자가 만든 활성 구독에 대 한 세부 정보가 제공 됩니다. 공유 구독을 선택 하 고 *해지*를 선택 하 여 데이터 소비자에 대 한 향후 업데이트를 중지할 수 있습니다. 
+전송 된 공유로 이동 하 여 공유 구독의 상태를 확인 합니다. 구독 공유를 > 합니다. 그러면 초대를 승인한 후 데이터 소비자가 만든 활성 구독에 대 한 세부 정보가 제공 됩니다. 공유 구독을 선택 하 고 *해지* 를 선택 하 여 데이터 소비자에 대 한 향후 업데이트를 중지할 수 있습니다. 
 
 ## <a name="snapshot-history"></a>스냅숏 기록 
 
 공유의 **기록** 탭에서 데이터 공급자의 데이터를 데이터 소비자의 데이터 저장소로 복사 하는 경우를 볼 수 있습니다. 각 스냅숏의 빈도, 기간 및 상태를 모니터링할 수 있습니다. 
 
-![스냅숏 기록](./media/sent-shares.png "스냅숏 기록") 
+![Azure Portal에서 보낸 공유를 보여 주는 스크린샷](./media/sent-shares.png "스냅숏 기록") 
 
 실행 시작 날짜를 클릭 하 여 각 스냅숏 실행에 대 한 자세한 정보를 볼 수 있습니다. 그런 다음 각 데이터 집합에 대 한 상태를 클릭 하 여 전송 된 데이터의 양, 복사 된 파일/레코드 수, 스냅숏의 기간, 사용 된 vCores 수 및 오류 메시지 (있는 경우)를 표시 합니다. 
 
@@ -50,9 +50,9 @@ ms.locfileid: "87511890"
 
 ## <a name="diagnostic-setting"></a>진단 설정
 
-로그 데이터 또는 이벤트를 저장 하도록 진단 설정을 구성할 수 있습니다. 모니터링-> 진단 설정으로 이동 하 고 **진단 설정 추가**를 선택 합니다. 원하는 로그 데이터 또는 이벤트를 선택 하 고 저장 하거나 보낼 위치를 선택 합니다. 
+로그 데이터 또는 이벤트를 저장 하도록 진단 설정을 구성할 수 있습니다. 모니터링-> 진단 설정으로 이동 하 고 **진단 설정 추가** 를 선택 합니다. 원하는 로그 데이터 또는 이벤트를 선택 하 고 저장 하거나 보낼 위치를 선택 합니다. 
 
-![스냅숏 기록](./media/diagnostic-settings.png "진단 설정") 
+![스크린샷 Azure Portal의 진단 설정 페이지를 표시 합니다.](./media/diagnostic-settings.png "진단 설정") 
 
 ## <a name="next-steps"></a>다음 단계 
 
