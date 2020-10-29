@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978784"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927671"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -135,12 +135,12 @@ Azure VM에서 스케일 아웃 구성 배포를 위한 최소 OS 릴리스는 S
 
 스케일 아웃 구성의 단일 노드에 대한 일반적인 기본 설계는 다음과 같습니다.
 
-![단일 노드의 스케일 아웃 기본 사항](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![스케일 아웃 구성의 단일 노드에 대 한 일반적인 기본 디자인을 보여 주는 다이어그램입니다.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같습니다.
 
-- **/hana/shared**의 경우 Azure NetApp Files를 통해 제공되는 네이티브 NFS 서비스를 사용합니다. 
-- 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 않으며 NFS를 기반으로 하지 않습니다. 공유되지 않는 **hana/data** 및 **/hana/log**를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다. 사용할 수 있는 HANA 인증 스토리지는 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서를 확인하세요.
+- **/hana/shared** 의 경우 Azure NetApp Files를 통해 제공되는 네이티브 NFS 서비스를 사용합니다. 
+- 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 않으며 NFS를 기반으로 하지 않습니다. 공유되지 않는 **hana/data** 및 **/hana/log** 를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다. 사용할 수 있는 HANA 인증 스토리지는 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서를 확인하세요.
 
 
 볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.

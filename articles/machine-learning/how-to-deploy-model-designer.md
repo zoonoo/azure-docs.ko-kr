@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999012"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927586"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "91999012"
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
@@ -56,7 +56,7 @@ ms.locfileid: "91999012"
 
     ![모델 학습 모듈의 오른쪽 창 스크린샷](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. 모델의 이름을 입력 하 고 **저장**을 선택 합니다.
+1. 모델의 이름을 입력 하 고 **저장** 을 선택 합니다.
 
 모델을 등록 한 후에는 스튜디오의 **모델** 자산 페이지에서 찾을 수 있습니다.
     
@@ -104,8 +104,8 @@ Azure Machine Learning studio에서 모델을 배포 하려면 다음 파일이 
 
     - 끝점의 이름을 입력 합니다.
     - [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) 또는 [azure Container Instance](how-to-deploy-azure-container-instance.md)에 모델을 배포 하려면 선택 합니다.
-    - `score.py` **항목 스크립트 파일**에 대 한를 업로드 합니다.
-    - `conda_env.yml` **Conda 종속성 파일**에 대해를 업로드 합니다. 
+    - `score.py` **항목 스크립트 파일** 에 대 한를 업로드 합니다.
+    - `conda_env.yml` **Conda 종속성 파일** 에 대해를 업로드 합니다. 
 
     >[!TIP]
     > **고급** 설정에서 CPU/메모리 용량 및 기타 배포 매개 변수를 설정할 수 있습니다. 이러한 설정은 상당한 양의 memery (약 4gb)를 사용 하는 PyTorch 모델과 같은 특정 모델에 중요 합니다.
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>다음 단계
 
 * [디자이너에서 모델 학습](tutorial-designer-automobile-price-train-score.md)
+* [Azure Machine Learning SDK를 사용 하 여 모델 배포](how-to-deploy-and-where.md)
 * [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)

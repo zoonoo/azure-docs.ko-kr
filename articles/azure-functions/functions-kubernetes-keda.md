@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648850"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927535"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Kubernetes의 Azure Functions 및 KEDA
 
@@ -20,7 +20,7 @@ Azure Functions 런타임을 사용하면 원하는 위치에 원하는 방식�
 
 Azure Functions 서비스는 런타임과 크기 조정 컨트롤러라는 두 가지 주요 구성 요소로 구성됩니다.  Functions 런타임은 코드를 실행합니다.  런타임에는 함수 실행을 트리거, 로그 및 관리하는 방법에 대한 논리가 포함되어 있습니다.  Azure Functions 런타임은 *어디에서나* 사용할 수 있습니다.  다른 구성 요소는 크기 조정 컨트롤러입니다.  크기 조정 컨트롤러는 함수를 대상으로 하는 이벤트의 비율을 모니터링하고 앱을 실행하는 인스턴스 수를 사전에 조정합니다.  자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
 
-Kubernetes 기반 Functions는 KEDA를 통해 이벤트 기반 스케일링을 사용하여 [Docker 컨테이너](functions-create-function-linux-custom-image.md)에서 Functions 런타임을 제공합니다.  KEDA는 (이벤트가 발생하지 않을 때) 0개의 인스턴스로 스케일 인하고 *n*개의 인스턴스로 스케일 아웃할 수 있습니다. Kubernetes 자동 크기 조정기(Horizontal Pod Autoscaler)에 대한 사용자 지정 메트릭을 노출하여 이를 수행합니다.  KEDA에서 Functions 컨테이너를 사용하면 Kubernetes 클러스터 종류에 관계없이 서버리스 함수 기능을 복제할 수 있습니다.  이러한 함수는 서버리스 인프라 구현에 필요한 [AKS(Azure Kubernetes Services) 가상 노드](../aks/virtual-nodes-cli.md) 기능을 통해 배포할 수도 있습니다.
+Kubernetes 기반 Functions는 KEDA를 통해 이벤트 기반 스케일링을 사용하여 [Docker 컨테이너](functions-create-function-linux-custom-image.md)에서 Functions 런타임을 제공합니다.  KEDA는 (이벤트가 발생하지 않을 때) 0개의 인스턴스로 스케일 인하고 *n* 개의 인스턴스로 스케일 아웃할 수 있습니다. Kubernetes 자동 크기 조정기(Horizontal Pod Autoscaler)에 대한 사용자 지정 메트릭을 노출하여 이를 수행합니다.  KEDA에서 Functions 컨테이너를 사용하면 Kubernetes 클러스터 종류에 관계없이 서버리스 함수 기능을 복제할 수 있습니다.  이러한 함수는 서버리스 인프라 구현에 필요한 [AKS(Azure Kubernetes Services) 가상 노드](../aks/virtual-nodes-cli.md) 기능을 통해 배포할 수도 있습니다.
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Kubernetes에서 KEDA 및 함수 관리
 
@@ -33,6 +33,9 @@ Helm을 포함하여 Kubernetes 클러스터에 KEDA를 설치하는 다양한 �
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
 모든 함수 앱을 KEDA를 실행하는 Kubernetes를 실행하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행되므로 프로젝트에 `Dockerfile`이(가) 필요합니다.  아직 없는 경우 Functions 프로젝트의 루트에서 다음 명령을 실행하여 Dockerfile을 추가할 수 있습니다.
+
+> [!NOTE]
+> 핵심 도구는 .NET, Node, Python 또는 PowerShell로 작성 된 Azure Functions에 대 한 Dockerfile을 자동으로 만듭니다. Java로 작성 된 함수 앱의 경우 Dockerfile을 수동으로 만들어야 합니다. Azure Functions [이미지 목록을](https://github.com/Azure/azure-functions-docker) 사용 하 여 Azure 함수를 기반으로 하는 올바른 이미지를 찾습니다.
 
 ```cli
 func init --docker-only
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > `<name-of-function-deployment>`은 함수 앱 이름으로 바꿉니다.
 
-그러면 `local.settings.json` 파일에서 가져온 환경 변수를 포함하는 Kubernetes `Deployment` 리소스, `ScaledObject` 리소스 및 `Secrets`이(가) 만들어집니다.
+배포 명령은 일련의 작업을 실행 합니다.
+1. 앞에서 만든 Dockerfile은 함수 앱에 대 한 로컬 이미지를 작성 하는 데 사용 됩니다.
+2. 로컬 이미지는 태그가 지정 되 고 사용자가 로그인 한 컨테이너 레지스트리로 푸시됩니다.
+3. 매니페스트는 `Deployment` `ScaledObject` `Secrets` 파일에서 가져온 환경 변수를 포함 하는 Kubernetes 리소스, 리소스 및를 정의 하는 클러스터에 생성 되 고 적용 됩니다 `local.settings.json` .
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>프라이빗 레지스트리의 함수 앱 배포
 

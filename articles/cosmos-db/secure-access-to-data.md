@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0a68c2b9c857205dda7f5da846085f9f3823da20
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371735"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927637"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -119,6 +119,12 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > 저장 프로시저를 실행 하려면 사용자에 게 저장 프로시저가 실행 될 컨테이너에 대 한 All 권한이 있어야 합니다.
 
+[데이터 평면 요청에서 진단 로그](cosmosdb-monitor-resource-logs.md)를 사용 하도록 설정 하면 사용 권한에 해당 하는 다음 두 가지 속성이 로깅됩니다.
+
+* **resourceTokenPermissionId** -이 속성은 사용자가 지정한 리소스 토큰 권한 Id를 나타냅니다. 
+
+* **resourceTokenPermissionMode** -이 속성은 리소스 토큰을 만들 때 설정한 사용 권한 모드를 나타냅니다. 권한 모드는 "all" 또는 "read"와 같은 값을 가질 수 있습니다.
+
 ### <a name="code-sample-to-create-permission"></a>사용 권한을 만드는 코드 샘플
 
 다음 코드 샘플은 권한 리소스를 만들고, 권한 리소스의 리소스 토큰을 읽고, 위에서 생성된 [사용자](#users)와 사용 권한을 연결시키는 방법을 보여 줍니다.
@@ -150,12 +156,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 사용자 계정에 Azure Cosmos DB 계정 독자 액세스를 추가하려면 구독 소유자가 Azure Portal에서 다음 단계를 수행하도록 합니다.
 
 1. Azure Portal을 열고, Azure Cosmos DB 계정을 선택합니다.
-2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 역할 할당 추가**를 클릭합니다.
-3. **역할 할당 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할**을 선택합니다.
-4. 다음에 대 한 **액세스 할당 상자**에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택 합니다.
+2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 역할 할당 추가** 를 클릭합니다.
+3. **역할 할당 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할** 을 선택합니다.
+4. 다음에 대 한 **액세스 할당 상자** 에서 **Azure AD 사용자, 그룹 또는 응용 프로그램** 을 선택 합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 애플리케이션이 선택한 멤버 목록에 나타납니다.
-6. **저장**을 클릭합니다.
+6. **저장** 을 클릭합니다.
 
 이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 

@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212599"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927416"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
-[트리거와 바인딩의](./functions-triggers-bindings.md) 가장 강력한 기능 중 하나는 *바인딩 식*입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
+[트리거와 바인딩의](./functions-triggers-bindings.md) 가장 강력한 기능 중 하나는 *바인딩 식* 입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
 
 대부분의 식은 중괄호로 래핑하여 식별됩니다. 예를 들어 큐 트리거 함수에서 `{queueTrigger}`는 큐 메시지 텍스트를 확인합니다. blob 출력 바인딩에 대한 `path` 속성이 `container/{queueTrigger}`이고 함수가 큐 메시지 `HelloWorld`에 의해 트리거되는 경우 `HelloWorld`라는 blob이 만들어집니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "88212599"
 
 ## <a name="binding-expressions---app-settings"></a>바인딩 식 - 앱 설정
 
-비밀과 연결 문자열은 구성 파일이 아닌 앱 설정을 사용하여 관리하는 것이 가장 좋습니다. 그럴 경우 이러한 비밀에 대한 액세스가 제한되고 *function.json*과 같은 파일을 공용 원본 제어 리포지토리에 안전하게 저장할 수 있습니다.
+비밀과 연결 문자열은 구성 파일이 아닌 앱 설정을 사용하여 관리하는 것이 가장 좋습니다. 그럴 경우 이러한 비밀에 대한 액세스가 제한되고 *function.json* 과 같은 파일을 공용 원본 제어 리포지토리에 안전하게 저장할 수 있습니다.
 
 환경을 기준으로 구성을 변경하려는 경우에도 앱 설정이 유용합니다. 예를 들어 테스트 환경에서 다른 큐 또는 Blob Storage 컨테이너를 모니터링할 수 있습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "88212599"
 > [!NOTE]
 > `connection`트리거와 바인딩의 속성은 특수 한 경우 이며 백분율 기호 없이 앱 설정으로 값을 자동으로 확인 합니다. 
 
-다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
+다음 예제는 `%input_queue_name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 
 ```json
 {
@@ -50,7 +50,7 @@ ms.locfileid: "88212599"
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ ms.locfileid: "88212599"
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>GUID 만들기
 
-`{rand-guid}` 바인딩 식은 GUID를 만듭니다. `function.json` 파일의 다음 blob 경로는 *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*와 같은 이름의 blob을 만듭니다.
+`{rand-guid}` 바인딩 식은 GUID를 만듭니다. `function.json` 파일의 다음 blob 경로는 *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* 와 같은 이름의 blob을 만듭니다.
 
 ```json
 {
@@ -305,7 +305,7 @@ public class BlobName
 
 ## <a name="current-time"></a>현재 시간
 
-바인딩 식 `DateTime`은 `DateTime.UtcNow`로 확인됩니다. `function.json` 파일의 다음 blob 경로는 *2018-02-16T17-59-55Z.txt*와 같은 이름의 blob을 만듭니다.
+바인딩 식 `DateTime`은 `DateTime.UtcNow`로 확인됩니다. `function.json` 파일의 다음 blob 경로는 *2018-02-16T17-59-55Z.txt* 와 같은 이름의 blob을 만듭니다.
 
 ```json
 {
