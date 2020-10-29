@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636343"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927127"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Azure Data Factory의 Excel 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,17 +29,17 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Excel 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Excel** 로 설정 되어야 합니다.   | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . | 예      |
 | sheetName        | 데이터를 읽을 Excel 워크시트 이름입니다.                       | 예      |
-| range            | 선택적 데이터를 찾기 위한 지정 된 워크시트의 셀 범위 (예:<br>-지정 하지 않음: 비어 있지 않은 첫 번째 행과 열의 테이블로 전체 워크시트를 읽습니다.<br>- `A3`: 지정 된 셀에서 시작 하 여 테이블을 읽고 아래의 모든 행과 오른쪽에 있는 모든 열을 동적으로 검색 합니다.<br>- `A3:H5`:이 고정 범위를 테이블로 읽습니다.<br>- `A3:A3`:이 단일 셀을 읽습니다. | 아니요       |
-| firstRowAsHeader | 지정 된 워크시트/범위의 첫 번째 행을 열 이름의 머리글 줄로 처리할지 여부를 지정 합니다.<br>허용 되는 값은 **true** 및 **false** (기본값)입니다. | 아니요       |
-| nullValue        | Null 값의 문자열 표현을 지정 합니다. <br>기본값은 **빈 문자열** 입니다. | 아니요       |
+| range            | 선택적 데이터를 찾기 위한 지정 된 워크시트의 셀 범위 (예:<br>-지정 하지 않음: 비어 있지 않은 첫 번째 행과 열의 테이블로 전체 워크시트를 읽습니다.<br>- `A3`: 지정 된 셀에서 시작 하 여 테이블을 읽고 아래의 모든 행과 오른쪽에 있는 모든 열을 동적으로 검색 합니다.<br>- `A3:H5`:이 고정 범위를 테이블로 읽습니다.<br>- `A3:A3`:이 단일 셀을 읽습니다. | 예       |
+| firstRowAsHeader | 지정 된 워크시트/범위의 첫 번째 행을 열 이름의 머리글 줄로 처리할지 여부를 지정 합니다.<br>허용 되는 값은 **true** 및 **false** (기본값)입니다. | 예       |
+| nullValue        | Null 값의 문자열 표현을 지정 합니다. <br>기본값은 **빈 문자열** 입니다. | 예       |
 | 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 예 |
-| type<br/>( *아래 `compression`* ) | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** 또는 **lz4** 입니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 파일은 폴더에 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` . | 아니요.  |
-| 수준<br/>( *아래 `compression`* ) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다** .<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적** : 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 아니요       |
+| type<br/>( *아래 `compression`* ) | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **Tar** , **snappy** 또는 **lz4** 입니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate", "TarGzip" 및 "Tar"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 파일은 폴더에 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` . | 아니요.  |
+| 수준<br/>( *아래 `compression`* ) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다** .<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적** : 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 예       |
 
 다음은 Azure Blob Storage에 대 한 Excel 데이터 집합의 예입니다.
 
@@ -75,10 +75,10 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 
 복사 작업 **_ \_ 원본 \*** * 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **S\source** 로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. | 아니요       |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. | 예       |
 
 ```json
 "activities": [
@@ -108,7 +108,7 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 
 다음 표에서는 Excel 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. 인라인 데이터 집합을 사용 하는 경우 [데이터 집합 속성](#dataset-properties) 섹션에 설명 된 속성과 동일한 추가 파일 설정이 표시 됩니다.
 
-| Name                      | Description                                                  | 필수 | 허용되는 값                                            | 데이터 흐름 스크립트 속성         |
+| Name                      | 설명                                                  | 필수 | 허용되는 값                                            | 데이터 흐름 스크립트 속성         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | 와일드 카드 경로           | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요       | String[]                                                  | wildcardPaths                     |
 | 파티션 루트 경로       | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요       | String                                                    | 파티션 (partitionRootPath)                 |

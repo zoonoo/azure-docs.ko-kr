@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085268"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927195"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 이 문서에서는 [Azure Portal](https://portal.azure.com) 에 [hana](./hana-overview-architecture.md) 를 표시 하는 방법 및 사용자를 위해 배포 되는 hana large Instance 단위를 사용 하 여 Azure Portal를 통해 수행할 수 있는 작업을 설명 합니다. Azure Portal에서 HANA Large Instances의 표시 유형은 현재 공개 미리 보기로 제공 되는 HANA Large Instances 용 Azure 리소스 공급자를 통해 제공 됩니다.
@@ -54,13 +54,13 @@ HANA Large Instance 배포 요청을 제출 하는 경우 HANA Large Instances�
 
 새 Azure 리소스 그룹을 찾기 위해 Azure Portal의 왼쪽 탐색 창에서 이동 하 여 구독에 리소스 그룹을 나열 합니다.
 
-![Azure Portal의 탐색 창](./media/hana-li-portal/portal-resource-group.png)
+![리소스 그룹 옵션을 강조 표시 하는 스크린샷](./media/hana-li-portal/portal-resource-group.png)
 
 리소스 그룹 목록에 나열 되는 경우 HANA 대량 인스턴스를 배포 하는 데 사용한 구독을 필터링 해야 할 수 있습니다.
 
 ![Azure Portal에서 리소스 그룹 필터링](./media/hana-li-portal/portal-filtering-subscription.png)
 
-올바른 구독으로 필터링 한 후에도 긴 리소스 그룹 목록이 있을 수 있습니다. **-Txxx** 의 수정 후 "xxx"는 **-T050**와 같이 세 자리 숫자로 된 항목을 찾습니다. 
+올바른 구독으로 필터링 한 후에도 긴 리소스 그룹 목록이 있을 수 있습니다. **-Txxx** 의 수정 후 "xxx"는 **-T050** 와 같이 세 자리 숫자로 된 항목을 찾습니다. 
 
 리소스 그룹을 찾았으면 세부 정보를 나열 합니다. 받은 목록은 다음과 같습니다.
 
@@ -94,7 +94,7 @@ HANA Large Instance 단위 목록에서 단일 단위를 클릭 하 고 단일 H
 헤더의 오른쪽 열에 있는 추가 필드는 HANA Large instance 유닛의 전원 상태에 대 한 정보를 알려 줍니다.
 
 > [!NOTE]
-> 전원 상태는 하드웨어 장치의 전원이 켜 졌는 지 여부를 나타냅니다. 운영 체제를 실행 중인 운영 체제에 대 한 정보는 제공 하지 않습니다. HANA Large Instance 단위를 다시 시작 하면 단위 상태가 **시작 됨**상태로 전환 되기 **시작** 하는 데 약간의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨**으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
+> 전원 상태는 하드웨어 장치의 전원이 켜 졌는 지 여부를 나타냅니다. 운영 체제를 실행 중인 운영 체제에 대 한 정보는 제공 하지 않습니다. HANA Large Instance 단위를 다시 시작 하면 단위 상태가 **시작 됨** 상태로 전환 되기 **시작** 하는 데 약간의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨** 으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
 > 
 
 ' 자세히 보기 '를 누르면 추가 정보가 표시 됩니다. 추가 정보 중 하나는 HANA Large Instance 스탬프의 수정 버전을 표시 하는 것입니다. 단위는에서 배포 되었습니다. HANA Large Instance 스탬프의 여러 수정 사항에 대해서는 [Azure (Large Instances)의 SAP HANA](./hana-overview-architecture.md) 문서를 참조 하세요.
@@ -106,7 +106,7 @@ HANA 큰 인스턴스 단위에 대 한 개요를 제공 하는 것 외에도 �
 
 기록 된 주요 작업 중 하나는 단위 다시 시작입니다. 나열 된 데이터에는 활동의 상태, 활동이 트리거된 타임 스탬프, 활동이 트리거된 구독 ID 및 활동을 트리거한 Azure 사용자가 포함 됩니다. 
 
-기록 되는 다른 작업은 Azure 메타 데이터의 단위에 대 한 변경 내용입니다. 다시 시작을 시작 하는 것 외에도 **Write HANAInstances**의 작업을 볼 수 있습니다. 이 유형의 활동은 HANA Large Instance 단위 자체에서 변경 하지 않고 Azure에서 단위의 메타 데이터에 대 한 변경 내용을 문서화 합니다. 나열 된 경우 태그를 추가 하 고 삭제 했습니다 (다음 섹션 참조).
+기록 되는 다른 작업은 Azure 메타 데이터의 단위에 대 한 변경 내용입니다. 다시 시작을 시작 하는 것 외에도 **Write HANAInstances** 의 작업을 볼 수 있습니다. 이 유형의 활동은 HANA Large Instance 단위 자체에서 변경 하지 않고 Azure에서 단위의 메타 데이터에 대 한 변경 내용을 문서화 합니다. 나열 된 경우 태그를 추가 하 고 삭제 했습니다 (다음 섹션 참조).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>HANA Large Instance 유닛에 Azure 태그 추가 및 삭제
 HANA Large Instance 유닛에 [태그](../../../azure-resource-manager/management/tag-resources.md) 를 추가할 수도 있습니다. 태그를 할당 하는 방법은 Vm에 태그를 할당 하는 것과 다릅니다. Vm과 마찬가지로 태그는 Azure 메타 데이터에 존재 하 고 HANA Large Instances의 경우 Vm에 대 한 태그와 동일한 제한을 가집니다.
@@ -131,7 +131,7 @@ Linux 운영 체제를 다시 시작 하는 경우 OS에서 성공적으로 다�
 다시 시작 단추를 누르면 단위를 다시 시작할지 여부를 묻는 메시지가 표시 됩니다. "예" 단추를 눌러 확인 하면 단위가 다시 시작 됩니다.
 
 > [!NOTE]
-> 다시 시작 프로세스에서 장치 상태가 **시작 됨**상태로 전환 되 **는 데 걸리는 시간을 약간** 의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨**으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
+> 다시 시작 프로세스에서 장치 상태가 **시작 됨** 상태로 전환 되 **는 데 걸리는 시간을 약간** 의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨** 으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
 
 > [!IMPORTANT]
 > HANA Large Instance 유닛의 메모리 양에 따라 하드웨어를 다시 시작 하 고 다시 부팅 하 고 운영 체제를 최대 1 시간까지 걸릴 수 있습니다.
@@ -146,7 +146,7 @@ HANA Large Instance 유닛의 Azure Portal 표시 되지 않으므로 HANA large
 
 ![Azure Portal의 모든 서비스 선택](./media/hana-li-portal/portal-create-service-request.png)
 
-서비스 목록에서 서비스 **SAP HANA Large Instance**를 찾을 수 있습니다. 해당 서비스를 선택 하면 다음과 같이 특정 문제 유형을 선택할 수 있습니다.
+서비스 목록에서 서비스 **SAP HANA Large Instance** 를 찾을 수 있습니다. 해당 서비스를 선택 하면 다음과 같이 특정 문제 유형을 선택할 수 있습니다.
 
 
 ![Azure Portal에서 문제 클래스를 선택 합니다.](./media/hana-li-portal/portal-select-problem-class.png)
