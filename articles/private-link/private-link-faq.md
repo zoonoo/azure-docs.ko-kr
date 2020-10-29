@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757047"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913724"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -20,8 +20,8 @@ ms.locfileid: "91757047"
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Azure 개인 끝점 및 Azure 개인 링크 서비스 란 무엇 인가요?
 
-- **[Azure 개인 끝점](private-endpoint-overview.md)**: Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점을 사용 하 여 개인 링크 또는 개인 링크 서비스에 대 한 개인 링크를 지 원하는 Azure PaaS 서비스에 연결할 수 있습니다.
-- **[Azure 개인 링크 서비스](private-link-service-overview.md)**: Azure 개인 링크 서비스는 서비스 공급자가 만든 서비스입니다. 현재 개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 구성에 연결할 수 있습니다. 
+- **[Azure 개인 끝점](private-endpoint-overview.md)** : Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점을 사용 하 여 개인 링크 또는 개인 링크 서비스에 대 한 개인 링크를 지 원하는 Azure PaaS 서비스에 연결할 수 있습니다.
+- **[Azure 개인 링크 서비스](private-link-service-overview.md)** : Azure 개인 링크 서비스는 서비스 공급자가 만든 서비스입니다. 현재 개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 구성에 연결할 수 있습니다. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>개인 링크를 사용 하는 경우 트래픽이 어떻게 전송 되나요?
 트래픽은 Microsoft 백본을 통해 개인적으로 전송 됩니다. 인터넷을 통과 하지 않습니다. Azure 개인 링크는 고객 데이터를 저장 하지 않습니다.
@@ -48,6 +48,9 @@ ms.locfileid: "91757047"
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>개인 끝점이 Azure 지역에서 Azure PaaS 리소스에 연결할 수 있나요?
 예. 개인 끝점은 Azure 지역에서 Azure PaaS 리소스에 연결할 수 있습니다.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>내 개인 끝점 NIC (네트워크 인터페이스)를 수정할 수 있나요?
+개인 끝점을 만들 때 읽기 전용 NIC가 할당 됩니다. 이는 수정할 수 없으며 개인 끝점의 수명 주기 동안 유지 됩니다.
 
 ## <a name="private-link-service"></a>Private Link Service
  

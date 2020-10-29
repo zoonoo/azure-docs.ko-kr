@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717900"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913112"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -37,13 +37,13 @@ ms.locfileid: "88717900"
 * [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 수행 합니다. 
 
 1. [Azure Portal](https://portal.azure.com/signin/index/)에 로그인합니다.
-2. **리소스 만들기**를 선택합니다. 
-3. 그런 다음 **웹 앱**을 선택 합니다. 
+2. **리소스 만들기** 를 선택합니다. 
+3. 그런 다음 **웹 앱** 을 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![웹 앱 선택](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    > [!div class="mx-imgBorder"]
    > ![Docker 구성](./media/quickstarts/formre-configure-docker.png)
 
-7. 이것으로 끝입니다. 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
+7. 정말 간단하죠. 그런 다음 **검토 + 만들기** , **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 만들 수 있습니다. 계속 하기 전에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)을 설치 해야 합니다. 이미 Azure CLI 작업 하 고 있는 경우이 단계를 건너뛸 수 있습니다. 
+Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 만들 수 있습니다. 계속 하기 전에 [Azure CLI](/cli/azure/install-azure-cli)을 설치 해야 합니다. 이미 Azure CLI 작업 하 고 있는 경우이 단계를 건너뛸 수 있습니다. 
 
 이 명령에 대해 알아야 할 몇 가지 사항이 있습니다.
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>권한 부여를 위해 Azure AD에 연결
 
-Azure Active Directory에 웹 앱을 연결 하는 것이 좋습니다. 이렇게 하면 유효한 자격 증명이 있는 사용자만 로그인 하 여 웹 앱을 사용할 수 있습니다. [App Service 앱 구성](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 의 지침에 따라 Azure Active Directory에 연결 합니다.
+Azure Active Directory에 웹 앱을 연결 하는 것이 좋습니다. 이렇게 하면 유효한 자격 증명이 있는 사용자만 로그인 하 여 웹 앱을 사용할 수 있습니다. [App Service 앱 구성](../../app-service/configure-authentication-provider-aad.md) 의 지침에 따라 Azure Active Directory에 연결 합니다.
 
 ## <a name="open-source-on-github"></a>GitHub의 오픈 소스
 

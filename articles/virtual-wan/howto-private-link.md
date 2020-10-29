@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306636"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913758"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>가상 WAN에서 개인 링크 사용
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-여기에서 볼 수 있듯이 SQL server가 클라이언트에서 볼 수 있는 원본 IP 주소를 제공 하는 특별 SQL 쿼리를 사용 하 고 있습니다. 이 경우 서버는 개인 IP ()를 사용 하 여 클라이언트를 확인 합니다 `10.1.3.75` . 즉, 트래픽은 공용 인터넷을 통해 이동 하지 않고 개인 끝점으로 바로 이동 합니다.
+여기에서 볼 수 있듯이 SQL server가 클라이언트에서 볼 수 있는 원본 IP 주소를 제공 하는 특별 SQL 쿼리를 사용 하 고 있습니다. 이 경우 서버는 개인 IP ()를 사용 하 여 클라이언트를 확인 `10.1.3.75` 합니다. 즉, 트래픽이 VNet에서 개인 끝점으로 바로 이동 합니다.
 
 `username` `password` 이 가이드의 예제를 사용 하려면 및 변수를 Azure SQL Database에 정의 된 자격 증명과 일치 하도록 설정 해야 합니다.
 

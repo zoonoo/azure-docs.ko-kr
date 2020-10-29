@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648992"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926617"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
 Azure에서 SAP NetWeaver, Business one `Hybris` 또는 S/4HANA 시스템 아키텍처를 디자인 하면 다양 한 아키텍처 및 도구를 사용 하 여 확장 가능 하 고 효율적 이며 가용성이 높은 배포를 수행할 수 있는 여러 가지 기회가 있습니다. 사용 된 운영 체제 또는 DBMS에 따라 다르지만 제한이 있습니다. 또한 온-프레미스에서 지원 되는 모든 시나리오가 Azure에서 동일한 방식으로 지원 되는 것은 아닙니다. 이 문서에서는 Azure Vm을 독점적으로 사용 하는 지원 되는 고가용성 구성과 고가용성 구성 및 아키텍처를 안내 합니다. [Hana Large instances](./hana-overview-architecture.md)에서 지원 되는 시나리오는 [hana large Instances에 대해 지원 되는 시나리오](./hana-supported-scenario.md)문서를 참조 하세요. 
@@ -46,7 +46,7 @@ Azure에서 지원 되는 모든 OS/DBMS 조합의 경우이 유형의 구성이
 
 그래픽 표현은 다음과 같습니다.
 
-![간단한 2 계층 구성](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![간단한 3 계층 구성을 보여 주는 다이어그램입니다.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 이 유형의 구성은 SQL Server, Oracle, Db2, SAP HANA, maxDB 및 SAP ASE for production 및 비프로덕션 사례에 대해 Windows, Red Hat, SUSE 및 Oracle Linux에서 지원 됩니다. [AZURE HANA Large Instances](./hana-overview-architecture.md)에 대 한 기본 배포 구성입니다. 간소화를 위해 sap 응용 프로그램 계층에서 sap Central Services와 SAP 대화 상자 인스턴스를 구분 하지 않았습니다. 이 간단한 3 계층 구성에서는 SAP Central Services에 대 한 고가용성 보호가 제공 되지 않습니다.
 
@@ -83,7 +83,7 @@ HANA Large Instances에 대 한 디스크 구성은 구성 되어 전달 되며 
 
 Azure Vm 내에서 여러 SAP 대화 상자 인스턴스가 실행 되는 3 계층 구성에서 다음과 같이 보일 수 있습니다.
 
-![한 단위의 여러 DBMS 인스턴스](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![여러 SAP 대화 상자 인스턴스가 Azure Vm 내에서 실행 되는 3 계층 구성을 보여 주는 다이어그램입니다.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 간소화를 위해 sap 응용 프로그램 계층에서 sap Central Services와 SAP 대화 상자 인스턴스를 구분 하지 않았습니다. 이 간단한 3 계층 구성에서는 SAP Central Services에 대 한 고가용성 보호가 제공 되지 않습니다. 프로덕션 시스템의 경우 SAP Central Services를 보호 되지 않은 상태로 유지 하지 않는 것이 좋습니다. SAP 중앙 인스턴스 및 이러한 다중 SID 구성의 고가용성에 대 한 다중 SID 구성에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 섹션을 참조 하세요.
 
@@ -208,7 +208,7 @@ SUSE의 경우 Pacemaker를 기반으로 하는 다중 SID 클러스터도 지�
 
 큐에 복제 서버 구조적으로를 사용 하는 다중 SID 클러스터는 다음과 같습니다.
 
-![DBMS 및 ASCS HA 구성](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![큐에 대기 중인 복제 서버가 있는 다중 SID 클러스터를 보여 주는 다이어그램입니다.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>SAP HANA 스케일 아웃 시나리오

@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539818"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913588"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA 릴리스 7.1.50911.2 - 9/12/2018
 
@@ -65,13 +65,13 @@ Preview의 “OneDrive에 저장”, “OneDrive에서 열기” 및 “링크 �
 
 Preview 릴리스의 “OneDrive에서 열기” 기능이 제거되었습니다. OneDrive에 저장된 “최근에 열린 모델”이 있는 사용자에게 다음 오류가 표시됩니다.
 
-![OneDrive 기능 제거됨](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![스크린샷에서 오류를 표시 합니다. 파일 개체 참조를 열 때 개체의 인스턴스로 설정 되지 않은 오류가 발생 합니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>해결 방법
 
 OneDrive 사용자는 Microsoft의 [Windows용 OneDrive](https://onedrive.live.com/about/en-us/download/) 클라이언트를 사용하여 표준 및 “모델 열기” 대화 상자를 통해 OneDrive에 저장된 파일에 액세스하는 것이 좋습니다.
 
-![OneDrive 기능 제거됨](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![모델 열기 대화 상자에서 선택한 OneDrive가 스크린샷으로 표시 됩니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>내 조직에서 도구의 2016 버전을 사용하는데, Azure 스텐실 집합을 사용할 수 있나요?
 

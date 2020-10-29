@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f74fdc9cd30e1dfbd4df6c94842a9dccb435ef4
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73744798"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913656"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Content Moderator에서 사용자 데이터 내보내기 또는 삭제
 
-Content Moderator는 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 및 [조정 및 검토 API](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference)를 사용하여 해당 데이터의 보기, 내보내기, 삭제를 완전히 제어합니다.
+Content Moderator는 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 및 [조정 및 검토 API](./api-reference.md)를 사용하여 해당 데이터의 보기, 내보내기, 삭제를 완전히 제어합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -33,4 +33,3 @@ Content Moderator에서 사용자 데이터를 내보내고 삭제하는 방법�
 | 태그 | 해당 없음 | 검토 UI 태그 설정 페이지에서 각 태그에 대해 사용할 수 있는 **삭제** 아이콘을 사용합니다. 또는 [검토 UI](https://contentmoderator.cognitive.microsoft.com/) 팀 설정 페이지에서 **팀 삭제** 단추를 사용합니다. |
 | 검토 | [검토 가져오기 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) 호출 | [검토 UI](https://contentmoderator.cognitive.microsoft.com/) 팀 설정 페이지에서 **팀 삭제** 단추를 사용합니다.
 | 사용자 | 해당 없음 | [검토 UI](https://contentmoderator.cognitive.microsoft.com/) 팀 설정 페이지에서 각 사용자에 대해 사용할 수 있는 **삭제** 아이콘을 사용합니다. 또는 [검토 UI](https://contentmoderator.cognitive.microsoft.com/) 팀 설정 페이지에서 **팀 삭제** 단추를 사용합니다. |
-

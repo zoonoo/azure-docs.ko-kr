@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1401108a594e30790e842ec379724603f11d493f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310549"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913707"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 Content Moderator
 
@@ -39,6 +39,5 @@ Content Moderator 검토 팀에 데이터 암호화를 사용 하도록 설정 �
 ## <a name="next-steps"></a>다음 단계
 
 * CMK를 지 원하는 서비스의 전체 목록은 [Cognitive Services의 고객 관리 키](../encryption/cognitive-services-encryption-keys-portal.md) 를 참조 하세요.
-* [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Azure Key Vault란](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-

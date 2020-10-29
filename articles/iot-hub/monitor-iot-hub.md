@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548554"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926260"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -54,11 +54,14 @@ Azure IoT Hub에서 만든 메트릭 및 로그에 대 한 자세한 내용은 [
 
 리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장 되지 않습니다.
 
-메트릭 및 로그는 Azure Monitor 로그를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 라우팅될 수 있습니다. 보관 및 오프 라인 분석을 Azure Storage 하려면 또는 외부 응용 프로그램에서 읽을 수 있는 Event Hubs 끝점 (예: 타사 SIEM 도구).
+메트릭 및 로그는 다음을 비롯 한 여러 위치로 라우팅할 수 있습니다.
+- Azure Monitor 로그는 연결 된 Log Analytics 작업 영역을 통해 저장 됩니다. Log Analytics를 사용 하 여 분석할 수 있습니다.
+- 보관 및 오프 라인 분석을 위한 Azure Storage 
+- 외부 응용 프로그램 (예: 타사 SIEM 도구)에서 읽을 수 있는 Event Hubs 끝점입니다.
 
 Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 에서 **진단** 설정을 선택 하 고, **진단 설정 추가** 를 선택 하 여 iot hub에서 내보낸 로그 및 플랫폼 메트릭으로 범위가 지정 된 진단 설정을 만들 수 있습니다.
 
-다음 스크린샷은 리소스 로그의 연결 작업과 모든 플랫폼 메트릭을 Log Analytics 작업 영역으로 라우팅하는 진단 설정을 보여 줍니다.
+다음 스크린샷은 리소스 로그 유형 *연결 작업* 및 모든 플랫폼 메트릭을 Log Analytics 작업 영역으로 라우팅하는 진단 설정을 보여 줍니다.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT hub 개요 페이지의 기본 메트릭 차트":::
 
@@ -86,7 +89,7 @@ Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니�
 
 ## <a name="analyzing-logs"></a>로그 분석
 
-Azure Monitor 로그의 데이터는 테이블에 저장 됩니다 .이 테이블에는 각 테이블에 고유한 속성 집합이 있습니다. Azure Monitor 로그에 대 한 자세한 내용은 Azure Monitor 설명서에서 [Azure Monitor 로그 개요](/azure/azure-monitor/platform/data-platform-logs) 를 참조 하세요. 
+Azure Monitor 로그의 데이터는 테이블에 저장 됩니다 .이 테이블에는 각 테이블에 고유한 속성 집합이 있습니다. 이러한 테이블의 데이터는 Log Analytics 작업 영역과 연결 되며 Log Analytics에서 쿼리할 수 있습니다. Azure Monitor 로그에 대 한 자세한 내용은 Azure Monitor 설명서에서 [Azure Monitor 로그 개요](/azure/azure-monitor/platform/data-platform-logs) 를 참조 하세요. 
 
 Azure Monitor 로그에 데이터를 라우팅하려면 Log Analytics 작업 영역에 리소스 로그 또는 플랫폼 메트릭을 전송 하는 진단 설정을 만들어야 합니다. 자세히 알아보려면 [수집 및 라우팅](#collection-and-routing)을 참조 하세요.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901605"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913537"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터 복사 및 변환
 
@@ -42,7 +42,7 @@ ms.locfileid: "92901605"
 
 - 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다. Azure Synapse Analytics 원본에서 병렬 복사를 선택할 수도 있습니다. 자세한 내용은 [Synapse analytics에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요.
-- 싱크로 [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)나 [COPY 문](#use-copy-statement)(미리 보기) 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 위해 PolyBase 또는 COPY 문(미리 보기)을 권장합니다. 원본 스키마에 따라 존재 하지 않는 경우 커넥터는 대상 테이블을 자동으로 만들도록 지원 합니다.
+- 싱크로는 [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) 또는 [COPY 문](#use-copy-statement) 또는 bulk insert를 사용 하 여 데이터를 로드 합니다. 더 나은 복사 성능을 위해 PolyBase 또는 COPY 문을 권장 합니다. 원본 스키마에 따라 존재 하지 않는 경우 커넥터는 대상 테이블을 자동으로 만들도록 지원 합니다.
 
 > [!IMPORTANT]
 > Azure Data Factory Integration Runtime를 사용 하 여 데이터를 복사 하는 경우 Azure 서비스에서 [논리 SQL server](../azure-sql/database/logical-servers.md)에 액세스할 수 있도록 [서버 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md) 을 구성 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "92901605"
 ## <a name="get-started"></a>시작하기
 
 > [!TIP]
-> 최상의 성능을 얻으려면 PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드합니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 섹션을 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](load-azure-sql-data-warehouse.md)를 참조하세요.
+> 최상의 성능을 얻으려면 PolyBase 또는 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. [PolyBase를 사용 하 여 Azure Synapse analytics로 데이터를 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 하 고 [COPY 문을 사용 하 여 azure Synapse analytics 섹션에 데이터를 로드](#use-copy-statement) 합니다. 섹션에는 세부 정보가 있습니다. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](load-azure-sql-data-warehouse.md)를 참조하세요.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 - 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환 하 고, Azure Blob storage에 데이터를 저장 한 다음, PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다.
 
 > [!TIP]
-> [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다. Azure Integration Runtime에서 PolyBase를 사용 하는 경우 유효한 DIUs (데이터 통합 단위)는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
+> [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다. Azure Integration Runtime에서 PolyBase를 사용 하는 경우 직접 또는 스테이징 된 저장소-Synapse에 대 한 [DIU (효과적인 데이터 통합 단위)](copy-activity-performance-features.md#data-integration-units) 는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
 
 복사 작업의 `polyBaseSettings`에서 다음 PolyBase 설정이 지원됩니다.
 
@@ -507,7 +507,8 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 계정 키 인증, 관리 ID 인증 |
 
     >[!IMPORTANT]
-    >Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob - 관리 ID 인증](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2 - 관리 ID 인증](connector-azure-data-lake-storage.md#managed-identity) 섹션에서 각기 Data Factory에 필요한 구성을 알아봅니다.
+    >- 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
+    >- Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요.
 
 2. **원본 데이터 형식** 은 다음 구성과 함께 **Parquet** , **ORC** 또는 **구분된 텍스트** 입니다.
 
@@ -567,7 +568,8 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 이 기능을 사용 하려면 Azure storage 계정을 임시 저장소로 참조 하는 **계정 키 또는 관리 id 인증** 을 사용 하 여 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2 연결 된 서비스](connector-azure-data-lake-storage.md#linked-service-properties) 를 만듭니다.
 
 >[!IMPORTANT]
->준비 Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob 관리 id 인증](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2 관리 id 인증](connector-azure-data-lake-storage.md#managed-identity)에서 Data Factory에 필요한 구성을 알아봅니다.
+>- 준비 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
+>- 스테이징 Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점을 사용 하는 경우의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요. 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ Azure Synapse Analytics [COPY 문](/sql/t-sql/statements/copy-into-transact-sql)
 >현재 Data Factory는 아래에 설명된 COPY 문 호환 원본의 복사만 지원합니다.
 
 >[!TIP]
->COPY 문을 Azure Integration Runtime와 함께 사용 하는 경우 유효한 DIUs (데이터 통합 단위)는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
+>COPY 문을 Azure Integration Runtime와 함께 사용 하는 경우 유효한 [DIU (데이터 통합 단위)](copy-activity-performance-features.md#data-integration-units) 는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
 
 COPY 문을 사용하면 다음 구성이 지원됩니다.
 
@@ -687,7 +689,8 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [구분된 텍스트](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | 계정 키 인증, 서비스 주체 인증, 관리 ID 인증 |
 
     >[!IMPORTANT]
-    >Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조하세요. [Azure Blob - 관리 ID 인증](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2 - 관리 ID 인증](connector-azure-data-lake-storage.md#managed-identity) 섹션에서 각기 Data Factory에 필요한 구성을 알아봅니다.
+    >- 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
+    >- Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요.
 
 2. 형식 설정에는 다음이 포함됩니다.
 
@@ -769,7 +772,10 @@ Azure Synapse Analytics에 특정한 설정은 원본 변환의 **원본 옵션*
 
 **입력** 소스를 테이블에 표시할지 (에 해당 하는) 선택 ```Select * from <table-name>``` 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
 
-**준비 사용** Synapse DW 원본을 사용 하는 프로덕션 워크 로드에서이 옵션을 사용 하는 것이 좋습니다. 파이프라인에서 Synapase 원본을 사용 하 여 데이터 흐름 활동을 실행 하면 ADF는 스테이징 위치 저장소 계정을 입력 하 라는 메시지를 표시 하 고 준비 된 데이터 로드에이를 사용 합니다. Synapse DW에서 데이터를 로드 하는 가장 빠른 메커니즘입니다.
+**준비 사용** Azure Synapse Analytics 원본을 사용 하는 프로덕션 워크 로드에서이 옵션을 사용 하는 것이 좋습니다. 파이프라인의 Azure Synapse Analytics 원본을 사용 하 여 [데이터 흐름 활동](control-flow-execute-data-flow-activity.md) 을 실행 하면 ADF는 스테이징 위치 저장소 계정을 입력 하 라는 메시지를 표시 하 고 준비 된 데이터 로드에이를 사용 합니다. Azure Synapse Analytics에서 데이터를 로드 하는 가장 빠른 메커니즘입니다.
+
+- 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
+- Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요.
 
 **쿼리** : 입력 필드에서 쿼리를 선택하는 경우에는 원본에 대한 SQL 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. **Order By** 절은 여기서 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 테이블을 반환하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성합니다. 쿼리를 사용하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법이기도 합니다.
 
@@ -798,7 +804,10 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 - 다시 만들기: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.
 - 자르기: 대상 테이블의 모든 행이 제거됩니다.
 
-**준비 사용:** Azure Synapse Analytics에 쓸 때 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 사용할지 여부를 결정합니다.
+**준비 사용:** Azure Synapse Analytics에 쓸 때 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 를 사용할지 여부를 결정 합니다. 스테이징 저장소는 [데이터 흐름 실행 작업](control-flow-execute-data-flow-activity.md)에서 구성 됩니다. 
+
+- 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
+- Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)을 참조 하세요.
 
 **일괄 처리 크기** : 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
 

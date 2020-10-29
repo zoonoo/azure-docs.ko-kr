@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795260"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913248"
 ---
 # <a name="switching-organizations-in-a-portal"></a>포털에서 조직 전환
 
@@ -34,7 +34,7 @@ ms.locfileid: "92795260"
 
 ## <a name="switch-organizations"></a>조직 전환
 
-다른 조직으로 전환 하는 방법은 다음과 같습니다. 이 예제에서는 **내 계정** 포털에서를 사용 하지만, 전환기 아이콘과 배치가 다른 포털 에서도 유사 합니다.
+다른 조직으로 전환 하는 방법은 다음과 같습니다. 이 예제에서는 **내 계정** 포털을 사용 하지만 전환기 아이콘과 배치가 다른 포털 에서도 유사 합니다.
 
 1. 회사 또는 학교 계정에 로그인 한 다음 [내 계정](https://myaccount.microsoft.com) 페이지를 엽니다.
 1. 조직 전환기 페이지 위쪽의 계정 사진 옆에 있는 :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="조직 전환기 아이콘"::: 을 선택 합니다.

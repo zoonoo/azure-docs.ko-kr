@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048188"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913979"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>X.509 인증서 인증을 사용 하 여 Azure IoT Edge 장치 설정
 
@@ -26,17 +26,17 @@ ms.locfileid: "92048188"
 
 수동 프로 비전을 위해 IoT Edge 장치를 인증 하는 두 가지 옵션이 있습니다.
 
-* **대칭 키**: IoT Hub에서 새 장치 id를 만들면 서비스에서 두 개의 키를 만듭니다. 장치에 키 중 하나를 추가 하 고 인증할 때 IoT Hub 키를 제공 합니다.
+* **대칭 키** : IoT Hub에서 새 장치 id를 만들면 서비스에서 두 개의 키를 만듭니다. 장치에 키 중 하나를 추가 하 고 인증할 때 IoT Hub 키를 제공 합니다.
 
   이 인증 방법은 시작 하기 빠르지만 안전 하지 않습니다.
 
-* **X.509 자체 서명**: 두 개의 x.509 id 인증서를 만들어 장치에 저장 합니다. IoT Hub에서 새 장치 id를 만들 때 두 인증서의 지문을 모두 제공 합니다. 장치는 IoT Hub을 인증 하는 경우 인증서를 제공 하 고, IoT Hub 지문이 일치 하는지 확인할 수 있습니다.
+* **X.509 자체 서명** : 두 개의 x.509 id 인증서를 만들어 장치에 저장 합니다. IoT Hub에서 새 장치 id를 만들 때 두 인증서의 지문을 모두 제공 합니다. 장치는 IoT Hub을 인증 하는 경우 인증서를 제공 하 고, IoT Hub 지문이 일치 하는지 확인할 수 있습니다.
 
   이 인증 방법은 더 안전 하며 프로덕션 시나리오에 권장 됩니다.
 
 이 문서에서는 x.509 인증서 인증을 사용 하 여 등록 및 프로 비전 프로세스를 안내 합니다. 대칭 키를 사용 하 여 장치를 설정 하는 방법을 알아보려면 [대칭 키 인증을 사용 하 여 Azure IoT Edge 장치 설정](how-to-manual-provision-symmetric-key.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 수행 하기 전에 IoT Edge 런타임이 설치 된 장치가 있어야 합니다. 그렇지 않으면 [Azure IoT Edge 런타임 설치 또는 제거](how-to-install-iot-edge.md)의 단계를 따릅니다.
 
@@ -44,9 +44,24 @@ X.509 인증서를 사용 하 여 수동으로 프로 비전 하려면 IoT Edge 
 
 ## <a name="create-certificates-and-thumbprints"></a>인증서 및 지문 만들기
 
+장치 id 인증서는 신뢰의 인증서 체인을 통해 상위 x.509 CA (인증 기관) 인증서에 연결 하는 리프 인증서입니다. 장치 id 인증서에는 장치를 IoT hub에 포함 하려는 장치 ID로 설정 된 CN (일반 이름)이 있어야 합니다.
 
+장치 id 인증서는 IoT Edge 장치를 프로 비전 하 고 Azure IoT Hub 장치를 인증 하는 데만 사용 됩니다. 이러한 인증서는 IoT Edge 장치가 모듈에 제공 하는 CA 인증서 또는 확인을 위한 리프 장치에 대 한 것과 달리 인증서에 서명 하지 않습니다. 자세한 내용은 [Azure IoT Edge 인증서 사용 세부](iot-edge-certs.md)정보를 참조 하세요.
 
-<!-- TODO -->
+장치 id 인증서를 만든 후에는 인증서의 공개 부분을 포함 하는 .cer 또는. i d 파일, 인증서의 개인 키가 포함 된 .cer 또는. d i d 파일의 두 파일이 있어야 합니다.
+
+X.509를 사용한 수동 프로 비전에는 다음 파일이 필요 합니다.
+
+* 두 개의 장치 id 인증서 및 개인 키 인증서 집합 하나의 인증서/키 파일 집합이 IoT Edge 런타임에 제공 됩니다.
+* 장치 id 인증서에서 가져온 지문입니다. 지문 값은 sha-1 해시의 경우 40-16 진수 문자이 고, SHA-256 해시의 경우 64입니다. 장치 등록 시 IoT Hub 하기 위해 두 지문이 모두 제공 됩니다.
+
+사용할 수 있는 인증서가 없는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다. 이 문서의 지침에 따라 인증서 생성 스크립트를 설정 하 고 루트 CA 인증서를 만든 다음 두 개의 IoT Edge 장치 id 인증서를 만듭니다.
+
+인증서에서 지문을 검색 하는 한 가지 방법은 다음 openssl 명령을 사용 하는 것입니다.
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>새 장치 등록
 
@@ -54,7 +69,7 @@ IoT Hub에 연결 하는 모든 장치에는 클라우드-장치 또는 장치-�
 
 X.509 인증서 인증의 경우이 정보는 장치 id 인증서에서 가져온 *지문* 형태로 제공 됩니다. 이러한 지문을 장치 등록 시 IoT Hub에 제공 되므로 서비스가 연결 될 때 장치를 인식할 수 있습니다.
 
-여러 도구를 사용 하 여 IoT Hub에 새 IoT Edge 장치를 등록 하 고 해당 인증서 지문을 업로드할 수 있습니다. 
+여러 도구를 사용 하 여 IoT Hub에 새 IoT Edge 장치를 등록 하 고 해당 인증서 지문을 업로드할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -68,17 +83,17 @@ Azure Portal의 IoT Hub에서 IoT Edge 디바이스는 에지를 사용할 수 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 
-1. 왼쪽 창의 메뉴에서 **IoT Edge** 를 선택한 다음 **IoT Edge 장치 추가**를 선택 합니다.
+1. 왼쪽 창의 메뉴에서 **IoT Edge** 를 선택한 다음 **IoT Edge 장치 추가** 를 선택 합니다.
 
    ![Azure Portal에서 IoT Edge 장치 추가](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
 1. **장치 만들기** 페이지에서 다음 정보를 제공 합니다.
 
    * 설명 장치 ID를 만듭니다. 다음 섹션에서 사용할 것 처럼이 장치 ID를 기록해 둡니다.
-   * 인증 유형으로 **X.509 자체 서명**을 선택합니다.
+   * 인증 유형으로 **X.509 자체 서명** 을 선택합니다.
    * 기본 및 보조 id 인증서 지문을 제공 합니다. 지문 값은 sha-1 해시의 경우 40-16 진수 문자이 고, SHA-256 해시의 경우 64입니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>Azure Portal에서 IoT Edge 디바이스 보기
 
@@ -121,7 +136,7 @@ IoT Hub에 연결된 에지를 사용할 수 있는 모든 디바이스는 **IoT
 
 `--edge-enabled`IoT hub에서 플래그를 추가 하거나 `--ee` IoT Edge 장치만 나열 합니다.
 
-IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.iotEdge** 속성이 **true**로 설정됩니다.
+IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.iotEdge** 속성이 **true** 로 설정됩니다.
 
 --- 
 
@@ -160,10 +175,10 @@ Linux 장치에서는 config.xml 파일을 편집 하 여이 정보를 제공 �
 
 1. 다음 필드를 업데이트 합니다.
 
-   * **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
-   * **device_id**: 장치를 등록할 때 제공한 id입니다.
-   * **identity_cert**: 장치의 id 인증서에 대 한 URI입니다. 예: `file:///path/identity_certificate.pem`
-   * **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예: `file:///path/identity_key.pem`
+   * **iothub_hostname** : 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
+   * **device_id** : 장치를 등록할 때 제공한 id입니다.
+   * **identity_cert** : 장치의 id 인증서에 대 한 URI입니다. 예: `file:///path/identity_certificate.pem`.
+   * **identity_pk** : 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예: `file:///path/identity_key.pem`.
 
 1. 파일을 저장하고 닫습니다.
 
@@ -202,10 +217,10 @@ Linux 장치에서는 config.xml 파일을 편집 하 여이 정보를 제공 �
 
 3. 메시지가 표시되면 다음 정보를 제공합니다.
 
-   * **IotHubHostName**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
-   * **DeviceId**: 장치를 등록할 때 제공한 ID입니다.
-   * **X509IdentityCertificate**: 장치에서 id 인증서의 절대 경로입니다. 예: `C:\path\identity_certificate.pem`
-   * **X509IdentityPrivateKey**: 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예: `C:\path\identity_key.pem`
+   * **IotHubHostName** : 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
+   * **DeviceId** : 장치를 등록할 때 제공한 ID입니다.
+   * **X509IdentityCertificate** : 장치에서 id 인증서의 절대 경로입니다. 예: `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예: `C:\path\identity_key.pem`.
 
 수동으로 장치를 프로 비전 할 때 추가 매개 변수를 사용 하 여 다음을 포함 하 여 프로세스를 수정할 수 있습니다.
 

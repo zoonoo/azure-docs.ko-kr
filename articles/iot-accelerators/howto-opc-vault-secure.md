@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281959"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926413"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "91281959"
 
 이 문서에서는 응용 프로그램을 등록 하는 방법과 OPC UA 장치에 대해 서명 된 응용 프로그램 인증서를 발급 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="deploy-the-certificate-management-service"></a>인증서 관리 서비스 배포
 
@@ -40,7 +40,7 @@ ms.locfileid: "91281959"
 > 응용 프로그램을 등록 하려면 기록기 역할이 필요 합니다.
 
 1. 에서 인증서 서비스를 열고 `https://myResourceGroup-app.azurewebsites.net` 로그인 합니다.
-2. **등록 새로 만들기**로 이동 합니다. 응용 프로그램 등록의 경우 사용자에 게 적어도 작성자 역할을 할당 해야 합니다.
+2. **등록 새로 만들기** 로 이동 합니다. 응용 프로그램 등록의 경우 사용자에 게 적어도 작성자 역할을 할당 해야 합니다.
 2. 항목 양식은 OPC UA의 명명 규칙을 따릅니다. 예를 들어 다음 스크린샷에서 OPC UA .NET Standard 스택의 [OPC Ua 참조 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) 샘플에 대 한 설정이 표시 됩니다.
 
    ![UA 참조 서버 등록의 스크린샷](media/howto-opc-vault-secure/reference-server-registration.png "UA 참조 서버 등록")
@@ -53,7 +53,7 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 
 #### <a name="request-a-new-certificate-with-a-new-keypair"></a>새 키 쌍을 사용 하 여 새 인증서 요청
 
-1. **응용 프로그램**으로 이동 합니다.
+1. **응용 프로그램** 으로 이동 합니다.
 3. 나열 된 응용 프로그램에 대 한 **새 요청** 을 선택 합니다.
 
    ![새 인증서 요청 스크린샷](media/howto-opc-vault-secure/request-new-certificate.png "새 인증서 요청")
@@ -64,21 +64,21 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 
 4. 주체와 도메인 이름을 사용 하 여 양식을 작성 합니다. 개인 키에 대해 PEM 또는 PFX (암호 포함)를 선택 합니다. **새 키 쌍 생성** 을 선택 하 여 인증서 요청을 만듭니다.
 
-   ![인증서 요청 세부 정보 보기의 스크린샷](media/howto-opc-vault-secure/approve-reject.png "인증서 승인")
+   ![인증서 요청 정보 보기 화면 및 새 키 쌍 생성 단추를 보여 주는 스크린샷](media/howto-opc-vault-secure/approve-reject.png "인증서 승인")
 
 5. 승인에는 승인자 역할을 가진 사용자와 Azure Key Vault에 대 한 서명 권한이 필요 합니다. 일반적인 워크플로에서 승인자 및 요청자 역할을 다른 사용자에 게 할당 해야 합니다. **승인** 또는 **거부** 를 선택 하 여 키 쌍의 실제 생성과 서명 작업을 시작 하거나 취소 합니다. 새 키 쌍은 인증서 요청자에 의해 다운로드 될 때까지 Azure Key Vault에 안전 하 게 생성 되 고 저장 됩니다. 공개 키가 포함 된 결과 인증서는 CA에서 서명 됩니다. 이러한 작업을 완료 하는 데 몇 초 정도 걸릴 수 있습니다.
 
    ![인증서 요청 세부 정보 보기의 스크린샷, 아래쪽에 승인 메시지 포함](media/howto-opc-vault-secure/view-key-pair.png "키 쌍 보기")
 
 7. 결과 개인 키 (PFX 또는 PEM) 및 인증서 (DER)는 여기에서 이진 파일 다운로드로 선택한 형식으로 다운로드할 수 있습니다. 예를 들어, 명령줄 또는 텍스트 항목에 인증서를 복사 하 여 붙여 넣는 경우에도 base64 인코딩 버전을 사용할 수 있습니다. 
-8. 개인 키를 다운로드 하 여 안전 하 게 저장 한 후 **개인 키 삭제**를 선택할 수 있습니다. 공개 키가 있는 인증서는 나중에 사용할 수 있는 상태로 남아 있습니다.
+8. 개인 키를 다운로드 하 여 안전 하 게 저장 한 후 **개인 키 삭제** 를 선택할 수 있습니다. 공개 키가 있는 인증서는 나중에 사용할 수 있는 상태로 남아 있습니다.
 9. CA 서명 인증서를 사용 하기 때문에 CA 인증서 및 CRL (인증서 해지 목록)도 여기에서 다운로드 해야 합니다.
 
 이제 OPC UA 장치에 따라 새 키 쌍을 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 폴더에 복사 되 고 `trusted` 응용 프로그램 인증서의 공개 키와 개인 키는 `own` 인증서 저장소의 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>CSR을 사용 하 여 새 인증서 요청 
 
-1. **응용 프로그램**으로 이동 합니다.
+1. **응용 프로그램** 으로 이동 합니다.
 3. 나열 된 응용 프로그램에 대 한 **새 요청** 을 선택 합니다.
 
    ![새 인증서 요청 스크린샷](media/howto-opc-vault-secure/request-new-certificate.png "새 인증서 요청")
@@ -87,16 +87,16 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 
    ![새 인증서 생성의 스크린샷](media/howto-opc-vault-secure/generate-new-certificate.png "새 인증서 생성")
 
-4. 로컬 파일을 선택 하거나 형식으로 base64 인코딩된 CSR을 붙여넣어 CSR을 업로드 합니다. **새 인증서 생성**을 선택 합니다.
+4. 로컬 파일을 선택 하거나 형식으로 base64 인코딩된 CSR을 붙여넣어 CSR을 업로드 합니다. **새 인증서 생성** 을 선택 합니다.
 
    ![인증서 요청 세부 정보 보기의 스크린샷](media/howto-opc-vault-secure/approve-reject-csr.png "CSR 승인")
 
 5. 승인에는 승인자 역할을 가진 사용자와 Azure Key Vault에 대 한 서명 권한이 필요 합니다. **승인** 또는 **거부** 를 선택 하 여 실제 서명 작업을 시작 하거나 취소 합니다. 공개 키가 포함 된 결과 인증서는 CA에서 서명 됩니다. 이 작업을 완료 하는 데 몇 초 정도 걸릴 수 있습니다.
 
-   ![인증서 요청 세부 정보 보기의 스크린샷, 아래쪽에 승인 메시지 포함](media/howto-opc-vault-secure/view-cert-csr.png "인증서 보기")
+   ![인증서 요청 정보를 표시 하 고 맨 아래에 승인 메시지를 포함 하는 스크린샷](media/howto-opc-vault-secure/view-cert-csr.png "인증서 보기")
 
 6. 결과 인증서 (DER)는 여기에서 이진 파일로 다운로드할 수 있습니다. 예를 들어, 명령줄 또는 텍스트 항목에 인증서를 복사 하 여 붙여 넣는 경우에도 base64 인코딩 버전을 사용할 수 있습니다. 
-10. 인증서를 다운로드 하 여 안전 하 게 저장 한 후 **인증서 삭제**를 선택할 수 있습니다.
+10. 인증서를 다운로드 하 여 안전 하 게 저장 한 후 **인증서 삭제** 를 선택할 수 있습니다.
 11. CA 서명 인증서를 사용 하기 때문에 CA 인증서 및 CRL도 여기에서 다운로드 해야 합니다.
 
 이제 OPC UA 장치에 따라 새 인증서를 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 폴더에 복사 되 고 `trusted` 응용 프로그램 인증서는 `own` 인증서 저장소의 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.

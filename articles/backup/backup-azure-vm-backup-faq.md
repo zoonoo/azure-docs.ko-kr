@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172827"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925580"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -76,6 +76,10 @@ Azure Backup에서 Key Vault에 액세스할 수 있는 권한을 제공 합니�
 Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 최대 18 개의 복원 지점이 있으므로 백업이 실패 하기 시작 합니다.
 
 잠금을 제거 하 고 나중에 백업을 성공적으로 수행할 수 있도록 해당 리소스 그룹에서 복원 지점 컬렉션의 선택을 취소 합니다. 복원 지점 컬렉션을 제거 하려면 [다음 단계를 수행](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 합니다.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>내 가상 머신과 관련 된 모든 리소스를 포함 하는 리소스 그룹 수준에 잠금이 있습니다. 백업이 작동 하나요?
+
+Azure Backup ResourcePointCollections 개체를 저장할 형식으로 별도의 리소스 그룹을 만듭니다 `AzureBackupRG_<geo>_<number>` . 이 리소스 그룹은 서비스 소유자 이므로 잠금을 잠그면 백업이 실패 합니다. 잠금은 고객이 만든 리소스 그룹에만 적용할 수 있습니다.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>표준 SSD 관리 디스크를 지원할 Azure Backup 있나요?
 
@@ -145,7 +149,7 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>VM을 동일한 가용성 집합으로 복원할 어떻게 할까요? 있나요?
 
-관리 디스크 Azure Vm의 경우, 관리 디스크로 복원 하는 동안 템플릿에 옵션을 제공 하 여 가용성 집합에 대 한 복원을 사용 하도록 설정 합니다. 이 템플릿에 **가용성 집합**이라는 입력 매개 변수가 있습니다.
+관리 디스크 Azure Vm의 경우, 관리 디스크로 복원 하는 동안 템플릿에 옵션을 제공 하 여 가용성 집합에 대 한 복원을 사용 하도록 설정 합니다. 이 템플릿에 **가용성 집합** 이라는 입력 매개 변수가 있습니다.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>복원 성능을 높이려면 어떻게 해야 하나요?
 
@@ -181,7 +185,7 @@ VM은 수정된 정책 또는 새 정책의 일정 및 보존 설정을 사용�
 
    1. 가상 컴퓨터의 위치를 찾습니다.
    2. 다음 명명 패턴을 사용 하 여 리소스 그룹을 `AzureBackupRG_<location of your VM>_1` 찾습니다. 예를 들어 *AzureBackupRG_westus2_1*
-   3. Azure Portal에서 **숨겨진 형식 표시**를 선택 합니다.
+   3. Azure Portal에서 **숨겨진 형식 표시** 를 선택 합니다.
    4. 이름 지정 패턴이 있는 **restorePointCollections/** 형식의 리소스를 찾습니다 `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
    6. 삭제 작업을 완료 한 후 가상 컴퓨터를 이동할 수 있습니다.
@@ -199,7 +203,7 @@ VM을 새 리소스 그룹으로 이동한 후 동일한 자격 증명 모음이
 
 필요한 경우 이전 VM의 복원 지점이 복원에 사용 될 수 있습니다. 이 백업 데이터가 필요 하지 않은 경우 데이터 삭제로 이전 VM 보호를 중지할 수 있습니다.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>동일한 백업 정책에 연결할 수 있는 Vm 수에 제한이 있나요?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>동일한 백업 정책에 연결할 수 있는 Vm 수에 제한이 있나요?
 
 예, 포털에서 동일한 백업 정책에 연결할 수 있는 Vm은 100 개로 제한 됩니다. Vm이 100 개 이상인 경우 동일한 일정 또는 다른 일정으로 여러 백업 정책을 만듭니다.
 

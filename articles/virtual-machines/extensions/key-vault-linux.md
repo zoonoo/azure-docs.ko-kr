@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f4e429d9c5eeee382d59a294a11204f674b1f546
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911514"
+ms.locfileid: "92926039"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -216,12 +216,11 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
   - 배포 시점에 있어야 합니다. 
   - 관리 Id를 사용 하 여 VM/VMSS Id에 대 한 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
 
-## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
-
 ### <a name="frequently-asked-questions"></a>질문과 대답
 
 * 설정할 수 있는 observedCertificates 수에 제한이 있나요?
   아니요, Key Vault VM 확장은 observedCertificates 수에 제한이 없습니다.
+
 
 ### <a name="troubleshoot"></a>문제 해결
 
@@ -243,6 +242,14 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Symlink 사용
+
+기호화 된 링크 또는 Symlink는 기본적으로 고급 바로 가기입니다. 폴더 모니터링을 방지 하 고 최신 인증서를 자동으로 얻으려면이 symlink를 사용 하 여 `([VaultName].[CertificateName])` Linux에서 최신 버전의 인증서를 가져올 수 있습니다.
+
+### <a name="frequently-asked-questions"></a>질문과 대답
+
+* 설정할 수 있는 observedCertificates 수에 제한이 있나요?
+  아니요, Key Vault VM 확장은 observedCertificates 수에 제한이 없습니다.
 
 ### <a name="support"></a>지원
 

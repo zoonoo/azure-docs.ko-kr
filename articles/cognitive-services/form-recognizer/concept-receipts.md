@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893689"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913197"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -449,7 +449,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 수신 확인에는 소비자 동작 및 쇼핑 추세를 분석 하는 데 사용할 수 있는 유용한 데이터가 포함 되어 있습니다.
 
-수신 API는 또한 [AIBuilder 수신 처리 기능](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
+수신 API는 또한 [AIBuilder 수신 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -459,4 +459,4 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [REST API 참조 문서](./index.yml)

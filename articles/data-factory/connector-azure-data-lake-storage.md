@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 187d430e1475a85118be3811520824d6f8ca3aa7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: aedaedd29082c9ad51c03aa919181649a6dcf281
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636513"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913350"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
 
@@ -46,10 +46,6 @@ Azure Data Lake Storage Gen2(ADLS Gen2)는 [Azure Blob Storage](../storage/blobs
 - [복사하는 동안 파일 메타데이터를 유지](#preserve-metadata-during-copy)합니다.
 - Azure Data Lake Storage Gen1/Gen2에서 복사할 때 [ACL을 유지](#preserve-acls)합니다.
 
->[!IMPORTANT]
->Azure Storage 방화벽 설정에서 **Allow trusted Microsoft services to access this storage account** (신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용)를 사용하도록 설정하고 Azure 통합 런타임을 Data Lake Storage Gen2에 연결하려면 ADLS Gen2에 대한 [관리 ID 인증](#managed-identity)을 사용해야 합니다.
-
-
 ## <a name="get-started"></a>시작하기
 
 >[!TIP]
@@ -68,7 +64,8 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 - [Azure 리소스 인증용 관리 ID](#managed-identity)
 
 >[!NOTE]
->PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우 (이전에 SQL Data Warehouse) 원본 Data Lake Storage Gen2 Virtual Network 끝점으로 구성 된 경우 PolyBase에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
+>- 공용 Azure integration runtime을 사용 하 여 Azure Storage 방화벽에서 사용할 수 **있는이 저장소 계정에 액세스할 수 있도록 허용** 옵션을 활용 하 여 Data Lake Storage Gen2에 연결 하려면 [관리 되는 id 인증](#managed-identity)을 사용 해야 합니다.
+>- PolyBase 또는 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우, Azure Virtual Network 끝점을 사용 하 여 원본 또는 스테이징 Data Lake Storage Gen2 구성 된 경우 Synapse에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
@@ -210,7 +207,7 @@ Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행�
 >Data Factory UI를 사용하여 작성하고 관리 ID를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자" 역할로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
 
 >[!IMPORTANT]
->PolyBase를 사용 하 여 Data Lake Storage Gen2에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 로드 하는 경우 Data Lake Storage Gen2에 대해 관리 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 의 1 단계와 2 단계를 수행 해야 합니다. (Azure AD)를 사용 하 여 Azure Active Directory 등록 하 고 2) 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. 나머지는 Data Factory에 의해 처리 됩니다. Data Lake Storage Gen2가 Azure Virtual Network 엔드포인트로 구성되어 있어 PolyBase를 사용하여 데이터를 로드하는 경우 PolyBase에서 요구하는 대로 관리 ID 인증을 사용해야 합니다.
+>PolyBase 또는 COPY 문을 사용 하 여 Data Lake Storage Gen2에서 Azure Synapse Analytics로 데이터를 로드 하는 경우 Data Lake Storage Gen2에 대해 관리 id 인증을 사용 하는 경우 [이 지침](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)의 1 ~ 3 단계를 수행 해야 합니다. 이러한 단계에서는 서버를 Azure AD에 등록 하 고 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. Data Factory 나머지를 처리 합니다. Azure Virtual Network 끝점을 사용 하 여 Blob storage를 구성 하는 경우 Synapse에서 요구 하는 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **이 저장소 계정에 액세스할 수 있도록 신뢰할 수 있는 Microsoft 서비스가** 설정 되어 있어야 합니다.
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 

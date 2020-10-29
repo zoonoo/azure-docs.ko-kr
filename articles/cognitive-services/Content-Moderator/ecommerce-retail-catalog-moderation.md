@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504159"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913690"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Content Moderator 구독 키. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
+- Content Moderator 구독 키. [Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - Computer Vision 구독 키(위와 동일한 지침)
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 - Custom Vision 분류자에서 사용할 각 레이블의 이미지 세트(이 경우 장난감, 펜 및 미국 국기)
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-custom-moderation-tags"></a>사용자 지정 조정 태그 만들기
 
-다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) 문서를 참조하세요.) 이 경우 **celebrity** , **USA** , **flag** , **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity** ). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
+다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](./review-tool-user-guide/configure.md#tags) 문서를 참조하세요.) 이 경우 **celebrity** , **USA** , **flag** , **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity** ). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
 
 ![사용자 지정 태그 구성](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 메서드
 
-다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)을 이미지에서 감지할 수 있습니다. [GitHub 리포지토리](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)의 **sample-images** 폴더에 있는 이미지를 사용하여 이 예제의 일부 범주를 신속하게 학습할 수 있습니다.
+다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](../custom-vision-service/getting-started-build-a-classifier.md) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)을 이미지에서 감지할 수 있습니다. [GitHub 리포지토리](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)의 **sample-images** 폴더에 있는 이미지를 사용하여 이 예제의 일부 범주를 신속하게 학습할 수 있습니다.
 
 ![펜, 장난감 및 국기 학습 이미지가 있는 Custom Vision 웹 페이지](images/tutorial-ecommerce-custom-vision.PNG)
 
-분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
+분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

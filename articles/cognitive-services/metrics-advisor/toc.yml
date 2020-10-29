@@ -7,8 +7,6 @@
       href: overview.md
 - name: 빠른 시작
   items:
-    - name: 데모 사이트 살펴보기
-      href: quickstarts/explore-demo.md
     - name: 웹 포털 사용
       href: quickstarts/web-portal.md
     - name: REST API 사용
@@ -40,9 +38,9 @@
     - name: Metrics Advisor API
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Azure CLI 참조
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: PowerShell 참조
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션

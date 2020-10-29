@@ -3,15 +3,15 @@ title: Azure Event Hubs 리소스에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azure Active Directory 응용 프로그램 인증에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359937"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913316"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
-Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은입니다 `https://eventhubs.azure.net/` . Kafka 클라이언트의 경우 토큰을 요청 하는 리소스가입니다 `https://<namespace>.servicebus.windows.net` . Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
+Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은 이며 `https://eventhubs.azure.net/` 모든 클라우드/테 넌 트에 대해 동일 합니다 (Kafka 클라이언트의 경우 토큰을 요청 하는 리소스 `https://<namespace>.servicebus.windows.net` ). Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
 
 Azure AD 보안 주체에 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스의 범위는 구독, 리소스 그룹, Event Hubs 네임 스페이스 또는 그 아래에 있는 리소스의 수준으로 지정할 수 있습니다. Azure AD 보안은 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)에 역할을 할당할 수 있습니다. 
 
@@ -48,7 +48,7 @@ Azure AD를 사용 하 여 Event Hubs 리소스에 권한을 부여 하는 첫 �
 > [!Note]
 > 응용 프로그램을 네이티브 응용 프로그램으로 등록 하는 경우 리디렉션 URI에 대 한 유효한 URI를 지정할 수 있습니다. 네이티브 응용 프로그램의 경우이 값은 실제 URL 일 필요가 없습니다. 웹 응용 프로그램의 경우 리디렉션 URI는 토큰을 제공 하는 URL을 지정 하므로 유효한 URI 여야 합니다.
 
-응용 프로그램을 등록 한 후에는 **설정**아래에 **응용 프로그램 (클라이언트) ID가** 표시 됩니다.
+응용 프로그램을 등록 한 후에는 **설정** 아래에 **응용 프로그램 (클라이언트) ID가** 표시 됩니다.
 
 ![등록 된 응용 프로그램의 응용 프로그램 ID](./media/authenticate-application/application-id.png)
 
@@ -60,7 +60,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. **인증서 & 암호** 설정을 선택 합니다.
-1. **클라이언트 암호**에서 새 **클라이언트 암호** 를 선택 하 여 새 암호를 만듭니다.
+1. **클라이언트 암호** 에서 새 **클라이언트 암호** 를 선택 하 여 새 암호를 만듭니다.
 1. 비밀에 대 한 설명을 제공 하 고 원하는 만료 간격을 선택 합니다.
 1. 새 암호의 값을 안전한 위치에 즉시 복사 합니다. 채우기 값은 한 번만 표시 됩니다.
 
@@ -75,7 +75,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
     ![이벤트 허브를 선택 합니다.](./media/authenticate-application/select-event-hub.png)
 1. **Access Control (IAM)** 을 선택 하 여 이벤트 허브에 대 한 액세스 제어 설정을 표시 합니다. 
-1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가**를 선택 합니다. 
+1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가** 를 선택 합니다. 
 
     ![도구 모음에 단추 추가](./media/authenticate-application/role-assignments-add-button.png)
 1. **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.

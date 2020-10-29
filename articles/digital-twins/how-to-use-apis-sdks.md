@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636020"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913775"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -63,10 +63,12 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - GitHub에서 SDK 원본을 찾을 수 있습니다. [Java 용 Azure IoT Digital Twins 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - [SDK 참조 설명서](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview) 를 볼 수 있습니다.
 * **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
-   - npm: [Azure Azure Digital Twins client library For JavaScript](https://www.npmjs.com/package/@azure/digital-twins)에서 패키지를 보고 설치할 수 있습니다.
+   - npm: [Azure Azure Digital Twins client library For JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core)에서 패키지를 보고 설치할 수 있습니다.
    - [SDK 참조 설명서](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)를 볼 수 있습니다.
+   - GitHub에서 SDK 원본을 찾을 수 있습니다. [JavaScript 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * **Python** SDK를 사용할 수 있습니다. Python SDK를 사용 하려면 ...
    - 패키지를 보고 설치할 수 있습니다. [Python 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/)입니다.
+   - GitHub에서 SDK 원본을 찾을 수 있습니다. [Python 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 지침을 따릅니다.
 
 [CLI](how-to-use-cli.md)를 통해 Azure Digital twins와 상호 작용 하 여 날짜 평면 api를 연습할 수도 있습니다.

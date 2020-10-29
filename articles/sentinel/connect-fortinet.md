@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Fortinet 데이터 연결 | Microsoft Docs
-description: Fortinet 어플라이언스를 Azure 센티널에 연결 하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선 합니다. 
+description: Fortinet 어플라이언스를 Azure 센티널에 연결 하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60be22f439547d006f54e489833b63171e617e3e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511333"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913996"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Azure 센티널에 Fortinet 연결
 
@@ -38,19 +38,19 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
     ```console
     config log syslogd setting
+    set status enable
     set format cef
     set port 514
     set server <ip_address_of_Receiver>
-    set status enable
     end
     ```
 
     - 서버 **ip 주소** 를 에이전트의 ip 주소로 바꿉니다.
     - **Syslog 포트** 를 **514** 로 설정 하거나 에이전트에 설정 된 포트를 설정 합니다.
-    - 초기 FortiOS 버전에서 CEF 형식을 사용 하도록 설정 하려면 **csv disable**명령을 실행 해야 할 수 있습니다.
+    - 초기 FortiOS 버전에서 CEF 형식을 사용 하도록 설정 하려면 **csv disable** 명령을 실행 해야 할 수 있습니다.
  
    > [!NOTE] 
-   > 자세한 내용은 [Fortinet 문서 라이브러리로](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)이동 합니다. 버전을 선택 하 고 **교** 사용 및 **로그 메시지 참조**를 사용 합니다.
+   > 자세한 내용은 [Fortinet 문서 라이브러리로](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)이동 합니다. 버전을 선택 하 고 **교** 사용 및 **로그 메시지 참조** 를 사용 합니다.
 
 1. Fortinet 이벤트에 대 한 Azure Monitor Log Analytics에서 관련 스키마를 사용 하려면를 검색 `CommonSecurityLog` 합니다.
 

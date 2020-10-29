@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326799"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913061"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>미사용 데이터의 폼 인식기 암호화
 
@@ -30,4 +30,4 @@ Azure 양식 인식기는 클라우드로 데이터를 유지할 때 데이터�
 ## <a name="next-steps"></a>다음 단계
 
 * [폼 인식기 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)

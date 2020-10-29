@@ -4,12 +4,12 @@ description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 �
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171610"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926685"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -17,11 +17,7 @@ ms.locfileid: "92171610"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트레일리아 동부에서 지원 됩니다. 오스트레일리아 남부 동부, 캐나다 중부, 캐나다 동부, 남부 동아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부 2, 브라질 남부, 인도 서 부, 인도 남부, 일본 서 부, 일본 서 부, 대한민국 중부, 대한민국 , 북부 유럽, 유럽 서부, 남아프리카 북부, 남아프리카 공화국 서 부, 영국 남부 및 영국 서부.
-
-## <a name="unsupported-regions"></a>지원되지 않는 지역
-
-프랑스 중부, 프랑스 남부, 독일 북동쪽, 독일 중부, US Gov 아이오와, 중국 북부, 중국 North2, 중국 동부, 중국 동부 2,
+프랑스 중부, 프랑스 남부, 독일 북동쪽, 독일 중부, 중국 북부, 중국 North2, 중국 동부 및 중국 동부 2,를 제외 하 고 모든 공용 지역 및 소 버린 지역이 지원 됩니다.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Recovery Services 자격 증명 모음 이동에 대 한 필수 조건
 
@@ -46,14 +42,14 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 > [!NOTE]
 > Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br><br>
-> **Azure Site Recovery**를 사용 하 여 재해 복구를 위해 Vm (Azure IaaS, Hyper-v, VMware) 또는 물리적 컴퓨터를 구성한 경우 이동 작업이 차단 됩니다. Azure Site Recovery 자격 증명 모음을 이동 하려면 [이 문서](../site-recovery/move-vaults-across-regions.md) 를 검토 하 여 자격 증명 모음을 수동으로 이동 하는 방법에 대해 알아보세요.
+> **Azure Site Recovery** 를 사용 하 여 재해 복구를 위해 Vm (Azure IaaS, Hyper-v, VMware) 또는 물리적 컴퓨터를 구성한 경우 이동 작업이 차단 됩니다. Azure Site Recovery 자격 증명 모음을 이동 하려면 [이 문서](../site-recovery/move-vaults-across-regions.md) 를 검토 하 여 자격 증명 모음을 수동으로 이동 하는 방법에 대해 알아보세요.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동
 
 Recovery Services 자격 증명 모음 및 연결 된 리소스를 다른 리소스 그룹으로 이동 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Recovery Services 자격 증명 모음**의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
+2. **Recovery Services 자격 증명 모음** 의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
    ![Recovery Services 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
@@ -61,7 +57,7 @@ Recovery Services 자격 증명 모음 및 연결 된 리소스를 다른 리소
 
    ![Essentials 정보 탭](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. 자격 증명 모음 개요 메뉴에서 **리소스 그룹**옆의 **변경** 을 선택 하 여 **리소스 이동** 창을 엽니다.
+3. 자격 증명 모음 개요 메뉴에서 **리소스 그룹** 옆의 **변경** 을 선택 하 여 **리소스 이동** 창을 엽니다.
 
    ![리소스 그룹 변경](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
@@ -90,7 +86,7 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 
     ![Essentials 정보 탭](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. 자격 증명 모음 개요 메뉴에서 **구독**옆의 **변경** 을 선택 하 여 **리소스 이동** 창을 엽니다.
+3. 자격 증명 모음 개요 메뉴에서 **구독** 옆의 **변경** 을 선택 하 여 **리소스 이동** 창을 엽니다.
 
    ![구독 변경](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -103,7 +99,7 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 
    ![구독 추가](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. **이동 된 리소스와 연결 된 도구 및 스크립트가 새 리소스 id를 사용 하도록 업데이트 될 때까지 작동 하지** 않습니다. 옵션을 선택 하 여 확인을 선택한 다음 **확인**을 선택 합니다.
+7. **이동 된 리소스와 연결 된 도구 및 스크립트가 새 리소스 id를 사용 하도록 업데이트 될 때까지 작동 하지** 않습니다. 옵션을 선택 하 여 확인을 선택한 다음 **확인** 을 선택 합니다.
 
 > [!NOTE]
 > 크로스 구독 백업 (RS 자격 증명 모음 및 보호 된 Vm은 서로 다른 구독에 있는 경우)은 지원 되는 시나리오가 아닙니다. 또한 LRS (로컬 중복 저장소)에서 GRS (global 중복 저장소)로 저장소 중복성 옵션을 사용할 수 없으며, 그 반대의 경우도 자격 증명 모음 이동 작업을 수행 하는 동안 수정할 수 없습니다.
@@ -126,7 +122,7 @@ Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $v
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
-위의 cmdlet을 실행 한 후에는 지정 된 리소스를 이동할 것인지 묻는 메시지가 표시 됩니다. **Y**를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.
+위의 cmdlet을 실행 한 후에는 지정 된 리소스를 이동할 것인지 묻는 메시지가 표시 됩니다. **Y** 를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.
 
 ## <a name="use-cli-to-move-recovery-services-vault"></a>CLI를 사용 하 여 Recovery Services 자격 증명 모음 이동
 
@@ -161,9 +157,9 @@ Azure backup을 사용 하도록 설정 된 Azure 가상 머신을 이동 하려
 
 1. 자격 증명 모음 속성에서 일시 삭제를 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하려면 [다음 단계](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) 를 수행 합니다.
 
-2. 보호를 중지 하 고 현재 자격 증명 모음에서 백업을 삭제 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 항목**을 선택 합니다. 새 자격 증명 모음으로 이동 해야 하는 여기에 나열 된 항목은 해당 백업 데이터와 함께 제거 되어야 합니다. [클라우드에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 하 고 [온-프레미스에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-on-premises)하는 방법을 참조 하세요.
+2. 보호를 중지 하 고 현재 자격 증명 모음에서 백업을 삭제 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 항목** 을 선택 합니다. 새 자격 증명 모음으로 이동 해야 하는 여기에 나열 된 항목은 해당 백업 데이터와 함께 제거 되어야 합니다. [클라우드에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 하 고 [온-프레미스에서 보호 된 항목을 삭제](backup-azure-delete-vault.md#delete-protected-items-on-premises)하는 방법을 참조 하세요.
 
-3. AFS (Azure 파일 공유), SQL server 또는 SAP HANA 서버를 이동할 계획인 경우 등록을 취소 해야 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라**를 선택 합니다. [SQL server 등록을 취소](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance)하 고, [Azure 파일 공유와 연결 된 저장소 계정을 등록 취소](manage-afs-backup.md#unregister-a-storage-account)하 고, [SAP HANA 인스턴스의 등록](sap-hana-db-manage.md#unregister-an-sap-hana-instance)을 취소 하는 방법을 참조 하세요.
+3. AFS (Azure 파일 공유), SQL server 또는 SAP HANA 서버를 이동할 계획인 경우 등록을 취소 해야 합니다. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라** 를 선택 합니다. [SQL server 등록을 취소](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance)하 고, [Azure 파일 공유와 연결 된 저장소 계정을 등록 취소](manage-afs-backup.md#unregister-a-storage-account)하 고, [SAP HANA 인스턴스의 등록](sap-hana-db-manage.md#unregister-an-sap-hana-instance)을 취소 하는 방법을 참조 하세요.
 
 4. 이전 자격 증명 모음에서 제거 되 면 새 자격 증명 모음에서 워크 로드에 대 한 백업을 계속 구성 합니다.
 

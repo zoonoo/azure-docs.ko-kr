@@ -2,14 +2,14 @@
 title: 자습서 - Docker Compose를 사용하여 다중 컨테이너 그룹 배포
 description: Docker Compose를 사용하여 다중 컨테이너 애플리케이션을 빌드 및 실행한 다음, 애플리케이션을 Azure Container Instances로 가져옵니다.
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708275"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913843"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>자습서: Docker Compose를 사용하여 다중 컨테이너 그룹 배포 
 
@@ -67,14 +67,16 @@ cd azure-voting-app-redis
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
   azure-vote-front:
     build: ./azure-vote
-    image: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -84,7 +86,7 @@ services:
 
 `azure-vote-front` 구성에서 다음 두 가지 사항을 변경합니다.
 
-1. `azure-vote-front` 서비스의 `image` 속성을 업데이트합니다. 이미지 이름 앞에 Azure Container Registry의 로그인 서버 이름인 \<acrName\>.azurecr.io를 붙입니다. 예를 들어 레지스트리의 이름이 *myregistry*인 경우 로그인 서버 이름은 *myregistry.azurecr.io*(모두 소문자)이고 이미지 속성은 `myregistry.azurecr.io/azure-vote-front`입니다.
+1. `azure-vote-front` 서비스의 `image` 속성을 업데이트합니다. 이미지 이름 앞에 Azure Container Registry의 로그인 서버 이름인 \<acrName\>.azurecr.io를 붙입니다. 예를 들어 레지스트리의 이름이 *myregistry* 인 경우 로그인 서버 이름은 *myregistry.azurecr.io* (모두 소문자)이고 이미지 속성은 `myregistry.azurecr.io/azure-vote-front`입니다.
 1. `ports` 매핑을 `80:80`으로 변경합니다. 파일을 저장합니다.
 
 업데이트된 파일은 다음과 같습니다.
@@ -93,8 +95,10 @@ services:
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
@@ -128,7 +132,7 @@ $ docker images
 
 REPOSITORY                                TAG        IMAGE ID            CREATED             SIZE
 myregistry.azurecr.io/azure-vote-front    latest     9cc914e25834        40 seconds ago      944MB
-redis                                     latest     a1b99da73d05        7 days ago          104MB
+mcr.microsoft.com/oss/bitnami/redis       6.0.8      3a54a920bb6c        4 weeks ago          103MB
 tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 months ago        9444MB
 ```
 
@@ -137,9 +141,9 @@ tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 month
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        myregistry.azurecr.io/azure-vote-front  "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
-b68fed4b66b6        redis                                   "docker-entrypoint.s…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        myregistry.azurecr.io/azure-vote-front     "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
+b62b47a7d313        mcr.microsoft.com/oss/bitnami/redis:6.0.8  "/opt/bitnami/script…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 실행 중인 애플리케이션을 보려면 로컬 웹 브라우저에 `http://localhost:80`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
@@ -205,9 +209,9 @@ docker ps
 샘플 출력:
 
 ```
-CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
+CONTAINER ID                           IMAGE                                         COMMAND             STATUS              PORTS
+azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8                         Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
 클라우드에서 실행 중인 애플리케이션을 확인하려면 로컬 웹 브라우저에 표시된 IP 주소를 입력합니다. 이 예제에서는 `52.179.23.131`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.

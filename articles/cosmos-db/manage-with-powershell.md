@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: c56f3b561dbced9f00bb2616f5709a51fa02fbcb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3b5cc1dd61b4f01e40c1cc812e93a448855ad92d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481009"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926515"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
 
-다음 가이드에서는 PowerShell을 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅 및 자동화 하는 방법을 설명 합니다. 다른 Api에 대 한 PowerShell cmdlet은 [Cassandra에 대 한 powershell](powershell-samples-cassandra.md)샘플, [MongoDB API 용](powershell-samples-mongodb.md)powershell 샘플, [Gremlin에](powershell-samples-gremlin.md)대 한 powershell 샘플, [테이블에 대 한](powershell-samples-table.md) powershell 샘플을 참조 하세요.
+다음 가이드에서는 PowerShell을 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅 및 자동화 하는 방법을 설명 합니다. 다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](powershell-samples-cassandra.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 샘플에서는 [Az.CosmosDB](/powershell/module/az.cosmosdb) 관리 cmdlet을 사용합니다. 최신 변경 내용은 [Az.CosmosDB](/powershell/module/az.cosmosdb) API 참조 페이지를 참조하세요.
@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName` Cosmos 계정을 배포할 Azure 리소스 그룹입니다. 이 리소스 그룹은 이미 있어야 합니다.
 * `$locations` 데이터베이스 계정에 대 한 지역이 인 지역은 `FailoverPriority 0` 쓰기 지역입니다.
 * `$accountName` Azure Cosmos 계정의 이름입니다. 고유한 소문자여야 하며, 영숫자 및 '-' 문자만 포함하고, 3-31자여야 합니다.
-* `$apiKind` 만드는 Cosmos 계정의 유형입니다. 자세한 내용은 [Cosmos DB의 API](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis)를 참조하세요.
+* `$apiKind` 만드는 Cosmos 계정의 유형입니다. 자세한 내용은 [Cosmos DB의 API](introduction.md#simplified-application-development)를 참조하세요.
 * `$consistencyPolicy`, `$maxStalenessInterval` 및 `$maxStalenessPrefix` Azure Cosmos 계정의 기본 일관성 수준 및 설정입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
 
 Azure Cosmos 계정은 IP 방화벽, Virtual Network 서비스 엔드포인트 및 프라이빗 엔드포인트를 사용하여 구성할 수 있습니다. Azure Cosmos DB에 대해 IP 방화벽을 구성하는 방법에 대한 자세한 내용은 [IP 방화벽 구성](how-to-configure-firewall.md)을 참조하세요. 서비스 엔드포인트를 Azure Cosmos DB에 사용하도록 설정하는 방법에 대한 자세한 내용은 [가상 네트워크에서 액세스 구성](how-to-configure-vnet-service-endpoint.md)을 참조하세요. 프라이빗 엔드포인트를 Azure Cosmos DB에 사용하도록 설정하는 방법에 대한 자세한 내용은 [프라이빗 엔드포인트에서 액세스 구성](how-to-configure-private-endpoints.md)을 참조하세요.

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: eba175eb831ef0c472c2e11d2d03f134a0d3b052
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8e24dd6cb8a1fa90f1a6caf9117ab3c344c00b12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547676"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913877"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버 관리
 
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>계산 및 저장소 크기 조정
 
-다음 명령을 사용 하 여 계산 계층, vCores 및 저장소를 쉽게 확장할 수 있습니다. 실행할 수 있는 모든 서버 작업 [(az postgres 신축 서버 서버 개요)](https://azure.microsoft.com/services/postgresql/) 을 볼 수 있습니다.
+다음 명령을 사용 하 여 계산 계층, vCores 및 저장소를 쉽게 확장할 수 있습니다. 실행할 수 있는 모든 서버 작업 [(az postgres 신축 서버 서버 개요)](https://docs.microsoft.com/cli/azure/postgres/flexible-server) 을 볼 수 있습니다.
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
@@ -123,7 +123,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>서버 삭제
 
-PostgreSQL 유연한 서버를 삭제 하려는 경우 [az postgres 신축 서버 삭제](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) 명령을 실행할 수 있습니다.
+PostgreSQL 유연한 서버를 삭제 하려는 경우 [az postgres 신축 서버 삭제](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

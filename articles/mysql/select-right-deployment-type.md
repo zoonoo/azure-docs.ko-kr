@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543783"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926192"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
 
@@ -47,7 +47,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 | 컴퓨팅 크기 조정 | 지원 됨 (및에서 기본 계층으로 크기 조정은 지원 되지 않음)| 지원됨 | 지원됨|
 | 스토리지 크기 | 5 GiB ~ 16 TiB| 5 GiB ~ 16 TiB | 32 GiB ~ 32767 GiB|
 | 온라인 저장소 크기 조정 | 지원됨| 지원됨| 지원되지 않음|
-| 자동 저장소 크기 조정 | 지원됨| 미리 보기에서 지원 되지 않음| 지원되지 않음|
+| 자동 저장소 크기 조정 | 지원됨| 미리 보기에서 지원 되지 않음| 지원 안 함|
 | 네트워크 연결 | -서버 방화벽을 사용 하는 공용 끝점.<br/> -개인 링크를 지 원하는 개인 액세스|-서버 방화벽을 사용 하는 공용 끝점.<br/> -Virtual Network 통합을 사용한 개인 액세스| -서버 방화벽을 사용 하는 공용 끝점.<br/> -개인 링크를 지 원하는 개인 액세스|
 | SLA(서비스 수준 계약) | 99.99% 가용성 SLA |미리 보기에 SLA 없음| 가용성 영역 사용 하는 99.99%|
 | 운영 체제 패치| 자동  | 사용자 지정 유지 관리 기간 제어를 사용 하 여 자동 | 최종 사용자가 관리 |
@@ -55,7 +55,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 | 고가용성 | 단일 가용성 영역 내의 기본 제공 HA| 가용성 영역 내 및 가용성 영역 간 기본 제공 HA | 클러스터링, 복제 등을 사용 하 여 사용자 지정 관리|
 | 영역 중복 | 지원되지 않음 | 지원됨 | 지원됨|
 | 하이브리드 시나리오 | [입력 데이터 복제](./concepts-data-in-replication.md) 지원| 미리 보기에서 사용할 수 없음 | 최종 사용자가 관리 |
-| 읽기 복제본 | 지원됨| 지원됨 | 최종 사용자가 관리 |
+| 읽기 복제본 | 지원 됨 (최대 5 개의 복제본)| 지원 됨 (최대 10 개의 복제본)| 최종 사용자가 관리 |
 | Backup | 7-35 일 보존으로 자동화 됨 | 1-35 일 보존으로 자동화 됨 | 최종 사용자가 관리 |
 | 데이터베이스 작업 모니터링 | 지원됨 | 지원됨 | 최종 사용자가 관리 |
 | 재해 복구 | 지역 중복 백업 저장소 및 지역 간 읽기 복제본으로 지원 됨 | 미리 보기에서 지원 되지 않음| 복제 기술로 사용자 지정 관리 |

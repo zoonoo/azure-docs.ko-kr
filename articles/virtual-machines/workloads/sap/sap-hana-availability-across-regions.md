@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078845"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925682"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Azure 지역 간 SAP HANA 가용성
 
@@ -74,13 +74,13 @@ SAP의 HANA 2.0 SPS3에는 [여러 대상 시스템 복제](https://help.sap.com
 
 조직의 두 번째(DR) Azure 지역에 고가용성 준비 상태 관련 요구 사항이 있는 경우의 아키텍처는 다음과 같습니다.
 
-![2개 지역에 3개 VM(여러 대상)이 있는 다이어그램](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![두 번째 (DR) Azure 지역에서 고가용성 준비에 대 한 요구 사항이 있는 조직을 보여 주는 다이어그램입니다.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 작업 모드로 logreplay를 사용하면 이 구성은 주 지역 내에서 RTO가 낮은 RPO=0을 제공합니다. 또한 이 구성은 두 번째 지역으로의 이동과 관련되는 경우에도 적절한 RPO를 제공합니다. 두 번째 지역의 RTO 시간은 데이터가 미리 로드되었는지 여부에 따라 달라집니다. 많은 고객이 보조 지역의 VM을 사용하여 테스트 시스템을 실행합니다. 이 경우 데이터는 미리 로드할 수 없습니다.
 
 > [!IMPORTANT]
-> 서로 다른 계층 간의 작업 모드는 동일한 유형이어야 합니다. logreplay는 계층 1과 계층 2 사이의 작업 모드로 사용할 수 없으며, delta_datashipping은 계층 3을 제공하는 데 **사용할 수 없습니다**. 모든 계층에 대해 일관되도록 하나 또는 다른 작업 모드만 선택할 수 있습니다. delta_datashipping은 RPO=0을 제공하는 데 적합하지 않으므로 이러한 다중 계층 구성에 적합한 작업 모드는 logreplay뿐입니다. 작업 모드에 대한 자세한 내용 및 몇 가지 제한 사항은 [SAP HANA 시스템 복제에 대한 작업 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) SAP 문서를 참조하세요. 
+> 서로 다른 계층 간의 작업 모드는 동일한 유형이어야 합니다. logreplay는 계층 1과 계층 2 사이의 작업 모드로 사용할 수 없으며, delta_datashipping은 계층 3을 제공하는 데 **사용할 수 없습니다** . 모든 계층에 대해 일관되도록 하나 또는 다른 작업 모드만 선택할 수 있습니다. delta_datashipping은 RPO=0을 제공하는 데 적합하지 않으므로 이러한 다중 계층 구성에 적합한 작업 모드는 logreplay뿐입니다. 작업 모드에 대한 자세한 내용 및 몇 가지 제한 사항은 [SAP HANA 시스템 복제에 대한 작업 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) SAP 문서를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

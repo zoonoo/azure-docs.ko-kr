@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635918"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913367"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -48,9 +48,6 @@ ms.locfileid: "92635918"
 - Blob을 있는 그대로 복사 하거나 [지원 되는 파일 형식 및 압축 코덱을](supported-file-formats-and-compression-codecs.md)사용 하 여 blob을 구문 분석 하거나 생성 합니다.
 - [복사 중에 파일 메타 데이터를 유지](#preserving-metadata-during-copy)합니다.
 
->[!IMPORTANT]
->Azure Storage 방화벽 설정에서 **신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용** 옵션을 사용 하도록 설정 하 고 Azure integration runtime을 사용 하 여 Blob storage에 연결 하려면 [관리 되는 id 인증](#managed-identity)을 사용 해야 합니다.
-
 ## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ ms.locfileid: "92635918"
 - [Azure 리소스 인증에 대 한 관리 되는 id](#managed-identity)
 
 >[!NOTE]
->PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 로드 하는 경우 원본 또는 스테이징 Blob 저장소가 Azure Virtual Network 끝점으로 구성 된 경우 PolyBase에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다. 또한 버전 3.18 이상에서 자체 호스팅 통합 런타임을 사용 해야 합니다. 자세한 구성 필수 구성 요소는 [관리 id 인증](#managed-identity) 섹션을 참조 하세요.
+>- **이 저장소 계정에 액세스 하는 신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용** Azure Storage 옵션을 활용 하 여 공용 Azure 통합 런타임을 사용 하 여 Blob 저장소에 연결 하려는 경우 [관리 되는 id 인증](#managed-identity)을 사용 해야 합니다.
+>- PolyBase 또는 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우 원본 또는 스테이징 Blob 저장소를 Azure Virtual Network 끝점으로 구성 하는 경우 Synapse에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다. 자세한 구성 필수 구성 요소는 [관리 id 인증](#managed-identity) 섹션을 참조 하세요.
 
 >[!NOTE]
 >Azure HDInsight 및 Azure Machine Learning 작업은 Azure Blob 저장소 계정 키를 사용 하는 인증만 지원 합니다.
@@ -286,7 +284,7 @@ Azure Storage 인증에 대 한 일반 정보는 [Azure Active Directory를 사�
     - **싱크로** **액세스 제어 (IAM)** 에서 적어도 **저장소 Blob 데이터 참가자** 역할을 부여 합니다.
 
 >[!IMPORTANT]
->PolyBase를 사용 하 여 Blob 저장소 (이전에는 SQL Data Warehouse)에서 Blob 저장소로 데이터를 로드 하는 경우 Blob storage에 대해 관리 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)의 1 단계와 2 단계를 수행 해야 합니다. 이러한 단계에서는 서버를 Azure AD에 등록 하 고 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. Data Factory 나머지를 처리 합니다. Azure Virtual Network 끝점을 사용 하 여 Blob 저장소를 구성한 경우 PolyBase를 사용 하 여 데이터를 로드 하려면 PolyBase에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다.
+>PolyBase 또는 COPY 문을 사용 하 여 Blob 저장소 (원본 또는 스테이징)에서 Azure Synapse Analytics로 데이터를 로드 하는 경우 Blob storage에 관리 되는 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)의 1 ~ 3 단계를 수행 해야 합니다. 이러한 단계에서는 서버를 Azure AD에 등록 하 고 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. Data Factory 나머지를 처리 합니다. Azure Virtual Network 끝점을 사용 하 여 Blob storage를 구성 하는 경우 Synapse에서 요구 하는 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **이 저장소 계정에 액세스할 수 있도록 신뢰할 수 있는 Microsoft 서비스가** 설정 되어 있어야 합니다.
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
