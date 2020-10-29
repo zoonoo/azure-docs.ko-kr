@@ -3,12 +3,12 @@ title: ACR 작업에서 크로스 레지스트리 인증
 description: Azure 리소스에 대해 관리 ID를 사용하여 다른 프라이빗 Azure 컨테이너 레지스트리에 액세스하도록 ACR 작업(Azure Container Registry Task)을 구성합니다.
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057361"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026261"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure 관리 ID를 사용하는 ACR 작업의 레지스트리 간 인증 
 
@@ -30,8 +30,8 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.68 이�
 
 이 문서에서는 두 개의 Azure Container Registry가 필요합니다.
 
-* 첫 번째 레지스트리를 사용하여 ACR 작업을 만들고 실행합니다. 이 문서에서 이 레지스트리의 이름은 *myregistry*입니다. 
-* 두 번째 레지스트리는 이미지를 빌드하는 작업에 사용되는 기본 이미지를 호스팅합니다. 이 문서에서 두 번째 레지스트리의 이름은 *mybaseregistry*입니다. 
+* 첫 번째 레지스트리를 사용하여 ACR 작업을 만들고 실행합니다. 이 문서에서 이 레지스트리의 이름은 *myregistry* 입니다. 
+* 두 번째 레지스트리는 이미지를 빌드하는 작업에 사용되는 기본 이미지를 호스팅합니다. 이 문서에서 두 번째 레지스트리의 이름은 *mybaseregistry* 입니다. 
 
 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
@@ -39,16 +39,12 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.68 이�
 
 ## <a name="prepare-base-registry"></a>기본 레지스트리 준비
 
-먼저 작업 디렉터리를 만든 후, 다음 콘텐츠를 사용하여 Dockerfile이라는 파일을 만듭니다. 이 간단한 예제는 Docker Hub의 공용 이미지에서 Node.js 기본 이미지를 빌드합니다.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+데모용으로, 일회성 작업 인 경우 [az acr import] [az-acr-import]를 실행 하 여 Docker 허브에서 기본 레지스트리로 공용 Node.js 이미지를 가져옵니다. 실제로 조직의 다른 팀 또는 프로세스는 기본 레지스트리에서 이미지를 유지 관리할 수 있습니다.
 
-현재 디렉터리에서 [az acr build][az-acr-build] 명령을 실행하여 기본 이미지를 빌드하고 기본 레지스트리에 푸시합니다. 실제로 조직의 다른 팀 또는 프로세스가 기본 레지스트리를 유지 관리할 수 있습니다.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>YAML 파일에서 작업 단계 정의
@@ -88,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
 
-이 섹션에서는 기본 레지스트리  *mybaseregistry*에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
+이 섹션에서는 기본 레지스트리  *mybaseregistry* 에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
 
 [az acr show][az-acr-show] 명령을 사용하여 기본 레지스트리의 리소스 ID를 가져와서 이를 변수에 저장합니다.
 
@@ -127,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
 
-이 섹션에서는 기본 레지스트리  *mybaseregistry*에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
+이 섹션에서는 기본 레지스트리  *mybaseregistry* 에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
 
 [az acr show][az-acr-show] 명령을 사용하여 기본 레지스트리의 리소스 ID를 가져와서 이를 변수에 저장합니다.
 
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-[az acr repository show-tags][az-acr-repository-show-tags] 명령을 실행하여 이미지가 빌드되어 *myregistry*에 성공적으로 푸시되었는지 확인합니다.
+[az acr repository show-tags][az-acr-repository-show-tags] 명령을 실행하여 이미지가 빌드되어 *myregistry* 에 성공적으로 푸시되었는지 확인합니다.
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

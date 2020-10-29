@@ -1,7 +1,7 @@
 ---
-title: .NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
+title: 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 titleSuffix: Azure Storage
-description: .NET 클라이언트 라이브러리를 사용 하 여 컨테이너 또는 blob에 대 한 서비스 공유 액세스 서명 (SAS)을 만드는 방법에 대해 알아봅니다.
+description: .NET 클라이언트 라이브러리 또는 JavaScript v12 SDK를 사용 하 여 컨테이너 또는 blob에 대 한 서비스 공유 액세스 서명 (SAS)을 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,14 +11,14 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9674c7f892c31bd65ec651baf2d032de0256ac6c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c38581a23f6714c0676b3b3c9c8481205b14a374
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218207"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027204"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
+# <a name="create-a-service-sas-for-a-container-or-blob"></a>컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
@@ -80,6 +80,31 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
     // Return the URI string for the container, including the SAS token.
     return container.Uri + sasContainerToken;
+}
+```
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 필요한 옵션을 제공 하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
+
+```javascript
+function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyName) {
+    const sasOptions = {
+        containerName: containerClient.containerName,
+        permissions: ContainerSASPermissions.parse("c")
+    };
+
+    if (storedPolicyName == null) {
+        sasOptions.startsOn = new Date();
+        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
+    } else {
+        sasOptions.identifier = storedPolicyName;
+    }
+
+    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
+    console.log(`SAS token for blob container is: ${sasToken}`);
+
+    return `${containerClient.url}?${sasToken}`;
 }
 ```
 
@@ -149,9 +174,39 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 }
 ```
 
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+Blob에 대 한 서비스 SAS를 만들려면 [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출 합니다.
+
+Blob에 대 한 서비스 SAS를 만들려면 필요한 옵션을 제공 하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출 합니다.
+
+```javascript
+function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPolicyName) {
+    const sasOptions = {
+        containerName: containerClient.containerName,
+        blobName: blobName
+    };
+
+    if (storedPolicyName == null) {
+        sasOptions.startsOn = new Date();
+        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
+        sasOptions.permissions = BlobSASPermissions.parse("r");
+    } else {
+        sasOptions.identifier = storedPolicyName;
+    }
+
+    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
+    console.log(`SAS token for blob is: ${sasToken}`);
+
+    return `${containerClient.getBlockBlobClient(blobName).url}?${sasToken}`;
+}
+```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+
+[!INCLUDE [storage-blob-javascript-resources-include](../../../includes/storage-blob-javascript-resources-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

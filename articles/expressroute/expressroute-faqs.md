@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631277"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027111"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -35,6 +35,10 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
 
 가격 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/) 를 참조하세요.
+
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 수신 및 송신 트래픽에 대해이 대역폭이 별도로 할당 되나요?
+
+예, Express 경로 회로 대역폭은 이중입니다. 예를 들어 200 mbps Express 경로 회로를 구매 하는 경우 수신 트래픽 및 송신 트래픽에 대 한 200 mbps에 대해 확보 200 mbps를 사용할 수 있습니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 

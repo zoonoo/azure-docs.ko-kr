@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
-ms.openlocfilehash: d8552391e8e8c389a44174595305b8f28224a833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732529"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027536"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IoT Hub(iOS)를 사용하여 클라우드-디바이스 메시지 보내기
 
@@ -27,7 +27,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * 디바이스에서 클라우드-디바이스 메시지를 받습니다.
 
-* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인( *피드백* )을 요청합니다.
 
 [IoT Hub 개발자 가이드의 메시징 섹션](iot-hub-devguide-messaging.md)에서 클라우드-디바이스 메시지에 대한 자세한 내용을 찾아볼 수 있습니다.
 
@@ -94,7 +94,7 @@ pod install
 
 2. **MQTT 클라이언트 샘플** 프로젝트를 확장한 다음, 같은 이름의 폴더를 확장합니다.  
 
-3. XCode에서 편집을 위해 **ViewController.swift**를 엽니다. 
+3. XCode에서 편집을 위해 **ViewController.swift** 를 엽니다. 
 
 4. **connectionString** 변수를 검색하고 첫 번째 단계에서 복사해 둔 디바이스 연결 문자열로 값을 업데이트합니다.
 
@@ -102,11 +102,11 @@ pod install
 
 6. **빌드 및 실행** 단추 또는 **명령 + r** 키 콤보를 사용하여 디바이스 에뮬레이터에서 프로젝트를 실행합니다.
 
-   ![프로젝트 실행](media/iot-hub-ios-swift-c2d/run-sample.png)
+   ![장치 에뮬레이터의 빌드 및 실행 단추를 보여 주는 스크린샷](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -142,7 +142,7 @@ pod install
 
 2. **AzureIoTServiceSample** 프로젝트를 확장한 다음, 같은 이름의 폴더를 확장합니다.  
 
-3. XCode에서 편집을 위해 **ViewController.swift**를 엽니다. 
+3. XCode에서 편집을 위해 **ViewController.swift** 를 엽니다. 
 
 4. **ConnectionString** 변수를 검색 하 고 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 서비스 연결 문자열로 값을 업데이트 합니다.
 
@@ -152,21 +152,21 @@ pod install
 
    ![에뮬레이터 디바이스 변경](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. **빌드 및 실행** 단추나 키 콤보 **명령 + r**을 사용 하 여 장치 에뮬레이터에서 프로젝트를 실행 합니다.
+7. **빌드 및 실행** 단추나 키 콤보 **명령 + r** 을 사용 하 여 장치 에뮬레이터에서 프로젝트를 실행 합니다.
 
-   ![프로젝트 실행](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![빌드 및 실행 단추를 보여 주는 스크린샷](media/iot-hub-ios-swift-c2d/run-app.png)
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
 이제 클라우드-디바이스 메시지를 주고 받는 두 애플리케이션을 사용할 준비가 완료되었습니다.
 
-1. 시뮬레이션된 IoT 디바이스에서 실행되는 **iOS 앱 샘플**에서 **시작**을 클릭합니다. 애플리케이션이 디바이스-클라우드 메시지 송신을 시작하고, 그와 동시에 클라우드-디바이스 메시지 수신 대기도 시작합니다.
+1. 시뮬레이션된 IoT 디바이스에서 실행되는 **iOS 앱 샘플** 에서 **시작** 을 클릭합니다. 애플리케이션이 디바이스-클라우드 메시지 송신을 시작하고, 그와 동시에 클라우드-디바이스 메시지 수신 대기도 시작합니다.
 
    ![샘플 IoT 디바이스 앱 보기](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
 2. 시뮬레이션된 서비스 디바이스에서 실행되는 **IoTHub 서비스 클라이언트 샘플** 앱에서 메시지를 보내고 싶은 IoT 디바이스의 ID를 입력합니다. 
 
-3. 일반 텍스트 메시지를 작성한 다음, **보내기**를 클릭합니다.
+3. 일반 텍스트 메시지를 작성한 다음, **보내기** 를 클릭합니다.
 
     보내기를 클릭하는 즉시 여러 작업이 발생합니다. 서비스 샘플은 IoT Hub로 메시지를 보내고, 앱은 사용자가 입력한 서비스 연결 문자열 때문에 허브에 액세스할 수 있습니다. IoT Hub는 디바이스 ID를 검사하고, 대상 디바이스에 메시지를 보내고, 원본 디바이스에 수신 확인을 보냅니다. 시뮬레이션된 IoT 디바이스에서 실행 중인 앱은 IoT Hub에서 보낸 메시지를 검사하여 가장 최근에 온 메시지의 텍스트를 화면에 인쇄합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707985"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026958"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -20,7 +20,7 @@ ms.locfileid: "91707985"
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace 란 무엇 인가요?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
 상업용 마켓플레이스는 파트너가 빌드한 솔루션과 기업 및 정부 기관을 연결합니다. 파트너 센터에서 제공 하는 파트너는 파트너 센터에서 제품을 만들고 관리 하며, 고객은 Microsoft AppSource, Azure Marketplace, 클라우드 솔루션 공급자 프로그램의 대리점, 공동 판매 프로그램을 통해 판매 팀과 같은 제품 내 환경을 통해 솔루션을 검색 하 고 구매할 수 있습니다.
 
@@ -60,7 +60,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 - 자동으로 제공되는 솔루션의 경우 유료, BYOL(Bring-You-Own-License) 또는 무료 여부에 관계없이 고객은 ‘지금 구매’해야 합니다.
 - 테스트 드라이브(데모)를 지원하는 제품을 통해 고객에게 ‘테스트 드라이브’를 요청합니다. 
-- SaaS (Software as a service)는 상용 marketplace 외부의 평가판을 제공 하는 *무료 평가판*을 제공 합니다.
+- SaaS (Software as a service)는 상용 marketplace 외부의 평가판을 제공 하는 *무료 평가판* 을 제공 합니다.
 - 간단한 목록을 통해 고객은 ‘연락처’를 요청할 수 있습니다.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 제품을 만들려면 어떻게 해야 하나요?
@@ -102,7 +102,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 - ‘관리자’: 디렉터리에서 파트너 센터 사용자를 관리하고 제품을 만들고 업데이트할 수 있는 권한을 제공합니다.
 - ‘개발자’: 사용자가 제품을 만들고 업데이트할 수 있습니다.
 - ‘재무 기여자’: 지급 보고를 볼 수 있는 권한을 제공합니다.
-- *소유자*: 지급 계정 및 세금 프로필을 설정할 수 있습니다. 게시자 계약을 수락한 사용자는 기본적으로 소유자가 됩니다.
+- *소유자* : 지급 계정 및 세금 프로필을 설정할 수 있습니다. 게시자 계약을 수락한 사용자는 기본적으로 소유자가 됩니다.
 
 새 사용자 계정을 만들거나 기본 디렉터리에 게스트 계정을 초대하려면 Azure AD(Azure Active Directory) ‘전역 관리자’ 권한이 필요합니다. 파트너 센터는 Azure AD를 ID 모델에 적용하고 조직의 Azure AD 인스턴스는 종종 IT 또는 보안 팀에서 관리하고 제어합니다.
 
@@ -140,7 +140,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>내 제품이 Microsoft AppSource와 Azure Marketplace에 모두 표시되나요?
 
-Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure Marketplace는 IT 및 개발자 솔루션을 위해 디자인되었습니다. 제품을 만들 때 선택한 범주와 산업을 기반으로 하는 각 온라인 상점에서 제공을 사용할 수 있습니다. 드문 경우 지만 제품이 두 온라인 상점의 사용자와 관련이 있는 경우 둘 다에 표시 될 수 있습니다.
+Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure Marketplace는 IT 및 개발자 솔루션을 위해 디자인되었습니다. 제품을 만들 때 선택한 범주와 산업을 기반으로 하는 각 온라인 상점에서 제공을 사용할 수 있습니다. 드물지만 제안이 두 온라인 스토어 모두의 사용자와 관련되는 경우 둘 다에 표시될 수 있습니다.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램이란?
 
@@ -303,7 +303,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 반환 및 환불이 지원되나요?
 
-환불을 받으려는 고객은 지정된 기간 내에 구독을 취소하면 됩니다. 월간 구독의 경우 24시간이며 연간 구독의 경우 14일입니다. 솔루션을 사용한 후 사용량에 따라 청구된 제품은 환불되지 않습니다.
+환불은 특정 조건 및 특정 요금에 따라 고객에 게 제공 됩니다. 매월 청구 되는 되풀이 청구 환불에 대 한 요청은 24 시간 이내에 구매 하거나 갱신 해야 합니다. 마찬가지로, 매년 청구 되는 되풀이 청구 환불에 대 한 요청은 구매 또는 갱신 14 일 이내에 수신 되어야 합니다. 이 유형의 환불은 사용량 (가상 머신 제품 또는 요금제 청구)에서 발생 하는 요금에 적용 되지 않습니다.
 
 ## <a name="resources"></a>리소스
 
@@ -311,7 +311,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 다음과 같이 시작하는 데 도움이 되는 몇 가지 리소스가 있습니다.
 
-- [Microsoft 상업적 marketplace 란 무엇 인가요?](overview.md)
+- [Microsoft 상업용 마켓플레이스란?](overview.md)
 - [Microsoft 상업용 마켓플레이스 파트너 허브](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Microsoft 및 다른 파트너에 어떻게 참여할 수 있나요?

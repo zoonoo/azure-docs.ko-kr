@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324351"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027485"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
@@ -43,7 +43,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 ![스키마 드리프트 원본](media/data-flow/schemadrift001.png "스키마 드리프트 원본")
 
-스키마 드리프트를 사용 하도록 설정 하면 들어오는 모든 필드가 실행 중에 원본에서 읽어서 전체 흐름을 통해 싱크로 전달 됩니다. 기본적으로 *데이터베이스가 드리프트 열*이라고 하는 새로 검색 된 열은 모두 문자열 데이터 형식으로 도착 합니다. 데이터 흐름에서 데이터베이스가 드리프트 열의 데이터 형식을 자동으로 유추 하려면 원본 설정에서 **데이터베이스가 드리프트 열 형식 유추** 를 선택 합니다.
+스키마 드리프트를 사용 하도록 설정 하면 들어오는 모든 필드가 실행 중에 원본에서 읽어서 전체 흐름을 통해 싱크로 전달 됩니다. 기본적으로 *데이터베이스가 드리프트 열* 이라고 하는 새로 검색 된 열은 모두 문자열 데이터 형식으로 도착 합니다. 데이터 흐름에서 데이터베이스가 드리프트 열의 데이터 형식을 자동으로 유추 하려면 원본 설정에서 **데이터베이스가 드리프트 열 형식 유추** 를 선택 합니다.
 
 ## <a name="schema-drift-in-sink"></a>싱크의 스키마 드리프트
 
@@ -69,11 +69,11 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 데이터베이스가 드리프트 열을 명시적으로 참조 하기 위해 데이터 미리 보기 빠른 작업을 통해 이러한 열에 대 한 매핑을 빠르게 생성할 수 있습니다. [디버그 모드가](concepts-data-flow-debug-mode.md) 설정 되 면 데이터 미리 보기 탭으로 이동 하 고 **새로 고침** 을 클릭 하 여 데이터 미리 보기를 가져옵니다. Data factory가 데이터베이스가 드리프트 열이 있는 것으로 감지 되 면 **데이터베이스가 드리프트 매핑** 을 클릭 하 고 스키마 뷰 다운스트림의 모든 데이터베이스가 드리프트 열을 참조할 수 있는 파생 열을 생성할 수 있습니다.
 
-![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "지도 데이터베이스가 드리프트")
+![스크린샷 이라는 Map 데이터베이스가 드리프트를 사용 하는 데이터 미리 보기 탭을 보여 주는 스크린샷](media/data-flow/mapdrifted1.png "지도 데이터베이스가 드리프트")
 
 생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 하면 파생 열에 movieId가 정의 되 `toInteger(byName('movieId'))` 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
 
-![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "지도 데이터베이스가 드리프트")
+![파생 열의 설정 탭을 보여 주는 스크린샷](media/data-flow/mapdrifted2.png "지도 데이터베이스가 드리프트")
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 흐름 식 언어](data-flow-expression-functions.md)에서 열 패턴에 대 한 추가 기능 및 "byName" 및 "byPosition"를 포함 하는 스키마 드리프트를 찾을 수 있습니다.

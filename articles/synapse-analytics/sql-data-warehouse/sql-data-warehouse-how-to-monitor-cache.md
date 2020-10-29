@@ -11,12 +11,12 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211887"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026805"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
 
@@ -26,15 +26,15 @@ Gen2 스토리지 아키텍처는 Gen2 데이터 웨어하우스용으로 설계
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Azure Portal을 사용하여 문제 해결
 
-Azure Monitor를 사용하여 Gen2 캐시 메트릭을 보고 쿼리 성능 문제를 해결할 수 있습니다. 먼저 Azure Portal로 이동 하 여 **모니터**, **메트릭** 및 **+ 범위 선택**을 클릭 합니다.
+Azure Monitor를 사용하여 Gen2 캐시 메트릭을 보고 쿼리 성능 문제를 해결할 수 있습니다. 먼저 Azure Portal로 이동 하 여 **모니터** , **메트릭** 및 **+ 범위 선택** 을 클릭 합니다.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Azure Portal에서 메트릭에 선택 된 범위 선택을 보여 주는 스크린샷](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 검색 및 드롭다운 막대를 사용 하 여 데이터 웨어하우스를 찾습니다. 그런 다음 적용을 선택 합니다.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![데이터 웨어하우스를 선택할 수 있는 범위 선택 창을 보여 주는 스크린샷](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** 및 **캐시 사용 비율**입니다. **캐시 적중 비율** 을 선택한 다음 **메트릭 추가** 단추를 사용 하 여 **캐시 사용 백분율**을 추가 합니다. 
+Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** 및 **캐시 사용 비율** 입니다. **캐시 적중 비율** 을 선택한 다음 **메트릭 추가** 단추를 사용 하 여 **캐시 사용 백분율** 을 추가 합니다. 
 
 ![캐시 메트릭](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

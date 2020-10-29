@@ -14,41 +14,47 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b47ea3cc55be26521dfa6e2b3230b477f82f442
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377910"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026533"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
-Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 au (관리 단위)로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다.
+Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 1. [그래프 탐색기](https://aka.ms/ge)를 통해 다음 지침에서 쿼리를 실행 하려면 다음을 수행 합니다.
 
-    a. Azure Portal에서 Azure AD로 이동합니다. 응용 프로그램 목록에서 **그래프 탐색기**를 선택한 다음 **그래프 탐색기에 관리자 동의 부여를**선택 합니다.
+    a. Azure Portal에서 Azure AD로 이동합니다. 
+    
+    b. 응용 프로그램 목록에서 **그래프 탐색기** 를 선택 합니다.
+    
+    다. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
 
-    !["관리자 동의 허용"에 대 한 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
+    !["Graph explorer에 대 한 관리자 동의 부여" 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
 
 
 1. Azure AD PowerShell의 미리 보기 버전을 사용 합니다.
 
 ## <a name="add-an-administrative-unit"></a>관리 단위 추가
 
+Azure Portal 또는 PowerShell을 사용 하 여 관리 단위를 추가할 수 있습니다.
+
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. Azure Portal에서 Azure AD로 이동한 다음 왼쪽 창에서 **관리 단위**를 선택 합니다.
+1. Azure Portal에서 Azure AD로 이동합니다. 그런 다음 왼쪽 창에서 **관리 단위** 를 선택 합니다.
 
-    ![Azure AD의 관리 unitslink 스크린샷](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Azure AD의 "관리 단위" 링크 스크린샷](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. **추가** 를 선택 하 고 관리 단위의 이름을 입력 합니다. 필요에 따라 관리 단위에 대 한 설명을 추가 합니다.
+1. 창의 위쪽에 있는 **추가** 단추를 선택한 다음 **이름** 상자에 관리 단위의 이름을 입력 합니다. 필요에 따라 관리 단위에 대 한 설명을 추가 합니다.
 
-    ![추가 단추의 스크린샷 및 관리 단위의 이름을 입력 하는 텍스트 상자](./media/admin-units-manage/add-new-admin-unit.png)
+    ![추가 단추와 관리 단위의 이름을 입력 하기 위한 이름 상자를 보여 주는 스크린샷](./media/admin-units-manage/add-new-admin-unit.png)
 
-1. **추가** 를 선택 하 여 관리 단위를 마무리 합니다.
+1. 파란색 **추가** 단추를 선택 하 여 관리 단위를 마무리 합니다.
 
 ### <a name="use-powershell"></a>PowerShell 사용
 
@@ -79,9 +85,9 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요 하지 않은
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. Azure Portal에서 **Azure AD**  >  **관리 단위로**이동 합니다. 
-1. 삭제할 관리 단위를 선택 하 고 **삭제**를 선택 합니다. 
-1. 관리 단위 삭제를 확인 하려면 **예**를 선택 합니다. 관리 단위가 삭제 됩니다.
+1. Azure Portal에서 **AZURE AD** 로 이동한 다음 **관리 단위** 를 선택 합니다. 
+1. 삭제할 관리 단위를 선택 하 고 **삭제** 를 선택 합니다. 
+1. 관리 단위 삭제를 확인 하려면 **예** 를 선택 합니다. 관리 단위가 삭제 됩니다.
 
 ![관리 단위 삭제 단추 및 확인 창의 스크린샷](./media/admin-units-manage/select-admin-unit-to-delete.png)
 

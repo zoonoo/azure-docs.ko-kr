@@ -1,15 +1,15 @@
 ---
 title: Azure Policy 리소스 내보내기
 description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를 GitHub로 내보내는 방법을 알아봅니다.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777091"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025717"
 ---
 # <a name="export-azure-policy-resources"></a>Azure Policy 리소스 내보내기
 
@@ -17,37 +17,37 @@ ms.locfileid: "91777091"
 
 ## <a name="export-with-azure-portal"></a>Azure Portal로 내보내기
 
-Azure Portal에서 정책 정의를 내보내려면 다음 단계를 수행 합니다.
+Azure Portal에서 정책 정의를 내보내려면 다음 단계를 수행합니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스** 를 클릭한 후 **정책** 을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-1. Azure Policy 페이지의 왼쪽에서 **정의** 를 선택 합니다.
+1. Azure Policy 페이지의 왼쪽에서 **정의** 를 선택합니다.
 
-1. **정의 내보내기** 단추를 사용 하거나 정책 정의의 행에서 줄임표를 선택한 다음 **정의 내보내기**를 선택 합니다.
+1. **정의 내보내기** 단추를 사용하거나 정책 정의 행에서 줄임표를 선택한 다음, **정의 내보내기** 를 선택합니다.
 
-1. **GitHub를 사용 하 여 로그인** 단추를 선택 합니다. 아직 GitHub를 사용 하 여 리소스를 내보내도록 Azure Policy 권한을 부여 하지 않은 경우 열리는 새 창에서 [Github 작업](https://github.com/features/actions) 요구 사항에 액세스를 검토 하 고 **AzureGitHubActions 권한 부여** 를 선택 하 여 내보내기 프로세스를 계속 합니다. 완료 되 면 새 창이 자동으로 닫힙니다.
+1. **GitHub로 로그인** 단추를 선택합니다. 리소스를 내보내도록 Azure Policy에 권한을 부여하기 위해 아직 GitHub에 인증하지 않은 경우 새로 열리는 창에서 [GitHub 작업](https://github.com/features/actions)에 액세스를 검토하고 **AzureGitHubActions 권한 부여** 를 선택하여 내보내기 프로세스를 계속합니다. 완료되면 새 창이 자동으로 닫힙니다.
 
-1. **기본 사항** 탭에서 다음 옵션을 설정한 후 페이지 맨 아래에 있는 **정책** 탭 또는 **다음: 정책** 단추를 선택 합니다.
+1. **기본 사항** 탭에서 다음 옵션을 설정하고, 페이지 아래쪽에서 **정책** 탭 또는 **다음: 정책** 단추를 선택합니다.
 
-   - **리포지토리 필터**: _내 리포지토리로_ 설정 하 여 사용자가 소유한 리포지토리만 보거나 _모든 리포지토리_ 를 확인 하 여 GitHub 작업에 액세스 하도록 허용한 모든 리포지토리를 확인 합니다.
-   - **리포지토리**: Azure Policy 리소스를 내보낼 리포지토리로 설정 합니다.
-   - **분기**: 리포지토리에서 분기를 설정 합니다. 기본이 아닌 분기를 사용 하면 소스 코드에 추가 하기 전에 업데이트의 유효성을 검사 하는 좋은 방법입니다.
-   - **Directory**: Azure Policy 리소스를 내보낼 _루트 수준 폴더_ 입니다. 이 디렉터리 아래의 하위 폴더는 내보내는 리소스에 따라 만들어집니다.
+   - **리포지토리 필터** : 내 소유의 리포지토리만 보려면 _내 리포지토리_ 로 설정하고, GitHub 작업 액세스 권한을 부여한 모든 리포지토리를 보려면 _모든 리포지토리_ 로 설정합니다.
+   - **리포지토리** : Azure Policy 리소스를 내보낼 리포지토리로 설정합니다.
+   - **분기** : 리포지토리의 분기를 설정합니다. 기본 분기가 아닌 다른 분기를 사용하면 소스 코드에 추가로 병합하기 전에 업데이트의 유효성을 검사할 수 있습니다.
+   - **디렉터리** : Azure Policy 리소스를 내보낼 _루트 수준 폴더_ 입니다. 이 디렉터리의 하위 폴더는 내보낸 리소스에 따라 만들어집니다.
 
-1. **정책** 탭에서 줄임표를 선택 하 고 관리 그룹, 구독 또는 리소스 그룹의 조합을 선택 하 여 검색 범위를 설정 합니다.
+1. **정책** 탭에서 줄임표를 선택하고 관리 그룹, 구독 또는 리소스 그룹의 조합을 선택하여 검색 범위를 설정합니다.
    
-1. **정책 정의 추가** 단추를 사용 하 여 내보낼 개체 범위를 검색 합니다. 열리는 측 창에서 내보낼 각 개체를 선택 합니다. 검색 상자 또는 유형을 선택 하 여 선택 항목을 필터링 합니다. 내보낼 모든 개체를 선택 했으면 페이지 아래쪽의 **추가** 단추를 사용 합니다.
+1. **정책 정의 추가** 단추를 사용하여 내보낼 개체 범위를 검색합니다. 열리는 측면 창에서 내보낼 각 개체를 선택합니다. 검색 상자 또는 유형을 사용하여 선택 항목을 필터링합니다. 모든 개체를 내보내기로 선택한 경우 페이지 맨 아래에 있는 **추가** 단추를 사용합니다.
 
-1. 선택한 각 개체에 대해 정책 정의에 대 한 정의, _정의 및 할당_ _만_ 을 비롯 하 여 원하는 내보내기 옵션을 선택 합니다. 그런 다음 페이지 아래쪽의 검토 **+ 내보내기** 탭 또는 **다음: 검토 + 내보내기** 단추를 선택 합니다.
+1. 선택한 각 개체의 정책 정의에 대해 원하는 내보내기 옵션을 선택합니다(예: _정의만_ 또는 _정의 및 할당_ ). 그런 다음, **검토 + 내보내기** 탭을 선택하거나 페이지 맨 아래에서 **다음: 검토 + 내보내기** 단추를 선택합니다.
 
    > [!NOTE]
-   > 옵션 _정의와 할당_ 을 선택한 경우 정책 정의를 추가할 때 필터에 의해 설정 된 범위 내의 정책 할당만 내보내집니다.
+   > _정의 및 할당_ 옵션을 선택하면 정책 정의를 추가할 때 필터에 설정된 범위 내의 정책 할당만 내보내집니다.
 
-1. **검토 + 내보내기** 탭에서 세부 정보 일치를 확인 한 다음 페이지 맨 아래에 있는 **내보내기** 단추를 사용 합니다.
+1. **검토 + 내보내기** 탭에서 세부 정보가 일치하는지 확인한 다음, 페이지 맨 아래에 있는 **내보내기** 단추를 사용합니다.
 
-1. GitHub 리포지토리, 분기 및 _루트 수준 폴더_ 를 확인 하 여 선택한 리소스를 이제 원본 제어로 내보냈습니다.
+1. GitHub 리포지토리, 분기 및 _루트 수준 폴더_ 를 확인하여 선택한 리소스가 소스 제어로 내보내지고 있는지 살펴봅니다.
 
-Azure Policy 리소스를 선택한 GitHub 리포지토리 및 _루트 수준 폴더_내의 다음 구조로 내보냅니다.
+Azure Policy 리소스는 선택한 GitHub 리포지토리 및 _루트 수준 폴더_ 내부의 다음 구조로 내보내집니다.
 
 ```text
 |
@@ -67,7 +67,7 @@ Azure Policy 정의, 이니셔티브 및 할당을 [Azure CLI](/cli/azure/instal
 - 이니셔티브- [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
 - 할당- [az policy 할당 show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
-다음은 **이름이** _VirtualMachineStorage_인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
+다음은 **이름이** _VirtualMachineStorage_ 인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,10 +81,10 @@ Azure Policy 정의, 이니셔티브 및 할당을 [Azure PowerShell](/powershel
 - 이니셔티브- [AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - 할당- [AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-다음은 **이름이** _VirtualMachineStorage_인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
+다음은 **이름이** _VirtualMachineStorage_ 인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>다음 단계

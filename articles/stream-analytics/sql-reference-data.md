@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039299"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027409"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용
 
@@ -32,7 +32,7 @@ Azure Portal을 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 ### <a name="define-sql-database-reference-data-input"></a>SQL Database 참조 데이터 입력 정의
 
-1. Stream Analytics 작업의 **작업 토폴로지** 아래에서 **입력**을 선택합니다. **참조 입력 추가**를 클릭하고 **SQL Database**를 선택합니다.
+1. Stream Analytics 작업의 **작업 토폴로지** 아래에서 **입력** 을 선택합니다. **참조 입력 추가** 를 클릭하고 **SQL Database** 를 선택합니다.
 
    ![Stream Analytics 작업 입력](./media/sql-reference-data/stream-analytics-inputs.png)
 
@@ -44,7 +44,7 @@ Azure Portal을 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 ### <a name="specify-storage-account-in-job-config"></a>작업 구성에서 스토리지 계정 지정
 
-**구성** 아래의 **스토리지 계정 설정**으로 이동한 후 **스토리지 계정 추가**를 선택합니다.
+**구성** 아래의 **스토리지 계정 설정** 으로 이동한 후 **스토리지 계정 추가** 를 선택합니다.
 
    ![Stream Analytics 스토리지 계정 설정](./media/sql-reference-data/storage-account-settings.png)
 
@@ -79,17 +79,17 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="choose-your-subscription"></a>구독 선택
 
-1. Visual Studio의 **보기** 메뉴에서 **서버 탐색기**를 선택합니다.
+1. Visual Studio의 **보기** 메뉴에서 **서버 탐색기** 를 선택합니다.
 
-2. **Azure**를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure 구독에 연결**을 선택한 다음, Azure 계정으로 로그인합니다.
+2. **Azure** 를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure 구독에 연결** 을 선택한 다음, Azure 계정으로 로그인합니다.
 
 ### <a name="create-a-stream-analytics-project"></a>Stream Analytics 프로젝트 만들기
 
-1. **파일 > 새 프로젝트 만들기**를 선택합니다. 
+1. **파일 > 새 프로젝트 만들기** 를 선택합니다. 
 
-2. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음, **Azure Stream Analytics 애플리케이션**을 선택합니다. 
+2. 왼쪽의 템플릿 목록에서 **Stream Analytics** 를 선택한 다음, **Azure Stream Analytics 애플리케이션** 을 선택합니다. 
 
-3. 프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
+3. 프로젝트 **이름** , **위치** 및 **솔루션 이름** 을 입력하고, **확인** 을 선택합니다.
 
    ![Visual Studio의 새 Stream Analytics 프로젝트](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
@@ -99,33 +99,33 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Visual Studio의 새 Stream Analytics 입력](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. **솔루션 탐색기**에서 **Input.json**을 두 번 클릭합니다.
+2. **솔루션 탐색기** 에서 **Input.json** 을 두 번 클릭합니다.
 
-3. **Stream Analytics 입력 구성**을 입력합니다. 데이터베이스 이름, 서버 이름, 새로 고침 유형 및 새로 고침 빈도를 선택합니다. `DD:HH:MM` 형식으로 새로 고침 빈도를 지정합니다.
+3. **Stream Analytics 입력 구성** 을 입력합니다. 데이터베이스 이름, 서버 이름, 새로 고침 유형 및 새로 고침 빈도를 선택합니다. `DD:HH:MM` 형식으로 새로 고침 빈도를 지정합니다.
 
    ![Visual Studio의 Stream Analytics 입력 구성](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
-   "한 번만 실행" 또는 "주기적으로 실행"을 선택하면 **[입력 별칭].snapshot.sql**이라는 하나의 SQL CodeBehind 파일이 **Input.json** 파일 노드 아래의 프로젝트에 생성됩니다.
+   "한 번만 실행" 또는 "주기적으로 실행"을 선택하면 **[입력 별칭].snapshot.sql** 이라는 하나의 SQL CodeBehind 파일이 **Input.json** 파일 노드 아래의 프로젝트에 생성됩니다.
 
    ![Visual Studio의 입력 코드 숨김](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
-   "덱타로 주기적으로 새로 고침"을 선택하면 두 개의 SQL CodeBehind 파일 **[입력 별칭].snapshot.sql** 및 **[입력 별칭].delta.sql**이 생성됩니다.
+   "덱타로 주기적으로 새로 고침"을 선택하면 두 개의 SQL CodeBehind 파일 **[입력 별칭].snapshot.sql** 및 **[입력 별칭].delta.sql** 이 생성됩니다.
 
    ![솔루션 탐색기의 코드 숨김](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2019를 사용하며 SQL Server Data Tools를 설치한 경우 **실행**을 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결 하는 데 도움이 되는 마법사 창이 표시 되 고 맨 아래 창에 쿼리 결과가 표시 됩니다.
+5. Visual Studio 2019를 사용하며 SQL Server Data Tools를 설치한 경우 **실행** 을 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결 하는 데 도움이 되는 마법사 창이 표시 되 고 맨 아래 창에 쿼리 결과가 표시 됩니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
-**JobConfig.json**을 열어 SQL 참조 스냅샷을 저장하기 위한 스토리지 계정을 지정합니다.
+**JobConfig.json** 을 열어 SQL 참조 스냅샷을 저장하기 위한 스토리지 계정을 지정합니다.
 
    ![Visual Studio의 Stream Analytics 작업 구성](./media/sql-reference-data/stream-analytics-job-config.png)
 
 ### <a name="test-locally-and-deploy-to-azure"></a>로컬로 테스트하고 Azure에 배포
 
-작업을 Azure에 배포하기 전에 실시간 입력 데이터에 대해 로컬로 쿼리 논리를 테스트할 수 있습니다. 이 기능에 대한 자세한 내용은 [Azure Stream Analytics Tools for Visual Studio(미리 보기)를 사용하여 로컬로 라이브 데이터 테스트](stream-analytics-live-data-local-testing.md)를 참조하세요. 테스트가 완료되면 **Azure에 제출**을 클릭합니다. 작업 시작 방법을 알아보려면 [Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 만들기](stream-analytics-quick-create-vs.md) 빠른 시작을 참조하세요.
+작업을 Azure에 배포하기 전에 실시간 입력 데이터에 대해 로컬로 쿼리 논리를 테스트할 수 있습니다. 이 기능에 대한 자세한 내용은 [Azure Stream Analytics Tools for Visual Studio(미리 보기)를 사용하여 로컬로 라이브 데이터 테스트](stream-analytics-live-data-local-testing.md)를 참조하세요. 테스트가 완료되면 **Azure에 제출** 을 클릭합니다. 작업 시작 방법을 알아보려면 [Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 만들기](stream-analytics-quick-create-vs.md) 빠른 시작을 참조하세요.
 
 ## <a name="delta-query"></a>델타 쿼리
 
@@ -147,7 +147,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    ```
 2. 스냅샷 쿼리를 작성합니다. 
 
-   ** \@ SnapshotTime** 매개 변수를 사용 하 여 시스템 시간에 유효한 SQL Database temporal 테이블에서 참조 데이터 집합을 가져오도록 Stream Analytics 런타임에 지시 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
+   **\@ SnapshotTime** 매개 변수를 사용 하 여 시스템 시간에 유효한 SQL Database temporal 테이블에서 참조 데이터 집합을 가져오도록 Stream Analytics 런타임에 지시 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +156,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   이 쿼리는 시작 시간, ** \@ deltastarttime**및 종료 시간 ** \@ deltastarttime**내에서 삽입 되거나 삭제 된 SQL Database의 모든 행을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **\@deltaStartTime**과 **\@deltaEndTime** 사이에 삽입되었는지 또는 삭제되었는지 정의합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 또한 이 쿼리는 SQL Server 쪽에서 **워터마크**를 추가하여 델타 기간의 모든 업데이트가 적절하게 캡처되고 있는지 확인해야 합니다. **워터마크** 없이 델타 쿼리를 사용하면 잘못된 참조 데이터 세트가 사용될 수 있습니다.  
+   이 쿼리는 시작 시간, **\@ deltastarttime** 및 종료 시간 **\@ deltastarttime** 내에서 삽입 되거나 삭제 된 SQL Database의 모든 행을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **\@deltaStartTime** 과 **\@deltaEndTime** 사이에 삽입되었는지 또는 삭제되었는지 정의합니다. 결과 행에는 레코드가 삽입되면 **1** , 삭제되면 **2** 가 태그로 지정됩니다. 또한 이 쿼리는 SQL Server 쪽에서 **워터마크** 를 추가하여 델타 기간의 모든 업데이트가 적절하게 캡처되고 있는지 확인해야 합니다. **워터마크** 없이 델타 쿼리를 사용하면 잘못된 참조 데이터 세트가 사용될 수 있습니다.  
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
@@ -174,6 +174,35 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ## <a name="test-your-query"></a>쿼리 테스트
    쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 세트를 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음, SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되면 파일을 다운로드하고 반환되는 데이터가 예상대로 작동하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려면 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용하여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환하는지 확인한 다음, Stream Analytics 작업에서 해당 결과를 사용할 수 있습니다. 
+
+### <a name="test-your-query-with-visual-studio-code"></a>Visual Studio Code를 사용 하 여 쿼리 테스트
+
+   Visual Studio Code에 [Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) 및 [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) 을 설치 하 고, 사용자의 프로젝트를 설정 합니다. 자세한 내용은 [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) 및 [SQL Server (mssql) 확장 자습서](https://aka.ms/mssql-getting-started)를 참조 하세요.
+
+1. SQL 참조 데이터 입력을 구성 합니다.
+   
+   ![SQL 참조 데이터 입력 구성](./media/sql-reference-data/configure-sql-reference-data-input.png)
+
+2. SQL Server 아이콘을 선택 하 고 **연결 추가** 를 클릭 합니다.
+   
+   ![SQL Server 아이콘을 클릭 하 고 연결 추가를 클릭 합니다.](./media/sql-reference-data/add-sql-connection.png)
+
+3. 연결 정보를 입력 합니다.
+   
+   ![Visual Studio의 Stream Analytics 입력 구성](./media/sql-reference-data/fill-connection-information.png)
+
+4. 참조 SQL을 마우스 오른쪽 단추로 클릭 하 고 **쿼리 실행** 을 선택 합니다.
+   
+   ![Visual Studio의 Stream Analytics 입력 구성](./media/sql-reference-data/execute-query.png)
+
+5. 연결을 선택 합니다.
+   
+   ![Visual Studio의 Stream Analytics 입력 구성](./media/sql-reference-data/choose-connection.png)
+
+6. 쿼리 결과를 검토 하 고 확인 합니다.
+   
+   ![Visual Studio의 Stream Analytics 입력 구성](./media/sql-reference-data/verify-result.png)
+
 
 ## <a name="faqs"></a>FAQ
 

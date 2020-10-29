@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790270"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027706"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과를 설정 하 여 모의 데이터로 논리 앱 테스트
 
@@ -37,15 +37,15 @@ ms.locfileid: "74790270"
 
 1. 정적 결과를 설정 하려는 작업에서 다음 단계를 수행 합니다. 
 
-   1. 작업의 오른쪽 위 모서리에서 줄임표 (*...*) 단추를 선택 하 고 **정적 결과**를 선택 합니다. 예를 들면 다음과 같습니다.
+   1. 작업의 오른쪽 위 모서리에서 줄임표 ( *...* ) 단추를 선택 하 고 **정적 결과** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
       !["정적 결과" > "정적 결과 사용"을 선택 합니다.](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. **정적 결과 사용**을 선택 합니다. 필수 (*) 속성의 경우 작업의 응답에 대해 반환 하려는 모의 출력 값을 지정 합니다.
+   1. **정적 결과 사용** 을 선택 합니다. 필수 (*) 속성의 경우 작업의 응답에 대해 반환 하려는 모의 출력 값을 지정 합니다.
 
       예를 들어 HTTP 작업에 대 한 필수 속성은 다음과 같습니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **상태** | 반환할 작업의 상태입니다. |
       | **상태 코드** | 반환할 특정 상태 코드 |
@@ -60,7 +60,7 @@ ms.locfileid: "74790270"
 
       ![선택적 속성 선택](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. 저장할 준비가 되 면 **완료**를 선택 합니다.
+1. 저장할 준비가 되 면 **완료** 를 선택 합니다.
 
    작업의 오른쪽 위 모서리에서 제목 표시줄에는 테스트 반쯤 아이콘 ( ![ 정적 결과 아이콘 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) )이 표시 되며,이는 정적 결과를 사용 하도록 설정 되었음을 나타냅니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "74790270"
 
 1. 아직 [Azure Portal](https://portal.azure.com)하지 않은 경우 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱의 주 메뉴에서 **개요**를 선택 합니다.
+1. 논리 앱의 주 메뉴에서 **개요** 를 선택 합니다.
 
 1. **실행 기록** 섹션에서 원하는 논리 앱 실행을 선택 합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "74790270"
 
    ![JSON 모드](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. 모두 마쳤으면 **완료**를 선택합니다. 또는 디자이너로 돌아가려면 **편집기 모드 전환** ( ![ "편집기 모드 전환" 선택)을 선택 ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) 합니다.
+1. 모두 마쳤으면 **완료** 를 선택합니다. 또는 디자이너로 돌아가려면 **편집기 모드 전환** ( ![ "편집기 모드 전환" 선택)을 선택 ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) 합니다.
 
 <a name="find-runs-mock-data"></a>
 
@@ -110,15 +110,15 @@ ms.locfileid: "74790270"
 
 논리 앱의 실행 기록은 작업에서 정적 결과를 사용 하는 실행을 식별 합니다. 이러한 실행을 찾으려면 다음 단계를 수행 합니다.
 
-1. 논리 앱의 주 메뉴에서 **개요**를 선택 합니다. 
+1. 논리 앱의 주 메뉴에서 **개요** 를 선택 합니다. 
 
-1. 오른쪽 창의 **실행 기록**에서 **정적 결과** 열을 찾습니다. 
+1. 오른쪽 창의 **실행 기록** 에서 **정적 결과** 열을 찾습니다. 
 
-   결과를 포함 하는 모든 실행은 **정적 결과** 열을 **Enabled**로 설정 합니다. 예를 들면 다음과 같습니다.
+   결과를 포함 하는 모든 실행은 **정적 결과** 열을 **Enabled** 로 설정 합니다. 예를 들면 다음과 같습니다.
 
    ![실행 기록-정적 결과 열](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. 정적 결과를 사용 하는 작업을 보려면 **정적 결과** 열이 **사용**으로 설정 된 위치에서 실행을 선택 합니다.
+1. 정적 결과를 사용 하는 작업을 보려면 **정적 결과** 열이 **사용** 으로 설정 된 위치에서 실행을 선택 합니다.
 
    정적 결과를 사용 하는 작업에는 테스트 반쯤 ( ![ 정적 결과 아이콘 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ) 아이콘이 표시 됩니다. 예를 들면 다음과 같습니다.
 
@@ -130,11 +130,11 @@ ms.locfileid: "74790270"
 
 1. 정적 출력을 사용 하지 않도록 설정할 작업을 찾습니다. 작업의 오른쪽 위 모서리에서 테스트 반쯤 아이콘 ( ![ 정적 결과 아이콘)을 선택 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) 합니다.
 
-   ![정적 결과 사용 안 함](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![스크린샷 테스트 반쯤 아이콘을 선택할 수 있는 H T P 작업을 보여 줍니다.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. **정적 결과 사용 안 함**  >  **Done**을 선택 합니다.
+1. **정적 결과 사용 안 함**  >  **Done** 을 선택 합니다.
 
-   ![정적 결과 사용 안 함](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![선택할 수 있는 정적 결과 사용 안 함 옵션을 보여 주는 스크린샷](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>참조
 

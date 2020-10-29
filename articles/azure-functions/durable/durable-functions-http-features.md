@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4f84ccbddc6f5244ac8f4334b716d770e0ed4afc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328924"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027264"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -57,7 +57,7 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__.py**
+**__init__ .py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Retry-After: 10
 
 ### <a name="async-operation-tracking"></a>비동기 작업 추적
 
-앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. 이 패턴을 *폴링 소비자 패턴이*라고도 합니다. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
+앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. 이 패턴을 *폴링 소비자 패턴이* 라고도 합니다. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
 
 1. 클라이언트는 orchestrator 함수와 같은 장기 실행 프로세스를 시작 하기 위해 HTTP 요청을 발급 합니다.
 1. 대상 HTTP 트리거는 "statusQueryGetUri" 값을 가진 Location 헤더를 사용 하 여 HTTP 202 응답을 반환 합니다.
@@ -304,7 +304,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494740"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026448"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -29,12 +29,12 @@ _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모�
 이 설정이 아직 없는 경우 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)을 따라 만들 수 있습니다. 이 자습서에서는 모델 및 쌍을 사용 하 여 Azure Digital Twins 인스턴스를 설정 하 고, 연결 된 Azure [IoT Hub](../iot-hub/about-iot-hub.md)를 설정 하 고, 데이터 흐름을 전파 하는 여러 [azure 기능](../azure-functions/functions-overview.md) 을 설정 하는 방법을 안내 합니다.
 
 인스턴스를 설정 하는 경우이 문서의 뒷부분에서 다음 값이 필요 합니다. 이러한 값을 다시 수집 해야 하는 경우 아래 링크를 사용 하 여 지침을 따르세요.
-* Azure Digital Twins 인스턴스 **_호스트 이름_**([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure Event Hubs 연결 문자열 **_연결 문자열_** ([포털에서 찾기](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* Azure Digital Twins 인스턴스 **_호스트 이름_** ( [포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* Azure Event Hubs 연결 문자열 **_연결 문자열_** ( [포털에서 찾기](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 또한이 샘플에서는 장치 프로 비전 서비스를 사용 하 여 프로 비전을 포함 하는 **장치 시뮬레이터** 를 사용 합니다. 장치 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플 링크로 이동 하 고 제목 아래에서 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에서 샘플 프로젝트를 가져옵니다. 다운로드 한 폴더의 압축을 풉니다.
 
-장치 시뮬레이터는 **Node.js**버전 10.0. x 이상을 기반으로 합니다. [*개발 환경 준비*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 Node.js를 설치 하는 방법을 설명 합니다.
+장치 시뮬레이터는 **Node.js** 버전 10.0. x 이상을 기반으로 합니다. [*개발 환경 준비*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 Node.js를 설치 하는 방법을 설명 합니다.
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Azure Function 만들기
 
-다음에는 함수 앱 내에서 HTTP 요청 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다.
+다음에는 함수 앱 내에서 HTTP 요청 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ( [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다.
 
 이 함수는 [사용자 지정 할당 정책의](../iot-dps/how-to-use-custom-allocation-policies.md) 장치 프로 비전 서비스에서 새 장치를 프로 비전 하는 데 사용 됩니다. Azure 함수에서 HTTP 요청을 사용 하는 방법에 대 한 자세한 내용은 [*Azure Functions에 대 한 Azure http 요청 트리거*](../azure-functions/functions-bindings-http-webhook-trigger.md)를 참조 하세요.
 
@@ -233,7 +233,7 @@ namespace Samples.AdtIothub
 
 ### <a name="configure-your-function"></a>함수 구성
 
-다음으로 이전에 만든 Azure Digital Twins 인스턴스에 대 한 참조를 포함 하 여 함수 앱에서 환경 변수를 설정 해야 합니다. 종단 간 자습서 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md))를 사용한 경우 설정이 이미 구성 됩니다.
+다음으로 이전에 만든 Azure Digital Twins 인스턴스에 대 한 참조를 포함 하 여 함수 앱에서 환경 변수를 설정 해야 합니다. 종단 간 자습서 ( [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md))를 사용한 경우 설정이 이미 구성 됩니다.
 
 이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다.
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 종단 간 자습서에서 [*함수 앱에 대 한 사용 권한 할당*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) 섹션에 설명 된 대로 함수 앱에 대 한 권한 및 관리 id 역할 할당이 올바르게 구성 되어 있는지 확인 합니다.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>장치 프로 비전 등록 만들기
 
-다음으로 **사용자 지정 할당 함수**를 사용 하 여 장치 프로 비전 서비스에서 등록을 만들어야 합니다. 지침에 따라 사용자 지정 할당 정책에 대 한 장치 프로 비전 서비스 문서의 [*등록 만들기*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) 및 [*고유 장치 키 파생*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) 섹션에서이 작업을 수행 합니다.
+다음으로 **사용자 지정 할당 함수** 를 사용 하 여 장치 프로 비전 서비스에서 등록을 만들어야 합니다. 지침에 따라 사용자 지정 할당 정책에 대 한 장치 프로 비전 서비스 문서의 [*등록 만들기*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) 및 [*고유 장치 키 파생*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) 섹션에서이 작업을 수행 합니다.
 
-이 흐름을 진행 하는 동안 **허브에 장치를 할당 하는 방법을 선택**하는 단계에서 함수를 선택 하 여 방금 만든 함수에 등록을 연결 합니다. 등록을 만든 후에는 나중에 등록 이름과 기본 또는 보조 SAS 키를 사용 하 여이 문서에 대 한 장치 시뮬레이터를 구성 합니다.
+이 흐름을 진행 하는 동안 **허브에 장치를 할당 하는 방법을 선택** 하는 단계에서 함수를 선택 하 여 방금 만든 함수에 등록을 연결 합니다. 등록을 만든 후에는 나중에 등록 이름과 기본 또는 보조 SAS 키를 사용 하 여이 문서에 대 한 장치 시뮬레이터를 구성 합니다.
 
 ### <a name="set-up-the-device-simulator"></a>장치 시뮬레이터 설정
 
@@ -266,7 +259,7 @@ az functionapp config appsettings set --settings "AdtAppId=<Application (client)
 npm install
 ```
 
-다음으로 *, env 파일* 을 *.env*라는 새 파일에 복사 하 고 다음 설정을 입력 합니다.
+다음으로 *, env 파일* 을 *.env* 라는 새 파일에 복사 하 고 다음 설정을 입력 합니다.
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ Azure Digital Twins 인스턴스에서 발견 되는 장치의 쌍이 표시 되
 이제 IoT Hub 수명 주기 이벤트를 수신 하는 데 사용 되는 Azure [event hub](../event-hubs/event-hubs-about.md)를 만들어야 합니다. 
 
 다음 정보를 사용 하 여 [*이벤트 허브 만들기*](../event-hubs/event-hubs-create.md) 빠른 시작에 설명 된 단계를 진행 합니다.
-* 종단 간 자습서 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md))를 사용 하는 경우 종단 간 자습서에 대해 만든 리소스 그룹을 다시 사용할 수 있습니다.
-* 이벤트 허브의 이름을 *lifecycleevents*, 사용자가 선택한 다른 항목의 이름을 선택 하 고, 만든 네임 스페이스를 기억할 수 있습니다. 다음 섹션에서 수명 주기 함수를 설정 하 고 경로를 IoT Hub 때이를 사용 합니다.
+* 종단 간 자습서 ( [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md))를 사용 하는 경우 종단 간 자습서에 대해 만든 리소스 그룹을 다시 사용할 수 있습니다.
+* 이벤트 허브의 이름을 *lifecycleevents* , 사용자가 선택한 다른 항목의 이름을 선택 하 고, 만든 네임 스페이스를 기억할 수 있습니다. 다음 섹션에서 수명 주기 함수를 설정 하 고 경로를 IoT Hub 때이를 사용 합니다.
 
 ### <a name="create-an-azure-function"></a>Azure Function 만들기
 
-다음으로 함수 앱 내에서 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
+다음으로 함수 앱 내에서 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ( [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
 
-이벤트 허브의 이름을 *lifecycleevents*, 이벤트 허브 트리거를 이전 단계에서 만든 이벤트 허브에 연결 합니다. 다른 이벤트 허브 이름을 사용한 경우 아래의 트리거 이름에서 일치 하도록 변경 합니다.
+이벤트 허브의 이름을 *lifecycleevents* , 이벤트 허브 트리거를 이전 단계에서 만든 이벤트 허브에 연결 합니다. 다른 이벤트 허브 이름을 사용한 경우 아래의 트리거 이름에서 일치 하도록 변경 합니다.
 
 이 함수는 IoT Hub 장치 수명 주기 이벤트를 사용 하 여 기존 장치를 사용 중지 합니다. 수명 주기 이벤트에 대 한 자세한 내용은 [*IoT Hub 비 원격 분석 이벤트*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 참조 하세요. Azure 함수에서 Event Hubs를 사용 하는 방법에 대 한 자세한 내용은 [*Azure Functions에 대 한 azure Event Hubs 트리거*](../azure-functions/functions-bindings-event-hubs-trigger.md)를 참조 하세요.
 
-게시 된 함수 앱 내에서 *Event Hub 트리거*형식의 새 함수 클래스를 추가 하 고 아래 코드를 붙여넣습니다.
+게시 된 함수 앱 내에서 *Event Hub 트리거* 형식의 새 함수 클래스를 추가 하 고 아래 코드를 붙여넣습니다.
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ namespace Samples.AdtIothub
 
 ### <a name="configure-your-function"></a>함수 구성
 
-다음에는 앞서 만든 Azure Digital Twins 인스턴스와 이벤트 허브에 대 한 참조가 포함 된 함수 앱에서 환경 변수를 설정 해야 합니다. 종단 간 자습서 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md))를 사용 하는 경우 첫 번째 설정이 이미 구성 됩니다.
+다음에는 앞서 만든 Azure Digital Twins 인스턴스와 이벤트 허브에 대 한 참조가 포함 된 함수 앱에서 환경 변수를 설정 해야 합니다. 종단 간 자습서 ( [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md))를 사용 하는 경우 첫 번째 설정이 이미 구성 됩니다.
 
 이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다. [컴퓨터에](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: ACR 작업 개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488646"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027669"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -16,7 +16,7 @@ ms.locfileid: "89488646"
 
 ## <a name="what-is-acr-tasks"></a>ACR 작업이란?
 
-**ACR 작업**은 Azure Container Registry 내의 기능 모음입니다. Linux, Windows 및 ARM을 비롯 한 [플랫폼](#image-platforms) 에 대 한 클라우드 기반 컨테이너 이미지 빌드를 제공 하며 Docker 컨테이너에 대 한 [OS 및 프레임 워크 패치](#automate-os-and-framework-patching) 를 자동화할 수 있습니다. ACR 작업은 주문형 컨테이너 이미지 빌드를 사용 하 여 "내부 루프" 개발 주기를 클라우드로 확장할 뿐만 아니라 소스 코드 업데이트, 컨테이너의 기본 이미지 업데이트 또는 타이머에 의해 트리거되는 자동화 된 빌드도 가능 하 게 합니다. 예를 들어 기본 이미지 업데이트 트리거를 사용 하 여 OS 및 응용 프로그램 프레임 워크 패치 워크플로를 자동화 하 고, 변경할 수 없는 컨테이너의 원칙을 준수 하면서 보안 환경을 유지 관리할 수 있습니다.
+**ACR 작업** 은 Azure Container Registry 내의 기능 모음입니다. Linux, Windows 및 ARM을 비롯 한 [플랫폼](#image-platforms) 에 대 한 클라우드 기반 컨테이너 이미지 빌드를 제공 하며 Docker 컨테이너에 대 한 [OS 및 프레임 워크 패치](#automate-os-and-framework-patching) 를 자동화할 수 있습니다. ACR 작업은 주문형 컨테이너 이미지 빌드를 사용 하 여 "내부 루프" 개발 주기를 클라우드로 확장할 뿐만 아니라 소스 코드 업데이트, 컨테이너의 기본 이미지 업데이트 또는 타이머에 의해 트리거되는 자동화 된 빌드도 가능 하 게 합니다. 예를 들어 기본 이미지 업데이트 트리거를 사용 하 여 OS 및 응용 프로그램 프레임 워크 패치 워크플로를 자동화 하 고, 변경할 수 없는 컨테이너의 원칙을 준수 하면서 보안 환경을 유지 관리할 수 있습니다.
 
 ## <a name="task-scenarios"></a>작업 시나리오
 
@@ -59,7 +59,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 | 트리거 | 기본적으로 사용하도록 설정됨 |
 | ------- | ------------------ |
 | Commit | 예 |
-| 끌어오기 요청 | 아니요 |
+| 끌어오기 요청 | 예 |
 
 소스 코드 업데이트 트리거를 구성 하려면 공용 또는 개인 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 해야 합니다.
 
@@ -70,7 +70,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 
 ## <a name="automate-os-and-framework-patching"></a>OS 및 프레임워크 패치 자동화
 
-컨테이너 빌드 워크플로를 실제로 향상 시킬 수 있는 ACR 작업은 *기본 이미지*에 대 한 업데이트를 검색 하는 기능에서 제공 됩니다. 대부분의 컨테이너 이미지의 기능입니다. 기본 이미지는 하나 이상의 응용 프로그램 이미지의 기반이 되는 부모 이미지입니다. 일반적으로 기본 이미지에는 운영 체제 및 응용 프로그램 프레임 워크가 포함 되어 있습니다. 
+컨테이너 빌드 워크플로를 실제로 향상 시킬 수 있는 ACR 작업은 *기본 이미지* 에 대 한 업데이트를 검색 하는 기능에서 제공 됩니다. 대부분의 컨테이너 이미지의 기능입니다. 기본 이미지는 하나 이상의 응용 프로그램 이미지의 기반이 되는 부모 이미지입니다. 일반적으로 기본 이미지에는 운영 체제 및 응용 프로그램 프레임 워크가 포함 되어 있습니다. 
 
 응용 프로그램 이미지를 빌드할 때 기본 이미지에 대 한 종속성을 추적 하도록 ACR 작업을 설정할 수 있습니다. 업데이트 된 기본 이미지가 레지스트리에 푸시되는 경우 또는 Docker Hub와 같은 공용 리포지토리에서 기본 이미지가 업데이트 되는 경우 ACR 작업은이에 따라 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
 이 자동 검색 및 다시 빌드를 통해 ACR 작업에서 업데이트된 기본 이미지를 참조하는 각 애플리케이션 이미지를 빠짐없이 수동으로 추적하고 업데이트하는 데 필요한 시간과 노력을 절약할 수 있습니다.
@@ -102,7 +102,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 다음 표에서는 ACR 작업에 대해 지원 되는 컨텍스트 위치의 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |
@@ -138,10 +138,6 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 선택적으로 Azure 컨테이너 레지스트리와 작동할 [Visual Studio Code용 Docker 확장](https://code.visualstudio.com/docs/azure/docker)과 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 확장을 설정합니다. Visual Studio Code 내에서 Azure 컨테이너 레지스트리에 이미지를 밀어넣고 끌어오거나, ACR Tasks를 실행합니다.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

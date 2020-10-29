@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650896"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025836"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -23,15 +23,15 @@ ms.locfileid: "88650896"
 
 파이프라인을 실행할 때 Data Flow 작업을 비롯하여 파이프라인에 포함된 모든 작업과 파이프라인을 모니터링할 수 있습니다. 왼쪽 Azure Data Factory UI 패널에서 모니터 아이콘을 클릭합니다. 아래와 비슷한 화면이 표시됩니다. 강조 표시된 아이콘을 사용하면 Data Flow 작업을 비롯한 파이프라인의 작업을 드릴할 수 있습니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon001.png "Data Flow 모니터링")
+![자세한 내용은 파이프라인에 대해 선택할 수 있는 아이콘을 보여 줍니다.](media/data-flow/mon001.png "Data Flow 모니터링")
 
 실행 시간 및 상태를 포함하여 이 수준에서 통계를 볼 수 있습니다. 작업 수준의 실행 ID는 파이프라인 수준의 실행 ID와 다릅니다. 이전 수준의 실행 ID는 파이프라인의 실행 ID입니다. 안경 아이콘을 선택하면 데이터 흐름 실행에 대한 심층 정보가 제공됩니다.
 
-![데이터 흐름 모니터링](media/data-flow/monitoring-details.png "Data Flow 모니터링")
+![스크린샷 안경 아이콘을 표시 하 여 데이터 흐름 실행에 대 한 세부 정보를 볼 수 있습니다.](media/data-flow/monitoring-details.png "Data Flow 모니터링")
 
 그래픽 노드 모니터링 보기에서는 데이터 흐름 그래프의 간소화된 보기 전용 버전을 볼 수 있습니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon003.png "Data Flow 모니터링")
+![그래프의 뷰 전용 버전을 보여 주는 스크린샷](media/data-flow/mon003.png "Data Flow 모니터링")
 
 ADF 모니터링 화면에서 데이터 흐름의 성능 모니터링에 대한 비디오 개요는 다음과 같습니다.
 
@@ -41,7 +41,7 @@ ADF 모니터링 화면에서 데이터 흐름의 성능 모니터링에 대한 
 
 Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이터 흐름에 따라 최적 코드 경로를 결정합니다. 또한 실행 경로는 여러 스케일 아웃 노드 및 데이터 파티션에서 발생할 수 있습니다. 따라서 모니터링 그래프는 변환의 실행 경로를 고려하여 흐름의 디자인을 나타냅니다. 개별 노드를 선택하면 클러스터에서 함께 실행된 코드를 나타내는 “그룹화”를 볼 수 있습니다. 표시되는 타이밍 및 개수는 디자인의 개별 단계와는 반대로 해당 그룹을 나타냅니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon004.png "Data Flow 모니터링")
+![데이터 흐름에 대 한 페이지를 보여 주는 스크린샷](media/data-flow/mon004.png "Data Flow 모니터링")
 
 * 모니터링 창에서 열린 공간을 선택하면 맨 아래 창의 통계에 변환 계보에 대한 싱크 데이터가 발생한 변환과 각 싱크의 타이밍 및 행 개수가 표시됩니다.
 
@@ -56,7 +56,7 @@ Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이
   * 클러스터 시작 시간: 데이터 흐름 실행을 위해 JIT Spark 컴퓨팅 환경을 확보하는 데 걸리는 시간입니다.
   * 변환 수: 흐름에서 실행 중인 변환 단계의 수입니다.
   
-![데이터 흐름 모니터링](media/data-flow/monitornew.png "Data Flow 모니터링 새로 만들기")
+![스크린샷 새로 고침 옵션을 보여 줍니다.](media/data-flow/monitornew.png "Data Flow 모니터링 새로 만들기")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>총 싱크 처리 시간 및 변환 처리 시간
 
@@ -85,6 +85,6 @@ ADF 파이프라인 모니터링 보기의 데이터 흐름 작업에서 JSON �
 
 이 아이콘은 변환 데이터가 클러스터에 이미 캐시되어 타이밍 및 실행 경로에서 고려되었음을 의미합니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon005.png "Data Flow 모니터링")
+![스크린샷 디스크 아이콘을 표시 합니다.](media/data-flow/mon005.png "Data Flow 모니터링")
 
 변환에 녹색 원 아이콘도 표시됩니다. 이 아이콘은 데이터가 이동되는 싱크 수를 나타냅니다.

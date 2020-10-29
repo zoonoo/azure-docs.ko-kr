@@ -16,34 +16,34 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387271"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025853"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
 
 SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Single Sign-On)를 제공 하 고 응용 프로그램 프록시를 통해 이러한 응용 프로그램에 대 한 원격 액세스를 제공할 수 있습니다. SAML Single Sign-On를 사용 하 여 Azure Active Directory (Azure AD)는 사용자의 Azure AD 계정을 사용 하 여 응용 프로그램을 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. 사용자가 SAML 클레임에서 정의한 규칙에 따라 특정 응용 프로그램 역할에 사용자를 매핑할 수도 있습니다. 사용자는 SAML SSO 외에도 응용 프로그램 프록시를 사용 하도록 설정 하 여 응용 프로그램에 대 한 외부 액세스와 원활한 SSO 환경을 제공 합니다.
 
-응용 프로그램은 **Azure Active Directory**에서 발급 한 SAML 토큰을 사용할 수 있어야 합니다. 이 구성은 온-프레미스 id 공급자를 사용 하는 응용 프로그램에는 적용 되지 않습니다. 이러한 시나리오에서는 [응용 프로그램을 AZURE AD로 마이그레이션하기 위한 리소스](migration-resources.md)를 검토 하는 것이 좋습니다.
+응용 프로그램은 **Azure Active Directory** 에서 발급 한 SAML 토큰을 사용할 수 있어야 합니다. 이 구성은 온-프레미스 id 공급자를 사용 하는 응용 프로그램에는 적용 되지 않습니다. 이러한 시나리오에서는 [응용 프로그램을 AZURE AD로 마이그레이션하기 위한 리소스](migration-resources.md)를 검토 하는 것이 좋습니다.
 
 응용 프로그램 프록시를 사용 하는 SAML SSO는 SAML 토큰 암호화 기능 에서도 작동 합니다. 자세한 내용은 [AZURE AD SAML 토큰 암호화 구성](howto-saml-token-encryption.md)을 참조 하세요.
 
 아래 프로토콜 다이어그램은 서비스 공급자가 시작한 (SP에서 시작) 흐름과 id 공급자 시작 (IdP 시작) 흐름 모두에 대 한 Single Sign-On 시퀀스를 설명 합니다. 응용 프로그램 프록시는 온-프레미스 응용 프로그램에 대 한 SAML 요청 및 응답을 캐싱하여 SAML SSO와 작동 합니다.
 
-  ![SAML SP 흐름](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![S P 1의 응용 프로그램, 응용 프로그램 프록시, 클라이언트 및 Azure A D Single Sign-On의 상호 작용을 보여 주는 다이어그램입니다.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML SP 흐름](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![응용 프로그램, 응용 프로그램 프록시, 클라이언트 및 Azure A D의 상호 작용을 보여 주는 다이어그램에 대 한 자세한 내용은 Single Sign-On.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>응용 프로그램 만들기 및 SAML SSO 설정
 
-1. Azure Portal에서 **Azure Active Directory > Enterprise applications** 를 선택 하 고 **새 응용 프로그램**을 선택 합니다.
+1. Azure Portal에서 **Azure Active Directory > Enterprise applications** 를 선택 하 고 **새 응용 프로그램** 을 선택 합니다.
 
-2. 새 응용 프로그램의 표시 이름을 입력 하 고, **갤러리에서 찾을 수 없는 다른 응용 프로그램 통합**을 선택한 다음, **만들기**를 선택 합니다.
+2. 새 응용 프로그램의 표시 이름을 입력 하 고, **갤러리에서 찾을 수 없는 다른 응용 프로그램 통합** 을 선택한 다음, **만들기** 를 선택 합니다.
 
-3. 앱의 **개요** 페이지에서 **Single sign-on**을 선택 합니다.
+3. 앱의 **개요** 페이지에서 **Single sign-on** 을 선택 합니다.
 
 4. Single Sign-On 방법으로 **SAML** 을 선택 합니다.
 
@@ -52,13 +52,13 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 6. 응용 프로그램에 사용자를 한 명 이상 추가 하 고 테스트 계정에 응용 프로그램에 대 한 액세스 권한이 있는지 확인 합니다. 회사 네트워크에 연결 되어 있는 동안 테스트 계정을 사용 하 여 응용 프로그램에 Single Sign-On 있는지 확인 합니다. 
 
    > [!NOTE]
-   > 응용 프로그램 프록시를 설정한 후에는 다시 돌아와서 SAML **회신 URL**을 업데이트 합니다.
+   > 응용 프로그램 프록시를 설정한 후에는 다시 돌아와서 SAML **회신 URL** 을 업데이트 합니다.
 
 ## <a name="publish-the-on-premises-application-with-application-proxy"></a>응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램 게시
 
 온-프레미스 응용 프로그램에 대 한 SSO를 제공 하려면 먼저 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 설치 해야 합니다. 온-프레미스 환경을 준비 하 고, 커넥터를 설치 및 등록 하 고, 커넥터를 테스트 하는 방법에 대해 알아보려면 [AZURE AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md) 자습서를 참조 하세요. 그런 다음 응용 프로그램 프록시를 사용 하 여 새 응용 프로그램을 게시 하려면 다음 단계를 수행 합니다. 아래에 설명 되지 않은 다른 설정은 자습서의 [AZURE AD에 온-프레미스 앱 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) 섹션을 참조 하세요.
 
-1. 응용 프로그램이 Azure Portal에서 열려 있는 상태에서 **응용 프로그램 프록시**를 선택 합니다. 응용 프로그램에 대 한 **내부 URL** 을 제공 합니다. 사용자 지정 도메인을 사용 하는 경우에는 응용 프로그램에 대 한 TLS/SSL 인증서도 업로드 해야 합니다. 
+1. 응용 프로그램이 Azure Portal에서 열려 있는 상태에서 **응용 프로그램 프록시** 를 선택 합니다. 응용 프로그램에 대 한 **내부 URL** 을 제공 합니다. 사용자 지정 도메인을 사용 하는 경우에는 응용 프로그램에 대 한 TLS/SSL 인증서도 업로드 해야 합니다. 
    > [!NOTE]
    > 최적화 된 사용자 환경을 위해 가능한 한 사용자 지정 도메인을 사용 하는 것이 가장 좋습니다. [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)에 대해 자세히 알아보세요.
 
@@ -70,9 +70,9 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 
 ## <a name="update-the-saml-configuration"></a>SAML 구성 업데이트
 
-1. Azure Portal에서 응용 프로그램이 열려 있는 상태에서 **Single sign-on**을 선택 합니다. 
+1. Azure Portal에서 응용 프로그램이 열려 있는 상태에서 **Single sign-on** 을 선택 합니다. 
 
-2. **SAML을 사용 하 여 단일 Sign-On 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. 응용 프로그램 프록시에서 구성한 **외부 url** 이 **식별자**, **회신 url**및 **로그 아웃 url** 필드에 채워졌는지 확인 합니다. 이러한 Url은 응용 프로그램 프록시가 제대로 작동 하는 데 필요 합니다. 
+2. **SAML을 사용 하 여 단일 Sign-On 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. 응용 프로그램 프록시에서 구성한 **외부 url** 이 **식별자** , **회신 url** 및 **로그 아웃 url** 필드에 채워졌는지 확인 합니다. 이러한 Url은 응용 프로그램 프록시가 제대로 작동 하는 데 필요 합니다. 
 
 3. 응용 프로그램 프록시를 통해 인터넷에서 도메인에 연결할 수 있도록 이전에 구성 된 **회신 URL** 을 편집 합니다. 예를 들어 **외부 url** 이이 `https://contosotravel-f128.msappproxy.net` 고 원래 **회신 url** 이 인 경우 `https://contosotravel.com/acs` 원래 **회신 url** 을로 업데이트 해야 `https://contosotravel-f128.msappproxy.net/acs` 합니다.
 

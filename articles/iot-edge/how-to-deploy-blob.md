@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978869"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027638"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
 
@@ -34,13 +34,13 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 ### <a name="select-your-device"></a>디바이스 선택
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
-1. 메뉴에서 **IoT Edge**를 선택합니다.
+1. 메뉴에서 **IoT Edge** 를 선택합니다.
 1. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
-1. **모듈 설정**을 선택 합니다.
+1. **모듈 설정** 을 선택 합니다.
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
-배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로**및 **검토 + 만들기**의 세 단계로 구성 됩니다.
+배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈** , **경로** 및 **검토 + 만들기** 의 세 단계로 구성 됩니다.
 
 #### <a name="add-modules"></a>모듈 추가
 
@@ -50,19 +50,19 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    예제:
   
-   - **IoT Edge 모듈 이름**: `azureblobstorageoniotedge`
-   - **이미지 URI**: `mcr.microsoft.com/azure-blob-storage:latest`
+   - **IoT Edge 모듈 이름** : `azureblobstorageoniotedge`
+   - **이미지 URI** : `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![모듈 쌍 설정](./media/how-to-deploy-blob/addmodule-tab1.png)
+   ![스크린샷 추가 i/o T Edge 모듈 페이지의 모듈 설정 탭을 표시 합니다.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션**및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
+   이 절차에 설명 된 대로 **모듈 설정** , **컨테이너 만들기 옵션** 및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
 
    > [!IMPORTANT]
-   > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge**이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
+   > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge** 이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
 
 3. **컨테이너 만들기 옵션** 탭을 엽니다.
 
-   ![모듈 쌍 설정](./media/how-to-deploy-blob/addmodule-tab3.png)
+   ![스크린샷 추가 i/o T Edge 모듈 페이지의 컨테이너 만들기 옵션 탭을 표시 합니다.](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    저장소 계정 정보를 제공 하 고 장치에 저장소에 대 한 탑재를 제공 하려면 다음 JSON을 복사 하 여 입력란에 붙여 넣습니다.
   
@@ -91,10 +91,10 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. Blob 모듈이 데이터를 저장 하는 IoT Edge 장치의 기존 디렉터리에 대 한 절대 경로 또는 [볼륨](https://docs.docker.com/storage/volumes/) 의 이름을 제공 합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
 
-     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들면 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
@@ -104,7 +104,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 5. 모듈 쌍 **설정** 탭에서 다음 JSON을 복사 하 여 상자에 붙여넣습니다.
 
-   ![모듈 쌍 설정](./media/how-to-deploy-blob/addmodule-tab4.png)
+   ![스크린샷 추가 i/o T Edge 모듈 페이지의 모듈 쌍 설정 탭을 표시 합니다.](./media/how-to-deploy-blob/addmodule-tab4.png)
 
    자리 표시자로 표시 되는 적절 한 값을 사용 하 여 각 속성을 구성 합니다. IoT Edge 시뮬레이터를 사용 하는 경우 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceautodeleteproperties](how-to-store-data-blob.md#deviceautodeleteproperties)에서 설명한 대로 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다.
 
@@ -131,7 +131,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    모듈이 배포 된 후 deviceToCloudUploadProperties 및 deviceAutoDeleteProperties를 구성 하는 방법에 대 한 자세한 내용은 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)을 참조 하세요. Desired 속성에 대 한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)를 참조 하세요.
 
-6. **추가**를 선택합니다.
+6. **추가** 를 선택합니다.
 
 7. **다음:** 경로를 선택 하 여 경로 섹션으로 이동 합니다.
 
@@ -141,9 +141,9 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 #### <a name="review-deployment"></a>배포 검토
 
-검토 섹션에서는 이전 두 개의 섹션에서 선택한 항목에 따라 생성된 JSON 배포 매니페스트를 보여줍니다. 또한 **$edgeAgent** 및 **$edgeHub**를 추가 하지 않은 두 개의 모듈도 선언 됩니다. 이 두 개의 모듈은 [IoT Edge 런타임](iot-edge-runtime.md)을 구성하며 모든 배포에서 필수 기본값입니다.
+검토 섹션에서는 이전 두 개의 섹션에서 선택한 항목에 따라 생성된 JSON 배포 매니페스트를 보여줍니다. 또한 **$edgeAgent** 및 **$edgeHub** 를 추가 하지 않은 두 개의 모듈도 선언 됩니다. 이 두 개의 모듈은 [IoT Edge 런타임](iot-edge-runtime.md)을 구성하며 모든 배포에서 필수 기본값입니다.
 
-배포 정보를 검토 한 다음 **만들기**를 선택 합니다.
+배포 정보를 검토 한 다음 **만들기** 를 선택 합니다.
 
 ### <a name="verify-your-deployment"></a>배포 확인
 
@@ -158,7 +158,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 템플릿을 제공합니다. 다음 단계를 사용 하 여 blob storage 모듈이 있는 새 IoT Edge 솔루션을 만들고 배포 매니페스트를 구성 합니다.
 
-1. **뷰** > **명령 팔레트**를 선택합니다.
+1. **뷰** > **명령 팔레트** 를 선택합니다.
 
 1. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다.
 
@@ -169,14 +169,14 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
    | 필드 | 값 |
    | ----- | ----- |
    | 폴더 선택 | 개발 컴퓨터에서 Visual Studio Code 솔루션 파일을 만들 위치를 선택 합니다. |
-   | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
+   | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution** 을 적용합니다. |
    | 모듈 템플릿 선택 | **기존 모듈(전체 이미지 URL 입력)** 을 선택합니다. |
-   | 모듈 이름 제공 | **Azureblobstorageoniotedge**와 같이 모듈의 모두 소문자 이름을 입력 합니다.<br/><br/>IoT Edge 모듈에서 Azure Blob Storage에 사용할 이름은 반드시 소문자로 사용해야 합니다. IoT Edge는 모듈을 참조할 때 대/소문자를 구분하며 Storage SDK는 기본적으로 소문자로 설정됩니다. |
-   | 모듈의 Docker 이미지 제공 | 이미지 URI를 **mcr.microsoft.com/azure-blob-storage:latest**로 입력합니다. |
+   | 모듈 이름 제공 | **Azureblobstorageoniotedge** 와 같이 모듈의 모두 소문자 이름을 입력 합니다.<br/><br/>IoT Edge 모듈에서 Azure Blob Storage에 사용할 이름은 반드시 소문자로 사용해야 합니다. IoT Edge는 모듈을 참조할 때 대/소문자를 구분하며 Storage SDK는 기본적으로 소문자로 설정됩니다. |
+   | 모듈의 Docker 이미지 제공 | 이미지 URI를 **mcr.microsoft.com/azure-blob-storage:latest** 로 입력합니다. |
 
    Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음, 새 창에서 로드합니다. 솔루션 템플릿은 Blob Storage 모듈 이미지를 포함하는 배포 매니페스트 템플릿을 만들지만, 모듈의 만들기 옵션을 구성해야 합니다.
 
-1. 새 솔루션 작업 영역에서 *deployment.template.json*을 열고 **모듈** 섹션을 찾습니다. 다음 구성을 변경합니다.
+1. 새 솔루션 작업 영역에서 *deployment.template.json* 을 열고 **모듈** 섹션을 찾습니다. 다음 구성을 변경합니다.
 
    1. 이 배포에는 필요 하지 않으므로 **SimulatedTemperatureSensor** 모듈을 삭제 합니다.
 
@@ -203,10 +203,10 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.  
 
-     - Linux 컨테이너의 경우 형식은 ** \<your storage path or volume> /blobroot**입니다. 예를 들면 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 SMB 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)을 참조 하세요.
@@ -245,7 +245,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. *deployment.template.json* 파일을 저장합니다.
 
-1. **deployment.template.json**을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 배포 매니페스트 생성**을 선택합니다.
+1. **deployment.template.json** 을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 배포 매니페스트 생성** 을 선택합니다.
 
 1. Visual Studio Code은 *deployment.template.js* 에서 제공한 정보를 사용 하 고이를 사용 하 여 새 배포 매니페스트 파일을 만듭니다. 솔루션 작업 영역의 새 **config** 폴더에 배포 매니페스트가 만들어집니다. 이 파일이 생겼으면 [Visual Studio Code에서 Azure IoT Edge 모듈 배포](how-to-deploy-modules-vscode.md) 또는 [Azure CLI 2.0을 사용하여 Azure IoT Edge 모듈 배포](how-to-deploy-modules-cli.md)의 단계를 수행할 수 있습니다.
 
@@ -278,23 +278,23 @@ IoT Edge 모듈에 Azure Blob Storage의 여러 인스턴스를 배포 하려는
 
 1. 구성할 모듈이 있는 장치를 선택 합니다.
 
-1. **모듈 설정**을 선택 합니다.
+1. **모듈 설정** 을 선택 합니다.
 
 1. 페이지의 **IoT Edge 모듈** 섹션에서 blob storage 모듈을 선택 합니다.
 
 1. **업데이트 IoT Edge 모듈** 페이지에서 **환경 변수** 탭을 선택 합니다.
 
-1. 값에 대 한 `HTTPS_PROXY` **이름** 및 프록시 URL을 추가 **Value**합니다.
+1. 값에 대 한 `HTTPS_PROXY` **이름** 및 프록시 URL을 추가 **Value** 합니다.
 
-      ![환경 변수 HTTPS_PROXY 설정](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![지정 된 값을 입력할 수 있는 업데이트 I o T Edge 모듈 창이 스크린샷에 표시 됩니다.](./media/how-to-deploy-blob/https-proxy-config.png)
 
-1. **업데이트**를 클릭 한 후 **검토 + 만들기**를 클릭 합니다.
+1. **업데이트** 를 클릭 한 후 **검토 + 만들기** 를 클릭 합니다.
 
-1. 프록시가 배포 매니페스트의 모듈에 추가 되 고 **만들기**를 선택 합니다.
+1. 프록시가 배포 매니페스트의 모듈에 추가 되 고 **만들기** 를 선택 합니다.
 
 1. 장치 세부 정보 페이지에서 모듈을 선택 하 고 **IoT Edge 모듈 세부 정보** 페이지의 아래쪽 부분에서 **환경 변수** 탭을 선택 하 여 설정을 확인 합니다.
 
-      ![환경 변수 HTTPS_PROXY 설정](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![환경 변수 탭을 보여 주는 스크린샷](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## <a name="next-steps"></a>다음 단계
 

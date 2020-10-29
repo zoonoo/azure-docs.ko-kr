@@ -3,19 +3,19 @@ title: 프라이빗 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d5193efc1b1def2dc51411630ab6a2305d369cf4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148482"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026125"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
 
 
 [Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 가상 네트워크 개인 IP 주소를 레지스트리 끝점에 할당 하 여 레지스트리에 대 한 액세스를 제한 합니다. 가상 네트워크의 클라이언트와 레지스트리의 개인 끝점 간의 네트워크 트래픽은 Microsoft 백본 네트워크에서 가상 네트워크와 개인 링크를 순회 하 여 공용 인터넷의 노출을 제거 합니다. 또한 개인 링크를 통해 [Azure express](../expressroute/expressroute-introduction.MD) 경로 개인 피어 링 또는 [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 온-프레미스에서 개인 레지스트리 액세스를 사용할 수 있습니다.
 
-레지스트리의 전용 끝점에 대 한 [DNS 설정을 구성할](../private-link/private-endpoint-overview.md#dns-configuration) 수 있습니다. 그러면 설정이 레지스트리의 할당 된 개인 IP 주소로 확인 됩니다. DNS 구성을 사용하는 경우, 네트워크의 클라이언트 및 서비스는 *myregistry.azurecr.io*와 같은 레지스트리의 정규화된 도메인 이름(FQDN)에서 레지스트리에 계속 액세스할 수 있습니다. 
+레지스트리의 전용 끝점에 대 한 [DNS 설정을 구성할](../private-link/private-endpoint-overview.md#dns-configuration) 수 있습니다. 그러면 설정이 레지스트리의 할당 된 개인 IP 주소로 확인 됩니다. DNS 구성을 사용하는 경우, 네트워크의 클라이언트 및 서비스는 *myregistry.azurecr.io* 와 같은 레지스트리의 정규화된 도메인 이름(FQDN)에서 레지스트리에 계속 액세스할 수 있습니다. 
 
 이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 현재 레지스트리에 대해 최대 10 개의 개인 끝점을 설정할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "92148482"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 문서에서 Azure CLI 단계를 사용하려면 Azure CLI 버전 2.6.0 이상이 권장됩니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요. 또는 [Azure Cloud Shell](../cloud-shell/quickstart.md)에서 실행합니다.
-* 컨테이너 레지스트리가 아직 없는 경우, 하나(프리미엄 계층 필요)를 만들고 Docker Hub의 `hello-world`와 같은 샘플 이미지 [가져옵니다](container-registry-import-images.md). 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli]를 사용하여 레지스트리를 만듭니다.
+* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 계층 필요)를 만들고 Microsoft Container Registry에서와 같은 샘플 공용 이미지를 [가져옵니다](container-registry-import-images.md) `mcr.microsoft.com/hello-world` . 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli]를 사용하여 레지스트리를 만듭니다.
 * 다른 Azure 구독의 프라이빗 링크를 사용하여 레지스트리 액세스를 구성하려면 해당 구독에 Azure Container Registry에 대한 리소스 공급자를 등록해야 합니다. 다음은 그 예입니다.
 
   ```azurecli
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 가상 네트워크 및 서브넷의 이름이 아직 없다면 프라이빗 링크를 설정하기 위해 필요합니다. 이 예제에서는 VM에 대해 동일한 서브넷을 사용하며 레지스트리의 프라이빗 엔드포인트를 사용합니다. 그러나 많은 시나리오에서는 별도의 서브넷에서 엔드포인트를 설정합니다. 
 
-VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에서 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM*으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET*으로 설정되며 서브넷 이름은 *myDockerVMSubnet*으로 지정됩니다. [az network vnet list][az-network-vnet-list] 명령을 실행하여 환경 변수에서 이러한 값들을 다음과 같이 설정합니다.
+VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에서 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM* 으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET* 으로 설정되며 서브넷 이름은 *myDockerVMSubnet* 으로 지정됩니다. [az network vnet list][az-network-vnet-list] 명령을 실행하여 환경 변수에서 이러한 값들을 다음과 같이 설정합니다.
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -81,7 +81,7 @@ az network vnet subnet update \
 
 개인 Azure container registry 도메인에 대 한 [개인 DNS 영역](../dns/private-dns-privatednszone.md) 을 만듭니다. 이후 단계에서는 이 DNS 영역에서 레지스트리 도메인에 대한 DNS 레코드를 만듭니다.
 
-프라이빗 영역을 사용하여 Azure Container Registry에 대한 기본 DNS 확인을 재정의하려면 영역 이름을 **privatelink.azurecr.io**로 지정해야 합니다. 다음과 같은 [az network private-dns zone create][az-network-private-dns-zone-create] 명령을 실행하여 프라이빗 영역을 만듭니다.
+프라이빗 영역을 사용하여 Azure Container Registry에 대한 기본 DNS 확인을 재정의하려면 영역 이름을 **privatelink.azurecr.io** 로 지정해야 합니다. 다음과 같은 [az network private-dns zone create][az-network-private-dns-zone-create] 명령을 실행하여 프라이빗 영역을 만듭니다.
 
 ```azurecli
 az network private-dns zone create \
@@ -91,7 +91,7 @@ az network private-dns zone create \
 
 ### <a name="create-an-association-link"></a>연결 링크 만들기
 
-[az network private-dns link vnet create][az-network-private-dns-link-vnet-create]를 실행하여 프라이빗 영역을 가상 네트워크와 연결합니다. 이 예제에서는 *myDNSLink*라는 링크를 만듭니다.
+[az network private-dns link vnet create][az-network-private-dns-link-vnet-create]를 실행하여 프라이빗 영역을 가상 네트워크와 연결합니다. 이 예제에서는 *myDNSLink* 라는 링크를 만듭니다.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -113,7 +113,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
 
 [az network private-endpoint create][az-network-private-endpoint-create] 명령을 실행하여 레지스트리의 프라이빗 엔드포인트를 만듭니다.
 
-다음 예제에서는 엔드포인트 *myPrivateEndpoint*와 서비스 연결 *myConnection*을 만듭니다. 엔드포인트에 대한 컨테이너 레지스트리 리소스를 지정하려면 다음과 같이 `--group-ids registry`를 전달합니다.
+다음 예제에서는 엔드포인트 *myPrivateEndpoint* 와 서비스 연결 *myConnection* 을 만듭니다. 엔드포인트에 대한 컨테이너 레지스트리 리소스를 지정하려면 다음과 같이 `--group-ids registry`를 전달합니다.
 
 ```azurecli
 az network private-endpoint create \
@@ -159,7 +159,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>프라이빗 영역에서 DNS 레코드 만들기
 
-다음 명령을 실행하면 레지스트리 엔드포인트와 그 데이터 엔드포인트에 대한 DNS 레코드가 프라이빗 영역에 생성됩니다. 예를 들어 *westeurope* 지역에 *myregistry*라는 이름의 레지스트리가 있다면 엔드포인트 이름은 `myregistry.azurecr.io` 및 `myregistry.westeurope.data.azurecr.io`입니다. 
+다음 명령을 실행하면 레지스트리 엔드포인트와 그 데이터 엔드포인트에 대한 DNS 레코드가 프라이빗 영역에 생성됩니다. 예를 들어 *westeurope* 지역에 *myregistry* 라는 이름의 레지스트리가 있다면 엔드포인트 이름은 `myregistry.azurecr.io` 및 `myregistry.westeurope.data.azurecr.io`입니다. 
 
 > [!NOTE]
 > 레지스트리가 [지역에서 복제](container-registry-geo-replication.md)된 경우, 각 복제본의 데이터 엔드포인트 IP에 대해 DNS 레코드를 추가로 만듭니다.
@@ -204,9 +204,9 @@ az network private-dns record-set a add-record \
 
 ### <a name="create-a-private-endpoint---new-registry"></a>프라이빗 엔드포인트 만들기 - 새 레지스트리
 
-1. 포털에서 레지스트리를 만들 때 **기본** 탭의 **SKU**에서 **프리미엄**을 선택합니다.
+1. 포털에서 레지스트리를 만들 때 **기본** 탭의 **SKU** 에서 **프리미엄** 을 선택합니다.
 1. **네트워킹** 탭을 선택합니다.
-1. **네트워크 연결**에서 **프라이빗 엔드포인트** >  **+ 추가**를 선택합니다.
+1. **네트워크 연결** 에서 **프라이빗 엔드포인트** >  **+ 추가** 를 선택합니다.
 1. 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -214,23 +214,23 @@ az network private-dns record-set a add-record \
     | Subscription | 구독을 선택합니다. |
     | Resource group | 기존 그룹의 이름을 입력하거나 새 그룹을 만듭니다.|
     | 속성 | 고유한 이름을 입력합니다. |
-    | 하위 리소스 |**레지스트리**를 선택합니다.|
+    | 하위 리소스 |**레지스트리** 를 선택합니다.|
     | **네트워킹** | |
-    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET*)를 선택합니다. |
-    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet*)을 선택합니다. |
+    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET* )를 선택합니다. |
+    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet* )을 선택합니다. |
     |**프라이빗 DNS 통합**||
-    |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
-    |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io*를 선택합니다. |
+    |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. |
+    |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io* 를 선택합니다. |
     |||
-1. 나머지 레지스트리 설정을 구성한 다음, **검토 + 만들기**를 선택합니다.
+1. 나머지 레지스트리 설정을 구성한 다음, **검토 + 만들기** 를 선택합니다.
 
   ![프라이빗 엔드포인트를 사용하여 레지스트리 만들기](./media/container-registry-private-link/private-link-create-portal.png)
 
 ### <a name="create-a-private-endpoint---existing-registry"></a>프라이빗 엔드포인트 만들기 - 기존 레지스트리
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **설정**에서 **네트워킹**을 선택합니다.
-1. **프라이빗 엔드포인트** 탭에서 **+ 프라이빗 엔드포인트**를 선택합니다.
+1. **설정** 에서 **네트워킹** 을 선택합니다.
+1. **프라이빗 엔드포인트** 탭에서 **+ 프라이빗 엔드포인트** 를 선택합니다.
 1. **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -242,36 +242,36 @@ az network private-dns record-set a add-record \
     | 속성 | 이름을 입력합니다. |
     |지역|지역을 선택합니다.|
     |||
-5. 완료되면 **다음: 리소스**를 선택합니다.
+5. 완료되면 **다음: 리소스** 를 선택합니다.
 6. 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    |연결 방법  | **내 디렉터리의 Azure 리소스에 연결**을 선택합니다.|
+    |연결 방법  | **내 디렉터리의 Azure 리소스에 연결** 을 선택합니다.|
     | Subscription| 구독을 선택합니다. |
-    | 리소스 유형 | **Microsoft.ContainerRegistry/registries**를 선택합니다. |
+    | 리소스 유형 | **Microsoft.ContainerRegistry/registries** 를 선택합니다. |
     | 리소스 |레지스트리의 이름을 선택|
-    |대상 하위 리소스 |**레지스트리**를 선택합니다.|
+    |대상 하위 리소스 |**레지스트리** 를 선택합니다.|
     |||
-7. 완료되면 **다음: 구성**을 선택합니다.
+7. 완료되면 **다음: 구성** 을 선택합니다.
 8. 다음과 같이 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     |**네트워킹**| |
-    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET*)를 선택합니다. |
-    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet*)을 선택합니다. |
+    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET* )를 선택합니다. |
+    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet* )을 선택합니다. |
     |**프라이빗 DNS 통합**||
-    |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
-    |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io*를 선택합니다. |
+    |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. |
+    |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io* 를 선택합니다. |
     |||
 
-1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
-2. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
+2. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
 프라이빗 엔드포인트를 만든 후 프라이빗 영역의 DNS 설정은 포털의 **프라이빗 엔드포인트** 페이지에 다음과 같이 표시됩니다.
 
-1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹**을 선택합니다.
+1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹** 을 선택합니다.
 1. 사용자가 만든 프라이빗 엔드포인트를 **프라이빗 엔드포인트** 탭에서 선택합니다.
 1. **개요** 페이지에서 링크 설정 및 사용자 지정 DNS 설정을 검토합니다.
 
@@ -297,8 +297,8 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 ### <a name="disable-public-access---portal"></a>공용 액세스 사용 안 함 - 포털
 
-1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹**을 선택합니다.
-1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용**에서 **사용 안 함**을 선택합니다. 그런 다음 **저장**을 선택합니다.
+1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹** 을 선택합니다.
+1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용** 에서 **사용 안 함** 을 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
 ## <a name="validate-private-link-connection"></a>프라이빗 링크 연결 유효성 검사
 
@@ -381,7 +381,7 @@ az acr private-endpoint-connection list \
 
 이 문서에 표시 된 것 처럼 레지스트리에 개인 끝점 연결을 추가 하는 경우 레지스트리에 `privatelink.azurecr.io` 대 한 영역 및 레지스트리가 [복제](container-registry-geo-replication.md)된 지역에서 해당 데이터 끝점에 DNS 레코드를 만듭니다. 
 
-나중에 새 복제본을 추가하는 경우, 해당 지역에서 데이터 엔드포인트에 대한 새 영역 레코드를 수동으로 추가해야 합니다. 예를 들어 *northeurope* 위치에서 *myregistry*의 복제본을 만드는 경우, `myregistry.northeurope.data.azurecr.io`에 대한 영역 레코드를 추가합니다. 단계에 관한 설명은 이 문서의 [프라이빗 영역에서 DNS 레코드 만들기](#create-dns-records-in-the-private-zone)를 참조하세요.
+나중에 새 복제본을 추가하는 경우, 해당 지역에서 데이터 엔드포인트에 대한 새 영역 레코드를 수동으로 추가해야 합니다. 예를 들어 *northeurope* 위치에서 *myregistry* 의 복제본을 만드는 경우, `myregistry.northeurope.data.azurecr.io`에 대한 영역 레코드를 추가합니다. 단계에 관한 설명은 이 문서의 [프라이빗 영역에서 DNS 레코드 만들기](#create-dns-records-in-the-private-zone)를 참조하세요.
 
 ## <a name="dns-configuration-options"></a>DNS 구성 옵션
 
@@ -397,7 +397,7 @@ az acr private-endpoint-connection list \
 az group delete --name $RESOURCE_GROUP
 ```
 
-포털에서 리소스를 정리하려면 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제**를 클릭하여 리소스 그룹 및 이 그룹에 저장된 리소스를 제거합니다.
+포털에서 리소스를 정리하려면 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제** 를 클릭하여 리소스 그룹 및 이 그룹에 저장된 리소스를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

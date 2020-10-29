@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913775"
+ms.locfileid: "93026142"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -306,7 +306,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="next-steps"></a>다음 단계
 
 Api를 사용 하 여 Azure Digital Twins 인스턴스 및 인증을 설정 하는 방법을 참조 하세요.
-* [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)
+* [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)
 
 또는이 방법에 사용 되는 것과 같은 클라이언트 앱을 만드는 단계를 안내 합니다.
 * [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)

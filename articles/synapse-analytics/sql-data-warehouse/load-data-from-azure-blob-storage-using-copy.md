@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371527"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025938"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
@@ -48,11 +48,11 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 다음 단계를 따라 빈 데이터베이스를 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
 2. **새로 만들기** 페이지에서 **데이터베이스** 를 선택 하 고 **새** 페이지의 **추천** 에서 **Azure Synapse Analytics** 를 선택 합니다.
 
-    ![데이터 웨어하우스 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![Azure Portal의 데이터베이스에서 선택한 SQL Data Warehouse을 보여 주는 스크린샷](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. 다음 정보로 양식을 작성합니다.
 
@@ -63,9 +63,9 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
    | **리소스 그룹** | myResourceGroup       | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
    | **원본 선택**  | 빈 데이터베이스        | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. |
 
-    ![데이터 웨어하우스 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![스크린샷에는 이러한 값을 입력할 수 있는 SQL Data Warehouse 창이 표시 됩니다.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. 새 데이터베이스에 대한 새 서버를 만들고 구성하려면 **서버**를 선택합니다. 다음 정보로 **새 서버 폼**을 작성합니다.
+4. 새 데이터베이스에 대한 새 서버를 만들고 구성하려면 **서버** 를 선택합니다. 다음 정보로 **새 서버 폼** 을 작성합니다.
 
     | 설정                | 제안 값          | Description                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
@@ -76,20 +76,20 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
     ![서버 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. **선택**을 선택합니다.
+5. **선택** 을 선택합니다.
 
 6. **성능 수준** 을 선택 하 여 데이터 웨어하우스의 Gen1 또는 Gen2를 지정 하 고 데이터 웨어하우스 단위 수를 지정 합니다.
 
-7. 이 자습서에서는 SQL 풀 **Gen2**를 선택 합니다. 슬라이더는 기본적으로 **DW1000c** 로 설정 됩니다.  위아래로 이동하면서 작동 방식을 확인하세요.
+7. 이 자습서에서는 SQL 풀 **Gen2** 를 선택 합니다. 슬라이더는 기본적으로 **DW1000c** 로 설정 됩니다.  위아래로 이동하면서 작동 방식을 확인하세요.
 
     ![성능 구성](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 9. 프로 비전 블레이드에서 빈 데이터베이스의 **데이터 정렬을** 선택 합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
 
 10. 양식을 완료 했으므로 **만들기** 를 선택 하 여 데이터베이스를 프로 비전 합니다. 프로비전하는 데 몇 분이 걸립니다.
 
-11. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
+11. 도구 모음에서 **알림** 을 선택하여 배포 프로세스를 모니터링합니다.
   
      ![진행 중인 배포와 함께 알림 창이 열려 있는 Azure Portal 스크린 샷에 표시 됩니다.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -100,7 +100,7 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 > [!NOTE]
 > Azure Synapse Analytics는 1433 포트를 통해 통신 합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 
-1. 배포가 완료 되 면 왼쪽 메뉴에서 **sql 데이터베이스** 를 선택한 다음 **sql 데이터베이스** 페이지에서 **mySampleDatabase** 를 선택 합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다.
+1. 배포가 완료 되 면 왼쪽 메뉴에서 **sql 데이터베이스** 를 선택한 다음 **sql 데이터베이스** 페이지에서 **mySampleDatabase** 를 선택 합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net** )을 표시하고 추가 구성을 위한 옵션을 제공합니다.
 
 2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 다음 서버 이름을 선택 하 여 서버 설정을 엽니다.
 
@@ -110,13 +110,13 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
     ![서버 설정](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-4. **방화벽 설정 표시**를 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
+4. **방화벽 설정 표시** 를 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
     ![서버 방화벽 규칙](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-5. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+5. 도구 모음에서 **클라이언트 IP 추가** 를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-6. **저장**을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+6. **저장** 을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 7. **확인** 을 선택한 다음 **방화벽 설정** 페이지를 닫습니다.
 
@@ -131,7 +131,7 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **Azure Synapse analytics** 를 선택 하 고 **azure Synapse analytics** 페이지에서 데이터베이스를 선택 합니다.
-3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다.
+3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름** 을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다.
 
     ![연결 정보](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -146,16 +146,16 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
     | 설정        | 제안 값                            | Description                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | 서버 유형    | 데이터베이스 엔진                            | 이 값은 필수입니다.                                       |
-    | 서버 이름    | 정규화된 서버 이름            | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
+    | 서버 이름    | 정규화된 서버 이름            | 이름은 **mynewserver-20180430.database.windows.net** 과 비슷해야 합니다. |
     | 인증 | SQL Server 인증                  | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
     | 로그인          | 서버 관리자 계정                   | 서버를 만들 때 지정한 계정입니다. |
     | 암호       | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
     ![서버에 연결](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. **연결**을 선택합니다. SSMS에서 개체 탐색기 창이 열립니다.
+3. **연결** 을 선택합니다. SSMS에서 개체 탐색기 창이 열립니다.
 
-4. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
+4. 개체 탐색기에서 **데이터베이스** 를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master** 를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase** 를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
     ![데이터베이스 개체](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
 
@@ -165,9 +165,9 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
-현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC20**이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다.
+현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC20** 이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다.
 
-1. SSMS에서 **master** 를 마우스 오른쪽 단추로 선택 하 여 드롭다운 메뉴를 표시 하 고 **새 쿼리**를 선택 합니다. 새 쿼리 창이 열립니다.
+1. SSMS에서 **master** 를 마우스 오른쪽 단추로 선택 하 여 드롭다운 메뉴를 표시 하 고 **새 쿼리** 를 선택 합니다. 새 쿼리 창이 열립니다.
 
     ![master에서의 새 쿼리](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -178,9 +178,9 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. **실행**을 선택합니다.
+3. **실행** 을 선택합니다.
 
-4. 마우스 오른쪽 단추로 **mySampleDataWarehouse**를 클릭하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.  
+4. 마우스 오른쪽 단추로 **mySampleDataWarehouse** 를 클릭하고 **새 쿼리** 를 선택합니다. 새 쿼리 창이 열립니다.  
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
@@ -192,19 +192,19 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. **실행**을 선택합니다.
+6. **실행** 을 선택합니다.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>로드 사용자 권한으로 서버에 연결
 
 로드 데이터에 대한 첫 번째 단계는 LoaderRC20으로 로그인하는 것입니다.  
 
-1. 개체 탐색기에서 **연결** 드롭다운 메뉴를 선택 하 고 **데이터베이스 엔진**를 선택 합니다. **서버에 연결** 대화 상자가 표시됩니다.
+1. 개체 탐색기에서 **연결** 드롭다운 메뉴를 선택 하 고 **데이터베이스 엔진** 를 선택 합니다. **서버에 연결** 대화 상자가 표시됩니다.
 
     ![새 로그인으로 연결](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. 정규화된 서버 이름을 입력하고, 로그인으로 **LoaderRC20**을 입력합니다.  LoaderRC20에 대한 암호를 입력합니다.
+2. 정규화된 서버 이름을 입력하고, 로그인으로 **LoaderRC20** 을 입력합니다.  LoaderRC20에 대한 암호를 입력합니다.
 
-3. **연결**을 선택합니다.
+3. **연결** 을 선택합니다.
 
 4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 한 연결은 ServerAdmin을 통한 연결이고 또 다른 연결은 MedRCLogin을 통한 연결입니다.
 
@@ -216,7 +216,7 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 다음 SQL 스크립트를 실행 하 고 로드 하려는 데이터에 대 한 정보를 지정 합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다.
 
-1. 이전 섹션에서는 LoaderRC20 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS에서 LoaderRC20 연결을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다.
+1. 이전 섹션에서는 LoaderRC20 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS에서 LoaderRC20 연결을 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.  새 쿼리 창이 표시됩니다.
 
     ![새 로드 쿼리 창](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
@@ -505,13 +505,13 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
     ![리소스 정리](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 선택합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 다시 시작하려면 **시작**을 선택합니다.
+2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 선택합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 다시 시작하려면 **시작** 을 선택합니다.
 
-3. 계산 또는 저장소에 대 한 요금이 청구 되지 않도록 데이터 웨어하우스를 제거 하려면 **삭제**를 선택 합니다.
+3. 계산 또는 저장소에 대 한 요금이 청구 되지 않도록 데이터 웨어하우스를 제거 하려면 **삭제** 를 선택 합니다.
 
-4. 만든 서버를 제거 하려면 이전 이미지에서 **mynewserver-20180430.database.windows.net** 를 선택 하 고 **삭제**를 선택 합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
+4. 만든 서버를 제거 하려면 이전 이미지에서 **mynewserver-20180430.database.windows.net** 를 선택 하 고 **삭제** 를 선택 합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
 
-5. 리소스 그룹을 제거하려면 **myResourceGroup**을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+5. 리소스 그룹을 제거하려면 **myResourceGroup** 을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

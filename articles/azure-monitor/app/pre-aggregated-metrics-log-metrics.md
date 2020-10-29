@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539132"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027162"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -40,6 +40,28 @@ ms.locfileid: "91539132"
 사전 집계를 구현 하지 않는 Sdk의 경우 (즉, 이전 버전의 Application Insights Sdk 또는 브라우저 계측의 경우) Application Insights 백 엔드에서 Application Insights 이벤트 컬렉션 끝점에서 받은 이벤트를 집계 하 여 새 메트릭을 채웁니다. 즉, 네트워크를 통해 전송 되는 데이터의 양이 줄어드는 것은 아니지만 미리 집계 된 메트릭을 사용할 수 있으며 수집 하는 동안 메트릭을 사전 집계 하지 않는 Sdk를 사용 하 여 거의 실시간 차원 경고를 지원 합니다.
 
 컬렉션 엔드포인트는 수집 샘플링 이전에 사전 집계를 수행하므로, 애플리케이션에 사용 중인 SDK 버전에 관계없이 [수집 샘플링](./sampling.md)이 사전 집계 메트릭의 정확도에 영향을 미치지 않습니다.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>SDK 지원 미리 집계 된 메트릭 테이블
+
+| 현재 프로덕션 Sdk | 표준 메트릭 (SDK 사전 집계) | 사용자 지정 메트릭 (SDK 사전 집계 불포함) | 사용자 지정 메트릭 (SDK 사전 집계 사용)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core 및 .NET Framework | 지원 됨 (V 2.13.1 +)| 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| [Getmetric](get-metric.md) 을 통해 지원 됨 (v 2.7.2 이상) |
+| Java                         | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
+| Node.js                      | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
+| Python                       | 지원되지 않음       | 지원됨                                 | [OpenCensus를](opencensus-python.md#metrics) 통해 지원 됨 |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>코드 없는 지원 미리 집계 된 메트릭 테이블
+
+| 현재 프로덕션 Sdk | 표준 메트릭 (SDK 사전 집계) | 사용자 지정 메트릭 (SDK 사전 집계 불포함) | 사용자 지정 메트릭 (SDK 사전 집계 사용)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | 지원 됨 <sup> 1<sup>    | 지원되지 않음                             | 지원되지 않음                           |
+| ASP.NET Core            | 지원 됨 <sup> 2<sup>    | 지원되지 않음                             | 지원되지 않음                           |
+| Java                    | 지원되지 않음            | 지원되지 않음                             | [지원됨](java-in-process-agent.md#metrics) |
+| Node.js                 | 지원되지 않음            | 지원되지 않음                             | 지원되지 않음                           |
+
+1. ASP.NET 코드 없는 attach on App Service는 "전체" 모니터링 모드 에서만 메트릭을 내보냅니다. App Service, v m/VMSS 및 온-프레미스의 ASP.NET 코드 없는 attach는 차원이 없는 표준 메트릭을 내보냅니다. SDK는 모든 차원에 필요 합니다.
+2. ASP.NET Core 코드 없는 attach on App Service는 차원이 없는 표준 메트릭을 내보냅니다. SDK는 모든 차원에 필요 합니다.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Application Insights 사용자 지정 메트릭에 사전 집계 사용
 

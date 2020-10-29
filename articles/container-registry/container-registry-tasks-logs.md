@@ -3,12 +3,12 @@ title: 작업 실행 로그 보기-작업
 description: ACR 작업에서 생성 된 실행 로그를 보고 관리 하는 방법입니다.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871935"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027179"
 ---
 # <a name="view-and-manage-task-run-logs"></a>태스크 실행 로그 보기 및 관리
 
@@ -65,14 +65,14 @@ Azure Container Registry는 모든 작업에 대해 실행 로그를 저장 합�
 포털에서 실행 로그를 보려면 다음을 수행 합니다.
 
 1. 컨테이너 레지스트리로 이동합니다.
-1. **서비스**에서 **작업**  >  **실행**을 선택 합니다.
+1. **서비스** 에서 **작업**  >  **실행** 을 선택 합니다.
 1. 실행 상태를 확인 하 고 로그를 실행 하려면 **실행 Id** 를 선택 합니다. 로그에는 스트리밍 로그와 동일한 정보 (생성 된 경우)가 포함 됩니다.
 
 ![작업 실행 로그인 포털 보기](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Azure CLI를 사용 하 여 로그를 보려면 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 를 실행 하 고 빌드 작업에 의해 생성 되는 실행 ID, 작업 이름 또는 특정 이미지를 지정 합니다. 작업 이름이 지정 된 경우 명령은 마지막으로 만든 실행에 대 한 로그를 표시 합니다.
 
-다음 예에서는 ID *cf4*를 사용 하 여 실행에 대 한 로그를 출력 합니다.
+다음 예에서는 ID *cf4* 를 사용 하 여 실행에 대 한 로그를 출력 합니다.
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 로컬 로그 파일을 Azure Storage에 저장할 수도 있습니다. 예를 들어 [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)또는 다른 방법을 사용 하 여 저장소 계정에 파일을 업로드 합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Container Registry 작업](container-registry-tasks-overview.md) 에 대 한 자세한 정보
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

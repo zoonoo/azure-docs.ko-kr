@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211564"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025955"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크 로드 모니터링-Azure Portal
 
@@ -32,9 +32,9 @@ Log Analytics 작업 영역에 대 한 찾아보기 블레이드로 이동 하 �
 
 ![Log Analytics 작업 영역](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![분석 작업 영역 추가](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![추가를 선택할 수 있는 Log Analytics 작업 영역을 보여 주는 스크린샷](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![분석 작업 영역 추가](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![값을 입력할 수 있는 Log Analytics 작업 영역을 보여 주는 스크린샷](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 작업 영역에 대 한 자세한 내용은 다음 [설명서](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)를 참조 하세요.
 

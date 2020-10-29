@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420114"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026975"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>매핑 데이터 흐름 그래프 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "89420114"
 
 ## <a name="moving-transformations"></a>변환 이동
 
-데이터 흐름 매핑에서는 일련의 연결 된 변환 논리를 **스트림으로**인식 합니다. **들어오는 스트림** 필드는 현재 변환을 공급 하는 데이터 스트림을 나타냅니다. 각 변환에는 함수에 따라 하나 또는 두 개의 들어오는 스트림이 있고 출력 스트림을 나타냅니다. 들어오는 스트림의 출력 스키마는 현재 변환에서 참조할 수 있는 열 메타 데이터를 결정 합니다.
+데이터 흐름 매핑에서는 일련의 연결 된 변환 논리를 **스트림으로** 인식 합니다. **들어오는 스트림** 필드는 현재 변환을 공급 하는 데이터 스트림을 나타냅니다. 각 변환에는 함수에 따라 하나 또는 두 개의 들어오는 스트림이 있고 출력 스트림을 나타냅니다. 들어오는 스트림의 출력 스키마는 현재 변환에서 참조할 수 있는 열 메타 데이터를 결정 합니다.
 
 ![노드 이동](media/data-flow/move-nodes.png "노드 이동")
 
@@ -39,7 +39,7 @@ ms.locfileid: "89420114"
 
 ![그래프 숨기기](media/data-flow/hide-graph.png "그래프 숨기기")
 
-그래프가 숨겨진 경우에는 **다음** 또는 **이전**을 클릭 하 여 스트림 내에서 변환 간을 이동할 수 있습니다. 아래쪽 펼침 단추를 클릭 하 여 그래프를 표시 합니다.
+그래프가 숨겨진 경우에는 **다음** 또는 **이전** 을 클릭 하 여 스트림 내에서 변환 간을 이동할 수 있습니다. 아래쪽 펼침 단추를 클릭 하 여 그래프를 표시 합니다.
 
 ![그래프 표시](media/data-flow/show-graph.png "그래프 표시")
 
@@ -47,15 +47,15 @@ ms.locfileid: "89420114"
 
 그래프에서 변환을 신속 하 게 찾으려면 확대/축소 설정 위의 **검색** 아이콘을 클릭 합니다.
 
-![검색](media/data-flow/search-1.png "그래프 검색")
+![스크린샷 검색 단추를 표시 합니다.](media/data-flow/search-1.png "그래프 검색")
 
 변환 이름 또는 설명을 기준으로 검색 하 여 변환을 찾을 수 있습니다.
 
-![검색](media/data-flow/search-2.png "그래프 검색")
+![스크린샷 검색 텍스트 상자를 표시 합니다.](media/data-flow/search-2.png "그래프 검색")
 
 ## <a name="hide-reference-nodes"></a>참조 노드 숨기기
 
-데이터 흐름에 조인, 조회, 존재 또는 union 변환이 있는 경우 데이터 흐름에는 들어오는 모든 스트림에 대 한 참조 노드가 표시 됩니다. 사용 된 세로 공간 크기를 최소화 하려는 경우 참조 노드를 최소화할 수 있습니다. 이렇게 하려면 캔버스를 마우스 오른쪽 단추로 클릭 하 고 **참조 노드 숨기기**를 선택 합니다.
+데이터 흐름에 조인, 조회, 존재 또는 union 변환이 있는 경우 데이터 흐름에는 들어오는 모든 스트림에 대 한 참조 노드가 표시 됩니다. 사용 된 세로 공간 크기를 최소화 하려는 경우 참조 노드를 최소화할 수 있습니다. 이렇게 하려면 캔버스를 마우스 오른쪽 단추로 클릭 하 고 **참조 노드 숨기기** 를 선택 합니다.
 
 ![참조 노드 숨기기](media/data-flow/hide-reference-nodes.png "참조 노드 숨기기")
 

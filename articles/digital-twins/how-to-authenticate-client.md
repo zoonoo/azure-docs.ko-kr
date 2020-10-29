@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495791"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027316"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -24,7 +24,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
+먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있는지 확인할 수 있습니다. 설치 후에 클라이언트 앱 코드를 작성할 준비가 되었습니다.
 
 계속 하려면 코드를 작성 하는 클라이언트 앱 프로젝트가 필요 합니다. 클라이언트 앱 프로젝트를 아직 설정 하지 않은 경우이 자습서에서 사용할 수 있도록 선택한 언어로 기본 프로젝트를 만듭니다.
 
@@ -37,7 +37,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 의 세 가지 일반적인 자격 증명 가져오기 메서드 `Azure.Identity` 는 다음과 같습니다.
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 는 `TokenCredential` Azure에 배포 되는 응용 프로그램에 대 한 기본 인증 흐름을 제공 하며 **로컬 개발에 권장**되는 옵션입니다. 또한이 문서에서 권장 하는 다른 두 가지 방법을 사용해 볼 수 있습니다. 래핑하고 `ManagedIdentityCredential` `InteractiveBrowserCredential` 구성 변수를 사용 하 여에 액세스할 수 있습니다.
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 는 `TokenCredential` Azure에 배포 되는 응용 프로그램에 대 한 기본 인증 흐름을 제공 하며 **로컬 개발에 권장** 되는 옵션입니다. 또한이 문서에서 권장 하는 다른 두 가지 방법을 사용해 볼 수 있습니다. 래핑하고 `ManagedIdentityCredential` `InteractiveBrowserCredential` 구성 변수를 사용 하 여에 액세스할 수 있습니다.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) [는 MSI (관리 id)](../active-directory/managed-identities-azure-resources/overview.md)를 필요로 하는 경우에 적합 하며, Azure Functions 및 Azure 서비스에 배포 하는 데 적합 한 후보입니다.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 는 대화형 응용 프로그램을 위한 것 이며 인증 된 SDK 클라이언트를 만드는 데 사용할 수 있습니다.
 
@@ -60,7 +60,7 @@ using Azure.DigitalTwins.Core;
 
 ### <a name="defaultazurecredential-method"></a>DefaultAzureCredential 메서드
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 는 `TokenCredential` Azure에 배포 되는 응용 프로그램에 대 한 기본 인증 흐름을 제공 하며 **로컬 개발에 권장**되는 옵션입니다.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 는 `TokenCredential` Azure에 배포 되는 응용 프로그램에 대 한 기본 인증 흐름을 제공 하며 **로컬 개발에 권장** 되는 옵션입니다.
 
 기본 Azure 자격 증명을 사용 하려면 Azure Digital Twins 인스턴스의 URL ([찾을 지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))이 필요 합니다.
 
@@ -110,8 +110,8 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 메서드는 대화형 응용 프로그램을 위한 것 이며 인증을 위해 웹 브라우저를 엽니다. 대화형 인증을 요구 하는 경우 대신이를 사용할 수 있습니다 `DefaultAzureCredential` .
 
 대화형 브라우저 자격 증명을 사용 하려면 Azure Digital Twins Api에 대 한 사용 권한이 있는 **앱 등록이** 필요 합니다. 이 앱 등록을 설정 하는 방법에 대 한 단계 [*는 방법: 앱 등록 만들기*](how-to-create-app-registration.md)를 참조 하세요. 앱 등록을 설정한 후에는 다음이 필요 합니다.
-* 앱 등록의 *응용 프로그램 (클라이언트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* 앱 등록의 *디렉터리 (테 넌 트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* 앱 등록의 *응용 프로그램 (클라이언트) ID* ( [찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* 앱 등록의 *디렉터리 (테 넌 트) ID* ( [찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * Azure Digital Twins 인스턴스의 URL ([찾을 지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 다음은를 사용 하 여 인증 된 SDK 클라이언트를 만드는 코드의 예제입니다 `InteractiveBrowserCredential` .

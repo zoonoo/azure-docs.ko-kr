@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370915"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027604"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑
 
@@ -27,7 +27,7 @@ ms.locfileid: "91370915"
 
 ## <a name="getting-started"></a>시작
 
-데이터 흐름은 파이프라인 및 데이터 집합과 같은 팩터리 리소스 창에서 만들어집니다. 데이터 흐름을 만들려면 **팩터리 리소스**옆에 있는 더하기 기호를 선택 하 고 **데이터 흐름**을 선택 합니다. 
+데이터 흐름은 파이프라인 및 데이터 집합과 같은 팩터리 리소스 창에서 만들어집니다. 데이터 흐름을 만들려면 **팩터리 리소스** 옆에 있는 더하기 기호를 선택 하 고 **데이터 흐름** 을 선택 합니다. 
 
 ![새 데이터 흐름](media/data-flow/new-data-flow.png "새 데이터 흐름")
 
@@ -37,13 +37,13 @@ ms.locfileid: "91370915"
 
 데이터 흐름 매핑에는 변환 논리를 쉽게 작성할 수 있도록 설계 된 고유한 제작 캔버스가 있습니다. 데이터 흐름 캔버스는 위쪽 막대, 그래프 및 구성 패널의 세 부분으로 구분 됩니다. 
 
-![캔버스](media/data-flow/canvas1.png "캔버스")
+![스크린샷 위쪽 막대, 그래프 및 구성 패널이 표시 된 데이터 흐름 캔버스를 표시 합니다.](media/data-flow/canvas1.png "캔버스")
 
 ### <a name="graph"></a>그래프
 
-그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다. [데이터 흐름 그래프를 관리](concepts-data-flow-manage-graph.md)하는 방법에 대해 자세히 알아보세요.
+그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가** 를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다. [데이터 흐름 그래프를 관리](concepts-data-flow-manage-graph.md)하는 방법에 대해 자세히 알아보세요.
 
-![캔버스](media/data-flow/canvas2.png "캔버스")
+![스크린샷 검색 텍스트 상자를 사용 하 여 캔버스의 그래프 부분을 보여 줍니다.](media/data-flow/canvas2.png "캔버스")
 
 ### <a name="configuration-panel"></a>구성 패널
 
@@ -138,7 +138,7 @@ Azure Data Factory 팀은 비즈니스 논리를 구축한 후 데이터 흐름�
 | 남아프리카 공화국 서부 |  |    |
 | 미국 중남부  | | ✓ |
 | 인도 남부 | | |
-| 동남 아시아    | ✓ | ✓ |
+| 동남아시아    | ✓ | ✓ |
 | 스위스 북부 |   |  |
 | 스위스 서부 | | |
 | 아랍에미리트 중부 | | |

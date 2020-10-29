@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907172"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027587"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -54,8 +54,8 @@ Azure Event Hubs는 확장성이 뛰어난 게시-구독 이벤트 투자자을 
 | **이벤트 허브 네임스페이스** | 이벤트 허브 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. |
 | **이벤트 허브 이름** | 입력으로 사용할 이벤트 허브의 이름입니다. |
 | **이벤트 허브 정책 이름** | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다.|
-| **이벤트 허브 소비자 그룹**(권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
-| **파티션 키** | 입력이 속성에 의해 분할된 경우에는 이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이며 이 속성의 PARTITION BY 또는 GROUP BY 절이 포함된 경우 쿼리 성능을 향상하는 데 사용됩니다. |
+| **이벤트 허브 소비자 그룹** (권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
+| **파티션 키** | 작업이 [호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 이상을 사용 하도록 구성 된 경우에만 사용할 수 있는 선택적 필드입니다. 입력이 속성에 의해 분할 된 경우 여기에이 속성의 이름을 추가할 수 있습니다. 이 속성에는 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. 이 작업에서 호환성 수준 1.2 이상을 사용 하는 경우이 필드의 기본값은 "PartitionId"입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 직렬화 형식(JSON, CSV, Avro 또는 [기타(Protobuf, XML, 소유...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
@@ -105,7 +105,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 | **공유 액세스 정책 이름** | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | **공유 액세스 정책 키** | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다.  IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **소비자 그룹** | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. 소비자 그룹은 IoT Hub에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다.  |
-| **파티션 키** | 입력이 속성에 의해 분할된 경우에는 이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이며 이 속성의 PARTITION BY 또는 GROUP BY 절이 포함된 경우 쿼리 성능을 향상하는 데 사용됩니다. |
+| **파티션 키** | 작업이 [호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 이상을 사용 하도록 구성 된 경우에만 사용할 수 있는 선택적 필드입니다. 입력이 속성에 의해 분할 된 경우 여기에이 속성의 이름을 추가할 수 있습니다. 이 속성에는 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. 이 작업에서 호환성 수준 1.2 이상을 사용 하는 경우이 필드의 기본값은 "PartitionId"입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 직렬화 형식(JSON, CSV, Avro 또는 [기타(Protobuf, XML, 소유...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
 | **이벤트 압축 유형** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |
@@ -132,9 +132,9 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 
 Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 타임스탬프로 `BlobLastModifiedUtcTime`입니다. Blob이 13시에 스토리지 계정에 업로드되고 Azure Stream Analytics 작업이 13시 1분에 *Now* 옵션을 사용하여 시작되는 경우, 수정된 시간이 작업 실행 기간을 벗어나기 때문에 Blob이 선택되지 않습니다.
 
-13시에 스토리지 계정 컨테이너에 blob을 업로드하고 13시 또는 그 이전에 *Custom Time*을 사용하여 Azure Stream Analytics 작업을 시작하면, 수정된 시간이 작업 실행 기간 내에 있으므로 Blob이 선택됩니다.
+13시에 스토리지 계정 컨테이너에 blob을 업로드하고 13시 또는 그 이전에 *Custom Time* 을 사용하여 Azure Stream Analytics 작업을 시작하면, 수정된 시간이 작업 실행 기간 내에 있으므로 Blob이 선택됩니다.
 
-13시에 *Now*를 사용하여 Azure Stream Analytics 작업을 시작하고 Blob이 13시 1분에 스토리지 계정 컨테이너에 업로드되면, Azure Stream Analytics는 해당 Blob을 선택합니다. 각 Blob에 할당된 타임스탬프는 `BlobLastModifiedTime`을 기반으로 합니다. Blob이 있는 폴더는 할당된 타임스탬프와 관계가 없습니다. 예를 들어 `BlobLastModifiedTime`이 2019-11-11인 Blob *2019/10-01/00/b1.txt*가 있는 경우 이 Blob에 할당된 타임스탬프는 2019-11-11입니다.
+13시에 *Now* 를 사용하여 Azure Stream Analytics 작업을 시작하고 Blob이 13시 1분에 스토리지 계정 컨테이너에 업로드되면, Azure Stream Analytics는 해당 Blob을 선택합니다. 각 Blob에 할당된 타임스탬프는 `BlobLastModifiedTime`을 기반으로 합니다. Blob이 있는 폴더는 할당된 타임스탬프와 관계가 없습니다. 예를 들어 `BlobLastModifiedTime`이 2019-11-11인 Blob *2019/10-01/00/b1.txt* 가 있는 경우 이 Blob에 할당된 타임스탬프는 2019-11-11입니다.
 
 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 키워드를 사용해야 합니다. Stream Analytics 작업은 Blob 파일을 사용할 수 있는 경우 1초 간격으로 Azure Blob Storage 입력에서 데이터를 가져옵니다. Blob 파일을 사용할 수 없는 경우 최대 시간 지연 시간 90초 동안 지수 백오프가 발생합니다.
 
@@ -155,11 +155,12 @@ CSV 형식의 입력은 데이터 세트용 필드를 정의하기 위해 헤더
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
 | **스토리지 계정** | Blob 파일이 위치한 스토리지 계정의 이름입니다. |
 | **Storage 계정 키** | 스토리지 계정과 연결된 비밀 키입니다. Blob Storage 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
-| **컨테이너** | Blob 입력에 대한 컨테이너입니다. 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Azure Blob Storage 서비스에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. **기존 컨테이너 사용** 또는 **새로 만들기**를 선택하여 새 컨테이너를 만들 수 있습니다.|
-| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 Blob을 읽으려면 경로 패턴을 설정하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
-| **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` <br/><br/> Blob 입력의 경로에 `{date}` 또는 `{time}`이 있으면 폴더는 오름차순으로 정렬됩니다.|
-| **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
-| **파티션 키** | 입력이 속성에 의해 분할된 경우에는 이 속성의 이름을 추가할 수 있습니다. 파티션 키는 선택 사항이며 이 속성의 PARTITION BY 또는 GROUP BY 절이 포함된 경우 쿼리 성능을 향상하는 데 사용됩니다. |
+| **컨테이너** | Blob 입력에 대한 컨테이너입니다. 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Azure Blob Storage 서비스에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. **기존 컨테이너 사용** 또는 **새로 만들기** 를 선택하여 새 컨테이너를 만들 수 있습니다.|
+| **경로 패턴** (선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 Blob을 읽으려면 경로 패턴을 설정하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
+| **날짜 형식** (선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` <br/><br/> Blob 입력의 경로에 `{date}` 또는 `{time}`이 있으면 폴더는 오름차순으로 정렬됩니다.|
+| **시간 형식** (선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
+| **파티션 키** | 작업이 [호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 이상을 사용 하도록 구성 된 경우에만 사용할 수 있는 선택적 필드입니다. 입력이 속성에 의해 분할 된 경우 여기에이 속성의 이름을 추가할 수 있습니다. 이 속성에는 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. 이 작업에서 호환성 수준 1.2 이상을 사용 하는 경우이 필드의 기본값은 "PartitionId"입니다. |
+| **입력 파티션 수** | 이 필드는 경로 패턴에 {partition}이 있는 경우에만 표시 됩니다. 이 속성의 값은 정수 >= 1입니다. {Partition}이 pathPattern에 표시 되는 경우 0과이 필드 값 (-1) 사이의 숫자가 사용 됩니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 직렬화 형식(JSON, CSV, Avro 또는 [기타(Protobuf, XML, 소유...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
 | **압축** | 들어오는 데이터 스트림을 읽는 데 사용되는 압축 유형입니다(예: None(기본값), GZip 또는 Deflate). |

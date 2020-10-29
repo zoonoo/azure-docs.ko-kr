@@ -3,12 +3,12 @@ title: 서비스 엔드포인트를 사용한 액세스 제한
 description: Azure 가상 네트워크의 서비스 끝점을 사용 하 여 Azure container registry에 대 한 액세스를 제한 합니다. 서비스 끝점 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215504"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026227"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -53,7 +53,7 @@ ms.locfileid: "92215504"
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>서브넷에 서비스 엔드포인트 추가
 
-VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM*으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET*으로 설정되며 서브넷 이름은 *myDockerVMSubnet*으로 지정됩니다. [Az network vnet list][az-network-vnet-list] 명령을 사용 하 여이를 확인 합니다.
+VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM* 으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET* 으로 설정되며 서브넷 이름은 *myDockerVMSubnet* 으로 지정됩니다. [Az network vnet list][az-network-vnet-list] 명령을 사용 하 여이를 확인 합니다.
 
 ```azurecli
 az network vnet list \
@@ -189,7 +189,6 @@ az group delete --name myResourceGroup
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
