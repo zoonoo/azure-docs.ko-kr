@@ -4,14 +4,14 @@ description: Azure SQL Database에 연결하여 Azure App Service에서 .NET Cor
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 305137cf371d7a9e3d336d8142ef9a03eb38421f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982887"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743699"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 Azure SQL Database 앱 빌드
 
@@ -269,7 +269,7 @@ Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp c
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자열(`MyDbConnection`)을 사용할 수 있습니다(예: *appsettings.json*에 지정된 연결 문자열). 이 경우 `MyDbConnection`은 *appsettings.json*에도 정의되어 있습니다. App Service에서 실행되는 경우 App Service에 정의된 연결 문자열이 *appsettings.json*에 정의된 연결 문자열보다 우선적으로 적용됩니다. 코드는 지역 개발 중에 *appsettings.json* 값을 사용하고, 동일한 코드는 배포될 때 App Service 값을 사용합니다.
+ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자열(`MyDbConnection`)을 사용할 수 있습니다(예: *appsettings.json* 에 지정된 연결 문자열). 이 경우 `MyDbConnection`은 *appsettings.json* 에도 정의되어 있습니다. App Service에서 실행되는 경우 App Service에 정의된 연결 문자열이 *appsettings.json* 에 정의된 연결 문자열보다 우선적으로 적용됩니다. 코드는 지역 개발 중에 *appsettings.json* 값을 사용하고, 동일한 코드는 배포될 때 App Service 값을 사용합니다.
 
 코드에서 연결 문자열을 참조하는 방법을 보려면 [프로덕션 데이터베이스에 연결하도록 앱 구성](#configure-app-to-connect-to-production-database)을 참조하세요.
 
@@ -362,7 +362,7 @@ http://<app-name>.azurewebsites.net
 
 ### <a name="update-your-data-model"></a>데이터 모델 업데이트
 
-코드 편집기에서 _Models/Todo.cs_를 엽니다. 다음 속성을 `ToDo` 클래스에 추가합니다.
+코드 편집기에서 _Models/Todo.cs_ 를 엽니다. 다음 속성을 `ToDo` 클래스에 추가합니다.
 
 ```csharp
 public bool Done { get; set; }
@@ -385,7 +385,7 @@ dotnet ef database update
 
 `Done` 속성을 사용하도록 코드를 약간 변경합니다. 이 자습서에서는 간단하게 `Index` 및 `Create` 보기만 변경하여 속성의 실제 작동을 확인합니다.
 
-_Controllers/TodosController.cs_를 엽니다.
+_Controllers/TodosController.cs_ 를 엽니다.
 
 `Create([Bind("ID,Description,CreatedDate")] Todo todo)` 메서드를 찾고 `Done`을 `Bind` 특성의 속성 목록에 추가합니다. 완료되면 `Create()` 메서드 시그니처가 다음 코드와 같이 표시됩니다.
 
@@ -393,7 +393,7 @@ _Controllers/TodosController.cs_를 엽니다.
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-_Views/Todos/Create.cshtml_을 엽니다.
+_Views/Todos/Create.cshtml_ 을 엽니다.
 
 Razor 코드에서 `Description`의 경우 `<div class="form-group">` 요소가 표시되고 `CreatedDate`의 경우 또 다른 `<div class="form-group">` 요소가 표시됩니다. 이러한 두 요소 바로 뒤에 `Done`의 경우 또 다른 `<div class="form-group">` 요소를 추가합니다.
 
@@ -407,7 +407,7 @@ Razor 코드에서 `Description`의 경우 `<div class="form-group">` 요소가 
 </div>
 ```
 
-_Views/Todos/Index.cshtml_을 엽니다.
+_Views/Todos/Index.cshtml_ 을 엽니다.
 
 빈 `<th></th>` 요소를 검색합니다. 이 요소 바로 위에 다음 Razor 코드를 추가합니다.
 
@@ -439,7 +439,7 @@ dotnet run
 > 새 터미널 창을 열 경우 [프로덕션 데이터베이스로 데이터베이스 마이그레이션 실행](#run-database-migrations-to-the-production-database)에서와 같이 터미널의 프로덕션 데이터베이스로 연결 문자열을 설정해야 합니다.
 >
 
-브라우저에서 `http://localhost:5000/`로 이동합니다. 이제 할 일 항목을 추가하고 **완료**를 확인할 수 있습니다. 그러면 홈페이지에 완료된 항목으로 표시됩니다. `Edit` 보기를 변경하지 않았으므로 `Edit` 보기에서 `Done` 필드가 표시되지 않습니다.
+브라우저에서 `http://localhost:5000/`로 이동합니다. 이제 할 일 항목을 추가하고 **완료** 를 확인할 수 있습니다. 그러면 홈페이지에 완료된 항목으로 표시됩니다. `Edit` 보기를 변경하지 않았으므로 `Edit` 보기에서 `Done` 필드가 표시되지 않습니다.
 
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
@@ -449,7 +449,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-`git push`가 완료되면 App Service 앱으로 이동하여 할 일 항목을 추가해보고 **완료**를 선택합니다.
+`git push`가 완료되면 App Service 앱으로 이동하여 할 일 항목을 추가해보고 **완료** 를 선택합니다.
 
 ![Code First 마이그레이션 후 Azure 앱](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
@@ -461,8 +461,8 @@ ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를
 
 샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
 
-- *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
-- *Program.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
+- *DotNetCoreSqlDb.csproj* 에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
+- *Program.cs* 에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
 
 App Service에서 ASP.NET Core [로그 수준](/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 명령을 사용합니다.
 
@@ -471,7 +471,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 ```
 
 > [!NOTE]
-> 프로젝트의 로그 수준은 *appsettings.json*에서 `Information`으로 설정됩니다.
+> 프로젝트의 로그 수준은 *appsettings.json* 에서 `Information`으로 설정됩니다.
 > 
 
 로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 명령을 사용합니다.
@@ -488,7 +488,7 @@ ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로�
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-만든 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색하여 선택합니다.
+만든 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색하여 선택합니다.
 
 ![Azure Portal에서 App Services 선택](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 

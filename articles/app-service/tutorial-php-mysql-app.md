@@ -5,14 +5,14 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150210"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743534"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -107,7 +107,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>MySQL 연결 구성
 
-리포지토리 루트에서 *.env*라는 파일을 만듭니다. 다음 변수를 *.env* 파일에 복사합니다. _&lt;root_password>_ 자리 표시자를 MySQL 루트 사용자의 암호로 바꿉니다.
+리포지토리 루트에서 *.env* 라는 파일을 만듭니다. 다음 변수를 *.env* 파일에 복사합니다. _&lt;root_password>_ 자리 표시자를 MySQL 루트 사용자의 암호로 바꿉니다.
 
 ```txt
 APP_ENV=local
@@ -221,7 +221,7 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>사용 권한이 있는 사용자 만들기
 
-_phpappuser_ 라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다. 자습서의 편의를 위해 _MySQLAzure2017_을 암호로 사용합니다.
+_phpappuser_ 라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다. 자습서의 편의를 위해 _MySQLAzure2017_ 을 암호로 사용합니다.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
@@ -267,7 +267,7 @@ MYSQL_SSL=true
 
 기본적으로 MySQL용 Azure 데이터베이스에는 클라이언트로부터의 TLS 연결이 적용됩니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL에서 제공하는 _.pem_ 인증서](../mysql/howto-configure-ssl.md)를 사용해야 합니다.
 
-다음 코드와 같이 _config/database.php_를 열고 `sslmode` 및 `options` 매개 변수를 `connections.mysql`에 추가합니다.
+다음 코드와 같이 _config/database.php_ 를 열고 `sslmode` 및 `options` 매개 변수를 `connections.mysql`에 추가합니다.
 
 ::: zone pivot="platform-windows"  
 
@@ -301,19 +301,19 @@ MYSQL_SSL=true
 
 ### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
-_.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
+_.env.production_ 을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_ 에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-_.env.production_에는 아직 유효한 애플리케이션 키가 없습니다. 터미널에서 새 키를 생성합니다.
+_.env.production_ 에는 아직 유효한 애플리케이션 키가 없습니다. 터미널에서 새 키를 생성합니다.
 
 ```bash
 php artisan key:generate --env=production --force
 ```
 
-_.env.production_을 환경 파일로 사용해서 샘플 애플리케이션을 실행합니다.
+_.env.production_ 을 환경 파일로 사용해서 샘플 애플리케이션을 실행합니다.
 
 ```bash
 php artisan serve --env=production
@@ -377,7 +377,7 @@ git commit -m "database.php updates"
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 
-App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
+App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) 명령을 사용하여 환경 변수를 _앱 설정_ 으로 설정합니다.
 
 다음 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;app-name>_ 및 _&lt;mysql-server-name>_ 자리 표시자를 바꿉니다.
 
@@ -385,7 +385,7 @@ App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-PHP [getenv](https://www.php.net/manual/en/function.getenv.php) 메서드를 사용하여 설정에 액세스할 수 있습니다. Laravel 코드에서는 `getenv` PHP에 대해 [env()](https://laravel.com/docs/5.4/helpers#method-env) 래퍼를 사용합니다. 예를 들어 _config/database.php_의 MySQL 구성은 다음 코드와 같습니다.
+PHP [getenv](https://www.php.net/manual/en/function.getenv.php) 메서드를 사용하여 설정에 액세스할 수 있습니다. Laravel 코드에서는 `getenv` PHP에 대해 [env()](https://laravel.com/docs/5.4/helpers#method-env) 래퍼를 사용합니다. 예를 들어 _config/database.php_ 의 MySQL 구성은 다음 코드와 같습니다.
 
 ```php
 'mysql' => [
@@ -402,7 +402,7 @@ PHP [getenv](https://www.php.net/manual/en/function.getenv.php) 메서드를 사
 
 Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
 
-로컬 터미널 창에서 `php artisan`을 사용하여 _.env_로 저장하지 않으면서 새 애플리케이션 키를 생성합니다.
+로컬 터미널 창에서 `php artisan`을 사용하여 _.env_ 로 저장하지 않으면서 새 애플리케이션 키를 생성합니다.
 
 ```bash
 php artisan key:generate --show
@@ -428,13 +428,13 @@ Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update)
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로( _/_ )가 배포된 애플리케이션 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
+기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로( _/_ )가 배포된 애플리케이션 파일의 루트 디렉터리( _sites\wwwroot_ )를 가리킵니다.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Laravel 애플리케이션 수명 주기](https://laravel.com/docs/5.4/lifecycle)는 애플리케이션의 루트 디렉터리 대신 _public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 애플리케이션을 배포할 수 있습니다.
+[Laravel 애플리케이션 수명 주기](https://laravel.com/docs/5.4/lifecycle)는 애플리케이션의 루트 디렉터리 대신 _public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_ 을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 애플리케이션을 배포할 수 있습니다.
 
 자세한 내용은 [사이트 루트 변경](configure-language-php.md#change-site-root)을 참조하세요.
 
@@ -518,7 +518,7 @@ remote: Running deployment command...
 php artisan make:migration add_complete_column --table=tasks
 ```
 
-이 명령은 생성되는 마이그레이션 파일의 이름을 표시합니다. _database/migrations_에서 이 파일을 찾아서 엽니다.
+이 명령은 생성되는 마이그레이션 파일의 이름을 표시합니다. _database/migrations_ 에서 이 파일을 찾아서 엽니다.
 
 `up` 메서드를 다음 코드로 바꿉니다.
 
@@ -550,7 +550,7 @@ public function down()
 php artisan migrate
 ```
 
-[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
+[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`( _app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
@@ -669,7 +669,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 ::: zone-end
 
 > [!TIP]
-> PHP 애플리케이션은 표준 [error_log()](https://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 애플리케이션은 _app/Http/routes.php_에서 이 접근 방식을 사용합니다.
+> PHP 애플리케이션은 표준 [error_log()](https://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 애플리케이션은 _app/Http/routes.php_ 에서 이 접근 방식을 사용합니다.
 >
 > 웹 프레임워크로서 [Laravel은 Monolog](https://laravel.com/docs/5.4/errors) 로깅 공급자로 사용합니다. Monolog가 메시지를 콘솔로 출력하게 하는 방법은 [PHP: monolog를 사용하여 콘솔에 기록하는 방법(php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)을 참조하세요.
 >
@@ -679,7 +679,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services** 를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 

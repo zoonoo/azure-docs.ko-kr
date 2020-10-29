@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006435"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746469"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 
@@ -27,13 +27,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure CLI - 버전 2.2.0 이상. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI - 버전 2.2.0 이상. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 * 간단한 jq 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 
 * [Azure 기본 제공 역할 - 소유자](../role-based-access-control/built-in-roles.md)의 멤버
 
-* PowerShell을 사용하여 Data Factory 파이프라인을 트리거하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다.
+* PowerShell을 사용하여 Data Factory 파이프라인을 트리거하는 경우 [Az Module](/powershell/azure/)이 필요합니다.
 
 * 이 자습서의 끝부분에서 비즈니스 인사이트를 시각화하는 [Power BI Desktop](https://aka.ms/pbiSingleInstaller)
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>스크립트 및 데이터를 사용하여 리포지토리 복제
 
-1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
+1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기** 를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
 
     ```azurecli-interactive
     az login
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) 명령을 사용하여 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
+    어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](/cli/azure/account#az-account-list-locations) 명령을 사용하여 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
 
     이 명령을 통해 배포하는 리소스는 다음과 같습니다.
 
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>배포 확인 및 리소스 정보 수집
 
-1. 배포 상태를 확인하려면 Azure Portal에서 리소스 그룹으로 이동합니다. **설정**에서 **배포**를 선택한 다음, 배포를 선택합니다. 여기서는 성공적으로 배포된 리소스와 아직 진행 중인 리소스를 확인할 수 있습니다.
+1. 배포 상태를 확인하려면 Azure Portal에서 리소스 그룹으로 이동합니다. **설정** 에서 **배포** 를 선택한 다음, 배포를 선택합니다. 여기서는 성공적으로 배포된 리소스와 아직 진행 중인 리소스를 확인할 수 있습니다.
 
 1. 클러스터 이름을 보려면 다음 명령을 입력합니다.
 
@@ -214,7 +214,7 @@ cat resourcesoutputs_adf.json | jq -r '.properties.outputs.factoryName.value'
 
     또는
 
-* 데이터 팩터리를 열고, **작성자 및 모니터링**을 선택합니다. 포털에서 `IngestAndTransform` 파이프라인을 트리거합니다. 포털을 통해 파이프라인을 트리거하는 방법에 대한 내용은 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline)를 참조하세요.
+* 데이터 팩터리를 열고, **작성자 및 모니터링** 을 선택합니다. 포털에서 `IngestAndTransform` 파이프라인을 트리거합니다. 포털을 통해 파이프라인을 트리거하는 방법에 대한 내용은 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline)를 참조하세요.
 
 파이프라인이 실행되었는지 확인하려면 다음 단계 중 하나를 수행하면 됩니다.
 
@@ -252,21 +252,21 @@ HDInsight를 사용하여 데이터를 변환하는 다른 방법은 [Jupyter No
 
 1. Power BI Desktop을 엽니다.
 
-1. 메뉴에서 **데이터 가져오기** > **추가...**  > **Azure** > **HDInsight 대화형 쿼리**로 이동합니다.
+1. 메뉴에서 **데이터 가져오기** > **추가...**  > **Azure** > **HDInsight 대화형 쿼리** 로 이동합니다.
 
-1. **연결**을 선택합니다.
+1. **연결** 을 선택합니다.
 
 1. **HDInsight 대화형 쿼리** 대화 상자에서 다음을 수행합니다.
     1. **서버** 텍스트 상자에 LLAP 클러스터의 이름을 `https://LLAPCLUSTERNAME.azurehdinsight.net` 형식으로 입력합니다.
     1. **데이터베이스** 텍스트 상자에 `default`를 입력합니다.
-    1. **확인**을 선택합니다.
+    1. **확인** 을 선택합니다.
 
 1. **AzureHive** 대화 상자에서 다음을 수행합니다.
     1. **사용자 이름** 텍스트 상자에 `admin`을 입력합니다.
     1. **암호** 텍스트 상자에 `Thisisapassword1`을 입력합니다.
-    1. **연결**을 선택합니다.
+    1. **연결** 을 선택합니다.
 
-1. **탐색기**에서 `sales` 및/또는 `sales_raw`를 선택하여 데이터를 미리 봅니다. 데이터가 로드되면 만들려는 대시보드를 사용하여 실험할 수 있습니다. Power BI 대시보드를 시작하려면 다음 링크를 참조하세요.
+1. **탐색기** 에서 `sales` 및/또는 `sales_raw`를 선택하여 데이터를 미리 봅니다. 데이터가 로드되면 만들려는 대시보드를 사용하여 실험할 수 있습니다. Power BI 대시보드를 시작하려면 다음 링크를 참조하세요.
 
 * [Power BI 디자이너용 대시보드 소개](https://docs.microsoft.com/power-bi/service-dashboards)
 * [자습서: Power BI 서비스 시작](https://docs.microsoft.com/power-bi/service-get-started)

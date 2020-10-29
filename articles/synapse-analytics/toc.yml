@@ -20,7 +20,7 @@
           href: get-started-analyze-sql-on-demand.md
         - name: 5 스토리지 계정에서 데이터 분석
           href: get-started-analyze-storage.md
-        - name: 6 파이프라인을 사용하여 오케스트레이션
+        - name: 6 파이프라인과 통합
           href: get-started-pipelines.md
         - name: 7 Power BI를 사용하여 시각화
           href: get-started-visualize-power-bi.md
@@ -42,7 +42,8 @@
       href: quickstart-create-workspace-cli.md
     - name: Azure PowerShell을 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace-powershell.md
-    - name: 템플릿을 사용하여 배포
+    - name: ARM 템플릿을 사용하여 배포
+      displayName: Resource Manager
       href: quickstart-deployment-template-workspaces.md
     - name: Power BI 작업 영역 연결
       href: quickstart-power-bi.md
@@ -168,7 +169,7 @@
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Bring Your Own Key를 사용하는 TDE
               href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: 통합 및 오케스트레이션
+    - name: 통합
       items:
         - name: 파이프라인 및 활동
           href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -558,7 +559,7 @@
               href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 시간 범위
               href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: 통합 및 오케스트레이션
+    - name: 통합
       items:
         - name: 작성자
           items:
@@ -893,8 +894,6 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 커넥터 문제 해결
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 데이터 복사 도구 문제 해결
-              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 자체 호스팅 통합 런타임 문제 해결
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 도구를 Synapse 작업 영역에 연결

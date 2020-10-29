@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059249"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746021"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -40,9 +40,9 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="create-custom-script-extension-definition"></a>사용자 지정 스크립트 확장 정의 만들기
-Azure 템플릿을 사용하여 가상 머신 확장 집합을 정의하는 경우 *Microsoft.Compute/virtualMachineScaleSets* 리소스 공급자에 확장에 대한 섹션이 포함될 수 있습니다. *extensionsProfile*은 확장 집합의 VM 인스턴스에 적용되는 내용을 자세히 설명합니다. 사용자 지정 스크립트 확장을 사용하려면 *Microsoft.Azure.Extensions*의 게시자와 *CustomScript* 형식을 지정합니다.
+Azure 템플릿을 사용하여 가상 머신 확장 집합을 정의하는 경우 *Microsoft.Compute/virtualMachineScaleSets* 리소스 공급자에 확장에 대한 섹션이 포함될 수 있습니다. *extensionsProfile* 은 확장 집합의 VM 인스턴스에 적용되는 내용을 자세히 설명합니다. 사용자 지정 스크립트 확장을 사용하려면 *Microsoft.Azure.Extensions* 의 게시자와 *CustomScript* 형식을 지정합니다.
 
-*fileUris* 속성은 원본 설치 스크립트 또는 패키지를 정의하는 데 사용됩니다. 설치 프로세스를 시작하기 위해 필요한 스크립트가 *commandToExecute*에 정의되어 있습니다. 다음 예제에서는 NGINX 웹 서버를 설치하고 구성하는 GitHub의 샘플 스크립트를 정의합니다.
+*fileUris* 속성은 원본 설치 스크립트 또는 패키지를 정의하는 데 사용됩니다. 설치 프로세스를 시작하기 위해 필요한 스크립트가 *commandToExecute* 에 정의되어 있습니다. 다음 예제에서는 NGINX 웹 서버를 설치하고 구성하는 GitHub의 샘플 스크립트를 정의합니다.
 
 ```json
 "extensionProfile": {
@@ -70,7 +70,7 @@ Azure 템플릿을 사용하여 가상 머신 확장 집합을 정의하는 경�
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-샘플 템플릿을 사용하여 확장 집합을 만들고 사용자 지정 스크립트 확장을 적용해 보겠습니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+샘플 템플릿을 사용하여 확장 집합을 만들고 사용자 지정 스크립트 확장을 적용해 보겠습니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -90,7 +90,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>확장 집합 테스트
-작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetPublicIP*의 IP 주소를 가져옵니다.
+작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetPublicIP* 의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -108,9 +108,9 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 *upgradePolicy*가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 *upgradePolicy* 가 *Automatic* 으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
-사용자 지정 스크립트 확장 정의를 업데이트하려면 새 설치 스크립트를 참조하도록 템플릿을 편집합니다. 변경 내용을 인식하려면 사용자 지정 스크립트 확장에 새 파일 이름을 사용해야 합니다. 사용자 지정 스크립트 확장은 변경 내용을 확인하기 위해 스크립트의 내용을 검사하지 않습니다. 다음 정의에서는 이름에 *_v2*가 추가된 업데이트된 설치 스크립트를 사용합니다.
+사용자 지정 스크립트 확장 정의를 업데이트하려면 새 설치 스크립트를 참조하도록 템플릿을 편집합니다. 변경 내용을 인식하려면 사용자 지정 스크립트 확장에 새 파일 이름을 사용해야 합니다. 사용자 지정 스크립트 확장은 변경 내용을 확인하기 위해 스크립트의 내용을 검사하지 않습니다. 다음 정의에서는 이름에 *_v2* 가 추가된 업데이트된 설치 스크립트를 사용합니다.
 
 ```json
 "extensionProfile": {

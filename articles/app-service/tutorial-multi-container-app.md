@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
-ms.openlocfilehash: 9c984daa380f1d4f0a7b067604ab66ba14a0b70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli-validate, devx-track-azurecli
+ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88082468"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743446"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) 명령을 실행합니다.
+Cloud Shell에서 [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) 명령을 실행합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -413,7 +413,7 @@ services:
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
-Redis를 사용하려면 App Service 내에서 `WP_REDIS_HOST` 설정을 사용하도록 설정합니다. 이는 WordPress에서 Redis 호스트와 통신하는 데 *필요한 설정*입니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
+Redis를 사용하려면 App Service 내에서 `WP_REDIS_HOST` 설정을 사용하도록 설정합니다. 이는 WordPress에서 Redis 호스트와 통신하는 데 *필요한 설정* 입니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WP_REDIS_HOST="redis"
@@ -464,17 +464,17 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ### <a name="connect-wordpress-to-redis"></a>Redis에 WordPress 연결
 
-WordPress 관리자로 로그인합니다. 왼쪽 탐색 영역에서 **플러그 인**을 선택한 다음, **설치된 플러그 인**을 선택합니다.
+WordPress 관리자로 로그인합니다. 왼쪽 탐색 영역에서 **플러그 인** 을 선택한 다음, **설치된 플러그 인** 을 선택합니다.
 
 ![WordPress 플러그 인 선택][2]
 
 여기서는 모든 플러그 인이 표시됩니다.
 
-플러그 인 페이지에서 **Redis Object Cache**를 찾은 다음, **활성화**를 클릭합니다.
+플러그 인 페이지에서 **Redis Object Cache** 를 찾은 다음, **활성화** 를 클릭합니다.
 
 ![Redis 활성화][3]
 
-**설정**을 클릭합니다.
+**설정** 을 클릭합니다.
 
 ![설정 클릭][4]
 
@@ -482,11 +482,11 @@ WordPress 관리자로 로그인합니다. 왼쪽 탐색 영역에서 **플러�
 
 !['개체 캐시 사용' 단추 클릭][5]
 
-WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페이지에 표시됩니다.
+WordPress가 Redis 서버에 연결됩니다. 연결 **상태** 가 동일한 페이지에 표시됩니다.
 
 ![WordPress가 Redis 서버에 연결됩니다. 연결 ** 상태 **가 동일한 페이지에 표시됩니다.][6]
 
-**축하합니다!** WordPress가 Redis에 연결되었습니다. 이제 프로덕션 준비가 완료된 앱에서 **Azure Database for MySQL, 영구 스토리지 및 Redis**를 사용합니다. 그리고 App Service 계획을 여러 인스턴스로 확장할 수 있습니다.
+**축하합니다!** WordPress가 Redis에 연결되었습니다. 이제 프로덕션 준비가 완료된 앱에서 **Azure Database for MySQL, 영구 스토리지 및 Redis** 를 사용합니다. 그리고 App Service 계획을 여러 인스턴스로 확장할 수 있습니다.
 
 ## <a name="find-docker-container-logs"></a>Docker 컨테이너 로그 찾기
 

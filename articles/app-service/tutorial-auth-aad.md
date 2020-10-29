@@ -5,14 +5,14 @@ keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 �
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: devx-track-csharp, seodec18
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982902"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743822"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -235,29 +235,29 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-*Azure Portal* 메뉴에서 [리소스 그룹](https://portal.azure.com)을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹**을 선택합니다.
+*Azure Portal* 메뉴에서 [리소스 그룹](https://portal.azure.com)을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹** 을 선택합니다.
 
-**리소스 그룹**에서 리소스 그룹을 찾아 선택합니다. **개요**에서 백 엔드 앱의 관리 페이지를 선택합니다.
+**리소스 그룹** 에서 리소스 그룹을 찾아 선택합니다. **개요** 에서 백 엔드 앱의 관리 페이지를 선택합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
-백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여**을 선택하고 **설정**을 선택하여 App Service 인증을 사용하도록 설정합니다.
+백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여** 을 선택하고 **설정** 을 선택하여 App Service 인증을 사용하도록 설정합니다.
 
-**요청이 인증되지 않은 경우 수행할 작업**에서 **Azure Active Directory로 로그인**을 선택합니다.
+**요청이 인증되지 않은 경우 수행할 작업** 에서 **Azure Active Directory로 로그인** 을 선택합니다.
 
-**인증 공급자**에서 **Azure Active Directory**를 선택합니다.
+**인증 공급자** 에서 **Azure Active Directory** 를 선택합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
-**기본**을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인**을 선택합니다.
+**기본** 을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인** 을 선택합니다.
 
-**인증/권한 부여** 페이지에서 **저장**을 선택합니다.
+**인증/권한 부여** 페이지에서 **저장** 을 선택합니다.
 
 `Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 포털 페이지를 새로 고칩니다.
 
-**Azure Active Directory**를 다시 선택한 다음, **Azure AD 앱**을 선택합니다.
+**Azure Active Directory** 를 다시 선택한 다음, **Azure AD 앱** 을 선택합니다.
 
-Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
@@ -267,7 +267,7 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 클라이언트 ID가 필요하지 않습니다.
 
-원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 한 후에도 *백 엔드 앱에서 데이터에 액세스할 수 없습니다*. 백 엔드 앱에는 현재 프런트 엔드 앱의 Azure Active Directory 로그인이 필요하기 때문입니다. 다음과 같은 세 가지 작업을 수행해야 합니다.
+원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 한 후에도 *백 엔드 앱에서 데이터에 액세스할 수 없습니다* . 백 엔드 앱에는 현재 프런트 엔드 앱의 Azure Active Directory 로그인이 필요하기 때문입니다. 다음과 같은 세 가지 작업을 수행해야 합니다.
 
 - 프런트 엔드에 백 엔드 액세스 권한 부여
 - 사용 가능한 토큰을 반환하도록 App Service 구성
@@ -280,15 +280,15 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
-[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택하거나 아무 페이지에서 *Azure Active Directory*를 검색한 후 선택합니다.
+[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory** 를 선택하거나 아무 페이지에서 *Azure Active Directory* 를 검색한 후 선택합니다.
 
-**앱 등록** > **소유 애플리케이션** > **이 디렉터리의 모든 애플리케이션 보기**를 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한**을 선택합니다.
+**앱 등록** > **소유 애플리케이션** > **이 디렉터리의 모든 애플리케이션 보기** 를 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한** 을 선택합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
-**권한 추가**를 선택한 다음, **내 조직에서 사용하는 API** >  **\<back-end-app-name>** 를 선택합니다.
+**권한 추가** 를 선택한 다음, **내 조직에서 사용하는 API** >  **\<back-end-app-name>** 를 선택합니다.
 
-백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation**를 선택한 다음, **권한 추가**를 선택합니다.
+백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation** 를 선택한 다음, **권한 추가** 를 선택합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
@@ -302,9 +302,9 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
-왼쪽 브라우저에서 **구성** > **authsettings**로 드릴다운합니다.
+왼쪽 브라우저에서 **구성** > **authsettings** 로 드릴다운합니다.
 
-**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 클라이언트 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
+**authsettings** 보기에서 **편집** 을 클릭합니다. 복사한 클라이언트 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
@@ -312,7 +312,7 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="할 일 목록 앱을 표시하는 브라우저 창에 있는 Azure App Service Rest API 샘플의 스크린샷.":::
 
-**PUT**을 클릭하여 설정을 저장합니다.
+**PUT** 을 클릭하여 설정을 저장합니다.
 
 이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
@@ -327,7 +327,7 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 > [!NOTE]
 > 이 헤더는 지원되는 모든 언어로 삽입됩니다. 각 해당 언어에 대한 표준 패턴을 사용하여 액세스할 수 있습니다.
 
-로컬 리포지토리에서 _Controllers/TodoController.cs_를 다시 엽니다. `TodoController(TodoContext context)` 생성자 아래에 다음 코드를 추가합니다.
+로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 다시 엽니다. `TodoController(TodoContext context)` 생성자 아래에 다음 코드를 추가합니다.
 
 ```cs
 public override void OnActionExecuting(ActionExecutingContext context)
@@ -350,7 +350,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-`https://<front-end-app-name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의**를 클릭합니다.
+`https://<front-end-app-name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의** 를 클릭합니다.
 
 이제 이전과 같이 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다. 유일한 차이점은 이제 두 앱이 App Service 인증 및 권한 부여로 보호된다는 점입니다(서비스 간 호출 포함).
 
@@ -378,15 +378,15 @@ az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-nam
 
 ### <a name="point-angularjs-app-to-back-end-api"></a>Angular.js 앱에서 백 엔드 API 가리키기
 
-로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
+로컬 리포지토리에서 _wwwroot/index.html_ 을 엽니다.
 
 51번 줄에서 `apiEndpoint` 변수를 백 엔드 앱의 HTTPS URL(`https://<back-end-app-name>.azurewebsites.net`)로 설정합니다. _\<back-end-app-name>_ 를 App Service의 앱 이름으로 바꿉니다.
 
-로컬 리포지토리에서 _wwwroot/app/scripts/todoListSvc.js_를 열고 `apiEndpoint`가 모든 API 호출 앞에 추가되었는지 확인합니다. 이제 Angular.js 앱에서 백 엔드 API를 호출합니다. 
+로컬 리포지토리에서 _wwwroot/app/scripts/todoListSvc.js_ 를 열고 `apiEndpoint`가 모든 API 호출 앞에 추가되었는지 확인합니다. 이제 Angular.js 앱에서 백 엔드 API를 호출합니다. 
 
 ### <a name="add-access-token-to-api-calls"></a>API 호출에 액세스 토큰 추가
 
-_wwwroot/app/scripts/todoListSvc.js_의 API 호출 목록 위(`getItems : function(){` 줄 위)에 있는 목록에 다음 함수를 추가합니다.
+_wwwroot/app/scripts/todoListSvc.js_ 의 API 호출 목록 위(`getItems : function(){` 줄 위)에 있는 목록에 다음 함수를 추가합니다.
 
 ```javascript
 setAuth: function (token) {
@@ -396,7 +396,7 @@ setAuth: function (token) {
 
 이 함수는 액세스 토큰을 사용하여 기본 `Authorization` 헤더를 설정하기 위해 호출됩니다. 다음 단계에서 호출합니다.
 
-로컬 리포지토리에서 _wwwroot/app/scripts/app.js_를 열어서 다음 코드를 찾습니다.
+로컬 리포지토리에서 _wwwroot/app/scripts/app.js_ 를 열어서 다음 코드를 찾습니다.
 
 ```javascript
 $routeProvider.when("/Home", {

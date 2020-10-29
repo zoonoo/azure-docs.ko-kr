@@ -5,13 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.custom: devx-track-java
-ms.openlocfilehash: 8ba15047d04d3af25518e8c55a50c55bcacf9037
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d0c4a6fcdddddc77d4072c2d0d11fe78837d84bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103937"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743374"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -412,7 +412,7 @@ mvn azure-functions:run
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-그런 다음, [Azure Portal](https://portal.azure.com), Azure Cosmos DB 계정으로 차례로 이동할 수 있습니다. **데이터 탐색기**를 선택하고, **TelemetryInfo**를 펼친 다음, **항목**을 선택하여 데이터가 도착하면 이를 확인합니다.
+그런 다음, [Azure Portal](https://portal.azure.com), Azure Cosmos DB 계정으로 차례로 이동할 수 있습니다. **데이터 탐색기** 를 선택하고, **TelemetryInfo** 를 펼친 다음, **항목** 을 선택하여 데이터가 도착하면 이를 확인합니다.
 
 ![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 

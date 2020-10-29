@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
-ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152095"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743717"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -30,8 +30,8 @@ ms.locfileid: "92152095"
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Windows용 Docker 설치</a>
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows 컨테이너를 실행하도록 Docker 전환</a>
 - **ASP.NET과 웹 개발** 및 **Azure 개발** 워크로드와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 설치</a> Visual Studio 2019를 이미 설치한 경우:
-    - **도움말** > **업데이트 확인**을 클릭하여 Visual Studio에 최신 업데이트를 설치합니다.
-    - **도구** > **도구 및 기능 가져오기**를 클릭하여 Visual Studio에서 워크로드를 추가합니다.
+    - **도움말** > **업데이트 확인** 을 클릭하여 Visual Studio에 최신 업데이트를 설치합니다.
+    - **도구** > **도구 및 기능 가져오기** 를 클릭하여 Visual Studio에서 워크로드를 추가합니다.
 
 ## <a name="set-up-the-app-locally"></a>로컬에서 앱 설정
 
@@ -46,7 +46,7 @@ ms.locfileid: "92152095"
 
 ### <a name="install-the-font"></a>글꼴 설치
 
-Windows 탐색기에서 _custom-font-win-container-master/CustomFontSample_로 이동하여 _FrederickatheGreat-Regular.ttf_를 마우스 오른쪽 단추로 클릭하고 **설치**를 선택합니다.
+Windows 탐색기에서 _custom-font-win-container-master/CustomFontSample_ 로 이동하여 _FrederickatheGreat-Regular.ttf_ 를 마우스 오른쪽 단추로 클릭하고 **설치** 를 선택합니다.
 
 이 글꼴은 [Google 글꼴](https://fonts.google.com/specimen/Fredericka+the+Great)을 통해 공개적으로 제공됩니다.
 
@@ -62,15 +62,15 @@ Visual Studio에서 *custom-font-win-container/CustomFontSample.sln* 파일을 �
 
 ### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
-솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support**(컨테이너 오케스트레이션 지원)를 선택합니다.
+솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Container Orchestration Support** (컨테이너 오케스트레이션 지원)를 선택합니다.
 
 :::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
 
-**Docker Compose** > **확인**을 선택합니다.
+**Docker Compose** > **확인** 을 선택합니다.
 
-이제 프로젝트가 Windows 컨테이너에서 실행되도록 설정되었습니다. _Dockerfile_이 **CustomFontSample** 프로젝트에 추가되고 **docker-compose** 프로젝트가 솔루션에 추가됩니다. 
+이제 프로젝트가 Windows 컨테이너에서 실행되도록 설정되었습니다. _Dockerfile_ 이 **CustomFontSample** 프로젝트에 추가되고 **docker-compose** 프로젝트가 솔루션에 추가됩니다. 
 
-솔루션 탐색기에서 **Dockerfile**을 엽니다.
+솔루션 탐색기에서 **Dockerfile** 을 엽니다.
 
 [지원되는 부모 이미지](configure-custom-container.md#supported-parent-images)를 사용해야 합니다. `FROM` 줄을 다음 코드로 바꿔서 부모 이미지를 변경합니다.
 
@@ -84,7 +84,7 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-_InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습니다. 글꼴을 설치하는 간단한 스크립트입니다. [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133)에서 더 복잡한 스크립트 버전을 찾을 수 있습니다.
+_InstallFont.ps1_ 은 **CustomFontSample** 프로젝트에서 찾을 수 있습니다. 글꼴을 설치하는 간단한 스크립트입니다. [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133)에서 더 복잡한 스크립트 버전을 찾을 수 있습니다.
 
 > [!NOTE]
 > Windows 컨테이너를 로컬로 테스트하려면 로컬 머신에서 Docker가 시작되었는지 확인합니다.
@@ -96,30 +96,30 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 ### <a name="open-publish-wizard"></a>게시 마법사 열기
 
-솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+솔루션 탐색기에서 **CustomFontSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
 :::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
 
 ### <a name="create-registry-and-publish"></a>레지스트리 만들기 및 게시
 
-게시 마법사에서 **Container Registry** > **새 Azure Container Registry 만들기** > **게시**를 선택합니다.
+게시 마법사에서 **Container Registry** > **새 Azure Container Registry 만들기** > **게시** 를 선택합니다.
 
 :::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="기본 브라우저에 표시되는 앱을 보여주는 스크린샷.":::
 
 ### <a name="sign-in-with-azure-account"></a>Azure 계정으로 로그인
 
-**새 Azure Container Registry 만들기** 대화 상자에서 **계정 추가**를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
+**새 Azure Container Registry 만들기** 대화 상자에서 **계정 추가** 를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
 
 ![Azure에 로그인](./media/tutorial-custom-container/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>레지스트리 구성
 
-다음 표의 제안 값을 기반으로 새 컨테이너 레지스트리를 구성합니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
+다음 표의 제안 값을 기반으로 새 컨테이너 레지스트리를 구성합니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
 | 설정  | 제안 값 | 참조 항목 |
 | ----------------- | ------------ | ----|
 |**DNS 접두사**| 생성된 레지스트리 이름을 유지하거나 다른 고유한 이름으로 변경합니다. |  |
-|**리소스 그룹**| **새로 만들기**를 클릭하고 **myResourceGroup**을 입력하고 **확인**을 클릭합니다. |  |
+|**리소스 그룹**| **새로 만들기** 를 클릭하고 **myResourceGroup** 을 입력하고 **확인** 을 클릭합니다. |  |
 |**SKU**| Basic | [가격 책정 계층](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**레지스트리 위치**| 서유럽 | |
 
@@ -133,21 +133,21 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-왼쪽 메뉴에서 **리소스 만들기** > **웹** > **Web App for Containers**를 선택합니다.
+왼쪽 메뉴에서 **리소스 만들기** > **웹** > **Web App for Containers** 를 선택합니다.
 
 ### <a name="configure-app-basics"></a>앱 기본 사항 구성
 
-**기본 사항** 탭에서 다음 표에 따라 설정을 구성한 후, **다음: Docker**를 클릭합니다.
+**기본 사항** 탭에서 다음 표에 따라 설정을 구성한 후, **다음: Docker** 를 클릭합니다.
 
 | 설정  | 제안 값 | 참조 항목 |
 | ----------------- | ------------ | ----|
 |**구독**| 올바른 구독을 선택하는지 확인합니다. |  |
-|**리소스 그룹**| **새로 만들기**를 선택하고, **myResourceGroup**을 입력하고, **확인**을 클릭합니다. |  |
+|**리소스 그룹**| **새로 만들기** 를 선택하고, **myResourceGroup** 을 입력하고, **확인** 을 클릭합니다. |  |
 |**이름**| 고유한 이름을 입력합니다. | 웹앱의 URL은 `http://<app-name>.azurewebsites.net`이며, 여기서 `<app-name>`은 앱 이름입니다. |
 |**게시**| Docker 컨테이너 | |
 |**운영 체제**| Windows | |
 |**지역**| 서유럽 | |
-|**Windows 플랜**| **새로 만들기**를 선택하고, **myAppServicePlan**을 입력하고, **확인**을 클릭합니다. | |
+|**Windows 플랜**| **새로 만들기** 를 선택하고, **myAppServicePlan** 을 입력하고, **확인** 을 클릭합니다. | |
 
 **기본 사항** 탭은 다음과 같아야 합니다.
 
@@ -155,7 +155,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
-**Docker** 탭에서 다음 표에 표시된 대로 사용자 지정 Windows 컨테이너를 구성하고 **검토 + 만들기**를 선택합니다.
+**Docker** 탭에서 다음 표에 표시된 대로 사용자 지정 Windows 컨테이너를 구성하고 **검토 + 만들기** 를 선택합니다.
 
 | 설정  | 제안 값 |
 | ----------------- | ------------ |
@@ -166,7 +166,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="complete-app-creation"></a>앱 만들기 완료
 
-**만들기**를 클릭하고, Azure를 수신 대기하여 필수 리소스를 만듭니다.
+**만들기** 를 클릭하고, Azure를 수신 대기하여 필수 리소스를 만듭니다.
 
 ## <a name="browse-to-the-web-app"></a>웹앱으로 이동
 
@@ -174,7 +174,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ![Azure 작업이 완료되었음을 표시합니다.](media/tutorial-custom-container/portal-create-finished.png)
 
-1. **리소스로 이동**을 클릭합니다.
+1. **리소스로 이동** 을 클릭합니다.
 
 2. 앱 페이지에서 **URL** 아래에 있는 링크를 클릭합니다.
 
@@ -276,15 +276,15 @@ cd docker-django-webapp-linux
 
 ### <a name="download-from-github"></a>GitHub에서 다운로드
 
-git clone을 사용하는 대신 [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux)를 방문하여 **복제**를 선택한 다음, **ZIP 다운로드**를 선택할 수 있습니다. 
+git clone을 사용하는 대신 [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux)를 방문하여 **복제** 를 선택한 다음, **ZIP 다운로드** 를 선택할 수 있습니다. 
 
-ZIP 파일의 압축을 *docker-django-webapp-linux*라는 폴더에 풉니다. 
+ZIP 파일의 압축을 *docker-django-webapp-linux* 라는 폴더에 풉니다. 
 
 그런 다음, 해당 *docker-django-webapp-linux* 폴더에서 터미널 창을 엽니다.
 
 ## <a name="optional-examine-the-docker-file"></a>(선택 사항) Docker 파일 검사
 
-Docker 이미지를 설명하고 구성 지침을 포함하는 _Dockerfile_이라는 샘플 파일은 다음과 같습니다.
+Docker 이미지를 설명하고 구성 지침을 포함하는 _Dockerfile_ 이라는 샘플 파일은 다음과 같습니다.
 
 ```Dockerfile
 FROM tiangolo/uwsgi-nginx-flask:python3.6
@@ -334,7 +334,7 @@ ENTRYPOINT ["init.sh"]
     이 [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) 명령은 `-p` 인수 뒤에 이미지 이름을 사용하여 포트를 지정합니다. 
     
     > [!TIP]
-    > Windows에서 실행되고 *standard_init_linux.go:211: exec 사용자 프로세스로 인해 "해당 파일이나 디렉터리가 없습니다."* 라는 오류가 표시되면 필요한 LF 종료 끝 대신 CR-LF 줄 끝이 *init.sh* 파일에 포함됩니다. 이 오류는 git을 사용하여 샘플 리포지토리를 복제했지만 `--config core.autocrlf=input` 매개 변수를 생략한 경우에 발생합니다. 이 경우 '--config' 인수를 사용하여 리포지토리를 다시 복제하세요. 또한 *init.sh*를 편집하고 CRLF 끝을 사용하여 저장한 경우에도 이 오류가 표시될 수 있습니다. 이 경우 LF 끝만 사용하여 파일을 다시 저장하세요.
+    > Windows에서 실행되고 *standard_init_linux.go:211: exec 사용자 프로세스로 인해 "해당 파일이나 디렉터리가 없습니다."* 라는 오류가 표시되면 필요한 LF 종료 끝 대신 CR-LF 줄 끝이 *init.sh* 파일에 포함됩니다. 이 오류는 git을 사용하여 샘플 리포지토리를 복제했지만 `--config core.autocrlf=input` 매개 변수를 생략한 경우에 발생합니다. 이 경우 '--config' 인수를 사용하여 리포지토리를 다시 복제하세요. 또한 *init.sh* 를 편집하고 CRLF 끝을 사용하여 저장한 경우에도 이 오류가 표시될 수 있습니다. 이 경우 LF 끝만 사용하여 파일을 다시 저장하세요.
 
 1. `http://localhost:8000`으로 이동하여 웹앱과 컨테이너가 올바르게 작동하는지 확인합니다.
 
@@ -561,7 +561,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
     `https://<app-name>.scm.azurewebsites.net/api/logs/docker`의 브라우저에서 로그 파일을 검사할 수도 있습니다.
 
-1. 언제든지 로그 스트리밍을 중지하려면 **Ctrl**+**C**를 입력합니다.
+1. 언제든지 로그 스트리밍을 중지하려면 **Ctrl**+**C** 를 입력합니다.
 
 ## <a name="connect-to-the-container-using-ssh"></a>SSH를 사용하여 컨테이너에 연결
 
@@ -569,7 +569,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 ### <a name="configure-the-container-for-ssh"></a>SSH에 대한 컨테이너 구성
 
-이 자습서에 사용되는 샘플 앱에는 SSH 서버를 설치하고 로그인 자격 증명도 설정하는 *Dockerfile*에 필요한 구성이 이미 있습니다. 이 섹션은 정보 제공용입니다. 컨테이너에 연결하려면 다음 섹션으로 건너뜁니다.
+이 자습서에 사용되는 샘플 앱에는 SSH 서버를 설치하고 로그인 자격 증명도 설정하는 *Dockerfile* 에 필요한 구성이 이미 있습니다. 이 섹션은 정보 제공용입니다. 컨테이너에 연결하려면 다음 섹션으로 건너뜁니다.
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"
@@ -583,7 +583,7 @@ RUN apt-get update \
 > [!NOTE]
 > 이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 Azure 계정으로 인증됩니다.
 
-또한 *Dockerfile*은 *sshd_config* 파일을 */etc/ssh/* 폴더에 복사하고, 컨테이너에서 포트 2222를 공개합니다.
+또한 *Dockerfile* 은 *sshd_config* 파일을 */etc/ssh/* 폴더에 복사하고, 컨테이너에서 포트 2222를 공개합니다.
 
 ```Dockerfile
 COPY sshd_config /etc/ssh/
@@ -606,7 +606,7 @@ service ssh start
 
 1. `https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하고 Azure 계정으로 로그인합니다. `<app-name>`을 웹앱 이름으로 바꿉니다.
 
-1. 로그인하면 웹앱에 대한 정보 페이지로 리디렉션됩니다. 페이지 위쪽에서 **SSH**를 선택하여 셸을 열고 명령을 사용합니다.
+1. 로그인하면 웹앱에 대한 정보 페이지로 리디렉션됩니다. 페이지 위쪽에서 **SSH** 를 선택하여 셸을 열고 명령을 사용합니다.
 
     예를 들어 `top` 명령을 사용하여 프로세스 내에서 실행되는 프로세스를 검사할 수 있습니다.
     
