@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497174"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675266"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 Azure CLI 샘플 
  
@@ -73,7 +73,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 | [SQL Managed Instance에 대한 장애 조치(failover) 그룹 구성](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | SQL Managed Instance 인스턴스 2개를 만들고, 장애 조치(failover) 그룹에 이를 추가한 다음, 기본 SQL Managed Instance에서 보조 SQL Managed Instance로의 장애 조치(failover)를 테스트합니다. |
 |||
 
-SQL Managed Instance 예제를 더 보려면 [만들기](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [업데이트](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [데이터베이스 이동](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/), 스크립트 [작업](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)을 참조하세요.
+SQL Managed Instance 예제를 더 보려면 [만들기](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [업데이트](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [데이터베이스 이동](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance), 스크립트 [작업](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)을 참조하세요.
 
 [SQL Managed Instance Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances)에 대해 자세히 알아봅니다.
 

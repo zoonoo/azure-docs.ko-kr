@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/29/2020
-  ms.openlocfilehash: 33bba82d473d6c9c39e78e2e3587fc4f886fd1ba
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.date: 10/22/2020
+  ms.openlocfilehash: 6b7ed9160cc256d2b52bd69730017db08ca479fa
+  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92359546"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92670457"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -40,6 +40,17 @@ highlightedContent:
     url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
 conceptualContent:
   items:
+  - title: 파트너 애플리케이션 지원
+    links:
+    - url: ./saas-apps/tutorial-list.md
+      itemType: tutorial
+      text: 이러한 자습서에 따라 클라우드 사용 SaaS 앱을 Azure AD와 통합합니다.
+    - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
+      itemType: get-started
+      text: Azure AD 갤러리에 통합하려면 앱 요청을 제출하세요.
+    footerLink:
+      url: ./manage-apps/index.yml
+      text: 자세히 보기
   - title: 애플리케이션 관리
     links:
     - url: ./manage-apps/what-is-application-management.md

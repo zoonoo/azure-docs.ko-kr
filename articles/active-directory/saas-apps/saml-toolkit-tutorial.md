@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 7886691559a63e6d54ea748582f641f33cecf995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26618382223a87f779f95452000a39126f37efbb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979737"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>자습서: Azure AD SAML Toolkit와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -48,14 +48,14 @@ Azure AD SAML Toolkit가 Azure AD에 통합되도록 구성하려면 갤러리�
 
 1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션에서 검색 상자에 **Azure AD SAML Toolkit**을 입력합니다.
-1. 결과 패널에서 **Azure AD SAML Toolkit**을 선택한 다음 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션에서 검색 상자에 **Azure AD SAML Toolkit** 을 입력합니다.
+1. 결과 패널에서 **Azure AD SAML Toolkit** 을 선택한 다음 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-sso-for-azure-ad-saml-toolkit"></a>Azure AD SAML Toolkit에 대한 Azure AD SSO 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 Azure AD SAML Toolkit에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Azure AD SAML Toolkit의 관련 사용자 간에 링크 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Azure AD SAML Toolkit에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Azure AD SAML Toolkit의 관련 사용자 간에 링크 관계를 설정해야 합니다.
 
 Azure AD SAML Toolkit에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
@@ -70,9 +70,9 @@ Azure AD SAML Toolkit에서 Azure AD SSO를 구성하고 테스트하려면 다�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Azure AD SAML Toolkit** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. Azure Portal의 **Azure AD SAML Toolkit** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 URL `https://samltoolkit.azurewebsites.net/SAML/Consume`을 입력합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificateraw.png)
 
@@ -94,37 +94,37 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B. Simon에게 Azure AD SAML Toolkit에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Azure AD SAML Toolkit**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Azure AD SAML Toolkit** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-azure-ad-saml-toolkit-sso"></a>Azure AD SAML Toolkit SSO 구성
 
-1. 새 웹 브라우저 창을 열고 Azure AD SAML Toolkit 웹 사이트에 등록하지 않은 경우 먼저 **등록**을 클릭하여 등록합니다. 이미 등록한 경우 등록된 로그인 자격 증명을 사용하여 Azure AD SAML Toolkit 회사 사이트에 로그인합니다.
+1. 새 웹 브라우저 창을 열고 Azure AD SAML Toolkit 웹 사이트에 등록하지 않은 경우 먼저 **등록** 을 클릭하여 등록합니다. 이미 등록한 경우 등록된 로그인 자격 증명을 사용하여 Azure AD SAML Toolkit 회사 사이트에 로그인합니다.
 
     ![Azure AD SAML Toolkit 등록](./media/saml-toolkit-tutorial/register.png)
 
-1. **SAML 구성**을 클릭합니다.
+1. **SAML 구성** 을 클릭합니다.
 
     ![Azure AD SAML Toolkit SAML 구성](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
     ![Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -138,11 +138,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     1. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-    1. **파일 선택**을 클릭하고 Azure Portal에서 다운로드한 **인증서(Raw)** 파일을 업로드합니다.
+    1. **파일 선택** 을 클릭하고 Azure Portal에서 다운로드한 **인증서(Raw)** 파일을 업로드합니다.
 
-    1. **만들기**를 클릭합니다.
+    1. **만들기** 를 클릭합니다.
 
-    1. SAML Toolkit SSO 구성 페이지에서 로그온 URL, 식별자 및 ACS URL 값을 복사하고 Azure Portal의 **기본 SAML 구성 섹션**에서 적용되는 텍스트 상자에 붙여넣습니다.
+    1. SAML Toolkit SSO 구성 페이지에서 로그온 URL, 식별자 및 ACS URL 값을 복사하고 Azure Portal의 **기본 SAML 구성 섹션** 에서 적용되는 텍스트 상자에 붙여넣습니다.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Azure AD SAML Toolkit 테스트 사용자 만들기
 
@@ -152,12 +152,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트**를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 SAML Toolkit 로그온 URL로 리디렉션됩니다. 
+1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 SAML Toolkit 로그온 URL로 리디렉션됩니다. 
 
 2. SAML Toolkit 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 SAML Toolkit 타일을 클릭하면 SSO를 설정한 SAML Toolkit에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 SAML Toolkit 타일을 클릭하면 SSO를 설정한 SAML Toolkit에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD SAML Toolkit를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Azure AD SAML Toolkit를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

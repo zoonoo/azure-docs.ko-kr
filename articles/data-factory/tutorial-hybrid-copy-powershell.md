@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9562c9fd590ea1234fb2378f03861141e58432ff
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147963"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637533"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>자습서: SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -50,7 +50,7 @@ ms.locfileid: "92147963"
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 및 2017
 이 자습서에서는 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Azure Blob 스토리지(싱크)로 데이터를 복사합니다. 그런 다음 SQL Server 데이터베이스에 **emp** 라는 테이블을 만들고 테이블에 동일한 두 개의 샘플 항목을 삽입합니다.
 
-1. SQL Server Management Studio를 시작합니다. 컴퓨터에 아직 설치되어 있지 않으면 [SQL Server Management Studio 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다.
+1. SQL Server Management Studio를 시작합니다. 컴퓨터에 아직 설치되어 있지 않으면 [SQL Server Management Studio 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다.
 
 1. 자격 증명을 사용하여 SQL server 인스턴스에 연결합니다.
 
