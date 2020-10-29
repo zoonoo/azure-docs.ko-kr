@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90e60044e227ea1a18ea032d302b29abda1ea2e8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209193"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536847"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
-이 자습서에서는 Azure Cache for Redis로 [캐시 배제 패턴](https://docs.microsoft.com/azure/architecture/patterns/cache-aside)을 사용하는 순위표를 포함시키기 위해 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* ASP.NET 웹앱을 업데이트합니다. 샘플 애플리케이션은 성능 개선을 위해 데이터베이스에서 팀 통계 목록을 표시하고 Azure Cache for Redis를 사용하여 캐시에서 데이터를 저장하고 검색하는 여러 가지 방법을 보여줍니다. 이 자습서를 완료하면 데이터베이스에 읽고 쓰는 웹앱을 실행하고, Azure Cache for Redis에 최적화되고, Azure에서 호스팅하게 됩니다.
+이 자습서에서는 Azure Cache for Redis로 [캐시 배제 패턴](/azure/architecture/patterns/cache-aside)을 사용하는 순위표를 포함시키기 위해 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* ASP.NET 웹앱을 업데이트합니다. 샘플 애플리케이션은 성능 개선을 위해 데이터베이스에서 팀 통계 목록을 표시하고 Azure Cache for Redis를 사용하여 캐시에서 데이터를 저장하고 검색하는 여러 가지 방법을 보여줍니다. 이 자습서를 완료하면 데이터베이스에 읽고 쓰는 웹앱을 실행하고, Azure Cache for Redis에 최적화되고, Azure에서 호스팅하게 됩니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "88209193"
 ### <a name="add-the-entity-framework-to-the-project"></a>프로젝트에 Entity Framework 추가
 
 1. Visual Studio에서, [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* 솔루션을 엽니다.
-2. **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다.
+2. **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔** 을 클릭합니다.
 3. **패키지 관리자 콘솔** 창에서 다음 명령을 실행하여 EntityFramework를 설치합니다.
 
     ```powershell
@@ -56,9 +56,9 @@ ms.locfileid: "88209193"
 
 ### <a name="add-the-team-model"></a>팀 모델 추가
 
-1. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다.
+1. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭하고 **추가** , **클래스** 를 선택합니다.
 
-1. 클래스 이름으로 `Team` 을 입력하고 **추가**를 클릭합니다.
+1. 클래스 이름으로 `Team` 을 입력하고 **추가** 를 클릭합니다.
 
     ![모델 클래스 추가](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "88209193"
     }
     ```
 
-1. **솔루션 탐색기**에서 **Web.config**를 두 번 클릭하여 엽니다.
+1. **솔루션 탐색기** 에서 **Web.config** 를 두 번 클릭하여 엽니다.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -173,9 +173,9 @@ ms.locfileid: "88209193"
 
 1. Visual Studio에서 프로젝트를 빌드합니다. 
 
-1. **솔루션 탐색기**에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **컨트롤러**를 클릭합니다.
+1. **솔루션 탐색기** 에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** , **컨트롤러** 를 클릭합니다.
 
-1. **Entity Framework를 사용하여 보기가 포함된 MVC 5 컨트롤러**를 선택하고 **추가**를 클릭합니다. **추가**를 클릭한 후 오류가 발생하면 먼저 프로젝트를 빌드했는지 확인합니다.
+1. **Entity Framework를 사용하여 보기가 포함된 MVC 5 컨트롤러** 를 선택하고 **추가** 를 클릭합니다. **추가** 를 클릭한 후 오류가 발생하면 먼저 프로젝트를 빌드했는지 확인합니다.
 
     ![컨트롤러 클래스 추가](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "88209193"
 
     ![컨트롤러 구성](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
 
-1. **솔루션 탐색기**에서 **Global.asax**를 확장하고 **Global.asax.cs**를 두 번 클릭하여 엽니다.
+1. **솔루션 탐색기** 에서 **Global.asax** 를 확장하고 **Global.asax.cs** 를 두 번 클릭하여 엽니다.
 
     ![Global.asax.cs](./media/cache-web-app-cache-aside-leaderboard/cache-global-asax.png)
 
@@ -200,7 +200,7 @@ ms.locfileid: "88209193"
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
-1. **솔루션 탐색기**에서 `App_Start`를 확장하고 `RouteConfig.cs`를 두 번 클릭합니다.
+1. **솔루션 탐색기** 에서 `App_Start`를 확장하고 `RouteConfig.cs`를 두 번 클릭합니다.
 
     ![RouteConfig.cs](./media/cache-web-app-cache-aside-leaderboard/cache-RouteConfig-cs.png)
 
@@ -216,7 +216,7 @@ ms.locfileid: "88209193"
 
 ### <a name="configure-the-layout-view"></a>레이아웃 뷰 구성
 
-1. **솔루션 탐색기**에서 **보기** 폴더, **공유** 폴더를 차례로 확장하고 **_Layout.cshtml**를 두 번 클릭합니다. 
+1. **솔루션 탐색기** 에서 **보기** 폴더, **공유** 폴더를 차례로 확장하고 **_Layout.cshtml** 를 두 번 클릭합니다. 
 
     ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
 
@@ -226,7 +226,7 @@ ms.locfileid: "88209193"
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
-1. `body` 섹션에서 *Contoso Team Stats*에 대한 다음과 같은 새로운 `Html.ActionLink` 문을 *Azure Cache for Redis 테스트*에 대한 링크 바로 아래에 추가합니다.
+1. `body` 섹션에서 *Contoso Team Stats* 에 대한 다음과 같은 새로운 `Html.ActionLink` 문을 *Azure Cache for Redis 테스트* 에 대한 링크 바로 아래에 추가합니다.
 
     ```csharp
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
@@ -234,7 +234,7 @@ ms.locfileid: "88209193"
 
     ![코드 변경 내용](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. **Ctrl+F5** 키를 눌러 애플리케이션을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
+1. **Ctrl+F5** 키를 눌러 애플리케이션을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기** , **편집** , **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
 
     ![시작 애플리케이션](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
@@ -244,13 +244,13 @@ ms.locfileid: "88209193"
 
 ### <a name="add-a-cache-connection-to-the-teams-controller"></a>Teams Controller에 캐시 연결 추가
 
-빠른 시작에서 이미 *StackExchange.Redis* 클라이언트 라이브러리 패키지를 설치했습니다. 또한 이미 *CacheConnection* 앱 설정을 게시된 App Service를 통해 로컬로 사용하도록 구성했습니다. *TeamsController*에서 이 동일한 클라이언트 라이브러리 및 *CacheConnection* 정보를 사용합니다.
+빠른 시작에서 이미 *StackExchange.Redis* 클라이언트 라이브러리 패키지를 설치했습니다. 또한 이미 *CacheConnection* 앱 설정을 게시된 App Service를 통해 로컬로 사용하도록 구성했습니다. *TeamsController* 에서 이 동일한 클라이언트 라이브러리 및 *CacheConnection* 정보를 사용합니다.
 
-1. **솔루션 탐색기**에서 **컨트롤러** 폴더를 확장하고 **TeamsController.cs**를 두 번 클릭하여 엽니다.
+1. **솔루션 탐색기** 에서 **컨트롤러** 폴더를 확장하고 **TeamsController.cs** 를 두 번 클릭하여 엽니다.
 
     ![팀 컨트롤러](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
 
-1. **TeamsController.cs**에 다음 두 `using` 문을 추가합니다.
+1. **TeamsController.cs** 에 다음 두 `using` 문을 추가합니다.
 
     ```csharp
     using System.Configuration;
@@ -574,7 +574,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ### <a name="add-caching-methods-to-the-teams-index-view"></a>팀 인덱스 뷰에 캐싱 메서드 추가
 
-1. **솔루션 탐색기**에서 **보기** 폴더, **팀** 폴더를 차례로 확장한 다음 **Index.cshtml**을 두 번 클릭합니다.
+1. **솔루션 탐색기** 에서 **보기** 폴더, **팀** 폴더를 차례로 확장한 다음 **Index.cshtml** 을 두 번 클릭합니다.
 
     ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
 
@@ -634,7 +634,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 로컬로 앱을 실행하려면 다음을 수행합니다.
 
-1. **Ctrl+F5**를 눌러 애플리케이션을 실행합니다.
+1. **Ctrl+F5** 를 눌러 애플리케이션을 실행합니다.
 
     ![로컬로 실행되는 앱](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
 
@@ -646,41 +646,41 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 SQL Database의 새 데이터베이스를 프로비저닝합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기** 를 클릭합니다.
 
-1. **새로 만들기** 페이지에서 **데이터베이스** > **SQL Database**를 클릭합니다.
+1. **새로 만들기** 페이지에서 **데이터베이스** > **SQL Database** 를 클릭합니다.
 
 1. 새 SQL Database에 대한 다음 설정을 사용합니다.
 
    | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+   | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **구독** | *구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
-   | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용**을 클릭하고 캐시와 App Service를 배치한 위치와 동일한 리소스 그룹을 사용합니다. |
+   | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용** 을 클릭하고 캐시와 App Service를 배치한 위치와 동일한 리소스 그룹을 사용합니다. |
    | **원본 선택** | **빈 데이터베이스** | 빈 데이터베이스에서 시작합니다. |
 
-1. **서버**에서 **필요한 설정 구성** > **새 서버 만들기**를 클릭하고 다음 정보를 입력한 다음, **선택** 단추를 클릭합니다.
+1. **서버** 에서 **필요한 설정 구성** > **새 서버 만들기** 를 클릭하고 다음 정보를 입력한 다음, **선택** 단추를 클릭합니다.
 
    | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
-   | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+   | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
    | **위치** | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
 
-1. **대시보드에 고정**을 클릭한 다음, **만들기**를 클릭하여 새 데이터베이스와 서버를 만듭니다.
+1. **대시보드에 고정** 을 클릭한 다음, **만들기** 를 클릭하여 새 데이터베이스와 서버를 만듭니다.
 
-1. 새 데이터베이스가 생성되면 **데이터베이스 연결 문자열 표시**를 클릭하고 **ADO.NET** 연결 문자열을 복사합니다.
+1. 새 데이터베이스가 생성되면 **데이터베이스 연결 문자열 표시** 를 클릭하고 **ADO.NET** 연결 문자열을 복사합니다.
 
     ![연결 문자열 표시](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. Azure Portal에서 App Service로 이동하고 **애플리케이션 설정**을 클릭한 다음, 연결 문자열 섹션에서 **새 연결 문자열 추가**를 클릭합니다.
+1. Azure Portal에서 App Service로 이동하고 **애플리케이션 설정** 을 클릭한 다음, 연결 문자열 섹션에서 **새 연결 문자열 추가** 를 클릭합니다.
 
-1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext*라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음과 같은 자리 표시자를 바꾸었는지 확인하고 **저장**을 클릭합니다.
+1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext* 라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음과 같은 자리 표시자를 바꾸었는지 확인하고 **저장** 을 클릭합니다.
 
     | 자리 표시자 | 제안 값 |
     | --- | --- |
-    | *{your_username}* | 방금 만든 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
+    | *{your_username}* | 방금 만든 서버에 대한 **서버 관리자 로그인** 을 사용합니다. |
     | *{your_password}* | 방금 만든 서버에 대한 암호를 사용합니다. |
 
     애플리케이션 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
@@ -689,11 +689,11 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 자습서의 이 단계에서는 Azure에 애플리케이션 업데이트를 게시하고 클라우드에서 실행합니다.
 
-1. Visual Studio에서 **ContosoTeamStats** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. Visual Studio에서 **ContosoTeamStats** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
     ![게시](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
-2. 빠른 시작에서 만든 것과 동일한 게시 프로필을 사용하려면 **게시**를 클릭합니다.
+2. 빠른 시작에서 만든 것과 동일한 게시 프로필을 사용하려면 **게시** 를 클릭합니다.
 
 3. 게시가 완료되면 Visual Studio는 사용자의 기본 웹 브라우저에서 앱을 시작합니다.
 
@@ -717,19 +717,19 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-샘플 자습서 애플리케이션을 마쳤을 때 비용 및 리소스를 절감하기 위해 사용한 Azure 리소스를 삭제할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어야 합니다. 리소스 그룹을 삭제하면 한 번에 모두 삭제할 수 있습니다. 이 항목의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다.
+샘플 자습서 애플리케이션을 마쳤을 때 비용 및 리소스를 절감하기 위해 사용한 Azure 리소스를 삭제할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어야 합니다. 리소스 그룹을 삭제하면 한 번에 모두 삭제할 수 있습니다. 이 항목의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스팅하기 위한 리소스를 만든 경우 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹** 을 클릭합니다.
 2. **항목 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다.
-3. 리소스 그룹의 오른쪽에 있는 **...** 을 클릭하여 **리소스 그룹 삭제**를 클릭합니다.
+3. 리소스 그룹의 오른쪽에 있는 **...** 을 클릭하여 **리소스 그룹 삭제** 를 클릭합니다.
 
     ![DELETE](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
+4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제** 를 클릭합니다.
 
     잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 

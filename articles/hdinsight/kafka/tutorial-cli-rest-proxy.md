@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503143"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539482"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>자습서: Azure CLI를 사용하여 HDInsight에서 Apache Kafka REST 프록시 사용 클러스터 만들기
 
-이 자습서에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure HDInsight에서 Apache Kafka [REST 프록시 사용](./rest-proxy.md) 클러스터를 만드는 방법에 대해 알아봅니다. Azure HDInsight는 엔터프라이즈를 위한 관리형의 전체 스펙트럼 오픈 소스 분석 서비스입니다. Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. Kafka REST 프록시를 사용하면 HTTP를 통해 [REST API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)에서 Kafka 클러스터와 상호 작용할 수 있습니다. Azure CLI는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
+이 자습서에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure HDInsight에서 Apache Kafka [REST 프록시 사용](./rest-proxy.md) 클러스터를 만드는 방법에 대해 알아봅니다. Azure HDInsight는 엔터프라이즈를 위한 관리형의 전체 스펙트럼 오픈 소스 분석 서비스입니다. Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. Kafka REST 프록시를 사용하면 HTTP를 통해 [REST API](/rest/api/hdinsight-kafka-rest-proxy/)에서 Kafka 클러스터와 상호 작용할 수 있습니다. Azure CLI는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
 
 Apache Kafka API는 동일한 가상 네트워크 내에서만 리소스에서 액세스할 수 있습니다. SSH를 사용하여 클러스터에 직접 액세스할 수 있습니다. 다른 서비스, 네트워크 또는 가상 머신을 Apache Kafka에 연결하려면 먼저 가상 네트워크를 만든 다음, 네트워크 내에 리소스를 만듭니다. 자세한 내용은 [가상 네트워크를 사용하여 Apache Kafka에 연결](./apache-kafka-connect-vpn-gateway.md)을 참조하세요.
 
@@ -27,7 +27,7 @@ Apache Kafka API는 동일한 가상 네트워크 내에서만 리소스에서 �
 > * Kafka REST 프록시에 대한 필수 구성 요소
 > * Azure CLI를 사용하여 Apache Kafka 클러스터 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * 멤버로 등록된 애플리케이션이 있는 Azure AD 보안 그룹입니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 애플리케이션을 제어하는 데 사용됩니다. Azure AD 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-* Azure CLI. 2\.0.79 버전 이상이 있는지 확인합니다. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI. 2\.0.79 버전 이상이 있는지 확인합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
@@ -56,8 +56,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     |위치|LOCATION을 클러스터가 만들어질 지역으로 바꿉니다. 올바른 위치 목록을 보려면 `az account list-locations` 명령을 사용합니다.|
     |clusterName|CLUSTERNAME을 전역적으로 고유한 새 클러스터 이름으로 바꿉니다.|
     |storageAccount|STORAGEACCOUNTNAME을 새 스토리지 계정의 이름으로 바꿉니다.|
-    |httpPassword|PASSWORD를 클러스터 로그인(**admin**)의 암호로 바꿉니다.|
-    |sshPassword|PASSWORD를 보안 셸 사용자 이름(**sshuser**)의 암호로 바꿉니다.|
+    |httpPassword|PASSWORD를 클러스터 로그인( **admin** )의 암호로 바꿉니다.|
+    |sshPassword|PASSWORD를 보안 셸 사용자 이름( **sshuser** )의 암호로 바꿉니다.|
     |securityGroupName|SECURITYGROUPNAME을 Kafka REST 프록시의 클라이언트 AAD 보안 그룹 이름으로 바꿉니다. 이 변수는 `az-hdinsight-create`의 `--kafka-client-group-name` 매개 변수로 전달됩니다.|
     |securityGroupID|SECURITYGROUPID를 Kafka REST 프록시의 클라이언트 AAD 보안 그룹 ID로 바꿉니다. 이 변수는 `az-hdinsight-create`의 `--kafka-client-group-id` 매개 변수로 전달됩니다.|
     |storageContainer|클러스터에서 사용할 스토리지 컨테이너이며, 이 자습서에서는 있는 그대로 둡니다. 이 변수는 클러스터의 이름으로 설정됩니다.|
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     export componentVersion=kafka=2.1
     ```
 
-1. 아래 명령을 입력하여 [리소스 그룹을 만듭니다](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+1. 아래 명령을 입력하여 [리소스 그룹을 만듭니다](/cli/azure/group#az-group-create).
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         --name $resourceGroupName
     ```
 
-1. 아래 명령을 입력하여 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. 아래 명령을 입력하여 [Azure Storage 계정을 만듭니다](/cli/azure/storage/account#az-storage-account-create).
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         --sku Standard_LRS
     ```
 
-1. 아래 명령을 입력하여 Azure Storage 계정에서 [기본 키를 추출](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)하고 변수에 저장합니다.
+1. 아래 명령을 입력하여 Azure Storage 계정에서 [기본 키를 추출](/cli/azure/storage/account/keys#az-storage-account-keys-list)하고 변수에 저장합니다.
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         --query [0].value -o tsv)
     ```
 
-1. 아래 명령을 입력하여 [Azure Storage 컨테이너를 만듭니다](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+1. 아래 명령을 입력하여 [Azure Storage 컨테이너를 만듭니다](/cli/azure/storage/container#az-storage-container-create).
 
     ```azurecli
     az storage container create \
@@ -124,13 +124,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         --account-name $storageAccount
     ```
 
-1. [HDInsight 클러스터를 만듭니다](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). 명령을 입력하기 전에 다음 매개 변수를 확인하세요.
+1. [HDInsight 클러스터를 만듭니다](/cli/azure/hdinsight#az-hdinsight-create). 명령을 입력하기 전에 다음 매개 변수를 확인하세요.
 
     1. Kafka 클러스터에 필요한 매개 변수는 다음과 같습니다.
 
         |매개 변수 | Description|
         |---|---|
-        |--type|값은 **Kafka**여야 합니다.|
+        |--type|값은 **Kafka** 여야 합니다.|
         |--workernode-data-disks-per-node|작업자 노드당 사용할 데이터 디스크의 수입니다. HDInsight Kafka는 데이터 디스크에서만 지원됩니다. 이 자습서에서는 **2** 값을 사용합니다.|
 
     1. Kafka REST 프록시에 필요한 매개 변수는 다음과 같습니다.

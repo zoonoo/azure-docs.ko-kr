@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 8aa2644f86f5c26fa861aba8c928e79b7bc58a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b6f1f8b22435af33c9ae908bb0a3f6f3df8889
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873197"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535351"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Python 샘플
 
@@ -35,7 +35,7 @@ ms.locfileid: "87873197"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[Python용 Azure HDInsight SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+[Python용 Azure HDInsight SDK](/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>클러스터 관리 - 만들기
 
@@ -48,4 +48,4 @@ ms.locfileid: "87873197"
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-이 추가 SDK 기능에 대한 코드 조각은 [Python용 HDInsight SDK 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)에서 찾을 수 있습니다.
+이 추가 SDK 기능에 대한 코드 조각은 [Python용 HDInsight SDK 참조 설명서](/python/api/overview/azure/hdinsight)에서 찾을 수 있습니다.

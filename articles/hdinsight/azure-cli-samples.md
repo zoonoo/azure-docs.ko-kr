@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499571"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542355"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI 샘플
 
@@ -26,13 +26,13 @@ ms.locfileid: "87499571"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure CLI. 단계는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI. 단계는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-* 선택 사항: Bash. 이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  약간의 수정을 거치면 예제를 Windows 명령 프롬프트에서 작업할 수 있습니다.
+* 선택 사항: Bash. 이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  약간의 수정을 거치면 예제를 Windows 명령 프롬프트에서 작업할 수 있습니다.
 
 ## <a name="az-login"></a>az login
 
-[Azure에 로그인합니다](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Azure에 로그인합니다](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -43,7 +43,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[새 클러스터를 만듭니다](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[새 클러스터를 만듭니다](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>기존 스토리지 계정을 사용하여 클러스터 만들기
 
@@ -176,7 +176,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[HDInsight 클러스터용 애플리케이션을 만듭니다](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[HDInsight 클러스터용 애플리케이션을 만듭니다](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>스크립트 URI를 사용하여 애플리케이션 만들기
 
@@ -243,7 +243,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>스크립트 동작 실행 및 성공 시 지속
 

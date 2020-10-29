@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541665"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542559"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "91541665"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* SendGrid 이메일 계정. 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)을 참조하세요.
+* SendGrid 이메일 계정. 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](../sendgrid-dotnet-how-to-send-email.md)을 참조하세요.
 
 * HDInsight 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
@@ -34,15 +34,15 @@ ms.locfileid: "91541665"
 
 1. [Azure Portal](https://portal.azure.com)에서 SendGrid 리소스로 이동합니다.
 
-1. 개요 페이지에서 **관리**를 선택하고 계정의 SendGrid 웹 페이지로 이동합니다.
+1. 개요 페이지에서 **관리** 를 선택하고 계정의 SendGrid 웹 페이지로 이동합니다.
 
     ![Azure Portal의 SendGrid 개요](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. 왼쪽 메뉴에서 계정 이름으로 이동한 다음, **계정 정보**로 이동합니다.
+1. 왼쪽 메뉴에서 계정 이름으로 이동한 다음, **계정 정보** 로 이동합니다.
 
     ![SendGrid 대시보드 탐색](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. **계정 정보** 페이지에서 **사용자 이름**을 기록합니다.
+1. **계정 정보** 페이지에서 **사용자 이름** 을 기록합니다.
 
     ![SendGrid 계정 정보](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,13 +50,13 @@ ms.locfileid: "91541665"
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. **작업** 드롭다운 목록에서 **알림 관리**를 선택합니다.
+1. **작업** 드롭다운 목록에서 **알림 관리** 를 선택합니다.
 
-1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
+1. **Manage Alert Notifications** (경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
 
     ![스크린샷은 Alert Notifications 관리 대화 상자를 보여줍니다.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
-1. **Create Alert Notification**(경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
+1. **Create Alert Notification** (경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
 
     |속성 |Description |
     |---|---|
@@ -64,7 +64,7 @@ ms.locfileid: "91541665"
     |그룹|원하는 대로 구성합니다.|
     |심각도|원하는 대로 구성합니다.|
     |Description|(선택 사항)|
-    |방법|**EMAIL**로 둡니다.|
+    |방법|**EMAIL** 로 둡니다.|
     |Email To(받는 사람 이메일)|알림을 받을 이메일을 쉼표로 구분하여 제공합니다.|
     |SMTP Server|`smtp.sendgrid.net`|
     |SMTP 포트|25 또는 587(암호화되지 않은/TLS 연결인 경우).|
@@ -77,9 +77,9 @@ ms.locfileid: "91541665"
 
     ![스크린샷은 Alert Notification 만들기 대화 상자를 보여줍니다.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    **저장**을 선택합니다. **Manage Alert Notifications**(경고 알림 관리) 창이 다시 열립니다.
+    **저장** 을 선택합니다. **Manage Alert Notifications** (경고 알림 관리) 창이 다시 열립니다.
 
-1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **닫기**를 선택합니다.
+1. **Manage Alert Notifications** (경고 알림 관리) 창에서 **닫기** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

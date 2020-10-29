@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929515"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534059"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL - 유연한 서버(미리 보기) 만들기
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-이 자습서에서는 MySQL 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
+이 자습서에서는 MySQL 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. 해당 구독 이름에 대한 명령 출력에서 **id** 속성을 참고합니다.
+[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. 해당 구독 이름에 대한 명령 출력에서 **id** 속성을 참고합니다.
 
 ```azurecli
 az login
@@ -52,7 +52,7 @@ az mysql flexible-server create --resource-group myresourcegroup --location west
 - 서버 이름을 입력하지 않은 경우 서버 이름을 생성합니다.
 - 새 MySQL 서버에 사용할 새 가상 네트워크를 만듭니다. 동일한 가상 네트워크에 웹앱을 추가해야 하므로, 서버에 사용하기 위해 만든 가상 네트워크 이름과 서브넷 이름을 적어 둡니다.
 - 서버의 관리자 사용자 이름 및 암호를 입력하지 않은 경우 지금 만듭니다.
-- **flexibleserverdb**라는 빈 데이터베이스를 만듭니다.
+- **flexibleserverdb** 라는 빈 데이터베이스를 만듭니다.
 
 > [!NOTE]
 > 암호를 입력하지 않으면 암호가 자동으로 생성됩니다. 이 암호를 기록해 둡니다. 암호를 잊은 경우 ``` az mysql flexible-server update``` 명령을 사용하여 암호를 다시 설정해야 합니다.
@@ -81,7 +81,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 ## <a name="add-the-web-app-to-the-virtual-network"></a>가상 네트워크에 웹앱 추가
 
-**az webapp vnet-integration** 명령을 사용하여 지역 가상 네트워크 통합을 웹앱에 추가합니다. _&lt;vnet-name>_ 및 _&lt;subnet-name_을 유연한 서버에서 사용하는 가상 네트워크 및 서브넷 이름으로 바꿉니다.
+**az webapp vnet-integration** 명령을 사용하여 지역 가상 네트워크 통합을 웹앱에 추가합니다. _&lt;vnet-name>_ 및 _&lt;subnet-name_ 을 유연한 서버에서 사용하는 가상 네트워크 및 서브넷 이름으로 바꿉니다.
 
 ```azurecli
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../../app-service/app-service-web-tutorial-custom-domain.md)

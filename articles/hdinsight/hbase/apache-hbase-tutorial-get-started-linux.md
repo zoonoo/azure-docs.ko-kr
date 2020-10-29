@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370324"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533498"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "92370324"
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* Bash. 이 문서의 예제에서는 curl 명령에 대한 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정을 거치면 curl 예제도 Windows 명령 프롬프트에서 작업할 수 있습니다.  또는 Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)를 사용할 수 있습니다.
+* Bash. 이 문서의 예제에서는 curl 명령에 대한 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정을 거치면 curl 예제도 Windows 명령 프롬프트에서 작업할 수 있습니다.  또는 Windows PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)를 사용할 수 있습니다.
 
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase 클러스터 만들기
 

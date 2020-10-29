@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319194"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534586"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
@@ -30,9 +30,9 @@ ms.locfileid: "85319194"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight의 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **대화형 쿼리**를 선택합니다.
+* HDInsight의 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 대한 **대화형 쿼리** 를 선택합니다.
 
-* Azure SQL Database의 데이터베이스입니다. 데이터베이스를 대상 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](/azure/sql-database/sql-database-single-database-get-started)를 참조하세요.
+* Azure SQL Database의 데이터베이스입니다. 데이터베이스를 대상 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](../../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -48,7 +48,7 @@ ms.locfileid: "85319194"
    | Filter Period |January |
    | 필드 |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`입니다. |
 
-3. **다운로드**를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
+3. **다운로드** 를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>HDInsight 클러스터에 데이터 업로드
 
@@ -95,9 +95,9 @@ HDInsight 클러스터와 연결된 스토리지로 데이터를 업로드하는
 
 HDInsight 클러스터에서 Hive 작업을 실행하는 여러 가지 방법이 있습니다. 이 섹션에서는 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell)을 사용하여 Hive 작업을 실행합니다. Hive 작업 실행의 다른 메서드에 대한 정보는 [HDInsight의 Apache Hive 사용](../hadoop/hdinsight-use-hive.md)을 참조하세요.
 
-Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로 데이터를 가져옵니다.
+Hive 작업의 일부로 .csv 파일에서 **지연** 이라는 Hive 테이블로 데이터를 가져옵니다.
 
-1. HDInsight 클러스터에 대해 이미 있는 SSH 프롬프트에서 다음 명령을 사용하여 **flightdelays.hql**이라는 새 파일을 만들고 편집합니다.
+1. HDInsight 클러스터에 대해 이미 있는 SSH 프롬프트에서 다음 명령을 사용하여 **flightdelays.hql** 이라는 새 파일을 만들고 편집합니다.
 
     ```bash
     nano flightdelays.hql
@@ -165,7 +165,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
     FROM delays_raw;
     ```
 
-3. 파일을 저장하려면 **Ctrl + X**, **Y**, Enter를 차례로 누릅니다.
+3. 파일을 저장하려면 **Ctrl + X** , **Y** , Enter를 차례로 누릅니다.
 
 4. Hive를 시작하고 **flightdelays.hql** 파일을 실행하려면 다음 명령을 사용합니다.
 
@@ -232,7 +232,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
     GO
     ```
 
-    `GO` 문을 입력하면 이전 문이 평가됩니다. 이 명령문은 클러스터형 인덱스가 있는 **delays**라는 테이블을 만듭니다.
+    `GO` 문을 입력하면 이전 문이 평가됩니다. 이 명령문은 클러스터형 인덱스가 있는 **delays** 라는 테이블을 만듭니다.
 
     다음 쿼리를 사용하여 테이블이 생성되었는지 확인합니다.
 
