@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872054"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912959"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
@@ -35,7 +35,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 ### <a name="view-workflows"></a>워크플로 보기
 
-기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정**  >  **워크플로**를 선택 합니다.
+기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정**  >  **워크플로** 를 선택 합니다.
 
 ![기본 워크플로](images/default-workflow-listed.PNG)
 
@@ -75,5 +75,5 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 ## <a name="next-steps"></a>다음 단계
 
 * [작업 API 콘솔](try-review-api-job.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [작업 .NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)을 확인하세요. 
-* 검토의 경우 [검토 API 콘솔](try-review-api-review.md)로 시작하고 REST API 코드 샘플을 사용합니다. 그런 다음 [.net 빠른](dotnet-sdk-quickstart.md)시작의 검토 섹션을 참조 하세요.
+* 검토의 경우 [검토 API 콘솔](try-review-api-review.md)로 시작하고 REST API 코드 샘플을 사용합니다. 그런 다음 [.net 빠른](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)시작의 검토 섹션을 참조 하세요.
 * 비디오 검토의 경우 [비디오 검토 빠른 시작](video-reviews-quickstart-dotnet.md)을 사용하여 [비디오 검토에 전사를 추가](video-transcript-reviews-quickstart-dotnet.md)하는 방법을 알아봅니다.

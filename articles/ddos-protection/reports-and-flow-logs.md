@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 2c4349662b06ff281ef028c833c6c43dd2707051
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 5a6fc8e9b316f7c4740ee27fe72c5f056f071d73
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905296"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912697"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>DDoS 공격 완화 보고서 및 흐름 로그 구성 
 
@@ -91,6 +91,22 @@ Azure 분석 대시보드에서 흐름 로그 데이터를 보려면 https://git
 ![DDoS Protection 통합 문서](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
 공격 분석은 공용 IP 주소의 가상 네트워크에서 DDoS Protection Standard를 사용 하도록 설정한 경우에만 작동 합니다. 
+
+## <a name="sample-log-outputs"></a>샘플 로그 출력
+
+다음 스크린샷은 로그 출력의 예입니다.
+
+### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+![DDoS Protection Gdosmitilogs](./media/ddos-attack-telemetry/ddos-mitigation-flow-logs.png)
+
+### <a name="ddosprotectionnotifications"></a>DDoSProtectionNotifications
+
+![DDoS Protection DDoSProtectionNotifications](./media/ddos-attack-telemetry/ddos-protection-notifications.png)
+
+### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+![DDoS Protection Gdosmitigationreports](./media/ddos-attack-telemetry/ddos-mitigation-reports.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75448252"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912942"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 
@@ -28,7 +28,7 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
    **이미지 - 평가** 이미지 조정 페이지가 열립니다.
 
-2. **개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
+2. **개방형 API 테스트 콘솔** 의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
 
    ![이미지 시도 - 평가 페이지 지역 선택](images/test-drive-region.png)
   
@@ -40,7 +40,7 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
 4. **요청 본문** 상자에서 기본 샘플 이미지를 사용하거나 검사할 이미지를 지정합니다. 이미지 자체를 이진 비트 데이터로 제출할 수도 있고, 공개적으로 액세스 가능한 이미지 URL을 지정할 수도 있습니다. 
 
-   이 예제에서는 **요청 본문** 상자에 제공된 경로를 사용한 다음, **보내기**를 선택합니다. 
+   이 예제에서는 **요청 본문** 상자에 제공된 경로를 사용한 다음, **보내기** 를 선택합니다. 
 
    ![이미지 시도 - 평가 콘솔 요청 본문](images/try-image-api-2.PNG)
 
@@ -48,9 +48,9 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
    ![이미지 시도 - 평가 콘솔 샘플 이미지](images/sample-image.jpg) 
 
-5. **보내기**를 선택합니다.
+5. **보내기** 를 선택합니다.
 
-6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다(**true** 또는 **false**). 
+6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다( **true** 또는 **false** ). 
 
    ![이미지 시도 - 평가 콘솔 확률 점수 및 조건 확인](images/try-image-api-3.PNG)
 
@@ -58,11 +58,11 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
 Image Moderation API를 사용하여 이미지에서 얼굴을 찾을 수 있습니다. 개인 정보 보호 문제가 있고 특정 얼굴이 플랫폼에 게시되지 않게 차단하려는 경우 이 옵션을 유용하게 사용할 수 있습니다. 
 
-1. [Image Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)의 왼쪽 메뉴에 있는 **이미지** 아래에서 **얼굴 찾기**를 선택합니다. 
+1. [Image Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)의 왼쪽 메뉴에 있는 **이미지** 아래에서 **얼굴 찾기** 를 선택합니다. 
 
    **이미지 - 얼굴 찾기** 페이지가 열립니다.
 
-2. **개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
+2. **개방형 API 테스트 콘솔** 의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
 
    ![이미지 시도 - 얼굴 찾기 페이지 지역 선택](images/test-drive-region.png)
 
@@ -74,7 +74,7 @@ Image Moderation API를 사용하여 이미지에서 얼굴을 찾을 수 있습
 
    ![이미지 시도 - 얼굴 찾기 샘플 요청](images/try-image-api-face-request.png)
 
-4. **보내기**를 선택합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
+4. **보내기** 를 선택합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
 
    ![이미지 시도 - 얼굴 찾기 샘플 응답 콘텐츠 상자](images/try-image-api-face-response.png)
 
@@ -82,11 +82,11 @@ Image Moderation API를 사용하여 이미지에서 얼굴을 찾을 수 있습
 
 Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할 수 있습니다.
 
-1. [Image Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)의 왼쪽 메뉴에 있는 **이미지** 아래에서 **OCR**을 선택합니다. 
+1. [Image Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)의 왼쪽 메뉴에 있는 **이미지** 아래에서 **OCR** 을 선택합니다. 
 
    **이미지 - OCR** 페이지가 열립니다.
 
-2. **개방형 API 테스트 콘솔**의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
+2. **개방형 API 테스트 콘솔** 의 경우 사용자 위치를 가장 근접하게 설명하는 지역을 선택합니다. 
 
    ![이미지 - OCR 페이지 지역 선택](images/test-drive-region.png)
 
@@ -96,10 +96,10 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 4. **요청 본문** 상자에서 기본 샘플 이미지를 사용합니다. 이전 섹션에서 사용한 것과 동일한 이미지입니다.
 
-5. **보내기**를 선택합니다. 추출된 텍스트는 JSON으로 표시됩니다.
+5. **보내기** 를 선택합니다. 추출된 텍스트는 JSON으로 표시됩니다.
 
    ![이미지 - OCR 샘플 응답 콘텐츠 상자](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 를 따라 응용 프로그램에 이미지 조정을 추가 합니다.
+코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 따라 응용 프로그램에 이미지 조정을 추가 합니다.

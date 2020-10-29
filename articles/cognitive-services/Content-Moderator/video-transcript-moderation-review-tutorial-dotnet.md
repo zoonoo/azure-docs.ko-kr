@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919293"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912840"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -35,7 +35,7 @@ ms.locfileid: "88919293"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](Review-Tool-User-Guide/tags.md)을 참조하세요.
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](./review-tool-user-guide/configure.md#tags)을 참조하세요.
 
     ![비디오 조정 사용자 지정 태그 스크린샷](images/video-tutorial-custom-tags.png)
 - 샘플 애플리케이션을 실행하려면 Azure 계정, Azure Media Services 리소스, Azure Content Moderator 리소스 및 Azure Active Directory 자격 증명이 필요합니다. 이러한 리소스를 가져오는 방법에 대한 지침은 [비디오 조정 API](video-moderation-api.md) 가이드를 참조하세요.
@@ -83,7 +83,7 @@ ms.locfileid: "88919293"
 명령줄 인수가 없는 경우 `Main()`은 `GetUserInputs()`을 호출합니다. 이 메서드는 사용자가 단일 비디오 파일의 경로를 입력하고 텍스트 대본을 생성해야 할지 여부를 지정하게 합니다.
 
 > [!NOTE]
-> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](../../media-services/previous/legacy-components.md)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
 
 ### <a name="initialize-and-processvideo-methods"></a>초기화 및 ProcessVideo 메서드
 
@@ -224,7 +224,7 @@ ms.locfileid: "88919293"
 비디오에서 오디오의 전사는 `GenerateVTT` 플래그가 설정되는 경우 생성됩니다.
 
 > [!NOTE]
-> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](../../media-services/previous/legacy-components.md)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
 
 ## <a name="create-a-human-review"></a>휴먼 검토 만들기
 
@@ -249,7 +249,7 @@ ms.locfileid: "88919293"
 
 ## <a name="process-the-transcript"></a>대본 처리
 
-지금까지 이 자습서에 제공된 코드는 시각적 콘텐츠에 중점을 뒀습니다. 음성 콘텐츠 검토는 언급했듯이 오디오에서 생성된 대본을 사용하는 별도의 선택적 프로세스입니다. 이제 텍스트 대본이 검토 프로세스에서 생성되고 사용되는 방법에 대해 살펴볼 때가 됐습니다. 대본 생성 작업은 [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) 서비스의 몫입니다.
+지금까지 이 자습서에 제공된 코드는 시각적 콘텐츠에 중점을 뒀습니다. 음성 콘텐츠 검토는 언급했듯이 오디오에서 생성된 대본을 사용하는 별도의 선택적 프로세스입니다. 이제 텍스트 대본이 검토 프로세스에서 생성되고 사용되는 방법에 대해 살펴볼 때가 됐습니다. 대본 생성 작업은 [Azure Media Indexer](../../media-services/previous/media-services-index-content.md) 서비스의 몫입니다.
 
 이 애플리케이션은 다음 작업을 수행합니다.
 
@@ -319,7 +319,7 @@ ms.locfileid: "88919293"
 
 `TextScreen()`은 중요한 메서드이므로 이를 분석해보겠습니다.
 
-1. 먼저, 메서드에서는 대본 파일을 한 줄씩 읽습니다. 신뢰도 점수에 따라 `NOTE`를 포함한 줄 및 빈 줄은 무시합니다. 파일의 *큐*에서 타임스탬프 및 텍스트 항목을 추출합니다. 큐는 오디오 트랙의 텍스트를 나타내고 시작 및 종료 시간을 포함합니다. 큐는 문자열 `-->`가 있는 타임스탬프 줄에서 시작하며, 텍스트의 하나 이상의 줄이 이어집니다.
+1. 먼저, 메서드에서는 대본 파일을 한 줄씩 읽습니다. 신뢰도 점수에 따라 `NOTE`를 포함한 줄 및 빈 줄은 무시합니다. 파일의 *큐* 에서 타임스탬프 및 텍스트 항목을 추출합니다. 큐는 오디오 트랙의 텍스트를 나타내고 시작 및 종료 시간을 포함합니다. 큐는 문자열 `-->`가 있는 타임스탬프 줄에서 시작하며, 텍스트의 하나 이상의 줄이 이어집니다.
 
 1. `CaptionScreentextResult`(`TranscriptProfanity.cs`에 정의된)의 인스턴스는 각 큐에서 구문 분석된 정보를 보유하는 데 사용됩니다.  새 타임스탬프 줄이 검색되거나 최대 텍스트 길이 1024자에 도달하면 새 `CaptionScreentextResult`가 `csrList`에 추가됩니다. 
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919355"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912857"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -24,26 +24,26 @@ ms.locfileid: "88919355"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
-Content Moderator의 비디오 조정 기능은 AMS(Azure Media Services)에서 무료 공개 미리 보기 **미디어 프로세서**로 사용할 수 있습니다. Azure Media Services는 비디오 콘텐츠 저장 및 스트리밍에 대한 전문 Azure 서비스입니다. 
+Content Moderator의 비디오 조정 기능은 AMS(Azure Media Services)에서 무료 공개 미리 보기 **미디어 프로세서** 로 사용할 수 있습니다. Azure Media Services는 비디오 콘텐츠 저장 및 스트리밍에 대한 전문 Azure 서비스입니다. 
 
 ### <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
-[Azure Media Services 계정 만들기](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)의 지침에 따라 AMS를 구독하고 연결된 Azure Storage 계정을 만듭니다. 해당 스토리지 계정에서 새 Blob 스토리지 컨테이너를 만듭니다.
+[Azure Media Services 계정 만들기](../../media-services/previous/media-services-portal-create-account.md)의 지침에 따라 AMS를 구독하고 연결된 Azure Storage 계정을 만듭니다. 해당 스토리지 계정에서 새 Blob 스토리지 컨테이너를 만듭니다.
 
 ### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
-Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 액세스**를 선택합니다. **서비스 주체를 사용하여 Azure Media Services에 연결**을 선택합니다. 나중에 필요하므로 **REST API 엔드포인트** 필드의 값을 기록합니다.
+Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 액세스** 를 선택합니다. **서비스 주체를 사용하여 Azure Media Services에 연결** 을 선택합니다. 나중에 필요하므로 **REST API 엔드포인트** 필드의 값을 기록합니다.
 
-**Azure AD 앱** 섹션에서 **새로 만들기**를 선택하고 새 Azure AD 애플리케이션 등록에 이름을 지정합니다(예: "VideoModADApp"). **저장**을 클릭하고 애플리케이션이 구성되는 동안 몇 분 기다립니다. 그런 다음, 페이지의 **Azure AD 앱** 섹션에 새로운 앱 등록이 표시됩니다.
+**Azure AD 앱** 섹션에서 **새로 만들기** 를 선택하고 새 Azure AD 애플리케이션 등록에 이름을 지정합니다(예: "VideoModADApp"). **저장** 을 클릭하고 애플리케이션이 구성되는 동안 몇 분 기다립니다. 그런 다음, 페이지의 **Azure AD 앱** 섹션에 새로운 앱 등록이 표시됩니다.
 
-앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정**  >  **키**를 선택 하 고 새 키에 대 한 설명 (예: "videomodkey")을 입력 합니다. **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
+앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정**  >  **키** 를 선택 하 고 새 키에 대 한 설명 (예: "videomodkey")을 입력 합니다. **저장** 을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
 
-위 프로세스에 대한 자세한 안내는 [Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)을 참조하세요.
+위 프로세스에 대한 자세한 안내는 [Azure AD 인증 시작](../../media-services/previous/media-services-portal-get-started-with-aad.md)을 참조하세요.
 
 이 작업을 수행하고 나면 비디오 조정 미디어 프로세서를 두 가지 다른 방법으로 사용할 수 있습니다.
 
@@ -55,9 +55,9 @@ Azure Media Services 탐색기는 AMS에 대한 사용자 친화적인 프런트
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **VideoModeration**으로 이름을 지정합니다. 
+1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **VideoModeration** 으로 이름을 지정합니다. 
 1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
-1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리**를 선택한 후 다음 패키지를 찾아 설치합니다.
+1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리** 를 선택한 후 다음 패키지를 찾아 설치합니다.
     - windowsazure.mediaservices
     - windowsazure.mediaservices.extensions
 
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>리소스 참조 설정
 
-_Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가 합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
+_Program.cs_ 의 **Program** 클래스에 다음 정적 필드를 추가 합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
 
 ```csharp
 // declare constants and globals
@@ -197,7 +197,7 @@ static void CreateStorageContext()
 
 ### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>로컬 파일 및 Blob에서 Azure 미디어 자산을 만드는 코드 추가
 
-Content Moderator 미디어 프로세서는 Azure Media Services 플랫폼 내의 **자산**에 대해 작업을 실행합니다.
+Content Moderator 미디어 프로세서는 Azure Media Services 플랫폼 내의 **자산** 에 대해 작업을 실행합니다.
 이러한 메서드는 로컬 파일 또는 연결된 Blob에서 자산을 만듭니다.
 
 ```csharp
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Content Moderation 작업이 완료되면 JSON 응답을 분석합니다. 응답은 다음 요소로 구성됩니다.
 
 - 비디오 정보 요약
-- **Shots**를 "**fragments**"로 지정
-- **Key frames**를 **Adult** 및 **Racy** 점수를 기준으로 하는 **reviewRecommended" (= true or false)"** 플래그를 사용하여 "**events**"로 지정
-- **start**, **duration**, **totalDuration** 및 **timestamp**는 "ticks"로 지정합니다. **timescale**로 나누어 초 수를 가져옵니다.
+- **Shots** 를 " **fragments** "로 지정
+- **Key frames** 를 **Adult** 및 **Racy** 점수를 기준으로 하는 **reviewRecommended" (= true or false)"** 플래그를 사용하여 " **events** "로 지정
+- **start** , **duration** , **totalDuration** 및 **timestamp** 는 "ticks"로 지정합니다. **timescale** 로 나누어 초 수를 가져옵니다.
  
 > [!NOTE]
 > - `adultScore`는 잠재적으로 특정 상황에서 성적으로 노골적이거나 성인용으로 간주될 수 있는 콘텐츠의 존재 가능성 및 예측 점수를 나타냅니다.

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6f4f7db312355b719deb434bf6a46fa55eec9d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079271"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912789"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>미사용 데이터의 얼굴 서비스 암호화
 
@@ -30,5 +30,5 @@ Face 서비스는 데이터를 클라우드에 보관할 때 데이터를 자동
 ## <a name="next-steps"></a>다음 단계
 
 * CMK를 지 원하는 서비스의 전체 목록은 [Cognitive Services의 고객 관리 키](../encryption/cognitive-services-encryption-keys-portal.md) 를 참조 하세요.
-* [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Azure Key Vault란](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)

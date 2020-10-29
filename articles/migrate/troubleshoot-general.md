@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e7c54f47db645f218ea68ea475146143f806de1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75725872"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912993"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "75725872"
 
 ## <a name="machines-arent-discovered"></a>컴퓨터가 검색 되지 않음
 
-일반적인 검색 문제를 검토 합니다.
+[일반적인 검색 문제](common-questions-discovery-assessment.md)를 검토 합니다.
 
 ## <a name="app-discovery-isnt-working"></a>앱 검색 작동 하지 않음
 
