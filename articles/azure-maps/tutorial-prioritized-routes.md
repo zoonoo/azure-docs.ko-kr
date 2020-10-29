@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321750"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896704"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 다양한 이동 모드에 대한 경로 찾기 및 표시
 
-이 자습서에서는 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 및 [지도 컨트롤](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)을 사용하여 개인 차량과 `USHazmatClass2` 화물 유형의 상용 차량(트럭) 모두에 대한 경로 방향을 표시하는 방법을 보여 줍니다. 또한 지도에서 실시간 교통 데이터를 시각화하는 방법도 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 Azure Maps [Route Service](/rest/api/maps/route) 및 [지도 컨트롤](./how-to-use-map-control.md)을 사용하여 개인 차량과 `USHazmatClass2` 화물 유형의 상용 차량(트럭) 모두에 대한 경로 방향을 표시하는 방법을 보여 줍니다. 또한 지도에서 실시간 교통 데이터를 시각화하는 방법도 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 웹 페이지에서 지도 컨트롤 만들기 및 표시
@@ -39,7 +39,7 @@ ms.locfileid: "91321750"
 
 다음 단계에서는 웹 페이지에서 지도 컨트롤을 만들고 표시하는 방법을 보여 줍니다.
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapTruckRoute.html**로 지정합니다.
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapTruckRoute.html** 로 지정합니다.
 2. 다음 HTML 태그를 복사하여 파일에 붙여넣습니다.
 
     ```HTML
@@ -117,7 +117,7 @@ ms.locfileid: "91321750"
     });
     ```
 
-    지도 컨트롤의 `ready` 이벤트 처리기에서 지도의 교통 흐름 설정은 자유 흐름을 기준으로 하는 도로의 속도인 `relative`로 설정됩니다. 자세한 교통 옵션은 [TrafficOptions 인터페이스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest&preserve-view=false)를 참조하세요.
+    지도 컨트롤의 `ready` 이벤트 처리기에서 지도의 교통 흐름 설정은 자유 흐름을 기준으로 하는 도로의 속도인 `relative`로 설정됩니다. 자세한 교통 옵션은 [TrafficOptions 인터페이스](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest)를 참조하세요.
 
 2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 로스앤젤레스와 같은 도시를 확대하면 현재 교통 데이터와 함께 거리가 표시됩니다.
 
@@ -193,9 +193,9 @@ ms.locfileid: "91321750"
 
     이 코드는 데이터 원본에 추가되는 출발점과 도착점을 나타낼 두 개의 [GeoJSON 지점 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다.
 
-    마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false)를 참조하세요.
+    마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false)를 참조하세요.
 
-3. **TruckRoute.html**을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
+3. **TruckRoute.html** 을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
 
    :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
 
@@ -206,7 +206,7 @@ ms.locfileid: "91321750"
 이 섹션에서는 사용자의 운송 방식에 따라 Azure Maps Route Service를 사용하여 한 지점에서 다른 지점으로의 방향을 가져오는 방법을 보여 줍니다. 트럭과 자동차의 두 가지 운송 모드를 사용합니다.
 
 >[!TIP]
->Route Service는 거리, 교통 조건 및 사용되는 운송 모드를 기준으로 하여 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 이 서비스를 통해 사용자는 과거 교통 조건을 기준으로 하여 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요.
+>Route Service는 거리, 교통 조건 및 사용되는 운송 모드를 기준으로 하여 *최소 시간* , *최단 거리* , *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 이 서비스를 통해 사용자는 과거 교통 조건을 기준으로 하여 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
 
 1. `GetMap` 함수에서 컨트롤의 `ready` 이벤트 처리기 내에 다음을 JavaScript 코드에 추가합니다.
 
@@ -221,7 +221,7 @@ ms.locfileid: "91321750"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
+   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
 
 2. 자격 증명 및 URL이 설정되면 출발 지점에서 도착 지점까지의 트럭 경로를 생성하는 다음 JavaScript 코드를 추가합니다. 이 경로는 `USHazmatClass2` 분류 화물을 운송하는 트럭에 대해 만들어지고 표시됩니다.
 
@@ -250,10 +250,10 @@ ms.locfileid: "91321750"
     });
     ```
 
-    위의 코드는 [Azure Maps 경로 방향 API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-)를 통해 Azure Maps Route Service를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 마지막으로, 경로 선이 데이터 원본에 추가됩니다. 트럭 경로 계산이 자동차 경로 계산보다 느린 경우가 많으므로 트럭 경로가 데이터 원본의 다른 선보다 먼저 렌더링되도록 0의 인덱스에 추가됩니다. 승용차 경로 다음에 트럭 경로 선이 데이터 원본에 추가되면 그 위에 렌더링됩니다. 파란색의 스트로크 색과 9픽셀의 스트로크 너비의 두 가지 속성이 트럭 경로 선에 추가됩니다.
+    위의 코드는 [Azure Maps 경로 방향 API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-)를 통해 Azure Maps Route Service를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 마지막으로, 경로 선이 데이터 원본에 추가됩니다. 트럭 경로 계산이 자동차 경로 계산보다 느린 경우가 많으므로 트럭 경로가 데이터 원본의 다른 선보다 먼저 렌더링되도록 0의 인덱스에 추가됩니다. 승용차 경로 다음에 트럭 경로 선이 데이터 원본에 추가되면 그 위에 렌더링됩니다. 파란색의 스트로크 색과 9픽셀의 스트로크 너비의 두 가지 속성이 트럭 경로 선에 추가됩니다.
 
     >[!TIP]
-    > Azure Maps 경로 방향 API에 대해 가능한 모든 옵션과 값을 알아보려면 [경로 방향 게시에 대한 URI 매개 변수](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters)를 참조하세요.
+    > Azure Maps 경로 방향 API에 대해 가능한 모든 옵션과 값을 알아보려면 [경로 방향 게시에 대한 URI 매개 변수](/rest/api/maps/route/postroutedirections#uri-parameters)를 참조하세요.
 
 3. 이제 자동차 경로를 생성하는 다음 JavaScript 코드를 추가합니다.
 
@@ -273,7 +273,7 @@ ms.locfileid: "91321750"
     });
     ```
 
-    위의 코드는 [Azure Maps 경로 방향 API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) 메서드를 통해 Azure Maps Route Service를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 마지막으로, 경로 선이 데이터 원본에 추가됩니다. 자주색의 스트로크 색과 5픽셀의 스트로크 너비의 두 가지 속성이 트럭 경로 선에 추가됩니다.
+    위의 코드는 [Azure Maps 경로 방향 API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) 메서드를 통해 Azure Maps Route Service를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 마지막으로, 경로 선이 데이터 원본에 추가됩니다. 자주색의 스트로크 색과 5픽셀의 스트로크 너비의 두 가지 속성이 트럭 경로 선에 추가됩니다.
 
 4. **TruckRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. 이제 지도에 트럭 경로와 자동차 경로가 표시됩니다.
 

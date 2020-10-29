@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 65e424c6275f9990a5d5a42a54bc4131300a45bf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "88526570"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>자습서: Workspot Control과 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "88526570"
 * 사용자가 해당 Azure AD 계정을 사용하여 SSO(Single Sign-On)로 Workspot Control에 자동으로 로그인하도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure AD의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -100,20 +100,20 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 4. IDP 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Workspot Control 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.<br/>
     **_https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/metadata_* _
 
     1. _*회신 URL* * 텍스트 상자에 <br/>
-    **_https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/assertion_*_ 패턴으로 URL을 입력합니다.
+    **_https://< <i></i>INSTANCENAME>-saml.workspot.com/saml/assertion_*_ 패턴으로 URL을 입력합니다.
 
 5. SP 시작 모드에서 애플리케이션을 구성하려면 _*추가 URL 설정**을 선택합니다.
 
-    ![Workspot Control 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.<br/>
-    **_https://<<i></i>INSTANCENAME>-saml.workspot.com/_* _
+    **_https://< <i></i>INSTANCENAME>-saml.workspot.com/_* _
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 바꿉니다. 이러한 값을 얻으려면 [Workspot Control 클라이언트 지원 팀](mailto:support@workspot.com)에 문의하세요. 또는 Azure Portal의 _ *기본 SAML 구성* * 섹션에 있는 패턴을 참조할 수도 있습니다.
@@ -172,7 +172,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     1. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
-    1. **사용자 이름** 필드에 * *brittasimon@* yourcompanydomain.extension***을 입력합니다. 예를 들어, **BrittaSimon@contoso.<i></i>com** 을 입력합니다.
+    1. **사용자 이름** 필드에 * *brittasimon@* yourcompanydomain.extension***을 입력합니다. 예를 들어, **BrittaSimon@contoso. <i></i>com** 을 입력합니다.
 
     1. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -224,7 +224,7 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 
     1. **성** 텍스트 상자에 사용자의 성(예: **simon** )을 입력합니다.
 
-    1. **메일** 상자에 사용자의 메일 주소(예: **Brittasimon@contoso.<i></i>com** )를 입력합니다.
+    1. **메일** 상자에 사용자의 메일 주소(예: **Brittasimon@contoso. <i></i>com** )를 입력합니다.
 
     1. **역할** 드롭다운 목록에서 적절한 사용자 역할을 선택합니다.
 
@@ -236,12 +236,12 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 
 이 섹션에서는 *액세스 패널* 을 통해 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 **Workspot Control** 타일을 클릭하면 SSO를 설정한 Workspot Control에 자동으로 로그인됩니다. 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)를 참조하세요.
+액세스 패널에서 **Workspot Control** 타일을 클릭하면 SSO를 설정한 Workspot Control에 자동으로 로그인됩니다. 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
 
-- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321699"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896663"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -41,7 +41,7 @@ ms.locfileid: "91321699"
 
 맵 컨트롤 API는 편리한 클라이언트 라이브러리입니다. 이 API를 사용하면 맵을 웹 애플리케이션에 쉽게 통합할 수 있습니다. 기본 REST 서비스 호출의 복잡성을 숨기고 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다.
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html** 로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
 
    ```HTML
@@ -139,7 +139,7 @@ ms.locfileid: "91321699"
 
 ## <a name="add-search-capabilities"></a>검색 기능 추가
 
-이 섹션에서는 Maps [검색 API](https://docs.microsoft.com/rest/api/maps/search)를 사용하여 맵에서 관심 지점을 찾는 방법을 보여줍니다. 이는 개발자가 주소, 관심 지점 및 다른 지리적 위치 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈**은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
+이 섹션에서는 Maps [검색 API](/rest/api/maps/search)를 사용하여 맵에서 관심 지점을 찾는 방법을 보여줍니다. 이는 개발자가 주소, 관심 지점 및 다른 지리적 위치 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈** 은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
 
 ### <a name="service-module"></a>서비스 모듈
 
@@ -156,7 +156,7 @@ ms.locfileid: "91321699"
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 제공된 위도와 경도의 지정된 반경 내에서 인접한 주유소를 검색합니다. 그런 다음, `geojson.getFeatures()` 메서드를 사용하여 응답의 GeoJSON 기능 컬렉션을 추출하고 데이터 원본에 추가하면, 기호 레이어를 통해 데이터가 맵에 자동으로 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310104"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896602"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
@@ -23,11 +23,11 @@ ms.locfileid: "91310104"
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 클라우드의 [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)에서 데이터 파일로 작업합니다.
+> * 클라우드의 [Azure Notebooks](../notebooks/index.yml)에서 데이터 파일로 작업합니다.
 > * 파일에서 데모 데이터를 로드합니다.
 > * Python에서 Azure Maps REST API를 호출합니다.
 > * 위치 데이터를 지도에 렌더링합니다.
-> * Azure Maps [일일 예측](https://aka.ms/AzureMapsWeatherDailyForecast) 날씨 데이터를 사용하여 데모 데이터를 보강합니다.
+> * Azure Maps [일일 예측](/rest/api/maps/weather/getdailyforecastpreview) 날씨 데이터를 사용하여 데모 데이터를 보강합니다.
 > * 예측 데이터를 그래프로 표시합니다.
 
 
@@ -41,7 +41,7 @@ ms.locfileid: "91310104"
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
-Azure Notebook에 익숙해지고 시작하는 방법을 알아보려면 [Azure Notebook 만들기](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook)의 지침을 따르세요.
+Azure Notebook에 익숙해지고 시작하는 방법을 알아보려면 [Azure Notebook 만들기](./tutorial-ev-routing.md#create-an-azure-notebooks-project)의 지침을 따르세요.
 
 > [!Note]
 > 이 프로젝트의 Jupyter Notebook 파일은 [기상도 Juppyter Notebook 리포지토리](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data)에서 다운로드할 수 있습니다.
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>일일 예측 데이터 요청
 
-시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps 날씨 서비스의 [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast)를 호출합니다. 이 API는 현재 날짜로부터 다음 15일 동안 각 풍력 터빈에 대한 날씨 예보를 반환합니다.
+시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps 날씨 서비스의 [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)를 호출합니다. 이 API는 현재 날짜로부터 다음 15일 동안 각 풍력 터빈에 대한 날씨 예보를 반환합니다.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-다음 스크립트는 Azure Maps [지도 이미지 가져오기 서비스](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 호출하여 터빈 위치를 지도에 렌더링합니다.
+다음 스크립트는 Azure Maps [지도 이미지 가져오기 서비스](/rest/api/maps/render/getmapimage)를 호출하여 터빈 위치를 지도에 렌더링합니다.
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -184,18 +184,18 @@ windsPlot.set_ylabel("Wind direction")
 
 이 자습서에서는 Azure Maps REST API를 호출하여 날씨 예측 데이터를 가져오는 방법을 알아보았습니다. 또한 데이터를 그래프로 시각화하는 방법을 알아보았습니다.
 
-Azure Notebooks 내에서 Azure Maps REST API를 호출하는 방법에 대한 자세한 내용은 [Azure Notebooks를 사용한 EV 라우팅](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing)을 참조하세요.
+Azure Notebooks 내에서 Azure Maps REST API를 호출하는 방법에 대한 자세한 내용은 [Azure Notebooks를 사용한 EV 라우팅](./tutorial-ev-routing.md)을 참조하세요.
 
 이 자습서에서 사용되는 Azure Maps API를 살펴보려면 다음을 참조하세요.
 
-* [일일 예측](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [렌더링 - 지도 이미지 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [일일 예측](/rest/api/maps/weather/getdailyforecastpreview)
+* [렌더링 - 지도 이미지 가져오기](/rest/api/maps/render/getmapimage)
 
-Azure Maps REST API의 전체 목록은 [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model)를 참조하세요.
+Azure Maps REST API의 전체 목록은 [Azure Maps REST API](./consumption-model.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Notebooks에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 노트](https://docs.microsoft.com/azure/notebooks)
+> [Azure 노트](../notebooks/index.yml)

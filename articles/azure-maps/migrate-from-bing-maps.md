@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873747"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897010"
 ---
 # <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>자습서 - Bing Maps에서 Azure Maps로 마이그레이션
 
@@ -69,7 +69,7 @@ Bing Maps에서 Azure Maps로 마이그레이션할 때 라이선스와 관련�
 -   [Azure Maps 가격 책정](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 -   [Azure Maps 사용 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)(Microsoft Online Services 사용 약관에 포함됨)
--   [Azure Maps에서 올바른 가격 책정 계층 선택](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+-   [Azure Maps에서 올바른 가격 책정 계층 선택](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>권장 마이그레이션 계획
 
@@ -77,7 +77,7 @@ Bing Maps에서 Azure Maps로 마이그레이션할 때 라이선스와 관련�
 
 1.  애플리케이션에서 사용 중인 Bing Maps SDK 및 서비스의 인벤토리를 작성하고, Azure Maps에서 마이그레이션할 다른 SDK 및 서비스를 제공하는지 확인합니다.
 2.  <https://azure.com>에서 Azure 구독을 만듭니다(아직 Azure 구독이 없는 경우).
-3.  Azure Maps 계정([설명서](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys))과 인증 키 또는 Azure Active Directory([설명서](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication))를 만듭니다.
+3.  Azure Maps 계정([설명서](./how-to-manage-account-keys.md))과 인증 키 또는 Azure Active Directory([설명서](./how-to-manage-authentication.md))를 만듭니다.
 4.  애플리케이션 코드를 마이그레이션합니다.
 5.  마이그레이션된 애플리케이션을 테스트합니다.
 6.  마이그레이션된 애플리케이션을 프로덕션 환경에 배포합니다.
@@ -88,8 +88,8 @@ Azure Maps 계정을 만들고 Azure Maps 플랫폼에 액세스하려면 다음
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-3. [Azure Maps 계정](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)을 만듭니다. 
-4. 보안 강화를 위해 [Azure Maps 구독 키를 가져오거나](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) Azure Active Directory 인증을 설정합니다.
+3. [Azure Maps 계정](./how-to-manage-account-keys.md)을 만듭니다. 
+4. 보안 강화를 위해 [Azure Maps 구독 키를 가져오거나](./how-to-manage-authentication.md#view-authentication-details) Azure Active Directory 인증을 설정합니다.
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps 기술 리소스
 
@@ -105,7 +105,7 @@ Azure Maps 계정을 만들고 Azure Maps 플랫폼에 액세스하려면 다음
 
 ## <a name="migration-support"></a>마이그레이션 지원
 
-개발자는 [포럼](https://aka.ms/AzureMapsForums) 또는 여러 Azure 지원 옵션(<https://azure.microsoft.com/support/options/>) 중 하나를 통해 마이그레이션 지원을 검색할 수 있습니다.
+개발자는 [포럼](/answers/topics/azure-maps.html) 또는 여러 Azure 지원 옵션(<https://azure.microsoft.com/support/options/>) 중 하나를 통해 마이그레이션 지원을 검색할 수 있습니다.
 
 ## <a name="new-terminology"></a>새 용어 
 
