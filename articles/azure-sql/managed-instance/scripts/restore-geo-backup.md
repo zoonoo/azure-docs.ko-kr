@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 0c6ca03f535201059f107d6b53bc423b92d1c1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f04e4b5a44dccdc3aaeabe6b4144836b0be7354c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073358"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790783"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-managed-instance-database-to-another-geo-region"></a>PowerShell을 사용하여 Azure SQL Managed Instance 데이터베이스를 다른 지역으로 복원
 
@@ -75,7 +75,7 @@ Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzResourceGroup](/powershell/module/az.resources/New-AzResourceGroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | SQL Managed Instance 데이터베이스의 지역 중복 백업을 만듭니다. |
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | 지역 백업에서 SQL Managed Instance의 데이터베이스를 만듭니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |

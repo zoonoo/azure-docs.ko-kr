@@ -79,6 +79,8 @@
               href: sync-ldap.md
             - name: SCIM 동기화
               href: sync-scim.md
+        - name: Azure에서 사용되는 인증 기관
+          href: certificate-authorities.md
     - name: 배포 가이드
       items:
         - name: '배포 30, 90 이상'

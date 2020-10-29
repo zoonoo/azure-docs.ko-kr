@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367893"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792959"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
 
@@ -60,15 +60,15 @@ C++ 샘플을 탐색하려면 GitHub에서 [C++용 Azure Storage 클라이언트
 Azure CLI 샘플을 탐색하려면 먼저 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 
 * [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)
-* [Azure CLI를 사용한 Azure Storage 샘플](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)
 * [Azure Storage에서 Azure CLI 사용에 대한 인기 문서](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## <a name="api-reference-and-source-code"></a>API 참조 및 소스 코드
 
 | 언어 | API 참조 | 소스 코드 |
 |----------|---------------|-------------|
-| .NET | [.NET 클라이언트 라이브러리 참조](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [.NET 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net) |
-| Java | [Java 클라이언트 라이브러리 참조](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
+| .NET | [.NET 클라이언트 라이브러리 참조](/dotnet/api/overview/azure/storage) | [.NET 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net) |
+| Java | [Java 클라이언트 라이브러리 참조](/java/api/overview/azure/storage) | [Java 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
 | Python | [Python 클라이언트 라이브러리 참조](https://azure-storage.readthedocs.io/) | [Python 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Node.js 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-node) | [Node.js 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ 클라이언트 라이브러리 참조](https://azure.github.io/azure-sdk-for-cpp/) | [C++ 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
@@ -83,4 +83,4 @@ Azure CLI 샘플을 탐색하려면 먼저 [Azure CLI](/cli/azure/install-azure-
 * [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 * [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
 * [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* [Azure CLI를 사용한 Azure Storage 샘플](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)

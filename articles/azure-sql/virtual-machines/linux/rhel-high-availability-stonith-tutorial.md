@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358936"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790239"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ az vm availability-set create \
     done
     ```
 
-위의 명령은 VM을 만들고, 해당 VM에 대한 기본 VNet을 만듭니다. 다른 구성에 대한 자세한 내용은 [az vm create](https://docs.microsoft.com/cli/azure/vm) 문서를 참조하세요.
+위의 명령은 VM을 만들고, 해당 VM에 대한 기본 VNet을 만듭니다. 다른 구성에 대한 자세한 내용은 [az vm create](/cli/azure/vm) 문서를 참조하세요.
 
 각 VM에 대한 명령이 완료되면 다음과 비슷한 결과를 얻습니다.
 
@@ -304,7 +304,7 @@ ssh <username>@publicipaddress
 1. 다음 명령을 사용하여 모든 노드에서 Pacemaker 패키지를 업데이트하고 설치합니다.
 
     > [!NOTE]
-    > **nmap**는 네트워크에서 사용 가능한 IP 주소를 찾는 도구이며 이 명령 블록의 일부로 설치됩니다. **nmap**를 설치할 필요는 없지만 이는 자습서의 뒷부분에서 유용합니다.
+    > **nmap** 는 네트워크에서 사용 가능한 IP 주소를 찾는 도구이며 이 명령 블록의 일부로 설치됩니다. **nmap** 를 설치할 필요는 없지만 이는 자습서의 뒷부분에서 유용합니다.
 
     ```bash
     sudo yum update -y
@@ -324,7 +324,7 @@ ssh <username>@publicipaddress
     sudo vi /etc/hosts
     ```
 
-    **vi** 편집기에서 `i`를 입력하여 텍스트를 삽입하고, 해당 VM의 **개인 IP**를 빈 줄에 추가합니다. 그런 다음, IP 옆의 공백 뒤에 VM 이름을 추가합니다. 각 줄에는 별도의 항목이 있어야 합니다.
+    **vi** 편집기에서 `i`를 입력하여 텍스트를 삽입하고, 해당 VM의 **개인 IP** 를 빈 줄에 추가합니다. 그런 다음, IP 옆의 공백 뒤에 VM 이름을 추가합니다. 각 줄에는 별도의 항목이 있어야 합니다.
 
     ```output
     <IP1> <VM1>
@@ -373,7 +373,7 @@ ssh <username>@publicipaddress
 
     **RHEL8**
 
-    RHEL 8의 경우 노드를 별도로 인증해야 합니다. 메시지가 표시되면 **hacluster**의 사용자 이름 및 암호를 수동으로 입력합니다.
+    RHEL 8의 경우 노드를 별도로 인증해야 합니다. 메시지가 표시되면 **hacluster** 의 사용자 이름 및 암호를 수동으로 입력합니다.
 
     ```bash
     sudo pcs host auth <node1> <node2> <node3>
@@ -487,13 +487,13 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  1. [https://editor.swagger.io](https://portal.azure.com ) 으로 이동합니다.
  2. [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)를 엽니다. 속성으로 이동하여 Directory ID 기록 `tenant ID`입니다.
  3. [**앱 등록**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)을 클릭합니다.
- 4. **새 등록**을 클릭합니다.
- 5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만**을 선택합니다.
- 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록**을 클릭합니다.
- 7. 새 등록에 대해 **인증서 및 비밀**을 선택한 다음, **새 클라이언트 암호**를 클릭합니다.
- 8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음**을 선택하고, **추가**를 클릭합니다.
+ 4. **새 등록** 을 클릭합니다.
+ 5. **이름** (예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
+ 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록** 을 클릭합니다.
+ 7. 새 등록에 대해 **인증서 및 비밀** 을 선택한 다음, **새 클라이언트 암호** 를 클릭합니다.
+ 8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음** 을 선택하고, **추가** 를 클릭합니다.
  9. 비밀의 값을 적어 둡니다. 서비스 주체의 암호로 사용됩니다.
-10. **개요**를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 로그인 ID)으로 사용됩니다.
+10. **개요** 를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 로그인 ID)으로 사용됩니다.
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -568,7 +568,7 @@ az role definition create --role-definition "<filename>.json"
 2. [모든 리소스 블레이드](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)를 엽니다.
 3. 첫 번째 클러스터 노드의 가상 머신 선택
 4. **액세스 제어(IAM)** 를 클릭합니다.
-5. **역할 할당 추가**를 클릭합니다.
+5. **역할 할당 추가** 를 클릭합니다.
 6. **역할** 목록에서 `Linux Fence Agent Role-<username>` 역할을 선택합니다.
 7. **선택** 목록에서 위에서 만든 애플리케이션의 이름(`<resourceGroupName>-app`)을 입력합니다.
 8. 페이지 맨 아래에 있는 **저장**
@@ -699,7 +699,7 @@ sudo systemctl restart mssql-server
 
 AG 엔드포인트에 대한 AD 인증은 현재 지원하지 않습니다. 따라서 인증서는 AG 엔드포인트 암호화에 사용해야 합니다.
 
-1. SSMS(SQL Server Management Studio) 또는 SQL CMD를 사용하여 **모든 노드**에 연결합니다. 다음 명령을 실행하여 AlwaysOn_health 세션을 사용하도록 설정하고 마스터 키를 만듭니다.
+1. SSMS(SQL Server Management Studio) 또는 SQL CMD를 사용하여 **모든 노드** 에 연결합니다. 다음 명령을 실행하여 AlwaysOn_health 세션을 사용하도록 설정하고 마스터 키를 만듭니다.
 
     > [!IMPORTANT]
     > SQL Server 인스턴스에 원격으로 연결하는 경우 방화벽에서 1433 포트가 열려 있어야 합니다. 또한 각 VM의 NSG에서 1433 포트에 대한 인바운드 연결을 허용해야 합니다. 자세한 내용은 인바운드 보안 규칙을 만드는 [보안 규칙 만들기](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)를 참조하세요.

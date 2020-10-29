@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885421"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792687"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +39,10 @@ Azure SQL Database는 다음과 같은 방법으로 데이터를 보호합니다
 > [!NOTE]
 > Azure SQL Managed Instance는 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [연결 아키텍처](../managed-instance/connectivity-architecture-overview.md)에서 설명한 대로 네트워크 보안 규칙 및 프라이빗 엔드포인트를 사용하여 보호됩니다.
 
-자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](security-overview.md) 문서를 참조하세요.
+자세한 내용은 [Azure SQL Database 보안 개요](./security-overview.md) 및 [기능](security-overview.md) 문서를 참조하세요.
 
 > [!TIP]
-> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
+> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스 보안](/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적으로 서버 및 데이터베이스에 대한 모든 연결은 거부됩니다. 자세히 알아보려면 [서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기](firewall-configure.md)를 참조하세요.
 
-가장 안전한 구성을 위해 **Azure 서비스 방문 허용**을 **끄기**로 설정합니다. 그런 다음, Azure VM 또는 클라우드 서비스와 같이 연결해야 하는 리소스에 대해 [예약된 IP(클래식 배포)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)를 만들고, 해당 IP 주소만 방화벽을 통해 액세스하도록 허용합니다. [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 배포 모델을 사용하는 경우 각 리소스에 대한 전용 공용 IP 주소가 필요합니다.
+가장 안전한 구성을 위해 **Azure 서비스 방문 허용** 을 **끄기** 로 설정합니다. 그런 다음, Azure VM 또는 클라우드 서비스와 같이 연결해야 하는 리소스에 대해 [예약된 IP(클래식 배포)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)를 만들고, 해당 IP 주소만 방화벽을 통해 액세스하도록 허용합니다. [Resource Manager](../../virtual-network/public-ip-addresses.md) 배포 모델을 사용하는 경우 각 리소스에 대한 전용 공용 IP 주소가 필요합니다.
 
 > [!NOTE]
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열어야 서버에 연결할 수 있습니다.
@@ -73,20 +73,20 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 
 서버 수준 방화벽 규칙을 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
     ![서버 방화벽 규칙](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > 이 자습서의 뒷부분에서 사용할 수 있도록 정규화된 서버 이름(예: *yourserver.database.windows.net*)을 복사합니다.
+    > 이 자습서의 뒷부분에서 사용할 수 있도록 정규화된 서버 이름(예: *yourserver.database.windows.net* )을 복사합니다.
 
-1. **개요** 페이지에서 **서버 방화벽 설정**을 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
+1. **개요** 페이지에서 **서버 방화벽 설정** 을 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
-   1. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 이 규칙은 단일 IP 주소 또는 IP 주소 범위에 대해 1433 포트를 열 수 있습니다. **저장**을 선택합니다.
+   1. 도구 모음에서 **클라이언트 IP 추가** 를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 이 규칙은 단일 IP 주소 또는 IP 주소 범위에 대해 1433 포트를 열 수 있습니다. **저장** 을 선택합니다.
 
       ![set server firewall rule](./media/secure-database-tutorial/server-firewall-rule2.png)
 
-   1. **확인**을 선택하고, **방화벽 설정** 페이지를 닫습니다.
+   1. **확인** 을 선택하고, **방화벽 설정** 페이지를 닫습니다.
 
 이제 지정된 IP 주소 또는 IP 주소 범위로 서버의 모든 데이터베이스에 연결할 수 있습니다.
 
@@ -98,7 +98,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 
 1. [SQL Server Management Studio](connect-query-ssms.md)와 같은 도구를 사용하여 데이터베이스에 연결합니다.
 
-1. **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 쿼리 창에서 다음 명령문을 추가하고 IP 주소를 공용 IP 주소로 수정합니다.
 
@@ -106,7 +106,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-1. 도구 모음에서 **실행**을 선택하여 방화벽 규칙을 만듭니다.
+1. 도구 모음에서 **실행** 을 선택하여 방화벽 규칙을 만듭니다.
 
 > [!NOTE]
 > *master* 데이터베이스에 연결해야 하지만 SSMS에서 [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) 명령을 사용하여 서버 수준 방화벽 규칙을 만들 수도 있습니다.
@@ -119,21 +119,21 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 
 Azure AD 관리자를 설정하려면,
 
-1. Azure Portal의 **SQL Server** 페이지에서 **Active Directory 관리자**를 선택합니다. 다음으로, **관리자 설정**을 선택합니다.
+1. Azure Portal의 **SQL Server** 페이지에서 **Active Directory 관리자** 를 선택합니다. 다음으로, **관리자 설정** 을 선택합니다.
 
     ![Active Directory 선택](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
     > 이 작업을 수행하려면 "회사 관리자" 또는 "글로벌 관리자"여야 합니다.
 
-1. **관리자 추가** 페이지에서 AD 사용자 또는 그룹을 검색하여 선택한 다음, **선택**을 선택합니다. Active Directory의 모든 멤버와 그룹이 나열되며, 회색으로 표시된 항목은 Azure AD 관리자로 지원되지 않습니다. [Azure AD 기능 및 제한 사항](authentication-aad-overview.md#azure-ad-features-and-limitations)을 참조하세요.
+1. **관리자 추가** 페이지에서 AD 사용자 또는 그룹을 검색하여 선택한 다음, **선택** 을 선택합니다. Active Directory의 모든 멤버와 그룹이 나열되며, 회색으로 표시된 항목은 Azure AD 관리자로 지원되지 않습니다. [Azure AD 기능 및 제한 사항](authentication-aad-overview.md#azure-ad-features-and-limitations)을 참조하세요.
 
     ![관리자 선택](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
     > RBAC(역할 기반 액세스 제어)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
 
-1. **Active Directory 관리자** 페이지의 위쪽에서 **저장**을 선택합니다.
+1. **Active Directory 관리자** 페이지의 위쪽에서 **저장** 을 선택합니다.
 
     관리자를 변경하는 프로세스에는 몇 분이 걸릴 수 있습니다. 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
 
@@ -165,7 +165,7 @@ SQL 인증을 사용하여 사용자를 추가하려면,
 
 1. [SQL Server Management Studio](connect-query-ssms.md)와 같은 도구를 사용하여 데이터베이스에 연결합니다.
 
-1. **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 쿼리 창에서 다음 명령을 입력합니다.
 
@@ -173,7 +173,7 @@ SQL 인증을 사용하여 사용자를 추가하려면,
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-1. 도구 모음에서 **실행**을 선택하여 사용자를 만듭니다.
+1. 도구 모음에서 **실행** 을 선택하여 사용자를 만듭니다.
 
 1. 기본적으로 사용자는 데이터베이스에 연결할 수 있지만 데이터를 읽거나 쓰는 권한은 없습니다. 이러한 권한을 부여하려면 새 쿼리 창에서 다음 명령을 실행합니다.
 
@@ -201,7 +201,7 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 1. *ALTER ANY USER* 이상의 권한이 있는 Azure AD 계정을 사용하여 Azure의 서버에 연결합니다.
 
-1. **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 마우스 오른쪽 단추로 데이터베이스를 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 쿼리 창에서 다음 명령을 입력하고, `<Azure_AD_principal_name>`을 Azure AD 사용자의 보안 주체 이름 또는 Azure AD 그룹의 표시 이름으로 수정합니다.
 
@@ -223,9 +223,9 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 보안 연결 문자열을 복사하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
-1. **개요** 페이지에서 **데이터베이스 연결 문자열 표시**를 선택합니다.
+1. **개요** 페이지에서 **데이터베이스 연결 문자열 표시** 를 선택합니다.
 
 1. 드라이버 탭을 선택하고 전체 연결 문자열을 복사합니다.
 
@@ -244,19 +244,19 @@ Azure Defender for SQL 기능은 발생할 수 있는 잠재적 위협을 탐지
 
 Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **개요** 페이지에서 **서버 이름** 링크를 선택합니다. 서버 페이지가 열립니다.
 
-1. **SQL Server** 페이지에서 **보안** 섹션을 찾아서 **Security Center**를 선택합니다.
+1. **SQL Server** 페이지에서 **보안** 섹션을 찾아서 **Security Center** 를 선택합니다.
 
-   1. **Azure Defender for SQL**에서 **ON**을 선택하여 이 기능을 사용하도록 설정합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
+   1. **Azure Defender for SQL** 에서 **ON** 을 선택하여 이 기능을 사용하도록 설정합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
       ![탐색 창](./media/secure-database-tutorial/threat-settings.png)
 
       또한 보안 경고, 스토리지 세부 정보 및 위협 탐지 유형을 받을 수 있도록 이메일을 구성할 수도 있습니다.
 
-1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Security Center**를 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
+1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Security Center** 를 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
 
     ![위협 상태](./media/secure-database-tutorial/threat-status.png)
 
@@ -270,15 +270,15 @@ Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니
 
 감사를 사용하도록 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
-1. **보안** 섹션에서 **감사**를 선택합니다.
+1. **보안** 섹션에서 **감사** 를 선택합니다.
 
 1. **감사** 설정 아래에서 다음 값을 설정합니다.
 
-   1. **감사**를 **켜기**로 설정합니다.
+   1. **감사** 를 **켜기** 로 설정합니다.
 
-   1. **감사 로그 대상**을 다음 중 하나로 선택합니다.
+   1. **감사 로그 대상** 을 다음 중 하나로 선택합니다.
 
        - **스토리지** - 이벤트 로그가 저장되고 *.xel* 파일로 다운로드될 수 있는 Azure 스토리지 계정입니다.
 
@@ -288,15 +288,15 @@ Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니
        - **Log Analytics** - 쿼리 또는 추가 분석을 위해 이벤트를 자동으로 저장합니다.
 
            > [!NOTE]
-           > 분석, 사용자 지정 경고 규칙, Excel 또는 Power BI 내보내기와 같은 고급 기능을 지원하려면 **Log Analytics 작업 영역**이 필요합니다. 작업 영역이 없으면 쿼리 편집기만 사용할 수 있습니다.
+           > 분석, 사용자 지정 경고 규칙, Excel 또는 Power BI 내보내기와 같은 고급 기능을 지원하려면 **Log Analytics 작업 영역** 이 필요합니다. 작업 영역이 없으면 쿼리 편집기만 사용할 수 있습니다.
 
        - **Event Hub** - 다른 애플리케이션에서 사용할 수 있도록 이벤트를 라우팅할 수 있습니다.
 
-   1. **저장**을 선택합니다.
+   1. **저장** 을 선택합니다.
 
       ![감사 설정](./media/secure-database-tutorial/audit-settings.png)
 
-1. 이제 **감사 로그 보기**를 선택하여 데이터베이스 이벤트 데이터를 볼 수 있습니다.
+1. 이제 **감사 로그 보기** 를 선택하여 데이터베이스 이벤트 데이터를 볼 수 있습니다.
 
     ![감사 레코드](./media/secure-database-tutorial/audit-records.png)
 
@@ -309,15 +309,15 @@ Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니
 
 데이터 마스킹을 사용하도록 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
-1. **보안**  섹션에서 **동적 데이터 마스킹**을 선택합니다.
+1. **보안**  섹션에서 **동적 데이터 마스킹** 을 선택합니다.
 
-1. **동적 데이터 마스킹** 설정 아래에서 **마스크 추가**를 선택하여 마스킹 규칙을 추가합니다. Azure는 사용할 수 있는 데이터베이스 스키마, 테이블 및 열을 자동으로 채웁니다.
+1. **동적 데이터 마스킹** 설정 아래에서 **마스크 추가** 를 선택하여 마스킹 규칙을 추가합니다. Azure는 사용할 수 있는 데이터베이스 스키마, 테이블 및 열을 자동으로 채웁니다.
 
     ![마스크 설정](./media/secure-database-tutorial/mask-settings.png)
 
-1. **저장**을 선택합니다. 선택한 정보가 이제 개인 정보 보호를 위해 마스킹되었습니다.
+1. **저장** 을 선택합니다. 선택한 정보가 이제 개인 정보 보호를 위해 마스킹되었습니다.
 
     ![마스크 예제](./media/secure-database-tutorial/mask-query.png)
 
@@ -327,11 +327,11 @@ Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니
 
 암호화를 사용하도록 설정하거나 확인하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
-1. **보안** 섹션에서 **투명 데이터 암호화**를 선택합니다.
+1. **보안** 섹션에서 **투명 데이터 암호화** 를 선택합니다.
 
-1. 필요한 경우 **데이터 암호화**를 **켜기**로 설정합니다. **저장**을 선택합니다.
+1. 필요한 경우 **데이터 암호화** 를 **켜기** 로 설정합니다. **저장** 을 선택합니다.
 
     ![투명한 데이터 암호화](./media/secure-database-tutorial/encryption-settings.png)
 

@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283873"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788624"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>자습서: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Managed Instance 보안
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
 
 1. [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms)를 통해 `sysadmin` 또는 SQL Managed Instance용 Azure AD 관리자인 표준 SQL 로그인 계정(비 Azure AD)을 사용하여 관리형 인스턴스에 로그인합니다.
 
-2. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+2. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 
 3. 쿼리 창에서 다음 구문을 사용하여 로컬 Azure AD 계정에 대한 로그인을 만듭니다.
 
@@ -94,7 +94,7 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
     GO
     ```
 
-4. 도구 모음에서 **실행**을 선택하여 로그인을 만듭니다.
+4. 도구 모음에서 **실행** 을 선택하여 로그인을 만듭니다.
 
 5. 다음 T-SQL 명령을 실행하여 새로 추가된 로그인을 확인합니다.
 
@@ -120,14 +120,14 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
 
 - 새로 만든 Azure AD 서버 보안 주체(로그인)에서 다른 Azure AD 사용자, 그룹 또는 애플리케이션에 대한 다른 로그인을 만들 수 있도록 하려면 로그인 `sysadmin` 또는 `securityadmin` 서버 역할을 부여합니다.
 - 다른 Azure AD 서버 보안 주체(로그인)를 만들려면 적어도 **ALTER ANY LOGIN** 권한을 Azure AD 서버 보안 주체(로그인)에 부여해야 합니다.
-- 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
+- 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE** 가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
 `sysadmin` 서버 역할에 로그인을 추가하려면
 
 1. 관리형 인스턴스에 다시 로그인하거나 Azure AD 관리자 또는 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 다음 T-SQL 구문을 사용하여 `sysadmin` 서버 역할을 Azure AD 서버 보안 주체(로그인)에 부여합니다.
 
@@ -145,7 +145,7 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>SSMS를 사용하여 추가 Azure AD 서버 보안 주체(로그인) 만들기
 
-Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이 부여되면, 해당 로그인에서 **CREATE LOGIN**과 함께 **FROM EXTERNAL PROVIDER** 절을 사용하여 추가 로그인을 만들 수 있습니다.
+Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이 부여되면, 해당 로그인에서 **CREATE LOGIN** 과 함께 **FROM EXTERNAL PROVIDER** 절을 사용하여 추가 로그인을 만들 수 있습니다.
 
 1. SQL Server Management Studio를 사용하여 Azure AD 서버 보안 주체(로그인)로 관리되는 인스턴스에 연결합니다. SQL Managed Instance 호스트 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
 
@@ -157,11 +157,11 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
      자세한 내용은 [유니버설 인증(Multi-Factor Authentication에 대한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조하세요.
 
-1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 Multi-Factor Authentication 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
+1. **Active Directory - MFA 지원을 통한 유니버설 인증** 을 선택합니다. 그러면 Multi-Factor Authentication 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 
     ![암호 입력 필드에 커서가 있는 Multi-Factor Authentication 로그인 창의 스크린샷](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. SSMS **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. SSMS **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 1. 쿼리 창에서 다음 구문을 사용하여 다른 Azure AD 계정에 대한 로그인을 만듭니다.
 
     ```sql
@@ -183,19 +183,19 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     ```
 
 1. [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 관리되는 인스턴스에 데이터베이스를 만듭니다. 이 데이터베이스는 다음 섹션에서 사용자 로그인을 테스트하는 데 사용됩니다.
-    1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
-    1. 쿼리 창에서 다음 구문을 사용하여 **MyMITestDB**라는 데이터베이스를 만듭니다.
+    1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
+    1. 쿼리 창에서 다음 구문을 사용하여 **MyMITestDB** 라는 데이터베이스를 만듭니다.
 
         ```sql
         CREATE DATABASE MyMITestDB;
         GO
         ```
 
-1. Azure AD의 그룹에 대한 SQL Managed Instance 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 SQL Managed Instance에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
+1. Azure AD의 그룹에 대한 SQL Managed Instance 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 SQL Managed Instance에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_ 이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
 
 1. SQL Server Management Studio에서 새 쿼리 창을 엽니다.
 
-    이 예에서는 Azure AD에 _mygroup_이라는 그룹이 있다고 가정합니다. 다음 명령을 실행하십시오.
+    이 예에서는 Azure AD에 _mygroup_ 이라는 그룹이 있다고 가정합니다. 다음 명령을 실행하십시오.
 
     ```sql
     USE master
@@ -205,7 +205,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     ```
 
 1. 테스트 삼아 새로 만든 로그인 또는 그룹을 사용하여 관리되는 인스턴스에 로그인합니다. 관리되는 인스턴스에 대한 새 연결을 열고, 인증할 때 새 로그인을 사용합니다.
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 새 연결을 위한 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 새 연결을 위한 **새 쿼리** 를 선택합니다.
 1. 다음 명령을 실행하여 새로 만든 Azure AD 서버 보안 주체(로그인)에 대한 서버 권한을 확인합니다.
 
       ```sql
@@ -220,7 +220,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 개별 데이터베이스에 권한을 부여하는 기능은 SQL Managed Instance가 SQL Server의 데이터베이스에서 작동하는 방식과 매우 비슷한 방식으로 작동합니다. 데이터베이스의 기존 로그인에서 사용자를 만들고 해당 데이터베이스에 대한 권한을 부여하거나 데이터베이스 역할에 추가할 수 있습니다.
 
-**MyMITestDB**라는 데이터베이스와 기본 권한만 있는 로그인을 만들었으므로 다음 단계는 해당 로그인에서 사용자를 만드는 것입니다. 지금은 로그인에서 관리되는 인스턴스에 연결하고 모든 데이터베이스를 볼 수 있지만, 데이터베이스와 상호 작용할 수는 없습니다. 기본 권한만 있는 Azure AD 계정으로 로그인하여 새로 만든 데이터베이스를 확장하려고 시도하면 다음 오류가 표시됩니다.
+**MyMITestDB** 라는 데이터베이스와 기본 권한만 있는 로그인을 만들었으므로 다음 단계는 해당 로그인에서 사용자를 만드는 것입니다. 지금은 로그인에서 관리되는 인스턴스에 연결하고 모든 데이터베이스를 볼 수 있지만, 데이터베이스와 상호 작용할 수는 없습니다. 기본 권한만 있는 Azure AD 계정으로 로그인하여 새로 만든 데이터베이스를 확장하려고 시도하면 다음 오류가 표시됩니다.
 
 !["데이터베이스 MyMITestDB에 액세스할 수 없습니다 (ObjectExplorer)."라는 S S M S 개체 탐색기의 오류 메시지 스크린샷](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
@@ -229,7 +229,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Azure AD 사용자를 만들고 샘플 테이블 만들기
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 1. 쿼리 창에서 다음 구문을 사용하여 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만듭니다.
 
     ```sql
@@ -250,7 +250,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. 그룹인 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만드는 것도 지원됩니다.
 
-    다음 예제에서는 Azure AD 인스턴스에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
+    다음 예제에서는 Azure AD 인스턴스에 있는 Azure AD 그룹 _mygroup_ 에 대한 로그인을 만듭니다.
 
     ```sql
     USE MyMITestDB
@@ -259,10 +259,10 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-    *mygroup*에 속한 모든 사용자는 **MyMITestDB** 데이터베이스에 액세스할 수 있습니다.
+    *mygroup* 에 속한 모든 사용자는 **MyMITestDB** 데이터베이스에 액세스할 수 있습니다.
 
     > [!IMPORTANT]
-    > Azure AD 서버 보안 주체(로그인)에서 **USER**를 만들 때 **LOGIN**에서 user_name을 동일한 login_name으로 지정합니다.
+    > Azure AD 서버 보안 주체(로그인)에서 **USER** 를 만들 때 **LOGIN** 에서 user_name을 동일한 login_name으로 지정합니다.
 
     자세한 내용은 [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
 
@@ -295,7 +295,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 다음 T-SQL 구문을 사용하여 Azure AD 사용자에게 `db_datareader` 데이터베이스 역할을 부여합니다.
 
@@ -305,7 +305,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
+    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_ 에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
 
     ```sql
     USE MyMITestDB
@@ -324,7 +324,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     ```
 
 1. `db_datareader` 역할에 추가된 사용자로 관리되는 인스턴스에 대한 새 연결을 만듭니다.
-1. **개체 탐색기**에서 데이터베이스를 확장하여 테이블을 봅니다.
+1. **개체 탐색기** 에서 데이터베이스를 확장하여 테이블을 봅니다.
 
     ![MyMITestDB의 테이블에 대한 폴더 구조를 표시하는 S S M S의 개체 탐색기 스크린샷 dbo.TestTable 폴더가 강조 표시됩니다.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
@@ -347,7 +347,7 @@ SQL Managed Instance는 Azure AD 서버 수준 보안 주체(로그인)의 가�
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 
 1. 쿼리 창에서 다음 명령을 사용하여 새 저장 프로시저를 만듭니다.
 
@@ -361,7 +361,7 @@ SQL Managed Instance는 Azure AD 서버 수준 보안 주체(로그인)의 가�
     GO
     ```
 
-1. 다음 명령을 사용하여 저장 프로시저를 실행할 때 가장하는 사용자가 **bob\@aadsqlmi.net**인지 확인합니다.
+1. 다음 명령을 사용하여 저장 프로시저를 실행할 때 가장하는 사용자가 **bob\@aadsqlmi.net** 인지 확인합니다.
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ SQL Managed Instance는 Azure AD 서버 수준 보안 주체(로그인)의 가�
 Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 데이터베이스 간 쿼리가 지원됩니다. Azure AD 그룹을 사용하여 데이터베이스 간 쿼리를 테스트하려면 다른 데이터베이스 및 테이블을 만들어야 합니다. 다른 데이터베이스 및 테이블이 있으면 만들기를 건너뛰어도 됩니다.
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
-1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
-1. 쿼리 창에서 다음 명령을 사용하여 **MyMITestDB2**라는 데이터베이스와 **TestTable2**라는 테이블을 만듭니다.
+1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
+1. 쿼리 창에서 다음 명령을 사용하여 **MyMITestDB2** 라는 데이터베이스와 **TestTable2** 라는 테이블을 만듭니다.
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     );
     ```
 
-1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2**에 사용자 _mygroup_을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_에 부여합니다.
+1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2** 에 사용자 _mygroup_ 을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_ 에 부여합니다.
 
     ```sql
     USE MyMITestDB2
@@ -416,7 +416,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     GO
     ```
 
-1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_ 의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
 
     ```sql
     USE MyMITestDB
@@ -424,7 +424,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     GO
     ```
 
-    **TestTable2**의 테이블 결과가 보일 것입니다.
+    **TestTable2** 의 테이블 결과가 보일 것입니다.
 
 ## <a name="additional-supported-scenarios"></a>추가로 지원되는 시나리오
 
@@ -447,7 +447,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
 - [위협 감지](threat-detection-configure.md)
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL Managed Instance 기능
 

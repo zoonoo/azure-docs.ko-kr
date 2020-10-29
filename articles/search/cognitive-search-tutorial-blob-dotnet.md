@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 340cdd97e7097a9fe6f0653d9f50f5a5cc41f890
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740936"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787961"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Blob에서 AI 생성 검색 가능 콘텐츠
 
@@ -50,9 +50,9 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 샘플 데이터는 이후 단계에서 Azure Blob 스토리지에 업로드할 혼합 콘텐츠 형식의 14개 파일로 구성되어 있습니다.
 
-1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드**를 클릭하여 파일을 컴퓨터에 복사합니다. 
+1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드** 를 클릭하여 파일을 컴퓨터에 복사합니다. 
 
-1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기**를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
+1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기** 를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
 
 이 자습서의 소스 코드를 다운로드할 수도 있습니다. 소스 코드는 [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) 리포지토리의 **tutorial-ai-enrichment/v11** 폴더에 있습니다.
 
@@ -64,39 +64,39 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기**를 클릭합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기** 를 클릭합니다.
 
-1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
+1. *스토리지 계정* 을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
    ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "Storage 계정 만들기")
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
-   * **리소스 그룹**. 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
+   * **리소스 그룹** . 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
 
-   * **스토리지 계정 이름**. 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus*)을 사용합니다. 
+   * **스토리지 계정 이름** . 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus* )을 사용합니다. 
 
    * **위치** - 가능하면 Azure Cognitive Search 및 Cognitive Services에 사용되는 것과 동일한 위치를 선택합니다. 단일 위치에는 대역폭 요금이 부과되지 않습니다.
 
-   * **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
+   * **계정 종류** . 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
-1. **검토 + 만들기**를 클릭하여 서비스를 만듭니다.
+1. **검토 + 만들기** 를 클릭하여 서비스를 만듭니다.
 
-1. 서비스가 만들어지면 **리소스로 이동**을 클릭하여 [개요] 페이지를 엽니다.
+1. 서비스가 만들어지면 **리소스로 이동** 을 클릭하여 [개요] 페이지를 엽니다.
 
 1. **Blob** 서비스를 클릭합니다.
 
-1. **+ 컨테이너**를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo*로 지정합니다.
+1. **+ 컨테이너** 를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo* 로 지정합니다.
 
-1. *cog-search-demo*를 선택한 다음, **업로드**를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 14개 파일을 모두 선택하고 **확인**을 클릭하여 업로드합니다.
+1. *cog-search-demo* 를 선택한 다음, **업로드** 를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 14개 파일을 모두 선택하고 **확인** 을 클릭하여 업로드합니다.
 
    ![샘플 파일 업로드](media/cognitive-search-quickstart-blob/sample-data.png "샘플 파일 업로드")
 
 1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
-   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstoragewestus*를 예로 사용했음). 
+   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다( *blobstoragewestus* 를 예로 사용했음). 
 
-   1. 왼쪽 탐색 창에서 **액세스 키**를 선택하고, 연결 문자열 중 하나를 복사합니다. 
+   1. 왼쪽 탐색 창에서 **액세스 키** 를 선택하고, 연결 문자열 중 하나를 복사합니다. 
 
    연결 문자열은 다음 예제와 비슷한 URL입니다.
 
@@ -124,11 +124,11 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 복사합니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 복사합니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-javascript/service-name-and-keys.png)
 
 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -146,7 +146,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents)를 찾습니다.
 
-1. 최신 버전을 선택한 다음, **설치**를 클릭합니다.
+1. 최신 버전을 선택한 다음, **설치** 를 클릭합니다.
 
 1. 이전 단계를 반복하여 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) 및 [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json)을 설치합니다.
 
@@ -154,11 +154,11 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 항목...** 을 차례로 선택합니다. 
 
-1. 파일 이름을 `appsettings.json`으로 지정하고 **추가**를 선택합니다. 
+1. 파일 이름을 `appsettings.json`으로 지정하고 **추가** 를 선택합니다. 
 
 1. 이 파일을 출력 디렉터리에 포함합니다.
-    1. `appsettings.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
-    1. **출력 디렉터리로 복사**의 값을 **변경된 내용만 복사**로 변경합니다.
+    1. `appsettings.json`을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
+    1. **출력 디렉터리로 복사** 의 값을 **변경된 내용만 복사** 로 변경합니다.
 
 1. 아래 JSON을 새 JSON 파일에 복사합니다.
 
@@ -173,7 +173,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 검색 서비스 및 Blob 스토리지 계정 정보를 추가합니다. 이 정보는 이전 섹션에 표시된 서비스 프로비전 단계에서 가져올 수 있습니다.
 
-**SearchServiceUri**에 전체 URL을 입력합니다.
+**SearchServiceUri** 에 전체 URL을 입력합니다.
 
 ### <a name="add-namespaces"></a>네임스페이스 추가
 
@@ -285,7 +285,7 @@ SearchIndexerDataSourceConnection dataSource = CreateOrUpdateDataSource(indexerC
 
 ### <a name="step-2-create-a-skillset"></a>2단계: 기술 집합 만들기
 
-이 섹션에서는 데이터에 적용하려는 일단의 보강 단계를 정의합니다. 각 보강 단계를 *기술*이라고 하고, 보강 단계 세트를 *기술 세트*라고 합니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
+이 섹션에서는 데이터에 적용하려는 일단의 보강 단계를 정의합니다. 각 보강 단계를 *기술* 이라고 하고, 보강 단계 세트를 *기술 세트* 라고 합니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
 
 * [광학 문자 인식](cognitive-search-skill-ocr.md): 이미지 파일의 인쇄 및 필기 텍스트를 인식합니다.
 
@@ -580,7 +580,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 이 인덱스에 대한 필드는 모델 클래스를 사용하여 정의됩니다. 모델 클래스의 각 속성에는 해당 인덱스 필드의 검색 관련 동작을 결정하는 특성이 있습니다. 
 
-모델 클래스를 새 C# 파일에 추가합니다. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 항목...** 을 차례로 선택하고, "클래스"를 선택하고, 파일 이름을 `DemoIndex.cs`로 지정한 다음, **추가**를 선택합니다.
+모델 클래스를 새 C# 파일에 추가합니다. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 항목...** 을 차례로 선택하고, "클래스"를 선택하고, 파일 이름을 `DemoIndex.cs`로 지정한 다음, **추가** 를 선택합니다.
 
 `Azure.Search.Documents.Indexes` 및 `System.Text.Json.Serialization` 네임스페이스의 형식을 사용하도록 지정해야 합니다.
 
@@ -826,13 +826,13 @@ Azure Cognitive Search 자습서 콘솔 앱에서는 결과를 반환하는 쿼�
 
 가장 쉬운 옵션은 포털의 [검색 탐색기](search-explorer.md)입니다. 먼저 모든 문서를 반환하는 빈 쿼리를 실행하거나 파이프라인에서 만든 새 필드 콘텐츠를 반환하는 보다 구체적인 검색을 실행할 수 있습니다. 
 
-1. Azure Portal의 검색 개요 페이지에서 **인덱스**를 선택합니다.
+1. Azure Portal의 검색 개요 페이지에서 **인덱스** 를 선택합니다.
 
 1. 목록에서 **`demoindex`** 를 찾습니다. 14개 문서가 있을 것입니다. 문서 수가 0이면 인덱서가 아직 실행 중이거나 페이지가 아직 새로 고쳐지지 않은 것입니다. 
 
 1. **`demoindex`** 을 선택합니다. 검색 탐색기는 첫 번째 탭입니다.
 
-1. 첫 번째 문서가 로드되는 즉시 콘텐츠를 검색할 수 있습니다. 콘텐츠가 있는지 확인하려면 **검색**을 클릭하여 지정되지 않은 쿼리를 실행합니다. 이 쿼리는 현재 인덱싱된 모든 문서를 반환하여 인덱스에 무엇이 들어 있는지 알려줍니다.
+1. 첫 번째 문서가 로드되는 즉시 콘텐츠를 검색할 수 있습니다. 콘텐츠가 있는지 확인하려면 **검색** 을 클릭하여 지정되지 않은 쿼리를 실행합니다. 이 쿼리는 현재 인덱싱된 모든 문서를 반환하여 인덱스에 무엇이 들어 있는지 알려줍니다.
 
 1. 다음으로, 결과를 보다 쉽게 관리할 수 있도록 `search=*&$select=id, languageCode, organizations` 문자열을 붙여넣습니다.
 

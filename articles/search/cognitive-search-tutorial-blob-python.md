@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531006"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788085"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -43,9 +43,9 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="download-files"></a>파일 다운로드
 
-1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드**를 클릭하여 파일을 컴퓨터에 복사합니다. 
+1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드** 를 클릭하여 파일을 컴퓨터에 복사합니다. 
 
-1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기**를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
+1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기** 를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
@@ -55,39 +55,39 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기**를 클릭합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기** 를 클릭합니다.
 
-1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
+1. *스토리지 계정* 을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
-   + **리소스 그룹**. 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
+   + **리소스 그룹** . 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
 
-   + **스토리지 계정 이름**. 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus*)을 사용합니다. 
+   + **스토리지 계정 이름** . 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus* )을 사용합니다. 
 
    + **위치** - 가능하면 Azure Cognitive Search 및 Cognitive Services에 사용되는 것과 동일한 위치를 선택합니다. 단일 위치에는 대역폭 요금이 부과되지 않습니다.
 
-   + **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
+   + **계정 종류** . 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
-1. **검토 + 만들기**를 클릭하여 서비스를 만듭니다.
+1. **검토 + 만들기** 를 클릭하여 서비스를 만듭니다.
 
-1. 서비스가 만들어지면 **리소스로 이동**을 클릭하여 [개요] 페이지를 엽니다.
+1. 서비스가 만들어지면 **리소스로 이동** 을 클릭하여 [개요] 페이지를 엽니다.
 
 1. **Blob** 서비스를 클릭합니다.
 
-1. **+ 컨테이너**를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo*로 지정합니다.
+1. **+ 컨테이너** 를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo* 로 지정합니다.
 
-1. *cog-search-demo*를 선택한 다음, **업로드**를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 이미지가 아닌 파일을 모두 선택합니다. 7개의 파일이 있어야 합니다. **확인**을 클릭하여 업로드합니다.
+1. *cog-search-demo* 를 선택한 다음, **업로드** 를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 이미지가 아닌 파일을 모두 선택합니다. 7개의 파일이 있어야 합니다. **확인** 을 클릭하여 업로드합니다.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="스토리지 계정 만들기" border="false":::
 
 1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
-   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstragewestus*를 예로 사용했음). 
+   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다( *blobstragewestus* 를 예로 사용했음). 
    
-   1. 왼쪽 탐색 창에서 **액세스 키**를 선택하고, 연결 문자열 중 하나를 복사합니다. 
+   1. 왼쪽 탐색 창에서 **액세스 키** 를 선택하고, 연결 문자열 중 하나를 복사합니다. 
 
    연결 문자열은 다음 예제와 비슷한 URL입니다.
 
@@ -113,11 +113,11 @@ Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 검색 서비스의 이름을 확인합니다. 엔드포인트 URL을 검토하여 서비스 이름을 확인할 수 있습니다. 엔드포인트 URL이 `https://mydemo.search.windows.net`인 경우 서비스 이름은 `mydemo`입니다.
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="스토리지 계정 만들기" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="스토리지 계정 만들기" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
@@ -188,13 +188,13 @@ print(r.status_code)
 
 요청이 성공을 확인하는 201 상태 코드를 반환해야 합니다.
 
-Azure Portal의 검색 서비스 대시보드 페이지에서 **데이터 원본** 목록에 cogsrch-py-datasource가 표시되는지 확인합니다. **새로 고침**을 클릭하여 페이지를 업데이트합니다.
+Azure Portal의 검색 서비스 대시보드 페이지에서 **데이터 원본** 목록에 cogsrch-py-datasource가 표시되는지 확인합니다. **새로 고침** 을 클릭하여 페이지를 업데이트합니다.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="스토리지 계정 만들기" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>2단계: 기술 집합 만들기
 
-이 단계에서는 데이터에 적용할 보강 세트를 정의합니다. 각 보강 단계를 *기술*이라고 부르고, 보강 단계 집합을 *기술 집합*이라고 부릅니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
+이 단계에서는 데이터에 적용할 보강 세트를 정의합니다. 각 보강 단계를 *기술* 이라고 부르고, 보강 단계 집합을 *기술 집합* 이라고 부릅니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
 
 + [엔터티 인식](cognitive-search-skill-entity-recognition.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
 

@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Synapse Analytics
+            - name: Synapse Analytics SQL 풀
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 블록체인
           items:
@@ -158,6 +158,10 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Content Delivery Network
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: DNS
+              href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: ExpressRoute
+              href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 방화벽 - 가용성 영역
               href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 방화벽 - IP 그룹
@@ -166,20 +170,26 @@
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall Manager
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Load Balancer
+            - name: Load Balancer - 공용
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: NAT 게이트웨이
+              href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Private Endpoint
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Private Link 서비스
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Traffic Manager
+              href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 웹 애플리케이션 방화벽
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 보안
           items:
             - name: 증명
               href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Key Vault
+            - name: Key Vault - 비밀
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Security Center
+              href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 스토리지
           items:
             - name: Data Share
@@ -188,6 +198,8 @@
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 웹
           items:
+            - name: API Management
+              href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: App Service
               href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
@@ -303,7 +315,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: 변수
+        - name: variables
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -343,36 +355,42 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: 템플릿 속성 검색
-      items:
-        - name: 템플릿 내보내기
-          href: export-template-portal.md
-        - name: 리소스 검색
-          href: view-resources.md
-    - name: 템플릿 유효성 검사
-      items:
-        - name: 가상 배포
-          href: template-deploy-what-if.md
-        - name: 테스트 도구 키트
-          href: test-toolkit.md
-        - name: 테스트 사례
-          href: test-cases.md
     - name: 템플릿 배포
       items:
-        - name: 배포 - 포털
-          displayName: deployment
-          href: deploy-portal.md
-        - name: 배포 - CLI
-          displayName: deployment
-          href: deploy-cli.md
-        - name: 배포 - PowerShell
-          displayName: deployment
-          href: deploy-powershell.md
-        - name: 배포 - REST API
-          displayName: deployment
-          href: deploy-rest.md
-        - name: GitHub에서 배포
-          href: deploy-to-azure-button.md
+        - name: 배포 작업
+          items:
+            - name: 배포 - 포털
+              displayName: deployment
+              href: deploy-portal.md
+            - name: 배포 - CLI
+              displayName: deployment
+              href: deploy-cli.md
+            - name: 배포 - PowerShell
+              displayName: deployment
+              href: deploy-powershell.md
+            - name: 배포 - REST API
+              displayName: deployment
+              href: deploy-rest.md
+            - name: 배포 - GitHub
+              href: deploy-to-azure-button.md
+            - name: 배포 - Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: 범위
+          items:
+            - name: Resource group
+              href: deploy-to-resource-group.md
+            - name: Subscription
+              href: deploy-to-subscription.md
+            - name: 관리 그룹
+              href: deploy-to-management-group.md
+            - name: 테넌트
+              href: deploy-to-tenant.md
+            - name: 확장 리소스
+              href: scope-extension-resources.md
+            - name: 여러 범위에 걸친 함수
+              href: scope-functions.md
+        - name: 가상 배포
+          href: template-deploy-what-if.md
         - name: 오류 발생 시 다시 배포
           displayName: rollback
           href: rollback-on-error.md
@@ -380,16 +398,6 @@
           href: secure-template-with-sas-token.md
         - name: 배포 기록 보기
           href: deployment-history.md
-    - name: 범위가 지정된 배포
-      items:
-        - name: Subscription
-          href: deploy-to-subscription.md
-        - name: 관리 그룹
-          href: deploy-to-management-group.md
-        - name: 테넌트
-          href: deploy-to-tenant.md
-        - name: 범위 간 배포
-          href: cross-scope-deployment.md
     - name: 매개 변수 제공
       items:
         - name: 매개 변수 파일 만들기
@@ -397,12 +405,24 @@
         - name: 중요한 값 전달
           displayname: key vault
           href: key-vault-parameter.md
+    - name: 테스트 템플릿
+      items:
+        - name: 테스트 도구 키트
+          href: test-toolkit.md
+        - name: 테스트 사례
+          href: test-cases.md
     - name: CI/CD
       items:
         - name: 파이프라인을 사용하는 ARM 템플릿
           href: add-template-to-azure-pipelines.md
         - name: 배포 - GitHub Actions
           href: deploy-github-actions.md
+    - name: 템플릿 속성 검색
+      items:
+        - name: 템플릿 내보내기
+          href: export-template-portal.md
+        - name: 리소스 검색
+          href: view-resources.md
     - name: 제작 도구 사용
       items:
         - name: Visual Studio

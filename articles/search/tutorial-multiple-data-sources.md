@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c964e3c02148c461c601eab4bc5bfb0abb4ac052
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013307"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791616"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 여러 데이터 원본에서 인덱스
 
@@ -66,39 +66,39 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, Azure Cosmos DB 계정 개요 페이지를 탐색합니다.
 
-1. **데이터 탐색기**, **새 데이터베이스**를 차례로 선택합니다.
+1. **데이터 탐색기** , **새 데이터베이스** 를 차례로 선택합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="새 데이터베이스 만들기" border="false":::
 
-1. **hotel-rooms-db**라는 이름을 입력합니다. 나머지 설정에 대해 기본값을 그대로 적용합니다.
+1. **hotel-rooms-db** 라는 이름을 입력합니다. 나머지 설정에 대해 기본값을 그대로 적용합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="새 데이터베이스 만들기" border="false":::
 
-1. 새 컨테이너를 만듭니다. 방금 만든 기존 데이터베이스를 사용합니다. 컨테이너 이름에 대해 **hotels**를 입력하고, 파티션 키에 대해 **/HotelId**를 사용합니다.
+1. 새 컨테이너를 만듭니다. 방금 만든 기존 데이터베이스를 사용합니다. 컨테이너 이름에 대해 **hotels** 를 입력하고, 파티션 키에 대해 **/HotelId** 를 사용합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="새 데이터베이스 만들기" border="false":::
 
-1. **hotels** 아래에서 **항목**을 선택한 다음, 명령 모음에서 **항목 업로드**를 클릭합니다. 프로젝트 폴더에서 **cosmosdb/HotelsDataSubset_CosmosDb.json** 파일을 찾아서 선택합니다.
+1. **hotels** 아래에서 **항목** 을 선택한 다음, 명령 모음에서 **항목 업로드** 를 클릭합니다. 프로젝트 폴더에서 **cosmosdb/HotelsDataSubset_CosmosDb.json** 파일을 찾아서 선택합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="새 데이터베이스 만들기" border="false":::
 
 1. [새로 고침] 단추를 사용하여 호텔 컬렉션의 항목 보기를 새로 고칩니다. 7개의 새 데이터베이스 문서가 나열됩니다.
 
-1. 연결 문자열을 **키** 페이지에서 메모장으로 복사합니다. 이는 이후 단계에서 **appsettings.json**에 필요합니다. 제안된 "hotel-rooms-db"라는 데이터베이스 이름을 사용하지 않은 경우 데이터베이스 이름도 복사합니다.
+1. 연결 문자열을 **키** 페이지에서 메모장으로 복사합니다. 이는 이후 단계에서 **appsettings.json** 에 필요합니다. 제안된 "hotel-rooms-db"라는 데이터베이스 이름을 사용하지 않은 경우 데이터베이스 이름도 복사합니다.
 
 ### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, Azure 스토리지 계정으로 이동하고, **Blob**을 클릭한 다음, **+ 컨테이너**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, Azure 스토리지 계정으로 이동하고, **Blob** 을 클릭한 다음, **+ 컨테이너** 를 클릭합니다.
 
-1. 샘플 호텔 객실 JSON 파일을 저장할 **hotel-rooms**라는 [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
+1. 샘플 호텔 객실 JSON 파일을 저장할 **hotel-rooms** 라는 [Blob 컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="새 데이터베이스 만들기" border="false":::
 
-1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드**를 선택합니다. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드**를 클릭합니다.
+1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드** 를 선택합니다. 샘플 파일이 포함된 폴더로 이동합니다. 모두 선택한 다음, **업로드** 를 클릭합니다.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="새 데이터베이스 만들기" border="false":::
 
-1. 스토리지 계정 이름과 연결 문자열을 **액세스 키** 페이지에서 메모장으로 복사합니다. 두 값은 모두 이후 단계에서 **appsettings.json**에 필요합니다.
+1. 스토리지 계정 이름과 연결 문자열을 **액세스 키** 페이지에서 메모장으로 복사합니다. 두 값은 모두 이후 단계에서 **appsettings.json** 에 필요합니다.
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
@@ -110,17 +110,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="새 데이터베이스 만들기" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="새 데이터베이스 만들기" border="false":::
 
 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="2---set-up-your-environment"></a>2 - 환경 설정
 
-1. Visual Studio를 시작하고, **도구** 메뉴에서 **NuGet 패키지 관리자**, **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. 
+1. Visual Studio를 시작하고, **도구** 메뉴에서 **NuGet 패키지 관리자** , **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. 
 
-1. **찾아보기** 탭에서 **Azure.Search.Documents**(버전 11.0 이상)를 찾아서 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
+1. **찾아보기** 탭에서 **Azure.Search.Documents** (버전 11.0 이상)를 찾아서 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="새 데이터베이스 만들기" border="false":::
 
@@ -162,7 +162,7 @@ Azure Cognitive Search 인덱서는 인덱싱 프로세스 중에 필드 매핑�
 
 ## <a name="4---explore-the-code"></a>4 - 코드 살펴보기
 
-데이터와 구성 설정이 준비되면 **/v11/AzureSearchMultipleDataSources.sln**의 샘플 프로그램을 빌드하고 실행할 준비가 됩니다.
+데이터와 구성 설정이 준비되면 **/v11/AzureSearchMultipleDataSources.sln** 의 샘플 프로그램을 빌드하고 실행할 준비가 됩니다.
 
 이 간단한 C#/.NET 콘솔 앱에서 수행하는 작업은 다음과 같습니다.
 
@@ -174,8 +174,8 @@ Azure Cognitive Search 인덱서는 인덱싱 프로세스 중에 필드 매핑�
 
  프로그램을 실행하기 전에 잠시 시간을 내어 이 샘플에 대한 코드, 인덱스 및 인덱서 정의를 살펴봅니다. 관련된 코드가 다음과 같은 두 개의 파일에 있습니다.
 
-  + **Hotel.cs**에는 인덱스를 정의하는 스키마가 포함되어 있습니다.
-  + **Program.cs**에는 Azure Cognitive Search 인덱스, 데이터 원본 및 인덱서를 만들고 결합된 결과를 인덱스에 로드하는 함수가 포함되어 있습니다.
+  + **Hotel.cs** 에는 인덱스를 정의하는 스키마가 포함되어 있습니다.
+  + **Program.cs** 에는 Azure Cognitive Search 인덱스, 데이터 원본 및 인덱서를 만들고 결합된 결과를 인덱스에 로드하는 함수가 포함되어 있습니다.
 
 ### <a name="create-an-index"></a>인덱스 만들기
 
@@ -240,7 +240,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
 
-데이터 원본이 만들어지면 프로그램에서 **hotel-rooms-cosmos-indexer**라는 Azure Cosmos DB 인덱서를 설정합니다.
+데이터 원본이 만들어지면 프로그램에서 **hotel-rooms-cosmos-indexer** 라는 Azure Cosmos DB 인덱서를 설정합니다.
 
 프로그램에서 기존 인덱서를 동일한 이름으로 업데이트하여 기존 인덱서를 위 코드의 내용으로 덮어씁니다. 이 예제를 두 번 이상 실행하려는 경우에도 재설정 및 실행 작업이 포함됩니다.
 
@@ -306,7 +306,7 @@ private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchI
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-데이터 원본이 만들어지면 프로그램에서 아래와 같이 **hotel-rooms-blob-indexer**라는 Blob 인덱서를 설정합니다.
+데이터 원본이 만들어지면 프로그램에서 아래와 같이 **hotel-rooms-blob-indexer** 라는 Blob 인덱서를 설정합니다.
 
 JSON Blob에는 **`HotelId`** 대신 **`Id`** 라는 키 필드가 있습니다. 이 코드는 `FieldMapping` 클래스를 사용하여 **`Id`** 필드 값을 인덱스의 **`HotelId`** 문서 키로 보내도록 인덱서에 지시합니다.
 

@@ -123,9 +123,11 @@
         - name: 적격 구독 없음
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 사용률 문제 해결
-          href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 권장 사항 문제 해결
-          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: 예약 사용 불가 문제 해결
+          href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: 참조
   items:
     - name: 예약 REST API

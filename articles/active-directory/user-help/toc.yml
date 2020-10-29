@@ -70,6 +70,8 @@
       href: my-account-portal-sign-ins-page.md
     - name: 포털 설정 변경
       href: my-account-portal-settings.md
+    - name: 조직 전환
+      href: cross-tenant-switcher.md
 - name: 보안 정보 도움말
   items:
     - name: 로그인하는 동안 보안 정보 추가

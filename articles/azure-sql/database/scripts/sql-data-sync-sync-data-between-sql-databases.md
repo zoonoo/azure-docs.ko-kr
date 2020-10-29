@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: a2e371ea49b9b2a0e7bd14e91a0b80c54f6c21ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92f3e36b3dd7c407b9c490151f9b32446145771
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321494"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792772"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database의 여러 데이터베이스 간에 데이터 동기화
 
@@ -281,7 +281,7 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 | [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  동기화 에이전트에 대한 모든 정보를 가져옵니다. |
 | [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  동기화 그룹에 새 멤버를 추가합니다. |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  데이터베이스 스키마 정보를 새로 고칩니다. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  데이터베이스 스키마 정보를 가져옵니다. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  데이터베이스 스키마 정보를 가져옵니다. |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  동기화 그룹을 업데이트합니다. |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | 동기화를 트리거합니다. |
 | [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  동기화 로그를 확인합니다. |
@@ -301,7 +301,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
     - PowerShell 사용 - [PowerShell을 사용하여 Azure SQL Database의 데이터베이스와 SQL Server 간에 데이터 동기화](sql-data-sync-sync-data-between-azure-onprem.md)
 - 데이터 동기화 에이전트 - [Azure의 SQL 데이터 동기화용 데이터 동기화 에이전트](../sql-data-sync-agent-overview.md)
 - 모범 사례 - [Azure의 SQL 데이터 동기화에 대한 모범 사례](../sql-data-sync-best-practices.md)
-- 모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../sql-data-sync-monitor-sync.md)
+- 모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../monitor-tune-overview.md)
 - 문제 해결 - [Azure의 SQL 데이터 동기화 문제 해결](../sql-data-sync-troubleshoot.md)
 - 동기화 스키마 업데이트
     - Transact-SQL 사용 - [Azure의 SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](../sql-data-sync-update-sync-schema.md)
@@ -310,4 +310,4 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
 SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [SQL Database 개요](../sql-database-paas-overview.md)
-- [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
+- [데이터베이스 수명 주기 관리](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

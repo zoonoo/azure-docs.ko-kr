@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 6758aed67949032bb93086527623b60af33e716e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c364fe7fa0ac4dd70a01a75478289ea861dee7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079560"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790834"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Azure Resource Manager 템플릿과 함께 PowerShell을 사용하여 관리되는 인스턴스 만들기
 
@@ -46,7 +46,7 @@ Azure PowerShell 명령은 미리 정의된 Azure Resource Manager 템플릿을 
 이 샘플에서는 관리되는 인스턴스에 대한 [유효한 네트워크 환경을 만들](../virtual-network-subnet-create-arm-template.md)거나 [기존 VNet을 수정](../vnet-existing-add-subnet.md)했다고 가정합니다. 필요한 경우 별도의 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment)을 사용하여 네트워크 환경을 준비할 수 있습니다. 
 
 
-샘플에서는 cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하므로 다음 PowerShell 모듈을 설치해야 합니다.
+샘플에서는 cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용하므로 다음 PowerShell 모듈을 설치해야 합니다.
 
 ```powershell
 Install-Module Az.Network
