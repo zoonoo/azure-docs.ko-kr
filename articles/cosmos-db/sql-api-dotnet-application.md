@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058168"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488217"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 
@@ -22,7 +22,7 @@ ms.locfileid: "92058168"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 이 자습서에서는 Azure Cosmos DB를 사용하여 Azure에서 호스트하는 ASP.NET MVC 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 .NET SDK V3을 사용합니다. 다음 이미지에서는 이 문서의 샘플을 사용하여 빌드할 웹 페이지를 보여 줍니다.
@@ -67,15 +67,15 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 ## <a name="step-2-create-a-new-aspnet-core-mvc-application"></a><a name="create-a-new-mvc-application"></a>2단계: 새 ASP.NET Core MVC 애플리케이션 만들기
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택합니다.
 
-1. **새 프로젝트 만들기**에서 C#용 **ASP.NET Core 웹 애플리케이션**을 찾아서 선택합니다. **다음**을 선택하여 계속합니다.
+1. **새 프로젝트 만들기** 에서 C#용 **ASP.NET Core 웹 애플리케이션** 을 찾아서 선택합니다. **다음** 을 선택하여 계속합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *todo*로 지정하고, **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *todo* 로 지정하고, **만들기** 를 선택합니다.
 
-1. **새 ASP.NET Core 웹 애플리케이션 만들기**에서 **웹 애플리케이션(모델-보기-컨트롤러)** 을 선택합니다. **만들기** 를 선택하여 계속합니다.
+1. **새 ASP.NET Core 웹 애플리케이션 만들기** 에서 **웹 애플리케이션(모델-보기-컨트롤러)** 을 선택합니다. **만들기** 를 선택하여 계속합니다.
 
    Visual Studio에서 빈 MVC 애플리케이션을 만듭니다.
 
@@ -85,15 +85,15 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 이제 이 솔루션에 필요한 ASP.NET Core MVC 프레임워크 코드를 대부분 갖추고 있으므로 Azure Cosmos DB에 연결하는 데 필요한 NuGet 패키지를 추가해 보겠습니다.
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다.
 
-1. **NuGet 패키지 관리자**에서 **Microsoft.Azure.Cosmos**를 검색하여 선택합니다. **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 에서 **Microsoft.Azure.Cosmos** 를 검색하여 선택합니다. **설치** 를 선택합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
    Visual Studio에서 Azure Cosmos DB 패키지 및 해당 종속성을 다운로드하여 설치합니다.
 
-   또한 **패키지 관리자 콘솔**을 사용하여 NuGet 패키지를 설치할 수도 있습니다. 이렇게 하려면 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 차례로 선택합니다. 프롬프트에 다음 명령을 입력합니다.
+   또한 **패키지 관리자 콘솔** 을 사용하여 NuGet 패키지를 설치할 수도 있습니다. 이렇게 하려면 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 차례로 선택합니다. 프롬프트에 다음 명령을 입력합니다.
 
    ```ps
    Install-Package Microsoft.Azure.Cosmos
@@ -105,9 +105,9 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 ### <a name="add-a-model"></a><a name="add-a-model"></a> 모델 추가
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Models** 폴더를 클릭하고, **추가** > **클래스**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Models** 폴더를 클릭하고, **추가** > **클래스** 를 차례로 선택합니다.
 
-1. **새 항목 추가**에서 새 클래스의 이름을 *Item.cs*로 지정하고, **추가**를 선택합니다.
+1. **새 항목 추가** 에서 새 클래스의 이름을 *Item.cs* 로 지정하고, **추가** 를 선택합니다.
 
 1. *Item.cs* 클래스의 내용을 다음 코드로 바꿉니다.
 
@@ -127,68 +127,68 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 #### <a name="create-item-view"></a><a name="AddNewIndexView"></a>항목 보기 만들기
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Views** 폴더를 클릭하고, **추가** > **새 폴더**를 차례로 선택합니다. 폴더 이름을 *Item*으로 지정합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Views** 폴더를 클릭하고, **추가** > **새 폴더** 를 차례로 선택합니다. 폴더 이름을 *Item* 으로 지정합니다.
 
-1. 마우스 오른쪽 단추로 빈 **Item** 폴더를 클릭한 다음, **추가** > **보기**를 차례로 선택합니다.
+1. 마우스 오른쪽 단추로 빈 **Item** 폴더를 클릭한 다음, **추가** > **보기** 를 차례로 선택합니다.
 
-1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+1. **MVC 보기 추가** 에서 다음과 같이 변경합니다.
 
-   * **보기 이름**에서 *만들기*를 입력합니다.
-   * **템플릿**에서 **만들기**를 선택합니다.
-   * **모델 클래스**에서 **항목(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
-   * **추가**를 선택합니다.
+   * **보기 이름** 에서 *만들기* 를 입력합니다.
+   * **템플릿** 에서 **만들기** 를 선택합니다.
+   * **모델 클래스** 에서 **항목(todo.Models)** 을 선택합니다.
+   * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
+   * **추가** 를 선택합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
-1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
 
 #### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>항목 보기 삭제
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기** 를 차례로 선택합니다.
 
-1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+1. **MVC 보기 추가** 에서 다음과 같이 변경합니다.
 
-   * **보기 이름** 상자에 *Delete*를 입력합니다.
-   * **템플릿** 상자에서 **삭제**를 선택합니다.
+   * **보기 이름** 상자에 *Delete* 를 입력합니다.
+   * **템플릿** 상자에서 **삭제** 를 선택합니다.
    * **모델 클래스** 상자에서 **Item(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
-   * **추가**를 선택합니다.
+   * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
+   * **추가** 를 선택합니다.
 
-1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
 
 #### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>보기를 추가하여 항목 세부 정보 가져오기
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Item** 폴더를 클릭하고, **추가** > **보기** 를 차례로 선택합니다.
 
-1. **MVC 보기 추가**에서 다음 값을 제공합니다.
+1. **MVC 보기 추가** 에서 다음 값을 제공합니다.
 
-   * **보기 이름**에서 *세부 정보*를 입력합니다.
-   * **템플릿**에서 **세부 정보**를 선택합니다.
-   * **모델 클래스**에서 **항목(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
+   * **보기 이름** 에서 *세부 정보* 를 입력합니다.
+   * **템플릿** 에서 **세부 정보** 를 선택합니다.
+   * **모델 클래스** 에서 **항목(todo.Models)** 을 선택합니다.
+   * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
 
-1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
 
 #### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>항목 편집 뷰 추가
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기** 를 차례로 선택합니다.
 
-1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+1. **MVC 보기 추가** 에서 다음과 같이 변경합니다.
 
-   * **뷰 이름** 상자에 *Edit*를 입력합니다.
-   * **템플릿** 상자에서 **Edit**를 선택합니다.
+   * **뷰 이름** 상자에 *Edit* 를 입력합니다.
+   * **템플릿** 상자에서 **Edit** 를 선택합니다.
    * **모델 클래스** 상자에서 **Item(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
-   * **추가**를 선택합니다.
+   * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
+   * **추가** 를 선택합니다.
 
-1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
 
@@ -196,17 +196,17 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 마지막으로, 다음 단계를 사용하여 모든 항목을 가져오는 보기를 추가합니다.
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기** 를 차례로 선택합니다.
 
-1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+1. **MVC 보기 추가** 에서 다음과 같이 변경합니다.
 
-   * **뷰 이름** 상자에 *Index*를 입력합니다.
-   * **템플릿** 상자에서 **List**를 선택합니다.
+   * **뷰 이름** 상자에 *Index* 를 입력합니다.
+   * **템플릿** 상자에서 **List** 를 선택합니다.
    * **모델 클래스** 상자에서 **Item(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
-   * **추가**를 선택합니다.
+   * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
+   * **추가** 를 선택합니다.
 
-1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
 
@@ -216,15 +216,15 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 먼저 Azure Cosmos DB에 연결하여 이를 사용하는 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 논리를 `CosmosDbService` 클래스와 `ICosmosDbService` 인터페이스로 캡슐화합니다. 이 서비스는 CRUD 작업을 수행합니다. 또한 불완전한 항목 나열, 항목 만들기, 편집 및 삭제와 같은 읽기 피드 작업도 수행합니다.
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 폴더**를 차례로 선택합니다. 폴더 이름을 *Services*로 지정합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 폴더** 를 차례로 선택합니다. 폴더 이름을 *Services* 로 지정합니다.
 
-1. 마우스 오른쪽 단추로 **Services** 폴더를 클릭하고, **추가** > **클래스**를 차례로 선택합니다. 새 클래스 이름을 *CosmosDbService*로 지정하고 **추가**를 선택합니다.
+1. 마우스 오른쪽 단추로 **Services** 폴더를 클릭하고, **추가** > **클래스** 를 차례로 선택합니다. 새 클래스 이름을 *CosmosDbService* 로 지정하고 **추가** 를 선택합니다.
 
-1. *CosmosDbService.cs*의 콘텐츠를 다음 코드로 바꿉니다.
+1. *CosmosDbService.cs* 의 콘텐츠를 다음 코드로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. 마우스 오른쪽 단추로 **Services** 폴더를 클릭하고, **추가** > **클래스**를 차례로 선택합니다. 새 클래스 이름을 *ICosmosDbService*로 지정하고 **추가**를 선택합니다.
+1. 마우스 오른쪽 단추로 **Services** 폴더를 클릭하고, **추가** > **클래스** 를 차례로 선택합니다. 새 클래스 이름을 *ICosmosDbService* 로 지정하고 **추가** 를 선택합니다.
 
 1. *ICosmosDbService* 클래스에 다음 코드를 추가합니다.
 
@@ -238,7 +238,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   이 단계의 코드는 클라이언트를 구성에 따라 [ASP.NET Core의 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)을 통해 주입할 단일 인스턴스로 초기화합니다.
+   이 단계의 코드는 클라이언트를 구성에 따라 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection)을 통해 주입할 단일 인스턴스로 초기화합니다.
 
    그리고 동일한 파일의 `Configure` 메서드에서 경로를 편집하여 기본 MVC 컨트롤러를 `Item`으로 변경해야 합니다.
 
@@ -258,15 +258,15 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 ### <a name="add-a-controller"></a><a name="add-a-controller"></a>컨트롤러 추가
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Controllers** 폴더를 클릭하고, **추가** > **컨트롤러**를 차례로 선택합니다.
+1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Controllers** 폴더를 클릭하고, **추가** > **컨트롤러** 를 차례로 선택합니다.
 
-1. **스캐폴드 추가**에서 **MVC 컨트롤러 - 비어 있음**을 선택하고, **추가**를 선택합니다.
+1. **스캐폴드 추가** 에서 **MVC 컨트롤러 - 비어 있음** 을 선택하고, **추가** 를 선택합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
-1. 새 컨트롤러의 이름을 *ItemController*로 지정합니다.
+1. 새 컨트롤러의 이름을 *ItemController* 로 지정합니다.
 
-1. *ItemController.cs*의 내용을 다음 코드로 바꿉니다.
+1. *ItemController.cs* 의 내용을 다음 코드로 바꿉니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
@@ -286,11 +286,11 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. **새로 만들기** 링크를 선택하고, 값을 **이름** 및 **설명** 필드에 추가합니다. **완료됨** 확인란을 선택하지 않은 상태로 둡니다. 이 확인란이 선택되면 앱에서 새 항목을 완료됨 상태로 추가합니다. 항목이 더 이상 초기 목록에 표시되지 않습니다.
 
-1. **만들기**를 선택합니다. 앱에서 **인덱스** 보기로 다시 보내고, 항목이 목록에 표시됩니다. 몇 가지 항목을 **To-Do** 목록에 더 추가할 수 있습니다.
+1. **만들기** 를 선택합니다. 앱에서 **인덱스** 보기로 다시 보내고, 항목이 목록에 표시됩니다. 몇 가지 항목을 **To-Do** 목록에 더 추가할 수 있습니다.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
   
-1. 목록의 **항목** 옆에 있는 **편집**을 선택합니다. 앱에서 **완료됨** 플래그를 포함하여 개체의 속성을 업데이트할 수 있는 **편집** 보기를 엽니다. **완료됨**을 선택하고 **저장**을 선택하면 앱의 목록에 **항목**이 완료됨 상태로 표시됩니다.
+1. 목록의 **항목** 옆에 있는 **편집** 을 선택합니다. 앱에서 **완료됨** 플래그를 포함하여 개체의 속성을 업데이트할 수 있는 **편집** 보기를 엽니다. **완료됨** 을 선택하고 **저장** 을 선택하면 앱의 목록에 **항목** 이 완료됨 상태로 표시됩니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
@@ -302,27 +302,27 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 이제 전체 애플리케이션이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
 
-1. 이 애플리케이션을 게시하려면 **솔루션 탐색기**에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **게시**를 선택합니다.
+1. 이 애플리케이션을 게시하려면 **솔루션 탐색기** 에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **게시** 를 선택합니다.
 
-1. **게시 대상 선택**에서 **App Service**를 선택합니다.
+1. **게시 대상 선택** 에서 **App Service** 를 선택합니다.
 
-1. 기존 App Service 프로필을 사용하려면 **기존 항목 선택**, **게시** 를 차례로 선택합니다.
+1. 기존 App Service 프로필을 사용하려면 **기존 항목 선택** , **게시** 를 차례로 선택합니다.
 
-1. **App Service**에서 **구독**을 선택합니다. **뷰** 필터를 사용하여 리소스 그룹 또는 리소스 형식별로 정렬합니다.
+1. **App Service** 에서 **구독** 을 선택합니다. **뷰** 필터를 사용하여 리소스 그룹 또는 리소스 형식별로 정렬합니다.
 
-1. 프로필을 찾은 다음, **확인**을 선택합니다. 그런 다음, 필요한 Azure App Service를 검색하고 **확인**을 선택합니다.
+1. 프로필을 찾은 다음, **확인** 을 선택합니다. 그런 다음, 필요한 Azure App Service를 검색하고 **확인** 을 선택합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
 또 다른 옵션은 새 프로필을 만드는 것입니다.
 
-1. 이전 절차에서와 마찬가지로 **솔루션 탐색기**에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **게시**를 선택합니다.
+1. 이전 절차에서와 마찬가지로 **솔루션 탐색기** 에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **게시** 를 선택합니다.
   
-1. **게시 대상 선택**에서 **App Service**를 선택합니다.
+1. **게시 대상 선택** 에서 **App Service** 를 선택합니다.
 
-1. **게시 대상 선택**에서 **새로 만들기**, **게시**를 차례로 선택합니다.
+1. **게시 대상 선택** 에서 **새로 만들기** , **게시** 를 차례로 선택합니다.
 
-1. **App Service**에서 웹앱 이름과 적절한 구독, 리소스 그룹 및 호스팅 계획을 입력한 다음, **만들기**를 선택합니다.
+1. **App Service** 에서 웹앱 이름과 적절한 구독, 리소스 그룹 및 호스팅 계획을 입력한 다음, **만들기** 를 선택합니다.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
 
@@ -333,11 +333,11 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 이 자습서에서는 ASP.NET Core MVC 웹 애플리케이션을 빌드하는 방법에 대해 알아보았습니다. 애플리케이션에서 Azure Cosmos DB에 저장된 데이터에 액세스할 수 있습니다. 이제 다음 리소스를 사용하여 계속할 수 있습니다.
 
 * [Azure Cosmos DB에서 분할](./partitioning-overview.md)
-* [SQL 쿼리 시작](./how-to-sql-query.md)
+* [SQL 쿼리 시작](./sql-query-getting-started.md)
 * [실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
+[Preventing Cross-Site Request Forgery]: /aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
+[Basic CRUD Operations in ASP.NET MVC]: /aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app

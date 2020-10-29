@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801599"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485293"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -22,7 +22,7 @@ ms.locfileid: "91801599"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -65,19 +65,19 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
-1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **동적 웹 프로젝트**가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹**을 확장하여 **동적 웹 프로젝트**를 클릭하고 **다음**을 클릭합니다.
+1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일** , **새로 만들기** , **동적 웹 프로젝트** 를 차례로 클릭합니다. **동적 웹 프로젝트** 가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일** , **새로 만들기** , **프로젝트** …를 차례로 클릭하고 **웹** 을 확장하여 **동적 웹 프로젝트** 를 클릭하고 **다음** 을 클릭합니다.
    
     :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="My ToDo List Java 애플리케이션":::
 
-1. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침**을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
+1. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침** 을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 
-1. Eclipse의 Project Explorer 보기에서 프로젝트를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
+1. Eclipse의 Project Explorer 보기에서 프로젝트를 확장합니다. **WebContent** 를 마우스 오른쪽 단추로 클릭하고 **New** 를 클릭한 후 **JSP File** 을 클릭합니다.
 
-1. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent**로 유지하고 **다음**을 클릭합니다.
+1. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp** 로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent** 로 유지하고 **다음** 을 클릭합니다.
    
     :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="My ToDo List Java 애플리케이션":::
 
-1. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)** 을 선택한 후 **마침**을 클릭합니다.
+1. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)** 을 선택한 후 **마침** 을 클릭합니다.
 
 1. *index.jsp* 파일이 Eclipse에서 열리면 **Hello World!** 를 표시하도록 텍스트를 추가합니다. 기존 `<body>` 요소 내. 업데이트된 `<body>` 콘텐츠는 다음 코드와 같이 나타납니다.
 
@@ -89,7 +89,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. *index.jsp* 파일을 저장합니다.
 
-1. 2단계에서 대상 런타임을 설정했으면 **프로젝트**, **실행**을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
+1. 2단계에서 대상 런타임을 설정했으면 **프로젝트** , **실행** 을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
 
    :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="My ToDo List Java 애플리케이션":::
 
@@ -97,13 +97,13 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apache Maven](https://maven.apache.org/)을 사용하는 것입니다. 이렇게 하려면 다음 단계를 수행해서 프로젝트를 maven 프로젝트로 변환해야 합니다.
 
-1. 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **구성**을 클릭한 후 **Maven 프로젝트로 변환**을 클릭합니다.
+1. 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **구성** 을 클릭한 후 **Maven 프로젝트로 변환** 을 클릭합니다.
 
-1. **새 POM 만들기** 창에서 기본값을 수락하고 **마침**을 클릭합니다.
+1. **새 POM 만들기** 창에서 기본값을 수락하고 **마침** 을 클릭합니다.
 
-1. **프로젝트 탐색기**에서 pom.xml 파일을 엽니다.
+1. **프로젝트 탐색기** 에서 pom.xml 파일을 엽니다.
 
-1. **종속성** 탭의 **종속성** 창에서 **추가**를 클릭합니다.
+1. **종속성** 탭의 **종속성** 창에서 **추가** 를 클릭합니다.
 
 1. **종속성 선택** 창에서 다음을 수행합니다.
    
@@ -121,7 +121,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    </dependency>
    ```
 
-1. **확인**을 클릭하면 Maven이 SQL Java SDK를 설치하거나 pom.xml 파일을 저장합니다.
+1. **확인** 을 클릭하면 Maven이 SQL Java SDK를 설치하거나 pom.xml 파일을 저장합니다.
 
 ## <a name="use-the-azure-cosmos-db-service-in-your-java-application"></a><a id="UseService"></a>Java 애플리케이션에서 Azure Cosmos DB 서비스 사용
 
@@ -129,7 +129,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 
 ### <a name="add-a-model"></a>모델 추가
 
-먼저 새 파일 *TodoItem.java*에 모델을 정의하겠습니다. `TodoItem` 클래스는 getter 및 setter 메서드와 함께 항목의 스키마를 정의합니다.
+먼저 새 파일 *TodoItem.java* 에 모델을 정의하겠습니다. `TodoItem` 클래스는 getter 및 setter 메서드와 함께 항목의 스키마를 정의합니다.
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
 
@@ -175,7 +175,7 @@ DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 Azure Cosmos
 
 이제 재미있는 부분을 마쳤으므로 빠른 사용자 인터페이스를 빌드하고 DAO에 연결하기만 하면 됩니다.
 
-1. 사용자에게 표시할 웹 사용자 인터페이스가 필요합니다. 다음 코드를 사용하여 앞에서 만든 *index.jsp*를 다시 작성하겠습니다.
+1. 사용자에게 표시할 웹 사용자 인터페이스가 필요합니다. 다음 코드를 사용하여 앞에서 만든 *index.jsp* 를 다시 작성하겠습니다.
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/index.jsp":::
 
@@ -183,21 +183,21 @@ DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 Azure Cosmos
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/assets/todo.js":::
 
-1. 이제 애플리케이션을 테스트하는 일만 남았습니다. 애플리케이션을 로컬로 실행하고 항목 이름과 범주를 입력하고 **작업 추가**를 클릭하여 Todo 항목을 추가합니다. 항목이 표시되면 확인란을 설정/해제하고 **작업 업데이트**를 클릭하여 항목의 완료 여부를 업데이트할 수 있습니다.
+1. 이제 애플리케이션을 테스트하는 일만 남았습니다. 애플리케이션을 로컬로 실행하고 항목 이름과 범주를 입력하고 **작업 추가** 를 클릭하여 Todo 항목을 추가합니다. 항목이 표시되면 확인란을 설정/해제하고 **작업 업데이트** 를 클릭하여 항목의 완료 여부를 업데이트할 수 있습니다.
 
 ## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Azure 웹 사이트에 Java 애플리케이션 배포
 
 Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 있습니다. 즉, 애플리케이션을 WAR 파일로 내보내고 소스 제어(예: Git) 또는 FTP를 통해 업로드하면 됩니다.
 
-1. 애플리케이션을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
+1. 애플리케이션을 WAR 파일로 내보내려면 **프로젝트 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기** 를 클릭한 후 **WAR 파일** 을 클릭합니다.
 
 1. **WAR 내보내기** 창에서 다음을 수행합니다.
    
    * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.
    * 대상 상자에서 WAR 파일을 저장할 대상을 선택합니다.
-   * **Finish**를 클릭합니다.
+   * **Finish** 를 클릭합니다.
 
-1. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 애플리케이션 추가](../app-service/web-sites-java-add-app.md)를 참조하세요. WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
+1. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 애플리케이션 추가](../app-service/quickstart-java.md)를 참조하세요. WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
 
 1. 완성된 제품을 보려면 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/`로 이동하고 작업 추가를 시작하세요.
 
@@ -209,41 +209,41 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. Eclipse가 열려 있으면 닫고 다시 시작해서 Lombok을 로드합니다.
 
-1. Eclipse의 **파일** 메뉴에서 **가져오기**를 클릭합니다.
+1. Eclipse의 **파일** 메뉴에서 **가져오기** 를 클릭합니다.
 
-1. **가져오기** 창에서 **Git**, **Git의 프로젝트**, **다음**을 차례로 클릭합니다.
+1. **가져오기** 창에서 **Git** , **Git의 프로젝트** , **다음** 을 차례로 클릭합니다.
 
-1. **리포지토리 원본 선택** 화면에서 **URI 복제**를 클릭합니다.
+1. **리포지토리 원본 선택** 화면에서 **URI 복제** 를 클릭합니다.
 
-1. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git 를 입력한 다음, **다음**을 클릭합니다.
+1. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git 를 입력한 다음, **다음** 을 클릭합니다.
 
-1. **분기 선택** 화면에서 **마스터**가 선택되었는지 확인하고 **다음**을 클릭합니다.
+1. **분기 선택** 화면에서 **마스터** 가 선택되었는지 확인하고 **다음** 을 클릭합니다.
 
-1. **로컬 대상** 화면에서 **찾아보기**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음**을 클릭합니다.
+1. **로컬 대상** 화면에서 **찾아보기** 를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음** 을 클릭합니다.
 
-1. **프로젝트 가져오기에 사용할 마법사 선택** 화면에서 **기존 프로젝트 가져오기**가 선택되었는지 확인하고 **다음**을 클릭합니다.
+1. **프로젝트 가져오기에 사용할 마법사 선택** 화면에서 **기존 프로젝트 가져오기** 가 선택되었는지 확인하고 **다음** 을 클릭합니다.
 
-1. **프로젝트 가져오기** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **마침**을 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 Azure Cosmos DB Java SDK가 포함됩니다.
+1. **프로젝트 가져오기** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **마침** 을 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 Azure Cosmos DB Java SDK가 포함됩니다.
 
-1. **프로젝트 탐색기**에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
+1. **프로젝트 탐색기** 에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 
-1. **프로젝트 탐색기**에서 **azure-documentdb-java-sample**을 마우스 오른쪽 단추로 클릭하고 **빌드 경로**를 클릭한 후 **빌드 경로 구성**을 클릭합니다.
+1. **프로젝트 탐색기** 에서 **azure-documentdb-java-sample** 을 마우스 오른쪽 단추로 클릭하고 **빌드 경로** 를 클릭한 후 **빌드 경로 구성** 을 클릭합니다.
 
-1. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가**를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기**를 클릭한 후 **확인**을 클릭합니다.
+1. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가** 를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기** 를 클릭한 후 **확인** 을 클릭합니다.
 
-1. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **대상 런타임**을 클릭합니다.
+1. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **대상 런타임** 을 클릭합니다.
 
-1. **대상 런타임** 화면에서 **새로 만들기**를 클릭하고 **Apache Tomcat v7.0**을 선택한 후 **확인**을 클릭합니다.
+1. **대상 런타임** 화면에서 **새로 만들기** 를 클릭하고 **Apache Tomcat v7.0** 을 선택한 후 **확인** 을 클릭합니다.
 
-1. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **프로젝트 패싯**을 클릭합니다.
+1. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **프로젝트 패싯** 을 클릭합니다.
 
-1. **프로젝트 패싯** 화면에서 **동적 웹 모듈** 및 **Java**를 선택한 후 **확인**을 클릭합니다.
+1. **프로젝트 패싯** 화면에서 **동적 웹 모듈** 및 **Java** 를 선택한 후 **확인** 을 클릭합니다.
 
-1. 화면 하단에 있는 **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **추가 및 제거**를 클릭합니다.
+1. 화면 하단에 있는 **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버** 를 마우스 오른쪽 단추로 클릭하고 **추가 및 제거** 를 클릭합니다.
 
-1. **추가 및 제거** 창에서 **azure-documentdb-java-sample**을 **구성됨** 상자로 이동하고 **마침**을 클릭합니다.
+1. **추가 및 제거** 창에서 **azure-documentdb-java-sample** 을 **구성됨** 상자로 이동하고 **마침** 을 클릭합니다.
 
-1. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 클릭합니다.
+1. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버** 를 마우스 오른쪽 단추로 클릭하고 **다시 시작** 을 클릭합니다.
 
 1. 브라우저에서 `http://localhost:8080/azure-documentdb-java-sample/`로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
 

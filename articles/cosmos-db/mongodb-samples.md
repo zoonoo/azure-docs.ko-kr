@@ -9,18 +9,18 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a1a3b28e7bf0ef5d6aa7c3339925d4f66f1e3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93e80c3ecba7544a8e31eca1b4df443c41523579
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322668"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488404"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 앱 빌드 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Java](sql-api-java-get-started.md)
+> * [.NET Core](./sql-api-get-started.md)
+> * [Java](./create-sql-api-java.md)
 > * [MongoDB용 Node.js](mongodb-samples.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
 >
@@ -116,7 +116,7 @@ ms.locfileid: "91322668"
     });
     ```
     
-    **선택 사항**: **MongoDB Node.js 2.2 드라이버**를 사용 중인 경우 다음 코드 조각을 바꾸십시오.
+    **선택 사항** : **MongoDB Node.js 2.2 드라이버** 를 사용 중인 경우 다음 코드 조각을 바꾸십시오.
 
     원본:
 
@@ -153,14 +153,14 @@ ms.locfileid: "91322668"
     });
     ```
     
-2. 계정 설정에 따라 *app.js* 파일에서 다음 변수를 수정합니다([연결 문자열](connect-mongodb-account.md)을 찾는 방법 자세히 알아보기).
+2. 계정 설정에 따라 *app.js* 파일에서 다음 변수를 수정합니다( [연결 문자열](connect-mongodb-account.md)을 찾는 방법 자세히 알아보기).
 
     > [!IMPORTANT]
-    > **MongoDB Node.js 3.0 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구합니다. '=' 문자를 %3D로 인코딩하는지 확인
+    > **MongoDB Node.js 3.0 드라이버** 는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구합니다. '=' 문자를 %3D로 인코딩하는지 확인
     >
-    > 예: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*로 인코딩됩니다
+    > 예: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D* 로 인코딩됩니다
     >
-    > **MongoDB Node.js 2.2 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구하지 않습니다.
+    > **MongoDB Node.js 2.2 드라이버** 는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구하지 않습니다.
     >
     >
    
@@ -168,7 +168,7 @@ ms.locfileid: "91322668"
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
-3. 즐겨찾는 터미널을 열고 **npm install mongodb --save**를 설치한 다음 **node app.js**로 앱을 실행합니다.
+3. 즐겨찾는 터미널을 열고 **npm install mongodb --save** 를 설치한 다음 **node app.js** 로 앱을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
