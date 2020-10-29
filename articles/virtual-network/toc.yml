@@ -101,7 +101,7 @@
           items:
             - name: 개요
               href: network-security-groups-overview.md
-            - name: 작동 방법
+            - name: 작동 방식
               href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹
           href: application-security-groups.md
@@ -240,6 +240,8 @@
               href: virtual-network-public-ip-address.md
             - name: 공용 IP 접두사 관리
               href: manage-public-ip-address-prefix.md
+            - name: 공용 IP 주소 업그레이드
+              href: virtual-network-public-ip-address-upgrade.md
             - name: NIC에서 IP 주소 추가 또는 제거
               href: virtual-network-network-interface-addresses.md
             - name: 라우팅 기본 설정
@@ -436,7 +438,7 @@
       href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

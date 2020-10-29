@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71121930"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545908"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Spark 컴퓨팅 컨텍스트에 R 사용
 
@@ -33,21 +33,21 @@ ms.locfileid: "71121930"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure HDInsight Machine Learning Service 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)로 이동한 후 **클러스터 유형**으로 **ML Services**를 선택합니다.
+* Azure HDInsight Machine Learning Service 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)로 이동한 후 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
 ## <a name="connect-to-rstudio-server"></a>RStudio Server에 연결
 
-RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 사이트로 이동합니다(여기서 URL의 *CLUSTERNAME*은 사용자가 만든 HDInsight Machine Learning Servoce 클러스터의 이름임).
+RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 사이트로 이동합니다(여기서 URL의 *CLUSTERNAME* 은 사용자가 만든 HDInsight Machine Learning Servoce 클러스터의 이름임).
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-처음 로그인할 때는 두 번 인증합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 사용자 이름 및 암호(기본값 *admin*)를 입력합니다. 두 번째 인증 프롬프트에서는 SSH 사용자 이름 및 암호(기본값 *sshuser*)를 입력합니다. 그 다음부터는 로그인할 때 SSH 자격 증명만 필요합니다.
+처음 로그인할 때는 두 번 인증합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 사용자 이름 및 암호(기본값 *admin* )를 입력합니다. 두 번째 인증 프롬프트에서는 SSH 사용자 이름 및 암호(기본값 *sshuser* )를 입력합니다. 그 다음부터는 로그인할 때 SSH 자격 증명만 필요합니다.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>로컬 스토리지에 샘플 데이터 다운로드
 
-*Airline 2012 On-Time Data Set*는 미국 내 모든 민간 항공사의 2012년 항공편 도착 및 출발 세부 정보가 들어 있는 12개의 쉼표로 구분된 파일로 구성되어 있습니다. 이 데이터 세트는 600만 가지가 넘는 관찰 데이터를 포함하므로 매우 큽니다.
+*Airline 2012 On-Time Data Set* 는 미국 내 모든 민간 항공사의 2012년 항공편 도착 및 출발 세부 정보가 들어 있는 12개의 쉼표로 구분된 파일로 구성되어 있습니다. 이 데이터 세트는 600만 가지가 넘는 관찰 데이터를 포함하므로 매우 큽니다.
 
 1. 몇 가지 환경 변수를 초기화합니다. RStudio Server 콘솔에서 다음 코드를 입력합니다.
 
@@ -168,7 +168,7 @@ Spark 컴퓨팅 컨텍스트에서 다음 함수를 사용하여 데이터 원�
 |`RxParquetData` | Parquet 데이터 원본 개체를 생성합니다.|
 |`RxOrcData` | Orc 데이터 원본 개체를 생성합니다.|
 
-HDFS로 복사한 파일을 사용하여 [RxTextData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxtextdata) 개체를 만듭니다. RStudio에서 다음 코드를 입력합니다.
+HDFS로 복사한 파일을 사용하여 [RxTextData](/machine-learning-server/r-reference/revoscaler/rxtextdata) 개체를 만듭니다. RStudio에서 다음 코드를 입력합니다.
 
 ```R
 airDS <- RxTextData( airDataDir,
@@ -179,7 +179,7 @@ airDS <- RxTextData( airDataDir,
 
 ## <a name="create-a-compute-context-for-spark"></a>Spark에 대한 컴퓨팅 컨텍스트 만들기
 
-데이터를 로드하고 작업자 노드에 대한 분석을 실행할 수 있도록 스크립트에서 컴퓨팅 컨텍스트를 [RxSpark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark)로 설정합니다. 이 컨텍스트에서 R 함수는 워크로드를 모든 작업자 노드에 자동 분산하며, 작업 또는 큐를 관리하기 위한 기본 요구 사항은 없습니다. Spark 컴퓨팅 컨텍스트는 `RxSpark` 또는 `rxSparkConnect()`를 통해 설정되어 Spark 컴퓨팅 컨텍스트를 만들고, `rxSparkDisconnect()`를 사용하여 로컬 컴퓨팅 컨텍스트로 돌아갑니다. RStudio에서 다음 코드를 입력합니다.
+데이터를 로드하고 작업자 노드에 대한 분석을 실행할 수 있도록 스크립트에서 컴퓨팅 컨텍스트를 [RxSpark](/machine-learning-server/r-reference/revoscaler/rxspark)로 설정합니다. 이 컨텍스트에서 R 함수는 워크로드를 모든 작업자 노드에 자동 분산하며, 작업 또는 큐를 관리하기 위한 기본 요구 사항은 없습니다. Spark 컴퓨팅 컨텍스트는 `RxSpark` 또는 `rxSparkConnect()`를 통해 설정되어 Spark 컴퓨팅 컨텍스트를 만들고, `rxSparkDisconnect()`를 사용하여 로컬 컴퓨팅 컨텍스트로 돌아갑니다. RStudio에서 다음 코드를 입력합니다.
 
 ```R
 # Define the Spark compute context
@@ -191,7 +191,7 @@ rxSetComputeContext(mySparkCluster)
 
 ## <a name="fit-a-linear-model"></a>선형 모델 맞춤
 
-1. [rxLinMod](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxlinmod) 함수를 사용하여 `airDS` 데이터 원본을 사용하는 선형 모델에 맞춥니다. RStudio에서 다음 코드를 입력합니다.
+1. [rxLinMod](/machine-learning-server/r-reference/revoscaler/rxlinmod) 함수를 사용하여 `airDS` 데이터 원본을 사용하는 선형 모델에 맞춥니다. RStudio에서 다음 코드를 입력합니다.
 
     ```R
     system.time(
@@ -225,14 +225,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
     ---
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)
@@ -247,7 +247,7 @@ rxSetComputeContext(mySparkCluster)
 
 앞서 살펴본 것처럼 Hadoop에서 R을 사용하여 CSV 파일을 직접 분석할 수 있습니다. 그러나 더 효율적인 형식으로 데이터를 저장하는 경우 분석을 더 빠르게 수행할 수 있습니다. R XDF 파일 형식은 효율적이지만, 개별 파일을 단일 HDFS 블록 내에 유지하기 위해 HDFS에 맞게 약간 수정됩니다. (HDFS 블록 크기는 설치 방법에 따라 다르지만, 일반적으로 64MB 또는 128MB입니다.) 
 
-Hadoop에서 [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport)를 사용하여 복합 .xdf 파일 세트를 만드는 경우 `AirDS` 같은 `RxTextData` 데이터 원본을 inData로 지정하고, fileSystem이 HDFS 파일 시스템으로 설정된 `RxXdfData` 데이터 원본을 outFile 인수로 지정합니다. 그러면 후속 R 분석에서 `RxXdfData` 개체를 데이터 인수로 사용할 수 있습니다.
+Hadoop에서 [rxImport](/machine-learning-server/r-reference/revoscaler/rximport)를 사용하여 복합 .xdf 파일 세트를 만드는 경우 `AirDS` 같은 `RxTextData` 데이터 원본을 inData로 지정하고, fileSystem이 HDFS 파일 시스템으로 설정된 `RxXdfData` 데이터 원본을 outFile 인수로 지정합니다. 그러면 후속 R 분석에서 `RxXdfData` 개체를 데이터 인수로 사용할 수 있습니다.
 
 1. `RxXdfData` 개체를 정의합니다. RStudio에서 다음 코드를 입력합니다.
 
@@ -298,7 +298,7 @@ Hadoop에서 [rxImport](https://docs.microsoft.com/machine-learning-server/r-ref
 
 ### <a name="in-a-spark-context"></a>Spark 컨텍스트에서
 
-이전에는 분석을 실행하는 동안 효율성 향상을 위해 CSV 파일을 XDF 파일 형식으로 변환했지만 이제 데이터를 CSV로 다시 변환하려면 [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep)을 사용하면 됩니다.
+이전에는 분석을 실행하는 동안 효율성 향상을 위해 CSV 파일을 XDF 파일 형식으로 변환했지만 이제 데이터를 CSV로 다시 변환하려면 [rxDataStep](/machine-learning-server/r-reference/revoscaler/rxdatastep)을 사용하면 됩니다.
 
 CSV 파일의 폴더를 만들려면 먼저 디렉터리 이름을 file 인수로 사용하여 `RxTextData` 개체를 만듭니다. 이 개체는 CSV 파일을 만들 폴더를 나타냅니다. 이 디렉터리는 `rxDataStep`을 실행할 때 만들어집니다. 그런 다음, `rxDataStep`의 `outFile` 인수에서 `RxTextData` 개체를 가리킵니다. 생성된 각 CSV의 이름은 디렉터리 이름 뒤에 숫자를 붙여 지정합니다.
 
@@ -366,4 +366,4 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvRowsDS)
 이 자습서에서는 HDInsight Machine Learning Service 클러스터에서 실행되는 Apache Spark에서 R 함수를 사용하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight Machine Learning Service 클러스터에 대한 컴퓨팅 컨텍스트 옵션](r-server-compute-contexts.md)
-* [Hadoop의 Spark용 R 함수](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
+* [Hadoop의 Spark용 R 함수](/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

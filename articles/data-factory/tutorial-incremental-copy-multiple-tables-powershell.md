@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634099"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
@@ -42,11 +42,11 @@ ms.locfileid: "91541835"
 ## <a name="overview"></a>개요
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
 
-1. **워터마크 열을 선택합니다**.
+1. **워터마크 열을 선택합니다** .
 
     원본 데이터 저장소에서 각 테이블에 대해 하나의 열을 선택합니다. 이 열은 모든 실행에 대해 새 레코드 또는 업데이트된 레코드를 식별할 수 있습니다. 선택한 이 열의 데이터(예: last_modify_time 또는 ID)는 일반적으로 행을 만들거나 업데이트할 때 계속 증가합니다. 이 열의 최대 값은 워터마크로 사용됩니다.
 
-2. **워터마크 값을 저장할 데이터 저장소를 준비합니다**.
+2. **워터마크 값을 저장할 데이터 저장소를 준비합니다** .
 
     이 자습서에서는 SQL 데이터베이스에 워터마크 값을 저장합니다.
 
@@ -69,14 +69,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database**. Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요. 
+* **SQL Server** . 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
+* **Azure SQL Database** . Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
-1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
+1. [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
 
-2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**을 선택합니다.
+2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 을 선택합니다.
 
 3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.
 
@@ -113,9 +113,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Azure SQL Database에 대상 테이블 만들기
 
-1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
+1. [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
 
-2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**을 선택합니다.
+2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 을 선택합니다.
 
 3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
 
@@ -283,7 +283,7 @@ END
 
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
 
-* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database, SQL Managed Instance 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database, SQL Managed Instance 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -295,7 +295,7 @@ END
 
 이 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **SqlServerLinkedService.json**이라는 JSON 파일을 만듭니다(아직 없는 경우 로컬 폴더 생성). Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.  
+1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **SqlServerLinkedService.json** 이라는 JSON 파일을 만듭니다(아직 없는 경우 로컬 폴더 생성). Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.  
 
     > [!IMPORTANT]
     > Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.
@@ -374,7 +374,7 @@ END
 
 ### <a name="create-the-sql-database-linked-service"></a>SQL Database에 연결된 서비스 만들기
 
-1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt; 및 &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 이름 및 암호로 바꿉니다. 
+1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json** 이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt; 및 &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 이름 및 암호로 바꿉니다. 
 
     ```json
     {  
@@ -411,7 +411,7 @@ END
 
 ### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
-1. 동일한 폴더에 다음 내용이 포함된 **SourceDataset.json**이라는 JSON 파일을 만듭니다. 
+1. 동일한 폴더에 다음 내용이 포함된 **SourceDataset.json** 이라는 JSON 파일을 만듭니다. 
 
     ```json
     {  
@@ -453,7 +453,7 @@ END
 
 ### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
 
-1. 동일한 폴더에 다음 내용이 포함된 **SinkDataset.json**이라는 JSON 파일을 만듭니다. tableName 요소는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다. 
+1. 동일한 폴더에 다음 내용이 포함된 **SinkDataset.json** 이라는 JSON 파일을 만듭니다. tableName 요소는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다. 
 
     ```json
     {  
@@ -502,7 +502,7 @@ END
 
 이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
-1. 동일한 폴더에 다음 내용이 포함된 **WatermarkDataset.json**이라는 JSON 파일을 만듭니다. 
+1. 동일한 폴더에 다음 내용이 포함된 **WatermarkDataset.json** 이라는 JSON 파일을 만듭니다. 
 
     ```json
     {
@@ -537,19 +537,19 @@ END
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. **ForEach 작업**은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
+파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. **ForEach 작업** 은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
-1. **Lookup 작업**을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.
+1. **Lookup 작업** 을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.
 
-2. **Lookup 작업**을 사용하여 새로운 워터마크 값(원본 테이블의 워터마크 열의 최댓값)을 검색합니다.
+2. **Lookup 작업** 을 사용하여 새로운 워터마크 값(원본 테이블의 워터마크 열의 최댓값)을 검색합니다.
 
-3. **Copy 작업**을 사용하여 원본 데이터베이스에서 대상 데이터베이스로 2개의 워터마크 값 사이에 데이터를 복사합니다.
+3. **Copy 작업** 을 사용하여 원본 데이터베이스에서 대상 데이터베이스로 2개의 워터마크 값 사이에 데이터를 복사합니다.
 
-4. **StoredProcedure 작업**을 사용하여 다음 반복의 첫 번째 단계에 사용할 이전 워터마크 값을 업데이트합니다. 
+4. **StoredProcedure 작업** 을 사용하여 다음 반복의 첫 번째 단계에 사용할 이전 워터마크 값을 업데이트합니다. 
 
 ### <a name="create-the-pipeline"></a>파이프라인 만들기
 
-1. 동일한 폴더에 다음 내용이 포함된 **IncrementalCopyPipeline.json**이라는 JSON 파일을 만듭니다. 
+1. 동일한 폴더에 다음 내용이 포함된 **IncrementalCopyPipeline.json** 이라는 JSON 파일을 만듭니다. 
 
     ```json
     {  
@@ -783,7 +783,7 @@ END
  
 ## <a name="run-the-pipeline"></a>파이프라인 실행
 
-1. 동일한 폴더에 다음 내용이 포함된 **Parameters.json**이라는 매개 변수 파일을 만듭니다.
+1. 동일한 폴더에 다음 내용이 포함된 **Parameters.json** 이라는 매개 변수 파일을 만듭니다.
 
     ```json
     {
@@ -814,21 +814,21 @@ END
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 서비스**를 선택하고 *데이터 팩터리* 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
+2. **모든 서비스** 를 선택하고 *데이터 팩터리* 키워드를 사용하여 검색하고 **데이터 팩터리** 를 선택합니다. 
 
 3. 데이터 팩터리 목록에서 데이터 팩터리를 검색하고 선택하여 **데이터 팩터리** 페이지를 시작합니다. 
 
-4. **Data Factory** 페이지에서 **작성 및 모니터링**을 선택하여 별도의 탭에서 Azure Data Factory를 선택합니다.
+4. **Data Factory** 페이지에서 **작성 및 모니터링** 을 선택하여 별도의 탭에서 Azure Data Factory를 선택합니다.
 
-5. **같이 시작해 볼까요?** 페이지의 왼쪽에서 **모니터링**을 선택합니다. 
+5. **같이 시작해 볼까요?** 페이지의 왼쪽에서 **모니터링** 을 선택합니다. 
 ![스크린샷은 Azure Data Factory의 시작 페이지를 보여줍니다.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다.
+6. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공** 입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다.
 
     ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. **작업** 열에 있는 링크를 선택하면 파이프라인에 대한 모든 활동 실행이 표시됩니다. 
 
-8. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행**을 선택합니다. 
+8. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행** 을 선택합니다. 
 
 ## <a name="review-the-results"></a>결과 검토
 
@@ -907,11 +907,11 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. [파이프라인 모니터링](#monitor-the-pipeline) 섹션의 지침에 따라 파이프라인 실행을 모니터링합니다. 파이프라인 상태가 **진행 중**이면 **작업** 아래 파이프라인 실행을 취소하는 다른 작업 링크가 표시됩니다. 
+2. [파이프라인 모니터링](#monitor-the-pipeline) 섹션의 지침에 따라 파이프라인 실행을 모니터링합니다. 파이프라인 상태가 **진행 중** 이면 **작업** 아래 파이프라인 실행을 취소하는 다른 작업 링크가 표시됩니다. 
 
-3. **새로 고침**을 선택하여 파이프라인 실행이 성공할 때까지 목록을 새로 고칩니다. 
+3. **새로 고침** 을 선택하여 파이프라인 실행이 성공할 때까지 목록을 새로 고칩니다. 
 
-4. 필요에 따라, **작업** 아래 **View Activity Runs**(작업 실행 보기) 링크를 클릭하여 이 파이프라인 실행과 연결된 모든 작업 실행을 표시합니다. 
+4. 필요에 따라, **작업** 아래 **View Activity Runs** (작업 실행 보기) 링크를 클릭하여 이 파이프라인 실행과 연결된 모든 작업 실행을 표시합니다. 
 
 ## <a name="review-the-final-results"></a>최종 결과 검토
 
@@ -934,7 +934,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-3번 **PersonID**에 대한 **Name** 및 **LastModifytime**의 새 값을 확인합니다. 
+3번 **PersonID** 에 대한 **Name** 및 **LastModifytime** 의 새 값을 확인합니다. 
 
 **쿼리**
 
@@ -994,5 +994,3 @@ Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법�
 
 > [!div class="nextstepaction"]
 >[변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

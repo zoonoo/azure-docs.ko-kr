@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 20401a3c96a9a20399c07d1a30370d27f2858e29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929523"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546571"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for PostgreSQL - 유연한 서버 만들기
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-이 자습서에서는 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
+이 자습서에서는 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
 
 이 자습서에서는 다음을 수행합니다.
 >[!div class="checklist"]
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 명령을 사용하여 계정에 로그인해야 합니다. 해당 구독 이름에 대한 명령 출력에서 **id** 속성을 참고합니다.
+[az login](/cli/azure/authenticate-azure-cli) 명령을 사용하여 계정에 로그인해야 합니다. 해당 구독 이름에 대한 명령 출력에서 **id** 속성을 참고합니다.
 
 ```azurecli
 az login
@@ -59,7 +59,7 @@ az postgres flexible-server create --resource-group myresourcegroup --location w
 - 서버 이름을 입력하지 않은 경우 서버 이름을 생성합니다.
 - 새 postgreSQL 서버에 사용할 새 가상 네트워크를 만듭니다. 동일한 가상 네트워크에 웹앱을 추가해야 하므로, 서버에 사용하기 위해 만든 가상 네트워크 이름과 서브넷 이름을 적어 둡니다.
 - 서버의 관리자 사용자 이름 및 암호를 입력하지 않은 경우 지금 만듭니다.
-- **postgres**라는 빈 데이터베이스 만들기
+- **postgres** 라는 빈 데이터베이스 만들기
 
 > [!NOTE]
 > - 암호를 입력하지 않으면 암호가 자동으로 생성됩니다. 이 암호를 기록해 둡니다. 암호를 잊은 경우 ``` az postgres flexible-server update``` 명령을 사용하여 암호를 다시 설정해야 합니다.
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../../app-service/app-service-web-tutorial-custom-domain.md)
