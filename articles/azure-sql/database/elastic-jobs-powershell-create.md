@@ -4,19 +4,19 @@ description: PowerShell을 사용하여 탄력적 작업 에이전트를 만드�
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-ms.date: 03/13/2019
-ms.openlocfilehash: aaf749708b49c57d08a63581f3d911b04aba2103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408670"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427294"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ Find-Package PowerShellGet | Install-Package -Force
 # Restart your powershell session with administrative access
 
 # Install and import the Az.Sql module, then confirm
-Install-Module -Name Az.Sql
+Install-Module -Name Az.Sql
 Import-Module Az.Sql
 
 Get-Module Az.Sql
@@ -135,7 +135,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 에이전트는 일정에 따라 또는 일회성 작업으로 작업을 실행합니다.
 
-*resourceGroupName*, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL Database의 데이터베이스가 이미 있어야 합니다.
+*resourceGroupName* , *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL Database의 데이터베이스가 이미 있어야 합니다.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -165,12 +165,12 @@ $params = @{
   'username' = $adminLogin
   'password' = $adminPassword
   'outputSqlErrors' = $true
-  'query' = "CREATE LOGIN masteruser WITH PASSWORD='password!123'"
+  'query' = 'CREATE LOGIN masteruser WITH PASSWORD=''password!123'''
 }
 Invoke-SqlCmd @params
 $params.query = "CREATE USER masteruser FROM LOGIN masteruser"
 Invoke-SqlCmd @params
-$params.query = "CREATE LOGIN jobuser WITH PASSWORD='password!123'"
+$params.query = 'CREATE LOGIN jobuser WITH PASSWORD=''password!123'''
 Invoke-SqlCmd @params
 
 # for each target database
@@ -192,7 +192,7 @@ $targetDatabases | % {
 
 # create job credential in Job database for master user
 Write-Output "Creating job credentials..."
-$loginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
+$loginPasswordSecure = (ConvertTo-SecureString -String 'password!123' -AsPlainText -Force)
 
 $masterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $loginPasswordSecure
 $masterCred = $jobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $masterCred
@@ -205,7 +205,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 [대상 그룹](job-automation-overview.md#target-group)은 작업 단계에서 실행될 데이터베이스 중 하나 이상의 집합을 정의합니다.
 
-다음 코드 조각은 *serverGroup* 및 *serverGroupExcludingDb2*라는 두 개의 대상 그룹을 만듭니다. *serverGroup*은 실행 시 서버에 존재하는 모든 데이터베이스를 대상으로 지정하고, *serverGroupExcludingDb2*는 *targetDb2*를 제외한 서버의 모든 데이터베이스를 대상으로 지정합니다.
+다음 코드 조각은 *serverGroup* 및 *serverGroupExcludingDb2* 라는 두 개의 대상 그룹을 만듭니다. *serverGroup* 은 실행 시 서버에 존재하는 모든 데이터베이스를 대상으로 지정하고, *serverGroupExcludingDb2* 는 *targetDb2* 를 제외한 서버의 모든 데이터베이스를 대상으로 지정합니다.
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -221,7 +221,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>작업 및 단계 만들기
 
-이 예제에서는 작업 하나와 작업을 실행할 두 개의 작업 단계를 정의합니다. 첫 번째 작업 단계(*step1*)는 대상 그룹 *ServerGroup*의 모든 데이터베이스에서 새로운 테이블(*Step1Table*)을 만듭니다. 이전에 정의된 대상 그룹이 해당 항목을 제외하도록 지정되었기 때문에 두 번째 작업 단계(*step2*)는 *TargetDb2*의 모든 데이터베이스에서 새로운 테이블(*Step2Table*)을 만듭니다.
+이 예제에서는 작업 하나와 작업을 실행할 두 개의 작업 단계를 정의합니다. 첫 번째 작업 단계( *step1* )는 대상 그룹 *ServerGroup* 의 모든 데이터베이스에서 새로운 테이블( *Step1Table* )을 만듭니다. 이전에 정의된 대상 그룹이 해당 항목을 제외하도록 지정되었기 때문에 두 번째 작업 단계( *step2* )는 *TargetDb2* 의 모든 데이터베이스에서 새로운 테이블( *Step2Table* )을 만듭니다.
 
 ```powershell
 Write-Output "Creating a new job..."

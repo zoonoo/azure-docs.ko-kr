@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152006"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427092"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -238,7 +238,7 @@ bash-3.2$ mvn package spring-boot:run
 
 ## <a name="deploy-to-app-service-on-linux"></a>Linux의 App Service에 배포
 
-`azure-webapp:deploy` Maven 목표를 사용하여 Linux의 Azure App Service에 할 일 앱을 배포합니다.
+`mvn azure-webapp:deploy` Maven 목표를 사용하여 Linux의 Azure App Service에 할 일 앱을 배포합니다.
 
 ```bash
 
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 출력에는 배포된 애플리케이션의 URL이 포함됩니다(이 예제에서는 `https://spring-todo-app.azurewebsites.net`). 웹 브라우저에 이 URL을 복사하거나 터미널 창에서 다음 명령을 실행하여 앱을 로드할 수 있습니다.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 주소 표시줄에는 원격 URL에서 실행 중인 앱이 표시됩니다.
