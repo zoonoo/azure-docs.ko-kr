@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 7965edd5dc54155f03b9211d5c2b21d451018bd1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940981"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>자습서: MobileIron과 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ MobileIron을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 해당 Azure AD 계정으로 MobileIron에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -53,7 +53,7 @@ MobileIron의 Azure AD 통합을 구성하려면 갤러리의 MobileIron을 관�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ MobileIron의 Azure AD 통합을 구성하려면 갤러리의 MobileIron을 관�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **MobileIron**을 입력하고 결과 패널에서 **MobileIron**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **MobileIron** 을 입력하고 결과 패널에서 **MobileIron** 을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 MobileIron](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 하여 MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 MobileIron의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **MobileIron** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **MobileIron** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -105,7 +105,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     b. **회신 URL** 텍스트 상자에서 `https://<host>.mobileiron.com/saml/SSO/alias/<key>` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+    다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
@@ -114,7 +114,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이 자습서의 뒷부분에서 설명한 대로 MobileIron 관리 포털에서 키와 호스트의 값을 가져옵니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 다른 웹 브라우저 창에서 MobileIron 회사 사이트에 관리자로 로그인합니다.
 
-2. **관리자** > **ID**로 차례로 이동하고, **클라우드 IDP 설정에 대한 정보** 필드에서 **AAD** 옵션을 선택합니다.
+2. **관리자** > **ID** 로 차례로 이동하고, **클라우드 IDP 설정에 대한 정보** 필드에서 **AAD** 옵션을 선택합니다.
 
     ![스크린샷은 ID가 선택된 MobileIron 사이트의 관리자 탭을 보여줍니다.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -130,7 +130,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![스크린샷은 키 및 호스트 값이 있는 SAML 설정 옵션을 보여줍니다.](./media/mobileiron-tutorial/key.png)
 
-4. **AAD에서 메타데이터 파일 내보내기 및 MobileIron 클라우드 필드로 가져오기**에서 **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다. 일단 업로드되면 **완료**를 클릭합니다.
+4. **AAD에서 메타데이터 파일 내보내기 및 MobileIron 클라우드 필드로 가져오기** 에서 **파일 선택** 을 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다. 일단 업로드되면 **완료** 를 클릭합니다.
 
     ![Single Sign-On 관리 메타데이터 구성 단추](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
@@ -138,11 +138,11 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -150,36 +150,36 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 MobileIron에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **MobileIron**을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **MobileIron** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **MobileIron**을 입력하고 선택합니다.
+2. 애플리케이션 목록에서 **MobileIron** 을 입력하고 선택합니다.
 
     ![애플리케이션 목록의 MobileIron 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -194,7 +194,7 @@ MobileIron의 경우 프로비전은 수동 작업입니다.
 
 1. MobileIron 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **사용자**로 이동하고 **추가** > **단일 사용자**를 클릭합니다.
+1. **사용자** 로 이동하고 **추가** > **단일 사용자** 를 클릭합니다.
 
     ![Single Sign-On 사용자 구성 단추](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
@@ -208,19 +208,18 @@ MobileIron의 경우 프로비전은 수동 작업입니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
 
-    d. **Done**을 클릭합니다.
+    d. **Done** 을 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 MobileIron 타일을 클릭하면 SSO를 설정한 MobileIron에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 MobileIron 타일을 클릭하면 SSO를 설정한 MobileIron에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

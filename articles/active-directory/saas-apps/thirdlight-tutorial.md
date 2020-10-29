@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f15d00f1050177c6255fb5528f03314153c3ed9a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544981"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>자습서: ThirdLight와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "88544981"
 * 사용자가 해당 Azure AD 계정으로 ThirdLight에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱의 통합에 대해 자세히 알아보려면 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와 SaaS 앱의 통합에 대해 자세히 알아보려면 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -47,19 +47,19 @@ ThirdLight와 Azure AD의 통합을 구성하려면 다음 항목이 필요합�
 
 ThirdLight가 Azure AD에 통합되도록 설정하려면 갤러리의 ThirdLight를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 
     ![Azure Active Directory 선택](common/select-azuread.png)
 
-2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션** 으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션**을 선택합니다.
+3. 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션** 을 선택합니다.
 
     ![새 애플리케이션 선택](common/add-new-app.png)
 
-4. 검색 상자에서 **ThirdLight**를 입력합니다. 검색 결과에서 **ThirdLight**를 선택한 다음, **추가**를 선택합니다.
+4. 검색 상자에서 **ThirdLight** 를 입력합니다. 검색 결과에서 **ThirdLight** 를 선택한 다음, **추가** 를 선택합니다.
 
      ![검색 결과](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 ThirdLight 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 ThirdLight 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 선택](common/select-sso.png)
 
@@ -128,7 +128,7 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 새 웹 브라우저 창에서 ThirdLight 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **Configuration(구성)**  > **System Administration(시스템 관리)**  > **SAML2**로 차례로 이동합니다.
+1. **Configuration(구성)**  > **System Administration(시스템 관리)**  > **SAML2** 로 차례로 이동합니다.
 
     ![시스템 관리](./media/thirdlight-tutorial/ic805843.png "시스템 관리")
 
@@ -136,23 +136,23 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
   
     ![SAML2 구성 섹션](./media/thirdlight-tutorial/ic805844.png "SAML2 구성 섹션")
 
-    1. **SAML2 Single Sign-On 사용**을 선택합니다.
+    1. **SAML2 Single Sign-On 사용** 을 선택합니다.
 
-    1. **Source for IdP Metadata**(IdP 메타데이터에 대한 원본) 아래에서 **Load IdP Metadata from XML**(XML에서 IdP 메타데이터 로드)을 선택합니다.
+    1. **Source for IdP Metadata** (IdP 메타데이터에 대한 원본) 아래에서 **Load IdP Metadata from XML** (XML에서 IdP 메타데이터 로드)을 선택합니다.
 
-    1. 이전 섹션의 Azure Portal에서 다운로드한 메타데이터 파일을 엽니다. 파일의 내용을 복사하여 **IdP Metadata XML**(IdP 메타데이터 XML) 상자에 붙여넣습니다.
+    1. 이전 섹션의 Azure Portal에서 다운로드한 메타데이터 파일을 엽니다. 파일의 내용을 복사하여 **IdP Metadata XML** (IdP 메타데이터 XML) 상자에 붙여넣습니다.
 
-    1. **Save SAML2 settings**(SAML2 설정 저장)를 선택합니다.
+    1. **Save SAML2 settings** (SAML2 설정 저장)를 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
-2. 다음과 같이 창 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 창 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -160,39 +160,39 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    1. **이름** 상자에 **BrittaSimon**을 입력합니다.
+    1. **이름** 상자에 **BrittaSimon** 을 입력합니다.
   
     1. **사용자 이름** 상자에 **BrittaSimon@\<yourcompanydomain>\<extension>.** 을 입력합니다. (예: BrittaSimon@contoso.com)
 
-    1. **암호 표시**를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+    1. **암호 표시** 를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 
-    1. **만들기**를 선택합니다.
+    1. **만들기** 를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ThirdLight에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ThirdLight**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ThirdLight** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **ThirdLight**를 선택합니다.
+2. 애플리케이션 목록에서 **ThirdLight** 를 선택합니다.
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 
-4. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 선택](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고, 창 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고, 창 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 창 아래쪽에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
+7. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
 
 ### <a name="create-a-thirdlight-test-user"></a>ThirdLight 테스트 사용자 만들기
 
@@ -204,13 +204,13 @@ Azure AD 사용자가 ThirdLight에 로그인할 수 있도록 설정하려면 �
 
 1. **사용자** 탭으로 이동합니다.
 
-1. **사용자 및 그룹**을 선택합니다.
+1. **사용자 및 그룹** 을 선택합니다.
 
-1. **새 사용자 추가**를 선택합니다.
+1. **새 사용자 추가** 를 선택합니다.
 
 1. 프로비저닝하려는 유효한 Azure AD 계정의 사용자 이름, 이름 또는 설명 및 이메일 주소를 입력합니다. [새 멤버]의 [미리 설정] 또는 [그룹]을 선택 합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 > [!NOTE]
 > ThirdLight에서 제공하는 사용자 계정 생성 도구 또는 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
@@ -219,12 +219,12 @@ Azure AD 사용자가 ThirdLight에 로그인할 수 있도록 설정하려면 �
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 ThirdLight 타일을 선택하면 SSO를 설정한 ThirdLight 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+액세스 패널에서 ThirdLight 타일을 선택하면 SSO를 설정한 ThirdLight 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
