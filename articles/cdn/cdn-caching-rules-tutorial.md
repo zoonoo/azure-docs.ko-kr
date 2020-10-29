@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 3d52b9a6842c13e9141fd081e10156e3866c163f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae217352b83617600fd983a747d578f8f28e7ddd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81254311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779240"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 
 > [!NOTE] 
-> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN**의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN** 의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](./cdn-verizon-premium-rules-engine.md)을 사용해야 합니다.
  
 
 이 자습서에서는 Azure CDN(Content Delivery Network) 캐싱 규칙을 사용하여 전역적으로 그리고 사용자 지정 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정하는 방법을 설명합니다. Azure CDN에는 두 가지 유형의 캐싱 규칙이 제공됩니다.
@@ -48,7 +48,7 @@ ms.locfileid: "81254311"
 
 1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필을 선택한 다음, 엔드포인트를 선택합니다.
 
-2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙** 을 선택합니다.
 
    ![CDN 캐싱 규칙 단추](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
@@ -61,11 +61,11 @@ ms.locfileid: "81254311"
 
 전역 캐싱 규칙은 다음과 같이 만듭니다.
 
-1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정합니다.
+1. **전역 캐싱 규칙** 에서 **쿼리 문자열 캐시 동작** 을 **쿼리 문자열 무시** 로 설정합니다.
 
-2. **캐싱 동작**을 **누락된 경우 설정**으로 설정합니다.
+2. **캐싱 동작** 을 **누락된 경우 설정** 으로 설정합니다.
        
-3. **캐시 만료 기간**의 **일** 필드에 10일 입력합니다.
+3. **캐시 만료 기간** 의 **일** 필드에 10일 입력합니다.
 
     전역 캐싱 규칙은 엔드포인트에 대한 모든 요청에 영향을 줍니다. 이 규칙은 원본 캐시 지시문 헤더가 있는 경우 해당 헤더를 사용합니다(`Cache-Control` 또는 `Expires`). 그렇지 않고, 지정되어 있지 않으면 캐시를 10일로 설정합니다. 
 
@@ -75,9 +75,9 @@ ms.locfileid: "81254311"
 
 사용자 지정 캐싱 규칙은 다음과 같이 만듭니다.
 
-1. **사용자 지정 캐싱 규칙**에서 **일치 조건**을 **경로**로 설정하고 **일치 값**을 `/images/*.jpg`로 설정합니다.
+1. **사용자 지정 캐싱 규칙** 에서 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 을 `/images/*.jpg`로 설정합니다.
     
-2. **캐싱 동작**을 **재정의**로 설정하고 **일** 필드에 30일 입력합니다.
+2. **캐싱 동작** 을 **재정의** 로 설정하고 **일** 필드에 30일 입력합니다.
        
     이 사용자 지정 캐싱 규칙은 엔드포인트의 `/images` 폴더에 있는 모든 `.jpg` 이미지 파일의 캐시 기간을 30일로 설정합니다. 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.
 
@@ -90,15 +90,15 @@ ms.locfileid: "81254311"
  
 1. CDN 프로필을 선택한 다음, 제거하려는 캐싱 규칙이 포함된 엔드포인트를 선택합니다.
 
-2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙** 을 선택합니다.
 
-3. **전역 캐싱 규칙**에서 **캐싱 동작**을 **설정 안 함**으로 설정합니다.
+3. **전역 캐싱 규칙** 에서 **캐싱 동작** 을 **설정 안 함** 으로 설정합니다.
  
-4. **사용자 지정 캐싱 규칙**에서 삭제하려면 규칙 옆에 있는 확인란을 선택합니다.
+4. **사용자 지정 캐싱 규칙** 에서 삭제하려면 규칙 옆에 있는 확인란을 선택합니다.
 
-5. **삭제**를 선택합니다.
+5. **삭제** 를 선택합니다.
 
-6. 페이지 맨 위에서 **저장**을 선택합니다.
+6. 페이지 맨 위에서 **저장** 을 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -114,6 +114,3 @@ ms.locfileid: "81254311"
 
 > [!div class="nextstepaction"]
 > [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)
-
-
-

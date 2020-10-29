@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745611"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755713"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | Premium(v3) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,6 +32,7 @@ ms.locfileid: "91745611"
 | 하이브리드 연결 | | | 플랜당 5개 | 플랜당 25개 | 앱당 200개 | 앱당 200개 |
 | [가상 네트워크 통합](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | 통합 부하 분산 장치 | |X |X |X |X |X<sup>10</sup> |
+| [액세스 제한](../articles/app-service/networking-features.md#access-restrictions) | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 | 앱당 512개 규칙 |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [예약된 백업 수](../articles/app-service/manage-backup.md) | | | | 2시간마다 예약된 백업 기준, 매일 최대 12개 백업(수동 + 예약) | 1시간마다 예약된 백업 기준, 매일 최대 50개 백업(수동 + 예약) | 1시간마다 예약된 백업 기준, 매일 최대 50개 백업(수동 + 예약) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

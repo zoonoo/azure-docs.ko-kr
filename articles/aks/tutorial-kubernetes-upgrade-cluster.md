@@ -4,13 +4,13 @@ description: 이 AKS(Azure Kubernetes Service) 자습서에서는 기존 AKS 클
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629645"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747729"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "91629645"
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음 예제에서는 현재 버전이 *1.15.11*이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
+다음 예제에서는 현재 버전이 *1.15.11* 이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x*에서 *1.15.x*로 업그레이드할 수 있지만, *1.14.x*에서 *1.16.x*로 직접 업그레이드할 수는 없습니다. *1.14.x*에서 *1.16.x*로 업그레이드하려면 먼저 *1.14.x*에서 *1.15.x*로 업그레이드한 다음, *1.15.x*에서 *1.16.x*로 업그레이드합니다.
+> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x* 에서 *1.15.x* 로 업그레이드할 수 있지만, *1.14.x* 에서 *1.16.x* 로 직접 업그레이드할 수는 없습니다. *1.14.x* 에서 *1.16.x* 로 업그레이드하려면 먼저 *1.14.x* 에서 *1.15.x* 로 업그레이드한 다음, *1.15.x* 에서 *1.16.x* 로 업그레이드합니다.
 
-압축된 다음 예제 출력에서는 *1.16.8*로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion*에서 *1.16.8*을 보고합니다.
+압축된 다음 예제 출력에서는 *1.16.8* 로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion* 에서 *1.16.8* 을 보고합니다.
 
 ```json
 {
@@ -115,7 +115,7 @@ az aks upgrade \
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8*을 실행하는 것을 보여줍니다.
+다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8* 을 실행하는 것을 보여줍니다.
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

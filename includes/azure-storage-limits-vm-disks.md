@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829128"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755615"
 ---
 Azure 가상 머신에 여러 데이터 디스크를 연결할 수 있습니다. VM의 데이터 디스크 확장성 및 성능 목표에 따라 성능 및 용량 요구 사항을 충족하는 데 필요한 디스크의 수와 유형을 결정할 수 있습니다.
 
@@ -18,7 +18,7 @@ Azure 가상 머신에 여러 데이터 디스크를 연결할 수 있습니다.
 
 **Azure 관리 디스크:**
 
-다음 표에서는 구독당 지역별 리소스 수의 기본 및 최대 제한을 보여 줍니다. 리소스 그룹당 Managed Disks, 스냅샷 및 이미지 수에는 제한이 없습니다.  
+다음 표에서는 구독당 지역별 리소스 수의 기본 및 최대 제한을 보여 줍니다. 이러한 제한은 플랫폼 관리형 키 또는 고객 관리형 키로 암호화된 디스크에 관계없이 동일하게 유지됩니다. 리소스 그룹당 Managed Disks, 스냅샷 및 이미지 수에는 제한이 없습니다.  
 
 > | 리소스 | 제한 |
 > | --- | --- |

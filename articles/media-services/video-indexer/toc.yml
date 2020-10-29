@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: 자습서
   items:
-    - name: Azure에 연결
+    - name: Azure에 연결된 새 계정 만들기
       href: connect-to-azure.md
     - name: Video Indexer API 사용
       href: video-indexer-use-apis.md

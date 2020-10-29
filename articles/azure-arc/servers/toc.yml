@@ -84,3 +84,7 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: 리소스
+  items:
+    - name: Azure Arc 빠른 시작
+      href: 'https://github.com/microsoft/azure_arc'

@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 2b1d9b7f9ff07a3e0c7745191decc3e82181553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708022"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746955"
 ---
 ## <a name="create-azure-container-registry"></a>Azure 컨테이너 레지스트리 만들기
 
-컨테이너 레지스트리를 만들려면 컨테이너 레지스트리를 배포할 *리소스 그룹*이 필요합니다. 리소스 그룹은 모든 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
+컨테이너 레지스트리를 만들려면 컨테이너 레지스트리를 배포할 *리소스 그룹* 이 필요합니다. 리소스 그룹은 모든 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ az group create --name myResourceGroup --location eastus
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-다음은 *mycontainerregistry082*라는 새 Azure 컨테이너 레지스트리에 대한 부분 출력입니다.
+다음은 *mycontainerregistry082* 라는 새 Azure 컨테이너 레지스트리에 대한 부분 출력입니다.
 
 ```output
 {

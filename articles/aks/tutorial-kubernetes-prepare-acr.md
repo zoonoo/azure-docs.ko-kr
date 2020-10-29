@@ -4,13 +4,13 @@ description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Containe
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576287"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747071"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
@@ -34,7 +34,7 @@ ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 �
 
 Azure Container Registry를 만들려면 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -74,13 +74,13 @@ tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863 
 
 ACR에 *azure-vote-front* 컨테이너 이미지를 사용하려면 레지스트리의 로그인 서버 주소를 사용하여 이미지에 태그를 지정해야 합니다. 이 태그는 컨테이너 이미지를 이미지 레지스트리에 밀어넣을 때 라우팅에 사용됩니다.
 
-로그인 서버 주소를 가져오려면 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 *loginServer*를 쿼리합니다.
+로그인 서버 주소를 가져오려면 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 *loginServer* 를 쿼리합니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-이제 컨테이너 레지스트리의 *acrLoginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1*을 추가합니다.
+이제 컨테이너 레지스트리의 *acrLoginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1* 을 추가합니다.
 
 ```console
 docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1

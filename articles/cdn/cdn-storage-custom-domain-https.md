@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259887"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777846"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>자습서: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
 
@@ -37,7 +37,7 @@ Azure 스토리지 계정을 Azure CDN(Content Delivery Network)과 통합한 �
 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면 데이터가 TLS/SSL 암호화를 통해 인터넷에서 안전하게 전송됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 사용자 지정 도메인에서 HTTPS를 구성하려면 이 자습서의 지침을 따릅니다. [Azure CDN 사용자 지정 도메인에서 HTTPS를 구성합니다](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>공유 액세스 서명
-익명 읽기 액세스를 허용하지 않도록 Blob Storage 엔드포인트를 구성한 경우 [SAS(공유 액세스 서명)](cdn-sas-storage-support.md) 토큰을 사용자 지정 도메인에 사용자가 만든 각 요청에 제공해야 합니다. 기본적으로 Blob Storage 엔드포인트는 익명 읽기 액세스를 허용하지 않습니다. SAS에 대한 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+익명 읽기 액세스를 허용하지 않도록 Blob Storage 엔드포인트를 구성한 경우 [SAS(공유 액세스 서명)](cdn-sas-storage-support.md) 토큰을 사용자 지정 도메인에 사용자가 만든 각 요청에 제공해야 합니다. 기본적으로 Blob Storage 엔드포인트는 익명 읽기 액세스를 허용하지 않습니다. SAS에 대한 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/anonymous-read-access-configure.md)를 참조하세요.
 
 Azure CDN은 SAS 토큰에 추가된 제한 사항을 무시합니다. 예를 들어 모든 SAS 토큰에 만료 시간이 있는 경우 CDN POP(point-of-presence)에서 콘텐츠가 제거되기 전에는 만료된 SAS를 사용하여 해당 콘텐츠에 계속 액세스할 수 있습니다. 캐시 응답 헤더를 설정하여 데이터를 Azure CDN에 얼마나 오래 캐시할 것인지 제어할 수 있습니다. 자세한 내용은 [Azure CDN에서 Azure Storage Blob 만료 관리](cdn-manage-expiration-of-blob-content.md)를 참조하세요.
 
@@ -52,7 +52,7 @@ Azure CDN은 SAS 토큰에 추가된 제한 사항을 무시합니다. 예를 �
 
 ![Verizon 리디렉션 규칙](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
-위의 규칙에서 *Cdn-endpoint-name*은 사용자가 CDN 엔드포인트에 대해 구성한 이름을 참조하며, 드롭다운 목록에서 이름을 선택할 수 있습니다. *Origin-path*의 값은 정적 콘텐츠가 있는 원본 스토리지 계정 내 경로를 참조합니다. 단일 컨테이너의 모든 정적 콘텐츠를 호스팅하는 경우 *origin-path*를 해당 컨테이너의 이름으로 바꿔야 합니다.
+위의 규칙에서 *Cdn-endpoint-name* 은 사용자가 CDN 엔드포인트에 대해 구성한 이름을 참조하며, 드롭다운 목록에서 이름을 선택할 수 있습니다. *Origin-path* 의 값은 정적 콘텐츠가 있는 원본 스토리지 계정 내 경로를 참조합니다. 단일 컨테이너의 모든 정적 콘텐츠를 호스팅하는 경우 *origin-path* 를 해당 컨테이너의 이름으로 바꿔야 합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 Azure CDN을 통해 Blob에 액세스하는 경우 POP 서버와 원본(Blob Storage) 간 트래픽에는 [Blob Storage 가격](https://azure.microsoft.com/pricing/details/storage/blobs/), POP에서 액세스하는 데이터에는 [Azure CDN 가격](https://azure.microsoft.com/pricing/details/cdn/)으로 요금이 청구됩니다.
@@ -61,7 +61,3 @@ Azure CDN을 통해 Blob에 액세스하는 경우 POP 서버와 원본(Blob Sto
 
 ## <a name="next-steps"></a>다음 단계
 [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)
-
-
-
-

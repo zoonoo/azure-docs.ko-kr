@@ -4,19 +4,19 @@ description: Azure CLI 예제 스크립트를 사용하여 Azure SQL Database에
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 01ccf7117cd17118941a00cc0480216bc436bc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d462dec8c65252afbde0c4d2eee171891a64ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86514767"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747302"
 ---
 # <a name="use-the-azure-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Azure CLI를 사용하여 Azure SQL Database에서 탄력적 풀 크기 조정
 
