@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489866"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909916"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "92489866"
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고**를 선택합니다.
+2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
@@ -43,7 +43,7 @@ ms.locfileid: "92489866"
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="경고 규칙 선택":::
 
-5. **조건** 섹션에서 **추가**를 선택 합니다.
+5. **조건** 섹션에서 **추가** 를 선택 합니다.
 
 6. 신호 목록에서 경고를 발생할 메트릭을 선택합니다. 이 예제에서는 "스토리지 비율"을 선택합니다.
    
@@ -56,7 +56,7 @@ ms.locfileid: "92489866"
     * **집계 세분성** 경고를 트리거하기 전에 메트릭 규칙을 만족 해야 하는 시간 (예: "지난 30 분 동안")
     * 및 **평가 빈도** (예: "1 분")
    
-   완료되면 **완료**를 선택합니다.
+   완료되면 **완료** 를 선택합니다.
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="경고 규칙 선택" 양식을 채웁니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "92489866"
     
     "전자 메일 Azure Resource Manager 역할"을 선택 하 여 구독 소유자, 참가자 및 읽기 권한자에 게 알림을 보냅니다.
    
-    완료되면 **확인**을 선택합니다.
+    완료되면 **확인** 을 선택합니다.
 
     :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="경고 규칙 선택":::
 
@@ -74,7 +74,7 @@ ms.locfileid: "92489866"
 
     :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="경고 규칙 선택"::: 
 
-12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
+12. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -83,8 +83,8 @@ ms.locfileid: "92489866"
 경고를 만든 후에는 경고를 선택 하 고 다음 작업을 수행할 수 있습니다.
 
 * 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인.
-* 경고 규칙을 **편집** 또는 **삭제**.
-* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
+* 경고 규칙을 **편집** 또는 **삭제** .
+* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용** 으로 설정.
 
 ## <a name="suggested-alerts"></a>제안 된 경고
 

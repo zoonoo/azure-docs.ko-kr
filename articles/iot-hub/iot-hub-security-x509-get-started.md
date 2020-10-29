@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 7c05d6f91f4c05405ba8148b0924a755122f99fe
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a3e328418a0f111cd0b985310ea6dc497999772d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144460"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909797"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
-이 자습서에서는 *X.509 인증서 인증*을 사용 하 여 Azure IoT hub를 보호 하는 데 필요한 단계를 보여 줍니다. 이에 대 한 설명은 오픈 소스 도구인 OpenSSL를 사용 하 여 Windows 컴퓨터에 로컬로 인증서를 만듭니다. 이 자습서는 테스트용으로만 사용하는 것이 좋습니다. 프로덕션 환경의 경우 *루트 CA(인증 기관)* 에서 인증서를 구입해야 합니다.
+이 자습서에서는 *X.509 인증서 인증* 을 사용 하 여 Azure IoT hub를 보호 하는 데 필요한 단계를 보여 줍니다. 이에 대 한 설명은 오픈 소스 도구인 OpenSSL를 사용 하 여 Windows 컴퓨터에 로컬로 인증서를 만듭니다. 이 자습서는 테스트용으로만 사용하는 것이 좋습니다. 프로덕션 환경의 경우 *루트 CA (인증 기관)* 에서 인증서를 구입 해야 합니다. 또한 프로덕션 환경에서 장치 인증서 또는 CA 인증서가 만료 될 때 인증서 롤오버를 처리 하는 전략이 있는지 확인 합니다.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
@@ -51,24 +51,24 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>IoT Hub에 X.509 CA 인증서 등록
 
-이 단계는 포털을 통해 IoT Hub에 새 인증 기관을 추가하는 방법을 보여줍니다.
+이 단계는 포털을 통해 IoT Hub에 새 인증 기관을 추가하는 방법을 보여줍니다. X.509 certificate CA 인증을 사용 하는 경우 인증서 롤오버 전략의 일부로 기존 인증서가 만료 되기 전에 새 인증서를 등록 해야 합니다.
 
 > [!NOTE]
 > IoT hub에 등록할 수 있는 x.509 CA 인증서의 최대 수는 25 개입니다. 자세한 내용은 [Azure IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
 
-1. Azure Portal에서 IoT hub로 이동 하 고 **Settings**  >  허브에 대 한 설정**인증서** 를 선택 합니다.
+1. Azure Portal에서 IoT hub로 이동 하 고 **Settings**  >  허브에 대 한 설정 **인증서** 를 선택 합니다.
 
 1. **추가** 를 선택 하 여 새 인증서를 추가 합니다.
 
-1. **인증서 이름**에 표시 이름을 입력 하 고 컴퓨터에서 이전 섹션에서 만든 인증서 파일을 선택 합니다.
+1. **인증서 이름** 에 표시 이름을 입력 하 고 컴퓨터에서 이전 섹션에서 만든 인증서 파일을 선택 합니다.
 
-1. 인증서가 성공적으로 업로드 되었음을 알리는 메시지가 표시 되 면 **저장**을 선택 합니다.
+1. 인증서가 성공적으로 업로드 되었음을 알리는 메시지가 표시 되 면 **저장** 을 선택 합니다.
 
     ![인증서 업로드](./media/iot-hub-security-x509-get-started/iot-hub-add-cert.png)  
 
    인증서가 확인 되지 않음 상태로 인증서 목록에 표시 **됩니다.**
 
-1. **인증서 세부 정보**를 표시 하기 위해 방금 추가한 인증서를 선택 하 고 **확인 코드 생성**을 선택 합니다.
+1. **인증서 세부 정보** 를 표시 하기 위해 방금 추가한 인증서를 선택 하 고 **확인 코드 생성** 을 선택 합니다.
 
    ![인증서 확인](./media/iot-hub-security-x509-get-started/copy-verification-code.png)  
 
@@ -76,17 +76,17 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 1. [예제 및 자습서에 대 한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 3 단계를 수행 합니다.  이 프로세스는 서명을 생성 하는 x.509 CA 인증서와 연결 된 개인 키를 사용 하 여 확인 코드에 서명 합니다. 이 서명 프로세스를 수행하는 데 사용할 수 있는 도구(예: OpenSSL)가 있습니다. 이 프로세스를 [소유 증명](https://tools.ietf.org/html/rfc5280#section-3.1)이라고 합니다.
 
-1. **인증서 세부 정보**의 **확인 인증서. pem 또는 .cer 파일**에서 서명 파일을 찾아 엽니다. 그런 다음 **확인**을 선택 합니다.
+1. **인증서 세부 정보** 의 **확인 인증서. pem 또는 .cer 파일** 에서 서명 파일을 찾아 엽니다. 그런 다음 **확인** 을 선택 합니다.
 
-   인증서의 상태가 **확인**됨으로 변경 됩니다. 인증서가 자동으로 업데이트 되지 않으면 **새로 고침** 을 선택 합니다.
+   인증서의 상태가 **확인** 됨으로 변경 됩니다. 인증서가 자동으로 업데이트 되지 않으면 **새로 고침** 을 선택 합니다.
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>IoT Hub용 X.509 디바이스 만들기
 
-1. Azure Portal에서 IoT hub로 이동한 다음 **탐색기**  >  **iot 장치**를 선택 합니다.
+1. Azure Portal에서 IoT hub로 이동한 다음 **탐색기**  >  **iot 장치** 를 선택 합니다.
 
 1. 새로 **만들기를 선택 하** 여 새 장치를 추가 합니다.
 
-1. **장치 ID**에 표시 이름을 입력 합니다. **인증 유형**에 대해 **x.509 CA 서명**을 선택 하 고 **저장**을 선택 합니다.
+1. **장치 ID** 에 표시 이름을 입력 합니다. **인증 유형** 에 대해 **x.509 CA 서명** 을 선택 하 고 **저장** 을 선택 합니다.
 
    ![포털에서 X.509 디바이스 만들기](./media/iot-hub-security-x509-get-started/new-x509-device.png)
 
@@ -96,15 +96,15 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 다음으로 IoT Hub에 등록된 X.509 디바이스를 시뮬레이트하는 C# 애플리케이션을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 응용 프로그램만 만듭니다. 이 시뮬레이트된 디바이스에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 애플리케이션을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택한 다음 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 선택 합니다. **다음**을 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택한 다음 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 선택 합니다. **새로 만들기** 를 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *SimulateX509Device*로 지정한 다음, **만들기**를 선택 합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *SimulateX509Device* 로 지정한 다음, **만들기** 를 선택 합니다.
 
    ![Visual Studio에서 X.509 디바이스 프로젝트 만들기](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
 
-1. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리**를 선택 합니다.
+1. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리** 를 선택 합니다.
 
-1. **NuGet 패키지 관리자**에서 **찾아보기** 를 선택 하 고을 검색 한 후을 (를) 검색 하 **고 선택 합니다.** **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택 하 고을 검색 한 후을 (를) 검색 하 **고 선택 합니다.** **설치** 를 선택합니다.
 
    ![Visual Studio에서 디바이스 SDK NuGet 패키지 추가](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
@@ -153,7 +153,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
     }
     ```
 
-1. 마지막으로 **Main** 함수에 다음 코드 줄을 추가 하 여 설치 프로그램에서 요구 하는 대로 자리 표시자 _장치 id_, _-iot 허브 이름_및 _절대 경로-.pfx-파일_ 을 바꿉니다.
+1. 마지막으로 **Main** 함수에 다음 코드 줄을 추가 하 여 설치 프로그램에서 요구 하는 대로 자리 표시자 _장치 id_ , _-iot 허브 이름_ 및 _절대 경로-.pfx-파일_ 을 바꿉니다.
 
     ```csharp
     try
@@ -186,7 +186,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
    1. Visual Studio 솔루션을 빌드합니다.
 
-   1. **관리자 권한으로 실행**을 사용 하 여 새 명령 프롬프트 창을 엽니다.  
+   1. **관리자 권한으로 실행** 을 사용 하 여 새 명령 프롬프트 창을 엽니다.  
 
    1. 솔루션이 포함 된 폴더로 이동한 다음 솔루션 폴더 내에서 *bin/Debug* 경로로 이동 합니다.
 
