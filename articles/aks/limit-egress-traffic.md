@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735572"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900480"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -49,11 +49,11 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.|
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다. |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다. [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다. [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Azure Global 필수 FQDN/응용 프로그램 규칙 
 
@@ -76,12 +76,12 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/응용 프로그램 규칙
 
@@ -105,11 +105,11 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부에 필요한 FQDN/응용 프로그램 규칙 
 

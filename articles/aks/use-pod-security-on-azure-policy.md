@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368471"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900118"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Azure Policy로 포드 보안
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 
 - [AKS Pod 보안 정책 (미리 보기)](use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 
-- _Kube_, _aks 및-periscope_ _를 평가_하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
+- _Kube_ , _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
 
 ### <a name="recommendations"></a>권장 사항
 
@@ -150,7 +150,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > 클러스터를 정상 상태로 유지 하기 위해 kube와 같은 관리 네임 스페이스의 pod을 실행 해야 합니다. 제외 된 기본 네임 스페이스 목록에서 필수 네임 스페이스를 제거 하면 필수 시스템 pod로 인해 정책 위반이 발생할 수 있습니다.
 
-AKS를 사용 하려면 클러스터에서 시스템 pod을 실행 하 여 중요 한 서비스 (예: DNS 확인)를 제공 해야 합니다. Pod 기능을 제한 하는 정책은 시스템 pod 안정성 기능에 영향을 줄 수 있습니다. 결과적으로 다음 네임 스페이스는 **생성, 업데이트 및 정책 감사 중에 허용 요청 중에 정책 평가에서 제외**됩니다. 이렇게 하면 이러한 네임 스페이스에 대 한 새 배포가 Azure 정책에서 제외 됩니다.
+AKS를 사용 하려면 클러스터에서 시스템 pod을 실행 하 여 중요 한 서비스 (예: DNS 확인)를 제공 해야 합니다. Pod 기능을 제한 하는 정책은 시스템 pod 안정성 기능에 영향을 줄 수 있습니다. 결과적으로 다음 네임 스페이스는 **생성, 업데이트 및 정책 감사 중에 허용 요청 중에 정책 평가에서 제외** 됩니다. 이렇게 하면 이러한 네임 스페이스에 대 한 새 배포가 Azure 정책에서 제외 됩니다.
 
 1. kube-시스템
 1. 게이트 키퍼-시스템
@@ -209,7 +209,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 [Kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만들고 yaml 매니페스트의 이름을 지정 합니다.
@@ -253,7 +253,7 @@ spec:
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-Pod가 성공적으로 예약 되었습니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 상태를 확인 하는 경우 Pod가 *실행 중*입니다.
+Pod가 성공적으로 예약 되었습니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 상태를 확인 하는 경우 Pod가 *실행 중* 입니다.
 
 ```console
 $ kubectl get pods

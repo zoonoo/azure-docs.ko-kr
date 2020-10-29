@@ -3,12 +3,12 @@ title: Azure Backup 에이전트 문제 해결
 description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091460"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900380"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -37,11 +37,11 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
-**오류 메시지**: 잘못 된 자격 증명 모음 자격 증명을 제공 했습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)
+**오류 메시지** : 잘못 된 자격 증명 모음 자격 증명을 제공 했습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)
 
 | 원인 | 권장 작업 |
 | ---     | ---    |
-| **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나 만료 되었을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal의 Recovery Services 자격 증명 모음에서 [새 자격 증명을 다운로드](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) 합니다. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 엽니다. 그런 다음 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
+| **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나, 만료 되었거나, *vaultCredentials* 와 다른 파일 확장명이 있을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal의 Recovery Services 자격 증명 모음에서 [새 자격 증명을 다운로드](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) 합니다. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 엽니다. 그런 다음 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고** : 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
 | **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>또는 <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행하세요.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.<br></br> Azure Express 경로를 통해 연결 하는 경우에는 [Azure express 경로 지원](backup-support-matrix-mars-agent.md#azure-expressroute-support)에 설명 된 대로 설정이 구성 되어 있는지 확인 합니다.
 | **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
@@ -57,7 +57,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 1. `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`관리자 권한 명령 프롬프트에서를 실행 합니다.
 
    이 명령은 Internet Explorer를 엽니다.
-1. **도구**  >  **인터넷 옵션**  >  **연결**  >  **LAN 설정**으로 이동 합니다.
+1. **도구**  >  **인터넷 옵션**  >  **연결**  >  **LAN 설정** 으로 이동 합니다.
 1. 시스템 계정에 대 한 프록시 설정을 확인 합니다.
 1. 프록시를 구성 하지 않고 프록시 정보를 제공 하는 경우 세부 정보를 제거 합니다.
 1. 프록시가 구성 되어 있고 프록시 정보가 잘못 된 경우 **프록시 IP** 및 **포트** 세부 정보가 올바른지 확인 합니다.
@@ -73,7 +73,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 | 오류  | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure Recovery Service 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인 하 고 인터넷에 연결할 수 있는지 확인 하세요.<li>(407) 프록시 인증 필요. |프록시가 연결을 차단 하 고 있습니다. |  <ul><li>Internet Explorer에서 **도구**  >  **인터넷 옵션**  >  **보안**  >  **인터넷**으로 이동 합니다. **사용자 지정 수준** 을 선택 하 고 **파일 다운로드** 섹션까지 아래로 스크롤합니다. **사용**을 선택합니다.<p>Internet Explorer에서 신뢰할 수 있는 사이트에 [url 및 IP 주소](install-mars-agent.md#verify-internet-access) 를 추가 해야 할 수도 있습니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<li> 컴퓨터의 인터넷 액세스가 제한 된 경우 컴퓨터 또는 프록시의 방화벽 설정에서 이러한 [url 및 IP 주소](install-mars-agent.md#verify-internet-access)를 허용 하는지 확인 합니다. <li>서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외 합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치 된 모든 .NET Framework 버전에 대 한 CSC.exe 있습니다. 영향을 받는 서버에 있는 모든 버전의 .NET Framework에 대 한 CSC.exe 파일을 제외 합니다. <li>스크래치 폴더 또는 캐시 위치입니다. <br>스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
+| <br /><ul><li>Microsoft Azure Recovery Service 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인 하 고 인터넷에 연결할 수 있는지 확인 하세요.<li>(407) 프록시 인증 필요. |프록시가 연결을 차단 하 고 있습니다. |  <ul><li>Internet Explorer에서 **도구**  >  **인터넷 옵션**  >  **보안**  >  **인터넷** 으로 이동 합니다. **사용자 지정 수준** 을 선택 하 고 **파일 다운로드** 섹션까지 아래로 스크롤합니다. **사용** 을 선택합니다.<p>Internet Explorer에서 신뢰할 수 있는 사이트에 [url 및 IP 주소](install-mars-agent.md#verify-internet-access) 를 추가 해야 할 수도 있습니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<li> 컴퓨터의 인터넷 액세스가 제한 된 경우 컴퓨터 또는 프록시의 방화벽 설정에서 이러한 [url 및 IP 주소](install-mars-agent.md#verify-internet-access)를 허용 하는지 확인 합니다. <li>서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외 합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치 된 모든 .NET Framework 버전에 대 한 CSC.exe 있습니다. 영향을 받는 서버에 있는 모든 버전의 .NET Framework에 대 한 CSC.exe 파일을 제외 합니다. <li>스크래치 폴더 또는 캐시 위치입니다. <br>스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>지정 된 자격 증명 모음 자격 증명 파일은이 서버와 연결 된 자격 증명 모음에서 다운로드 되지 않으므로 사용할 수 없습니다.
 
@@ -117,13 +117,13 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 | 오류  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent) 의 MARS 에이전트로 업그레이드 합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.        |
+|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent) 의 MARS 에이전트로 업그레이드 합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* 입니다.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>암호화 암호가 올바르게 구성되지 않았습니다.
 
 | 오류  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다.    | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.         |
+| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다.    | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* 입니다.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>백업이 일정에 따라 실행 되지 않음
 
@@ -131,11 +131,11 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 - Windows Server 백업 일정이 Azure files and folders 백업 일정과 충돌 하지 않는지 확인 합니다.
 
-- 온라인 백업 상태가 **사용**으로 설정 되어 있는지 확인 합니다. 상태를 확인 하려면 다음 단계를 수행 합니다.
+- 온라인 백업 상태가 **사용** 으로 설정 되어 있는지 확인 합니다. 상태를 확인 하려면 다음 단계를 수행 합니다.
 
-  1. 작업 스케줄러에서 **Microsoft** 를 확장 하 고 **온라인 백업**을 선택 합니다.
+  1. 작업 스케줄러에서 **Microsoft** 를 확장 하 고 **온라인 백업** 을 선택 합니다.
   1. **Microsoft-onlinebackup.kek 파일이** 을 두 번 클릭 하 고 **트리거** 탭으로 이동 합니다.
-  1. 상태가 **사용**으로 설정 되어 있는지 확인 합니다. 그렇지 않은 경우 **편집**을 선택 하 고 **사용**을 선택한 다음 **확인**을 선택 합니다.
+  1. 상태가 **사용** 으로 설정 되어 있는지 확인 합니다. 그렇지 않은 경우 **편집** 을 선택 하 고 **사용** 을 선택한 다음 **확인** 을 선택 합니다.
 
 - 작업을 실행 하기 위해 선택한 사용자 계정이 서버에서 **시스템** 또는 **로컬 관리자 그룹** 인지 확인 합니다. 사용자 계정을 확인 하려면 **일반** 탭으로 이동 하 고 **보안** 옵션을 선택 합니다.
 
@@ -173,20 +173,20 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>다른 작업이 진행 중 이므로 작업을 시작할 수 없습니다.
 
-**MARS 콘솔**  >  **작업 기록**에 "다른 작업이 진행 중 이므로 작업을 시작할 수 없습니다." 라는 경고 메시지가 표시 되는 경우이는 작업 스케줄러에 의해 트리거된 작업의 중복 인스턴스 때문일 수 있습니다.
+**MARS 콘솔**  >  **작업 기록** 에 "다른 작업이 진행 중 이므로 작업을 시작할 수 없습니다." 라는 경고 메시지가 표시 되는 경우이는 작업 스케줄러에 의해 트리거된 작업의 중복 인스턴스 때문일 수 있습니다.
 
 ![다른 작업이 진행 중 이므로 작업을 시작할 수 없습니다.](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
 이 문제를 해결하려면:
 
 1. 실행 창에 *taskschd* 를 입력 하 여 작업 스케줄러 스냅인을 시작 합니다.
-1. 왼쪽 창에서 **작업 스케줄러 Library**  ->  **Microsoft**  ->  **onlinebackup.kek 파일이**로 이동 합니다.
+1. 왼쪽 창에서 **작업 스케줄러 Library**  ->  **Microsoft**  ->  **onlinebackup.kek 파일이** 로 이동 합니다.
 1. 이 라이브러리의 각 태스크에 대해 작업을 두 번 클릭 하 여 속성을 열고 다음 단계를 수행 합니다.
     1. **설정** 탭으로 전환합니다.
 
          ![설정 탭](./media/backup-azure-mars-troubleshoot/settings-tab.png)
 
-    1. **태스크가 이미 실행 중인 경우**에 대 한 옵션을 변경 하면 다음 규칙이 적용 됩니다. **새 인스턴스 시작 안 함을**선택 합니다.
+    1. **태스크가 이미 실행 중인 경우** 에 대 한 옵션을 변경 하면 다음 규칙이 적용 됩니다. **새 인스턴스 시작 안 함을** 선택 합니다.
 
          ![규칙을 변경 하 여 새 인스턴스 시작 안 함](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
@@ -196,23 +196,23 @@ Set-ExecutionPolicy Unrestricted
 
 1. 몇 분 동안 실행 되 고 있는 경우 탑재 프로세스를 취소 합니다.
 
-2. 최신 버전의 백업 에이전트가 있는지 확인 합니다. 버전을 확인 하려면 MARS 콘솔의 **작업** 창에서 **정보 Microsoft Azure Recovery Services 에이전트 정보**를 선택 합니다. **버전** 번호가 [이 문서](https://go.microsoft.com/fwlink/?linkid=229525)에 언급된 버전보다 높거나 같은지 확인합니다. [최신 버전을 다운로드](https://go.microsoft.com/fwLink/?LinkID=288905)하려면이 링크를 선택 합니다.
+2. 최신 버전의 백업 에이전트가 있는지 확인 합니다. 버전을 확인 하려면 MARS 콘솔의 **작업** 창에서 **정보 Microsoft Azure Recovery Services 에이전트 정보** 를 선택 합니다. **버전** 번호가 [이 문서](https://go.microsoft.com/fwlink/?linkid=229525)에 언급된 버전보다 높거나 같은지 확인합니다. [최신 버전을 다운로드](https://go.microsoft.com/fwLink/?LinkID=288905)하려면이 링크를 선택 합니다.
 
-3. **Device Manager**  >  **저장소 컨트롤러** 로 이동 하 여 **Microsoft iSCSI 초기자**를 찾습니다. 찾은 경우 7 단계로 직접 이동 합니다.
+3. **Device Manager**  >  **저장소 컨트롤러** 로 이동 하 여 **Microsoft iSCSI 초기자** 를 찾습니다. 찾은 경우 7 단계로 직접 이동 합니다.
 
-4. Microsoft iSCSI 초기자 서비스를 찾을 수 없는 경우 **Device Manager**  >  하드웨어 ID **ROOT\ISCSIPRT**를 사용 하 여 **알 수 없는 장치** 라는 Device Manager**저장소 컨트롤러** 에서 항목을 찾으려고 시도 합니다.
+4. Microsoft iSCSI 초기자 서비스를 찾을 수 없는 경우 **Device Manager**  >  하드웨어 ID **ROOT\ISCSIPRT** 를 사용 하 여 **알 수 없는 장치** 라는 Device Manager **저장소 컨트롤러** 에서 항목을 찾으려고 시도 합니다.
 
-5. **알 수 없는 장치** 를 마우스 오른쪽 단추로 클릭 하 고 **드라이버 소프트웨어 업데이트**를 선택 합니다.
+5. **알 수 없는 장치** 를 마우스 오른쪽 단추로 클릭 하 고 **드라이버 소프트웨어 업데이트** 를 선택 합니다.
 
-6. **업데이트된 드라이버 소프트웨어를 자동으로 검색**하는 옵션을 선택하여 드라이버를 업데이트합니다. 이 업데이트는 **알 수 없는 장치** 를 **Microsoft iSCSI 시작자**로 변경 해야 합니다.
+6. **업데이트된 드라이버 소프트웨어를 자동으로 검색** 하는 옵션을 선택하여 드라이버를 업데이트합니다. 이 업데이트는 **알 수 없는 장치** 를 **Microsoft iSCSI 시작자** 로 변경 해야 합니다.
 
     ![스토리지 컨트롤러가 강조 표시된 Azure Backup 디바이스 관리자의 스크린샷](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. **작업 관리자**  >  **서비스 (로컬)**  >  **Microsoft iSCSI 초기자 서비스**로 이동 합니다.
+7. **작업 관리자**  >  **서비스 (로컬)**  >  **Microsoft iSCSI 초기자 서비스** 로 이동 합니다.
 
     ![서비스(로컬)가 강조 표시된 Azure Backup 작업 관리자의 스크린샷](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8. Microsoft iSCSI 초기자 서비스를 다시 시작합니다. 이렇게 하려면 해당 서비스를 마우스 오른쪽 단추로 클릭 하 고 **중지**를 선택 합니다. 그런 다음 다시 마우스 오른쪽 단추를 클릭 하 고 **시작**을 선택 합니다.
+8. Microsoft iSCSI 초기자 서비스를 다시 시작합니다. 이렇게 하려면 해당 서비스를 마우스 오른쪽 단추로 클릭 하 고 **중지** 를 선택 합니다. 그런 다음 다시 마우스 오른쪽 단추를 클릭 하 고 **시작** 을 선택 합니다.
 
 9. [인스턴트 복원](backup-instant-restore-capability.md)을 사용하여 복구를 다시 시도합니다.
 

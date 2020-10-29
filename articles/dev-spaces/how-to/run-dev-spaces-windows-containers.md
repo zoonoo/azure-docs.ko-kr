@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 51a91c9ff74c4d0d1c5bccff2f1033eb14cd9198
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e6c4279717ef0a7bed0a66a9b0dba1d78e418835
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972937"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900164"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 
@@ -71,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev*라는 이름의 네임 스페이스가 없으면 생성 됩니다.
+위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev* 라는 이름의 네임 스페이스가 없으면 생성 됩니다.
 
 명령을 사용 `kubectl get pods` 하 여 클러스터에서 Windows 서비스가 실행 되 고 있는지 확인 합니다. 
 
@@ -122,7 +122,7 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-위의 예제에서 배포 이름은 *windows 서비스*입니다. 다음을 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다 `helm upgrade` .
+위의 예제에서 배포 이름은 *windows 서비스* 입니다. 다음을 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다 `helm upgrade` .
 
 ```cmd
 helm upgrade windows-service . --namespace dev
@@ -180,5 +180,5 @@ Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

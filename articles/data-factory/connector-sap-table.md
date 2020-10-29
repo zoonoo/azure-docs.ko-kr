@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900264"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -51,12 +51,13 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 - 기본 또는 사용자 지정 RFC를 통해 데이터를 검색 합니다.
 
 버전 7.01 이상에서는 SAP ECC 버전 대신 SAP NetWeaver 버전을 참조 합니다. 예를 들어 SAP ECC 6.0 EHP 7은 일반적으로 NetWeaver 버전 >= 7.4입니다. 사용자 환경에 대해 잘 모를 경우 SAP 시스템에서 버전을 확인 하는 단계는 다음과 같습니다.
-1.  Sap GUI를 사용 하 여 SAP 시스템에 연결 합니다. 
-2.  **시스템**  ->  **상태**로 이동 합니다. 
-3.  SAP_BASIS의 릴리스를 확인 하 여 701 보다 크거나 같은지 확인 합니다.  
+
+1. Sap GUI를 사용 하 여 SAP 시스템에 연결 합니다. 
+2. **시스템**  ->  **상태** 로 이동 합니다. 
+3. SAP_BASIS의 릴리스를 확인 하 여 701 보다 크거나 같은지 확인 합니다.  
       ![SAP_BASIS 확인](./media/connector-sap-table/sap-basis.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 SAP 테이블 커넥터를 사용 하려면 다음을 수행 해야 합니다.
 
@@ -81,7 +82,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 다음은 SAP BW 열려 있는 허브 연결 된 서비스에 대해 지원 되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>를 사용 하 여 SAP 응용 프로그램 서버에 연결 합니다. | 아니요 |
@@ -189,7 +190,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -221,12 +222,12 @@ SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려�
 
 SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 아니요       |
-| `rfcTableFields`                 | SAP 테이블에서 복사할 필드 (열)입니다. 예들 들어 `column0, column1`입니다. | 아니요       |
-| `rfcTableOptions`                | SAP 테이블의 행을 필터링 하는 옵션입니다. 예들 들어 `COLUMN0 EQ 'SOMEVALUE'`입니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
+| `rfcTableFields`                 | SAP 테이블에서 복사할 필드 (열)입니다. 예: `column0, column1`. | 아니요       |
+| `rfcTableOptions`                | SAP 테이블의 행을 필터링 하는 옵션입니다. 예: `COLUMN0 EQ 'SOMEVALUE'`. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
 | `customRfcReadTableFunctionModule` | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다.<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터를 검색 하 여 Data Factory로 반환 하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용 하는 기본 인터페이스인와 비슷한 구현 된 인터페이스 (가져오기, 내보내기, 테이블)가 있어야 합니다 `/SAPDS/RFC_READ_TABLE2` .<br>Data Factory | 아니요       |
 | `partitionOption`                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원되는 옵션은 다음과 같습니다. <ul><li>`None`</li><li>`PartitionOnInt` (와 같이 왼쪽의 안쪽 여백이 0 인 법선 정수 또는 정수 값 `0000012345` )</li><li>`PartitionOnCalendarYear` ("YYYY" 형식의 4 자리 숫자)</li><li>`PartitionOnCalendarMonth` ("YYYYMM" 형식의 6 자리 숫자)</li><li>`PartitionOnCalendarDate` ("YYYYMMDD" 형식의 8 진수)</li></ul> | 아니요       |
 | `partitionColumnName`              | 데이터를 분할 하는 데 사용 되는 열의 이름입니다.                | 아니요       |

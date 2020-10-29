@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514404"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900292"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 전역 릴레이 Id 동기화 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 전역 릴레이 Id 동기화 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [전역 릴레이 Id 동기화](https://portalalpha1.globalrelay.com/) 로 자동으로 프로 비전 및 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 전역 릴레이 Id 동기화 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 전역 릴레이 Id 동기화로 자동으로 프로 비전 및 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -50,7 +50,7 @@ ms.locfileid: "92514404"
 
 테 넌 트 url을 받으려면 전역 릴레이 Id 동기화 담당자에 게 문의 하세요. 이 값은 Azure Portal의 전역 릴레이 Id 동기화 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 필드에 입력 됩니다.
 
-## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 전역 릴레이 Id 동기화 추가
+## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 전역 릴레이 Id 동기화 추가
 
 Azure AD 응용 프로그램 갤러리에서 전역 릴레이 Id 동기화를 추가 하 여 전역 릴레이 Id 동기화에 대 한 프로 비전 관리를 시작 합니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)에서 갤러리에서 응용 프로그램을 추가 하는 방법에 대해 자세히 알아보세요. 
 
@@ -67,11 +67,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Azure AD에서 전역 릴레이 Id 동기화에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 응용 프로그램 목록에서 **전역 릴레이 Id 동기화**를 선택 합니다.
+2. 응용 프로그램 목록에서 **전역 릴레이 Id 동기화** 를 선택 합니다.
 
     ![응용 프로그램 목록의 전역 릴레이 Id 동기화 링크](common/all-applications.png)
 
@@ -79,11 +79,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션에서 전역 릴레이 Id 동기화 **테 넌 트 url**을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 전역 릴레이 id 동기화에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 전역 릴레이 Id 동기화 계정에 관리자 권한이 있는지 확인 하 고 글로벌 릴레이 담당자에 게 문의 하 여 문제를 해결 하십시오.
+5. **관리자 자격 증명** 섹션에서 전역 릴레이 Id 동기화 **테 넌 트 url** 을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 전역 릴레이 id 동기화에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 전역 릴레이 Id 동기화 계정에 관리자 권한이 있는지 확인 하 고 글로벌 릴레이 담당자에 게 문의 하 여 문제를 해결 하십시오.
 
     ![권한 부여 단추](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
@@ -91,9 +91,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 선택합니다.
+7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 전역 릴레이 Id 동기화와 동기화**를 선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 전역 릴레이 Id 동기화와 동기화** 를 선택 합니다.
 
 9. **특성 매핑** 섹션에서 Azure AD에서 전역 릴레이 id 동기화로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 전역 릴레이 id 동기화의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 전역 릴레이 ID 동기화 API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -103,7 +103,6 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |활성|부울|
    |displayName|String|
    |title|String|
-   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -170,7 +169,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 
 
-10. **매핑** 섹션에서 **전역 릴레이 id 동기화에 Azure Active Directory 그룹 동기화를**선택 합니다.
+10. **매핑** 섹션에서 **전역 릴레이 id 동기화에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 
 11. **특성 매핑** 섹션에서 Azure AD에서 전역 릴레이 id 동기화로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 전역 릴레이 id 동기화의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -189,11 +188,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.

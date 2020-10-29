@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022278"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900823"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -29,19 +29,19 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 **모범 사례 지침** - 다른 사용자 또는 그룹 권한으로 실행하고 기본 노드 프로세스 및 서비스에 대한 액세스를 제한하려면 pod 보안 컨텍스트 설정을 정의합니다. 필요한 최소 권한 수를 할당합니다.
 
-애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup*와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *runAsUser*, 권한 상승 및 기타 Linux 기능 설정은 Linux 노드 및 Pod에서만 사용할 수 있습니다.
+애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup* 와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *runAsUser* , 권한 상승 및 기타 Linux 기능 설정은 Linux 노드 및 Pod에서만 사용할 수 있습니다.
 
 루트가 아닌 사용자 권한으로 실행하면 컨테이너는 1024 미만의 권한 있는 포트에 바인딩할 수 없습니다. 이 시나리오에서는 Kubernetes 서비스를 사용하여 앱이 특정 포트에서 실행되고 있는 것처럼 가장할 수 있습니다.
 
 또한 pod 보안 컨텍스트는 프로세스 및 서비스에 액세스하기 위한 추가 기능 또는 권한을 정의할 수도 있습니다. 다음과 같은 일반적인 보안 컨텍스트 정의를 설정할 수 있습니다.
 
-* **allowPrivilegeEscalation**은 pod가 *루트* 권한을 가정할 수 있는지를 정의합니다. 이 설정이 항상 *false*로 설정되도록 애플리케이션을 디자인합니다.
-* **Linux 기능**을 사용하여 pod가 기본 노드 프로세스에 액세스하도록 할 수 있습니다. 이러한 기능을 할당할 때는 주의해야 합니다. 필요한 최소 권한 수를 할당합니다. 자세한 내용은 [Linux 기능][linux-capabilities]을 참조하세요.
-* **SELinux 레이블**은 서비스, 프로세스 및 파일 시스템 액세스에 대한 액세스 정책을 정의할 수 있는 Linux 커널 보안 모듈입니다. 마찬가지로 필요한 최소 권한 수를 할당합니다. 자세한 내용은 [Kubernetes의 SELinux 옵션][selinux-labels]을 참조하세요.
+* **allowPrivilegeEscalation** 은 pod가 *루트* 권한을 가정할 수 있는지를 정의합니다. 이 설정이 항상 *false* 로 설정되도록 애플리케이션을 디자인합니다.
+* **Linux 기능** 을 사용하여 pod가 기본 노드 프로세스에 액세스하도록 할 수 있습니다. 이러한 기능을 할당할 때는 주의해야 합니다. 필요한 최소 권한 수를 할당합니다. 자세한 내용은 [Linux 기능][linux-capabilities]을 참조하세요.
+* **SELinux 레이블** 은 서비스, 프로세스 및 파일 시스템 액세스에 대한 액세스 정책을 정의할 수 있는 Linux 커널 보안 모듈입니다. 마찬가지로 필요한 최소 권한 수를 할당합니다. 자세한 내용은 [Kubernetes의 SELinux 옵션][selinux-labels]을 참조하세요.
 
 다음 예제 pod YAML 매니페스트는 정의할 보안 컨텍스트 설정을 지정합니다.
 
-* Pod는 사용자 ID *1000*과 그룹 ID *2000*의 일부로 실행됩니다.
+* Pod는 사용자 ID *1000* 과 그룹 ID *2000* 의 일부로 실행됩니다.
 * `root`를 사용하도록 권한을 에스컬레이션할 수 없습니다.
 * Linux 기능이 네트워크 인터페이스 및 호스트의 실시간(하드웨어) 클록에 액세스할 수 있도록 허용합니다.
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false

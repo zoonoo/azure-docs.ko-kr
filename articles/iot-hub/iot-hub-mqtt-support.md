@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150790"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899096"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -44,7 +44,7 @@ MQTT 포트(8883)는 많은 회사 및 교육 네트워킹 환경에서 차단�
 
 ## <a name="using-the-device-sdks"></a>디바이스 SDK 사용
 
-MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통한 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다. 더 빠른 메시지 교환에 대해 **QoS 0** 을 구성할 수 있지만 배달이 보장 되거나 승인 되지 않는다는 점에 유의 해야 합니다. 이러한 이유로, **QoS 0** 을 종종 "화재 and 잊어버린" 이라고 합니다.
+MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT** 에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통한 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0** 으로 설정된 IoT Hub에 연결되고 **QoS 1** 을 사용하여 IoT Hub와 메시지를 교환합니다. 더 빠른 메시지 교환에 대해 **QoS 0** 을 구성할 수 있지만 배달이 보장 되거나 승인 되지 않는다는 점에 유의 해야 합니다. 이러한 이유로, **QoS 0** 을 종종 "화재 and 잊어버린" 이라고 합니다.
 
 디바이스가 IoT Hub에 연결되면 디바이스 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
 
@@ -139,11 +139,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 디바이스는 다음 값을 사용해야 합니다.
 
-* **ClientId** 필드에 **deviceId**를 사용합니다.
+* **ClientId** 필드에 **deviceId** 를 사용합니다.
 
 * **Username** 필드에 `{iothubhostname}/{device_id}/?api-version=2018-06-30`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
 
-    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 디바이스의 이름이 **MyDevice01**이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
+    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net** 이고 디바이스의 이름이 **MyDevice01** 이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
@@ -162,9 +162,9 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 디바이스** 탭을 확장합니다.
   
-2. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 대한 SAS 토큰 생성**을 선택합니다.
+2. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 대한 SAS 토큰 생성** 을 선택합니다.
   
-3. **만료 시간**을 설정하고 'Enter' 키를 누릅니다.
+3. **만료 시간** 을 설정하고 'Enter' 키를 누릅니다.
   
 4. SAS 토큰이 생성되어 클립보드에 복사됩니다.
 
@@ -283,7 +283,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름** 으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -294,9 +294,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 다음은 IoT Hub 구현 관련 동작의 목록입니다.
 
-* IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 디바이스 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
+* IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 디바이스 앱이 **QoS 2** 의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
 
-* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 디바이스가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 애플리케이션 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치에서 **RETAIN** 플래그가 1로 설정 된 메시지를 보내는 경우 IoT Hub는 **mqtt-RETAIN** 응용 프로그램 속성을 메시지에 추가 합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
 
 * IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 디바이스 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
 
@@ -304,11 +304,11 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ## <a name="receiving-cloud-to-device-messages"></a>클라우드-디바이스 메시지 수신
 
-IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
+IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터** 로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
-장치는 토픽 필터로 표시 되는 장치 특정 끝점을 성공적으로 구독할 때까지 IoT Hub의 메시지를 수신 하지 않습니다 `devices/{device_id}/messages/devicebound/#` . 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
+장치는 토픽 필터로 표시 되는 장치 특정 끝점을 성공적으로 구독할 때까지 IoT Hub의 메시지를 수신 하지 않습니다 `devices/{device_id}/messages/devicebound/#` . 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0** 으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0** 으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1** 로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
-IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다. 속성 모음 형식에 대 한 자세한 내용은 [장치-클라우드 메시지 보내기](#sending-device-to-cloud-messages)를 참조 하세요.
+IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId** )만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다. 속성 모음 형식에 대 한 자세한 내용은 [장치-클라우드 메시지 보내기](#sending-device-to-cloud-messages)를 참조 하세요.
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
@@ -318,17 +318,17 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
 | null이 아닌 값이 비어 있지 않습니다. | `key=value` | 키 뒤에 등호와 값을 입력 합니다. |
 
-다음 예제에서는 세 가지 응용 프로그램 속성이 포함 된 속성 모음을 보여 줍니다. **prop1** 값은 `null` **prop2**, 빈 문자열 (""); and **prop3** 를 사용 하 여 값을 "a string"으로 바꿉니다.
+다음 예제에서는 세 가지 응용 프로그램 속성이 포함 된 속성 모음을 보여 줍니다. **prop1** 값은 `null` **prop2** , 빈 문자열 (""); and **prop3** 를 사용 하 여 값을 "a string"으로 바꿉니다.
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string
 ```
 
-디바이스 앱이 **QoS 2**의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다. 그런 다음 IoT Hub는 메시지를 QoS 1을 사용하는 디바이스에 전달합니다.
+디바이스 앱이 **QoS 2** 의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다. 그런 다음 IoT Hub는 메시지를 QoS 1을 사용하는 디바이스에 전달합니다.
 
 ## <a name="retrieving-a-device-twins-properties"></a>디바이스 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID** 에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID** 를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드](iot-hub-devguide-messaging.md)에 따라 메시지 속성 값에 대 한 유효한 값일 수 있으며 상태는 정수로 유효성이 검사 됩니다.
 
@@ -368,7 +368,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 2. 디바이스는 디바이스 쌍 업데이트를 포함하는 메시지를 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 항목에 전송합니다. 이 메시지는 **요청 ID** 값을 포함합니다.
 
-3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
+3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID** 를 요청으로 사용합니다.
 
 요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. 멤버가 포함 하는 `null` 개체에서 멤버를 삭제 하도록 설정 되어 있습니다. 다음은 그 예입니다.
 
@@ -429,7 +429,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 먼저 디바이스가 `$iothub/methods/POST/#`을 구독해야 합니다. IoT Hub는 `$iothub/methods/POST/{method name}/?$rid={request id}` 항목에 유효한 JSON 또는 빈 본문으로 메서드 요청을 보냅니다.
 
-응답하기 위해 디바이스는 올바른 JSON 또는 빈 본문이 있는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 토픽에 보냅니다. 이 메시지에서 **요청 ID**는 요청 메시지의 것과 일치하고 **상태**는 정수여야 합니다.
+응답하기 위해 디바이스는 올바른 JSON 또는 빈 본문이 있는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 토픽에 보냅니다. 이 메시지에서 **요청 ID** 는 요청 메시지의 것과 일치하고 **상태** 는 정수여야 합니다.
 
 자세한 내용은 [직접 메서드 개발자 가이드](iot-hub-devguide-direct-methods.md)를 참조 하세요.
 

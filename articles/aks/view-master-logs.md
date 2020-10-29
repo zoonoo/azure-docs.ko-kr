@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드에 
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368454"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899934"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -25,21 +25,21 @@ Azure Monitor 로그는 여러 원본의 데이터를 수집하고 검토하는 
 
 Azure Monitor 로그는 Azure Portal에서 사용 하도록 설정 되 고 관리 됩니다. AKS 클러스터의 Kubernetes 마스터 구성 요소에 대한 로그 수집을 사용하도록 설정하려면 웹 브라우저에서 Azure Portal을 열고 다음 단계를 완료하세요.
 
-1. AKS 클러스터의 리소스 그룹(예: *myResourceGroup*)을 선택합니다. 개별 AKS 클러스터 리소스가 포함된 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus*)은 선택하지 마세요.
-1. 왼쪽에서 **진단 설정**을 선택합니다.
-1. AKS 클러스터를 선택 하 고 (예: *myAKSCluster*) **진단 설정을 추가**하도록 선택 합니다.
-1. *myAKSClusterLogs*와 같은 이름을 입력한 후 **Log Analytics에 보내기** 옵션을 선택합니다.
+1. AKS 클러스터의 리소스 그룹(예: *myResourceGroup* )을 선택합니다. 개별 AKS 클러스터 리소스가 포함된 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus* )은 선택하지 마세요.
+1. 왼쪽에서 **진단 설정** 을 선택합니다.
+1. AKS 클러스터를 선택 하 고 (예: *myAKSCluster* ) **진단 설정을 추가** 하도록 선택 합니다.
+1. *myAKSClusterLogs* 와 같은 이름을 입력한 후 **Log Analytics에 보내기** 옵션을 선택합니다.
 1. 기존 작업 영역을 선택 하거나 새 작업 영역을 만듭니다. 작업 영역을 만드는 경우 작업 영역 이름, 리소스 그룹 및 위치를 제공 합니다.
-1. 사용 가능한 로그 목록에서 사용하도록 설정하려는 로그를 선택합니다. 이 예에서는 *kube* 및 *kube* 로그를 사용 하도록 설정 합니다. 일반적인 로그에는 *kube 서버*, *kube*및 *kube*가 포함 됩니다. Log Analytics 작업 영역이 사용하도록 설정되면 수집된 로그를 반환하고 변경할 수 있습니다.
-1. 준비되면 **저장**을 선택하여 선택된 로그의 수집을 사용하도록 설정합니다.
+1. 사용 가능한 로그 목록에서 사용하도록 설정하려는 로그를 선택합니다. 이 예에서는 *kube* 및 *kube* 로그를 사용 하도록 설정 합니다. 일반적인 로그에는 *kube 서버* , *kube* 및 *kube* 가 포함 됩니다. Log Analytics 작업 영역이 사용하도록 설정되면 수집된 로그를 반환하고 변경할 수 있습니다.
+1. 준비되면 **저장** 을 선택하여 선택된 로그의 수집을 사용하도록 설정합니다.
 
 ## <a name="log-categories"></a>로그 범주
 
 Kubernetes에서 작성 한 항목 외에도 프로젝트의 감사 로그에는 AKS의 항목이 있습니다.
 
-감사 로그는 *kube*, *kube*및 *guard*의 세 가지 범주로 기록 됩니다.
+감사 로그는 *kube* , *kube* 및 *guard* 의 세 가지 범주로 기록 됩니다.
 
-- *Kube* 범주에는 *get*, *list*, *create*, *update*, *delete*, *patch*, *post*등의 모든 감사 이벤트에 대 한 모든 감사 로그 데이터가 포함 되어 있습니다.
+- *Kube* 범주에는 *get* , *list* , *create* , *update* , *delete* , *patch* , *post* 등의 모든 감사 이벤트에 대 한 모든 감사 로그 데이터가 포함 되어 있습니다.
 - *Kube* 범주는 *kube* 로그 범주의 하위 집합입니다. *kube-admin* 은 로그의 *get* 및 *list* 감사 이벤트를 제외 하 여 로그 수를 크게 줄입니다.
 - *가드* 범주는 관리 되는 azure AD 및 azure RBAC 감사입니다. 관리 되는 Azure AD:의 토큰, 사용자 정보 출력 Azure RBAC:에 대 한 액세스 검토
 
@@ -55,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -84,7 +84,7 @@ pod/nginx created
 
 Azure Portal에서 AKS 클러스터로 이동 하 고 왼쪽에 있는 **로그** 를 선택 합니다. *예제 쿼리* 창이 나타나면 닫습니다.
 
-왼쪽에서 **로그**를 선택합니다. *Kube-감사* 로그를 보려면 텍스트 상자에 다음 쿼리를 입력 합니다.
+왼쪽에서 **로그** 를 선택합니다. *Kube-감사* 로그를 보려면 텍스트 상자에 다음 쿼리를 입력 합니다.
 
 ```
 AzureDiagnostics
@@ -109,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-이 예제에서 쿼리는 *kube*에서 모든 만들기 작업을 표시 합니다. 다음 예제 쿼리와 같이 쿼리를 축소 하 여 이전 단계에서 만든 NGINX pod에 대 한 로그를 확인 하 고, 다음 예제 쿼리와 같이 *NGINX* 을 검색할 추가 *where* 문을 추가 하는 결과가 많이 반환 될 가능성이 높습니다.
+이 예제에서 쿼리는 *kube* 에서 모든 만들기 작업을 표시 합니다. 다음 예제 쿼리와 같이 쿼리를 축소 하 여 이전 단계에서 만든 NGINX pod에 대 한 로그를 확인 하 고, 다음 예제 쿼리와 같이 *NGINX* 을 검색할 추가 *where* 문을 추가 하는 결과가 많이 반환 될 가능성이 높습니다.
 
 ```
 AzureDiagnostics
@@ -145,7 +145,7 @@ AKS는 다음 이벤트를 로깅합니다.
 
 ## <a name="log-roles"></a>로그 역할
 
-| 역할                     | 설명 |
+| 역할                     | Description |
 |--------------------------|-------------|
 | *aksService*             | HcpService의 제어 평면 작업에 대 한 감사 로그의 표시 이름입니다. |
 | *masterclient*           | MasterClientCertificate에 대 한 감사 로그의 표시 이름, az aks get 자격 증명에서 가져온 인증서 |

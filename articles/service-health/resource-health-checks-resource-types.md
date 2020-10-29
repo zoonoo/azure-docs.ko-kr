@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 79f979b55366d29ca8cf22a1e65ebdcc557ef594
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316116"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899493"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -118,6 +118,11 @@ ms.locfileid: "92316116"
 |실행된 검사|
 |---|
 |<ul><li>IoT Hub가 실행되고 있는가?</li></ul>|
+
+## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>DigitalTwins/DigitalTwinsInstances
+|실행된 검사|
+|---|
+|<ul><li>Azure Digital Twins 인스턴스가 작동 하 고 실행 되 고 있나요?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |실행된 검사|

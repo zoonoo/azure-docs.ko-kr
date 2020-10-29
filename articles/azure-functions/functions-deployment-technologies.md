@@ -4,12 +4,12 @@ description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900166"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -33,7 +33,7 @@ Azure에 코드를 게시 하는 데 사용 하는 배포 기술은 일반적으
 
 Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호스팅을 지원 합니다. 현재 세 가지 호스팅 요금제를 사용할 수 있습니다.
 
-+ [Consumption](functions-scale.md#consumption-plan)
++ [소비율](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [전용 (App Service)](functions-scale.md#app-service-plan)
 
@@ -128,7 +128,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 >__사용 방법:__ 프리미엄 또는 전용 계획에서 Linux 함수 앱을 만들고 실행할 컨테이너 이미지를 지정 합니다. 다음 두 가지 방법으로 수행할 수 있습니다.
 >
->* Azure Portal에서 Azure App Service 계획에 Linux 함수 앱을 만듭니다. **게시**에서 **Docker 이미지**를 선택 하 고 컨테이너를 구성 합니다. 이미지가 호스트 되는 위치를 입력 합니다.
+>* Azure Portal에서 Azure App Service 계획에 Linux 함수 앱을 만듭니다. **게시** 에서 **Docker 이미지** 를 선택 하 고 컨테이너를 구성 합니다. 이미지가 호스트 되는 위치를 입력 합니다.
 >* Azure CLI를 사용 하 여 App Service 계획에서 Linux 함수 앱을 만듭니다. 방법을 알아보려면 [사용자 지정 이미지를 사용 하 여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function)를 참조 하세요.
 >
 >사용자 지정 컨테이너를 사용 하 여 기존 앱에 배포 하려면 [Azure Functions Core Tools](functions-run-local.md)에서 [`func deploy`](functions-run-local.md#publish) 명령을 사용 합니다.
@@ -212,7 +212,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 ## <a name="deployment-slots"></a>배포 슬롯
 
-함수 앱을 Azure에 배포 하는 경우 프로덕션에 직접 배포 하는 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯에 대 한 자세한 내용은 [Azure Functions 배포 슬롯](../app-service/deploy-staging-slots.md) 설명서를 참조 하세요.
+함수 앱을 Azure에 배포 하는 경우 프로덕션에 직접 배포 하는 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯에 대 한 자세한 내용은 [Azure Functions 배포 슬롯](functions-deployment-slots.md) 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

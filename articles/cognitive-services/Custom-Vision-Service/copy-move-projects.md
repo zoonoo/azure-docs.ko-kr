@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758577"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900321"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Custom Vision 프로젝트 복사 및 이동
 
@@ -26,7 +26,7 @@ Custom Vision 프로젝트를 만들고 학습 한 후에는 프로젝트를 다
 
 앱 또는 비즈니스가 Custom Vision 프로젝트 사용에 따라 달라 지는 경우 다른 지역의 다른 Custom Vision 계정으로 모델을 복사 하는 것이 좋습니다. 그런 다음 지역 중단이 발생 하면 복사 된 지역에서 프로젝트에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>필수 구성 요소
+##  <a name="prerequisites"></a>사전 요구 사항
 
 - 두 개의 Azure Custom Vision 리소스 없는 경우 Azure Portal으로 이동 하 여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Custom Vision 리소스의 학습 키 및 끝점 Url입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
@@ -105,8 +105,9 @@ curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects/{projectId}/expor
 참조 토큰과 함께 대상 학습 키 및 끝점을 사용 하 여 **[Importproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** 를 호출 합니다. 새 계정에서 프로젝트에 이름을 지정할 수도 있습니다.
 
 ```curl
-curl -v -X POST "{endpoint}/customvision/v3.3/Training/projects/import?token={token}?name={name}"
--H "Training-key: {training key}"
+curl -v -G -X POST "{endpoint}/customvision/v3.3/Training/projects/import"
+--data-urlencode "token={token}" --data-urlencode "name={name}"
+-H "Training-key: {training key}" -H "Content-Length: 0"
 ```
 
 `200/OK`새로 가져온 프로젝트에 대 한 메타 데이터가 포함 된 응답을 받게 됩니다.

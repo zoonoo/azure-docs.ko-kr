@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: 640b148dc22aa87592a6adcfca99c8ed35731934
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 23520a0249e22b3f81c7f7c598ef10d8c3acb550
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220604"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900194"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Network Watcher 확장을 최신 버전으로 업데이트 합니다.
 
@@ -79,10 +79,10 @@ PowerShell 스크린샷에는 다음과 같은 내용이 표시 됩니다. ![](.
 
 ```powershell
 #Linux command
-Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"   
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"
 
 #Windows command
-Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"
 ```
 
 작동 하지 않는 경우입니다. 아래 단계를 사용 하 여 확장을 제거 하 고 다시 설치 합니다. 그러면 최신 버전이 자동으로 추가 됩니다.
@@ -130,10 +130,10 @@ az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n 
 
 ```azurecli
 #Linux command
-az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher"  
+az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher"
 
 #Windows command
-az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" 
+az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher"
 
 ```
 
@@ -141,6 +141,6 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 Network Watcher 확장에 대해 자동 업그레이드를 true로 설정한 경우 VM 설치를 최신 확장으로 다시 부팅 합니다.
 
-## <a name="support"></a>지원
+## <a name="support"></a>Support(지원)
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [Linux](./network-watcher-linux.md) 또는 [Windows](./network-watcher-windows.md)에 대 한 Network Watcher 확장 설명서를 참조 하세요. [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 azure 전문가에 게 문의할 수도 있습니다. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 [Linux](./network-watcher-linux.md) 또는 [Windows](./network-watcher-windows.md)에 대 한 Network Watcher 확장 설명서를 참조 하세요. [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 azure 전문가에 게 문의할 수도 있습니다. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기** 를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

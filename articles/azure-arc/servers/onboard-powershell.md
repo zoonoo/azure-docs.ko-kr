@@ -1,14 +1,14 @@
 ---
 title: PowerShell을 사용 하 여 하이브리드 컴퓨터를 Azure에 연결
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891944"
+ms.locfileid: "92901538"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>PowerShell을 사용 하 여 하이브리드 컴퓨터를 Azure에 연결
 
@@ -22,7 +22,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
+- Azure PowerShell 있는 컴퓨터입니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
 Azure PowerShell를 사용 하 여 Arc 사용 서버에서 관리 하는 하이브리드 서버에서 VM 확장을 관리 하려면 먼저 모듈을 설치 해야 `Az.ConnectedMachine` 합니다. Arc 사용 서버에서 다음 명령을 실행 합니다.
 
@@ -44,21 +44,21 @@ Install-Module -Name Az.ConnectedMachine
 
     * Azure와 직접 통신할 수 있는 대상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하려면 다음을 실행 합니다.
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * 프록시 서버를 통해 통신 하는 대상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하려면 다음을 실행 합니다.
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* 의 Windows와 */var/opt/azcmagent/log/himds.log* 의 Linux
 
 ## <a name="install-and-connect-using-powershell-remoting"></a>PowerShell 원격을 사용 하 여 설치 및 연결
 
-Azure Arc 사용 서버를 사용 하 여 대상 Windows 서버 또는 컴퓨터를 구성 하려면 다음 단계를 수행 합니다. 원격 컴퓨터에서 PowerShell 원격을 사용 하도록 설정 해야 합니다. PowerShell 원격 기능을 사용하려면 `Enable-PSRemoting` cmdlet을 사용하세요.
+Azure Arc 사용 서버를 사용 하 여 하나 이상의 Windows server를 구성 하려면 다음 단계를 수행 합니다. 원격 컴퓨터에서 PowerShell 원격을 사용 하도록 설정 해야 합니다. PowerShell 원격 기능을 사용하려면 `Enable-PSRemoting` cmdlet을 사용하세요.
 
 1. 관리자 권한으로 PowerShell 콘솔을 엽니다.
 
@@ -66,25 +66,32 @@ Azure Arc 사용 서버를 사용 하 여 대상 Windows 서버 또는 컴퓨터
 
 3. 연결 된 컴퓨터 에이전트를 설치 하려면 `Connect-AzConnectedMachine` `-Name` , `-ResourceGroupName` 및 매개 변수와 함께를 사용 `-Location` 합니다. `-SubscriptionId`로그인 후 만든 Azure 컨텍스트의 결과로 기본 구독을 재정의 하려면 매개 변수를 사용 합니다.
 
-Azure와 직접 통신할 수 있는 대상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하려면 다음 명령을 실행 합니다.
+    * Azure와 직접 통신할 수 있는 대상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하려면 다음 명령을 실행 합니다.
+    
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
+    
+    * 동시에 여러 원격 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하려면 원격 컴퓨터 이름 목록을 쉼표로 구분 하 여 추가 합니다.
 
-```azurepowershell
-$session = Connect-PSSession -ComputerName myMachineName
-Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
-다음 예는 명령의 결과입니다.
-
-```azurepowershell
-time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
-time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
-time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
-time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-
-Name           Location OSName   Status     ProvisioningState
-----           -------- ------   ------     -----------------
-myMachineName  eastus   windows  Connected  Succeeded
-```
+    다음 예제는 단일 컴퓨터를 대상으로 하는 명령의 결과입니다.
+    
+    ```azurepowershell
+    time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+    time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+    time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+    time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+    
+    Name           Location OSName   Status     ProvisioningState
+    ----           -------- ------   ------     -----------------
+    myMachineName  eastus   windows  Connected  Succeeded
+    ```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc 연결 확인
 

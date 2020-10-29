@@ -4,16 +4,16 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074518"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900092"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
-Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 [시스템 노드 풀][use-system-pool]을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 *사용자 노드 풀*을 만들 수 있습니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 사용자 노드 풀은 응용 프로그램 관련 pod를 저장 하는 위치입니다. 예를 들어 이러한 추가 사용자 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
+Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀* 로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 [시스템 노드 풀][use-system-pool]을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 *사용자 노드 풀* 을 만들 수 있습니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 사용자 노드 풀은 응용 프로그램 관련 pod를 저장 하는 위치입니다. 예를 들어 이러한 추가 사용자 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 이 기능을 사용 하면 여러 노드 풀을 만들고 관리 하는 방법을 보다 효과적으로 제어할 수 있습니다. 따라서 create/update/delete에 별도의 명령이 필요 합니다. 이전에 또는 managedCluster API를 사용 하 여 클러스터 작업을 수행 하 `az aks create` `az aks update` 고 제어 평면과 단일 노드 풀을 변경 하는 유일한 옵션 이었습니다. 이 기능은 agentPool API를 통해 에이전트 풀에 대 한 별도의 작업 집합을 노출 하 고 `az aks nodepool` 개별 노드 풀에서 작업을 실행 하려면 명령 집합을 사용 해야 합니다.
@@ -93,7 +93,7 @@ az aks nodepool add \
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-다음 예제 출력은 노드 풀에서 3 개의 노드를 사용 하 여 *mynodepool* 을 성공적으로 만들었음을 보여 줍니다. 이전 단계에서 AKS 클러스터를 만든 경우 기본 *nodepool1* 노드 수를 *2*로 만들었습니다.
+다음 예제 출력은 노드 풀에서 3 개의 노드를 사용 하 여 *mynodepool* 을 성공적으로 만들었음을 보여 줍니다. 이전 단계에서 AKS 클러스터를 만든 경우 기본 *nodepool1* 노드 수를 *2* 로 만들었습니다.
 
 ```output
 [
@@ -161,7 +161,7 @@ az aks nodepool add \
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-*Mynodepool*을 업그레이드 하겠습니다. 다음 예제와 같이 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
+*Mynodepool* 을 업그레이드 하겠습니다. 다음 예제와 같이 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *KUBERNETES_VERSION*으로 *업그레이드* 상태에 있음을 보여 줍니다.
+[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *KUBERNETES_VERSION* 으로 *업그레이드* 상태에 있음을 보여 줍니다.
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업�
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>여러 노드 풀을 사용 하 여 클러스터 제어 평면 업그레이드
 
 > [!NOTE]
-> Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y*로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6*에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 제어 평면과 초기 노드 풀의 Kubernetes 버전은 클러스터를 만드는 동안 설정 됩니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있습니다.
+> Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y* 로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6* 에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 제어 평면과 초기 노드 풀의 Kubernetes 버전은 클러스터를 만드는 동안 설정 됩니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있습니다.
 
 AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 리소스 개체가 있습니다.
 
@@ -249,7 +249,7 @@ AKS 제어 평면을 업그레이드 하려면를 사용 해야 `az aks upgrade`
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-노드 풀의 노드 수를 조정 하려면 [az aks node pool scale][az-aks-nodepool-scale] 명령을 사용 합니다. 다음 예에서는 *mynodepool* 의 노드 수를 *5*로 조정 합니다.
+노드 풀의 노드 수를 조정 하려면 [az aks node pool scale][az-aks-nodepool-scale] 명령을 사용 합니다. 다음 예에서는 *mynodepool* 의 노드 수를 *5* 로 조정 합니다.
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -351,11 +351,11 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>노드 풀의 VM 크기 지정
 
-이전 예제에서 노드 풀을 만드는 경우 클러스터에서 만든 노드에 기본 VM 크기가 사용 되었습니다. 보다 일반적인 시나리오는 VM 크기 및 기능이 서로 다른 노드 풀을 만드는 것입니다. 예를 들어 많은 양의 CPU 또는 메모리를 포함 하는 노드 또는 GPU 지원을 제공 하는 노드 풀을 포함 하는 노드 풀을 만들 수 있습니다. 다음 단계에서는 [taints 및 tolerations를 사용](#schedule-pods-using-taints-and-tolerations) 하 여 이러한 노드에서 실행 될 수 있는 pod에 대 한 액세스를 제한 하는 방법을 Kubernetes scheduler에 지시 합니다.
+이전 예제에서 노드 풀을 만드는 경우 클러스터에서 만든 노드에 기본 VM 크기가 사용 되었습니다. 보다 일반적인 시나리오는 VM 크기 및 기능이 서로 다른 노드 풀을 만드는 것입니다. 예를 들어 많은 양의 CPU 또는 메모리를 포함 하는 노드 또는 GPU 지원을 제공 하는 노드 풀을 포함 하는 노드 풀을 만들 수 있습니다. 다음 단계에서는 [taints 및 tolerations를 사용](#setting-nodepool-taints) 하 여 이러한 노드에서 실행 될 수 있는 pod에 대 한 액세스를 제한 하는 방법을 Kubernetes scheduler에 지시 합니다.
 
 다음 예제에서는 *Standard_NC6* VM 크기를 사용 하는 GPU 기반 노드 풀을 만듭니다. 이러한 Vm은 NVIDIA Tesla K80 카드에 의해 구동 됩니다. 사용 가능한 VM 크기에 대 한 자세한 내용은 [Azure의 Linux 가상 머신에 대 한 크기][vm-sizes]를 참조 하세요.
 
-[Az aks node pool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 만듭니다. 이번에는 *gpunodepool*이름을 지정 하 고 `--node-vm-size` 매개 변수를 사용 하 여 *Standard_NC6* 크기를 지정 합니다.
+[Az aks node pool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 만듭니다. 이번에는 *gpunodepool* 이름을 지정 하 고 `--node-vm-size` 매개 변수를 사용 하 여 *Standard_NC6* 크기를 지정 합니다.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-[Az aks node pool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *gpunodepool* 가 지정 된 *vmsize*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
+[Az aks node pool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *gpunodepool* 가 지정 된 *vmsize* 를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 *Gpunodepool* 성공적으로 생성 되는 데 몇 분 정도 걸립니다.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Taints 및 tolerations를 사용 하 여 pod 예약
-
-이제 클러스터에 두 개의 노드 풀 (처음에 만든 기본 노드 풀 및 GPU 기반 노드 풀)이 있습니다. [Kubectl 노드 가져오기][kubectl-get] 명령을 사용 하 여 클러스터의 노드를 볼 수 있습니다. 다음 예제 출력에서는 노드를 보여 줍니다.
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
-
-* **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
-* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.**
-
-고급 Kubernetes 예약 기능을 사용 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][taints-tolerations] 를 참조 하세요.
-
-이 예에서는--taints 명령을 사용 하 여 GPU 기반 노드에 taint을 적용 합니다. 이전 명령의 출력에서 GPU 기반 노드의 이름을 지정 합니다 `kubectl get nodes` . Taint는 *키 = 값* 쌍으로 적용 된 다음 일정 옵션으로 적용 됩니다. 다음 예제에서는 *sku = gpu* 쌍을 사용 하 고, 그렇지 않은 경우 *noschedule* 기능이 있는 pod를 정의 합니다.
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-다음 기본 예제 YAML 매니페스트는 toleration를 사용 하 여 Kubernetes scheduler가 GPU 기반 노드에서 NGINX pod를 실행 하도록 허용 합니다. MNIST 데이터 집합에 대해 Tensorflow 작업을 실행 하는 보다 적절 하 고 시간이 많이 걸리는 예제는 [AKS에서 계산 집약적인 작업에 Gpu 사용][gpu-cluster]을 참조 하세요.
-
-`gpu-toleration.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-명령을 사용 하 여 pod를 예약 합니다 `kubectl apply -f gpu-toleration.yaml` .
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Pod를 예약 하 고 NGINX 이미지를 풀 하는 데 몇 초 정도 걸립니다. [Kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 pod 상태를 확인 합니다. 다음 압축 예제 출력에서는 *sku = gpu: NoSchedule* toleration이 적용 된 것을 보여 줍니다. 이벤트 섹션에서 스케줄러는 *aks-gpunodepool-28993262-vmss000000* GPU 기반 노드에 pod를 할당 했습니다.
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-이 toleration가 적용 된 pod만 *gpunodepool*의 노드에서 예약할 수 있습니다. 다른 pod는 *nodepool1* 노드 풀에서 예약 됩니다. 추가 노드 풀을 만드는 경우 추가 taints 및 tolerations를 사용 하 여 해당 노드 리소스에서 예약할 수 있는 pod를 제한할 수 있습니다.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>노드 풀의 taint, 레이블 또는 태그 지정
 
 ### <a name="setting-nodepool-taints"></a>Nodepool taints 설정
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > 노드 풀을 만드는 동안에는 노드 풀에 대해서만 taint을 설정할 수 있습니다.
 
-[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *taintnp* 가 지정 된 *nodeTaints*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *taintnp* 가 지정 된 *nodeTaints* 를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-Taint 정보는 노드에 대 한 예약 규칙을 처리 하기 위해 Kubernetes에 표시 됩니다.
+Taint 정보는 노드에 대 한 예약 규칙을 처리 하기 위해 Kubernetes에 표시 됩니다. Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
+
+* **Taint** 는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
+* A <bpt id="p1">**</bpt>toleration<ept id="p1">**</ept> is then applied to a pod that allows them to <bpt id="p2">*</bpt>tolerate<ept id="p2">*</ept> a node's taint.
+
+고급 Kubernetes 예약 기능을 사용 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][taints-tolerations] 를 참조 하세요.
+
+이전 단계에서는 노드 풀을 만들 때 *sku = gpu: NoSchedule* taint를 적용 했습니다. 다음 기본 예제 YAML 매니페스트는 toleration를 사용 하 여 Kubernetes scheduler가 해당 노드 풀의 노드에 NGINX pod를 실행할 수 있도록 합니다.
+
+`nginx-toleration.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+명령을 사용 하 여 pod를 예약 합니다 `kubectl apply -f nginx-toleration.yaml` .
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Pod를 예약 하 고 NGINX 이미지를 풀 하는 데 몇 초 정도 걸립니다. [Kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 pod 상태를 확인 합니다. 다음 압축 예제 출력에서는 *sku = gpu: NoSchedule* toleration이 적용 된 것을 보여 줍니다. 이벤트 섹션에서 스케줄러가 *aks-taintnp-28993262-vmss000000* 노드에 pod를 할당 했습니다.
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+이 toleration가 적용 된 pod만 *taintnp* 의 노드에서 예약할 수 있습니다. 다른 pod는 *nodepool1* 노드 풀에서 예약 됩니다. 추가 노드 풀을 만드는 경우 추가 taints 및 tolerations를 사용 하 여 해당 노드 리소스에서 예약할 수 있는 pod를 제한할 수 있습니다.
 
 ### <a name="setting-nodepool-labels"></a>Nodepool 레이블 설정
 
@@ -553,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > 노드 풀을 만드는 동안에는 노드 풀에 대해서만 레이블을 설정할 수 있습니다. 또한 레이블은 키/값 쌍 이어야 하며 [유효한 구문을][kubernetes-label-syntax]포함 해야 합니다.
 
-[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 지정 된 *Nodelabels*를 사용 하 여 *Labelnp* 에서 노드를 *만드는* 것을 보여 줍니다.
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 지정 된 *Nodelabels* 를 사용 하 여 *Labelnp* 에서 노드를 *만드는* 것을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> 또한 `--tags` [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하는 경우와 클러스터를 만드는 동안 매개 변수를 사용할 수 있습니다. 클러스터를 만드는 동안 `--tags` 매개 변수는 클러스터를 사용 하 여 만든 초기 노드 풀에 태그를 적용 합니다. 모든 태그 이름은 [Azure 리소스를 구성 하는 데 사용 하는 태그][tag-limitation]의 제한 사항을 준수 해야 합니다. 매개 변수를 사용 하 여 노드 풀을 업데이트 하면 `--tags` 기존 태그 값이 업데이트 되 고 새 태그가 추가 됩니다. 예를 들어 노드 풀에 태그에 대 한 *dept = IT* 및 *costcenter = 9999* 가 있고 태그에 대해 *team = dev* 및 *costcenter = 111* 로 업데이트 한 경우 nodepool에는 *dept = it*, *costcenter = 111*및 *team = dev* for tags가 있습니다.
+> 또한 `--tags` [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하는 경우와 클러스터를 만드는 동안 매개 변수를 사용할 수 있습니다. 클러스터를 만드는 동안 `--tags` 매개 변수는 클러스터를 사용 하 여 만든 초기 노드 풀에 태그를 적용 합니다. 모든 태그 이름은 [Azure 리소스를 구성 하는 데 사용 하는 태그][tag-limitation]의 제한 사항을 준수 해야 합니다. 매개 변수를 사용 하 여 노드 풀을 업데이트 하면 `--tags` 기존 태그 값이 업데이트 되 고 새 태그가 추가 됩니다. 예를 들어 노드 풀에 태그에 대 한 *dept = IT* 및 *costcenter = 9999* 가 있고 태그에 대해 *team = dev* 및 *costcenter = 111* 로 업데이트 한 경우 nodepool에는 *dept = it* , *costcenter = 111* 및 *team = dev* for tags가 있습니다.
 
-[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *tagnodepool* 가 지정 된 *태그*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *tagnodepool* 가 지정 된 *태그* 를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -635,8 +613,8 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
 와 같은 템플릿을 만들고 `aks-agentpools.json` 다음 예제 매니페스트를 붙여 넣습니다. 이 예제 템플릿은 다음 설정을 구성 합니다.
 
 * 3 개의 노드를 실행 하도록 *myagentpool* 이라는 *Linux* 노드 풀을 업데이트 합니다.
-* Kubernetes version *1.15.7*를 실행 하도록 노드 풀의 노드를 설정 합니다.
-* 노드 크기를 *Standard_DS2_v2*으로 정의 합니다.
+* Kubernetes version *1.15.7* 를 실행 하도록 노드 풀의 노드를 설정 합니다.
+* 노드 크기를 *Standard_DS2_v2* 으로 정의 합니다.
 
 필요에 따라 노드 풀을 업데이트, 추가 또는 삭제 해야 하는 경우 이러한 값을 편집 합니다.
 
@@ -798,7 +776,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 *gpunodepool*또는 전체 AKS 클러스터를 삭제할 수 있습니다.
+이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 *gpunodepool* 또는 전체 AKS 클러스터를 삭제할 수 있습니다.
 
 GPU 기반 노드 풀을 삭제 하려면 다음 예제와 같이 [az aks nodepool delete][az-aks-nodepool-delete] 명령을 사용 합니다.
 

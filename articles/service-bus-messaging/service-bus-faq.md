@@ -3,12 +3,12 @@ title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518758"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899523"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -26,7 +26,7 @@ ms.locfileid: "92518758"
 [Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 애플리케이션 또는 분산된 애플리케이션의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus 토픽 및 구독이란?
-토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub*)을 사용하면 여러 애플리케이션에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 애플리케이션을 활성화합니다.
+토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub* )을 사용하면 여러 애플리케이션에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 애플리케이션을 활성화합니다.
 
 ### <a name="what-is-a-partitioned-entity"></a>분할된 엔터티란?
 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. 기본 및 표준 메시징 계층 에서만 지원 되며 [분할 된 큐 또는 토픽](service-bus-partitioning.md) 은 여러 메시지 브로커에 의해 처리 되 고 여러 메시징 저장소에 저장 됩니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 저장소의 일시적인 중단은 분할 된 큐 또는 토픽을 사용할 수 없게 렌더링 하지 않습니다.
@@ -41,17 +41,28 @@ Azure Service Bus 고객 데이터를 저장 합니다. 이 데이터는 Service
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
 
-- AMQP(고급 메시지 큐 프로토콜)
-- SBMP(Service Bus 메시징 프로토콜)
-- HTTP
+- 고급 메시지 큐 프로토콜 1.0 (AMQP)
+- TLS (HTTPS)를 사용한 하이퍼텍스트 전송 프로토콜 1.1
 
-이러한 프로토콜을 사용하여 Azure Event Hubs와 통신하기 위해 열어야 하는 아웃바운드 포트는 다음 표를 참조하세요. 
+이러한 프로토콜을 사용 하 여 Azure Service Bus와 통신 하기 위해 열어야 하는 아웃 바운드 TCP 포트는 다음 표를 참조 하세요.
 
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) 를 참조 하세요. |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | TLS를 사용 하는 AMQP [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | 
+| HTTPS | 443 | 이 포트는 HTTP/REST API 및 AMQP over Websocket에 사용 됩니다. |
+
+HTTPS 포트는 일반적으로 포트 5671을 통해 AMQP를 사용 하는 경우, 클라이언트 Sdk에서 수행 하는 여러 관리 작업 및 Azure Active Directory (사용 되는 경우)에서 토큰을 획득 하 여 HTTPS를 통해 실행 되는 경우에도 아웃 바운드 통신에 필요 합니다. 
+
+공식 Azure Sdk는 일반적으로 Service Bus에서 메시지를 보내고 받기 위해 AMQP 프로토콜을 사용 합니다. AMQP over Websocket 프로토콜 옵션은 HTTP API와 마찬가지로 포트 TCP 443을 통해 실행 되지만 그렇지 않은 경우에는 일반 AMQP와 기능적으로 동일 합니다. 이 옵션은 추가 핸드셰이크 왕복 및 HTTPS 포트 공유의 절충으로 약간 더 많은 오버 헤드로 인해 초기 연결 대기 시간이 더 높습니다. 이 모드를 선택 하면 TCP 포트 443이 통신에 충분 합니다. 다음 옵션을 사용 하 여 일반 AMQP 또는 AMQP Websocket 모드를 선택할 수 있습니다.
+
+| 언어 | 옵션   |
+| -------- | ----- |
+| .NET     | [TransportType](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) 또는 TransportType TransportType 속성을 사용 하 여 [Servicebuspwebsocket](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
+| Java     | [servicebus](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) 를 사용 하 여 servicebus를 사용 하 여 [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) [TransportType](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) 를 사용 하는 것이 좋습니다. |
+| 노드  | [Servicebusclientoptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) 에는 `webSocket` 생성자 인수가 있습니다. |
+| Python | [TransportType](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) 또는 TransportType를 사용 하 여 [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) [. amqpoverwebsocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+.NET Framework에 대 한 이전 Windowsazure.servicebus ServiceBus 패키지에는 "NetMessaging"이 라고도 하는 레거시 "SBMP" (Service Bus Messaging Protocol)를 사용 하는 옵션이 있습니다. 이 프로토콜은 TCP 포트 9350-9354를 사용 합니다. 이 패키지의 기본 모드는 해당 포트가 통신에 사용할 수 있는지 여부를 자동으로 감지 하 고, 그렇지 않은 경우 포트 443을 통해 TLS를 사용 하는 Websocket로 전환 합니다. `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) 응용 프로그램에 전역적으로 적용 되는 설정에 대해 하도록 connectivitymode.autodetect 지정할를 설정 하 여이 설정을 재정의 하 고이 모드를 적용할 수 있습니다.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>허용 목록에 추가 해야 하는 IP 주소는 무엇 인가요?
 연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.

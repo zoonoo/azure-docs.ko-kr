@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 79bc9a238b7c36392ff2ba519078713089156f6e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638213"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901605"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터 복사 및 변환
 
@@ -271,7 +271,7 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
 | partitionOptions | Azure Synapse Analytics에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange** 입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Azure Synapse Analytics에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
 | **_`partitionSettings` :_* _ | | |
-| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열 _ *in integer 또는 date/datetime 유형* *의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
+| partitionColumnName | *in integer or  date/datetime type* `int` `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 병렬 복사를 위해 범위 분할에서 사용할 원본 열 _ in integer 또는 date/datetime 유형 * (,,,,,, 또는)의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 파티션 범위 분할에 대 한 파티션 열의 최대값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionLowerBound | 파티션 범위 분할에 대 한 파티션 열의 최소값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
 
@@ -478,7 +478,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 - 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환 하 고, Azure Blob storage에 데이터를 저장 한 다음, PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다.
 
 > [!TIP]
-> [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다.
+> [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다. Azure Integration Runtime에서 PolyBase를 사용 하는 경우 유효한 DIUs (데이터 통합 단위)는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
 
 복사 작업의 `polyBaseSettings`에서 다음 PolyBase 설정이 지원됩니다.
 
@@ -671,6 +671,9 @@ Azure Synapse Analytics [COPY 문](/sql/t-sql/statements/copy-into-transact-sql)
 
 >[!NOTE]
 >현재 Data Factory는 아래에 설명된 COPY 문 호환 원본의 복사만 지원합니다.
+
+>[!TIP]
+>COPY 문을 Azure Integration Runtime와 함께 사용 하는 경우 유효한 DIUs (데이터 통합 단위)는 항상 2입니다. 저장소에서 데이터를 로드 하면 Synapse 엔진이 구동 하므로 DIU를 조정 하는 것은 성능에 영향을 주지 않습니다.
 
 COPY 문을 사용하면 다음 구성이 지원됩니다.
 

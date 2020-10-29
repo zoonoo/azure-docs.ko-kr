@@ -5,19 +5,19 @@ description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299326"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900744"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
 영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 한 Pod에 사용할 Azure 디스크가 포함된 영구 볼륨을 동적으로 만드는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure 디스크는 AKS의 한 노드에서 사용할 수 있도록 하는 *액세스 모드* 유형 *readwriteonce*로만 탑재할 수 있습니다. 여러 노드에 걸쳐 영구적 볼륨을 공유 해야 하는 경우 [Azure Files][azure-files-pvc]를 사용 합니다.
+> Azure 디스크는 AKS의 한 노드에서 사용할 수 있도록 하는 *액세스 모드* 유형 *readwriteonce* 로만 탑재할 수 있습니다. 여러 노드에 걸쳐 영구적 볼륨을 공유 해야 하는 경우 [Azure Files][azure-files-pvc]를 사용 합니다.
 
 Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -25,7 +25,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="built-in-storage-classes"></a>기본 제공 저장소 클래스
 
@@ -90,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 *azure-managed-disk*라는 영구적 볼륨 클레임을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 기본 NGINX Pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath*를 지정합니다.
+영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 *azure-managed-disk* 라는 영구적 볼륨 클레임을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 기본 NGINX Pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
 
 파일 `azure-pvc-disk.yaml`을 만들고 다음 매니페스트에 복사합니다.
 
@@ -102,7 +102,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -159,7 +159,7 @@ Ultra disk를 활용 하려면 [Azure Kubernetes 서비스 (AKS)에서 Ultra Dis
 
 영구적 볼륨에 데이터를 백업하려면 볼륨에 대한 관리 디스크의 스냅샷을 만듭니다. 그런 다음, 이 스냅샷을 사용하여 복원된 디스크를 만들고 데이터를 복원하는 수단으로 Pod에 연결할 수 있습니다.
 
-먼저 *azure-managed-disk*라는 PVC의 경우처럼 `kubectl get pvc` 명령을 사용하여 볼륨 이름을 가져옵니다.
+먼저 *azure-managed-disk* 라는 PVC의 경우처럼 `kubectl get pvc` 명령을 사용하여 볼륨 이름을 가져옵니다.
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -176,7 +176,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-디스크 ID를 사용하여 [az snapshot create][az-snapshot-create]를 통해 스냅샷 디스크를 만듭니다. 다음 예에서는 AKS 클러스터와 동일한 리소스 그룹에서 *pvcSnapshot*이라는 스냅샷을 만듭니다(*MC_myResourceGroup_myAKSCluster_eastus*). AKS 클러스터가 액세스 권한이 없는 리소스 그룹에서 스냅샷을 만들고 디스크를 복원하는 경우 사용 권한 문제가 발생할 수 있습니다.
+디스크 ID를 사용하여 [az snapshot create][az-snapshot-create]를 통해 스냅샷 디스크를 만듭니다. 다음 예에서는 AKS 클러스터와 동일한 리소스 그룹에서 *pvcSnapshot* 이라는 스냅샷을 만듭니다( *MC_myResourceGroup_myAKSCluster_eastus* ). AKS 클러스터가 액세스 권한이 없는 리소스 그룹에서 스냅샷을 만들고 디스크를 복원하는 경우 사용 권한 문제가 발생할 수 있습니다.
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -189,19 +189,19 @@ $ az snapshot create \
 
 ## <a name="restore-and-use-a-snapshot"></a>스냅샷 복원 및 사용
 
-디스크를 복원하고 Kubernetes Pod와 함께 사용하려면 [az disk create][az-disk-create]로 디스크를 만들 경우 스냅샷을 원본으로 사용합니다. 원래 데이터 스냅샷에 액세스해야 할 경우 이 작업은 원래 리소스를 보존합니다. 다음 예제에서는 *pvcSnapshot*이라는 스냅샷에서 *pvcRestored*라는 디스크를 만듭니다.
+디스크를 복원하고 Kubernetes Pod와 함께 사용하려면 [az disk create][az-disk-create]로 디스크를 만들 경우 스냅샷을 원본으로 사용합니다. 원래 데이터 스냅샷에 액세스해야 할 경우 이 작업은 원래 리소스를 보존합니다. 다음 예제에서는 *pvcSnapshot* 이라는 스냅샷에서 *pvcRestored* 라는 디스크를 만듭니다.
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
-Pod를 사용하여 복원된 디스크를 사용하려면 매니페스트에 디스크의 ID를 지정합니다. [az disk show][az-disk-show] 명령을 사용하여 디스크 ID를 가져옵니다. 다음 예제에서는 이전 단계에서 만든 *pvcRestored*에 대한 디스크 ID를 가져옵니다.
+Pod를 사용하여 복원된 디스크를 사용하려면 매니페스트에 디스크의 ID를 지정합니다. [az disk show][az-disk-show] 명령을 사용하여 디스크 ID를 가져옵니다. 다음 예제에서는 이전 단계에서 만든 *pvcRestored* 에 대한 디스크 ID를 가져옵니다.
 
 ```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-`azure-restored.yaml`이라는 Pod 매니페스트를 만들고 이전 단계에서 가져온 디스크 URI를 지정합니다. 다음 예제에서는 */mnt/azure*에 복원된 디스크를 볼륨으로 탑재하여 기본 NGINX 웹 서버를 만듭니다.
+`azure-restored.yaml`이라는 Pod 매니페스트를 만들고 이전 단계에서 가져온 디스크 URI를 지정합니다. 다음 예제에서는 */mnt/azure* 에 복원된 디스크를 볼륨으로 탑재하여 기본 NGINX 웹 서버를 만듭니다.
 
 ```yaml
 kind: Pod
@@ -211,7 +211,7 @@ metadata:
 spec:
   containers:
   - name: mypodrestored
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

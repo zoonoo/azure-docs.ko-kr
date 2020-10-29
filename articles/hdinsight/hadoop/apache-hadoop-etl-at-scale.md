@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899664"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -60,7 +60,7 @@ Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-fact
 
 Azure Storage에는 특정한 확장성 목표가 있습니다. 자세한 내용은 [Blob Storage의 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md)를 참조하세요. 대부분의 분석 노드의 경우 Azure Storage에서 더 작은 파일을 많이 처리할 때 그 크기가 가장 효율적으로 조정됩니다. Azure Storage는 계정 한도 내에서 파일 크기에 관계없이 동일한 성능을 보장합니다. 즉, 일부 데이터만 사용하든 모든 데이터를 사용하든, 테라바이트 단위의 데이터를 저장한 경우에도 일관된 성능을 유지할 수 있습니다.
 
-Azure Storage에는 여러 가지 유형의 Blob이 있습니다. *추가 Blob*은 웹 로그 또는 센서 데이터를 저장하는 데 유용한 옵션입니다.
+Azure Storage에는 여러 가지 유형의 Blob이 있습니다. *추가 Blob* 은 웹 로그 또는 센서 데이터를 저장하는 데 유용한 옵션입니다.
 
 여러 서버로 다수의 Blob을 분산하여 Blob에 대한 액세스 권한을 스케일 아웃할 수 있습니다. 단, 서버 한 대당 Blob 하나만을 처리합니다. Blob은 Blob 컨테이너로 논리적으로 그룹화할 수 있지만, 이 그룹화에서는 분할이 이뤄지지 않습니다.
 
@@ -86,7 +86,7 @@ Data Lake Storage는 Azure Event Hubs 또는 Apache Storm을 통한 이벤트 �
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics는 준비 된 결과를 저장 하는 데 적절 한 선택입니다. Azure HDInsight를 사용 하 여 Zure Analytics에 대해 이러한 서비스를 수행할 수 있습니다.
+Azure Synapse Analytics (이전의 SQL DW)는 준비 된 결과를 저장 하는 데 적절 한 선택입니다. Azure HDInsight를 사용 하 여 Azure Synapse Analytics에 대해 이러한 서비스를 수행할 수 있습니다.
 
 Azure Synapse Analytics는 분석 워크 로드에 최적화 된 관계형 데이터베이스 저장소입니다. Azure SQL Data Warehouse의 크기는 분할된 테이블에 따라 조정됩니다. 테이블은 여러 노드에 걸쳐 분할될 수 있습니다. 노드는 테이블을 만들 때 선택됩니다. 사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [Azure Synapse Analytics에서 계산 관리](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
 

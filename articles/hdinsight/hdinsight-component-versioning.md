@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547574"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900802"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Azure HDInsight에서 사용할 수 있는 Apache 구성 요소 및 버전
 
@@ -133,6 +133,6 @@ HDInsight의 최신 버전과 관련된 추가 릴리스 정보는 [HDInsight �
 ## <a name="next-steps"></a>다음 단계
 
 - [HDInsight의 Apache Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
-- [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)
-- [Azure HDInsight 버전과 관련된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
+- [Azure HDInsight 버전과 관련된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
+- [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)

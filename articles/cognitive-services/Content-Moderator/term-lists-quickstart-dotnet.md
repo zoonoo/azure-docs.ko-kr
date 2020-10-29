@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936285"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900929"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
@@ -43,7 +43,7 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 1. 솔루션에 새 **콘솔 앱(.NET Framework)** 프로젝트를 추가합니다.
 
-1. 프로젝트 이름을 **TermLists**로 지정합니다. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
+1. 프로젝트 이름을 **TermLists** 로 지정합니다. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
 
 ### <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
@@ -134,10 +134,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>용어 목록 만들기
 
-**ContentModeratorClient.ListManagementTermLists.Create**를 사용하여 용어 목록을 만듭니다. **Create**에 대한 첫 번째 매개 변수는 MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 참조 하세요. 두 번째 매개 변수는 새 용어 목록에 대한 이름 및 설명을 포함하는 **Body** 개체입니다.
+**ContentModeratorClient.ListManagementTermLists.Create** 를 사용하여 용어 목록을 만듭니다. **Create** 에 대한 첫 번째 매개 변수는 MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 참조 하세요. 두 번째 매개 변수는 새 용어 목록에 대한 이름 및 설명을 포함하는 **Body** 개체입니다.
 
 > [!NOTE]
-> 최대 **5개 용어 목록**으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
+> 최대 **5개 용어 목록** 으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
 
 TermLists 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>용어 목록 이름 및 설명 업데이트
 
-**ContentModeratorClient.ListManagementTermLists.Update**를 사용하여 용어 목록 정보를 업데이트합니다. **Update**에 대한 첫 번째 매개 변수는 용어 목록 ID입니다. 두 번째 매개 변수는 MIME 형식으로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)를 참조 하세요. 세 번째 매개 변수는 새 이름 및 설명을 포함하는 **Body** 개체입니다.
+**ContentModeratorClient.ListManagementTermLists.Update** 를 사용하여 용어 목록 정보를 업데이트합니다. **Update** 에 대한 첫 번째 매개 변수는 용어 목록 ID입니다. 두 번째 매개 변수는 MIME 형식으로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)를 참조 하세요. 세 번째 매개 변수는 새 이름 및 설명을 포함하는 **Body** 개체입니다.
 
 TermLists 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -239,7 +239,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 용어 목록을 변경한 후 다음 번에 텍스트를 차단하도록 용어 목록을 사용할 때 포함될 변경 내용에 대한 해당 검색 인덱스를 새로 고칩니다. 데스크톱의 검색 엔진(활성화된 경우) 또는 웹 검색 엔진이 새 파일 또는 페이지를 포함하도록 해당 인덱스를 지속적으로 새로 고치는 방법과 유사합니다.
 
-**ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**를 사용하여 용어 목록 검색 인덱스를 새로 고칩니다.
+**ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod** 를 사용하여 용어 목록 검색 인덱스를 새로 고칩니다.
 
 TermLists 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -259,18 +259,18 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>용어 목록을 사용하여 텍스트 차단
 
-다음 매개 변수를 사용하는 **ContentModeratorClient.TextModeration.ScreenText**로 용어 목록을 사용하여 텍스트를 차단합니다.
+다음 매개 변수를 사용하는 **ContentModeratorClient.TextModeration.ScreenText** 로 용어 목록을 사용하여 텍스트를 차단합니다.
 
 - 용어 목록에서 용어의 언어입니다.
 - "text/html", "text/xml", "text/markdown" 또는 "text/plain"일 수 있는 MIME 형식입니다.
 - 차단할 텍스트입니다.
-- 부울 값입니다. 이 필드를 **true**로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
+- 부울 값입니다. 이 필드를 **true** 로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
 - 부울 값입니다. 텍스트의 개인 데이터를 검색 하려면이 필드를 **true** 로 설정 합니다.
 - 용어 목록 ID입니다.
 
 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조 하세요.
 
-**ScreenText**는 Content Moderator가 차단에서 검색한 모든 용어를 나열하는 **Terms** 속성이 있는 **Screen** 개체를 반환합니다. Content Moderator가 차단하는 동안 용어를 검색하지 않는 경우 **Terms** 속성은 **Null** 값을 갖습니다.
+**ScreenText** 는 Content Moderator가 차단에서 검색한 모든 용어를 나열하는 **Terms** 속성이 있는 **Screen** 개체를 반환합니다. Content Moderator가 차단하는 동안 용어를 검색하지 않는 경우 **Terms** 속성은 **Null** 값을 갖습니다.
 
 TermLists 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -296,7 +296,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 용어 또는 목록을 삭제하는 것은 간단합니다. SDK를 사용하여 다음 작업을 수행합니다.
 
-- 용어를 삭제합니다. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- 목록을 삭제하지 않고 목록의 모든 용어를 삭제합니다. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- 목록 및 모든 해당 콘텐츠를 삭제합니다. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- 용어를 삭제합니다. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
+- 목록을 삭제하지 않고 목록의 모든 용어를 삭제합니다. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
+- 목록 및 모든 해당 콘텐츠를 삭제합니다. ( **ContentModeratorClient.ListManagementTermLists.Delete** )
 
 ### <a name="delete-a-term"></a>용어 삭제
 
@@ -365,7 +365,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 
 ## <a name="compose-the-main-method"></a>Main 메서드 작성
 
-**TermLists**네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
+**TermLists** 네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 
 ```csharp
 static void Main(string[] args)

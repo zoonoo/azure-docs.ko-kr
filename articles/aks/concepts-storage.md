@@ -4,12 +4,12 @@ description: 볼륨, 영구적 볼륨, 스토리지 클래스 및 클레임을 �
 services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ed38625703397c9ba5021e84cd3118f30fa83c7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421155"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900946"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
 
@@ -26,17 +26,17 @@ AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터
 
 ## <a name="volumes"></a>볼륨
 
-애플리케이션은 종종 데이터를 저장하고 검색할 수 있어야 합니다. Kubernetes는 일반적으로 개별 Pod를 사용 후 삭제 가능한 임시 리소스로 취급하므로 애플리케이션이 다양한 방식으로 데이터를 사용하고 필요에 따라 유지할 수 있습니다. *볼륨*은 Pod 간에 애플리케이션 수명 주기를 통해 데이터를 저장, 검색 및 유지하는 방법을 나타냅니다.
+애플리케이션은 종종 데이터를 저장하고 검색할 수 있어야 합니다. Kubernetes는 일반적으로 개별 Pod를 사용 후 삭제 가능한 임시 리소스로 취급하므로 애플리케이션이 다양한 방식으로 데이터를 사용하고 필요에 따라 유지할 수 있습니다. *볼륨* 은 Pod 간에 애플리케이션 수명 주기를 통해 데이터를 저장, 검색 및 유지하는 방법을 나타냅니다.
 
 데이터를 저장하고 검색하는 기존 볼륨은 Azure Storage에서 지원하는 Kubernetes 리소스로 만들어집니다. 이러한 데이터 볼륨은 수동으로 만들어 Pod에 직접 할당하거나 Kubernetes에서 자동으로 만들 수 있습니다. 이러한 데이터 볼륨은 Azure Disks 또는 Azure Files를 사용할 수 있습니다.
 
-- *Azure Disks*를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure 디스크는 *Readwriteonce 번*탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
-- *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 Ssd에서 지원 되는 regular Hdd 또는 Azure Premium storage에서 지 원하는 Azure Standard storage를 사용할 수 있습니다.
+- *Azure Disks* 를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure 디스크는 *Readwriteonce 번* 탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
+- *Azure Files* 를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 Ssd에서 지원 되는 regular Hdd 또는 Azure Premium storage에서 지 원하는 Azure Standard storage를 사용할 수 있습니다.
 
 Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는 기존 디스크 이상의 것을 나타낼 수 있습니다. 또한 Kubernetes 볼륨은 컨테이너에서 사용할 수 있도록 데이터를 Pod에 삽입하는 방법으로도 사용할 수 있습니다. Kubernetes의 일반적인 추가 볼륨 유형은 다음과 같습니다.
 
 - *emptyDir* - 일반적으로 Pod용 사용 후 삭제 공간으로 사용됩니다. Pod 내의 모든 컨테이너에서 볼륨의 데이터에 액세스할 수 있습니다. 이 볼륨 유형에 기록된 데이터는 Pod의 수명 동안만 유지되며, Pod가 삭제되면 해당 볼륨도 삭제됩니다. 이 볼륨은 일반적으로 기본 로컬 노드 디스크 저장소를 사용 하지만 노드의 메모리에만 존재할 수 있습니다.
-- *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
+- *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs* 에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 - *configMap* - 애플리케이션 구성 정보와 같은 키-값 쌍 속성을 Pod에 삽입하는 데 사용됩니다. 컨테이너 이미지 내에서 애플리케이션 구성 정보를 정의하는 대신, 배포할 때 Pod의 새 인스턴스에 쉽게 업데이트하고 적용할 수 있는 Kubernetes 리소스로 정의할 수 있습니다. Secret을 사용하는 것과 마찬가지로, 먼저 Kubernetes API를 사용하여 ConfigMap 개체를 만듭니다. 그러면 Pod 또는 배포를 정의할 때 이 ConfigMap을 요청할 수 있습니다. ConfigMap은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 
 ## <a name="persistent-volumes"></a>영구적 볼륨
@@ -47,11 +47,11 @@ Azure Disks 또는 Azure Files는 PersistentVolume을 제공하는 데 사용됩
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨](media/concepts-storage/persistent-volumes.png)
 
-PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 스토리지를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 스토리지를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass*를 사용하여 만들어야 하는Azure 스토리지의 유형을 식별합니다.
+PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 스토리지를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 스토리지를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass* 를 사용하여 만들어야 하는Azure 스토리지의 유형을 식별합니다.
 
 ## <a name="storage-classes"></a>스토리지 클래스
 
-Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
+Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass* 를 만들 수 있습니다. StorageClass는 *reclaimPolicy* 도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
 
 AKS에서는 `StorageClasses` 트리 내 저장소 플러그 인을 사용 하 여 클러스터에 대 한 4 개의 초기를 만듭니다.
 
@@ -66,7 +66,7 @@ AKS에서는 `StorageClasses` 트리 내 저장소 플러그 인을 사용 하 �
 - `azurefile-csi` -Azure Standard storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
 - `azurefile-csi-premium` -Azure Premium storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
 
-영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지*해야 한다고 지정합니다.
+영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지* 해야 한다고 지정합니다.
 
 ```yaml
 kind: StorageClass
@@ -89,7 +89,7 @@ PersistentVolumeClaim은 특정 StorageClass의 Disk 또는 File 스토리지, �
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨 클레임](media/concepts-storage/persistent-volume-claims.png)
 
-사용 가능한 스토리지 리소스가 요청한 Pod에 할당되면 PersistentVolume이 PersistentVolumeClaim에 *바인딩*됩니다. 클레임에 대한 영구적 볼륨의 1:1 매핑이 있습니다.
+사용 가능한 스토리지 리소스가 요청한 Pod에 할당되면 PersistentVolume이 PersistentVolumeClaim에 *바인딩* 됩니다. 클레임에 대한 영구적 볼륨의 1:1 매핑이 있습니다.
 
 다음 YAML 매니페스트 예제에서는 *managed-premium* StorageClass를 사용하고 *5Gi* 디스크 크기를 요청하는 영구적 볼륨 클레임을 보여 줍니다.
 
@@ -107,7 +107,7 @@ spec:
       storage: 5Gi
 ```
 
-Pod 정의가 만들어지면 원하는 스토리지를 요청하는 영구적 볼륨 클레임이 지정됩니다. 또한 애플리케이션에서 데이터를 읽고 쓸 수 있도록 *volumeMount*도 지정합니다. 다음 YAML 매니페스트 예제에서는 이전의 영구적 볼륨 클레임을 사용하여 볼륨을 */mnt/azure*에 탑재하는 방법을 보여 줍니다.
+Pod 정의가 만들어지면 원하는 스토리지를 요청하는 영구적 볼륨 클레임이 지정됩니다. 또한 애플리케이션에서 데이터를 읽고 쓸 수 있도록 *volumeMount* 도 지정합니다. 다음 YAML 매니페스트 예제에서는 이전의 영구적 볼륨 클레임을 사용하여 볼륨을 */mnt/azure* 에 탑재하는 방법을 보여 줍니다.
 
 ```yaml
 kind: Pod
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume

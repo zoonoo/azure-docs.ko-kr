@@ -1,5 +1,5 @@
 ---
-title: 엔터프라이즈 보안
+title: 엔터프라이즈 보안 및 거버넌스
 titleSuffix: Azure Machine Learning
 description: 'Azure Machine Learning: 인증, 권한 부여, 네트워크 보안, 데이터 암호화 및 모니터링을 안전하게 사용합니다.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637091"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899329"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
 이 문서에서는 Azure Machine Learning에 사용할 수 있는 보안 기능에 대해 알아봅니다.
 
-클라우드 서비스를 사용하는 경우에는 필요한 사용자에게만 액세스를 제한하는 것이 가장 좋습니다. 먼저, 서비스에 사용되는 인증 및 권한 부여 모델을 파악합니다. 클라우드를 통해 온-프레미스 네트워크의 리소스에 안전하게 조인하거나 네트워크 액세스를 제한할 수도 있습니다. 데이터 암호화도 중요하며, 미사용 데이터 및 서비스간에 이동하는 데이터 모두에 중요합니다. 마지막으로 서비스를 모니터링하고 모든 활동에 대한 감사 로그를 생성할 수 있어야 합니다.
+클라우드 서비스를 사용하는 경우에는 필요한 사용자에게만 액세스를 제한하는 것이 가장 좋습니다. 먼저, 서비스에 사용되는 인증 및 권한 부여 모델을 파악합니다. 클라우드를 통해 온-프레미스 네트워크의 리소스에 안전하게 조인하거나 네트워크 액세스를 제한할 수도 있습니다. 데이터 암호화도 중요하며, 미사용 데이터 및 서비스간에 이동하는 데이터 모두에 중요합니다. 비규격 구성이 생성 될 때 특정 구성 또는 로그를 적용 하는 정책을 만들 수도 있습니다. 마지막으로 서비스를 모니터링하고 모든 활동에 대한 감사 로그를 생성할 수 있어야 합니다.
 
 > [!NOTE]
 > 이 문서의 정보는 Azure Machine Learning Python SDK 버전 1.0.83.1 이상에서 작동합니다.

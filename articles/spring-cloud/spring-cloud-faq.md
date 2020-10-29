@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a0851e9d032d4d1bf9751d63061141839e95d510
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491294"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900280"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -39,6 +39,9 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 서 부 2, 유럽 서부, 유럽 서 부, 영국 남부, 동남 아시아 및 오스트레일리아 동부.
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정 된 지역 외부에 저장 된 고객 데이터는 무엇 인가요?
+
+Azure 스프링 클라우드는 지역 서비스입니다. Azure 스프링 클라우드의 모든 고객 데이터는 중복성을 위해 지정 된 지역의 동일한 지역 내에 있는 여러 지역에 저장 됩니다. 지역 및 지역에 대 한 자세한 내용은 [Azure의 Data 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)를 참조 하세요.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 스프링 클라우드의 알려진 제한은 무엇 인가요?
 
@@ -72,7 +75,7 @@ Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS �
 
 메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) 탭에서 찾습니다.
 
-Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring*입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 

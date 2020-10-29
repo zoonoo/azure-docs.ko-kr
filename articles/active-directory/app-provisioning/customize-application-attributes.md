@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781484"
+ms.locfileid: "92899192"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -142,10 +142,7 @@ SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의하는 동시에 애�
    4. **AppName의 특성 목록 편집** 을 선택합니다.
    5. 특성 목록의 맨 아래에, 제공된 필드에 사용자 지정 특성에 대한 정보를 입력합니다. 그런 다음, **특성 추가** 를 선택합니다.
 
-SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName"과 "CustomAttribute"를 애플리케이션의 요구 사항에 따라 사용자 지정할 수 있습니다. 예를 들면 다음과 같습니다.  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn: ietf: params: scim: 스키마: 확장: CustomExtensionName: 2.0: User: CustomAttributeName: value
+SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다 (예: urn: ietf: params: scim: 스키마: extension: CustomExtensionName: 2.0: User: CustomAttribute). 
 
 이러한 지침은 SCIM 사용 애플리케이션에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 애플리케이션은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 특정 네임스페이스가 필요하지 않습니다.
 
