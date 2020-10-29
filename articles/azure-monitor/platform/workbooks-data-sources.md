@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143742"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927909"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
@@ -48,7 +48,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 
 ![Azure 리소스 그래프 KQL 쿼리 스크린샷](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 통합 문서는 Azure Resource Manager REST 작업을 지원 합니다. 이렇게 하면 고유한 권한 부여 헤더 토큰을 제공할 필요 없이 management.azure.com 끝점을 쿼리할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure Monitor에는 Windows 또는 Linux 게스트 운영 체제의 가용성과
 
 쿼리 컨트롤에서이 데이터 원본을 사용 하도록 하려면 **쿼리 유형** 드롭다운을 사용 하 여 Azure health를 선택 하 고 대상으로 할 리소스를 선택 합니다. 상태 필터 삭제를 사용 하 여 분석 요구 사항에 대 한 리소스 문제의 흥미로운 하위 집합을 선택 합니다.
 
-![경고 쿼리 스크린샷](./media/workbooks-overview/resource-health.png)
+![상태 필터 목록을 표시 하는 경고 쿼리의 스크린샷](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 
 통합 문서는 외부 소스에서 데이터를 가져오는 기능을 지원 합니다. 데이터가 Azure 외부에 있는 경우이 데이터 원본 유형을 사용 하 여 통합 문서로 가져올 수 있습니다.
 
-쿼리 컨트롤에서이 데이터 원본을 사용 하도록 하려면 _데이터 원본_ 드롭다운을 사용 하 여 _사용자 지정 끝점_을 선택 합니다. `Http method`,, `url` `headers` `url parameters` 및/또는와 같은 적절 한 매개 변수를 제공 `body` 합니다. 데이터 원본에서 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 를 지원 하는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다.
+쿼리 컨트롤에서이 데이터 원본을 사용 하도록 하려면 _데이터 원본_ 드롭다운을 사용 하 여 _사용자 지정 끝점_ 을 선택 합니다. `Http method`,, `url` `headers` `url parameters` 및/또는와 같은 적절 한 매개 변수를 제공 `body` 합니다. 데이터 원본에서 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 를 지원 하는지 확인 합니다. 그렇지 않으면 요청이 실패 합니다.
 
 템플릿을 사용할 때 트러스트 되지 않은 호스트를 자동으로 호출 하지 않으려면 사용자가 사용 된 호스트를 신뢰할 수 있는 것으로 표시 해야 합니다. 이 작업은 _트러스트 된 것으로 추가_ 단추를 클릭 하거나 통합 문서 설정에서 신뢰할 수 있는 호스트로 추가 하 여 수행할 수 있습니다. 이러한 설정은 웹 작업자와 함께 IndexDb를 지 원하는 브라우저에 저장 되며 [여기](https://caniuse.com/#feat=indexeddb)에서 자세한 정보를 제공 합니다.
 

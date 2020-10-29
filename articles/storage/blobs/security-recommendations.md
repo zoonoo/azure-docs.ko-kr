@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363281d064d4abe7475c034e6d6592d90af1f9b9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713713"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927943"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -32,6 +32,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | Azure Resource Manager 배포 모델 사용 | Azure RBAC (역할 기반 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 하 여 중요 한 보안 향상을 위해 Azure Resource Manager 배포 모델을 사용 하 여 새 저장소 계정을 만듭니다. 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)를 참조 하세요. | - |
 | 모든 저장소 계정에 대해 Azure Defender를 사용 하도록 설정 | Azure Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
 | Blob 데이터에 대 한 일시 삭제 설정 | 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](storage-blob-soft-delete.md)를 참조 하세요. | - |
+| 실수로 삭제 되지 않도록 저장소 계정 잠금 | 관리자는 조직의 다른 사용자가 실수로 중요 한 리소스를 삭제 하거나 수정 하지 못하도록 구독, 리소스 그룹 또는 리소스를 잠가야 할 수 있습니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](/azure/azure-resource-manager/management/lock-resources)를 참조 하세요.
 | 변경할 수 없는 blob에 비즈니스에 중요 한 데이터 저장 | Hyper-v에 blob 데이터를 저장 하는 법적 보류 및 시간 기반 보존 정책을 구성 합니다 (한 번 쓰기, 읽기 다) 상태. Blob 저장 된 immutably를 읽을 수는 있지만 보존 간격이 지속 되는 동안에는 수정 하거나 삭제할 수 없습니다. 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요. | - |
 | SAS (공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트에서 SAS 토큰을 사용 하 여 blob 데이터에 액세스 하는 경우 도청의 위험을 최소화 하는 데 도움이 되는 HTTPS가 필요 합니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요. | - |
 
@@ -44,6 +45,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 사용자 위임 SAS를 사용 하 여 blob 데이터에 대 한 제한 된 액세스 권한을 클라이언트에 부여 합니다. | 사용자 위임 SAS는 Azure Active Directory (Azure AD) 자격 증명과 SAS에 대해 지정 된 사용 권한으로 보호 됩니다. 사용자 위임 SAS는 해당 범위와 기능을 기준으로 하는 서비스 SAS와 유사 하지만 서비스 SAS에 대 한 보안 이점을 제공 합니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조 하세요. | - |
 | Azure Key Vault를 사용 하 여 계정 액세스 키 보호 | Microsoft는 Azure AD를 사용 하 여 Azure Storage 요청에 권한을 부여 하는 것을 권장 합니다. 그러나 공유 키 인증을 사용 해야 하는 경우에는 Azure Key Vault를 사용 하 여 계정 키를 보호 해야 합니다. 응용 프로그램을 사용 하 여 키를 저장 하는 대신 런타임에 키 자격 증명 모음에서 키를 검색할 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 개요](../../key-vault/general/overview.md)를 참조 하세요. | - |
 | 정기적으로 계정 키 다시 생성 | 정기적으로 계정 키를 회전 하면 악의적인 행위자에 게 데이터를 노출 하는 위험을 줄일 수 있습니다. | - |
+| 공유 키 인증 사용 안 함 | 저장소 계정에 대 한 공유 키 인증을 허용 하지 않을 경우 Azure Storage는 계정 액세스 키로 권한이 부여 된 해당 계정에 대 한 모든 후속 요청을 거부 합니다. Azure AD를 사용 하 여 권한이 부여 된 보안 요청만 성공 하 게 됩니다. [Azure Storage 계정에 대 한 공유 키 권한 부여 방지](../common/shared-key-authorization-prevent.md)를 참조 하세요. | - |
 | SAS에 사용 권한을 할당 하는 경우 최소 권한의 원칙을 염두에 두어야 합니다. | SAS를 만들 때 클라이언트에서 해당 기능을 수행 하는 데 필요한 사용 권한만 지정 합니다. 리소스에 대 한 액세스를 제한 하면 의도 하지 않은 데이터의 악의적인 오용을 방지할 수 있습니다. | - |
 | 클라이언트에 발급 하는 SAS에 대해 해지 계획을 준비 해야 합니다. | SAS가 손상 되 면 가능한 한 빨리 해당 SAS를 해지 하는 것이 좋습니다. 사용자 위임 SAS를 해지 하려면 사용자 위임 키를 취소 하 여 해당 키와 연결 된 모든 서명을 빠르게 무효화 합니다. 저장 된 액세스 정책과 연결 된 서비스 SAS를 해지 하려면 저장 된 액세스 정책을 삭제 하거나, 정책의 이름을 바꾸거나, 만료 시간을 과거 시간으로 변경할 수 있습니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요.  | - |
 | 서비스 SAS가 저장 된 액세스 정책과 연결 되지 않은 경우 만료 시간을 1 시간 이하로 설정 합니다. | 저장 된 액세스 정책과 연결 되지 않은 서비스 SAS는 취소할 수 없습니다. 이러한 이유로, SAS가 1 시간 이내에 유효 하도록 만료 시간을 제한 하는 것이 좋습니다. | - |
@@ -60,12 +62,14 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 프라이빗 엔드포인트 사용 | 개인 끝점은 Azure Virtual Network (VNet)에서 저장소 계정으로 개인 IP 주소를 할당 합니다. 개인 링크를 통해 VNet과 저장소 계정 간의 모든 트래픽을 보호 합니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점을 사용 하 여 전용으로 저장소 계정에 연결](../../private-link/create-private-endpoint-storage-portal.md)을 참조 하세요. | - |
 | VNet 서비스 태그 사용 | 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다. Azure Storage에서 지 원하는 서비스 태그에 대 한 자세한 내용은 [Azure 서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 참조 하세요. 서비스 태그를 사용 하 여 아웃 바운드 네트워크 규칙을 만드는 방법을 보여 주는 자습서는 [PaaS 리소스에 대 한 액세스 제한](../../virtual-network/tutorial-restrict-network-access-to-resources.md)을 참조 하세요. | - |
 | 특정 네트워크에 대 한 네트워크 액세스 제한 | 액세스를 요구 하는 클라이언트를 호스팅하는 네트워크에 대 한 네트워크 액세스를 제한 하면 네트워크 공격에 대 한 리소스 노출을 줄일 수 있습니다. | [예](../../security-center/security-center-sql-service-recommendations.md) |
+| 네트워크 라우팅 기본 설정 구성 | Microsoft 글로벌 네트워크 또는 인터넷 라우팅을 사용 하 여 인터넷을 통해 클라이언트에서 네트워크 트래픽을 계정으로 라우팅하는 방법을 지정 하기 위해 Azure 저장소 계정에 대 한 네트워크 라우팅 기본 설정을 구성할 수 있습니다. [Azure Storage에 대 한 네트워크 라우팅 기본 설정 구성](../common/network-routing-preference.md)을 참조 하세요. | - |
 
 ## <a name="loggingmonitoring"></a>로깅/모니터링
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-| 요청에 대 한 권한을 부여 하는 방법 추적 | Azure Storage 로깅을 사용 하 여 Azure Storage에 대해 만들어진 각 요청에 대 한 권한이 부여 되었는지 추적 합니다. 로그는 OAuth 2.0 토큰을 사용 하거나 공유 키를 사용 하거나 공유 액세스 서명 (SAS)을 사용 하 여 요청이 익명으로 수행 되었는지 여부를 나타냅니다. 자세한 내용은 [Azure Storage analytics 로깅](../common/storage-analytics-logging.md)을 참조 하세요. | - |
+| 요청에 대 한 권한을 부여 하는 방법 추적 | Azure Storage 로깅을 사용 하 여 Azure Storage에 대해 만들어진 각 요청에 대 한 권한이 부여 되었는지 추적 합니다. 로그는 OAuth 2.0 토큰을 사용 하거나 공유 키를 사용 하거나 공유 액세스 서명 (SAS)을 사용 하 여 요청이 익명으로 수행 되었는지 여부를 나타냅니다. 자세한 내용은 [Azure Monitor를 사용 하 여 Azure Blob Storage 모니터링](monitor-blob-storage.md) 또는 [클래식 모니터링을 사용 하 여 Azure Storage 분석 로깅](../common/storage-analytics-logging.md)을 참조 하세요. | - |
+| Azure Monitor에서 경고 설정 | 로그 경고를 사용 하면 사용자가 Log Analytics 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다 [Azure Monitor의 로그 경고](/azure/azure-monitor/platform/alerts-unified-log)를 참조 하세요. | - |
 
 ## <a name="next-steps"></a>다음 단계
 

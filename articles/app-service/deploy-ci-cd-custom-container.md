@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961859"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928011"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -26,16 +26,16 @@ ms.locfileid: "88961859"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
-4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
-5. **Azure Container Registry**를 선택합니다.
-6. **지속적인 배포 > 켜짐**을 선택합니다.
-7. **저장**을 선택하여 지속적인 배포를 활성화합니다.
+4. **컨테이너 설정** 페이지에서 **단일 컨테이너** 를 선택합니다.
+5. **Azure Container Registry** 를 선택합니다.
+6. **지속적인 배포 > 켜짐** 을 선택합니다.
+7. **저장** 을 선택하여 지속적인 배포를 활성화합니다.
 
 ## <a name="use-the-acr-webhook"></a>ACR webhook 사용
 
 지속적인 배포가 활성화되면 Azure Container Registry webhook 페이지에서 새로 만든 webhook를 볼 수 있습니다.
 
-![ACR webhook 스크린샷](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Azure Container Registry 웹 후크 페이지에서 새로 만든 webhook를 볼 수 있는 위치를 보여 주는 스크린샷](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 Container Registry에서 Webhook를 클릭하여 현재 webhook를 볼 수 있습니다.
 
@@ -44,10 +44,10 @@ Container Registry에서 Webhook를 클릭하여 현재 webhook를 볼 수 있�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
-4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
-5. **Docker 허브**를 선택합니다.
-6. **지속적인 배포 > 켜짐**을 선택합니다.
-7. **저장**을 선택하여 지속적인 배포를 활성화합니다.
+4. **컨테이너 설정** 페이지에서 **단일 컨테이너** 를 선택합니다.
+5. **Docker 허브** 를 선택합니다.
+6. **지속적인 배포 > 켜짐** 을 선택합니다.
+7. **저장** 을 선택하여 지속적인 배포를 활성화합니다.
 
 ![앱 설정 스크린샷](./media/deploy-ci-cd-custom-container/ci-cd-docker-02.png)
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ea746d67b23422243685347d1fe7a7fbaf03a4fe
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637040"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927960"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4 및 Easv4 시리즈
 
@@ -25,7 +25,7 @@ Eav4 시리즈 및 Easv4 시리즈는 최대 256MB L3 캐시가 포함 된 다�
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br>
 
 Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Easv4 시리즈 크기를 사용 합니다. Easv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
@@ -49,7 +49,7 @@ Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 �
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br>
 
 Easv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.

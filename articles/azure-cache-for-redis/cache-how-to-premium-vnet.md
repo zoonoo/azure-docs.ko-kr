@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: eb70e7cfec4e6f3e7e55fa74bbdd6cee43493576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537884"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927739"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -50,10 +50,10 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for
 
 5. **네트워킹** 탭에서 연결 방법으로 **가상 네트워크** 를 선택 합니다. 새 가상 네트워크를 사용 하려면 먼저 [Azure Portal를 사용 하 여 가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network) 의 단계를 수행 하거나 Azure Portal를 사용 하 여 가상 네트워크 만들기 [(클래식)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) 의 단계를 수행 하 여 새 가상 네트워크를 만든 다음 **새 Azure cache for Redis** 블레이드로 돌아와서 프리미엄 캐시를 만들고 구성 합니다.
 
-> [!IMPORTANT]
-> Azure Cache for Redis를 Resource Manager VNet에 배포하는 경우 캐시는 Azure Cache for Redis 인스턴스를 제외하고는 다른 리소스가 포함되지 않은 전용 서브넷에 있어야 합니다. Azure Cache for Redis를 다른 리소스가 포함된 서브넷의 Resource Manager VNet에 배포하려고 하면 배포가 실패합니다.
-> 
-> 
+   > [!IMPORTANT]
+   > Azure Cache for Redis를 Resource Manager VNet에 배포하는 경우 캐시는 Azure Cache for Redis 인스턴스를 제외하고는 다른 리소스가 포함되지 않은 전용 서브넷에 있어야 합니다. Azure Cache for Redis를 다른 리소스가 포함된 서브넷의 Resource Manager VNet에 배포하려고 하면 배포가 실패합니다.
+   > 
+   > 
 
    | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -61,12 +61,12 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for
    | **서브넷** | 드롭다운 및 서브넷을 선택 합니다. | 서브넷의 주소 범위는 CIDR 표기법 (예: 192.168.1.0/24) 이어야 합니다. 가상 네트워크의 주소 공간에 포함되어야 합니다. | 
    | **고정 IP 주소** | 필드 고정 IP 주소를 입력 하십시오. | 고정 IP를 지정 하지 않으면 IP 주소가 자동으로 선택 됩니다. | 
 
-> [!IMPORTANT]
-> Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
-> 
-> 서브넷의 각 Redis 인스턴스는 Azure VNET 인프라에서 사용하는 IP 주소 외에도, 분할된 데이터베이스당 IP 주소 2개, 부하 분산 장치용 추가 IP 주소 1개를 사용합니다. 클러스터되지 않은 캐시는 분할된 데이터베이스 1개가 있는 것으로 간주됩니다.
-> 
-> 
+   > [!IMPORTANT]
+   > Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+   > 
+   > 서브넷의 각 Redis 인스턴스는 Azure VNET 인프라에서 사용하는 IP 주소 외에도, 분할된 데이터베이스당 IP 주소 2개, 부하 분산 장치용 추가 IP 주소 1개를 사용합니다. 클러스터되지 않은 캐시는 분할된 데이터베이스 1개가 있는 것으로 간주됩니다.
+   > 
+   > 
 
 6. 페이지 맨 아래에서 **다음: 고급** 탭을 선택하거나 페이지 하단에서 **다음: 고급** 단추를 클릭합니다.
 
@@ -128,10 +128,10 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 아웃 바운드 포트 요구 사항은 9 가지가 있습니다. 이러한 범위의 아웃 바운드 요청은 캐시가 작동 하는 데 필요한 다른 서비스 또는 노드 간 통신용 Redis 서브넷 내부에 대 한 아웃 바운드입니다. 지리적 복제의 경우 기본 및 복제본 캐시의 서브넷 간 통신을 위한 추가 아웃 바운드 요구 사항이 있습니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 443 | 아웃바운드 | TCP | Azure Key Vault에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
+| 443 | 아웃바운드 | TCP | Azure Key Vault 및 Azure Monitor에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>2</sup> 및 서브넷 <sup>3</sup> 에 대 한 모든 사용자 지정 DNS 서버 |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
@@ -140,7 +140,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 15000-15999 |아웃바운드 |TCP |Redis 및 Geo-Replication에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) (지역 복제본 피어 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>1</sup> 리소스 관리자 네트워크 보안 그룹에서 서비스 태그 ' AzureKeyVault '를 사용할 수 있습니다.
+<sup>1</sup> 리소스 관리자 네트워크 보안 그룹에서 서비스 태그 ' AzureKeyVault ' 및 ' azuremonitor '를 사용할 수 있습니다.
 
 <sup>2</sup> Microsoft에서 소유 하는 이러한 IP 주소는 Azure DNS 서비스를 제공 하는 호스트 VM의 주소를 결정 하는 데 사용 됩니다.
 
@@ -154,7 +154,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -172,9 +172,9 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 가상 네트워크에서 처음에는 충족되지 않을 수 있는 Azure Cache for Redis에 대한 네트워크 연결 요구 사항이 있습니다. Azure Cache for Redis는 가상 네트워크 내에서 사용할 때 다음 항목이 모두 제대로 작동하도록 요구합니다.
 
 * 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. Azure Storage 끝점은 다음 DNS 도메인에서 확인 됩니다. *table.core.windows.net* , *blob.core.windows.net* , *queue.core.windows.net* 및 *file.core.windows.net* 
-* *ocsp.msocsp.com* , *mscrl.microsoft.com* 및 *crl.microsoft.com* 에 대한 아웃바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
+* *Ocsp.digicert.com* , *crl4.digicert.com* , *ocsp.msocsp.com* , *mscrl.microsoft.com* , *crl3.digicert.com* , *cacerts.digicert.com* , *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대 한 아웃 바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
-* 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 엔드포인트에 대한 아웃바운드 네트워크 연결: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net
+* 다음 Azure Monitor 끝점에 대 한 아웃 바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net* , *north-prod2.prod2.metrics.nsatc.net* , *azglobal-black.azglobal.metrics.nsatc.net* , *shoebox2-red.shoebox2.metrics.nsatc.net* , *east-prod2.prod2.metrics.nsatc.net* , *azglobal-red.azglobal.metrics.nsatc.net* DNS 도메인에서 확인 됩니다.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
 

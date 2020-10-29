@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518010"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927722"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -123,8 +123,8 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Azure에서 다른 VNet에 VNet을 연결할 수 있습니까?
 예. 다음 중 하나를 사용하여 하나의 VNet을 다른 VNet에 연결할 수 있습니다.
-- **가상 네트워크 피어링**: 자세한 내용은 [VNet 피어링 개요](virtual-network-peering-overview.md)를 참조하세요.
-- **Azure VPN Gateway**: 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 
+- **가상 네트워크 피어링** : 자세한 내용은 [VNet 피어링 개요](virtual-network-peering-overview.md)를 참조하세요.
+- **Azure VPN Gateway** : 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 
 
 ## <a name="name-resolution-dns"></a>이름 확인(DNS)
 
@@ -159,10 +159,10 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>VM에 지정할 수 있는 IP 주소 유형에는 무엇이 있습니까?
 * **프라이빗:** 각 VM 내에서 각 NIC에 할당됩니다. 주소는 고정 또는 동적 방법을 사용하여 할당됩니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. VNet에 연결되지 않은 경우에도 클래식 배포 모델을 통해 배포된 리소스에는 개인 IP 주소가 할당됩니다. 할당 메서드의 동작은 리소스가 Resource Manager로 배포되었는지 또는 클래식 배포 모델과 함께 배포되었는지에 따라 다릅니다. 
 
-  - **Resource Manager**: 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
-  - **클래식**: 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
+  - **Resource Manager** : 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
+  - **클래식** : 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
 
-* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
+* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적* , 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있나요?
 아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
@@ -191,7 +191,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -227,6 +227,9 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>VNet 보안에 사용 가능한 정보가 있습니까?
 예. 자세한 내용은 [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+
+### <a name="do-virtual-networks-store-customer-data"></a>가상 네트워크에서 고객 데이터를 저장 하나요?
+아니요. 가상 네트워크는 고객 데이터를 저장 하지 않습니다. 
 
 ## <a name="apis-schemas-and-tools"></a>API, 스키마 및 도구
 
@@ -268,7 +271,7 @@ VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이�
 예. 현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 로컬 또는 글로벌 VNet 피어링을 설정할 수 없습니다. 포털, PowerShell 또는 CLI를 통해이 작업을 수행할 수 있습니다.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>내 VNet 피어링 연결이 *시작됨* 상태입니다. 왜 연결할 수 없나요?
-피어 링 연결이 *시작* 됨 상태 이면 하나의 링크만 생성 했음을 의미 합니다. 성공적인 연결을 위해서는 양방향 연결을 만들어야 합니다. 예를 들어, VNet A를 VNet B에 피어로 연결하려면 VNetA로부터 VNetB와, VNetB로부터 VNetA로의 연결을 만들어야 합니다. 두 링크를 모두 만들면 상태가 *연결 됨*으로 변경 됩니다.
+피어 링 연결이 *시작* 됨 상태 이면 하나의 링크만 생성 했음을 의미 합니다. 성공적인 연결을 위해서는 양방향 연결을 만들어야 합니다. 예를 들어, VNet A를 VNet B에 피어로 연결하려면 VNetA로부터 VNetB와, VNetB로부터 VNetA로의 연결을 만들어야 합니다. 두 링크를 모두 만들면 상태가 *연결 됨* 으로 변경 됩니다.
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>내 VNet 피어링 연결이 *연결 끊김* 상태에 있습니다. 피어링 연결을 만들 수 없는 이유는 무엇인가요?
 VNet 피어 링 연결이 *연결이 끊어진* 상태 이면 만든 링크 중 하나가 삭제 된 것입니다. 피어 링 연결을 다시 설정 하려면 링크를 삭제 하 고 다시 만들어야 합니다.
@@ -331,7 +334,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 >[!NOTE]
 > 위에서 설명한 작업을 둘 다 완료해야 허용된 VNet 및 서브넷에 대한 Azure 서비스 액세스를 제한할 수 있습니다. 네트워크 쪽에서만 Azure 서비스에 대한 서비스 엔드포인트를 켜면 제한된 액세스가 제공되지 않습니다. Azure 서비스 쪽에서도 VNet ACL을 설정해야 합니다.
 
-특정 서비스 (예: SQL 및 CosmosDB)는 **IgnoreMissingVnetServiceEndpoint** 플래그를 통해 위의 시퀀스에 대 한 예외를 허용 합니다. 플래그가 **True**로 설정 되 면 네트워크 쪽에서 서비스 엔드포인트를 설정 하기 전에 Azure 서비스 쪽에서 VNet acl을 설정할 수 있습니다. Azure 서비스는 Azure 서비스에 특정 IP 방화벽이 구성된 경우 고객을 지원하기 위해 이 플래그를 제공하며, 네트워크 쪽에서 서비스 엔드포인트를 켜면 원본 IP가 공용 IPv4 주소에서 프라이빗 주소로 변경되어 연결이 삭제될 수 있습니다. 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정하면 연결 삭제를 방지할 수 있습니다.
+특정 서비스 (예: SQL 및 CosmosDB)는 **IgnoreMissingVnetServiceEndpoint** 플래그를 통해 위의 시퀀스에 대 한 예외를 허용 합니다. 플래그가 **True** 로 설정 되 면 네트워크 쪽에서 서비스 엔드포인트를 설정 하기 전에 Azure 서비스 쪽에서 VNet acl을 설정할 수 있습니다. Azure 서비스는 Azure 서비스에 특정 IP 방화벽이 구성된 경우 고객을 지원하기 위해 이 플래그를 제공하며, 네트워크 쪽에서 서비스 엔드포인트를 켜면 원본 IP가 공용 IPv4 주소에서 프라이빗 주소로 변경되어 연결이 삭제될 수 있습니다. 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정하면 연결 삭제를 방지할 수 있습니다.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>모든 Azure 서비스가 고객이 제공하는 Azure 가상 네트워크에 상주하나요? VNet 서비스 엔드포인트가 Azure 서비스에서 어떻게 작동하나요?
 

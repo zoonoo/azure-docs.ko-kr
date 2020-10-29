@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336006"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927688"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -32,22 +32,23 @@ ms.locfileid: "91336006"
 > [!IMPORTANT]
 > Azure 가상 컴퓨터의 OS 또는 데이터 디스크 크기를 조정 하려면 가상 컴퓨터의 할당을 취소 해야 합니다.
 >
-> 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
+> 기존 디스크를 축소 하는 것은 지원 되지 않으며 잠재적으로 데이터가 손실 될 수 있습니다.
 > 
+> 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Azure Portal에서 관리 디스크 크기 조정
 
 1. [Azure Portal](https://portal.azure.com)에서 디스크를 확장 하려는 가상 머신으로 이동 합니다. **중지** 를 선택 하 여 VM의 할당을 취소 합니다.
-2. VM이 중지 되 면 **설정**아래의 왼쪽 메뉴에서 **디스크**를 선택 합니다.
+2. VM이 중지 되 면 **설정** 아래의 왼쪽 메뉴에서 **디스크** 를 선택 합니다.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
 
  
-3. **디스크 이름**에서 크기를 조정 하려는 디스크를 선택 합니다.
+3. **디스크 이름** 에서 크기를 조정 하려는 디스크를 선택 합니다.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
 
-4. 왼쪽 메뉴의 **설정**아래에서 **구성**을 선택 합니다.
+4. 왼쪽 메뉴의 **설정** 아래에서 **구성** 을 선택 합니다.
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
 
@@ -59,7 +60,7 @@ ms.locfileid: "91336006"
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
 
@@ -230,17 +231,17 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 
 ## <a name="expand-the-volume-within-the-os"></a>OS 내에서 볼륨 확장
 
-VM에 대 한 디스크를 확장 한 경우 OS로 이동 하 고 볼륨을 확장 하 여 새 공간을 포함 해야 합니다. 파티션을 확장하는 여러 방법이 있습니다. 이 섹션에서는 RDP 연결을 사용하여 VM을 연결하고 **DiskPart**를 사용하여 파티션을 확장하는 방법을 설명합니다.
+VM에 대 한 디스크를 확장 한 경우 OS로 이동 하 고 볼륨을 확장 하 여 새 공간을 포함 해야 합니다. 파티션을 확장하는 여러 방법이 있습니다. 이 섹션에서는 RDP 연결을 사용하여 VM을 연결하고 **DiskPart** 를 사용하여 파티션을 확장하는 방법을 설명합니다.
 
 1. VM에 대한 RDP 연결을 엽니다.
 
-2. 명령 프롬프트를 열고 **diskpart**를 입력합니다.
+2. 명령 프롬프트를 열고 **diskpart** 를 입력합니다.
 
 3. **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-4. **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
+4. **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber* 가 선택됩니다.
 
-5. **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
+5. **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size* (MB)만큼 확장됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

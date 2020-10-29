@@ -2,13 +2,13 @@
 title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308634"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927824"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -18,18 +18,18 @@ ms.locfileid: "92308634"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음을 확인 합니다.
 
 * 사용자 지정 메트릭은 Azure 지역의 하위 집합 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 지원 되는 [지역](../platform/metrics-custom-overview.md#supported-regions)에 설명 되어 있습니다.
 
-* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 **microsoft/oms: ciprod05262020** for AKS and **microsoft/oms: Ciprod09252020** For Azure Arc enabled Kubernetes cluster입니다.
+* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** for AKS and **Mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** For Azure Arc enabled Kubernetes cluster입니다.
 
     클러스터가 최신 버전의 에이전트를 실행 하 고 있는지 확인 하려면 다음 중 하나를 수행 합니다.
 
     * 명령을 실행 `kubectl describe <omsagent-pod-name> --namespace=kube-system` 합니다. 반환 된 상태에서 출력의 *컨테이너* 섹션에서 Omsagent의 **이미지** 아래에 있는 값을 확인 합니다. 
-    * **노드** 탭에서 클러스터 노드를 선택 하 고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그**아래의 값을 확인 합니다.
+    * **노드** 탭에서 클러스터 노드를 선택 하 고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그** 아래의 값을 확인 합니다.
 
     AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc enabled Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우 최신 버전을 다운로드 하는 단계는 [컨테이너 에이전트 Azure Monitor를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 을 참조 하세요.
 
@@ -74,7 +74,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 * *oomKilledContainerCount* 메트릭은 OOM이 종료 된 컨테이너에 있는 경우에만 전송 됩니다.
 
-* *cpuExceededPercentage*, *memoryRssExceededPercentage*및 *MemoryWorkingSetExceededPercentage* 메트릭은 CPU, 메모리 Rss 및 메모리 작업 집합 값이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 95%). 이러한 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 컨테이너 리소스 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요.
+* *cpuExceededPercentage* , *memoryRssExceededPercentage* 및 *MemoryWorkingSetExceededPercentage* 메트릭은 CPU, 메모리 Rss 및 메모리 작업 집합 값이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 95%). 이러한 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 컨테이너 리소스 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요.
 
 * *pvUsageExceededPercentage* 메트릭은 영구적 볼륨 사용 백분율이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 60%). 이 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 영구적 볼륨 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요. *Kube* 네임 스페이스의 클레임이 있는 영구적 볼륨 메트릭의 컬렉션은 기본적으로 제외 됩니다. 이 네임 스페이스에서 컬렉션을 사용 하도록 설정 하려면 `[metric_collection_settings.collect_kube_system_pv_metrics]` ConfigMap 파일의 섹션을 사용 합니다. 자세한 내용은 [메트릭 컬렉션 설정](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) 을 참조 하세요.
 
@@ -114,11 +114,11 @@ Azure Portal에서 Azure Monitor 메트릭 경고를 사용 하도록 설정 하
 
 2. 컨테이너 메트릭 경고 (미리 보기) 기능에 대 한 Azure Monitor에 대 한 액세스는 Azure Portal의 왼쪽 창에서 **정보** 를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다.
 
-3. 명령 모음에서 **권장 되는 경고**를 선택 합니다.
+3. 명령 모음에서 **권장 되는 경고** 를 선택 합니다.
 
     ![컨테이너에 대 한 Azure Monitor의 권장 경고 옵션](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. **권장 되는 경고** 속성 창이 페이지의 오른쪽에 자동으로 표시 됩니다. 기본적으로 목록에 있는 모든 경고 규칙은 사용 하지 않도록 설정 됩니다. **사용**을 선택 하면 경고 규칙이 만들어지고 규칙 이름이로 업데이트 되어 경고 리소스에 대 한 링크가 포함 됩니다.
+4. **권장 되는 경고** 속성 창이 페이지의 오른쪽에 자동으로 표시 됩니다. 기본적으로 목록에 있는 모든 경고 규칙은 사용 하지 않도록 설정 됩니다. **사용** 을 선택 하면 경고 규칙이 만들어지고 규칙 이름이로 업데이트 되어 경고 리소스에 대 한 링크가 포함 됩니다.
 
     ![권장 되는 경고 속성 창](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -126,7 +126,7 @@ Azure Portal에서 Azure Monitor 메트릭 경고를 사용 하도록 설정 하
 
     ![경고 규칙 사용](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. 경고 규칙은 사용자에 게 경고가 트리거 되었음을 알리는 [작업 그룹과](../platform/action-groups.md) 연결 되지 않습니다. **작업 그룹 할당 안 함** 을 선택 하 고 **작업 그룹** 페이지에서 기존를 지정 하거나 **추가** 또는 **만들기**를 선택 하 여 작업 그룹을 만듭니다.
+5. 경고 규칙은 사용자에 게 경고가 트리거 되었음을 알리는 [작업 그룹과](../platform/action-groups.md) 연결 되지 않습니다. **작업 그룹 할당 안 함** 을 선택 하 고 **작업 그룹** 페이지에서 기존를 지정 하거나 **추가** 또는 **만들기** 를 선택 하 여 작업 그룹을 만듭니다.
 
     ![작업 그룹 선택](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
 
 2. 포털을 통해 사용자 지정 된 템플릿을 배포 하려면 [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
 
-3. **템플릿을**검색 한 다음 **템플릿 배포**를 선택 합니다.
+3. **템플릿을** 검색 한 다음 **템플릿 배포** 를 선택 합니다.
 
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
-5. 템플릿을 만들기 위한 몇 가지 옵션이 표시 됩니다. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
+5. 템플릿을 만들기 위한 몇 가지 옵션이 표시 됩니다. **편집기에서 고유한 템플릿 빌드** 를 선택 합니다.
 
-6. **템플릿 편집 페이지**에서 **파일 로드** 를 선택 하 고 템플릿 파일을 선택 합니다.
+6. **템플릿 편집 페이지** 에서 **파일 로드** 를 선택 하 고 템플릿 파일을 선택 합니다.
 
-7. **템플릿 편집** 페이지에서 **저장**을 선택 합니다.
+7. **템플릿 편집** 페이지에서 **저장** 을 선택 합니다.
 
 8. **사용자 지정 배포** 페이지에서 다음을 지정 하 고 완료 되 면 **구매** 를 선택 하 여 템플릿을 배포 하 고 경고 규칙을 만듭니다.
 
@@ -200,14 +200,14 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
 
 컨테이너 경고 규칙에 대 한 Azure Monitor를 보고 관리 하 여 해당 임계값을 편집 하거나 AKS 클러스터에 대 한 [작업 그룹](../platform/action-groups.md) 을 구성할 수 있습니다. Azure Portal 및 Azure CLI에서 이러한 작업을 수행할 수 있지만, 컨테이너에 대 한 Azure Monitor의 AKS 클러스터에서 직접 수행할 수도 있습니다.
 
-1. 명령 모음에서 **권장 되는 경고**를 선택 합니다.
+1. 명령 모음에서 **권장 되는 경고** 를 선택 합니다.
 
-2. 임계값을 수정 하려면 **권장 되는 경고** 창에서 사용 경고를 선택 합니다. **편집 규칙**에서 편집 하려는 **경고 조건을** 선택 합니다.
+2. 임계값을 수정 하려면 **권장 되는 경고** 창에서 사용 경고를 선택 합니다. **편집 규칙** 에서 편집 하려는 **경고 조건을** 선택 합니다.
 
-    * 경고 규칙 임계값을 수정 하려면 **조건을**선택 합니다.
+    * 경고 규칙 임계값을 수정 하려면 **조건을** 선택 합니다.
     * 기존를 지정 하거나 작업 그룹을 만들려면 **작업 그룹** 에서 **추가** 또는 **만들기** 를 선택 합니다.
 
-사용 하도록 설정 된 규칙에 대해 생성 된 경고를 보려면 **권장 되는 경고** 창에서 **경고 보기**를 선택 합니다. 클러스터에 대해 현재 생성 된 모든 경고를 볼 수 있는 AKS 클러스터에 대 한 경고 메뉴로 리디렉션됩니다.
+사용 하도록 설정 된 규칙에 대해 생성 된 경고를 보려면 **권장 되는 경고** 창에서 **경고 보기** 를 선택 합니다. 클러스터에 대해 현재 생성 된 모든 경고를 볼 수 있는 AKS 클러스터에 대 한 경고 메뉴로 리디렉션됩니다.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>ConfigMaps에서 했어야 메트릭 구성
 

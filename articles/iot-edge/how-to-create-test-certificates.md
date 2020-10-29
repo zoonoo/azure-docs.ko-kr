@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147889"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927705"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -163,7 +163,7 @@ Windows 장치에서 데모 인증서를 만들려면 생성 스크립트를 복
    New-CACertsCertChain rsa
    ```
 
-   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서**를 요청 하는 경우 다음 파일을 사용 합니다.
+   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서** 를 요청 하는 경우 다음 파일을 사용 합니다.
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,7 +177,7 @@ Windows 장치에서 데모 인증서를 만들려면 생성 스크립트를 복
    ./certGen.sh create_root_and_intermediate
    ```
 
-   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서**를 요청 하는 경우 다음 파일을 사용 합니다.
+   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서** 를 요청 하는 경우 다음 파일을 사용 합니다.
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
@@ -255,7 +255,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
 2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. CA 인증서의 이름을 제공 합니다.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    이 스크립트 명령은 여러 인증서 및 키 파일을 만듭니다. 다음 인증서 및 키 쌍을 IoT Edge 장치에 복사 하 여 config.xml 파일에서 참조 해야 합니다.
@@ -263,7 +263,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-**Create_edge_device_certificate** 명령으로 전달 되는 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
+**Create_edge_device_ca_certificate** 명령으로 전달 되는 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
 
 ## <a name="create-downstream-device-certificates"></a>다운스트림 장치 인증서 만들기
 

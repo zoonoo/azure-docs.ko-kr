@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173587"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927892"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -32,7 +32,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 |지원  |세부 정보  |
 |---------|---------|
 |지원되는 배포   |  Azure Database for PostgreSQL 독립 실행형 단일 서버     |
-|지원되는 Azure 지역 |  미국 동부, 미국 동부 2, 미국 중부, 미국 서 부 |
+|지원되는 Azure 지역 |  미국 동부, 미국 동부 2, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 독일 중서부, 스위스 북부, 스위스 서부, 동아시아, 남부 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 중부  |
 |지원 되는 Azure PostgreSQL 버전    |   9.5, 9.6, 10, 11      |
 
 ## <a name="feature-considerations-and-limitations"></a>기능 고려 사항 및 제한 사항
@@ -55,7 +55,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
   
 5. 선택한 데이터베이스에 대 한 보호 구성을 트리거한 후 백업 서비스는 백업 일정 및 기타 정책 세부 정보를 사용 하 여 코디네이터를 설정 합니다.
 
-6. 예약 된 시간에 코디네이터는 플러그 인과 통신 하 고 **pg_dump**를 사용 하 여 Postgres 서버에서 백업 데이터 스트리밍을 시작 합니다.
+6. 예약 된 시간에 코디네이터는 플러그 인과 통신 하 고 **pg_dump** 를 사용 하 여 Postgres 서버에서 백업 데이터 스트리밍을 시작 합니다.
 
 7. 플러그 인은 데이터를 백업 자격 증명 모음으로 직접 전송 하 여 스테이징 위치에 대 한 필요성을 제거 합니다. 데이터는 Microsoft 관리 키를 사용 하 여 암호화 되 고 저장소 계정의 Azure Backup 서비스에 의해 저장 됩니다.
 
@@ -71,25 +71,25 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 1. 프로세스를 시작 하는 방법에는 다음 두 가지가 있습니다.
 
-    1. [Backup 센터](backup-center-overview.md)  ->  **개요**  ->  **백업**으로 이동 합니다.
+    1. [Backup 센터](backup-center-overview.md)  ->  **개요**  ->  **백업** 으로 이동 합니다.
 
         ![Backup Center로 이동](./media/backup-azure-database-postgresql/backup-center.png)
 
-        **시작: 백업 구성**에서 **Datasource 유형을** **Azure Database for PostgreSQL**선택 합니다.
+        **시작: 백업 구성** 에서 **Datasource 유형을** **Azure Database for PostgreSQL** 선택 합니다.
 
         ![시작: 백업 구성에서 데이터 원본 유형을 선택 합니다.](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
-    1. 또는 [백업 자격 증명 모음](backup-vault-overview.md)백업으로 바로 이동할 수 있습니다  ->  **Backup**.
+    1. 또는 [백업 자격 증명 모음](backup-vault-overview.md)백업으로 바로 이동할 수 있습니다  ->  **Backup** .
 
         ![백업 자격 증명 모음으로 이동](./media/backup-azure-database-postgresql/backup-vaults.png)
 
         ![백업 자격 증명 모음에서 백업 선택](./media/backup-azure-database-postgresql/backup-backup-vault.png)
 
-1. **백업 구성**에서 Postgres 데이터베이스를 백업 하려는 **백업 자격 증명 모음** 을 선택 합니다. 자격 증명 모음 컨텍스트에 이미 있는 경우이 정보는 미리 채워집니다.
+1. **백업 구성** 에서 Postgres 데이터베이스를 백업 하려는 **백업 자격 증명 모음** 을 선택 합니다. 자격 증명 모음 컨텍스트에 이미 있는 경우이 정보는 미리 채워집니다.
 
     ![백업 구성에서 백업 자격 증명 모음을 선택 합니다.](./media/backup-azure-database-postgresql/configure-backup.png)
 
-1. **백업 정책을**선택 하거나 만듭니다.
+1. **백업 정책을** 선택 하거나 만듭니다.
 
     ![백업 정책 선택](./media/backup-azure-database-postgresql/backup-policy.png)
 
@@ -121,7 +121,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 ## <a name="create-backup-policy"></a>백업 정책 만들기
 
-1. **백업 센터**  ->  **백업 정책**  ->  **추가**로 이동 합니다. 또는 **backup 자격 증명 모음**  ->  **백업 정책**  ->  **추가**로 이동할 수 있습니다.
+1. **백업 센터**  ->  **백업 정책**  ->  **추가** 로 이동 합니다. 또는 **backup 자격 증명 모음**  ->  **백업 정책**  ->  **추가** 로 이동할 수 있습니다.
 
     ![백업 정책 추가](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -142,8 +142,8 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 1. **기본 보존 규칙** 은 다른 보존 규칙이 없을 때 적용 되며 기본값은 3 개월입니다.
 
-    - 보존 기간 범위는 **백업 데이터 저장소**에서 7 일에서 10 년 사이입니다.
-    - 보존 기간은 **보관 데이터 저장소**에서 6 개월에서 10 년 사이입니다.
+    - 보존 기간 범위는 **백업 데이터 저장소** 에서 7 일에서 10 년 사이입니다.
+    - 보존 기간은 **보관 데이터 저장소** 에서 6 개월에서 10 년 사이입니다.
 
     ![보존 기간 편집](./media/backup-azure-database-postgresql/edit-retention.png)
 
@@ -157,15 +157,15 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 이 단계별 가이드에 따라 복원을 트리거합니다.
 
 1. 복원 프로세스를 시작 하는 방법에는 두 가지가 있습니다.
-    1. [Backup 센터](backup-center-overview.md)  ->  **개요**  ->  **복원**으로 이동 합니다.
+    1. [Backup 센터](backup-center-overview.md)  ->  **개요**  ->  **복원** 으로 이동 합니다.
 
     ![백업 센터에서 복원 선택](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    **시작: 복원**에서 **데이터 원본 유형을** **Azure Database for PostgreSQL**선택 합니다. **백업 인스턴스**를 선택 합니다.
+    **시작: 복원** 에서 **데이터 원본 유형을** **Azure Database for PostgreSQL** 선택 합니다. **백업 인스턴스** 를 선택 합니다.
 
     ![시작: 복원에서 Datasource 유형 선택](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. 또는 **backup 자격 증명 모음**  ->  **백업 인스턴스로**바로 이동할 수 있습니다. 복원 하려는 데이터베이스에 해당 하는 **백업 인스턴스** 를 선택 합니다.
+    1. 또는 **backup 자격 증명 모음**  ->  **백업 인스턴스로** 바로 이동할 수 있습니다. 복원 하려는 데이터베이스에 해당 하는 **백업 인스턴스** 를 선택 합니다.
 
     ![복원에 대 한 백업 인스턴스](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -179,25 +179,25 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
     ![복구 지점의 목록](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. **복원 매개 변수**를 입력 합니다. 이 시점에서 **데이터베이스** 복원 및 **파일로 복원**의 두 가지 복원 중에서 선택할 수 있습니다.
+1. **복원 매개 변수** 를 입력 합니다. 이 시점에서 **데이터베이스** 복원 및 **파일로 복원** 의 두 가지 복원 중에서 선택할 수 있습니다.
 
-1. **데이터베이스로 복원**: 백업 데이터를 복원 하 여 대상 PostgreSQL 서버에 새 데이터베이스를 만듭니다.
+1. **데이터베이스로 복원** : 백업 데이터를 복원 하 여 대상 PostgreSQL 서버에 새 데이터베이스를 만듭니다.
 
     - 대상 서버는 원본 서버와 동일할 수 있습니다. 그러나 원본 데이터베이스를 덮어쓰는 것은 지원 되지 않습니다.
     - 서버는 모든 구독에서 선택할 수 있지만 자격 증명 모음과 동일한 지역에서 선택할 수 있습니다.
-    - **검토 + 복원**을 선택 합니다. 이렇게 하면 유효성 검사를 트리거하여 서비스에 대상 서버에 대 한 적절 한 복원 권한이 있는지 확인 합니다.
+    - **검토 + 복원** 을 선택 합니다. 이렇게 하면 유효성 검사를 트리거하여 서비스에 대상 서버에 대 한 적절 한 복원 권한이 있는지 확인 합니다.
 
     ![데이터베이스로 복원](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **파일로 복원**: 대상 저장소 계정 (blob)에 백업 파일을 덤프 합니다.
+1. **파일로 복원** : 대상 저장소 계정 (blob)에 백업 파일을 덤프 합니다.
 
     - 저장소 계정은 모든 구독에서 선택할 수 있지만 자격 증명 모음과 동일한 지역에서 선택할 수 있습니다.
     - 선택한 저장소 계정에 대해 필터링 된 컨테이너 목록에서 대상 컨테이너를 선택 합니다.
-    - **검토 + 복원**을 선택 합니다. 이렇게 하면 유효성 검사를 트리거하여 서비스에 대상 서버에 대 한 적절 한 복원 권한이 있는지 확인 합니다.
+    - **검토 + 복원** 을 선택 합니다. 이렇게 하면 유효성 검사를 트리거하여 서비스에 대상 서버에 대 한 적절 한 복원 권한이 있는지 확인 합니다.
 
     ![파일로 복원](./media/backup-azure-database-postgresql/restore-as-files.png)
 
-1. 정보를 검토 하 고 **복원**을 선택 합니다. 이렇게 하면 **백업 작업**에서 추적할 수 있는 해당 복원 작업이 트리거됩니다.
+1. 정보를 검토 하 고 **복원** 을 선택 합니다. 이렇게 하면 **백업 작업** 에서 추적할 수 있는 해당 복원 작업이 트리거됩니다.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>백업 및 복원을 구성 하기 위한 필수 조건 권한
 
@@ -207,11 +207,11 @@ Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서�
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>백업 된 Azure PostgreSQL 데이터베이스 관리
 
-**백업 인스턴스에서**수행할 수 있는 관리 작업은 다음과 같습니다.
+**백업 인스턴스에서** 수행할 수 있는 관리 작업은 다음과 같습니다.
 
 ### <a name="on-demand-backup"></a>주문형 백업
 
-정책에 지정 된 일정에 맞지 않는 백업을 트리거하려면 지금 backup **instances**  ->  **backup**으로 이동 합니다.
+정책에 지정 된 일정에 맞지 않는 백업을 트리거하려면 지금 backup **instances**  ->  **backup** 으로 이동 합니다.
 연결 된 백업 정책에 정의 된 보존 규칙 목록에서 선택 합니다.
 
 ![지금 백업 트리거](./media/backup-azure-database-postgresql/backup-now.png)
@@ -228,7 +228,7 @@ Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서�
 
 백업 인스턴스를 사용 하 여 연결 된 정책을 변경할 수 있습니다.
 
-1. **백업 인스턴스**  ->  **변경 정책**을 선택 합니다.
+1. **백업 인스턴스**  ->  **변경 정책** 을 선택 합니다.
 
     ![정책 변경](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -254,7 +254,7 @@ PostgreSQL 데이터베이스에 대 한 보안 연결을 설정 하기 위해 A
 
     ![Access Control 창](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. **역할 할당 추가를**선택 합니다.
+1. **역할 할당 추가를** 선택 합니다.
 
     ![역할 할당 추가](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
@@ -280,7 +280,7 @@ PostgreSQL 서버에 대 한 Azure Active Directory 관리자가 없거나 Azure
 
 OSS 서버에 Active Directory 관리자를 추가 합니다.
 
-이 단계는 암호 대신 Azure Active Directory를 사용 하 여 인증할 수 있는 사용자를 통해 데이터베이스에 연결 하는 데 필요 합니다. Azure Database for PostgreSQL의 Azure AD 관리 사용자에 게 **azure_ad_admin**역할이 있습니다. **Azure_ad_admin** 역할만 azure ad를 사용 하 여 인증할 수 있는 새 데이터베이스 사용자를 만들 수 있습니다.
+이 단계는 암호 대신 Azure Active Directory를 사용 하 여 인증할 수 있는 사용자를 통해 데이터베이스에 연결 하는 데 필요 합니다. Azure Database for PostgreSQL의 Azure AD 관리 사용자에 게 **azure_ad_admin** 역할이 있습니다. **Azure_ad_admin** 역할만 azure ad를 사용 하 여 인증할 수 있는 새 데이터베이스 사용자를 만들 수 있습니다.
 
 1. 서버 보기의 왼쪽 탐색 창에 있는 Active Directory 관리자 탭으로 이동 하 고 자신 (또는 다른 사용자)을 Active Directory 관리자로 추가 합니다.
 
@@ -294,7 +294,7 @@ OSS 서버에 Active Directory 관리자를 추가 합니다.
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-서버 보기에서 **Azure 서비스에 대 한 액세스 허용** 플래그를 사용 하 여 네트워크 시야를 설정 합니다. 서버 보기의 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 플래그를 **예**로 설정 합니다.
+서버 보기에서 **Azure 서비스에 대 한 액세스 허용** 플래그를 사용 하 여 네트워크 시야를 설정 합니다. 서버 보기의 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 플래그를 **예** 로 설정 합니다.
 
 ![Azure 서비스에 대한 액세스 허용](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -303,7 +303,7 @@ OSS 서버에 Active Directory 관리자를 추가 합니다.
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>파일로 복원할 때 저장소 계정 컨테이너에 복원할 수 있는 권한
 
 1. Azure Portal를 사용 하 여 백업 자격 증명 모음 MSI에 저장소 계정 컨테이너에 액세스할 수 있는 권한을 부여 합니다.
-    1. **저장소 계정**  ->  **Access Control**  ->  **역할 할당 추가**로 이동 합니다.
+    1. **저장소 계정**  ->  **Access Control**  ->  **역할 할당 추가** 로 이동 합니다.
     1. 백업 자격 증명 모음 MSI에 **저장소 Blob 데이터 참가자** 역할을 할당 합니다.
 
     ![저장소 Blob 데이터 참가자 역할 할당](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
@@ -315,7 +315,7 @@ OSS 서버에 Active Directory 관리자를 추가 합니다.
     ```
 
     1. 담당자 매개 변수를 자격 증명 모음 MSI의 **응용 프로그램 ID** 로 바꾸고 scope 매개 변수를 사용 하 여 특정 컨테이너를 참조 합니다.
-    1. 자격 증명 모음 MSI의 **응용 프로그램 ID** 를 가져오려면 **응용 프로그램 종류**아래에서 **모든 응용 프로그램** 을 선택 합니다.
+    1. 자격 증명 모음 MSI의 **응용 프로그램 ID** 를 가져오려면 **응용 프로그램 종류** 아래에서 **모든 응용 프로그램** 을 선택 합니다.
 
         ![모든 응용 프로그램 선택](./media/backup-azure-database-postgresql/select-all-applications.png)
 

@@ -2,17 +2,17 @@
 title: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제 해결
 description: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제를 해결하는 방법을 알아봅니다.
 services: data-factory
-author: lrtoyou1223
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/26/2020
+ms.date: 10/29/2020
 ms.author: lle
-ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637193"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928113"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -675,7 +675,7 @@ ADF 서비스의 서버 인증서를 확인 하는 방법:
 - SHIR이 설치 된 컴퓨터에서 ADF 서비스 서버 인증서의 루트 CA를 신뢰할 수 없습니다. 
 - 사용자 환경에서 프록시를 사용 하 고 있으며, ADF 서비스의 서버 인증서가 프록시로 바뀌고, 대체 된 서버 인증서는 SHIR이 설치 된 컴퓨터에서 트러스트 되지 않습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 - 이유 1에서는 SHIR이 설치 된 컴퓨터에서 ADF 서버 인증서와 인증서 체인을 신뢰할 수 있는지 확인 합니다.
 - 이유 2에서는 SHIR 컴퓨터에서 대체 된 루트 CA를 신뢰 하거나 ADF 서버 인증서를 교체 하지 않도록 프록시를 구성 합니다.

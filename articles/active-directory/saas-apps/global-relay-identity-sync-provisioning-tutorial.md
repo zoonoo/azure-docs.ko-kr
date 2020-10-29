@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900292"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927994"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 전역 릴레이 Id 동기화 구성
 
@@ -33,6 +33,10 @@ ms.locfileid: "92900292"
 > * 더 이상 액세스할 필요가 없는 경우 전역 릴레이 Id 동기화에서 사용자 제거
 > * Azure AD와 전역 릴레이 Id 동기화 간에 사용자 특성을 동기화 상태로 유지
 > * 전역 릴레이 Id 동기화에서 그룹 및 그룹 멤버 자격 프로 비전
+
+
+> [!NOTE]
+> 전역 릴레이 Id 동기화 프로 비전 커넥터는 보안 문제로 인해 더 이상 지원 되지 않는 SCIM 권한 부여 방법을 활용 합니다. 작업은 글로벌 Relay를 진행 하 여 더 안전한 권한 부여 방법으로 전환 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
