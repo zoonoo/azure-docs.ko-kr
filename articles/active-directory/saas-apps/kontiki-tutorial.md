@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549977"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>자습서: Kontiki와 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ Kontiki를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자는 해당 Azure AD 계정으로 Kontiki에 자동으로 로그온(Single Sign-On)할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -52,25 +52,25 @@ Kontiki를 Azure AD와 통합하려면 관리형 SaaS 앱 목록에 Kontiki를 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
 
     ![Azure Active Directory 옵션](common/select-azuread.png)
 
-1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
+1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 창](common/enterprise-applications.png)
 
-1. 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
+1. 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 
     ![새 애플리케이션 옵션](common/add-new-app.png)
 
-1. 검색 상자에서 **Kontiki**를 입력합니다. 검색 결과에서 **Kontiki**를 선택한 다음, **추가**를 선택합니다.
+1. 검색 상자에서 **Kontiki** 를 입력합니다. 검색 결과에서 **Kontiki** 를 선택한 다음, **추가** 를 선택합니다.
 
     ![결과 목록의 Kontiki](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트합니다. Single Sign-On이 작동하려면 Azure AD 사용자와 Kontiki의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 하여 Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트합니다. Single Sign-On이 작동하려면 Azure AD 사용자와 Kontiki의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -87,7 +87,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 Azure Portal에서 Kontiki를 사용하여 Azure AD Single Sign-On을 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Kontiki** 애플리케이션 통합 창에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Kontiki** 애플리케이션 통합 창에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 옵션](common/select-sso.png)
 
@@ -95,7 +95,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE]
     > 사용할 올바른 값을 얻으려면 [Kontiki 클라이언트 지원 팀](https://customersupport.kontiki.com/enterprise/contactsupport.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 옆에 있는 **다운로드**를 선택합니다. 요구 사항에 따라 다운로드 옵션을 선택합니다. 인증서를 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 옆에 있는 **다운로드** 를 선택합니다. 요구 사항에 따라 다운로드 옵션을 선택합니다. 인증서를 컴퓨터에 저장합니다.
 
     ![페더레이션 메타데이터 XML 인증서 다운로드 옵션](common/metadataxml.png)
 
@@ -126,23 +126,23 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
+1. Azure Portal에서 **Azure Active Directory** > **사용자** > **모든 사용자** 를 선택합니다.
 
     ![사용자 및 모든 사용자 옵션](common/users.png)
 
-1. **새 사용자**를 선택합니다.
+1. **새 사용자** 를 선택합니다.
 
     ![새 사용자 옵션](common/new-user.png)
 
 1. **사용자** 창에서 다음 단계를 완료합니다.
 
-    1. **이름** 상자에 **BrittaSimon**을 입력합니다.
+    1. **이름** 상자에 **BrittaSimon** 을 입력합니다.
   
-    1. **사용자 이름** 상자에 **brittasimon\@\<your-company-domain>.\<extension>** 를 입력합니다. 예를 들어 **brittasimon\@contoso.com**입니다.
+    1. **사용자 이름** 상자에 **brittasimon\@\<your-company-domain>.\<extension>** 를 입력합니다. 예를 들어 **brittasimon\@contoso.com** 입니다.
 
     1. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
 
-    1. **만들기**를 선택합니다.
+    1. **만들기** 를 선택합니다.
 
     ![사용자 창](common/user-properties.png)
 
@@ -150,27 +150,27 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Kontiki에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **Kontiki**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **Kontiki** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 창](common/enterprise-applications.png)
 
-1. 애플리케이션 목록에서 **Kontiki**를 선택합니다.
+1. 애플리케이션 목록에서 **Kontiki** 를 선택합니다.
 
     ![애플리케이션 목록의 Kontiki](common/all-applications.png)
 
-1. 메뉴에서 **사용자 및 그룹**을 선택합니다.
+1. 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 및 그룹 옵션](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택합니다. 그런 다음, **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택합니다. 그런 다음, **할당 추가** 창에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 창의 사용자 목록에서 **Britta Simon**을 선택합니다. **선택**을 선택합니다.
+1. **사용자 및 그룹** 창의 사용자 목록에서 **Britta Simon** 을 선택합니다. **선택** 을 선택합니다.
 
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에 대한 적절한 역할을 선택합니다. **선택**을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에 대한 적절한 역할을 선택합니다. **선택** 을 선택합니다.
 
-1. **할당 추가** 창에서 **할당**을 선택합니다.
+1. **할당 추가** 창에서 **할당** 을 선택합니다.
 
 ### <a name="create-a-kontiki-test-user"></a>Kontiki 테스트 사용자 만들기
 
@@ -180,12 +180,12 @@ Kontiki에서 사용자 프로비저닝을 구성할 수 있는 작업 항목이
 
 이 섹션에서는 My Apps 포털을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-Single Sign-On이 설정되면 My Apps 포털에서 **Kontiki**를 선택하면 Kontiki에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+Single Sign-On이 설정되면 My Apps 포털에서 **Kontiki** 를 선택하면 Kontiki에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 검토하세요.
 
-- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

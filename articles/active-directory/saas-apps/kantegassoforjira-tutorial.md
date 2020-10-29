@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b22bb16c583c0385b31bde89f30763cd4fb478a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 7d32fdd77fded90dc998db645aa6dcac2b502eb2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945926"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>자습서: Kantega SSO for JIRA와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ Kantega SSO for JIRA를 Azure AD와 통합하면 다음과 같은 이점이 있�
 * 사용자가 자신의 Azure AD 계정으로 Kantega SSO for JIRA에 자동으로 로그인(Single Sign-On) 되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -53,7 +53,7 @@ Kantega SSO for JIRA가 Azure AD에 통합되도록 구성하려면 갤러리에
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Kantega SSO for JIRA가 Azure AD에 통합되도록 구성하려면 갤러리에
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Kantega SSO for JIRA**를 입력하고 결과 패널에서 **Kantega SSO for JIRA**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Kantega SSO for JIRA** 를 입력하고 결과 패널에서 **Kantega SSO for JIRA** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Kantega SSO for JIRA](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Kantega SSO for JIRA의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Kantega SSO for JIRA** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Kantega SSO for JIRA** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     b. **회신 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     ![Kantega SSO for JIRA 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
@@ -114,7 +114,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
 
-6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -132,11 +132,11 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. 다른 웹 브라우저 창에서 JIRA 온-프레미스 서버에 관리자로 로그인합니다.
 
-1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
+1. 마우스로 선 위를 가리키고 **추가 기능** 을 클릭합니다.
 
     ![선택된 "Cog" 아이콘과 드롭다운에서 선택된 "추가 기능"을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon1.png)
 
-1. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기**를 클릭합니다. **Kantega SSO for JIRA(SAML & Kerberos)** 를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
+1. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기** 를 클릭합니다. **Kantega SSO for JIRA(SAML & Kerberos)** 를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
 
     ![검색 상자의 "Kantego SSO for JIRA(SAML 및 Kerberos)" 및 "설치" 단추가 선택된 "새 추가 기능 찾기" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon2.png)
 
@@ -144,15 +144,15 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![플러그 인 "설치" 대화 상자를 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon3.png)
 
-1. 설치가 완료되면 **닫기**를 클릭합니다.
+1. 설치가 완료되면 **닫기** 를 클릭합니다.
 
     !["설치 및 준비 완료!"를 보여주는 스크린샷. "닫기" 작업이 선택된 대화 상자.](./media/kantegassoforjira-tutorial/addon33.png)
 
-1.  **관리**를 클릭합니다.
+1.  **관리** 를 클릭합니다.
 
     !["관리" 단추가 선택된 "Kantega SSO" 앱 페이지를 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon34.png)
     
-1. 새 플러그 인이 **INTEGRATIONS**(통합) 아래 나열됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
+1. 새 플러그 인이 **INTEGRATIONS** (통합) 아래 나열됩니다. **구성** 을 클릭하여 새 플러그 인을 구성합니다.
 
     ![왼쪽 탐색 메뉴에서 "통합"이 강조 표시되고 "추가 기능 관리" 섹션에서 선택된 "구성" 단추를 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon35.png)
 
@@ -160,7 +160,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     !["Azure AD(Azure Active Directory)"가 선택된 "ID 공급자 추가" 드롭다운을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon4.png)
 
-1. 구독 수준을 **기본**으로 선택합니다.
+1. 구독 수준을 **기본** 으로 선택합니다.
 
     !["기본 사항"이 선택된 "Azure AD 준비" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon5.png)     
 
@@ -168,27 +168,27 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     !["앱 ID URL" 텍스트 상자와 복사 단추가 강조 표시되고 "다음" 단추가 선택된 "앱 속성" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon6.png)
 
-    a. **앱 ID URI**를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **식별자, 회신 URL 및 로그온 URL**로 사용합니다.
+    a. **앱 ID URI** 를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **식별자, 회신 URL 및 로그온 URL** 로 사용합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **다음** 을 클릭합니다.
 
-1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다. 
+1. **Metadata import** (메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다. 
 
     !["내 컴퓨터의 메타데이터 파일"이 선택된 "메타데이터 가져오기" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon7.png)
 
-    a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    a. **Metadata file on my computer** (내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **다음** 을 클릭합니다.
 
-1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
+1. **Name and SSO location** (이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
     !["ID 공급자 이름" 텍스트 상자가 강조 표시되고 "다음" 단추가 선택된 "이름 및 SSO 위치"를 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. **ID 공급자 이름** 텍스트 상자에 ID 공급자의 이름(예: Azure AD)을 입력합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **다음** 을 클릭합니다.
 
-1. 서명 인증서를 확인하고 **다음**을 클릭합니다.
+1. 서명 인증서를 확인하고 **다음** 을 클릭합니다.
 
     !["다음" 단추가 선택된 "서명 확인" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon9.png)
 
@@ -196,33 +196,33 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     !["필요한 경우 JIRA의 내부 디렉터리에 사용자 만들기" 옵션이 강조 표시되고 "다음" 단추가 선택된 "JIRA 사용자 계정"을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon10.png)
 
-    a. **필요한 경우 JIRA의 내부 디렉터리에 사용자 만들기**를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
+    a. **필요한 경우 JIRA의 내부 디렉터리에 사용자 만들기** 를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
 
-    b. **다음**을 클릭합니다.
+    b. **다음** 을 클릭합니다.
 
-1. **Finish**를 클릭합니다.
+1. **Finish** 를 클릭합니다.
 
     !["마침" 단추가 선택된 "요약" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/addon11.png)
 
-1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.
+1. **Known domains for Azure AD** (Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.
 
     ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon12.png)
 
-    a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
+    a. 페이지의 왼쪽 창에서 **Known domains** (알려진 도메인)를 선택합니다.
 
-    b. **Known domains**(알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
+    b. **Known domains** (알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
 
-    다. **저장**을 클릭합니다.
+    다. **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -230,35 +230,35 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Kantega SSO for JIRA에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Kantega SSO for JIRA**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Kantega SSO for JIRA** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Kantega SSO for JIRA**를 선택합니다.
+2. 애플리케이션 목록에서 **Kantega SSO for JIRA** 를 선택합니다.
 
     ![애플리케이션 목록의 Kantega SSO for JIRA 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -272,11 +272,11 @@ Azure AD 사용자가 JIRA에 로그인하려면 JIRA에 프로비저닝되어�
 
 1. JIRA 온-프레미스 서버에 관리자로 로그인합니다.
 
-1. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
+1. 마우스로 선 위를 가리키고 **사용자 관리** 를 클릭합니다.
 
     ![선택된 "Cog" 아이콘과 드롭다운에서 선택된 "사용자 관리"를 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/user1.png) 
 
-1. **사용자 관리** 탭 섹션에서 **사용자 만들기**를 클릭합니다.
+1. **사용자 관리** 탭 섹션에서 **사용자 만들기** 를 클릭합니다.
 
     !["사용자 만들기" 단추가 선택된 "사용자 관리" 섹션을 보여주는 스크린샷.](./media/kantegassoforjira-tutorial/user2.png) 
 
@@ -292,18 +292,18 @@ Azure AD 사용자가 JIRA에 로그인하려면 JIRA에 프로비저닝되어�
 
     d. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 
-    e. **사용자 만들기**를 클릭합니다.
+    e. **사용자 만들기** 를 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Kantega SSO for JIRA 타일을 클릭하면 SSO를 설정한 Kantega SSO for JIRA에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Kantega SSO for JIRA 타일을 클릭하면 SSO를 설정한 Kantega SSO for JIRA에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

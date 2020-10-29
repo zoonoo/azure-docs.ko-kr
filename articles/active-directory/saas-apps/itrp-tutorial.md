@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850390"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ ms.locfileid: "91850390"
 * 사용자가 해당 Azure AD 계정으로 ITRP에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -48,19 +48,19 @@ ITRP와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
 ITRP가 Azure AD에 통합되도록 설정하려면 갤러리의 ITRP를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 
     ![Azure Active Directory 선택](common/select-azuread.png)
 
-2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션** 으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션**을 선택합니다.
+3. 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션** 을 선택합니다.
 
     ![새 애플리케이션 선택](common/add-new-app.png)
 
-4. 검색 상자에서 **ITRP**를 입력합니다. 검색 결과에서 **ITRP**를 선택한 다음, **추가**를 선택합니다.
+4. 검색 상자에서 **ITRP** 를 입력합니다. 검색 결과에서 **ITRP** 를 선택한 다음, **추가** 를 선택합니다.
 
      ![검색 결과](common/search-new-app.png)
 
@@ -84,7 +84,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단
 
 ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 ITRP 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 ITRP 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 선택](common/select-sso.png)
 
@@ -133,11 +133,11 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 1. 새 웹 브라우저 창에서 ITRP 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 창 위쪽에서 **Settings**(설정) 아이콘을 선택합니다.
+1. 창 위쪽에서 **Settings** (설정) 아이콘을 선택합니다.
 
     ![설정 아이콘](./media/itrp-tutorial/ic775570.png "설정 아이콘")
 
-1. 왼쪽 창에서 **Single Sign-On**을 선택합니다.
+1. 왼쪽 창에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 선택](./media/itrp-tutorial/ic775571.png "Single Sign-On 선택")
 
@@ -147,25 +147,25 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     ![스크린샷은 이 단계에서 설명하는 정보를 추가할 수 있는 Single Sign-On 섹션을 보여줍니다.](./media/itrp-tutorial/ic775573.png "Single Sign-On 섹션")
 
-    1. **사용**을 선택합니다.
+    1. **사용** 을 선택합니다.
 
-    1. Azure Portal에서 복사한 **로그아웃 URL**을 **원격 로그아웃 URL** 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그아웃 URL** 을 **원격 로그아웃 URL** 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 **로그인 URL**을 **SAML SSO URL** 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML SSO URL** 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint** (인증서 지문) 상자에 붙여넣습니다.
 
-    1. **저장**을 선택합니다.
+    1. **저장** 을 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
-2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -173,39 +173,39 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    1. **이름** 상자에 **BrittaSimon**을 입력합니다.
+    1. **이름** 상자에 **BrittaSimon** 을 입력합니다.
   
     1. **사용자 이름** 상자에 **BrittaSimon@\<yourcompanydomain>\<extension>.** 을 입력합니다. (예: BrittaSimon@contoso.com)
 
-    1. **암호 표시**를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+    1. **암호 표시** 를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 
-    1. **만들기**를 선택합니다.
+    1. **만들기** 를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ITRP에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ITRP**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ITRP** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **ITRP**를 선택합니다.
+2. 애플리케이션 목록에서 **ITRP** 를 선택합니다.
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 
-4. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 선택](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고, 창 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고, 창 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 창 아래쪽에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
+7. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
 
 ### <a name="create-an-itrp-test-user"></a>ITRP 테스트 사용자 만들기
 
@@ -215,11 +215,11 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 1. ITRP 테넌트에 로그인합니다.
 
-1. 창 위쪽에서 **Records**(레코드) 아이콘을 선택합니다.
+1. 창 위쪽에서 **Records** (레코드) 아이콘을 선택합니다.
 
     ![레코드 아이콘](./media/itrp-tutorial/ic775575.png "레코드 아이콘")
 
-1. 메뉴에서 **People**(사람)을 선택합니다.
+1. 메뉴에서 **People** (사람)을 선택합니다.
 
     ![사용자 선택](./media/itrp-tutorial/ic775587.png "사용자 선택")
 
@@ -227,13 +227,13 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
     ![더하기 기호 선택](./media/itrp-tutorial/ic775576.png "더하기 기호 선택")
 
-1. **Add New Person**(새 사람 추가) 대화 상자에서 다음 단계를 수행합니다.
+1. **Add New Person** (새 사람 추가) 대화 상자에서 다음 단계를 수행합니다.
 
     ![새 사람 추가 대화 상자](./media/itrp-tutorial/ic775577.png "새 사람 추가 대화 상자")
 
     1. 추가하려는 유효한 Azure AD 계정의 이름과 이메일 주소를 입력합니다.
 
-    1. **저장**을 선택합니다.
+    1. **저장** 을 선택합니다.
 
 > [!NOTE]
 > ITRP에서 제공하는 사용자 계정 생성 도구 또는 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
@@ -242,12 +242,12 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 ITRP 타일을 선택하면 SSO를 설정한 ITRP 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+액세스 패널에서 ITRP 타일을 선택하면 SSO를 설정한 ITRP 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

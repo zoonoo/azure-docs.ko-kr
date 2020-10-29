@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956b57d7215a439c1e3df71c1d3441534fc25723
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850849"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ JIRA SAML SSO by Microsoft(V5.2)를 Azure AD와 통합하면 다음과 같은 �
 * 사용자가 해당 Azure AD 계정으로 JIRA SAML SSO by Microsoft(V5.2)에 자동으로 로그인(Single Sign-On) 되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="description"></a>Description
@@ -79,7 +79,7 @@ JIRA SAML SSO by Microsoft(V5.2)가 Azure AD에 통합되도록 구성하려면 
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -93,7 +93,7 @@ JIRA SAML SSO by Microsoft(V5.2)가 Azure AD에 통합되도록 구성하려면 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 하여 JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 JIRA SAML SSO by Microsoft(V5.2)의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -111,7 +111,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 �
 
 JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **JIRA SAML SSO by Microsoft(V5.2)** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **JIRA SAML SSO by Microsoft(V5.2)** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -136,7 +136,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
@@ -144,11 +144,11 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
 1. 다른 웹 브라우저 창에서 JIRA 인스턴스에 관리자로 로그인합니다.
 
-2. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
+2. 마우스로 선 위를 가리키고 **추가 기능** 을 클릭합니다.
 
     ![스크린샷은 설정 메뉴에서 선택한 추가 기능을 보여줍니다.](./media/jira52microsoft-tutorial/addon1.png)
 
-3. 추가 기능 탭 섹션에서 **추가 기능 관리**를 클릭합니다.
+3. 추가 기능 탭 섹션에서 **추가 기능 관리** 를 클릭합니다.
 
     ![스크린샷은 추가 기능 탭에서 선택한 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/addon7.png)
 
@@ -156,7 +156,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     ![스크린샷은 추가 기능 업로드 링크가 호출된 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/addon12.png)
 
-5. 플러그 인이 설치되면 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
+5. 플러그 인이 설치되면 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성** 을 클릭하여 새 플러그 인을 구성합니다.
 
     ![스크린샷은 구성이 선택된 Jira용 Azure AD SAML Single Sign-On 섹션을 보여줍니다.](./media/jira52microsoft-tutorial/addon13.png)
 
@@ -171,35 +171,35 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     b. **식별자, 회신 URL 및 로그인 URL** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자, 회신 URL 및 로그인 URL** 텍스트 상자에 각각 붙여넣습니다.
 
-    다. **Login Button Name**(로그인 단추 이름)에 조직이 사용자의 로그인 화면에 표시하려는 단추의 이름을 입력합니다.
+    다. **Login Button Name** (로그인 단추 이름)에 조직이 사용자의 로그인 화면에 표시하려는 단추의 이름을 입력합니다.
 
-    d. **SAML User ID Locations**(SAML 사용자 ID 위치)에서 **User ID is in the NameIdentifier element of the Subject statement**(사용자 ID는 Subject 문의 NameIdentifier 요소에 있습니다.) 또는 **User ID is in an Attribute element**(사용자 ID는 Attribute 요소에 있습니다.)를 선택합니다.  이 ID는 JIRA 사용자 ID여야 합니다. 사용자 ID가 일치하지 않으면 시스템에서 사용자 로그인을 허용하지 않습니다.
+    d. **SAML User ID Locations** (SAML 사용자 ID 위치)에서 **User ID is in the NameIdentifier element of the Subject statement** (사용자 ID는 Subject 문의 NameIdentifier 요소에 있습니다.) 또는 **User ID is in an Attribute element** (사용자 ID는 Attribute 요소에 있습니다.)를 선택합니다.  이 ID는 JIRA 사용자 ID여야 합니다. 사용자 ID가 일치하지 않으면 시스템에서 사용자 로그인을 허용하지 않습니다.
 
     > [!Note]
     > 기본 SAML 사용자 ID 위치는 이름 식별자입니다. 이것을 특성 옵션으로 변경하고 적절한 특성 이름을 입력할 수 있습니다.
 
-    e. **User ID is in an Attribute element**(사용자 ID는 Attribute 요소에 있습니다.) 옵션을 선택하는 경우 **특성 이름** 텍스트 상자에 사용자 ID가 필요한 특성의 이름을 입력합니다. 
+    e. **User ID is in an Attribute element** (사용자 ID는 Attribute 요소에 있습니다.) 옵션을 선택하는 경우 **특성 이름** 텍스트 상자에 사용자 ID가 필요한 특성의 이름을 입력합니다. 
 
-    f. Azure AD에서 페더레이션된 도메인(예: ADFS 등)을 사용하는 경우 **Enable Home Realm Discovery**(홈 영역 검색 사용) 옵션을 클릭하고 **도메인 이름**을 구성합니다.
+    f. Azure AD에서 페더레이션된 도메인(예: ADFS 등)을 사용하는 경우 **Enable Home Realm Discovery** (홈 영역 검색 사용) 옵션을 클릭하고 **도메인 이름** 을 구성합니다.
 
-    g. **도메인 이름**에 ADFS 기반 로그인인 경우 여기에 도메인 이름을 입력합니다.
+    g. **도메인 이름** 에 ADFS 기반 로그인인 경우 여기에 도메인 이름을 입력합니다.
 
-    h. 사용자가 JIRA에서 로그아웃할 때 Azure AD에서 로그아웃하려면 **Single Sign-Out 사용**을 선택합니다. 
+    h. 사용자가 JIRA에서 로그아웃할 때 Azure AD에서 로그아웃하려면 **Single Sign-Out 사용** 을 선택합니다. 
 
     i. **저장** 단추를 클릭하여 설정을 저장합니다.
 
     > [!NOTE]
-    > 설치 및 문제 해결에 대한 자세한 내용은 [MS JIRA SSO 커넥터 관리자 가이드](../ms-confluence-jira-plugin-adminguide.md)를 참조하시기 바라며, [FAQ](../ms-confluence-jira-plugin-faq.md)도 도움이 될 것입니다.
+    > 설치 및 문제 해결에 대한 자세한 내용은 [MS JIRA SSO 커넥터 관리자 가이드](./ms-confluence-jira-plugin-adminguide.md)를 참조하시기 바라며, [FAQ](./ms-confluence-jira-plugin-adminguide.md)도 도움이 될 것입니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -207,19 +207,19 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. BrittaSimon@contoso.com)을 입력합니다.
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 JIRA SAML SSO by Microsoft(V5.2)에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **JIRA SAML SSO by Microsoft(V5.2)** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **JIRA SAML SSO by Microsoft(V5.2)** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -227,15 +227,15 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     ![애플리케이션 목록의 JIRA SAML SSO by Microsoft(V5.2) 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -249,15 +249,15 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 1. JIRA 온-프레미스 서버에 관리자로 로그인합니다.
 
-2. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
+2. 마우스로 선 위를 가리키고 **사용자 관리** 를 클릭합니다.
 
     ![스크린샷은 설정 메뉴에서 선택한 사용자 관리를 보여줍니다.](./media/jira52microsoft-tutorial/user1.png)
 
-3. 리디렉션된 [관리자 액세스] 페이지에서 **암호**를 입력하고 **확인** 단추를 클릭합니다.
+3. 리디렉션된 [관리자 액세스] 페이지에서 **암호** 를 입력하고 **확인** 단추를 클릭합니다.
 
     ![스크린샷은 자격 증명을 입력하는 관리자 액세스 페이지를 보여줍니다.](./media/jira52microsoft-tutorial/user2.png)
 
-4. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기**를 클릭합니다.
+4. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기** 를 클릭합니다.
 
     ![스크린샷은 사용자를 만들 수 있는 사용자 관리 탭을 보여줍니다.](./media/jira52microsoft-tutorial/user3.png) 
 
@@ -273,18 +273,18 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
     d. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 
-    e. **사용자 만들기**를 클릭합니다.
+    e. **사용자 만들기** 를 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 JIRA SAML SSO by Microsoft(V5.2) 타일을 클릭하면 JIRA SAML SSO by Microsoft(V5.2) 애플리케이션에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 JIRA SAML SSO by Microsoft(V5.2) 타일을 클릭하면 JIRA SAML SSO by Microsoft(V5.2) 애플리케이션에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
