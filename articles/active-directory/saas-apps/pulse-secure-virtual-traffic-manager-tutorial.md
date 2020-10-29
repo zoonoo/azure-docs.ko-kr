@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
-ms.openlocfilehash: d487295e9aab1a56553dc9d31b0a8714688005c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e295075a5c1ae8daa6673757770bbef01208c1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338286"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-virtual-traffic-manager"></a>자습서: Pulse Secure Virtual Traffic Manager와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -45,15 +45,15 @@ Pulse Secure Virtual Traffic Manager가 Azure AD에 통합되도록 구성하려
 
 1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에서 **Pulse Secure Virtual Traffic Manager**를 입력합니다.
-1. 결과 패널에서 **Pulse Secure Virtual Traffic Manager**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Pulse Secure Virtual Traffic Manager** 를 입력합니다.
+1. 결과 패널에서 **Pulse Secure Virtual Traffic Manager** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-pulse-secure-virtual-traffic-manager"></a>Pulse Secure Virtual Traffic Manager에 대한 Azure AD SSO 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 Pulse Secure Virtual Traffic Manager에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Pulse Secure Virtual Traffic Manager의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Pulse Secure Virtual Traffic Manager에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Pulse Secure Virtual Traffic Manager의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Pulse Secure Virtual Traffic Manager에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
@@ -68,9 +68,9 @@ Pulse Secure Virtual Traffic Manager에서 Azure AD SSO를 구성하고 테스�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Pulse Secure Virtual Traffic Manager** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. Azure Portal의 **Pulse Secure Virtual Traffic Manager** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -85,7 +85,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Pulse Secure Virtual Traffic Manager 클라이언트 지원 팀](mailto:support@pulsesecure.net)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -97,23 +97,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 B.Simon에게 Pulse Secure Virtual Traffic Manager에 대한 액세스 권한을 부여하여 해당 사용자가 Azure Single Sign-On을 사용하도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Pulse Secure Virtual Traffic Manager**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Pulse Secure Virtual Traffic Manager** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -137,7 +137,7 @@ b. 새 SAML 신뢰할 수 있는 ID 공급자에 대한 세부 정보를 추가�
 
 * Azure Portal에서 복사한 **로그인 URL** 값을 **Url** 텍스트 상자에 붙여넣습니다. 
 
-* Azure Portal에서 다운로드한 **인증서**를 메모장으로 열고, 콘텐츠를 **Certificate(인증서)** 텍스트 상자에 붙여넣습니다.
+* Azure Portal에서 다운로드한 **인증서** 를 메모장으로 열고, 콘텐츠를 **Certificate(인증서)** 텍스트 상자에 붙여넣습니다.
 
 다. 새 SAML ID 공급자가 성공적으로 만들어졌는지 확인합니다. 
 
@@ -159,21 +159,21 @@ b. **Authentication(인증)** 섹션에서 **Edit(편집)** 를 클릭합니다.
 
     ![가상 서버에 대한 인증 설정](./media/pulse-secure-virtual-traffic-manager-tutorial/authentication-1.png)
 
-    a. **Auth!type**에서 **SAML Service Provider(SAML 서비스 공급자)** 를 선택합니다. 
+    a. **Auth!type** 에서 **SAML Service Provider(SAML 서비스 공급자)** 를 선택합니다. 
 
-    b. **Auth!verbose**에서 인증 문제를 해결하려면 "Yes(예)"로 설정하고, 그렇지 않으면 기본값을 "No(아니요)"로 둡니다. 
+    b. **Auth!verbose** 에서 인증 문제를 해결하려면 "Yes(예)"로 설정하고, 그렇지 않으면 기본값을 "No(아니요)"로 둡니다. 
 
 2. Authentication Session Management(인증 세션 관리) -
 
     ![Authentication Session Management](./media/pulse-secure-virtual-traffic-manager-tutorial/authentication-session.png)
 
-    a. **Auth!session!cookie_name**에 대해 기본값을 "VS_SamlSP_Auth"로 둡니다. 
+    a. **Auth!session!cookie_name** 에 대해 기본값을 "VS_SamlSP_Auth"로 둡니다. 
 
-    b. **auth!session!timeout**에 대해 기본값을 "7200"으로 둡니다. 
+    b. **auth!session!timeout** 에 대해 기본값을 "7200"으로 둡니다. 
 
-    다. **auth!session!log_external_state**에서 인증 문제를 해결하려면 "Yes(예)"로 설정하고, 그렇지 않으면 기본값을 "No(아니요)"로 둡니다. 
+    다. **auth!session!log_external_state** 에서 인증 문제를 해결하려면 "Yes(예)"로 설정하고, 그렇지 않으면 기본값을 "No(아니요)"로 둡니다. 
 
-    d. **auth!session!cookie_attributes**에서 "HTTPOnly"로 변경합니다. 
+    d. **auth!session!cookie_attributes** 에서 "HTTPOnly"로 변경합니다. 
 
 3. SAML Service Provider(SAML 서비스 공급자) -
 
@@ -183,7 +183,7 @@ b. **Authentication(인증)** 섹션에서 **Edit(편집)** 를 클릭합니다.
 
     b. **auth!saml!sp_acs_url** 텍스트 상자에서 Azure AD Single Sign-On 회신 URL(Assertion Consumer Service URL)로 사용하는 것과 동일한 URL로 설정합니다. `https://pulseweb.labb.info/saml/consume`과 같습니다. 
 
-    다. **auth!saml!idp**에서 이전 단계에서 만든 **신뢰할 수 있는 ID 공급자**를 선택합니다. 
+    다. **auth!saml!idp** 에서 이전 단계에서 만든 **신뢰할 수 있는 ID 공급자** 를 선택합니다. 
 
     d. auth!saml!time_tolerance에서 기본값을 "5"초로 둡니다. 
 
@@ -199,12 +199,12 @@ b. **Authentication(인증)** 섹션에서 **Edit(편집)** 를 클릭합니다.
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트**를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Pulse Secure Virtual Traffic Manager 로그온 URL로 리디렉션됩니다. 
+1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Pulse Secure Virtual Traffic Manager 로그온 URL로 리디렉션됩니다. 
 
 2. Pulse Secure Virtual Traffic Manager 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Pulse Secure Virtual Traffic Manager 타일을 클릭하면 Pulse Secure Virtual Traffic Manager 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Pulse Secure Virtual Traffic Manager 타일을 클릭하면 Pulse Secure Virtual Traffic Manager 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Pulse Secure Virtual Traffic Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Pulse Secure Virtual Traffic Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
