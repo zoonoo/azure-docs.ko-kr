@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9cc68eb60096c4431acfc988c87ca9bf99f1f045
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043399"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
 
@@ -49,8 +49,8 @@ ms.locfileid: "92079176"
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기**를 클릭합니다. 검색 상자에 **Virtual WAN**을 입력하고 Enter를 선택합니다.
-2. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 클릭하여 WAN 만들기 페이지를 엽니다.
+1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기** 를 클릭합니다. 검색 상자에 **Virtual WAN** 을 입력하고 Enter를 선택합니다.
+2. 결과에서 **Virtual WAN** 을 선택합니다. Virtual WAN 페이지에서 **만들기** 를 클릭하여 WAN 만들기 페이지를 엽니다.
 3. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
 
    ![가상 WAN](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
@@ -60,14 +60,14 @@ ms.locfileid: "92079176"
    * **리소스 그룹 위치** - 드롭다운에서 리소스 위치를 선택합니다. WAN은 전역 리소스이며 특정 지역에 상주하지 않습니다. 하지만 만든 WAN 리소스를 보다 쉽게 관리하고 찾으려면 지역을 선택해야 합니다.
    * **이름** - WAN을 호출할 이름을 입력합니다.
    * **유형:** 표준입니다. 기본 WAN을 만드는 경우 기본 허브만 만들 수 있습니다. 기본 허브는 VPN 사이트 간 연결만 가능합니다.
-4. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
-5. 유효성 검사가 통과되면 **만들기**를 선택하여 가상 WAN을 만듭니다.
+4. 필드 작성을 완료한 후 **검토 + 만들기** 를 선택합니다.
+5. 유효성 검사가 통과되면 **만들기** 를 선택하여 가상 WAN을 만듭니다.
 
 ## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>빈 가상 허브 만들기
 
-1. 가상 WAN 아래에서 허브를 선택 하 고 **+ 새 허브**를 클릭 합니다.
+1. 가상 WAN 아래에서 허브를 선택 하 고 **+ 새 허브** 를 클릭 합니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
+   ![스크린샷 새 허브가 선택 된 허브 구성 대화 상자를 보여 줍니다.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. [가상 허브 만들기] 페이지에서 다음 필드를 채웁니다.
 
    **영역** - 가상 허브를 배포할 영역을 선택합니다.
@@ -76,23 +76,23 @@ ms.locfileid: "92079176"
 
    **허브 프라이빗 주소 공간** - CIDR 표기법으로 된 허브의 주소 범위입니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
-3. **검토 + 만들기**를 클릭합니다.
-4. **유효성 검사 통과** 페이지에서 **만들기**를 클릭 합니다.
+   ![값을 입력할 수 있는 가상 허브 만들기 창이 스크린샷 화면에 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
+3. **검토 + 만들기** 를 클릭합니다.
+4. **유효성 검사 통과** 페이지에서 **만들기** 를 클릭 합니다.
 
 ## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>새 사용자 VPN 구성 만들기
 
 사용자 VPN 구성은 원격 클라이언트 연결에 대 한 매개 변수를 정의 합니다.
 
-1. 가상 WAN 아래에서 **사용자 VPN 구성**을 선택합니다.
+1. 가상 WAN 아래에서 **사용자 VPN 구성** 을 선택합니다.
 
-   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
+   ![스크린샷 선택한 사용자 V P N 구성 메뉴 항목을 보여 줍니다.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. **+사용자 VPN 구성 만들기**를 클릭합니다.
+2. **+사용자 VPN 구성 만들기** 를 클릭합니다.
 
-   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+   ![사용자 만들기 V P N 구성 링크를 보여 주는 스크린샷](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. 정보를 입력 하 고 **만들기**를 클릭 합니다.
+3. 정보를 입력 하 고 **만들기** 를 클릭 합니다.
 
    * **구성 이름** -사용자 VPN 구성을 호출 하려는 이름을 입력 합니다.
    * **터널 유형** -openvpn을 선택 합니다.
@@ -101,30 +101,28 @@ ms.locfileid: "92079176"
    * **발행** - `https://sts.windows.net/<your Directory ID>/`
    * **AAD 테 넌 트** - `https://login.microsoftonline.com/<your Directory ID>`
   
-
-
-   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![스크린샷에는 값을 입력할 수 있는 새 사용자 만들기 V P N 구성 창이 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>허브 할당 편집
 
 1. 가상 WAN 아래의 **허브** 블레이드로 이동 합니다.
 2. vpn 서버 구성을 연결할 허브를 선택하고, 줄임표(...)를 클릭합니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
-3. **가상 허브 편집**을 클릭합니다.
-4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위**를 선택합니다.
+   ![메뉴에서 선택한 가상 허브 편집이 스크린샷으로 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+3. **가상 허브 편집** 을 클릭합니다.
+4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위** 를 선택합니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
-5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
-6. **확인**을 클릭합니다.
+   ![게이트웨이 배율 단위를 선택할 수 있는 가상 허브 편집 대화 상자가 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀** 를 입력합니다.
+6. **확인** 을 클릭합니다.
 7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="download-user-vpn-profile"></a><a name="device"></a>사용자 VPN 프로필 다운로드
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대 한 페이지에서 **사용자 VPN 구성**을 클릭 합니다.
-2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 클릭합니다.
+1. 가상 WAN에 대 한 페이지에서 **사용자 VPN 구성** 을 클릭 합니다.
+2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드** 를 클릭합니다.
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 4. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
 
@@ -142,53 +140,53 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 #### <a name="to-import-a-client-profile"></a><a name="import"></a>클라이언트 프로필을 가져오려면,
 
-1. 페이지에서 **가져오기**를 선택합니다.
+1. 페이지에서 **가져오기** 를 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![더하기 메뉴에서 선택한 가져오기가 스크린샷 화면에 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
-2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
+2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기** 를 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![스크린샷 파일을 선택할 수 있는 열기 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
-3. 프로필 이름을 지정하고, **저장**을 선택합니다.
+3. 프로필 이름을 지정하고, **저장** 을 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![추가 된 연결 이름 및 저장 단추가 선택 된 스크린샷을 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
-4. **연결**을 선택하여 VPN에 연결합니다.
+4. **연결** 을 선택하여 VPN에 연결합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![스크린샷는 방금 만든 연결에 대 한의 연결 단추를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
-5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
+5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨** 으로 표시됩니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![스크린샷 연결 된 상태에서 연결을 끊을 수 있는 옵션을 보여 줍니다.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
-1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
+1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거** 를 선택합니다.
 
-    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![메뉴에서 선택한 제거를 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
-2. **제거**를 선택하여 삭제합니다.
+2. **제거** 를 선택하여 삭제합니다.
 
-    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![스크린샷 제거 하거나 취소 하는 옵션을 포함 하는 확인 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제 진단
 
-1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단**을 선택합니다.
+1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단** 을 선택합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
+    ![메뉴에서 선택한 진단을 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
-2. **연결 속성** 페이지에서 **진단 실행**을 선택합니다.
+2. **연결 속성** 페이지에서 **진단 실행** 을 선택합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
+    ![스크린샷에는 연결에 대 한 진단 실행 단추가 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
 3. 자격 증명을 사용하여 로그인합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
+    ![스크린샷이 작업에 대 한 로그인 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
 4. 진단 결과를 살펴봅니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+    ![스크린샷에는 진단 결과가 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>가상 WAN 보기
 

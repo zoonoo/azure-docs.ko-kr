@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988274"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043429"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 AD (Azure Active Directory) 테 넌 트 만들기
 
@@ -53,17 +53,17 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 2. vpn 서버 구성을 연결할 허브를 선택하고, 줄임표(...)를 클릭합니다.
 
-    ![새 사이트](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
+    ![메뉴에서 선택한 가상 허브 편집이 스크린샷으로 표시 됩니다.](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
-3. **가상 허브 편집**을 클릭합니다.
+3. **가상 허브 편집** 을 클릭합니다.
 
-4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위**를 선택합니다.
+4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위** 를 선택합니다.
 
-    ![새 사이트](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![게이트웨이 배율 단위를 선택할 수 있는 가상 허브 편집 대화 상자가 표시 됩니다.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
-5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
+5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀** 를 입력합니다.
 
-6. **확인**을 클릭합니다.
+6. **확인** 을 클릭합니다.
 
 7. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
 
@@ -71,9 +71,9 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성**을 클릭합니다.
+1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성** 을 클릭합니다.
 
-2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 클릭합니다.
+2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드** 를 클릭합니다.
 
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 
@@ -99,53 +99,53 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 #### <a name="to-import-a-client-profile"></a><a name="import"></a>클라이언트 프로필을 가져오려면,
 
-1. 페이지에서 **가져오기**를 선택합니다.
+1. 페이지에서 **가져오기** 를 선택합니다.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![더하기 메뉴에서 선택한 가져오기가 스크린샷 화면에 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
-2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
+2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기** 를 선택합니다.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![스크린샷 파일을 선택할 수 있는 열기 대화 상자를 표시 합니다.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
-3. 프로필 이름을 지정하고, **저장**을 선택합니다.
+3. 프로필 이름을 지정하고, **저장** 을 선택합니다.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![추가 된 연결 이름 및 저장 단추가 선택 된 스크린샷을 보여 주는 스크린샷](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
-4. **연결**을 선택하여 VPN에 연결합니다.
+4. **연결** 을 선택하여 VPN에 연결합니다.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![스크린샷는 방금 만든 연결에 대 한의 연결 단추를 표시 합니다.](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
-5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
+5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨** 으로 표시됩니다.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![스크린샷 연결 된 상태에서 연결을 끊을 수 있는 옵션을 보여 줍니다.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
-1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
+1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거** 를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![메뉴에서 선택한 제거를 보여 주는 스크린샷](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
-2. **제거**를 선택하여 삭제합니다.
+2. **제거** 를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![스크린샷 제거 하거나 취소 하는 옵션을 포함 하는 확인 대화 상자를 표시 합니다.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제를 진단 하려면
 
-1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단**을 선택합니다.
+1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단** 을 선택합니다.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![메뉴에서 선택한 진단을 보여 주는 스크린샷](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
-2. **연결 속성** 페이지에서 **진단 실행**을 선택합니다.
+2. **연결 속성** 페이지에서 **진단 실행** 을 선택합니다.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![스크린샷에는 연결에 대 한 진단 실행 단추가 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. 자격 증명을 사용하여 로그인합니다.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![스크린샷이 작업에 대 한 로그인 대화 상자를 표시 합니다.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. 진단 결과를 살펴봅니다.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![스크린샷에는 진단 결과가 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
 ## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. 가상 WAN 보기
 

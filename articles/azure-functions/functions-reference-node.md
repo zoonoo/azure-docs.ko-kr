@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164825"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043115"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -107,13 +107,13 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장] _ 함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. `name` *function.js* 에 정의 된 속성은 매개 변수의 이름과 일치 하지 않아도 되지만 반드시 일치 해야 하는 것은 아닙니다.
+ - **_[권장]_ 함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json* 에 정의된 순서대로 함수에 전달됩니다. `name` *function.js* 에 정의 된 속성은 매개 변수의 이름과 일치 하지 않아도 되지만 반드시 일치 해야 하는 것은 아닙니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
+ - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json* 에서 정의된 `name` 속성으로 이름이 지정됩니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -123,7 +123,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
    
- - **입력으로 JavaScript[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
+ - **입력으로 JavaScript [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -134,11 +134,11 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    ```
 
 ### <a name="outputs"></a>출력
-출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
+출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json* 에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
 
-- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 비동기/약속 반환 함수를 사용 하는 경우 출력 데이터가 할당 된 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
+- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 비동기/약속 반환 함수를 사용 하는 경우 출력 데이터가 할당 된 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json* 에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
   module.exports = async function(context) {
@@ -317,18 +317,18 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> `console.log`추적 출력을 작성 하는 데를 사용 하지 않습니다. 의 출력 `console.log` 은 함수 앱 수준에서 캡처되고 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 또한 함수 런타임의 버전 1.x는를 사용 하 여 `console.log` 콘솔에 쓰는 것을 지원 하지 않습니다.
+> `console.log`추적 출력을 작성 하는 데를 사용 하지 마세요. 의 출력 `console.log` 은 함수 앱 수준에서 캡처되고 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 또한 함수 런타임의 버전 1.x는를 사용 하 여 `console.log` 콘솔에 쓰는 것을 지원 하지 않습니다.
 
 ### <a name="trace-levels"></a>추적 수준
 
 기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
 
-| 방법                 | Description                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
-| **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
-| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
-| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+| **오류 ( _메시지_ )**   | 로그에 오류 수준 이벤트를 씁니다.   |
+| **warn( _message_ )**    | 로그에 경고 수준 이벤트를 씁니다. |
+| **info( _message_ )**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
+| **verbose( _message_ )** | 자세한 정보 표시 수준 로깅에 씁니다.           |
 
 다음 예에서는 정보 수준 대신 경고 추적 수준에서 동일한 로그를 작성 합니다.
 
@@ -336,7 +336,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 context.log.warn("Something has happened. " + context.invocationId); 
 ```
 
-_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
+_error_ (오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
 
 ### <a name="configure-the-trace-level-for-logging"></a>로깅에 대 한 추적 수준 구성
 
@@ -358,7 +358,7 @@ _error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되�
 }  
 ```
 
-**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [ v1. x 참조의host.js](functions-host-json-v1.md)을 참조 하세요.
+**consoleLevel** 의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel** 을 _off_ 로 설정합니다. 자세한 내용은 [ v1. x 참조의host.js](functions-host-json-v1.md)을 참조 하세요.
 
 ---
 
@@ -543,14 +543,14 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
+1. `https://<function_app_name>.scm.azurewebsites.net` 로 이동합니다.
 
-2. **디버그 콘솔**  >  **CMD**를 클릭 합니다.
+2. **디버그 콘솔**  >  **CMD** 를 클릭 합니다.
 
 3. `D:\home\site\wwwroot`로 이동한 다음 package.json 파일을 페이지 위쪽의 **wwwroot** 폴더로 끌어갑니다.  
     다른 방법으로 함수 앱에 파일을 업로드할 수도 있습니다. 자세한 내용은 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)을 참조하세요. 
 
-4. package.json 파일을 업로드한 후 **Kudu 원격 실행 콘솔**에서 `npm install` 명령을 실행합니다.  
+4. package.json 파일을 업로드한 후 **Kudu 원격 실행 콘솔** 에서 `npm install` 명령을 실행합니다.  
     이 작업은 package.json 파일에 표시된 패키지를 다운로드하고 함수 앱을 다시 시작합니다.
 
 ## <a name="environment-variables"></a>환경 변수
@@ -720,7 +720,7 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 
 ### <a name="cold-start"></a>콜드 부팅
 
-서버리스 호스팅 모델에서 Azure Functions를 개발하는 경우 콜드 부팅이 현실입니다. *콜드 부팅*이란 일정 기간 동안 비활성이었다가 처음으로 함수 앱을 시작하면 시작하는 데 더 오래 걸린다는 사실을 의미합니다. 특히 종속성 트리가 큰 JavaScript 함수의 경우 콜드 부팅은 중요할 수 있습니다. 콜드 부팅 프로세스의 속도를 높이려면 가능한 경우 [함수를 패키지 파일로 실행](run-functions-from-deployment-package.md)합니다. 여러 배포 방법은 기본적으로 패키지 모델에서 실행을 사용하지만 대규모 콜드 부팅이 발생하고 이러한 방식으로 실행하지 않는 경우 이 변경 내용으로 인해 크게 개선될 수 있습니다.
+서버리스 호스팅 모델에서 Azure Functions를 개발하는 경우 콜드 부팅이 현실입니다. *콜드 부팅* 이란 일정 기간 동안 비활성이었다가 처음으로 함수 앱을 시작하면 시작하는 데 더 오래 걸린다는 사실을 의미합니다. 특히 종속성 트리가 큰 JavaScript 함수의 경우 콜드 부팅은 중요할 수 있습니다. 콜드 부팅 프로세스의 속도를 높이려면 가능한 경우 [함수를 패키지 파일로 실행](run-functions-from-deployment-package.md)합니다. 여러 배포 방법은 기본적으로 패키지 모델에서 실행을 사용하지만 대규모 콜드 부팅이 발생하고 이러한 방식으로 실행하지 않는 경우 이 변경 내용으로 인해 크게 개선될 수 있습니다.
 
 ### <a name="connection-limits"></a>연결 제한
 

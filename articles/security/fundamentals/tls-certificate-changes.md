@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043212"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -83,6 +83,7 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
+    - http://www&#46, microsoft&#46;com/pkiops
 
 ## <a name="next-steps"></a>다음 단계
 

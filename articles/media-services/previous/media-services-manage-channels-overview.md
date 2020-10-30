@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265969"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042984"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
@@ -44,7 +44,7 @@ Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공�
   * 나중에 스트리밍하기 위해 수집된 콘텐츠 기록 및 저장(주문형 비디오)
   * 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠 배달.
 
-**Microsoft Azure Media Services**(AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
+**Microsoft Azure Media Services** (AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
 
 Media Services를 사용 하면 서비스에 전송 되는 기여 피드에서 MPEG 대시, HLS 및 부드러운 스트리밍 형식의 라이브 스트림을 브로드캐스트할 수 있는 [동적 패키징을](media-services-dynamic-packaging-overview.md)활용할 수 있습니다. 뷰어는 HLS, DASH 또는 부드러운 스트리밍이 호환되는 플레이어를 사용해 라이브 스트림을 재생할 수 있습니다. 웹 또는 모바일 애플리케이션에서 Azure Media Player를 사용하여 이러한 프로토콜 중 하나로 스트림을 전달할 수 있습니다.
 
@@ -53,11 +53,11 @@ Media Services를 사용 하면 서비스에 전송 되는 기여 피드에서 M
 
 ## <a name="streaming-endpoints-channels-programs"></a>스트리밍 끝점, 채널, 프로그램
 
-Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 엔드포인트**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
+Azure Media Services에서 **채널** , **프로그램** 및 **스트리밍 엔드포인트** 은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 방식으로 라이브 입력 스트림을 수신할 수 있습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널**을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력은 RTMP: Telestream Wirecast, Haivision, Teradek 트랜스코더입니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍** (조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널** 을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력은 RTMP: Telestream Wirecast, Haivision, Teradek 트랜스코더입니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
   > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격](https://azure.microsoft.com/pricing/details/media-services/) 정보를 참조 하세요.
@@ -76,23 +76,23 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 | 기능 | 통과 채널 | 표준 채널 |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |예 |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |예 |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
 | 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조 하세요. |
 | 최대 실행 시간 |연중 무휴 |8시간 |
-| 슬레이트 삽입 지원 |아니요 |예 |
-| 광고 신호 지원 |아니요 |예 |
+| 슬레이트 삽입 지원 |예 |예 |
+| 광고 신호 지원 |예 |예 |
 | 통과 CEA 608/708 캡션 |예 |예 |
-| 균일하지 않은 입력 GOP에 대한 지원 |예 |아니요 - 입력은 고정된 2초 GOP여야 함 |
-| 변수 프레임 속도 입력에 대한 지원 |예 |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
-| 입력 피드가 손실될 경우 채널 자동 차단 |아니요 |12시간 동안 프로그램 실행이 없는 경우 |
+| 균일하지 않은 입력 GOP에 대한 지원 |Yes |아니요 - 입력은 고정된 2초 GOP여야 함 |
+| 변수 프레임 속도 입력에 대한 지원 |Yes |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
+| 입력 피드가 손실될 경우 채널 자동 차단 |No |12시간 동안 프로그램 실행이 없는 경우 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>온-프레미스 인코더(통과)에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
 다음 다이어그램에서는 **통과** 워크플로에 관련된 AMS 플랫폼의 주요 부분을 보여 줍니다.
 
-![라이브 워크플로](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+!["통과" 워크플로에 대 한 M S 플랫폼의 주요 부분을 보여 주는 다이어그램입니다.](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 자세한 내용은 [온-프레미스 인코더의 다중 비트 전송률 라이브 스트림을 수신하는 채널 사용](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
 
@@ -142,11 +142,11 @@ Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 
 ### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
 채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
 
-* **중지 됨**. 이는 채널을 만든 후의 초기 상태입니다 (포털에서 자동 시작을 선택 하지 않은 경우). 이 상태에서는 청구가 발생 하지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
-* **시작 중**입니다. 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
-* **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 채널을 중지해야 합니다.
-* **중지 하 고**있습니다. 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
-* **삭제**합니다. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+* **중지 됨** . 이는 채널을 만든 후의 초기 상태입니다 (포털에서 자동 시작을 선택 하지 않은 경우). 이 상태에서는 청구가 발생 하지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
+* **시작 중** 입니다. 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
+* **실행 중** . 라이브 스트림 처리에 채널을 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 채널을 중지해야 합니다.
+* **중지 하 고** 있습니다. 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+* **삭제** 합니다. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 
 다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
 
@@ -155,7 +155,7 @@ Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 
 | 시작 중 |시작 중 |없음(일시적인 상태) |
 | 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |YES |
 | 중지 중 |중지 중 |없음(일시적인 상태) |
-| 중지됨 |중지됨 |아니요 |
+| 중지됨 |중지됨 |No |
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

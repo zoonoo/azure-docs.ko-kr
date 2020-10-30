@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274683"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042802"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -70,7 +70,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 앱은 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
 
-이 권한 부여 컨트롤을 활용 하기 위해 조건부 액세스를 사용 하려면 장치를 Azure Active Directory에 등록 해야 합니다. 그러면 broker 앱을 사용 해야 합니다. 브로커 앱은 iOS의 경우 Microsoft Authenticator, Android 디바이스의 경우 Microsoft 회사 포털일 수 있습니다. 사용자가 인증을 시도할 때 broker 앱이 장치에 설치 되어 있지 않은 경우 사용자는 broker 앱을 설치 하기 위해 앱 스토어로 리디렉션됩니다.
+이 권한 부여 컨트롤을 활용 하기 위해 조건부 액세스를 사용 하려면 장치를 Azure Active Directory에 등록 해야 합니다. 그러면 broker 앱을 사용 해야 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다. 사용자가 인증을 시도할 때 broker 앱이 장치에 설치 되지 않은 경우 사용자는 필요한 broker 앱을 설치 하기 위해 적절 한 앱/play 스토어로 리디렉션됩니다.
 
 이 설정은 다음 iOS 및 Android 앱에 적용 됩니다.
 

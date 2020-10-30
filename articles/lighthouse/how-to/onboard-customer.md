@@ -3,12 +3,12 @@ title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042853"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -38,7 +38,7 @@ ms.locfileid: "92426348"
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성**을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 고객 테넌트에서 구독의 ID를 찾으려면 "구독"을 검색한 다음, 적절한 구독 ID를 선택합니다.
+Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환** 을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성** 을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 고객 테넌트에서 구독의 ID를 찾으려면 "구독"을 검색한 다음, 적절한 구독 ID를 선택합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -66,10 +66,10 @@ az account show
 
 관리를 용이 하 게 하려면 각 역할에 대해 Azure AD 사용자 그룹을 사용 하는 것이 좋습니다. 이를 통해 액세스 권한이 있는 그룹에 개별 사용자를 추가 하거나 제거할 수 있으므로 사용자를 변경 하기 위해 온 보 딩 프로세스를 반복할 필요가 없습니다. 자동화 시나리오에 유용할 수 있는 서비스 주체에 역할을 할당할 수 있습니다.
 
-권한 부여를 정의할 때는 사용자가 작업을 완료 하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원 되는 역할에 대 한 지침 및 정보는 [Azure Lighthouse 시나리오에서 테 넌 트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조 하세요.
-
 > [!IMPORTANT]
-> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류** 를 **보안**으로 설정 해야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류** 를 **보안** 으로 설정 해야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+
+권한 부여를 정의할 때는 사용자가 작업을 완료 하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원 되는 역할에 대 한 지침 및 정보는 [Azure Lighthouse 시나리오에서 테 넌 트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조 하세요.
 
 권한 부여를 정의 하려면 액세스 권한을 부여 하려는 서비스 공급자 테 넌 트의 각 사용자, 사용자 그룹 또는 서비스 사용자에 대 한 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 아직 없는 경우 서비스 공급자 테넌트 내에서 아래 명령을 실행하여 검색할 수 있습니다.
 
@@ -128,7 +128,7 @@ az role definition list --name "<roleName>" | grep name
 > [!IMPORTANT]
 > 여기에 설명 된 프로세스에는 동일한 고객 테 넌 트에 구독을 등록 하는 경우에도 등록 되는 각 구독에 대 한 별도의 배포가 필요 합니다. 동일한 고객 테넌트의 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
 >
-> 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
+> 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName** 을 사용해야 합니다.
 
 선택하는 템플릿은 전체 구독, 리소스 그룹 또는 구독 내의 여러 리소스 그룹 중 어떤 항목을 온보딩할지에 따라 달라집니다. 또한 이러한 방식으로 구독을 온보딩하려는 경우, Azure Marketplace에 게시한 관리형 서비스 제품을 구매한 고객에게 사용할 수 있는 템플릿도 제공합니다.
 
@@ -142,7 +142,7 @@ az role definition list --name "<roleName>" | grep name
 > [!TIP]
 > 하나의 배포에서 전체 관리 그룹을 등록할 수 없는 경우 [관리 그룹 수준에서 정책을 배포할](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups)수 있습니다. 정책은 관리 그룹 내의 각 구독이 지정 된 관리 테 넌 트에 위임 되었는지 확인 하 고, 그렇지 않은 경우에는 사용자가 제공한 값을 기반으로 할당을 만듭니다.
 
-다음 예제에서는 구독을 온보딩하는 데 사용할 수 있는 수정된 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
+다음 예제에서는 구독을 온보딩하는 데 사용할 수 있는 수정된 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일( [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 
 ```json
 {
@@ -195,7 +195,7 @@ az role definition list --name "<roleName>" | grep name
 }
 ```
 
-위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId**를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 이러한 기본 제공 역할을 고객 테 넌 트의 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 할당할 수 있습니다. 이러한 기본 제공 역할은 [재구성 가능한 정책을 배포](deploy-policy-remediation.md)하는 데 필요 합니다.  또한 사용자는 지원 인시던트를 만들 수 있습니다.  사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId** 를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 이러한 기본 제공 역할을 고객 테 넌 트의 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 할당할 수 있습니다. 이러한 기본 제공 역할은 [재구성 가능한 정책을 배포](deploy-policy-remediation.md)하는 데 필요 합니다.  또한 사용자는 지원 인시던트를 만들 수 있습니다.  사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 배포
 
@@ -211,8 +211,8 @@ az role definition list --name "<roleName>" | grep name
 ### <a name="azure-portal"></a>Azure portal
 
 1. [GitHub 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/)에서 사용 하려는 템플릿 옆에 있는 **Azure에 배포** 단추를 선택 합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
-1. **Msp 제품 이름**, **msp 제안 설명**, **테 넌 트 Id로 관리**및 **권한 부여**에 대 한 값을 입력 합니다. 원하는 경우 매개 **변수 편집** 을 선택 하 여 `mspOfferName` `mspOfferDescription` `managedbyTenantId` `authorizations` 매개 변수 파일에서,, 및에 대 한 값을 직접 입력할 수 있습니다. 템플릿의 기본값을 사용 하는 대신 이러한 값을 업데이트 해야 합니다.
-1. **검토 및 만들기**를 선택 하 고 **만들기**를 선택 합니다.
+1. **Msp 제품 이름** , **msp 제안 설명** , **테 넌 트 Id로 관리** 및 **권한 부여** 에 대 한 값을 입력 합니다. 원하는 경우 매개 **변수 편집** 을 선택 하 여 `mspOfferName` `mspOfferDescription` `managedbyTenantId` `authorizations` 매개 변수 파일에서,, 및에 대 한 값을 직접 입력할 수 있습니다. 템플릿의 기본값을 사용 하는 대신 이러한 값을 업데이트 해야 합니다.
+1. **검토 및 만들기** 를 선택 하 고 **만들기** 를 선택 합니다.
 
 몇 분 후에 배포가 완료 되었다는 알림이 표시 됩니다.
 
@@ -265,7 +265,7 @@ az deployment sub create --name <deploymentName> \
 서비스 공급자의 테넌트에서 다음을 수행합니다.
 
 1. [내 고객 페이지](view-manage-customers.md)로 이동합니다.
-2. **고객**을 선택합니다.
+2. **고객** 을 선택합니다.
 3. Resource Manager 템플릿에서 제공한 제품 이름의 구독을 볼 수 있는지 확인합니다.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ az deployment sub create --name <deploymentName> \
 고객의 테넌트에서 다음을 수행합니다.
 
 1. [서비스 공급자 페이지](view-manage-service-providers.md)로 이동합니다.
-2. **서비스 공급자 제품**을 선택합니다.
+2. **서비스 공급자 제품** 을 선택합니다.
 3. Resource Manager 템플릿에서 제공한 제품 이름의 구독을 볼 수 있는지 확인합니다.
 
 > [!NOTE]
@@ -299,5 +299,5 @@ az account list
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
+- Azure Portal의 **내 고객** 으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
 - 이전에 등록된 [위임에 대한 액세스 권한 제거](remove-delegation.md) 방법을 알아봅니다.

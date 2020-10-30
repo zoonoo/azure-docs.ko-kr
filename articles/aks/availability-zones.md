@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043021"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -52,7 +52,7 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 
 Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역에 연결할 수 없으며 대상 pod를 호스트 하는 지정 된 노드와 동일한 영역에 함께 배치 되어야 합니다.
 
-상태 저장 워크로드를 실행해야 하는 경우 Pod 사양의 노드 풀 taint 및 toleration을 사용하여 디스크와 동일한 영역에서 Pod 일정을 그룹화합니다. 또는 Pod에 연결할 수 있는 Azure Files와 같은 네트워크 기반 스토리지를 예약된 대로 영역 간에 사용합니다.
+Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식 합니다. Azure 관리 디스크를 참조 하는 PersistentVolumeClaim 개체를 다중 영역 AKS 클러스터에 배포할 수 있으며, [Kubernetes는](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) 올바른 가용성 영역에서이 PVC를 청구 하는 pod를 예약 하는 과정을 담당 합니다.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터의 가용성 영역 개요
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 에이전트 풀에 노드를 더 추가하면 Azure 플랫폼에서 기본 VM을 지정된 가용성 영역에 자동으로 배포합니다.
 
-최신 Kubernetes 버전(1.17.0 이상)에서 AKS는 더 이상 사용되지 않는 `failure-domain.beta.kubernetes.io/zone` 외에 최신 레이블 `topology.kubernetes.io/zone`도 사용합니다.
+최신 Kubernetes 버전(1.17.0 이상)에서 AKS는 더 이상 사용되지 않는 `failure-domain.beta.kubernetes.io/zone` 외에 최신 레이블 `topology.kubernetes.io/zone`도 사용합니다. 다음 스크립트를 실행 하 여 위와 동일한 결과를 얻을 수 있습니다.
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+더 간결한 출력을 제공 합니다.
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>영역 간 Pod 배포 확인
 

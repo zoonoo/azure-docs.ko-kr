@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042888"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 
@@ -192,7 +192,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 *"myApp"의 모든 서비스에 대한 과거 상태:*
 
-서비스에 대한 상태 보고서 이벤트는 현재 해당 애플리케이션 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대한 서비스의 수행 방식을 확인하려면 다음 쿼리를 사용합니다. `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+서비스에 대한 상태 보고서 이벤트는 현재 해당 애플리케이션 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대한 서비스의 수행 방식을 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *파티션 재구성:*
 

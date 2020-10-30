@@ -2,13 +2,13 @@
 title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042957"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -78,14 +78,16 @@ Event Grid은 모든 재시도 단계에 작은 임의를 추가 하 고, 끝점
 지연 배달의 기능 목적은 비정상 끝점과 Event Grid 시스템을 보호 하는 것입니다. 백오프 및 비정상 끝점에 대 한 배달 지연 없이 Event Grid의 재시도 정책 및 볼륨 기능을 사용 하면 시스템에 쉽게 과부하가 발생할 수 있습니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
-Event Grid 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다. **다음 조건 중 하나가** 충족 되는 경우 배달 못한 편지를 Event Grid 합니다. 
+Event Grid 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다. **다음 조건 중 하나가** 충족 되는 경우 배달 못한 편지를 Event Grid 합니다. 
 
-- 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
-- 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+- 이벤트는 **ttl (time-to-live** ) 기간 내에 배달 되지 않습니다. 
+- 이벤트 전달 **시도 횟수가** 제한을 초과 했습니다.
 
 조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다.  기본적으로 Event Grid에서는 배달 못한 편지를 켜지 않습니다. 이 기능을 사용하려면 이벤트 구독을 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
 
 Event Grid가 모든 재시도 시도 횟수를 시도한 경우 이벤트를 배달 못한 편지로 보냅니다. Event Grid가 400(잘못된 요청) 또는 413(요청 엔터티가 너무 큼) 응답 코드를 수신하는 경우, 즉시 이벤트를 배달 못한 편지 엔드포인트로 보냅니다. 이 응답 코드는 이벤트 전달이 실패하지 않음을 나타냅니다.
+
+Ttl (time-to-live) 만료는 다음에 예약 된 배달 시도 시에만 확인 됩니다. 따라서 다음에 예약 된 배달 시도 전에 ttl (time-to-live)이 만료 되는 경우에도 다음 배달 시점에만 이벤트 만료가 확인 되며 이후에는 배달 못 한 문자로 확인 됩니다. 
 
 이벤트를 배달하기 위한 마지막 시도 및 배달 못한 편지 위치로 이벤트를 배달하는 경우, 그 사이에 5분의 지연이 발생합니다. 이 지연은 Blob Storage 작업 수를 줄이기 위함입니다. 배달 못한 편지 위치를 4시간 동안 사용할 수 없는 경우 이벤트가 삭제됩니다.
 

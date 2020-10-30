@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970743"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043380"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
@@ -24,15 +24,15 @@ ms.locfileid: "90970743"
 ![환경 만들기](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  [새로 통합된 경고](../platform/alerts-overview.md)를 사용하여 경고 규칙 심각도 및 [작업 그룹이 포함된 알림 기본 설정은 경고 환경에서 구성](../platform/action-groups.md) **되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
+>  [새로 통합된 경고](../platform/alerts-overview.md)를 사용하여 경고 규칙 심각도 및 [작업 그룹이 포함된 알림 기본 설정은 경고 환경에서 구성](../platform/action-groups.md) **되어야 합니다** . 다음 단계 없이도 포털 내 알림을 받게 됩니다.
 
 1. 가용성 테스트를 저장한 후 세부 정보 탭에서 방금 만든 테스트 옆에 있는 줄임표를 클릭합니다. "경고 편집"을 클릭합니다.
 
-   ![저장 후 편집](./media/availability-alerts/edit-alert.png)
+   ![메뉴에서 선택한 경고 편집을 보여 주는 스크린샷](./media/availability-alerts/edit-alert.png)
 
 2. 원하는 심각도 수준, 규칙 설명 및 가장 중요한 것으로 이 경고 규칙에 대해 사용하려는 알림 기본 설정을 보유한 작업 그룹을 설정합니다.
 
-   ![저장 후 편집](./media/availability-alerts/set-action-group.png)
+   ![규칙을 편집할 수 있는 규칙 관리 페이지를 보여 주는 스크린샷](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > 이 경험을 통해 생성 된 가용성 경고는 상태 기반입니다. 즉, 경고 조건이 충족 되 면 사이트를 사용할 수 없는 것으로 검색 될 때 단일 경고가 생성 됩니다. 다음 번에 경고 조건이 평가 될 때 사이트가 계속 작동 하지 않으면 새 경고가 생성 되지 않습니다. 따라서 사이트가 한 시간 동안 다운 되었고 전자 메일 알림을 설정한 경우 사이트가 다운 된 경우에만 전자 메일을 수신 하 고 사이트가 백업 될 때 후속 전자 메일을 받게 됩니다. 사이트를 여전히 사용할 수 없다는 경고 메시지가 표시 되지 않습니다.

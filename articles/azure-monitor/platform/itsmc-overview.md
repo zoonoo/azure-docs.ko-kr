@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043309"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -57,7 +57,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
    > * Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
-   > * ITSM 커넥터는 다음과 같은 지역에서만 Log Analytics 작업 영역에 설치할 수 있습니다. 미국 동부, 미국 서부 2, 미국 중남부, 미국 중서부, Fairfax, 캐나다 중부, 서유럽, 영국 남부, 동남 아시아, 일본 동부, 인도 중부, 동남 오스트레일리아.
+   > * ITSM 커넥터는 미국 동부, 서 부 미국, 미국 중부, 미국 서 부, 미국 서 부, 미국 서 부, 유럽 서부 US Gov 버지니아 US Gov 애리조나 미국 서 부, 미국 서 부, 미국 동부, 미국 동부, 동남 아시아, 미국 동부, 인도 중부, 동남 오스트레일리아와 같은 지역의 Log Analytics 작업 영역에만 설치할 수 있습니다.
 
 4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
