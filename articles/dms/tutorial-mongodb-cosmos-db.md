@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d06b7be7be06d037589e482fe59c4326cbfad29
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282360"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546707"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 
@@ -56,25 +56,25 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
-1. Azure Portal에 로그인하고, **모든 서비스**를 선택한 다음, **구독**을 선택합니다.
+1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
 
    ![포털 구독 표시](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
 
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자**를 선택합니다.
+2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자** 를 선택합니다.
 
     ![리소스 공급자 보기](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>인스턴스 만들기
 
-1. Azure Portal에서 **+ 리소스 만들기**를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
+1. Azure Portal에서 **+ 리소스 만들기** 를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service** 를 선택합니다.
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb/portal-marketplace.png)
 
-2. **Azure Database Migration Service** 화면에서 **만들기**를 선택합니다.
+2. **Azure Database Migration Service** 화면에서 **만들기** 를 선택합니다.
 
     ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-mongodb-to-cosmosdb/dms-create1.png)
   
@@ -94,25 +94,25 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
-7. **만들기**를 선택하여 서비스를 만듭니다.
+7. **만들기** 를 선택하여 서비스를 만듭니다.
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 
 서비스가 생성된 후 Azure Portal에서 서비스를 찾아 연 다음, 새로운 마이그레이션 프로젝트를 만듭니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services** 를 선택합니다.
 
       ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
 2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색한 다음, 인스턴스를 선택합니다.
 
-3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
+3. **+ 새 마이그레이션 프로젝트** 를 선택합니다.
 
-4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **MongoDB**를 선택하고, **대상 서버 형식** 텍스트 상자에서 **CosmosDB(MongoDB API)** 를 선택한 다음, **작업 형식 선택**에서 **오프라인 데이터 마이그레이션**을 선택합니다. 
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **MongoDB** 를 선택하고, **대상 서버 형식** 텍스트 상자에서 **CosmosDB(MongoDB API)** 를 선택한 다음, **작업 형식 선택** 에서 **오프라인 데이터 마이그레이션** 을 선택합니다. 
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-mongodb-to-cosmosdb/dms-create-project.png)
 
-5. **작업 만들기 및 실행**을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
+5. **작업 만들기 및 실행** 을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
 
 ## <a name="specify-source-details"></a>원본 세부 정보 지정
 
@@ -124,7 +124,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
     원본에 연결하는 세 가지 모드가 있습니다.
    * **표준 모드** - 정규화된 도메인 이름이나 IP 주소, 포트 번호 및 연결 자격 증명을 수락합니다.
    * **연결 문자열 모드** - [연결 문자열 URI 형식](https://docs.mongodb.com/manual/reference/connection-string/) 문서에서 설명한 대로 MongoDB 연결 문자열을 수락합니다.
-   * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB [bsondump 도구](https://docs.mongodb.com/manual/reference/program/bsondump/)에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 **Blob이 BSON 덤프를 포함합니다**를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
+   * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB [bsondump 도구](https://docs.mongodb.com/manual/reference/program/bsondump/)에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 **Blob이 BSON 덤프를 포함합니다** 를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
 
      이 옵션을 선택할 경우 해당 스토리지 계정 연결 문자열이 다음 형식으로 나타나는지 확인하세요.
 
@@ -136,12 +136,12 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
      
      또한 Azure Storage의 형식 덤프 정보에 기반하여 다음 세부 정보를 유념해 두세요.
 
-     * BSON 덤프의 경우 Blob 컨테이너 내 데이터는 데이터 파일이 collection.bson 형식의 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되는 bsondump 형식이어야 합니다. 메타데이터 파일(있는 경우)의 이름은 *collection*.metadata.json 형식을 사용하여 이름이 지정되어야 합니다.
+     * BSON 덤프의 경우 Blob 컨테이너 내 데이터는 데이터 파일이 collection.bson 형식의 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되는 bsondump 형식이어야 합니다. 메타데이터 파일(있는 경우)의 이름은 *collection* .metadata.json 형식을 사용하여 이름이 지정되어야 합니다.
 
-     * JSON 덤프의 경우 Blob 컨테이너의 파일은 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되어야 합니다. 각 데이터베이스 폴더 내에서 데이터 파일은 "data"라고 하는 하위 폴더에 배치되고 *collection*.json 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일(있는 경우)은 "metadata"라고 하는 하위 폴더에 배치되고 *collection*.json과 동일한 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일은 MongoDB bsondump 도구에서 생성한 것과 동일한 형식이어야 합니다.
+     * JSON 덤프의 경우 Blob 컨테이너의 파일은 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되어야 합니다. 각 데이터베이스 폴더 내에서 데이터 파일은 "data"라고 하는 하위 폴더에 배치되고 *collection* .json 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일(있는 경우)은 "metadata"라고 하는 하위 폴더에 배치되고 *collection* .json과 동일한 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일은 MongoDB bsondump 도구에서 생성한 것과 동일한 형식이어야 합니다.
 
     > [!IMPORTANT]
-    > mongo 서버에서 자체 서명된 인증서를 사용하는 것은 바람직하지 않습니다. 그러나 하나를 사용할 경우 **연결 문자열 모드**를 사용하여 서버에 연결하고 연결 문자열에 “”가 있는지 확인합니다.
+    > mongo 서버에서 자체 서명된 인증서를 사용하는 것은 바람직하지 않습니다. 그러나 하나를 사용할 경우 **연결 문자열 모드** 를 사용하여 서버에 연결하고 연결 문자열에 “”가 있는지 확인합니다.
     >
     >```
     >&sslVerifyCertificate=false
@@ -151,7 +151,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
    ![원본 세부 정보 지정](media/tutorial-mongodb-to-cosmosdb/dms-specify-source.png)
 
-2. **저장**을 선택합니다.
+2. **저장** 을 선택합니다.
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
@@ -159,7 +159,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     ![대상 세부 정보 지정](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
-2. **저장**을 선택합니다.
+2. **저장** 을 선택합니다.
 
 ## <a name="map-to-target-databases"></a>대상 데이터베이스에 매핑
 
@@ -173,7 +173,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     ![대상 데이터베이스에 매핑](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
 
-2. **저장**을 선택합니다.
+2. **저장** 을 선택합니다.
 3. **컬렉션 설정** 화면에서 컬렉션 목록을 확장한 다음, 마이그레이션할 컬렉션 목록을 검토합니다.
 
     Azure Database Migration Service는 대상 Azure Cosmos DB 계정에 존재하지 않는 원본 MongoDB 인스턴스에 존재하는 모든 컬렉션을 자동으로 선택합니다. 이미 데이터를 포함하는 컬렉션을 다시 마이그레이션하려면 이 블레이드에서 컬렉션을 명시적으로 선택해야 합니다.
@@ -187,7 +187,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     ![컬렉션 선택 테이블](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 5. **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정합니다.
 
@@ -195,15 +195,15 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="run-the-migration"></a>마이그레이션 실행
 
-* **마이그레이션 실행**을 선택합니다.
+* **마이그레이션 실행** 을 선택합니다.
 
-    마이그레이션 작업 창이 나타나고, 작업 **상태**는 **시작되지 않음**입니다.
+    마이그레이션 작업 창이 나타나고, 작업 **상태** 는 **시작되지 않음** 입니다.
 
     ![작업 상태](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 
-* 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 **상태**가 **완료됨**으로 표시될 때까지 디스플레이를 업데이트합니다.
+* 마이그레이션 작업 화면에서 **새로 고침** 을 선택하여 마이그레이션 **상태** 가 **완료됨** 으로 표시될 때까지 디스플레이를 업데이트합니다.
 
    > [!NOTE]
    > 데이터베이스 및 컬렉션 수준 마이그레이션 메트릭의 세부 정보를 가져오는 작업을 선택할 수 있습니다.
@@ -214,7 +214,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 * 마이그레이션이 완료되면 Azure Cosmos DB 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
 
-    ![작업 상태 완료됨](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![Azure Cosmos DB 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있는 위치를 보여 주는 스크린샷](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
 ## <a name="post-migration-optimization"></a>마이그레이션 후 최적화
 

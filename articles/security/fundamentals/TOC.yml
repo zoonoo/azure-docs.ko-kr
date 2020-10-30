@@ -56,8 +56,8 @@
       href: network-overview.md
     - name: 모범 사례
       href: network-best-practices.md
-    - name: DDoS Protection
-      href: ddos-best-practices.md
+    - name: DDoS Protection 모범 사례
+      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
     - name: DDoS Protection 보안 기준
       href: ddos-protection-security-baseline.md
     - name: 현수 DNS 및 하위 도메인 인수

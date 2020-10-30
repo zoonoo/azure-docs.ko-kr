@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/28/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: a5ea95e0ea958c495e28eaa1fee72e34362157a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859650"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92909046"
 ---
 Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보호되도록 하기 위해 다음과 같은 기본 제한이 적용되는 다중 테넌트 서비스입니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
 
@@ -25,10 +25,10 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 | 데이터 팩터리 내 총 엔터티(예: 파이프라인, 데이터 세트, 트리거, 연결된 서비스, 프라이빗 엔드포인트 및 통합 런타임) 수 | 5,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 한 구독의 Azure-SSIS Integration Runtime에 대한 총 CPU 코어 수 | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 팩터리의 모든 파이프라인에서 공유되는 데이터 팩터리당 동시 파이프라인 실행 수 | 10000  | 10000 |
-| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 외부 활동 실행 수<br><small>외부 활동은 통합 런타임에서 관리되지만, Databricks, 저장 프로시저, HDInsights, 웹 등을 포함한 연결된 서비스에서 실행됩니다.</small> | 3,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 파이프라인 활동 실행 수 <br><small>파이프라인 활동은 Lookup, GetMetadata 및 Delete를 포함한 통합 런타임에서 실행됩니다.</small>| 1,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 작성 작업 수<br><small>테스트 연결을 포함하여 폴더 목록과 테이블 목록을 찾아보고 데이터를 미리 봅니다. | 200 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 데이터 통합 단위<sup>1</sup> 사용량| 지역 그룹 1<sup>2</sup>: 6,000<br>지역 그룹 2<sup>2</sup>: 3,000<br>지역 그룹 3<sup>2</sup>: 1,500 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 외부 활동 실행 수<br><small>외부 활동은 통합 런타임에서 관리되지만, Databricks, 저장 프로시저, HDInsights, 웹 등을 포함한 연결된 서비스에서 실행됩니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 3,000 | 3,000 |
+| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 파이프라인 활동 실행 수 <br><small>파이프라인 활동은 Lookup, GetMetadata 및 Delete를 포함한 통합 런타임에서 실행됩니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 1,000 | 1,000                                                        |
+| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 작성 작업 수<br><small>테스트 연결을 포함하여 폴더 목록과 테이블 목록을 찾아보고 데이터를 미리 봅니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 200 | 200                                                          |
+| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 데이터 통합 단위<sup>1</sup> 사용량| 지역 그룹 1<sup>2</sup>: 6,000<br>지역 그룹 2<sup>2</sup>: 3,000<br>지역 그룹 3<sup>2</sup>: 1,500 | 지역 그룹 1<sup>2</sup>: 6,000<br/>지역 그룹 2<sup>2</sup>: 3,000<br/>지역 그룹 3<sup>2</sup>: 1,500 |
 | 파이프라인당 최대 활동 수(컨테이너에 대한 내부 활동 포함) | 40 | 40 |
 | 단일 자체 호스팅 통합 런타임에 대해 만들 수 있는 연결된 통합 런타임의 최대 수 | 100 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 파이프라인당 최대 매개 변수 수 | 50 | 50 |
@@ -40,7 +40,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 | 파이프라인 활동 실행에 대한 최대 시간 제한 | 7 일 | 7 일 |
 | 파이프라인 개체에 대한 개체당 바이트 수<sup>3</sup> | 200KB | 200KB |
 | 데이터 세트 및 연결된 서비스 개체에 대한 개체당 바이트 수<sup>3</sup> | 100KB | 2,000KB |
-| 복사 작업 실행당 데이터 통합 단위 수<sup>1</sup> | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 복사 작업 실행당 데이터 통합 단위 수<sup>1</sup> | 256 | 256 |
 | API 호출 쓰기 | 1,200/시간 | 1,200/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. |
 | API 호출 읽기 | 12,500/시간 | 12,500/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. |
 | 분당 모니터링 쿼리 | 1,000 | 1,000 |
@@ -53,7 +53,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 
 <sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)은 데이터 규정 준수, 효율성 및 네트워크 송신 비용 절감을 보장하기 위해 [전역적으로 사용](https://azure.microsoft.com/global-infrastructure/services/)할 수 있습니다. 
 
-| 지역 그룹 | 영역 | 
+| 지역 그룹 | 영역 |
 | -------- | ------ |
 | 지역 그룹 1 | 미국 중부, 미국 동부, 미국 동부 2, 북유럽, 서유럽, 미국 서부, 미국 서부 2 |
 | 지역 그룹 2 | 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 인도 중부, 일본 동부, 미국 중북부, 미국 중남부, 동남 아시아, 미국 중서부 |
@@ -71,7 +71,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 | 파이프라인 개체에 대한 개체당 바이트 수<sup>1</sup> |200KB |200KB |
 | 데이터 세트 및 연결된 서비스 개체에 대한 개체당 바이트 수<sup>1</sup> |100KB |2,000KB |
 | 구독 내 Azure HDInsight 주문형 클러스터 코어 수<sup>2</sup> |60 |[고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| 복사 작업 실행당 클라우드 데이터 이동 단위 수<sup>3</sup> |32 |[고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 복사 작업 실행당 클라우드 데이터 이동 단위 수<sup>3</sup> |32 |32 |
 | 파이프라인 활동 실행에 대한 재시도 횟수 |1,000 |MaxInt(32비트) |
 
 <sup>1</sup> 파이프라인, 데이터 세트 및 연결된 서비스 개체에서 워크로드의 논리적 그룹화를 나타냅니다. 이러한 개체에 대한 제한은 Azure Data Factory를 사용하여 이동 및 처리할 수 있는 데이터 양과는 관련이 없습니다. Data Factory는 크기를 조정하여 페타바이트 규모의 데이터를 처리할 수 있도록 설계되었습니다.

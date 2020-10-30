@@ -1,5 +1,9 @@
 - name: 개요
   href: overview.md
+- name: Red Hat 빠른 시작
+  items: null
+- name: 빠른 시작 - CentOS 기반 WildFly
+  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux 이미지
   items:
     - name: Red Hat Enterprise Linux 이미지 개요

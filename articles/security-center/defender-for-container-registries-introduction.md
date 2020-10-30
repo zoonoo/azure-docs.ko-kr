@@ -7,24 +7,24 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275971"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558638"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
 ACR(Azure Container Registry)은 중앙 레지스트리에서 Azure 배포에 대한 컨테이너 이미지를 저장하고 관리하는 관리형 프라이빗 Docker 레지스트리 서비스입니다. 오픈 소스 Docker 레지스트리 2.0을 기반으로 합니다.
 
-구독의 모든 Azure Resource Manager 기반 레지스트리를 보호하려면 구독 수준에서 **컨테이너 레지스트리용 Azure Defender**를 사용하도록 설정합니다. 그러면 Security Center가 최근 30일 이내에 레지스트리에 푸시한 이미지, 레지스트리로 가져온 이미지 또는 풀한 이미지를 검사합니다. 이 기능은 이미지별로 요금이 청구됩니다.
+구독의 모든 Azure Resource Manager 기반 레지스트리를 보호하려면 구독 수준에서 **컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정합니다. 그러면 Security Center가 최근 30일 이내에 레지스트리에 푸시한 이미지, 레지스트리로 가져온 이미지 또는 풀한 이미지를 검사합니다. 이 기능은 이미지별로 요금이 청구됩니다.
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender의 이점은?
 
 Security Center는 구독의 Azure Resource Manager 기반 ACR 레지스트리를 식별하고 레지스트리 이미지에 대한 Azure 네이티브 취약성 평가 및 관리를 원활하게 제공합니다.
 
-**컨테이너 레지스트리용 Azure Defender**에는 Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. 통합 검사기는 업계 최고의 취약성 검사 공급업체인 Qualys의 제품입니다.
+**컨테이너 레지스트리용 Azure Defender** 에는 Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. 통합 검사기는 업계 최고의 취약성 검사 공급업체인 Qualys의 제품입니다.
 
 Qualys 또는 Security Center에서 문제가 발견되면 Security Center 대시보드에 알림이 표시됩니다. Security Center는 모든 취약성에 대해 심각도 분류 및 문제 해결 방법에 대한 지침과 실행 가능한 권장 사항을 제공합니다. Security Center의 컨테이너 관련 권장 사항에 대한 자세한 내용은 [권장 사항 참조 목록](recommendations-reference.md#recs-containers)을 참조하세요.
 
@@ -39,9 +39,9 @@ Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 �
 
 - **푸시할 때** - 이미지를 레지스트리에 푸시할 때마다 Security Center에서 해당 이미지를 자동으로 검사합니다. 이미지 검사를 트리거하려면 리포지토리에 푸시하세요.
 
-- **최근에 끌어온 경우** - 새로운 취약성은 매일 검색되므로 **컨테이너 레지스트리용 Azure Defender**는 최근 30일 동안 끌어온 이미지도 검사합니다. 위에서 설명한 것처럼 이미지마다 한 번씩 요금이 청구되므로 재검사에 대한 추가 비용은 없습니다.
+- **최근에 끌어온 경우** - 새로운 취약성은 매일 검색되므로 **컨테이너 레지스트리용 Azure Defender** 는 최근 30일 동안 끌어온 이미지도 검사합니다. 위에서 설명한 것처럼 이미지마다 한 번씩 요금이 청구되므로 재검사에 대한 추가 비용은 없습니다.
 
-- **가져올 때** - Azure Container Registry에는 Docker Hub, Microsoft Container Registry 또는 다른 Azure Container Registry의 이미지를 사용자 레지스트리로 가져오는 가져오기 도구가 있습니다. **컨테이너 레지스트리용 Azure Defender**는 사용자가 가져온 모든 지원 이미지를 검사합니다. [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](../container-registry/container-registry-import-images.md)에서 자세히 알아보세요.
+- **가져올 때** - Azure Container Registry에는 Docker Hub, Microsoft Container Registry 또는 다른 Azure Container Registry의 이미지를 사용자 레지스트리로 가져오는 가져오기 도구가 있습니다. **컨테이너 레지스트리용 Azure Defender** 는 사용자가 가져온 모든 지원 이미지를 검사합니다. [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](../container-registry/container-registry-import-images.md)에서 자세히 알아보세요.
  
 검사는 일반적으로 2분 이내에 완료되지만 최대 15분이 걸릴 수 있습니다. 검사 결과는 다음과 같은 Security Center 권장 사항으로 제공됩니다.
 
@@ -71,6 +71,12 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 컨테이너 레지스트리용 Azure Defender에서 지원하는 컨테이너 레지스트리 유형의 목록은 [가용성](defender-for-container-registries-usage.md#availability)을 참조하세요.
 
 지원되지 않는 레지스트리를 Azure 구독에 연결하면 검사되지 않으며 요금이 청구되지 않습니다.
+
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>취약성 검사기의 결과를 사용자 지정할 수 있나요?
+예. 조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.
+
+[통합된 취약성 평가 도구의 결과를 사용하지 않는 규칙을 만드는 방법에 대해 알아봅니다](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
 
 
 ## <a name="next-steps"></a>다음 단계

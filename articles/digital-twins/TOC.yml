@@ -23,8 +23,6 @@
   items:
     - name: 사용자 지정 모델
       href: concepts-models.md
-    - name: 산업 표준 모델 변환
-      href: concepts-convert-models.md
     - name: Digital Twins 및 쌍 그래프
       href: concepts-twins-graph.md
     - name: 쿼리 언어
@@ -63,6 +61,8 @@
       items:
         - name: 사용자 지정 모델 관리
           href: how-to-manage-model.md
+        - name: 산업 표준 모델 변환
+          href: how-to-convert-models.md
         - name: 모델 구문 분석 및 유효성 검사
           href: how-to-parse-models.md
         - name: 태그 추가
@@ -176,11 +176,15 @@
             - name: Java SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: JavaScript SDK - 참조
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: JavaScript SDK - 소스
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK - PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Python SDK - 소스
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Digital Twins CLI
       items:
         - name: Digital Twins CLI 참조

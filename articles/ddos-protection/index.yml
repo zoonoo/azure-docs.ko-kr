@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Azure DDoS Protection 표준 설명서
+summary: 애플리케이션 설계 모범 사례와 결합된 Azure DDoS Protection 표준이 DDoS 공격에 대한 방어 기능을 제공하는 방법을 알아보세요.
+metadata:
+  description: 애플리케이션 설계 모범 사례와 결합된 Azure DDoS Protection 표준이 DDoS 공격에 대한 방어 기능을 제공하는 방법을 알아보세요.
+  keywords: azure ddos protection standard
+  author: yitoh
+  ms.author: yitoh
+  ms.date: 09/04/2019
+  ms.service: ddos-protection
+  ms.topic: landing-page
+  ms.custom: azure-ddos-protection
+  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92904723"
+landingContent:
+- title: Azure DDoS Protection 표준에 대한 자세한 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure DDoS Protection 표준이란?
+      url: ddos-protection-overview.md
+  - linkListType: architecture
+    links:
+    - text: Azure DDoS Protection 표준 기능
+      url: ddos-protection-standard-features.md
+    - text: 참조 아키텍처
+      url: ddos-protection-reference-architectures.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: DDoS 보호 계획 만들기 - Portal
+      url: manage-ddos-protection.md
+- title: 공격 분석 구성
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: DDoS 보호 원격 분석 보기 및 구성
+      url: telemetry-monitoring-alerting.md
+    - text: DDoS 공격 완화 보고서 및 흐름 로그 구성
+      url: reports-and-flow-logs.md
+- title: DDoS 공격에 대응
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 공격 유형
+      url: types-of-attacks.md
+    - text: 기본 모범 사례
+      url: fundamental-best-practices.md
+    - text: DDoS 대응 전략의 구성 요소
+      url: ddos-response-strategy.md
+  - linkListType: how-to-guide
+    links:
+    - text: DRR(DDoS Rapid Response)에 문의
+      url: ddos-rapid-response.md
