@@ -45,12 +45,12 @@
           href: how-to-use-cli.md
         - name: 인스턴스 및 인증 설정
           items:
-            - name: 스크립팅된 버전
-              href: how-to-set-up-instance-scripted.md
-            - name: CLI 버전
-              href: how-to-set-up-instance-cli.md
             - name: 포털 버전
               href: how-to-set-up-instance-portal.md
+            - name: CLI 버전
+              href: how-to-set-up-instance-cli.md
+            - name: 스크립팅된 버전
+              href: how-to-set-up-instance-scripted.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
         - name: 앱 등록 만들기
