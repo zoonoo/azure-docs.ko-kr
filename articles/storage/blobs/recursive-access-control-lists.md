@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 247742cac3dc24b062fc8e1cb5eceb6c1a6f3f8b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3f97a91d56324ab583c1f8ae9989631a908df447
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042228"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "92911616"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -47,9 +47,7 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. .NET framework가 설치 되어 있는지 확인 합니다. [다운로드 .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)를 참조 하세요.
- 
-2. 다음 명령을 사용 하 여 설치한 PowerShell 버전이 이상 인지 확인 `5.1` 합니다.    
+1. 다음 명령을 사용 하 여 설치한 PowerShell 버전이 이상 인지 확인 `5.1` 합니다.    
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
@@ -57,18 +55,10 @@ PowerShell, .NET SDK 및 Python SDK에 대 한 설치 지침을 보려면이 문
     
    PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) 를 참조 하세요.
     
-3. PowershellGet 모듈의 최신 버전을 설치 합니다.
+2. 설치 **Az. Storage** module.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-4. PowerShell 콘솔을 닫았다가 다시 엽니다.
-
-5. 설치 **Az. Storage** preview module.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps) 를 참조 하세요.
@@ -875,10 +865,10 @@ $result
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-오류가 발생 하는 경우 매개 변수를로 설정 하 여 연속 토큰을 반환할 수 있습니다 `--continue-on-failure` `true` . 오류를 해결 한 후 명령을 다시 실행 하 고 `--continuation` 매개 변수를 연속 토큰으로 설정 하 여 오류 발생 지점에서 프로세스를 다시 시작할 수 있습니다. 
+오류가 발생 하는 경우 매개 변수를로 설정 하 여 연속 토큰을 반환할 수 있습니다 `--continue-on-failure` `false` . 오류를 해결 한 후 명령을 다시 실행 하 고 `--continuation` 매개 변수를 연속 토큰으로 설정 하 여 오류 발생 지점에서 프로세스를 다시 시작할 수 있습니다. 
 
 ```azurecli
-az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
+az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure false --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
 ```
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
@@ -982,7 +972,7 @@ def resume_set_acl_recursive(continuation_token):
 
 #### <a name="libraries"></a>라이브러리
 
-- [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
+- [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
@@ -1028,7 +1018,7 @@ def resume_set_acl_recursive(continuation_token):
 
 에서 사용자 의견을 제공 하거나 문제를 보고할 수 있습니다  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 - [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [알려진 문제](data-lake-storage-known-issues.md)

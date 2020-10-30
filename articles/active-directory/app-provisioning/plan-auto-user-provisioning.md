@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363694"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041123"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -34,15 +34,15 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 자동 사용자 프로 비전을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-* **생산성 향상**. 단일 사용자 프로비저닝 관리 인터페이스를 사용 하 여 SaaS 응용 프로그램에서 사용자 id를 관리할 수 있습니다. 이 인터페이스에는 단일 프로 비전 정책 집합이 있습니다.
+* **생산성 향상** . 단일 사용자 프로비저닝 관리 인터페이스를 사용 하 여 SaaS 응용 프로그램에서 사용자 id를 관리할 수 있습니다. 이 인터페이스에는 단일 프로 비전 정책 집합이 있습니다.
 
-* **위험을 관리**합니다. 역할 및/또는 액세스를 정의 하는 직원 상태 또는 그룹 멤버 자격에 따라 변경 내용을 자동화 하 여 보안을 강화할 수 있습니다.
+* **위험을 관리** 합니다. 역할 및/또는 액세스를 정의 하는 직원 상태 또는 그룹 멤버 자격에 따라 변경 내용을 자동화 하 여 보안을 강화할 수 있습니다.
 
-* **주소 규정 준수 및 거 버 넌 스**. Azure AD는 모든 사용자 프로 비전 요청에 대해 기본 감사 로그를 지원 합니다. 요청은 원본 및 대상 시스템에서 실행 됩니다. 이를 통해 단일 화면에서 응용 프로그램에 액세스할 수 있는 사용자를 추적할 수 있습니다.
+* **주소 규정 준수 및 거 버 넌 스** . Azure AD는 모든 사용자 프로 비전 요청에 대해 기본 감사 로그를 지원 합니다. 요청은 원본 및 대상 시스템에서 실행 됩니다. 이를 통해 단일 화면에서 응용 프로그램에 액세스할 수 있는 사용자를 추적할 수 있습니다.
 
-* **비용 절감**. 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
+* **비용 절감** . 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
 
-### <a name="licensing"></a>라이선스
+### <a name="licensing"></a>라이선싱
 
 Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사용 하 여 모든 응용 프로그램의 셀프 서비스 통합을 제공 합니다. 라이선스 요구 사항에 대 한 전체 목록은 [AZURE AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
@@ -99,7 +99,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 이 예제에서는 Azure AD에서 사용자 만들기를 수행 하 고 Azure AD 프로 비전 서비스는 대상 (SaaS) 응용 프로그램에 대 한 자동 사용자 프로 비전을 관리 합니다.
 
-![그림 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Azure A D 프로 비전 서비스를 통해 온-프레미스 H R 응용 프로그램에서 대상 S 응용 프로그램으로 사용자/그룹을 만드는 과정을 보여 주는 다이어그램입니다.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **워크플로 설명:**
 

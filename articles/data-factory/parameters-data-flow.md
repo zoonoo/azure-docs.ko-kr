@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040743"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
 
@@ -28,7 +28,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>매핑 데이터 흐름에서 매개 변수 만들기
 
-데이터 흐름에 매개 변수를 추가 하려면 데이터 흐름 캔버스의 빈 부분을 클릭 하 여 일반 속성을 표시 합니다. 설정 창에 **매개 변수**라는 탭이 표시 됩니다. 새로 **만들기를 선택 하** 여 새 매개 변수를 생성 합니다. 각 매개 변수에 대해 이름을 할당 하 고, 형식을 선택 하 고, 필요에 따라 기본값을 설정 해야 합니다.
+데이터 흐름에 매개 변수를 추가 하려면 데이터 흐름 캔버스의 빈 부분을 클릭 하 여 일반 속성을 표시 합니다. 설정 창에 **매개 변수** 라는 탭이 표시 됩니다. 새로 **만들기를 선택 하** 여 새 매개 변수를 생성 합니다. 각 매개 변수에 대해 이름을 할당 하 고, 형식을 선택 하 고, 필요에 따라 기본값을 설정 해야 합니다.
 
 ![데이터 흐름 매개 변수 만들기](media/data-flow/create-params.png "데이터 흐름 매개 변수 만들기")
 
@@ -36,11 +36,11 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 모든 데이터 흐름 식에서 매개 변수를 참조할 수 있습니다. 매개 변수는 $ 및로 시작 되며 변경할 수 없습니다. 식 작성기 내에서 사용할 수 있는 매개 변수 목록은 **매개 변수** 탭에서 찾을 수 있습니다.
 
-![데이터 흐름 매개 변수 식](media/data-flow/parameter-expression.png "데이터 흐름 매개 변수 식")
+![매개 변수 탭에서 사용 가능한 매개 변수를 보여 주는 스크린샷](media/data-flow/parameter-expression.png "데이터 흐름 매개 변수 식")
 
 **새 매개 변수** 를 선택 하 고 이름 및 유형을 지정 하 여 추가 매개 변수를 빠르게 추가할 수 있습니다.
 
-![데이터 흐름 매개 변수 식](media/data-flow/new-parameter-expression.png "데이터 흐름 매개 변수 식")
+![스크린샷 새 매개 변수가 추가 된 매개 변수 탭의 매개 변수를 보여 줍니다.](media/data-flow/new-parameter-expression.png "데이터 흐름 매개 변수 식")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>파이프라인에서 매개 변수 값 할당
 
@@ -48,13 +48,13 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 매개 변수 값을 할당 하는 경우 spark 유형을 기반으로 하는 [파이프라인 식 언어](control-flow-expression-language-functions.md) 또는 [데이터 흐름 식 언어](data-flow-expression-functions.md) 를 사용할 수 있습니다. 각 매핑 데이터 흐름에는 파이프라인 및 데이터 흐름 식 매개 변수를 조합 하 여 사용할 수 있습니다.
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
+![Myparam 값에 대해 선택 된 데이터 흐름 식이 있는 매개 변수 탭을 보여 주는 스크린샷](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
 
 ### <a name="pipeline-expression-parameters"></a>파이프라인 식 매개 변수
 
-파이프라인 식 매개 변수를 사용 하면 다른 파이프라인 작업과 유사한 시스템 변수, 함수, 파이프라인 매개 변수 및 변수를 참조할 수 있습니다. **파이프라인 식**을 클릭 하면 식 작성기를 사용 하 여 식을 입력할 수 있는 측면 탐색이 열립니다.
+파이프라인 식 매개 변수를 사용 하면 다른 파이프라인 작업과 유사한 시스템 변수, 함수, 파이프라인 매개 변수 및 변수를 참조할 수 있습니다. **파이프라인 식** 을 클릭 하면 식 작성기를 사용 하 여 식을 입력할 수 있는 측면 탐색이 열립니다.
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline.png "데이터 흐름 매개 변수 설정")
+![식 작성기 창을 보여 주는 스크린샷](media/data-flow/parameter-pipeline.png "데이터 흐름 매개 변수 설정")
 
 참조 되는 경우 파이프라인 매개 변수가 계산 된 다음 해당 값이 데이터 흐름 식 언어에 사용 됩니다. 파이프라인 식 유형이 데이터 흐름 매개 변수 유형과 일치 하지 않아도 됩니다. 
 
@@ -62,7 +62,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 문자열 형식의 파이프라인 식 매개 변수를 할당 하는 경우 기본적으로 따옴표가 추가 되 고 값이 리터럴로 평가 됩니다. 매개 변수 값을 데이터 흐름 식으로 읽으려면 매개 변수 옆의 식 상자를 선택 합니다.
 
-![데이터 흐름 매개 변수 설정](media/data-flow/string-parameter.png "데이터 흐름 매개 변수 설정")
+![매개 변수에 대해 선택 된 데이터 흐름 매개 변수 창 식을 보여 주는 스크린샷](media/data-flow/string-parameter.png "데이터 흐름 매개 변수 설정")
 
 데이터 흐름 매개 변수가 `stringParam` 값이 인 파이프라인 매개 변수를 참조 하는 경우 `upper(column1)` 
 
@@ -73,7 +73,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 파이프라인 식 언어에서 및 함수와 같은 시스템 변수는 `pipeline().TriggerTime` `utcNow()` 타임 스탬프를 ' YYYY-mm-dd \' T \' HH: MM: ss 형식의 문자열로 반환 합니다. SSSSSSZ '. 이러한 데이터 흐름을 타임 스탬프 형식의 데이터 흐름 매개 변수로 변환 하려면 문자열 보간을 사용 하 여 원하는 타임 스탬프를 함수에 포함 `toTimestamp()` 합니다. 예를 들어 파이프라인 트리거 시간을 데이터 흐름 매개 변수로 변환 하려면를 사용할 수 있습니다 `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-timestamp.png "데이터 흐름 매개 변수 설정")
+![트리거 시간을 입력할 수 있는 매개 변수 탭이 스크린샷에 표시 됩니다.](media/data-flow/parameter-timestamp.png "데이터 흐름 매개 변수 설정")
 
 > [!NOTE]
 > 데이터 흐름은 최대 3 밀리초 숫자만 지원할 수 있습니다. `left()`함수는 추가 숫자를 잘라내는 데 사용 됩니다.
@@ -82,15 +82,15 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 `intParam`문자열 형식의 파이프라인 매개 변수를 참조 하는 정수 매개 변수가 있다고 가정 `@pipeline.parameters.pipelineParam` 합니다. 
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-2.png "데이터 흐름 매개 변수 설정")
+![매개 변수가 stringParam 및 intParam 인 매개 변수 탭을 보여 주는 스크린샷](media/data-flow/parameter-pipeline-2.png "데이터 흐름 매개 변수 설정")
 
 `@pipeline.parameters.pipelineParam` 런타임에의 값이 할당 됩니다 `abs(1)` .
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-4.png "데이터 흐름 매개 변수 설정")
+![스크린 샷에서는 b s (1) 값이 선택 된 매개 변수 탭이 표시 됩니다.](media/data-flow/parameter-pipeline-4.png "데이터 흐름 매개 변수 설정")
 
 `$intParam`가 파생 열과 같은 식에서 참조 되는 경우 반환을 평가 `abs(1)` `1` 합니다. 
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-3.png "데이터 흐름 매개 변수 설정")
+![스크린샷에는 열 값이 표시 됩니다.](media/data-flow/parameter-pipeline-3.png "데이터 흐름 매개 변수 설정")
 
 ### <a name="data-flow-expression-parameters"></a>데이터 흐름 식 매개 변수
 

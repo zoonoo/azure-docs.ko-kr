@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735056"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042119"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes 릴리스 일정
 
-이전 릴리스 내역은 [여기](https://en.wikipedia.org/wiki/Kubernetes#History)를 참조 하세요.
+이전 릴리스 내역은 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History)를 참조 하세요.
 
 |  K8s 버전 | 업스트림 릴리스  | AKS 미리 보기  | AKS GA  | 수명 종료 |
 |--------------|-------------------|--------------|---------|-------------|
@@ -139,8 +139,10 @@ az aks get-versions --location eastus --output table
 | 1.17  | 12 월-09-19  | 1 월 2019   | 7 월 2020  | 1.20 GA | 
 | 1.18  | 3 월-23-20  | 2020년 5월   | 8 월 2020  | 1.21 GA | 
 | 1.19  | 8 월-04-20  | 9 월 2020   | 11 월 2020  | 1.22 GA | 
-| 1.20  | 12 월-08-20  | 1 월 2021   | 3 월 2021  | 1.23 GA | 
-\* 명절 시즌 AKS은 1.16 년 1 2021 월 2020 일까 야의 수명을 연장 합니다. [여기](https://github.com/Azure/AKS/releases/tag/2020-10-12)에서 자세히 알아보기
+| 1.20  | 12 월-08-20  | 1 월 2021   | 3 월 2021  | 1.23 GA |
+
+\* 휴일으로 인해 AKS은 1.16 년 1 2021 월 2020 12 일까 야의 수명을 연장 합니다. [자세히 알아봅니다](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>FAQ
 

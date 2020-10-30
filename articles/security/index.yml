@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: 6b090cd138b9b85ab05b35fe2993e76a85e9b7e6
-  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.openlocfilehash: 26968a6cdc7682c7e94d3276832ae6cbd418294b
+  ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92899235"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93042728"
 highlightedContent:
   items:
   - title: Azure 보안 소개
@@ -30,7 +30,7 @@ highlightedContent:
     url: ./fundamentals/best-practices-and-patterns.md
   - title: Azure Security Center란?
     itemType: overview
-    url: ../security-center/security-center-intro.md
+    url: ../security-center/security-center-introduction.md
 conceptualContent:
   items:
   - title: 기본 사항
@@ -52,7 +52,7 @@ conceptualContent:
     - url: ./develop/secure-dev-overview.md
       itemType: overview
       text: 보안 개발 모범 사례
-    - url: ./develop/secure-web-app.md
+    - url: /previous-versions/azure/security/develop/secure-web-app
       itemType: tutorial
       text: 보안 웹앱 개발
     - url: ./develop/threat-modeling-tool.md
@@ -74,17 +74,17 @@ conceptualContent:
       text: 자세히 보기
   - title: 비밀 및 키
     links:
-    - url: ../key-vault/key-vault-overview.md
+    - url: ../key-vault/general/overview.md
       itemType: overview
       text: Azure Key Vault란?
-    - url: ../key-vault/quick-create-cli.md
+    - url: ../key-vault/secrets/quick-create-cli.md
       itemType: quickstart
       text: 비밀 설정 및 검색
     - url: ../dedicated-hsm/overview.md
       itemType: overview
       text: Azure 전용 HSM이란?
     footerLink:
-      url: /azure/key-vault/
+      url: ../key-vault/index.yml
       text: 자세히 보기
   - title: 데이터 보호
     links:
@@ -102,7 +102,7 @@ conceptualContent:
       text: 자세히 보기
   - title: ID 관리
     links:
-    - url: ./fundamentals/choose-ad-authn.md
+    - url: ../active-directory/hybrid/choose-ad-authn.md
       itemType: concept
       text: 적합한 인증 방법 선택
     - url: ./fundamentals/steps-secure-identity.md
@@ -126,17 +126,17 @@ conceptualContent:
       itemType: how-to-guide
       text: 보안 정책 작업
     footerLink:
-      url: /azure/security-center/
+      url: ../security-center/index.yml
       text: 자세히 보기
   - title: IoT 보안 모니터링
     links:
-    - url: ../asc-for-iot/overview.md
+    - url: ../defender-for-iot/overview.md
       itemType: overview
       text: IoT용 Azure Security Center 소개
-    - url: ../asc-for-iot/architecture.md
+    - url: ../defender-for-iot/architecture.md
       itemType: how-to-guide
       text: IoT용 Azure Security Center 아키텍처
-    - url: ../asc-for-iot/getting-started.md
+    - url: ../defender-for-iot/getting-started.md
       itemType: how-to-guide
       text: IoT용 Azure Security Center 시작
     footerLink:
@@ -154,17 +154,17 @@ conceptualContent:
       itemType: quickstart
       text: Azure Sentinel 미리 보기 시작
     footerLink:
-      url: /azure/sentinel/
+      url: ../sentinel/index.yml
       text: 자세히 보기
   - title: 위협 보호
     links:
     - url: ../security-center/security-center-alerts-overview.md
       itemType: concept
       text: Azure Security Center의 보안 경고
-    - url: ../storage/common/storage-advanced-threat-protection.md
+    - url: ../storage/common/azure-defender-storage-configure.md
       itemType: concept
       text: Advanced Threat Protection for Azure Storage
-    - url: ../sql-database/sql-database-threat-detection-overview.md
+    - url: ../azure-sql/database/threat-detection-overview.md
       itemType: concept
       text: Azure SQL Database의 Advanced Threat Protection
     footerLink:
@@ -179,7 +179,7 @@ conceptualContent:
       itemType: overview
       text: 관리 및 모니터링 개요
     footerLink:
-      url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
+      url: /search/?category=Documentation&scope=azure&search=security%2baudit%2blog
       text: 추가 항목 검색
   - title: 네트워크 보안
     links:
@@ -237,5 +237,5 @@ conceptualContent:
       itemType: overview
       text: Azure Blueprints 서비스
     footerLink:
-      url: /azure/governance/
+      url: ../governance/index.yml
       text: 자세히 보기

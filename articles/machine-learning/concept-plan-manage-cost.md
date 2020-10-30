@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704731"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042174"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -33,7 +33,7 @@ Machine learning 모델을 학습 하는 경우 관리 되는 Azure Machine Lear
 * 낮은 우선 순위의 가상 머신 (VM) 사용
 * Azure Reserved VM Instance 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. 
 
@@ -41,7 +41,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 ## <a name="estimate-costs"></a>비용 예측
 
-Azure Machine Learning 계정에서 리소스를 만들기 전에 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 비용을 예측 합니다. 왼쪽에서 **AI + Machine Learning**를 선택한 다음 **Azure Machine Learning** 를 선택 하 여 시작 합니다.  
+Azure Machine Learning 계정에서 리소스를 만들기 전에 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 비용을 예측 합니다. 왼쪽에서 **AI + Machine Learning** 를 선택한 다음 **Azure Machine Learning** 를 선택 하 여 시작 합니다.  
 
 다음 스크린샷은 계산기를 사용 하 여 비용 예측을 보여 줍니다.
 
@@ -61,7 +61,9 @@ Azure Machine Learning에서 리소스를 사용 하는 경우 비용이 발생 
 
 서로 다른 시간 간격에 대 한 그래프 및 테이블의 비용을 볼 수 있습니다. 예산 및 예상 비용에 대 한 비용을 볼 수도 있습니다. 시간이 지남에 따라 더 긴 보기로 전환 하면 지출 추세를 식별 하 고 과도 한 지출 발생 가능성을 확인할 수 있습니다. 예산을 만든 경우 초과 하는 위치를 참조 하세요.  
 
-Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습니다.  대신 Machine Learning 작업 영역에 추가 된 다양 한 리소스를 볼 수 있습니다.
+Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습니다.  대신 Machine Learning 작업 영역에 추가 된 다양 한 리소스를 볼 수 있습니다. 
+
+Machine Learning 작업 영역 자체에는 직접적인 비용이 없지만 관리 되는 계산 리소스에 대 한 요금이 청구 됩니다. 따라서 작업 영역에 대 한 직접적인 비용이 없으므로 작업 영역에 태그를 추가한 경우 비용 분석 창에 작업 영역에 대 한이 내용이 반영 됩니다. 태그를 통한 정확한 비용 관리를 위해 연결 된 계산 리소스에 태그를 표시 해야 합니다.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Azure Machine Learning 계산 클러스터 사용 (AmlCompute)
 

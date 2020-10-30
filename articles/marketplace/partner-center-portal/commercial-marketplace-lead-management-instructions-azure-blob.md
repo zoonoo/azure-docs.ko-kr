@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121914"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042373"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob Storage를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -31,19 +31,19 @@ ms.locfileid: "86121914"
 2. Azure 계정이 활성화되면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 3. Azure Portal에서 다음 절차를 사용하여 스토리지 계정을 만듭니다.  
-    1. 왼쪽 메뉴 모음에서 **+리소스 만들기**를 선택합니다.  오른쪽에 **새로 만들기** 창(블레이드)이 표시됩니다.
-    2. **새로 만들기** 창에서 **스토리지**를 선택합니다.  오른쪽에 **추천** 목록이 표시됩니다.
-    3. **스토리지 계정**을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal) 문서의 지침을 따르세요.
+    1. 왼쪽 메뉴 모음에서 **+리소스 만들기** 를 선택합니다.  오른쪽에 **새로 만들기** 창(블레이드)이 표시됩니다.
+    2. **새로 만들기** 창에서 **스토리지** 를 선택합니다.  오른쪽에 **추천** 목록이 표시됩니다.
+    3. **스토리지 계정** 을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal) 문서의 지침을 따르세요.
 
     ![Azure Storage 계정을 만드는 단계](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
     저장소 계정에 대 한 자세한 내용은이 [빠른](../../storage/blobs/storage-quickstart-blobs-portal.md)시작을 참조 하세요.  스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-4. 스토리지 계정이 프로비전될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다.  그런 다음 Azure Portal의 **홈** 페이지에서 **모든 리소스 보기**를 선택하거나 왼쪽 탐색 모음에서 **모든 리소스**를 선택하여 스토리지 계정에 액세스합니다.
+4. 스토리지 계정이 프로비전될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다.  그런 다음 Azure Portal의 **홈** 페이지에서 **모든 리소스 보기** 를 선택하거나 왼쪽 탐색 모음에서 **모든 리소스** 를 선택하여 스토리지 계정에 액세스합니다.
 
     ![Azure 스토리지 계정에 액세스](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
 
-5. 스토리지 계정 창에서 **액세스 키**를 선택하고 키의 연결 문자열 값을 복사합니다. 이 값을 마켓플레이스 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 제공해야 하는 스토리지 계정 연결 문자열 값으로 저장합니다.
+5. 스토리지 계정 창에서 **액세스 키** 를 선택하고 키의 연결 문자열 값을 복사합니다. 이 값을 마켓플레이스 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 제공해야 하는 스토리지 계정 연결 문자열 값으로 저장합니다.
 
      연결 문자열의 예는 다음과 같습니다.
 
@@ -51,21 +51,21 @@ ms.locfileid: "86121914"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Azure Storage 키](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    !["연결 문자열" 입력란이 강조 표시 된 "액세스 키" 페이지를 보여 주는 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. 스토리지 계정 페이지에서 **Blob**을 선택합니다.
+6. 스토리지 계정 페이지에서 **Blob** 을 선택합니다.
 
    ![Azure Storage 키](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Blob 페이지에서 **+ 컨테이너** 단추를 선택합니다.
 
-8. 새 컨테이너의 **이름**을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+8. 새 컨테이너의 **이름** 을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
     이 값은 마켓플레이스 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 제공해야 하는 컨테이너 이름 값이므로 저장합니다.
 
 9. 컨테이너에 대한 공용 액세스 수준을 **개인(익명 액세스 없음)** 으로 설정합니다.
 
-10. **확인**을 선택하여 컨테이너를 만듭니다.
+10. **확인** 을 선택하여 컨테이너를 만듭니다.
 
     ![새 컨테이너](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
@@ -74,20 +74,20 @@ ms.locfileid: "86121914"
 게시 포털에서 제품에 대한 잠재 고객 관리 정보를 구성할 준비가 되면 아래 단계를 수행합니다.
 
 1. 제품에 대한 **제품 설정** 페이지로 이동합니다.
-2. **잠재 고객** 섹션에서 **연결**을 선택합니다.
+2. **잠재 고객** 섹션에서 **연결** 을 선택합니다.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="잠재 고객":::
 
-3. 연결 세부 정보 팝업 창에서 잠재 고객 대상으로 **Azure Blob**을 선택합니다.
+3. 연결 세부 정보 팝업 창에서 잠재 고객 대상으로 **Azure Blob** 을 선택합니다.
 
     ![연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
 
-4. 다음 지침을 따라 얻은 **컨테이너 이름** 및 **스토리지 계정 연결 문자열**을 제공합니다.
+4. 다음 지침을 따라 얻은 **컨테이너 이름** 및 **스토리지 계정 연결 문자열** 을 제공합니다.
 
     * 컨테이너 이름 예: `marketplaceleadcontainer`
     * 스토리지 계정 연결 문자열 예: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. **저장**을 선택합니다.
+5. **저장** 을 선택합니다.
 
     > [!NOTE]
     > 제품에 대한 잠재 고객을 받으려면 먼저 나머지 제품 구성을 끝내고 게시해야 합니다.

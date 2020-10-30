@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568725"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042705"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -33,7 +33,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 
@@ -51,7 +51,7 @@ Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환�
 
 KCD 문제를 보여 주는 것은 무엇일까요? KCD SSO 오류를 나타내는 여러 가지 일반적인 표시가 있습니다. 문제의 첫 번째 증상은 브라우저에서 나타납니다.
 
-![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+!["잘못 된 Kerberos 제한 위임 ..." 오류로 인해 잘못 된 K C D 구성 오류의 예를 보여 주는 스크린샷 반전.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![예: 권한 누락으로 인해 권한 부여에 실패 했습니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -81,14 +81,14 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 ![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-이벤트 로그에 표시된 해당 항목은 이벤트 13019 또는 12027로 표시됩니다. 커넥터 이벤트 로그는 **애플리케이션 및 서비스 로그** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Admin**에서 확인할 수 있습니다.
+이벤트 로그에 표시된 해당 항목은 이벤트 13019 또는 12027로 표시됩니다. 커넥터 이벤트 로그는 **애플리케이션 및 서비스 로그** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Admin** 에서 확인할 수 있습니다.
 
 ![애플리케이션 프록시 이벤트 로그의 이벤트 13019](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
 ![애플리케이션 프록시 이벤트 로그의 이벤트 12027](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. 애플리케이션의 주소에 대해 내부 DNS의 **A** 레코드를 사용하고 **CName**은 사용하지 마세요.
-1. 커넥터 호스트에 지정된 대상 계정의 SPN에 위임할 수 있는 권한이 부여되었는지 다시 확인합니다. **인증 프로토콜 사용**이 선택되었는지 다시 확인합니다. 자세한 내용은 [SSO 구성 문서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
+1. 애플리케이션의 주소에 대해 내부 DNS의 **A** 레코드를 사용하고 **CName** 은 사용하지 마세요.
+1. 커넥터 호스트에 지정된 대상 계정의 SPN에 위임할 수 있는 권한이 부여되었는지 다시 확인합니다. **인증 프로토콜 사용** 이 선택되었는지 다시 확인합니다. 자세한 내용은 [SSO 구성 문서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 1. Azure AD에 SPN 인스턴스가 하나만 있는지 확인합니다. 도메인 구성원 호스트의 명령 프롬프트에서 `setspn -x`를 실행합니다.
 1. [실행된 Kerberos 토큰의 최대 크기](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/)를 제한하는 도메인 정책이 적용되는지 확인합니다. 이 정책은 과도한 경우 커넥터의 토큰 가져오기를 중지합니다.
 
@@ -102,20 +102,20 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 1. 포털에 정의된 애플리케이션의 내부 URL을 사용하여 커넥터 호스트의 브라우저에서 애플리케이션에 직접 액세스할 수 있는지 확인합니다. 그러면 성공적으로 로그인할 수 있습니다. 자세한 내용은 커넥터 **문제 해결** 페이지에서 확인할 수 있습니다.
 1. 커넥터 호스트에서 브라우저와 애플리케이션 간의 인증이 Kerberos를 사용하는지 확인합니다. 다음 작업 중 하나를 수행합니다.
-1. Internet Explorer에서 DevTools(**F12**)를 실행하거나, 커넥터 호스트에서 [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/)를 사용합니다. 내부 URL을 사용하여 애플리케이션으로 이동합니다. 애플리케이션의 응답에 반환된, 제공된 WWW 인증 헤더를 검사하여 협상 또는 Kerberos가 있는지 확인합니다.
+1. Internet Explorer에서 DevTools( **F12** )를 실행하거나, 커넥터 호스트에서 [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/)를 사용합니다. 내부 URL을 사용하여 애플리케이션으로 이동합니다. 애플리케이션의 응답에 반환된, 제공된 WWW 인증 헤더를 검사하여 협상 또는 Kerberos가 있는지 확인합니다.
 
-   - 애플리케이션에 대한 브라우저의 응답에 반환되는 다음 Kerberos Blob은 **YII**로 시작합니다. 이 문자는 Kerberos가 실행 중임을 알려 줍니다. 반면에 Microsoft NTLM(NT LAN Manager)은 항상 **TlRMTVNTUAAB**로 시작합니다. 이 경우 Base64에서 디코드될 때 NTLMSSP(NTLM Security Support Provider)를 읽습니다. Blob 시작 부분에 **TlRMTVNTUAAB**가 표시되면 Kerberos를 사용할 수 없습니다. **TlRMTVNTUAAB**가 표시되지 않으면 Kerberos를 사용할 수 있을 가능성이 큽니다.
+   - 애플리케이션에 대한 브라우저의 응답에 반환되는 다음 Kerberos Blob은 **YII** 로 시작합니다. 이 문자는 Kerberos가 실행 중임을 알려 줍니다. 반면에 Microsoft NTLM(NT LAN Manager)은 항상 **TlRMTVNTUAAB** 로 시작합니다. 이 경우 Base64에서 디코드될 때 NTLMSSP(NTLM Security Support Provider)를 읽습니다. Blob 시작 부분에 **TlRMTVNTUAAB** 가 표시되면 Kerberos를 사용할 수 없습니다. **TlRMTVNTUAAB** 가 표시되지 않으면 Kerberos를 사용할 수 있을 가능성이 큽니다.
 
       > [!NOTE]
       > Fiddler를 사용하는 경우, 이 방법을 사용하려면 IIS에서 애플리케이션의 구성에 대한 확장된 보호를 일시적으로 해제해야 합니다.
 
       ![브라우저 네트워크 검사 창](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - 이 그림의 Blob은 **TIRMTVNTUAAB**로 시작하지 않습니다. 따라서 이 예제에서는 Kerberos를 사용할 수 있으며, Kerberos Blob이 **YII**로 시작하지 않습니다.
+   - 이 그림의 Blob은 **TIRMTVNTUAAB** 로 시작하지 않습니다. 따라서 이 예제에서는 Kerberos를 사용할 수 있으며, Kerberos Blob이 **YII** 로 시작하지 않습니다.
 
 1. IIS 사이트의 공급자 목록에서 NTLM을 일시적으로 제거합니다. 커넥터 호스트의 Internet Explorer에서 직접 앱에 액세스합니다. 이제 NTLM이 공급자 목록에 없습니다. Kerberos만 사용하여 애플리케이션에 액세스할 수 있습니다. 액세스가 실패하면 애플리케이션 구성에 문제가 있는 것입니다. Kerberos 인증이 작동하지 않습니다.
 
-   - Kerberos를 사용할 수 없는 경우, IIS에서 애플리케이션의 인증 설정을 확인합니다. **Negotiate**(협상)가 맨 위에 나열되고, 바로 아래에 NTLM이 있는지 확인합니다. **Not Negotiate**(협상 안 함), **Kerberos or Negotiate**(Kerberos 또는 협상), **PKU2U**가 표시되면 Kerberos가 작동하는 경우에만 계속 진행합니다.
+   - Kerberos를 사용할 수 없는 경우, IIS에서 애플리케이션의 인증 설정을 확인합니다. **Negotiate** (협상)가 맨 위에 나열되고, 바로 아래에 NTLM이 있는지 확인합니다. **Not Negotiate** (협상 안 함), **Kerberos or Negotiate** (Kerberos 또는 협상), **PKU2U** 가 표시되면 Kerberos가 작동하는 경우에만 계속 진행합니다.
 
      ![Windows 인증 공급자](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -138,11 +138,11 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
       ![Azure Portal의 SPN 구성](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - IIS로 이동하여 애플리케이션에 대한 **구성 편집기** 옵션을 선택합니다. **system.webServer/security/authentication/windowsAuthentication**으로 이동합니다. **UseAppPoolCredentials** 값이 **True**인지 확인합니다.
+   - IIS로 이동하여 애플리케이션에 대한 **구성 편집기** 옵션을 선택합니다. **system.webServer/security/authentication/windowsAuthentication** 으로 이동합니다. **UseAppPoolCredentials** 값이 **True** 인지 확인합니다.
 
       ![IIS 구성 앱 풀 자격 증명 옵션](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      이 값을 **True**로 변경합니다. 다음 명령을 실행하여 백 엔드 서버에서 캐시된 Kerberos 티켓을 모두 제거합니다.
+      이 값을 **True** 로 변경합니다. 다음 명령을 실행하여 백 엔드 서버에서 캐시된 Kerberos 티켓을 모두 제거합니다.
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
@@ -150,9 +150,9 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 자세한 내용은 [모든 세션에 대해 Kerberos 클라이언트 티켓 캐시 제거](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf)를 참조하세요.
 
-커널 모드를 사용하도록 유지하면 Kerberos 작업 성능이 향상됩니다. 그러나 요청된 서비스에 대한 티켓이 머신 계정을 사용하여 암호 해독됩니다. 이 계정을 로컬 시스템이라고도 합니다. 애플리케이션이 팜의 여러 서버에 호스트된 경우, KCD를 중단하려면 이 값을 **True**로 설정합니다.
+커널 모드를 사용하도록 유지하면 Kerberos 작업 성능이 향상됩니다. 그러나 요청된 서비스에 대한 티켓이 머신 계정을 사용하여 암호 해독됩니다. 이 계정을 로컬 시스템이라고도 합니다. 애플리케이션이 팜의 여러 서버에 호스트된 경우, KCD를 중단하려면 이 값을 **True** 로 설정합니다.
 
-- 추가 확인을 위해 **확장** 보호도 사용하지 않도록 설정합니다. 일부 시나리오에서는, **확장** 보호를 특정 구성에서 사용하도록 설정할 경우 KCD가 중단되었습니다. 이 경우, 애플리케이션이 기본 웹 사이트의 하위 폴더로 게시된 것입니다. 이 애플리케이션은 익명 인증에 대해서만 구성되었습니다. 모든 대화 상자가 회색으로 표시되며, 이는 자식 개체가 활성 설정을 상속하지 않음을 나타냅니다. 테스트 후에는 이 값을 **사용**으로 복원하는 것이 좋습니다(가능한 경우).
+- 추가 확인을 위해 **확장** 보호도 사용하지 않도록 설정합니다. 일부 시나리오에서는, **확장** 보호를 특정 구성에서 사용하도록 설정할 경우 KCD가 중단되었습니다. 이 경우, 애플리케이션이 기본 웹 사이트의 하위 폴더로 게시된 것입니다. 이 애플리케이션은 익명 인증에 대해서만 구성되었습니다. 모든 대화 상자가 회색으로 표시되며, 이는 자식 개체가 활성 설정을 상속하지 않음을 나타냅니다. 테스트 후에는 이 값을 **사용** 으로 복원하는 것이 좋습니다(가능한 경우).
 
   이 추가 확인을 통해 게시된 애플리케이션을 사용할 수 있게 됩니다. 역시 위임하도록 구성된 추가 커넥터를 실행할 수 있습니다. 자세한 내용은 심층 기술 연습인 [Azure AD 애플리케이션 프록시 문제 해결](https://aka.ms/proxytshootpaper)을 참조하세요.
 

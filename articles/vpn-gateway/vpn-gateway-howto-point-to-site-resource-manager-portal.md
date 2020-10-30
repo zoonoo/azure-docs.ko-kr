@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fd95de8033fc5a986ac30677a4272336b1e17244
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041597"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
 
@@ -73,11 +73,11 @@ ms.locfileid: "92541607"
 
 지점 및 사이트 간 VPN 연결을 통해 VNet에 연결되는 클라이언트를 인증하기 위해 Azure에 의해 인증서가 사용됩니다. 루트 인증서를 얻었으면 Azure에 공개 키 정보를 [업로드](#uploadfile)합니다. 그러면 루트 인증서는 P2S를 통한 가상 네트워크 연결을 위해 Azure에서 '신뢰할 수 있는' 것으로 간주됩니다. 또한 신뢰할 수 있는 루트 인증서에서 클라이언트 인증서를 생성한 후 각 클라이언트 컴퓨터에 인증서를 설치합니다. 클라이언트 인증서는 VNet에 대한 연결을 시작할 때 해당 클라이언트를 인증하는 데 사용됩니다. 
 
-### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>1. 루트 인증서의 .cer 파일을 가져옵니다.
+### <a name="1-root-certificate"></a><a name="getcer"></a>1. 루트 인증서
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-generate-a-client-certificate"></a><a name="generateclientcert"></a>2. 클라이언트 인증서 생성
+### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. 클라이언트 인증서
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -142,21 +142,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Windows VPN 클라이언트에서 연결
 
->[!NOTE]
->연결하는 Windows 클라이언트 컴퓨터에서 관리자 권한이 있어야 합니다.
->
->
-
-1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **연결** 을 선택합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. **계속** 을 선택 하 여 상승 된 권한을 사용 합니다.
-
-2. **연결** 상태 페이지에서 **연결** 을 선택하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용 하 여 올바른 인증서를 선택한 다음 **확인** 을 선택 합니다.
-
-   ![VPN 클라이언트에서 Azure에 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "연결")
-3. 연결이 설정되었습니다.
-
-   ![설정된 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "연결 설정")
-
-#### <a name="troubleshoot-windows-p2s-connections"></a>Windows P2S 연결 문제 해결
+[!INCLUDE [Connect from a Windows client](../../includes/vpn-gateway-p2s-connect-windows-client.md)]
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

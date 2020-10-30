@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040978"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화
 
@@ -27,13 +27,13 @@ Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용�
  
 ## <a name="sync-an-attribute"></a>특성 동기화 
 
-1. Azure AD Connect 마법사를 열고 작업을 선택한 다음 **동기화 옵션 사용자 지정**을 선택 합니다.
+1. Azure AD Connect 마법사를 열고 작업을 선택한 다음 **동기화 옵션 사용자 지정** 을 선택 합니다.
 
    ![Azure Active Directory Connect 마법사 추가 작업 페이지](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
 2. Azure AD 전역 관리자 권한으로 로그인 합니다. 
 
-3. **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화**를 선택 합니다.
+3. **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화** 를 선택 합니다.
  
    ![Azure Active Directory Connect 마법사 옵션 기능 페이지](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -41,7 +41,7 @@ Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용�
    > [!NOTE]
    > **사용 가능한 특성** 에서 검색은 대/소문자를 구분 합니다.
 
-   ![Azure Active Directory Connect 마법사 디렉터리 확장 선택 페이지](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   !["디렉터리 확장" 선택 페이지를 보여 주는 스크린샷](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. Azure AD Connect 마법사를 완료 하 고 전체 동기화 주기를 실행 하도록 허용 합니다. 주기가 완료 되 면 스키마가 확장 되 고 새 값이 온-프레미스 AD와 Azure AD 간에 동기화 됩니다.
  
@@ -50,7 +50,7 @@ Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용�
    ![Azure Active Directory Connect 마법사 디렉터리 확장 선택 페이지](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> **Managedby** 또는 **DN/DistinguishedName**등의 온-프레미스 AD에서 참조 특성을 프로 비전 하는 기능은 현재 지원 되지 않습니다. [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory)에서이 기능을 요청할 수 있습니다. 
+> **Managedby** 또는 **DN/DistinguishedName** 등의 온-프레미스 AD에서 참조 특성을 프로 비전 하는 기능은 현재 지원 되지 않습니다. [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory)에서이 기능을 요청할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 370e9e0df2a4fc2ee4aca43c01bfe0a98077d189
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6367a3c3e6a946068498c92456ba42cd3c7c4bdd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018851"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042639"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 및 Ddsv4 시리즈
 
@@ -33,10 +33,10 @@ Ddv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br> 
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
@@ -45,6 +45,8 @@ Ddv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 | Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8|16000 |
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
 | Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
+
+<sup>**</sup>이러한 IOPs 값은 [Gen2 vm](generation-2.md) 을 사용 하 여 보장할 수 있습니다.
 
 ## <a name="ddsv4-series"></a>Ddsv4 시리즈
 
@@ -63,7 +65,7 @@ Ddsv4 시리즈는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 <br> 
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
@@ -72,6 +74,8 @@ Ddsv4 시리즈는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
 | Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51200/768 | 8|16000 |
 | Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
+
+<sup>**</sup>이러한 IOPs 값은 [Gen2 vm](generation-2.md) 을 사용 하 여 보장할 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

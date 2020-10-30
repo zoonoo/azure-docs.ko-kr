@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461365"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040889"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  장기적인 분석 및 보고를 위해 성능 데이터를 집계 하는 것 외에도, NRT (거의 실시간) 분석을 위해 Log Analytics 에이전트에서 성능 카운터를 자주 수집할 수 Azure Monitor.
@@ -24,7 +24,7 @@ Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체�
 ## <a name="configuring-performance-counters"></a>성능 카운터 구성
 Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources) 에서 성능 카운터를 구성 합니다.
 
-새 작업 영역에 대한 Windows 또는 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다.  각 항목은 옆에 확인란과 함께 나열됩니다.  초기에 만들 카운터를 모두 선택한 후 **Add the selected performance counters**(선택한 성능 카운터 추가)를 클릭합니다.
+새 작업 영역에 대한 Windows 또는 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다.  각 항목은 옆에 확인란과 함께 나열됩니다.  초기에 만들 카운터를 모두 선택한 후 **Add the selected performance counters** (선택한 성능 카운터 추가)를 클릭합니다.
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
@@ -38,14 +38,14 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 ![Windows 성능 카운터 구성](media/data-sources-performance-counters/configure-windows.png)
 
-이 절차에 따라 수집할 새 Windows 성능 카운터를 추가합니다.
+이 절차에 따라 수집할 새 Windows 성능 카운터를 추가합니다. V2 Windows 성능 카운터는 지원 되지 않습니다.
 
-1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter*를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다.  
+1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter* 를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다.  
 
     명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$* 로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다.
 
 2. **+** **Enter** 키를 눌러 카운터를 목록에 추가 합니다.
-3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
+3. 카운터를 추가할 때에는 해당 **샘플 간격** 에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
 4. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
 ### <a name="linux-performance-counters"></a>Linux 성능 카운터
@@ -54,14 +54,14 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 이 절차에 따라 수집할 새 Linux 성능 카운터를 추가합니다.
 
-1. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.  각 Linux 에이전트에서 이 파일을 수동으로 수정하려면, *Apply below configuration to my Linux machines*(아래 구성을 내 Linux 컴퓨터에 적용) 확인란 선택을 해제하고 아래 지침을 따릅니다.
+1. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.  각 Linux 에이전트에서 이 파일을 수동으로 수정하려면, *Apply below configuration to my Linux machines* (아래 구성을 내 Linux 컴퓨터에 적용) 확인란 선택을 해제하고 아래 지침을 따릅니다.
 2. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  
 3. **+** 개체에 대 **Enter** 한 다른 카운터 목록에 카운터를 추가 하려면 클릭 하거나 enter 키를 누릅니다.
-4. 개체에 대한 모든 카운터에는 동일한 **샘플 간격**이 사용됩니다.  기본값은 10초입니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 이 값을 최대 1800초(30분)까지 변경할 수 있습니다.
+4. 개체에 대한 모든 카운터에는 동일한 **샘플 간격** 이 사용됩니다.  기본값은 10초입니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 이 값을 최대 1800초(30분)까지 변경할 수 있습니다.
 5. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>구성 파일에서 Linux 성능 카운터 구성
-Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/workspace \<workspace id\> /srv\omsagentfilea**의 구성에 의해 제어 됩니다.
+Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/workspace \<workspace id\> /srv\omsagentfilea** 의 구성에 의해 제어 됩니다.
 
 수집할 성능 메트릭의 각 개체나 범주는 구성 파일 내에 단일 `<source>` 요소로 정의되어야 합니다. 구문은 아래와 같은 패턴을 따릅니다.
 
@@ -81,8 +81,8 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 매개 변수 | Description |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
-| instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
-| counter\_name\_regex | 수집할 (개체에 대한) 카운터를 정의하는 *정규식*입니다. 개체에 대한 모든 카운터를 수집하려면 `.*`를 지정합니다. 메모리 개체에 대한 스왑 공간 카운터만 수집하려면 예를 들어 다음을 지정할 수 있습니다. `.+Swap.+` |
+| instance\_regex |  수집할 인스턴스를 정의하는 *정규식* 입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
+| counter\_name\_regex | 수집할 (개체에 대한) 카운터를 정의하는 *정규식* 입니다. 개체에 대한 모든 카운터를 수집하려면 `.*`를 지정합니다. 메모리 개체에 대한 스왑 공간 카운터만 수집하려면 예를 들어 다음을 지정할 수 있습니다. `.+Swap.+` |
 | interval | 개체의 카운터가 수집되는 빈도입니다. |
 
 
@@ -185,7 +185,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계 되지 않으며, log analytics 작업 영역에 지정 된 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
 
 ## <a name="performance-record-properties"></a>성능 레코드 속성
-성능 레코드에는 **Perf**라는 type과 다음 테이블의 속성이 포함됩니다.
+성능 레코드에는 **Perf** 라는 type과 다음 테이블의 속성이 포함됩니다.
 
 | 속성 | Description |
 |:--- |:--- |

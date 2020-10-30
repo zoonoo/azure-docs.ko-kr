@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040089"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
 
@@ -75,11 +75,11 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
     > [!NOTE]
     > 모든 키를 제공 하려면 두 개의 개별 Custom Vision 리소스를 제공 해야 합니다. 하나는 학습을 위한 것이 고 다른 하나는 예측 용입니다.
 1. [Video Indexer](https://vi.microsoft.com/)로 이동 하 여 로그인 합니다.
-1. 페이지의 오른쪽 위 모서리에서 물음표를 클릭 하 고 **API 참조**를 선택 합니다.
+1. 페이지의 오른쪽 위 모서리에서 물음표를 클릭 하 고 **API 참조** 를 선택 합니다.
 1. **제품** 탭을 클릭 하 여 API Management를 구독 하는지 확인 합니다. API가 연결 되어 있으면 다음 단계를 계속 진행할 수 있습니다. 그렇지 않으면를 구독 합니다. 
-1. 개발자 포털에서 **전체 API 참조** 를 클릭 하 고 **작업**으로 이동 합니다.  
-1. **연결 Custom Vision 계정 (미리 보기)** 을 선택 하 고 **사용해**보기를 클릭 합니다.
-1. 액세스 토큰 뿐만 아니라 필수 필드를 입력 하 고 **보내기**를 클릭 합니다. 
+1. 개발자 포털에서 **전체 API 참조** 를 클릭 하 고 **작업** 으로 이동 합니다.  
+1. **연결 Custom Vision 계정 (미리 보기)** 을 선택 하 고 **사용해** 보기를 클릭 합니다.
+1. 액세스 토큰 뿐만 아니라 필수 필드를 입력 하 고 **보내기** 를 클릭 합니다. 
 
     Video Indexer 액세스 토큰을 가져오는 방법에 대 한 자세한 내용은 [개발자 포털로](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)이동 하 여 [관련 설명서](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api)를 참조 하세요.  
 1. 호출이 200 OK 응답을 반환 하면 계정이 연결 됩니다.
@@ -96,9 +96,9 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. [Video Indexer](https://vi.microsoft.com/) 웹 사이트로 이동하고 로그인합니다.
 1. 페이지의 오른쪽 위 모퉁이에 있는 콘텐츠 모델 사용자 지정 단추를 클릭 합니다.
 
-    ![콘텐츠 모델 사용자 지정](./media/animated-characters-recognition/content-model-customization.png)
+    ![오른쪽 위 모서리에서 "콘텐츠 모델 사용자 지정" 단추가 선택 된 "Video Indexer" 페이지를 보여 주는 스크린샷](./media/animated-characters-recognition/content-model-customization.png)
 1. 모델 사용자 지정 섹션에서 **애니메이션 문자** 탭으로 이동 합니다.
-1. **모델 추가**를 클릭 합니다.
+1. **모델 추가** 를 클릭 합니다.
 1. 모델 이름을 입력 하 고 enter 키를 클릭 하 여 이름을 저장 합니다.
 
 > [!NOTE]
@@ -108,8 +108,8 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 
 1. 상단 메뉴에서 **업로드** 단추를 클릭 합니다.
 1. 업로드할 비디오 (파일 또는 URL에서)를 선택 합니다.
-1. **고급 옵션**을 클릭 합니다.
-1. **사람/애니메이션 문자** 아래에서 **애니메이션 모델**을 선택 합니다.
+1. **고급 옵션** 을 클릭 합니다.
+1. **사람/애니메이션 문자** 아래에서 **애니메이션 모델** 을 선택 합니다.
 1. 모델 하나가 있는 경우 자동으로 선택 되 고 여러 모델이 있는 경우 드롭다운 메뉴에서 관련 항목을 선택할 수 있습니다.
 1. 업로드를 클릭 합니다.
 1. 비디오가 인덱싱되 면 **정보** 창의 **애니메이션 문자** 섹션에 검색 된 문자가 표시 됩니다.
@@ -129,7 +129,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 
         사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 한 다음 **학습** 단추를 클릭 하 여 모델을 학습 합니다.
          
-        유료 계정이 있는 경우 아래와 같이 **고객 비전에서 모델 관리** 링크를 클릭할 수 있습니다. 그런 다음 **Custom Vision**의 모델 페이지로 전달 됩니다.
+        유료 계정이 있는 경우 아래와 같이 **고객 비전에서 모델 관리** 링크를 클릭할 수 있습니다. 그런 다음 **Custom Vision** 의 모델 페이지로 전달 됩니다.
  
         ![콘텐츠 모델 사용자 지정](./media/animated-characters-recognition/content-model-customization-tab.png)
 

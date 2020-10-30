@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266734"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040725"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure Portal를 사용 하 여 온-프레미스 인코더에서 라이브 스트리밍 수행
 
@@ -37,7 +37,7 @@ ms.locfileid: "89266734"
 
 이 자습서에서는 Azure 포털을 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -85,7 +85,7 @@ ms.locfileid: "89266734"
 ## <a name="to-view-notifications-and-errors"></a>알림 및 오류를 보려면
 Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 클릭합니다.
 
-![알림](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+![공지](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>통과 채널 및 이벤트 만들기 및 시작
 채널은 라이브 스트림에서 세그먼트의 게시 및 스토리지를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트를 관리합니다. 
@@ -112,7 +112,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 통과 채널에 대한 자세한 내용은 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. **설정** 창에서 **라이브 스트리밍**을 클릭합니다. 
+2. **설정** 창에서 **라이브 스트리밍** 을 클릭합니다. 
    
     ![시작](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -120,7 +120,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 3. **빠른 생성** 을 클릭하여 RTMP 수집 프로토콜로 통과 채널을 만듭니다.
    
     **새 채널 만들기** 창이 나타납니다.
-4. 새 채널 이름을 지정하고 **만들기**를 클릭합니다. 
+4. 새 채널 이름을 지정하고 **만들기** 를 클릭합니다. 
    
     그러면 RTMP 수집 프로토콜을 사용하여 통과 채널이 만들어집니다.
 
@@ -133,7 +133,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 ## <a name="get-ingest-urls"></a>수집 URL 가져오기
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
-![생성일](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![채널이 선택 된 "라이브 스트리밍" 페이지와 채널 창이 표시 된 스크린샷](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 이벤트를 보려면 Azure 포털에서 **조사식** 을 클릭하거나 스트리밍 URL을 복사하고 선택한 플레이어를 사용합니다. 
@@ -151,7 +151,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 ## <a name="view-archived-content"></a>보관된 콘텐츠 보기
 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다. 
 
-자산을 관리하려면 **설정**을 선택하고 **자산**을 클릭합니다.
+자산을 관리하려면 **설정** 을 선택하고 **자산** 을 클릭합니다.
 
 ![자산](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

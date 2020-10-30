@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041968"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 관리
 
@@ -38,9 +38,9 @@ ms.locfileid: "89266649"
 계정의 스트리밍 엔드포인트 관리를 시작하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. **설정** 블레이드에서 **스트리밍 엔드포인트**를 선택합니다.
+2. **설정** 블레이드에서 **스트리밍 엔드포인트** 를 선택합니다.
    
-    ![스트리밍 엔드포인트](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    !["설정" 블레이드에서 "스트리밍 끝점"이 선택 된 "미디어 서비스" 페이지를 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
@@ -59,7 +59,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 2. 스트리밍 엔드포인트를 삭제하려면 **삭제** 단추를 누릅니다.      
 3. **시작** 단추를 클릭 하 여 스트리밍 끝점을 시작 합니다.
    
-    ![스트리밍 엔드포인트](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    !["끝점" 작업을 선택 하 고 "스트리밍 끝점 세부 정보" 창이 표시 된 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>스트리밍 엔드포인트 구성
@@ -77,11 +77,11 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 다음을 수행하여 스트리밍 엔드포인트를 구성할 수 있습니다.
 
 1. 구성하려는 스트리밍 엔드포인트를 선택합니다.
-2. **설정**을 클릭합니다.
+2. **설정** 을 클릭합니다.
 
 필드에 대한 간략한 설명은 다음과 같습니다.
 
-![스트리밍 엔드포인트](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![스트리밍 끝점에 대해 선택 된 "설정" 작업을 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. 최대 캐시 정책: 이 스트리밍 엔드포인트를 통해 제공되는 자산의 캐시 수명 주기를 구성하는 데 사용됩니다. 값을 설정하지 않으면 기본값이 사용됩니다. Azure Storage에서 기본값을 직접 정의할 수도 있습니다. 스트리밍 엔드포인트에 대해 Azure CDN을 사용하도록 설정한 경우에는 캐시 정책 값을 600초보다 작게 설정하면 안 됩니다.  
 2. 허용된 IP 주소: 게시된 스트리밍 엔드포인트에 연결할 수 있는 IP 주소를 지정하는 데 사용됩니다. IP 주소를 지정하지 않은 경우 모든 IP 주소에서 연결할 수 있습니다. IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.255.0)')로 지정할 수 있습니다.
@@ -99,17 +99,17 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 
 CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이터 센터에서 사용됩니다.
 
-CDN 통합을 사용하는 경우 **액세스 제어**, 사용자 지정 호스트 이름 및 **Akamai 서명 인증** 구성은 비활성화됩니다.
+CDN 통합을 사용하는 경우 **액세스 제어** , 사용자 지정 호스트 이름 및 **Akamai 서명 인증** 구성은 비활성화됩니다.
  
 > [!IMPORTANT]
-> Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 표준 스트리밍 엔드포인트에 구현됩니다. 프리미엄 스트리밍 엔드포인트는 모든 **Azure CDN 가격 책정 및 공급자**를 사용하여 구성할 수 있습니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../../cdn/cdn-overview.md)를 참조하세요.
+> Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN** 에서 표준 스트리밍 엔드포인트에 구현됩니다. 프리미엄 스트리밍 엔드포인트는 모든 **Azure CDN 가격 책정 및 공급자** 를 사용하여 구성할 수 있습니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../../cdn/cdn-overview.md)를 참조하세요.
  
 ### <a name="additional-considerations"></a>기타 고려 사항
 
 * 스트리밍 엔드포인트에 CDN이 사용되면 클라이언트에서는 원점으로부터 직접 콘텐츠를 요청할 수 없습니다. CDN을 사용하거나 사용하지 않고 콘텐츠를 테스트하는 기능이 필요하면 CDN이 사용하도록 설정되지 않은 또 다른 스트리밍 엔드포인트를 만들 수 있습니다.
 * 스트리밍 엔드포인트 호스트 이름은 CDN을 사용하도록 설정한 후에도 동일하게 유지됩니다. CDN을 사용하도록 설정한 후 미디어 서비스 워크플로에 변경 내용을 적용할 필요가 없습니다. 예를 들어 스트리밍 엔드포인트 호스트 이름이 strasbourg.streaming.mediaservices.windows.net이면 CDN을 사용하도록 설정한 후에 똑같은 호스트 이름이 사용됩니다.
 * 새 스트리밍 엔드포인트의 경우 새 엔드포인트를 만들어서 CDN을 사용하도록 설정할 수 있습니다. 기본 스트리밍 엔드포인트의 경우 먼저 엔드포인트를 중지하고 CDN을 사용/사용 안 함으로 설정해야 합니다.
-* 표준 스트리밍 엔드포인트는 Azure 클래식 포털에서 **Verizon 표준 CDN 공급자**를 통해서만 구성할 수 있습니다. 그러나 REST API를 사용하여 다른 Azure CDN 공급자를 사용하도록 설정할 수 있습니다.
+* 표준 스트리밍 엔드포인트는 Azure 클래식 포털에서 **Verizon 표준 CDN 공급자** 를 통해서만 구성할 수 있습니다. 그러나 REST API를 사용하여 다른 Azure CDN 공급자를 사용하도록 설정할 수 있습니다.
 
 ## <a name="configure-cdn-profile"></a>CDN 프로필 구성
 

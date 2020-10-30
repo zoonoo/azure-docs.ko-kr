@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212153"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040931"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
 Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지를 보냅니다.
 
-설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-service-bus-output.md)를 참조하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-service-bus.md)를 참조하세요.
 
 ## <a name="example"></a>예제
 
@@ -175,7 +175,7 @@ Service Bus 바인딩 정의는 *형식이* 로 설정 된 *function.js* 에 정
 }
 ```
 
-Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 * _ \_ _ \_ *. `set`
+Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 *_\__ \_* . `set`
 
 ```python
 import azure.functions as func
@@ -292,7 +292,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 Azure Functions 1.x에서 큐가 존재하지 않고 `accessRights`를 `manage`로 설정한 경우 런타임은 큐를 만듭니다. 함수 버전 2.x 이상에서는 큐 또는 항목이 이미 존재 해야 합니다. 존재 하지 않는 큐 또는 토픽을 지정 하면 함수가 실패 합니다. 
 
@@ -346,7 +346,7 @@ C # 함수를 사용 하는 경우:
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | Service Bus | [Service Bus 오류 코드](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) |
@@ -384,7 +384,7 @@ C # 함수를 사용 하는 경우:
 
 `isSessionsEnabled`을로 설정한 경우 `true` 이 적용 됩니다 `sessionHandlerOptions` .  `isSessionsEnabled`을로 설정한 경우 `false` 이 적용 됩니다 `messageHandlerOptions` .
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정 합니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|

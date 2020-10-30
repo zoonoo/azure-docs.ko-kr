@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 10/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a084b2d0582f53d4372ba3332194629ad29a4ec
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87271419"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041871"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -24,10 +24,10 @@ IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.c
 ## <a name="scenarios"></a>시나리오
 ![IoT Edge의 개괄적인 다이어그램](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **대기 시간이 짧은 명령 및 컨트롤**: 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답해야 합니다. Azure IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
-*   **클라우드에 대한 연결 제한**: 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 스토리지을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
-* **제한된 대역폭**: 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 사전 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
-* **규정 준수**: 규정 준수에 따라 일부 데이터를 클라우드로 전송하기 전에 로컬로 익명화하거나 집계해야 할 수 있습니다.
+* **대기 시간이 짧은 명령 및 컨트롤** : 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답해야 합니다. Azure IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
+*   **클라우드에 대한 연결 제한** : 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 스토리지을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
+* **제한된 대역폭** : 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 사전 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
+* **규정 준수** : 규정 준수에 따라 일부 데이터를 클라우드로 전송하기 전에 로컬로 익명화하거나 집계해야 할 수 있습니다.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics의 Edge 작업
 ### <a name="what-is-an-edge-job"></a>"edge" 작업이란 무엇인가요?
@@ -47,7 +47,7 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 | 단계 | 메모 |
 | --- | --- |
 | **스토리지 컨테이너 만들기** | 스토리지 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 스토리지 컨테이너를 다시 사용할 수 있습니다. |
-| **ASA Edge 작업 만들기** | 새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다. |
+| **ASA Edge 작업 만들기** | 새 작업을 선택하고 **Edge** 를 **호스팅 환경** 으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다. |
 | **디바이스에서 IoT Edge 환경 설정** | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침|
 | **IoT Edge 디바이스에 ASA 배포** | ASA 작업 정의는 이전에 만든 스토리지 컨테이너로 내보내집니다. |
 
@@ -60,8 +60,8 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 스토리지 컨테이너가 필요합니다. 특정 쿼리로 ASA Docker 이미지를 구성하는 데 사용됩니다. 
 1. [이러한 지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 Azure Portal에서 스토리지 계정을 만듭니다. ASA에서 이 계정을 사용하기 위해 모든 기본 옵션을 유지할 수 있습니다.
 2. 새로 만든 스토리지 계정에서 Blob Storage 컨테이너를 만듭니다.
-    1. **Blobs**을 클릭한 다음, **+ 컨테이너**를 클릭합니다. 
-    2. 이름을 입력하고 컨테이너를 **프라이빗**으로 유지합니다.
+    1. **Blobs** 을 클릭한 다음, **+ 컨테이너** 를 클릭합니다. 
+    2. 이름을 입력하고 컨테이너를 **프라이빗** 으로 유지합니다.
 
 #### <a name="create-an-asa-edge-job"></a>ASA Edge 작업 만들기
 > [!Note]
@@ -69,20 +69,20 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 스토리지 컨테
 
 1. Azure Portal에서 새 "Stream Analytics 작업"을 만듭니다. [새 ASA 작업을 만들기 위한 직접 링크](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)
 
-2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조).
+2. 생성 화면에서 **Edge** 를 **호스팅 환경** 으로 선택합니다(다음 그림 참조).
 
    ![Edge에서 Stream Analytics 작업 만들기](media/stream-analytics-edge/create-asa-edge-job.png)
 3. 작업 정의
-    1. **입력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.
+    1. **입력 스트림 정의** . 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.
     2. 참조 데이터를 정의합니다(선택 사항).
-    3. **출력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 출력 스트림을 정의합니다. 
-    4. **쿼리 정의**. 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
+    3. **출력 스트림 정의** . 작업에 대해 하나 또는 여러 개의 출력 스트림을 정의합니다. 
+    4. **쿼리 정의** . 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
 
 4. **IoT Edge 설정** 메뉴에서 스토리지 컨테이너 정보를 설정합니다.
 
 5. 선택적 설정 지정
-    1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)에서 설명서를 참조할 수 있습니다.
-    2. **로캘**. 국제화 형식을 설정합니다.
+    1. **이벤트 순서** . Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)에서 설명서를 참조할 수 있습니다.
+    2. **로캘** . 국제화 형식을 설정합니다.
 
 
 
@@ -95,22 +95,22 @@ Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있�
 이를 위해 다음 단계를 수행해야 합니다.
 - IoT Hub를 만듭니다.
 - Edge 디바이스에 Docker 및 IoT Edge 런타임을 설치합니다.
-- IoT Hub에서 디바이스를 **IoT Edge 디바이스**로 설정합니다.
+- IoT Hub에서 디바이스를 **IoT Edge 디바이스** 로 설정합니다.
 
 이러한 단계는 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 IoT Edge 설명서에 나와 있습니다.  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>IoT Edge 디바이스에 ASA 배포
 ##### <a name="add-asa-to-your-deployment"></a>배포에 ASA 추가
-- Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 디바이스를 클릭합니다.
-- **모듈 설정**을 선택한 다음, **+ 추가**를 선택하고 **Azure Stream Analytics 모듈**을 선택합니다.
+- Azure Portal에서 IoT Hub를 열고 **IoT Edge** 로 이동한 후, 이 배포에 대상을 지정할 디바이스를 클릭합니다.
+- **모듈 설정** 을 선택한 다음, **+ 추가** 를 선택하고 **Azure Stream Analytics 모듈** 을 선택합니다.
 - 구독 및 사용자가 만든 ASA Edge 작업을 선택합니다. 저장을 클릭합니다.
 ![모듈에 ASA 배포 추가](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
 > 이 단계 동안 ASA는 스토리지 컨테이너에서 “EdgeJobs”라는 폴더를 만듭니다(아직 존재하지 않은 경우). 각 배포에 대해 "EdgeJobs" 폴더에 새 하위 폴더가 만들어집니다.
-> IoT Edge 디바이스에 작업을 배포하면 ASA는 작업 정의 파일에 대한 SAS(공유 액세스 서명)를 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다. IoT Edge 작업을 업데이트하면 SAS가 변경되지만 이미지 버전은 변경되지 않습니다. **업데이트**한 후에는 배포 워크플로를 따릅니다. 그러면 디바이스에 업데이트 알림이 기록됩니다.
+> IoT Edge 디바이스에 작업을 배포하면 ASA는 작업 정의 파일에 대한 SAS(공유 액세스 서명)를 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다. IoT Edge 작업을 업데이트하면 SAS가 변경되지만 이미지 버전은 변경되지 않습니다. **업데이트** 한 후에는 배포 워크플로를 따릅니다. 그러면 디바이스에 업데이트 알림이 기록됩니다.
 
 
 IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)를 참조하세요.
@@ -132,13 +132,13 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 }
 
 ```
-이 예제에서는 다음 그림에 설명된 시나리오에 대한 경로를 보여 줍니다. 여기에는 이름이 "**ASA**"이고, 입력 "**temperature**"와 출력"**alert**"를 포함하는 Edge 작업이 포함되어 있습니다.
+이 예제에서는 다음 그림에 설명된 시나리오에 대한 경로를 보여 줍니다. 여기에는 이름이 " **ASA** "이고, 입력 " **temperature** "와 출력" **alert** "를 포함하는 Edge 작업이 포함되어 있습니다.
 ![메시지 라우팅 다이어그램 예](media/stream-analytics-edge/edge-message-routing-example.png)
 
 이 예제에서는 다음 경로를 정의합니다.
-- **tempSensor**의 모든 메시지는 **temperature**라는 입력에 대해 **ASA** 모듈로 전송됩니다.
+- **tempSensor** 의 모든 메시지는 **temperature** 라는 입력에 대해 **ASA** 모듈로 전송됩니다.
 - **ASA** 모듈의 모든 출력은 이 디바이스에 연결된 IoT Hub로 전송됩니다($upstream).
-- **ASA** 모듈의 모든 출력은 **tempSensor**의 **control** 엔드포인트로 전송됩니다.
+- **ASA** 모듈의 모든 출력은 **tempSensor** 의 **control** 엔드포인트로 전송됩니다.
 
 
 ## <a name="technical-information"></a>기술 정보
@@ -184,7 +184,7 @@ Edge에서 참조 데이터를 사용하여 작업을 만들려면:
 
 1. 작업에 대한 새 입력을 만듭니다.
 
-2. **참조 데이터**를 **원본 유형**으로 선택합니다.
+2. **참조 데이터** 를 **원본 유형** 으로 선택합니다.
 
 3. 디바이스에서 참조 데이터 파일을 준비합니다. Windows 컨테이너의 경우 참조 데이터 파일을 로컬 드라이브에 저장하고 로컬 드라이브를 Docker 컨테이너와 공유합니다. Linux 컨테이너의 경우 Docker 볼륨을 만들고 데이터 파일을 볼륨에 채웁니다.
 
@@ -206,23 +206,23 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 
 이 버전 정보는 2019년 6월 27일에 마지막으로 업데이트되었습니다.
 
-- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-alpine3.7
+- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - 기본 이미지: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - 플랫폼:
       - 아키텍처: amd64
       - os: linux
-  
-- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+ 
+- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - 기본 이미지: mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - 플랫폼:
       - 아키텍처: arm
       - os: linux
-  
-- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+ 
+- 이미지: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - 기본 이미지: mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - 플랫폼:
-      - 아키텍처: amd64
-      - os: windows
+      - 아키텍처: arm64
+      - os: linux
       
       
 ## <a name="get-help"></a>도움말 보기

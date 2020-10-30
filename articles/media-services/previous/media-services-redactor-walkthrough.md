@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040707"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -28,9 +28,9 @@ ms.locfileid: "92016674"
 
 ## <a name="overview"></a>개요
 
-**Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](./legacy-components.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-redactor/) 블로그를 참조 하세요.
+**Azure Media Redactor** 는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](./legacy-components.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-redactor/) 블로그를 참조 하세요.
 
-**Azure Media Redactor**에 대한 자세한 내용은 [얼굴 교정 개요](media-services-face-redaction.md) 항목을 참조하세요.
+**Azure Media Redactor** 에 대한 자세한 내용은 [얼굴 교정 개요](media-services-face-redaction.md) 항목을 참조하세요.
 
 이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure Media Redactor Visualizer(오픈 소스 도구)를 사용하여 전체 교정 워크플로를 실행하는 방법에 대한 단계별 지침을 보여줍니다.
 
@@ -47,7 +47,7 @@ Redactor를 시작하는 가장 쉬운 방법은 GitHub에서 오픈 소스 AMSE
 
     계정 이름 및 키 정보를 가져오려면 [Azure Portal](https://portal.azure.com/)로 이동하여 AMS 계정을 선택합니다. 그런 후 설정 > 키를 선택합니다. 키 관리 창에 계정 이름과 기본 및 보조 키가 표시됩니다. 계정 이름 및 기본 키 값을 복사해 둡니다.
 
-![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![스크린샷에 계정 이름과 키를 입력할 수 있는 Microsoft Azure Media Services 표시 됩니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>1 패스 – 분석 모드
 
@@ -55,32 +55,32 @@ Redactor를 시작하는 가장 쉬운 방법은 GitHub에서 오픈 소스 AMSE
 1. 마우스 오른쪽 단추를 클릭하고 Media Analytics –> Azure Media Redactor –> 분석 모드를 사용하여 미디어 파일을 처리합니다. 
 
 
-![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![스크린샷 Azure Media Redactor 있는 프로세스 자산이 포함 된 메뉴를 표시 합니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![첫 번째 패스를 사용 하 여 Azure Media Redactor를 보여 주는 스크린샷: 분석 모드를 선택 합니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 출력에는 얼굴 위치 데이터가 있는 주석 json 파일과 감지된 각 얼굴의 jpg가 포함됩니다. 
 
-![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![분석의 출력을 보여 주는 스크린샷](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>2 패스 – 교정 모드
 
 1. 1 패스의 출력으로 원본 비디오 자산을 업로드하고 기본 자산으로 설정합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![기본 단추로 업로드 및 설정을 보여 주는 스크린샷](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. (선택 사항) 교정하려는 ID의 줄 바꿈으로 구분된 목록이 포함된 'Dance_idlist.txt' 파일을 업로드합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![스크린샷 텍스트 파일을 업로드 하는 옵션을 보여 줍니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (선택 사항) 경계 상자 경계를 늘리는 등, annotations.json 파일을 편집합니다. 
 4. 1 패스의 출력 자산을 마우스 오른쪽 단추로 클릭하고 Redactor를 선택한 후 **교정** 모드에서 실행합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![두 번째 Pass: [교정 모드]가 선택 된 Azure Media Redactor를 보여 주는 스크린샷](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. 교정된 최종 출력 자산을 다운로드하거나 공유합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![스크린샷 다운로드 단추를 표시 합니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer 오픈 소스 도구
 
@@ -94,12 +94,12 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 1.  전체 솔루션을 다운로드하고 빌드합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![메뉴에서 선택 된 솔루션 빌드를 보여 주는 스크린샷](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  [여기](https://ffmpeg.org/download.html)에서 FFMPEG를 다운로드합니다. 이 프로젝트는 정적 링크가 있는 be1d324(2016-10-04)를 사용하여 개발되었습니다. 
 3.  ffmpeg.exe 및 ffprobe.exe를 AzureMediaRedactor.exe와 동일한 출력 폴더에 복사합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![스크린샷에는 ffmpeg 및 ffmpeg를 비롯 한 폴더의 내용이 표시 됩니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. AzureMediaRedactor.exe를 실행합니다. 
 
@@ -109,11 +109,11 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 2. 원본 비디오 파일 및 교정 - 분석 작업의 출력을 모두 다운로드합니다. 
 3. Visualizer 애플리케이션을 실행하고 위의 파일을 선택합니다. 
 
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![파일 업로드 Azure Media Redactor를 보여 주는 스크린샷](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. 파일을 미리 봅니다. 오른쪽의 사이드바에서 흐리게 표시하려는 얼굴을 선택합니다. 
     
-    ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![스크린 샷에서는 모양을 미리 보고 얼굴을 선택 하 여 흐리게 할 수 있는 Azure Media Redactor 표시 합니다.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
 

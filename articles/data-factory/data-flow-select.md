@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040240"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름에서 변환 선택
 
@@ -44,13 +44,13 @@ ms.locfileid: "84322093"
 
 여러 열을 한 번에 매핑하거나 데이터베이스가 드리프트 열을 전달 하려면 규칙 기반 매핑을 사용 하 여 열 패턴을 통해 매핑을 정의 합니다. 열에 대 한,, 및을 기준으로 일치 시킵니다 `name` `type` `stream` `position` . 고정 및 규칙 기반 매핑의 모든 조합을 사용할 수 있습니다. 기본적으로 50 개 이상의 열을 포함 하는 모든 프로젝션은 모든 열에서 일치 하는 규칙 기반 매핑으로 기본 설정 되며 입력 이름을 출력 합니다. 
 
-규칙 기반 매핑을 추가 하려면 **매핑 추가** 를 클릭 하 고 **규칙 기반 매핑을**선택 합니다.
+규칙 기반 매핑을 추가 하려면 **매핑 추가** 를 클릭 하 고 **규칙 기반 매핑을** 선택 합니다.
 
-![규칙 기반 매핑](media/data-flow/rule2.png "규칙 기반 매핑")
+![추가 매핑에서 선택한 규칙 기반 매핑을 보여 주는 스크린샷](media/data-flow/rule2.png "규칙 기반 매핑")
 
 각 규칙 기반 매핑에는 두 개의 입력이 필요 합니다. 두 개의 입력이 필요 합니다. 일치 하는 조건과 각 매핑된 열의 이름을 입력 해야 합니다. 두 값은 모두 [식 작성기](concepts-data-flow-expression-builder.md)를 통해 입력 됩니다. 왼쪽 식 상자에 부울 일치 조건을 입력 합니다. 오른쪽 식 상자에서 일치 하는 열을 매핑할 대상을 지정 합니다.
 
-![규칙 기반 매핑](media/data-flow/rule-based-mapping.png "규칙 기반 매핑")
+![스크린샷은 매핑을 보여 줍니다.](media/data-flow/rule-based-mapping.png "규칙 기반 매핑")
 
 `$$`구문을 사용 하 여 일치 하는 열의 입력 이름을 참조 합니다. 위의 이미지를 예로 들 수 있습니다. 예를 들어, 사용자는 이름이 6 자 보다 짧은 모든 문자열 열에 대해 일치 하는 것으로 가정 합니다. 들어오는 열의 이름을 지정 하는 경우 `test` 식에서 `$$ + '_short'` 열의 이름을 바꿉니다 `test_short` . 이 매핑이 있는 유일한 매핑이 면 해당 조건을 충족 하지 않는 모든 열이 출력 된 데이터에서 삭제 됩니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "84322093"
 
 아래쪽 펼침 단추를 클릭 하면 regex 매핑 조건을 지정할 수 있습니다. Regex 매핑 조건은 지정 된 regex 조건과 일치 하는 모든 열 이름과 일치 합니다. 표준 규칙 기반 매핑과 함께 사용할 수 있습니다.
 
-![규칙 기반 매핑](media/data-flow/regex-matching.png "규칙 기반 매핑")
+![스크린샷에는 계층 수준 및 이름이 일치 하는 regex 매핑 조건이 표시 됩니다.](media/data-flow/regex-matching.png "규칙 기반 매핑")
 
 위의 예제는 regex 패턴이 `(r)` 나 소문자 r을 포함 하는 모든 열 이름에 일치 합니다. 표준 규칙 기반 매핑과 유사 하 게 일치 하는 모든 열은 구문을 사용 하 여 오른쪽의 조건에 따라 변경 됩니다 `$$` .
 
@@ -70,7 +70,7 @@ ms.locfileid: "84322093"
 
 정의 된 프로젝션에 계층이 있는 경우 규칙 기반 매핑을 사용 하 여 계층 하위 열을 매핑할 수 있습니다. 일치 조건 및 하위 열을 매핑하려는 복합 열을 지정 합니다. 오른쪽에 지정 된 ' 이름 ' 규칙을 사용 하 여 일치 하는 모든 하위 열이 출력 됩니다.
 
-![규칙 기반 매핑](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
+![계층 구조에 대해를 사용 하는 규칙 기반 매핑을 보여 주는 스크린샷](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
 
 위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a` 에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
 

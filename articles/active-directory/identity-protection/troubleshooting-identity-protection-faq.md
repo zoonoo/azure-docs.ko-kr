@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040506"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
 ## <a name="dismiss-user-risk-known-issues"></a>사용자 위험 알려진 문제 해제
 
-클래식 Id 보호에서 **사용자 위험 해제** 를 사용 하면 id 보호에서 사용자의 위험 기록에 있는 행위자가 **Azure AD**로 설정 됩니다.
+클래식 Id 보호에서 **사용자 위험 해제** 를 사용 하면 id 보호에서 사용자의 위험 기록에 있는 행위자가 **Azure AD** 로 설정 됩니다.
 
 Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위험 기록에 있는 행위자를로 설정 **\<Admin’s name with a hyperlink pointing to user’s blade\>** 합니다.
 
@@ -32,19 +32,25 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 
 **사용자 이름** 필드에 대한 쿼리는 대/소문자를 구분하는 반면 **이름** 필드에 대한 쿼리는 대/소문자를 구분하지 않습니다.
 
-**날짜 표시**를 설정/해제하면 **위험을 마지막으로 업데이트한 날짜** 열이 숨겨집니다. 해당 열을 다시 추가하려면 위험한 사용자 블레이드 맨 위의 **열**을 클릭합니다.
+**날짜 표시** 를 설정/해제하면 **위험을 마지막으로 업데이트한 날짜** 열이 숨겨집니다. 해당 열을 다시 추가하려면 위험한 사용자 블레이드 맨 위의 **열** 을 클릭합니다.
 
 클래식 Id 보호에서 **모든 이벤트 해제** 위험 검색의 상태를 **닫힘 (확인 됨)** 으로 설정 합니다.
 
 ## <a name="risky-sign-ins-report-known-issues"></a>위험한 로그인 보고서의 알려진 문제
 
-위험 검색에 대 한 **해결** 은 **위험 기반 정책에 따라**발생 하는 MFA를 사용자에 게 설정 합니다.
+위험 검색에 대 한 **해결** 은 **위험 기반 정책에 따라** 발생 하는 MFA를 사용자에 게 설정 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
 
 Azure AD ID 보호 고객 인 경우 [위험한 사용자](howto-identity-protection-investigate-risk.md#risky-users) 보기로 이동 하 고 위험 사용자를 클릭 합니다. 아래쪽의 서랍에 ' 위험 기록 ' 탭에는 사용자 위험 변경에 대 한 모든 이벤트가 표시 됩니다. 사용자에 대 한 모든 위험한 로그인을 보려면 ' 사용자의 위험한 로그인 '을 클릭 합니다. 이 사용자에 대 한 모든 위험 검색을 보려면 ' 사용자의 위험 검색 '을 클릭 합니다.
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>내 로그인이 차단 되었지만 Id 보호에서 위험 검색을 생성 하지 못한 이유는 무엇 인가요?
+여러 가지 이유로 로그인을 차단할 수 있습니다. 인증 요청에서 올바른 자격 증명을 사용 하는 경우 Id 보호는 위험 검색만 생성 한다는 점에 유의 해야 합니다. 사용자가 잘못 된 자격 증명을 사용 하는 경우 잘못 된 행위자가 올바른 자격 증명을 사용 하지 않는 한 자격 증명 손상의 위험이 없으므로 Id 보호에 의해 플래그가 지정 되지 않습니다. Id 보호 검색을 생성 하지 않는 사용자가 서명에서 차단할 수 있는 몇 가지 이유는 다음과 같습니다.
+* Ip 주소에서 악성 작업으로 인해 **ip가 차단 될 수 있습니다** . IP 차단 메시지는 자격 증명이 올바른지 여부를 구분 하지 않습니다. IP가 차단 되 고 올바른 자격 증명을 사용 하지 않는 경우 Id 보호 검색을 생성 하지 않습니다.
+* **[스마트 잠금은](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** 실패 한 여러 번 시도 후 계정이 로그인 하지 못하도록 차단할 수 있습니다.
+* 위험 수준이 아닌 다른 조건을 사용 하 여 인증 요청을 차단 하는 **조건부 액세스 정책을** 적용할 수 있습니다.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>특정 형식의 검색 보고서를 어떻게 가져올 수 있나요?
 
@@ -74,23 +80,23 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>ID 보호의 피드백 메커니즘은 어떤 방식으로 작동하나요?
 
-**손상됨 확인**(로그인 시) – ID 소유자가 로그인을 수행하지 않았음을 Azure AD ID 보호에 알리고 손상을 표시합니다.
+**손상됨 확인** (로그인 시) – ID 소유자가 로그인을 수행하지 않았음을 Azure AD ID 보호에 알리고 손상을 표시합니다.
 
-- 이 피드백이 수신되면 로그인 및 사용자 위험 상태가 **손상됨 확인**으로 전환되며 위험 수준은 **높음**으로 설정됩니다.
-
-- 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다.
-
-    > [!NOTE]
-    > 사용자의 문제가 이미 수정된 경우에는 **손상됨 확인**을 클릭하면 안 됩니다. 이렇게 하면 로그인 및 사용자 위험 상태가 **손상됨 확인**으로 전환되고 위험 수준이 **높음**으로 설정되기 때문입니다.
-
-**안전 확인**(로그인 시) – ID 소유자가 로그인을 수행했음을 Azure AD ID 보호에 알리고 손상을 표시하지 않습니다.
-
-- 이 피드백이 수신되면 사용자가 아닌 로그인 위험 상태가 **안전 확인**으로 전환되며 위험 수준은 **-** 로 설정됩니다.
+- 이 피드백이 수신되면 로그인 및 사용자 위험 상태가 **손상됨 확인** 으로 전환되며 위험 수준은 **높음** 으로 설정됩니다.
 
 - 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다.
 
     > [!NOTE]
-    > 사용자의 보안이 손상되지 않았다고 생각되면 로그인 수준에서 **안전 확인**을 사용하는 대신 사용자 수준에서 **사용자 위험 해제**를 사용합니다. 사용자 수준에 대 한 **해제 사용자 위험은** 사용자 위험과 모든 이전 위험한 로그인 및 위험 검색을 종료 합니다.
+    > 사용자의 문제가 이미 수정된 경우에는 **손상됨 확인** 을 클릭하면 안 됩니다. 이렇게 하면 로그인 및 사용자 위험 상태가 **손상됨 확인** 으로 전환되고 위험 수준이 **높음** 으로 설정되기 때문입니다.
+
+**안전 확인** (로그인 시) – ID 소유자가 로그인을 수행했음을 Azure AD ID 보호에 알리고 손상을 표시하지 않습니다.
+
+- 이 피드백이 수신되면 사용자가 아닌 로그인 위험 상태가 **안전 확인** 으로 전환되며 위험 수준은 **-** 로 설정됩니다.
+
+- 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다.
+
+    > [!NOTE]
+    > 사용자의 보안이 손상되지 않았다고 생각되면 로그인 수준에서 **안전 확인** 을 사용하는 대신 사용자 수준에서 **사용자 위험 해제** 를 사용합니다. 사용자 수준에 대 한 **해제 사용자 위험은** 사용자 위험과 모든 이전 위험한 로그인 및 위험 검색을 종료 합니다.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Id 보호에 위험한 로그인 또는 위험 검색이 표시 되지 않는 경우에도 위험 점수가 낮음 인 사용자가 표시 되는 이유는 무엇 인가요?
 

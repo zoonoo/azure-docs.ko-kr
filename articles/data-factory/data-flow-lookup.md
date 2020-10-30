@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040188"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "84187607"
 
 ## <a name="configuration"></a>구성
 
-![조회 변환](media/data-flow/lookup1.png "조회")
+![스크린샷에는 다음 텍스트에 설명 된 레이블이 있는 조회 설정 탭이 표시 됩니다.](media/data-flow/lookup1.png "조회")
 
 **기본 스트림:** 들어오는 데이터 스트림입니다. 이 스트림은 조인의 왼쪽에 해당합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "84187607"
 
 ![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 조인")
 
-조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅**를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정**을 선택합니다.
+조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅** 를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정** 을 선택합니다.
 
 조인이 실행되는 동안 시간 제한 오류가 발생하는 경우에만 **해제** 옵션을 통해 브로드캐스팅을 사용하지 않도록 설정하는 것이 좋습니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "84187607"
 ```
 ### <a name="example"></a>예제
 
-![조회 변환](media/data-flow/lookup-dsl-example.png "조회")
+![스크린샷에는 다음 코드에 대 한 조회 설정 탭이 표시 됩니다.](media/data-flow/lookup-dsl-example.png "조회")
 
 위의 조회 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 나와 있습니다.
 

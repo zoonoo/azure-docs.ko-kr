@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040766"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -28,7 +28,7 @@ Log Analytics 노즐 (노즐)은 [Cloud Foundry loggregator](https://docs.cloudf
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 다음 단계는 Nozzle 배포를 위한 필수 구성 요소입니다.
 
@@ -59,15 +59,15 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
 #### <a name="to-create-the-workspace-manually"></a>수동으로 작업 영역을 만들려면 다음을 수행합니다.
 
 1. Azure Portal에서 Azure Marketplace의 서비스 목록을 검색 한 다음 Log Analytics 작업 영역을 선택 합니다.
-2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
+2. **만들기** 를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
-   * **Log Analytics 작업 영역**: 작업 영역의 이름을 입력합니다.
-   * **구독**: 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
-   * **리소스 그룹**: 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
-   * **위치**: 위치를 입력합니다.
-   * **가격 책정 계층**: **확인**을 클릭하여 완료합니다.
+   * **Log Analytics 작업 영역** : 작업 영역의 이름을 입력합니다.
+   * **구독** : 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
+   * **리소스 그룹** : 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
+   * **위치** : 위치를 입력합니다.
+   * **가격 책정 계층** : **확인** 을 클릭하여 완료합니다.
 
-자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
+자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면:
 
@@ -76,13 +76,13 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
 1. 검색 창에 "Cloud Foundry"를 입력하고 "Cloud Foundry 모니터링 솔루션"을 선택합니다.
 1. Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, “만들기”를 클릭하여 템플릿 블레이드를 실행합니다.
 1. 필수 매개 변수를 입력합니다.
-    * **구독**: Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
-    * **리소스 그룹**: Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
-    * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
-    * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
-    * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
-    * **OMS_Workspace_Pricing_Tier**: Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
-    * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
+    * **구독** : Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
+    * **리소스 그룹** : Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+    * **리소스 그룹 위치** : 리소스 그룹의 위치를 선택합니다.
+    * **OMS_Workspace_Name** : 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
+    * **OMS_Workspace_Region** : 작업 영역에 대한 위치를 선택합니다.
+    * **OMS_Workspace_Pricing_Tier** : Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
+    * **약관** : 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
 1. 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
 
 
@@ -183,24 +183,24 @@ Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따�
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
-OMS 포털에서 **뷰 디자이너**가져오기 찾아보기로 이동 하 여  >  **Import**  >  **Browse**omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
+OMS 포털에서 **뷰 디자이너** 가져오기 찾아보기로 이동 하 여  >  **Import**  >  **Browse** omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview* 를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
-**뷰 디자이너**를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
+**뷰 디자이너** 를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
 *“Cloud Foundry.omsview”* 는 Cloud Foundry OMS 보기 템플릿의 미리 보기 버전입니다. 이것은 완전히 구성된 기본 템플릿입니다. 템플릿에 대한 제안 사항이나 의견이 있으시면 [문제 섹션](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues)으로 보내주세요.
 
 ### <a name="2-create-alert-rules"></a>2. 경고 규칙 만들기
 
-[경고를 작성](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
+[경고를 작성](../azure-monitor/platform/alerts-overview.md)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
 
 | 검색 쿼리                                                                  | 경고 생성 조건 | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps**는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps** 는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 결과 수 > 0   | Diego 셀의 경우 값이 0이면 정상 상태이고 1이면 비정상 상태입니다. 지정한 기간에 비정상 Diego 셀이 여러 개 검색되면 경고를 설정합니다. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | 결과 수 > 0 | 값이 1이면 시스템이 정상 상태인 것이고 0이면 시스템이 정상 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | 결과 수 > 0   | Consul은 상태를 주기적으로 내보냅니다. 값이 0이면 시스템이 정상 상태이며, 1이면 경로 내보내기에서 Consul이 다운되었음을 감지한 것입니다. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | 결과 수 > 0 | 백 프레셔로 인해 Doppler가 의도적으로 삭제한 메시지의 델타 번호입니다. |
-| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | 결과 수 > 0   | Loggregator는 로깅 프로세스의 문제를 나타내기 위해 **LGR**을 내보냅니다. 이러한 문제의 예는 로그 메시지 출력이 너무 높은 경우입니다. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | 결과 수 > 0   | Loggregator는 로깅 프로세스의 문제를 나타내기 위해 **LGR** 을 내보냅니다. 이러한 문제의 예는 로그 메시지 출력이 너무 높은 경우입니다. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | 노즐은 loggregator에서 저속 소비자 경고를 받으면 **slowConsumerAlert** ValueMetric를 Azure Monitor 로그에 보냅니다. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 결과 수 > 0   | 손실된 이벤트의 델타 번호가 임계값에 도달하는 경우 Nozzle 실행과 관련하여 문제가 있을 수 있습니다. |
 

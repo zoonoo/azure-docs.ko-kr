@@ -11,27 +11,26 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84789908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041171"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
 기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어난 사용자를 일시적으로 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의 하는 것이 좋습니다.  
 
-이 문서에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions*** 설정 하는 방법을 설명 합니다. 
-* ***SkipOutOfScopeDeletions*** 가 0 (false)으로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다.
-* ***SkipOutOfScopeDeletions*** 가 1 (true)로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다. 이 플래그는 *프로 비전 앱* 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
+이 문서에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 * **SkipOutOfScopeDeletions** _를 설정 하는 방법을 설명 합니다. _ If * **SkipOutOfScopeDeletions** _가 0 (false)으로 설정 되 면 범위에서 벗어난 계정은 대상에서 사용 하지 않도록 설정 됩니다.
+_ If * **SkipOutOfScopeDeletions** _가 1 (true)로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다. 이 플래그는 _Provisioning App * 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
 
-이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷을 포함 합니다. 그러나 ServiceNow, Salesforce, Dropbox 등의 *다른 모든 앱*에서도 구성을 사용할 수 있습니다.
+이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷을 포함 합니다. 그러나 ServiceNow, Salesforce, Dropbox 등의 *다른 모든 앱* 에서도 구성을 사용할 수 있습니다.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 
 1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다. 
-1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다.** 이 값은 앱의 **ServicePrincipalId**라고도 하고 Graph Explorer 작업에서 사용됩니다.
+1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다.  이 값은 앱의 **ServicePrincipalId** 라고도 하고 Graph Explorer 작업에서 사용됩니다.
 
    ![Workday 앱 서비스 주체 ID](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
@@ -46,7 +45,7 @@ ms.locfileid: "84789908"
 
 ## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>3 단계: 기존 앱 자격 증명 및 연결 정보 가져오기
 
-Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
+Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId** 로 바꾸고 다음 GET 쿼리를 실행합니다.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -69,9 +68,9 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>4 단계: SkipOutOfScopeDeletions 플래그를 사용 하 여 비밀 끝점 업데이트
 
-그래프 탐색기에서 아래 명령을 실행 하 여 비밀 끝점을 ***SkipOutOfScopeDeletions*** 플래그로 업데이트 합니다. 
+그래프 탐색기에서 아래 명령을 실행 하 여 암호 끝점을 * *_SkipOutOfScopeDeletions_* _ 플래그로 업데이트 합니다. 
 
-아래 URL에서 [servicePrincipalId]을 [1 단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출한 **servicePrincipalId** 로 바꿉니다. 
+아래 URL에서 [servicePrincipalId]을 [1 단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출 된 _ *servicePrincipalId* *로 바꿉니다. 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -90,7 +89,7 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 
 특정 사용자를 건너뛰도록 범위 지정 규칙을 업데이트 하 여 예상 된 동작으로이 플래그를 테스트할 수 있습니다. 아래 예제에서는 새 범위 지정 규칙을 추가 하 여 ID가 21173 (이전에는) 인 직원을 제외 합니다. 
 
-   ![범위 지정 예제](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![예제 사용자가 강조 표시 된 "범위 지정 필터 추가" 섹션을 보여 주는 스크린샷](./media/skip-out-of-scope-deletions/skip-07.png)
 
 다음 프로 비전 주기에서 Azure AD 프로 비전 서비스는 사용자 21173이 범위를 벗어난 것을 식별 하 고 SkipOutOfScopeDeletions 속성을 사용 하도록 설정한 경우 해당 사용자에 대 한 동기화 규칙은 아래와 같이 메시지를 표시 합니다. 
 

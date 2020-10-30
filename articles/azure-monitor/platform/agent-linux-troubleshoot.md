@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042401"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -55,6 +55,15 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
  >[!NOTE]
  >문제가 발생 하는 경우 로그 수집기 도구를 실행 하세요. 처음에 로그를 만들면 지원 팀에서 문제를 더 빨리 해결할 수 있습니다.
 
+## <a name="purge-and-re-install-the-linux-agent"></a>Linux 에이전트 제거 및 Re-Install
+
+에이전트를 완전히 다시 설치 하면 대부분의 문제가 해결 됩니다. 실제로 지원 팀에서 에이전트를 uncurropted 상태로 전환 하는 것이 가장 먼저 제안 된 제안 일 수 있습니다. 문제 해결사를 실행 하 여 로그를 수집 하 고 새로 다시 설치를 시도 하면 문제를 보다 신속 하 게 해결할 수 있습니다.
+
+1. 제거 스크립트를 다운로드 합니다.
+- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+2. 제거 스크립트 (sudo 권한 포함)를 실행 합니다.
+- `$ sudo sh purge_omsagent.sh`
+
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
  파일 | 경로
@@ -66,14 +75,14 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 
 ## <a name="important-configuration-files"></a>중요 구성 파일
 
- Category | 파일 위치
+ 범주 | 파일 위치
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` 또는 `/etc/rsyslog.conf` 또는 `/etc/rsyslog.d/95-omsagent.conf`
  성능, Nagios, Zabbix, Log Analytics 출력 및 일반 에이전트 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  추가 구성 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](./agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정**에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
+ >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](./agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정** 에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>설치 오류 코드
@@ -83,9 +92,9 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent- *rpm* .sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent- *deb* .sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
-| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
+| 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent- *x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
 | 19 | OMI 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
 | 20 | SCX 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
@@ -454,7 +463,7 @@ sudo sh ./onboard_agent.sh --purge
 1. Azure Portal에서 확장을 제거합니다.
 2. [지침](../learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
 3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
-* 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
+* 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공** 으로 변경됩니다.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>문제: Log Analytics 에이전트 주문형 업그레이드

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691342"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041907"
 ---
 # <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 
@@ -48,7 +48,7 @@ Video Indexer 각 샷을 가장 잘 나타내는 프레임을 선택 합니다. 
 
 Video Indexer 웹 사이트를 사용 하 여 키 프레임을 추출 하려면 비디오를 업로드 하 고 색인 합니다. 인덱싱 작업이 완료 되 면 **다운로드** 단추를 클릭 하 고 **아티팩트 (ZIP)** 를 선택 합니다. 그러면 아티팩트 폴더가 컴퓨터에 다운로드 됩니다. 
 
-![키프레임에서](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+!["아티팩트"가 선택 된 "다운로드" 드롭다운을 보여 주는 스크린샷](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 압축을 풀고 폴더를 엽니다. *_KeyframeThumbnail* 폴더에서 비디오에서 추출한 모든 키 프레임을 찾습니다. 
 

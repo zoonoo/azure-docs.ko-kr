@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691892"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041632"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비정규화 컨테이너로 마이그레이션
 
@@ -50,7 +50,7 @@ FROM SalesLT.SalesOrderHeader o;
 
 2. 데이터 흐름 작업 추가
 
-3. 데이터 흐름 작업에서 **새 매핑 데이터 흐름**을 선택 합니다.
+3. 데이터 흐름 작업에서 **새 매핑 데이터 흐름** 을 선택 합니다.
 
 4. 아래에서이 데이터 흐름 그래프를 구성 합니다.
 
@@ -96,11 +96,11 @@ FROM SalesLT.SalesOrderHeader o;
 
 19. 싱크 설정에서 키를로 분할 하 ```\SalesOrderID``` 고 컬렉션 작업을 "다시 만들기"로 설정 합니다. 매핑 탭이 다음과 같이 표시 되는지 확인 합니다.
 
-![싱크 설정](media/data-flow/cosmosb7.png)
+![스크린샷 매핑 탭을 표시 합니다.](media/data-flow/cosmosb7.png)
 
 20. 데이터 미리 보기를 클릭 하 여 이러한 32 행이 새 컨테이너에 새 문서로 삽입 되도록 설정 되어 있는지 확인 합니다.
 
-![싱크 설정](media/data-flow/cosmosb8.png)
+![스크린샷 데이터 미리 보기 탭을 보여 줍니다.](media/data-flow/cosmosb8.png)
 
 모든 항목이 양호 하면 이제 새 파이프라인을 만들고,이 데이터 흐름 활동을 파이프라인에 추가 하 고, 실행할 준비가 된 것입니다. 디버그 또는 트리거된 실행에서 실행할 수 있습니다. 몇 분 후에는 CosmosDB 데이터베이스에 "orders" 라는 이름의 정규화 되지 않은 새 컨테이너가 있어야 합니다.
 
