@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e096de5eea9bf5bbd47b976976192e62eb6aa33e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263044"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096413"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API에서 Robo 3T 사용
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Robo 3T를 사용하여 Cosmos 계정에 연결하려면 다음을 수행해야 합니다.
 
@@ -33,19 +34,19 @@ Cosmos 계정을 Robo 3T 연결 관리자에 추가하려면 다음 단계를 �
     :::image type="content" source="./media/mongodb-robomongo/connectionstringblade.png" alt-text="연결 문자열 블레이드의 스크린샷":::
 2. *Robomongo* 응용 프로그램을 실행 합니다.
 
-3. 연결을 관리하려면 **파일**에서 연결 단추를 클릭합니다. 그런 다음 **MongoDB 연결** 창에서 **만들기**를 클릭하면 **연결 설정** 창이 열립니다.
+3. 연결을 관리하려면 **파일** 에서 연결 단추를 클릭합니다. 그런 다음 **MongoDB 연결** 창에서 **만들기** 를 클릭하면 **연결 설정** 창이 열립니다.
 
-4. **연결 설정** 창에서 이름을 선택합니다. 그런 다음 1단계의 연결 정보에서 **호스트** 및 **포트**를 찾아 **주소** 및 **포트**에 각각 입력합니다.
+4. **연결 설정** 창에서 이름을 선택합니다. 그런 다음 1단계의 연결 정보에서 **호스트** 및 **포트** 를 찾아 **주소** 및 **포트** 에 각각 입력합니다.
 
     :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="연결 문자열 블레이드의 스크린샷":::
-5. **인증** 탭에서 **인증 수행**을 클릭합니다. 그런 다음 데이터베이스(기본값은 *관리자*), **사용자 이름** 및 **암호**를 입력합니다.
-**사용자 이름** 및 **암호**는 모두 1단계의 연결 정보에서 찾을 수 있습니다.
+5. **인증** 탭에서 **인증 수행** 을 클릭합니다. 그런 다음 데이터베이스(기본값은 *관리자* ), **사용자 이름** 및 **암호** 를 입력합니다.
+**사용자 이름** 및 **암호** 는 모두 1단계의 연결 정보에서 찾을 수 있습니다.
 
     :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="연결 문자열 블레이드의 스크린샷":::
-6. **SSL** 탭에서 **SSL 프로토콜 사용**을 선택한 다음 **인증 방법**을 **자체 서명된 인증서**로 변경합니다.
+6. **SSL** 탭에서 **SSL 프로토콜 사용** 을 선택한 다음 **인증 방법** 을 **자체 서명된 인증서** 로 변경합니다.
 
     :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="연결 문자열 블레이드의 스크린샷":::
-7. 마지막으로 **테스트**를 클릭하여 연결할 수 있는지 확인한 다음 **저장**을 클릭합니다.
+7. 마지막으로 **테스트** 를 클릭하여 연결할 수 있는지 확인한 다음 **저장** 을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

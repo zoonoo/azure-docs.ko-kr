@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 58b57bd592ec0b302724f9339c0e0d48fed42d15
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281187"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097509"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 비용 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 읽기 및 쓰기 요청을 [요청 단위로](request-units.md) 변환 하는 방법과 이러한 요청의 비용을 최적화 하는 방법을 설명 합니다. 읽기 작업에는 지점 읽기 및 쿼리가 포함 됩니다. 쓰기 작업에는 항목의 삽입, 바꾸기, 삭제 및 upsert 포함 됩니다.
 

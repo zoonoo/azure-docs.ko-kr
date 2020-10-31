@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445173"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096736"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터에 대 한 명령줄 및 PowerShell 참조
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos emulator는 로컬 개발을 위해 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. [에뮬레이터를 설치한](local-emulator.md)후 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 제어할 수 있습니다. 이 문서에서는 명령줄 및 PowerShell 명령을 사용 하 여 에뮬레이터를 시작 및 중지 하 고, 옵션을 구성 하 고, 기타 작업을 수행 하는 방법을 설명 합니다. 설치 위치에서 명령을 실행 해야 합니다.
 
@@ -135,11 +136,11 @@ Cmdlet는 에뮬레이터가 제거되기 전에 중지되도록 합니다.
 
 Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면 다음 단계를 수행합니다.
 
-1. 시스템 트레이에서 **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 **데이터 다시 설정**...을 클릭 하 여 모든 로컬 Azure Cosmos 에뮬레이터 데이터를 삭제 합니다.
+1. 시스템 트레이에서 **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 **데이터 다시 설정** ...을 클릭 하 여 모든 로컬 Azure Cosmos 에뮬레이터 데이터를 삭제 합니다.
 
 1. `%LOCALAPPDATA%\CosmosDBEmulator` 폴더의 에뮬레이터 데이터를 모두 삭제합니다.
 
-1. **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침**을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
+1. **Azure Cosmos DB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침** 을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
 
 1. 최신 버전의 [Azure Cosmos Emulator](https://aka.ms/cosmosdb-emulator)를 설치합니다.
 

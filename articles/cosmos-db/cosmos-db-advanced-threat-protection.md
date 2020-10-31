@@ -8,14 +8,15 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489254"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097722"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB용 Advanced Threat Protection은 Azure Cosmos DB 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 보호 계층을 통해 보안 전문가가 아니더라도 위협을 해결하고 중앙 보안 모니터링 시스템과 통합할 수 있습니다.
 
@@ -32,9 +33,9 @@ Azure Cosmos DB용 Advanced Threat Protection은 Azure Cosmos DB 계정에 액�
 
 Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 감지합니다. 현재 다음과 같은 경고를 트리거할 수 있습니다.
 
-- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 Azure Cosmos DB 엔드포인트에 연결한 Azure Cosmos 계정에 대한 액세스 패턴이 변경되면 이 경고가 트리거됩니다. 경우에 따라 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리 작업을 의미)을 감지합니다. 다른 경우에는 경고가 악의적인 작업(퇴사 직원, 외부 공격자 등)을 감지합니다.
+- **비정상적인 위치에서 액세스** : 비정상적인 지리적 위치에서 누군가가 Azure Cosmos DB 엔드포인트에 연결한 Azure Cosmos 계정에 대한 액세스 패턴이 변경되면 이 경고가 트리거됩니다. 경우에 따라 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리 작업을 의미)을 감지합니다. 다른 경우에는 경고가 악의적인 작업(퇴사 직원, 외부 공격자 등)을 감지합니다.
 
-- **비정상적인 데이터 추출**: 이 경고는 클라이언트가 Azure Cosmos DB 계정에서 비정상적인 양의 데이터를 추출할 때 트리거됩니다. 이는 계정에 저장된 모든 데이터를 외부 데이터 저장소로 전송하기 위해 수행해야 하는 일부 데이터 유출의 증상일 수 있습니다.
+- **비정상적인 데이터 추출** : 이 경고는 클라이언트가 Azure Cosmos DB 계정에서 비정상적인 양의 데이터를 추출할 때 트리거됩니다. 이는 계정에 저장된 모든 데이터를 외부 데이터 저장소로 전송하기 위해 수행해야 하는 일부 데이터 유출의 증상일 수 있습니다.
 
 
 
@@ -46,14 +47,14 @@ Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 �
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal을 시작합니다.
 
-2. Azure Cosmos DB 계정의 **설정** 메뉴에서 **고급 보안**을 선택합니다.
+2. Azure Cosmos DB 계정의 **설정** 메뉴에서 **고급 보안** 을 선택합니다.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="ATP 설정":::
 
 3. **고급 보안** 구성 블레이드에서 다음을 수행합니다.
 
-    * **Advanced Threat Protection** 옵션을 클릭하여 **ON**으로 설정합니다.
-    * **저장**을 클릭하여 새로운 또는 업데이트된 Advanced Threat Protection 정책을 저장합니다.   
+    * **Advanced Threat Protection** 옵션을 클릭하여 **ON** 으로 설정합니다.
+    * **저장** 을 클릭하여 새로운 또는 업데이트된 Advanced Threat Protection 정책을 저장합니다.   
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -83,17 +84,17 @@ Azure Policy를 사용하여 Cosmos DB에 대한 Advanced Threat Protection을 �
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="ATP 설정"::: 
 
-1. **CosmosDB용 Advanced Threat Protection 배포** 정책을 클릭한 다음, **할당**을 클릭합니다.
+1. **CosmosDB용 Advanced Threat Protection 배포** 정책을 클릭한 다음, **할당** 을 클릭합니다.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="ATP 설정":::
 
 
-1. **범위** 필드에서 세 개의 점을 클릭하고 Azure 구독 또는 리소스 그룹을 선택한 다음, **선택**을 클릭합니다.
+1. **범위** 필드에서 세 개의 점을 클릭하고 Azure 구독 또는 리소스 그룹을 선택한 다음, **선택** 을 클릭합니다.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="ATP 설정":::
 
 
-1. 다른 매개 변수를 입력하고 **할당**을 클릭합니다.
+1. 다른 매개 변수를 입력하고 **할당** 을 클릭합니다.
 
 
 

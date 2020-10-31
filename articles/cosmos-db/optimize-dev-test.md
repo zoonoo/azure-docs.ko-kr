@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0e2cc3f23a8c39e51523e6f6fd974ebf46f7322
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475535"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097450"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 개발 및 테스트 비용 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 개발 및 테스트를 위해 Azure Cosmos DB 사용 하는 다양 한 옵션과 개발 또는 테스트 계정 비용을 최적화 하는 기술에 대해 설명 합니다.
 

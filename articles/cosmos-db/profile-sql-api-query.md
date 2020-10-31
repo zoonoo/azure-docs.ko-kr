@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097399"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>.NET SDK를 사용 하 여 SQL 쿼리 실행 메트릭 가져오기 및 쿼리 성능 분석
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 SQL 쿼리 성능을 프로 파일링 하는 방법을 보여 줍니다. 이 프로 파일링은 .NET SDK에서 검색 된를 사용 하 여 수행할 수 `QueryMetrics` 있으며 여기에 자세히 설명 되어 있습니다. [Querymetrics](/dotnet/api/microsoft.azure.documents.querymetrics) 백 엔드 쿼리 실행에 대 한 정보를 포함 하는 강력한 형식의 개체입니다. 이러한 메트릭은 [쿼리 성능 조정](./sql-api-query-metrics.md) 문서에 자세히 설명 되어 있습니다.
 

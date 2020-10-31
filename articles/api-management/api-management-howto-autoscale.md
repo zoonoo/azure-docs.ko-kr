@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071305"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095954"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
 
@@ -46,7 +46,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 + 가격 책정 계층에서도 서비스 인스턴스의 최대 단위 수를 지정합니다.
 + 크기 조정 과정에는 20분 이상 소요됩니다.
 + 다른 작업에 의해 서비스가 잠긴 경우 크기 조정 요청이 실패하고 자동으로 다시 시도합니다.
-+ 다중 지역 배포를 사용하는 서비스의 경우 **기본 위치**의 단위만 크기 조정할 수 있습니다. 다른 위치의 단위는 크기 조정할 수 없습니다.
++ 다중 지역 배포를 사용하는 서비스의 경우 **기본 위치** 의 단위만 크기 조정할 수 있습니다. 다른 위치의 단위는 크기 조정할 수 없습니다.
 
 ## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>Azure API Management 서비스에 대한 자동 크기 조정 사용 및 구성
 
@@ -56,7 +56,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 
     ![Azure Monitor](media/api-management-howto-autoscale/01.png)
 
-2. 왼쪽 메뉴에서 **자동 크기 조정**을 선택합니다.
+2. 왼쪽 메뉴에서 **자동 크기 조정** 을 선택합니다.
 
     ![Azure Monitor 리소스 자동 크기 조정](media/api-management-howto-autoscale/02.png)
 
@@ -66,7 +66,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 
     ![Azure Monitor 자동 크기 조정 사용](media/api-management-howto-autoscale/03.png)
 
-6. **규칙** 섹션에서 **+ 규칙 추가**를 클릭합니다.
+6. **규칙** 섹션에서 **+ 규칙 추가** 를 클릭합니다.
 
     ![Azure Monitor 자동 크기 조정 규칙 추가](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 
     ![Azure Monitor 규모 확장 규칙](media/api-management-howto-autoscale/05.png)
 
-9. **+ 규칙 추가**를 다시 클릭합니다.
+9. **+ 규칙 추가** 를 다시 클릭합니다.
 
     이번에는 규모 감축 규칙을 정의해야 합니다. 이렇게 하면 API 사용량이 감소할 때 리소스를 낭비하지 않게 됩니다.
 
@@ -125,9 +125,9 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     > [!NOTE]
     > Azure API Management에는 인스턴스 규모를 확장할 수 있는 단위 제한이 있습니다. 이 제한은 서비스 계층에 따라 달라집니다.
 
-    ![Azure Monitor 규모 감축 규칙](media/api-management-howto-autoscale/07.png)
+    ![최대 Azure API Management 단위 수를 설정할 위치를 강조 표시 하는 스크린샷](media/api-management-howto-autoscale/07.png)
 
-13. **저장**을 클릭합니다. 자동 크기 조정이 구성되었습니다.
+13. **저장** 을 클릭합니다. 자동 크기 조정이 구성되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

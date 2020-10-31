@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461722"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098011"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 - **서브넷 위임:** SQL Managed Instance 서브넷을 리소스 공급자에 위임 해야 합니다 `Microsoft.Sql/managedInstances` .
 - **NSG (네트워크 보안 그룹):** NSG는 SQL Managed Instance 서브넷에 연결 해야 합니다. SQL Managed Instance가 리디렉션 연결에 대해 구성 된 경우 NSG를 사용 하 여 포트 1433 및 포트 11000-11999에서 트래픽을 필터링 하 여 SQL Managed Instance 데이터 끝점에 대 한 액세스를 제어할 수 있습니다. 서비스는 중단 된 관리 트래픽 흐름을 허용 하는 데 필요한 현재 [규칙](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) 을 자동으로 프로 비전 하 고 유지 합니다.
 - **UDR (사용자 정의 경로) 테이블:** UDR 테이블은 SQL Managed Instance 서브넷과 연결 해야 합니다. 경로 테이블에 항목을 추가하여 가상 네트워크 게이트웨이 또는 NVA(가상 네트워크 어플라이언스)를 통해 온-프레미스 프라이빗 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [항목](#user-defined-routes-with-service-aided-subnet-configuration)을 자동으로 프로비닝하고 유지합니다.
-- **충분 한 IP 주소:** SQL Managed Instance 서브넷에는 최소 16 개의 IP 주소가 있어야 합니다. 권장되는 최소 IP 주소는 32개입니다. 자세한 내용은 [SQL Managed Instance에 대 한 서브넷 크기 확인](vnet-subnet-determine-size.md)을 참조 하세요. [SQL Managed Instance에 대 한 네트워킹 요구 사항을](#network-requirements)충족 하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md) 에서 관리 되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
+- **충분 한 IP 주소:** SQL Managed Instance 서브넷의 IP 주소는 32 이상 이어야 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 서브넷 크기 확인](vnet-subnet-determine-size.md)을 참조 하세요. [SQL Managed Instance에 대 한 네트워킹 요구 사항을](#network-requirements)충족 하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md) 에서 관리 되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
 
 > [!IMPORTANT]
 > 관리 되는 인스턴스를 만들 때 네트워킹 설정에 대 한 비규격 변경을 방지 하기 위해 서브넷에 네트워크 의도 정책이 적용 됩니다. 서브넷에서 마지막 인스턴스를 제거한 후에도 네트워크 의도 정책이 제거 됩니다.
@@ -301,20 +301,22 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 \* MI 서브넷은 x. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
 
+\** 대상 주소가 Azure의 서비스 중 하나에 대 한 것 인 경우 Azure는 트래픽을 인터넷으로 라우팅하는 대신 Azure의 백본 네트워크를 통해 서비스에 직접 트래픽을 라우팅합니다. Azure 서비스 간 트래픽은 가상 네트워크가 있는 Azure 지역 또는 Azure 서비스 인스턴스가 배포된 Azure 지역과 관계없이 인터넷을 거치지 않습니다. 자세한 내용은 [Udr 설명서 페이지](../../virtual-network/virtual-networks-udr-overview.md)를 참조 하세요.
+
 또한 경로 테이블에 항목을 추가 하 여 가상 네트워크 게이트웨이 또는 NVA (가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다.
 
 가상 네트워크에 사용자 지정 DNS가 포함 된 경우 사용자 지정 DNS 서버에서 공용 DNS 레코드를 확인할 수 있어야 합니다. Azure AD 인증와 같은 추가 기능을 사용 하는 경우 추가 Fqdn을 확인 해야 할 수 있습니다. 자세한 내용은 [사용자 지정 DNS 설정](custom-dns-configure.md)을 참조 하세요.
 
 ### <a name="networking-constraints"></a>네트워킹 제약 조건
 
-**Tls 1.2는 아웃 바운드 연결에 적용 됩니다**. Microsoft는 모든 Azure 서비스의 서비스 간 트래픽에 대해 Microsoft 2020에서 tls 1.2를 적용 했습니다. Azure SQL Managed Instance의 경우이로 인해 SQL Server에 대 한 복제 및 연결 된 서버 연결에 사용 되는 아웃 바운드 연결에 TLS 1.2이 적용 되었습니다. SQL Managed Instance에서 2016 보다 오래 된 SQL Server 버전을 사용 하는 경우 [TLS 1.2 관련 업데이트가](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 적용 되었는지 확인 하십시오.
+**Tls 1.2는 아웃 바운드 연결에 적용 됩니다** . Microsoft는 모든 Azure 서비스의 서비스 간 트래픽에 대해 Microsoft 2020에서 tls 1.2를 적용 했습니다. Azure SQL Managed Instance의 경우이로 인해 SQL Server에 대 한 복제 및 연결 된 서버 연결에 사용 되는 아웃 바운드 연결에 TLS 1.2이 적용 되었습니다. SQL Managed Instance에서 2016 보다 오래 된 SQL Server 버전을 사용 하는 경우 [TLS 1.2 관련 업데이트가](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 적용 되었는지 확인 하십시오.
 
 다음 가상 네트워크 기능은 현재 SQL Managed Instance에서 지원 되지 않습니다.
 
-- **Microsoft 피어 링**: express 경로 회로에서 [microsoft 피어 링](../../expressroute/expressroute-faqs.md#microsoft-peering) 을 사용 하도록 설정 하는 것은 가상 네트워크와 직접 또는 전이적으로 피어 링 하는 가상 Managed Instance 네트워크에서 가상 네트워크 내의 구성 요소 Managed Instance 간 트래픽 흐름에 영향을 줍니다. Microsoft 피어 링을 사용 하 여 가상 네트워크에 대 한 SQL Managed Instance 배포가 실패 하 게 됩니다.
-- **글로벌 가상 네트워크 피어 링**: Azure 지역 간에 [가상 네트워크 피어 링](../../virtual-network/virtual-network-peering-overview.md) 연결은 9/22/2020 이전에 만든 서브넷에 배치 되는 SQL 관리 되는 인스턴스에 대해 작동 하지 않습니다.
-- **AzurePlatformDNS**: AzurePlatformDNS [service 태그](../../virtual-network/service-tags-overview.md) 를 사용 하 여 플랫폼 DNS 확인을 차단 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객이 정의한 DNS를 지원 하지만 플랫폼 작업을 위한 플랫폼 DNS에는 종속성이 있습니다.
-- **Nat 게이트웨이**: [Azure Virtual Network nat](../../virtual-network/nat-overview.md) 를 사용 하 여 특정 공용 IP 주소와의 아웃 바운드 연결을 제어 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance 서비스는 현재 Virtual Network NAT를 사용 하 여 인바운드 및 아웃 바운드 흐름을 공존 하지 않는 기본 부하 분산 장치의 사용으로 제한 됩니다.
+- **Microsoft 피어 링** : express 경로 회로에서 [microsoft 피어 링](../../expressroute/expressroute-faqs.md#microsoft-peering) 을 사용 하도록 설정 하는 것은 가상 네트워크와 직접 또는 전이적으로 피어 링 하는 가상 Managed Instance 네트워크에서 가상 네트워크 내의 구성 요소 Managed Instance 간 트래픽 흐름에 영향을 줍니다. Microsoft 피어 링을 사용 하 여 가상 네트워크에 대 한 SQL Managed Instance 배포가 실패 하 게 됩니다.
+- **글로벌 가상 네트워크 피어 링** : Azure 지역 간에 [가상 네트워크 피어 링](../../virtual-network/virtual-network-peering-overview.md) 연결은 9/22/2020 이전에 만든 서브넷에 배치 되는 SQL 관리 되는 인스턴스에 대해 작동 하지 않습니다.
+- **AzurePlatformDNS** : AzurePlatformDNS [service 태그](../../virtual-network/service-tags-overview.md) 를 사용 하 여 플랫폼 DNS 확인을 차단 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객이 정의한 DNS를 지원 하지만 플랫폼 작업을 위한 플랫폼 DNS에는 종속성이 있습니다.
+- **Nat 게이트웨이** : [Azure Virtual Network nat](../../virtual-network/nat-overview.md) 를 사용 하 여 특정 공용 IP 주소와의 아웃 바운드 연결을 제어 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance 서비스는 현재 Virtual Network NAT를 사용 하 여 인바운드 및 아웃 바운드 흐름을 공존 하지 않는 기본 부하 분산 장치의 사용으로 제한 됩니다.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Mapi 서비스 관련 서브넷 구성이 없는 네트워크 요구 사항
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 97a887b9fbb0edd4b1574d3e68399ea83fe11451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46164a5cd96941609c8a6484470fff863680f9d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096600"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 API for MongoDB의 [변경 피드](change-feed.md) 지원은 변경 스트림 API를 사용하여 제공됩니다. 변경 스트림 API를 사용하여 애플리케이션에서 컬렉션 또는 단일 분할된 데이터베이스의 항목에 대한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대한 변경 내용은 수정 시간 순서대로 캡처되고 분할된 데이터베이스 키당 정렬 순서가 보장됩니다.
 
@@ -148,7 +149,7 @@ Azure Cosmos DB의 SQL API에 있는 변경 피드와 달리, 변경 스트림�
 
 * **HTTP 오류 코드 16500** - 변경 스트림이 제한되면 빈 페이지를 반환합니다.
 
-* **NamespaceNotFound**(OperationType 무효화) - 존재하지 않는 컬렉션에서 변경 스트림을 실행하거나 컬렉션을 삭제하면 `NamespaceNotFound` 오류가 반환됩니다. `operationType` 속성은 `operationType Invalidate` 오류 대신 출력 문서에서 반환될 수 없으므로 `NamespaceNotFound` 오류가 반환됩니다.
+* **NamespaceNotFound** (OperationType 무효화) - 존재하지 않는 컬렉션에서 변경 스트림을 실행하거나 컬렉션을 삭제하면 `NamespaceNotFound` 오류가 반환됩니다. `operationType` 속성은 `operationType Invalidate` 오류 대신 출력 문서에서 반환될 수 없으므로 `NamespaceNotFound` 오류가 반환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

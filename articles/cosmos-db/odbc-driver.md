@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7df9a34923ed8cd0db45df9af4feb28520d45e3a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488421"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097603"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB ODBC 드라이버를 사용하면 SQL Server Integration Services, Power BI Desktop 및 Tableau와 같은 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결할 수 있으므로 해당 솔루션에서 Azure Cosmos DB 데이터 시각화를 분석하고 만들 수 있습니다.
 
@@ -39,39 +40,39 @@ ODBC 드라이버를 살펴보겠습니다.
     |Windows 32비트 또는 64비트용 [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64)| 64비트 버전의 Windows 8.1 이상, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 및 Windows Server 2003| 
     |Windows 32비트용 [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/cosmos-odbc-32x32)|32비트 버전의 Windows 8.1 이상, Windows 8, Windows 7, Windows XP 및 Windows Vista|
 
-    msi 파일을 로컬로 실행합니다. 그러면 **Microsoft Azure Cosmos DB ODBC 드라이버 설치 마법사**가 시작됩니다. 
+    msi 파일을 로컬로 실행합니다. 그러면 **Microsoft Azure Cosmos DB ODBC 드라이버 설치 마법사** 가 시작됩니다. 
 
 1. 기본 입력으로 ODBC 드라이버를 설치하여 설치 마법사를 완료합니다.
 
-1. 컴퓨터에서 **ODBC 데이터 원본 관리자** 앱을 엽니다. Windows 검색 상자에 **ODBC 데이터 원본**을 입력하여 이 작업을 수행할 수 있습니다. 
-    **드라이버** 탭을 클릭하고 **Microsoft Azure Cosmos DB ODBC 드라이버**가 표시되는지 확인하여 이 드라이버가 설치되어 있는지 확인할 수 있습니다.
+1. 컴퓨터에서 **ODBC 데이터 원본 관리자** 앱을 엽니다. Windows 검색 상자에 **ODBC 데이터 원본** 을 입력하여 이 작업을 수행할 수 있습니다. 
+    **드라이버** 탭을 클릭하고 **Microsoft Azure Cosmos DB ODBC 드라이버** 가 표시되는지 확인하여 이 드라이버가 설치되어 있는지 확인할 수 있습니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
 ## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>2 단계: Azure Cosmos 데이터베이스에 연결
 
-1. [Azure Cosmos DB ODBC 드라이버를 설치](#install)한 후 **ODBC 데이터 원본 관리자** 창에서 **추가**를 클릭합니다. 사용자 또는 시스템 DSN을 만들 수 있습니다. 이 예제에서는 사용자 DSN을 만듭니다.
+1. [Azure Cosmos DB ODBC 드라이버를 설치](#install)한 후 **ODBC 데이터 원본 관리자** 창에서 **추가** 를 클릭합니다. 사용자 또는 시스템 DSN을 만들 수 있습니다. 이 예제에서는 사용자 DSN을 만듭니다.
 
-1. **새 데이터 원본 만들기** 창에서 **Microsoft Azure Cosmos DB ODBC 드라이버**를 선택하고 **마침**을 클릭합니다.
+1. **새 데이터 원본 만들기** 창에서 **Microsoft Azure Cosmos DB ODBC 드라이버** 를 선택하고 **마침** 을 클릭합니다.
 
 1. **Azure Cosmos DB ODBC 드라이버 SDN 설정** 창에서 다음 정보를 입력합니다. 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
-    - **데이터 원본 이름**: ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
-    - **설명**: 데이터 원본에 대한 짧은 설명입니다.
-    - **호스트**: Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
-    - **액세스 키**: 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
+    - **데이터 원본 이름** : ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
+    - **설명** : 데이터 원본에 대한 짧은 설명입니다.
+    - **호스트** : Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
+    - **액세스 키** : 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자" 하위 키로 이동 합니다.
         - 마우스 오른쪽 단추를 클릭 하 여 새 **문자열** 값을 추가 합니다.
             - 값 이름: **Ignoresessiontoken**
             - 값 데이터: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자"::: 1 개
-    - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
-    - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
-    - **스키마 파일**: 다양한 옵션이 있습니다.
+    - **쿼리 일관성** : 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
+    - **재시도 횟수** : 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
+    - **스키마 파일** : 다양한 옵션이 있습니다.
         - 기본적으로이 항목을 그대로 두고 (비어 있음) 드라이버는 모든 컨테이너의 첫 번째 데이터 페이지를 검색 하 여 각 컨테이너의 스키마를 확인 합니다. 이를 컨테이너 매핑 이라고 합니다. 정의된 스키마 파일이 없이 경우 이 드라이버는 각 드라이버 세션을 검색하므로, DSN을 사용하는 애플리케이션의 시작 시간이 더 늘어날 수 있습니다. 따라서 DSN에 대한 스키마 파일을 항상 연결하는 것이 좋습니다.
-        - 스키마 편집기를 사용 하 여 만든 스키마 파일이 이미 있는 경우 **찾아보기**를 클릭 하 여 해당 파일로 이동 하 고 **저장**을 클릭 한 다음 **확인**을 클릭 합니다.
-        - 새 스키마를 만들려면 **확인**을 클릭하고 주 창에서 **스키마 편집기**를 클릭합니다. 그런 다음, 스키마 편집기 정보로 이동합니다. 새 스키마 파일을 만든 후 **고급 옵션** 창으로 돌아가 새로 만든 스키마 파일을 포함해야 합니다.
+        - 스키마 편집기를 사용 하 여 만든 스키마 파일이 이미 있는 경우 **찾아보기** 를 클릭 하 여 해당 파일로 이동 하 고 **저장** 을 클릭 한 다음 **확인** 을 클릭 합니다.
+        - 새 스키마를 만들려면 **확인** 을 클릭하고 주 창에서 **스키마 편집기** 를 클릭합니다. 그런 다음, 스키마 편집기 정보로 이동합니다. 새 스키마 파일을 만든 후 **고급 옵션** 창으로 돌아가 새로 만든 스키마 파일을 포함해야 합니다.
 
 1. 작업을 완료하고 **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창을 닫으면 새 사용자 DSN이 사용자 DSN 탭에 추가됩니다.
 
@@ -79,37 +80,37 @@ ODBC 드라이버를 살펴보겠습니다.
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>3 단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
 
-사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호**입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 아래 단계는 컨테이너 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 이 샘플링 방법은 컨테이너의 페이지에서 데이터를 검색 하 여 데이터의 구조를 확인 합니다. 컨테이너를 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컨테이너의 데이터가 동일한 경우 효율적이 고 빠릅니다. 컨테이너가 다른 유형의 데이터를 포함 하는 경우 [테이블 구분 기호 매핑 방법을](#table-mapping) 사용 하 여 컨테이너의 데이터 구조를 확인 하는 보다 강력한 샘플링 방법을 제공 하는 것이 좋습니다. 
+사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호** 입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 아래 단계는 컨테이너 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 이 샘플링 방법은 컨테이너의 페이지에서 데이터를 검색 하 여 데이터의 구조를 확인 합니다. 컨테이너를 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컨테이너의 데이터가 동일한 경우 효율적이 고 빠릅니다. 컨테이너가 다른 유형의 데이터를 포함 하는 경우 [테이블 구분 기호 매핑 방법을](#table-mapping) 사용 하 여 컨테이너의 데이터 구조를 확인 하는 보다 강력한 샘플링 방법을 제공 하는 것이 좋습니다. 
 
 1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 **ODBC 드라이버 DSN 설정 Azure Cosmos DB** 창에서 **스키마 편집기** 를 클릭 합니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
-1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
+1. **스키마 편집기** 창에서 **새로 만들기** 를 클릭합니다.
     **스키마 생성** 창에는 Azure Cosmos DB 계정의 모든 컨테이너가 표시 됩니다. 
 
-1. 샘플링할 컨테이너를 하나 이상 선택한 다음 **샘플**을 클릭 합니다. 
+1. 샘플링할 컨테이너를 하나 이상 선택한 다음 **샘플** 을 클릭 합니다. 
 
 1. **디자인 보기** 탭에 데이터베이스, 스키마 및 테이블이 표시됩니다. 테이블 보기에서 검색을 수행하면 열 이름(예: SQL 이름, 원본 이름 등)과 관련된 속성 집합이 표시됩니다.
     각 열에 대해 SQL 열 이름, SQL 형식, SQL 길이(해당되는 경우), 소수 자릿수(해당되는 경우), 전체 자릿수(해당되는 경우) 및 null 허용을 수정할 수 있습니다.
-    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 “_”로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
+    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column** 을 **true** 로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 “_”로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
     - **id** 열은 정규화된 스키마에서 기본 키로 사용되기 때문에 숨길 수 없는 유일한 필드입니다. 
 
-1. 스키마 정의를 완료 한 후 **파일**  |  **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
+1. 스키마 정의를 완료 한 후 **파일**  |  **저장** 을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장** 을 클릭 합니다.
 
-1. 이 스키마를 DSN과 함께 사용 하려면 odbc 데이터 원본 관리자를 사용 하 여 **Odbc 드라이버 DSN 설정 창 Azure Cosmos DB** 열고 **고급 옵션**을 클릭 한 다음 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
+1. 이 스키마를 DSN과 함께 사용 하려면 odbc 데이터 원본 관리자를 사용 하 여 **Odbc 드라이버 DSN 설정 창 Azure Cosmos DB** 열고 **고급 옵션** 을 클릭 한 다음 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
 
 ## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>4단계: 테이블 구분 기호 매핑 방법을 사용하여 스키마 정의 만들기
 
-사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호**입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 
+사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호** 입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 
 
 다음 단계에서는 **테이블 구분 기호** 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 컨테이너가 다른 유형의 데이터를 포함 하는 경우이 샘플링 방법을 사용 하는 것이 좋습니다. 이 방법을 사용하여 샘플링 범위를 특성 집합 및 해당 값으로 지정할 수 있습니다. 예를 들어 문서에 “Type” 속성이 포함된 경우 샘플링 범위를 이 속성의 값으로 지정할 수 있습니다. 샘플링의 최종 결과는 지정한 Type의 각 값에 대한 테이블 집합입니다. 예를 들어, Type = Car를 지정하면 Car 테이블이 생성되지만 Type = Plane을 지정하면 Plane 테이블이 생성됩니다.
 
 1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 ODBC 드라이버 DSN 설정 Azure Cosmos DB 창에서 **스키마 편집기** 를 클릭 합니다.
 
-1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
+1. **스키마 편집기** 창에서 **새로 만들기** 를 클릭합니다.
     **스키마 생성** 창에는 Azure Cosmos DB 계정의 모든 컨테이너가 표시 됩니다. 
 
-1. **샘플 뷰** 탭의 컨테이너를 선택 하 고 컨테이너에 대 한 **매핑 정의** 열에서 **편집**을 클릭 합니다. 그런 다음 **매핑 정의** 창에서 **테이블 구분 기호** 방법을 선택합니다. 그런 다음 아래 작업을 수행합니다.
+1. **샘플 뷰** 탭의 컨테이너를 선택 하 고 컨테이너에 대 한 **매핑 정의** 열에서 **편집** 을 클릭 합니다. 그런 다음 **매핑 정의** 창에서 **테이블 구분 기호** 방법을 선택합니다. 그런 다음 아래 작업을 수행합니다.
 
     a. **특성** 상자에 구분 기호 속성의 이름을 입력합니다. 이것은 문서에서 샘플링 범위로 지정하려는 속성(예: City)입니다. 그런 후 Enter 키를 누릅니다. 
 
@@ -117,16 +118,16 @@ ODBC 드라이버를 살펴보겠습니다.
 
     예를 들어 **특성** 값으로 City를 포함하고 city 값이 New York과 Dubai인 행만 포함하도록 테이블을 제한하려면 특성 상자에 City를 입력하고 **값** 상자에 New York을 입력한 후 Dubai를 입력합니다.
 
-1. **확인**을 클릭합니다. 
+1. **확인** 을 클릭합니다. 
 
-1. 샘플링할 컨테이너에 대 한 매핑 정의를 완료 한 후 **스키마 편집기** 창에서 **샘플**을 클릭 합니다.
+1. 샘플링할 컨테이너에 대 한 매핑 정의를 완료 한 후 **스키마 편집기** 창에서 **샘플** 을 클릭 합니다.
      각 열에 대해 SQL 열 이름, SQL 형식, SQL 길이(해당되는 경우), 소수 자릿수(해당되는 경우), 전체 자릿수(해당되는 경우) 및 null 허용을 수정할 수 있습니다.
-    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 `_`로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
+    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column** 을 **true** 로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 `_`로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
     - **id** 열은 정규화된 스키마에서 기본 키로 사용되기 때문에 숨길 수 없는 유일한 필드입니다. 
 
-1. 스키마 정의를 완료 한 후 **파일**  |  **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
+1. 스키마 정의를 완료 한 후 **파일**  |  **저장** 을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장** 을 클릭 합니다.
 
-1. **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창으로 돌아가 **고급 옵션**을 클릭합니다. 그런 다음 **스키마 파일** 상자에서 저장된 스키마 파일로 이동한 후 **확인**을 클릭합니다. **확인**을 다시 클릭하여 DSN을 저장합니다. 이렇게 하면 만든 스키마가 DSN에 저장됩니다. 
+1. **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창으로 돌아가 **고급 옵션** 을 클릭합니다. 그런 다음 **스키마 파일** 상자에서 저장된 스키마 파일로 이동한 후 **확인** 을 클릭합니다. **확인** 을 다시 클릭하여 DSN을 저장합니다. 이렇게 하면 만든 스키마가 DSN에 저장됩니다. 
 
 ## <a name="optional-set-up-linked-server-connection"></a>(선택 사항) 연결된 서버 연결 설정
 
@@ -190,9 +191,9 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 그런 다음 **뷰 정의** 창에서 다음을 수행합니다.
 
-1. **새로 만들기**를 클릭하고 뷰 이름(예: EmployeesfromSeattleView)을 입력하고 **확인**을 클릭합니다.
+1. **새로 만들기** 를 클릭하고 뷰 이름(예: EmployeesfromSeattleView)을 입력하고 **확인** 을 클릭합니다.
 
-1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](./sql-query-getting-started.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인**을 클릭합니다.
+1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](./sql-query-getting-started.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인** 을 클릭합니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
@@ -205,29 +206,29 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. Power BI Desktop을 엽니다.
 
-1. **데이터 가져오기**를 클릭합니다.
+1. **데이터 가져오기** 를 클릭합니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
-1. **데이터 가져오기** 창에서 **기타** | **ODBC** | **연결**을 클릭합니다.
+1. **데이터 가져오기** 창에서 **기타** | **ODBC** | **연결** 을 클릭합니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
-1. **ODBC에서** 창에서 만든 데이터 원본 이름을 선택하고 **확인**을 클릭합니다. **고급 옵션** 항목은 빈 상태로 두어도 됩니다.
+1. **ODBC에서** 창에서 만든 데이터 원본 이름을 선택하고 **확인** 을 클릭합니다. **고급 옵션** 항목은 빈 상태로 두어도 됩니다.
 
    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
-1. **ODBC 드라이버를 사용하여 데이터 원본에 액세스합니다.** 창에서 **기본 또는 사용자 지정**을 클릭하고 **연결**을 클릭합니다. **자격 증명 연결 문자열 속성**은 포함하지 않아도 됩니다.
+1. **ODBC 드라이버를 사용하여 데이터 원본에 액세스합니다.** 창에서 **기본 또는 사용자 지정** 을 클릭하고 **연결** 을 클릭합니다. **자격 증명 연결 문자열 속성** 은 포함하지 않아도 됩니다.
 
-1. **탐색 창**의 왼쪽 분할 창에서 데이터베이스, 스키마를 확장한 다음 테이블을 선택합니다. 결과 분할 창에는 만든 스키마를 사용하여 해당 데이터가 포함됩니다.
+1. **탐색 창** 의 왼쪽 분할 창에서 데이터베이스, 스키마를 확장한 다음 테이블을 선택합니다. 결과 분할 창에는 만든 스키마를 사용하여 해당 데이터가 포함됩니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
-1. Power BI desktop의 데이터를 시각화하려면 테이블 이름 앞의 확인란을 선택하고 **로드**를 클릭합니다.
+1. Power BI desktop의 데이터를 시각화하려면 테이블 이름 앞의 확인란을 선택하고 **로드** 를 클릭합니다.
 
 1. Power BI Desktop의 맨 왼쪽에서 데이터 탭을 선택 :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: 하 여 데이터를 가져왔는지 확인 합니다. 
 
-1. 이제 보고서 탭을 클릭 하 고 :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: **새 시각적 개체**를 클릭 한 다음 타일을 사용자 지정 하 여 Power BI를 사용 하 여 시각적 개체를 만들 수 있습니다. Power BI Desktop에서 시각화를 만드는 방법에 대한 자세한 내용은 [Power BI의 시각화 유형](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)을 참조하세요. 
+1. 이제 보고서 탭을 클릭 하 고 :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: **새 시각적 개체** 를 클릭 한 다음 타일을 사용자 지정 하 여 Power BI를 사용 하 여 시각적 개체를 만들 수 있습니다. Power BI Desktop에서 시각화를 만드는 방법에 대한 자세한 내용은 [Power BI의 시각화 유형](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)을 참조하세요. 
 
 ## <a name="troubleshooting"></a>문제 해결
 

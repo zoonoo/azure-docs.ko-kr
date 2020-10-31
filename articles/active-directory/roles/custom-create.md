@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254ab7a10eb9779706ee31e5a16d51fe03b7122b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377784"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097994"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -31,11 +31,11 @@ ms.locfileid: "92377784"
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대한 액세스 권한을 부여하는 새 사용자 지정 역할 만들기
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory** > **역할 및 관리자** > **새 사용자 지정 역할**을 선택합니다.
+1. **Azure Active Directory** > **역할 및 관리자** > **새 사용자 지정 역할** 을 선택합니다.
 
    ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/custom-create/new-custom-role.png)
 
-1. **기본** 탭에서 역할의 이름과 설명을 입력한 후, **다음**을 클릭합니다.
+1. **기본** 탭에서 역할의 이름과 설명을 입력한 후, **다음** 을 클릭합니다.
 
    ![기본 사항 탭에서 사용자 지정 역할의 이름 및 설명 제공](./media/custom-create/basics-tab.png)
 
@@ -44,8 +44,8 @@ ms.locfileid: "92377784"
 
       ![권한 탭에서 사용자 지정 역할에 대한 권한 선택](./media/custom-create/permissions-tab.png)
 
-   1. 그런 다음, 검색 창에 "기본"을 입력하고 `microsoft.directory/applications/basic/update` 권한을 선택한 후, **다음**을 클릭합니다.
-1. **검토 + 만들기** 탭에서 권한을 검토하고 **만들기**를 선택합니다.
+   1. 그런 다음, 검색 창에 "기본"을 입력하고 `microsoft.directory/applications/basic/update` 권한을 선택한 후, **다음** 을 클릭합니다.
+1. **검토 + 만들기** 탭에서 권한을 검토하고 **만들기** 를 선택합니다.
 
 사용자 지정 역할이 할당할 수 있는 역할 목록에 표시됩니다.
 
@@ -169,18 +169,18 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 기본 제공 역할과 마찬가지로 사용자 지정 역할은 기본적으로 조직 전체의 기본 범위에서 할당되어 조직의 모든 앱 등록에 대한 액세스 권한을 부여합니다. 그러나 기본 제공 역할과 달리 사용자 지정 역할은 단일 Azure AD 리소스의 범위에서 할당될 수도 있습니다. 이를 통해 두 번째 사용자 지정 역할을 만들지 않고도 단일 앱의 자격 증명 및 기본 속성을 업데이트할 수 있는 권한을 사용자에게 부여할 수 있습니다.
 
 1. Azure ad 조직에서 응용 프로그램 개발자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **앱 등록**을 선택합니다.
-1. 관리 권한을 부여하는 앱 등록을 선택합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션**을 선택해야 할 수도 있습니다.
+1. **앱 등록** 을 선택합니다.
+1. 관리 권한을 부여하는 앱 등록을 선택합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
 
     ![역할 할당에 대한 리소스 범위로 앱 등록을 선택합니다.](./media/custom-create/appreg-all-apps.png)
 
-1. 앱 등록에서 **역할 및 관리자**를 선택합니다. 아직 만들지 않은 경우 지침은 [이전 절차](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)에 있습니다.
+1. 앱 등록에서 **역할 및 관리자** 를 선택합니다. 아직 만들지 않은 경우 지침은 [이전 절차](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)에 있습니다.
 
 1. 역할을 선택하여 **할당** 페이지를 엽니다.
-1. **할당 추가**를 선택하여 사용자를 추가합니다. 사용자에게는 선택한 앱 등록에 대해서만 권한이 부여됩니다.
+1. **할당 추가** 를 선택하여 사용자를 추가합니다. 사용자에게는 선택한 앱 등록에 대해서만 권한이 부여됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 자유롭게 공유하세요.
 - 역할 및 관리자 역할 할당에 대한 자세한 내용은 [관리자 역할 할당](permissions-reference.md)을 참조하세요.
-- 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](/azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context)를 참조하세요.
+- 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](/azure/active-directory/fundamentals/users-default-permissions)를 참조하세요.

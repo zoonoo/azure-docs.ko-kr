@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a771ac1a831bc7994f28ba15139b66be346af02
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044603"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097761"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 중지 하거나 삭제 합니다.
 
@@ -30,7 +30,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 
 2. 실행 중인 Stream Analytics 작업을 찾아서 선택합니다.
 
-3. Stream Analytics 작업 페이지에서 **중지**를 선택하여 작업을 중지합니다. 
+3. Stream Analytics 작업 페이지에서 **중지** 를 선택하여 작업을 중지합니다. 
 
    ![Azure Stream Analytics 작업 중지](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
@@ -44,7 +44,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 
-3. Stream Analytics 작업 페이지에서 **삭제**를 선택하여 작업을 삭제합니다. 
+3. Stream Analytics 작업 페이지에서 **삭제** 를 선택하여 작업을 삭제합니다. 
 
    ![Azure Stream Analytics 작업 삭제](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
@@ -61,4 +61,4 @@ PowerShell을 사용 하 여 작업을 중지 하려면 [AzStreamAnalyticsJob](h
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>REST API를 사용하여 작업 중지 또는 삭제
 
-REST API를 사용하여 작업을 중지하려면 [중지](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop) 메서드를 참조합니다. REST API를 사용하여 작업을 삭제하려면 [삭제](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete) 메서드를 참조합니다.
+REST API를 사용하여 작업을 중지하려면 [중지](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) 메서드를 참조합니다. REST API를 사용하여 작업을 삭제하려면 [삭제](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) 메서드를 참조합니다.

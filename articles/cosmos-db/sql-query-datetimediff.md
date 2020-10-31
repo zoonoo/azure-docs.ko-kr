@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d51c8774a8646a4b961906ee77913d8edbe752ee
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095835"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-*지정 된 서 수* 와 *EndDate*사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
+*지정 된 서 수* 와 *EndDate* 사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -32,7 +33,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| 월        | "month", "mm", "m"   |
+| Month        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
@@ -44,14 +45,14 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *StartDate*  
     UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |형식|설명|
+  |서식|설명|
   |-|-|
   |YYYY|네 자리 연도|
   |MM|두 자리 월 (01 = 1 월 등)|
   |DD|월 (01-31)의 2 자리 숫자 일|
   |T|시간 요소 시작에 대 한 signifier|
   |hh|두 자리 시간 (00-23)|
-  |MM|두 자리 분 (00-59)|
+  |mm|두 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
   |. fffffff|7 자리 소수 자릿수 초|
   |Z|UTC (협정 세계시) 지정자||

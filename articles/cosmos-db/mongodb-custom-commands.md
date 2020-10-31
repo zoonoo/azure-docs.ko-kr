@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096549"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 합니다. 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 다음 문서에는 Azure Cosmos DB의 MongoDB API에만 적용 되는 사용자 지정 작업 명령이 포함 되어 있습니다. 이러한 명령을 사용 하 여 [Azure Cosmos DB 용량 모델과](account-databases-containers-items.md)관련 된 데이터베이스 리소스를 만들고 가져올 수 있습니다.
 
@@ -215,7 +216,7 @@ db.runCommand({customAction: "GetDatabase"});
 |---------|---------|---------|---------|
 | `customAction` | `string` | 필수 | 사용자 지정 명령의 이름입니다. "CreateCollection" 이어야 합니다.|
 | `collection` | `string` | 필수 | 컬렉션의 이름입니다. 특수 문자나 공백은 허용 되지 않습니다.|
-| `offerThroughput` | `int` | 옵션 | 데이터베이스에 설정할 프로 비전 된 처리량입니다. 이 매개 변수를 지정 하지 않으면 기본값은 최소, 400 r u/초입니다. * 1만 r u/초를 초과 하는 처리량을 지정 하려면 `shardKey` 매개 변수가 필요 합니다.|
+| `offerThroughput` | `int` | 선택 사항 | 데이터베이스에 설정할 프로 비전 된 처리량입니다. 이 매개 변수를 지정 하지 않으면 기본값은 최소, 400 r u/초입니다. * 1만 r u/초를 초과 하는 처리량을 지정 하려면 `shardKey` 매개 변수가 필요 합니다.|
 | `shardKey` | `string` | 처리량이 많은 컬렉션에 필요 합니다. | 분할 된 collection에 대 한 분할 키의 경로입니다. 이 매개 변수는에서 1만 이상/s를 설정 하는 경우에 필요 `offerThroughput` 합니다.  지정 된 경우에는 삽입 된 모든 문서에이 키와 값이 필요 합니다. |
 | `autoScaleSettings` | `Object` | [자동 크기 조정 모드](provision-throughput-autoscale.md) 에 필요 | 이 개체에는 자동 크기 조정 용량 모드와 관련 된 설정이 포함 됩니다. `maxThroughput`컬렉션이 동적으로 증가 하는 가장 많은 요청 단위를 설명 하는 값을 설정할 수 있습니다. |
 
@@ -234,7 +235,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들면 다음과 같습니다. 
+그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 다음은 그 예입니다. 
 
 ```javascript
 use test
@@ -423,7 +424,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 | `code`    |   `int`      |   명령이 실패 한 경우에만 반환 됩니다 (예: ok = = 0). MongoDB 오류 코드를 포함 합니다. 선택적 응답 매개 변수입니다.      |
 |  `errMsg`   |  `string`      |    명령이 실패 한 경우에만 반환 됩니다 (예: ok = = 0). 사용자에 게 친숙 한 오류 메시지를 포함 합니다. 선택적 응답 매개 변수입니다.      |
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```javascript
 { "ok" : 1 }

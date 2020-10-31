@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370766"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096889"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용 하 여 실시간 대시보드 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB 및 Azure Analysis Services를 사용 하 여 Power BI에서 라이브 날씨 대시보드를 만드는 데 필요한 단계를 설명 합니다. Power BI 대시보드는 지역에서 온도 및 강우량에 대 한 실시간 정보를 표시 하는 차트를 표시 합니다.
 
@@ -23,7 +24,7 @@ ms.locfileid: "92370766"
 Azure Cosmos DB에 저장 된 데이터에 대 한 보고 대시보드를 설정 하는 방법에는 여러 가지가 있습니다. 다음 표에서는 부실 요구 사항 및 데이터의 크기에 따라 각 시나리오에 대 한 보고 설정에 대해 설명 합니다.
 
 
-|시나리오 |설치 프로그램 |
+|시나리오 |설정 |
 |---------|---------|
 |1. 임시 보고서 생성 (새로 고침 안 함)    |  [가져오기 모드를 사용 하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
 |2. 정기적인 새로 고침을 사용 하 여 임시 보고서 생성   |  [가져오기 모드를 사용 하 Azure Cosmos DB 커넥터 Power BI (정기 새로 고침 예약 됨)](powerbi-visualize.md)       |
@@ -63,7 +64,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
    원본 데이터 집합에 있는 열과 데이터 형식에 따라 범위 시작 및 범위 끝 필드를 적절 하 게 변경할 수 있습니다.
 
    
-   |속성  |데이터 형식  |Assert  |
+   |속성  |데이터 형식  |필터  |
    |---------|---------|---------|
    |_ts     |   숫자      |  [_ts] > Duration. TotalSeconds #datetime (TotalSeconds (1970, 1, 1, 0, 0, 0)) 및 [_ts] < Duration. (범위 종료-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |날짜 (예:-2019-08-19)     |   String      | [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd")        |
@@ -74,7 +75,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Azure Cosmos DB Power BI 커넥터":::
 
-   *M 쿼리를 접을*확인할 수 없다는 경고를 무시 합니다. Azure Cosmos DB 커넥터는 필터 쿼리를 접기 합니다.
+   *M 쿼리를 접을* 확인할 수 없다는 경고를 무시 합니다. Azure Cosmos DB 커넥터는 필터 쿼리를 접기 합니다.
 
 1. **데이터를 로드 하 고 보고서를 생성** 합니다. 이전에 로드 한 데이터를 사용 하 여 온도 및 강우량 보고 하는 차트를 만듭니다.
 
@@ -101,11 +102,11 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png" alt-text="Azure Cosmos DB Power BI 커넥터":::
 
-1. **데이터 원본 Azure Cosmos DB 추가** - **모델** >  **데이터**원본  >  **새 데이터 원본** 으로 이동 하 고 다음 스크린샷에 표시 된 것 처럼 Azure Cosmos DB 데이터 원본을 추가 합니다.
+1. **데이터 원본 Azure Cosmos DB 추가** - **모델** >  **데이터** 원본  >  **새 데이터 원본** 으로 이동 하 고 다음 스크린샷에 표시 된 것 처럼 Azure Cosmos DB 데이터 원본을 추가 합니다.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Azure Cosmos DB Power BI 커넥터":::
 
-   **계정 URI**, **데이터베이스 이름**및 **컨테이너 이름을**제공 하 여 Azure Cosmos DB에 연결 합니다. 이제 Azure Cosmos container의 데이터를 Power BI로 가져왔는지 확인할 수 있습니다.
+   **계정 URI** , **데이터베이스 이름** 및 **컨테이너 이름을** 제공 하 여 Azure Cosmos DB에 연결 합니다. 이제 Azure Cosmos container의 데이터를 Power BI로 가져왔는지 확인할 수 있습니다.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Azure Cosmos DB Power BI 커넥터":::
 
@@ -140,7 +141,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Azure Cosmos DB Power BI 커넥터" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **이력** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Azure Analysis Server에 모델 배포** -Azure Analysis Services 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포**를 선택 합니다. **배포 서버 속성** 창에서 서버 이름을 추가 합니다.
+1. **Azure Analysis Server에 모델 배포** -Azure Analysis Services 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포** 를 선택 합니다. **배포 서버 속성** 창에서 서버 이름을 추가 합니다.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Azure Cosmos DB Power BI 커넥터":::
 

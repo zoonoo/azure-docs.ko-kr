@@ -7,14 +7,15 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096362"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API를 사용 하는 경우 쿼리 문제 해결
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. MongoDB에 대 한 Azure Cosmos DB의 API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결 하기 위한 시작 위치로이 문서를 사용 해야 합니다. Azure Cosmos DB core (SQL) API를 사용 하는 경우 [SQL api 쿼리 문제 해결 가이드](troubleshoot-query-performance.md) 문서를 참조 하세요.
 

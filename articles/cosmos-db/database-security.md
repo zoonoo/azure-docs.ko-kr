@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5b2457018daf716052b81a8b99c21e3248f185eb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487469"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096787"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 데이터베이스 보안 모범 사례 및 데이터베이스 위반을 차단, 검색 및 대응하기 위해 Azure Cosmos DB에서 제공하는 주요 기능에 대해 설명합니다.
 

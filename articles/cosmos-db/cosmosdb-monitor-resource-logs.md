@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 319713cd631b87d9f97af0db3d4a7b3af1c580ec
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18850fafd1f6cb084c9e5fdb9a24e9c4fd8bb4cc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097569"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다. Azure 리소스 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이러한 로그는 요청당 캡처되고 "데이터 평면 로그" 라고도 합니다. 데이터 평면 작업의 몇 가지 예로는 delete, insert 및 readFeed 있습니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926295"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097514"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 여러 지역 비용 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 언제든지 Azure Cosmos 계정에서 지역을 추가 및 제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성하는 처리량은 계정과 연결된 각 지역에 예약됩니다. 시간당 프로 비전 된 처리량이 Azure Cosmos 계정에 대 한 모든 데이터베이스 및 컨테이너에서 구성 된 r u/초의 합계이 `T` 고, 데이터베이스 계정과 연결 된 azure 지역 수는 이며 `N` , 지정 된 시간 동안 Cosmos 계정에 대해 프로 비전 된 총 처리량은와 같습니다 `T x N RU/s` .
 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8e3a0ac6996762bc7f4bd1a6d9dde8cfb59db662
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096430"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for MongoDB로 데이터를 마이그레이션하기 전에 다음을 수행해야 합니다.
 
@@ -30,13 +31,13 @@ MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for M
 
 다음은 Azure Cosmos DB의 API for MongoDB에 대한 특정 특성입니다.
 
-- **용량 모델**: Azure Cosmos DB의 데이터베이스 용량은 처리량 기반 모델을 기반으로 합니다. 이 모델은 초당 컬렉션에 대해 실행할 수 있는 데이터베이스 작업의 수를 나타내는 단위인 [초당 요청 단위](request-units.md)를 기반으로 합니다. 이 용량은 [데이터베이스 또는 컬렉션 수준](set-throughput.md)에서 할당될 수 있으며, 할당 모델에서 프로비저닝하거나 [자동 크기 조정 프로비저닝된 처리량](provision-throughput-autoscale.md)을 사용하여 프로비저닝할 수 있습니다.
+- **용량 모델** : Azure Cosmos DB의 데이터베이스 용량은 처리량 기반 모델을 기반으로 합니다. 이 모델은 초당 컬렉션에 대해 실행할 수 있는 데이터베이스 작업의 수를 나타내는 단위인 [초당 요청 단위](request-units.md)를 기반으로 합니다. 이 용량은 [데이터베이스 또는 컬렉션 수준](set-throughput.md)에서 할당될 수 있으며, 할당 모델에서 프로비저닝하거나 [자동 크기 조정 프로비저닝된 처리량](provision-throughput-autoscale.md)을 사용하여 프로비저닝할 수 있습니다.
 
-- **요청 단위**: 모든 데이터베이스 작업에는 Azure Cosmos DB에 관련된 RU(요청 단위) 비용이 포함됩니다. 이를 실행하면 지정된 초에 사용 가능한 요청 단위 수준에서 뺍니다. 요청에 현재 할당된 RU/초보다 많은 RU가 필요한 경우 문제를 해결하는 두 가지 옵션이 있습니다. RU의 용량을 늘리거나 다음 초가 시작될 때까지 기다린 후 작업을 다시 시도하세요.
+- **요청 단위** : 모든 데이터베이스 작업에는 Azure Cosmos DB에 관련된 RU(요청 단위) 비용이 포함됩니다. 이를 실행하면 지정된 초에 사용 가능한 요청 단위 수준에서 뺍니다. 요청에 현재 할당된 RU/초보다 많은 RU가 필요한 경우 문제를 해결하는 두 가지 옵션이 있습니다. RU의 용량을 늘리거나 다음 초가 시작될 때까지 기다린 후 작업을 다시 시도하세요.
 
-- **탄력적 용량**: 지정된 컬렉션 또는 데이터베이스에 대한 용량은 언제든지 변경할 수 있습니다. 이를 통해 데이터베이스는 워크로드의 처리량 요구 사항에 맞게 탄력적으로 적응할 수 있습니다.
+- **탄력적 용량** : 지정된 컬렉션 또는 데이터베이스에 대한 용량은 언제든지 변경할 수 있습니다. 이를 통해 데이터베이스는 워크로드의 처리량 요구 사항에 맞게 탄력적으로 적응할 수 있습니다.
 
-- **자동 분할**: Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partitioning-overview.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
+- **자동 분할** : Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partitioning-overview.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Azure Cosmos DB의 API for MongoDB에 대한 마이그레이션 옵션
 
@@ -56,11 +57,11 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 [Azure Cosmos DB 용량 계산기](https://cosmos.azure.com/capacitycalculator/)를 사용하여 데이터베이스 계정 구성, 데이터 양, 문서 크기 및 초당 필요한 읽기/쓰기를 기반으로 하는 요청 단위 크기를 결정할 수 있습니다.
 
 다음은 필수 RU의 수에 영향을 주는 주요 요소입니다.
-- **문서 크기**: 항목/문서의 크기가 증가함에 따라 항목/문서를 읽거나 쓰는 데 사용되는 RU 수도 증가합니다.
+- **문서 크기** : 항목/문서의 크기가 증가함에 따라 항목/문서를 읽거나 쓰는 데 사용되는 RU 수도 증가합니다.
 
-- **문서 속성 수**: 문서를 만들거나 업데이트하는 데 사용된 RU 수는 해당 속성의 수, 복잡성 및 길이와 관련이 있습니다. [인덱싱되는 속성 수를 제한](mongodb-indexing.md)하면 쓰기 작업에 대한 요청 단위 사용을 줄일 수 있습니다.
+- **문서 속성 수** : 문서를 만들거나 업데이트하는 데 사용된 RU 수는 해당 속성의 수, 복잡성 및 길이와 관련이 있습니다. [인덱싱되는 속성 수를 제한](mongodb-indexing.md)하면 쓰기 작업에 대한 요청 단위 사용을 줄일 수 있습니다.
 
-- **쿼리 패턴**: 쿼리의 복잡성은 쿼리에서 사용되는 요청 단위의 양에 영향을 줍니다. 
+- **쿼리 패턴** : 쿼리의 복잡성은 쿼리에서 사용되는 요청 단위의 양에 영향을 줍니다. 
 
 쿼리 비용을 이해하는 가장 좋은 방법은 Azure Cosmos DB에서 샘플 데이터를 사용하고 `getLastRequestStastistics` 명령을 사용하여 [MongoDB Shell에서 샘플 쿼리를 실행](connect-mongodb-account.md)하여 요청 요금을 가져오는 것입니다. 그러면 사용된 RU 수가 출력됩니다.
 

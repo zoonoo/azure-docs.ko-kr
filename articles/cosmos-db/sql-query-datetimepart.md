@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095804"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 지정 된 날짜/시간 사이에 지정 된 DateTimePart의 값을 반환 합니다.
   
@@ -32,7 +33,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| 월        | "month", "mm", "m"   |
+| Month        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
@@ -57,7 +58,7 @@ DateTimePart는 `undefined` 다음과 같은 이유로를 반환 합니다.
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음은 해당 월의 정수 값을 반환 하는 예입니다.
 

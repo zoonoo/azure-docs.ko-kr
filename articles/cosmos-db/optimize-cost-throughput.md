@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097467"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 관계없이 예측 가능한 성능을 제공합니다. 사전에 처리량을 예약하거나 프로비전하면 성능에 미치는 "노이즈 주변 효과"가 해소됩니다. 필요한 처리량의 정확한 크기를 지정하면 Azure Cosmos DB가 SLA에서 지원하는 구성된 처리량을 보장합니다.
 
@@ -30,7 +31,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 다음은 프로비전된 처리량 전략을 결정하기 위한 몇 가지 지침입니다.
 
-다음과 같은 **경우 Azure Cosmos 데이터베이스 (컨테이너 집합 포함)에서 처리량을 프로 비전 하는 것이 좋습니다**.
+다음과 같은 **경우 Azure Cosmos 데이터베이스 (컨테이너 집합 포함)에서 처리량을 프로 비전 하는 것이 좋습니다** .
 
 1. Azure Cosmos 컨테이너가 몇십 개 정도 있으며 일부 또는 전체에서 처리량을 공유하려고 합니다. 
 

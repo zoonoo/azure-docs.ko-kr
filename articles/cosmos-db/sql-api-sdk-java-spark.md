@@ -9,14 +9,16 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4ee7e180094c1584995e5d734adbe589a112754b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477575"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097161"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 Azure Cosmos DB Apache Spark 커넥터: 릴리스 정보 및 리소스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -42,7 +44,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 
 | 구성 요소 | 버전 |
 |---------|-------|
-| Apache Spark | 2.4.*x*, 2.3. *x*, 2.2. *x*및 2.1. *x* |
+| Apache Spark | 2.4. *x* , 2.3. *x* , 2.2. *x* 및 2.1. *x* |
 | Scala | 2.11 |
 | Azure Databricks (런타임 버전) | 3.4 이후 |
 

@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d215c9564d89e5bd410e68839807f5c2c752356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828514"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097960"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용 하는 방법
 
-가상 네트워크에서 Azure Machine Learning를 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할 수](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. 그러나 __사용자 지정 dns 서버를 사용 하는 경우__작업 영역에 대 한 dns 항목을 수동으로 만들어야 합니다.
+가상 네트워크에서 Azure Machine Learning를 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할 수](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. 그러나 __사용자 지정 dns 서버를 사용 하는 경우__ 작업 영역에 대 한 dns 항목을 수동으로 만들어야 합니다.
 
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
@@ -46,7 +46,7 @@ ms.locfileid: "91828514"
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* 계산 인스턴스를 만들 경우에 대 한 항목도 추가 해야 합니다 `<instance-name>.<region>.instances.azureml.ms` .
+* 계산 인스턴스를 만드는 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP를 사용 하 여에 대 한 항목도 추가 해야 합니다. 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
 
 VNet에서 Fqdn의 내부 IP 주소를 찾으려면 다음 방법 중 하나를 사용 합니다.
 
@@ -68,8 +68,8 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning __작업 영역__을 선택 합니다.
-1. __설정__ 섹션에서 __개인 끝점 연결__을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning __작업 영역__ 을 선택 합니다.
+1. __설정__ 섹션에서 __개인 끝점 연결__ 을 선택 합니다.
 1. 표시 되는 __개인 끝점__ 열에서 링크를 선택 합니다.
 1. 작업 영역 개인 끝점의 FQDN (정규화 된 도메인 이름) 및 IP 주소 목록은 페이지 맨 아래에 있습니다.
 
@@ -92,7 +92,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * 계산 인스턴스가 있는 경우 `<instance-name>.<region>.instances.azureml.ms` 를 사용 `<instance-name>` 합니다. 여기서은 계산 인스턴스의 이름입니다.
+> * 계산 인스턴스가 있는 경우 `<instance-name>.<region>.instances.azureml.ms` 를 사용 `<instance-name>` 합니다. 여기서은 계산 인스턴스의 이름입니다. 작업 영역 개인 끝점의 개인 IP 주소를 사용 하세요. 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
 >
 > 이러한 모든 IP 주소에 대해 `*.api.azureml.ms` 이전 단계에서 반환 된 항목과 동일한 주소를 사용 합니다.
 

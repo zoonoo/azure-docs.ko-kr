@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 15b4e6515f98a4d5a65bb5a56bdd5a5f40f90fe8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2016f00249da9abfa2f0904b14d6a34298973f99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096617"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 자습서에서는 Cosmos DB에서 데이터를 저장 및/또는 관리할 때 [MongoDB Compass](https://www.mongodb.com/products/compass)를 사용하는 방법을 보여 줍니다. 이 연습에서는 MongoDB용 Azure Cosmos DB API를 사용합니다. 사용 방법을 잘 모르는 사용자에게 Compass는 MongoDB용 GUI입니다. 일반적으로 데이터 관리와 함께 데이터를 시각화하고 임시 쿼리를 실행하는 데 사용됩니다.
 
@@ -38,21 +39,21 @@ Cosmos DB 계정을 Compass에 연결하려면 아래 단계를 따릅니다.
 
     :::image type="content" source="./media/mongodb-compass/mongodb-compass-connection.png" alt-text="연결 문자열 블레이드의 스크린샷":::
 
-2. Cosmos DB에서 **기본/보조 연결 문자열** 옆에 있는 **클립보드로 복사**라는 단추를 클릭합니다. 이 단추를 클릭하면 전체 연결 문자열이 클립보드로 복사됩니다.
+2. Cosmos DB에서 **기본/보조 연결 문자열** 옆에 있는 **클립보드로 복사** 라는 단추를 클릭합니다. 이 단추를 클릭하면 전체 연결 문자열이 클립보드로 복사됩니다.
 
     :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="연결 문자열 블레이드의 스크린샷":::
 
-3. 데스크톱/머신에서 Compass를 열고 **연결**, **연결 대상...** 을 차례로 클릭합니다.
+3. 데스크톱/머신에서 Compass를 열고 **연결** , **연결 대상...** 을 차례로 클릭합니다.
 
-4. Compass는 클립보드에서 연결 문자열을 자동으로 검색하며 연결하는 데 이 연결 문자열을 사용할지 묻는 메시지를 표시합니다. 아래 스크린샷과 같이 **예**를 클릭합니다.
+4. Compass는 클립보드에서 연결 문자열을 자동으로 검색하며 연결하는 데 이 연결 문자열을 사용할지 묻는 메시지를 표시합니다. 아래 스크린샷과 같이 **예** 를 클릭합니다.
 
     :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="연결 문자열 블레이드의 스크린샷":::
 
-5. 위 단계에서 **예**를 클릭하면 연결 문자열의 세부 정보가 자동으로 채워집니다. **복제본 세트 이름** 필드에서 채워진 값을 제거하여 비어 있는지 확인합니다.
+5. 위 단계에서 **예** 를 클릭하면 연결 문자열의 세부 정보가 자동으로 채워집니다. **복제본 세트 이름** 필드에서 채워진 값을 제거하여 비어 있는지 확인합니다.
 
     :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="연결 문자열 블레이드의 스크린샷":::
 
-6. 페이지 아래쪽에서 **연결**을 클릭합니다. 이제 Cosmos DB 계정 및 데이터베이스가 MongoDB Compass 내에 표시됩니다.
+6. 페이지 아래쪽에서 **연결** 을 클릭합니다. 이제 Cosmos DB 계정 및 데이터베이스가 MongoDB Compass 내에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

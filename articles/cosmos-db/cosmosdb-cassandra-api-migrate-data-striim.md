@@ -7,20 +7,21 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 749e0f7c2d79c03be052869d7d1d9539976a09c5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a9545bcbb8fbb71143b91a764795986f519c2262
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489305"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097767"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim를 사용 하 여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터베이스에서 Azure로의 지속적인 실시간 데이터 이동을 제공 합니다. 데이터를 이동 하는 동안 인라인 비 정규화, 데이터 변환을 수행 하 고 실시간 분석 및 데이터 보고 시나리오를 사용할 수 있습니다. Striim를 시작 하 여 계속 해 서 엔터프라이즈 데이터를 Azure Cosmos DB Cassandra API로 이동 하는 것이 쉽습니다. Azure는 Striim을 쉽게 배포 하 고 Azure Cosmos DB로 데이터를 마이그레이션할 수 있도록 해 주는 marketplace 제품을 제공 합니다. 
 
-이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassandra API 계정**으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
+이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassandra API 계정** 으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -30,11 +31,11 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **리소스 만들기** 를 선택 하 고 Azure Marketplace에서 **Striim** 를 검색 합니다. 첫 번째 옵션을 선택 하 고 **만들기**를 선택 합니다.
+1. **리소스 만들기** 를 선택 하 고 Azure Marketplace에서 **Striim** 를 검색 합니다. 첫 번째 옵션을 선택 하 고 **만들기** 를 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름**, **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독**, **리소스 그룹**및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인**을 선택 합니다.
+1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름** , **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독** , **리소스 그룹** 및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인** 을 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Striim marketplace 항목 찾기" 크기 VM을 사용 합니다. | 
    | Striim 클러스터의 이름|    <Striim_cluster_Name>|  Striim 클러스터의 이름입니다.|
@@ -42,11 +43,11 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    양식을 채운 후 **확인** 을 선택 하 여 계속 합니다.
 
-1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름**, **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
+1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름** , **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. Azure에서 배포의 유효성을 검사 하 고 모든 것이 양호한 지 확인 합니다. 유효성 검사를 완료 하는 데 몇 분이 걸립니다. 유효성 검사가 완료 되 면 **확인**을 선택 합니다.
+1. Azure에서 배포의 유효성을 검사 하 고 모든 것이 양호한 지 확인 합니다. 유효성 검사를 완료 하는 데 몇 분이 걸립니다. 유효성 검사가 완료 되 면 **확인** 을 선택 합니다.
   
 1. 마지막으로 사용 약관을 검토 하 고 **만들기** 를 선택 하 여 Striim 인스턴스를 만듭니다. 
 
@@ -62,7 +63,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. Azure Portal를 사용 하 여 [Azure Cosmos DB Cassandra API 계정을](create-cassandra-dotnet.md#create-a-database-account) 만듭니다.
 
-1. Azure Cosmos 계정의 **데이터 탐색기** 창으로 이동 합니다. 새 **테이블** 을 선택 하 여 새 컨테이너를 만듭니다. Oracle 데이터베이스에서 Azure Cosmos DB로 *제품* 및 *주문* 데이터를 마이그레이션하는 경우를 가정 합니다. Orders 컨테이너를 사용 하 여 **StriimDemo** 라는 새 Keyspace을 만듭니다. **1000 rus**를 사용 하 여 컨테이너를 프로 비전 합니다 (이 예제에서는 1000 rus를 사용 하지만 작업에 대해 예상 되는 처리량을 사용 해야 함) 및 **/ORDER_ID** 를 기본 키로 사용 합니다. 이러한 값은 원본 데이터에 따라 달라 집니다. 
+1. Azure Cosmos 계정의 **데이터 탐색기** 창으로 이동 합니다. 새 **테이블** 을 선택 하 여 새 컨테이너를 만듭니다. Oracle 데이터베이스에서 Azure Cosmos DB로 *제품* 및 *주문* 데이터를 마이그레이션하는 경우를 가정 합니다. Orders 컨테이너를 사용 하 여 **StriimDemo** 라는 새 Keyspace을 만듭니다. **1000 rus** 를 사용 하 여 컨테이너를 프로 비전 합니다 (이 예제에서는 1000 rus를 사용 하지만 작업에 대해 예상 되는 처리량을 사용 해야 함) 및 **/ORDER_ID** 를 기본 키로 사용 합니다. 이러한 값은 원본 데이터에 따라 달라 집니다. 
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-cassandra-api-account.png" alt-text="Striim marketplace 항목 찾기":::
 
@@ -122,7 +123,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드**, **앱**및 **sourcepreview**의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
+1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드** , **앱** 및 **sourcepreview** 의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
 
 1. **앱** 창을 선택 하면 지금은이 창에 집중할 것입니다. Striim에 대해 학습 하는 데 사용할 수 있는 다양 한 샘플 앱이 있습니다. 그러나이 문서에서는 사용자가 직접 만듭니다. 오른쪽 위 모서리에서 **앱 추가** 단추를 선택 합니다.
 
@@ -132,7 +133,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-app-from-scratch.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 응용 프로그램에 대 한 친숙 한 이름 (예: **oraToCosmosDB** )을 지정 하 고 **저장**을 선택 합니다.
+1. 응용 프로그램에 대 한 친숙 한 이름 (예: **oraToCosmosDB** )을 지정 하 고 **저장** 을 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="Striim marketplace 항목 찾기":::
 
@@ -140,7 +141,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/oracle-cdc-source.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. Oracle 인스턴스의 원본 구성 속성을 입력 합니다. 원본 이름은 Striim 응용 프로그램에 대 한 명명 규칙 일 뿐 이며  **src_onPremOracle**와 같은 이름을 사용할 수 있습니다. 또한 어댑터 유형, 연결 URL, 사용자 이름, 암호, 테이블 이름 등의 기타 세부 정보를 입력 합니다. **저장**을 선택하여 계속합니다.
+1. Oracle 인스턴스의 원본 구성 속성을 입력 합니다. 원본 이름은 Striim 응용 프로그램에 대 한 명명 규칙 일 뿐 이며  **src_onPremOracle** 와 같은 이름을 사용할 수 있습니다. 또한 어댑터 유형, 연결 URL, 사용자 이름, 암호, 테이블 이름 등의 기타 세부 정보를 입력 합니다. **저장** 을 선택하여 계속합니다.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-source-parameters.png" alt-text="Striim marketplace 항목 찾기":::
 
@@ -152,7 +153,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. 대상 Azure Cosmos DB 인스턴스의 구성 속성을 입력 하 고 **저장** 을 선택 하 여 계속 합니다. 유의 해야 할 주요 매개 변수는 다음과 같습니다.
 
-   * **어댑터** - **databasewriter**를 사용 합니다. Azure Cosmos DB Cassandra API에 쓸 때 DatabaseWriter가 필요 합니다. Cassandra driver 3.6.0는 Striim와 함께 제공 됩니다. DatabaseWriter가 Azure Cosmos 컨테이너에서 프로 비전 된 RUs 수를 초과 하면 응용 프로그램의 작동이 중단 됩니다.
+   * **어댑터** - **databasewriter** 를 사용 합니다. Azure Cosmos DB Cassandra API에 쓸 때 DatabaseWriter가 필요 합니다. Cassandra driver 3.6.0는 Striim와 함께 제공 됩니다. DatabaseWriter가 Azure Cosmos 컨테이너에서 프로 비전 된 RUs 수를 초과 하면 응용 프로그램의 작동이 중단 됩니다.
 
    * **연결 url** -Azure Cosmos DB JDBC 연결 url을 지정 합니다. URL의 형식은     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
@@ -166,12 +167,12 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 이제 계속 해 서 Striim 응용 프로그램을 실행 합니다. 상단 메뉴 모음에서 **만든**를 선택 하 고 **앱 배포**를 선택 합니다. 배포 창에서 배포 토폴로지의 특정 부분에 대해 응용 프로그램의 특정 부분을 실행할지 여부를 지정할 수 있습니다. Azure를 통해 간단한 배포 토폴로지에서를 실행 하 고 있으므로 기본 옵션을 사용 합니다.
+1. 이제 계속 해 서 Striim 응용 프로그램을 실행 합니다. 상단 메뉴 모음에서 **만든** 를 선택 하 고 **앱 배포** 를 선택 합니다. 배포 창에서 배포 토폴로지의 특정 부분에 대해 응용 프로그램의 특정 부분을 실행할지 여부를 지정할 수 있습니다. Azure를 통해 간단한 배포 토폴로지에서를 실행 하 고 있으므로 기본 옵션을 사용 합니다.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/deploy-the-app.png" alt-text="Striim marketplace 항목 찾기":::
 
 
-1. 이제 Striim을 통해 흐르는 데이터를 확인 하기 위해 스트림을 미리 봅니다. 웨이브 아이콘을 클릭 하 고 옆의 눈 모양 아이콘을 클릭 합니다. 을 배포한 후 스트림을 미리 보고 이동 하 여 데이터 흐름을 확인할 수 있습니다. **웨이브** 아이콘 및 옆의 **eyeball** 를 선택 합니다. 상단 메뉴 모음에서 **배포** 됨 단추를 선택 하 고 **앱 시작**을 선택 합니다.
+1. 이제 Striim을 통해 흐르는 데이터를 확인 하기 위해 스트림을 미리 봅니다. 웨이브 아이콘을 클릭 하 고 옆의 눈 모양 아이콘을 클릭 합니다. 을 배포한 후 스트림을 미리 보고 이동 하 여 데이터 흐름을 확인할 수 있습니다. **웨이브** 아이콘 및 옆의 **eyeball** 를 선택 합니다. 상단 메뉴 모음에서 **배포** 됨 단추를 선택 하 고 **앱 시작** 을 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-the-app.png" alt-text="Striim marketplace 항목 찾기":::
 

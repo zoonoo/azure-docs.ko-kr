@@ -6,14 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480074"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098045"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analytics를 긴밀하게 통합합니다. 이를 통해 고객은 트랜잭션 워크로드에서 성능을 완벽하게 분리하고 ETL 파이프라인 없이 운영 데이터를 거의 실시간으로 분석할 수 있습니다. 이 문서는 Azure Cosmos DB용 Synapse Link에 대한 일반적인 질문과 대답을 제공합니다.
 

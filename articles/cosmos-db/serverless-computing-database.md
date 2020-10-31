@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096141"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다. Azure의 다른 서버리스 실행 환경에 대해 자세히 알아보려면 [Azure의 서버리스](https://azure.microsoft.com/solutions/serverless/) 페이지를 참조하세요. 
 

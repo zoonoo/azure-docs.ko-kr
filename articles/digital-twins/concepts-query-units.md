@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ba765f03e7ac700fb4338e14358fc55e6423c47
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097042"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure Digital Twins의 쿼리 단위 
 
@@ -70,4 +70,4 @@ Azure Digital Twins 쿼리에 대 한 자세한 내용은 다음을 참조 하�
 * [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)
 * [쿼리 API 참조 설명서](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Azure Digital Twins 쿼리 관련 제한은 [*참조: 공개 미리 보기로*](reference-service-limits.md)제공 되는 서비스 제한에서 찾을 수 있습니다.
+Azure Digital Twins 쿼리 관련 한도는 [*참조: 서비스 제한*](reference-service-limits.md)으로 찾을 수 있습니다.

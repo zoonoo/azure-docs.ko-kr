@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039078"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097790"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
 
@@ -55,11 +55,11 @@ echo $response
  
 Stream Analytics 작업을 만들려면 Stream Analytics API를 사용하여 PUT 메서드를 호출합니다.
 
-|방법|요청 URL|
+|메서드|요청 URL|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-**curl**을 사용하는 명령 예제입니다.
+**curl** 을 사용하는 명령 예제입니다.
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,19 +136,19 @@ JSON에서 요청 본문의 예제입니다.
 } 
 ```
  
-자세한 내용은 [API 설명서](/rest/api/streamanalytics/stream-analytics-job)를 참조하세요.  
+자세한 내용은 [API 설명서](/rest/api/streamanalytics/)를 참조하세요.  
  
 ## <a name="publish-edge-package"></a>Edge 패키지 게시 
  
 IoT Edge에서 Stream Analytics 작업을 게시하려면 Edge Package Publish API를 사용하여 POST 메서드를 호출합니다.
 
-|방법|요청 URL|
+|메서드|요청 URL|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 작업이 성공적으로 게시될 때까지 이 비동기 작업은 202 상태를 반환합니다. 위치 응답 헤더는 프로세스의 상태를 가져오는 데 사용하는 URI를 포함합니다. 프로세스가 실행 중인 동안 위치 헤더의 URI에 대한 호출은 202 상태를 반환합니다. 프로세스가 끝났을 때 위치 헤더의 URI는 200 상태를 반환합니다. 
 
-**curl**을 사용하여 Edge 패키지 게시 호출의 예제입니다. 
+**curl** 을 사용하여 Edge 패키지 게시 호출의 예제입니다. 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 응답의 HEAD에 찾은 URL을 사용하여 API 호출을 수행하려면 다음 명령을 실행하기 전에 1~2분 정도 기다립니다. 200 응답을 얻지 못한 경우 명령을 다시 시도합니다.
  
-**curl**을 사용하여 반환된 URL로 API 호출을 만드는 예제입니다.
+**curl** 을 사용하여 반환된 URL로 API 호출을 만드는 예제입니다.
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

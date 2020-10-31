@@ -6,16 +6,17 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279850"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098028"
 ---
 # <a name="create-a-synthetic-partition-key"></a>가상 파티션 키 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-수백 또는 수천와 같이 고유 값이 많은 파티션 키를 사용 하는 것이 가장 좋습니다. 이러한 파티션 키 값과 연결된 항목에 데이터 및 워크로드를 균등하게 배포하는 것이 목표입니다. 이러한 속성이 데이터에 없으면 *가상 파티션 키*를 생성할 수 있습니다. 이 문서에서는 Cosmos 컨테이너에 대 한 가상 파티션 키를 생성 하는 몇 가지 기본 기법을 설명 합니다.
+수백 또는 수천와 같이 고유 값이 많은 파티션 키를 사용 하는 것이 가장 좋습니다. 이러한 파티션 키 값과 연결된 항목에 데이터 및 워크로드를 균등하게 배포하는 것이 목표입니다. 이러한 속성이 데이터에 없으면 *가상 파티션 키* 를 생성할 수 있습니다. 이 문서에서는 Cosmos 컨테이너에 대 한 가상 파티션 키를 생성 하는 몇 가지 기본 기법을 설명 합니다.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>항목의 여러 속성 연결
 

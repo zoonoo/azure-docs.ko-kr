@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056519"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097739"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -33,13 +33,13 @@ ms.locfileid: "88056519"
 
 ## <a name="set-the-compatibility-level"></a>호환성 수준 설정
 
-Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](/rest/api/streamanalytics/stream-analytics-job)을 사용 하 여 설정할 수 있습니다.
+Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](/azure/stream-analytics/stream-analytics-quick-create-portal)을 사용 하 여 설정할 수 있습니다.
 
 Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 를 사용 하 여 Stream Analytics 작업을 찾습니다.
 2. 호환성 수준을 업데이트 하기 전에 작업을 **중지** 합니다. 작업이 실행 중인 상태에서는 호환성 수준을 업데이트할 수 없습니다.
-3. **구성** 제목 아래에서 **호환성 수준**을 선택 합니다.
+3. **구성** 제목 아래에서 **호환성 수준** 을 선택 합니다.
 4. 원하는 호환성 수준 값을 선택 합니다.
 5. 페이지 맨 아래에서 **저장** 을 선택 합니다.
 
@@ -53,7 +53,7 @@ Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음�
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP 메시징 프로토콜
 
-**1.2 level**: Azure Stream Analytics는 [Amqp (Advanced Message queuing protocol)](../service-bus-messaging/service-bus-amqp-overview.md) 메시징 프로토콜을 사용 하 여 Service Bus 큐 및 토픽에 기록 합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다.
+**1.2 level** : Azure Stream Analytics는 [Amqp (Advanced Message queuing protocol)](../service-bus-messaging/service-bus-amqp-overview.md) 메시징 프로토콜을 사용 하 여 Service Bus 큐 및 토픽에 기록 합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다.
 
 ### <a name="geospatial-functions"></a>지리 공간적 함수
 
@@ -75,11 +75,11 @@ Azure Stream Analytics 지리 공간적 참조 데이터 인덱싱을 지원 합
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>CosmosDB 출력과 네이티브 대량 API 통합
 
-**이전 수준:** Upsert 동작이 *insert 또는 merge*입니다.
+**이전 수준:** Upsert 동작이 *insert 또는 merge* 입니다.
 
 **1.2 수준:** CosmosDB 출력과 네이티브 대량 API를 통합 하면 처리량이 최대화 되 고 제한 요청이 효율적으로 처리 됩니다. 자세한 내용은 [Azure Cosmos DB에 출력 Azure Stream Analytics 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12)를 참조 하세요.
 
-Upsert 동작은 *insert 또는 replace*입니다.
+Upsert 동작은 *insert 또는 replace* 입니다.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>SQL 출력에 쓸 때 DateTimeOffset
 
@@ -121,7 +121,7 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예를 들면 다음과 같습니다.
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

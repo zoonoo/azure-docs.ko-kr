@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 38129c920b422babfedf5d40bb362c7552f6f712
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097586"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB으로 마이그레이션하는 옵션
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 다양 한 데이터 원본에서 Azure Cosmos DB으로 데이터를 로드할 수 있습니다. Azure Cosmos DB는 여러 Api를 지원 하기 때문에 대상은 기존 Api 중 하나일 수 있습니다. 데이터를 Azure Cosmos DB으로 마이그레이션하는 몇 가지 시나리오는 다음과 같습니다.
 
@@ -28,19 +29,19 @@ ms.locfileid: "91951964"
 
 다음 요소는 마이그레이션 도구를 선택 하는 방법을 결정 합니다.
 
-* **온라인 및 오프 라인 마이그레이션**: 대부분의 마이그레이션 도구는 일회성 마이그레이션을 수행 하는 경로를 제공 합니다. 이는 데이터베이스에 액세스 하는 응용 프로그램에 가동 중지 시간이 발생할 수 있음을 의미 합니다. 일부 마이그레이션 솔루션은 원본 및 대상 간에 설정 된 복제 파이프라인이 있는 실시간 마이그레이션을 수행 하는 방법을 제공 합니다.
+* **온라인 및 오프 라인 마이그레이션** : 대부분의 마이그레이션 도구는 일회성 마이그레이션을 수행 하는 경로를 제공 합니다. 이는 데이터베이스에 액세스 하는 응용 프로그램에 가동 중지 시간이 발생할 수 있음을 의미 합니다. 일부 마이그레이션 솔루션은 원본 및 대상 간에 설정 된 복제 파이프라인이 있는 실시간 마이그레이션을 수행 하는 방법을 제공 합니다.
 
-* **데이터 원본**: 기존 데이터는 Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL 등과 같은 다양 한 데이터 원본에 있을 수 있습니다. 데이터는 기존 Azure Cosmos DB 계정에 있을 수 있으며 마이그레이션의 의도는 데이터 모델을 변경 하거나 다른 파티션 키를 사용 하 여 컨테이너의 데이터를 다시 분할할 수 있습니다.
+* **데이터 원본** : 기존 데이터는 Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL 등과 같은 다양 한 데이터 원본에 있을 수 있습니다. 데이터는 기존 Azure Cosmos DB 계정에 있을 수 있으며 마이그레이션의 의도는 데이터 모델을 변경 하거나 다른 파티션 키를 사용 하 여 컨테이너의 데이터를 다시 분할할 수 있습니다.
 
-* **AZURE COSMOS DB API**: AZURE COSMOS DB의 SQL api에는 여러 마이그레이션 시나리오를 지 원하는 Azure Cosmos DB 팀에서 개발한 여러 도구가 있습니다. 다른 모든 Api에는 커뮤니티에서 개발 하 고 유지 관리 하는 고유의 특수 도구 집합이 있습니다. Azure Cosmos DB는 유선 프로토콜 수준에서 이러한 Api를 지원 하기 때문에 데이터를 Azure Cosmos DB으로 마이그레이션하는 동안 이러한 도구는 그대로 작동 해야 합니다. 그러나이 개념은 Azure Cosmos DB에만 해당 되므로 제한에 대 한 사용자 지정 처리가 필요할 수 있습니다.
+* **AZURE COSMOS DB API** : AZURE COSMOS DB의 SQL api에는 여러 마이그레이션 시나리오를 지 원하는 Azure Cosmos DB 팀에서 개발한 여러 도구가 있습니다. 다른 모든 Api에는 커뮤니티에서 개발 하 고 유지 관리 하는 고유의 특수 도구 집합이 있습니다. Azure Cosmos DB는 유선 프로토콜 수준에서 이러한 Api를 지원 하기 때문에 데이터를 Azure Cosmos DB으로 마이그레이션하는 동안 이러한 도구는 그대로 작동 해야 합니다. 그러나이 개념은 Azure Cosmos DB에만 해당 되므로 제한에 대 한 사용자 지정 처리가 필요할 수 있습니다.
 
-* **데이터 크기**: 대부분의 마이그레이션 도구는 작은 데이터 집합에 대해 매우 잘 작동 합니다. 데이터 집합이 수백 기가바이트를 초과 하는 경우 마이그레이션 도구의 선택이 제한 됩니다. 
+* **데이터 크기** : 대부분의 마이그레이션 도구는 작은 데이터 집합에 대해 매우 잘 작동 합니다. 데이터 집합이 수백 기가바이트를 초과 하는 경우 마이그레이션 도구의 선택이 제한 됩니다. 
 
-* **예상 마이그레이션 기간**: 더 낮은 처리량을 사용 하는 속도가 느리거나 증분 속도로 진행 되도록 마이그레이션을 구성할 수 있습니다. 또는 대상 Azure Cosmos DB 컨테이너에서 프로 비전 된 전체 처리량을 사용 하 고 더 짧은 시간 안에 마이그레이션을 완료할 수 있습니다.
+* **예상 마이그레이션 기간** : 더 낮은 처리량을 사용 하는 속도가 느리거나 증분 속도로 진행 되도록 마이그레이션을 구성할 수 있습니다. 또는 대상 Azure Cosmos DB 컨테이너에서 프로 비전 된 전체 처리량을 사용 하 고 더 짧은 시간 안에 마이그레이션을 완료할 수 있습니다.
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 
-|마이그레이션 유형|솔루션|지원되는 원본|지원되는 대상|고려 사항|
+|마이그레이션 유형|해결 방법|지원되는 원본|지원되는 대상|고려 사항|
 |---------|---------|---------|---------|---------|
 |오프라인|[데이터 마이그레이션 도구](import-data.md)| &bull;JSON/CSV 파일<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure Blob Storage|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB Tables API<br/>&bull;JSON 파일 |&bull; 쉽게 설정 하 고 여러 소스를 지원할 수 있습니다. <br/>&bull; 대량 데이터 세트에 적합하지 않습니다.|
 |오프라인|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV 파일<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/> <br/>지원 되는 다른 소스는 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조 하세요.|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB<br/>&bull;JSON 파일 <br/><br/> 지원 되는 다른 대상은 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조 하세요. |&bull; 쉽게 설정 하 고 여러 소스를 지원할 수 있습니다.<br/>&bull; Azure Cosmos DB 대량 실행자 라이브러리를 사용 합니다. <br/>&bull; 대량 데이터 집합에 적합 합니다. <br/>&bull; 검사점 부족-마이그레이션 과정에서 문제가 발생 하는 경우 전체 마이그레이션 프로세스를 다시 시작 해야 함을 의미 합니다.<br/>&bull; 배달 못한 편지 큐가 없는 경우에는 일부 잘못 된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미 합니다.|
@@ -52,7 +53,7 @@ ms.locfileid: "91951964"
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API
 
-|마이그레이션 유형|솔루션|지원되는 원본|지원되는 대상|고려 사항|
+|마이그레이션 유형|해결 방법|지원되는 원본|지원되는 대상|고려 사항|
 |---------|---------|---------|---------|---------|
 |온라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API for MongoDB |&bull; Azure Cosmos DB 대량 실행자 라이브러리를 사용 합니다. <br/>&bull; 대량 데이터 집합에 적합 하며 라이브 변경 내용 복제를 처리 합니다. <br/>&bull; 다른 MongoDB 소스 에서만 작동 합니다.|
 |오프라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB API for MongoDB| &bull; Azure Cosmos DB 대량 실행자 라이브러리를 사용 합니다. <br/>&bull; 대량 데이터 집합에 적합 하며 라이브 변경 내용 복제를 처리 합니다. <br/>&bull; 다른 MongoDB 소스 에서만 작동 합니다.|
@@ -61,7 +62,7 @@ ms.locfileid: "91951964"
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
 
-|마이그레이션 유형|솔루션|지원되는 원본|지원되는 대상|고려 사항|
+|마이그레이션 유형|해결 방법|지원되는 원본|지원되는 대상|고려 사항|
 |---------|---------|---------|---------|---------|
 |오프라인|[cqlsh COPY 명령](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|CSV 파일 | Azure Cosmos DB Cassandra API| &bull; 설정 하기 쉽습니다. <br/>&bull; 대량 데이터 세트에 적합하지 않습니다. <br/>&bull; 원본이 Cassandra 테이블인 경우에만 작동 합니다.|
 |오프라인|[Spark를 사용 하 여 테이블 복사](cassandra-import-data.md#migrate-data-using-spark) | &bull;Apache Cassandra<br/>&bull;Azure Cosmos DB Cassandra API| Azure Cosmos DB Cassandra API | &bull; 는 Spark 기능을 활용 하 여 변환 및 수집을 병렬화 할 수 있습니다. <br/>&bull; 제한를 처리 하려면 사용자 지정 다시 시도 정책을 사용 하는 구성이 필요 합니다.|

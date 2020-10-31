@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440838"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097059"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
-Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프**를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
+Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍** 로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프** 를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
 
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.
@@ -25,13 +25,13 @@ Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**�
 
 Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조 하세요.
 
-모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥*의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor*이라는 *Floor*쌍, *Floor2*라는 다른 유형의 쌍). 
+모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥* 의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor* 이라는 *Floor* 쌍, *Floor2* 라는 다른 유형의 쌍). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>관계: 디지털 쌍의 그래프
 
 Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 있는 관계는 해당 모델의 일부로 정의 됩니다.  
 
-예를 들어 모델 *층* 은 *대화방*형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
+예를 들어 모델 *층* 은 *대화방* 형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
 
 이 프로세스의 결과는 그래프의 가장자리 (해당 관계)를 통해 연결 된 노드 (디지털 쌍) 집합입니다.
 
@@ -43,17 +43,20 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *대화방*형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *대화방* 형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
 
-Azure Digital Twins의 현재 미리 보기에서 쌍을 만들려면 쌍의 모든 속성을 초기화 해야 합니다. 이 작업은 필요한 초기화 값을 제공 하는 JSON 문서를 만들어 수행 합니다.
+쌍을 만들 때 쌍의 속성을 초기화 하거나 나중에 설정할 수 있습니다. 초기화 된 속성이 있는 쌍을 만들려면 필요한 초기화 값을 제공 하는 JSON 문서를 만듭니다.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털*쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
+사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털* 쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
+
+>[!NOTE]
+>쌍 속성은 선택적으로 처리 되므로 초기화할 필요가 없습니다. 쌍을 만들 때 쌍의 모든 [구성 요소](concepts-models.md#elements-of-a-model) 를 **설정 해야 합니다** . 비어 있는 개체 일 수 있지만 구성 요소 자체는 존재 해야 합니다.
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥*형식의 디지털 쌍과 *Cafe*라는 *방*형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥* 형식의 디지털 쌍과 *Cafe* 라는 *방* 형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -85,7 +88,7 @@ JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합
 | --- | --- |
 | `$dtId` | 디지털 쌍의 ID를 나타내는 사용자 제공 문자열입니다. |
 | `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
-| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 (*준수*, 일치 *하지 않음*, *알 수 없음*). |
+| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 ( *준수* , 일치 *하지 않음* , *알 수 없음* ). |
 | `{propertyName}` | JSON ( `string` , number 형식 또는 object)의 속성 값입니다. |
 | `$relationships` | 관계 컬렉션에 대 한 경로 URL입니다. 디지털 쌍에 나가는 관계 가장자리가 없으면이 필드가 없습니다. |
 | `$metadata.$model` | 필드 이 디지털 쌍의 특징을 나타내는 모델 인터페이스의 ID입니다. |

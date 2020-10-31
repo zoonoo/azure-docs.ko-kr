@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097535"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 스토리지 서비스에서 개별적으로 저장되고 이러한 백업은 지역 재해에 대비한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Azure Cosmos 계정, 데이터베이스 또는 컨테이너를 실수로 삭제하거나 업데이트하고 나중에 데이터를 복구해야 하는 시나리오에서 유용합니다.
 
@@ -53,13 +54,13 @@ Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 �
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
 
-계정을 만드는 동안 백업 옵션을 구성 하는 경우 **정기적** 으로 또는 **연속**되는 **백업 정책을**구성할 수 있습니다. 정기 정책을 사용 하면 백업 간격 및 백업 보존을 구성할 수 있습니다. 현재 연속 정책은 등록 전용으로 사용할 수 있습니다. Azure Cosmos DB 팀은 워크 로드를 평가 하 고 요청을 승인 합니다.
+계정을 만드는 동안 백업 옵션을 구성 하는 경우 **정기적** 으로 또는 **연속** 되는 **백업 정책을** 구성할 수 있습니다. 정기 정책을 사용 하면 백업 간격 및 백업 보존을 구성할 수 있습니다. 현재 연속 정책은 등록 전용으로 사용할 수 있습니다. Azure Cosmos DB 팀은 워크 로드를 평가 하 고 요청을 승인 합니다.
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>백업에서 데이터 복원 요청
 
-데이터베이스나 컨테이너를 실수로 삭제 한 경우 [지원 티켓을](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 제출 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **표준**, **개발자**및 계획 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요.
+데이터베이스나 컨테이너를 실수로 삭제 한 경우 [지원 티켓을](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 제출 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **표준** , **개발자** 및 계획 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요.
 
 백업의 특정 스냅샷을 복원하려면 Azure Cosmos DB에서 해당 스냅샷의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 복원을 요청하려면 다음 세부 정보가 필요합니다.

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096107"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Table API에 대한 질문과 대답
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB Table API는 [Azure Portal](https://portal.azure.com)에서 사용할 수 있습니다. 먼저 Azure 구독에 등록해야 합니다. 등록한 후에는 Azure 구독에 Azure Cosmos DB Table API 계정을 추가한 다음 계정에 테이블을 추가할 수 있습니다. [Azure Cosmos DB Table API 소개](table-introduction.md)에서 지원되는 언어와의 연결된 빠른 시작을 찾을 수 있습니다.
 
@@ -117,7 +118,7 @@ Azure Portal을 사용하여 데이터를 찾을 수 있습니다. 또한 Table 
 
 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 및 [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)는 모두 지원됩니다.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>예를 들어 *n*GB에서 시작한 데이터가 시간이 흘러 1TB까지 증가하게 되면 이 서비스의 경우 스토리지 크기를 어떻게 확장할 수 있나요?
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>예를 들어 *n* GB에서 시작한 데이터가 시간이 흘러 1TB까지 증가하게 되면 이 서비스의 경우 스토리지 크기를 어떻게 확장할 수 있나요?
 
 Azure Cosmos DB는 수평적 확장을 통해 무제한 스토리지를 제공하도록 설계되어 있습니다. 이 서비스는 스토리지를 모니터링하여 효율적으로 증가시킬 수 있습니다.
 
@@ -195,7 +196,7 @@ Table API는 Azure Cosmos DB라는 세계적으로 분산된 플랫폼을 활용
 
 예, 인덱스 정의를 제공하여 인덱싱 정책을 변경할 수 있습니다. 설정을 적절하게 인코딩 및 이스케이프해야 합니다.
 
-**데이터 탐색기**의 포털에서만 인덱싱 정책을 설정할 수 있는 비 .NET SDK의 경우 변경하려는 특정 테이블로 이동한 다음, **규모 및 설정**->인덱싱 정책으로 이동하여 필요한 내용을 변경한 다음, **저장**합니다.
+**데이터 탐색기** 의 포털에서만 인덱싱 정책을 설정할 수 있는 비 .NET SDK의 경우 변경하려는 특정 테이블로 이동한 다음, **규모 및 설정** ->인덱싱 정책으로 이동하여 필요한 내용을 변경한 다음, **저장** 합니다.
 
 .NET SDK에서 app.config 파일에 제출할 수 있습니다.
 

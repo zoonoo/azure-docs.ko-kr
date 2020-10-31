@@ -7,14 +7,15 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097552"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전히 관리되는 데이터베이스입니다. 데이터에 대한 짧은 대기 시간 액세스를 보장합니다. Azure Cosmos DB에 대한 자세한 내용은 [개요](introduction.md) 문서를 참조하세요. 이 문서에서는 Couchbase에 연결된 Java 애플리케이션을 Azure Cosmos DB의 SQL API 계정으로 마이그레이션하는 방법에 대한 지침을 제공합니다.
 
@@ -37,7 +38,7 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
 
 * Azure Cosmos DB에서는 컬렉션 이름이 이미 존재하기 때문에 최상위 계층 구조에서 컬렉션을 표시할 필요가 없습니다. 이 기능 덕분에 JSON 구조가 훨씬 간단해집니다. 다음은 데이터 모델에서 Couchbase와 Azure Cosmos DB 간 차이점을 보여 주는 예제입니다.
 
-   **Couchbase**: 문서 ID =  "99FF4444"
+   **Couchbase** : 문서 ID =  "99FF4444"
 
     ```json
     {
@@ -67,7 +68,7 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
     }
    ```
 
-   **Azure Cosmos DB**: 아래와 같이 문서 내에서 "ID"를 참조합니다.
+   **Azure Cosmos DB** : 아래와 같이 문서 내에서 "ID"를 참조합니다.
 
     ```json
     {
@@ -162,7 +163,7 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 
 ### <a name="insert-and-update-operations"></a>삽입 및 업데이트 작업
 
-여기서 *_repo*는 리포지토리의 개체이고 *doc*은 POJO 클래스의 개체입니다. `.save`를 사용하여 삽입하거나 upsert할 수 있습니다(지정된 ID의 문서가 있는 경우). 다음 코드 조각에서는 doc 개체를 삽입하거나 업데이트하는 방법을 보여 줍니다.
+여기서 *_repo* 는 리포지토리의 개체이고 *doc* 은 POJO 클래스의 개체입니다. `.save`를 사용하여 삽입하거나 upsert할 수 있습니다(지정된 ID의 문서가 있는 경우). 다음 코드 조각에서는 doc 개체를 삽입하거나 업데이트하는 방법을 보여 줍니다.
 
 ```_repo.save(doc);```
 
@@ -311,7 +312,7 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
 1. "/ID"를 기본 키로 사용하는 것이 좋습니다. 이렇게 하면 특정 파티션에서 직접 조회 작업을 수행할 수 있습니다. 컬렉션을 만들고 "/ID"를 파티션 키로 지정합니다.
 
-1. 인덱싱을 완전히 해제합니다. 조회 작업을 실행할 것이므로 인덱싱 오버헤드를 전달할 필요가 없습니다. 인덱싱을 끄려면 Azure Portal에 로그인하여 Azure Cosmos DB 계정으로 이동합니다. **데이터 탐색기**를 열고 **데이터베이스** 및 **컨테이너**를 선택합니다. **크기 조정 및 설정** 탭을 열고 **인덱싱 정책**을 선택합니다. 현재 인덱싱 정책은 다음과 같습니다.
+1. 인덱싱을 완전히 해제합니다. 조회 작업을 실행할 것이므로 인덱싱 오버헤드를 전달할 필요가 없습니다. 인덱싱을 끄려면 Azure Portal에 로그인하여 Azure Cosmos DB 계정으로 이동합니다. **데이터 탐색기** 를 열고 **데이터베이스** 및 **컨테이너** 를 선택합니다. **크기 조정 및 설정** 탭을 열고 **인덱싱 정책** 을 선택합니다. 현재 인덱싱 정책은 다음과 같습니다.
     
    ```json
    {

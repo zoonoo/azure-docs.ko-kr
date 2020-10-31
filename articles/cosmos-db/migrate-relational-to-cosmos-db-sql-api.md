@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487435"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096753"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정으로 일 대 일 관계형 데이터 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 관계형 데이터베이스에서 Azure Cosmos DB SQL API로 마이그레이션하려면 최적화를 위해 데이터 모델을 변경 해야 할 수 있습니다.
 
@@ -54,7 +55,7 @@ FROM Orders o;
 
 다음 방법 중 하나를 사용 하 여이 현재 제한을 해결할 수 있습니다.
 
-* **두 개의 복사 작업을 사용 하 여 Azure Data Factory를 사용**합니다. 
+* **두 개의 복사 작업을 사용 하 여 Azure Data Factory를 사용** 합니다. 
   1. SQL에서 중간 blob 저장소 위치의 텍스트 파일로 JSON 형식 데이터를 가져옵니다. 
   2. JSON 텍스트 파일의 데이터를 Azure Cosmos DB 컨테이너에 로드 합니다.
 

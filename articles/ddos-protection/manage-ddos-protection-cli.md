@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0307fcee207f045c2808b3c66e9911623391d486
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905481"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095546"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>빠른 시작: Azure CLI를 사용 하 여 Azure DDoS Protection Standard 만들기 및 구성
 
@@ -26,7 +26,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 로컬로 설치된 Azure CLI 또는 Azure Cloud Shell
@@ -107,8 +107,6 @@ az network ddos-protection show \
 
 명령이 DDoS 보호 계획의 올바른 세부 정보를 반환 하는지 확인 합니다.
 
-시뮬레이션을 통해 테스트
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 자습서에 대 한 리소스를 유지할 수 있습니다. 더 이상 필요 하지 않은 경우 _Myresourcegroup_ 리소스 그룹을 삭제 합니다. 리소스 그룹을 삭제 하면 DDoS 보호 계획과 관련 된 모든 리소스도 삭제 됩니다. 
@@ -136,4 +134,4 @@ DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분�
 DDoS 보호 계획에 대 한 원격 분석을 보고 구성 하는 방법을 알아보려면 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS protection 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)
+> [DDoS 보호 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)

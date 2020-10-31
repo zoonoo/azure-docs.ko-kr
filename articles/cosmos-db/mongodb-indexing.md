@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096481"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 MongoDB API는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용 합니다. 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용 하 여 인덱스를 추가 하는 방법을 중점적으로 설명 합니다. 모든 Api에서 관련 된 [Azure Cosmos DB의 인덱싱 개요](index-overview.md) 를 읽을 수도 있습니다.
 
@@ -121,7 +122,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**MongoDB와 달리 와일드 카드 인덱스는 쿼리 조건자의 여러 필드를 지원할 수 있습니다**. 각 속성에 대 한 별도의 인덱스를 만드는 대신 하나의 와일드 카드 인덱스를 사용 하는 경우 쿼리 성능에 차이가 없습니다.
+**MongoDB와 달리 와일드 카드 인덱스는 쿼리 조건자의 여러 필드를 지원할 수 있습니다** . 각 속성에 대 한 별도의 인덱스를 만드는 대신 하나의 와일드 카드 인덱스를 사용 하는 경우 쿼리 성능에 차이가 없습니다.
 
 와일드 카드 구문을 사용 하 여 다음과 같은 인덱스 유형을 만들 수 있습니다.
 
@@ -147,7 +148,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 - TTL
 - 고유한
 
-**MongoDB와 달리**MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
+**MongoDB와 달리** MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
 
 - 여러 특정 필드를 포함 하는 와일드 카드 인덱스 만들기
 

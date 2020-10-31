@@ -8,14 +8,15 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097892"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 특정 지역에 연결 문제가 있거나 지역 장애 조치가 발생 하는 경우 Azure Cosmos Sdk의 최신 버전에 대 한 동작을 설명 합니다.
 
@@ -34,7 +35,7 @@ ms.locfileid: "92319373"
 | 단일 쓰기 지역 | 기본 지역 | 주 지역  |
 | 여러 쓰기 지역 | 기본 지역 | 기본 지역  |
 
-**기본 지역을 설정 하지**않으면 SDK 클라이언트는 기본 지역으로 기본 설정 됩니다.
+**기본 지역을 설정 하지** 않으면 SDK 클라이언트는 기본 지역으로 기본 설정 됩니다.
 
 |계정 유형 |읽기 |쓰기 |
 |------------------------|--|--|
@@ -46,7 +47,7 @@ ms.locfileid: "92319373"
 
 일반적인 상황에서 SDK 클라이언트는 기본 지역 (지역 기본 설정이 설정 된 경우) 또는 주 지역 (기본 설정 되지 않은 경우)에 연결 되 고, 아래 시나리오 중 하나가 발생 하지 않는 한 작업은 해당 지역으로 제한 됩니다.
 
-이러한 경우, Azure Cosmos SDK를 사용 하는 클라이언트는 로그를 노출 하 고 **작업 진단 정보의**일부로 재시도 정보를 포함 합니다.
+이러한 경우, Azure Cosmos SDK를 사용 하는 클라이언트는 로그를 노출 하 고 **작업 진단 정보의** 일부로 재시도 정보를 포함 합니다.
 
 * .NET V2 SDK의 응답에 대 한 *RequestDiagnosticsString* 속성입니다.
 * .NET V3 SDK의 응답 및 예외에 대 한 *진단* 속성입니다.
