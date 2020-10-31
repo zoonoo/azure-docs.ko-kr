@@ -4,12 +4,12 @@ description: Azure Kubernetes Service와 Azure NetApp Files를 통합 하는 방
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126256"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
 
@@ -29,7 +29,6 @@ Azure NetApp Files 사용 하는 경우 다음 제한 사항이 적용 됩니다
 
 * Azure NetApp Files는 [선택한 Azure 지역][anf-regions]에서만 사용할 수 있습니다.
 * Azure NetApp Files를 사용 하려면 먼저 Azure NetApp Files 서비스에 대 한 액세스 권한이 있어야 합니다. 액세스를 위해를 적용 하려면 [Azure NetApp Files waitlist 제출 양식을][anf-waitlist]사용할 수 있습니다. Azure NetApp Files 팀에서 공식 확인 전자 메일을 받을 때까지 Azure NetApp Files 서비스에 액세스할 수 없습니다.
-* Azure NetApp Files 서비스는 AKS 클러스터와 동일한 가상 네트워크에 만들어야 합니다.
 * AKS 클러스터의 초기 배포 후 Azure NetApp Files에 대 한 정적 프로 비전이 지원 됩니다.
 * Azure NetApp Files에서 동적 프로비저닝을 사용 하려면 [Netapp Trident](https://netapp-trident.readthedocs.io/) 버전 19.07 이상을 설치 하 고 구성 합니다.
 
@@ -146,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들면 다음과 같습니다.
+PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 다음은 그 예입니다.
 
 ```yaml
 ---
@@ -178,7 +177,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들면 다음과 같습니다.
+PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 다음은 그 예입니다.
 
 ```yaml
 apiVersion: v1
@@ -208,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
 
-PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들면 다음과 같습니다.
+PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 다음은 그 예입니다.
 
 ```yaml
 kind: Pod

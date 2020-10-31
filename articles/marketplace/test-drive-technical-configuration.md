@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892624"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125685"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -50,7 +50,7 @@ Microsoft는 서비스 프로 비전 및 프로 비전 해제를 호스트 하 �
 
 - **시험 사용 기간** (필수) – 시험 사용이 활성 상태로 유지되는 기간(시간 단위)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다.
 
-- **Azure 리소스 그룹 이름** (필수)-논리 앱 테스트 드라이브가 저장 되는 [azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)이름을 입력 합니다.
+- **Azure 리소스 그룹 이름** (필수)-논리 앱 테스트 드라이브가 저장 되는 [azure 리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)이름을 입력 합니다.
 
 - **Azure 논리 앱 이름** (필수) – 시험 사용을 사용자에게 할당하는 논리 앱의 이름을 입력합니다. 이 논리 앱은 위의 Azure 리소스 그룹에 저장되어야 합니다.
 
@@ -60,7 +60,7 @@ Microsoft는 서비스 프로 비전 및 프로 비전 해제를 호스트 하 �
 
 대화형 Power BI 시각적 개체를 시연하려는 제품은 포함된 링크를 사용하여 사용자 지정 빌드 대시보드를 시험 사용으로 공유할 수 있으며 추가 기술 구성은 필요하지 않습니다. 여기서는 포함 된 Power BI URL을 업로드 하기만 하면 됩니다.
 
-Power BI 앱을 설정 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](https://docs.microsoft.com/power-bi/service-template-apps-overview) 을 참조 하세요.
+Power BI 앱을 설정 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](/power-bi/service-template-apps-overview) 을 참조 하세요.
 
 ## <a name="deployment-subscription-details"></a>배포 구독 세부 정보
 

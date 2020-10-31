@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530064"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125634"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -33,10 +33,10 @@ AKS 클러스터를 만들 경우 GPU 지원 또는 많은 강력한 CPU를 사�
 
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
-* **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
-* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.**
+* **Taint** 는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
+* A <bpt id="p1">**</bpt>toleration<ept id="p1">**</ept> is then applied to a pod that allows them to <bpt id="p2">*</bpt>tolerate<ept id="p2">*</ept> a node's taint.
 
-Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 GPU를 지 원하는 노드에 대해 AKS 클러스터에 노드 풀이 있다고 가정 합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
+Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 GPU를 지 원하는 노드에 대해 AKS 클러스터에 노드 풀이 있다고 가정 합니다. 이름(예: *gpu* )을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule* 로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -80,14 +80,14 @@ AKS에서 노드 풀을 업그레이드 하는 경우 taints 및 tolerations는 
 - **Virtual machine scale sets를 사용 하는 기본 클러스터**
   - AKS API에서 [nodepool을 taint][taint-node-pool] 하 여 새로 확장 된 노드가 API 지정 노드 taints를 받도록 할 수 있습니다.
   - 2 개 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 보겠습니다 *.* 노드 풀을 업그레이드 합니다.
-  - *Node3* 및 *node4*라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
+  - *Node3* 및 *node4* 라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
   - 원래 *node1* 및 *노드* 2가 삭제 됩니다.
 
 - **가상 컴퓨터 확장 집합이 지원 되지 않는 클러스터**
-  - 다시 한 번, 2 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 *보겠습니다.* 업그레이드 하면 추가 노드 (*node3*)가 생성 됩니다.
-  - *Node1* 의 taints가 *node3*에 적용 된 후 *node1* 이 삭제 됩니다.
-  - 새 노드 (이전 *node1* 은 삭제 *된 이후*)가 생성 되 *고 노드 2 taints가* 새 *node1*에 적용 됩니다. 그런 다음 *노드* 2가 삭제 됩니다.
-  - 기본적으로 *node1* 은 *node3*이 되 고, *노드* 2는 *node1*이 됩니다.
+  - 다시 한 번, 2 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 *보겠습니다.* 업그레이드 하면 추가 노드 ( *node3* )가 생성 됩니다.
+  - *Node1* 의 taints가 *node3* 에 적용 된 후 *node1* 이 삭제 됩니다.
+  - 새 노드 (이전 *node1* 은 삭제 *된 이후* )가 생성 되 *고 노드 2 taints가* 새 *node1* 에 적용 됩니다. 그런 다음 *노드* 2가 삭제 됩니다.
+  - 기본적으로 *node1* 은 *node3* 이 되 고, *노드* 2는 *node1* 이 됩니다.
 
 AKS에서 노드 풀의 크기를 조정 하는 경우 taints 및 tolerations은 설계를 통해 전달 되지 않습니다.
 
@@ -113,7 +113,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -131,9 +131,9 @@ spec:
 
 ### <a name="node-affinity"></a>노드 선호도
 
-노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도*를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다.** 또는 일치를 ‘선호’할 수 있지만 일치 항목이 없는 경우 다른 호스트에서 Pod을 예약할 수 있습니다.**
+노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도* 를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다.  또는 일치를 ‘선호’할 수 있지만 일치 항목이 없는 경우 다른 호스트에서 Pod을 예약할 수 있습니다. 
 
-다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution*으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. Pod가 다른 노드에서 예약 되도록 하려면 값을 *preferredDuringSchedulingIgnoreDuringExecution*로 설정 하면 됩니다.
+다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution* 으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. Pod가 다른 노드에서 예약 되도록 하려면 값을 *preferredDuringSchedulingIgnoreDuringExecution* 로 설정 하면 됩니다.
 
 ```yaml
 kind: Pod
@@ -143,7 +143,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -167,7 +167,7 @@ spec:
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Pod 간 선호도 및 선호도 방지
 
-Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가지 마지막 접근 방식은 Pod 간 선호도 또는 선호도 방지를 사용하는 것입니다. 설정은 기존 일치하는 Pod가 있는 노드에서 Pod가 예약’되지 않도록’ 정의하거나 Pod가 예약’되도록’ 정의합니다.**** 기본적으로 Kubernetes 스케줄러는 전체 노드의 복제본 세트에서 여러 Pod를 예약하려고 시도합니다. 이 동작에 관한 보다 구체적인 규칙을 정의할 수 있습니다.
+Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가지 마지막 접근 방식은 Pod 간 선호도 또는 선호도 방지를 사용하는 것입니다. 설정은 기존 일치하는 Pod가 있는 노드에서 Pod가 예약’되지 않도록’ 정의하거나 Pod가 예약’되도록’ 정의합니다.  기본적으로 Kubernetes 스케줄러는 전체 노드의 복제본 세트에서 여러 Pod를 예약하려고 시도합니다. 이 동작에 관한 보다 구체적인 규칙을 정의할 수 있습니다.
 
 좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음 선호도 규칙을 사용 하 여 각 웹 앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약 되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
 

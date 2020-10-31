@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891954"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127351"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 테이블 저장소 출력
 
@@ -28,7 +28,7 @@ ms.locfileid: "90891954"
 | 테이블 이름 |테이블의 이름입니다. 테이블이 없는 경우 새로 만들어집니다. |
 | 파티션 키 |파티션 키가 포함된 출력 열의 이름입니다. 파티션 키는 엔터티 기본 키의 첫 번째 부분을 구성하는 테이블 내의 파티션에 대한 고유 식별자입니다. 최대 1KB의 문자열 값입니다. |
 | 행 키. |행 키가 포함된 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대한 고유 식별자입니다. 엔터티 기본 키의 두 번째 부분을 구성합니다. 행 키는 최대 1KB의 문자열 값입니다. |
-| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 처리 작업 사양](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation)을 참조하세요. |
+| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 처리 작업 사양](/java/api/com.microsoft.azure.storage.table.tablebatchoperation)을 참조하세요. |
 
 ## <a name="partitioning"></a>분할
 

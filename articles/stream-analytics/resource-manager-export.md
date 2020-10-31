@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: c421c730321213a9adbf0a0043874a21ba26bb05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2afebe61c4b2998692c823e66d8fc73584ec1dc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906231"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125651"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 
@@ -24,7 +24,7 @@ Azure Resource Manager 템플릿을 내보내 Azure Stream Analytics 작업을 �
 
 템플릿을 내보내려면 먼저 Visual Studio Code에서 기존 Stream Analytics 작업을 열어야 합니다. 
 
-작업을 로컬 프로젝트로 내보내려면 Azure Portal의 **Stream Analytics 탐색기** 에서 내보내려는 작업을 찾습니다. **쿼리** 페이지에서 **Visual Studio에서 열기**를 선택 합니다. 그런 다음 **Visual Studio Code**를 선택 합니다.
+작업을 로컬 프로젝트로 내보내려면 Azure Portal의 **Stream Analytics 탐색기** 에서 내보내려는 작업을 찾습니다. **쿼리** 페이지에서 **Visual Studio에서 열기** 를 선택 합니다. 그런 다음 **Visual Studio Code** 를 선택 합니다.
 
 ![Visual Studio Code에서 Stream Analytics 작업 열기](./media/resource-manager-export/open-job-vs-code.png)
 
@@ -42,7 +42,7 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 1. Stream Analytics 작업 작업 영역에 **배포** 폴더가 표시 됩니다.
 
-1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 파일 * 의JobTemplate.js* 를 탐색 합니다.
+1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 파일 *의JobTemplate.js* 를 탐색 합니다.
 
 ## <a name="complete-the-parameters-file"></a>매개 변수 파일을 완성 합니다.
 
@@ -58,9 +58,9 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 이전 섹션에서 생성 한 Azure Resource Manager 템플릿을 사용 하 여 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
 
-PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름으로 *ResourceGroupName*, reaplce *파일*및 템플릿 *parameterfile* 을 하 고 작업 작업 영역의 **배포 폴더** 에 있는 파일에 대 한 전체 파일 *JobTemplate.js* 경로를 사용 하 여 *JobTemplate.parameters.js* 해야 합니다.
+PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름으로 *ResourceGroupName* , reaplce *파일* 및 템플릿 *parameterfile* 을 하 고 작업 작업 영역의 **배포 폴더** 에 있는 파일에 대 한 전체 파일 *JobTemplate.js* 경로를 사용 하 여 *JobTemplate.parameters.js* 해야 합니다.
 
-Azure PowerShell 구성 되지 않은 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 단계를 따르세요.
+Azure PowerShell 구성 되지 않은 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)의 단계를 따르세요.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"

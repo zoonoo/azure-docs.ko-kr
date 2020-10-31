@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126722"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -46,7 +46,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 등록 수수료가 있나요?
 
-아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [AZURE IP 공동 판매](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized 제품 및 하나의 Microsoft 팀 앱 또는 두 Microsoft 365 개 이상의 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결 된 appsource의 유료 SaaS 제품에 대해 줄어듭니다.
+아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [AZURE IP 공동 판매](./marketplace-co-sell.md) incentivized 제품 및 하나의 Microsoft 팀 앱 또는 두 Microsoft 365 개 이상의 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결 된 appsource의 유료 SaaS 제품에 대해 줄어듭니다.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에서 게시자로 가입하려면 어떻게 해야 하나요?
 
@@ -106,7 +106,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 새 사용자 계정을 만들거나 기본 디렉터리에 게스트 계정을 초대하려면 Azure AD(Azure Active Directory) ‘전역 관리자’ 권한이 필요합니다. 파트너 센터는 Azure AD를 ID 모델에 적용하고 조직의 Azure AD 인스턴스는 종종 IT 또는 보안 팀에서 관리하고 제어합니다.
 
-자세한 내용은 [사용자 역할 및 권할 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.
+자세한 내용은 [사용자 역할 및 권할 할당](/partner-center/permissions-overview)을 참조하세요.
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>고객에게 Microsoft Azure Cloud Services에 대한 구독이 필요한가요?
 

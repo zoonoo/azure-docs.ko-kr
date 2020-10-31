@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125872"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -26,8 +26,8 @@ HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes
 
 추가 기능에서는 [Kubernetes 수신 컨트롤러][ingress] 와 [외부 DNS][external-dns] 컨트롤러의 두 구성 요소를 배포 합니다.
 
-- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
-- **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
+- **수신 컨트롤러** : 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
+- **외부 DNS 컨트롤러** : Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
 
@@ -40,7 +40,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 > [!TIP]
 > 여러 개의 추가 기능을 사용하려는 경우 쉼표로 구분된 목록으로 제공합니다. 예를 들어 HTTP 애플리케이션 라우팅 및 모니터링을 사용하려면 `--enable-addons http_application_routing,monitoring` 형식을 사용합니다.
 
-[az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
+[az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing* 을 지정합니다.
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
@@ -78,7 +78,7 @@ Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *Myresourcegroup*에서 *MyAKSCluster* 라는 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *Myresourcegroup* 에서 *MyAKSCluster* 라는 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -93,7 +93,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-**samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
+**samples-http-application-routing.yaml** 이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Aks (예: *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* )에 대 한 웹 브라우저를 열고 데모 응용 프로그램이 표시 되는지 확인 *합니다. \<CLUSTER_SPECIFIC_DNS_ZONE\> * 응용 프로그램을 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
+Aks (예: *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* )에 대 한 웹 브라우저를 열고 데모 응용 프로그램이 표시 되는지 확인 *합니다. \<CLUSTER_SPECIFIC_DNS_ZONE\>* 응용 프로그램을 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="remove-http-routing"></a>HTTP 라우팅 제거
 
@@ -173,7 +173,7 @@ Azure CLI를 사용하여 HTTP 라우팅 솔루션을 제거할 수 있습니다
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-HTTP 애플리케이션 라우팅 추가 기능을 비활성화하면 일부 Kubernetes 리소스는 클러스터에서 남아 있을 수 있습니다. 이러한 리소스는 *configMaps* 및 *secrets*를 포함하며 *kube 시스템* 네임스페이스에서 만들어집니다. 정리 클러스터를 유지하려면 이러한 리소스를 제거하는 것이 좋습니다.
+HTTP 애플리케이션 라우팅 추가 기능을 비활성화하면 일부 Kubernetes 리소스는 클러스터에서 남아 있을 수 있습니다. 이러한 리소스는 *configMaps* 및 *secrets* 를 포함하며 *kube 시스템* 네임스페이스에서 만들어집니다. 정리 클러스터를 유지하려면 이러한 리소스를 제거하는 것이 좋습니다.
 
 다음 [kubectl get][kubectl-get] 명령을 사용하여 *addon-http-application-routing* 리소스를 찾습니다.
 

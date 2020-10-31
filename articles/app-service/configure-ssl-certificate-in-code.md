@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311821"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126042"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service의 코드에서 TLS/SSL 인증서 사용
 
@@ -31,7 +31,7 @@ TLS/SSL 인증서를 App Service 관리 하도록 허용 하는 경우 인증서
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정**을 선택 하 고 **개인 키 인증서 (.Pfx)** 또는 **공개 키 인증서 (.cer)** 를 선택 합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** 을 선택 하 고 **개인 키 인증서 (.Pfx)** 또는 **공개 키 인증서 (.cer)** 를 선택 합니다.
 
 사용 하려는 인증서를 찾고 지문을 복사 합니다.
 
@@ -49,10 +49,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="load-certificate-in-windows-apps"></a>Windows 앱에서 인증서 로드
 
-`WEBSITE_LOAD_CERTIFICATES`앱 설정은 windows 인증서 저장소의 windows 호스트 된 앱에서 지정 된 인증서에 액세스할 수 있도록 하며, 위치는 [가격 책정 계층](overview-hosting-plans.md)에 따라 달라 집니다.
-
-- **격리** 된 계층- [로컬 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- 다른 모든 계층- [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+`WEBSITE_LOAD_CERTIFICATES`앱 설정을 사용 하면 [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores)windows 인증서 저장소의 windows 호스팅된 앱에서 지정 된 인증서에 액세스할 수 있습니다.
 
 C # 코드에서는 인증서 지 문으로 인증서에 액세스 합니다. 다음 코드는 `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` 지문으로 인증서를 로드합니다.
 
@@ -151,7 +148,7 @@ Node.js, PHP, Python, Java 또는 Ruby의 파일에서 TLS/SSL 인증서를 로�
 > Windows 컨테이너에 인증서 경로를 삽입 App Service 다음 환경 변수,, `WEBSITE_PRIVATE_CERTS_PATH` `WEBSITE_INTERMEDIATE_CERTS_PATH` `WEBSITE_PUBLIC_CERTS_PATH` 및 `WEBSITE_ROOT_CERTS_PATH` 입니다. 나중에 인증서 경로가 변경 되는 경우 인증서 경로를 하드 코딩 하는 대신 환경 변수를 사용 하 여 인증서 경로를 참조 하는 것이 좋습니다.
 >
 
-또한 [Windows Server Core 컨테이너](configure-custom-container.md#supported-parent-images) 는 **LocalMachine\My**에서 인증서를 인증서 저장소에 자동으로 로드 합니다. 인증서를 로드 하려면 [Windows 앱에서 인증서를 로드](#load-certificate-in-windows-apps)하는 것과 동일한 패턴을 따릅니다. Windows Nano 기반 컨테이너의 경우 위에 제공 된 파일 경로를 사용 하 여 [파일에서 직접 인증서를 로드](#load-certificate-from-file)합니다.
+또한 [Windows Server Core 컨테이너](configure-custom-container.md#supported-parent-images) 는 **LocalMachine\My** 에서 인증서를 인증서 저장소에 자동으로 로드 합니다. 인증서를 로드 하려면 [Windows 앱에서 인증서를 로드](#load-certificate-in-windows-apps)하는 것과 동일한 패턴을 따릅니다. Windows Nano 기반 컨테이너의 경우 위에 제공 된 파일 경로를 사용 하 여 [파일에서 직접 인증서를 로드](#load-certificate-from-file)합니다.
 
 다음 c # 코드는 Linux 앱에서 공용 인증서를 로드 하는 방법을 보여 줍니다.
 

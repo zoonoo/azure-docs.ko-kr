@@ -7,28 +7,28 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 4bcff14f655385aa467878f21927ac091095c91f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015518"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127130"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Stream Analytics의 Azure Machine Learning Studio(클래식) 통합(미리 보기)
-Stream Analytics는 Azure Machine Learning Studio(클래식) 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](https://msdn.microsoft.com/library/azure/dn835031.aspx)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
+Stream Analytics는 Azure Machine Learning Studio(클래식) 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](/rest/api/streamanalytics/)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>개요: Azure Machine Learning Studio(클래식) 용어
 Microsoft Azure Machine Learning Studio(클래식)는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 협업 도구입니다. 이 도구를 *Azure Machine Learning Studio (클래식)* 이라고 합니다. Studio (클래식)는 machine learning 리소스와 상호 작용 하 고 디자인을 쉽게 빌드하고 테스트 하 고 반복 하는 데 사용 됩니다. 이러한 리소스 및 해당 정의는 다음과 같습니다.
 
-* **작업 영역**: *작업 영역은* 관리 및 제어를 위해 컨테이너에서 다른 모든 기계 학습 리소스를 함께 보관 하는 컨테이너입니다.
-* **실험**: *실험*은 데이터 세트를 활용하고 기계 학습 모델을 교육하기 위해 데이터 과학자가 만듭니다.
-* **끝점**: *끝점* 은 기능을 입력으로 사용 하 고, 지정 된 machine learning 모델을 적용 하 고, 점수가 매겨진 출력을 반환 하는 데 사용 되는 스튜디오 (클래식) 개체
-* **채점 웹 서비스**: *채점 웹 서비스* 는 위에 언급된 엔드포인트 컬렉션입니다.
+* **작업 영역** : *작업 영역은* 관리 및 제어를 위해 컨테이너에서 다른 모든 기계 학습 리소스를 함께 보관 하는 컨테이너입니다.
+* **실험** : *실험* 은 데이터 세트를 활용하고 기계 학습 모델을 교육하기 위해 데이터 과학자가 만듭니다.
+* **끝점** : *끝점* 은 기능을 입력으로 사용 하 고, 지정 된 machine learning 모델을 적용 하 고, 점수가 매겨진 출력을 반환 하는 데 사용 되는 스튜디오 (클래식) 개체
+* **채점 웹 서비스** : *채점 웹 서비스* 는 위에 언급된 엔드포인트 컬렉션입니다.
 
 각 엔드포인트에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스의 이름은 Azure Machine Learning Studio(클래식)에서 [요청/응답 서비스](../machine-learning/classic/consume-web-services.md)로 지정됩니다.
 
 ## <a name="studio-classic-resources-needed-for-stream-analytics-jobs"></a>Stream Analytics 작업에 필요한 Studio (클래식) 리소스
-Stream Analytics 작업을 처리하려면 요청/응답 엔드포인트, [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 엔드포인트에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 엔드포인트가 있습니다.
+Stream Analytics 작업을 처리하려면 요청/응답 엔드포인트, [apikey](../machine-learning/classic/consume-web-services.md)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 엔드포인트에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 엔드포인트가 있습니다.
 
 ## <a name="configure-a-stream-analytics-and-studio-classic-udf-via-rest-api"></a>REST API를 통해 Stream Analytics 및 Studio (클래식) UDF 구성
 REST Api를 사용 하 여 Studio (클래식) 함수를 호출 하도록 작업을 구성할 수 있습니다. 단계는 다음과 같습니다.
@@ -41,7 +41,7 @@ REST Api를 사용 하 여 Studio (클래식) 함수를 호출 하도록 작업�
 6. 작업 시작
 
 ## <a name="creating-a-udf-with-basic-properties"></a>기본 속성을 사용하여 UDF 만들기
-예를 들어 다음 샘플 코드에서는 Azure Machine Learning Studio(클래식) 엔드포인트에 바인딩되는 *newudf*라는 스칼라 UDF를 만듭니다. *엔드포인트*(서비스 URI)는 선택한 서비스에 대한 API 도움말 페이지에서 찾을 수 있고 *apiKey*는 서비스 기본 페이지에서 찾을 수 있습니다.
+예를 들어 다음 샘플 코드에서는 Azure Machine Learning Studio(클래식) 엔드포인트에 바인딩되는 *newudf* 라는 스칼라 UDF를 만듭니다. *엔드포인트* (서비스 URI)는 선택한 서비스에 대한 API 도움말 페이지에서 찾을 수 있고 *apiKey* 는 서비스 기본 페이지에서 찾을 수 있습니다.
 
 ```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
@@ -188,11 +188,11 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해 보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

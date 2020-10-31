@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986889"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127181"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
 
@@ -47,7 +47,7 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 ## <a name="install-enterprise-server"></a>Enterprise Server 설치
 
-1.  보안 및 관리 효율성을 높이려면이 프로젝트에 대해서만 새 리소스 그룹을 만드는 것이 좋습니다 (예: **RGMicroFocusEntServer**). Azure에서 이름의 첫 번째 부분을 사용 하 여 목록에서 보다 쉽게 찾을 수 있도록 리소스의 유형을 선택 합니다.
+1.  보안 및 관리 효율성을 높이려면이 프로젝트에 대해서만 새 리소스 그룹을 만드는 것이 좋습니다 (예: **RGMicroFocusEntServer** ). Azure에서 이름의 첫 번째 부분을 사용 하 여 목록에서 보다 쉽게 찾을 수 있도록 리소스의 유형을 선택 합니다.
 
 2.  가상 머신을 만듭니다. Azure Marketplace에서 원하는 가상 컴퓨터 및 운영 체제를 선택 합니다. 권장 설정은 다음과 같습니다.
 
@@ -73,11 +73,11 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 9.  파일을 두 번 클릭 하 여 설치를 시작 합니다. 첫 번째 창에서 설치 위치를 선택 하 고 최종 사용자 사용권 계약에 동의 합니다.
 
-    ![마이크로 포커스 엔터프라이즈 서버 설정 화면](media/install-image-1.png)
+    ![스크린샷 설치를 시작할 수 있는 마이크로 포커스 엔터프라이즈 서버 대화 상자를 표시 합니다.](media/install-image-1.png)
 
     설치가 완료 되 면 다음과 같은 메시지가 표시 됩니다.
 
-    ![마이크로 포커스 엔터프라이즈 서버 설정 화면](media/install-image-2.png)
+    ![스크린샷에는 마이크로 포커스 엔터프라이즈 서버 대화 상자의 성공 메시지가 표시 됩니다.](media/install-image-2.png)
 
  ### <a name="check-for-updates"></a>업데이트 확인
 
@@ -87,9 +87,9 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 1.  마이크로 포커스 라이선스 관리를 시작 합니다.
 
-2.  **Start** \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리**시작을 선택 하 고 **설치** 탭을 클릭 합니다. 업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일**에서 `mflic` 이전에 VM에 업로드 된 * 파일로 이동한 후 **라이선스 설치**를 선택 합니다.
+2.  **Start** \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리** 시작을 선택 하 고 **설치** 탭을 클릭 합니다. 업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일** 에서 `mflic` 이전에 VM에 업로드 된 * 파일로 이동한 후 **라이선스 설치** 를 선택 합니다.
 
-    ![마이크로 포커스 라이선스 관리 대화 상자](media/install-image-3.png)
+    ![설치 라이선스를 선택할 수 있는 마이크로 포커스 라이선스 관리 대화 상자가 표시 됩니다.](media/install-image-3.png)
 
 3.  Enterprise Server가 로드 되는지 확인 합니다. 다음 URL을 사용 하 여 브라우저에서 엔터프라이즈 서버 관리 사이트를 시작 해 봅니다 `http://localhost:86/` . 표시 된 대로 엔터프라이즈 서버 관리 페이지가 표시 됩니다.
 
@@ -97,9 +97,9 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>개발자 컴퓨터에 엔터프라이즈 개발자 설치
 
-1.  이전에 만든 리소스 그룹 (예: **RGMicroFocusEntServer**)을 선택한 다음 개발자 이미지를 선택 합니다.
+1.  이전에 만든 리소스 그룹 (예: **RGMicroFocusEntServer** )을 선택한 다음 개발자 이미지를 선택 합니다.
 
-2.  가상 컴퓨터에 로그인 하려면 **개요** 섹션으로 이동 하 고 **연결**을 선택 합니다. 이 로그인은 RDP 세션을 시작 합니다. VM에 대해 만든 자격 증명을 사용 하 여 로그인 합니다.
+2.  가상 컴퓨터에 로그인 하려면 **개요** 섹션으로 이동 하 고 **연결** 을 선택 합니다. 이 로그인은 RDP 세션을 시작 합니다. VM에 대해 만든 자격 증명을 사용 하 여 로그인 합니다.
 
 3.  RDP 세션에서 다음 두 파일을 로드 합니다 (원하는 경우 끌어서 놓기).
 
@@ -115,9 +115,9 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
     ![설치 성공 메시지](media/install-image-6.png)
 
-6.  엔터프라이즈 서버에 대해 수행한 것 처럼 마이크로 포커스 라이선스 관리자를 시작 합니다. **시작** \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리**를 선택 하 고 **설치** 탭을 클릭 합니다.
+6.  엔터프라이즈 서버에 대해 수행한 것 처럼 마이크로 포커스 라이선스 관리자를 시작 합니다. **시작** \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리** 를 선택 하 고 **설치** 탭을 클릭 합니다.
 
-7.  업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일**에서 `mflic` 이전에 VM에 업로드 된 파일을 찾아  **라이선스 설치**를 선택 합니다.
+7.  업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일** 에서 `mflic` 이전에 VM에 업로드 된 파일을 찾아  **라이선스 설치** 를 선택 합니다.
 
     ![마이크로 포커스 라이선스 관리 대화 상자](media/install-image-7.png)
 

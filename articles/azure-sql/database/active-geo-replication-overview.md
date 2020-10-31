@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125345"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ ms.locfileid: "92672985"
 > 주 데이터베이스의 트랜잭션 로그 비율은 보조에서 계산 크기가 낮은 것과 관련이 없는 이유로 제한 될 수 있습니다. 이러한 종류의 제한은 보조 데이터베이스의 계산 크기가 주 데이터베이스와 같거나 높은 경우에도 발생할 수 있습니다. 다른 종류의 로그 전송률 제한에 대 한 대기 유형을 포함 하는 자세한 내용은 [트랜잭션 로그 요금 관리](resource-limits-logical-server.md#transaction-log-rate-governance)를 참조 하세요.
 
 > [!NOTE]
-> 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역 에서만 사용 가능 합니다. Azure SQL Database 로컬 중복 또는 영역 중복 백업 저장소 중복성을 사용 하 여 원본 데이터베이스를 만드는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
+> 구성 가능한 백업 저장소 중복성은 현재 브라질 남부의 공개 미리 보기에서 사용할 수 있으며 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. Azure SQL Database 로컬 중복 또는 영역 중복 백업 저장소 중복성을 사용 하 여 원본 데이터베이스를 만드는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](purchasing-models.md)를 참조하세요.
 
@@ -251,7 +251,7 @@ RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치 (failover) 그룹만 지원 하므로 SQL Managed Instance 인스턴스에는 적용 되지 않습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
@@ -268,7 +268,7 @@ RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |

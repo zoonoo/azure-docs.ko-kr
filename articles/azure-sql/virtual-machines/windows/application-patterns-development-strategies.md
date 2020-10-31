@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790647"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126654"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,11 +191,11 @@ Cloud Services에서는 Azure가 인프라를 자동으로 유지 관리합니�
 
 이 그림에 표시된 것처럼 Azure 부하 분산 장치는 여러 가상 머신 간의 트래픽 분산과, 연결 대상 웹 서버 또는 애플리케이션 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 웹 및 애플리케이션 서버 인스턴스가 있으면 프레젠테이션 계층 및 비즈니스 계층의 고가용성이 보장됩니다. 자세한 내용은 [SQL HADR가 필요한 애플리케이션 패턴 모범 사례](#best-practices-for-application-patterns-requiring-sql-hadr)를 참조하세요.
 
-![Cloud Services가 있는 애플리케이션 패턴](./media/application-patterns-development-strategies/IC728013.png)
+![다이어그램은 azure 부하 분산 장치를 통해 Azure virtual network의 웹 역할 인스턴스에 연결 된 온-프레미스 물리적 또는 가상 머신을 보여줍니다.](./media/application-patterns-development-strategies/IC728013.png)
 
 이 애플리케이션 패턴을 구현하기 위한 또 다른 방법은 다음 그림처럼 프레젠테이션 계층과 비즈니스 계층 구성 요소를 모두 포함하는 통합 웹 역할을 사용하는 것입니다. 이 애플리케이션 패턴은 안정적인 설계가 필요한 애플리케이션에 유용합니다. Azure는 웹 및 작업자 역할에서 상태 비저장 컴퓨팅 노드를 제공하므로 다중 기술 중 하나를 사용하여 세션 상태를 저장하는 논리를 구현하는 것이 좋습니다. [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) 또는 [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Cloud Services가 있는 애플리케이션 패턴](./media/application-patterns-development-strategies/IC728014.png)
+![다이어그램은 Azure virtual network의 통합 웹/작업자 역할 인스턴스에 연결 된 온-프레미스 물리적 또는 가상 머신을 보여줍니다.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Azure Virtual Machines, Azure SQL Database 및 Azure App Service를 사용 하는 패턴 (Web Apps)
 이 애플리케이션 패턴의 주 목표는 솔루션에서 Azure IaaS(서비스 방식의 인프라) 구성 요소를 Azure PaaS(서비스 방식의 플랫폼) 구성 요소와 결합하는 방법을 보여주기 위한 것입니다. 이 패턴은 관계형 데이터 스토리지를 위한 Azure SQL Database에 초점을 맞춥니다. 여기에는 Azure IaaS(서비스 방식의 인프라)에 속하는 Azure 가상 머신의 SQL Server가 포함되지 않습니다.
