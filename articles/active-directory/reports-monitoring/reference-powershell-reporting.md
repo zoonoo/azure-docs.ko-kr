@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123135"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>보고용 Azure AD PowerShell cmdlet
 
@@ -59,7 +59,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 
 
-!["데이터 요약" 단추](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![스크린샷 Get-Azure D 감사 디렉터리 로그 명령의 결과를 보여 줍니다.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 
 
-!["데이터 요약" 단추](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![스크린샷 Get-Azure D 감사 로그인 로그 명령의 결과를 보여 줍니다.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

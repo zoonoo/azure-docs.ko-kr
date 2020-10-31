@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122727"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -35,7 +35,7 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 > [!NOTE]
 > 아래 샘플 텍스트와 비슷한 등록 및 로그인 환경에 동의 정보를 포함 하는 것이 좋습니다. 이 샘플 텍스트는 참조용 으로만 사용 됩니다. 사용자의 규정 준수 요구 사항을 충족 하기 위해 최종 텍스트 및 기능 구성에 대 한 지침은 [CTIA 웹 사이트](https://www.ctia.org/programs) 의 간단한 코드 모니터링 안내서를 참조 하 고 자신의 법률 또는 규정 준수 전문가에 게 문의 하세요.
 >
-> *전화 번호를 제공 하 여 텍스트 메시지에 의해 전송 된 일회용 암호를 받고 사용자의 * &lt; 응용 프로그램 이름 &gt; *에 로그인 하 여 삽입 하는 데 도움을 받을 수 있습니다. 표준 메시지 및 데이터 요금이 적용 될 수 있습니다.*
+> *전화 번호를 제공 하 여 텍스트 메시지에 의해 전송 된 일회용 암호를 받고 사용자의 *&lt; 응용 프로그램 이름 &gt;* 에 로그인 하 여 삽입 하는 데 도움을 받을 수 있습니다. 표준 메시지 및 데이터 요금이 적용 될 수 있습니다.*
 >
 > *&lt;삽입: 개인 정보 취급 방침에 대 한 링크&gt;*<br/>*&lt;삽입: 서비스 약관에 대 한 링크&gt;*
 
@@ -56,27 +56,27 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 
 ### <a name="phone-sign-up-experience"></a>전화 등록 환경
 
-사용자에 게 응용 프로그램에 대 한 계정이 아직 없는 경우 **지금 등록** 링크를 선택 하 여 만들 수 있습니다. 등록 페이지가 표시 되 고 사용자가 해당 **국가**를 선택 하 고 전화 번호를 입력 하 고 **코드 보내기**를 선택 합니다.
+사용자에 게 응용 프로그램에 대 한 계정이 아직 없는 경우 **지금 등록** 링크를 선택 하 여 만들 수 있습니다. 등록 페이지가 표시 되 고 사용자가 해당 **국가** 를 선택 하 고 전화 번호를 입력 하 고 **코드 보내기** 를 선택 합니다.
 
 ![사용자가 휴대폰 등록 시작](media/phone-authentication/phone-signup-start.png)
 
-일회성 확인 코드가 사용자의 전화 번호로 전송 됩니다. 사용자가 등록 페이지에 **확인 코드** 를 입력 하 고 **코드 확인**을 선택 합니다. 사용자가 코드를 검색할 수 없는 경우 **새 코드 보내기**를 선택할 수 있습니다.
+일회성 확인 코드가 사용자의 전화 번호로 전송 됩니다. 사용자가 등록 페이지에 **확인 코드** 를 입력 하 고 **코드 확인** 을 선택 합니다. 사용자가 코드를 검색할 수 없는 경우 **새 코드 보내기** 를 선택할 수 있습니다.
 
 ![사용자가 전화를 등록 하는 동안 코드 확인](media/phone-authentication/phone-signup-verify-code.png)
 
- 사용자는 등록 페이지에서 요청 된 다른 정보 (예: **표시 이름**, **지정 된 이름**및 **성** (국가 및 전화 번호는 계속 입력 됨))를 입력 합니다. 사용자가 다른 전화 번호를 사용 하려는 경우 **번호 변경** 을 선택 하 여 등록을 다시 시작할 수 있습니다. 완료 되 면 사용자는 **계속**을 선택 합니다.
+ 사용자는 등록 페이지에서 요청 된 다른 정보 (예: **표시 이름** , **지정 된 이름** 및 **성** (국가 및 전화 번호는 계속 입력 됨))를 입력 합니다. 사용자가 다른 전화 번호를 사용 하려는 경우 **번호 변경** 을 선택 하 여 등록을 다시 시작할 수 있습니다. 완료 되 면 사용자는 **계속** 을 선택 합니다.
 
 ![사용자가 추가 정보를 제공 합니다.](media/phone-authentication/phone-signup-additional-info.png)
 
-그런 다음 사용자에 게 복구 전자 메일을 제공 하 라는 메시지가 표시 됩니다. 사용자가 전자 메일 주소를 입력 하 고 **확인 코드 보내기**를 선택 합니다. 사용자의 전자 메일 받은 편지함에 코드가 전송 되 고,이를 검색 하 여 **확인 코드** 상자에 입력할 수 있습니다. 그런 다음 사용자가 **코드 확인**을 선택 합니다. 
+그런 다음 사용자에 게 복구 전자 메일을 제공 하 라는 메시지가 표시 됩니다. 사용자가 전자 메일 주소를 입력 하 고 **확인 코드 보내기** 를 선택 합니다. 사용자의 전자 메일 받은 편지함에 코드가 전송 되 고,이를 검색 하 여 **확인 코드** 상자에 입력할 수 있습니다. 그런 다음 사용자가 **코드 확인** 을 선택 합니다. 
 
-코드를 확인 한 후 사용자는 **만들기** 를 선택 하 여 계정을 만듭니다. 또는 사용자가 다른 전자 메일 주소를 사용 하려는 경우 **전자 메일 변경**을 선택할 수 있습니다.
+코드를 확인 한 후 사용자는 **만들기** 를 선택 하 여 계정을 만듭니다. 또는 사용자가 다른 전자 메일 주소를 사용 하려는 경우 **전자 메일 변경** 을 선택할 수 있습니다.
 
 ![사용자가 계정 만들기](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>휴대폰 로그인 환경
 
-사용자에 게 해당 id로 전화 번호가 있는 기존 계정이 있는 경우 사용자는 전화 번호를 입력 하 고 **계속**을 선택 합니다. 사용자는 **계속**을 선택 하 여 국가 및 전화 번호를 확인 하 고, 한 번의 확인 코드를 휴대폰으로 보냅니다. 사용자가 확인 코드를 입력 하 고 **계속** 로그인을 선택 합니다.
+사용자에 게 해당 id로 전화 번호가 있는 기존 계정이 있는 경우 사용자는 전화 번호를 입력 하 고 **계속** 을 선택 합니다. 사용자는 **계속** 을 선택 하 여 국가 및 전화 번호를 확인 하 고, 한 번의 확인 코드를 휴대폰으로 보냅니다. 사용자가 확인 코드를 입력 하 고 **계속** 로그인을 선택 합니다.
 
 ![휴대폰 로그인 사용자 환경](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. 각 파일에서 문자열을 `yourtenant` Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c*인 경우의 모든 인스턴스는가 됩니다 `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
+1. 각 파일에서 문자열을 `yourtenant` Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c* 인 경우의 모든 인스턴스는가 됩니다 `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
 
-1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 경우, `/phone-number-passwordless/` **`Phone_Email_Base.xml`** *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework*필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 업데이트 합니다.
+1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 경우, `/phone-number-passwordless/` **`Phone_Email_Base.xml`** *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework* 필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 업데이트 합니다.
 
 ## <a name="upload-the-policy-files"></a>정책 파일을 업로드 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 Azure AD B2C 테 넌 트로 이동 합니다.
-1. **정책**에서 **Identity Experience Framework**를 선택합니다.
-1. **사용자 지정 정책 업로드**를 선택합니다.
+1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
+1. **사용자 지정 정책 업로드** 를 선택합니다.
 1. 다음 순서로 정책 파일을 업로드 합니다.
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,9 +128,9 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
-1. **사용자 지정 정책**에서 **B2C_1A_SignUpOrSignInWithPhone**를 선택 합니다.
-1. **응용 프로그램 선택**에서 필수 구성 요소를 완료할 때 등록 한 *webapp1* 응용 프로그램을 선택 합니다.
-1. **회신 Url 선택**에 대해를 선택 `https://jwt.ms` 합니다.
+1. **사용자 지정 정책** 에서 **B2C_1A_SignUpOrSignInWithPhone** 를 선택 합니다.
+1. **응용 프로그램 선택** 에서 필수 구성 요소를 완료할 때 등록 한 *webapp1* 응용 프로그램을 선택 합니다.
+1. **회신 Url 선택** 에 대해를 선택 `https://jwt.ms` 합니다.
 1. **지금 실행** 을 선택 하 고 전자 메일 주소 또는 전화 번호를 사용 하 여 등록 합니다.
 1. **지금 실행** 을 선택 하 고 동일한 계정으로 로그인 하 여 구성이 올바른지 확인 합니다.
 
@@ -144,7 +144,7 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

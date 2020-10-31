@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79221386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102227"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Bing Video Search API를 통해 Bing의 인지적 뉴스 검색 기능을 애플리케이션으로 쉽게 통합할 수 있습니다. API에서는 주로 관련 비디오를 웹에서 찾고 반환하는 반면, 웹에서 지능적이고 포커스가 있는 비디오 검색을 위한 몇 가지 기능을 제공합니다.
 
@@ -144,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>쿼리 확장
 
-Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *배수로 청소*인 경우 확장된 쿼리는 배수로 청소 **도구**, 배수로 청소의 **기초**, 배수로 청소 **기계** 및 **손쉬운** 배수로 청소일 수 있습니다.
+Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *배수로 청소* 인 경우 확장된 쿼리는 배수로 청소 **도구** , 배수로 청소의 **기초** , 배수로 청소 **기계** 및 **손쉬운** 배수로 청소일 수 있습니다.
 
-다음 예제에서는 *배수로 청소*에 대한 확장된 쿼리를 보여줍니다.
+다음 예제에서는 *배수로 청소* 에 대한 확장된 쿼리를 보여줍니다.
 
 ```json
 {
@@ -175,9 +180,9 @@ Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 
 
 ## <a name="pivoting-the-query"></a>쿼리 피벗
 
-Bing이 원래 검색 쿼리를 분할할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `pivotSuggestions` 필드가 포함됩니다. 예를 들어 원래 쿼리가 *배수로 청소*인 경우 Bing은 쿼리를 *청소*와 *배수로*로 분할할 수 있습니다.
+Bing이 원래 검색 쿼리를 분할할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `pivotSuggestions` 필드가 포함됩니다. 예를 들어 원래 쿼리가 *배수로 청소* 인 경우 Bing은 쿼리를 *청소* 와 *배수로* 로 분할할 수 있습니다.
 
-다음 예제에서는 *배수로 청소*에 대한 피벗 제안 사항을 보여줍니다.
+다음 예제에서는 *배수로 청소* 에 대한 피벗 제안 사항을 보여줍니다.
 
 ```json
 {

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490529"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101734"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>VNet (가상 네트워크)에서 Azure Cosmos DB에 대 한 액세스 구성
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 가상 네트워크(VNet)의 특정 서브넷에서만 액세스할 수 있도록 Azure Cosmos 계정을 구성할 수 있습니다. 가상 네트워크 내의 서브넷에 있는 Azure Cosmos DB에 액세스하도록 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 설정하면 해당 서브넷의 트래픽이 서브넷 및 Virtual Network의 ID를 통해 Azure Cosmos DB로 보내집니다. Azure Cosmos DB 서비스 엔드포인트를 사용하도록 설정하고 나면, Azure Cosmos 계정에 추가하여 서브넷에 대한 액세스를 제한할 수 있습니다.
 
@@ -39,11 +40,11 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. **모든 리소스** 블레이드에서 보호할 Azure Cosmos DB 계정을 찾습니다.
 
-1. 설정 메뉴에서 **방화벽 및 가상 네트워크**를 선택하고 **선택된 네트워크**에서 액세스를 허용하도록 선택합니다.
+1. 설정 메뉴에서 **방화벽 및 가상 네트워크** 를 선택하고 **선택된 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
-1. 기존 가상 네트워크의 서브넷에 대 한 액세스 권한을 부여 하려면 **가상**네트워크에서 **기존 Azure virtual network 추가**를 선택 합니다.
+1. 기존 가상 네트워크의 서브넷에 대 한 액세스 권한을 부여 하려면 **가상** 네트워크에서 **기존 Azure virtual network 추가** 를 선택 합니다.
 
-1. Azure 가상 네트워크를 추가할 **구독**을 선택합니다. Azure Cosmos DB 계정에 대한 액세스를 제공하려는 Azure **가상 네트워크** 및 **서브넷**을 선택합니다. 다음으로, **사용**을 선택하여 선택한 네트워크가 "Microsoft.AzureCosmosDB"에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 완료 되 면 **추가**를 선택 합니다.
+1. Azure 가상 네트워크를 추가할 **구독** 을 선택합니다. Azure Cosmos DB 계정에 대한 액세스를 제공하려는 Azure **가상 네트워크** 및 **서브넷** 을 선택합니다. 다음으로, **사용** 을 선택하여 선택한 네트워크가 "Microsoft.AzureCosmosDB"에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 완료 되 면 **추가** 를 선택 합니다.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
 
@@ -63,29 +64,29 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. **모든 리소스** 블레이드에서 보호할 Azure Cosmos DB 계정을 찾습니다.  
 
-1. 설정 메뉴에서 **방화벽 및 Azure 가상 네트워크**를 선택하고, **선택된 네트워크**에서 액세스를 허용하도록 선택합니다.  
+1. 설정 메뉴에서 **방화벽 및 Azure 가상 네트워크** 를 선택하고, **선택된 네트워크** 에서 액세스를 허용하도록 선택합니다.  
 
-1. 새로운 Azure 가상 네트워크에 대한 액세스를 허용하려면 **가상 네트워크**에서 **새로운 가상 네트워크 추가**를 선택합니다.  
+1. 새로운 Azure 가상 네트워크에 대한 액세스를 허용하려면 **가상 네트워크** 에서 **새로운 가상 네트워크 추가** 를 선택합니다.  
 
-1. 새 가상 네트워크를 만드는 데 필요한 세부 정보를 제공한 다음, **만들기**를 선택합니다. “Microsoft.AzureCosmosDB”가 활성화된 서비스 엔드포인트와 함께 서브넷이 생성됩니다.
+1. 새 가상 네트워크를 만드는 데 필요한 세부 정보를 제공한 다음, **만들기** 를 선택합니다. “Microsoft.AzureCosmosDB”가 활성화된 서비스 엔드포인트와 함께 서브넷이 생성됩니다.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
 
-Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스에서 사용 되거나 Stream analytics 또는 Power BI에서 액세스 되는 경우 **글로벌 Azure 데이터 센터 내에서 연결 허용**을 선택 하 여 액세스를 허용 합니다.
+Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스에서 사용 되거나 Stream analytics 또는 Power BI에서 액세스 되는 경우 **글로벌 Azure 데이터 센터 내에서 연결 허용** 을 선택 하 여 액세스를 허용 합니다.
 
-포털에서 Azure Cosmos DB 메트릭에 대한 액세스 권한이 있는지 확인하려면 **Azure Portal에서 액세스 허용** 옵션을 사용하도록 설정해야 합니다. 이러한 옵션에 대한 자세한 내용은 [IP 방화벽 구성](how-to-configure-firewall.md) 문서를 참조하세요. 액세스를 사용하도록 설정한 후에 **저장**을 선택하여 설정을 저장합니다.
+포털에서 Azure Cosmos DB 메트릭에 대한 액세스 권한이 있는지 확인하려면 **Azure Portal에서 액세스 허용** 옵션을 사용하도록 설정해야 합니다. 이러한 옵션에 대한 자세한 내용은 [IP 방화벽 구성](how-to-configure-firewall.md) 문서를 참조하세요. 액세스를 사용하도록 설정한 후에 **저장** 을 선택하여 설정을 저장합니다.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a><a id="remove-vnet-or-subnet"></a>가상 네트워크 또는 서브넷 제거
 
 1. **모든 리소스** 블레이드에서 서비스 엔드포인트를 할당한 Azure Cosmos DB 계정을 찾습니다.  
 
-1. 설정 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다.  
+1. 설정 메뉴에서 **방화벽 및 가상 네트워크** 를 선택합니다.  
 
-1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거**를 선택합니다.
+1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거** 를 선택합니다.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
 
-1. **저장**을 선택하여 변경 내용을 적용합니다.
+1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 ## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a><a id="configure-using-powershell"></a>Azure PowerShell을 사용하여 서비스 엔드포인트 구성
 

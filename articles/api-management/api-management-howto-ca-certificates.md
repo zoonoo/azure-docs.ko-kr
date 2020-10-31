@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102040"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
 
@@ -37,26 +37,26 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 
 1. Azure Portal에서 Azure API Management 서비스 인스턴스로 이동합니다.
 
-2. 메뉴에서 **CA 인증서**를 선택합니다.
+2. 메뉴에서 **CA 인증서** 를 선택합니다.
 
 3. **+추가** 단추를 클릭합니다.  
 
-    ![CA 인증서 추가](media/api-management-howto-ca-certificates/01.png)  
+    ![CA 인증서를 추가 하는 + 추가 단추를 보여 주는 스크린샷](media/api-management-howto-ca-certificates/01.png)  
 
 4. 인증서를 찾고 인증서 저장소를 결정합니다. 공개 키만 필요하므로 암호는 필요하지 않습니다.
 
-    ![CA 인증서 추가](media/api-management-howto-ca-certificates/02.png)  
+    ![인증서를 찾아보는 방법을 보여 주는 스크린샷](media/api-management-howto-ca-certificates/02.png)  
 
-5. **Save**을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+5. **저장** 을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
-    ![CA 인증서 추가](media/api-management-howto-ca-certificates/03.png)  
+    ![인증서를 저장 하는 방법을 보여 주는 스크린샷](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > `New-AzApiManagementSystemCertificate` Powershell 명령을 사용하여 CA 인증서를 업로드할 수 있습니다.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>클라이언트 인증서 삭제
 
-인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제**를 선택합니다.
+인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제** 를 선택합니다.
 
 ![CA 인증서 삭제](media/api-management-howto-ca-certificates/04.png)  
 

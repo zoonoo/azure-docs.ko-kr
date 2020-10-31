@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923e8d1ffc3e606c16226b4b2ccbdcfaf4d3e9f1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75431621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123424"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics 출력 오류 정책
 이 문서에서는 Azure Stream Analytics에서 구성할 수 있는 출력 데이터 오류 처리 정책에 대해 설명합니다.
 
-출력 데이터 오류 처리 정책은 Stream Analytics 작업에 의해 생성된 출력 이벤트가 대상 싱크의 스키마와 맞지 않는 경우 발생하는 데이터 변환 오류에만 적용됩니다. **재시도** 또는 **드롭**을 선택하여 이 정책을 구성할 수 있습니다. Azure Portal에서 Stream Analytics 작업의 **구성** 아래에서 **오류 정책**을 선택하고 옵션을 선택합니다.
+출력 데이터 오류 처리 정책은 Stream Analytics 작업에 의해 생성된 출력 이벤트가 대상 싱크의 스키마와 맞지 않는 경우 발생하는 데이터 변환 오류에만 적용됩니다. **재시도** 또는 **드롭** 을 선택하여 이 정책을 구성할 수 있습니다. Azure Portal에서 Stream Analytics 작업의 **구성** 아래에서 **오류 정책** 을 선택하고 옵션을 선택합니다.
 
 ![Azure Stream Analytics 출력 오류 정책 위치](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
@@ -34,4 +34,4 @@ Azure Stream Analytics는 데이터 변환 오류를 초래하는 모든 출력 
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Stream Analytics 문제 해결 가이드](stream-analytics-troubleshooting-guide.md)
+[Azure Stream Analytics 문제 해결 가이드](./stream-analytics-troubleshoot-query.md)

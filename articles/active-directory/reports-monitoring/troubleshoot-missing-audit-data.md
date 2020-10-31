@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123067"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 | Microsoft Docs 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608112"
 
 Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` 블레이드에서 해당 작업에 대한 감사 로그가 표시될 것을 예상했지만 찾을 수 없습니다.
 
- ![보고](./media/troubleshoot-missing-audit-data/01.png)
+ ![감사 로그 항목을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>원인
 
@@ -53,7 +53,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 최근에 Azure Portal에 로그인했고 `Activity logs > Sign-ins` 블레이드에 이 작업에 대한 로그인 로그가 표시될 것으로 예상했지만 찾을 수 없습니다.
 
- ![보고](./media/troubleshoot-missing-audit-data/02.png)
+ ![활동 로그의 로그인을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>원인
 
@@ -74,7 +74,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
- ![보고](./media/troubleshoot-missing-audit-data/03.png)
+ ![스크린샷 날짜 메뉴를 표시 합니다.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>원인
 

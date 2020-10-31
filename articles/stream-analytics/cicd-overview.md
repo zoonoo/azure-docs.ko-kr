@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: ec8f27d0376f7187fd36b3feba556dbced0946e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5057eb8c84e839f504060228986ea759c8bdc3d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937592"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123170"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Azure Stream Analytics 용 CI/CD (지속적인 통합 및 배포)
 
@@ -27,7 +27,7 @@ Azure Stream Analytics를 처음 접하는 경우 [Azure Stream Analytics 빠른
 
 1. Azure Stream Analytics 쿼리를 개발 합니다.
 
-   [Visual Studio Code](quick-create-vs-code.md) 또는 [Visual Studio](stream-analytics-quick-create-vs.md) 용 Azure Stream Analytics 도구를 사용 하 여 [쿼리를 로컬로 개발 하 고 테스트할](develop-locally.md)수 있습니다. [기존 작업](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) 을 로컬 프로젝트로 내보낼 수도 있습니다.
+   [Visual Studio Code](./quick-create-visual-studio-code.md) 또는 [Visual Studio](stream-analytics-quick-create-vs.md) 용 Azure Stream Analytics 도구를 사용 하 여 [쿼리를 로컬로 개발 하 고 테스트할](develop-locally.md)수 있습니다. [기존 작업](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) 을 로컬 프로젝트로 내보낼 수도 있습니다.
 
 2. Git 리포지토리와 같은 소스 제어 시스템에 Azure Stream Analytics 프로젝트를 커밋합니다.
 

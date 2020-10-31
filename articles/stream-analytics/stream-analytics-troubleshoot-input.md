@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123288"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -25,13 +25,13 @@ ms.locfileid: "87448888"
 
 2.  입력 데이터를 검사합니다.
 
-    1. 각 입력에 대해 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용합니다. 입력 샘플 데이터를 다운로드합니다.
+    1. 각 입력에 대해 [**샘플 데이터**](./stream-analytics-test-query.md) 단추를 사용합니다. 입력 샘플 데이터를 다운로드합니다.
         
-    1. 샘플 데이터를 검사하여 스키마 및 [데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)을 파악합니다.
+    1. 샘플 데이터를 검사하여 스키마 및 [데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 파악합니다.
     
     1. [Event Hub 메트릭](../event-hubs/event-hubs-metrics-azure-monitor.md)을 확인하여 이벤트가 전송되고 있는지 확인합니다. Event Hubs가 메시지를 수신하는 경우 메시지 메트릭은 0보다 커야 합니다.
 
-3.  입력 미리 보기에서 시간 범위를 선택했는지 확인합니다. **시간 범위 선택**을 선택한 다음, 쿼리를 테스트하기 전에 샘플 기간을 입력합니다.
+3.  입력 미리 보기에서 시간 범위를 선택했는지 확인합니다. **시간 범위 선택** 을 선택한 다음, 쿼리를 테스트하기 전에 샘플 기간을 입력합니다.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>잘못된 형식의 입력 이벤트로 인해 역직렬화 오류가 발생할 수 있습니다. 
 
@@ -75,17 +75,17 @@ Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계
 
 2. Event Hub를 찾습니다.
 
-3. **엔터티** 제목 아래에서 **Event Hubs**를 선택합니다.
+3. **엔터티** 제목 아래에서 **Event Hubs** 를 선택합니다.
 
 4. 이름으로 이벤트 허브를 선택합니다.
 
-5. **Event Hubs 인스턴스** 페이지의 **엔터티** 제목 아래에서 **소비자 그룹**을 선택합니다. 이름이 **$Default**인 소비자 그룹이 표시됩니다.
+5. **Event Hubs 인스턴스** 페이지의 **엔터티** 제목 아래에서 **소비자 그룹** 을 선택합니다. 이름이 **$Default** 인 소비자 그룹이 표시됩니다.
 
-6. **+소비자 그룹**을 선택하여 새 소비자 그룹을 추가합니다. 
+6. **+소비자 그룹** 을 선택하여 새 소비자 그룹을 추가합니다. 
 
    ![Event Hubs에 소비자 그룹 추가](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. Stream Analytics 작업에서 이벤트 허브를 가리키는 입력을 만들 때 소비자 그룹을 지정했습니다. 아무 것도 지정하지 않으면 **$Default**가 사용됩니다. 새 소비자 그룹을 만든 후에는 Stream Analytics 작업에서 이벤트 허브 입력을 편집하고 새 소비자 그룹의 이름을 지정합니다.
+7. Stream Analytics 작업에서 이벤트 허브를 가리키는 입력을 만들 때 소비자 그룹을 지정했습니다. 아무 것도 지정하지 않으면 **$Default** 가 사용됩니다. 새 소비자 그룹을 만든 후에는 Stream Analytics 작업에서 이벤트 허브 입력을 편집하고 새 소비자 그룹의 이름을 지정합니다.
 
 ## <a name="readers-per-partition-exceeds-event-hubs-limit"></a>파티션당 판독기가 Event Hubs 제한을 초과함
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>파티션 당 판독기가 IoT Hub 제한을 초과 합니다.
 
-Stream Analytics 작업은 IoT Hub의 기본 제공 [Event Hub 호환 끝점](../iot-hub/iot-hub-devguide-messages-read-builtin.md) 을 사용 하 여 IoT Hub에서 이벤트를 연결 하 고 읽습니다. 파티션당 읽기가 IoT Hub 제한을 초과 하는 경우 [이벤트 허브에 대 한 솔루션](#readers-per-partition-exceeds-event-hubs-limit) 을 사용 하 여 문제를 해결할 수 있습니다. IoT Hub portal 끝점 세션이 나 [IOT HUB SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)를 통해 기본 제공 끝점에 대 한 소비자 그룹을 만들 수 있습니다.
+Stream Analytics 작업은 IoT Hub의 기본 제공 [Event Hub 호환 끝점](../iot-hub/iot-hub-devguide-messages-read-builtin.md) 을 사용 하 여 IoT Hub에서 이벤트를 연결 하 고 읽습니다. 파티션당 읽기가 IoT Hub 제한을 초과 하는 경우 [이벤트 허브에 대 한 솔루션](#readers-per-partition-exceeds-event-hubs-limit) 을 사용 하 여 문제를 해결할 수 있습니다. IoT Hub portal 끝점 세션이 나 [IOT HUB SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)를 통해 기본 제공 끝점에 대 한 소비자 그룹을 만들 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

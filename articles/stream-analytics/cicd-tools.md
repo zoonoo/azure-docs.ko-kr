@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123153"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>CI/CD 도구를 사용 하 여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화
 
@@ -21,11 +21,11 @@ Azure Stream Analytics CI/CD npm 패키지를 사용 하 여 Azure Stream Analyt
 
 ## <a name="installation"></a>설치
 
-[패키지를 직접 다운로드](https://www.npmjs.com/package/azure-streamanalytics-cicd) 하거나 명령을 사용 하 여 [전역적](https://docs.npmjs.com/downloading-and-installing-packages-globally) 으로 설치할 수 있습니다 `npm install -g azure-streamanalytics-cicd` . PowerShell 또는 **Azure Pipelines**의 빌드 파이프라인 Azure CLI 스크립트 태스크에서 사용할 수 있는 명령을 사용 하는 것이 좋습니다.
+[패키지를 직접 다운로드](https://www.npmjs.com/package/azure-streamanalytics-cicd) 하거나 명령을 사용 하 여 [전역적](https://docs.npmjs.com/downloading-and-installing-packages-globally) 으로 설치할 수 있습니다 `npm install -g azure-streamanalytics-cicd` . PowerShell 또는 **Azure Pipelines** 의 빌드 파이프라인 Azure CLI 스크립트 태스크에서 사용할 수 있는 명령을 사용 하는 것이 좋습니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 
-**Cicd** npm 패키지는 Stream Analytics [Visual Studio Code 프로젝트](quick-create-vs-code.md) 또는 [Visual Studio 프로젝트](stream-analytics-quick-create-vs.md)의 Azure Resource Manager 템플릿을 생성 하는 도구를 제공 합니다. Visual Studio Code 또는 Visual Studio를 설치 하지 않고 Windows, macOS 및 Linux에서 npm 패키지를 사용할 수도 있습니다.
+**Cicd** npm 패키지는 Stream Analytics [Visual Studio Code 프로젝트](./quick-create-visual-studio-code.md) 또는 [Visual Studio 프로젝트](stream-analytics-quick-create-vs.md)의 Azure Resource Manager 템플릿을 생성 하는 도구를 제공 합니다. Visual Studio Code 또는 Visual Studio를 설치 하지 않고 Windows, macOS 및 Linux에서 npm 패키지를 사용할 수도 있습니다.
 
 패키지를 설치한 후에는 다음 명령을 사용 하 여 Stream Analytics 프로젝트를 빌드합니다.
 
@@ -37,7 +37,7 @@ azure-streamanalytics-cicd build -project <projectFullPath> [-outputPath <output
 
 | 매개 변수 | 설명 |
 |---|---|
-| `-project` | Visual Studio Code 프로젝트에 대 한 파일 ** 에 있는asaproj.js** 의 절대 경로 또는 Visual Studio 프로젝트용 **[your project name]. asaproj** . |
+| `-project` | Visual Studio Code 프로젝트에 대 한 파일 **에 있는asaproj.js** 의 절대 경로 또는 Visual Studio 프로젝트용 **[your project name]. asaproj** . |
 | `-outputPath` | Azure Resource Manager 템플릿에 대 한 출력 폴더의 경로입니다. 지정 하지 않으면 템플릿이 현재 디렉터리에 배치 됩니다. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -66,7 +66,7 @@ Stream Analytics 프로젝트가 성공적으로 빌드되면 출력 폴더 아�
 
 parameters.js파일의 기본 매개 변수는 Visual Studio Code 또는 Visual Studio 프로젝트의 설정에서 가져온 것입니다. 다른 환경에 배포하려면 해당 매개 변수를 적절하게 바꾸면 됩니다.
 
-모든 자격 증명의 기본값은 **null**입니다. Azure에 배포 하기 전에 값을 설정 해야 합니다.
+모든 자격 증명의 기본값은 **null** 입니다. Azure에 배포 하기 전에 값을 설정 해야 합니다.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -86,7 +86,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 
 | 매개 변수 | 설명 |
 |---|---|
-| `-project` | Visual Studio Code 프로젝트의 파일 ** 에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
+| `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
 | `-outputPath` | 출력 폴더의 경로입니다. 지정 하지 않으면 출력 결과 파일이 현재 디렉터리에 배치 됩니다. |
 | `-customCodeZipFilePath` | UDF 또는 역직렬 변환기와 같은 c # 사용자 지정 코드의 zip 파일 경로 (사용 되는 경우)입니다. Dll을 zip 파일로 패키지 하 고이 경로를 지정 합니다. |
 
@@ -121,8 +121,8 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 
 | 매개 변수 | 설명 |
 |---|---|
-| `-project` | Visual Studio Code 프로젝트의 파일 ** 에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
-| `-testConfigPath` | 테스트 구성 파일의 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js**을 사용 하 여 파일이 검색 됩니다. 존재 하지 않는 경우 새 파일이 만들어집니다. |
+| `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
+| `-testConfigPath` | 테스트 구성 파일의 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js** 을 사용 하 여 파일이 검색 됩니다. 존재 하지 않는 경우 새 파일이 만들어집니다. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -137,9 +137,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 ```
 ---
 
-테스트 구성 파일이 비어 있는 경우 다음 내용이 파일에 기록 됩니다. 그렇지 않으면 테스트 사례가 **testcases**배열에 추가 됩니다. 필요한 입력 구성은 있는 경우 입력 구성 파일에 따라 자동으로 채워집니다. 그렇지 않으면 기본값이 구성 됩니다. 테스트를 실행 하기 전에 각 입력 및 예상 출력의 **FilePath** 를 지정 해야 합니다. 구성을 수동으로 수정할 수 있습니다.
+테스트 구성 파일이 비어 있는 경우 다음 내용이 파일에 기록 됩니다. 그렇지 않으면 테스트 사례가 **testcases** 배열에 추가 됩니다. 필요한 입력 구성은 있는 경우 입력 구성 파일에 따라 자동으로 채워집니다. 그렇지 않으면 기본값이 구성 됩니다. 테스트를 실행 하기 전에 각 입력 및 예상 출력의 **FilePath** 를 지정 해야 합니다. 구성을 수동으로 수정할 수 있습니다.
 
-테스트 유효성 검사에서 특정 출력을 무시 하도록 하려면 예상 되는 출력의 **필수** 필드를 **false**로 설정 합니다.
+테스트 유효성 검사에서 특정 출력을 무시 하도록 하려면 예상 되는 출력의 **필수** 필드를 **false** 로 설정 합니다.
 
 ```json
 {
@@ -178,12 +178,12 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 
 | 매개 변수 | 설명 |
 |---|---|
-| `-project` | Visual Studio Code 프로젝트의 파일 ** 에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
-| `-testConfigPath` | 테스트 구성 파일에 대 한 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js**을 사용 하 여 파일이 검색 됩니다.
+| `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
+| `-testConfigPath` | 테스트 구성 파일에 대 한 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js** 을 사용 하 여 파일이 검색 됩니다.
 | `-outputPath` | 테스트 결과 출력 폴더의 경로입니다. 지정 하지 않으면 출력 결과 파일이 현재 디렉터리에 배치 됩니다. |
 | `-customCodeZipFilePath` | UDF 또는 역직렬 변환기와 같은 사용자 지정 코드의 zip 파일 경로 (사용 되는 경우)입니다. |
 
-모든 테스트가 완료 되 면 JSON 형식의 테스트 결과 요약이 출력 폴더에 생성 됩니다. 요약 파일의 이름은 **testResultSummary.json**입니다.
+모든 테스트가 완료 되 면 JSON 형식의 테스트 결과 요약이 출력 폴더에 생성 됩니다. 요약 파일의 이름은 **testResultSummary.json** 입니다.
 
 ```json
 {
@@ -237,7 +237,7 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 }
 ```
 
-## <a name="deploy-to-azure"></a>Deploy to Azure
+## <a name="deploy-to-azure"></a>Azure에 배포
 
 빌드에서 생성 된 Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 [작업을 Azure에 배포할](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template)수 있습니다.
 

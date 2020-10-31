@@ -7,19 +7,19 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123356"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JSON 및 Avro 데이터 구문 분석
 
 Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다. JSON 및 Avro 데이터는 구조화할 수 있으며 중첩된 개체(레코드) 및 배열과 같은 복합 형식을 포함할 수 있습니다. 
 
 >[!NOTE]
->이벤트 허브 캡처로 생성된 AVRO 파일은 *사용자 지정 역직렬 변환기* 기능이 필요한 특정 형식을 사용합니다. 자세한 내용은 [.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples)를 참조하세요.
+>이벤트 허브 캡처로 생성된 AVRO 파일은 *사용자 지정 역직렬 변환기* 기능이 필요한 특정 형식을 사용합니다. 자세한 내용은 [.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기](./custom-deserializer-examples.md)를 참조하세요.
 >
 >Stream Analytics AVRO 역직렬화는 지도 유형을 지원하지 않습니다. EventHub 캡처는 지도를 사용하므로 Stream Analytics는 EventHub 캡처 Blob을 읽을 수 없습니다.
 
@@ -89,9 +89,9 @@ FROM input
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>속성 이름이 변수일 때 중첩된 필드에 액세스
 
-속성 이름이 변수일 경우 [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) 함수를 사용합니다. 따라서 속성 이름을 하드 코딩하지 않고 동적 쿼리를 작성할 수 있습니다.
+속성 이름이 변수일 경우 [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) 함수를 사용합니다. 따라서 속성 이름을 하드 코딩하지 않고 동적 쿼리를 작성할 수 있습니다.
 
-예를 들어 샘플 데이터 스트림을 각 디바이스 센서에 대한 임계값이 포함된 **참조 데이터와 조인**해야 한다고 가정해 보겠습니다. 이러한 참조 데이터의 코드 조각은 다음과 같습니다.
+예를 들어 샘플 데이터 스트림을 각 디바이스 센서에 대한 임계값이 포함된 **참조 데이터와 조인** 해야 한다고 가정해 보겠습니다. 이러한 참조 데이터의 코드 조각은 다음과 같습니다.
 
 ```json
 {
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue**는 *SensorReadings*에서 속성을 선택합니다. 이 속성의 이름은 참조 데이터에서 들어오는 속성 이름과 일치합니다. 그런 다음, *SensorReadings*에서 연결된 값이 추출됩니다.
+**GetRecordPropertyValue** 는 *SensorReadings* 에서 속성을 선택합니다. 이 속성의 이름은 참조 데이터에서 들어오는 속성 이름과 일치합니다. 그런 다음, *SensorReadings* 에서 연결된 값이 추출됩니다.
 
 결과는 다음과 같습니다.
 
@@ -131,7 +131,7 @@ WHERE
 
 ### <a name="convert-record-fields-into-separate-events"></a>레코드 필드를 개별 이벤트로 변환
 
-레코드 필드를 별도의 이벤트로 변환하려면 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 연산자를 [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) 함수와 함께 사용합니다.
+레코드 필드를 별도의 이벤트로 변환하려면 [APPLY](/stream-analytics-query/apply-azure-stream-analytics) 연산자를 [GetRecordProperties](/stream-analytics-query/getrecordproperties-azure-stream-analytics) 함수와 함께 사용합니다.
 
 원본 샘플 데이터를 사용하면 다음 쿼리를 통해 속성을 여러 이벤트로 추출할 수 있습니다.
 
@@ -154,7 +154,7 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[object Object]|
 
-[WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics)를 사용하면 해당 이벤트를 여러 대상으로 라우팅할 수 있습니다.
+[WITH](/stream-analytics-query/with-azure-stream-analytics)를 사용하면 해당 이벤트를 여러 대상으로 라우팅할 수 있습니다.
 
 ```SQL
 WITH Stage0 AS
@@ -205,7 +205,7 @@ return JSON.parse(string);
 
 ## <a name="array-data-types"></a>배열 데이터 형식
 
-배열 데이터 형식은 정렬된 값의 컬렉션입니다. 배열 값에 일반적인 몇 가지 연산은 아래에 자세히 나와 있습니다. 이러한 예제에서는 [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) 함수 및 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 연산자를 사용합니다.
+배열 데이터 형식은 정렬된 값의 컬렉션입니다. 배열 값에 일반적인 몇 가지 연산은 아래에 자세히 나와 있습니다. 이러한 예제에서는 [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics) 함수 및 [APPLY](/stream-analytics-query/apply-azure-stream-analytics) 연산자를 사용합니다.
 
 단일 이벤트의 예제는 다음과 같습니다. `CustomSensor03` 및 `SensorMetadata`는 모두 **배열** 형식입니다.
 
@@ -265,7 +265,7 @@ FROM input
 
 ### <a name="convert-array-elements-into-separate-events"></a>배열 요소를 개별 이벤트로 변환
 
-모든 배열 요소를 개별 이벤트로 선택합니다. [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 연산자는 [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) 기본 제공 함수와 함께 모든 배열 요소를 개별 이벤트로 추출합니다.
+모든 배열 요소를 개별 이벤트로 선택합니다. [APPLY](/stream-analytics-query/apply-azure-stream-analytics) 연산자는 [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics) 기본 제공 함수와 함께 모든 배열 요소를 개별 이벤트로 추출합니다.
 
 ```SQL
 SELECT
@@ -301,7 +301,7 @@ CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords
 |12345|제조업체|ABC|
 |12345|버전|1.2.45|
 
-추출된 필드가 열에 표시되어야 하는 경우에는 [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 연산 외에 [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) 구문도 사용하여 데이터 세트를 피벗할 수 있습니다. 이 조인에는 중복을 방지하는 [시간 경계](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) 조건이 필요합니다.
+추출된 필드가 열에 표시되어야 하는 경우에는 [JOIN](/stream-analytics-query/join-azure-stream-analytics) 연산 외에 [WITH](/stream-analytics-query/with-azure-stream-analytics) 구문도 사용하여 데이터 세트를 피벗할 수 있습니다. 이 조인에는 중복을 방지하는 [시간 경계](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) 조건이 필요합니다.
 
 ```SQL
 WITH DynamicCTE AS (
@@ -330,4 +330,4 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 |12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>참고 항목
-[Azure Stream Analytics의 데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Azure Stream Analytics의 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)

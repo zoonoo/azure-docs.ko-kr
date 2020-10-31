@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910154"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122626"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -71,7 +71,7 @@ Stream Analytics 쿼리를 디자인할 때 주의해야 합니다. 작업의 �
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 출력을 사용하여 키 위반 경고
 
-Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics는 출력 싱크에 [한 번 이상 배달](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의되어 있는 경우에도 여전히 SQL 출력에 대해 [정확히 한 번 배달을 얻을]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) 수 있습니다.
+Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics는 출력 싱크에 [한 번 이상 배달](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의되어 있는 경우에도 여전히 SQL 출력에 대해 [정확히 한 번 배달을 얻을]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) 수 있습니다.
 
 SQL 테이블에 고유한 키 제약 조건을 설정하면 Azure Stream Analytics에서 중복 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 분할 및 삽입 프로세스는 한 번에 하나씩 중복 항목을 무시합니다. 중복 행이 많은 스트리밍 작업의 경우 프로세스는 비효율적이며 시간이 많이 소요됩니다. 이전 시간에 대해 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다.
 
@@ -95,9 +95,9 @@ SQL 출력을 사용 하는 Stream Analytics 작업에서 첫 번째 이벤트 �
 
 이러한 단계를 수행 하는 동안 SQL 출력에 다음과 같은 유형의 오류가 발생할 수 있습니다.
 
-* 지 수 백오프 재시도 전략을 사용 하 여 다시 시도 되는 일시적인 [오류](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) 입니다. 최소 재시도 간격은 개별 오류 코드에 따라 다르지만 간격은 일반적으로 60 초 미만입니다. 상한 값은 최대 5 분이 될 수 있습니다. 
+* 지 수 백오프 재시도 전략을 사용 하 여 다시 시도 되는 일시적인 [오류](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) 입니다. 최소 재시도 간격은 개별 오류 코드에 따라 다르지만 간격은 일반적으로 60 초 미만입니다. 상한 값은 최대 5 분이 될 수 있습니다. 
 
-   [로그인 실패](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) 및 [방화벽 문제](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) 는 이전 시도 후 5 분 이상 재시도 하 고 성공할 때까지 다시 시도 됩니다.
+   [로그인 실패](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) 및 [방화벽 문제](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) 는 이전 시도 후 5 분 이상 재시도 하 고 성공할 때까지 다시 시도 됩니다.
 
 * 캐스팅 오류 및 스키마 제약 조건 위반과 같은 데이터 오류는 출력 오류 정책을 통해 처리 됩니다. 이러한 오류는 오류를 발생 시키는 개별 레코드가 skip 또는 retry로 처리 될 때까지 이진 분할 일괄 처리를 다시 시도 하 여 처리 됩니다. 기본 고유 키 제약 조건 위반이 [항상 처리](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)됩니다.
 
@@ -107,16 +107,16 @@ SQL 출력을 사용 하는 Stream Analytics 작업에서 첫 번째 이벤트 �
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>열 이름은 Azure Stream Analytics의 소문자입니다(1.0).
 
-원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경합니다. 이 동작은 이후 호환성 수준에서 수정되었습니다. 사례를 유지하려면 호환성 수준 1.1 이상으로 이동합니다. 자세한 내용은 [Stream Analytics 작업에 대한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)을 참조하세요.
+원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경합니다. 이 동작은 이후 호환성 수준에서 수정되었습니다. 사례를 유지하려면 호환성 수준 1.1 이상으로 이동합니다. 자세한 내용은 [Stream Analytics 작업에 대한 호환성 수준](./stream-analytics-compatibility-level.md)을 참조하세요.
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

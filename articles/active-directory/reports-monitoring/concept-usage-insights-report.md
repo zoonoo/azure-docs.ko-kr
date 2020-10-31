@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008257"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122744"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용 현황 및 정보 보고서
 
@@ -31,7 +31,7 @@ ms.locfileid: "74008257"
 *   실패 한 로그인이 가장 많은 응용 프로그램은 무엇 인가요? 
 *   각 응용 프로그램에 대 한 상위 로그인 오류는 무엇 인가요?
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 사용량 및 통찰력 보고서의 데이터에 액세스 하려면 다음이 필요 합니다.
 
@@ -42,10 +42,10 @@ ms.locfileid: "74008257"
 ## <a name="access-the-usage-and-insights-report"></a>사용량 및 통찰력 보고서 액세스
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 올바른 디렉터리를 선택한 다음 **Azure Active Directory** 를 선택 하 고 **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. 올바른 디렉터리를 선택한 다음 **Azure Active Directory** 를 선택 하 고 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. **활동** 섹션에서 **사용 현황 & 정보** 를 선택 하 여 보고서를 엽니다. 
 
-![사용량 및 인사이트 보고서](./media/concept-usage-insights-report/main-menu.png)
+![작업 섹션에서 선택한 사용 & insights를 보여 주는 스크린샷](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>보고서 사용
@@ -58,7 +58,7 @@ ms.locfileid: "74008257"
 
 응용 프로그램 사용 그래프에서 날짜를 선택 하면 응용 프로그램에 대 한 로그인 활동의 자세한 목록이 표시 됩니다.  
 
-![사용량 및 인사이트 보고서](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![다른 앱에 대 한 범위를 선택 하 고 로그인 활동을 볼 수 있는 응용 프로그램 활동에 대 한 사용 현황 & 정보를 보여 주는 스크린샷](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>다음 단계
 

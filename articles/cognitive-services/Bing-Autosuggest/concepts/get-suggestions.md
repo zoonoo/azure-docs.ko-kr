@@ -10,20 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101972"
 ---
 # <a name="suggesting-query-terms"></a>쿼리 용어 제안
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 일반적으로 사용자는 애플리케이션의 검색 상자에 새 문자를 입력할 때마다 Bing Autosuggest API를 호출합니다. 쿼리 문자열의 완전성은 API가 반환하는 제안된 쿼리 용어의 관련성에 영향을 줍니다. 쿼리 문자열이 완전할수록 제안된 쿼리 용어 목록의 관련성이 커집니다. 예를 들어 API가 `s`에 대해 반환할 수 있는 제안은 `sailing dinghies`에 대해 반환하는 쿼리보다 관련성이 낮을 가능성이 큽니다.
 
 ## <a name="example-request"></a>요청 예
 
-다음 예제에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les*를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
+다음 예제에서는 *sail* 에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les* 를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789933"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102278"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Always On 가용성 그룹를 사용 하 여 데이터베이스 수준에서 SQL
 
 | 기술 | 예제 아키텍처 |
 | --- | --- |
-| **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다. Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/><br/> 중복성 및 가용성을 높이기 위해 [가용성 그룹 개요](availability-group-overview.md)에 설명 된 대로 Azure vm을 다른 [가용성 영역](../../../availability-zones/az-overview.md) 에 배포할 수 있습니다. 가용성 그룹의 SQL Server Vm이 가용성 영역에 배포 된 경우 [AZURE SQL VM CLI](./availability-group-az-commandline-configure.md) 및 [azure 퀵 스타트 템플릿](availability-group-quickstart-template-configure.md) 문서에 설명 된 대로 수신기에 대해 [azure 표준 Load Balancer](../../../load-balancer/load-balancer-overview.md) 를 사용 합니다.<br/> ![가용성 그룹](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](./availability-group-quickstart-template-configure.md)을 참조하세요. |
+| **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다. Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/><br/> 중복성 및 가용성을 높이기 위해 [가용성 그룹 개요](availability-group-overview.md)에 설명 된 대로 Azure vm을 다른 [가용성 영역](../../../availability-zones/az-overview.md) 에 배포할 수 있습니다. 가용성 그룹의 SQL Server Vm이 가용성 영역에 배포 된 경우 [AZURE SQL VM CLI](./availability-group-az-commandline-configure.md) 및 [azure 퀵 스타트 템플릿](availability-group-quickstart-template-configure.md) 문서에 설명 된 대로 수신기에 대해 [azure 표준 Load Balancer](../../../load-balancer/load-balancer-overview.md) 를 사용 합니다.<br/> !["주 복제본", "보조 복제본" 및 "파일 공유 감시"에 대해 만든 "WSFC 클러스터" 위의 "도메인 컨트롤러"를 보여 주는 다이어그램입니다.](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](./availability-group-quickstart-template-configure.md)을 참조하세요. |
 | **장애 조치(Failover) 클러스터 인스턴스** |장애 조치 (Failover) 클러스터 인스턴스는 SQL Server Vm에서 지원 됩니다. FCI 기능에는 공유 저장소가 필요 하기 때문에 Azure Vm에서 5 개의 솔루션이 SQL Server와 함께 작동 합니다. <br/><br/> -Windows Server 2019에 대 한 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 사용. 공유 관리 디스크는 여러 가상 컴퓨터에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure 제품입니다. 클러스터의 Vm은 scsi PR (SCSI 영구 예약)을 통해 클러스터 된 응용 프로그램에서 선택한 예약에 따라 연결 된 디스크를 읽거나 쓸 수 있습니다. SCSI PR은 SAN (저장 영역 네트워크) 온-프레미스에서 실행 되는 응용 프로그램에서 사용 되는 업계 표준 저장소 솔루션입니다. 관리 디스크에서 SCSI PR을 사용 하도록 설정 하면 이러한 응용 프로그램을 Azure로 마이그레이션할 수 있습니다. <br/><br/>- [스토리지 공간 다이렉트 \( S2D \) ](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 를 사용 하 여 Windows Server 2016 이상에 대 한 소프트웨어 기반 가상 SAN을 제공 합니다.<br/><br/>-Windows Server 2012 이상에 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 합니다. 프리미엄 파일 공유는 SSD를 지원 하 고, 지속적으로 짧은 대기 시간을 사용 하며, FCI와 함께 사용 하기 위해 완벽 하 게 지원 됩니다.<br/><br/>-클러스터링을 위해 파트너 솔루션에서 지 원하는 저장소 사용. SIOS DataKeeper를 사용 하는 특정 예제는 블로그 항목 [장애 조치 (Failover) 클러스터링 및 SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)를 참조 하세요.<br/><br/>-Azure Express 경로를 통해 원격 iSCSI 대상에 공유 블록 저장소를 사용 합니다. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>Microsoft 파트너의 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의하십시오.<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure에만 해당: 재해 복구 솔루션
@@ -62,10 +62,10 @@ Always On 가용성 그룹를 사용 하 여 데이터베이스 수준에서 SQL
 
 | 기술 | 예제 아키텍처 |
 | --- | --- |
-| **가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이 지역 간 솔루션은 전체 사이트 중단 으로부터 보호 하는 데 도움이 됩니다. <br/> ![가용성 그룹](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-alwayson.png)<br/>한 지역 내에서 모든 복제본은 동일한 클라우드 서비스 및 동일한 가상 네트워크에 있어야 합니다. 각 지역에 별도의 가상 네트워크가 있으므로 이러한 솔루션은 네트워크 간 연결을 필요로 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 네트워크 간 연결 구성](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조 하세요. 자세한 지침은 [여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성](availability-group-manually-configure-multiple-regions.md)을 참조 하세요.|
-| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용 하 여 배포 해야 합니다. Azure VM의 SQL Server 2008 또는 SQL Server 2008 r 2에 대해서는 SQL Server 데이터베이스 미러링이 지원 되지 않습니다. <br/>![데이터베이스 미러링](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-dbmirroring.png) |
-| **Azure Blob storage를 사용 하 여 백업 및 복원** |프로덕션 데이터베이스는 재해 복구를 위해 다른 데이터 센터의 Blob 저장소에 직접 백업 됩니다.<br/>![Backup 및 복원](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-backup-restore.png)<br/>자세한 내용은 [Azure vm에서 SQL Server에 대 한 백업 및 복원](../../../azure-sql/virtual-machines/windows/backup-restore.md)을 참조 하세요. |
-| **Azure Site Recovery를 사용 하 여 Azure에 SQL Server 복제 및 장애 조치 (failover)** |재해 복구를 위해 다른 Azure 데이터 센터의 Azure Storage에 직접 복제 된 단일 Azure 데이터 센터의 프로덕션 SQL Server 인스턴스입니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-standalone-sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
+| **가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이 지역 간 솔루션은 전체 사이트 중단 으로부터 보호 하는 데 도움이 됩니다. <br/> !["비동기 커밋"으로 연결 된 "주 복제본"과 "보조 복제본"이 있는 두 지역을 보여 주는 다이어그램입니다.](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-alwayson.png)<br/>한 지역 내에서 모든 복제본은 동일한 클라우드 서비스 및 동일한 가상 네트워크에 있어야 합니다. 각 지역에 별도의 가상 네트워크가 있으므로 이러한 솔루션은 네트워크 간 연결을 필요로 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 네트워크 간 연결 구성](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조 하세요. 자세한 지침은 [여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성](availability-group-manually-configure-multiple-regions.md)을 참조 하세요.|
+| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용 하 여 배포 해야 합니다. Azure VM의 SQL Server 2008 또는 SQL Server 2008 r 2에 대해서는 SQL Server 데이터베이스 미러링이 지원 되지 않습니다. <br/>!["고성능"을 사용 하 여 다른 지역의 미러에 연결 된 한 지역의 "보안 주체"를 표시 하는 다이어그램입니다.](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-dbmirroring.png) |
+| **Azure Blob storage를 사용 하 여 백업 및 복원** |프로덕션 데이터베이스는 재해 복구를 위해 다른 데이터 센터의 Blob 저장소에 직접 백업 됩니다.<br/>![다른 지역의 "Blob Storage"까지 백업 하는 한 지역의 "데이터베이스"를 보여 주는 다이어그램입니다.](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-backup-restore.png)<br/>자세한 내용은 [Azure vm에서 SQL Server에 대 한 백업 및 복원](../../../azure-sql/virtual-machines/windows/backup-restore.md)을 참조 하세요. |
+| **Azure Site Recovery를 사용 하 여 Azure에 SQL Server 복제 및 장애 조치 (failover)** |재해 복구를 위해 다른 Azure 데이터 센터의 Azure Storage에 직접 복제 된 단일 Azure 데이터 센터의 프로덕션 SQL Server 인스턴스입니다.<br/>![다른 데이터 센터의 재해 복구를 위해 "ASR 복제"를 사용 하는 Azure 데이터 센터 하나에서 "데이터베이스"를 보여 주는 다이어그램입니다. ](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-standalone-sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
 
 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>하이브리드 IT: 재해 복구 솔루션

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490444"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101666"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>.NET SDK에서 세션 토큰 형식 변환
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 서로 다른 세션 토큰 형식 간에 변환 하 여 SDK 버전 간의 호환성을 유지 하는 방법을 설명 합니다.
 
@@ -26,7 +27,7 @@ ms.locfileid: "92490444"
 
 ## <a name="session-token-formats"></a>세션 토큰 형식
 
-세션 토큰 형식에는 **단순** 및 **벡터**의 두 가지가 있습니다.  이러한 두 가지 형식은 서로 바꿔 사용할 수 없으므로 다른 버전의 클라이언트 응용 프로그램으로 전달할 때 형식을 변환 해야 합니다.
+세션 토큰 형식에는 **단순** 및 **벡터** 의 두 가지가 있습니다.  이러한 두 가지 형식은 서로 바꿔 사용할 수 없으므로 다른 버전의 클라이언트 응용 프로그램으로 전달할 때 형식을 변환 해야 합니다.
 - **단순** 세션 토큰 형식은 .Net SDK V1 (Microsoft.Azure.DocumentDB-버전 1.x)에서 사용 됩니다.
 - **벡터** 세션 토큰 형식은 .Net SDK V2 (Microsoft.Azure.DocumentDB-버전 2.x)에서 사용 됩니다.
 

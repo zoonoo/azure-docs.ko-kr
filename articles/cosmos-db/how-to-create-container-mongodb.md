@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491175"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101598"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API에서 컨테이너 만들기
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 문서에서는 MongoDB 용 Azure Cosmos DB API에서 컨테이너를 만드는 다양 한 방법을 설명 합니다. Azure Portal, Azure CLI, PowerShell 또는 지원 되는 Sdk를 사용 하 여 컨테이너를 만드는 방법을 보여 줍니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
 
@@ -30,13 +31,13 @@ ms.locfileid: "92491175"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-mongodb-dotnet.md#create-a-database-account)기존 계정을 선택 합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 컨테이너**를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 컨테이너** 를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
    * 컨테이너 ID를 입력 하십시오.
    * 분할 키를 입력합니다.
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
-   * **확인**을 선택합니다.
+   * **확인** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="MongoDB API에 대 한 Azure Cosmos DB API, 컨테이너 추가 대화 상자 스크린샷":::
 

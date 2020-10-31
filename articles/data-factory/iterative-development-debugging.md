@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory의 반복적인 개발 및 디버깅
 description: ADF UX에서 Data Factory 파이프라인을 반복적으로 개발 하 고 디버그 하는 방법을 알아봅니다.
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031010"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102075"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Azure Data Factory를 사용 하 여 데이터 통합 솔루션을 개발 하는
 
 ## <a name="debugging-a-pipeline"></a>파이프라인 디버깅
 
-파이프라인 캔버스를 사용 하 여 작성 하는 경우 **디버그** 기능을 사용 하 여 활동을 테스트할 수 있습니다. 테스트 실행을 수행할 때 **디버그**를 선택하기 전에 데이터 팩터리에 변경 사항을 게시할 필요가 없습니다. 이 기능은 데이터 팩터리 워크플로를 업데이트하기 전에 변경 내용이 예상대로 작동하는지 확인하려는 시나리오에서 유용합니다.
+파이프라인 캔버스를 사용 하 여 작성 하는 경우 **디버그** 기능을 사용 하 여 활동을 테스트할 수 있습니다. 테스트 실행을 수행할 때 **디버그** 를 선택하기 전에 데이터 팩터리에 변경 사항을 게시할 필요가 없습니다. 이 기능은 데이터 팩터리 워크플로를 업데이트하기 전에 변경 내용이 예상대로 작동하는지 확인하려는 시나리오에서 유용합니다.
 
 ![파이프라인 캔버스의 디버그 기능](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -37,14 +37,14 @@ Azure Data Factory를 사용 하 여 데이터 통합 솔루션을 개발 하는
 
 ![파이프라인 캔버스의 출력 창](media/iterative-development-debugging/iterative-development-2.png)
 
-테스트 실행이 성공한 후에는 파이프라인에 작업을 더 추가하고 반복적으로 디버깅을 계속합니다. 테스트 실행을 진행 중에도 **취소**할 수 있습니다.
+테스트 실행이 성공한 후에는 파이프라인에 작업을 더 추가하고 반복적으로 디버깅을 계속합니다. 테스트 실행을 진행 중에도 **취소** 할 수 있습니다.
 
 > [!IMPORTANT]
-> **디버그**를 선택하면 실제로 파이프라인이 실행됩니다. 예를 들어 파이프라인에 복사 작업이 포함 된 경우 테스트 실행은 원본에서 대상으로 데이터를 복사 합니다. 따라서 디버깅하는 경우 복사 작업 및 다른 작업에 테스트 폴더를 사용하는 것이 좋습니다. 파이프라인을 디버깅한 후 정상 작업에서 사용할 실제 폴더로 전환하십시오.
+> **디버그** 를 선택하면 실제로 파이프라인이 실행됩니다. 예를 들어 파이프라인에 복사 작업이 포함 된 경우 테스트 실행은 원본에서 대상으로 데이터를 복사 합니다. 따라서 디버깅하는 경우 복사 작업 및 다른 작업에 테스트 폴더를 사용하는 것이 좋습니다. 파이프라인을 디버깅한 후 정상 작업에서 사용할 실제 폴더로 전환하십시오.
 
 ### <a name="setting-breakpoints"></a>중단점 설정
 
-Azure Data Factory를 사용 하면 파이프라인 캔버스의 특정 작업에 도달할 때까지 파이프라인을 디버그할 수 있습니다. 테스트 하려는 경우까지 작업에 중단점을 설정 하 고 **디버그**를 선택 합니다. Data Factory는 파이프라인 캔버스의 중단점 작업까지만 테스트가 실행되도록 합니다. *Debug Until* 기능은 전체 파이프라인을 테스트하지 않고 파이프라인 내부의 일부 작업만 테스트하려는 경우에 유용합니다.
+Azure Data Factory를 사용 하면 파이프라인 캔버스의 특정 작업에 도달할 때까지 파이프라인을 디버그할 수 있습니다. 테스트 하려는 경우까지 작업에 중단점을 설정 하 고 **디버그** 를 선택 합니다. Data Factory는 파이프라인 캔버스의 중단점 작업까지만 테스트가 실행되도록 합니다. *Debug Until* 기능은 전체 파이프라인을 테스트하지 않고 파이프라인 내부의 일부 작업만 테스트하려는 경우에 유용합니다.
 
 ![파이프라인 캔버스의 중단점](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -79,11 +79,14 @@ Azure Data Factory를 사용 하면 파이프라인 캔버스의 특정 작업�
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>데이터 흐름 작업을 사용 하 여 파이프라인 디버깅
 
-데이터 흐름을 사용 하 여 디버그 실행을 실행할 때 사용할 계산에 대 한 두 가지 옵션을 사용할 수 있습니다. 기존 디버그 클러스터를 사용 하거나 데이터 흐름에 대 한 새 just-in-time 클러스터를 설정할 수 있습니다.
+데이터 흐름을 사용 하 여 디버그 파이프라인 실행을 실행 하는 경우 사용할 계산에 대 한 두 가지 옵션을 사용할 수 있습니다. 기존 디버그 클러스터를 사용 하거나 데이터 흐름에 대 한 새 just-in-time 클러스터를 설정할 수 있습니다.
 
-기존 디버그 세션을 사용 하면 클러스터가 이미 실행 되는 동안 데이터 흐름 시작 시간이 상당히 줄어들지만, 여러 작업이 한 번에 실행 될 때 실패할 수 있으므로 복잡 한 작업이 나 병렬 워크 로드에는 사용 하지 않는 것이 좋습니다. 
+기존 디버그 세션을 사용 하면 클러스터가 이미 실행 되는 동안 데이터 흐름 시작 시간이 상당히 줄어들지만, 여러 작업이 한 번에 실행 될 때 실패할 수 있으므로 복잡 한 작업이 나 병렬 워크 로드에는 사용 하지 않는 것이 좋습니다.
 
-활동 런타임을 사용 하면 각 데이터 흐름 활동의 통합 런타임에 지정 된 설정을 사용 하 여 새 클러스터가 만들어집니다. 이렇게 하면 각 작업을 격리할 수 있으며 복잡 한 작업 또는 성능 테스트에 사용 해야 합니다.
+활동 런타임을 사용 하면 각 데이터 흐름 활동의 통합 런타임에 지정 된 설정을 사용 하 여 새 클러스터가 만들어집니다. 이렇게 하면 각 작업을 격리할 수 있으며 복잡 한 작업 또는 성능 테스트에 사용 해야 합니다. 또한 디버깅에 사용 되는 클러스터 리소스를 추가 작업 요청을 처리 하는 해당 기간 동안 계속 사용할 수 있도록 Azure IR의 TTL을 제어할 수 있습니다.
+
+> [!NOTE]
+> 병렬로 실행 되는 데이터 흐름이 있는 파이프라인이 있는 경우 데이터 흐름 작업에서 선택한 Integration Runtime를 사용할 수 Data Factory 있도록 "Use Activity Runtime"을 선택 합니다. 이렇게 하면 데이터 흐름이 여러 클러스터에서 실행 될 수 있으며 병렬 데이터 흐름 실행을 수용할 수 있습니다.
 
 ![데이터 흐름을 사용 하 여 파이프라인 실행](media/iterative-development-debugging/iterative-development-dataflow.png)
 

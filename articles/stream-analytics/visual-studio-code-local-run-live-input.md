@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892137"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122897"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 라이브 스트림 입력에 대해 로컬로 쿼리 Stream Analytics 테스트
 
-Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스트림 입력에 대해 로컬로 Stream Analytics 작업을 테스트할 수 있습니다. 입력은 Azure Event Hubs 또는 Azure IoT Hub와 같은 소스에서 가져올 수 있습니다. 출력 결과는 프로젝트에서 **Localrunoutputs**라는 폴더에 JSON 파일로 전송 됩니다.
+Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스트림 입력에 대해 로컬로 Stream Analytics 작업을 테스트할 수 있습니다. 입력은 Azure Event Hubs 또는 Azure IoT Hub와 같은 소스에서 가져올 수 있습니다. 출력 결과는 프로젝트에서 **Localrunoutputs** 라는 폴더에 JSON 파일로 전송 됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -25,11 +25,11 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스
 
 ## <a name="define-a-live-stream-input"></a>라이브 스트림 입력 정의
 
-1. Stream Analytics 프로젝트에서 마우스 오른쪽 단추로 **Inputs** 폴더를 클릭합니다. 그런 다음, 상황에 맞는 메뉴에서 **ASA: 입력 추가**를 선택합니다.
+1. Stream Analytics 프로젝트에서 마우스 오른쪽 단추로 **Inputs** 폴더를 클릭합니다. 그런 다음, 상황에 맞는 메뉴에서 **ASA: 입력 추가** 를 선택합니다.
 
    ![Inputs 폴더에서 입력 추가](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   **Ctrl + Shift + P** 를 선택 하 여 명령 팔레트를 열고 사용자 **: 입력 추가**를 입력할 수도 있습니다.
+   **Ctrl + Shift + P** 를 선택 하 여 명령 팔레트를 열고 사용자 **: 입력 추가** 를 입력할 수도 있습니다.
 
    ![Visual Studio Code에서 Stream Analytics 입력 추가](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -37,15 +37,15 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스
 
    ![입력 옵션으로 IoT 허브 선택](./media/quick-create-visual-studio-code/iot-hub.png)
 
-3. 명령 팔레트에서 입력을 추가한 경우 해당 입력을 사용할 Stream Analytics 쿼리 스크립트를 선택합니다. 그러면 **myASAproj.asaql**의 파일 경로로 자동으로 채워집니다.
+3. 명령 팔레트에서 입력을 추가한 경우 해당 입력을 사용할 Stream Analytics 쿼리 스크립트를 선택합니다. 그러면 **myASAproj.asaql** 의 파일 경로로 자동으로 채워집니다.
 
    ![Visual Studio에서 Stream Analytics 스크립트 선택](./media/quick-create-visual-studio-code/asa-script.png)
 
-4. 드롭다운 메뉴에서 **Azure 구독에서 선택**을 선택합니다.
+4. 드롭다운 메뉴에서 **Azure 구독에서 선택** 을 선택합니다.
 
     ![구독에서 선택](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
-5. 새로 생성 된 JSON 파일을 구성 합니다. CodeLens 기능을 사용하여 문자열을 입력하거나, 드롭다운 목록에서 선택하거나, 파일에서 텍스트를 직접 변경할 수 있습니다. 다음 스크린샷에서는 **구독에서 선택**을 예로 보여 줍니다.
+5. 새로 생성 된 JSON 파일을 구성 합니다. CodeLens 기능을 사용하여 문자열을 입력하거나, 드롭다운 목록에서 선택하거나, 파일에서 텍스트를 직접 변경할 수 있습니다. 다음 스크린샷에서는 **구독에서 선택** 을 예로 보여 줍니다.
 
    ![Visual Studio Code에서 입력 구성](./media/quick-create-visual-studio-code/configure-input.png)
 
@@ -57,7 +57,7 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스
 
 ## <a name="run-queries-locally"></a>로컬로 쿼리 실행
 
-쿼리 편집기로 돌아가서 **로컬에서 실행**을 선택 합니다. 그런 다음 드롭다운 목록에서 **라이브 입력 사용** 을 선택 합니다.
+쿼리 편집기로 돌아가서 **로컬에서 실행** 을 선택 합니다. 그런 다음 드롭다운 목록에서 **라이브 입력 사용** 을 선택 합니다.
 
 ![쿼리 편집기에서 "로컬로 실행"을 선택 합니다.](./media/vscode-local-run/run-locally.png)
 
@@ -65,7 +65,7 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스
 
 오른쪽 창에 결과가 표시 되 고 3 초 마다 새로 고쳐집니다. **실행** 을 선택 하 여 다시 테스트할 수 있습니다. 파일 탐색기에서 **열기** 를 선택 하 여 파일 탐색기에서 결과 파일을 보고 Visual Studio Code 또는 Excel과 같은 도구를 사용 하 여 열 수도 있습니다. 결과 파일은 JSON 형식 으로만 사용할 수 있습니다.
 
-출력 만들기를 시작 하는 작업의 기본 시간은 **Now**로 설정 됩니다. 결과 창에서 **출력 시작 시간** 단추를 선택 하 여 시간을 사용자 지정할 수 있습니다.
+출력 만들기를 시작 하는 작업의 기본 시간은 **Now** 로 설정 됩니다. 결과 창에서 **출력 시작 시간** 단추를 선택 하 여 시간을 사용자 지정할 수 있습니다.
 
 ![로컬 실행 결과 보기](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
@@ -73,4 +73,4 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 라이브 스
 
 * [Visual Studio Code를 사용 하 여 Azure Stream Analytics 작업 살펴보기 (미리 보기)](visual-studio-code-explore-jobs.md)
 
-* [npm 패키지를 사용하여 CI/CD 파이프라인 설정](setup-cicd-vs-code.md)
+* [npm 패키지를 사용하여 CI/CD 파이프라인 설정](./cicd-overview.md)
