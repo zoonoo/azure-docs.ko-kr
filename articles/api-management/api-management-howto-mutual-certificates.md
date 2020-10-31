@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077203"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
 
@@ -26,7 +26,7 @@ API Management를 사용 하면 클라이언트 인증서를 사용 하 여 API�
 
 API Management REST API를 사용하여 인증서를 관리하는 방법에 대한 자세한 내용은 <a href="/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API 인증서 엔터티</a>를 참조하세요.
 
-## <a name="prerequisites"></a><a name="prerequisites"> </a>필수 구성 요소
+## <a name="prerequisites"></a><a name="prerequisites"> </a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,9 +44,9 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 1. Azure Portal에서 Azure API Management 서비스 인스턴스로 이동합니다.
 2. 메뉴에서 **인증서** 를 선택 합니다.
 3. **+추가** 단추를 클릭합니다.
-    ![클라이언트 인증서 추가](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+    ![+ 추가 단추를 강조 표시 하는 스크린샷](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. 인증서를 찾아보아 해당 ID와 암호를 제공합니다.
-5. **만들기**를 클릭합니다.
+5. **만들기** 를 클릭합니다.
 
 > [!NOTE]
 > 인증서는 **.pfx** 형식이어야 합니다. 자체 서명된 인증서도 사용할 수 있습니다.
@@ -58,7 +58,7 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>클라이언트 인증서 삭제
 
-인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제**를 선택합니다.
+인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제** 를 선택합니다.
 
 ![클라이언트 인증서 삭제](media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png)
 
@@ -68,14 +68,14 @@ API Management REST API를 사용하여 인증서를 관리하는 방법에 대�
 
 ## <a name="configure-an-api-to-use-a-client-certificate-for-gateway-authentication"></a><a name="step2"> </a>게이트웨이 인증에 클라이언트 인증서를 사용하도록 API 구성
 
-1. 왼쪽의 **API Management 메뉴**에서 **API**를 클릭한 다음, API로 이동합니다.
+1. 왼쪽의 **API Management 메뉴** 에서 **API** 를 클릭한 다음, API로 이동합니다.
     ![클라이언트 인증서 사용하도록 설정](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
 2. **디자인** 탭에서 **백 엔드** 섹션의 연필 아이콘을 클릭합니다.
-3. **게이트웨이 자격 증명**을 **클라이언트 인증서**로 변경하고 드롭다운 목록에서 인증서를 선택합니다.
-    ![클라이언트 인증서 사용하도록 설정](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+3. **게이트웨이 자격 증명** 을 **클라이언트 인증서** 로 변경하고 드롭다운 목록에서 인증서를 선택합니다.
+    ![게이트웨이 자격 증명을 변경 하 고 인증서를 선택할 수 있는 위치를 보여 주는 스크린샷](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 > [!WARNING]
 > 이 변경 내용은 즉시 적용되며 해당 API의 작업 호출은 인증서를 사용하여 백 엔드 서버에서 인증됩니다.

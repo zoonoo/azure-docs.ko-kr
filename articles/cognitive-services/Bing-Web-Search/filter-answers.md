@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696714"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078631"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 웹을 쿼리할 때 Bing은 검색에 대해 찾은 관련된 모든 콘텐츠를 반환합니다. 예를 들어 검색 쿼리가 “sailing+dinghies”인 경우 응답에는 다음과 같은 답변이 포함될 수 있습니다.
 
@@ -53,7 +58,7 @@ Bing에서 반환 된 대답을 필터링 하려면 API를 호출할 때 아래 
 
 응답이 [필터](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수 (예: 이미지, 비디오, 뉴스)를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다 .이 매개 변수는 쉼표로 구분 된 대답 목록입니다. Bing에서 관련 콘텐츠를 찾은 경우 응답에 답변이 포함 됩니다. 
 
-이미지와 같은 응답에서 특정 대답을 제외 하려면 `-` 응답 형식에 문자를 추가 합니다. 예를 들면 다음과 같습니다.
+이미지와 같은 응답에서 특정 대답을 제외 하려면 `-` 응답 형식에 문자를 추가 합니다. 다음은 그 예입니다.
 
 ```
 &responseFilter=-images,-videos
@@ -131,7 +136,7 @@ Bing에서 필터 조건과 일치 하는 웹 페이지 수가 요청한 웹 페
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>응답의 답변 수 제한
 
-Bing은 JSON 응답에서 여러 응답 형식을 반환할 수 있습니다. 예를 들어 *돛단 + dinghies*를 쿼리하면 Bing에서,, 및를 반환할 수 있습니다 `webpages` `images` `videos` `relatedSearches` .
+Bing은 JSON 응답에서 여러 응답 형식을 반환할 수 있습니다. 예를 들어 *돛단 + dinghies* 를 쿼리하면 Bing에서,, 및를 반환할 수 있습니다 `webpages` `images` `videos` `relatedSearches` .
 
 ```json
 {

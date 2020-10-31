@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078699"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Bing Web Search API v5를 v7로 업그레이드
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 이 업그레이드 가이드는 Bing Web Search API 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
@@ -26,7 +31,7 @@ ms.locfileid: "85609455"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search입니다.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https:\/\/api.cognitive.microsoft.com/bing/ **v7.0** /search입니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -73,7 +78,7 @@ InsufficientScope|InsufficientAuthorization
 
 ## <a name="non-breaking-changes"></a>호환성이 손상되지 않는 변경  
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>헤더
 
 - 선택적 [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) 요청 헤더가 추가되었습니다. 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
 
@@ -81,7 +86,7 @@ InsufficientScope|InsufficientAuthorization
 
 - [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
 
-- [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오 및 이미지를 응답으로 승격 하려면 *비디오, 이미지*로 수준 올리기를 설정 합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount` 가 2이 고 `promote` 가 *비디오, 이미지*로 설정 된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함 될 수 있습니다.
+- [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오 및 이미지를 응답으로 승격 하려면 *비디오, 이미지* 로 수준 올리기를 설정 합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount` 가 2이 고 `promote` 가 *비디오, 이미지* 로 설정 된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함 될 수 있습니다.
 
 ### <a name="object-changes"></a>개체 변경 내용
 

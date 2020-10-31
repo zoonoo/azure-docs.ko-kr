@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077679"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 신뢰할 수 없는 네트워크에서 액세스를 위한 MFA 요구   
 
@@ -24,7 +24,7 @@ Azure AD(Azure Active Directory)에서는 어디에서든지 디바이스, 앱 �
 
 이 문서에서는 신뢰할 수 없는 네트워크에서 액세스 하기 위해 MFA를 요구 하는 조건부 액세스 정책을 구성 하는 데 필요한 정보를 제공 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 조건부 액세스의 [기본 개념](overview.md) 을 잘 알고 있다고 가정 합니다. 
 
@@ -48,17 +48,17 @@ Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는
 다음으로 명명된 위치를 구성할 수 있습니다.
 
 - 이 범위 지정 (199.30.16.0/28) 
-- **회사 네트워크**와 같은 설명이 포함된 이름 할당 
+- **회사 네트워크** 와 같은 설명이 포함된 이름 할당 
 
 신뢰할 수 없는 모든 위치를 지정하도록 시도하는 대신 다음을 수행할 수 있습니다.
 
 - 모든 위치 포함 
 
-   ![조건부 액세스](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="구성이 예로 설정 되 고, 포함 탭이 표시 되며, 모든 위치 옵션이 선택 되 고 강조 표시 된 Azure A D 위치 창의 스크린샷" border="false":::
 
 - 신뢰할 수 있는 모든 위치 제외 
 
-   ![조건부 액세스](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="구성이 예로 설정 되 고, 포함 탭이 표시 되며, 모든 위치 옵션이 선택 되 고 강조 표시 된 Azure A D 위치 창의 스크린샷" border="false":::
 
 ## <a name="policy-deployment"></a>정책 배포
 

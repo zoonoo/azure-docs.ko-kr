@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075707"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱싱 정책](index-policy.md)에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이 정책은 사용자 지정 인덱싱 정책으로 재정의할 수 있습니다.
 
@@ -359,11 +360,11 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 1. **Data Explorer** 창을 열고 작업할 컨테이너를 선택합니다.
 
-1. **크기 조정 및 설정**을 클릭합니다.
+1. **크기 조정 및 설정** 을 클릭합니다.
 
 1. 인덱싱 정책 JSON 문서를 수정합니다([아래](#indexing-policy-examples) 예제 참조).
 
-1. 완료되면 **저장**을 클릭합니다.
+1. 완료되면 **저장** 을 클릭합니다.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Azure Portal를 사용 하 여 인덱싱 관리":::
 

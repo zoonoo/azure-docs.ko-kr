@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078223"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -85,7 +85,7 @@ Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니�
 
 개수 단위로 수집 되는 IoT Hub 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다. 자세히 알아보려면 [모니터링 Azure IoT Hub 데이터 참조에서 지원 되는 집계](monitor-iot-hub-reference.md#supported-aggregations)를 참조 하세요.
 
-[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) 및 [분할](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) 을 적용할 수 있습니다.
+[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) 및 [분할](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) 을 적용할 수 있습니다.
 
 ## <a name="analyzing-logs"></a>로그 분석
 

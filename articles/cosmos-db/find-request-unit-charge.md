@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9d0694a76bca832887d30601711894b953fe22e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490665"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078444"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>SQL API Azure Cosmos DB에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 지원합니다. 각 API에는 고유한 데이터베이스 작업 세트가 있습니다. 이러한 작업은 간단한 지점 읽기 및 쓰기에서 복잡한 쿼리에 이르기까지 다양합니다. 각 데이터베이스 작업은 작업의 복잡도에 따라 시스템 리소스를 사용합니다.
 
@@ -33,11 +34,11 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
 1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
-1. **새 SQL 쿼리**를 선택합니다.
+1. **새 SQL 쿼리** 를 선택합니다.
 
-1. 유효한 쿼리를 입력한 다음, **쿼리 실행**을 선택합니다.
+1. 유효한 쿼리를 입력한 다음, **쿼리 실행** 을 선택합니다.
 
-1. **쿼리 통계**를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
+1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
 
 :::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Azure Portal의 SQL 쿼리 요청 요금 스크린샷":::
 

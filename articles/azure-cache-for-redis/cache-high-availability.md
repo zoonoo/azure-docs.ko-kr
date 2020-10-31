@@ -4,27 +4,27 @@ description: Redis 고가용성 기능 및 옵션에 대 한 Azure Cache에 대�
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/28/2020
 ms.author: yegu
-ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e44aed1415f85bf4ea597eac6720207301946b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536796"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076914"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Redis 용 Azure Cache의 고가용성
 
 Redis 용 Azure Cache에는 고가용성이 기본적으로 제공 됩니다. 고가용성 아키텍처의 목표는 기본 Vm (가상 머신)이 계획 되거나 계획 되지 않은 중단의 영향을 받는 경우에도 관리 되는 Redis 인스턴스가 작동 하 고 있는지 확인 하는 것입니다. 단일 VM에서 Redis을 호스트 하 여 realistic 된 것 보다 훨씬 더 높은 비율의 요금을 제공 합니다.
 
-Redis 용 Azure Cache는 캐시에 대해 *노드* 라고 하는 여러 vm을 사용 하 여 고가용성을 구현 합니다. 이는 조정 된 방식의에서 데이터 복제 및 장애 조치 (failover)가 발생 하도록 이러한 노드를 구성 합니다. 또한 Redis 소프트웨어 패치와 같은 유지 관리 작업을 오케스트레이션 합니다. Standard 및 Premium 계층에서는 다양 한 고가용성 옵션을 사용할 수 있습니다.
+Redis 용 Azure Cache는 캐시에 대해 *노드* 라고 하는 여러 vm을 사용 하 여 고가용성을 구현 합니다. 이는 조정 된 방식의에서 데이터 복제 및 장애 조치 (failover)가 발생 하도록 이러한 노드를 구성 합니다. 또한 Redis 소프트웨어 패치와 같은 유지 관리 작업을 오케스트레이션 합니다. Standard, Premium 및 Enterprise 계층에서는 다양 한 고가용성 옵션을 사용할 수 있습니다.
 
-| 옵션 | Description | 가용성 | Standard | Premium |
-| ------------------- | ------- | ------- | :------: | :---: |
-| [표준 복제](#standard-replication)| 자동 장애 조치 (failover)를 사용 하 여 단일 데이터 센터 또는 가용성 영역 (AZ)의 이중 노드 복제 구성 | 99.9% |✔|✔|
-| [여러 복제본](#multiple-replicas) | 자동 장애 조치 (failover)를 사용 하는 하나 이상의 AZs에서 다중 노드 복제 구성 | 99.95% (영역 중복성 포함) |-|✔|
-| [영역 중복](#zone-redundancy) | 자동 장애 조치 (failover)를 사용 하 여 AZs에서 다중 노드 복제 구성 | 99.95% (여러 복제본 포함) |-|✔|
-| [지역에서 복제](#geo-replication) | 사용자 제어 장애 조치 (failover)를 사용 하 여 두 지역의 연결 된 캐시 인스턴스 | 99.9% (단일 지역) |-|✔|
+| 옵션 | Description | 가용성 | Standard | Premium | Enterprise |
+| ------------------- | ------- | ------- | :------: | :---: | :---: |
+| [표준 복제](#standard-replication)| 자동 장애 조치 (failover)를 사용 하 여 단일 데이터 센터 또는 가용성 영역 (AZ)의 이중 노드 복제 구성 | 99.9% |✔|✔|-|
+| [엔터프라이즈 클러스터](#enterprise-cluster) | 자동 장애 조치 (failover)를 사용 하 여 두 지역의 연결 된 캐시 인스턴스 | 99.9% |-|-|✔|
+| [영역 중복](#zone-redundancy) | 자동 장애 조치 (failover)를 사용 하 여 AZs에서 다중 노드 복제 구성 | 99.95% (표준 복제), 99.99% (Enterprise 클러스터) |-|✔|✔|
+| [지역에서 복제](#geo-replication) | 사용자 제어 장애 조치 (failover)를 사용 하 여 두 지역의 연결 된 캐시 인스턴스 | 99.9% (단일 지역) |-|✔|-|
 
 ## <a name="standard-replication"></a>표준 복제
 
@@ -41,14 +41,23 @@ Redis cache의 주 노드를 사용할 수 없는 경우 복제본이 자동으�
 
 주 노드는 Redis 소프트웨어 또는 운영 체제 업데이트와 같은 계획 된 유지 관리 작업의 일부로 서비스를 벗어날 수 있습니다. 기본 하드웨어, 소프트웨어 또는 네트워크의 오류와 같은 계획 되지 않은 이벤트로 인해 작동이 중지 될 수도 있습니다. [Redis 용 Azure Cache의 장애 조치 (Failover) 및 패치](cache-failover.md) 는 Redis 장애 조치 (failover) 유형에 대 한 자세한 설명을 제공 합니다. Azure Cache for Redis는 수명 동안 많은 장애 조치 (failover)를 거칩니다. 고가용성 아키텍처는 캐시 내에서 가능한 한 해당 클라이언트에 투명 하 게 이러한 변경을 수행 하도록 설계 되었습니다.
 
-## <a name="multiple-replicas"></a>여러 복제본
+>[!NOTE]
+>다음은 미리 보기로 제공 됩니다.
+>
+>
+
+또한 Azure Cache for Redis는 프리미엄 계층의 추가 복제본 노드를 허용 합니다. [다중 복제본 캐시](cache-how-to-multi-replicas.md) 는 최대 3 개의 복제본 노드를 사용 하 여 구성할 수 있습니다. 복제본이 많을 수록 일반적으로 주 복제본을 백업 하는 추가 노드로 인해 복원 력이 향상 됩니다. 복제본이 많을 경우에도 Redis 인스턴스에 대 한 Azure Cache는 데이터 센터 또는 AZ 전체 중단의 심각한 영향을 받을 수 있습니다. [영역 중복성](#zone-redundancy)과 함께 여러 복제본을 사용 하 여 캐시 가용성을 높일 수 있습니다.
+
+## <a name="enterprise-cluster"></a>엔터프라이즈 클러스터
 
 >[!NOTE]
 >이는 미리 보기로 제공 됩니다.
 >
 >
 
-Redis 용 Azure Cache는 프리미엄 계층의 추가 복제본 노드를 허용 합니다. [다중 복제본 캐시](cache-how-to-multi-replicas.md) 는 최대 3 개의 복제본 노드를 사용 하 여 구성할 수 있습니다. 복제본이 많을 수록 일반적으로 주 복제본을 백업 하는 추가 노드로 인해 복원 력이 향상 됩니다. 복제본이 많을 경우에도 Redis 인스턴스에 대 한 Azure Cache는 데이터 센터 또는 AZ 전체 중단의 심각한 영향을 받을 수 있습니다. [영역 중복성](#zone-redundancy)과 함께 여러 복제본을 사용 하 여 캐시 가용성을 높일 수 있습니다.
+두 엔터프라이즈 계층의 캐시는 Redis 엔터프라이즈 클러스터에서 실행 됩니다. 쿼럼을 구성 하려면 항상 홀수 개의 서버 노드가 필요 합니다. 기본적으로 각각 전용 VM에서 호스팅되는 세 개의 노드로 구성 됩니다. 엔터프라이즈 캐시에는 동일한 크기의 두 *데이터 노드와* 작은 *쿼럼 노드가* 하나 있습니다. 엔터프라이즈 플래시 캐시에는 크기가 같은 세 개의 데이터 노드가 있습니다. 엔터프라이즈 클러스터는 Redis 데이터를 내부적으로 파티션으로 나눕니다. 각 파티션에는 *주* 복제본과 하나 이상의 *복제본* 이 있습니다. 각 데이터 노드는 하나 이상의 파티션을 보유 합니다. 엔터프라이즈 클러스터는 모든 파티션에 대 한 주 및 복제본이 동일한 데이터 노드에서 공동 배치 되지 않도록 합니다. 파티션은 주 복제본에서 해당 복제본으로 데이터를 비동기적으로 복제 합니다.
+
+데이터 노드를 사용할 수 없게 되거나 네트워크 분할이 발생 하면 [표준 복제](#standard-replication) 에 설명 된 것과 유사한 장애 조치 (failover)가 발생 합니다. 엔터프라이즈 클러스터는 쿼럼 기반 모델을 사용 하 여 새 쿼럼에 참여 하는 남아 있는 노드를 결정 합니다. 또한 필요에 따라 이러한 노드 내의 복제본 파티션을 주 복제본으로 승격 합니다.
 
 ## <a name="zone-redundancy"></a>영역 중복
 
@@ -57,7 +66,7 @@ Redis 용 Azure Cache는 프리미엄 계층의 추가 복제본 노드를 허�
 >
 >
 
-Redis 용 Azure Cache는 프리미엄 계층에서 영역 중복 구성을 지원 합니다. [영역 중복 캐시](cache-how-to-zone-redundancy.md) 는 동일한 지역에 있는 서로 다른 [Azure 가용성 영역](../availability-zones/az-overview.md) 에 노드를 둘 수 있습니다. 단일 실패 지점으로 데이터 센터 또는 AZ 중단을 제거 하 고 캐시의 전체 가용성을 높입니다.
+Redis 용 Azure Cache는 프리미엄 및 엔터프라이즈 계층에서 영역 중복 구성을 지원 합니다. [영역 중복 캐시](cache-how-to-zone-redundancy.md) 는 동일한 지역에 있는 서로 다른 [Azure 가용성 영역](../availability-zones/az-overview.md) 에 노드를 둘 수 있습니다. 단일 실패 지점으로 데이터 센터 또는 AZ 중단을 제거 하 고 캐시의 전체 가용성을 높입니다.
 
 다음 다이어그램은 영역 중복 구성을 보여 줍니다.
 

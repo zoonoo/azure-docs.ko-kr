@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: b43bd0a076a21429a5f6fe05ef0c20d62674acdf
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8f9e4211b05503f70987b9e476d9a55510bbd520
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078325"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API에 대 한 질문과 대답
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 Gremlin API에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 설명 합니다.
 
@@ -21,7 +22,7 @@ ms.locfileid: "92281549"
 
 **executionProfile()** 미리 보기 단계를 사용하여 쿼리 실행 계획에 대한 분석을 제공할 수 있습니다. 이 단계는 다음 예와 같이 Gremlin 쿼리 끝에 추가해야 합니다.
 
-**쿼리 예제**
+**쿼리 예**
 
 ```
 g.V('mary').out('knows').executionProfile()

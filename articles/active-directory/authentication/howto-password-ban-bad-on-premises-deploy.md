@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077730"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -125,7 +125,7 @@ Azure AD 암호 보호 프록시 서비스에는 다음과 같은 요구 사항�
     * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 필요한 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트 하는 모든 컴퓨터는 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하도록 구성 되어야 합니다. 이 기능은 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트 하는 모든 컴퓨터는 아웃 바운드 TLS 1.2 HTTP 트래픽을 허용 하도록 구성 되어야 합니다.
-* Azure ad를 사용 하 여 Azure AD 암호 보호 프록시 서비스 및 포리스트를 등록 하는 *전역 관리자* 계정.
+* Azure ad를 사용 하 여 Azure AD 암호 보호 프록시 서비스 및 포리스트를 등록 하는 *전역 관리자* 또는 *보안 관리자* 계정.
 * [응용 프로그램 프록시 환경 설정 절차](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)에 지정 된 포트 및 url 집합에 대해 네트워크 액세스를 사용 하도록 설정 해야 합니다.
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Microsoft Azure AD 연결 에이전트 업데이트 프로그램 필수 구성 요소
@@ -142,8 +142,8 @@ Microsoft Azure AD Connect Agent 업데이트 서비스는 Azure AD 암호 보�
 
 온-프레미스 Azure AD 암호 보호 배포에는 다음과 같은 두 가지 필수 설치 관리자가 있습니다.
 
-* Azure AD 암호 보호 DC 에이전트 (*AzureADPasswordProtectionDCAgentSetup.msi*)
-* Azure AD 암호 보호 프록시 (*AzureADPasswordProtectionProxySetup.exe*)
+* Azure AD 암호 보호 DC 에이전트 ( *AzureADPasswordProtectionDCAgentSetup.msi* )
+* Azure AD 암호 보호 프록시 ( *AzureADPasswordProtectionProxySetup.exe* )
 
 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 두 설치 관리자를 다운로드 합니다.
 
@@ -155,9 +155,11 @@ Azure AD 암호 보호 프록시 서비스는 일반적으로 온-프레미스 A
 
 Azure AD 암호 보호 프록시 서비스를 호스트할 서버를 하나 이상 선택 합니다. 서버에 대해 다음과 같은 고려 사항이 적용 됩니다.
 
-* 이러한 각 서비스는 단일 포리스트에 대 한 암호 정책만 제공할 수 있습니다. 호스트 컴퓨터는 해당 포리스트의 도메인에 가입 되어 있어야 합니다. 루트 및 자식 도메인이 둘 다 지원 됩니다. 포리스트의 각 도메인에 있는 하나 이상의 DC와 암호 보호 컴퓨터 간에 네트워크 연결이 필요 합니다.
+* 이러한 각 서비스는 단일 포리스트에 대 한 암호 정책만 제공할 수 있습니다. 호스트 컴퓨터는 해당 포리스트의 모든 도메인에 가입 되어 있어야 합니다.
+* 루트 또는 자식 도메인 또는 이러한 도메인의 조합에 서비스 프록시를 설치 하는 것이 지원 됩니다.
+* 포리스트의 각 도메인에 있는 하나 이상의 DC와 하나의 암호 보호 프록시 서버 간에 네트워크 연결이 필요 합니다.
 * 테스트를 위해 도메인 컨트롤러에서 Azure AD 암호 보호 프록시 서비스를 실행할 수 있지만 해당 도메인 컨트롤러에는 인터넷 연결이 필요 합니다. 이러한 연결에는 보안 문제가 있을 수 있습니다. 이 구성은 테스트용 으로만 권장 됩니다.
-* 이전 섹션에서 설명한 것 처럼 중복성을 위해 두 개 이상의 Azure AD 암호 보호 프록시 서버를 [사용](#high-availability-considerations)하는 것이 좋습니다.
+* 이전 섹션에서 설명한 것 처럼 중복성을 위해 포리스트 당 두 개 이상의 Azure AD 암호 보호 프록시 서버를 [사용](#high-availability-considerations)하는 것이 좋습니다.
 * 읽기 전용 도메인 컨트롤러에서 Azure AD 암호 보호 프록시 서비스를 실행 하는 것은 지원 되지 않습니다.
 
 Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 완료 합니다.
@@ -191,11 +193,11 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    결과에는 *실행*중 **상태가** 표시 됩니다.
+    결과에는 *실행* 중 **상태가** 표시 됩니다.
 
 1. 프록시 서비스가 컴퓨터에서 실행 되 고 있지만 Azure AD와 통신할 자격 증명이 없습니다. Cmdlet을 사용 하 여 azure ad에 Azure AD 암호 보호 프록시 서버를 등록 합니다 `Register-AzureADPasswordProtectionProxy` .
 
-    이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다.
+    이 cmdlet에는 Azure 테 넌 트의 *전역 관리자* 또는 *보안 관리자* 자격 증명이 필요 합니다. 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet도 실행 해야 합니다.
 
     Azure AD 암호 보호 프록시 서비스에 대해이 명령을 한 번 성공한 후에는 추가 호출이 성공 하지만 필요 하지 않습니다.
 
@@ -233,7 +235,7 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
         >
         > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 요구 사항을 해결 하기 위해 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나 Azure 장치 등록 MFA 요구 사항을 일시적으로 완화할 수도 있습니다.
         >
-        > 이렇게 변경 하려면 Azure Portal에서 **Azure Active Directory** 을 검색 하 고 선택한 다음 장치 **> 장치 설정**을 선택 합니다. 장치를 *아니요*로 **연결 하려면 multi-factor Auth 필요를** 설정 합니다. 등록이 완료 되 면이 설정을 다시 *[예]* 로 다시 구성 해야 합니다.
+        > 이렇게 변경 하려면 Azure Portal에서 **Azure Active Directory** 을 검색 하 고 선택한 다음 장치 **> 장치 설정** 을 선택 합니다. 장치를 *아니요* 로 **연결 하려면 multi-factor Auth 필요를** 설정 합니다. 등록이 완료 되 면이 설정을 다시 *[예]* 로 다시 구성 해야 합니다.
         >
         > MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
 
@@ -246,7 +248,9 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
     > [!NOTE]
     > 여러 Azure AD 암호 보호 프록시 서버가 사용자 환경에 설치 되어 있는 경우 포리스트를 등록 하는 데 사용 하는 프록시 서버에 상관 없습니다.
 
-    Cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요 합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
+    Cmdlet에는 Azure 테 넌 트에 대 한 *전역 관리자* 또는 *보안 관리자* 자격 증명이 필요 합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요 합니다. 또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다. 포리스트를 등록 하는 데 사용 되는 Azure 계정은 온-프레미스 Active Directory 계정과 다를 수 있습니다.
+    
+    이 단계는 포리스트마다 한 번씩 실행됩니다.
 
     이 `Register-AzureADPasswordProtectionForest` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다.
 
@@ -282,7 +286,7 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
         >
         > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 요구 사항을 해결 하기 위해 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나 Azure 장치 등록 MFA 요구 사항을 일시적으로 완화할 수도 있습니다.
         >
-        > 이렇게 변경 하려면 Azure Portal에서 **Azure Active Directory** 을 검색 하 고 선택한 다음 장치 **> 장치 설정**을 선택 합니다. 장치를 *아니요*로 **연결 하려면 multi-factor Auth 필요를** 설정 합니다. 등록이 완료 되 면이 설정을 다시 *[예]* 로 다시 구성 해야 합니다.
+        > 이렇게 변경 하려면 Azure Portal에서 **Azure Active Directory** 을 검색 하 고 선택한 다음 장치 **> 장치 설정** 을 선택 합니다. 장치를 *아니요* 로 **연결 하려면 multi-factor Auth 필요를** 설정 합니다. 등록이 완료 되 면이 설정을 다시 *[예]* 로 다시 구성 해야 합니다.
         >
         > MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
 

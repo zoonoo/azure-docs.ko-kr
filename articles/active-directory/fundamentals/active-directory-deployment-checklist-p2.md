@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077968"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -26,7 +26,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 또한 고객은 해당 [ID 보안 점수](identity-secure-score.md)를 확인하여 Microsoft 모범 사례에 얼마나 잘 맞는지 알 수 있습니다. 이러한 권장 사항을 구현하기 전과 후에 보안 점수를 확인하여 업계의 다른 기업 및 같은 규모의 다른 조직과 비교할 때 얼마나 잘 하고 있는지 파악합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 많은 권장 사항은 Azure AD Free 하거나 라이선스 없이 구현할 수 있습니다. 필요한 라이선스는 작업 완료를 위해 최소한으로 필요한 라이선스를 나타냅니다.
 
@@ -35,7 +35,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 * [Azure AD 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B 라이선스 지침](../external-identities/licensing-guidance.md)
+* [Azure AD 외부 Id 가격](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>1 단계: 보안 기반 빌드
 
@@ -70,7 +70,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | [비밀번호 쓰기 저장 구현](../authentication/tutorial-enable-sspr-writeback.md) | 클라우드에서 암호 변경 내용을 온-프레미스 Windows Server Active Directory 환경에 다시 쓸 수 있도록 합니다. | Azure AD Premium P1 |
 | [Azure AD Connect Health 구현](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Azure AD Connect 서버, AD FS 서버 및 도메인 컨트롤러의 주요 상태 통계를 모니터링할 수 있도록 합니다. | Azure AD Premium P1 |
 | [Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당](../enterprise-users/licensing-groups-assign.md) | 사용자 기준 설정 대신, 그룹별로 기능을 사용하거나 사용하지 않도록 설정하는 라이선스 그룹을 만들어 시간과 노력을 절약합니다. | |
-| [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 게스트 사용자가 자신의 회사, 학교 또는 소셜 ID로 앱 및 서비스에 로그인할 수 있도록 하여 공동으로 작업합니다. | [Azure AD B2B 라이선스 지침](../external-identities/licensing-guidance.md) |
+| [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 게스트 사용자가 자신의 회사, 학교 또는 소셜 ID로 앱 및 서비스에 로그인할 수 있도록 하여 공동으로 작업합니다. | [Azure AD 외부 Id 가격](../external-identities/external-identities-pricing.md) |
 | [디바이스 관리 전략 결정](../devices/overview.md) | 디바이스에 대해 조직이 허용하는 작업을 결정합니다. 등록 및 참가, BYOD(Bring Your Own Device) 및 회사 제공 | |
 | [조직의 비즈니스용 Windows Hello 배포](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Windows Hello를 사용 하 여 암호 없는 인증 준비 | |
 | [사용자에 대해 암호 없는 인증 방법 배포](../authentication/concept-authentication-passwordless.md) | 사용자에 게 편리한 암호 없는 인증 방법 제공 | Azure AD Premium P1 |

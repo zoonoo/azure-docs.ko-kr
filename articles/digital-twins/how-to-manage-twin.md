@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494789"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077951"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -35,14 +35,19 @@ await client.CreateDigitalTwinAsync("myTwinId", initData);
 * 디지털 쌍의 원하는 ID입니다.
 * 사용 하려는 [모델](concepts-models.md)
 
-필요에 따라 디지털 쌍의 모든 속성에 대해 초기 값을 제공할 수 있습니다. 
+필요에 따라 디지털 쌍의 모든 속성에 대해 초기 값을 제공할 수 있습니다. 속성은 선택 사항으로 처리 되 고 나중에 설정할 수 있지만 **설정 될 때까지 쌍의 일부로 표시 되지 않습니다.**
 
-모델 및 초기 속성 값은 `initData` 관련 데이터를 포함 하는 JSON 문자열인 매개 변수를 통해 제공 됩니다. 이 개체를 구조화 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
+>[!NOTE]
+>쌍 속성을 초기화할 필요가 없지만 쌍을 만들 때 쌍의 모든 [구성 요소](concepts-models.md#elements-of-a-model) 를 **설정 해야 합니다** . 비어 있는 개체 일 수 있지만 구성 요소 자체는 존재 해야 합니다.
+
+모델과 모든 초기 속성 값은 `initData` 관련 데이터를 포함 하는 JSON 문자열인 매개 변수를 통해 제공 됩니다. 이 개체를 구조화 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 > [!TIP]
 > 쌍을 만들거나 업데이트 한 후에는 변경 내용이 [쿼리에](how-to-query-graph.md)반영 될 때까지 최대 10 초의 대기 시간이 있을 수 있습니다. 이 `GetDigitalTwin` 문서의 뒷부분에서 설명 하는 api ( [이 문서의 뒷부분에서](#get-data-for-a-digital-twin)설명)는 이러한 지연 시간을 발생 하지 않으므로 새로 만든 twins를 확인 하려면 쿼리 대신 api 호출을 사용 합니다. 
 
 ### <a name="initialize-model-and-properties"></a>모델 및 속성 초기화
+
+쌍이 생성 될 때 쌍의 속성을 초기화할 수 있습니다. 
 
 쌍 생성 API는 쌍 속성의 유효한 JSON 설명으로 직렬화 된 개체를 허용 합니다. 쌍의 JSON 형식에 대 한 설명은 [*개념: Digital 쌍 및 쌍 그래프*](concepts-twins-graph.md) 를 참조 하세요. 
 
@@ -78,7 +83,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateDigitalTwin()` 합니다. 예:
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateDigitalTwin()` 합니다. 다음은 그 예입니다.
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -110,7 +115,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 단일 API 호출을 사용 하 여 여러 쌍을 검색 하려면 [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)의 쿼리 API 예를 참조 하세요.
 
-*초승달*을 정의 하는 다음 모델 ( [Dtdl (디지털 Twins 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성 됨)을 고려 합니다.
+*초승달* 을 정의 하는 다음 모델 ( [Dtdl (디지털 Twins 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성 됨)을 고려 합니다.
 
 ```json
 {
@@ -133,7 +138,7 @@ foreach (string prop in twin.CustomProperties.Keys)
     ]
 }
 ```
-`object result = await client.GetDigitalTwinAsync("my-moon");` *초승달*형식 쌍에 대 한 호출 결과는 다음과 같을 수 있습니다.
+`object result = await client.GetDigitalTwinAsync("my-moon");` *초승달* 형식 쌍에 대 한 호출 결과는 다음과 같을 수 있습니다.
 
 ```json
 {
@@ -276,8 +281,8 @@ await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
 다음 예제를 참조하세요.
-1. *Foo_old*모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량*을 정의 합니다.
-2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도*를 추가 합니다.
+1. *Foo_old* 모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량* 을 정의 합니다.
+2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도* 를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 
 
 이 상황에 대 한 패치는 모델과 쌍의 온도 속성을 모두 업데이트 해야 합니다. 예를 들면 다음과 같습니다.

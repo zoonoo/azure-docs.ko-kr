@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60499888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075690"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 이러한 사용 및 표시 요구 사항은 관계, 메타데이터 및 기타 신호를 포함한 다음 Bing Search API의 콘텐츠 및 관련 정보 구현에 적용됩니다.
 
@@ -34,12 +39,12 @@ ms.locfileid: "60499888"
 ## <a name="definitions"></a>정의
 
 
-|용어  |Description  |
+|용어  |설명  |
 |---------|---------|
 |답변     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
 |응답     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
 |결과    | 대답에 있는 정보 항목을 나타냅니다. 예를 들어 하나의 뉴스 기사와 연결된 일단의 데이터는 뉴스 답변의 결과입니다. |
-|API 검색    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
+|Search API    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Bing Spell Check 및 Bing Autosuggest API 제한 사항
 
@@ -99,7 +104,7 @@ ms.locfileid: "60499888"
 ### <a name="notices-and-branding"></a>공지 및 브랜드 
 권장 사항:
 
-- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 위치 가까이에 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 **Microsoft 개인정보처리방침**으로 표시합니다.
+- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 위치 가까이에 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 **Microsoft 개인정보처리방침** 으로 표시합니다.
 
 - 사용자에게 검색 쿼리 입력 기능을 제공하는 UX의 각 위치 가까이에 [Bing 상표 사용 지침](https://go.microsoft.com/fwlink/?linkid=833278)과 일관되는 Bing 브랜드를 잘 보이게 표시합니다. 이러한 브랜드는 Microsoft가 인터넷 검색 환경을 지원한다는 사실을 사용자에게 명확하게 알릴 수 있어야 합니다.
 

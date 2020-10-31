@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: f49ba8a907a65180061ef3973ae30b4438a945a2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 843e05a68a9fd9a72f14847a941d69c672094b66
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043016"
+ms.locfileid: "93077016"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Azure Stream Analytics의 입력 이해
 
@@ -26,7 +26,7 @@ Stream Analytics은 4 가지 종류의 리소스를 입력으로 사용 하는 �
 
 이러한 입력 리소스는 Stream Analytics 작업과 동일한 Azure 구독 또는 다른 구독에서 사용할 수 있습니다.
 
-[Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input), [AZURE POWERSHELL](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)및 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 를 사용 하 여 작업 입력을 만들고, 편집 하 고, Stream Analytics 테스트할 수 있습니다.
+[Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input), [AZURE POWERSHELL](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)및 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 를 사용 하 여 작업 입력을 만들고, 편집 하 고, Stream Analytics 테스트할 수 있습니다.
 
 ## <a name="stream-and-reference-inputs"></a>스트림 및 참조 입력
 데이터가 해당 데이터 원본에 푸시되면 Stream Analytics 작업에서 사용되고 실시간으로 처리됩니다. 입력은 데이터 스트림 입력과 참조 데이터 입력의 두 가지 형식으로 나뉩니다.

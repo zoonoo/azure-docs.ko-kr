@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68854046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078546"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>장식 표식을 사용하여 텍스트를 강조 표시
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Bing은 몇 가지 답변의 표시 문자열에서 쿼리 용어 (또는 Bing에서 관련 된 다른 용어)를 표시 하는 적중 항목 강조 표시를 지원 합니다. 예를 들어, 웹 페이지 결과의 `name` , `displayUrl` 및 필드에는 표시 된 `snippet` 쿼리 용어가 포함 될 수 있습니다. 
 
@@ -51,7 +56,7 @@ Bing은 여러 다른 텍스트 장식을 반환할 수 있습니다. 예를 들
 
 `textDecorations`가 이면 `true` Bing은 응답 표시 문자열에 다음 표식을 포함할 수 있습니다. 해당 하는 HTML 태그가 없는 경우 테이블 셀은 비어 있습니다.
 
-|유니코드(Unicode)|HTML|Description
+|유니코드(Unicode)|HTML|설명
 |-|-|-
 |U+E000|\<b>|쿼리 용어의 시작을 표시(적중 항목 강조 표시)
 |U+E001|\</b>|쿼리 용어의 끝을 표시

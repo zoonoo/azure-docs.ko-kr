@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490699"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078478"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 지원합니다. 각 API에는 고유한 데이터베이스 작업 세트가 있습니다. 이러한 작업은 간단한 지점 읽기 및 쓰기에서 복잡한 쿼리에 이르기까지 다양합니다. 각 데이터베이스 작업은 작업의 복잡도에 따라 시스템 리소스를 사용합니다.
 
@@ -33,11 +34,11 @@ RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이�
 
 1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
-1. **새 쿼리**를 선택합니다.
+1. **새 쿼리** 를 선택합니다.
 
-1. 유효한 쿼리를 입력한 다음, **쿼리 실행**을 선택합니다.
+1. 유효한 쿼리를 입력한 다음, **쿼리 실행** 을 선택합니다.
 
-1. **쿼리 통계**를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
+1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
 
 :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷":::
 

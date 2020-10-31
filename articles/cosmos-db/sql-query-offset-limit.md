@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bb0510befecf384d7d1341fe1b07b78620dccc9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077101"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 오프셋 제한 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 OFFSET LIMIT 절은 건너뛸 선택적 절입니다 .이 절은 쿼리에서 특정 개수의 값을 사용 합니다. Offset LIMIT 절에는 오프셋 수와 제한 수가 필요 합니다.
 

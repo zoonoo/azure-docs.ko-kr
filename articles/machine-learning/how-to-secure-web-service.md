@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 52344b665b00329c80fb651657fbbd19d5ffd7a4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: bb6229f602e4171cc88af6a452da69a02d2f7ad6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078189"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -28,7 +28,7 @@ ms.locfileid: "92743094"
 > [!TIP]
 > Azure Machine Learning SDK는 보안 통신과 관련 된 속성에 "SSL" 이라는 용어를 사용 합니다. 이는 웹 서비스에서 *TLS* 를 사용 하지 않는다는 의미는 아닙니다. SSL은 보다 일반적으로 인식 되는 용어입니다.
 >
-> 특히 Azure Machine Learning를 통해 배포 된 웹 서비스는 ACI 용 TLS 버전 1.1 및 AKS 용 TLS 버전 1.2만 지원 합니다.
+> 특히 Azure Machine Learning를 통해 배포 되는 웹 서비스는 TLS 버전 1.2 for AKS 및 ACI를 지원 합니다. ACI 배포의 경우 이전 TLS 버전을 사용할 경우 최신 TLS 버전을 얻기 위해 다시 배포 하는 것이 좋습니다.
 
 TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인증서* 를 사용 합니다. 디지털 인증서의 작동 방식에 대 한 자세한 내용은 위키백과 토픽 [공개 키 인프라](https://en.wikipedia.org/wiki/Public_key_infrastructure)를 참조 하세요.
 

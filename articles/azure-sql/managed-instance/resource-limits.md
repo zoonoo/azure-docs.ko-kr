@@ -1,5 +1,5 @@
 ---
-title: 리소스 한계
+title: 리소스 제한
 titleSuffix: Azure SQL Managed Instance
 description: 이 문서에서는 Azure SQL Managed Instance에 대 한 리소스 제한에 대 한 개요를 제공 합니다.
 services: sql-database
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790766"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077373"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 | 최대 인스턴스 저장소 크기 (예약 됨) | -4 vCores의 경우 2tb (Gen5만 해당)<br/>-다른 크기의 경우 8TB | Gen4:1TB <br/> Gen5: <br/>-1tb (4, 8, 16 vCores)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 최대 데이터베이스 크기 | 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 최대 2tb-8gb TB) | 현재 사용 가능한 인스턴스 크기 (vCores의 수에 따라 최대 1tb-4tb) |
 | 최대 tempDB 크기 | 24gb/vCore (96-1920 GB) 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다.<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다.<br/> 로그 파일 크기는 120 GB로 제한 됩니다.| 현재 사용할 수 있는 인스턴스 저장소 크기까지 |
-| 인스턴스당 최대 데이터베이스 수 | 100, 인스턴스 저장소 크기 제한에 도달 하지 않은 경우 | 100, 인스턴스 저장소 크기 제한에 도달 하지 않은 경우 |
+| 인스턴스당 최대 데이터베이스 수 | 100 인스턴스 저장소 크기 제한에 도달 하지 않는 한 사용자 데이터베이스를 합니다. | 100 인스턴스 저장소 크기 제한에 도달 하지 않는 한 사용자 데이터베이스를 합니다. |
 | 인스턴스당 데이터베이스 파일의 최대 수 | 인스턴스 저장소 크기 또는 [Azure Premium Disk storage 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | 32767 인스턴스 저장소 크기 제한에 도달 하지 않으면 데이터베이스당 파일 수입니다. |
 | 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb, 648TB) 및 [Azure Premium Disk storage 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
 | 최대 로그 파일 크기 | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. |
@@ -80,7 +80,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 | 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>인스턴스당 최대 120 m b/초<br/>DB 당 22-65 m b/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | vCore 당 4mb/s<br/>최대 96 m b/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
-| 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
+| 메모리 내 OLTP | 지원 안 함 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
 | 최대 세션 | 30000 | 30000 |
 | 최대 동시 작업자(요청) | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 |
 | [읽기 전용 복제본](../database/read-scale-out.md) | 0 | 1 (가격에 포함 됨) |

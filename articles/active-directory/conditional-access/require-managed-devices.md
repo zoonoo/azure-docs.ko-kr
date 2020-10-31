@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077764"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
 
@@ -24,7 +24,7 @@ ms.locfileid: "92145111"
 
 이 문서에서는 관리 장치가 사용자 환경의 특정 클라우드 앱에 액세스 하도록 요구 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 클라우드 앱 액세스를 위한 관리 되는 장치 요구는 **AZURE Ad 조건부 액세스** 와 **azure ad 장치 관리** 를 함께 연결 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
@@ -48,9 +48,9 @@ Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는
 
 ## <a name="managed-devices"></a>관리되는 디바이스  
 
-간단히 말해서 관리되는 디바이스는 *일종*의 조직 제어 하에 있는 디바이스입니다. Azure AD에서 관리 디바이스의 필수 조건은 Azure AD에 등록된 것입니다. 디바이스를 등록하면 디바이스 개체 형태로 디바이스의 ID가 만들어집니다. 이 개체는 Azure에서 디바이스에 대한 상태 정보를 추적하는 데 사용됩니다. Azure AD 관리자는 이미 이 개체를 사용하여 디바이스의 상태를 토글(설정/해제)할 수 있습니다.
+간단히 말해서 관리되는 디바이스는 *일종* 의 조직 제어 하에 있는 디바이스입니다. Azure AD에서 관리 디바이스의 필수 조건은 Azure AD에 등록된 것입니다. 디바이스를 등록하면 디바이스 개체 형태로 디바이스의 ID가 만들어집니다. 이 개체는 Azure에서 디바이스에 대한 상태 정보를 추적하는 데 사용됩니다. Azure AD 관리자는 이미 이 개체를 사용하여 디바이스의 상태를 토글(설정/해제)할 수 있습니다.
   
-![디바이스 기반 조건](./media/require-managed-devices/32.png)
+:::image type="content" source="./media/require-managed-devices/32.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
 
 Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 있습니다. 
 
@@ -60,19 +60,19 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 
 이 세 가지 옵션은 [장치 Id 란?](../devices/overview.md) 문서에서 설명 합니다.
 
-관리되는 디바이스가 되려면, 등록된 디바이스는 **하이브리드 Azure AD 조인 디바이스** 또는 **준수 상태로 표시된 디바이스**여야 합니다.  
+관리되는 디바이스가 되려면, 등록된 디바이스는 **하이브리드 Azure AD 조인 디바이스** 또는 **준수 상태로 표시된 디바이스** 여야 합니다.  
 
-![디바이스 기반 조건](./media/require-managed-devices/47.png)
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인된 디바이스 필요
 
 조건부 액세스 정책에서 **하이브리드 AZURE AD 조인 장치 필요** 를 선택 하 여 선택한 클라우드 앱이 관리 되는 장치를 사용 해야만 액세스할 수 있음을 표시할 수 있습니다. 
 
-![디바이스 기반 조건](./media/require-managed-devices/10.png)
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
 
 이 설정은 온-프레미스 AD에 조인된 Windows 10 또는 Windows 7 또는 Windows 8과 같은 하위 수준 디바이스에만 적용됩니다. 등록된 Windows 10 디바이스를 가져오기 위한 [자동화된 프로세스](../devices/hybrid-azuread-join-plan.md)인 하이브리드 Azure AD 조인을 사용하여 이러한 디바이스를 Azure AD에만 등록할 수 있습니다. 
 
-![디바이스 기반 조건](./media/require-managed-devices/45.png)
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
 
 하이브리드 Azure AD 조인 디바이스를 관리 디바이스로 어떻게 만드나요?  온-프레미스 AD에 조인 된 장치의 경우 이러한 장치에 대 한 제어를 관리 하기 위해 **Configuration Manager** 또는 **그룹 정책 (GP)** 등의 관리 솔루션을 사용 하 여 적용 하는 것으로 간주 됩니다. Azure AD가 이러한 방법 중 어떤 것을 디바이스에 적용할지 결정할 방법이 없기 때문에 하이브리드 Azure AD 조인 디바이스를 요구하는 것은 관리 디바이스를 필요로 하는 비교적 약한 메커니즘입니다. 온-프레미스 도메인에 가입된 디바이스에 적용되는 방법이 관리 디바이스(이러한 디바이스가 하이브리드 Azure AD 조인 디바이스이기도 하다면)를 구성할 만큼 충분히 강력한지 여부를 판단하는 것은 관리자의 몫입니다.
 
@@ -80,14 +80,14 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 
 *디바이스를 준수 상태로 표시해야 하는* 옵션은 관리 디바이스를 요청하는 가장 강력한 형태입니다.
 
-![디바이스 기반 조건](./media/require-managed-devices/11.png)
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
 
 이 옵션을 사용하려면 디바이스를 Azure AD에 등록해야 하며 다음과 같이 준수 상태로도 표시되어야 합니다.
          
 - Intune
 - Azure AD 통합을 통해 Windows 10 디바이스를 관리하는 타사 MDM(모바일 디바이스 관리) 시스템입니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
  
-![디바이스 기반 조건](./media/require-managed-devices/46.png)
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Azure A D에서 장치 창의 스크린샷. 항목 활성화 및 비활성화가 강조 표시 됩니다." border="false":::
 
 준수 상태로 표시된 디바이스의 경우 다음과 같이 가정할 수 있습니다. 
 
@@ -102,21 +102,21 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 
 조직에서는 등록 된 모바일 장치를 사용 하도록 요구 하기 위해 다음 단계를 완료 해야 합니다.
 
-1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
-1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
-1. **새 정책**을 선택합니다.
+1. **Azure Portal** 에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
+1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
-   1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
+1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
+   1. **포함** 에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹** 을 선택합니다. 
    1. **완료** 를 선택합니다.
-1. **클라우드 앱 또는 작업**  >  **포함**아래에서 **Office 365**을 선택 합니다.
-1. **조건**에서 **디바이스 플랫폼**을 선택합니다.
-   1. **구성**을 **예**로 설정합니다.
-   1. **Android** 및 **iOS**를 포함합니다.
-1. **액세스 제어** > **권한 부여**에서 다음 옵션을 선택합니다.
+1. **클라우드 앱 또는 작업**  >  **포함** 아래에서 **Office 365** 을 선택 합니다.
+1. **조건** 에서 **디바이스 플랫폼** 을 선택합니다.
+   1. **구성** 을 **예** 로 설정합니다.
+   1. **Android** 및 **iOS** 를 포함합니다.
+1. **액세스 제어** > **권한 부여** 에서 다음 옵션을 선택합니다.
    - **디바이스를 준수 상태로 표시해야 함**
-1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
-1. **만들기**를 선택하여 정책을 만들고 사용하도록 설정합니다.
+1. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
+1. **만들기** 를 선택하여 정책을 만들고 사용하도록 설정합니다.
 
 ### <a name="known-behavior"></a>알려진 동작
 

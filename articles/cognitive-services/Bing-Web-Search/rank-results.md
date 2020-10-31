@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390131"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076281"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>순위를 사용하여 Bing Web Search API 결과를 표시하는 방법  
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 각 검색 응답에는 검색 결과를 표시하는 방법을 지정하는 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 일반적인 검색 결과 페이지에 대한 기본 줄 콘텐츠와 사이드바 콘텐츠를 기준으로 결과를 그룹화합니다. 일반적인 기본 줄과 사이드바 형식으로 결과를 표시하지 않는 경우 기본 줄 콘텐츠에 사이드바 콘텐츠보다 높은 가시성을 제공해야 합니다.  
 
