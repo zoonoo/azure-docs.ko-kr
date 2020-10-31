@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079294"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO (총 소유 비용)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB은 미세 조정된 다중 테넌시 및 리소스 거버넌스를 사용하여 디자인되었습니다. 이 디자인을 사용하면 Azure Cosmos DB가 훨씬 더 낮은 비용으로 작동할 수 있으므로 비용 절감에 도움이 됩니다. 현재 Azure Cosmos DB는 밀도가 지속적으로 증가하고 단일 클러스터 내에 수천 개의 고객 워크로드가 존재하는 가운데, 단일 컴퓨터에서 280개가 넘는 고객 워크로드를 지원합니다. 이 기능은 데이터 센터 내에 있는 단일 클러스터 및 여러 클러스터 간의 여러 다른 컴퓨터에서 고객 워크로드 복제본의 부하를 분산시킵니다. 자세히 알아보려면 [Azure Cosmos DB: 전역적으로 분산 된 데이터베이스의 경계선 푸시](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)를 참조 하세요. 리소스 거버넌스, 다중 테넌시 및 나머지 Azure 인프라 영역과의 네이티브 통합으로 인해 Azure Cosmos DB는 MongoDB, Cassandra 또는 IaaS에서 실행 중인 다른 OSS NoSQL보다 평균적으로 4~6배 더 저렴하고, 온-프레미스에서 실행되는 데이터베이스 엔진보다 최대 10배 더 저렴합니다. [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)(NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용) 문서를 참조하세요.
 

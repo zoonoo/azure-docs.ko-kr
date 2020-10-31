@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081878"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 두 가지 주요 방법으로 고가용성을 제공 합니다. 먼저, Azure Cosmos DB Cosmos 계정 내에서 구성 된 지역에 걸쳐 데이터를 복제 합니다. 둘째로, Azure Cosmos DB는 지역 내에서 4 개의 데이터 복제본을 유지 관리 합니다.
 
@@ -26,7 +27,7 @@ Azure Cosmos DB는 전역적으로 분산 된 데이터베이스 서비스 이�
 
 * **Azure 독일** 은 데이터 트러스티 모델에서 서비스를 제공 하며,이는 독일 데이터 트러스티 역할을 하는 Deutsche Telekom의 자회사 인 T-Systems 국제 GmbH의 제어를 통해 고객 데이터가 독일에 유지 되도록 합니다.
 
-* **Azure Government**: 미국 4개 지역에서 미국 정부 기관 및 해당 파트너가 사용할 수 있습니다.
+* **Azure Government** : 미국 4개 지역에서 미국 정부 기관 및 해당 파트너가 사용할 수 있습니다.
 
 * **DoD (방어 부서)에 대 한 Azure Government** 미국의 방어 부서와 미국의 두 지역에서 사용할 수 있습니다.
 
@@ -73,7 +74,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 * 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 쓰기 지역으로 복구 된 지역으로 다시 전환할 수 있습니다. [PowerShell, Azure CLI 또는 Azure Portal](how-to-manage-database-account.md#manual-failover)를 사용 하 여 지역을 전환할 수 있습니다. 쓰기 지역을 전환 하 고 응용 프로그램의 가용성이 계속 유지 되기 전에는 **데이터 나 가용성 손실이 발생 하지** 않습니다.
 
 > [!IMPORTANT]
-> **자동 장애 조치 (failover)를 사용 하도록 설정**하려면 프로덕션 워크 로드에 사용 되는 Azure Cosmos 계정을 구성 하는 것이 좋습니다. 장애 조치 (failover) 중에 데이터 손실이 발생 하지 않도록 수동 장애 조치 (failover)를 수행 하려면 보조 및 기본 쓰기 지역 간의 연결이 필요 합니다. 주 지역을 사용할 수 없는 경우이 일관성 검사를 완료할 수 없으며 수동 장애 조치 (failover)가 실패 하 여 지역 가동 중단 시간에 대 한 쓰기 가용성이 손실 됩니다.
+> **자동 장애 조치 (failover)를 사용 하도록 설정** 하려면 프로덕션 워크 로드에 사용 되는 Azure Cosmos 계정을 구성 하는 것이 좋습니다. 장애 조치 (failover) 중에 데이터 손실이 발생 하지 않도록 수동 장애 조치 (failover)를 수행 하려면 보조 및 기본 쓰기 지역 간의 연결이 필요 합니다. 주 지역을 사용할 수 없는 경우이 일관성 검사를 완료할 수 없으며 수동 장애 조치 (failover)가 실패 하 여 지역 가동 중단 시간에 대 한 쓰기 가용성이 손실 됩니다.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>단일 쓰기 지역이 있는 다중 지역 계정 (읽기 영역 중단)
 
@@ -89,7 +90,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 * 후속 읽기는 애플리케이션 코드를 변경하지 않고도 복구된 지역으로 리디렉션됩니다. 이전에 실패 한 지역에 대 한 장애 조치 (failover)와 다시 가입 하기 중에는 Azure Cosmos DB에서 읽기 일관성을 유지 합니다.
 
-* Azure 지역이 영구적으로 복구할 수 없는 때 드물게 발생 하는 이벤트 에서도, 다중 지역 Azure Cosmos 계정이 *강력한* 일관성으로 구성 된 경우 데이터가 손실 되지 않습니다. 제한 된 부실 일관성을 사용 하 여 구성 된 다중 지역 Azure Cosmos 계정에 대 한 영구 복구할 수 없는 쓰기 지역의 경우 잠재적 데이터 손실 기간은 K = 100000 업데이트 및 T = 5 분 인 부실 창 (*k* 또는 *t*)으로 제한 됩니다. 세션, 일관 된 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간은 최대 15 분으로 제한 됩니다. Azure Cosmos DB의 RTO 및 RPO 대상에 대 한 자세한 내용은 [일관성 수준 및 데이터](./consistency-levels.md#rto) 지 속성을 참조 하세요.
+* Azure 지역이 영구적으로 복구할 수 없는 때 드물게 발생 하는 이벤트 에서도, 다중 지역 Azure Cosmos 계정이 *강력한* 일관성으로 구성 된 경우 데이터가 손실 되지 않습니다. 제한 된 부실 일관성을 사용 하 여 구성 된 다중 지역 Azure Cosmos 계정에 대 한 영구 복구할 수 없는 쓰기 지역의 경우 잠재적 데이터 손실 기간은 K = 100000 업데이트 및 T = 5 분 인 부실 창 ( *k* 또는 *t* )으로 제한 됩니다. 세션, 일관 된 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간은 최대 15 분으로 제한 됩니다. Azure Cosmos DB의 RTO 및 RPO 대상에 대 한 자세한 내용은 [일관성 수준 및 데이터](./consistency-levels.md#rto) 지 속성을 참조 하세요.
 
 ## <a name="availability-zone-support"></a>가용성 영역 지원
 

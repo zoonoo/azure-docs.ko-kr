@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072797"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080977"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Custom Autosuggest는 검색 환경과 관련된 검색 쿼리 제안 문자열 목록을 반환합니다. 제안된 쿼리 문자열은 사용자가 검색 상자에 제공하는 부분 쿼리 문자열을 기반으로 합니다. 목록에는 최대 10개의 제안이 포함됩니다. 
 
@@ -48,7 +53,7 @@ Bing 제안을 사용하려면 **자동 Bing 제안** 슬라이더를 켬 위치
 
 ## <a name="block-suggestions"></a>제안 차단
 
-Bing 제안을 포함시키면 Bing에서 반환하지 않을 검색 쿼리 문자열 목록을 추가할 수 있습니다. 차단된 쿼리 문자열을 추가하려면 **Show blocked suggestions**(차단된 제안 표시)를 클릭합니다. 목록에 쿼리 문자열을 추가 하 고 enter 키를 누르거나 아이콘을 클릭 **+** 합니다. 차단된 쿼리 문자열은 최대 50개까지 추가할 수 있습니다.
+Bing 제안을 포함시키면 Bing에서 반환하지 않을 검색 쿼리 문자열 목록을 추가할 수 있습니다. 차단된 쿼리 문자열을 추가하려면 **Show blocked suggestions** (차단된 제안 표시)를 클릭합니다. 목록에 쿼리 문자열을 추가 하 고 enter 키를 누르거나 아이콘을 클릭 **+** 합니다. 차단된 쿼리 문자열은 최대 50개까지 추가할 수 있습니다.
 
 
 
@@ -60,7 +65,7 @@ Bing 제안을 포함시키면 Bing에서 반환하지 않을 검색 쿼리 문�
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>호스트된 UI에서 Autosuggest를 사용하도록 설정
 
-호스트된 UI에 쿼리 문자열 제안을 사용하도록 설정하려면 **Hosted UI**(호스트된 UI)를 클릭합니다. **추가 구성** 섹션까지 아래로 스크롤합니다. **웹 검색**에서 **Enable autosuggest**(자동 제안 사용)에 대해 **On**(켬)을 선택합니다. Autosuggest를 사용하도록 설정하려면 검색 상자가 포함된 레이아웃을 선택해야 합니다.
+호스트된 UI에 쿼리 문자열 제안을 사용하도록 설정하려면 **Hosted UI** (호스트된 UI)를 클릭합니다. **추가 구성** 섹션까지 아래로 스크롤합니다. **웹 검색** 에서 **Enable autosuggest** (자동 제안 사용)에 대해 **On** (켬)을 선택합니다. Autosuggest를 사용하도록 설정하려면 검색 상자가 포함된 레이아웃을 선택해야 합니다.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Autosuggest API 호출

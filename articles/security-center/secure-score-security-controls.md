@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081232"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -190,7 +190,7 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
     <td class="tg-lboi"; width=55%>- 가상 컴퓨터의 관리 포트를 just-in-time 네트워크 액세스 제어로 보호 해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- 가상 머신에서 관리 포트를 닫아야 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">시스템 업데이트 적용(최대 점수 6)</p></strong>시스템 업데이트는 조직에 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공하는 기능을 제공합니다. 업데이트를 적용하지 않으면 패치가 적용되지 않은 취약한 상태가 되고 공격에 취약한 환경이 발생합니다. 이러한 취약성이 악용될 수 있으며 데이터 손실, 데이터 반출, 랜섬웨어 및 리소스 남용으로 이어질 수 있습니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/automation-update-management">업데이트 관리 솔루션을 사용하여 가상 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다. 업데이트 관리는 소프트웨어 릴리스의 배포 및 유지 관리를 제어하는 프로세스입니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">시스템 업데이트 적용(최대 점수 6)</p></strong>시스템 업데이트는 조직에 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공하는 기능을 제공합니다. 업데이트를 적용하지 않으면 패치가 적용되지 않은 취약한 상태가 되고 공격에 취약한 환경이 발생합니다. 이러한 취약성이 악용될 수 있으며 데이터 손실, 데이터 반출, 랜섬웨어 및 리소스 남용으로 이어질 수 있습니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/update-management/overview">업데이트 관리 솔루션을 사용하여 가상 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다. 업데이트 관리는 소프트웨어 릴리스의 배포 및 유지 관리를 제어하는 프로세스입니다.</td>
     <td class="tg-lboi"; width=55%>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 클라우드 서비스 역할에 대해 OS 버전을 업데이트해야 합니다.<br>- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br>- 시스템 업데이트를 머신에 설치해야 합니다.<br>- 시스템 업데이트를 적용하려면 머신을 다시 시작해야 합니다.<br>- Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.</td>
   </tr>
   <tr>

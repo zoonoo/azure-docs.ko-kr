@@ -1,14 +1,14 @@
 ---
 title: 파트너 ID를 연결 하 여 위임 된 리소스에 대 한 영향 추적
 description: Azure Lighthouse를 통해 관리 하는 고객 리소스에서 파트너 ID를 연결 하 여 PEC (파트너 획득 크레딧)를 받는 방법에 대해 알아봅니다.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019915"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080280"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>파트너 ID를 연결 하 여 위임 된 리소스에 대 한 영향 추적 
 
@@ -20,9 +20,9 @@ ms.locfileid: "92019915"
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>새 고객을 등록할 때 파트너 ID 연결
 
-Azure Resource Manager 템플릿 (ARM 템플릿)을 통해 고객을 온 보 딩 하는 경우 다음 프로세스를 사용 하 여 파트너 ID를 연결 하 고 파트너 획득 크레딧을 사용 하도록 설정 합니다 (해당 하는 경우). 이러한 단계를 완료 하려면 [MPN 파트너 ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) 를 알고 있어야 합니다. 파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)을 통해 고객을 온 보 딩 하는 경우 다음 프로세스를 사용 하 여 파트너 ID를 연결 하 고 파트너 획득 크레딧을 사용 하도록 설정 합니다 (해당 하는 경우). 이러한 단계를 완료 하려면 [MPN 파트너 ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) 를 알고 있어야 합니다. 파트너 프로필에 표시된 **관련 MPN ID** 를 사용해야 합니다.
 
-간단히 하기 위해 테 넌 트에 서비스 주체 계정을 만들고 **연결 된 MPN ID**에 연결한 다음, [PEC에 적격 한 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용 하 여 등록 한 모든 고객에 게 액세스 권한을 부여 하는 것이 좋습니다.
+간단히 하기 위해 테 넌 트에 서비스 주체 계정을 만들고 **연결 된 MPN ID** 에 연결한 다음, [PEC에 적격 한 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용 하 여 등록 한 모든 고객에 게 액세스 권한을 부여 하는 것이 좋습니다.
 
 1. 관리 테 넌 트에서 [서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) . 이 예에서는이 서비스 사용자에 대해 이름 *공급자 Automation 계정을* 사용 합니다.
 1. 해당 서비스 주체 계정을 사용 하 여 관리 하는 테 넌 트의 [연결 된 MPN ID에 연결](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) 합니다. 이 작업은 한 번만 수행 하면 됩니다.
@@ -42,7 +42,9 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 통해 고객을 온 보 딩
 
 [Azure Portal에서 pec 세부 정보를 보고](/partner-center/partner-earned-credit-explanation#azure-cost-management) , pec의 혜택을 받은 비용을 확인할 수 있습니다. PEC는 MCA에 서명 하 고 Azure 요금제에 있는 CSP 고객 에게만 적용 됩니다.
 
-위의 단계를 수행한 후 연결이 표시 되지 않으면 Azure Portal에서 지원 요청을 엽니다.
+위의 단계를 수행한 후 예상 되는 연결이 표시 되지 않으면 Azure Portal에서 지원 요청을 엽니다.
+
+[파트너 센터 SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) 를 사용 하 고에 필터를 설정 `rateOfPartnerEarnedCredit` 하 여 구독에 대 한 PEC 유효성 검사를 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

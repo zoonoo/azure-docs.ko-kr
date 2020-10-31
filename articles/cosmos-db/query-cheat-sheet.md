@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475127"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081759"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-**Azure Cosmos DB 쿼리 참고 자료**는 일반적인 데이터베이스 쿼리, 작업, 함수 및 연산자를 쉽게 인쇄할 수 있는 PDF 참조 시트로 표시하여 데이터에 대한 쿼리를 신속하게 작성하도록 도와줍니다. 이 참고 자료에는 SQL, MongoDB, Table 및 Gremlin API에 대한 참조 자료가 포함되어 있습니다. 
+**Azure Cosmos DB 쿼리 참고 자료** 는 일반적인 데이터베이스 쿼리, 작업, 함수 및 연산자를 쉽게 인쇄할 수 있는 PDF 참조 시트로 표시하여 데이터에 대한 쿼리를 신속하게 작성하도록 도와줍니다. 이 참고 자료에는 SQL, MongoDB, Table 및 Gremlin API에 대한 참조 자료가 포함되어 있습니다. 
 
 Letter 크기 또는 A3 크기 다운로드 중에서 선택합니다. 
 

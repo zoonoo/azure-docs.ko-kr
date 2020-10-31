@@ -7,14 +7,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
-ms.openlocfilehash: 23a265f1ae6e925440e2804056348cb705b09da5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4e638fdff67ad2d0bc6f191cdfd46867ab847923
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490563"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080116"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Azure Cosmos DB Gremlin 제한
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 이 문서에서는 Azure Cosmos DB Gremlin 엔진의 제한에 대해 설명 하 고 고객이 탐색에 영향을 미칠 수 있는 방법에 대해 설명 합니다.
 
 Cosmos DB Gremlin는 Cosmos DB 인프라를 기반으로 빌드됩니다. 이로 인해 [Azure Cosmos DB 서비스 제한](./concepts-limits.md) 에 설명 된 모든 제한이 여전히 적용 됩니다.

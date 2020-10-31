@@ -9,14 +9,15 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b714c2c1c9524741d2dc0b7e8ff3ed082cadd106
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079175"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -135,7 +136,7 @@ mvn dependency:tree
 ```
 자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
-이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다(*reactor-core*는 오래된 종속성이라고 가정).
+이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다( *reactor-core* 는 오래된 종속성이라고 가정).
 
 ```xml
 <dependency>
@@ -182,7 +183,7 @@ log4j.rootLogger=INFO, A1
 
 log4j.category.com.azure.cosmos=DEBUG
 #log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+#log4j.category.io.projectreactor=INFO
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

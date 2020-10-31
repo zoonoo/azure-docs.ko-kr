@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 92bd3ff925080def4b2f074d07e662dfdbdbee01
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475484"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080853"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB의 스토리지 비용 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 무제한 스토리지 및 처리량을 제공합니다. Azure Cosmos 컨테이너 또는 데이터베이스에서 프로비전/구성해야 하는 처리량과 달리, 스토리지는 사용량에 따라 요금이 청구됩니다. 사용하는 논리적 스토리지에 대해서만 요금이 청구되며, 스토리지를 미리 예약할 필요가 없습니다. Storage는 Azure Cosmos 컨테이너에 추가 하거나 제거 하는 데이터에 따라 자동으로 확장 및 축소 됩니다.
 

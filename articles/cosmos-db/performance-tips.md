@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475161"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080722"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -44,14 +45,14 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 - 실행 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 [플랫폼 대상](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) 을 x **64** 로 설정 하 여 호스트 처리를 변경할 수 있습니다.
 
-- Vstest.console.exe 기반 테스트 프로젝트의 경우 **Test**  >  Visual Studio 테스트 메뉴에서 테스트**테스트 설정**  >  **기본 프로세서 아키텍처 x 64** **Test** 를 선택 하 여 호스트 처리를 변경할 수 있습니다.
+- Vstest.console.exe 기반 테스트 프로젝트의 경우 **Test**  >  Visual Studio 테스트 메뉴에서 테스트 **테스트 설정**  >  **기본 프로세서 아키텍처 x 64** **Test** 를 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
-- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구**옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >  **Options**  >  **Projects and Solutions**  >  **Web Projects**.
+- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구** 옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >  **Options**  >  **Projects and Solutions**  >  **Web Projects** .
 
 - Azure에 배포 된 ASP.NET 웹 응용 프로그램의 경우 Azure Portal의 **응용 프로그램 설정** 에서 **64 비트** 플랫폼을 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
 > [!NOTE] 
-> 기본적으로 새 Visual Studio 프로젝트는 **모든 CPU**로 설정 됩니다. **X 86**으로 전환 되지 않도록 프로젝트를 x **64** 로 설정 하는 것이 좋습니다. X86 전용 종속성이 추가 된 경우 **모든 CPU** 로 설정 된 프로젝트는 **x86** 으로 쉽게 전환할 수 있습니다.<br/>
+> 기본적으로 새 Visual Studio 프로젝트는 **모든 CPU** 로 설정 됩니다. **X 86** 으로 전환 되지 않도록 프로젝트를 x **64** 로 설정 하는 것이 좋습니다. X86 전용 종속성이 추가 된 경우 **모든 CPU** 로 설정 된 프로젝트는 **x86** 으로 쉽게 전환할 수 있습니다.<br/>
 > ServiceInterop.dll은 SDK DLL이 실행 되는 폴더에 있어야 합니다. Dll을 수동으로 복사 하거나 사용자 지정 빌드/배포 시스템을 포함 하는 경우에만 문제가 됩니다.
     
 **서버 쪽 가비지 수집 (GC) 설정**
@@ -135,7 +136,7 @@ SQL .NET SDK 1.9.0 이상에서는 병렬 쿼리를 지원 하므로 분할 된 
 - `MaxDegreeOfParallelism` 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다. 
 - `MaxBufferedItemCount` 미리 인출 된 결과의 수를 제어 합니다.
 
-**_병렬 처리 수준 튜닝_*_
+**_병렬 처리 수준 튜닝_* _
 
 병렬 쿼리는 여러 파티션을 병렬로 쿼리 하는 방식으로 작동 합니다. 하지만 개별 파티션의 데이터는 쿼리와 관련 하 여 순차적으로 인출 됩니다. `MaxDegreeOfParallelism` [SDK](sql-api-sdk-dotnet.md) v 2에서 파티션 수로 설정 하면 다른 모든 시스템 조건을 동일 하 게 유지 하는 가장 뛰어난 쿼리를 달성할 수 있습니다. 파티션 수를 모르는 경우 병렬 처리 수준을 높은 값으로 설정할 수 있습니다. 시스템은 병렬 처리 수준으로 최소 (파티션 수, 사용자가 제공한 입력)를 선택 합니다.
 
@@ -147,7 +148,7 @@ _*_튜닝 MaxBufferedItemCount_*_
 
 사전 인출은 병렬 처리 수준에 관계 없이 동일한 방식으로 작동 하며 모든 파티션의 데이터에 대 한 단일 버퍼가 있습니다.  
 
-_*RetryAfter 간격으로 백오프 구현**
+_ *RetryAfter 간격으로 백오프 구현**
 
 성능 테스트 중에는 적은 수의 요청이 제한 될 때까지 부하를 늘려야 합니다. 요청이 제한 되는 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격에 대 한 제한에 따라 백오프 해야 합니다. 백오프를 사용 하면 다시 시도 사이에 대기 시간을 최소화 하는 데 도움이 됩니다. 
 
@@ -178,7 +179,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount`속성은 페이지 매김을 위해 사용 하면 안 됩니다. 가장 기본적인 용도는 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 것입니다.  
 
-사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예:
+사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 다음은 그 예입니다.
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: af9122aaa0233fe5248f31ffe805e01a98831eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081453"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Azure Cosmos 에뮬레이터를 사용 하는 경우 문제 해결
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. 이 문서의 팁을 사용 하 여 Azure Cosmos 에뮬레이터를 설치 하거나 사용할 때 발생 하는 문제를 해결할 수 있습니다. 
 
@@ -36,9 +37,9 @@ Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬
 
 * **서비스를 사용할 수 없음** 메시지가 나타나는 경우 에뮬레이터에서 네트워크 스택을 초기화하지 못했을 수 있습니다. 해당 네트워크 필터 드라이버로 인해 문제가 발생할 수 있으므로 Pulse 보안 클라이언트 또는 Juniper 네트워크 클라이언트를 설치했는지 확인합니다. 일반적으로 타사 네트워크 필터 드라이버를 제거하면 문제가 해결됩니다. 또는 /DisableRIO를 사용하여 에뮬레이터를 시작하면 에뮬레이터 네트워크 통신이 일반 Winsock으로 전환됩니다. 
 
-* "사용할 수 **없음", "메시지": "요청을 전송 프로토콜 또는 암호화에서 사용할 수 없는 암호화로 만들고 있습니다. 계정 SSL/TLS 최소 허용 프로토콜 설정 ... "** 연결 문제를 확인 합니다 .이 문제는 OS의 글로벌 변경 (예: Insider Preview 빌드 20170) 또는 TLS 1.3를 기본값으로 사용 하는 브라우저 설정으로 인해 발생할 수 있습니다. Cosmos 에뮬레이터에 대 한 요청을 실행 하는 데 SDK를 사용 하는 경우와 같은 유사한 오류가 발생할 수 있습니다. 예를 들어 **Microsoft.Azure.Documents.DocumentClientException: 요청이 전송 프로토콜 또는 암호에서 금지 된 암호화를 사용 하 여 수행 됩니다. 계정 SSL/TLS 허용 된 최소 프로토콜 설정을 확인**하세요. Cosmos 에뮬레이터는 TLS 1.2 프로토콜만 수락하고 사용하므로 이번에는 이 작업을 수행해야 합니다. 권장 되는 해결 방법은 설정을 변경 하 고 기본값을 TLS 1.2로 변경 하는 것입니다. 예를 들어, IIS 관리자에서 "사이트" > "기본 웹 사이트"로 이동 하 고 포트 8081에 대 한 "사이트 바인딩"을 찾은 후이를 편집 하 여 TLS 1.3을 사용 하지 않도록 설정 합니다. "설정" 옵션을 통해 웹 브라우저에 대해 유사한 작업을 수행할 수 있습니다.
+* "사용할 수 **없음", "메시지": "요청을 전송 프로토콜 또는 암호화에서 사용할 수 없는 암호화로 만들고 있습니다. 계정 SSL/TLS 최소 허용 프로토콜 설정 ... "** 연결 문제를 확인 합니다 .이 문제는 OS의 글로벌 변경 (예: Insider Preview 빌드 20170) 또는 TLS 1.3를 기본값으로 사용 하는 브라우저 설정으로 인해 발생할 수 있습니다. Cosmos 에뮬레이터에 대 한 요청을 실행 하는 데 SDK를 사용 하는 경우와 같은 유사한 오류가 발생할 수 있습니다. 예를 들어 **Microsoft.Azure.Documents.DocumentClientException: 요청이 전송 프로토콜 또는 암호에서 금지 된 암호화를 사용 하 여 수행 됩니다. 계정 SSL/TLS 허용 된 최소 프로토콜 설정을 확인** 하세요. Cosmos 에뮬레이터는 TLS 1.2 프로토콜만 수락하고 사용하므로 이번에는 이 작업을 수행해야 합니다. 권장 되는 해결 방법은 설정을 변경 하 고 기본값을 TLS 1.2로 변경 하는 것입니다. 예를 들어, IIS 관리자에서 "사이트" > "기본 웹 사이트"로 이동 하 고 포트 8081에 대 한 "사이트 바인딩"을 찾은 후이를 편집 하 여 TLS 1.3을 사용 하지 않도록 설정 합니다. "설정" 옵션을 통해 웹 브라우저에 대해 유사한 작업을 수행할 수 있습니다.
 
-* 에뮬레이터 실행 중에 컴퓨터가 절전 모드가 되거나 OS 업데이트를 실행할 경우 **서비스를 현재 사용할 수 없음** 메시지가 표시될 수 있습니다. Windows 알림 트레이에 표시되는 아이콘을 마우스 오른쪽 단추로 클릭하여 **데이터 다시 설정**을 선택하여 에뮬레이터 데이터를 다시 설정합니다.
+* 에뮬레이터 실행 중에 컴퓨터가 절전 모드가 되거나 OS 업데이트를 실행할 경우 **서비스를 현재 사용할 수 없음** 메시지가 표시될 수 있습니다. Windows 알림 트레이에 표시되는 아이콘을 마우스 오른쪽 단추로 클릭하여 **데이터 다시 설정** 을 선택하여 에뮬레이터 데이터를 다시 설정합니다.
 
 ## <a name="collect-trace-files"></a><a id="trace-files"></a>추적 파일 수집
 

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482233"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080654"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md)는 조직의 거버넌스 표준을 적용하고, 리소스 호환성을 평가하고, 자동 수정을 구현하는 데 도움이 됩니다. 일반적인 사용 사례에는 보안, 비용 관리, 구성 일관성이 포함됩니다.
 
@@ -30,7 +31,7 @@ Azure Policy는 기본 제공 정책 정의를 제공합니다. 기본 제공 �
 
 Azure Cosmos DB에 대한 기본 제공 정책 정의에서 정책 할당을 만들려면 [Azure Portal을 사용하여 정책 할당 만들기](../governance/policy/assign-policy-portal.md) 문서의 단계를 사용합니다.
 
-정책 정의를 선택하는 단계에서 검색 필드에 `Cosmos DB`를 입력하여 사용 가능한 기본 제공 정책 정의 목록을 필터링합니다. 사용 가능한 기본 제공 정책 정의 중 하나를 선택한 다음 **선택**을 선택하여 정책 할당을 계속 만듭니다.
+정책 정의를 선택하는 단계에서 검색 필드에 `Cosmos DB`를 입력하여 사용 가능한 기본 제공 정책 정의 목록을 필터링합니다. 사용 가능한 기본 제공 정책 정의 중 하나를 선택한 다음 **선택** 을 선택하여 정책 할당을 계속 만듭니다.
 
 > [!TIP]
 > Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하여 **사용 가능한 정의** 창에 표시된 기본 제공 정책 정의 이름을 사용하여 정책 할당을 만들 수도 있습니다.

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb96270d1db970230e3abb528b58b7341d652f0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303701"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081480"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 문자 0 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -29,7 +31,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
    문자열 식입니다.
   
 *num_expr1*  
-   시작 문자를 나타내는 숫자 식입니다. 값 0은 *str_expr*의 첫 번째 문자입니다.
+   시작 문자를 나타내는 숫자 식입니다. 값 0은 *str_expr* 의 첫 번째 문자입니다.
   
 *num_expr2*  
    반환할 *str_expr* 최대 문자 수를 나타내는 숫자 식입니다. 0 보다 작은 값을 입력 하면 빈 문자열이 반환 됩니다.

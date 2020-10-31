@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ffd1ff6d18769998dd3a168992566a376ea1cd27
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482284"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080076"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 파티션 키 없이 컨테이너를 만드는 것을 지원 합니다. 현재는 2. x 보다 작거나 같은 버전의 Azure CLI 및 Azure Cosmos DB Sdk (.Net, Java, NodeJs)를 사용 하 여 분할 되지 않은 컨테이너를 만들 수 있습니다. Azure Portal를 사용 하 여 분할 되지 않은 컨테이너를 만들 수 없습니다. 그러나 이러한 분할 되지 않은 컨테이너는 탄력적이 지 않으며 저장소 용량은 20gb이 고 처리량 제한은 10K r u/초입니다.
 

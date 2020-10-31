@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c64efb92de00291e6381e30af24e76df2b38aee0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ef1a815469e7fb2dd10311b92a28b828772be7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83847117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079923"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH(Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다.  
   
@@ -30,7 +31,7 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    문자열 식입니다.
   
 *str_expr2*  
-   *str_expr1*의 시작과 비교할 문자열 식입니다.
+   *str_expr1* 의 시작과 비교할 문자열 식입니다.
 
 *bool_expr* 대/소문자를 무시하기 위한 선택적 값입니다. true로 설정하면 STARTSWITH는 대/소문자를 구분하지 않는 검색을 수행합니다. 지정되지 않은 경우 이 값은 false입니다.
 

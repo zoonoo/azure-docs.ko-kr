@@ -7,14 +7,15 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3e3e8cd7a505b6f445a1a72cb9d5b2b77583ff87
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 97458f17bcb74e54e0b0453c2a279703bb392f9f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313083"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080637"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure Policy 기본 제공 정의
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 페이지는 Azure Cosmos DB에 대한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427526"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078988"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -40,9 +40,9 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>생성
+## <a name="create"></a>만들기
 
-**예상 시간**: 약 5 분.
+**예상 시간** : 약 5 분.
 
 계산 인스턴스를 만드는 작업은 작업 영역에 대 한 일회성 프로세스입니다. 이 계산을 개발 워크스테이션으로 다시 사용 하거나 학습을 위한 계산 대상으로 재사용할 수 있습니다. 여러 계산 인스턴스를 작업 영역에 연결할 수 있습니다.
 
@@ -206,7 +206,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
-Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스**를 선택합니다.
+Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스** 를 선택합니다.
 
 ![컴퓨팅 인스턴스 관리](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -243,7 +243,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 
 
 * RStudio: 왼쪽 위에서 **터미널** 탭을 선택합니다.
 * Jupyter Lab:  시작 관리자 탭의 **기타** 제목 아래에 있는 **터미널** 타일을 선택합니다.
-* Jupyter:  파일 탭에서 오른쪽 위에 있는 **새로 만들기 > 터미널**을 선택합니다.
+* Jupyter:  파일 탭에서 오른쪽 위에 있는 **새로 만들기 > 터미널** 을 선택합니다.
 * 컴퓨터에 SSH를 사용 하도록 설정 하는 경우 컴퓨터에 SSH를 사용 합니다.
 
 터미널 창을 사용 하 여 패키지를 설치 하 고 추가 커널을 만들 수 있습니다.
@@ -256,7 +256,9 @@ Jupyter Notebook 또는 RStudio에 직접 패키지를 설치할 수 있습니�
 * Python: 설치 코드를 추가 하 고 Jupyter Notebook 셀에를 실행 합니다.
 
 또는 터미널 창에서를 설치할 수 있습니다. Python **3.6-AzureML** 환경에 python 패키지를 설치 합니다.  **R** 환경에 R 패키지를 설치합니다.
-% pip 및% conda magic 함수는 Jupyter 노트북 세션에서 현재 실행 중인 커널에 패키지를 자동으로 설치 합니다.
+
+> [!NOTE]
+> 노트북 내에서 패키지를 관리 하려면 **% pip** 또는 **% conda** magic 함수를 사용 하 여 현재 실행 중인 **커널** 에 패키지를 자동으로 설치 합니다 .이는 모든 패키지를 참조 하는 **! pip** 또는 **! conda** 이 아닌 현재 실행 중인 커널 외부의 패키지를 포함 합니다.
 
 ## <a name="add-new-kernels"></a>새 커널 추가
 

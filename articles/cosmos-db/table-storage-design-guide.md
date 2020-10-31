@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477592"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080008"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure Storage Table 디자인 가이드: 확장 가능하고 성능이 우수한 테이블
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -123,7 +124,7 @@ Table Storage는 테이블 형식을 사용하여 데이터를 저장합니다. 
 </table>
 
 
-지금까지는 이 디자인이 관계형 데이터베이스의 테이블과 유사해 보입니다. 주요 차이점은 필수 열과 여러 엔터티 형식을 동일한 테이블에 저장하는 기능입니다. 또한 **FirstName** 또는 **Age**와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 그렇지만 관계형 데이터베이스와 달리 Table Storage는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 자세한 내용은 [Table Storage 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
+지금까지는 이 디자인이 관계형 데이터베이스의 테이블과 유사해 보입니다. 주요 차이점은 필수 열과 여러 엔터티 형식을 동일한 테이블에 저장하는 기능입니다. 또한 **FirstName** 또는 **Age** 와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 그렇지만 관계형 데이터베이스와 달리 Table Storage는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 자세한 내용은 [Table Storage 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
 
 `PartitionKey` 및 `RowKey` 선택은 적절한 테이블 디자인의 기본 사항입니다. 테이블에 저장된 모든 엔터티에는 고유하게 조합된 `PartitionKey`와 `RowKey`가 있어야 합니다. 관계형 데이터베이스 테이블의 키와 마찬가지로 `PartitionKey` 및 `RowKey` 값을 인덱싱하여 빠른 조회를 사용하도록 설정하기 위해 클러스터형 인덱스를 만듭니다. 그러나 Table Storage는 보조 인덱스를 만들지 않으므로 이러한 두 개의 인덱싱된 속성만 사용합니다. 뒤쪽에 설명된 패턴 중 일부는 이러한 명백한 제한을 해결할 수 있는 방법을 보여 줍니다.  
 
@@ -137,7 +138,7 @@ Table Storage에서 개별 노드는 하나 이상의 전체 파티션을 지원
 Table Storage의 내부 세부 정보, 특히 이 Storage에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성을 지닌 고가용성 클라우드 스토리지 서비스](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)를 참조하세요.  
 
 ### <a name="entity-group-transactions"></a>엔터티 그룹 트랜잭션
-Table Storage에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션*이라고도 합니다. EGT는 동일한 파티션(특정 테이블에서 동일한 파티션 키 공유)에 저장된 엔터티에서만 작동할 수 있으므로 여러 엔터티에서 원자성 트랜잭션 동작이 필요한 경우 해당 엔터티가 동일한 파티션에 있는지 확인합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.
+Table Storage에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션* 이라고도 합니다. EGT는 동일한 파티션(특정 테이블에서 동일한 파티션 키 공유)에 저장된 엔터티에서만 작동할 수 있으므로 여러 엔터티에서 원자성 트랜잭션 동작이 필요한 경우 해당 엔터티가 동일한 파티션에 있는지 확인합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.
 
 EGT는 디자인을 평가하기 위해 잠재적인 장단점에 대해서도 소개합니다. Azure가 노드에 대한 요청의 부하를 용이하게 분산할 수 있기 때문에 더 많은 파티션을 사용하면 애플리케이션의 확장성을 증가시킵니다. 하지만 이 경우 원자성 트랜잭션을 수행하고 데이터에 강력한 일관성을 유지하는 애플리케이션의 기능을 제한할 수 있습니다. 또한 단일 노드에서 예상할 수 있는 트랜잭션 처리량을 제한할 수 있는 파티션 수준에서 특정 확장성 목표가 있습니다.
 
@@ -167,7 +168,7 @@ Table Storage는 비교적 저렴하지만 Table Storage를 사용하는 솔루�
 효율적으로 *읽히도록* Table Storage 디자인:
 
 * **읽기 작업이 많은 애플리케이션의 쿼리를 위해 디자인합니다.** 테이블을 디자인할 때는 엔터티 업데이트 방법을 고려하기 전에 먼저 쿼리(특히 대기 시간이 중요한 쿼리)를 고려해야 합니다. 이는 일반적으로 솔루션의 효율성 및 성능에 영향을 줍니다.  
-* **쿼리에서 `PartitionKey`와 `RowKey`를 모두 지정합니다.** *지점 쿼리*는 가장 효율적인 Table Storage 쿼리입니다.  
+* **쿼리에서 `PartitionKey`와 `RowKey`를 모두 지정합니다.** *지점 쿼리* 는 가장 효율적인 Table Storage 쿼리입니다.  
 * **엔터티의 중복 복사본을 저장하는 것이 좋습니다.** Table Storage는 저렴하므로 여러 번 저장(다른 키 사용)하여 쿼리의 효율성을 높이는 것이 좋습니다.  
 * **데이터를 비정규화하는 것이 좋습니다.** Table Storage는 저렴하기 때문에 데이터를 비정규화하는 것이 좋습니다. 예를 들어 집계 데이터에 대한 쿼리에서 단일 엔터티에만 액세스하면 되도록 요약 엔터티를 저장합니다.  
 * **복합 키 값을 사용하는 것이 좋습니다.** 사용되는 유일한 키는 `PartitionKey` 및 `RowKey`입니다. 예를 들어 복합 키 값을 사용하여 엔터티에 대한 대체 키 액세스 경로를 사용하도록 설정할 수 있습니다.  
@@ -204,13 +205,13 @@ Table Storage는 읽기 집약적 또는 쓰기 집약적이거나 두 가지가
 
 Table Storage 쿼리를 디자인하기 위한 몇 가지 일반적인 지침은 다음과 같습니다. 다음 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](/rest/api/storageservices/Query-Entities)를 참조하세요.  
 
-* *지점 쿼리*는 사용하기에 가장 효율적인 조회 방법이며, 대용량 조회 또는 가장 낮은 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 이러한 쿼리에서는 인덱스를 사용해 `PartitionKey` 및 `RowKey` 값을 지정하여 개별 엔터티를 효율적으로 찾을 수 있습니다. 예: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`  
-* 두 번째로 좋은 방법은 *범위 쿼리*입니다. 이 쿼리는 `PartitionKey`를 사용하고 `RowKey` 값 범위를 필터링하여 둘 이상의 엔터티를 반환합니다. `PartitionKey` 값은 특정 파티션을 식별하고, `RowKey` 값은 해당 파티션에 있는 엔터티의 하위 세트를 식별합니다. 예: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`  
-* 세 번째로 좋은 방법은 *파티션 검색*입니다. 이 검색은 `PartitionKey`를 사용하고 키가 아닌 다른 속성을 필터링하여 둘 이상의 엔터티를 반환할 수 있습니다. `PartitionKey` 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 일부에 대해 선택됩니다. 예: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`  
-* *테이블 검색*은 `PartitionKey`를 포함하지 않으며, 테이블을 구성하는 모든 파티션에서 일치하는 모든 엔터티를 검색하기 때문에 비효율적입니다. 필터에서 `RowKey`를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: `$filter=LastName eq 'Jones'`  
+* *지점 쿼리* 는 사용하기에 가장 효율적인 조회 방법이며, 대용량 조회 또는 가장 낮은 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 이러한 쿼리에서는 인덱스를 사용해 `PartitionKey` 및 `RowKey` 값을 지정하여 개별 엔터티를 효율적으로 찾을 수 있습니다. 예: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`  
+* 두 번째로 좋은 방법은 *범위 쿼리* 입니다. 이 쿼리는 `PartitionKey`를 사용하고 `RowKey` 값 범위를 필터링하여 둘 이상의 엔터티를 반환합니다. `PartitionKey` 값은 특정 파티션을 식별하고, `RowKey` 값은 해당 파티션에 있는 엔터티의 하위 세트를 식별합니다. 예: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`  
+* 세 번째로 좋은 방법은 *파티션 검색* 입니다. 이 검색은 `PartitionKey`를 사용하고 키가 아닌 다른 속성을 필터링하여 둘 이상의 엔터티를 반환할 수 있습니다. `PartitionKey` 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 일부에 대해 선택됩니다. 예: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`  
+* *테이블 검색* 은 `PartitionKey`를 포함하지 않으며, 테이블을 구성하는 모든 파티션에서 일치하는 모든 엔터티를 검색하기 때문에 비효율적입니다. 필터에서 `RowKey`를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: `$filter=LastName eq 'Jones'`  
 * 여러 엔터티를 반환하는 Azure Table Storage 쿼리는 `PartitionKey` 및 `RowKey` 순서로 엔터티를 정렬합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 `RowKey`를 선택합니다. Azure Cosmos DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조하세요.
 
-"**or**"을 사용하여 `RowKey` 값을 기준으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`와 같이 필터를 사용하는 쿼리를 사용하지 마세요.  
+" **or** "을 사용하여 `RowKey` 값을 기준으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`와 같이 필터를 사용하는 쿼리를 사용하지 마세요.  
 
 스토리지 클라이언트 라이브러리를 사용하여 효율적인 쿼리를 실행하는 클라이언트 쪽 코드의 예는 다음을 참조하세요.  
 
@@ -252,13 +253,13 @@ Table Storage는 `PartitionKey` 및 `RowKey`에 따라 오름차순으로 정렬
 > [!NOTE]
 > Azure Cosmos DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조하세요.
 
-Table Storage의 키는 문자열 값입니다. 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 `RowKey`로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123**에서 **00000123**으로 변환해야 합니다. 
+Table Storage의 키는 문자열 값입니다. 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 `RowKey`로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123** 에서 **00000123** 으로 변환해야 합니다. 
 
 많은 애플리케이션에서 서로 다른 순서로 정렬(예: 이름 또는 입사 날짜별로 직원 정렬)된 데이터를 사용할 수 있도록 요구하고 있습니다. 섹션에 있는 다음 [테이블 디자인 패턴](#table-design-patterns) 은 엔터티의 순서를 대체 정렬하는 방법을 다룹니다.  
 
 * [파티션 간 보조 인덱스 패턴](#intra-partition-secondary-index-pattern): 동일한 파티션에 다른 `RowKey` 값을 사용하여 각 엔터티의 여러 복사본을 저장합니다. 이렇게 하면 다양한 `RowKey` 값을 사용하여 빠르고 효율적으로 조회하고 대체 정렬 순서를 사용할 수 있습니다.  
 * [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern): 별도의 테이블의 별도의 파티션에 다른 `RowKey` 값을 사용하여 각 엔터티의 여러 복사본을 저장합니다. 이렇게 하면 다양한 `RowKey` 값을 사용하여 빠르고 효율적으로 조회하고 대체 정렬 순서를 사용할 수 있습니다.
-* [로그 테일 패턴](#log-tail-pattern): 날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n*개의 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern): 날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n* 개의 엔터티를 검색합니다.  
 
 ## <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 섹션에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 경우에 따라 쿼리에 맞게 최적화된 디자인과 데이터 수정에 맞게 최적화된 디자인 간의 장단점을 평가해야 합니다. 이러한 평가는 관계형 데이터베이스에 대한 디자인에서 수행하는 작업과 유사하지만, 관계형 데이터베이스에서는 장단점을 고려한 디자인 관리 기술이 다릅니다. [테이블 디자인 패턴](#table-design-patterns) 섹션은 Table Storage에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  
@@ -293,7 +294,7 @@ Table Storage의 키는 문자열 값입니다. 숫자 값이 올바르게 정�
 [테이블 디자인 패턴](#table-design-patterns) 섹션의 다음 패턴은 효율적인 쿼리를 위한 디자인과 효율적인 데이터 수정을 위한 디자인 간의 장단점을 다룹니다.  
 
 * [복합 키 패턴](#compound-key-pattern): 복합 `RowKey` 값을 사용하여 클라이언트에서 단일 지점 쿼리로 관련 데이터를 조회하도록 할 수 있습니다.  
-* [로그 테일 패턴](#log-tail-pattern): 날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n*개의 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern): 날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n* 개의 엔터티를 검색합니다.  
 
 ## <a name="encrypt-table-data"></a>테이블 데이터 암호화
 .NET Azure Storage 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    
@@ -494,7 +495,7 @@ Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 �
 
 직원 엔터티 범위를 쿼리하는 경우 직원 ID 순으로 정렬된 범위 또는 메일 주소 순으로 정렬된 범위를 지정할 수 있습니다. `RowKey`에서 해당 접두사로 엔터티 쿼리  
 
-* 영업 부서에서 직원 ID 순으로 정렬하여 직원 ID 범위가 **000100**~**000199**인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'empid_Sales') 및 (RowKey ge '000100') 및 (RowKey le '000199')  
+* 영업 부서에서 직원 ID 순으로 정렬하여 직원 ID 범위가 **000100** ~ **000199** 인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'empid_Sales') 및 (RowKey ge '000100') 및 (RowKey le '000199')  
 * Sales 부서에서 직원 메일 주소순으로 정렬하여 메일 주소가 "a"로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
 앞의 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](/rest/api/storageservices/Query-Entities)를 참조하세요.  
@@ -555,7 +556,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 
 이 예제에서 다이어그램의 4단계에서는 직원을 **보관** 테이블에 삽입합니다. Blob 스토리지의 blob 또는 파일 시스템의 파일에 직원을 추가할 수 있습니다.  
 
 #### <a name="recover-from-failures"></a>오류에서 복구
-작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 다이어그램의 4-5단계의 작업은 *멱등원*이어야 하는 것이 중요합니다. Table Storage를 사용하는 경우 4단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, 5단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 멱등원 작업을 사용해야 합니다.  
+작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 다이어그램의 4-5단계의 작업은 *멱등원* 이어야 하는 것이 중요합니다. Table Storage를 사용하는 경우 4단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, 5단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 멱등원 작업을 사용해야 합니다.  
 
 작업자 역할이 다이어그램의 6단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지 읽기 및 큐에서 제거한 횟수 확인에 대한 자세한 내용은 [메시지 가져오기](/rest/api/storageservices/Get-Messages)를 참조하세요.  
 
@@ -700,7 +701,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
 
-* `RowKey` 값을 쉽게 구문 분석할 수 있는 적절한 구분 기호 문자(예: **000123_2012**)를 사용해야 합니다.  
+* `RowKey` 값을 쉽게 구문 분석할 수 있는 적절한 구분 기호 문자(예: **000123_2012** )를 사용해야 합니다.  
 * 또한 이 엔터티를 동일한 직원에 대한 관련 데이터가 포함된 다른 엔터티와 동일한 파티션에 저장합니다. 이렇게 하면 EGT를 사용하여 강력한 일관성을 유지할 수 있습니다.
 * 이 패턴이 적절한지 확인하기 위해 데이터를 쿼리할 빈도를 고려해야 합니다. 예를 들어 검토 데이터에는 자주 액세스하지 않고 기본 직원 데이터에는 자주 액세스하는 경우 이를 별도의 엔터티로 유지해야 합니다.  
 
@@ -715,13 +716,13 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>로그 테일 패턴
-날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n*개의 엔터티를 검색합니다.  
+날짜 및 시간 역순으로 정렬된 `RowKey` 값을 사용하여 가장 최근에 파티션에 추가된 *n* 개의 엔터티를 검색합니다.  
 
 > [!NOTE]
 > Azure Cosmos DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 따라서 이 패턴은 Table Storage에는 적합하지만 Azure Cosmos DB에는 적합하지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](table-api-faq.md#table-api-vs-table-storage)을 참조하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
-일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 `$top` 쿼리 작업을 지원하여 세트의 처음 *n*개 엔터티를 반환합니다. 세트에서 마지막 *n*개 엔터티를 반환하기 위한 해당 쿼리 작업은 없습니다.  
+일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 `$top` 쿼리 작업을 지원하여 세트의 처음 *n* 개 엔터티를 반환합니다. 세트에서 마지막 *n* 개 엔터티를 반환하기 위한 해당 쿼리 작업은 없습니다.  
 
 #### <a name="solution"></a>해결 방법
 가장 최근 항목이 항상 테이블의 첫 번째 항목이 되도록 날짜/시간 역순으로 자연스럽게 정렬하는 `RowKey`를 사용하여 엔터티를 정렬합니다.  
@@ -1055,7 +1056,7 @@ do
 * 연속 토큰을 영구 스토리지에 직렬화하여 애플리케이션의 작동이 중단된 경우에도 작업을 계속할 수 있습니다.  
 
 > [!NOTE]
-> 일반적으로 연속 토큰은 1,000개(이보다 적을 수도 있음)의 엔터티가 포함된 세그먼트를 반환합니다. 이는 **Take**를 사용하여 조회 조건과 일치하는 처음 n개 엔터티를 반환하는 방식으로 쿼리가 반환하는 항목 수를 제한하는 경우도 여기에 해당합니다. Table Storage는 남은 엔터티를 검색할 수 있도록 연속 토큰과 함께 n개 미만의 엔터티를 포함하는 세그먼트를 반환할 수 있습니다.  
+> 일반적으로 연속 토큰은 1,000개(이보다 적을 수도 있음)의 엔터티가 포함된 세그먼트를 반환합니다. 이는 **Take** 를 사용하여 조회 조건과 일치하는 처음 n개 엔터티를 반환하는 방식으로 쿼리가 반환하는 항목 수를 제한하는 경우도 여기에 해당합니다. Table Storage는 남은 엔터티를 검색할 수 있도록 연속 토큰과 함께 n개 미만의 엔터티를 포함하는 세그먼트를 반환할 수 있습니다.  
 > 
 > 
 
