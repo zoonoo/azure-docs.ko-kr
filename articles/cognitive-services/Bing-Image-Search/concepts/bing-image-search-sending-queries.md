@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084413"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>이미지 검색 쿼리 사용자 지정 및 제안
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 이 문서를 사용 하 여 쿼리를 사용자 지정 하 고 Bing Image Search API에 보낼 검색어를 제안 하는 방법을 알아보세요.
 
@@ -28,9 +33,9 @@ ms.locfileid: "67542751"
 
 ## <a name="pivot-the-query"></a>쿼리 피벗
 
-Bing이 원래 검색 쿼리를 분할할 수 있는 경우 반환된 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 개체에는 `pivotSuggestions`가 포함됩니다. 사용자에게 선택적 검색어로 피벗 제안을 표시할 수 있습니다. 예를 들어 원래 쿼리가 *Microsoft Surface*인 경우 Bing은 쿼리를 *Microsoft* 및 *Surface*로 분할하고 각각에 피벗을 제안할 수 있습니다. 사용자에게 선택적 쿼리 용어로 이러한 제안을 표시할 수 있습니다.
+Bing이 원래 검색 쿼리를 분할할 수 있는 경우 반환된 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 개체에는 `pivotSuggestions`가 포함됩니다. 사용자에게 선택적 검색어로 피벗 제안을 표시할 수 있습니다. 예를 들어 원래 쿼리가 *Microsoft Surface* 인 경우 Bing은 쿼리를 *Microsoft* 및 *Surface* 로 분할하고 각각에 피벗을 제안할 수 있습니다. 사용자에게 선택적 쿼리 용어로 이러한 제안을 표시할 수 있습니다.
 
-다음 예제에서는 *Microsoft Surface*에 대한 피벗 제안 사항을 보여줍니다.  
+다음 예제에서는 *Microsoft Surface* 에 대한 피벗 제안 사항을 보여줍니다.  
 
 ```json
 {
@@ -101,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>쿼리 확장
 
-Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *Microsoft Surface*인 경우 확장된 쿼리는 다음과 같을 수 있습니다.
-- Microsoft Surface **Pro 3**.
-- Microsoft Surface **RT**.
-- Microsoft Surface **Phone**.
-- Microsoft Surface **Hub**입니다.
+Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *Microsoft Surface* 인 경우 확장된 쿼리는 다음과 같을 수 있습니다.
+- Microsoft Surface **Pro 3** .
+- Microsoft Surface **RT** .
+- Microsoft Surface **Phone** .
+- Microsoft Surface **Hub** 입니다.
 
-다음 예제에서는 *Microsoft Surface*에 대한 확장된 쿼리를 보여줍니다.
+다음 예제에서는 *Microsoft Surface* 에 대한 확장된 쿼리를 보여줍니다.
 
 ```json
 {

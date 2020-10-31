@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ea9ab661fce1cd88bf1bdc065c2b26ccad73c30d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8393fb431c5148d3f4885135c90fe4d0b8970d52
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082014"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 지원합니다. 각 API에는 고유한 데이터베이스 작업 세트가 있습니다. 이러한 작업은 간단한 지점 읽기 및 쓰기에서 복잡한 쿼리에 이르기까지 다양합니다. 각 데이터베이스 작업은 작업의 복잡도에 따라 시스템 리소스를 사용합니다.
 
@@ -33,9 +34,9 @@ Gremlin API에서 반환되는 헤더는 현재 Gremlin .NET 및 Java SDK에서 
 
 1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
-1. 올바른 쿼리를 입력 한 다음 **Execute Gremlin query**를 선택 합니다.
+1. 올바른 쿼리를 입력 한 다음 **Execute Gremlin query** 를 선택 합니다.
 
-1. **쿼리 통계**를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
+1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
 
 :::image type="content" source="./media/find-request-unit-charge/portal-gremlin-query.png" alt-text="Azure Portal에서 Gremlin 쿼리 요청 요금을 얻기 위한 스크린샷":::
 

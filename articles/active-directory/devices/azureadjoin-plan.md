@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083289"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -187,7 +187,7 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
 Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 된 Windows 10 장치에서 Azure AD 조인 된 장치로 원격 데스크톱을 사용할 수도 있습니다. 
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
-**참고**: 시스템 준비 도구 (Sysprep) 또는 이와 유사한 이미징 도구를 사용 하 여 Azure AD 가입 장치를 배포할 수 없음
+**참고** : 시스템 준비 도구 (Sysprep) 또는 이와 유사한 이미징 도구를 사용 하 여 Azure AD 가입 장치를 배포할 수 없음
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 
@@ -219,17 +219,17 @@ Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 �
 
 ## <a name="configure-your-device-settings"></a>디바이스 설정 구성
 
-Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지**에서 `Devices > Device settings`을 선택합니다.
+Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지** 에서 `Devices > Device settings`을 선택합니다.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>사용자가 디바이스를 Azure AD에 조인할 수 있음
 
-배포 범위 및 Azure AD 조인 디바이스를 설정할 수 있도록 허용할 사용자에 따라 이 옵션을 **모두** 또는 **선택한 사용자**로 설정합니다. 
+배포 범위 및 Azure AD 조인 디바이스를 설정할 수 있도록 허용할 사용자에 따라 이 옵션을 **모두** 또는 **선택한 사용자** 로 설정합니다. 
 
 ![사용자가 디바이스를 Azure AD에 조인할 수 있음](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스의 추가 로컬 관리자
 
-**선택한 사용자**를 선택하고 모든 Azure AD 조인 디바이스의 로컬 관리자 그룹에 추가하려는 사용자를 선택합니다. 
+**선택한 사용자** 를 선택하고 모든 Azure AD 조인 디바이스의 로컬 관리자 그룹에 추가하려는 사용자를 선택합니다. 
 
 ![Azure AD 조인 디바이스의 추가 로컬 관리자](./media/azureadjoin-plan/02.png)
 
@@ -243,26 +243,26 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 모바일 설정을 구성하려면 먼저 MDM 공급자를 추가해야 합니다.
 
-**MDM 공급자를 추가하려면**:
+**MDM 공급자를 추가하려면** :
 
-1. **Azure Active Directory 페이지**의 **관리** 섹션에서 `Mobility (MDM and MAM)`를 클릭합니다. 
-1. **애플리케이션 추가**를 클릭합니다.
+1. **Azure Active Directory 페이지** 의 **관리** 섹션에서 `Mobility (MDM and MAM)`를 클릭합니다. 
+1. **애플리케이션 추가** 를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="응용 프로그램 추가 페이지 Azure Active Directory의 스크린샷 몇 개의 M D M 공급자가 나열 됩니다." border="false":::
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
 ### <a name="mdm-user-scope"></a>MDM 사용자 범위
 
-배포 범위에 따라 **일부** 또는 **모두**를 선택합니다. 
+배포 범위에 따라 **일부** 또는 **모두** 를 선택합니다. 
 
 ![MDM 사용자 범위](./media/azureadjoin-plan/05.png)
 
 범위에 따라 다음 중 하나가 발생합니다. 
 
-- **사용자가 MDM 범위에 있음**: Azure AD Premium 구독을 보유한 경우 Azure AD 조인과 함께 MDM 등록이 자동화됩니다. 범위가 지정된 모든 사용자는 MDM에 대한 적절한 라이선스가 있어야 합니다. 이 시나리오에서 MDM 등록이 실패하면 Azure AD 조인도 롤백됩니다.
-- **사용자가 MDM 범위에 없음**: 사용자가 MDM 범위에 없는 경우 MDM 등록 없이 Azure AD 조인이 완료됩니다. 이는 결국 관리되지 않는 디바이스로 이어집니다.
+- **사용자가 MDM 범위에 있음** : Azure AD Premium 구독을 보유한 경우 Azure AD 조인과 함께 MDM 등록이 자동화됩니다. 범위가 지정된 모든 사용자는 MDM에 대한 적절한 라이선스가 있어야 합니다. 이 시나리오에서 MDM 등록이 실패하면 Azure AD 조인도 롤백됩니다.
+- **사용자가 MDM 범위에 없음** : 사용자가 MDM 범위에 없는 경우 MDM 등록 없이 Azure AD 조인이 완료됩니다. 이는 결국 관리되지 않는 디바이스로 이어집니다.
 
 ### <a name="mdm-urls"></a>MDM URL
 
@@ -272,7 +272,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-![애플리케이션 추가](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="응용 프로그램 추가 페이지 Azure Active Directory의 스크린샷 몇 개의 M D M 공급자가 나열 됩니다." border="false":::
 
 각 URL에는 사전 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 
@@ -284,7 +284,7 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 사용자가 자신의 설정을 디바이스 간에 동기화 할 수 있도록 Azure AD에 상태 로밍을 사용하려면 [Azure Active Directory에서 엔터프라이즈 상태 로밍 사용](enterprise-state-roaming-enable.md)을 참조하세요. 
 
-**권장 사항**: 하이브리드 Azure AD 조인 디바이스에도 이 설정을 사용하세요.
+**권장 사항** : 하이브리드 Azure AD 조인 디바이스에도 이 설정을 사용하세요.
 
 ## <a name="configure-conditional-access"></a>조건부 액세스 구성
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d518461f8526a742a59d92140e2cf323e8bfc16
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005947"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082558"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 모든 쿼리는 `SELECT` ANSI SQL 표준에 따라 절과 선택적 [From](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 절의 소스는 `FROM` 열거 되며 `WHERE` 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. `SELECT`그런 다음 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
 

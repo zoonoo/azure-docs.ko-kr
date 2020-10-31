@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083187"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -37,7 +37,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 ## <a name="detect-stale-devices"></a>부실 디바이스 검색
 
-부실 디바이스는 특정 시간 범위 동안 모든 클라우드 앱에 액세스하는 데 사용되지 않은 등록된 디바이스로 정의되므로 부실 디바이스를 검색하려면 타임스탬프 관련 속성이 필요합니다. Azure AD에서 이 속성은 **ApproximateLastLogonTimestamp** 또는 **활동 타임스탬프**라고 합니다. 현재와 **활동 타임스탬프**의 값 사이의 델타가 활성 디바이스에 대해 정의한 시간 범위를 초과하는 경우 해당 디바이스는 부실 디바이스로 간주됩니다. 이 **활동 타임스탬프**는 현재 공개 미리 보기로 있습니다.
+부실 디바이스는 특정 시간 범위 동안 모든 클라우드 앱에 액세스하는 데 사용되지 않은 등록된 디바이스로 정의되므로 부실 디바이스를 검색하려면 타임스탬프 관련 속성이 필요합니다. Azure AD에서 이 속성은 **ApproximateLastLogonTimestamp** 또는 **활동 타임스탬프** 라고 합니다. 현재와 **활동 타임스탬프** 의 값 사이의 델타가 활성 디바이스에 대해 정의한 시간 범위를 초과하는 경우 해당 디바이스는 부실 디바이스로 간주됩니다. 이 **활동 타임스탬프** 는 현재 공개 미리 보기로 있습니다.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>활동 타임스탬프의 값은 어떻게 관리되나요?  
 
@@ -55,11 +55,11 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 - Azure Portal의 [디바이스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)에 있는 **활동** 열
 
-    ![활동 타임스탬프](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="장치에 대 한 이름, 소유자 및 기타 정보를 나열 하는 Azure Portal 페이지의 스크린샷 한 열에는 활동 타임 스탬프가 나열 됩니다." border="false":::
 
 - [AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    ![활동 타임스탬프](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="장치에 대 한 이름, 소유자 및 기타 정보를 나열 하는 Azure Portal 페이지의 스크린샷 한 열에는 활동 타임 스탬프가 나열 됩니다." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>부실 디바이스 정리 계획
 

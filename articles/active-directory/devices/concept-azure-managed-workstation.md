@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093313"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083238"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
@@ -94,12 +94,15 @@ ms.locfileid: "92093313"
 
 이 솔루션의 경우 최신 기술 요구 사항을 충족 하는 하드웨어가 포함 된 [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) 기술을 사용 하 여 신뢰 루트를 배포 합니다. 워크스테이션을 보호 하기 위해 Autopilot를 사용 하 여 Microsoft OEM 최적화 Windows 10 장치를 활용할 수 있습니다. 이러한 장치는 제조업체 로부터 알려진 양호한 상태로 제공 됩니다. Autopilot는 잠재적으로 안전 하지 않은 장치를 이미지로 다시 설치 하는 대신 Windows 장치를 "업무 지원" 상태로 변환할 수 있습니다. 설정 및 정책을 적용 하 고, 앱을 설치 하 고, Windows 10의 버전을 변경 합니다. 예를 들어, Autopilot는 Windows 10 Pro에서 windows 10 Enterprise로 장치의 Windows 설치를 변경 하 여 고급 기능을 사용할 수 있습니다.
 
-![보안 워크스테이션 수준](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="보안 워크스테이션의 수명 주기를 보여 주는 다이어그램" border="false":::
+다이어그램의 위쪽 근처에는 장치 공급 업체가 나와 있습니다. 화살표는 해당 공급 업체에서 워크스테이션을 구매한 고객, 그리고 충족 및 배달 이라는 레이블이 지정 된 트럭을 가리킵니다. 트럭에서 화살표는 워크스테이션을 사용 하는 사용자를 그림으로 배포 레이블이 지정 된 이미지를 가리킵니다. 셀프 서비스 환경 레이블이 지정 된 화살표는 해당 사용자를 비즈니스 준비로 레이블이 지정 된 화면으로 확장 합니다. 이 화면 아래에 관리 되는 보안 이라는 레이블이 지정 된 아이콘이 표시 됩니다. 일정 한 상태 사용, 화면에서 최신 상태를 관리 하 고 현재 위치를 화면에서 끝 아이콘으로, 중단-수정 다시 설정 아이콘으로 표시 되는 화살표입니다. 마지막 화살표는 중단-수정 아이콘에서 비즈니스 준비 화면으로 다시 반복 합니다.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>장치 역할 및 프로필
 
 이 지침에서는 사용자, 개발자 및 IT 담당자를 위한 보다 안전한 솔루션을 만드는 데 도움이 되는 몇 가지 보안 프로필 및 역할을 참조 합니다. 이러한 프로필은 강화 된 워크스테이션 또는 안전한 워크스테이션의 이점을 누릴 수 있는 일반 사용자에 대 한 유용성 및 위험을 분산 합니다. 여기에 제공 된 설정 구성은 업계에서 승인한 표준을 기반으로 합니다. 이 지침에서는 Windows 10을 강화 하 고 장치 또는 사용자 손상과 관련 된 위험을 줄이는 방법을 보여 줍니다. 최신 하드웨어 기술과 신뢰 장치의 루트를 활용 하기 위해 **높은 보안** 프로필에서 시작 하는 데 사용할 수 있는 [디바이스 상태 증명](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)을 사용 합니다. 이 기능은 장치 조기 부팅 중에 공격자가 영구적으로 사용할 수 없도록 보장 하기 위해 제공 됩니다. 이는 정책과 기술을 사용 하 여 보안 기능 및 위험을 관리 하는 데 도움이 됩니다.
-![보안 워크스테이션 수준](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="보안 워크스테이션의 수명 주기를 보여 주는 다이어그램" border="false":::
 
 * **기본 보안** – 관리 되는 표준 워크스테이션은 대부분의 홈 및 소규모 비즈니스 사용을 위한 좋은 시작 지점을 제공 합니다. 이러한 장치는 Azure AD에 등록 되 고 Intune을 사용 하 여 관리 됩니다. 이 프로필을 사용 하면 사용자가 모든 응용 프로그램을 실행 하 고 모든 웹 사이트를 찾아볼 수 있습니다. [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) 와 같은 맬웨어 방지 솔루션을 사용 하도록 설정 해야 합니다.
 

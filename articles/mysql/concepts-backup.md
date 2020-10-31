@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: ef53fc3de87eeaa41d3859fd8b10dd3cc942afc7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082099"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -38,11 +38,11 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 [범용 저장소는 범용 및](concepts-pricing-tiers.md) 메모리 액세스에 [최적화 된 계층](concepts-pricing-tiers.md) 서버를 지 원하는 백 엔드 저장소입니다. 범용 저장소가 최대 2TB 인 서버의 경우 전체 백업은 매주 한 번 수행 됩니다. 차등 백업은 하루에 두 번 발생 합니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 범용 저장소에서 최대 4mb 저장소로의 백업은 스냅숏 기반이 아니고 백업 시 IO 대역폭을 소비 합니다. 1TB 저장소에서 대량 데이터베이스 (> 1tb)의 경우 다음을 고려 하는 것이 좋습니다.
 
 - 백업 IOs 또는에 대 한 계정에 더 많은 IOPs 프로 비전
-- 또는 기본 저장소 인프라를 원하는 [Azure 지역](./concepts-pricing-tiers.md#storage)에서 사용할 수 있는 경우 최대 16tb 저장소로 마이그레이션하는 것이 좋습니다. 최대 16TB의 저장소를 지 원하는 범용 저장소에 대 한 추가 비용은 없습니다. 16TB 저장소로의 마이그레이션에 대 한 지원을 받으려면 Azure Portal에서 지원 티켓을 여세요.
+- 또는 기본 저장소 인프라를 원하는 [Azure 지역](/azure/mysql/concepts-pricing-tiers#storage)에서 사용할 수 있는 경우 최대 16tb 저장소로 마이그레이션하는 것이 좋습니다. 최대 16TB의 저장소를 지 원하는 범용 저장소에 대 한 추가 비용은 없습니다. 16TB 저장소로의 마이그레이션에 대 한 지원을 받으려면 Azure Portal에서 지원 티켓을 여세요.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 범용 저장소 서버
 
-[Azure 지역의](./concepts-pricing-tiers.md#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](./concepts-pricing-tiers.md#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
+[Azure 지역의](/azure/mysql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](/azure/mysql/concepts-pricing-tiers#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
 
 [Azure 지역의](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](/concepts-pricing-tiers.md#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082881"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>키 값 저장소로 Azure Cosmos DB-비용 개요
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 대규모의 고가용성 애플리케이션을 쉽게 빌드하기 위한 전역으로 분산된 다중 모델 데이터베이스 서비스입니다. 기본적으로 Azure Cosmos DB는 수집 모든 데이터를 자동으로 효율적으로 인덱싱합니다. 이를 통해 데이터에 대해 빠르고 일관 된 [SQL](./sql-query-getting-started.md) (및 [JavaScript](stored-procedures-triggers-udfs.md)) 쿼리를 수행할 수 있습니다. 
 
@@ -22,7 +23,7 @@ Azure Cosmos DB는 대규모의 고가용성 애플리케이션을 쉽게 빌드
 
 ## <a name="why-we-use-request-units-rus"></a>RU(요청 단위)를 사용하는 이유
 
-Azure Cosmos DB 성능은 [요청 단위](request-units.md) (r u/초)로 표현 된 프로 비전 된 처리량의 양을 기반으로 합니다. 프로 비전은 두 번째 세분성으로 제공 되며 r u/초 단위로 구매 됩니다 ([시간당 청구와 혼동 하지 않음](https://azure.microsoft.com/pricing/details/cosmos-db/)). RUs는 응용 프로그램에 필요한 처리량의 프로 비전을 간소화 하는 논리적 추상화 (통화)로 간주 되어야 합니다. 사용자는 읽기 및 쓰기 처리량을 차별화 한다고 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이 프로 비전 된 용량 모델을 사용 하면 서비스에서 **예측 가능 하 고 일관성 있는 처리량을 보장 하며 낮은 대기 시간 및 고가용성**을 제공할 수 있습니다. 마지막으로, 및 모델을 사용 하 여 처리량을 나타냅니다. 프로 비전 된 각 항목에는 정의 된 양의 리소스 (예: 메모리, 코어/CPU 및 IOPS)가 있습니다.
+Azure Cosmos DB 성능은 [요청 단위](request-units.md) (r u/초)로 표현 된 프로 비전 된 처리량의 양을 기반으로 합니다. 프로 비전은 두 번째 세분성으로 제공 되며 r u/초 단위로 구매 됩니다 ([시간당 청구와 혼동 하지 않음](https://azure.microsoft.com/pricing/details/cosmos-db/)). RUs는 응용 프로그램에 필요한 처리량의 프로 비전을 간소화 하는 논리적 추상화 (통화)로 간주 되어야 합니다. 사용자는 읽기 및 쓰기 처리량을 차별화 한다고 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이 프로 비전 된 용량 모델을 사용 하면 서비스에서 **예측 가능 하 고 일관성 있는 처리량을 보장 하며 낮은 대기 시간 및 고가용성** 을 제공할 수 있습니다. 마지막으로, 및 모델을 사용 하 여 처리량을 나타냅니다. 프로 비전 된 각 항목에는 정의 된 양의 리소스 (예: 메모리, 코어/CPU 및 IOPS)가 있습니다.
 
 전역적으로 분산 된 데이터베이스 시스템으로 Cosmos DB는 대기 시간, 처리량, 일관성 및 고가용성을 포괄 하는 포괄적인 Sla를 제공 하는 유일한 Azure 서비스입니다. 프로 비전 하는 처리량은 Cosmos 계정과 연결 된 각 지역에 적용 됩니다. 읽기의 경우 Cosmos DB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](consistency-levels.md)을 제공합니다. 
 

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8b1fc1cb28b62a388df53238df58420bd3317a8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082864"
 ---
 # <a name="replicate-azure-cosmos-db"></a>복제 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 횟수만큼 문자열 값을 반복합니다.
   
 ## <a name="syntax"></a>구문
@@ -37,7 +39,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>설명
 
-  결과의 최대 길이는 1만 자입니다. 예를 들어 (length (*str_expr*) *  *num_expr*) <= 1만입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  결과의 최대 길이는 1만 자입니다. 예를 들어 (length ( *str_expr* ) *  *num_expr* ) <= 1만입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 ## <a name="examples"></a>예
   

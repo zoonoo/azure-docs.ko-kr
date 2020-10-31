@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278859"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083255"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -39,7 +39,7 @@ Azure AD는 장치 id를 관리 하는 중앙의 장소를 제공 합니다.
 다음 단계를 사용 하 여 장치 포털에 액세스할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**  >  **장치로**이동 합니다.
+1. **Azure Active Directory**  >  **장치로** 이동 합니다.
 
 ## <a name="manage-devices"></a>디바이스 관리
 
@@ -71,7 +71,7 @@ Azure AD에서 장치를 관리 하는 데는 두 가지 위치가 있습니다.
 
 ### <a name="manage-an-intune-device"></a>Intune 디바이스 관리
 
-Intune 관리자 인 경우 MDM이 **Microsoft Intune**으로 표시 된 장치를 관리할 수 있습니다. 장치가 Microsoft Intune 등록 되지 않은 경우 "관리" 옵션이 회색으로 표시 됩니다.
+Intune 관리자 인 경우 MDM이 **Microsoft Intune** 으로 표시 된 장치를 관리할 수 있습니다. 장치가 Microsoft Intune 등록 되지 않은 경우 "관리" 옵션이 회색으로 표시 됩니다.
 
 ### <a name="enable-or-disable-an-azure-ad-device"></a>Azure AD 장치 사용 또는 사용 안 함
 
@@ -111,7 +111,7 @@ Intune 관리자 인 경우 MDM이 **Microsoft Intune**으로 표시 된 장치�
   
 ### <a name="view-or-copy-bitlocker-keys"></a>BitLocker 키 확인 또는 복사
 
-사용자가 암호화 된 드라이브를 복구할 수 있도록 BitLocker 키를 보고 복사할 수 있습니다. 이러한 키는 암호화되고 해당 키가 Azure AD에 저장된 Windows 디바이스에 대해서만 사용할 수 있습니다. **복구 키 표시**를 선택 하 여 장치 세부 정보에 액세스할 때 이러한 키를 찾을 수 있습니다. **복구 키 표시** 를 선택 하면 해당 범주에서 찾을 수 있는 감사 로그가 생성 됩니다 `KeyManagement` .
+사용자가 암호화 된 드라이브를 복구할 수 있도록 BitLocker 키를 보고 복사할 수 있습니다. 이러한 키는 암호화되고 해당 키가 Azure AD에 저장된 Windows 디바이스에 대해서만 사용할 수 있습니다. **복구 키 표시** 를 선택 하 여 장치 세부 정보에 액세스할 때 이러한 키를 찾을 수 있습니다. **복구 키 표시** 를 선택 하면 해당 범주에서 찾을 수 있는 감사 로그가 생성 됩니다 `KeyManagement` .
 
 ![BitLocker 키 보기](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -140,7 +140,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 ![필터링 미리 보기 기능 사용](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**  >  **장치로**이동 합니다.
+1. **Azure Active Directory**  >  **장치로** 이동 합니다.
 1. 표시 되는 배너를 선택 하 고 **새 장치 필터링 기능을 사용해 보세요. 미리 보기를 사용 하려면 클릭 합니다.**
 
 이제 **모든 장치** 보기에 필터를 **추가할** 수 있습니다.
@@ -158,19 +158,19 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 ![Azure AD와 관련 된 장치 설정](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
-- **사용자가 AZURE ad에 장치를 조인할 수 있습니다** .-이 설정을 사용 하면 장치를 azure ad 조인 장치로 등록할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **All**입니다.
+- **사용자가 AZURE ad에 장치를 조인할 수 있습니다** .-이 설정을 사용 하면 장치를 azure ad 조인 장치로 등록할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **All** 입니다.
 
 > [!NOTE]
 > **사용자가 AZURE ad에 장치를 조인할 수 있습니다** 설정은 Windows 10의 azure ad 조인에만 적용 됩니다.
 
 - **Azure AD 조인 디바이스의 추가 로컬 관리자** - 디바이스에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 이러한 사용자는 Azure AD의 *장치 관리자* 역할에 추가 됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다.
-- **사용자가 AZURE ad에 장치를 등록할 수 있음** -Windows 10 개인, IOS, Android 및 macos 장치를 azure ad에 등록할 수 있도록이 설정을 구성 해야 합니다. **없음**을 선택 하는 경우 장치는 Azure AD에 등록할 수 없습니다. Microsoft Intune 또는 Microsoft 365 용 MDM (모바일 장치 관리)에 등록 하려면 등록 해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
-- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-howitworks.md)을 참조하세요. 
+- **사용자가 AZURE ad에 장치를 등록할 수 있음** -Windows 10 개인, IOS, Android 및 macos 장치를 azure ad에 등록할 수 있도록이 설정을 구성 해야 합니다. **없음** 을 선택 하는 경우 장치는 Azure AD에 등록할 수 없습니다. Microsoft Intune 또는 Microsoft 365 용 MDM (모바일 장치 관리)에 등록 하려면 등록 해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두** 가 선택되고 **없음** 은 사용할 수 없습니다.
+- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요** 입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-howitworks.md)을 참조하세요. 
 
 > [!NOTE]
 > **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
 
-- **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50**입니다.
+- **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다.
 
 > [!NOTE]
 > **최대 장치 수** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
@@ -185,7 +185,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 - 디바이스 설정 변경
 - 디바이스 삭제 또는 업데이트 등의 디바이스 작업
 
-감사 데이터에 대한 진입점은 **디바이스** 페이지의 **작업** 섹션에 있는 **감사 로그**입니다.
+감사 데이터에 대한 진입점은 **디바이스** 페이지의 **작업** 섹션에 있는 **감사 로그** 입니다.
 
 감사 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.
 
@@ -194,11 +194,11 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 - 작업의 초기자/행위자(누가)
 - 작업(무엇)
 
-![감사 로그](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="4 개 감사 로그에 대 한 날짜, 대상, 행위자 및 작업을 나열 하는 장치 페이지의 작업 섹션에 있는 테이블의 스크린샷" border="false":::
 
 도구 모음에서 **열** 을 클릭 하 여 목록 보기를 사용자 지정할 수 있습니다.
 
-![감사 로그](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="4 개 감사 로그에 대 한 날짜, 대상, 행위자 및 작업을 나열 하는 장치 페이지의 작업 섹션에 있는 테이블의 스크린샷" border="false":::
 
 보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
 
@@ -211,7 +211,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.
 
-![감사 로그](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="4 개 감사 로그에 대 한 날짜, 대상, 행위자 및 작업을 나열 하는 장치 페이지의 작업 섹션에 있는 테이블의 스크린샷" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

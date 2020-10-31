@@ -10,21 +10,26 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fbecd9c2fd6e3a9f1be29598bad50da4b77bbb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68423908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084615"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>순위를 사용하여 엔터티 검색 결과 표시  
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 각 엔터티 검색 응답에는 Bing Entity Search API에서 반환하는 검색 결과의 표시 방법을 지정하는 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 결과를 폴, 메인라인 및 사이드바 콘텐츠로 그룹화합니다. 폴 결과는 가장 중요하거나 두드러진 결과로, 맨 처음에 표시됩니다. 나머지 결과를 기존의 메인라인 및 사이드바 형식으로 표시하지 않을 경우 사이드바 콘텐츠보다 가시성이 뛰어난 메인라인 콘텐츠를 제공해야 합니다. 
   
 각 그룹 내에서 [항목](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠를 표시해야 하는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 두 가지 방법을 제공합니다.  
  
 
-|필드 | Description  |
+|필드 | 설명  |
 |---------|---------|
 |`answerType` 및 `resultIndex` | `answerType`은 응답(엔터티 또는 장소)을 식별하고 `resultIndex`는 응답 내의 결과(예: 엔터티)를 식별합니다. 인덱스는 0부터 시작합니다.|
 |`value`    | `value`는 답변 또는 답변 내 결과의 ID와 일치하는 ID를 포함합니다. 답변 또는 결과 중 하나만 ID를 포함합니다. |

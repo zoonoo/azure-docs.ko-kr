@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083544"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성*은 전체 용어 쿼리를 위한 부분 입력을 완료 하 고,는 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
+Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리를 위한 부분 입력을 완료 하 고,는 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
 [C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 반면에 제안 사항은 필드를 선택 하는 경우 더 나은 결과를 생성 합니다. 제안에는 검색 문서에 대 한 프록시가 있으므로 단일 결과를 가장 잘 나타내는 필드를 사용할 수 있습니다. 여러 일치 항목을 구분 하는 이름, 제목 또는 기타 고유 필드가 가장 잘 작동 합니다. 필드가 반복 되는 값으로 구성 된 경우 제안 사항은 동일한 결과로 구성 되며 사용자는 어떤 항목을 클릭할 지 알지 못합니다.
 
-검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top**, **$filter**및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
+검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select** , **$top** , **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
 
 ### <a name="choose-analyzers"></a>분석기 선택
 
@@ -167,7 +167,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가)](tutorial-csharp-type-ahead-and-suggestions.md) 샘플은 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되며 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 는 c # 및 Java 코드를 모두 포함 하는 이전 샘플입니다. 또한 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플에서는 호스팅된 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 사용 합니다. 
++ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 는 c # 및 Java 코드를 모두 포함 하는 이전 샘플입니다. 또한 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플에서는 호스팅된 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 사용 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

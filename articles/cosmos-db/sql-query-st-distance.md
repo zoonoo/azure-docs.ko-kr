@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0796ec0b69f7a6a1c3ab6beb2b74f04c8fe94af7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537298"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082337"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  두 GeoJSON Point, Polygon, MultiPolygon 또는 LineString 식 사이의 거리를 반환 합니다. 자세히 알아보려면 [지리 공간적 및 GeoJSON location data](sql-query-geospatial-intro.md) 문서를 참조 하세요.
   
 ## <a name="syntax"></a>구문

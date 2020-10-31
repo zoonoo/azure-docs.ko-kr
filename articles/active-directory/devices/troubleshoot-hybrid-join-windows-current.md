@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433656"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083219"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 조인 디바이스 문제 해결
 
@@ -95,16 +95,16 @@ WamDefaultAuthority: organizations
 
 #### <a name="domainjoined--yes"></a>DomainJoined : YES
 
-이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.
+이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요** 인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인*으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요**이어야 합니다. 값이 **예**인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전 1607 이상을 사용 하는 경우 계정이 무시 됩니다.
+이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다( *작업 영역 조인* 으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요** 이어야 합니다. 값이 **예** 인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전 1607 이상을 사용 하는 경우 계정이 무시 됩니다.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
 이 필드는 장치가 조인 되었는지 여부를 나타냅니다. 장치가 Azure AD 조인 장치 또는 하이브리드 Azure AD 가입 장치인 경우에는 값이 **예** 입니다.
-값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다.
+값이 **아니요** 인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다.
 
 추가 문제 해결을 위해 다음 단계를 진행 합니다.
 
@@ -135,9 +135,9 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 304, 305, 307를 사용 하 여 이벤트를 찾습니다.
 
-![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
-![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>4 단계: 아래 목록에서 가능한 원인 및 해결 방법 확인
 
@@ -210,7 +210,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 201를 사용 하 여 이벤트를 찾습니다.
 
-![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
 ###### <a name="network-errors"></a>네트워크 오류
 
@@ -233,7 +233,7 @@ WamDefaultAuthority: organizations
    - 이유: DRS 서버의 HTTP 503.
    - 해결 방법: 서버를 현재 사용할 수 없습니다. 이후 조인 시도는 서버가 다시 온라인 상태가 되 면 성공할 수 있습니다.
 
-###### <a name="other-errors"></a>기타 오류
+###### <a name="other-errors"></a>다른 오류
 
 - **E_INVALIDDATA** (0x8007000d/2147024883)
    - 원인: 서버 응답 JSON을 구문 분석할 수 없습니다. HTTP 200을 HTML 인증 페이지와 함께 반환 하는 프록시로 인해 발생 했을 수 있습니다.
@@ -255,7 +255,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 eventID 305를 사용 하 여 이벤트를 찾습니다.
 
-![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
 ##### <a name="configuration-errors"></a>구성 오류
 
@@ -284,7 +284,7 @@ WamDefaultAuthority: organizations
    - 이유:에 연결 `https://login.microsoftonline.com` 하지 못했습니다.
    - 해결 방법:에 대 한 네트워크 연결을 확인 `https://login.microsoftonline.com` 합니다.
 
-##### <a name="other-errors"></a>기타 오류
+##### <a name="other-errors"></a>다른 오류
 
 - **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT** (0xcaa20003/-895352829)
    - 원인: Azure AD에서 온-프레미스 id 공급자의 SAML 토큰을 수락 하지 않았습니다.
@@ -330,7 +330,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 204를 사용 하 여 이벤트를 찾습니다.
 
-![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>DRS 서버에서 반환 된 HTTP 오류
 
@@ -373,13 +373,13 @@ WamDefaultAuthority: organizations
 
 ##### <a name="federated-join-server-errors"></a>페더레이션된 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해결 방법 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 이유 | 해결 방법 |
 | --- | --- | --- | --- |
 | DirectoryError | 요청이 일시적으로 제한되었습니다. 300 초 후에 시도 하세요. | 오류가 발생 했습니다. 여러 번의 신속한 등록 요청이 있을 수 있습니다. | 쿨 기간 이후에 조인 다시 시도 |
 
 ##### <a name="sync-join-server-errors"></a>동기화 조인 서버 오류
 
-| 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해결 방법 |
+| 서버 오류 코드 | 서버 오류 메시지 | 가능한 이유 | 해결 방법 |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: 테 넌 트가 <UUID> 없습니다. 이 오류는 테 넌 트에 대 한 활성 구독이 없는 경우에 발생할 수 있습니다. 구독 관리자에 게 문의 하세요. | SCP 개체의 테 넌 트 ID가 잘못 되었습니다. | SCP 개체가 올바른 Azure AD 테 넌 트 ID 및 활성 구독으로 구성 되 고 테 넌 트에 표시 되는지 확인 합니다. |
 | DirectoryError | 지정 된 ID의 장치 개체를 찾을 수 없습니다. | 동기화 조인에 필요한 오류입니다. 장치 개체가 AD에서 Azure AD로 동기화 되지 않았습니다. | Azure AD Connect 동기화가 완료 될 때까지 기다렸다가 동기화 완료 후 다음 조인 시도가 문제를 해결 합니다. |
@@ -389,12 +389,12 @@ WamDefaultAuthority: organizations
 
 에서 Auth.zip 파일을 다운로드 합니다. [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. 파일의 압축을 풀고 포함 된 파일의 이름을 **start-auth.txt** 하 **고 start-auth** 및 **stop-auth**에 **stop-auth.txt** 합니다.
-1. 관리자 권한 명령 프롬프트에서 **start-auth**를 실행 합니다.
+1. 파일의 압축을 풀고 포함 된 파일의 이름을 **start-auth.txt** 하 **고 start-auth** 및 **stop-auth** 에 **stop-auth.txt** 합니다.
+1. 관리자 권한 명령 프롬프트에서 **start-auth** 를 실행 합니다.
 1. 스위치 계정을 사용 하 여 문제 사용자의 다른 세션으로 전환 합니다.
 1. 문제를 재현합니다.
 1. 스위치 계정을 사용 하 여 추적을 실행 하는 관리자 세션으로 다시 전환 합니다.
-1. 관리자 권한 명령 프롬프트에서 **stop-auth**를 실행 합니다.
+1. 관리자 권한 명령 프롬프트에서 **stop-auth** 를 실행 합니다.
 1. Zip을 열고 스크립트가 실행 된 폴더에서 **Authlogs** 폴더를 보냅니다.
 
 ## <a name="troubleshoot-post-join-issues"></a>조인 후 문제 해결
@@ -404,7 +404,7 @@ WamDefaultAuthority: organizations
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: YES 및 AzureADPrt: YES
 
 이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다.
-값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
+값이 **아니요** 인 경우 다음의 원인 때문일 수 있습니다.
 
 - 등록 시 장치에 연결 된 TPM의 저장소 키가 잘못 되었습니다. 상승 된 상태에서 실행 하는 동안에는 KeySignTest를 확인 하세요.
 - 대체 로그인 ID

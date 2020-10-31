@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9712aedd3d6748f3bceea67a3270b6c080cc16f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2447c713ff418f8d5ccc0e6bc64bf81f000524
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794285"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082728"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문

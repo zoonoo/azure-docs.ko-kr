@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999164"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082167"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
@@ -60,7 +60,7 @@ ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Cont
 
 ## <a name="deploy-to-aci"></a>ACI에 배포
 
-Azure Container Instances에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+Azure Container Instances에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__ 도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 > [!NOTE]
 > * ACI는 크기가 1gb 미만 인 작은 모델에만 적합 합니다. 
@@ -104,6 +104,8 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 > [!IMPORTANT]
 > 미리 테스트할 ACI 컨테이너를 만들 필요가 없습니다. ACI 컨테이너는 필요에 따라 만들어집니다.
 
+> [!IMPORTANT]
+> 생성 된 모든 기본 ACI 리소스에 해시 된 작업 영역 id를 추가 합니다. 동일한 작업 영역의 모든 ACI 이름이 동일한 접미사를 갖게 됩니다. Azure Machine Learning 서비스 이름은 여전히 동일한 고객이 "service_name"를 제공 하 고 모든 사용자 Azure Machine Learning SDK Api에는 변경이 필요 하지 않습니다. 생성 되는 기본 리소스의 이름에 대 한 보증은 제공 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

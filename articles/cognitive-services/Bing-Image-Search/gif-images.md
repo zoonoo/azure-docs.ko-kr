@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcfd711f0a38d5993447823c31cbf7f27226ad6b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169987"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084343"
 ---
 # <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
-Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+
+Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
 
 다음 URL은 애니메이션된 .gif 이미지에 대한 쿼리입니다.
 ```
@@ -44,7 +49,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 - 사용자 쿼리가 아직 없는 첫 번째 실행 또는 방문 페이지 환경의 경우 추세 gif 검색을 사용하여 [추세 이미지 API](trending-images.md)에서 도움을 줍니다.
 - [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 매개 변수에 대한 세 가지 설정이 있습니다.  `strict` 옵션은 성인 등급 콘텐츠를 차단합니다.
 - 지원되는 언어 및 위치의 전체 목록은 [mkt](supported-countries-markets.md)를 참조하세요.
-- *AnimatedGifHttps*는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 애플리케이션은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
+- *AnimatedGifHttps* 는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 애플리케이션은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
 
 <a name="gifExample"></a>
 
