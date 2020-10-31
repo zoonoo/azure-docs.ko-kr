@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675302"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131363"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -50,7 +50,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 > 영역 중복 저장소는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> Azure SQL Database에 대 한 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. 이 기능은 아직 Hyperscale 계층에 사용할 수 없습니다. 
+> Azure SQL Database에 대 한 구성 가능한 백업 저장소 중복성은 현재 브라질 남부의 공개 미리 보기에서 사용할 수 있으며 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. 이 기능은 아직 Hyperscale 계층에 사용할 수 없습니다. 
 
 ### <a name="backup-usage"></a>백업 사용
 
@@ -371,7 +371,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ## <a name="configure-backup-storage-redundancy"></a>백업 저장소 중복성 구성
 
 > [!NOTE]
-> SQL Managed Instance 백업에 대 한 구성 가능한 저장소 중복성은 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우 현재이 기능의 공개 미리 보기는 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. 
+> SQL Managed Instance 백업에 대 한 구성 가능한 저장소 중복성은 관리 되는 인스턴스 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로 비전 되 면 백업 저장소 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우이 기능의 공개 미리 보기는 현재 브라질 남부에서 사용할 수 있으며, 일반적으로 동남 아시아 Azure 지역에서 사용할 수 있습니다. 
 
 관리 되는 인스턴스의 백업 저장소 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database 데이터베이스를 만들 때 설정 하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기본값은 지역 중복 저장소 (RA-GRS)입니다. LRS (로컬 중복), ZRS (영역 중복) 및 지역 중복 (RA-GRS) 백업 저장소 간의 가격 차이에 대 한 자세한 내용은 [관리 되는 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조 하세요.
 

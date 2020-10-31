@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131210"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>상업용 Marketplace 목록과 Azure Active Directory 통합
 
@@ -80,7 +80,7 @@ Azure AD 페더레이션 Single Sign-On을 처음 사용하는 경우 다음 단
 
 Azure AD를 사용하여 다음 작업 중 하나를 지원합니다.
 
-- [Azure AD B2B](../active-directory/b2b/what-is-b2b.md)를 사용하여 디렉터리에 게스트 사용자를 추가합니다.
+- [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md)를 사용하여 디렉터리에 게스트 사용자를 추가합니다.
 - **연락처** 게시 옵션을 사용하여 고객을 위한 평가판을 수동으로 설정합니다.
 - 고객별로 시험 사용을 개발합니다.
 - SSO를 사용하는 다중 테넌트 샘플 데모 앱을 빌드합니다.

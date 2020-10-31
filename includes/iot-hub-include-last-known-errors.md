@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d8583a1fee96d0a6eb3300882b2b115f057cbeec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547364"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135740"
 ---
 REST API에서 끝점 상태 [가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 는 끝점의 상태 및 마지막으로 알려진 오류를 제공 하 여 끝점이 정상이 아닌 이유를 식별 합니다. 다음 표에는 가장 일반적인 오류가 나열 되어 있습니다.
 
 |마지막으로 알려진 오류|설명/발생 시기|가능한 완화 방법|
 |-----|-----|-----|
-|Transient|일시적인 오류가 발생 하 여 IoT Hub 작업을 다시 시도 합니다.|[경로 리소스 로그](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes)를 관찰 합니다.|
-|InternalError|끝점에 메시지를 전달 하는 동안 오류가 발생 했습니다.|이는 내부 예외 이지만 [경로 리소스 로그](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes)도 관찰 합니다.|
+|Transient|일시적인 오류가 발생 하 여 IoT Hub 작업을 다시 시도 합니다.|[경로 리소스 로그](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes)를 관찰 합니다.|
+|InternalError|끝점에 메시지를 전달 하는 동안 오류가 발생 했습니다.|이는 내부 예외 이지만 [경로 리소스 로그](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes)도 관찰 합니다.|
 |권한 없음|IoT Hub 지정 된 끝점으로 메시지를 보낼 수 있는 권한이 없습니다.|끝점에 대 한 연결 문자열이 최신 상태 인지 확인 합니다. 변경 된 경우 IoT Hub에 대 한 업데이트를 고려 합니다. 끝점에서 관리 id를 사용 하는 경우 IoT Hub 보안 주체에 게 대상에 대 한 필수 권한이 있는지 확인 합니다.|
 |정체됨|IoT Hub 끝점에 메시지를 쓰는 동안 제한 됩니다.|영향을 받는 끝점의 제한 한도를 검토 합니다. 필요에 따라 확장할 끝점의 구성을 수정 합니다.|
 |제한 시간|작업 시간이 초과되었습니다.|작업을 다시 시도하세요.|

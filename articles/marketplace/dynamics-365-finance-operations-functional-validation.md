@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131244"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 재무 및 운영 기능 유효성 검사
 
@@ -22,7 +22,7 @@ ms.locfileid: "91651159"
 - 솔루션의 LCS ( [수명 주기 서비스](https://lcs.dynamics.com/) ) 환경을 보여 주는 스크린샷을 제공 합니다.
 
 > [!NOTE]
-> 후속 재인증 게시는 데모를 요구 하지 않습니다. 자세히 알아보려면 [Appsource 정책 문서](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops)를 참조 하세요.
+> 후속 재인증 게시는 데모를 요구 하지 않습니다. 자세히 알아보려면 [Appsource 정책 문서](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops)를 참조 하세요.
 
 ## <a name="how-to-validate"></a>유효성을 검사 하는 방법
 
@@ -50,11 +50,11 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
 
 2. 게시 하려는 제품 또는 솔루션과 일치 하는 [LCS](https://lcs.dynamics.com/) 환경의 다음 스크린샷을 찍습니다. 인증 팀이 텍스트를 읽을 수 있을 만큼 명확 해야 합니다. 스크린샷을 JPG 파일로 저장 합니다. [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com)스크린샷을 제공 하는 대신 설치를 확인할 수 있도록 LCS 환경에 사용 권한을 제공할 수 있습니다.
 
-    1. **LCS**  >  **비즈니스 프로세스 모델러**  >  **프로젝트 라이브러리로**이동 합니다. 모든 프로세스 단계의 스크린샷을 찍습니다. 다음과 같이 **다이어그램과** **검토** 된 열을 포함 합니다.
+    1. **LCS**  >  **비즈니스 프로세스 모델러**  >  **프로젝트 라이브러리로** 이동 합니다. 모든 프로세스 단계의 스크린샷을 찍습니다. 다음과 같이 **다이어그램과** **검토** 된 열을 포함 합니다.
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="프로젝트 라이브러리 창을 표시 합니다.":::
 
-      2. **LCS**  >  **솔루션 관리**  >  **테스트 솔루션 패키지**로 이동 합니다. 다음 예제에 표시 된 패키지 개요 및 콘텐츠를 포함 하는 스크린샷을 찍습니다.
+      2. **LCS**  >  **솔루션 관리**  >  **테스트 솔루션 패키지** 로 이동 합니다. 다음 예제에 표시 된 패키지 개요 및 콘텐츠를 포함 하는 스크린샷을 찍습니다.
 
     | 필드 | 이미지 <img src="" width="400px">|
     | --- | --- |
@@ -65,7 +65,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
     | <ul><li>Power BI 보고서 모델</li><li>BPM 아티팩트</li></ul><br>아티팩트는 **Power BI** 섹션에서 필요 하지 않습니다. | [![패키지 콘텐츠 화면 3](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>데이터 패키지 처리</li><li>솔루션 사용권 계약 및 개인 정보 취급 방침</li></ul><br>**GER 구성** 및 **Power BI 보고서 모델** 섹션은 재무 및 운영 제품에 포함 될 수 있는 선택적 요소입니다. | [![패키지 콘텐츠 화면 4](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    LCS 포털의 각 섹션에 대해 자세히 알아보려면 [Lcs 사용자 가이드](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide)를 참조 하세요.
+    LCS 포털의 각 섹션에 대해 자세히 알아보려면 [Lcs 사용자 가이드](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide)를 참조 하세요.
 
 3. 파트너 센터에 업로드 합니다.
 
@@ -76,4 +76,4 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-제품을 만드는 방법에 대 한 자세한 내용은 [운영 제안의 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)를 참조 하세요.
+제품을 만드는 방법에 대 한 자세한 내용은 [운영 제안의 Dynamics 365 만들기](./partner-center-portal/create-new-operations-offer.md)를 참조 하세요.

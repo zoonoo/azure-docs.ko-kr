@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b79fa22d3203504e63161aba03b32830d74d016
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100680"
+ms.locfileid: "93131278"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에서 VM 제거
 
@@ -22,7 +22,7 @@ ms.locfileid: "93100680"
 
 ## <a name="to-remove-your-vms"></a>Vm을 제거 하려면
 
-1. Azure Portal에서 Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. Azure Cloud Shell에 익숙하지 않은 경우 [Azure Cloud Shell 개요](/azure/cloud-shell/overview)를 참조 하세요.
+1. Azure Portal에서 Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. Azure Cloud Shell에 익숙하지 않은 경우 [Azure Cloud Shell 개요](../../cloud-shell/overview.md)를 참조 하세요.
 
 2. 다음 명령을 사용 하 여 관리에서 제거 하려는 컴퓨터의 UUID를 식별 합니다.
 

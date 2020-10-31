@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710654"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131499"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
@@ -23,8 +23,8 @@ ms.locfileid: "91710654"
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택합니다.
-3. 개요 페이지에서 **+ 새 제품** > **Power BI 서비스 앱**을 선택합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요** 를 선택합니다.
+3. 개요 페이지에서 **+ 새 제품** > **Power BI 서비스 앱** 을 선택합니다.
 
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-power-bi-app.png)
 
@@ -32,22 +32,22 @@ ms.locfileid: "91710654"
 > 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 > [!IMPORTANT]
-> **Power BI 서비스 앱**이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](create-power-bi-app-overview.md)이 충족되었는지 확인합니다.
+> **Power BI 서비스 앱** 이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](create-power-bi-app-overview.md)이 충족되었는지 확인합니다.
 
 ## <a name="new-offer"></a>새 제안
 
-**제품 ID**를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
+**제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
 - 이 ID는 마켓플레이스 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
-- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 여기에 **test-offer-1**을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
-- **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 여기에 **test-offer-1** 을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+- **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-**제품 별칭**을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
+**제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
 
 - 이 이름은 마켓플레이스에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
-- **만들기**를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
+- **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
 
-**만들기**를 선택하여 제품을 생성하고 계속합니다.
+**만들기** 를 선택하여 제품을 생성하고 계속합니다.
 
 ## <a name="offer-overview"></a>제품 개요
 
@@ -55,10 +55,10 @@ ms.locfileid: "91710654"
 
 사용자의 선택에 따라 이 제품에 대한 작업을 수행할 수 있는 링크가 포함되어 있습니다. 다음은 그 예입니다.
 
-- 제품이 초안 상태인 경우 - [초안 제품 삭제](update-existing-offer.md#delete-a-draft-offer)
+- 제품이 초안 상태인 경우 - 초안 제품 삭제
 - 제품이 라이브 상태인 경우 - [제품 판매 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](publishing-status.md#publisher-approval)
-- 게시를 완료 하지 않은 경우 [게시 취소](update-existing-offer.md#cancel-publishing)
+- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](../review-publish-offer.md#previewing-and-approving-your-offer)
+- 게시자 로그 아웃을 완료하지 않은 경우 - [게시 취소.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>제품 설정
 
@@ -86,7 +86,7 @@ ms.locfileid: "91710654"
 - [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
 - [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
-계속하기 전에 **초안 저장**을 선택합니다.
+계속하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="properties"></a>속성
 
@@ -97,7 +97,7 @@ ms.locfileid: "91710654"
 범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
 - 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다.
 
 [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요.
 
@@ -113,7 +113,7 @@ ms.locfileid: "91710654"
 
 고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
 
-다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장**을 선택합니다.
+다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="offer-listing"></a>제품 목록
 
@@ -186,13 +186,13 @@ ms.locfileid: "91710654"
 
 ### <a name="contact-information"></a>연락처 정보
 
-**지원 연락처** 및 **엔지니어링 연락처**의 이름, 메일 및 전화 번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않습니다. 이 정보는 Microsoft가 사용할 수 있으며, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
+**지원 연락처** 및 **엔지니어링 연락처** 의 이름, 메일 및 전화 번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않습니다. 이 정보는 Microsoft가 사용할 수 있으며, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 
 - 지원 연락처(필수 사항): 일반적인 지원 질문을 처리할 담당자입니다.
 - 엔지니어링 연락처(필수 사항): 기술 관련 질문 및 인증 문제를 처리할 담당자입니다.
 - CSP 프로그램 연락처(선택 사항): CSP 프로그램과 관련된 재판매인 질문을 처리할 담당자입니다.
 
-**지원 연락처** 섹션에서 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트**의 웹 주소를 제공합니다.
+**지원 연락처** 섹션에서 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트** 의 웹 주소를 제공합니다.
 
 ### <a name="supporting-documents"></a>지원 문서
 
@@ -234,7 +234,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 ## <a name="technical-configuration"></a>기술 구성
 
-Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 설치할 수 있도록 지원하는 Power BI 앱 설치 관리자 링크를 제공합니다. 자세한 내용은 [대시보드와 보고서를 사용하여 Power BI에 앱 게시](https://docs.microsoft.com/power-bi/service-create-distribute-apps)를 참조하세요.
+Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 설치할 수 있도록 지원하는 Power BI 앱 설치 관리자 링크를 제공합니다. 자세한 내용은 [대시보드와 보고서를 사용하여 Power BI에 앱 게시](/power-bi/service-create-distribute-apps)를 참조하세요.
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
@@ -248,7 +248,7 @@ Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 �
 
 제품의 필수 섹션을 모두 완료한 후에는 제품을 제출하여 검토하고 게시할 수 있습니다.
 
-포털의 오른쪽 위 모서리에서 **검토 및 게시**를 선택합니다.
+포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다.
 
 검토 페이지에서 다음을 수행할 수 있습니다.
 
@@ -258,6 +258,6 @@ Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 �
   - **완료** - 섹션에 필요한 모든 데이터가 있고 오류가 없습니다. 제품을 제출하려면 제품의 모든 섹션이 완료되어야 합니다.
 - 앱이 올바르게 테스트되었는지 확인하기 위해 인증 팀에 테스트 지침을 제공합니다. 제품을 이해하는 데 유용한 보충 정보도 제공합니다.
 
-게시하기 위해 제품을 제출하려면 **게시**를 선택합니다.
+게시하기 위해 제품을 제출하려면 **게시** 를 선택합니다.
 
-Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브**를 선택 합니다.
+Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브** 를 선택 합니다.
