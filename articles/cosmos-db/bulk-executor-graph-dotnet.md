@@ -9,14 +9,15 @@ ms.date: 05/28/2019
 ms.author: jasonh
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d113189d1361122305f92bc86c46346e1e700f4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100493"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 이 자습서는 Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 그래프 개체를 Azure Cosmos DB Gremlin API 컨테이너로 가져오고 업데이트하는 방법에 대한 지침을 제공합니다. 이 프로세스에서는 [Bulk Executor 라이브러리](./bulk-executor-overview.md)의 Graph 클래스를 사용하여 꼭짓점 및 에지 개체를 프로그래밍 방식으로 만든 다음, 네트워크 요청에 따라 여러 개체를 삽입합니다. 이 동작은 데이터베이스와 로컬 메모리 리소스 사용을 최적화하도록 Bulk Executor 라이브러리를 통해 구성할 수 있습니다.
 
@@ -78,7 +79,7 @@ Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Az
 
 페이로드를 `GremlinVertex` 및 `GremlinEdge` 개체로 인스턴스화해야 합니다. 이러한 개체를 만드는 방법은 다음과 같습니다.
 
-**꼭짓점**:
+**꼭짓점** :
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -92,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**에지**:
+**에지** :
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -117,7 +118,7 @@ e.AddProperty("customProperty", "value");
 ### <a name="prerequisites"></a>필수 구성 요소
 * Azure 개발 워크로드를 사용하는 Visual Studio 2019. [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
 * Azure 구독 [여기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db)서 무료 Azure 계정을 만들 수 있습니다. 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
-* **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](./create-graph-dotnet.md)를 시작하는 방법을 보여줍니다.
+* **무제한 컬렉션** 을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](./create-graph-dotnet.md)를 시작하는 방법을 보여줍니다.
 * Git. 자세한 내용은 [Git 다운로드 페이지](https://git-scm.com/downloads)를 참조하세요.
 
 ### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
@@ -139,9 +140,9 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 설정|Description
 ---|---
-`EndPointUrl`|Azure Cosmos DB Gremlin API 데이터베이스 계정의 개요 블레이드에서 찾을 수 있는 **.NET SDK 엔드포인트**입니다. `https://your-graph-database-account.documents.azure.com:443/` 형식입니다.
+`EndPointUrl`|Azure Cosmos DB Gremlin API 데이터베이스 계정의 개요 블레이드에서 찾을 수 있는 **.NET SDK 엔드포인트** 입니다. `https://your-graph-database-account.documents.azure.com:443/` 형식입니다.
 `AuthorizationKey`|Azure Cosmos DB 계정 아래에 나열되는 기본 키 또는 보조 키입니다. [Azure Cosmos DB 리소스에 대한 액세스 보호](./secure-access-to-data.md#primary-keys)에 대해 자세히 알아보세요.
-`DatabaseName`, `CollectionName`|**대상 데이터베이스 및 컬렉션 이름**입니다. `CollectionThroughput`과 함께 `ShouldCleanupOnStart`를 `true`로 설정하면 이러한 값을 사용하여 데이터베이스 및 컬렉션이 삭제되고 새 데이터베이스 및 컬렉션이 생성됩니다. 마찬가지로, `ShouldCleanupOnFinish`를 `true`로 설정하면 수집이 끝나는 즉시 이러한 값을 사용하여 데이터베이스가 삭제됩니다. 대상 컬렉션은 **무제한 컬렉션**이어야 합니다.
+`DatabaseName`, `CollectionName`|**대상 데이터베이스 및 컬렉션 이름** 입니다. `CollectionThroughput`과 함께 `ShouldCleanupOnStart`를 `true`로 설정하면 이러한 값을 사용하여 데이터베이스 및 컬렉션이 삭제되고 새 데이터베이스 및 컬렉션이 생성됩니다. 마찬가지로, `ShouldCleanupOnFinish`를 `true`로 설정하면 수집이 끝나는 즉시 이러한 값을 사용하여 데이터베이스가 삭제됩니다. 대상 컬렉션은 **무제한 컬렉션** 이어야 합니다.
 `CollectionThroughput`|`ShouldCleanupOnStart` 옵션을 `true`로 설정할 경우 새 컬렉션을 만드는 데 사용됩니다.
 `ShouldCleanupOnStart`|이렇게 하면 프로그램을 실행하기 전에 데이터베이스 계정 및 컬렉션이 삭제되고, `DatabaseName`, `CollectionName` 및 `CollectionThroughput` 값을 사용하여 새로 생성됩니다.
 `ShouldCleanupOnFinish`|이렇게 하면 프로그램이 실행된 후 지정된 `DatabaseName` 및 `CollectionName`을 사용하여 데이터베이스 계정과 컬렉션이 삭제됩니다.

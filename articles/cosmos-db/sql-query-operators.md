@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498840"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101241"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 연산자
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 지 원하는 다양 한 연산자에 대해 자세히 설명 합니다.
 
@@ -54,8 +55,8 @@ WHERE 7 = 'a'
 |  | **True** | **False** | **되지** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |True |False |정의되지 않음 |
-| **Undefined** |True |Undefined |Undefined |
+| **False** |참 |False |정의되지 않음 |
+| **Undefined** |참 |Undefined |Undefined |
 
 **AND 연산자**
 
@@ -63,7 +64,7 @@ WHERE 7 = 'a'
 
 |  | **True** | **False** | **되지** |
 | --- | --- | --- | --- |
-| **True** |True |False |정의되지 않음 |
+| **True** |참 |False |정의되지 않음 |
 | **False** |False |False |False |
 | **Undefined** |정의되지 않음 |False |정의되지 않음 |
 
@@ -74,7 +75,7 @@ WHERE 7 = 'a'
 |  | **다음이 아님** |
 | --- | --- |
 | **True** |False |
-| **False** |True |
+| **False** |참 |
 | **Undefined** |정의되지 않음 |
 
 **연산자 우선 순위**

@@ -6,27 +6,28 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 978a2909202e01d8c58ba9253bfe0b3996b72d56
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100884"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB의 가격 책정 모델은 비용 관리 및 계획을 간소화합니다. Azure Cosmos DB를 사용 하 여 데이터베이스 및 데이터에서 사용 하는 저장소에 대해 수행 하는 작업에 대해 비용을 지불 합니다.
 
-- **데이터베이스 작업**: 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
+- **데이터베이스 작업** : 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
 
-  - **프로 비전**된 처리량: [프로 비전](set-throughput.md) 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 제공 합니다. 초당 [요청 단위](request-units.md) (전용/s)에 필요한 처리량을 지정 하 고 구성 된 처리량을 제공 하는 데 필요한 리소스를 Azure Cosmos DB 합니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크 로드 요구 사항에 따라 언제 든 지 처리량을 확장/축소 하거나 [자동 크기 조정을](provision-throughput-autoscale.md) 사용할 수 있습니다 (sla를 보장 하는 데 필요한 최소 처리량은 데이터베이스 또는 컨테이너에만 필요 함). 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다.
+  - **프로 비전** 된 처리량: [프로 비전](set-throughput.md) 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 제공 합니다. 초당 [요청 단위](request-units.md) (전용/s)에 필요한 처리량을 지정 하 고 구성 된 처리량을 제공 하는 데 필요한 리소스를 Azure Cosmos DB 합니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크 로드 요구 사항에 따라 언제 든 지 처리량을 확장/축소 하거나 [자동 크기 조정을](provision-throughput-autoscale.md) 사용할 수 있습니다 (sla를 보장 하는 데 필요한 최소 처리량은 데이터베이스 또는 컨테이너에만 필요 함). 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다.
 
    > [!NOTE]
    > 프로 비전 된 처리량 모델은 리소스를 컨테이너 또는 데이터베이스에 전용 워크 로드를 실행 하지 않는 경우에도 프로 비전 한 처리량에 대해 요금이 청구 됩니다.
 
-  - **서버**를 사용 하지 않음: [서버](serverless.md) 리스 모드에서는 Azure Cosmos 계정에 리소스를 만들 때 처리량을 프로 비전 할 필요가 없습니다. 청구 기간이 종료 되 면 데이터베이스 작업에서 사용한 요청 단위 양에 대 한 요금이 청구 됩니다.
+  - **서버** 를 사용 하지 않음: [서버](serverless.md) 리스 모드에서는 Azure Cosmos 계정에 리소스를 만들 때 처리량을 프로 비전 할 필요가 없습니다. 청구 기간이 종료 되 면 데이터베이스 작업에서 사용한 요청 단위 양에 대 한 요금이 청구 됩니다.
 
-- **저장소**: 지정 된 시간 동안 데이터 및 인덱스에서 사용 하는 총 저장소 크기 (gb)에 대 한 정액 요금이 청구 됩니다. 저장소는 소비 단위로 청구 되므로 저장소를 미리 예약할 필요가 없습니다. 사용한 스토리지에 대해서만 요금이 청구됩니다.
+- **저장소** : 지정 된 시간 동안 데이터 및 인덱스에서 사용 하는 총 저장소 크기 (gb)에 대 한 정액 요금이 청구 됩니다. 저장소는 소비 단위로 청구 되므로 저장소를 미리 예약할 필요가 없습니다. 사용한 스토리지에 대해서만 요금이 청구됩니다.
 
 Azure Cosmos DB의 가격 책정 모델은 모든 API에서 일치합니다. 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조 하 고, [Azure Cosmos DB 청구서를 이해](understand-your-bill.md) 하 고, [가격 책정 모델을 고객에 게 비용 효율적으로 적용 하는 Azure Cosmos DB 방법을](total-cost-ownership.md)참조 하세요.
 
@@ -36,13 +37,13 @@ Azure Cosmos DB 계정을 미국의 비 정부 지역에 배포 하는 경우 �
 
 Azure Cosmos DB는 개발자에 게 무료로 제공 되는 다양 한 옵션을 제공 합니다. 이러한 옵션에는 다음이 포함됩니다.
 
-* **Azure Cosmos DB 무료 계층**: Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수도 있습니다. 계정에 대 한 무료 계층을 사용 하는 경우 계정 수명 동안 계정에 처음 400 r u/초 및 5gb의 저장소를 무료로 얻을 수 있습니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](./manage-with-templates.md#free-tier)사용 합니다.
+* **Azure Cosmos DB 무료 계층** : Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수도 있습니다. 계정에 대 한 무료 계층을 사용 하는 경우 계정 수명 동안 계정에 처음 400 r u/초 및 5gb의 저장소를 무료로 얻을 수 있습니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](./manage-with-templates.md#free-tier)사용 합니다.
 
-* **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. 특히 Azure Cosmos DB의 경우이 무료 계정은 5gb 저장소를 제공 하 고 전체 년도에 대해 프로 비전 된 처리량을 400 r u/초까지 제공 합니다.
+* **Azure 무료 계정** : azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. 특히 Azure Cosmos DB의 경우이 무료 계정은 5gb 저장소를 제공 하 고 전체 년도에 대해 프로 비전 된 처리량을 400 r u/초까지 제공 합니다.
 
-* **무료로 Azure Cosmos DB 사용해 보기**: Azure Cosmos DB 체험 계정에 대 한 체험 Azure Cosmos DB를 사용 하 여 시간이 제한 된 환경을 제공 합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 애플리케이션 예제를 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
+* **무료로 Azure Cosmos DB 사용해 보기** : Azure Cosmos DB 체험 계정에 대 한 체험 Azure Cosmos DB를 사용 하 여 시간이 제한 된 환경을 제공 합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 애플리케이션 예제를 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
 
-* **Azure Cosmos DB emulator**: Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. 안정적인 에뮬레이터가 무료로 클라우드 서비스에 제공됩니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 프로덕션으로 전환하기 전에 로컬로 에뮬레이터를 사용하여 애플리케이션을 개발할 수 있습니다. 에뮬레이터를 사용해본 결과, 애플리케이션의 기능이 만족스러우면 클라우드의 Azure Cosmos DB 계정 사용으로 전환하면 비용을 크게 절약할 수 있습니다. 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트에 Azure Cosmos DB 사용](local-emulator.md)을 참조하세요.
+* **Azure Cosmos DB emulator** : Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. 안정적인 에뮬레이터가 무료로 클라우드 서비스에 제공됩니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 프로덕션으로 전환하기 전에 로컬로 에뮬레이터를 사용하여 애플리케이션을 개발할 수 있습니다. 에뮬레이터를 사용해본 결과, 애플리케이션의 기능이 만족스러우면 클라우드의 Azure Cosmos DB 계정 사용으로 전환하면 비용을 크게 절약할 수 있습니다. 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트에 Azure Cosmos DB 사용](local-emulator.md)을 참조하세요.
 
 ## <a name="pricing-with-reserved-capacity"></a>예약 용량이 있는 가격
 

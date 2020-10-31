@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc79862bccee3253e41ce5f1c6bc8c149d9b3ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100646"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Azure Cosmos DB에서 JSON 작업
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB의 SQL(Core) API에서 항목은 JSON으로 저장됩니다. 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](https://www.json.org/)을 참조하세요.
 

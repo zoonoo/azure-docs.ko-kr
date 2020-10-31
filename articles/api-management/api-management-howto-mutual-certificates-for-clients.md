@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904868"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099349"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 
@@ -93,9 +93,8 @@ API Management에서는 클라이언트 인증서를 사용하여 API에 대한 
 
 > [!TIP]
 > 이 [문서](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) 에서 설명 하는 클라이언트 인증서 교착 상태 문제는 여러 가지 방법으로 매니페스트 될 수 있습니다. 예를 들어, 요청 중지, `403 Forbidden` 시간 초과 후 상태 코드의 요청 결과 `context.Request.Certificate` 는가 `null` 됩니다. 이 문제는 일반적 `POST` 으로 `PUT` 콘텐츠 길이가 약 60kb 이상인 요청에 영향을 줍니다.
-> 이 문제가 발생 하지 않도록 하려면 아래와 같이 "사용자 지정 도메인" 블레이드에서 원하는 호스트 이름에 대해 "클라이언트 인증서 협상" 설정을 설정 합니다. 소비 계층에서는이 기능을 사용할 수 없습니다.
+> 이 문제가 발생 하지 않도록 하려면이 문서의 첫 번째 이미지에 표시 된 것 처럼 "사용자 지정 도메인" 블레이드에서 원하는 호스트 이름에 대 한 "클라이언트 인증서 협상" 설정을 설정 합니다. 소비 계층에서는이 기능을 사용할 수 없습니다.
 
-![클라이언트 인증서 협상](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 ## <a name="next-steps"></a>다음 단계
 

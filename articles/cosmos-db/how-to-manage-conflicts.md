@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491090"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101513"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 다중 영역 쓰기를 사용하면 여러 클라이언트가 동일한 항목에 쓸 때 충돌이 발생할 수 있습니다. 충돌이 발생할 때 여러 충돌 해결 정책을 사용하여 충돌을 해결할 수 있습니다. 이 문서에서는 충돌 해결 정책을 관리하는 방법을 설명합니다.
 
@@ -134,10 +135,10 @@ udp_collection = self.try_create_document_collection(
 
 사용자 지정 충돌 해결 저장 프로시저는 아래에 표시된 함수 시그니처를 사용하여 구현해야 합니다. 함수 이름은 저장 프로시저를 컨테이너에 등록할 때 사용한 이름과 일치하지 않아도 되지만, 이 방법이 간단합니다. 다음은 이 저장 프로시저에 대해 구현해야 하는 매개 변수에 대한 설명입니다.
 
-- **incomingItem**: 충돌을 생성 하는 커밋에서 삽입 또는 업데이트 되는 항목입니다. 삭제 작업에 대해 Null입니다.
-- **existingitem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
-- **Istombstone**: incomingItem가 이전에 삭제 한 항목과 충돌 하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
-- **conflictingItems**: 컨테이너에서 incomingItem에 대 한 ID 또는 기타 고유 인덱스 속성과 충돌 하는 모든 항목의 커밋된 버전 배열입니다.
+- **incomingItem** : 충돌을 생성 하는 커밋에서 삽입 또는 업데이트 되는 항목입니다. 삭제 작업에 대해 Null입니다.
+- **existingitem** : 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
+- **Istombstone** : incomingItem가 이전에 삭제 한 항목과 충돌 하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
+- **conflictingItems** : 컨테이너에서 incomingItem에 대 한 ID 또는 기타 고유 인덱스 속성과 충돌 하는 모든 항목의 커밋된 버전 배열입니다.
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.

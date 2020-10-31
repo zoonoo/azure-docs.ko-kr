@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e14f13d0e9fba407a983fb182d25c77593e4d3c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710595"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098402"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Bing News Search API를 사용하여 뉴스 검색
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Bing Image Search API를 통해 Bing의 인지적 뉴스 검색 기능을 애플리케이션으로 쉽게 통합할 수 있습니다.
 
@@ -27,7 +32,7 @@ Bing News Search API에서는 주로 관련 뉴스 문서를 찾고 반환하는
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 
-사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코딩합니다. 예를 들어 사용자가 입력 *소형 범선*을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코딩합니다. 예를 들어 사용자가 입력 *소형 범선* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
 
 ## <a name="get-general-news"></a>일반 뉴스 가져오기
 
@@ -155,7 +160,7 @@ Host: api.cognitive.microsoft.com
 
 [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) 쿼리 매개 변수를 포함하지 마세요.
 
-헤드라인 뉴스 가져오기에 대한 응답은 오늘의 주요 뉴스 가져오기와 거의 동일합니다. 기사가 헤드라인 기사인 경우 `headline` 필드가 **true**로 설정됩니다.
+헤드라인 뉴스 가져오기에 대한 응답은 오늘의 주요 뉴스 가져오기와 거의 동일합니다. 기사가 헤드라인 기사인 경우 `headline` 필드가 **true** 로 설정됩니다.
 
 기본적으로 응답에 최대 12개의 헤드라인 기사가 포함됩니다. 반환할 헤드라인 기사의 수를 변경하려면 [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount) 쿼리 매개 변수를 지정하세요. 응답에는 뉴스 범주당 최대 4개의 비 헤드라인 기사도 포함됩니다.
 

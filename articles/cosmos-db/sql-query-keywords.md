@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a48cd5e8d06fa6346dd6ab94df53cf4985b0b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496684"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100765"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 SQL 쿼리에서 Azure Cosmos DB는 데 사용할 수 있는 키워드에 대해 자세히 설명 합니다.
 

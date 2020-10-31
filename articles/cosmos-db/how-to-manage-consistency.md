@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4be2b8cdd987b6357df283f0791593c51417dfc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491192"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101498"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 일관성 수준을 관리하는 방법에 대해 설명합니다. 기본 일관성 수준을 구성하고, 기본 일관성을 재정의하며, 세션 토큰을 수동으로 관리하고, PBS(확률적 제한된 부실) 메트릭을 이해하는 방법을 알아봅니다.
 
@@ -26,7 +27,7 @@ ms.locfileid: "92491192"
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장**을 선택합니다. 또한 Azure Portal은 음악 메모와 함께 다양한 일관성 수준의 시각화를 제공합니다. 
+기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장** 을 선택합니다. 또한 Azure Portal은 음악 메모와 함께 다양한 일관성 수준의 시각화를 제공합니다. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Azure Portal의 일관성 메뉴":::
 
@@ -279,7 +280,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률**이라는 그래프를 확인 합니다 (PBS 참조).
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률** 이라는 그래프를 확인 합니다 (PBS 참조).
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 일관성 메뉴":::
 

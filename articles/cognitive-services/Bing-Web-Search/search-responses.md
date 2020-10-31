@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cea88c2e20c9e96c5ad5504815886b2cc771e44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100561"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 
@@ -38,7 +43,7 @@ Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.micro
 }, ...
 ```
 
-일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies*인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies* 인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -296,7 +301,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |-|빼기|
 |/|사업부|
 |*|곱하기|
-|^|전원|
+|^|전력|
 |!|계승|
 |.|Decimal|
 |()|우선 순위 그룹화|
@@ -419,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion 응답
 
-Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen*을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다(*carlos pen*을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
+Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen* 을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다( *carlos pen* 을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
 
 ```json
 "spellSuggestions": {
@@ -480,6 +485,6 @@ cors-proxy-server
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>추가 정보  
 
 * [Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

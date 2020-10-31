@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099643"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4를 사용하도록 애플리케이션 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > 이 SDK에 대한 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요.
@@ -64,9 +65,9 @@ Azure Cosmos DB Sync Java SDK 2.x.x를 사용하고 있는 경우 TCP(HTTP 아�
 
   * **Java SDK 4.0** : 클래스 이름이 `Cosmos` 뒤에 `Async`가 추가되어 있지 않으면 모든 클래스가 Sync API에 포함됩니다.
 
-  * **Java SDK 3.x.x**: 클래스 이름이 `Cosmos` 뒤에 `Async`가 추가되어 있지 않으면 모든 클래스가 Async API에 포함됩니다.
+  * **Java SDK 3.x.x** : 클래스 이름이 `Cosmos` 뒤에 `Async`가 추가되어 있지 않으면 모든 클래스가 Async API에 포함됩니다.
 
-  * **Async Java SDK 2.x.x**: 클래스 이름은 Sync Java SDK 2.x.x와 유사하지만 이름이 *Async*로 시작합니다.
+  * **Async Java SDK 2.x.x** : 클래스 이름은 Sync Java SDK 2.x.x와 유사하지만 이름이 *Async* 로 시작합니다.
 
 ### <a name="hierarchical-api-structure"></a>계층적 API 구조
 

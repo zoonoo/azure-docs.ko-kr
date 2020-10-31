@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdbe0f9754cc82ef790409cf2b36a7203b90855b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484331"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099286"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 선택적 `ORDER BY` 절은 쿼리에서 반환 되는 결과에 대 한 정렬 순서를 지정 합니다.
 
@@ -79,7 +80,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-다음 쿼리는 항목을 `id` 만든 날짜 순으로 가족을 검색 합니다. 항목 `creationDate` 은 *epoch 시간*또는 경과 된 시간 (1 월 1 일 이후 1970 초)을 나타내는 숫자입니다.
+다음 쿼리는 항목을 `id` 만든 날짜 순으로 가족을 검색 합니다. 항목 `creationDate` 은 *epoch 시간* 또는 경과 된 시간 (1 월 1 일 이후 1970 초)을 나타내는 숫자입니다.
 
 ```sql
     SELECT f.id, f.creationDate

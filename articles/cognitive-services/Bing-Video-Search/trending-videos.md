@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8232af6cb409628a1066a044a196777ddc46348f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68500608"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098970"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용하여 인기 비디오 가져오기 
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 Bing Video Search API를 사용하면 웹에서 다양한 범주의 최신 인기 비디오를 찾을 수 있습니다. 
 

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b9a9af2178cc6130393cd9e74cb5b6b1f79dbf88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785258"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100374"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 푸시 모델 또는 풀 모델 중 하나를 사용하여 Azure Cosmos DB 변경 피드로 작업할 수 있습니다. 푸시 모델을 사용 하면 변경 피드 프로세서는이 작업을 처리 하기 위한 비즈니스 논리가 있는 클라이언트에 작업을 푸시합니다. 그러나 작업을 확인 하 고 마지막으로 처리 된 작업의 상태를 저장 하는 것은 변경 피드 프로세서 내에서 처리 됩니다.
 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101309"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저** , **트리거** 및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
 

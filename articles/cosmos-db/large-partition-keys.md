@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a93bf4fe92cc7b2240a7411b093a7bab5a1a275e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488438"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098827"
 ---
 # <a name="create-containers-with-large-partition-key"></a>파티션 키가 많은 컨테이너 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 해시 기반 파티션 구성표를 사용 하 여 데이터의 수평 확장을 구현 합니다. 3 2019 년 5 월 이전에 생성 된 모든 Azure Cosmos 컨테이너는 파티션 키의 첫 100 바이트를 기준으로 해시를 계산 하는 해시 함수를 사용 합니다. 처음 100 바이트와 동일한 파티션 키가 여러 개 있는 경우 해당 논리 파티션은 서비스에서 동일한 논리 파티션으로 간주 됩니다. 이로 인해 파티션 크기 할당량이 잘못 된 것과 같은 문제가 발생할 수 있으며 파티션 키 전체에서 고유 인덱스가 적용 됩니다. 이 문제를 해결 하기 위해 많은 파티션 키가 도입 되었습니다. 이제 Azure Cosmos DB는 최대 2kb의 값이 있는 대량 파티션 키를 지원 합니다.
 

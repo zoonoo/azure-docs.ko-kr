@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740416"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100748"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -90,7 +90,7 @@ Baltimore CyberTrust Root 인증서를 사용 하 여 여기에 설명 된 Azure
 > [!NOTE]
 > 인증서가 변경 될 때까지 **Baltimore certificate** 를 삭제 하거나 변경 하지 마세요. 변경이 완료 되 면 통신이 전송 되며, 그 후에는 Baltimore 인증서를 삭제 하는 것이 안전 합니다. 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 
@@ -104,7 +104,7 @@ SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. Azure Database for PostgreSQL에서 App Service를 사용 하는 경우 미치는 영향은 무엇입니까?
 Azure Database for PostgreSQL에 연결 하는 Azure app services의 경우 두 가지 시나리오를 사용할 수 있으며, 응용 프로그램에서 SSL을 사용 하는 방법에 따라 달라 집니다.
 *   이 새 인증서는 플랫폼 수준에서 App Service에 추가 되었습니다. 응용 프로그램의 App Service 플랫폼에 포함 된 SSL 인증서를 사용 하는 경우 아무 작업도 필요 하지 않습니다.
-*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md) 에서 공유 된 App Service의 사용자 지정 컨테이너를 사용 하는 경우입니다.
+*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress) 에서 공유 된 App Service의 사용자 지정 컨테이너를 사용 하는 경우입니다.
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5. Azure Database for PostgreSQL에서 AKS (Azure Kubernetes Services)를 사용 하는 경우 미치는 영향은 무엇 인가요?
 AKS (Azure Kubernetes Services)를 사용 하 여 Azure Database for PostgreSQL에 연결 하려는 경우 전용 고객 호스트 환경에서 액세스 하는 것과 비슷합니다. [여기](../aks/ingress-own-tls.md)에서 단계를 참조 하세요.

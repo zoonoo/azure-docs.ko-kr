@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098487"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -85,13 +85,13 @@ Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#ac
 
 트리거는 항상 논리 앱 워크플로의 첫 번째 단계 이며 특정 조건이 충족 되거나 특정 이벤트가 발생 하는 경우 논리 앱 인스턴스를 만들고 실행 하는 특별 한 작업입니다. 트리거는 논리 앱이 계량되는 방식에 영향을 주는 다양한 방법으로 작동합니다. Azure Logic Apps에 존재 하는 다양 한 종류의 트리거는 다음과 같습니다.
 
-* **되풀이 트리거**: 모든 서비스 또는 시스템에 한정 되지 않은이 일반 트리거를 사용 하 여 논리 앱 워크플로를 시작 하 고 트리거에서 설정한 되풀이 간격에 따라 실행 되는 논리 앱 인스턴스를 만들 수 있습니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
+* **되풀이 트리거** : 모든 서비스 또는 시스템에 한정 되지 않은이 일반 트리거를 사용 하 여 논리 앱 워크플로를 시작 하 고 트리거에서 설정한 되풀이 간격에 따라 실행 되는 논리 앱 인스턴스를 만들 수 있습니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
 
-* **폴링 트리거**: 이러한 더 특수 되풀이 트리거를 사용할 수 있습니다 .이는 일반적으로 특정 서비스나 시스템에 대해 관리 되는 커넥터와 관련 되어 있으며 트리거에서 설정한 되풀이 간격에 따라 논리 앱 인스턴스를 만들고 실행 하기 위한 조건을 충족 하는 이벤트 또는 메시지를 확인 하기 위해 사용할 수 있습니다. 논리 앱 인스턴스를 만들지 않은 경우에도 (예: 트리거를 건너뛰는 경우) Logic Apps 서비스에서 각 폴링 요청을 실행으로 측정 합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
+* **폴링 트리거** : 이러한 더 특수 되풀이 트리거를 사용할 수 있습니다 .이는 일반적으로 특정 서비스나 시스템에 대해 관리 되는 커넥터와 관련 되어 있으며 트리거에서 설정한 되풀이 간격에 따라 논리 앱 인스턴스를 만들고 실행 하기 위한 조건을 충족 하는 이벤트 또는 메시지를 확인 하기 위해 사용할 수 있습니다. 논리 앱 인스턴스를 만들지 않은 경우에도 (예: 트리거를 건너뛰는 경우) Logic Apps 서비스에서 각 폴링 요청을 실행으로 측정 합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* 웹 후크 **트리거**: 폴링 트리거를 사용 하는 대신 webhook 트리거를 사용 하 여 클라이언트가 특정 끝점 URL에서 논리 앱에 요청을 보낼 때까지 기다릴 수 있습니다. 웹 후크 끝점으로 전송 되는 각 요청은 작업 실행으로 계산 됩니다. 예를 들어 요청 및 HTTP Webhook 트리거는 모두 일반 Webhook 트리거입니다. 서비스 또는 시스템용 일부 커넥터에도 webhook 트리거가 있습니다.
+* 웹 후크 **트리거** : 폴링 트리거를 사용 하는 대신 webhook 트리거를 사용 하 여 클라이언트가 특정 끝점 URL에서 논리 앱에 요청을 보낼 때까지 기다릴 수 있습니다. 웹 후크 끝점으로 전송 되는 각 요청은 작업 실행으로 계산 됩니다. 예를 들어 요청 및 HTTP Webhook 트리거는 모두 일반 Webhook 트리거입니다. 서비스 또는 시스템용 일부 커넥터에도 webhook 트리거가 있습니다.
 
 <a name="actions"></a>
 
@@ -118,15 +118,15 @@ Azure Logic Apps 성공 및 실패 한 모든 작업을 실행으로 측정 합�
 
 Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다. 기본 및 표준 계층은 Logic Apps SLA (서비스 수준 계약)에서 지원 되지만 무료 계층은 SLA에서 지원 되지 않으며 지역 가용성, 처리량 및 사용에 대 한 제한이 있습니다. 무료 계층 통합 계정을 제외 하 고 각 Azure 지역에 둘 이상의 통합 계정을 사용할 수 있습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
-[프리미엄 또는 개발자](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)인 [ise ( *통합 서비스 환경* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))가 있는 경우 ise에는 총 5 개의 통합 계정이 있을 수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
+[프리미엄 또는 개발자](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)인 [ise ( *통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))가 있는 경우 ise에는 총 5 개의 통합 계정이 있을 수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 무료, 기본 또는 표준 통합 계정 중에서 선택 하려면 다음과 같은 사용 사례 설명을 검토 합니다.
 
-* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도해 볼 수 있습니다. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
+* **무료** : 프로덕션 시나리오가 아닌 예비 시나리오를 시도해 볼 수 있습니다. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
 
-* **기본**: 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 하는 메시지 처리만 하려는 경우
+* **기본** : 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 하는 메시지 처리만 하려는 경우
 
-* **표준**: 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티 수가 증가 하는 경우
+* **표준** : 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티 수가 증가 하는 경우
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ ISE (integration service environment)에서 실행 되는 논리 앱을 제외 �
 논리 앱의 저장소 사용량을 모니터링 하는 데 도움이 되도록 다음을 수행할 수 있습니다.
 
 * 논리 앱에서 월별 사용 하는 저장소 단위 수 (GB)를 표시 합니다.
+
 * 논리 앱의 실행 기록에서 특정 작업의 입력 및 출력에 대 한 크기를 확인 합니다.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ ISE (integration service environment)에서 실행 되는 논리 앱을 제외 �
 
 1. Azure Portal에서 논리 앱을 찾아서 엽니다.
 
-1. 논리 앱 메뉴의 **모니터링**아래에서 **메트릭**을 선택 합니다.
+1. 논리 앱 메뉴의 **모니터링** 아래에서 **메트릭** 을 선택 합니다.
 
-1. 오른쪽 창의 **차트 제목**아래에 있는 **메트릭** 목록에서 **저장소 사용량 실행에 대 한 청구 사용량**을 선택 합니다.
+1. 오른쪽 창의 **차트 제목** 아래에 있는 **메트릭** 목록에서 **저장소 사용량 실행에 대 한 청구 사용량** 을 선택 합니다.
 
    이 메트릭은 청구 되는 월간 저장소 소비 단위 수 (GB 단위)를 제공 합니다.
+
+   > [!NOTE]
+   > 저장소에서 500 MB 미만으로 소비 하는 실행은 모니터링 보기에 표시 되지 않을 수 있지만 여전히 청구 됩니다.
 
 <a name="input-output-sizes"></a>
 
@@ -157,15 +161,18 @@ ISE (integration service environment)에서 실행 되는 논리 앱을 제외 �
 
 1. Azure Portal에서 논리 앱을 찾아서 엽니다.
 
-1. 논리 앱의 메뉴에서 **개요**를 선택 합니다.
+1. 논리 앱의 메뉴에서 **개요** 를 선택 합니다.
 
-1. 오른쪽 창의 **실행 기록**에서 확인 하려는 입력 및 출력이 포함 된 실행을 선택 합니다.
+1. 오른쪽 창의 **실행 기록** 에서 확인 하려는 입력 및 출력이 포함 된 실행을 선택 합니다.
 
-1. **논리 앱 실행**에서 **실행 세부 정보**를 선택 합니다.
+1. **논리 앱 실행** 에서 **실행 세부 정보** 를 선택 합니다.
 
 1. **논리 앱 실행 세부 정보** 창의 작업 테이블에서 각 작업의 상태 및 기간을 나열 하는 작업 테이블에서 보려는 작업을 선택 합니다.
 
-1. **논리 앱 작업** 창에서 해당 작업의 입력 및 출력에 대 한 크기를 **입력 링크** 및 **출력 링크**아래에 각각 표시 합니다.
+1. **논리 앱 작업** 창에서 해당 작업의 입력 및 출력에 대 한 크기를 찾습니다. **입력 링크** 및 **출력 링크** 에서 해당 입력 및 출력에 대 한 링크를 찾습니다.
+
+   > [!NOTE]
+   > 루프의 경우 최상위 작업만 입력 및 출력의 크기를 표시 합니다. 중첩 된 루프 안에 있는 작업의 경우 입력 및 출력은 0 크기를 표시 하 고 링크를 표시 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 50884a45e60826f09fffcc9f86992563e473424d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: df7792c37b1db330264554cf6d9c179cf9f22611
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478051"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098708"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB Spark 커넥터를 사용 하 여 Azure Cosmos DB에 저장 된 데이터를 사용 하 여 [spark](https://spark.apache.org/) 작업을 실행할 수 있습니다. Cosmos는 일괄 처리 및 스트림 처리에 사용할 수 있으며 짧은 대기 시간 액세스를 위한 서비스 계층으로 사용할 수 있습니다.
 
@@ -274,10 +275,10 @@ mvn clean package
 [Cosmos DB Spark GitHub 리포지토리에](https://github.com/Azure/azure-cosmosdb-spark) 는 다음 샘플 노트북 및 스크립트를 사용해 볼 수 있습니다.
 
 * **시애틀 (spark 및 Cosmos DB** ) [ip를](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb)사용 하는 시간 비행 성능  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html): HDInsight Jupyter Notebook 서비스를 사용 하 여 spark SQL, graphframes을 소개 하 고 ML 파이프라인을 사용 하 여 비행 지연 시간을 예측 하는 spark를 Cosmos DB에 연결 합니다.
-* **Apache Spark 및 Azure Cosmos DB 변경 피드가 포함 된 Twitter 원본**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
-* **Apache Spark를 사용 하 여 Cosmos DB 그래프 쿼리**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
+* **Apache Spark 및 Azure Cosmos DB 변경 피드가 포함 된 Twitter 원본** : [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
+* **Apache Spark를 사용 하 여 Cosmos DB 그래프 쿼리** : [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
 * 를 사용 하 여 **[Azure Cosmos DB에 Azure Databricks 연결](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)** `azure-cosmosdb-spark`  여기에 연결 된 Azure Databricks 버전의 [온-비행기 성능 노트북](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks)도 있습니다.
-* **[Azure Cosmos DB 및 HDInsight를 사용 하는 람다 아키텍처 (Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)**: Cosmos DB 및 Spark를 사용 하 여 빅 데이터 파이프라인을 유지 관리 하는 작업 오버 헤드를 줄일 수 있습니다.
+* **[Azure Cosmos DB 및 HDInsight를 사용 하는 람다 아키텍처 (Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)** : Cosmos DB 및 Spark를 사용 하 여 빅 데이터 파이프라인을 유지 관리 하는 작업 오버 헤드를 줄일 수 있습니다.
 
 ## <a name="more-information"></a>추가 정보
 

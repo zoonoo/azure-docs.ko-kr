@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: b34bc81f48b806b1016fbbd19d3ebc8bfef908c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14839465c19908653e22fa80f634ef7e3fa28bd9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100153"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Azure Cosmos DB 계정을 다른 지역으로 이동
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 다음 중 하나를 수행 하는 방법을 설명 합니다.
 

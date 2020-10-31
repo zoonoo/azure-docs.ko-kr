@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee221acb9ff045716e3a8015b20b467ab6d0b10
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764981"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098555"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 쿼리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 SQL 및 LINQ를 사용 하 여 Azure Cosmos DB에서 지리 공간적 데이터를 쿼리 하는 방법을 다룹니다. 현재 지리 공간적 데이터를 저장 하 고 액세스 하는 것은 Azure Cosmos DB SQL API 계정 에서만 지원 됩니다. Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대 한 자세한 내용은 [Azure Cosmos DB에서 시스템 함수 쿼리](sql-query-system-functions.md)를 참조 하세요.
 
@@ -73,7 +74,7 @@ ms.locfileid: "84764981"
 ```
 
 > [!NOTE]
-> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 실행 `ST_ISVALIDDETAILED` 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
+> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음** 으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 실행 `ST_ISVALIDDETAILED` 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
 >
 >
 

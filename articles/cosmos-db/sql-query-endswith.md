@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100289"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH(Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
   
@@ -30,7 +31,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    문자열 식입니다.  
   
 *str_expr2*  
-   *str_expr1*의 끝과 비교할 문자열 식입니다.
+   *str_expr1* 의 끝과 비교할 문자열 식입니다.
 
 *bool_expr* 대/소문자를 무시하기 위한 선택적 값입니다. true로 설정하면 ENDSWITH는 대/소문자를 구분하지 않는 검색을 수행합니다. 지정되지 않은 경우 이 값은 false입니다.
   

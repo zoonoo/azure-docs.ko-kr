@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3744029b72a12cee1543a17bf1dee67a080904c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56c6327d2ecd3ae3721a7ee33565543405088d1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253057"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098878"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 등록하고 사용하는 방법
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB의 SQL API는 저장 프로시저, 트리거 및 JavaScript로 작성된 UDF(사용자 정의 함수)를 등록하고 호출하도록 지원합니다. SQL API [.net](sql-api-sdk-dotnet.md), [.Net Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md)또는 [Python](sql-api-sdk-python.md) sdk를 사용 하 여 저장 프로시저를 등록 하 고 호출할 수 있습니다. 하나 이상의 저장 프로시저, 트리거 및 사용자 정의 함수를 정의한 후에는 데이터 탐색기를 사용 하 여 [Azure Portal](https://portal.azure.com/) 에서 로드 하 고 볼 수 있습니다.
 

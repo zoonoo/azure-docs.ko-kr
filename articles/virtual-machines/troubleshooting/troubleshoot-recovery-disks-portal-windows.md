@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b7fc4a120f5a4b513e1852fc6e2cf5ab68e9631
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101258"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다. 
@@ -40,9 +40,9 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 스냅숏을 만들기 전에 VM을 완전히 종료 하 여 진행 중인 모든 프로세스를 지워야 하는 것이 좋습니다. OS 디스크의 스냅숏을 만들려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동 합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
-1. 왼쪽 창에서 **디스크**를 선택 하 고 OS 디스크의 이름을 선택 합니다.
+1. 왼쪽 창에서 **디스크** 를 선택 하 고 OS 디스크의 이름을 선택 합니다.
     ![OS 디스크의 이름에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. OS 디스크의 **개요** 페이지에서 **스냅숏 만들기**를 선택 합니다.
+1. OS 디스크의 **개요** 페이지에서 **스냅숏 만들기** 를 선택 합니다.
 1. OS 디스크와 동일한 위치에 스냅숏을 만듭니다.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>스냅샷에서 디스크 만들기
@@ -86,7 +86,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 ## <a name="attach-the-disk-to-another-vm"></a>다른 VM에 디스크 연결
 다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 문제 해결 VM에 디스크를 연결 하면 디스크의 콘텐츠를 찾아보고 편집할 수 있습니다. 이 프로세스를 통해 모든 구성 오류를 수정 하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다. 다른 VM에 디스크를 연결 하려면 다음 단계를 수행 합니다.
 
-1. 포털에서 리소스 그룹을 선택하고 문제를 해결하는 VM을 선택합니다. **디스크**를 선택 하 고 **편집**을 선택한 다음 **데이터 디스크 추가**를 클릭 합니다.
+1. 포털에서 리소스 그룹을 선택하고 문제를 해결하는 VM을 선택합니다. **디스크** 를 선택 하 고 **편집** 을 선택한 다음 **데이터 디스크 추가** 를 클릭 합니다.
 
     ![포털에서 기존 디스크 연결](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -96,11 +96,11 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 ## <a name="mount-the-attached-data-disk-to-the-vm"></a>VM에 연결 된 데이터 디스크 탑재
 
 1. 문제 해결 VM에 대 한 원격 데스크톱 연결을 엽니다. 
-2. VM 문제 해결에서 **서버 관리자**를 연 다음 **파일 및 저장소 서비스**를 선택 합니다. 
+2. VM 문제 해결에서 **서버 관리자** 를 연 다음 **파일 및 저장소 서비스** 를 선택 합니다. 
 
     ![서버 관리자에서 파일 및 Storage 서비스 선택](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. 데이터 디스크가 자동으로 감지되고 연결됩니다. 연결된 디스크 목록을 보려면 **디스크**를 선택합니다. 데이터 디스크를 선택하여 드라이브 문자를 포함한 볼륨 정보를 볼 수 있습니다. 다음 예에서는 **F:** 를 사용하여 연결된 데이터 디스크를 보여 줍니다.
+3. 데이터 디스크가 자동으로 감지되고 연결됩니다. 연결된 디스크 목록을 보려면 **디스크** 를 선택합니다. 데이터 디스크를 선택하여 드라이브 문자를 포함한 볼륨 정보를 볼 수 있습니다. 다음 예에서는 **F:** 를 사용하여 연결된 데이터 디스크를 보여 줍니다.
 
     ![서버 관리자의 연결된 디스크 및 볼륨 정보](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
@@ -110,27 +110,27 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>원래 가상 하드 디스크의 탑재 해제 및 분리
 오류가 해결되면 문제 해결 VM에서 기존 가상 하드 디스크를 분리합니다. 가상 하드 디스크를 문제 해결 VM에 연결하는 임대가 해제될 때까지 가상 하드 디스크를 다른 VM과 사용할 수 없습니다.
 
-1. VM에 대한 RDP 세션에서 **서버 관리자**를 연 다음 **파일 및 Storage 서비스**를 선택합니다.
+1. VM에 대한 RDP 세션에서 **서버 관리자** 를 연 다음 **파일 및 Storage 서비스** 를 선택합니다.
 
     ![서버 관리자에서 파일 및 Storage 서비스 선택](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. **디스크**를 선택한 다음 데이터 디스크를 선택합니다. 데이터 디스크를 마우스 오른쪽 단추로 클릭하고 **오프라인 상태로 전환**을 선택합니다.
+2. **디스크** 를 선택한 다음 데이터 디스크를 선택합니다. 데이터 디스크를 마우스 오른쪽 단추로 클릭하고 **오프라인 상태로 전환** 을 선택합니다.
 
     ![서버 관리자에서 데이터 디스크를 오프라인으로 설정](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. 이제 VM에서 가상 하드 디스크를 분리합니다. Azure Portal에서 VM을 선택하고 **디스크**를 클릭합니다. 
-4. **편집**을 선택 하 고 연결 된 OS 디스크를 선택한 다음 **분리**를 클릭 합니다.
+3. 이제 VM에서 가상 하드 디스크를 분리합니다. Azure Portal에서 VM을 선택하고 **디스크** 를 클릭합니다. 
+4. **편집** 을 선택 하 고 연결 된 OS 디스크를 선택한 다음 **삭제** 를 클릭 합니다.
 
     ![기존 가상 하드 디스크 분리](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    계속하기 전에 VM이 데이터 디스크를 성공적으로 분리할 때까지 기다립니다.
+    Vm ie에서 VM이 성공적으로 삭제 될 때까지 기다렸다가 계속 진행 하기 전에 데이터 디스크를 분리 합니다.
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>VM에 대 한 OS 디스크 교체
 
-Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이를 수행하려면 다음 단계를 따르십시오.
+Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. [Azure Portal](https://portal.azure.com)로 이동 합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
-1. 왼쪽 창에서 **디스크**를 선택 하 고 **OS 디스크 교체**를 선택 합니다.
+1. 왼쪽 창에서 **디스크** 를 선택 하 고 **OS 디스크 교체** 를 선택 합니다.
         ![Azure Portal에서 OS 디스크 교체에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. 복구한 새 디스크를 선택한 다음 VM의 이름을 입력 하 여 변경 내용을 확인 합니다. 목록에 디스크가 표시 되지 않으면 문제 해결 VM에서 디스크를 분리 한 후 10 ~ 15 분 동안 기다립니다. 또한 디스크가 VM과 동일한 위치에 있어야 합니다.

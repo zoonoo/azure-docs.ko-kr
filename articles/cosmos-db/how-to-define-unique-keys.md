@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101530"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos 컨테이너를 만들 때 [고유 키](unique-keys.md)를 정의하는 여러 다른 방법을 제공합니다. 현재, Azure Portal을 사용하거나 SDK 중 하나를 통해 이 작업을 수행할 수 있습니다.
 
@@ -26,13 +27,13 @@ ms.locfileid: "92279549"
 
 1. **Data Explorer** 창을 열고 작업할 컨테이너를 선택합니다.
 
-1. **새 컨테이너**를 클릭합니다.
+1. **새 컨테이너** 를 클릭합니다.
 
-1. **컨테이너 추가** 대화 상자에서 **+ 고유 키 추가**를 클릭하여 고유 키 항목을 추가합니다.
+1. **컨테이너 추가** 대화 상자에서 **+ 고유 키 추가** 를 클릭하여 고유 키 항목을 추가합니다.
 
 1. 고유 키 제약 조건의 경로 입력
 
-1. 필요한 경우 **+ 고유 키 추가**를 클릭하여 더 많은 고유 키 항목을 추가합니다.
+1. 필요한 경우 **+ 고유 키 추가** 를 클릭하여 더 많은 고유 키 항목을 추가합니다.
 
     :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Azure Portal의 고유 키 제약 조건 항목 스크린샷":::
 

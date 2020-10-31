@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547081"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100459"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 고가용성, 짧은 대기 시간 또는 둘 다에 대해 복제를 사용 하는 분산 데이터베이스는 [PACLC 정리](https://en.wikipedia.org/wiki/PACELC_theorem)에 정의 된 대로 읽기 일관성, 가용성, 대기 시간 및 처리량 간에 기본적인 균형을 유지 해야 합니다. 강력한 일관성 모델의 선형화 가능성는 데이터 프로그래밍의 골드 표준입니다. 그러나 데이터를 큰 거리에 복제 하 고 커밋하는 것으로 인해 더 높은 쓰기 대기 시간 으로부터 깊은 가격을 추가 합니다. 또한 모든 지역에서 데이터를 복제 하 고 커밋할 수 없기 때문에 성능이 크게 저하 될 수 있습니다 (오류 중). 최종 일관성은 고가용성과 향상 된 성능을 제공 하지만 모든 지역에서 데이터가 완전히 일치 하지 않을 수 있기 때문에 응용 프로그램을 프로그래밍 하는 것이 더 어려워집니다.
 

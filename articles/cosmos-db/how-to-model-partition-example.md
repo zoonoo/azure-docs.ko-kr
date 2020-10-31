@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100255"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서는 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md)및 [프로 비전 된 처리량](request-units.md) 과 같은 여러 가지 Azure Cosmos DB 개념을 기반으로 하 여 실제 데이터 디자인 연습을 처리 하는 방법을 보여 줍니다.
 
@@ -22,10 +23,10 @@ ms.locfileid: "92277983"
 
 ## <a name="the-scenario"></a>시나리오
 
-이 연습에서는 *사용자*가 *게시물*을 만들 수 있는 블로깅 플랫폼의 도메인을 고려합니다. 사용자는 이러한 게시물에 대해 *좋아요*를 표시하고 *댓글*을 추가할 수도 있습니다.
+이 연습에서는 *사용자* 가 *게시물* 을 만들 수 있는 블로깅 플랫폼의 도메인을 고려합니다. 사용자는 이러한 게시물에 대해 *좋아요* 를 표시하고 *댓글* 을 추가할 수도 있습니다.
 
 > [!TIP]
-> *기울임꼴*의 몇 가지 단어를 강조했습니다. 이러한 단어는 모델에서 조작해야 하는 "상황(things)"의 종류를 식별합니다.
+> *기울임꼴* 의 몇 가지 단어를 강조했습니다. 이러한 단어는 모델에서 조작해야 하는 "상황(things)"의 종류를 식별합니다.
 
 사양에 추가해야 하는 요구 사항은 다음과 같습니다.
 
@@ -52,7 +53,7 @@ ms.locfileid: "92277983"
 - **[Q4]** 게시물의 설명을 나열 합니다.
 - **[C4]** 게시물에 대한 좋아요 표시
 - **[Q5]** 게시물에 대한 좋아요 나열
-- **[Q6]** 최근에 만든 *x*개 게시물을 약식으로 나열(피드)
+- **[Q6]** 최근에 만든 *x* 개 게시물을 약식으로 나열(피드)
 
 이 단계에서는 각 엔터티 (사용자, 게시물 등)에 대 한 세부 정보를 고려 하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
 
@@ -291,7 +292,7 @@ ms.locfileid: "92277983"
 
 달성하고자 하는 것은 댓글이나 좋아요를 추가할 때마다 해당 게시물에서 `commentCount` 또는 `likeCount`도 증분시키는 것입니다. `posts` 컨테이너가 `postId`로 분할되므로 새 항목(댓글 또는 좋아요)과 해당 게시물은 동일한 논리 파티션에 배치됩니다. 따라서 [저장 프로시저](stored-procedures-triggers-udfs.md)를 사용하여 해당 작업을 수행할 수 있습니다.
 
-이제 댓글(**[C3]**)을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
+이제 댓글( **[C3]** )을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
 
 ```javascript
 function createComment(postId, comment) {
@@ -417,7 +418,7 @@ function updateUsernames(userId, username) {
 
 이 상황에 대해 생각하는 방법은 다음과 같이 실제로 간단합니다.
 
-1. 이 요청은 특정 사용자에 대한 모든 게시물을 가져오려고 하므로 `userId`를 *필터링해야 합니다*.
+1. 이 요청은 특정 사용자에 대한 모든 게시물을 가져오려고 하므로 `userId`를 *필터링해야 합니다* .
 1. `userId`로 분할되지 않은 `posts` 컨테이너에 대해 실행되므로 효율적으로 수행되지 않습니다.
 1. 분명히 말하면, `userId`로 *분할된* 컨테이너에 대해 이 요청을 실행하여 성능 문제를 해결할 수 있습니다.
 1. 이미 `users` 컨테이너가 있습니다!

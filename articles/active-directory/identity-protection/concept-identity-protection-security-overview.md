@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098470"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - 보안 개요
 
@@ -27,7 +27,7 @@ Azure Portal의 [보안 개요](https://aka.ms/IdentityProtectionRefresh) 를 �
 - 왼쪽 추세는 조직에 있는 위험의 타임라인을 제공합니다.
 - 오른쪽 타일은 조직의 주요 현안을 강조 표시하고 빠르게 조치를 취하는 방법을 제안합니다.
 
-![보안 개요](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Azure Portal 보안 개요의 스크린샷 가로 막대형 차트에는 시간에 따른 위험 수가 표시 됩니다. 타일은 사용자 및 로그인에 대 한 정보를 요약 합니다." border="false":::
   
 ## <a name="trends"></a>추세
 
@@ -45,7 +45,7 @@ Azure Portal의 [보안 개요](https://aka.ms/IdentityProtectionRefresh) 를 �
 
 ‘위험 수준이 높은 사용자’ 타일은 ID 손상 가능성이 큰 최근 사용자 수를 표시합니다. 해당 사용자는 최우선으로 조사해야 합니다. ‘위험 수준이 높은 사용자’ 타일을 클릭하면 위험 수준이 높은 사용자만 표시하는 ‘위험한 사용자’ 보고서의 필터링된 보기로 리디렉션됩니다. 이 보고서를 사용하여 자세히 알아보고 암호 재설정을 통해 해당 사용자의 문제를 해결할 수 있습니다.
 
-![보안 개요](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Azure Portal 보안 개요의 스크린샷 가로 막대형 차트에는 시간에 따른 위험 수가 표시 됩니다. 타일은 사용자 및 로그인에 대 한 정보를 요약 합니다." border="false":::
 
 ### <a name="medium-risk-users"></a>위험 수준이 중간인 사용자
 ‘위험 수준이 중간인 사용자’ 타일은 ID 손상 가능성이 중간인 최근 사용자 수를 표시합니다. ‘위험 수준이 중간인 사용자’ 타일을 클릭하면 위험 수준이 중간인 사용자만 표시하는 ‘위험한 사용자’ 보고서의 필터링된 보기로 리디렉션됩니다. 이 보고서를 사용하여 해당 사용자를 추가로 조사하고 문제를 해결할 수 있습니다.

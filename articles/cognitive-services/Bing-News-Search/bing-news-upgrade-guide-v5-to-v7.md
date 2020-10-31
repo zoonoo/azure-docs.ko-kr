@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7999ed5296f2ff4e64b9edc0fb355f72b7d7a04e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316650"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100204"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 이 업그레이드 가이드는 Bing News Search API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
@@ -25,7 +30,7 @@ ms.locfileid: "91316650"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예들 들어 `https://api.cognitive.microsoft.com/bing/v7.0/news/search`입니다.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -90,4 +95,4 @@ InsufficientScope|InsufficientAuthorization
 
 - `sort` 필드가 [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.
 
-- 정렬 순서를 정의하는 [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) 개체가 추가되었습니다. `isSelected` 필드는 응답이 정렬 순서를 사용했는지 여부를 나타냅니다. **true**이면 응답이 정렬 순서를 사용한 것입니다. `isSelected`가 **false**이면 `url` 필드에서 URL을 사용하여 다른 정렬 순서를 요청할 수 있습니다.
+- 정렬 순서를 정의하는 [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) 개체가 추가되었습니다. `isSelected` 필드는 응답이 정렬 순서를 사용했는지 여부를 나타냅니다. **true** 이면 응답이 정렬 순서를 사용한 것입니다. `isSelected`가 **false** 이면 `url` 필드에서 URL을 사용하여 다른 정렬 순서를 요청할 수 있습니다.

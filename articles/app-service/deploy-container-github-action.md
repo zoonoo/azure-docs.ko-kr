@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203197"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099031"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -47,13 +47,16 @@ Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 �
 
 1. Azure Portal에서 app service로 이동 합니다. 
 
-1. **개요** 페이지에서 **게시 프로필 가져오기**를 선택 합니다.
+1. **개요** 페이지에서 **게시 프로필 가져오기** 를 선택 합니다.
+
+    > [!NOTE]
+    > 2020 년 10 월까지 Linux 웹 앱은 `WEBSITE_WEBDEPLOY_USE_SCM` `true` **파일을 다운로드 하기 전에** 앱 설정이로 설정 되어야 합니다. 이 요구 사항은 나중에 제거 될 예정입니다.
 
 1. 다운로드한 파일을 저장합니다. 파일의 내용을 사용 하 여 GitHub 비밀을 만듭니다.
 
 # <a name="service-principal"></a>[서비스 주체](#tab/service-principal)
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용 하 여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/) 또는 **사용해 보기** 단추를 선택 하 여이 명령을 실행 합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -80,11 +83,11 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 ## <a name="configure-the-github-secret"></a>GitHub 비밀 구성
 
-[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가**합니다.
+[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가** 합니다.
 
 JSON 출력의 내용을 비밀 변수의 값으로 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `AZURE_CREDENTIALS` .
 
-나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들면 다음과 같습니다.
+나중에 워크플로 파일을 구성할 때 이 비밀을 Azure 로그인 작업의 `creds` 입력에 사용합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 - uses: azure/login@v1
@@ -96,11 +99,11 @@ JSON 출력의 내용을 비밀 변수의 값으로 붙여넣습니다. 암호�
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
 
-[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가**합니다.
+[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가** 합니다.
 
 [앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 비밀의 이름을로 `AZURE_WEBAPP_PUBLISH_PROFILE` 합니다.
 
-GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예를 들면 다음과 같습니다.
+GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 다음은 그 예입니다.
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -110,11 +113,11 @@ GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure
 
 # <a name="service-principal"></a>[서비스 주체](#tab/service-principal)
 
-[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가**합니다.
+[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가** 합니다.
 
 [사용자 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 Azure CLI 명령의 전체 JSON 출력을 암호의 값 필드에 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `AZURE_CREDENTIALS` .
 
-나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들면 다음과 같습니다.
+나중에 워크플로 파일을 구성할 때 이 비밀을 Azure 로그인 작업의 `creds` 입력에 사용합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 - uses: azure/login@v1

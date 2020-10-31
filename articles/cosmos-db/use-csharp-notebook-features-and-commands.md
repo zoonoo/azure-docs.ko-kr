@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fab63a0a0a34cd0417eb0a891133ac256ef3ac0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019269"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099167"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Azure Cosmos DB C# Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal에서 데이터를 분석하고 시각화할 수 있습니다. 이 문서에서는 기본 제공 Notebook 명령 및 기능을 사용하여 C# Notebooks에서 일반적인 작업을 수행하는 방법을 설명합니다.
 
@@ -158,7 +159,7 @@ Total RUs consumed : 25022.58
 ``{notebookName}``을 실행하려는 Notebook의 이름으로 바꿉니다. Notebook은 현재 'My Notebooks' 작업 영역에 있어야 합니다. 
 
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
-Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
+Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정** 을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
 :::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Csharp 쿼리 셀":::
 

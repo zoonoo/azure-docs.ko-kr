@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670733"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100697"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -93,7 +93,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 ## <a name="tracking-file-content-changes"></a>파일 콘텐츠 변경 내용 추적
 
-변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](/storage/common/storage-account-create)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다.
+변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](/azure/storage/common/storage-account-create)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다.
 
 ![파일의 변경 내용 보기](./media/overview/view-file-changes.png)
 

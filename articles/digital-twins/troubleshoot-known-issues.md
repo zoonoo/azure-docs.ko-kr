@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489016"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100619"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -32,7 +32,7 @@ ms.locfileid: "92489016"
 
 또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료할 수 있습니다.
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="' Cloud Shell ' 아이콘이 강조 표시 된 Azure Portal 보기 및 포털 창의 맨 아래에 표시 되는 Cloud Shell":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="'Cloud Shell' 아이콘이 강조 표시되고 포털 창 하단에 Cloud Shell이 표시되는 Azure Portal 보기" lightbox="media/includes/portal-cloud-shell.png":::
 
 마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
 
@@ -66,9 +66,9 @@ ms.locfileid: "92489016"
 
 ## <a name="issue-with-interactive-browser-authentication"></a>대화형 브라우저 인증과 관련 된 문제
 
-Azure **1.2.0** ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다.
+Azure **1.2.0** **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리** 의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다.
 
-이는 라이브러리의 최신 버전이 아닙니다. 최신 버전은 **1.2.2**입니다.
+이는 라이브러리의 최신 버전이 아닙니다. 최신 버전은 **1.2.2** 입니다.
 
 영향을 받는 메서드는 다음 문서에서 사용 됩니다. 
 * [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
@@ -83,7 +83,7 @@ Azure **1.2.0** ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet
 
 ### <a name="possible-causes"></a>가능한 원인
 
-이는 라이브러리의 최신 버전 (버전 1.2.0)과 관련 된 오픈 문제와 관련 된 것입니다. `Azure.Identity` [*InteractiveBrowserCredential을 사용 하는 경우 인증에 실패*](https://github.com/Azure/azure-sdk-for-net/issues/13940)합니다 **1.2.0**.
+이는 라이브러리의 최신 버전 (버전 1.2.0)과 관련 된 오픈 문제와 관련 된 것입니다. `Azure.Identity` [*InteractiveBrowserCredential을 사용 하는 경우 인증에 실패*](https://github.com/Azure/azure-sdk-for-net/issues/13940)합니다 **1.2.0** .
 
 Azure Digital Twins 응용 프로그램에서 버전 **1.2.0** 를 사용 하거나 버전을 지정 하지 않고 프로젝트에 라이브러리를 추가 하는 경우이 문제가 표시 됩니다 (이 최신 버전으로도 기본값).
 

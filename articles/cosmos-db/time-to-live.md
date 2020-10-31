@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476980"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101054"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기간이 끝난 후 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 기본적으로 컨테이너 수준에서 TTL(Time to Live)을 설정하거나 항목별 기준으로 값을 재정의할 수 있습니다. 컨테이너 또는 항목 수준에서 TTL을 설정하면 Azure Cosmos DB는 마지막으로 수정한 시간으로부터 해당 시간이 지나면 이러한 항목이 자동으로 제거합니다. TTL(Time to Live) 값은 초 단위로 구성됩니다. TTL을 구성할 때 시스템은 클라이언트 응용 프로그램에서 명시적으로 실행 되는 삭제 작업이 없어도 TTL 값을 기준으로 만료 된 항목을 자동으로 삭제 합니다. TTL의 최대값은 2147483647입니다.
 
@@ -26,7 +27,7 @@ TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기�
 
 Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정 된 시간부터 델타로 해석 됩니다. TTL(Time to Live)은 컨테이너 또는 컨테이너 내 항목에서 설정할 수 있습니다.
 
-1. **컨테이너에서 TTL(Time to Live)**(`DefaultTimeToLive` 사용하여 설정):
+1. **컨테이너에서 TTL(Time to Live)** (`DefaultTimeToLive` 사용하여 설정):
 
    - 누락(또는 null로 설정)되는 경우 항목이 자동으로 삭제되지 않습니다.
 
@@ -34,7 +35,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
    - 있는 경우 값이 특정 숫자 *"n"* 으로 설정 되 고, 마지막으로 수정한 시간 이후 항목은 *"n"* 초 후에 만료 됩니다.
 
-2. **항목에서 TTL(Time to Live)**(`ttl` 사용하여 설정):
+2. **항목에서 TTL(Time to Live)** (`ttl` 사용하여 설정):
 
    - 이 속성은 `DefaultTimeToLive`가 표시되고 부모 컨테이너에 대해 null로 설정되지 않은 경우에만 적용할 수 있습니다.
 

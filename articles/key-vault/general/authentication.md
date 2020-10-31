@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099422"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
@@ -20,31 +20,31 @@ Azure Key Vault를 사용하면 비밀을 저장하고 중앙 집중식 보안 �
 
 ## <a name="app-identity-and-security-principals"></a>앱 ID 및 보안 주체
 
-Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/active-directory/fundamentals/active-directory-whatis)와 함께 작동하며, 이는 지정된 **보안 주체**의 ID를 인증하는 역할을 담당합니다.
+Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/active-directory/fundamentals/active-directory-whatis)와 함께 작동하며, 이는 지정된 **보안 주체** 의 ID를 인증하는 역할을 담당합니다.
 
-보안 주체는 사용자, 그룹 또는 Azure 리소스에 대한 액세스를 요청하는 애플리케이션을 나타내는 개체입니다. Azure는 모든 보안 주체에 고유한 **개체 ID**를 할당합니다.
+보안 주체는 사용자, 그룹 또는 Azure 리소스에 대한 액세스를 요청하는 애플리케이션을 나타내는 개체입니다. Azure는 모든 보안 주체에 고유한 **개체 ID** 를 할당합니다.
 
 * **사용자** 보안 주체는 Azure Active Directory에 프로필이 있는 개인을 식별합니다.
 
 * **그룹** 보안 주체는 Azure Active Directory에서 만든 사용자 세트를 식별합니다. 그룹에 할당된 모든 역할 또는 사용 권한은 그룹 내의 모든 사용자에 부여됩니다.
 
-* **서비스 주체**는 애플리케이션 또는 서비스를 식별하는 보안 주체의 유형입니다. 즉, 사용자 또는 그룹이 아닌 코드 조각입니다. 서비스 주체의 개체 ID를 **클라이언트 ID**라고 하며, 사용자 이름처럼 작동합니다. 서비스 주체의 **클라이언트 암호**는 암호처럼 작동합니다.
+* **서비스 주체** 는 애플리케이션 또는 서비스를 식별하는 보안 주체의 유형입니다. 즉, 사용자 또는 그룹이 아닌 코드 조각입니다. 서비스 주체의 개체 ID를 **클라이언트 ID** 라고 하며, 사용자 이름처럼 작동합니다. 서비스 주체의 **클라이언트 암호** 는 암호처럼 작동합니다.
 
 애플리케이션의 경우 서비스 주체를 가져오는 방법에는 두 가지가 있습니다.
 
-* 권장: 애플리케이션에 대한 시스템 할당 **관리 ID**를 사용하도록 설정합니다.
+* 권장: 애플리케이션에 대한 시스템 할당 **관리 ID** 를 사용하도록 설정합니다.
 
     관리 ID를 통해 Azure는 애플리케이션의 서비스 주체를 내부적으로 관리하고 다른 Azure 서비스에서 애플리케이션을 자동으로 인증합니다. 관리 ID는 다양한 서비스에 배포된 애플리케이션에 사용할 수 있습니다.
 
     자세한 내용은 [관리 ID 개요](/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요. 또한 [관리 ID를 지원하는 Azure 서비스](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 특정 서비스(예: App Service, Azure Functions, Virtual Machines 등)에 대해 관리 ID를 사용하도록 설정하는 방법이 담긴 문서로 연결됩니다.
 
-* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록**합니다([빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](/azure/active-directory/develop/quickstart-register-app) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
+* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록** 합니다( [빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](/azure/active-directory/develop/quickstart-register-app) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>보안 주체에게 Key Vault에 대한 액세스 권한 부여
 
 Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 
-- **액세스 정책**은 사용자, 그룹 또는 서비스 주체에게 기존 Key Vault 리소스 *내에 있는* 비밀, 키 및 인증서에 액세스할 수 있는 권한이 있는지 여부를 제어합니다(“데이터 평면” 작업이라고도 함). 액세스 정책은 일반적으로 사용자, 그룹 및 애플리케이션에 부여됩니다.
+- **액세스 정책** 은 사용자, 그룹 또는 서비스 주체에게 기존 Key Vault 리소스 *내에 있는* 비밀, 키 및 인증서에 액세스할 수 있는 권한이 있는지 여부를 제어합니다(“데이터 평면” 작업이라고도 함). 액세스 정책은 일반적으로 사용자, 그룹 및 애플리케이션에 부여됩니다.
 
     액세스 정책을 할당하려면 다음 문서를 참조하세요.
 
@@ -52,7 +52,7 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
     - [Azure CLI](assign-access-policy-cli.md)
     - [Azure PowerShell](assign-access-policy-portal.md)
 
-- **역할 사용 권한**은 사용자, 그룹 또는 서비스 주체가 Key Vault 리소스를 만들고, 삭제하고, 관리할 권한이 있는지 여부를 제어합니다(“관리 평면”이라고도 함). 이러한 역할은 대부분 관리자에게만 부여됩니다.
+- **역할 사용 권한** 은 사용자, 그룹 또는 서비스 주체가 Key Vault 리소스를 만들고, 삭제하고, 관리할 권한이 있는지 여부를 제어합니다(“관리 평면”이라고도 함). 이러한 역할은 대부분 관리자에게만 부여됩니다.
  
     역할을 할당하고 관리하려면 다음 문서를 참조하세요.
 
@@ -111,7 +111,7 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 |  --- | --- | --- |
 | [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
 | [.NET(SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET(SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [.NET(SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |

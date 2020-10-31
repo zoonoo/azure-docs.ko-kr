@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06db1ab7af20193d4024b29a122a0b7a424b1abf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101411"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 식의 형식이 배열인지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문

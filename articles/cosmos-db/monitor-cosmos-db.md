@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: af1419dfb47f9090fd3aa307c71f7e62206e3e93
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c04d61c6381304382261219f23e99401465590ca
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099388"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으며 해당 리소스의 가용성, 성능 및 작업을 모니터링하려고 합니다. 이 문서에서는 Azure Cosmos 데이터베이스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터를 분석하고 경고하는 방법을 설명합니다.
 

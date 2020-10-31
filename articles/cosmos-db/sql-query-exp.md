@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d12ab39474f1df139bf2f9064d43f5ab7ecda16b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873321"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100272"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 숫자 식의 지수 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -34,9 +36,9 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>설명
   
-  상수 **e**(2.718281…)는 자연 로그의 밑입니다.  
+  상수 **e** (2.718281…)는 자연 로그의 밑입니다.  
   
-  숫자의 지수는 해당 숫자의 거듭제곱으로 올려진 **e**입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
+  숫자의 지수는 해당 숫자의 거듭제곱으로 올려진 **e** 입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
   
   숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
   

@@ -10,14 +10,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d3bb6925e11579deff914a930116d8ef464e39f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eca64411ccb61e5dcbac5e988f12096550eaaa2c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101003"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Async Java SDK v2를 사용하는 경우 발생하는 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -26,7 +27,7 @@ ms.locfileid: "92476895"
 > 
 
 > [!IMPORTANT]
-> Azure Cosmos DB의 최신 Java SDK가 *아닙니다*. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 *아닙니다* . [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
 >
 > 이 문서에서는 Azure Cosmos DB Async Java SDK v2에 대한 문제 해결만 다룹니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 [성능 팁](performance-tips-async-java.md)을 참조하세요.
 >

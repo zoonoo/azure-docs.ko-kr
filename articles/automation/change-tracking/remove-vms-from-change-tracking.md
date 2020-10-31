@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 9a7f36299d235ca2578a1ff3518650c5632ef046
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100680"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에서 VM 제거
 
@@ -22,7 +22,7 @@ ms.locfileid: "92210262"
 
 ## <a name="to-remove-your-vms"></a>Vm을 제거 하려면
 
-1. Azure Portal에서 Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. Azure Cloud Shell에 익숙하지 않은 경우 [Azure Cloud Shell 개요](/cloud-shell/overview)를 참조 하세요.
+1. Azure Portal에서 Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. Azure Cloud Shell에 익숙하지 않은 경우 [Azure Cloud Shell 개요](/azure/cloud-shell/overview)를 참조 하세요.
 
 2. 다음 명령을 사용 하 여 관리에서 제거 하려는 컴퓨터의 UUID를 식별 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "92210262"
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Azure Portal에서 **Log Analytics 작업 영역**으로 이동 합니다. 목록에서 작업 영역을 선택합니다.
+3. Azure Portal에서 **Log Analytics 작업 영역** 으로 이동 합니다. 목록에서 작업 영역을 선택합니다.
 
 4. Log Analytics 작업 영역에서 **로그** 를 선택한 다음, 위쪽의 작업 메뉴에서 **쿼리 탐색기** 를 선택 합니다.
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567148"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100527"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Microsoft Azure Cosmos DB 분석 저장소는 현재 미리 보기입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -149,7 +150,7 @@ salary: 1000000
 | Double |  "float64" |    24.99|
 | 배열 | ". array" |    ["a", "b"]|
 |이진 | "binary" |0|
-|부울    | ". bool"   |True|
+|부울    | ". bool"   |참|
 |Int32  | ". int32"  |123|
 |Int64  | ". int64"  |255486129307|
 |Null   | ". null"   | null|

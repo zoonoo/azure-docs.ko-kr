@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491141"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101581"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API에서 컨테이너를 만듭니다.
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 이 문서에서는 Azure Cosmos DB Table API에서 컨테이너를 만드는 다양 한 방법을 설명 합니다. Azure Portal, Azure CLI, PowerShell 또는 지원 되는 Sdk를 사용 하 여 컨테이너를 만드는 방법을 보여 줍니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
 
@@ -30,11 +31,11 @@ ms.locfileid: "92491141"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-table-dotnet.md#create-a-database-account)기존 계정을 선택 합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 테이블**을 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 테이블** 을 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 테이블 ID를 입력합니다.
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
-   * **확인**을 선택합니다.
+   * **확인** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Table API, 테이블 추가 대화 상자의 스크린샷":::
 

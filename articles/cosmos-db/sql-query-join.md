@@ -6,20 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100799"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-관계형 데이터베이스에서 테이블 간의 조인은 정규화 된 스키마를 디자인 하는 논리적 필연적인 결과로입니다. 반면에 SQL API는 *자체 조인과*논리적으로 동일한 스키마 없는 항목의 비 정규화 된 데이터 모델을 사용 합니다.
+관계형 데이터베이스에서 테이블 간의 조인은 정규화 된 스키마를 디자인 하는 논리적 필연적인 결과로입니다. 반면에 SQL API는 *자체 조인과* 논리적으로 동일한 스키마 없는 항목의 비 정규화 된 데이터 모델을 사용 합니다.
 
 내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 이 언어는 구문을 지원 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` 합니다. 이 쿼리는 값이 있는 튜플 집합을 반환 `N` 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
 

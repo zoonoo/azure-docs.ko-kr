@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098453"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
-검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성*을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 또 다른 양식은 *제안*: 일치 하는 문서의 짧은 목록 (세부 정보 페이지에 연결할 수 있도록 ID가 있는 책 제목 반환)입니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
+검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 또 다른 양식은 *제안* : 일치 하는 문서의 짧은 목록 (세부 정보 페이지에 연결할 수 있도록 ID가 있는 책 제목 반환)입니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
 
 Azure Cognitive Search에서 이러한 환경을 구현 하려면 다음이 필요 합니다.
 
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용 |
+| 매개 변수 | 사용량 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>강조 표시 사용
 
-강조 표시는 입력에 해당 하는 결과의 문자에 글꼴 스타일을 적용 합니다. 예를 들어 부분 입력이 "마이크로" 이면 결과는 **마이크로**소프트, **마이크로**범위 등으로 표시 됩니다. 강조 표시는 제안 함수를 사용 하 여 인라인으로 정의 된 HighlightPreTag 및 HighlightPostTag 매개 변수를 기반으로 합니다.
+강조 표시는 입력에 해당 하는 결과의 문자에 글꼴 스타일을 적용 합니다. 예를 들어 부분 입력이 "마이크로" 이면 결과는 **마이크로** 소프트, **마이크로** 범위 등으로 표시 됩니다. 강조 표시는 제안 함수를 사용 하 여 인라인으로 정의 된 HighlightPreTag 및 HighlightPostTag 매개 변수를 기반으로 합니다.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이�
 
 ## <a name="autocomplete"></a>자동 완성
 
-지금까지 검색 UX 코드는 제안을 중심으로 합니다. 다음 코드 블록은 XDSoft jQuery UI 자동 완성 함수를 사용 하 여 Azure Cognitive Search 자동 완성에 대 한 요청을 전달 하는 자동 완성 기능을 보여 줍니다. 제안과 마찬가지로 c # 응용 프로그램에서는 사용자 상호 작용을 지 원하는 코드가 **인덱스 cshtml**로 이동 합니다.
+지금까지 검색 UX 코드는 제안을 중심으로 합니다. 다음 코드 블록은 XDSoft jQuery UI 자동 완성 함수를 사용 하 여 Azure Cognitive Search 자동 완성에 대 한 요청을 전달 하는 자동 완성 기능을 보여 줍니다. 제안과 마찬가지로 c # 응용 프로그램에서는 사용자 상호 작용을 지 원하는 코드가 **인덱스 cshtml** 로 이동 합니다.
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 
 + [자습서: c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [REST side-by-side 코드 샘플을 사용 하는 c # 및 JavaScript](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [REST side-by-side 코드 샘플을 사용 하는 c # 및 JavaScript](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

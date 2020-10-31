@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb3afd2524949b1209ac42542a012b74559234d5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302205"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098113"
 ---
 # <a name="replace-azure-cosmos-db"></a>REPLACE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다.  
   
 ## <a name="syntax"></a>구문
@@ -32,7 +34,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    찾을 문자열 식입니다.  
   
 *str_expr3*  
-   *Str_expr1*에서 *str_expr2* 항목을 대체 하는 문자열 식입니다.  
+   *Str_expr1* 에서 *str_expr2* 항목을 대체 하는 문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
