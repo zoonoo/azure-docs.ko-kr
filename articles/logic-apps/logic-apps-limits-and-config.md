@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540723"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094509"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -81,7 +81,7 @@ ms.locfileid: "92540723"
 
 1. 마쳤으면 **워크플로 설정** 도구 모음에서 **저장** 을 선택합니다.
 
-논리 앱에 대 한 Azure Resource Manager 템플릿을 생성 하는 경우이 설정은 워크플로의 리소스 정의에 속성으로 표시 됩니다 .이 속성은 [Microsoft 논리 워크플로 템플릿 참조](/templates/microsoft.logic/workflows)에 설명 되어 있습니다.
+논리 앱에 대 한 Azure Resource Manager 템플릿을 생성 하는 경우이 설정은 워크플로의 리소스 정의에 속성으로 표시 됩니다 .이 속성은 [Microsoft 논리 워크플로 템플릿 참조](/azure/templates/microsoft.logic/workflows)에 설명 되어 있습니다.
 
 ```json
 {

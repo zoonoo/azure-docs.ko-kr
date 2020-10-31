@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283992"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093557"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 연결 모드
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 클라이언트에서 Azure Cosmos DB에 연결 하는 방법은 특히 관찰 되는 클라이언트 쪽 대기 시간에 대해 중요 한 성능에 영향을 미칩니다. Azure Cosmos DB는 HTTPS를 통한 간단한 오픈 RESTful 프로그래밍 모델을 제공 합니다. 또한 효율적인 TCP 프로토콜을 제공 합니다 .이 프로토콜은 통신 모델에서 RESTful TLS를 사용 하 여 초기 인증 및 암호화 트래픽에 사용 됩니다.
 
@@ -34,7 +35,7 @@ ms.locfileid: "92283992"
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Azure Cosmos DB 연결 모드" border="false":::
 
-이러한 연결 모드는 기본적으로 데이터 평면 요청에서 문서 읽기 및 쓰기를 수행 하는 경로를 클라이언트 컴퓨터에서 Azure Cosmos DB 백 엔드의 파티션으로 가져오는 조건입니다. 직접 모드는 최상의 성능을 위해 기본 설정 된 옵션입니다 .이 옵션을 사용 하면 클라이언트가 백 엔드를 사용 하지 않고 *직접*Azure Cosmos DB 백 엔드에 있는 파티션에 대 한 TCP 연결을 직접 열고 요청을 보낼 수 있습니다. 이와 대조적으로, 게이트웨이 모드에서 클라이언트에 의해 수행 된 요청은 Azure Cosmos DB 프런트 엔드에 있는 "게이트웨이" 서버로 라우팅됩니다. 그러면 Azure Cosmos DB 백 엔드에서 적절 한 파티션으로 요청을 팬 합니다.
+이러한 연결 모드는 기본적으로 데이터 평면 요청에서 문서 읽기 및 쓰기를 수행 하는 경로를 클라이언트 컴퓨터에서 Azure Cosmos DB 백 엔드의 파티션으로 가져오는 조건입니다. 직접 모드는 최상의 성능을 위해 기본 설정 된 옵션입니다 .이 옵션을 사용 하면 클라이언트가 백 엔드를 사용 하지 않고 *직접* Azure Cosmos DB 백 엔드에 있는 파티션에 대 한 TCP 연결을 직접 열고 요청을 보낼 수 있습니다. 이와 대조적으로, 게이트웨이 모드에서 클라이언트에 의해 수행 된 요청은 Azure Cosmos DB 프런트 엔드에 있는 "게이트웨이" 서버로 라우팅됩니다. 그러면 Azure Cosmos DB 백 엔드에서 적절 한 파티션으로 요청을 팬 합니다.
 
 ## <a name="service-port-ranges"></a>서비스 포트 범위
 

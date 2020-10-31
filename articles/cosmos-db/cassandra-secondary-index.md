@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9c7c2f06b9d39243b8593b20ddeb7ffa2f886c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80758028"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092367"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API의 보조 인덱싱
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB의 Cassandra API는 기본 인덱싱 인프라를 활용 하 여 플랫폼에 내재 된 인덱싱 수준을 노출 합니다. 그러나 핵심 SQL API와 달리 Azure Cosmos DB의 Cassandra API는 기본적으로 모든 특성을 인덱싱하지 않습니다. 대신, Apache Cassandra와 동일한 방식으로 동작 하는 특정 특성에 대 한 인덱스를 만들기 위한 보조 인덱싱을 지원 합니다.  
 

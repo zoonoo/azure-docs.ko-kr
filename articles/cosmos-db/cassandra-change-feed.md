@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5252993c560b30836c65bf2d395173513993c307
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482675"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092401"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Cassandra에 대 한 Azure Cosmos DB API의 변경 피드
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지원은 CQL (Cassandra query Language)의 쿼리 조건자를 통해 사용할 수 있습니다. 이러한 조건자 조건을 사용 하 여 변경 피드 API를 쿼리할 수 있습니다. 응용 프로그램은 CQL에 필요한 기본 키 (파티션 키 라고도 함)를 사용 하 여 테이블에 대 한 변경 내용을 가져올 수 있습니다. 그런 다음 결과에 따라 추가 작업을 수행할 수 있습니다. 테이블의 행에 대 한 변경 내용은 수정 시간 순서와 파티션 키 당 정렬 순서 대로 캡처됩니다.
 

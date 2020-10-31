@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094458"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "92789984"
 
 다음 이미지는 Azure Virtual Machines의 일반적인 가용성 그룹 배포를 보여 줍니다.
 
-   ![가용성 그룹](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   !["Windows Server 장애 조치 (Failover) 클러스터" 및 "Always On 가용성 그룹"을 사용 하 여 Azure 부하 분산 장치 및 가용성 집합을 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 이 배포에서 모든 가상 머신은 하나의 Azure 지역에 있습니다. 가용성 그룹 복제본은 SQL-1 및 SQL-2에 대해 자동 장애 조치로 동기 커밋할 수 있습니다. 이 아키텍처를 작성하려면 [가용성 그룹 템플릿 또는 자습서](availability-group-overview.md)를 참조하세요.
 
@@ -53,7 +53,7 @@ ms.locfileid: "92789984"
 
 다음 다이어그램에서는 데이터 센터 간 네트워크 통신 방법을 보여 줍니다.
 
-   ![가용성 그룹](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![V P N 게이트웨이를 사용 하 여 통신 하는 서로 다른 Azure 지역에 있는 두 개의 가상 네트워크를 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
@@ -98,7 +98,7 @@ ms.locfileid: "92789984"
 
    장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 **클러스터 코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
 
-   ![클러스터 속성](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![클러스터 이름, "서버 이름" 및 "속성"을 선택 하 여 "장애 조치(Failover) 클러스터 관리자"을 보여 주는 스크린샷](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    **속성** 대화 상자에서 **IP 주소** 아래의 **추가** 를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **Ip 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 **확인** 을 다시 선택 하 여 새 ip 주소를 저장 합니다. 
 

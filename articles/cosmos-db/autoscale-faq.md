@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277968"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092690"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 자동 크기 조정 프로비전된 처리량을 사용하는 경우 Azure Cosmos DB는 사용량에 따라 데이터베이스 또는 컨테이너의 RU/s를 자동으로 관리하고 조정합니다. 이 문서에서는 자동 크기 조정에 대해 자주 묻는 질문에 답합니다.
 
@@ -108,9 +109,9 @@ Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨
 #### <a name="lowering-the-max-rus"></a>최대 RU/s 감소
 최대 RU/s를 낮출 때 설정할 수 있는 최소값은 `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`입니다(1,000RU/s 단위로 반올림). 
 
-예제 1: 최대 RU/s가 20,000RU/s(2,000~20,000RU/s 범위에서 크기 조정)이고 스토리지가 50GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, 20,000 / 10, **50 * 100**) = 5,000RU/s(500~5,000RU/s 범위에서 크기 조정).
+예제 1: 최대 RU/s가 20,000RU/s(2,000~20,000RU/s 범위에서 크기 조정)이고 스토리지가 50GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, 20,000 / 10, **50 * 100** ) = 5,000RU/s(500~5,000RU/s 범위에서 크기 조정).
 
-예제 2: 최대 RU/s가 100,000RU/s이고 스토리지가 100GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 이제 최대 RU/s를 최대 150,000RU/s(15,000~150,000RU/s 범위에서 크기 조정)로 조정합니다. 이제 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, **150,000 / 10**, 100 * 100) = 15,000RU/s(1,500~15,000RU/s 범위에서 크기 조정). 
+예제 2: 최대 RU/s가 100,000RU/s이고 스토리지가 100GB인 자동 크기 조정 컨테이너가 있다고 가정합니다. 이제 최대 RU/s를 최대 150,000RU/s(15,000~150,000RU/s 범위에서 크기 조정)로 조정합니다. 이제 최대 RU/s를 가장 낮게 설정할 수 있는 최소값은 다음과 같습니다. MAX(4,000, **150,000 / 10** , 100 * 100) = 15,000RU/s(1,500~15,000RU/s 범위에서 크기 조정). 
 
 공유 처리량 데이터베이스의 경우 최대 RU/s를 낮출 때 설정할 수 있는 최소값은 `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`입니다(1,000RU/s 단위로 반올림).  
 

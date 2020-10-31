@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82251cf803168c282e55438ca801ae1f30a2d019
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093727"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB에서 Udf (사용자 정의 함수)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 SQL API는 Udf (사용자 정의 함수)를 지원 합니다. 스칼라 Udf를 사용 하면 0 개 이상의 인수를 전달 하 고 단일 인수 결과를 반환할 수 있습니다. API는 각 인수를 올바른 JSON 값으로 확인 합니다.  
 
@@ -31,7 +32,7 @@ Udf를 사용 하 여 Azure Cosmos DB의 쿼리 언어를 확장할 수 있습�
 
 쿼리에서 동일한 UDF를 여러 번 사용 해야 하는 경우에는 [하위 쿼리에서](sql-query-subquery.md#evaluate-once-and-reference-many-times)udf를 참조 하 여 udf를 한 번만 평가 하 고 여러 번 참조 하는 조인 식을 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예에서는 Cosmos 데이터베이스의 항목 컨테이너 아래에 UDF를 등록 합니다. 이 예제에서는 이름이 인 UDF를 만듭니다 `REGEX_MATCH` . 이 클래스는 및의 두 JSON 문자열 값을 허용 하 `input` `pattern` 고, 첫 번째가 JavaScript의 함수를 사용 하 여 두 번째에 지정 된 패턴과 일치 하는지 확인 `string.match()` 합니다.
 

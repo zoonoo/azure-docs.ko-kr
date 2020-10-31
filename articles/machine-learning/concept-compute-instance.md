@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094424"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -25,6 +25,8 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 기계 학습을 위해 클라우드에서 완전히 구성 되 고 관리 되는 개발 환경으로 계산 인스턴스를 사용 합니다. 개발 및 테스트 목적으로 학습 및 추론 계산 대상으로 사용할 수도 있습니다.  
 
 프로덕션 등급 모델 학습의 경우 다중 노드 크기 조정 기능이 포함 된 [Azure Machine Learning 계산 클러스터](how-to-create-attach-compute-cluster.md) 를 사용 합니다. 프로덕션 등급 모델 배포의 경우 [Azure Kubernetes Service 클러스터](how-to-deploy-azure-kubernetes-service.md)를 사용 합니다.
+
+컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요.
 
 ## <a name="why-use-a-compute-instance"></a>컴퓨팅 인스턴스를 사용하는 이유
 
@@ -100,7 +102,7 @@ Notebook 및 R 스크립트는 Azure 파일 공유에서 작업 영역의 기본
 
 ## <a name="managing-a-compute-instance"></a>컴퓨팅 인스턴스 관리
 
-Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스**를 선택합니다.
+Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스** 를 선택합니다.
 
 ![컴퓨팅 인스턴스 관리](./media/concept-compute-instance/manage-compute-instance.png)
 

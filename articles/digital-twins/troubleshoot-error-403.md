@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091806"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -52,7 +52,7 @@ ms.locfileid: "92495908"
 
 #### <a name="fix-issues"></a>문제 해결 
 
-이 역할 할당이 없는 경우 **azure 구독** 에 소유자 역할을 가진 사용자는 다음 명령을 실행 하 여 azure 사용자에 게 azure digital twins **인스턴스에서**Azure *digital twins 데이터 소유자* 역할을 제공 해야 합니다. 
+이 역할 할당이 없는 경우 **azure 구독** 에 소유자 역할을 가진 사용자는 다음 명령을 실행 하 여 azure 사용자에 게 azure digital twins **인스턴스에서** Azure *digital twins 데이터 소유자* 역할을 제공 해야 합니다. 
 
 구독에 대 한 소유자 인 경우이 명령을 직접 실행할 수 있습니다. 그렇지 않은 경우 소유자에 게 문의 하 여 사용자를 대신 하 여이 명령을 실행 합니다.
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092809"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작업 집합을 수행할 수 있는 RESTful 서비스입니다. 리소스 모델에 대 한 작업을 수행 하기 위해 공용 리소스 모델 (예: 데이터베이스, 계정) 및 다양 한 작업을 노출 합니다. 제어 평면 작업에는 Azure Cosmos 계정 또는 컨테이너에 대 한 변경 내용이 포함 됩니다. 예를 들어 Azure Cosmos 계정 만들기, 지역 추가, 처리량 업데이트, 지역 장애 조치 (failover), VNet 추가 등의 작업은 제어 평면 작업 중 일부입니다. 이 문서에서는 Azure Cosmos DB에서 제어 평면 작업을 감사 하는 방법을 설명 합니다. Azure CLI, PowerShell 또는 Azure Portal를 사용 하 여 Azure Cosmos 계정에 대 한 제어 평면 작업을 실행할 수 있지만 컨테이너의 경우 Azure CLI 또는 PowerShell을 사용 합니다.
 
@@ -170,29 +171,29 @@ API 관련 작업의 경우 작업은 다음과 같은 형식으로 이름이 �
 다음은 제어 평면 작업에 대 한 진단 로그를 가져오는 몇 가지 예입니다.
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 컨테이너 삭제 작업을 시작한 호출자와 호출자를 가져오는 쿼리:

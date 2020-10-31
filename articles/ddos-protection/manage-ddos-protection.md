@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905446"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094577"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>빠른 시작: Azure DDoS Protection Standard 만들기 및 구성
 
@@ -30,7 +30,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다. 계정이 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용 권한에](manage-permissions.md)대 한 방법 가이드에 나열 된 적절 한 작업에 할당 된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 할당 되었는지 확인 합니다.
@@ -44,7 +44,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
     |설정        |값                                              |
     |---------      |---------                                          |
-    |이름           | _MyDdosProtectionPlan_ 를 입력 합니다.                     |
+    |Name           | _MyDdosProtectionPlan_ 를 입력 합니다.                     |
     |Subscription   | 구독을 선택합니다.                         |
     |Resource group | **새로 만들기** 를 선택 하 고 _myresourcegroup_ 을 입력 합니다.|
     |위치       | _미국 동부_ 를 입력 합니다.                                  |
@@ -59,7 +59,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
     | 설정         | 값                                           |
     | ---------       | ---------                                       |
-    | 이름            | _Myvnet_ 을 입력 합니다.                                 |
+    | Name            | _Myvnet_ 을 입력 합니다.                                 |
     | Subscription    | 구독을 선택합니다.                                    |
     | Resource group  | **기존 사용** 을 선택 하 고 **myresourcegroup** 을 선택 합니다. |
     | 위치        | _미국 동부_ 입력                                                    |
@@ -84,8 +84,6 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 3. 목록에서 DDoS 보호 계획을 선택 합니다.
 
 _Myvnet_ 가상 네트워크가 나열 됩니다. 
-
-시뮬레이션을 통해 테스트
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -114,4 +112,4 @@ DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분�
 DDoS 보호 계획에 대 한 원격 분석을 보고 구성 하는 방법을 알아보려면 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS protection 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)
+> [DDoS 보호 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)

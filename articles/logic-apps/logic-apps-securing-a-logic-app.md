@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/29/2020
+ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317564"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094713"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -91,7 +91,7 @@ SAS를 사용하여 액세스를 보호하는 방법에 대한 자세한 내용�
 
 1. [Azure Portal](https://portal.azure.com)에서 다시 생성하려는 키가 있는 논리 앱을 엽니다.
 
-1. 논리 앱 메뉴의 **설정**에서 **액세스 키**를 선택합니다.
+1. 논리 앱 메뉴의 **설정** 에서 **액세스 키** 를 선택합니다.
 
 1. 다시 생성하려는 키를 선택하고 프로세스를 마칩니다.
 
@@ -137,7 +137,7 @@ Azure AD OAuth를 사용 하도록 설정 하기 전에 다음 고려 사항을 
 
 * 권한 부여 정책에는 또는 (OAuth **Issuer** V2)로 시작 하는 값이 `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID 인 발급자 클레임이 적어도 하나 이상 포함 되어야 합니다.
 
-  예를 들어 논리 앱에는 두 가지 클레임 유형인 **대상 그룹** 및 **발급자**가 필요한 권한 부여 정책이 있다고 가정 합니다. 디코딩된 액세스 토큰에 대 한이 샘플 [페이로드 섹션](../active-directory/develop/access-tokens.md#payload-claims) 에는 두 클레임 유형이 모두 포함 됩니다 `aud` . 여기서은 **대상** 값 `iss` 이 고는 **발급자** 값입니다.
+  예를 들어 논리 앱에는 두 가지 클레임 유형인 **대상 그룹** 및 **발급자** 가 필요한 권한 부여 정책이 있다고 가정 합니다. 디코딩된 액세스 토큰에 대 한이 샘플 [페이로드 섹션](../active-directory/develop/access-tokens.md#payload-claims) 에는 두 클레임 유형이 모두 포함 됩니다 `aud` . 여기서은 **대상** 값 `iss` 이 고는 **발급자** 값입니다.
 
   ```json
   {
@@ -188,7 +188,7 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
 
 1. [Azure Portal](https://portal.microsoft.com)의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
-1. 논리 앱 메뉴의 **설정**에서 **권한 부여**를 선택합니다. 권한 부여 창이 열리면 **정책 추가**를 선택합니다.
+1. 논리 앱 메뉴의 **설정** 에서 **권한 부여** 를 선택합니다. 권한 부여 창이 열리면 **정책 추가** 를 선택합니다.
 
    !["권한 부여" > "정책 추가" 선택](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -199,18 +199,18 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
    | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **정책 이름** | 예 | 권한 부여 정책에 사용하려는 이름입니다. |
-   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID**(JSON Web Token ID) <p><p>**클레임** 목록에는 적어도 **Issuer** `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 가진 발급자 클레임이 포함 되어야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
+   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 클레임 값은 80 자로 제한 됩니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID** (JSON Web Token ID) <p><p>**클레임** 목록에는 적어도 **Issuer** `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 가진 발급자 클레임이 포함 되어야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
    |||
 
 1. 또 다른 클레임을 추가하려면 다음 옵션 중에서 선택합니다.
 
-   * 다른 클레임 유형을 추가하려면 **표준 클레임 추가**를 선택하고 클레임 유형을 선택한 후 클레임 값을 지정합니다.
+   * 다른 클레임 유형을 추가하려면 **표준 클레임 추가** 를 선택하고 클레임 유형을 선택한 후 클레임 값을 지정합니다.
 
-   * 자체 클레임을 추가하려면 **사용자 지정 클레임 추가**를 선택하고 사용자 지정 클레임 값을 지정합니다.
+   * 자체 클레임을 추가하려면 **사용자 지정 클레임 추가** 를 선택하고 사용자 지정 클레임 값을 지정합니다.
 
-1. 권한 부여 정책을 더 추가하려면 **정책 추가**를 선택합니다. 이전 단계를 반복하여 정책을 설정합니다.
+1. 권한 부여 정책을 더 추가하려면 **정책 추가** 를 선택합니다. 이전 단계를 반복하여 정책을 설정합니다.
 
-1. 완료되면 **저장**을 선택합니다.
+1. 완료되면 **저장** 을 선택합니다.
 
 1. `Authorization`요청 기반 트리거 출력에 액세스 토큰의 헤더를 포함 하려면 [요청 트리거 출력에 ' Authorization ' 헤더 포함](#include-auth-header)을 참조 하세요.
 
@@ -312,9 +312,9 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정**을 선택합니다.
+1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정** 을 선택합니다.
 
-1. **액세스 제어 구성** > **허용된 인바운드 IP 주소**에서 **특정 IP 범위**를 선택합니다.
+1. **액세스 제어 구성** > **허용된 인바운드 IP 주소** 에서 **특정 IP 범위** 를 선택합니다.
 
 1. **트리거의 ip 범위** 상자가 표시 되 면 트리거에서 허용 하는 ip 주소 범위를 지정 합니다. 올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다.
 
@@ -412,11 +412,11 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 1. Azure Portal의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정**을 선택합니다.
+1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정** 을 선택합니다.
 
-1. **액세스 제어 구성** > **허용된 인바운드 IP 주소**에서 **특정 IP 범위**를 선택합니다.
+1. **액세스 제어 구성** > **허용된 인바운드 IP 주소** 에서 **특정 IP 범위** 를 선택합니다.
 
-1. **콘텐츠의 IP 범위**에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다.
+1. **콘텐츠의 IP 범위** 에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다.
 
    올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다.
 
@@ -473,11 +473,11 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
    ![Logic Apps 디자이너에 열린 논리 앱](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. 중요한 데이터를 보호하려는 트리거 또는 작업에서 줄임표( **...** ) 단추를 선택한 다음, **설정**을 선택합니다.
+1. 중요한 데이터를 보호하려는 트리거 또는 작업에서 줄임표( **...** ) 단추를 선택한 다음, **설정** 을 선택합니다.
 
    ![트리거 또는 작업 설정 열기](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. **보안 입력**, **보안 출력** 중 하나 또는 둘 다를 켭니다. 완료되면 **완료**를 선택합니다.
+1. **보안 입력** , **보안 출력** 중 하나 또는 둘 다를 켭니다. 완료되면 **완료** 를 선택합니다.
 
    !["보안 입력" 또는 "보안 출력" 켜기](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -536,13 +536,13 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 * [워크플로 기록을 처리하는 Logic Apps API](/rest/api/logic/)는 보안 출력을 반환하지 않습니다.
 
-* 입력을 가리는 동작에서 출력을 보호하거나 출력을 명시적으로 가리려면 해당 동작에서 **보안 출력**을 수동으로 켭니다.
+* 입력을 가리는 동작에서 출력을 보호하거나 출력을 명시적으로 가리려면 해당 동작에서 **보안 출력** 을 수동으로 켭니다.
 
-* 실행 기록이 해당 데이터를 가릴 필요가 있는 다운스트림 작업에서 **보안 입력** 또는 **보안 출력**을 켜야 합니다.
+* 실행 기록이 해당 데이터를 가릴 필요가 있는 다운스트림 작업에서 **보안 입력** 또는 **보안 출력** 을 켜야 합니다.
 
   **보안 출력 설정**
 
-  트리거 또는 작업에서 **보안 출력**을 수동으로 켜면 Logic Apps는 해당 출력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 이렇게 보안 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 해당 작업의 입력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다.
+  트리거 또는 작업에서 **보안 출력** 을 수동으로 켜면 Logic Apps는 해당 출력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 이렇게 보안 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 해당 작업의 입력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다.
 
   ![다운스트림 및 입력으로 사용되는 보안 출력이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
@@ -552,7 +552,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
   **보안 입력 설정**
 
-  트리거 또는 작업에서 **보안 입력**을 수동으로 켜면 Logic Apps는 해당 입력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 트리거 또는 작업에 보이는 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 다운스트림 작업의 입력을 숨기지만 작업의 **보안 입력**은 활성화되지 않으며 작업의 출력을 숨기지 않습니다.
+  트리거 또는 작업에서 **보안 입력** 을 수동으로 켜면 Logic Apps는 해당 입력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 트리거 또는 작업에 보이는 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 다운스트림 작업의 입력을 숨기지만 작업의 **보안 입력** 은 활성화되지 않으며 작업의 출력을 숨기지 않습니다.
 
   ![보안 입력 및 다운스트림이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
@@ -818,9 +818,9 @@ TLS/SSL 자체 서명 인증서에 대 한 정보는 다음과 같습니다.
 
     1. 논리 앱 디자이너에서 `api management` 검색 상자에를 입력 합니다. 트리거 또는 작업을 추가 하 고 있는지 여부에 따라 단계를 선택 합니다.<p>
 
-       * 워크플로의 첫 번째 단계인 트리거를 추가 하는 경우 **Azure API Management 트리거 선택**을 선택 합니다.
+       * 워크플로의 첫 번째 단계인 트리거를 추가 하는 경우 **Azure API Management 트리거 선택** 을 선택 합니다.
 
-       * 작업을 추가 하는 경우 **Azure API Management 작업 선택**을 선택 합니다.
+       * 작업을 추가 하는 경우 **Azure API Management 작업 선택** 을 선택 합니다.
 
        다음 예에서는 트리거를 추가 합니다.
 
@@ -838,7 +838,7 @@ TLS/SSL 자체 서명 인증서에 대 한 정보는 다음과 같습니다.
 
 ### <a name="add-authentication-to-outbound-calls"></a>아웃바운드 호출에 대한 인증 추가
 
-HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한 끝점에 대 한 아웃 바운드 호출 또는 요청을 보내는 데 사용 하는 일부 트리거 및 작업에서 인증 유형을 지정할 수 있습니다. 논리 앱 디자이너에서 인증 유형 선택을 지 원하는 트리거 및 작업에는 **authentication** 속성이 있습니다. 그러나이 속성은 기본적으로 항상 표시 되지 않을 수도 있습니다. 이러한 경우 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증**을 선택 합니다.
+HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한 끝점에 대 한 아웃 바운드 호출 또는 요청을 보내는 데 사용 하는 일부 트리거 및 작업에서 인증 유형을 지정할 수 있습니다. 논리 앱 디자이너에서 인증 유형 선택을 지 원하는 트리거 및 작업에는 **authentication** 속성이 있습니다. 그러나이 속성은 기본적으로 항상 표시 되지 않을 수도 있습니다. 이러한 경우 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증** 을 선택 합니다.
 
 > [!IMPORTANT]
 > 논리 앱이 처리 하는 중요 한 정보를 보호 하려면 보안 매개 변수를 사용 하 고 필요에 따라 데이터를 인코딩합니다.
@@ -894,7 +894,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | 사용할 인증 유형입니다. [Azure API Management](../api-management/api-management-howto-mutual-certificates.md)를 사용 하 여 인증서를 관리할 수 있습니다. <p></p>**참고**: 사용자 지정 커넥터는 인바운드 및 아웃 바운드 호출에 대해 인증서 기반 인증을 지원 하지 않습니다. |
+| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | 사용할 인증 유형입니다. [Azure API Management](../api-management/api-management-howto-mutual-certificates.md)를 사용 하 여 인증서를 관리할 수 있습니다. <p></p>**참고** : 사용자 지정 커넥터는 인바운드 및 아웃 바운드 호출에 대해 인증서 기반 인증을 지원 하지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*encoded-pfx-file-content*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계에 따라 PowerShell을 사용합니다. <p>1. 인증서 콘텐츠를 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 콘텐츠를 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **암호** | `password`| 예 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
@@ -1023,8 +1023,8 @@ Authorization: OAuth realm="Photos",
    | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
    |---------------------|-----------------|----------|-------|-------------|
    | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형 |
-   | **관리 ID** | `identity` | 예 | * **시스템 할당 관리 ID** <br>또는 <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | 사용할 관리 ID |
-   | **대상** | `audience` | 예 | <*target-resource-ID*> | 액세스하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`은 인증을 위한 [액세스 토큰](../active-directory/develop/access-tokens.md)을 모든 스토리지 계정에 유효하게 만듭니다. 하지만 특정 스토리지 계정에 대해 `https://fabrikamstorageaccount.blob.core.windows.net`과 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**: **대상 그룹** 속성은 일부 트리거나 작업에서 숨겨질 수 있습니다. 이 속성을 표시하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹**을 선택합니다. <p><p>**중요**: 이 대상 리소스 ID는 필수 후행 슬래시를 포함하여 Azure AD에 필요한 값과 정확히 일치해야 합니다. 따라서 모든 Azure Blob Storage 계정에 대한 `https://storage.azure.com/` 리소스 ID에는 후행 슬래시가 필요합니다. 하지만 특정 스토리지 계정에 대한 리소스 ID에는 슬래시가 필요하지 않습니다. 이러한 리소스 ID를 알아보려면 [Azure AD를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요. |
+   | **관리 ID** | `identity` | 예 | * **시스템 할당 관리 ID** <br>또는 <br>`SystemAssigned` <p><p>* < *user-assigned-identity-name*> | 사용할 관리 ID |
+   | **대상** | `audience` | 예 | <*target-resource-ID*> | 액세스하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`은 인증을 위한 [액세스 토큰](../active-directory/develop/access-tokens.md)을 모든 스토리지 계정에 유효하게 만듭니다. 하지만 특정 스토리지 계정에 대해 `https://fabrikamstorageaccount.blob.core.windows.net`과 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고** : **대상 그룹** 속성은 일부 트리거나 작업에서 숨겨질 수 있습니다. 이 속성을 표시하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹** 을 선택합니다. <p><p>**중요** : 이 대상 리소스 ID는 필수 후행 슬래시를 포함하여 Azure AD에 필요한 값과 정확히 일치해야 합니다. 따라서 모든 Azure Blob Storage 계정에 대한 `https://storage.azure.com/` 리소스 ID에는 후행 슬래시가 필요합니다. 하지만 특정 스토리지 계정에 대한 리소스 ID에는 슬래시가 필요하지 않습니다. 이러한 리소스 ID를 알아보려면 [Azure AD를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요. |
    |||||
 
    [보안 매개 변수](#secure-action-parameters)를 사용하여 중요한 정보를 처리하고 보안을 유지하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)에서), 식을 사용하여 런타임 시 해당 매개 변수 값에 액세스할 수 있습니다. 다음 예제 HTTP 작업 정의는 인증 `type`을 `ManagedServiceIdentity`로 지정하고 [parameters() 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters)를 사용하여 매개 변수 값을 가져옵니다.

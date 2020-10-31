@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674743"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092758"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
 Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
@@ -27,7 +27,7 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://d
 | 열 | Description |
 |:---|:---|
 | TimeGenerated | 인시던트가 발생 한 시간 (UTC)입니다. |
-| Category  | 작업 범주 그룹입니다. 을 사용 하 여 작업 유형을 필터링 하 고 보다 정확한 시스템 감사 및 경고를 만들 수 있습니다. 범주 목록은 아래 섹션을 참조 하세요. |
+| 범주  | 작업 범주 그룹입니다. 을 사용 하 여 작업 유형을 필터링 하 고 보다 정확한 시스템 감사 및 경고를 만들 수 있습니다. 범주 목록은 아래 섹션을 참조 하세요. |
 | 작업(Operation)  | 작업 유형에 대 한 설명입니다. 이는 Log Analytics 제한, 작업 유형 또는 프로세스의 일부 중 하나를 나타낼 수 있습니다. |
 | Level | 문제의 심각도입니다.<br>-Info: 특정 주의가 필요 하지 않습니다.<br>-경고: 프로세스가 예상 대로 완료 되지 않았으므로 주의가 필요 합니다.<br>-오류: 프로세스가 실패 하 고 긴급 주의가 필요 합니다. 
 | 세부 정보 | 작업에 대 한 자세한 설명에는 특정 오류 메시지 (있는 경우)가 포함 됩니다. |
@@ -40,7 +40,7 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://d
 
 다음 표에서는 _LogOperation 함수의 범주에 대해 설명 합니다. 
 
-| Category | Description |
+| 범주 | 설명 |
 |:---|:---|
 | 수집           | 데이터 수집 프로세스의 일부인 작업입니다. 자세한 내용은 다음을 참조하세요. |
 | 에이전트               | 에이전트 설치에 문제가 있음을 나타냅니다. |
@@ -60,8 +60,8 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](https://d
 | 메타데이터입니다. | 오류 | 구성 오류가 발생 했습니다. | |
 | 데이터 수집 | 오류   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](manage-cost-storage.md#alert-when-daily-cap-reached)
 | 데이터 수집 | 정보    | 수집 컴퓨터 구성이 검색 되었습니다.| |
-| 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | 데이터 처리 | 오류   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](data-collector-api.md#request-body) | 
 | 데이터 처리 | 경고 | 값이 최대 허용 크기로 잘렸습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
 | 데이터 처리 | 경고 | 크기 제한에 도달 하 여 필드 값이 잘립니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) | 

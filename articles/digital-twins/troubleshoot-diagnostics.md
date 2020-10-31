@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091738"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
@@ -26,13 +26,13 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure Digital twins 인스턴스로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다. 
 
-2. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정을 추가**합니다.
+2. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정을 추가** 합니다.
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
 3. 뒤에 나오는 페이지에서 다음 값을 입력 합니다.
-     * **진단 설정 이름**: 진단 설정에 이름을 지정 합니다.
-     * **범주 세부 정보**: 모니터링할 작업을 선택 하 고 확인란을 선택 하 여 해당 작업에 대 한 진단을 사용 하도록 설정 합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
+     * **진단 설정 이름** : 진단 설정에 이름을 지정 합니다.
+     * **범주 세부 정보** : 모니터링할 작업을 선택 하 고 확인란을 선택 하 여 해당 작업에 대 한 진단을 사용 하도록 설정 합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -40,7 +40,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
         - AllMetrics
         
         이러한 옵션에 대 한 자세한 내용은 아래의 [*범주 세부 정보*](#category-details) 섹션을 참조 하세요.
-     * **대상 세부 정보**: 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
+     * **대상 세부 정보** : 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
         - Log Analytics에 보내기
         - 스토리지 계정에 보관
         - 이벤트 허브로 스트림
@@ -70,7 +70,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | --- | --- |
 | 쓰기 | PUT 및 PATCH |
 | 읽기 | GET |
-| DELETE | Delete |
+| 삭제 | Delete |
 | 작업 | POST |
 
 다음은 각 범주에 기록 되는 작업 및 해당 [Azure Digital Twins REST API 호출](/rest/api/azure-digitaltwins/) 의 포괄적인 목록입니다. 
@@ -118,7 +118,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | `ResultDescription` | String | 이벤트에 대 한 추가 정보 |
 | `DurationMs` | String | 이벤트를 수행 하는 데 걸린 시간 (밀리초) |
 | `CallerIpAddress` | String | 이벤트에 대 한 마스킹된 원본 IP 주소입니다. |
-| `CorrelationId` | Guid | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
+| `CorrelationId` | GUID | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
 | `Level` | String | 이벤트의 로깅 심각도입니다. |
 | `Location` | String | 이벤트가 발생 한 지역입니다. |
 | `RequestUri` | URI | 이벤트 중에 사용 된 끝점입니다. |
@@ -132,7 +132,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -142,7 +142,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -153,7 +153,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -163,7 +163,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -174,7 +174,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -184,7 +184,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 

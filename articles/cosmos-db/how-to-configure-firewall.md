@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec4ec5b3ea522200562d05d1891f46e69c9e5ca8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490512"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092163"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 계정에 저장 된 데이터를 보호 하기 위해 Azure Cosmos DB은 강력한 HMAC (해시 기반 MAC(메시지 인증 코드))를 활용 하는 암호 기반 권한 부여 모델을 지원 합니다. 또한 Azure Cosmos DB는 인바운드 방화벽 지원을 위해 IP 기반 액세스 제어를 지원합니다. 이 모델은 기존 데이터베이스 시스템의 방화벽 규칙과 유사하며 사용자 계정에 추가 보안 수준을 제공합니다. 방화벽에서는 승인된 머신 및/또는 클라우드 서비스에서만 액세스할 수 있도록 Azure Cosmos 계정을 구성할 수 있습니다. 이러한 승인된 머신 및 서비스에서 Azure Cosmos 데이터베이스에 저장된 데이터에 액세스하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공해야 합니다.
 
@@ -34,7 +35,7 @@ IP 방화벽을 사용하여 Azure Cosmos DB 계정에 저장된 데이터를 �
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Azure Portal을 사용하여 IP 방화벽 구성
 
-Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고 탐색 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다. **다음에서 액세스 허용** 값을 **선택한 네트워크**로 변경한 다음, **저장**을 선택합니다.
+Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고 탐색 메뉴에서 **방화벽 및 가상 네트워크** 를 선택합니다. **다음에서 액세스 허용** 값을 **선택한 네트워크** 로 변경한 다음, **저장** 을 선택합니다.
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 
@@ -47,7 +48,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
-|지역|IP 주소|
+|Azure 지역|IP 주소|
 |------|----------|
 |독일|51.4.229.218|
 |중국|139.217.8.252|
@@ -75,7 +76,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 포털은 클라이언트 IP 주소를 자동으로 검색합니다. 이 주소는 머신의 클라이언트 IP 주소이거나 네트워크 게이트웨이의 IP 주소일 수 있습니다. 프로덕션에 대한 워크로드를 수행하기 전에 이 IP 주소를 제거해야 합니다.
 
-현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. 그런 다음 **저장**을 선택합니다.
+현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가** 를 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1698390e759a4f347ed37157ca6b7073c44607
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093523"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 선택적인 WHERE 절 ( `WHERE <filter_condition>` )은 원본 JSON 항목이 결과에 포함 하기 위해 쿼리를 위해 충족 해야 하는 조건을 지정 합니다. JSON 항목은 `true` 결과에 대해 고려할 지정 된 조건을 평가 해야 합니다. 인덱스 계층은 WHERE 절을 사용 하 여 결과에 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 결정 합니다.
   
