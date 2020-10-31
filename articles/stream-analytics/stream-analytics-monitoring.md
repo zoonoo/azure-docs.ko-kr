@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0932104c55e705c76a8d2b086edf828caf60520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123509"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -39,17 +39,17 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 | 입력 이벤트 바이트      | Stream Analytics 작업이 받은 데이터의 양(바이트)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
 | 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. 역직렬화 오류가 발생하는 수신 이벤트는 이 수에 포함되지 않습니다. 내부 복구 및 자체 조인과 같은 시나리오에서 Stream Analytics가 동일한 이벤트를 여러 번 수집할 수 있습니다. 따라서 작업에 간단한 '통과' 쿼리가 있는 경우 입력 이벤트와 출력 이벤트 메트릭이 일치하지 않도록 하는 것이 좋습니다. |
 | 수신된 입력 원본       | 작업에 수신된 메시지 수입니다. Event Hub의 경우 메시지는 단일 EventData입니다. Blob의 경우 메시지는 단일 Blob입니다. 역직렬화 전에 입력 원본이 계산됩니다. 역직렬화 오류가 발생하면 입력 원본이 입력 이벤트보다 클 수 있습니다. 그렇지 않으면 각 메시지에 여러 입력 이벤트가 포함될 수 있으므로 입력 이벤트보다 작거나 같을 수 있습니다. |
-| 늦은 입력 이벤트      | 구성된 지연 도착 허용 시간보다 늦게 도착한 이벤트입니다. [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)에 대해 자세히 알아봅니다. |
+| 늦은 입력 이벤트      | 구성된 지연 도착 허용 시간보다 늦게 도착한 이벤트입니다. [Azure Stream Analytics 이벤트 순서 고려 사항](./stream-analytics-time-handling.md)에 대해 자세히 알아봅니다. |
 | 순서 비지정 이벤트    | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 출력 이벤트          | Stream Analytics 작업이 출력 대상에 보낸 데이터의 양입니다(이벤트 수). |
 | 런타임 오류         | 쿼리 처리와 관련된 총 오류 수(이벤트 수집 또는 결과 출력 중에 발견된 오류 제외) |
 | SU % 사용률       | 작업의 크기 조정 탭에서 작업에 할당한 스트리밍 단위의 사용률입니다. 이 표시가 80% 이상에 도달하면 이벤트 처리가 지연되거나 진행을 중단할 가능성이 큽니다. |
 | 워터마크 지연       | 작업에 있는 모든 출력의 모든 파티션에서 발생하는 최대 워터마크 지연입니다. |
 
-이러한 메트릭을 사용하여 [Stream Analytics 작업의 성능을 모니터링](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)할 수 있습니다. 
+이러한 메트릭을 사용하여 [Stream Analytics 작업의 성능을 모니터링](./stream-analytics-set-up-alerts.md#scenarios-to-monitor)할 수 있습니다. 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 사용자 지정하기
-차트 편집 설정에서 차트 유형, 표시되는 메트릭 및 시간 범위를 조정할 수 있습니다. 자세한 내용은 [모니터링을 사용자 지정하는 방법](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)을 참조하세요.
+차트 편집 설정에서 차트 유형, 표시되는 메트릭 및 시간 범위를 조정할 수 있습니다. 자세한 내용은 [모니터링을 사용자 지정하는 방법](../azure-monitor/platform/data-platform.md)을 참조하세요.
 
   ![Stream Analytics 쿼리 모니터 시간 그래프](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
@@ -59,11 +59,11 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 이 시간은 작업의 최신 출력에 대한 애플리케이션 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

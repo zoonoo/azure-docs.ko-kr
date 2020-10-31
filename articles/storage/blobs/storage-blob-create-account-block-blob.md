@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043086"
+ms.locfileid: "93124971"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
 
@@ -22,7 +22,7 @@ BlockBlobStorage 계정 종류를 사용 하면 프리미엄 성능 특성을 �
 
 BlockBlobStorage 계정에 대 한 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -116,10 +116,7 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
 
 8. **고급** 탭을 선택 합니다.
 
-9. 데이터 분석을 위해 저장소 계정을 최적화 하려면 **계층적 네임 스페이스** 를 **사용** 으로 설정 합니다. 그렇지 않은 경우이 옵션을 기본값으로 설정 해 둡니다. BlockBlobStorage 계정으로이 설정을 사용 하도록 설정 하면 [Data Lake Storage 프리미엄 계층](premium-tier-for-data-lake-storage.md)을 제공 합니다.  Data Lake Storage에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
-
-   > [!NOTE]
-   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 됩니다. 지역별 가용성에 대 한 자세한 내용은 [지역 가용성](premium-tier-for-data-lake-storage.md#regional-availability)을 참조 하세요.
+9. 데이터 분석을 위해 저장소 계정을 최적화 하려면 **계층적 네임 스페이스** 를 **사용** 으로 설정 합니다. 그렇지 않으면이 옵션을 기본값으로 설정 된 채로 둡니다. BlockBlobStorage 계정으로이 설정을 사용 하도록 설정 하면 [Data Lake Storage 프리미엄 계층](premium-tier-for-data-lake-storage.md)을 제공 합니다.  Data Lake Storage에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
 
 8. **검토 + 만들기** 를 선택 하 여 저장소 계정 설정을 검토 합니다.
 
@@ -162,9 +159,6 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
    ```
    데이터 분석을 위해 저장소 계정을 최적화 하려면 `-EnableHierarchicalNamespace $True` 명령에를 추가 합니다. BlockBlobStorage 계정으로이 설정을 사용 하도록 설정 하면 [Data Lake Storage 프리미엄 계층](premium-tier-for-data-lake-storage.md)을 제공 합니다.  Data Lake Storage에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
 
-   > [!NOTE]
-   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 됩니다. 지역별 가용성에 대 한 자세한 내용은 [지역 가용성](premium-tier-for-data-lake-storage.md#regional-availability)을 참조 하세요.
-
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 먼저 설치 해야 합니다. 2.0.46 이상 버전. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
@@ -195,10 +189,7 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 �
    ```
 
    데이터 분석을 위해 저장소 계정을 최적화 하려면 `--hierarchical-namespace true` 명령에를 추가 합니다. BlockBlobStorage 계정으로이 설정을 사용 하도록 설정 하면 [Data Lake Storage 프리미엄 계층](premium-tier-for-data-lake-storage.md)을 제공 합니다.  Data Lake Storage에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
-   
-   > [!NOTE]
-   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 됩니다. 지역별 가용성에 대 한 자세한 내용은 [지역 가용성](premium-tier-for-data-lake-storage.md#regional-availability)을 참조 하세요.
-   
+
 ---
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284389"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124954"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace VM에 대 한 일반적인 질문
 
@@ -22,7 +22,7 @@ FAQ (질문과 대답)는 Azure Marketplace에서 VM (가상 머신) 제품을 �
 
 Azure Resource Manager 배포 모델을 사용하는 경우 세 가지 옵션은 다음과 같습니다.
 
-- [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Azure PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,7 +32,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 세 가지 옵션은
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>VM에서 시작 태스크에 있는 사용자 지정 스크립트 확장을 어떻게 관리하나요?
 
-Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대한 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](/azure/virtual-machines/extensions/custom-script-windows)을 참조하세요.
+Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대한 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](../virtual-machines/extensions/custom-script-windows.md)을 참조하세요.
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Azure Marketplace에서 32비트 애플리케이션 또는 서비스가 지원되나요?
 
@@ -40,7 +40,7 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [32비트 애플리케이션 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [32비트 애플리케이션 실행](/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure 가상 머신에 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

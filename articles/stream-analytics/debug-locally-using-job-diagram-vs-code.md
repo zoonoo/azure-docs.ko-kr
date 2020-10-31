@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124172"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Visual Studio Code에서 작업 다이어그램을 사용 하 여 로컬에서 Azure Stream Analytics 쿼리 디버그
 
@@ -31,7 +31,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 로컬 입력 데이터로 쿼리를 테스트 하려면 다음 [지침](visual-studio-code-local-run.md)을 따르세요. 라이브 입력을 사용 하 여 테스트 하려면 다음 단계로 이동 하 여 [입력을 구성](stream-analytics-add-inputs.md) 합니다. 
 
-* \. Script.asaql* 스크립트 파일을 열고 로컬에서 **실행**을 선택 합니다. 그런 다음 **로컬 입력 사용** 또는 **라이브 입력 사용**을 선택 합니다. 작업 다이어그램이 창의 오른쪽에 나타납니다.
+*\. Script.asaql* 스크립트 파일을 열고 로컬에서 **실행** 을 선택 합니다. 그런 다음 **로컬 입력 사용** 또는 **라이브 입력 사용** 을 선택 합니다. 작업 다이어그램이 창의 오른쪽에 나타납니다.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>출력 및 중간 결과 집합 보기  
 
@@ -56,7 +56,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
    > [!div class="mx-imgBorder"]
    > ![작업 다이어그램 메트릭](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. 드롭다운 목록에서 입력 데이터 원본의 이름을 선택 하 여 입력 메트릭을 표시 합니다. 아래 스크린샷에서 입력 소스를 *따옴표*라고 합니다. 입력 메트릭에 대 한 자세한 내용은 [Stream Analytics 작업 모니터링 및 쿼리 모니터링 방법 이해](stream-analytics-monitoring.md)를 참조 하세요.
+3. 드롭다운 목록에서 입력 데이터 원본의 이름을 선택 하 여 입력 메트릭을 표시 합니다. 아래 스크린샷에서 입력 소스를 *따옴표* 라고 합니다. 입력 메트릭에 대 한 자세한 내용은 [Stream Analytics 작업 모니터링 및 쿼리 모니터링 방법 이해](stream-analytics-monitoring.md)를 참조 하세요.
 
    > [!div class="mx-imgBorder"]
    > ![작업 다이어그램 입력 메트릭](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -104,7 +104,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 * C # 사용자 지정 코드 및 Azure Machine Learning 함수는 지원 되지 않습니다. 
 
-* 클라우드 입력 옵션에는 [시간 정책이](stream-analytics-out-of-order-and-late-events.md) 지원 되지만 로컬 입력 옵션은 지원 되지 않습니다.
+* 클라우드 입력 옵션에는 [시간 정책이](./stream-analytics-time-handling.md) 지원 되지만 로컬 입력 옵션은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

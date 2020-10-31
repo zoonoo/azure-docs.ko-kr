@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125141"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
 Azure Marketplace 또는 AppSource에 대 한 제안이 있지만 Azure 리소스만 사용 하 여 테스트 드라이브를 빌드하려고 하는 경우이 유형을 사용 합니다. ARM (Azure Resource Manager) 템플릿은 솔루션을 가장 잘 나타내도록 설계 된 Azure 리소스의 코딩 된 컨테이너입니다. 테스트 드라이브는 제공 된 ARM 템플릿을 사용 하 여 필요한 모든 리소스를 리소스 그룹에 배포 합니다. 이는 가상 머신 또는 Azure 앱 제안에 대 한 유일한 테스트 드라이브 옵션입니다.
 
-ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) 을 읽고, [arm 템플릿의 구조와 구문을 이해](../azure-resource-manager/resource-group-authoring-templates.md) 하 여 고유한 템플릿을 빌드하고 테스트 하는 방법을 더 잘 이해 하세요.
+ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](../azure-resource-manager/management/overview.md) 을 읽고, [arm 템플릿의 구조와 구문을 이해](../azure-resource-manager/templates/template-syntax.md) 하 여 고유한 템플릿을 빌드하고 테스트 하는 방법을 더 잘 이해 하세요.
 
 **호스팅된** 또는 **논리 앱** 테스트 드라이브에 대 한 자세한 내용은 [테스트 드라이브인 무엇 인가요?](what-is-test-drive.md) 를 참조 하세요.
 
@@ -34,7 +34,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
   - **콜드** - 이 유형의 인스턴스는 지역별로 배포할 수 있는 총 인스턴스 수를 나타냅니다. 콜드 인스턴스는 고객이 시험 사용을 요청할 때 배포할 전체 시험 사용 Resource Manager 템플릿이 필요하므로 콜드 인스턴스의 로드 속도는 핫 인스턴스보다 훨씬 느립니다. 단점은 시험 사용 기간 동안 비용을 지불하는 것이고 핫 인스턴스와 같이 Azure 구독에서 항상 실행되는 것은 아닙니다.
 
-- **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다. 자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
+- **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다. 자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
 
     > [!note]
     > 성공적으로 게시 하려면 ARM 템플릿 서식의 유효성을 검사 하는 것이 중요 합니다. 이 작업을 수행 하는 두 가지 방법은 (1) [온라인 API 도구](https://docs.microsoft.com/rest/api/resources/deployments/validate) 를 사용 하거나 (2) [테스트 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)를 사용 하는 것입니다.
@@ -73,7 +73,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="accepted-parameter-metadata-types"></a>허용되는 매개 변수 메타데이터 유형
 
-| 메타데이터 유형   | 매개 변수 유형  | Description     | 샘플 값    |
+| 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
 |---|---|---|---|
 | **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **username**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
@@ -240,7 +240,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 구독에서 선택한 각 지역에 원하는 모든 리소스를 배포할 수 있는지 확인 합니다. 또한 사용할 모든 지역에서 가상 머신 이미지를 사용할 수 있는지 확인 하세요. 그렇지 않으면 일부 지역에서 배포 템플릿이 작동 하지 않습니다.
 
-### <a name="outputs"></a>출력
+### <a name="outputs"></a>outputs
 
 일반적으로 리소스 관리자 템플릿을 사용 하 여 출력을 생성 하지 않고 배포할 수 있습니다. 이는 템플릿 매개 변수를 채우는 데 사용하는 모든 값을 알고 있으며 항상 리소스의 속성을 수동으로 검사할 수 있기 때문입니다.
 

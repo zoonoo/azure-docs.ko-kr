@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317704"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124767"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics JavaScript 사용자 정의 집계
  
@@ -83,7 +83,7 @@ function main() {
 
 ### <a name="function-type"></a>함수 유형
 
-UDA의 경우 함수 유형은 **Javascript UDA**여야 합니다.
+UDA의 경우 함수 유형은 **Javascript UDA** 여야 합니다.
 
 ### <a name="output-type"></a>출력 형식
 
@@ -125,7 +125,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 1. Azure Portal에 로그인하고 기존 Stream Analytics 작업을 찾습니다.
 1. 그런 다음 **작업 토폴로지** 아래에서 함수 링크를 클릭합니다.
 1. **추가** 아이콘을 클릭하여 새 함수를 추가합니다.
-1. 새 함수 보기에서 함수 유형으로 **JavaScript UDA**를 선택하면 편집기에 기본 UDA 템플릿이 표시됩니다.
+1. 새 함수 보기에서 함수 유형으로 **JavaScript UDA** 를 선택하면 편집기에 기본 UDA 템플릿이 표시됩니다.
 1. UDA 별칭으로 "TWA"를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
     ```JavaScript
@@ -226,12 +226,12 @@ GROUP BY TumblingWindow(minute, 5)
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

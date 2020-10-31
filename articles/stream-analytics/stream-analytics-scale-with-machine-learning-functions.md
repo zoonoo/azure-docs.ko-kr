@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: d2fe8445d41f88852c6c9d4db84f4e1b03183a2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015535"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124410"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정
 
@@ -40,7 +40,7 @@ Stream Analytics 작업의 대기 시간 ‘허용 범위’를 정합니다. �
 
 일괄 처리 크기를 높이면 Stream Analytics 작업에서 **동일한 수** 의 Studio (클래식) 웹 서비스 요청으로 **더 많은 이벤트** 를 처리할 수 있습니다. 스튜디오 (클래식) 웹 서비스 대기 시간은 일반적으로 일괄 처리 크기의 증가에 sublinear 됩니다. 
 
-지정 된 상황에서 Studio (클래식) 웹 서비스에 대 한 가장 비용 효율적인 일괄 처리 크기를 고려 하는 것이 중요 합니다. 웹 서비스 요청의 기본 배치 크기는 1000입니다. 이 기본값은 [Stream Analytics REST API](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "Stream Analytics REST API") 또는 [Stream Analytics용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md)를 사용하여 변경할 수 있습니다.
+지정 된 상황에서 Studio (클래식) 웹 서비스에 대 한 가장 비용 효율적인 일괄 처리 크기를 고려 하는 것이 중요 합니다. 웹 서비스 요청의 기본 배치 크기는 1000입니다. 이 기본값은 [Stream Analytics REST API](/previous-versions/azure/mt653706(v=azure.100) "Stream Analytics REST API") 또는 [Stream Analytics용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md)를 사용하여 변경할 수 있습니다.
 
 배치 크기를 정했으면 함수가 초당 처리해야 하는 이벤트 수를 기준으로 SU(스트리밍 단위)의 수를 설정할 수 있습니다. 스트리밍 단위에 대한 자세한 내용은 [Stream Analytics 크기 조정 작업](stream-analytics-scale-jobs.md)을 참조하세요.
 
@@ -52,7 +52,7 @@ Stream Analytics 작업의 대기 시간 ‘허용 범위’를 정합니다. �
 
 ![Studio (클래식) 함수를 사용 하 여 Stream Analytics 확장 두 작업 예제](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Studio (클래식) 함수를 사용 하 여 Stream Analytics 확장 두 작업 예제")
 
-일반적으로 배치 크기가 ***B***이고, 배치 크기 B의 웹 서비스 대기 시간이 ***L***밀리초이면 SU ***N***개가 포함된 Stream Analytics 작업의 처리량은 다음과 같습니다.
+일반적으로 배치 크기의 경우 * *_b_* _, 일괄 처리 크기 B의 웹 서비스 대기 시간에 대 한 _*_L_*_ (밀리초) _*_을 사용 하_*_ 는 Stream Analytics 작업의 처리량은 다음과 같습니다.
 
 ![Studio (클래식) 함수 수식을 사용 하 여 Stream Analytics 확장](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Studio (클래식) 함수 수식을 사용 하 여 Stream Analytics 확장")
 
@@ -63,7 +63,7 @@ Stream Analytics 작업의 대기 시간 ‘허용 범위’를 정합니다. �
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제에는 [Stream Analytics Machine Learning Studio (클래식) 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명 된 대로 감정 analysis Studio (클래식) 함수를 사용 하는 Stream Analytics 작업이 포함 되어 있습니다.
 
-다음 예제에 표시된 대로 완전히 분할된 간단한 쿼리 다음에 **sentiment** 함수가 옵니다.
+쿼리는 다음 예제와 같이 완전히 분할 된 간단한 쿼리 다음에 _ *감정* * 함수를 통해 수행 됩니다.
 
 ```SQL
     WITH subquery AS (
@@ -86,9 +86,9 @@ Stream Analytics 작업의 **전체적인** 또는 엔드투엔드 대기 시간
 1. 배치 크기를 늘립니다.
 2. 입력 스트림을 분할하여 이벤트를 병렬로 처리합니다.
 
-첫 번째 옵션을 사용하면 작업 **대기 시간**이 증가합니다.
+첫 번째 옵션을 사용하면 작업 **대기 시간** 이 증가합니다.
 
-두 번째 옵션을 사용 하는 경우 더 많은 동시 스튜디오 (클래식) 웹 서비스 요청을 사용 하려면 더 많은 su를 프로 비전 해야 합니다. 이처럼 SU 수를 늘리면 작업 **비용**이 늘어납니다.
+두 번째 옵션을 사용 하는 경우 더 많은 동시 스튜디오 (클래식) 웹 서비스 요청을 사용 하려면 더 많은 su를 프로 비전 해야 합니다. 이처럼 SU 수를 늘리면 작업 **비용** 이 늘어납니다.
 
 각 배치 크기의 대기 시간 측정값을 사용하여 크기 조정을 살펴보겠습니다.
 
@@ -99,7 +99,7 @@ Stream Analytics 작업의 **전체적인** 또는 엔드투엔드 대기 시간
 | 300ms | 10,000개 이벤트로 구성된 배치 |
 | 500ms | 25,000개 이벤트로 구성된 배치 |
 
-1. 첫 번째 옵션을 사용하면(더 많은 SU를 프로비전하지 **않음**) 일괄 처리 크기가 **25,000**으로 늘어날 수 있습니다. 이러한 방식으로 일괄 처리 크기를 높이면 작업에서 Studio (클래식) 웹 서비스에 대 한 20 개의 동시 연결을 사용 하 여 100만 이벤트를 처리할 수 있습니다 (호출 당 500 밀리초 지연). 따라서 Studio (클래식) 웹 서비스 요청에 대 한 감정 함수 요청으로 인해 Stream Analytics 작업의 추가 대기 시간이 **200 밀리초** 에서 **500 밀리초**로 증가 합니다. 그러나 Studio (클래식) 웹 서비스에서 요청 하는 페이로드 크기는 4mb이 하 여야 하 고 작업의 100 초 후에 웹 서비스 요청 시간이 초과 되므로 일괄 처리 크기를 무한정 늘릴 수 **없습니다** .
+1. 첫 번째 옵션을 사용하면(더 많은 SU를 프로비전하지 **않음** ) 일괄 처리 크기가 **25,000** 으로 늘어날 수 있습니다. 이러한 방식으로 일괄 처리 크기를 높이면 작업에서 Studio (클래식) 웹 서비스에 대 한 20 개의 동시 연결을 사용 하 여 100만 이벤트를 처리할 수 있습니다 (호출 당 500 밀리초 지연). 따라서 Studio (클래식) 웹 서비스 요청에 대 한 감정 함수 요청으로 인해 Stream Analytics 작업의 추가 대기 시간이 **200 밀리초** 에서 **500 밀리초** 로 증가 합니다. 그러나 Studio (클래식) 웹 서비스에서 요청 하는 페이로드 크기는 4mb이 하 여야 하 고 작업의 100 초 후에 웹 서비스 요청 시간이 초과 되므로 일괄 처리 크기를 무한정 늘릴 수 **없습니다** .
 1. 두 번째 옵션을 사용할 경우 배치 크기는 1000으로 유지되고 웹 서비스 대기 시간이 200ms이므로, 웹 서비스에 대한 동시 연결 20개마다 1000 * 20 * 5 이벤트 = 초당 100,000개 이벤트를 처리할 수 있습니다. 따라서 초당 1,000,000 이벤트를 처리하려면 작업에 60SU가 필요합니다. 첫 번째 옵션과 비교하면, Stream Analytics 작업에서 웹 서비스 배치 요청을 더 많이 만들며, 그로 인해 비용도 함께 증가합니다.
 
 아래는 SU 및 배치 크기(초당 이벤트 수)에 따른 Stream Analytics 작업의 처리량을 보여 주는 테이블입니다.
@@ -120,17 +120,17 @@ Stream Analytics 작업의 **전체적인** 또는 엔드투엔드 대기 시간
 일반적으로 Studio (클래식) 함수에 대해 설정 하는 일괄 처리 크기는 각 Stream Analytics 작업 "끌어오기"에서 반환 되는 이벤트 수로 정확 하 게 나눌 수 없습니다. 이 경우 Studio (클래식) 웹 서비스는 "부분" 일괄 처리를 사용 하 여 호출 됩니다. 부분 배치를 사용하면 끌어오기 간에 이벤트를 병합할 때 추가 작업 대기 시간 오버헤드가 발생하지 않습니다.
 
 ## <a name="new-function-related-monitoring-metrics"></a>새 함수 관련 모니터링 메트릭
-Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 개가 추가되었습니다. 이 세 개 함수는 아래 그림에 나와 있는 것처럼 **FUNCTION REQUESTS**, **FUNCTION EVENTS** 및 **FAILED FUNCTION REQUESTS**입니다.
+Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 개가 추가되었습니다. 이 세 개 함수는 아래 그림에 나와 있는 것처럼 **FUNCTION REQUESTS** , **FUNCTION EVENTS** 및 **FAILED FUNCTION REQUESTS** 입니다.
 
 ![Studio (클래식) 함수 메트릭을 사용 하 여 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Studio (클래식) 함수 메트릭을 사용 하 여 Stream Analytics 크기 조정")
 
 함수는 아래와 같이 정의됩니다.
 
-**FUNCTION REQUESTS**: 함수 요청의 수
+**FUNCTION REQUESTS** : 함수 요청의 수
 
-**FUNCTION EVENTS**: 함수 요청의 이벤트 수
+**FUNCTION EVENTS** : 함수 요청의 이벤트 수
 
-**FAILED FUNCTION REQUESTS**: 실패한 함수 요청의 수
+**FAILED FUNCTION REQUESTS** : 실패한 함수 요청의 수
 
 ## <a name="key-takeaways"></a>핵심 내용
 
@@ -140,12 +140,12 @@ Studio (클래식) 함수를 사용 하 여 Stream Analytics 작업의 크기를
 2. 실행 중인 Stream Analytics 작업에 대해 허용 되는 대기 시간 (따라서 스튜디오 (클래식) 웹 서비스 요청의 일괄 처리 크기)입니다.
 3. 프로 비전 된 Stream Analytics su와 Studio (클래식) 웹 서비스 요청 수입니다 (추가 함수 관련 비용).
 
-이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)에서 Stream Analytics 팀의 추가 도움을 받을 수 있습니다.
+이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)에서 Stream Analytics 팀의 추가 도움을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

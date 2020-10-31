@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124815"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행
 
@@ -51,7 +51,7 @@ ms.locfileid: "92277458"
 
     ![조직에 대한 액세스 검토가 보류 중인 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. **검토 시작**을 선택하여 액세스 검토를 시작합니다.
+4. **검토 시작** 을 선택하여 액세스 검토를 시작합니다.
 
 5. 액세스를 검토하고 해당 액세스가 여전히 필요한지 여부를 결정합니다.
 
@@ -60,13 +60,13 @@ ms.locfileid: "92277458"
     >[!Note]
     >조직의 그룹 및 앱 액세스를 검토하도록 허용된 관리자인 경우 다른 페이지가 표시됩니다. 조직의 그룹 또는 앱을 검토하는 방법에 대한 자세한 내용은 [Azure AD 액세스 검토에서 그룹 또는 애플리케이션에 대한 액세스 검토](../governance/perform-access-review.md)를 참조하세요.
 
-6. 액세스를 유지하려면 **예**를 선택하고 액세스를 제거하려면 **아니요**를 선택합니다.
+6. 액세스를 유지하려면 **예** 를 선택하고 액세스를 제거하려면 **아니요** 를 선택합니다.
 
-    **예**를 선택하는 경우 **이유** 상자에 근거를 지정해야 할 수 있습니다.
+    **예** 를 선택하는 경우 **이유** 상자에 근거를 지정해야 할 수 있습니다.
 
     ![샘플 텍스트를 사용하여 이유 상자를 표시하는 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. **제출**을 선택합니다.
+7. **제출** 을 선택합니다.
 
     액세스 검토가 완료되고 **내 앱** 포털로 돌아갑니다.
 
@@ -76,5 +76,5 @@ ms.locfileid: "92277458"
 ## <a name="next-steps"></a>다음 단계
 
 - [내 앱 포털에서 앱 액세스 및 사용](my-apps-portal-end-user-access.md)
-- [프로필 정보 변경](my-apps-portal-end-user-update-profile.md)
+- [프로필 정보 변경](./my-account-portal-settings.md)
 - [그룹 관련 정보 보기 및 업데이트](my-apps-portal-end-user-groups.md)

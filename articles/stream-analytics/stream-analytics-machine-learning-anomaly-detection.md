@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123713"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
@@ -42,7 +42,7 @@ Machine learning 작업은 현재 계절성 추세 또는 여러 번의 상관 �
 
 ## <a name="spike-and-dip"></a>급증 및 급감
 
-시계열 이벤트 스트림의 일시적인 변칙을 급증 및 급감이라고 합니다. 급증 및 급감은 기계 학습 기반 연산자인 [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+시계열 이벤트 스트림의 일시적인 변칙을 급증 및 급감이라고 합니다. 급증 및 급감은 기계 학습 기반 연산자인 [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 )을 사용하여 모니터할 수 있습니다.
 
 ![급증 및 급감 변칙의 예](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,7 +74,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>변경 지점
 
-시계열 이벤트 스트림의 영구적 변칙은 수준 변경 및 추세와 같은 이벤트 스트림의 값 분산 변경입니다. Stream Analytics에서 이러한 변칙은 Machine Learning 기반의 [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) 연산자를 사용하여 검색됩니다.
+시계열 이벤트 스트림의 영구적 변칙은 수준 변경 및 추세와 같은 이벤트 스트림의 값 분산 변경입니다. Stream Analytics에서 이러한 변칙은 Machine Learning 기반의 [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) 연산자를 사용하여 검색됩니다.
 
 영구적 변경은 급증 및 급감보다 훨씬 오래 지속되며 치명적인 이벤트를 나타낼 수 있습니다. 일반적으로 영구적 변경은 표시되지 않지만 **AnomalyDetection_ChangePoint** 연산자를 사용하여 검색할 수 있습니다.
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 이러한 모델의 성능은 기록 크기, 기간, 이벤트 로드 및 함수 수준 분할 사용 여부에 따라 달라 집니다. 이 섹션에서는 이러한 구성에 대해 설명 하 고 초당 1K, 5K 및 10K 이벤트 수집 속도를 유지 하는 방법에 대 한 샘플을 제공 합니다.
 
-* **기록 크기** -이러한 모델은 **기록 크기로**선형으로 수행 됩니다. 기록 크기가 길수록 모델이 새 이벤트 점수를 매기는 데 걸리는 시간이 길어집니다. 이는 모델이 새 이벤트를 기록 버퍼의 각 이전 이벤트와 비교 하기 때문입니다.
+* **기록 크기** -이러한 모델은 **기록 크기로** 선형으로 수행 됩니다. 기록 크기가 길수록 모델이 새 이벤트 점수를 매기는 데 걸리는 시간이 길어집니다. 이는 모델이 새 이벤트를 기록 버퍼의 각 이전 이벤트와 비교 하기 때문입니다.
 * **기간** - **창 지속 시간은** 기록 크기에 지정 된 수 만큼 이벤트를 수신 하는 데 걸리는 시간을 반영 해야 합니다. 창에 이벤트가 없으면 Azure Stream Analytics에서 누락 된 값을 돌립니다 수 있습니다. 따라서 CPU 소비는 기록 크기의 함수입니다.
-* **이벤트 로드** - **이벤트 로드가**많을 수록 CPU 소비에 영향을 주는 모델에 의해 수행 되는 작업이 더 많이 발생 합니다. 작업은 더 많은 입력 파티션을 사용 하는 비즈니스 논리에 적합 하다 고 가정 하 고 처리가 적합 병렬로 만들어 확장할 수 있습니다.
+* **이벤트 로드** - **이벤트 로드가** 많을 수록 CPU 소비에 영향을 주는 모델에 의해 수행 되는 작업이 더 많이 발생 합니다. 작업은 더 많은 입력 파티션을 사용 하는 비즈니스 논리에 적합 하다 고 가정 하 고 처리가 적합 병렬로 만들어 확장할 수 있습니다.
 * **함수 수준 분할**  -  **함수 수준 분할** 은 ```PARTITION BY``` 변칙 검색 함수 호출 내에서를 사용 하 여 수행 됩니다. 이러한 유형의 분할은 여러 모델에 대 한 상태를 동시에 유지 해야 하므로 오버 헤드를 추가 합니다. 함수 수준 분할은 장치 수준 분할과 같은 시나리오에서 사용 됩니다.
 
 ### <a name="relationship"></a>관계
@@ -152,13 +152,12 @@ DeviceId로 함수를 분할 하는 경우 변칙 검색 함수 호출에 "PARTI
 > 좀 더 정확한 예측을 위해 시나리오에 맞게 샘플을 사용자 지정합니다.
 
 ### <a name="identifying-bottlenecks"></a>병목 상태 식별
-Azure Stream Analytics 작업의 메트릭 창을 사용하여 파이프라인의 병목 상태를 파악할 수 있습니다. 또한 **입출력 이벤트**를 검토하여 처리량을 확인하고 [“워터마크 지연”](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그된 이벤트**를 검토하여 입력 속도에 맞게 작업이 처리되고 있는지 확인할 수 있습니다. 이벤트 허브 메트릭의 경우 **제한된 요청**을 검색하고 그에 따라 임계값 단위를 조정합니다. Cosmos DB 메트릭의 경우 처리량에서 **파티션 키 범위당 최대 사용된 RU/초**를 검토하여 파티션 키 범위가 균등하게 사용되도록 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링합니다.
+Azure Stream Analytics 작업의 메트릭 창을 사용하여 파이프라인의 병목 상태를 파악할 수 있습니다. 또한 **입출력 이벤트** 를 검토하여 처리량을 확인하고 [“워터마크 지연”](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그된 이벤트** 를 검토하여 입력 속도에 맞게 작업이 처리되고 있는지 확인할 수 있습니다. 이벤트 허브 메트릭의 경우 **제한된 요청** 을 검색하고 그에 따라 임계값 단위를 조정합니다. Cosmos DB 메트릭의 경우 처리량에서 **파티션 키 범위당 최대 사용된 RU/초** 를 검토하여 파티션 키 범위가 균등하게 사용되도록 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU** 를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

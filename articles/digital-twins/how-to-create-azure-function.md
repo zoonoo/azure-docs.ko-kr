@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495921"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124260"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -30,17 +30,21 @@ ms.locfileid: "92495921"
 4. Azure에 함수 앱 게시
 5. Azure 함수 앱에 대 한 [보안](concepts-security.md) 액세스 설정
 
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>필수 조건: Azure Digital Twins 인스턴스 설정
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Visual Studio에서 Azure Functions 앱 만들기
 
-Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 한 후 _다음_을 선택 합니다.
+Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 한 후 _다음_ 을 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-함수 앱의 이름을 지정 하 고 _만들기_를 선택 합니다.
+함수 앱의 이름을 지정 하 고 _만들기_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-*트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_를 선택 합니다.
+*트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
@@ -155,14 +159,14 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Azure에 함수 앱 게시
 
-함수 앱을 Azure에 게시 하려면 솔루션 탐색기의 함수 프로젝트 (솔루션 아님)를 마우스 오른쪽 단추로 선택 하 고 **게시**를 선택 합니다.
+함수 앱을 Azure에 게시 하려면 솔루션 탐색기의 함수 프로젝트 (솔루션 아님)를 마우스 오른쪽 단추로 선택 하 고 **게시** 를 선택 합니다.
 
 > [!IMPORTANT] 
 > Azure function을 게시 하면 Azure Digital Twins와 무관 하 게 구독에 대 한 추가 요금이 발생 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-게시 대상으로 **Azure** 를 선택 하 고 **다음**을 선택 합니다.
+게시 대상으로 **Azure** 를 선택 하 고 **다음** 을 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
@@ -205,7 +209,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
 
 > [!TIP]
-> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름*앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름* 앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
@@ -219,7 +223,7 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
-_시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_하는 팝업이 표시 됩니다.
+_시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_ 하는 팝업이 표시 됩니다.
 _예_ 단추를 선택 합니다. 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
@@ -240,10 +244,10 @@ Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가
 
 열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음을 선택 합니다.
 
-* _범위_: 리소스 그룹
-* _구독_: Azure 구독을 선택 합니다.
-* _리소스 그룹_: 드롭다운에서 리소스 그룹을 선택 합니다.
-* _역할_: 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
+* _범위_ : 리소스 그룹
+* _구독_ : Azure 구독을 선택 합니다.
+* _리소스 그룹_ : 드롭다운에서 리소스 그룹을 선택 합니다.
+* _역할_ : 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
 
 _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
@@ -255,7 +259,7 @@ _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 응용 프로그램 설정을 만들려면 ADT_INSTANCE_URL 필요 합니다.
 
-인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
+인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 

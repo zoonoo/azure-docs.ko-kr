@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798009"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123951"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>내 앱 포털 문제 해결
 
@@ -87,7 +87,7 @@ ms.locfileid: "88798009"
 
 - [내 앱 포털에서 앱에 액세스하고 앱을 사용](my-apps-portal-end-user-access.md)합니다.
 
-- [프로필 정보를 변경](my-apps-portal-end-user-update-profile.md)합니다.
+- [프로필 정보를 변경](./my-account-portal-settings.md)합니다.
 
 - [그룹 관련 정보를 보고 업데이트](my-apps-portal-end-user-groups.md)합니다.
 

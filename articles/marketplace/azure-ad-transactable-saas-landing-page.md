@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4c23e6b213c102813758742b8d191735207d285
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124903"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -46,23 +46,23 @@ ms.locfileid: "89378800"
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 
-상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 구매자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)로 인증 된 marketplace에 도착 합니다. 구매 후 구매자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램의 구독을 활성화 하 고 관리 합니다. 구매자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정 되어 있습니다.
+상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 구매자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology)로 인증 된 marketplace에 도착 합니다. 구매 후 구매자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램의 구독을 활성화 하 고 관리 합니다. 구매자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정 되어 있습니다.
 
 Id를 사용 하는 첫 번째 단계는 방문 페이지가 Azure AD 응용 프로그램으로 등록 되었는지 확인 하는 것입니다. 응용 프로그램을 등록 하면 Azure AD를 사용 하 여 사용자를 인증 하 고 사용자 리소스에 대 한 액세스를 요청할 수 있습니다. 응용 프로그램의 정의로 간주할 수 있으며,이를 통해 서비스는 앱의 설정에 따라 응용 프로그램에 토큰을 발급 하는 방법을 알 수 있습니다.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 애플리케이션 등록
 
-시작 하려면 [새 응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)하는 방법에 대 한 지침을 따르세요. 다른 회사의 사용자가 앱을 방문할 수 있도록 하려면 응용 프로그램을 사용할 수 있는 사람을 요청할 때 다중 테 넌 트 옵션 중 하나를 선택 해야 합니다.
+시작 하려면 [새 응용 프로그램을 등록](../active-directory/develop/quickstart-register-app.md)하는 방법에 대 한 지침을 따르세요. 다른 회사의 사용자가 앱을 방문할 수 있도록 하려면 응용 프로그램을 사용할 수 있는 사람을 요청할 때 다중 테 넌 트 옵션 중 하나를 선택 해야 합니다.
 
-Microsoft Graph API를 쿼리하려면 [웹 api에 액세스 하도록 새 응용 프로그램을 구성](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis)합니다. 이 응용 프로그램에 대 한 API 사용 권한을 선택 하는 경우에는 기본적으로 사용자의 기본 정보를 수집 하 여 온 보 딩 프로세스를 원활 하 고 자동으로 설정할 수 있습니다 **.** 모든 관리자가 아닌 사용자가 방문 페이지를 방문 하지 못하도록 차단 하므로 관리자 **동의가 필요 하다**고 표시 된 API 권한은 요청 하지 마세요.
+Microsoft Graph API를 쿼리하려면 [웹 api에 액세스 하도록 새 응용 프로그램을 구성](../active-directory/develop/quickstart-configure-app-access-web-apis.md)합니다. 이 응용 프로그램에 대 한 API 사용 권한을 선택 하는 경우에는 기본적으로 사용자의 기본 정보를 수집 하 여 온 보 딩 프로세스를 원활 하 고 자동으로 설정할 수 있습니다 **.** 모든 관리자가 아닌 사용자가 방문 페이지를 방문 하지 못하도록 차단 하므로 관리자 **동의가 필요 하다** 고 표시 된 API 권한은 요청 하지 마세요.
 
-등록 또는 프로 비전 프로세스의 일환으로 상승 된 권한이 필요한 경우 marketplace에서 보낸 모든 구매자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](https://aka.ms/incremental-consent) 기능을 사용 하는 것이 좋습니다.
+등록 또는 프로 비전 프로세스의 일환으로 상승 된 권한이 필요한 경우 marketplace에서 보낸 모든 구매자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) 기능을 사용 하는 것이 좋습니다.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>코드 샘플을 시작 지점으로 사용
 
 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구현 하는 몇 가지 샘플 앱을 제공 했습니다. 응용 프로그램이 Azure AD에 등록 된 후 **빠른** 시작 블레이드는 그림 1에 표시 된 것 처럼 일반적인 응용 프로그램 유형 및 개발 스택 목록을 제공 합니다. 사용자 환경과 일치 하는 항목을 선택 하 고 다운로드 및 설정 지침을 따릅니다.
 
-***그림 1: Azure Portal의 빠른 시작 블레이드***
+**_그림 1: Azure Portal _의 빠른 시작 블레이드_*
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Azure Portal의 빠른 시작 블레이드를 보여 줍니다.":::
 
@@ -75,7 +75,7 @@ Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구현 하는 몇
 - 먼저 SaaS 처리 Api에 연결 하는 기능이 없는 경우를 제외 하 고이 시점까지 설명 된 다중 테 넌 트 방문 페이지 응용 프로그램입니다. 이 기능은 아래에 설명 된 대로 다른 응용 프로그램으로 오프 로드 됩니다.
 - 둘째로, SaaS 처리 Api와의 통신을 소유 하는 응용 프로그램입니다. 이 응용 프로그램은 단일 테 넌 트 여야 하며, 조직 에서만 사용 해야 하며,이 앱 에서만 Api에 대 한 액세스를 제한 하도록 액세스 제어 목록을 설정할 수 있습니다.
 
-이렇게 하면 [문제](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) 를 해결 하는 원칙을 관찰 하는 시나리오에서 솔루션을 사용할 수 있습니다. 예를 들어 방문 페이지는 등록 된 첫 번째 Azure AD 앱을 사용 하 여 사용자를 로그인 합니다. 사용자가 로그인 한 후에는 방문 페이지에서 두 번째 Azure AD를 사용 하 여 SaaS 처리 API를 호출 하 고 확인 작업을 호출 하는 액세스 토큰을 요청 합니다.
+이렇게 하면 [문제](/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) 를 해결 하는 원칙을 관찰 하는 시나리오에서 솔루션을 사용할 수 있습니다. 예를 들어 방문 페이지는 등록 된 첫 번째 Azure AD 앱을 사용 하 여 사용자를 로그인 합니다. 사용자가 로그인 한 후에는 방문 페이지에서 두 번째 Azure AD를 사용 하 여 SaaS 처리 API를 호출 하 고 확인 작업을 호출 하는 액세스 토큰을 요청 합니다.
 
 ## <a name="resolve-the-marketplace-purchase-identification-token"></a>Marketplace 구매 식별 토큰을 확인 합니다.
 
@@ -94,7 +94,7 @@ SaaS 처리 Api는 marketplace 토큰의 유효성을 확인 하 고 구독에 �
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>ID 토큰에서 인코딩된 클레임에서 정보를 읽습니다.
 
-[Openid connect Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 흐름의 일부로 Azure AD는 구매자가 방문 페이지로 전송 될 때 요청에 [ID 토큰](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) 을 추가 합니다. 이 토큰에는이 표에 표시 된 정보를 비롯 하 여 활성화 프로세스에 유용할 수 있는 여러 가지 기본 정보가 포함 되어 있습니다.
+[Openid connect Connect](../active-directory/develop/v2-protocols-oidc.md) 흐름의 일부로 Azure AD는 구매자가 방문 페이지로 전송 될 때 요청에 [ID 토큰](../active-directory/develop/id-tokens.md) 을 추가 합니다. 이 토큰에는이 표에 표시 된 정보를 비롯 하 여 활성화 프로세스에 유용할 수 있는 여러 가지 기본 정보가 포함 되어 있습니다.
 
 | 값 | 설명 |
 | ------------ | ------------- |
@@ -109,7 +109,7 @@ SaaS 처리 Api는 marketplace 토큰의 유효성을 확인 하 고 구독에 �
 
 ## <a name="use-the-microsoft-graph-api"></a>Microsoft Graph API 사용
 
-ID 토큰에는 구매자를 식별 하기 위한 기본 정보가 포함 되어 있지만 정품 인증 프로세스를 완료 하려면 구매자 회사와 같은 추가 정보가 필요할 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 **사용자. 읽기** 권한에는 기본적으로 다음 정보가 포함 됩니다.
+ID 토큰에는 구매자를 식별 하기 위한 기본 정보가 포함 되어 있지만 정품 인증 프로세스를 완료 하려면 구매자 회사와 같은 추가 정보가 필요할 수 있습니다. [MICROSOFT GRAPH API](/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 _ *사용자. 읽기* * 권한은 기본적으로 다음 정보를 포함 합니다.
 
 | 값 | 설명 |
 | ------------ | ------------- |
@@ -122,9 +122,9 @@ ID 토큰에는 구매자를 식별 하기 위한 기본 정보가 포함 되어
 | surname | 사용자의 성입니다. |
 |||
 
-사용자의 회사 이름 또는 사용자의 위치 (국가)와 같은 추가 속성을 선택 하 여 요청에 포함할 수 있습니다. 자세한 내용은 [사용자 리소스 형식에 대 한 속성](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) 을 참조 하세요.
+사용자의 회사 이름 또는 사용자의 위치 (국가)와 같은 추가 속성을 선택 하 여 요청에 포함할 수 있습니다. 자세한 내용은 [사용자 리소스 형식에 대 한 속성](/graph/api/resources/user?view=graph-rest-1.0#properties) 을 참조 하세요.
 
-Azure AD에 등록 된 대부분의 앱은 회사의 Azure AD 테 넌 트에서 사용자 정보를 읽을 수 있도록 위임 된 권한을 부여 합니다. 해당 정보에 대 한 Microsoft Graph 요청에는 인증을 위해 액세스 토큰이 수반 되어야 합니다. 액세스 토큰을 생성 하는 특정 단계는 사용 중인 기술 스택에 따라 다르지만 샘플 코드에는 예제가 포함 됩니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](https://docs.microsoft.com/graph/auth-v2-user)를 참조 하세요.
+Azure AD에 등록 된 대부분의 앱은 회사의 Azure AD 테 넌 트에서 사용자 정보를 읽을 수 있도록 위임 된 권한을 부여 합니다. 해당 정보에 대 한 Microsoft Graph 요청에는 인증을 위해 액세스 토큰이 수반 되어야 합니다. 액세스 토큰을 생성 하는 특정 단계는 사용 중인 기술 스택에 따라 다르지만 샘플 코드에는 예제가 포함 됩니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](/graph/auth-v2-user)를 참조 하세요.
 
 > [!NOTE]
 > MSA 테 넌 트의 계정 (테 넌 트 ID ``9188040d-6c67-4c5b-b112-36a304b66dad`` )은 ID 토큰을 사용 하 여 이미 수집 된 것 보다 많은 정보를 반환 하지 않습니다. 따라서 이러한 계정에 대 한 Graph API 호출을 건너뛸 수 있습니다.

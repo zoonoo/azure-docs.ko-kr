@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124937"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +62,11 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 1. **자세히...** 를 선택하여 **DNS 접미사 및 NetBIOS 컴퓨터 이름** 대화 상자를 엽니다. 
 1. **이 컴퓨터의 주 DNS 접미사** 아래에 DNS 접미사의 이름(예: `ag.wgcluster.example.com`)을 입력하고 **확인** 을 선택합니다. 
 
-   ![DNS 접미사 추가](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![스크린샷에는 값을 입력할 수 있는 D N S 접미사 및 NetBIOS 컴퓨터 이름 대화 상자가 표시 됩니다.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. **전체 컴퓨터 이름** 에 DNS 접미사가 표시되는지 확인하고 **확인** 을 선택하여 변경 내용을 저장합니다. 
 
-   ![DNS 접미사 추가](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![전체 컴퓨터 이름을 볼 수 있는 위치를 보여 주는 스크린샷](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. 지시에 따라 서버를 다시 부팅합니다. 
 1. 가용성 그룹에 사용할 다른 모든 노드에서 이 단계를 반복합니다. 
