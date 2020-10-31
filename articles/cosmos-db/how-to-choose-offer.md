@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909933"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089642"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>표준(수동) 및 자동 크기 조정 프로비저닝된 처리량 중에서 선택하는 방법 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 프로비저닝된 처리량의 두 가지 유형 또는 제공 방식인 표준(수동) 및 자동 크기 조정을 지원합니다. 두 처리량 유형 모두 높은 성능과 규모를 필요로 하는 중요 비즈니스용 워크로드에 적합하며 동일한 Azure Cosmos DB SLA에 따라 처리량, 가용성, 대기 시간 및 일관성이 지원됩니다.
 
@@ -59,7 +60,7 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 > [!TIP]
 > 계정이 다중 지역 쓰기를 사용 하도록 구성 되어 있고 지역이 둘 이상인 경우에는 수동 및 자동 크기 조정에 대해 100 r u/초 당 요금이 동일 합니다. 즉, 자동 크기 조정을 사용 하면 사용률에 관계 없이 추가 비용이 발생 하지 않습니다. 따라서 둘 이상의 지역이 있는 경우 다중 지역 쓰기에 자동 크기 조정을 사용 하 여 응용 프로그램의 크기를 조정 하는 데 필요한 경우에만 요금을 지불할 수 있습니다. 다중 지역 쓰기와 한 지역이 있는 경우 평균 사용량을 사용 하 여 자동 크기 조정으로 비용을 절감할 수 있는지 확인 합니다. 
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 두 가지 예제 작업을 살펴보고 수동 또는 자동 크기 조정 처리량에 적합 한지를 분석 해 보겠습니다. 일반적인 접근 방식을 설명 하기 위해 3 시간의 기록을 분석 하 여 수동 및 자동 크기 조정 사용 간의 비용 차이를 확인 합니다. 프로덕션 워크 로드의 경우 7 ~ 30 일 동안의 기록 (또는 사용 가능한 경우 더 오래 된)을 사용 하 여 사용 패턴을 설정 하는 것이 좋습니다.
 

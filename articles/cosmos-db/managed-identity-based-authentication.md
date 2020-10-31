@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088576"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 [관리 되는 id](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 사용 하 여 Azure Cosmos DB 키에 액세스할 수 있는 *강력 하 고 키 회전* 을 위한 솔루션을 설정 합니다. 이 문서의 예제에서는 Azure Functions를 사용 하지만 관리 되는 id를 지 원하는 모든 서비스를 사용할 수 있습니다. 
 
@@ -33,7 +34,7 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
-1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고 **Status** **저장**을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
+1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고 **Status** **저장** 을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
@@ -60,19 +61,19 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
-1. **추가** > **역할 할당 추가**를 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택합니다.
 
 1. **역할 할당 추가** 패널이 오른쪽에 열립니다.
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
-   * **역할**: **DocumentDB 계정 참가자** 선택
-   * 다음에 대 한 **액세스 할당**: **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱**을 선택 합니다.
-   * **선택**: **관리 되는 시스템 id**를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
+   * **역할** : **DocumentDB 계정 참가자** 선택
+   * 다음에 대 한 **액세스 할당** : **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱** 을 선택 합니다.
+   * **선택** : **관리 되는 시스템 id** 를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
-1. 함수 앱을 선택한 후 **저장**을 선택 합니다.
+1. 함수 앱을 선택한 후 **저장** 을 선택 합니다.
 
 ### <a name="assign-the-role-using-azure-cli"></a>Azure CLI를 사용 하 여 역할 할당
 

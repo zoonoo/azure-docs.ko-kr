@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482624"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088746"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos 에뮬레이터 설치 및 사용
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos emulator는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공 합니다. Azure Cosmos 에뮬레이터를 사용 하 여 Azure 구독을 만들거나 비용을 발생 시 키 지 않고도 로컬에서 응용 프로그램을 개발 하 고 테스트할 수 있습니다. Azure Cosmos emulator에서 응용 프로그램이 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Cosmos 계정을 사용 하도록 전환할 수 있습니다. 이 문서에서는 Windows, Linux, macOS 및 Windows docker 환경에서 에뮬레이터를 설치 하 고 사용 하는 방법을 설명 합니다.
 
@@ -98,7 +99,7 @@ Azure Cosmos 에뮬레이터는 `C:\Program Files\Azure Cosmos DB Emulator` 기�
 
 Windows Docker 컨테이너에서 Azure Cosmos 에뮬레이터를 실행할 수 있습니다. 및 자세한 내용은 docker pull 명령에 대 한 [Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) 및 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) 를 참조 하세요 `Dockerfile` . 현재 에뮬레이터는 Oracle Linux에 대 한 Docker에서 작동 하지 않습니다. Windows용 Docker에서 에뮬레이터를 실행 하려면 다음 지침을 따르십시오.
 
-1. [Windows용 Docker](https://www.docker.com/docker-windows) 설치한 후 도구 모음에서 Docker 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **windows 컨테이너로 전환**을 선택 하 여 windows 컨테이너로 전환 합니다.
+1. [Windows용 Docker](https://www.docker.com/docker-windows) 설치한 후 도구 모음에서 Docker 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **windows 컨테이너로 전환** 을 선택 하 여 windows 컨테이너로 전환 합니다.
 
 1. 다음으로 즐겨 찾는 셸에서 다음 명령을 실행하여 Docker 허브에서 에뮬레이터 이미지를 끌어옵니다.
 
@@ -293,7 +294,7 @@ Mac에서 작업하는 경우 다음 단계를 사용합니다.
 
 1. 인증서 목록을 열고 이름이 `localhost`인 인증서를 식별합니다.
 
-1. 특정 항목에 대한 상황에 맞는 메뉴를 열고 *항목 가져오기*를 선택하고 *신뢰* > *이 인증서를 사용할 경우* 옵션에서 *항상 신뢰*를 선택합니다. 
+1. 특정 항목에 대한 상황에 맞는 메뉴를 열고 *항목 가져오기* 를 선택하고 *신뢰* > *이 인증서를 사용할 경우* 옵션에서 *항상 신뢰* 를 선택합니다. 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="시작 단추를 선택 하거나, Windows 키를 누르고, Azure Cosmos emulator를 입력 하기 시작 하 고, 응용 프로그램 목록에서 에뮬레이터를 선택 합니다.":::
   
@@ -313,7 +314,7 @@ SSL 유효성 검사를 사용 하지 않도록 설정 하는 것은 개발 목�
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
 
 Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
 
@@ -328,7 +329,7 @@ Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZ
 
 로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 사용하도록 설정하려면 [명령줄](emulator-command-line-parameters.md)에 `/AllowNetworkAccess` 옵션을 지정합니다. 여기에는 `/Key=key_string` 또는 `/KeyFile=file_name`도 지정해야 합니다. `/GenKeyFile=file_name`을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다. 그런 다음, `/KeyFile=file_name` 또는 `/Key=contents_of_file`에 전달합니다.
 
-네트워크 액세스를 처음으로 사용 하도록 설정 하려면 사용자가 에뮬레이터를 종료 하 고 에뮬레이터의 데이터 디렉터리 *%LOCALAPPDATA%\CosmosDBEmulator*를 삭제 해야 합니다.
+네트워크 액세스를 처음으로 사용 하도록 설정 하려면 사용자가 에뮬레이터를 종료 하 고 에뮬레이터의 데이터 디렉터리 *%LOCALAPPDATA%\CosmosDBEmulator* 를 삭제 해야 합니다.
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>에뮬레이터를 사용 하는 경우 연결 인증
 
@@ -458,11 +459,11 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 다음 단계를 사용 하 여 에뮬레이터를 제거 합니다.
 
-1. 시스템 트레이에서 **Azure Cosmos 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 **끝내기**를 선택 하 여 로컬 에뮬레이터의 모든 열린 인스턴스를 종료 합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
+1. 시스템 트레이에서 **Azure Cosmos 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭 한 다음 **끝내기** 를 선택 하 여 로컬 에뮬레이터의 모든 열린 인스턴스를 종료 합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
 
 1. Windows 검색 상자에 **앱 & 기능** 을 입력 하 고 **앱 & 기능 (시스템 설정)** 결과를 선택 합니다.
 
-1. 앱 목록에서 **Azure Cosmos DB Emulator**로 스크롤하고, **제거**를 클릭 한 다음, 확인을 클릭 하 고 **제거** 를 다시 선택 합니다.
+1. 앱 목록에서 **Azure Cosmos DB Emulator** 로 스크롤하고, **제거** 를 클릭 한 다음, 확인을 클릭 하 고 **제거** 를 다시 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

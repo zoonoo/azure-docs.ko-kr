@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362013"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089919"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 GitHub에서 웹 앱과 Azure Cosmos DB 및 Azure App Service 배포
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 자습서에서는 Azure Cosmos DB의 연결 정보를 잘라내어 `appsettings.json` Azure Portal의 Azure 앱 Services 응용 프로그램 설정으로 붙여 넣지 않고도 처음 실행 시 Azure Cosmos DB에 연결 하는 웹 응용 프로그램의 "터치 안 함" 배포를 수행 하는 방법을 보여 줍니다. 이러한 모든 작업은 단일 작업에서 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 예제에서는 [웹 앱 자습서](sql-api-dotnet-application.md)에서 [Azure Cosmos DB ToDo 샘플](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) 을 배포 합니다.
 
@@ -102,7 +103,7 @@ Deployment Center 위쪽에서 **찾아보기** 를 클릭 하 여 웹 응용 �
 
 ### <a name="using-special-azure-resource-management-functions"></a>특수 Azure 리소스 관리 기능 사용
 
-이러한 값을 배포할 때 응용 프로그램에서 사용할 수 있도록 Azure Resource Manager 템플릿에서는 ' {section: key} ' 형식의 위에 있는 응용 프로그램에서 사용 되는 것과 일치 하는 키 이름을 가진 응용 프로그램 설정 값에 Cosmos DB 계정의 값을 가져오는 [참조](../azure-resource-manager/templates/template-functions-resource.md#reference) 및 [listkeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) 를 비롯 한 특수 Azure 리소스 관리 기능을 사용 하 여 Cosmos DB 계정에서 해당 값을 요청할 수 있습니다. 예들 들어 `CosmosDb:Account`입니다.
+이러한 값을 배포할 때 응용 프로그램에서 사용할 수 있도록 Azure Resource Manager 템플릿에서는 ' {section: key} ' 형식의 위에 있는 응용 프로그램에서 사용 되는 것과 일치 하는 키 이름을 가진 응용 프로그램 설정 값에 Cosmos DB 계정의 값을 가져오는 [참조](../azure-resource-manager/templates/template-functions-resource.md#reference) 및 [listkeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) 를 비롯 한 특수 Azure 리소스 관리 기능을 사용 하 여 Cosmos DB 계정에서 해당 값을 요청할 수 있습니다. 예: `CosmosDb:Account`.
 
 :::image type="content" source="./media/create-website/template-keys.png" alt-text="Azure에 배포":::
 

@@ -8,18 +8,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: 662b85bb2b928cbbcfb1b88adecb2c125c9ae5df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090514"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API에 연결
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 이 문서는 Spark에서 Azure Cosmos DB Cassandra API 통합에 대한 문서 시리즈 중 하나입니다. 문서는 연결, DDL(데이터 정의 언어) 작업, 기본 DML(데이터 조작 언어) 작업 및 Spark에서 고급 Azure Cosmos DB Cassandra API 통합을 다룹니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure Cosmos DB Cassandra API 계정을 프로 비전 합니다.](create-cassandra-dotnet.md#create-a-database-account)
 
 * Spark 환경 선택 프로 비전 [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | 기타].

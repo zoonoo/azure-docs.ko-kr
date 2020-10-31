@@ -6,14 +6,15 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 070c1ef4eeec2b4ed15f2f4720d9fbd8494fca0f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489288"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090429"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 Azure Cosmos DB의 다른 리소스에 제공되는 기본 할당량에 대한 개요를 제공합니다.
 

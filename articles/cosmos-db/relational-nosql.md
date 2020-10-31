@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088474"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>NoSQL 및 관계형 데이터베이스의 차이점 이해
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 관계형 데이터베이스에 대 한 NoSQL 데이터베이스의 주요 이점 중 일부를 열거 합니다. NoSQL에서 작업 하는 몇 가지 문제에 대해서도 설명 합니다. 존재 하는 다른 데이터 저장소를 자세히 살펴보기 위해 [올바른 데이터 저장소를 선택](/azure/architecture/guide/technology-choices/data-store-overview)하는 문서를 살펴보세요.
 

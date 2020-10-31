@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089086"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -688,9 +688,9 @@ Azure VM (가상 컴퓨터)에서 Integration Runtime를 실행 하는 경우 Vm
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-* [Azure의 업데이트 관리 솔루션](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure의 업데이트 관리 솔루션](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침** : Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 타사 패치 관리 솔루션을 사용할 수 있습니다. Azure 업데이트 관리 솔루션을 사용 하 여 가상 컴퓨터에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure의 업데이트 관리 솔루션](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Azure Security Center 모니터링** : 현재 사용할 수 없음
 

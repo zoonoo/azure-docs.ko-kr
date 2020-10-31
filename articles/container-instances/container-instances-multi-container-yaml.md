@@ -3,12 +3,12 @@ title: 자습서 - 다중 컨테이너 그룹 배포 - YAML
 description: 이 자습서에서는 Azure CLI에서 YAML 파일을 사용하여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091296"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>자습서: YAML 파일을 사용하여 다중 컨테이너 그룹 배포
 
@@ -29,15 +29,15 @@ Azure Container Instances에서는 [컨테이너 그룹](container-instances-con
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="configure-a-yaml-file"></a>YAML 파일 구성
 
 Azure CLI에서 [az container create][az-container-create] 명령을 사용하여 다중 컨테이너 그룹을 배포하려면 YAML 파일에서 컨테이너 그룹 구성을 지정해야 합니다. 그런 후 YAML 파일을 매개 변수로 명령에 전달합니다.
 
-먼저 다음 YAML을 **deploy-aci.yaml**이라는 새 파일에 복사합니다. Azure Cloud Shell에서 Visual Studio Code를 사용하여 작업 디렉터리에 파일을 만들 수 있습니다.
+먼저 다음 YAML을 **deploy-aci.yaml** 이라는 새 파일에 복사합니다. Azure Cloud Shell에서 Visual Studio Code를 사용하여 작업 디렉터리에 파일을 만들 수 있습니다.
 
 ```
 code deploy-aci.yaml
@@ -107,7 +107,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 ## <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
+배포 상태를 확인하려면 다음 [az container show][az-container-show] 명령을 사용합니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
@@ -115,7 +115,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 실행 중인 애플리케이션을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus

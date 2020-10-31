@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485038"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089239"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB의 페이지 매김
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습니다. 이 문서에서는 Azure Cosmos DB의 쿼리 엔진에서 쿼리 결과를 여러 페이지로 분할할 것인지 여부를 결정 하는 데 사용 하는 조건을 설명 합니다. 선택적으로 연속 토큰을 사용 하 여 여러 페이지에 걸쳐 있는 쿼리 결과를 관리할 수 있습니다.
 
@@ -45,12 +46,13 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 
 ## <a name="continuation-tokens"></a>연속 토큰
 
-.NET SDK 및 Java SDK에서 필요에 따라 연속 토큰을 쿼리의 진행에 대 한 책갈피로 사용할 수 있습니다. Azure Cosmos DB 쿼리 실행은 서버 쪽에서 상태 비저장 이며 연속 토큰을 사용 하 여 언제 든 지 다시 시작할 수 있습니다. 연속 토큰은 Node.js SDK 또는 Python SDK에서 지원 되지 않습니다.
+.NET SDK 및 Java SDK에서 필요에 따라 연속 토큰을 쿼리의 진행에 대 한 책갈피로 사용할 수 있습니다. Azure Cosmos DB 쿼리 실행은 서버 쪽에서 상태 비저장 이며 연속 토큰을 사용 하 여 언제 든 지 다시 시작할 수 있습니다. 연속 토큰은 Node.js SDK에서 지원 되지 않습니다. Python SDK의 경우 단일 파티션 쿼리에 지원 되며, PK는 쿼리 자체에 포함 하기에 충분 하지 않으므로 옵션 개체에 지정 해야 합니다.
 
 연속 토큰을 사용 하는 몇 가지 예는 다음과 같습니다.
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 쿼리가 연속 토큰을 반환 하는 경우 추가 쿼리 결과가 있습니다.
 

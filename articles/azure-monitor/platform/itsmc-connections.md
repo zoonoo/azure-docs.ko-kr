@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677161"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089018"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -36,7 +36,7 @@ ms.locfileid: "92677161"
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
 - Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
@@ -184,7 +184,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow 지원 버전: 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
 > [!NOTE]
 > ITSMC는 Service Now의 공식 SaaS 제품만 지원합니다. Service Now의 비공개 배포는 지원되지 않습니다. 
@@ -316,7 +316,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 필수 조건이 충족되는지 확인합니다.
 
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
 - Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요.
 
 - 사용자 역할:  관리자.
@@ -373,7 +373,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
 - 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell).
 - 사용자 역할:  관리자.
 

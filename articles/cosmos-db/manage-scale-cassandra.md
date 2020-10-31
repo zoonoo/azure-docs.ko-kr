@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482522"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088685"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra용 Azure Cosmos DB API의 탄력적 특성을 탐색하는 다양한 옵션이 있습니다. Azure Cosmos DB에서 효과적으로 크기를 조정하는 방법을 이해하려면 시스템의 성능 요구 사항을 고려하여 적절한 양의 요청 단위(RU/초)를 프로비저닝하는 방법을 이해하는 것이 중요합니다. 요청 단위에 대해 알아보려면 [요청 단위](request-units.md) 문서를 참조하세요. 
 
@@ -62,7 +63,7 @@ Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 �
 
 표준(수동) 또는 프로그래밍 방식으로 처리량을 프로비저닝하는 것 외에도 자동 크기 조정 프로비저닝된 처리량에서 Azure cosmos 컨테이너를 구성할 수도 있습니다. 자동 크기 조정은 SLA를 손상시키지 않고 지정된 RU 범위 내에서 사용 요구 사항에 맞게 자동으로 즉시 크기 조정됩니다. 자세히 알아보려면 [자동 크기 조정에서 Azure Cosmos 컨테이너 및 데이터베이스 만들기](provision-throughput-autoscale.md) 문서를 참조하세요.
 
-이 접근 방식의 장점은 시스템에서 크기 조정 요구 사항을 관리하는 가장 쉬운 방법이라는 점입니다. 구성 된 기능 **범위 내에서**요율 제한을 적용 하지 않습니다. 단점은 시스템에서 크기 조정 요구 사항을 예측할 수 있는 경우 자동 크기 조정이 위에서 언급한 맞춤식 컨트롤 플레인이나 SDK 수준 접근 방식을 사용하는 것보다 크기 조정 요구 사항을 처리하는 데 비용 효율성이 떨어지는 방법이 될 수 있다는 점입니다.
+이 접근 방식의 장점은 시스템에서 크기 조정 요구 사항을 관리하는 가장 쉬운 방법이라는 점입니다. 구성 된 기능 **범위 내에서** 요율 제한을 적용 하지 않습니다. 단점은 시스템에서 크기 조정 요구 사항을 예측할 수 있는 경우 자동 크기 조정이 위에서 언급한 맞춤식 컨트롤 플레인이나 SDK 수준 접근 방식을 사용하는 것보다 크기 조정 요구 사항을 처리하는 데 비용 효율성이 떨어지는 방법이 될 수 있다는 점입니다.
 
 CQL을 사용하여 자동 크기 조정에 대한 최대 처리량(RU)을 설정하거나 변경하려면 다음을 사용합니다(keyspace/table 이름을 적절하게 바꾸기).
 

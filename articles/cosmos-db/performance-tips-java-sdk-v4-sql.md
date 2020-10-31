@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475229"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091279"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4에 대한 성능 팁
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,7 +39,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 * **연결 모드: 직접 모드 사용**
 <a id="direct-connection"></a>
     
-    Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우*directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()*). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
+    Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우 *directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()* ). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -106,13 +107,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **애플리케이션에 필요한 가장 낮은 일관성 수준 사용**
 
-    *CosmosClient*를 만들 때 명시적으로 설정되지 않은 경우 사용되는 기본 일관성은 *세션*입니다. 애플리케이션 논리에 *세션* 일관성이 필요하지 않으면 *일관성*을 *최종*으로 설정합니다. 참고: Azure Cosmos DB 변경 피드 프로세서를 사용하는 애플리케이션에서는 *세션* 이상의 일관성을 사용하는 것이 좋습니다.
+    *CosmosClient* 를 만들 때 명시적으로 설정되지 않은 경우 사용되는 기본 일관성은 *세션* 입니다. 애플리케이션 논리에 *세션* 일관성이 필요하지 않으면 *일관성* 을 *최종* 으로 설정합니다. 참고: Azure Cosmos DB 변경 피드 프로세서를 사용하는 애플리케이션에서는 *세션* 이상의 일관성을 사용하는 것이 좋습니다.
 
 * **Async API를 사용하여 프로비저닝된 처리량 최대화**
 
     Azure Cosmos DB Java SDK v4는 Sync 및 Async라는 두 개의 API를 번들로 묶습니다. 대략적으로 말하면 Async API는 SDK 기능을 구현하지만, Sync API는 Async API에 대한 호출을 차단하는 씬 래퍼입니다. 이는 비동기 전용인 이전의 Azure Cosmos DB Async Java SDK v2 및 동기 전용이고 완전히 분리된 이전의 Azure Cosmos DB Sync Java SDK v2와는 대조적입니다. 
     
-    API 선택은 클라이언트 초기화 중에 결정됩니다. *CosmosAsyncClient*는 Async API를 지원하지만, *CosmosClient*는 Sync API를 지원합니다. 
+    API 선택은 클라이언트 초기화 중에 결정됩니다. *CosmosAsyncClient* 는 Async API를 지원하지만, *CosmosClient* 는 Sync API를 지원합니다. 
     
     비차단 IO를 구현하며, Azure Cosmos DB에 대한 요청을 실행할 때 처리량을 최대화하는 것이 목표인 경우 Async API를 선택하는 것이 가장 좋습니다. 
     
@@ -148,13 +149,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     Azure Cosmos DB Java SDK v4에서 직접 모드는 대부분의 워크로드에서 데이터베이스 성능을 향상시키기 위한 가장 좋은 방법입니다. 
 
-    * ***직접 모드 개요**_
+    * ***직접 모드 개요** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 연결 정책 그림" border="false":::
 
-        직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _*채널**을 할당 합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트**에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient**에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐**는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
+        직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널* *을 할당 합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트** 에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient** 에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
-    * ***직접 모드의 구성 옵션**_
+    * ***직접 모드의 구성 옵션** _
 
         기본이 아닌 직접 모드 동작을 원하는 경우 _DirectConnectionConfig * 인스턴스를 만들고 해당 속성을 사용자 지정한 다음 Azure Cosmos DB client builder의 *Directmode ()* 메서드에 사용자 지정 된 속성 인스턴스를 전달 합니다.
 
@@ -174,13 +175,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     Azure Cosmos DB Java SDK v4는 병렬 쿼리를 지원하므로 분할된 컬렉션을 병렬로 쿼리할 수 있습니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 사용과 관련된 [코드 샘플](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
 
-    * ***튜닝 setMaxDegreeOfParallelism \: ** _
+    * ***튜닝 setMaxDegreeOfParallelism \:** _
     
         병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 setMaxDegreeOfParallelism을 사용하여 파티션 수를 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 setMaxDegreeOfParallelism을 사용하여 더 높은 값을 설정할 수 있습니다. 그러면 시스템에서 최소값(사용자가 제공한 입력인 파티션 수)을 최대 병렬 처리 수준으로 선택합니다.
 
         데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
-    _ ***튜닝 setMaxBufferedItemCount \: **_
+    _ * **튜닝 setMaxBufferedItemCount \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -196,7 +197,7 @@ _ **클라이언트 규모 확장-워크 로드**
 
 * **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
 
-    읽기 피드 기능(예: *readItems*)을 사용하여 문서를 대량으로 읽거나 SQL 쿼리(*queryItems*)를 실행하는 경우 결과 세트가 너무 크면 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
+    읽기 피드 기능(예: *readItems* )을 사용하여 문서를 대량으로 읽거나 SQL 쿼리( *queryItems* )를 실행하는 경우 결과 세트가 너무 크면 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
 
     애플리케이션에서 Azure Cosmos DB에 대한 쿼리를 실행하고 작업을 완료하기 위해 전체 쿼리 결과 세트를 요구한다고 가정합니다. 적용 가능한 모든 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 요청 헤더 필드를 조정하여 페이지 크기를 늘릴 수 있습니다. 
 
@@ -206,7 +207,7 @@ _ **클라이언트 규모 확장-워크 로드**
     
     일부 애플리케이션에서는 전체 쿼리 결과 세트가 필요하지 않을 수 있습니다. 예를 들어 사용자 인터페이스 또는 애플리케이션 API에서 한 번에 10개의 결과만 반환하는 경우와 같이 몇 가지 결과만 표시해야 하는 경우 페이지 크기를 10으로 줄여 읽기 및 쿼리에 사용되는 처리량을 줄일 수도 있습니다.
 
-    또한 REST 헤더 필드를 직접 수정하는 대신, *byPage* 메서드의 기본 설정 페이지 크기 인수를 설정할 수 있습니다. [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 또는 *byPage*의 기본 설정 페이지 크기 인수는 절대적인 요구 사항이 아니라 페이지 크기에 대한 상한만 설정하는 것입니다. 따라서 다양한 이유로 기본 페이지 크기보다 작은 Azure Cosmos DB 반환 페이지가 표시될 수 있습니다. 
+    또한 REST 헤더 필드를 직접 수정하는 대신, *byPage* 메서드의 기본 설정 페이지 크기 인수를 설정할 수 있습니다. [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 또는 *byPage* 의 기본 설정 페이지 크기 인수는 절대적인 요구 사항이 아니라 페이지 크기에 대한 상한만 설정하는 것입니다. 따라서 다양한 이유로 기본 페이지 크기보다 작은 Azure Cosmos DB 반환 페이지가 표시될 수 있습니다. 
 
 * **적절한 스케줄러 사용(이벤트 루프 IO Netty 스레드 도용 방지)**
 
@@ -231,11 +232,11 @@ _ **클라이언트 규모 확장-워크 로드**
 
     다양한 이유로 높은 요청 처리량을 생성하는 스레드에서 로깅을 추가하려고 하거나 추가해야 할 수도 있습니다. 이 스레드에서 생성된 요청을 사용하여 프로비저닝된 컨테이너의 처리량을 완전한 포화 상태로 만드는 것이 목표인 경우 로깅 최적화는 성능을 크게 향상시킬 수 있습니다.
 
-    * ***비동기로 거 구성**_
+    * ***비동기로 거 구성** _
 
         동기 로거의 대기 시간은 반드시 요청 생성 스레드의 전체 대기 시간 계산에 영향을 미칩니다. 고성능 애플리케이션 스레드에서 로깅 오버헤드를 분리하려면 [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0)와 같은 비동기 로거를 사용하는 것이 좋습니다.
 
-    _ ***Netty의 로깅 사용 안 함**_
+    _ * **Netty의 로깅 사용 안 함** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
@@ -355,7 +356,7 @@ _ **클라이언트 규모 확장-워크 로드**
 
     SDK는 이 응답을 암시적으로 모두 catch하고, server-specified retry-after 헤더를 준수하고 요청을 다시 시도합니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
-    하나 이상의 클라이언트에서 요청 속도가 점증적으로 일관되게 초과하여 작동하는 경우 클라이언트에서 현재 내부적으로 9로 설정한 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이 경우 클라이언트에서 상태 코드가 429인 *CosmosClientException*을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 setRetryOptions를 설정하여 변경할 수 있습니다. 기본적으로 요청이 요청 속도 이상으로 계속 작동하는 경우 상태 코드가 429인 *CosmosClientException*은 30초의 누적 대기 시간 후에 반환됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요.
+    하나 이상의 클라이언트에서 요청 속도가 점증적으로 일관되게 초과하여 작동하는 경우 클라이언트에서 현재 내부적으로 9로 설정한 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이 경우 클라이언트에서 상태 코드가 429인 *CosmosClientException* 을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 setRetryOptions를 설정하여 변경할 수 있습니다. 기본적으로 요청이 요청 속도 이상으로 계속 작동하는 경우 상태 코드가 429인 *CosmosClientException* 은 30초의 누적 대기 시간 후에 반환됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요.
 
     자동화된 재시도 동작은 대부분의 애플리케이션에 대한 복원력 및 유용성을 개선하는 데 도움이 되는 반면, 성능 벤치마크 수행 시 특히 대기 시간을 측정할 때 방해가 될 수 있습니다. 실험이 서버 제한에 도달하고 클라이언트 SDK를 자동으로 재시도하는 경우 클라이언트 관찰 대기 시간이 급증합니다. 성능 실험 중 대기 시간 급증을 방지하려면, 각 작업에 의해 반환된 비용을 측정하고 요청이 예약된 요청 속도 이하로 작동하고 있는지 확인합니다. 자세한 내용은 [요청 단위](request-units.md)를 참조하세요.
 

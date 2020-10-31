@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
-ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d71b9b888c47847dd4a5f5c40504190e5c1ec84
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79464464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090939"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB 집계 함수
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 집계 함수는 절의 값 집합에 대해 계산을 수행 `SELECT` 하 고 단일 값을 반환 합니다. 예를 들어 다음 쿼리는 컨테이너 내의 항목 수를 반환 합니다 `Families` .
 
@@ -63,13 +64,13 @@ VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 �
 
 SQL API는 다음과 같은 집계 함수를 지원 합니다. `SUM` 및 `AVG` 는 숫자 값에 대해 작동 `COUNT` 하며 `MIN` `MAX` 숫자, 문자열, 부울 및 null에 대 한 작업을 수행 합니다.
 
-| 기능 | Description |
+| 함수 | 설명 |
 |-------|-------------|
 | 개수 | 식에서 항목 수를 반환합니다. |
 | 합계   | 식에서 모든 값의 합계를 반환합니다. |
 | 최소   | 식의 최소값을 반환합니다. |
 | 최대   | 식의 최대값을 반환합니다. |
-| 평균   | 식에서 평균값을 반환합니다. |
+| AVG   | 식에서 평균값을 반환합니다. |
 
 배열 반복의 결과를 집계할 수도 있습니다.
 

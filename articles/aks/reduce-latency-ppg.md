@@ -4,62 +4,31 @@ description: 근접 배치 그룹을 사용 하 여 AKS 클러스터 워크 로�
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/19/2020
 author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090800"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>근접 배치 그룹을 사용 하 여 대기 시간 단축 (미리 보기)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>근접 배치 그룹을 사용 하 여 대기 시간 단축
 
 > [!Note]
 > AKS에서 근접 배치 그룹을 사용 하는 경우 공동 배치는 에이전트 노드에만 적용 됩니다. 노드-노드 및 pod 대기 시간에 해당 하는 호스트 된 pod가 개선 되었습니다. 공동 위치는 클러스터의 제어 평면 배치에 영향을 주지 않습니다.
 
 Azure에서 응용 프로그램을 배포할 때 지역 또는 가용성 영역에 VM (가상 머신)을 분산 시키면 네트워크 대기 시간이 만들어지므로 응용 프로그램의 전반적인 성능에 영향을 줄 수 있습니다. 근접 배치 그룹은 Azure 계산 리소스가 물리적으로 서로 가까이 있는 상태를 확인 하는 데 사용 되는 논리적 그룹화입니다. 게임, 엔지니어링 시뮬레이션 및 HFT (높은 빈도 거래)와 같은 일부 응용 프로그램에는 짧은 대기 시간 및 신속 하 게 완료 되는 작업이 필요 합니다. 이러한 HPC (고성능 컴퓨팅) 시나리오의 경우 클러스터의 노드 풀에 대해 (ppg ( [근접 배치 그룹](../virtual-machines/linux/co-location.md#proximity-placement-groups) )을 사용 하는 것이 좋습니다.
 
-## <a name="limitations"></a>제한 사항
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 Azure CLI 버전 2.14 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+
+### <a name="limitations"></a>제한 사항
 
 * 근접 배치 그룹은 최대 하나의 가용성 영역에 매핑할 수 있습니다.
 * 노드 풀은 Virtual Machine Scale Sets를 사용 하 여 근접 배치 그룹을 연결 해야 합니다.
 * 노드 풀은 노드 풀을 만들 때만 근접 배치 그룹을 연결할 수 있습니다.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-
-다음 리소스가 설치되어 있어야 합니다.
-
-- Aks-preview 0.4.53 확장
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>근접 배치 그룹에 대 한 미리 보기 기능 설정
-
-> [!IMPORTANT]
-> AKS node 풀에서 근접 배치 그룹을 사용 하는 경우 공동 배치는 에이전트 노드에만 적용 됩니다. 노드-노드 및 pod 대기 시간에 해당 하는 호스트 된 pod가 개선 되었습니다. 공동 위치는 클러스터의 제어 평면 배치에 영향을 주지 않습니다.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-등록 하는 데 몇 분 정도 걸릴 수 있습니다. 다음 명령을 사용 하 여 기능이 등록 되었는지 확인 합니다.
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-미리 보기 중에 근접 배치 그룹을 사용 하려면 *aks-preview* CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>노드 풀 및 근접 배치 그룹
 

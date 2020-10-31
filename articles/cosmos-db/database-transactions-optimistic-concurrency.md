@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089834"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 데이터베이스 트랜잭션은 데이터에 대한 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. SQL Server와 같은 기존 관계형 데이터베이스를 사용 하면 저장 프로시저 및/또는 트리거를 사용 하 여 비즈니스 논리를 작성 하 고 데이터베이스 엔진 내에서 직접 실행 하기 위해 서버에 보낼 수 있습니다. 기존 관계형 데이터베이스를 사용 하는 경우 JavaScript, Python, c #, Java 등의 두 가지 프로그래밍 언어 (비트랜잭션) 응용 프로그램 프로그래밍 언어와 데이터베이스에서 기본적으로 실행 되는 트랜잭션 프로그래밍 언어 (예: T-sql)를 처리 해야 합니다.
 
@@ -34,10 +35,10 @@ Azure Cosmos DB의 데이터베이스 엔진은 스냅샷 격리를 사용한 �
 | 시스템이 병합 프로시저 실행을 시작함 | 쓰기 | 다중 항목 트랜잭션 |
 | 시스템이 항목의 만료(TTL)를 기준으로 항목을 삭제 실행을 시작함 | 쓰기 | 다중 항목 트랜잭션 |
 | 읽기 | 읽기 | 단일 항목 트랜잭션 |
-| 피드 변경 | Read | 다중 항목 트랜잭션 |
-| 페이지를 매긴 읽기 | Read | 다중 항목 트랜잭션 |
-| 페이지를 매긴 쿼리 | Read | 다중 항목 트랜잭션 |
-| 페이지를 매긴 쿼리의 일부로 UDF 실행 | Read | 다중 항목 트랜잭션 |
+| 피드 변경 | 읽기 | 다중 항목 트랜잭션 |
+| 페이지를 매긴 읽기 | 읽기 | 다중 항목 트랜잭션 |
+| 페이지를 매긴 쿼리 | 읽기 | 다중 항목 트랜잭션 |
+| 페이지를 매긴 쿼리의 일부로 UDF 실행 | 읽기 | 다중 항목 트랜잭션 |
 
 ## <a name="multi-item-transactions"></a>다중 항목 트랜잭션
 

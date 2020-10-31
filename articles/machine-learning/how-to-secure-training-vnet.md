@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091500"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -26,7 +26,7 @@ ms.locfileid: "92425092"
 
 이 시리즈의 다른 문서를 참조 하세요.
 
-[1. VNet 개요](how-to-network-security-overview.md)  >  [작업 영역 3을 보호](how-to-secure-workspace-vnet.md)  >  **합니다. 학습 환경 4를 안전 하 게 보호**합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다   >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+[1. VNet 개요](how-to-network-security-overview.md)  >  [작업 영역 3을 보호](how-to-secure-workspace-vnet.md)  >  **합니다. 학습 환경 4를 안전 하 게 보호** 합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다   >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
 이 문서에서는 가상 네트워크에서 다음 교육 계산 리소스를 보호 하는 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -60,10 +60,11 @@ ms.locfileid: "92425092"
 > * 가상 네트워크의 구독 또는 리소스 그룹에 대한 보안 정책이나 잠금이 가상 네트워크를 관리하는 사용자 권한을 제한하는지 확인합니다. 트래픽을 제한하여 가상 네트워크를 보호하려는 경우 컴퓨팅 서비스를 위해 일부 포트를 열어둡니다. 자세한 내용은 [필수 포트](#mlcports) 섹션을 참조하세요.
 > * 하나의 가상 네트워크에 다수의 컴퓨팅 인스턴스나 클러스터를 배치하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청해야 할 수 있습니다.
 > * 작업 영역의 Azure Storage 계정도 가상 네트워크에서 보호되는 경우, Azure Machine Learning 컴퓨팅 인스턴스나 클러스터와 동일한 가상 네트워크에 있어야 합니다. 
-> * 컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요.
-
+> * 컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요. 
+> * 계산 인스턴스가 개인 링크 작업 영역에 배포 된 경우 가상 네트워크 내 에서만 액세스할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여에 대 한 항목을 추가 하세요. 자세한 내용은 [사용자 지정 DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) 문서를 참조 하세요.
+    
 > [!TIP]
-> Machine Learning 컴퓨팅 인스턴스나 클러스터는 __가상 네트워크를 포함하는 리소스 그룹__에 추가 네트워킹 리소스를 자동으로 할당합니다. 각 컴퓨팅 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
+> Machine Learning 컴퓨팅 인스턴스나 클러스터는 __가상 네트워크를 포함하는 리소스 그룹__ 에 추가 네트워킹 리소스를 자동으로 할당합니다. 각 컴퓨팅 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
 > 
 > * 네트워크 보안 그룹 1개
 > * 공용 IP 주소 1개
@@ -79,7 +80,7 @@ ms.locfileid: "92425092"
 
 Batch 서비스는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG(네트워크 보안 그룹)를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
-- __BatchNodeManagement__의 __서비스 태그__ 포트 29876 및 29877의 인바운드 TCP 트래픽
+- __BatchNodeManagement__ 의 __서비스 태그__ 포트 29876 및 29877의 인바운드 TCP 트래픽
 
     ![BatchNodeManagement 서비스 태그를 사용하는 인바운드 규칙](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +90,7 @@ Batch 서비스는 VM에 연결된 NIC(네트워크 인터페이스) 수준에�
 
 - 인터넷에 대한 모든 포트의 아웃바운드 트래픽
 
-- __AzureMachineLearning__의 __서비스 태그__ 포트 44224의 컴퓨팅 인스턴스 인바운드 TCP 트래픽
+- __AzureMachineLearning__ 의 __서비스 태그__ 포트 44224의 컴퓨팅 인스턴스 인바운드 TCP 트래픽
 
 > [!IMPORTANT]
 > Batch 구성 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. NSG가 컴퓨팅 노드에 대한 통신을 차단하는 경우 컴퓨팅 서비스는 컴퓨팅 노드의 상태를 사용 불가로 설정합니다.
@@ -110,19 +111,19 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 - NSG 규칙을 사용하여 아웃바운드 인터넷 연결을 거부합니다.
 
-- __컴퓨팅 인스턴스__ 또는 __컴퓨팅 클러스터__의 경우 다음 항목에 대한 아웃바운드 트래픽을 제한합니다.
-   - Azure Storage, __Storage.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
-   - Azure Container Registry, __AzureContainerRegistry.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
-   - Azure Machine Learning, __AzureMachineLearning__의 __서비스 태그__를 사용합니다.
-   - Azure Resource Manager, __AzureResourceManager__의 __서비스 태그__를 사용합니다.
-   - Azure Active Directory, __AzureActiveDirectory__의 __서비스 태그__를 사용합니다.
+- __컴퓨팅 인스턴스__ 또는 __컴퓨팅 클러스터__ 의 경우 다음 항목에 대한 아웃바운드 트래픽을 제한합니다.
+   - Azure Storage, __Storage.RegionName__ 의 __서비스 태그__ 를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
+   - Azure Container Registry, __AzureContainerRegistry.RegionName__ 의 __서비스 태그__ 를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
+   - Azure Machine Learning, __AzureMachineLearning__ 의 __서비스 태그__ 를 사용합니다.
+   - Azure Resource Manager, __AzureResourceManager__ 의 __서비스 태그__ 를 사용합니다.
+   - Azure Active Directory, __AzureActiveDirectory__ 의 __서비스 태그__ 를 사용합니다.
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 [![Machine Learning 컴퓨팅에 대한 아웃바운드 NSG 규칙](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Microsoft에서 제공 하는 기본 Docker 이미지를 사용 하 고 사용자 관리 종속성을 사용 하도록 계획 하는 경우 다음 __서비스 태그도__사용 해야 합니다.
+> Microsoft에서 제공 하는 기본 Docker 이미지를 사용 하 고 사용자 관리 종속성을 사용 하도록 계획 하는 경우 다음 __서비스 태그도__ 사용 해야 합니다.
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +177,7 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-g
         > * [Azure Government에 대 한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Azure 중국의 azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
+    UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__ 을 __인터넷__ 으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
 
     ![주소 접두사에 대한 UDR 예](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -194,9 +195,9 @@ Machine Learning 컴퓨팅 클러스터를 만들려면 다음 단계를 사용�
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 로그인한 다음, 구독과 작업 영역을 선택합니다.
 
-1. 왼쪽에서 __Compute__를 선택합니다.
+1. 왼쪽에서 __Compute__ 를 선택합니다.
 
-1. 가운데에서 __학습 클러스터__를 선택한 다음, __+__ 를 선택합니다.
+1. 가운데에서 __학습 클러스터__ 를 선택한 다음, __+__ 를 선택합니다.
 
 1. __새 학습 클러스터__ 대화 상자에서 __고급 설정__ 섹션을 확장합니다.
 
@@ -252,7 +253,7 @@ except ComputeTargetException:
 
 Azure 계산 인스턴스에서 노트북을 사용 하는 경우 노트북이 동일한 가상 네트워크 및 서브넷 뒤에 있는 계산 리소스에서 실행 되 고 있는지 확인 해야 합니다. 
 
-계산 인스턴스는 생성 하는 동안 동일한 가상 네트워크에 있도록 구성 해야 합니다. **고급 설정**  >  **가상 네트워크 구성**합니다. 기존 계산 인스턴스를 가상 네트워크에 추가할 수 없습니다.
+계산 인스턴스는 생성 하는 동안 동일한 가상 네트워크에 있도록 구성 해야 합니다. **고급 설정**  >  **가상 네트워크 구성** 합니다. 기존 계산 인스턴스를 가상 네트워크에 추가할 수 없습니다.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +286,21 @@ Azure Portal 또는 Azure CLI를 사용하여 VM 또는 HDInsight 클러스터�
 
 Azure Machine Learning VM 또는 클러스터의 SSH 포트와 통신할 수 있도록 허용 하 고, 네트워크 보안 그룹에 대 한 원본 항목을 구성 합니다. SSH 포트는 일반적으로 포트 22입니다. 이 원본의 트래픽을 허용하려면 다음 작업을 수행합니다.
 
-1. __원본__ 드롭다운 목록에서 __서비스 태그__를 선택합니다.
+1. __원본__ 드롭다운 목록에서 __서비스 태그__ 를 선택합니다.
 
-1. __원본 서비스 태그__ 드롭다운 목록에서 __AzureMachineLearning__을 선택합니다.
+1. __원본 서비스 태그__ 드롭다운 목록에서 __AzureMachineLearning__ 을 선택합니다.
 
     ![가상 네트워크 내의 VM 또는 HDInsight 클러스터에서 실험을 수행하기 위한 인바운드 규칙](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. __원본 포트 범위__ 드롭다운 목록에서 __*__ 를 선택합니다.
 
-1. __대상__ 드롭다운 목록에서 __임의__를 선택합니다.
+1. __대상__ 드롭다운 목록에서 __임의__ 를 선택합니다.
 
-1. __대상 포트 범위__ 드롭다운 목록에서 __22__를 선택합니다.
+1. __대상 포트 범위__ 드롭다운 목록에서 __22__ 를 선택합니다.
 
-1. __프로토콜__에서 __임의__를 선택합니다.
+1. __프로토콜__ 에서 __임의__ 를 선택합니다.
 
-1. __동작__에서 __허용__을 선택합니다.
+1. __동작__ 에서 __허용__ 을 선택합니다.
 
 네트워크 보안 그룹에 대해 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
 

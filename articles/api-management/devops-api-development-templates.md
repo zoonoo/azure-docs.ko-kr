@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088882"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하는 API Management에 대 한 CI/CD
 
@@ -43,7 +43,7 @@ ms.locfileid: "92910715"
 
 이 제안 된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/resource-group-authoring-templates.md)모든 API Management 구성을 유지 하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관 해야 합니다. 이미지에 설명 된 것 처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함 됩니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |서비스 템플릿     | 가격 책정 계층 및 사용자 지정 도메인과 같은 API Management 인스턴스의 서비스 수준 구성입니다.         |
 |공유 템플릿     |  그룹, 제품 및로 거와 같은 API Management 인스턴스 전체에서 리소스를 공유 합니다.    |
@@ -67,7 +67,8 @@ API 개발자는 리소스 관리자 템플릿으로 작업 하는 경우에 직
 
 * API 게시자는 끌어오기 요청의 유효성을 검사 하 고 변경 내용이 안전 하 고 규정을 준수 하는지 확인할 수 있습니다. 예를 들어 HTTPS만 API와 통신할 수 있는지 확인할 수 있습니다. 대부분의 유효성 검사는 CI/CD 파이프라인의 단계로 자동화할 수 있습니다.
 
-* 변경 내용이 승인 되 고 병합 되 면 API 게시자는 일정에 따라 또는 요청 시 프로덕션 인스턴스에 배포 하도록 선택할 수 있습니다. [GitHub 작업](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/) [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)또는 기타 도구를 사용 하 여 템플릿의 배포를 자동화할 수 있습니다.
+* 변경 내용이 승인 되 고 병합 되 면 API 게시자는 일정에 따라 또는 주문형으로 프로덕션 인스턴스에 배포 하도록 선택할 수 있습니다. [GitHub 작업](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)또는 기타 도구를 사용 하 여 템플릿의 배포를 자동화할 수 있습니다.
+
 
 이 방법을 사용 하면 조직에서 API Management 인스턴스에 대 한 API 변경 배포를 자동화할 수 있으며, 한 환경에서 다른 환경으로 쉽게 변경 내용을 승격 시킬 수 있습니다. Api 개발 팀 마다 다른 API 템플릿 및 파일 집합에 대해 작업을 수행 하므로 서로 다른 팀 간의 간섭을 방지할 수 있습니다.
 

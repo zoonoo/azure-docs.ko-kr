@@ -6,19 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: b23fb22a99705e1bf37de7a7982513ff692d8f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db7bbf03b023a80032a4ed15f2f4f82dd2b0b98
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91771052"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088372"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Azure Cosmos DB 리소스가 삭제 되거나 변경 되지 않도록 방지
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 관리자는 조직의 다른 사용자가 실수로 중요 한 리소스를 삭제 하거나 수정 하는 것을 방지 하기 위해 Azure Cosmos 계정, 데이터베이스 또는 컨테이너를 잠가야 할 수 있습니다. 잠금 수준을 CanNotDelete 또는 ReadOnly로 설정할 수 있습니다.
 
-- **CanNotDelete**는 권한이 부여된 사용자가 리소스를 읽고 수정할 수 있지만 삭제할 수 없음을 의미합니다.
-- **ReadOnly**는 권한이 부여된 사용자가 리소스를 읽을 수 있지만 해당 리소스를 삭제하거나 업데이트할 수 없음을 의미합니다. 이 잠금을 적용하는 것은 권한 있는 모든 사용자에게 판독기 역할에서 부여한 권한을 제한하는 것과 유사합니다.
+- **CanNotDelete** 는 권한이 부여된 사용자가 리소스를 읽고 수정할 수 있지만 삭제할 수 없음을 의미합니다.
+- **ReadOnly** 는 권한이 부여된 사용자가 리소스를 읽을 수 있지만 해당 리소스를 삭제하거나 업데이트할 수 없음을 의미합니다. 이 잠금을 적용하는 것은 권한 있는 모든 사용자에게 판독기 역할에서 부여한 권한을 제한하는 것과 유사합니다.
 
 ## <a name="how-locks-are-applied"></a>잠금을 적용하는 방법
 

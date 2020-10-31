@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 3b5cc1dd61b4f01e40c1cc812e93a448855ad92d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 53a44ed15517cad157e43d8de465438537e15121
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088610"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 다음 가이드에서는 PowerShell을 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅 및 자동화 하는 방법을 설명 합니다. 다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](powershell-samples-cassandra.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
 
