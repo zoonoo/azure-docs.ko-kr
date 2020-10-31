@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100697"
+ms.locfileid: "93130343"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -93,7 +93,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 ## <a name="tracking-file-content-changes"></a>파일 콘텐츠 변경 내용 추적
 
-변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](/azure/storage/common/storage-account-create)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다.
+변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](../../storage/common/storage-account-create.md)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다.
 
 ![파일의 변경 내용 보기](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 |Services|250|
 |디먼|250|
 
-변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs)을 참조하세요.
+변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs)을 참조하세요.
 
 ### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
 

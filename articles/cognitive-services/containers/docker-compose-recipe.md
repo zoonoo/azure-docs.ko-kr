@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/29/2020
 ms.author: aahi
-ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244298"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130564"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용하여 여러 컨테이너 배포
 
@@ -35,24 +35,17 @@ ms.locfileid: "88244298"
   * F0 또는 표준 가격 책정 계층을 사용 하 여 리소스를 **Computer Vision** 합니다.
   * F0 또는 표준 가격 책정 계층을 사용 하는 **폼 인식기** 리소스
   * S0 가격 책정 계층이 있는 **Cognitive Services** 리소스
-
-## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
-
-[Cognitive Services 음성 컨테이너 요청 양식을](https://aka.ms/speechcontainerspreview/)완료 하 고 제출 합니다. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+* 제어 된 미리 보기 컨테이너를 사용 하는 경우이를 사용 하려면 [온라인 요청 양식을](https://aka.ms/csgate/) 작성 해야 합니다.
 
 ## <a name="docker-compose-file"></a>Docker Compose 파일
 
-YAML 파일은 배포할 모든 서비스를 정의 합니다. 이러한 서비스는 `DockerFile` 또는 기존 컨테이너 이미지를 사용 합니다. 이 경우 두 개의 미리 보기 이미지를 사용 합니다. 다음 YAML 파일을 복사 하 여 붙여넣고 *docker로 작성 합니다. yaml*로 저장 합니다. 파일에 적절 한 **apikey**, **청구**및 **endpointuri** 값을 제공 합니다.
+YAML 파일은 배포할 모든 서비스를 정의 합니다. 이러한 서비스는 `DockerFile` 또는 기존 컨테이너 이미지를 사용 합니다. 이 경우 두 개의 미리 보기 이미지를 사용 합니다. 다음 YAML 파일을 복사 하 여 붙여넣고 *docker로 작성 합니다. yaml* 로 저장 합니다. 파일에 적절 한 **apikey** , **청구** 및 **endpointuri** 값을 제공 합니다.
 
 ```yaml
 version: '3.7'
 services:
   forms:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
        billing: # < Your form recognizer billing URL >
@@ -70,7 +63,7 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
+    image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
       apikey: # < Your computer vision API key >
@@ -98,8 +91,8 @@ docker-compose up
 Docker는이 구성을 사용 하 여 **docker** 구성 명령을 처음 실행할 때 **서비스** 노드 아래에 구성 된 이미지를 가져와서 다운로드 하 고 탑재 합니다.
 
 ```console
-Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
-latest: Pulling from microsoft/cognitive-services-form-recognizer
+Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
+latest: Pulling from azure-cognitive-services/form-recognizer/layout
 743f2d6c1f65: Pull complete
 72befba99561: Pull complete
 2a40b9192d02: Pull complete
@@ -113,8 +106,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
-latest: Pulling from microsoft/cognitive-services-read
+Pulling ocr (mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview:)...
+latest: Pulling from /azure-cognitive-services/vision/read:3.1-preview
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -166,8 +159,8 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
-2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
+2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
 ### <a name="test-containers"></a>테스트 컨테이너

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097739"
+ms.locfileid: "93129816"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -33,7 +33,7 @@ ms.locfileid: "93097739"
 
 ## <a name="set-the-compatibility-level"></a>호환성 수준 설정
 
-Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](/azure/stream-analytics/stream-analytics-quick-create-portal)을 사용 하 여 설정할 수 있습니다.
+Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](./stream-analytics-quick-create-portal.md)을 사용 하 여 설정할 수 있습니다.
 
 Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음을 수행 합니다.
 
@@ -77,13 +77,13 @@ Azure Stream Analytics 지리 공간적 참조 데이터 인덱싱을 지원 합
 
 **이전 수준:** Upsert 동작이 *insert 또는 merge* 입니다.
 
-**1.2 수준:** CosmosDB 출력과 네이티브 대량 API를 통합 하면 처리량이 최대화 되 고 제한 요청이 효율적으로 처리 됩니다. 자세한 내용은 [Azure Cosmos DB에 출력 Azure Stream Analytics 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12)를 참조 하세요.
+**1.2 수준:** CosmosDB 출력과 네이티브 대량 API를 통합 하면 처리량이 최대화 되 고 제한 요청이 효율적으로 처리 됩니다. 자세한 내용은 [Azure Cosmos DB에 출력 Azure Stream Analytics 페이지](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)를 참조 하세요.
 
 Upsert 동작은 *insert 또는 replace* 입니다.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>SQL 출력에 쓸 때 DateTimeOffset
 
-**이전 수준:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 형식은 UTC로 조정 되었습니다.
+**이전 수준:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 형식은 UTC로 조정 되었습니다.
 
 **1.2 수준:** DateTimeOffset은 더 이상 조정 되지 않습니다.
 
@@ -151,4 +151,4 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 입력 문제 해결](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics 리소스 상태](stream-analytics-resource-health.md)
+* [Stream Analytics 리소스 상태](./stream-analytics-troubleshoot-query.md)

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130037"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
 
@@ -28,7 +28,7 @@ SaaS 구독 상태와 적용 가능한 작업이 표시 됩니다.
 
 ![Marketplace에서 SaaS 구독의 수명 주기](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>구매 되었지만 아직 활성화 되지 않음 (*PendingFulfillmentStart*)
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>구매 되었지만 아직 활성화 되지 않음 ( *PendingFulfillmentStart* )
 
 최종 고객이 marketplace에서 SaaS 제품을 구매한 후 게시자는 새 SaaS 계정이 생성 되 고 게시자 쪽에서 최종 고객에 대해 구성 되도록 해당 제품에 대 한 알림이 제공 되어야 합니다.
 
@@ -51,7 +51,7 @@ SaaS 구독 상태와 적용 가능한 작업이 표시 됩니다.
 게시자는이 흐름에 Microsoft에서 요구 하는 사용자 환경을 제공 하기 위해 SSO 로그인을 구현 해야 합니다.  SSO를 구성할 때 다중 테 넌 트 Azure AD 응용 프로그램을 사용 하 여 회사 및 학교 계정이 나 개인 Microsoft 계정을 모두 허용 합니다.  이 요구 사항은 방문 페이지 및 Microsoft 자격 증명을 사용 하 여 이미 로그인 한 경우 SaaS 서비스로 리디렉션되는 사용자 에게만 적용 됩니다. SaaS 서비스에 대 한 모든 로그인에는 적용 되지 않습니다.
 
 > [!NOTE]
->SSO 로그인에 관리자가 앱에 대 한 권한을 부여 해야 하는 경우 파트너 센터의 제안에 대 한 설명은 관리 수준 액세스가 필요 하다는 것을 공개 해야 합니다. 이는 [상업적 marketplace 인증 정책을](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options)준수 하기 위한 것입니다.
+>SSO 로그인에 관리자가 앱에 대 한 권한을 부여 해야 하는 경우 파트너 센터의 제안에 대 한 설명은 관리 수준 액세스가 필요 하다는 것을 공개 해야 합니다. 이는 [상업적 marketplace 인증 정책을](/legal/marketplace/certification-policies#10003-authentication-options)준수 하기 위한 것입니다.
 
 로그인 한 후에는 고객이 게시자 쪽에서 SaaS 구성을 완료 해야 합니다. 그런 다음 게시자는 [구독 API 활성화](#activate-a-subscription) 를 호출 하 여 SaaS 계정의 프로비저닝이 완료 되었음을 Marketplace에 보내야 합니다.
 그러면 고객의 청구 주기가 시작 됩니다. 구독 활성화 API 호출에 성공 하지 않으면 고객에 게 구매 요금이 청구 되지 않습니다.
@@ -106,9 +106,9 @@ Marketplace에서 시작한 업데이트 시나리오에 대 한 API 호출 시�
 
 ![게시자 쪽에서 시작한 업데이트에 대 한 API 호출](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>일시 중단 됨 (*일시 중단 됨*)
+#### <a name="suspended-suspended"></a>일시 중단 됨 ( *일시 중단 됨* )
 
-이 상태는 SaaS 서비스에 대 한 고객의 지불을 받지 못했음을 나타냅니다. Microsoft에서 제공 하는 SaaS 구독 상태 변경 내용에 대 한 알림이 게시자에 게 표시 됩니다. 알림은 *action* 매개 변수가 *Suspended*로 설정 된 웹 후크 호출을 통해 수행 됩니다.
+이 상태는 SaaS 서비스에 대 한 고객의 지불을 받지 못했음을 나타냅니다. Microsoft에서 제공 하는 SaaS 구독 상태 변경 내용에 대 한 알림이 게시자에 게 표시 됩니다. 알림은 *action* 매개 변수가 *Suspended* 로 설정 된 웹 후크 호출을 통해 수행 됩니다.
 
 게시자가 게시자 쪽에서 SaaS 서비스를 변경 하거나 변경할 수 없습니다. 이 정보를 일시 중단 된 고객에 게 제공 하 고 고객의 SaaS 서비스 액세스를 제한 하거나 차단 하는 것이 좋습니다.  결제는 수신 되지 않습니다.
 
@@ -119,7 +119,7 @@ Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간
 
 구독 상태는 Microsoft 쪽에서 일시 중단 됨으로 변경 되 고 게시자는 모든 작업을 수행 합니다. 활성 구독만 일시 중단할 수 있습니다.
 
-#### <a name="reinstated-suspended"></a>복원 (*일시 중단*)
+#### <a name="reinstated-suspended"></a>복원 ( *일시 중단* )
 
 구독을 복원 하 고 있습니다.
 
@@ -135,7 +135,7 @@ Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간
 
 일시 중단 된 구독만 복원할 수 있습니다.  SaaS 구독을 복원 하는 동안에는 해당 상태가 일시 중단 된 상태로 유지 됩니다.  이 작업이 완료 되 면 구독의 상태가 활성 상태가 됩니다.
 
-#### <a name="renewed-subscribed"></a>갱신 됨 (*구독*됨)
+#### <a name="renewed-subscribed"></a>갱신 됨 ( *구독* 됨)
 
 구독 기간이 끝날 때 (월 또는 연도 이후) SaaS 구독은 Microsoft에서 자동으로 갱신 됩니다.  자동 갱신에 대 한 기본값은 모든 SaaS 구독에 *적용* 됩니다. 활성 SaaS 구독은 정기적으로 계속 갱신 됩니다. 구독을 갱신 하는 경우 Microsoft는 게시자에 게 알리지 않습니다. 고객은 M365 관리 포털을 통하거나 Azure Portal를 통해 SaaS 구독에 대 한 자동 갱신을 해제할 수 있습니다.  이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소 됩니다.  또한 고객은 언제 든 지 SaaS 구독을 취소할 수 있습니다.
 
@@ -143,7 +143,7 @@ Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간
 
 지불 문제로 인해 자동 갱신에 실패 하는 경우 구독이 일시 중단 됩니다.  게시자에 게 알림이 제공 됩니다.
 
-#### <a name="canceled-unsubscribed"></a>취소 됨 (*구독*취소 됨) 
+#### <a name="canceled-unsubscribed"></a>취소 됨 ( *구독* 취소 됨) 
 
 구독은 게시자 사이트, Azure Portal 또는 M365 관리 센터에서 구독을 취소 하 여 명시적 고객 또는 CSP 작업에 응답 하 여이 상태에 도달 합니다.  Dues의 지불이 아닌 30 일 동안 일시 중단 된 상태로 인해 구독을 암시적으로 취소할 수도 있습니다.
 
@@ -581,7 +581,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -646,7 +646,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -711,7 +711,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 
@@ -788,9 +788,9 @@ Code: 200 지정 된 SaaS 구독에서 보류 중인 복원 작업을 반환 합
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
-게시자가 지정 된 비동기 작업의 상태 (  **구독 취소**, **Changeplan**또는 **chang)** 를 추적할 수 있도록 합니다.
+게시자가 지정 된 비동기 작업의 상태 (  **구독 취소** , **Changeplan** 또는 **chang)** 를 추적할 수 있도록 합니다.
 
-`operationId`이 API 호출에 대 한는 **작업 위치**에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
+`operationId`이 API 호출에 대 한는 **작업 위치** 에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>가져오기 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +850,7 @@ Response body:
 
 보류 중인 작업의 상태를 업데이트 하 여 게시자 측의 작업 성공 또는 실패를 표시 합니다.
 
-`operationId`이 API 호출에 대 한는 **작업 위치**에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
+`operationId`이 API 호출에 대 한는 **작업 위치** 에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>패치나 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +962,7 @@ SaaS 구독 상태를 Microsoft 쪽과 일관 되 게 유지 하려면 게시자
 
 제품이 게시 되는 위치에 따라 Azure Portal 또는 Microsoft AppSource 사이트에서 구매 흐름을 트리거할 수 있습니다.
 
-*변경 계획*, *수량 변경*및 *구독 취소* 동작은 게시자 쪽에서 테스트 됩니다.  Microsoft 쪽에서 *구독 취소* 는 Azure Portal 및 관리 센터 (Microsoft AppSource 구매가 관리 되는 포털)에서 트리거될 수 있습니다.  *변경 수량 및 요금제* 는 관리 센터 에서만 트리거될 수 있습니다.
+*변경 계획* , *수량 변경* 및 *구독 취소* 동작은 게시자 쪽에서 테스트 됩니다.  Microsoft 쪽에서 *구독 취소* 는 Azure Portal 및 관리 센터 (Microsoft AppSource 구매가 관리 되는 포털)에서 트리거될 수 있습니다.  *변경 수량 및 요금제* 는 관리 센터 에서만 트리거될 수 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 

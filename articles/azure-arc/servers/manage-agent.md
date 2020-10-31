@@ -1,18 +1,18 @@
 ---
 title: Azure Arc 사용 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130972"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
-Azure Arc 사용 서버에 연결 된 Windows 또는 Linux 용 컴퓨터 에이전트의 초기 배포 후 에이전트를 다시 구성 하거나, 업그레이드 하거나, 해당 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거 해야 할 수 있습니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
+Azure Arc 사용 서버에 연결 된 Windows 또는 Linux 용 컴퓨터 에이전트의 초기 배포 후 에이전트를 다시 구성 하거나, 업그레이드 하거나, 컴퓨터에서 제거 해야 할 수 있습니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
 
 ## <a name="before-uninstalling-agent"></a>에이전트 제거 전
 
@@ -38,7 +38,11 @@ Azure Arc 사용 서버를 사용 하 여 더 이상 관리 하지 않으려는 
 
 ## <a name="upgrading-agent"></a>에이전트 업그레이드
 
-Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 표에서는 에이전트 업그레이드를 수행하는 데 지원되는 방법을 설명합니다.
+Azure 연결 된 컴퓨터 에이전트는 버그 수정, 안정성 향상 및 새로운 기능을 해결 하기 위해 정기적으로 업데이트 됩니다. [Azure Advisor](../../advisor/advisor-overview.md) 는 최신 버전의 컴퓨터 에이전트를 사용 하지 않는 리소스를 식별 하 고 최신 버전으로 업그레이드 하는 것이 좋습니다. **개요** 페이지에 배너를 표시 하거나 Azure Portal 통해 Advisor에 액세스 하 여 Arc 사용 서버를 선택 하면 사용자에 게 알립니다.
+
+Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다.
+
+다음 표에서는 에이전트 업그레이드를 수행하는 데 지원되는 방법을 설명합니다.
 
 | 운영 체제 | 업그레이드 방법 |
 |------------------|----------------|
@@ -69,7 +73,7 @@ Windows Installer 패키지에 대한 명령줄 옵션에 익숙하지 않은 �
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **AzureConnectedMachineAgent.msi**를 실행하여 설치 마법사를 시작합니다.
+2. **AzureConnectedMachineAgent.msi** 를 실행하여 설치 마법사를 시작합니다.
 
 설치 마법사는 이전 버전이 있는지 검색한 다음 자동으로 에이전트 업그레이드를 수행합니다. 업그레이드가 완료되면 설치 마법사가 자동으로 닫힙니다.
 
@@ -163,7 +167,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 대화형으로 로그온 하는 동안 **연결** 및 **연결** 을 수동으로 수행 하거나, 여러 에이전트를 등록 하는 데 사용한 것과 동일한 서비스 주체를 사용 하거나 Microsoft id 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용 하 여 자동화할 수 있습니다. 서비스 주체를 사용 하 여 Azure Arc 사용 서버에 컴퓨터를 등록 하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 를 참조 하세요.
 
 >[!NOTE]
->**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
+>**Azcmagent** 를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
 
 ### <a name="connect"></a>연결
 
@@ -215,8 +219,8 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 1. 머신에서 Windows 에이전트를 제거하려면 다음을 수행합니다.
 
     a. 관리자 권한이 있는 계정으로 컴퓨터에 로그인합니다.  
-    b. **제어판**에서 **프로그램 및 기능**을 선택합니다.  
-    다. **프로그램 및 기능**에서 **Azure Connected Machine 에이전트**,  **제거**, **예**를 차례로 선택합니다.  
+    b. **제어판** 에서 **프로그램 및 기능** 을 선택합니다.  
+    다. **프로그램 및 기능** 에서 **Azure Connected Machine 에이전트** ,  **제거** , **예** 를 차례로 선택합니다.  
 
     >[!NOTE]
     > **AzureConnectedMachineAgent.msi** 설치 관리자 패키지를 두 번 클릭하여 에이전트 설정 마법사를 실행할 수도 있습니다.
@@ -277,7 +281,7 @@ Azure에서 지원 서비스를 사용 하 여 컴퓨터를 관리 하지 않으
 
 1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동 하 여 Azure Arc 사용 서버를 엽니다.
 
-2. 목록에서 머신을 선택하고, 줄임표 ( **...** )를 선택한 다음, **삭제**를 선택합니다.
+2. 목록에서 머신을 선택하고, 줄임표 ( **...** )를 선택한 다음, **삭제** 를 선택합니다.
 
 ## <a name="update-or-remove-proxy-settings"></a>프록시 설정 업데이트 또는 제거
 

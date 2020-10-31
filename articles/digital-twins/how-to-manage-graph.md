@@ -7,21 +7,25 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 28551cb201ab964a21461d6b3f97ce439e446011
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495761"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130292"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
-Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](concepts-twins-graph.md) 입니다. 쌍 그래프는 **관계**를 통해 연결 되는 개별 디지털 쌍으로 구성 됩니다. 
+Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](concepts-twins-graph.md) 입니다. 쌍 그래프는 **관계** 를 통해 연결 되는 개별 디지털 쌍으로 구성 됩니다. 
 
 [Azure digital 쌍 인스턴스가](how-to-set-up-instance-portal.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+    
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>관계 만들기
@@ -33,11 +37,11 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 관계를 만들려면 다음을 지정 해야 합니다.
 * 원본 쌍 ID ( `srcId` 아래 코드 샘플에서): 관계가 시작 되는 쌍의 id입니다.
 * 대상 쌍 ID ( `targetId` 아래 코드 샘플에서): 관계가 도착 하는 쌍의 id입니다.
-* 관계 이름 ( `relName` 아래 코드 샘플에서): 관계의 제네릭 형식 (예: _contains_)입니다.
-* 관계 ID ( `relId` 아래 코드 샘플에서):이 관계에 대 한 특정 이름 (예: _Relationship1_)입니다.
+* 관계 이름 ( `relName` 아래 코드 샘플에서): 관계의 제네릭 형식 (예: _contains_ )입니다.
+* 관계 ID ( `relId` 아래 코드 샘플에서):이 관계에 대 한 특정 이름 (예: _Relationship1_ )입니다.
 
 관계 ID는 지정 된 원본 쌍 내에서 고유 해야 합니다. 전역적으로 고유할 필요는 없습니다.
-예를 들어 쌍 *foo*의 경우 각 특정 관계 ID는 고유 해야 합니다. 그러나 다른 쌍 *막대* 에는 동일한 *foo* 관계 ID와 일치 하는 나가는 관계가 있을 수 있습니다.
+예를 들어 쌍 *foo* 의 경우 각 특정 관계 ID는 고유 해야 합니다. 그러나 다른 쌍 *막대* 에는 동일한 *foo* 관계 ID와 일치 하는 나가는 관계가 있을 수 있습니다.
 
 다음 코드 샘플에서는 Azure Digital Twins 인스턴스에서 관계를 만드는 방법을 보여 줍니다.
 
@@ -83,7 +87,7 @@ await CreateRelationship(client, srcId, targetId, "contains");
 
 즉, 한 번에 두 쌍 간에 여러 유형의 관계를 표현할 수 있습니다. 예를 들어 쌍 *A는* 쌍으로 *저장* 된 관계와 *제조* 관계를 둘 다 가질 수 *있습니다.*
 
-원하는 경우 동일한 두 쌍 사이에 동일한 관계 유형의 인스턴스를 여러 개 만들 수도 있습니다. 이 예에서는 관계가 서로 다른 관계 Id를 사용 하는 *한 쌍 a* 가 쌍 *B*와 두 개의 다른 *저장* 관계를 가질 수 있습니다.
+원하는 경우 동일한 두 쌍 사이에 동일한 관계 유형의 인스턴스를 여러 개 만들 수도 있습니다. 이 예에서는 관계가 서로 다른 관계 Id를 사용 하는 *한 쌍 a* 가 쌍 *B* 와 두 개의 다른 *저장* 관계를 가질 수 있습니다.
 
 ## <a name="list-relationships"></a>관계 목록
 
@@ -132,7 +136,7 @@ await FindOutgoingRelationshipsAsync(client, twin_Id);
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>디지털 쌍으로 들어오는 관계 찾기
 
-Azure Digital Twins에는 지정 된 쌍에 대 한 모든 _*들어오는** 관계를 찾는 API도 있습니다. 이는 역방향 탐색 이나 쌍을 삭제할 때 유용 합니다.
+Azure Digital Twins에는 지정 된 쌍에 대 한 모든 _ *들어오는* * 관계를 찾는 API도 있습니다. 이는 역방향 탐색 이나 쌍을 삭제할 때 유용 합니다.
 
 이전 코드 샘플은 쌍에서 나가는 관계를 찾는 데 중점을 두었습니다. 다음 예제는 유사 하 게 구성 되지만 대신 쌍으로 *들어오는* 관계를 찾습니다.
 

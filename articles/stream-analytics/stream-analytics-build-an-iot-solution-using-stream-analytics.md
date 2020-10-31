@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044586"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130802"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -28,7 +28,7 @@ ms.locfileid: "86044586"
 * 안심하고 Stream Analytics를 사용하여 고객에 대한 스트리밍 솔루션 개발
 * 모니터링 및 로깅 경험을 사용하여 문제 해결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 솔루션을 완료하려면 다음 필수 구성 요소가 필요합니다.
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -126,15 +126,15 @@ ms.locfileid: "86044586"
 
 5. Azure 위치를 선택합니다.
 
-6. **간격**을 몇 초로 지정합니다. 이 값은 샘플 웹앱에서 Event Hub로 데이터를 전송하는 빈도에 사용됩니다.
+6. **간격** 을 몇 초로 지정합니다. 이 값은 샘플 웹앱에서 Event Hub로 데이터를 전송하는 빈도에 사용됩니다.
 
-7. 사용 약관에 동의하려면 **확인**을 누릅니다.
+7. 사용 약관에 동의하려면 **확인** 을 누릅니다.
 
-8. 리소스를 나중에 쉽게 찾을 수 있도록 **대시보드에 고정**을 선택합니다.
+8. 리소스를 나중에 쉽게 찾을 수 있도록 **대시보드에 고정** 을 선택합니다.
 
-9. **구매**를 선택하여 샘플 템플릿을 배포합니다.
+9. **구매** 를 선택하여 샘플 템플릿을 배포합니다.
 
-10. 몇 분 후에 **배포 성공**을 확인하는 알림이 표시됩니다.
+10. 몇 분 후에 **배포 성공** 을 확인하는 알림이 표시됩니다.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Azure Stream Analytics TollApp 리소스 검토
 
@@ -150,7 +150,7 @@ ms.locfileid: "86044586"
    - 두 개의 Web Apps
 
 ## <a name="examine-the-sample-tollapp-job"></a>샘플 TollApp 작업 검사
-1. 이전 섹션의 리소스 그룹에서 시작하여 **tollapp**으로 시작하는 Stream Analytics 스트리밍 작업을 선택합니다(고유한 이름을 만들기 위해 임의 문자 포함).
+1. 이전 섹션의 리소스 그룹에서 시작하여 **tollapp** 으로 시작하는 Stream Analytics 스트리밍 작업을 선택합니다(고유한 이름을 만들기 위해 임의 문자 포함).
 
 2. 작업의 **개요** 페이지에서 쿼리 구문을 보는 **쿼리** 상자가 표시됩니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "86044586"
 
    쿼리를 설명하기 위해 요금소 창구에 진입하는 차량 수를 계산해야 한다고 가정해 보겠습니다. 고속도로 요금소 창구에 차량 진입의 연속 스트림이 있기 때문에 진입 이벤트는 중지되지 않는 스트림과 유사합니다. 스트림을 수량화하기 위해 측정할 "시간"을 정의해야 합니다. 질문을 "3분 간격으로 요금소 창구에 진입하는 차량은 몇 대입니까?"로 더 구체화해 보겠습니다. 이를 일반적으로 연속 개수(Tumbling Count)라고 합니다.
 
-   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) 및 [시간대](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)(Windowing) 구성을 참조하세요.
+   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](/stream-analytics-query/time-management-azure-stream-analytics) 및 [시간대](/stream-analytics-query/windowing-azure-stream-analytics)(Windowing) 구성을 참조하세요.
 
 3. TollApp 샘플 작업의 입력을 검사합니다. 현재 쿼리에 EntryStream 입력만 사용됩니다.
    - **EntryStream** 입력은 자동차가 고속도로의 요금소에 진입할 때마다 나타내는 데이터를 큐에 대기하는 Event Hub 연결입니다. 이 샘플의 일부인 웹앱은 이벤트를 만들고, 해당 데이터는 이 Event Hub에서 큐에 대기합니다. 이 입력은 스트리밍 쿼리의 FROM 절에 쿼리됩니다.
@@ -176,9 +176,9 @@ ms.locfileid: "86044586"
 ## <a name="start-the-tollapp-streaming-job"></a>TollApp 스트리밍 작업 시작
 스트리밍 작업을 시작하려면 다음 단계를 수행합니다.
 
-1. 작업의 **개요** 페이지에서 **시작**을 선택합니다.
+1. 작업의 **개요** 페이지에서 **시작** 을 선택합니다.
 
-2. **시작 작업** 창에서 **지금**을 선택합니다.
+2. **시작 작업** 창에서 **지금** 을 선택합니다.
 
 3. 몇 분 후에 작업이 실행되면 스트리밍 작업의 **개요** 페이지에서 **모니터링** 그래프가 표시됩니다. 그래프에는 몇 천 개의 입력 이벤트 및 수 십 개의 출력 이벤트가 표시됩니다.
 
@@ -189,7 +189,7 @@ ms.locfileid: "86044586"
 
 3. **데이터 탐색기** 제목을 선택하여 데이터 탐색기 페이지를 엽니다.
 
-4. **TollAppDatabase**  >  **tollAppCollection**  >  **문서**를 확장 합니다.
+4. **TollAppDatabase**  >  **tollAppCollection**  >  **문서** 를 확장 합니다.
 
 5. 출력이 지원되면 ID 목록에서 여러 문서가 표시됩니다.
 
@@ -201,7 +201,7 @@ ms.locfileid: "86044586"
 ## <a name="report-total-time-for-each-car"></a>각 자동차에 대한 총 시간 보고
 자동차가 요금소를 통과하는 데 필요한 평균 시간은 프로세스의 효율성과 고객 경험을 평가하는 데 도움이 됩니다.
 
-총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 컴퓨팅합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
+총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 컴퓨팅합니다. **SELECT** 문에서 **DATEDIFF** 를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -214,19 +214,19 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>TollApp 스트리밍 작업 쿼리 구문을 업데이트하려면:
 
-1. 작업의 **개요** 페이지에서 **중지**를 선택합니다.
+1. 작업의 **개요** 페이지에서 **중지** 를 선택합니다.
 
 2. 작업이 중지되었다는 알림을 잠시 기다립니다.
 
-3. JOB TOPOLOGY 제목 아래에서 **< > 쿼리**를 선택합니다.
+3. JOB TOPOLOGY 제목 아래에서 **< > 쿼리** 를 선택합니다.
 
 4. 조정된 스트리밍 SQL 쿼리를 붙여넣습니다.
 
-5. **저장**을 선택하여 쿼리를 저장합니다. 변경 내용을 저장하려면 **예**를 선택합니다.
+5. **저장** 을 선택하여 쿼리를 저장합니다. 변경 내용을 저장하려면 **예** 를 선택합니다.
 
-6. 작업의 **개요** 페이지에서 **시작**을 선택합니다.
+6. 작업의 **개요** 페이지에서 **시작** 을 선택합니다.
 
-7. **시작 작업** 창에서 **지금**을 선택합니다.
+7. **시작 작업** 창에서 **지금** 을 선택합니다.
 
 ### <a name="review-the-total-time-in-the-output"></a>출력에서 총 시간 검토
 스트리밍 작업에서 CosmosDB 출력 데이터를 검토하려면 이전 섹션의 단계를 반복합니다. 최신 JSON 문서 검토
@@ -297,29 +297,29 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 더 큰 스트리밍 단위로 스트리밍 작업 규모를 확장하려면:
 
-1. 현재 작업을 **중지**합니다.
+1. 현재 작업을 **중지** 합니다.
 
 2. **< > 쿼리** 페이지에서 쿼리 구문을 업데이트하고 변경 내용을 저장합니다.
 
-3. 스트리밍 작업의 CONFIGURE 제목 아래에서 **크기 조정**을 선택합니다.
+3. 스트리밍 작업의 CONFIGURE 제목 아래에서 **크기 조정** 을 선택합니다.
 
-4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 검색할 수 있는 컴퓨팅 능력의 크기를 정의합니다. **저장**을 선택합니다.
+4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 검색할 수 있는 컴퓨팅 능력의 크기를 정의합니다. **저장** 을 선택합니다.
 
-5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 컴퓨팅 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
+5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작** 합니다. Azure Stream Analytics에서는 추가 컴퓨팅 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
 
 ## <a name="monitor-the-job"></a>작업 모니터링
 **모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 스토리지 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
 
 ![Azure Stream Analytics 작업 모니터링](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
-작업 대시보드에서 **설정** 영역에서도 **작업 로그**에 액세스할 수 있습니다.
+작업 대시보드에서 **설정** 영역에서도 **작업 로그** 에 액세스할 수 있습니다.
 
 ## <a name="clean-up-the-tollapp-resources"></a>TollApp 리소스 정리
 1. Azure Portal에서 Stream Analytics 작업을 중지합니다.
 
 2. TollApp 템플릿에 관련된 8개의 리소스를 포함하는 리소스 그룹을 찾습니다.
 
-3. **리소스 그룹 삭제**를 선택합니다. 삭제를 확인할 리소스 그룹의 이름을 입력합니다.
+3. **리소스 그룹 삭제** 를 선택합니다. 삭제를 확인할 리소스 그룹의 이름을 입력합니다.
 
 ## <a name="conclusion"></a>결론
 이 솔루션에서는 Azure Stream Analytics 서비스에 대해 소개했습니다. Stream Analytics 작업에 대해 입력 및 출력을 구성하는 방법을 보여 줍니다. 이 솔루션에서는 지금까지 요금소 데이터 시나리오를 통해 계속 변화하는 데이터 공간에서 발생하는 일반적인 문제 유형과 Azure Stream Analytics에서 간단한 SQL 유사 쿼리를 사용하여 이러한 문제를 해결하는 방법을 설명했습니다. 또한 임시(temporal) 데이터 작업을 위한 SQL 확장 구성을 설명했습니다. 데이터 스트림을 조인하는 방법 및 정적 참조 데이터를 사용하여 데이터 스트림을 보강하는 방법과 처리량을 높일 수 있도록 쿼리를 확장하는 방법을 설명했습니다.

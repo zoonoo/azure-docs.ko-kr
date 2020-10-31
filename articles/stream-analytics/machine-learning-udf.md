@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249487"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130683"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -23,13 +23,13 @@ Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학�
 
 기계 학습 모델을 Stream Analytics 작업에 함수로 추가하기 전에 다음 단계를 완료합니다.
 
-1. Azure Machine Learning을 사용하여 [모델을 웹 서비스로 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)합니다.
+1. Azure Machine Learning을 사용하여 [모델을 웹 서비스로 배포](../machine-learning/how-to-deploy-and-where.md)합니다.
 
 2. 채점 스크립트에는 Azure Machine Learning에서 스키마 사양을 생성하는 데 사용되는 [샘플 입력 및 출력](../machine-learning/how-to-deploy-and-where.md)이 있어야 합니다. Stream Analytics는 스키마를 사용하여 웹 서비스의 함수 시그니처를 이해합니다. 이 [샘플 swagger 정의](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) 를 참조로 사용 하 여 올바르게 설정 되었는지 확인할 수 있습니다.
 
 3. 웹 서비스가 JSON 직렬화된 데이터를 수락하고 반환하는지 확인합니다.
 
-4. 대규모 프로덕션 배포를 위한 모델을 [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target)에 배포합니다. 웹 서비스가 작업에서 발생하는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 줍니다. Azure Container Instances에 배포된 모델은 Azure Portal을 사용하는 경우에만 지원됩니다. [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) 를 사용 하 여 작성 된 모델은 Stream Analytics에서 아직 지원 되지 않습니다.
+4. 대규모 프로덕션 배포를 위한 모델을 [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target)에 배포합니다. 웹 서비스가 작업에서 발생하는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 줍니다. Azure Container Instances에 배포된 모델은 Azure Portal을 사용하는 경우에만 지원됩니다. [Azure Machine Learning Designer](../machine-learning/concept-designer.md) 를 사용 하 여 작성 된 모델은 Stream Analytics에서 아직 지원 되지 않습니다.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>작업에 기계 학습 모델 추가
 
@@ -37,7 +37,7 @@ Azure Portal 또는 Visual Studio Code에서 직접 Stream Analytics 작업에 A
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Azure Portal의 Stream Analytics 작업으로 이동하고 **작업 토폴로지**에서 **함수**를 선택합니다. 그런 다음 **+ 추가** 드롭다운 메뉴에서 **Azure Machine Learning 서비스** 를 선택 합니다.
+1. Azure Portal의 Stream Analytics 작업으로 이동하고 **작업 토폴로지** 에서 **함수** 를 선택합니다. 그런 다음 **+ 추가** 드롭다운 메뉴에서 **Azure Machine Learning 서비스** 를 선택 합니다.
 
    ![Azure Machine Learning UDF 추가](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -47,7 +47,7 @@ Azure Portal 또는 Visual Studio Code에서 직접 Stream Analytics 작업에 A
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Visual Studio Code에서 Stream Analytics 프로젝트를 열고 **함수** 폴더를 마우스 오른쪽 단추로 클릭 합니다. 그런 다음 **함수 추가**를 선택 합니다. 드롭다운 목록에서 **MACHINE LEARNING UDF** 를 선택 합니다.
+1. Visual Studio Code에서 Stream Analytics 프로젝트를 열고 **함수** 폴더를 마우스 오른쪽 단추로 클릭 합니다. 그런 다음 **함수 추가** 를 선택 합니다. 드롭다운 목록에서 **MACHINE LEARNING UDF** 를 선택 합니다.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="VS Code에서 UDF 추가":::
 
@@ -91,7 +91,7 @@ Stream Analytics에서는 Azure Machine Learning 함수에 대해 하나의 매�
 
 ### <a name="create-an-input-array"></a>입력 배열 만들기
 
-*N*개의 입력 수를 허용하고 Azure Machine Learning UDF에 대한 입력으로 사용할 수 있는 배열을 만드는 JavaScript UDF를 만들 수 있습니다.
+*N* 개의 입력 수를 허용하고 Azure Machine Learning UDF에 대한 입력으로 사용할 수 있는 배열을 만드는 JavaScript UDF를 만들 수 있습니다.
 
 ```javascript
 function createArray(vendorid, weekday, pickuphour, passenger, distance) {

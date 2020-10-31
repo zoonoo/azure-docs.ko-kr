@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548338"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130020"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -20,7 +20,7 @@ ms.locfileid: "88548338"
 
 Azure Marketplace는 SaaS 서비스에서 최종 사용자에 대해 사용 하는 인증 방법에 대 한 제약 조건을 적용 하지 않습니다. 아래 흐름은 Azure Marketplace에서 SaaS 서비스를 인증 하는 경우에만 필요 합니다.
 
-Azure AD (Active Directory)에 대 한 자세한 내용은 [인증](../../active-directory/develop/authentication-scenarios.md)이란?을 참조 하세요.
+Azure AD (Active Directory)에 대 한 자세한 내용은 [인증](../../active-directory/develop/authentication-vs-authorization.md)이란?을 참조 하세요.
 
 ## <a name="register-an-azure-ad-secured-app"></a>Azure AD 보안 앱 등록
 
@@ -28,22 +28,22 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 계정에서 둘 이상의 액세스를 제공 하는 경우 오른쪽 위 모서리에서 자신의 계정을 클릭 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
-3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록**을 차례로 클릭합니다.
+3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록** 을 차례로 클릭합니다.
 
     ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1.png)
 
 4. 만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
-    -   **이름**: 의미 있는 애플리케이션 이름을 입력합니다.
-    -   **응용 프로그램 유형**:  
+    -   **이름** : 의미 있는 애플리케이션 이름을 입력합니다.
+    -   **응용 프로그램 유형** :  
         
-        [클라이언트 응용 프로그램](../../active-directory/develop/active-directory-dev-glossary.md#client-application)에 대 한 **웹 앱/** a p i를 선택 하 고 보안 서버에 설치 된 리소스/a p i [응용 프로그램](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)을 선택 합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](../../active-directory/develop/active-directory-dev-glossary.md#web-client)) 및 공용 [사용자 에이전트 기반 클라이언트](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)에 사용 됩니다.
+        [클라이언트 응용 프로그램](../../active-directory/develop/developer-glossary.md#client-application)에 대 한 **웹 앱/** a p i를 선택 하 고 보안 서버에 설치 된 리소스/a p i [응용 프로그램](../../active-directory/develop/developer-glossary.md#resource-server)을 선택 합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](../../active-directory/develop/developer-glossary.md#web-client)) 및 공용 [사용자 에이전트 기반 클라이언트](../../active-directory/develop/developer-glossary.md#user-agent-based-client)에 사용 됩니다.
         동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
 
         웹 응용 프로그램의 특정 예제는 [AZURE AD 개발자 가이드](../../active-directory/develop/index.yml)의 시작 섹션에서 사용할 수 있는 빠른 [시작](../../active-directory/develop/quickstart-create-new-tenant.md) 안내를 확인 하세요.
 
-5. 완료 되 면 **등록**을 클릭 합니다.  Azure AD는 새 응용 프로그램에 고유한 *응용 프로그램 ID* 를 할당 합니다. API에만 액세스 하는 하나의 앱 및 단일 테 넌 트를 등록 하는 것이 좋습니다.
+5. 완료 되 면 **등록** 을 클릭 합니다.  Azure AD는 새 응용 프로그램에 고유한 *응용 프로그램 ID* 를 할당 합니다. API에만 액세스 하는 하나의 앱 및 단일 테 넌 트를 등록 하는 것이 좋습니다.
 
-6. 클라이언트 암호를 만들려면 **인증서 & 암호 페이지로** 이동 하 고 **+ 새 클라이언트 암호**를 클릭 합니다.  코드에서 사용 하려면 비밀 값을 복사 해야 합니다.
+6. 클라이언트 암호를 만들려면 **인증서 & 암호 페이지로** 이동 하 고 **+ 새 클라이언트 암호** 를 클릭 합니다.  코드에서 사용 하려면 비밀 값을 복사 해야 합니다.
 
 **AZURE AD 앱 id** 는 게시자 id와 연결 되어 있으므로 모든 제품에서 동일한 *앱 id* 를 사용 해야 합니다.
 
@@ -89,7 +89,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="response"></a>*Response*
 
-|  Name     |  유형         |  설명 |
+|  Name     |  Type         |  설명 |
 |  ------   |  ---------------  | ------------ |
 |  200 정상   |  TokenResponse    |  요청이 성공했습니다. |
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337809"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130258"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
@@ -25,26 +25,26 @@ ms.locfileid: "87337809"
 
 1.  로컬로 테스트하여 오류를 검사합니다.
 
-    - Azure Portal의 **쿼리** 탭에서 **테스트**를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
+    - Azure Portal의 **쿼리** 탭에서 **테스트** 를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
     - Visual Studio용 Azure Stream Analytics 도구 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)를 사용하여 [쿼리를 로컬로 테스트](stream-analytics-live-data-local-testing.md)할 수도 있습니다. 
 
 2.  Visual Studio Code에 대 한 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용 하 여 로컬로 쿼리 디버그를](debug-locally-using-job-diagram-vs-code.md) 단계별로 실행 합니다. 작업 다이어그램은 입력 원본(Event Hub, IoT Hub 등)에서 여러 쿼리 단계를 거쳐 최종적으로 출력 싱크까지의 데이터 흐름 방식을 보여줍니다. 각 쿼리 단계는 WITH 문을 사용하여 스크립트에 정의된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 메트릭뿐만 아니라 데이터를 보고 문제의 원인을 찾을 수 있습니다.
 
     ![작업 다이어그램 미리 보기 결과](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
+3.  [**Timestamp By**](/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](./stream-analytics-time-handling.md)보다 큰 타임스탬프가 있는지 확인합니다.
 
 4.  다음과 같은 공통 문제를 제거합니다.
-    - 쿼리의 [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
-    - [**캐스트**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)를 대신 사용하세요.
+    - 쿼리의 [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
+    - [**캐스트**](/stream-analytics-query/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics)를 대신 사용하세요.
     - 창 함수를 사용하는 경우 전체 창 기간을 기다려서 쿼리의 출력을 확인합니다.
     - 이벤트에 대한 타임스탬프가 작업 시작 시간보다 앞에 오고 이벤트는 삭제됩니다.
-    - [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 조건이 일치하지 않습니다. 일치하는 항목이 없으면 출력이 0이 됩니다.
+    - [**JOIN**](/stream-analytics-query/join-azure-stream-analytics) 조건이 일치하지 않습니다. 일치하는 항목이 없으면 출력이 0이 됩니다.
 
-5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정**으로 이동하여 [**이벤트 순서 지정**](stream-analytics-out-of-order-and-late-events.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
+5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정** 으로 이동하여 [**이벤트 순서 지정**](./stream-analytics-time-handling.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다* . 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
 
 6. 활동 및 리소스 로그를 사용하여 디버그:
-    - [활동 로그](../azure-resource-manager/resource-group-audit.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
+    - [활동 로그](../azure-resource-manager/management/view-activity-logs.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
     - [작업 리소스 로그](stream-analytics-job-diagnostic-logs.md)를 사용하여 오류를 식별하고 디버그합니다.
 
 ## <a name="resource-utilization-is-high"></a>리소스 사용률이 높습니다.
@@ -55,13 +55,13 @@ Azure Stream Analytics의 병렬 처리를 활용해야 합니다. 입력 파티
 
 실시간 데이터를 처리하는 동안 쿼리 중간에 데이터가 어떤 상태인지를 알면 유용할 수 있습니다. Visual Studio의 작업 다이어그램을 사용하여 이를 확인할 수 있습니다. Visual Studio가 없는 경우 추가 단계를 수행하여 중간 데이터를 출력할 수 있습니다.
 
-Azure Stream Analytics 작업의 입력 또는 단계를 여러 번 읽을 수 있기 때문에 추가 SELECT INTO 문을 작성할 수 있습니다. 이렇게 하면 프로그램을 디버그할 때 *watch 변수*가 동작하는 것처럼 중간 데이터가 스토리지로 출력되어 데이터의 정확성을 검사할 수 있습니다.
+Azure Stream Analytics 작업의 입력 또는 단계를 여러 번 읽을 수 있기 때문에 추가 SELECT INTO 문을 작성할 수 있습니다. 이렇게 하면 프로그램을 디버그할 때 *watch 변수* 가 동작하는 것처럼 중간 데이터가 스토리지로 출력되어 데이터의 정확성을 검사할 수 있습니다.
 
 Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage에 대해 하나의 스트림 입력, 두 개의 참조 데이터 입력 및 출력이 있습니다. 쿼리는 이벤트 허브의 데이터와 두 개의 참조 Blob을 조인하여 이름 및 범주 정보를 가져옵니다.
 
 ![Stream Analytics SELECT INTO 쿼리 예제](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-작업이 실행되고 있지만 이벤트는 출력에 생성되지 않습니다. 여기에 표시된 **모니터링** 타일에서 입력이 데이터를 생성하는 것을 확인할 수는 있지만 **JOIN**의 어떤 단계에서 모든 이벤트가 삭제되었는지는 알 수 없습니다.
+작업이 실행되고 있지만 이벤트는 출력에 생성되지 않습니다. 여기에 표시된 **모니터링** 타일에서 입력이 데이터를 생성하는 것을 확인할 수는 있지만 **JOIN** 의 어떤 단계에서 모든 이벤트가 삭제되었는지는 알 수 없습니다.
 
 ![Stream Analytics 모니터링 타일](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
 
@@ -103,12 +103,12 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

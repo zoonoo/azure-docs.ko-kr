@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901694"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130666"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Azure Stream Analytics에 대 한 이벤트 순서 정책 구성
 
-이 문서에서는 Azure Stream Analytics에서 지연 도착 및 순서 없는 이벤트 정책을 설정 하 고 사용 하는 방법을 설명 합니다. 이러한 정책은 쿼리에 [타임 스탬프 by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하는 경우에만 적용 되며 클라우드 입력 원본에만 적용 됩니다.
+이 문서에서는 Azure Stream Analytics에서 지연 도착 및 순서 없는 이벤트 정책을 설정 하 고 사용 하는 방법을 설명 합니다. 이러한 정책은 쿼리에 [타임 스탬프 by](/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하는 경우에만 적용 되며 클라우드 입력 원본에만 적용 됩니다.
 
 ## <a name="event-time-and-arrival-time"></a>이벤트 시간 및 도착 시간
 
-Stream Analytics 작업은 *이벤트 시간* 또는 *도착 시간*을 기준으로 이벤트를 처리할 수 있습니다. 이벤트 **/응용 프로그램 시간은** 이벤트가 생성 될 때 이벤트 페이로드에 있는 타임 스탬프입니다. **도착 시간은** 이벤트를 입력 원본 (Event Hubs/IoT Hub/Blob 저장소)에서 받은 타임 스탬프입니다. 
+Stream Analytics 작업은 *이벤트 시간* 또는 *도착 시간* 을 기준으로 이벤트를 처리할 수 있습니다. 이벤트 **/응용 프로그램 시간은** 이벤트가 생성 될 때 이벤트 페이로드에 있는 타임 스탬프입니다. **도착 시간은** 이벤트를 입력 원본 (Event Hubs/IoT Hub/Blob 저장소)에서 받은 타임 스탬프입니다. 
 
-기본적으로 Stream Analytics는 *도착 시간*을 기준으로 이벤트를 처리 하지만 쿼리에서 [TIMESTAMP by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하 여 이벤트 *시간별* 로 이벤트를 처리 하도록 선택할 수 있습니다. 지연 도착 및 순서가 잘못 된 정책은 이벤트 시간별로 이벤트를 처리 하는 경우에만 적용 됩니다. 이러한 설정을 구성하는 경우 시나리오에 대한 대기 시간 및 정확성 요구 사항을 고려해야 합니다. 
+기본적으로 Stream Analytics는 *도착 시간* 을 기준으로 이벤트를 처리 하지만 쿼리에서 [TIMESTAMP by](/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하 여 이벤트 *시간별* 로 이벤트를 처리 하도록 선택할 수 있습니다. 지연 도착 및 순서가 잘못 된 정책은 이벤트 시간별로 이벤트를 처리 하는 경우에만 적용 됩니다. 이러한 설정을 구성하는 경우 시나리오에 대한 대기 시간 및 정확성 요구 사항을 고려해야 합니다. 
 
 ## <a name="what-is-late-arrival-policy"></a>지연 도착 정책이란?
 
@@ -79,8 +79,8 @@ Stream Analytics 작업은 *이벤트 시간* 또는 *도착 시간*을 기준�
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>지연 도착 정책이 0으로 설정 된 경우에도 5 초 지연 시간이 표시 되는 이유는 무엇 인가요?
 이는 입력이 수신 되지 않은 입력 파티션이 있는 경우에 발생 합니다. 파티션당 입력 메트릭을 확인 하 여이 동작의 유효성을 검사할 수 있습니다. 
 
-파티션이 구성 된 지연 도착 임계값을 초과 하는 데이터를 포함 하지 않는 경우 stream analytics는 이벤트 순서 고려 사항 섹션에 설명 된 대로 응용 프로그램 타임 스탬프를 이동 합니다. 이 경우 예상 도착 시간이 필요 합니다. 파티션에 데이터가 전혀 없는 경우 stream analytics는 도착 시간을 *현지 시간-5 초로*추정 합니다. 이 파티션에는 데이터가 전혀 없는 경우 워터 마크 지연 시간이 5 초인 것으로 표시 될 수 있습니다.  
+파티션이 구성 된 지연 도착 임계값을 초과 하는 데이터를 포함 하지 않는 경우 stream analytics는 이벤트 순서 고려 사항 섹션에 설명 된 대로 응용 프로그램 타임 스탬프를 이동 합니다. 이 경우 예상 도착 시간이 필요 합니다. 파티션에 데이터가 전혀 없는 경우 stream analytics는 도착 시간을 *현지 시간-5 초로* 추정 합니다. 이 파티션에는 데이터가 전혀 없는 경우 워터 마크 지연 시간이 5 초인 것으로 표시 될 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 * [시간 처리 고려 사항](stream-analytics-time-handling.md)
-* [Stream Analytics에서 사용 가능한 메트릭](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Stream Analytics에서 사용 가능한 메트릭](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129561"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -75,6 +75,7 @@ az extension update --name aks-preview
 - 미리 보기 중에는 Azure CLI를 통해 *네임 스페이스 수준* 사용 권한만 추가할 수 있습니다.
 - CRDs가 있는 경우 사용자 지정 역할 정의를 제공 하는 유일한 방법은를 제공 하는 것입니다 `Microsoft.ContainerService/managedClusters/*/read` . AKS는 CRDs에 대 한 보다 세부적인 사용 권한을 제공 하기 위해 작업 중입니다. 나머지 개체의 경우 특정 API 그룹 (예:)을 사용할 수 있습니다 `Microsoft.ContainerService/apps/deployments/read` .
 - 새 역할 할당은 전파 하는 데 최대 5 분이 걸릴 수 있으며 권한 부여 서버에서 업데이트 됩니다.
+- 인증을 위해 구성 된 Azure AD 테 넌 트가 AKS 클러스터를 보유 하는 구독에 대 한 테 넌 트와 동일 해야 합니다. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Azure RBAC 및 관리 되는 Azure AD 통합을 사용 하 여 새 클러스터 만들기
 

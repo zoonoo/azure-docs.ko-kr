@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074236"
+ms.locfileid: "93129408"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>REST API에 대한 직렬화 형식
 
-모든 Stream Analytics 입력에는 **직렬화 형식** 이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 설명서를 참조하세요.
+모든 Stream Analytics 입력에는 **직렬화 형식** 이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](./stream-analytics-define-inputs.md) 설명서를 참조하세요.
 
 다음 Javascript 코드는 REST API를 사용할 때의 .NET 역직렬 변환기 직렬화 형식 예입니다.
 
@@ -239,7 +239,7 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>이 기능은 언제 모든 Azure 지역에서 사용할 수 있나요?
 
-이 기능은 [6개의 지역](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support)에서 사용할 수 있습니다. 다른 지역에서 이 기능을 사용하는 데 관심이 있는 경우 [요청을 제출](https://aka.ms/ccodereqregion)할 수 있습니다. 모든 Azure 지역에 대한 지원은 로드맵에 있습니다.
+이 기능은 [6개의 지역](#region-support)에서 사용할 수 있습니다. 다른 지역에서 이 기능을 사용하는 데 관심이 있는 경우 [요청을 제출](https://aka.ms/ccodereqregion)할 수 있습니다. 모든 Azure 지역에 대한 지원은 로드맵에 있습니다.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>GetMetadataPropertyValue 함수와 유사한 내 입력의 MetadataPropertyValue에 액세스할 수 있나요?
 

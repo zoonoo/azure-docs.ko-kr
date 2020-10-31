@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129901"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Azure SQL Database에 액세스(미리 보기)
 
@@ -33,7 +33,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
 1. [Azure Portal](https://portal.azure.com)에서 Stream Analytics 작업을 엽니다.
 
-1. 왼쪽 탐색 메뉴의 **구성** 아래에서 **관리 ID**를 선택합니다. 그런 다음, **시스템 할당 관리 ID 사용** 옆에 있는 확인란을 선택하고 **저장**을 선택합니다.
+1. 왼쪽 탐색 메뉴의 **구성** 아래에서 **관리 ID** 를 선택합니다. 그런 다음, **시스템 할당 관리 ID 사용** 옆에 있는 확인란을 선택하고 **저장** 을 선택합니다.
 
    ![시스템 할당 관리 ID 선택](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
@@ -44,7 +44,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
    ![보안 주체 ID로 표시되는 개체 ID](./media/sql-db-output-managed-identity/principal-id.png)
 
-   서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어 작업 이름이 *MyASAJob*이면 서비스 주체 이름도 *MyASAJob*이 됩니다.
+   서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어 작업 이름이 *MyASAJob* 이면 서비스 주체 이름도 *MyASAJob* 이 됩니다.
 
 ## <a name="select-an-active-directory-admin"></a>Active Directory 관리자 선택
 
@@ -52,17 +52,17 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
 1. Azure SQL Database 리소스로 이동하여 데이터베이스가 속해 있는 SQL Server를 선택합니다. 리소스 개요 페이지의 *서버 이름* 옆에서 SQL Server 이름을 찾을 수 있습니다. 
 
-1. **설정**에서 **Active Directory 관리자**를 선택합니다. 그런 다음, **관리자 설정**을 선택합니다. 
+1. **설정** 에서 **Active Directory 관리자** 를 선택합니다. 그런 다음, **관리자 설정** 을 선택합니다. 
 
    ![Active Directory 관리자 페이지](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Active Directory 관리자 페이지에서 SQL Server의 관리자가 될 사용자 또는 그룹을 검색하고 **선택**을 클릭합니다.
+1. Active Directory 관리자 페이지에서 SQL Server의 관리자가 될 사용자 또는 그룹을 검색하고 **선택** 을 클릭합니다.
 
    ![Active Directory 관리자 추가](./media/sql-db-output-managed-identity/add-admin.png)
 
-   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시 된 사용자 또는 그룹은 Azure Active Directory 관리자로 지원 되지 않으므로 선택할 수 없습니다.  **Azure Active Directory Features and Limitations**    [SQL Database 또는 Azure Synapse 인증에 대 한 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)의 Azure Active Directory 기능 및 제한 사항 섹션에서 지원 되는 관리자 목록을 참조 하세요. Azure RBAC (역할 기반 액세스 제어)는 포털에만 적용 되 고 SQL Server로 전파 되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자**를 만들 수 있는 사용자입니다.
+   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시 된 사용자 또는 그룹은 Azure Active Directory 관리자로 지원 되지 않으므로 선택할 수 없습니다.  **Azure Active Directory Features and Limitations**    [SQL Database 또는 Azure Synapse 인증에 대 한 Azure Active Directory 인증 사용](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations)의 Azure Active Directory 기능 및 제한 사항 섹션에서 지원 되는 관리자 목록을 참조 하세요. Azure RBAC (역할 기반 액세스 제어)는 포털에만 적용 되 고 SQL Server로 전파 되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자** 를 만들 수 있는 사용자입니다.
 
-1. **Active Directory 관리자** 페이지에서 **저장**을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.
+1. **Active Directory 관리자** 페이지에서 **저장** 을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.
 
    Azure Active Directory 관리자를 설정 하면 새 관리자 이름 (사용자 또는 그룹)이 가상 주 데이터베이스에 SQL Server 인증 사용자로 표시 되지 않습니다. 표시 되는 경우 Azure Active Directory 관리자 설치 프로그램은 실패 하 고 관리자 (이름)가 이미 있음을 나타내는 만들기를 롤백합니다. SQL Server 인증 사용자는 Azure Active Directory의 일부가 아니므로 Azure Active Directory 인증을 사용 하 여 서버에 연결 하는 데 필요한 작업은 실패 합니다. 
 
@@ -70,13 +70,13 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
 다음으로, Azure Active Directory ID에 매핑되는 포함된 데이터베이스 사용자를 SQL Database에 만듭니다. 포함 된 데이터베이스 사용자에 게는 주 데이터베이스에 대 한 로그인이 없지만 데이터베이스와 연결 된 디렉터리의 id에 매핑됩니다. Azure Active Directory ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 이 경우 Stream Analytics 작업에 대한 포함된 데이터베이스 사용자를 만들어야 합니다. 
 
-1. SQL Server Management Studio를 사용 하 여 SQL Database에 연결 합니다. **사용자 이름**은 **ALTER ANY USER** 권한이 있는 Azure Active Directory 사용자입니다. SQL Server에서 설정하는 관리자를 예로 들 수 있습니다. **Azure Active Directory - MFA가 지원되는 유니버설** 인증을 사용합니다. 
+1. SQL Server Management Studio를 사용 하 여 SQL Database에 연결 합니다. **사용자 이름** 은 **ALTER ANY USER** 권한이 있는 Azure Active Directory 사용자입니다. SQL Server에서 설정하는 관리자를 예로 들 수 있습니다. **Azure Active Directory - MFA가 지원되는 유니버설** 인증을 사용합니다. 
 
    ![SQL Server에 연결](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
    서버 이름 `<SQL Server name>.database.windows.net`은 지역에 따라 달라질 수 있습니다. 예를 들어 중국 지역은 `<SQL Server name>.database.chinacloudapi.cn`을 사용해야 합니다.
  
-   **옵션 > 연결 속성 > 데이터베이스에 연결**로 이동하여 특정 SQL Database를 지정할 수 있습니다.  
+   **옵션 > 연결 속성 > 데이터베이스에 연결** 로 이동하여 특정 SQL Database를 지정할 수 있습니다.  
 
    ![SQL Server 연결 속성](./media/sql-db-output-managed-identity/sql-server-connection-properties.png)
 
@@ -86,11 +86,11 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
    1. 창의 내용이 맞으면 Azure Portal에서 SQL 서버 리소스로 이동합니다. **보안** 섹션에서 **방화벽 및 가상 네트워크** 페이지를 엽니다. 
    1. 원하는 규칙 이름을 사용하여 새 규칙을 추가합니다.
-   1. **새 방화벽 규칙** 창의 *시작* IP 주소를 *시작 IP*로 사용합니다.
-   1. **새 방화벽 규칙** 창의 *끝* IP 주소를 *끝 IP*로 사용합니다. 
-   1. **저장**을 선택하고 SQL Server Management Studio에서 다시 연결을 시도합니다. 
+   1. **새 방화벽 규칙** 창의 *시작* IP 주소를 *시작 IP* 로 사용합니다.
+   1. **새 방화벽 규칙** 창의 *끝* IP 주소를 *끝 IP* 로 사용합니다. 
+   1. **저장** 을 선택하고 SQL Server Management Studio에서 다시 연결을 시도합니다. 
 
-1. 연결되면 포함된 데이터베이스 사용자를 만듭니다. 다음 SQL 명령은 Stream Analytics 작업과 동일한 이름을 사용하는 포함된 데이터베이스 사용자를 만듭니다. *ASA_JOB_NAME*을 대괄호를 묶어야 합니다. 다음 T-SQL 구문을 사용하여 쿼리를 실행합니다. 
+1. 연결되면 포함된 데이터베이스 사용자를 만듭니다. 다음 SQL 명령은 Stream Analytics 작업과 동일한 이름을 사용하는 포함된 데이터베이스 사용자를 만듭니다. *ASA_JOB_NAME* 을 대괄호를 묶어야 합니다. 다음 T-SQL 구문을 사용하여 쿼리를 실행합니다. 
 
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
@@ -110,7 +110,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
 ```
 
-또는 SQL Server Management Studio에서 SQL 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **속성 > 권한**을 선택할 수도 있습니다. 권한 메뉴에서 이전에 추가한 Stream Analytics 작업을 볼 수 있으며, 필요에 따라 수동으로 권한을 부여하거나 거부할 수 있습니다.
+또는 SQL Server Management Studio에서 SQL 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **속성 > 권한** 을 선택할 수도 있습니다. 권한 메뉴에서 이전에 추가한 Stream Analytics 작업을 볼 수 있으며, 필요에 따라 수동으로 권한을 부여하거나 거부할 수 있습니다.
 
 ## <a name="create-an-azure-sql-database-output"></a>Azure SQL Database 출력 만들기
 
@@ -118,11 +118,11 @@ GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 
 적절한 출력 스키마를 사용하여 SQL Database에 테이블을 만들었는지 확인합니다. 이 테이블의 이름은 Stream Analytics 작업에 SQL Database 출력을 추가할 때 작성해야 하는 필수 속성 중 하나입니다. 또한 연결을 테스트하고 Stream Analytics 쿼리를 실행하기 위한 **SELECT** 및 **INSERT** 권한이 작업에 있는지 확인합니다. 아직 수행하지 않은 경우 [Stream Analytics 작업 권한 부여](#grant-stream-analytics-job-permissions) 섹션을 참조하세요. 
 
-1. Stream Analytics 작업으로 돌아가서 **작업 토폴로지**에서 **출력** 페이지로 이동합니다. 
+1. Stream Analytics 작업으로 돌아가서 **작업 토폴로지** 에서 **출력** 페이지로 이동합니다. 
 
-1. **추가 > SQL Database**를 선택합니다. SQL Database 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID**를 선택합니다.
+1. **추가 > SQL Database** 를 선택합니다. SQL Database 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID** 를 선택합니다.
 
-1. 나머지 속성을 입력합니다. SQL Database 출력을 만드는 방법에 대한 자세한 내용은 [Stream Analytics를 사용하여 SQL Database 출력 만들기](sql-database-output.md)를 참조하세요. 작업을 마쳤으면 **저장**을 선택합니다. 
+1. 나머지 속성을 입력합니다. SQL Database 출력을 만드는 방법에 대한 자세한 내용은 [Stream Analytics를 사용하여 SQL Database 출력 만들기](sql-database-output.md)를 참조하세요. 작업을 마쳤으면 **저장** 을 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

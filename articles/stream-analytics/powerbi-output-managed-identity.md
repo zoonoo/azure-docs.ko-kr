@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129765"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
 
@@ -23,19 +23,19 @@ Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/manag
 
 이 기능을 사용 하려면 다음이 필요 합니다.
 
-- [Pro 라이선스가](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro)있는 Power BI 계정
+- [Pro 라이선스가](/power-bi/service-admin-purchasing-power-bi-pro)있는 Power BI 계정
 
 - Power BI 계정 내에서 업그레이드 된 작업 영역입니다. 자세한 내용은이 기능에 대 한 [Power BI의 공지](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) 를 참조 하세요.
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Stream Analytics 작업 만들기
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성**아래에 있는 **관리 되는 id** 를 선택 합니다. "시스템 할당 관리 Id 사용"이 선택 되어 있는지 확인 한 다음 화면 아래쪽에 있는 **저장** 단추를 선택 합니다.
+1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 되는 id** 를 선택 합니다. "시스템 할당 관리 Id 사용"이 선택 되어 있는지 확인 한 다음 화면 아래쪽에 있는 **저장** 단추를 선택 합니다.
 
    ![관리 id Stream Analytics 구성](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. 출력을 구성 하기 전에이 문서의 [Power BI 작업 영역에 대 한 Stream Analytics 작업 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션의 지침에 따라 Stream Analytics 작업에 Power BI 작업 영역에 대 한 액세스 권한을 부여 합니다.
 
-3. Stream analytics 작업의 **출력** 섹션으로 이동 하 고 **+ 추가**를 선택한 다음 **Power BI**를 선택 합니다. 그런 다음 **권한 부여** 단추를 선택 하 고 Power BI 계정으로 로그인 합니다.
+3. Stream analytics 작업의 **출력** 섹션으로 이동 하 고 **+ 추가** 를 선택한 다음 **Power BI** 를 선택 합니다. 그런 다음 **권한 부여** 단추를 선택 하 고 Power BI 계정으로 로그인 합니다.
 
    ![Power BI 계정으로 권한 부여](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/manag
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager 배포
 
-Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 완벽 하 게 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI을 사용 합니다.
+Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 완벽 하 게 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](/cli/azure/?view=azure-cli-latest)를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI을 사용 합니다.
 
 
 1. 리소스 관리자 템플릿의 리소스 섹션에 다음 속성을 포함 하 여 관리 되는 Id를 사용 하 여 **Microsoft StreamAnalytics/streamingjobs** 리소스를 만들 수 있습니다.
@@ -160,9 +160,9 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
 ### <a name="use-the-power-bi-ui"></a>Power BI UI 사용
 
    > [!Note]
-   > UI를 사용 하 여 Power BI 작업 영역에 Stream Analytics 작업을 추가 하려면 Power BI 관리자 포털의 **개발자 설정** 에서 서비스 사용자 액세스를 사용 하도록 설정 해야 합니다. 자세한 내용은 [서비스 주체 시작](https://docs.microsoft.com/power-bi/developer/embed-service-principal) 을 참조 하세요.
+   > UI를 사용 하 여 Power BI 작업 영역에 Stream Analytics 작업을 추가 하려면 Power BI 관리자 포털의 **개발자 설정** 에서 서비스 사용자 액세스를 사용 하도록 설정 해야 합니다. 자세한 내용은 [서비스 주체 시작](/power-bi/developer/embed-service-principal) 을 참조 하세요.
 
-1. 작업 영역 액세스 설정으로 이동 합니다. 자세한 내용은 [작업 영역에 대 한 액세스 권한 부여](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace)문서를 참조 하세요.
+1. 작업 영역 액세스 설정으로 이동 합니다. 자세한 내용은 [작업 영역에 대 한 액세스 권한 부여](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace)문서를 참조 하세요.
 
 2. 텍스트 상자에 Stream Analytics 작업 이름을 입력 하 고 액세스 수준으로 **참가자** 를 선택 합니다.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Power BI REST API 사용
 
-"그룹 사용자 추가" REST API를 직접 사용 하 여 Stream Analytics 작업을 작업 영역에 참가자로 추가할 수도 있습니다. 이 API에 대 한 전체 설명서는 [그룹-그룹 사용자 추가에서](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser)찾을 수 있습니다.
+"그룹 사용자 추가" REST API를 직접 사용 하 여 Stream Analytics 작업을 작업 영역에 참가자로 추가할 수도 있습니다. 이 API에 대 한 전체 설명서는 [그룹-그룹 사용자 추가에서](/rest/api/power-bi/groups/addgroupuser)찾을 수 있습니다.
 
 **샘플 요청**
 ```http

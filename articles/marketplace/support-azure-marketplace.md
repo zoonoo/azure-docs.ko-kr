@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275412"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130836"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
 
@@ -32,7 +32,7 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 
 | 지원 채널 | Description |  
 |:--- |:--- |  
-| MSDN 포럼: [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
+| MSDN 포럼: [Microsoft Q&A 질문 페이지](/answers/products/azure)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
 | 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 있는 Azure의 Virtual Machines</li> <li>스택 오버플로: [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)에 있는 Azure의 컨테이너</li> </ul> |
 
 ## <a name="marketing-resources"></a>마케팅 리소스  

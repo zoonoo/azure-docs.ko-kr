@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043522"
+ms.locfileid: "93131159"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 프리미엄 계층
 
-Azure Data Lake Storage Gen2은 이제 [프리미엄 성능 계층](storage-blob-performance-tiers.md#premium-performance)을 지원 합니다. 프리미엄 성능 계층은 빅 데이터 분석 응용 프로그램 및 일관성 있는 대기 시간이 낮고 트랜잭션 수가 많은 워크 로드에 적합 합니다. 
-
-> [!NOTE]
-> Azure Data Lake Storage에 대 한 프리미엄 계층은 공개 미리 보기로 제공 됩니다. [지역 가용성](#regional-availability)을 참조 하세요.
+Azure Data Lake Storage Gen2은 이제 [프리미엄 성능 계층](storage-blob-performance-tiers.md#premium-performance)을 지원 합니다. 프리미엄 성능 계층은 빅 데이터 분석 응용 프로그램 및 일관성 있는 대기 시간이 낮고 트랜잭션 수가 많은 워크 로드에 적합 합니다.
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>프리미엄 성능 계층의 이점을 누릴 수 있는 워크 로드
 
@@ -106,8 +103,3 @@ Azure Data Lake Storage에 대 한 프리미엄 계층은 다음 지역에서 �
 |오스트레일리아 동부|LRS, ZRS|
 |오스트레일리아 동남부|LRS|
 |브라질 남부|LRS|
-
-
-## <a name="next-steps"></a>다음 단계
-
-Azure Data Lake Storage [블로그 알림에](https://www.microsoft.com)대 한 프리미엄 계층을 참조 하세요.

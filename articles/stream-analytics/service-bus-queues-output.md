@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317792"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129884"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Service Bus 큐 출력
 
@@ -34,7 +34,7 @@ ms.locfileid: "91317792"
 | 이벤트 직렬화 형식 |출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | Encoding |CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
-| 형식 |JSON 형식에만 적용됩니다. **줄로 구분됨**은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨**을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다. **배열**은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. |
+| 형식 |JSON 형식에만 적용됩니다. **줄로 구분됨** 은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨** 을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다. **배열** 은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. |
 | 속성 열 | (선택 사항) 페이로드 대신 나가는 메시지의 사용자 속성으로 첨부해야 하는 쉼표로 구분된 열입니다. 이 기능에 대한 자세한 내용은 [출력에 대한 사용자 지정 메타데이터 속성](#custom-metadata-properties-for-output) 섹션에 있습니다. |
 | 시스템 속성 열 | (선택 사항) 페이로드 대신 나가는 메시지에 첨부해야 하는 시스템 속성 및 해당 열 이름에 대한 키 값 쌍입니다.  |
 
@@ -50,7 +50,7 @@ ms.locfileid: "91317792"
 
 ## <a name="custom-metadata-properties-for-output"></a>출력에 대한 사용자 지정 메타데이터 속성
 
-쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키*는 열 이름이고 *값*은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
+쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키* 는 열 이름이고 *값* 은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
 
 다음 예제에서는 `DeviceId` 및 필드가 `DeviceStatus` 메타 데이터에 추가 됩니다.
 
@@ -70,9 +70,9 @@ ms.locfileid: "91317792"
 
 ## <a name="system-properties"></a>시스템 속성
 
-쿼리 열을 [시스템 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다.
+쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다.
 
-이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)이 쿼리 열 값으로 채워집니다.
+이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)이 쿼리 열 값으로 채워집니다.
 지원되는 시스템 속성은 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`입니다.
 
 이러한 열의 문자열 값은 해당 시스템 속성 값 형식으로 구문 분석되고, 구문 분석 실패는 데이터 오류로 처리됩니다.

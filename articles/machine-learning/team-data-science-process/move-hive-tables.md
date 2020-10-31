@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130870"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -34,11 +34,11 @@ ms.locfileid: "86080740"
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 스토리지 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다.
 
-**NYC Taxi Trip Data**로 연습하려면 다음을 수행해야 합니다.
+**NYC Taxi Trip Data** 로 연습하려면 다음을 수행해야 합니다.
 
 * **NYC Taxi Trip Data** 파일(12개의 Trip 파일과 12개의 Fare 파일)을 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) 합니다.
 * **압축을 풉니다** .
-* Azure Storage 계정의 기본값(또는 해당 컨테이너)에 **업로드**합니다. 해당 계정에 대한 옵션은 [Azure HDInsight 클러스터에서 Azure Storage 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) 항목에 표시됩니다. 스토리지 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](hive-walkthrough.md#upload)에 나와 있습니다.
+* Azure Storage 계정의 기본값(또는 해당 컨테이너)에 **업로드** 합니다. 해당 계정에 대한 옵션은 [Azure HDInsight 클러스터에서 Azure Storage 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) 항목에 표시됩니다. 스토리지 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](hive-walkthrough.md#upload)에 나와 있습니다.
 
 ## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Hive 쿼리를 제출하는 방법
 다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.
@@ -101,7 +101,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 다음 예제에서 Hive 쿼리의 출력은 `C:\apps\temp` 디렉터리의 `hivequeryoutput.txt` 파일에 작성됩니다.
 
-![Hive 쿼리의 출력](./media/move-hive-tables/output-hive-results-1.png)
+![Hadoop 명령줄 창에서 Hive 쿼리의 출력을 보여 주는 스크린샷](./media/move-hive-tables/output-hive-results-1.png)
 
 **Azure blob에 Hive 쿼리 결과 출력**
 
@@ -113,7 +113,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 다음 예제에서 Hive 쿼리는 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir` 에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. `wasb:///queryoutputdir/queryoutput.txt`처럼 디렉터리 이름과 blob 이름을 모두 입력하면 오류가 발생합니다.
 
-![Hive 쿼리의 출력](./media/move-hive-tables/output-hive-results-2.png)
+![스크린샷에는 Hadoop 명령줄 창에서 이전 명령이 표시 됩니다.](./media/move-hive-tables/output-hive-results-2.png)
 
 Azure Storage Explorer를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
@@ -147,12 +147,12 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 다음은 연결해야 하는 필드와 기타 구성에 대한 설명입니다.
 
-* **\<database name\>**: 만들려는 데이터베이스의 이름입니다. 기본 데이터베이스를 사용하려는 경우 "*create database...* " 쿼리를 생략할 수 있습니다.
-* **\<table name\>**: 지정 된 데이터베이스 내에서 만들려는 테이블의 이름입니다. 기본 데이터베이스를 사용 하려는 경우를 사용 하지 않고 테이블을 직접 참조할 수 있습니다 *\<table name\>* \<database name\> .
-* **\<field separator\>**: Hive 테이블에 업로드할 데이터 파일의 필드를 구분 하는 구분 기호입니다.
-* **\<line separator\>**: 데이터 파일에서 줄을 구분 하는 구분 기호입니다.
-* **\<storage location\>**: Hive 테이블의 데이터를 저장 하는 Azure Storage 위치입니다. *LOCATION\<storage location\>* 을 지정하지 않으면 데이터베이스 및 테이블이 기본적으로 Hive 클러스터의 기본 컨테이너에 있는 hive/warehouse/** 디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *' wasb:/// \<directory 1> /'* 또는 *' wasb:/// \<directory 1> / \<directory 2> /'* 등의 형식으로 클러스터의 기본 컨테이너를 기준으로 하는 위치를 참조 해야 합니다. 쿼리가 실행 된 후에는 기본 컨테이너 내에서 상대 디렉터리가 만들어집니다.
-* **TBLPROPERTIES("skip.header.line.count"="1")** : 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝**에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
+* **\<database name\>** : 만들려는 데이터베이스의 이름입니다. 기본 데이터베이스를 사용하려는 경우 " *create database...* " 쿼리를 생략할 수 있습니다.
+* **\<table name\>** : 지정 된 데이터베이스 내에서 만들려는 테이블의 이름입니다. 기본 데이터베이스를 사용 하려는 경우를 사용 하지 않고 테이블을 직접 참조할 수 있습니다 *\<table name\>* \<database name\> .
+* **\<field separator\>** : Hive 테이블에 업로드할 데이터 파일의 필드를 구분 하는 구분 기호입니다.
+* **\<line separator\>** : 데이터 파일에서 줄을 구분 하는 구분 기호입니다.
+* **\<storage location\>** : Hive 테이블의 데이터를 저장 하는 Azure Storage 위치입니다.  디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *' wasb:/// \<directory 1> /'* 또는 *' wasb:/// \<directory 1> / \<directory 2> /'* 등의 형식으로 클러스터의 기본 컨테이너를 기준으로 하는 위치를 참조 해야 합니다. 쿼리가 실행 된 후에는 기본 컨테이너 내에서 상대 디렉터리가 만들어집니다.
+* **TBLPROPERTIES("skip.header.line.count"="1")** : 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝** 에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Hive 테이블에 데이터 로드
 다음은 Hive 테이블에 데이터를 로드하는 Hive 쿼리입니다.
@@ -161,7 +161,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>**: Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우은 *\<path to blob data\>* *' wasb:// \<directory in this container> / \<blob file name> '* 형식 이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우는 *\<path to blob data\>* *' wasb:// \<container name> @ \<storage account name> . blob.core.windows.net/ \<blob file name> '* 형식 이어야 합니다.
+* **\<path to blob data\>** : Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우은 *\<path to blob data\>* *' wasb:// \<directory in this container> / \<blob file name> '* 형식 이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우는 *\<path to blob data\>* *' wasb:// \<container name> @ \<storage account name> . blob.core.windows.net/ \<blob file name> '* 형식 이어야 합니다.
 
   > [!NOTE]
   > Hive 테이블에 업로드할 blob 데이터가 Hadoop 클러스터에 대한 스토리지 계정의 기본 또는 추가 컨테이너에 있어야 합니다. 그렇지 않으면 데이터에 액세스할 수 없기 때문에 *LOAD DATA* 쿼리가 실패합니다.
@@ -188,7 +188,7 @@ LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partiti
     PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 ```
 
-분할된 테이블에 쿼리할 때 `where` 절의 **시작 부분**에 파티션 조건을 추가하여 검색 효율성을 높이는 것이 좋습니다.
+분할된 테이블에 쿼리할 때 `where` 절의 **시작 부분** 에 파티션 조건을 추가하여 검색 효율성을 높이는 것이 좋습니다.
 
 ```hiveql
 select
@@ -238,7 +238,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name>
 ```
 
 > [!NOTE]
-> TEXTFILE 테이블 * \<database name\> 입니다. \<external textfile table name\> * 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서 파티션 변수를 반환된 데이터 집합의 필드로 선택합니다. 에 삽입 * \<database name\> 합니다. \<ORC table name\> * 이후 실패 * \<database name\> 합니다 \<ORC table name\> .* 파티션 변수가 테이블 스키마의 필드로 포함되지 않기 때문입니다. 이 경우 삽입할 필드를 구체적으로 선택 해야 * \<database name\> 합니다. \<ORC table name\> * 선택해야 합니다.
+> TEXTFILE 테이블 *\<database name\> 입니다. \<external textfile table name\>* 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서 파티션 변수를 반환된 데이터 집합의 필드로 선택합니다. 에 삽입 *\<database name\> 합니다. \<ORC table name\>* 이후 실패 *\<database name\> 합니다 \<ORC table name\> .* 파티션 변수가 테이블 스키마의 필드로 포함되지 않기 때문입니다. 이 경우 삽입할 필드를 구체적으로 선택 해야 *\<database name\> 합니다. \<ORC table name\>* 선택해야 합니다.
 >
 >
 
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-*\<external text file table name\>* 모든 데이터를에 삽입 한 후에는 다음 쿼리를 사용할 때를 삭제 하는 것이 안전 * \<database name\> 합니다. \<ORC table name\> *
+*\<external text file table name\>* 모든 데이터를에 삽입 한 후에는 다음 쿼리를 사용할 때를 삭제 하는 것이 안전 *\<database name\> 합니다. \<ORC table name\>*
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494842"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130397"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
 [**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>모델 만들기
 
@@ -61,7 +65,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 > [!NOTE]
 > 모델을 정의 하 고 저장 하는 json 파일에 대 한 샘플 본문으로, 클라이언트 프로젝트의 일부로 업로드 됩니다. 반면에 REST API 호출은 위에 있는 것과 같은 모델 정의의 배열을 사용 `IEnumerable<string>` 합니다 .이는 .NET SDK의에 매핑됩니다. 따라서 REST API에서이 모델을 직접 사용 하려면 대괄호로 묶습니다.
 
-이 모델은 환자 객실의 이름과 고유 ID를 정의 하 고 방문자 수 및 핸드 씻어 상태를 나타내는 속성을 정의 합니다. 이러한 카운터는 동작 센서 및 smart soap dispensers에서 업데이트 되며 함께 사용 하 여 *수동 씻어 백분율* 속성을 계산 합니다. 또한이 모델은이 *대화방* 모델을 기반으로 하는 [디지털](concepts-twins-graph.md) 쌍을 실제 장치에 연결 하는 데 사용 되는 관계 *hasdevices*를 정의 합니다.
+이 모델은 환자 객실의 이름과 고유 ID를 정의 하 고 방문자 수 및 핸드 씻어 상태를 나타내는 속성을 정의 합니다. 이러한 카운터는 동작 센서 및 smart soap dispensers에서 업데이트 되며 함께 사용 하 여 *수동 씻어 백분율* 속성을 계산 합니다. 또한이 모델은이 *대화방* 모델을 기반으로 하는 [디지털](concepts-twins-graph.md) 쌍을 실제 장치에 연결 하는 데 사용 되는 관계 *hasdevices* 를 정의 합니다.
 
 이 방법을 수행 하면 병원의 wards, 영역 또는 병원 자체에 대 한 모델을 정의할 수 있습니다.
 
@@ -113,7 +117,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다.
 
 ```json
 [
@@ -200,7 +204,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 즉, 새 버전의 모델을 업로드 해도 기존 쌍에 자동으로 영향을 주지 않습니다. 기존 쌍는 단순히 이전 모델 버전의 인스턴스를 유지 합니다.
 
-*방법: digital 쌍 관리*의 [*디지털 쌍 모델 업데이트*](how-to-manage-twin.md#update-a-digital-twins-model) 섹션에 설명 된 대로 패치를 적용 하 여 기존 쌍를 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 새 모델을 따르도록 **모델 ID** (새 버전) 및 쌍 **에서 변경 해야 하는 모든 필드**를 업데이트 해야 합니다.
+*방법: digital 쌍 관리* 의 [*디지털 쌍 모델 업데이트*](how-to-manage-twin.md#update-a-digital-twins-model) 섹션에 설명 된 대로 패치를 적용 하 여 기존 쌍를 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 새 모델을 따르도록 **모델 ID** (새 버전) 및 쌍 **에서 변경 해야 하는 모든 필드** 를 업데이트 해야 합니다.
 
 ### <a name="remove-models"></a>모델 제거
 

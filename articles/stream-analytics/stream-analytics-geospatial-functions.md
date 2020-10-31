@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75426235"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130411"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 
@@ -26,7 +26,7 @@ Azure Stream Analytics의 지리 공간적 함수를 사용하여 지리 공간�
 * 지오-펜싱
 * 셀 사이트 간 전화 추적
 
-Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, **ST_WITHIN**을 제공합니다.
+Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString** , **CreatePoint** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** , **ST_WITHIN** 을 제공합니다.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -53,7 +53,7 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-자세한 내용은 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 참조를 참조하세요.
+자세한 내용은 [CreateLineString](/stream-analytics-query/createlinestring) 참조를 참조하세요.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -80,7 +80,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-자세한 내용은 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 참조를 참조하세요.
+자세한 내용은 [CreatePoint](/stream-analytics-query/createpoint) 참조를 참조하세요.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -107,7 +107,7 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-자세한 내용은 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 참조를 참조하세요.
+자세한 내용은 [CreatePolygon](/stream-analytics-query/createpolygon) 참조를 참조하세요.
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
@@ -121,7 +121,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-자세한 내용은 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 참조를 참조하세요.
+자세한 내용은 [ST_DISTANCE](/stream-analytics-query/st-distance) 참조를 참조하세요.
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 함수는 두 다각형을 비교합니다. 다각형이 겹치면 이 함수는 1을 반환합니다. 다각형이 겹치지 않으면 이 함수는 0을 반환합니다. 
@@ -142,7 +142,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-자세한 내용은 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 참조를 참조하세요.
+자세한 내용은 [ST_OVERLAPS](/stream-analytics-query/st-overlaps) 참조를 참조하세요.
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 함수는 두 LineString을 비교합니다. LineString이 교차하면 이 함수는 1을 반환합니다. LineString이 교차하지 않으면 이 함수는 0을 반환합니다.
@@ -168,7 +168,7 @@ FROM input
   
  0  
 
-자세한 내용은 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 참조를 참조하세요.
+자세한 내용은 [ST_INTERSECTS](/stream-analytics-query/st-intersects) 참조를 참조하세요.
 
 ## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 함수는 점 또는 다각형이 다각형 내에 있는지 여부를 확인합니다. 다각형 안에 점 또는 다각형이 포함되어 있으면 이 함수는 1을 반환합니다. 점 또는 다각형이 선언된 다각형 내에 있지 않으면 이 함수는 0을 반환합니다.
@@ -194,12 +194,12 @@ FROM input
   
  1  
 
-자세한 내용은 [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) 참조를 참조하세요.
+자세한 내용은 [ST_WITHIN](/stream-analytics-query/st-within) 참조를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

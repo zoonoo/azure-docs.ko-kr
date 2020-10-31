@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218258"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130989"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Visual Studio에서 작업 다이어그램을 사용 하 여 로컬에서 Azure Stream Analytics 쿼리 디버그
 
@@ -32,7 +32,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 > [!NOTE]
 > 작업을 로컬 프로젝트로 내보내고 라이브 입력 스트림에 대해 테스트 하려면 모든 입력에 대 한 자격 증명을 다시 지정 해야 합니다.  
 
-스크립트 편집기에서 입력 및 출력 원본을 선택 하 고 로컬에서 **실행**을 선택 합니다. 작업 다이어그램이 오른쪽에 나타납니다.
+스크립트 편집기에서 입력 및 출력 원본을 선택 하 고 로컬에서 **실행** 을 선택 합니다. 작업 다이어그램이 오른쪽에 나타납니다.
 
 ### <a name="view-the-intermediate-result-set"></a>중간 결과 집합 보기  
 
@@ -52,7 +52,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 라이브 입력 원본](./media/debug-locally-using-job-diagram/live-input.png)
 
-|메트릭|Description|
+|메트릭|설명|
 |-|-|
 |**TaxiRide**| 입력의 이름입니다.|
 |**이벤트 허브** | 입력 원본 유형입니다.|
@@ -68,7 +68,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 로컬 입력 소스](./media/debug-locally-using-job-diagram/local-input.png)
 
-|메트릭|Description|
+|메트릭|설명|
 |-|-|
 |**TaxiRide**| 입력의 이름입니다.|
 |**행 개수**| 단계에서 생성 된 행 수입니다.|
@@ -79,7 +79,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 쿼리 단계](./media/debug-locally-using-job-diagram/query-step.png)
 
-|메트릭|Description|
+|메트릭|설명|
 |-|-|
 |**Hubway-tripdata**|임시 결과 집합의 이름입니다.|
 |**행 개수**| 단계에서 생성 된 행 수입니다.|
@@ -89,7 +89,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![로컬 출력 싱크를 표시 하는 작업 다이어그램](./media/debug-locally-using-job-diagram/live-output.png)
 
-|메트릭|Description|
+|메트릭|설명|
 |-|-|
 |**지역 Aggeh**|출력의 이름입니다.|
 |**이벤트**|싱크에 대 한 이벤트 출력 수입니다.|
@@ -98,7 +98,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 로컬 출력 싱크](./media/debug-locally-using-job-diagram/local-output.png)
 
-|메트릭|Description|
+|메트릭|설명|
 |-|-|
 |**지역 Aggeh**|출력의 이름입니다.|
 |**로컬 출력**| 로컬 파일에 결과를 출력 합니다.|
@@ -119,7 +119,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 * Power BI 및 Azure Data Lake Storage Gen1 출력 싱크는 인증 모델 제한으로 인해 지원 되지 않습니다.
 
-* 클라우드 입력 옵션만 [시간 정책](stream-analytics-out-of-order-and-late-events.md)을 지원하고, 로컬 입력 옵션은 지원하지 않습니다.
+* 클라우드 입력 옵션만 [시간 정책](./stream-analytics-time-handling.md)을 지원하고, 로컬 입력 옵션은 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

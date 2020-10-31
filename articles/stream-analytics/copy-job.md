@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892319"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129459"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
 
-Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사 하면 마지막 출력 시간이 복사 되지 않습니다. 따라서 복사 된 작업을 시작할 때 [**마지막으로 중지 된 경우**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) 에는이 옵션을 사용할 수 없습니다.
+Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사 하면 마지막 출력 시간이 복사 되지 않습니다. 따라서 복사 된 작업을 시작할 때 [**마지막으로 중지 된 경우**](./start-job.md#start-options) 에는이 옵션을 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -45,7 +45,7 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. 배포 된 [Azure Stream Analytics 작업을 프로젝트에 내보내기 지침](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project)을 따릅니다.
+1. 배포 된 [Azure Stream Analytics 작업을 프로젝트에 내보내기 지침](./stream-analytics-vs-tools.md#export-jobs-to-a-project)을 따릅니다.
 
 2. \*쿼리 편집기에서 script.asaql 파일을 열고 스크립트 편집기에서 **Azure에 제출** 을 선택 하 고 지침에 따라 새 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 합니다.
 

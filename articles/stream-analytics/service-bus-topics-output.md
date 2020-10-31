@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a9063a202ba542279efd8017d282fe0aa78d42
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261059"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129867"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus 항목 출력 Azure Stream Analytics
 
-Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 제공합니다. [Service Bus 토픽](https://msdn.microsoft.com/library/azure/hh367516.aspx)은 일대다 형식의 통신을 제공합니다.
+Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 제공합니다. [Service Bus 토픽](/previous-versions/azure/hh367516(v=azure.100))은 일대다 형식의 통신을 제공합니다.
 
 다음 표에는 Service Bus 토픽 출력을 만들기 위한 속성 이름과 해당 설명이 나와 있습니다.
 
@@ -45,7 +45,7 @@ Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 �
 
 ## <a name="custom-metadata-properties-for-output"></a>출력에 대한 사용자 지정 메타데이터 속성
 
-쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키*는 열 이름이고 *값*은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
+쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키* 는 열 이름이고 *값* 은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
 
 다음 예제에서는 `DeviceId` 및 필드가 `DeviceStatus` 메타 데이터에 추가 됩니다.
 
@@ -65,7 +65,7 @@ Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 �
 
 ## <a name="system-properties"></a>시스템 속성
 
-쿼리 열을 [시스템 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)이 쿼리 열 값으로 채워집니다.
+쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)이 쿼리 열 값으로 채워집니다.
 지원되는 시스템 속성은 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`입니다.
 
 이러한 열의 문자열 값은 해당 시스템 속성 값 형식으로 구문 분석되고, 구문 분석 실패는 데이터 오류로 처리됩니다.

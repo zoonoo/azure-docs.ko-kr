@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130445"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -107,10 +107,10 @@ IoT 모듈 SDK를 사용 하는 모듈은 원격 분석을 위해 고유 모듈 
 
 IoT 모듈 Sdk에서 다음 방법 중 하나를 사용 하 여 Productinfo.webpart을이 식별자로 설정 합니다.
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 IoT 모듈 SDK를 사용 하지 않는 모듈의 경우 다운로드 수와 같은 파트너 센터를 통해 보다 정확한 정보를 얻을 수 있습니다.
 

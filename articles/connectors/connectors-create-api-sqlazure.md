@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100714"
+ms.locfileid: "93130938"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
@@ -96,9 +96,14 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    ||||
 
    > [!TIP]
-   > 데이터베이스의 연결 문자열에서이 정보를 찾을 수 있습니다. 예를 들어 Azure Portal에서 데이터베이스를 찾아서 엽니다. 데이터베이스 메뉴에서이 문자열을 찾을 수 있는 **연결 문자열** 또는 **속성** 을 선택 합니다.
+   > 데이터베이스 및 테이블 정보를 제공 하기 위해 다음 옵션을 사용할 수 있습니다.
+   > 
+   > * 데이터베이스의 연결 문자열에서이 정보를 찾습니다. 예를 들어 Azure Portal에서 데이터베이스를 찾아서 엽니다. 데이터베이스 메뉴에서 다음 문자열을 찾을 수 있는 **연결 문자열** 또는 **속성** 을 선택 합니다.
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * 기본적으로 시스템 데이터베이스의 테이블은 필터링 되어 시스템 데이터베이스를 선택할 때 자동으로 나타나지 않을 수 있습니다. 또는 데이터베이스 목록에서 **사용자 지정 값 입력** 을 선택한 후 테이블 이름을 수동으로 입력할 수 있습니다.
+   >
 
    이 예제에서는 이러한 값이 어떻게 표시 되는지 보여 줍니다.
 

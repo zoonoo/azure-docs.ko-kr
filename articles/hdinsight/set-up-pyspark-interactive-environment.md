@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 14f0c7177953e43b0c58b4f5432d0c08c5f03f45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf86824bef5b6f521df0f0446d5337e2b7c418a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130139"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -26,14 +26,12 @@ ms.locfileid: "87876617"
 
    * 에서 Python을 설치 [https://www.python.org/downloads/](https://www.python.org/downloads/) 합니다. 
    * [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)(Python 설치에서 설치 되지 않은 경우)에서 pip를 설치 합니다.
-   * 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (선택 사항)
-
-        ![Python pip 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+   * 필요에 따라 및 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 `python --version` `pip --version` 합니다. 
 
      > [!NOTE]
      > MacOS 기본 버전을 사용 하는 대신 Python을 수동으로 설치 하는 것이 좋습니다.
 
-2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
+2. 아래 명령을 실행하여 **virtualenv** 를 설치합니다.
 
    ```bash
    pip install virtualenv

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321907"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130581"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하면 특정 유형의 경고에서 다시 사용할 수 있는 작업 그룹을 자동으로 설정할 수 있습니다. 이러한 작업 그룹은 경고가 트리거될 때 올바른 당사자가 모두 알림을 받을 수 있도록 합니다.
@@ -23,11 +23,11 @@ ms.locfileid: "87321907"
 
 2. [배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다.
 
-첫째, 작업 정의가 템플릿에 하드 코드된 작업 그룹에 대한 리소스 관리자 템플릿을 만드는 방법을 설명합니다. 둘째, 템플릿을 배포할 때 입력된 매개 변수로 웹후크 구성 정보를 사용하는 템플릿을 만드는 방법을 설명합니다.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>작업 그룹에 대한 리소스 관리자 템플릿
 
 Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Microsoft.Insights/actionGroups` 형식의 리소스를 만듭니다. 그런 다음 모든 관련된 속성을 입력합니다. 다음은 작업 그룹을 만드는 두 가지 예제 템플릿입니다.
+
+첫 번째 템플릿은 템플릿에서 작업 정의가 하드 코딩 되는 작업 그룹에 대 한 리소스 관리자 템플릿을 만드는 방법을 설명 합니다. 두 번째 템플릿은 템플릿이 배포 될 때 webhook 구성 정보를 입력 매개 변수로 사용 하는 템플릿을 만드는 방법을 설명 합니다.
 
 ```json
 {

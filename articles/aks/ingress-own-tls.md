@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855686"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131040"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -33,15 +33,15 @@ ms.locfileid: "88855686"
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
-수신 컨트롤러를 만들려면 `Helm`을 사용하여 *nginx-ingress*를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+수신 컨트롤러를 만들려면 `Helm`을 사용하여 *nginx-ingress* 를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 수신 *-기본*이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false` 투구 명령에를 추가 합니다.
+> 다음 예에서는 수신 *-기본* 이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false` 투구 명령에를 추가 합니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한*요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 TLS 통과는 작동 하지 않습니다.
+> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한* 요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 TLS 통과는 작동 하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -81,9 +81,9 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 ## <a name="generate-tls-certificates"></a>TLS 인증서 생성
 
-이 문서에서는`openssl`을 사용하여 자체 서명된 인증서를 생성해 보겠습니다. 프로덕션 사용의 경우 공급자 또는 고유의 CA(인증 기관)를 통해 신뢰할 수 있는 서명된 인증서를 요청해야 합니다. 다음 단계에서는 TLS 인증서와 OpenSSL에서 생성한 프라이빗 키를 사용하여 Kubernetes *비밀*을 생성합니다.
+이 문서에서는`openssl`을 사용하여 자체 서명된 인증서를 생성해 보겠습니다. 프로덕션 사용의 경우 공급자 또는 고유의 CA(인증 기관)를 통해 신뢰할 수 있는 서명된 인증서를 요청해야 합니다. 다음 단계에서는 TLS 인증서와 OpenSSL에서 생성한 프라이빗 키를 사용하여 Kubernetes *비밀* 을 생성합니다.
 
-다음 예제에서는 *aks-ingress-tls.crt*라는 365일 동안 유효한 2048비트 RSA X509 인증서를 생성합니다. 프라이빗 키 파일 이름은 *aks-ingress-tls.key*입니다. Kubernetes TLS 비밀에는 이러한 두 파일이 모두 필요합니다.
+다음 예제에서는 *aks-ingress-tls.crt* 라는 365일 동안 유효한 2048비트 RSA X509 인증서를 생성합니다. 프라이빗 키 파일 이름은 *aks-ingress-tls.key* 입니다. Kubernetes TLS 비밀에는 이러한 두 파일이 모두 필요합니다.
 
 이 문서는 *demo.azure.com* 주체 일반 이름에 작동하며 변경할 필요가 없습니다. 프로덕션 사용을 위해서는 `-subj` 매개 변수에 대해 고유한 조직 값을 지정합니다.
 
@@ -98,7 +98,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 Kubernetes에서 수신 컨트롤러에 대해 TLS 인증서와 프라이빗 키를 사용할 수 있도록 하려면 비밀을 만들어 사용합니다. 이 비밀은 한 번 정의되며, 이전 단계에서 만든 인증서와 키 파일을 사용합니다. 이제 수신 경로를 정의할 때 이 비밀을 참조합니다.
 
-다음 예제에서는 비밀 이름 *aks-ingress-tls*를 만듭니다.
+다음 예제에서는 비밀 이름 *aks-ingress-tls* 를 만듭니다.
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -205,7 +205,7 @@ kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 > [!TIP]
 > 인증서 요청 프로세스 중에 지정 된 호스트 이름이 수신 경로에 정의 된 호스트와 일치 하지 않는 경우 수신 컨트롤러는 *Kubernetes 수신 컨트롤러 가짜 인증서* 경고를 표시 합니다. 인증서 및 수신 경로 호스트 이름이 일치하는지 확인합니다.
 
-*tls* 섹션은 호스트 *demo.azure.com*에 대해 *aks-ingress-tls*라는 비밀을 사용하도록 수신 경로에 지시합니다. 마찬가지로 프로덕션 사용을 위해서는 사용자 고유의 호스트 주소를 지정합니다.
+*tls* 섹션은 호스트 *demo.azure.com* 에 대해 *aks-ingress-tls* 라는 비밀을 사용하도록 수신 경로에 지시합니다. 마찬가지로 프로덕션 사용을 위해서는 사용자 고유의 호스트 주소를 지정합니다.
 
 `hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 

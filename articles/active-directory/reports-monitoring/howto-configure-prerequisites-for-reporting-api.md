@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cabf5f40bc17828bc37b5c094de7b90de3ec8b26
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226967"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130224"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -55,7 +55,7 @@ API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
-스크립트를 사용 하 여 보고 API에 액세스 하는 경우에도 등록이 필요 합니다. 등록은 권한 부여 호출에 필요한 **응용 프로그램 ID**를 제공 하며 코드에서 토큰을 받을 수 있도록 합니다.
+스크립트를 사용 하 여 보고 API에 액세스 하는 경우에도 등록이 필요 합니다. 등록은 권한 부여 호출에 필요한 **응용 프로그램 ID** 를 제공 하며 코드에서 토큰을 받을 수 있도록 합니다.
 
 Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure AD 테넌트에서 **글로벌 관리자** 디렉터리 역할의 멤버이기도 한 Azure 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
 
@@ -65,29 +65,29 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
 **Azure AD 애플리케이션을 등록하려면:**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
    
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Azure Portal 메뉴에서 선택한 Azure Active Directory 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. **Azure Active Directory** 페이지에서 **앱 등록**을 선택합니다.
+2. **Azure Active Directory** 페이지에서 **앱 등록** 을 선택합니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
+    ![[관리] 메뉴에서 선택한 앱 등록을 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. **앱 등록** 페이지에서 **새 등록**을 선택 합니다.
+3. **앱 등록** 페이지에서 **새 등록** 을 선택 합니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/03.png)
+    ![선택한 새 등록을 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
 4. **응용 프로그램 등록** 페이지:
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/04.png)
+    ![이 단계에서 값을 입력할 수 있는 응용 프로그램 등록 페이지가 표시 됩니다.](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. **이름** 텍스트 상자에서 `Reporting API application`을 입력합니다.
 
-    b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
+    b. **지원 되는 계정 유형** 으로 **이 조직 에서만 계정을** 선택 합니다.
 
-    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost` 합니다.
+    c. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost` 합니다.
 
-    d. **등록**을 선택합니다. 
+    d. **등록** 을 선택합니다. 
 
 
 ## <a name="grant-permissions"></a>권한 부여 
@@ -99,33 +99,32 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 | Windows Azure Active Directory | 디렉터리 데이터 읽기 |
 | Microsoft Graph | 모든 감사 로그 데이터 읽기 |
 
-
-![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![A P I 사용 권한 창에서 권한 추가를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
 다음 섹션에는 두 API에 대한 단계가 나열됩니다. API 중 하나에 액세스하지 않으려는 경우 관련 단계를 건너뛰면 됩니다.
 
 **API를 사용하도록 애플리케이션에 권한을 부여하려면:**
 
 
-1. **API 사용 권한을** 선택한 다음 **사용 권한을 추가**합니다. 
+1. **API 사용 권한을** 선택한 다음 **사용 권한을 추가** 합니다. 
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![사용 권한 추가를 선택할 수 있는 A P I 권한 페이지가 스크린샷 화면에 표시 됩니다.](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. **Api 권한 요청 페이지**에서 **지원 레거시 API** **Azure Active Directory 그래프**를 찾습니다. 
+2. **Api 권한 요청 페이지** 에서 **지원 레거시 API** **Azure Active Directory 그래프** 를 찾습니다. 
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+    ![스크린샷 Azure Active Directory 그래프를 선택할 수 있는 < I 권한 요청 페이지를 표시 합니다.](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. **필요한 권한** 페이지에서 **응용 프로그램 사용 권한**을 선택 하 고 **디렉터리** 확인란 디렉터리를 확장 **합니다. readall**을 선택 합니다.  **권한 추가**를 선택합니다.
+3. **필요한 권한** 페이지에서 **응용 프로그램 사용 권한** 을 선택 하 고 **디렉터리** 확인란 디렉터리를 확장 **합니다. readall** 을 선택 합니다.  **권한 추가** 를 선택합니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+    ![응용 프로그램 사용 권한을 선택할 수 있는 < I 사용 권한 요청 페이지가 스크린샷으로 표시 됩니다.](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. **보고 Api 응용 프로그램-Api 권한** 페이지에서 **관리자 동의 부여**를 선택 합니다. 
+4. **보고 Api 응용 프로그램-Api 권한** 페이지에서 **관리자 동의 부여** 를 선택 합니다. 
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+    ![관리자 동의 부여를 선택할 수 있는 보고 A P I 응용 프로그램 A P I 사용 권한 페이지를 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
 5. 참고: **Microsoft Graph** 는 API 등록 중에 기본적으로 추가 됩니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/15.png)
+    ![사용 권한 추가를 선택할 수 있는 A P I 권한 페이지가 스크린샷 화면에 표시 됩니다.](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 ## <a name="gather-configuration-settings"></a>구성 설정 수집 
 
@@ -141,13 +140,13 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **도메인 이름을 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory** 를 선택합니다.
    
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Azure Portal 메뉴에서 선택한 Azure Active Directory 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. **Azure Active Directory** 페이지에서 **사용자 지정 도메인 이름**을 선택합니다.
+2. **Azure Active Directory** 페이지에서 **사용자 지정 도메인 이름** 을 선택합니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
+    ![Azure Active Directory에서 선택한 사용자 지정 도메인 이름을 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
 3. 도메인 목록에서 도메인 이름을 복사합니다.
 
@@ -156,15 +155,15 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **애플리케이션의 클라이언트 ID를 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 클릭합니다.
    
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Azure Portal 메뉴에서 선택한 Azure Active Directory 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. **앱 등록** 페이지에서 애플리케이션을 선택합니다.
 
-3. 애플리케이션 페이지에서 **애플리케이션 ID**로 이동하고 **복사하려면 클릭**을 선택합니다.
+3. 애플리케이션 페이지에서 **애플리케이션 ID** 로 이동하고 **복사하려면 클릭** 을 선택합니다.
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
+    ![응용 프로그램을 복사할 수 있는 보고 A P I 응용 프로그램 페이지를 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
 
 
 ### <a name="get-your-applications-client-secret"></a>애플리케이션의 클라이언트 비밀 가져오기
@@ -172,23 +171,23 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **애플리케이션의 클라이언트 비밀을 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 클릭합니다.
    
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Azure Portal 메뉴에서 선택한 Azure Active Directory 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  **앱 등록** 페이지에서 애플리케이션을 선택합니다.
 
-3.  **API 응용 프로그램** 페이지에서 **인증서 및 암호** 를 선택 하 고 **클라이언트 암호** 섹션에서 **+ 새 클라이언트 암호**를 클릭 합니다. 
+3.  **API 응용 프로그램** 페이지에서 **인증서 및 암호** 를 선택 하 고 **클라이언트 암호** 섹션에서 **+ 새 클라이언트 암호** 를 클릭 합니다. 
 
-    ![애플리케이션 등록](./media/howto-configure-prerequisites-for-reporting-api/12.png)
+    ![클라이언트 암호를 추가할 수 있는 인증서 & 암호 페이지를 보여 주는 스크린샷](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
 5. **클라이언트 암호 추가** 페이지에서 다음을 추가 합니다.
 
     a. **설명** 텍스트 상자에서 `Reporting API`를 입력합니다.
 
-    b. **만료**로 **In 2 years**(2년)를 선택합니다.
+    b. **만료** 로 **In 2 years** (2년)를 선택합니다.
 
-    다. **저장**을 클릭합니다.
+    다. **저장** 을 클릭합니다.
 
     d. 키 값을 복사합니다.
 
@@ -204,7 +203,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>오류: Microsoft Graph에서 프리미엄 라이선스 검사를 수행 하지 못했습니다. 
 
-Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 왼쪽 탐색에 있는 계정 아래에서 **권한 수정**을 선택하고 **Tasks.ReadWrite** 및 **Directory.Read.All**을 선택합니다. 
+Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 왼쪽 탐색에 있는 계정 아래에서 **권한 수정** 을 선택하고 **Tasks.ReadWrite** 및 **Directory.Read.All** 을 선택합니다. 
 
 ![권한 수정 UI](./media/troubleshoot-graph-api/modify-permissions.png)
 

@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043515"
+ms.locfileid: "93130853"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 공용 콘텐츠 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "93043515"
 
 사용자 환경에는 공용 컨테이너 이미지, [투구 차트](https://helm.sh/), opa ( [Open Policy Agent](https://www.openpolicyagent.org/) ) 정책 또는 기타 아티팩트와 같은 공용 콘텐츠에 대 한 종속성이 있을 수 있습니다. 예를 들어 서비스 라우팅에 대해 [nginx](https://hub.docker.com/_/nginx) 를 실행 하거나 `docker build FROM alpine` Docker 허브 또는 다른 공용 레지스트리에서 직접 이미지를 끌어올 수 있습니다. 
 
-적절 한 컨트롤이 없으면 공용 레지스트리 콘텐츠에 대 한 종속성이 있으면 이미지 개발 및 배포 워크플로에 위험을 초래할 수 있습니다. 위험을 완화 하려면 가능한 경우 공용 콘텐츠의 로컬 복사본을 유지 합니다. 자세한 내용은 [컨테이너 이니셔티브 열기 블로그](https://opencontainers.org/posts/blog)를 참조 하세요. 
+적절 한 컨트롤이 없으면 공용 레지스트리 콘텐츠에 대 한 종속성이 있으면 이미지 개발 및 배포 워크플로에 위험을 초래할 수 있습니다. 위험을 완화 하려면 가능한 경우 공용 콘텐츠의 로컬 복사본을 유지 합니다. 자세한 내용은 [컨테이너 이니셔티브 열기 블로그](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/)를 참조 하세요. 
 
 ## <a name="authenticate-with-docker-hub"></a>Docker 허브를 사용 하 여 인증
 
@@ -33,8 +33,6 @@ ms.locfileid: "93043515"
 > 끌어오기 요청 수를 예측 하는 경우 클라우드 공급자 서비스를 사용 하거나 회사 NAT 뒤에서 작업 하는 경우 여러 사용자가 집계의 Docker 허브에 IP 주소 하위 집합으로 표시 됩니다.  Docker Hub에 대 한 요청에 Docker 유료 계정 인증을 추가 하면 요금 제한으로 인 한 잠재적인 서비스 중단이 발생 하지 않습니다.
 >
 > 자세한 내용은 [docker 가격 책정 및 구독](https://www.docker.com/pricing) 및 [docker 서비스 약관](https://www.docker.com/legal/docker-terms-service)을 참조 하세요.
-
-
 
 인증 예제 및 시나리오는 [다운로드 빈도 제한](https://docs.docker.com/docker-hub/download-rate-limit/)을 참조 하세요.
 
@@ -72,7 +70,7 @@ App Service 및 Azure Container Instances를 비롯 한 몇 가지 Azure 서비�
 
 권장 일회성 단계로 기본 이미지 및 기타 공용 콘텐츠를 Azure container registry로 [가져옵니다](container-registry-import-images.md) . Azure CLI의 [az acr import](/cli/azure/acr#az_acr_import) 명령은 Docker 허브, Microsoft Container Registry 및 다른 개인 컨테이너 레지스트리의 이미지 가져오기를 지원 합니다. 
 
-`az acr import` 로컬 Docker 설치가 필요 하지 않습니다. Azure CLI의 로컬 설치를 사용 하거나, 이미지, 다중 아키텍처 이미지, 그리고 투구 차트와 같은 OCI 아티팩트를 지 원하는 Azure Cloud Shell에서 직접 실행할 수 있습니다.
+`az acr import` 로컬 Docker 설치가 필요 하지 않습니다. Azure CLI의 로컬 설치를 사용 하거나 Azure Cloud Shell 직접 실행할 수 있습니다. 모든 OS 유형, 다중 아키텍처 이미지 또는 OCI 아티팩트의 이미지 (예: 투구 차트)를 지원 합니다.
 
 예제:
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 조직의 요구 사항에 따라 전용 레지스트리 또는 공유 레지스트리의 리포지토리로 가져올 수 있습니다.
@@ -93,7 +91,7 @@ az acr import \
 
 이미지 가져오기를 확장 하 고 기본 이미지가 업데이트 될 때 응용 프로그램 이미지 빌드를 자동화 하도록 [Azure Container Registry 작업](container-registry-tasks-overview.md) 을 설정 합니다. 자동화 된 빌드 작업은 [기본 이미지 업데이트](container-registry-tasks-base-images.md) 와 [소스 코드 업데이트](container-registry-tasks-overview.md#trigger-task-on-source-code-update)를 모두 추적할 수 있습니다.
 
-자세한 예제는 [Azure Container Registry 작업을 사용 하 여 공용 콘텐츠를 사용 하 고 유지 관리 하는 방법](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md)을 참조 하세요. 
+자세한 예제는 [Azure Container Registry 작업을 사용 하 여 공용 콘텐츠를 사용 하 고 유지 관리 하는 방법](tasks-consume-public-content.md)을 참조 하세요. 
 
 > [!NOTE]
 > 미리 구성 된 단일 작업에서 종속 된 기본 이미지를 참조 하는 모든 응용 프로그램 이미지를 자동으로 다시 작성할 수 있습니다. 
@@ -101,4 +99,5 @@ az acr import \
 ## <a name="next-steps"></a>다음 단계
  
 * Azure에서 컨테이너 이미지를 빌드, 실행, 푸시 및 패치 하는 [ACR 작업](container-registry-tasks-overview.md) 에 대해 자세히 알아보세요.
+* 자동화 된 제어 워크플로에 대 한 [Azure Container Registry 작업으로 공용 콘텐츠를 사용 하 고 유지 관리 하는 방법](tasks-consume-public-content.md) 을 참조 하 여 기본 이미지를 환경에 업데이트 합니다. 
 * 이미지 빌드 및 업데이트를 자동화 하는 더 많은 예제는 [ACR 작업 자습서](container-registry-tutorial-quick-task.md) 를 참조 하세요.

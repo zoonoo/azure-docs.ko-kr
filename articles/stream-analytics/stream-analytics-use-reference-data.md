@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129731"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
-참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
+참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
 
-## <a name="example"></a>예  
+## <a name="example"></a>예제  
 자동차에서 요금을 전달할 때 생성 되는 이벤트의 실시간 스트림을 가질 수 있습니다. 요금 창구는 라이선스 판을 실시간으로 캡처하고 등록 정보가 있는 정적 데이터 집합을 사용 하 여 만료 된 라이선스 판을 식별할 수 있습니다.  
   
 ```SQL  
@@ -33,11 +33,11 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
+참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것 **만** 지원됩니다.
 
 ### <a name="configure-blob-reference-data"></a>Blob 참조 데이터 구성
 
-참조 데이터를 구성하려면 먼저 **참조 데이터**형식의 입력을 만들어야 합니다. 다음 표에서 설명과 함께 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성을 설명합니다.
+참조 데이터를 구성하려면 먼저 **참조 데이터** 형식의 입력을 만들어야 합니다. 다음 표에서 설명과 함께 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성을 설명합니다.
 
 |**속성 이름**  |**설명**  |
 |---------|---------|
@@ -96,13 +96,13 @@ Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션�
 
 SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입력을 만들어야 합니다. 다음 표에는 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성이 해당 설명과 함께 나와 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
 
-[AZURE SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 참조 데이터 입력으로 사용할 수 있습니다. [SQL Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 머신도 아래 설정을 수동으로 구성하여 지원됩니다.
+[AZURE SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) 를 참조 데이터 입력으로 사용할 수 있습니다. [SQL Managed Instance에서 공용 끝점을 구성](../azure-sql/managed-instance/public-endpoint-configure.md) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 머신도 아래 설정을 수동으로 구성하여 지원됩니다.
 
 |**속성 이름**|**설명**  |
 |---------|---------|
 |입력 별칭|이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 |Subscription|구독 선택|
-|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. SQL Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver.public.database.windows.net,3342*입니다.|
+|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. SQL Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver.public.database.windows.net,3342* 입니다.|
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|
 |주기적으로 새로 고침|이 옵션을 사용하면 새로 고침 빈도를 선택할 수 있습니다. “On”을 선택하면 DD:HH:MM 형식으로 새로 고침 빈도를 지정할 수 있습니다.|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

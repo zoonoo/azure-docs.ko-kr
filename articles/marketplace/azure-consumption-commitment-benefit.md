@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129544"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Azure 사용량 약정 혜택
 
@@ -57,4 +57,4 @@ Microsoft 상업적 marketplace 제품의 선택 집합은 조직에 다음 계�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조직에서 Azure Marketplace를 활용 하는 방법에 대 한 자세한 내용은 Azure Marketplace를 사용 하 [여 클라우드 조달 및 관리 간소화](https://aka.ms/cm.marketplaceprocurement)Microsoft Learn 모듈을 완료 하세요.
+- 조직에서 Azure Marketplace를 활용 하는 방법에 대 한 자세한 내용은 Azure Marketplace를 사용 하 [여 클라우드 조달 및 관리 간소화](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)Microsoft Learn 모듈을 완료 하세요.

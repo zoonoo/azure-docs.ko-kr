@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130326"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -24,7 +24,7 @@ ms.locfileid: "90006400"
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>연락처, 무료 평가판 및 BYOL 옵션
 
-게시자는 _연락_ 및 _무료 평가판_, 판촉 및 사용자 획득 목적 옵션을 선택할 수 있습니다. 일부 제공 유형의 경우, 게시자는 BYOL (사용자 라이선스 가져오기) 옵션을 선택 하 여 고객이 직접 구매한 라이선스를 사용 하 여 제품에 대 한 구독을 구매할 수 있도록 합니다. 이러한 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 트랜잭션 요금은 없습니다. 
+게시자는 _연락_ 및 _무료 평가판_ , 판촉 및 사용자 획득 목적 옵션을 선택할 수 있습니다. 일부 제공 유형의 경우, 게시자는 BYOL (사용자 라이선스 가져오기) 옵션을 선택 하 여 고객이 직접 구매한 라이선스를 사용 하 여 제품에 대 한 구독을 구매할 수 있도록 합니다. 이러한 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 트랜잭션 요금은 없습니다. 
 
 게시자는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 여기에는 주문, 배송, 계량, 청구, 송장 청구, 지불 및 수집이 포함 되지만이에 국한 되지 않습니다. 담당자 목록 옵션을 사용 하면 게시자는 고객 으로부터 수집 된 게시자 소프트웨어 라이선스 수수료의 100%를 유지 합니다.
 
@@ -46,9 +46,9 @@ Microsoft는이 옵션을 사용 하 여 타사 소프트웨어를 판매 하 �
 
 ### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 
-**Virtual machines** 및 **azure 응용 프로그램**의 경우 azure 인프라 사용 요금은 고객의 azure 구독에 청구 됩니다. 인프라 사용 요금의 가격이 책정되면 고객 청구서에 소프트웨어 공급 기업의 라이선스 요금과는 별도로 표시됩니다.
+**Virtual machines** 및 **azure 응용 프로그램** 의 경우 azure 인프라 사용 요금은 고객의 azure 구독에 청구 됩니다. 인프라 사용 요금의 가격이 책정되면 고객 청구서에 소프트웨어 공급 기업의 라이선스 요금과는 별도로 표시됩니다.
 
-**SaaS 앱**의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 처리해야 합니다.  이는 고객에게 고정 요금으로 표시됩니다. Azure 인프라 사용은 관리 되며 게시자에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 소프트웨어 라이선스 요금은 요금제가 아니거나 사용자 사용량을 기준으로 합니다.
+**SaaS 앱** 의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 처리해야 합니다.  이는 고객에게 고정 요금으로 표시됩니다. Azure 인프라 사용은 관리 되며 게시자에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 소프트웨어 라이선스 요금은 요금제가 아니거나 사용자 사용량을 기준으로 합니다.
 
 ## <a name="pricing-models"></a>가격 책정 모델
 
@@ -197,7 +197,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 
 - **Azure 응용 프로그램: 솔루션 템플릿 또는 관리 되는 앱** – 하나 이상의 가상 머신을 프로 비전 하 고 가상 머신 가격의 합계를 가져옵니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 일부 경우에 Azure 인프라 사용 요금은 동일한 청구서에 소프트웨어 라이선스 요금과는 별도로 표시되어 고객에게 전달됩니다. 그러나 ISV 인프라 요금에 대 한 관리 되는 앱을 구성 하는 경우 Azure 리소스는 게시자로 청구 되 고 고객은 인프라, 소프트웨어 라이선스 및 관리 서비스 비용을 포함 하는 정액 요금을 받습니다.
 
-- **Saas 응용 프로그램** -다중 테 넌 트 솔루션 이어야 하 고, 인증을 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 사용 하 고, [saas 처리 api](partner-center-portal/pc-saas-fulfillment-api-v2.md)와 통합 해야 합니다. Azure 인프라 사용량은 사용자 (파트너)와 직접 청구 되므로 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금은 단일 비용 항목으로 고려해 야 합니다. 자세한 지침은 [상업적 marketplace에서 새 SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)를 참조 하세요.
+- **Saas 응용 프로그램** -다중 테 넌 트 솔루션 이어야 하 고, 인증을 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 사용 하 고, [saas 처리 api](partner-center-portal/pc-saas-fulfillment-api-v2.md)와 통합 해야 합니다. Azure 인프라 사용량은 사용자 (파트너)와 직접 청구 되므로 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금은 단일 비용 항목으로 고려해 야 합니다. 자세한 지침은 [상업적 marketplace에서 새 SaaS 제품 만들기](./create-new-saas-offer.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

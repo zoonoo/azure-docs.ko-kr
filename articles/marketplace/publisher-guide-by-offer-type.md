@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772654"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129935"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "91772654"
 | [**컨설팅 서비스**](consulting-services.md) | 컨설팅 서비스는 고객을 서비스와 연결 하 여 Azure, Dynamics 365 또는 Power Suite 서비스의 사용을 지원 하 고 확장 하는 데 도움이 됩니다.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Dynamics 365 Business Central, Dynamics 365 고객 참여, Power Apps 및 재무 및 운영 앱을 빌드하거나 확장 하는 AppSource 제품을 게시할 수 있습니다.|
 | [**IoT Edge 모듈**](iot-edge-module.md) | Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. |
-| [**관리 서비스**](partner-center-portal/create-new-managed-service-offer.md) | [Azure Lighthouse](/azure/lighthouse/overview)를 통해 관리 되는 서비스를 만들고 고객이 위임한 구독 또는 리소스 그룹을 관리할 수 있습니다.|
+| [**관리 서비스**](partner-center-portal/create-new-managed-service-offer.md) | [Azure Lighthouse](../lighthouse/overview.md)를 통해 관리 되는 서비스를 만들고 고객이 위임한 구독 또는 리소스 그룹을 관리할 수 있습니다.|
 | [**Power BI 앱** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Power BI를 빌드하거나 확장 하는 AppSource 제품을 게시 하거나 Microsoft 365 수 있습니다.|
 | [**Software as a Service**](plan-saas-offer.md) | Saas (software as a service) 제품 유형을 사용 하면 고객이 SaaS 기반 기술 솔루션을 구독으로 구매할 수 있습니다. |
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129782"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Power BI
 
@@ -27,7 +27,7 @@ Stream Analytics의 Power BI 출력은 현재 Azure 중국 21Vianet 및 Azure �
 | 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리에서 쿼리 출력을 이 Power BI 출력으로 보내는 데 사용되는 식별 이름입니다. |
-| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 쓰지 않으려는 경우 **내 작업 영역**을 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
+| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 쓰지 않으려는 경우 **내 작업 영역** 을 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
 | 데이터 세트 이름 |Power BI 출력에 사용할 데이터 세트 이름을 제공합니다. |
 | 테이블 이름 |Power BI 출력의 데이터 세트 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다. |
 | 연결 권한 부여 | 출력 설정을 구성하려면 Power BI를 사용하여 권한을 부여해야 합니다. 이 출력에 대한 액세스 권한이 Power BI 대시보드에 부여되면 사용자 계정 암호를 변경하거나 작업 출력을 삭제하거나 Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. | 
@@ -51,7 +51,7 @@ Power BI는 FIFO(선입선출) 보존 정책을 사용합니다. 200,000개 행�
 
 Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적으로 데이터 모델을 업데이트합니다. 열 이름 변경, 열 형식 변경 및 열 추가 또는 제거 작업이 모두 추적됩니다.
 
-다음 표에서는 Power BI 데이터 세트 및 테이블이 없는 경우 데이터 형식을 [Stream Analytics 데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)으로 변환하는 방법에 대해 설명합니다.
+다음 표에서는 Power BI 데이터 세트 및 테이블이 없는 경우 데이터 형식을 [Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)에서 Power BI [EDM(엔터티 데이터 모델) 형식](/dotnet/framework/data/adonet/entity-data-model)으로 변환하는 방법에 대해 설명합니다.
 
 Stream Analytics에서 | Power BI로
 -----|-----
@@ -76,7 +76,7 @@ DateTime | String | String |  DateTime | String
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-출력 일괄 처리 크기는 [Power BI REST API 제한](https://msdn.microsoft.com/library/dn950053.aspx)을 참조 하세요.
+출력 일괄 처리 크기는 [Power BI REST API 제한](/power-bi/developer/automation/api-rest-api-limitations)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

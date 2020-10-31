@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027409"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130904"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용
 
@@ -173,11 +173,11 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅샷 쿼리를 주기적으로 실행할 수 있습니다.
 
 ## <a name="test-your-query"></a>쿼리 테스트
-   쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 세트를 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음, SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되면 파일을 다운로드하고 반환되는 데이터가 예상대로 작동하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려면 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용하여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환하는지 확인한 다음, Stream Analytics 작업에서 해당 결과를 사용할 수 있습니다. 
+   쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 세트를 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음, SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되면 파일을 다운로드하고 반환되는 데이터가 예상대로 작동하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려면 [Visual Studio용 Stream Analytics 도구](./stream-analytics-tools-for-visual-studio-install.md)를 사용하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용하여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환하는지 확인한 다음, Stream Analytics 작업에서 해당 결과를 사용할 수 있습니다. 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>Visual Studio Code를 사용 하 여 쿼리 테스트
 
-   Visual Studio Code에 [Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) 및 [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) 을 설치 하 고, 사용자의 프로젝트를 설정 합니다. 자세한 내용은 [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) 및 [SQL Server (mssql) 확장 자습서](https://aka.ms/mssql-getting-started)를 참조 하세요.
+   Visual Studio Code에 [Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) 및 [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) 을 설치 하 고, 사용자의 프로젝트를 설정 합니다. 자세한 내용은 [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](./quick-create-visual-studio-code.md) 및 [SQL Server (mssql) 확장 자습서](/sql/tools/visual-studio-code/sql-server-develop-use-vscode)를 참조 하세요.
 
 1. SQL 참조 데이터 입력을 구성 합니다.
    

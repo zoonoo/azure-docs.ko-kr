@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027553"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129323"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -33,34 +33,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 
 또한 필수 구성 요소를 설치 하는 과정에서 다음 항목을 완료 해야 합니다. 이 섹션의 나머지 부분에서는 다음 단계를 안내 합니다.
 - Azure Digital Twins 인스턴스 설정
-- 앱 등록 클라이언트 암호 가져오기
 - 디지털 쌍 추가
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
 
-이 문서에서 Logic Apps 하기 위해 Azure Digital Twins 인스턴스를 연결 하려면 **Azure Digital Twins 인스턴스가** 이미 설정 되어 있어야 합니다. 
-
-먼저 **Azure Digital Twins 인스턴스를 설정** 하고 이를 사용하는 데 필요한 인증을 설정합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다.
-* Azure Digital Twins 인스턴스를 설정한 후에는 인스턴스의 **_호스트 이름이_** 필요 합니다 ( [Azure Portal에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-
-커넥터를 인증 하려면 **앱 등록** 도 설정 해야 합니다. [*방법: 앱 등록 만들기*](how-to-create-app-registration.md)의 지침에 따라 설정합니다. 
-* 앱을 등록 한 후에는 등록의 **_응용 프로그램 (클라이언트) id_** 및 **_디렉터리 (테 넌 트) id_** ( [Azure Portal에서 찾기](how-to-create-app-registration.md#collect-client-id-and-tenant-id))가 필요 합니다.
-
-### <a name="get-app-registration-client-secret"></a>앱 등록 클라이언트 암호 가져오기
-
-또한 Azure AD 앱 등록에 대 한 **_클라이언트 암호_** 를 만들어야 합니다. 이렇게 하려면 Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. 세부 정보를 열기 위해 목록에서 이전 섹션에서 만든 등록을 선택 합니다. 
-
-등록 메뉴에서 *인증서 및 비밀* 을 적중 하 고 *+ 새 클라이언트 암호* 를 선택 합니다.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
-
-설명 및 만료에 사용할 값을 입력 하 고 *추가* 를 누릅니다.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
-
-이제 클라이언트 암호가 _만료_ 됨 및 _값_ 필드가 있는 _인증서 & 암호_ 페이지에 표시 되는지 확인 합니다. 나중에 사용할 _값_ 을 기록해 둡니다 (복사 아이콘을 사용 하 여 클립보드로 복사할 수도 있음).
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>디지털 쌍 추가
 
@@ -70,9 +47,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 
 사용자가 만든 인스턴스에 쌍의 쌍 **_ID_** 가 필요 합니다.
 
+## <a name="set-up-app-registration"></a>앱 등록 설정
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>앱 등록 클라이언트 암호 가져오기
+
+또한 Azure AD 앱 등록에 대 한 **_클라이언트 암호_** 를 만들어야 합니다. 이렇게 하려면 Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. 세부 정보를 열기 위해 목록에서 이전 섹션에서 만든 등록을 선택 합니다. 
+
+등록 메뉴에서 *인증서 및 비밀* 을 적중 하 고 *+ 새 클라이언트 암호* 를 선택 합니다.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
+
+*설명* 및 *만료* 에 사용할 값을 입력 하 고 *추가* 를 누릅니다.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
+
+이제 클라이언트 암호가 _만료_ 됨 및 _값_ 필드가 있는 _인증서 & 암호_ 페이지에 표시 되는지 확인 합니다. 나중에 사용할 _값_ 을 기록해 둡니다 (복사 아이콘을 사용 하 여 클립보드로 복사할 수도 있음).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
+
 ## <a name="create-custom-logic-apps-connector"></a>사용자 지정 Logic Apps 커넥터 만들기
 
-이 단계에서는 Azure Digital Twins Api에 대 한 [사용자 지정 Logic Apps 커넥터](../logic-apps/custom-connector-overview.md) 를 만듭니다. 이 작업을 수행한 후에는 다음 섹션에서 논리 앱을 만들 때 Azure Digital Twins에 연결할 수 있습니다.
+이제 Azure Digital Twins Api에 대 한 [사용자 지정 Logic Apps 커넥터](../logic-apps/custom-connector-overview.md) 를 만들 준비가 되었습니다. 이 작업을 수행한 후에는 다음 섹션에서 논리 앱을 만들 때 Azure Digital Twins에 연결할 수 있습니다.
 
 Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 검색할 수 있습니다. 적중 *+ 추가*
 

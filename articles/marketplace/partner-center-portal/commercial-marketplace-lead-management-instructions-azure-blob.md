@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042373"
+ms.locfileid: "93130547"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob Storage를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "93042373"
 3. Azure Portal에서 다음 절차를 사용하여 스토리지 계정을 만듭니다.  
     1. 왼쪽 메뉴 모음에서 **+리소스 만들기** 를 선택합니다.  오른쪽에 **새로 만들기** 창(블레이드)이 표시됩니다.
     2. **새로 만들기** 창에서 **스토리지** 를 선택합니다.  오른쪽에 **추천** 목록이 표시됩니다.
-    3. **스토리지 계정** 을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal) 문서의 지침을 따르세요.
+    3. **스토리지 계정** 을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-portal) 문서의 지침을 따르세요.
 
     ![Azure Storage 계정을 만드는 단계](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -55,11 +55,11 @@ ms.locfileid: "93042373"
 
 6. 스토리지 계정 페이지에서 **Blob** 을 선택합니다.
 
-   ![Azure Storage 키](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Blob이 선택 된 Azure storage 계정 페이지의 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Blob 페이지에서 **+ 컨테이너** 단추를 선택합니다.
 
-8. 새 컨테이너의 **이름** 을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+8. 새 컨테이너의 **이름** 을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
     이 값은 마켓플레이스 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 제공해야 하는 컨테이너 이름 값이므로 저장합니다.
 
@@ -91,5 +91,3 @@ ms.locfileid: "93042373"
 
     > [!NOTE]
     > 제품에 대한 잠재 고객을 받으려면 먼저 나머지 제품 구성을 끝내고 게시해야 합니다.
-
-

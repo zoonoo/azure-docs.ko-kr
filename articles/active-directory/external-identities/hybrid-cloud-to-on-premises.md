@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896469"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131023"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -64,7 +64,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 
-수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예를 들면 다음과 같습니다.
+수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 다음은 그 예입니다.
 
 - 애플리케이션 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조 하세요.
 - 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자를 삭제 하는 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제 됩니다. 자세한 내용은 [AZURE AD 액세스 검토를 사용 하 여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조 하세요.
@@ -77,7 +77,7 @@ MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사�
 
 온-프레미스 Active Directory에서 게스트 사용자 개체를 만드는 데 시작 점으로 사용할 수 있는 PowerShell 샘플 스크립트가 있습니다.
 
-[다운로드 센터](https://www.microsoft.com/download/details.aspx?id=51495)에서 스크립트 및 추가 정보 파일을 다운로드할 수 있습니다. **Azure AD B2B 사용자를 온-프레미스에 풀하기 위한 스크립트 및 추가 정보.zip** 파일을 선택합니다.
+[Microsoft Identity Manager 2016 및 Forefront Identity Manager 2010 r 2 용 커넥터](https://www.microsoft.com/download/details.aspx?id=51495)에서 스크립트 및 추가 정보 파일을 다운로드할 수 있습니다. 다운로드 패키지에서 **스크립트 및 추가 정보를 선택 하 여 AZURE AD B2B 사용자 on-prem.zip파일을 끌어옵니다** .
 
 스크립트를 사용하기 전에 연결된 추가 정보 파일에서 중요한 고려 사항 및 필수 구성 요소를 검토해야 합니다. 또한 스크립트는 샘플로만 사용할 수 있음을 이해합니다. 사용하기 전에 개발 팀 또는 파트너가 스크립트를 사용자 지정하고 검토해야 합니다.
 
