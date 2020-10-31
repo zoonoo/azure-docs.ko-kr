@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127640"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -27,33 +27,33 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 
 2. 기존 Stream Analytics 작업을 찾아 선택 합니다.
 
-3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리**를 선택하여 쿼리 편집기 창을 엽니다. 
+3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리** 를 선택하여 쿼리 편집기 창을 엽니다. 
 
-4. 들어오는 이벤트의 샘플 목록을 보려면 파일을 사용 하 여 입력 아이콘을 선택 합니다. 그러면 샘플 이벤트가 **입력 미리 보기**에 자동으로 표시 됩니다.
+4. 들어오는 이벤트의 샘플 목록을 보려면 파일을 사용 하 여 입력 아이콘을 선택 합니다. 그러면 샘플 이벤트가 **입력 미리 보기** 에 자동으로 표시 됩니다.
 
    a. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 드롭다운 메뉴에서 옵션을 변경 하 여 JSON, CSV, AVRO를 수동으로 변경할 수 있습니다.
     
    b. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
     
-   다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
+   c. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
-   다음 표는 **테이블 형식의**데이터에 대 한 예입니다.
+   다음 표는 **테이블 형식의** 데이터에 대 한 예입니다.
 
    ![테이블 형식의 Azure Stream Analytics 샘플 입력](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   다음 표는 **원시 형식의**데이터에 대 한 예입니다.
+   다음 표는 **원시 형식의** 데이터에 대 한 예입니다.
 
    ![원시 형식의 샘플 입력 Azure Stream Analytics](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. 들어오는 데이터로 쿼리를 테스트 하려면 **쿼리 테스트**를 선택 합니다. 결과는 **테스트 결과** 탭에 나타납니다. 결과 **다운로드** 를 선택 하 여 결과를 다운로드할 수도 있습니다.
+5. 들어오는 데이터로 쿼리를 테스트 하려면 **쿼리 테스트** 를 선택 합니다. 결과는 **테스트 결과** 탭에 나타납니다. 결과 **다운로드** 를 선택 하 여 결과를 다운로드할 수도 있습니다.
 
    ![Azure Stream Analytics 예제 테스트 쿼리 결과](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. 들어오는 이벤트의 특정 시간 범위에 대해 쿼리를 테스트 하려면 **시간 범위 선택**을 선택 합니다.
+6. 들어오는 이벤트의 특정 시간 범위에 대해 쿼리를 테스트 하려면 **시간 범위 선택** 을 선택 합니다.
    
    ![들어오는 샘플 이벤트에 대 한 Azure Stream Analytics 시간 범위](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. 쿼리를 테스트 하는 데 사용 하려는 이벤트의 시간 범위를 설정 하 고 **샘플**을 선택 합니다. 해당 시간 프레임 내에서 가장 먼저 발생 하는 최대 1000 이벤트 또는 1mb를 검색할 수 있습니다.
+7. 쿼리를 테스트 하는 데 사용 하려는 이벤트의 시간 범위를 설정 하 고 **샘플** 을 선택 합니다. 해당 시간 프레임 내에서 가장 먼저 발생 하는 최대 1000 이벤트 또는 1mb를 검색할 수 있습니다.
 
    ![들어오는 샘플 이벤트에 대 한 시간 범위 Azure Stream Analytics 설정](./media/stream-analytics-test-query/asa-set-time-range.png)
 
@@ -61,7 +61,7 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 
    ![테스트 결과 보기 Azure Stream Analytics](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. **초기화** 를 선택 하 여 들어오는 이벤트의 샘플 목록을 표시 합니다. **재설정**을 선택 하면 시간 범위 선택이 손실 됩니다. 쿼리 **테스트** 를 선택 하 여 쿼리를 테스트 하 고 **테스트 결과** 탭에서 결과를 검토 합니다.
+9. **초기화** 를 선택 하 여 들어오는 이벤트의 샘플 목록을 표시 합니다. **재설정** 을 선택 하면 시간 범위 선택이 손실 됩니다. 쿼리 **테스트** 를 선택 하 여 쿼리를 테스트 하 고 **테스트 결과** 탭에서 결과를 검토 합니다.
 
 10. 쿼리를 변경할 때 **쿼리 저장** 을 선택 하 여 새 쿼리 논리를 테스트 합니다. 이를 통해 반복적으로 쿼리를 수정 하 고 다시 테스트 하 여 출력이 어떻게 변경 되는지 확인할 수 있습니다.
 
@@ -75,17 +75,17 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
    
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 
-3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리**를 선택하여 쿼리 편집기 창을 엽니다.
+3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리** 를 선택하여 쿼리 편집기 창을 엽니다.
 
 4. 로컬 파일을 사용 하 여 쿼리를 테스트 하려면 **입력 미리 보기** 탭에서 **샘플 입력 업로드** 를 선택 합니다. 
 
-   ![샘플 파일 업로드 Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![스크린샷 샘플 입력 옵션을 보여 줍니다.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. 로컬 파일을 업로드 하 여 쿼리를 테스트 합니다. JSON, CSV 또는 AVRO 형식만 사용 하 여 파일을 업로드할 수 있습니다. **확인**을 선택합니다.
+5. 로컬 파일을 업로드 하 여 쿼리를 테스트 합니다. JSON, CSV 또는 AVRO 형식만 사용 하 여 파일을 업로드할 수 있습니다. **확인** 을 선택합니다.
 
-   ![샘플 파일 업로드 Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![파일을 선택할 수 있는 샘플 데이터 업로드 대화 상자가 스크린샷에 표시 됩니다.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-6. 파일을 업로드 하는 즉시 양식의 파일 내용을 테이블 또는 원시 형식으로 볼 수도 있습니다. **재설정**을 선택 하는 경우 샘플 데이터는 이전 섹션에서 설명 하는 들어오는 입력 데이터로 반환 됩니다. 언제 든 지 다른 파일을 업로드 하 여 쿼리를 테스트할 수 있습니다.
+6. 파일을 업로드 하는 즉시 양식의 파일 내용을 테이블 또는 원시 형식으로 볼 수도 있습니다. **재설정** 을 선택 하는 경우 샘플 데이터는 이전 섹션에서 설명 하는 들어오는 입력 데이터로 반환 됩니다. 언제 든 지 다른 파일을 업로드 하 여 쿼리를 테스트할 수 있습니다.
 
 7. **쿼리 테스트** 를 선택 하 여 업로드 된 샘플 파일에 대해 쿼리를 테스트 합니다.
 
@@ -113,9 +113,9 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 5.  Machine learning은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.
+* [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](./stream-analytics-build-an-iot-solution-using-stream-analytics.md):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.
 
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제](stream-analytics-stream-analytics-query-patterns.md)
 

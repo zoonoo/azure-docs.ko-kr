@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
-ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/30/2020
+ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484596"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128966"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 
@@ -20,6 +20,8 @@ ms.locfileid: "92484596"
 이 문서에서는 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
 - 명령줄에서 덤프 및 복원(mysqldump 사용)
 - PHPMyAdmin을 사용하여 덤프 및 복원
+
+데이터베이스를 Azure Database for MySQL로 마이그레이션하는 방법에 대 한 자세한 내용 및 사용 사례는 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) 를 참조 하세요. 이 가이드는 Azure로의 MySQL 마이그레이션 계획 및 실행을 안내 하는 지침을 제공 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -65,7 +67,7 @@ ms.locfileid: "92484596"
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>대상 Azure Database for MySQL 서버에서 데이터베이스 만들기
 데이터를 마이그레이션하려는 대상 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. MySQL 워크 벤치 또는 mysql.exe와 같은 도구를 사용 하 여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
-연결하려면 Azure Database for MySQL의 **개요**에서 연결 정보를 찾습니다.
+연결하려면 Azure Database for MySQL의 **개요** 에서 연결 정보를 찾습니다.
 
 :::image type="content" source="./media/concepts-migrate-dump-restore/1_server-overview-name-login.png" alt-text="Azure Portal에서 연결 정보 찾기":::
 
@@ -157,8 +159,8 @@ PHPMyadmin를 사용 하 여 데이터베이스를 덤프 및 복원 하려면 �
 ### <a name="import-using-phpmyadmin"></a>PHPMyAdmin을 사용하여 가져오기
 데이터베이스 가져오기는 내보내기와 비슷합니다. 다음 작업을 수행합니다.
 1. phpMyAdmin을 엽니다.
-2. phpMyAdmin 설치 페이지에서 **추가**를 클릭하여 Azure Database for MySQL 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
-3. 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제**를 선택하여 기존 테이블을 삭제합니다.
+2. phpMyAdmin 설치 페이지에서 **추가** 를 클릭하여 Azure Database for MySQL 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
+3. 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제** 를 선택하여 기존 테이블을 삭제합니다.
 4. **SQL** 링크를 클릭하여 SQL 명령을 입력하거나 SQL 파일을 업로드할 수 있는 페이지를 표시합니다.
 5. **찾아보기** 단추를 사용하여 데이터베이스 파일을 찾습니다.
 6. **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.
@@ -168,5 +170,5 @@ PHPMyadmin를 사용 하 여 데이터베이스를 덤프 및 복원 하려면 �
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL에 애플리케이션을 연결합니다](./howto-connection-string.md).
-- Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)을 참조합니다.
+- Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)을 참조합니다.
 - 데이터베이스 크기가 1tb 이상인 대량 데이터베이스를 마이그레이션하려면 병렬 내보내기 및 가져오기를 지 원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용 하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.

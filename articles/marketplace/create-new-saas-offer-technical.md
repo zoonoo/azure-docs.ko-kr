@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 78a81a2d392363ac45979fd28138f838653a2358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128694"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>SaaS 제품에 대 한 기술 세부 정보를 추가 하는 방법
 
@@ -38,7 +38,7 @@ ms.locfileid: "89380973"
 
 - **Azure Active Directory 테 넌 트 id** (필수) – Azure Active Directory (Azure AD) 앱에 대 한 테 넌 트 id를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
-- **Azure Active Directory 응용 프로그램 id** (필수) – [응용 프로그램 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 응용 프로그램 (클라이언트) ID 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
+- **Azure Active Directory 응용 프로그램 id** (필수) – [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 응용 프로그램 (클라이언트) ID 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
 다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다. 계획 개요.
 

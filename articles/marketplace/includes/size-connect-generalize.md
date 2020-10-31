@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284301"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129281"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -20,7 +20,7 @@ Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 �
 
 ### <a name="for-windows"></a>Windows의 경우
 
-Windows OS 디스크는 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) 도구를 사용 하 여 일반화 됩니다. 나중에 OS를 업데이트 하거나 다시 구성 하는 경우 sysprep을 다시 실행 해야 합니다.
+Windows OS 디스크는 [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) 도구를 사용 하 여 일반화 됩니다. 나중에 OS를 업데이트 하거나 다시 구성 하는 경우 sysprep을 다시 실행 해야 합니다.
 
 > [!WARNING]
 > Sysprep을 실행 한 후 업데이트가 자동으로 실행 될 수 있기 때문에 배포 될 때까지 VM을 해제 합니다. 이렇게 종료하면 이후 업데이트에서 운영 체제 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다. sysprep 실행에 대한 자세한 내용은 [VHD를 일반화하는 단계](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)를 참조하세요.
@@ -41,13 +41,13 @@ Windows OS 디스크는 [sysprep](https://docs.microsoft.com/windows-hardware/ma
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>VM 디스크의 스냅숏 만들기
 
 1. [Azure Portal](https://ms.portal.azure.com/)에 로그인합니다.
-2. 왼쪽 위에서 시작 하 여 **리소스 만들기**를 선택한 다음,를 검색 하 고 **스냅숏**을 선택 합니다.
-3. 스냅숏 블레이드에서  **만들기**를 선택 합니다.
-4. 스냅샷의 **이름**을 입력합니다.
+2. 왼쪽 위에서 시작 하 여 **리소스 만들기** 를 선택한 다음,를 검색 하 고 **스냅숏** 을 선택 합니다.
+3. 스냅숏 블레이드에서  **만들기** 를 선택 합니다.
+4. 스냅샷의 **이름** 을 입력합니다.
 5. 기존 리소스 그룹을 선택 하거나 새 리소스 그룹의 이름을 입력 합니다.
-6. **원본 디스크**에서 스냅샷을 만들 관리 디스크를 선택합니다.
-7. 스냅샷 저장에 사용할 **계정 유형**을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD**를 사용합니다.
-8. **만들기**를 선택합니다.
+6. **원본 디스크** 에서 스냅샷을 만들 관리 디스크를 선택합니다.
+7. 스냅샷 저장에 사용할 **계정 유형** 을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD** 를 사용합니다.
+8. **만들기** 를 선택합니다.
 
 #### <a name="extract-the-vhd"></a>VHD 추출
 

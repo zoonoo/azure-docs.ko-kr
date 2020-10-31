@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 311aca139220622a0436d490e73a536c3fc898c9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86043430"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129017"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 실시간 IoT 데이터 스트림 처리
 
 이 문서에서는 IoT (사물 인터넷) 장치에서 데이터를 수집 하는 스트림 처리 논리를 만드는 방법에 대해 알아봅니다. IoT (실제 사물 인터넷) 사용 사례를 사용 하 여 신속 하 고 경제적으로 솔루션을 구축 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 무료 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 * [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 샘플 쿼리 및 데이터 파일을 다운로드 합니다.
@@ -44,13 +44,13 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 메뉴에서 **+ 리소스 만들기** 를 선택 합니다. 그런 다음 **Analytics**에서 **Stream Analytics 작업** 을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 메뉴에서 **+ 리소스 만들기** 를 선택 합니다. 그런 다음 **Analytics** 에서 **Stream Analytics 작업** 을 선택 합니다.
    
     ![새 Stream Analytics 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 1. 고유한 작업 이름을 입력하고 해당 작업에 대한 구독이 유효한지 확인합니다. 새 리소스 그룹을 만들거나 구독에서 기존 리소스 그룹을 선택 합니다.
 
-1. 작업의 위치를 선택 합니다. 리소스 그룹 및 모든 리소스에 대해 동일한 위치를 사용 하 여 처리 속도를 높이고 비용을 줄였습니다. 구성을 만든 후 **만들기**를 선택 합니다.
+1. 작업의 위치를 선택 합니다. 리소스 그룹 및 모든 리소스에 대해 동일한 위치를 사용 하 여 처리 속도를 높이고 비용을 줄였습니다. 구성을 만든 후 **만들기** 를 선택 합니다.
    
     ![새 Stream Analytics 작업 만들기 세부 정보](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
@@ -60,7 +60,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 GitHub에서 [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) 을 다운로드 합니다. 그런 다음 Azure Portal에서 Azure Stream Analytics 작업으로 이동 합니다.
 
-왼쪽 메뉴의 **작업 토폴로지** 아래에서 **쿼리** 를 선택 합니다. 그런 다음 **샘플 입력 업로드**를 선택 합니다. `HelloWorldASA-InputStream.json`파일을 업로드 하 고 **확인**을 선택 합니다.
+왼쪽 메뉴의 **작업 토폴로지** 아래에서 **쿼리** 를 선택 합니다. 그런 다음 **샘플 입력 업로드** 를 선택 합니다. `HelloWorldASA-InputStream.json`파일을 업로드 하 고 **확인** 을 선택 합니다.
 
 ![Stream Analytics 대시보드 쿼리 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -125,7 +125,7 @@ HAVING Avg(temp)>100
 
 ![30초 필터 쿼리](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-평균 온도 100 보다 큰 245 행 및 센서 이름만 포함 된 결과가 표시 됩니다. 이 쿼리는 이벤트의 스트림을 30초 동안의 **연속 창**에서 센서 이름인 **dspl**로 그룹화합니다. 임시 쿼리는 시간을 진행 하는 방법을 명시 해야 합니다. **TIMESTAMP by** 절을 사용 하 여 모든 임시 계산과 시간을 연결 하는 **outputtime** 열을 지정 했습니다. 자세한 내용은 [시간 관리](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) 및 [창 기능 함수](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)를 참조 하세요.
+평균 온도 100 보다 큰 245 행 및 센서 이름만 포함 된 결과가 표시 됩니다. 이 쿼리는 이벤트의 스트림을 30초 동안의 **연속 창** 에서 센서 이름인 **dspl** 로 그룹화합니다. 임시 쿼리는 시간을 진행 하는 방법을 명시 해야 합니다. **TIMESTAMP by** 절을 사용 하 여 모든 임시 계산과 시간을 연결 하는 **outputtime** 열을 지정 했습니다. 자세한 내용은 [시간 관리](/stream-analytics-query/time-management-azure-stream-analytics) 및 [창 기능 함수](/stream-analytics-query/windowing-azure-stream-analytics)를 참조 하세요.
 
 ### <a name="query-detect-absence-of-events"></a>쿼리: 이벤트 부재 감지
 
@@ -148,9 +148,8 @@ WHERE t2.dspl IS NULL
 
 ![이벤트의 부재 감지](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-여기서는 동일한 데이터 스트림에 대해 **왼쪽 외부** 조인을 사용합니다(자체 조인). **내부** 조인의 경우 결과는 일치 항목이 있는 경우에만 반환됩니다.  하지만 **왼쪽 외부** 조인의 경우 조인 왼쪽의 이벤트가 일치하지 않는 경우 오른쪽 행의 모든 열에 대해 NULL이 있는 행이 반환됩니다. 이 방법은 이벤트의 부재를 찾는 데 매우 유용합니다. 자세한 내용은 [조인](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics)을 참조 하세요.
+여기서는 동일한 데이터 스트림에 대해 **왼쪽 외부** 조인을 사용합니다(자체 조인). **내부** 조인의 경우 결과는 일치 항목이 있는 경우에만 반환됩니다.  하지만 **왼쪽 외부** 조인의 경우 조인 왼쪽의 이벤트가 일치하지 않는 경우 오른쪽 행의 모든 열에 대해 NULL이 있는 행이 반환됩니다. 이 방법은 이벤트의 부재를 찾는 데 매우 유용합니다. 자세한 내용은 [조인](/stream-analytics-query/join-azure-stream-analytics)을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 
 이 문서의 목적은 다른 Stream Analytics 쿼리 언어 쿼리를 작성 하 고 브라우저에서 결과를 확인 하는 방법을 보여 주는 것입니다. 그러나이 작업은 시작 하기 위한 것입니다. Stream Analytics은 다양한 입력 및 출력을 지원하고 Azure Machine Learning에서 함수를 사용하여 데이터 스트림을 분석하는 강력한 도구로 만들 수 있습니다. 쿼리를 작성하는 방법에 대한 자세한 내용은 [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)에 대한 문서를 참조하세요.
-

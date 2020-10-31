@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746202"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127827"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>서비스 끝점과 Application Gateway 통합
 Azure 애플리케이션 게이트웨이와의 통합에 대해 약간 다른 구성이 필요한 App Service에는 세 가지 변형이 있습니다. 이러한 변형에는 일반 App Service, ILB (내부 Load Balancer) App Service Environment ASE () 및 외부 ASE 라고도 합니다. 이 문서에서는 App Service (다중 테 넌 트)를 사용 하 여 구성 하 고 ILB 및 외부 ASE에 대 한 고려 사항을 설명 하는 방법을 안내 합니다.
@@ -27,7 +27,7 @@ Azure 애플리케이션 게이트웨이와의 통합에 대해 약간 다른 �
 ## <a name="integration-with-app-service-multi-tenant"></a>App Service와 통합 (다중 테 넌 트)
 App Service (다중 테 넌 트)에는 공용 인터넷 연결 끝점이 있습니다. [서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md) 을 사용 하 여 Azure Virtual Network 내의 특정 서브넷 에서만 트래픽을 허용 하 고 다른 모든 항목을 차단할 수 있습니다. 다음 시나리오에서는이 기능을 사용 하 여 App Service 인스턴스가 특정 Application Gateway 인스턴스의 트래픽만 받을 수 있도록 합니다.
 
-![App Service와 Application Gateway 통합](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![다이어그램은 Azure Virtual Network에서 Application Gateway로 이동 하 여 방화벽 아이콘을 통해이를 App Service의 앱 인스턴스로 이동 하는 인터넷을 보여 줍니다.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 App Service 및 Application Gateway를 만드는 것 외에도이 구성에는 두 가지 부분이 있습니다. 첫 번째 부분은 Application Gateway 배포 된 Virtual Network의 서브넷에서 서비스 끝점을 사용 하도록 설정 하는 것입니다. 서비스 끝점은 서브넷을 나가는 모든 네트워크 트래픽이 특정 서브넷 ID로 태그를 지정 하 여 App Service 합니다. 두 번째 부분은 특정 서브넷 ID로 태그가 지정 된 트래픽만 허용 되도록 특정 웹 앱의 액세스 제한을 설정 하는 것입니다. 기본 설정에 따라 다른 도구를 사용 하 여 구성할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure Portal를 사용 하 여 설치를 프로 비전 하 고 구성 하는 네
 
 이제 Application Gateway를 통해 App Service에 액세스할 수 있지만 App Service에 직접 액세스 하려고 하면 웹 사이트가 중지 되었음을 나타내는 403 HTTP 오류가 표시 됩니다.
 
-![App Service와 Application Gateway 통합](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![오류 403-이 웹 앱이 중지 된 텍스트를 보여 주는 스크린샷](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 [리소스 관리자 배포 템플릿에서][template-app-gateway-app-service-complete] 는 전체 시나리오를 프로 비전 합니다. 시나리오는 Application Gateway에서 트래픽을 수신 하기 위한 서비스 끝점 및 액세스 제한으로 잠긴 App Service 인스턴스로 구성 됩니다. 템플릿에는 간단 하 게 하기 위해 리소스 이름에 많은 스마트 기본값과 고유한 postfixes가 추가 되어 있습니다. 이를 재정의 하려면 리포지토리를 복제 하거나 템플릿을 다운로드 하 고 편집 해야 합니다. 

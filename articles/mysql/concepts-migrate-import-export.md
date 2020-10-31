@@ -5,17 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/22/2020
-ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905930"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128932"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다.
+
+데이터베이스를 Azure Database for MySQL로 마이그레이션하는 방법에 대 한 자세한 내용 및 사용 사례는 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) 를 참조 하세요. 이 가이드는 Azure로의 MySQL 마이그레이션 계획 및 실행을 안내 하는 지침을 제공 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -25,7 +27,7 @@ ms.locfileid: "90905930"
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 데이터베이스 만들기
 MySQL 워크 벤치, Toad 또는 Navicat를 사용 하 여 데이터베이스를 만드는 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
-연결하려면 Azure Database for MySQL의 **개요**에서 연결 정보를 찾습니다.
+연결하려면 Azure Database for MySQL의 **개요** 에서 연결 정보를 찾습니다.
 
 :::image type="content" source="./media/concepts-migrate-import-export/1_server-overview-name-login.png" alt-text="Azure Portal에서 연결 정보 찾기":::
 
@@ -45,7 +47,7 @@ MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데
 - MySQL 데이터베이스 이외의 외부 데이터 원본에서 데이터를 마이그레이션하는 경우 플랫 파일을 만들고 [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html)를 사용하여 가져옵니다.
 
 > [!Important]
-> 단일 서버와 유연한 서버 모두 **InnoDB 저장소 엔진을**지원 합니다. 데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 스토리지 엔진을 사용하도록 합니다.
+> 단일 서버와 유연한 서버 모두 **InnoDB 저장소 엔진을** 지원 합니다. 데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 스토리지 엔진을 사용하도록 합니다.
 > 원본 데이터베이스에서 다른 저장소 엔진을 사용 하는 경우 데이터베이스를 마이그레이션하기 전에 InnoDB 엔진으로 변환 하세요. 예를 들어 MyISAM 엔진을 사용하는 WordPress 또는 웹앱이 있는 경우 먼저 데이터를 InnoDB 테이블로 마이그레이션하여 테이블을 변환합니다. `ENGINE=INNODB` 절을 사용하여 테이블을 만들기 위한 엔진을 설정한 다음 마이그레이션 전에 데이터를 호환되는 테이블로 전송합니다.
 
    ```sql
@@ -72,26 +74,26 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 
 테이블 데이터에 대한 마법사는 CSV 및 JSON 파일을 사용하여 가져오기 및 내보내기 작업을 지원합니다. 구분 기호, 열 선택 및 인코딩 선택과 같은 여러 가지 구성 옵션을 포함합니다. 로컬 또는 원격으로 연결된 MySQL 서버에 대해 각 마법사를 수행할 수 있습니다. 가져오기 작업은 테이블, 열 및 형식 매핑을 포함합니다.
 
-테이블을 마우스 오른쪽 단추로 클릭하여 개체 브라우저의 바로 가기 메뉴에서 이러한 마법사에 액세스할 수 있습니다. 그런 다음 **테이블 데이터 내보내기 마법사** 또는 **테이블 데이터 가져오기 마법사**를 선택합니다.
+테이블을 마우스 오른쪽 단추로 클릭하여 개체 브라우저의 바로 가기 메뉴에서 이러한 마법사에 액세스할 수 있습니다. 그런 다음 **테이블 데이터 내보내기 마법사** 또는 **테이블 데이터 가져오기 마법사** 를 선택합니다.
 
 #### <a name="table-data-export-wizard"></a>테이블 데이터 내보내기 마법사
 다음 예제에서는 테이블을 CSV 파일로 내보냅니다.
 1. 내보낼 데이터베이스의 테이블을 마우스 오른쪽 단추로 클릭합니다.
-2. **테이블 데이터 내보내기 마법사**를 선택합니다. 내보낼 열, 행 오프셋(있는 경우) 및 개수(있는 경우)를 선택합니다.
-3. **내보낼 데이터 선택** 페이지에서 **다음**을 클릭합니다. 파일 경로, CSV 또는 JSON 파일 형식을 선택합니다. 또한 선 구분 기호, 문자열을 묶는 방법 및 필드 구분 기호를 선택합니다.
-4. **출력 파일 위치 선택** 페이지에서 **다음**을 클릭합니다.
-5. **데이터 내보내기** 페이지에서 **다음**을 클릭합니다.
+2. **테이블 데이터 내보내기 마법사** 를 선택합니다. 내보낼 열, 행 오프셋(있는 경우) 및 개수(있는 경우)를 선택합니다.
+3. **내보낼 데이터 선택** 페이지에서 **다음** 을 클릭합니다. 파일 경로, CSV 또는 JSON 파일 형식을 선택합니다. 또한 선 구분 기호, 문자열을 묶는 방법 및 필드 구분 기호를 선택합니다.
+4. **출력 파일 위치 선택** 페이지에서 **다음** 을 클릭합니다.
+5. **데이터 내보내기** 페이지에서 **다음** 을 클릭합니다.
 
 #### <a name="table-data-import-wizard"></a>테이블 데이터 가져오기 마법사
 다음 예제에서는 CSV 파일에서 테이블을 가져옵니다.
 1. 가져올 데이터베이스의 테이블을 마우스 오른쪽 단추로 클릭합니다.
-2. 가져올 CSV 파일을 찾아서 선택한 후 **다음**을 클릭합니다.
-3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음**을 클릭합니다.
-4. 가져올 인코딩 및 열을 선택한 후 **다음**을 클릭합니다.
-5. **데이터 가져오기** 페이지에서 **다음**을 클릭합니다. 마법사는 그에 따라 데이터를 가져옵니다.
+2. 가져올 CSV 파일을 찾아서 선택한 후 **다음** 을 클릭합니다.
+3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음** 을 클릭합니다.
+4. 가져올 인코딩 및 열을 선택한 후 **다음** 을 클릭합니다.
+5. **데이터 가져오기** 페이지에서 **다음** 을 클릭합니다. 마법사는 그에 따라 데이터를 가져옵니다.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>탐색기 창의 SQL 데이터 내보내기 및 가져오기 마법사
-마법사를 사용하여 MySQL Workbench 또는 mysqldump 명령에서 생성된 SQL을 내보내거나 가져옵니다. **탐색기** 창에서 또는 주 메뉴에서 **서버**를 선택하여 이러한 마법사에 액세스합니다. 그런 다음 **데이터 내보내기** 또는 **데이터 가져오기**를 선택합니다.
+마법사를 사용하여 MySQL Workbench 또는 mysqldump 명령에서 생성된 SQL을 내보내거나 가져옵니다. **탐색기** 창에서 또는 주 메뉴에서 **서버** 를 선택하여 이러한 마법사에 액세스합니다. 그런 다음 **데이터 내보내기** 또는 **데이터 가져오기** 를 선택합니다.
 
 #### <a name="data-export"></a>데이터 내보내기
 :::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Azure Portal에서 연결 정보 찾기":::
@@ -101,18 +103,18 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 
    또는 **결과 집합 내보내기** 를 사용 하 여 SQL 편집기에서 CSV, JSON, HTML 및 XML 등의 다른 형식으로 특정 결과 집합을 내보냅니다.
 3. 내보낼 데이터베이스 개체를 선택하고 관련 옵션을 구성합니다.
-4. **새로 고침**을 클릭하여 현재 개체를 로드합니다.
+4. **새로 고침** 을 클릭하여 현재 개체를 로드합니다.
 5. 필요에 따라 내보내기 작업을 미세 조정하는 **고급 옵션** 탭을 엽니다. 예를 들어 테이블 잠금을 추가하고, insert 문 대신 replace를 사용하고, 억음 부호로 식별자를 묶는 작업을 수행할 수 있습니다.
-6. **내보내기 시작**을 클릭하여 내보내기 프로세스를 시작합니다.
+6. **내보내기 시작** 을 클릭하여 내보내기 프로세스를 시작합니다.
 
 
 #### <a name="data-import"></a>데이터 가져오기
 :::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Azure Portal에서 연결 정보 찾기":::
 
 **데이터 가져오기** 탭을 사용하여 데이터 내보내기 작업에서 또는 mysqldump 명령에서 내보낸 데이터를 가져오거나 복원할 수 있습니다.
-1. 프로젝트 폴더 또는 자체 포함된 SQL 파일을 선택하거나, 가져올 스키마를 선택하거나, **새로 만들기**를 선택하여 새 스키마를 정의합니다.
-2. **가져오기 시작**을 클릭하여 가져오기 프로세스를 시작합니다.
+1. 프로젝트 폴더 또는 자체 포함된 SQL 파일을 선택하거나, 가져올 스키마를 선택하거나, **새로 만들기** 를 선택하여 새 스키마를 정의합니다.
+2. **가져오기 시작** 을 클릭하여 가져오기 프로세스를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 다른 마이그레이션 방법으로 [Azure Database for MySQL에서 덤프 및 복원을 사용하여 MySQL 데이터베이스 마이그레이션](concepts-migrate-dump-restore.md)을 참조하세요.
-- Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)을 참조합니다.
+- Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)을 참조합니다.

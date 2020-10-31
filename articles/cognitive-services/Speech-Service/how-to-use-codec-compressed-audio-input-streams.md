@@ -12,18 +12,24 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 4585538e552e73f8f7a4b7b105153a9d26eeb4c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d6a0388507d836050550a3a98255deabb826cde
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128340"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
 음성 서비스 SDK **압축 오디오 입력 스트림** API는 또는을 사용 하 여 음성 서비스에 압축 오디오를 스트리밍하는 방법을 제공 합니다 `PullStream` `PushStream` .
 
-스트리밍 압축 입력 오디오는 현재 Windows의 c #, c + +, Java 및 Python (UWP 응용 프로그램은 지원 되지 않음) 및 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)에서 지원 됩니다. Android의 Java 에서도 지원 됩니다.
+플랫폼 | 언어 | 지원 되는 GStreamer 버전
+| :--- | ---: | :---:
+Windows (UWP 제외)  | C + +, c #, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Linux  | C + +, c #, Java, Python | [지원 되는 Linux 배포판 및 대상 아키텍처](~/articles/cognitive-services/speech-service/speech-sdk.md)
+Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+
+## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>압축 오디오 입력에 필요한 Speech SDK 버전
 * RHEL 8 및 CentOS 8에는 Speech SDK 버전 1.10.0 이상이 필요 합니다.
 * Windows의 경우 Speech SDK 버전 1.11.0 이상이 필요 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284277"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129119"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대 한 SAS URI를 생성 하는 방법
 
@@ -34,12 +34,12 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>도구 1 사용: Azure Storage 탐색기
 
-1. **저장소 계정**으로 이동 합니다.
-1. **Storage 탐색기**를 엽니다.
+1. **저장소 계정** 으로 이동 합니다.
+1. **Storage 탐색기** 를 엽니다.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="저장소 계정 창.":::
 
-3. **컨테이너**에서 VHD 파일을 마우스 오른쪽 단추로 클릭 하 고 **공유 액세스 서명 가져오기**를 선택 합니다.
+3. **컨테이너** 에서 VHD 파일을 마우스 오른쪽 단추로 클릭 하 고 **공유 액세스 서명 가져오기** 를 선택 합니다.
 4. **공유 액세스 서명** 대화 상자에서 다음 필드를 완료 합니다.
 
     1. 시작 시간 – VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
@@ -49,7 +49,7 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 
     ![공유 액세스 서명 대화 상자](media/vm/create-sas-uri-storage-explorer.png)
 
-5. 이 VHD에 연결되는 SAS URI를 만들려면 **만들기**를 선택합니다.
+5. 이 VHD에 연결되는 SAS URI를 만들려면 **만들기** 를 선택합니다.
 6. URI를 복사하고, 안전한 위치에 텍스트 파일로 저장합니다. 이 생성된 SAS URI는 컨테이너 수준 액세스를 위한 것입니다. 이를 특정 하 게 만들려면 텍스트 파일을 편집 하 여 VHD 이름을 추가 합니다.
 7. SAS URI의 VHD 문자열 뒤에 VHD 이름을 삽입합니다(앞의 슬래시 포함). 최종 SAS URI는 다음과 같습니다.
 
@@ -59,7 +59,7 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 
 ### <a name="using-tool-2-azure-cli"></a>도구 2 사용: Azure CLI
 
-1. [MICROSOFT AZURE CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)I를 다운로드 하 여 설치 합니다. 버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다.
+1. [MICROSOFT AZURE CL](/cli/azure/install-azure-cli)I를 다운로드 하 여 설치 합니다. 버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다.
 2. PowerShell 파일(.ps1 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
 
     ```JSON
@@ -81,8 +81,8 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 1. 변경 내용을 저장합니다.
 2. 다음 방법 중 하나를 사용하여 이 스크립트를 관리자 권한으로 실행해 컨테이너 수준 액세스를 위한 SAS 연결 문자열을 만듭니다.
 
-    - 콘솔에서 스크립트를 실행합니다. Windows에서 스크립트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-    - [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise)와 같은 PowerShell 스크립트 편집기에서 스크립트를 실행합니다. 이 화면은 이 편집기 내에서 SAS 연결 문자열을 만드는 것을 보여 줍니다.
+    - 콘솔에서 스크립트를 실행합니다. Windows에서 스크립트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
+    - [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise)와 같은 PowerShell 스크립트 편집기에서 스크립트를 실행합니다. 이 화면은 이 편집기 내에서 SAS 연결 문자열을 만드는 것을 보여 줍니다.
 
     [![PowerShell 편집기 내에서 SAS 연결 문자열 만들기](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

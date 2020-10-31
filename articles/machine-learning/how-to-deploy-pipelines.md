@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128778"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
 
@@ -87,7 +87,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 `json`POST 요청에 대 한 인수에는 키의 경우 `ParameterAssignments` 파이프라인 매개 변수 및 해당 값이 포함 된 사전이 포함 되어야 합니다. 또한 인수에는 `json` 다음 키가 포함 될 수 있습니다.
 
-| Key | 설명 |
+| 키 | 설명 |
 | --- | --- | 
 | `ExperimentName` | 이 끝점과 연결 된 실험의 이름입니다. |
 | `Description` | 끝점을 설명 하는 자유형 텍스트 | 
@@ -95,9 +95,148 @@ response = requests.post(published_pipeline1.endpoint,
 | `DataSetDefinitionValueAssignments` | 사전 학습 없이 데이터 집합을 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
 | `DataPathAssignments` | 사전 학습 없이 datapaths를 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>C를 사용 하 여 게시 된 파이프라인 실행 # 
+
+다음 코드에서는 c #에서 비동기적으로 파이프라인을 호출 하는 방법을 보여 줍니다. 부분 코드 조각은 호출 구조만 보여 주고 Microsoft 샘플의 일부가 아닙니다. 전체 클래스 또는 오류 처리는 표시 되지 않습니다. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Java를 사용 하 여 게시 된 파이프라인 실행
+
+다음 코드에서는 인증을 요구 하는 파이프라인에 대 한 호출을 보여 줍니다 ( [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)참조). 파이프라인을 공개적으로 배포 하는 경우를 생성 하는 호출이 필요 하지 않습니다 `authKey` . 부분 코드 조각은 Java 클래스 및 예외 처리 상용구를 표시 하지 않습니다. 이 코드는 `Optional.flatMap` 빈를 반환할 수 있는 함수를 연결 하는 데를 사용 합니다 `Optional` . 를 사용 하면 `flatMap` 코드를 단축 하 고 명확 하 게 `getRequestBody()` 할 수 있지만 숨깁니다 예외를 허용 합니다.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>다시 학습 없이 데이터 집합 및 datapaths 변경
 
-다른 데이터 집합 및 datapaths에 대해 학습 하 고 유추 하려고 할 수 있습니다. 예를 들어, 더 작은 스파스 데이터 집합에 대해 학습 하 고 전체 데이터 집합에 대 한 유추를 수행할 수 있습니다. 요청의 인수에서 키를 사용 하 여 데이터 집합을 전환 `DataSetDefinitionValueAssignments` `json` 합니다. Datapaths를로 전환 `DataPathAssignments` 합니다. 두 방법의 기술은 비슷합니다.
+다른 데이터 집합 및 datapaths에 대해 학습 하 고 유추 하려고 할 수 있습니다. 예를 들어, 더 작은 데이터 집합을 학습 하 고 전체 데이터 집합에 대 한 유추를 수행할 수 있습니다. 요청의 인수에서 키를 사용 하 여 데이터 집합을 전환 `DataSetDefinitionValueAssignments` `json` 합니다. Datapaths를로 전환 `DataPathAssignments` 합니다. 두 방법의 기술은 비슷합니다.
 
 1. 파이프라인 정의 스크립트에서 `PipelineParameter` 데이터 집합에 대 한를 만듭니다. `DatasetConsumptionConfig`에서 또는를 만듭니다 `DataPath` `PipelineParameter` .
 
@@ -155,7 +294,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>버전 지정 파이프라인 끝점 만들기
 
-게시 된 여러 파이프라인이 있는 파이프라인 끝점을 만들 수 있습니다. 그러면 ML 파이프라인을 반복 하 고 업데이트할 때 고정 REST 끝점을 제공 합니다.
+게시 된 여러 파이프라인이 있는 파이프라인 끝점을 만들 수 있습니다. 이 기법은 ML 파이프라인을 반복 하 고 업데이트할 때 고정 REST 끝점을 제공 합니다.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -201,9 +340,9 @@ response = requests.post(rest_endpoint,
 
 1. [작업 영역을 봅니다](how-to-manage-workspace.md#view).
 
-1. 왼쪽에서 **끝점**을 선택 합니다.
+1. 왼쪽에서 **끝점** 을 선택 합니다.
 
-1. 위쪽에서 **파이프라인 끝점**을 선택 합니다.
+1. 위쪽에서 **파이프라인 끝점** 을 선택 합니다.
  ![machine learning 게시 된 파이프라인 목록](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. 파이프라인 끝점의 이전 실행 결과를 실행, 사용 또는 검토 하려면 특정 파이프라인을 선택 합니다.

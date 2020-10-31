@@ -4,16 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: b38857cd5ea12767f872690dfcdcb84dcbbb3f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10e7db521781c21b3fe5feda0880fee7e603afab
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83585024"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128327"
 ---
 압축 된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)을 사용 하 여 구현 됩니다. 라이선스 때문에 GStreamer 이진이 컴파일되지 않고 음성 SDK로 연결 되지 않습니다. 개발자는 여러 종속성 및 플러그 인을 설치 해야 합니다.
 
-# <a name="ubuntu-1604-1804-or-debian-9"></a>[Ubuntu, 16.04, 18.04 또는 Debian 9](#tab/debian)
+> [!NOTE]
+> [지원 되는 Linux 배포판 및 대상 아키텍처](~/articles/cognitive-services/speech-service/speech-sdk.md)의 목록을 참조 하세요.
+
+# <a name="ubuntudebian"></a>[Ubuntu/Debian](#tab/debian)
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
@@ -23,7 +26,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# <a name="rhelcentos-78"></a>[RHEL/CentOS 7/8](#tab/centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \

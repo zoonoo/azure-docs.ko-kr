@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129000"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
@@ -49,14 +49,14 @@ ms.locfileid: "90032387"
 
 ## <a name="choose-a-listing-option"></a>목록 옵션 선택
 
-사용 가능한 목록 옵션은 잠재 고객 참여를 제공 하는 동시에 잠재 고객의 공유 및 [상업적 marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대 한 액세스를 제공 합니다. 게시 옵션에 해당 하는 나열 옵션을 확인 합니다.
+사용 가능한 목록 옵션은 잠재 고객 참여를 제공 하는 동시에 잠재 고객의 공유 및 [상업적 marketplace 혜택](./gtm-your-marketplace-benefits.md)에 대 한 액세스를 제공 합니다. 게시 옵션에 해당 하는 나열 옵션을 확인 합니다.
 
 | **게시 옵션**    | **설명**  |
 | :------------------- | :-------------------|
 | **목록** | 상업적 marketplace 사용자가 **연락처** 목록 옵션을 통해 고객에 게 연결 하도록 요청할 수 있는 응용 프로그램 또는 서비스를 간단히 나열 합니다. |
-| **평가판** | 상업용 Marketplace를 사용하여 솔루션의 평가판 환경의 자동 프로비저닝 및 검색 기능을 향상시키면서 잠재 사용자가 구입 전에 제한된 시간 동안 무료로 SaaS, IaaS 또는 Microsoft 앱 내 환경을 사용하게 할 수 있습니다. 평가판 게시 옵션에 사용 되는 목록 옵션은 **무료 평가판** 또는 **시험**사용 중 하나입니다. |
-| **BYOL** | 상업용 Marketplace를 사용하여 검색 기능을 개선하고 솔루션의 프로비저닝을 자동화하며 재무 트랜잭션은 별도로 완료합니다. BYOL 제품 형식은 온-프레미스에서 클라우드로의 마이그레이션에 적합합니다. 목록 옵션은 **지금 가져옵니다**.
-| **거래** | 거래 제품은 상업용 Marketplace를 통해 판매됩니다. Microsoft가 청구 및 수금을 담당합니다. 목록 옵션은 **지금 가져옵니다**.|
+| **평가판** | 상업용 Marketplace를 사용하여 솔루션의 평가판 환경의 자동 프로비저닝 및 검색 기능을 향상시키면서 잠재 사용자가 구입 전에 제한된 시간 동안 무료로 SaaS, IaaS 또는 Microsoft 앱 내 환경을 사용하게 할 수 있습니다. 평가판 게시 옵션에 사용 되는 목록 옵션은 **무료 평가판** 또는 **시험** 사용 중 하나입니다. |
+| **BYOL** | 상업용 Marketplace를 사용하여 검색 기능을 개선하고 솔루션의 프로비저닝을 자동화하며 재무 트랜잭션은 별도로 완료합니다. BYOL 제품 형식은 온-프레미스에서 클라우드로의 마이그레이션에 적합합니다. 목록 옵션은 **지금 가져옵니다** .
+| **거래** | 거래 제품은 상업용 Marketplace를 통해 판매됩니다. Microsoft가 청구 및 수금을 담당합니다. 목록 옵션은 **지금 가져옵니다** .|
 
 > [!Note]
 > Transact 게시 옵션을 사용할 때는 제품 유형을 선택하고 제품을 만들기 전에 가격, 청구, 송장 처리 및 지급 고려 사항을 이해하는 것이 중요합니다. 자세히 알아보려면 [상업용 Marketplace의 거래 기능](./marketplace-commercial-transaction-capabilities-and-considerations.md) 문서를 참조하세요.

@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277428"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127879"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -60,7 +60,7 @@ ms.locfileid: "92277428"
 
 ### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장 다운로드 및 설치
 
-메시지가 표시 되 면 **내 앱 보안 로그인 확장**을 다운로드 하 여 설치 합니다. 이 확장은 데스크톱 브라우저를 사용 하 여 조직의 클라우드 앱과 Single Sign-On를 사용 하는 데 도움이 됩니다. **내 앱** 포털에서 앱을 마우스로 가리키고 **...** 를 선택한 다음 **응용 프로그램 관리**를 선택 합니다.
+메시지가 표시 되 면 **내 앱 보안 로그인 확장** 을 다운로드 하 여 설치 합니다. 이 확장은 데스크톱 브라우저를 사용 하 여 조직의 클라우드 앱과 Single Sign-On를 사용 하는 데 도움이 됩니다. **내 앱** 포털에서 앱을 마우스로 가리키고 **...** 를 선택한 다음 **응용 프로그램 관리** 를 선택 합니다.
 
 조직에서 Single Sign-On을 이미 설정한 경우에는 확장이 자동으로 설치되므로 이 섹션을 건너뛸 수 있습니다.
 
@@ -77,9 +77,9 @@ ms.locfileid: "92277428"
 
 - **Microsoft edge** -Microsoft Store에서 [내 앱 보안 로그인 확장](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) 기능으로 이동한 후 **가져오기** 를 선택 하 여 Microsoft Edge 레거시 브라우저에 대 한 확장을 가져옵니다.
 
-- **Google Chrome** -Chrome 웹 스토어에서 [내 앱 보안 로그인 확장](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) 기능으로 이동한 후 **chrome에 추가**를 선택 합니다.
+- **Google Chrome** -Chrome 웹 스토어에서 [내 앱 보안 로그인 확장](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) 기능으로 이동한 후 **chrome에 추가** 를 선택 합니다.
 
-- **Mozilla firefox** - **firefox 추가 기능** 페이지에서 [내 앱 보안 로그인 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/) 기능으로 이동한 후 **firefox에 추가**를 선택 합니다.
+- **Mozilla firefox** - **firefox 추가 기능** 페이지에서 [내 앱 보안 로그인 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/) 기능으로 이동한 후 **firefox에 추가** 를 선택 합니다.
 
 **주소** 표시줄의 오른쪽에 아이콘이 추가 되어 로그인 하 고 확장을 사용자 지정할 수 있습니다.
 
@@ -87,9 +87,9 @@ ms.locfileid: "92277428"
 
 **최근에 사용** 섹션에서 표시할 앱 수를 선택하고 조직의 내부 URL 리디렉션 허용 여부를 결정할 수 있습니다.
 
-1. **주소** 표시줄 오른쪽의 새 **내 앱 보안 로그인 확장** 아이콘(![확장 아이콘](media/my-apps-portal/my-apps-portal-extension-icon.png))을 선택한 다음 **로그인하여 시작**을 선택합니다.
+1. **주소** 표시줄 오른쪽의 새 **내 앱 보안 로그인 확장** 아이콘(![확장 아이콘](media/my-apps-portal/my-apps-portal-extension-icon.png))을 선택한 다음 **로그인하여 시작** 을 선택합니다.
 
-1. **설정** 아이콘(![설정 아이콘](media/my-apps-portal/my-apps-portal-extension-settings-icon.png))을 마우스 오른쪽 단추로 클릭한 다음 **설정**을 선택합니다.
+1. **설정** 아이콘(![설정 아이콘](media/my-apps-portal/my-apps-portal-extension-settings-icon.png))을 마우스 오른쪽 단추로 클릭한 다음 **설정** 을 선택합니다.
 
 1. **설정** 상자에서 포털에 표시할 최근 앱 수를 선택하고, 원격으로 사용할 수 있도록 조직의 내부 URL 리디렉션을 허용할 것인지 여부를 선택합니다.
 
@@ -113,11 +113,11 @@ ms.locfileid: "92277428"
 
 관리자가 권한을 부여한 경우 **앱** 페이지에 새 앱을 추가할 수 있습니다.
 
-1. **앱** 페이지에서 **셀프 서비스 앱 추가**를 선택 합니다.
+1. **앱** 페이지에서 **셀프 서비스 앱 추가** 를 선택 합니다.
 
    ![내 앱 포털(myapplications.microsoft.com)의 앱 추가 페이지](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-1. 제공된 목록에서 추가하려는 앱을 선택하고 **추가**를 선택합니다.
+1. 제공된 목록에서 추가하려는 앱을 선택하고 **추가** 를 선택합니다.
 
 1. **앱** 페이지의 목록에 앱이 추가됩니다.
 
@@ -151,7 +151,7 @@ ms.locfileid: "92277428"
 
 **앱** 페이지로 이동한 후 다음 작업을 수행할 수 있습니다.
 
-- [프로필 정보 변경](my-apps-portal-end-user-update-profile.md)
+- [프로필 정보 변경](./my-account-portal-settings.md)
 
 - [그룹 관련 정보 보기 및 업데이트](my-apps-portal-end-user-groups.md)
 
