@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476317"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073709"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. 컨테이너 이름과 같은 메트릭에 대 한 차원 값은 대/소문자를 구분 하지 않습니다. 따라서 이러한 차원 값에 대해 문자열 비교를 수행 하는 경우 대/소문자를 구분 하지 않는 비교를 사용 해야 합니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](./monitor-cosmos-db.md) 문서를 참조 하세요.
 
@@ -55,7 +56,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>파티션의 처리량 배포 확인
 
-파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 스토리지 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
+파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드** 로 이동합니다. **처리량** 탭에서 스토리지 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Azure Portal에서 Cosmos DB 성능 메트릭":::
 
@@ -106,7 +107,7 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
-*QueryMetrics*는 쿼리의 각 구성 요소를 실행하는 데 걸린 기간을 자세히 보여 줍니다. 장기 실행 쿼리에 대한 가장 일반적인 근본 원인은 검색이며 쿼리에서 인덱스를 활용할 수 없음을 의미합니다. 더 나은 필터 조건을 사용하여 이 문제를 해결할 수 있습니다.
+*QueryMetrics* 는 쿼리의 각 구성 요소를 실행하는 데 걸린 기간을 자세히 보여 줍니다. 장기 실행 쿼리에 대한 가장 일반적인 근본 원인은 검색이며 쿼리에서 인덱스를 활용할 수 없음을 의미합니다. 더 나은 필터 조건을 사용하여 이 문제를 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

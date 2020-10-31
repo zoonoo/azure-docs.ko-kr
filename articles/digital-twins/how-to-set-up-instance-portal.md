@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperfq
-ms.openlocfilehash: 2dc19432d2185b95376717c570cd3165ebc85075
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: da0eb80352409bbbbe29a80fe18a52f54540ae62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027302"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071490"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -36,7 +36,7 @@ ms.locfileid: "93027302"
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
-검색 상자에서 *Azure Digital Twins* 를 검색 하 고 결과에서 **Azure digital Twins (미리 보기)** 서비스를 선택 합니다. _만들기_ 단추를 선택 하 여 서비스의 새 인스턴스를 만듭니다.
+검색 상자에서 *Azure Digital Twins* 를 검색 하 고 결과에서 **Azure digital twins** 서비스를 선택 합니다. _만들기_ 단추를 선택 하 여 서비스의 새 인스턴스를 만듭니다.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 

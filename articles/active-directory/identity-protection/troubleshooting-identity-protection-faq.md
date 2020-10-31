@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040506"
+ms.locfileid: "93074817"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
 
@@ -36,11 +36,8 @@ Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위
 
 클래식 Id 보호에서 **모든 이벤트 해제** 위험 검색의 상태를 **닫힘 (확인 됨)** 으로 설정 합니다.
 
-## <a name="risky-sign-ins-report-known-issues"></a>위험한 로그인 보고서의 알려진 문제
 
-위험 검색에 대 한 **해결** 은 **위험 기반 정책에 따라** 발생 하는 MFA를 사용자에 게 설정 합니다.
-
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="why-is-a-user-is-at-risk"></a>사용자가 위험에 노출 되는 이유는 무엇 인가요?
 

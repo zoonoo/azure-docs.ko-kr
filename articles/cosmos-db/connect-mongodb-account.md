@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06b03ac1cfe37307a5839be0d5ca3b1003db35af
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85954097"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072427"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos 데이터베이스를 MongoDB 앱의 데이터 저장소로 사용할 수 있습니다.
 
@@ -24,7 +25,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 - [빠른 시작 방법](#get-the-mongodb-connection-string-by-using-the-quick-start) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
 - 다른 드라이버에 사용할 [사용자 지정 연결 문자열 방법](#get-the-mongodb-connection-string-to-customize)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Cosmos 계정입니다. 지침은 [Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드](create-mongodb-dotnet.md)를 참조하세요.
@@ -33,8 +34,8 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 2. **Azure Cosmos DB** 블레이드에서 API를 선택합니다.
-3. 계정 블레이드의 왼쪽 창에서 **빠른 시작**을 클릭합니다.
-4. 플랫폼(**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**)을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#get-the-mongodb-connection-string-to-customize)를 참조하세요.
+3. 계정 블레이드의 왼쪽 창에서 **빠른 시작** 을 클릭합니다.
+4. 플랫폼( **.NET** , **Node.js** , **MongoDB Shell** , **Java** , **Python** )을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#get-the-mongodb-connection-string-to-customize)를 참조하세요.
 5. 코드 조각을 복사하여 MongoDB 앱에 붙여넣습니다.
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="빠른 시작 블레이드":::
@@ -43,7 +44,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 2. **Azure Cosmos DB** 블레이드에서 API를 선택합니다.
-3. 계정 블레이드의 왼쪽 창에서 **연결 문자열**을 클릭합니다.
+3. 계정 블레이드의 왼쪽 창에서 **연결 문자열** 을 클릭합니다.
 4. **연결 문자열** 블레이드가 열립니다. 여기에는 미리 구성된 연결 문자열을 비롯해 MongoDB용 드라이버를 사용하여 계정에 연결하는 데 필요한 모든 정보가 있습니다.
 
    :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="빠른 시작 블레이드" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
@@ -51,7 +52,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 ## <a name="connection-string-requirements"></a>연결 문자열 요구 사항
 
 > [!Important]
-> Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. Azure Cosmos DB 계정은 *TLS*를 통한 인증 및 보안 통신이 필요 합니다.
+> Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. Azure Cosmos DB 계정은 *TLS* 를 통한 인증 및 보안 통신이 필요 합니다.
 
 Azure Cosmos DB는 표준 MongoDB 연결 문자열 URI 형식을 지원 합니다. Azure Cosmos DB 계정에는 TLS를 통한 인증 및 보안 통신이 필요 합니다. 따라서 연결 문자열 형식은 다음과 같습니다.
 

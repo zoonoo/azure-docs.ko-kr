@@ -7,24 +7,25 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83747357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073066"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosmos DB는 고객이 사용할 수 있는 다음 5개의 고유한 Azure 클라우드 환경에서 사용할 수 있습니다.
 
 * **Azure 공용** 클라우드: 전역적으로 사용할 수 있습니다.
 
-* **Azure 중국 21Vianet**: Microsoft와 중국 최대의 인터넷 공급자인 21Vianet의 제휴를 통해 사용할 수 있습니다.
+* **Azure 중국 21Vianet** : Microsoft와 중국 최대의 인터넷 공급자인 21Vianet의 제휴를 통해 사용할 수 있습니다.
 
-* **Azure Germany**: 데이터 트러스티 모델에 따라 서비스를 제공하며 고객 데이터는 Deutsche Telekom 자회사 T-Systems International GmbH가 독일 데이터 신탁 기관으로서 독일에서 관리합니다.
+* **Azure Germany** : 데이터 트러스티 모델에 따라 서비스를 제공하며 고객 데이터는 Deutsche Telekom 자회사 T-Systems International GmbH가 독일 데이터 신탁 기관으로서 독일에서 관리합니다.
 
-* **Azure Government**: 미국 4개 지역에서 미국 정부 기관 및 해당 파트너가 사용할 수 있습니다. 
+* **Azure Government** : 미국 4개 지역에서 미국 정부 기관 및 해당 파트너가 사용할 수 있습니다. 
 
 * **American Department of Defense(미국방부)** : 미국 2개 지역에서 미국방부가 사용할 수 있습니다.
 
@@ -47,12 +48,12 @@ Azure Cosmos DB는 해당 인증 검사를 지속적으로 확장하고 있습�
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-각 이러한 규정 준수 제안과 그 혜택에 대해 자세히 알아보려면 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 페이지를 참조하세요.
+이러한 각 규정 준수 제품 및 이러한 제품의 혜택에 대 한 자세한 내용은 [Microsoft Azure 준수 제공](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), 부록 a & B를 참조 하세요.
 
 다음 표에는 Azure Government의 Azure Cosmos DB에서 지원하는 인증이 나와 있습니다.
 
 | **전역적으로 적용** | **미국 정부** | **산업별** | 
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | CSA STAR 인증 | CJIS| HIPAA BAA | 
 | CSA STAR 증명| DoD SRG Level 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG Level 4 | PCI DSS | 
@@ -68,8 +69,14 @@ Azure Cosmos DB는 해당 인증 검사를 지속적으로 확장하고 있습�
 
 Azure 규정 준수 인증에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* Azure Cosmos DB의 최신 규정 준수 인증을 확인하려면 [Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.  
+* Azure Cosmos DB에 대 한 최신 준수 인증을 확인 하려면 [Microsoft Azure 준수 제품](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), 부록 a & B를 참조 하세요.  
 
-* Azure Cosmos DB 보안 및 최신 개선 사항에 대한 개요는 [Azure Cosmos 데이터베이스 보안](database-security.md) 문서를 참조하세요.
+* Azure Cosmos DB 보안 및 최신 개선 사항에 대 한 개요는 [Azure Cosmos database 보안](database-security.md)을 참조 하세요.
+
+* Azure Cosmos DB 배포의 보안 상태를 개선 하기 위한 권장 사항은 [Azure Cosmos DB 보안 기준](security-baseline.md)을 참조 하세요. 
 
 * Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.
+
+* FedRAMP 준수 정보는 [FedRAMP 및 DOD CC SRG 감사 범위의 Azure 서비스](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)를 참조 하세요.
+
+* DoD 준수 정보는 [Dod 준수 제공](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)을 참조 하세요.

@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072997"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 디자인 패턴
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 변경 피드를 통해 대량의 쓰기가 있는 큰 데이터 세트를 효율적으로 처리할 수 있습니다. 변경 피드는 또한 변경된 내용을 식별하기 위해 전체 데이터 세트를 쿼리하는 대안을 제공합니다. 이 문서에서는 일반적인 변경 피드 디자인 패턴, 디자인 장단점 및 변경 피드 제한 사항에 중점을 두고 있습니다.
 
@@ -102,7 +103,7 @@ Azure Cosmos DB는 가로 확장성 및 고가용성의 장점 때문에 이벤�
 3. 고객이 쇼핑 카트에서 항목 A를 제거합니다.
 4. 고객이 체크 아웃하고 쇼핑 카트 콘텐츠가 배송됩니다.
 
-현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름**(각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
+현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름** (각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
 
 ## <a name="examples"></a>예
 

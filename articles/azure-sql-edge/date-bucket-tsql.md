@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886840"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073522"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket(Transact-SQL)
 
@@ -41,16 +41,19 @@ DATE_BUCKET (datePart, number, date, origin)
   
 |*datePart*|약어|  
 |---|---|
-|**day**|**dd**, **d**|  
-|**week**|**wk**, **ww**|  
+|**day**|**dd** , **d**|  
+|**week**|**wk** , **ww**| 
+|**month**|**mm** , **m**|
+|**quarter**|**qq** , **q**|  
+|**year**|**yy** , **yyyy**|  
 |**hour**|**hh**|  
-|**minute**|**mi**, **n**|  
-|**second**|**ss**, **s**|  
+|**minute**|**mi** , **n**|  
+|**second**|**ss** , **s**|  
 |**millisecond**|**ms**|  
 
 *number*
 
-*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`**. 
+*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`** . 
 
 *date*
 
@@ -63,7 +66,7 @@ DATE_BUCKET (datePart, number, date, origin)
 + **smalldatetime**
 + **time**
 
-*date*의 경우 위에서 언급한 데이터 형식 중 하나를 확인하는 경우 `DATE_BUCKET`은 열 식, 식 또는 사용자 정의 변수를 허용합니다.
+*date* 의 경우 위에서 언급한 데이터 형식 중 하나를 확인하는 경우 `DATE_BUCKET`은 열 식, 식 또는 사용자 정의 변수를 허용합니다.
 
 **원본** 
 
@@ -122,11 +125,11 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>datepart 인수
 
-**dayofyear**, **day**, **weekday**는 동일한 값을 반환합니다. 각 *datepart*와 해당 약어는 동일한 값을 반환합니다.
+**dayofyear** , **day** , **weekday** 는 동일한 값을 반환합니다. 각 *datepart* 와 해당 약어는 동일한 값을 반환합니다.
   
 ## <a name="number-argument"></a>number 인수
 
-*number* 인수는 양수 **int** 값의 범위를 초과할 수 없습니다. 다음 명령문에서 *number*에 대한 인수는 **int** 범위를 1만큼 초과합니다. 다음 명령문은 “`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`와 같은 오류 메시지를 반환합니다.
+*number* 인수는 양수 **int** 값의 범위를 초과할 수 없습니다. 다음 명령문에서 *number* 에 대한 인수는 **int** 범위를 1만큼 초과합니다. 다음 명령문은 “`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`와 같은 오류 메시지를 반환합니다.
   
 ```sql
 declare @date datetime2 = '2020-04-30 00:00:00'
@@ -162,11 +165,11 @@ Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 + SELECT \<list>
 + WHERE
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>A. 원본 시간으로부터 1의 버킷 너비로 Date_Bucket을 계산
 
-이러한 각 명령문은 원본 시간으로부터 1의 버킷 너비로 *date_bucket*을 증가시킵니다.
+이러한 각 명령문은 원본 시간으로부터 1의 버킷 너비로 *date_bucket* 을 증가시킵니다.
 
 ```sql
 declare @date datetime2 = '2020-04-30 21:21:21'
@@ -197,7 +200,7 @@ Seconds 2020-04-30 21:21:21.0000000
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>사용자 정의 변수를 숫자 및 날짜로 지정  
 
-이 예제에서는 사용자 정의 변수를 *number* 및 *date*에 대한 인수로 지정합니다.
+이 예제에서는 사용자 정의 변수를 *number* 및 *date* 에 대한 인수로 지정합니다.
   
 ```sql
 DECLARE @days int = 365,
@@ -247,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>스칼라 시스템 함수를 날짜로 지정
 
-이 예제에서는 *date*에 대해 `SYSDATETIME`을 지정합니다. 반환되는 정확한 값은 명령문 실행의 날짜와 시간에 따라 달라집니다.
+이 예제에서는 *date* 에 대해 `SYSDATETIME`을 지정합니다. 반환되는 정확한 값은 명령문 실행의 날짜와 시간에 따라 달라집니다.
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -264,7 +267,7 @@ SELECT Date_Bucket(wk, 10, SYSDATETIME());
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>스칼라 하위 쿼리 및 스칼라 함수를 숫자 및 날짜로 지정
 
-이 예제에서는 스칼라 하위 쿼리인 `MAX(OrderDate)`를 *number* 및 *date*에 대한 인수로 사용합니다. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`은 값 목록에서 *number* 인수를 선택하는 방법을 보여 주기 위하여 만든 숫자 매개 변수에 대한 인수로 작용합니다.
+이 예제에서는 스칼라 하위 쿼리인 `MAX(OrderDate)`를 *number* 및 *date* 에 대한 인수로 사용합니다. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`은 값 목록에서 *number* 인수를 선택하는 방법을 보여 주기 위하여 만든 숫자 매개 변수에 대한 인수로 작용합니다.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  

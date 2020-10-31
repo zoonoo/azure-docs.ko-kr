@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962352"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074185"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -60,23 +60,25 @@ App Service 웹 앱에 대 한 TLS/SSL 인증서를 구매 하 고 설정 하는
 웹앱에 대한 서버 표준 시간대를 설정하려면:
 
 1. Azure Portal의 App Service 구독에서 **애플리케이션 설정** 메뉴로 이동합니다.
-2. **앱 설정**에서 이 설정을 추가합니다.
+2. **앱 설정** 에서 이 설정을 추가합니다.
     * 키 = WEBSITE_TIME_ZONE
     * 값 = *원하는 표준 시간대*
-3. **저장**을 선택합니다.
+3. **저장** 을 선택합니다.
 
-Windows에서 실행 되는 앱 서비스의 경우 [기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones) 문서의 **표준** 시간대 열에서 허용 되는 값을 참조 하세요. Linux에서 실행 되는 앱 서비스에 대해 [TZ 데이터베이스 이름을](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 표준 시간대 값으로 설정 합니다. 다음은 TZ 데이터베이스 이름: 아메리카/Adak의 예입니다.
+Windows에서 실행 되는 앱 서비스의 경우 Windows 명령의 출력을 참조 하세요 `tzutil /L` . 각 항목의 두 번째 줄에서 값을 사용 합니다. 예: "통가 Standard Time". 이러한 값 중 일부는 [기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)의 **표준** 시간대 열에도 나열 됩니다.
+
+Linux에서 실행 되는 앱 서비스의 경우 [IANA TZ 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)에서 값을 설정 합니다. 예를 들면 "아메리카/Adak"입니다.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>내 연속 WebJobs가 때때로 실패하는 이유는 무엇인가요?
 
-기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 및 표준 계획에서 **무중단** 설정을 켜서 항상 웹앱을 계속 로드할 수 있습니다. 웹앱에서 연속 WebJobs를 실행하는 경우 **무중단**을 켜야 합니다. 그렇지 않으면 WebJobs가 안정적으로 실행되지 않을 수 있습니다. 자세한 내용은 [연속형 WebJob 만들기](webjobs-create.md#CreateContinuous)를 참조하세요.
+기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 및 표준 계획에서 **무중단** 설정을 켜서 항상 웹앱을 계속 로드할 수 있습니다. 웹앱에서 연속 WebJobs를 실행하는 경우 **무중단** 을 켜야 합니다. 그렇지 않으면 WebJobs가 안정적으로 실행되지 않을 수 있습니다. 자세한 내용은 [연속형 WebJob 만들기](webjobs-create.md#CreateContinuous)를 참조하세요.
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>내 웹앱의 아웃바운드 IP 주소를 어떻게 확인할 수 있나요?
 
 웹앱의 아웃바운드 IP 주소 목록을 확인하려면:
 
 1. Azure Portal의 웹앱 블레이드에서 **속성** 메뉴로 이동합니다.
-2. **아웃바운드 IP 주소**를 검색합니다.
+2. **아웃바운드 IP 주소** 를 검색합니다.
 
 아웃바운드 IP 주소 목록이 표시됩니다.
 
@@ -129,7 +131,7 @@ WebJob 로그를 검토하려면:
 2. WebJob을 선택합니다.
 3. **출력 설정/해제** 단추를 선택합니다.
 4. 출력 파일을 다운로드하려면 **다운로드** 링크를 선택합니다.
-5. 개별 실행의 경우 **Individual Invoke**(개별 호출)를 선택합니다.
+5. 개별 실행의 경우 **Individual Invoke** (개별 호출)를 선택합니다.
 6. **출력 설정/해제** 단추를 선택합니다.
 7. 다운로드 링크를 선택합니다.
 
@@ -178,13 +180,13 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 3. **네트워크** 탭이 선택되어 있는지 확인하고 녹색 **재생** 단추를 선택합니다.
 4. 문제를 재현하는 단계를 수행합니다.
 5. 빨간색 **중지** 단추를 선택합니다.
-6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Microsoft Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **콘텐츠와 함께 HAR 파일로 저장**(Chrome의 경우)을 선택합니다.
+6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Microsoft Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **콘텐츠와 함께 HAR 파일로 저장** (Chrome의 경우)을 선택합니다.
 
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 
 1. **콘솔** 탭을 선택합니다.
-2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
-3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
+2. 하나 이상의 항목이 포함된 각 탭에 대해 탭( **오류** , **경고** 또는 **정보** )을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
+3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사** 를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
 HAR 파일을 보려면 [HAR 뷰어](http://www.softwareishard.com/har/viewer/)를 사용할 수 있습니다.
@@ -282,11 +284,11 @@ App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름* .azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 
-App Service에 설치된 Microsoft .NET 버전을 찾는 가장 빠른 방법은 Kudu 콘솔을 사용하는 것입니다. Kudu 콘솔은 포털에서 액세스하거나 App Service 앱의 URL을 사용하여 액세스할 수 있습니다. 자세한 내용은 [Determine the installed .NET version in App Service](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services)(App Service에 설치된 .NET 버전 확인)를 참조하세요.
+App Service에 설치된 Microsoft .NET 버전을 찾는 가장 빠른 방법은 Kudu 콘솔을 사용하는 것입니다. Kudu 콘솔에는 포털에서 액세스하거나 App Service 앱의 URL을 사용하여 액세스할 수 있습니다. 자세한 내용은 [Determine the installed .NET version in App Service](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services)(App Service에 설치된 .NET 버전 확인)를 참조하세요.
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>자동 크기 조정이 예상대로 작동하지 않는 이유는 무엇인가요?
 
@@ -296,7 +298,7 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 자동 크기 조정은 메트릭이 미리 구성된 경계를 초과할 경우 트리거됩니다. 경우에 따라 용량이 예상한 것에 비해 부분적으로만 채워지는 것을 확인할 수 있습니다. 이 문제는 원하는 인스턴스 수를 사용할 수 없는 경우 발생할 수 있습니다. 이 시나리오에서 자동 크기 조정은 사용 가능한 수의 인스턴스를 사용하여 부분적으로 채웁니다. 그다음에 자동 크기 조정은 리밸런스 논리를 실행하여 더 많은 용량을 확보합니다. 나머지 인스턴스를 할당합니다. 이 작업에는 몇 분이 걸릴 수 있습니다.
 
-몇 분 후 인스턴스 수가 예상대로 표시되지 않는다면 부분 다시 채우기가 경계 내에서 메트릭을 불러오는 데 충분했기 때문일 수 있습니다. 또는 자동 크기 조정이 메트릭 하한에 도달했기 때문에 규모가 축소되었을 수 있습니다.
+몇 분 후 인스턴스 수가 예상대로 표시되지 않는다면 부분 다시 채우기로 충분히 경계 내에서 메트릭을 불러올 수 있었기 때문일 수 있습니다. 또는 자동 크기 조정이 메트릭 하한에 도달했기 때문에 규모가 축소되었을 수 있습니다.
 
 이러한 조건에 해당하지 않고 문제가 지속되면 지원 요청을 제출하세요.
 

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 74d07076fb322214348d52fe65dbc98bdff3cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30e1f43e283707434adfa48b8754a7b0509b9eed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798264"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075350"
 ---
 # <a name="log-azure-cosmos-db"></a>로그 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 숫자 식의 자연 로그를 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -39,7 +41,7 @@ LOG (<numeric_expr> [, <base>])
   
   LOG()는 기본적으로 자연 로그를 반환합니다. 선택적인 base 매개 변수를 사용하여 로그의 밑을 다른 값으로 변경할 수 있습니다.  
   
-  자연 로그는 밑 **e**의 로그입니다. 여기서 **e**는 무리 상수(대략 2.718281828)입니다.  
+  자연 로그는 밑 **e** 의 로그입니다. 여기서 **e** 는 무리 상수(대략 2.718281828)입니다.  
   
   숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.
 

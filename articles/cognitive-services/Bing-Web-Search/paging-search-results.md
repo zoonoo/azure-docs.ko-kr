@@ -11,18 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73481732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074100"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Bing Search API 결과를 페이징 하는 방법
 
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+
 Bing Web, Custom, Image, News 또는 Video Search Api에 대 한 호출을 보내면 Bing에서 쿼리와 관련이 있을 수 있는 총 결과 수의 하위 집합을 반환 합니다. 사용 가능한 총 예상 결과 수를 가져오려면 응답 개체의 필드에 액세스 합니다 `totalEstimatedMatches` . 
 
-예를 들면 다음과 같습니다. 
+다음은 그 예입니다. 
 
 ```json
 {
@@ -44,7 +49,7 @@ Bing Web, Custom, Image, News 또는 Video Search Api에 대 한 호출을 보�
 > * Bing Video, Image 및 News Api로 페이징은 일반 비디오 ( `/video/search` ), 뉴스 ( `/news/search` ) 및 이미지 () 검색에만 적용 됩니다 `/image/search` . 추세 항목 및 범주를 통한 페이징은 지원 되지 않습니다.  
 > * `TotalEstimatedMatches`필드는 현재 쿼리에 대 한 총 검색 결과 수의 예상 값입니다. `count`및 매개 변수를 설정 하면 `offset` 이 예상 값이 변경 될 수 있습니다.
 
-| 매개 변수 | Description                                                                                                                                                                |
+| 매개 변수 | 설명                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | 응답에서 반환할 결과의 수를 지정합니다. 의 기본값 `count` 및 요청할 수 있는 최대 결과 수는 API에 따라 달라 집니다. [다음 단계](#next-steps)에서 참조 설명서에서 이러한 값을 찾을 수 있습니다. |
 | `offset`  | 건너뛸 결과의 수를 지정합니다. `offset`은 0부터 시작하며 (`totalEstimatedMatches` - `count`)보다 작아야 합니다.                                           |

@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784680"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072695"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 변경 피드 끌어오기 모델을 사용하면 Azure Cosmos DB 변경 피드를 원하는 속도로 사용할 수 있습니다. [변경 피드 프로세서](change-feed-processor.md)로 이미 수행하듯이, 변경 피드 끌어오기 모델을 사용하여 다수의 변경 피드 소비자에 대한 변경 처리를 병렬화할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008389"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074236"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>REST API에 대한 직렬화 형식
 
-모든 Stream Analytics 입력에는 **직렬화 형식**이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) 설명서를 참조하세요.
+모든 Stream Analytics 입력에는 **직렬화 형식** 이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 설명서를 참조하세요.
 
 다음 Javascript 코드는 REST API를 사용할 때의 .NET 역직렬 변환기 직렬화 형식 예입니다.
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746412"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074253"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -73,6 +73,27 @@ Stream Analytics 포털을 사용 하 여 키를 저장소 계정으로 업데�
 
    ![개인 데이터 저장소 계정 설정](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>저장 된 개인 데이터 자산
+
+Stream Analytics에서 유지 해야 하는 모든 개인 데이터는 저장소 계정에 저장 됩니다. 개인 데이터 자산의 예는 다음과 같습니다. 
+
+* 만든 쿼리와 관련 된 구성  
+
+* 사용자 정의 함수 
+
+* Stream Analytics 런타임에 필요한 검사점
+
+* 참조 데이터의 스냅숏 
+
+Stream Analytics 작업에서 사용 되는 리소스의 연결 세부 정보도 저장 됩니다. 모든 데이터를 보호 하기 위해 저장소 계정을 암호화 합니다. 
+
+규정을 준수 하는 산업 또는 환경에서 규정 준수 의무를 충족 하는 데 도움이 되도록 [Microsoft의 규정 준수 제품](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)에 대해 자세히 알아볼 수 있습니다. 
+
+## <a name="enables-data-residency"></a>데이터 상주 사용 
+이 기능을 사용 하 여 저장소 계정을 적절 하 게 제공 함으로써 발생할 수 있는 데이터 상주 요구 사항을 적용할 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+관리 id를 사용 하 여 입력 또는 출력을 인증할 때 고객 관리 키를 사용 하는 작업이 실패 하 게 되는 알려진 문제가 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

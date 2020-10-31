@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: e680182a4d1ba64a954d8d03aef5e9331bec0341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0471ef799689f67a2079c4fa4a6a53851c626392
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85257468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073318"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API의 테이블을 복사하는 작업
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 이 문서는 Spark에서 Azure Cosmos DB Cassandra API의 테이블 간에 데이터를 복사하는 방법을 설명합니다. 이 문서에 설명된 명령을 사용하여 Apache Cassandra 테이블에서 Azure Cosmos DB Cassandra API 테이블로 데이터를 복사할 수도 있습니다.
 

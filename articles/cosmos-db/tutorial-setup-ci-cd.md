@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073896"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 
 
@@ -25,7 +26,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
-빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **무료 다운로드**를 클릭합니다.
+빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **무료 다운로드** 를 클릭합니다.
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
@@ -40,11 +41,11 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 이제 확장이 설치되었으므로 Azure DevOps 조직에 로그인하여 프로젝트 대시보드에서 프로젝트를 찾습니다. 프로젝트에 [빌드 파이프라인](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts)을 추가하거나 기존 빌드 파이프라인을 수정합니다. 이미 빌드 파이프라인이 있다면 [빌드 정의에 에뮬레이터 빌드 작업 추가](#addEmulatorBuildTaskToBuildDefinition)로 건너뛸 수 있습니다.
 
-1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기**로 이동합니다. \> **새 빌드 파이프라인**
+1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기** 로 이동합니다. \> **새 빌드 파이프라인**
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
-2. 원하는 **원본**, **팀 프로젝트**, **리포지토리**, **수동 및 예약된 빌드의 기본 분기**를 선택합니다. 필요한 옵션을 선택한 다음, **계속**을 선택합니다.
+2. 원하는 **원본** , **팀 프로젝트** , **리포지토리** , **수동 및 예약된 빌드의 기본 분기** 를 선택합니다. 필요한 옵션을 선택한 다음, **계속** 을 선택합니다.
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
@@ -62,9 +63,9 @@ Start-CosmosDbEmulator
 
 ## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>빌드 파이프라인에 작업 추가
 
-1. 빌드 파이프라인에 작업을 추가하기 전에 에이전트 작업을 추가해야 합니다. 빌드 파이프라인으로 이동하여 **...** 를 선택하고 **에이전트 작업 추가**를 선택합니다.
+1. 빌드 파이프라인에 작업을 추가하기 전에 에이전트 작업을 추가해야 합니다. 빌드 파이프라인으로 이동하여 **...** 를 선택하고 **에이전트 작업 추가** 를 선택합니다.
 
-1. 다음으로 에이전트 작업 옆에 있는 **+** 기호를 선택하여 에뮬레이터 빌드 작업을 추가합니다. 검색 상자에서 **cosmos**를 검색하고 **Azure Cosmos DB 에뮬레이터**를 선택하여 에이전트 작업에 추가합니다. 빌드 작업은 Cosmos DB 에뮬레이터의 인스턴스를 이미 실행 중인 컨테이너를 시작합니다. Azure Cosmos DB 에뮬레이터 작업은 에뮬레이터가 실행 상태에 있어야 하는 다른 작업보다 먼저 배치해야 합니다.
+1. 다음으로 에이전트 작업 옆에 있는 **+** 기호를 선택하여 에뮬레이터 빌드 작업을 추가합니다. 검색 상자에서 **cosmos** 를 검색하고 **Azure Cosmos DB 에뮬레이터** 를 선택하여 에이전트 작업에 추가합니다. 빌드 작업은 Cosmos DB 에뮬레이터의 인스턴스를 이미 실행 중인 컨테이너를 시작합니다. Azure Cosmos DB 에뮬레이터 작업은 에뮬레이터가 실행 상태에 있어야 하는 다른 작업보다 먼저 배치해야 합니다.
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
@@ -163,7 +164,7 @@ Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 
 
 ## <a name="run-the-build"></a>빌드를 실행합니다.
 
-이제 빌드를 **저장하고 큐에 대기**시킵니다. 
+이제 빌드를 **저장하고 큐에 대기** 시킵니다. 
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 

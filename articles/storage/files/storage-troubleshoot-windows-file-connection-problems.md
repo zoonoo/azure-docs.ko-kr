@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715981"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075129"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
-이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   를 사용 하 여 Windows 클라이언트 환경에 올바른 필수 구성 요소가 있는지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다.
+이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
 > 이 문서의 내용은 SMB 공유에만 적용 됩니다. NFS 공유에 대 한 자세한 내용은 [AZURE nfs 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조 하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "91715981"
 
 파일 공유를 탑재하려고 하면 다음 오류가 표시될 수 있습니다.
 
-- 시스템 오류 5가 발생했습니다. 액세스가 거부됩니다.
+- 시스템 오류 5가 발생했습니다. 액세스가 거부되었습니다.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
@@ -45,7 +45,7 @@ ms.locfileid: "91715981"
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용** 으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>원인 3: id 기반 인증을 사용 하는 경우 공유 수준 권한이 잘못 되었습니다.
 
@@ -145,7 +145,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -167,7 +167,7 @@ Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용** 으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 2: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
 
@@ -177,23 +177,82 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유의 파일 또는 디렉터리를 삭제할 수 없음
-파일을 삭제 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
+파일 공유의 핵심 용도 중 하나는 여러 사용자와 응용 프로그램이 공유의 파일 및 디렉터리와 동시에 상호 작용할 수 있는 것입니다. 이러한 상호 작용을 지원 하기 위해 파일 공유는 파일 및 디렉터리에 대 한 액세스를 mediating 하는 여러 가지 방법을 제공 합니다.
 
-지정된 리소스는 SMB 클라이언트에서 삭제되도록 표시됩니다.
+SMB를 통해 탑재 된 Azure 파일 공유에서 파일을 열면 응용 프로그램/운영 체제에서 파일 핸들을 요청 합니다. 파일 핸들은 파일에 대 한 참조입니다. 무엇 보다도 응용 프로그램은 파일 핸들을 요청할 때 파일 공유 모드를 지정 하 여 Azure Files에 의해 적용 되는 파일에 대 한 액세스 독점 성을 수준을 지정 합니다. 
 
-### <a name="cause"></a>원인
-이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
+- `None`: 단독으로 액세스할 수 있습니다. 
+- `Read`: 열려 있는 동안 다른 사용자가 파일을 읽을 수 있습니다.
+- `Write`: 열려 있는 동안 다른 사용자가 파일에 쓸 수 있습니다. 
+- `ReadWrite`: `Read` 및 `Write` 공유 모드의 조합입니다.
+- `Delete`: 열려 있는 동안 다른 사용자가 파일을 삭제할 수 있습니다. 
 
-### <a name="solution"></a>솔루션
+상태 비저장 프로토콜의 경우 FileREST 프로토콜은 파일 핸들의 개념을 포함 하지 않지만 스크립트, 응용 프로그램 또는 서비스에서 사용할 수 있는 파일 및 폴더에 대 한 액세스를 중재 하는 비슷한 메커니즘을 제공 합니다. 파일 임대. 파일이 임대 되 면 파일 공유 모드를 사용 하는 파일 핸들과 동일 하 게 처리 됩니다 `None` . 
 
-SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
+파일 핸들 및 임대가 중요 한 용도를 제공 하지만 파일 핸들 및 임대가 분리 될 수 있습니다. 이 경우 파일을 수정 하거나 삭제 하는 데 문제가 발생할 수 있습니다. 다음과 같은 오류 메시지가 표시 될 수 있습니다.
 
-- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다.
+- 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스할 수 없습니다.
+- 파일이 다른 프로그램에서 열려 있으므로 작업을 완료할 수 없습니다.
+- 다른 사용자가 문서를 편집용으로 잠 궜 습니다.
+- 지정된 리소스는 SMB 클라이언트에서 삭제되도록 표시됩니다.
 
-- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 닫습니다. 
+이 문제에 대 한 해결 방법은 분리 된 파일 핸들 또는 임대에 의해 발생 하는지 여부에 따라 달라 집니다. 
+
+### <a name="cause-1"></a>원인 1
+파일 핸들로 인해 파일/디렉터리가 수정 되거나 삭제 되지 않습니다. [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다. 
+
+모든 SMB 클라이언트에서 파일/디렉터리에 대 한 열린 핸들을 닫고 문제가 계속 발생 하면 파일 핸들을 강제로 닫을 수 있습니다.
+
+### <a name="solution-1"></a>해결 방법 1
+파일 핸들을 강제로 [닫으려면 AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 합니다. 
 
 > [!Note]  
 > Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+
+### <a name="cause-2"></a>원인 2
+파일 임대가 파일을 수정 하거나 삭제할 수 없습니다. 다음 PowerShell을 사용 하 여 파일에 파일 임대가 있는지 확인할 수 있습니다., `<resource-group>` , `<storage-account>` `<file-share>` 및를 `<path-to-file>` 사용자 환경에 적합 한 값으로 바꿉니다.
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+파일에 임대가 있는 경우 반환 되는 개체에는 다음 속성이 포함 되어야 합니다.
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>해결 방법 2
+파일에서 임대를 제거 하려면 임대를 해제 하거나 임대를 중단할 수 있습니다. 임대를 해제 하려면 임대를 만들 때 설정 하는 임대 LeaseId 필요 합니다. LeaseId는 임대를 중단할 필요가 없습니다.
+
+다음 예에서는 원인 2에 표시 된 파일에 대 한 임대를 해제 하는 방법을 보여 줍니다 .이 예에서는 다음의 PowerShell 변수를 사용 하 여 계속 합니다. 2.
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Windows에서 Azure Files와 서로 파일을 복사하는 속도 느림
@@ -230,7 +289,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -240,7 +299,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -261,7 +320,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -302,7 +361,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -319,7 +378,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
@@ -356,7 +415,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 [Icacls 도구](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 

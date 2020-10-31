@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 32c433455e1075045323dc466b41ad19ac68f454
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476283"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074355"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal에서 데이터를 분석하고 시각화할 수 있습니다. 이 문서에서는 기본 제공 Notebook 명령 및 기능을 사용하여 Python Notebooks에서 일반적인 작업을 수행하는 방법을 설명합니다.
 
@@ -198,7 +199,7 @@ primary_key = COSMOS.KEY
 > ``COSMOS.ENDPOINT`` 및 ``COSMOS.KEY`` 변수는 SQL API에만 적용됩니다. 다른 API의 경우 Azure Cosmos 계정의 **연결 문자열** 또는 **키** 블레이드에서 엔드포인트 및 키를 찾습니다.  
 
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
-Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
+Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정** 을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
 :::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="nteract 데이터 탐색기":::
 

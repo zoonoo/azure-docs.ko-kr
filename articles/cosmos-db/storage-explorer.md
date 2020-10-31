@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: be37ab43db9b5b696a619cb1539981c064b4cb0e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9260f2892bdcc6a694e1e54e29cb06bae90298eb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537799"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074474"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB 리소스 관리
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB에 연결할 수 있습니다. Windows, macOS 또는 Linux에서 Azure 및 소 버린 클라우드에서 호스트 되는 Azure Cosmos DB 계정에 연결할 수 있습니다.
 
@@ -23,7 +24,7 @@ Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB에 연결할 수 있�
 > [!NOTE]
 > Storage 탐색기와 Azure Cosmos DB 통합은 더 이상 사용 되지 않습니다. 이 릴리스에서는 1 년 이상 기존 기능이 제거 되지 않습니다. 대신 [Azure portal](https://portal.azure.com/), [azure portal 데스크톱 앱](https://portal.azure.com/App/Download) 또는 독립 실행형 [azure Cosmos 탐색기](data-explorer.md) 를 사용 해야 합니다. 대체 옵션에는 Storage 탐색기에서 현재 지원 되지 않는 여러 가지 새로운 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 계정이 없으면 Azure Portal에서 계정을 만들 수 있습니다. 자세한 내용은 [Azure Cosmos DB: .net을 사용 하 여 SQL API 웹 앱 빌드 및 Azure Portal](create-sql-api-dotnet.md) 를 참조 하세요.
 

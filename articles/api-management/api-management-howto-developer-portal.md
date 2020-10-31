@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074800"
 ---
 # <a name="overview-of-the-developer-portal"></a>개발자 포털 개요
 
@@ -33,7 +33,7 @@ ms.locfileid: "92317816"
 ## <a name="migration-from-the-legacy-portal"></a>레거시 포털에서 마이그레이션
 
 > [!IMPORTANT]
-> 이전 개발자 포털은 더 이상 사용 되지 않으며 보안 업데이트만 받게 됩니다. 모든 API Management 서비스에서 제거 될 때 2023 평상시와 같이 계속 해 서 사용할 수 있습니다.
+> 이전 개발자 포털은 더 이상 사용 되지 않으며 보안 업데이트만 받게 됩니다. 모든 API Management 서비스에서 제거되는 2023년 10월 만료될 때까지 평상시와 같이 계속 사용할 수 있습니다.
 
 새 개발자 포털로 마이그레이션하는 방법은 [전용 설명서 문서](developer-portal-deprecated-migration.md)에 설명 되어 있습니다.
 
@@ -62,7 +62,7 @@ API Management 서비스에는 기본 제공 되 고 항상 최신의 **관리 �
 
 콘텐츠의 미리 보기 버전을 기준으로 포털을 많이 사용자 지정한 경우이를 그대로 그대로 사용 하 고 포털의 페이지에 새 위젯을 수동으로 추가할 수 있습니다. 그렇지 않으면 포털의 콘텐츠를 새 기본 콘텐츠로 바꾸는 것이 좋습니다.
 
-관리 포털에서 콘텐츠를 다시 설정 하려면 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 선택 합니다. 이 작업을 수행 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 개발자 포털 사용자 지정 및 변경 내용이 모두 손실 됩니다. **이 작업을 실행 취소할 수 없습니다**.
+관리 포털에서 콘텐츠를 다시 설정 하려면 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 선택 합니다. 이 작업을 수행 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 개발자 포털 사용자 지정 및 변경 내용이 모두 손실 됩니다. **이 작업을 실행 취소할 수 없습니다** .
 
 ![포털 콘텐츠 다시 설정](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,7 +126,7 @@ Id 공급자 (예: Azure AD, Azure AD B2C)를 구성한 후에는 [포털을 다
 
 Azure Portal에서 API Management 서비스의 **포털 개요** 섹션에서 CORS 정책의 상태를 확인할 수 있습니다. 경고 상자에는 존재 하지 않거나 잘못 구성 된 정책이 표시 됩니다.
 
-![API Management 개발자 포털](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![CORS 정책의 상태를 확인할 수 있는 위치를 보여 주는 스크린샷](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 **Cors 사용** 단추를 클릭 하 여 cors 정책을 자동으로 적용 합니다.
 

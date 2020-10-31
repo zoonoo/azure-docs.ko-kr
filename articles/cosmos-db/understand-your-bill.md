@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476402"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073828"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 완전히 관리 되는 클라우드 네이티브 데이터베이스 서비스인 Azure Cosmos DB는 데이터베이스 작업 및 사용 된 저장소에 대해서만 요금을 청구 하 여 요금 청구를 간소화 합니다. 온-프레미스 및 IaaS 호스티드 대안에 비해 추가 라이선스 요금, 하드웨어, 유틸리티 비용 또는 시설 비용이 들지 않습니다. Microsoft Azure Cosmos DB의 다중 지역 기능을 고려할 때 데이터베이스 서비스는 기존의 온-프레미스 또는 IaaS 솔루션에 비해 획기적으로 비용을 절감합니다.
 
-- **데이터베이스 작업**: 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
+- **데이터베이스 작업** : 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
 
-  - **프로 비전 된 처리량**: 지정 된 시간 동안 프로 비전 된 최대 처리량 (100 r u/초 단위로)에 대해 시간당 요금이 청구 됩니다.
-  - **서버**를 사용 하지 않음: 데이터베이스 작업에 사용 된 총 요청 단위 크기에 대해 시간당 요금이 청구 됩니다.
+  - **프로 비전 된 처리량** : 지정 된 시간 동안 프로 비전 된 최대 처리량 (100 r u/초 단위로)에 대해 시간당 요금이 청구 됩니다.
+  - **서버** 를 사용 하지 않음: 데이터베이스 작업에 사용 된 총 요청 단위 크기에 대해 시간당 요금이 청구 됩니다.
 
-- **저장소**: 지정 된 시간 동안 데이터 및 인덱스에서 사용 하는 총 저장소 크기 (gb)에 대 한 정액 요금이 청구 됩니다.
+- **저장소** : 지정 된 시간 동안 데이터 및 인덱스에서 사용 하는 총 저장소 크기 (gb)에 대 한 정액 요금이 청구 됩니다.
 
 최신 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
 

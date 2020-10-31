@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1206d67b6a9d3823220b1ce1b7bd5b4b45e672fe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475918"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072708"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 되는 동안 Azure Cosmos 컨테이너에서 연속 된 레코드의 증분 피드를 가져오는 메커니즘입니다. 변경 피드 지원은 컨테이너의 변경 내용을 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 피드에 대한 자세한 내용은 [변경 피드 사용](change-feed.md) 문서를 참조하세요. 
 
@@ -54,7 +55,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -72,23 +73,23 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 솔루션에 필요한 Azure 리소스, 즉 Azure Cosmos DB, Storage 계정, Event Hub, Stream Analytics를 만듭니다. Azure Resource Manager 템플릿을 통해 이러한 리소스를 배포합니다. 이러한 리소스를 배포하려면 다음 단계를 수행합니다. 
 
-1. Windows PowerShell 실행 정책을 **무제한**으로 설정합니다. 이렇게 하려면 **Windows PowerShell을 관리자 권한으로** 열고 다음 명령을 실행합니다.
+1. Windows PowerShell 실행 정책을 **무제한** 으로 설정합니다. 이렇게 하려면 **Windows PowerShell을 관리자 권한으로** 열고 다음 명령을 실행합니다.
 
    ```powershell
    Get-ExecutionPolicy
    Set-ExecutionPolicy Unrestricted 
    ```
 
-2. 이전 단계에서 다운로드한 GitHub 리포지토리에서 **Azure Resource Manager** 폴더로 이동하여 **parameters.json**이라는 파일을 엽니다.  
+2. 이전 단계에서 다운로드한 GitHub 리포지토리에서 **Azure Resource Manager** 폴더로 이동하여 **parameters.json** 이라는 파일을 엽니다.  
 
 3. **parameters.json** 파일에 표시된 대로 cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name 매개 변수에 대한 값을 제공합니다. 나중에 각 리소스에 지정한 이름을 사용해야 합니다.  
 
-4. **Windows PowerShell**에서 **Azure Resource Manager** 폴더로 이동하고 다음 명령을 실행합니다.
+4. **Windows PowerShell** 에서 **Azure Resource Manager** 폴더로 이동하고 다음 명령을 실행합니다.
 
    ```powershell
    .\deploy.ps1
    ```
-5. 메시지가 표시되면 리소스 그룹 이름에 대해 Azure **구독 ID**, **changefeedlab**을 입력하고 배포 이름에 대해 **run1**을 입력합니다. 리소스 배포를 시작하여 완료하는 데 최대 10분이 걸릴 수 있습니다.
+5. 메시지가 표시되면 리소스 그룹 이름에 대해 Azure **구독 ID** , **changefeedlab** 을 입력하고 배포 이름에 대해 **run1** 을 입력합니다. 리소스 배포를 시작하여 완료하는 데 최대 10분이 걸릴 수 있습니다.
 
 ## <a name="create-a-database-and-the-collection"></a>데이터베이스 및 컬렉션 만들기
 
@@ -96,21 +97,21 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
-2. **데이터 탐색기** 창에서 **새 컬렉션**을 선택하고 다음 세부 정보로 양식을 채웁니다.  
+2. **데이터 탐색기** 창에서 **새 컬렉션** 을 선택하고 다음 세부 정보로 양식을 채웁니다.  
 
-   * **데이터베이스 ID** 필드에 대해 **새로 만들기**를 선택한 다음, **changefeedlabdatabase**를 입력합니다. **데이터베이스 처리량 프로비전** 상자는 선택하지 않은 상태로 둡니다.  
-   * **컬렉션 ID** 필드에 대해 **changefeedlabcollection**을 입력합니다.  
-   * **파티션 키** 필드에 대해 **/Item**을 입력합니다. 대/소문자를 구분하므로 정확하게 입력해야 합니다.  
-   * **처리량** 필드에 대해 **10000**을 입력합니다.  
+   * **데이터베이스 ID** 필드에 대해 **새로 만들기** 를 선택한 다음, **changefeedlabdatabase** 를 입력합니다. **데이터베이스 처리량 프로비전** 상자는 선택하지 않은 상태로 둡니다.  
+   * **컬렉션 ID** 필드에 대해 **changefeedlabcollection** 을 입력합니다.  
+   * **파티션 키** 필드에 대해 **/Item** 을 입력합니다. 대/소문자를 구분하므로 정확하게 입력해야 합니다.  
+   * **처리량** 필드에 대해 **10000** 을 입력합니다.  
    * **확인** 단추를 선택합니다.  
 
-3. 다음으로, 변경 피드 처리를 위해 **leases**(임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
+3. 다음으로, 변경 피드 처리를 위해 **leases** (임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
 
-4. **데이터 탐색기** 창으로 돌아가서 **새 컬렉션**을 선택하고, 다음 세부 정보로 양식을 채웁니다.
+4. **데이터 탐색기** 창으로 돌아가서 **새 컬렉션** 을 선택하고, 다음 세부 정보로 양식을 채웁니다.
 
-   * **데이터베이스 ID** 필드에 대해 **기존 항목 사용**을 선택한 다음, **changefeedlabdatabase**를 입력합니다.  
-   * **컬렉션 ID** 필드에 대해 **leases**를 입력합니다.  
-   * **스토리지 용량**에 대해 **고정**을 선택합니다.  
+   * **데이터베이스 ID** 필드에 대해 **기존 항목 사용** 을 선택한 다음, **changefeedlabdatabase** 를 입력합니다.  
+   * **컬렉션 ID** 필드에 대해 **leases** 를 입력합니다.  
+   * **스토리지 용량** 에 대해 **고정** 을 선택합니다.  
    * **처리량** 필드는 기본값으로 설정된 채로 둡니다.  
    * **확인** 단추를 선택합니다.
 
@@ -120,7 +121,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
-2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열**이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
+2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열** 이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
 ### <a name="get-the-storage-account-key-and-connection-string"></a>스토리지 계정 키 및 연결 문자열 가져오기
 
@@ -128,19 +129,19 @@ Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있
 
 1. 리소스 그룹으로 돌아가서 이전에 만든 스토리지 계정을 엽니다.  
 
-2. 왼쪽 메뉴에서 **액세스 키**를 선택합니다.  
+2. 왼쪽 메뉴에서 **액세스 키** 를 선택합니다.  
 
-3. **키 1**에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키**에는 **스토리지 키**, **연결 문자열**에는 **스토리지 연결 문자열**이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
+3. **키 1** 에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키** 에는 **스토리지 키** , **연결 문자열** 에는 **스토리지 연결 문자열** 이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
 
 ### <a name="get-the-event-hub-namespace-connection-string"></a>Event Hub 네임스페이스 연결 문자열 가져오기
 
 Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, 전달합니다. 이 랩에서는 새 이벤트가 발생할 때마다, 즉 사용자가 항목을 조회하거나, 사용자의 카트에 추가하거나, 구입할 때마다 Azure Event Hub에서 문서를 받은 다음, 해당 문서를 Azure Stream Analytics로 전달합니다.
 
-1. 리소스 그룹으로 돌아가서 이전 실습에서 만들고 이름을 지정한 **Event Hub 네임스페이스**를 엽니다.  
+1. 리소스 그룹으로 돌아가서 이전 실습에서 만들고 이름을 지정한 **Event Hub 네임스페이스** 를 엽니다.  
 
-2. 왼쪽 메뉴에서 **공유 액세스 정책**을 선택합니다.  
+2. 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.  
 
-3. **RootManageSharedAccessKey**를 선택합니다. **연결 문자열 - 기본 키**를 메모장이나 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **Event Hub 네임스페이스** 연결 문자열이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
+3. **RootManageSharedAccessKey** 를 선택합니다. **연결 문자열 - 기본 키** 를 메모장이나 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **Event Hub 네임스페이스** 연결 문자열이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>변경 피드를 읽도록 Azure Function 설정
 
@@ -148,37 +149,37 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 1. 디바이스에서 복제한 리포지토리로 돌아갑니다.  
 
-2. **ChangeFeedLabSolution.sln**이라는 파일을 마우스 오른쪽 단추로 클릭하고, **Visual Studio에서 열기**를 선택합니다.  
+2. **ChangeFeedLabSolution.sln** 이라는 파일을 마우스 오른쪽 단추로 클릭하고, **Visual Studio에서 열기** 를 선택합니다.  
 
-3. Visual Studio에서 **local.settings.json**으로 이동합니다. 그런 다음, 앞에서 기록한 값을 사용하여 빈 칸을 채웁니다.  
+3. Visual Studio에서 **local.settings.json** 으로 이동합니다. 그런 다음, 앞에서 기록한 값을 사용하여 빈 칸을 채웁니다.  
 
-4. **ChangeFeedProcessor.cs**로 이동합니다. **실행** 함수에 대한 매개 변수에서 다음 작업을 수행합니다.  
+4. **ChangeFeedProcessor.cs** 로 이동합니다. **실행** 함수에 대한 매개 변수에서 다음 작업을 수행합니다.  
 
    * **여기에 컬렉션 이름을 입력하십시오** 텍스트를 사용자의 컬렉션 이름으로 바꿉니다. 이전 지침을 따른 경우 컬렉션 이름은 changefeedlabcollection입니다.  
-   * **여기에 임대 컬렉션 이름을 입력하십시오** 텍스트를 사용자의 임대 컬렉션 이름으로 바꿉니다. 이전 지침을 따른 경우 임대 컬렉션 이름은 **leases**입니다.  
-   * Visual Studio 위쪽의 녹색 화살표 왼쪽에 있는 [시작 프로젝트] 상자에서 **ChangeFeedFunction**이 표시되는지 확인합니다.  
-   * 페이지 위쪽의 **시작**을 선택하여 프로그램을 실행합니다.  
+   * **여기에 임대 컬렉션 이름을 입력하십시오** 텍스트를 사용자의 임대 컬렉션 이름으로 바꿉니다. 이전 지침을 따른 경우 임대 컬렉션 이름은 **leases** 입니다.  
+   * Visual Studio 위쪽의 녹색 화살표 왼쪽에 있는 [시작 프로젝트] 상자에서 **ChangeFeedFunction** 이 표시되는지 확인합니다.  
+   * 페이지 위쪽의 **시작** 을 선택하여 프로그램을 실행합니다.  
    * 콘솔 앱에서 "작업 호스트가 시작되었습니다"라고 표시되면 함수가 실행되고 있음을 확인할 수 있습니다.
 
 ## <a name="insert-data-into-azure-cosmos-db"></a>Azure Cosmos DB에 데이터 삽입 
 
 변경 피드에서 전자 상거래 사이트의 새 작업을 처리하는 방법을 보려면, 제품 카탈로그의 항목을 조회하는 사용자를 나타내는 데이터를 시뮬레이션하고, 자신의 카트에 해당 항목을 추가하고, 해당 카트의 항목을 구입해야 합니다. 이 데이터는 임의적이며, 전자 상거래 사이트의 데이터를 복제하기 위한 것입니다.
 
-1. [파일 탐색기]에서 리포지토리로 돌아가서 **ChangeFeedFunction.sln**을 마우스 오른쪽 단추로 클릭하여 새 Visual Studio 창에서 이 파일을 다시 엽니다.  
+1. [파일 탐색기]에서 리포지토리로 돌아가서 **ChangeFeedFunction.sln** 을 마우스 오른쪽 단추로 클릭하여 새 Visual Studio 창에서 이 파일을 다시 엽니다.  
 
-2. **App.config** 파일로 이동합니다. `<appSettings>` 블록 내에서 이전에 검색한 Azure Cosmos DB 계정의 엔드포인트와 고유한 **기본 키**를 추가합니다.  
+2. **App.config** 파일로 이동합니다. `<appSettings>` 블록 내에서 이전에 검색한 Azure Cosmos DB 계정의 엔드포인트와 고유한 **기본 키** 를 추가합니다.  
 
-3. **컬렉션** 및 **데이터베이스** 이름을 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabcollection** 및 **changefeedlabdatabase**여야 합니다.
+3. **컬렉션** 및 **데이터베이스** 이름을 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabcollection** 및 **changefeedlabdatabase** 여야 합니다.
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="프로젝트 시각적 개체":::
  
 4. 편집된 모든 파일에 변경 내용을 저장합니다.  
 
-5. Visual Studio 위쪽의 녹색 화살표 왼쪽에 있는 **시작 프로젝트** 상자에서 **DataGenerator**가 표시되는지 확인합니다. 그런 다음, 페이지 위쪽의 **시작**을 선택하여 프로그램을 실행합니다.  
+5. Visual Studio 위쪽의 녹색 화살표 왼쪽에 있는 **시작 프로젝트** 상자에서 **DataGenerator** 가 표시되는지 확인합니다. 그런 다음, 페이지 위쪽의 **시작** 을 선택하여 프로그램을 실행합니다.  
  
 6. 프로그램이 실행될 때까지 기다립니다. 별은 데이터가 들어오고 있다는 것을 의미합니다! 프로그램을 계속 실행합니다. 많은 양의 데이터가 수집되는 것이 중요합니다.  
 
-7. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 리소스 그룹 내의 Cosmos DB 계정으로 이동한 다음 **데이터 탐색기**하려면 **changefeedlabcollection** 에서 가져온 임의 데이터를 확인 합니다.
+7. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 리소스 그룹 내의 Cosmos DB 계정으로 이동한 다음 **데이터 탐색기** 하려면 **changefeedlabcollection** 에서 가져온 임의 데이터를 확인 합니다.
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="프로젝트 시각적 개체":::
 
@@ -188,43 +189,43 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음 **streamjob1** (prelab에서 만든 스트림 분석 작업)로 이동 합니다.  
 
-2. 아래와 같이 **입력**을 선택합니다.  
+2. 아래와 같이 **입력** 을 선택합니다.  
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="프로젝트 시각적 개체":::
 
-3. **+ 스트림 입력 추가**를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Event Hub**를 선택합니다.  
+3. **+ 스트림 입력 추가** 를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Event Hub** 를 선택합니다.  
 
 4. 새 입력 양식을 다음 세부 정보로 채웁니다.
 
-   * **입력** 별칭 필드에서 **입력**을 입력합니다.  
+   * **입력** 별칭 필드에서 **입력** 을 입력합니다.  
    * **구독에서 Event Hub를 선택합니다** 옵션을 선택합니다.  
    * **구독** 필드를 사용자의 구독으로 설정합니다.  
    * **Event Hub 네임스페이스** 필드에서 이전 실습 중에 만든 Event Hub 네임스페이스의 이름을 입력합니다.  
-   * **Event Hub 이름** 필드에서 **기존 항목 사용** 옵션을 선택하고, 드롭다운 메뉴에서 **event-hub1**을 선택합니다.  
+   * **Event Hub 이름** 필드에서 **기존 항목 사용** 옵션을 선택하고, 드롭다운 메뉴에서 **event-hub1** 을 선택합니다.  
    * **Event Hub 정책** 이름 필드를 기본값으로 둡니다.  
-   * **이벤트 serialization 형식**을 **JSON**으로 둡니다.  
-   * **인코딩 필드**는 **UTF-8**로 설정된 채로 둡니다.  
-   * **이벤트 압축 유형** 필드는 **없음**으로 설정된 채로 둡니다.  
+   * **이벤트 serialization 형식** 을 **JSON** 으로 둡니다.  
+   * **인코딩 필드** 는 **UTF-8** 로 설정된 채로 둡니다.  
+   * **이벤트 압축 유형** 필드는 **없음** 으로 설정된 채로 둡니다.  
    * **저장** 단추를 선택합니다.
 
-5. 스트림 분석 작업 페이지로 돌아가서 **출력**을 선택합니다.  
+5. 스트림 분석 작업 페이지로 돌아가서 **출력** 을 선택합니다.  
 
-6. **+추가**를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI**를 선택합니다.  
+6. **+추가** 를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI** 를 선택합니다.  
 
 7. 새 Power BI 출력을 만들어 평균 가격을 시각화하려면 다음 작업을 수행합니다.
 
-   * **출력 별칭** 필드에서 **averagePriceOutput**을 입력합니다.  
-   * **그룹 작업 영역** 필드를 **작업 영역을 로드하도록 연결에 권한 부여**로 설정된 채로 둡니다.  
-   * **데이터 세트 이름** 필드에서 **averagePrice**를 입력합니다.  
-   * **테이블 이름** 필드에서 **averagePrice**를 입력합니다.  
+   * **출력 별칭** 필드에서 **averagePriceOutput** 을 입력합니다.  
+   * **그룹 작업 영역** 필드를 **작업 영역을 로드하도록 연결에 권한 부여** 로 설정된 채로 둡니다.  
+   * **데이터 세트 이름** 필드에서 **averagePrice** 를 입력합니다.  
+   * **테이블 이름** 필드에서 **averagePrice** 를 입력합니다.  
    * **권한 부여** 단추를 선택한 다음, 지침에 따라 Power BI에 대한 연결 권한을 부여합니다.  
    * **저장** 단추를 선택합니다.  
 
-8. 그런 다음, **streamjob1**로 돌아가서 **쿼리 편집**을 선택합니다.
+8. 그런 다음, **streamjob1** 로 돌아가서 **쿼리 편집** 을 선택합니다.
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="프로젝트 시각적 개체":::
  
-9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE**(평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
+9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE** (평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
 
    ```sql
    /*AVERAGE PRICE*/      
@@ -233,33 +234,33 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. 그런 다음, 왼쪽 위 모서리에서 **저장**을 선택합니다.  
+10. 그런 다음, 왼쪽 위 모서리에서 **저장** 을 선택합니다.  
 
-11. 이제 **streamjob1**로 돌아가서 페이지 위쪽의 **시작** 단추를 선택합니다. Azure Stream Analytics에서 시작하는 데 몇 분이 걸릴 수 있지만 결국에는 "시작 중"에서 "실행 중"으로 변경됩니다.
+11. 이제 **streamjob1** 로 돌아가서 페이지 위쪽의 **시작** 단추를 선택합니다. Azure Stream Analytics에서 시작하는 데 몇 분이 걸릴 수 있지만 결국에는 "시작 중"에서 "실행 중"으로 변경됩니다.
 
 ## <a name="connect-to-power-bi"></a>Power BI에 연결
 
 Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 분석 도구 제품군입니다. 분석된 데이터를 전략적으로 시각화할 수 있는 방법의 좋은 예입니다.
 
-1. Power BI에 로그인하고, 페이지의 왼쪽에서 메뉴를 열어 **내 작업 영역**으로 이동합니다.  
+1. Power BI에 로그인하고, 페이지의 왼쪽에서 메뉴를 열어 **내 작업 영역** 으로 이동합니다.  
 
-2. 오른쪽 위 모서리에서 **+ 만들기**를 선택한 다음, **대시보드**를 선택하여 대시보드를 만듭니다.  
+2. 오른쪽 위 모서리에서 **+ 만들기** 를 선택한 다음, **대시보드** 를 선택하여 대시보드를 만듭니다.  
 
-3. 오른쪽 위에서 **+ 타일 추가**를 선택합니다.  
+3. 오른쪽 위에서 **+ 타일 추가** 를 선택합니다.  
 
-4. **사용자 지정 스트리밍 데이터**를 선택한 다음, **다음** 단추를 선택합니다.  
+4. **사용자 지정 스트리밍 데이터** 를 선택한 다음, **다음** 단추를 선택합니다.  
  
-5. **데이터 세트**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
+5. **데이터 세트** 에서 **averagePrice** 를 선택한 다음, **다음** 을 선택합니다.  
 
-6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음 **값**이라는 다음 섹션에서 **avg**를 추가 합니다. **다음**을 선택한 다음, 차트 제목을 선택 하 고 **적용**을 선택 합니다. 대시보드에 새 차트가 표시됩니다!  
+6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트** 를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례** 는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음 **값** 이라는 다음 섹션에서 **avg** 를 추가 합니다. **다음** 을 선택한 다음, 차트 제목을 선택 하 고 **적용** 을 선택 합니다. 대시보드에 새 차트가 표시됩니다!  
 
-7. 이제 더 많은 메트릭을 시각화하려면 **streamjob1**로 돌아가서 다음 필드를 통해 세 개의 출력을 추가로 만들 수 있습니다.
+7. 이제 더 많은 메트릭을 시각화하려면 **streamjob1** 로 돌아가서 다음 필드를 통해 세 개의 출력을 추가로 만들 수 있습니다.
 
    a. **출력 별칭:** incomingRevenueOutput, 데이터 세트 이름: incomingRevenue, 테이블 이름: incomingRevenue  
    b. **출력 별칭:** top5Output, 데이터 세트 이름: top5, 테이블 이름: top5  
    c. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
-   그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
+   그런 다음, **쿼리 편집** 을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 
    ```sql
     /*TOP 5*/
@@ -321,17 +322,17 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 빌드하기 위해 Azure Cosmos 데이터베이스를 사용 하 여 제품 범주 (여자, 남자, 전 성별), 제품 카탈로그 및 가장 인기 있는 항목의 목록을 저장 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)으로 다시 이동한 다음 **Cosmos DB 계정**으로 이동한 다음 **데이터 탐색기**합니다.  
+1. [Azure Portal](https://portal.azure.com/)으로 다시 이동한 다음 **Cosmos DB 계정** 으로 이동한 다음 **데이터 탐색기** 합니다.  
 
    **Changefeedlabdatabase**  -  **products** 및 저장소 용량이 고정 된 **범주** 에 두 개의 컬렉션을 추가 합니다.
 
-   **changefeedlabdatabase** 아래에 파티션 키로 **topItems** 및 **/Item**이라는 다른 컬렉션을 추가합니다.
+   **changefeedlabdatabase** 아래에 파티션 키로 **topItems** 및 **/Item** 이라는 다른 컬렉션을 추가합니다.
 
-2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
+2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초** 로 설정합니다.
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="프로젝트 시각적 개체":::
 
-3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1**로 돌아가서 새 **출력**을 추가합니다. **Cosmos DB**를 선택합니다.
+3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1** 로 돌아가서 새 **출력** 을 추가합니다. **Cosmos DB** 를 선택합니다.
 
 4. 아래와 같이 필수 필드를 채웁니다.
 
@@ -339,14 +340,14 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
  
 5. 랩의 이전 단계에서 선택적 TOP 5 쿼리를 추가한 경우 5a단계로 진행합니다. 그렇지 않은 경우 5b단계로 진행합니다.
 
-   5a. **streamjob1**에서 **쿼리 편집**을 선택하고, Azure Stream Analytics 쿼리 편집기에서 다음 쿼리를 TOP 5 쿼리 아래이지만 나머지 쿼리의 위에 붙여넣습니다.
+   5a. **streamjob1** 에서 **쿼리 편집** 을 선택하고, Azure Stream Analytics 쿼리 편집기에서 다음 쿼리를 TOP 5 쿼리 아래이지만 나머지 쿼리의 위에 붙여넣습니다.
 
    ```sql
    SELECT arrayvalue.value.item AS Item, arrayvalue.value.price, arrayvalue.value.countEvents
    INTO topItems
    FROM arrayselect
    ```
-   5b. **streamjob1**에서 **쿼리 편집**을 선택하고, Azure Stream Analytics 쿼리 편집기에서 다음 쿼리를 다른 모든 쿼리 위에 붙여넣습니다.
+   5b. **streamjob1** 에서 **쿼리 편집** 을 선택하고, Azure Stream Analytics 쿼리 편집기에서 다음 쿼리를 다른 모든 쿼리 위에 붙여넣습니다.
 
    ```sql
    /*TOP 5*/
@@ -375,17 +376,17 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
    FROM arrayselect
    ```
 
-6. **EcommerceWebApp.sln**을 열고, **솔루션 탐색기**에서 **Web.config** 파일로 이동합니다.  
+6. **EcommerceWebApp.sln** 을 열고, **솔루션 탐색기** 에서 **Web.config** 파일로 이동합니다.  
 
-7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오**에서 이전에 저장한 **URI**와 **기본 키**를 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**이어야 합니다.)
+7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오** 에서 이전에 저장한 **URI** 와 **기본 키** 를 추가합니다. 그런 다음, **데이터베이스 이름** 과 **컬렉션 이름** 을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection** 이어야 합니다.)
 
-   **제품 컬렉션 이름**, **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름**을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems**이어야 합니다.  
+   **제품 컬렉션 이름** , **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름** 을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems** 이어야 합니다.  
 
-8. **EcommerceWebApp.sln** 내에서 **체크 아웃 폴더**로 이동하여 엽니다. 그런 다음, 해당 폴더 내에서 **Web.config** 파일을 엽니다.  
+8. **EcommerceWebApp.sln** 내에서 **체크 아웃 폴더** 로 이동하여 엽니다. 그런 다음, 해당 폴더 내에서 **Web.config** 파일을 엽니다.  
 
-9. 앞에서 표시된 위치에 저장한 **URI**와 **기본 키**를 `<appSettings>` 블록 내에 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**이어야 합니다.)  
+9. 앞에서 표시된 위치에 저장한 **URI** 와 **기본 키** 를 `<appSettings>` 블록 내에 추가합니다. 그런 다음, **데이터베이스 이름** 과 **컬렉션 이름** 을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection** 이어야 합니다.)  
 
-10. 페이지 위쪽의 **시작**을 눌러 프로그램을 실행합니다.  
+10. 페이지 위쪽의 **시작** 을 눌러 프로그램을 실행합니다.  
 
 11. 이제 전자 상거래 사이트를 사용해 볼 수 있습니다. 항목을 조회하거나 자신의 카트에 항목을 추가하거나 카트에 있는 항목의 수량을 변경하거나 항목을 구입하는 경우, 이러한 이벤트는 Cosmos DB 변경 피드를 통해 Event Hub, ASA 및 Power BI로 전달됩니다. DataGenerator를 계속 실행하여 중요한 웹 트래픽 데이터를 생성하고 전자 상거래 사이트에서 현실적인 "핫 제품" 집합을 제공하는 것이 좋습니다.
 

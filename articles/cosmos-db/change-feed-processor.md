@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475807"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072809"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 변경 피드 프로세서는 [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3)의 일부입니다. 이를 통해 변경 피드를 읽고 이벤트 처리를 여러 소비자에게 효과적으로 배포하는 프로세스를 간소화할 수 있습니다.
 
@@ -30,7 +31,7 @@ ms.locfileid: "92475807"
 
 1. **임대 컨테이너:** 임대 컨테이너는 상태 스토리지 역할을 하며 여러 작업자의 변경 피드 처리를 조정합니다. 임대 컨테이너는 모니터링되는 컨테이너와 동일한 계정 또는 별도의 계정에 저장할 수 있습니다.
 
-1. **호스트:** 호스트는 변경 피드 프로세서를 사용하여 변경 내용을 수신하는 애플리케이션 인스턴스입니다. 동일한 임대 구성을 사용하는 여러 인스턴스는 병렬로 실행될 수 있지만 각 인스턴스는 다른 **인스턴스 이름**을 가져야 합니다.
+1. **호스트:** 호스트는 변경 피드 프로세서를 사용하여 변경 내용을 수신하는 애플리케이션 인스턴스입니다. 동일한 임대 구성을 사용하는 여러 인스턴스는 병렬로 실행될 수 있지만 각 인스턴스는 다른 **인스턴스 이름** 을 가져야 합니다.
 
 1. **대리자:** 대리자는 개발자가 변경 피드 프로세서에서 읽는 각 변경 내용 일괄 처리로 수행하려는 작업을 정의하는 코드입니다. 
 
@@ -61,7 +62,7 @@ ms.locfileid: "92475807"
 
 1. 변경 피드를 읽습니다.
 1. 변경 내용이 없는 경우에는 미리 정의된 시간(작성기에서 `WithPollInterval`로 사용자 지정 가능) 동안 일시 중지하고 #1로 이동합니다.
-1. 변경 내용이 있으면 **대리자**에게 보냅니다.
+1. 변경 내용이 있으면 **대리자** 에게 보냅니다.
 1. **성공적으로**  변경 내용 처리를 완료하면 최신 처리 시점으로 임대 상점을 업데이트하고 #1로 이동합니다.
 
 ## <a name="error-handling"></a>오류 처리
@@ -104,7 +105,7 @@ ms.locfileid: "92475807"
 
 ### <a name="reading-from-a-previous-date-and-time"></a>이전 날짜와 시간에서 읽기
 
-`DateTime` 인스턴스를 `WithStartTime` 빌더 확장에 전달하여 **특정 날짜와 시간**에 시작되는 변경 사항을 읽도록 변경 피드 프로세서를 초기화할 수 있습니다.
+`DateTime` 인스턴스를 `WithStartTime` 빌더 확장에 전달하여 **특정 날짜와 시간** 에 시작되는 변경 사항을 읽도록 변경 피드 프로세서를 초기화할 수 있습니다.
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
@@ -112,7 +113,7 @@ ms.locfileid: "92475807"
 
 ### <a name="reading-from-the-beginning"></a>시작부터 읽기
 
-데이터 마이그레이션이나 컨테이너의 전체 기록 분석과 같은 다른 시나리오에서는 **컨테이너 수명이 시작**될 때부터 변경 피드를 읽어야 합니다. 이렇게 하려면 빌더 확장에 `WithStartTime`을 사용하면 되지만 `DateTime.MinValue.ToUniversalTime()`을 전달하면 다음과 같이 최소 `DateTime` 값의 UTC 표현이 생성됩니다.
+데이터 마이그레이션이나 컨테이너의 전체 기록 분석과 같은 다른 시나리오에서는 **컨테이너 수명이 시작** 될 때부터 변경 피드를 읽어야 합니다. 이렇게 하려면 빌더 확장에 `WithStartTime`을 사용하면 되지만 `DateTime.MinValue.ToUniversalTime()`을 전달하면 다음과 같이 최소 `DateTime` 값의 UTC 표현이 생성됩니다.
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 
