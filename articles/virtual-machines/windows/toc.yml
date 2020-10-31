@@ -145,7 +145,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -322,7 +322,7 @@
         - name: 고성능을 위한 디자인
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 디스크 버스팅
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 디스크에 대한 확장성 목표
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구

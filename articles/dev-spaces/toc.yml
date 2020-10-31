@@ -5,10 +5,6 @@
       items:
         - name: Azure Dev Spaces란?
           href: about.md
-    - name: 자습서
-      items:
-        - name: Visual Studio 시작
-          href: get-started-netcore-visualstudio.md
     - name: 개념
       items:
         - name: Kubernetes에 대한 브리지로 마이그레이션

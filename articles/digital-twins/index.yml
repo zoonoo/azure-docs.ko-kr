@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure Digital Twins 미리 보기 설명서
+title: Azure Digital Twins 설명서
 summary: Azure Digital Twins를 사용하여 자산, 환경 및 비즈니스 시스템을 디지털로 표현하고 실제 세상을 모델링하는 차세대 IoT 솔루션을 빌드하는 방법을 알아봅니다.
 metadata:
-  title: Azure Digital Twins 미리 보기 설명서 - 자습서, API 참조 | Microsoft Docs
+  title: Azure Digital Twins 설명서 - 자습서, API 참조 | Microsoft Docs
   description: Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358986"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099099"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:

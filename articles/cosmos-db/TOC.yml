@@ -731,6 +731,10 @@
               items:
                 - name: Java SDK v4 문제 해결
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: 요청 시간 초과 문제 해결
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: 사용할 수 없는 서비스 문제 해결
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: 문제 해결 - Async Java SDK v2
                   href: troubleshoot-java-async-sdk.md
         - name: 변경 피드
@@ -877,8 +881,6 @@
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: 에뮬레이터 릴리스 정보
-          href: local-emulator-release-notes.md
         - name: Azure Policy 기본 제공 기능
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: 에뮬레이터 문제 해결
               href: troubleshoot-local-emulator.md
+            - name: 에뮬레이터 릴리스 정보
+              href: local-emulator-release-notes.md
             - name: Visual Studio Code 확장
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Azure DevOps CI/CD 파이프라인 설정

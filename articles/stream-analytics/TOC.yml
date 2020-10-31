@@ -224,7 +224,7 @@
           href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
         - name: Azure SQL Database 처리
-          href: ../sql-database/sql-database-stream-analytics.md
+          href: ../azure-sql/database/stream-data-stream-analytics-integration.md
           maintainContext: true
         - name: 지리 공간적 시나리오
           href: geospatial-scenarios.md
@@ -686,7 +686,7 @@
     - name: 피드백 포럼
       href: 'https://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-stream-analytics.html'
+      href: /answers/topics/azure-stream-analytics.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
     - name: 요금 계산기

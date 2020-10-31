@@ -559,6 +559,7 @@
           href: howto-add-branding-in-azure-ad-apps.md
         - name: 게시자 도메인 구성
           href: howto-configure-publisher-domain.md
+          displayName: 'verified domain, verified publisher domain'
         - name: 서비스 약관 및 개인정보처리방침 구성
           href: howto-add-terms-of-service-privacy-statement.md
         - name: 앱에 대한 게시자 확인 구성

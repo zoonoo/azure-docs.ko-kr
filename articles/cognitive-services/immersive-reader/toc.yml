@@ -38,6 +38,8 @@
   items:
     - name: JavaScript SDK
       href: reference.md
+    - name: 릴리스 정보
+      href: release-notes.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
