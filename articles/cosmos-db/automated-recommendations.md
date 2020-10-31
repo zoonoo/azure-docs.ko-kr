@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450839"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087828"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 자동화 된 권장 사항
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB를 비롯 한 모든 클라우드 서비스는 새로운 기능, 기능 및 향상 된 기능으로 빈번한 업데이트를 제공 합니다. 응용 프로그램에서 최신 성능 및 보안 업데이트를 유지 하는 것이 중요 합니다. Azure Portal는 응용 프로그램의 성능을 최대화할 수 있는 사용자 지정 권장 사항을 제공 합니다. Azure Cosmos DB의 advise 엔진은 Azure Cosmos DB 리소스의 사용 기록을 지속적으로 분석 하 고 워크 로드 패턴에 따라 권장 사항을 제공 합니다. 이러한 권장 사항은 분할, 인덱싱, 네트워크, 보안 등과 같은 영역에 해당 합니다. 이러한 맞춤형 권장 사항은 응용 프로그램의 성능을 향상 시키는 데 도움이 됩니다.
 
@@ -26,7 +27,7 @@ Azure Cosmos DB를 비롯 한 모든 클라우드 서비스는 새로운 기능,
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Azure Cosmos DB 창에서 권장 사항 보기":::
 
-- 또한 비용, 보안, 안정성, 성능, 운영 등 다양 한 버킷으로 분류 된 [Azure Advisor](../advisor/advisor-overview.md) 를 통해 권장 사항을 찾을 수 있습니다. 특정 구독을 선택 하 고 리소스 유형 ( **Azure Cosmos DB 계정**)을 기준으로 필터링 할 수 있습니다.  특정 권장 사항을 선택 하는 경우 작업을 수행 하기 위해 수행할 수 있는 작업이 표시 됩니다.
+- 또한 비용, 보안, 안정성, 성능, 운영 등 다양 한 버킷으로 분류 된 [Azure Advisor](../advisor/advisor-overview.md) 를 통해 권장 사항을 찾을 수 있습니다. 특정 구독을 선택 하 고 리소스 유형 ( **Azure Cosmos DB 계정** )을 기준으로 필터링 할 수 있습니다.  특정 권장 사항을 선택 하는 경우 작업을 수행 하기 위해 수행할 수 있는 작업이 표시 됩니다.
 
    :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Azure Cosmos DB 창에서 권장 사항 보기":::
 

@@ -7,14 +7,15 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79e2b58ea342c9449faba108881c65d0bd8de856
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085805"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Java, Python 및 Node.js 앱에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos emulator는 TLS 연결을 통한 보안 통신만 지원 합니다.
 
@@ -30,11 +31,11 @@ Azure Cosmos DB 로컬 에뮬레이터의 인증서는 에뮬레이터를 처음
 
 Windows 인증서 저장소와 통합 되지 않는 언어 및 런타임 환경의 에뮬레이터 끝점을 성공적으로 사용 하려면 에뮬레이터 인증서를 내보내야 합니다. Windows 인증서 관리자를 사용 하 여 인증서를 내보낼 수 있습니다. 다음 단계별 지침을 사용 하 여 "DocumentDBEmulatorCertificate" 인증서를 64 인코딩된 x.509 (.cer) 파일로 내보냅니다.
 
-1. DocumentDbEmulatorCertificate를 실행 하 여 Windows 인증서 관리자를 시작 하 고 개인->인증서 폴더로 이동 하 여 이름이 **DocumentDbEmulatorCertificate**인 인증서를 엽니다.
+1. DocumentDbEmulatorCertificate를 실행 하 여 Windows 인증서 관리자를 시작 하 고 개인->인증서 폴더로 이동 하 여 이름이 **DocumentDbEmulatorCertificate** 인 인증서를 엽니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **세부 정보**를 클릭한 다음 **확인**을 클릭합니다.
+1. **세부 정보** 를 클릭한 다음 **확인** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
@@ -42,23 +43,23 @@ Windows 인증서 저장소와 통합 되지 않는 언어 및 런타임 환경�
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **아니요, 프라이빗 키를 내보내지 않습니다.** 를 클릭한 후, **다음**을 클릭합니다.
+1. **아니요, 프라이빗 키를 내보내지 않습니다.** 를 클릭한 후, **다음** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **Base-64 encoded X.509 (.CER)** 를 클릭한 후 **다음**을 클릭합니다.
+1. **Base-64 encoded X.509 (.CER)** 를 클릭한 후 **다음** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. 인증서에 이름을 지정합니다. 여기서는 **documentdbemulatorcert**이며, **다음**을 클릭합니다.
+1. 인증서에 이름을 지정합니다. 여기서는 **documentdbemulatorcert** 이며, **다음** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 
-1. **Finish**를 클릭합니다.
+1. **마침** 을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 1단계":::
 

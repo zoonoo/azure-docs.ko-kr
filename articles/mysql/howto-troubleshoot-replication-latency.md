@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087029"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
 
@@ -92,7 +92,7 @@ mysql> SHOW SLAVE STATUS;
 
 출력에 많은 정보가 포함 되어 있습니다. 일반적으로 다음 표에서 설명 하는 행에만 초점을 맞춰야 합니다.
 
-|메트릭|Description|
+|메트릭|설명|
 |---|---|
 |Slave_IO_State| IO 스레드의 현재 상태를 나타냅니다. 원본 (마스터) 서버를 동기화 하는 경우 일반적으로 상태는 "마스터에서 이벤트를 보낼 때까지 대기 중입니다."입니다. "마스터에 연결"과 같은 상태는 복제본이 원본 서버에 대 한 연결을 잃어버린 것을 나타냅니다. 원본 서버가 실행 중인지 확인 하거나 방화벽에서 연결을 차단 하 고 있는지 확인 하십시오.|
 |Master_Log_File| 원본 서버에서 쓰고 있는 이진 로그 파일을 나타냅니다.|
@@ -236,6 +236,9 @@ Azure Database for MySQL 기본적으로 복제는 복제본의 병렬 스레드
 Binlog_group_commit_sync_delay 매개 변수는 이진 로그 파일을 동기화 하기 전에 이진 로그 커밋이 대기 하는 마이크로초 수를 제어 합니다. 이 매개 변수의 혜택은 커밋된 모든 트랜잭션을 즉시 적용 하는 대신 소스 서버에서 이진 로그 업데이트를 대량으로 전송 한다는 것입니다. 이렇게 지연 하면 복제본의 IO가 줄어들고 성능이 향상 됩니다. 
 
 Binlog_group_commit_sync_delay 매개 변수를 1000로 설정 하는 것이 유용할 수 있습니다. 그런 다음 복제 대기 시간을 모니터링 합니다. 이 매개 변수를 신중 하 게 설정 하 고 동시성 워크 로드에만 사용 합니다. 
+
+> [!IMPORTANT] 
+> 복제 서버에서 binlog_group_commit_sync_delay 매개 변수는 0으로 권장 됩니다. 원본 서버와 달리 복제 서버는 동시성이 높고 복제 서버에서 binlog_group_commit_sync_delay 값을 늘리면 복제 지연 시간이 실수로 늘어날 수 있으므로이 방법이 권장 됩니다.
 
 여러 단일 트랜잭션을 포함 하는 낮은 동시성 워크 로드의 경우 binlog_group_commit_sync_delay 설정으로 대기 시간이 증가할 수 있습니다. 몇 개의 트랜잭션만 커밋된 경우에도 IO 스레드가 대량 이진 로그 업데이트를 대기 하므로 대기 시간이 길어질 수 있습니다. 
 

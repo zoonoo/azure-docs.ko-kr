@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086060"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 컨테이너(컬렉션, 그래프, 테이블)를 쿼리하는 방법을 설명합니다. 특히 Azure Cosmos DB에서 파티션 및 파티션 간 쿼리를 사용 하는 방법을 설명 합니다.
 
@@ -57,9 +58,9 @@ Azure Cosmos DB SDK 1.9.0 이상은 병렬 쿼리 실행 옵션을 지원합니�
 
 다음 매개 변수를 조정하여 병렬 쿼리 실행을 관리할 수 있습니다.
 
-- **Maxconcurrency**: 컨테이너의 파티션에 대 한 최대 동시 네트워크 연결 수를 설정 합니다. 이 속성을로 설정 하면 `-1` SDK가 병렬 처리 수준을 관리 합니다.  `MaxConcurrency`로 설정 된 경우 `0` 컨테이너 파티션에 단일 네트워크 연결이 있습니다.
+- **Maxconcurrency** : 컨테이너의 파티션에 대 한 최대 동시 네트워크 연결 수를 설정 합니다. 이 속성을로 설정 하면 `-1` SDK가 병렬 처리 수준을 관리 합니다.  `MaxConcurrency`로 설정 된 경우 `0` 컨테이너 파티션에 단일 네트워크 연결이 있습니다.
 
-- **MaxBufferedItemCount**: 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률을 조정합니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 SDK는 병렬 쿼리 실행 중에 버퍼링된 항목 수를 관리합니다.
+- **MaxBufferedItemCount** : 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률을 조정합니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 SDK는 병렬 쿼리 실행 중에 버퍼링된 항목 수를 관리합니다.
 
 파티션 간 쿼리를 병렬화 하는 Azure Cosmos DB의 기능으로 인해, 일반적으로 시스템에서 [실제 파티션을](partitioning-overview.md#physical-partitions)추가할 때 쿼리 대기 시간이 효과적으로 조정 됩니다. 그러나 총 물리적 파티션 수가 증가 함에 따라 과도 한 요금은 현저 하 게 증가 합니다.
 

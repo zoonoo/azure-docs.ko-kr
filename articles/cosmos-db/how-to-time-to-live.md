@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486007"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085890"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성하도록 선택하거나 컨테이너를 설정한 후 항목 수준에서 재정의할 수 있습니다. Azure Portal 또는 언어별 SDK를 사용하여 컨테이너에 대해 TTL을 구성할 수 있습니다. SDK를 사용하여 항목 수준 TTL 재정의를 구성할 수 있습니다.
 
@@ -34,8 +35,8 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
 
    * **배율 및 설정** 창을 엽니다.
    * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
-   * **설정(기본값 없음)** 를 선택하거나 **켜기**를 선택하고 TTL 값을 설정합니다.
-   * **저장**을 클릭하여 변경 내용을 저장합니다.
+   * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
+   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
    :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Azure Portal에서 TTL(Time to Live) 구성":::
 
@@ -219,9 +220,9 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
    * **배율 및 설정** 창을 엽니다.
    * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
    * **켜기 (기본값 없음)** 를 선택 하거나 TTL 값을 **선택 하 고** 설정 합니다. 
-   * **저장**을 클릭하여 변경 내용을 저장합니다.
+   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
-5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트**를 선택합니다. 
+5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트** 를 선택합니다. 
 
    ```json
    {

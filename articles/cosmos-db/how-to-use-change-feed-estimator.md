@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b785479a1f3169c32be0d9fbd7accf37bc7ba8ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485854"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085788"
 ---
 # <a name="use-the-change-feed-estimator"></a>변경 피드 추정기 사용
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 [변경 피드 프로세서](./change-feed-processor.md) 인스턴스가 변경 피드를 읽을 때 진행률을 모니터링하는 방법을 설명합니다.
 

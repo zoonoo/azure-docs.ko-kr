@@ -8,20 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570561"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085737"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 이 문서에서는 [Azure Cosmos DB 리소스 토큰](secure-access-to-data.md)을 사용하여 Gremlin SDK를 통해 Graph 데이터베이스에 액세스하는 방법을 설명합니다.
 
 ## <a name="create-a-resource-token"></a>리소스 토큰 만들기
 
-Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 없습니다. *리소스 토큰*이라는 용어는 Azure Cosmos DB 개념입니다. 리소스 토큰을 만들려면 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)를 다운로드합니다. 애플리케이션에서 리소스 토큰을 만들고 Graph 데이터베이스에 액세스할 때 리소스 토큰을 사용해야 하는 경우 두 개의 개별 SDK가 필요합니다.
+Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 없습니다. *리소스 토큰* 이라는 용어는 Azure Cosmos DB 개념입니다. 리소스 토큰을 만들려면 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)를 다운로드합니다. 애플리케이션에서 리소스 토큰을 만들고 Graph 데이터베이스에 액세스할 때 리소스 토큰을 사용해야 하는 경우 두 개의 개별 SDK가 필요합니다.
 
 다음 그림은 리소스 토큰의 기반이 되는 개체 모델 계층 구조를 간략하게 보여줍니다.
 
@@ -100,7 +101,7 @@ Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니�
 
 ## <a name="permission"></a>사용 권한
 
-애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()*, *.addE()*, *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
+애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()* , *.addE()* , *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB의 [azure 역할 기반 access control (AZURE RBAC)](role-based-access-control.md)

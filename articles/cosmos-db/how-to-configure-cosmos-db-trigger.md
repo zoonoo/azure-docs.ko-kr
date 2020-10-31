@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086469"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로깅 및 연결을 구성 하는 방법
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Cosmos DB에 대해 Azure Functions 트리거를 사용할 때 설정할 수 있는 고급 구성 옵션을 설명 합니다.
 
@@ -52,11 +53,11 @@ traces
 
 ## <a name="configuring-the-connection-policy"></a>연결 정책 구성
 
-직접 모드와 게이트웨이 모드의 두 가지 연결 모드가 있습니다. 이러한 연결 모드에 대 한 자세한 내용은 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요. 기본적으로 **게이트웨이**는 Cosmos DB용 Azure Functions 트리거에서 모든 연결을 설정하는 데 사용됩니다. 그러나 성능 중심 시나리오에는 최상의 옵션이 아닐 수 있습니다.
+직접 모드와 게이트웨이 모드의 두 가지 연결 모드가 있습니다. 이러한 연결 모드에 대 한 자세한 내용은 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요. 기본적으로 **게이트웨이** 는 Cosmos DB용 Azure Functions 트리거에서 모든 연결을 설정하는 데 사용됩니다. 그러나 성능 중심 시나리오에는 최상의 옵션이 아닐 수 있습니다.
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>연결 모드 및 프로토콜 변경
 
-클라이언트 연결 정책, 즉, **연결 모드**와 **연결 프로토콜**을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다. Cosmos DB용 Azure Functions 트리거와 모든 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb-v2-output.md))에서 사용하는 기본 연결 모드 및 프로토콜을 변경할 수 있습니다. 기본 설정을 변경하려면 Azure Functions 프로젝트 또는 Azure Functions 앱에서 `host.json` 파일을 찾아 다음과 같은 [추가 설정](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)에 추가해야 합니다.
+클라이언트 연결 정책, 즉, **연결 모드** 와 **연결 프로토콜** 을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다. Cosmos DB용 Azure Functions 트리거와 모든 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb-v2-output.md))에서 사용하는 기본 연결 모드 및 프로토콜을 변경할 수 있습니다. 기본 설정을 변경하려면 Azure Functions 프로젝트 또는 Azure Functions 앱에서 `host.json` 파일을 찾아 다음과 같은 [추가 설정](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)에 추가해야 합니다.
 
 ```js
 {

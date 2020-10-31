@@ -4,12 +4,12 @@ description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러�
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675275"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086893"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -175,7 +175,7 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
 
 # <a name="container-based-local-cluster"></a>[컨테이너 기반 로컬 클러스터](#tab/localclusteroneboxcontainer)
 
-클러스터를 Service Fabric 컨테이너 기반 [상자](https://hub.docker.com/r/microsoft/service-fabric-onebox/)를 시작 합니다.
+컨테이너 기반 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 클러스터를 시작 합니다.
 
 1. Docker 컨테이너를 배포할 수 있도록 Moby를 설치 합니다.
     ```bash

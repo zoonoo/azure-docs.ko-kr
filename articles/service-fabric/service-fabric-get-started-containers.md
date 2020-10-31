@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564324"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087063"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -30,7 +30,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
   * [SDK 및 도구를 Service Fabric](service-fabric-get-started.md)합니다.
-  *  Windows용 Docker [Windows용 Docker CE (안정화)을 가져옵니다](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+  *  Windows용 Docker [Windows용 Docker CE (안정화)을 가져옵니다](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환** 을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
 * 3개 이상의 노드가 있는 Windows 클러스터는 컨테이너가 포함된 Windows Server에서 실행됩니다. 
 
@@ -38,8 +38,8 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
   
 클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-* 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다.
+* 버전에 *x.x.14323.x* 가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers* 를 선택합니다.
+  * 버전에 *x.x.16299.x* 가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* 를 선택합니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -57,7 +57,7 @@ Docker 허브에 있는 [Python 이미지](https://hub.docker.com/_/python/)를 
 
 Dockerfile에서 Docker 컨테이너를 지정합니다. Dockerfile은 컨테이너 내부 환경 설정, 실행하려는 애플리케이션 로드, 포트 매핑에 대한 지침으로 구성됩니다. Dockerfile는 `docker build` 명령에 대한 입력이며 이미지를 만듭니다.
 
-빈 디렉터리를 만들고 *Dockerfile* 파일(파일 확장명 없음)을 만듭니다. *Dockerfile*에 다음을 추가하고 변경 내용을 저장합니다.
+빈 디렉터리를 만들고 *Dockerfile* 파일(파일 확장명 없음)을 만듭니다. *Dockerfile* 에 다음을 추가하고 변경 내용을 저장합니다.
 
 ```
 # Use an official Python runtime as a base image
@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령 실행:
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령을 실행합니다.
 
 ```
 docker build -t helloworldapp .
@@ -136,14 +136,14 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 docker run -d --name my-web-site helloworldapp
 ```
 
-*name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
+*name* 은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
 컨테이너가 시작되면 브라우저에서 실행 중인 컨테이너에 연결할 수 있도록 해당 IP 주소를 찾습니다.
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-해당 명령이 아무것도 반환 하지 않는 경우 다음 명령을 실행 하 고 **NetworkSettings** -> IP 주소에 대 한 networksettings**Networks** 요소를 검사 합니다.
+해당 명령이 아무것도 반환 하지 않는 경우 다음 명령을 실행 하 고 **NetworkSettings** -> IP 주소에 대 한 networksettings **Networks** 요소를 검사 합니다.
 ```
 docker inspect my-web-site
 ```
@@ -190,11 +190,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio에서 컨테이너화된 서비스 만들기
 Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이너를 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-1. Visual Studio를 시작합니다. **File** > **New** > **Project**를 선택합니다.
-2. **Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
-3. **서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
-4. **이미지 이름**에서 컨테이너 리포지토리에 푸시된 이미지인 "myregistry.azurecr.io/samples/helloworldapp"을 입력합니다.
-5. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
+1. Visual Studio를 시작합니다. **File** > **New** > **Project** 를 선택합니다.
+2. **Service Fabric 애플리케이션** 을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인** 을 클릭합니다.
+3. **서비스 템플릿** 목록에서 **컨테이너** 를 선택합니다.
+4. **이미지 이름** 에서 컨테이너 리포지토리에 푸시된 이미지인 "myregistry.azurecr.io/samples/helloworldapp"을 입력합니다.
+5. 서비스에 이름을 지정하고 **확인** 을 클릭합니다.
 
 ## <a name="configure-communication"></a>통신 구성
 컨테이너화된 서비스에는 통신을 위한 엔드포인트가 필요합니다. ServiceManifest.xml 파일에 프로토콜, 포트 및 형식이 포함된 `Endpoint` 요소를 추가합니다. 이 예제에서는 고정된 8081 포트가 사용됩니다. 포트를 지정하지 않으면 애플리케이션 포트 범위에서 임의의 포트가 선택됩니다. 
@@ -284,9 +284,9 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 ```
 ## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
 
-v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK** 를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status* 가 *healthy* 이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status* 가 *unhealthy* 이면 **경고** 가 표시됩니다. 
 
-V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상*상태 이면 **오류가** 표시 됩니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상* 상태 이면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -296,7 +296,7 @@ V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오�
 
 ![HealthCheckUnhealthyDsp][5]
 
-ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig** 옵션을 지정하여 각 컨테이너에 대한 **HEALTHCHECK** 동작을 구성할 수 있습니다.
+ApplicationManifest에서 **ContainerHostPolicies** 의 일부로 **HealthConfig** 옵션을 지정하여 각 컨테이너에 대한 **HEALTHCHECK** 동작을 구성할 수 있습니다.
 
 ```xml
 <ServiceManifestImport>
@@ -310,20 +310,20 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 **false**로 설정 됩니다. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true** 로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false** 로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 **false** 로 설정 됩니다. 
 
-*RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
+*RestartContainerOnUnhealthyDockerHealthStatus* 가 **true** 로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
-*TreatContainerUnhealthyStatusAsError* 가 **true**로 설정 된 경우 컨테이너의 *health_status* *비정상*이면 **오류** 상태 보고서가 표시 됩니다.
+*TreatContainerUnhealthyStatusAsError* 가 **true** 로 설정 된 경우 컨테이너의 *health_status* *비정상* 이면 **오류** 상태 보고서가 표시 됩니다.
 
-전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
+전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false** 로 설정해야 합니다.
 
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
-모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예들 들어 `containercluster.westus2.cloudapp.azure.com:19000`입니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트** 에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000`. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
-**게시**를 클릭합니다.
+**게시** 를 클릭합니다.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 Service Fabric 클러스터에서 애플리케이션 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 브라우저를 열고 `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/`로 이동하여 애플리케이션 배포를 수행합니다. 애플리케이션이 배포되지만 이미지가 클러스터 노드에 다운로드될 때까지 오류 상태입니다(이미지 크기에 따라 약간의 시간이 걸릴 수 있음). ![오류][1]
 
@@ -344,7 +344,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들면 다음과 같습니다.
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 다음은 그 예입니다.
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
@@ -352,7 +352,7 @@ Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예를 들면 다음과 같습니다.
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 다음은 그 예입니다.
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.
@@ -369,7 +369,7 @@ Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨
  
 ## <a name="specify-os-build-specific-container-images"></a>OS 빌드 관련 컨테이너 이미지 지정 
 
-Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 있습니다. 예를 들어 Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709에서 프로세스 격리 모드로 작동하지 않습니다. 따라서 클러스터 노드가 최신 버전으로 업데이트되는 경우 OS의 이전 버전을 사용하여 빌드된 컨테이너 서비스는 실패할 수 있습니다. 런타임의 버전 6.1 및 새로운 버전으로 이 문제를 우회하기 위해 Service Fabric은 컨테이너당 여러 OS 이미지를 지정하고, 애플리케이션 매니페스트에서 OS의 빌드 버전으로 태그를 지정하는 것을 지원합니다. Windows 명령 프롬프트에서 `winver`를 실행하여 OS 빌드 버전을 가져올 수 있습니다. 노드에서 OS를 업데이트하기 전에 애플리케이션 매니페스트를 업데이트하고 OS 버전별로 이미지 재정의를 지정합니다. 다음 코드 조각에서는 애플리케이션 매니페스트 **ApplicationManifest.xml**에 여러 컨테이너 이미지를 지정하는 방법을 보여 줍니다.
+Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 있습니다. 예를 들어 Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709에서 프로세스 격리 모드로 작동하지 않습니다. 따라서 클러스터 노드가 최신 버전으로 업데이트되는 경우 OS의 이전 버전을 사용하여 빌드된 컨테이너 서비스는 실패할 수 있습니다. 런타임의 버전 6.1 및 새로운 버전으로 이 문제를 우회하기 위해 Service Fabric은 컨테이너당 여러 OS 이미지를 지정하고, 애플리케이션 매니페스트에서 OS의 빌드 버전으로 태그를 지정하는 것을 지원합니다. Windows 명령 프롬프트에서 `winver`를 실행하여 OS 빌드 버전을 가져올 수 있습니다. 노드에서 OS를 업데이트하기 전에 애플리케이션 매니페스트를 업데이트하고 OS 버전별로 이미지 재정의를 지정합니다. 다음 코드 조각에서는 애플리케이션 매니페스트 **ApplicationManifest.xml** 에 여러 컨테이너 이미지를 지정하는 방법을 보여 줍니다.
 
 
 ```xml
@@ -534,7 +534,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -578,7 +578,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>사용자 지정 인수로 Docker 디먼 시작
 
-6.2 버전 이상의 Service Fabric 런타임에서는 사용자 지정 인수로 Docker 디먼을 시작할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 `--pidfile` 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서, `--pidfile`을 인수로 전달하지 말아야 합니다. 또한, 인수는 Service Fabric이 디먼과 통신할 수 있도록 Docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다. 사용자 지정 인수는 다음 코드 조각과 같이 **ContainerServiceArguments**의 **Hosting** 섹션 아래에 있는 클러스터 매니페스트에 전달됩니다. 
+6.2 버전 이상의 Service Fabric 런타임에서는 사용자 지정 인수로 Docker 디먼을 시작할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 `--pidfile` 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서, `--pidfile`을 인수로 전달하지 말아야 합니다. 또한, 인수는 Service Fabric이 디먼과 통신할 수 있도록 Docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다. 사용자 지정 인수는 다음 코드 조각과 같이 **ContainerServiceArguments** 의 **Hosting** 섹션 아래에 있는 클러스터 매니페스트에 전달됩니다. 
  
 
 ```json

@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476708"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087182"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 [MongoDB 용 api 쿼리 문제 해결 가이드를 Azure Cosmos DB](mongodb-troubleshoot-query.md) 사용 해야 합니다.
 
@@ -48,9 +49,9 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="쿼리 메트릭 가져오기" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
-쿼리 메트릭을 가져온 후 쿼리의 **검색된 문서 수**를 **출력 문서 수**와 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별할 수 있습니다.
+쿼리 메트릭을 가져온 후 쿼리의 **검색된 문서 수** 를 **출력 문서 수** 와 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별할 수 있습니다.
 
-**검색된 문서 수**는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수**는 쿼리 결과에 필요한 문서 수입니다. **검색된 문서 수**가 **출력 문서 수**보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
+**검색된 문서 수** 는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수** 는 쿼리 결과에 필요한 문서 수입니다. **검색된 문서 수** 가 **출력 문서 수** 보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
 
 시나리오와 관련된 쿼리 최적화를 이해하려면 다음 섹션을 참조하십시오.
 
@@ -92,7 +93,7 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>검색된 문서 수가 출력 문서 수를 초과하는 쿼리
 
- **검색된 문서 수**는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수**은 쿼리에서 반환된 문서 수입니다. **검색된 문서 수**가 **출력 문서 수**보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
+ **검색된 문서 수** 는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수** 은 쿼리에서 반환된 문서 수입니다. **검색된 문서 수** 가 **출력 문서 수** 보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
 
 다음은 인덱스에 의해 완전히 처리되지 않은 검색 쿼리의 예입니다.
 
@@ -130,7 +131,7 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-**검색된 문서 수**(60,951)가 **출력 문서 수**(7)보다 훨씬 크며 이는 쿼리 결과가 문서 검색임을 의미합니다. 이 경우 시스템 함수 [UPPER()](sql-query-upper.md)는 인덱스를 사용하지 않습니다.
+**검색된 문서 수** (60,951)가 **출력 문서 수** (7)보다 훨씬 크며 이는 쿼리 결과가 문서 검색임을 의미합니다. 이 경우 시스템 함수 [UPPER()](sql-query-upper.md)는 인덱스를 사용하지 않습니다.
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>인덱싱 정책에 필요한 경로를 포함
 
@@ -384,7 +385,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>검색된 문서 수와 출력 문서 수가 동일한 쿼리
 
-**검색된 문서 수**와 **출력 문서 수**가 거의 같으면 쿼리 엔진은 불필요하게 많은 문서를 검색할 필요가 없습니다. `TOP` 키워드를 사용하는 쿼리를 비롯한 많은 쿼리에서 **검색된 문서 수**는 **출력 문서 수**보다 1이 클 수 있습니다. 이에 대해서는 신경 쓰지 않아도 됩니다.
+**검색된 문서 수** 와 **출력 문서 수** 가 거의 같으면 쿼리 엔진은 불필요하게 많은 문서를 검색할 필요가 없습니다. `TOP` 키워드를 사용하는 쿼리를 비롯한 많은 쿼리에서 **검색된 문서 수** 는 **출력 문서 수** 보다 1이 클 수 있습니다. 이에 대해서는 신경 쓰지 않아도 됩니다.
 
 ### <a name="minimize-cross-partition-queries"></a>파티션 간 쿼리를 최소화
 

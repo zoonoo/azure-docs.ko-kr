@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086417"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>CORS(원본 간 리소스 공유) 구성
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 CORS(크로스 원본 자원 공유)는 특정 도메인에서 실행되는 웹 애플리케이션이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 웹 브라우저는 웹 페이지가 다른 도메인의 API를 호출하지 못하게 차단하는 동일 원본 정책이라고 하는 보안 제한을 구현합니다. 그러나 CORS는 원본 도메인이 다른 도메인의 Api를 호출할 수 있는 안전한 방법을 제공 합니다. Azure Cosmos DB의 코어 (SQL) API는 이제 "allowedOrigins" 헤더를 사용 하 여 CORS (원본 간 리소스 공유)를 지원 합니다. Azure Cosmos 계정에 CORS 지원을 사용하도록 설정하면 오직 인증된 요청만 평가하여 사용자가 지정한 규칙에 따라 허용 여부가 결정됩니다.
 
@@ -28,7 +29,7 @@ Azure Portal 또는 Azure Resource Manager 템플릿에서 CORS(크로스-원본
 
 1. Azure cosmos DB 계정으로 이동합니다. **CORS** 블레이드를 엽니다.
 
-2. Cosmos DB 계정에 대한 원본 간 호출을 만들 수 있는 쉼표로 구분된 원본 목록을 지정합니다. 예: `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. 와일드카드 "\*"를 사용하여 모든 원본을 허용하고 **제출**을 선택할 수도 있습니다. 
+2. Cosmos DB 계정에 대한 원본 간 호출을 만들 수 있는 쉼표로 구분된 원본 목록을 지정합니다. 예: `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. 와일드카드 "\*"를 사용하여 모든 원본을 허용하고 **제출** 을 선택할 수도 있습니다. 
 
    > [!NOTE]
    > 현재 도메인 이름에는 와일드카드를 사용할 수 없습니다. 예를 들어 `https://*.mydomain.net` 형식은 아직 지원되지 않습니다. 

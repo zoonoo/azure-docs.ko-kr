@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1db64ecc231a55e59321a5c94097668f3ddc91d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482012"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085414"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거를 사용 하 여 Azure Cosmos DB 처리량 크기 조정
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos 계정의 성능은 초당 요청 단위로 표현 된 프로 비전 된 처리량의 양을 기반으로 합니다. 프로 비전은 두 번째 세분성 이며 시간당 최고 r u/초를 기준으로 요금이 청구 됩니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 대부분의 프로덕션 워크 로드는 이러한 기능을 제공 합니다. 그러나 Azure Cosmos DB 작업 시간 동안만 사용 되는 개발 및 테스트 환경에서는 작업 시간 이후 오전에 처리량을 확장 하 고 저녁에 축소할 수 있습니다.
 

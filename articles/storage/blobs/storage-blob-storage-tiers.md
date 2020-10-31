@@ -1,21 +1,21 @@
 ---
-title: Blob에 대 한 핫, 쿨 및 archive 액세스 계층-Azure Storage
-description: Azure Blob 저장소에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 blob 저장소 옵션을 비교 합니다.
+title: Azure Blob Storage 핫, 쿨 및 보관에 대 한 액세스 계층
+description: Azure Blob Storage에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 blob 저장소 옵션을 비교 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/28/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 771b48c36a409654a1d1586590811c81e5c2340a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460733"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086757"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
+# <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob Storage 핫, 쿨 및 보관에 대 한 액세스 계층
 
 Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. 사용 가능한 액세스 계층은 다음과 같습니다.
 
@@ -32,15 +32,15 @@ Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터�
 
 클라우드에 저장된 데이터는 기하급수적으로 증가합니다. 스토리지 확장 요구에 대한 비용을 관리하려면 비용 최적화를 위해 액세스 빈도 및 계획 보존 기간과 같은 속성을 기반으로 하여 데이터를 구성하는 것이 좋습니다. 클라우드에 저장된 데이터는 전체 수명에 걸쳐 생성, 처리 및 액세스하는 방법에 따라 다를 수 있습니다. 일부 데이터는 수명 기간 전반에 걸쳐 활발하게 액세스되고 수정됩니다. 일부 데이터는 수명 기간 초반에는 빈번하게 액세스되지만 데이터가 오래될수록 액세스 빈도가 급격하게 떨어집니다. 일부 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후 극히 드물게 액세스되기도 합니다.
 
-이러한 각 데이터 액세스 시나리오는 특정 액세스 패턴에 맞게 최적화 된 다른 액세스 계층의 이점을 활용 합니다. Azure Blob storage는 핫, 쿨 및 보관 액세스 계층을 사용 하 여 별도의 가격 책정 모델을 통해 차별화 된 액세스 계층에 이러한 요구 사항을 해결 합니다.
+이러한 각 데이터 액세스 시나리오는 특정 액세스 패턴에 맞게 최적화 된 다른 액세스 계층의 이점을 활용 합니다. 핫, 쿨 및 보관 액세스 계층을 사용 하는 Azure Blob Storage은 별도의 가격 책정 모델을 사용 하 여 차별화 된 액세스 계층에 이러한 요구 사항을 해결 합니다.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>계층을 지원하는 스토리지 계정
 
-핫, 쿨 및 보관 간의 개체 저장소 데이터 계층화는 Blob storage 및 범용 v2 (GPv2) 계정 에서만 지원 됩니다. 범용 v1 (GPv1) 계정은 계층화를 지원 하지 않습니다. 고객은 Azure Portal를 통해 기존 GPv1 또는 Blob storage 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 blob, 파일 및 큐에 대 한 새로운 가격 책정 및 기능을 제공 합니다. 일부 기능 및 가격 컷은 GPv2 계정에만 제공 됩니다. 가격 책정을 포괄적으로 검토 한 후 GPv2 계정을 사용 하 여 평가 합니다. 일부 워크 로드는 GPv1 보다 GPv2 비용이 더 많이 들 수 있습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+핫, 쿨 및 보관 간의 개체 저장소 데이터 계층화는 Blob Storage 및 범용 v2 (GPv2) 계정 에서만 지원 됩니다. 범용 v1 (GPv1) 계정은 계층화를 지원 하지 않습니다. 고객은 Azure Portal를 통해 기존 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 blob, 파일 및 큐에 대 한 새로운 가격 책정 및 기능을 제공 합니다. 일부 기능 및 가격 컷은 GPv2 계정에만 제공 됩니다. 가격 책정을 포괄적으로 검토 한 후 GPv2 계정을 사용 하 여 평가 합니다. 일부 워크 로드는 GPv1 보다 GPv2 비용이 더 많이 들 수 있습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-Blob storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출 합니다. 이 특성을 사용 하면 개체 수준에서 명시적으로 설정 하지 않은 모든 blob에 대 한 기본 액세스 계층을 지정할 수 있습니다. 개체 수준에서 계층이 설정 된 개체의 경우 계정 계층이 적용 되지 않습니다. 보관 계층은 개체 수준 에서만 적용할 수 있습니다. 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다.
+Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출 합니다. 이 특성을 사용 하면 개체 수준에서 명시적으로 설정 하지 않은 모든 blob에 대 한 기본 액세스 계층을 지정할 수 있습니다. 개체 수준에서 계층이 설정 된 개체의 경우 계정 계층이 적용 되지 않습니다. 보관 계층은 개체 수준 에서만 적용할 수 있습니다. 언제 든 지 이러한 액세스 계층 간을 전환할 수 있습니다.
 
 ## <a name="hot-access-tier"></a>핫 액세스 계층
 
@@ -55,7 +55,7 @@ Blob storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성�
 
 - 단기 백업 및 재해 복구 데이터 세트
 - 자주 감상하지 않으나, 액세스할 때 즉시 사용할 수 있어야 하는 오래된 미디어 콘텐츠
-- 향후 처리를 위해 더 많은 데이터를 수집하는 동안 경제적으로 저장되어야 하는 대용량 데이터 집합 (*예:* 과학적 데이터의 장기 스토리지, 제조 설비의 원시 원격 분석 데이터)
+- 향후 처리를 위해 더 많은 데이터를 수집하는 동안 경제적으로 저장되어야 하는 대용량 데이터 집합 ( *예:* 과학적 데이터의 장기 스토리지, 제조 설비의 원시 원격 분석 데이터)
 
 ## <a name="archive-access-tier"></a>보관 액세스 계층
 
@@ -76,7 +76,7 @@ Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태
 
 세 가지 액세스 계층의 blob은 모두 동일한 계정 내에 공존할 수 있습니다. 명시적으로 할당 된 계층이 없는 모든 blob은 계정 액세스 계층 설정에서 계층을 유추 합니다. 액세스 계층이 계정에서 제공 되는 경우 **유추 된 액세스 계층** blob 속성이 "true"로 설정 되 고 **액세스 계층** blob 속성이 계정 계층과 일치 하는 것을 볼 수 있습니다. Azure Portal에서 _유추 된 액세스 계층_ 속성은 blob 액세스 계층을 **핫 (유추)** 또는 **쿨 (유추)** 로 표시 합니다.
 
-계정 액세스 계층을 변경 하는 것은 명시적 계층 집합이 없는 계정에 저장 된 모든 _액세스 계층 유추_ 개체에 적용 됩니다. 계정 계층을 핫에서 쿨로 전환 하는 경우 GPv2 계정의 집합 계층 없이 모든 blob에 대 한 쓰기 작업 (1만 당)에 대해 요금이 청구 됩니다. Blob storage 계정에는 이러한 변경 내용이 부과 되지 않습니다. Blob storage 또는 GPv2 계정에서 쿨에서 핫으로 전환 하는 경우 읽기 작업 (1만 당) 및 데이터 검색 (GB 당) 모두에 대 한 요금이 청구 됩니다.
+계정 액세스 계층을 변경 하는 것은 명시적 계층 집합이 없는 계정에 저장 된 모든 _액세스 계층 유추_ 개체에 적용 됩니다. 계정 계층을 핫에서 쿨로 전환 하는 경우 GPv2 계정의 집합 계층 없이 모든 blob에 대 한 쓰기 작업 (1만 당)에 대해 요금이 청구 됩니다. Blob Storage 계정에서 이러한 변경에 대 한 요금은 청구 되지 않습니다. Blob Storage 또는 GPv2 계정에서 쿨에서 핫으로 전환 하는 경우 읽기 작업 (1만 당) 및 데이터 검색 (GB 당) 모두에 대 한 요금이 청구 됩니다.
 
 ## <a name="blob-level-tiering"></a>Blob 수준 계층화
 
@@ -89,7 +89,7 @@ Blob 수준 계층화를 사용 하면 blob [배치](/rest/api/storageservices/p
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 
-Blob Storage 수명 주기 관리는 데이터를 최상의 액세스 계층으로 전환 하 고 수명 주기 종료 시 데이터를 만료 하는 데 사용할 수 있는 다양 한 규칙 기반 정책을 제공 합니다. [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하여 자세히 알아보세요.  
+Blob Storage 수명 주기 관리는 데이터를 최상의 액세스 계층으로 전환 하 고 수명 주기 종료 시 데이터를 만료 하는 데 사용할 수 있는 다양 한 규칙 기반 정책을 제공 합니다. 자세히 알아보려면 [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md) 를 참조 하세요.  
 
 > [!NOTE]
 > 블록 blob storage 계정 (프리미엄 성능)에 저장 된 데이터는 현재 [Set Blob 계층](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용 하 여 핫, 쿨 또는 보관으로 계층화 할 수 없습니다.
@@ -112,7 +112,7 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 
 쿨 계층으로 이동 하는 모든 blob (GPv2 계정에만 해당)은 쿨 초기 삭제 기간인 30 일의 영향을 받습니다. 보관 계층으로 이동 하는 모든 blob에는 보관 초기 삭제 기간인 180 일이 적용 됩니다. 요금이 비례하여 배분됩니다. 예를 들어 blob가 보관으로 이동 된 다음 45 일 후에 삭제 되거나 핫 계층으로 이동 되 면 보관에 해당 blob을 저장 하는 135 (180-45) 일에 해당 하는 초기 삭제 요금이 청구 됩니다.
 
-액세스 계층이 변경 되지 않은 경우에는 **마지막으로 수정한**blob 속성을 사용 하 여 초기 삭제를 계산할 수 있습니다. 그렇지 않으면 blob 속성: **액세스 계층 변경 시간**을 확인 하 여 액세스 계층이 쿨 또는 보관으로 마지막으로 수정 된 시간을 사용할 수 있습니다. Blob 속성에 대한 자세한 내용은 [Blob 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties)를 참조하세요.
+액세스 계층이 변경 되지 않은 경우에는 **마지막으로 수정한** blob 속성을 사용 하 여 초기 삭제를 계산할 수 있습니다. 그렇지 않으면 blob 속성: **액세스 계층 변경 시간** 을 확인 하 여 액세스 계층이 쿨 또는 보관으로 마지막으로 수정 된 시간을 사용할 수 있습니다. Blob 속성에 대한 자세한 내용은 [Blob 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties)를 참조하세요.
 
 ## <a name="comparing-block-blob-storage-options"></a>블록 blob 저장소 옵션 비교
 
@@ -121,18 +121,18 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 |                                           | **프리미엄 성능**   | **핫 계층** | **쿨 계층**       | **보관 계층**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **가용성**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
-| **가용성** <br> **(RA-GRS 읽기)**  | N/A                       | 99.99%       | 99.9%               | 오프라인           |
+| **가용성** <br> **(RA-GRS 읽기)**  | 해당 없음                       | 99.99%       | 99.9%               | 오프라인           |
 | **사용 요금**                         | 더 높은 저장소 비용, 낮은 액세스 및 트랜잭션 비용 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
-| **최소 개체 크기**                   | N/A                       | N/A          | N/A                 | N/A               |
-| **최소 스토리지 기간**              | N/A                       | N/A          | 30 일<sup>1</sup> | 180일
+| **최소 개체 크기**                   | 해당 없음                       | 해당 없음          | 해당 없음                 | 해당 없음               |
+| **최소 스토리지 기간**              | 해당 없음                       | 해당 없음          | 30 일<sup>1</sup> | 180일
 | **대기 시간** <br> **(첫 번째 바이트 까지의 시간)** | 1 자리 밀리초 | 밀리초 | 밀리초        | 시간<sup>2</sup> |
 
-<sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.
+<sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob Storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.
 
 <sup>2</sup> Archive Storage 현재는 서로 다른 검색 대기 시간을 제공 하는 2 리하이드레이션 우선 순위 (높음 및 표준)를 지원 합니다. 자세한 내용은 [리하이드레이션 blob data from the archive 계층](storage-blob-rehydration.md)항목을 참조 하세요.
 
 > [!NOTE]
-> Blob storage 계정은 범용 v2 저장소 계정과 동일한 성능 및 확장성 목표를 지원 합니다. 자세한 내용은 [Azure 스토리지의 확장성 및 성능 목표](scalability-targets.md)를 참조하세요.
+> Blob Storage 계정은 범용 v2 저장소 계정과 동일한 성능 및 확장성 목표를 지원 합니다. 자세한 내용은 [Blob Storage의 확장성 및 성능 목표](scalability-targets.md)를 참조 하세요.
 
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 
@@ -141,18 +141,18 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 - GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경하는 방법입니다.
 - GPv2 또는 Blob Storage 계정의 계층을 변경하는 방법입니다.
 
-### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
+### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층 변경
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 **모든 리소스**를 검색하여 선택합니다.
+1. Azure Portal에서 **모든 리소스** 를 검색하여 선택합니다.
 
 1. 사용자의 스토리지 계정을 선택합니다.
 
-1. **설정**에서 **구성** 을 선택 하 여 계정 구성을 확인 하 고 변경 합니다.
+1. **설정** 에서 **구성** 을 선택 하 여 계정 구성을 확인 하 고 변경 합니다.
 
-1. 요구 사항에 적합 한 액세스 계층을 선택 합니다. **액세스 계층** 을 **쿨** 또는 **핫**으로 설정 합니다.
+1. 요구 사항에 적합 한 액세스 계층을 선택 합니다. **액세스 계층** 을 **쿨** 또는 **핫** 으로 설정 합니다.
 
 1. 위쪽에서 **저장** 을 클릭 합니다.
 
@@ -170,21 +170,21 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ```
 ---
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정에서 blob의 계층 변경
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정에서 blob의 계층 변경
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 **모든 리소스**를 검색하여 선택합니다.
+1. Azure Portal에서 **모든 리소스** 를 검색하여 선택합니다.
 
 1. 사용자의 스토리지 계정을 선택합니다.
 
 1. 컨테이너를 선택한 다음 Blob을 선택합니다.
 
-1. **Blob 속성**에서 **계층 변경**을 선택합니다.
+1. **Blob 속성** 에서 **계층 변경** 을 선택합니다.
 
-1. **핫**, **쿨**또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음**의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
+1. **핫** , **쿨** 또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음** 의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
 
-1. 아래쪽에서 **저장**을 선택합니다.
+1. 아래쪽에서 **저장** 을 선택합니다.
 
 ![Azure Portal에서 blob 계층 변경](media/storage-tiers/blob-access-tier.png)
 
@@ -213,12 +213,12 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 모든 저장소 계정은 각 blob의 계층에 따라 블록 blob 저장소에 대 한 가격 책정 모델을 사용 합니다. 다음과 같은 비용 청구 고려 사항을 염두에 둡니다.
 
-- **저장소 비용**: 저장 된 데이터의 양에 더하여 데이터를 저장 하는 비용은 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
-- **데이터 액세스 비용**: 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 액세스 계층의 데이터의 경우 읽기에 대 한 기가바이트 당 데이터 액세스 요금이 청구 됩니다.
-- **트랜잭션 비용**: 계층이 증가 함에 따라 증가 하는 모든 계층에 대해 트랜잭션 별 요금이 청구 됩니다.
-- **지역에서 복제 데이터 전송 비용**: 이 요금은 GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
-- **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
-- **액세스 계층 변경**: 계정 액세스 계층을 변경 하면 명시적 계층 집합이 없는 계정에 저장 된 _액세스 계층 유추_ blob에 대 한 계층 변경 요금이 발생 합니다. 단일 blob에 대 한 액세스 계층을 변경 하는 방법에 대 한 자세한 내용은 [blob 수준 계층화 청구](#blob-level-tiering-billing)를 참조 하세요.
+- **저장소 비용** : 저장 된 데이터의 양에 더하여 데이터를 저장 하는 비용은 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
+- **데이터 액세스 비용** : 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 액세스 계층의 데이터의 경우 읽기에 대 한 기가바이트 당 데이터 액세스 요금이 청구 됩니다.
+- **트랜잭션 비용** : 계층이 증가 함에 따라 증가 하는 모든 계층에 대해 트랜잭션 별 요금이 청구 됩니다.
+- **지역에서 복제 데이터 전송 비용** : 이 요금은 GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
+- **아웃바운드 데이터 전송 비용** : 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
+- **액세스 계층 변경** : 계정 액세스 계층을 변경 하면 명시적 계층 집합이 없는 계정에 저장 된 _액세스 계층 유추_ blob에 대 한 계층 변경 요금이 발생 합니다. 단일 blob에 대 한 액세스 계층을 변경 하는 방법에 대 한 자세한 내용은 [blob 수준 계층화 청구](#blob-level-tiering-billing)를 참조 하세요.
 
     버전 관리를 사용 하도록 설정 하거나 blob에 스냅숏이 있는 경우 blob에 대 한 액세스 계층을 변경 하면 추가 요금이 발생할 수 있습니다. Blob 버전 관리를 사용 하도록 설정 하 고 blob 계층을 명시적으로 변경 하는 경우의 요금을 청구 하는 방법에 대 한 자세한 내용은 blob 버전 관리에 대 한 설명서의 [가격 책정 및 청구](versioning-overview.md#pricing-and-billing) 를 참조 하세요. Blob에 스냅숏이 있고 blob의 계층을 명시적으로 변경 하는 경우 비용이 청구 되는 방법에 대 한 자세한 내용은 blob 스냅숏에 대 한 설명서의 [가격 책정 및 청구](snapshots-overview.md#pricing-and-billing) 를 참조 하세요.
 
@@ -227,7 +227,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 ## <a name="faq"></a>FAQ
 
-**데이터를 계층화 하려는 경우 Blob storage 또는 GPv2 계정을 사용 해야 하나요?**
+**데이터를 계층화하려는 경우 Blob Storage 또는 GPv2 계정을 사용해야 하나요?**
 
 계층화에 Blob Storage 계정 대신 GPv2를 사용하는 것이 좋습니다. GPv2는 Blob Storage 계정이 지원하는 모든 기능을 지원합니다. Blob Storage와 GPv2 간의 가격 책정은 거의 동일하지만 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 사용할 수 있습니다. GPv1 계정은 계층화를 지원 하지 않습니다.
 
@@ -239,7 +239,7 @@ GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계�
 
 **내 Blob 또는 GPv2 저장소 계정의 기본 액세스 계층을 변경할 수 있나요?**
 
-예, 저장소 계정에 **액세스 계층** 특성을 설정 하 여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장 된 모든 개체 (예: **핫 (유추)** 또는 **쿨 (유추)**)에 적용 됩니다. 계정 계층을 핫에서 쿨로 전환 하면 GPv2 계정의 집합 계층 없이 모든 blob에 대해 쓰기 작업 (1만 당)이 발생 하 고 쿨에서 핫으로 전환 하면 Blob storage 및 GPv2 계정의 모든 blob에 대 한 읽기 작업 (1만 당) 및 데이터 검색 (GB 당) 요금이 발생 합니다.
+예, 저장소 계정에 **액세스 계층** 특성을 설정 하 여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장 된 모든 개체 (예: **핫 (유추)** 또는 **쿨 (유추)** )에 적용 됩니다. 계정 계층을 핫에서 쿨로 전환 하면 GPv2 계정의 집합 계층 없이 모든 blob에 대해 쓰기 작업 (1만 당)이 발생 하 고 쿨에서 핫으로 전환 하면 Blob Storage 및 GPv2 계정의 모든 blob에 대 한 읽기 작업 (1만 당) 및 데이터 검색 (GB 당) 요금이 발생 합니다.
 
 **기본 계정 액세스 계층을 보관 계층으로 설정할 수 있나요?**
 
@@ -255,7 +255,7 @@ Blob 수준 계층화와 함께 핫 및 쿨 액세스 계층은 모든 지역에
 
 **쿨 액세스 계층의 blob이 핫 액세스 계층의 blob과 다르게 작동 하나요?**
 
-핫 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정의 blob과 동일한 대기 시간이 있습니다. 쿨 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정의 blob과 유사한 대기 시간 (밀리초)이 있습니다. 보관 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정에서 몇 시간의 대기 시간이 있습니다.
+핫 액세스 계층의 blob에는 GPv1, GPv2 및 Blob Storage 계정의 blob과 동일한 대기 시간이 있습니다. 쿨 액세스 계층의 blob에는 GPv1, GPv2 및 Blob Storage 계정의 blob과 비슷한 대기 시간 (밀리초)이 있습니다. 보관 액세스 계층의 blob에는 GPv1, GPv2 및 Blob Storage 계정에 몇 시간의 대기 시간이 있습니다.
 
 쿨 액세스 계층의 blob에는 핫 액세스 계층에 저장 된 blob 보다 약간 낮은 가용성 서비스 수준 (SLA)이 있습니다. 자세한 내용은 [스토리지에 대한 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)를 참조하세요.
 
@@ -285,7 +285,7 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 
 ## <a name="next-steps"></a>다음 단계
 
-GPv2 및 Blob 저장소 계정에서 핫, 쿨 및 보관 평가
+GPv2 및 Blob Storage 계정에서 핫, 쿨 및 보관 평가
 
 - [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
 - [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)

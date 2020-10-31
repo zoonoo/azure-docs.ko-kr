@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 6b8b145c919a1f4e2ea9129a032da69bd30e6b71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284120"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086281"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Azure Cosmos DB Cassandra API 리소스에 대 한 데이터베이스, 컨테이너 또는 자동 크기 조정 처리량 프로 비전
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 이 문서에서는 Azure Cosmos DB Cassandra API에서 처리량을 프로 비전 하는 방법을 설명 합니다. 컨테이너 또는 데이터베이스에 표준 (수동) 또는 자동 크기 조정 처리량을 프로 비전 하 고 데이터베이스 내의 컨테이너 간에 공유할 수 있습니다. Azure Portal, Azure CLI 또는 Azure Cosmos DB Sdk를 사용 하 여 처리량을 프로 비전 할 수 있습니다.
 
@@ -27,13 +28,13 @@ ms.locfileid: "92284120"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-mongodb-dotnet.md#create-a-database-account) 기존 Azure Cosmos 계정을 선택합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 테이블**을 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 테이블** 을 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 keyspace를 만들지, 아니면 기존 항목을 사용 하는지 여부를 나타냅니다. Keyspace 수준에서 처리량을 프로 비전 하려면 **데이터베이스 처리량 프로 비전** 옵션을 선택 합니다.
    * CQL 명령 내에 테이블 ID를 입력 합니다.
    * 기본 키 값 (예:)을 입력 `/userrID` 합니다.
    * 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
-   * **확인**을 선택합니다.
+   * **확인** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="데이터베이스 수준 처리량을 사용 하 여 새 컬렉션을 만들 때 데이터 탐색기의 스크린샷":::
 
@@ -68,7 +69,7 @@ CQL 규격 드라이버를 통해 비슷한 명령을 실행할 수 있습니다
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure Resource Manager 템플릿을 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 예제는 [Azure Cosmos DB Azure Resource Manager 템플릿을](templates-samples-cassandra.md) 참조 하세요.
 

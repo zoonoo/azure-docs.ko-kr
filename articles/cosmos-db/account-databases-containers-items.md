@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284091"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087930"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 리소스 모델
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 완전 관리형 PaaS(platform-as-a-service)입니다. Azure Cosmos DB 사용을 시작 하려면 처음에 Azure 구독 및 데이터베이스, 컨테이너, 그 아래 항목에 Azure Cosmos 계정을 만들어야 합니다. 이 문서에서는 리소스 모델 계층 구조의 Azure Cosmos DB 리소스 모델 및 다른 엔터티를 설명 합니다.
 
@@ -52,10 +53,10 @@ Azure 구독에서 계정을 만든 후에는 데이터베이스, 컨테이너 �
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
-|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
+|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
+|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
+|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
 
@@ -63,16 +64,16 @@ Azure Cosmos 컨테이너는 프로 비전 된 처리량 및 저장소에 대 �
 
 컨테이너를 만들 때 다음 모드 중 하나로 처리량을 구성 합니다.
 
-* **전용 프로 비전 된 처리량 모드**: 컨테이너에 프로 비전 된 처리량은 해당 컨테이너에 대해서만 예약 되며 sla에서 지원 됩니다. 자세히 알아보려면 [컨테이너에서 처리량을 프로 비전 하는 방법](how-to-provision-container-throughput.md)을 참조 하세요.
+* **전용 프로 비전 된 처리량 모드** : 컨테이너에 프로 비전 된 처리량은 해당 컨테이너에 대해서만 예약 되며 sla에서 지원 됩니다. 자세히 알아보려면 [컨테이너에서 처리량을 프로 비전 하는 방법](how-to-provision-container-throughput.md)을 참조 하세요.
 
-* **공유 프로 비전 된 처리량 모드**: 이러한 컨테이너는 프로 비전 된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유 합니다 (전용 프로 비전 된 처리량으로 구성 된 컨테이너 제외). 즉, 데이터베이스에서 프로 비전 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세히 알아보려면 [데이터베이스에서 처리량을 프로 비전 하는 방법](how-to-provision-database-throughput.md)을 참조 하세요.
+* **공유 프로 비전 된 처리량 모드** : 이러한 컨테이너는 프로 비전 된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유 합니다 (전용 프로 비전 된 처리량으로 구성 된 컨테이너 제외). 즉, 데이터베이스에서 프로 비전 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세히 알아보려면 [데이터베이스에서 처리량을 프로 비전 하는 방법](how-to-provision-database-throughput.md)을 참조 하세요.
 
 > [!NOTE]
 > 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 컨테이너를 만든 후 전용 처리량 모드에서 공유 처리량 모드로 전환하거나 그 반대로 전환하려면 새 컨테이너를 만들고 데이터를 새 컨테이너로 마이그레이션해야 합니다. Azure Cosmos DB 변경 피드 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
 
 전용 또는 공유 프로 비전 된 처리량 모드를 사용 하 여 컨테이너를 만들지 여부에 관계 없이 Azure Cosmos 컨테이너는 탄력적으로를 확장할 수 있습니다.
 
-컨테이너는 스키마에 관계 없이 항목의 컨테이너입니다. 컨테이너의 항목에는 임의의 스키마가 있을 수 있습니다. 예를 들어 개인을 나타내는 항목과 자동차를 나타내는 항목을 *같은 컨테이너*에 배치할 수 있습니다. 기본적으로 컨테이너에 추가 하는 모든 항목은 명시적 인덱스 또는 스키마 관리를 요구 하지 않고 자동으로 인덱싱됩니다. 컨테이너에서 [인덱싱 정책을](index-overview.md) 구성 하 여 인덱싱 동작을 사용자 지정할 수 있습니다. 
+컨테이너는 스키마에 관계 없이 항목의 컨테이너입니다. 컨테이너의 항목에는 임의의 스키마가 있을 수 있습니다. 예를 들어 개인을 나타내는 항목과 자동차를 나타내는 항목을 *같은 컨테이너* 에 배치할 수 있습니다. 기본적으로 컨테이너에 추가 하는 모든 항목은 명시적 인덱스 또는 스키마 관리를 요구 하지 않고 자동으로 인덱싱됩니다. 컨테이너에서 [인덱싱 정책을](index-overview.md) 구성 하 여 인덱싱 동작을 사용자 지정할 수 있습니다. 
 
 컨테이너에서 선택한 항목에 대해 [TTL (Time To Live)](time-to-live.md) 을 설정 하거나 전체 컨테이너를 설정 하 여 시스템에서 해당 항목을 정상적으로 제거할 수 있습니다. Azure Cosmos DB 만료 되 면 항목이 자동으로 삭제 됩니다. 또한 컨테이너에 대해 수행 되는 쿼리가 고정 바운드 내에서 만료 된 항목을 반환 하지 않도록 보장 합니다. 자세히 알아보려면 [컨테이너에서 TTL 구성](how-to-time-to-live.md)을 참조 하세요.
 
@@ -95,7 +96,7 @@ Azure Cosmos 컨테이너에 [unique key 제약 조건을](unique-keys.md) 지�
 
 Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 사용 하는 API에 따라 일부 속성은 직접 노출 되지 않을 수도 있습니다. 다음 표에서는 시스템 정의 속성의 목록에 대해 설명 합니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
@@ -131,7 +132,7 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 모든 Azure Cosmos 항목에는 다음과 같은 시스템 정의 속성이 있습니다. 사용 하는 API에 따라 일부는 직접 노출 되지 않을 수도 있습니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |

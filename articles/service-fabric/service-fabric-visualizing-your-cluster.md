@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357219"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085176"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -69,7 +69,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 
 애플리케이션 보기를 사용하여 서비스 패브릭의 논리 계층 구조인 애플리케이션, 서비스, 파티션 및 복제를 탐색할 수 있습니다.
 
-아래 예제에서 애플리케이션 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebService**로 구성되어 있습니다. **MyStatefulService** 는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션을 포함합니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
+아래 예제에서 애플리케이션 **MyApp** 은 두 개의 서비스, **MyStatefulService** 와 **WebService** 로 구성되어 있습니다. **MyStatefulService** 는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션을 포함합니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
 
 ![Service Fabric Explorer 애플리케이션 보기][sfx-application-tree]
 
@@ -83,7 +83,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ## <a name="actions"></a>동작
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
-예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제**를 선택 합니다.
+예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제** 를 선택 합니다.
 
 ![Service Fabric Explorer에서 애플리케이션 삭제][sfx-delete-application]
 
@@ -117,7 +117,7 @@ EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사�
 ## <a name="image-store-viewer"></a>Image Store 뷰어
 이미지 저장소 뷰어는 파일/폴더 제거와 함께 이미지 저장소의 현재 콘텐츠를 보고 파일 및 폴더 정보를 가져올 수 있도록 하는 기본 Image Store 사용 하는 경우 제공 되는 기능입니다.
 
-![서비스 패브릭 탐색기 클러스터 맵][sfx-imagestore]
+![Image Store 뷰어를 보여 주는 스크린샷][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup 및 복원
 Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-services-backup-restore.md)상호 작용 하는 기능을 제공 합니다. SFX에서 백업 및 복원 기능을 확인 하려면 고급 모드를 사용 하도록 설정 해야 합니다.

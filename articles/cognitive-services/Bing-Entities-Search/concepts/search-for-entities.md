@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085125"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Bing Entity API를 사용하여 엔터티 검색
+
+> [!WARNING]
+> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
+> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Bing Autosuggest API를 사용한 검색어 제안
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 
-사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코드합니다. 예를 들어 사용자가 *Marcus Appel*을 입력하는 경우 `q`를 *Marcus+Appel* 또는 *Marcus%20Appel*로 설정합니다.
+사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코드합니다. 예를 들어 사용자가 *Marcus Appel* 을 입력하는 경우 `q`를 *Marcus+Appel* 또는 *Marcus%20Appel* 로 설정합니다.
 
 검색에 오타가 있는 경우 검색 응답에 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 개체가 포함됩니다. 이 개체는 원래 철자 및 Bing이 검색에 사용한 수정된 철자를 보여 줍니다.
 
@@ -189,7 +194,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true**로 설정합니다. 
+*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true** 로 설정합니다. 
 
 ```json
 {
@@ -296,7 +301,7 @@ Bing Entity API 응답에는 제3자가 소유한 정보가 포함됩니다. 예
 
 ![라이선스 특성](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-표시하는 라이선스 고지 사항에는 라이선스 정보를 포함하는 웹 사이트에 대한 하이퍼링크가 포함되어야 합니다. 일반적으로 라이선스 이름을 하이퍼링크로 만듭니다. 예를 들어 고지 사항이 **CC-BY-SA 라이선스가 적용되는 텍스트**이고 CC-BY-SA가 라이선스 이름인 경우 CC-BY-SA를 하이퍼링크로 만듭니다.
+표시하는 라이선스 고지 사항에는 라이선스 정보를 포함하는 웹 사이트에 대한 하이퍼링크가 포함되어야 합니다. 일반적으로 라이선스 이름을 하이퍼링크로 만듭니다. 예를 들어 고지 사항이 **CC-BY-SA 라이선스가 적용되는 텍스트** 이고 CC-BY-SA가 라이선스 이름인 경우 CC-BY-SA를 하이퍼링크로 만듭니다.
 
 ### <a name="link-and-text-attribution"></a>링크 및 텍스트 특성
 

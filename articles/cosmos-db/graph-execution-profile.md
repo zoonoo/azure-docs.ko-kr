@@ -8,20 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
-ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087488"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용하여 Gremlin 쿼리를 평가하는 방법
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 이 문서에서는 Azure Cosmos DB Gremlin API 그래프 데이터베이스에 대해 실행 프로필 단계를 사용하는 방법에 대한 개요를 제공합니다. 이 단계에서는 문제 해결 및 쿼리 최적화에 대한 관련 정보를 제공하며, 이는 Cosmos DB Gremlin API 계정에 대해 실행할 수 있는 모든 Gremlin 쿼리와 호환됩니다.
 
 이 단계를 사용 하려면 `executionProfile()` Gremlin 쿼리 끝에 함수 호출을 추가 하면 됩니다. **Gremlin 쿼리가 실행** 되 고 작업 결과가 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```java
     // Basic traversal
