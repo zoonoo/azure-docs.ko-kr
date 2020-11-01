@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606289"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147187"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 서로게이트 키 변환 
 
@@ -31,9 +31,9 @@ ms.locfileid: "81606289"
 
 ## <a name="increment-keys-from-existing-sources"></a>기존 원본에서 키 증가
 
-원본에 있는 값에서 시퀀스를 시작 하려면 서로게이트 키 변환 뒤의 파생 열 변환을 사용 하 여 두 값을 함께 추가 합니다.
+원본에 있는 값에서 시퀀스를 시작 하려면 캐시 싱크를 사용 하 여 해당 값을 저장 하 고 파생 열 변환을 사용 하 여 두 값을 함께 추가 하는 것이 좋습니다. 캐시 된 조회를 사용 하 여 출력을 가져오고 생성 된 키에 추가 합니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink) 및 [캐시 된 조회](concepts-data-flow-expression-builder.md#cached-lookup)에 대해 알아봅니다.
 
-![최대 추가](media/data-flow/sk006.png "서로게이트 키 변환 최대값 추가")
+![서로게이트 키 조회](media/data-flow/cached-lookup-example.png "서로게이트 키 조회")
 
 ### <a name="increment-from-existing-maximum-value"></a>기존 최 댓 값에서 증가
 
@@ -41,19 +41,18 @@ ms.locfileid: "81606289"
 
 #### <a name="database-sources"></a>데이터베이스 원본
 
-SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예를 들어 `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예: `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![서로게이트 키 쿼리](media/data-flow/sk002.png "서로게이트 키 변환 쿼리")
+![서로게이트 키 쿼리](media/data-flow/surrogate-key-max-database.png "서로게이트 키 변환 쿼리")
 
 #### <a name="file-sources"></a>파일 원본
 
 이전 max 값이 파일에 있으면 `max()` 집계 변환에서 함수를 사용 하 여 이전 최대값을 가져옵니다.
 
-![서로게이트 키 파일](media/data-flow/sk008.png "서로게이트 키 파일")
+![서로게이트 키 파일](media/data-flow/surrogate-key-max-file.png "서로게이트 키 파일")
 
-두 경우 모두 들어오는 새 데이터를 이전 max 값을 포함 하는 원본과 함께 조인 해야 합니다.
+두 경우 모두 캐시 싱크에 쓰고 값을 조회 해야 합니다. 
 
-![서로게이트 키 조인](media/data-flow/sk004.png "서로게이트 키 조인")
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 

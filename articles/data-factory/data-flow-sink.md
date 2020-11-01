@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891403"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147238"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -72,6 +72,23 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 **TempDB 사용:** 기본적으로 Data Factory는 로드 프로세스의 일부로 데이터를 저장 하기 위해 전역 임시 테이블을 사용 합니다. 또는 "TempDB 사용" 옵션을 선택 취소 하 고 대신이 싱크에 사용 되는 데이터베이스에 있는 사용자 데이터베이스에 임시 보관 테이블을 저장 하도록 Data Factory 하도록 요청할 수 있습니다.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>캐시 싱크
+ 
+*캐시 싱크* 는 데이터 흐름이 데이터 저장소 대신 Spark 캐시로 데이터를 기록 하는 경우입니다. 데이터 흐름 매핑에서는 *캐시 조회* 를 사용 하 여 동일한 흐름 내에서이 데이터를 여러 번 참조할 수 있습니다. 이 방법은 데이터를 식의 일부로 참조 하지만 명시적으로 열에 조인 하지 않으려는 경우에 유용 합니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 
+
+캐시 싱크에 쓰려면 싱크 변환을 추가 하 고 싱크 형식으로 **캐시** 를 선택 합니다. 외부 저장소에 쓰지 않으므로 다른 싱크 형식과 달리 데이터 집합 또는 연결 된 서비스를 선택할 필요가 없습니다. 
+
+![캐시 싱크 선택](media/data-flow/select-cache-sink.png "캐시 싱크 선택")
+
+싱크 설정에서 필요에 따라 캐시 싱크의 키 열을 지정할 수 있습니다. 이는 `lookup()` 캐시 조회에서 함수를 사용할 때 일치 조건으로 사용 됩니다. 키 열을 지정 하는 경우 `outputs()` 캐시 조회에 함수를 사용할 수 없습니다. 캐시 조회 구문에 대해 자세히 알아보려면 [캐시 된 조회](concepts-data-flow-expression-builder.md#cached-lookup)를 참조 하세요.
+
+![캐시 싱크 키 열](media/data-flow/cache-sink-key-columns.png "캐시 싱크 키 열")
+
+예를 들어, 라는 캐시 싱크에의 단일 키 열을 지정 `column1` 하는 경우 `cacheExample` 를 호출 하면 `cacheExample#lookup()` 캐시 싱크에서 일치 시킬 행을 지정 하는 하나의 매개 변수가 지정 됩니다. 함수는 매핑되는 각 열에 대해 하위 열이 있는 단일 복합 열을 출력 합니다.
+
+> [!NOTE]
+> 캐시 싱크는 캐시 조회를 통해 참조 하는 모든 변환에서 완전히 독립적인 데이터 스트림에 있어야 합니다. 캐시 싱크는 첫 번째 싱크도 작성 해야 합니다. 
 
 ## <a name="field-mapping"></a>필드 매핑
 

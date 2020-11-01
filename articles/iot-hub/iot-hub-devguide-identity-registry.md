@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547761"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146929"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -112,7 +112,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 
 디바이스에 대한 알림 메시지:
 
-| 속성 | 값 |
+| Name | 값 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -148,7 +148,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 ```
 모듈에 대한 알림 메시지:
 
-| 속성 | 값 |
+| Name | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -200,7 +200,7 @@ iothub-message-schema | moduleLifecycleNotification |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김** . 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요** : 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
-| lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. |
+| lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. 이 속성은 궁극적으로 일치 하지만 최대 5 분에서 10 분까지 지연 될 수 있습니다. 따라서 프로덕션 시나리오에서는 사용할 수 없습니다. |
 
 > [!NOTE]
 > 연결 상태는 연결 상태의 IoT Hub 뷰만을 나타낼 수 있습니다. 이 상태에 대한 업데이트는 네트워크 상태 및 구성에 따라 지연될 수도 있습니다.

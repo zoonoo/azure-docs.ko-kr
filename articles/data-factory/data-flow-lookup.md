@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040188"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147269"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -68,6 +68,10 @@ ms.locfileid: "93040188"
 조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅** 를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정** 을 선택합니다.
 
 조인이 실행되는 동안 시간 제한 오류가 발생하는 경우에만 **해제** 옵션을 통해 브로드캐스팅을 사용하지 않도록 설정하는 것이 좋습니다.
+
+## <a name="cached-lookup"></a>캐시 된 조회
+
+동일한 원본에서 여러 개의 더 작은 조회를 수행 하는 경우 캐시 된 싱크와 조회는 조회 변환 보다 더 나은 사용 사례가 될 수도 있습니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink) 및 [캐시 된 조회](concepts-data-flow-expression-builder.md#cached-lookup)에 대해 알아봅니다.
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 

@@ -4,32 +4,32 @@ description: Windows 컴퓨터에서 SSH 키를 생성 하 고 사용 하 여 Az
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825568"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147150"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
 이 문서는 Azure에서 Linux Vm (가상 머신)에 [연결](#connect-to-your-vm) 하기 위해 SSH ( *보안 셸* ) 키를 [만들고](#create-an-ssh-key-pair) 사용 하려는 Windows 사용자를 위한 것입니다. 포털에서 Vm을 만들 때 사용할 [SSH 키를 생성 하 고 Azure Portal에 저장할](../ssh-keys-portal.md) 수도 있습니다.
 
 
-Linux 또는 macOS 클라이언트에서 SSH 키를 사용 하려면 [빠른](mac-create-ssh-keys.md)를 참조 하세요. SSH에 대 한 자세한 개요는 [Azure에서 LINUX VM에 인증 하기 위한 ssh 키 만들기 및 관리](create-ssh-keys-detailed.md)를 참조 하세요.
+Linux 또는 macOS 클라이언트에서 SSH 키를 사용 하려면 [빠른 단계](mac-create-ssh-keys.md)를 참조 하세요. SSH에 대 한 자세한 개요는 [Azure에서 LINUX VM에 인증 하기 위한 ssh 키 만들기 및 관리](create-ssh-keys-detailed.md)를 참조 하세요.
 
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 
-[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인을 허용 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체는 암호화 된 연결을 제공 하지만 SSH를 사용 하 여 암호를 사용 하면 VM이 무차별 암호 대입 공격에 취약 한 상태로 남아 있습니다. *Ssh 키*라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
+[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인을 허용 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체는 암호화 된 연결을 제공 하지만 SSH를 사용 하 여 암호를 사용 하면 VM이 무차별 암호 대입 공격에 취약 한 상태로 남아 있습니다. *Ssh 키* 라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
 
-공개-개인 키 쌍은 앞으로 도어를 잠그는 것과 같습니다. 잠금은 **공개**에 노출 되며, 올바른 키가 있는 사용자는 도어를 열 수 있습니다. 키는 **비공개**이며, 도어 잠금을 해제 하는 데 사용할 수 있기 때문에 신뢰할 수 있는 사용자 에게만 제공 됩니다. 
+공개-개인 키 쌍은 앞으로 도어를 잠그는 것과 같습니다. 잠금은 **공개** 에 노출 되며, 올바른 키가 있는 사용자는 도어를 열 수 있습니다. 키는 **비공개** 이며, 도어 잠금을 해제 하는 데 사용할 수 있기 때문에 신뢰할 수 있는 사용자 에게만 제공 됩니다. 
 
 - VM을 만들 때 *공개 키* 가 Linux vm에 배치 됩니다. 
 
-- *프라이빗 키*는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
+- *프라이빗 키* 는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
 
 Linux VM에 연결 하는 경우 VM은 SSH 클라이언트를 테스트 하 여 올바른 개인 키가 있는지 확인 합니다. 클라이언트에 프라이빗 키가 있으면 VM에 액세스할 수 있습니다. 
 
