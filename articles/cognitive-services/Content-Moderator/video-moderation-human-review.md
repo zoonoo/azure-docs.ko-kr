@@ -1,5 +1,5 @@
 ---
-title: 사용자 검토를 사용한 비디오 조정 - Content Moderator
+title: 검토 도구를 사용한 비디오 조정-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 기계 지원 비디오 조정 및 검토 도구를 사용 하 여 중간에 부적절 한 콘텐츠 사용
 services: cognitive-services
@@ -8,97 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404246"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143768"
 ---
-# <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
+# <a name="video-moderation-with-the-review-tool"></a>검토 도구를 사용한 비디오 조정
 
 Content Moderator의 기계 지원 [비디오](video-moderation-api.md) 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 (명시적) 및 추천 (외설) 콘텐츠에 대 한 중간 비디오 및 성적 증명서를 통해 비즈니스에 대 한 최상의 결과를 얻을 수 있습니다.
 
-## <a name="video-trained-classifier-preview"></a>비디오 학습 분류자(미리 보기)
+## <a name="view-videos-under-review"></a>검토 중인 비디오 보기
 
-컴퓨터 지원 비디오 분류는 이미지 학습 모델 또는 비디오 학습 모델을 통해 이루어집니다. 이미지 학습 비디오 분류자와는 달리, Microsoft의 성인물 및 선정적 비디오 분류자는 비디오를 통해 학습합니다. 이 방법의 일치 품질이 더 높습니다.
+대시보드의 비디오 콘텐츠 형식 내에서 검토 큐를 선택 합니다. 그러면 검토가 시작 되 고 비디오 콘텐츠 중재 페이지가 열립니다.
 
-## <a name="shot-detection"></a>샷 검색
+> [!div class="mx-imgBorder"]
+> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-분류 세부 정보를 출력할 때 추가 비디오 인텔리전스는 비디오를 좀 더 유연하게 분석할 수 있게 도와줍니다. Microsoft의 비디오 조정 서비스는 단순히 프레임만 출력하지 않고 샷 수준 정보를 제공합니다. 이제 샷 수준 및 프레임 수준에서 비디오를 분석하는 옵션이 생겼습니다.
+### <a name="review-count"></a>개수 검토
 
-## <a name="key-frame-detection"></a>키 프레임 검색
+오른쪽 위의 슬라이더를 사용 하 여 페이지에 표시할 검토의 수를 설정 합니다.
 
-비디오 조정 서비스는 정기적으로 프레임을 출력하는 대신 잠재적으로 완전한(양호한) 프레임만 식별하여 출력합니다. 이 기능을 통해 프레임 수준 성인물 및 음란물 분석을 위한 효율적인 프레임을 생성할 수 있습니다.
+### <a name="view-type"></a>보기 유형
 
-다음 추출물은 잠재적 샷, 키 프레임, 성인물 및 음란물 점수를 이용한 부분 응답을 보여줍니다.
+다른 콘텐츠 항목을 타일로 보거나 자세히 볼 수 있습니다. **세부** 정보 보기에서는 선택한 비디오에 대 한 키 프레임 및 기타 정보를 볼 수 있습니다. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> 비디오 조정 서비스는 정기적으로 프레임을 출력하는 대신 잠재적으로 완전한(양호한) 프레임만 식별하여 출력합니다. 이 기능을 사용 하면 프레임 수준 성인용 및 외설 분석을 위한 효율적인 프레임 생성이 가능 합니다.
 
-## <a name="visualization-for-human-reviews"></a>사용자 검토에 대한 시각화
+**바둑판식** 으로 표시 된 보기에는 각 비디오가 단일 타일로 표시 됩니다. 비디오 프레임 위의 확장 단추를 선택 하 여 비디오를 확대 하 고 다른 비디오를 숨깁니다.
 
-좀 더 미묘한 상황인 경우 기업은 비디오, 프레임 및 컴퓨터 할당 태그를 렌더링하기 위한 사용자 검토 솔루션이 필요합니다. 비디오 및 프레임을 검토하는 사용자 중재자는 인사이트 전체를 살펴보고, 태그를 변경하고, 결정 사항을 제출합니다.
+### <a name="content-obscuring-effects"></a>콘텐츠-효과
 
-![비디오 검토 도구 기본 보기](images/video-review-default-view.png)
+**모두 흐리게** 및 **검은색 및 흰색** 토글을 사용 하 여 이러한 콘텐츠를 표시 하는 효과를 설정 합니다. 기본적으로 설정 되어 있습니다. **바둑판식** 보기에서 각 비디오에 대해 개별적으로 효과를 전환할 수 있습니다.
 
-## <a name="player-view-for-video-level-review"></a>비디오 수준 검토를 위한 플레이어 보기
+## <a name="check-video-details"></a>비디오 세부 정보 확인
 
-비디오 수준 이진 의사 결정은 잠재적인 성인물 및 음란물 프레임을 보여주는 비디오 플레이어 보기를 통해 가능합니다. 사용자 검토자는 다양한 속도 옵션을 사용하여 비디오를 탐색하면서 장면을 검사합니다. 이들은 태그를 설정/해제하여 자신의 결정 사항을 확인합니다.
+**세부** 정보 보기의 오른쪽 창에는 비디오에 대 한 세부 정보를 제공 하는 여러 탭이 표시 됩니다.
 
-![비디오 검토 도구 플레이어 보기](images/video-review-player-view.PNG)
+* **노트** 탭을 선택 하 여 비디오에 사용자 지정 노트를 추가 합니다.
+* 기록 탭 **을 선택 하 여 비디오** &mdash; 에 대 한 음성의 기록을 자동으로 추출 하는 비디오 기록을 확인 합니다. 텍스트의 섹션을 선택 하면 비디오 플레이어는 비디오의 해당 부분으로 이동 합니다.
+* **메타 데이터** 탭을 선택 하 여 비디오 파일 메타 데이터를 봅니다.
+* **기록** 탭을 선택 하 여 검토 기록 (예: 생성 된 시기 및 수정 된 방법)을 확인 합니다.
 
-## <a name="frames-view-for-detailed-reviews"></a>자세한 검토를 위한 프레임 보기
+> [!div class="mx-imgBorder"]
+> ![비디오 조정 대량 태그 단추](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-프레임 단위 분석을 위한 자세한 비디오 검토는 프레임 기반 보기를 통해 가능합니다. 사용자 검토자는 하나 이상의 프레임을 검토 및 선택하고 태그를 설정/해제하여 결정 사항을 확인합니다. 그 다음으로 수행할 선택적 단계는 모욕적인 프레임 또는 콘텐츠를 편집하는 것입니다.
+## <a name="apply-moderation-tags"></a>중재 태그 적용
 
-![비디오 검토 도구 프레임 보기](images/video-review-frames-view-apply-tags.PNG)
+비디오 검토의 주요 작업은 비디오 또는 비디오 파트에서 중재 태그를 적용 하거나 제거 하는 것입니다.
 
-## <a name="transcript-moderation"></a>대본 조정
+### <a name="bulk-tagging"></a>대량 태그 지정
 
-비디오에는 일반적으로 공격적인 표현에 대한 조정이 필요한 목소리도 포함되어 있습니다. 검토 도구 내에서 Azure Media Indexer 서비스를 사용하여 음성을 텍스트로 변환하고 Content Moderator의 review API를 사용하여 텍스트를 조정할 대본을 제출합니다.
+**대량 태그** 도구 모음을 사용 하면 선택한 여러 비디오에 태그를 한 번에 추가할 수 있습니다. 하나 이상의 비디오를 선택한 다음 적용 하려는 태그를 선택 하 고 **제출** 을 클릭 합니다. 
 
-![비디오 검토 도구 대본 보기](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![비디오 조정 대량 태그 단추](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>키 프레임 태그 지정
+
+특정 키 프레임에 중재 태그를 추가할 수도 있습니다. 키 프레임 타일 창에서 프레임을 선택 하 고 키 프레임 **태그 +** 를 선택 하 여 원하는 태그를 적용 합니다.
+
+> [!NOTE]
+> 서비스에서 키 프레임을 추출할 수 없으면 키 프레임 타일 창에 **사용할 수 있는 프레임이 표시 되지** 않고 키 프레임을 선택 하는 옵션이 회색으로 표시 됩니다. 이 경우 비디오 **태그 +** 단추를 사용 하 여 비디오에만 태그를 적용할 수 있습니다.
+
+> [!div class="mx-imgBorder"]
+> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>보류 중인 검토 배치
+
+비디오 창 맨 아래에 있는 **보류** 단추를 사용 하면 보류 중에 검토를 수행 하 여 나중에 검색 하 고 완료할 수 있습니다. 현재 사용할 수 없는 다른 팀 구성원 또는 관리자의 참조를 요구 하는 검토에 대해이 작업을 수행할 수 있습니다. 
+
+화면 위쪽의 **보류** 단추를 클릭 하 여 대기 중인 비디오를 볼 수 있습니다. 보류 창이 오른쪽에 나타납니다. 여기에서 보류 중인 여러 리뷰를 선택 하 고 큐로 다시 릴리스 하거나 만료 시간을 설정할 수 있습니다. 미리 구성 된 시간 후에 보류 중인 검토가 큐로 다시 릴리스됩니다. **저장** 을 선택 하 여 현재 선택 된 만료 시간에서 계산을 시작 합니다.
+
+> [!div class="mx-imgBorder"]
+> ![검토 도구의 비디오 중재 자세히 보기](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>검토 제출
+
+태그를 적용 한 후 비디오 창 맨 아래에 있는 **제출** 단추를 선택 합니다. 여러 비디오에 태그가 지정 된 경우 단일 검토 또는 별도의 검토를 통해 제출할 수 있습니다.
+
+## <a name="limbo-state"></a>Limbo 상태
+
+검토를 제출한 후 비디오는 **Limbo** 상태로 이동 되며 화면 위쪽에 있는 **Limbo** 단추를 선택 하 여 볼 수 있습니다. 비디오는 미리 구성 된 시간 (아래쪽의 메뉴에서 변경할 수 있음)에 대해 Limbo 상태를 유지 하거나 다시 검토 하거나 수동으로 전송할 때까지 유지 됩니다.
+
+비디오가 limbo에서 만료 되 면 해당 검토가 완료로 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

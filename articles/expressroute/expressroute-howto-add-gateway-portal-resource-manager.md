@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91761835"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
@@ -42,7 +42,7 @@ ms.locfileid: "91761835"
     * 서브넷 주소 공간 = “192.168.1.0/24”
 * 리소스 그룹: "TestRG"
 * 위치 = “미국 동부”
-* 게이트웨이 서브넷 이름: "GatewaySubnet" 게이트웨이 서브넷의 이름을 항상 *GatewaySubnet*으로 지정해야 합니다.
+* 게이트웨이 서브넷 이름: "GatewaySubnet" 게이트웨이 서브넷의 이름을 항상 *GatewaySubnet* 으로 지정해야 합니다.
     * 게이트웨이 서브넷 주소 공간 = "192.168.200.0/26"
 * 게이트웨이 이름 = “ERGW”
 * 게이트웨이 공용 IP 이름 = “MyERGWVIP”
@@ -53,18 +53,18 @@ ms.locfileid: "91761835"
 ## <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
 
 1. [포털](https://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크로 이동합니다.
-1. VNet의 **설정** 섹션에서 **서브넷**을 선택하여 서브넷 설정을 확장합니다.
-1. **서브넷** 설정에서 **+ 게이트웨이 서브넷**을 선택하여 게이트웨이 서브넷을 추가합니다. 
+1. VNet의 **설정** 섹션에서 **서브넷** 을 선택하여 서브넷 설정을 확장합니다.
+1. **서브넷** 설정에서 **+ 게이트웨이 서브넷** 을 선택하여 게이트웨이 서브넷을 추가합니다. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="게이트웨이 서브넷 추가":::
 
-1. 서브넷의 **이름**에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다. /27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다(/26, /25 등). 그런 다음, **확인**을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
+1. 서브넷의 **이름** 에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다. /27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다(/26, /25 등). 그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="게이트웨이 서브넷 추가":::
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
-1. 포털의 왼쪽에서 **+ 리소스 만들기**를 선택하고 검색에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 선택합니다. **가상 네트워크 게이트웨이** 페이지에서 **만들기**를 선택합니다.
+1. 포털의 왼쪽에서 **+ 리소스 만들기** 를 선택하고 검색에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다. **가상 네트워크 게이트웨이** 페이지에서 **만들기** 를 선택합니다.
 1. **가상 네트워크 게이트웨이 만들기** 페이지에서 이 설정을 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -73,19 +73,19 @@ ms.locfileid: "91761835"
     | 리소스 그룹 | 가상 네트워크를 선택하면 리소스 그룹이 자동으로 선택됩니다. | 
     | 속성 | 게이트웨이 이름을 지정합니다. 이는 게이트웨이 서브넷 이름 지정과 동일하지는 않습니다. 만들고 있는 게이트웨이 개체의 이름입니다.|
     | 지역 | 가상 네트워크가 있는 위치를 가리키도록 **영역** 필드를 변경합니다. 위치에서 가상 네트워크가 있는 영역을 가리키고 있지 않으면 가상 네트워크가 '가상 네트워크 선택' 드롭다운에 나타나지 않습니다. |
-    | 게이트웨이 유형 | **ExpressRoute**를 선택합니다.|
+    | 게이트웨이 유형 | **ExpressRoute** 를 선택합니다.|
     | SKU | 드롭다운에서 게이트웨이 SKU를 선택합니다. |
-    | 가상 네트워크 | *TestVNet*을 선택합니다. |
-    | 공용 IP 주소 | **새로 만들기**를 선택합니다.|
+    | 가상 네트워크 | *TestVNet* 을 선택합니다. |
+    | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름을 입력합니다. |
 
-1. **검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 게이트웨이를 만들기 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
+1. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 게이트웨이를 만들기 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="게이트웨이 서브넷 추가":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-ExpressRoute 게이트웨이가 더 이상 필요하지 않으면 가상 네트워크 리소스 그룹에서 게이트웨이를 찾아 **삭제**를 선택합니다. 게이트웨이가 회로에 연결되어 있지 않은지 확인합니다.
+ExpressRoute 게이트웨이가 더 이상 필요하지 않으면 가상 네트워크 리소스 그룹에서 게이트웨이를 찾아 **삭제** 를 선택합니다. 게이트웨이가 회로에 연결되어 있지 않은지 확인합니다.
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="게이트웨이 서브넷 추가":::
 

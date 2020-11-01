@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4c30029a71935cd3b8817be9010ff0fd11fa61a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 56a797864b70cb1be4a1bc5d4b79c44348d43dae
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077696"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144429"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -969,8 +969,6 @@ def resume_set_acl_recursive(continuation_token):
 권한 오류가 발생 해도 프로세스가 중단 되지 않도록 하려면이를 지정할 수 있습니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-프로세스가 중단 없이 완료 되도록 하려면 **AccessControlChangedOptions** 개체를 전달 하 고 해당 개체의 **ContinueOnFailure** 속성을로 설정 ``true`` 합니다.
 
 이 예에서는 ACL 항목을 재귀적으로 설정 합니다. 이 코드에 사용 권한 오류가 발생 하면 해당 오류를 기록 하 고 실행을 계속 합니다. 이 예에서는 결과 (오류 수 포함)를 콘솔에 출력 합니다. 
 

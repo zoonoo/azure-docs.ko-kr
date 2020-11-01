@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b6233552501fbe1578f3abe4e203d725ecddb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707798"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146810"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Media Services 및 VOD (주문형 비디오)를 통한 고가용성
 
@@ -26,7 +26,7 @@ ms.locfileid: "91707798"
 
 ## <a name="high-availability-for-vod"></a>VOD의 고가용성
 
-Azure 아키텍처 설명서에는 [Geodes](/azure/architecture/patterns/geodes) 라는 고가용성 디자인 패턴이 있습니다. 중복 리소스를 여러 지리적 지역에 배포 하 여 확장성과 복원 력을 제공 하는 방법을 설명 합니다.  Azure 서비스를 사용 하 여 중복성, 상태 모니터링, 부하 분산, 데이터 백업 및 복구와 같은 많은 고가용성 디자인 고려 사항을 포괄 하는 이러한 아키텍처를 만들 수 있습니다.  이러한 아키텍처 중 하나는 솔루션에서 사용 되는 각 서비스에 대 한 세부 정보 및 개별 서비스를 사용 하 여 VOD 응용 프로그램에 대 한 고가용성 아키텍처를 만드는 방법을 설명 합니다.
+Azure 아키텍처 설명서에는 [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) 라는 고가용성 디자인 패턴이 있습니다. 중복 리소스를 여러 지리적 지역에 배포 하 여 확장성과 복원 력을 제공 하는 방법을 설명 합니다.  Azure 서비스를 사용 하 여 중복성, 상태 모니터링, 부하 분산, 데이터 백업 및 복구와 같은 많은 고가용성 디자인 고려 사항을 포괄 하는 이러한 아키텍처를 만들 수 있습니다.  이러한 아키텍처 중 하나는 솔루션에서 사용 되는 각 서비스에 대 한 세부 정보 및 개별 서비스를 사용 하 여 VOD 응용 프로그램에 대 한 고가용성 아키텍처를 만드는 방법을 설명 합니다.
 
 ### <a name="sample"></a>예제
 
@@ -87,4 +87,4 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [코드 샘플](/samples/browse/?products=azure-media-services) 체크 아웃
+* [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-media-services) 체크 아웃

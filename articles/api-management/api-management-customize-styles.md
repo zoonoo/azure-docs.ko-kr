@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168208"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145772"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 

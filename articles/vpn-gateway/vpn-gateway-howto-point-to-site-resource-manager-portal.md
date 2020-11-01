@@ -1,36 +1,35 @@
 ---
 title: 'P2S VPN & 인증서 인증을 사용 하 여 VNet에 연결: 포털'
 titleSuffix: Azure VPN Gateway
-description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows, Mac OS X 및 Linux 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 Azure Portal을 사용합니다.
+description: P2S 및 자체 서명 된 인증서 또는 CA에서 발급 한 인증서를 사용 하 여 Windows, macOS 및 Linux 클라이언트를 Azure 가상 네트워크에 안전 하 게 연결 합니다. 이 문서에서는 Azure Portal을 사용합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: fd95de8033fc5a986ac30677a4272336b1e17244
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f2a934702a650ece3d3d50b2eedaa99f65b2eacc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041597"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145000"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
 
-이 문서는 Windows, Linux 또는 Mac OS X을 실행하는 개별 클라이언트를 Azure VNet에 안전하게 연결하는 데 도움이 됩니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. 또한 VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우 사이트 간 VPN 대신 P2S를 사용할 수도 있습니다. P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다. 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
+이 문서는 Windows, Linux 또는 macOS를 실행 하는 개별 클라이언트를 Azure VNet에 안전 하 게 연결 하는 데 도움이 됩니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. 또한 VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우 사이트 간 VPN 대신 P2S를 사용할 수도 있습니다. P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다. 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
-![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
+:::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="컴퓨터에서 Azure VNet 지점 및 사이트 간 연결 다이어그램에 연결":::
 
-## <a name="architecture"></a>아키텍처
+지점 및 사이트 간 VPN에 대 한 자세한 내용은 지점 및 [사이트 간 Vpn 정보](point-to-site-about.md)를 참조 하세요. Azure PowerShell를 사용 하 여이 구성을 만들려면 [Azure PowerShell를 사용 하 여 지점 및 사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조 하세요.
 
-지점 및 사이트 간 네이티브 Azure 인증서 인증 연결은 이 연습에서 구성하는 다음 항목을 사용합니다.
+[!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
-* RouteBased VPN 게이트웨이입니다.
-* Azure에 업로드된 루트 인증서에 대한 공개 키(.cer 파일)입니다. 인증서가 업로드되면 신뢰할 수 있는 인증서로 간주되며 인증에 사용됩니다.
-* 루트 인증서에서 생성된 클라이언트 인증서. 클라이언트 인증서는 VNet에 연결할 각 클라이언트 컴퓨터에 설치됩니다. 클라이언트 인증에 사용됩니다.
-* VPN 클라이언트 구성 VPN 클라이언트 구성 파일에는 클라이언트를 VNet에 연결하는 데 필요한 정보가 포함됩니다. 파일은 운영 체제에 기본적으로 제공된 기존의 VPN 클라이언트를 구성합니다. 연결되는 각 클라이언트는 구성 파일에서 설정을 사용하여 구성해야 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-#### <a name="example-values"></a><a name="example"></a>예제 값
+Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
+
+### <a name="example-values"></a><a name="example"></a>예제 값
 
 다음 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 

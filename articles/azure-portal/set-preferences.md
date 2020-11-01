@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367434"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145942"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure Portal 설정 및 기본 설정 관리
 
@@ -44,13 +44,13 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 - **Home** 은 사용자 지정할 수 없습니다.  인기 있는 Azure 서비스에 대 한 바로 가기를 표시 하 고 가장 최근에 사용한 리소스를 나열 합니다. 또한 Microsoft Learn 및 Azure 로드맵과 같은 리소스에 대 한 유용한 링크를 제공 합니다.
 
-- 대시보드를 사용자 지정 하 여 자신만의 작업 영역을 만들 수 있습니다. 예를 들어, 프로젝트, 작업 또는 역할에 중점을 둘 수 있는 대시보드를 빌드할 수 있습니다. **대시보드**를 선택 하는 경우 기본 보기가 가장 최근에 사용한 대시보드로 이동 합니다. 자세한 내용은 [Azure Portal에서 대시보드 만들기 및 공유](azure-portal-dashboards.md)를 참조하세요.
+- 대시보드를 사용자 지정 하 여 자신만의 작업 영역을 만들 수 있습니다. 예를 들어, 프로젝트, 작업 또는 역할에 중점을 둘 수 있는 대시보드를 빌드할 수 있습니다. **대시보드** 를 선택 하는 경우 기본 보기가 가장 최근에 사용한 대시보드로 이동 합니다. 자세한 내용은 [Azure Portal에서 대시보드 만들기 및 공유](azure-portal-dashboards.md)를 참조하세요.
 
 ## <a name="choose-a-portal-menu-mode"></a>포털 메뉴 모드 선택
 
 포털 메뉴의 기본 모드는 페이지에서 포털 메뉴가 차지 하는 공간의 크기를 제어 합니다.
 
-![테마가 강조 표시 된 Azure Portal 설정을 보여 주는 스크린샷](./media/set-preferences/menu-mode.png)
+![포털 메뉴에 대 한 기본 모드를 설정 하는 방법을 보여 주는 스크린샷](./media/set-preferences/menu-mode.png)
 
 - 포털 메뉴는 **플라이 아웃** 모드에 있을 때 필요할 때까지 숨겨집니다. 메뉴 아이콘을 선택하여 메뉴를 열거나 닫을 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 알림은 현재 세션과 관련 된 시스템 메시지입니다. 사용자는 현재 크레딧 잔액 같은 정보를 제공 하 고, 방금 만든 리소스를 사용할 수 있게 되 면, 예를 들어 마지막 작업을 확인할 수 있습니다. 팝업 알림이 설정 되 면 화면의 맨 위 모퉁이에 메시지가 잠깐 표시 됩니다. 
 
-팝업 알림을 사용 하거나 사용 하지 않도록 설정 하려면 **팝업 알림 사용**을 선택 하거나 선택 취소 합니다.
+팝업 알림을 사용 하거나 사용 하지 않도록 설정 하려면 **팝업 알림 사용** 을 선택 하거나 선택 취소 합니다.
 
 ![팝업 알림이 강조 표시 된 Azure Portal 설정을 보여 주는 스크린샷](./media/set-preferences/popup-notifications.png)
 
@@ -84,13 +84,13 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 ### <a name="change-your-individual-timeout-setting-user"></a>개별 시간 제한 설정 변경 (사용자)
 
-**비활성화 된 경우 로그 아웃**아래에 있는 드롭다운을 선택 합니다. 유휴 상태일 때 Azure Portal 세션이 로그 아웃 되는 기간을 선택 합니다.
+**비활성화 된 경우 로그 아웃** 아래에 있는 드롭다운을 선택 합니다. 유휴 상태일 때 Azure Portal 세션이 로그 아웃 되는 기간을 선택 합니다.
 
 ![비활성 시간 제한 설정이 강조 표시 된 포털 설정을 보여 주는 스크린샷](./media/set-preferences/inactive-signout-user.png)
 
 변경 내용은 자동으로 저장 됩니다. 유휴 상태인 경우에는 설정한 기간 후에 Azure Portal 세션이 로그 아웃 됩니다.
 
-관리자가 비활성 시간 제한 정책을 사용 하도록 설정한 경우 디렉터리 수준 설정 보다 작은 경우에도 사용자가 직접 설정할 수 있습니다. **디렉터리 비활성 시간 제한 정책 재정의**를 선택 하 고 시간 간격을 설정 합니다.
+관리자가 비활성 시간 제한 정책을 사용 하도록 설정한 경우 디렉터리 수준 설정 보다 작은 경우에도 사용자가 직접 설정할 수 있습니다. **디렉터리 비활성 시간 제한 정책 재정의** 를 선택 하 고 시간 간격을 설정 합니다.
 
 ![디렉터리 비활성 시간 제한 정책 설정이 강조 표시 된 포털 설정을 보여 주는 스크린샷](./media/set-preferences/inactive-signout-override.png)
 
@@ -100,7 +100,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 전역 관리자 인 경우 Azure Portal의 모든 사용자에 대해 유휴 시간 제한 설정을 적용 하려면 다음 단계를 수행 합니다.
 
-1. 링크 텍스트 **구성 디렉터리 수준 제한 시간**을 선택 합니다.
+1. 링크 텍스트 **구성 디렉터리 수준 제한 시간** 을 선택 합니다.
 
     ![링크 텍스트가 강조 표시 된 포털 설정을 보여 주는 스크린샷](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 1. 그런 다음 세션이 자동으로 로그 아웃 되기 전에 사용자가 유휴 상태를 유지할 수 있는 **시간** 및 **분** 을 입력 합니다.
 
-1. **적용**을 선택합니다.
+1. **적용** 을 선택합니다.
 
     ![디렉터리 수준 비활성 시간 제한을 설정 하는 페이지를 보여 주는 스크린샷](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 ## <a name="restore-default-settings"></a>기본 설정 복원
 
-Azure Portal 설정을 변경한 후 삭제 하려면 **기본 설정 복원**을 선택 합니다. 포털 설정에서 변경한 내용이 모두 손실 됩니다. 이 옵션은 대시보드 사용자 지정에는 영향을 주지 않습니다.
+Azure Portal 설정을 변경한 후 삭제 하려면 **기본 설정 복원** 을 선택 합니다. 포털 설정에서 변경한 내용이 모두 손실 됩니다. 이 옵션은 대시보드 사용자 지정에는 영향을 주지 않습니다.
 
 ![기본 설정의 복원을 보여 주는 스크린샷](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +132,7 @@ Azure Portal 설정을 변경한 후 삭제 하려면 **기본 설정 복원**�
 
 설정을 삭제 하려는 경우 설정을 내보내고 검토 하는 것이 좋습니다. 대시보드를 다시 작성 하거나 설정을 다시 실행 하는 것은 시간이 많이 걸릴 수 있습니다.
 
-포털 설정을 내보내려면 **모든 설정 내보내기**를 선택 합니다.
+포털 설정을 내보내려면 **모든 설정 내보내기** 를 선택 합니다.
 
 ![설정 내보내기를 보여 주는 스크린샷](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +150,7 @@ Azure Portal 설정을 변경한 후 삭제 하려면 **기본 설정 복원**�
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-포털 설정을 삭제 하려면 **모든 설정 및 개인 대시보드 삭제**를 선택 합니다.
+포털 설정을 삭제 하려면 **모든 설정 및 개인 대시보드 삭제** 를 선택 합니다.
 
 ![설정 삭제를 보여 주는 스크린샷](./media/set-preferences/useful-links-delete-settings.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077493"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145517"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -43,7 +43,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
-+ **활성 Azure 구독**.
++ **활성 Azure 구독** .
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,21 +56,23 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 네트워크 연결 사용
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure API Management 인스턴스를 찾습니다.
-2. **가상 네트워크**를 선택합니다.
+2. **가상 네트워크** 를 선택합니다.
 3. API Management 인스턴스를 가상 네트워크 내부에 배포되도록 구성합니다.
 
     ![내부 가상 네트워크에서 Azure API Management를 설정하는 메뉴][api-management-using-internal-vnet-menu]
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 배포가 성공 하면 개요 블레이드에서 API Management 서비스의 **개인** 가상 ip 주소 및 **공용** 가상 ip 주소가 표시 됩니다. **개인** 가상 ip 주소는 `gateway` , `portal` `management` 및 `scm` 끝점에 액세스할 수 있는 API Management 위임 된 서브넷 내에서 부하가 분산 된 ip 주소입니다. **공용** 가상 IP 주소는 포트 3443을 통한 끝점에 대 한 제어 평면 트래픽용 **으로만** 사용 `management` 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
 
 ![내부 가상 네트워크를 구성한 API Management 대시보드][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> Azure Portal에서 사용할 수 있는 테스트 콘솔의 경우 해당 게이트웨이 URL이 공용 DNS에 등록되어 있지 않으므로 **내부** VNET 배포 서비스에서 작동하지 않습니다. 대신, **개발자 포털**에 제공된 테스트 콘솔을 사용해야 합니다.
+> Azure Portal에서 사용할 수 있는 테스트 콘솔의 경우 해당 게이트웨이 URL이 공용 DNS에 등록되어 있지 않으므로 **내부** VNET 배포 서비스에서 작동하지 않습니다. 대신, **개발자 포털** 에 제공된 테스트 콘솔을 사용해야 합니다.
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 가상 네트워크 연결 사용
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Virtual Network에 API Management 배포
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

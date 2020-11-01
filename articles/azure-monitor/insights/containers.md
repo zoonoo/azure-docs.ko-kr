@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326905"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145687"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -51,7 +51,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | 서비스<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Open<br>Shift 키 | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(독립 실행형) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux 서버<br>(독립 실행형) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -116,7 +116,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
 
-Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작**  >  **컴퓨터** 를 클릭 하 여 **작업 영역 ID** 및 **기본 키**를 확인 합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
+Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작**  >  **컴퓨터** 를 클릭 하 여 **작업 영역 ID** 및 **기본 키** 를 확인 합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
@@ -476,12 +476,12 @@ Helm을 사용하여 Linux Kubernetes 환경에 Log Analytics 에이전트를 �
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     자세한 내용을 보려면 [컨테이너 솔루션 Helm 차트](https://aka.ms/omscontainerhelm)를 방문하세요.
@@ -513,11 +513,11 @@ Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면
 
 Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](../learn/quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](../platform/agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
 
-컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
+컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx* 를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
-Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니터링 솔루션**을 추가합니다. Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
+Azure Portal에서 *솔루션 갤러리* 로 이동하여 **컨테이너 모니터링 솔루션** 을 추가합니다. Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에 설치된 *ContainerManagement.xxx*
 
@@ -574,7 +574,7 @@ Azure Portal에서 솔루션을 사용 하도록 설정한 후 **에는 컨테�
 
 대시보드의 각 영역은 수집된 데이터에서 실행되는 검색을 시각적으로 나타냅니다.
 
-![컨테이너 대시보드](./media/containers/containers-dash01.png)
+![수집 된 데이터를 볼 수 있는 대시보드를 보여 주는 스크린샷 ](./media/containers/containers-dash01.png)
 
 ![컨테이너 대시보드](./media/containers/containers-dash02.png)
 
@@ -590,7 +590,7 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>실패한 컨테이너를 검색하여 문제 해결
 
-0이 아닌 종료 코드로 종료된 경우 Log Analytics는 이 컨테이너를 **Failed**로 표시합니다. **실패한 컨테이너** 영역에서 환경의 오류 및 실패 개요를 볼 수 있습니다.
+0이 아닌 종료 코드로 종료된 경우 Log Analytics는 이 컨테이너를 **Failed** 로 표시합니다. **실패한 컨테이너** 영역에서 환경의 오류 및 실패 개요를 볼 수 있습니다.
 
 ### <a name="to-find-failed-containers"></a>실패한 컨테이너 찾기
 
@@ -599,9 +599,9 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 2. Log Analytics 열리고 컨테이너의 상태가 다음과 같이 표시 됩니다.  
    ![컨테이너 상태](./media/containers/containers-log-search.png)
 3. 실패 한 줄을 확장 하 고 +를 클릭 하 여 쿼리에 조건을 추가 합니다. 그런 다음 쿼리에서 요약 줄을 주석으로 처리 합니다.
-   ![실패한 컨테이너](./media/containers/containers-state-failed-select.png)  
+   ![주석 처리 되어야 하는 줄을 보여 주는 스크린샷](./media/containers/containers-state-failed-select.png)  
 1. 쿼리를 실행 한 다음 결과의 줄을 확장 하 여 이미지 ID를 확인 합니다.  
-   ![실패한 컨테이너](./media/containers/containers-state-failed.png)  
+   ![이미지 ID를 보는 방법을 보여 주는 스크린샷](./media/containers/containers-state-failed.png)  
 1. 로그 쿼리에 다음을 입력 합니다. `ContainerImageInventory | where ImageID == <ImageID>`를 입력하여 이미지 크기 및 중지되고 실패한 이미지 수와 같은 이미지에 대한 세부 정보를 확인합니다.  
    ![실패한 컨테이너](./media/containers/containers-failed04.png)
 
@@ -635,7 +635,7 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 
 쿼리 저장은 Azure Monitor의 표준 기능입니다. 이를 저장해 두면 향후 유용하게 사용할 수 있습니다.
 
-만든 쿼리가 유용하다고 생각되면 로그 검색 페이지 위쪽의 **즐겨찾기**를 클릭하여 저장합니다. 그러면 나중에 **내 대시보드** 페이지에서 간편하게 액세스할 수 있습니다.
+만든 쿼리가 유용하다고 생각되면 로그 검색 페이지 위쪽의 **즐겨찾기** 를 클릭하여 저장합니다. 그러면 나중에 **내 대시보드** 페이지에서 간편하게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

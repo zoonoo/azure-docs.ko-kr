@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742504"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145840"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "92742504"
 
 4. **시스템 할당** 탭에서 **상태** 를 **켜기** 로 바꿉니다. **저장** 을 클릭합니다.
 
-    ![App Service의 관리 ID](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![상태를 켜기로 전환할 위치를 보여 주는 스크린샷 한 후 저장을 선택 합니다.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -338,7 +338,7 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> | 속성 이름 | Description                                                                                                                                                                                                                                        |
+> | 속성 이름 | 설명                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | 요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.                                                                                                                               |
 > | client_id     | 사용된 ID의 클라이언트 ID입니다.                                                                                                                                                                                                       |

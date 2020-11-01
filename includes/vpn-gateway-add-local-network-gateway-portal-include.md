@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92479613"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 **리소스, 서비스 및 문서 검색(G+/)** 에 **로컬 네트워크 게이트웨이** 를 입력합니다. 검색 결과의 **Marketplace** 에서 **로컬 네트워크 게이트웨이** 를 찾아 선택합니다. 그러면 **로컬 네트워크 게이트웨이 만들기** 페이지가 열립니다.

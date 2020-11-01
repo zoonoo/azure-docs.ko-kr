@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91333735"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>검색 트래픽 분석을 위한 원격 분석 데이터 수집
@@ -49,11 +49,11 @@ Application Insights 리소스가 있으면 [지원되는 언어 및 플랫폼�
 
 일부 Visual Studio 프로젝트 형식에 대해 작동하는 바로 가기는 다음 단계에서 반영됩니다. 리소스가 생성되고, 몇 번 클릭하기만 하면 앱이 등록됩니다.
 
-1. Visual Studio 및 ASP.NET 개발의 경우 솔루션을 열고 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다.
+1. Visual Studio 및 ASP.NET 개발의 경우 솔루션을 열고 **프로젝트** > **Application Insights 원격 분석 추가** 를 선택합니다.
 
-1. **시작**을 클릭합니다.
+1. **시작** 을 클릭합니다.
 
-1. Microsoft 계정, Azure 구독 및 Application Insights 리소스를 제공하여 앱을 등록합니다(새 리소스는 기본값). **등록**을 클릭합니다.
+1. Microsoft 계정, Azure 구독 및 Application Insights 리소스를 제공하여 앱을 등록합니다(새 리소스는 기본값). **등록** 을 클릭합니다.
 
 이 시점에서 애플리케이션은 애플리케이션 모니터링에 대해 설정됩니다. 즉, 모든 페이지 로드가 기본 메트릭을 사용하여 추적됩니다. 이전 단계에 대한 자세한 내용은 [Application Insights 서버 쪽 원격 분석 사용](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)을 참조하세요.
 
@@ -71,7 +71,7 @@ Application Insights에 이벤트를 보내는 개체를 만듭니다. 브라우
 
 **C# 사용**
 
-C#에서는 프로젝트가 ASP.NET인 경우 appsettings.json과 같은 애플리케이션 구성에서 **InstrumentationKey**를 찾을 수 있습니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
+C#에서는 프로젝트가 ASP.NET인 경우 appsettings.json과 같은 애플리케이션 구성에서 **InstrumentationKey** 를 찾을 수 있습니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 사용자는 검색 요청을 실행할 때마다 Application Insights 사용자 지정 이벤트에 다음 스키마를 사용하여 검색 이벤트로 기록해야 합니다. 사용자가 생성한 검색 쿼리만 기록해야 합니다.
 
-+ **SearchServiceName**: (문자열) 검색 서비스 이름
-+ **SearchId**: (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공됨)
-+ **IndexName**: (문자열) 쿼리할 검색 서비스 인덱스
-+ **QueryTerms**: (문자열) 사용자가 입력한 검색어
-+ **ResultCount**: (int) 반환된 문서의 수(검색 응답에 제공됨)
-+ **ScoringProfile**: (문자열) 사용된 점수 매기기 프로필의 이름(있는 경우).
++ **SearchServiceName** : (문자열) 검색 서비스 이름
++ **SearchId** : (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공됨)
++ **IndexName** : (문자열) 쿼리할 검색 서비스 인덱스
++ **QueryTerms** : (문자열) 사용자가 입력한 검색어
++ **ResultCount** : (int) 반환된 문서의 수(검색 응답에 제공됨)
++ **ScoringProfile** : (문자열) 사용된 점수 매기기 프로필의 이름(있는 경우).
 
 > [!NOTE]
 > 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [문서 검색(REST)](/rest/api/searchservice/search-documents#counttrue--false)을 참조하세요.
@@ -172,10 +172,10 @@ appInsights.trackEvent("Search", {
 
 사용자가 문서를 클릭할 때마다 검색 분석을 위해 신호를 기록해야 합니다. Application Insights 사용자 지정 이벤트를 사용하여 다음 스키마로 이러한 이벤트를 기록합니다.
 
-+ **ServiceName**: (문자열) 검색 서비스 이름
-+ **SearchId**: (guid) 관련 검색 쿼리의 고유 식별자
-+ **DocId**: (문자열) 문서 식별자
-+ **Position**: (int) 검색 결과 페이지의 문서 순위
++ **ServiceName** : (문자열) 검색 서비스 이름
++ **SearchId** : (guid) 관련 검색 쿼리의 고유 식별자
++ **DocId** : (문자열) 문서 식별자
++ **Position** : (int) 검색 결과 페이지의 문서 순위
 
 > [!NOTE]
 > 위치는 애플리케이션의 카디널 순서를 참조합니다. 이 숫자가 항상 같다면 이 숫자를 자유롭게 설정하여 비교할 수 있습니다.
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 앱을 계측하고 애플리케이션이 Application Insights에 올바르게 연결되었는지 확인했으면 작성한 미리 정의된 보고서 템플릿을 다운로드하여 Power BI Desktop에서 데이터를 분석합니다. 보고서에는 검색 트래픽 분석을 위해 캡처된 추가 데이터를 분석하는 데 유용한 미리 정의된 차트와 테이블이 포함되어 있습니다.
 
-1. Azure Cognitive Search 대시보드의 왼쪽 탐색 창에 있는 **설정** 아래에서 **검색 트래픽 분석**을 클릭합니다.
+1. Azure Cognitive Search 대시보드의 왼쪽 탐색 창에 있는 **설정** 아래에서 **검색 트래픽 분석** 을 클릭합니다.
 
-1. **트래픽 분석 검색** 페이지의 3단계에서 **Power BI Desktop 가져오기**를 클릭하여 Power BI를 설치합니다.
+1. **트래픽 분석 검색** 페이지의 3단계에서 **Power BI Desktop 가져오기** 를 클릭하여 Power BI를 설치합니다.
 
    ![Power BI 보고서 가져오기](./media/search-traffic-analytics/get-use-power-bi.png "Power BI 보고서 가져오기")
 
-1. 동일한 페이지에서 **Power BI 보고서 다운로드**를 클릭합니다.
+1. 동일한 페이지에서 **Power BI 보고서 다운로드** 를 클릭합니다.
 
 1. 보고서가 Power BI Desktop에서 열리고 Application Insights에 연결하고 자격 증명을 제공하라는 메시지가 표시됩니다. 연결 정보는 Application Insights 리소스에 대한 Azure Portal 페이지에서 찾을 수 있습니다. 자격 증명의 경우 포털 로그인에 사용하는 것과 동일한 사용자 이름 및 암호를 제공합니다.
 
    ![Application Insights에 연결](./media/search-traffic-analytics/connect-to-app-insights.png "Application Insights에 연결")
 
-1. **로드**를 클릭합니다.
+1. **로드** 를 클릭합니다.
 
 이 보고서에는 검색 성능과 관련성을 향상시키기 위해 정보에 기반한 합리적 의사 결정을 내리는 데 도움이 되는 차트와 테이블이 포함되어 있습니다.
 

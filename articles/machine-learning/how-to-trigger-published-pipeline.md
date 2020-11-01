@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318299"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146265"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>논리 앱에서 Machine Learning 파이프라인 실행 트리거
 
@@ -49,7 +49,7 @@ ms.locfileid: "91318299"
     > [!div class="mx-imgBorder"]
     > ![새 템플릿](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. 디자이너에서 **blob**을 검색 합니다. Blob이 **추가 되거나 수정 된 경우 (속성만)** 트리거를 선택 하 고 논리 앱에이 트리거를 추가 합니다.
+1. 디자이너에서 **blob** 을 검색 합니다. Blob이 **추가 되거나 수정 된 경우 (속성만)** 트리거를 선택 하 고 논리 앱에이 트리거를 추가 합니다.
     > [!div class="mx-imgBorder"]
     > ![트리거 추가](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "91318299"
     > [!NOTE]
     > 이 트리거는 선택한 컨테이너를 모니터링 하지만 하위 폴더를 모니터링 하지 않습니다.
 
-1. 새 blob 또는 수정 된 blob이 검색 될 때 실행 되는 HTTP 작업을 추가 합니다. **+ 새 단계**를 선택 하 고 HTTP 작업을 검색 하 여 선택 합니다.
+1. 새 blob 또는 수정 된 blob이 검색 될 때 실행 되는 HTTP 작업을 추가 합니다. **+ 새 단계** 를 선택 하 고 HTTP 작업을 검색 하 여 선택 합니다.
 
   > [!div class="mx-imgBorder"]
   > ![HTTP 작업 검색](media/how-to-trigger-published-pipeline/search-http.png)
@@ -94,6 +94,9 @@ ms.locfileid: "91318299"
     > ![HTTP 설정](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. **저장** 을 선택 하면 이제 일정이 준비 됩니다.
+
+> [!IMPORTANT]
+> RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service) .
 
 ## <a name="next-steps"></a>다음 단계
 

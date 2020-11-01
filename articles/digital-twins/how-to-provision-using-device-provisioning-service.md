@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026448"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145806"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "93026448"
 
 _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모든 엔터프라이즈 IoT 프로젝트에 공통적인 일반적인 장치 관리 단계 집합을 보다 잘 이해 하려면 IoT Hub의 장치 관리 설명서에서 [ *장치 수명 주기* 섹션](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 프로 비전을 설정 하려면 먼저 모델 및 쌍을 포함 하는 **Azure Digital twins 인스턴스가** 있어야 합니다. 또한이 인스턴스는 데이터를 기반으로 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 합니다. 
 
@@ -189,7 +189,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -214,7 +214,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;

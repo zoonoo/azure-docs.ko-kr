@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75551695"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146214"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
 Service Fabric Cluster Resource Manager는 클러스터에서 실행되는 중앙 서비스입니다. 이 서비스는 특히 리소스 소비 및 배치 규칙 측면에서 클러스터에 있는 서비스의 원하는 상태를 관리합니다. 
@@ -43,7 +43,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 
 <center>
 
-![리소스 분산 장치 아키텍처][Image1]
+![클러스터 리소스 관리자 서비스가 로컬 에이전트의 모든 정보를 집계 하 고 현재 구성에 따라 반응 하는 것을 보여 주는 다이어그램입니다.][Image1]
 </center>
 
 런타임 중에 많은 내용이 변경될 수 있습니다. 예를 들어 일부 서비스가 사용하는 리소스의 양이 변경되고 일부 서비스가 실패하고 일부 노드가 클러스터를 연결하고 연결 해제한다고 가정하겠습니다. 노드에 대한 모든 변경 사항은 집계되어 Cluster Resource Manager 서비스(1, 2)로 정기적으로 전송되고, 여기서 다시 집계되고 분석되고 저장됩니다. 해당 서비스에서는 몇 초마다 변경 사항을 보고 필요한 작업이 있는지 확인합니다(3). 예를 들어 비어 있는 노드가 클러스터에 추가되었다는 것을 알 수 있습니다. 결과적으로 일부 서비스를 해당 노드로 이동하기로 결정합니다. Cluster Resource Manager는 특정 노드가 오버로드되거나 특정 서비스가 실패하거나 삭제되어 다른 곳에서 리소스를 확보했는지도 알 수 있습니다.

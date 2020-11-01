@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436853"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145619"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -42,7 +42,7 @@ ms.locfileid: "89436853"
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v1.0 및 v2.0 선택적 클레임 세트
 
-기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](#configuring-directory-extension-optional-claims)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 클레임은 애플리케이션(Web API)*이* 요청한 클레임이 아니라 애플리케이션*용으로* 요청한 액세스 토큰에 적용됩니다. 클라이언트가 어떤 방식으로 API에 액세스하는지에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
+기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](#configuring-directory-extension-optional-claims)을 참조하세요. **액세스 토큰** 에 클레임을 추가하면 클레임은 애플리케이션(Web API) *이* 요청한 클레임이 아니라 애플리케이션 *용으로* 요청한 액세스 토큰에 적용됩니다. 클라이언트가 어떤 방식으로 API에 액세스하는지에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
 
 > [!NOTE]
 > 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 소비자 계정은 "사용자 유형" 열에 표시된 이러한 클레임의 일부를 지원합니다.  나열된 많은 클레임은 소비자 사용자에게 적용되지 않습니다(테넌트가 없으므로 `tenant_ctry`에 값이 없음).
@@ -67,7 +67,7 @@ ms.locfileid: "89436853"
 | `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, Azure AD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부 사용자)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|
 | `acct`                | 테 넌 트의 사용자 계정 상태 | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `groups`| 그룹 클레임에 대한 선택적 서식 지정 |JWT, SAML| |함께 설정해야 하는 [애플리케이션 매니페스트](reference-app-manifest.md)의 GroupMembershipClaims 설정과 함께 사용됩니다. 자세한 내용은 아래 [그룹 클레임](#configuring-groups-optional-claims)을 참조하세요. 그룹 클레임에 대한 자세한 내용은 [그룹 클레임을 구성하는 방법](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
 | `idtyp`                    | 토큰 형식   | JWT 액세스 토큰 | 특수: 앱 전용 액세스 토큰에만 |  `app`토큰이 앱 전용 토큰 인 경우 값은입니다. 이것은 API에서 토큰이 앱 토큰 인지 앱 + 사용자 토큰 인지를 확인 하는 가장 정확한 방법입니다.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v2.0 특정 선택적 클레임 세트
@@ -85,7 +85,7 @@ ms.locfileid: "89436853"
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 그러지 않으면 클레임이 포함되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
 | `family_name` | 성                       | 사용자 개체에 정의된 사용자의 성을 제공합니다. <br>"family_name":"Miller" | MSA 및 Azure AD에서 지원됩니다. `profile` 범위가 필요합니다.   |
 | `given_name`  | 이름                      | 사용자 개체에 설정된 대로 사용자의 이름 또는 "성"을 제공합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원됩니다.  `profile` 범위가 필요합니다. |
-| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
+| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 지 속성 식별자가 아니라 사용자 정보를 고유 하 게 식별 하는 데 사용할 수 없습니다 (예: 데이터베이스 키). 대신 사용자 개체 ID ( `oid` )를 데이터베이스 키로 사용 합니다. [대체 로그인 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 를 사용 하 여 로그인 하는 사용자는 UPN (사용자 계정 이름)으로 표시 되어서는 안 됩니다. 대신 다음 ID 토큰 클레임을 사용 하 여 로그인 상태를 사용자에 게 표시 하거나 (v1 토큰의 경우) 또는 v2 토큰의 경우를 사용 `preferred_username` `unique_name` `preferred_username` 합니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
@@ -124,25 +124,25 @@ ms.locfileid: "89436853"
 
 UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. **Azure Active Directory**를 검색하고 선택합니다.
-1. **관리** 섹션에서 **앱 등록**을 선택합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 섹션에서 **앱 등록** 을 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
 
 **UI를 통해 선택적 클레임 구성:**
 
 [![UI에서 선택적 클레임 구성](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. **관리** 섹션에서 **토큰 구성**을 선택합니다.
-1. **선택적 클레임 추가**를 선택합니다.
+1. **관리** 섹션에서 **토큰 구성** 을 선택합니다.
+1. **선택적 클레임 추가** 를 선택합니다.
 1. 구성하려는 토큰 유형을 선택합니다.
 1. 추가할 선택적 클레임을 선택합니다.
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 **애플리케이션 매니페스트를 통해 선택적 클레임 구성:**
 
 [![앱 매니페스트를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png).
 
-1. **관리** 섹션에서 **매니페스트**를 선택합니다. 웹 기반 매니페스트 편집기가 열리면 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드**를 선택하고 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 애플리케이션에 다시 적용할 수 있습니다. 애플리케이션 매니페스트에 대한 자세한 내용은 [Azure AD 애플리케이션 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
+1. **관리** 섹션에서 **매니페스트** 를 선택합니다. 웹 기반 매니페스트 편집기가 열리면 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드** 를 선택하고 로컬로 매니페스트를 편집하고 **업로드** 를 사용하여 애플리케이션에 다시 적용할 수 있습니다. 애플리케이션 매니페스트에 대한 자세한 내용은 [Azure AD 애플리케이션 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
 
     다음 애플리케이션 매니페스트 항목은 ID, 액세스 및 SAML 토큰에 auth_time, ipaddr 및 upn 선택적 클레임을 추가합니다.
 
@@ -174,7 +174,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
     }
     ```
 
-2. 작업을 마쳤으면 **저장**을 선택합니다. 이제 지정된 선택적 클레임이 애플리케이션의 토큰에 포함됩니다.
+2. 작업을 마쳤으면 **저장** 을 선택합니다. 이제 지정된 선택적 클레임이 애플리케이션의 토큰에 포함됩니다.
 
 ### <a name="optionalclaims-type"></a>OptionalClaims 형식
 
@@ -182,7 +182,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| Name          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -195,7 +195,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -233,22 +233,22 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 1. [Azure 포털](https://portal.azure.com)
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. **관리** 섹션에서 **앱 등록**을 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
+1. **관리** 섹션에서 **앱 등록** 을 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
-1. **관리** 섹션에서 **토큰 구성**을 선택합니다.
-1. **그룹 클레임 추가**를 선택합니다.
-1. 반환할 그룹 유형 (**보안 그룹**또는 **디렉터리 역할**, **모든 그룹**및/또는 **그룹을 응용 프로그램에 할당**)을 선택 합니다. **응용 프로그램 옵션에 할당 된 그룹** 에는 응용 프로그램에 할당 된 그룹만 포함 됩니다. **All groups** 옵션은 **securitygroup**, **directoryrole**및 **DistributionList**를 포함 하지만 **응용 프로그램에 할당 된 그룹**은 포함 하지 않습니다. 
+1. **관리** 섹션에서 **토큰 구성** 을 선택합니다.
+1. **그룹 클레임 추가** 를 선택합니다.
+1. 반환할 그룹 유형 ( **보안 그룹** 또는 **디렉터리 역할** , **모든 그룹** 및/또는 **그룹을 응용 프로그램에 할당** )을 선택 합니다. **응용 프로그램 옵션에 할당 된 그룹** 에는 응용 프로그램에 할당 된 그룹만 포함 됩니다. **All groups** 옵션은 **securitygroup** , **directoryrole** 및 **DistributionList** 를 포함 하지만 **응용 프로그램에 할당 된 그룹** 은 포함 하지 않습니다. 
 1. 선택 사항: 특정 토큰 유형 속성을 선택하여 온-프레미스 그룹 특성을 포함하도록 그룹 클레임 값을 수정하거나 클레임 유형을 역할로 변경합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 **애플리케이션 매니페스트를 통해 그룹 선택적 클레임 구성:**
 
 1. [Azure 포털](https://portal.azure.com)
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
-1. **관리** 섹션에서 **매니페스트**를 선택합니다.
+1. **관리** 섹션에서 **매니페스트** 를 선택합니다.
 1. 매니페스트 편집기를 사용하여 다음 항목을 추가합니다.
 
    유효한 값은
@@ -258,7 +258,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    - "DirectoryRole"
    - "ApplicationGroup" (이 옵션은 응용 프로그램에 할당 된 그룹만 포함)
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
     ```json
     "groupMembershipClaims": "SecurityGroup"
@@ -362,12 +362,12 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 애플리케이션 ID 구성에서 속성을 업데이트하여 선택적 클레임을 사용하도록 설정하고 구성하는 데 여러 옵션을 사용할 수 있습니다.
 
 - **토큰 구성** UI를 사용할 수 있습니다(아래 예제 참조).
-- **매니페스트**를 사용할 수 있습니다(아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](./reference-app-manifest.md)를 읽으세요.
+- **매니페스트** 를 사용할 수 있습니다(아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](./reference-app-manifest.md)를 읽으세요.
 - 또한 [Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Microsoft Graph API 참조 가이드의 [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) 형식은 선택적 클레임을 구성하는 데 유용할 수 있습니다.
 
 **예:**
 
-아래 예제에서는 **토큰 구성** UI 및 **매니페스트**를 사용하여 애플리케이션용 액세스, ID 및 SAML 토큰에 선택적 클레임을 추가합니다. 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다.
+아래 예제에서는 **토큰 구성** UI 및 **매니페스트** 를 사용하여 애플리케이션용 액세스, ID 및 SAML 토큰에 선택적 클레임을 추가합니다. 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다.
 
 - 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`).
 - 다른 클라이언트가 이 애플리케이션용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다.
@@ -379,21 +379,21 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 
-1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
 
-1. **관리** 섹션에서 **앱 등록**을 선택합니다.
+1. **관리** 섹션에서 **앱 등록** 을 선택합니다.
 
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 선택합니다.
 
-1. **관리** 섹션에서 **토큰 구성**을 선택합니다.
+1. **관리** 섹션에서 **토큰 구성** 을 선택합니다.
 
-1. **선택적 클레임 추가**를 선택하고 **ID** 토큰 유형을 선택한 다음, 클레임 목록에서 **upn**을 선택하고 **추가**를 선택합니다.
+1. **선택적 클레임 추가** 를 선택하고 **ID** 토큰 유형을 선택한 다음, 클레임 목록에서 **upn** 을 선택하고 **추가** 를 선택합니다.
 
-1. **선택적 클레임 추가**를 선택하고 **액세스** 토큰 유형을 선택한 다음, 클레임 목록에서 **auth_time**을 선택하고 **추가**를 선택합니다.
+1. **선택적 클레임 추가** 를 선택하고 **액세스** 토큰 유형을 선택한 다음, 클레임 목록에서 **auth_time** 을 선택하고 **추가** 를 선택합니다.
 
-1. 토큰 구성 개요 화면에서 **upn** 옆에 있는 연필 아이콘을 선택하고, **외부적으로 인증됨** 토글을 선택한 후 **저장**을 선택합니다.
+1. 토큰 구성 개요 화면에서 **upn** 옆에 있는 연필 아이콘을 선택하고, **외부적으로 인증됨** 토글을 선택한 후 **저장** 을 선택합니다.
 
-1. **선택적 클레임 추가**를 선택하고, **SAML** 토큰 유형을 선택한 후 클레임 목록에서 **extn.skypeID**를 선택하고(skypeID라는 Azure AD 사용자 개체를 만든 경우에만 해당) **추가**를 선택합니다.
+1. **선택적 클레임 추가** 를 선택하고, **SAML** 토큰 유형을 선택한 후 클레임 목록에서 **extn.skypeID** 를 선택하고(skypeID라는 Azure AD 사용자 개체를 만든 경우에만 해당) **추가** 를 선택합니다.
 
     [![SAML 토큰에 대 한 선택적 클레임](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
@@ -401,9 +401,9 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 선택합니다.
-1. **관리** 섹션에서 **매니페스트**를 선택하여 인라인 매니페스트 편집기를 엽니다.
+1. **관리** 섹션에서 **매니페스트** 를 선택하여 인라인 매니페스트 편집기를 엽니다.
 1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](./reference-app-manifest.md)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
 
     ```json
@@ -433,7 +433,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
     }
     ```
 
-1. 매니페스트 업데이트가 끝나면 **저장**을 선택하여 매니페스트를 저장합니다.
+1. 매니페스트 업데이트가 끝나면 **저장** 을 선택하여 매니페스트를 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

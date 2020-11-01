@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6658dcd54c7290bbbad0c24c1cc0debd5ead8b18
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789865"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146231"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Azure Portal를 사용 하 여 SQL Server에서 Windows 가상 컴퓨터를 프로 비전 하는 방법
 
@@ -196,7 +196,7 @@ SQL Server 인증을 사용 하지 않으려면 VM에서 로컬 관리자 계정
 
 **SQL Server 설정** 탭의 **스토리지 구성** 에서 **구성 변경** 을 선택하여 성능 최적화 스토리지 구성 페이지를 열고 스토리지 요구 사항을 지정합니다.
 
-![SQL VM 스토리지 구성](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
+![저장소 구성을 변경할 수 있는 위치를 강조 표시 하는 스크린샷](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
 **다음에 대해 스토리지 최적화** 에서 다음 옵션 중 하나를 선택합니다.
 

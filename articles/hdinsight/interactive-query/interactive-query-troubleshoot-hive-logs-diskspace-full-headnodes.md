@@ -1,32 +1,32 @@
 ---
-title: 디스크 공간을 채우는 Apache Hive 로그-Azure HDInsight
-description: Apache Hive 로그는 Azure HDInsight에서 헤드 노드의 디스크 공간을 채우고 있습니다.
+title: '문제 해결: 디스크 공간을 채우는 Apache Hive 로그-Azure HDInsight'
+description: 이 문서에서는 Apache Hive 로그가 Azure HDInsight에서 헤드 노드의 디스크 공간을 가득 찰 때 따라야 하는 문제 해결 단계를 제공 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533022"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145636"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>시나리오: Apache Hive 로그가 Azure HDInsight에서 헤드 노드의 디스크 공간을 채우고 있습니다.
 
-이 문서에서는 Azure HDInsight 클러스터의 헤드 노드에 디스크 공간이 부족 하 여 발생 하는 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터의 헤드 노드에서 디스크 공간이 부족 하 여 발생 하는 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
 ## <a name="issue"></a>문제
 
-Apache Hive/LLAP 클러스터에서 원치 않는 로그는 헤드 노드에서 전체 디스크 공간을 차지 하 고 있습니다. 이로 인해 다음 문제가 나타날 수 있습니다.
+Apache Hive/LLAP 클러스터에서 원치 않는 로그는 헤드 노드에서 전체 디스크 공간을 차지 하 고 있습니다. 이로 인해 다음과 같은 문제가 발생할 수 있습니다.
 
-1. 헤드 노드에 남아 있는 공간이 없으므로 SSH 액세스가 실패 합니다.
-2. Ambari는 *HTTP 오류를 제공 합니다. 503 서비스를 사용할 수 없습니다* .
-3. HiveServer2 Interactive를 다시 시작 하지 못했습니다.
+- 헤드 노드에 남아 있는 공간이 없으므로 SSH 액세스가 실패 합니다.
+- Ambari는 *HTTP 오류를 throw 합니다. 503 서비스를 사용할 수 없습니다* .
+- HiveServer2 Interactive를 다시 시작 하지 못했습니다.
 
-`ambari-agent`문제가 발생 하면 로그에 다음이 표시 됩니다.
+`ambari-agent`문제가 발생 하는 경우 로그에는 다음 항목이 포함 됩니다.
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>원인
 
-고급 hive log4j 구성에서는 마지막으로 수정한 날짜를 기준으로 30 일 이전 파일에 대해 현재 기본 삭제 일정이 설정 됩니다.
+고급 Hive log4j 구성에서 현재 기본 삭제 일정은 마지막으로 수정한 날짜를 기준으로 30 일 보다 오래 된 파일을 삭제 하는 것입니다.
 
 ## <a name="resolution"></a>해결 방법
 
-1. Ambari 포털에서 Hive 구성 요소 요약으로 이동 하 고 탭을 클릭 `Configs` 합니다.
+1. Ambari 포털의 Hive 구성 요소 요약으로 이동 하 여 **Configs** 탭을 선택 합니다.
 
-2. `Advanced hive-log4j`고급 설정 내의 섹션으로 이동 합니다.
+2. `Advanced hive-log4j` **고급 설정** 의 섹션으로 이동 합니다.
 
-3. `appender.RFA.strategy.action.condition.age`매개 변수를 원하는 기간으로 설정 합니다. 14 일에 대 한 예제: `appender.RFA.strategy.action.condition.age = 14D`
+3. `appender.RFA.strategy.action.condition.age`매개 변수를 원하는 기간으로 설정 합니다. 이 예에서는 age를 14 일로 설정 합니다. `appender.RFA.strategy.action.condition.age = 14D`
 
-4. 관련 설정이 표시 되지 않으면 다음 설정을 추가 하세요.
+4. 관련 설정이 표시 되지 않으면 다음 설정을 추가 합니다.
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. `hive.root.logger` `INFO,RFA` 다음과 같이로 설정 합니다. 기본 설정은 디버그로, 로그가 매우 커질 수 있습니다.
+5. `hive.root.logger` `INFO,RFA` 다음 예제와 같이를로 설정 합니다. 기본 설정은 `DEBUG` 로, 로그를 크게 만듭니다.
 
     ```
     # Define some default values that can be overridden by system properties
@@ -67,7 +67,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
     hive.log.file=hive.log
     ```
 
-6. Configs를 저장 하 고 필수 구성 요소를 다시 시작 합니다.
+6. 구성을 저장 하 고 필수 구성 요소를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

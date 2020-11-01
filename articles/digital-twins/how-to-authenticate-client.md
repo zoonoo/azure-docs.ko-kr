@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b929632318de41470412811885b9f1bd3054783a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027316"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145976"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -22,7 +22,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있는지 확인할 수 있습니다. 설치 후에 클라이언트 앱 코드를 작성할 준비가 되었습니다.
 
@@ -31,12 +31,14 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 ## <a name="common-authentication-methods-with-azureidentity"></a>Azure. Identity를 사용 하는 일반적인 인증 방법
 
 `Azure.Identity` 는 전달자 토큰을 가져오고 SDK를 사용 하 여 인증 하는 데 사용할 수 있는 몇 가지 자격 증명 가져오기 방법을 제공 하는 클라이언트 라이브러리입니다. 이 문서에서는 c #의 예제를 제공 하지만 다음 `Azure.Identity` 을 비롯 한 여러 언어를 볼 수 있습니다.
+
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
 * [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
 * [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 의 세 가지 일반적인 자격 증명 가져오기 메서드 `Azure.Identity` 는 다음과 같습니다.
+
 * [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 는 `TokenCredential` Azure에 배포 되는 응용 프로그램에 대 한 기본 인증 흐름을 제공 하며 **로컬 개발에 권장** 되는 옵션입니다. 또한이 문서에서 권장 하는 다른 두 가지 방법을 사용해 볼 수 있습니다. 래핑하고 `ManagedIdentityCredential` `InteractiveBrowserCredential` 구성 변수를 사용 하 여에 액세스할 수 있습니다.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) [는 MSI (관리 id)](../active-directory/managed-identities-azure-resources/overview.md)를 필요로 하는 경우에 적합 하며, Azure Functions 및 Azure 서비스에 배포 하는 데 적합 한 후보입니다.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 는 대화형 응용 프로그램을 위한 것 이며 인증 된 SDK 클라이언트를 만드는 데 사용할 수 있습니다.

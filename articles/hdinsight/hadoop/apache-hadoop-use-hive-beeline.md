@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755095"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145959"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
-[Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell)을 사용하여 HDInsight에서 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
+이 문서에서는 명령줄 [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) client를 사용 하 여 SSH 연결을 통해 Apache Hive 쿼리를 만들고 실행 하는 방법을 설명 합니다.
+
+## <a name="background"></a>배경
 
 Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. HDInsight 클러스터에 설치 된 Beeline 클라이언트에 연결 하거나 로컬로 Beeline을 설치 하려면 [Apache Beeline에 연결 또는 설치](connect-install-beeline.md)를 참조 하세요. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결 하는 데 사용 되는 가장 일반적인 연결 문자열을 제공 합니다.
 
@@ -27,9 +29,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 * 클러스터의 기본 저장소에 대 한 URI 체계를 확인 합니다. 예를 들어  `wasb://` Azure Storage, `abfs://` Azure Data Lake Storage Gen2, Azure Data Lake Storage Gen1의 경우입니다 `adl://` . Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://` 입니다. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
 
-* 옵션 1: SSH 클라이언트 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서의 단계는 대부분 SSH 세션에서 클러스터로 Beeline를 사용 하 고 있다고 가정 합니다.
-
-* 옵션 2: 로컬 Beeline 클라이언트
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서의 단계는 대부분 SSH 세션에서 클러스터로 Beeline를 사용 하 고 있다고 가정 합니다. 로컬 Beeline 클라이언트를 사용할 수도 있지만, 이러한 단계는이 문서에서 다루지 않습니다.
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
@@ -56,7 +56,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
     show tables;
     ```
 
-    새 클러스터에서는 **hivesampletable**이라는 테이블 하나만 나열됩니다.
+    새 클러스터에서는 **hivesampletable** 이라는 테이블 하나만 나열됩니다.
 
 4. 다음 명령을 사용하여 hivesampletable의 스키마를 표시합니다.
 
@@ -157,13 +157,13 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 이 예제는 이전 예제에서 연속 된 것입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
-1. 다음 명령을 사용하여 **query.hql**이라는 파일을 만듭니다.
+1. 다음 명령을 사용하여 **query.hql** 이라는 파일을 만듭니다.
 
     ```bash
     nano query.hql
     ```
 
-1. 다음 텍스트를 파일의 내용으로 사용합니다. 이 쿼리는 **errorLogs**라는 새 '내부' 테이블을 만듭니다.
+1. 다음 텍스트를 파일의 내용으로 사용합니다. 이 쿼리는 **errorLogs** 라는 새 '내부' 테이블을 만듭니다.
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -181,7 +181,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
     > [!NOTE]  
     > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
-1. 파일을 저장 하려면 **Ctrl** + **X**를 사용한 다음 **Y**를 입력 하 고 마지막으로 **enter**키를 누릅니다.
+1. 파일을 저장 하려면 **Ctrl** + **X** 를 사용한 다음 **Y** 를 입력 하 고 마지막으로 **enter** 키를 누릅니다.
 
 1. 다음을 사용하여 Beeline을 통해 파일을 실행합니다.
 
@@ -192,7 +192,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
     > [!NOTE]  
     > `-i` 매개 변수는 Beeline을 시작하고 `query.hql` 파일의 문을 실행합니다. 쿼리가 완료되면 `jdbc:hive2://headnodehost:10001/>` 프롬프트가 표시됩니다. 쿼리 완료 후 Beeline을 종료하는 `-f` 매개 변수를 사용하여 파일을 실행할 수도 있습니다.
 
-1. **errorLogs** 테이블을 만들었는지 확인하려면 다음 문을 사용하여 **errorLogs**에서 모든 행을 반환합니다.
+1. **errorLogs** 테이블을 만들었는지 확인하려면 다음 문을 사용하여 **errorLogs** 에서 모든 행을 반환합니다.
 
     ```hiveql
     SELECT * from errorLogs;

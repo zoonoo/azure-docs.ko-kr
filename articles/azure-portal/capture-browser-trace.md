@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714222"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145738"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>문제 해결을 위한 브라우저 추적 캡처
 
@@ -30,39 +30,39 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. F12 키를 누르거나 ![브라우저 설정 아이콘의 스크린샷](media/capture-browser-trace/chromium-icon-settings.png) > **추가 도구** > **개발자 도구**를 선택합니다.
+1. F12 키를 누르거나 ![ 브라우저 설정 아이콘을 표시 하는 스크린샷을 선택 합니다.](media/capture-browser-trace/chromium-icon-settings.png) > **추가 도구**  >  **개발자 도구** .
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 
-    1. **네트워크** 탭을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **네트워크** 탭을 선택한 다음 **로그 유지** 를 선택합니다.
 
-          !["로그 유지"의 스크린샷](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![네트워크 탭의 로그 보존 옵션을 강조 표시 하는 스크린샷](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. **콘솔** 탭을 선택하고 **콘솔 설정**을 선택한 다음 **로그 유지**를 선택합니다. **콘솔 설정**을 다시 선택하여 설정 창을 닫습니다.
+    1. **콘솔** 탭을 선택하고 **콘솔 설정** 을 선택한 다음 **로그 유지** 를 선택합니다. **콘솔 설정** 을 다시 선택하여 설정 창을 닫습니다.
 
-          !["로그 유지"의 스크린샷](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![콘솔 탭의 로그 보존 옵션을 강조 표시 하는 스크린샷](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. **네트워크** 탭을 선택한 다음 **네트워크 로그 기록 중지** 및 **지우기**를 선택합니다.
+1. **네트워크** 탭을 선택한 다음 **네트워크 로그 기록 중지** 및 **지우기** 를 선택합니다.
 
     !["네트워크 로그 기록 중지" 및 "지우기"의 스크린샷](media/capture-browser-trace/chromium-stop-clear-session.png)
 
-1. **네트워크 로그 기록**을 선택한 다음 포털에서 문제를 재현합니다.
+1. **네트워크 로그 기록** 을 선택한 다음 포털에서 문제를 재현합니다.
 
-    !["프로파일링 세션 시작"의 스크린샷](media/capture-browser-trace/chromium-start-session.png)
+    ![네트워크 로그를 기록 하는 방법을 보여 주는 스크린샷](media/capture-browser-trace/chromium-start-session.png)
 
     다음 이미지와 비슷한 세션 출력이 표시됩니다.
 
-    ![브라우저 추적 결과의 스크린샷](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![세션 출력을 보여 주는 스크린샷](media/capture-browser-trace/chromium-browser-trace-results.png)
 
-1. 예기치 않은 포털 동작을 재현한 후 **네트워크 로그 기록 중지**를 선택하고 **HAR 내보내기**를 선택한 다음 파일을 저장합니다.
+1. 예기치 않은 포털 동작을 재현한 후 **네트워크 로그 기록 중지** 를 선택하고 **HAR 내보내기** 를 선택한 다음 파일을 저장합니다.
 
-    !["HAR 내보내기"의 스크린샷](media/capture-browser-trace/chromium-network-export-har.png)
+    ![네트워크 탭에서 HAR를 내보내는 방법을 보여 주는 스크린샷](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. 단계 레코더를 중지하고 기록을 저장합니다.
 
 1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택합니다. 메시지 중 하나를 마우스 오른쪽 단추로 클릭한 다음 **다른 이름으로 저장...** 을 선택하고 콘솔 출력을 텍스트 파일로 저장합니다.
 
-    ![콘솔 출력의 스크린샷](media/capture-browser-trace/chromium-console-select.png)
+    ![콘솔 탭 및 다른 이름으로 저장 ...을 강조 표시 하는 스크린샷 메뉴가](media/capture-browser-trace/chromium-console-select.png)
 
 1. HAR 파일, 콘솔 출력 및 화면 기록을 압축된 형식(예: .zip)으로 패키징하고 Microsoft 지원과 공유합니다.
 
@@ -76,7 +76,7 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. F12 키를 누르거나 ![브라우저 설정 아이콘의 스크린샷](media/capture-browser-trace/edge-icon-settings.png) > **추가 도구** > **개발자 도구**를 선택합니다.
+1. F12 키를 누르거나 ![ 브라우저 설정 아이콘의 스크린샷을 선택 합니다.](media/capture-browser-trace/edge-icon-settings.png) > **추가 도구**  >  **개발자 도구** .
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 
@@ -84,31 +84,31 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
           !["탐색 시 항목 지우기"의 스크린샷](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. **콘솔** 탭을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **콘솔** 탭을 선택한 다음 **로그 유지** 를 선택합니다.
 
           !["로그 유지"의 스크린샷](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. **네트워크** 탭을 선택한 다음 **프로파일링 세션 중지** 및 **세션 지우기**를 선택합니다.
+1. **네트워크** 탭을 선택한 다음 **프로파일링 세션 중지** 및 **세션 지우기** 를 선택합니다.
 
     !["프로파일링 세션 중지" 및 "세션 지우기"의 스크린샷](media/capture-browser-trace/edge-stop-clear-session.png)
 
-1. **프로파일링 세션 시작**을 선택하면 포털에 문제가 재현됩니다.
+1. **프로파일링 세션 시작** 을 선택하면 포털에 문제가 재현됩니다.
 
     !["프로파일링 세션 시작"의 스크린샷](media/capture-browser-trace/edge-start-session.png)
 
     다음 이미지와 비슷한 세션 출력이 표시됩니다.
 
-    ![브라우저 추적 결과의 스크린샷](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![프로 파일링 세션의 출력을 보여 주는 스크린샷](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. 예기치 않은 포털 동작을 재현한 후 **프로파일링 세션 중지**를 선택한 다음 **HAR로 내보내기**를 선택하고 파일을 저장합니다.
+1. 예기치 않은 포털 동작을 재현한 후 **프로파일링 세션 중지** 를 선택한 다음 **HAR로 내보내기** 를 선택하고 파일을 저장합니다.
 
     !["HAR로 내보내기"의 스크린샷](media/capture-browser-trace/edge-network-export-har.png)
 
 1. 단계 레코더를 중지하고 기록을 저장합니다.
 
-1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택하고 창을 확장합니다. 콘솔 출력의 시작 부분에 커서를 놓고 출력의 전체 내용을 끌어서 선택합니다. 마우스 오른쪽 단추로 클릭한 다음 **복사**를 선택하고 콘솔 출력을 텍스트 파일에 저장합니다.
+1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택하고 창을 확장합니다. 콘솔 출력의 시작 부분에 커서를 놓고 출력의 전체 내용을 끌어서 선택합니다. 마우스 오른쪽 단추로 클릭한 다음 **복사** 를 선택하고 콘솔 출력을 텍스트 파일에 저장합니다.
 
-    ![콘솔 출력의 스크린샷](media/capture-browser-trace/edge-console-select.png)
+    ![복사 메뉴 옵션을 강조 표시 하는 스크린샷](media/capture-browser-trace/edge-console-select.png)
 
 1. HAR 파일, 콘솔 출력 및 화면 기록을 압축된 형식(예: .zip)으로 패키징하고 Microsoft 지원과 공유합니다.
 
@@ -118,11 +118,11 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. Apple Safari에서 개발자 도구를 사용하도록 설정합니다.
 
-    1. **Safari**를 선택한 다음 **기본 설정**을 선택합니다.
+    1. **Safari** 를 선택한 다음 **기본 설정** 을 선택합니다.
 
         ![Safari 기본 설정의 스크린샷](media/capture-browser-trace/safari-preferences.png)
 
-    1. **고급** 탭을 선택한 다음 **메뉴 모음에서 개발자용 메뉴 보기**를 선택합니다.
+    1. **고급** 탭을 선택한 다음 **메뉴 모음에서 개발자용 메뉴 보기** 를 선택합니다.
 
         ![Safari 고급 기본 설정의 스크린샷](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,29 +132,29 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. **개발**을 선택한 다음 **웹 검사기 표시**를 선택합니다.
+1. **개발** 을 선택한 다음 **웹 검사기 표시** 를 선택합니다.
 
     !["웹 검사기 표시"의 스크린샷](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 
-    1. **네트워크** 탭을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **네트워크** 탭을 선택한 다음 **로그 유지** 를 선택합니다.
 
-          !["로그 유지"의 스크린샷](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![로그 보존 옵션을 보여 주는 스크린샷](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. **콘솔** 탭을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **콘솔** 탭을 선택한 다음 **로그 유지** 를 선택합니다.
 
-          !["로그 유지"의 스크린샷](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![콘솔 탭의 로그 유지를 보여 주는 스크린샷](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. **네트워크** 탭을 선택한 다음 **네트워크 항목 지우기**를 선택합니다.
+1. **네트워크** 탭을 선택한 다음 **네트워크 항목 지우기** 를 선택합니다.
 
     !["네트워크 항목 지우기"의 스크린샷](media/capture-browser-trace/safari-clear-session.png)
 
 1. 포털에서 문제를 재현합니다. 다음 이미지와 비슷한 세션 출력이 표시됩니다.
 
-    ![브라우저 추적 결과의 스크린샷](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![문제를 재현 한 후 출력을 보여 주는 스크린샷](media/capture-browser-trace/safari-browser-trace-results.png)
 
-1. 예기치 않은 포털 동작을 재현한 후 **내보내기**를 선택하고 파일을 저장합니다.
+1. 예기치 않은 포털 동작을 재현한 후 **내보내기** 를 선택하고 파일을 저장합니다.
 
     !["내보내기"의 스크린샷](media/capture-browser-trace/safari-network-export-har.png)
 
@@ -162,7 +162,7 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택하고 창을 확장합니다. 콘솔 출력의 시작 부분에 커서를 놓고 출력의 전체 내용을 끌어서 선택합니다. Command-C를 사용하여 출력을 복사하고 텍스트 파일로 저장합니다.
 
-    ![콘솔 출력의 스크린샷](media/capture-browser-trace/safari-console-select.png)
+    ![출력을 보고 복사할 수 있음을 강조 표시 하는 스크린샷](media/capture-browser-trace/safari-console-select.png)
 
 1. HAR 파일, 콘솔 출력 및 화면 기록을 압축된 형식(예: .zip)으로 패키징하고 Microsoft 지원과 공유합니다.
 
@@ -176,19 +176,19 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. F12 키를 누르거나 ![브라우저 설정 아이콘의 스크린샷](media/capture-browser-trace/firefox-icon-settings.png) > **웹 개발자** > **도구 설정/해제**를 선택합니다.
+1. F12 키를 누르거나 ![브라우저 설정 아이콘의 스크린샷](media/capture-browser-trace/firefox-icon-settings.png) > **웹 개발자** > **도구 설정/해제** 를 선택합니다.
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 
-    1. **네트워크** 탭을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **네트워크** 탭을 선택한 다음 **로그 유지** 를 선택합니다.
 
-          !["로그 유지"의 스크린샷](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![로그 보관 옵션을 강조 표시 하는 스크린샷](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. **콘솔** 탭을 선택하고 **콘솔 설정**을 선택한 다음 **로그 유지**를 선택합니다.
+    1. **콘솔** 탭을 선택하고 **콘솔 설정** 을 선택한 다음 **로그 유지** 를 선택합니다.
 
           !["로그 유지"의 스크린샷](media/capture-browser-trace/firefox-console-persist-logs.png)
 
-1. **네트워크** 탭을 선택한 다음 **지우기**를 선택합니다.
+1. **네트워크** 탭을 선택한 다음 **지우기** 를 선택합니다.
 
     !["지우기"의 스크린샷](media/capture-browser-trace/firefox-clear-session.png)
 
@@ -196,13 +196,13 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
     ![브라우저 추적 결과의 스크린샷](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. 예기치 않은 포털 동작을 재현한 후 **HAR 내보내기/가져오기**를 선택하고 **HAR로 모두 저장**을 선택합니다.
+1. 예기치 않은 포털 동작을 재현한 후 **HAR 내보내기/가져오기** 를 선택하고 **HAR로 모두 저장** 을 선택합니다.
 
     !["HAR 내보내기"의 스크린샷](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Windows에서 단계 레코더 또는 Mac에서 화면 녹화를 중지하고 녹화를 저장합니다.
 
-1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택합니다. 메시지 중 하나를 마우스 오른쪽 단추로 클릭한 다음 **표시되는 메시지 내보내기**를 선택하고 콘솔 출력을 텍스트 파일로 저장합니다.
+1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택합니다. 메시지 중 하나를 마우스 오른쪽 단추로 클릭한 다음 **표시되는 메시지 내보내기** 를 선택하고 콘솔 출력을 텍스트 파일로 저장합니다.
 
     ![콘솔 출력의 스크린샷](media/capture-browser-trace/firefox-console-select.png)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604685"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146475"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -44,11 +44,11 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
 다음 크기 조정 지침에 따라 마스터 대상을 만듭니다.
-- **RAM**: 6GB 이상
-- **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
-- **보존 드라이브에 대한 추가 디스크 크기**: 1TB
-- **CPU 코어**: 4 코어 이상
-- **커널**: 4.16. *
+- **RAM** : 6GB 이상
+- **OS 디스크 크기** : 100GB 이상(OS 설치에 필요)
+- **보존 드라이브에 대한 추가 디스크 크기** : 1TB
+- **CPU 코어** : 4 코어 이상
+- **커널** : 4.16. *
 
 ## <a name="deploy-the-master-target-server"></a>마스터 대상 서버 배포
 
@@ -59,14 +59,14 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
-1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
+1.  기본 설정 언어로 **영어** 를 선택하고 **Enter** 키를 선택합니다.
     
     ![언어 선택](./media/vmware-azure-install-linux-master-target/image1.png)
-1. **Ubuntu 서버 설치**를 선택하고 **Enter** 키를 선택합니다.
+1. **Ubuntu 서버 설치** 를 선택하고 **Enter** 키를 선택합니다.
 
     ![Ubuntu Server 설치 선택](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
+1.  기본 설정 언어로 **영어** 를 선택하고 **Enter** 키를 선택합니다.
 
     ![원하는 언어로 영어 선택](./media/vmware-azure-install-linux-master-target/image3.png)
 
@@ -74,28 +74,28 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
     ![올바른 표준 시간대 선택](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
+1. **아니요** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
 1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
-1. **호스트 이름** 상자에 서버의 호스트 이름을 입력하고 **계속**을 선택합니다.
+1. **호스트 이름** 상자에 서버의 호스트 이름을 입력하고 **계속** 을 선택합니다.
 
-1. 사용자 계정을 만들려면 사용자 이름을 입력하고 **계속**을 선택합니다.
+1. 사용자 계정을 만들려면 사용자 이름을 입력하고 **계속** 을 선택합니다.
 
       ![사용자 계정 만들기](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. 새 사용자 계정의 암호를 입력하고 **계속**을 선택합니다.
+1. 새 사용자 계정의 암호를 입력하고 **계속** 을 선택합니다.
 
-1.  새 사용자의 암호를 확인하고 **계속**을 선택합니다.
+1.  새 사용자의 암호를 확인하고 **계속** 을 선택합니다.
 
     ![암호 확인](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  홈 디렉터리를 암호화하기 위한 다음 선택 영역에서 **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
+1.  홈 디렉터리를 암호화하기 위한 다음 선택 영역에서 **아니요** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
-1. 표시되는 표준 시간대가 올바르면 **예**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다. 표준 시간대를 다시 구성하려면 **아니요**를 선택합니다.
+1. 표시되는 표준 시간대가 올바르면 **예** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다. 표준 시간대를 다시 구성하려면 **아니요** 를 선택합니다.
 
 1. 분할 방법 옵션에서 **단계별 - 전체 디스크 사용** 옵션을 선택하고 **Enter** 키를 선택합니다.
 
@@ -105,13 +105,13 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
     ![디스크 선택](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  **예**를 선택하여 디스크에 변경 내용을 쓰고 **Enter** 키를 선택합니다.
+1.  **예** 를 선택하여 디스크에 변경 내용을 쓰고 **Enter** 키를 선택합니다.
 
     ![기본 옵션 선택](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  구성 프록시 선택 영역에서 기본 옵션을 선택하고 **계속**을 선택한 다음, **Enter** 키를 선택합니다.
+1.  구성 프록시 선택 영역에서 기본 옵션을 선택하고 **계속** 을 선택한 다음, **Enter** 키를 선택합니다.
      
-     ![업그레이드를 관리하는 방법 선택](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![계속을 선택 하 고 Enter 키를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  시스템 업그레이드를 관리하기 위한 선택 영역에서 **자동 업데이트 없음** 옵션을 선택하고 **Enter** 키를 선택합니다.
 
@@ -120,24 +120,24 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
     > [!WARNING]
     > Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하기 때문에 가상 머신에서 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. **자동 업데이트 없음** 옵션을 선택했는지 확인합니다.
 
-1.  기본 옵션을 선택합니다. SSH 연결에 openSSH를 설정하려는 경우 **OpenSSH 서버** 옵션을 선택한 다음 **계속**을 선택합니다.
+1.  기본 옵션을 선택합니다. SSH 연결에 openSSH를 설정하려는 경우 **OpenSSH 서버** 옵션을 선택한 다음 **계속** 을 선택합니다.
 
     ![소프트웨어 선택](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. GRUB 부팅 로더를 설치하기 위한 선택 영역에서 **Yes**를 선택하고 **Enter** 키를 누릅니다.
+1. GRUB 부팅 로더를 설치하기 위한 선택 영역에서 **Yes** 를 선택하고 **Enter** 키를 누릅니다.
      
     ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
+1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda** )를 선택하고 **Enter** 키를 선택합니다.
      
     ![해당 디바이스 선택](./media/vmware-azure-install-linux-master-target/image21.png)
 
-1. **계속**을 선택한 다음, **Enter** 키를 선택하여 설치를 완료합니다.
+1. **계속** 을 선택한 다음, **Enter** 키를 선택하여 설치를 완료합니다.
 
     ![설치 완료](./media/vmware-azure-install-linux-master-target/image22.png)
 
-1. 설치가 완료된 후에 새 사용자 자격 증명을 사용하여 VM에 로그인합니다. (자세한 정보는 **10단계**를 참조하세요.)
+1. 설치가 완료된 후에 새 사용자 자격 증명을 사용하여 VM에 로그인합니다. (자세한 정보는 **10단계** 를 참조하세요.)
 
 1. 루트 사용자 암호를 설정하려면 다음 스크린샷에 설명된 단계를 사용합니다. 그런 다음 루트 사용자로 로그인합니다.
 
@@ -150,25 +150,25 @@ Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면
 
 1. 가상 머신을 종료합니다.
 
-2. 왼쪽 창에서 가상 머신의 항목을 마우스 오른쪽 단추로 클릭한 다음 **편집 설정**을 선택합니다.
+2. 왼쪽 창에서 가상 머신의 항목을 마우스 오른쪽 단추로 클릭한 다음 **편집 설정** 을 선택합니다.
 
 3. **옵션** 탭을 선택합니다.
 
-4. 왼쪽 창에서 **고급** > **일반**을 선택한 다음 화면의 오른쪽 아래에서 **구성 매개 변수** 단추를 선택합니다.
+4. 왼쪽 창에서 **고급** > **일반** 을 선택한 다음 화면의 오른쪽 아래에서 **구성 매개 변수** 단추를 선택합니다.
 
     ![구성 매개 변수 열기](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     **구성 매개 변수** 옵션은 컴퓨터가 실행 중인 동안에는 사용할 수 없습니다. 이 탭을 활성화하려면 가상 머신을 종료합니다.
 
-5. **disk.EnableUUID**가 있는 행이 있는지 확인합니다.
+5. **disk.EnableUUID** 가 있는 행이 있는지 확인합니다.
 
-   - 값이 있고 **False**로 설정되어 있으면 **True**로 변경합니다. (이 값은 대/소문자를 구분하지 않습니다.)
+   - 값이 있고 **False** 로 설정되어 있으면 **True** 로 변경합니다. (이 값은 대/소문자를 구분하지 않습니다.)
 
-   - 값이 있고 **True**로 설정되어 있으면 **취소**를 선택합니다.
+   - 값이 있고 **True** 로 설정되어 있으면 **취소** 를 선택합니다.
 
-   - 값이 없으면 **행 추가**를 선택합니다.
+   - 값이 없으면 **행 추가** 를 선택합니다.
 
-   - 이름 열에서 **disk.EnableUUID**를 추가하고 값을 **TRUE**로 설정합니다.
+   - 이름 열에서 **disk.EnableUUID** 를 추가하고 값을 **TRUE** 로 설정합니다.
 
      ![disk.EnableUUID가 있는지 확인](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -196,14 +196,14 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> 설치 관리자를 다운로드하고 홈 디렉터리에 압축을 풉니다. **/usr/Local**에 압축을 풀면 설치가 실패합니다.
+> 설치 관리자를 다운로드하고 홈 디렉터리에 압축을 풉니다. **/usr/Local** 에 압축을 풀면 설치가 실패합니다.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>프로세스 서버에서 설치 프로그램 액세스
 
-1. 프로세스 서버에서 **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**로 이동합니다.
+1. 프로세스 서버에서 **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository** 로 이동합니다.
 
-2. 프로세스 서버에서 필요한 설치 프로그램 파일을 복사하고 홈 디렉터리에 **latestlinuxmobsvc.tar.gz**로 저장합니다.
+2. 프로세스 서버에서 필요한 설치 프로그램 파일을 복사하고 홈 디렉터리에 **latestlinuxmobsvc.tar.gz** 로 저장합니다.
 
 
 ### <a name="apply-custom-configuration-changes"></a>사용자 지정 구성 변경 내용 적용
@@ -238,7 +238,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>** .
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -257,7 +257,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-    **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
+    **Esc** 키를 선택하고 **:wq** (쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
 ### <a name="install-the-master-target"></a>마스터 대상 설치
 
@@ -274,7 +274,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     ```
 
-2. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
+2. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** 에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt** 로 저장합니다.
 
     `echo <passphrase> >passphrase.txt`
 
@@ -300,7 +300,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>대화식 설치를 사용하여 마스터 대상 설치
 
-1. 다음 명령을 실행하여 마스터 대상을 설치합니다. 에이전트 역할의 경우 **마스터 대상**을 선택합니다.
+1. 다음 명령을 실행하여 마스터 대상을 설치합니다. 에이전트 역할의 경우 **마스터 대상** 을 선택합니다.
 
     ```
     ./install
@@ -329,7 +329,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 ### <a name="upgrade-the-master-target-server"></a>마스터 대상 서버 업그레이드
 
-설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 **Y**를 선택합니다.  설치가 완료된 후에 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
+설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 **Y** 를 선택합니다.  설치가 완료된 후에 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
 
 `cat /usr/local/.vx_version`
 
@@ -352,7 +352,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 
 ## <a name="next-steps"></a>다음 단계
-마스터 대상의 설치 및 등록이 완료되면 구성 서버 개요 아래에 있는 **Site Recovery 인프라**의 **마스터 대상** 섹션에 마스터 대상이 표시된 것을 확인할 수 있습니다.
+마스터 대상의 설치 및 등록이 완료되면 구성 서버 개요 아래에 있는 **Site Recovery 인프라** 의 **마스터 대상** 섹션에 마스터 대상이 표시된 것을 확인할 수 있습니다.
 
 이제 [다시 보호](vmware-azure-reprotect.md)와 장애 복구를 계속 진행할 수 있습니다.
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "86171859"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -23,17 +23,17 @@ ms.locfileid: "86171859"
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>VNet 피어링을 사용하여 스포크 VNet 연결
 
-다음 그림은 스포크 VNet(가상 네트워크)의 Azure Virtual Network 피어링 세부 정보를 보여줍니다. 두 개의 VNet 간에 피어링을 설정하는 방법을 알아보려면 [VNet 피어링 관리][VNet-Config]를 참조하세요. 스포크 VNet이 허브 VNet에 연결된 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용**을 선택합니다.
+다음 그림은 스포크 VNet(가상 네트워크)의 Azure Virtual Network 피어링 세부 정보를 보여줍니다. 두 개의 VNet 간에 피어링을 설정하는 방법을 알아보려면 [VNet 피어링 관리][VNet-Config]를 참조하세요. 스포크 VNet이 허브 VNet에 연결된 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용** 을 선택합니다.
 
 [![1]][1]
 
-다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 허브 게이트웨이를 사용 하도록 스포크 VNet을 허용 하려면 **게이트웨이 전송 허용**을 선택 합니다.
+다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 허브 게이트웨이를 사용 하도록 스포크 VNet을 허용 하려면 **게이트웨이 전송 허용** 을 선택 합니다.
 
 [![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 분기 VNet 연결
 
-Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNet 간의 사이트 간 VNet 연결을 설정합니다. 기본적으로 VPN 게이트웨이 및 Azure ExpressRoute 게이트웨이는 **65515**의 프라이빗 ASN(자치 시스템 번호) 값을 사용합니다. VPN Gateway에서 ASN 값을 변경할 수 있습니다. 테스트 설정에서 분기 VNet VPN 게이트웨이의 ASN 값은 허브 VNet과 분기 VNet 간에 eBGP 라우팅을 지원하도록 **65516**으로 변경됩니다.
+Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNet 간의 사이트 간 VNet 연결을 설정합니다. 기본적으로 VPN 게이트웨이 및 Azure ExpressRoute 게이트웨이는 **65515** 의 프라이빗 ASN(자치 시스템 번호) 값을 사용합니다. VPN Gateway에서 ASN 값을 변경할 수 있습니다. 테스트 설정에서 분기 VNet VPN 게이트웨이의 ASN 값은 허브 VNet과 분기 VNet 간에 eBGP 라우팅을 지원하도록 **65516** 으로 변경됩니다.
 
 
 [![3]][3]
@@ -45,11 +45,11 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 다음 그림은 온-프레미스 위치 1 CE(고객 에지) 라우터를 지향하는 Azure 지역 1 ExpressRoute 회로 구성을 보여줍니다.
 
-[![4]][4]
+[![3-4]][4]
 
 다음 그림은 ExpressRoute 1 회로와 허브 VNet 간의 연결 구성을 보여줍니다.
 
-[![5]][5]
+[ ![5]][5]
 
 다음 목록은 ExpressRoute 프라이빗 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용 됩니다. 사이트 간 VPN 및 Express 경로 회로를 병렬로 구성 하 여 온-프레미스 네트워크를 Azure에 연결 하는 경우 Azure는 기본적으로 Express 경로 회로의 우선 순위를 설정 합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
 

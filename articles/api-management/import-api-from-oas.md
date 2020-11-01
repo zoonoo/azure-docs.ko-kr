@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626873"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146759"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 
@@ -38,12 +38,12 @@ ms.locfileid: "91626873"
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
-1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
-2. **새 API 추가** 목록에서 **OpenAPI 사양**을 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API** 를 선택합니다.
+2. **새 API 추가** 목록에서 **OpenAPI 사양** 을 선택합니다.
 
     ![OpenAPI 사양](./media/import-api-from-oas/oas-api.png)
 3. API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
 > [!NOTE]
 > API 가져오기 제한 사항은 [다른 문서](api-management-api-import-restrictions.md)에 설명되어 있습니다.

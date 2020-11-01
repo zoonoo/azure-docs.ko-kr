@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/01/2020
 ms.author: apimpm
-ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4d32dd63120a52fd7351977943574455e5cfad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252860"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146657"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Azure API Management에서 Power Platform으로 API 내보내기 
 
@@ -33,14 +33,14 @@ Microsoft [Power Platform](https://powerplatform.microsoft.com)을 사용하는 
 
 ## <a name="export-an-api"></a>API 내보내기
 
-1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API** 를 선택합니다.
 2. 내보내려는 API 옆에 있는 세 개의 점을 클릭합니다. 
-3. **내보내기**를 선택합니다.
-4. **Power Apps 및 Power Automate**를 선택합니다.
+3. **내보내기** 를 선택합니다.
+4. **Power Apps 및 Power Automate** 를 선택합니다.
 5. API를 내보낼 환경을 선택합니다. 
 6. 사용자 지정 커넥터의 이름으로 사용될 표시 이름을 제공합니다.  
 7. 선택 사항으로 API가 OAuth 2.0 서버에 의해 보호되는 경우 `Client ID`, `Client secret`, `Authorization URL`, `Token URL` 및 `Refresh URL` 등의 추가 정보도 제공해야 합니다.  
-8. **내보내기**를 선택합니다. 
+8. **내보내기** 를 선택합니다. 
 
 내보내기가 완료되면 Power App 또는 Power Automate 환경으로 이동합니다. API는 사용자 지정 커넥터로 표시됩니다.
 

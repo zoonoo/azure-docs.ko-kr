@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ec82ec6613b6d2e68d01815d5669bfb169037e72
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787485"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146572"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure 큐 저장소 모니터링 데이터 참조
 
@@ -26,7 +26,7 @@ Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [
 
 ### <a name="capacity-metrics"></a>용량 메트릭
 
-용량 메트릭 값은 매 1시간마다 Azure Monitor에 전송됩니다. 값은 매일 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
+용량 메트릭 값은 매일 (최대 24 시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
 
 Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공합니다.
 
@@ -77,7 +77,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - Azure Storage 모니터링에 대 한 설명은 [Azure Queue Storage 모니터링](monitor-queue-storage.md) 을 참조 하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.

@@ -9,10 +9,10 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92479578"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 **리소스, 서비스 및 문서 검색(G+/)** 에 **가상 네트워크 게이트웨이** 를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다.

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505342"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145755"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,21 @@ ms.locfileid: "89505342"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="october-2020"></a>2020년 10월
+
+### <a name="animated-character-identification-improvements"></a>문자 id의 애니메이션 향상  
+
+Video Indexer은 Cognitive Services 사용자 지정 비전과의 통합을 통해 애니메이션 된 콘텐츠의 문자 검색, 그룹화 및 인식을 지원 합니다. 검색 및 문자 인식에서이 AI 알고리즘에 대해 크게 향상 된 기능을 추가 했습니다. 결과 정보 정확도 및 식별 된 문자가 크게 향상 됩니다.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>계획 된 Video Indexer 웹 사이트 authenticatication 변경 내용
+
+2021 1 월 1 일부 터는 더 이상 Facebook 또는 LinkedIn을 사용 하 여 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트 (평가판 제공)에 등록 하 고 로그인 할 수 없습니다.
+
+Azure AD, Microsoft, Google 등의 공급자 중 하나를 사용 하 여 등록 하 고 로그인 할 수 있습니다.
+
+> [!NOTE]
+> LinkedIn 및 Facebook에 연결 된 계정이 삭제 되 고 콘텐츠에 더 이상 액세스할 수 없기 때문에 2021의 1 월 1 일 이전에 콘텐츠를 내보내는 것이 좋습니다.
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -123,7 +138,7 @@ Video Indexer 지역 끝점은 모두 www로만 시작 되도록 통합 되었�
     * URL을 Video Indexer 위젯 Api (예: [insights 위젯](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))를 가리키는 url로 바꿉니다.
     * Video Indexer 웹 사이트를 사용 하 여 새 포함 된 URL 생성:
          
-         **Play** 를 눌러 비디오 페이지로 이동 합니다. > ** &lt; / &gt; 포함** 단추를 클릭 하 > URL을 응용 프로그램에 복사 합니다.
+         **Play** 를 눌러 비디오 페이지로 이동 합니다. > **&lt; / &gt; 포함** 단추를 클릭 하 > URL을 응용 프로그램에 복사 합니다.
    
     지역 Url은 지원 되지 않으며, 몇 주 후에 차단 됩니다.
 

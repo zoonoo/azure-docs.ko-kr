@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 48f33514510618abadf329a11a9ab71a020be0bd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92479591"
 ---
 1. 가상 네트워크 게이트웨이에 대한 페이지를 엽니다. **VNet 이름 -> 개요 -> 연결된 디바이스 -> 게이트웨이 이름** 으로 이동하여 게이트웨이로 이동할 수 있지만 다른 여러 가지 방법으로도 탐색할 수 있습니다.

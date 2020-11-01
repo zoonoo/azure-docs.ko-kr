@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: victorh
-ms.openlocfilehash: 759b8211aa8790e81c273f3d90d6679e70012ea4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c61dc689d19e1a7d6f9b6dbefae846e9458d750
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133661"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146861"
 ---
 # <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Check Point Cloudguard Connect를 사용 하 여 가상 허브 보호
 
@@ -30,7 +30,7 @@ Check Point는 단일 우산에서 여러 보안 서비스를 통합 합니다. 
 
 다음 동영상을 시청 하 여 Check Point CloudGuard Connect를 신뢰할 수 있는 Azure 보안 파트너로 배포 하는 방법을 확인 하세요.
 
-> [!VIDEO https://youtu.be/C8AuN76DEmU]
+> [!VIDEO https://www.youtube.com/embed/C8AuN76DEmU]
 
 ## <a name="next-steps"></a>다음 단계
 

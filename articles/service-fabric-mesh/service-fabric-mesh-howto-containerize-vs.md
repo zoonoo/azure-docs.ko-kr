@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f236292fff0d0e806e6eec32e1e058cbf67545c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840067"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144480"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
 
@@ -39,25 +39,31 @@ Visual Studio 2017에서 전체 .NET Framework를 사용하는 ASP.NET 및 콘�
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
 ```
 
-일단 다운로드하면 Visual Studio 2017에서 **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**을 엽니다.
+일단 다운로드하면 Visual Studio 2017에서 **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln** 을 엽니다.
 
 ## <a name="add-container-support"></a>컨테이너 지원 추가
  
 Service Fabric Mesh 도구를 사용하여 기존 ASP.NET 또는 콘솔 프로젝트에 컨테이너 오케스트레이션 지원을 추가합니다.
 
-Visual Studio 솔루션 탐색기에서 프로젝트 이름(예: **eShopLegacyWebForms**)을 마우스 오른쪽 단추로 클릭한 다음, **추가** > **컨테이너 오케스트레이터 지원**을 선택합니다.
+Visual Studio 솔루션 탐색기에서 프로젝트 이름(예: **eShopLegacyWebForms** )을 마우스 오른쪽 단추로 클릭한 다음, **추가** > **컨테이너 오케스트레이터 지원** 을 선택합니다.
 **컨테이너 오케스트레이터 지원 추가** 대화 상자가 표시됩니다.
 
 ![Visual Studio 추가 컨테이너 오케스트레이터 대화 상자](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-드롭다운 목록에서 **Service Fabric Mesh**를 선택하고 **확인**을 클릭합니다.
+드롭다운 목록에서 **Service Fabric Mesh** 를 선택하고 **확인** 을 클릭합니다.
+
+
+>[!NOTE]
+> 2020 년 11 월 2 일부 터 [다운로드 요금 제한은](https://docs.docker.com/docker-hub/download-rate-limit/) docker 무료 계획 계정에서 docker 허브에 대 한 익명 및 인증 된 요청에 적용 되며 IP 주소에 의해 적용 됩니다. 자세한 내용은 [Docker 허브를 사용 하 여 인증](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub)을 참조 하세요.
+>
+> 요금 제한을 방지 하려면 `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` Dockerfile의 기본값이로 바뀌는지 확인 합니다. `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 이 도구는 Docker가 설치되고, 프로젝트에 Dockerfile을 추가하고, 프로젝트의 Docker 이미지를 끌어왔는지 확인합니다.  
-Service Fabric Mesh 애플리케이션 프로젝트를 솔루션에 추가합니다. Mesh 게시 프로필 및 구성 파일이 포함됩니다. 프로젝트의 이름은 사용자 프로젝트 이름의 끝에 'Application'을 연결한 것과 같습니다(예: **eShopLegacyWebFormsApplication**). 
+Service Fabric Mesh 애플리케이션 프로젝트를 솔루션에 추가합니다. Mesh 게시 프로필 및 구성 파일이 포함됩니다. 프로젝트의 이름은 사용자 프로젝트 이름의 끝에 'Application'을 연결한 것과 같습니다(예: **eShopLegacyWebFormsApplication** ). 
 
 새 Mesh 프로젝트에서 고려해야 하는 두 개의 폴더가 표시됩니다.
-- **앱 리소스**에는 네트워크 등의 추가 Mesh 리소스를 설명하는 YAML 파일이 포함되어 있습니다.
-- **서비스 리소스**에는 앱을 배포할 때 실행해야 하는 방법을 설명하는 service.yaml 파일이 포함되어 있습니다.
+- **앱 리소스** 에는 네트워크 등의 추가 Mesh 리소스를 설명하는 YAML 파일이 포함되어 있습니다.
+- **서비스 리소스** 에는 앱을 배포할 때 실행해야 하는 방법을 설명하는 service.yaml 파일이 포함되어 있습니다.
 
 컨테이너 오케스트레이션 지원을 앱에 추가하면 **F5** 키를 눌러 로컬 Service Fabric Mesh 클러스터에서 .NET 앱을 디버그할 수 있습니다. Service Fabric Mesh 클러스터에서 실행 중인 eShop ASP.NET 앱은 다음과 같습니다. 
 

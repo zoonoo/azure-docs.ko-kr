@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097076"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146316"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -73,19 +73,19 @@ Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다�
  
 이벤트 경로를 만들려면 Azure Digital Twins [**데이터 평면 api**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI 명령**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)또는 [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다. 
 
-다음은 `CreateEventRoute` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
+다음은 `CreateOrReplaceEventRouteAsync` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. 먼저 `EventRoute` 개체가 만들어지고 생성자는 끝점의 이름을 사용 합니다. 이 `endpointName` 필드는 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
+1. 먼저 `DigitalTwinsEventRoute` 개체가 만들어지고 생성자는 끝점의 이름을 사용 합니다. 이 `endpointName` 필드는 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
 
 2. 이벤트 경로 개체에는이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있는 [**필터**](how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. 필터는 `true` 추가 필터링 없이 경로를 사용 하도록 설정 합니다. 필터는 `false` 경로를 사용 하지 않도록 설정 합니다. 
 
-3. 그런 다음이 이벤트 경로 개체는 `CreateEventRoute` 경로에 대 한 이름과 함께에 전달 됩니다.
+3. 그런 다음이 이벤트 경로 개체는 `CreateOrReplaceEventRouteAsync` 경로에 대 한 이름과 함께에 전달 됩니다.
 
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.

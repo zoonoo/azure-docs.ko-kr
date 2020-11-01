@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 54b6415b3d9ef9f9d5a5c9f5745c0d1ff81dc6e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7bb336c6c1f483160b760b266e01249b7e1ee04e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93071473"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145551"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -59,7 +59,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - GitHub: [Azure IoT Digital Twins client library for .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)의 샘플 폴더를 포함 하 여 SDK 원본을 찾을 수 있습니다. 
    - 이 문서의 [.net (c #) SDK (데이터 평면)](#net-c-sdk-data-plane) 섹션을 계속 진행 하 여 자세한 정보 및 사용 예를 볼 수 있습니다.
 * **Java** SDK를 사용할 수 있습니다. Java SDK를 사용 하려면 ...
-   - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
    - [SDK 참조 설명서](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview) 를 볼 수 있습니다.
    - GitHub에서 SDK 원본을 찾을 수 있습니다. [Java 용 Azure IoT Digital Twins 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
@@ -120,8 +120,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-await foreach (ModelData md in modelDataList)
+AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+await foreach (DigitalTwinsModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
@@ -131,13 +131,13 @@ Wins를 만들고 쿼리 합니다.
 
 ```csharp
 // Initialize twin metadata
-BasicDigitalTwin twinData = new BasicDigitalTwin();
+BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
 
 twinData.Id = $"firstTwin";
 twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.CustomProperties.Add("data", "Hello World!");
+twinData.Contents.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", updateTwinData);
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
@@ -174,20 +174,18 @@ Serialization 도우미는 기본 정보에 대 한 액세스를 위해 쌍 데�
 또는와 같이 선택한 JSON 라이브러리를 사용 하 여 항상 쌍 데이터를 deserialize 할 수 있습니다 `System.Test.Json` `Newtonsoft.Json` . 쌍에 대 한 기본 액세스의 경우 도우미 클래스를 사용 하면 좀 더 편리 하 게 만들 수 있습니다.
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 ```
 
 `BasicDigitalTwin`도우미 클래스는를 통해 쌍에 정의 된 속성에 대 한 액세스도 제공 `Dictionary<string, object>` 합니다. 쌍의 속성을 나열 하려면 다음을 사용할 수 있습니다.
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -203,9 +201,9 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 위의 코드는 다음 "수동" 변형과 동일 합니다.
@@ -220,28 +218,26 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "$metadata", meta },
     { "Temperature", 25.0 }
 };
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 ##### <a name="deserialize-a-relationship"></a>관계 Deserialize
 
-또는와 같이 선택한 JSON 라이브러리를 사용 하 여 언제 든 지 관계 데이터를 deserialize 할 수 있습니다 `System.Test.Json` `Newtonsoft.Json` . 관계에 대 한 기본 액세스의 경우 도우미 클래스를 사용 하면 좀 더 편리 하 게 만들 수 있습니다.
+언제 든 지 관계 데이터를 선택한 형식으로 deserialize 할 수 있습니다. 관계에 대 한 기본 액세스를 위해 형식을 사용 `BasicRelationship` 합니다.
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
 ```
 
-`BasicRelationship`도우미 클래스는를 통해 관계에 정의 된 속성에 대 한 액세스도 제공 `Dictionary<string, object>` 합니다. 속성을 나열 하려면 다음을 사용할 수 있습니다.
+`BasicRelationship`도우미 클래스는를 통해 관계에 정의 된 속성에 대 한 액세스도 제공 `IDictionary<string, object>` 합니다. 속성을 나열 하려면 다음을 사용할 수 있습니다.
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
-foreach (string prop in rel.CustomProperties.Keys)
+foreach (string prop in rel.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -257,21 +253,22 @@ rel.Name = "contains"; // a relationship with this name must be defined in the m
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("active", true);
-rel.CustomProperties = props;
-client.CreateRelationship("mySourceTwin", "rel001", JsonSerializer.Serialize<BasicRelationship>(rel));
+rel.Properties = props;
+client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
 ```
 
 ##### <a name="create-a-patch-for-twin-update"></a>쌍 업데이트에 대 한 패치 만들기
 
-쌍 및 관계에 대 한 Update 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용 합니다. JSON 패치 작업 목록을 만들려면 `UpdateOperationsUtility` 아래와 같이 클래스를 사용할 수 있습니다.
+쌍 및 관계에 대 한 Update 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용 합니다. JSON 패치 작업 목록을 만들려면 아래와 같이를 사용할 수 있습니다 `JsonPatchDocument` .
 
 ```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-uou.AppendAddOp("/myComponent/Property", "Hello");
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", 25.0);
+updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
 // Un-set a property
-uou.AppendRemoveOp("/Humidity");
-client.UpdateDigitalTwin("myTwin", uou.Serialize());
+updateTwinData.AppendRemoveOp("/Humidity");
+
+client.UpdateDigitalTwin("myTwin", updateTwinData);
 ```
 
 ## <a name="general-apisdk-usage-notes"></a>일반 API/SDK 사용 메모

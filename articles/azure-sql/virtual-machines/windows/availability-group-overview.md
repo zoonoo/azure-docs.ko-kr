@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789916"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146691"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

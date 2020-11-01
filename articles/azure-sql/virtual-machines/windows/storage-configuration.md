@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793078"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146725"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Azure에서 SQL Server VM (가상 머신) 이미지를 구성 하는 경우 Azur
 
 SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 경우 **SQL Server 설정** 탭에서 **구성 변경** 을 선택하여 성능 최적화 스토리지 구성 페이지를 엽니다. 값을 기본값 그대로 두거나 워크로드에 따라 사용자의 요구에 가장 적합하게 디스크 구성 유형을 수정할 수 있습니다. 
 
-![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![SQL Server 설정 탭과 변경 구성 옵션을 강조 표시 하는 스크린샷](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 **스토리지 최적화** 에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. **트랜잭션 처리** (OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
 
@@ -103,7 +103,7 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 
 스토리지 설정을 수정하려면 **설정** 에서 **구성** 을 선택합니다. 
 
-![기존 SQL Server VM에 대한 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![구성 옵션 및 저장소 사용량 섹션을 강조 표시 하는 스크린샷](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 SQL Server VM 만들기 프로세스 중에 구성된 드라이브의 디스크 설정을 수정할 수 있습니다. **드라이브 확장** 을 선택하면 드라이브 수정 페이지가 열리며 디스크 유형을 변경하고 디스크를 더 추가할 수 있습니다. 
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271905"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146674"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>로그 디스크를 울트라 디스크로 마이그레이션
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,15 +44,15 @@ VM에서 ultradisk compatibility를 사용 하도록 설정 하면 가상 머신
 
 1. [Azure Portal](https://portal.azure.com/)에서 가상 머신으로 이동 합니다. 
 1. 가상 컴퓨터를 중지/할당 취소 합니다. 
-1. **설정** 아래에서 **디스크** 를 선택 하 고 **추가 설정**을 선택 합니다. 
+1. **설정** 아래에서 **디스크** 를 선택 하 고 **추가 설정** 을 선택 합니다. 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Azure Portal의 설정에서 디스크에 대 한 추가 설정을 선택 합니다.":::
 
-1. **예** 를 선택 하 여 **Ultra Disk 호환성을 사용 하도록 설정**합니다. 
+1. **예** 를 선택 하 여 **Ultra Disk 호환성을 사용 하도록 설정** 합니다. 
 
    :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Azure Portal의 설정에서 디스크에 대 한 추가 설정을 선택 합니다.":::
 
-1. **저장**을 선택합니다. 
+1. **저장** 을 선택합니다. 
 
 
 
@@ -83,7 +83,7 @@ Azure Portal를 사용 하 여 가상 머신에 울트라 디스크를 연결 �
 1. SQL Server에서 사용 하는 서비스 계정을 확인 합니다. SQL Server 구성 관리자 또는 services.msc를 사용 하 여이 작업을 수행할 수 있습니다.
 1. 새 디스크로 이동 합니다. 
 1. 로그 파일에 사용할 폴더 (또는 여러 폴더)를 만듭니다. 
-1. 해당 폴더를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다.
+1. 해당 폴더를 마우스 오른쪽 단추로 클릭한 다음 **속성** 을 선택합니다.
 1. **보안** 탭에서 SQL Server 서비스 계정에 대 한 모든 권한을 부여 합니다. 
 1. **확인** 을 선택 하 여 설정을 저장 합니다. 
 1. SQL 데이터를 저장할 모든 루트 수준 폴더에 대해이 단계를 반복 합니다. 
@@ -97,7 +97,7 @@ Azure Portal를 사용 하 여 가상 머신에 울트라 디스크를 연결 �
 
 
 
-# <a name="transact-sql-t-sql"></a>[Transact-SQL(T-SQL)](#tab/tsql)
+# <a name="transact-sql-t-sql"></a>[Transact-sql (T-sql)](#tab/tsql)
 
 T-sql을 사용 하 여 기존 파일을 새 위치로 이동 합니다.
 
@@ -143,14 +143,14 @@ T-sql을 사용 하 여 기존 파일을 새 위치로 이동 합니다.
 SSMS를 사용 하 여 기존 파일을 새 위치로 이동 합니다.
 
 1. SSMS (SQL Server Management Studio)에서 데이터베이스에 연결 합니다. 
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택한 다음 **파일**을 선택 합니다. 
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택한 다음 **파일** 을 선택 합니다. 
 1. 기존 파일의 경로를 적어둡니다. 
-1. **확인**을 선택하여 대화 상자를 닫습니다. 
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **태스크**  >  **분리**를 선택 합니다. 
+1. **확인** 을 선택하여 대화 상자를 닫습니다. 
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **태스크**  >  **분리** 를 선택 합니다. 
 1. 마법사에 따라 데이터베이스를 분리 합니다. 
 1. 파일 탐색기를 사용 하 여 로그 파일을 수동으로 새 위치로 이동 합니다.
 1. SQL Server Management Studio에서 데이터베이스 연결
-   1. **개체 탐색기** 에서 **데이터베이스** 를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스 연결**을 선택 합니다. 
+   1. **개체 탐색기** 에서 **데이터베이스** 를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스 연결** 을 선택 합니다. 
    1. 대화 상자를 사용 하 여 새 위치에 로그 파일을 포함 하 여 각 파일을 추가 합니다. 
    1. **확인** 을 선택 하 여 데이터베이스를 연결 합니다. 
 
