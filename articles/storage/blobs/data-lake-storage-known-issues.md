@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042676"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186589"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -41,7 +41,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 이 섹션에서는 Blob API와 Data Lake Storage Gen2 API를 사용하여 동일한 데이터에서 작업하는 경우의 문제점과 제한 사항에 대해 설명합니다.
 
-* API와 Data Lake Storage Api를 모두 사용 하 여 동일한 파일 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 유일한 예외는를 사용 하 여 덮어쓰는 것입니다. 두 API를 사용 하 여 파일/b a s e/blob을 덮어쓸 수 있습니다.
+* Blob API 및 Data Lake Storage Api를 사용 하 여 파일의 동일한 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 유일한 예외는를 사용 하 여 덮어쓰는 것입니다. 두 API를 사용 하 여 파일/b a s e/blob을 덮어쓸 수 있습니다.
 
 * 구분 기호를 지정하지 않고 [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 작업을 사용하면 결과에 디렉터리와 Blob이 모두 포함됩니다. 구분 기호를 사용하려면 슬래시(`/`)만 사용합니다. 이것이 유일하게 지원되는 구분 기호입니다.
 

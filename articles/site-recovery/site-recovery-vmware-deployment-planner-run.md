@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용 하 여 VMware 재해 복구를 위해 Deployment Planner를 실행 합니다.
 description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
-ms.author: mayg
-ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: ramamill
+ms.openlocfilehash: 05d260de726c62c130a58938c2a2c9fa2440a96d
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119840"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186725"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Port|(선택 사항) vCenter/ESXi 호스트에 연결할 포트 번호입니다. 기본 포트는 443입니다.|
 |-Protocol| (선택 사항) vCenter에 연결하기 위해 프로토콜을 'http' 또는 'https'로 지정합니다. 기본 프로토콜은 https입니다.|
 | -StorageAccountName | (선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다. |
-| -StorageAccountKey | (선택 사항) 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal &gt; 스토리지 계정 &gt; &lt;*스토리지 계정 이름*&gt; &gt; 설정&gt; 액세스 키 &gt; Key1로 이동합니다. |
+| -StorageAccountKey | (선택 사항) 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal &gt; 스토리지 계정 &gt; &lt; *스토리지 계정 이름* &gt; &gt; 설정&gt; 액세스 키 &gt; Key1로 이동합니다. |
 | -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다. |
 
 
@@ -165,11 +165,11 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Protocol|(선택 사항) vCenter에 연결하기 위해 프로토콜을 'http' 또는 'https'로 지정합니다. 기본 프로토콜은 https입니다.|
 | -DesiredRPO | (선택 사항) 원하는 복구 지점 목표(분)입니다. 기본값은 15분입니다.|
 | -Bandwidth | 대역폭(Mbps)입니다. 지정된 대역폭에서 달성할 수 있는 RPO를 계산하는 데 사용하는 매개 변수입니다. |
-| -StartDate | (선택 사항) MM-DD-YYYY:HH:MM 단위의 시작 날짜 및 시간(24시간 형식)입니다. *StartDate*는 *EndDate*와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
-| -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
+| -StartDate | (선택 사항) MM-DD-YYYY:HH:MM 단위의 시작 날짜 및 시간(24시간 형식)입니다. *StartDate* 는 *EndDate* 와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
+| -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate* 는 *StartDate* 와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
 | -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 스토리지 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
-|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 **지정된 통화**로 비용 예측 보고서를 생성하려면 이 매개 변수가 필요합니다.|
+|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 **지정된 통화** 로 비용 예측 보고서를 생성하려면 이 매개 변수가 필요합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다.<br>기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다.<br>[지원되는 대상 지역](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
 |-OfferId|(선택 사항) 주어진 구독과 연결된 제안입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
 |-Currency|(선택 사항) 생성된 보고서의 비용 표시에 사용되는 통화입니다. 기본값은 미국 달러($) 또는 마지막 사용한 통화입니다.<br>[지원되는 통화](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) 목록을 참조하세요.|
@@ -224,7 +224,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 도구에서는 모든 VM을 프로파일링하는 동안 수집된 읽기/쓰기 IOPS, 쓰기 IOPS 및 데이터 변동의 95번째 백분위수 값을 기본적으로 사용합니다. 이 메트릭은 사용자의 VM이 일시적 이벤트 때문에 볼 수 있는 100번째 백분위수 급증을 대상 스토리지 계정 및 원본 대역폭 요구 사항을 결정하는 데 사용되지 않도록 합니다. 예를 들어 일시적 이벤트는 하루에 한 번 실행하는 백업 작업, 주기적 데이터베이스 인덱싱 또는 분석 보고서 생성 작업 또는 기타 유사한 단기적 시점 이벤트일 수 있습니다.
 
-95번째 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90번째 백분위수로)하지 않은 경우 기본 폴더의 구성 파일 *ASRDeploymentPlanner.exe.config*를 업데이트하고 기존 프로파일링된 데이터에 대한 새 보고서를 생성하기 위해 저장할 수 있습니다.
+95번째 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90번째 백분위수로)하지 않은 경우 기본 폴더의 구성 파일 *ASRDeploymentPlanner.exe.config* 를 업데이트하고 기존 프로파일링된 데이터에 대한 새 보고서를 생성하기 위해 저장할 수 있습니다.
 ```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
@@ -269,7 +269,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)을 지정합니다.|
 | -Directory | (선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 디렉터리 이름을 지정하지 않으면 'ProfiledData' 디렉터리가 사용됩니다. |
 | -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(General-purpose v1) 형식 중 하나여야 합니다.|
-| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > Storage 계정 > <*Storage 계정 이름*> > 설정 > 선택키 > Key1(또는 클래식 Storage 계정의 기본 선택키)로 차례로 이동합니다. |
+| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > Storage 계정 > < *Storage 계정 이름* > > 설정 > 선택키 > Key1(또는 클래식 Storage 계정의 기본 선택키)로 차례로 이동합니다. |
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일에는 VM 이름/IP 주소가 한 줄에 하나씩 있어야 합니다. 파일에 지정된 VM 이름은 vCenter 서버/vSphere ESXi 호스트의 VM 이름과 동일해야 합니다.<br>예를 들어 VMList.txt 파일에는 다음과 같은 VM이 포함되어 있습니다.<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다. |
 
@@ -277,7 +277,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 
 처리량은 특정 시점에서 측정되며, 다른 모든 요소가 동일하게 유지된다는 조건 하에 복제 중에 Site Recovery에서 달성할 수 있는 최대 처리량입니다. 예를 들어 애플리케이션이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. 구성 서버에서 GetThroughput 명령을 실행하는 경우 이 도구는 보호된 VM과 진행 중인 복제를 인식하지 못합니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 프로파일링 중에 여러 시점에서 도구를 실행하여 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```

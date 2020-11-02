@@ -10,19 +10,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738649"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186759"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Files에서 생성 되는 모니터링 데이터 및 Azure Monitor의 기능을 사용 하 여이 데이터에 대 한 경고를 분석 하는 방법을 설명 합니다.
-
-> [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
@@ -65,7 +62,10 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 ## <a name="creating-a-diagnostic-setting"></a>진단 설정 만들기
 
-Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 진단 설정을 만들 수 있습니다. 
+Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 진단 설정을 만들 수 있습니다.
+
+> [!NOTE]
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
 일반적인 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
 

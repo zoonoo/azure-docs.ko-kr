@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: c797148bdc07481cb312739ef020e88963599374
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928773"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186682"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 
@@ -30,6 +30,8 @@ Weblogic 서버 클러스터는 WebLogic Kubernetes 연산자를 통해 Kubernet
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>AKS의 WLS에 대 한 지침, 스크립트 및 샘플
 AKS의 WebLogic 서버 인증 외에도 Oracle과 Microsoft는 AKS에서 WebLogic 서버를 실행 하기 위한 자세한 지침, 스크립트 및 샘플을 제공 합니다. 이 지침은 [운영자 설명서](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)의 Azure Kubernetes Service 샘플 섹션에 통합 되어 있습니다. 이 지침은 최대한 쉽게 AKS 배포에 대 한 프로덕션 WebLogic 서버를 만들기 위한 것입니다. 이 지침에서는 Oracle에서 제공 하는 공식 WebLogic 서버 Docker 이미지를 사용 합니다. 장애 조치 (Failover)는 Kubernetes 영구 볼륨 클레임을 통해 액세스 되는 Azure Files을 통해 이루어집니다. Azure 부하 분산 장치는 ' LoadBalancer ' 유형의 Kubernetes 서비스를 사용 하 여 프로 비전 할 때 지원 됩니다. 이 지침을 통해 높은 수준의 구성과 사용자 지정을 수행할 수 있습니다.
 
+:::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="샘플 스크립트를 사용 하 여 AKS에 WebLogic 서버를 배포할 수 있습니다.":::
+
 이 지침에서는 현재 Docker 이미지 외부에 도메인을 배포 하 고 Oracle의 표준 Docker 이미지를 사용 하는 것으로 가정 합니다. Docker 이미지 내에서 도메인을 사용 하 여 사용자 지정 이미지를 사용 하도록 설정 하기 위한 지침을 추가 합니다. 추가 사용 편의성 및 Azure 서비스 통합은 나중에 Azure Virtual Machines 솔루션에서 Oracle WebLogic 서버 미러링의 Marketplace 제공을 통해 가능 합니다.
 
 _이러한 솔루션은_ 사용자의 라이선스를 가져옵니다. Oracle을 사용 하 여 이미 적절 한 라이선스를 보유 하 고 있으며 Azure에서 제품을 실행할 수 있는 적절 한 라이선스를가지고 있다고 가정 합니다.
@@ -40,7 +42,7 @@ _엔지니어링 팀이 이러한 솔루션을 개발 하는 마이그레이션 
 
 Azure Kubernetes 서비스에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 비교적 편리 하 게 다양 한 프로덕션 지원 배포 아키텍처를 사용 하도록 설정 합니다.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="AKS에서 복합 WebLogic 서버 배포가 사용 됩니다.":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="샘플 스크립트를 사용 하 여 AKS에 WebLogic 서버를 배포할 수 있습니다.":::
 
 솔루션에서 고객에 게 제공 하는 기능 외에도 배포를 더욱 유연 하 게 사용자 지정할 수 있습니다. 응용 프로그램을 배포할 때 고객이 더 많은 Azure 리소스를 배포와 통합 하 게 됩니다. 고객은 솔루션 개선을 위해 설문 조사에 피드백을 제공 하는 것이 좋습니다.
 

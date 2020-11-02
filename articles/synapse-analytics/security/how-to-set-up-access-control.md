@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341552"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186623"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호 
 
@@ -51,8 +51,6 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
 - **WS1\_WSAdmins** – 작업 영역을 완벽하게 제어해야 하는 사용자를 위한 보안 그룹입니다.
 - **WS1\_SparkAdmins** – 작업 영역의 Spark 측면을 완벽하게 제어해야 하는 사용자를 위한 보안 그룹입니다.
 - **WS1\_SQLAdmins** – 작업 영역의 SQL 측면을 완벽하게 제어해야 하는 사용자를 위한 보안 그룹입니다.
-- **WS1\_WSAdmins**를 **WS1\_SQLAdmins**에 추가합니다.
-- **WS1\_WSAdmins**를 **WS1\_SparkAdmins**에 추가합니다.
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>2단계: Data Lake Storage Gen2 계정을 준비합니다.
 
@@ -65,9 +63,9 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
 
 - Azure Portal을 사용하여 CNT1의 보안 그룹에 다음 역할을 할당합니다.
 
-  - **WS1\_WSAdmins**를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
-  - **WS1\_SparkAdmins**를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
-  - **WS1\_SQLAdmins**를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
+  - **WS1\_WSAdmins** 를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
+  - **WS1\_SparkAdmins** 를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
+  - **WS1\_SQLAdmins** 를 **Storage Blob 데이터 기여자** 역할에 할당합니다.
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>3단계: Synapse 작업 영역 만들기 및 구성
 
@@ -78,10 +76,10 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
 - 작업 영역 WS1의 이름 지정
 - 저장소 계정에 대해 STG1를 선택 합니다. "파일 시스템"으로 사용할 컨테이너로 CNT1 선택
 - Synapse Studio에서 WS1 열기
-- **관리** > **액세스 제어**를 선택하고 다음 Synapse 역할에 보안 그룹 할당
-  - **WS1\_WSAdmins**를 Synapse 작업 영역 관리자에게 할당
-  - **WS1\_SparkAdmins**를 Synapse Spark 관리자에게 할당
-  - **WS1\_SQLAdmins**를 Synapse SQL 관리자에게 할당
+- **관리** > **액세스 제어** 를 선택하고 다음 Synapse 역할에 보안 그룹 할당
+  - **WS1\_WSAdmins** 를 Synapse 작업 영역 관리자에게 할당
+  - **WS1\_SparkAdmins** 를 Synapse Spark 관리자에게 할당
+  - **WS1\_SQLAdmins** 를 Synapse SQL 관리자에게 할당
 
 ## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>4 단계: Synapse 작업 영역에서 사용 하도록 Data Lake Storage Gen2 구성
 
@@ -98,7 +96,7 @@ Synapse 작업 영역에서 파이프라인을 실행하고 시스템 작업을 
 
 - Azure 포털 열기
 - WS1으로 이동
-- **설정**에서 **SQL Active Directory 관리자** 를 선택 합니다.
+- **설정** 에서 **SQL Active Directory 관리자** 를 선택 합니다.
 - **관리자 설정** 을 선택 하 고 WS1 sqladmins를 선택 합니다. \_
 
 ## <a name="step-6-maintain-access-control"></a>6 단계: 액세스 제어 유지 관리

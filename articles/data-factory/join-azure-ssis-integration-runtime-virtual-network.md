@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637227"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186776"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -99,7 +99,7 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저�
 
 - 가상 네트워크의 리소스 그룹 (또는 사용자 고유의 공용 IP 주소를 가져오는 경우 공용 IP 주소의 리소스 그룹)이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인 합니다. 자세한 내용은 [리소스 그룹 설정](#resource-group)을 참조 하세요. 
 
-- [Azure-SSIS IR에 대 한 사용자 지정 설정](./how-to-configure-azure-ssis-ir-custom-setup.md)에 설명 된 대로 Azure-SSIS IR를 사용자 지정 하는 경우 Azure-SSIS IR 노드가 미리 정의 된 172.16.0.0에서 172.31.255.255으로 개인 IP 주소를 가져옵니다. 따라서 가상 또는 온-프레미스 네트워크의 개인 IP 주소 범위가이 범위와 충돌 하지 않는지 확인 합니다.
+- [Azure-SSIS IR에 대 한 사용자 지정 설치](./how-to-configure-azure-ssis-ir-custom-setup.md)에 설명 된 대로 Azure-SSIS IR를 사용자 지정 하는 경우 해당 노드를 관리 하는 내부 프로세스는 172.31.255.255의 미리 정의 된 범위에서 개인 IP 주소를 사용 합니다. 따라서 가상 또는 온-프레미스 네트워크의 개인 IP 주소 범위가이 범위와 충돌 하지 않는지 확인 하세요.
 
 이 다이어그램은 Azure-SSIS IR에 필요한 연결을 보여 줍니다.
 
