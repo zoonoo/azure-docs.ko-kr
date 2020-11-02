@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92202416"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
 Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트워크 연결을 제공 하는 고가용성을 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 Express 경로 경로에 단일 실패 지점이 없습니다. Express 경로 회로의 가용성을 최대화 하기 위한 설계 고려 사항은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA]을 참조 하세요.
 
-그러나 Murphy의 인기 있는 말라을 사용 하는*경우에는 문제가 발생할 수 있습니다*.이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
+그러나 Murphy의 인기 있는 말라을 사용 하는 *경우에는 문제가 발생할 수 있습니다* .이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
 
 >[!NOTE]
 >이 문서에 설명 된 개념은 가상 WAN 또는 외부에서 Express 경로 회로를 만들 때에도 동일 하 게 적용 됩니다.
@@ -80,7 +80,7 @@ Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트�
 
 다음 다이어그램에서는 연결 가중치를 사용 하는 Express 경로 선택 경로 선택에 대해 설명 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서는 Express 경로 1에 대 한 연결의 가중치가 100로 구성 됩니다. VNet은 둘 이상의 Express 경로 회로를 통해 보급 된 경로 접두사를 받을 때 가장 높은 가중치가 있는 연결을 선호 합니다.
 
-[![4]][4]
+[![3-4]][4]
 
 Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
@@ -88,7 +88,7 @@ Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해�
 
 다음 다이어그램에서는 AS path 앞에를 사용 하는 Express 경로 선택 경로 선택을 보여 줍니다. 다이어그램에서 Express 경로 1을 통한 경로 보급 알림은 eBGP의 기본 동작을 나타냅니다. Express 경로 2를 통한 경로 알림에서 온-프레미스 네트워크의 ASN이 경로 AS 경로에 추가로 붙습니다. 여러 Express 경로 회로를 통해 동일한 경로를 수신 하는 경우 (eBGP 경로 선택 프로세스에 따라) VNet은 최단 경로로 경로를 선호 합니다. 
 
-[![5]][5]
+[ ![5]][5]
 
 Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. Consequentially 경로는 관련성이 떨어질 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
