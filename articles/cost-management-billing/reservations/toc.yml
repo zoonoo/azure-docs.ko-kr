@@ -128,6 +128,8 @@
           href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 사용 불가 문제 해결
           href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: 사용량 세부 정보 다운로드 문제 해결
+          href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: 참조
   items:
     - name: 예약 REST API

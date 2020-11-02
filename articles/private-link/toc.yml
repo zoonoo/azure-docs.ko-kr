@@ -37,6 +37,8 @@
       items:
         - name: SQL 서버에 연결 - 포털
           href: tutorial-private-endpoint-sql-portal.md
+        - name: SQL 서버에 연결 - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: 개념
   items:
     - name: Private Endpoint
