@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288667"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148255"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -74,7 +74,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 생성은 다른 사용자 컨텍스트의 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 로깅됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
+생성되는 자동 통계의 형식은 _WA_Sys_ <16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -137,7 +137,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-예를 들어, 일반적으로 데이터 웨어하우스의 **날짜 열**은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
+예를 들어, 일반적으로 데이터 웨어하우스의 **날짜 열** 은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
 
 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없을 수 있습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
 
@@ -245,7 +245,7 @@ CREATE STATISTICS stats_col1
 > [!NOTE]
 > 쿼리 결과에서 행 수를 예측하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 대해서만 사용할 수 있습니다.
 
-이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category*에서 계산됩니다.
+이 예에서 히스토그램은 *product\_category* 에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category* 에서 계산됩니다.
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-*product\_category*와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
+*product\_category* 와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>테이블의 모든 열에 대한 통계 만들기
 
@@ -616,7 +616,7 @@ SQL 주문형은 데이터가 크게 변경된 경우 자동으로 통계를 다
 통계를 업데이트하기 위해 제공되는 지침 원칙은 다음과 같습니다.
 
 - 데이터 세트에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
-- JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 집중합니다.
+- WHERE, JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여 하는 열에 집중 합니다.
 - 이러한 값은 통계 히스토그램에 포함되지 않으므로 트랜잭션 날짜와 같은 “오름차순 키” 열을 더 자주 업데이트하고
 - 통계 분포 열은 덜 자주 업데이트하세요.
 
@@ -629,12 +629,12 @@ SQL 주문형은 데이터가 크게 변경된 경우 자동으로 통계를 다
 > [!NOTE]
 > 지금은 단일 열 통계만 만들 수 있습니다.
 >
-> 프로시저 sp_create_file_statistics의 이름이 sp_create_openrowset_statistics로 변경됩니다. sp_create_file_statistics 및 sp_drop_file_statistics에서 퍼블릭 서버 역할에는 ADMINISTER BULK OPERATIONS 권한이 부여되어 있고, 퍼블릭 데이터베이스 역할에는 EXECUTE 권한이 부여되어 있습니다. 이는 추후 변경될 수 있습니다.
+> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
 
 다음 저장 프로시저는 통계를 만드는 데 사용됩니다.
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 인수: [ @stmt = ] N'statement_text' - 통계에 사용될 열 값을 반환하는 Transact-SQL 문을 지정합니다. TABLESAMPLE을 사용하여 사용될 데이터 샘플을 지정할 수 있습니다. TABLESAMPLE이 지정되지 않은 경우 FULLSCAN이 사용됩니다.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 통계를 업데이트하려면 통계를 삭제한 후 만들어야 합니다. 다음 저장 프로시저는 통계를 삭제하는 데 사용됩니다.
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> 프로시저 Procedure sp_drop_file_statistics의 이름이 sp_drop_openrowset_statistics로 변경됩니다. sp_create_file_statistics 및 sp_drop_file_statistics에서 퍼블릭 서버 역할에는 ADMINISTER BULK OPERATIONS 권한이 부여되어 있고, 퍼블릭 데이터베이스 역할에는 EXECUTE 권한이 부여되어 있습니다. 이는 추후 변경될 수 있습니다.
+> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
 
 인수: [ @stmt = ] N'statement_text' - 통계를 만들 때 사용된 것과 통일한 Transact-SQL 문을 지정합니다.
 
 population.csv 파일을 기반으로 데이터 세트의 연도 열에 대해 통계를 업데이트하려면 통계를 삭제한 후에 만들어야 합니다.
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

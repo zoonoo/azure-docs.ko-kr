@@ -6,6 +6,8 @@
     - name: Content Moderator란?
       href: overview.md
       expanded: true
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 웹에서 Content Moderator 사용해 보기

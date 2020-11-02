@@ -3,12 +3,12 @@ title: Azure Lab Services에 대 한 가속화 되는 랩 계정 설정 가이�
 description: 이 가이드를 통해 관리자는 학교 내에서 사용할 랩 계정을 신속 하 게 설정할 수 있습니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445426"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148306"
 ---
 # <a name="lab-account-setup-guide"></a>랩 계정 설정 가이드
 
@@ -29,6 +29,10 @@ ms.locfileid: "85445426"
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>랩 계정의 소유자 및 기여자는 누구 인가요?
 
 관리자는 일반적으로 랩 계정의 소유자 및 기여자입니다. 랩 계정 내에 포함 된 모든 랩에 적용 되는 정책을 관리 하는 일을 담당 합니다. 랩 계정을 만드는 사람은 자동으로 소유자입니다. 일반적으로 구독과 연결 된 Azure Active Directory (Azure AD) 테 넌 트에서 추가 소유자 및 참가자를 추가할 수 있습니다. 이는 랩 계정 수준에서 소유자 또는 참가자 역할을 할당 하 여 랩 계정을 관리 하는 데 도움이 될 수 있습니다.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+랩 사용자는 Azure Lab Services 내에서 테 넌 트에서 액세스할 수 있는 가상 컴퓨터의 단일 목록만 볼 수 있습니다.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>랩을 만들고 관리할 수 있는 사용자는 누구 인가요?
 

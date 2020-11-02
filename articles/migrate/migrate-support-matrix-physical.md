@@ -3,12 +3,12 @@ title: Azure Migrate의 물리적 서버 평가 지원
 description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 58ecba6bcedc036e31046aef292e482085ad7cc6
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319293"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148408"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -31,11 +31,21 @@ ms.locfileid: "92319293"
 
 ## <a name="physical-server-requirements"></a>물리적 서버 요구 사항
 
-| **지원**                | **세부 정보**               
-| :-------------------       | :------------------- |
-| **실제 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 도메인에 가입된 컴퓨터에는 도메인 계정을 사용하고 도메인에 가입되지 않은 컴퓨터에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. <br/> 또는 다음 명령을 사용 하 여 필요한 기능이 설정 되었는지 확인 합니다. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk(/usr/sbin/fdisk가 없는 경우) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + eip"/sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/dmidecode <br/> chmod a + r/sys/class/dmi/id/product_uuid
-| **운영 체제** | 모든 Windows 및 Linux 운영 체제는 마이그레이션을 평가할 수 있습니다. |
+**물리적 서버 배포:** 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다.
+
+**운영 체제:** 모든 Windows 및 Linux 운영 체제는 마이그레이션을 평가할 수 있습니다.
+
+**사용 권한:**
+- Windows 서버의 경우 도메인에 가입 된 컴퓨터에 도메인 계정을 사용 하 고 도메인에 가입 되지 않은 컴퓨터에 대 한 로컬 계정을 사용 합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
+- Linux 서버의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용 하 여 필요한 기능을 사용 하 여 루트가 아닌 계정을 설정할 수 있습니다.
+
+**명령** | **용도**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH + eip/sbin/fdisk _(/usr/sbin/fdisk이 없는 경우)_ | 디스크 구성 데이터를 수집 하려면
+setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid<br>cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin<br>cap_sys_resource, cap_audit_control, cap_setfcap = + eip "/sbin/lvm | 디스크 성능 데이터를 수집 하려면
+setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/dmidecode | BIOS 일련 번호를 수집 하려면
+chmod a + r/sys/class/dmi/id/product_uuid | BIOS GUID를 수집 하려면
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
