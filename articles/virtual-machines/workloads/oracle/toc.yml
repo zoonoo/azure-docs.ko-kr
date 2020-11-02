@@ -6,6 +6,8 @@
       href: oracle-vm-solutions.md
     - name: Azure Virtual Machines에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
       href: oracle-weblogic.md
+    - name: Azure Kubernetes Service에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
+      href: weblogic-aks.md
     - name: OCI가 포함된 솔루션
       href: oracle-oci-overview.md
 - name: 빠른 시작

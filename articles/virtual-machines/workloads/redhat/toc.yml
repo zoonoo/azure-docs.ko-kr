@@ -1,15 +1,17 @@
 - name: 개요
   href: overview.md
-- name: Red Hat 빠른 시작
-  items: null
-- name: 빠른 시작 - CentOS 기반 WildFly
-  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux 이미지
   items:
-    - name: Red Hat Enterprise Linux 이미지 개요
+    - name: RHEL 이미지 개요
       href: redhat-images.md
-    - name: Red Hat Enterprise Linux 이미지 목록
+    - name: RHEL 이미지 목록
       href: redhat-imagelist.md
+- name: Red Hat Java 빠른 시작
+  items:
+    - name: VM/VMSS의 JBoss EAP + RHEL
+      href: jboss-eap-on-rhel.md
+    - name: VM의 WildFly + CentOS
+      href: wildfly-on-centos.md
 - name: Azure의 Red Hat 업데이트 인프라
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS 이미지 제품

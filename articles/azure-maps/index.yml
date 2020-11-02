@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 4a8d05c05f0c6dc357ac8ea8623ab10cae1e4335
-  ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+  ms.openlocfilehash: 30606a38660e3113c6dfce4607333ef77584040f
+  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92895361"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92927467"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
@@ -226,6 +226,10 @@ landingContent:
     links:
     - text: Azure Notebooks(Python)를 사용한 날씨 데이터 분석
       url: weather-service-tutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: 실시간 및 예측 날씨 데이터 요청
+      url: how-to-request-weather-data.md
   - linkListType: reference
     links:
     - text: Weather Service

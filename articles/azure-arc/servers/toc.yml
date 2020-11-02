@@ -37,11 +37,13 @@
           href: onboard-service-principal.md
         - name: PowerShell DSC를 사용하여 Azure Arc에 머신 연결
           href: onboard-dsc.md
+        - name: Windows Admin Center에서 머신 연결
+          href: onboard-windows-admin-center.md
         - name: PowerShell을 사용하여 Azure Arc에 컴퓨터 연결
           href: onboard-powershell.md
     - name: 관리
       items:
-        - name: Azure VM 확장
+        - name: VM 확장
           items:
             - name: 개요
               href: manage-vm-extensions.md

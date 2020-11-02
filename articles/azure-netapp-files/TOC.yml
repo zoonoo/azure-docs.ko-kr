@@ -11,7 +11,8 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Azure NetApp Files 설정 및 NFS 볼륨 만들기
+    - name: Azure NetApp Files 설정 및 NFS 볼륨 만들기 - ARM 템플릿
+      displayName: Resource Manager
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 개념
   items:

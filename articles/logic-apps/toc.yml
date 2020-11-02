@@ -101,7 +101,7 @@
           href: logic-apps-batch-process-send-receive-messages.md
         - name: 순서대로 메시지 보내기 - 순차 호위(convoy)
           href: send-related-messages-sequential-convoy.md
-        - name: JSON 정의 작성
+        - name: JSON에서 워크플로 정의 작성
           href: logic-apps-author-definitions.md
         - name: 콘텐츠 형식 처리
           href: logic-apps-content-type.md
@@ -109,6 +109,8 @@
           href: logic-apps-exception-handling.md
         - name: 대용량 메시지 처리
           href: logic-apps-handle-large-messages.md
+        - name: SQL 커넥터에 대한 장기 실행 저장 프로시저 처리
+          href: handle-long-running-stored-procedures-sql-connector.md
         - name: 대역폭 제한 문제 또는 429 오류 처리
           href: handle-throttling-problems-429-errors.md
         - name: 사용자 지정 커넥터 개발

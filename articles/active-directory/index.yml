@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 10/22/2020
-  ms.openlocfilehash: 6b7ed9160cc256d2b52bd69730017db08ca479fa
-  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+  ms.openlocfilehash: e0b1c8946c1bdd8acfe1c7a21458fee456b2b84f
+  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92670457"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92926821"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -40,17 +40,6 @@ highlightedContent:
     url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
 conceptualContent:
   items:
-  - title: 파트너 애플리케이션 지원
-    links:
-    - url: ./saas-apps/tutorial-list.md
-      itemType: tutorial
-      text: 이러한 자습서에 따라 클라우드 사용 SaaS 앱을 Azure AD와 통합합니다.
-    - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
-      itemType: get-started
-      text: Azure AD 갤러리에 통합하려면 앱 요청을 제출하세요.
-    footerLink:
-      url: ./manage-apps/index.yml
-      text: 자세히 보기
   - title: 애플리케이션 관리
     links:
     - url: ./manage-apps/what-is-application-management.md
@@ -289,6 +278,20 @@ conceptualContent:
     footerLink:
       url: ./roles/index.yml
       text: 자세히 보기
+  - title: 타사 애플리케이션
+    links:
+    - url: ./saas-apps/amazon-web-service-tutorial.md
+      itemType: tutorial
+      text: Amazon Web Services와 Azure AD Single Sign-On 통합
+    - url: ./saas-apps/workday-inbound-tutorial.md
+      itemType: tutorial
+      text: 자동 사용자 프로비저닝을 위한 Workday 구성
+    - url: ./develop/v2-howto-app-gallery-listing.md
+      itemType: get-started
+      text: 갤러리에 앱을 추가하도록 요청
+    footerLink:
+      url: ./saas-apps/tutorial-list.md
+      text: 앱 더 보기
 additionalContent:
   sections:
   - items:

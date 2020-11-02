@@ -32,6 +32,9 @@
     - name: 정책 할당 - ARM 템플릿
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: 정책 할당 - Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: 자습서
   items:
     - name: Azure 정책 만들기 및 관리
@@ -191,7 +194,15 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: VM용 Azure Monitor 사용(미리 보기)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Azure Storage 통합
+      items:
+        - name: Azure Policy를 사용하여 TLS 감사
+          href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Azure 웹 애플리케이션 방화벽 통합
+      items:
+        - name: Azure Policy와 WAF 통합
+          href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: 문제 해결
   items:
     - name: 일반적인 문제
@@ -264,6 +275,16 @@
           href: /azure/templates/microsoft.authorization/policydefinitions
         - name: 이니셔티브 정의
           href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Terraform 리소스
+      items:
+        - name: 할당
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: 정의
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: 이니셔티브(세트 정의)
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: 수정
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: 리소스
   items:
     - name: GitHub - Azure Policy 샘플
@@ -280,6 +301,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Azure 거버넌스 시각화 도우미
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: Azure Monitor용 Azure Policy 스크립트
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: 피드백 및 지원
       items:
         - name: Azure Policy에 대한 Microsoft Q&A

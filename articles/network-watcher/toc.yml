@@ -14,6 +14,7 @@
     - name: VM 트래픽 필터 문제 진단 - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
     - name: ARM 템플릿을 사용하여 NSG 흐름 로그 구성
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: 자습서
   items:
@@ -91,7 +92,7 @@
               href: network-watcher-connectivity-powershell.md
             - name: Azure CLI
               href: network-watcher-connectivity-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-connectivity-rest.md
         - name: 패킷 캡처 및 분석
           items:
@@ -103,7 +104,7 @@
                   href: network-watcher-packet-capture-manage-powershell.md
                 - name: Azure CLI
                   href: network-watcher-packet-capture-manage-cli.md
-                - name: REST (영문)
+                - name: REST
                   href: network-watcher-packet-capture-manage-rest.md
             - name: 패킷 캡처 분석
               items:
@@ -123,7 +124,7 @@
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
               href: network-watcher-nsg-flow-logging-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure 리소스 관리자
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
@@ -158,7 +159,7 @@
               href: network-watcher-security-group-view-powershell.md
             - name: Azure CLI
               href: network-watcher-security-group-view-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-security-group-view-rest.md
         - name: 네트워크 규정 준수 및 감사 수행
           href: network-watcher-nsg-auditing-powershell.md

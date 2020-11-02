@@ -679,6 +679,8 @@
           href: data-lake-storage-best-practices.md
         - name: 쿼리 가속
           href: data-lake-storage-query-acceleration.md
+        - name: Data Lake Storage를 위한 프리미엄 계층
+          href: premium-tier-for-data-lake-storage.md
         - name: Architecture
           items:
             - name: Hadoop에 대한 Azure Blob 파일 시스템 드라이버
@@ -759,7 +761,7 @@
           items:
             - name: AzCopy
               items:
-                - name: 시작하기
+                - name: 시작
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Data Lake Storage와 함께 사용
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

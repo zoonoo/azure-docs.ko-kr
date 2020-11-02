@@ -106,7 +106,7 @@
       items:
         - name: 시스템 항목 개요
           href: system-topics.md
-        - name: 이벤트 원본
+        - name: 이벤트 원본(게시자)
           items:
             - name: Azure App Configuration
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Azure 구독
               href: event-schema-subscriptions.md
-    - name: 파트너 토픽
+    - name: 파트너 이벤트
       items:
-        - name: 파트너 토픽 개요
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Event Grid 파트너 되기
+        - name: 파트너 이벤트 개요
+          href: partner-events-overview.md
+        - name: 이벤트 원본(게시자)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: 파트너 온보딩 개요
           href: partner-onboarding-overview.md
     - name: 이벤트 도메인
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Azure Resource Manager 템플릿
           href: create-view-manage-system-topics-arm.md
+    - name: 파트너 이벤트
+      items:
+        - name: 파트너로 온보딩
+          href: onboard-partner.md
+        - name: Auth0 이벤트 구독
+          href: auth0-how-to.md
     - name: 토픽 또는 도메인에 대한 액세스 키 가져오기
       href: get-access-keys.md
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
-    - name: Auth0 이벤트 구독
-      href: auth0-how-to.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
     - name: 배달 못한 편지 위치 설정 및 정책 다시 시도

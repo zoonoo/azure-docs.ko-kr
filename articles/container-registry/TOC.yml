@@ -59,6 +59,8 @@
           href: container-registry-geo-replication.md
         - name: 레지스트리 모범 사례
           href: container-registry-best-practices.md
+        - name: 퍼블릭 이미지 관리
+          href: buffer-gate-public-content.md
     - name: 방법 가이드
       expanded: false
       items:
@@ -219,7 +221,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

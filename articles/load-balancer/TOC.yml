@@ -13,6 +13,7 @@
     - name: 퍼블릭 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 퍼블릭 부하 분산 장치 만들기 - ARM 템플릿
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: 내부 부하 분산 장치 만들기 - 포털
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: 내부 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: 내부 부하 분산 장치 만들기 - ARM 템플릿
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: 자습서
@@ -53,6 +55,8 @@
       items:
         - name: 상태 프로브
           href: load-balancer-custom-probe-overview.md
+        - name: Load Balancer용 Azure Monitor Insights
+          href: load-balancer-insights.md
         - name: 표준 부하 분산 장치 메트릭 및 진단
           href: load-balancer-standard-diagnostics.md
         - name: 기본 Load Balancer용 Azure Monitor 로그

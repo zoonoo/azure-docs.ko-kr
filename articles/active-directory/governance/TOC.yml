@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: 액세스 검토란?
       href: access-reviews-overview.md
+    - name: ID 수명 주기 관리란?
+      href: what-is-identity-lifecycle-management.md
 - name: 자습서
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: 요청 프로세스 및 이메일
           href: entitlement-management-process.md
+    - name: ID 수명 주기 관리
+      items:
+        - name: 프로비저닝이란?
+          href: what-is-provisioning.md
+        - name: HR 기반 프로비저닝이란?
+          href: what-is-hr-driven-provisioning.md
+        - name: 앱 프로비저닝이란?
+          href: what-is-app-provisioning.md
+        - name: 디렉터리 간 프로비저닝이란?
+          href: what-is-inter-directory-provisioning.md
     - name: 액세스 검토
       items:
         - name: 검토를 사용하여 게스트 액세스 관리

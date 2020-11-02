@@ -413,6 +413,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: 차트 및 메트릭 이해
           href: how-to-understand-automated-ml.md
+        - name: .NET 애플리케이션에서 ONNX 모델 사용
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법
