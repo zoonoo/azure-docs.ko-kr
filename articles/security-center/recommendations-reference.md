@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 553f83151289adf6f0f4420d106af7ae37047bda
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900232"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148323"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
@@ -217,6 +217,5 @@ Security Center 권장 사항은 모범 사례를 기반으로 합니다. 그 �
 ## <a name="next-steps"></a>다음 단계
 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Security Center에서 만든 권장 사항을 분석하는 방법에 대한 Microsoft Learn 모듈](/learn/modules/identify-threats-with-azure-security-center/)
 * [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)
 * [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)

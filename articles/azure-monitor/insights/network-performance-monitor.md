@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403724"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279442"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -74,7 +74,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor에](../platform/agent-windows.md) 에이전트를 설치 하 고 [Operations Manager Azure Monitor에 연결](../platform/om-agents.md)합니다.
+기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor](../platform/agent-windows.md)에 에이전트를 설치 하 고 [Azure Monitor (미리 보기)에 Linux 컴퓨터를 연결](../../virtual-machines/extensions/oms-linux.md) 하 고 [Operations Manager Azure Monitor에 연결](../platform/om-agents.md)합니다.
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
@@ -84,25 +84,31 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 * **서비스 연결 모니터:** 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어, office 사이트에서 O1, O2 및 O3로 네트워크 연결 Microsoft 365을 모니터링 하려는 경우를 들 수 있습니다. O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
 
-* **ExpressRoute 모니터**: Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 프라이빗 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
+* **ExpressRoute 모니터** : Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 프라이빗 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>모니터링을 위한 Log Analytics 에이전트 구성 
 
 네트워크 성능 모니터는 가상 트랜잭션을 사용하여 원본과 대상 에이전트 사이의 네트워크 성능을 모니터링합니다. 성능 모니터 및 서비스 연결 모니터 기능에서는 TCP와 ICMP 중 하나를 모니터링 프로토콜로 선택할 수 있습니다. ExpressRoute 모니터의 경우, TCP만 모니터링 프로토콜로 사용할 수 있습니다. 방화벽을 통해 선택한 프로토콜에서 모니터링하는 데 사용되는 Log Analytics 에이전트 간의 통신이 허용되는지 확인합니다. 
 
-* **TCP 프로토콜:** 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다.
+* **TCP 프로토콜:** 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. Windows 컴퓨터의 경우 포트를 열려면 관리자 권한으로 PowerShell 창에서 매개 변수 없이 [EnableRules.ps1](https://aka.ms/npmpowershellscript) powershell 스크립트를 실행 합니다.
+Linux 컴퓨터의 경우 사용할 포트 번호를 수동으로 변경 해야 합니다. 
+* 경로:/var/opt/microsoft/omsagent/npm_state로 이동 합니다. 
+* 파일 열기: npmdregistry
+* 포트 번호에 대 한 값을 변경 합니다. ```“PortNumber:<port of your choice>”```
 
-    스크립트를 통해 솔루션에 필요한 레지스트리 키가 만들어집니다. 또한 에이전트가 서로 TCP 연결을 만들 수 있도록 Windows 방화벽 규칙이 만들어집니다. 스크립트로 만들어진 레지스트리 키는 디버그 로그와 로그 파일의 경로를 기록할지 여부를 지정합니다. 스크립트는 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에 의해 자동으로 설정됩니다. 이 키는 수동으로 변경하지 마십시오. 기본적으로 열리는 포트는 8084입니다. 스크립트에 매개 변수 portNumber를 지정하여 사용자 지정 포트를 사용할 수 있습니다. 스크립트가 실행되는 모든 컴퓨터에서 동일한 포트를 사용하십시오. 
+ 사용 중인 포트 번호는 작업 영역에서 사용 되는 모든 에이전트에서 동일 해야 합니다. 
+
+스크립트를 통해 솔루션에 필요한 레지스트리 키가 만들어집니다. 또한 에이전트가 서로 TCP 연결을 만들 수 있도록 Windows 방화벽 규칙이 만들어집니다. 스크립트로 만들어진 레지스트리 키는 디버그 로그와 로그 파일의 경로를 기록할지 여부를 지정합니다. 스크립트는 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에 의해 자동으로 설정됩니다. 이 키는 수동으로 변경하지 마십시오. 기본적으로 열리는 포트는 8084입니다. 스크립트에 매개 변수 portNumber를 지정하여 사용자 지정 포트를 사용할 수 있습니다. 스크립트가 실행되는 모든 컴퓨터에서 동일한 포트를 사용하십시오. 
 
     >[!NOTE]
-    > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
+    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
     >[!NOTE]
-    > 서비스 연결 모니터에 대 한 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
-* **ICMP 프로토콜**: 모니터링을 위한 프로토콜로 ICMP를 선택한 경우 ICMP를 안정적으로 활용하기 위해 다음과 같은 방화벽 규칙을 사용하도록 설정합니다.
+* **ICMP 프로토콜** : 모니터링을 위한 프로토콜로 ICMP를 선택한 경우 ICMP를 안정적으로 활용하기 위해 다음과 같은 방화벽 규칙을 사용하도록 설정합니다.
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -118,21 +124,21 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
-3. 메시지 솔루션을 사용 하 여 **네트워크 성능 모니터** 타일을 선택 하 고 *추가 구성이 필요*합니다.
+3. 메시지 솔루션을 사용 하 여 **네트워크 성능 모니터** 타일을 선택 하 고 *추가 구성이 필요* 합니다.
 
    ![네트워크 성능 모니터 타일](media/network-performance-monitor/npm-config.png)
 
 4. **설치** 페이지의 **일반 설정** 보기에는 Log Analytics 에이전트를 설치하고 모니터링하도록 구성하는 옵션이 표시됩니다. 앞에서 설명한 대로 Log Analytics 에이전트를 설치하고 구성한 경우 **설정** 보기를 선택하여 사용하려는 기능을 구성합니다. 
 
-   **성능 모니터**: **기본** 성능 모니터 규칙에서 가상 트랜잭션에 사용할 프로토콜을 선택하고 **저장하고 계속**을 클릭합니다. 이 프로토콜 선택은 시스템에서 생성된 기본 규칙에만 적용됩니다. 성능 모니터 규칙을 명시적으로 만들 때마다 프로토콜을 선택해야 합니다. 항상 **성능 모니터** 탭에서 **기본** 규칙 설정(당일 구성을 완료한 후 표시)으로 이동하고 나중에 프로토콜을 변경할 수 있습니다. 성능 모니터 기능이 필요하지 않은 경우 **성능 모니터** 탭의 **기본** 규칙 설정에서 기본 규칙을 사용하지 않도록 설정할 수 있습니다.
+   **성능 모니터** : **기본** 성능 모니터 규칙에서 가상 트랜잭션에 사용할 프로토콜을 선택하고 **저장하고 계속** 을 클릭합니다. 이 프로토콜 선택은 시스템에서 생성된 기본 규칙에만 적용됩니다. 성능 모니터 규칙을 명시적으로 만들 때마다 프로토콜을 선택해야 합니다. 항상 **성능 모니터** 탭에서 **기본** 규칙 설정(당일 구성을 완료한 후 표시)으로 이동하고 나중에 프로토콜을 변경할 수 있습니다. 성능 모니터 기능이 필요하지 않은 경우 **성능 모니터** 탭의 **기본** 규칙 설정에서 기본 규칙을 사용하지 않도록 설정할 수 있습니다.
 
    ![성능 모니터 보기](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **서비스 연결 모니터**:이 기능은 에이전트에서 Microsoft 365 및 Dynamics 365에 대 한 네트워크 연결을 모니터링 하는 미리 구성 된 기본 제공 테스트를 제공 합니다. 옆의 확인란을 선택 하 여 모니터링 하려는 Microsoft 365 및 Dynamics 365 서비스를 선택 합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
+   **서비스 연결 모니터** :이 기능은 에이전트에서 Microsoft 365 및 Dynamics 365에 대 한 네트워크 연결을 모니터링 하는 미리 구성 된 기본 제공 테스트를 제공 합니다. 옆의 확인란을 선택 하 여 모니터링 하려는 Microsoft 365 및 Dynamics 365 서비스를 선택 합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가** 를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속** 을 선택합니다.
 
    ![서비스 연결 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute 모니터**: **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 프라이빗 피어링을 검색합니다. 
+   **ExpressRoute 모니터** : **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 프라이빗 피어링을 검색합니다. 
 
    ![ExpressRoute 모니터 보기](media/network-performance-monitor/npm-express-route.png)
 
@@ -151,7 +157,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 특정 서브네트워크의 모니터링을 사용하거나 사용하지 않도록 설정하려면:
 
-1. **서브네트워크 ID** 옆에 있는 확인란을 선택하거나 선택 취소합니다. 그런 다음, 필요에 따라 **모니터링에 사용**이 선택되었거나 선택 취소되었는지 확인합니다. 여러 서브넷을 선택 또는 선택 취소할 수 있습니다. 이 설정을 사용하지 않도록 설정할 경우 서브네트워크가 모니터링되지 않고 다른 에이전트에 대한 Ping을 중지하도록 에이전트가 업데이트됩니다. 
+1. **서브네트워크 ID** 옆에 있는 확인란을 선택하거나 선택 취소합니다. 그런 다음, 필요에 따라 **모니터링에 사용** 이 선택되었거나 선택 취소되었는지 확인합니다. 여러 서브넷을 선택 또는 선택 취소할 수 있습니다. 이 설정을 사용하지 않도록 설정할 경우 서브네트워크가 모니터링되지 않고 다른 에이전트에 대한 Ping을 중지하도록 에이전트가 업데이트됩니다. 
 2. 특정 서브네트워크에서 모니터링할 노드를 선택합니다. 목록에서 서브네트워크를 선택하고 모니터링되지 않는 노드와 모니터링되는 노드가 있는 목록 사이에서 필요한 노드를 이동합니다. 서브네트워크에 사용자 지정 설명을 추가할 수 있습니다.
 3. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
@@ -160,13 +166,13 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 에이전트가 설치된 모든 노드는 **노드** 탭에 나열됩니다. 
 
 1. 모니터링하거나 모니터링을 중지하려는 노드를 선택 또는 선택 취소합니다. 
-2. 필요에 맞게 **모니터링에 사용**을 선택하거나 선택 취소합니다. 
-3. **저장**을 선택합니다. 
+2. 필요에 맞게 **모니터링에 사용** 을 선택하거나 선택 취소합니다. 
+3. **저장** 을 선택합니다. 
 
 
 원하는 기능 구성:
 
-- [성능 모니터](network-performance-monitor-performance-monitor.md#configuration)
+- [성능 모니터링](network-performance-monitor-performance-monitor.md#configuration)
 - [서비스 연결 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [Express 경로 모니터](network-performance-monitor-expressroute.md#configuration)
 
@@ -200,15 +206,15 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="network-performance-monitor-dashboard"></a>네트워크 성능 모니터 대시보드 
 
-* **상위 네트워크 상태 이벤트**: 이 페이지에는 시스템의 최근 상태 이벤트 및 경고의 목록과 이벤트가 활성화된 이후 경과된 시간이 표시됩니다. 모니터링 규칙에 대해 선택한 메트릭(손실, 대기 시간, 응답 시간 또는 대역폭 사용률) 값이 임계값을 초과할 때마다 상태 이벤트 또는 경고가 생성됩니다. 
+* **상위 네트워크 상태 이벤트** : 이 페이지에는 시스템의 최근 상태 이벤트 및 경고의 목록과 이벤트가 활성화된 이후 경과된 시간이 표시됩니다. 모니터링 규칙에 대해 선택한 메트릭(손실, 대기 시간, 응답 시간 또는 대역폭 사용률) 값이 임계값을 초과할 때마다 상태 이벤트 또는 경고가 생성됩니다. 
 
-* **ExpressRoute 모니터**: 이 페이지에는 솔루션이 모니터링하는 다양한 ExpressRoute 피어링 연결에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 네트워크에서 모니터링되는 ExpressRoute 회로를 통과하는 네트워크 경로 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다.
+* **ExpressRoute 모니터** : 이 페이지에는 솔루션이 모니터링하는 다양한 ExpressRoute 피어링 연결에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 네트워크에서 모니터링되는 ExpressRoute 회로를 통과하는 네트워크 경로 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다.
 
-* **서비스 연결 모니터**: 이 페이지에는 사용자가 만든 여러 테스트에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 모니터링되는 엔드포인트 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다.
+* **서비스 연결 모니터** : 이 페이지에는 사용자가 만든 여러 테스트에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 모니터링되는 엔드포인트 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다.
 
-* **성능 모니터**: 이 페이지에는 솔루션이 모니터링하는 **네트워크** 링크 및 **서브네트워크** 링크에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 네트워크에서 모니터링되는 네트워크 경로 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다. 
+* **성능 모니터** : 이 페이지에는 솔루션이 모니터링하는 **네트워크** 링크 및 **서브네트워크** 링크에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 네트워크에서 모니터링되는 네트워크 경로 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다. 
 
-* **일반 쿼리**: 이 페이지에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 집합이 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 자체 쿼리를 만들 수 있습니다. 
+* **일반 쿼리** : 이 페이지에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 집합이 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 자체 쿼리를 만들 수 있습니다. 
 
    ![네트워크 성능 모니터 대시보드](media/network-performance-monitor/npm-dashboard.png)
 
@@ -224,7 +230,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="network-state-recorder-control"></a>네트워크 상태 레코더 컨트롤
 
-각 보기에는 특정 시점에서 네트워크 상태에 대한 스냅샷이 표시됩니다. 기본적으로 가장 최근 상태가 표시됩니다. 페이지 맨 위에 있는 막대에 상태가 표시되는 시점이 표시됩니다. 과거 시간 네트워크 상태의 스냅샷을 보려면 **작업**을 선택합니다. 또한 최신 상태를 보는 동안 페이지 자동 새로 고침을 사용 또는 사용하지 않도록 설정할 수도 있습니다. 
+각 보기에는 특정 시점에서 네트워크 상태에 대한 스냅샷이 표시됩니다. 기본적으로 가장 최근 상태가 표시됩니다. 페이지 맨 위에 있는 막대에 상태가 표시되는 시점이 표시됩니다. 과거 시간 네트워크 상태의 스냅샷을 보려면 **작업** 을 선택합니다. 또한 최신 상태를 보는 동안 페이지 자동 새로 고침을 사용 또는 사용하지 않도록 설정할 수도 있습니다. 
 
  ![네트워크 상태 레코더](media/network-performance-monitor/network-state-recorder.png)
 
@@ -244,7 +250,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="topology-map"></a>토폴로지 맵 
 
-네트워크 성능 모니터는 인터랙티브 토폴로지 맵에서 원본 및 대상 엔드포인트 사이의 홉 단위 경로 토폴로지를 보여줍니다. 토폴로지 맵을 보려면 솔루션 대시보드에서 **토폴로지**를 선택합니다. 드릴다운 페이지에서 **토폴로지 보기** 링크를 선택할 수도 있습니다. 
+네트워크 성능 모니터는 인터랙티브 토폴로지 맵에서 원본 및 대상 엔드포인트 사이의 홉 단위 경로 토폴로지를 보여줍니다. 토폴로지 맵을 보려면 솔루션 대시보드에서 **토폴로지** 를 선택합니다. 드릴다운 페이지에서 **토폴로지 보기** 링크를 선택할 수도 있습니다. 
 
 토폴로지 맵에는 원본 및 대상 간 경로 수와 데이터 패킷이 사용하는 경로가 표시됩니다. 각 네트워크 홉으로 인한 대기 시간도 표시됩니다. 전체 경로 대기 시간이 임계값(해당 모니터링 규칙에 설정)을 초과하는 모든 경로가 빨간색으로 표시됩니다. 
 
@@ -274,7 +280,7 @@ Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우:
 
 Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
-2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
+2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup** 이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 

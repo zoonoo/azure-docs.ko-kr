@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 59ea0258d6262f652e9ac563bbda5ec89c4c5819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d1ae4da07e159c24970c065d1c39e22b89a29a
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580425"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280202"
 ---
 # <a name="install-and-use-the-dtdl-authoring-tools"></a>DTDL authoring tools 설치 및 사용
 
@@ -36,9 +36,9 @@ DTDL 확장을 설치 하려면 [Visual Studio Code 용 dtdl 편집기](https://
 
 - DTDL 모델을 편집 하는 경우 intellisense 및 자동 완성을 사용 합니다.
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="VS Code의 모델 유효성 검사":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="VS Code에서 DTDL 모델에 대해 intellisense 사용":::
 
-- 새 DTDL 인터페이스를 만듭니다. 다음 명령은 새 인터페이스를 사용 하 여 JSON 파일을 만듭니다. 인터페이스에는 원격 분석, 속성 및 명령 정의 예가 포함 되어 있습니다.
+- 새 DTDL 인터페이스를 만듭니다. **Dtdl: Create interface** 명령은 새 인터페이스를 사용 하 여 JSON 파일을 만듭니다. 인터페이스에는 원격 분석, 속성 및 명령 정의 예가 포함 되어 있습니다.
 
 ## <a name="install-and-use-the-visual-studio-extension"></a>Visual Studio 확장 설치 및 사용
 
@@ -53,11 +53,11 @@ DTDL 확장을 설치 하려면 [VS 2019에 대 한 Dtdl 언어 지원](https://
 
 - 확장은 DTDL 모델 파일에서 구문 유효성 검사를 제공 하 고 다음 스크린샷에 표시 된 대로 오류를 강조 표시 합니다.
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-validation-2.png" alt-text="VS Code의 모델 유효성 검사":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-validation-2.png" alt-text="Visual Studio의 모델 유효성 검사":::
 
 - DTDL 모델을 편집 하는 경우 intellisense 및 자동 완성을 사용 합니다.
 
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense-2.png" alt-text="VS Code의 모델 유효성 검사":::
+    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense-2.png" alt-text="Visual Studio에서 DTDL 모델에 대해 intellisense 사용":::
 
 ## <a name="next-steps"></a>다음 단계
 

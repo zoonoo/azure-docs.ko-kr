@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147116"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279418"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
-[**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
+[**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다. 
 

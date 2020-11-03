@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148012"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279404"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹 구성 표시
 
@@ -36,7 +36,7 @@ Postgres 형식의 Kubernetes 리소스를 나열 합니다. 명령 실행:
 kubectl get postgresqls [-n <namespace name>]
 ```
 
-이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 예를 들면 다음과 같습니다.
+이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 다음은 그 예입니다.
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -54,7 +54,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 kubectl get pods [-n <namespace name>]
 ```
 
-그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 예를 들면 다음과 같습니다.
+그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 다음은 그 예입니다.
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -108,7 +108,7 @@ kubectl get pvc [-n <namespace name>]
 - `data-`...: 데이터 파일에 사용 되는 PVC
 - `logs-`...: 트랜잭션 로그/WAL 파일에 사용 되는 PVC
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```output
 NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
@@ -183,7 +183,7 @@ Kubectl를 사용 하 여 Postgres 리소스를 설명 합니다. 이렇게 하�
 kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```console
 kubectl describe postgresql-12/postgres02
@@ -210,7 +210,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -236,20 +236,50 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>이전 예제에서는 2020 년 10 월 이전에 `Workers` 가 출시 되었습니다 `Shards` . 자세한 내용은 [릴리스 정보-Azure Arc 사용 가능 데이터 서비스 (미리 보기)](release-notes.md) 를 참조 하세요.
+
 위에 표시 된에 대 한 설명에서 특정 관심 사항을 확인해 보겠습니다 `servergroup` . 이 서버 그룹에 대해 알려주세요.
 
 - 이 버전은 Postgres의 버전 12입니다. 
-   > 종류로         `postgresql-12`
+   > ```json
+   > Kind:         `postgresql-12`
+   > ```
 - 8 월 2020 일에 생성 되었습니다.
-   > 생성 타임 스탬프:  `2020-08-31T21:01:07Z`
+   > ```json
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - 이 서버 그룹에서 두 개의 Postgres 확장을 만들었습니다. `citus``pg_stat_statements`
-   > 엔진: 확장: 이름:  `citus` 이름:  `pg_stat_statements`
+   > ```json
+   > Engine:
+   >    Extensions:
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
+   > ```
 - 두 작업자 노드를 사용 합니다.
-   > 크기 조정: 분할:  `2`
+   > ```json
+   > Scale:
+   >    Workers:  `2`
+   > ```
 - 노드당 하나의 cpu/vCore 및 512MB Ram을 사용 하는 것이 보장 됩니다. 5 개 이상의 cpu/vCores와 1024MB의 메모리를 사용 합니다.
-   > 일정: 기본값: 리소스: 제한: Cpu: 4 메모리: 1024Mi 요청: Cpu: 1 메모리: 512Mi
+   > ```json
+   > Scheduling:
+   >    Default: 
+   >      Resources:
+   >        Limits:
+   >          Cpu:     4
+   >          Memory:  1024Mi
+   >        Requests:
+   >          Cpu:     1
+   >          Memory:  512Mi
+   > ```
  - 쿼리에 사용할 수 있으며 문제가 발생 하지 않습니다. 모든 노드가 실행 되 고 있습니다.
-   > 상태: ... Ready Pod: 3/3 상태: 준비 됨
+   > ```json
+   > Status:
+   >  ...
+   >  Ready Pods:         3/3
+   >  State:              Ready
+   > ```
 
 **Azdata 사용:**
 
@@ -259,7 +289,7 @@ Events:               <none>
 azdata arc postgres server show -n <server group name>
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```console
 azdata arc postgres server show -n postgres02
@@ -292,7 +322,7 @@ Kubectl에서 반환 하는 것과 매우 유사한 형식 및 내용으로 아�
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {
