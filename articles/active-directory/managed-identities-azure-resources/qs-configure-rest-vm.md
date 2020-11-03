@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968866"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896007"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -33,13 +33,13 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 - Azure VM에서 시스템 할당 관리 ID를 사용 및 사용하지 않도록 설정
 - Azure VM에서 사용자 할당 관리 ID 추가 및 제거
 
-## <a name="prerequisites"></a>필수 구성 요소
+아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
-- Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
-- 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 이 문서의 모든 명령은 클라우드에서 또는 로컬로 실행할 수 있습니다.
-    - 클라우드에서 실행하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-    - 로컬로 실행하려면 [curl](https://curl.haxx.se/download.html) 및 [Azure CLI](/cli/azure/install-azure-cli)를 설치한 다음, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+- Azure 리소스에 대한 관리 ID에 익숙하지 않은 경우 [Azure 리소스에 대한 관리 ID란?](overview.md)을 참조하세요. 시스템 할당 및 사용자 할당 관리 ID 형식에 대한 자세한 내용은 [관리 ID 형식](overview.md#managed-identity-types)을 참조하세요.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
@@ -55,7 +55,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    az group create --name myResourceGroup --location westus
    ```
 
-2. VM에 대한 [네트워크 인터페이스](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 만듭니다.
+2. VM에 대한 [네트워크 인터페이스](/cli/azure/network/nic#az-network-nic-create)를 만듭니다.
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -67,7 +67,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    az account get-access-token
    ``` 
 
-4. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 사용하여 *myVM*이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+4. Azure Cloud Shell을 통해 CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 사용하여 *myVM* 이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -154,7 +154,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    az account get-access-token
    ```
 
-2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하면 요청 본문에서 *myVM*이라는 VM의 `{"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 VM에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하면 요청 본문에서 *myVM* 이라는 VM의 `{"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 VM에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
    
    > [!IMPORTANT]
    > VM에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 관리 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 응답에서 `identity` 값으로 식별된 사용자 할당 관리 ID가 VM에 할당되어 있는 경우에는 VM에서 시스템 할당 관리 ID를 사용하면서 사용자 할당 관리 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
@@ -264,7 +264,7 @@ VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하려면 �
    az account get-access-token
    ```
 
-2. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하도록 VM을 업데이트하여 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 *myVM*이라는 VM의 `{"identity":{"type":"None"}}` 값으로 식별된 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+2. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하도록 VM을 업데이트하여 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 *myVM* 이라는 VM의 `{"identity":{"type":"None"}}` 값으로 식별된 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    > [!IMPORTANT]
    > VM에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 관리 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 응답에서 `identity` 값으로 식별된 사용자 할당 관리 ID가 VM에 할당되어 있는 경우에는 VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하면서 사용자 할당 관리 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
@@ -293,7 +293,7 @@ VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하려면 �
     }
    ```
 
-   사용자 할당 관리 ID가 있는 가상 머신에서 시스템 할당 관리 ID를 제거하려면 **API 버전 2018-06-01**을 사용 중인 경우 `UserAssigned` 값 및 `userAssignedIdentities` 사전 값을 유지하면서 `{"identity":{"type:" "}}` 값에서 `SystemAssigned`를 제거합니다. **API 버전 2017-12-01** 이전 버전을 사용 중인 경우 `identityIds` 배열을 유지합니다.
+   사용자 할당 관리 ID가 있는 가상 머신에서 시스템 할당 관리 ID를 제거하려면 **API 버전 2018-06-01** 을 사용 중인 경우 `UserAssigned` 값 및 `userAssignedIdentities` 사전 값을 유지하면서 `{"identity":{"type:" "}}` 값에서 `SystemAssigned`를 제거합니다. **API 버전 2017-12-01** 이전 버전을 사용 중인 경우 `identityIds` 배열을 유지합니다.
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
@@ -309,7 +309,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    az account get-access-token
    ```
 
-2. VM에 대한 [네트워크 인터페이스](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 만듭니다.
+2. VM에 대한 [네트워크 인터페이스](/cli/azure/network/nic#az-network-nic-create)를 만듭니다.
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -323,7 +323,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 4. 사용자 할당 관리 ID는 [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 만듭니다.
 
-5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 관리 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 관리 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  
    **API 버전 2018-06-01**
 
@@ -517,7 +517,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 4. VM에 할당된 사용자 할당 관리 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 관리 ID를 VM에 할당합니다.
 
-   다음 예제에서는 리소스 그룹 *myResourceGroup*의 *myVM*이라는 VM에 사용자 할당 관리 ID `ID1`을 할당합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+   다음 예제에서는 리소스 그룹 *myResourceGroup* 의 *myVM* 이라는 VM에 사용자 할당 관리 ID `ID1`을 할당합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    **API 버전 2018-06-01**
 

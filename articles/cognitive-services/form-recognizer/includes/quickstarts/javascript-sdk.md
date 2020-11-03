@@ -7,18 +7,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5e5d7c48508cc13d2ad36906df7d31c8926c75f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 28fb3cb02d978c0a64884771727f33d01d8a4ceb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897800"
 ---
 > [!IMPORTANT]
-> * Form Recognizer SDK는 현재 Form Recognizer 서비스의 v2.0을 대상으로 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
 
 [참조 설명서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [패키지(npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
@@ -26,9 +25,9 @@ ms.locfileid: "91963093"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
 * 현재 버전의 [Node.js](https://nodejs.org/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다( *sample_data.zip* 다운로드 및 추출).
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -48,13 +47,6 @@ mkdir myapp && cd myapp
 npm init
 ```
 
-이름이 `index.js`인 파일을 만들어 열고 다음 라이브러리를 가져옵니다.
-
-```javascript
-const { FormRecognizerClient, FormTrainingClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
-const fs = require("fs");
-```
-
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
 `ai-form-recognizer` NPM 패키지를 설치합니다.
@@ -64,6 +56,23 @@ npm install @azure/ai-form-recognizer
 ```
 
 종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.
+
+이름이 `index.js`인 파일을 만들어 열고 다음 라이브러리를 가져옵니다.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
+
+
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+
+리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 [제품 이름] 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
 ## <a name="object-model"></a>개체 모델 
 
@@ -101,62 +110,29 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-앱에서 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 
 
-```javascript
-// You will need to set these environment variables or edit the following values
-const endpoint = "<paste-your-form-recognizer-endpoint-here>";
-const apiKey = "<paste-your-form-recognizer-key-here>";
-```
 
-그런 다음, 정의한 구독 변수를 사용하여 클라이언트 개체를 인증합니다. `AzureKeyCredential` 개체를 사용하면 필요한 경우 새 클라이언트 개체를 만들지 않고 API 키를 업데이트할 수 있습니다. 또한 학습 클라이언트 개체를 만듭니다.
+정의한 구독 변수를 사용하여 클라이언트 개체를 인증합니다. `AzureKeyCredential` 개체를 사용하면 필요한 경우 새 클라이언트 개체를 만들지 않고 API 키를 업데이트할 수 있습니다. 또한 학습 클라이언트 개체를 만듭니다.
 
-```javascript
-const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-```
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
+
 
 ## <a name="get-assets-for-testing"></a>테스트용 자산 가져오기
 
-이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) 및 [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 관련 메서드를 참조하세요.
-
 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
-* 사용자 지정 모델 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
-* 아래 샘플에 포함된 샘플 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다. 
+* 사용자 지정 모델 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* 아래 샘플에 포함된 샘플 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다. 
 
-> [!NOTE]
-> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)의 관련 메서드를 참조하세요.
 
 ## <a name="recognize-form-content"></a>양식 콘텐츠 인식
 
 Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 인식할 수 있습니다. 지정된 URI에서 파일의 콘텐츠를 인식하려면 `beginRecognizeContentFromUrl` 메서드를 사용합니다.
 
-```javascript
-async function recognizeContent() {
-    const formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf";
-    const poller = await client.beginRecognizeContentFromUrl(formUrl);
-    const pages = await poller.pollUntilDone();
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
-    if (!pages || pages.length === 0) {
-        throw new Error("Expecting non-empty list of pages!");
-    }
 
-    for (const page of pages) {
-        console.log(
-            `Page ${page.pageNumber}: width ${page.width} and height ${page.height} with unit ${page.unit}`
-        );
-        for (const table of page.tables) {
-            for (const cell of table.cells) {
-                console.log(`cell [${cell.rowIndex},${cell.columnIndex}] has text ${cell.text}`);
-            }
-        }
-    }
-}
-
-recognizeContent().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
+> [!TIP]
+> 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) 메서드(예: **beginRecognizeContent** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
 
 ### <a name="output"></a>출력
 
@@ -180,55 +156,10 @@ cell [1,5] has text PT
 
 URI를 통해 영수증을 확인하려면 `beginRecognizeReceiptsFromUrl` 메서드를 사용합니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
-```javascript
-async function recognizeReceipt() {
-    receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png";
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-    const poller = await client.beginRecognizeReceiptsFromUrl(receiptUrl, {
-        onProgress: (state) => { console.log(`status: ${state.status}`); }
-    });
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
-    const receipts = await poller.pollUntilDone();
-
-    if (!receipts || receipts.length <= 0) {
-        throw new Error("Expecting at lease one receipt in analysis result");
-    }
-
-    const receipt = receipts[0];
-    console.log("First receipt:");
-    const receiptTypeField = receipt.fields["ReceiptType"];
-    if (receiptTypeField.valueType === "string") {
-        console.log(`  Receipt Type: '${receiptTypeField.value || "<missing>"}', with confidence of ${receiptTypeField.confidence}`);
-    }
-    const merchantNameField = receipt.fields["MerchantName"];
-    if (merchantNameField.valueType === "string") {
-        console.log(`  Merchant Name: '${merchantNameField.value || "<missing>"}', with confidence of ${merchantNameField.confidence}`);
-    }
-    const transactionDate = receipt.fields["TransactionDate"];
-    if (transactionDate.valueType === "date") {
-        console.log(`  Transaction Date: '${transactionDate.value || "<missing>"}', with confidence of ${transactionDate.confidence}`);
-    }
-    const itemsField = receipt.fields["Items"];
-    if (itemsField.valueType === "array") {
-        for (const itemField of itemsField.value || []) {
-            if (itemField.valueType === "object") {
-                const itemNameField = itemField.value["Name"];
-                if (itemNameField.valueType === "string") {
-                    console.log(`    Item Name: '${itemNameField.value || "<missing>"}', with confidence of ${itemNameField.confidence}`);
-                }
-            }
-        }
-    }
-    const totalField = receipt.fields["Total"];
-    if (totalField.valueType === "number") {
-        console.log(`  Total: '${totalField.value || "<missing>"}', with confidence of ${totalField.confidence}`);
-    }
-}
-
-recognizeReceipt().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
+> [!TIP]
+> 로컬 영수증 이미지를 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) 메서드(예: **beginRecognizeReceipts** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
 
 ### <a name="output"></a>출력
 
@@ -258,55 +189,12 @@ First receipt:
 
 다음 함수는 지정된 문서 세트를 모델에 학습시키고 모델의 상태를 콘솔에 출력합니다. 
 
-```javascript
-async function trainModel() {
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
 
-    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-
-    const poller = await trainingClient.beginTraining(containerSasUrl, false, {
-        onProgress: (state) => { console.log(`training status: ${state.status}`); }
-    });
-    const model = await poller.pollUntilDone();
-
-    if (!model) {
-        throw new Error("Expecting valid training result!");
-    }
-
-    console.log(`Model ID: ${model.modelId}`);
-    console.log(`Status: ${model.status}`);
-    console.log(`Training started on: ${model.trainingStartedOn}`);
-    console.log(`Training completed on: ${model.trainingCompletedOn}`);
-
-    if (model.submodels) {
-        for (const submodel of model.submodels) {
-            // since the training data is unlabeled, we are unable to return the accuracy of this model
-            console.log("We have recognized the following fields");
-            for (const key in submodel.fields) {
-                const field = submodel.fields[key];
-                console.log(`The model found field '${field.name}'`);
-            }
-        }
-    }
-    // Training document information
-    if (model.trainingDocuments) {
-        for (const doc of model.trainingDocuments) {
-            console.log(`Document name: ${doc.name}`);
-            console.log(`Document status: ${doc.status}`);
-            console.log(`Document page count: ${doc.pageCount}`);
-            console.log(`Document errors: ${doc.errors}`);
-        }
-    }
-}
-
-trainModel().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>출력
 
-[Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 이 샘플 출력은 가독성을 위해 잘렸습니다.
+[JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 이 샘플 출력은 가독성을 위해 잘렸습니다.
 
 ```console
 training status: creating
@@ -344,55 +232,12 @@ Document errors:
 
 학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `beginTraining` 메서드를 호출할 수 있습니다.
 
-```javascript
-async function trainModelLabels() {
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
-    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-
-    const poller = await trainingClient.beginTraining(containerSasUrl, true, {
-        onProgress: (state) => { console.log(`training status: ${state.status}`); }
-    });
-    const model = await poller.pollUntilDone();
-
-    if (!model) {
-        throw new Error("Expecting valid training result!");
-    }
-
-    console.log(`Model ID: ${model.modelId}`);
-    console.log(`Status: ${model.status}`);
-    console.log(`Training started on: ${model.trainingStartedOn}`);
-    console.log(`Training completed on: ${model.trainingCompletedOn}`);
-
-    if (model.submodels) {
-        for (const submodel of model.submodels) {
-            // since the training data is unlabeled, we are unable to return the accuracy of this model
-            console.log("We have recognized the following fields");
-            for (const key in submodel.fields) {
-                const field = submodel.fields[key];
-                console.log(`The model found field '${field.name}'`);
-            }
-        }
-    }
-    // Training document information
-    if (model.trainingDocuments) {
-        for (const doc of model.trainingDocuments) {
-            console.log(`Document name: ${doc.name}`);
-            console.log(`Document status: ${doc.status}`);
-            console.log(`Document page count: ${doc.pageCount}`);
-            console.log(`Document errors: ${doc.errors}`);
-        }
-    }
-}
-
-trainModelLabels().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>출력 
 
-[Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 이 샘플 출력은 가독성을 위해 잘렸습니다.
+[JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 이 샘플 출력은 가독성을 위해 잘렸습니다.
 
 ```console
 training status: creating
@@ -431,47 +276,11 @@ Document errors: undefined
 
 `beginRecognizeCustomFormsFromUrl` 메서드를 사용합니다. 그러면 제출된 문서의 각 페이지당 하나씩 `RecognizedForm` 개체 컬렉션이 반환됩니다.
 
-```javascript
-async function recognizeCustom() {
-    // Model ID from when you trained your model.
-    const modelId = "<modelId>";
-    const formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf";
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-    const poller = await client.beginRecognizeCustomForms(modelId, formUrl, {
-        onProgress: (state) => { console.log(`status: ${state.status}`); }
-    });
-    const forms = await poller.pollUntilDone();
+> [!TIP]
+> 로컬 파일을 분석할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) 메서드(예: **beginRecognizeCustomForms** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
 
-    console.log("Forms:");
-    for (const form of forms || []) {
-        console.log(`${form.formType}, page range: ${form.pageRange}`);
-        console.log("Pages:");
-        for (const page of form.pages || []) {
-            console.log(`Page number: ${page.pageNumber}`);
-            console.log("Tables");
-            for (const table of page.tables || []) {
-                for (const cell of table.cells) {
-                    console.log(`cell (${cell.rowIndex},${cell.columnIndex}) ${cell.text}`);
-                }
-            }
-        }
-
-        console.log("Fields:");
-        for (const fieldName in form.fields) {
-            // each field is of type FormField
-            const field = form.fields[fieldName];
-            console.log(
-                `Field ${fieldName} has value '${field.value}' with a confidence score of ${field.confidence}`
-            );
-        }
-    }
-}
-
-recognizeCustom().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>출력
 
@@ -515,27 +324,19 @@ Field Total has value 'undefined' with a confidence score of undefined
 
 이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다. 다음 코드는 단일 메서드의 모든 모델 관리 작업을 수행하는 예를 보여 줍니다. 
 
+### <a name="get-number-of-models"></a>모델 수 가져오기
+
+다음 코드 블록은 현재 계정에 있는 모델 수를 가져옵니다.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_count)]
+
+
 ### <a name="get-list-of-models-in-account"></a>계정의 모델 목록 가져오기
 
 다음 코드 블록은 모델 생성 시기 및 현재 상태에 대한 정보를 포함하여 계정에서 사용 가능한 모델의 전체 목록을 제공합니다.
 
-```javascript
-async function listModels() {
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
-    // returns an async iteratable iterator that supports paging
-    const result = client.listCustomModels();
-    let i = 0;
-    for await (const modelInfo of result) {
-        console.log(`model ${i++}:`);
-        console.log(modelInfo);
-    }
-}
-
-listModels().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>출력
 
@@ -570,52 +371,12 @@ model 3:
 }
 ```
 
-### <a name="get-list-of-model-ids"></a>모델 ID 목록 가져오기
-
-이 코드 블록은 모델과 모델 ID 목록을 제공합니다.
-
-```javascript
-async function listModelIds(){
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-    // using `iter.next()`
-    i = 1;
-    let iter = client.listCustomModels();
-    let modelItem = await iter.next();
-    while (!modelItem.done) {
-        console.log(`model ${i++}: ${modelItem.value.modelId}`);
-        modelItem = await iter.next();
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
-model 2: 628739de-779c-473d-8214-d35c72d3d4f7
-model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
-```
-
 ### <a name="get-list-of-model-ids-by-page"></a>페이지별로 모델 ID 목록 가져오기
 
 이 코드 블록은 페이지가 매겨진 모델과 모델 ID 목록을 제공합니다.
 
-```javascript
-async function listModelsByPage(){
-    const client = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
-    // using `byPage()`
-    i = 1;
-    for await (const response of client.listCustomModels().byPage()) {
-        for (const modelInfo of response.modelList) {
-            console.log(`model ${i++}: ${modelInfo.modelId}`);
-        }
-    }
-}
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
-listModelsByPage().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
-```
 
 ### <a name="output"></a>출력
 
@@ -625,21 +386,19 @@ model 2: 628739de-779c-473d-8214-d35c72d3d4f7
 model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
 ```
 
+### <a name="get-model-by-id"></a>ID별로 모델 가져오기
+
+다음 함수는 모델 ID를 사용하여 일치하는 모델 개체를 가져옵니다. 이 함수는 기본적으로 호출되지 않습니다.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_getmodel)]
+
+
 ### <a name="delete-a-model-from-the-resource-account"></a>리소스 계정에서 모델 삭제
 
-해당 ID를 참조하여 계정에서 모델을 삭제할 수도 있습니다. 이 코드는 이전 섹션에서 사용된 모델을 삭제합니다.
+해당 ID를 참조하여 계정에서 모델을 삭제할 수도 있습니다. 이 함수는 지정된 ID로 모델을 삭제합니다. 이 함수는 기본적으로 호출되지 않습니다.
 
-```javascript
-    await client.deleteModel(firstModel.modelId);
-    try {
-        const deleted = await trainingClient.deleteModel(firstModel.modelId);
-        console.log(deleted);
-    } catch (err) {
-        // Expected
-        console.log(`Model with id ${firstModel.modelId} has been deleted`);
-    }
-}
-```
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
+
 
 ### <a name="output"></a>출력
 
@@ -649,7 +408,7 @@ Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-다음 명령을 사용하여 이 빠른 시작에서 읽은 많은 수의 함수를 사용하여 언제든지 애플리케이션을 실행할 수 있습니다.
+quickstart 파일의 `node` 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 node index.js
@@ -676,7 +435,7 @@ export DEBUG=azure*
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer Python 클라이언트 라이브러리를 사용하여 다양한 방식으로 모델을 학습시키고 양식을 분석했습니다. 다음으로, 더 나은 학습 데이터 세트를 만들고 더 정확한 모델을 생성하기 위한 팁에 대해 알아봅니다.
+이 빠른 시작에서는 Form Recognizer JavaScript 클라이언트 라이브러리를 사용하여 다양한 방식으로 모델을 학습하고 양식을 분석했습니다. 다음으로, 더 나은 학습 데이터 세트를 만들고 더 정확한 모델을 생성하기 위한 팁에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [학습 데이터 세트 빌드](../../build-training-data-set.md)
@@ -684,3 +443,4 @@ export DEBUG=azure*
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](../../overview.md)
+* 이 가이드의 샘플 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js)에서 찾을 수 있습니다.

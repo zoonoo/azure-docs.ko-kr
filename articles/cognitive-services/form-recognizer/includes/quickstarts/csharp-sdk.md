@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 06b56566108bb482109d02d8d4f9db66dc2a6995
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9e0bdbc9cc197deb5028848731f031ff19d5ebf7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755601"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897798"
 ---
 > [!IMPORTANT]
 > 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
@@ -91,6 +91,9 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 
 애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 비동기 작업에 대한 호출을 추가합니다. 나중에 구현합니다.
 
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+
+
 ## <a name="object-model"></a>개체 모델 
 
 Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만들 수 있습니다. 첫 번째, `FormRecognizerClient`는 인식된 양식 필드 및 콘텐츠에 대한 서비스를 쿼리하는 데 사용됩니다. 두 번째, `FormTrainingClient`는 인식 기능을 향상시키는 데 사용할 수 있는 사용자 지정 모델을 만들고 관리하는 데 사용됩니다. 
@@ -143,16 +146,11 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 ## <a name="get-assets-for-testing"></a>테스트용 자산 가져오기 
 
-이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) 및 [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 관련 메서드를 참조하세요.
-
 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다. 이를 **Program** 클래스의 루트에 추가합니다.
 
 * 사용자 지정 모델 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 * 그런 다음, 위의 단계에 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져옵니다.
 * 마지막으로 아래 샘플에 포함된 샘플 영수증 이미지의 URL을 저장합니다([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능). 
-
-> [!NOTE]
-> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)의 관련 메서드를 참조하세요.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
@@ -161,9 +159,12 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 인식할 수 있습니다. 그러면 제출된 문서의 각 페이지당 하나씩 **FormPage** 개체 컬렉션이 반환됩니다. 
 
-지정된 URI에서 파일의 콘텐츠를 인식하려면 `StartRecognizeContentFromUri` 메서드를 사용합니다.
+지정된 URL에서 파일의 콘텐츠를 인식하려면 `StartRecognizeContentFromUri` 메서드를 사용합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
+
+> [!TIP]
+> 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) 메서드(예: **StartRecognizeContent** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
 
 이 작업의 나머지 부분에서는 콘텐츠 정보를 콘솔에 출력합니다.
 
@@ -208,10 +209,12 @@ Table 0 has 2 rows and 6 columns.
 
 이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 인식 및 추출하는 방법을 보여 줍니다.
 
-URI를 통해 영수증을 확인하려면 `StartRecognizeReceiptsFromUri` 메서드를 사용합니다. 
+URL을 통해 영수증을 확인하려면 `StartRecognizeReceiptsFromUri` 메서드를 사용합니다. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
+> [!TIP]
+> 로컬 영수증 이미지를 인식할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) 메서드(예: **StartRecognizeReceipts** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
 
 그러면 제출된 문서의 각 페이지당 하나씩 `RecognizedReceipt` 개체 컬렉션이 반환됩니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
@@ -401,12 +404,14 @@ Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
 > [!IMPORTANT]
 > 이 시나리오를 구현하려면 해당 ID를 아래 메서드에 전달할 수 있도록 모델을 이미 학습시킨 상태여야 합니다.
 
-`StartRecognizeCustomFormsFromUri` 메서드를 사용합니다. 그러면 제출된 문서의 각 페이지당 하나씩 `RecognizedForm` 개체 컬렉션이 반환됩니다. 
-
+`StartRecognizeCustomFormsFromUri` 메서드를 사용합니다. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
-다음 코드에서는 분석 결과를 콘솔에 출력합니다. 인식된 각 필드와 해당 값을 신뢰도 점수와 함께 출력합니다.
+> [!TIP]
+> 로컬 파일을 분석할 수도 있습니다. [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) 메서드(예: **StartRecognizeCustomForms** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
+
+그러면 제출된 문서의 각 페이지당 하나씩 `RecognizedForm` 개체 컬렉션이 반환됩니다. 다음 코드에서는 분석 결과를 콘솔에 출력합니다. 인식된 각 필드와 해당 값을 신뢰도 점수와 함께 출력합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 

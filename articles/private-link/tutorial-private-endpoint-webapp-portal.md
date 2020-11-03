@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896976"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>자습서: Azure Private Endpoint를 사용하여 웹앱에 연결
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹   | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **미국 동부** 를 선택합니다. |
+    | 지역           | **서유럽** 을 선택합니다. |
 
 3. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **미국 동부** 를 선택합니다. |
+    | Azure 지역 | **서유럽** 을 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -154,9 +154,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 게시 | **코드** 를 선택합니다. |
     | 런타임 스택 | **.NET Core 3.1(LTS)** 을 선택합니다. |
     | 운영 체제 | **Windows** 를 선택합니다. |
-    | Azure 지역 | **미국 동부** 를 선택합니다. |
+    | Azure 지역 | **서유럽** 을 선택합니다. |
     | **App Service 계획** |  |
-    | Windows 플랜(미국 동부) | **새로 만들기** 를 선택합니다. </br> **이름** 에서 **myServicePlan** 을 입력합니다. |
+    | Windows 계획(서유럽) | **새로 만들기** 를 선택합니다. </br> **이름** 에서 **myServicePlan** 을 입력합니다. |
     | SKU 및 크기 | **크기 변경** 을 선택합니다. </br> **사양 선택기** 화면에서 **P2V2** 를 선택합니다. </br> **적용** 을 선택합니다. |
    
 3. **검토 + 만들기** 를 선택합니다.
@@ -224,7 +224,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 10. **403** 페이지가 표시되는지 확인합니다. 이 페이지는 웹앱이 외부에서 액세스할 수 없음을 나타냅니다.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Azure Portal에서 웹앱 만들기의 기본 사항 탭" border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="외부 웹앱 주소에 대한 403 페이지" border="true":::
 
 11. **myVM** 에 대한 베스천 연결에서 Internet Explorer를 엽니다.
 
@@ -232,7 +232,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 13. 기본 웹앱 페이지가 표시되는지 확인합니다.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Azure Portal에서 웹앱 만들기의 기본 사항 탭" border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="기본 웹앱 페이지" border="true":::
 
 18. **myVM** 에 대한 연결을 닫습니다.
 

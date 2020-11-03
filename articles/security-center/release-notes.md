@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ed4bd97dfe64a85785cf7805da2cf7f942baecd4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900245"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -25,8 +25,11 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 이 페이지는 자주 업데이트되므로 자주 다시 방문하세요. 
 
+곧 Security Center에 적용되는 *계획된* 변경 내용에 대한 자세한 내용은 [Azure Security Center의 예정된 중요 변경 내용](upcoming-changes.md)을 참조하세요. 
+
 > [!TIP]
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
+
 
 
 ## <a name="october-2020"></a>2020년 10월
@@ -34,6 +37,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 - [온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall 권장 사항 추가(미리 보기)](#azure-firewall-recommendation-added-preview)
 - [[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)
@@ -74,6 +78,15 @@ Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새�
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
 
 
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨
+
+Security Center의 규정 준수 대시보드는 특정 규정 준수 제어 및 요구 사항을 충족하는 방법에 따라 규정 준수 상태에 대한 인사이트를 제공합니다.
+
+대시보드에는 규정 표준의 기본 세트가 포함되어 있습니다. 제공된 표준이 조직과 관련이 없는 경우 이제 구독에 대한 UI에서 해당 표준을 간단히 제거할 수 있는 간단한 프로세스입니다. 표준은 관리 그룹 범위가 아닌 *구독* 수준에서만 제거할 수 있습니다.
+
+[대시보드에서 표준 제거](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard)에서 자세히 알아봅니다.
+
+
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨
 
 Azure Resource Graph는 작업 환경을 효과적으로 관리할 수 있도록 특정 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 리소스 탐색 기능을 제공하도록 디자인된 Azure 서비스입니다. 
@@ -85,7 +98,33 @@ Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](https://docs
 
 ARG 내에는 쿼리에 사용할 수 있는 데이터 테이블이 들어 있습니다.
 
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항"
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer 및 사용 가능한 테이블":::
+
+> [!TIP]
+> ARG 설명서에는 [Azure Resource Graph 테이블 및 리소스 종류 참조](../governance/resource-graph/reference/supported-tables-resources.md)에서 사용 가능한 모든 테이블이 나열되어 있습니다.
+
+이번 업데이트에서 **Microsoft.Security/securityStatuses** 테이블이 제거되었습니다. securityStatuses API는 계속 사용할 수 있습니다.
+
+데이터 교체는 Microsoft.Security/Assessments에서 사용할 수 있습니다.
+
+Microsoft.Security/securityStatuses는 평가의 집계를 보여주고 Microsoft.Security/Assessments는 각 평가에 대한 단일 레코드를 포함한다는 것이 가장 큰 차이점입니다.
+
+예를 들어 Microsoft.Security/securityStatuses는 다음과 같은 두 개의 policyAssessments 배열이 포함된 결과를 반환합니다.
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
 }
 ```
 반면 Microsoft.Security/Assessments는 다음과 같이 각 정책 평가에 대한 레코드를 보유합니다.
@@ -285,7 +324,7 @@ Security Center의 통합 취약성 평가 도구는 "가상 머신의 취약성
 
 이제 추천 사항을 선택하고 **보안 결과 포함** 옵션을 사용하도록 설정하면 연속 내보내기를 통해 보안 결과를 내보낼 수 있습니다.
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제" :::
 
 관련 페이지:
 
@@ -350,7 +389,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
 
 [보안 점수](secure-score-security-controls.md)에 대해 자세히 알아보세요.
 
@@ -359,7 +398,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 추천 사항에 대한 세부 정보 페이지에는 이제 새로 고침 간격 표시기(관련될 때마다) 및 추천 사항의 심각도에 대한 명확한 표시가 포함됩니다.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="새고 고침 및 심각도를 보여 주는 추천 사항 페이지":::
 
 
 
@@ -523,7 +562,7 @@ Blob 컨테이너, 파일 공유 또는 데이터 레이크로 저장되는지�
 - **Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함**
 - **Virtual Machines에서 Advanced Threat Protection을 사용하도록 설정해야 함**
 
-이러한 새 추천 사항은 **Advanced Threat Protection 사용** 보안 제어에 속합니다.
+이러한 새 추천 사항은 **Azure Defender 사용** 보안 제어에 속합니다.
 
 추천 사항에는 빠른 수정 기능도 포함됩니다. 
 
@@ -644,7 +683,7 @@ SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능�
 
 Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log Analytics 에이전트는 무엇인가요?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)에서 자세히 알아보세요.
 
-[Azure Arc 컴퓨터용 확장](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal)에 대해 자세히 알아보세요.
+[Azure Arc 컴퓨터용 확장](../azure-arc/servers/manage-vm-extensions.md)에 대해 자세히 알아보세요.
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책
@@ -666,7 +705,7 @@ Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log A
 
 [워크플로 자동화 템플릿](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)을 시작합니다.
 
-두 가지 내보내기 정책을 사용하는 방법에 대해 [Policy를 통해 Azure Security Center 경고 및 추천 사항을 연속으로 내보내기](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745)에서 자세히 알아보세요.
+[제공된 정책을 사용하여 대규모 워크플로 자동화 구성](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) 및 [연속 내보내기 설정](continuous-export.md#set-up-a-continuous-export)에서 두 가지 내보내기 정책 사용에 대해 자세히 알아봅니다.
 
 
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항
@@ -783,7 +822,7 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 [Azure Security Center에서 향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 컨트롤에 대해 자세히 알아보세요.
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="추천 사항에 대한 제어를 기준으로 그룹화 설정/해제":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>확장된 보안 컨트롤 "보안 모범 사례 구현" 
 

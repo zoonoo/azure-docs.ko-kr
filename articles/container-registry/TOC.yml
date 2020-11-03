@@ -212,6 +212,8 @@
           href: container-registry-task-run-template.md
         - name: 전용 에이전트 풀에서 작업 실행(미리 보기)
           href: tasks-agent-pools.md
+        - name: 공용 콘텐츠 사용 및 유지 관리
+          href: tasks-consume-public-content.md
         - name: Buildpacks를 사용하여 이미지 빌드(미리 보기)
           href: container-registry-tasks-pack-build.md
         - name: 태스크 로그 보기
@@ -221,7 +223,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

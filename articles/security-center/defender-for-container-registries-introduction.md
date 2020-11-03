@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558638"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145823"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -32,6 +32,12 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 
 Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 않는 정보 알림이 발생할 가능성을 줄입니다.
 
+
+> [!TIP]
+> Security Center의 컨테이너 보안 기능에 대해 자세히 알아보려면 다음을 참조하세요.
+>
+> - [Azure Security Center 및 컨테이너 보안](container-security.md)
+> - [Azure Defender for Kubernetes 소개](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>이미지가 언제 검사되나요?
 
@@ -81,10 +87,5 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-Security Center의 컨테이너 보안 기능에 대해 자세히 알아보려면 다음을 참조하세요.
-
-- [Azure Security Center 및 컨테이너 보안](container-security.md)
-
-- [Azure Defender for Kubernetes 소개](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [이미지 취약성 검색](defender-for-container-registries-usage.md)

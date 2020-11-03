@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340889"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900394"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
 또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "92340889"
 > [!TIP]
 > Security Center의 위협 방지 기능을 사용하도록 설정하려면 해당 워크로드가 포함된 구독에서 Azure Defender를 사용하도록 설정해야 합니다.
 >
-> **Azure Database for MariaDB/MySQL/PostgreSQL**에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
+> **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
 
 
 ## <a name="threat-protection-for-azure-network-layer"></a>Azure 네트워크 계층에 대한 위협 방지 <a name="network-layer"></a>
@@ -32,7 +32,6 @@ Security Center 네트워크 계층 분석은 Azure 핵심 라우터에서 수�
 일부 네트워크 구성에서는 Security Center에서 의심스러운 네트워크 활동에 대한 경고를 생성하지 않도록 제한할 수 있습니다. Security Center에서 네트워크 경고를 생성하려면 다음을 확인합니다.
 - 가상 머신에서 공용 IP 주소를 사용하거나 가상 머신이 공용 IP 주소가 있는 부하 분산 장치에 있습니다.
 - 가상 머신의 네트워크 송신 트래픽은 외부 IDS 솔루션에서 차단되지 않습니다.
-- 의심스러운 통신이 발생한 전체 시간 동안 동일한 IP 주소가 가상 머신에 할당되었습니다. 이는 관리형 서비스(예: AKS, Databricks)의 일부로 만든 VM에도 적용됩니다.
 
 Azure 네트워크 계층 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azurenetlayer)를 참조하세요.
 
@@ -48,10 +47,10 @@ Azure Resource Manager(미리 보기) 경고 목록은 [경고 참조 표](alert
 >[!NOTE]
 > 이전 분석의 일부는 Microsoft Cloud App Security에서 작동됩니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
 >
-> 1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
+> 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 > 1. 변경하려는 구독을 선택합니다.
-> 1. **위협 탐지**를 선택합니다.
-> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장**을 선택합니다.
+> 1. **위협 탐지** 를 선택합니다.
+> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장** 을 선택합니다.
 
 
 >[!NOTE]
@@ -59,7 +58,7 @@ Azure Resource Manager(미리 보기) 경고 목록은 [경고 참조 표](alert
 
 1. 에이전트를 설치할 작업 영역을 설정합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
 
-1. **Azure Defender**를 사용하도록 설정하고 **저장**을 선택합니다.
+1. **Azure Defender** 를 사용하도록 설정하고 **저장** 을 선택합니다.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 위협 방지(미리 보기)<a name="cosmos-db"></a>
@@ -68,7 +67,7 @@ Azure Cosmos DB 경고는 Azure Cosmos DB 계정에 액세스하거나 이를 �
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Cosmos DB용 Advanced Threat Protection(미리 보기)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Azure Cosmos DB용 지능형 위협 방지(미리 보기)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [Azure Cosmos DB에 대한 위협 방지 경고 목록(미리 보기)](alerts-reference.md#alerts-azurecosmos)
 
 
@@ -101,4 +100,4 @@ Azure DDoS Protection 경고 목록은 [경고 참조 표](alerts-reference.md#a
 * [모든 Azure Security Center 경고 참조 표](alerts-reference.md)
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 * [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
-* [보안 경고 및 추천 사항 내보내기(미리 보기)](continuous-export.md)
+* [Security Center 데이터 연속 내보내기](continuous-export.md)

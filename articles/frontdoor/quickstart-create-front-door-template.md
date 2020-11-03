@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896058"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Front Door 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "92088927"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-front-door-create-basic)에서 나온 것입니다.
 
-이 빠른 시작에서는 단일 백 엔드 및 "/*"와 일치하는 단일 기본 경로를 사용하여 Front Door 구성을 만듭니다. 
+이 빠른 시작에서는 단일 백 엔드 및 `/*`와 일치하는 단일 기본 경로를 사용하여 Front Door 구성을 만듭니다.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ ms.locfileid: "92088927"
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 코드 블록에서 **사용해 보기**를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다. 
+1. 다음 코드 블록에서 **사용해 보기** 를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -67,18 +67,18 @@ ms.locfileid: "92088927"
 
     콘솔에서 프롬프트가 표시될 때까지 기다립니다.
 
-1. 이전 코드 블록에서 **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
+1. 이전 코드 블록에서 **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
 
-1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기**를 선택합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기** 를 선택합니다.
 
 1. 값을 입력합니다.
 
-    템플릿 배포는 단일 백 엔드를 사용하여 Front Door를 만듭니다. 이 예에서는 *<span>microsoft.</span>com*이 **backendAddress**로 사용됩니다.
+    템플릿 배포는 단일 백 엔드를 사용하여 Front Door를 만듭니다. 이 예제에서는 `microsoft.com`이 **backendAddress** 로 사용됩니다.
 
-    리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+    리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
     > [!NOTE]
-    > 템플릿을 성공적으로 배포하려면 **frontDoorName**이 전역적으로 고유한 이름이어야 합니다. 배포에 실패하면 1단계부터 다시 시작합니다.
+    > 템플릿을 성공적으로 배포하려면 **frontDoorName** 이 전역적으로 고유한 이름이어야 합니다. 배포에 실패하면 1단계부터 다시 시작합니다.
 
     템플릿을 배포하는 데 몇 분 정도 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
 
@@ -92,11 +92,11 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 왼쪽 패널에서 **리소스 그룹** 을 선택합니다.
 
-1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
 1. 이전에 만든 Front Door를 선택하고 **프런트 엔드 호스트** 링크를 클릭합니다. 링크를 누르면 웹 브라우저가 열리고 생성 중에 정의한 백 엔드 FQDN으로 리디렉션됩니다.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door 포털 개요":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 다음을 만들었습니다.
-* Front Door
+이 빠른 시작에서는 Front Door를 만들었습니다.
 
 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아보려면 Front Door 자습서로 계속 진행하세요.
 

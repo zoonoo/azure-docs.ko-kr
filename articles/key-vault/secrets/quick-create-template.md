@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690632"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896432"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -36,7 +36,7 @@ ms.locfileid: "88690632"
 
 * 권한을 구성하려면 템플릿에 Azure AD 사용자 개체 ID가 필요합니다. 다음 절차는 개체 ID(GUID)를 가져옵니다.
 
-    1. **사용해 보세요**를 선택하여 다음 Azure PowerShell 또는 Azure CLI 명령을 수행한 다음, 스크립트를 셸 창에 붙여넣습니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+    1. **사용해 보세요** 를 선택하여 다음 Azure PowerShell 또는 Azure CLI 명령을 수행한 다음, 스크립트를 셸 창에 붙여넣습니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
         # <a name="cli"></a>[CLI](#tab/CLI)
         ```azurecli-interactive
@@ -82,16 +82,16 @@ ms.locfileid: "88690632"
 
     지정되지 않은 경우 기본 값을 사용하여 키 자격 증명 모음과 비밀을 만듭니다.
 
-    * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
-    * **위치**: 위치를 선택합니다. 예: **미국 중부**
-    * **Key Vault 이름**: .vault.azure.net 네임스페이스 내에서 전역적으로 고유한 키 자격 증명 모음 이름을 입력합니다. 다음 섹션에서 배포의 유효성을 검사할 때 이 이름이 필요합니다.
-    * **테넌트 ID**: 템플릿 함수가 자동으로 테넌트 ID를 검색합니다. 기본값을 변경하지 마세요.
-    * **AD 사용자 ID**: [필수 조건](#prerequisites)에서 검색한 Azure AD 사용자 개체 ID를 입력합니다.
-    * **비밀 이름**: 키 자격 증명 모음에 저장하는 비밀의 이름을 입력합니다. 예: **adminpassword**.
-    * **비밀 값**: 비밀 값을 입력합니다. 암호를 저장할 경우 필수 구성 요소에서 만든 생성된 암호를 사용하는 것이 좋습니다.
-    * **위에 명시된 사용 약관에 동의함**: 선택합니다.
-3. **구매**를 선택합니다. 키 자격 증명 모음이 성공적으로 배포되면 알림을 받게 됩니다.
+    * **구독** : Azure 구독을 선택합니다.
+    * **리소스 그룹** : **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
+    * **위치** : 위치를 선택합니다. 예: **미국 중부**
+    * **Key Vault 이름** : .vault.azure.net 네임스페이스 내에서 전역적으로 고유한 키 자격 증명 모음 이름을 입력합니다. 다음 섹션에서 배포의 유효성을 검사할 때 이 이름이 필요합니다.
+    * **테넌트 ID** : 템플릿 함수가 자동으로 테넌트 ID를 검색합니다. 기본값을 변경하지 마세요.
+    * **AD 사용자 ID** : [필수 조건](#prerequisites)에서 검색한 Azure AD 사용자 개체 ID를 입력합니다.
+    * **비밀 이름** : 키 자격 증명 모음에 저장하는 비밀의 이름을 입력합니다. 예: **adminpassword**.
+    * **비밀 값** : 비밀 값을 입력합니다. 암호를 저장할 경우 필수 구성 요소에서 만든 생성된 암호를 사용하는 것이 좋습니다.
+    * **위에 명시된 사용 약관에 동의함** : 선택합니다.
+3. **구매** 를 선택합니다. 키 자격 증명 모음이 성공적으로 배포되면 알림을 받게 됩니다.
 
     ![ARM 템플릿, Key Vault 통합, 배포 포털 알림](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -124,7 +124,7 @@ Write-Host "Press [ENTER] to continue..."
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![ARM 템플릿, Key Vault 통합, 배포 포털 유효성 검사 출력](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![CLI에서 포털 유효성 검사 출력 배포를 보여주는 스크린샷.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

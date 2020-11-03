@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590458"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927841"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
@@ -71,7 +71,7 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>프로비저닝할 때 HSM이 어떻게 표시되나요?
 Dedicated HSM은 허용 목록 서비스이므로 Azure Portal에서 "숨겨진 형식"으로 간주됩니다. HSM 리소스를 표시하려면 아래와 같이 "숨겨진 형식 표시" 확인란을 선택해야 합니다. NIC 리소스는 항상 HSM을 따르며, 먼저 HSM의 IP 주소를 확인한 후에 SSH를 사용하여 연결하는 것이 좋습니다.
 
-![서브넷 위임](./media/troubleshoot/hsm-provisioned.png)
+![숨겨진 형식 표시 검사를 강조 표시하는 스크린샷](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>네트워킹 리소스
 
@@ -85,7 +85,7 @@ Dedicated HSM은 ExpressRoute 게이트웨이를 고객 개인 IP 주소 공간�
 
 Dedicated HSM에 제공되는 템플릿 샘플은 지정된 서브넷 범위에서 HSM IP를 자동으로 가져온다고 가정합니다. HSM에 대한 명시적 IP 주소는 ARM 템플릿의 "NetworkInterfaces" 특성을 통해 지정할 수 있습니다. 
 
-![서브넷 위임](./media/troubleshoot/private-ip-address.png)
+![전용 HSM에 대한 샘플 템플릿을 보여주는 스크린샷.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>HSM 초기화
 

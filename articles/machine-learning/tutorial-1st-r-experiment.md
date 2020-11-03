@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019378"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913282"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 
@@ -45,12 +45,12 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 서비스에서 사용하기 쉬운 개체에 연결합니다. 
 
-Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 작업 영역을 만듭니다. 
+[작업 영역을 만드는 방법](how-to-manage-workspace.md)에는 여러 가지가 있습니다. 이 자습서에서는 Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 작업 영역을 만듭니다. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
+> **작업 영역** 및 **구독** 을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
 
 
 ## <a name="open-rstudio"></a><a name="open"></a>RStudio 열기
@@ -59,7 +59,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 Azure ML 컴퓨팅 인스턴스에서 RStudio를 사용하여 이 자습서를 실행합니다.  
 
-1. 왼쪽에서 **Compute**를 선택합니다.
+1. 왼쪽에서 **Compute** 를 선택합니다.
 
 1. 컴퓨팅 리소스가 아직 없는 경우 추가합니다.
 
@@ -74,7 +74,7 @@ Azure ML 컴퓨팅 인스턴스에서 RStudio를 사용하여 이 자습서를 �
 
 1. 터미널에서 `git clone https://github.com/Azure/azureml-sdk-for-r`을 실행하여 리포지토리를 복제합니다.
 
-1. RStudio에서 복제된 *azureml-sdk-for-r* 폴더의 *vignettes* 폴더로 이동합니다.  *vignettes*에서 *train-and-deploy-first-model.Rmd* 파일을 선택하여 이 자습서에 사용되는 vignette를 찾습니다. vignette에 사용되는 추가 파일은 *train-and-deploy-first-model* 하위 폴더에 있습니다. vignette를 연 후 **세션 > 작업 디렉터리 설정 > 원본 파일 위치로**를 통해 작업 디렉터리를 파일 위치로 설정합니다. 
+1. RStudio에서 복제된 *azureml-sdk-for-r* 폴더의 *vignettes* 폴더로 이동합니다.  *vignettes* 에서 *train-and-deploy-first-model.Rmd* 파일을 선택하여 이 자습서에 사용되는 vignette를 찾습니다. vignette에 사용되는 추가 파일은 *train-and-deploy-first-model* 하위 폴더에 있습니다. vignette를 연 후 **세션 > 작업 디렉터리 설정 > 원본 파일 위치로** 를 통해 작업 디렉터리를 파일 위치로 설정합니다. 
 
 > [!Important]
 > 이 문서의 나머지 부분에는 *train-and-deploy-first-model.Rmd* 파일에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다. RMarkdown 사용 경험이 있는 경우 해당 파일의 코드를 자유롭게 사용할 수 있습니다.  또는 해당 프로그램에서 또는 이 문서에서 R 스크립트나 명령줄로 코드 조각을 복사한 후 붙여 넣을 수 있습니다. 
@@ -184,11 +184,11 @@ upload_files_to_datastore(ds,
 * 작업 제출
 
 ### <a name="prepare-the-training-script"></a>학습 스크립트 준비
-`accidents.R`이라는 학습 스크립트가 *train-and-deploy-first-model* 디렉터리에 제공되었습니다. 학습용 Azure Machine Learning을 활용하기 위해 수행된 **학습 스크립트 내**에서 다음 작업 세부 정보를 확인하세요.
+`accidents.R`이라는 학습 스크립트가 *train-and-deploy-first-model* 디렉터리에 제공되었습니다. 학습용 Azure Machine Learning을 활용하기 위해 수행된 **학습 스크립트 내** 에서 다음 작업 세부 정보를 확인하세요.
 
 * 학습 스크립트에서 인수 `-d`를 사용하여 학습 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 정의하고 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다. Azure ML은 학습 작업을 위해 원격 클러스터에 스토리지 폴더를 탑재합니다.
 * 학습 스크립트는 `log_metric_to_run()`을 사용하여 Azure ML의 실행 기록에 대한 메트릭으로 최종 정확도를 로깅합니다. Azure ML SDK는 학습 실행 중 다양한 메트릭을 로깅하는 일련의 로깅 API를 제공합니다. 이러한 메트릭은 실험 실행 기록에 기록되고 유지됩니다. 그런 다음, 언제든지 메트릭에 액세스하거나 [studio](https://ml.azure.com)의 실행 세부 정보 페이지에서 볼 수 있습니다. 로깅 메서드 `log_*()`의 전체 세트에 대해서는 [참조](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)를 참조하세요.
-* 학습 스크립트는 **outputs**라는 디렉터리에 모델을 저장합니다. `./outputs` 폴더는 Azure ML에서 특별히 취급됩니다. 학습하는 동안 `./outputs`에 기록된 파일은 Azure ML에 의해 실행 기록에 자동으로 업로드되고 아티팩트로 유지됩니다. `./outputs`에 학습된 모델을 저장하여 실행이 끝난 후에도 모델 파일을 액세스하고 검색할 수 있으며, 원격 교육 환경에 더 이상 액세스할 수 없습니다.
+* 학습 스크립트는 **outputs** 라는 디렉터리에 모델을 저장합니다. `./outputs` 폴더는 Azure ML에서 특별히 취급됩니다. 학습하는 동안 `./outputs`에 기록된 파일은 Azure ML에 의해 실행 기록에 자동으로 업로드되고 아티팩트로 유지됩니다. `./outputs`에 학습된 모델을 저장하여 실행이 끝난 후에도 모델 파일을 액세스하고 검색할 수 있으며, 원격 교육 환경에 더 이상 액세스할 수 없습니다.
 
 ### <a name="create-an-estimator"></a>추정기 만들기
 
@@ -212,7 +212,7 @@ est <- estimator(source_directory = "train-and-deploy-first-model",
 
 ### <a name="submit-the-job-on-the-remote-cluster"></a>원격 클러스터에서 작업 제출
 
-마지막으로 클러스터에서 실행할 작업을 제출합니다. `submit_experiment()`는 실행과 인터페이스로 연결하는 데 사용하는 Run 개체를 반환합니다. 전체적으로 첫 번째 실행은 **약 10분**이 걸립니다. 그러나 스크립트 종속성이 변경되지 않는 한, 나중에 실행하기 위해 동일한 Docker 이미지가 다시 사용됩니다.  이 경우 이미지가 캐시되므로 컨테이너 시작 시간은 훨씬 더 빨라집니다.
+마지막으로 클러스터에서 실행할 작업을 제출합니다. `submit_experiment()`는 실행과 인터페이스로 연결하는 데 사용하는 Run 개체를 반환합니다. 전체적으로 첫 번째 실행은 **약 10분** 이 걸립니다. 그러나 스크립트 종속성이 변경되지 않는 한, 나중에 실행하기 위해 동일한 Docker 이미지가 다시 사용됩니다.  이 경우 이미지가 캐시되므로 컨테이너 시작 시간은 훨씬 더 빨라집니다.
 
 ```R
 run <- submit_experiment(exp, est)
@@ -305,7 +305,7 @@ model <- register_model(ws,
 ### <a name="define-the-inference-dependencies"></a>유추 종속성 정의
 모델용 웹 서비스를 만들려면 먼저 입력 변수 값(JSON 형식)으로 사용하고 모델에서 예측을 출력하는 R 스크립트인 점수 매기기 스크립트(`entry_script`)를 만들어야 합니다. 이 자습서에서는 제공된 점수 매기기 파일 `accident_predict.R`을 사용합니다. 점수 매기기 스크립트는 모델을 로드하고 해당 모델을 사용해서 입력 데이터를 기준으로 예측을 수행하는 함수를 반환하는 `init()` 메서드를 포함해야 합니다. 자세한 내용은 [설명서](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details)를 참조하세요.
 
-그런 다음, 스크립트의 패키지 종속성에 대한 Azure ML **환경**을 정의합니다. 환경을 사용하여 스크립트를 실행하는 데 필요한 R 패키지(CRAN 또는 다른 위치에서 가져옴)를 지정합니다. 스크립트가 동작 수정을 위해 참조할 수 있는 환경 변수 값도 제공할 수 있습니다. 기본적으로 Azure ML은 학습을 위해 추정기와 함께 사용되는 동일한 기본 Docker 이미지를 빌드합니다. 이 자습서에서는 특수한 환경을 요구하지 않으므로 특별한 특성이 없는 환경을 만듭니다.
+그런 다음, 스크립트의 패키지 종속성에 대한 Azure ML **환경** 을 정의합니다. 환경을 사용하여 스크립트를 실행하는 데 필요한 R 패키지(CRAN 또는 다른 위치에서 가져옴)를 지정합니다. 스크립트가 동작 수정을 위해 참조할 수 있는 환경 변수 값도 제공할 수 있습니다. 기본적으로 Azure ML은 학습을 위해 추정기와 함께 사용되는 동일한 기본 Docker 이미지를 빌드합니다. 이 자습서에서는 특수한 환경을 요구하지 않으므로 특별한 특성이 없는 환경을 만듭니다.
 
 ```R
 r_env <- r_environment(name = "basic_env")
@@ -313,7 +313,7 @@ r_env <- r_environment(name = "basic_env")
 
 대신, 배포를 위해 자체 Docker 이미지를 사용하려면 `custom_docker_image` 매개 변수를 지정합니다. 환경 정의를 위한 구성 가능 옵션의 전체 세트에 대해서는 [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) 참조를 참조하세요.
 
-이제 점수 매기기 스크립트 및 환경 종속성을 캡슐화하는 **유추 구성**을 만드는 데 필요한 모든 환경이 구현되었습니다.
+이제 점수 매기기 스크립트 및 환경 종속성을 캡슐화하는 **유추 구성** 을 만드는 데 필요한 모든 환경이 구현되었습니다.
 
 ```R
 inference_config <- inference_config(
@@ -392,7 +392,7 @@ delete_compute(compute)
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시하고 **삭제**를 선택합니다.
+또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

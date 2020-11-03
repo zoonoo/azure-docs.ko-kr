@@ -20,7 +20,7 @@ ms.locfileid: "93234140"
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -309,7 +309,7 @@ Install-Module -Name Az.ImportExport
 이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
 
 1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다.
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
+2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
 
    `cd C:\WaImportExportV1`
@@ -320,9 +320,9 @@ Install-Module -Name Az.ImportExport
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|Description|
+    |명령줄 매개 변수|설명|
     |--------------------------|-----------------|
-    |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
+    |**/logdir**|(선택 사항) 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
     |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|
     |**/sk**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|
     |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|
@@ -374,7 +374,7 @@ Number of drives needed:        3
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | Description |
+   | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

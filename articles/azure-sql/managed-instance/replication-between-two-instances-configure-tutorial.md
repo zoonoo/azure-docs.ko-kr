@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790868"
+ms.locfileid: "92900463"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>자습서: 두 관리형 인스턴스 간 복제 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "92790868"
 > [!div class="checklist"]
 >
 > - 관리되는 인스턴스를 복제 게시자 및 배포자로 구성합니다.
-> - 관리되는 인스턴스를 복제 배포자로 구성합니다.
+> - 관리되는 인스턴스를 복제 구독자로 구성합니다.
 
 ![두 관리형 인스턴스 간 복제](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
