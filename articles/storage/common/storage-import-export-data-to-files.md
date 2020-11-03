@@ -5,19 +5,20 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782402"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234100"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
-이 아티클에서는 Azure Import/Export 서비스를 사용하여 Azure Files로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 가져오려면 서비스를 사용하여 데이터가 포함된 지원되는 디스크 드라이브를 Azure 데이터 센터로 운송해야 합니다.  
+이 아티클에서는 Azure Import/Export 서비스를 사용하여 Azure Files로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 가져오려면 서비스를 사용하여 데이터가 포함된 지원되는 디스크 드라이브를 Azure 데이터 센터로 운송해야 합니다.
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
 
@@ -29,8 +30,8 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. `C:\WaImportExport`)을 입력합니다.
-- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExport`입니다.
+- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
     - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -48,7 +49,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 1. SATA 커넥터를 통해 디스크 드라이브를 Windows 시스템에 연결합니다.
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
-3. 도구가 있는 루트 폴더에서 *dataset.csv* 파일을 수정합니다. 파일 또는 폴더 중 하나 또는 둘 다를 가져올지에 따라 다음 예제와 비슷한 *dataset.csv* 파일에 항목을 추가합니다.  
+3. 도구가 있는 루트 폴더에서 *dataset.csv* 파일을 수정합니다. 파일 또는 폴더 중 하나 또는 둘 다를 가져올지에 따라 다음 예제와 비슷한 *dataset.csv* 파일에 항목을 추가합니다.
 
    - **파일을 가져오려면** 다음 예제에서 복사할 데이터가 F: 드라이브에 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1* 의 루트에 복사합니다. *MyAzureFileshare1* 이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
 
@@ -241,6 +242,102 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+다음 단계를 사용 하 여 Azure PowerShell에서 가져오기 작업을 만듭니다.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> **Az. ImportExport** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>작업 만들기
+
+1. 기존 리소스 그룹을 사용 하거나 하나를 만들 수 있습니다. 리소스 그룹을 만들려면 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. 기존 저장소 계정을 사용 하거나 하나를 만들 수 있습니다. 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. 디스크를 제공할 수 있는 위치 목록을 가져오려면 [AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) cmdlet을 사용 합니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. `Get-AzImportExportLocation`매개 변수와 함께 cmdlet을 사용 `Name` 하 여 해당 지역의 위치를 가져옵니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. 다음 [AzImportExport](/powershell/module/az.importexport/new-azimportexport) 예제를 실행 하 여 가져오기 작업을 만듭니다.
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
+
+1. [AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet을 사용 하 여 myierg 리소스 그룹에 대 한 모든 작업을 볼 수 있습니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 작업을 업데이트 하거나 작업을 취소 하려면 [AzImportExport](/powershell/module/az.importexport/update-azimportexport) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

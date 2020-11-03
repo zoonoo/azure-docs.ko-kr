@@ -1,17 +1,17 @@
 ---
 title: 서버 개념-유연한 서버 Azure Database for MySQL
 description: 이 항목에서는 Azure Database for MySQL 유연한 서버를 사용 하기 위한 고려 사항 및 지침을 제공 합니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939314"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240752"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 서버 개념
 
@@ -59,6 +59,6 @@ Azure Database for MySQL 유연한 서버 내에서 하나 이상의 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
--    [서버 만들기](./quickstart-create-server-portal.md) 에 대 한 자세한 정보
+-   [서버 만들기](./quickstart-create-server-portal.md) 에 대 한 자세한 정보
 -   [모니터링 및 경고](./how-to-alert-on-metric.md) 에 대 한 자세한 정보
 

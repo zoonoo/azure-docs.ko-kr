@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL에 대 한 인증서 회전
 description: 영향을 받는 루트 인증서 변경의 예정 된 변경 내용에 대해 알아봅니다 Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 65a19910c9aa1ed78154fb77ee86d22d40ea5b49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6005e56982d6adad937586c6a1b364fab09603ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082133"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242316"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -90,7 +90,7 @@ Azure Database for MySQL sslmode를 이해 하려면 [SSL 모드 설명을](conc
 > [!NOTE]
 > 인증서가 변경 될 때까지 **Baltimore certificate** 를 삭제 하거나 변경 하지 마세요. 변경이 완료 되 면 통신이 전송 되며, 그 후에는 Baltimore 인증서를 삭제 하는 것이 안전 합니다. 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 

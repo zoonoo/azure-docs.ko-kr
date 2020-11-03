@@ -1,17 +1,17 @@
 ---
 title: 중지/시작-Azure Portal-유연한 서버 Azure Database for MySQL
 description: 이 문서에서는 Azure Portal를 통해 Azure Database for MySQL에서 작업을 중지/시작 하는 방법을 설명 합니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567501"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241925"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 중지/시작 (미리 보기)
 

@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: febee51a20f57d71d633243145a1aa0c8fb9b437
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078581"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233681"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Azure Red Hat OpenShift 4 클러스터 응용 프로그램 백업 만들기
 
@@ -22,6 +22,9 @@ ms.locfileid: "92078581"
 > [!div class="checklist"]
 > * 필수 구성 요소를 설정 하 고 필요한 도구를 설치 합니다.
 > * Azure Red Hat OpenShift 4 응용 프로그램 백업 만들기
+
+> [!NOTE] 
+> Velero는 Azure Red Hat OpenShift etcd 키-값 저장소 데이터를 백업 하지 않습니다. Etcd를 백업 해야 하는 경우 [etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html)백업을 참조 하세요.
 
 CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 

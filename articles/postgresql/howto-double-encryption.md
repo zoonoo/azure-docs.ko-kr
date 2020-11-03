@@ -1,17 +1,17 @@
 ---
 title: 인프라 이중 암호화-Azure Portal-Azure Database for PostgreSQL
 description: Azure Database for PostgreSQL에 대 한 인프라 이중 암호화를 설정 하 고 관리 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901550"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242231"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 인프라 이중 암호화
 
@@ -25,9 +25,9 @@ Azure Database for PostgreSQL에 대 한 인프라를 설정 하 고 관리 하�
 
 Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database for MySQL 서버를 만들려면 다음 단계를 따르세요.
 
-1. 포털의 왼쪽 위 모서리에서 **리소스 만들기**(+)를 선택합니다.
+1. 포털의 왼쪽 위 모서리에서 **리소스 만들기** (+)를 선택합니다.
 
-2. **데이터베이스** > **PostgreSQL용 Azure Database**를 차례로 선택합니다. 검색 상자에 PostgreSQL를 입력 하 여 서비스를 찾을 수도 있습니다. **단일 서버** 배포 옵션을 사용 하도록 설정 했습니다.
+2. **데이터베이스** > **PostgreSQL용 Azure Database** 를 차례로 선택합니다. 검색 상자에 PostgreSQL를 입력 하 여 서비스를 찾을 수도 있습니다. **단일 서버** 배포 옵션을 사용 하도록 설정 했습니다.
 
    :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
@@ -35,7 +35,7 @@ Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database f
 
     :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
-4. **검토 + 만들기**를 선택하여 서버를 프로비저닝합니다.
+4. **검토 + 만들기** 를 선택하여 서버를 프로비저닝합니다.
 
     :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="메뉴의 Azure Database for PostgreSQL":::
 
@@ -52,7 +52,7 @@ CLI에서 인프라 이중 암호화를 사용 하 여 Azure Database for MySQL 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-다음 예제에서는 `mydemoserver` `myresourcegroup` 서버 관리자 로그인을 사용 하 여 리소스 그룹에 라는 미국 서 부에 PostgreSQL 11 서버를 만듭니다 `myadmin` . 이 서버는 **2개 vCore**가 있는 **4세대** **범용** 서버입니다. 이렇게 하면 생성 된 서버에 대 한 인프라 이중 암호화도 사용할 수 있습니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
+다음 예제에서는 `mydemoserver` `myresourcegroup` 서버 관리자 로그인을 사용 하 여 리소스 그룹에 라는 미국 서 부에 PostgreSQL 11 서버를 만듭니다 `myadmin` . 이 서버는 **2개 vCore** 가 있는 **4세대** **범용** 서버입니다. 이렇게 하면 생성 된 서버에 대 한 인프라 이중 암호화도 사용할 수 있습니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>

@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL 단일 서버에 대 한 인증서 회전
 description: 단일 서버 Azure Database for PostgreSQL에 영향을 줄 수 있는 루트 인증서 변경의 예정 된 변경 내용에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1bd02043183bd0477d8663300fcb7a1d7ac9ea55
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100748"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242078"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -90,7 +90,7 @@ Baltimore CyberTrust Root 인증서를 사용 하 여 여기에 설명 된 Azure
 > [!NOTE]
 > 인증서가 변경 될 때까지 **Baltimore certificate** 를 삭제 하거나 변경 하지 마세요. 변경이 완료 되 면 통신이 전송 되며, 그 후에는 Baltimore 인증서를 삭제 하는 것이 안전 합니다. 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 

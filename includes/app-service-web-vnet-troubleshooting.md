@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255254"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235897"
 ---
-이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구**  >  **Kudu**로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구**  >  **콘솔**로 이동 합니다.
+이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구**  >  **Kudu** 로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구**  >  **콘솔** 로 이동 합니다.
 
 #### <a name="tools"></a>도구
-네이티브 Windows 앱에서 **ping**, **nslookup**및 **tracert** 도구는 보안 제약 조건 ( [사용자 지정 Windows 컨테이너](../articles/app-service/quickstart-custom-container.md)에서 작동)으로 인해 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver.exe**라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
+네이티브 Windows 앱에서 **ping** , **nslookup** 및 **tracert** 도구는 보안 제약 조건 ( [사용자 지정 Windows 컨테이너](../articles/app-service/quickstart-custom-container.md)에서 작동)으로 인해 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver.exe** 라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -26,7 +26,7 @@ nameresolver를 사용하여 앱이 의존하는 호스트 이름을 확인합�
 > nameresolver.exe 현재 사용자 지정 Windows 컨테이너에서 작동 하지 않습니다.
 >
 
-다음 도구를 사용 하 여 호스트 및 포트 조합에 대 한 TCP 연결을 테스트할 수 있습니다. 이 도구는 **tcpping**이라고 하며, 구문은 다음과 같습니다.
+다음 도구를 사용 하 여 호스트 및 포트 조합에 대 한 TCP 연결을 테스트할 수 있습니다. 이 도구는 **tcpping** 이라고 하며, 구문은 다음과 같습니다.
 
 ```console
 tcpping.exe hostname [optional: port]
@@ -46,12 +46,12 @@ tcpping.exe hostname [optional: port]
 * 대상이 RFC1918 주소가 아니고 WEBSITE_VNET_ROUTE_ALL 1로 설정 되어 있지 않나요?
 * 통합 서브넷에서 송신을 차단 하는 NSG가 있나요?
 * Azure Express 경로 또는 VPN을 통해 이동 하는 경우 온-프레미스 게이트웨이가 Azure로 트래픽을 라우팅하도록 구성 되어 있나요? 가상 네트워크의 끝점에 연결할 수 있지만 온-프레미스에 연결할 수 없는 경우 경로를 확인 합니다.
-* 통합 서브넷에 대 한 위임을 설정할 수 있는 권한이 있나요? 지역 VNet 통합 구성 중에 통합 서브넷이 Microsoft 웹에 위임 됩니다. VNet 통합 UI는 서브넷을 Microsoft 웹에 자동으로 위임 합니다. 계정에 위임 설정을 위한 충분 한 네트워킹 권한이 없는 경우 통합 서브넷의 특성을 설정 하 여 서브넷을 위임할 수 있는 사용자가 필요 합니다. 통합 서브넷을 수동으로 위임 하려면 Azure Virtual Network 서브넷 UI로 이동 하 고 Microsoft 웹에 대 한 위임을 설정 합니다.
+* 통합 서브넷에 대 한 위임을 설정할 수 있는 권한이 있나요? 지역 VNet 통합 구성 중에 통합 서브넷이 Microsoft 웹/serverFarms에 위임 됩니다. VNet 통합 UI는 서브넷을 Microsoft 웹/serverFarms에 자동으로 위임 합니다. 계정에 위임 설정을 위한 충분 한 네트워킹 권한이 없는 경우 통합 서브넷의 특성을 설정 하 여 서브넷을 위임할 수 있는 사용자가 필요 합니다. 통합 서브넷을 수동으로 위임 하려면 Azure Virtual Network 서브넷 UI로 이동 하 여 Microsoft 웹/serverFarms에 대 한 위임을 설정 합니다.
 
 **게이트웨이-필수 VNet 통합**
 * RFC 1918 범위 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)의 지점 및 사이트 간 주소 범위 입니까?
 * 게이트웨이가 포털에 표시 되나요? 게이트웨이가 다운되어 있으면 다시 가동시킵니다.
-* 인증서가 동기화 된 것으로 표시 되거나 네트워크 구성이 변경 된 것으로 의심 됩니까?  인증서가 동기화 되지 않았거나 Asp와 동기화 되지 않은 가상 네트워크 구성이 변경 된 것으로 의심 되는 경우 **네트워크 동기화**를 선택 합니다.
+* 인증서가 동기화 된 것으로 표시 되거나 네트워크 구성이 변경 된 것으로 의심 됩니까?  인증서가 동기화 되지 않았거나 Asp와 동기화 되지 않은 가상 네트워크 구성이 변경 된 것으로 의심 되는 경우 **네트워크 동기화** 를 선택 합니다.
 * VPN을 통해 이동 하는 경우 온-프레미스 게이트웨이는 트래픽을 Azure로 라우팅하도록 구성 되어 있나요? 가상 네트워크의 끝점에 연결할 수 있지만 온-프레미스에 연결할 수 없는 경우 경로를 확인 합니다.
 * 지점 및 사이트 간 및 Express 경로를 모두 지 원하는 공존 게이트웨이를 사용 하려고 하나요? 공존 게이트웨이는 VNet 통합에서 지원 되지 않습니다.
 
@@ -74,7 +74,7 @@ tcpping.exe hostname [optional: port]
 test-netconnection hostname [optional: -Port]
 ```
 
-* VM에서 응용 프로그램을 열고 **tcpping**을 사용 하 여 콘솔에서 해당 호스트 및 포트에 대 한 액세스를 테스트 합니다.
+* VM에서 응용 프로그램을 열고 **tcpping** 을 사용 하 여 콘솔에서 해당 호스트 및 포트에 대 한 액세스를 테스트 합니다.
 
 #### <a name="on-premises-resources"></a>온-프레미스 리소스 ####
 

@@ -1,17 +1,17 @@
 ---
 title: 데이터 암호화 문제 해결-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL-단일 서버에서 데이터 암호화 문제를 해결 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: ee0a1ebe483dd4719fd1a84fec37906329116eba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c315e1df473f3d23bab7e2a78ce166f22272ee70
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117902"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242248"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 데이터 암호화 문제 해결-단일 서버
 
@@ -19,7 +19,7 @@ ms.locfileid: "86117902"
 
 ## <a name="introduction"></a>소개
 
-Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버에서 키에 대 한 지속적인 액세스가 필요 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 해당 상태를 ***액세스할*** 수 없음으로 변경 합니다.
+Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버에서 키에 대 한 지속적인 액세스가 필요 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 * **액세스 불가** _로 상태를 변경 합니다.
 
 Azure Database for PostgreSQL 서버에 액세스할 수 없는 경우 서버를 삭제 하 여 비용을 절감할 수 있습니다. 키 자격 증명 모음에 대 한 액세스가 복원 되 고 서버를 사용할 수 있을 때까지 서버에 대 한 다른 작업은 허용 되지 않습니다. 또한 `Yes` `No` 고객이 관리 하는 키로 암호화 된 경우 액세스할 수 없는 서버에서 (고객 관리)에서 (서비스 관리)로 데이터 암호화 옵션을 변경할 수 없습니다. 서버를 다시 액세스 하려면 키를 수동으로 다시 유효성을 다시 검사 해야 합니다. 이 작업은 고객이 관리 하는 키에 대 한 권한이 해지 되는 동안 무단 액세스 로부터 데이터를 보호 하는 데 필요 합니다.
 
@@ -44,12 +44,12 @@ Azure Database for PostgreSQL 서버에 액세스할 수 없는 경우 서버를
 #### <a name="disabled-key-vault"></a>비활성화 된 key vault
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **설명**: Azure Key Vault 키가 사용 하지 않도록 설정 되어 있으므로 서버에서 작업을 완료할 수 없습니다.
+- _ * 설명 * *: Azure Key Vault 키가 사용 하지 않도록 설정 되어 있으므로 서버에서 작업을 완료할 수 없습니다.
 
 #### <a name="missing-key-vault-permissions"></a>누락 된 키 자격 증명 모음 권한
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **설명**: 서버에 Azure Key Vault 하는 데 필요한 가져오기, 래핑 및 래핑 해제 권한이 없습니다. ID를 사용 하 여 서비스 사용자에 게 누락 된 사용 권한을 부여 합니다.
+- **설명** : 서버에 Azure Key Vault 하는 데 필요한 가져오기, 래핑 및 래핑 해제 권한이 없습니다. ID를 사용 하 여 서비스 사용자에 게 누락 된 사용 권한을 부여 합니다.
 
 ### <a name="mitigation"></a>완화 방법
 

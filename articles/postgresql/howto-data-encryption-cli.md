@@ -1,18 +1,18 @@
 ---
 title: 데이터 암호화-Azure CLI-Azure Database for PostgreSQL-단일 서버
 description: Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화를 설정 하 고 관리 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797817"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240616"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
 
@@ -49,7 +49,7 @@ Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 �
 * 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
-  * **가져오기**, **래핑** 및 **래핑** 해제 작업 수행
+  * **가져오기** , **래핑** 및 **래핑** 해제 작업 수행
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
@@ -67,7 +67,7 @@ Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 �
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. PostgreSQL 단일 서버 서버의 이름인 **주**서버에 대 한 **키 사용 권한** (**가져오기**, **래핑**, **래핑**해제)을 설정 합니다.
+2. PostgreSQL 단일 서버 서버의 이름인 **주** 서버에 대 한 **키 사용 권한** ( **가져오기** , **래핑** , **래핑** 해제)을 설정 합니다.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

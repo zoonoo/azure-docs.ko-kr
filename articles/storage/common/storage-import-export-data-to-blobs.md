@@ -5,21 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460736"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234123"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
-이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.  
+이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -33,8 +34,8 @@ ms.locfileid: "92460736"
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
 * Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659) 합니다. 최신 버전의 도구에는 BitLocker 키에 대 한 외부 보호기 및 업데이트 된 잠금 해제 모드 기능을 허용 하기 위한 보안 업데이트가 있습니다.
 
-  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
-* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
+  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
+* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
   * 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -51,7 +52,7 @@ ms.locfileid: "92460736"
 1. SATA 커넥터를 통해 디스크 드라이브를 Windows 시스템에 연결합니다.
 2. 각 드라이브에 단일 NTFS 볼륨을 만듭니다. 볼륨에 드라이브 문자를 할당합니다. 탑재 지점은 사용하지 마세요.
 3. NTFS 볼륨에서 BitLocker 암호화를 사용하도록 설정합니다. Windows Server 시스템을 사용하는 경우 [Windows Server 2012 R2에서 BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)의 지침을 따르세요.
-4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. 저널 (*jrn*번째) 파일은 도구를 실행 하는 폴더와 같은 폴더에 만들어집니다.
+4. 데이터를 암호화된 볼륨으로 복사합니다. 끌어서 놓기, Robocopy 또는 이러한 복사 도구를 사용합니다. 저널 ( *jrn* 번째) 파일은 도구를 실행 하는 폴더와 같은 폴더에 만들어집니다.
 
    드라이브가 잠기고 드라이브 잠금을 해제 해야 하는 경우 사용 사례에 따라 잠금을 해제 하는 단계가 다를 수 있습니다.
 
@@ -83,7 +84,7 @@ ms.locfileid: "92460736"
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예들 들어 `D:\`입니다.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob` 입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
@@ -100,26 +101,26 @@ ms.locfileid: "92460736"
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 
 1. https://portal.azure.com/에 로그온합니다.
-2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기**로 차례로 이동합니다.
+2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기** 로 차례로 이동합니다.
 
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. **가져오기/내보내기 작업 만들기**를 클릭 합니다.
+3. **가져오기/내보내기 작업 만들기** 를 클릭 합니다.
 
     ![가져오기/내보내기 작업 만들기 클릭](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. **기본 사항**에서
+4. **기본 사항** 에서
 
-   * **Azure로 가져오기**를 선택합니다.
+   * **Azure로 가져오기** 를 선택합니다.
    * 가져오기 작업을 설명하는 이름을 입력합니다. 이름을 사용하여 작업 진행 상황을 추적합니다.
        * 이름에는 소문자, 숫자 및 하이픈만 포함할 수 있습니다.
        * 이름은 문자로 시작해야 하며, 공백은 포함할 수 없습니다.
    * 구독을 선택합니다.
-   * 리소스 그룹을 입력하거나 선택합니다.  
+   * 리소스 그룹을 입력하거나 선택합니다.
 
      ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. **작업 세부 정보**에서:
+5. **작업 세부 정보** 에서:
 
    * 드라이브 준비 단계에서 얻은 드라이브 저널 파일을 업로드합니다. `waimportexport.exe version1`이 사용된 경우 준비한 각 드라이브에 대해 파일을 하나씩 업로드합니다. 저널 파일 크기가 2MB를 초과하면 저널 파일을 사용하여 만든 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`도 사용할 수 있습니다.
    * 데이터가 저장될 대상 스토리지 계정을 선택합니다.
@@ -127,7 +128,7 @@ ms.locfileid: "92460736"
 
    ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. **반송 정보**에서:
+6. **반송 정보** 에서:
 
    * 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
    * 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
@@ -138,10 +139,10 @@ ms.locfileid: "92460736"
 
      ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. **요약**에서:
+7. **요약** 에서:
 
    * 요약에 제공된 직업 정보를 검토합니다. 작업 이름과 디스크를 Azure로 반송할 Azure 데이터 센터 배송 주소를 적어 둡니다. 이 정보는 나중에 운송 레이블에 사용됩니다.
-   * **확인**을 클릭하여 가져오기 작업을 만듭니다.
+   * **확인** 을 클릭하여 가져오기 작업을 만듭니다.
 
      ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
@@ -221,6 +222,102 @@ ms.locfileid: "92460736"
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+다음 단계를 사용 하 여 Azure PowerShell에서 가져오기 작업을 만듭니다.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> **Az. ImportExport** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>작업 만들기
+
+1. 기존 리소스 그룹을 사용 하거나 하나를 만들 수 있습니다. 리소스 그룹을 만들려면 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. 기존 저장소 계정을 사용 하거나 하나를 만들 수 있습니다. 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. 디스크를 제공할 수 있는 위치 목록을 가져오려면 [AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) cmdlet을 사용 합니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. `Get-AzImportExportLocation`매개 변수와 함께 cmdlet을 사용 `Name` 하 여 해당 지역의 위치를 가져옵니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. 다음 [AzImportExport](/powershell/module/az.importexport/new-azimportexport) 예제를 실행 하 여 가져오기 작업을 만듭니다.
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
+
+1. [AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet을 사용 하 여 myierg 리소스 그룹에 대 한 모든 작업을 볼 수 있습니다.
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 작업을 업데이트 하거나 작업을 취소 하려면 [AzImportExport](/powershell/module/az.importexport/update-azimportexport) cmdlet을 실행 합니다.
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

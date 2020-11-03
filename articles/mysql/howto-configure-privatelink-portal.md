@@ -1,23 +1,23 @@
 ---
 title: 개인 링크-Azure Portal-Azure Database for MySQL
 description: Azure Portal에서 Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b6a2725c6e4d72e8e79e3e45cc60060c02d90cac
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545007"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242401"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 문서에서는 azure 개인 끝점을 사용 하 여 Azure Virtual Network 및 Azure Database for MySQL 서버에서 VM을 만드는 Azure Portal를 사용 하는 방법을 알아봅니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!NOTE]
 > 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for MySQL 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.

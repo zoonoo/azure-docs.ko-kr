@@ -1,18 +1,18 @@
 ---
 title: 개인 링크-Azure CLI-Azure Database for PostgreSQL-단일 서버
 description: Azure CLI에서 Azure Database for PostgreSQL-단일 서버에 대 한 개인 링크를 구성 하는 방법에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777931"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242180"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 

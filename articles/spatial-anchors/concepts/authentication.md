@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12f9a91995eb35fa61a7df5f3ead5255aea0f071
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089035"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242350"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -103,7 +103,7 @@ Azure Active Directory 사용자를 대상으로 하는 응용 프로그램의 �
     3.  **Mixedreality** 아래에서 **mixedreality을** 선택 합니다.
     4.  **권한 추가** 를 선택합니다.
 3.  **관리자 동의 부여** 를 선택 합니다.
-    
+
 2. 리소스에 애플리케이션 또는 사용자 액세스 권한을 부여합니다.
    1.    Azure Portal의 공간 앵커 리소스로 이동 합니다.
    2.    **액세스 제어 (IAM)** 탭으로 이동 합니다.
@@ -118,7 +118,7 @@ Azure Active Directory 사용자를 대상으로 하는 응용 프로그램의 �
         1.    응용 프로그램에서 **내 조직만** 지 원하는 경우이 값을 **테 넌 트 ID** 또는 **테 넌 트 이름** 으로 바꿉니다. 예를 들면 contoso.microsoft.com입니다.
         2.    응용 프로그램에서 **조직 디렉터리의 계정을** 지 원하는 경우이 값을 **조직** 으로 바꿉니다.
         3.    응용 프로그램에서 **모든 Microsoft 계정 사용자** 를 지 원하는 경우이 값을 **일반** 값으로 바꿉니다.
-3.    토큰 요청에서 **범위** 를 **" https://sts.mixedreality.azure.com//.default "** 로 설정 합니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
+3.    토큰 요청에서 **범위** 를 **" `https://sts.<account-domain>//.default` "** 로 설정 합니다 `<account-domain>` . 여기서는 Azure 공간 앵커 계정에 대 한 **계정 도메인** 으로 바뀝니다. 미국 동부 2 계정 도메인의 Azure 공간 앵커 계정에 대 한 예제 범위는 **" `https://sts.mixedreality.azure.com//.default` "** 입니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
 
 이러한 단계를 완료 한 후 응용 프로그램은 MSAL에서 Azure AD 토큰을 얻을 수 있어야 합니다. Azure AD 토큰을 `authenticationToken` 클라우드 세션 구성 개체에서로 설정할 수 있습니다.
 
@@ -177,27 +177,27 @@ Azure AD 액세스 토큰은 [Msal](../../active-directory/develop/msal-overview
         1.    Azure Portal에서 **Azure Active Directory** 를 선택 하 고 **앱 등록** 를 선택 합니다.
         2.    **새 등록** 을 선택합니다.
         3.    애플리케이션 이름을 입력하고 애플리케이션 유형으로 **웹앱/API** 를 선택한 후 서비스의 인증 URL을 입력합니다. **만들기** 를 선택합니다.
-4.    응용 프로그램에서 **설정** 을 선택한 다음 **인증서 및 암호** 탭을 선택 합니다. 새 클라이언트 암호를 만들고 기간을 선택한 다음 **추가** 를 선택 합니다. 비밀 값을 저장 해야 합니다. 웹 서비스의 코드에 포함 해야 합니다.
-2.    애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
+2.    응용 프로그램에서 **설정** 을 선택한 다음 **인증서 및 암호** 탭을 선택 합니다. 새 클라이언트 암호를 만들고 기간을 선택한 다음 **추가** 를 선택 합니다. 비밀 값을 저장 해야 합니다. 웹 서비스의 코드에 포함 해야 합니다.
+3.    애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
         1.    Azure Portal의 공간 앵커 리소스로 이동 합니다.
         2.    **액세스 제어 (IAM)** 탭으로 이동 합니다.
         3.    **역할 할당 추가** 를 선택합니다.
-        1.    [역할을 선택](#azure-role-based-access-control)합니다.
-        2.    **선택** 상자에 액세스 권한을 할당 하려는 응용 프로그램의 이름 또는 이름을 입력 합니다. 앱의 사용자에 게 공간 앵커 계정에 대해 다른 역할을 지정 하려면 Azure AD에 여러 응용 프로그램을 등록 하 고 각 응용 프로그램에 별도의 역할을 할당 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
-        
-              > [!NOTE] 
-              > **역할 할당 추가** 창의에 대 한 **액세스 할당** 에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택 합니다.
-    
-      3.    **저장** 을 선택합니다.
-    
-**코드에서** 
+        4.    [역할을 선택](#azure-role-based-access-control)합니다.
+        5.    **선택** 상자에 액세스 권한을 할당 하려는 응용 프로그램의 이름 또는 이름을 입력 합니다. 앱의 사용자에 게 공간 앵커 계정에 대해 다른 역할을 지정 하려면 Azure AD에 여러 응용 프로그램을 등록 하 고 각 응용 프로그램에 별도의 역할을 할당 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
 
->[!NOTE] 
+              > [!NOTE]
+              > **역할 할당 추가** 창의에 대 한 **액세스 할당** 에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택 합니다.
+
+        6.    **저장** 을 선택합니다.
+
+**코드에서**
+
+>[!NOTE]
 > GitHub에서 사용할 수 있는 서비스 샘플을 사용할 수 있습니다.
 
 1.    사용자 고유의 Azure AD 응용 프로그램의 응용 프로그램 ID, 응용 프로그램 암호 및 리디렉션 URI를 MSAL의 **클라이언트 ID** , **비밀** 및 **redirecturi** 매개 변수로 사용 해야 합니다.
 2.    MSAL의 **authority** 매개 변수에서 테 넌 트 id를 자신의 Azure AD 테 넌 트 id로 설정 합니다.
-3.    토큰 요청에서 **범위** 를 **" https://sts.mixedreality.azure.com//.default "** 로 설정 합니다.
+3.    토큰 요청에서 **범위** 를 **" `https://sts.<account-domain>//.default` "** 로 설정 합니다 `<account-domain>` . 여기서는 Azure 공간 앵커 계정에 대 한 **계정 도메인** 으로 바뀝니다. 미국 동부 2 계정 도메인의 Azure 공간 앵커 계정에 대 한 예제 범위는 **" `https://sts.mixedreality.azure.com//.default` "** 입니다.
 
 이러한 단계를 완료 한 후 백 엔드 서비스에서 Azure AD 토큰을 검색할 수 있습니다. 그런 다음 클라이언트로 다시 반환할 MR 토큰으로 교환할 수 있습니다. Azure AD 토큰을 사용한 MR 토큰 검색은 REST 호출을 통해 수행됩니다. 샘플 호출은 다음과 같습니다.
 

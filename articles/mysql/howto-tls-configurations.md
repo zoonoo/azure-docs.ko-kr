@@ -1,17 +1,17 @@
 ---
 title: TLS 구성-Azure Portal-Azure Database for MySQL
 description: Azure Database for MySQL에 대 한 Azure Portal를 사용 하 여 TLS 구성을 설정 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902732"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240633"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에서 TLS 설정 구성
 
@@ -31,13 +31,13 @@ MySQL server 최소 TLS 버전을 설정 하려면 다음 단계를 수행 합�
 
 1. [Azure Portal](https://portal.azure.com/)에서 기존 Azure Database for MySQL 서버를 선택 합니다.
 
-1. MySQL server 페이지의 **설정**에서 **연결 보안** 을 클릭 하 여 연결 보안 구성 페이지를 엽니다.
+1. MySQL server 페이지의 **설정** 에서 **연결 보안** 을 클릭 하 여 연결 보안 구성 페이지를 엽니다.
 
-1. **최소 tls 버전**에서 MySQL 서버용 tls 1.2 보다 작은 tls 버전으로 연결을 거부 하려면 **1.2** 을 선택 합니다.
+1. **최소 tls 버전** 에서 MySQL 서버용 tls 1.2 보다 작은 tls 버전으로 연결을 거부 하려면 **1.2** 을 선택 합니다.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for MySQL TLS 구성":::
 
-1. **저장**을 클릭하여 변경 내용을 저장합니다.
+1. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 1. 연결 보안 설정이 성공적으로 설정 되었는지 확인 하는 알림이 나타납니다.
 

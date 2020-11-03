@@ -1,17 +1,17 @@
 ---
 title: 고가용성-Azure Database for MariaDB
 description: 이 문서에서는의 고가용성에 대 한 정보를 제공 Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203308"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241347"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 고가용성
 Azure Database for MariaDB 서비스는 재정적 지원 되는 SLA (서비스 수준 계약) [99.99%](https://azure.microsoft.com/support/legal/sla/MariaDB) 가동 시간을 보장 하는 높은 수준의 가용성을 제공 합니다. Azure Database for MariaDB은 사용자가 제공 하는 크기 조정 계산 작업 등의 계획 된 이벤트 중에 고가용성을 제공 하며, 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획 되지 않은 이벤트가 발생 하는 경우에도 제공 합니다. 이 서비스를 사용 하는 경우 응용 프로그램 작동 중단 시간이 거의 없도록 하 여 대부분의 중요 한 상황에서 신속 하 게 복구할 수 Azure Database for MariaDB.

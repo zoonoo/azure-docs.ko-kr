@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636122"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233953"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
 
@@ -25,7 +25,7 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 
 현재 모든 파워 쿼리 M 함수는 제작 중에도 사용할 수 있는 데이터 랭 글 링 지원 되지 않습니다. 랭 글 링 데이터 흐름을 작성 하는 동안 함수가 지원 되지 않으면 다음과 같은 오류 메시지가 표시 됩니다.
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 다음은 지원 되는 파워 쿼리 M 함수 목록입니다.
 
@@ -76,7 +76,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 [표. Group](/powerquery-m/table-group) 을 사용 하 여 값을 집계 합니다.
 * 집계 함수와 함께 사용 해야 합니다.
-* 지원 되는 집계 함수:   [테이블. RowCount](/powerquery-m/table-rowcount),   [list. Sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. Average](/powerquery-m/list-average),   [list. Min](/powerquery-m/list-min),   [List. Max](/powerquery-m/list-max),   [list. standarddeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first),   [list. Last](/powerquery-m/list-last)
+* 지원 되는 집계 함수:   [list. Sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. Average](/powerquery-m/list-average),   [list. Min](/powerquery-m/list-min),   [list. Max](/powerquery-m/list-max),   [List. standarddeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first),   [list. Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>정렬
 
@@ -96,7 +96,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 | Table.NestedJoin | 조인을 수행 하면 유효성 검사 오류가 발생 합니다. 열이 제대로 작동 하려면 확장 해야 합니다. |
 | Table.Distinct | 중복 행 제거는 지원 되지 않습니다. |
 | Table.RemoveLastN | 하위 행 제거는 지원 되지 않습니다. |
-| Table.RowCount | 지원 되지 않지만 모든 셀이 비어 있는 add 열 (condition 열을 사용할 수 있음)을 사용한 다음 해당 열에서 group by를 사용 하 여 달성할 수 있습니다. 테이블. 그룹이 지원 됩니다. | 
+| Table.RowCount | 지원 되지 않지만 값 1을 포함 하는 사용자 지정 열을 추가한 다음이 열을 Sum으로 집계 하 여 달성할 수 있습니다. 테이블. 그룹이 지원 됩니다. | 
 | 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원 되지 않습니다. 예를 들어 열에서 숫자가 아닌 값을 필터링 하려면 텍스트 열을 숫자로 변환 하는 방법 중 하나를 사용 합니다. 변환에 실패 하는 모든 셀은 오류 상태가 되며 필터링 해야 합니다. 이 시나리오는 랭 글 링 데이터 흐름에서 사용할 수 없습니다. |
 | Table.Transpose | 지원되지 않음 |
 | Table.Pivot | 지원되지 않음 |

@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778584"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240973"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -73,9 +73,9 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 1. **사용자 지정 캐싱 규칙** 에 따라 일치 조건 두 개를 만듭니다.
 
-     a. 첫 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/*`을 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **시간** 상자에 4시간을 입력합니다.
+     a. 첫 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/*`을 입력합니다. **캐싱 동작** 을 **재정의** 로 설정 하 고 **일** 상자에 4를 입력 합니다.
 
-     b. 두 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **시간** 상자에 2시간을 입력합니다.
+     b. 두 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작** 을 **재정의** 로 설정 하 고 **일** 상자에 2를 입력 합니다.
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

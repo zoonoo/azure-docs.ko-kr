@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327496"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242211"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 참조
 
@@ -20,7 +20,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 규칙 엔진은 표준 Azure CDN에서 특정 유형의 요청을 처리 하는 방법에 대 한 최종 권한으로 설계 되었습니다.
 
-**규칙의 일반적인 용도**는 다음과 같습니다.
+**규칙의 일반적인 용도** 는 다음과 같습니다.
 
 - 사용자 지정 캐시 정책을 재정의하거나 정의합니다.
 - 요청을 리디렉션합니다.
@@ -34,7 +34,10 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 각 규칙에는 최대 10 개의 일치 조건 및 5 개의 작업이 있을 수 있습니다. 각 Azure CDN 끝점에는 최대 25 개의 규칙이 있을 수 있습니다. 
 
-이 제한에는 기본 *전역 규칙이*포함 됩니다. 전역 규칙에 일치 하는 조건이 없습니다. 전역 규칙에 정의 된 작업은 항상 트리거됩니다.
+이 제한에는 기본 *전역 규칙이* 포함 됩니다. 전역 규칙에 일치 하는 조건이 없습니다. 전역 규칙에 정의 된 작업은 항상 트리거됩니다.
+
+   > [!IMPORTANT]
+   > 여러 규칙이 나열된 순서는 규칙이 처리되는 방식에 영향을 줍니다. 규칙에 지정된 작업은 후속 규칙으로 덮어쓸 수 있습니다.
 
 ## <a name="limits-and-pricing"></a>제한 및 가격 책정 
 

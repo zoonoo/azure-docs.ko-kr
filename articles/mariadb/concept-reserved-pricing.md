@@ -1,17 +1,17 @@
 ---
 title: 선불 예약 된 용량-Azure Database for MariaDB
 description: 예약 된 용량의 Azure Database for MariaDB 계산 리소스에 대 한 선불
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427801"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241619"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Azure Database for MariaDB 계산 리소스에 대 한 선불
 
@@ -22,7 +22,7 @@ ms.locfileid: "92427801"
 [Azure Portal](https://portal.azure.com/)에서 Azure Database for MariaDB 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약 된 용량을 구입 하려면:
 
 * 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
-* Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+* Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
 * CSP (클라우드 솔루션 공급자) 프로그램의 경우 관리 에이전트 또는 판매 에이전트만 Azure Database for MariaDB 예약 된 용량을 구매할 수 있습니다. </br>
 
 엔터프라이즈 고객과 종 량 제 고객의 예약 구매 요금에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 및 [종 량 제 구독에 대 한 azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조 하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "92427801"
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Azure Database for MariaDB 예약 된 용량 구입
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스** > **예약**을 선택합니다.
+2. **모든 서비스** > **예약** 을 선택합니다.
 3.  **추가** 를 선택 하 고 구매 예약 창에서 **Azure Database for MariaDB** 을 선택 하 여 새 예약을 aadb 데이터베이스에 구입 합니다.
 4.  Fill-필수 필드입니다. 선택한 특성과 일치 하는 기존 또는 새 데이터베이스는 예약 된 용량 할인을 얻기 위해 한정 됩니다. 할인을 받는 Azure Database for MariaDB 서버의 실제 수는 선택한 범위와 수량에 따라 달라 집니다.
 
@@ -48,11 +48,11 @@ ms.locfileid: "92427801"
 
 다음 표에서는 필수 필드에 대해 설명 합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | :------------ | :------- |
-| 구독   | 예약 된 Azure Database for MariaDB 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for MariaDB 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| Scope | VCore 예약의 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for MariaDB 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**에서 vcore 예약 할인은이 구독의 Azure Database for MariaDB 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for MariaDB 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
-| Azure 지역 | Azure Database for MariaDB 예약 된 용량 예약이 적용 되는 Azure 지역입니다.
+| Subscription   | 예약 된 Azure Database for MariaDB 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for MariaDB 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
+| Scope | VCore 예약의 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유** , vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for MariaDB 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** 에서 vcore 예약 할인은이 구독의 Azure Database for MariaDB 서버에 적용 됩니다. </br></br> **단일 리소스 그룹** -예약 할인이 선택한 구독의 Azure Database for MariaDB 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| 지역 | Azure Database for MariaDB 예약 된 용량 예약이 적용 되는 Azure 지역입니다.
 | 배포 유형 | 예약을 구입할 Azure Database for MariaDB 리소스 형식입니다.
 | 성능 계층 | Azure Database for MariaDB 서버에 대 한 서비스 계층입니다.
 | 용어 | 1년

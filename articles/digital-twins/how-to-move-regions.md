@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026499"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241092"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -30,7 +30,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 연결 합니다.
 4. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 고 다시 만들어야 하는 모든 부분을 명확 하 게 파악 하는 것이 좋습니다.
 
@@ -80,9 +80,8 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 그런 다음 ADT Explorer에 대 한 사용 권한을 설정 하 고 구성 합니다. 이렇게 하려면 Azure Digital Twins 빠른 시작의 [*Azure Digital twins 및 ADT 탐색기 설정*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) 섹션에 있는 지침을 따르세요. 이 섹션에서는 다음 단계를 안내 합니다.
 1. Azure Digital Twins 인스턴스 설정 (인스턴스가 이미 있으므로이 파트를 건너뛸 수 있음)
-2. **AZURE AD 앱 등록** 을 설정 하 여 인스턴스에 대 한 액세스 제공
-3. 컴퓨터에서 ADT 탐색기를 실행 하기 위한 권한 설정
-4. ADT 탐색기를 실행 하 고 인스턴스에 연결 하도록 구성 합니다. 이동 중인 원래 Azure 디지털 Twins 인스턴스의 **호스트 이름** 및 앱 등록의 **클라이언트 id** 및 **테 넌 트 id** 를 사용 합니다.
+2. 인스턴스에 대 한 액세스를 제공 하기 위해 로컬 Azure 자격 증명을 설정 합니다.
+3. ADT 탐색기를 실행 하 고 인스턴스에 연결 하도록 구성 합니다. 이동 중인 원래 Azure Digital Twins 인스턴스의 **호스트 이름을** 사용 합니다.
 
 이제 ADT 탐색기 샘플 앱이 컴퓨터의 브라우저에서 실행 되 고 있어야 합니다. 이 샘플은 원래 Azure Digital Twins 인스턴스에 연결 해야 합니다.
 
@@ -137,7 +136,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 ADT 탐색기라고 하며, 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/sign-in.png":::
 
-동일한 앱 등록을 다시 사용할 수 있으므로 새 인스턴스를 반영 하도록 *ADT URL* 을 바꾸어야 합니다. 이 값을 *https://{새 인스턴스 호스트 이름}* 을 읽도록 변경 합니다.
+새 인스턴스를 반영 하도록 *ADT URL* 을 바꿉니다. 이 값을 *https://{새 인스턴스 호스트 이름}* 을 읽도록 변경 합니다.
 
 *Connect* 를 누릅니다. Azure 자격 증명을 사용 하 여 다시 로그인 하거나 인스턴스에 대해이 응용 프로그램에 대 한 동의를 부여 하 라는 메시지가 표시 될 수 있습니다.
 
@@ -210,6 +209,7 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 * Azure Maps
 * 장치 프로 비전 서비스 (DPS)
 * [*자습서: 클라이언트 앱 코딩*](tutorial-code.md), 인스턴스에 연결 하 고 Azure Digital Twins api를 호출 하는 클라이언트 **앱** 과 같이 azure 외부의 개인 또는 회사 앱
+* Azure AD 앱 등록을 다시 만들 **필요가 없습니다** . [앱 등록](how-to-create-app-registration.md) 을 사용 하 여 Azure Digital Twins api에 연결 하는 경우 새 인스턴스와 동일한 앱 등록을 다시 사용할 수 있습니다.
 
 이 단계를 완료 한 후 대상 지역의 새 인스턴스는 원본 인스턴스의 복사본 이어야 합니다.
 

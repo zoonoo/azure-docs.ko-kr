@@ -1,17 +1,17 @@
 ---
 title: 연결 아키텍처-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 단일 서버의 연결 아키텍처에 대해 설명 합니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6e2bc93a589e0a3f709eb1a8956bf8ca3d8bf6b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882404"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242061"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.

@@ -1,17 +1,17 @@
 ---
 title: 개인 링크-Azure Database for PostgreSQL 단일 서버
 description: 개인 링크가 Azure Database for PostgreSQL 단일 서버에서 작동 하는 방식에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489509"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240429"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>PostgreSQL-Single 서버용 Azure Database에 대 한 개인 링크
 
@@ -113,7 +113,7 @@ Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 공용 액세스 거부
 
-Azure Database for PostgreSQL 단일 서버에 액세스 하기 위한 전용 끝점만 사용 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ([방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-and-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
+Azure Database for PostgreSQL 단일 서버에 액세스 하기 위한 전용 끝점만 사용 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ( [방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-and-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
 
 이 설정이 *예* 로 설정 된 경우 개인 끝점을 통한 연결만 Azure Database for PostgreSQL 허용 됩니다. 이 설정을로 설정 하면 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for PostgreSQL에 연결할 수 *없습니다* . 또한 개인 네트워크 액세스 값이 설정 되 면 고객은 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙 '을 추가 및/또는 업데이트할 수 없습니다.
 

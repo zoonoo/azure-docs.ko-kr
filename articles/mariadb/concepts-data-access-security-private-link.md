@@ -1,17 +1,17 @@
 ---
 title: 개인 링크-Azure Database for MariaDB
 description: Azure Database for MariaDB에 대 한 개인 링크의 작동 방식에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425625"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241500"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 개인 링크
 
@@ -114,9 +114,9 @@ Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 
 
 ## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 공용 액세스 거부
 
-Azure Database for MariaDB에 액세스 하기 위한 전용 끝점에 전적으로 의존 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ([방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
+Azure Database for MariaDB에 액세스 하기 위한 전용 끝점에 전적으로 의존 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ( [방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
 
-이 설정이 *예*로 설정 되 면 개인 끝점을 통한 연결만 Azure Database for MariaDB 허용 됩니다. 이 설정이 *아니요*로 설정 된 경우 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for MariaDB에 연결할 수 있습니다. 또한 개인 네트워크 액세스 값이 설정 되 면 고객은 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙 '을 추가 및/또는 업데이트할 수 없습니다.
+이 설정이 *예* 로 설정 되 면 개인 끝점을 통한 연결만 Azure Database for MariaDB 허용 됩니다. 이 설정이 *아니요* 로 설정 된 경우 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for MariaDB에 연결할 수 있습니다. 또한 개인 네트워크 액세스 값이 설정 되 면 고객은 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙 '을 추가 및/또는 업데이트할 수 없습니다.
 
 > [!Note]
 > 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.

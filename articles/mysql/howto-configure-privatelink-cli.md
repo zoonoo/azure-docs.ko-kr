@@ -1,18 +1,18 @@
 ---
 title: 개인 링크-Azure CLI-Azure Database for MySQL
 description: Azure CLI에서 Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538768"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241551"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>CLI를 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
@@ -172,7 +172,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
-    | Hostname | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |
+    | 호스트 이름 | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |
     | 사용자 이름 | *username@servername* MySQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MySQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||

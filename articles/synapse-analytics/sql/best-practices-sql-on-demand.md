@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476277"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241874"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형(미리 보기) 모범 사례
 
@@ -60,17 +60,17 @@ SQL 주문형은 제한이 감지되면 이러한 문제를 해결하는 기능�
 
 - 가능한 가장 큰 값을 수용하는 가장 작은 데이터 크기를 사용합니다.
   - 최대 문자 값 길이가 30자인 경우 길이가 30인 문자 데이터 형식을 사용합니다.
-  - 모든 문자 열 값의 크기가 고정된 경우 **char** 또는 **nchar**를 사용합니다. 그렇지 않으면 **varchar** 또는 **nvarchar**를 사용합니다.
-  - 최대 정수 열 값이 500이면 이 값을 수용할 수 있는 가장 작은 데이터 형식인 **smallint**를 사용합니다. 정수 데이터 형식 범위는 [이 문서](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15)에서 찾을 수 있습니다.
-- 가능하다면 **nvarchar** 및 **nchar** 대신 **varchar** 및 **char**을 사용합니다.
+  - 모든 문자 열 값의 크기가 고정된 경우 **char** 또는 **nchar** 를 사용합니다. 그렇지 않으면 **varchar** 또는 **nvarchar** 를 사용합니다.
+  - 최대 정수 열 값이 500이면 이 값을 수용할 수 있는 가장 작은 데이터 형식인 **smallint** 를 사용합니다. 정수 데이터 형식 범위는 [이 문서](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true)에서 찾을 수 있습니다.
+- 가능하다면 **nvarchar** 및 **nchar** 대신 **varchar** 및 **char** 을 사용합니다.
 - 가능하다면 정수 기반 데이터 형식을 사용합니다. SORT, JOIN 및 GROUP BY 작업은 문자 데이터보다 정수에서 더 빠르게 수행됩니다.
 - 스키마 유추를 사용하는 경우 [유추한 데이터 형식을 확인](#check-inferred-data-types)합니다.
 
 ## <a name="check-inferred-data-types"></a>유추한 데이터 형식 확인
 
-[스키마 유추](query-parquet-files.md#automatic-schema-inference)는 파일 스키마를 알지 못해도 신속하게 쿼리를 작성하고 데이터를 탐색하는 데 도움을 줍니다. 이 편의를 위해 유추된 데이터 형식이 실제 데이터 형식보다 크게 유지됩니다. 이 상황은 적절한 데이터 형식을 사용하기 위해 필요한 소스 파일의 정보가 충분하지 않을 때 발생합니다. 예를 들어 Parquet 파일에는 최대 문자 열 길이에 대한 메타데이터가 없습니다. 따라서 SQL 주문형은 이 길이를 varchar(8000)로 유추합니다.
+[스키마 유추](query-parquet-files.md#automatic-schema-inference)는 파일 스키마를 알지 못해도 신속하게 쿼리를 작성하고 데이터를 탐색하는 데 도움을 줍니다. 이 편의를 위해 유추 된 데이터 형식이 실제 데이터 형식 보다 클 수 있습니다. 이 상황은 적절한 데이터 형식을 사용하기 위해 필요한 소스 파일의 정보가 충분하지 않을 때 발생합니다. 예를 들어 Parquet 파일에는 최대 문자 열 길이에 대한 메타데이터가 없습니다. 따라서 SQL 주문형은 이 길이를 varchar(8000)로 유추합니다.
 
-[sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15)를 사용하여 쿼리의 결과 데이터 형식을 확인할 수 있습니다.
+[sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true)를 사용하여 쿼리의 결과 데이터 형식을 확인할 수 있습니다.
 
 다음 예제에서는 유추한 데이터 형식을 최적화하는 방법을 보여줍니다. 이 프로시저는 유추한 데이터 형식을 보여 주는 데 사용됩니다. 
 ```sql  

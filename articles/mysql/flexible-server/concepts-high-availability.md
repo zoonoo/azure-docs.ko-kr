@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL 유연한 서버를 사용 하는 영역 중복 고가용성 개요
 description: Azure Database for MySQL 유연한 서버를 사용 하 여 영역 중복 고가용성의 개념에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937133"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241187"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 고가용성 개념
 
@@ -100,5 +100,5 @@ HA의 상태는 개요 페이지에서 지속적으로 모니터링 되 고 보�
 ## <a name="next-steps"></a>다음 단계
 
 -   [비즈니스 연속성](./concepts-business-continuity.md) 에 대 한 자세한 정보
--    [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
+-   [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
 -   [백업 및 복구](./concepts-backup-restore.md) 에 대 한 자세한 정보

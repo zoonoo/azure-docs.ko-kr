@@ -1,17 +1,17 @@
 ---
 title: 지원 되는 버전-유연한 서버 Azure Database for MySQL
 description: Azure Database for MySQL 유연한 서버에서 지원 되는 MySQL 서버 버전에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 11cefb1a29f7139f137221ab6fb924cc656da15d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547200"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242265"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에 대해 지원 되는 버전
 

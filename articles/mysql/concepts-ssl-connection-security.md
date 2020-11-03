@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS 연결-Azure Database for MySQL
 description: SSL 연결을 올바르게 사용하도록 MySQL용 Azure 데이터베이스 및 연결된 애플리케이션을 구성하는 방법에 대한 정보
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6fb0b6f38869192e89bb849950e8822a157b23c8
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126552"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241942"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL/TLS 연결
 
@@ -32,7 +32,7 @@ MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 �
 
 Azure Portal 및 CLI를 통해 새로운 MySQL용 Azure 데이터베이스 서버를 프로비전할 때 SSL 연결 적용이 기본적으로 활성화됩니다. 
 
-다양한 프로그래밍 언어에 대한 연결 문자열이 Azure Portal에 표시됩니다. 이러한 연결 문자열에는 데이터베이스에 연결하는 데 필요한 SSL 매개 변수가 포함되어 있습니다. Azure Portal에서 VM을 선택합니다. **설정** 제목 아래에서 **연결 문자열**을 선택합니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
+다양한 프로그래밍 언어에 대한 연결 문자열이 Azure Portal에 표시됩니다. 이러한 연결 문자열에는 데이터베이스에 연결하는 데 필요한 SSL 매개 변수가 포함되어 있습니다. Azure Portal에서 VM을 선택합니다. **설정** 제목 아래에서 **연결 문자열** 을 선택합니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
 
 경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. 현재 고객은 미리 정의 된 인증서 **만 사용** 하 여에 있는 Azure Database for MySQL 서버에 연결할 수 있습니다 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
 

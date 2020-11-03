@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL 데이터 암호화의 유효성 검사를 확인 하는 방법
 description: 고객 관리 키를 사용 하 여 Azure Database for PostgreSQL 데이터 암호화의 암호화를 확인 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec27cc4f28151214ca97ffb5113607d6b60ee36
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884343"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240582"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 데이터 암호화 유효성 검사
 
@@ -25,14 +25,14 @@ ms.locfileid: "90884343"
 
     * Azure Portal에서 **Azure Key Vault**  ->  **키** 로 이동 합니다.
     * 서버 암호화에 사용 되는 키를 선택 합니다.
-    * 키 **사용** 의 상태를 **아니요**로 설정 합니다.
+    * 키 **사용** 의 상태를 **아니요** 로 설정 합니다.
   
-       잠시 후 (**~ 15 분**) Azure Database for PostgreSQL 서버 **상태** 에 **액세스할**수 없습니다. 서버에 대해 수행 되는 모든 i/o 작업은 서버가 고객 키를 사용 하 여 실제로 암호화 되어 있고 키가 현재 유효 하지 않은지 확인 하는 작업이 실패 합니다.
+       잠시 후 ( **~ 15 분** ) Azure Database for PostgreSQL 서버 **상태** 에 **액세스할** 수 없습니다. 서버에 대해 수행 되는 모든 i/o 작업은 서버가 고객 키를 사용 하 여 실제로 암호화 되어 있고 키가 현재 유효 하지 않은지 확인 하는 작업이 실패 합니다.
     
         서버를에 **사용할 수** 있도록 하려면 키의 유효성을 다시 검사할 수 있습니다. 
     
-    * Key Vault의 키 상태를 **예**로 설정 합니다.
-    * 서버 **데이터 암호화**에서 **키 유효성**다시 검사를 선택 합니다.
+    * Key Vault의 키 상태를 **예** 로 설정 합니다.
+    * 서버 **데이터 암호화** 에서 **키 유효성** 다시 검사를 선택 합니다.
     * 키 유효성 재검사가 성공적으로 완료 되 면 서버 **상태가** **사용 가능** 으로 변경 됩니다.
 
 2. Azure Portal에서 암호화 키가 설정 되어 있는지 확인할 수 있는 경우 Azure Portal에서 사용 되는 고객 키를 사용 하 여 데이터가 암호화 됩니다.

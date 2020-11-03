@@ -1,17 +1,17 @@
 ---
 title: 연결 아키텍처-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버에 대 한 연결 아키텍처를 설명 합니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c1331b7d868c29fddf7b709912e87d55d73c45
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065355"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241449"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "88065355"
 
 ## <a name="connection-redirection"></a>연결 리디렉션
 
-Azure Database for MariaDB은 클라이언트 응용 프로그램과 Aadb 서버 간의 네트워크 대기 시간을 줄이는 데 도움이 되는 추가 연결 정책 **리디렉션**기능을 지원 합니다. 이 기능을 사용 하 여 Azure Database for MariaDB 서버에 초기 TCP 세션이 설정 된 후 서버는 MariaDB 서버를 호스팅하는 노드의 백 엔드 주소를 클라이언트에 반환 합니다. 이후에는 모든 후속 패킷이 서버에 직접 전달 되 고 게이트웨이는 무시 됩니다. 패킷이 서버에 직접 전달 되 면 대기 시간 및 처리량이 향상 됩니다.
+Azure Database for MariaDB은 클라이언트 응용 프로그램과 Aadb 서버 간의 네트워크 대기 시간을 줄이는 데 도움이 되는 추가 연결 정책 **리디렉션** 기능을 지원 합니다. 이 기능을 사용 하 여 Azure Database for MariaDB 서버에 초기 TCP 세션이 설정 된 후 서버는 MariaDB 서버를 호스팅하는 노드의 백 엔드 주소를 클라이언트에 반환 합니다. 이후에는 모든 후속 패킷이 서버에 직접 전달 되 고 게이트웨이는 무시 됩니다. 패킷이 서버에 직접 전달 되 면 대기 시간 및 처리량이 향상 됩니다.
 
 이 기능은 엔진 버전이 10.2 및 10.3 인 Azure Database for MariaDB 서버에서 지원 됩니다.
 

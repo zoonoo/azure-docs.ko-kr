@@ -1,17 +1,17 @@
 ---
 title: 인프라 이중 암호화-Azure Database for PostgreSQL
 description: 인프라 이중 암호화를 사용 하 여 서비스 관리 키를 사용 하 여 두 번째 암호화 계층을 추가 하는 방법에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 03d52611c89012d1132b4a27820f7f47e6cdd512
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123357"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242027"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL 인프라 이중 암호화
 

@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130190"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241330"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -48,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | 설명    |
+| 매개 변수         | Description    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -78,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| 오류 | 설명 |
+| 오류 | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -251,7 +251,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90051 | InvalidNationalCloudId - 국가별 클라우드 식별자에 잘못된 클라우드 식별자가 포함되어 있습니다. |
 | AADSTS90055 | TenantThrottlingError - 들어오는 요청이 너무 많습니다. 차단된 테넌트에 대해 이 예외가 throw됩니다. |
 | AADSTS90056 | BadResourceRequest - 액세스 토큰의 코드를 사용하려면 앱에서 `/token` 엔드포인트로 POST 요청을 보내야 합니다. 또한 그 이전에, 인증 코드를 제공하고 해당 코드를 POST 요청으로 `/token` 엔드포인트에 보내야 합니다. OAuth 2.0 인증 코드 흐름에 대 한 개요는이 문서를 참조 [하세요. /azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). 사용자를 `/authorize` 엔드포인트로 리디렉션합니다. 그러면 authorization_code가 반환됩니다. 사용자는 요청을 `/token` 엔드포인트에 게시하여 액세스 토큰을 가져옵니다. Azure Portal에 로그인하고 **앱 등록 > 엔드포인트** 를 확인하여 두 엔드포인트가 올바르게 구성되었는지 확인합니다. |
-| AADSTS90072 | PassThroughUserMfaError - 사용자가 로그인에 사용한 외부 계정이 로그인한 테넌트에 존재하지 않으므로 사용자가 테넌트에 대한 MFA 요구 사항을 충족할 수 없습니다. 먼저 계정을 테넌트의 외부 사용자로 추가해야 합니다. 로그아웃하고 다른 Azure AD 사용자 계정으로 로그인하세요. |
+| AADSTS90072 | PassThroughUserMfaError - 사용자가 로그인에 사용한 외부 계정이 로그인한 테넌트에 존재하지 않으므로 사용자가 테넌트에 대한 MFA 요구 사항을 충족할 수 없습니다. 사용자가 동기화 되었지만 Active Directory와 Azure AD 간에 ImmutableID (sourceAnchor) 특성이 일치 하지 않는 경우에도이 오류가 발생할 수 있습니다. 먼저 계정을 테넌트의 외부 사용자로 추가해야 합니다. 로그아웃하고 다른 Azure AD 사용자 계정으로 로그인하세요. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - 서비스가 WS-Federation 메시지를 처리하려고 할 때 오류가 발생했습니다. 메시지가 잘못되었습니다. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - 요청에 대해 선택한 인증 정책이 현재 지원되지 않습니다. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - 이 사이트에서는 게스트 계정이 허용되지 않습니다. |
