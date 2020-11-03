@@ -1,17 +1,17 @@
 ---
 title: 인프라 이중 암호화-Azure Database for MySQL
 description: 인프라 이중 암호화를 사용 하 여 서비스 관리 키를 사용 하는 두 번째 암호화 계층을 추가 하는 방법에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125733"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242452"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL 인프라 이중 암호화
 

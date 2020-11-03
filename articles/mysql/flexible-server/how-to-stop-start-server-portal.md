@@ -36,7 +36,7 @@ ms.locfileid: "93241925"
 
 3.  **예** 를 클릭 하 여 서버 중지를 확인 합니다.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="유연한 서버를 중지 합니다."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="유연한 서버 중지를 확인 합니다."::: 
 
 > [!NOTE]
 > 서버를 중지 한 후에는 다른 관리 작업을 유연한 서버에서 사용할 수 없습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "93241925"
 
 2.  **개요** 페이지의 도구 모음에서 **시작** 단추를 클릭 합니다.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="유연한 서버를 중지 합니다.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="유연한 서버를 시작 합니다.":::  
 
 > [!NOTE]
 > 서버를 시작한 후에는 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.

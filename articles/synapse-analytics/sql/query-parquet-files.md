@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288310"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242435"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 Parquet 파일 쿼리
 
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>형식 매핑
 
-Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습니다. 다음 표에서는 Parquet 형식이 SQL 네이티브 형식에 매핑되는 방법을 설명합니다.
-
-| Parquet 형식 | Parquet 논리 형식(주석) | SQL 데이터 형식 |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY / BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
-| FLOAT | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(UTF8 데이터 정렬) |
-| BINARY |STRING |varchar \*(UTF8 데이터 정렬) |
-| BINARY |ENUM|varchar \*(UTF8 데이터 정렬) |
-| BINARY |UUID |uniqueidentifier |
-| BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 데이터 정렬) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), 표준화된 형식으로 직렬화됨 |
-| INT32 |INT(8, true) |smallint |
-| INT32 |INT(16, true) |smallint |
-| INT32 |INT(32, true) |int |
-| INT32 |INT(8, false) |tinyint |
-| INT32 |INT(16, false) |int |
-| INT32 |INT(32, false) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TIME(MILLIS )|time |
-| INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false) |decimal(20,0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TIME(MICROS / NANOS) |time |
-|INT64 |TIMESTAMP(MILLIS / MICROS / NANOS) |datetime2 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |명단 등록 |varchar(max), JSON으로 직렬화됨 |
-|[복합 형식](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), JSON으로 직렬화됨 |
+Parquet type을 SQL native type으로 매핑하면 [Parquet에 대 한 형식 매핑을](develop-openrowset.md#type-mapping-for-parquet)확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -72,21 +72,21 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 * 목록에서 개별 PEC를 선택합니다.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="개인 끝점 포털을 선택 합니다.":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="개인 끝점 승인 보류 중을 선택 합니다.":::
 
 * PostgreSQL 서버 관리자는 PEC를 승인 또는 거부 하 고 필요에 따라 짧은 텍스트 응답을 추가 하도록 선택할 수 있습니다.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="개인 끝점 포털을 선택 합니다.":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="개인 끝점 메시지 선택":::
 
 * 승인 또는 거부 후에는 목록에 응답 텍스트와 함께 적절 한 상태가 반영 됩니다.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="개인 끝점 포털을 선택 합니다.":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="개인 끝점 최종 상태를 선택 합니다.":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 개인 링크 사용 사례
 
 클라이언트는 동일한 VNet, 동일한 지역의 피어 링 VNet 또는 지역 간에 VNet 간 연결을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 포털을 선택 합니다.":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 개요를 선택 합니다.":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>피어링된 VNet(가상 네트워크)의 Azure VM에서 연결
 [Vnet 피어 링](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 을 구성 하 여 피어 링 Vnet의 Azure VM에서 Azure Database for PostgreSQL 단일 서버에 대 한 연결을 설정 합니다.

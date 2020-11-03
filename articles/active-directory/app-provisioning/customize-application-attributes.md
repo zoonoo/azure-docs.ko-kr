@@ -192,7 +192,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
 ## <a name="provisioning-a-role-to-a-scim-app"></a>SCIM 앱에 역할 프로비저닝
 아래 단계를 사용하여 사용자의 역할을 애플리케이션에 프로비저닝합니다. 아래 설명은 사용자 지정 SCIM 애플리케이션에만 해당합니다. Salesforce 및 ServiceNow와 같은 갤러리 애플리케이션은 미리 정의된 역할 매핑을 사용합니다. 아래 글머리 기호는 AppRoleAssignments 특성을 애플리케이션에 필요한 형식으로 변환하는 방법을 설명합니다.
 
-- Azure AD의 appRoleAssignment를 애플리케이션의 역할에 매핑하려면 [식](../app-provisioning/functions-for-customizing-application-data.md)를 사용하여 특성을 변환해야 합니다. 역할 세부 정보를 구문 분석하는 식을 사용하지 않고 appRoleAssignment 특성을 역할 특성에 **직접 매핑하면 안 됩니다** . 
+- Azure AD의 appRoleAssignment를 애플리케이션의 역할에 매핑하려면 [식](../app-provisioning/functions-for-customizing-application-data.md)를 사용하여 특성을 변환해야 합니다. 역할 세부 정보를 구문 분석하는 식을 사용하지 않고 appRoleAssignment 특성을 역할 특성에 **직접 매핑하면 안 됩니다**. 
 
 - **SingleAppRoleAssignment** 
   - **사용 시기:** SingleAppRoleAssignment 식은 사용자에게 단일 역할을 프로비저닝하고 기본 역할을 지정하는 경우에 사용합니다. 

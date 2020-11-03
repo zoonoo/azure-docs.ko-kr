@@ -239,7 +239,7 @@ UDP 부하 분산의 경우, 백 엔드 끝점에서 사용자 지정 상태 프
 
 방화벽 정책에서 프로브의 [원본 IP](#probesource)를 허용하지 않으면 인스턴스에 연결할 수 없으므로 상태 프로브가 실패하게 됩니다.  차례로 상태 프로브 실패로 인해 Load Balancer에서 인스턴스를 표시합니다.  이 잘못된 구성으로 인해 부하 분산된 애플리케이션 시나리오가 실패할 수 있습니다.
 
-Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다** .  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
+Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다**.  기본적으로, 모든 네트워크 보안 그룹은 상태 프로브 트래픽을 허용하기 위해 [서비스 태그](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer를 포함합니다.
 
 상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 

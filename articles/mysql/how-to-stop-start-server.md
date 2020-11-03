@@ -48,7 +48,7 @@ ms.locfileid: "93241160"
 
 2.  **개요** 페이지의 도구 모음에서 **시작** 단추를 클릭 합니다.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database for MySQL 서버 중지":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="서버 시작 Azure Database for MySQL":::
 
     > [!NOTE]
     > 서버가 시작 되 면 이제 단일 서버에서 모든 관리 작업을 사용할 수 있습니다.

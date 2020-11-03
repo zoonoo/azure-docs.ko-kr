@@ -61,7 +61,7 @@ ms.locfileid: "93240718"
 | **지역 오류** | 영역 간 복제본 및 지역 복원 기능은 미리 보기에서 아직 지원 되지 않습니다. | |
 
 > [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다** . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

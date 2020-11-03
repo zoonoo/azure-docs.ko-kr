@@ -72,7 +72,7 @@ ms.locfileid: "93241959"
 
 6.  **새 서버에 복원** 필드에 새 서버 이름을 제공 합니다. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="가장 빠른 복원 시간":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="개요 보기":::
  
 7.  **확인** 을 클릭합니다.
 

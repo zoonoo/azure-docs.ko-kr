@@ -39,7 +39,7 @@ MySQL server Deny 공용 네트워크 액세스를 설정 하려면 다음 단�
 
 1. 연결 보안 설정이 성공적으로 설정 되었는지 확인 하는 알림이 나타납니다.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="네트워크 액세스 거부 Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Azure Database for MySQL 네트워크 액세스 거부 성공":::
 
 ## <a name="next-steps"></a>다음 단계
 

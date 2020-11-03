@@ -80,7 +80,7 @@ Key Vault를 구성하기 위한 요구 사항은 다음과 같습니다.
 * DEK 래핑 및 래핑 해제 작업에 더 빠르게 액세스할 수 있도록 Key Vault와 Azure Database for MySQL이 동일한 지역에 있어야 합니다.
 * Azure KeyVault를 **프라이빗 엔드포인트 및 선택한 네트워크** 로 잠가서 *신뢰할 수 있는 Microsoft* 서비스만 허용하여 리소스를 보호합니다.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Bring Your Own Key의 개요를 보여주는 다이어그램":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 고객 관리형 키를 다음과 같이 구성하는 것이 좋습니다.
 

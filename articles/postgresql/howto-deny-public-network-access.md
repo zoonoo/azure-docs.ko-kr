@@ -39,7 +39,7 @@ PostgreSQL 단일 서버 공용 네트워크 액세스 거부를 설정 하려�
 
 1. 연결 보안 설정이 성공적으로 설정 되었는지 확인 하는 알림이 나타납니다.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Azure Database for PostgreSQL 단일 서버 네트워크 액세스 거부":::
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Azure Database for PostgreSQL 단일 서버 네트워크 액세스 거부 성공":::
 
 ## <a name="next-steps"></a>다음 단계
 
