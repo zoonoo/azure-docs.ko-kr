@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789185"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289236"
 ---
-# <a name="continuously-export-security-center-data"></a>Security Center 데이터를 지속적으로 내보내기
+# <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
 Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합니다. 포털에서 또는 프로그래밍 방식 도구를 통해 볼 수 있습니다. 사용자 환경에서 다른 모니터링 도구를 사용 하 여 추적 하기 위해이 정보 중 일부 또는 모두를 내보내야 할 수도 있습니다. 
 
@@ -41,7 +41,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|<ul><li>리소스 그룹에 대 한 **보안 관리자** 또는 **소유자**</li><li>대상 리소스에 대 한 쓰기 권한</li><li>아래에서 설명 하는 ' DeployIfNotExist ' 정책을 사용 하는 경우에는 정책을 할당할 수 Azure Policy 있는 권한도 필요 합니다.</li></ul>|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로), 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov, 기타 .Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로)|
 |||
 
 
@@ -71,9 +71,9 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 
     이러한 권장 사항을 포함 하는 결과를 포함 하려면 **보안 결과 포함** 옵션을 사용 하도록 설정 합니다.
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제" :::
 
-1. &quot;대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
+1. "대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
 1. **저장** 을 선택합니다.
 
 ### <a name="use-the-rest-api"></a>[**REST API 사용**](#tab/rest-api)
@@ -124,15 +124,11 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
     > [!TIP]
     > Azure Policy 검색 하 여 찾을 수도 있습니다.
     > 1. Azure Policy를 엽니다.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
-
-1. &quot;대상 내보내기":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Azure Policy 액세스":::
     > 2. Azure Policy 메뉴에서 **정의** 를 선택 하 고 이름으로 검색 합니다. 
 
 1. 관련 Azure Policy 페이지에서 **할당** 을 선택 합니다.
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
-
-1. &quot;대상 내보내기":::
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Azure Policy 할당":::
 
 1. 각 탭을 열고 필요에 따라 매개 변수를 설정 합니다.
     1. **기본 사항** 탭에서 정책에 대 한 범위를 설정 합니다. 중앙 집중식 관리를 사용 하려면 연속 내보내기 구성을 사용 하는 구독을 포함 하는 관리 그룹에 정책을 할당 합니다. 
@@ -141,9 +137,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
         > 각 매개 변수에는 사용할 수 있는 옵션을 설명 하는 도구 설명이 있습니다.
         >
         > Azure Policy의 매개 변수 탭 (1)은 Security Center의 연속 내보내기 페이지 (2)와 유사한 구성 옵션에 대 한 액세스를 제공 합니다.
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제&quot; :::
-
-1. &quot;대상 내보내기" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Azure Policy와 연속 내보내기의 매개 변수 비교" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. 필요에 따라이 할당을 기존 구독에 적용 하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택 합니다.
 1. 요약 페이지를 검토 하 고 **만들기** 를 선택 합니다.
 

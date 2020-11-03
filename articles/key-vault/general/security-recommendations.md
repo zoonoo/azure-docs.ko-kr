@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96df14fb754578b58fb67ac116ac79cff3ffdcb
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386761"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289851"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault에 대한 보안 추천 사항
 
@@ -24,7 +24,7 @@ ms.locfileid: "87386761"
 이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. 이는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다.
 
 - Azure Security Center 권장 사항에 대한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../../security-center/security-center-recommendations.md)을 참조하세요.
-- Azure Security Center에 대한 자세한 내용은 [Azure Security Center란?](../../security-center/security-center-intro.md)을 참조하세요.
+- Azure Security Center에 대한 자세한 내용은 [Azure Security Center란?](../../security-center/security-center-introduction.md)을 참조하세요.
 
 ## <a name="data-protection"></a>데이터 보호
 
@@ -54,4 +54,4 @@ ms.locfileid: "87386761"
 
 ## <a name="next-steps"></a>다음 단계
 
-애플리케이션 공급자에게 추가 보안 요구 사항이 있는지 확인합니다. 보안 애플리케이션 개발에 대한 자세한 내용은 [보안 개발 설명서](../../security/fundamentals/abstract-develop-secure-apps.md)를 참조하세요.
+애플리케이션 공급자에게 추가 보안 요구 사항이 있는지 확인합니다. 보안 애플리케이션 개발에 대한 자세한 내용은 [보안 개발 설명서](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)를 참조하세요.

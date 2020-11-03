@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606667"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289583"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -82,7 +82,7 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 
 |공급자|인증서 종류|구성 설정  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+|DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공| [통합 가이드](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.

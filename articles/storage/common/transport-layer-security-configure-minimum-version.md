@@ -10,12 +10,12 @@ ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785802"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289449"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 결과에는 각 TLS 버전을 사용한 요청 수가 표시 됩니다.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="TLS 버전을 반환 하는 log analytics 쿼리 결과를 보여 주는 스크린샷":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>호출자 IP 주소 및 사용자 에이전트 헤더에 의해 기록 된 요청 쿼리
 
@@ -89,7 +89,9 @@ StorageBlobLogs
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>저장소 계정에 대 한 최소 TLS 버전 구성
 
-저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
+저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure 공용 클라우드 또는 Azure Government 클라우드에서 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
+
+이 **속성은** 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다.  속성 값이 **null** 이면 저장소 계정에서 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -101,13 +103,11 @@ Azure Portal를 사용 하 여 기존 저장소 계정에 대 한 최소 TLS 버
 1. **구성** 설정을 선택 합니다.
 1. **최소 tls 버전** 에서 다음 이미지에 표시 된 것 처럼 드롭다운을 사용 하 여이 저장소 계정의 데이터에 액세스 하는 데 필요한 최소 버전의 tls를 선택 합니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Azure Portal에서 TLS의 최소 버전을 구성 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 PowerShell을 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 [Azure PowerShell 버전 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 이상을 설치 합니다. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
-
-PowerShell을 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null** 인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 다음 예에서는 저장소 계정을 만들고, **이를 tls 1.1로 설정** 하 고, 계정을 업데이트 하 고, 다음 **버전** 을 tls 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -138,8 +138,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 Azure CLI 버전 2.9.0 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
-
-Azure CLI를 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null** 인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 다음 예제에서는 저장소 계정을 만들고, 이상 **버전** 을 TLS 1.1으로 설정 합니다. 그런 다음 계정을 업데이트 하 고, **버전** 속성을 TLS 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -304,7 +302,7 @@ Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니�
 1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
 1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="최소 TLS 버전의 감사 정책에 대 한 준수 보고서를 보여 주는 스크린샷":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Azure Policy를 사용 하 여 최소 TLS 버전을 적용 합니다.
 
@@ -340,7 +338,7 @@ TLS 1.2 보다 작은 최소 TLS 버전에 대해 거부 효과가 적용 된 �
 
 다음 이미지는 거부 효과가 있는 정책에서 최소 tls 버전을 TLS 1.2로 설정 해야 하는 경우 최소 TLS 버전을 TLS 1.0 (새 계정에 대 한 기본값)로 설정 하 여 저장소 계정을 만들려는 경우 발생 하는 오류를 보여 줍니다.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 

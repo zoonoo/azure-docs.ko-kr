@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7931ad9e55d62d5fa2b1828d276e56f7c8cd02e1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569828"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286483"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 
@@ -152,7 +152,7 @@ Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통
    ```
 
    > [!NOTE]
-   > **Encapsulation** 특성을 **Dot1Q**로 설정할 수도 있습니다. 
+   > **Encapsulation** 특성을 **Dot1Q** 로 설정할 수도 있습니다. 
    >
 
    **예제 출력**
@@ -209,19 +209,11 @@ Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통
    }  
    ```
 
-## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>권한 부여의 문자를 생성 합니다 (LOA).
-
-최근 생성 된 Express 경로 직접 리소스 이름, 리소스 그룹 이름 및 LOA를 작성 하는 고객 이름을 입력 하 고 (선택 사항) 문서를 저장할 파일 위치를 정의 합니다. 파일 경로를 참조 하지 않으면 문서가 현재 디렉터리로 다운로드 됩니다.
-
-```azurecli
-az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
-```
-
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>링크에 대한 AdminState 변경
 
 이 프로세스를 사용하여 계층 1 테스트를 수행합니다. 각 교차 연결을 기본 및 보조 포트의 각 라우터에 제대로 패치해야 합니다.
 
-1. 링크를 **사용**으로 설정합니다. 이 단계를 반복하여 각 링크를 **사용**으로 설정합니다.
+1. 링크를 **사용** 으로 설정합니다. 이 단계를 반복하여 각 링크를 **사용** 으로 설정합니다.
 
    링크[0]은 1차 포트이고 링크[1]은 2차 포트입니다.
 

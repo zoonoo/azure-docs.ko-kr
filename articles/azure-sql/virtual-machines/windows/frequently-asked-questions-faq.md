@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786499"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289408"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -175,9 +175,9 @@ ms.locfileid: "92786499"
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)도 제거합니다. 
 
-1. **IaaS 확장에서 SQL Server의 명명된 인스턴스를 사용할 수 있나요** ?
+1. **IaaS 확장과 함께 SQL Server의 명명 된 인스턴스를 사용할 수 있나요?**
    
-   예. 명명된 인스턴스가 SQL Server의 유일한 인스턴스이고 원래 기본 인스턴스가 [제대로 제거되지 않은](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance) 경우에는 가능합니다. 기본 인스턴스가 없고 단일 SQL Server VM에 명명된 인스턴스가 여러 개 있는 경우에는 SQL Server IaaS 에이전트 확장을 설치할 수 없습니다. 
+   예. 명명된 인스턴스가 SQL Server의 유일한 인스턴스이고 원래 기본 인스턴스가 [제대로 제거되지 않은](sql-server-iaas-agent-extension-automate-management.md#named-instance-support) 경우에는 가능합니다. 기본 인스턴스가 없고 단일 SQL Server VM에 명명된 인스턴스가 여러 개 있는 경우에는 SQL Server IaaS 에이전트 확장을 설치할 수 없습니다.  
 
 1. **SQL Server VM에서 SQL Server 및 관련 라이선스 청구를 제거할 수 있나요?**
 
@@ -210,7 +210,7 @@ ms.locfileid: "92786499"
 
 1. **SQL Server 2008/2008 R2 인스턴스를 SQL Server VM 리소스 공급자에 등록한 후에 업그레이드할 수 있나요?**
 
-   예. 임의 설치 미디어를 사용하여 SQL Server 버전 및 에디션을 업그레이드한 다음 [SQL IaaS 확장 모드](sql-vm-resource-provider-register.md#management-modes)를 _에이전트 없음_ 에서 _전체_ 로 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화된 백업 및 자동화된 패치 등 SQL IaaS 확장의 모든 혜택에 액세스할 수 있습니다. 
+   OS가 Windows Server 2008 R2 이상 인 경우에는 예입니다. 임의 설치 미디어를 사용하여 SQL Server 버전 및 에디션을 업그레이드한 다음 [SQL IaaS 확장 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 _에이전트 없음_ 에서 _전체_ 로 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화된 백업 및 자동화된 패치 등 SQL IaaS 확장의 모든 혜택에 액세스할 수 있습니다. OS 버전이 Windows Server 2008 인 경우 NoAgent 모드만 지원 됩니다. 
 
 1. **SQL Server 2008 및 SQL Server 2008 R2 인스턴스 지원 종료에 대한 확장된 무료 보안 업데이트를 얻으려면 어떻게 해야 하나요?**
 

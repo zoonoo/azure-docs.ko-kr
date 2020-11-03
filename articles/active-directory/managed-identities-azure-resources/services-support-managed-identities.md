@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426439"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289599"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -202,8 +202,8 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] | 
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 
+| 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
 자세한 내용은 [Azure Kubernetes Service에서 관리 ID 사용](../../aks/use-managed-identity.md)을 참조하세요.
@@ -281,8 +281,8 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
-| 사용자 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
 
 사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 

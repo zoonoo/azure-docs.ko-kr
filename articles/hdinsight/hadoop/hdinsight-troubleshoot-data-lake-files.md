@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 92cce0751a400e17f9975d7ae3d10e6612017823
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bac53cd08629e8b0a9cb91e596856c0ae6b5a2f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533634"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289114"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Azure HDInsight에서 Data Lake 저장소 파일에 액세스할 수 없음
 
@@ -32,7 +32,7 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ### <a name="resolution"></a>해결 방법
 
-1. SP에 경로를 따라 트래버스하는 ' x ' 권한이 있는지 확인 하십시오. 자세한 내용은 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하세요. Data Lake 저장소 계정의 파일/폴더에 대 한 액세스를 확인 하는 샘플 dfs 명령:
+1. SP에 경로를 따라 트래버스하는 ' x ' 권한이 있는지 확인 하십시오. 자세한 내용은 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하세요. `dfs`Data Lake 저장소 계정의 파일/폴더에 대 한 액세스를 확인 하는 샘플 명령:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -54,13 +54,13 @@ Token Refresh failed - Received invalid http response: 500
 
 서비스 주체 액세스를 위해 제공 된 인증서가 만료 되었을 수 있습니다.
 
-1. 헤드 노드로 SSH 합니다. 다음 dfs 명령을 사용 하 여 저장소 계정에 대 한 액세스를 확인 합니다.
+1. 헤드 노드로 SSH 합니다. 다음 명령을 사용 하 여 저장소 계정에 대 한 액세스를 확인 합니다 `dfs` .
 
     ```
     hdfs dfs -ls /
     ```
 
-1. 오류 메시지가 다음과 유사 하는지 확인 합니다.
+1. 오류 메시지가 다음 출력과 유사 하는지 확인 합니다.
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -161,16 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-기존 인증서를 할당 하려면 인증서를 만들고 .pfx 파일 및 암호를 준비 합니다. 인증서를 클러스터가 생성 된 서비스 주체와 연결 하 고 AppId를 준비 합니다.
+기존 인증서를 할당 하려면 인증서를 만들고 .pfx 파일 및 암호를 준비 합니다. AppId 준비를 사용 하 여 인증서를 클러스터가 생성 된 서비스 주체와 연결 합니다.
 
 매개 변수를 실제 값으로 대체 한 후 PowerShell 명령을 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
-
-* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-
-* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
-
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280575"
+ms.locfileid: "93289624"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280575"
 
 **참고** : Windows의 Speech SDK는 Visual Studio 2015, 2017 및 2019에 대 한 공유 Microsoft Visual C++ 재배포 가능 패키지에 따라 달라 집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하세요.
 
-**Speech CLI (SPX 라고도 함)**<br>
-SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명령줄 인터페이스입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)에서 최신 버전을 다운로드 하세요.
-- `spx csr dataset upload --kind audio|language|acoustic` – Url 뿐만 아니라 로컬 데이터에서 데이터 집합을 만듭니다.
-- `spx csr evaluation create|status|list|update|delete` – 새 모델을 기준 진위/기타 모델과 비교 합니다.
-- `spx * list` – 페이지가 아닌 환경을 지원 합니다 (--top X--skip X가 필요 하지 않음).
-- `spx * --http header A=B` – 사용자 지정 헤더를 지원 합니다 (사용자 지정 인증을 위해 Office에 추가 됨). 
-- `spx help` – 향상 된 텍스트 및 배경 텍스트 색 (파란색)
-
 **새로운 기능**
 - **Linux** : Debian 10 및 Ubuntu 20.04 lts에 대 한 지원이 추가 되었습니다.
 - **Python/목표-C** : API에 대 한 지원이 추가 되었습니다 `KeywordRecognizer` . 설명서는 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics)에 있습니다.
 - **C + +/Java/C #** :를 `HttpHeader` 통해 키/값을 설정 하는 지원이 추가 되었습니다 `ServicePropertyChannel::HttpHeader` .
 - **JavaScript** : API에 대 한 지원이 추가 되었습니다 `ConversationTranscriber` . [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript)에서 설명서를 참조 하세요. 
-- **C + +/c #** : 새 `AudioDataStream FromFile` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) 및 [여기 (c #)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile)를 참조 하세요.
+- **C + +/c #** : 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)를 참조 하세요.
 -  **C + +/c #/Java/Python/Objective-C/Swift** : `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), 여기 ( [Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
 - **C #, c + +, Java** : `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable)에서 참조 설명서를 읽으십시오.
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **Covid-19 요약 테스트:** 지난 몇 주 동안 원격으로 작업 하기 때문에 일반적으로 수행 하는 것 처럼 많은 수동 확인 테스트를 수행할 수 없습니다. 모든 항목을 손상 했을 수 있으며 자동화 된 테스트가 모두 통과 했을 수 있습니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
 정상 상태를 유지 하세요.
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Speech CLI (SPX 라고도 함): 2020-10 월 릴리스
+SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명령줄 인터페이스입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)에서 최신 버전을 다운로드 하세요. <br>
+
+**새로운 기능**
+- `spx csr dataset upload --kind audio|language|acoustic` – Url 뿐만 아니라 로컬 데이터에서 데이터 집합을 만듭니다.
+- `spx csr evaluation create|status|list|update|delete` – 새 모델을 기준 진위/기타 모델과 비교 합니다.
+- `spx * list` – 페이지가 아닌 환경을 지원 합니다 (--top X--skip X가 필요 하지 않음).
+- `spx * --http header A=B` – 사용자 지정 헤더를 지원 합니다 (사용자 지정 인증을 위해 Office에 추가 됨). 
+- `spx help` – 향상 된 텍스트 및 배경 텍스트 색 (파란색)
 
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스

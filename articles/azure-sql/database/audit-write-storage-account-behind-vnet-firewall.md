@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dde6cf40e7609e902540e08fcaff65d9fe32c85c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677251"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289636"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>VNet 및 방화벽 뒤의 스토리지 계정에 대한 감사 작성
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
 > [!div class="checklist"]
 >
 > * 범용 v2 스토리지 계정. 범용 v1 또는 Blob Storage 계정이 있는 경우 [범용 v2 스토리지 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)합니다. 자세한 정보는 [스토리지 계정 유형](../../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
-> * 저장소 계정은 [논리 SQL server](logical-servers.md)와 동일한 구독 및 동일한 위치에 있어야 합니다.
+> * 저장소 계정은 [논리적 SQL Server](logical-servers.md)동일한 구독 및 동일한 위치에 있어야 합니다.
 > * Azure Storage 계정을 사용하려면 `Allow trusted Microsoft services to access this storage account`해야 합니다. 스토리지 계정의 **방화벽 및 가상 네트워크** 아래에서 이 설정을 수행합니다.
 > * 선택한 스토리지 계정에 대한 `Microsoft.Authorization/roleAssignments/write` 권한이 있어야 합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
@@ -77,7 +77,7 @@ Azure Portal을 사용하는 대신 REST 명령을 사용하여 VNet 및 방화�
 |:-----|:-----|
 |`<subscriptionId>`| Azure 구독 ID입니다.|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| 서버 이름|
+|`<logical SQL Server>`| 서버 이름|
 |`<administrator login>`| 관리자 계정 |
 |`<complex password>`| 관리자 계정에 대한 복잡한 암호|
 
@@ -153,7 +153,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
 > [!IMPORTANT]
 > 가상 네트워크 및 방화벽 뒤의 저장소 계정을 사용 하려면 **isStorageBehindVnet** 매개 변수를 true로 설정 해야 합니다.
 
-- [감사를 사용 하는 Azure SQL server를 배포 하 여 blob 저장소에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [감사 로그를 blob 저장소에 쓸 수 있는 감사를 사용 하 여 Azure SQL Server 배포](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > 연결 된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 ' 있는 그대로 ' 제공 되며 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.

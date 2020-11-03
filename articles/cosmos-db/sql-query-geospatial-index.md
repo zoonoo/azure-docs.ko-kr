@@ -4,14 +4,14 @@ description: Azure Cosmos DB를 사용 하 여 공간 데이터 인덱싱
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 347617fb13041a8fb31c28f259aaf761baae2e53
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092061"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286304"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 인덱싱
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,14 +20,12 @@ Azure Cosmos DB의 데이터베이스 엔진은 실제로 스키마를 알 수 �
 
 간단히 말해, 기하 도형이 측지 좌표에서 2D 평면으로 프로젝션된 다음 **quadtree** 를 사용하여 셀에 점진적으로 나뉩니다. 이러한 셀은 점의 위치를 유지하는 **힐버트 공간 채움 곡선** 내의 셀 위치에 따라 1D에 매핑됩니다. 또한 위치 데이터는 인덱싱될 때 **공간 분할** 이라는 프로세스를 거칩니다. 즉, 위치와 교차하는 모든 셀이 식별되고 Azure Cosmos DB 인덱스에 키로 저장됩니다. 쿼리 시 점 및 다각형과 같은 인수도 관련 셀 ID 범위를 추출하기 위해 공간 분할된 다음 인덱스에서 데이터를 검색하는 데 사용됩니다.
 
-/* (모든 경로)에 대해 공간 인덱스를 포함 하는 인덱싱 정책을 지정 하는 경우 효율적인 공간 쿼리에 대해 컨테이너에 있는 모든 데이터가 인덱싱됩니다.
+(모든 경로)에 대해 공간 인덱스를 포함 하는 인덱싱 정책을 지정 하면 컨테이너에 있는 `/*` 모든 데이터가 효율적인 공간 쿼리에 대해 인덱싱됩니다.
 
 > [!NOTE]
-> Azure Cosmos DB는 요소, LineStrings, 다각형 및 MultiPolygons의 인덱싱을 지원 합니다.
->
->
+> Azure Cosmos DB는 요소, LineStrings, 다각형 및 MultiPolygons의 인덱싱을 지원 합니다. 이러한 형식 중 하나를 인덱싱하는 경우 다른 모든 형식을 자동으로 인덱싱합니다. 즉, 다각형을 인덱싱하는 경우 요소, LineStrings 및 MultiPolygons도 인덱싱합니다. 새 공간 형식을 인덱싱하는 것은 해당 형식의 유효한 GeoJSON 데이터가 없는 한 쓰기 및 요금 또는 인덱스 크기에 영향을 주지 않습니다.
 
-## <a name="modifying-geospatial-data-type"></a>지리 공간적 데이터 형식 수정
+## <a name="modifying-geospatial-configuration"></a>지리 공간적 구성 수정
 
 컨테이너에서 **지리 공간적 구성은** 공간 데이터를 인덱싱하는 방법을 지정 합니다. 컨테이너 마다 지리 **공간적 구성** 하나를 지정 합니다. 지리 또는 기 하 도형입니다.
 

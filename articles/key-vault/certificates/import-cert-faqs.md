@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651843"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289511"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Azure Key Vault 인증서 가져오기 FAQ
 
@@ -25,7 +25,7 @@ ms.locfileid: "89651843"
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Azure Key Vault에서 인증서를 가져오려면 어떻게 해야 하나요?
 
-인증서 가져오기 작업의 경우 두 가지 인증서 파일 형식 (PEM 및 PFX)을 허용 Azure Key Vault 합니다. 공용 부분만 포함 된 PEM 파일이 있지만 Key Vault에서는 개인 키가 있는 PEM 또는 PFX 파일만을 사용 하 고 허용 합니다. 자세한 내용은 [Key Vault에 인증서 가져오기](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)를 참조 하세요.
+인증서 가져오기 작업의 경우 두 가지 인증서 파일 형식 (PEM 및 PFX)을 허용 Azure Key Vault 합니다. 공용 부분만 포함 된 PEM 파일이 있지만 Key Vault에서는 개인 키가 있는 PEM 또는 PFX 파일만을 사용 하 고 허용 합니다. 자세한 내용은 [Key Vault에 인증서 가져오기](./tutorial-import-certificate.md#import-a-certificate-to-key-vault)를 참조 하세요.
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Key Vault으로 암호로 보호 된 인증서를 가져온 후 다운로드 한 후에는 연결 된 암호가 표시 되지 않는 이유는 무엇 인가요?
     
@@ -35,7 +35,7 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 
 인증서를 가져올 때 키가 파일에 포함 되어 있는지 확인 해야 합니다. 개인 키를 다른 형식으로 별도로 저장 한 경우에는 인증서와 키를 결합 해야 합니다. 일부 인증 기관 (Ca)은 다른 형식의 인증서를 제공 합니다. 따라서 인증서를 가져오기 전에 해당 인증서가 PEM 또는 PFX 파일 형식으로 되어 있고 키가 Rivest – Rivest-shamir-adleman – Rivest-shamir-adleman (RSA) 또는 ECC (타원) 암호화를 사용 하는지 확인 해야 합니다. 
 
-자세한 내용은 [인증서 요구 사항](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) 및 [인증서 키 요구 사항](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)을 참조 하세요.
+자세한 내용은 [인증서 요구 사항](./certificate-scenarios.md#formats-of-import-we-support) 및 [인증서 키 요구 사항](../keys/about-keys.md)을 참조 하세요.
 
 ###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 인증서를 가져올 수 있나요?
 
@@ -43,20 +43,20 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Azure Portal를 통해 인증서를 가져올 때 "문제가 발생 했습니다." 오류가 발생 합니다. 자세히 조사 하려면 어떻게 해야 하나요?
     
-보다 설명적인 오류를 보려면 [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)을 사용 하 여 인증서 파일을 가져옵니다.
+보다 설명적인 오류를 보려면 [Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) 또는 [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)을 사용 하 여 인증서 파일을 가져옵니다.
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>"오류 유형: 액세스 거부 또는 사용자가 인증서를 가져올 수 없습니다."를 어떻게 해결할 수 있나요?
     
-가져오기 작업을 수행 하려면 액세스 정책에서 인증서를 가져올 수 있는 권한을 사용자에 게 부여 해야 합니다. 이렇게 하려면 주요 자격 증명 모음으로 이동 하 여 **액세스**정책  >  **추가 액세스 정책**을 선택 합니다.  >  **인증서 권한**  >  **보안 주체**를 선택 하 고 사용자를 검색 한 다음 사용자의 전자 메일 주소를 추가 합니다. 
+가져오기 작업을 수행 하려면 액세스 정책에서 인증서를 가져올 수 있는 권한을 사용자에 게 부여 해야 합니다. 이렇게 하려면 주요 자격 증명 모음으로 이동 하 여 **액세스** 정책  >  **추가 액세스 정책** 을 선택 합니다.  >  **인증서 권한**  >  **보안 주체** 를 선택 하 고 사용자를 검색 한 다음 사용자의 전자 메일 주소를 추가 합니다. 
 
-인증서 관련 액세스 정책에 대 한 자세한 내용은 [Azure Key Vault 인증서 정보](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control)를 참조 하세요.
+인증서 관련 액세스 정책에 대 한 자세한 내용은 [Azure Key Vault 인증서 정보](./about-certificates.md#certificate-access-control)를 참조 하세요.
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>"오류 유형: 인증서를 만들 때 충돌"을 해결 하려면 어떻게 해야 하나요?
     
-각 인증서 이름은 고유 해야 합니다. 이름이 같은 인증서가 일시 삭제 된 상태에 있을 수 있습니다. 또한 [인증서의 컴포지션에](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)따라, 새 인증서를 만들 때 동일한 이름의 주소 지정 가능 암호를 만듭니다. 그러면 인증서에 지정 하려는 것과 이름이 같은 키 자격 증명 모음에 다른 키 또는 암호가 있으면 인증서 만들기가 실패 하 고 해당 키 또는 비밀을 제거 하거나 인증서에 다른 이름을 사용 해야 합니다. 
+각 인증서 이름은 고유 해야 합니다. 이름이 같은 인증서가 일시 삭제 된 상태에 있을 수 있습니다. 또한 [인증서의 컴포지션에](./about-certificates.md#composition-of-a-certificate)따라, 새 인증서를 만들 때 동일한 이름의 주소 지정 가능 암호를 만듭니다. 그러면 인증서에 지정 하려는 것과 이름이 같은 키 자격 증명 모음에 다른 키 또는 암호가 있으면 인증서 만들기가 실패 하 고 해당 키 또는 비밀을 제거 하거나 인증서에 다른 이름을 사용 해야 합니다. 
 
-자세한 내용은 [삭제 된 인증서 가져오기 작업](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)을 참조 하세요.
+자세한 내용은 [삭제 된 인증서 가져오기 작업](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)을 참조 하세요.
 
 ### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>"오류 유형: 문자 길이가 너무 깁니다."가 표시 되는 이유는 무엇 인가요?
 이 오류는 다음 두 가지 이유로 인해 발생할 수 있습니다.    
@@ -83,4 +83,4 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인증서 Azure Key Vault](/azure/key-vault/certificates/about-certificates)
+- [인증서 Azure Key Vault](./about-certificates.md)

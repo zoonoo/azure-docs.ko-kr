@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669937"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286214"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "92669937"
 
 전체 솔루션은 다음 구성 요소로 구성됩니다.
 
-1. **Azure AD** : `Restrict-Access-To-Tenants: <permitted tenant list>`가 있는 경우 Azure AD는 허용되는 테넌트에 대한 보안 토큰만 발급합니다.
+1. **AZURE ad** : `Restrict-Access-To-Tenants: <permitted tenant list>` 헤더가 있는 경우 azure ad는 허용 되는 테 넌 트에 대해서만 보안 토큰을 발급 합니다.
 
 2. **온-프레미스 프록시 서버 인프라** : 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "92669937"
 
 - 클라이언트는 TLS 통신을 위해 프록시에서 제공한 인증서 체인을 신뢰해야 합니다. 예를 들어 내부 [PKI(퍼블릭 키 인프라)](/windows/desktop/seccertenroll/public-key-infrastructure)에서 발급한 인증서가 사용될 경우 내부 발급 루트 인증 기관 인증서를 신뢰할 수 있어야 합니다.
 
-- 이 기능은 Microsoft 365 구독에 포함 되어 있지만 테 넌 트 제한을 사용 하 여 다른 SaaS 앱에 대 한 액세스를 제어 하려면 Azure AD Premium 1 라이선스가 필요 합니다.
+- Azure AD Premium 1 라이선스는 테 넌 트 제한을 사용 하는 데 필요 합니다. 
 
 #### <a name="configuration"></a>구성
 

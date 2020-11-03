@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03016c9a44968db49cd68bfec025c328861fc07
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707917"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286434"
 ---
 # <a name="supported-postgresql-major-versions"></a>지원 되는 PostgreSQL 주 버전
-Microsoft는 Azure Database for PostgreSQL 단일 서버에서 n-2 버전의 PostgreSQL 엔진을 지원 합니다. 버전은 Azure(n)의 현재 주요 버전과 두 개의 이전 주요 버전(-2)이 됩니다.
+
+지원 정책에 대 한 자세한 내용은 [Azure Database for PostgreSQL 버전 관리 정책](concepts-version-policy.md) 을 참조 하세요.
 
 Azure Database for PostgreSQL 현재 다음 주 버전을 지원 합니다.
 
@@ -35,6 +36,7 @@ Azure Database for PostgreSQL 현재 다음 주 버전을 지원 합니다.
 PostgreSQL 프로젝트는 보고 된 버그를 수정 하기 위해 부분적 릴리스를 정기적으로 실행 합니다. 서비스의 월간 배포 중에 보조 릴리스로 서버를 자동으로 패치 하는 Azure Database for PostgreSQL. 
 
 주 버전에 대 한 자동 전체 업그레이드는 지원 되지 않습니다. 다음 주 버전으로 업그레이드 하려면 다음을 수행할 수 있습니다. 
+   * [덤프 및 복원을 사용 하 여 주 버전 업그레이드](./how-to-upgrade-using-dump-and-restore.md) 참조
    * [Pg_dump 및 pg_restore](./howto-migrate-using-dump-and-restore.md) 를 사용 하 여 새 엔진 버전으로 만든 서버로 데이터베이스를 이동 합니다.
    * 또는 [Azure Database Migration service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) 를 사용 하 여 PostgreSQL 10에서 11로 업그레이드할 수 있습니다.
 

@@ -7,18 +7,18 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370545"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289210"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
 
 이 페이지에서는 기본 제공 취약점 스캐너를 사용 하 여 Azure Resource Manager 기반 Azure Container Registry에 저장 된 컨테이너 이미지를 검색 하는 방법을 설명 합니다.
 
-**컨테이너 레지스트리 용 Azure Defender** 를 사용 하는 경우 레지스트리로 푸시하는 이미지를 즉시 검사 합니다. 또한 지난 30 일 내에 끌어온 이미지도 검색 됩니다. 
+**컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정하면 레지스트리로 푸시하는 모든 이미지가 즉시 스캔됩니다. 또한 지난 30 일 내에 끌어온 이미지도 검색 됩니다. 
 
 스캐너는 Security Center에 대 한 취약성을 보고 하는 경우 결과 및 관련 정보를 권장 사항으로 제공 Security Center. 또한 결과에는 재구성 단계, 관련 CVEs, CVES 점수 등의 관련 정보가 포함 됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별 된 취약성을 볼 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "92370545"
 |지원 되는 레지스트리 및 이미지:|셸 액세스를 사용 하 여 공용 인터넷에서 액세스할 수 있는 ACR 레지스트리에 있는 Linux 이미지|
 |지원 되지 않는 레지스트리 및 이미지:|Windows 이미지<br>' 개인 ' 레지스트리<br>방화벽, 서비스 끝점 또는 개인 끝점 (예: Azure 개인 링크)으로 액세스가 제한 된 레지스트리<br>[Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지|
 |필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](../container-registry/container-registry-roles.md)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov-현재 푸시에 대 한 검색 기능만 지원 됩니다. [어디에서 이미지를 검색 하는 경우](defender-for-container-registries-introduction.md#when-are-images-scanned) 에 대해 자세히 알아보세요.<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov|
 |||
 
 
@@ -131,7 +131,7 @@ Azure Resource Manager 기반 Azure Container Registry에 저장 된 이미지�
 다음 조건 중 하나를 사용할 수 있습니다. 
 
 - ID 찾기 
-- Category
+- 범주
 - 보안 검사 
 - CVSS v3 점수
 - 심각도 
@@ -139,17 +139,17 @@ Azure Resource Manager 기반 Azure Container Registry에 저장 된 이미지�
 
 규칙을 만들려면 다음을 수행합니다.
 
-1. **Azure Container Registry 이미지의 취약성**에 대 한 권장 사항 세부 정보 페이지에서 **규칙 사용 안 함**을 선택 합니다.
+1. **Azure Container Registry 이미지의 취약성** 에 대 한 권장 사항 세부 정보 페이지에서 **규칙 사용 안 함** 을 선택 합니다.
 1. 관련 범위를 선택 합니다.
 1. 조건을 정의 합니다.
-1. **규칙 적용**을 선택 합니다.
+1. **규칙 적용** 을 선택 합니다.
 
     :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="레지스트리에서 VA 검색에 대 한 사용 안 함 규칙 만들기":::
 
 1. 규칙을 보거나 재정의 하거나 삭제 하려면 다음을 수행 합니다. 
-    1. **규칙 사용 안 함**을 선택 합니다.
-    1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용**됨으로 표시 됩니다.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="레지스트리에서 VA 검색에 대 한 사용 안 함 규칙 만들기":::
+    1. **규칙 사용 안 함** 을 선택 합니다.
+    1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용** 됨으로 표시 됩니다.
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="기존 규칙 수정 또는 삭제":::
     1. 규칙을 보거나 삭제 하려면 줄임표 메뉴 ("...")를 선택 합니다.
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792483"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289300"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -149,7 +149,7 @@ Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 
 Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스에 대한 다음 제한 사항을 고려하세요. 
 
 ### <a name="lightweight-resource-provider"></a>경량 리소스 공급자   
-현재 Azure 가상 머신에서 SQL Server 장애 조치(failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)의 [경량 관리 모드](sql-vm-resource-provider-register.md#management-modes)에서만 지원됩니다. 전체 확장 모드에서 경량 모드로 변경하려면 해당 VM에 대한 **SQL 가상 머신** 리소스를 삭제한 후 경량 모드로 SQL VM 리소스 공급자에 등록합니다. Azure Portal을 사용하여 **SQL 가상 머신** 리소스를 삭제하는 경우 올바른 가상 머신 옆에 있는 확인란을 선택 취소합니다. 
+현재 Azure 가상 머신에서 SQL Server 장애 조치(failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)의 [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서만 지원됩니다. 전체 확장 모드에서 경량 모드로 변경하려면 해당 VM에 대한 **SQL 가상 머신** 리소스를 삭제한 후 경량 모드로 SQL VM 리소스 공급자에 등록합니다. Azure Portal을 사용하여 **SQL 가상 머신** 리소스를 삭제하는 경우 올바른 가상 머신 옆에 있는 확인란을 선택 취소합니다. 
 
 전체 확장은 자동화된 백업, 패치, 고급 포털 관리 등의 기능을 지원합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치된 후에는 SQL Server VM에 대해 작동하지 않습니다.
 

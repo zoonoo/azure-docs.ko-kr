@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735478"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285917"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
 이 문서에서는 Azure Machine Learning의 가상 네트워크를 사용 하 여 추론 환경을 보호 하는 방법에 대해 알아봅니다.
 
@@ -217,6 +217,9 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
+> [!IMPORTANT]
+> CLI를 사용 하 여 내부 부하 분산 장치를 사용 하 여 AKS 클러스터를 만들 수 있습니다. 내부 부하 분산 장치를 사용 하도록 기존 클러스터를 업그레이드 하는 데 az ml 명령이 없습니다.
+
 자세한 내용은 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
 ---
@@ -260,6 +263,9 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 
 2. [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true)을 사용하여 모델을 배포하고 `vnet_name` 및 `subnet_name` 매개 변수를 사용합니다. 이 매개 변수를 위임을 사용하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정합니다.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> 가상 네트워크에서 아웃바운드 연결 제한
+
+기본 아웃 바운드 규칙을 사용 하지 않고 가상 네트워크의 아웃 바운드 액세스를 제한 하려는 경우 Azure Container Registry에 대 한 액세스를 허용 해야 합니다. 예를 들어 NSG (네트워크 보안 그룹)에 __AzureContainerRegistry name__ 서비스 태그에 대 한 액세스를 허용 하는 규칙이 포함 되어 있는지 확인 합니다. 여기서 ' {영역 이름}은 Azure 지역의 이름입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

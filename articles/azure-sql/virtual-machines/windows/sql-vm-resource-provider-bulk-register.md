@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761263"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286074"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Azure의 여러 SQL 가상 머신을 SQL VM 리소스 공급자에 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 `Register-SqlVMs` PowerShell cmdlet을 사용하여 Azure의 SQL Server VM(가상 머신)을 SQL VM 리소스 공급자에 대량 등록하는 방법을 설명합니다.
+이 문서에서는 `Register-SqlVMs` PowerShell cmdlet을 사용하여 Azure의 SQL Server VM(가상 머신)을 SQL VM 리소스 공급자에 대량 등록하는 방법을 설명합니다. SQL VM 리소스 공급자에 등록 하면 [Sql IaaS 에이전트 확장이](sql-server-iaas-agent-extension-automate-management.md)설치 됩니다.
 
 이 문서에서는 SQL Server Vm을 대량 등록 하는 방법을 설명 합니다. 또는 [모든 SQL Server vm을 자동으로](sql-vm-resource-provider-automatic-registration.md) 또는 [개별 SQL Server vm](sql-vm-resource-provider-register.md)에 등록할 수 있습니다. 
 
@@ -33,14 +33,14 @@ ms.locfileid: "91761263"
 
 등록 프로세스는 위험 없이 진행되고, 가동 중지 시간이 없으며, SQL Server 또는 가상 머신을 다시 시작하지 않습니다. 
 
-리소스 공급자에 관한 자세한 내용은 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)를 참조하세요. 
+자세한 내용은 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)를 참조 하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 리소스 공급자에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 
 - [리소스 공급자에 등록](sql-vm-resource-provider-register.md#register-subscription-with-rp)되었고 등록되지 않은 SQL Server 가상 머신을 포함하는 [Azure 구독](https://azure.microsoft.com/free/)입니다. 
-- 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 Azure 역할 ( **가상 컴퓨터 참가자**, **참가자**또는 **소유자**) 중 하나에 존재 합니다. 
+- 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 Azure 역할 ( **가상 컴퓨터 참가자** , **참가자** 또는 **소유자** ) 중 하나에 존재 합니다. 
 - 최신 버전의 [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - 최신 버전의 [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -227,7 +227,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 제공된 스크립트를 사용하여 리소스 공급자에 SQL Server VM을 등록하는 경우 다음을 고려하세요.
 
-- 리소스 공급자를 등록하려면 SQL Server VM에서 실행되는 게스트 에이전트가 필요합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이 가상 머신은 실패하며 [NoAgent 관리 모드](sql-vm-resource-provider-register.md#management-modes)를 사용하여 수동으로 등록해야 합니다.
+- 리소스 공급자를 등록하려면 SQL Server VM에서 실행되는 게스트 에이전트가 필요합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이 가상 머신은 실패하며 [NoAgent 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 사용하여 수동으로 등록해야 합니다.
 - 투명 오류를 해결하기 위한 재시도 논리가 기본 제공됩니다. 가상 머신이 성공적으로 등록된 경우 이는 신속한 작업입니다. 그러나 등록에 실패하면 각 가상 머신이 다시 시도됩니다.  따라서 실제 시간 요구 사항은 오류 유형 및 수에 따라 다르지만 등록 프로세스를 완료하는 데 상당한 시간을 허용해야 합니다. 
 
 ## <a name="full-script"></a>전체 스크립트

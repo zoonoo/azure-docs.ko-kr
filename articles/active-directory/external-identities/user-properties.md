@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441371"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285860"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -43,7 +43,7 @@ ms.locfileid: "92441371"
 
 ### <a name="before-invitation-redemption"></a>초대 상환 전
 
-상태 1 및 상태 2 계정은 게스트 사용자의 고유한 자격 증명을 사용하여 공동 작업하는 게스트 사용자를 초대한 결과입니다. 초대가 초기에 게스트 사용자에게 전송되면 계정이 사용자 디렉터리에 생성됩니다. 인증이 게스트 사용자의 ID 공급 기업에서 수행되기 때문에 이 계정에는 연결된 자격 증명이 없습니다. 디렉터리의 게스트 사용자 계정에 대한 **원본** 속성은 **초대된 사용자**로 설정됩니다. 
+상태 1 및 상태 2 계정은 게스트 사용자의 고유한 자격 증명을 사용하여 공동 작업하는 게스트 사용자를 초대한 결과입니다. 초대가 초기에 게스트 사용자에게 전송되면 계정이 사용자 디렉터리에 생성됩니다. 인증이 게스트 사용자의 ID 공급 기업에서 수행되기 때문에 이 계정에는 연결된 자격 증명이 없습니다. 디렉터리의 게스트 사용자 계정에 대한 **원본** 속성은 **초대된 사용자** 로 설정됩니다. 
 
 ![제공 상환 전에 사용자 속성을 보여 주는 스크린샷](media/user-properties/before-redemption.png)
 
@@ -51,15 +51,15 @@ ms.locfileid: "92441371"
 
 게스트 사용자가 초대를 수락한 후 **원본** 속성이 게스트 사용자의 ID 공급 기업에 따라 업데이트됩니다.
 
-상태 1의 게스트 사용자의 경우 **원본**은 **외부 Azure Active Directory**입니다.
+상태 1의 게스트 사용자의 경우 **원본** 은 **외부 Azure Active Directory** 입니다.
 
 ![제안 상환 후 상태 1 게스트 사용자](media/user-properties/after-redemption-state1.png)
 
-상태 2의 게스트 사용자의 경우 **원본**은 **Microsoft 계정**입니다.
+상태 2의 게스트 사용자의 경우 **원본** 은 **Microsoft 계정** 입니다.
 
 ![제안 상환 후 상태 2 게스트 사용자](media/user-properties/after-redemption-state2.png)
 
-상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory**로 설정됩니다.
+상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory** 로 설정됩니다.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 협업 사용자의 주요 속성
 ### <a name="usertype"></a>UserType
@@ -70,6 +70,8 @@ ms.locfileid: "92441371"
 
   > [!NOTE]
   > UserType은 사용자가 로그인하는 방법, 사용자의 디렉터리 역할 등과 관계가 없습니다. 이 속성은 단순히 사용자와 호스트 조직 사이의 관계를 나타내며, 조직에서 이 속성에 속한 모든 정책을 시행할 수 있게 합니다.
+
+가격 책정 관련 세부 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory)을 참조 하세요.
 
 ### <a name="source"></a>원본
 이 속성은 사용자가 로그인하는 방법을 나타냅니다.

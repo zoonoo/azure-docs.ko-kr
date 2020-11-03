@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에서 개인 링크 구성 문제 진단
+title: Azure Key Vault에서 프라이빗 링크 구성 문제 진단
 description: Key Vault에 대 한 일반적인 개인 링크 문제를 해결 하 고 구성에 대해 자세히 알아봅니다.
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998393"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289367"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 개인 링크 구성 문제 진단
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 프라이빗 링크 구성 문제 진단
 
 ## <a name="introduction"></a>소개
 
@@ -54,18 +54,18 @@ ms.locfileid: "91998393"
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>관리 솔루션을 사용 하는 경우 특정 문서를 참조 하세요.
 
-이 가이드는 Microsoft에서 관리 하는 솔루션에 적용할 수 없습니다. 여기서 주요 자격 증명 모음은 고객 Virtual Network와 독립적으로 존재 하는 Azure 제품에 의해 액세스 됩니다. 이러한 시나리오의 예로는 미사용 데이터 암호화를 위해 구성 된 azure SQL, Azure Event Hub는 고객이 제공한 키로 데이터를 암호화 하 고, key Azure Pipelines vault에 저장 된 서비스 자격 증명에 액세스 Azure Data Factory, key vault에서 비밀을 검색 하는 경우, 기타 유사한 시나리오를 Azure Storage 합니다. 이러한 경우에 *는 방화벽이 사용 하도록 설정 된 주요 자격 증명 모음을 제품에서 지원 하는지 확인 해야*합니다. 이 지원은 일반적으로 Key Vault 방화벽의 [신뢰할 수 있는 서비스](overview-vnet-service-endpoints.md#trusted-services) 기능을 사용 하 여 수행 됩니다. 그러나 다양 한 이유로 많은 제품이 신뢰할 수 있는 서비스 목록에 포함 되지 않습니다. 이 경우 제품별 지원에 도달 합니다.
+이 가이드는 Microsoft에서 관리 하는 솔루션에 적용할 수 없습니다. 여기서 주요 자격 증명 모음은 고객 Virtual Network와 독립적으로 존재 하는 Azure 제품에 의해 액세스 됩니다. 이러한 시나리오의 예로는 미사용 데이터 암호화를 위해 구성 된 azure SQL, Azure Event Hub는 고객이 제공한 키로 데이터를 암호화 하 고, key Azure Pipelines vault에 저장 된 서비스 자격 증명에 액세스 Azure Data Factory, key vault에서 비밀을 검색 하는 경우, 기타 유사한 시나리오를 Azure Storage 합니다. 이러한 경우에 *는 방화벽이 사용 하도록 설정 된 주요 자격 증명 모음을 제품에서 지원 하는지 확인 해야* 합니다. 이 지원은 일반적으로 Key Vault 방화벽의 [신뢰할 수 있는 서비스](overview-vnet-service-endpoints.md#trusted-services) 기능을 사용 하 여 수행 됩니다. 그러나 다양 한 이유로 많은 제품이 신뢰할 수 있는 서비스 목록에 포함 되지 않습니다. 이 경우 제품별 지원에 도달 합니다.
 
-적은 수의 Azure 제품은 *vnet 주입*의 개념을 지원 합니다. 간단히 말해, 제품은 네트워크 장치를 고객 Virtual Network에 추가 하 여가 Virtual Network에 배포 된 것 처럼 요청을 보낼 수 있게 합니다. 주목할 만한 예는 [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)합니다. 이와 같은 제품은 개인 링크를 사용 하 여 주요 자격 증명 모음에 대 한 요청을 수행할 수 있습니다 .이 문제 해결 가이드는 도움이 될 수 있습니다.
+적은 수의 Azure 제품은 *vnet 주입* 의 개념을 지원 합니다. 간단히 말해, 제품은 네트워크 장치를 고객 Virtual Network에 추가 하 여가 Virtual Network에 배포 된 것 처럼 요청을 보낼 수 있게 합니다. 주목할 만한 예는 [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)합니다. 이와 같은 제품은 개인 링크를 사용 하 여 주요 자격 증명 모음에 대 한 요청을 수행할 수 있습니다 .이 문제 해결 가이드는 도움이 될 수 있습니다.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. 연결이 승인 되었고 성공 했는지 확인 합니다.
 
 다음 단계는 개인 끝점 연결이 승인 되 고 성공 했는지 확인 합니다.
 
 1. Azure Portal를 열고 키 자격 증명 모음 리소스를 엽니다.
-2. 왼쪽 메뉴에서 **네트워킹**을 선택 합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
 3. **개인 끝점 연결** 탭을 클릭 합니다. 그러면 모든 개인 끝점 연결과 해당 상태가 표시 됩니다. 연결이 없거나 Virtual Network에 대 한 연결이 없는 경우 새 개인 끝점을 만들어야 합니다. 이 내용은 나중에 설명 합니다.
-4. 여전히 **개인 끝점 연결**상태에서 진단 하는 중 하나를 찾고 "연결 상태"가 **승인** 되었으며 "프로 비전 상태"가 **성공**했는지 확인 합니다.
+4. 여전히 **개인 끝점 연결** 상태에서 진단 하는 중 하나를 찾고 "연결 상태"가 **승인** 되었으며 "프로 비전 상태"가 **성공** 했는지 확인 합니다.
     - 연결이 "보류 중" 상태인 경우에만 승인할 수 있습니다.
     - 연결이 "거부 됨", "실패", "오류", "연결 끊김" 또는 기타 상태가 아닌 경우에는 새 개인 끝점 리소스를 만들어야 합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "91998393"
 중요 한 개념은 개인 링크 기능이 데이터 exfiltration을 방지 하기 위해 종결 된 Virtual Network에서 키 자격 증명 모음에 대 한 액세스 권한만 *제공* 한다는 것입니다. 기존 액세스는 *제거* 되지 않습니다. 공용 인터넷에서 액세스를 효과적으로 차단 하려면 키 자격 증명 모음 방화벽을 명시적으로 사용 하도록 설정 해야 합니다.
 
 1. Azure Portal를 열고 키 자격 증명 모음 리소스를 엽니다.
-2. 왼쪽 메뉴에서 **네트워킹**을 선택 합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
 3. 위에서 **방화벽 및 가상 네트워크** 탭이 선택 되어 있는지 확인 합니다.
 4. **개인 끝점 및 선택한 네트워크** 옵션이 선택 되어 있는지 확인 합니다. **모든 네트워크** 를 검색 하는 경우 외부 클라이언트가 여전히 키 자격 증명 모음에 액세스할 수 있는 이유를 설명 하는를 선택 합니다.
 
@@ -120,11 +120,11 @@ ms.locfileid: "91998393"
 호스트 이름 확인을 진단 해야 하며, 개인 링크가 사용 하도록 설정 된 key vault의 정확한 개인 IP 주소를 알아야 합니다. 해당 주소를 찾으려면 다음 절차를 따르세요.
 
 1. Azure Portal를 열고 키 자격 증명 모음 리소스를 엽니다.
-2. 왼쪽 메뉴에서 **네트워킹**을 선택 합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
 3. **개인 끝점 연결** 탭을 클릭 합니다. 그러면 모든 개인 끝점 연결과 해당 상태가 표시 됩니다.
-4. 진단 하 고 있는 항목을 찾아 "연결 상태"가 **승인** 되었고 프로 비전 상태가 **성공**인지 확인 합니다. 이 내용이 표시 되지 않으면이 문서의 이전 섹션으로 돌아갑니다.
+4. 진단 하 고 있는 항목을 찾아 "연결 상태"가 **승인** 되었고 프로 비전 상태가 **성공** 인지 확인 합니다. 이 내용이 표시 되지 않으면이 문서의 이전 섹션으로 돌아갑니다.
 5. 올바른 항목을 찾으면 **개인 끝점** 열의 링크를 클릭 합니다. 이렇게 하면 개인 끝점 리소스가 열립니다.
-6. 개요 페이지에는 **사용자 지정 DNS 설정**이라는 섹션이 표시 될 수 있습니다. 키 자격 증명 모음 호스트 이름과 일치 하는 항목이 하나만 있는지 확인 합니다. 이 항목은 키 자격 증명 모음 개인 IP 주소를 표시 합니다.
+6. 개요 페이지에는 **사용자 지정 DNS 설정** 이라는 섹션이 표시 될 수 있습니다. 키 자격 증명 모음 호스트 이름과 일치 하는 항목이 하나만 있는지 확인 합니다. 이 항목은 키 자격 증명 모음 개인 IP 주소를 표시 합니다.
 7. **네트워크 인터페이스** 에서 링크를 클릭 하 고 개인 IP 주소가 이전 단계에 표시 된 것과 동일한 지 확인할 수도 있습니다. 네트워크 인터페이스는 키 자격 증명 모음을 나타내는 가상 장치입니다.
 
 IP 주소는 Vm 및 *동일한 Virtual Network에서 실행* 되는 다른 장치에서 키 자격 증명 모음에 연결 하는 데 사용 합니다. 추가 조사를 수행 하는 동안 IP 주소를 기록 하거나 브라우저 탭을 열어 둡니다.
@@ -229,7 +229,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
     privatelink.vaultcore.azure.net
 
-포털의 구독 페이지로 이동 하 고 왼쪽 메뉴에서 "리소스"를 선택 하 여이 리소스가 있는지 확인할 수 있습니다. 리소스 이름은 여야 `privatelink.vaultcore.azure.net` 하 고 리소스 형식은 **사설 DNS 영역**이어야 합니다.
+포털의 구독 페이지로 이동 하 고 왼쪽 메뉴에서 "리소스"를 선택 하 여이 리소스가 있는지 확인할 수 있습니다. 리소스 이름은 여야 `privatelink.vaultcore.azure.net` 하 고 리소스 형식은 **사설 DNS 영역** 이어야 합니다.
 
 일반적으로이 리소스는 일반 프로시저를 사용 하 여 개인 끝점을 만들 때 자동으로 만들어집니다. 그러나이 리소스가 자동으로 생성 되지 않으며 수동으로 수행 해야 하는 경우도 있습니다. 이 리소스는 실수로 삭제 되었을 수도 있습니다.
 
@@ -267,7 +267,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 [이전 섹션](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)에서 설명한 것 처럼 개인 링크를 포함 하는 주요 자격 증명 모음에는 `{vaultname}.privatelink.vaultcore.azure.net` *공용* 등록에 별칭이 있습니다. Virtual Network에서 사용 하는 DNS 서버는 공용 등록을 사용 하지만 *개인* 등록에 대 한 모든 별칭을 확인 하 고, 검색 한 경우 공용 등록 시 정의 된 다음 별칭을 중지 합니다.
 
-이 논리는 Virtual Network 이름이 있는 사설 DNS 영역에 연결 되 `privatelink.vaultcore.azure.net` 고 키 자격 증명 모음에 대 한 공용 DNS 등록에 별칭이 있는 경우 `fabrikam.privatelink.vaultcore.azure.net` (키 자격 증명 모음 접미사는 사설 DNS 영역 이름과 정확 하 게 일치) DNS 쿼리는 `A` `fabrikam` *사설 DNS 영역에서*이름이 있는 레코드를 검색 함을 의미 합니다. `A`레코드가 발견 되 면 DNS 쿼리에서 해당 IP 주소가 반환 되 고 공용 dns 등록에서 추가 조회가 수행 되지 않습니다.
+이 논리는 Virtual Network 이름이 있는 사설 DNS 영역에 연결 되 `privatelink.vaultcore.azure.net` 고 키 자격 증명 모음에 대 한 공용 DNS 등록에 별칭이 있는 경우 `fabrikam.privatelink.vaultcore.azure.net` (키 자격 증명 모음 접미사는 사설 DNS 영역 이름과 정확 하 게 일치) DNS 쿼리는 `A` `fabrikam` *사설 DNS 영역에서* 이름이 있는 레코드를 검색 함을 의미 합니다. `A`레코드가 발견 되 면 DNS 쿼리에서 해당 IP 주소가 반환 되 고 공용 dns 등록에서 추가 조회가 수행 되지 않습니다.
 
 여기에서 볼 수 있듯이 이름 확인은 사용자의 제어를 받고 있습니다. 이 디자인의 rationales은 다음과 같습니다.
 
@@ -278,7 +278,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>`/healthstatus`Key vault의 끝점 쿼리
 
-키 자격 증명 모음은 `/healthstatus` 진단에 사용할 수 있는 끝점을 제공 합니다. 응답 헤더에는 주요 자격 증명 모음 서비스에 표시 되는 원본 IP 주소가 포함 됩니다. 다음 명령을 사용 하 여 해당 끝점을 호출할 수 있습니다.**key vault 호스트 이름을 사용**해야 합니다.
+키 자격 증명 모음은 `/healthstatus` 진단에 사용할 수 있는 끝점을 제공 합니다. 응답 헤더에는 주요 자격 증명 모음 서비스에 표시 되는 원본 IP 주소가 포함 됩니다. 다음 명령을 사용 하 여 해당 끝점을 호출할 수 있습니다. **key vault 호스트 이름을 사용** 해야 합니다.
 
 Windows (PowerShell):
 
@@ -346,7 +346,7 @@ Linux 또는 다음을 포함 하는 최신 버전의 Windows 10 `curl`
 
 ### <a name="diagnose-custom-dns-servers-at-virtual-network"></a>Virtual Network에서 사용자 지정 DNS 서버 진단
 
-포털에서 Virtual Network 리소스를 엽니다. 왼쪽 메뉴에서 **DNS 서버**를 엽니다. "Custom"을 사용 하는 경우 DNS 확인이이 문서에 설명 된 것과 다를 수 있습니다. DNS 서버에서 주요 자격 증명 모음 호스트 이름을 확인 하는 방법을 진단 해야 합니다.
+포털에서 Virtual Network 리소스를 엽니다. 왼쪽 메뉴에서 **DNS 서버** 를 엽니다. "Custom"을 사용 하는 경우 DNS 확인이이 문서에 설명 된 것과 다를 수 있습니다. DNS 서버에서 주요 자격 증명 모음 호스트 이름을 확인 하는 방법을 진단 해야 합니다.
 
 Azure에서 제공 하는 기본 DNS 서버를 사용 하는 경우이 문서 전체를 적용할 수 있습니다.
 

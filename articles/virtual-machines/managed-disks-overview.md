@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972036"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289362"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -31,7 +31,7 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 ### <a name="simple-and-scalable-vm-deployment"></a>간단하고 확장성 있는 VM 배포
 
-관리 디스크를 사용하면 지역당 구독에 특정 유형의 VM **디스크**를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 가상 머신 확장 집합에 VM을 1,000개까지 만들 수 있기 때문에 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
+관리 디스크를 사용하면 지역당 구독에 특정 유형의 VM **디스크** 를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM** 을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 가상 머신 확장 집합에 VM을 1,000개까지 만들 수 있기 때문에 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
 
 ### <a name="integration-with-availability-sets"></a>가용성 집합과 통합
 
@@ -59,7 +59,7 @@ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](linux/disks-upload-
 
 ### <a name="private-links"></a>Private Link
 
-관리 디스크에 대한 Private Link 지원은 현재 미리 보기로 제공되며, 관리 디스크를 네트워크 내부로 가져오거나 내보내는 데 사용할 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
+관리 디스크에 대 한 개인 링크 지원을 사용 하 여 네트워크 내부에서 관리 디스크를 가져오거나 내보낼 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
 
 관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](linux/disks-export-import-private-links-cli.md) 또는 [포털](disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
 

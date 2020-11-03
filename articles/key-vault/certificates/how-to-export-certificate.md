@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233970"
+ms.locfileid: "93289563"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -23,11 +23,11 @@ Azure Key Vault의 인증서를 내보내는 방법 Azure CLI, Azure PowerShell 
 
 ## <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
-Azure Key Vault를 통해 네트워크에 대한 디지털 인증서를 쉽게 프로비저닝하고, 관리하고, 배포할 수 있습니다. 또한 애플리케이션에 대한 보안 통신을 가능하게 합니다. 자세한 내용은 [Azure Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates)를 참조하세요.
+Azure Key Vault를 통해 네트워크에 대한 디지털 인증서를 쉽게 프로비저닝하고, 관리하고, 배포할 수 있습니다. 또한 애플리케이션에 대한 보안 통신을 가능하게 합니다. 자세한 내용은 [Azure Key Vault 인증서](./about-certificates.md)를 참조하세요.
 
 ### <a name="composition-of-a-certificate"></a>인증서 컴퍼지션
 
-Key Vault 인증서가 만들어지면 주소 지정 가능한 *키* 와 *비밀* 도 동일한 이름으로 만들어집니다. Key Vault 키는 키 작업을 허용합니다. Key Vault 비밀은 인증서 값을 비밀로 검색할 수 있게 합니다. Key Vault 인증서에는 공용 x509 인증서 메타데이터도 포함됩니다. 자세한 내용은 [인증서 컴퍼지션](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)으로 이동하세요.
+Key Vault 인증서가 만들어지면 주소 지정 가능한 *키* 와 *비밀* 도 동일한 이름으로 만들어집니다. Key Vault 키는 키 작업을 허용합니다. Key Vault 비밀은 인증서 값을 비밀로 검색할 수 있게 합니다. Key Vault 인증서에는 공용 x509 인증서 메타데이터도 포함됩니다. 자세한 내용은 [인증서 컴퍼지션](./about-certificates.md#composition-of-a-certificate)으로 이동하세요.
 
 ### <a name="exportable-and-non-exportable-keys"></a>내보내기 가능 키와 내보내기 불가능 키
 
@@ -36,9 +36,9 @@ Key Vault 인증서가 만들어지면 프라이빗 키를 사용하여 주소 �
 - **내보내기 가능** : 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시합니다.
 - **내보내기 불가능** : 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 없다고 표시합니다. 이 경우 프라이빗 키는 비밀로 검색될 때 값의 일부가 아닙니다.
 
-지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
+지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
 
-자세한 내용은 [Azure Key Vault 인증서 정보](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key)를 참조하세요.
+자세한 내용은 [Azure Key Vault 인증서 정보](./about-certificates.md#exportable-or-non-exportable-key)를 참조하세요.
 
 ## <a name="export-stored-certificates"></a>저장된 인증서 내보내기
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-자세한 내용은 [예제 및 매개 변수 정의](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)를 보세요.
+자세한 내용은 [예제 및 매개 변수 정의](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)를 보세요.
 
 인증서로 다운로드하는 것은 공개 부분을 가져오는 것을 의미합니다. 프라이빗 키와 퍼블릭 메타데이터가 모두 필요한 경우 이를 비밀로 다운로드할 수 있습니다.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-자세한 내용은 [매개 변수 정의](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)를 참조하세요.
+자세한 내용은 [매개 변수 정의](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -102,7 +102,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 이 명령은 프라이빗 키가 있는 전체 인증서 체인을 내보냅니다. 인증서가 암호로 보호됩니다.
-**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)를 참조하세요.
+**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -121,4 +121,4 @@ Azure App Service 인증서를 통해 SSL 인증서를 편리하게 구매할 �
 ---
 
 ## <a name="read-more"></a>자세히 알아보기
-* [다양한 인증서 파일 형식 및 정의](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [다양한 인증서 파일 형식 및 정의](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

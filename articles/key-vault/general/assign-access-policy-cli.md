@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381050"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289182"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Key Vault 액세스 정책 할당
 
@@ -29,7 +29,7 @@ Azure CLI를 사용 하 여 Azure Active Directory에서 그룹을 만드는 방
 
 1. Azure CLI 명령을 로컬로 실행 하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치 합니다.
  
-    클라우드에서 직접 명령을 실행 하려면 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용 합니다.
+    클라우드에서 직접 명령을 실행 하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용 합니다.
 
 1. 로컬 CLI만 해당: 다음을 사용 하 여 Azure에 로그인 합니다 `az login` .
 

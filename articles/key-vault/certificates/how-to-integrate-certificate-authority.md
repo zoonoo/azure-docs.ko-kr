@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327419"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289540"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -23,7 +23,7 @@ Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 �
 
 Azure 키 자격 증명 모음 사용자는 Key Vault에서 직접 DigiCert 인증서를 생성할 수 있습니다. Key Vault는 DigiCert 인증 기관과 Key Vault의 트러스트된 파트너 관계를 통해 DigiCert에서 발급한 인증서에 대한 엔드투엔드 인증서 수명 주기 관리를 보장합니다.
 
-인증서에 대한 일반적인 정보는 [Azure Key Vault 인증서](/azure/key-vault/certificates/about-certificates)를 참조하세요.
+인증서에 대한 일반적인 정보는 [Azure Key Vault 인증서](./about-certificates.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: fe358e35f2d68a3e55e9d9bb4ac57a13f42085e3
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 9a52596aa0dd5fa7b9a7226d2ae57259dab08d37
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629241"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285741"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT(Just-In-Time) VM 액세스 이해
 
@@ -78,9 +78,9 @@ JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 아래 표�
 
 | 사용자가 다음을 수행할 수 있도록 설정: | 설정할 권한|
 | --- | --- |
-| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |VM에 대한 JIT 액세스 요청 | *사용자에게 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
-|JIT 정책 읽기| *사용자에게 다음 작업을 할당합니다.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|JIT 정책 읽기| *사용자에게 다음 작업을 할당합니다.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
 |||
 
 
