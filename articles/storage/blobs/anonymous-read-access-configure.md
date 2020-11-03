@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/22/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931073"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288131"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성
 
@@ -51,20 +51,17 @@ Azure Storage는 컨테이너 및 blob에 대 한 선택적 익명 공용 읽기
 > [!IMPORTANT]
 > 저장소 계정에 대 한 공용 액세스를 허용 하지 않으면 해당 저장소 계정의 모든 컨테이너에 대 한 공용 액세스 설정이 재정의 됩니다. 저장소 계정에 대 한 공용 액세스가 허용 되지 않는 경우 해당 계정에 대 한 모든 익명 요청은 실패 합니다. 이 설정을 변경 하기 전에 저장소 계정의 데이터에 익명으로 액세스할 수 있는 클라이언트 응용 프로그램에 미치는 영향을 이해 해야 합니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 방지](anonymous-read-access-prevent.md)를 참조 하세요.
 
-저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 계정의 **Allowblobpublicaccess** 속성을 구성 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
+저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 계정의 **Allowblobpublicaccess** 속성을 구성 합니다. 이 속성은 Azure 공용 클라우드 또는 Azure Government 클라우드에서 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
-> [!NOTE]
-> **Allowblobpublicaccess** 속성은 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 이거나 **true**일 때 공용 액세스를 허용 합니다.
->
-> **Allowblobpublicaccess** 속성은 Azure 공용 클라우드의 모든 저장소 계정 및 Azure Government 클라우드에서 사용할 수 있습니다.
+**Allowblobpublicaccess** 속성은 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 또는 **true** 일 때 공용 액세스를 허용 합니다.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Azure Portal에서 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 다음 단계를 수행 합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
-1. **설정**에서 **구성** 설정을 찾습니다.
-1. **Blob 공용 액세스** 를 **사용** 또는 사용 **안 함으로**설정 합니다.
+1. **설정** 에서 **구성** 설정을 찾습니다.
+1. **Blob 공용 액세스** 를 **사용** 또는 사용 **안 함으로** 설정 합니다.
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="계정에 대 한 blob 공용 액세스를 허용 하거나 허용 하지 않는 방법을 보여 주는 스크린샷":::
 
@@ -72,7 +69,7 @@ Azure Portal에서 저장소 계정에 대 한 공용 액세스를 허용 하거
 
 PowerShell을 사용 하 여 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 [Azure PowerShell 버전 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 이상을 설치 합니다. 다음으로 새 또는 기존 저장소 계정에 대해 **Allowblobpublicaccess** 속성을 구성 합니다.
 
-다음 예제에서는 저장소 계정을 만들고 **Allowblobpublicaccess** 속성을 **true**로 명시적으로 설정 합니다. 그런 다음, 저장소 계정을 업데이트 하 여 **Allowblobpublicaccess** 속성을 **false**로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 예제에서는 저장소 계정을 만들고 **Allowblobpublicaccess** 속성을 **true** 로 명시적으로 설정 합니다. 그런 다음, 저장소 계정을 업데이트 하 여 **Allowblobpublicaccess** 속성을 **false** 로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```powershell
 $rgName = "<resource-group>"
@@ -102,7 +99,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 Azure CLI를 사용 하 여 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 Azure CLI 버전 2.9.0 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로 새 또는 기존 저장소 계정에 대해 **Allowblobpublicaccess** 속성을 구성 합니다.
 
-다음 예제에서는 저장소 계정을 만들고 **Allowblobpublicaccess** 속성을 **true**로 명시적으로 설정 합니다. 그런 다음, 저장소 계정을 업데이트 하 여 **Allowblobpublicaccess** 속성을 **false**로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 예제에서는 저장소 계정을 만들고 **Allowblobpublicaccess** 속성을 **true** 로 명시적으로 설정 합니다. 그런 다음, 저장소 계정을 업데이트 하 여 **Allowblobpublicaccess** 속성을 **false** 로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -132,12 +129,12 @@ az storage account show \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-템플릿을 사용 하 여 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 **Allowblobpublicaccess** 속성을 **true** 또는 **false**로 설정 하 여 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
+템플릿을 사용 하 여 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 **Allowblobpublicaccess** 속성을 **true** 또는 **false** 로 설정 하 여 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
-1. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
-1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포) (미리 보기)** 를 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
-1. 템플릿 편집기에서 다음 JSON을 붙여넣어 새 계정을 만들고 **Allowblobpublicaccess** 속성을 **true** 또는 **false**로 설정 합니다. 꺾쇠 괄호 안의 자리 표시자를 사용자 고유의 값으로 대체 해야 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
+1. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
+1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포) (미리 보기)** 를 선택 하 고 **만들기** 를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 합니다.
+1. 템플릿 편집기에서 다음 JSON을 붙여넣어 새 계정을 만들고 **Allowblobpublicaccess** 속성을 **true** 또는 **false** 로 설정 합니다. 꺾쇠 괄호 안의 자리 표시자를 사용자 고유의 값으로 대체 해야 합니다.
 
     ```json
     {
@@ -198,7 +195,7 @@ Blob 공용 액세스를 허용 하거나 허용 하지 않도록 하려면 Azur
 Azure Portal에서 하나 이상의 기존 컨테이너에 대 한 공용 액세스 수준을 업데이트 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 저장소 계정 개요로 이동 합니다.
-1. 메뉴 블레이드의 **Blob service** 아래에서 **컨테이너**를 선택 합니다.
+1. 메뉴 블레이드의 **Blob service** 아래에서 **컨테이너** 를 선택 합니다.
 1. 공용 액세스 수준을 설정 하려는 컨테이너를 선택 합니다.
 1. **액세스 수준 변경** 단추를 사용 하 여 공용 액세스 설정을 표시 합니다.
 1. **공용 액세스 수준** 드롭다운에서 원하는 공용 액세스 수준을 선택 하 고 확인 단추를 클릭 하 여 선택한 컨테이너에 변경 내용을 적용 합니다.
@@ -207,7 +204,7 @@ Azure Portal에서 하나 이상의 기존 컨테이너에 대 한 공용 액세
 
 저장소 계정에 대 한 공용 액세스가 허용 되지 않는 경우 컨테이너의 공용 액세스 수준을 설정할 수 없습니다. 컨테이너의 공용 액세스 수준을 설정 하려고 하면 계정에 대 한 공용 액세스가 허용 되지 않기 때문에 설정이 비활성화 된 것을 볼 수 있습니다.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="계정에 대 한 blob 공용 액세스를 허용 하거나 허용 하지 않는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="공용 액세스를 허용 하지 않을 때 컨테이너 공용 액세스 수준 설정이 차단 됨을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

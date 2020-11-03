@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131176"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286704"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -26,11 +26,11 @@ ms.locfileid: "92131176"
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
-Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세요. Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. [Key Vault에 대한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) 사용에 대한 정보입니다.
+Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세요. Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. [Key Vault에 대한 Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md) 사용에 대한 정보입니다.
 
 ## <a name="interpret-your-key-vault-logs"></a>Key Vault 로그 해석
 
-로깅을 사용하면 지정한 스토리지 계정에 대해 **insights-logs-auditevent**라는 새 컨테이너가 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
+로깅을 사용하면 지정한 스토리지 계정에 대해 **insights-logs-auditevent** 라는 새 컨테이너가 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
 
 개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 
 
@@ -73,7 +73,7 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | **callerIpAddress** |요청한 클라이언트의 IP 주소입니다. |
 | **correlationId** |클라이언트가 서비스 쪽(키 자격 증명 모음) 로그를 사용하여 클라이언트 쪽 로그 상관 관계를 지정하도록 전달할 수 있는 선택적 GUID입니다. |
 | **identity** |REST API 요청에 제공된 토큰의 ID입니다. Azure PowerShell cmdlet에서 발생하는 요청의 경우와 마찬가지로 일반적으로 "사용자", "서비스 주체" 또는 "사용자+appId"의 조합입니다. |
-| **properties** |작업(**operationName**)에 따라 달라지는 정보입니다. 대부분의 경우 이 필드에는 클라이언트 정보(클라이언트에서 전달한 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드가 포함됩니다. 또한 개체가 요청의 결과로 반환되면(예: **KeyCreate** 또는 **VaultGet**) 키 URI(`id`로), 자격 증명 모음 URI 또는 비밀 URI도 포함됩니다. |
+| **properties** |작업( **operationName** )에 따라 달라지는 정보입니다. 대부분의 경우 이 필드에는 클라이언트 정보(클라이언트에서 전달한 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드가 포함됩니다. 또한 개체가 요청의 결과로 반환되면(예: **KeyCreate** 또는 **VaultGet** ) 키 URI(`id`로), 자격 증명 모음 URI 또는 비밀 URI도 포함됩니다. |
 
 **operationName** 필드 값은 *ObjectVerb* 형식입니다. 예를 들면 다음과 같습니다.
 
@@ -88,32 +88,32 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | operationName | REST API 명령 |
 | --- | --- |
 | **인증** |Azure Active Directory 엔드포인트를 통해 인증 |
-| **VaultGet** |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[키 자격 증명 모음 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[리소스 그룹의 모든 키 자격 증명 모음 목록](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[키 만들기](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[키에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[자격 증명 모음으로 키 가져오기](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[키 백업](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[키 삭제](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[키 복원](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[키로 서명](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[키로 확인](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[키 래핑](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[키 래핑 취소](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[키로 암호화](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[키로 암호 해독](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[키 업데이트](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[자격 증명 모음에 키 나열](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[키 버전 나열](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[암호 만들기](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[비밀 가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[암호 업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[암호 삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[암호 버전 나열](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[키 자격 증명 모음에 대한 정보 가져오기](/rest/api/keyvault/vaults) |
+| **VaultPut** |[키 자격 증명 모음 만들기 또는 업데이트](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[키 자격 증명 모음 삭제](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[키 자격 증명 모음 업데이트](/rest/api/keyvault/vaults) |
+| **VaultList** |[리소스 그룹의 모든 키 자격 증명 모음 목록](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[키 만들기](/rest/api/keyvault/createkey) |
+| **KeyGet** |[키에 대한 정보 가져오기](/rest/api/keyvault/getkey) |
+| **KeyImport** |[자격 증명 모음으로 키 가져오기](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[키 백업](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[키 삭제](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[키 복원](/rest/api/keyvault/restorekey) |
+| **KeySign** |[키로 서명](/rest/api/keyvault/sign) |
+| **KeyVerify** |[키로 확인](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[키 래핑](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[키 래핑 취소](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[키로 암호화](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[키로 암호 해독](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[키 업데이트](/rest/api/keyvault/updatekey) |
+| **KeyList** |[자격 증명 모음에 키 나열](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[키 버전 나열](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[암호 만들기](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[비밀 가져오기](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[암호 업데이트](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[암호 삭제](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[자격 증명 모음에 암호 나열](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[암호 버전 나열](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | 자격 증명 모음 액세스 정책 변경 이벤트가 게시됨 |
 | **SecretNearExpiryEventGridNotification** |비밀이 곧 만료되는 이벤트가 게시됨 |
 | **SecretExpiredEventGridNotification** |비밀이 만료된 이벤트가 게시됨 |

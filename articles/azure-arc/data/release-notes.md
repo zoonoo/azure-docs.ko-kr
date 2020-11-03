@@ -9,18 +9,20 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: e7312ffd4d55f0403359f8aad2d0a8433a716f77
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280371"
+ms.locfileid: "93286563"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="october-2020"></a>2020년 10월 
+
+Azure Data CLI ( `azdata` ) 버전 번호: 20.2.3. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다.
 
 ### <a name="breaking-changes"></a>주요 변경 내용
 
@@ -32,7 +34,7 @@ ms.locfileid: "93280371"
 
 ### <a name="additional-changes"></a>추가 변경 내용
 
-* 새 선택적 매개 변수가 호출 된에 추가 되었습니다 `azdata arc postgres server create` `--volume-claim mounts` . 값은 볼륨 클레임 탑재를 쉼표로 구분한 목록입니다. 볼륨 클레임 탑재는 볼륨 유형 및 PVC 이름 쌍입니다. 지금은의 볼륨 유형에만 허용 `backup` 됩니다.  PostgreSQL에서 볼륨 형식이 이면 `backup` PVC가에 탑재 됩니다 `/mnt/db-backups` .  이를 통해 Postgres 인스턴스 간에 백업을 공유할 수 있으므로 하나의 Postgres 인스턴스 백업을 다른 인스턴스로 복원할 수 있습니다.
+* 새 선택적 매개 변수가 호출 된에 추가 되었습니다 `azdata arc postgres server create` `--volume-claim mounts` . 값은 볼륨 클레임 탑재를 쉼표로 구분한 목록입니다. 볼륨 클레임 탑재는 볼륨 유형 및 PVC 이름 쌍입니다. 현재 지원 되는 볼륨 유형은 뿐입니다 `backup` .  PostgreSQL에서 볼륨 형식이 이면 `backup` PVC가에 탑재 됩니다 `/mnt/db-backups` .  이렇게 하면 한 PostgresSQL 인스턴스의 백업을 다른 인스턴스에서 복원할 수 있도록 PostgresSQL 인스턴스 간에 백업을 공유할 수 있습니다.
 
 * PostgresSQL 사용자 지정 리소스 정의에 대 한 새 짧은 이름: 
 
@@ -56,7 +58,9 @@ ms.locfileid: "93280371"
 
 * Azure Portal에서 SQL Managed Instance admin name 속성이 개요 블레이드의 오른쪽 열에 추가 되었습니다.
 
+* Azure Data Studio에서는 서버 그룹에 대 한 작업자 노드 수, vCore 및 메모리 설정을 구성할 수 있습니다. 
 
+* Preview는 Postgres 버전 11 및 12에 대 한 백업/복원을 지원 합니다.
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -69,7 +73,7 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 
 ## <a name="known-limitations-and-issues"></a>알려진 제한 사항 및 문제
 
-- SQL 관리 되는 인스턴스 이름은 13 자를 초과할 수 없습니다.
+- 인스턴스 이름은 13 자를 초과할 수 없습니다.
 - Azure Arc 데이터 컨트롤러 또는 데이터베이스 인스턴스에 대 한 전체 업그레이드를 수행 하지 않습니다.
 - Arc 지원 데이터 서비스 컨테이너 이미지가 서명되지 않았습니다.  서명되지 않은 컨테이너 이미지를 끌어올 수 있도록 Kubernetes 노드를 구성해야 할 수 있습니다.  예를 들어, Docker를 컨테이너 런타임으로 사용 하는 경우 DOCKER_CONTENT_TRUST = 0 환경 변수를 설정 하 고 다시 시작할 수 있습니다.  다른 컨테이너 런타임에는 [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration)와 같은 유사한 옵션이 있습니다.
 - Azure Portal에서 Azure Arc 사용 SQL 관리 되는 인스턴스 또는 PostgreSQL Hyperscale 서버 그룹을 만들 수 없습니다.
@@ -78,10 +82,20 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 - OpenShift를 사용 하 여 데이터 컨트롤러를 만들려면 완화 된 보안 제약 조건이 필요 합니다.  자세한 내용은 설명서를 참조하십시오.
 - PostgresSQL Hyperscale worker 노드의 수는 _축소할_ 수 없습니다.
 - Azure Arc 데이터 컨트롤러 및 데이터베이스 인스턴스를 사용 하는 Azure Stack 허브에서 AKS 엔진 (Azure Kubernetes Service Engine)을 사용 하는 경우 최신 Kubernetes 버전으로 업그레이드할 수 없습니다. Kubernetes 클러스터를 업그레이드 하기 전에 Azure Arc data controller 및 모든 데이터베이스 인스턴스를 제거 합니다.
-- Preview는 Postgres 버전 11 엔진에 대 한 백업/복원을 지원 하지 않습니다. Postgres 버전 12에 대 한 백업/복원만 지원 합니다.
+- Preview는 Postgres 버전 11 엔진에 대 한 백업/복원을 지원 하지 않습니다. (10 월 2020 일에 해결 됨) Postgres 버전 12에 대 한 백업/복원만 지원 합니다.
 - Azure Kubernetes 서비스 (AKS)는 [여러 가용성 영역](../../aks/availability-zones.md) 에 걸쳐 있는 클러스터가 현재 azure Arc 사용 데이터 서비스에서 지원 되지 않습니다. 이 문제를 방지 하려면 Azure Portal에서 AKS 클러스터를 만들 때 영역을 사용할 수 있는 지역을 선택 하는 경우 선택 컨트롤에서 모든 영역을 선택 취소 합니다. 다음 이미지를 참조하세요.
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="없음을 지정 하려면 각 영역에 대 한 확인란의 선택을 취소 합니다.":::
+
+
+### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale의 알려진 문제   
+
+- 방금 삭제 한 서버 그룹의 이름이 포함 된 서버 그룹을 다시 만드는 작업이 실패 하거나 중단 될 수 있습니다. 
+   - **해결 방법** 서버 그룹을 다시 만들거나 이전에 삭제 한 서버 그룹의 부하 분산 장치/외부 서비스를 기다릴 때 동일한 이름을 다시 사용 하지 마세요. 삭제 한 서버 그룹의 이름이이 `postgres01` 고 네임 스페이스에 호스트 된 것으로 가정 하면 `arc` 동일한 이름의 서버 그룹을 다시 만들기 전에 `postgres01-external-svc` 가 kubectl 명령의 출력에 표시 되지 않을 때까지 기다립니다 `kubectl get svc -n arc` .
+ 
+- Azure Data Studio에서 개요 페이지 및 계산 + 저장소 구성 페이지를 로드 하는 속도가 느립니다. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
   

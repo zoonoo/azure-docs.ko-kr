@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 701c901cb9b85aeaf329846c13e6ed051ea52e63
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900872"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288508"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -77,6 +77,12 @@ ms.locfileid: "92900872"
 > | **Web** |  |  |
 > | [Azure Maps 데이터 읽기 권한자](#azure-maps-data-reader) | Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [SignalR AccessKey 판독기](#signalr-accesskey-reader) | SignalR 서비스 액세스 키 읽기 | 04165923-9d83-45d5-8227-78b77b0a687e |
+> | [SignalR App 서버 (미리 보기)](#signalr-app-server-preview) | 앱 서버에서 AAD 인증 옵션을 사용 하 여 SignalR Service에 액세스할 수 있습니다. | 420fcaa2-552c-430f-98c-3264be4806c7 |
+> | [SignalR 기여자](#signalr-contributor) | SignalR service 리소스를 만들고, 읽고, 업데이트 하 고, 삭제 합니다. | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [SignalR 서버를 사용 하지 않는 참가자 (미리 보기)](#signalr-serverless-contributor-preview) | AAD 인증 옵션을 사용 하 여 앱이 서버 리스 모드에서 서비스에 액세스할 수 있도록 합니다. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [SignalR 서비스 소유자 (미리 보기)](#signalr-service-owner-preview) | Azure SignalR Service REST Api에 대 한 모든 권한 | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
+> | [SignalR Service Reader (미리 보기)](#signalr-service-reader-preview) | Azure SignalR Service REST Api에 대 한 읽기 전용 액세스 | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **컨테이너** |  |  |
@@ -219,10 +225,10 @@ ms.locfileid: "92900872"
 
 ### <a name="contributor"></a>참가자
 
-모든 리소스를 관리할 수 있는 모든 권한을 부여 하지만, Azure RBAC에서 역할을 할당할 수는 없습니다. [자세한 정보](rbac-and-directory-admin-roles.md)
+모든 리소스를 관리할 수 있는 모든 권한을 부여 하지만, Azure RBAC에서 역할을 할당할 수는 없습니다. [자세히 알아보기](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
@@ -268,10 +274,10 @@ ms.locfileid: "92900872"
 
 ### <a name="owner"></a>소유자
 
-Azure RBAC에서 역할을 할당 하는 기능을 포함 하 여 모든 리소스를 관리할 수 있는 모든 권한을 부여 합니다. [자세한 정보](rbac-and-directory-admin-roles.md)
+Azure RBAC에서 역할을 할당 하는 기능을 포함 하 여 모든 리소스를 관리할 수 있는 모든 권한을 부여 합니다. [자세히 알아보기](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
@@ -307,10 +313,10 @@ Azure RBAC에서 역할을 할당 하는 기능을 포함 하 여 모든 리소�
 
 ### <a name="reader"></a>판독기
 
-모든 리소스를 볼 수 있지만 변경할 수는 없습니다. [자세한 정보](rbac-and-directory-admin-roles.md)
+모든 리소스를 볼 수 있지만 변경할 수는 없습니다. [자세히 알아보기](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | **NotActions** |  |
@@ -346,10 +352,10 @@ Azure RBAC에서 역할을 할당 하는 기능을 포함 하 여 모든 리소�
 
 ### <a name="user-access-administrator"></a>사용자 액세스 관리자
 
-Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [자세한 정보](rbac-and-directory-admin-roles.md)
+Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [자세히 알아보기](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [Microsoft 인증](resource-provider-operations.md#microsoftauthorization)/* | 권한 부여 관리 |
@@ -395,7 +401,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft.classiccompute](resource-provider-operations.md#microsoftclassiccompute)/domainNames/* | 클래식 컴퓨팅 도메인 이름 만들기 및 관리 |
@@ -466,7 +472,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 포털에서 Virtual Machines를 확인 하 [고 관리자 권한](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) 으로 로그인 합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -514,10 +520,10 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 
 ### <a name="virtual-machine-contributor"></a>가상 머신 참가자
 
-가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. [자세한 정보](../virtual-machines/linux/tutorial-govern-resources.md)
+가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. [자세히 알아보기](../virtual-machines/linux/tutorial-govern-resources.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/AvailabilitySets/*](resource-provider-operations.md#microsoftcompute) | 컴퓨팅 가용성 집합 만들기 및 관리 |
@@ -633,10 +639,10 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 
 ### <a name="virtual-machine-user-login"></a>가상 머신 사용자 로그인
 
-포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. [자세한 정보](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
+포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. [자세히 알아보기](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -688,7 +694,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
@@ -741,7 +747,7 @@ CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 
 CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
@@ -791,10 +797,10 @@ CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
 
 ### <a name="cdn-profile-contributor"></a>CDN 프로필 참가자
 
-CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. [자세한 정보](../cdn/cdn-app-dev-net.md)
+CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. [자세히 알아보기](../cdn/cdn-app-dev-net.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
@@ -847,7 +853,7 @@ CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용
 CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
@@ -897,10 +903,10 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 
 ### <a name="classic-network-contributor"></a>클래식 네트워크 참가자
 
-기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. [자세한 정보](../virtual-network/virtual-network-manage-peering.md)
+기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. [자세히 알아보기](../virtual-network/virtual-network-manage-peering.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft.classicnetwork](resource-provider-operations.md#microsoftclassicnetwork)/* | 클래식 네트워크 만들기 및 관리 |
@@ -948,10 +954,10 @@ CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 �
 
 ### <a name="dns-zone-contributor"></a>DNS 영역 참가자
 
-Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. [자세한 정보](../dns/dns-protect-zones-recordsets.md)
+Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. [자세히 알아보기](../dns/dns-protect-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -1002,7 +1008,7 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 네트워크를 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -1050,10 +1056,10 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 
 ### <a name="private-dns-zone-contributor"></a>사설 DNS 영역 기여자
 
-개인 DNS 영역 리소스를 관리할 수 있지만 연결 된 가상 네트워크는 관리할 수 없습니다. [자세한 정보](../dns/dns-protect-private-zones-recordsets.md)
+개인 DNS 영역 리소스를 관리할 수 있지만 연결 된 가상 네트워크는 관리할 수 없습니다. [자세히 알아보기](../dns/dns-protect-private-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
 > | [/Deployments/*](resource-provider-operations.md#microsoftresources) | 배포를 만들고 관리합니다. |
@@ -1110,7 +1116,7 @@ Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스
 Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -1161,10 +1167,10 @@ Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사
 
 ### <a name="avere-contributor"></a>Avere 기여자
 
-Avere vFXT 클러스터를 만들고 관리할 수 있습니다. [자세한 정보](../avere-vfxt/avere-vfxt-deploy-plan.md)
+Avere vFXT 클러스터를 만들고 관리할 수 있습니다. [자세히 알아보기](../avere-vfxt/avere-vfxt-deploy-plan.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/*/cread |  |
@@ -1247,7 +1253,7 @@ Avere vFXT 클러스터를 만들고 관리할 수 있습니다. [자세한 정�
 Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. [자세한 정보](../avere-vfxt/avere-vfxt-manage-cluster.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | /VirtualMachines/read [계산](resource-provider-operations.md#microsoftcompute) | 가상 머신의 속성을 가져옵니다. |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
@@ -1312,7 +1318,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. [자세한 정보](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -1431,7 +1437,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 백업 제거, 자격 증명 모음 만들기 및 [다른 사용자에 게 액세스](../backup/backup-rbac-rs-vault.md) 권한 부여를 제외 하 고 백업 서비스를 관리할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -1580,7 +1586,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 백업 서비스를 볼 수 있지만 변경할 수 없습니다. [자세한 정보](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
@@ -1693,7 +1699,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/* | 스토리지 계정 만들기 및 관리 |
@@ -1744,7 +1750,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열 하 고 다시 생성할 수 있습니다. [자세한 정보](../key-vault/secrets/overview-storage-keys.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listkeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
 > | [ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/regeneratekey/action | 스토리지 계정에 대한 기존 액세스 키를 다시 생성합니다. |
@@ -1782,10 +1788,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="data-box-contributor"></a>Data Box 기여자
 
-다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. [자세한 정보](../databox/data-box-logs.md)
+다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. [자세히 알아보기](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1831,10 +1837,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="data-box-reader"></a>Data Box 읽기 권한자
 
-주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. [자세한 정보](../databox/data-box-logs.md)
+주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. [자세히 알아보기](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Databox](resource-provider-operations.md#microsoftdatabox)/*/읽기 |  |
@@ -1888,10 +1894,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="data-lake-analytics-developer"></a>Data Lake Analytics 개발자
 
-사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. [자세한 정보](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
+사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. [자세히 알아보기](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | Microsoft.BigAnalytics/accounts/* |  |
@@ -1972,7 +1978,7 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 모든 것을 볼 수 있지만, 스토리지 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 스토리지 계정 키에 액세스하여 스토리지 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listKeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/ListAccountSas/action | 지정된 스토리지 계정에 대한 계정 SAS 토큰을 반환합니다. |
@@ -2012,10 +2018,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="storage-account-contributor"></a>Storage 계정 참가자
 
-스토리지 계정을 관리할 수 있도록 허용합니다. 공유 키 권한 부여를 통해 데이터에 액세스하는 데 사용할 수 있는 계정 키에 대한 액세스 권한을 제공합니다. [자세한 정보](../storage/common/storage-auth-aad.md)
+스토리지 계정을 관리할 수 있도록 허용합니다. 공유 키 권한 부여를 통해 데이터에 액세스하는 데 사용할 수 있는 계정 키에 대한 액세스 권한을 제공합니다. [자세히 알아보기](../storage/common/storage-auth-aad.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -2067,10 +2073,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="storage-account-key-operator-service-role"></a>스토리지 계정 키 운영자 서비스 역할
 
-스토리지 계정 액세스 키를 나열하고 다시 생성할 수 있도록 허용합니다. [자세한 정보](../storage/common/storage-account-keys-manage.md)
+스토리지 계정 액세스 키를 나열하고 다시 생성할 수 있도록 허용합니다. [자세히 알아보기](../storage/common/storage-account-keys-manage.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listkeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/regeneratekey/action | 지정된 스토리지 계정에 대한 액세스 키를 다시 생성합니다. |
@@ -2108,10 +2114,10 @@ Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다
 
 ### <a name="storage-blob-data-contributor"></a>Storage Blob 데이터 기여자
 
-Azure Storage 컨테이너 및 BLOB을 읽고, 쓰고, 삭제합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 컨테이너 및 BLOB을 읽고, 쓰고, 삭제합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제합니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
@@ -2161,10 +2167,10 @@ Azure Storage 컨테이너 및 BLOB을 읽고, 쓰고, 삭제합니다. 특정 �
 
 ### <a name="storage-blob-data-owner"></a>Storage Blob 데이터 소유자
 
-POSIX 액세스 제어 할당을 포함하여 Azure Storage BLOB 컨테이너 및 데이터에 대한 모든 액세스 권한을 제공합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+POSIX 액세스 제어 할당을 포함하여 Azure Storage BLOB 컨테이너 및 데이터에 대한 모든 액세스 권한을 제공합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/* | 컨테이너에 대한 모든 권한이 있습니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service의 사용자 위임 키를 반환합니다. |
@@ -2204,10 +2210,10 @@ POSIX 액세스 제어 할당을 포함하여 Azure Storage BLOB 컨테이너 �
 
 ### <a name="storage-blob-data-reader"></a>Storage Blob 데이터 읽기 권한자
 
-Azure Storage 컨테이너 및 BLOB을 읽고 나열합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 컨테이너 및 BLOB을 읽고 나열합니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service의 사용자 위임 키를 반환합니다. |
@@ -2247,10 +2253,10 @@ Azure Storage 컨테이너 및 BLOB을 읽고 나열합니다. 특정 데이터 
 
 ### <a name="storage-blob-delegator"></a>Storage Blob 위임자
 
-Azure AD 자격 증명으로 서명된 컨테이너 또는 BLOB의 공유 액세스 서명을 만드는 데 사용할 수 있는 사용자 위임 키를 가져옵니다. 자세한 내용은 [사용자 위임 SAS 만들기](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)를 참조하세요. [자세한 정보](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
+Azure AD 자격 증명으로 서명된 컨테이너 또는 BLOB의 공유 액세스 서명을 만드는 데 사용할 수 있는 사용자 위임 키를 가져옵니다. 자세한 내용은 [사용자 위임 SAS 만들기](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)를 참조하세요. [자세히 알아보기](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service의 사용자 위임 키를 반환합니다. |
 > | **NotActions** |  |
@@ -2286,10 +2292,10 @@ Azure AD 자격 증명으로 서명된 컨테이너 또는 BLOB의 공유 액세
 
 ### <a name="storage-file-data-smb-share-contributor"></a>Storage 파일 데이터 SMB 공유 기여자
 
-Azure 파일 공유의 파일/디렉터리에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. Windows 파일 서버에는 이 역할에 상응하는 기본 제공 역할이 없습니다. [자세한 정보](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Azure 파일 공유의 파일/디렉터리에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. Windows 파일 서버에는 이 역할에 상응하는 기본 제공 역할이 없습니다. [자세히 알아보기](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2329,10 +2335,10 @@ Azure 파일 공유의 파일/디렉터리에 대한 읽기, 쓰기 및 삭제 �
 
 ### <a name="storage-file-data-smb-share-elevated-contributor"></a>Storage 파일 데이터 SMB 공유 높은 권한 기여자
 
-Azure 파일 공유의 파일/디렉터리에 대한 ACL을 읽고, 쓰고, 삭제하고, 수정할 수 있습니다. 이 역할은 Windows 파일 서버의 변경 내용에 대한 파일 공유 ACL에 해당합니다. [자세한 정보](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Azure 파일 공유의 파일/디렉터리에 대한 ACL을 읽고, 쓰고, 삭제하고, 수정할 수 있습니다. 이 역할은 Windows 파일 서버의 변경 내용에 대한 파일 공유 ACL에 해당합니다. [자세히 알아보기](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2374,10 +2380,10 @@ Azure 파일 공유의 파일/디렉터리에 대한 ACL을 읽고, 쓰고, 삭�
 
 ### <a name="storage-file-data-smb-share-reader"></a>Storage 파일 데이터 SMB 공유 읽기 권한자
 
-Azure 파일 공유의 파일/디렉터리에 대한 읽기 액세스를 허용합니다. 이 역할은 Windows 파일 서버에 대한 파일 공유 ACL 읽기에 해당합니다. [자세한 정보](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Azure 파일 공유의 파일/디렉터리에 대한 읽기 액세스를 허용합니다. 이 역할은 Windows 파일 서버에 대한 파일 공유 ACL 읽기에 해당합니다. [자세히 알아보기](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2413,10 +2419,10 @@ Azure 파일 공유의 파일/디렉터리에 대한 읽기 액세스를 허용�
 
 ### <a name="storage-queue-data-contributor"></a>Storage 큐 데이터 기여자
 
-Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/queues/delete | 큐를 삭제합니다. |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
@@ -2462,10 +2468,10 @@ Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제할 수 있습니�
 
 ### <a name="storage-queue-data-message-processor"></a>Storage 큐 데이터 메시지 처리자
 
-Azure Storage 큐의 메시지를 선택, 검색 및 삭제할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 큐의 메시지를 선택, 검색 및 삭제할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2503,10 +2509,10 @@ Azure Storage 큐의 메시지를 선택, 검색 및 삭제할 수 있습니다.
 
 ### <a name="storage-queue-data-message-sender"></a>Storage 큐 데이터 메시지 보내는 사람
 
-Azure Storage 큐에 메시지를 추가할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 큐에 메시지를 추가할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2542,10 +2548,10 @@ Azure Storage 큐에 메시지를 추가할 수 있습니다. 특정 데이터 �
 
 ### <a name="storage-queue-data-reader"></a>Storage 큐 데이터 읽기 권한자
 
-Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세한 정보](../storage/common/storage-auth-aad-rbac-portal.md)
+Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. [자세히 알아보기](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
 > | **NotActions** |  |
@@ -2589,7 +2595,7 @@ Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정
 Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -2625,10 +2631,10 @@ Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권�
 
 ### <a name="search-service-contributor"></a>Search 서비스 참가자
 
-Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [자세한 정보](../search/search-security-rbac.md)
+Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [자세히 알아보기](../search/search-security-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -2674,12 +2680,288 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [�
 }
 ```
 
+### <a name="signalr-accesskey-reader"></a>SignalR AccessKey 판독기
+
+SignalR 서비스 액세스 키 읽기
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/*/읽기 |  |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/listkeys/action | 관리 포털에서 또는 API를 통해 SignalR 액세스 키 값을 봅니다. |
+> | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
+> | [/Subscriptions/resourceGroups/read](resource-provider-operations.md#microsoftresources) | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read SignalR Service Access Keys",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/04165923-9d83-45d5-8227-78b77b0a687e",
+  "name": "04165923-9d83-45d5-8227-78b77b0a687e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*/read",
+        "Microsoft.SignalRService/SignalR/listkeys/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR AccessKey Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-app-server-preview"></a>SignalR App 서버 (미리 보기)
+
+앱 서버에서 AAD 인증 옵션을 사용 하 여 SignalR Service에 액세스할 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | ClientTokens에 서명 하기 위한 임시 AccessKey를 생성 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | 서버 연결을 시작 합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app server access SignalR Service with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/420fcaa2-552c-430f-98ca-3264be4806c7",
+  "name": "420fcaa2-552c-430f-98ca-3264be4806c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/accessKey/action",
+        "Microsoft.SignalRService/SignalR/serverConnection/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR App Server (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-contributor"></a>SignalR 기여자
+
+SignalR service 리소스를 만들고, 읽고, 업데이트 하 고, 삭제 합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
+> | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
+> | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [/Subscriptions/resourceGroups/read](resource-provider-operations.md#microsoftresources) | 리소스 그룹을 가져오거나 나열합니다. |
+> | [/Deployments/*](resource-provider-operations.md#microsoftresources) | 배포를 만들고 관리합니다. |
+> | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete SignalR service resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-serverless-contributor-preview"></a>SignalR 서버를 사용 하지 않는 참가자 (미리 보기)
+
+AAD 인증 옵션을 사용 하 여 앱이 서버 리스 모드에서 서비스에 액세스할 수 있도록 합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | 클라이언트 연결을 시작 하기 위한 ClientToken을 생성 합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app access service in serverless mode with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "name": "fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Serverless Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-owner-preview"></a>SignalR 서비스 소유자 (미리 보기)
+
+Azure SignalR Service REST Api에 대 한 모든 권한
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | 허브의 모든 클라이언트 연결에 메시지를 브로드캐스트합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | 그룹에 메시지를 브로드캐스트합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | 그룹의 존재 여부 또는 그룹의 사용자 유무를 확인 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | 그룹에 참가/탈퇴 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | 클라이언트 연결에 직접 메시지를 보냅니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | 클라이언트 연결 존재를 확인 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | 클라이언트 연결을 닫습니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | 여러 클라이언트 연결로 구성 될 수 있는 사용자에 게 메시지를 보냅니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | 사용자 존재를 확인 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "name": "7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/hub/send/action",
+        "Microsoft.SignalRService/SignalR/group/send/action",
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/group/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/send/action",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/user/send/action",
+        "Microsoft.SignalRService/SignalR/user/read",
+        "Microsoft.SignalRService/SignalR/user/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Owner (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-reader-preview"></a>SignalR Service Reader (미리 보기)
+
+Azure SignalR Service REST Api에 대 한 읽기 전용 액세스
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | 그룹의 존재 여부 또는 그룹의 사용자 유무를 확인 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | 클라이언트 연결 존재를 확인 합니다. |
+> | [SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | 사용자 존재를 확인 합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
+  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/user/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="web-plan-contributor"></a>웹 계획 참가자
 
 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -2732,7 +3014,7 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [�
 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -2796,7 +3078,7 @@ Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [�
 acr 삭제 [자세한 정보](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/artifacts/delete | 컨테이너 레지스트리의 아티팩트를 삭제합니다. |
 > | **NotActions** |  |
@@ -2835,7 +3117,7 @@ acr 삭제 [자세한 정보](../container-registry/container-registry-roles.md)
 acr 이미지 서명자 자세히 [알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 > | **NotActions** |  |
@@ -2874,7 +3156,7 @@ acr 이미지 서명자 자세히 [알아보기](../container-registry/container
 acr 풀 [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
@@ -2913,7 +3195,7 @@ acr 풀 [자세히 알아보기](../container-registry/container-registry-roles.
 acr 푸시 [자세한 정보](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
@@ -2954,7 +3236,7 @@ acr 푸시 [자세한 정보](../container-registry/container-registry-roles.md)
 acr 격리 데이터 읽기 권한자
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantine/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
@@ -2993,7 +3275,7 @@ acr 격리 데이터 읽기 권한자
 acr 격리 데이터 작성자
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantine/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | [Microsoft.containerregistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantine/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
@@ -3031,10 +3313,10 @@ acr 격리 데이터 작성자
 
 ### <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service 클러스터 관리자 역할
 
-클러스터 관리자 자격 증명 작업을 나열합니다. [자세한 정보](../aks/control-kubeconfig-access.md)
+클러스터 관리자 자격 증명 작업을 나열합니다. [자세히 알아보기](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/accessProfiles/listCredential/action | 자격 증명 나열을 사용하여 역할 이름별로 관리되는 클러스터 액세스 프로필을 가져옵니다. |
@@ -3074,10 +3356,10 @@ acr 격리 데이터 작성자
 
 ### <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Service 클러스터 사용자 역할
 
-클러스터 사용자 자격 증명 작업을 나열합니다. [자세한 정보](../aks/control-kubeconfig-access.md)
+클러스터 사용자 자격 증명 작업을 나열합니다. [자세히 알아보기](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | 관리되는 클러스터를 가져옵니다. |
@@ -3118,7 +3400,7 @@ acr 격리 데이터 작성자
 Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 부여 합니다. [자세한 정보](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | 관리되는 클러스터를 가져옵니다. |
 > | [ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/write | 새 관리되는 클러스터를 만들거나 기존 관리되는 클러스터를 업데이트합니다. |
@@ -3158,10 +3440,10 @@ Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 �
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>Azure Kubernetes 서비스 RBAC 관리자
 
-리소스 할당량 및 네임 스페이스 업데이트 또는 삭제를 제외 하 고 클러스터/네임 스페이스 아래의 모든 리소스를 관리할 수 있습니다. [자세한 정보](../aks/manage-azure-rbac.md)
+리소스 할당량 및 네임 스페이스 업데이트 또는 삭제를 제외 하 고 클러스터/네임 스페이스 아래의 모든 리소스를 관리할 수 있습니다. [자세히 알아보기](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3221,10 +3503,10 @@ Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 �
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Azure Kubernetes 서비스 RBAC 클러스터 관리자
 
-클러스터의 모든 리소스를 관리할 수 있습니다. [자세한 정보](../aks/manage-azure-rbac.md)
+클러스터의 모든 리소스를 관리할 수 있습니다. [자세히 알아보기](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3276,10 +3558,10 @@ Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 �
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>Azure Kubernetes 서비스 RBAC 판독기
 
-읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 암호 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount (권한 상승 형태)로 API 액세스를 허용 합니다. 클러스터 범위에서이 역할을 적용 하면 모든 네임 스페이스에 대 한 액세스 권한이 부여 됩니다. [자세한 정보](../aks/manage-azure-rbac.md)
+읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 암호 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount (권한 상승 형태)로 API 액세스를 허용 합니다. 클러스터 범위에서이 역할을 적용 하면 모든 네임 스페이스에 대 한 액세스 권한이 부여 됩니다. [자세히 알아보기](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3385,10 +3667,10 @@ Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 �
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>Azure Kubernetes 서비스 RBAC 기록기
 
-네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 네임 스페이스의 ServiceAccount로 Pod를 실행 하 고 암호에 액세스할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻을 수 있습니다. 클러스터 범위에서이 역할을 적용 하면 모든 네임 스페이스에 대 한 액세스 권한이 부여 됩니다. [자세한 정보](../aks/manage-azure-rbac.md)
+네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 네임 스페이스의 ServiceAccount로 Pod를 실행 하 고 암호에 액세스할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻을 수 있습니다. 클러스터 범위에서이 역할을 적용 하면 모든 네임 스페이스에 대 한 액세스 권한이 부여 됩니다. [자세히 알아보기](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3499,10 +3781,10 @@ Azure Kubernetes 서비스 클러스터에 대 한 읽기 및 쓰기 권한을 �
 
 ### <a name="cosmos-db-account-reader-role"></a>Cosmos DB 계정 독자 역할
 
-Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. [자세한 정보](../cosmos-db/role-based-access-control.md)
+Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. [자세히 알아보기](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/*/읽기 | 컬렉션 읽기 |
@@ -3550,10 +3832,10 @@ Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 �
 
 ### <a name="cosmos-db-operator"></a>Cosmos DB 운영자
 
-Azure Cosmos DB 계정을 관리할 수 있지만 계정의 데이터에 액세스할 수는 없습니다. 계정 키 및 연결 문자열에 대한 액세스를 차단합니다. [자세한 정보](../cosmos-db/role-based-access-control.md)
+Azure Cosmos DB 계정을 관리할 수 있지만 계정의 데이터에 액세스할 수는 없습니다. 계정 키 및 연결 문자열에 대한 액세스를 차단합니다. [자세히 알아보기](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* |  |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3614,7 +3896,7 @@ Azure Cosmos DB 계정을 관리할 수 있지만 계정의 데이터에 액세�
 계정에 대 한 Cosmos DB 데이터베이스 또는 컨테이너에 대해 복원 요청을 제출할 수 있습니다. [자세한 정보](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/restore/action | 복원 요청 제출 |
@@ -3652,10 +3934,10 @@ Azure Cosmos DB 계정을 관리할 수 있지만 계정의 데이터에 액세�
 
 ### <a name="documentdb-account-contributor"></a>DocumentDB 계정 참가자
 
-Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. [자세한 정보](../cosmos-db/role-based-access-control.md)
+Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. [자세히 알아보기](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* | Azure Cosmos DB 계정 만들기 및 관리 |
@@ -3708,7 +3990,7 @@ Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전�
 Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/Register/action](resource-provider-operations.md#microsoftcache) | ‘Microsoft.Cache’ 리소스 공급자를 구독에 등록합니다. |
@@ -3758,10 +4040,10 @@ Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다.
 
 ### <a name="sql-db-contributor"></a>SQL DB 참가자
 
-SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. [자세한 정보](../data-share/concepts-roles-permissions.md)
+SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. [자세히 알아보기](../data-share/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3864,7 +4146,7 @@ SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니�
 SQL Managed Instances 및 필수 네트워크 구성을 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | [/Deployments/*](resource-provider-operations.md#microsoftresources) | 배포를 만들고 관리합니다. |
@@ -3932,10 +4214,10 @@ SQL Managed Instances 및 필수 네트워크 구성을 관리할 수 있지만 
 
 ### <a name="sql-security-manager"></a>SQL 보안 관리자
 
-SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. [자세한 정보](../sql-database/sql-database-advanced-data-security.md)
+SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. [자세히 알아보기](../sql-database/sql-database-advanced-data-security.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -3943,7 +4225,7 @@ SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수
 > | [Microsoft ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | [/Deployments/*](resource-provider-operations.md#microsoftresources) | 배포를 만들고 관리합니다. |
 > | [/Subscriptions/resourceGroups/read](resource-provider-operations.md#microsoftresources) | 리소스 그룹을 가져오거나 나열합니다. |
-> | [Microsoft .Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read |  |
+> | [Microsoft .Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read | Azure async 관리자 작업 결과의 관리 되는 인스턴스를 가져옵니다. |
 > | [Microsoft .Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft .Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft .Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
@@ -4057,10 +4339,10 @@ SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수
 
 ### <a name="sql-server-contributor"></a>SQL Server 참가자
 
-SQL Server 및 데이터베이스를 관리할 수 있지만 액세스할 수는 없으며, 해당하는 보안 관련 정책에도 액세스할 수 없습니다. [자세한 정보](../sql-database/sql-database-aad-authentication-configure.md)
+SQL Server 및 데이터베이스를 관리할 수 있지만 액세스할 수는 없으며, 해당하는 보안 관련 정책에도 액세스할 수 없습니다. [자세히 알아보기](../sql-database/sql-database-aad-authentication-configure.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -4171,10 +4453,10 @@ SQL Server 및 데이터베이스를 관리할 수 있지만 액세스할 수는
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs 데이터 소유자
 
-Azure Event Hubs 리소스에 대한 전체 액세스를 허용합니다. [자세한 정보](../event-hubs/authenticate-application.md)
+Azure Event Hubs 리소스에 대한 전체 액세스를 허용합니다. [자세히 알아보기](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft EventHub](resource-provider-operations.md#microsofteventhub)/* |  |
 > | **NotActions** |  |
@@ -4212,10 +4494,10 @@ Azure Event Hubs 리소스에 대한 전체 액세스를 허용합니다. [자�
 
 ### <a name="azure-event-hubs-data-receiver"></a>Azure Event Hubs 데이터 받는 사람
 
-Azure Event Hubs 리소스에 대한 받기 액세스 권한을 허용합니다. [자세한 정보](../event-hubs/authenticate-application.md)
+Azure Event Hubs 리소스에 대한 받기 액세스 권한을 허용합니다. [자세히 알아보기](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft EventHub](resource-provider-operations.md#microsofteventhub)/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
@@ -4253,10 +4535,10 @@ Azure Event Hubs 리소스에 대한 받기 액세스 권한을 허용합니다.
 
 ### <a name="azure-event-hubs-data-sender"></a>Azure Event Hubs 데이터 보내는 사람
 
-Azure Event Hubs 리소스에 대한 보내기 액세스 권한을 허용합니다. [자세한 정보](../event-hubs/authenticate-application.md)
+Azure Event Hubs 리소스에 대한 보내기 액세스 권한을 허용합니다. [자세히 알아보기](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft EventHub](resource-provider-operations.md#microsofteventhub)/*/eventhubs/read |  |
 > | **NotActions** |  |
@@ -4294,10 +4576,10 @@ Azure Event Hubs 리소스에 대한 보내기 액세스 권한을 허용합니�
 
 ### <a name="data-factory-contributor"></a>Data Factory 참가자
 
-데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. [자세한 정보](../data-factory/concepts-roles-permissions.md)
+데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. [자세히 알아보기](../data-factory/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [DataFactory](resource-provider-operations.md#microsoftdatafactory)/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
@@ -4352,7 +4634,7 @@ Azure Event Hubs 리소스에 대한 보내기 액세스 권한을 허용합니�
 분석 데이터를 제거할 수 있습니다. [자세히 알아보세요](../azure-monitor/platform/personal-data-mgmt.md) .
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/components/*/읽기 |  |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/components/purge/action | Application Insights에서 데이터 삭제 |
@@ -4394,10 +4676,10 @@ Azure Event Hubs 리소스에 대한 보내기 액세스 권한을 허용합니�
 
 ### <a name="hdinsight-cluster-operator"></a>HDInsight 클러스터 운영자
 
-HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. [자세한 정보](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
+HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. [자세히 알아보기](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft HDInsight](resource-provider-operations.md#microsofthdinsight)/*/읽기 |  |
 > | [Microsoft HDInsight](resource-provider-operations.md#microsofthdinsight)/clusters/getGatewaySettings/action | HDInsight 클러스터에 대한 게이트웨이 설정을 가져옵니다. |
@@ -4452,7 +4734,7 @@ HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. [자세한 �
 HDInsight에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정 하 고, 삭제할 수 Enterprise Security Package [자세한 정보](../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [MICROSOFT AAD](resource-provider-operations.md#microsoftaad)/*/읽기 |  |
 > | [/DomainServices/*](resource-provider-operations.md#microsoftaad)/읽기 |  |
@@ -4492,10 +4774,10 @@ HDInsight에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, �
 
 ### <a name="log-analytics-contributor"></a>Log Analytics 참가자
 
-Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. [자세한 정보](../azure-monitor/platform/manage-access.md)
+Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. [자세히 알아보기](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [/AutomationAccounts/*](resource-provider-operations.md#microsoftautomation) |  |
@@ -4557,10 +4839,10 @@ Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 
 
 ### <a name="log-analytics-reader"></a>Log Analytics 독자
 
-Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. [자세한 정보](../azure-monitor/platform/manage-access.md)
+Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. [자세히 알아보기](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
@@ -4607,7 +4889,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemagroups/* |  |
 > | **NotActions** |  |
@@ -4648,7 +4930,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 스키마 레지스트리 그룹 및 스키마를 읽고 나열합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemagroups/read | SchemaGroup 리소스 설명 목록을 가져옵니다. |
 > | **NotActions** |  |
@@ -4692,7 +4974,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 블록 체인 [멤버 노드에 대](../blockchain/service/configure-aad.md) 한 액세스를 허용 합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Blockchain](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/read | 기존 블록체인 멤버 트랜잭션 노드를 가져오거나 나열합니다. |
 > | **NotActions** |  |
@@ -4733,10 +5015,10 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 
 ### <a name="cognitive-services-contributor"></a>Cognitive Services 기여자
 
-Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. [자세한 정보](../cognitive-services/cognitive-services-virtual-networks.md)
+Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. [자세히 알아보기](../cognitive-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Cognitiveservices account](resource-provider-operations.md#microsoftcognitiveservices)/* |  |
@@ -4807,7 +5089,7 @@ Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 �
 Cognitive Services 데이터를 읽을 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -4843,10 +5125,10 @@ Cognitive Services 데이터를 읽을 수 있습니다.
 
 ### <a name="cognitive-services-user"></a>Cognitive Services 사용자
 
-Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세한 정보](../cognitive-services/authentication.md)
+Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세히 알아보기](../cognitive-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Cognitiveservices account](resource-provider-operations.md#microsoftcognitiveservices)/*/읽기 |  |
 > | [Cognitiveservices account](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/action | 키를 나열합니다. |
@@ -4914,7 +5196,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세한 정�
 Azure 원격 렌더링을 위한 변환, 관리 세션, 렌더링 및 진단 기능을 사용자에 게 제공 합니다. [자세한 정보](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -4964,10 +5246,10 @@ Azure 원격 렌더링을 위한 변환, 관리 세션, 렌더링 및 진단 기
 
 ### <a name="remote-rendering-client"></a>원격 렌더링 클라이언트
 
-Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 사용자에 게 제공 합니다. [자세한 정보](../remote-rendering/how-tos/authentication.md)
+Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 사용자에 게 제공 합니다. [자세히 알아보기](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5014,7 +5296,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 계정의 공간 앵커를 관리할 수 있지만 삭제할 수는 없습니다. [Learn more](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5063,7 +5345,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 계정에서 공간 앵커를 관리할 수 있습니다. [자세한 정보](../spatial-anchors/concepts/authentication.md) 를 삭제 하는 것을 포함 합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5114,7 +5396,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 계정에서 공간 앵커의 속성을 찾고 읽을 수 있습니다. [자세히 알아보세요](../spatial-anchors/concepts/authentication.md) .
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5162,7 +5444,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 서비스 및 Api를 관리할 수 있습니다. [자세한 정보](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.apimanagement](resource-provider-operations.md#microsoftapimanagement)/service/* | API Management 서비스 만들기 및 관리 |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
@@ -5213,7 +5495,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 서비스를 관리할 수 있지만 Api는 관리할 수 없습니다. [자세한 정보](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.apimanagement](resource-provider-operations.md#microsoftapimanagement)/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | [Microsoft.apimanagement](resource-provider-operations.md#microsoftapimanagement)/service/backup/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너로 API Management 서비스를 백업합니다. |
@@ -5282,7 +5564,7 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 서비스 및 Api에 대 한 읽기 전용 액세스 [자세한 정보](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.apimanagement](resource-provider-operations.md#microsoftapimanagement)/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | [Microsoft.apimanagement](resource-provider-operations.md#microsoftapimanagement)/service/sv> 읽기 | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
@@ -5334,10 +5616,10 @@ Azure 원격 렌더링을 위한 관리 세션, 렌더링 및 진단 기능을 �
 
 ### <a name="app-configuration-data-owner"></a>App Configuration 데이터 소유자
 
-App Configuration 데이터에 대한 모든 액세스 권한을 허용합니다. [자세한 정보](../azure-app-configuration/concept-enable-rbac.md)
+App Configuration 데이터에 대한 모든 액세스 권한을 허용합니다. [자세히 알아보기](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5377,10 +5659,10 @@ App Configuration 데이터에 대한 모든 액세스 권한을 허용합니다
 
 ### <a name="app-configuration-data-reader"></a>App Configuration 데이터 읽기 권한자
 
-App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다. [자세한 정보](../azure-app-configuration/concept-enable-rbac.md)
+App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다. [자세히 알아보기](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5416,10 +5698,10 @@ App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다
 
 ### <a name="azure-service-bus-data-owner"></a>Azure Service Bus 데이터 소유자
 
-Azure Service Bus 리소스에 대한 전체 액세스를 허용합니다. [자세한 정보](../service-bus-messaging/authenticate-application.md)
+Azure Service Bus 리소스에 대한 전체 액세스를 허용합니다. [자세히 알아보기](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ServiceBus](resource-provider-operations.md#microsoftservicebus)/* |  |
 > | **NotActions** |  |
@@ -5457,10 +5739,10 @@ Azure Service Bus 리소스에 대한 전체 액세스를 허용합니다. [자�
 
 ### <a name="azure-service-bus-data-receiver"></a>Azure Service Bus 데이터 받는 사람
 
-Azure Service Bus 리소스에 대한 받기 액세스 권한을 허용합니다. [자세한 정보](../service-bus-messaging/authenticate-application.md)
+Azure Service Bus 리소스에 대한 받기 액세스 권한을 허용합니다. [자세히 알아보기](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/queues/read |  |
 > | [ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/항목/읽기 |  |
@@ -5502,10 +5784,10 @@ Azure Service Bus 리소스에 대한 받기 액세스 권한을 허용합니다
 
 ### <a name="azure-service-bus-data-sender"></a>Azure Service Bus 데이터 보내는 사람
 
-Azure Service Bus 리소스에 대한 보내기 액세스 권한을 허용합니다. [자세한 정보](../service-bus-messaging/authenticate-application.md)
+Azure Service Bus 리소스에 대한 보내기 액세스 권한을 허용합니다. [자세히 알아보기](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/queues/read |  |
 > | [ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/항목/읽기 |  |
@@ -5550,7 +5832,7 @@ Azure Service Bus 리소스에 대한 보내기 액세스 권한을 허용합니
 Azure Stack 등록을 관리할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/read | Azure Stack Edge 구독의 속성을 가져옵니다. |
 > | [Microsoft AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/products/*/action |  |
@@ -5592,10 +5874,10 @@ Azure Stack 등록을 관리할 수 있습니다.
 
 ### <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 
-EventGrid 이벤트 구독 작업을 관리할 수 있습니다. [자세한 정보](../event-grid/security-authorization.md)
+EventGrid 이벤트 구독 작업을 관리할 수 있습니다. [자세히 알아보기](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/* |  |
@@ -5647,10 +5929,10 @@ EventGrid 이벤트 구독 작업을 관리할 수 있습니다. [자세한 정�
 
 ### <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 읽기 권한자
 
-EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../event-grid/security-authorization.md)
+EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/read | eventSubscription을 읽습니다. |
@@ -5699,7 +5981,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../eve
 역할을 통해 사용자 또는 보안 주체에 게 FHIR 데이터에 대 한 모든 권한을 허용 합니다. [자세한 정보](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5738,7 +6020,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../eve
 역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 내보낼 수 있습니다. [자세한 정보](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5779,7 +6061,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../eve
 역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽을 수 있습니다. [자세한 정보](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5818,7 +6100,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../eve
 역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 쓸 수 있습니다. [자세한 정보](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -5856,10 +6138,10 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세한 정보](../eve
 
 ### <a name="integration-service-environment-contributor"></a>통합 서비스 환경 참가자
 
-Integration service 환경을 관리할 수 있지만 액세스할 수는 없습니다. [자세한 정보](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+Integration service 환경을 관리할 수 있지만 액세스할 수는 없습니다. [자세히 알아보기](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
@@ -5899,10 +6181,10 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 
 ### <a name="integration-service-environment-developer"></a>통합 서비스 환경 개발자
 
-개발자가 통합 서비스 환경에서 워크플로, 통합 계정 및 API 연결을 만들고 업데이트할 수 있습니다. [자세한 정보](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+개발자가 통합 서비스 환경에서 워크플로, 통합 계정 및 API 연결을 만들고 업데이트할 수 있습니다. [자세히 알아보기](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
@@ -5947,7 +6229,7 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -5995,10 +6277,10 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 
 ### <a name="logic-app-contributor"></a>논리 앱 참가자
 
-논리 앱을 관리할 수 있지만 앱을 변경할 수는 없습니다. [자세한 정보](../logic-apps/logic-apps-securing-a-logic-app.md)
+논리 앱을 관리할 수 있지만 앱을 변경할 수는 없습니다. [자세히 알아보기](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
@@ -6074,10 +6356,10 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 
 ### <a name="logic-app-operator"></a>논리 앱 운영자
 
-논리 앱을 읽고 사용하도록 설정하고 사용하지 않도록 설정할 수 있지만 편집하거나 업데이트할 수는 없습니다. [자세한 정보](../logic-apps/logic-apps-securing-a-logic-app.md)
+논리 앱을 읽고 사용하도록 설정하고 사용하지 않도록 설정할 수 있지만 편집하거나 업데이트할 수는 없습니다. [자세히 알아보기](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/읽기 | Insights 경고 규칙을 읽습니다. |
@@ -6151,7 +6433,7 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 사용자 할당 Id 만들기, 읽기, 업데이트 및 삭제 [자세한 정보](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.managedidentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/read | 기존 사용자 할당 ID를 가져옵니다. |
 > | [Microsoft.managedidentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/write | 새로운 사용자 할당 ID를 만들거나 기존 사용자 할당 ID와 연결된 태그를 업데이트합니다. |
@@ -6204,7 +6486,7 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 사용자 할당 Id를 읽고 할당 합니다. [자세한 정보](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.managedidentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/읽기 |  |
 > | [Microsoft.managedidentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/assign/action |  |
@@ -6258,7 +6540,7 @@ Integration service 환경을 관리할 수 있지만 액세스할 수는 없습
 Azure 센티널 참여자 [자세히 알아보기](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/* |  |
 > | [OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
@@ -6323,7 +6605,7 @@ Azure 센티널 참여자 [자세히 알아보기](../sentinel/roles.md)
 Azure 센티널 판독기 [자세히 알아보기](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/읽기 |  |
 > | [Microsoft SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/action | 사용자 권한 부여 및 라이선스를 확인합니다. |
@@ -6396,7 +6678,7 @@ Azure 센티널 판독기 [자세히 알아보기](../sentinel/roles.md)
 Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/읽기 |  |
 > | [Microsoft SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/action | 사용자 권한 부여 및 라이선스를 확인합니다. |
@@ -6481,7 +6763,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 인증서, 키 및 비밀을 포함 하 여 주요 자격 증명 모음 및 해당 개체에 있는 모든 개체에 대 한 모든 데이터 평면 작업을 수행 합니다. 주요 자격 증명 모음 리소스를 관리 하거나 역할 할당을 관리할 수 없습니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6540,7 +6822,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 권한 관리를 제외한 key vault의 인증서에 대 한 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6598,10 +6880,10 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 
 ### <a name="key-vault-contributor"></a>Key Vault 참가자
 
-키 자격 증명 모음을 관리 하지만 Azure RBAC에서 역할을 할당 하는 것을 허용 하지 않으며 비밀, 키 또는 인증서에 액세스할 수 없습니다. [자세한 정보](../key-vault/general/secure-your-key-vault.md)
+키 자격 증명 모음을 관리 하지만 Azure RBAC에서 역할을 할당 하는 것을 허용 하지 않으며 비밀, 키 또는 인증서에 액세스할 수 없습니다. [자세히 알아보기](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6656,7 +6938,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 권한 관리를 제외한 key vault 키에 대 한 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6715,7 +6997,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 키의 메타 데이터를 읽고 래핑/래핑 해제 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -6758,7 +7040,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 키를 사용 하 여 암호화 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -6813,7 +7095,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 키 자격 증명 모음 및 해당 인증서, 키 및 비밀의 메타 데이터를 읽습니다. 비밀 콘텐츠 또는 키 자료와 같은 중요 한 값을 읽을 수 없습니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6874,7 +7156,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 권한 관리를 제외한 key vault의 비밀에 대 한 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -6933,7 +7215,7 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 비밀 콘텐츠를 읽습니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -6971,10 +7253,10 @@ Azure 센티널 응답기 [자세히 알아보기](../sentinel/roles.md)
 
 ### <a name="security-admin"></a>보안 관리자
 
-Security Center에 대한 권한을 살펴보고 업데이트할 수 있습니다. 보안 읽기 권한자 역할과 동일한 권한이며, 보안 정책을 업데이트하고 경고 및 권장 사항을 해제할 수도 있습니다. [자세한 정보](../security-center/security-center-permissions.md)
+Security Center에 대한 권한을 살펴보고 업데이트할 수 있습니다. 보안 읽기 권한자 역할과 동일한 권한이며, 보안 정책을 업데이트하고 경고 및 권장 사항을 해제할 수도 있습니다. [자세히 알아보기](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft 인증](resource-provider-operations.md#microsoftauthorization)/policyAssignments/* | 정책 할당 만들기 및 관리 |
@@ -7035,7 +7317,7 @@ Security Center에 대한 권한을 살펴보고 업데이트할 수 있습니�
 Security Center로 평가를 푸시할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/assessments/write | 구독에 대한 보안 평가를 만들거나 업데이트합니다. |
 > | **NotActions** |  |
@@ -7074,7 +7356,7 @@ Security Center로 평가를 푸시할 수 있습니다.
 레거시 역할입니다. 그 대신 보안 관리자를 사용하세요.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft.classiccompute](resource-provider-operations.md#microsoftclassiccompute)/*/읽기 | 클래식 가상 머신에 대한 구성 정보 읽기 |
@@ -7128,10 +7410,10 @@ Security Center로 평가를 푸시할 수 있습니다.
 
 ### <a name="security-reader"></a>보안 판독기
 
-Security Center에 대한 권한을 살펴볼 수 있습니다. 권장 사항, 경고, 보안 정책 및 보안 상태를 볼 수 있지만 변경할 수는 없습니다. [자세한 정보](../security-center/security-center-permissions.md)
+Security Center에 대한 권한을 살펴볼 수 있습니다. 권장 사항, 경고, 보안 정책 및 보안 상태를 볼 수 있지만 변경할 수는 없습니다. [자세히 알아보기](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | 클래식 메트릭 경고를 읽습니다. |
@@ -7184,10 +7466,10 @@ Security Center에 대한 권한을 살펴볼 수 있습니다. 권장 사항, �
 
 ### <a name="devtest-labs-user"></a>DevTest Lab 사용자
 
-Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. [자세한 정보](../devtest-labs/devtest-lab-add-devtest-user.md)
+Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. [자세히 알아보기](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | /AvailabilitySets/read [계산](resource-provider-operations.md#microsoftcompute) | 가용성 집합의 속성을 가져옵니다. |
@@ -7287,10 +7569,10 @@ Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료�
 
 ### <a name="lab-creator"></a>랩 작성자
 
-Azure 랩 계정으로 새 랩을 만들 수 있습니다. [자세한 정보](../lab-services/add-lab-creator.md)
+Azure 랩 계정으로 새 랩을 만들 수 있습니다. [자세히 알아보기](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft](resource-provider-operations.md#microsoftlabservices)/labAccounts/*/읽기 |  |
@@ -7344,7 +7626,7 @@ Azure 랩 계정으로 새 랩을 만들 수 있습니다. [자세한 정보](..
 Application Insights 구성 요소를 관리할 수 있습니다. [자세한 정보](../azure-monitor/app/resources-roles-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 경고 규칙을 만들고 관리합니다. |
@@ -7396,10 +7678,10 @@ Application Insights 구성 요소를 관리할 수 있습니다. [자세한 정
 
 ### <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅샷 디버거
 
-Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. 사용자에게 Application Insights 스냅샷 디버거 역할을 부여할 때 사용자에게 직접 역할을 부여해야 합니다. 이 역할은 사용자 지정 역할에 추가될 때 인식되지 않습니다. [자세한 정보](../azure-monitor/app/snapshot-debugger.md)
+Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. 사용자에게 Application Insights 스냅샷 디버거 역할을 부여할 때 사용자에게 직접 역할을 부여해야 합니다. 이 역할은 사용자 지정 역할에 추가될 때 인식되지 않습니다. [자세히 알아보기](../azure-monitor/app/snapshot-debugger.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -7445,10 +7727,10 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 
 ### <a name="monitoring-contributor"></a>Monitoring Contributor
 
-모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. [자세한 정보](../azure-monitor/platform/roles-permissions-security.md)
+모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. [자세히 알아보기](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/alerts/* |  |
@@ -7551,7 +7833,7 @@ Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스
 Azure 리소스에 대 한 메트릭 게시를 사용 하도록 설정 합니다. [자세한 정보](../azure-monitor/insights/container-insights-update-metrics.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | [Microsoft 지원](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
@@ -7593,10 +7875,10 @@ Azure 리소스에 대 한 메트릭 게시를 사용 하도록 설정 합니다
 
 ### <a name="monitoring-reader"></a>Monitoring Reader
 
-모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. [자세한 정보](../azure-monitor/platform/roles-permissions-security.md)
+모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles)도 참조하세요. [자세히 알아보기](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -7636,10 +7918,10 @@ Azure 리소스에 대 한 메트릭 게시를 사용 하도록 설정 합니다
 
 ### <a name="workbook-contributor"></a>통합 문서 기여자
 
-공유 통합 문서를 저장할 수 있습니다. [자세한 정보](../sentinel/tutorial-monitor-your-data.md)
+공유 통합 문서를 저장할 수 있습니다. [자세히 알아보기](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/workbooks/write | 통합 문서를 만들거나 업데이트합니다. |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/통합 | 통합 문서 삭제 |
@@ -7679,10 +7961,10 @@ Azure 리소스에 대 한 메트릭 게시를 사용 하도록 설정 합니다
 
 ### <a name="workbook-reader"></a>통합 문서 읽기 권한자
 
-통합 문서를 읽을 수 있습니다. [자세한 정보](../sentinel/tutorial-monitor-your-data.md)
+통합 문서를 읽을 수 있습니다. [자세히 알아보기](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [microsoft insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | 통합 문서를 읽습니다. |
 > | **NotActions** |  |
@@ -7721,10 +8003,10 @@ Azure 리소스에 대 한 메트릭 게시를 사용 하도록 설정 합니다
 
 ### <a name="automation-job-operator"></a>Automation 작업 연산자
 
-Automation Runbook을 사용하여 작업을 만들고 관리합니다. [자세한 정보](../automation/automation-role-based-access-control.md)
+Automation Runbook을 사용하여 작업을 만들고 관리합니다. [자세히 알아보기](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/AutomationAccounts/hybridRunbookWorkerGroups/read](resource-provider-operations.md#microsoftautomation) | Hybrid Runbook Worker 리소스를 읽습니다. |
@@ -7787,7 +8069,7 @@ Automation Runbook을 사용하여 작업을 만들고 관리합니다. [자세�
 Automation 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. [자세한 정보](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/AutomationAccounts/hybridRunbookWorkerGroups/read](resource-provider-operations.md#microsoftautomation) | Hybrid Runbook Worker 리소스를 읽습니다. |
@@ -7863,10 +8145,10 @@ Automation 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시�
 
 ### <a name="automation-runbook-operator"></a>Automation Runbook 연산자
 
-Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. [자세한 정보](../automation/automation-role-based-access-control.md)
+Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. [자세히 알아보기](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/AutomationAccounts/runbooks/read](resource-provider-operations.md#microsoftautomation) | Azure Automation Runbook을 가져옵니다. |
@@ -7912,10 +8194,10 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. [자세한 정
 
 ### <a name="azure-connected-machine-onboarding"></a>Azure Connected Machine 온보딩
 
-Azure Connected Machines을 온보딩할 수 있습니다. [자세한 정보](../azure-arc/servers/onboard-service-principal.md)
+Azure Connected Machines을 온보딩할 수 있습니다. [자세히 알아보기](../azure-arc/servers/onboard-service-principal.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Azure Arc 머신을 읽습니다. |
 > | [HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Azure Arc 머신을 씁니다. |
@@ -7958,7 +8240,7 @@ Azure Connected Machines을 온보딩할 수 있습니다. [자세한 정보](..
 Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Azure Arc 머신을 읽습니다. |
 > | [HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Azure Arc 머신을 씁니다. |
@@ -8007,7 +8289,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 청구 데이터에 대 한 읽기 액세스를 허용 합니다. [자세한 정보](../cost-management-billing/manage/manage-billing-access.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. 요금 청구](resource-provider-operations.md#microsoftbilling)/*/읽기 | 대금 청구 정보 읽기 |
@@ -8055,10 +8337,10 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 
 ### <a name="blueprint-contributor"></a>청사진 기여자
 
-청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. [자세한 정보](../governance/blueprints/overview.md)
+청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. [자세히 알아보기](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. 청사진](resource-provider-operations.md#microsoftblueprint)/blueprints/* | 청사진 정의 또는 청사진 아티팩트를 만들고 관리합니다. |
@@ -8102,10 +8384,10 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 
 ### <a name="blueprint-operator"></a>청사진 운영자
 
-게시된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 이 역할은 사용자가 할당한 관리 ID를 사용하여 할당하는 경우에만 작동합니다. [자세한 정보](../governance/blueprints/overview.md)
+게시된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 이 역할은 사용자가 할당한 관리 ID를 사용하여 할당하는 경우에만 작동합니다. [자세히 알아보기](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft. 청사진](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/* | 청사진 할당을 만들고 관리합니다. |
@@ -8152,7 +8434,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 비용을 보고 비용 구성을 관리할 수 있습니다 (예: 예산, 내보내기) [자세한 정보](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 소비량](resource-provider-operations.md#microsoftconsumption)/* |  |
 > | [CostManagement](resource-provider-operations.md#microsoftcostmanagement)/* |  |
@@ -8207,7 +8489,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 비용 데이터 및 구성 (예: 예산, 내보내기)을 볼 수 있습니다. [자세한 정보](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 소비량](resource-provider-operations.md#microsoftconsumption)/*/읽기 |  |
 > | [CostManagement](resource-provider-operations.md#microsoftcostmanagement)/*/읽기 |  |
@@ -8262,7 +8544,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 사용자가 계층 구조 설정을 편집하고 삭제할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. 관리/관리](resource-provider-operations.md#microsoftmanagement) | 관리 그룹 계층 구조 설정을 만들거나 업데이트합니다. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/Managementg/sv/delete | 관리 그룹 계층 구조 설정을 삭제합니다. |
@@ -8303,7 +8585,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한을 부여 하는 역할 정의 [자세히 알아보기](../azure-arc/kubernetes/connect-cluster.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -8358,7 +8640,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 관리형 애플리케이션 리소스를 만들 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [/Applications/*](resource-provider-operations.md#microsoftsolutions) |  |
@@ -8405,7 +8687,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [/Applications/read](resource-provider-operations.md#microsoftsolutions) | 애플리케이션 목록을 검색합니다. |
@@ -8448,7 +8730,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [/Deployments/*](resource-provider-operations.md#microsoftresources) | 배포를 만들고 관리합니다. |
@@ -8488,10 +8770,10 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 
 ### <a name="managed-services-registration-assignment-delete-role"></a>관리형 서비스 등록 할당 삭제 역할
 
-관리형 서비스 등록 할당 삭제 역할은 관리하는 테넌트 사용자가 테넌트에 할당된 등록 할당을 삭제할 수 있도록 허용합니다. [자세한 정보](../lighthouse/how-to/remove-delegation.md)
+관리형 서비스 등록 할당 삭제 역할은 관리하는 테넌트 사용자가 테넌트에 할당된 등록 할당을 삭제할 수 있도록 허용합니다. [자세히 알아보기](../lighthouse/how-to/remove-delegation.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft ManagedServices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/read | 관리형 서비스 등록 할당 목록을 검색합니다. |
 > | [Microsoft ManagedServices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/delete | 관리형 서비스 등록 할당을 제거합니다. |
@@ -8534,7 +8816,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 관리 그룹 참가자 역할 [자세히 알아보기](../governance/management-groups/overview.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/Managementg/delete | 관리 그룹을 삭제합니다. |
 > | [Microsoft. 관리/관리](resource-provider-operations.md#microsoftmanagement)국가/읽기 | 인증된 사용자의 관리 그룹을 나열합니다. |
@@ -8583,7 +8865,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 관리 그룹 읽기 권한자 역할
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft. 관리/관리](resource-provider-operations.md#microsoftmanagement)국가/읽기 | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | [Microsoft Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/subscriptions/read | 지정 된 관리 그룹에서 구독을 나열 합니다. |
@@ -8624,7 +8906,7 @@ ConnectedClusters 리소스를 만들도록 모든 사용자/서비스에 권한
 New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -8672,10 +8954,10 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 
 ### <a name="policy-insights-data-writer-preview"></a>Policy Insights 데이터 쓰기 권한자(미리 보기)
 
-리소스 정책에 대한 읽기 액세스 권한과 리소스 구성 요소 정책 이벤트에 대한 쓰기 액세스 권한을 허용합니다. [자세한 정보](../governance/policy/concepts/policy-for-kubernetes.md)
+리소스 정책에 대한 읽기 액세스 권한과 리소스 구성 요소 정책 이벤트에 대한 쓰기 액세스 권한을 허용합니다. [자세히 알아보기](../governance/policy/concepts/policy-for-kubernetes.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 인증](resource-provider-operations.md#microsoftauthorization)/policyassignments/read | 정책 할당에 대한 정보를 가져옵니다. |
 > | [Microsoft 인증](resource-provider-operations.md#microsoftauthorization)/policydefinitions/read | 정책 정의에 대한 정보를 가져옵니다. |
@@ -8721,10 +9003,10 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 
 ### <a name="resource-policy-contributor"></a>리소스 정책 참가자
 
-리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 사용자입니다. [자세한 정보](../governance/policy/overview.md)
+리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 사용자입니다. [자세히 알아보기](../governance/policy/overview.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | [Microsoft 인증](resource-provider-operations.md#microsoftauthorization)/policyassignments/* | 정책 할당 만들기 및 관리 |
@@ -8775,7 +9057,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. [자세한 정보](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -8868,7 +9150,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 장애 조치 (failover) 및 장애 복구를 수행할 수 있지만 다른 Site Recovery 관리 작업을 수행할 수 없습니다. [자세한 정보](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
@@ -8900,7 +9182,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | 보호 컨테이너를 전환합니다. |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 테스트 장애 조치(Failover) |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 테스트 장애 조치(Failover) 정리 |
-> | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 장애 조치  |
+> | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 장애 조치 |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | 모바일 서비스를 업데이트합니다. |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | 보호 컨테이너 매핑을 읽습니다. |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Recovery Services 공급자를 읽습니다. |
@@ -9021,7 +9303,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. [자세한 정보](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
@@ -9120,7 +9402,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 지원 요청을 만들고 관리할 수 있습니다. [자세한 정보](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/Subscriptions/resourceGroups/read](resource-provider-operations.md#microsoftresources) | 리소스 그룹을 가져오거나 나열합니다. |
@@ -9160,10 +9442,10 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 
 ### <a name="tag-contributor"></a>태그 기여자
 
-엔터티의 태그를 관리할 수 있으며, 엔터티 자체에 대한 액세스 권한은 없습니다. [자세한 정보](../azure-resource-manager/management/tag-resources.md)
+엔터티의 태그를 관리할 수 있으며, 엔터티 자체에 대한 액세스 권한은 없습니다. [자세히 알아보기](../azure-resource-manager/management/tag-resources.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [/Subscriptions/resourceGroups/read](resource-provider-operations.md#microsoftresources) | 리소스 그룹을 가져오거나 나열합니다. |
@@ -9219,7 +9501,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 디지털 쌍 데이터 영역에 대 한 모든 권한 역할 [자세한 정보](../digital-twins/concepts-security.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -9268,7 +9550,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 디지털 Twins 데이터 평면 속성에 대 한 읽기 전용 역할 [자세한 정보](../digital-twins/concepts-security.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -9315,7 +9597,7 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | Microsoft.BizTalkServices/BizTalk/* | BizTalk 서비스 만들기 및 관리 |
@@ -9363,10 +9645,10 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 
 ### <a name="desktop-virtualization-user"></a>데스크톱 가상화 사용자
 
-사용자가 응용 프로그램 그룹에서 응용 프로그램을 사용할 수 있습니다. [자세한 정보](../virtual-desktop/delegated-access-virtual-desktop.md)
+사용자가 응용 프로그램 그룹에서 응용 프로그램을 사용할 수 있습니다. [자세히 알아보기](../virtual-desktop/delegated-access-virtual-desktop.md)
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | *없음* |  |
 > | **NotActions** |  |
@@ -9405,7 +9687,7 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft 권한 부여](resource-provider-operations.md#microsoftauthorization)/*/읽기 | 역할 및 역할 할당 읽기 |
 > | [Microsoft Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |

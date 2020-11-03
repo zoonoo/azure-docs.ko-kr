@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440521"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287475"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault 백업
 
@@ -25,9 +25,9 @@ ms.locfileid: "92440521"
 
 Azure Key Vault는 가용성을 유지하고 데이터 손실을 방지하는 기능을 자동으로 제공합니다. 중요한 비즈니스 타당성이 있는 경우에만 비밀을 백업합니다. 키 자격 증명 모음에서 비밀을 백업하면 비밀이 만료되거나 순환될 때 여러 로그, 권한 및 백업 세트를 유지 관리하는 등의 운영 과제가 발생할 수 있습니다.
 
-Key Vault는 재해 시나리오에서 가용성을 유지하고 사용자의 개입 없이도 쌍으로 연결된 지역으로 요청을 자동으로 장애 조치(failover)합니다. 자세한 내용은 [Azure Key Vault 가용성 및 중복성](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)을 참조하세요.
+Key Vault는 재해 시나리오에서 가용성을 유지하고 사용자의 개입 없이도 쌍으로 연결된 지역으로 요청을 자동으로 장애 조치(failover)합니다. 자세한 내용은 [Azure Key Vault 가용성 및 중복성](./disaster-recovery-guidance.md)을 참조하세요.
 
-비밀을 실수로 또는 악의적으로 삭제하지 않도록 보호하려면 키 자격 증명 모음에서 일시 삭제 및 제거 보호 기능을 구성합니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)를 참조하세요.
+비밀을 실수로 또는 악의적으로 삭제하지 않도록 보호하려면 키 자격 증명 모음에서 일시 삭제 및 제거 보호 기능을 구성합니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](./soft-delete-overview.md)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>다음 단계
 
-Key Vault에 대한 [로깅 및 모니터링](https://docs.microsoft.com/azure/key-vault/general/logging)을 설정합니다.
+Key Vault에 대한 [로깅 및 모니터링](./logging.md)을 설정합니다.

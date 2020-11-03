@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 7d58cd26b6e4ca77da98f8c2f82dbdb481ccbb50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585755"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285202"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>지역 간에 Azure 키 자격 증명 모음 이동
 
@@ -35,7 +35,7 @@ Azure Key Vault는 한 지역에서 다른 지역으로 키 자격 증명 모음
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>옵션 1: 키 자격 증명 모음 백업 및 복원 명령 사용
 
-백업 명령을 사용하여 각 개별 비밀, 키 및 인증서를 자격 증명 모음에 백업할 수 있습니다. 비밀은 암호화된 Blob으로 다운로드됩니다. 그런 다음, Blob을 새 주요 자격 증명 모음으로 복원할 수 있습니다. 명령 목록은 [Azure Key Vault 명령](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)을 참조하세요.
+백업 명령을 사용하여 각 개별 비밀, 키 및 인증서를 자격 증명 모음에 백업할 수 있습니다. 비밀은 암호화된 Blob으로 다운로드됩니다. 그런 다음, Blob을 새 주요 자격 증명 모음으로 복원할 수 있습니다. 명령 목록은 [Azure Key Vault 명령](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)을 참조하세요.
 
 백업 및 복원 명령을 사용할 때는 두 가지 제한 사항이 있습니다.
 

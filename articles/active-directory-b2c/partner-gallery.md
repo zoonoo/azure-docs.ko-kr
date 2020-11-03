@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c67ff71ccc7690fbf3362b423ba4b6a56091684
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3bf65fd2cc6feb338c1cd7d0742fb3d2a4289eff
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891247"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287189"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -36,8 +36,10 @@ ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는
 | ![Itsme 로고의 스크린샷](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) 는 전자 Id, 인증 및 신뢰 서비스 (eidas) 호환 디지털 ID 솔루션으로, 사용자가 카드 판독기, 암호, 2 단계 인증 및 여러 PIN 코드 없이 안전 하 게 로그인 할 수 있도록 합니다. |
 | ![Jumio 로고의 스크린샷](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) 는 id 확인 서비스 이며,이 서비스를 사용 하면 실시간 자동화 id를 확인 하 고 고객 데이터를 보호 합니다. |
 | ![LexisNexis 로고의 스크린샷](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) 은 사용자 id를 확인 하 고 사용자의 장치에 따라 포괄적인 위험 평가를 제공 하는 프로 파일링 및 id 유효성 검사 공급자입니다. |
+| ![N8 Id 로고의 스크린샷](./media/partner-gallery/n8identity-logo.png) | [N8 identity](./partner-n8identity.md) 는 고객 계정 마이그레이션 및 CSR (고객 서비스 요청) 관리를 Microsoft Azure에서 실행 하는 솔루션을 제공 하는 서비스 제공 서비스 관리 플랫폼입니다. |
 | ![Onfido 로고의 스크린샷](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) 는 회사에서 고객 및 id 요구 사항을 실시간으로 *파악* 하는 데 사용할 수 있는 문서 ID 및 얼굴 인식 확인 솔루션입니다.  |
 | ![Saviynt 로고의 스크린샷](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) cloud native platform은 intelligent analytics를 사용 하 고 응용 프로그램 간 통합을 제공 하 여 IT 현대화을 간소화 하 고 더 나은 보안, 거 버 넌 스 및 규정 준수 수준을 올립니다. 비즈니스 현대화 회사는 액세스 요청을 검토 하 고, 액세스 검토, 보고서 분석을 수행 하 고, 인증 캠페인을 간소화 하는 방식을 변경 합니다.  |
+| ![층 로고의 스크린샷](./media/partner-gallery/strata-logo.png) | [층](./partner-strata.md) 은 일관 된 액세스 정책을 적용 하 고 id를 동기화 된 상태로 유지 하며 레거시 id 시스템에서 표준 기반 인증 및 Azure AD B2C 제공 하는 액세스 제어로 응용 프로그램을 간단 하 게 전환할 수 있도록 하 여 온-프레미스 응용 프로그램을 보호 합니다. |
 | ![Trusona 로고의 스크린샷](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) 통합을 사용 하면 안전 하 게 로그인 하 고 암호 없는 인증, multi-factor authentication 및 디지털 라이선스 검색을 사용할 수 있습니다.|
 | ![Twilio 앱 확인 로고의 스크린샷](./media/partner-gallery/twilio-logo.png) | [Twilio Verify 앱](./partner-twilio.md) 은 MFA (multi-factor authentication)를 사용 하 여 SMS OTP (일회성 암호), 시간 기반 일회용 암호 (totp) 및 푸시 알림을 사용 하도록 설정 하 고, 결제 서비스 지시어 2 (PSD2)에 대 한 SCA 요구 사항을 준수 하는 여러 솔루션을 제공 합니다.|
 | ![TypingDNA 로고를 보여 주는 스크린샷](./media/partner-gallery/typingdna-logo.png) | [Typingdna](./partner-typingdna.md) 는 사용자 입력 패턴을 기반으로 하는 id 확인 및 교정 공급자 이며, id 확인 솔루션을 사용 하 여 multi-factor authentication을 강제 적용 하 고, 결제 서비스 지시어 2 (PSD2)에 대 한 SCA 요구 사항을 준수 하는 데 도움이 됩니다. |

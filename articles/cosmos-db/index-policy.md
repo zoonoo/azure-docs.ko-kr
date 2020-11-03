@@ -4,19 +4,19 @@ description: Azure Cosmos DB의 자동 인덱싱 및 성능 향상을 위해 기
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082966"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285744"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB에서 모든 컨테이너에는 컨테이너 항목을 인덱싱해야 하는 방법을 지정하는 인덱싱 정책이 있습니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 항목의 모든 속성을 인덱싱하고 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이를 통해 인덱싱 및 인덱스 관리를 사전에 고려하지 않고도 높은 쿼리 성능을 얻을 수 있습니다.
+Azure Cosmos DB에서 모든 컨테이너에는 컨테이너 항목을 인덱싱해야 하는 방법을 지정하는 인덱싱 정책이 있습니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 항목의 모든 속성을 인덱싱하고 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이를 통해 인덱싱 및 인덱스 관리에 대해 고려할 필요 없이 쿼리 성능을 향상 시킬 수 있습니다.
 
 사용자 요구 사항에 맞게 이 자동 동작을 재정의할 수 있는 상황이 있습니다. *인덱싱 모드* 를 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정 하 고 *속성 경로* 를 포함 하거나 제외할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 - **없음** : 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
 
 > [!NOTE]
-> Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 6 월 2020에는 새 컨테이너를 지연 인덱싱 모드로 설정 하는 것이 더 이상 허용 되지 않는 변경 내용이 도입 되었습니다. Azure Cosmos DB 계정에 이미 지연 인덱싱이 있는 컨테이너가 하나 이상 포함 되어 있는 경우이 계정은 변경에서 자동으로 제외 됩니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수도 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 리스 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
+> Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱스를 선택할 수 없습니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 를 사용 하지 않는 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
 
 기본적으로 인덱싱 정책은로 설정 됩니다 `automatic` . `automatic`인덱싱 정책에서 속성을로 설정 하 여 구현 `true` 합니다. 이 속성을로 설정 `true` 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 - 인덱싱할 필요가 없는 경로를 선택적으로 제외 하려면 루트 경로를 포함 합니다. 이 방법은 모델에 추가할 수 있는 새 속성을 사전에 인덱싱할 Azure Cosmos DB 있도록 하는 권장 방법입니다.
 - 인덱싱할 필요가 있는 경로를 선택적으로 포함 하려면 루트 경로를 제외 합니다.
 
-- 영숫자 문자 및 _ (밑줄)를 포함 하는 일반 문자를 포함 하는 경로의 경우 큰따옴표를 기준으로 경로 문자열을 이스케이프할 필요가 없습니다 (예: "/path/?"). 다른 특수 문자를 포함 하는 경로의 경우 큰따옴표 앞뒤에 경로 문자열을 이스케이프 해야 합니다 (예: "/ \" 경로-abc \" /?"). 경로에 특수 문자가 필요한 경우 안전을 위해 모든 경로를 이스케이프할 수 있습니다. 모든 경로와 특수 문자를 포함 하는 모든 경로를 이스케이프 하는 경우에는 차이점이 없습니다.
+- 영숫자 문자 및 _ (밑줄)를 포함 하는 일반 문자를 포함 하는 경로의 경우 큰따옴표를 기준으로 경로 문자열을 이스케이프할 필요가 없습니다 (예: "/path/?"). 다른 특수 문자를 포함 하는 경로의 경우 큰따옴표 앞뒤에 경로 문자열을 이스케이프 해야 합니다 (예: "/ \" 경로-abc \" /?"). 경로에 특수 문자가 필요한 경우 안전을 위해 모든 경로를 이스케이프할 수 있습니다. 모든 경로와 특수 문자를 포함 하는 모든 경로를 이스케이프 하는 경우에는 아무런 차이가 없습니다.
 
 - `_etag`인덱싱에 대 한 포함 된 경로에 etag를 추가 하지 않는 한 시스템 속성은 기본적으로 인덱싱에서 제외 됩니다.
 
@@ -199,6 +199,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 - 속성에 범위 필터 ( `>` ,, `<` , 또는)가 있는 경우 `<=` `>=` `!=` 이 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다. 쿼리에 둘 이상의 범위 필터가 있는 경우 복합 인덱스를 사용 하지 않습니다.
 - 여러 필터를 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 `ORDER` 복합 인덱스의는 결과에 영향을 주지 않습니다. 이 속성은 선택 사항입니다.
 - 여러 속성에서 필터를 사용 하 여 쿼리에 대 한 복합 인덱스를 정의 하지 않은 경우에도 쿼리는 성공적으로 수행 됩니다. 그러나 복합 인덱스를 사용 하 여 쿼리 비용을 줄일 수 있습니다.
+- 집계를 사용 하는 쿼리 (예: COUNT 또는 SUM)와 필터는 복합 인덱스를 사용 하는 경우에도 유용 합니다.
 
 복합 인덱스가 속성 이름, 나이 및 타임 스탬프에 정의 되어 있는 다음 예제를 고려 합니다.
 
@@ -206,6 +207,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
@@ -246,6 +248,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 다음은 필터 및 절을 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 사용 하는 고려 사항입니다 `ORDER BY` .
 
 * 쿼리가 속성을 필터링 하는 경우 이러한 속성은 먼저 절에 포함 되어야 합니다 `ORDER BY` .
+* 쿼리가 여러 속성을 필터링 하는 경우 같음 필터는 절의 첫 번째 속성 이어야 합니다. `ORDER BY`
 * 한 속성에 대 한 필터와 다른 속성을 사용 하는 별도의 절이 있는 쿼리에 복합 인덱스를 정의 하지 않으면 `ORDER BY` 쿼리는 성공 합니다. 그러나 특히 절의 속성에 높은 카디널리티가 있는 경우 복합 인덱스를 사용 하 여 쿼리의 사용 비용을 줄일 수 있습니다 `ORDER BY` .
 * 여러 속성을 포함 하는 쿼리에 대해서도 복합 인덱스를 만들 때의 모든 고려 사항은 `ORDER BY` 계속 적용 됩니다.
 
@@ -253,6 +256,8 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 | **복합 인덱스**                      | **예제 `ORDER BY` 쿼리**                                  | **복합 인덱스에서 지원 되나요?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -260,7 +265,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 
 ## <a name="modifying-the-indexing-policy"></a>인덱싱 정책 수정
 
-컨테이너의 인덱싱 정책은 [Azure Portal 또는 지원 되는 sdk 중 하나를 사용 하](how-to-manage-indexing-policy.md)여 언제 든 지 업데이트할 수 있습니다. 인덱싱 정책에 대 한 업데이트는 이전 인덱스에서 새 인덱스로의 변환을 트리거합니다 .이 변환은 온라인 및 내부에서 수행 되므로 작업 중에 추가 저장소 공간이 소비 되지 않습니다. 이전 정책의 인덱스는 컨테이너에 대해 프로 비전 된 처리량, 읽기 가용성 또는 처리량에 영향을 주지 않고 새 정책으로 효율적으로 변환 됩니다. 인덱스 변환은 비동기 작업이 며 완료 하는 데 걸리는 시간은 프로 비전 된 처리량, 항목 수 및 크기에 따라 달라 집니다.
+컨테이너의 인덱싱 정책은 [Azure Portal 또는 지원 되는 sdk 중 하나를 사용 하](how-to-manage-indexing-policy.md)여 언제 든 지 업데이트할 수 있습니다. 인덱싱 정책에 대 한 업데이트는 이전 인덱스에서 새 인덱스로의 변환을 트리거합니다 .이 변환은 온라인 및 내부에서 수행 되므로 작업 중에 추가 저장소 공간이 소비 되지 않습니다. 컨테이너에서 프로 비전 된 처리량, 읽기 가용성 또는 처리량에 영향을 주지 않고 이전 인덱싱 정책은 새 정책으로 효율적으로 변환 됩니다. 인덱스 변환은 비동기 작업이 며 완료 하는 데 걸리는 시간은 프로 비전 된 처리량, 항목 수 및 크기에 따라 달라 집니다.
 
 > [!IMPORTANT]
 > 인덱스 변환은 [요청 단위](request-units.md)를 사용 하는 작업입니다. 인덱스 변환에서 사용 하는 요청 단위는 [서버](serverless.md) 를 사용 하지 않는 컨테이너를 사용 하는 경우 현재 청구 되지 않습니다. 이러한 요청 단위는 서버 리스가 일반 공급 되 면 청구 됩니다.
@@ -281,14 +286,10 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 
 [TTL (time-to-live) 기능](time-to-live.md) 을 사용 하려면 인덱싱이 필요 합니다. 이는 다음을 의미합니다.
 
-- 인덱싱 모드가 None으로 설정 된 컨테이너에서는 TTL을 활성화할 수 없습니다.
+- 인덱싱 모드가로 설정 된 컨테이너에서는 TTL을 활성화할 수 없습니다. `none`
 - TTL이 활성화 된 컨테이너에서는 인덱싱 모드를 None으로 설정할 수 없습니다.
 
-속성 경로를 인덱싱하지 않아도 되지만 TTL이 필요한 시나리오의 경우 다음과 같은 인덱싱 정책을 사용할 수 있습니다.
-
-- 일관적인로 설정 된 인덱싱 모드
-- 포함 된 경로 없음
-- `/*` 제외 된 유일한 경로입니다.
+속성 경로를 인덱싱해야 하지만 TTL이 필요한 시나리오의 경우 인덱싱 모드를로 설정 하 고 `consistent` , 포함 된 경로를 제외 하 고, 제외 된 유일한 경로로 인덱싱 정책을 사용할 수 있습니다 `/*` .
 
 ## <a name="next-steps"></a>다음 단계
 

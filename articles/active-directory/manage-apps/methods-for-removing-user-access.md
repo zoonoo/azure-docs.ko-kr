@@ -1,26 +1,21 @@
 ---
-title: 애플리케이션에 대한 사용자 액세스를 제거하는 방법 | Microsoft Docs
-description: 애플리케이션에 대한 사용자 액세스를 제거하는 방법 이해
+title: Azure Active Directory에서 응용 프로그램에 대 한 사용자의 액세스 권한을 제거 하는 방법
+description: Azure Active Directory에서 응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법 이해
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 11/02/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763162"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288318"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
@@ -36,39 +31,23 @@ ms.locfileid: "84763162"
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>애플리케이션을 완전히 삭제하려는 경우
 
-**애플리케이션을 삭제**하려면 다음 지침을 따릅니다.
-
-1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
-
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
-
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 클릭 합니다.
-
-5. 모든 **응용 프로그램을 클릭 하** 여 모든 응용 프로그램의 목록을 봅니다.
-
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
-
-6. 삭제하려는 애플리케이션을 선택합니다.
-
-7. 애플리케이션이 로드되면 맨 위의 애플리케이션 **개요** 창에서 **삭제** 아이콘을 클릭합니다.
+[응용 프로그램 관리에 대 한 빠른 시작 시리즈](delete-application-portal.md) 는 Azure Active Directory 테 넌 트에서 응용 프로그램 삭제에 대 한 지침을 포함 합니다.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 비활성화하려는 경우
 
 전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 사용자를 대신 하 여 동의할 수 있습니다. 애플리케이션 동의 및 이 작업을 수행하거나 수행하지 않을 수 있는 이유에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요. [권한 및 동의](../develop/v2-permissions-and-consent.md)도 참조 하세요.
 
-**전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화**하려면 다음 지침을 따릅니다.
+**전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화** 하려면 다음 지침을 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  **Azure Active Directory 확장**을 엽니다. 
+2.  **Azure Active Directory 확장** 을 엽니다. 
 
-3.  탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+3.  탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다.
 
-5.  **사용자 설정**을 클릭합니다.
+5.  **사용자 설정** 을 클릭합니다.
 
-6.  **사용자는 앱이 자신을 대신하여 회사 데이터에 액세스하도록 허용할 수 있습니다** 토글을 **아니요**로 설정하고, [저장] 단추를 클릭합니다.
+6.  **사용자는 앱이 자신을 대신하여 회사 데이터에 액세스하도록 허용할 수 있습니다** 토글을 **아니요** 로 설정하고, [저장] 단추를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

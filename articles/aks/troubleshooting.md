@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074416"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286777"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -113,8 +113,8 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 여러 가지 이유로 클러스터가 실패 상태로 전환되면 이 오류가 발생합니다. 이전에 실패한 작업을 다시 시도하기 전에 다음 단계에 따라 클러스터 실패 상태를 해결합니다.
 
 1. 클러스터가 `failed` 상태를 벗어날 때까지 `upgrade` 및 `scale` 작업은 성공적으로 수행되지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
-    * **부족한 컴퓨팅(CRP) 할당량**을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
-    * 고급 네트워킹 및 **부족한 서브넷(네트워킹) 리소스**를 사용하여 클러스터 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 리소스 할당량을 늘리도록 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다.
+    * **부족한 컴퓨팅(CRP) 할당량** 을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
+    * 고급 네트워킹 및 **부족한 서브넷(네트워킹) 리소스** 를 사용하여 클러스터 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 리소스 할당량을 늘리도록 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다.
 2. 업그레이드 실패의 근본 원인이 해결되면 클러스터가 성공 상태여야 합니다. 성공 상태가 확인되면 원래 작업을 다시 시도합니다.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>내 클러스터를 업그레이드하고 있거나 업그레이드가 실패한 상태에서 업그레이드하거나 크기를 조정하려고 하면 오류가 발생합니다.
@@ -154,10 +154,10 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 명명 제한은 Azure 플랫폼 및 AKS에서 모두 구현됩니다. 리소스 이름 또는 매개 변수에서 이러한 제한 중 하나를 위반하면 다른 입력을 제공하라는 오류가 반환됩니다. 적용되는 일반적인 명명 지침은 다음과 같습니다.
 
 * 클러스터 이름은 1-63자여야 합니다. 허용되는 문자는 문자, 숫자, 대시 및 밑줄입니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
-* AKS Node/*MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
-* *dnsPrefix*는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix*에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
+* AKS Node/ *MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
+* *dnsPrefix* 는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix* 에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
 * AKS 노드 풀 이름은 모두 소문자여야 하고, Linux 노드 풀의 경우 1-11자이고 Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
-* Linux 노드에 대 한 관리자 사용자 이름을 설정 하는 *관리자 사용자 이름은*문자로 시작 해야 하 고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64 자입니다.
+* Linux 노드에 대 한 관리자 사용자 이름을 설정 하는 *관리자 사용자 이름은* 문자로 시작 해야 하 고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64 자입니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트하거나, 크기 조정하거나, 삭제하거나, 업그레이드하려고 오류가 발생합니다. 다른 작업이 진행 중이므로 해당 작업이 허용되지 않습니다.
 
@@ -167,7 +167,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 
 클러스터 상태의 출력에 따라 다음을 수행합니다.
 
-* 클러스터가 *성공* 또는 *실패*가 아닌 프로비전 상태에 있는 경우 작업(*업그레이드/업데이트/만들기/크기 조정/삭제/마이그레이션*)이 완료될 때까지 기다립니다. 이전 작업이 완료되면 최근의 클러스터 작업을 다시 시도합니다.
+* 클러스터가 *성공* 또는 *실패* 가 아닌 프로비전 상태에 있는 경우 작업( *업그레이드/업데이트/만들기/크기 조정/삭제/마이그레이션* )이 완료될 때까지 기다립니다. 이전 작업이 완료되면 최근의 클러스터 작업을 다시 시도합니다.
 
 * 클러스터에 업그레이드에 실패한 경우 [클러스터가 실패 상태에 있고 업그레이드 또는 확장이 수정될 때까지 작동하지 않는다는 오류가 표시됩니다.](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)에서 설명한 단계를 수행합니다.
 
@@ -198,7 +198,7 @@ AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필�
 
 설정이 필수 또는 선택적 추천 아웃바운드 포트/네트워크 규칙 및 FQDN/애플리케이션 규칙과 충돌하지 않는지 확인합니다.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>"429-너무 많은 요청" 오류를 받고 있습니다. 
+## <a name="im-receiving-429---too-many-requests-errors"></a>"429-너무 많은 요청" 오류를 받고 있습니다.
 
 Azure (AKS 또는 no)의 kubernetes 클러스터가 잦은 규모를 확대/축소 하거나 클러스터 autoscaler (CA)를 사용 하는 경우 이러한 작업으로 인해 많은 수의 HTTP 호출이 발생 하 여 할당 된 구독 할당량을 초과 하 게 되 면 오류가 발생 합니다. 오류는 다음과 같습니다.
 
@@ -213,6 +213,12 @@ AKS 엔지니어링 팀은 많은 기능이 향상 된 버전의 1.18를 실행 
 이러한 제한 오류는 구독 수준에서 측정 되며 다음과 같은 경우에도 발생할 수 있습니다.
 - GET 요청을 수행 하는 타사 응용 프로그램 (예: 응용 프로그램을 모니터링 하는 등). 이러한 호출의 빈도를 줄이는 것이 좋습니다.
 - VMSS에는 많은 AKS 클러스터/nodepools 있습니다. 일반적인 권장 사항은 지정 된 구독에서 20-30 미만의 클러스터를 포함 하는 것입니다.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>작업을 수행 하거나 사용 하지 않고 클러스터의 프로 비전 상태가 준비에서 실패로 변경 되었습니다.   어떻게 해야 합니까?
+
+작업을 수행 하지 않고 클러스터의 프로 비전 상태가 *준비* 에서 *실패* 로 변경 되 고 클러스터의 응용 프로그램이 계속 실행 되는 경우이 문제는 서비스에서 자동으로 해결할 수 있으며 응용 프로그램에 영향을 주지 않습니다.
+
+클러스터의 프로 비전 상태가 *실패* 로 유지 되거나 클러스터의 응용 프로그램이 작동을 중지 하는 경우 [지원 요청을 제출](https://azure.microsoft.com/support/options/#submit)합니다.
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage 및 AKS 문제 해결
@@ -359,7 +365,7 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 이상 | 0777 |
 
-탑재 옵션은 스토리지 클래스 개체에 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+탑재 옵션은 스토리지 클래스 개체에 지정할 수 있습니다. 다음 예제에서는 *0777* 을 설정합니다.
 
 ```yaml
 kind: StorageClass
@@ -381,8 +387,8 @@ parameters:
 
 몇 가지 유용한 추가 *mountOptions* 설정은 다음과 같습니다.
 
-* *mfsymlinks*는 Azure Files 탑재(cifs)에서 심볼 링크를 지원하도록 합니다.
-* *nobrl*은 바이트 범위 잠금 요청을 서버에 보내지 않도록 방지합니다. 이 설정은 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 특정 애플리케이션에 필요합니다. 대부분의 cifs 서버는 아직 추천 바이트 범위 잠금 요청을 지원하지 않습니다. *nobrl*을 사용하지 않는 경우 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 애플리케이션에서 다음과 비슷한 오류 메시지가 발생할 수 있습니다.
+* *mfsymlinks* 는 Azure Files 탑재(cifs)에서 심볼 링크를 지원하도록 합니다.
+* *nobrl* 은 바이트 범위 잠금 요청을 서버에 보내지 않도록 방지합니다. 이 설정은 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 특정 애플리케이션에 필요합니다. 대부분의 cifs 서버는 아직 추천 바이트 범위 잠금 요청을 지원하지 않습니다. *nobrl* 을 사용하지 않는 경우 cifs 스타일 필수 바이트 범위 잠금으로 중단되는 애플리케이션에서 다음과 비슷한 오류 메시지가 발생할 수 있습니다.
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -398,7 +404,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 이 오류는 cifs/SMB 프로토콜을 사용하는 Azure Files 플러그 인으로 인해 발생합니다. cifs/SMB 프로토콜을 사용하는 경우 탑재 후에 파일 및 디렉터리 권한을 변경할 수 없습니다.
 
-이 문제를 해결하려면 *subPath*를 Azure 디스크 플러그 인과 함께 사용합니다. 
+이 문제를 해결하려면 *subPath* 를 Azure 디스크 플러그 인과 함께 사용합니다. 
 
 > [!NOTE] 
 > ext3/4 디스크 유형의 경우 디스크를 포맷한 후에 lost+found 디렉터리가 있습니다.
@@ -409,13 +415,13 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 ### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>스토리지 계정에서 "선택한 네트워크에서 액세스 허용" 설정을 사용하도록 설정하면 발생하는 오류
 
-AKS에서 동적 프로비저닝에 사용되는 스토리지 계정에서 *선택한 네트워크에서 액세스 허용*을 사용하도록 설정하면 AKS에서 파일 공유를 만들 때 오류가 발생합니다.
+AKS에서 동적 프로비저닝에 사용되는 스토리지 계정에서 *선택한 네트워크에서 액세스 허용* 을 사용하도록 설정하면 AKS에서 파일 공유를 만들 때 오류가 발생합니다.
 
 ```console
 persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
 ```
 
-*선택한 네트워크에서 액세스 허용*을 설정할 때 선택한 네트워크에 Kubernetes *persistentvolume-controller*가 없으므로 이 오류가 발생합니다.
+*선택한 네트워크에서 액세스 허용* 을 설정할 때 선택한 네트워크에 Kubernetes *persistentvolume-controller* 가 없으므로 이 오류가 발생합니다.
 
 이 문제는 [Azure Files에서 정적 프로비저닝](azure-files-volume.md)을 사용하여 완화할 수 있습니다.
 
@@ -470,11 +476,8 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>디스크 연결이 느립니다. GetAzureDiskLun에 10-15분 정도 걸리고 오류가 발생합니다.
 
-**1.15.0 이전**의 Kubernetes 버전에서 **WaitForAttach에서 디스크에 대한 LUN을 찾을 수 없음 오류**와 같은 오류가 발생할 수 있습니다.  이 문제를 해결하려면 약 15분 정도 기다렸다가 다시 시도합니다.
+**1.15.0 이전** 의 Kubernetes 버전에서 **WaitForAttach에서 디스크에 대한 LUN을 찾을 수 없음 오류** 와 같은 오류가 발생할 수 있습니다.  이 문제를 해결하려면 약 15분 정도 기다렸다가 다시 시도합니다.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Kubernetes.io 접두사를 사용 하 여 노드 레이블을 사용 하는 경우 Kubernetes 1.16로의 업그레이드가 실패 하는 이유
 
@@ -487,3 +490,9 @@ Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) �
 3. 이전 nodepool 삭제
 
 AKS는이 완화를 개선 하기 위해 nodepool에서 활성 레이블을 변경할 수 있는 기능을 조사 하 고 있습니다.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

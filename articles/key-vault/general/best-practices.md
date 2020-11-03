@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189890"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287334"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대 한 모범 사례
 
@@ -39,15 +39,15 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 ### <a name="azure-powershell-backup-commands"></a>Azure PowerShell 백업 명령
 
-* [인증서 백업](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
-* [백업 키](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
-* [백업 비밀](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+* [인증서 백업](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [백업 키](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [백업 비밀](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
 
 ### <a name="azure-cli-backup-commands"></a>Azure CLI 백업 명령
 
-* [인증서 백업](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
-* [백업 키](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
-* [백업 비밀](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+* [인증서 백업](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [백업 키](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [백업 비밀](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
 
 
 ## <a name="turn-on-logging"></a>로깅 설정

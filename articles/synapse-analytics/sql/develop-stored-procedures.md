@@ -7,32 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737850"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286665"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Synapse SQL의 저장 프로시저 사용
 
-솔루션 개발을 위해 Synapse SQL 풀에서 저장 프로시저를 구현 하기 위한 팁입니다.
+Synapse SQL 프로 비전 및 서버 리스 풀을 사용 하면 복잡 한 데이터 처리 논리를 SQL 저장 프로시저에 넣을 수 있습니다. 저장 프로시저는 SQL 코드를 캡슐화 하 여 데이터 웨어하우스의 데이터에 가깝게 저장할 수 있는 좋은 방법입니다. 저장 프로시저를 통해 개발자는 코드를 관리 가능한 단위로 캡슐화 하 고 코드의 재사용 가능성을 높일 수 있으므로 개발자가 솔루션을 모듈화 수 있습니다. 각 저장된 프로시저로 매개 변수를 더 유연하게 할 수도 있습니다.
+이 문서에서는 솔루션 개발을 위해 Synapse SQL 풀에서 저장 프로시저를 구현 하는 몇 가지 팁을 찾을 수 있습니다.
 
 ## <a name="what-to-expect"></a>필요한 항목
 
-Synapse SQL은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
+Synapse SQL은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다. 이 문서에서는 저장 프로시저에 추가할 수 있는 기능에 대해 알아봅니다.
 
 > [!NOTE]
-> 프로시저 본문에서 Synapse SQL 노출 영역에서 지원 되는 기능만 사용할 수 있습니다. 저장 프로시저에서 사용할 수 있는 개체를 식별 하려면 [이 문서](overview-features.md) 를 검토 하세요. 이 문서의 예제에서는 서버 리스 및 프로 비전 된 노출 영역 둘 다에서 사용할 수 있는 일반 기능을 사용 했습니다.
+> 프로시저 본문에서 Synapse SQL 노출 영역에서 지원 되는 기능만 사용할 수 있습니다. 저장 프로시저에서 사용할 수 있는 개체를 식별 하려면 [이 문서](overview-features.md) 를 검토 하세요. 이 문서의 예제에서는 서버 리스 및 프로 비전 된 노출 영역 둘 다에서 사용할 수 있는 일반 기능을 사용 했습니다. 이 문서의 끝부분에서 [프로 비전 및 서버를 사용 하지 않는 SYNAPSE SQL 풀의 추가 제한 사항을](#limitations) 참조 하세요.
 
 SQL 풀의 규모와 성능을 유지 하기 위해 동작 차이가 있는 일부 기능과 기능이 지원 되지 않습니다.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Synapse SQL의 저장 프로시저
 
-저장 프로시저는 SQL 코드를 캡슐화 하 여 데이터 웨어하우스의 데이터에 가깝게 저장할 수 있는 좋은 방법입니다. 저장 프로시저를 통해 개발자는 코드를 관리 가능한 단위로 캡슐화 하 여 코드의 재사용 가능성을 높일 수 있으므로 개발자가 솔루션을 모듈화 수 있습니다. 각 저장된 프로시저로 매개 변수를 더 유연하게 할 수도 있습니다. 다음 예에서는 외부 개체가 데이터베이스에 있는 경우이를 삭제 하는 프로시저를 볼 수 있습니다.
+다음 예에서는 외부 개체가 데이터베이스에 있는 경우이를 삭제 하는 프로시저를 볼 수 있습니다.
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집합을 사용할 수 없습니다. 사용할 수 있는 다른 방법이 있습니다. 예를 들어 프로 비전 된 Synapse SQL 풀의 [임시 테이블](develop-tables-temporary.md) 에 대 한 문서를 참조 하세요.
+프로 비전 된 Synapse SQL 풀에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집합을 사용할 수 없습니다. 사용할 수 있는 다른 방법이 있습니다. 예를 들어 프로 비전 된 Synapse SQL 풀의 [임시 테이블](develop-tables-temporary.md) 에 대 한 문서를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
 Synapse SQL에서 구현 되지 않는 Transact-sql 저장 프로시저의 몇 가지 측면은 다음과 같습니다.
 
-* 임시 저장 프로시저
-* 숫자가 매겨진 저장 프로시저
-* 확장된 저장 프로시저
-* CLR 저장 프로시저
-* 암호화 옵션
-* 복제 옵션
-* 테이블 반환 매개 변수
-* 읽기 전용 매개 변수
-* 기본 매개 변수 (프로 비전 된 풀)
-* 실행 컨텍스트
-* return 문
+| 기능/옵션 | 프로비전됨 | 서버를 사용하지 않음 |
+| --- | --- |
+| 임시 저장 프로시저 | 아니요 | 예 |
+| 번호가 매겨진 저장 프로시저 | 아니요 | 아니요 |
+| 확장된 저장 프로시저 | 아니요 | 아니요 |
+| CLR 저장 프로시저 | 아니요 | 아니요 |
+| 암호화 옵션 | 아니요 | 예 |
+| 복제 옵션 | 아니요 | 아니요 |
+| 테이블 반환 매개 변수 | 아니요 | 아니요 |
+| 읽기 전용 매개 변수 | 아니요 | 아니요 |
+| 기본 매개 변수 | 아니요 | 예 |
+| 실행 컨텍스트 | 아니요 | 아니요 |
+| Return 문 | 아니요 | 예 |
+| INSERT INTO. EXEC | 아니요 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

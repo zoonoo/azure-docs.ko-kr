@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604451"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286232"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
@@ -24,8 +24,8 @@ Azure Key Vault를 사용 하면 중앙 및 보안 클라우드 리포지토리�
 
 이 문서에서는 다음 개념을 잘 알고 있다고 가정 합니다. 이러한 개념에 익숙하지 않은 경우 계속 하기 전에 도움말 링크를 따르세요.
 
-* Azure Active Directory [링크](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* 보안 주체 [링크](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
+* Azure Active Directory [링크](../../active-directory/fundamentals/active-directory-whatis.md)
+* 보안 주체 [링크](./authentication.md#app-identity-and-security-principals)
 
 ## <a name="key-vault-configuration-steps-summary"></a>Key Vault 구성 단계 요약
 
@@ -42,8 +42,8 @@ Azure Key Vault를 사용 하면 중앙 및 보안 클라우드 리포지토리�
 Azure Active Directory에서 사용자 또는 응용 프로그램을 등록 하는 방법을 이해 하려면 아래 설명서 링크를 따르세요.
 **응용 프로그램에 대 한 사용자 등록 및 클라이언트 인증서 자격 증명에 대 한 암호를 만들어야 합니다.**
 
-* Azure Active Directory [링크](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) 에 사용자 등록
-* Azure Active Directory [링크](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) 에 응용 프로그램 등록
+* Azure Active Directory [링크](../../active-directory/fundamentals/add-users-azure-active-directory.md) 에 사용자 등록
+* Azure Active Directory [링크](../../active-directory/develop/quickstart-register-app.md) 에 응용 프로그램 등록
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Azure Active Directory에서 보안 주체를 역할에 할당
 
@@ -57,8 +57,8 @@ Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 �
 >[!NOTE]
 > Azure Active Directory 테 넌 트 수준에서 사용자에 게 역할 할당을 할당 하는 경우이 권한 집합은 할당 범위 내에 있는 모든 구독, 리소스 그룹 및 리소스에 trickle 됩니다. 최소 권한 보안 주체를 따르려면 보다 세분화 된 범위에서이 역할 할당을 수행할 수 있습니다. 예를 들어 사용자에 게 구독 수준에서 읽기 권한자 역할을 할당 하 고 단일 키 자격 증명 모음에 대 한 소유자 역할을 할당할 수 있습니다. 구독, 리소스 그룹 또는 주요 자격 증명 모음의 IAM (Id 액세스 관리) 설정으로 이동 하 여 역할 할당을 보다 세분화 된 범위에서 만듭니다.
 
-* Azure Active Directory 역할 [링크](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 에 대 한 자세한 내용은
-* 역할 [할당 할당](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 또는 제거에 대 한 자세한 내용은
+* Azure Active Directory 역할 [링크](../../role-based-access-control/built-in-roles.md) 에 대 한 자세한 내용은
+* 역할 [할당 할당](../../role-based-access-control/role-assignments-portal.md) 또는 제거에 대 한 자세한 내용은
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>보안 주체에 대 한 key vault 액세스 정책 구성
 
@@ -121,8 +121,8 @@ Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 �
 
 Key Vault RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-* Azure Key Vault RBAC [링크](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
-* Azure Key Vault RBAC 역할 (미리 보기) [링크](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview)
+* Azure Key Vault RBAC [링크](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure Key Vault RBAC 역할 (미리 보기) [링크](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## <a name="configure-key-vault-firewall"></a>Key Vault 방화벽 구성
 
@@ -132,9 +132,9 @@ Key Vault RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하�
 
 * 키 자격 증명 모음 방화벽 허용 목록에 IPv4 주소를 추가 합니다. 이 옵션은 고정 IP 주소를 가진 응용 프로그램에 가장 적합 합니다.
 
-* 키 자격 증명 모음 방화벽에 가상 네트워크를 추가 합니다. 이 옵션은 Virtual Machines와 같은 동적 IP 주소가 있는 Azure 리소스에 가장 적합 합니다. Azure 리소스를 가상 네트워크에 추가 하 고 키 자격 증명 모음 방화벽 허용 목록에 가상 네트워크를 추가할 수 있습니다. 이 옵션은 가상 네트워크 내의 개인 IP 주소인 서비스 끝점을 사용 합니다. 이는 추가 보호 계층을 제공 하므로 key vault와 가상 네트워크 간의 트래픽이 공용 인터넷을 통해 라우팅되지 않습니다. 서비스 끝점에 대해 자세히 알아보려면 다음 설명서를 참조 하세요. [링크나](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* 키 자격 증명 모음 방화벽에 가상 네트워크를 추가 합니다. 이 옵션은 Virtual Machines와 같은 동적 IP 주소가 있는 Azure 리소스에 가장 적합 합니다. Azure 리소스를 가상 네트워크에 추가 하 고 키 자격 증명 모음 방화벽 허용 목록에 가상 네트워크를 추가할 수 있습니다. 이 옵션은 가상 네트워크 내의 개인 IP 주소인 서비스 끝점을 사용 합니다. 이는 추가 보호 계층을 제공 하므로 key vault와 가상 네트워크 간의 트래픽이 공용 인터넷을 통해 라우팅되지 않습니다. 서비스 끝점에 대해 자세히 알아보려면 다음 설명서를 참조 하세요. [링크나](./network-security.md)
 
-* 키 자격 증명 모음에 개인 링크 연결을 추가 합니다. 이 옵션은 가상 네트워크를 key vault의 특정 인스턴스에 직접 연결 하 여 키 자격 증명 모음을 가상 네트워크 내에 효과적으로 제공 합니다. Key vault에 대 한 개인 끝점 연결을 구성 하는 방법에 대 한 자세한 내용은 다음 [링크](https://docs.microsoft.com/azure/key-vault/general/private-link-service) 를 참조 하세요.
+* 키 자격 증명 모음에 개인 링크 연결을 추가 합니다. 이 옵션은 가상 네트워크를 key vault의 특정 인스턴스에 직접 연결 하 여 키 자격 증명 모음을 가상 네트워크 내에 효과적으로 제공 합니다. Key vault에 대 한 개인 끝점 연결을 구성 하는 방법에 대 한 자세한 내용은 다음 [링크](./private-link-service.md) 를 참조 하세요.
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>키 자격 증명 모음에 액세스 하는 서비스 주체의 기능 테스트
 
@@ -142,11 +142,11 @@ Key Vault RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하�
 
 ### <a name="authentication-process-for-users-examples"></a>사용자에 대 한 인증 프로세스 (예제)
 
-* 사용자는 Azure Portal에 로그인 하 여 key vault를 사용할 수 있습니다. [Key Vault 포털 빠른 시작](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* 사용자는 Azure Portal에 로그인 하 여 key vault를 사용할 수 있습니다. [Key Vault 포털 빠른 시작](./quick-create-portal.md)
 
-* 사용자는 Azure CLI를 사용 하 여 key vault를 사용할 수 있습니다. [Key Vault Azure CLI 빠른 시작](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* 사용자는 Azure CLI를 사용 하 여 key vault를 사용할 수 있습니다. [Key Vault Azure CLI 빠른 시작](./quick-create-cli.md)
 
-* 사용자는 Azure PowerShell를 사용 하 여 key vault를 사용할 수 있습니다. [Key Vault Azure PowerShell 빠른 시작](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* 사용자는 Azure PowerShell를 사용 하 여 key vault를 사용할 수 있습니다. [Key Vault Azure PowerShell 빠른 시작](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>응용 프로그램 또는 서비스에 대 한 Azure Active Directory 인증 프로세스 (예제)
 
@@ -156,7 +156,7 @@ Key Vault RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하�
 
 * Azure 리소스는 MSI 인증을 사용 하 여 Azure Active Directory 토큰을 가져옵니다. 
 
-* MSI 인증 [링크](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 에 대 한 자세한 정보
+* MSI 인증 [링크](../../active-directory/managed-identities-azure-resources/overview.md) 에 대 한 자세한 정보
 
 ### <a name="authentication-process-for-application-python-example"></a>응용 프로그램에 대 한 인증 프로세스 (Python 예제)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>다음 단계
 
-주요 자격 증명 모음 인증에 대해 자세히 알아보려면 다음 문서를 참조 하세요. [키 자격 증명 모음 인증](https://docs.microsoft.com/azure/key-vault/general/authentication)
+주요 자격 증명 모음 인증에 대해 자세히 알아보려면 다음 문서를 참조 하세요. [키 자격 증명 모음 인증](./authentication.md)

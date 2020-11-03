@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091018"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288327"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -24,6 +24,10 @@ Azure Storage에는 블록 Blob, 추가 Blob 및 페이지 Blob의 세 가지 �
 페이지 Blob은 임의의 바이트 범위에 대한 읽기/쓰기 기능을 제공하는 512바이트 페이지의 컬렉션입니다. 따라서 페이지 Blob은 가상 머신과 데이터베이스의 OS 및 데이터 디스크와 같은 인덱스 기반 및 스파스 데이터 구조를 저장하는 데 적합합니다. 예를 들어 Azure SQL DB는 해당 데이터베이스에 대한 기본 영구적 스토리지로 페이지 Blob을 사용합니다. 또한 페이지 Blob은 범위 기반 업데이트가 포함된 파일에도 자주 사용됩니다.  
 
 Azure 페이지 Blob의 주요 기능은 해당 REST 인터페이스, 기본 스토리지의 내구성 및 Azure로 원활한 마이그레이션 기능입니다. 이러한 기능은 다음 섹션에서 자세히 설명합니다. 또한 Azure 페이지 Blob은 현재 두 가지 유형의 스토리지(Premium Storage 및 Standard Storage)에서 지원됩니다. Premium Storage는 고성능 저장소 시나리오에 적합 한 프리미엄 페이지 blob을 만들기 위해 일관 된 고성능 및 짧은 대기 시간을 요구 하는 워크 로드를 위해 특별히 설계 되었습니다. 표준 저장소 계정은 대기 시간을 구분 하지 않는 워크 로드를 실행 하는 데 더 비용 효율적입니다.
+
+## <a name="restrictions"></a>제한
+
+페이지 blob은 **핫** 액세스 계층만 사용할 수 있으며 **쿨** 또는 **보관** 계층을 사용할 수 없습니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob Storage-핫, 쿨 및 보관에 대 한 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요.
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
@@ -59,7 +63,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-페이지 blob을 만들려면 먼저 다음 예제와 같이 저장소 계정에 대 한 blob 저장소 (그림 1의*paccount* )와 함께 저장소 계정에 대 한 blob 저장소에 액세스 하기 위한 기본 URI를 사용 하 여 **CloudBlobClient** **개체를** 만듭니다. 그런 다음이 예제에서는 **CloudBlobContainer** 개체에 대 한 참조를 만든 다음, 아직 없는 경우 컨테이너 (*testvhds*)를 만드는 방법을 보여 줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob을 만들려면 만들 blob의 최대 크기를 전달 하 여 [Cloudpageblob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)을 호출 합니다. blobSize** 는 512바이트의 배수여야 합니다.
+페이지 blob을 만들려면 먼저 다음 예제와 같이 저장소 계정에 대 한 blob 저장소 (그림 1의 *paccount* )와 함께 저장소 계정에 대 한 blob 저장소에 액세스 하기 위한 기본 URI를 사용 하 여 **CloudBlobClient** **개체를** 만듭니다. 그런 다음이 예제에서는 **CloudBlobContainer** 개체에 대 한 참조를 만든 다음, 아직 없는 경우 컨테이너 ( *testvhds* )를 만드는 방법을 보여 줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob을 만들려면 만들 blob의 최대 크기를 전달 하 여 [Cloudpageblob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)을 호출 합니다. blobSize는 512바이트의 배수여야 합니다.
 
 ```csharp
 using Microsoft.Azure;

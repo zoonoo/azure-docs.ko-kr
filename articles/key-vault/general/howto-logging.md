@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744881"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285656"
 ---
-# <a name="how-to-enable-key-vault-logging"></a>Key Vault 로깅을 사용 하도록 설정 하는 방법
+# <a name="how-to-enable-key-vault-logging"></a>키 자격 증명 모음 로깅을 사용하는 방법
 
 하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 기능에 대 한 자세한 내용은 [Key Vault 로깅](logging.md)을 참조 하세요.
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 로그에 기존 저장소 계정을 사용할 수 있지만 Key Vault 로그 전용 새 저장소 계정을 만듭니다. 
 
-추가로 쉽게 관리하기 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용합니다. [Azure CLI 빠른](quick-create-cli.md) 시작 및 [Azure PowerShell 빠른](quick-create-powershell.md)시작에서이 리소스 그룹의 이름은 **myresourcegroup**이 고 위치는 *에서는 eastus*입니다. 해당 하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다. 
+추가로 쉽게 관리하기 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용합니다. [Azure CLI 빠른](quick-create-cli.md) 시작 및 [Azure PowerShell 빠른](quick-create-powershell.md)시작에서이 리소스 그룹의 이름은 **myresourcegroup** 이 고 위치는 *에서는 eastus* 입니다. 해당 하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다. 
 
 또한 저장소 계정 이름을 제공 해야 합니다. 저장소 계정 이름은 길이가 3 자에서 24 자 사이이 고 숫자 및 소문자만 사용 해야 합니다.  마지막으로 "Standard_LRS" SKU의 저장소 계정을 만듭니다.
 
@@ -147,7 +147,7 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
   * 이러한 키 또는 비밀 만들기, 수정 또는 삭제
   * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
-* 곧 만료되는 정책, 만료된 정책 및 자격 증명 모음 액세스 정책에 대한 Event Grid 알림 이벤트가 변경되었습니다(새 버전 이벤트가 기록되지 않음). 키 자격 증명 모음에 생성된 이벤트 구독이 있는지 여부에 관계 없이 이벤트가 기록됩니다. 자세한 내용은 [Key Vault에 대한 Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)를 참조하세요.
+* 곧 만료되는 정책, 만료된 정책 및 자격 증명 모음 액세스 정책에 대한 Event Grid 알림 이벤트가 변경되었습니다(새 버전 이벤트가 기록되지 않음). 키 자격 증명 모음에 생성된 이벤트 구독이 있는지 여부에 관계 없이 이벤트가 기록됩니다. 자세한 내용은 [Key Vault에 대한 Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)를 참조하세요.
 
 ## <a name="access-your-logs"></a>로그에 액세스
 
@@ -183,7 +183,7 @@ $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzSt
 
 PowerShell에서이 두 번째 cmdlet을 실행 하는 경우 **/** blob 이름의 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 구조를 사용하여 Blob을 다운로드하고 파일로 저장합니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들면 다음과 같습니다.
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 다음은 그 예입니다.
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 

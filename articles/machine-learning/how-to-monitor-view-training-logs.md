@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333820"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285950"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -41,11 +41,11 @@ ms.locfileid: "91333820"
 
 1. [Azure Machine Learning studio](https://ml.azure.com/)에서 작업 영역을 선택 하 고 페이지의 왼쪽에서 __계산__ 을 선택 합니다.
 
-1. 학습에 사용되는 컴퓨팅 대상 목록을 표시하려면 __학습 클러스터__를 선택합니다. 그런 다음 클러스터를 선택합니다.
+1. 학습에 사용되는 컴퓨팅 대상 목록을 표시하려면 __학습 클러스터__ 를 선택합니다. 그런 다음 클러스터를 선택합니다.
 
     ![학습 클러스터 선택](./media/how-to-track-experiments/select-training-compute.png)
 
-1. __실행__을 선택합니다. 이 클러스터를 사용하는 실행 목록이 표시됩니다. 특정 실행에 대한 세부 정보를 보려면 __실행__ 열의 링크를 사용합니다. 실험에 대한 세부 정보를 보려면 __실험__ 열의 링크를 사용합니다.
+1. __실행__ 을 선택합니다. 이 클러스터를 사용하는 실행 목록이 표시됩니다. 특정 실행에 대한 세부 정보를 보려면 __실행__ 열의 링크를 사용합니다. 실험에 대한 세부 정보를 보려면 __실험__ 열의 링크를 사용합니다.
 
     ![학습 클러스터에 대한 실행 선택](./media/how-to-track-experiments/show-runs-for-compute.png)
     
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>완료 시 출력 표시
 
-**ScriptRunConfig**를 사용하면 ```run.wait_for_completion(show_output = True)```를 사용하여 모델 학습이 완료된 시점을 표시할 수 있습니다. ```show_output``` 플래그는 자세한 정보를 출력합니다. 자세한 내용은 [로깅 사용 방법](how-to-track-experiments.md#scriptrun-logs)의 ScriptRunConfig 섹션을 참조 하세요.
+**ScriptRunConfig** 를 사용하면 ```run.wait_for_completion(show_output = True)```를 사용하여 모델 학습이 완료된 시점을 표시할 수 있습니다. ```show_output``` 플래그는 자세한 정보를 출력합니다. 자세한 내용은 [로깅 사용 방법](how-to-track-experiments.md#scriptrun-logs)의 ScriptRunConfig 섹션을 참조 하세요.
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>실행 메트릭 쿼리
@@ -105,7 +105,9 @@ RunDetails(run).show()
 
 [Azure Machine Learning studio](https://ml.azure.com)에서 기록 된 메트릭을 포함 하 여 완료 된 실행 레코드를 찾아볼 수 있습니다.
 
-**실험** 탭으로 이동 하 여 실험을 선택 합니다. 실험 실행 대시보드에서 각 실행에 대 한 추적 된 메트릭과 로그를 볼 수 있습니다. 
+**실험** 탭으로 이동 합니다. 실험 전체에서 작업 영역의 모든 실행을 보려면 **모든 실행** 탭을 선택 합니다. 상단 메뉴 모음에서 실험 필터를 적용 하 여 특정 실험의 실행을 드릴 다운할 수 있습니다. 
+
+개별 실험 보기의 경우 **모든 실험** 탭을 선택 합니다. 실험 실행 대시보드에서 각 실행에 대 한 추적 된 메트릭과 로그를 볼 수 있습니다. 
 
 특정 실행으로 드릴 다운 하 여 해당 출력 또는 로그를 보거나 실험의 스냅숏을 다운로드 하 여 다른 사람과 실험 폴더를 공유할 수 있습니다.
 

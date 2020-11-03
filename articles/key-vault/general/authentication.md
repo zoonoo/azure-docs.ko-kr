@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099422"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287505"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
@@ -20,7 +20,7 @@ Azure Key Vault를 사용하면 비밀을 저장하고 중앙 집중식 보안 �
 
 ## <a name="app-identity-and-security-principals"></a>앱 ID 및 보안 주체
 
-Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/active-directory/fundamentals/active-directory-whatis)와 함께 작동하며, 이는 지정된 **보안 주체** 의 ID를 인증하는 역할을 담당합니다.
+Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md)와 함께 작동하며, 이는 지정된 **보안 주체** 의 ID를 인증하는 역할을 담당합니다.
 
 보안 주체는 사용자, 그룹 또는 Azure 리소스에 대한 액세스를 요청하는 애플리케이션을 나타내는 개체입니다. Azure는 모든 보안 주체에 고유한 **개체 ID** 를 할당합니다.
 
@@ -36,9 +36,9 @@ Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/activ
 
     관리 ID를 통해 Azure는 애플리케이션의 서비스 주체를 내부적으로 관리하고 다른 Azure 서비스에서 애플리케이션을 자동으로 인증합니다. 관리 ID는 다양한 서비스에 배포된 애플리케이션에 사용할 수 있습니다.
 
-    자세한 내용은 [관리 ID 개요](/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요. 또한 [관리 ID를 지원하는 Azure 서비스](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 특정 서비스(예: App Service, Azure Functions, Virtual Machines 등)에 대해 관리 ID를 사용하도록 설정하는 방법이 담긴 문서로 연결됩니다.
+    자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 또한 [관리 ID를 지원하는 Azure 서비스](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요. 특정 서비스(예: App Service, Azure Functions, Virtual Machines 등)에 대해 관리 ID를 사용하도록 설정하는 방법이 담긴 문서로 연결됩니다.
 
-* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록** 합니다( [빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](/azure/active-directory/develop/quickstart-register-app) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
+* 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록** 합니다( [빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>보안 주체에게 Key Vault에 대한 액세스 권한 부여
 
@@ -56,13 +56,13 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
  
     역할을 할당하고 관리하려면 다음 문서를 참조하세요.
 
-    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    Key Vault는 현재 Key Vault 리소스에서 관리 작업이 가능한 [기여자](/azure/role-based-access-control/built-in-roles#key-vault-contributor) 역할을 지원합니다. 여러 다른 역할은 현재 미리 보기로 제공됩니다. [Azure 사용자 지정 역할](/azure/role-based-access-control/custom-roles)에 설명된 대로 사용자 지정 역할을 만들 수도 있습니다.
+    Key Vault는 현재 Key Vault 리소스에서 관리 작업이 가능한 [기여자](../../role-based-access-control/built-in-roles.md#key-vault-contributor) 역할을 지원합니다. 여러 다른 역할은 현재 미리 보기로 제공됩니다. [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 설명된 대로 사용자 지정 역할을 만들 수도 있습니다.
 
-    역할에 대한 전반적인 내용은 [Azure RBAC(역할 기반 액세스 제어)란?](/azure/role-based-access-control/overview)을 참조하세요.
+    역할에 대한 전반적인 내용은 [Azure RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 
 기본적으로 Key Vault는 공용 IP 주소를 통해 리소스에 대한 액세스를 허용합니다. 또한 가장 강력한 보안을 위해 특정 IP 범위, 서비스 엔드포인트, 가상 네트워크 또는 프라이빗 엔드포인트에 대한 액세스를 제한할 수 있습니다.
 
-자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](/azure/key-vault/general/access-behind-firewall)를 참조하세요.
+자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](./access-behind-firewall.md)를 참조하세요.
 
 
 ## <a name="the-key-vault-authentication-flow"></a>Key Vault 인증 흐름
@@ -80,7 +80,7 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 1. 서비스 주체는 Azure AD를 사용하여 인증을 요청합니다. 예제는 다음과 같습니다.
     * 사용자가 사용자 이름과 암호를 사용하여 Azure Portal에 로그인합니다.
     * 애플리케이션이 클라이언트 ID 및 비밀 또는 클라이언트 인증서를 제공하는 Azure REST API를 호출합니다.
-    * 관리 ID를 사용하는 가상 머신과 같은 Azure 리소스가 [Azure IMDS(Instance Metadata Service)](/azure/virtual-machines/windows/instance-metadata-service) REST 엔드포인트에 연결하여 액세스 토큰을 가져옵니다.
+    * 관리 ID를 사용하는 가상 머신과 같은 Azure 리소스가 [Azure IMDS(Instance Metadata Service)](../../virtual-machines/windows/instance-metadata-service.md) REST 엔드포인트에 연결하여 액세스 토큰을 가져옵니다.
 
 1. Azure AD를 통한 인증에 성공하면 OAuth 토큰이 서비스 주체에 부여됩니다.
 
@@ -89,7 +89,7 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 1. Key Vault 방화벽은 다음 조건을 확인합니다. 조건을 충족하는 경우 호출이 허용됩니다. 그렇지 않으면 호출이 차단되고 사용 권한 없음 응답이 반환됩니다.
 
     * 방화벽이 사용하지 않도록 설정되어 있고, 퍼블릭 인터넷에서 Key Vault의 퍼블릭 엔드포인트에 연결할 수 있습니다.
-    * 호출자가 [Key Vault 신뢰할 수 있는 서비스](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)로, 방화벽을 우회할 수 있습니다.
+    * 호출자가 [Key Vault 신뢰할 수 있는 서비스](./overview-vnet-service-endpoints.md#trusted-services)로, 방화벽을 우회할 수 있습니다.
     * 호출자가 IP 주소, 가상 네트워크 또는 서비스 엔드포인트별로 방화벽에 나열됩니다.
     * 호출자가 구성된 프라이빗 링크 연결을 통해 Key Vault에 연결할 수 있습니다.    
 
@@ -109,20 +109,20 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 
 | Key Vault 비밀 | Key Vault 키 | Key Vault 인증서 |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET(SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET(SDK v4)](../secrets/quick-create-net.md) | -- | -- |
 | [.NET(SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
-| [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [ARM 템플릿](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Azure Portal](../secrets/quick-create-portal.md) | [Azure Portal](../keys/quick-create-portal.md) | [Azure Portal](../certificates/quick-create-portal.md) |
+| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [ARM 템플릿](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Key Vault 액세스 정책 문제 해결](troubleshooting-access-issues.md)
 - [Key Vault REST API 오류 코드](rest-error-codes.md)
 - [Key Vault 개발자 가이드](developers-guide.md)
-- [Azure RBAC(역할 기반 액세스 제어)란?](/azure/role-based-access-control/overview)
+- [Azure RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)

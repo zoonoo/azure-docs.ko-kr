@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 26f0c18fee8fe56a9bc0fa163ef59dfe0977cad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825330"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287541"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -433,7 +433,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
   - 또는 테넌트 관리자자 사전에 테넌트의 모든 사용자에 대해 애플리케이션 사용을 동의했어야 합니다.
   - 다시 말하면,
     - 개발자가 직접 Azure Portal에서 **권한 부여** 단추를 선택했어야 합니다.
-    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
+    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지** 를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
     - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](./v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조하세요.
     - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조하세요.
 
@@ -954,7 +954,7 @@ Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -969,7 +969,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)

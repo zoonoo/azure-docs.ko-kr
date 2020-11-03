@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124224"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286884"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "92124224"
 
 **1단계** - CA(인증 기관) 공급자  
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
-    다음 Ca는 Key Vault 있는 현재 파트너 관계 공급자입니다. [여기](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)에서 자세히 알아보세요.   
+    다음 Ca는 Key Vault 있는 현재 파트너 관계 공급자입니다. [여기](./create-certificate.md#partnered-ca-providers)에서 자세히 알아보세요.   
     -   DigiCert-Key Vault는 DigiCert와 OV-ES TLS/SSL 인증서를 제공 합니다.  
     -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES TLS/SSL 인증서를 제공 합니다.  
 
@@ -50,7 +50,7 @@ ms.locfileid: "92124224"
     -   공급자  
     -   자격 증명 - CA 계정 자격 증명입니다. 각 CA에는 자체 특정 데이터가 있습니다.  
 
-    CA 공급자로 계정을 만드는 방법에 대한 자세한 내용은 [Key Vault 블로그](https://aka.ms/kvcertsblog)에서 관련된 게시물을 참조하세요.  
+    CA 공급자로 계정을 만드는 방법에 대한 자세한 내용은 [Key Vault 블로그](/archive/blogs/kv/manage-certificates-via-azure-key-vault)에서 관련된 게시물을 참조하세요.  
 
 **3.1단계** - 알림에 대한 [인증서 연락처](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts)를 설정합니다. Key Vault 사용자에 대한 연락처입니다. Key Vault는 이 단계를 적용하지 않습니다.  
 
@@ -82,7 +82,7 @@ ms.locfileid: "92124224"
       -   만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>통합 CA와 연결 된 네트워크 보안 및 액세스 정책
-Key Vault 서비스는 CA (아웃 바운드 트래픽)에 요청을 보냅니다. 따라서 방화벽을 사용 하는 키 자격 증명 모음과 완벽 하 게 호환 됩니다. Key Vault는 CA와 액세스 정책을 공유 하지 않습니다. CA는 개별적으로 서명 요청을 수락 하도록 구성 되어야 합니다. [신뢰할 수 있는 CA 통합 가이드](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Key Vault 서비스는 CA (아웃 바운드 트래픽)에 요청을 보냅니다. 따라서 방화벽을 사용 하는 키 자격 증명 모음과 완벽 하 게 호환 됩니다. Key Vault는 CA와 액세스 정책을 공유 하지 않습니다. CA는 개별적으로 서명 요청을 수락 하도록 구성 되어야 합니다. [신뢰할 수 있는 CA 통합 가이드](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>인증서 가져오기  
  또는 - Key Vault로 인증서를 가져올 수 있습니다(PFX 또는 PEM).  

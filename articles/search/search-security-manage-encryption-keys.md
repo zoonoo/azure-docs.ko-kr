@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635465"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287162"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -41,15 +41,13 @@ CMK 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 �
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 CMK 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 예제에서 사용 되는 도구 및 서비스는 다음과 같습니다. 
+이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 
-+ [Cognitive Search 서비스를 만들거나 기존 서비스](search-create-service-portal.md) 를 [찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Azure Key Vault 리소스를 만들거나 기존 리소스](../key-vault/secrets/quick-create-portal.md#create-a-vault) 를 찾습니다. Key Vault와 Cognitive Search는 모두 동일한 구독에 있어야 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
-
-+ 응용 프로그램을 등록 하 고 응용 프로그램에서 인증에 사용 하는 암호 문자열을 만들려면 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 합니다. 새 테 넌 트를 설치 하지 않은 경우에 [는 새 테 넌 트를 설정](../active-directory/develop/quickstart-create-new-tenant.md)합니다.
++ [Azure Cognitive Search](search-create-service-portal.md) 는 [청구 가능한 계층](search-sku-tier.md#tiers) (기본 이상, 모든 지역)에 있습니다.
++ Azure Cognitive Search와 동일한 구독에 [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). 새 테 넌 트를 설치 하지 않은 경우에 [는 새 테 넌 트를 설정](../active-directory/develop/quickstart-create-new-tenant.md)합니다.
 
 암호화 된 개체를 만들 수 있는 검색 응용 프로그램이 있어야 합니다. 이 코드에는 주요 자격 증명 모음 키를 참조 하 고 등록 정보를 Active Directory 합니다. 이 코드는 작업 중인 앱 또는 [c # 코드 샘플 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)같은 프로토타입 코드 일 수 있습니다.
 
@@ -134,7 +132,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
    [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)를 단계별로 실행 하는 경우이 값을 파일 **의appsettings.js** 에 붙여넣습니다.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="새 key vault 키 만들기":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Essentials 섹션의 응용 프로그램 ID":::
 
 1. 그런 다음 왼쪽에서 **인증서 & 암호** 를 선택 합니다.
 
@@ -142,7 +140,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 1. 응용 프로그램 암호를 복사 합니다. 샘플을 단계별로 실행 하는 경우이 값을 파일 **의appsettings.js** 에 붙여넣습니다.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="새 key vault 키 만들기":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="애플리케이션 암호":::
 
 ## <a name="4---grant-key-access-permissions"></a>4-키 액세스 권한 부여
 
@@ -154,11 +152,11 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 1. 왼쪽에서 **액세스 정책을** 선택 하 고 **+ 액세스 정책 추가** 를 선택 합니다.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="새 key vault 키 만들기":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="새 키 자격 증명 모음 액세스 정책 추가":::
 
 1. **보안 주체 선택** 을 선택 하 고 Active Directory에 등록 한 응용 프로그램을 선택 합니다. 이름을 기준으로 검색할 수 있습니다.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="새 key vault 키 만들기":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="키 자격 증명 모음 액세스 정책 주체를 선택 합니다.":::
 
 1. **키 권한** 에서 *가져오기* , *키 래핑* 및 *키 래핑* 을 선택 합니다.
 

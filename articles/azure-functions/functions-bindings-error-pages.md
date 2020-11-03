@@ -1,18 +1,18 @@
 ---
-title: Azure Functions 오류 처리 지침
-description: 특정 바인딩 오류에 대 한 링크를 사용 하 여 Azure Functions 오류를 처리 하는 방법을 알아봅니다.
+title: Azure Functions 오류 처리 및 다시 시도 지침
+description: 특정 바인딩 오류에 대 한 링크를 사용 하 여 Azure Functions에서 오류 및 재시도 이벤트를 처리 하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096847"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284451"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
+# <a name="azure-functions-error-handling-and-retries"></a>Azure Functions 오류 처리 및 다시 시도
 
 손실 된 데이터, 누락 된 이벤트 및 응용 프로그램의 상태를 모니터링 하는 것을 방지 하기 위해 Azure Functions 오류를 처리 하는 것이 중요 합니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "92096847"
 
 ## <a name="handling-errors"></a>오류 처리
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>바인딩 오류 코드
 
@@ -28,7 +28,7 @@ Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Azure BLOB Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
++ [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 

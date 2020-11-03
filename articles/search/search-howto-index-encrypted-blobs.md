@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791990"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286353"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 blob 인덱서 및 기술력과를 사용 하 여 암호화 된 blob을 인덱싱하는 방법
 
-이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md) 를 사용 하 여 [Azure Key Vault](../key-vault/general/overview.md)를 사용 하 여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화 된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대 한 액세스 권한이 없기 때문에 암호화 된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) 사용자 지정 기술, [documentextractionskill](cognitive-search-skill-document-extraction.md)을 활용 하 여 키에 대 한 제어 된 액세스를 제공 하 여 파일의 암호를 해독 한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 암호화 되지 않은 상태로 저장 되는 데이터에 대해 걱정할 필요 없이 이러한 문서를 인덱싱하는 기능이 해제 됩니다.
+이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md) 를 사용 하 여 [Azure Key Vault](../key-vault/general/overview.md)를 사용 하 여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화 된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대 한 액세스 권한이 없기 때문에 암호화 된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) 사용자 지정 기술, [documentextractionskill](cognitive-search-skill-document-extraction.md)을 활용 하 여 키에 대 한 제어 된 액세스를 제공 하 여 파일의 암호를 해독 한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장 된 문서의 암호화 상태를 손상 시 키 지 않고 이러한 문서를 인덱싱하는 기능이 해제 됩니다.
 
-이 가이드는 Postman 및 Search REST Api를 사용 하 여 다음 작업을 수행 합니다.
+Azure Blob storage에서 PDF, HTML, .DOCX 및 .PPTX와 같은 이전에 암호화 된 전체 문서 (구조화 되지 않은 텍스트)부터 시작 하 여이 가이드는 Postman 및 Search REST Api를 사용 하 여 다음 작업을 수행 합니다.
 
 > [!div class="checklist"]
-> * Azure Key Vault를 사용 하 여 암호화 된 Azure Blob storage에서 PDF, HTML, .DOCX 및 .PPTX와 같은 전체 문서 (구조화 되지 않은 텍스트)로 시작 합니다.
 > * 문서를 해독 하 고 텍스트를 추출 하는 파이프라인을 정의 합니다.
 > * 출력을 저장할 인덱스를 정의 합니다.
 > * 파이프라인을 실행하여 인덱스를 만들고 로드합니다.
@@ -36,13 +35,10 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 이 예에서는 Azure Blob Storage 파일을 이미 업로드 하 고 프로세스에서 암호화 한 것으로 가정 합니다. 처음에 파일을 업로드 하 고 암호화 하는 데 도움이 필요한 경우 [이 자습서](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) 를 통해이 작업을 수행 하는 방법을 확인 하세요.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ Azure Cognitive Search와 동일한 구독에 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
++ [청구 가능 계층](search-sku-tier.md#tiers) 의 [Azure Cognitive Search](search-create-service-portal.md) (기본 이상, 모든 지역)
 + [Azure 함수](https://azure.microsoft.com/services/functions/)
 + [Postman 데스크톱 앱](https://www.getpostman.com/)
-+ [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> 이 가이드에는 무료 서비스를 사용할 수 있습니다. 무료 검색 서비스는 세 개의 인덱스, 세 개의 인덱서, 3 개의 데이터 원본 및 3 개의 기술력과으로 제한 합니다. 이 가이드는 각각 하나씩 만듭니다. 시작하기 전에 새 리소스를 수용할 수 있는 공간이 서비스에 있는지 확인하세요.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1-서비스 만들기 및 자격 증명 수집
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538819"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284476"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
 
@@ -75,7 +75,7 @@ Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)에 
 
 ## <a name="cant-import-name-blobservice"></a>이름 BlobService를 가져올 수 없음
 
-__증상__ . 스크립트 작업이 실패했습니다. Ambari에서 작업을 볼 때 다음 오류와 비슷한 텍스트가 표시됩니다.
+__증상__. 스크립트 작업이 실패했습니다. Ambari에서 작업을 볼 때 다음 오류와 비슷한 텍스트가 표시됩니다.
 
 ```
 Traceback (most recent call list):
@@ -84,9 +84,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__원인__ . 이 오류는 HDInsight 클러스터에 포함된 Python Azure Storage 클라이언트를 업그레이드하는 경우에 발생합니다. HDInsight는 Azure Storage 클라이언트 0.20.0을 예상합니다.
+__원인__. 이 오류는 HDInsight 클러스터에 포함된 Python Azure Storage 클라이언트를 업그레이드하는 경우에 발생합니다. HDInsight는 Azure Storage 클라이언트 0.20.0을 예상합니다.
 
-__해결__ . 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
+__해결__. 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -110,10 +110,4 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
-
-* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-
-* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
-
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164417"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285266"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,8 +42,8 @@ ms.locfileid: "92164417"
 ## <a name="mount-premium-file-share"></a>프리미엄 파일 공유 탑재
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 저장소 계정으로 이동 합니다.
-1. **파일 서비스**에서 **파일 공유** 로 이동한 다음 SQL 저장소에 사용할 프리미엄 파일 공유를 선택 합니다.
-1. **연결**을 선택하여 파일 공유에 대한 연결 문자열을 가져옵니다.
+1. **파일 서비스** 에서 **파일 공유** 로 이동한 다음 SQL 저장소에 사용할 프리미엄 파일 공유를 선택 합니다.
+1. **연결** 을 선택하여 파일 공유에 대한 연결 문자열을 가져옵니다.
 1. 드롭다운 목록에서 사용 하려는 드라이브 문자를 선택 하 고 두 코드 블록을 메모장에 복사 합니다.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
@@ -69,11 +69,11 @@ ms.locfileid: "92164417"
 1. [장애 조치 (failover) 클러스터링을 각 가상 컴퓨터에 추가](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms)합니다.
 
    UI에서 장애 조치 (failover) 클러스터링을 설치 하려면 두 가상 컴퓨터에서 다음을 수행 합니다.
-   1. **서버 관리자**에서 **관리**를 선택한 다음, **역할 및 기능 추가**를 선택합니다.
-   1. **역할 및 기능 추가** 마법사에서 **다음** 을 선택 하 여 **기능을 선택**합니다.
-   1. **기능 선택**에서 **장애 조치(failover) 클러스터링**을 선택합니다. 필요한 모든 기능 및 관리 도구를 포함합니다. 
-   1. **기능 추가**를 선택합니다.
-   1. **다음**을 선택하고 **마침**을 선택하여 기능을 설치합니다.
+   1. **서버 관리자** 에서 **관리** 를 선택한 다음, **역할 및 기능 추가** 를 선택합니다.
+   1. **역할 및 기능 추가** 마법사에서 **다음** 을 선택 하 여 **기능을 선택** 합니다.
+   1. **기능 선택** 에서 **장애 조치(failover) 클러스터링** 을 선택합니다. 필요한 모든 기능 및 관리 도구를 포함합니다. 
+   1. **기능 추가** 를 선택합니다.
+   1. **다음** 을 선택하고 **마침** 을 선택하여 기능을 설치합니다.
 
    PowerShell을 사용 하 여 장애 조치 (failover) 클러스터링을 설치 하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행 합니다.
 
@@ -88,15 +88,25 @@ UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사�
 
 UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신 중 하나에서 다음을 수행 합니다.
 
-1. **서버 관리자**에서 **도구**를 선택한 다음 **장애 조치(failover) 클러스터 관리자**를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자**에서 **작업**을 선택한 다음 **구성 유효성 검사**를 선택합니다.
-1. **다음**을 선택합니다.
-1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. 
-1. **다음**을 선택합니다.
-1. **테스트 선택**에서 다음과 같이 **스토리지** 및 **스토리지 공간 다이렉트**를 선택합니다.
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 다음과 같이 **스토리지** 및 **스토리지 공간 다이렉트** 를 선택합니다.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="클러스터 유효성 검사 테스트 선택":::
+
+1. **다음** 을 선택합니다.
+1. **확인** 에서 **다음** 을 선택합니다.
+
+**구성 유효성 검사** 마법사는 유효성 검사 테스트를 실행 합니다.
+
+PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 클러스터의 유효성을 검사한 후에 장애 조치 클러스터를 만듭니다.
@@ -139,9 +149,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치 테스트
 
-클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드**를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
+클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자** 에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드** 를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="코어 리소스를 다른 노드로 이동하여 클러스터 장애 조치(failover) 테스트":::
 
 
 ## <a name="create-sql-server-fci"></a>SQL Server FCI 만들기
@@ -150,27 +160,27 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. RDP를 사용하여 첫 번째 가상 머신에 연결합니다.
 
-1. **장애 조치(Failover) 클러스터 관리자**에서 모든 코어 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 컴퓨터로 이동합니다.
+1. **장애 조치(Failover) 클러스터 관리자** 에서 모든 코어 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 컴퓨터로 이동합니다.
 
 1. 설치 미디어를 찾습니다. 가상 머신이 Azure Marketplace 이미지 중 하나를 사용하는 경우 미디어는 `C:\SQLServer_<version number>_Full`에 있습니다. 
 
-1. **Setup**을 선택합니다.
+1. **Setup** 을 선택합니다.
 
-1. **SQL Server 설치 센터**에서 **설치**를 선택합니다.
+1. **SQL Server 설치 센터** 에서 **설치** 를 선택합니다.
 
-1. **새로 만들기 SQL Server 장애 조치 (failover) 클러스터 설치**를 선택한 다음 마법사의 지침에 따라 SQL Server fci를 설치 합니다.
+1. **새로 만들기 SQL Server 장애 조치 (failover) 클러스터 설치** 를 선택한 다음 마법사의 지침에 따라 SQL Server fci를 설치 합니다.
 
    FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를 형식으로 입력 `\\storageaccountname.file.core.windows.net\filesharename\foldername` 합니다. 파일 서버를 데이터 디렉터리로 지정했음을 알려주는 경고가 표시됩니다. 이 경고는 예상된 것입니다. 파일 공유를 보관할 때 RDP를 통해 VM에 액세스 하는 데 사용한 사용자 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 것과 동일한 계정 인지 확인 합니다.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="파일 공유를 SQL 데이터 디렉터리로 사용":::
 
 1. 마법사의 단계를 완료하면 설치 프로그램이 첫 번째 노드에 SQL Server FCI를 설치합니다.
 
 1. 설치 프로그램이 첫 번째 노드에 FCI를 설치하면 RDP를 사용하여 두 번째 노드에 연결합니다.
 
-1. **SQL Server 설치 센터**를 연 다음 **설치**를 선택 합니다.
+1. **SQL Server 설치 센터** 를 연 다음 **설치** 를 선택 합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가**를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
+1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
 
    >[!NOTE]
    >SQL Server와 함께 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
@@ -200,7 +210,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 - MSDTC (Microsoft DTC(Distributed Transaction Coordinator))는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 
 - Filestream은 프리미엄 파일 공유를 사용하는 장애 조치(failover) 클러스터에 대해 지원되지 않습니다. Filestream을 사용 하려면 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 또는 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 클러스터를 배포 하세요.
-- [경량 관리 모드](sql-vm-resource-provider-register.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다. 
+- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

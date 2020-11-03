@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167657"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284505"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -29,7 +29,7 @@ ms.locfileid: "92167657"
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
-다음 샘플에서는 버전 2.x에 대 한 파일 * 에host.js* 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
+다음 샘플에서는 버전 2.x에 대 한 파일 *에host.js* 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
 
 ```json
 {
@@ -117,6 +117,11 @@ ms.locfileid: "92167657"
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -145,7 +150,7 @@ ms.locfileid: "92167657"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 방지 하려면 `excludedTypes: "Request"` 값에를 추가 `samplingSettings` 합니다.
 
-| 속성 | 기본값 | Description |
+| 속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | samplingSettings | 해당 없음 | [Applicationinsights. samplingSettings](#applicationinsightssamplingsettings)를 참조 하세요. |
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용 하도록 설정 합니다. |
@@ -157,7 +162,7 @@ ms.locfileid: "92167657"
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록한 원격 분석 항목의 수입니다. 앱이 여러 호스트에서 실행 되는 경우이 값을 줄여서 전체 대상 트래픽 요금 내에 유지 합니다. | 
@@ -173,7 +178,7 @@ ms.locfileid: "92167657"
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>httpAutoCollectionOptions
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | HTTP 트리거에 대 한 확장 된 HTTP 요청 정보를 사용 하거나 사용 하지 않도록 설정 합니다. 들어오는 요청 상관 관계 헤더, 다중 계측 키 지원, HTTP 메서드, 경로 및 응답입니다. |
 | enableW3CDistributedTracing | true | W3C 분산 추적 프로토콜을 지원 하거나 사용 하지 않도록 설정 하 고 레거시 상관 관계 스키마를 설정 합니다. 이 true 인 경우 기본적으로 사용 하도록 설정 `enableHttpTriggerExtendedInfoCollection` 됩니다. 이 `enableHttpTriggerExtendedInfoCollection` false 인 경우이 플래그는 들어오는 요청에만 적용 되 고 들어오는 요청에는 적용 되지 않습니다. |
@@ -183,7 +188,7 @@ ms.locfileid: "92167657"
 
 스냅숏에 대 한 자세한 내용은 [.net 앱의 예외에 대 한 스냅숏 디버그](../azure-monitor/app/snapshot-debugger.md) 및 [Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결](../azure-monitor/app/snapshot-debugger-troubleshoot.md)을 참조 하세요.
 
-|속성 | 기본값 | Description |
+|속성 | 기본값 | 설명 |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Application Insights 스냅숏 디버거 서비스에 연결 하는 데 사용 되는 끝점입니다. Null 인 경우 기본 끝점이 사용 됩니다. |
 | captureSnapshotMemoryWeight | 0.5 | 스냅숏을 만들기에 충분 한 메모리가 있는지 확인할 때 현재 프로세스 메모리 크기에 지정 된 가중치입니다. 예상 값은 적절 한 소수 부분 (0 < CaptureSnapshotMemoryWeight < 1) 보다 큽니다. |
@@ -275,7 +280,7 @@ ms.locfileid: "92167657"
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -307,7 +312,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering)을 참조하세요. |
@@ -330,7 +335,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
@@ -349,6 +354,28 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 ## <a name="queues"></a>queues
 
 구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue-output.md#host-json)에서 찾을 수 있습니다.  
+
+## <a name="retry"></a>retry
+
+앱의 모든 실행에 대 한 [재시도 정책](./functions-bindings-error-pages.md#retry-policies) 옵션을 제어 합니다.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|속성  |기본값 | 설명 |
+|---------|---------|---------| 
+|방식의|null|필수 사항입니다. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
+|maxRetryCount|null|필수 사항입니다. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
+|delayInterval|null|전략을 통해 재시도 사이에 사용 되는 지연입니다 `fixedDelay` .|
+|minimumInterval|null|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다.|
+|maximumInterval|null|전략을 사용 하는 경우 다시 시도 하는 최대 시간 `exponentialBackoff` 입니다.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -374,7 +401,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 

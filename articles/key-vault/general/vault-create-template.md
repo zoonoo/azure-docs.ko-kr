@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282324"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285137"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure key vault 및 자격 증명 모음 액세스 정책을 만드는 방법
 
@@ -84,7 +84,7 @@ ms.locfileid: "92282324"
 
 ```
 
-Key Vault 템플릿 설정에 대 한 자세한 내용은 [ARM 템플릿 참조 Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults)를 참조 하세요.
+Key Vault 템플릿 설정에 대 한 자세한 내용은 [ARM 템플릿 참조 Key Vault](/azure/templates/microsoft.keyvault/vaults)를 참조 하세요.
 
 > [!IMPORTANT]
 > 템플릿을 다시 배포 하는 경우 키 자격 증명 모음에 있는 기존 액세스 정책이 모두 재정의 됩니다. `accessPolicies`키 자격 증명 모음에 대 한 액세스를 잃지 않으려면 기존 액세스 정책으로 속성을 채우는 것이 좋습니다. 
@@ -160,7 +160,7 @@ Key Vault 템플릿 설정에 대 한 자세한 내용은 [ARM 템플릿 참조 
 }
 
 ```
-템플릿 설정 Key Vault에 대 한 자세한 내용은 [ARM 템플릿 참조 Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies)를 참조 하세요.
+템플릿 설정 Key Vault에 대 한 자세한 내용은 [ARM 템플릿 참조 Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies)를 참조 하세요.
 
 ## <a name="more-key-vault-resource-manager-templates"></a>템플릿 추가 Key Vault 리소스 관리자
 
@@ -168,13 +168,13 @@ Key Vault 개체에 사용할 수 있는 다른 리소스 관리자 템플릿이
 
 | 비밀 | 구성 | 인증서 |
 |--|--|--|
-|<ul><li>[빠른 시작](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|해당 없음|해당 없음|
+|<ul><li>[빠른 시작](../secrets/quick-create-template.md)<li>[참조](/azure/templates/microsoft.keyvault/vaults/secrets)|해당 없음|해당 없음|
 
-[Key Vault 리소스 관리자 참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)에서 더 많은 Key Vault 템플릿을 찾을 수 있습니다.
+[Key Vault 리소스 관리자 참조](/azure/templates/microsoft.keyvault/allversions)에서 더 많은 Key Vault 템플릿을 찾을 수 있습니다.
 
 ## <a name="deploy-the-templates"></a>템플릿 배포
 
-Azure Portal를 사용 하 여 [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)에 설명 된 대로 **편집기에서 사용자 고유의 템플릿 빌드** 옵션을 사용 하 여 위의 템플릿을 배포할 수 있습니다.
+Azure Portal를 사용 하 여 [사용자 지정 템플릿에서 리소스 배포](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)에 설명 된 대로 **편집기에서 사용자 고유의 템플릿 빌드** 옵션을 사용 하 여 위의 템플릿을 배포할 수 있습니다.
 
 위의 템플릿을 파일에 저장 하 고 다음 명령을 사용할 수도 있습니다.  [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 

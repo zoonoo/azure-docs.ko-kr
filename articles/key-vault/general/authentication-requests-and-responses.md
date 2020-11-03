@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983254"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288475"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -39,7 +39,7 @@ Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 
 
 Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Vault에 대한 요청은 일부 URL 매개 변수 및 JSON 인코딩 요청 및 응답 본문을 통해 HTTPS를 사용하여 올바른 Azure Key Vault URL로 이동됩니다.
 
-이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure)를 참조하세요.
+이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](/rest/api/azure)를 참조하세요.
 
 ## <a name="request-url"></a>요청 URL  
  키 관리 작업은 HTTP DELETE, GET, PATCH, PUT 및 HTTP POST 및 HTTP POST를 사용하는 기존 키 개체에 대한 암호화 작업을 사용합니다. 특정 HTTP 동사를 지원할 수 없는 클라이언트는 X-HTTP-REQUEST 헤더를 사용한 HTTP POST를 사용하여 대상 동사를 지정할 수 있습니다. HTTP POST를 사용하는 경우(예: DELETE 대신 POST를 사용하는 경우) 일반적으로 본문이 필요하지 않은 요청은 빈 본문을 포함해야 합니다.  
@@ -111,7 +111,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 ## <a name="authentication"></a>인증  
  Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- 애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
+ 애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
  
  액세스 토큰은 HTTP 권한 부여 헤더를 사용하여 서비스에 전송해야 합니다.  
 
@@ -133,5 +133,4 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   권한 부여: 요청에 대한 액세스 토큰을 가져오는 데 사용할 수 있는 OAuth2 권한 부여 서비스의 주소입니다.  
 
--   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.  
-
+-   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.
