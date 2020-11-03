@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533161"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>자습서: Azure Active Directory와 Uberflip 통합
 
@@ -28,7 +28,7 @@ Uberflip을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 Uberflip에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,25 +51,25 @@ Uberflip에서 지원하는 기능은 다음과 같습니다.
 Uberflip이 Azure AD에 통합되도록 구성하려면 Azure Marketplace의 Uberflip을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 
    ![Azure Active Directory 옵션](common/select-azuread.png)
 
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
    ![엔터프라이즈 애플리케이션 창](common/enterprise-applications.png)
 
-1. 새 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션**을 선택합니다.
+1. 새 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션** 을 선택합니다.
 
    ![새 애플리케이션 옵션](common/add-new-app.png)
 
-1. 검색 상자에서 **Uberflip**을 입력합니다. 검색 결과에서 **Uberflip**을 선택한 다음, **추가**를 선택하여 애플리케이션을 추가합니다.
+1. 검색 상자에서 **Uberflip** 을 입력합니다. 검색 결과에서 **Uberflip** 을 선택한 다음, **추가** 를 선택하여 애플리케이션을 추가합니다.
 
    ![결과 목록의 Uberflip](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **B Simon**이라는 테스트 사용자를 기반으로 하여 Uberflip에서 Azure AD Single Sign-On을 구성하고 테스트합니다. Single Sign-On이 작동하려면 Azure AD 사용자와 Uberflip의 관련 사용자 간에 연결을 설정해야 합니다.
+이 섹션에서는 **B Simon** 이라는 테스트 사용자를 기반으로 하여 Uberflip에서 Azure AD Single Sign-On을 구성하고 테스트합니다. Single Sign-On이 작동하려면 Azure AD 사용자와 Uberflip의 관련 사용자 간에 연결을 설정해야 합니다.
 
 Uberflip에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -86,7 +86,7 @@ Uberflip에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 Uberflip에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Uberflip** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Uberflip** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 옵션](common/select-sso.png)
 
@@ -94,9 +94,9 @@ Uberflip에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
-   ![기본 SAML 구성 편집](common/edit-urls.png)
+   ![스크린샷은 회신 URL을 입력할 수 있는 기본 SAML 구성을 보여줍니다.](common/edit-urls.png)
 
 1. **기본 SAML 구성** 창에서 구성하려는 SSO 모드에 따라 다음 단계 중 하나를 수행합니다.
 
@@ -109,13 +109,13 @@ Uberflip에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
      > [!NOTE]
      > 이 값은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 실제 값을 얻으려면 [Uberflip 지원 팀](mailto:support@uberflip.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 창에 표시된 패턴을 참조할 수도 있습니다.
 
-   * SP 시작 SSO 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고 **로그온 URL** 상자에서 다음 URL을 입력합니다.
+   * SP 시작 SSO 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 선택하고 **로그온 URL** 상자에서 다음 URL을 입력합니다.
 
      `https://app.uberflip.com/users/login`
 
-     ![Uberflip 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
+     ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/both-signonurl.png)
 
-1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **다운로드**를 선택하여 지정된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고, 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 선택하여 지정된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고, 컴퓨터에 저장합니다.
 
    ![페더레이션 메타데이터 XML 다운로드 옵션](common/metadataxml.png)
 
@@ -135,11 +135,11 @@ Uberflip 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운�
 
 이 섹션에서는 Azure Portal에서 B. Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** > **사용자** > **모든 사용자** 를 선택합니다.
 
     ![사용자 및 "모든 사용자" 옵션](common/users.png)
 
-1. 화면의 위쪽에서 **+새 사용자**를 선택합니다.
+1. 화면의 위쪽에서 **+새 사용자** 를 선택합니다.
 
     ![새 사용자 옵션](common/new-user.png)
 
@@ -147,39 +147,39 @@ Uberflip 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운�
 
     ![사용자 창](common/user-properties.png)
 
-    1. **이름** 상자에 **BSimon**을 입력합니다.
+    1. **이름** 상자에 **BSimon** 을 입력합니다.
   
-    1. **사용자 이름** 상자에 **BSimon\@\<yourcompanydomain>.\<extension>** 를 입력합니다. 예를 들어 **BSimon\@contoso.com**과 같이 입력합니다.
+    1. **사용자 이름** 상자에 **BSimon\@\<yourcompanydomain>.\<extension>** 를 입력합니다. 예를 들어 **BSimon\@contoso.com** 과 같이 입력합니다.
 
     1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 
-    1. **만들기**를 선택합니다.
+    1. **만들기** 를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B. Simon에게 Uberflip에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **Uberflip**을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **Uberflip** 을 차례로 선택합니다.
 
     ![Enterprise 애플리케이션 창](common/enterprise-applications.png)
 
-1. 애플리케이션 목록에서 **Uberflip**을 선택합니다.
+1. 애플리케이션 목록에서 **Uberflip** 을 선택합니다.
 
     ![애플리케이션 목록의 Uberflip](common/all-applications.png)
 
-1. 왼쪽 창의 **관리** 아래에서 **사용자 및 그룹**을 선택합니다.
+1. 왼쪽 창의 **관리** 아래에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 옵션](common/users-groups-blade.png)
 
-1. **+사용자 추가**를 선택한 다음, **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **+사용자 추가** 를 선택한 다음, **할당 추가** 창에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-1. **사용자 및 그룹**창의 **사용자** 목록에서 **B Simon**을 선택한 다음, 화면의 아래쪽에서 **선택**을 선택합니다.
+1. **사용자 및 그룹** 창의 **사용자** 목록에서 **B Simon** 을 선택한 다음, 화면의 아래쪽에서 **선택** 을 선택합니다.
 
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에게 적합한 역할을 선택합니다. 창의 아래쪽에서 **선택**을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에게 적합한 역할을 선택합니다. 창의 아래쪽에서 **선택** 을 선택합니다.
 
-1. **할당 추가** 창에서 **할당**을 선택합니다.
+1. **할당 추가** 창에서 **할당** 을 선택합니다.
 
 ### <a name="create-an-uberflip-test-user"></a>Uberflip 테스트 사용자 만들기
 
@@ -192,12 +192,12 @@ Uberflip 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운�
 
 이 섹션에서는 My Apps 포털을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-My Apps 포털에서**Uberflip**을 선택하면 SSO를 설정한 Uberflip 구독에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+My Apps 포털에서 **Uberflip** 을 선택하면 SSO를 설정한 Uberflip 구독에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서의 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서의 목록](./tutorial-list.md)
 
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-* [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

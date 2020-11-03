@@ -3,17 +3,18 @@ title: Azure Cost Management 데이터 이해
 description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132315"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675896"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -25,28 +26,28 @@ Cost Management에는 EA(기업계약) 계정에 대한 예약 및 타사 제품
 
 ## <a name="supported-microsoft-azure-offers"></a>지원되는 Microsoft Azure 제품
 
-Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)음 다음과 같습니다. Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다. 데이터는 날짜에서 **사용 가능한 데이터**에서 시작하는 Cost Management에서 사용할 수 있습니다. 구독이 제품을 변경하는 경우 제품 변경 날짜 이전의 비용을 사용할 수 없습니다.
+Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)음 다음과 같습니다. Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다. 데이터는 날짜에서 **사용 가능한 데이터** 에서 시작하는 Cost Management에서 사용할 수 있습니다. 구독이 제품을 변경하는 경우 제품 변경 날짜 이전의 비용을 사용할 수 없습니다.
 
 | **범주**  | **제품 이름** | **할당량 ID** | **제품 번호** | **사용 가능한 데이터** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014년 5월<sup>1</sup> |
 | **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014년 5월<sup>1</sup> |
-| **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014년 5월<sup>1</sup> |
-| **Microsoft 고객 계약** | [Microsoft Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
-| **Microsoft 고객 계약** | [개발/테스트용 Microsoft Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
+| **EA(기업 계약)** | Microsoft Azure 엔터프라이즈 | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014년 5월<sup>1</sup> |
+| **Microsoft 고객 계약** | Microsoft Azure 계획 | EnterpriseAgreement_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
+| **Microsoft 고객 계약** | 개발/테스트용 Microsoft Azure 계획 | MSDNDevTest_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
 | **파트너에서 지원되는 Microsoft 고객 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-12-01 및 CSPDEVTEST_2018-05-01<br><br>할당량 ID는 Microsoft 고객 계약 및 레거시 CSP 구독에 다시 사용됩니다. 현재 Microsoft 고객 계약 구독만 지원됩니다. | 해당 없음 | 2019년 10월 |
-| **MSDN(Microsoft Developer Network)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018년 10월 2일<sup>2</sup> |
+| **MSDN(Microsoft Developer Network)** | MSDN 플랫폼<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018년 10월 2일<sup>2</sup> |
+| **종량제** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018년 10월 2일<sup>2</sup> |
+| **종량제** | 종량제 개발/테스트         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018년 10월 2일<sup>2</sup> |
+| **종량제** | Microsoft 파트너 네트워크      | MPN_2014-09-01 | MS-AZR-0025P | 2018년 10월 2일<sup>2</sup> |
+| **종량제** | 평가판<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018년 10월 2일<sup>2</sup> |
+| **종량제** | Azure in Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018년 10월 2일<sup>2</sup> |
 | **종량제** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018년 10월 2일<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018년 10월 2일<sup>2</sup> |
+| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018년 10월 2일<sup>2</sup> |
+| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018년 10월 2일<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018년 10월 2일<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018년 10월 2일<sup>2</sup> |
 
 _<sup>**1**</sup> 2014년 5월 이전의 데이터는 [Azure Enterprise Portal](https://ea.azure.com)을 방문하세요._
 
@@ -60,14 +61,14 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 
 | 범주  | **제품 이름** | **할당량 ID** | **제품 번호** |
 | --- | --- | --- | --- |
-| **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure 독일** | Azure 독일 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **종량제**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **종량제** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **종량제**                 | [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **종량제** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **종량제**                 | Microsoft Azure 스폰서쉽 | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **지원 플랜** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
 | **지원 플랜** | Professional Direct 지원         | Default_2014-09-01 | MS-AZR-0042P |
 | **지원 플랜** | 개발자 지원                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -82,7 +83,7 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 
 ### <a name="determine-your-offer-type"></a>제품 유형 결정
 
-구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 선택합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
+구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 Azure Portal에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스** 를 선택합니다. 서비스 목록에서 **구독** 을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 선택합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID** 를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
 
 ![제품 및 제품 ID가 표시된 구독 개요 탭의 예](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
@@ -110,9 +111,9 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 
 - 태그는 리소스에 직접 적용해야 하며 부모 리소스 그룹에서 암시적으로 상속되지 않습니다.
 - 리소스 태그는 리소스 그룹에 배포된 리소스에 대해서만 지원됩니다.
-- 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다. [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/management/tag-support.md)을 참조하세요.
+- 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다.
 - 태그를 적용하는 동안에는 사용량 데이터에만 리소스 태그가 포함됩니다. 태그는 기록 데이터에 적용되지 않습니다.
-- 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다. [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
+- 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다.
 - 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우(예제: VM이 할당 취소되지 않은 경우)에만 Cost Management에서 사용할 수 있습니다.
 - 태그를 관리하려면 각 리소스에 대한 기여자 액세스 권한이 필요합니다.
 - 태그 정책을 관리하려면 소유자 또는 정책 기여자에게 관리 그룹, 구독 또는 리소스 그룹에 대한 액세스 권한이 있어야 합니다.
@@ -120,7 +121,7 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 고려하세요.
 
 - 태그가 리소스에 직접 적용되었습니까?
-- 태그가 24시간 전에 적용되었습니까? [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
+- 태그가 24시간 전에 적용되었습니까?
 - 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/management/tag-support.md)을 참조하세요.
     - Azure Active Directory B2C 디렉터리
     - Azure Bastion
@@ -143,7 +144,7 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>비용, 사용량 데이터 업데이트 및 보존
 
-비용 및 사용량 데이터는 일반적으로 Azure Portal의 비용 관리 + 청구와 [지원 API](../index.yml)에서 8-24시간 내에 사용할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
+비용 및 사용량 데이터는 일반적으로 Azure Portal의 비용 관리 + 청구와 지원 API에서 8-24시간 내에 사용할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
 
 - 각 Azure 서비스(예: 스토리지, 컴퓨팅 및 SQL)는 다른 간격으로 사용량을 내보냅니다. 일부 서비스에 대한 데이터는 다른 서비스보다 빨리 볼 수 있습니다.
 - 현재 청구 기간의 예상 요금은 하루에 6번 업데이트됩니다.
@@ -160,7 +161,7 @@ Cost Management + 청구에서 비용 및 사용량 데이터를 사용할 수 �
 
 ### <a name="rerated-data"></a>데이터 재평가
 
-[Cost Management API](../index.yml), Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감되기 전에는 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
+Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감되기 전에는 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
 
 ## <a name="cost-rounding"></a>비용 반올림
 

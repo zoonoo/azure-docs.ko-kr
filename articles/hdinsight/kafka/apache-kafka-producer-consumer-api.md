@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681824"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629309"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -34,7 +34,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight 클러스터의 Apache Kafka. 클러스터를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
-* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](https://aka.ms/azure-jdks) 또는 그와 동등한 프로그램
+* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 또는 그와 동등한 프로그램
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 * Putty와 같은 SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -217,9 +217,9 @@ Kafka에 저장된 레코드는 파티션 내에서 받은 순서대로 저장�
 
 ## <a name="common-issues-faced"></a>일반적인 문제
 
-1. **항목 만들기 실패** 클러스터가 엔터프라이즈 보안 팩을 사용하도록 설정된 경우 [생산자 및 소비자에 대해 미리 빌드된 JAR 파일](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)을 사용합니다. [`DomainJoined-Producer-Consumer` 하위 디렉터리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)의 코드에서 ESP jar을 빌드할 수 있습니다. 생산자 및 소비자 속성은 ESP 사용 클러스터에 대한 추가 속성 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`입니다.
+1. **항목 만들기 실패** 클러스터가 엔터프라이즈 보안 팩을 사용하도록 설정된 경우 [생산자 및 소비자에 대해 미리 빌드된 JAR 파일](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)을 사용합니다. [`DomainJoined-Producer-Consumer` 하위 디렉터리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)의 코드에서 ESP jar을 빌드할 수 있습니다. 생산자 및 소비자 속성에는 ESP 사용 클러스터에 대한 추가 속성 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`가 있습니다.
 
-2. **ESP 사용 클러스터와 관련된 문제** 생산자 및 소비자 작업이 실패하고 ESP 사용 클러스터를 사용하는 경우 사용자 `kafka`가 모든 Ranger 정책에 있는지 확인합니다. 없는 경우 모든 Ranger 정책에 추가합니다.
+2. **ESP 사용 클러스터의 오류** : 생산 및 소비 작업이 실패하고 ESP 지원 클러스터를 사용하는 경우 사용자 `kafka`가 모든 Ranger 정책에 있는지 확인합니다. 없는 경우 모든 Ranger 정책에 추가합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906952"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892488"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: PowerShell을 사용하여 Azure AD B2B 협업 사용자 일괄 초대
 
@@ -77,7 +77,7 @@ Microsoft Excel에서 초대 대상자 사용자 이름 및 메일 주소 목록
 
 ![보류 중인 사용자 수락을 보여 주는 PowerShell 출력](media/tutorial-bulk-invite/AddUsersExcel.png)
 
-파일을 **C:\BulkInvite\Invitations.csv**로 저장합니다. 
+파일을 **C:\BulkInvite\Invitations.csv** 로 저장합니다. 
 
 Excel이 없는 경우에는 메모장과 같은 모든 텍스트 편집기에서 CSV 파일을 만들 수 있습니다. 각 값을 쉼표로 구분하고 각 행을 새 줄로 구분합니다. 
 
@@ -95,7 +95,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 
 ## <a name="send-bulk-invitations"></a>일괄 초대 보내기
 
-초대를 보내려면 다음 PowerShell 스크립트를 실행합니다(여기서 **c:\bulkinvite\invitations.csv**는 CSV 파일의 경로임).
+초대를 보내려면 다음 PowerShell 스크립트를 실행합니다(여기서 **c:\bulkinvite\invitations.csv** 는 CSV 파일의 경로임).
 
 ```powershell
 $invitations = import-csv c:\bulkinvite\invitations.csv
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 스크립트는 invitations.csv 파일의 메일 주소로 초대를 보냅니다. 각 사용자에 대한 다음과 비슷한 출력이 표시되어야 합니다.
 
-![보류 중인 사용자 수락을 보여 주는 PowerShell 출력](media/tutorial-bulk-invite/B2BBulkImport.png)
+![보류 중인 사용자 승인이 포함된 PowerShell 출력을 보여주는 스크린샷.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>사용자가 디렉터리에 있는지 확인
 
@@ -126,7 +126,7 @@ foreach ($email in $invitations)
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-초대한 사용자가 *emailaddress*#EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되어야 합니다. 예를 들어 *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
+초대한 사용자가 *emailaddress* #EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되어야 합니다. 예를 들어 *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* 에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

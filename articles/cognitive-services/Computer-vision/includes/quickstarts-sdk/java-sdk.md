@@ -7,29 +7,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 2b305b1ffc5c72780f903c7798fbce24c630baba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac0d09ea1641688dc59df1bbdbe19712d0cebe4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886654"
 ---
 <a name="HOLTop"></a>
 
-[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
 * [Gradle 빌드 도구](https://gradle.org/install/) 또는 다른 종속성 관리자
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ## <a name="setting-up"></a>설치
 
@@ -41,15 +40,19 @@ ms.locfileid: "89321884"
 mkdir myapp && cd myapp
 ```
 
-작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts*를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
+작업 디렉터리에서 `gradle init` 명령을 실행합니다. 이 명령은 *build.gradle.kts* 를 포함하여 런타임에 애플리케이션을 만들고 구성하는 데 사용되는 Gradle용 필수 빌드 파일을 만듭니다.
 
 ```console
 gradle init --type basic
 ```
 
-**DSL**을 선택하라는 메시지가 표시되면 **Kotlin**을 선택합니다.
+**DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
 
-*build.gradle.kts*를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 다음 빌드 구성을 복사합니다. 이 구성은 프로젝트를 Java 애플리케이션(진입점이 **ComputerVisionQuickstarts** 클래스임)으로 정의합니다. Computer Vision 라이브러리를 가져옵니다.
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+
+이 빠른 시작에서는 Gradle 종속성 관리자를 사용합니다. 다른 종속성 관리자에 대한 클라이언트 라이브러리 및 정보는 [Maven 중앙 리포지토리](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)에서 찾을 수 있습니다.
+
+*build.gradle.kts* 를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 다음 빌드 구성을 복사합니다. 이 구성은 프로젝트를 Java 애플리케이션(진입점이 **ComputerVisionQuickstarts** 클래스임)으로 정의합니다. Computer Vision 라이브러리를 가져옵니다.
 
 ```kotlin
 plugins {
@@ -62,7 +65,12 @@ application {
 repositories {
     mavenCentral()
 }
+dependencies {
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+}
 ```
+
+### <a name="create-a-java-file"></a>Java 파일 만들기
 
 작업 디렉터리에서 다음 명령을 실행하여 프로젝트 원본 폴더를 만듭니다.
 
@@ -70,23 +78,27 @@ repositories {
 mkdir -p src/main/java
 ```
 
-새 폴더로 이동하여 *ComputerVisionQuickstarts.java*라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
+새 폴더로 이동하여 *ComputerVisionQuickstarts.java* 라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imports)]
 
-그런 다음, **ComputerVisionQuickstarts**에 대한 클래스 정의를 추가합니다.
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+애플리케이션의 **ComputerVisionQuickstarts** 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
-이 빠른 시작에서는 Gradle 종속성 관리자를 사용합니다. 다른 종속성 관리자에 대한 클라이언트 라이브러리 및 정보는 [Maven 중앙 리포지토리](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)에서 찾을 수 있습니다.
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
-프로젝트의 *build.gradle.kts* 파일에서 Computer Vision 클라이언트 라이브러리를 종속성으로 포함시킵니다.
 
-```kotlin
-dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
-}
-```
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 [제품 이름] 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
+
+애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
+
 
 ## <a name="object-model"></a>개체 모델
 
@@ -108,32 +120,24 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-> [!NOTE]
-> 이 빠른 시작에서는 `COMPUTER_VISION_SUBSCRIPTION_KEY`라는 Computer Vision 키에 대한 [환경 변수를 만들었다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)고 가정합니다.
 
-다음 코드에서는 `main` 메서드를 클래스에 추가하고, 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. Azure Portal의 **개요** 섹션을 확인하여 찾을 수 있는 고유한 엔드포인트 문자열을 입력해야 합니다. 
+새 메서드에서 엔드포인트와 키를 사용하여 [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) 개체를 인스턴스화합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_mainvars)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
-다음으로, 다음 코드를 추가하여 [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) 개체를 만들고, 나중에 정의하는 다른 메서드에 전달합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_client)]
-
-> [!NOTE]
-> 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어야 합니다.
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
 다음 코드에서는 클라이언트 개체를 사용하여 로컬 이미지를 분석하고 결과를 출력하는 `AnalyzeLocalImage` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
 
+> [!TIP]
+> URL을 사용하여 원격 이미지를 분석할 수도 있습니다. [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) 메서드(예: **AnalyzeImage** )를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
+
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
-먼저, **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 분석하려는 이미지를 추가합니다. 그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 필요한 경우 이미지 파일과 일치하도록 `pathToLocalImage`의 값을 변경합니다. 
+먼저, **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 분석하려는 이미지를 추가합니다. 그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 이미지 파일과 일치하도록 `pathToLocalImage`의 값을 변경합니다. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
-
-> [!NOTE]
-> URL을 사용하여 원격 이미지를 분석할 수도 있습니다. 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
 
 ### <a name="specify-visual-features"></a>시각적 기능 지정
 
@@ -206,14 +210,14 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 섹션에서는 로컬 파일 경로를 사용하고 이미지의 텍스트를 콘솔에 인쇄하는 `ReadFromFile` 메서드를 정의합니다.
 
-> [!NOTE]
-> URL을 사용하여 원격 이미지의 텍스트를 읽을 수도 있습니다. 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
+> [!TIP]
+> URL에서 참조하는 원격 이미지의 텍스트를 읽을 수도 있습니다. [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) 메서드(예: **read** )를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
 **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 텍스트를 읽을 이미지를 추가합니다. [샘플 이미지](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg)를 다운로드하여 여기에서 사용할 수 있습니다.
 
-그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 필요한 경우 이미지 파일과 일치하도록 `localFilePath`의 값을 변경합니다. 
+그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 이미지 파일과 일치하도록 `localFilePath`의 값을 변경합니다. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
 

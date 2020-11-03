@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c6b88e9c59fa7195e77275ad193975924df137f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4176c92d48b67b9f9207f22ebd8939b5ec1437ee
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532146"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>자습서: Azure Active Directory와 Vidyard 통합
 
@@ -27,7 +27,7 @@ Vidyard를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 Vidyard에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -55,7 +55,7 @@ Vidyard의 Azure AD 통합을 구성하려면 갤러리의 Vidyard를 관리되�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Vidyard의 Azure AD 통합을 구성하려면 갤러리의 Vidyard를 관리되�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Vidyard**를 입력하고 결과 패널에서 **Vidyard**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Vidyard** 를 입력하고 결과 패널에서 **Vidyard** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 Vidyard](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Vidyard에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Vidyard에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Vidyard의 관련 사용자 간에 연결 관계가 설정되어 있어야 합니다.
 
 Vidyard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -87,7 +87,7 @@ Vidyard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Vidyard** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Vidyard** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -101,22 +101,22 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Vidyard 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://secure.vidyard.com/sso/saml/<unique id>/metadata` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://secure.vidyard.com/sso/saml/<unique id>/consume` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    ![Vidyard 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://secure.vidyard.com/sso/saml/<unique id>/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트하게 됩니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -134,17 +134,17 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 1. 다른 웹 브라우저 창에서 Vidyard Software 회사 사이트에 관리자로 로그인합니다.
 
-2. Vidyard 대시보드에서 **그룹** > **보안**을 선택합니다.
+2. Vidyard 대시보드에서 **그룹** > **보안** 을 선택합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure1.png)
+    ![스크린샷은 Vidyard Software 사이트의 그룹에서 선택한 보안을 보여줍니다.](./media/vidyard-tutorial/configure1.png)
 
 3. **새 프로필** 탭을 클릭합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure2.png)
+    ![스크린샷은 새 프로필 단추를 보여줍니다.](./media/vidyard-tutorial/configure2.png)
 
 4. **SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure3.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 구성 섹션을 보여줍니다.](./media/vidyard-tutorial/configure3.png)
 
     a. **프로필 이름** 텍스트 상자에 일반 프로필 이름을 붙여넣습니다.
 
@@ -158,22 +158,22 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     f. **SAML 엔드포인트 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    g. **확인**을 클릭합니다.
+    g. **확인** 을 클릭합니다.
 
-5. Single Sign On 탭에서 기존 프로필 옆에 있는 **할당**을 선택합니다.
+5. Single Sign On 탭에서 기존 프로필 옆에 있는 **할당** 을 선택합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure4.png)
+    ![스크린샷은 Azure AD SSO 프로필에 대한 할당 단추를 보여줍니다.](./media/vidyard-tutorial/configure4.png)
 
     > [!NOTE]
     > SSO 프로필을 만든 후 사용자가 Azure를 통해 액세스를 요청할 모든 그룹에 할당합니다. 할당된 그룹 안에 사용자가 없는 경우 Vidyard는 자동으로 사용자 계정을 만들고 실시간으로 역할을 할당합니다.
 
-6. **할당할 수 있는 그룹**에 표시되는 조직 그룹을 선택합니다.
+6. **할당할 수 있는 그룹** 에 표시되는 조직 그룹을 선택합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure5.png)
+    ![스크린샷은 그룹을 선택할 수 있는 [조직에 SAML 구성 할당] 섹션을 보여줍니다.](./media/vidyard-tutorial/configure5.png)
 
-7. **현재 할당된 그룹**에서 할당된 그룹을 확인할 수 있습니다. 사용자 조직에 따라 그룹의 역할을 선택하고 **확인**을 클릭합니다.
+7. **현재 할당된 그룹** 에서 할당된 그룹을 확인할 수 있습니다. 사용자 조직에 따라 그룹의 역할을 선택하고 **확인** 을 클릭합니다.
 
-    ![Vidyard 구성](./media/vidyard-tutorial/configure6.png)
+    ![스크린샷은 역할을 선택할 수 있는 [조직에 SAML 구성 할당] 섹션을 보여줍니다.](./media/vidyard-tutorial/configure6.png)
 
     > [!NOTE]
     > 자세한 내용은 [이 설명서](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard)를 참조하세요.
@@ -182,11 +182,11 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -194,35 +194,35 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Vidyard에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Vidyard**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Vidyard** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Vidyard**를 선택합니다.
+2. 애플리케이션 목록에서 **Vidyard** 를 선택합니다.
 
     ![애플리케이션 목록의 Vidyard 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -239,13 +239,12 @@ Vidyard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Vidyard 타일을 클릭하면 SSO가 설정된 Vidyard에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Vidyard 타일을 클릭하면 SSO가 설정된 Vidyard에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

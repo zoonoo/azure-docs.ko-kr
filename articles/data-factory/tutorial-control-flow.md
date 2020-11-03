@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983418"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637703"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -40,7 +40,7 @@ ms.locfileid: "90983418"
 > * 파이프라인 실행 시작
 > * 파이프라인 및 작업 실행 모니터링
 
-이 자습서에서는 .NET SDK를 사용합니다. 다른 메커니즘을 사용하여 Azure Data Factory와 상호 작용할 수 있습니다. Data Factory 빠른 시작에 대해서는 [5분 빠른 시작](/azure/data-factory/quickstart-create-data-factory-portal)을 참조하세요.
+이 자습서에서는 .NET SDK를 사용합니다. 다른 메커니즘을 사용하여 Azure Data Factory와 상호 작용할 수 있습니다. Data Factory 빠른 시작에 대해서는 [5분 빠른 시작](./quickstart-create-data-factory-portal.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -54,33 +54,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 현재 Data Factory를 사용할 수 있는 Azure 지역의 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. 데이터 저장소와 컴퓨팅은 다른 지역에 있을 수 있습니다. 저장소에는 Azure Storage 및 Azure SQL Database가 포함됩니다. 컴퓨팅에는 Data Factory에서 사용하는 HDInsight가 포함됩니다.
 
-[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 "**기여자**" 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID**와 같은 몇 가지 값이 필요합니다.
+[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 " **기여자** " 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 와 같은 몇 가지 값이 필요합니다.
 
 ### <a name="create-a-blob-table"></a>Blob 테이블 만들기
 
-1. 텍스트 편집기를 엽니다. 다음 텍스트를 복사하여 *input.txt*로 로컬로 저장합니다.
+1. 텍스트 편집기를 엽니다. 다음 텍스트를 복사하여 *input.txt* 로 로컬로 저장합니다.
 
    ```
    Ethel|Berg
    Tamika|Walsh
    ```
 
-1. Azure Storage Explorer를 엽니다. 스토리지 계정을 펼칩니다. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고 **Blob 컨테이너 만들기**를 선택합니다.
-1. 새 컨테이너의 이름을 *adfv2branch*로 지정하고, **업로드**를 선택하여 *input.txt* 파일을 컨테이너에 추가합니다.
+1. Azure Storage Explorer를 엽니다. 스토리지 계정을 펼칩니다. 마우스 오른쪽 단추로 **Blob 컨테이너** 를 클릭하고 **Blob 컨테이너 만들기** 를 선택합니다.
+1. 새 컨테이너의 이름을 *adfv2branch* 로 지정하고, **업로드** 를 선택하여 *input.txt* 파일을 컨테이너에 추가합니다.
 
 ## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기<a name="create-visual-studio-project"></a>
 
 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-1. Visual Studio를 시작하고, **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음**을 선택합니다.
-1. 프로젝트 이름을 *ADFv2BranchTutorial*로 지정합니다.
-1. **.NET 버전 4.5.2** 이상, **만들기**를 차례로 선택합니다.
+1. Visual Studio를 시작하고, **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음** 을 선택합니다.
+1. 프로젝트 이름을 *ADFv2BranchTutorial* 로 지정합니다.
+1. **.NET 버전 4.5.2** 이상, **만들기** 를 차례로 선택합니다.
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
-1. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
+1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다.
+1. **패키지 관리자 콘솔** 에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
    ```powershell
    Install-Package Microsoft.Azure.Management.DataFactory
@@ -90,7 +90,7 @@ C# .NET 콘솔 애플리케이션을 만듭니다.
 
 ### <a name="create-a-data-factory-client"></a>데이터 팩터리 클라이언트 만들기
 
-1. *Program.cs*를 열고, 다음 명령문을 추가합니다.
+1. *Program.cs* 를 열고, 다음 명령문을 추가합니다.
 
    ```csharp
    using System;
@@ -211,7 +211,7 @@ C# .NET 콘솔 애플리케이션을 만듭니다.
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
 
-*Azure Blob 데이터 세트*를 만드는 메서드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요.
+*Azure Blob 데이터 세트* 를 만드는 메서드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요.
 
 `SourceBlobDatasetDefinition` 메서드를 *Program.cs* 파일에 추가합니다.
 
@@ -234,9 +234,9 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 지원되는 Azure Storage 연결된 서비스를 참조합니다. Blob 데이터 세트는 복사할 원본 Blob의 위치(*FolderPath* 및 *FileName*)를 설명합니다.
+Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 지원되는 Azure Storage 연결된 서비스를 참조합니다. Blob 데이터 세트는 복사할 원본 Blob의 위치( *FolderPath* 및 *FileName* )를 설명합니다.
 
-*FolderPath*에 매개 변수를 사용하는지 확인합니다. `sourceBlobContainer`는 매개 변수의 이름이고, 식은 파이프라인 실행에서 전달된 값으로 바뀝니다. 매개 변수를 정의하는 구문은 `@pipeline().parameters.<parameterName>`입니다.
+*FolderPath* 에 매개 변수를 사용하는지 확인합니다. `sourceBlobContainer`는 매개 변수의 이름이고, 식은 파이프라인 실행에서 전달된 값으로 바뀝니다. 매개 변수를 정의하는 구문은 `@pipeline().parameters.<parameterName>`입니다.
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>싱크 Azure Blob에 대한 데이터 세트 만들기
 
@@ -308,7 +308,7 @@ C# 프로젝트에서 `EmailRequest`라는 클래스를 만듭니다. 이 클래
 
 ### <a name="success-email-workflow"></a>성공 전자 메일 워크플로
 
-[Azure Portal](https://portal.azure.com)에서 *CopySuccessEmail*이라는 Logic Apps 워크플로를 만듭니다. 워크플로 트리거를 `When an HTTP request is received`로 정의합니다. 요청 트리거의 경우 `Request Body JSON Schema`를 다음 JSON으로 채웁니다.
+[Azure Portal](https://portal.azure.com)에서 *CopySuccessEmail* 이라는 Logic Apps 워크플로를 만듭니다. 워크플로 트리거를 `When an HTTP request is received`로 정의합니다. 요청 트리거의 경우 `Request Body JSON Schema`를 다음 JSON으로 채웁니다.
 
 ```json
 {
@@ -344,7 +344,7 @@ C# 프로젝트에서 `EmailRequest`라는 클래스를 만듭니다. 이 클래
 
 ## <a name="fail-email-workflow"></a>실패 전자 메일 워크플로
 
-**CopySuccessEmail**을 *CopyFailEmail*이라는 다른 Logic Apps 워크플로로 복제합니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. `Subject`와 같은 전자 메일의 형식을 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
+**CopySuccessEmail** 을 *CopyFailEmail* 이라는 다른 Logic Apps 워크플로로 복제합니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. `Subject`와 같은 전자 메일의 형식을 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
 
 ![논리 앱 디자이너 - 실패 이메일 워크플로](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -597,7 +597,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
-애플리케이션에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행을 만드는 작업에 대한 진행 상황을 표시합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음, Azure Storage Explorer와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 *inputBlobPath*에서 *outputBlobPath*로 복사되었는지 확인합니다.
+애플리케이션에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행을 만드는 작업에 대한 진행 상황을 표시합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음, Azure Storage Explorer와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 *inputBlobPath* 에서 *outputBlobPath* 로 복사되었는지 확인합니다.
 
 출력은 다음 샘플과 비슷합니다.
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 이 자습서에서는 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기
+> _ 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기

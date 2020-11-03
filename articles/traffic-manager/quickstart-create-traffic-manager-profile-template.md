@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299153"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676011"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Traffic Manager 프로필 만들기
 
@@ -43,7 +43,7 @@ Azure Traffic Manager에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 코드 블록에서 **사용해 보기**를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다. 
+1. 다음 코드 블록에서 **사용해 보기** 를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -60,18 +60,18 @@ Azure Traffic Manager에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 
     콘솔에서 프롬프트가 표시될 때까지 기다립니다.
 
-1. 이전 코드 블록에서 **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
+1. 이전 코드 블록에서 **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
 
-1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기**를 선택합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기** 를 선택합니다.
 
 1. 값을 입력합니다.
 
-    템플릿 배포는 두 개의 외부 엔드포인트가 있는 프로필을 만듭니다. **Endpoint1**은 **북유럽**에 위치하는 *w<span>ww.microsoft</span>.com*의 대상 엔드포인트를 사용합니다. **Endpoint2**는 **미국 중남부**에 위치하는 *d<span>ocs.microsoft</span>.com*의 대상 엔드포인트를 사용합니다. 
+    템플릿 배포는 두 개의 외부 엔드포인트가 있는 프로필을 만듭니다. **Endpoint1** 은 **북유럽** 에 위치하는 `www.microsoft.com`의 대상 엔드포인트를 사용합니다. **Endpoint2** 는 **미국 중남부** 에 위치하는 `docs.microsoft.com`의 대상 엔드포인트를 사용합니다.
 
-    리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+    리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
     > [!NOTE]
-    > 템플릿을 성공적으로 배포하려면 **uniqueDNSname**이 전역적으로 고유한 이름이어야 합니다. 배포에 실패하면 1단계부터 다시 시작합니다.
+    > 템플릿을 성공적으로 배포하려면 **uniqueDNSname** 이 전역적으로 고유한 이름이어야 합니다. 배포에 실패하면 1단계부터 다시 시작합니다.
 
     템플릿을 배포하는 데 몇 분 정도 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
 
@@ -87,21 +87,23 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    **RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 *<* relativednsname *>.trafficmanager.net*입니다. 
+    **RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 `<relativednsname>.trafficmanager.net`입니다.
 
-1. 로컬 PowerShell에서 **{relativeDNSname}** 변수를 *<* relativednsname *>.trafficmanager.net*으로 바꿔서 다음 명령을 실행합니다.
+1. 로컬 PowerShell에서 **{relativeDNSname}** 변수를 `<relativednsname>.trafficmanager.net`으로 바꿔서 다음 명령을 실행합니다.
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    가까운 지역에 따라 *w<span>ww.microsoft</span>.com* 또는 *d<span>ocs.microsoft</span>.com*의 NameHost를 가져와야 합니다.
 
-1. 다른 엔드포인트로 해결할 수 있는지 확인하려면 마지막 단계에서 가져온 대상에 대한 엔드포인트를 사용하지 않도록 설정합니다. **{endpointName}** 을 **endpoint1** 또는 **endpoint2** 중 하나로 바꿔서 *w<span>ww.microsoft</span>.com* 또는 *d<span>ocs.microsoft</span>.com*에 대한 대상을 각각 사용하지 않도록 설정합니다.
+    가까운 지역에 따라 `www.microsoft.com` 또는 `docs.microsoft.com`의 NameHost를 가져와야 합니다.
+
+1. 다른 엔드포인트로 해결할 수 있는지 확인하려면 마지막 단계에서 가져온 대상에 대한 엔드포인트를 사용하지 않도록 설정합니다. **{endpointName}** 을 **endpoint1** 또는 **endpoint2** 중 하나로 바꿔서 `www.microsoft.com` 또는 `docs.microsoft.com`에 대한 대상을 각각 사용하지 않도록 설정합니다.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. 로컬 PowerShell에서 2단계의 명령을 다시 실행합니다. 이번에는 다른 엔드포인트에 대한 다른 NameHost를 가져와야 합니다. 
+
+1. 로컬 PowerShell에서 2단계의 명령을 다시 실행합니다. 이번에는 다른 엔드포인트에 대한 다른 NameHost를 가져와야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 다음을 만들었습니다.
-* Traffic Manager 프로필
+이 빠른 시작에서는 Traffic Manager 프로필을 만들었습니다.
 
 트래픽 라우팅에 대해 자세히 알아보려면 Traffic Manager 자습서로 계속 진행하세요.
 

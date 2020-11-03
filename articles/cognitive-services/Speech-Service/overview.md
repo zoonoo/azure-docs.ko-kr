@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630205"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521512"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
 Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech CLI](spx-overview.md), [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/) 또는 [REST API](rest-apis.md)를 통해 애플리케이션, 도구 및 디바이스를 음성으로 쉽게 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> Speech Service는 Bing Speech API 및 Translator Speech를 대체했습니다. 마이그레이션 지침에 대해서는 _방법 가이드 > 마이그레이션_을 참조하세요.
+> Speech Service는 Bing Speech API 및 Translator Speech를 대체했습니다. 마이그레이션 지침에 대해서는 _마이그레이션_ 섹션을 참조하세요.
 
 Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를 사용하여 각 기능의 일반적인 사용 사례에 대해 자세히 알아보거나 API 참조를 찾아볼 수 있습니다.
 
@@ -44,9 +44,9 @@ Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를
 
 ## <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
-다음 단계에서는 Microsoft 계정과 Azure 계정이 모두 필요합니다. Microsoft 계정이 없으면 [Microsoft 계정 포털](https://account.microsoft.com/account)에서 무료로 한 계정에 가입할 수 있습니다. **Microsoft에 로그인**을 선택한 다음, 로그인하라는 메시지가 표시되면 **Microsoft 계정 만들기**를 선택합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
+다음 단계에서는 Microsoft 계정과 Azure 계정이 모두 필요합니다. Microsoft 계정이 없으면 [Microsoft 계정 포털](https://account.microsoft.com/account)에서 무료로 한 계정에 가입할 수 있습니다. **Microsoft에 로그인** 을 선택한 다음, 로그인하라는 메시지가 표시되면 **Microsoft 계정 만들기** 를 선택합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
 
-Microsoft 계정이 있으면 [Azure 가입 페이지](https://azure.microsoft.com/free/ai/)로 이동하고, **평가판 시작**을 선택한 다음, Microsoft 계정을 사용하여 새 Azure 계정을 만듭니다.
+Microsoft 계정이 있으면 [Azure 가입 페이지](https://azure.microsoft.com/free/ai/)로 이동하고, **평가판 시작** 을 선택한 다음, Microsoft 계정을 사용하여 새 Azure 계정을 만듭니다.
 
 > [!NOTE]
 > Speech Service에는 체험 및 구독의 두 가지 서비스 계층이 있으며, 제한 사항과 혜택이 서로 다릅니다. Azure 체험 계정에 가입하면 유료 Speech Service 구독에 적용할 수 있는 $200의 서비스 크레딧이 제공되며, 최대 30일 동안 유효합니다.
@@ -61,27 +61,41 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택합니다. **리소스 만들기**가 표시되지 않으면 언제든지 화면의 왼쪽 위 모서리에서 접혀 있는 메뉴를 선택하여 찾을 수 있습니다.
+1. 포털의 왼쪽 위에서 **리소스 만들기** 를 선택합니다. **리소스 만들기** 가 표시되지 않으면 언제든지 화면의 왼쪽 위 모서리에서 접혀 있는 메뉴를 선택하여 찾을 수 있습니다.
 
 1. **새로 만들기** 창의 검색 상자에서 "speech"를 입력하고 ENTER 키를 누릅니다.
 
-1. 검색 결과에서 **Speech**를 선택합니다.
+1. 검색 결과에서 **Speech** 를 선택합니다.
 
    ![음성 검색 결과](media/index/speech-search.png)
 
-1. **만들기**를 선택하고 다음을 수행합니다.
+1. **만들기** 를 선택하고 다음을 수행합니다.
 
    - 새 리소스에 대한 고유한 이름을 지정합니다. 이름은 동일한 서비스에 연결된 여러 구독을 구분하는 데 도움이 됩니다.
    - 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
    - 리소스가 사용될 [지역](regions.md)을 선택합니다.
-   - F0(체험) 또는 S0(유료) 가격 책정 계층을 선택합니다. 각 계층의 가격 책정 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 선택하세요. 각 구독에 대해 만들 수 있는 리소스에 대한 제한은 [Azure Cognitive Services 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits)을 참조하세요.
+   - F0(체험) 또는 S0(유료) 가격 책정 계층을 선택합니다. 각 계층의 가격 책정 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기** 를 선택하세요. 각 구독에 대해 만들 수 있는 리소스에 대한 제한은 [Azure Cognitive Services 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits)을 참조하세요.
    - 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
-   - **만들기**를 선택합니다. 그러면 배포 개요로 이동하여 배포 진행률 메시지가 표시됩니다.
+   - **만들기** 를 선택합니다. 그러면 배포 개요로 이동하여 배포 진행률 메시지가 표시됩니다.
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-새 Speech 리소스를 배포하는 데 몇 분 정도 걸립니다. 배포가 완료되면 **리소스로 이동**을 선택하고, 왼쪽 탐색 창에서 **키**를 선택하여 Speech Service 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 키를 코드 편집기 또는 다른 위치에 빨리 복사하여 붙여넣으려면 각 키 옆의 복사 단추를 선택하고, 창을 전환하여 클립보드 내용을 원하는 위치에 붙여넣습니다.
+새 Speech 리소스를 배포하는 데 몇 분 정도 걸립니다. 
+
+### <a name="find-keys-and-region"></a>키 및 지역 찾기
+
+완료된 배포의 키와 지역을 찾으려면 다음 단계를 수행합니다.
+
+1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+2. **모든 리소스** 를 선택하고 Cognitive Services 리소스의 이름을 선택합니다.
+
+3. 왼쪽 창의 **리소스 관리** 에서 **키 및 엔드포인트** 를 선택합니다.
+
+각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 키를 코드 편집기 또는 다른 위치에 복사하여 붙여넣으려면 각 키 옆에 있는 복사 단추를 선택하고, 창을 전환하여 클립보드 내용을 원하는 위치에 붙여넣습니다.
+
+또한 `LOCATION` 값을 복사합니다. 이 값은 SDK 호출에 대한 지역 ID(예: `westus`, `westeurope`)입니다.
 
 > [!IMPORTANT]
 > 이러한 구독 키는 Cognitive Service API에 액세스하는 데 사용됩니다. 키를 공유하지 마세요. 예를 들어 Azure Key Vault를 사용하여 안전하게 저장합니다. 또한 이러한 키는 정기적으로 다시 생성하는 것이 좋습니다. API 호출을 수행하는 데는 하나의 키만 필요합니다. 첫 번째 키를 다시 생성하는 경우 두 번째 키를 사용하여 서비스에 계속 액세스할 수 있습니다.

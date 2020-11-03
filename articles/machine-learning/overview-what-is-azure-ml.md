@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710739"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495755"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -111,10 +111,10 @@ Azure Machine Learning을 시작하려면 [다음 단계](#next-steps)를 참조
 
 Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동하며, Git 및 MLFlow 같은 오픈 소스 도구와 통합됩니다.
 
-+ __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, __Azure HDInsight__ 등의 컴퓨팅 대상. 컴퓨팅 대상에 대한 자세한 내용은 [컴퓨팅 대상이란?](concept-compute-target.md)을 참조하세요.
++ __Azure Kubernetes Service__ , __Azure Container Instances__ , __Azure Databricks__ , __Azure Data Lake Analytics__ , __Azure HDInsight__ 등의 컴퓨팅 대상. 컴퓨팅 대상에 대한 자세한 내용은 [컴퓨팅 대상이란?](concept-compute-target.md)을 참조하세요.
 + __Azure Event Grid__. 자세한 내용은 [Azure Machine Learning 이벤트 사용](concept-event-grid-integration.md)을 참조하세요.
 + __Azure Monitor__ 자세한 내용은 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
-+ __Azure Storage 계정__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md)를 참조하세요.
++ __Azure Storage 계정__ , __Azure Data Lake Storage__ , __Azure SQL Database__ , __Azure Database for PostgreSQL__ , __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md)를 참조하세요.
 + __Azure Virtual Network__. 자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 + __Azure Pipelines__. 자세한 내용은 [기계 학습 모델의 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 참조하세요.
 + __Git 리포지토리 로그__. 자세한 내용은 [Git 통합](concept-train-model-git-integration.md)을 참조하세요.
@@ -128,7 +128,8 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
 ## <a name="next-steps"></a>다음 단계
 
 - 선호하는 방법으로 첫 번째 실험을 만드세요.
-  + [Python Notebook을 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
+- + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
+  + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [R Markdown을 사용하여 ML 모델을 학습 및 배포](tutorial-1st-r-experiment.md) 
   + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md) 
   + [디자이너의 끌어서 놓기 기능을 사용하여 학습 및 배포](tutorial-designer-automobile-price-train-score.md) 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 65340bfcab76bd35901d1b3a9f3b4a8736205706
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 7575e174f1f47d55c507fdbf0386fbd578649839
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376404"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499106"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -31,68 +31,62 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다. 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만듭니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
 
-> [!NOTE]
-> 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
 
-[`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 초기화하는 다음과 같은 방법이 있습니다.
+auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```
 
-* 구독 사용: 키 및 연결된 영역을 전달합니다.
+[`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 초기화할 수 있는 몇 가지 다른 방법이 있습니다.
+
 * 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만드는 방법을 살펴보겠습니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
+> [!NOTE]
+> 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
 
-```cpp
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## <a name="recognize-from-microphone"></a>마이크에서 인식
 
-## <a name="initialize-a-recognizer"></a>인식기 초기화
-
-[`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화할 때 `speech_config`를 전달해야 합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
-
-```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
-
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화할 때 매개 변수로 전달해야 합니다.
-
-디바이스 마이크를 통해 음성을 인식하려면 `FromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만든 다음, `SpeechRecognizer` 개체를 만들 때 오디오 구성을 전달합니다.
+디바이스 마이크를 사용하여 음성을 인식하려면 `FromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화하고 `audioConfig` 및 `config`를 전달합니다.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
+
+cout << "Speak into your microphone." << std::endl;
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-> [!TIP]
-> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
 
-마이크를 사용하는 대신 오디오 파일에서 음성을 인식하려는 경우에도 `AudioConfig`를 만들어야 합니다. 그러나 `FromDefaultMicrophoneInput()`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만드는 경우 `FromWavFileInput()`을 호출하고 `filename` 매개 변수를 전달합니다.
+## <a name="recognize-from-file"></a>파일에서 인식
+
+마이크를 사용하는 대신 오디오 파일에서 음성을 인식하려는 경우에도 `AudioConfig`를 만들어야 합니다. 그러나 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만들 때 `FromDefaultMicrophoneInput()`을 호출하는 대신 `FromWavFileInput()`을 호출하고 파일 경로를 전달합니다.
 
 ```cpp
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
+
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
 ## <a name="recognize-speech"></a>음성 인식
 
 C++용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
-* 단일 샷 인식(비동기) - 비차단(비동기) 모드에서 인식을 수행합니다. 단일 발화를 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
-* 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 사용자는 처리 이벤트에 연결하여 인식 결과를 받아야 합니다. 비동기 연속 인식을 중지하려면 [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)를 호출합니다.
-
-> [!NOTE]
-> [음성 인식 모드를 선택하는 방법](../../../how-to-choose-recognition-mode.md)에 대해 자세히 알아보세요.
-
 ### <a name="single-shot-recognition"></a>단일 샷 인식
 
-다음은 [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)를 사용하는 비동기 단일 샷 인식의 예입니다.
+단일 샷 인식은 단일 발화를 비동기적으로 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다. 다음은 [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)를 사용하는 비동기 단일 샷 인식의 예입니다.
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();

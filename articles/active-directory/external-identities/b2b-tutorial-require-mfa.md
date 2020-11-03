@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906972"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892698"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
@@ -53,17 +53,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Azure AD에서 테스트 게스트 사용자 만들기
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **사용자**를 선택합니다.
-4.  **새 게스트 사용자**를 선택합니다.
+2. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+3.  **관리** 에서 **사용자** 를 선택합니다.
+4.  **새 게스트 사용자** 를 선택합니다.
 
     ![새 게스트 사용자 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
-5.  **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 
+5.  **사용자 이름** 에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 
 
     ![게스트 초대 메시지를 입력할 수 있는 위치를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
-6.  **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. **사용자를 초대함** 메시지가 나타납니다. 
+6.  **초대** 를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. **사용자를 초대함** 메시지가 나타납니다. 
 7.  초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
 ## <a name="test-the-sign-in-experience-before-mfa-setup"></a>MFA를 설정하기 전에 로그인 환경 테스트
@@ -73,53 +73,53 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책 만들기
 1.  [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-2.  Azure Portal에서 **Azure Active Directory**를 선택합니다. 
-3.  **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 선택합니다.
-4.  **조건부 액세스** 페이지의 위쪽 도구 모음에서 **추가**를 선택합니다.
-5.  **새로 만들기** 페이지의 **이름** 텍스트 상자에 **B2B에 액세스하려면 MFA 필요**를 입력합니다.
-6.  **할당** 섹션에서 **사용자 및 그룹**을 선택합니다.
-7.  **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택**을 선택한 후 **모든 게스트 사용자(미리 보기)** 를 선택합니다.
+2.  Azure Portal에서 **Azure Active Directory** 를 선택합니다. 
+3.  **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스** 를 선택합니다.
+4.  **조건부 액세스** 페이지의 위쪽 도구 모음에서 **추가** 를 선택합니다.
+5.  **새로 만들기** 페이지의 **이름** 텍스트 상자에 **B2B에 액세스하려면 MFA 필요** 를 입력합니다.
+6.  **할당** 섹션에서 **사용자 및 그룹** 을 선택합니다.
+7.  **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택** 을 선택한 후 **모든 게스트 사용자(미리 보기)** 를 선택합니다.
 
     ![선택한 모든 게스트 사용자를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  **완료** 를 선택합니다.
-10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱**을 선택합니다.
-11. **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 선택합니다.
+10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱** 을 선택합니다.
+11. **클라우드 앱** 페이지에서 **앱 선택** 을 선택한 후 **선택** 을 선택합니다.
 
     ![클라우드 앱 페이지 및 선택 옵션을 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-12. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 선택합니다.
+12. **선택** 페이지에서 **Microsoft Azure 관리** 를 선택한 후 **선택** 을 선택합니다.
 
-    ![선택한 Microsoft Azure 관리 앱을 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Microsoft Azure 관리 옵션을 강조 표시하는 스크린샷.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-13. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
-14. **새로 만들기** 페이지의 **액세스 제어** 섹션에서 **허용**을 선택합니다.
-15. **허용** 페이지에서 **액세스 허용**을 선택하고, **다단계 인증 필요** 확인란을 선택한 후, **선택**을 선택합니다.
+13. **클라우드 앱** 페이지에서 **완료** 를 클릭합니다.
+14. **새로 만들기** 페이지의 **액세스 제어** 섹션에서 **허용** 을 선택합니다.
+15. **허용** 페이지에서 **액세스 허용** 을 선택하고, **다단계 인증 필요** 확인란을 선택한 후, **선택** 을 선택합니다.
 
     ![다단계 인증 필요 옵션을 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
-16. **정책 사용**에서 **켜기**를 선택합니다.
+16. **정책 사용** 에서 **켜기** 를 선택합니다.
 
     ![켜기로 설정된 정책 사용 옵션을 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-17. **만들기**를 선택합니다.
+17. **만들기** 를 선택합니다.
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>What If 옵션을 사용하여 로그인 시뮬레이트
 
-1.  **조건부 액세스 - 정책** 페이지에서 **What If**를 선택합니다. 
+1.  **조건부 액세스 - 정책** 페이지에서 **What If** 를 선택합니다. 
 
-    ![What If 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![조건부 액세스 - 정책 페이지에서 What if 옵션을 선택할 수 있는 위치를 강조 표시하는 스크린샷.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
-2.  **사용자**를 선택하고, 테스트 게스트 사용자를 선택한 후, **선택**을 선택합니다.
+2.  **사용자** 를 선택하고, 테스트 게스트 사용자를 선택한 후, **선택** 을 선택합니다.
 
     ![선택한 게스트 사용자를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
-3.  **클라우드 앱**을 선택합니다.
-4.  **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 클릭합니다. 애플리케이션 목록에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 클릭합니다. 
+3.  **클라우드 앱** 을 선택합니다.
+4.  **클라우드 앱** 페이지에서 **앱 선택** 을 선택한 후 **선택** 을 클릭합니다. 애플리케이션 목록에서 **Microsoft Azure 관리** 를 선택한 후 **선택** 을 클릭합니다. 
 
     ![선택한 Microsoft Azure 관리 앱을 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
-5.  **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
-6.  **What If**를 선택하고 **적용되는 정책** 탭의 **평가 결과** 아래에 새 정책이 표시되는지 확인합니다.
+5.  **클라우드 앱** 페이지에서 **완료** 를 클릭합니다.
+6.  **What If** 를 선택하고 **적용되는 정책** 탭의 **평가 결과** 아래에 새 정책이 표시되는지 확인합니다.
 
     ![What If 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
@@ -134,12 +134,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요하지 않은 경우 테스트 사용자 및 테스트 조건부 액세스 정책을 제거합니다.
 1.  Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **사용자**를 선택합니다.
-4.  테스트 사용자를 선택한 후 **사용자 삭제**를 선택합니다.
-5.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
-6.  **보안** 아래에서 **조건부 액세스**를 선택합니다.
-7.  **정책 이름** 목록에서 테스트 정책의 상황에 맞는 메뉴(…)를 선택한 후 **삭제**를 선택합니다. **예**를 선택하여 확인합니다.
+2.  왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+3.  **관리** 에서 **사용자** 를 선택합니다.
+4.  테스트 사용자를 선택한 후 **사용자 삭제** 를 선택합니다.
+5.  왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+6.  **보안** 아래에서 **조건부 액세스** 를 선택합니다.
+7.  **정책 이름** 목록에서 테스트 정책의 상황에 맞는 메뉴(…)를 선택한 후 **삭제** 를 선택합니다. **예** 를 선택하여 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 게스트 사용자가 클라우드 앱 중 하나에 로그인할 때 MFA를 사용해야 하는 조건부 액세스 정책을 만들었습니다. 협업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](add-users-administrator.md)를 참조하세요.

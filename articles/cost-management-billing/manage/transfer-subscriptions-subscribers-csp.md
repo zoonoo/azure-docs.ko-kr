@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132366"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460685"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
 이 문서에서는 CSP(클라우드 솔루션 공급자) 파트너와 고객 간에 Azure 구독을 전송하는 데 사용되는 고급 단계를 제공합니다. 여기에서 제공하는 정보는 Azure 구독자가 파트너와 잘 협력하도록 돕기 위한 것입니다. Microsoft 파트너가 양도 프로세스에 사용하는 정보는 [다른 파트너에게 고객의 Azure 구독을 양도하는 방법 알아보기](/partner-center/switch-azure-subscriptions-to-a-different-partner)에 설명되어 있습니다.
+
+전송 요청을 시작하기 전에 유지하려는 비용 및 청구 정보를 다운로드하거나 내보내야 합니다. 청구 및 사용률 정보는 구독과 함께 전송되지 않습니다. 비용 관리 데이터 내보내기에 대한 자세한 내용은 [내보낸 데이터 만들기 및 관리](../costs/tutorial-export-acm-data.md)를 참조하세요. 청구서 및 사용량 데이터 다운로드에 대한 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](download-azure-invoice-daily-usage-date.md)를 참조하세요.
+
+기존 예약이 있는 경우 구독을 전송한 후에는 적용이 중지됩니다. 구독을 전송하기 전에 [모든 예약을 취소하고 환불](../reservations/exchange-and-refund-azure-reservations.md)해야 합니다.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>CSP 파트너에게 EA 구독 전송
 

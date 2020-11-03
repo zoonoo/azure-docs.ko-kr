@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124588"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677418"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
@@ -25,38 +25,36 @@ ms.locfileid: "92124588"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
-Azure Communication Services **그룹 채팅 주인공 샘플**은 Communication Services 채팅 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
+> [!IMPORTANT]
+> [이 샘플은 GitHub에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
+Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communication Services 채팅 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
-> [!IMPORTANT]
-> [GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>개요
 
-이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션**은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션**으로 요청을 보냅니다. 
+이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션** 은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션** 으로 요청을 보냅니다. 
 
 샘플은 다음과 같습니다.
 
-:::image type="content" source="./media/chat/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여주는 스크린샷&quot;:::
+:::image type="content" source="./media/chat/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여주는 스크린샷":::
 
-&quot;채팅 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰이 검색되면 채팅에서 자신을 나타낼 이름과 이모지를 지정하라는 메시지가 표시됩니다. 
+"채팅 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰이 검색되면 채팅에서 자신을 나타낼 이름과 이모지를 지정하라는 메시지가 표시됩니다. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여주는 스크린샷&quot;:::
-
-&quot;채팅 시작":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="애플리케이션의 채팅 전 화면을 보여주는 스크린샷":::
 
 표시 이름 및 이모지 구성이 끝나면 채팅 세션에 참가할 수 있습니다. 이제 핵심 채팅 환경이 있는 기본 채팅 캔버스가 표시됩니다.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여주는 스크린샷&quot;:::
-
-&quot;채팅 시작":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="샘플 애플리케이션의 기본 화면을 보여주는 스크린샷":::
 
 기본 채팅 화면의 구성 요소:
 
-- **기본 채팅 영역**: 사용자가 메시지를 보내고 받을 수 있는 핵심 채팅 환경입니다. 메시지를 보내려면 입력 영역을 사용하고 Enter 키를 누릅니다(또는 보내기 단추를 사용). 받은 채팅 메시지는 정확한 이름 및 이모지를 사용하여 보낸 사람을 기준으로 분류됩니다. 채팅 영역에는 1) 사용자가 입력 중일 때 표시되는 입력 알림과 2) 메시지 발신 및 읽음 알림의 두 가지 알림 유형이 표시됩니다.
-- **헤더**: 채팅 스레드의 제목, 참가자를 전환하고 사이드바를 설정하는 컨트롤, 채팅 세션을 종료하는 나가기 단추가 여기에 표시됩니다.
-- **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 참가자 사이드바에는 채팅의 참가자 목록과 참가자를 채팅 세션에 초대하는 링크가 있습니다. 설정 사이드바를 통해 채팅 스레드 제목을 구성할 수 있습니다. 
+- **기본 채팅 영역** : 사용자가 메시지를 보내고 받을 수 있는 핵심 채팅 환경입니다. 메시지를 보내려면 입력 영역을 사용하고 Enter 키를 누릅니다(또는 보내기 단추를 사용). 받은 채팅 메시지는 정확한 이름 및 이모지를 사용하여 보낸 사람을 기준으로 분류됩니다. 채팅 영역에는 1) 사용자가 입력 중일 때 표시되는 입력 알림과 2) 메시지 발신 및 읽음 알림의 두 가지 알림 유형이 표시됩니다.
+- **헤더** : 채팅 스레드의 제목, 참가자를 전환하고 사이드바를 설정하는 컨트롤, 채팅 세션을 종료하는 나가기 단추가 여기에 표시됩니다.
+- **사이드바** : 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 참가자 사이드바에는 채팅의 참가자 목록과 참가자를 채팅 세션에 초대하는 링크가 있습니다. 설정 사이드바를 통해 채팅 스레드 제목을 구성할 수 있습니다. 
 
 아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 
@@ -79,7 +77,7 @@ chat.csproj에서 Visual Studio를 열고 디버그 모드로 실행합니다. �
 ## <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
 
 1. PowerShell, Windows 터미널, 명령 프롬프트 또는 그에 상응하는 인스턴스를 열고 샘플을 복제할 디렉터리로 이동합니다.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
 4. `Connection String`을 가져온 후에는 Chat 폴더 아래에 있는 **Chat/appsettings.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123894"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426249"
 ---
 ::: zone target="docs"
 
@@ -45,7 +45,7 @@ ms.locfileid: "92123894"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
    * [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
    * 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용해도 되지만, 이 경우 복사 속도가 떨어집니다.
@@ -70,15 +70,15 @@ ms.locfileid: "92123894"
 
 Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 Data Box에 연결합니다.
 
-1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **SMB**를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
+1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사** 로 이동합니다. **SMB** 를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
 
     ![SMB 공유에 대한 공유 자격 증명 가져오기](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 선택합니다.
+2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호** 를 복사합니다. 암호에 특수 문자가 있으면 앞뒤에 큰따옴표를 추가합니다. 그런 다음, **확인** 을 선택합니다.
     
     ![공유에 대한 사용자 이름 및 암호 가져오기](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
+3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1* )에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -95,7 +95,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     The command completed successfully.
     ```
 
-4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 선택하여 파일 탐색기를 엽니다.
+4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인** 을 선택하여 파일 탐색기를 엽니다.
     
     ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -227,7 +227,7 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 ![연결 및 복사의 복사 오류 알림](media/data-box-deploy-copy-data/view-errors-1.png)
 
-**문제 목록 다운로드**를 선택합니다.
+**문제 목록 다운로드** 를 선택합니다.
 
 ![연결 및 복사 오류 다운로드 및 보기 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
@@ -279,7 +279,7 @@ NFS를 통해 데이터를 복사하려면 다음을 수행합니다.
 
 REST를 통해 데이터를 복사하려면 다음을 수행합니다.
 
-1. REST API를 통해 Data Box Blob Storage를 사용하여 데이터를 복사하기 위해 *http* 또는 *https*를 통해 연결할 수 있습니다.
+1. REST API를 통해 Data Box Blob Storage를 사용하여 데이터를 복사하기 위해 *http* 또는 *https* 를 통해 연결할 수 있습니다.
 2. Data Box Blob Storage에 데이터를 복사하려면 AzCopy를 사용하면 됩니다.
 
 단계별 지침은 [자습서: REST API를 통해 Azure Data Box Blob Storage에 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동합니다.
@@ -288,7 +288,7 @@ REST를 통해 데이터를 복사하려면 다음을 수행합니다.
 
 데이터 복사 서비스를 통해 데이터를 복사하려면 다음을 수행합니다.
 
-1. 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다. Data Box의 로컬 웹 UI에서 **관리 > 데이터 복사 > 만들기**로 이동합니다.
+1. 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다. Data Box의 로컬 웹 UI에서 **관리 > 데이터 복사 > 만들기** 로 이동합니다.
 2. 매개 변수를 입력하고 작업을 만듭니다.
 
 단계별 지침은 [자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사](data-box-deploy-copy-data-via-copy-service.md)로 이동합니다.

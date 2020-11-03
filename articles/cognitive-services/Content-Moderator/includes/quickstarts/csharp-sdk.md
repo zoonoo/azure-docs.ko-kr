@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: cb0d9ff1074ba1a309cf4f5a8cad12f34335e435
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2db80cdba778d868d90d5278005791257acb0ed3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989610"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548108"
 ---
 .NET용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 NuGet 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -30,11 +30,11 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account"  title="[제품 이름] 리소스 만들기"  target="_blank">Content Moderator 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Content Moderator 리소스 만들기"  target="_blank">Content Moderator 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
     * 애플리케이션을 Content Moderator에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -48,11 +48,11 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트를 만든 후 **솔루션 탐색기**에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Microsoft.Azure.CognitiveServices.ContentModerator`를 검색합니다. `2.0.0` 버전, **설치**를 차례로 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.ContentModerator`를 검색합니다. `2.0.0` 버전, **설치** 를 차례로 선택합니다. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `content-moderator-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `content-moderator-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs* 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
 ```console
 dotnet new console -n content-moderator-quickstart
@@ -169,7 +169,7 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
-그런 다음, 프로젝트의 루트에서 입력 파일 *ImageFiles.txt*를 만듭니다. 이 파일에서 분석할 이미지의 URL을 각 줄에 하나씩 추가합니다. 다음 샘플 이미지를 사용할 수 있습니다.
+그런 다음, 프로젝트의 루트에서 입력 파일 *ImageFiles.txt* 를 만듭니다. 이 파일에서 분석할 이미지의 URL을 각 줄에 하나씩 추가합니다. 다음 샘플 이미지를 사용할 수 있습니다.
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -232,7 +232,7 @@ Content Moderator .NET 클라이언트 라이브러리를 사용하여 사용자
 
 ### <a name="define-the-review-creation-method"></a>검토 작성 메서드 정의
 
-검토 작성 및 쿼리를 처리하는 메서드를 정의할 준비가 끝났습니다. 새 메서드 **CreateReviews**를 추가하고, 다음 지역 변수를 정의합니다.
+검토 작성 및 쿼리를 처리하는 메서드를 정의할 준비가 끝났습니다. 새 메서드 **CreateReviews** 를 추가하고, 다음 지역 변수를 정의합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 
@@ -272,7 +272,7 @@ API 호출에서 반환된 개체에는 업로드된 각 이미지의 고유 ID 
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-IDE 창의 맨 위에 있는 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
+IDE 창의 위쪽에서 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 

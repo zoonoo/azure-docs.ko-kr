@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260141"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480482"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics의 Apache Spark 핵심 개념
 
@@ -60,7 +60,40 @@ Spark 인스턴스는 Spark 풀에 연결하고, 세션을 만들고, 작업을 
 - 또 다른 사용자 U2가 노드 10개를 사용하는 작업 J3를 제출합니다. 그러면 이 작업을 처리하기 위해 새 Spark 인스턴스 SI2가 생성됩니다.
 - 아직 풀에 용량이 있으므로 노드 10개를 사용하는 또 다른 작업 J2를 제출하면 인스턴스 J2가 SI1에서 처리됩니다.
 
+## <a name="quotas-and-resource-constraints-in-apache-spark-for-azure-synapse"></a>Azure Synapse에 대한 Apache Spark의 할당량 및 리소스 제약 조건
+
+### <a name="workspace-level"></a>작업 영역 수준
+
+모든 Azure Synapse 작업 영역에는 Spark에 사용할 수 있는 vCore의 기본 할당량이 제공됩니다. 할당량은 사용자 할당량과 데이터 흐름 할당량 간에 분할되므로 사용 패턴이 작업 영역에서 모든 vCore를 사용하지 않습니다. 할당량은 구독 유형에 따라 다르지만 사용자와 데이터 흐름 사이에는 대칭적입니다. 그러나 작업 영역에서 남은 것보다 더 많은 vCore를 요청하면 다음과 같은 오류가 발생합니다.
+
+```console
+Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
+Your Spark job requested 480 vcores.
+However, the workspace only has xxx vcores available out of quota of yyy vcores.
+Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+```
+
+메시지의 링크는 이 문서를 가리킵니다.
+
+다음 문서에서는 작업 영역 vCore 할당량 증가를 요청하는 방법을 설명합니다.
+
+- 서비스 유형으로 "Azure Synapse Analytics"를 선택합니다.
+- 할당량 정보 창에서 작업 영역당 Apache Spark(vCore)를 선택합니다.
+
+[Azure Portal을 통해 용량 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+
+### <a name="spark-pool-level"></a>Spark 풀 수준
+
+Spark 풀을 정의하는 경우 해당 풀에 대한 사용자당 할당량을 효과적으로 정의합니다. 여러 개의 Notebooks 또는 작업을 실행하거나 이 둘을 혼합하여 실행하면 풀 할당량이 소진될 수 있습니다. 이렇게 하면 다음과 같은 오류 메시지가 생성됩니다.
+
+```console
+Failed to start session: Your Spark job requested xx vcores.
+However, the pool is consuming yy vcores out of available zz vcores.Try ending the running job(s) in the pool, reducing the numbers of vcores requested, increasing the pool maximum size or using another pool
+```
+
+이 문제를 해결하려면 Notebook 또는 작업을 실행하여 새 리소스 요청을 제출하기 전에 풀 리소스의 사용량을 줄여야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.5/)

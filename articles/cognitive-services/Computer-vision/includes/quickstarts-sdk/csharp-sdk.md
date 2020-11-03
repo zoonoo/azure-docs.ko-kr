@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6315ca68c8e58c3ba04e616967c233c81fda9b19
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d48d0cbac4e0e8b366170d979be3bbc5dd3064ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038420"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886658"
 ---
 <a name="HOLTop"></a>
 
@@ -25,7 +25,7 @@ ms.locfileid: "92038420"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -39,7 +39,7 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트를 만든 후 **솔루션 탐색기**에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`를 검색합니다. `6.0.0-preview.1` 버전, **설치**를 차례로 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`를 검색합니다. `6.0.0-preview.1` 버전, **설치** 를 차례로 선택합니다. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -107,7 +107,7 @@ Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스�
 |Name|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
-|[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| 이 클래스는 **ComputerVisionClient**에 대한 추가 메서드를 포함하고 있습니다.|
+|[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| 이 클래스는 **ComputerVisionClient** 에 대한 추가 메서드를 포함하고 있습니다.|
 |[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 VisualFeatureTypes 값 세트를 지정합니다. |
 
 ## <a name="code-examples"></a>코드 예제
@@ -133,15 +133,14 @@ Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 다음 코드는 클라이언트 개체를 사용하여 원격 이미지를 분석하고 결과를 출력하는 `AnalyzeImageUrl` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
 
+> [!TIP]
+> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) 메서드(예: **AnalyzeImageInStreamAsync** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
 **Program** 클래스에서 분석하려는 이미지의 URL에 대한 참조를 저장합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_url)]
-
-> [!NOTE]
-> 로컬 이미지를 분석할 수도 있습니다. 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
 
 ### <a name="specify-visual-features"></a>시각적 기능 지정
 
@@ -233,15 +232,14 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 최신 [Read 3.0용 Computer Vision SDK 릴리스](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)를 사용하고, 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
 
+> [!TIP]
+> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) 메서드(예: **ReadInStreamAsync** )를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
 **Program** 클래스에서 텍스트를 추출하려는 이미지의 URL에 대한 참조를 저장합니다. 이 코드 조각에는 인쇄된 텍스트 및 필기 텍스트 모두에 대한 샘플 이미지가 포함되어 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
-
-> [!NOTE]
-> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 
@@ -265,7 +263,7 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-IDE 창의 맨 위에 있는 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
+IDE 창의 위쪽에서 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 

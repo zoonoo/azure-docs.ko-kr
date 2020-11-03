@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542499"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>자습서: TeamSeer와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ TeamSeer를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 해당 Azure AD 계정으로 TeamSeer에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -53,7 +53,7 @@ TeamSeer와 Azure AD 통합을 구성하려면 갤러리의 TeamSeer를 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ TeamSeer와 Azure AD 통합을 구성하려면 갤러리의 TeamSeer를 관리�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **TeamSeer**를 입력하고, 결과 패널에서 **TeamSeer**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **TeamSeer** 를 입력하고, 결과 패널에서 **TeamSeer** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 TeamSeer](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 TeamSeer에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 TeamSeer에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 TeamSeer의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 TeamSeer에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **TeamSeer** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **TeamSeer** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -106,7 +106,7 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [TeamSeer 클라이언트 지원 팀](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -124,21 +124,21 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. 다른 웹 브라우저 창에서 TeamSeer 회사 사이트에 관리자로 로그인합니다.
 
-1. **HR 관리자**로 이동합니다.
+1. **HR 관리자** 로 이동합니다.
 
-    ![HR 관리자](./media/teamseer-tutorial/ic789634.png "HR 관리자")
+    ![스크린샷은 TeamSeer 창에서 선택한 HR 관리자를 보여줍니다.](./media/teamseer-tutorial/ic789634.png "HR 관리자")
 
-1. **설치**를 클릭합니다.
+1. **설치** 를 클릭합니다.
 
     ![설치](./media/teamseer-tutorial/ic789635.png "설치 프로그램")
 
-1. **SAML 공급자 세부 정보**를 클릭합니다.
+1. **SAML 공급자 세부 정보** 를 클릭합니다.
 
-    ![SAML 설정](./media/teamseer-tutorial/ic789636.png "SAML 설정")
+    ![스크린샷은 선택된 SAML 공급자 세부 정보 설정을 보여줍니다.](./media/teamseer-tutorial/ic789636.png "SAML 설정")
 
 1. SAML 공급자 세부 정보 섹션에서 다음 단계를 수행합니다.
 
-    ![SAML 설정](./media/teamseer-tutorial/ic789637.png "SAML 설정")
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 공급자 세부 정보를 보여줍니다.](./media/teamseer-tutorial/ic789637.png "SAML 설정")
 
     a. **URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -146,23 +146,23 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. SMAL 공급자 구성을 완료하려면 다음 단계를 수행합니다.
 
-    ![SAML 설정](./media/teamseer-tutorial/ic789638.png "SAML 설정")
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 공급자 구성을 보여줍니다.](./media/teamseer-tutorial/ic789638.png "SAML 설정")
 
-    a. **테스트 이메일 주소**에 테스트 사용자의 이메일 주소를 입력합니다.
+    a. **테스트 이메일 주소** 에 테스트 사용자의 이메일 주소를 입력합니다.
   
     b. **발급자** 텍스트 상자에 서비스 공급자의 발급자 URL을 입력합니다.
   
-    다. **저장**을 클릭합니다.
+    다. **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -170,36 +170,36 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 TeamSeer에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **TeamSeer**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **TeamSeer** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **TeamSeer**를 선택합니다.
+2. 애플리케이션 목록에서 **TeamSeer** 를 선택합니다.
 
     ![애플리케이션 목록의 TeamSeer 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -213,19 +213,19 @@ Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlan
 
 1. **TeamSeer** 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **HR 관리자 \> 사용자**로 이동하여 **새 사용자 마법사 실행**을 클릭합니다.
+1. **HR 관리자 \> 사용자** 로 이동하여 **새 사용자 마법사 실행** 을 클릭합니다.
 
-    ![HR 관리자](./media/teamseer-tutorial/ic789640.png "HR 관리자")
+    ![스크린샷은 실행할 마법사를 선택할 수 있는 HR 관리자 탭을 보여줍니다.](./media/teamseer-tutorial/ic789640.png "HR 관리자")
 
 1. **사용자 세부 정보** 섹션에서 다음 단계를 수행합니다.
 
     ![사용자 세부 정보](./media/teamseer-tutorial/ic789641.png "사용자 세부 정보")
 
-    a. 관련 텍스트 상자에 프로비저닝할 유효한 Azure AD 계정의 **이름**, **성**, **사용자 이름(이메일 주소)** 을 입력합니다.
+    a. 관련 텍스트 상자에 프로비저닝할 유효한 Azure AD 계정의 **이름** , **성** , **사용자 이름(이메일 주소)** 을 입력합니다.
   
-    b. **다음**을 클릭합니다.
+    b. **다음** 을 클릭합니다.
 
-1. 새 사용자를 추가하기 위한 화면의 지시를 따르고 **마침**을 클릭합니다.
+1. 새 사용자를 추가하기 위한 화면의 지시를 따르고 **마침** 을 클릭합니다.
 
 > [!NOTE]
 > 다른 TeamSeer 사용자 계정 생성 도구 또는 TeamSeer가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다.
@@ -234,12 +234,12 @@ Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlan
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 TeamSeer 타일을 클릭하면 SSO를 설정한 TeamSeer에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 TeamSeer 타일을 클릭하면 SSO를 설정한 TeamSeer에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

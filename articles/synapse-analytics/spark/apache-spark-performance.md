@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249470"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368607"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark 작업(미리 보기) 최적화
 
@@ -52,7 +52,7 @@ ms.locfileid: "91249470"
 
 Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지원합니다. Spark는 외부 데이터 소스를 사용하여 더 많은 형식을 지원하도록 확장될 수 있습니다. 자세한 내용은 [Apache Spark 패키지](https://spark-packages.org)를 참조하세요.
 
-성능에 가장 적합한 형식은 *snappy 압축*을 사용하는 parquet으로, Spark 2.x의 기본값입니다. Parquet은 데이터를 열 형식으로 저장하며 Spark에서 매우 최적화되어 있습니다. 또한 *snappy 압축*은 gzip 압축보다 큰 파일이 생성될 수 있습니다. 이러한 파일의 분할 가능 특성으로 인해 더 빠르게 압축을 해제합니다.]
+성능에 가장 적합한 형식은 *snappy 압축* 을 사용하는 parquet으로, Spark 2.x의 기본값입니다. Parquet은 데이터를 열 형식으로 저장하며 Spark에서 매우 최적화되어 있습니다. 또한 *snappy 압축* 은 gzip 압축보다 큰 파일이 생성될 수 있습니다. 이러한 파일의 분할 가능 특성으로 인해 더 빠르게 압축을 해제합니다.
 
 ## <a name="use-the-cache"></a>캐시 사용
 
@@ -77,7 +77,7 @@ Azure Synapse의 Apache Spark는 YARN [Apache Hadoop YARN](https://hadoop.apache
 '메모리 부족' 메시지를 해결하려면 다음을 시도합니다.
 
 * DAG 관리 순서 섞기를 검토합니다. 맵 쪽에서 원본 데이터를 줄이거나 사전 분할(또는 버킷화)하여 줄이고 단일 순서 섞기로 최대화하여 전송된 데이터 양을 줄입니다.
-* 집계, 창 작업 및 기타 함수를 제공하지만 메모리 제한은 없는 `GroupByKey`보다 고정된 메모리 제한이 있는 `ReduceByKey`을 선호합니다.
+* 집계, 창 작업 및 기타 함수를 제공하지만 메모리 제한이 없는 `GroupByKey`보다 고정된 메모리 제한이 있는 `ReduceByKey`를 선호합니다.
 * 드라이버에서 모든 작업을 수행하는 `Reduce`보다 실행기 또는 파티션에서 더 많은 작업을 수행하는 `TreeReduce`를 선호합니다.
 * 하위 수준의 RDD 개체보다 데이터 프레임을 활용합니다.
 * "상위 N개", 다양한 집계 또는 창 작업 같이 작업을 캡슐화하는 ComplexTypes를 만듭니다.
@@ -103,7 +103,7 @@ Spark 작업은 분산되므로 최상의 성능을 위해서는 적합한 데�
 
 ## <a name="optimize-joins-and-shuffles"></a>조인 및 순서 섞기 최적화
 
-조인 또는 순서 섞기에서 작업 속도가 느린 경우 그 원인은 *데이터 기울이기* 때문일 수 있으며 이는 작업 데이터의 비대칭입니다. 예를 들어 맵 작업에는 20초 정도 걸릴 수 있지만 데이터가 조인되거나 순서를 섞는 작업을 실행하는 데는 몇 시간 정도 걸릴 수 있습니다. 데이터 기울이기를 수정하려면 전체 키를 솔트하거나 일부 하위 키 집합에만 *격리된 솔트*를 사용해야 합니다. 격리된 솔트를 사용하는 경우 맵 조인에서 솔트된 하위 키 집합을 격리하려면 추가로 필터링해야 합니다. 또 다른 옵션은 버킷 열을 도입하고 버킷에 미리 집계하는 것입니다.
+조인 또는 순서 섞기에서 작업 속도가 느린 경우 그 원인은 *데이터 기울이기* 때문일 수 있으며 이는 작업 데이터의 비대칭입니다. 예를 들어 맵 작업에는 20초 정도 걸릴 수 있지만 데이터가 조인되거나 순서를 섞는 작업을 실행하는 데는 몇 시간 정도 걸릴 수 있습니다. 데이터 기울이기를 수정하려면 전체 키를 솔트하거나 일부 하위 키 집합에만 *격리된 솔트* 를 사용해야 합니다. 격리된 솔트를 사용하는 경우 맵 조인에서 솔트된 하위 키 집합을 격리하려면 추가로 필터링해야 합니다. 또 다른 옵션은 버킷 열을 도입하고 버킷에 미리 집계하는 것입니다.
 
 조인 유형에 따라 느린 조인이 발생할 수도 있습니다. 기본적으로 Spark는 `SortMerge` 조인 유형을 사용합니다. 이 유형의 조인은 큰 데이터 집합에 가장 적합하지만 병합하기 전에 먼저 데이터의 왼쪽과 오른쪽을 정렬해야 하기 때문에 계산을 많이 해야 합니다.
 
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Apache Spark 조정](https://spark.apache.org/docs/latest/tuning.html)
+- [Apache Spark 조정](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [작동하도록 Apache Spark 작업을 실제로 조정하는 방법](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

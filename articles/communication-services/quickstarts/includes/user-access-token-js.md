@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: marobert
-ms.openlocfilehash: 77b1e9ab245f668ab81741451a5e032f37bc3625
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 22cfe369561eab1ca334c7ff2450162dfae3e761
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945757"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92346980"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -76,7 +76,7 @@ main().catch((error) => {
 })
 ```
 
-1. 새 파일을 *user-tokens-quickstart* 디렉터리에 **issue-token.js**로 저장합니다.
+1. 새 파일을 *user-tokens-quickstart* 디렉터리에 **issue-token.js** 로 저장합니다.
 
 [!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
@@ -125,6 +125,15 @@ console.log(token);
 ```javascript  
 await identityClient.revokeTokens(userResponse);
 console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
+```
+
+## <a name="refresh-user-access-tokens"></a>사용자 액세스 토큰 새로 고침
+
+토큰을 새로 고치려면 `CommunicationUser` 개체를 사용하여 다시 발급합니다.
+
+```javascript  
+let userResponse = new CommunicationUser(existingUserId);
+let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
 ```
 
 ## <a name="delete-a-user"></a>사용자 삭제

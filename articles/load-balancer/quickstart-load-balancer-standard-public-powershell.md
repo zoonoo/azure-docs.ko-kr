@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 9db530c1bdff6521c945ae0c2373bb9d32b8a476
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0dfb5a68149f4745d17581dcefed6aedcf394106
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047780"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487707"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -44,12 +44,12 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 다음 리소스 그룹을 만듭니다.
 
-* 이름: **myResourceGroupLB**
+* 이름을 **CreatePubLBQS-rg** 로 지정합니다.
 * 위치: **eastus**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 
 New-AzResourceGroup -Name $rg -Location $loc
@@ -67,16 +67,17 @@ New-AzResourceGroup -Name $rg -Location $loc
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 다음을 수행합니다.
 
-* **myPublicIP**라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
-* 위치: **myResourceGroupLB**
+* **myPublicIP** 라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
+* **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIP'
 $sku = 'Standard'
 $all = 'static'
+
 
 $publicIp = 
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
@@ -86,14 +87,15 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIP'
 $sku = 'Standard'
 $all = 'static'
 
+
 $publicIp = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Zone 1
 ```
 
 ## <a name="create-standard-load-balancer"></a>표준 부하 분산 장치 만들기
@@ -110,12 +112,12 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 다음과 같은 프런트 엔드 IP를 만듭니다.
 
 * 이름: **myFrontEnd**
-* 공용 IP **myPublicIP**에 연결됨
+* 공용 IP **myPublicIP** 에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIP'
 
@@ -177,21 +179,25 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 다음과 같은 부하 분산 장치 규칙을 만듭니다. 
 
 * 이름: **myHTTPRule**
-* 프런트 엔드 풀 **myFrontEnd**의 **포트 80**에서 수신 대기
-* **포트 80**.을 사용하여 백 엔드 주소 풀 **myBackEndPool**에 부하 분산된 네트워크 트래픽을 전송합니다. 
-* 상태 프로브 **myHealthProbe**를 사용합니다.
+* 프런트 엔드 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
+* **포트 80**.을 사용하여 백 엔드 주소 풀 **myBackEndPool** 에 부하 분산된 네트워크 트래픽을 전송합니다. 
+* 상태 프로브 **myHealthProbe** 를 사용합니다.
 * 프로토콜: **TCP**
+* **15분** 의 유휴 제한 시간.
+* TCP 재설정을 활성화합니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
+
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 
 ### <a name="create-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
@@ -200,12 +206,12 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 * 이름: **myLoadBalancer**
 * 위치: **eastus**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $sku = 'Standard'
 
@@ -224,14 +230,14 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 다음과 같은 가상 네트워크를 만듭니다.
 
 * 이름: **myVNet**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 서브넷: **myBackendSubnet**
 * 가상 네트워크: **10.0.0.0/16**
 * 서브넷: **10.0.0.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -255,7 +261,7 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 다음과 같은 네트워크 보안 그룹 규칙을 만듭니다.
 
 * 이름: **myNSGRuleHTTP**
-* **HTTP 허용**에 대한 설명
+* **HTTP 허용** 에 대한 설명
 * 액세스 **허용**
 * 프로토콜 **(*)** .
 * 방향: **인바운드**
@@ -287,13 +293,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 다음과 같은 네트워크 보안 그룹을 만듭니다.
 
 * 이름: **myNSG**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 이전 단계에서 생성된 보안 규칙을 변수에 저장합니다.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -309,16 +315,16 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -Sec
 #### <a name="vm-1"></a>VM 1
 
 * 이름: **myNicVM1**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -345,16 +351,16 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### <a name="vm-2"></a>VM 2
 
 * 이름: **myNicVM2**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -381,16 +387,16 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 #### <a name="vm-3"></a>VM 3
 
 * 이름: **myNicVM3**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic3 = 'myNicVM3'
 $vnt = 'myVNet'
@@ -433,15 +439,15 @@ $cred = Get-Credential
 #### <a name="vm1"></a>VM1
 
 * 이름: **myVM1**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM1**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM1** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * **영역 1**
 * 위치: **eastus**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -464,15 +470,15 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 #### <a name="vm2"></a>VM2
 
 * 이름: **myVM2**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM2**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM2** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * **영역 2**
 * 위치: **eastus**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -494,15 +500,15 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 #### <a name="vm3"></a>VM3
 
 * 이름: **myVM3**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM3**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM3** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * **영역 3**
 * 위치: **eastus**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM3'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -530,12 +536,12 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 다음을 수행합니다.
 
-* **myPublicIPOutbound**라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
-* 위치: **myResourceGroupLB**
+* **myPublicIPOutbound** 라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
+* **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIPOutbound'
 $sku = 'Standard'
@@ -549,7 +555,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIPOutbound'
 $sku = 'Standard'
@@ -563,7 +569,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig)를 사용하여 다음과 같은 새 프런트 엔드 IP 구성을 만듭니다.
 
 * 이름: **myFrontEndOutbound**
-* 공용 IP 주소 **myPublicIPOutbound**에 연결됩니다.
+* 공용 IP 주소 **myPublicIPOutbound** 에 연결됩니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -586,7 +592,7 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 ## Variables for the command ##
 $ben = 'myBackEndPoolOutbound'
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 
 ## Get the load balancer configuration and create the outbound backend address pool##
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerBackendAddressPoolConfig -Name $ben | Set-AzLoadBalancer
@@ -598,17 +604,17 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerBackend
 [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치에 다음 규칙을 적용합니다.
 
 * 이름: **myOutboundRule**
-* **myLoadBalancer**를 사용하여 부하 분산 장치에 연결됨
-* 프런트 엔드 **myFrontEndOutbound**에 연결됨
+* **myLoadBalancer** 를 사용하여 부하 분산 장치에 연결됨
+* 프런트 엔드 **myFrontEndOutbound** 에 연결됨
 * 프로토콜: **모두**
 * 유휴 시간 제한: **15**
 * 아웃바운드 포트: **10000**
-* 백 엔드 풀 **myBackEndPoolOutbound**에 연결됨
-* 리소스 그룹: **myResourceGroupLB**
+* 백 엔드 풀 **myBackEndPoolOutbound** 에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $lbn = 'myLoadBalancer'
 $brn = 'myOutboundRule'
 $pro = 'All'
@@ -630,13 +636,13 @@ $lb | Add-AzLoadBalancerOutBoundRuleConfig -Name $brn -FrontendIPConfiguration $
 
 #### <a name="vm1"></a>VM1
 * 백 엔드 주소 풀: **myBackEndPoolOutbound**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM1** 및 **ipconfig1**에 연결됨
-* **myLoadBalancer**를 사용하여 부하 분산 장치에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM1** 및 **ipconfig1** 에 연결됨
+* **myLoadBalancer** 를 사용하여 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $lbn = 'myLoadBalancer'
 $bep = 'myBackEndPoolOutbound'
 $nic1 = 'myNicVM1'
@@ -656,13 +662,13 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 #### <a name="vm2"></a>VM2
 * 백 엔드 주소 풀: **myBackEndPoolOutbound**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM2** 및 **ipconfig1**에 연결됨
-* **myLoadBalancer**를 사용하여 부하 분산 장치에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM2** 및 **ipconfig1** 에 연결됨
+* **myLoadBalancer** 를 사용하여 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $lbn = 'myLoadBalancer'
 $bep = 'myBackEndPoolOutbound'
 $nic2 = 'myNicVM2'
@@ -682,13 +688,13 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 #### <a name="vm3"></a>VM3
 * 백 엔드 주소 풀: **myBackEndPoolOutbound**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM3** 및 **ipconfig1**에 연결됨
-* **myLoadBalancer**를 사용하여 부하 분산 장치에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM3** 및 **ipconfig1** 에 연결됨
+* **myLoadBalancer** 를 사용하여 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $lbn = 'myLoadBalancer'
 $bep = 'myBackEndPoolOutbound'
 $nic3 = 'myNicVM3'
@@ -718,12 +724,12 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 다음을 수행합니다.
 
-* **myPublicIP**라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
-* 위치: **myResourceGroupLB**
+* **myPublicIP** 라고 명명된 표준 영역 중복 공용 IP 주소를 만듭니다.
+* **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIP'
 $sku = 'Basic'
@@ -747,12 +753,12 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 다음과 같은 프런트 엔드 IP를 만듭니다.
 
 * 이름: **myFrontEnd**
-* 공용 IP **myPublicIP**에 연결됨
+* 공용 IP **myPublicIP** 에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $pubIP = 'myPublicIP'
 
@@ -814,11 +820,11 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 다음과 같은 부하 분산 장치 규칙을 만듭니다. 
 
 * 이름: **myHTTPRule**
-* 프런트 엔드 풀 **myFrontEnd**의 **포트 80**에서 수신 대기
-* **포트 80**.을 사용하여 백 엔드 주소 풀 **myBackEndPool**에 부하 분산된 네트워크 트래픽을 전송합니다. 
-* 상태 프로브 **myHealthProbe**를 사용합니다.
+* 프런트 엔드 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
+* **포트 80**.을 사용하여 백 엔드 주소 풀 **myBackEndPool** 에 부하 분산된 네트워크 트래픽을 전송합니다. 
+* 상태 프로브 **myHealthProbe** 를 사용합니다.
 * 프로토콜: **TCP**
-* 프런트 엔드 IP 주소를 사용하여 아웃바운드 SNAT(Source Network Address Translation)을 사용하도록 설정합니다.
+* **15분** 의 유휴 제한 시간.
 
 
 ```azurepowershell-interactive
@@ -826,11 +832,12 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -IdleTimeoutInMinutes $idl
 ```
 
 ### <a name="create-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
@@ -839,12 +846,12 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 * 이름: **myLoadBalancer**
 * 위치: **eastus**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $sku = 'Basic'
 
@@ -863,14 +870,14 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 다음과 같은 가상 네트워크를 만듭니다.
 
 * 이름: **myVNet**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 서브넷: **myBackendSubnet**
 * 가상 네트워크: **10.0.0.0/16**
 * 서브넷: **10.0.0.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -894,7 +901,7 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 다음과 같은 네트워크 보안 그룹 규칙을 만듭니다.
 
 * 이름: **myNSGRuleHTTP**
-* **HTTP 허용**에 대한 설명
+* **HTTP 허용** 에 대한 설명
 * 액세스 **허용**
 * 프로토콜 **(*)** .
 * 방향: **인바운드**
@@ -926,13 +933,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 다음과 같은 네트워크 보안 그룹을 만듭니다.
 
 * 이름: **myNSG**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 이전 단계에서 생성된 보안 규칙을 변수에 저장합니다.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -948,16 +955,16 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -Sec
 #### <a name="vm-1"></a>VM 1
 
 * 이름: **myNicVM1**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -984,16 +991,16 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### <a name="vm-2"></a>VM 2
 
 * 이름: **myNicVM2**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -1020,16 +1027,16 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 #### <a name="vm-3"></a>VM 3
 
 * 이름: **myNicVM3**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 * 가상 네트워크: **myVNet**
 * 서브넷: **myBackendSubnet**
 * 네트워크 보안 그룹: **myNSG**
-* **myBackEndPool**의 **myLoadBalancer** 부하 분산 장치에 연결됨
+* **myBackEndPool** 의 **myLoadBalancer** 부하 분산 장치에 연결됨
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $loc = 'eastus'
 $nic3 = 'myNicVM3'
 $vnt = 'myVNet'
@@ -1058,12 +1065,12 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBa
 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm)를 사용하여 다음과 같은 가상 머신에 대한 가용성 집합을 만듭니다.
 
 * 이름: **myAvSet**
-* 리소스 그룹: **myResourceGroupLB**
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
 * 위치: **eastus**
 
 ```azurepowershell-interactive
 ## Variables used for the command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $avs = 'myAvSet'
 $loc = 'eastus'
 
@@ -1090,15 +1097,15 @@ $cred = Get-Credential
 #### <a name="vm1"></a>VM1
 
 * 이름: **myVM1**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM1**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM1** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * 위치: **eastus**
 * 가용성 집합: **myAvSet**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -1121,15 +1128,15 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 #### <a name="vm2"></a>VM2
 
 * 이름: **myVM2**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM2**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM2** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * 위치: **eastus**
 * 가용성 집합: **myAvSet**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -1151,15 +1158,15 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 #### <a name="vm3"></a>VM3
 
 * 이름: **myVM3**
-* 리소스 그룹: **myResourceGroupLB**
-* 네트워크 인터페이스 **myNicVM3**에 연결됨
-* 부하 분산 장치 **myLoadBalancer**에 연결됨
+* 리소스 그룹 **CreatePubLBQS-rg** 에서
+* 네트워크 인터페이스 **myNicVM3** 에 연결됨
+* 부하 분산 장치 **myLoadBalancer** 에 연결됨
 * 위치: **eastus**
 * 가용성 집합: **myAvSet**
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $vm = 'myVM3'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -1184,7 +1191,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>IIS 설치
 
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
+[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 
 
 확장은 PowerShell Add-WindowsFeature Web-Server를 실행하여 IIS 웹 서버를 설치한 다음, Default.htm 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
@@ -1192,7 +1199,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM1'
 $loc = 'eastus'
@@ -1207,7 +1214,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM2'
 $loc = 'eastus'
@@ -1222,7 +1229,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM3'
 $loc = 'eastus'
@@ -1235,11 +1242,11 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
+[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
 
 ```azurepowershell-interactive
   ## Variables for command. ##
-  $rg = 'myResourceGroupLB'
+  $rg = 'CreatePubLBQS-rg'
   $ipn = 'myPublicIP'
     
   Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
@@ -1257,7 +1264,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell-interactive
 ## Variable for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreatePubLBQS-rg'
 
 Remove-AzResourceGroup -Name $rg
 ```

@@ -1,28 +1,28 @@
 ---
 title: '빠른 시작: Azure SignalR Service 만들기 - ARM 템플릿'
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure SignalR Service를 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure SignalR Service를 만드는 방법을 알아봅니다.
 author: mgblythe
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/02/2020
-ms.openlocfilehash: 04d0a98863dded93216f5fc669b8148f710f5f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858835"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487826"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SignalR Service 배포
 
-이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure SignalR Service를 만드는 방법을 보여 줍니다. Azure SignalR Service는 Azure Portal, PowerShell 또는 CLI를 통해 배포할 수 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure SignalR Service를 만드는 방법을 설명합니다. Azure Portal, PowerShell 또는 CLI를 통해 Azure SignalR Service를 배포할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 로그인하면 Azure Portal에서 템플릿이 열립니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -60,28 +60,28 @@ ms.locfileid: "91858835"
 
 Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 배포하려면 다음 링크를 선택합니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-**Azure SignalR Service** 배포 페이지에서 다음을 수행합니다.
+**Azure SignalR Service 배포** 페이지에서 다음을 수행합니다.
 
-1. 원하는 경우 **구독**을 기본값에서 변경합니다.
+1. 원하는 경우 **구독** 을 기본값에서 변경합니다.
 
-2. **리소스 그룹**에 대해 **새로 만들기**를 선택하고, 새 리소스 그룹의 이름을 입력한 다음, **확인**을 선택합니다.
+2. **리소스 그룹** 에 대해 **새로 만들기** 를 선택하고, 새 리소스 그룹의 이름을 입력한 다음, **확인** 을 선택합니다.
 
-3. 새 리소스 그룹을 만든 경우 리소스 그룹에 대한 **지역**을 선택합니다.
+3. 새 리소스 그룹을 만든 경우 리소스 그룹에 대한 **지역** 을 선택합니다.
 
-4. 원하는 경우 Azure SignalR Service의 새 **이름** 및 **위치**(예: **eastus2**)를 입력합니다. 이름을 지정하지 않으면 자동으로 생성됩니다. Azure SignalR Service의 위치는 리소스 그룹의 지역과 같거나 다를 수 있습니다. 위치를 지정하지 않으면 리소스 그룹과 동일한 지역으로 설정됩니다.
+4. 원하는 경우 Azure SignalR Service의 새 **이름** 및 **위치** (예: **eastus2** )를 입력합니다. 이름을 지정하지 않으면 자동으로 생성됩니다. Azure SignalR Service의 위치는 리소스 그룹의 지역과 같거나 다를 수 있습니다. 위치를 지정하지 않으면 리소스 그룹과 동일한 지역으로 설정됩니다.
 
-5. **가격 책정 계층**(**Free_F1** 또는 **Standard_S1**)을 선택하고, **용량**(SignalR 단위 수)을 입력하고, **기본값**(허브 서버 필요), **서버리스**(서버 연결을 허용하지 않음) 또는 **클래식**(허브에 서버 연결이 있는 경우에만 허브 서버로 라우트됨)  **서비스 모드** 중 하나를 선택합니다. 그런 다음, **연결 로그 사용** 또는 **메시징 로그 사용**을 선택합니다.
+5. **가격 책정 계층** ( **Free_F1** 또는 **Standard_S1** )을 선택하고, **용량** (SignalR 단위 수)을 입력하고, **기본값** (허브 서버 필요), **서버리스** (서버 연결을 허용하지 않음) 또는 **클래식** (허브에 서버 연결이 있는 경우에만 허브 서버로 라우트됨)  **서비스 모드** 중 하나를 선택합니다. 그런 다음, **연결 로그 사용** 또는 **메시징 로그 사용** 을 선택합니다.
 
     > [!NOTE]
     > **Free_F1** 가격 책정 계층의 경우 용량은 1 단위로 제한됩니다.
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Azure Portal에서 Azure SignalR Service를 만들기 위한 ARM 템플릿의 스크린샷.":::
 
-6. **검토 + 만들기**를 선택합니다.
+6. **검토 + 만들기** 를 선택합니다.
 
-7. 사용 약관을 읽은 다음, **만들기**를 선택합니다.
+7. 사용 약관을 읽은 다음, **만들기** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -92,15 +92,15 @@ ARM 템플릿을 사용하여 Azure SignalR Service를 배포하려면 다음 �
 
 * 새 Azure SignalR Service의 이름 및 지역
 * 새 리소스 그룹의 이름 및 지역
-* Azure 가격 책정 계층(**Free_F1** 또는 **Standard_S1**)
+* Azure 가격 책정 계층( **Free_F1** 또는 **Standard_S1** )
 * SignalR 단위 용량(1, 2, 5, 10, 20, 50 또는 100)
   > [!NOTE]
   > **Free_F1** 가격 책정 계층의 경우 용량은 1 단위로 제한됩니다.
-* 서비스 모드: **기본값**(허브 서버 필요), **서버리스**(서버 연결을 허용하지 않음) 또는 **클래식**(허브에 허브 서버가 있는 경우에만 허브 서버로 라우팅)
-* 연결 로그 또는 메시징 로그를 사용하도록 설정할지 여부(**true** 또는 **false**)
+* 서비스 모드: **기본값** (허브 서버 필요), **서버리스** (서버 연결을 허용하지 않음) 또는 **클래식** (허브에 허브 서버가 있는 경우에만 허브 서버로 라우팅)
+* 연결 로그 또는 메시징 로그를 사용하도록 설정할지 여부( **true** 또는 **false** )
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
@@ -124,7 +124,7 @@ $paramObjHashTable = @{
     enableMessagingLogs = $enableMessageLogs
 }
 
-Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR service using an ARM template" -Verbose
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
@@ -137,15 +137,15 @@ ARM 템플릿을 사용하여 Azure SignalR Service를 배포하려면 다음 �
 
 * 새 Azure SignalR Service의 이름 및 지역
 * 새 리소스 그룹의 이름 및 지역
-* Azure 가격 책정 계층(**Free_F1** 또는 **Standard_S1**)
+* Azure 가격 책정 계층( **Free_F1** 또는 **Standard_S1** )
 * SignalR 단위 용량(1, 2, 5, 10, 20, 50 또는 100)
     > [!NOTE]
     > **Free_F1** 가격 책정 계층의 경우 용량은 1 단위로 제한됩니다.
-* 서비스 모드: **기본값**(허브 서버 필요), **서버리스**(서버 연결을 허용하지 않음) 또는 **클래식**(허브에 허브 서버가 있는 경우에만 허브 서버로 라우팅)
-* 연결 로그 또는 메시징 로그를 사용하도록 설정할지 여부(**true** 또는 **false**)
+* 서비스 모드: **기본값** (허브 서버 필요), **서버리스** (서버 연결을 허용하지 않음) 또는 **클래식** (허브에 허브 서버가 있는 경우에만 허브 서버로 라우팅)
+* 연결 로그 또는 메시징 로그를 사용하도록 설정할지 여부( **true** 또는 **false** )
 
 ```azurecli-interactive
-read -p "Enter a name for the new Azure SignalR service: " serviceName &&
+read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
@@ -157,7 +157,7 @@ read -p "Specify whether to enable messaging logs (true or false): " enableMessa
 params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier' capacity='$unitCapacity' serviceMode='$servicingMode' enableConnectivityLogs='$enableConnectionLogs' enableMessagingLogs='$enableMessageLogs &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an Azure SignalR service using an ARM template" &&
+echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
@@ -173,7 +173,7 @@ read -p "Press [ENTER] to continue: "
 
 새 Azure SignalR Service에 대한 개요를 보려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **SignalR**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **SignalR** 을 검색하여 선택합니다.
 
 2. SignalR 목록에서 새 서비스를 선택합니다. 새 Azure SignalR Service에 대한 **개요** 페이지가 표시됩니다.
 
@@ -182,7 +182,7 @@ read -p "Press [ENTER] to continue: "
 Azure SignalR Service에 대한 세부 정보를 보려면 다음 대화형 코드를 실행합니다. 새 서비스 및 리소스 그룹의 이름을 입력해야 합니다.
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -194,7 +194,7 @@ Read-Host "Press [ENTER] to continue"
 Azure SignalR Service에 대한 세부 정보를 보려면 다음 대화형 코드를 실행합니다. 새 서비스 및 리소스 그룹의 이름을 입력해야 합니다.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure SignalR service: " serviceName &&
+read -p "Enter the name of your Azure SignalR Service: " serviceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az signalr show --resource-group $resourceGroupName --name $serviceName" &&
 az signalr show --resource-group $resourceGroupName --name $serviceName &&
@@ -209,13 +209,13 @@ read -p "Press [ENTER] to continue: "
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 검색하여 선택합니다.
 
 2. 리소스 그룹 목록에서 리소스 그룹의 이름을 선택합니다.
 
-3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 
-4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제**를 선택합니다.
+4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

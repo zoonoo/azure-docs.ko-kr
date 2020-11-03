@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944282"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "91944282"
 * 사용자가 해당 Azure AD 계정으로 F5에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -68,17 +68,17 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
     >[!NOTE]
     >아래 스크린샷은 최신 릴리스 버전(AGC 버전 5.0이 포함된 BIG-IP 15.0)에 대한 것입니다. 아래 구성 단계는 13.1.0.8부터 최신 BIG-IP 버전까지의 이 사용 사례에 유효합니다.
 
-1. F5 BIG-IP 웹 UI에서 **Access >> Guide Configuration**(액세스 >> 단계별 구성)을 차례로 클릭합니다.
+1. F5 BIG-IP 웹 UI에서 **Access >> Guide Configuration** (액세스 >> 단계별 구성)을 차례로 클릭합니다.
 
-2. **Guided Configuration**(단계별 구성) 페이지의 왼쪽 위 모서리에서 **Upgrade Guided Configuration**(단계별 구성 업그레이드)을 클릭합니다.
+2. **Guided Configuration** (단계별 구성) 페이지의 왼쪽 위 모서리에서 **Upgrade Guided Configuration** (단계별 구성 업그레이드)을 클릭합니다.
 
     !["단계별 구성 업그레이드" 작업이 선택된 "단계별 구성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure14.png) 
 
-3. Upgrade Guided Configuration 팝업 화면에서 **Choose File**(파일 선택)을 선택하여 다운로드한 사용 사례 팩을 업로드하고 **Upload and Install**(업로드 후 설치) 단추를 클릭합니다.
+3. Upgrade Guided Configuration 팝업 화면에서 **Choose File** (파일 선택)을 선택하여 다운로드한 사용 사례 팩을 업로드하고 **Upload and Install** (업로드 후 설치) 단추를 클릭합니다.
 
     !["파일 선택" 및 "업로드 및 설치"가 선택된 "단계별 구성 업그레이드" 팝업 화면을 보여주는 스크린샷](./media/kerbf5-tutorial/configure15.png) 
 
-4. 업그레이드가 완료되면 **Continue**(계속) 단추를 클릭합니다.
+4. 업그레이드가 완료되면 **Continue** (계속) 단추를 클릭합니다.
 
     !["단계별 구성 업데이트가 완료되었습니다"라는 대화 상자와 "계속" 단추가 선택된 것을 보여주는 스크린샷](./media/kerbf5-tutorial/configure16.png)
 
@@ -115,14 +115,14 @@ F5가 Azure AD에 통합되도록 구성하려면 갤러리에서 F5를 관리�
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **F5**를 입력합니다.
-1. 결과 패널에서 **F5**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **F5** 를 입력합니다.
+1. 결과 패널에서 **F5** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>F5에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 F5에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 F5의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 F5에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 F5의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 F5에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -137,9 +137,9 @@ F5에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **F5** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **F5** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -149,14 +149,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [F5 클라이언트 지원 팀](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 및 **인증서(Base64)** 를 찾은 다음, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 및 **인증서(Base64)** 를 찾은 다음, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -168,33 +168,33 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 F5에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **F5**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **F5** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-1. **조건부 액세스**를 클릭합니다.
-1. **새 정책**을 클릭합니다.
+1. **조건부 액세스** 를 클릭합니다.
+1. **새 정책** 을 클릭합니다.
 1. 이제 F5 앱을 CA 정책의 리소스로 표시하고 다단계 인증, 디바이스 기반 액세스 제어 또는 ID 보호 정책을 포함한 모든 조건부 액세스를 적용할 수 있습니다.
 
 ## <a name="configure-f5-sso"></a>F5 SSO 구성
@@ -211,60 +211,60 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 메타데이터 인증서는 나중에 설정 프로세스에서 사용할 F5로 가져와야 합니다.
 
-1. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**(시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다. **Certificate Name**(인증서 이름)을 지정합니다(나중에 구성에서 참조됨). **Certificate Source**(인증서 원본)에서 Upload File(파일 업로드)을 선택하여 SAML Single Sign-On을 구성하는 동안 Azure에서 다운로드한 인증서를 지정합니다. **가져오기**를 클릭합니다.
+1. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import** (가져오기)를 선택합니다. **Certificate Name** (인증서 이름)을 지정합니다(나중에 구성에서 참조됨). **Certificate Source** (인증서 원본)에서 Upload File(파일 업로드)을 선택하여 SAML Single Sign-On을 구성하는 동안 Azure에서 다운로드한 인증서를 지정합니다. **가져오기** 를 클릭합니다.
 
     !["인증서 이름"이 강조 표시되고 "파일 업로드" 및 "가져오기" 단추가 선택된 "SSL 인증서/키 원본" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure01.png) 
 
-1. **애플리케이션 호스트 이름에 대한 SSL 인증서도 필요합니다. System > Certificate Management > Traffic Certificate Management > SSL Certificate List(시스템 > 인증서 관리 > 트래픽 인증서 관리 > SSL 인증서 목록)로 차례로 이동합니다**. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다. **Import Type**(유형 가져오기)은 **PKCS 12(IIS)** 입니다. **Key Name**(키 이름)을 지정하고(나중에 구성에서 참조됨), PFX 파일을 지정합니다. PFX에 대한 **Password**(암호)를 지정합니다. **가져오기**를 클릭합니다.
+1. **애플리케이션 호스트 이름에 대한 SSL 인증서도 필요합니다. System > Certificate Management > Traffic Certificate Management > SSL Certificate List(시스템 > 인증서 관리 > 트래픽 인증서 관리 > SSL 인증서 목록)로 차례로 이동합니다**. 오른쪽 모서리에서 **Import** (가져오기)를 선택합니다. **Import Type** (유형 가져오기)은 **PKCS 12(IIS)** 입니다. **Key Name** (키 이름)을 지정하고(나중에 구성에서 참조됨), PFX 파일을 지정합니다. PFX에 대한 **Password** (암호)를 지정합니다. **가져오기** 를 클릭합니다.
 
     >[!NOTE]
     >이 예에서 앱 이름은 `Kerbapp.superdemo.live`이고, 키 이름이 `WildCard-SuperDemo.live`인 와일드카드 인증서를 사용하고 있습니다.
 
     ![값을 입력하고 "가져오기" 단추를 선택한 "SSL 인증서/키 원본" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure02.png) 
  
-1. Guided Experience(단계별 환경)를 사용하여 Azure AD 페더레이션 및 애플리케이션 액세스를 설정합니다. F5 BIG-IP **Main**(기본)으로 이동하고, **Access > Guided Configuration > Federation > SAML Service Provider**(액세스 > 단계별 구성 > 페더레이션 > SAML 서비스 공급자)를 차례로 선택합니다. **Next**(다음)를 클릭한 다음, **Next**를 클릭하여 구성을 시작합니다.
+1. Guided Experience(단계별 환경)를 사용하여 Azure AD 페더레이션 및 애플리케이션 액세스를 설정합니다. F5 BIG-IP **Main** (기본)으로 이동하고, **Access > Guided Configuration > Federation > SAML Service Provider** (액세스 > 단계별 구성 > 페더레이션 > SAML 서비스 공급자)를 차례로 선택합니다. **Next** (다음)를 클릭한 다음, **Next** 를 클릭하여 구성을 시작합니다.
 
     !["페더레이션" 아이콘이 강조 표시되고 "SAML 서비스 공급자"가 선택된 "단계별 구성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure03.png) 
 
     !["다음" 단추가 선택된 "단계별 구성 - SAML 서비스 공급자" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure04.png)
 
-1. **Configuration Name**(구성 이름)을 제공합니다. **Entity ID**(엔터티 ID)를 지정합니다(Azure AD 애플리케이션 구성에서 구성한 것과 동일). **Host name**(호스트 이름)을 지정합니다. 참조를 위한 **Description**(설명)을 추가합니다. 나머지 기본 항목을 적용한 다음, **Save & Next**(저장 후 다음)를 선택하여 클릭합니다.
+1. **Configuration Name** (구성 이름)을 제공합니다. **Entity ID** (엔터티 ID)를 지정합니다(Azure AD 애플리케이션 구성에서 구성한 것과 동일). **Host name** (호스트 이름)을 지정합니다. 참조를 위한 **Description** (설명)을 추가합니다. 나머지 기본 항목을 적용한 다음, **Save & Next** (저장 후 다음)를 선택하여 클릭합니다.
 
     !["호스트 이름" 및 "설명" 텍스트 상자가 강조 표시되고 "저장 후 다음" 단추가 선택된 "서비스 공급자 속성"을 보여주는 스크린샷](./media/kerbf5-tutorial/configure05.png) 
 
-1. 이 예에서는 새 가상 서버를 443 포트가 있는 192.168.30.200으로 만듭니다. **Destination Address**(대상 주소)에서 가상 서버 IP 주소를 지정합니다. **Client SSL Profile**(클라이언트 SSL 프로필), Create new(새로 만들기)를 차례로 선택합니다. 이전에 업로드한 애플리케이션 인증서(이 예에서는 와일드카드 인증서) 및 연결된 키를 지정한 다음, **Save & Next**(저장 후 다음)를 클릭합니다.
+1. 이 예에서는 새 가상 서버를 443 포트가 있는 192.168.30.200으로 만듭니다. **Destination Address** (대상 주소)에서 가상 서버 IP 주소를 지정합니다. **Client SSL Profile** (클라이언트 SSL 프로필), Create new(새로 만들기)를 차례로 선택합니다. 이전에 업로드한 애플리케이션 인증서(이 예에서는 와일드카드 인증서) 및 연결된 키를 지정한 다음, **Save & Next** (저장 후 다음)를 클릭합니다.
 
     >[!NOTE]
     >이 예에서는 내부 웹 서버가 80 포트에서 실행되고 있고, 443 포트를 사용하여 게시하려고 합니다.
 
     !["대상 주소" 텍스트 상자가 강조 표시되고 "저장 후 다음" 단추가 선택된 "가상 서버 속성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure06.png)
 
-1. **Select method to configure your IdP connector**(IdP 커넥터를 구성하는 방법 선택) 아래에서 Metadata(메타데이터)를 지정하고, Choose File(파일 선택)을 클릭하고, 이전에 Azure AD에서 다운로드한 메타데이터 XML 파일을 업로드합니다. SAML IDP 커넥터에 대해 고유한 **Name**(이름)을 지정합니다. 이전에 업로드한 **Metadata Signing Certificate**(메타데이터 서명 인증서)를 선택합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
+1. **Select method to configure your IdP connector** (IdP 커넥터를 구성하는 방법 선택) 아래에서 Metadata(메타데이터)를 지정하고, Choose File(파일 선택)을 클릭하고, 이전에 Azure AD에서 다운로드한 메타데이터 XML 파일을 업로드합니다. SAML IDP 커넥터에 대해 고유한 **Name** (이름)을 지정합니다. 이전에 업로드한 **Metadata Signing Certificate** (메타데이터 서명 인증서)를 선택합니다. **Save & Next** (저장 후 다음)를 클릭합니다.
 
     !["이름" 텍스트 상자가 강조 표시되고 "저장 후 다음" 단추가 선택된 "외부 ID 공급자 커넥터 설정" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure07.png)  
 
-1. **Select a Pool**(풀 선택) 아래에서 **Create New**(새로 만들기)를 지정합니다(또는 이미 있는 풀 선택). 다른 값은 기본값으로 둡니다.    Pool Servers(풀 서버)의 **IP Address/Node Name**(IP 주소/노드 이름) 아래에서 IP 주소를 입력합니다. **Port**(포트)를 지정합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
+1. **Select a Pool** (풀 선택) 아래에서 **Create New** (새로 만들기)를 지정합니다(또는 이미 있는 풀 선택). 다른 값은 기본값으로 둡니다.    Pool Servers(풀 서버)의 **IP Address/Node Name** (IP 주소/노드 이름) 아래에서 IP 주소를 입력합니다. **Port** (포트)를 지정합니다. **Save & Next** (저장 후 다음)를 클릭합니다.
  
     !["IP 주소/노드 이름" 및 "포트" 텍스트 상자가 강조 표시되고 "저장 후 다음" 단추가 선택된 "풀 속성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure08.png)
 
-1. Single Sign-On Settings(Single Sign-On 설정) 화면에서 **Enable Single Sign-On**(Single Sign-On 사용)을 선택합니다. **Selected Single Sign-On Type**(선택한 Single Sign-On 유형) 아래에서 **Kerberos**를 선택합니다. **Username Source**(사용자 이름 원본) 아래에서 **session.saml.last.Identity**를 **session.saml.last.attr.name.Identity**로 바꿉니다(이 변수는 Azure AD의 클레임 매핑을 사용하여 설정). **Show Advanced Setting**(고급 설정 표시)을 선택합니다. **Kerberos Realm**(Kerberos 영역) 아래에서 도메인 이름을 입력합니다. **Account Name/ Account Password**(계정 이름/계정 암호) 아래에서 APM 위임 계정 및 암호를 지정합니다. **KDC** 필드에서 도메인 컨트롤러 IP를 지정합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
+1. Single Sign-On Settings(Single Sign-On 설정) 화면에서 **Enable Single Sign-On** (Single Sign-On 사용)을 선택합니다. **Selected Single Sign-On Type** (선택한 Single Sign-On 유형) 아래에서 **Kerberos** 를 선택합니다. **Username Source** (사용자 이름 원본) 아래에서 **session.saml.last.Identity** 를 **session.saml.last.attr.name.Identity** 로 바꿉니다(이 변수는 Azure AD의 클레임 매핑을 사용하여 설정). **Show Advanced Setting** (고급 설정 표시)을 선택합니다. **Kerberos Realm** (Kerberos 영역) 아래에서 도메인 이름을 입력합니다. **Account Name/ Account Password** (계정 이름/계정 암호) 아래에서 APM 위임 계정 및 암호를 지정합니다. **KDC** 필드에서 도메인 컨트롤러 IP를 지정합니다. **Save & Next** (저장 후 다음)를 클릭합니다.
 
     ![텍스트 상자가 강조 표시되고 "저장 후 다음" 단추가 선택된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure09.png)   
 
-1. 이 지침에서는 엔드포인트 검사를 건너뜁니다.  자세한 내용은 F5 설명서를 참조하세요.  화면에서 **Save & Next**(저장 후 다음)를 선택합니다.
+1. 이 지침에서는 엔드포인트 검사를 건너뜁니다.  자세한 내용은 F5 설명서를 참조하세요.  화면에서 **Save & Next** (저장 후 다음)를 선택합니다.
 
     !["엔드포인트 검사 속성" 페이지와 "저장 후 다음" 단추가 선택된 것을 보여주는 스크린샷](./media/kerbf5-tutorial/configure10.png) 
 
-1. 기본값을 적용하고, **Save & Next**(저장 후 다음)를 클릭합니다. SAML 세션 관리 설정에 대한 자세한 내용은 F5 설명서를 참조하세요.
+1. 기본값을 적용하고, **Save & Next** (저장 후 다음)를 클릭합니다. SAML 세션 관리 설정에 대한 자세한 내용은 F5 설명서를 참조하세요.
 
 
     !["저장 후 다음" 단추가 선택된 "시간 제한 설정" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure11.png) 
  
-1. 요약 화면을 검토하고, **Deploy**(배포)를 선택하여 BIG-IP를 구성합니다.
+1. 요약 화면을 검토하고, **Deploy** (배포)를 선택하여 BIG-IP를 구성합니다.
  
     !["요약" 섹션이 강조 표시된 "애플리케이션 배포 준비가 완료되었습니다" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure12.png)
 
-1. 애플리케이션이 구성되었으면 **마침**을 클릭합니다.
+1. 애플리케이션이 구성되었으면 **마침** 을 클릭합니다.
 
     !["마침" 단추가 선택된 "애플리케이션이 배포되었습니다" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure13.png)
 
@@ -277,55 +277,55 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM에서 사용자를 인증하는 데 사용할 도메인 컨트롤러 및 자격 증명을 지정합니다.
 
-1. Main(기본) 탭에서 **Access Policy > AAA Servers > Active Directory**(액세스 정책 > AAA 서버 > Active Directory)를 차례로 클릭합니다. Active Directory 서버 목록 화면이 열립니다.
+1. Main(기본) 탭에서 **Access Policy > AAA Servers > Active Directory** (액세스 정책 > AAA 서버 > Active Directory)를 차례로 클릭합니다. Active Directory 서버 목록 화면이 열립니다.
 
-2. **만들기**를 클릭합니다. New Server(새 서버) 속성 화면이 열립니다.
+2. **만들기** 를 클릭합니다. New Server(새 서버) 속성 화면이 열립니다.
 
-3. **Name**(이름) 필드에서 고유한 인증 서버 이름을 입력합니다.
+3. **Name** (이름) 필드에서 고유한 인증 서버 이름을 입력합니다.
 
-4. **Domain Name**(도메인 이름) 필드에서 Windows 도메인의 이름을 입력합니다.
+4. **Domain Name** (도메인 이름) 필드에서 Windows 도메인의 이름을 입력합니다.
 
-5. **Server Connection**(서버 연결) 설정에 대해 다음 옵션 중 하나를 선택합니다.
+5. **Server Connection** (서버 연결) 설정에 대해 다음 옵션 중 하나를 선택합니다.
 
-   * AAA 서버를 고가용성으로 설정하려면 **Use Pool**(풀 사용)을 선택합니다.
+   * AAA 서버를 고가용성으로 설정하려면 **Use Pool** (풀 사용)을 선택합니다.
 
-   * AAA 서버를 독립 실행형 기능으로 설정하려면 **Direct**(직접)를 선택합니다.
+   * AAA 서버를 독립 실행형 기능으로 설정하려면 **Direct** (직접)를 선택합니다.
 
-6. **Direct**를 선택한 경우 **Domain Controller**(도메인 컨트롤러) 필드에서 이름을 입력합니다.
+6. **Direct** 를 선택한 경우 **Domain Controller** (도메인 컨트롤러) 필드에서 이름을 입력합니다.
 
-7. **Use Pool**을 선택한 경우 다음과 같이 풀을 구성합니다.
+7. **Use Pool** 을 선택한 경우 다음과 같이 풀을 구성합니다.
 
-   * **Domain Controller Pool Name**(도메인 컨트롤러 풀 이름) 필드에서 이름을 입력합니다.
+   * **Domain Controller Pool Name** (도메인 컨트롤러 풀 이름) 필드에서 이름을 입력합니다.
 
-   * 각각에 대한 IP 주소와 호스트 이름을 입력하고 **추가** 단추를 클릭하여 풀에서 **Domain Controllers**(도메인 컨트롤러)를 지정합니다.
+   * 각각에 대한 IP 주소와 호스트 이름을 입력하고 **추가** 단추를 클릭하여 풀에서 **Domain Controllers** (도메인 컨트롤러)를 지정합니다.
 
-   * AAA 서버의 상태를 모니터링하기 위해 상태 모니터를 선택할 수 있는 옵션이 있습니다. 이 경우에는 **gateway_icmp** 모니터만 적합합니다. 이는 **Server Pool Monitor**(서버 풀 모니터) 목록에서 선택할 수 있습니다.
+   * AAA 서버의 상태를 모니터링하기 위해 상태 모니터를 선택할 수 있는 옵션이 있습니다. 이 경우에는 **gateway_icmp** 모니터만 적합합니다. 이는 **Server Pool Monitor** (서버 풀 모니터) 목록에서 선택할 수 있습니다.
 
-8. **Admin Name**(관리자 이름) 필드에서 Active Directory 관리자 권한이 있는 관리자에 대한 대/소문자를 구분하는 이름을 입력합니다. APM에서는 **Admin Name**(관리자 이름) 및 **Admin Password**(관리자 암호) 필드의 정보를 AD 쿼리에 사용합니다. Active Directory가 익명 쿼리에 대해 구성된 경우 Admin Name을 제공할 필요가 없습니다. 그렇지 않으면 암호 관련 기능을 지원하기 위해 Active Directory 서버에 바인딩하고, 사용자 그룹 정보를 가져오고, Active Directory 암호 정책을 가져올 수 있는 충분한 권한이 있는 계정이 APM에 필요합니다. (예를 들어 AD 쿼리 작업에서 만료 전에 사용자가 암호를 변경하라는 메시지를 표시하는 옵션(Prompt)을 선택한 경우 APM에서 암호 정책을 가져와야 합니다.) 이 구성에서 관리자 계정 정보를 제공하지 않으면 APM에서 사용자 계정을 사용하여 정보를 가져옵니다. 이는 사용자 계정에 충분한 권한이 있는 경우에 작동합니다.
+8. **Admin Name** (관리자 이름) 필드에서 Active Directory 관리자 권한이 있는 관리자에 대한 대/소문자를 구분하는 이름을 입력합니다. APM에서는 **Admin Name** (관리자 이름) 및 **Admin Password** (관리자 암호) 필드의 정보를 AD 쿼리에 사용합니다. Active Directory가 익명 쿼리에 대해 구성된 경우 Admin Name을 제공할 필요가 없습니다. 그렇지 않으면 암호 관련 기능을 지원하기 위해 Active Directory 서버에 바인딩하고, 사용자 그룹 정보를 가져오고, Active Directory 암호 정책을 가져올 수 있는 충분한 권한이 있는 계정이 APM에 필요합니다. (예를 들어 AD 쿼리 작업에서 만료 전에 사용자가 암호를 변경하라는 메시지를 표시하는 옵션(Prompt)을 선택한 경우 APM에서 암호 정책을 가져와야 합니다.) 이 구성에서 관리자 계정 정보를 제공하지 않으면 APM에서 사용자 계정을 사용하여 정보를 가져옵니다. 이는 사용자 계정에 충분한 권한이 있는 경우에 작동합니다.
 
 9. **Admin Password** 필드에서 Domain Name과 연결된 관리자 암호를 입력합니다.
 
-10. **Verify Admin Password**(관리자 암호 확인) 필드에서 **Domain Name** 설정과 연결된 관리자 암호를 다시 입력합니다.
+10. **Verify Admin Password** (관리자 암호 확인) 필드에서 **Domain Name** 설정과 연결된 관리자 암호를 다시 입력합니다.
 
-11. **Group Cache Lifetime**(그룹 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
+11. **Group Cache Lifetime** (그룹 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
 
-12. **Password Security Object Cache Lifetime**(암호 보안 개체 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
+12. **Password Security Object Cache Lifetime** (암호 보안 개체 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
 
-13. **Kerberos Preauthentication Encryption Type**(Kerberos 사전 인증 암호화 유형) 목록에서 암호화 유형을 선택합니다. 기본값은 **None**(없음)입니다. 암호화 유형을 지정하는 경우 BIG-IP 시스템에는 첫 번째 인증 서비스 요청(AS-REQ) 패킷 내의 Kerberos 사전 인증 데이터가 포함됩니다.
+13. **Kerberos Preauthentication Encryption Type** (Kerberos 사전 인증 암호화 유형) 목록에서 암호화 유형을 선택합니다. 기본값은 **None** (없음)입니다. 암호화 유형을 지정하는 경우 BIG-IP 시스템에는 첫 번째 인증 서비스 요청(AS-REQ) 패킷 내의 Kerberos 사전 인증 데이터가 포함됩니다.
 
-14. **Timeout**(시간 제한) 필드에서 AAA 서버에 대한 시간 제한 간격(초)을 입력합니다. (이 설정은 선택 사항입니다.)
+14. **Timeout** (시간 제한) 필드에서 AAA 서버에 대한 시간 제한 간격(초)을 입력합니다. (이 설정은 선택 사항입니다.)
 
-15. **Finished**(마침)를 클릭합니다. 새 서버가 목록에 표시됩니다. 그러면 새 Active Directory 서버가 Active Directory 서버 목록에 추가됩니다.
+15. **Finished** (마침)를 클릭합니다. 새 서버가 목록에 표시됩니다. 그러면 새 Active Directory 서버가 Active Directory 서버 목록에 추가됩니다.
 
     !["일반 속성" 및 "구성" 섹션을 보여주는 스크린샷](./media/kerbf5-tutorial/configure17.png)
 
 ### <a name="saml-configuration"></a>SAML 구성
 
-1. 메타데이터 인증서는 나중에 설정 프로세스에서 사용할 F5로 가져와야 합니다. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**(시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다.
+1. 메타데이터 인증서는 나중에 설정 프로세스에서 사용할 F5로 가져와야 합니다. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import** (가져오기)를 선택합니다.
 
     !["가져오기" 단추를 선택한 "SSL 인증서/키 원본 가져오기" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure18.png)
 
-2. SAML IDP를 설정하려면 **Access > Federation > SAML(액세스 > 페더레이션 > SAML): Service Provider > External Idp Connectors(서비스 공급자 > 외부 Idp 커넥터)** 로 차례로 이동하고, **Create > From Metadata**(만들기 > 메타데이터에서)를 차례로 클릭합니다.
+2. SAML IDP를 설정하려면 **Access > Federation > SAML(액세스 > 페더레이션 > SAML): Service Provider > External Idp Connectors(서비스 공급자 > 외부 Idp 커넥터)** 로 차례로 이동하고, **Create > From Metadata** (만들기 > 메타데이터에서)를 차례로 클릭합니다.
 
     !["만들기" 드롭다운에서 "메타데이터에서"를 선택한 "SAML 서비스 공급자" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure19.png)
 
@@ -339,7 +339,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
     !["SLO 서비스 설정"을 선택한 "SAML IdP 커넥터 편집" 창을 보여주는 스크린샷](./media/kerbf5-tutorial/configure24.png)
 
-1. SAML SP를 설정하려면 **Access > Federation > SAML 서비스 공급자 > Local SP Services**(액세스 > 페더레이션 > SAML Service Provider > 로컬 SP 서비스)로 차례로 이동하고, **Create**(만들기)를 클릭합니다. 다음 정보를 완성하고, **OK**(확인)를 클릭합니다.
+1. SAML SP를 설정하려면 **Access > Federation > SAML 서비스 공급자 > Local SP Services** (액세스 > 페더레이션 > SAML Service Provider > 로컬 SP 서비스)로 차례로 이동하고, **Create** (만들기)를 클릭합니다. 다음 정보를 완성하고, **OK** (확인)를 클릭합니다.
 
     * Type Name(형식 이름): KerbApp200SAML
     * Entity ID(엔터티 ID)*: https://kerb-app.com.cutestat.com
@@ -350,28 +350,28 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
      !["일반 설정"을 선택한 "SAML SP 서비스" 창을 보여주는 스크린샷](./media/kerbf5-tutorial/configure25.png)
 
-     b. KerbApp200SAML SP 구성을 선택하고, **Bind/UnBind IdP Connectors**(IdP 커넥터 바인딩/바인딩 해제)를 클릭합니다.
+     b. KerbApp200SAML SP 구성을 선택하고, **Bind/UnBind IdP Connectors** (IdP 커넥터 바인딩/바인딩 해제)를 클릭합니다.
 
      !["KerbAPP200 SAML"을 선택한 "SAML 서비스 공급자 - 로컬 SP 서비스" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure26.png)
 
      !["IdP 커넥터 바인딩/바인딩 해제" 단추를 보여주는 스크린샷](./media/kerbf5-tutorial/configure27.png)
 
-     다. **Add New Row**(새 행 추가)를 클릭하고, 이전 단계에서 만든 **External IdP connector**(외부 IdP 커넥터)를 선택하고, **Update**(업데이트)를 클릭한 다음, **OK**(확인)를 클릭합니다.
+     다. **Add New Row** (새 행 추가)를 클릭하고, 이전 단계에서 만든 **External IdP connector** (외부 IdP 커넥터)를 선택하고, **Update** (업데이트)를 클릭한 다음, **OK** (확인)를 클릭합니다.
 
      !["새 행 추가" 단추가 선택된 "이 SP를 사용하는 SAML IdP 편집" 창을 보여주는 스크린샷](./media/kerbf5-tutorial/configure28.png)
 
-1. Kerberos SSO를 구성하려면 **Access > Single Sign-On > Kerberos**(액세스 > Single Sign-On > Kerberos)로 차례로 이동하고, 정보를 완성하고 **Finished**(마침)를 클릭합니다.
+1. Kerberos SSO를 구성하려면 **Access > Single Sign-On > Kerberos** (액세스 > Single Sign-On > Kerberos)로 차례로 이동하고, 정보를 완성하고 **Finished** (마침)를 클릭합니다.
 
     >[!Note]
     > Kerberos 위임 계정을 만들고 지정해야 합니다. KCD 섹션을 참조하세요(변수 참조는 부록 참조).
 
-    * **사용자 이름 원본**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **사용자 이름 원본** : session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
-    * **User Realm Source**(사용자 영역 원본): session.logon.last.domain
+    * **User Realm Source** (사용자 영역 원본): session.logon.last.domain
 
         !["사용자 이름 원본" 및 "사용자 영역 원본" 텍스트 상자가 강조 표시된 "Single Sign-On - 속성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure29.png)
 
-1. 액세스 프로필을 구성하려면 **Access > Profile/Policies > Access Profile (per session policies)** (액세스 > 프로필/정책 > 액세스 프로필(세션 정책별))을 차례로 이동하고, **Create**(만들기)를 클릭하고, 다음 정보를 완성하고, **Finished**(마침)를 클릭합니다.
+1. 액세스 프로필을 구성하려면 **Access > Profile/Policies > Access Profile (per session policies)** (액세스 > 프로필/정책 > 액세스 프로필(세션 정책별))을 차례로 이동하고, **Create** (만들기)를 클릭하고, 다음 정보를 완성하고, **Finished** (마침)를 클릭합니다.
 
     * 이름: KerbApp200
     * Profile Type(프로필 유형): 모두
@@ -380,14 +380,14 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
         !["이름", "프로필 유형" 및 "언어" 텍스트 상자가 강조 표시된 "프로필/정책 - 속성" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure30.png)
 
-1. KerbApp200이라는 이름을 클릭하고, 다음 정보를 완성하고, **Update**(업데이트)를 클릭합니다.
+1. KerbApp200이라는 이름을 클릭하고, 다음 정보를 완성하고, **Update** (업데이트)를 클릭합니다.
 
     * Domain Cookie(도메인 쿠키): superdemo.live
     * SSO Configuration(SSO 구성): KerAppSSO_sso
 
         !["도메인 쿠키" 텍스트 상자와 "SSO 구성" 드롭다운이 강조 표시되고 "업데이트" 단추가 선택된 "SSD/인증 도메인" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure31.png)
 
-1. **Access Policy**(액세스 정책)를 클릭한 다음, "KerbApp200" 프로필에 대해 **Edit Access Policy**(액세스 정책 편집)를 클릭합니다.
+1. **Access Policy** (액세스 정책)를 클릭한 다음, "KerbApp200" 프로필에 대해 **Edit Access Policy** (액세스 정책 편집)를 클릭합니다.
 
     !["KerbApp200 프로필에 대한 액세스 정책 편집" 작업이 선택된 "액세스 정책" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure32.png)
 
@@ -414,7 +414,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
     * **mcget {session.logon.last.username}**
     * **mcget {session.logon.last.password**
 
-1. 새 노드를 추가하려면 **Local Traffic > Nodes > Node List**(로컬 트래픽 > 노드 > 노드 목록)로 차례로 이동하고, Create(만들기)를 클릭하고, 다음 정보를 완성하고, **Finished**(마침)를 클릭합니다.
+1. 새 노드를 추가하려면 **Local Traffic > Nodes > Node List** (로컬 트래픽 > 노드 > 노드 목록)로 차례로 이동하고, Create(만들기)를 클릭하고, 다음 정보를 완성하고, **Finished** (마침)를 클릭합니다.
 
     * 이름: KerbApp200
     * 설명: KerbApp200
@@ -422,7 +422,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
         !["이름", "설명" 및 "주소" 텍스트 상자가 강조 표시되고 "마침" 단추가 선택된 "새 노드" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure39.png)
 
-1. 새 풀을 만들려면 **Local Traffic > Pools > Pool List**(로컬 트래픽 > 풀 > 풀 목록)로 차례로 이동하고, Create(만들기)를 클릭하고, 다음 정보를 완성하고, **Finished**(마침)를 클릭합니다.
+1. 새 풀을 만들려면 **Local Traffic > Pools > Pool List** (로컬 트래픽 > 풀 > 풀 목록)로 차례로 이동하고, Create(만들기)를 클릭하고, 다음 정보를 완성하고, **Finished** (마침)를 클릭합니다.
 
     * 이름: KerbApp200-Pool
     * 설명: KerbApp200-Pool
@@ -432,7 +432,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
         ![값을 입력하고 "완료" 단추를 선택한 "새 풀" 페이지를 보여주는 스크린샷](./media/kerbf5-tutorial/configure40.png)
 
-1. 가상 서버를 만들려면 **Local Traffic > Virtual Servers > Virtual Server List > +** (로컬 트래픽 > 가상 서버 > 가상 서버 목록 > +)로 차례로 이동하고, 다음 정보를 완성하고, **Finished**(마침)를 클릭합니다.
+1. 가상 서버를 만들려면 **Local Traffic > Virtual Servers > Virtual Server List > +** (로컬 트래픽 > 가상 서버 > 가상 서버 목록 > +)로 차례로 이동하고, 다음 정보를 완성하고, **Finished** (마침)를 클릭합니다.
 
     * 이름: KerbApp200
     * Destination Address/Mask(대상 주소/마스크): Host(호스트) 192.168.30.200
@@ -472,25 +472,24 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
 ### <a name="create-f5-test-user"></a>F5 테스트 사용자 만들기
 
-이 섹션에서는 F5에서 B.Simon이라는 사용자를 만듭니다.  [F5 클라이언트 지원 팀](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45)과 협력하여 사용자를 F5 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 F5에서 B.Simon이라는 사용자를 만듭니다. [F5 클라이언트 지원 팀](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45)과 협력하여 사용자를 F5 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 F5 타일을 클릭하면 SSO를 설정한 F5에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 F5 타일을 클릭하면 SSO를 설정한 F5에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD로 F5 사용해 보기](https://aad.portal.azure.com/)
 
 - [헤더 기반 애플리케이션에 대한 F5 Single Sign-On 구성](headerf5-tutorial.md)
 
 - [고급 Kerberos 애플리케이션에 대한 F5 Single Sign-On 구성](advance-kerbf5-tutorial.md)
-

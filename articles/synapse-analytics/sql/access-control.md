@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289483"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503286"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 
 Azure Synapse Analytics 작업 영역(미리 보기)에서 작업 영역, 데이터 및 파이프라인에 대한 액세스 제어를 관리하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> GA를 위해 Synapse 관련 Azure 역할을 도입하여 RBAC를 더욱 개량할 예정입니다.
+> GA의 경우 Synapse 관련 Azure 역할을 도입하여 Azure RBAC를 더욱 개량할 예정입니다.
 
 ## <a name="access-control-for-workspace"></a>작업 영역 액세스 제어
 
@@ -63,18 +63,18 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 ### <a name="step-3-configure-the-workspace-admin-list"></a>3단계: 작업 영역 관리자 목록 구성
 
 1. [**Azure Synapse 웹 UI**](https://web.azuresynapse.net)로 이동
-2. **관리**  > **보안** > **액세스 제어**로 이동
-3. **관리자 추가**를 선택하고 `Synapse_WORKSPACENAME_Admins`를 선택합니다.
+2. **관리**  > **보안** > **액세스 제어** 로 이동
+3. **관리자 추가** 를 선택하고 `Synapse_WORKSPACENAME_Admins`를 선택합니다.
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>4단계: 작업 영역에 대한 SQL 관리자 액세스 구성
 
 1. [Azure Portal](https://portal.azure.com)로 이동
 2. 작업 영역으로 이동
-3. **설정** > **Active Directory 관리자**로 이동
-4. **관리자 설정**을 선택합니다.
+3. **설정** > **Active Directory 관리자** 로 이동
+4. **관리자 설정** 을 선택합니다.
 5. `Synapse_WORKSPACENAME_Admins` 선택
-6. **선택**을 선택합니다.
-7. **저장**을 선택합니다.
+6. **선택** 을 선택합니다.
+7. **저장** 을 선택합니다.
 
 > [!NOTE]
 > WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.
@@ -144,7 +144,7 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>SQL 풀
@@ -166,7 +166,7 @@ ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
     ```
 
 > [!IMPORTANT]
-> *db_owner* 권한을 원치 않는 경우 *db_datareader* 및 *db_datawriter*로 읽기/쓰기 권한을 수행할 수 있습니다.
+> *db_owner* 권한을 원치 않는 경우 *db_datareader* 및 *db_datawriter* 로 읽기/쓰기 권한을 수행할 수 있습니다.
 > Spark 사용자가 SQL 풀에서/풀로 바로 데이터를 읽고 쓰려면 *db_owner* 권한이 필요합니다.
 
 사용자를 만든 후 SQL 주문형에서 스토리지 계정을 쿼리할 수 있는지 확인합니다.

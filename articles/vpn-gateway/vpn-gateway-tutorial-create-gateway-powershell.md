@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048273"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461161"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -26,7 +26,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 다음 다이어그램은 이 자습서에서 만든 가상 네트워크 및 VPN 게이트웨이를 보여줍니다.
 
-![VNet 및 VPN 게이트웨이](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="VNet 및 VPN 게이트웨이 다이어그램":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -74,7 +74,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 먼저 만들어야 합니다. 다음 예제에서는 *미국 동부* 지역에 *TestRG1*이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 먼저 만들어야 합니다. 다음 예제에서는 *미국 동부* 지역에 *TestRG1* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -123,9 +123,9 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 ```
 
 키 매개 변수 값:
-* GatewayType: 사이트 간 연결 및 VNet-VNet 연결에 **Vpn**을 사용합니다.
-* VpnType: **RouteBased**를 사용하여 더 넓은 범위의 VPN 디바이스 및 더 많은 라우팅 기능과 상호 작용합니다.
-* GatewaySku: 기본값은 **VpnGw1**입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 다른 VpnGw SKU로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+* GatewayType: 사이트 간 연결 및 VNet-VNet 연결에 **Vpn** 을 사용합니다.
+* VpnType: **RouteBased** 를 사용하여 더 넓은 범위의 VPN 디바이스 및 더 많은 라우팅 기능과 상호 작용합니다.
+* GatewaySku: 기본값은 **VpnGw1** 입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 다른 VpnGw SKU로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
 TryIt을 사용하는 경우 세션 시간이 초과될 수 있습니다. 그래도 괜찮습니다. 게이트웨이는 만들기를 계속 진행합니다.
 
@@ -151,7 +151,7 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
-또한 VPN 게이트웨이 크기 조정 작업이 기존 연결 및 구성을 중단하거나 제거하지는 **않지만**, 완료하는 데 약 30-45분이 걸립니다.
+또한 VPN 게이트웨이 크기 조정 작업이 기존 연결 및 구성을 중단하거나 제거하지는 **않지만** , 완료하는 데 약 30-45분이 걸립니다.
 
 ## <a name="reset-a-gateway"></a>게이트웨이 다시 설정
 
@@ -187,4 +187,4 @@ Remove-AzResourceGroup -Name $RG1
 다음으로, 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> * [연결 만들기](vpn-gateway-tutorial-vpnconnection-powershell.md)
+> * [S2S 연결 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)

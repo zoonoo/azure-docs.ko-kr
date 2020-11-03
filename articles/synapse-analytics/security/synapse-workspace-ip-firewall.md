@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87503925"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480550"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Azure Synapse Analytics IP 방화벽 규칙(미리 보기)
 
@@ -25,13 +25,13 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>IP 방화벽 규칙 만들기 및 관리
 
-Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 가지가 있습니다. 작업 영역에 IP 방화벽을 추가하려면 **보안 + 네트워킹**을 선택하고, 작업 영역을 만드는 동안 **모든 IP 주소에서 연결 허용**을 선택합니다.
+Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 가지가 있습니다. 작업 영역에 IP 방화벽을 추가하려면 **보안 + 네트워킹** 을 선택하고, 작업 영역을 만드는 동안 **모든 IP 주소에서 연결 허용** 을 선택합니다.
 
-![Azure Portal Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+![보안 + 네트워킹 단추를 강조 표시하는 스크린샷.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
 
 ![Azure Portal Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
 
-작업 영역을 만든 후에 Synapse 작업 영역에 IP 방화벽 규칙을 추가할 수도 있습니다. Azure Portal의 **보안**에서 **방화벽**을 선택합니다. 새 IP 방화벽 규칙을 추가하려면 이름, 시작 IP 및 끝 IP를 지정합니다. 완료되면 **저장** 을 선택합니다.
+작업 영역을 만든 후에 Synapse 작업 영역에 IP 방화벽 규칙을 추가할 수도 있습니다. Azure Portal의 **보안** 에서 **방화벽** 을 선택합니다. 새 IP 방화벽 규칙을 추가하려면 이름, 시작 IP 및 끝 IP를 지정합니다. 완료되면 **저장** 을 선택합니다.
 
 ![Azure Portal의 Azure Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 

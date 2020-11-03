@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aad1be52ae05573d565d960d914dafdf824a4de9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989454"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886661"
 ---
 .NET용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "91989454"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -46,11 +46,11 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트를 만든 후 **솔루션 탐색기**에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.Face`를 검색합니다. `2.6.0-preview.1` 버전, **설치**를 차례로 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.Face`를 검색합니다. `2.6.0-preview.1` 버전, **설치** 를 차례로 선택합니다. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `face-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs*라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `face-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs* 라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
 ```console
 dotnet new console -n face-quickstart
@@ -151,6 +151,9 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
+> [!TIP]
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) 메서드(예: **DetectWithStreamAsync** )를 참조하세요.
+
 ### <a name="display-detected-face-data"></a>검색된 얼굴 데이터 표시
 
 나머지 `DetectFaceExtract` 메서드는 검색된 각 얼굴에 대한 특성 데이터를 구문 분석하고 출력합니다. 각 특성은 원래 얼굴 검색 API 호출( **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 목록의)에서 별도로 지정해야 합니다. 다음 코드는 모든 특성을 처리하지만 하나 또는 몇 가지를 사용해야 할 가능성이 높습니다.
@@ -181,13 +184,13 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다. 식별 작업을 수행하려면 먼저 **PersonGroup**을 만들고 학습해야 합니다.
+Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다. 식별 작업을 수행하려면 먼저 **PersonGroup** 을 만들고 학습해야 합니다.
 
 ### <a name="create-a-person-group"></a>사용자 그룹 만들기
 
-다음 코드에서는 6개의 서로 다른 **Person** 개체를 사용하여 **PersonGroup**을 만듭니다. 각 **Person**을 예제 이미지 세트와 연결한 다음, 해당 얼굴 특성을 통해 각 사람을 인식하도록 학습시킵니다. **Person** 및 **PersonGroup** 개체는 Verify(검증), Identify(식별) 및 Group(그룹) 작업에 사용됩니다.
+다음 코드에서는 6개의 서로 다른 **Person** 개체를 사용하여 **PersonGroup** 을 만듭니다. 각 **Person** 을 예제 이미지 세트와 연결한 다음, 해당 얼굴 특성을 통해 각 사람을 인식하도록 학습시킵니다. **Person** 및 **PersonGroup** 개체는 Verify(검증), Identify(식별) 및 Group(그룹) 작업에 사용됩니다.
 
-**PersonGroup**의 ID를 나타내도록 클래스의 루트에서 문자열 변수를 선언합니다.
+**PersonGroup** 의 ID를 나타내도록 클래스의 루트에서 문자열 변수를 선언합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_declare)]
 
@@ -197,13 +200,16 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 이 코드는 `sourceImageFileName` 변수를 정의합니다. 이 변수는 식별할 사람이 포함된 원본 이미지에 해당합니다.
 
-다음으로, 다음 코드를 추가하여 Dictionary(사전)의 각 사람에 대한 **Person** 개체를 만들고 적절한 이미지에서 얼굴 데이터를 추가합니다. 각 **Person** 개체는 고유 ID 문자열을 통해 동일한 **PersonGroup**과 연결됩니다. `client`, `url` 및 `RECOGNITION_MODEL1` 변수를 이 메서드에 전달해야 합니다.
+다음으로, 다음 코드를 추가하여 Dictionary(사전)의 각 사람에 대한 **Person** 개체를 만들고 적절한 이미지에서 얼굴 데이터를 추가합니다. 각 **Person** 개체는 고유 ID 문자열을 통해 동일한 **PersonGroup** 과 연결됩니다. `client`, `url` 및 `RECOGNITION_MODEL1` 변수를 이 메서드에 전달해야 합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
+> [!TIP]
+> 로컬 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) 메서드(예: **AddFaceFromStreamAsync** )를 참조하세요.
+
 ### <a name="train-the-persongroup"></a>PersonGroup 학습
 
-이미지에서 얼굴 데이터를 추출하여 다른 **Person** 개체에 정렬했으면 각 **Person**  개체와 연결된 시각적 기능을 식별하도록 **PersonGroup**을 학습시켜야 합니다. 다음 코드에서는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
+이미지에서 얼굴 데이터를 추출하여 다른 **Person** 개체에 정렬했으면 각 **Person**  개체와 연결된 시각적 기능을 식별하도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드에서는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
 
@@ -211,11 +217,11 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 ### <a name="identify-faces"></a>얼굴 식별
 
-다음 코드에서는 원본 이미지를 가져와서 이미지에서 감지된 모든 얼굴의 목록을 만듭니다. 이러한 얼굴은 **PersonGroup**과 비교하여 식별되는 얼굴입니다.
+다음 코드에서는 원본 이미지를 가져와서 이미지에서 감지된 모든 얼굴의 목록을 만듭니다. 이러한 얼굴은 **PersonGroup** 과 비교하여 식별되는 얼굴입니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify_sources)]
 
-다음 코드 조각에서는 **IdentifyAsync** 작업을 호출하고 결과를 콘솔에 출력합니다. 여기서는 서비스에서 원본 이미지의 각 얼굴을 지정된 **PersonGroup**의 **Person**과 일치시키려고 합니다. 이렇게 하면 Identify 메서드가 종료됩니다.
+다음 코드 조각에서는 **IdentifyAsync** 작업을 호출하고 결과를 콘솔에 출력합니다. 여기서는 서비스에서 원본 이미지의 각 얼굴을 지정된 **PersonGroup** 의 **Person** 과 일치시키려고 합니다. 이렇게 하면 Identify 메서드가 종료됩니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
@@ -223,7 +229,7 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-IDE 창의 맨 위에 있는 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
+IDE 창의 위쪽에서 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -242,7 +248,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-이 빠른 시작에서는 **PersonGroup**을 만들었으며, 이를 삭제하려면 프로그램에서 다음 코드를 실행합니다.
+이 빠른 시작에서는 **PersonGroup** 을 만들었으며, 이를 삭제하려면 프로그램에서 다음 코드를 실행합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_delete)]
 

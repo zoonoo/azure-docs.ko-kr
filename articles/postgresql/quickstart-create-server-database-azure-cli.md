@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705265"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488030"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 만들기
 
-이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 단일 Azure Database for PostgreSQL 서버를 만드는 방법을 보여줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 단일 Azure Database for PostgreSQL 서버를 만드는 방법을 보여줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "91705265"
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID**를 참조하는 **id** 속성을 기록해 둡니다. 
+[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다. 
 
 ```azurecli-interactive
 az login
@@ -39,11 +39,11 @@ az login
 az account set --subscription <subscription id>
 ```
 
-구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)를 사용합니다.
+구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만든 다음, 이 리소스 그룹 내에 PostgreSQL 서버를 만듭니다. 고유한 이름을 제공해야 합니다. 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만든 다음, 이 리소스 그룹 내에 PostgreSQL 서버를 만듭니다. 고유한 이름을 제공해야 합니다. 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -58,16 +58,16 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 
 **설정** | **샘플 값** | **설명**
 ---|---|---
-name | mydemoserver | Azure Database for PostgreSQL 서버를 식별하는 고유한 이름입니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자를 포함해야 합니다.
+name | mydemoserver | Azure Database for PostgreSQL 서버를 식별하는 고유한 이름입니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자를 포함해야 합니다. 자세한 내용은 [Azure Database for PostgreSQL 명명 규칙](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql)을 참조하세요.
 resource-group | myresourcegroup | Azure 리소스 그룹의 이름입니다.
 위치 | westus | 서버에 대한 Azure 위치입니다.
-admin-user | myadmin | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**을 사용할 수 없습니다.
+admin-user | myadmin | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser** , **admin** , **administrator** , **root** , **guest** 또는 **public** 을 사용할 수 없습니다.
 admin-password | *보안 암호* | 관리자 사용자의 암호입니다. 다음 세 가지 범주에서 8~128자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 sku-name|GP_Gen5_2| 가격 책정 계층 및 컴퓨팅 구성의 이름입니다. {가격 책정 계층} _{컴퓨팅 세대}_ {vCores} 규칙을 축약형으로 따릅니다. 자세한 내용은 [Azure Database for PostgreSQL 가격 책정](https://azure.microsoft.com/pricing/details/postgresql/server/)을 참조하세요.
 
 >[!IMPORTANT] 
->- 서버의 기본 PostgreSQL 버전은 9.6입니다. 지원되는 모든 버전을 보려면 [지원되는 PostgreSQL 주 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)을 참조하세요.
->- **az postgres server create** 명령에 대한 모든 인수를 보려면 [이 참조 문서](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)를 참조하세요.
+>- 서버의 기본 PostgreSQL 버전은 9.6입니다. 지원되는 모든 버전을 보려면 [지원되는 PostgreSQL 주 버전](./concepts-supported-versions.md)을 참조하세요.
+>- **az postgres server create** 명령에 대한 모든 인수를 보려면 [이 참조 문서](/cli/azure/postgres/server#az-postgres-server-create)를 참조하세요.
 >- SSL은 서버에서 기본적으로 사용하도록 설정됩니다. SSL에 대한 자세한 내용은 [SSL 연결 구성](./concepts-ssl-connection-security.md)을 참조하세요.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성 
@@ -123,7 +123,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>psql을 사용하여 Azure Database for PostgreSQL 서버에 연결
-[psql](https://www.postgresql.org/docs/current/static/app-psql.html) 클라이언트는 PostgreSQL 서버에 연결하는 데 널리 사용되는 옵션입니다. [Azure Cloud Shell](../cloud-shell/overview.md)에서 psql을 사용하여 서버에 연결할 수 있습니다. 사용 가능한 경우 로컬 환경에서 psql을 사용할 수도 있습니다. 빈 데이터베이스인 **postgres**는 새 PostgreSQL 서버와 함께 자동으로 만들어집니다. 다음 코드와 같이 해당 데이터베이스를 사용하여 psql에 연결할 수 있습니다. 
+[psql](https://www.postgresql.org/docs/current/static/app-psql.html) 클라이언트는 PostgreSQL 서버에 연결하는 데 널리 사용되는 옵션입니다. [Azure Cloud Shell](../cloud-shell/overview.md)에서 psql을 사용하여 서버에 연결할 수 있습니다. 사용 가능한 경우 로컬 환경에서 psql을 사용할 수도 있습니다. 빈 데이터베이스인 **postgres** 는 새 PostgreSQL 서버와 함께 자동으로 만들어집니다. 다음 코드와 같이 해당 데이터베이스를 사용하여 psql에 연결할 수 있습니다. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -154,7 +154,6 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
 > 
-> [PostgreSQL을 사용하는 Django 웹앱 배포](../app-service/containers/tutorial-python-postgresql-app.md)
+> [PostgreSQL을 사용하는 Django 웹앱 배포](../app-service/tutorial-python-postgresql-app.md)
 >
 > [Node.JS 앱을 사용하여 연결](./connect-nodejs.md)
-

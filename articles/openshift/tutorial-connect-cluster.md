@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132a9b7ad3eef17f4ca27fb76a0c05f94c82fd37
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469119"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428274"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 연결
 
@@ -61,9 +61,9 @@ az aro list-credentials \
 
 ## <a name="install-the-openshift-cli"></a>OpenShift CLI 설치
 
-OpenShift 웹 콘솔에 로그인했으면 오른쪽 위에서 **?** 를 클릭한 다음, **명령줄 도구**를 클릭합니다. 머신에 맞는 릴리스를 다운로드합니다.
+OpenShift 웹 콘솔에 로그인했으면 오른쪽 위에서 **?** 를 클릭한 다음, **명령줄 도구** 를 클릭합니다. 머신에 맞는 릴리스를 다운로드합니다.
 
-![Azure Red Hat OpenShift 로그인 화면](media/aro4-download-cli.png)
+![?를 선택할 때 목록에서 명령줄 도구 옵션을 강조 표시하는 스크린샷 아이콘을 선택하여 탐색 창을 축소합니다.](media/aro4-download-cli.png)
 
 <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>에서 현재 사용하는 머신에 맞는 최신 CLI 릴리스를 다운로드할 수도 있습니다.
 

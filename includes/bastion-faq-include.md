@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/04/2020
+ms.date: 10/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276120"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755637"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -45,6 +45,10 @@ RDP와 SSH는 모두 사용 기반 프로토콜입니다. 세션을 많이 사�
 
 지금은 텍스트 복사/붙여넣기만 지원됩니다. 파일 복사와 같은 기능은 지원되지 않습니다. [Azure Bastion Feedback 페이지](https://feedback.azure.com/forums/217313-networking?category_id=367303)에서 새로운 기능에 대한 피드백을 공유해 주시기 바랍니다.
 
+### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>Bastion 보안 강화는 AADJ VM 확장 조인 VM에서 작동하나요?
+
+이 기능은 Azure AD 사용자를 사용하는 AADJ VM 확장 조인 머신에서 작동하지 않습니다. 자세한 내용은 [Windows Azure VM 및 Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements)를 참조하세요.
+
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>어떤 브라우저가 지원되나요?
 
 Windows에서 Microsoft Edge 브라우저 또는 Chrome을 사용합니다. Apple Mac의 경우 Google Chrome 브라우저를 사용하세요. Microsoft Edge Chromium도 Windows와 Mac에서 모두 지원됩니다.
@@ -66,7 +70,7 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 자세한 내용은 [가격 책정 페이지](https://aka.ms/BastionHostPricing)를 참조하세요.
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Azure Bastion이 Azure 호스팅 VM에 관리 용도로 액세스하는 경우 RDS CAL이 필요한가요?
-아니요. Azure Bastion이 관리 용도로만 Windows Server VM에 액세스하는 경우에는 [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab)이 필요하지 않습니다.
+아니요. Azure Bastion이 관리 용도로만 Windows Server VM에 액세스하는 경우에는 [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab)이 필요하지 않습니다.
 
 ### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
 

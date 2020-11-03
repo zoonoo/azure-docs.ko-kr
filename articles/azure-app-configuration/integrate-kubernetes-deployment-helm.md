@@ -8,20 +8,20 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074841"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426716"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Helm을 사용하여 Kubernetes 배포와 통합
 
-Helm은 Kubernetes에서 실행되는 애플리케이션을 정의, 설치 및 업그레이드할 수 있는 방법을 제공합니다. Helm 차트에는 Kubernetes 애플리케이션의 인스턴스를 만드는 데 필요한 정보가 포함되어 있습니다. 구성은 차트 자체 외부의 *values.yaml*이라는 파일에 저장됩니다. 
+Helm은 Kubernetes에서 실행되는 애플리케이션을 정의, 설치 및 업그레이드할 수 있는 방법을 제공합니다. Helm 차트에는 Kubernetes 애플리케이션의 인스턴스를 만드는 데 필요한 정보가 포함되어 있습니다. 구성은 차트 자체 외부의 *values.yaml* 이라는 파일에 저장됩니다. 
 
-릴리스 프로세스 중에 Helm은 애플리케이션을 실행하기 위해 차트를 적절한 구성과 병합합니다. 예를 들어 *values.yaml*에 정의된 변수는 실행 중인 컨테이너 내에서 환경 변수로 참조할 수 있습니다. 또한 Helm은 데이터 볼륨으로 탑재되거나 환경 변수로 공개될 수 있는 Kubernetes 비밀 만들기를 지원합니다.
+릴리스 프로세스 중에 Helm은 애플리케이션을 실행하기 위해 차트를 적절한 구성과 병합합니다. 예를 들어 *values.yaml* 에 정의된 변수는 실행 중인 컨테이너 내에서 환경 변수로 참조할 수 있습니다. 또한 Helm은 데이터 볼륨으로 탑재되거나 환경 변수로 공개될 수 있는 Kubernetes 비밀 만들기를 지원합니다.
 
-Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하여 *values.yaml*에 저장된 값을 재정의할 수 있습니다. Azure App Configuration은 구성 값을 YAML 파일로 내보내기를 지원합니다. 이 내보내기 기능을 배포에 통합하면 Kubernetes 애플리케이션에서 App Configuration에 저장된 구성 값을 활용할 수 있습니다.
+Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하여 *values.yaml* 에 저장된 값을 재정의할 수 있습니다. Azure App Configuration은 구성 값을 YAML 파일로 내보내기를 지원합니다. 이 내보내기 기능을 배포에 통합하면 Kubernetes 애플리케이션에서 App Configuration에 저장된 구성 값을 활용할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -41,26 +41,26 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** > **만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** > **만들기** 를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | settings.color | 흰색 |
     | settings.message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>App Configuration에 Key Vault 참조 추가
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password**이고 값이 **myPassword**인 비밀을 [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)에 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password** 이고 값이 **myPassword** 인 비밀을 [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)에 추가합니다. 
 2. 이전 섹션에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-3. **구성 탐색기**를 선택합니다.
+3. **구성 탐색기** 를 선택합니다.
 
-4. **+ 만들기** > **Key Vault 참조**를 선택하고 다음 값을 지정합니다.
-    - **키**: **secrets.password**를 선택합니다.
-    - **레이블**: 이 값은 빈 상태로 둡니다.
-    - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 단계에서 만든 키 자격 증명 모음의 값에 해당하는 값을 입력합니다.
-    - **비밀**: 이전 섹션에서 만든 **Password**라는 비밀을 선택합니다.
+4. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
+    - **키** : **secrets.password** 를 선택합니다.
+    - **레이블** : 이 값은 빈 상태로 둡니다.
+    - **구독** , **리소스 그룹** 및 **Key Vault** : 이전 단계에서 만든 키 자격 증명 모음의 값에 해당하는 값을 입력합니다.
+    - **비밀** : 이전 섹션에서 만든 **Password** 라는 비밀을 선택합니다.
 
 ## <a name="create-helm-chart"></a>Helm 차트 만들기 ##
 먼저, 다음 명령을 사용하여 Helm 차트 샘플을 만듭니다.
@@ -191,7 +191,7 @@ settings:
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
 ```
 
-다음으로, 비밀을 *mySecrets.yaml*이라는 파일로 다운로드합니다. **--resolve-keyvault** 명령줄 인수는 Key Vault에서 실제 값을 검색하여 Key Vault 참조를 확인합니다. 이 명령은 해당 Key Vault에 대한 액세스 권한이 있는 자격 증명을 사용하여 실행해야 합니다.
+다음으로, 비밀을 *mySecrets.yaml* 이라는 파일로 다운로드합니다. **--resolve-keyvault** 명령줄 인수는 Key Vault에서 실제 값을 검색하여 Key Vault 참조를 확인합니다. 이 명령은 해당 Key Vault에 대한 액세스 권한이 있는 자격 증명을 사용하여 실행해야 합니다.
 
 > [!WARNING]
 > 이 파일에는 중요한 정보가 포함되어 있으므로 파일을 신중하게 유지하고 더 이상 필요하지 않은 경우 정리하세요.
@@ -200,7 +200,7 @@ az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key 
 az appconfig kv export -n myAppConfiguration -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
 ```
 
-Helm 업그레이드의 **-f** 인수를 사용하여 사용자가 만든 두 개의 구성 파일을 전달합니다. *values.yaml*에 정의된 구성 값을 App Configuration에서 내보낸 값으로 재정의합니다.
+Helm 업그레이드의 **-f** 인수를 사용하여 사용자가 만든 두 개의 구성 파일을 전달합니다. *values.yaml* 에 정의된 구성 값을 App Configuration에서 내보낸 값으로 재정의합니다.
 
 ```console
 helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart 
@@ -229,9 +229,9 @@ else{
 
 ![로컬로 빠른 시작 앱 시작](./media/kubernetes-dashboard-env-variables.png)
 
-App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **password**도 Kubernetes 비밀에 추가되었습니다. 
+App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **password** 도 Kubernetes 비밀에 추가되었습니다. 
 
-![로컬로 빠른 시작 앱 시작](./media/kubernetes-dashboard-secrets.png)
+![데이터 섹션에서 암호를 강조 표시하는 스크린샷.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

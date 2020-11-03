@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89145555"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519676"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -82,7 +82,11 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다. Java 11에서 함수를 실행하려면 `-DjavaVersion=11`을 사용합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요. 
+빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다. 
+
+> [!IMPORTANT]
+> + Java 11에서 함수를 실행하려면 `-DjavaVersion=11`을 사용합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요. 
+> + 이 문서를 완료하려면 `JAVA_HOME` 환경 변수를 올바른 버전의 JDK 설치 위치로 설정해야 합니다.
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -110,7 +114,7 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
-Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
+Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
 
 ::: zone-end  
 프로젝트 폴더로 이동합니다.
@@ -125,7 +129,7 @@ cd LocalFunctionProj
 cd fabrikam-functions
 ```
 ::: zone-end  
-이 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json*은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
+이 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
 
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
@@ -136,7 +140,7 @@ cd fabrikam-functions
 ::: zone pivot="programming-language-csharp"
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs*에는 `req` 변수에 요청 데이터를 수신하는 `Run` 메서드가 포함되며, 트리거 동작을 정의하는 **HttpTriggerAttribute**로 데코레이트된 [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest)입니다. 
+*HttpExample.cs* 에는 `req` 변수에 요청 데이터를 수신하는 `Run` 메서드가 포함되며, 트리거 동작을 정의하는 **HttpTriggerAttribute** 로 데코레이트된 [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest)입니다. 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
@@ -145,7 +149,7 @@ cd fabrikam-functions
 
 ::: zone pivot="programming-language-java"
 #### <a name="functionjava"></a>Function.java
-*Function.java*에는 `request` 변수에서 요청 데이터를 수신하는 `run` 메서드가 포함되며, 트리거 동작을 정의하는 [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) 주석으로 데코레이트된 [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage)입니다. 
+*Function.java* 에는 `request` 변수에서 요청 데이터를 수신하는 `run` 메서드가 포함되며, 트리거 동작을 정의하는 [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) 주석으로 데코레이트된 [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage)입니다. 
 
 :::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
@@ -153,13 +157,11 @@ cd fabrikam-functions
 
 #### <a name="pomxml"></a>pom.xml
 
-앱을 호스트하기 위해 만든 Azure 리소스의 설정은 생성된 pom.xml 파일에 있는 `com.microsoft.azure`의 **groupId**를 사용하여 플러그 인의 **configuration** 요소에 정의됩니다. 예를 들어 아래 구성 요소는 `westus` 지역의 `java-functions-group` 리소스 그룹에 함수 앱을 만들도록 Maven 기반 배포에 지시합니다. 함수 앱 자체는 `java-functions-app-service-plan` 플랜에서 호스트되는 Windows에서 실행되며, 이 플랜은 기본적으로 서버리스 사용 플랜입니다.    
+앱을 호스트하기 위해 만든 Azure 리소스의 설정은 생성된 pom.xml 파일에 있는 `com.microsoft.azure`의 **groupId** 를 사용하여 플러그 인의 **configuration** 요소에 정의됩니다. 예를 들어 아래 구성 요소는 `westus` 지역의 `java-functions-group` 리소스 그룹에 함수 앱을 만들도록 Maven 기반 배포에 지시합니다. 함수 앱 자체는 `java-functions-app-service-plan` 플랜에서 호스트되는 Windows에서 실행되며, 이 플랜은 기본적으로 서버리스 사용 플랜입니다.    
 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 초기 배포 전에 `runtime.os`를 `windows`에서 `linux`로 변경하는 등의 방법으로 이러한 설정을 변경하면 Azure에서 리소스를 만드는 방식을 제어할 수 있습니다. Maven 플러그 인에서 지원하는 전체 설정 목록은 [구성 세부 정보](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details)를 참조하세요.
-
-Java 8 대신 Java 11에서 함수 앱을 실행하려는 경우 Java 11 값을 사용하여 pom.xml 파일을 수동으로 업데이트해야 합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요. Java 11에서 실행하는 경우 다음을 확인합니다.  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 
@@ -168,47 +170,47 @@ Java 8 대신 Java 11에서 함수 앱을 실행하려는 경우 Java 11 값을 
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init\_\_.py
 
-*\_\_init\_\_.py*에는 *function.json*의 구성에 따라 트리거되는 `main()` Python 함수가 포함되어 있습니다.
+*\_\_init\_\_.py* 에는 *function.json* 의 구성에 따라 트리거되는 `main()` Python 함수가 포함되어 있습니다.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json*에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=python)을 참조하세요.
+HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json* 에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=python)을 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 #### <a name="indexjs"></a>index.js
 
-*index.js*는 *function.json*의 구성에 따라 트리거되는 함수를 내보냅니다.
+*index.js* 는 *function.json* 의 구성에 따라 트리거되는 함수를 내보냅니다.
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. *function.json*에 `$return`으로 정의된 반환 개체는 응답입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=javascript)을 참조하세요.
+HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에 요청 데이터를 받습니다. *function.json* 에 `$return`으로 정의된 반환 개체는 응답입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=javascript)을 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 #### <a name="indexts"></a>index.ts
 
-*index.ts*는 *function.json*의 구성에 따라 트리거되는 함수를 내보냅니다.
+*index.ts* 는 *function.json* 의 구성에 따라 트리거되는 함수를 내보냅니다.
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 **HttpRequest** 유형의 `req` 변수에 요청 데이터를 받습니다. *function.json*에 `$return`으로 정의된 반환 개체는 응답입니다. 
+HTTP 트리거의 경우 함수는 *function.json* 에 정의된 **HttpRequest** 유형의 `req` 변수에 요청 데이터를 받습니다. *function.json* 에 `$return`으로 정의된 반환 개체는 응답입니다. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 #### <a name="runps1"></a>run.ps1
 
-*run.ps1*은 *function.json*의 구성에 따라 트리거되는 함수 스크립트를 정의합니다.
+*run.ps1* 은 *function.json* 의 구성에 따라 트리거되는 함수 스크립트를 정의합니다.
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 `$Request` 매개 변수에 전달된 요청 데이터를 받습니다. *function.json*에 `Response`로 정의된 반환 개체는 `Push-OutputBinding` cmdlet에 응답으로 전달됩니다. 
+HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `$Request` 매개 변수에 전달된 요청 데이터를 받습니다. *function.json* 에 `Response`로 정의된 반환 개체는 `Push-OutputBinding` cmdlet에 응답으로 전달됩니다. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 #### <a name="functionjson"></a>function.json
 
-*function.json*은 트리거 형식을 포함하여 함수의 입력 및 출력 `bindings`를 정의하는 구성 파일입니다. 
+*function.json* 은 트리거 형식을 포함하여 함수의 입력 및 출력 `bindings`를 정의하는 구성 파일입니다. 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -367,10 +369,10 @@ mvn azure-functions:deploy
 
 그러면 Azure에서 다음 리소스가 생성됩니다.
 
-+ 리소스 그룹 이름은 _java-functions-group_입니다.
++ 리소스 그룹 이름은 _java-functions-group_ 입니다.
 + Storage 계정 함수에 필요합니다. 이름은 스토리지 계정 이름 요구 사항에 따라 임의로 생성됩니다.
-+ 호스팅 계획. _westus_ 지역의 함수 앱에 대한 서버리스 호스팅입니다. 이름은 _java-functions-app-service-plan_입니다.
-+ 함수 앱 함수 앱은 함수에 대한 배포 및 실행 단위입니다. 이름은 _artifactId_에 따라 임의로 생성된 이름에 임의로 생성된 번호를 붙여서 지정됩니다. 
++ 호스팅 계획. _westus_ 지역의 함수 앱에 대한 서버리스 호스팅입니다. 이름은 _java-functions-app-service-plan_ 입니다.
++ 함수 앱 함수 앱은 함수에 대한 배포 및 실행 단위입니다. 이름은 _artifactId_ 에 따라 임의로 생성된 이름에 임의로 생성된 번호를 붙여서 지정됩니다. 
 
 배포에서는 프로젝트 파일을 패키징한 후 [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 새 함수 앱에 배포합니다. 코드는 Azure의 배포 패키지에서 실행됩니다.
 ::: zone-end
@@ -388,7 +390,7 @@ publish 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주�
 
 # <a name="curl"></a>[curl](#tab/curl)
 
-**호출 URL**을 사용하고 `&name=Functions` 매개 변수를 추가하여 [`curl`](https://curl.haxx.se/)을 실행합니다. 명령의 출력은 "Hello Functions" 텍스트여야 합니다.
+**호출 URL** 을 사용하고 `&name=Functions` 매개 변수를 추가하여 [`curl`](https://curl.haxx.se/)을 실행합니다. 명령의 출력은 "Hello Functions" 텍스트여야 합니다.
 
 ![curl을 사용한 Azure에서 실행되는 함수의 출력](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 92fb6bb470c6ab9c1a8f1f0542c26a8fef07e6b3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 05fc215d6283c6d839b01a7247518a84d9b89a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499074"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -37,7 +37,7 @@ macOS를 사용 중인데 설치 문제가 발생하는 경우 다음 명령을 
 python3 -m pip install --upgrade pip
 ```
 
-음성 SDK를 설치한 후에는 다음 명령문을 사용하여 Python 프로젝트로 가져옵니다.
+Speech SDK를 설치한 후 Python 프로젝트로 가져옵니다.
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -45,81 +45,61 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
-
-> [!NOTE]
-> 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
-
-[`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 초기화하는 다음과 같은 방법이 있습니다.
-
-* 구독 사용: 키 및 연결된 영역을 전달합니다.
-* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
-
-키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만드는 방법을 살펴보겠습니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다. 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만듭니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
 
 ```Python
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-## <a name="initialize-a-recognizer"></a>인식기 초기화
+[`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 초기화할 수 있는 몇 가지 다른 방법이 있습니다.
 
-[`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 `speech_config`를 전달합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
+* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
+
+> [!NOTE]
+> 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
+
+## <a name="recognize-from-microphone"></a>마이크에서 인식
+
+디바이스 마이크를 사용하여 음성을 인식하려면 `AudioConfig`를 전달하지 않고 `SpeechRecognizer`를 만들고 `speech_config`를 전달하면 됩니다.
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+
+print("Speak into your microphone.")
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
-## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
+*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정하고 이를 `SpeechRecognizer` 생성자의 `audio_config` 매개 변수에 전달해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
 
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 매개 변수로 전달해야 합니다.
+## <a name="recognize-from-file"></a>파일에서 인식
 
-디바이스 마이크를 사용하여 음성을 인식하려면 `AudioConfig`를 전달하지 않고 `SpeechRecognizer`를 만듭니다.
-
-```Python
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-```
-
-> [!TIP]
-> ID로 디바이스를 참조하려면 `AudioConfig(device_name="<device id>")`
-> [오디오 입력 디바이스에 대한 디바이스 ID를 가져오는 방법 알아보기](../../../how-to-select-audio-input-devices.md)를 사용하여 `AudioConfig`를 만듭니다.
-
-마이크 대신 오디오 파일에서 음성을 인식하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)을 만들고 `filename` 매개 변수를 사용합니다.
+마이크 대신 오디오 파일에서 음성을 인식하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true)을 만들고 `filename` 매개 변수를 사용합니다.
 
 ```Python
 audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
 ## <a name="recognize-speech"></a>음성 인식
 
-Python용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
-
-* 단일 샷 인식(동기) - 차단(동기) 모드에서 인식을 수행합니다. 단일 발화가 인식된 후 반환합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다. 작업에서는 인식 텍스트를 결과로 반환합니다.
-* 단일 샷 인식(비동기) - 비차단(비동기) 모드에서 인식을 수행합니다. 단일 발화를 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
-* 연속 인식(동기) - 연속 인식을 동기적으로 시작합니다. 클라이언트는 `EventSignal`에 연결하여 인식 결과를 받아야 합니다. 인식을 중지하려면 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--)을 호출합니다.
-* 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 사용자는 EventSignal에 연결하여 인식 결과를 받아야 합니다. 비동기 연속 인식을 중지하려면 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--)을 호출합니다.
-
-> [!NOTE]
-> [음성 인식 모드를 선택하는 방법](../../../how-to-choose-recognition-mode.md)에 대해 자세히 알아보세요.
+Python용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python&preserve-view=true)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
 ### <a name="single-shot-recognition"></a>단일 샷 인식
 
-다음은 [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once)를 사용하는 동기 단일 샷 인식의 예입니다.
+단일 샷 인식은 단일 발화를 비동기적으로 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다. 다음은 [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture)를 사용하는 비동기 단일 샷 인식의 예입니다.
 
 ```Python
-result = speech_recognizer.recognize_once()
+result = speech_recognizer.recognize_once_async().get()
 ```
 
-다음은 [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture)를 사용하는 비동기 단일 샷 인식의 예입니다.
-
-```Python
-result = speech_recognizer.recognize_once_async()
-```
-
-동기 또는 비동기 메서드 중 무엇을 사용했든, 결과를 반복하는 코드를 작성해야 합니다. 이 샘플은 [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python)을 평가합니다.
+결과를 반복하는 코드를 작성해야 합니다. 이 샘플은 [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python)을 평가합니다.
 
 * 인식 결과 `speechsdk.ResultReason.RecognizedSpeech`를 출력합니다.
 * 일치하는 인식이 없는 경우 사용자에게 `speechsdk.ResultReason.NoMatch `를 알립니다.
@@ -141,7 +121,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 연속 인식은 단일 샷 인식보다 약간 더 복잡합니다. 사용자가 `EventSignal`에 연결하여 인식 결과를 가져와야 하며, 인식을 중지하려면 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) 또는 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--)을 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
 
-먼저 입력을 정의하고 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화하겠습니다.
+먼저 입력을 정의하고 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true)를 초기화하겠습니다.
 
 ```Python
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
@@ -199,7 +179,7 @@ while not done:
 
 연속 인식을 사용하면 해당하는 "받아쓰기 사용" 함수를 사용하여 받아쓰기 처리를 사용하도록 설정할 수 있습니다. 이 모드에서는 음성 구성 인스턴스가 문장 부호와 같은 문장 구조의 단어 설명을 해석합니다. 예를 들어 "도시에 살고 계신가요 물음표"라는 발화는 "도시에 살고 계신가요?"라는 텍스트로 해석됩니다.
 
-받아쓰기 모드를 사용하도록 설정하려면 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)에서 [`enable_dictation()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) 메서드를 사용합니다.
+받아쓰기 모드를 사용하도록 설정하려면 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true)에서 [`enable_dictation()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) 메서드를 사용합니다.
 
 ```Python 
 SpeechConfig.enable_dictation()
@@ -222,9 +202,9 @@ speech_config.speech_recognition_language="de-DE"
 > [!IMPORTANT]
 > 구 목록 기능은 영어로만 제공됩니다.
 
-구 목록을 사용하려면 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) 개체를 만든 다음, [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-)를 사용하여 특정 단어와 구를 추가합니다.
+구 목록을 사용하려면 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python&preserve-view=true) 개체를 만든 다음, [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-)를 사용하여 특정 단어와 구를 추가합니다.
 
-[`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python)를 변경하면 그 다음 인식부터 또는 음성 서비스에 다시 연결한 후에 변경 내용이 적용됩니다.
+[`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python&preserve-view=true)를 변경하면 그 다음 인식부터 또는 음성 서비스에 다시 연결한 후에 변경 내용이 적용됩니다.
 
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)

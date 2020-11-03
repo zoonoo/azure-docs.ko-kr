@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268828"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428384"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>자습서: Firebase SDK 버전 0.6을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -56,12 +56,12 @@ ms.locfileid: "91268828"
 ## <a name="create-an-android-studio-project"></a>Android Studio 프로젝트 만들기
 
 1. Android Studio를 시작합니다.
-2. **File**(파일)을 선택하고, **New**(신규)를 가리킨 후, **New Project**(새 프로젝트)를 선택합니다. 
-2. **Choose your project** 페이지에서 **Empty Activity**를 선택한 후 **Next**를 선택합니다. 
+2. **File** (파일)을 선택하고, **New** (신규)를 가리킨 후, **New Project** (새 프로젝트)를 선택합니다. 
+2. **Choose your project** 페이지에서 **Empty Activity** 를 선택한 후 **Next** 를 선택합니다. 
 3. **Configure your project** 페이지에서 다음 단계를 수행합니다. 
     1. 애플리케이션의 이름을 입력합니다.
     2. 프로젝트 파일을 저장할 위치를 지정합니다. 
-    3. **마침**을 선택합니다. 
+    3. **마침** 을 선택합니다. 
 
         ![프로젝트 구성](./media/notification-hubs-android-push-notification-google-fcm-get-started/configure-project.png)
 
@@ -76,8 +76,8 @@ ms.locfileid: "91268828"
 ### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>허브에 대한 Firebase Cloud Messaging 설정 구성
 
 1. **설정** 아래의 왼쪽 창에서 **Google(GCM/FCM)** 을 선택합니다. 
-2. 앞에서 저장한 FCM 프로젝트의 **서버 키**를 입력합니다. 
-3. 도구 모음에서 **저장**을 선택합니다. 
+2. 앞에서 저장한 FCM 프로젝트의 **서버 키** 를 입력합니다. 
+3. 도구 모음에서 **저장** 을 선택합니다. 
 
     ![Azure 알림 허브 - Google(FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. Azure Portal에서 허브가 업데이트되었다는 경고 메시지를 표시합니다. **Save** 단추가 비활성화됩니다. 
@@ -88,18 +88,18 @@ ms.locfileid: "91268828"
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 
-1. Android Studio의 메뉴에서 **도구**를 선택하고, **SDK Manager**를 선택합니다. 
-2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음 **패키지 세부 정보 표시**를 선택합니다. 
+1. Android Studio의 메뉴에서 **도구** 를 선택하고, **SDK Manager** 를 선택합니다. 
+2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음 **패키지 세부 정보 표시** 를 선택합니다. 
 
     ![Android SDK Manager - 대상 버전 선택](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. **Google API**를 선택합니다(아직 설치되지 않은 경우).
+3. **Google API** 를 선택합니다(아직 설치되지 않은 경우).
 
     ![Android SDK Manager - Google API 선택](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
-4. **SDK 도구** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼 **Google Play 서비스**를 선택합니다. 그런 다음 **적용**을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
+4. **SDK 도구** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼 **Google Play 서비스** 를 선택합니다. 그런 다음 **적용** 을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
 
     ![Android SDK Manager - Google Play 서비스 선택](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
-3. **변경 확인** 대화 상자가 나타나면 **확인**을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면 **완료**를 선택합니다.
-4. **확인**을 선택하여 **새 프로젝트 설정** 대화 상자를 닫습니다.  
+3. **변경 확인** 대화 상자가 나타나면 **확인** 을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면 **완료** 를 선택합니다.
+4. **확인** 을 선택하여 **새 프로젝트 설정** 대화 상자를 닫습니다.  
 1. AndroidManifest.xml 파일을 연 다음 *application* 태그에 다음 태그를 추가합니다.
 
     ```xml
@@ -140,7 +140,7 @@ ms.locfileid: "91268828"
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
-3. 도구 모음에서 **지금 동기화**를 선택합니다.
+3. 도구 모음에서 **지금 동기화** 를 선택합니다.
 
 ### <a name="update-the-androidmanifestxml-file"></a>AndroidManifest.xml 파일 업데이트
 
@@ -171,12 +171,12 @@ ms.locfileid: "91268828"
 
 ### <a name="add-code"></a>코드 추가
 
-1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스**를 차례로 선택합니다. 이름에 **NotificationSettings**를 입력한 후 **확인**을 선택합니다.
+1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java** 를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** , **Java 클래스** 를 차례로 선택합니다. 이름에 **NotificationSettings** 를 입력한 후 **확인** 을 선택합니다.
 
     아래의 `NotificationSettings` 클래스에 대한 코드에서 다음 세 개의 자리 표시자를 업데이트합니다.
 
-   * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]의 허브에서 **액세스 정책**을 클릭하여 해당 연결 문자열을 복사할 수 있습니다.
-   * **HubName**: [Azure Portal]의 허브 페이지에 표시되는 허브 이름을 사용합니다.
+   * **HubListenConnectionString** : 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]의 허브에서 **액세스 정책** 을 클릭하여 해당 연결 문자열을 복사할 수 있습니다.
+   * **HubName** : [Azure Portal]의 허브 페이지에 표시되는 허브 이름을 사용합니다.
 
      `NotificationSettings` 코드:
 
@@ -188,7 +188,7 @@ ms.locfileid: "91268828"
         ```
 
      > [!IMPORTANT]
-     > 허브의 **이름**과 **DefaultListenSharedAccessSignature**를 입력하고 계속 진행합니다. 
+     > 허브의 **이름** 과 **DefaultListenSharedAccessSignature** 를 입력하고 계속 진행합니다. 
 
 2. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 `IntentService` 인터페이스를 구현합니다. 또한 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브에 등록](notification-hubs-push-notification-registration-management.md)을 처리합니다.
 
@@ -411,7 +411,7 @@ ms.locfileid: "91268828"
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![TextView 컨트롤에 적용된 android:id="@+id/text_hello" ID를 보여주는 스크린샷.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. 다음으로 AndroidManifest.xml에서 정의된 수신기에 대한 하위 클래스를 추가합니다. `FirebaseService`라는 프로젝트에 또 다른 새 클래스를 추가합니다.
 
@@ -520,7 +520,7 @@ ms.locfileid: "91268828"
     }
     ```
 
-13. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 선택하여 코드에 오류가 없는지 확인합니다. `ic_launcher` 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다. 
+13. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드** 를 선택하여 코드에 오류가 없는지 확인합니다. `ic_launcher` 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다. 
 
     ```
         android:icon="@mipmap/ic_launcher"
@@ -540,9 +540,9 @@ ms.locfileid: "91268828"
 
 다음 단계를 수행하여 [Azure Portal]에서 푸시 알림을 보낼 수 있습니다.
 
-1. Azure Portal에서 허브에 대한 알림 허브 페이지의 **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다.
-3. **플랫폼**에 대해 **Android**를 선택합니다.
-4. **보내기**를 선택합니다.  Android 디바이스에서 알림이 아직 보이지 않으면 모바일 앱을 실행하지 않았기 때문입니다. 모바일 앱을 실행한 후 **보내기** 단추를 다시 선택하여 알림 메시지를 표시합니다.
+1. Azure Portal에서 허브에 대한 알림 허브 페이지의 **문제 해결** 섹션에서 **테스트 보내기** 를 선택합니다.
+3. **플랫폼** 에 대해 **Android** 를 선택합니다.
+4. **보내기** 를 선택합니다.  Android 디바이스에서 알림이 아직 보이지 않으면 모바일 앱을 실행하지 않았기 때문입니다. 모바일 앱을 실행한 후 **보내기** 단추를 다시 선택하여 알림 메시지를 표시합니다.
 5. 맨 아래에 있는 목록에 작업의 결과가 표시됩니다.
 
     ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
@@ -557,7 +557,7 @@ ms.locfileid: "91268828"
 
 에뮬레이터 내부에서 푸시 알림을 테스트하기 전에 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생할 수 있습니다.
 
-또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
+또한 **설정** > **계정** 에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,22 +6,22 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88055465"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890278"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 
-*Durable Functions*는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
+*Durable Functions* 는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
 ::: zone pivot="code-editor-vscode"
 
 이 문서에서는 Visual Studio Code를 사용하여 "hello world" 지속성 함수를 로컬로 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 VS Code [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)의 일부로 사용할 수 있습니다.
 
-![Azure에서 지속성 함수 실행](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![스크린샷은 지속성 함수가 있는 Visual Studio Code 창을 보여줍니다.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -49,7 +49,7 @@ ms.locfileid: "88055465"
 
     ![함수 프로젝트 만들기](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
-1. 프로젝트에 대한 빈 폴더 위치를 선택하고 **선택**을 선택합니다.
+1. 프로젝트에 대한 빈 폴더 위치를 선택하고 **선택** 을 선택합니다.
 
 1. 지시에 따라 다음 정보를 제공합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "88055465"
     | 함수 이름 제공 | HelloOrchestration | 함수가 생성되는 클래스의 이름 |
     | 네임스페이스 제공 | Company.Function | 생성된 클래스의 네임스페이스 |
 
-1. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택**을 선택합니다. 메시지에 따라 다음 정보를 제공하여 Azure에서 새 스토리지 계정을 만듭니다.
+1. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택** 을 선택합니다. 메시지에 따라 다음 정보를 제공하여 Azure에서 새 스토리지 계정을 만듭니다.
 
     | prompt | 값 | Description |
     | ------ | ----- | ----------- |
@@ -86,7 +86,7 @@ ms.locfileid: "88055465"
     | 리소스 그룹 선택 | *고유 이름* | 만들 리소스 그룹의 이름 |
     | 위치 선택 | *region* | 가까운 지역 선택 |
 
-새 함수를 포함하는 클래스가 프로젝트에 추가됩니다. 또한 VS Code는 스토리지 계정 연결 문자열을 *local.settings.json*에 추가하고 [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet 패키지에 대한 참조를 *.csproj* 프로젝트 파일에 추가합니다.
+새 함수를 포함하는 클래스가 프로젝트에 추가됩니다. 또한 VS Code는 스토리지 계정 연결 문자열을 *local.settings.json* 에 추가하고 [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet 패키지에 대한 참조를 *.csproj* 프로젝트 파일에 추가합니다.
 
 새 *HelloOrchestration.cs* 파일을 열어 콘텐츠를 봅니다. 이 지속성 함수는 다음 메서드를 포함하는 간단한 함수 체이닝 예제입니다.  
 
@@ -136,7 +136,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     }
     ```
 
-1. 디버깅을 중지하려면 VS Code에서 **Shift + F5**를 누릅니다.
+1. 디버깅을 중지하려면 VS Code에서 **Shift + F5** 를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 
@@ -165,7 +165,7 @@ Visual Studio Code를 사용하여 C# 지속성 함수 앱을 만들고 게시�
 
 이 문서에서는 Visual Studio 2019를 사용하여 "hello world" 지속성 함수를 로컬로 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2019에서 Azure 개발 워크로드의 일부로 제공됩니다.
 
-![Azure에서 지속성 함수 실행](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![스크린샷은 지속적인 함수가 있는 Visual Studio 2019 창을 보여줍니다.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -181,15 +181,15 @@ Visual Studio Code를 사용하여 C# 지속성 함수 앱을 만들고 게시�
 
 Azure Functions 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트** 를 선택합니다.
 
-1. **새 프로젝트 만들기** 대화 상자에서 `functions`를 검색하여 **Azure Functions** 템플릿을 선택하고 **다음**을 선택합니다. 
+1. **새 프로젝트 만들기** 대화 상자에서 `functions`를 검색하여 **Azure Functions** 템플릿을 선택하고 **다음** 을 선택합니다. 
 
     ![Visual Studio에서 함수를 만드는 새 프로젝트 대화 상자](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. 프로젝트의 **프로젝트 이름**을 입력하고, **확인**을 선택합니다. 프로젝트 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
+1. 프로젝트의 **프로젝트 이름** 을 입력하고, **확인** 을 선택합니다. 프로젝트 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
 
-1. **새 Azure Functions 애플리케이션 만들기**에서 이미지 아래의 표에 지정된 설정을 사용합니다.
+1. **새 Azure Functions 애플리케이션 만들기** 에서 이미지 아래의 표에 지정된 설정을 사용합니다.
 
     ![Visual Studio의 새 Azure Functions 애플리케이션 만들기 대화 상자](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
@@ -199,19 +199,19 @@ Azure Functions 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프�
     | **템플릿** | Empty | 빈 함수 앱을 만듭니다. |
     | **스토리지 계정**  | 스토리지 에뮬레이터 | 스토리지 계정은 지속성 함수 상태 관리에 필요합니다. |
 
-4. **만들기**를 선택하여 빈 함수 프로젝트를 만듭니다. 이 프로젝트에는 함수를 실행하는 데 필요한 기본 구성 파일이 있습니다.
+4. **만들기** 를 선택하여 빈 함수 프로젝트를 만듭니다. 이 프로젝트에는 함수를 실행하는 데 필요한 기본 구성 파일이 있습니다.
 
 ## <a name="add-functions-to-the-app"></a>함수를 앱에 추가
 
 다음 단계에서는 템플릿을 사용하여 프로젝트에 지속성 함수 코드를 만듭니다.
 
-1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 누르고 **추가** > **새 Azure Function**을 선택합니다.
+1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 누르고 **추가** > **새 Azure Function** 을 선택합니다.
 
     ![새 함수 추가](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. 추가 메뉴에서 **Azure Function**이 선택되어 있는지 확인하고, C# 파일의 이름을 입력한 다음, **추가**를 선택합니다.
+1. 추가 메뉴에서 **Azure Function** 이 선택되어 있는지 확인하고, C# 파일의 이름을 입력한 다음, **추가** 를 선택합니다.
 
-1. **Durable Functions 오케스트레이션** 템플릿을 선택한 다음, **확인**을 선택합니다.
+1. **Durable Functions 오케스트레이션** 템플릿을 선택한 다음, **확인** 을 선택합니다.
 
     ![지속성 템플릿 선택](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 
@@ -237,7 +237,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 3. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여넣고 요청을 실행합니다. 다음은 함수에서 반환된 로컬 GET 요청에 대한 브라우저의 응답을 보여 줍니다.
 
-    ![브라우저의 localhost 함수 응답](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![스크린샷은 statusQueryGetUri가 호출된 브라우저 창을 보여줍니다.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     응답은 지속성 오케스트레이션이 성공적으로 시작되었음을 알리는 HTTP 함수의 초기 결과입니다.  아직 오케스트레이션의 최종 결과는 아닙니다.  응답에는 몇 가지 유용한 URL이 포함되어 있습니다.  현재로는 오케스트레이션의 상태를 쿼리해보겠습니다.
 
@@ -261,7 +261,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     }
     ```
 
-5. 디버깅을 중지하려면 **Shift + F5**를 누릅니다.
+5. 디버깅을 중지하려면 **Shift + F5** 를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 

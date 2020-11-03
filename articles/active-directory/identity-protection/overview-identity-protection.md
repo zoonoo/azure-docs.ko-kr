@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996534"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783184"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -39,9 +39,9 @@ Microsoft의 ID 보안 및 보호 팀을 이끄는 Alex Weinert는 [자신의 20
 >
 > 작년 Ignite에서는 Microsoft의 ID 신분 시스템에 대한 상위 3가지 공격에 대해 말했습니다. 다음은 이러한 공격들의 최신 볼륨입니다.
 >   
->   - **보안 위반 재생**: 2018년 5월 4.6BN 공격이 감지됨
->   - **암호 스프레이**: 2018년 4월 350k
->   - **피싱**: 정확히 수치화하기 어렵지만, 2018년 3월에 23M 위험 이벤트를 확인했으며, 그 중 상당수는 피싱 관련 사건입니다.
+>   - **보안 위반 재생** : 2018년 5월 4.6BN 공격이 감지됨
+>   - **암호 스프레이** : 2018년 4월 350k
+>   - **피싱** : 정확히 수치화하기 어렵지만, 2018년 3월에 23M 위험 이벤트를 확인했으며, 그 중 상당수는 피싱 관련 사건입니다.
 
 ## <a name="risk-detection-and-remediation"></a>위험 감지 및 수정
 
@@ -107,12 +107,12 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 | 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 예 |예 | 
 | 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  예 |예 |
 | 보안 보고서 | 개요 |  아니요 | 예 |예 |
-| 보안 보고서 | 위험한 사용자  | 제한적 정보 제공 | 제한적 정보 제공 | 모든 권한|
-| 보안 보고서 | 위험한 로그인  | 제한적 정보 제공 | 제한적 정보 제공 | 모든 권한|
-| 보안 보고서 | 위험 탐지   | 예 | 제한적 정보 제공| 모든 권한|
-| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 예 |예 |
-| 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
-| | MFA 등록 정책 | 아니요 | 예 | 예 |
+| 보안 보고서 | 위험한 사용자  | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 모든 권한|
+| 보안 보고서 | 위험한 로그인  | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 모든 권한|
+| 보안 보고서 | 위험 탐지   | 예 | 제한된 정보. 세부 정보 서랍이 없습니다.| 모든 권한|
+| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
+| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
+| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
 
 이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 

@@ -8,15 +8,18 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: d5f08e764ae44b11ab5838689e7f8a70c89b3122
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a848e14f854385ed1603918ab7e7a274667f2324
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708631"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427552"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 단일 PostgreSQL 서버 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for PostgreSQL 서버에 대한 컴퓨팅 및 스토리지를 확장합니다. 컴퓨팅을 확장하거나 축소할 수 있습니다. 스토리지는 확장만 가능합니다. 
+
+> [!IMPORTANT] 
+> 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +36,7 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="script-explanation"></a>스크립트 설명
 이 스크립트에는 다음 표에 설명된 명령이 사용됩니다.
 
-| **명령** | **참고 사항** |
+| **명령** | **참고** |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | 데이터베이스를 호스팅하는 PostgreSQL 서버를 만듭니다. |
@@ -43,5 +46,5 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL 컴퓨팅 및 스토리지](../concepts-pricing-tiers.md)에 대해 자세히 알아보기
-- 추가 스크립트 시도: [PostgreSQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- 추가 스크립트 시도: [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - [Azure CLI](/cli/azure)에 대한 자세한 정보

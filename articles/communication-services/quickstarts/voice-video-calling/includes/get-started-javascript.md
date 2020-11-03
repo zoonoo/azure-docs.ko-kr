@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 652566efda4d4f274dc5700d35bcf45c1ebfb9e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761982"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92347312"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -47,11 +47,19 @@ npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
+이 빠른 시작에는 다음 버전의 webpack이 권장됩니다.
+
+```console
+"webpack": "^4.42.0",
+"webpack-cli": "^3.3.11",
+"webpack-dev-server": "^3.10.3"
+```
+
 `--save` 옵션은 라이브러리를 **package.json** 파일의 종속성으로 나열합니다.
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
-이 빠른 시작에서는 webpack을 사용하여 애플리케이션 자산을 번들로 묶습니다. 다음 명령을 실행하여 webpack, webpack-cli 및 webpack-dev-server npm 패키지를 설치하고 **package.json**에서 개발 종속성으로 나열합니다.
+이 빠른 시작에서는 webpack을 사용하여 애플리케이션 자산을 번들로 묶습니다. 다음 명령을 실행하여 webpack, webpack-cli 및 webpack-dev-server npm 패키지를 설치하고 **package.json** 에서 개발 종속성으로 나열합니다.
 
 ```console
 npm install webpack webpack-cli webpack-dev-server --save-dev
@@ -90,18 +98,17 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 </html>
 ```
 
-이 빠른 시작에 대한 애플리케이션 로직을 포함하기 위해 **client.js**라는 프로젝트의 루트 디렉터리에 파일을 만듭니다. 다음 코드를 추가하여 통화 클라이언트를 가져오고, 비즈니스 논리를 연결할 수 있도록 DOM 요소에 대한 참조를 가져옵니다. 
+이 빠른 시작에 대한 애플리케이션 로직을 포함하기 위해 **client.js** 라는 프로젝트의 루트 디렉터리에 파일을 만듭니다. 다음 코드를 추가하여 통화 클라이언트를 가져오고, 비즈니스 논리를 연결할 수 있도록 DOM 요소에 대한 참조를 가져옵니다. 
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 let call;
+let callAgent;
 const calleeInput = document.getElementById("callee-id-input");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
-
-// quickstart code goes here
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -117,15 +124,16 @@ Azure Communication Services 통화 클라이언트 라이브러리의 주요 �
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-`<USER_ACCESS_TOKEN>`을 리소스에 대한 유효한 사용자 액세스 토큰으로 바꾸어야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationUserCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. **client.js**에 다음 코드를 추가합니다.
+`<USER_ACCESS_TOKEN>`을 리소스에 대한 유효한 사용자 액세스 토큰으로 바꾸어야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationUserCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. **client.js** 에 다음 코드를 추가합니다.
 
 ```javascript
-const callClient = new CallClient();
-const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-let callAgent;
-
-callAgent = await callClient.createCallAgent(tokenCredential);
-callButton.disabled = false;
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    callButton.disabled = false;
+}
+init();
 ```
 
 ## <a name="start-a-call"></a>호출 시작

@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341909"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS(Azure Kubernetes Service) 클러스터 배포(미리 보기)
 
@@ -27,11 +27,11 @@ ms.locfileid: "92122182"
 ### <a name="deployment-pre-requisites"></a>배포 필수 구성 요소
 
 1. 활성 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-1. Azure CLI 버전 2.0.64 이상이 배포 머신에 설치되고 구성되어 있어야 합니다(버전을 확인하려면  `az --version` 실행). 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)를 참조하세요.
+1. Azure CLI 버전 2.0.64 이상이 배포 머신에 설치되고 구성되어 있어야 합니다(버전을 확인하려면 `az --version` 실행). 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)를 참조하세요.
 1. [aks-preview 확장](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) 최소 버전 0.4.62 
-1. 구독에서 사용할 수 있는 6개 이상의 DCSv2 코어가 있어야 합니다. 기본적으로 Azure 구독 8개 코어당 기밀 컴퓨팅에 대한 VM 코어 할당량입니다. 8개 초과된 코어가 필요한 클러스터를 프로비저닝하려면 [이러한](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) 지침에 따라 할당량 증가 티켓을 제출합니다.
+1. 구독에서 사용할 수 있는 6개 이상의 **DC<x>s-v2** 코어가 있어야 합니다. 기본적으로 Azure 구독 8개 코어당 기밀 컴퓨팅에 대한 VM 코어 할당량입니다. 8개 초과된 코어가 필요한 클러스터를 프로비저닝하려면 [이러한](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) 지침에 따라 할당량 증가 티켓을 제출합니다.
 
-### <a name="confidential-computing-node-features"></a>기밀 컴퓨팅 노드 기능
+### <a name="confidential-computing-node-features-dcxs-v2"></a>기밀 컴퓨팅 노드 기능(DC<x>s-v2)
 
 1. Linux 컨테이너만 지원하는 Linux 작업자 노드
 1. Ubuntu Generation 2 18.04 Virtual Machines
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-위의 명령은 DCSv2 노드 풀이 있는 새 AKS 클러스터를 프로비저닝하고, 두 개의 디먼 집합([SGX 디바이스 플러그 인](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote 도우미](confidential-nodes-aks-overview.md#sgx-quote))을 자동으로 설치합니다.
+위의 명령은 **DC<x>s-v2** 노드 풀이 있는 새 AKS 클러스터를 프로비저닝하고, 두 개의 디먼 집합([SGX 디바이스 플러그 인](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote 도우미](confidential-nodes-aks-overview.md#sgx-quote))을 자동으로 설치합니다.
 
 az aks get-credentials 명령을 사용하여 AKS 클러스터의 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-아래와 같이 kubectl get pods 및 nodes 명령을 사용하여 노드가 올바르게 만들어지고 SGX 관련 디먼 집합이 DCSv2 노드 풀에서 실행되는지 확인합니다.
+아래와 같이 kubectl get pods 및 nodes 명령을 사용하여 노드가 올바르게 만들어지고 SGX 관련 디먼 집합이 **DC<x>s-v2** 노드 풀에서 실행되는지 확인합니다.
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ az aks update --enable-addons confcom --resource-group myResourceGroup --name my
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-이제 DCSv2 노드 풀을 클러스터에 추가합니다.
-
-```azurecli-interactive
+이제 **DC<x>s-v2** 노드 풀을 클러스터에 추가합니다.
+    
+> [!NOTE]
+> 기밀 컴퓨팅 기능을 사용하려면 기존 AKS 클러스터에 하나 이상의 **DC<x>s-v2** VM SKU 기반 노드 풀이 있어야 합니다. 기밀 컴퓨팅 DCsv2 VM SKU에 대한 자세한 내용은 여기에 [사용 가능한 SKU 및 지원되는 지역](virtual-machine-solutions.md)을 참조하세요.
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

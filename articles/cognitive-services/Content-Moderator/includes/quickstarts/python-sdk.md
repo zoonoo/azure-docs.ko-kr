@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: bea422514b109f446ee30633b0074730f9b89af0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 64a9143e7a425b35e37f23b233c91b8e7bb70169
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332578"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755676"
 ---
 Python용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 PiPy 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
 
@@ -24,11 +24,11 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 Python용 Content Moderator 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* [텍스트 조정](#moderate-text)
-* [사용자 지정 용어 목록 사용](#use-a-custom-terms-list)
-* [이미지 조정](#moderate-images)
-* [사용자 지정 이미지 목록 사용](#use-a-custom-image-list)
-* [검토 만들기](#create-a-review)
+* 텍스트 조정
+* 사용자 지정 용어 목록 사용
+* 이미지 조정
+* 사용자 지정 이미지 목록 사용
+* 검토 만들기
 
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -36,35 +36,38 @@ Python용 Content Moderator 클라이언트 라이브러리를 사용하여 다�
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Content Moderator 리소스 만들기"  target="_blank">Content Moderator 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
+    * 애플리케이션을 Content Moderator에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
-## <a name="create-a-content-moderator-resource"></a>Content Moderator 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 다음도 가능합니다.
+## <a name="setting-up"></a>설치
 
-* [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-리소스에서 키를 가져온 후에는 각각 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 및 `CONTENT_MODERATOR_ENDPOINT`라는 키 및 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
- 
-## <a name="create-a-new-python-script"></a>새 python 스크립트 만들기
+Python을 설치한 후 다음 명령을 사용하여 Content Moderator 클라이언트 라이브러리를 설치할 수 있습니다.
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-contentmoderator
+```
+
+### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
 새 Python 스크립트를 만들어 원하는 편집기 또는 IDE에서 엽니다. 그런 다음, 파일의 위쪽에 다음 `import` 문을 추가합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-다음으로, 리소스의 엔드포인트 위치와 키에 대한 변수를 환경 변수로 만듭니다. 
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+
+다음으로, 리소스의 엔드포인트 위치와 키에 대한 변수를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
-> [!NOTE]
-> 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다.
-
-## <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
-
-다음 명령을 사용하여 Content Moderator 클라이언트 라이브러리를 설치할 수 있습니다.
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-contentmoderator
-```
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Content Moderator 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)입니다.
 
 ## <a name="object-model"></a>개체 모델
 
@@ -89,9 +92,6 @@ Content Moderator Python 클라이언트 라이브러리의 주요 기능 중 �
 * [검토 만들기](#create-a-review)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
-
-> [!NOTE]
-> 이 빠른 시작에서는 Content Moderator 키 및 엔드포인트에 대한 [환경 변수를 만들었다](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)고 가정합니다.
 
 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 개체를 만들고, 엔드포인트에서 이를 사용하여 [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) 개체를 만듭니다.
 

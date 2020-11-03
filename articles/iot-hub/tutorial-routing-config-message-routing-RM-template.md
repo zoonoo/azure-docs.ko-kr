@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084399"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480108"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -38,57 +38,57 @@ Azure RM(Resource Manager) 템플릿을 사용하여 모든 리소스를 만들�
 
 몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 리소스의 이름을 쉽게 지정할 수 있도록, 해당 리소스 이름에는 현재 날짜/시간으로 생성된 임의의 영숫자 값을 추가하도록 설정됩니다. 
 
-템플릿을 살펴보면 전달된 매개 변수를 취하여 매개 변수에 *randomValue*를 연결하는 해당 리소스에 대해 변수가 설정된 위치를 알 수 있습니다. 
+템플릿을 살펴보면 전달된 매개 변수를 취하여 매개 변수에 *randomValue* 를 연결하는 해당 리소스에 대해 변수가 설정된 위치를 알 수 있습니다. 
 
 다음 섹션에서는 사용된 매개 변수에 대해 설명합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-이러한 매개 변수 중 대부분은 기본값이 있습니다. **_in**으로 끝나는 매개 변수는 전역적으로 고유하게 만들기 위해 *randomValue*와 연결됩니다. 
+이러한 매개 변수 중 대부분은 기본값이 있습니다. **_in** 으로 끝나는 매개 변수는 전역적으로 고유하게 만들기 위해 *randomValue* 와 연결됩니다. 
 
-**randomValue**: 이 값은 템플릿 배포 당시 현재 날짜/시간으로 생성됩니다. 이 필드는 템플릿 자체에서 생성되므로 매개 변수 파일에 없습니다.
+**randomValue** : 이 값은 템플릿 배포 당시 현재 날짜/시간으로 생성됩니다. 이 필드는 템플릿 자체에서 생성되므로 매개 변수 파일에 없습니다.
 
-**subscriptionId**: 이 필드는 템플릿을 배포하는 구독에 대해 설정됩니다. 이 필드는 설정되어 있으므로 매개 변수 파일에 없습니다.
+**subscriptionId** : 이 필드는 템플릿을 배포하는 구독에 대해 설정됩니다. 이 필드는 설정되어 있으므로 매개 변수 파일에 없습니다.
 
-**IoTHubName_in**: 이 필드는 기본 IoT Hub 이름이며, randomValue와 연결되어 전역적으로 고유합니다.
+**IoTHubName_in** : 이 필드는 기본 IoT Hub 이름이며, randomValue와 연결되어 전역적으로 고유합니다.
 
-**location**: 이 필드는 배포할 Azure 영역(예: "westus")입니다.
+**location** : 이 필드는 배포할 Azure 영역(예: "westus")입니다.
 
-**consumer_group**: 이 필드는 라우팅 엔드포인트를 통해 들어오는 메시지에 대해 설정된 소비자 그룹입니다. Azure Stream Analytics에서 결과를 필터링하는 데 사용됩니다. 예를 들어, 모든 것을 가져올 수 있는 전체 스트림이 있거나 consumer_group을 **Contoso**로 설정하여 데이터를 가져오는 경우에는, 해당 항목만 표시하도록 Azure Stream Analytics 스트림(및 Power BI 보고서)를 설정할 수 있습니다. 이 필드는 이 자습서의 2부에서 사용됩니다.
+**consumer_group** : 이 필드는 라우팅 엔드포인트를 통해 들어오는 메시지에 대해 설정된 소비자 그룹입니다. Azure Stream Analytics에서 결과를 필터링하는 데 사용됩니다. 예를 들어, 모든 것을 가져올 수 있는 전체 스트림이 있거나 consumer_group을 **Contoso** 로 설정하여 데이터를 가져오는 경우에는, 해당 항목만 표시하도록 Azure Stream Analytics 스트림(및 Power BI 보고서)를 설정할 수 있습니다. 이 필드는 이 자습서의 2부에서 사용됩니다.
 
-**sku_name**: 이 필드는 IoT Hub에 대한 확장입니다. 이 필드는 S1 이상이어야 합니다. 무료 계층에서는 여러 엔드포인트가 허용되지 않기 때문에 이 자습서에 대해 작동하지 않습니다.
+**sku_name** : 이 필드는 IoT Hub에 대한 확장입니다. 이 필드는 S1 이상이어야 합니다. 무료 계층에서는 여러 엔드포인트가 허용되지 않기 때문에 이 자습서에 대해 작동하지 않습니다.
 
-**sku_units**: 이 필드는 **sku_name**과 함께 사용되며 사용할 수 있는 IoT Hub 장치 수입니다.
+**sku_units** : 이 필드는 **sku_name** 과 함께 사용되며 사용할 수 있는 IoT Hub 장치 수입니다.
 
-**d2c_partitions**: 이 필드는 이벤트 스트림에 사용되는 파티션 수입니다.
+**d2c_partitions** : 이 필드는 이벤트 스트림에 사용되는 파티션 수입니다.
 
-**storageAccountName_in**: 이 필드는 만들 스토리지 계정 이름입니다. 메시지는 스토리지 계정의 컨테이너로 라우팅됩니다. 이 필드는 randomValue와 연결되어 전역적으로 고유하게 됩니다.
+**storageAccountName_in** : 이 필드는 만들 스토리지 계정 이름입니다. 메시지는 스토리지 계정의 컨테이너로 라우팅됩니다. 이 필드는 randomValue와 연결되어 전역적으로 고유하게 됩니다.
 
-**storageContainerName**: 이 필드는 스토리지 계정에 라우팅된 메시지가 저장되는 컨테이너의 이름입니다.
+**storageContainerName** : 이 필드는 스토리지 계정에 라우팅된 메시지가 저장되는 컨테이너의 이름입니다.
 
-**storage_endpoint**: 이 필드는 메시지 라우팅에서 사용되는 스토리지 계정 엔드포인트의 이름입니다.
+**storage_endpoint** : 이 필드는 메시지 라우팅에서 사용되는 스토리지 계정 엔드포인트의 이름입니다.
 
-**service_bus_namespace_in**: 이 필드는 만들 Service Bus 네임스페이스의 이름입니다. 이 값은 randomValue와 연결되어 전역적으로 고유하게 됩니다.
+**service_bus_namespace_in** : 이 필드는 만들 Service Bus 네임스페이스의 이름입니다. 이 값은 randomValue와 연결되어 전역적으로 고유하게 됩니다.
 
-**service_bus_queue_in**: 이 필드는 메시지 라우팅에 사용되는 Service Bus 큐의 이름입니다. 이 값은 randomValue와 연결되어 전역적으로 고유하게 됩니다.
+**service_bus_queue_in** : 이 필드는 메시지 라우팅에 사용되는 Service Bus 큐의 이름입니다. 이 값은 randomValue와 연결되어 전역적으로 고유하게 됩니다.
 
-**AuthRules_sb_queue**: 이 필드는 큐에 대한 연결 문자열을 검색하는 데 사용되는 Service Bus 큐에 대한 권한 부여 규칙입니다.
+**AuthRules_sb_queue** : 이 필드는 큐에 대한 연결 문자열을 검색하는 데 사용되는 Service Bus 큐에 대한 권한 부여 규칙입니다.
 
 ### <a name="variables"></a>variables
 
 이 값은 템플릿에 사용되며 대부분 매개 변수에서 파생됩니다.
 
-**queueAuthorizationRuleResourceId**: 이 필드는 Service Bus 큐에 대한 권한 부여 규칙의 ResourceId입니다. ResourceId는 차례로 큐의 연결 문자열을 검색하는 데 사용됩니다.
+**queueAuthorizationRuleResourceId** : 이 필드는 Service Bus 큐에 대한 권한 부여 규칙의 ResourceId입니다. ResourceId는 차례로 큐의 연결 문자열을 검색하는 데 사용됩니다.
 
-**iotHubName**: 이 필드는 randomValue가 연결된 후 IoT Hub의 이름입니다. 
+**iotHubName** : 이 필드는 randomValue가 연결된 후 IoT Hub의 이름입니다. 
 
-**storageAccountName**: 이 필드는 randomValue가 연결된 후 스토리지 계정의 이름입니다. 
+**storageAccountName** : 이 필드는 randomValue가 연결된 후 스토리지 계정의 이름입니다. 
 
-**service_bus_namespace**: 이 필드는 randomValue가 연결된 후 네임스페이스입니다.
+**service_bus_namespace** : 이 필드는 randomValue가 연결된 후 네임스페이스입니다.
 
-**service_bus_queue**: 이 필드는 randomValue가 연결된 Service Bus 큐 이름입니다.
+**service_bus_queue** : 이 필드는 randomValue가 연결된 Service Bus 큐 이름입니다.
 
-**sbVersion**: 사용할 Service Bus API 버전입니다. 이 경우 "2017-04-01"입니다.
+**sbVersion** : 사용할 Service Bus API 버전입니다. 이 경우 "2017-04-01"입니다.
 
 ### <a name="resources-storage-account-and-container"></a>리소스: 스토리지 계정 및 컨테이너
 
@@ -358,9 +358,9 @@ Azure에 템플릿을 배포하려면 템플릿과 매개 변수 파일을 Azure
 
 파일을 업로드하려면 메뉴 모음에서 **파일 업로드/다운로드** 아이콘을 선택한 다음, 업로드를 선택합니다.
 
-![파일 업로드/다운로드가 강조 표시된 Cloud Shell 메뉴 모음](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![파일 업로드/다운로드 아이콘을 강조 표시하는 스크린샷.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-열리는 파일 탐색기를 사용하여 로컬 디스크의 파일을 찾아서 선택한 다음, **열기**를 선택합니다.
+열리는 파일 탐색기를 사용하여 로컬 디스크의 파일을 찾아서 선택한 다음, **열기** 를 선택합니다.
 
 파일이 업로드되면 결과 다음 이미지와 같은 대화 상자가 표시됩니다.
 
@@ -372,11 +372,11 @@ Cloud Shell 인스턴스에 사용되는 공유에 파일이 업로드됩니다.
 
 이 스크립트는 다음 변수를 설정하여 사용합니다.
 
-**$RGName**은 템플릿을 배포할 리소스 그룹 이름입니다. 이 필드는 템플릿을 배포하기 전에 생성됩니다.
+**$RGName** 은 템플릿을 배포할 리소스 그룹 이름입니다. 이 필드는 템플릿을 배포하기 전에 생성됩니다.
 
-**$location**은 템플릿에 사용될 Azure 위치입니다(예: "westus").
+**$location** 은 템플릿에 사용될 Azure 위치입니다(예: "westus").
 
-**deploymentname**은 반환 변수 값을 검색하기 위해 배포에 지정하는 이름입니다.
+**deploymentname** 은 반환 변수 값을 검색하기 위해 배포에 지정하는 이름입니다.
 
 PowerShell 스크립트는 다음과 같습니다. 이 PowerShell 스크립트를 복사하여 Cloud Shell 창에 붙여넣은 다음, Enter 키를 눌러 실행합니다.
 

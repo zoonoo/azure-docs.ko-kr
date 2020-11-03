@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289024"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474787"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 OPENROWSET를 사용하는 방법
 
@@ -127,7 +127,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
  읽으려는 폴더 또는 파일을 가리키는 스토리지 내의 경로입니다. 경로가 컨테이너 또는 폴더를 가리키는 경우 해당 컨테이너 또는 폴더에서 모든 파일을 읽습니다. 하위 폴더의 파일은 포함되지 않습니다. 
 
  와일드카드 문자를 사용하여 여러 파일 또는 폴더를 대상으로 지정할 수 있습니다. 여러 비연속 와일드카드 문자를 사용할 수 있습니다.
-다음은 */csv/population*으로 시작하는 모든 폴더에서 *population*으로 시작하는 모든 *csv* 파일을 읽는 예제입니다.  
+다음은 */csv/population* 으로 시작하는 모든 폴더에서 *population* 으로 시작하는 모든 *csv* 파일을 읽는 예제입니다.  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 unstructured_data_path를 폴더로 지정하면 SQL 주문형 쿼리가 해당 폴더에서 파일을 검색합니다. 
@@ -192,9 +192,9 @@ CSV 파일에 따옴표 문자로 사용될 문자를 지정합니다. 지정하
 
 DATA_COMPRESSION = 'data_compression_method'
 
-압축 방법을 지정합니다. 다음 압축 방법이 지원됩니다.
+압축 방법을 지정합니다. PARSER_VERSION='1.0'에서만 지원됩니다. 다음 압축 방법이 지원됩니다.
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 

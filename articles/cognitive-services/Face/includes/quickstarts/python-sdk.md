@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d2935cfac7ca095c918826c47dbf3f1dd2d8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859381"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886660"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -28,37 +28,42 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [Python 3.x](https://www.python.org/)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* [Python 3.x](https://www.python.org/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+
 
 ## <a name="setting-up"></a>설치
  
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+
+Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-face
+```
+
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-예를 들어 새 Python 스크립트(*quickstart-file.py*)를 만듭니다. 그런 다음, 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 라이브러리를 가져옵니다.
+예를 들어 새 Python 스크립트( *quickstart-file.py* )를 만듭니다. 그런 다음, 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 라이브러리를 가져옵니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
 그런 다음, 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
-> [!NOTE]
-> 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다.
-
-### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
-
-다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-face
-```
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 [제품 이름] 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)입니다.
 
 ## <a name="object-model"></a>개체 모델
 
@@ -87,9 +92,6 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-> [!NOTE]
-> 이 빠른 시작에서는 `FACE_SUBSCRIPTION_KEY`라는 Face 키에 대한 [환경 변수를 만들었다](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)고 가정합니다.
-
 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 개체를 만들고, 엔드포인트에서 이를 사용하여 [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) 개체를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
@@ -100,7 +102,8 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-자세한 감지 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py)의 샘플 코드를 참조하세요.
+> [!TIP]
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) 메서드(예: **detect_with_stream** )를 참조하세요.
 
 ### <a name="display-and-frame-faces"></a>표시 및 프레임 면
 
@@ -132,7 +135,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 ## <a name="create-and-train-a-person-group"></a>사람 그룹 만들기 및 학습
 
-다음 코드에서는 서로 다른 세 개의 **Person** 개체를 사용하여 **PersonGroup**을 만듭니다. 각 **Person**을 예제 이미지 세트와 연결한 다음, 각 사용자를 인식할 수 있도록 학습시킵니다. 
+다음 코드에서는 서로 다른 세 개의 **Person** 개체를 사용하여 **PersonGroup** 을 만듭니다. 각 **Person** 을 예제 이미지 세트와 연결한 다음, 각 사용자를 인식할 수 있도록 학습시킵니다. 
 
 ### <a name="create-persongroup"></a>PersonGroup 만들기
 
@@ -154,15 +157,18 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
+> [!TIP]
+> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) 메서드(예: **add_face_from_url** )를 참조하세요.
+
 ### <a name="train-persongroup"></a>PersonGroup 학습
 
-얼굴이 할당되면 각 **Person** 개체와 관련된 시각적 기능을 식별할 수 있도록 **PersonGroup**을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
+얼굴이 할당되면 각 **Person** 개체와 관련된 시각적 기능을 식별할 수 있도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
+Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다.
 
 > [!IMPORTANT]
 > 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.
@@ -175,7 +181,7 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 ### <a name="identify-faces"></a>얼굴 식별
 
-**identify** 메서드는 감지된 얼굴의 배열을 사용하여 **PersonGroup**과 비교합니다. 감지된 얼굴을 **Person**과 일치시킬 수 있으면 결과가 저장됩니다. 이 코드는 자세한 일치 항목 결과를 콘솔에 출력합니다.
+**identify** 메서드는 감지된 얼굴의 배열을 사용하여 **PersonGroup** 과 비교합니다. 감지된 얼굴을 **Person** 과 일치시킬 수 있으면 결과가 저장됩니다. 이 코드는 자세한 일치 항목 결과를 콘솔에 출력합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
@@ -220,7 +226,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
-이 빠른 시작에서는 **PersonGroup**을 만들었으며, 이를 삭제하려면 스크립트에서 다음 코드를 실행합니다.
+이 빠른 시작에서는 **PersonGroup** 을 만들었으며, 이를 삭제하려면 스크립트에서 다음 코드를 실행합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
 

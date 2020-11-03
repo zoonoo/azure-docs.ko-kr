@@ -1,22 +1,22 @@
 ---
 title: 조직 외부에서 공유(ARM 템플릿) - Azure Data Share 빠른 시작
-description: 이 빠른 시작에서는 Azure Data Share 및 Resource Manager 템플릿을 사용하여 고객 및 파트너와 데이터를 공유하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Data Share 및 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 고객 및 파트너와 데이터를 공유하는 방법을 알아봅니다.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146149"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487690"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>빠른 시작: Azure Data Share 및 Resource Manager 템플릿을 사용하여 데이터 공유
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>빠른 시작: Azure Data Share 및 ARM 템플릿을 사용하여 데이터 공유
 
-Azure Resource Manager 템플릿을 사용하여 Azure 스토리지 계정에서 새로운 Azure Data Share를 설정하고 Azure 조직 외부의 고객 및 파트너와 데이터 공유를 시작하는 방법을 알아봅니다. 지원되는 데이터 저장소 목록은 [Azure Data Share에서 지원되는 데이터 저장소](./supported-data-stores.md)를 참조하세요.
+ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure 스토리지 계정에서 새 Azure Data Share를 설정하는 방법을 알아봅니다. 그리고 Azure 조직 외부의 고객 및 파트너와 데이터 공유를 시작합니다. 지원되는 데이터 저장소 목록은 [Azure Data Share에서 지원되는 데이터 저장소](./supported-data-stores.md)를 참조하세요.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,12 +38,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 템플릿에서는 다음 작업을 수행합니다.
 
@@ -56,11 +56,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 템플릿은 학습 목적으로 작성되었습니다. 실제로는 일반적으로 기존 스토리지 계정에 일부 데이터가 있습니다. 데이터 세트를 만들기 위해 템플릿 또는 스크립트를 실행하기 전에 역할 할당을 만들어야 합니다. 경우에 따라 템플릿을 배포할 때 다음과 같은 오류 메시지가 나타날 수 있습니다.
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-배포가 Azure 역할 할당을 완료하기 전에 데이터 세트를 만들려고 하기 때문입니다. 오류 메시지에도 불구하고 배포가 성공할 수 있습니다.  [배포된 리소스 검토](#review-deployed-resources) 과정을 계속 진행할 수 있습니다.
+배포가 Azure 역할 할당을 완료하기 전에 데이터 세트를 만들려고 하기 때문입니다. 오류 메시지에도 불구하고 배포가 성공할 수 있습니다. [배포된 리소스 검토](#review-deployed-resources) 과정을 계속 진행할 수 있습니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

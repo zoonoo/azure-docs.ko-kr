@@ -1,6 +1,6 @@
 ---
-title: '자습서: 파이프라인을 사용하여 오케스트레이션 시작하기'
-description: 이 자습서에서는 Synapse Studio를 사용하여 파이프라인 및 활동을 오케스트레이션하는 방법에 대해 알아봅니다.
+title: '자습서: 파이프라인과의 통합 시작'
+description: 이 자습서에서는 Synapse Studio를 사용하여 파이프라인과 활동을 통합하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,21 +9,21 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 42d2ac6cf6592f8e22b0a66aee84c3436d466572
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 10/27/2020
+ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329886"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744922"
 ---
-# <a name="orchestrate-with-pipelines"></a>파이프라인을 사용하여 오케스트레이션
+# <a name="integrate-with-pipelines"></a>파이프라인과 통합
 
-이 자습서에서는 Synapse Studio를 사용하여 파이프라인 및 활동을 오케스트레이션하는 방법에 대해 알아봅니다. 
+이 자습서에서는 Synapse Studio를 사용하여 파이프라인과 활동을 통합하는 방법에 대해 알아봅니다. 
 
 ## <a name="overview"></a>개요
 
-Azure Synapse에서는 다양한 작업을 오케스트레이션할 수 있습니다.
+Azure Synapse에서는 다양한 작업을 통합할 수 있습니다.
 
 1. Synapse Studio에서 **통합** 허브로 이동합니다.
 1. **+**  > **파이프라인** 을 선택하여 새 파이프라인을 만듭니다.

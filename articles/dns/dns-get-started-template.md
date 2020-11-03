@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093823"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791004"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>ARM 템플릿을 사용하여 Azure DNS 영역 및 레코드 만들기
 
-이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 A 레코드가 있는 DNS 영역을 만드는 방법을 설명합니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 `A` 레코드가 있는 DNS 영역을 만드는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,20 +34,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone)에서 나온 것입니다.
 
-이 빠른 시작에서는 *<span>azurequickstart.</span>org* 접미사를 사용하여 고유한 DNS 영역을 만듭니다. 두 개의 IP 주소를 가리키는 *A* 레코드도 영역에 배치됩니다.
+이 빠른 시작에서는 `azurequickstart.org` 접미사를 사용하여 고유한 DNS 영역을 만듭니다. 두 개의 IP 주소를 가리키는 `A` 레코드도 영역에 배치됩니다.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 템플릿에 두 개의 Azure 리소스가 정의되어 있습니다.
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A)(영역에서 A 레코드를 만드는 데 사용됨)
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): 영역에 `A` 레코드를 만드는 데 사용됩니다.
 
 Azure Traffic Manager에 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)을 참조하세요.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 코드 블록에서 **사용해 보기**를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다. 
+1. 다음 코드 블록에서 **사용해 보기** 를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -64,13 +64,13 @@ Azure Traffic Manager에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 
     콘솔에서 프롬프트가 표시될 때까지 기다립니다.
 
-1. 이전 코드 블록에서 **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
+1. 이전 코드 블록에서 **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
 
-1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기**를 선택합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기** 를 선택합니다.
 
 1. 값을 입력합니다.
 
-    템플릿 배포는 두 개의 IP 주소를 가리키는 하나의 A 레코드가 있는 영역을 만듭니다. 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+    템플릿 배포는 두 개의 IP 주소를 가리키는 하나의 `A` 레코드가 있는 영역을 만듭니다. 리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
     템플릿을 배포하는 데 몇 초가 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
 
@@ -84,35 +84,35 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 왼쪽 패널에서 **리소스 그룹** 을 선택합니다.
 
-1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
+1. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **rg** 가 추가된 프로젝트 이름입니다.
 
 1. 리소스 그룹에는 여기에 표시된 다음 리소스가 포함되어야 합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="DNS 영역 배포 리소스 그룹":::
 
-1. **<span>azurequickstart.</span>org** 접미사가 있는 DNS 영역을 선택하여 **1.2.3.4** 및 **1.2.3.5** 값을 참조하는 **A** 레코드로 영역이 올바르게 만들어졌는지 확인합니다.
+1. `azurequickstart.org` 접미사가 있는 DNS 영역을 선택하여 `1.2.3.4` 및 `1.2.3.5` 값을 참조하는 `A` 레코드로 영역이 올바르게 만들어졌는지 확인합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS 영역 배포":::
 
 1. 이전 단계에서 이름 서버 이름 중 하나를 복사합니다.
 
 1. 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
    예를 들면 다음과 같습니다.
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
    다음 스크린샷과 유사한 내용이 표시되어야 합니다.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Azure DNS 영역 Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS 영역 nslookup":::
 
-호스트 이름 **www<span>.2lwynbseszpam.azurequickstart.</span>org**는 구성한 대로 **1.2.3.4** 및 **1.2.3.5**로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
+호스트 이름 `www.2lwynbseszpam.azurequickstart.org`는 구성한 대로 `1.2.3.4` 및 `1.2.3.5`로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -127,10 +127,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 다음을 만들었습니다.
-* DNS 영역
-* A 레코드
 
-이제 Azure Resource Manager 템플릿을 사용하여 첫 번째 DNS 영역과 레코드를 만들었으므로 사용자 지정 도메인에서 웹앱의 레코드를 만들 수 있습니다.
+- DNS 영역
+- `A` 레코드
+
+이제 ARM 템플릿을 사용하여 첫 번째 DNS 영역과 레코드를 만들었으므로 사용자 지정 도메인에서 웹앱에 대한 레코드를 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](./dns-web-sites-custom-domain.md)

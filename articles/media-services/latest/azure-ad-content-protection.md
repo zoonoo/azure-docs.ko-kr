@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839540"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427200"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>자습서: Azure AD를 사용하여 엔드투엔드 콘텐츠 보호
 
@@ -151,19 +151,19 @@ DRM/AES, 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조�
 ## <a name="register-the-backend-resource-app"></a>백 엔드 리소스 앱 등록
 
 1. 선택하거나 만든 Azure AD 테넌트로 이동합니다.
-1. 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. 메뉴에서 **앱 등록**을 선택합니다.
-1. **+ 새 등록**을 클릭합니다.
-1. 앱의 이름을 *LicenseDeliveryResource2*로 지정합니다. 여기서 2는 AAD v2 엔드포인트를 나타냅니다.
-1. **이 조직 디렉터리의 계정만 해당([*테넌트 이름*]만 - 단일 테넌트)** 을 선택합니다. 여러 테넌트에 액세스할 수 있도록 하려면 다른 다중 테넌트 옵션 중 하나를 선택합니다.
-1. **리디렉션 URI**는 선택 사항이며 나중에 변경할 수 있습니다.
-1. **등록**을 클릭합니다. 앱 등록 보기가 표시됩니다.
-1. 메뉴에서 **매니페스트**를 선택합니다. 매니페스트 보기가 표시됩니다.
-1. `accessTokenAcceptedVersion`의 값을 *2*(따옴표 없음)로 변경합니다.
+1. 메뉴에서 **Azure Active Directory** 를 선택합니다.
+1. 메뉴에서 **앱 등록** 을 선택합니다.
+1. **+ 새 등록** 을 클릭합니다.
+1. 앱의 이름을 *LicenseDeliveryResource2* 로 지정합니다. 여기서 2는 AAD v2 엔드포인트를 나타냅니다.
+1. **이 조직 디렉터리의 계정만 해당([ *테넌트 이름* ]만 - 단일 테넌트)** 을 선택합니다. 여러 테넌트에 액세스할 수 있도록 하려면 다른 다중 테넌트 옵션 중 하나를 선택합니다.
+1. **리디렉션 URI** 는 선택 사항이며 나중에 변경할 수 있습니다.
+1. **등록** 을 클릭합니다. 앱 등록 보기가 표시됩니다.
+1. 메뉴에서 **매니페스트** 를 선택합니다. 매니페스트 보기가 표시됩니다.
+1. `accessTokenAcceptedVersion`의 값을 *2* (따옴표 없음)로 변경합니다.
 1. `groupMembershipClaims`의 값을 *"SecurityGroup"* (따옴표 포함)으로 변경합니다.
-1. **저장**을 클릭합니다.
-1. 메뉴에서 **API 표시**를 선택합니다. 범위 추가 보기가 표시됩니다. (Azure는 애플리케이션 ID URI를 제공하지만, 변경하려는 경우 애플리케이션 ID URI 필드에서 편집할 수 있습니다.)
-1. **저장 후 계속**을 클릭합니다. 보기가 변경됩니다. 아래 표의 '설정' 열에 있는 각 설정에 대해 '값' 열의 값을 입력한 다음, **범위 추가**를 클릭합니다.
+1. **저장** 을 클릭합니다.
+1. 메뉴에서 **API 표시** 를 선택합니다. 범위 추가 보기가 표시됩니다. (Azure는 애플리케이션 ID URI를 제공하지만, 변경하려는 경우 애플리케이션 ID URI 필드에서 편집할 수 있습니다.)
+1. **저장 후 계속** 을 클릭합니다. 보기가 변경됩니다. 아래 표의 '설정' 열에 있는 각 설정에 대해 '값' 열의 값을 입력한 다음, **범위 추가** 를 클릭합니다.
 
 | 설정 | 값 | Description |
 | ------- | ----- | ----------- |
@@ -178,19 +178,19 @@ DRM/AES, 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조�
 ## <a name="register-the-client-app"></a>클라이언트 앱 등록
 
 1. 선택하거나 만든 Azure AD 테넌트로 이동합니다.
-1. 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. 메뉴에서 **앱 등록**을 선택합니다.
-1. **+ 새 등록**을 클릭합니다.
-1. 클라이언트 앱의 이름을 지정합니다(예: *AMS AAD Content Protection*).
-1. **이 조직 디렉터리의 계정만 해당([*테넌트 이름*]만 - 단일 테넌트)** 을 선택합니다. 여러 테넌트에 액세스할 수 있도록 하려면 다른 다중 테넌트 옵션 중 하나를 선택합니다.
-1. **리디렉션 URI**는 선택 사항이며 나중에 변경할 수 있습니다.
-1. **등록**을 클릭합니다.
-1. 메뉴에서 **API 권한**을 선택합니다.
-1. **+ 권한 추가**를 클릭합니다. API 권한 요청 보기가 열립니다.
+1. 메뉴에서 **Azure Active Directory** 를 선택합니다.
+1. 메뉴에서 **앱 등록** 을 선택합니다.
+1. **+ 새 등록** 을 클릭합니다.
+1. 클라이언트 앱의 이름을 지정합니다(예: *AMS AAD Content Protection* ).
+1. **이 조직 디렉터리의 계정만 해당([ *테넌트 이름* ]만 - 단일 테넌트)** 을 선택합니다. 여러 테넌트에 액세스할 수 있도록 하려면 다른 다중 테넌트 옵션 중 하나를 선택합니다.
+1. **리디렉션 URI** 는 선택 사항이며 나중에 변경할 수 있습니다.
+1. **등록** 을 클릭합니다.
+1. 메뉴에서 **API 권한** 을 선택합니다.
+1. **+ 권한 추가** 를 클릭합니다. API 권한 요청 보기가 열립니다.
 1. **내 API** 탭을 클릭하고, 마지막 섹션에서 만든 *LicenseDeliveryResource2* 앱을 선택합니다.
 1. DRM 화살표를 클릭하고, *DRM.License.Delivery* 권한을 확인합니다.
-1. **권한 추가**를 클릭합니다. 권한 추가 보기가 닫힙니다.
-1. 메뉴에서 **매니페스트**를 선택합니다. 매니페스트 보기가 표시됩니다.
+1. **권한 추가** 를 클릭합니다. 권한 추가 보기가 닫힙니다.
+1. 메뉴에서 **매니페스트** 를 선택합니다. 매니페스트 보기가 표시됩니다.
 1. 다음 값 쌍을 찾아서 `replyUrlsWithType` 특성에 추가합니다.
 
    ```json
@@ -209,8 +209,8 @@ DRM/AES, 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조�
     > [!NOTE]
     > 이 시점에서 플레이어 앱에 대한 URL이 아직 없습니다.  localhost 웹 서버에서 앱을 실행하는 경우 localhost 값 쌍만 사용할 수 있습니다. 플레이어 앱이 배포되면 배포된 URL을 사용하여 항목을 여기에 추가할 수 있습니다.  이렇게 하는 것을 잊은 경우 Azure AD 로그인에서 오류 메시지가 표시됩니다.
 
-1. **저장**을 클릭합니다.
-1. 마지막으로, 구성이 올바른지 확인하기 위해 **인증**을 선택합니다.  인증 보기가 표시됩니다. 클라이언트 애플리케이션이 SPA(단일 페이지 앱)로 나열되고, 리디렉션 URI가 나열되며, 권한 부여 유형이 PKCE를 사용하는 권한 부여 코드 흐름입니다.
+1. **저장** 을 클릭합니다.
+1. 마지막으로, 구성이 올바른지 확인하기 위해 **인증** 을 선택합니다.  인증 보기가 표시됩니다. 클라이언트 애플리케이션이 SPA(단일 페이지 앱)로 나열되고, 리디렉션 URI가 나열되며, 권한 부여 유형이 PKCE를 사용하는 권한 부여 코드 흐름입니다.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Media Services 계정의 콘텐츠 키 정책 및 스트리밍 정책 설정
 
@@ -247,10 +247,10 @@ return objContentKeyPolicyRestriction;
 
 위의 코드에서 `ida_AADOpenIdDiscoveryDocument`, `ida_audience` 및 `ida_issuer` 값을 변경합니다. Azure Portal에서 이러한 항목에 대한 값을 찾으려면 다음을 수행합니다.
 
-1. 이전에 사용한 AAD 테넌트를 선택하고, 메뉴에서 **앱 등록**을 클릭한 다음, **엔드포인트** 링크를 클릭합니다.
+1. 이전에 사용한 AAD 테넌트를 선택하고, 메뉴에서 **앱 등록** 을 클릭한 다음, **엔드포인트** 링크를 클릭합니다.
 1. **OpenIdConnect 메타데이터 문서** 필드의 값을 선택하여 복사하고, 이를 `ida_AADOpenIdDiscoveryDocument` 값으로 코드에 붙여넣습니다.
 1. `ida_audience` 값은 등록된 *LicenseDeliveryResource2* 앱의 애플리케이션(클라이언트) ID입니다.
-1. `ida_issuer` 값은 `https://login.microsoftonline.com/[tenant_id]/v2.0` URL입니다. [*tenant_id*]를 테넌트 ID로 바꿉니다.
+1. `ida_issuer` 값은 `https://login.microsoftonline.com/[tenant_id]/v2.0` URL입니다. [ *tenant_id* ]를 테넌트 ID로 바꿉니다.
 
 ## <a name="set-up-the-sample-player-app"></a>플레이어 앱 샘플 설정
 
@@ -269,8 +269,8 @@ return objContentKeyPolicyRestriction;
 1. `OAUTH2_CONST.CLIENT_ID`를 AAD 테넌트에 등록된 클라이언트 앱의 `client_id`로 바꿉니다.  `client_id`는 Azure Portal에서 등록된 앱의 [개요] 섹션에서 찾을 수 있습니다. 참고: 이는 개체 ID가 아니라 클라이언트 ID입니다.
 1. `OAUTH2_CONST.TENANT_ID`를 Azure AD 테넌트의 `tenant_id`로 바꿉니다. `tenant_id`는 Azure Active Directory 메뉴를 클릭하여 찾을 수 있습니다. tenant_id가 [개요] 섹션에 표시됩니다.
 1. `OAUTH2_CONST.SCOPE`를 등록된 클라이언트 앱에 추가한 범위로 바꿉니다. 범위는 **앱 등록** 메뉴에서 등록된 클라이언트 앱으로 이동한 다음, 클라이언트 앱을 선택하여 찾을 수 있습니다.
-    1. 클라이언트 앱을 선택하고, **API 권한** 메뉴를 클릭한 다음, *LicenseDeliveryResource2* API 권한 아래에서 *DRM.License.Delivery* 범위를 선택합니다. 권한은 *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*와 같은 형식이어야 합니다. **중요**: `OAUTH2_CONST.SCOPE`에서 `offline_access` 앞에 공백을 유지합니다.
-1. 아래 그림과 같이 `AMS_CONST`에 대한 두 개의 상수 문자열을 바꿉니다. 하나는 테스트 자산의 보호된 스트리밍 URL이고, 다른 하나는 FPS 애플리케이션 인증서 URL(FairPlay 테스트 사례를 포함하려는 경우)입니다. 그렇지 않으면 `AMS_CONST.APP_CERT_URL`에 대해 그대로 둘 수 있습니다. 그런 다음 **저장**을 클릭합니다.
+    1. 클라이언트 앱을 선택하고, **API 권한** 메뉴를 클릭한 다음, *LicenseDeliveryResource2* API 권한 아래에서 *DRM.License.Delivery* 범위를 선택합니다. 권한은 *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery* 와 같은 형식이어야 합니다. **중요** : `OAUTH2_CONST.SCOPE`에서 `offline_access` 앞에 공백을 유지합니다.
+1. 아래 그림과 같이 `AMS_CONST`에 대한 두 개의 상수 문자열을 바꿉니다. 하나는 테스트 자산의 보호된 스트리밍 URL이고, 다른 하나는 FPS 애플리케이션 인증서 URL(FairPlay 테스트 사례를 포함하려는 경우)입니다. 그렇지 않으면 `AMS_CONST.APP_CERT_URL`에 대해 그대로 둘 수 있습니다. 그런 다음 **저장** 을 클릭합니다.
 
 ```javascript
 //defaults in ams.js
@@ -287,7 +287,7 @@ class AMS_CONST {
 
 로컬로 테스트하려면 다음을 수행합니다.
 
-1. VSC(Visual Studio Code)의 주 메뉴에서 **보기**, **터미널**을 차례로 선택합니다.
+1. VSC(Visual Studio Code)의 주 메뉴에서 **보기** , **터미널** 을 차례로 선택합니다.
 1. npm을 아직 설치하지 않은 경우 명령 프롬프트에서 `npm install`을 입력합니다.
 1. 명령 프롬프트에서 `npm start`를 입력합니다. (npm이 시작되지 않으면 명령 프롬프트에서 `cd npmweb`을 입력하여 디렉터리를 `npmweb`으로 변경합니다.)
 1. 브라우저를 사용하여 `http://localhost:3000`으로 이동합니다.
@@ -298,22 +298,22 @@ class AMS_CONST {
 
 다른 IDE/웹 플랫폼 및/또는 웹 서버(예: 개발 컴퓨터에서 실행되는 IIS)를 사용하려는 경우 다음 파일을 로컬 웹 서버의 새 디렉터리에 복사합니다. 다운로드한 코드에서 찾을 수 있는 경로는 다음과 같습니다.
 
-* *views/index.ejs*(접미사를 .html로 변경)
-* *views/jwt.ejs*(접미사를 .html로 변경)
-* *views/info.ejs*(접미사를 html로 변경)
+* *views/index.ejs* (접미사를 .html로 변경)
+* *views/jwt.ejs* (접미사를 .html로 변경)
+* *views/info.ejs* (접미사를 html로 변경)
 * *public/* *(아래와 같은 JavaScript 파일, CSS, 이미지)
 
 1. *view* 폴더에 있는 파일을 새 디렉터리의 루트에 복사합니다.
-1. *public* 폴더에 있는 *폴더*를 새 디렉터리의 루트에 복사합니다.
+1. *public* 폴더에 있는 *폴더* 를 새 디렉터리의 루트에 복사합니다.
 1. 파일의 확장명(`.ejs`)을 `.html`로 변경합니다. (서버 쪽 변수가 사용되지 않으므로 안전하게 변경할 수 있습니다.)
-1. VSC(또는 다른 코드 편집기)에서 *index.html*을 열고, 파일이 있는 위치를 반영하도록 `<script>` 및 `<link>` 경로를 변경합니다.  이전 단계를 수행한 경우 경로에서 `\`만 삭제하면 됩니다.  예를 들어 `<script type="text/javascript" src="/javascript/constants.js"></script>`는 `<script type="text/javascript" src="javascript/constants.js"></script>`가 됩니다.
+1. VSC(또는 다른 코드 편집기)에서 *index.html* 을 열고, 파일이 있는 위치를 반영하도록 `<script>` 및 `<link>` 경로를 변경합니다.  이전 단계를 수행한 경우 경로에서 `\`만 삭제하면 됩니다.  예를 들어 `<script type="text/javascript" src="/javascript/constants.js"></script>`는 `<script type="text/javascript" src="javascript/constants.js"></script>`가 됩니다.
 1. 옵션 1에서와 같이 *javascript/constants.js* 파일의 상수를 사용자 지정합니다.
 
 ## <a name="common-customer-scenarios"></a>일반적인 고객 시나리오
 
 이제 자습서를 완료하고 작동하는 하위 시스템이 있으므로 다음 고객 시나리오에 맞게 이 하위 시스템을 수정할 수 있습니다.
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Azure AD 그룹 멤버 자격을 통해 라이선스를 전송하는 RBAC(역할 기반 액세스 제어)
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Azure AD 그룹 멤버 자격을 통해 라이선스를 전달하는 Azure RBAC(Azure 역할 기반 액세스 제어)
 
 지금까지 이 시스템은 로그인할 수 있는 모든 사용자가 유효한 라이선스를 가져오고 보호된 콘텐츠를 재생할 수 있도록 합니다.
 
@@ -321,14 +321,14 @@ class AMS_CONST {
 
 #### <a name="set-up-the-azure-ad-tenant"></a>Azure AD 테넌트 설정
 
-1. 테넌트에서 두 개의 계정을 설정합니다. *premium_user* 및 *basic_user*라는 이름을 지정할 수 있습니다.
-1. 사용자 그룹을 만들고, 이를 *PremiumGroup*이라고 합니다.
-1. *premium_user*는 멤버로 *PremiumGroup*에 추가하지만 *basic_user*는 그룹에 추가하지 않습니다.
-1. *PremiumGroup*의 **개체 ID**를 적어 둡니다.
+1. 테넌트에서 두 개의 계정을 설정합니다. *premium_user* 및 *basic_user* 라는 이름을 지정할 수 있습니다.
+1. 사용자 그룹을 만들고, 이를 *PremiumGroup* 이라고 합니다.
+1. *premium_user* 는 멤버로 *PremiumGroup* 에 추가하지만 *basic_user* 는 그룹에 추가하지 않습니다.
+1. *PremiumGroup* 의 **개체 ID** 를 적어 둡니다.
 
 #### <a name="set-up-the-media-services-account"></a>Media Services 계정 설정
 
-*groups*라는 클레임을 추가하여 `ContentKeyPolicyRestriction`('미디어 서비스 계정에서 설정'의 위 섹션에 나와 있음)을 수정합니다. 여기서 `ida_EntitledGroupObjectId`의 값은 *PremiumGroup*의 개체 ID입니다.
+*groups* 라는 클레임을 추가하여 `ContentKeyPolicyRestriction`('미디어 서비스 계정에서 설정'의 위 섹션에 나와 있음)을 수정합니다. 여기서 `ida_EntitledGroupObjectId`의 값은 *PremiumGroup* 의 개체 ID입니다.
 
 ```dotnetcli
 

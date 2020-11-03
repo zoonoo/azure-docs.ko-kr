@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105127"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519693"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 함수 만들기
 
@@ -65,7 +65,7 @@ ms.locfileid: "92105127"
 - [.NET Core 3.1](https://www.microsoft.com/net/download) 및 [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2) 둘 다
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8.
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8 또는 11.
 
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 ::: zone-end
@@ -93,7 +93,7 @@ ms.locfileid: "92105127"
 
     ![새 프로젝트 만들기 선택](media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. 프로젝트 작업 영역에 대한 디렉터리 위치를 선택하고 **선택**을 선택합니다.
+1. 프로젝트 작업 영역에 대한 디렉터리 위치를 선택하고 **선택** 을 선택합니다.
 
     > [!NOTE]
     > 다음 단계는 작업 영역 외부에서 완료하도록 설계되었습니다. 이 경우 작업 영역에 포함된 프로젝트 폴더를 선택하지 마십시오.
@@ -101,50 +101,50 @@ ms.locfileid: "92105127"
 1. 프롬프트에서 다음 정보를 제공합니다.
 
     ::: zone pivot="programming-language-csharp"
-    - **함수 프로젝트에 대한 언어 선택**: `C#`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `C#`을 선택합니다.
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    - **함수 프로젝트에 대한 언어 선택**: `JavaScript`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `JavaScript`을 선택합니다.
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    - **함수 프로젝트에 대한 언어 선택**: `TypeScript`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `TypeScript`을 선택합니다.
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    - **함수 프로젝트에 대한 언어 선택**: `PowerShell`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `PowerShell`을 선택합니다.
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    - **함수 프로젝트에 대한 언어 선택**: `Python`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `Python`을 선택합니다.
 
-    - **가상 환경을 만들기 위한 Python 별칭 선택**: Python 인터프리터의 위치를 선택합니다. 위치가 표시되지 않으면 Python 이진에 대한 전체 경로를 입력합니다.
+    - **가상 환경을 만들기 위한 Python 별칭 선택** : Python 인터프리터의 위치를 선택합니다. 위치가 표시되지 않으면 Python 이진에 대한 전체 경로를 입력합니다.
     ::: zone-end
 
     ::: zone pivot="programming-language-java"
-    - **함수 프로젝트에 대한 언어 선택**: `Java`을 선택합니다.
+    - **함수 프로젝트에 대한 언어 선택** : `Java`을 선택합니다.
 
-    - **Java 버전 선택**: Azure에서 함수가 실행되는 `Java 8` 또는 `Java 11 (preview)`을 선택합니다. 로컬로 확인한 Java 버전을 선택합니다.
+    - **Java 버전 선택** : Azure에서 함수가 실행되는 `Java 8` 또는 `Java 11`을 선택합니다. 로컬로 확인한 Java 버전을 선택합니다.
 
-    - **그룹 ID 제공**: `com.function`을 선택합니다.
+    - **그룹 ID 제공** : `com.function`을 선택합니다.
 
-    - **아티팩트 ID 제공**: `myFunction`을 선택합니다.
+    - **아티팩트 ID 제공** : `myFunction`을 선택합니다.
 
-    - **버전 제공**: `1.0-SNAPSHOT`을 선택합니다.
+    - **버전 제공** : `1.0-SNAPSHOT`을 선택합니다.
 
-    - **패키지 이름 제공**: `com.function`을 선택합니다.
+    - **패키지 이름 제공** : `com.function`을 선택합니다.
 
-    - **앱 이름 제공**: `myFunction-12345`을 선택합니다.
+    - **앱 이름 제공** : `myFunction-12345`을 선택합니다.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **프로젝트의 첫 번째 함수에 대한 템플릿 선택**: `HTTP trigger`을 선택합니다.
+    - **프로젝트의 첫 번째 함수에 대한 템플릿 선택** : `HTTP trigger`을 선택합니다.
   
-    - **함수 이름 입력**: `HttpExample`.
+    - **함수 이름 입력** : `HttpExample`.
     ::: zone-end
     ::: zone pivot="programming-language-csharp"
-    - **네임스페이스 입력**: `My.Functions`.
+    - **네임스페이스 입력** : `My.Functions`.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **권한 부여 수준**: 누구나 함수 엔드포인트를 호출할 수 있도록 하는 `Anonymous`를 선택합니다. 권한 부여 수준에 대해 알아보려면 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
+    - **권한 부여 수준** : 누구나 함수 엔드포인트를 호출할 수 있도록 하는 `Anonymous`를 선택합니다. 권한 부여 수준에 대해 알아보려면 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
     ::: zone-end
-    - **프로젝트를 여는 방법 선택**: `Add to workspace`을 선택합니다.
+    - **프로젝트를 여는 방법 선택** : `Add to workspace`을 선택합니다.
 
 1. Visual Studio Code는 이 정보를 사용하여 HTTP 트리거를 통해 Azure Functions 프로젝트를 생성합니다. 탐색기에서 로컬 프로젝트 파일을 볼 수 있습니다. 생성된 파일에 대한 자세한 내용은 [생성된 프로젝트 파일](functions-develop-vs-code.md#generated-project-files)을 참조하세요. 
 
@@ -168,7 +168,7 @@ ms.locfileid: "92105127"
 
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
-1. **Azure: Functions** 영역으로 돌아가서 구독의 새 함수 앱을 확장합니다. **Functions**를 확장하고 **HttpExample**에서 (Windows) 또는 <kbd>Ctrl -</kbd> 클릭(macOS)을 마우스 오른쪽 단추로 클릭한 다음, **함수 URL 복사**를 선택합니다.
+1. **Azure: Functions** 영역으로 돌아가서 구독의 새 함수 앱을 확장합니다. **Functions** 를 확장하고 **HttpExample** 에서 (Windows) 또는 <kbd>Ctrl -</kbd> 클릭(macOS)을 마우스 오른쪽 단추로 클릭한 다음, **함수 URL 복사** 를 선택합니다.
 
     ![새 HTTP 트리거에 대한 함수 URL 복사](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 

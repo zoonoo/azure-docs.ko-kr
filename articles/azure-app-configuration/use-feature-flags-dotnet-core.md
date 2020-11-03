@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078904"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746130"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -107,7 +107,7 @@ ASP.NET Core 애플리케이션을 App Configuration에 연결하는 가장 쉬�
               .UseStartup<Startup>();
    ```
 
-2. *Startup.cs*를 열고 `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있는 미들웨어를 추가합니다.
+2. *Startup.cs* 를 열고 `Configure` 메서드를 업데이트하여 `UseAzureAppConfiguration`이라는 기본 제공 미들웨어를 추가합니다. 이 미들웨어를 사용하면 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있습니다.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -130,11 +130,11 @@ config.AddAzureAppConfiguration(options => {
 
 ## <a name="feature-flag-declaration"></a>기능 플래그 선언
 
-각 기능 플래그는 기능의 상태가 *on*(즉, 값이 `True`)인지 평가하는 데 사용되는 하나 이상의 필터 이름과 목록으로 구성됩니다. 필터는 기능을 켜야 하는 사용 사례를 정의합니다.
+각 기능 플래그는 기능의 상태가 *on* (즉, 값이 `True`)인지 평가하는 데 사용되는 하나 이상의 필터 이름과 목록으로 구성됩니다. 필터는 기능을 켜야 하는 사용 사례를 정의합니다.
 
-기능 플래그에 여러 필터가 있는 경우 그 중 한 필터가 기능을 사용하도록 설정해야 한다고 확인할 때까지 필터 목록이 순서대로 트래버스됩니다. 해당 시점에서 기능 플래그가 *on*으로 간주되므로 나머지 필터 결과를 건너뜁니다. 기능을 사용하도록 설정해야 한다는 필터가 없으면 기능 플래그가 *off*됩니다.
+기능 플래그에 여러 필터가 있는 경우 그 중 한 필터가 기능을 사용하도록 설정해야 한다고 확인할 때까지 필터 목록이 순서대로 트래버스됩니다. 해당 시점에서 기능 플래그가 *on* 으로 간주되므로 나머지 필터 결과를 건너뜁니다. 기능을 사용하도록 설정해야 한다는 필터가 없으면 기능 플래그가 *off* 됩니다.
 
-기능 관리자는 기능 플래그의 구성 원본으로 *appsettings.json*을 지원합니다. 다음 예제에서는 JSON 파일에서 기능 플래그를 설정하는 방법을 보여줍니다.
+기능 관리자는 기능 플래그의 구성 원본으로 *appsettings.json* 을 지원합니다. 다음 예제에서는 JSON 파일에서 기능 플래그를 설정하는 방법을 보여줍니다.
 
 ```JSON
 "FeatureManagement": {
@@ -155,9 +155,9 @@ config.AddAzureAppConfiguration(options => {
 
 규칙에 따라 이 JSON 문서의 `FeatureManagement` 섹션은 기능 플래그 설정에 사용됩니다. 앞의 예제에서는 `EnabledFor` 속성에 필터가 정의된 다음 세 가지 기능 플래그를 보여줍니다.
 
-* `FeatureA`는 *on*입니다.
-* `FeatureB`는 *off*입니다.
-* `FeatureC`는 `Parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `FeatureC` 플래그가 *on*이 될 50% 확률을 지정합니다.
+* `FeatureA`는 *on* 입니다.
+* `FeatureB`는 *off* 입니다.
+* `FeatureC`는 `Parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `FeatureC` 플래그가 *on* 이 될 50% 확률을 지정합니다.
 
 ## <a name="feature-flag-references"></a>기능 플래그 참조
 
@@ -174,7 +174,7 @@ public enum MyFeatureFlags
 
 ## <a name="feature-flag-checks"></a>기능 플래그 확인
 
-먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
+먼저 기능 플래그가 *on* 으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
 
 ```csharp
 IFeatureManager featureManager;
@@ -203,7 +203,7 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>컨트롤러 작업
 
-MVC 컨트롤러에서 `FeatureGate` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on*으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
+MVC 컨트롤러에서 `FeatureGate` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on* 으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
 
 ```csharp
 using Microsoft.FeatureManagement.Mvc;
@@ -215,7 +215,7 @@ public class HomeController : Controller
 }
 ```
 
-다음 `Index` 작업은 `FeatureA`가 *on*으로 설정되어야만 실행할 수 있습니다.
+다음 `Index` 작업은 `FeatureA`가 *on* 으로 설정되어야만 실행할 수 있습니다.
 
 ```csharp
 using Microsoft.FeatureManagement.Mvc;
@@ -227,11 +227,11 @@ public IActionResult Index()
 }
 ```
 
-제어하는 기능 플래그가 *off*로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 `IDisabledFeaturesHandler` 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
+제어하는 기능 플래그가 *off* 로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 `IDisabledFeaturesHandler` 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
 
 ## <a name="mvc-views"></a>MVC 보기
 
-*Views* 디렉터리에서 *_ViewImports.cshtml*을 열고, 다음과 같이 기능 관리자 태그 도우미를 추가합니다.
+*Views* 디렉터리에서 *_ViewImports.cshtml* 을 열고, 다음과 같이 기능 관리자 태그 도우미를 추가합니다.
 
 ```html
 @addTagHelper *, Microsoft.FeatureManagement.AspNetCore

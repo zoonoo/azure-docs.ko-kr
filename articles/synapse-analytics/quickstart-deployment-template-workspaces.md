@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Synapse 작업 영역 Azure Resource Manager 템플릿 만들기'
-description: Azure Resource Manager 템플릿을 사용하여 Synapse 작업 영역을 만드는 방법을 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Synapse 작업 영역을 만드는 방법을 알아봅니다.
 services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 6ae5c4f20cc42ee3865726973a81e2ba90aeaf33
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740365"
 ---
-# <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>빠른 시작: 배포 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
+# <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
 
 이 ARM 템플릿(Azure Resource Manager 템플릿)은 기본 Data Lake Storage가 있는 Azure Synapse 작업 영역을 만듭니다. Azure Synapse 작업 영역은 Azure Synapse Analytics의 분석 프로세스에 대한 보안 가능한 협업 경계입니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-다음과 같이 **시각화** 링크를 선택하여 템플릿을 검토할 수 있습니다.
+**시각화** 링크를 선택하여 템플릿을 검토할 수 있습니다. 그런 다음, **템플릿 편집** 을 선택합니다.
 
 [![시각화](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
@@ -43,25 +43,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 Synapse 작업 영역을 만듭니다.
-   
+
    [![Azure 2에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 1. 다음 값을 입력하거나 업데이트합니다.
 
-   * **구독**: Azure 구독을 선택합니다.
-   * **리소스 그룹**: **새로 만들기**를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인**을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
-   * **지역**: 지역을 선택합니다.  예: **미국 중부**
-   * **Name**: 작업 영역의 이름을 입력합니다.
-   * **SQL 관리자 로그인**: SQL Server의 관리자 사용자 이름을 입력합니다.
-   * **SQL 관리자 암호**: SQL Server의 관리자 암호를 입력합니다.
-   * **태그 값**: 기본값을 적용합니다. 
-   * **검토 및 만들기**: 선택합니다.
-   * **만들기**: 선택합니다.
+   - **구독** : Azure 구독을 선택합니다.
+   - **리소스 그룹** : **새로 만들기** 를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인** 을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
+   - **지역** : 지역을 선택합니다.  예: **미국 중부**
+   - **Name** : 작업 영역의 이름을 입력합니다.
+   - **SQL 관리자 로그인** : SQL Server의 관리자 사용자 이름을 입력합니다.
+   - **SQL 관리자 암호** : SQL Server의 관리자 암호를 입력합니다.
+   - **태그 값** : 기본값을 적용합니다.
+   - **검토 및 만들기** : 선택합니다.
+   - **만들기** : 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Synapse Analytics 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Synapse Analytics 개요](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 읽기 
+- [Azure Synapse Analytics 개요](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 읽기
 - [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
 - [첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -3,12 +3,12 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889938"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -169,7 +169,7 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
     d. **VM 세부 정보** 탭을 선택합니다. 클러스터를 구성하는 VM(Virtual Machines)에 사용할 암호를 지정합니다. 사용자 이름과 암호를 사용하여 VM에 원격으로 연결할 수 있습니다. 또한 VM 컴퓨터 크기를 선택해야 하며, 필요한 경우 VM 이미지를 변경할 수도 있습니다.
 
     > [!IMPORTANT]
-    > 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile** 을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다.
+    > 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 다른 버전의 Windows Server를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **dockerfile** 을 열고, 이전 버전의 Windows Server를 기반으로 하는 기존 `FROM` 문을 주석 처리하고, [Windows Server Core DockerHub 페이지](https://hub.docker.com/_/microsoft-windows-servercore)에서 원하는 버전의 태그를 기반으로 `FROM` 문을 추가합니다. Windows Server Core 릴리스, 지원 타임라인 및 버전 관리에 대한 추가 정보는 [Windows Server Core 릴리스 정보](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)를 참조하세요. 
 
     e. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 애플리케이션 포트를 나열합니다. 이 포트는 클러스터를 만들기 전에 적어 둔 포트입니다. 또한 애플리케이션 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
 

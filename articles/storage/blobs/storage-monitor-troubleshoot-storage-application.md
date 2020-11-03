@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652168"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676789"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 스토리지 애플리케이션 모니터링 및 문제 해결
 
@@ -37,13 +37,13 @@ ms.locfileid: "83652168"
 
 ## <a name="turn-on-logging-and-metrics"></a>로깅 및 메트릭 켜기
 
-왼쪽 메뉴에서 **리소스 그룹**을 선택하고 **myResourceGroup**을 선택한 후 리소스 목록에서 스토리지 계정을 선택합니다.
+왼쪽 메뉴에서 **리소스 그룹** 을 선택하고 **myResourceGroup** 을 선택한 후 리소스 목록에서 스토리지 계정을 선택합니다.
 
-**진단 설정(클래식)** 에서 **상태**를 **켜기**로 설정합니다. **Blob 속성** 아래의 모든 옵션이 활성화되었는지 확인합니다.
+**진단 설정(클래식)** 에서 **상태** 를 **켜기** 로 설정합니다. **Blob 속성** 아래의 모든 옵션이 활성화되었는지 확인합니다.
 
-완료되면 **저장**을 클릭합니다.
+완료되면 **저장** 을 클릭합니다.
 
-![진단 창](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![로깅 및 메트릭을 켜기 위한 구성 설정이 포함된 섹션을 강조 표시하는 스크린샷.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>경고 사용
 
@@ -53,7 +53,7 @@ ms.locfileid: "83652168"
 
 **모니터링** 섹션에서 **경고(클래식)** 를 선택합니다.
 
-**메트릭 경고(클래식) 추가**를 선택하고 필요한 정보를 입력하여 **규칙 추가** 양식을 완료합니다. **메트릭** 드롭다운에서 `SASClientOtherError`를 선택합니다. 경고에서 첫 번째 오류 시 트리거하도록 허용하려면 **조건** 드롭다운에서 **다음보다 크거나 같음**을 선택합니다.
+**메트릭 경고(클래식) 추가** 를 선택하고 필요한 정보를 입력하여 **규칙 추가** 양식을 완료합니다. **메트릭** 드롭다운에서 `SASClientOtherError`를 선택합니다. 경고에서 첫 번째 오류 시 트리거하도록 허용하려면 **조건** 드롭다운에서 **다음보다 크거나 같음** 을 선택합니다.
 
 ![진단 창](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -81,7 +81,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 ## <a name="download-and-view-logs"></a>로그 다운로드 및 보기
 
-스토리지 로그는 스토리지 계정에 **$logs**라는 blob 컨테이너에 있는 blob의 세트에 데이터를 저장합니다. 이 컨테이너는 계정의 모든 blob 컨테이너를 나열하는 경우에는 표시되지 않지만 직접 액세스할 때는 해당 콘텐츠를 볼 수 있습니다.
+스토리지 로그는 스토리지 계정에 **$logs** 라는 blob 컨테이너에 있는 blob의 세트에 데이터를 저장합니다. 이 컨테이너는 계정의 모든 blob 컨테이너를 나열하는 경우에는 표시되지 않지만 직접 액세스할 때는 해당 콘텐츠를 볼 수 있습니다.
 
 이 시나리오에서는 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)를 사용하여 Azure Storage 계정과 상호 작용합니다.
 
@@ -89,17 +89,17 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer)를 다운로드하고 애플리케이션을 설치합니다.
 
-이 애플리케이션을 시작하고 **파일** > **열기** > **기타 파일 원본**을 선택합니다.
+이 애플리케이션을 시작하고 **파일** > **열기** > **기타 파일 원본** 을 선택합니다.
 
-**파일 선택기** 대화 상자에서 **+Azure 연결 추가**를 선택합니다. **스토리지 계정 이름** 및 **계정 키**를 입력하고 **확인**을 클릭합니다.
+**파일 선택기** 대화 상자에서 **+Azure 연결 추가** 를 선택합니다. **스토리지 계정 이름** 및 **계정 키** 를 입력하고 **확인** 을 클릭합니다.
 
 ![Microsoft Message Analyzer - Azure Storage 연결 대화 상자 추가](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-연결되면 스토리지 트리 보기에서 컨테이너를 확장하여 로그 blob을 표시합니다. 최신 로그를 선택하고 **확인**을 클릭합니다.
+연결되면 스토리지 트리 보기에서 컨테이너를 확장하여 로그 blob을 표시합니다. 최신 로그를 선택하고 **확인** 을 클릭합니다.
 
-![Microsoft Message Analyzer - Azure Storage 연결 대화 상자 추가](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Microsoft Message Analyzer를 표시하고 선택된 로그 파일을 강조 표시하는 스크린샷.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-**새 세션** 대화 상자에서 **시작**을 클릭하여 로그를 표시합니다.
+**새 세션** 대화 상자에서 **시작** 을 클릭하여 로그를 표시합니다.
 
 로그가 열리면 스토리지 이벤트를 볼 수 있습니다. 다음 그림에서 볼 수 있는 것처럼 스토리지 계정에 트리거된 `SASClientOtherError`가 발생했습니다. 스토리지 로깅에 대한 자세한 내용은 [스토리지 분석](../common/storage-analytics.md)을 참조하세요.
 

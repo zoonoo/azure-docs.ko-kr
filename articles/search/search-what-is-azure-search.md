@@ -7,28 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 26a448ded06b32fef80fee06568655067a727620
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d045014cd92df084e4dd409012fdb668d312de1a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320417"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442323"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
 Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 API 및 도구를 개발자에게 제공하는 클라우드 검색 서비스입니다.
 
-Cognitive Search 서비스를 만들면 인덱싱 및 쿼리 실행을 수행하는 엔진, 사용자가 만들고 관리하는 인덱스의 영구 스토리지, 단순 쿼리부터 복잡한 쿼리를 작성하기 위한 쿼리 언어를 활용할 수 있습니다. 필요에 따라 검색 서비스는 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서*의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트*의 형태로도 통합됩니다.
+Cognitive Search 서비스를 만들면 인덱싱 및 쿼리 실행을 수행하는 엔진, 사용자가 만들고 관리하는 인덱스의 영구 스토리지, 단순 쿼리부터 복잡한 쿼리를 작성하기 위한 쿼리 언어를 활용할 수 있습니다. 필요에 따라 검색 서비스는 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서* 의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트* 의 형태로도 통합됩니다.
 
 ![Azure Cognitive Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search 아키텍처")
 
 구조적으로 검색 서비스는 인덱싱되지 않은 데이터를 포함하는 외부 데이터 저장소와 검색 인덱스에 쿼리 요청을 보내고 응답을 처리하는 클라이언트 앱 사이에 배치됩니다.  인덱스 스키마는 검색 가능한 콘텐츠의 구조를 결정합니다. 
 
-검색 서비스의 두 가지 주요 워크로드는 *인덱싱* 및 *쿼리*입니다.
+검색 서비스의 두 가지 주요 워크로드는 *인덱싱* 및 *쿼리* 입니다.
 
-+ 인덱싱을 통해 검색 서비스에 텍스트를 가져오고 검색을 수행할 수 있습니다. 내부적으로 인바운드 텍스트는 토큰으로 처리되고 빠른 검색을 위해 반전된 인덱스에 저장됩니다. 인덱싱 중에는 사용자가 만든 Microsoft 또는 사용자 지정 기술에서 미리 정의된 *인식 기술*을 추가할 수도 있습니다. 이후 분석과 변환은 이전에 존재하지 않았던 새로운 정보 및 구조를 초래하여 많은 검색 및 지식 마이닝 시나리오에 대한 높은 효용을 제공합니다.
++ 인덱싱을 통해 검색 서비스에 텍스트를 가져오고 검색을 수행할 수 있습니다. 내부적으로 인바운드 텍스트는 토큰으로 처리되고 빠른 검색을 위해 반전된 인덱스에 저장됩니다. 인덱싱 중에 Microsoft 또는 사용자가 만든 사용자 지정 기술에서 미리 정의된 *인식 기술* 을 추가할 수 있습니다. 이후 분석과 변환은 이전에 존재하지 않았던 새로운 정보 및 구조를 초래하여 많은 검색 및 지식 마이닝 시나리오에 대한 높은 효용을 제공합니다.
 
 + 인덱스가 검색 가능한 데이터로 채워지면 클라이언트 앱은 검색 서비스에 쿼리 요청을 보내고 응답을 처리합니다. 모든 쿼리 실행은 서비스에서 만들고 소유하고 저장하는 검색 인덱스를 통해 실행됩니다. 클라이언트 앱에서 검색 환경은 Azure Cognitive Search의 API를 사용하여 정의되며 관련성 튜닝, 자동 완성, 동의어 일치, 유사 일치, 패턴 일치, 필터 및 정렬을 포함할 수 있습니다.
 
@@ -38,7 +38,7 @@ Cognitive Search 서비스를 만들면 인덱싱 및 쿼리 실행을 수행하
 
 Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과 같습니다.
 
-+ 이기종 콘텐츠 형식을 프라이빗 사용자 정의 검색 인덱스로 통합합니다. 모든 원본에서 JSON 문서 스트림을 통해 검색 인덱스를 채울 수 있습니다. Azure에서 지원되는 원본은 *인덱서*를 사용하여 인덱싱을 자동화합니다. 인덱스 스키마 및 새로 고침 일정을 제어하는 것은 Cognitive Search를 사용하는 주된 이유입니다.
++ 이기종 콘텐츠 형식을 프라이빗 사용자 정의 검색 인덱스로 통합합니다. 모든 원본에서 JSON 문서 스트림을 통해 검색 인덱스를 채울 수 있습니다. Azure에서 지원되는 원본은 *인덱서* 를 사용하여 인덱싱을 자동화합니다. 인덱스 스키마 및 새로 고침 일정을 제어하는 것은 Cognitive Search를 사용하는 주된 이유입니다.
 
 + 검색 관련 기능을 쉽게 구현합니다. Search API는 쿼리 생성, 패싯 탐색, 필터(지리 공간 검색 포함), 동의어 매핑, 자동 완성 및 관련성 튜닝을 간소화합니다. 기본 제공 기능을 사용하면 상용 웹 검색 엔진과 비슷한 검색 환경에 대한 최종 사용자의 기대를 충족시킬 수 있습니다.
 
@@ -88,7 +88,8 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 
 | 비교 대상 | 주요 차이점 |
 |-------------|-----------------|
-|Bing | [Bing Web Search API](../cognitive-services/bing-web-search/index.yml)는 Bing.com의 인덱스에서 일치하는 용어를 검색합니다. 인덱스는 HTML, XML 및 공개 사이트의 다른 웹 콘텐츠로 빌드됩니다. 동일한 기반의 [Bing Custom Search](/azure/cognitive-services/bing-custom-search/)는 개별 웹 사이트에 적용되는 웹 콘텐츠 유형에 대해 동일한 크롤러 기술을 제공합니다.<br/><br/>Azure Cognitive Search는 종종 다양한 원본에서 사용자가 정의하고 사용자 소유의 데이터와 문서로 채워진 인덱스를 검색합니다. Azure Cognitive Search는 [인덱서](search-indexer-overview.md)를 통해 일부 데이터 원본에 대한 크롤러 기능을 갖추고 있지만, 인덱스 스키마를 준수하는 모든 JSON 문서를 통합형 단일 검색 가능한 리소스로 푸시할 수 있습니다. |
+| Microsoft Search | [Microsoft Search](https://docs.microsoft.com/microsoftsearch/overview-microsoft-search)는 SharePoint의 콘텐츠를 쿼리해야 하는 Microsoft 365 인증 사용자를 위한 것입니다. Microsoft 및 기타 원본의 커넥터를 통해 외부 콘텐츠를 허용하는 기능을 사용하여 관리자가 사용하도록 설정하고, 구성하는 즉시 사용 가능한 검색 환경으로 제공됩니다. 사용자의 시나리오를 설명하는 경우 Microsoft Search를 사용한 Microsoft 365는 탐색하기에 유용한 옵션입니다.<br/><br/>이와는 대조적으로 Azure Cognitive Search는 종종 다양한 원본에서 사용자가 정의하고 소유한 데이터와 문서로 채워진 인덱스에 대해 쿼리를 실행합니다. Azure Cognitive Search는 [인덱서](search-indexer-overview.md)를 통해 일부 Azure 데이터 원본에 대한 크롤러 기능을 갖추고 있지만, 인덱스 스키마를 준수하는 모든 JSON 문서를 통합형 단일 검색 가능한 리소스로 푸시할 수 있습니다. 기계 학습 및 어휘 분석기를 포함하도록 인덱싱 파이프라인을 사용자 지정할 수도 있습니다. Cognitive Search는 대규모 솔루션의 플러그 인 구성 요소가 되도록 빌드되었으므로 모든 플랫폼에서 거의 모든 앱에 검색을 통합할 수 있습니다.|
+|Bing | [Bing Web Search API](../cognitive-services/bing-web-search/index.yml)는 Bing.com의 인덱스에서 일치하는 용어를 검색합니다. 인덱스는 HTML, XML 및 공개 사이트의 다른 웹 콘텐츠로 빌드됩니다. 동일한 기반의 [Bing Custom Search](/azure/cognitive-services/bing-custom-search/)는 개별 웹 사이트에 적용되는 웹 콘텐츠 유형에 대해 동일한 크롤러 기술을 제공합니다.<br/><br/>Cognitive Search에서 인덱스를 정의하고 채울 수 있습니다. [인덱서](search-indexer-overview.md)를 사용하여 Azure 데이터 원본에서 데이터를 탐색하거나 인덱스에 맞는 JSON 문서를 검색 서비스로 푸시할 수 있습니다. |
 |데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 스토리지가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 스토리지에는 DBMS를 사용하고, 특수화된 검색 기능에는 Azure Cognitive Search를 사용합니다.<br/><br/>DBMS 검색과 비교하여, Azure Cognitive Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 분류 정리, 어형)와 같은 특수화된 텍스트 처리 기능을 [56개 언어](/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](/rest/api/searchservice/synonym-map-operations), [제안](/rest/api/searchservice/suggestions), [채점 컨트롤](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](./search-filters-facets.md) 및  [사용자 지정 토큰화](/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Cognitive Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Cognitive Search는 데이터를 반전된 인덱스의 형태로 유지하지만 진정한 데이터 스토리지를 대체하지는 않으며 그러한 용량에서 사용하는 것은 권장되지 않습니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
 |전용 검색 솔루션 | 광범위한 기능을 제공하는 전용 검색을 결정한 경우 온-프레미스 솔루션 또는 클라우드 서비스의 최종 범주 비교를 해야 합니다. 대다수의 검색 기술은 인덱싱 및 쿼리 파이프라인 제어, 풍부한 쿼리 및 필터링 구문에 대한 액세스, 순위 및 관련성 제어, 자체 주도형 및 지능형 검색 기능을 제공합니다. <br/><br/>클라우드 서비스는 최소한의 오버헤드 및 유지 관리, 규모 조정이 가능한 턴키 솔루션을 원하는 경우에 적합합니다. <br/><br/>클라우드 패러다임 내에서는 일부 공급자가 전체 텍스트 검색, 지리적 검색 및 특정 수준의 검색 입력 모호성을 처리하는 기능을 비롯하여 비슷한 기준 기능을 제공합니다. 일반적으로 이러한 기능은 [특수 기능](search-features-list.md) 또는 자동 맞춤을 결정하는 API, 도구 및 관리의 전반적인 편리성 및 간편성을 나타냅니다. |
 

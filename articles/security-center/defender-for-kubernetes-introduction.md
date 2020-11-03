@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370511"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791922"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -114,5 +114,5 @@ Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전
 관련 자료는 다음 문서를 참조하세요. 
 
 - [Azure Defender 사용](security-center-pricing.md)
-- [Azure Sentinel 또는 타사 SIEM으로 경고 내보내기](continuous-export.md)
+- [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)
 - [경고 참조 테이블](alerts-reference.md)

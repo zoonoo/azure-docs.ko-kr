@@ -3,14 +3,14 @@ title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions �
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758985"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747100"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-`-DjavaVersion` 매개 변수는 함수 런타임에 사용할 Java 버전을 알려줍니다. 미리 보기로 제공되는 Java 11에서 함수를 실행하려면 `-DjavaVersion=11`을 사용합니다. `-DjavaVersion`을 지정하지 않으면 Maven은 기본적으로 Java 8로 설정됩니다. 자세한 내용은 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요.
+`-DjavaVersion` 매개 변수는 함수 런타임에 사용할 Java 버전을 알려줍니다. Java 11에서 함수를 실행하려면 `-DjavaVersion=11`을 사용합니다. `-DjavaVersion`을 지정하지 않으면 Maven은 기본적으로 Java 8로 설정됩니다. 자세한 내용은 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서를 완료하려면 `JAVA_HOME` 환경 변수를 올바른 버전의 JDK 설치 위치로 설정해야 합니다.
 
 Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청합니다.   
 메시지가 표시되면 다음 값을 제공합니다.
@@ -109,7 +112,7 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
-Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
+Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
 ::: zone-end
 `--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
 
@@ -125,7 +128,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
+다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json* 이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -156,11 +159,11 @@ mvn azure-functions:run
 ::: zone-end
 출력에 `HttpExample` 엔드포인트가 표시되면 `http://localhost:7071/api/HttpExample?name=Functions`로 이동합니다. 브라우저에서 `name` 쿼리 매개 변수에 제공된 값인 `Functions`를 다시 에코하는 "hello" 메시지를 표시해야 합니다.
 
-**Ctrl**-**C**를 사용하여 호스트를 중지합니다.
+**Ctrl**-**C** 를 사용하여 호스트를 중지합니다.
 
 ## <a name="build-the-container-image-and-test-locally"></a>컨테이너 이미지 빌드 및 로컬로 테스트
 
-(선택 사항) 프로젝트 폴더의 루트에서 *Dockerfile*을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다.  Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+(선택 사항) 프로젝트 폴더의 루트에서 *Dockerfile* 을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다.  Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
     
 루트 프로젝트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 이름(`azurefunctionsimage`) 및 태그(`v1.0.0`)를 입력합니다. `<DOCKER_ID>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
 
@@ -177,7 +180,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬 컨테이너에 대해 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, *function.json*에서 `"authLevel": "function"`을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
+로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json* 에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬 컨테이너에 대해 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, *function.json* 에서 `"authLevel": "function"`을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
 
 ![컨테이너가 로컬로 실행되고 있음을 나타내는 자리 표시자 이미지](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -186,7 +189,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 로컬 컨테이너에서 이미지가 실행되면 `http://localhost:8080/api/HttpExample?name=Functions`로 이동합니다. 이 경우 이전과 동일한 "hello" 메시지가 표시되어야 합니다. Maven 원형는 익명 권한 부여를 사용하는 HTTP 트리거 함수를 생성하므로 컨테이너에서 실행되고 있어도 함수를 호출할 수 있습니다. 
 ::: zone-end  
 
-컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C**를 사용하여 docker를 중지합니다.
+컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C** 를 사용하여 docker를 중지합니다.
 
 ## <a name="push-the-image-to-docker-hub"></a>Docker Hub에 이미지 푸시
 
@@ -299,16 +302,16 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
     # <a name="portal"></a>[포털](#tab/portal)
 
-    1. Azure Portal에 로그인한 다음, **함수 앱**을 검색하고 선택합니다.
+    1. Azure Portal에 로그인한 다음, **함수 앱** 을 검색하고 선택합니다.
 
     1. 확인하려는 함수를 선택합니다.
 
-    1. 왼쪽 탐색 패널에서 **함수**를 선택한 다음, 확인하려는 함수를 선택합니다.
+    1. 왼쪽 탐색 패널에서 **함수** 를 선택한 다음, 확인하려는 함수를 선택합니다.
 
         ![Azure Portal에서 함수 선택](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
-    1. **함수 URL 가져오기**를 선택합니다.
+    1. **함수 URL 가져오기** 를 선택합니다.
 
         ![Azure Portal에서 함수 URL 가져오기](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
@@ -372,7 +375,7 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
 1. 배포 웹후크 URL을 클립보드에 복사합니다.
 
-1. [Docker Hub](https://hub.docker.com/)를 열고, 로그인하여, 탐색 모음에서  **리포지토리**를 선택합니다. 이미지를 찾아 선택하고, **웹후크** 탭을 선택하고, **웹후크 이름**을 지정하고, URL을 **웹후크 URL**에 붙여넣은 다음, **만들기**를 선택합니다.
+1. [Docker Hub](https://hub.docker.com/)를 열고, 로그인하여, 탐색 모음에서  **리포지토리** 를 선택합니다. 이미지를 찾아 선택하고, **웹후크** 탭을 선택하고, **웹후크 이름** 을 지정하고, URL을 **웹후크 URL** 에 붙여넣은 다음, **만들기** 를 선택합니다.
 
     ![DockerHub 리포지토리에서 웹후크 추가](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -430,7 +433,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 1. 브라우저에서 `https://<app_name>.scm.azurewebsites.net/`을 엽니다. 여기서 `<app_name>`을 고유한 이름으로 바꿉니다. 이 URL은 함수 앱 컨테이너의 고급 도구(Kudu) 엔드포인트입니다.
 
-1. Azure 계정에 로그인한 다음, **SSH**를 선택하여 컨테이너와의 연결을 설정합니다. Azure에서 아직도 컨테이너 이미지를 업데이트하고 있는 경우 연결하는 데 몇 분 정도 걸릴 수 있습니다.
+1. Azure 계정에 로그인한 다음, **SSH** 를 선택하여 컨테이너와의 연결을 설정합니다. Azure에서 아직도 컨테이너 이미지를 업데이트하고 있는 경우 연결하는 데 몇 분 정도 걸릴 수 있습니다.
 
 1. 컨테이너와의 연결이 설정되면 `top` 명령을 실행하여 현재 실행 중인 프로세스를 확인합니다. 
 
@@ -438,7 +441,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 ## <a name="write-to-an-azure-storage-queue"></a>Azure Storage 큐에 쓰기
 
-Azure Functions를 사용하면 고유한 통합 코드를 작성하지 않고도 다른 Azure 서비스 및 리소스에 함수를 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩*은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. *트리거*는 특수한 형식의 입력 바인딩입니다. 함수에는 하나의 트리거만 있지만, 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+Azure Functions를 사용하면 고유한 통합 코드를 작성하지 않고도 다른 Azure 서비스 및 리소스에 함수를 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩* 은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. *트리거* 는 특수한 형식의 입력 바인딩입니다. 함수에는 하나의 트리거만 있지만, 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 이 섹션에서는 함수를 Azure Storage 큐와 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
 

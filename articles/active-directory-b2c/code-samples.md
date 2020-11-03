@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214943"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503847"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -60,10 +60,23 @@ ms.locfileid: "92214943"
 
 다음 표에서는 [API 커넥터](api-connectors-overview.md)를 사용하여 사용자 흐름에서 웹 API를 활용하기 위한 코드 샘플에 대한 링크를 제공합니다.
 
-## <a name="api-connector-azure-function-quickstarts"></a>API 커넥터 Azure 함수 빠른 시작
+### <a name="azure-function-quickstarts"></a>Azure 함수 빠른 시작
 
 | 샘플                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | 이 .NET Core Azure 함수 샘플은 특정 이메일 도메인으로 등록을 제한하고 사용자가 제공한 정보의 유효성을 검사하는 방법을 보여줍니다. |
 | [Node.JS](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | 이 Node.js Azure 함수 샘플은 특정 이메일 도메인으로 등록을 제한하고 사용자가 제공한 정보의 유효성을 검사하는 방법을 보여줍니다.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | 이 Python Azure 함수 샘플은 특정 이메일 도메인으로 등록을 제한하고 사용자가 제공한 정보의 유효성을 검사하는 방법을 보여줍니다.    |
+
+### <a name="identity-verification-with-api-connectors"></a>API 커넥터를 사용하여 ID 확인
+
+| 샘플                                                                                                            | Description                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | 이 샘플에서는 API 커넥터를 사용하여 IDology와 통합함으로써 셀프 서비스 등록의 일부로 사용자 ID를 확인하는 방법을 보여줍니다. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | 이 샘플에서는 API 커넥터를 사용하여 Experian과 통합함으로써 셀프 서비스 등록의 일부로 사용자 ID를 확인하는 방법을 보여줍니다. |
+
+### <a name="community-samples"></a>커뮤니티 샘플
+
+| 샘플                                                                                                            | Description                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [API 커넥터 커뮤니티 샘플](https://github.com/azure-ad-b2c/api-connector-samples) | 이 리포지토리에는 API 커넥터에 의해 활성화된 시나리오의 커뮤니티에서 유지 관리되는 샘플이 있습니다.|

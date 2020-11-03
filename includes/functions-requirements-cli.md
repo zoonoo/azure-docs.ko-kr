@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: e969520e226999bc2b104fb4f757619832eaa165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddceb2808874e531cfda81e5a9ce74be3a4fab4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944387"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517085"
 ---
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
@@ -42,11 +42,7 @@ ms.locfileid: "88944387"
 + [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8. 
-
-    > [!IMPORTANT]
-    > + Java 11에 대한 함수 지원은 현재 미리 보기 상태이며, Maven 원형은 기본적으로 Java 8 배포를 만듭니다. 대신 Java 11에서 함수 앱을 실행하려는 경우 Java 11 값을 사용하여 pom.xml 파일을 수동으로 업데이트해야 합니다. 자세히 알아보려면 [Java 버전](../articles/azure-functions/functions-reference-java.md#java-versions)을 참조하세요. 
-    > + 이 빠른 시작을 완료하려면 `JAVA_HOME` 환경 변수를 올바른 버전의 JDK 설치 위치로 설정해야 합니다.
++ [Java Developer Kit](https://aka.ms/azure-jdks) 버전 8 또는 11. 
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 

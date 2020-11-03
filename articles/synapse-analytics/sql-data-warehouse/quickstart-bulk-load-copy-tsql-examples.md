@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569472"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503269"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
@@ -76,7 +76,7 @@ WITH (
 3. Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions)를 참조하세요.
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 Azure Active Directory에 **SQL Server를 등록**합니다.
+1. PowerShell에서 Azure Active Directory에 **SQL Server를 등록** 합니다.
 
    ```powershell
    Connect-AzAccount
@@ -84,12 +84,12 @@ WITH (
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
 
-2. 이 [가이드](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+2. 이 [가이드](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **범용 v2 스토리지 계정** 을 만듭니다.
 
    > [!NOTE]
-   > 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **v2로 업그레이드**해야 합니다.
+   > 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **v2로 업그레이드** 해야 합니다.
 
-3. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 읽기 권한자** Azure 역할을 SQL Server에 할당합니다.
+3. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 읽기 권한자** Azure 역할을 SQL Server에 할당합니다.
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
@@ -97,7 +97,7 @@ WITH (
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다. 
 
-    ![로드할 수 있는 RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. 이제 "관리 ID"를 사용하여 COPY 문을 실행할 수 있습니다.
 
@@ -113,12 +113,12 @@ WITH (
 ## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory 인증
 #### <a name="steps"></a>단계
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 리더** Azure 역할을 Azure AD 사용자에게 할당합니다. 
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 리더** Azure 역할을 Azure AD 사용자에게 할당합니다. 
 
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다.
 
-    ![로드할 수 있는 RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. 다음 [문서](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server)에 따라 Azure AD 인증을 구성합니다. 
 

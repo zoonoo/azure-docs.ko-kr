@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85200956"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480398"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW)란?
 
-> [!NOTE] 
+> [!NOTE]
 >[Azure Synapse(작업 영역 미리 보기) 설명서](../overview-what-is.md)를 살펴보세요.
 >
 
@@ -40,7 +40,7 @@ Synapse SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는 엔�
 
 SQL 풀은 Synapse SQL을 사용할 때 프로비저닝되는 분석 리소스의 컬렉션을 나타냅니다. SQL 풀의 크기는 DWU(Data Warehousing Unit)로 결정됩니다.
 
-간단한 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 쿼리를 사용하여 빅 데이터를 가져온 다음, MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 Synapse SQL 풀은 비즈니스가 더 빠르고 강력한 정보를 위해 신뢰할 수 있는 단일 버전의 정보입니다.  
+간단한 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 쿼리를 사용하여 빅 데이터를 가져온 다음, 분산 쿼리 엔진의 기능을 사용하여 고성능 분석을 실행합니다. 데이터를 통합하고 분석할 때 Synapse SQL은 비즈니스가 더 빠르고 강력한 정보를 위해 신뢰할 수 있는 단일 버전의 정보입니다. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>빅 데이터 솔루션의 핵심 구성 요소
 

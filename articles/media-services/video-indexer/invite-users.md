@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79499752"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364146"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>빠른 시작: Video Indexer에 사용자 초대
 
@@ -27,10 +27,9 @@ ms.locfileid: "79499752"
 ## <a name="invite-new-users"></a>새 사용자 초대
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다. 관리자 계정으로 연결되어 있는지 확인합니다.
-1. 상단 메뉴에서 **다른 사용자 초대** 단추를 클릭합니다.
+1. 관리자인 경우 오른쪽 위 모서리에 **계정 공유** 단추가 표시됩니다. 단추를 클릭하면 사용자를 초대할 수 있습니다. 
 
-   ![새 사용자 초대](./media/invite-users/invite-users.png)
-
+   ![새 사용자 초대](./media/invite-users/share-account.png)
 1. Video Indexer 계정에 추가할 사용자의 이메일 주소를 추가합니다.
 
     ![이 계정에 사용자 초대](./media/invite-users/invite-to-account.png)

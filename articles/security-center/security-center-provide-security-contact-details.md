@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945620"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791871"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -26,14 +26,14 @@ ms.locfileid: "91945620"
 
 알림 이메일에 대한 고유한 기본 설정을 정의하기 위해 Azure Security Center의 **이메일 알림** 설정 페이지에서 다음을 선택할 수 있습니다.
 
-- **알려야 하는 *사람*** - 특정 개인 또는 구독에 대해 지정된 Azure 역할이 있는 사람에게 이메일을 보낼 수 있습니다. 
-- **알려야 하는 *내용*** - Security Center에서 보내야 하는 알림의 심각도 수준을 수정합니다.
+- **알려야 하는 _사람_** - 특정 개인 또는 구독에 대해 지정된 Azure 역할이 있는 사람에게 이메일을 보낼 수 있습니다. 
+- **알려야 하는 _내용_** - Security Center에서 보내야 하는 알림의 심각도 수준을 수정합니다.
 
 경고 피로를 방지하기 위해 Security Center는 보내는 메일의 볼륨을 제한합니다. 각 구독에 대해 Security Center는 다음을 보냅니다.
 
-- **높은 심각도** 경고에 대해 하루 최대 **4개**의 이메일
-- **중간 심각도** 경고에 대해 하루 최대 **2개**의 이메일
-- **낮은 심각도** 경고에 대해 하루 최대 **1개**의 이메일
+- **높은 심각도** 경고에 대해 하루 최대 **4개** 의 이메일
+- **중간 심각도** 경고에 대해 하루 최대 **2개** 의 이메일
+- **낮은 심각도** 경고에 대해 하루 최대 **1개** 의 이메일
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="보안 경고에 대한 이메일을 받을 연락처의 세부 정보 구성" :::
  
@@ -52,19 +52,20 @@ ms.locfileid: "91945620"
 
 개인 또는 특정 Azure 역할을 가진 모든 사용자에게 이메일 알림을 보낼 수 있습니다.
 
-1. Security Center의 **가격 책정 및 설정** 영역에서 관련 구독을 선택하고 **이메일 알림**을 선택합니다.
+1. Security Center의 **가격 책정 및 설정** 영역에서 관련 구독을 선택하고 **이메일 알림** 을 선택합니다.
 
 1. 다음 옵션 중 하나 또는 둘 모두를 사용하여 알림 수신자를 정의합니다.
 
     - 드롭다운 목록에서 사용 가능한 역할 중 하나를 선택합니다.
     - 특정 이메일 주소를 쉼표로 구분하여 입력합니다. 입력할 수 있는 이메일 주소 수에는 제한이 없습니다.
 
-1. 보안 연락처 정보를 구독에 적용하려면 **저장**을 선택합니다.
+1. 보안 연락처 정보를 구독에 적용하려면 **저장** 을 선택합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
+
 보안 알림에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 - [보안 경고 - 참조 가이드](alerts-reference.md)--Azure Security Center의 위협 방지 모듈에서 볼 수 있는 보안 경고에 대해 알아보기
 - [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법 알아보기
-- [워크플로 자동화](workflow-automation.md)--사용자 지정 알림 논리를 사용하여 경고에 대한 응답 자동화
+- [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)--자동화를 사용하여 사용자 지정 알림 논리로 Security Center 트리거에 응답합니다.

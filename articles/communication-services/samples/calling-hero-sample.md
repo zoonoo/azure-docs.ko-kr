@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126329"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461144"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>그룹 통화 주인공 샘플 시작
 
@@ -25,38 +25,34 @@ ms.locfileid: "92126329"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
-Azure Communication Services **그룹 통화 주인공 샘플**은 Communication Services 통화 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
+> [!IMPORTANT]
+> [이 샘플은 GitHub에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
+Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 머신에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
-> [!IMPORTANT]
-> [GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-calling-hero)
-
 ## <a name="overview"></a>개요
 
-이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션**은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션**으로 요청을 보냅니다. 
+이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션** 은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션** 으로 요청을 보냅니다. 
 
 샘플은 다음과 같습니다.
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷":::
 
-&quot;통화 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰을 가져오면 사용할 카메라와 마이크를 지정하라는 메시지가 표시됩니다. 토글 컨트롤을 사용하여 디바이스를 사용하지 않거나 사용하도록 설정할 수 있습니다.
+"통화 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰을 가져오면 사용할 카메라와 마이크를 지정하라는 메시지가 표시됩니다. 토글 컨트롤을 사용하여 디바이스를 사용하지 않거나 사용하도록 설정할 수 있습니다.
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
-
-&quot;통화 시작":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="샘플 애플리케이션의 통화 전 화면을 보여 주는 스크린샷":::
 
 표시 이름 및 디바이스 구성이 끝나면 통화 세션에 참가할 수 있습니다. 이제 핵심 통화 환경이 있는 기본 통화 캔버스가 표시됩니다.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷&quot;:::
-
-&quot;통화 시작":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="샘플 애플리케이션의 기본 화면을 보여 주는 스크린샷":::
 
 기본 통화 화면의 구성 요소:
 
-1. **미디어 갤러리**: 참가자가 표시되는 기본 스테이지입니다. 참가자가 카메라를 사용하도록 설정한 경우 비디오 피드가 여기에 표시됩니다. 각 참가자별로 표시 이름 및 비디오 스트림을 보여 주는 개별 타일이 있습니다(있는 경우).
-2. **헤더**: 여기에는 설정 및 참가자 사이드바를 토글하고, 비디오 및 믹스를 설정/해제하고, 화면을 공유하고, 통화를 종료하는 기본 통화 컨트롤이 있습니다.
-3. **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 오른쪽 위 모서리에서 'X'를 사용하여 구성 요소를 해제할 수 있습니다. 참가자 사이드바에는 참가자 목록과 추가 사용자를 채팅에 초대하는 링크가 표시됩니다. 설정 사이드바에서는 마이크 및 카메라 설정을 구성할 수 있습니다.
+1. **미디어 갤러리** : 참가자가 표시되는 기본 스테이지입니다. 참가자가 카메라를 사용하도록 설정한 경우 비디오 피드가 여기에 표시됩니다. 각 참가자별로 표시 이름 및 비디오 스트림을 보여 주는 개별 타일이 있습니다(있는 경우).
+2. **헤더** : 여기에는 설정 및 참가자 사이드바를 토글하고, 비디오 및 믹스를 설정/해제하고, 화면을 공유하고, 통화를 종료하는 기본 통화 컨트롤이 있습니다.
+3. **사이드바** : 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 오른쪽 위 모서리에서 'X'를 사용하여 구성 요소를 해제할 수 있습니다. 참가자 사이드바에는 참가자 목록과 추가 사용자를 채팅에 초대하는 링크가 표시됩니다. 설정 사이드바에서는 마이크 및 카메라 설정을 구성할 수 있습니다.
 
 아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 
@@ -112,7 +108,6 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
-- [통화 클라이언트 라이브러리 기능](../quickstarts/voice-video-calling/calling-client-samples.md)에 대해 알아보기
 - [통화 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 
 ## <a name="additional-reading"></a>추가 자료

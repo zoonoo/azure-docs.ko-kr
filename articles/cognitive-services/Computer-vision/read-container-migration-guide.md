@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676155"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -29,21 +29,11 @@ ms.locfileid: "91973125"
 
 ## <a name="api-changes"></a>API 변경 내용
 
-Read v3.x 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 엔드포인트를 사용합니다.
-
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+Read v3.1 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 엔드포인트를 사용합니다.
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 클라우드 기반 읽기 API 버전 3을 사용하도록 애플리케이션을 업데이트하는 방법에 대한 자세한 내용은 [Computer Vision v3 REST API 마이그레이션 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions)를 참조하세요. 이 정보는 컨테이너에도 적용됩니다. 동기화 작업은 컨테이너에서만 지원됩니다.
 
@@ -53,8 +43,7 @@ Read v3.x 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 �
 
 |컨테이너  |최소 | 권장  |
 |---------|---------|------|
-|Read 3.0 미리 보기     | 8 코어, 16-GB 메모리         | 8 코어, 24-GB 메모리
-|Read 3.1 미리 보기 | 8 코어, 16-GB 메모리         | 8 코어, 24-GB 메모리
+|Read 3.1 미리 보기 | 8 코어, 16-GB 메모리         | 8 코어, 24-GB 메모리 |
 
 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 

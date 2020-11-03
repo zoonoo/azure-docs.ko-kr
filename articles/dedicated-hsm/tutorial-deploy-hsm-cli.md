@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 63cdb27663cb1a2d8de1a97a2f352b05ff57a3f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489887"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460702"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>자습서: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
 Azure Dedicated HSM은 단일 고객이 사용할 수 있는 완전한 관리 컨트롤과 전체적인 관리 기능을 지원하는 물리적 디바이스를 제공합니다. 물리적 디바이스를 사용하려면 용량을 효과적으로 관리할 수 있도록 Microsoft에서 디바이스 할당을 제어해야 합니다. 따라서 Azure 구독 내에서 Dedicated HSM 서비스는 일반적으로 리소스 프로비전에 표시되지 않습니다. Dedicated HSM 서비스에 액세스해야 하는 Azure 고객은 먼저 Microsoft 계정 담당자에게 연락하여 Dedicated HSM 서비스에 대한 등록을 요청해야 합니다. 이 프로세스가 성공적으로 완료되어야만 프로비전이 가능해집니다. 
 
@@ -38,7 +38,7 @@ Azure Dedicated HSM은 단일 고객이 사용할 수 있는 완전한 관리 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서비스와의 모든 상호 작용은 명령줄이나 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell의 명령줄(CLI) 인터페이스를 사용합니다. Azure CLI를 처음 사용하는 경우 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)에 있는 시작 지침을 따릅니다.
+Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서비스와의 모든 상호 작용은 명령줄이나 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell의 명령줄(CLI) 인터페이스를 사용합니다. Azure CLI를 처음 사용하는 경우 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true)에 있는 시작 지침을 따릅니다.
 
 가정:
 
@@ -51,7 +51,7 @@ Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Dedicated HSM 프로비전
 
-HSM을 프로비전하고 ExpressRoute 게이트웨이를 통해 기존 가상 네트워크에 통합하면 ssh를 사용한 유효성 검사가 수행됩니다. 이 유효성 검사는 추가 구성 작업을 위해 HSM 디바이스의 연결 가능성과 기본 가용성을 보장하는 데 도움이 됩니다. 다음 명령은 Azure Resource Manager 템플릿을 사용하여 HSM 리소스 및 관련 네트워킹 리소스를 만듭니다.
+HSM을 프로비전하고 ExpressRoute 게이트웨이를 통해 기존 가상 네트워크에 통합하면 ssh를 사용한 유효성 검사가 수행됩니다. 이 유효성 검사는 추가 구성 작업을 위해 HSM 디바이스의 연결 가능성과 기본 가용성을 보장하는 데 도움이 됩니다.
 
 ### <a name="validating-feature-registration"></a>기능 등록 유효성 검사
 
@@ -69,69 +69,14 @@ az feature show \
 
 ### <a name="creating-hsm-resources"></a>HSM 리소스 만들기
 
-HSM은 고객의 가상 네트워크에 프로비저닝되므로 가상 네트워크 및 서브넷이 필요합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Gemalto 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
-
-파일을 확보하면 매개 변수 파일을 편집하여 리소스의 기본 이름을 삽입해야 합니다. "value": ""를 사용하여 줄을 편집합니다.
-
-- `namingInfix` HSM 리소스 이름의 접두사
-- `ExistingVirtualNetworkName` HSM에 사용하는 가상 네트워크의 이름
-- `DedicatedHsmResourceName1` 데이터 센터 스탬프 1에서 HSM 리소스의 이름
-- `DedicatedHsmResourceName2` 데이터 센터 스탬프 2에서 HSM 리소스의 이름
-- `hsmSubnetRange` HSM의 서브넷 IP 주소 범위
-- `ERSubnetRange` VNET 게이트웨이의 서브넷 IP 주소 범위
-
-이러한 변경 사항의 예는 다음과 같습니다.
-
-```json
-{
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "namingInfix": {
-      "value": "MyHSM"
-    },
-    "ExistingVirtualNetworkName": {
-      "value": "MyHSM-vnet"
-    },
-    "DedicatedHsmResourceName1": {
-      "value": "HSM1"
-    },
-    "DedicatedHsmResourceName2": {
-      "value": "HSM2"
-    },
-    "hsmSubnetRange": {
-      "value": "10.0.2.0/24"
-    },
-    "ERSubnetRange": {
-      "value": "10.0.255.0/26"
-    },
-  }
-}
-```
-
-연결된 Azure Resource Manager 템플릿 파일은 이러한 정보로 리소스 6개를 만듭니다.
-
-- 지정된 VNET의 HSM용 서브넷
-- 가상 네트워크 게이트웨이용 서브넷
-- HSM 디바이스에 VNET을 연결하는 가상 네트워크 게이트웨이
-- 게이트웨이의 공용 IP 주소
-- 스탬프 1의 HSM
-- 스탬프 2의 HSM
-
-매개 변수 값이 설정되면 파일을 사용하기 위해 Azure Portal Cloud Shell 파일 공유에 업로드해야 합니다. Azure Portal에서 오른쪽 상단에 있는 "\>\_" 클라우드 셸 기호를 클릭하면 화면의 하단 부분이 명령 환경으로 설정됩니다. 이에 대한 옵션은 BASH 및 PowerShell이며, 아직 설정되지 않은 경우 BASH를 선택해야 합니다.
-
-명령 셸 도구 모음에는 업로드/다운로드 옵션이 있고, 파일 공유에 템플릿 및 매개 변수 파일을 업로드하려면 이 옵션을 선택해야 합니다.
-
-![파일 공유](media/tutorial-deploy-hsm-cli/file-share.png)
-
-파일이 업로드되면 리소스를 만들 수 있습니다. 새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 컴퓨팅, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
+HSM 리소스를 만들기 전에 필요한 몇 가지 사전 필수 구성 요소 리소스가 있습니다. 컴퓨팅, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
 
 ```azurecli
 az network vnet create \
   --name myHSM-vnet \
   --resource-group myRG \
-  --address-prefix 10.2.0.0/16
-  --subnet-name compute
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name compute \
   --subnet-prefix 10.2.0.0/24
 ```
 
@@ -155,22 +100,47 @@ az network vnet subnet create \
 >[!NOTE]
 >가상 네트워크에서 주목해야 할 가장 중요한 구성은 HSM 디바이스의 서브넷에 "Microsoft.HardwareSecurityModules/dedicatedHSMs"로 설정된 위임이 있어야 한다는 것입니다.  이 옵션이 설정되지 않으면 HSM 프로비전이 작동하지 않습니다.
 
-모든 필수 구성 요소가 준비되면 Azure Resource Manager 템플릿을 사용하여 고유한 이름(최소한 리소스 그룹 이름이라도)으로 값을 업데이트했는지 확인하는 다음 명령을 실행합니다.
+네트워크를 구성한 후에는 이러한 Azure CLI 명령을 사용하여 HSM을 프로비저닝합니다.
+
+1. [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) 명령을 사용하여 첫 번째 HSM을 프로비저닝합니다. HSM의 이름은 hsm1입니다. 구독을 대체합니다.
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+   이 배포를 완료하는 데는 약 25~30분이 소요됩니다. HSM 디바이스에서 대부분의 시간이 소요됩니다.
+
+1. 현재 HSM을 보려면 [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) 명령을 실행합니다.
+
+   ```azurecli
+   az dedicated-hsm show --resource group myRG --name hsm1
+   ```
+
+1. 다음 명령을 사용하여 두 번째 HSM을 프로비저닝합니다.
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm2 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+1. [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) 명령을 실행하여 현재 HSM에 대한 세부 정보를 확인합니다.
+
+   ```azurecli
+   az dedicated-hsm list --resource-group myRG
+   ```
+
+유용하게 사용할 수 있는 몇 가지 다른 명령이 있습니다. [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) 명령을 사용하여 HSM을 업데이트합니다.
 
 ```azurecli
-az group deployment create \
-   --resource-group myRG  \
-   --template-file ./Deploy-2HSM-toVNET-Template.json \
-   --parameters ./Deploy-2HSM-toVNET-Params.json \
-   --name HSMdeploy \
-   --verbose
+az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-이 배포를 완료하는 데는 약 25~30분이 소요됩니다. HSM 디바이스에서 대부분의 시간이 소요됩니다.
+HSM을 삭제하려면 [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) 명령을 사용합니다.
 
-![프로비전 상태](media/tutorial-deploy-hsm-cli/progress-status.png)
-
-배포가 성공적으로 완료되면 "provisioningState": "Succeeded"가 표시됩니다. 기존 가상 머신에 연결하고 SSH를 사용하여 HSM 디바이스의 가용성을 보장할 수 있습니다.
+```azurecli
+az dedicated-hsm delete --resource-group myRG –name hsm1
+```
 
 ## <a name="verifying-the-deployment"></a>배포 확인
 
@@ -184,7 +154,49 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![프로비전 출력](media/tutorial-deploy-hsm-cli/progress-status2.png)
+출력은 다음 출력과 유사합니다.
+
+```json
+{
+    "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSMl",
+    "identity": null,
+    "kind": null,
+    "location": "westus",
+    "managedBy": null,
+    "name": "HSM1",
+    "plan": null,
+    "properties": {
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+            "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/networkInterfaces/HSMl_HSMnic", "privatelpAddress": "10.0.2.5",
+            "resourceGroup": "HSM-RG"
+            }
+            L
+            "subnet": {
+                "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/virtualNetworks/demo-vnet/subnets/hsmsubnet", "resourceGroup": "HSM-RG"
+            }
+        },
+        "provisioningState": "Succeeded",
+        "stampld": "stampl",
+        "statusMessage": "The Dedicated HSM device is provisioned successfully and ready to use."
+    },
+    "resourceGroup": "HSM-RG",
+    "sku": {
+        "capacity": null,
+        "family": null,
+        "model": null,
+        "name": "SafeNet Luna Network HSM A790",
+        "size": null,
+        "tier": null
+    },
+    "tags": {
+        "Environment": "prod",
+        "resourceType": "Hsm"
+    },
+    "type": "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+}
+```
 
 또한 이제 [Azure 리소스 탐색기](https://resources.azure.com/)를 사용하여 리소스를 볼 수 있습니다.   탐색기에서 왼쪽에 있는 "구독", Dedicated HSM의 특정 구독, "리소스 그룹", 사용한 리소스 그룹을 차례로 확장하고, 마지막으로 "리소스" 항목을 선택합니다.
 
@@ -219,7 +231,7 @@ ssh를 사용하여 HSM에 연결하는 경우 HSM이 작동하도록 다음 명
 
 출력은 아래 이미지에 표시된 것과 같이 표시됩니다.
 
-![구성 요소 목록](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
+![스크린샷은 PowerShell 창의 출력을 보여줍니다.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
 이제 고가용성의 두 HSM 배포에 모든 리소스가 할당되고, 액세스 및 작동 상태에 대한 유효성 검사가 완료된 상태여야 합니다. 추가 구성 또는 테스트를 위해서는 HSM 디바이스 자체로 추가 작업을 수행해야 합니다. 이를 위해서는 Gemalto Luna Network HSM 7 Administration Guide 7장의 지침을 따라 HSM을 초기화하고 파티션을 만들어야 합니다. Gemalto 고객 지원 포털에 등록되어 있고 고객 ID가 있으면 모든 설명서 및 소프트웨어를 Gemalto에서 직접 다운로드할 수 있습니다. 모든 필수 구성 요소를 받으려면 클라이언트 소프트웨어 7.2 버전을 다운로드하세요.
 
@@ -230,21 +242,19 @@ HSM 디바이스로만 완료한 경우 리소스로 삭제하고 사용 가능 
 > [!NOTE]
 > Gemalto 디바이스 구성과 관련하여 문제가 발생할 경우 [Gemalto 고객 지원팀](https://safenet.gemalto.com/technical-support/)에 연락하시기 바랍니다.
 
-
 이 리소스 그룹의 모든 리소스를 완료한 경우 다음 명령을 사용하여 모두 제거할 수 있습니다.
 
 ```azurecli
-az group deployment delete \
+az group delete \
    --resource-group myRG \
    --name HSMdeploy \
    --verbose
-
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서의 단계를 완료하면 Dedicated HSM 리소스가 프로비전되고, 필요한 HSM 및 추가 네트워크 구성 요소가 있는 가상 네트워크를 사용하여 HSM과 통신할 수 있습니다.  이제 기본 배포 아키텍처에 필요한 만큼 리소스를 추가하여 이러한 배포판을 보완할 수 있습니다. 배포 계획에 도움이 되는 자세한 내용은 개념 문서를 참조하세요.
-기본 지역에 있는 HSM 두 개가 랙 수준에서 가용성을 지원하고, 보조 지역에 있는 HSM 두 개가 지역 가용성을 지원하는 디자인이 권장됩니다. 이 자습서에서 사용한 템플릿 파일은 두 HSM 배포에 대한 기준으로 쉽게 사용할 수 있지만 해당 요구 사항에 맞게 매개 변수를 수정해야 합니다.
+기본 지역에 있는 HSM 두 개가 랙 수준에서 가용성을 지원하고, 보조 지역에 있는 HSM 두 개가 지역 가용성을 지원하는 디자인이 권장됩니다. 
 
 * [고가용성](high-availability.md)
 * [물리적 보안](physical-security.md)

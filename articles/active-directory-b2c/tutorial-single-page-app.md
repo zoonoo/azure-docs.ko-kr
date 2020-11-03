@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216534"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670039"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정
 
@@ -117,6 +117,72 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     };
     ```
 
+1. *JavaScriptSPA* 폴더 안에서 *authConfig.js* 파일을 엽니다.
+1. `msalConfig` 개체에서 다음을 업데이트합니다.
+    * `clientId`를 이전 단계에서 기록한 **애플리케이션(클라이언트) ID** 로 업데이트
+    * `authority` URI를 Azure AD B2C 이름 및 필수 구성 요소 중 하나로 만든 등록/로그인 사용자 흐름의 이름(예: *B2C_1_signupsignin1* )으로 업데이트
+1. *policies.js* 파일을 엽니다.
+1. `names` 및 `authorities`에 대한 항목을 찾아 2단계에서 만든 정책 이름으로 적절하게 바꿉니다. `fabrikamb2c.onmicrosoft.com`을 Azure AD B2C 테넌트의 이름(예: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`)으로 바꿉니다.
+1. *apiConfig.js* 파일을 엽니다.
+1. 범위 `b2cScopes`에 대한 할당을 찾아 URL을 Web API용으로 만든 범위 URL(예: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`)로 바꿉니다.
+1. API URL `webApi`에 대한 할당을 찾아 현재 URL을 4단계에서 Web API를 배포한 URL(예: `webApi: http://localhost:5000/hello`)로 바꿉니다.
+
+결과 코드는 다음과 같아야 합니다.
+
+### <a name="authconfigjs"></a>authConfig.js
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    validateAuthority: false
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+### <a name="policiesjs"></a>policies.js
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+        },
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+        }
+    },
+}
+```
+### <a name="apiconfigjs"></a>apiConfig.js
+
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
+
 ## <a name="run-the-sample"></a>샘플 실행
 
 1. 콘솔 창을 열고 샘플이 포함된 디렉터리로 변경합니다. 예를 들면 다음과 같습니다.
@@ -150,13 +216,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Azure AD B2C 사용자 흐름에 표시된 가입 페이지":::
 
 1. **만들기** 를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
 **만들기** 를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="사용자가 로그인한 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
 
 로그인을 테스트하려면 **로그아웃** 단추를 선택한 다음, **로그인** 을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
 

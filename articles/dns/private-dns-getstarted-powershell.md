@@ -1,18 +1,18 @@
 ---
 title: 빠른 시작 - Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기
-description: 이 문서에서는 Azure DNS에 프라이빗 DNS 영역 및 레코드를 만들고 테스트합니다. Azure PowerShell을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 방법을 알아봅니다.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: fd795c9e251a7c4c0c8cbea5ce6c48cec3535484
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ee6dde6b34cccd415f9bf2052f65dcbe940715c1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311748"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424389"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기
 
@@ -42,7 +42,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 DNS 영역은 `New-AzPrivateDnsZone` cmdlet을 사용하여 생성됩니다.
 
-다음 예제에서는 **myAzureVNet**이라는 가상 네트워크를 만듭니다. 그런 다음, **MyAzureResourceGroup** 리소스 그룹에 **private.contoso.com**이라는 DNS 영역을 만들고, DNS 영역을 **MyAzureVnet** 가상 네트워크에 연결하고, 자동 등록을 활성화합니다.
+다음 예제에서는 **myAzureVNet** 이라는 가상 네트워크를 만듭니다. 그런 다음, **MyAzureResourceGroup** 리소스 그룹에 **private.contoso.com** 이라는 DNS 영역을 만들고, DNS 영역을 **MyAzureVnet** 가상 네트워크에 연결하고, 자동 등록을 활성화합니다.
 
 ```azurepowershell
 Install-Module -Name Az.PrivateDns -force
@@ -108,7 +108,7 @@ New-AzVm `
 
 ## <a name="create-an-additional-dns-record"></a>추가 DNS 레코드 만들기
 
-`New-AzPrivateDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **private.contoso.com**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.private.contoso.com**입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"이며, TTL은 3600초입니다.
+`New-AzPrivateDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup** 의 DNS 영역 **private.contoso.com** 에 상대적 이름 **db** 가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.private.contoso.com** 입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"이며, TTL은 3600초입니다.
 
 ```azurepowershell
 New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `

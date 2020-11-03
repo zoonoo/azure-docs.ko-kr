@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620208"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518112"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>자습서: Azure Time Series Insights Gen1 환경 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "91620208"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 읽어보세요.
 
 ## <a name="review-video"></a>비디오 검토
 
@@ -63,27 +63,27 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
    [![디바이스 시뮬레이션 가속기 실행](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. **지금 사용해보기**를 선택합니다. 그런 다음, **디바이스 시뮬레이션 솔루션 만들기** 페이지에서 필수 매개 변수를 입력합니다.
+1. **지금 사용해보기** 를 선택합니다. 그런 다음, **디바이스 시뮬레이션 솔루션 만들기** 페이지에서 필수 매개 변수를 입력합니다.
 
    매개 변수|Description
    ---|---
    **배포 이름** | 이 고유한 값은 새 리소스 그룹을 만드는 데 사용됩니다. 나열된 Azure 리소스가 생성되어 리소스 그룹에 할당됩니다.
    **Azure 구독** | 이전 섹션에서 Azure Time Series Insights 환경을 만드는 데 사용한 것과 동일한 구독을 지정합니다.
-   **배포 옵션** | **새 IoT Hub 프로비전**을 선택하고 이 자습서에 해당하는 새 IoT Hub를 만듭니다.
+   **배포 옵션** | **새 IoT Hub 프로비전** 을 선택하고 이 자습서에 해당하는 새 IoT Hub를 만듭니다.
    **Azure 위치** | 이전 섹션에서 Azure Time Series Insights 환경을 만드는 데 사용한 것과 동일한 지역을 지정합니다.
 
-   완료되면 **만들기**를 선택하여 솔루션의 Azure 리소스를 프로비저닝합니다. 이 프로세스는 완료하는 데 최대 20분이 소요됩니다.
+   완료되면 **만들기** 를 선택하여 솔루션의 Azure 리소스를 프로비저닝합니다. 이 프로세스는 완료하는 데 최대 20분이 소요됩니다.
 
    [![디바이스 시뮬레이션 솔루션 프로비전](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝**에서 **준비**로 이동되었음을 알리는 두 개의 업데이트가 표시됩니다.
+1. 프로비저닝이 완료되면 배포 상태가 **프로비저닝** 에서 **준비** 로 이동되었음을 알리는 두 개의 업데이트가 표시됩니다.
 
    >[!IMPORTANT]
    > 솔루션 가속기를 아직 입력하지 마세요! 나중에 다시 돌아올 수 있으므로 이 웹 페이지는 그대로 열어 두세요.
 
    [![디바이스 시뮬레이션 솔루션 프로비저닝 완료](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. 이제 Azure Portal에서 새로 만든 리소스를 검사합니다. **리소스 그룹** 페이지에서 마지막 단계에 제공된 **솔루션 이름**을 사용하여 새 리소스 그룹이 만들어졌는지 확인합니다. 디바이스 시뮬레이션을 위해 만든 리소스를 기록해 둡니다.
+1. 이제 Azure Portal에서 새로 만든 리소스를 검사합니다. **리소스 그룹** 페이지에서 마지막 단계에 제공된 **솔루션 이름** 을 사용하여 새 리소스 그룹이 만들어졌는지 확인합니다. 디바이스 시뮬레이션을 위해 만든 리소스를 기록해 둡니다.
 
    [![디바이스 시뮬레이션 리소스](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -92,8 +92,8 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 두 번째로, Azure 구독에서 Azure Time Series Insights 환경을 만듭니다.
 
 1. Azure 구독 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-1. **사물 인터넷** 범주를 선택한 다음, **Time Series Insights**를 선택합니다.
+1. 왼쪽 위에서 **+ 리소스 만들기** 를 선택합니다.
+1. **사물 인터넷** 범주를 선택한 다음, **Time Series Insights** 를 선택합니다.
 
    [![Azure Time Series Insights 환경 리소스 선택](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
@@ -105,18 +105,18 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
    **구독** | 구독은 Azure 리소스에 대한 컨테이너입니다. Azure Time Series Insights 환경을 만들 구독을 선택합니다.
    **리소스 그룹** | 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 기존 리소스 그룹을 선택하거나 Azure Time Series Insights 환경 리소스에 대한 새 리소스 그룹을 만듭니다.
    **위치** | Azure Time Series Insights 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되는 것을 방지하려면 다른 IoT 리소스와 동일한 지역에 Azure Time Series Insights 환경을 만듭니다.
-   **계층** | 필요한 처리량을 선택합니다. **S1**을 선택합니다.
-   **용량** | 용량은 선택한 SKU와 관련된 수신 속도 및 스토리지 용량에 적용된 승수입니다. 생성 후 용량을 변경할 수 있습니다. 용량 **1**을 선택합니다.
+   **계층** | 필요한 처리량을 선택합니다. **S1** 을 선택합니다.
+   **용량** | 용량은 선택한 SKU와 관련된 수신 속도 및 스토리지 용량에 적용된 승수입니다. 생성 후 용량을 변경할 수 있습니다. 용량 **1** 을 선택합니다.
 
-   작업을 마쳤으면 **다음: Event Source**를 선택하여 다음 단계를 진행합니다.
+   작업을 마쳤으면 **다음: Event Source** 를 선택하여 다음 단계를 진행합니다.
 
    [![Azure Time Series Insights 환경 리소스 만들기](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
-1. 이제 Azure Time Series Insights 환경을 솔루션 가속기에서 만든 IoT 허브에 연결합니다. **허브 선택**을 `Select existing`으로 설정합니다. 그런 다음 **IoT Hub 이름**을 설정할 때 솔루션 가속기에서 만든 IoT Hub를 선택합니다.
+1. 이제 Azure Time Series Insights 환경을 솔루션 가속기에서 만든 IoT 허브에 연결합니다. **허브 선택** 을 `Select existing`으로 설정합니다. 그런 다음 **IoT Hub 이름** 을 설정할 때 솔루션 가속기에서 만든 IoT Hub를 선택합니다.
 
    [![Azure Time Series Insights 환경을 만든 IoT 허브에 연결](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
 
-   마지막으로 **검토 + 만들기**를 선택합니다.
+   마지막으로 **검토 + 만들기** 를 선택합니다.
 
 1. **알림** 패널을 확인하여 배포 완료를 모니터링합니다.
 
@@ -128,7 +128,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
 IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 전송하도록 Azure App Service 웹 애플리케이션이 생성되었습니다.
 
-1. [솔루션 가속기 대시보드](https://www.azureiotsolutions.com/Accelerators#dashboard)로 돌아갑니다. 필요한 경우 이 자습서에서 사용한 것과 동일한 Azure 계정을 사용하여 다시 로그인합니다. "디바이스 솔루션"을 선택한 다음, **솔루션 가속기로 이동**하여 배포된 솔루션을 시작합니다.
+1. [솔루션 가속기 대시보드](https://www.azureiotsolutions.com/Accelerators#dashboard)로 돌아갑니다. 필요한 경우 이 자습서에서 사용한 것과 동일한 Azure 계정을 사용하여 다시 로그인합니다. "디바이스 솔루션"을 선택한 다음, **솔루션 가속기로 이동** 하여 배포된 솔루션을 시작합니다.
 
    [![솔루션 가속기 대시보드](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
@@ -136,21 +136,21 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
    [![디바이스 시뮬레이션 웹 애플리케이션 동의](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
-1. **+ 새 시뮬레이션**을 선택합니다. **시뮬레이션 설정** 페이지가 로드되면 필수 매개 변수를 입력합니다.
+1. **+ 새 시뮬레이션** 을 선택합니다. **시뮬레이션 설정** 페이지가 로드되면 필수 매개 변수를 입력합니다.
 
    매개 변수|Description
    ---|---
-   **대상 IoT Hub** | **미리 프로비저닝된 IoT Hub 사용**을 선택합니다.
-   **디바이스 모델** | **냉각기**를 선택합니다.
-   **디바이스 수**  | **양**에 `10`을 입력합니다.
+   **대상 IoT Hub** | **미리 프로비저닝된 IoT Hub 사용** 을 선택합니다.
+   **디바이스 모델** | **냉각기** 를 선택합니다.
+   **디바이스 수**  | **양** 에 `10`을 입력합니다.
    **원격 분석 빈도** | `10`초를 입력합니다.
    **시뮬레이션 기간** | **종료:** 를 선택하고 `5`분을 입력합니다.
 
-   완료되면 **시뮬레이션 시작**을 선택합니다. 시뮬레이션은 총 5분 동안 실행됩니다. 10초마다 1,000개의 시뮬레이션된 디바이스로부터 데이터를 생성합니다.
+   완료되면 **시뮬레이션 시작** 을 선택합니다. 시뮬레이션은 총 5분 동안 실행됩니다. 10초마다 1,000개의 시뮬레이션된 디바이스로부터 데이터를 생성합니다.
 
    [![디바이스 시뮬레이션 설정](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
 
-1. 시뮬레이션이 실행되는 동안 **총 메시지 수**와 **초당 메시지 수** 필드가 약 10초마다 업데이트됩니다. 약 5분 후에 시뮬레이션이 완료되고 **시뮬레이션 설정**으로 돌아갑니다.
+1. 시뮬레이션이 실행되는 동안 **총 메시지 수** 와 **초당 메시지 수** 필드가 약 10초마다 업데이트됩니다. 약 5분 후에 시뮬레이션이 완료되고 **시뮬레이션 설정** 으로 돌아갑니다.
 
    [![디바이스 시뮬레이션 실행 중](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
 
@@ -162,7 +162,7 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
    [![Azure Time Series Insights 환경 리소스 그룹 및 환경](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. Azure Time Series Insights 환경 **개요** 페이지에서 **Time Series Insights 탐색기 URL**을 선택하여 Azure Time Series Insights 탐색기를 엽니다.
+1. Azure Time Series Insights 환경 **개요** 페이지에서 **Time Series Insights 탐색기 URL** 을 선택하여 Azure Time Series Insights 탐색기를 엽니다.
 
    [![Azure Time Series Insights 탐색기](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
@@ -174,7 +174,7 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
    [![Azure Time Series Insights 탐색기 시간 범위 필터링된 보기](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
-1. 마지막으로 마우스 왼쪽 단추로 영역을 클릭하여 범위를 필터링할 수도 있습니다. 그런 다음, 마우스 오른쪽 단추를 클릭하고 **이벤트 검색**을 사용하여 테이블 형식 **이벤트** 보기에 이벤트 세부 정보를 표시합니다.
+1. 마지막으로 마우스 왼쪽 단추로 영역을 클릭하여 범위를 필터링할 수도 있습니다. 그런 다음, 마우스 오른쪽 단추를 클릭하고 **이벤트 검색** 을 사용하여 테이블 형식 **이벤트** 보기에 이벤트 세부 정보를 표시합니다.
 
    [![Azure Time Series Insights 탐색기 시간 범위 필터링된 보기 및 이벤트](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
@@ -184,9 +184,9 @@ IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 �
 
 Azure Portal의 왼쪽 메뉴에서 다음을 수행합니다.
 
-1. **리소스 그룹** 아이콘을 선택합니다. 그런 다음, Azure Time Series Insights 환경에 대해 만든 리소스 그룹을 선택합니다. 페이지 위쪽에서 **리소스 그룹 삭제**를 선택하고, 리소스 그룹 이름을 입력하고, **삭제**를 선택합니다.
+1. **리소스 그룹** 아이콘을 선택합니다. 그런 다음, Azure Time Series Insights 환경에 대해 만든 리소스 그룹을 선택합니다. 페이지 위쪽에서 **리소스 그룹 삭제** 를 선택하고, 리소스 그룹 이름을 입력하고, **삭제** 를 선택합니다.
 
-1. **리소스 그룹** 아이콘을 선택합니다. 그런 다음, 디바이스 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 위쪽에서 **리소스 그룹 삭제**를 선택하고, 리소스 그룹 이름을 입력하고, **삭제**를 선택합니다.
+1. **리소스 그룹** 아이콘을 선택합니다. 그런 다음, 디바이스 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 위쪽에서 **리소스 그룹 삭제** 를 선택하고, 리소스 그룹 이름을 입력하고, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

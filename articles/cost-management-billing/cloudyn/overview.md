@@ -3,33 +3,29 @@ title: Azure의 Cloudyn 개요
 description: Cloudyn은 Azure 및 다른 클라우드 리소스를 사용하는 데 도움이 되는 다중 클라우드 비용 관리 솔루션입니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acc13ca535808f14cb01d50e38f6bd4d12902fc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 74d171a4c694f6d720ec3882f97d18e43aecc63f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684442"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543290"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Cloudyn 서비스란?
 
-Microsoft 자회사인 Cloudyn은 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있게 해줍니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. Cloudyn은 사용률이 낮은 리소스를 식별하여 관리하고 조정함으로써 클라우드 소비를 최적화하도록 도와줍니다.
+Microsoft 자회사인 Cloudyn은 Azure 리소스에 대한 클라우드 사용량 및 비용을 추적할 수 있게 해줍니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. Cloudyn은 사용률이 낮은 리소스를 식별하여 관리하고 조정함으로써 클라우드 소비를 최적화하도록 도와줍니다.
 
 소개 비디오를 시청하려면 [Azure Cloudyn 소개](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/)를 참조하세요.
  
 Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Cost Management](../cost-management-billing-overview.md)를 참조하세요.
  
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
-
-[Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=15DzKPMBRxM)를 보고 비즈니스 요구 사항에 따라 Azure Cost Management 또는 Cloudyn을 사용해야 하는 경우 권장 사항을 확인합니다.
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>사용량 및 소비 모니터링
 
@@ -56,6 +52,4 @@ AWS 예약 인스턴스를 프로비전한 경우 구매 권장 사항을 보고
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Cloudyn에 대해 알아보았으므로 다음 단계는 클라우드 환경을 등록하고 데이터를 탐색하기 시작하는 것입니다.
-
-- [CSP 파트너 프로그램에 등록 및 데이터 비용 보기](quick-register-csp.md)
+- [사용량 및 비용 검토](tutorial-review-usage.md)

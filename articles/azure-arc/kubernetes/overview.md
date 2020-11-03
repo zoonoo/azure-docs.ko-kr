@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7e48ebf98f12e79cb154fb50d8e6dbdfaea1cd95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216082"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371310"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Azure Arc 지원 Kubernetes 미리 보기란?
 
@@ -37,6 +37,7 @@ Azure Arc 지원 Kubernetes 기능은 다음 배포에서 Arc 팀에 의해 테�
 * Canonical Charmed Kubernetes 1.18
 * AKS 엔진
 * Azure Stack Hub의 AKS 엔진
+* Azure Stack HCI의 AKS
 * 클러스터 API 공급자 Azure
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오 

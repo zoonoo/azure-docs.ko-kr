@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102577"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518928"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -21,12 +21,12 @@ ms.locfileid: "92102577"
 
 ## <a name="september-2020"></a>2020년 9월
 
-Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBAC 권한을 사용하여 Azure 데이터 원본에 ID 읽기 전용 권한을 부여합니다. IP 규칙이 옵션이 아닌 경우, 필요에 따라 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md) 기능을 선택합니다.
+Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azure RBAC 권한을 사용하여 Azure 데이터 원본에 ID 읽기 전용 권한을 부여합니다. IP 규칙이 옵션이 아닌 경우, 필요에 따라 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md) 기능을 선택합니다.
 
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |------------------------------|----------|-------------|---------------|
-| [관리 서비스 ID](search-howto-managed-identities-data-sources.md) | 인덱서, 보안 | Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBAC 권한을 사용하여 Azure 데이터 원본에 대한 액세스 권한을 부여합니다. 이 방법을 사용하면 연결 문자열에 대한 자격 증명이 필요하지 않습니다. <br><br>IP 규칙이 옵션이 아닌 경우 관리 서비스 ID를 사용하는 추가 방법은 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md)를 사용하는 것입니다. | 일반 공급. api-version=2020-06-30에서 포털 또는 [데이터 원본(REST) 만들기](/rest/api/searchservice/create-data-source)를 사용할 때 이 기능에 액세스합니다. |
+| [관리 서비스 ID](search-howto-managed-identities-data-sources.md) | 인덱서, 보안 | Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, Azure RBAC 권한을 사용하여 Azure 데이터 원본에 대한 액세스 권한을 부여합니다. 이 방법을 사용하면 연결 문자열에 대한 자격 증명이 필요하지 않습니다. <br><br>IP 규칙이 옵션이 아닌 경우 관리 서비스 ID를 사용하는 추가 방법은 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md)를 사용하는 것입니다. | 일반 공급. api-version=2020-06-30에서 포털 또는 [데이터 원본(REST) 만들기](/rest/api/searchservice/create-data-source)를 사용할 때 이 기능에 액세스합니다. |
 | [프라이빗 링크를 사용하는 아웃바운드 요청](search-indexer-howto-access-private.md) | 인덱서, 보안 | 인덱서가 Azure Private Link를 통해 보안이 유지되는 Azure 리소스에 액세스할 때 사용할 수 있는 공유 프라이빗 링크 리소스를 만듭니다. 인덱서 연결을 보호할 수 있는 모든 방법에 대한 자세한 내용은 [Azure 네트워크 보안 기능을 통해 보호되는 콘텐츠에 대한 인덱서 액세스](search-indexer-securing-resources.md)를 참조하세요. | 일반 공급. api-version=2020-08-01에서 포털 또는 [공유 Private Link 리소스](/rest/api/searchmanagement/sharedprivatelinkresources)를 사용할 때 이 기능에 액세스합니다. |
 | [관리 REST API(2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST (영문) | 안정적인 새 REST API에는 공유 프라이빗 링크 리소스 만들기에 대한 지원이 추가되었습니다. | 일반 공급. |
 | [관리 REST API(2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST (영문) | Azure Functions 및 Azure SQL for MySQL Databases용 공유 프라이빗 링크 리소스를 추가합니다. | 공개 미리 보기. |

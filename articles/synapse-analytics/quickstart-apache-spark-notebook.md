@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651720"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742564"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기
 
@@ -41,15 +41,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown, 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다.
 
-1. 사용하려는 Azure Synapse 작업 영역에 대한 Azure Portal 보기에서 **Synapse Studio 시작**을 선택합니다.
-2. Synapse Studio가 시작되면 **개발**을 선택합니다. 그런 다음, 마우스로 **Notebook** 항목 위를 가리킵니다. 줄임표( **...** )를 선택합니다.
-3. 여기서 **새 Notebook**을 선택합니다. 새 Notebook이 만들어지고 자동으로 생성된 이름으로 열립니다.
-  ![새 Notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "새 Notebook")
+1. 사용하려는 Azure Synapse 작업 영역에 대한 Azure Portal 보기에서 **Synapse Studio 시작** 을 선택합니다.
+2. Synapse Studio가 시작되면 **개발** 을 선택합니다. 그런 다음, " **+** " 아이콘을 선택하여 새 리소스를 추가합니다.
+3. 여기에서 **Notebook** 을 선택합니다. 새 Notebook이 만들어지고 자동으로 생성된 이름으로 열립니다.
+ 
+     ![새 Notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "새 Notebook")
 
 4. **속성** 창에서 Notebook 이름을 제공합니다.
-5. 도구 모음에서 **게시**를 클릭합니다.
+5. 도구 모음에서 **게시** 를 클릭합니다.
 6. 하나의 Apache Spark 풀만 작업 영역에 있으면 이 풀이 기본적으로 선택됩니다. 선택되지 않은 경우 드롭다운을 사용하여 올바른 Apache Spark 풀을 선택합니다.
-7. **코드 추가**를 클릭합니다. 기본 언어는 `Pyspark`입니다. Pyspark와 Spark SQL을 함께 사용하므로 기본 선택이 좋습니다. 기타 지원되는 언어는 Spark용 Scala 및 .NET입니다.
+7. **코드 추가** 를 클릭합니다. 기본 언어는 `Pyspark`입니다. Pyspark와 Spark SQL을 함께 사용하므로 기본 선택이 좋습니다. 기타 지원되는 언어는 Spark용 Scala 및 .NET입니다.
 8. 다음으로 조작할 간단한 Spark DataFrame 개체를 만듭니다. 이 경우 코드에서 만듭니다. 세 개의 행과 세 개의 열이 있습니다.
 
    ```python
@@ -60,15 +61,15 @@ Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 환경입
 
 9. 이제 다음 방법 중 하나를 사용하여 셀을 실행합니다.
 
-   - **Shift + Enter**를 누릅니다.
+   - **Shift + Enter** 를 누릅니다.
    - 셀 왼쪽의 파란색 재생 아이콘을 선택합니다.
    - 도구 모음에서 **모두 실행** 단추를 선택합니다.
 
-   ![데이터 프레임 개체 만들기](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Spark 작업의 출력")
+       ![데이터 프레임 개체 만들기](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Apache Spark 풀 인스턴스가 아직 실행되고 있지 않으면 자동으로 시작됩니다. 실행 중인 셀 아래에서 Apache Spark 풀 인스턴스 상태를 확인할 수 있습니다. Notebook 아래쪽의 상태 패널에서도 확인할 수 있습니다. 풀의 크기에 따라 시작하는 데 2-5분이 걸립니다. 코드 실행이 완료되면 실행하는 데 걸린 시간과 실행 시간을 보여 주는 정보가 셀 아래에 표시됩니다. 출력 셀에 출력이 표시됩니다.
 
-    ![셀 실행의 출력](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Spark 작업의 출력")
+    ![셀 실행의 출력](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. 이제 데이터가 DataFrame에 있으므로 다양한 방법으로 이 데이터를 사용할 수 있습니다. 이 빠른 시작의 나머지 부분에서는 다른 형식의 데이터가 필요합니다.
 12. 아래 코드를 다른 셀에 입력하여 실행합니다. 그러면 데이터 복사본이 포함된 Spark 테이블, CSV 및 Parquet 파일이 모두 만들어집니다.
@@ -113,13 +114,13 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
     ![Azure Synapse Spark의 쿼리 출력](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Azure Synapse Spark의 쿼리 출력")
 
-3. **보기** 전환기에서 **차트**를 선택합니다.
+3. **보기** 전환기에서 **차트** 를 선택합니다.
 4. 맨 오른쪽에 있는 **보기 옵션** 아이콘을 선택합니다.
 5. **차트 종류** 필드에서 "가로 막대형 차트"를 선택합니다.
 6. X축 열 필드에서 "상태"를 선택합니다.
 7. Y축 열 필드에서 "급여"를 선택합니다.
 8. **집계** 필드에서 "AVG"를 선택합니다.
-9. **적용**을 선택합니다.
+9. **적용** 을 선택합니다.
 
    ![Azure Synapse Spark의 차트 출력](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Azure Synapse Spark의 차트 출력")
 
@@ -129,7 +130,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
     display(spark.sql('SELECT * FROM demo_df'))
     ```
 
-11. 이전에 실행한 각 셀에는 **기록 서버** 및 **모니터링**으로 이동할 수 있는 옵션이 있었습니다. 링크를 클릭하면 사용자 환경의 다른 부분으로 이동합니다.
+11. 이전에 실행한 각 셀에는 **기록 서버** 및 **모니터링** 으로 이동할 수 있는 옵션이 있었습니다. 링크를 클릭하면 사용자 환경의 다른 부분으로 이동합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -137,7 +138,7 @@ Azure Synapse는 데이터를 Azure Data Lake Storage에 저장합니다. Spark 
 
 풀 요금은 스토리지 요금보다 몇 배나 비싸므로 사용하지 않는 경우 Spark 인스턴스를 종료하는 것이 경제적입니다.
 
-Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 종료합니다. Apache Spark 풀에 지정된 **유휴 시간**에 도달하면 풀이 종료됩니다. Notebook 아래쪽의 상태 표시줄에서 **세션 종료**를 선택할 수도 있습니다.
+Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 종료합니다. Apache Spark 풀에 지정된 **유휴 시간** 에 도달하면 풀이 종료됩니다. Notebook 아래쪽의 상태 표시줄에서 **세션 종료** 를 선택할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

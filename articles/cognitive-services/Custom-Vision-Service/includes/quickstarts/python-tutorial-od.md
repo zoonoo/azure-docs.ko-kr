@@ -1,232 +1,165 @@
 ---
-author: areddish
-ms.author: areddish
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/25/2020
+ms.openlocfilehash: 7ef19e72b519d16da66306e4bf64f70f5c708927
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604910"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678250"
 ---
-이 가이드는 Python용 Custom Vision 클라이언트 라이브러리를 사용하여 개체 감지 모델을 빌드하는 데 유용한 지침과 샘플 코드를 제공합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습시키고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
+Python용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 개체 검색 모델을 빌드하기 위한 예제 코드를 사용해 보세요. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
 > [!NOTE]
-> 코드를 작성하지 않고 개체 감지 모델을 빌드하고 학습시키려면 [브라우저 기반 지침](../../get-started-build-detector.md)을 대신 참조하세요.
+> 코드를 작성하지 _않고_ 개체 감지 모델을 빌드하고 학습하려면 [브라우저 기반 지침](../../get-started-build-detector.md)을 대신 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+Python용 Custom Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-- [Python 2.7+ 또는 3.5+](https://www.python.org/downloads/)
-- [pip](https://pip.pypa.io/en/stable/installing/) 도구
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* 새 Custom Vision 프로젝트 만들기
+* 프로젝트에 태그 추가
+* 이미지 업로드 및 태그 지정
+* 프로젝트 학습
+* 현재 반복 게시
+* 예측 엔드포인트 테스트
 
-## <a name="install-the-custom-vision-client-library"></a>Custom Vision 클라이언트 라이브러리 설치
+[참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [패키지(PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision&languages=python)
 
-Python용 Custom Vision을 사용하여 이미지 분석 앱을 작성하려면 Custom Vision 클라이언트 라이브러리가 필요합니다. PowerShell에서 다음 명령을 실행합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
+* Azure 구독이 있으면 Azure Portal에서 <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Custom Vision 리소스를 만들어"  target="_blank">Custom Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a> 학습 및 예측 리소스를 만들고 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
+    * 애플리케이션을 Custom Vision에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+
+## <a name="setting-up"></a>설치
+
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+
+Python용 Custom Vision을 사용하여 이미지 분석 앱을 작성하려면 Custom Vision 클라이언트 라이브러리가 필요합니다. Python을 설치한 후 PowerShell 또는 콘솔 창에서 다음 명령을 실행합니다.
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-[Python 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)과 함께 이미지를 다운로드할 수 있습니다.
+### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
+새 Python 파일을 만들고 다음 라이브러리를 가져옵니다.
 
-[!INCLUDE [python-get-images](../../includes/python-get-images.md)]
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_imports)]
 
-## <a name="add-the-code"></a>코드 추가
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.cs)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-원하는 프로젝트 디렉터리에 *sample.py*라는 새 파일을 만듭니다.
+리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다.
 
-## <a name="create-the-custom-vision-project"></a>Custom Vision 프로젝트 만들기
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_creds)]
 
-새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 또한 Custom Vision 웹 사이트의 설정 페이지에서 엔드포인트 URL을 가져옵니다.
 
-프로젝트를 만들 때 다른 옵션을 지정하려면 **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 메서드를 참조하세요([탐지기 빌드](../../get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).  
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 및 예측 키를 모두 가져와야 합니다.
+>
+> 리소스의 **개요** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID 값을 찾을 수 있습니다.
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
-```Python
-from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry, Region
-from msrest.authentication import ApiKeyCredentials
+## <a name="object-model"></a>개체 모델
 
-ENDPOINT = "<your API endpoint>"
+|Name|설명|
+|---|---|
+|[CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | 이 클래스는 모델의 생성, 학습 및 게시를 처리합니다. |
+|[CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| 이 클래스는 개체 검색 예측에 대한 모델의 쿼리를 처리합니다.|
+|[ImagePrediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| 이 클래스는 단일 이미지에서 단일 개체 예측을 정의합니다. 여기에는 개체 ID 및 이름, 개체의 경계 상자 위치 및 신뢰도 점수에 대한 속성이 포함됩니다.|
 
-# Replace with a valid key
-training_key = "<your training key>"
-prediction_key = "<your prediction key>"
-prediction_resource_id = "<your prediction resource id>"
+## <a name="code-examples"></a>코드 예제
 
-publish_iteration_name = "detectModel"
+이러한 코드 조각은 Python용 Custom Vision 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
-credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
-trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
+* [클라이언트 인증](#authenticate-the-client)
+* [새 Custom Vision 프로젝트 만들기](#create-a-new-custom-vision-project)
+* [프로젝트에 태그 추가](#add-tags-to-the-project)
+* [이미지 업로드 및 태그 지정](#upload-and-tag-images)
+* [프로젝트 학습](#train-the-project)
+* [현재 반복 게시](#publish-the-current-iteration)
+* [예측 엔드포인트 테스트](#test-the-prediction-endpoint)
 
-# Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
+## <a name="authenticate-the-client"></a>클라이언트 인증
 
-# Create a new project
-print ("Creating project...")
-project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
-```
+엔드포인트와 키를 사용하여 학습 및 예측 클라이언트를 인스턴스화합니다. 키를 사용하여 **ApiKeyServiceClientCredentials** 개체를 만들고 엔드포인트와 함께 사용하여 [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) 및 [CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) 개체를 만듭니다.
 
-## <a name="create-tags-in-the-project"></a>프로젝트에서 태그 만들기
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_auth)]
 
-프로젝트에 개체 태그를 만들려면 *sample.py* 파일의 끝에 다음 코드를 추가합니다.
 
-```Python
-# Make two tags in the new project
-fork_tag = trainer.create_tag(project.id, "fork")
-scissors_tag = trainer.create_tag(project.id, "scissors")
-```
+## <a name="create-a-new-custom-vision-project"></a>새 Custom Vision 프로젝트 만들기
+
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 
+
+프로젝트를 만들 때 다른 옵션을 지정하려면 [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true) 메서드를 참조하세요([탐지기 빌드](../../get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).  
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_create)]
+
+
+## <a name="add-tags-to-the-project"></a>프로젝트에 태그 추가
+
+프로젝트에서 개체 태그를 만들려면 다음 코드를 추가합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_tags)]
+
 
 ## <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다.
+먼저 이 프로젝트에 대한 샘플 이미지를 다운로드합니다. [샘플 이미지 폴더](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images)의 내용을 로컬 디바이스에 저장합니다.
+
+개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다. 다음 코드는 각 샘플 이미지를 태그가 지정된 지역과 연결합니다. 지역은 정규화된 좌표에서 경계 상자를 지정하며, 좌표는 왼쪽, 위쪽, 너비, 높이 순서대로 지정됩니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_tagging)]
 
 > [!NOTE]
 > 영역의 좌표를 표시하는 클릭 및 끌기 유틸리티를 사용하지 않는 경우 [Customvision.ai](https://www.customvision.ai/)에서 웹 UI를 사용할 수 있습니다. 이 예제에서는 좌표가 이미 제공되어 있습니다.
 
-
-프로젝트에 이미지, 태그 및 지역을 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 자습서에서 지역이 코드와 함께 인라인에 하드 코드됩니다. 지역은 정규화된 좌표에서 경계 상자를 지정하며, 좌표는 왼쪽, 위쪽, 너비, 높이 순서대로 지정됩니다.
-
-```Python
-fork_image_regions = {
-    "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
-    "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
-    "fork_3": [ 0.09191177, 0.0682516545, 0.757352948, 0.6143791 ],
-    "fork_4": [ 0.254901975, 0.185898721, 0.5232843, 0.594771266 ],
-    "fork_5": [ 0.2365196, 0.128709182, 0.5845588, 0.71405226 ],
-    "fork_6": [ 0.115196079, 0.133611143, 0.676470637, 0.6993464 ],
-    "fork_7": [ 0.164215669, 0.31008172, 0.767156839, 0.410130739 ],
-    "fork_8": [ 0.118872553, 0.318251669, 0.817401946, 0.225490168 ],
-    "fork_9": [ 0.18259804, 0.2136765, 0.6335784, 0.643790841 ],
-    "fork_10": [ 0.05269608, 0.282303959, 0.8088235, 0.452614367 ],
-    "fork_11": [ 0.05759804, 0.0894935, 0.9007353, 0.3251634 ],
-    "fork_12": [ 0.3345588, 0.07315363, 0.375, 0.9150327 ],
-    "fork_13": [ 0.269607842, 0.194068655, 0.4093137, 0.6732026 ],
-    "fork_14": [ 0.143382356, 0.218578458, 0.7977941, 0.295751631 ],
-    "fork_15": [ 0.19240196, 0.0633497, 0.5710784, 0.8398692 ],
-    "fork_16": [ 0.140931368, 0.480016381, 0.6838235, 0.240196079 ],
-    "fork_17": [ 0.305147052, 0.2512582, 0.4791667, 0.5408496 ],
-    "fork_18": [ 0.234068632, 0.445702642, 0.6127451, 0.344771236 ],
-    "fork_19": [ 0.219362751, 0.141781077, 0.5919118, 0.6683006 ],
-    "fork_20": [ 0.180147052, 0.239820287, 0.6887255, 0.235294119 ]
-}
-
-scissors_image_regions = {
-    "scissors_1": [ 0.4007353, 0.194068655, 0.259803921, 0.6617647 ],
-    "scissors_2": [ 0.426470578, 0.185898721, 0.172794119, 0.5539216 ],
-    "scissors_3": [ 0.289215684, 0.259428144, 0.403186262, 0.421568632 ],
-    "scissors_4": [ 0.343137264, 0.105833367, 0.332107842, 0.8055556 ],
-    "scissors_5": [ 0.3125, 0.09766343, 0.435049027, 0.71405226 ],
-    "scissors_6": [ 0.379901975, 0.24308826, 0.32107842, 0.5718954 ],
-    "scissors_7": [ 0.341911763, 0.20714055, 0.3137255, 0.6356209 ],
-    "scissors_8": [ 0.231617644, 0.08459154, 0.504901946, 0.8480392 ],
-    "scissors_9": [ 0.170343131, 0.332957536, 0.767156839, 0.403594762 ],
-    "scissors_10": [ 0.204656869, 0.120539248, 0.5245098, 0.743464053 ],
-    "scissors_11": [ 0.05514706, 0.159754932, 0.799019635, 0.730392158 ],
-    "scissors_12": [ 0.265931368, 0.169558853, 0.5061275, 0.606209159 ],
-    "scissors_13": [ 0.241421565, 0.184264734, 0.448529422, 0.6830065 ],
-    "scissors_14": [ 0.05759804, 0.05027781, 0.75, 0.882352948 ],
-    "scissors_15": [ 0.191176474, 0.169558853, 0.6936275, 0.6748366 ],
-    "scissors_16": [ 0.1004902, 0.279036, 0.6911765, 0.477124184 ],
-    "scissors_17": [ 0.2720588, 0.131977156, 0.4987745, 0.6911765 ],
-    "scissors_18": [ 0.180147052, 0.112369314, 0.6262255, 0.6666667 ],
-    "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
-    "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
-}
-```
-
 그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다(단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있음). 다음 코드를 추가합니다.
+
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_upload)]
 
 > [!NOTE]
 > 이전에 Cognitive Services Python SDK 샘플 리포지토리를 다운로드한 위치에 따라 이미지 경로를 변경해야 합니다.
 
-```Python
-# Update this with the path to where you downloaded the images.
-base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
+## <a name="train-the-project"></a>프로젝트 학습
 
-# Go through the data table above and create the images
-print ("Adding images...")
-tagged_images_with_regions = []
+이 코드는 예측 모델의 첫 번째 반복을 만듭니다. 
 
-for file_name in fork_image_regions.keys():
-    x,y,w,h = fork_image_regions[file_name]
-    regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
-
-    with open(base_image_url + "images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
-
-for file_name in scissors_image_regions.keys():
-    x,y,w,h = scissors_image_regions[file_name]
-    regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
-
-    with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
-
-upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=tagged_images_with_regions))
-if not upload_result.is_batch_successful:
-    print("Image batch upload failed.")
-    for image in upload_result.images:
-        print("Image status: ", image.status)
-    exit(-1)
-```
-
-## <a name="train-and-publish-the-project"></a>프로젝트 학습 및 게시
-
-이 코드는 예측 모델의 첫 번째 반복을 만든 다음, 해당 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
-
-```Python
-import time
-
-print ("Training...")
-iteration = trainer.train_project(project.id)
-while (iteration.status != "Completed"):
-    iteration = trainer.get_iteration(project.id, iteration.id)
-    print ("Training status: " + iteration.status)
-    time.sleep(1)
-
-# The iteration is now trained. Publish it to the project endpoint
-trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
-print ("Done!")
-```
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_train)]
 
 > [!TIP]
 > 선택한 태그로 학습
 >
-> 적용된 태그의 하위 집합에 대해서만 선택적으로 학습을 수행할 수 있습니다. 특정 태그는 아직 충분히 적용하지 않았지만 다른 태그는 충분히 적용한 경우 이 작업을 수행할 수 있습니다. **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 호출에서 선택적 매개 변수 *selected_tags*를 사용하려는 태그의 ID 문자열 목록으로 설정합니다. 모델은 해당 목록의 태그만 인식하도록 학습됩니다.
+> 적용된 태그의 하위 집합에 대해서만 선택적으로 학습을 수행할 수 있습니다. 특정 태그는 아직 충분히 적용하지 않았지만 다른 태그는 충분히 적용한 경우 이 작업을 수행할 수 있습니다. **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 호출에서 선택적 매개 변수 *selected_tags* 를 사용하려는 태그의 ID 문자열 목록으로 설정합니다. 모델은 해당 목록의 태그만 인식하도록 학습됩니다.
 
-## <a name="use-the-prediction-endpoint"></a>예측 엔드포인트 사용
+## <a name="publish-the-current-iteration"></a>현재 반복 게시
+
+반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다. 다음 코드는 모델의 현재 반복을 쿼리에 사용할 수 있도록 합니다. 
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_publish)]
+
+## <a name="test-the-prediction-endpoint"></a>예측 엔드포인트 테스트
 
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
-```Python
-from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from msrest.authentication import ApiKeyCredentials
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_test)]
 
-# Now there is a trained endpoint that can be used to make a prediction
-prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
-predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
-
-# Open the sample image and get back the prediction results.
-with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.detect_image(project.id, publish_iteration_name, test_data)
-
-# Display the results.    
-for prediction in results.predictions:
-    print("\t" + prediction.tag_name + ": {0:.2f}% bbox.left = {1:.2f}, bbox.top = {2:.2f}, bbox.width = {3:.2f}, bbox.height = {4:.2f}".format(prediction.probability * 100, prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height))
-```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-*sample.py* 파일을 실행합니다.
+*CustomVisionQuickstart.py* 를 실행합니다.
 
 ```powershell
-python sample.py
+python CustomVisionQuickstart.py
 ```
 
-애플리케이션의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지(**samples/vision/images/Test**에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다.
+애플리케이션의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지( **<base_image_location>/images/Test** 에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
@@ -238,4 +171,5 @@ python sample.py
 > [모델 테스트 및 재교육](../../test-your-model.md)
 
 * Custom Vision이란?
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.cs)에서 확인할 수 있습니다.
 * [SDK 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

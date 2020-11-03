@@ -3,12 +3,12 @@ title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 424abeef567d88f7de37f7a7a4ab7a7a8b6ef3bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367774"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791412"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
@@ -17,7 +17,7 @@ ms.locfileid: "92367774"
 VMware HCX 고급 커넥터는 Azure VMware Solution에 미리 배포되어 있습니다. 이 커넥터는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결 4개 이상 필요한 경우 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 기능을 사용할 수 있도록 [지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)을 제출하세요. 추가 기능은 현재 미리 보기에 있습니다. 
 
 >[!NOTE]
->VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 미리 보기 서비스로 제공됩니다. 무료이며 미리 보기 서비스의 약관이 적용됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃하는 옵션도 제공됩니다.
+>VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 미리 보기 서비스로 제공됩니다. 무료이며 미리 보기 서비스의 약관이 적용됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃하는 옵션도 제공됩니다. 현재 HCX Enterprise에서 HCX Advanced로의 간단한 다운그레이드 경로는 없으며, 다운그레이드를 선택하는 고객은 가동 중지 시간이 발생하는 재배포를 수행해야 합니다.
 
 먼저 이 문서의 [시작하기 전에](#before-you-begin), [소프트웨어 버전 요구 사항](#software-version-requirements) 및 [필수 구성 요소](#prerequisites) 섹션을 철저하게 검토하세요. 
 
@@ -94,13 +94,13 @@ Azure Migrate 포털에서 [Azure VMware Solution 평가](../migrate/how-to-crea
 
 1. 이름 및 위치를 선택하고, HCX 커넥터를 배포할 리소스/클러스터를 선택합니다. 그런 다음, 세부 정보 및 필요한 리소스를 검토합니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/configure-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="템플릿 세부 정보를 검토하는 스크린샷" lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
 1. 사용 조건을 검토합니다. 사용 조건에 동의하는 경우 필요한 스토리지 및 네트워크를 선택하고 **다음** 을 선택합니다.
 
 1. **템플릿사용자 지정** 에서 필요한 모든 정보를 입력합니다. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="템플릿을 사용자 지정하는 상자의 스크린샷" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
 1. **다음** 을 선택하고 구성을 확인한 다음, **마침** 을 선택하여 HCX 커넥터 OVA를 배포합니다.
      
@@ -149,7 +149,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 
 서비스가 다시 시작된 후 표시되는 화면에 vCenter가 녹색으로 표시되어야 합니다. vCenter와 SSO 모두 이전 화면과 동일하게 적절한 구성 매개 변수를 포함하고 있어야 합니다.
 
-:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
+:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="vCenter 상태가 녹색인 대시보드의 스크린샷" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/BkAV_TNYxdE) 비디오를 시청하세요.
 
@@ -164,11 +164,11 @@ Azure VMware Solution의 VMware HCX 커넥터를 데이터 센터의 VMware HCX 
 
 1. 온-프레미스 vCenter에 로그인하고, **홈** 에서 **HCX** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="바로 가기 중에 HCX가 선택된 vCenter 클라이언트의 스크린샷" lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
 
 1. **인프라** 에서 **사이트 페어링** 을 선택한 다음, **원격 사이트에 연결** 옵션(화면 가운데)을 선택합니다. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="원격 사이트를 만드는 선택 항목의 스크린샷" lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. 앞에서 적어 둔 원격 HCX URL 또는 IP 주소, Azure VMware Solution cloudadmin@vsphere.local 사용자 이름 및 암호를 입력합니다. 그런 다음 **연결** 을 선택합니다.
 
@@ -179,7 +179,7 @@ Azure VMware Solution의 VMware HCX 커넥터를 데이터 센터의 VMware HCX 
 
    Azure VMware Solution의 HCX Cloud Manager와 온-프레미스 HCX 커넥터가 연결(페어링)된 것을 보여주는 화면이 표시됩니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="OVF 템플릿을 탐색하는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Azure VMware Solution의 HCX Manager와 HCX 커넥터의 페어링을 보여주는 스크린샷":::
 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 사이트 페어링](https://www.youtube.com/embed/sKizDCRHOko) 비디오를 시청하세요.
 
@@ -198,11 +198,11 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. **인프라** 에서 **상호 연결** > **다중 사이트 서비스 메시** > **네트워크 프로필** > **네트워크 프로필 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="네트워크 프로필 만들기를 시작하기 위한 선택 항목의 스크린샷" lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
 1. 네트워크 프로필마다 네트워크 및 포트 그룹을 선택하고, 이름을 입력하고, 해당 세그먼트에 대한 IP 풀을 만듭니다. 그런 다음 **만들기** 를 선택합니다. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="새 네트워크 프로필에 대한 세부 정보의 스크린샷":::
 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 네트워크 프로필](https://www.youtube.com/embed/NhyEcLco4JY) 비디오를 시청하세요.
 
@@ -211,11 +211,11 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. **컴퓨팅 프로필** > **컴퓨팅 프로필 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="컴퓨팅 프로필 만들기를 시작하기 위한 선택 항목을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
 1. 프로필 이름을 입력하고 **계속** 을 선택합니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="컴퓨팅 프로필 이름의 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
 
 1. 마이그레이션, 네트워크 확장, 재해 복구 등 사용하도록 설정할 서비스를 선택한 다음, **계속** 을 선택합니다.
   
@@ -226,47 +226,47 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. 온-프레미스 데이터 센터에 클러스터가 표시되면 **계속** 을 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="선택한 서비스 리소스와 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
 
 1. **데이터 저장소 선택** 에서, VMware HCX 상호 연결 어플라이언스를 배포할 데이터 저장소 스토리지 리소스를 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
    여러 리소스를 선택하는 경우 VMware HCX는 해당 용량을 모두 사용할 때까지 선택된 첫 번째 리소스를 사용합니다.   
 
-   :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
+   :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="선택한 데이터 스토리지 리소스와 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
 
 1. **관리 네트워크 프로필** 선택에서, 이전 단계에서 만든 관리 네트워크 프로필을 선택합니다. 그런 다음, **계속** 을 선택합니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="관리 네트워크 프로필의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
    > [!NOTE]
    > 관리 네트워크 프로필을 사용하면 VMware HCX 어플라이언스가 vCenter와 통신할 수 있습니다. 이 프로필을 통해 ESXi 호스트에 연결할 수 있습니다.
 
 1. **업링크 네트워크 프로필 선택** 에서, 이전 단계에서 만든 업링크 네트워크 프로필을 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="업링크 네트워크 프로필의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
 
 1. **vMotion 네트워크 프로필 선택** 에서, 이전 단계에서 만든 vMotion 네트워크 프로필을 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="vMotion 네트워크 프로필의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
 
 1. **vSphere 복제 네트워크 프로필 선택** 에서, 이전 단계에서 만든 복제 네트워크 프로필을 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
    대부분의 경우 이 복제 네트워크 프로필은 관리 네트워크 프로필과 동일합니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="복제 네트워크 프로필의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
 1. **네트워크 확장 분산 스위치 선택** 에서, 계층 2 확장 네트워크의 Azure VMware Solution으로 마이그레이션할 가상 머신을 포함하고 있는 분산 가상 스위치를 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
-   :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
+   :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="분산 가상 스위치의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
 1. 연결 규칙을 검토하고 **계속** 을 선택합니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="연결 규칙과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
 
 1. **마침** 을 선택하여 컴퓨팅 프로필을 만듭니다.
 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="컴퓨팅 프로필 정보를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 컴퓨팅 프로필](https://www.youtube.com/embed/qASXi5xrFzM) 비디오를 시청하세요.
 
@@ -283,7 +283,7 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. **인프라** 에서 **상호 연결** > **서비스 메시** > **서비스 메시 만들기** 를 선택합니다.    
 
-   :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="서비스 메시 만들기를 시작하기 위한 선택 항목의 스크린샷" lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
 1. 미리 채워진 사이트를 검토한 다음, **계속** 을 선택합니다. 
 
@@ -294,9 +294,9 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
    선택하는 항목에 따라 VM이 VMware HCX 서비스를 사용할 수 있는 리소스가 정의됩니다.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="원본 컴퓨팅 프로필을 선택하는 것을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="원격 컴퓨팅 프로필을 선택하는 것을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
 
 1. 사용할 서비스를 검토한 다음, **계속** 을 선택합니다.  
 
@@ -314,16 +314,16 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. **작업 보기** 를 선택하여 배포를 모니터링합니다. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="OVF 템플릿을 탐색하는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="작업을 살펴보는 단추를 보여주는 스크린샷.":::
 
    서비스 메시 배포가 성공적으로 완료되면 서비스가 녹색으로 표시됩니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="서비스의 녹색 표시기를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
 1. 어플라이언스 상태를 검사하여 서비스 메시의 상태를 확인합니다. 
 1. **상호 연결** > **어플라이언스** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="어플라이언스의 상태를 확인하기 위한 선택 항목을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: 서비스 메시](https://www.youtube.com/embed/FyZ0d3P_T24) 비디오를 시청하세요.
 
@@ -335,19 +335,19 @@ VMware HCX는 여러 IP 세그먼트가 필요한 가상 어플라이언스의 �
 
 1. **서비스** 에서 **네트워크 확장** 을 선택한 다음, **네트워크 확장 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="네트워크 확장 만들기를 시작하기 위한 선택 항목을 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 
 1. Azure VMware Solution으로 확장하려는 각 네트워크를 선택하고 **다음** 을 선택합니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="OVF 템플릿을 탐색하는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="네트워크 선택 항목을 보여주는 스크린샷":::
 
 1. 확장하려는 각 네트워크의 온-프레미스 게이트웨이 IP를 입력한 다음, **제출** 을 선택합니다. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="OVF 템플릿을 탐색하는 스크린샷":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="게이트웨이 IP 주소의 항목을 보여주는 스크린샷":::
 
    네트워크 확장이 완료될 때까지 몇 분 정도 걸립니다. 확장이 완료되면 상태가 **확장 완료** 로 표시됩니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="OVF 템플릿을 탐색하는 스크린샷" lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="[확장 완료] 상태를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
 
 이 단계의 엔드투엔드 개요는 [Azure VMware Solution: 네트워크 확장](https://www.youtube.com/embed/cNlp0f_tTr0) 비디오를 시청하세요.
 

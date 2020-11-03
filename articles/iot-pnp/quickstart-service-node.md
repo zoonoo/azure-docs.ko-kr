@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946130"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735995"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Node.js)
 
@@ -69,8 +69,8 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 [IoT 플러그 앤 플레이 빠른 시작 및 자습서](set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
 
-* **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING** : 이전에 기록한 IoT 허브 연결 문자열입니다.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
 이 빠른 시작에서는 Node.js에서 샘플 IoT 솔루션을 사용하여 방금 설정한 샘플 디바이스와 상호 작용합니다.
 
@@ -146,7 +146,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
     }
     ```
 
-1. 다음 코드 조각은 디바이스 쌍의 모델 ID를 검색하는 *twin.js*의 코드를 보여줍니다.
+1. 다음 코드 조각은 디바이스 쌍의 모델 ID를 검색하는 *twin.js* 의 코드를 보여줍니다.
 
     ```javascript
     var registry = Registry.fromConnectionString(connectionString);
@@ -164,7 +164,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 이 시나리오에서는 `Model Id: dtmi:com:example:Thermostat;1`을 출력합니다.
 
 > [!NOTE]
-> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트**에서 **Registry** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트** 에서 **Registry** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 
 ### <a name="update-a-writable-property"></a>쓰기 가능 속성 업데이트
 
@@ -214,7 +214,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
     node twin.js
     ```
 
-1. **서비스** 터미널 출력의 ¬reported` 속성 섹션에서 업데이트된 대상 온도가 보고된 것을 확인할 수 있습니다. 디바이스가 업데이트를 완료하는 데 시간이 걸릴 수 있습니다. 디바이스가 속성 업데이트를 처리할 때까지 이 단계를 반복합니다.
+1. **서비스** 터미널 출력의 `reported` 속성 섹션에서 업데이트된 대상 온도가 보고된 것을 확인할 수 있습니다. 디바이스가 업데이트를 완료하는 데 시간이 걸릴 수 있습니다. 디바이스가 속성 업데이트를 처리할 때까지 이 단계를 반복합니다.
 
     ```json
     "reported": {

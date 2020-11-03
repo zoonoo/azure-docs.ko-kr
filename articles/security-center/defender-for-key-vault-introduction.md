@@ -8,25 +8,25 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a0ea19f53d1da7631154cb71f96e495cc93857
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788998"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Azure Defender for Key Vault 소개
 
 Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 
 
-추가 보안 인텔리전스 계층을 제공하는 Azure Key Vault용 Azure 네이티브 Advanced Threat Protection 기능을 사용하려면 **Azure Defender for Key Vault**를 사용하도록 설정합니다. 
+추가 보안 인텔리전스 계층을 제공하는 Azure Key Vault용 Azure 네이티브 Advanced Threat Protection 기능을 사용하려면 **Azure Defender for Key Vault** 를 사용하도록 설정합니다. 
 
 ## <a name="availability"></a>가용성
 
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**Azure Defender for Key Vault**는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|가격 책정:|**Azure Defender for Key Vault** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -55,5 +55,5 @@ Azure Defender for Key Vault에서 경고를 수신하면 [Azure Defender for Ke
 관련 자료는 다음 문서를 참조하세요. 
 
 - [Key Vault 보안 경고](alerts-reference.md#alerts-azurekv) - 모든 Azure Security Center 경고에 대한 참조 테이블의 Key Vault 섹션
-- [SIEM으로 경고 내보내기](continuous-export.md)
+- [Security Center 데이터 연속 내보내기](continuous-export.md)
 - [Azure Defender의 경고 표시 안 함](alerts-suppression-rules.md)

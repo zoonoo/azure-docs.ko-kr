@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005482"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674938"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
@@ -54,13 +54,13 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 먼저 판매 주문을 설명하는 csv 파일을 만든 다음, 해당 파일을 스토리지 계정에 업로드합니다. 나중에 이 파일의 데이터를 사용하여 Databricks 델타 테이블의 첫 번째 행을 채웁니다.
 
-1. Azure Storage Explorer를 엽니다. 그런 다음, 스토리지 계정으로 이동하고 **Blob 컨테이너** 섹션에서 **data**라는 새 컨테이너를 만듭니다.
+1. Azure Storage Explorer를 엽니다. 그런 다음, 스토리지 계정으로 이동하고 **Blob 컨테이너** 섹션에서 **data** 라는 새 컨테이너를 만듭니다.
 
    ![데이터 폴더](./media/data-lake-storage-events/data-container.png "데이터 폴더")
 
    Storage Explorer를 사용하는 방법에 대한 자세한 내용은 [Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리](data-lake-storage-explorer.md)를 참조하세요.
 
-2. **data** 컨테이너에서 **input**이라는 폴더를 만듭니다.
+2. **data** 컨테이너에서 **input** 이라는 폴더를 만듭니다.
 
 3. 다음 텍스트를 텍스트 편집기에 붙여넣습니다.
 
@@ -69,7 +69,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. 이 파일을 로컬 컴퓨터에 저장하고, **data.csv**라는 이름을 지정합니다.
+4. 이 파일을 로컬 컴퓨터에 저장하고, **data.csv** 라는 이름을 지정합니다.
 
 5. Storage Explorer에서 이 파일을 **input** 폴더에 업로드합니다.  
 
@@ -87,7 +87,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks** 를 차례로 선택합니다.
 
     ![Azure Portal의 Databricks](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
@@ -99,9 +99,9 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 ### <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 만든 Azure Databricks 작업 영역으로 이동한 다음, **작업 영역 시작**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 만든 Azure Databricks 작업 영역으로 이동한 다음, **작업 영역 시작** 을 선택합니다.
 
-2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **새로 만들기** > **클러스터**를 차례로 선택합니다.
+2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **새로 만들기** > **클러스터** 를 차례로 선택합니다.
 
     ![Azure의 Databricks](./media/data-lake-storage-events/databricks-on-azure.png "Azure의 Databricks")
 
@@ -112,23 +112,23 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
     * 클러스터의 이름을 입력합니다.
-    * **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **Terminate after 120 minutes of inactivity** (비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-4. **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
+4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
 
 ### <a name="create-a-notebook"></a>Notebook 만들기
 
-1. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook**을 차례로 선택합니다.
+1. 왼쪽 창에서 **작업 영역** 을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook** 을 차례로 선택합니다.
 
     ![Databricks에서 Notebook 만들기](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
-2. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python**을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
+2. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python** 을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
 
-    ![Databricks에서 Notebook 만들기](./media/data-lake-storage-events/new-databricks-notebook.png "Databricks에서 Notebook 만들기")
+    ![Notebook 만들기 대화 상자와 Python을 언어로 선택할 수 있는 위치를 보여주는 스크린샷.](./media/data-lake-storage-events/new-databricks-notebook.png "Databricks에서 Notebook 만들기")
 
-    **만들기**를 선택합니다.
+    **만들기** 를 선택합니다.
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Databricks 델타 테이블 만들기 및 채우기
 
@@ -150,7 +150,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    이 코드는 **source_file**이라는 위젯을 만듭니다. 나중에 이 코드를 호출하고 파일 경로를 해당 위젯에 전달하는 Azure Function을 만듭니다.  또한 이 코드는 스토리지 계정을 사용하여 서비스 주체를 인증하고, 다른 셀에서 사용할 몇 가지 변수를 만듭니다.
+    이 코드는 **source_file** 이라는 위젯을 만듭니다. 나중에 이 코드를 호출하고 파일 경로를 해당 위젯에 전달하는 Azure Function을 만듭니다.  또한 이 코드는 스토리지 계정을 사용하여 서비스 주체를 인증하고, 다른 셀에서 사용할 몇 가지 변수를 만듭니다.
 
     > [!NOTE]
     > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. <br><br>예를 들어 `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` 코드 줄을 사용하는 대신 `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` 코드 줄을 사용합니다. <br><br>이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트의 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
@@ -238,9 +238,9 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 이전에 만든 Notebook을 실행하는 작업을 만듭니다. 나중에 이벤트가 발생할 때 이 작업을 실행하는 Azure Function을 만듭니다.
 
-1. **작업**을 클릭합니다.
+1. **작업** 을 클릭합니다.
 
-2. **작업** 페이지에서 **작업 만들기**를 클릭합니다.
+2. **작업** 페이지에서 **작업 만들기** 를 클릭합니다.
 
 3. 작업 이름을 지정한 다음, `upsert-order-data` 통합 문서를 선택합니다.
 
@@ -250,7 +250,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 작업을 실행하는 Azure Function을 만듭니다.
 
-1. Databricks 작업 영역의 위쪽 모서리에서 사용자 아이콘을 선택한 다음, **사용자 설정**을 선택합니다.
+1. Databricks 작업 영역의 위쪽 모서리에서 사용자 아이콘을 선택한 다음, **사용자 설정** 을 선택합니다.
 
    ![계정 관리](./media/data-lake-storage-events/generate-token.png "사용자 설정")
 
@@ -258,17 +258,17 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
    토큰은 안전한 장소에 복사해야 합니다. Azure Function에는 작업을 실행할 수 있도록 Databricks를 인증하기 위해 이 토큰이 필요합니다.
   
-3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택한 다음, **컴퓨팅 > 함수 앱**을 차례로 선택합니다.
+3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택한 다음, **컴퓨팅 > 함수 앱** 을 차례로 선택합니다.
 
    ![Azure Function 만들기](./media/data-lake-storage-events/function-app-create-flow.png "Azure 함수 만들기")
 
-4. 함수 앱의 **만들기** 페이지에서 런타임 스택으로 **.NET Core**를 선택하고, Application Insights 인스턴스를 구성해야 합니다.
+4. 함수 앱의 **만들기** 페이지에서 런타임 스택으로 **.NET Core** 를 선택하고, Application Insights 인스턴스를 구성해야 합니다.
 
    ![함수 앱 구성](./media/data-lake-storage-events/new-function-app.png "함수 앱 구성")
 
-5. 함수 앱의 **개요** 페이지에서 **구성**을 클릭합니다.
+5. 함수 앱의 **개요** 페이지에서 **구성** 을 클릭합니다.
 
-   ![함수 앱 구성](./media/data-lake-storage-events/configure-function-app.png "함수 앱 구성")
+   ![구성된 기능에서 구성 옵션을 강조 표시하는 스크린샷.](./media/data-lake-storage-events/configure-function-app.png "함수 앱 구성")
 
 6. **애플리케이션 설정** 페이지에서 **새 애플리케이션 설정** 단추를 선택하여 각 설정을 추가합니다.
 
@@ -285,13 +285,13 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
    ![새 함수](./media/data-lake-storage-events/new-function.png "새 함수")
 
-8. **Azure Event Grid 트리거**를 선택합니다.
+8. **Azure Event Grid 트리거** 를 선택합니다.
 
-   **Microsoft.Azure.WebJobs.Extensions.EventGrid**확장을 설치하라는 메시지가 표시되면 이 확장을 설치합니다. 설치해야 하는 경우 **Azure Event Grid 트리거**를 다시 선택하여 함수를 만들어야 합니다.
+   **Microsoft.Azure.WebJobs.Extensions.EventGrid** 확장을 설치하라는 메시지가 표시되면 이 확장을 설치합니다. 설치해야 하는 경우 **Azure Event Grid 트리거** 를 다시 선택하여 함수를 만들어야 합니다.
 
    **새 함수** 창이 표시됩니다.
 
-9. **새 함수** 창에서 함수 이름을 **UpsertOrder**로 지정한 다음,  **만들기** 단추를 클릭합니다.
+9. **새 함수** 창에서 함수 이름을 **UpsertOrder** 로 지정한 다음,  **만들기** 단추를 클릭합니다.
 
 10. 코드 파일의 내용을 다음 코드로 바꾼 다음, **저장** 단추를 클릭합니다.
 
@@ -345,13 +345,13 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 1. 함수 코드 페이지에서 **Event Grid 구독 추가** 단추를 클릭합니다.
 
-   ![새 이벤트 구독](./media/data-lake-storage-events/new-event-subscription.png "새 이벤트 구독")
+   ![Event Grid 구독 추가 단추를 강조 표시하는 스크린샷.](./media/data-lake-storage-events/new-event-subscription.png "새 이벤트 구독")
 
 2. **이벤트 구독 만들기** 페이지에서 구독 이름을 지정한 다음, 페이지의 필드를 사용하여 스토리지 계정을 선택합니다.
 
    ![새 이벤트 구독](./media/data-lake-storage-events/new-event-subscription-2.png "새 이벤트 구독")
 
-3. **이벤트 유형으로 필터링** 드롭다운 목록에서 **Blob Created**(Blob 만들어짐) 및 **Blob Deleted**(Blob 삭제됨) 이벤트를 선택한 다음, **만들기** 단추를 클릭합니다.
+3. **이벤트 유형으로 필터링** 드롭다운 목록에서 **Blob Created** (Blob 만들어짐) 및 **Blob Deleted** (Blob 삭제됨) 이벤트를 선택한 다음, **만들기** 단추를 클릭합니다.
 
 ## <a name="test-the-event-grid-subscription"></a>Event Grid 구독 테스트
 
@@ -409,7 +409,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 스토리지 계정에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
+더 이상 필요하지 않으면 리소스 그룹 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 스토리지 계정에 대한 리소스 그룹을 선택하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

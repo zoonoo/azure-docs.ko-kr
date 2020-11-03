@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208229"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516956"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -80,10 +80,10 @@ ms.locfileid: "92208229"
 처음부터 새로 통합 문서를 만들거나 기본 제공 통합 문서를 기초로 새 통합 문서를 만들 수 있습니다.
 
 1. 새 통합 문서를 처음부터 만들려면 **통합 문서** 를 선택한 다음, **+새 통합 문서** 를 선택합니다.
-2. 통합 문서가 생성된 구독을 선택하고 설명이 포함된 이름을 지정합니다. 각 통합 문서는 다른 통합 문서와 마찬가지로 Azure 리소스이며 액세스할 수 있는 사람을 정의하고 제한하기 위해 역할(RBAC)을 할당할 수 있습니다. 
+2. 통합 문서가 생성된 구독을 선택하고 설명이 포함된 이름을 지정합니다. 각 통합 문서는 다른 통합 문서와 마찬가지로 Azure 리소스이며 액세스할 수 있는 사람을 정의하고 제한하기 위해 역할(Azure RBAC)을 할당할 수 있습니다. 
 3. 통합 문서에 표시하여 시각화를 고정하려면 공유해야 합니다. **공유** , **사용자 관리** 를 차례로 클릭합니다. 
  
-1. 다른 Azure 리소스와 마찬가지로 **액세스 권한 확인** 및 **역할 할당** 을 사용합니다. 자세한 내용은 [RBAC를 사용하여 Azure 통합 문서 공유](../azure-portal/azure-portal-dashboard-share-access.md)를 참조하세요.
+1. 다른 Azure 리소스와 마찬가지로 **액세스 권한 확인** 및 **역할 할당** 을 사용합니다. 자세한 내용은 [Azure RBAC를 사용하여 Azure 통합 문서 공유](../azure-portal/azure-portal-dashboard-share-access.md)를 참조하세요.
 
 
 ## <a name="new-workbook-examples"></a>새 통합 문서 예제

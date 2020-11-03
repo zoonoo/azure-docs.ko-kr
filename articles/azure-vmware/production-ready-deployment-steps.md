@@ -3,18 +3,18 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147990"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517364"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
 이 문서에서는 배포 중에 사용되는 데이터를 식별하고 수집하기 위한 계획 프로세스를 제공합니다. 배포를 계획할 때 배포 중에 쉽게 참조할 수 있도록 수집한 정보를 문서화해야 합니다.
 
-이 빠른 시작 프로세스는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비가 완료된 환경을 만듭니다. 
+이 빠른 시작 프로세스는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비 환경을 만듭니다. 
 
 >[!IMPORTANT]
 >Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 노드가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
@@ -73,13 +73,13 @@ Azure VMware Solution, 기존 Azure 환경 및 온-프레미스 환경은 모두
 
 IP 세그먼트를 확인하여 첫 번째 네트워크(NSX 세그먼트)를 프라이빗 클라우드에 만듭니다.  즉, VM을 Azure VMware Solution에 배포할 수 있도록 네트워크 세그먼트를 Azure VMware Solution에 만들려고 합니다.   
 
-L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성을 검사하는 데 유용한 네트워크 세그먼트를 만듭니다.
+L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성을 검사할 네트워크 세그먼트를 만듭니다.
 
 만든 모든 IP 세그먼트는 Azure 및 온-프레미스 공간에서 고유해야 합니다.  
 
 **예:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="확인 - IP 주소 세그먼트" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="확인 - 가상 머신 워크로드에 대한 IP 주소 세그먼트" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(선택 사항) 네트워크 확장
 
@@ -92,11 +92,11 @@ L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성
 
 ## <a name="expressroute-global-reach-peering-network"></a>ExpressRoute Global Reach 피어링 네트워크
 
-ExpressRoute Global Reach 피어링에 필요한 `/29` CIDR 네트워크 주소 블록을 확인합니다. 만든 모든 IP 세그먼트는 Azure VMware Solution 및 온-프레미스 공간에서 고유해야 합니다. 이 세그먼트의 IP는 ExpressRoute Global Reach 연결의 각 끝에서 사용되어 Azure VMware Solution ExpressRoute 회로를 온-프레미스 ExpressRoute 회로와 연결합니다. 
+ExpressRoute Global Reach 피어링에 필요한 `/29` CIDR 네트워크 주소 블록을 식별합니다. 만든 모든 IP 세그먼트는 Azure VMware Solution 및 온-프레미스 공간에서 고유해야 합니다. 이 세그먼트의 IP는 ExpressRoute Global Reach 연결의 각 끝에서 사용되어 Azure VMware Solution ExpressRoute 회로를 온-프레미스 ExpressRoute 회로와 연결합니다. 
 
 **예:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="확인 - IP 주소 세그먼트" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="확인 - ExpressRoute Global Reach 피어링 네트워크" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure VMware Solution을 연결하기 위한 Azure Virtual Network
 
@@ -119,7 +119,7 @@ ExpressRoute 회로를 Azure VMware Solution에서 기존 ExpressRoute 게이트
 >[!NOTE]
 >이 가상 네트워크는 온-프레미스 환경 및 Azure VMware Solution에서 표시되므로 이 가상 네트워크와 서브넷에서 사용하는 IP 세그먼트가 겹치지 않도록 해야 합니다.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="확인 - IP 주소 세그먼트" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="확인 - Azure VMware Solution을 연결하기 위한 Azure Virtual Network" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>VMware HCX 네트워크 세그먼트
 

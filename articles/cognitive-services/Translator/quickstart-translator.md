@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318843"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517041"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "91318843"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독이 있으면 Azure Portal에서 [Translator 리소스를 만들어](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 선택합니다.
+* Azure 구독이 있으면 Azure Portal에서 [Translator 리소스를 만들어](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.
   * 만든 리소스의 키와 엔드포인트는 애플리케이션을 Translator 서비스에 연결하는 데 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
   * 체험 가격 책정 계층(F0)을 통해 서비스를 사용해 보고, 나중에 프로덕션을 위한 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "91318843"
 # <a name="java"></a>[Java](#tab/java)
 
 * 프로젝트에 대한 작업 디렉터리를 만듭니다. 예: `mkdir sample-project`
-* Gradle을 사용하여 프로젝트를 초기화합니다(`gradle init --type basic`). **DSL**을 선택하라는 메시지가 표시되면 **Kotlin**을 선택합니다.
+* Gradle을 사용하여 프로젝트를 초기화합니다(`gradle init --type basic`). **DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
 * `build.gradle.kts`를 업데이트합니다. 샘플에 따라 `mainClassName`을 업데이트해야 합니다.
   ```java
   plugins {
@@ -123,7 +123,7 @@ REST를 통해 Translator 서비스를 호출하는 경우 다음 헤더가 각 
 
 ## <a name="keys-and-endpoints"></a>키 및 엔드포인트
 
-이 페이지의 샘플에서는 편의상 하드 코딩된 키와 엔드포인트를 사용합니다. **완료되면 코드에서 키를 제거**하고 **공개적으로 게시하지 마세요**. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
+이 페이지의 샘플에서는 편의상 하드 코딩된 키와 엔드포인트를 사용합니다. **완료되면 코드에서 키를 제거** 하고 **공개적으로 게시하지 마세요**. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
 ## <a name="translate-text"></a>텍스트 번역 
 
@@ -2440,6 +2440,12 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="java-users"></a>Java 사용자
+
+연결 문제가 발생하는 경우 SSL 인증서가 만료된 것일 수 있습니다. 이 문제를 해결하려면 프라이빗 저장소에 [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt)를 설치합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

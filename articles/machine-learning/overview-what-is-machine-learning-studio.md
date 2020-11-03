@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667438"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495993"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -70,11 +70,11 @@ ms.locfileid: "91667438"
 
 2015년에 출시된 **ML Studio(클래식)** 는 첫 번째 끌어서 놓기 기계 학습 작성기였습니다. 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
 
-**Azure Machine Learning**은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
+**Azure Machine Learning** 은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
 
-**Azure Machine Learning 스튜디오**는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning*의* 웹 포털입니다. 
+**Azure Machine Learning 스튜디오** 는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning *의* 웹 포털입니다. 
 
-새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning**을 선택하는 것이 좋습니다.
+새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택하는 것이 좋습니다.
 
 ### <a name="feature-comparison"></a>기능 비교
 
@@ -98,7 +98,9 @@ ms.locfileid: "91667438"
 ## <a name="next-steps"></a>다음 단계
 
 [스튜디오](https://ml.azure.com)를 방문하거나 다음 자습서를 통해 다양한 제작 옵션을 살펴보세요.  
-  + [Python Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
+
+- + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
+  + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [자동화된 기계 학습을 사용하여 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md)  
   + [디자이너를 사용하여 모델 학습 및 배포](tutorial-designer-automobile-price-train-score.md)
 

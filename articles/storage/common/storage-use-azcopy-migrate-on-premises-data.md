@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716090"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791191"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서를 완료하려면 최신 버전의 AzCopy를 다운로드합니다. [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요.
 
-Windows를 사용하는 경우 [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx)가 필요합니다. 이 자습서에서는 작업을 예약하기 위해 Schtasks를 사용하기 때문입니다. Linux 사용자는 crontab 명령을 대신 사용합니다.
+Windows를 사용하는 경우 [Schtasks](/windows/win32/taskschd/schtasks)가 필요합니다. 이 자습서에서는 작업을 예약하기 위해 Schtasks를 사용하기 때문입니다. Linux 사용자는 crontab 명령을 대신 사용합니다.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -44,9 +44,9 @@ Blob은 항상 컨테이너에 업로드해야 하므로 첫 번째 단계는 �
 다음 단계에 따라 컨테이너를 만듭니다.
 
 1. 기본 페이지에서 **스토리지 계정** 단추를 선택하고 만든 스토리지 계정을 선택합니다.
-2. **서비스** 아래에서 **Blob**을 선택한 다음 **컨테이너**를 선택합니다.
+2. **서비스** 아래에서 **Blob** 을 선택한 다음 **컨테이너** 를 선택합니다.
 
-   ![컨테이너 만들기](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![컨테이너 생성을 보여주는 스크린샷](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 컨테이너 이름은 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. Blob 및 컨테이너의 이름을 지정하는 방법에 대한 자세한 규칙은 [컨테이너, Blob, 메타데이터 이름 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
@@ -62,7 +62,7 @@ AzCopy V10 실행 파일을 다운로드합니다.
 
 ## <a name="authenticate-with-azure-ad"></a>Azure AD를 사용하여 인증
 
-먼저, [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) 역할을 ID에 추가합니다. [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)을 참조하세요.
+먼저, [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 ID에 추가합니다. [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](./storage-auth-aad-rbac-portal.md)을 참조하세요.
 
 그런 다음, 명령 프롬프트를 열고 다음 명령을 입력한 다음, ENTER 키를 누릅니다.
 
@@ -72,13 +72,13 @@ azcopy login
 
 이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
 
-![컨테이너 만들기](media/storage-use-azcopy-v10/azcopy-login.png)
+![로그인 프롬프트를 보여주는 스크린샷](media/storage-use-azcopy-v10/azcopy-login.png)
 
 로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 로그인에 성공하면 브라우저 창을 닫고 AzCopy를 사용할 수 있습니다.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>폴더의 콘텐츠를 Blob Storage에 업로드
 
-AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
+AzCopy를 사용하여 폴더의 모든 파일을 [Windows](./storage-use-azcopy-v10.md) 또는 [Linux](./storage-use-azcopy-v10.md)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -135,9 +135,9 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-이 자습서에서 [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx)는 Windows에서 예약된 작업을 만드는 데 사용됩니다. [Crontab](http://crontab.org/) 명령은 Linux에서 cron 작업을 만드는 데 사용됩니다.
+이 자습서에서 [Schtasks](/windows/win32/taskschd/schtasks)는 Windows에서 예약된 작업을 만드는 데 사용됩니다. [Crontab](http://crontab.org/) 명령은 Linux에서 cron 작업을 만드는 데 사용됩니다.
 
- **Schtasks**를 통해 관리자는 로컬 또는 원격 컴퓨터에서 예약된 작업을 만들고, 삭제하고, 쿼리하고, 변경하고, 실행 및 종료할 수 있습니다. **Cron**을 통해 Linux 및 Unix 사용자는 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 사용하여 지정된 날짜와 시간에 명령 또는 스크립트를 실행할 수 있습니다.
+ **Schtasks** 를 통해 관리자는 로컬 또는 원격 컴퓨터에서 예약된 작업을 만들고, 삭제하고, 쿼리하고, 변경하고, 실행 및 종료할 수 있습니다. **Cron** 을 통해 Linux 및 Unix 사용자는 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 사용하여 지정된 날짜와 시간에 명령 또는 스크립트를 실행할 수 있습니다.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -166,7 +166,7 @@ schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
 - 작업 이름을 지정하는 `/TN` 매개 변수
 - `script.bat` 파일에 대한 경로를 지정하는 `/TR` 매개 변수
 
-Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes)를 참조하세요.
+Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes)를 참조하세요.
 
 ---
 
@@ -176,7 +176,7 @@ Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Sc
 
 온-프레미스 데이터를 Azure Storage로 또는 그 반대로 이동하는 방법을 자세히 알아보려면 다음 링크를 따라 이동하세요.
 
-* [Azure Storage의 데이터 이동](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Azure Storage의 데이터 이동](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 AzCopy에 대한 자세한 내용은 다음 문서를 참조하세요.
 

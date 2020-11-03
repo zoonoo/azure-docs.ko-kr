@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859805"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886659"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -31,7 +31,7 @@ Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 �
 
 * 최신 버전의 [Go](https://golang.org/dl/)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 * 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
@@ -125,6 +125,9 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
+> [!TIP]
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [클라이언트](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) 메서드(예: **DetectWithStream** )를 참조하세요.
+
 ### <a name="display-detected-face-data"></a>검색된 얼굴 데이터 표시
 
 코드의 그 다음 블록은 **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** 개체 배열의 첫 번째 요소를 가져와서 해당 특성을 콘솔에 출력합니다. 여러 얼굴에 이미지를 사용한 경우 그 대신 배열을 반복해야 합니다.
@@ -166,7 +169,7 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 ### <a name="create-persongroup"></a>PersonGroup 만들기
 
-이미지를 다운로드한 후에는 **main** 메서드의 맨 아래에 다음 코드를 추가합니다. 이 코드는 **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** 개체를 인증 한 다음, 이 개체를 사용하여 새 **PersonGroup**을 정의합니다.
+이미지를 다운로드한 후에는 **main** 메서드의 맨 아래에 다음 코드를 추가합니다. 이 코드는 **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** 개체를 인증 한 다음, 이 개체를 사용하여 새 **PersonGroup** 을 정의합니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
 
@@ -182,15 +185,18 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
+> [!TIP]
+> URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) 메서드(예: **AddFaceFromURL** )를 참조하세요.
+
 ### <a name="train-persongroup"></a>PersonGroup 학습
 
-얼굴을 할당한 후에는 각 **Person** 개체와 관련된 시각적 특징을 식별할 수 있도록 **PersonGroup**을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
+얼굴을 할당한 후에는 각 **Person** 개체와 관련된 시각적 특징을 식별할 수 있도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
+Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다.
 
 > [!IMPORTANT]
 > 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.
@@ -209,7 +215,7 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 ### <a name="identify-faces"></a>얼굴 식별
 
-**[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** 메서드는 감지된 얼굴 배열을 가져와서 지정된 (이전 섹션에서 정의하고 학습시킨) **PersonGroup**과 비교합니다. 감지된 얼굴을 **Person**과 매칭할 수 있으면 결과가 저장됩니다.
+**[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** 메서드는 감지된 얼굴 배열을 가져와서 지정된 (이전 섹션에서 정의하고 학습시킨) **PersonGroup** 과 비교합니다. 감지된 얼굴을 **Person** 과 매칭할 수 있으면 결과가 저장됩니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id)]
 
@@ -259,7 +265,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-이 빠른 시작에서 **PersonGroup**을 만든 경우 **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** 메서드를 호출하여 삭제할 수 있습니다.
+이 빠른 시작에서 **PersonGroup** 을 만든 경우 **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** 메서드를 호출하여 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

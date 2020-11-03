@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 51a827b0bc80d7eec5b480d3e5efc49e5e1cc974
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 95e244f956940f9d75df50243714f0fb8f8d0654
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318265"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424172"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
 
@@ -57,8 +57,8 @@ ms.locfileid: "92318265"
 ### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>알림 허브에 대한 GCM/FCM 설정 구성
 
 1. 왼쪽 메뉴의 **설정** 섹션에서 **Google(GCM/FCM)** 을 선택합니다.
-2. Google Firebase 콘솔에서 적어둔 **서버 키**를 입력합니다.
-3. 도구 모음에서 **저장**을 선택합니다.
+2. Google Firebase 콘솔에서 적어둔 **서버 키** 를 입력합니다.
+3. 도구 모음에서 **저장** 을 선택합니다.
 
     ![Google G C M F C M 옵션이 강조 표시되고 빨간색으로 표시된 Azure Portal의 Notification Hub 스크린샷.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
@@ -71,39 +71,39 @@ ms.locfileid: "92318265"
 > [!NOTE]
 > 이 자습서에 설명된 단계는 Visual Studio 2017에 대한 것입니다. 
 
-1. Visual Studio에서 **파일** 메뉴를 열고 **새로 만들기**를 선택한 다음, **프로젝트**를 선택합니다. **새 프로젝트** 창에서 다음 단계를 수행합니다.
-    1. **설치됨**, **Visual C#** 을 확장한 후 **Android**를 클릭합니다.
+1. Visual Studio에서 **파일** 메뉴를 열고 **새로 만들기** 를 선택한 다음, **프로젝트** 를 선택합니다. **새 프로젝트** 창에서 다음 단계를 수행합니다.
+    1. **설치됨** , **Visual C#** 을 확장한 후 **Android** 를 클릭합니다.
     2. 목록에서 **Android 앱(Xamarin)** 을 선택합니다.
     3. 프로젝트의 **이름** 을 입력합니다.
     4. 프로젝트의 **위치** 를 선택합니다.
-    5. **확인**을 선택합니다.
+    5. **확인** 을 선택합니다.
 
         ![새 프로젝트 대화 상자](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
-2. **새 Android 앱** 대화 상자에서 **빈 앱**을 선택하고 **확인**을 선택합니다.
+2. **새 Android 앱** 대화 상자에서 **빈 앱** 을 선택하고 **확인** 을 선택합니다.
 
-    ![새 프로젝트 대화 상자](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
-3. **솔루션 탐색기** 창에서 **속성**을 확장하고 **AndroidManifest.xml**을 클릭합니다. Google Firebase 콘솔에서 Firebase Cloud Messaging을 프로젝트에 추가할 때 입력한 패키지 이름과 일치하도록 패키지 이름을 업데이트합니다.
+    ![빈 앱 템플릿을 강조 표시하는 스크린샷.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+3. **솔루션 탐색기** 창에서 **속성** 을 확장하고 **AndroidManifest.xml** 을 클릭합니다. Google Firebase 콘솔에서 Firebase Cloud Messaging을 프로젝트에 추가할 때 입력한 패키지 이름과 일치하도록 패키지 이름을 업데이트합니다.
 
     ![GCM의 패키지 이름](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 4. 다음 단계를 수행하여 프로젝트에 대한 대상 Android 버전을 **Android 9.0(원형)** 으로 설정합니다. 
-    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
     1. **Android 버전을 사용하여 컴파일: (대상 프레임워크)** 필드의 경우 **Android 9.0(원형)** 을 선택합니다. 
-    1. 대상 프레임워크 변경을 계속하려면 메시지 상자에서 **예**를 선택합니다.
+    1. 대상 프레임워크 변경을 계속하려면 메시지 상자에서 **예** 를 선택합니다.
 1. 다음 단계를 수행하여 필요한 NuGet 패키지를 프로젝트에 추가합니다.
-    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-    1. **설치됨** 탭으로 전환하고, **Xamarin.Android.Support.Design**을 선택하고, 오른쪽 창에서 **업데이트**를 선택하여 패키지를 최신 버전으로 업데이트합니다.
-    1. **찾아보기** 탭으로 전환합니다. **Xamarin.GooglePlayServices.Base**를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base**를 선택합니다. 그런 후 **설치**를 선택합니다.
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택합니다.
+    1. **설치됨** 탭으로 전환하고, **Xamarin.Android.Support.Design** 을 선택하고, 오른쪽 창에서 **업데이트** 를 선택하여 패키지를 최신 버전으로 업데이트합니다.
+    1. **찾아보기** 탭으로 전환합니다. **Xamarin.GooglePlayServices.Base** 를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base** 를 선택합니다. 그런 후 **설치** 를 선택합니다.
 
         ![Google Play 서비스 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-    6. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging**을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging**을 선택합니다. 그런 후 **설치**를 선택합니다.
-    7. 이제 **Xamarin.Azure.NotificationHubs.Android**를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android**를 선택합니다. 그런 후 **설치**를 선택합니다.
+    6. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging** 을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging** 을 선택합니다. 그런 후 **설치** 를 선택합니다.
+    7. 이제 **Xamarin.Azure.NotificationHubs.Android** 를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android** 를 선택합니다. 그런 후 **설치** 를 선택합니다.
 
 ### <a name="add-the-google-services-json-file"></a>Google Services JSON 파일 추가
 
 1. Google Firebase 콘솔에서 다운로드한 `google-services.json`을 프로젝트 폴더로 복사합니다.
 2. 프로젝트에 `google-services.json`을 추가합니다.
 3. **솔루션 탐색기** 창에서 `google-services.json`을 선택합니다.
-4. **속성** 창에서 빌드 작업을 **GoogleServicesJson**으로 설정합니다. **GoogleServicesJson**이 표시되지 않으면 Visual Studio를 닫았다가 다시 시작한 후 프로젝트를 다시 열고 다시 시도하세요.
+4. **속성** 창에서 빌드 작업을 **GoogleServicesJson** 으로 설정합니다. **GoogleServicesJson** 이 표시되지 않으면 Visual Studio를 닫았다가 다시 시작한 후 프로젝트를 다시 열고 다시 시도하세요.
 
     ![GoogleServicesJson 빌드 작업](./media/partner-xamarin-notification-hubs-android-get-started/google-services-json-build-action.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "92318265"
     </receiver>
     ```
 
-2. **애플리케이션 요소 앞**에 다음 명령문을 추가합니다.
+2. **애플리케이션 요소 앞** 에 다음 명령문을 추가합니다.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -135,9 +135,9 @@ ms.locfileid: "92318265"
 
 3. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
 
-   * **연결 문자열 수신 대기**: [Azure Portal]의 대시보드에서 **연결 문자열 보기**를 선택합니다. 이 값에 대한 `DefaultListenSharedAccessSignature` 연결 문자열을 복사합니다.
-   * **허브 이름**: [Azure Portal]의 허브 이름입니다. 예를 들어 *mynotificationhub2*입니다.
-4. **솔루션 탐색기** 창에서 **프로젝트**를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 다음, **클래스**를 선택합니다.
+   * **연결 문자열 수신 대기** : [Azure Portal]의 대시보드에서 **연결 문자열 보기** 를 선택합니다. 이 값에 대한 `DefaultListenSharedAccessSignature` 연결 문자열을 복사합니다.
+   * **허브 이름** : [Azure Portal]의 허브 이름입니다. 예를 들어 *mynotificationhub2* 입니다.
+4. **솔루션 탐색기** 창에서 **프로젝트** 를 마우스 오른쪽 단추로 클릭하고 **추가** 를 선택한 다음, **클래스** 를 선택합니다.
 5. Xamarin 프로젝트에 대해 `Constants.cs` 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
     ```csharp
@@ -162,7 +162,7 @@ ms.locfileid: "92318265"
     internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
 
-8. 다음 메서드를 MainActivity 클래스에 추가합니다. 디바이스에서 **Google Play 서비스**를 사용할 수 있는지 확인합니다.
+8. 다음 메서드를 MainActivity 클래스에 추가합니다. 디바이스에서 **Google Play 서비스** 를 사용할 수 있는지 확인합니다.
 
     ```csharp
     public bool IsPlayServicesAvailable()
@@ -313,8 +313,8 @@ ms.locfileid: "92318265"
             Log.Debug(TAG, $"Successful registration of ID {regID}");
         }
     ```
-1. 프로젝트를 **빌드**합니다.
-1. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
+1. 프로젝트를 **빌드** 합니다.
+1. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행** 합니다.
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure Portal에서 테스트 알림 전송
 
