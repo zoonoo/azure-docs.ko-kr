@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d9a842af5e1d3fac73515d96644bef250d7d0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213485"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334572"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -206,62 +206,29 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>Delete 문에 대한 ANSI 조인 대체
+## <a name="ansi-join-replacement-for-merge"></a>병합을 위한 ANSI 조인 대체 
 
-경우에 따라 데이터를 삭제 하는 가장 좋은 방법은 CTAS를 사용 하는 것입니다 `DELETE` . 특히 ANSI 조인 구문을 사용 하는 문의 경우입니다. Synapse SQL은 문의 절에서 ANSI 조인을 지원 하지 않기 때문입니다 `FROM` `DELETE` . 데이터를 삭제 하는 대신 유지 하려는 데이터를 선택 합니다.
-
-다음은 변환 된 문의 예입니다 `DELETE` .
+Azure Synapse Analytics에서 대상으로 일치 하지 않는 [병합](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (미리 보기)을 사용 하려면 대상이 해시 분산 테이블 이어야 합니다.  사용자는 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) 또는 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) 와 함께 ANSI JOIN을 사용 하 여 다른 테이블과의 조인 결과에 따라 대상 테이블 데이터를 수정할 수 있습니다.  다음은 예제입니다.
 
 ```sql
-CREATE TABLE dbo.DimProduct_upsert
-WITH
-(   Distribution=HASH(ProductKey)
-,   CLUSTERED INDEX (ProductKey)
-)
-AS -- Select Data you want to keep
-SELECT p.ProductKey
-, p.EnglishProductName
-,  p.Color
-FROM  dbo.DimProduct p
-RIGHT JOIN dbo.stg_DimProduct s
-ON p.ProductKey = s.ProductKey;
+CREATE TABLE dbo.Table1   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+CREATE TABLE dbo.Table2   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+INSERT INTO dbo.Table1 VALUES(1, 10.0);  
+INSERT INTO dbo.Table2 VALUES(1, 0.0);  
+GO  
+UPDATE dbo.Table2   
+SET dbo.Table2.ColB = dbo.Table2.ColB + dbo.Table1.ColB  
+FROM dbo.Table2   
+    INNER JOIN dbo.Table1   
+    ON (dbo.Table2.ColA = dbo.Table1.ColA);  
+GO  
+SELECT ColA, ColB   
+FROM dbo.Table2;
 
-RENAME OBJECT dbo.DimProduct TO DimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
-```
-
-## <a name="replace-merge-statements"></a>Merge 문 대체
-
-CTAS를 사용 하 여 merge 문을 최소한 부분적으로 바꿀 수 있습니다. 및을 단일 문으로 결합할 수 있습니다 `INSERT` `UPDATE` . 삭제 된 레코드는 모두 `SELECT` 결과에서 생략 하도록 문에서 제한 되어야 합니다.
-
-다음은에 대 한 예제입니다 `UPSERT` .
-
-```sql
-CREATE TABLE dbo.[DimProduct_upsert]
-WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED INDEX ([ProductKey])
-)
-AS
--- New rows and new versions of rows
-SELECT s.[ProductKey]
-, s.[EnglishProductName]
-, s.[Color]
-FROM      dbo.[stg_DimProduct] AS s
-UNION ALL  
--- Keep rows that are not being touched
-SELECT      p.[ProductKey]
-, p.[EnglishProductName]
-, p.[Color]
-FROM      dbo.[DimProduct] AS p
-WHERE NOT EXISTS
-(   SELECT  *
-    FROM    [dbo].[stg_DimProduct] s
-    WHERE   s.[ProductKey] = p.[ProductKey]
-);
-
-RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>데이터 형식 및 출력의 null 허용 여부를 명시적으로 지정

@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 98b8d8222ed87eebc24e97caccf3414a11c168a2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319884"
+ms.locfileid: "93334542"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Cosmos DB에 대 한 Azure Synapse 링크](synapse-link.md) 는 Azure Cosmos DB에서 작업 데이터에 대해 거의 실시간 분석을 실행할 수 있게 해 주는 클라우드 기본 HTAP (하이브리드 트랜잭션 및 분석 처리) 기능입니다. Synapse Link를 통해 Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
 

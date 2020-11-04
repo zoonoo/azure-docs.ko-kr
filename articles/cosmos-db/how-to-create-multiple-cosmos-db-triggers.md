@@ -3,16 +3,17 @@ title: Cosmos DB에 대해 독립적인 Azure Functions 트리거를 여러 개 
 description: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 구성하여 이벤트 기반 아키텍처를 만드는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14c18d0cae335f96cc2d95c79bcf39bf85ef6a2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336693"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

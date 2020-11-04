@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360755"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336683"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -24,37 +24,38 @@ ms.locfileid: "91360755"
 
 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
 |    오프 라인 상태에서 지원 되는 로캘 목록을 가져옵니다.              |    GET       |    speechtotext/v 3.0//및 로캘    |
 |    ID로 식별 되는 기록의 변경 가능한 세부 정보를 업데이트 합니다.    |    패치     |    speechtotext/v 3.0//{id}       |
-|    지정 된 기록 작업을 삭제 합니다.                                 |    Delete    |    speechtotext/v 3.0//{id}       |
+|    지정 된 기록 작업을 삭제 합니다.                                 |    DELETE    |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록을 가져옵니다.                        |    GET       |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록의 결과 파일을 가져옵니다.    |    GET       |    speechtotext/v 3.0//{id}/파일 |
 
 [Swagger 문서로](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)제공 되는 자세한 API를 검토 하 고 테스트할 수 있습니다.
 
-이 API에는 사용자 지정 끝점이 필요 하지 않으며 동시성 요구 사항이 없습니다.
-
 일괄 처리 작업은 최상의 노력으로 예약 됩니다.
 작업이 실행 중 상태로 변경 되는 경우를 예측할 수 없지만 일반적인 시스템 로드에서 몇 분 내에 발생 해야 합니다. 실행 중 상태가 되 면 기록을 오디오 런타임 재생 속도 보다 빠르게 수행 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.md#try-the-speech-service-for-free)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
 >[!NOTE]
-> 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 무료 구독 키 (F0)가 작동 하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
+> 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
 
 모델을 사용자 지정 하려는 경우 [음향 사용자 지정](how-to-customize-acoustic-models.md) 및 [언어 사용자 지정](how-to-customize-language-model.md)의 단계를 따릅니다. 일괄 처리에 생성 된 모델을 사용 하려면 모델 위치가 필요 합니다. 모델 (속성)의 세부 정보를 검사할 때 모델 위치를 검색할 수 있습니다 `self` . 배치 기록 서비스에는 배포 된 사용자 지정 끝점이 *필요 하지 않습니다* .
+
+>[!NOTE]
+> REST API의 일부로 일괄 처리에는 [할당량 및 제한](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)집합이 있으며이를 검토 하는 것이 좋습니다. 일괄 처리 기록을 최대한 활용 하 여 많은 수의 오디오 파일을 효율적으로 높여줄 하는 것이 좋습니다. 항상 요청당 여러 파일을 보내거나 오디오 파일이 있는 Blob Storage 컨테이너를 높여줄으로 이동 하는 것이 좋습니다. 서비스는 파일을 동시에 높여줄 하 여 시간을 단축 시킵니다. 단일 요청에서 여러 파일을 사용 하는 것은 매우 간단 하 고 간단 합니다. [구성](#configuration) 섹션을 참조 하세요. 
 
 ## <a name="batch-transcription-api"></a>Batch Transcription API
 
 일괄 처리 기록 API는 다음과 같은 형식을 지원 합니다.
 
-| 형식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
+| 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
@@ -63,14 +64,18 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 스테레오 오디오 스트림의 경우 기록 중 왼쪽 채널과 오른쪽 채널이 분할 됩니다. 각 채널에 대해 JSON 결과 파일이 생성 되 고 있습니다.
 정렬 된 최종 성적 증명서를 만들려면 utterance 생성 된 타임 스탬프를 사용 합니다.
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
-구성 매개 변수는 JSON (하나 이상의 개별 파일)으로 제공 됩니다.
+구성 매개 변수는 JSON으로 제공 됩니다.
+
+**하나 이상의 개별 파일을 찍으면 되므로 간편 합니다.** 높여줄에 대 한 파일이 두 개 이상 있는 경우 하나의 요청으로 여러 파일을 보내는 것이 좋습니다. 다음 예제에서는 세 개의 파일을 사용 합니다.
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 }
 ```
 
-구성 매개 변수는 JSON으로 제공 됩니다 (전체 저장소 컨테이너 처리).
+**전체 저장소 컨테이너 처리:**
 
 ```json
 {
@@ -93,12 +98,14 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 }
 ```
 
-다음 JSON은 일괄 처리 기록에 사용할 사용자 지정 학습 된 모델을 지정 합니다.
+**일괄 처리 기록에서 사용자 지정 학습 된 모델을 사용 합니다.** 예제는 세 개의 파일을 사용 합니다.
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -163,7 +170,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      선택 사항으로, 기본적으로 삭제 되지 않습니다. 기록을 완료 한 후 자동으로 삭제 하는 기간입니다. 는 `timeToLive` 대량 처리를 위해 대량 처리에서 유용 하 게 사용할 수 있도록 합니다 (예: `PT12H` 12 시간).
+      선택 사항으로, 기본적으로 삭제 되지 않습니다. 기록을 완료 한 후 자동으로 삭제 하는 기간입니다. 는 `timeToLive` 대량 처리를 수행 하는 데 유용 하 게 사용할 수 있습니다 (예: `PT12H` 12 시간).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -308,7 +315,7 @@ Diarization를 요청 하려면 `diarizationEnabled` `true` 아래에 HTTP 요�
 
 위의 요청에서 매개 변수가 나타내는 것 처럼 단어 수준 타임 스탬프를 사용 하도록 설정 해야 합니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. [Get-help](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)의 상태를 쿼리할 수 있습니다.
 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 결과가 최종 삭제 되도록 속성을 설정 합니다.
@@ -323,7 +330,80 @@ Diarization를 요청 하려면 `diarizationEnabled` `true` 아래에 HTTP 요�
 
 샘플 코드는 클라이언트를 설정 하 고 기록 요청을 제출 합니다. 그런 다음 상태 정보를 폴링하고 기록 진행률에 대 한 세부 정보를 출력 합니다.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 이전 호출에 대한 자세한 내용은 [Swagger 문서](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)를 참조하세요. 여기에 표시된 전체 샘플을 보려면 [GitHub](https://aka.ms/csspeech/samples)의 `samples/batch` 하위 디렉터리로 이동합니다.
 

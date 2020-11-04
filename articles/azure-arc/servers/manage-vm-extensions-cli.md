@@ -3,32 +3,19 @@ title: Azure CLI를 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure CLI를 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462959"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336748"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure VM 확장을 사용 하도록 설정
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Arc 사용 서버에서 지 원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 컴퓨터에 배포 하 고 제거 하는 방법을 보여 줍니다.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-[Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
-
-Azure CLI를 사용 하 여 Arc 사용 서버에서 관리 하는 하이브리드 서버에서 VM 확장을 관리 하기 전에 CLI 확장을 설치 해야 `ConnectedMachine` 합니다. Arc 사용 서버에서 다음 명령을 실행 합니다.
-
-```azurecli
-az extension add connectedmachine
-```
-
-설치가 완료 되 면 다음 메시지가 반환 됩니다.
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>확장 사용
 

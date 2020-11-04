@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 StartsWith
 description: Azure Cosmos DB의 SQL 시스템 함수 STARTSWITH에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c1ef1a815469e7fb2dd10311b92a28b828772be7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7217a8416354de260f958bfb5b980a8fdc391618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334925"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

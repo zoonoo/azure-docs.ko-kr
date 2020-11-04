@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 절 선택
 description: Azure Cosmos DB에 대 한 SQL SELECT 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 4d518461f8526a742a59d92140e2cf323e8bfc16
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 072e17b1c0ea312b4adfa1687e447fd2cadde233
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082558"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335446"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeToTicks
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeToTicks에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 47bf8a3a2ffe66e295fcb9d8a2a02891812c6813
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ab81e2b6ef19e7a5dacb80186c5364a5848077f6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095784"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336336"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

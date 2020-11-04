@@ -4,14 +4,15 @@ description: 일반적인 변경 피드 디자인 패턴 개요
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072997"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334609"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 디자인 패턴
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +40,7 @@ Azure Cosmos DB 변경 피드는 알림을 트리거하거나 특정 이벤트�
 Azure Cosmos DB 변경 피드는 IoT에 대한 실시간 스트림 처리 또는 운영 데이터에 대한 실시간 분석 처리에 사용할 수 있습니다.
 예를 들어 디바이스, 센서, 인프라 및 애플리케이션에서 이벤트 데이터를 수신하고 저장하며, [Spark](../hdinsight/spark/apache-spark-overview.md)를 사용하여 이러한 이벤트를 실시간으로 처리합니다. 다름 이미지에서는 변경 피드를 통해 Azure Cosmos DB를 사용하여 람다 아키텍처를 구현하는 방법을 보여줍니다.
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB 변경 피드를 사용하여 실시간 분석 및 이벤트 기반 컴퓨팅 시나리오 작동" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="수집 및 쿼리를 위한 Azure Cosmos DB 기반 lambda 파이프라인" border="false":::
 
 스트림 처리 구현에서 먼저 많은 양의 들어오는 데이터를 Azure Event Hub 또는 Apache Kafka와 같은 임시 메시지 큐로 받는 경우가 많습니다. 변경 피드는 Azure Cosmos DB의 기능으로 인해 짧은 읽기 및 쓰기 대기 시간을 보장하여 지속적인 높은 비율의 데이터 수집을 지원하는 좋은 대안입니다. 메시지 큐에 대한 Azure Cosmos DB 변경 피드의 이점은 다음과 같습니다.
 

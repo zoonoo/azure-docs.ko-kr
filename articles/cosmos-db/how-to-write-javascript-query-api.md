@@ -3,16 +3,17 @@ title: Azure Cosmos DB에서 JavaScript 쿼리 API를 사용 하 여 저장 프�
 description: Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법 알아보기
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2ad2b9bcbfdd4353c16d890d1857727b685a5e59
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 449af63ef3409b8c8173edef7a5d77074cca02b9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335843"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

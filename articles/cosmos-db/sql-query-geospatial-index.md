@@ -3,15 +3,16 @@ title: Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 인덱싱
 description: Azure Cosmos DB를 사용 하 여 공간 데이터 인덱싱
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: 347617fb13041a8fb31c28f259aaf761baae2e53
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336217"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 인덱싱
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

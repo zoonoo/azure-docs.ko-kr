@@ -3,15 +3,16 @@ title: Azure Cosmos DB 인덱싱 정책
 description: Azure Cosmos DB의 자동 인덱싱 및 성능 향상을 위해 기본 인덱싱 정책을 구성 하 고 변경 하는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285744"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335826"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimePart
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimePart에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095804"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336370"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +38,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| Second       | "second", "ss", "s"  |
+| 초       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |

@@ -3,17 +3,18 @@ title: 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB 데이터에 �
 description: Azure Cosmos DB에서 키에 액세스 하는 Azure Active Directory (Azure AD) 시스템 할당 관리 id (관리 서비스 id)를 구성 하는 방법에 대해 알아봅니다.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088576"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336591"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고 **Status** **저장** 을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="시스템 id 상태를 설정으로 보여 주는 스크린샷":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 액세스 권한 부여
 
@@ -59,19 +60,19 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 1. Azure Portal에 로그인 하 여 Azure Cosmos DB 계정으로 이동 합니다. **액세스 제어 (IAM)** 창을 열고 **역할 할당** 탭을 클릭 합니다.
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="액세스 제어 창과 역할 할당 탭을 보여 주는 스크린샷":::
 
 1. **추가** > **역할 할당 추가** 를 선택합니다.
 
 1. **역할 할당 추가** 패널이 오른쪽에 열립니다.
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="역할 할당 추가 창을 보여 주는 스크린샷":::
 
    * **역할** : **DocumentDB 계정 참가자** 선택
    * 다음에 대 한 **액세스 할당** : **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱** 을 선택 합니다.
    * **선택** : **관리 되는 시스템 id** 를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="예제로 채워진 역할 할당 추가 창을 보여 주는 스크린샷":::
 
 1. 함수 앱을 선택한 후 **저장** 을 선택 합니다.
 
