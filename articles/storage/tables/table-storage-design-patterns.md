@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215606"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307473"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -22,7 +22,7 @@ ms.locfileid: "92215606"
 ![관련 데이터를 조회하려면](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/dn589782.aspx)을 사용하는 것입니다.  
+위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) 패턴에서 [구체화된 뷰 패턴](/previous-versions/msp-n-p/dn589782(v=pandp.10))을 사용하는 것입니다.  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>파티션 간 보조 인덱스 패턴
 서로 다른 **RowKey** 값(동일한 파티션에서)을 사용하여 각 엔터티의 여러 복사본을 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다. EGT를 사용하여 복사본 간의 업데이트를 일관성 있게 유지할 수 있습니다.  
@@ -35,7 +35,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 전자 메일 주소와 같은 다른 속성 값으로 기반으로 직원 엔터티를 찾을 수 있도록 하려면 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다. 또한 **RowKey** 와 다른 순서로 정렬된 직원 목록을 요청하는 옵션도 없습니다.  
 
 ### <a name="solution"></a>해결 방법
-보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **Rowkey**"empid_" 및 "email_"의 접두사 값을 사용 하면 전자 메일 주소 또는 직원 id의 범위를 사용 하 여 단일 직원 또는 직원 범위를 쿼리할 수 있습니다.  
+보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **Rowkey** "empid_" 및 "email_"의 접두사 값을 사용 하면 전자 메일 주소 또는 직원 id의 범위를 사용 하 여 단일 직원 또는 직원 범위를 쿼리할 수 있습니다.  
 
 ![직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -44,12 +44,12 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
 
-직원 엔터티 범위를 쿼리하는 경우 **RowKey**의 해당 접두사로 엔터티를 쿼리하여 직원 ID 순으로 정렬된 범위 또는 이메일 주소 순으로 정렬된 범위를 지정할 수 있습니다.  
+직원 엔터티 범위를 쿼리하는 경우 **RowKey** 의 해당 접두사로 엔터티를 쿼리하여 직원 ID 순으로 정렬된 범위 또는 이메일 주소 순으로 정렬된 범위를 지정할 수 있습니다.  
 
 * 영업 부서에서 직원 ID 범위가 000100~000199인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') 및 (RowKey ge 'empid_000100') 및 (RowKey le 'empid_000199')  
 * Sales 부서에서 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
+  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](/rest/api/storageservices/Query-Entities) 참조).  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -59,7 +59,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * EGT를 사용하여 엔터티의 두 복사본을 원자성으로 업데이트하는 방식으로 중복 엔터티를 서로 일관성 있게 유지할 수 있습니다. 이는 엔터티의 모든 복사본을 동일한 파티션에 저장해야 함을 의미합니다. 자세한 내용은 [엔터티 그룹 트랜잭션 사용](table-storage-design.md#entity-group-transactions)섹션을 참조하세요.  
 * **RowKey** 에 사용된 값은 각 엔터티마다 고유해야 합니다. 복합 키 값을 사용하는 것이 좋습니다.  
 * **RowKey** 의 숫자 값을 채우면(예: 직원 ID 000223) 상한 및 하한에 따라 올바르게 정렬 및 필터링됩니다.  
-* 엔터티의 모든 속성을 복제할 필요는 없습니다. 예를 들어 **RowKey**에서 이메일 주소를 사용하여 엔터티를 조회하는 쿼리에 직원의 나이가 필요 없는 경우 이러한 엔터티의 구조는 다음과 같을 수 있습니다.
+* 엔터티의 모든 속성을 복제할 필요는 없습니다. 예를 들어 **RowKey** 에서 이메일 주소를 사용하여 엔터티를 조회하는 쿼리에 직원의 나이가 필요 없는 경우 이러한 엔터티의 구조는 다음과 같을 수 있습니다.
 
    ![직원 엔터티 구조](media/storage-table-design-guide/storage-table-design-IMAGE08.png)
 
@@ -90,7 +90,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 이러한 엔터티에 대해 많은 양의 트랜잭션을 예상 하 고 Table service 클라이언트를 제한 하는 위험을 최소화 하려고 합니다.  
 
 ### <a name="solution"></a>해결 방법
-보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **PartitionKey** 및 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **PartitionKey**의 접두사 값 "empid_" 및 "email_"은 쿼리에 사용할 수 있는 인덱스를 구분할 수 있도록 해줍니다.  
+보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **PartitionKey** 및 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **PartitionKey** 의 접두사 값 "empid_" 및 "email_"은 쿼리에 사용할 수 있는 인덱스를 구분할 수 있도록 해줍니다.  
 
 ![기본 인덱스 및 보조 인덱스](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -100,12 +100,12 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * $filter=(PartitionKey eq 'empid_Sales') and (RowKey eq '000223')
 * $filter=(PartitionKey eq 'email_Sales') and (RowKey eq 'jonesj@contoso.com')  
 
-직원 엔터티 범위를 쿼리하는 경우 **RowKey**의 해당 접두사로 엔터티를 쿼리하여 직원 ID 순으로 정렬된 범위 또는 이메일 주소 순으로 정렬된 범위를 지정할 수 있습니다.  
+직원 엔터티 범위를 쿼리하는 경우 **RowKey** 의 해당 접두사로 엔터티를 쿼리하여 직원 ID 순으로 정렬된 범위 또는 이메일 주소 순으로 정렬된 범위를 지정할 수 있습니다.  
 
 * 직원 id를 사용 하 여 판매 부서에서 직원 id가 **000100** ~ **000199** 범위 내에 있는 모든 직원을 찾으려면 다음을 사용 합니다. $filter = (PartitionKey eq ' empid_Sales ') and (rowkey ge ' 000100 ') and (rowkey le ' 000199 ')  
 * Sales 부서에서 직원 이메일 주소순으로 정렬하여 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
+위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](/rest/api/storageservices/Query-Entities) 참조).  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -114,7 +114,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * Table Storage는 비교적 저렴하게 사용할 수 있으므로 중복 데이터 저장에 대한 비용 오버헤드가 주요 관심사여서는 안 됩니다. 그러나 항상 예상된 스토리지 요구 사항을 기반으로 디자인 비용을 평가하고, 클라이언트 애플리케이션에서 실행할 쿼리를 지원하는 데 필요한 경우에만 중복 엔터티를 추가해야 합니다.  
 * **RowKey** 에 사용된 값은 각 엔터티마다 고유해야 합니다. 복합 키 값을 사용하는 것이 좋습니다.  
 * **RowKey** 의 숫자 값을 채우면(예: 직원 ID 000223) 상한 및 하한에 따라 올바르게 정렬 및 필터링됩니다.  
-* 엔터티의 모든 속성을 복제할 필요는 없습니다. 예를 들어 **RowKey**에서 이메일 주소를 사용하여 엔터티를 조회하는 쿼리에 직원의 나이가 필요 없는 경우 이러한 엔터티의 구조는 다음과 같을 수 있습니다.
+* 엔터티의 모든 속성을 복제할 필요는 없습니다. 예를 들어 **RowKey** 에서 이메일 주소를 사용하여 엔터티를 조회하는 쿼리에 직원의 나이가 필요 없는 경우 이러한 엔터티의 구조는 다음과 같을 수 있습니다.
   
    ![직원 엔터티(보조 인덱스)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
@@ -154,16 +154,16 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 
 이 예제의 4단계에서는 직원을 **보관** 테이블에 삽입합니다. Blob service의 Blob 또는 파일 시스템의 파일에 직원을 추가할 수도 있습니다.  
 
 ### <a name="recovering-from-failures"></a>오류 복구
-작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 **4**단계 및 **5**단계의 작업은 *멱등원*이어야 하는 것이 중요합니다. Table service를 사용하는 경우 **4**단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, **5**단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 idempotent 작업을 사용해야 합니다.  
+작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 **4** 단계 및 **5** 단계의 작업은 *멱등원* 이어야 하는 것이 중요합니다. Table service를 사용하는 경우 **4** 단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, **5** 단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 idempotent 작업을 사용해야 합니다.  
 
-작업자 역할이 **6**단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지를 읽고 큐에서 제거 횟수를 확인 하는 방법에 대 한 자세한 내용은 [메시지 가져오기](https://msdn.microsoft.com/library/azure/dd179474.aspx)를 참조 하세요.  
+작업자 역할이 **6** 단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지를 읽고 큐에서 제거 횟수를 확인 하는 방법에 대 한 자세한 내용은 [메시지 가져오기](/rest/api/storageservices/Get-Messages)를 참조 하세요.  
 
 테이블 및 큐 서비스의 일부 오류는 일시적 오류이므로 클라이언트 애플리케이션에 이를 처리할 수 있는 적절한 재시도 논리가 있어야 합니다.  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
 
-* 이 솔루션은 트랜잭션 격리를 제공하지 않습니다. 예를 들어 작업자 역할이 **4**단계와 **5**단계 사이에 있을 때 클라이언트가 **현재** 및 **보관** 테이블을 읽으면 일관성 없는 데이터 뷰가 표시될 수 있습니다. 결국 데이터는 일관성 있게 유지됩니다.  
+* 이 솔루션은 트랜잭션 격리를 제공하지 않습니다. 예를 들어 작업자 역할이 **4** 단계와 **5** 단계 사이에 있을 때 클라이언트가 **현재** 및 **보관** 테이블을 읽으면 일관성 없는 데이터 뷰가 표시될 수 있습니다. 결국 데이터는 일관성 있게 유지됩니다.  
 * 결과적 일관성을 유지하려면 4단계와 5단계가 idempotent여야 합니다.  
 * 여러 큐 및 작업자 역할 인스턴스를 사용하여 솔루션을 확장할 수 있습니다.  
 
@@ -185,7 +185,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 
 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
 
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
-Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 자동으로 인덱싱합니다. 따라서 클라이언트 애플리케이션이 지점 쿼리를 사용하여 엔터티를 효율적으로 검색할 수 있습니다. 예를 들어 아래에 표시 된 테이블 구조를 사용 하는 경우 클라이언트 응용 프로그램은 부서 이름 및 직원 ID ( **PartitionKey** 및 **rowkey**)를 사용 하 여 개별 직원 엔터티를 효율적으로 검색할 수 있습니다.  
+Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 자동으로 인덱싱합니다. 따라서 클라이언트 애플리케이션이 지점 쿼리를 사용하여 엔터티를 효율적으로 검색할 수 있습니다. 예를 들어 아래에 표시 된 테이블 구조를 사용 하는 경우 클라이언트 응용 프로그램은 부서 이름 및 직원 ID ( **PartitionKey** 및 **rowkey** )를 사용 하 여 개별 직원 엔터티를 효율적으로 검색할 수 있습니다.  
 
 ![직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -200,7 +200,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 <u>옵션 #1: blob 저장소 사용</u>  
 
-첫 번째 옵션의 경우 모든 고유한 성에 대한 Blob을 만들고, 각 Blob에 해당 성을 가진 직원의 **PartitionKey**(부서) 및 **RowKey**(직원 ID) 값 목록을 저장합니다. 직원을 추가하거나 삭제할 때는 관련 Blob의 내용이 직원 엔터티와 결과적으로 일관성이 있어야 합니다.  
+첫 번째 옵션의 경우 모든 고유한 성에 대한 Blob을 만들고, 각 Blob에 해당 성을 가진 직원의 **PartitionKey** (부서) 및 **RowKey** (직원 ID) 값 목록을 저장합니다. 직원을 추가하거나 삭제할 때는 관련 Blob의 내용이 직원 엔터티와 결과적으로 일관성이 있어야 합니다.  
 
 <u>옵션 #2:</u> 동일한 파티션에 인덱스 엔터티 만들기  
 
@@ -208,12 +208,12 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 ![직원 인덱스 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
-**EmployeeIDs** 속성에는 **rowkey**에 저장 된 성을 가진 직원의 직원 id 목록이 포함 됩니다.  
+**EmployeeIDs** 속성에는 **rowkey** 에 저장 된 성을 가진 직원의 직원 id 목록이 포함 됩니다.  
 
 다음 단계에서는 두 번째 옵션을 사용하는 경우 새 직원을 추가할 때 따라야 하는 프로세스를 간략하게 설명합니다. 이 예에서는 Sales 부서에서 ID가 000152이 고 성이 last 인 직원을 추가 합니다.  
 
 1. **PartitionKey** 값 "Sales"와 **RowKey** 값 "Jones"를 사용하여 인덱스 엔터티를 검색합니다. 이 엔터티의 ETag를 2단계에서 사용하기 위해 저장합니다.  
-2. 새 직원 ID를 EmployeeIDs 필드의 목록에 추가하여 새 직원 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "000152")를 삽입하고 인덱스 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "Jones")를 업데이트하는 엔터티 그룹 트랜젝션(즉 배치 작업)을 만듭니다. 엔터티 그룹 트랜잭션에 대한 자세한 내용은 엔터티 그룹 트랜잭션을 참조하세요.  
+2. 새 직원 ID를 EmployeeIDs 필드의 목록에 추가하여 새 직원 엔터티( **PartitionKey** 값 "Sales" 및 **RowKey** 값 "000152")를 삽입하고 인덱스 엔터티( **PartitionKey** 값 "Sales" 및 **RowKey** 값 "Jones")를 업데이트하는 엔터티 그룹 트랜젝션(즉 배치 작업)을 만듭니다. 엔터티 그룹 트랜잭션에 대한 자세한 내용은 엔터티 그룹 트랜잭션을 참조하세요.  
 3. 낙관적 동시성 오류(다른 사람이 인덱스 엔터티를 방금 수정한 경우)로 인해 엔터티 그룹 트랜잭션에 실패한 경우 1단계부터 다시 시작해야 합니다.  
 
 두 번째 옵션을 사용하는 경우 이와 유사한 접근 방식을 사용하여 직원을 삭제할 수 있습니다. 직원의 성을 변경하는 것은 조금 더 복잡합니다. 세 엔터티, 즉 직원 엔터티, 이전 성의 인덱스 엔터티 및 새 성의 인덱스 엔터티를 업데이트하는 엔터티 그룹 트랜잭션를 실행해야 하기 때문입니다. 낙관적 동시성을 사용하여 업데이트를 수행하는 데 사용할 수 있는 ETag 값을 검색하려면 먼저 변경하기 전에 각 엔터티를 검색해야 합니다.  
@@ -231,7 +231,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ![별도 파티션의 직원 인덱스 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
-**EmployeeIDs** 속성에는 **rowkey**에 저장 된 성을 가진 직원의 직원 id 목록이 포함 됩니다.  
+**EmployeeIDs** 속성에는 **rowkey** 에 저장 된 성을 가진 직원의 직원 id 목록이 포함 됩니다.  
 
 세 번째 옵션을 사용하는 경우에는 인덱스 엔터티가 직원 엔터티와 별도의 파티션에 있기 때문에 EGT를 사용하여 일관성을 유지할 수 없습니다. 인덱스 엔터티와 직원 엔터티가 결과적으로 일관성이 있도록 해야 합니다.  
 
@@ -307,7 +307,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 ![직원 엔터티 구조의 솔루션](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
-이제 **RowKey**는 직원 ID와 검토 데이터의 연도로 구성된 복합 키이며 이 키를 사용하여 단일 엔터티에 대한 단일 요청으로 직원의 성과 및 검토 데이터를 검색할 수 있습니다.  
+이제 **RowKey** 는 직원 ID와 검토 데이터의 연도로 구성된 복합 키이며 이 키를 사용하여 단일 엔터티에 대한 단일 요청으로 직원의 성과 및 검토 데이터를 검색할 수 있습니다.  
 
 다음 예제에서는 특정 직원(예: Sales 부서의 직원 000123)에 대한 모든 검토 데이터를 검색할 수 있는 방법을 간략하게 설명합니다.  
 
@@ -316,7 +316,7 @@ $filter = (PartitionKey eq ' Sales ') and (RowKey ge ' empid_000123 ') and (RowK
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
 
-* **RowKey** 값을 쉽게 구문 분석할 수 있는 적절한 구분 기호 문자(예: **000123_2012**)를 사용해야 합니다.  
+* **RowKey** 값을 쉽게 구문 분석할 수 있는 적절한 구분 기호 문자(예: **000123_2012** )를 사용해야 합니다.  
 * 또한 이 엔터티를 동일한 직원에 대한 관련 데이터가 포함된 다른 엔터티와 동일한 파티션에 저장합니다. 이렇게 하면 EGT를 사용하여 강력한 일관성을 유지할 수 있습니다.
 * 이 패턴이 적절한지 확인하기 위해 데이터를 쿼리할 빈도를 고려해야 합니다.  예를 들어 검토 데이터에는 자주 액세스하지 않고 기본 직원 데이터에는 자주 액세스하는 경우 이를 별도의 엔터티로 유지해야 합니다.  
 
@@ -334,7 +334,7 @@ $filter = (PartitionKey eq ' Sales ') and (RowKey ge ' empid_000123 ') and (RowK
 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
 
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
-일반적으로 가장 최근에 만든 엔터티를 검색할 수 있습니다 (예: 직원이 제출한 가장 최근 비용 청구 10 개). 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  
+일반적으로 가장 최근에 만든 엔터티를 검색할 수 있습니다 (예: 직원이 제출한 가장 최근 비용 청구 10 개). 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n* 개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  
 
 ### <a name="solution"></a>해결 방법
 가장 최근 항목이 항상 테이블의 첫 번째 항목이 되도록 날짜/시간 역순으로 자연스럽게 정렬하는 **RowKey** 를 사용하여 엔터티를 정렬합니다.  
@@ -372,7 +372,7 @@ $filter = (PartitionKey eq ' Sales ') and (RowKey ge ' empid_000123 ') and (RowK
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
 대부분의 애플리케이션은 클라이언트 애플리케이션에서 더 이상 사용할 필요가 없거나 애플리케이션이 다른 스토리지 매체에 보관한 경우 이전 데이터를 삭제합니다. 일반적으로 이러한 데이터는 날짜로 식별합니다. 예를 들어 60일이 지난 모든 로그인 요청에 대한 레코드를 삭제해야 할 수 있습니다.  
 
-한 가지 가능한 디자인은 **RowKey**에서 로그인 요청 날짜 및 시간을 사용하는 것입니다.  
+한 가지 가능한 디자인은 **RowKey** 에서 로그인 요청 날짜 및 시간을 사용하는 것입니다.  
 
 ![로그인 시도 날짜 및 시간](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
@@ -464,7 +464,7 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
 개별 엔터티는 총 1MB가 넘는 데이터를 저장할 수 없습니다. 하나 이상의 속성에 엔터티의 총 크기가 이 값을 초과하게 만드는 값이 저장된 경우에는 Table service에 전체 엔터티를 저장할 수 없습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 하나 이상의 속성에 많은 데이터가 포함되어 있어 엔터티의 크기가 1MB를 초과하는 경우 Blob service에 데이터를 저장한 다음 엔터티의 속성에 해당 Blob의 주소를 저장할 수 있습니다. 예를 들어 직원의 사진을 Blob Storage에 저장하고 해당 사진의 링크를 직원 엔터티의 **사진** 속성에 저장할 수 있습니다.  
 
 ![사진 속성](media/storage-table-design-guide/storage-table-design-IMAGE25.png)
@@ -494,12 +494,12 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 
 ![엔터티 구조](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 다음 대체 엔터티 구조는 애플리케이션에서 이벤트를 기록할 때 특정 파티션의 핫스폿을 방지합니다.  
 
 ![대안 엔터티 구조](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
 
-이 예제에서는 **PartitionKey**와 **RowKey**가 복합 키입니다. **PartitionKey**는 부서 및 직원 ID를 모두 사용하여 여러 파티션 간에 로깅을 분산합니다.  
+이 예제에서는 **PartitionKey** 와 **RowKey** 가 복합 키입니다. **PartitionKey** 는 부서 및 직원 ID를 모두 사용하여 여러 파티션 간에 로깅을 분산합니다.  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -521,11 +521,11 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 일반적으로 Table service 대신 Blob service를 사용하여 로그 데이터를 저장해야 합니다.  
 
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
-로그 데이터의 일반적인 사용 사례는 특정 날짜/시간 범위의 선택적 로그 항목을 검색하는 것입니다. 예를 들어 애플리케이션이 특정 날짜의 15:04에서 15:06 사이에 기록한 모든 오류 및 중요 메시지를 찾을 수 있습니다. 로그 엔터티를 저장한 파티션을 확인하는 데에는 로그 메시지의 날짜 및 시간을 사용하지 않습니다. 메시지의 날짜 및 시간을 사용하면 지정된 시간에 모든 로그 엔터티가 동일한 **PartitionKey** 값을 공유하기 때문에 핫 파티션이 발생합니다([앞에 추가/뒤에 추가 안티패턴](#prepend-append-anti-pattern) 섹션 참조). 예를 들어 로그 메시지에 대한 다음 엔터티 스키마의 경우 애플리케이션이 현재 날짜 및 시간에 대한 모든 로그 메시지를 파티션에 쓰기 때문에 핫 파티션이 발생합니다.  
+로그 데이터의 일반적인 사용 사례는 특정 날짜/시간 범위의 선택적 로그 항목을 검색하는 것입니다. 예를 들어 애플리케이션이 특정 날짜의 15:04에서 15:06 사이에 기록한 모든 오류 및 중요 메시지를 찾을 수 있습니다. 로그 엔터티를 저장한 파티션을 확인하는 데에는 로그 메시지의 날짜 및 시간을 사용하지 않습니다. 메시지의 날짜 및 시간을 사용하면 지정된 시간에 모든 로그 엔터티가 동일한 **PartitionKey** 값을 공유하기 때문에 핫 파티션이 발생합니다( [앞에 추가/뒤에 추가 안티패턴](#prepend-append-anti-pattern) 섹션 참조). 예를 들어 로그 메시지에 대한 다음 엔터티 스키마의 경우 애플리케이션이 현재 날짜 및 시간에 대한 모든 로그 메시지를 파티션에 쓰기 때문에 핫 파티션이 발생합니다.  
 
 ![로그 메시지 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
-이 예제에서 **RowKey**는 로그 메시지가 날짜/시간 순으로 정렬되어 저장되도록 해당 로그 메시지의 날짜 및 시간을 포함하며, 여러 로그 메시지에서 동일한 날짜 및 시간을 공유하는 경우의 메시지 ID를 포함합니다.  
+이 예제에서 **RowKey** 는 로그 메시지가 날짜/시간 순으로 정렬되어 저장되도록 해당 로그 메시지의 날짜 및 시간을 포함하며, 여러 로그 메시지에서 동일한 날짜 및 시간을 공유하는 경우의 메시지 ID를 포함합니다.  
 
 또 다른 접근 방식은 애플리케이션이 파티션 범위에 메시지를 쓰도록 하는 **PartitionKey** 를 사용하는 것입니다. 예를 들어 로그 메시지의 원본이 여러 파티션 간에 메시지를 분산할 수 있는 방법을 제공하는 경우 다음 엔터티 스키마를 사용할 수 있습니다.  
 
@@ -572,7 +572,7 @@ if (retrieveResult.Result != null)
 }  
 ```
 
-이 예제에서는 검색할 엔터티의 형식이 **EmployeeEntity**인 것으로 가정합니다.  
+이 예제에서는 검색할 엔터티의 형식이 **EmployeeEntity** 인 것으로 가정합니다.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>LINQ를 사용하여 여러 엔터티 검색
 LINQ를 사용 하 여 Microsoft Azure Cosmos 테이블 표준 라이브러리로 작업할 때 Table service에서 여러 엔터티를 검색할 수 있습니다. 
@@ -593,7 +593,7 @@ Employeetable&lt는 TableQuery를 반환 하는 CreateQuery () 메서드를 구�
 
 **Where** 절이 있는 쿼리를 지정 하 여 여러 엔터티를 검색 하 고 달성할 수 있습니다. 테이블 스캔을 방지하려면 항상 where 절에 **PartitionKey** 값을 포함해야 하며, 가능한 경우 **RowKey** 값을 포함하여 테이블 및 파티션 스캔을 방지해야 합니다. 테이블 서비스에서는 where 절에 사용할 수 있는 비교 연산자 집합(보다 큼, 보다 크거나 같음, 보다 작음, 보다 작거나 같음, 같음 및 같지 않음)이 제한되어 있습니다. 
 
-다음 C# 코드 조각은 영업 부서(**PartitionKey**에 부서 이름이 저장되어 있는 것으로 가정)에서 성이 "B"(**RowKey**에 성이 저장되어 있는 것으로 가정)로 시작하는 모든 직원을 찾습니다.  
+다음 C# 코드 조각은 영업 부서( **PartitionKey** 에 부서 이름이 저장되어 있는 것으로 가정)에서 성이 "B"( **RowKey** 에 성이 저장되어 있는 것으로 가정)로 시작하는 모든 직원을 찾습니다.  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -606,7 +606,7 @@ var query = (from employee in employeeQuery
 var employees = query.Execute();  
 ```
 
-더 나은 성능을 위해 쿼리에서 **RowKey** 및 **PartitionKey**를 둘 다 지정합니다.  
+더 나은 성능을 위해 쿼리에서 **RowKey** 및 **PartitionKey** 를 둘 다 지정합니다.  
 
 다음 코드 샘플에서는 LINQ 구문을 사용 하지 않고 동일한 기능을 보여 줍니다.  
 
@@ -634,7 +634,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 이러한 시나리오에서는 항상 애플리케이션의 성능을 철저히 테스트해야 합니다.  
 
-테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table 서비스는 클라이언트 애플리케이션이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대 한 자세한 내용은 [쿼리 제한 시간 및 페이지 매김](https://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조 하세요.  
+테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table 서비스는 클라이언트 애플리케이션이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대 한 자세한 내용은 [쿼리 제한 시간 및 페이지 매김](/rest/api/storageservices/Query-Timeout-and-Pagination)을 참조 하세요.  
 
 Storage 클라이언트 라이브러리를 사용하는 경우 Table service에서 엔터티를 반환할 때 연속 토큰을 자동으로 처리할 수 있습니다. Storage 클라이언트 라이브러리를 사용하는 다음 C# 코드 예제는 테이블 서비스가 응답으로 반환하는 연속 토큰을 자동으로 처리합니다.  
 
@@ -675,7 +675,7 @@ do
 * 연속 토큰을 영구 스토리지에 직렬화하여 애플리케이션의 작동이 중단된 경우에도 작업을 계속할 수 있습니다.  
 
 > [!NOTE]
-> 일반적으로 연속 토큰은 1,000개(이보다 적을 수도 있음)의 엔터티가 포함된 세그먼트를 반환합니다. 이는 **수행**을 사용해 쿼리에서 반환되는 항목 수를 제한하여 조회 조건과 일치하는 첫 번째 n개의 엔터티를 반환하도록 한 경우에도 마찬가지입니다. Table service는 나머지 엔터티를 검색할 수 있도록 연속 토큰과 함께 n개 미만의 엔터티가 포함된 세그먼트를 반환할 수 있습니다.  
+> 일반적으로 연속 토큰은 1,000개(이보다 적을 수도 있음)의 엔터티가 포함된 세그먼트를 반환합니다. 이는 **수행** 을 사용해 쿼리에서 반환되는 항목 수를 제한하여 조회 조건과 일치하는 첫 번째 n개의 엔터티를 반환하도록 한 경우에도 마찬가지입니다. Table service는 나머지 엔터티를 검색할 수 있도록 연속 토큰과 함께 n개 미만의 엔터티가 포함된 세그먼트를 반환할 수 있습니다.  
 > 
 > 
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>서버 쪽 프로젝션
-단일 엔터티는 최대 255개의 속성을 가질 수 있으며, 크기가 최대 1MB일 수 있습니다. 테이블을 쿼리하여 엔터티를 검색할 때 필요 없는 속성을 제외하여 데이터가 불필요하게 전송되는 것을 방지할 수 있습니다(이 경우 대기 시간이 단축되고 비용이 절감됨). 서버 쪽 프로젝션을 사용하여 필요한 속성만 전송할 수 있습니다. 다음 예제에서는 쿼리에서 선택한 엔터티에서 **Email** 속성만(**PartitionKey**, **RowKey**, **Timestamp** 및 **ETag**와 함께) 검색합니다.  
+단일 엔터티는 최대 255개의 속성을 가질 수 있으며, 크기가 최대 1MB일 수 있습니다. 테이블을 쿼리하여 엔터티를 검색할 때 필요 없는 속성을 제외하여 데이터가 불필요하게 전송되는 것을 방지할 수 있습니다(이 경우 대기 시간이 단축되고 비용이 절감됨). 서버 쪽 프로젝션을 사용하여 필요한 속성만 전송할 수 있습니다. 다음 예제에서는 쿼리에서 선택한 엔터티에서 **Email** 속성만( **PartitionKey** , **RowKey** , **Timestamp** 및 **ETag** 와 함께) 검색합니다.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ Storage 클라이언트 라이브러리에서 EGT를 실행할 때 발생하는 
 디자인이 클라이언트 애플리케이션에서 동시성 및 업데이트 작업을 처리하는 방법에 어떤 영향을 미치는지도 고려해야 합니다.  
 
 ### <a name="managing-concurrency"></a>동시성 관리
-기본적으로 클라이언트가 Table service에서 이러한 확인을 강제로 무시하도록 할 수도 있지만 Table service는 개별 엔터티 수준에서 **삽입**, **병합** 및 **삭제** 작업에 대한 낙관적 동시성 확인을 구현합니다. Table service에서 동시성을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage에서 동시성 관리](../../storage/common/storage-concurrency.md)를 참조하세요.  
+기본적으로 클라이언트가 Table service에서 이러한 확인을 강제로 무시하도록 할 수도 있지만 Table service는 개별 엔터티 수준에서 **삽입** , **병합** 및 **삭제** 작업에 대한 낙관적 동시성 확인을 구현합니다. Table service에서 동시성을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage에서 동시성 관리](../../storage/common/storage-concurrency.md)를 참조하세요.  
 
 ### <a name="merge-or-replace"></a>병합 또는 바꾸기
 **TableOperation** 클래스의 **바꾸기** 메서드는 항상 Table service의 전체 엔터티를 바꿉니다. 저장된 엔터티에 존재하는 속성을 포함하지 않으면 요청 시 저장된 엔터티에서 해당 속성이 제거됩니다. 저장된 엔터티에서 속성을 명시적으로 제거하지 않은 한 모든 속성을 요청에 포함해야 합니다.  
@@ -813,9 +813,9 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 </tr>
 </table>
 
-각 엔터티에 여전히 **PartitionKey**, **RowKey** 및 **Timestamp** 값이 있어야 하지만 다른 속성 집합은 원하는 대로 포함할 수 있습니다. 또한 해당 정보를 저장하도록 선택하지 않은 경우 엔터티 유형을 나타내는 항목이 없습니다. 엔터티 유형을 식별하는 두 가지 옵션이 있습니다.  
+각 엔터티에 여전히 **PartitionKey** , **RowKey** 및 **Timestamp** 값이 있어야 하지만 다른 속성 집합은 원하는 대로 포함할 수 있습니다. 또한 해당 정보를 저장하도록 선택하지 않은 경우 엔터티 유형을 나타내는 항목이 없습니다. 엔터티 유형을 식별하는 두 가지 옵션이 있습니다.  
 
-* **RowKey**(또는 **PartitionKey**) 앞에 엔터티 형식을 추가합니다. **RowKey** 값을 예로 들어 **EMPLOYEE_000123** 또는 **DEPARTMENT_SALES**하십시오.  
+* **RowKey** (또는 **PartitionKey** ) 앞에 엔터티 형식을 추가합니다. **RowKey** 값을 예로 들어 **EMPLOYEE_000123** 또는 **DEPARTMENT_SALES** 하십시오.  
 * 아래 표에 표시된 대로 별도의 속성을 사용하여 엔터티 유형을 기록합니다.  
 
 <table>
@@ -913,7 +913,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 </tr>
 </table>
 
-**RowKey**앞에 엔터티 유형을 추가하는 첫 번째 옵션은 유형이 서로 다른 두 엔터티의 키 값이 동일할 수 있는 경우에 유용합니다. 또한 이 옵션은 동일한 유형의 엔터티를 파티션에서 그룹화합니다.  
+**RowKey** 앞에 엔터티 유형을 추가하는 첫 번째 옵션은 유형이 서로 다른 두 엔터티의 키 값이 동일할 수 있는 경우에 유용합니다. 또한 이 옵션은 동일한 유형의 엔터티를 파티션에서 그룹화합니다.  
 
 이 아티클에 설명된 기술은 특히 [관계 모델링](table-storage-design-modeling.md) 아티클의 이 가이드 앞부분에 나오는 [상속 관계](table-storage-design-modeling.md#inheritance-relationships) 설명과 관련이 있습니다.  
 
@@ -927,7 +927,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 ### <a name="retrieving-heterogeneous-entity-types"></a>서로 다른 엔터티 유형 검색
 Storage 클라이언트 라이브러리를 사용하는 경우 여러 엔터티 유형으로 작업하는 세 가지 옵션이 있습니다.  
 
-특정 **RowKey** 및 **PartitionKey** 값과 함께 저장된 엔터티의 유형을 알고 있는 경우에는 유형이 **EmployeeEntity**인 엔터티를 검색하는 이전 두 예제([Storage 클라이언트 라이브러리를 사용하여 지점 쿼리 실행](#executing-a-point-query-using-the-storage-client-library) 및 [LINQ를 사용하여 여러 엔터티 검색](#retrieving-multiple-entities-using-linq))와 같이 엔터티를 검색할 때 엔터티 유형을 지정할 수 있습니다.  
+특정 **RowKey** 및 **PartitionKey** 값과 함께 저장된 엔터티의 유형을 알고 있는 경우에는 유형이 **EmployeeEntity** 인 엔터티를 검색하는 이전 두 예제( [Storage 클라이언트 라이브러리를 사용하여 지점 쿼리 실행](#executing-a-point-query-using-the-storage-client-library) 및 [LINQ를 사용하여 여러 엔터티 검색](#retrieving-multiple-entities-using-linq))와 같이 엔터티를 검색할 때 엔터티 유형을 지정할 수 있습니다.  
 
 두 번째 옵션은 구체적 POCO 엔터티 형식 대신 **DynamicTableEntity** 형식(속성 모음)을 사용하는 것입니다(이 옵션을 사용하면 엔터티를 .NET 형식으로 직렬화 및 역직렬화할 필요가 없으므로 성능이 향상될 수도 있습니다). 다음 C# 코드는 잠재적으로 테이블에서 다양한 형식의 여러 엔터티를 검색하지만 모든 엔터티를 **DynamicTableEntity** 인스턴스로 반환합니다. 그런 다음 **EntityType** 속성을 사용하여 각 엔터티의 형식을 확인합니다.  
 

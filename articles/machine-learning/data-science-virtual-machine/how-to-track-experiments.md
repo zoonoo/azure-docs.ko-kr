@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254803"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307453"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
@@ -26,11 +26,11 @@ ms.locfileid: "89254803"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace) .
+* [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](../how-to-manage-workspace.md#create-a-workspace) .
 
 ## <a name="create-a-new-notebook"></a>새 Notebook 만들기
 
-Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되며 **azureml_py36_ \* ** conda 환경에서 액세스할 수 있습니다. Jupyterlab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
+Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되어 있으며 * *azureml_py36_ \** _ conda 환경에서 액세스할 수 있습니다. Jupyterlab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
 
 ![커널 선택](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ with mlflow.start_run():
 
 __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 합니다.
 
-* 계산 이름
+_ 계산 이름
 * Kubernetes Service-새로 만들기를 선택 합니다.
 * 지역 선택
 * VM 크기를 선택 합니다 .이 자습서의 목적에는 Standard_D3_v2의 기본값 만으로도 충분 합니다.
@@ -145,7 +145,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 * 노드 수는 __1__ 과 같아야 합니다.
 * 네트워크 구성-기본
 
-그런 다음 __만들기__를 클릭 합니다.
+그런 다음 __만들기__ 를 클릭 합니다.
 
 ![계산 세부 정보](./media/how-to-track-experiments/mlflow-experiments-7.png)
 
@@ -159,7 +159,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 코드 배포 안 함은 특정 점수 매기기 스크립트를 지정 하지 않고도 모델 아티팩트에서 바로 배포할 수 있음을 의미 합니다.
 
-당뇨병 모델을 배포 하려면 [Azure Machine Learning Studio](https://ml.azure.com) 의 왼쪽 메뉴로 이동 하 여 __모델__을 선택 합니다. 다음으로 등록 된 diabetes_model를 클릭 합니다.
+당뇨병 모델을 배포 하려면 [Azure Machine Learning Studio](https://ml.azure.com) 의 왼쪽 메뉴로 이동 하 여 __모델__ 을 선택 합니다. 다음으로 등록 된 diabetes_model를 클릭 합니다.
 
 ![모델 선택](./media/how-to-track-experiments/mlflow-experiments-3.png)
 
@@ -167,7 +167,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 ![배포](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-1 단계에서 만든 유추 클러스터 (Azure Kubernetes Service)에 모델을 배포 합니다. 서비스 이름을 제공 하 여 아래 세부 정보를 입력 하 고 1 단계에서 만든 AKS 계산 클러스터의 이름을 입력 합니다. 또한 __CPU 예약 용량__ 을 1 (0.1에서) 및 __메모리 예약 용량__ 을 1 (0.5)로 늘리는 것이 좋습니다. __고급__ 을 클릭 하 고 세부 정보를 입력 하 여이를 늘릴 수 있습니다. 그런 다음 __배포__를 클릭 합니다.
+1 단계에서 만든 유추 클러스터 (Azure Kubernetes Service)에 모델을 배포 합니다. 서비스 이름을 제공 하 여 아래 세부 정보를 입력 하 고 1 단계에서 만든 AKS 계산 클러스터의 이름을 입력 합니다. 또한 __CPU 예약 용량__ 을 1 (0.1에서) 및 __메모리 예약 용량__ 을 1 (0.5)로 늘리는 것이 좋습니다. __고급__ 을 클릭 하 고 세부 정보를 입력 하 여이를 늘릴 수 있습니다. 그런 다음 __배포__ 를 클릭 합니다.
 
 ![배포 세부 정보](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
@@ -177,7 +177,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 ![모델 사용](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-배포 상태가 __정상__으로 __전환__ 되는 것으로 표시 되어야 합니다. 또한이 세부 정보 섹션에서는 응용 프로그램 개발자가 ML 모델을 앱에 통합 하는 데 사용할 수 있는 REST 끝점 및 Swagger Url을 제공 합니다.
+배포 상태가 __정상__ 으로 __전환__ 되는 것으로 표시 되어야 합니다. 또한이 세부 정보 섹션에서는 응용 프로그램 개발자가 ML 모델을 앱에 통합 하는 데 사용할 수 있는 REST 끝점 및 Swagger Url을 제공 합니다.
 
 [Postman](https://www.postman.com/)을 사용 하 여 끝점을 테스트 하거나 AzureML SDK를 사용할 수 있습니다.
 
@@ -204,4 +204,4 @@ print(output)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AzureML에 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where) 에 대 한 자세한 정보
+* [AzureML에 모델 배포](../how-to-deploy-and-where.md) 에 대 한 자세한 정보

@@ -1,6 +1,6 @@
 ---
 title: 연결 문제 해결
-description: Synapse SQL 풀의 연결 문제를 해결합니다.
+description: 전용 SQL 풀의 연결 문제 해결
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362183"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308376"
 ---
-# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Synapse SQL 풀의 연결 문제 해결
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>전용 SQL 풀의 연결 문제 해결
 
-이 문서에서는 SQL 풀 데이터베이스 연결과 관련된 일반적인 문제 해결 방법을 보여줍니다.
+이 문서에서는 전용 SQL 풀 데이터베이스에 연결 하는 방법에 대 한 일반적인 문제 해결 방법을 보여 줍니다.
 
 ## <a name="check-service-availability"></a>서비스 가용성 확인
 
-서비스를 사용할 수 있는지 확인합니다. Azure Portal에서 연결하려는 SQL 풀로 이동합니다. 왼쪽 TOC 패널에서 **문제 진단 및 해결**을 클릭합니다.
+서비스를 사용할 수 있는지 확인합니다. Azure Portal에서 연결 하려는 전용 SQL 풀로 이동 합니다. 왼쪽 TOC 패널에서 **문제 진단 및 해결** 을 클릭합니다.
 
 ![리소스 상태 선택](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-SQL 풀의 상태는 여기에 표시됩니다. 서비스가 **사용 가능**으로 표시되지 않는 경우 추가 단계를 확인합니다.
+전용 SQL 풀의 상태는 여기에 표시 됩니다. 서비스가 **사용 가능** 으로 표시되지 않는 경우 추가 단계를 확인합니다.
 
 ![서비스 사용 가능](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-리소스 상태에서 SQL 풀 인스턴스가 일시 중지 또는 크기 조정되는 것으로 표시되는 경우에는 지침에 따라 인스턴스를 다시 시작합니다.
+리소스 상태에서 전용 SQL 풀 인스턴스가 일시 중지 또는 확장 됨으로 표시 되는 경우 지침에 따라 인스턴스를 다시 시작 합니다.
 
 ![일시 중지 하거나 크기를 조정 하는 SQL data warehouse의 인스턴스를 보여 주는 스크린샷](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Resource Health에 대 한 추가 정보는 여기에서 찾을 수 있습니다.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>일시 중지 또는 크기 조정 작업 확인
 
-포털을 확인하여 SQL 풀 인스턴스가 일시 중지되었거나 크기 조정되었는지 확인합니다.
+포털을 확인 하 여 전용 SQL 풀 인스턴스가 일시 중지 되었거나 크기 조정 되었는지 확인 합니다.
 
 ![스크린샷은 데이터 웨어하우스가 일시 중지 되었는지 여부를 확인 하는 방법을 보여 줍니다.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-서비스를 일시 중지하거나 크기를 조정하는 것이 확인되는 경우 유지 관리 일정 중이 아닌지 확인합니다. SQL 풀 *개요*의 포털에서 선택한 유지 관리 일정이 표시됩니다.
+서비스를 일시 중지하거나 크기를 조정하는 것이 확인되는 경우 유지 관리 일정 중이 아닌지 확인합니다. 전용 SQL 풀에 대 한 포털 *개요* 에서 선택 된 유지 관리 일정을 볼 수 있습니다.
 
 ![유지 관리 일정 개요](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-그렇지 않으면 IT 관리자에게 문의하여 이 유지 관리가 예약된 이벤트가 아닌지 확인합니다. SQL 풀 인스턴스를 다시 시작하려면 [다음 단계](pause-and-resume-compute-portal.md)를 수행합니다.
+그렇지 않으면 IT 관리자에게 문의하여 이 유지 관리가 예약된 이벤트가 아닌지 확인합니다. 전용 SQL 풀 인스턴스를 다시 시작 하려면 [다음 단계](pause-and-resume-compute-portal.md)를 수행 합니다.
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL 풀 데이터베이스는 포트 1433을 통해 통신합니다.  회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않는 한 [논리 서버](../../azure-sql/database/logical-servers.md) 에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)에서 찾을 수 있습니다.
+전용 SQL 풀 데이터베이스는 1433 포트를 통해 통신 합니다.회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않는 한 [논리 서버](../../azure-sql/database/logical-servers.md) 에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)에서 찾을 수 있습니다.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/Service Endpoint 설정 확인
 
@@ -61,7 +61,7 @@ SQL 풀 데이터베이스는 포트 1433을 통해 통신합니다.  회사
 
 ### <a name="software"></a>소프트웨어
 
-최신 도구를 사용하여 SQL 풀에 연결하고 있는지 확인합니다.
+전용 SQL 풀에 연결 하는 데 최신 도구를 사용 하 고 있는지 확인 합니다.
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>일시적 연결 문제
 
-대기 중인 요청 수가 많은 서버에서 부하가 과도하게 발생하는지 확인합니다. 추가 리소스를 위해 SQL 풀을 확장해야 할 수도 있습니다.
+대기 중인 요청 수가 많은 서버에서 부하가 과도하게 발생하는지 확인합니다. 추가 리소스에 대 한 전용 SQL 풀을 확장 해야 할 수도 있습니다.
 
 ## <a name="common-error-messages"></a>일반적인 오류 메시지
 

@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308784"
 ---
 # <a name="publisher-verification"></a>게시자 확인
 
-게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
+게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
 
 다음과 같이 파란색 "확인" 배지가 Azure AD 동의 확인 프롬프트 및 다른 화면에 표시됩니다. ![동의 확인 프롬프트](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +37,7 @@ ms.locfileid: "92363422"
 
 - **브랜드 이미지 향상** - Azure AD [동의 확인 프롬프트](application-consent-experience.md), 엔터프라이즈 앱 페이지, 최종 사용자 및 관리자가 사용하는 추가 UX 화면에 "확인" 배지가 표시됩니다. 
 
-- 보다 **원활한 엔터프라이즈 도입**-관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
+- 보다 **원활한 엔터프라이즈 도입** -관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
 
 > [!NOTE]
 > 11 월 2020부터 최종 사용자는 확인 된 게시자 없이는 새로 등록 된 다중 테 넌 트 앱에 더 이상 동의를 부여할 수 없습니다. 이는 2020 년 11 월 8 일 이후에 등록 된 앱에 적용 되 고, OAuth 2.0을 사용 하 여 기본 로그인 및 읽기 사용자 프로필 이상의 권한을 요청 하 고, 앱이 등록 된 것과 다른 테 넌 트의 사용자 동의를 요청 합니다. 승인 화면에 표시 되는 경고는 사용자에 게 이러한 앱이 위험 하 고 확인 되지 않은 게시자의 것인지를 알려 줍니다.    

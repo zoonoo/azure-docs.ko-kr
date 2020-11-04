@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780787"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308830"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -131,7 +131,7 @@ Azure SQL Database 리소스 관리는 본질적으로 계층적입니다. 위�
 
 데이터 IO 거 버 넌 스는 데이터베이스의 데이터 파일에 대 한 읽기 및 쓰기 물리적 IO를 제한 하는 데 사용 되는 Azure SQL Database의 프로세스입니다. 각 서비스 수준에 대해 IOPS 제한이 설정 되어 "잡음이 있는 환경" 효과를 최소화 하 고, 다중 테 넌 트 서비스에서 리소스 할당 범위를 제공 하 고, 기본 하드웨어 및 저장소의 기능을 유지할 수 있습니다.
 
-단일 데이터베이스의 경우 데이터베이스에 대 한 모든 저장소 IO에 작업 그룹 제한이 적용 되는 반면, 리소스 풀 제한은 동일한 SQL 풀에 있는 모든 데이터베이스 (데이터베이스 포함)에 대해 모든 저장소 IO에 적용 됩니다 `tempdb` . 탄력적 풀의 경우 작업 그룹 제한은 풀의 각 데이터베이스에 적용 되는 반면, 리소스 풀 제한은 `tempdb` 풀의 모든 데이터베이스 간에 공유 되는 데이터베이스를 포함 하 여 전체 탄력적 풀에 적용 됩니다. 일반적으로 작업 그룹 제한은 리소스 풀 제한 보다 낮으므로 IOPS/처리량을 단축 하기 때문에 데이터베이스 (단일 또는 풀)에 대해 작업에서 리소스 풀 제한을 달성 하지 못할 수 있습니다. 그러나 풀 제한은 동일한 풀의 여러 데이터베이스에 대해 결합 된 워크 로드에서 도달할 수 있습니다.
+단일 데이터베이스의 경우 데이터베이스에 대 한 모든 저장소 IO에 작업 그룹 제한이 적용 되는 반면, 리소스 풀 제한은 데이터베이스를 포함 하 여 동일한 전용 SQL 풀에 있는 모든 데이터베이스에 대 한 모든 저장소 IO에 적용 됩니다 `tempdb` . 탄력적 풀의 경우 작업 그룹 제한은 풀의 각 데이터베이스에 적용 되는 반면, 리소스 풀 제한은 `tempdb` 풀의 모든 데이터베이스 간에 공유 되는 데이터베이스를 포함 하 여 전체 탄력적 풀에 적용 됩니다. 일반적으로 작업 그룹 제한은 리소스 풀 제한 보다 낮으므로 IOPS/처리량을 단축 하기 때문에 데이터베이스 (단일 또는 풀)에 대해 작업에서 리소스 풀 제한을 달성 하지 못할 수 있습니다. 그러나 풀 제한은 동일한 풀의 여러 데이터베이스에 대해 결합 된 워크 로드에서 도달할 수 있습니다.
 
 예를 들어 쿼리가 IO 리소스 관리 없이 1000 IOPS를 생성 하지만 작업 그룹 최대 IOPS 제한이 900 IOPS로 설정 된 경우 쿼리에서 900 IOPS를 초과 하 여 생성할 수 없습니다. 그러나 리소스 풀의 최대 IOPS 한도가 1500 IOPS로 설정 되 고 리소스 풀과 연결 된 모든 작업 그룹의 총 IO가 1500 IOPS를 초과 하는 경우 동일한 쿼리의 IO가 작업 그룹 제한 (900 IOPS) 아래로 줄어들 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure Storage의 데이터 파일을 사용 하는 기본, 표준 및 범용 데
 
 로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 뷰에 노출 됨)을 통해 표시 됩니다.
 
-| 대기 유형 | 메모 |
+| 대기 유형 | 참고 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 데이터베이스 제한 |
 | POOL_LOG_RATE_GOVERNOR | 풀 제한 |

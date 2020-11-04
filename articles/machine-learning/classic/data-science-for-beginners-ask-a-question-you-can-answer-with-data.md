@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: ff08af00649cf61134c3e27d07b329e40169ea66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbac7c8818300ffb09959969e6b79f949177f457
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307679"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -69,9 +69,9 @@ ms.locfileid: "91343477"
 ## <a name="reformulate-your-question"></a>질문 다시 작성
 보다 유용한 답변을 얻기 위해서 질문을 바꾸어 말할 수 있습니다.
 
-“이것은 데이터 요소 A입니까? 아니면 B입니까?”라는 질문은 범주(또는 이름 또는 레이블)를 예측합니다. 여기에 답변하려면 *분류 알고리즘*을 사용합니다.
+“이것은 데이터 요소 A입니까? 아니면 B입니까?”라는 질문은 범주(또는 이름 또는 레이블)를 예측합니다. 여기에 답변하려면 *분류 알고리즘* 을 사용합니다.
 
-"얼마?" 또는 "몇 개?"라는 질문은 수량을 예측합니다. 여기에 답변하려면 *회귀 알고리즘*을 사용합니다.
+"얼마?" 또는 "몇 개?"라는 질문은 수량을 예측합니다. 여기에 답변하려면 *회귀 알고리즘* 을 사용합니다.
 
 이러한 질문에서 말을 바꾸는 방법을 알아보기 위해, “새 스토리 중에서 독자들에게 가장 흥미로운 것은 무엇입니까?”라는 질문을 살펴보겠습니다. 이것은 다수의 가능성 중에서 하나를 예측하여 선택하도록 요청합니다. 다시 말해, 이것은 A 또는 B 또는 C 또는 D 중에 무엇입니까?라는 질문이며, 분류 알고리즘을 사용합니다.
 
@@ -91,4 +91,4 @@ Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)
+* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)

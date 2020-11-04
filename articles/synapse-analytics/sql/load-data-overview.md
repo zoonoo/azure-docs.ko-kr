@@ -1,6 +1,6 @@
 ---
-title: SQL 풀의 PolyBase 데이터 로드 전략 디자인
-description: ETL 대신 데이터 또는 SQL 풀을 로드 하기 위한 추출, 로드 및 변환 (ELT) 프로세스를 설계 합니다.
+title: 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
+description: ETL 대신 전용 SQL로 데이터를 로드 하기 위한 추출, 로드 및 변환 (ELT) 프로세스를 설계 합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474668"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308748"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀의 PolyBase 데이터 로드 전략 디자인
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 
 기존 SMP 데이터 웨어하우스는 데이터를 로드 하기 위한 ETL (추출, 변환 및 로드) 프로세스를 사용 합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. ELT (추출, 로드 및 변환) 프로세스를 사용 하면 기본 제공 분산 쿼리 처리 기능을 활용 하 고 로드 전에 데이터를 변환 하는 데 필요한 리소스를 제거할 수 있습니다.
 
@@ -29,12 +29,12 @@ SQL 풀은 BCP 및 SQL 대량 복사 API와 같은 비 Polybase 옵션을 비롯
 
 ELT (추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출 하 여 데이터 웨어하우스로 로드 한 다음 변환 하는 프로세스입니다.
 
-SQL 풀 용 PolyBase ELT를 구현 하는 기본 단계는 다음과 같습니다.
+전용 SQL 풀 용 PolyBase ELT를 구현 하는 기본 단계는 다음과 같습니다.
 
 1. 원본 데이터를 텍스트 파일로 추출합니다.
 2. Azure Blob Storage 또는 Azure Data Lake Store에 데이터를 둡니다.
 3. 로드할 데이터를 준비합니다.
-4. PolyBase를 사용 하 여 SQL 풀 준비 테이블에 데이터를 로드 합니다.
+4. PolyBase를 사용 하 여 전용 SQL 풀 준비 테이블에 데이터를 로드 합니다.
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
@@ -85,11 +85,11 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 서비스는 네트워크 처리량, 성능 및 예측 가능성을 개선합니다. ExpressRoute는 Azure에 대한 전용 프라이빗 연결을 통해 데이터를 라우팅하는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 통해 데이터를 라우팅하지 않습니다. 이 연결은 공용 인터넷을 통한 일반적인 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 - [AZCopy 유틸리티](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)는 공용 인터넷을 통해 Azure Storage로 데이터를 이동합니다. 이는 데이터 크기가 10TB 미만인 경우에 작동합니다. AZCopy를 사용하여 정기적으로 로드를 수행하려면 네트워크 속도를 테스트하여 가능한지 확인하세요.
-- [ADF(Azure Data Factory)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. SQL 풀에서 Data Factory를 사용 하려면 [sql 풀에 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조 하세요.
+- [ADF(Azure Data Factory)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. 전용 SQL 풀에서 Data Factory를 사용 하려면 [전용 sql 풀로 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조 하세요.
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. 로드할 데이터 준비
 
-저장소 계정에서 데이터를 SQL 풀로 로드 하기 전에 준비 하 고 정리 해야 할 수도 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
+전용 SQL 풀로 로드 하기 전에 저장소 계정에서 데이터를 준비 하 고 정리 해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
 
 ### <a name="define-external-tables"></a>외부 테이블 정의
 
@@ -110,7 +110,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 - 텍스트 파일의 데이터 형식을 지정 하 여 SQL 풀 대상 테이블의 열 및 데이터 형식과 맞춥니다. 외부 텍스트 파일의 데이터 형식과 데이터 웨어하우스 테이블의 데이터 형식이 정렬되지 않으면 로드 중에 행이 거부됩니다.
 - 종결자로 텍스트 파일의 필드를 구분합니다.  원본 데이터에서 찾을 수 없는 문자 또는 문자 시퀀스를 사용해야 합니다. [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)으로 지정한 종결자를 사용하세요.
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. PolyBase를 사용 하 여 SQL 풀 준비 테이블에 데이터 로드
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. PolyBase를 사용 하 여 전용 SQL 풀 준비 테이블에 데이터 로드
 
 데이터는 준비 테이블로 로드하는 것이 가장 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블에 영향을 주지 않고 오류를 처리할 수 있습니다. 또한 준비 테이블을 사용 하면 데이터를 프로덕션 테이블에 삽입 하기 전에 데이터 변환을 위해 SQL 풀의 기본 제공 분산 쿼리 처리 기능을 사용할 수 있습니다.
 
@@ -125,7 +125,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 
-데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용할 수 있습니다. bcp는 Azure Blob storage를 거치지 않고 SQL 풀에 직접 로드 되며, 작은 로드에만 사용 됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다.
+데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용할 수 있습니다. bcp는 Azure Blob storage를 거치지 않고 전용 SQL 풀에 직접 로드 되며, 작은 로드에만 사용 됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다.
 
 ## <a name="5-transform-the-data"></a>5. 데이터 변환
 

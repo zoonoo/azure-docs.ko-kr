@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308981"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -31,7 +31,7 @@ ms.locfileid: "87012317"
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Blob 저장소에서 Azure Data Lake Store로 여러 blob 가져오기      |
 |  사용/실행 방법    |   명령 프롬프트를 열고를 입력 `adlcopy` 하 여 도움을 받으세요.    |
-| 샘플에 대한 링크      | [AdlCopy 사용](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| 샘플에 대한 링크      | [AdlCopy 사용](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)      |
 | DSVM의 관련 도구      | AzCopy, Azure CLI     |
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -42,7 +42,7 @@ ms.locfileid: "87012317"
 | 지원 되는 DSVM 버전      | Windows, Linux     |
 | 일반적인 사용 용도      | Azure Storage와 Azure Data Lake Store 간에 데이터 가져오기 및 내보내기      |
 |  사용/실행 방법    |   명령 프롬프트를 열고를 입력 `az` 하 여 도움을 받으세요.    |
-| 샘플에 대한 링크      | [Azure CLI 사용](https://docs.microsoft.com/cli/azure)     |
+| 샘플에 대한 링크      | [Azure CLI 사용](/cli/azure)     |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
 
@@ -54,7 +54,7 @@ ms.locfileid: "87012317"
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | Azure Blob 저장소에 파일을 복사 하 고 계정 간에 blob을 복사 합니다.      |
 |  사용/실행 방법    |   명령 프롬프트를 열고를 입력 `azcopy` 하 여 도움을 받으세요.    |
-| 샘플에 대한 링크      | [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| 샘플에 대한 링크      | [Windows에서 AzCopy](../../storage/common/storage-use-azcopy-v10.md)      |
 | DSVM의 관련 도구      | AdlCopy     |
 
 
@@ -66,7 +66,7 @@ ms.locfileid: "87012317"
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure table storage에서 CosmosDB로 데이터 가져오기, Microsoft SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기     |
 |  사용/실행 방법    |   명령줄 버전을 사용 하려면 명령 프롬프트를 열고을 입력 `dt` 합니다. GUI 도구를 사용 하려면 명령 프롬프트를 열고을 입력 `dtui` 합니다.    |
-| 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](../../cosmos-db/import-data.md)      |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 
 ## <a name="azure-storage-explorer"></a>Azure Storage Explorer
@@ -88,7 +88,7 @@ ms.locfileid: "87012317"
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | CSV 파일을 SQL Server 테이블로 가져오고 SQL Server 테이블을 파일로 내보냅니다.      |
 |  사용/실행 방법    |   명령 프롬프트를 열고를 입력 `bcp` 하 여 도움을 받으세요.    |
-| 샘플에 대한 링크      | [bcp 유틸리티](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| 샘플에 대한 링크      | [bcp 유틸리티](/sql/tools/bcp-utility)      |
 | DSVM의 관련 도구      | SQL Server, sqlcmd      |
 
 ## <a name="blobfuse"></a>blobfuse
@@ -98,6 +98,6 @@ ms.locfileid: "87012317"
 | 무엇인가요?   | Linux 파일 시스템에서 Azure Blob 저장소 컨테이너를 탑재 하는 도구입니다.      |
 | 지원 되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      | 컨테이너에서 blob을 읽고 씁니다.      |
-|  이를 사용 하 고 실행 하는 방법    |   터미널에서 _blobfuse_를 실행합니다.    |
+|  이를 사용 하 고 실행 하는 방법    |   터미널에서 _blobfuse_ 를 실행합니다.    |
 | 샘플에 대한 링크      | [GitHub의 blobfuse](https://github.com/Azure/azure-storage-fuse)      |
 | DSVM의 관련 도구      | Azure CLI      |

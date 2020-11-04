@@ -11,12 +11,12 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251017"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308133"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제
 
@@ -50,19 +50,19 @@ Azure Machine Learning 개인 데이터는 실행 기록 문서의 사용자 정
 
 개인 사용자 정보를 포함할 수 있는 실행 기록 문서는의 하위 폴더에 있는 blob storage의 저장소 계정에 저장 됩니다 `/azureml` . 포털에서 데이터를 다운로드 하 고 삭제할 수 있습니다.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="삭제 아이콘이 강조 표시 된 포털의 스크린샷":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="포털 내에서 저장소 계정의 azureml 디렉터리 스크린샷":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 기계 학습 리소스 내보내기 및 삭제
 
-Azure Machine Learning studio에서는 노트북, 데이터 집합, 모델 및 실험 등의 기계 학습 리소스에 대 한 통합 보기를 제공 합니다. Azure Machine Learning studio는 데이터 및 실험의 레코드 유지를 강조 합니다. 파이프라인 및 계산 리소스와 같은 계산 리소스는 브라우저를 사용 하 여 삭제할 수 있습니다. 이러한 리소스에 대해 문제의 리소스로 이동 하 고 **삭제**를 선택 합니다. 
+Azure Machine Learning studio에서는 노트북, 데이터 집합, 모델 및 실험 등의 기계 학습 리소스에 대 한 통합 보기를 제공 합니다. Azure Machine Learning studio는 데이터 및 실험의 레코드 유지를 강조 합니다. 파이프라인 및 계산 리소스와 같은 계산 리소스는 브라우저를 사용 하 여 삭제할 수 있습니다. 이러한 리소스에 대해 문제의 리소스로 이동 하 고 **삭제** 를 선택 합니다. 
 
 데이터 집합의 등록을 취소 하 고 실험을 보관할 수 있지만 이러한 작업은 데이터를 삭제 하지 않습니다. 데이터를 완전히 제거 하려면 데이터 집합 및 실행 데이터를 저장소 수준에서 삭제 해야 합니다. 이전에 설명한 대로 저장소 수준에서 삭제는 포털을 사용 하 여 수행 됩니다.
 
-스튜디오를 사용 하 여 실험 실행에서 학습 아티팩트를 다운로드할 수 있습니다. 관심이 있는 **실험** 및 **실행** 을 선택 합니다. **출력 + 로그** 를 선택 하 고 다운로드 하려는 특정 아티팩트로 이동 합니다. ... **및** **다운로드**를 선택 합니다.
+스튜디오를 사용 하 여 실험 실행에서 학습 아티팩트를 다운로드할 수 있습니다. 관심이 있는 **실험** 및 **실행** 을 선택 합니다. **출력 + 로그** 를 선택 하 고 다운로드 하려는 특정 아티팩트로 이동 합니다. ... **및** **다운로드** 를 선택 합니다.
 
-원하는 **모델로** 이동 하 고 **다운로드**를 선택 하 여 등록 된 모델을 다운로드할 수 있습니다. 
+원하는 **모델로** 이동 하 고 **다운로드** 를 선택 하 여 등록 된 모델을 다운로드할 수 있습니다. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="삭제 아이콘이 강조 표시 된 포털의 스크린샷":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="다운로드 옵션이 강조 표시 된 스튜디오 모델 페이지의 스크린샷":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Python SDK를 사용 하 여 리소스 내보내기 및 삭제
 
@@ -84,8 +84,7 @@ Python SDK를 사용 하 여 다음 machine learning 리소스를 삭제할 수 
 
 | 유형 | 함수 호출 | 참고 | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | `delete-dependent-resources`삭제를 계단식으로 배열 하는 데 사용 |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
-
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | `delete-dependent-resources`삭제를 계단식으로 배열 하는 데 사용 |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |

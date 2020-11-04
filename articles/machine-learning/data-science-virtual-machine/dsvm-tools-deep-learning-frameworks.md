@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070919"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309030"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -54,8 +54,8 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | ------------- | ------------- |
 | 지원 되는 버전 | 10.0.130|
 | 지원 되는 DSVM 버전      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04  |
-| DSVM에 구성/설치 방법  |_nvidia smi_는 시스템 경로에서 사용할 수 있습니다.  |
-| 실행 방법      | 명령 프롬프트 (Windows) 또는 터미널 (Linux)을 연 다음 _nvidia-smi-s_를 실행 합니다. |
+| DSVM에 구성/설치 방법  |_nvidia smi_ 는 시스템 경로에서 사용할 수 있습니다.  |
+| 실행 방법      | 명령 프롬프트 (Windows) 또는 터미널 (Linux)을 연 다음 _nvidia-smi-s_ 를 실행 합니다. |
 
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
@@ -76,7 +76,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | Keras는 Windows의 Python 3.6 및 Linux의 Python 3.5에 설치 됩니다. |
 | 실행 방법      | 터미널에서 올바른 환경을 활성화 한 다음 Python을 실행 합니다. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit(CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit(CNTK)](/cognitive-toolkit/)
 
 | 범주 | 값 |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | 지원 되는 DSVM 버전      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | 무엇 인가요? | GPU 작업을 쿼리하기 위한 NVIDIA 도구 |
 | DSVM에 구성/설치 방법  | `nvidia-smi` 는 시스템 경로에 있습니다. |
-| 실행 방법      | **GPU가 있는**가상 머신에서 명령 프롬프트 (Windows) 또는 터미널 (Linux)을 연 다음를 실행 `nvidia-smi` 합니다. |
+| 실행 방법      | **GPU가 있는** 가상 머신에서 명령 프롬프트 (Windows) 또는 터미널 (Linux)을 연 다음를 실행 `nvidia-smi` 합니다. |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.0.3 |
 | 지원 되는 DSVM 버전      | Ubuntu 16.04 |
-| DSVM에 구성/설치 방법  |Theano는 Python 2.7 (_root_) 및 python 3.5 (_py35_) 환경에 설치 됩니다. |
+| DSVM에 구성/설치 방법  |Theano는 Python 2.7 ( _root_ ) 및 python 3.5 ( _py35_ ) 환경에 설치 됩니다. |
 | 실행 방법      |  터미널: 원하는 Python 버전 (root 또는 py35)을 활성화 하 고 Python을 실행 한 다음 Theano를 가져옵니다.<br/>* Jupyter: Python 2.7 또는 3.5 커널을 선택 하 고 Theano를 가져옵니다.  <br/>최신 MKL MKL (math kernel library) 버그를 해결 하려면 먼저 다음과 같이 MKL 스레딩 계층을 설정 해야 합니다.<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286123"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308354"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ SQL VM 리소스 공급자를 사용 하 여 SQL Server VM를 등록 하면 [Sql
 
 리소스 공급자에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 
-- [Azure 구독](https://azure.microsoft.com/free/).
+- [Azure 구독](https://azure.microsoft.com/free/) 및 최소한의 [참가자 역할](../../../role-based-access-control/built-in-roles.md#all) 권한.
 - 공용 또는 Azure Government 클라우드에 [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) 배포 된 Azure 리소스 모델 [Windows Server 2008 R2 이상 가상 컴퓨터](../../../virtual-machines/windows/quick-create-portal.md) 입니다. Windows Server 2008은 지원 되지 않습니다. 
 
 

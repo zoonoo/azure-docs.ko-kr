@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 186289826273e85c9faa7f972b6f48d34e38416f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357389"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308808"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio의 애플리케이션 수명 주기 관리 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 조작 가능한 기계 학습 실험을 개발 하기 위한 도구입니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양 한 자산 버전 관리에서 자동화 된 실행 및 배포에 이르는 표준 ALM (응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning Studio (클래식)에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -28,7 +28,7 @@ Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 
 실험의 버전을 관리하는 두 가지 권장 방법이 있습니다. 기본 제공 실행 기록에 의존하거나 외부에서 관리하도록 JSON 형식으로 실험을 내보낼 수 있습니다. 각 접근 방식에는 장단점이 있습니다.
 
 ### <a name="experiment-snapshots-using-run-history"></a>실행 기록을 사용하는 실험 스냅샷
-Azure Machine Learning Studio (클래식) 학습 실험의 실행 모델에서 실험 편집기에서 **실행** 을 클릭할 때마다 변경할 수 없는 실험의 스냅숏이 작업 스케줄러에 전송 됩니다. 이 스냅샷 목록을 보려면 실험 편집기 보기의 명령 모음에서 **실행 기록**을 클릭합니다.
+Azure Machine Learning Studio (클래식) 학습 실험의 실행 모델에서 실험 편집기에서 **실행** 을 클릭할 때마다 변경할 수 없는 실험의 스냅숏이 작업 스케줄러에 전송 됩니다. 이 스냅샷 목록을 보려면 실험 편집기 보기의 명령 모음에서 **실행 기록** 을 클릭합니다.
 
 ![실행 기록 단추](./media/version-control/runhistory.png)
 
@@ -46,7 +46,7 @@ Azure Machine Learning Studio (클래식) 학습 실험의 실행 모델에서 �
 JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 세트 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 
 ## <a name="versioning-trained-model"></a>학습된 모델 버전 관리
-Azure Machine Learning Studio (클래식)의 학습 된 모델은 iLearner 파일 () 이라고 하는 형식으로 직렬화 되 `.iLearner` 고 작업 영역과 연결 된 Azure Blob storage 계정에 저장 됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](/azure/machine-learning/studio/retrain-machine-learning-model)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
+Azure Machine Learning Studio (클래식)의 학습 된 모델은 iLearner 파일 () 이라고 하는 형식으로 직렬화 되 `.iLearner` 고 작업 영역과 연결 된 Azure Blob storage 계정에 저장 됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](./retrain-machine-learning-model.md)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
 
 1. 학습 실험을 설정합니다.
 2. 모델 학습 모듈 또는 [모델 하이퍼 매개 변수 조정] 또는 [R 모델 만들기]와 같은 학습된 모델을 생성하는 모듈에 웹 서비스 출력 포트를 추가합니다.
@@ -78,7 +78,7 @@ Azure Machine Learning Studio (클래식) 실험에서 두 가지 유형의 웹 
 또한 여러 동일한 웹 서비스 엔드포인트를 만든 다음, 비슷한 효과를 달성하기 위해 엔드포인트에 iLearner 파일의 다른 버전을 패치할 수 있습니다. [이 문서](create-models-and-endpoints-with-powershell.md)에서는 이 작업을 수행하는 방법에 대해 자세히 설명합니다.
 
 ### <a name="new-web-service"></a>새 웹 서비스
-새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신, AzMlWebservice powershell을 사용 하 여 예측 실험에서 또는 [배포 된 리소스 관리자](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) 기반 웹 서비스에서 [*내보내기-*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell을 사용 하 여 예측 실험에서 웹 서비스 정의 (WSD) 파일을 생성할 수 있습니다.
+새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신, AzMlWebservice powershell을 사용 하 여 예측 실험에서 또는 [배포 된 리소스 관리자](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) 기반 웹 서비스에서 [*내보내기-*](/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell을 사용 하 여 예측 실험에서 웹 서비스 정의 (WSD) 파일을 생성할 수 있습니다.
 
 내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 스토리지 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 

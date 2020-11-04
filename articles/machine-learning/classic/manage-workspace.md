@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3763942c7b939bf9a4fcc3e11a2536de33b61e05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426919"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308114"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Azure Machine Learning Studio (클래식) 작업 영역 관리
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
@@ -35,13 +35,13 @@ Azure Portal에서 Machine Learning Studio (클래식) 작업 영역을 관리�
 Azure Portal에서 Studio (클래식) 작업 영역을 관리 하려면 다음을 수행 합니다.
 
 1. Azure 구독 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 페이지 맨 위에 있는 검색 상자에 "machine learning Studio (클래식) 작업 영역"을 입력 하 고 **Machine Learning Studio (클래식) 작업 영역**을 선택 합니다.
+2. 페이지 맨 위에 있는 검색 상자에 "machine learning Studio (클래식) 작업 영역"을 입력 하 고 **Machine Learning Studio (클래식) 작업 영역** 을 선택 합니다.
 3. 관리하려는 작업 영역을 클릭합니다.
 
 표준 리소스 관리 정보 및 사용할 수 있는 옵션 외에 다음을 수행할 수 있습니다.
 
 - **속성** 보기 - 이 페이지에는 작업 영역 및 리소스 정보가 표시됩니다. 이 작업 영역이 연결된 구독 및 리소스 그룹을 변경할 수 있습니다.
-- **스토리지 키 다시 동기화** - 이 작업 영역은 Storage 계정에 대한 키를 유지 관리합니다. 스토리지 계정이 키를 변경하면 **키 다시 동기화**를 클릭하여 작업 영역과 키를 동기화할 수 있습니다.
+- **스토리지 키 다시 동기화** - 이 작업 영역은 Storage 계정에 대한 키를 유지 관리합니다. 스토리지 계정이 키를 변경하면 **키 다시 동기화** 를 클릭하여 작업 영역과 키를 동기화할 수 있습니다.
 
 이 Studio (클래식) 작업 영역과 연결 된 웹 서비스를 관리 하려면 Machine Learning 웹 서비스 포털을 사용 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 
@@ -51,4 +51,4 @@ Azure Portal에서 Studio (클래식) 작업 영역을 관리 하려면 다음�
 >액세스 권한 설정에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Resource Manager 템플릿을 사용하여 Machine Learning을 배포](deploy-with-resource-manager-template.md)하는 방법에 대해 자세히 알아봅니다. 
+* [Azure Resource Manager 템플릿을 사용하여 Machine Learning을 배포](deploy-with-resource-manager-template.md)하는 방법에 대해 자세히 알아봅니다.

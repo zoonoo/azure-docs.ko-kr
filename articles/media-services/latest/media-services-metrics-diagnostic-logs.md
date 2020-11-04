@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296654"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309070"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure Monitor를 통해 Media Services 메트릭 및 진단 로그를 모니터링 합니다.
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Media Services 메트릭 및 진단 로그 모니터링
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
 |SuccessE2ELatency|성공 엔드투엔드 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
+|CPU 사용량| 프리미엄 스트리밍 끝점에 대 한 CPU 사용량입니다. 표준 스트리밍 끝점에는이 데이터를 사용할 수 없습니다. |
+|송신 대역폭 | 초당 송신 대역폭 (비트)입니다.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>메트릭을 사용 하는 이유는 무엇 인가요?
+### <a name="metrics-are-useful"></a>메트릭이 유용 합니다.
 
 다음은 응용 프로그램의 작동 방식을 이해 하는 데 Media Services 메트릭을 모니터링 하는 방법에 대 한 예입니다. Media Services 메트릭을 사용 하 여 해결할 수 있는 몇 가지 질문은 다음과 같습니다.
 
@@ -79,6 +81,8 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 * 실패 한 요청에 대 한 분석 및 실패 원인을 어떻게 확인할 수 있나요?
 * 패키지에서 얼마나 많은 HLS 또는 대시 요청을 가져올 수 있나요?
 * 실패 한 요청 수의 임계값이 적중 된 경우를 알 수 있도록 경고를 설정 어떻게 할까요??
+
+동시성은 시간이 지남에 따라 단일 계정에 사용 되는 스트리밍 끝점의 수에 문제가 됩니다. 여러 프로토콜에 대 한 동적 패키징, 여러 DRM 암호화 등의 복잡 한 게시 매개 변수를 사용 하는 동시 스트림 수 간의 관계를 염두에 두어야 합니다. 게시 된 각 라이브 스트림은 스트리밍 끝점의 CPU 및 출력 대역폭에 추가 됩니다. 이러한 점을 염두에 두면 Azure Monitor를 사용 하 여 스트리밍 끝점의 사용률 (CPU 및 송신 용량)을 면밀히 감시 하 여 적절 하 게 크기를 조정 하 고 있는지 확인 해야 합니다 (또는 동시성이 매우 높은 경우 여러 스트리밍 끝점 간에 트래픽을 분할).
 
 ### <a name="example"></a>예제
 
@@ -94,7 +98,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 

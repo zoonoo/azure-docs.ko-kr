@@ -9,16 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343421"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307478"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 
-최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
+최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학* 에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
 
 이 첫 번째 비디오는 데이터 과학이 대답할 수 있는 종류의 질문에 대한 것입니다. 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 <br>
@@ -37,7 +37,7 @@ ms.locfileid: "91343421"
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>대본: 데이터 과학으로 답변할 수 있는 5가지 질문
-안녕하세요. 비디오 시리즈 *초급자를 위한 데이터 과학*에 오신 것을 환영합니다.
+안녕하세요. 비디오 시리즈 *초급자를 위한 데이터 과학* 에 오신 것을 환영합니다.
 
 데이터 과학이 어렵게 느껴질 수 있으므로, 여기서는 방정식이나 컴퓨터 프로그래밍 특수 용어 없이 기본 개념을 소개하겠습니다.
 
@@ -136,4 +136,4 @@ ms.locfileid: "91343421"
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)
+* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)

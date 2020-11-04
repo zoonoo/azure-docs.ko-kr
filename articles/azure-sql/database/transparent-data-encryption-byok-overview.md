@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790885"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308328"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -156,7 +156,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - Azure Active Directory에서 서버의 관리 되는 id를 삭제 하는 중
 
-[데이터베이스에 액세스할 수 없게 되는 일반적인 원인](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible)에 대해 자세히 알아보세요.
+[데이터베이스에 액세스할 수 없게 되는 일반적인 원인](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible)에 대해 자세히 알아보세요.
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>고객 관리 TDE 모니터링
 
@@ -179,7 +179,7 @@ Key Vault에서 TDE 보호기로 암호화 된 백업을 복원 하려면 대상
 
 이를 완화 하려면 대상 서버에 대 한 [AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 실행 하거나 대상 관리 인스턴스의 [AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) 을 실행 하 여 사용 가능한 키 목록을 반환 하 고 누락 된 키를 식별 합니다. 모든 백업을 복원할 수 있도록 하려면 복원 대상 서버에 필요한 모든 키에 대 한 액세스 권한이 있는지 확인 합니다. 이러한 키는 TDE 보호기로 표시할 필요가 없습니다.
 
-SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에서 데이터베이스 복구](recovery-using-backups.md)를 참조 하세요. SQL 풀의 백업 복구에 대해 자세히 알아보려면 [Sql 풀 복구](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)를 참조 하세요. SQL Managed Instance를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: sql에 데이터베이스 복원](../managed-instance/restore-sample-database-quickstart.md) 을 참조 하세요 Managed Instance
+SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에서 데이터베이스 복구](recovery-using-backups.md)를 참조 하세요. Azure Synapse Analytics에서 전용 SQL 풀의 백업 복구에 대해 자세히 알아보려면 [전용 sql 풀 복구](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)를 참조 하세요. SQL Managed Instance를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: sql에 데이터베이스 복원](../managed-instance/restore-sample-database-quickstart.md) 을 참조 하세요 Managed Instance
 
 로그 파일에 대 한 추가 고려 사항: 백업 된 로그 파일은 회전 되 고 데이터베이스에서 새 TDE 보호기를 사용 하는 경우에도 원래 TDE 보호기를 사용 하 여 암호화 된 상태로 유지 됩니다.  복원할 때 데이터베이스를 복원하려면 두 키가 모두 필요합니다.  로그 파일이 Azure Key Vault에 저장 된 TDE 보호기를 사용 하는 경우 데이터베이스에서 서비스 관리 TDE를 사용 하도록 변경 했더라도 복원 시이 키가 필요 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 최신 세대로 업그레이드
-description: Azure Synapse Analytics SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업그레이드 합니다.
+description: Azure Synapse Analytics 전용 SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업그레이드 하세요.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,32 +11,32 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b025b26d505f99b3bc92e995fde9184a4cc26a4d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627077"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309588"
 ---
-# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics SQL 풀을 업그레이드 하 여 성능 최적화
+# <a name="optimize-performance-by-upgrading-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 업그레이드 하 여 성능 최적화
 
-SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업그레이드 합니다.
+전용 SQL 풀을 Azure 하드웨어 및 저장소 아키텍처의 최신 세대로 업그레이드 합니다.
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 
-이제 [지원 되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에 대 한 AZURE PORTAL의 SQL 풀 계산 최적화 된 Gen2 계층으로 원활 하 게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 최신 세대 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처를 활용하세요.
+이제 [지원 되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에 대 한 AZURE PORTAL 전용 SQL 풀 계산에 최적화 된 Gen2 계층으로 원활 하 게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 최신 세대 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처를 활용하세요.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 > [!IMPORTANT]
-> 이 업그레이드는 [지원 되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 계산에 최적화 된 GEN1 계층 SQL 풀에 적용 됩니다.
+> 이 업그레이드는 [지원 되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 계산에 최적화 된 Gen1 계층 전용 SQL 풀에 적용 됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. 사용자의 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 GEN1-GEN2 마이그레이션이 지원되는지 확인합니다. 자동 마이그레이션 날짜를 기록해 둡니다. 자동 프로세스 충돌을 방지하려면 자동 프로세스 시작 날짜 전에 수동 마이그레이션을 진행하도록 계획합니다.
 2. 아직 지원되지 않는 지역에 있는 경우 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
 3. 사용자의 지역이 지원되는 [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
-4. 아래의 매핑을 사용 하 여 계산에 최적화 된 Gen1 계층의 현재 성능 수준에 따라 SQL 풀에 대해 **제안 된 성능 수준을 선택 합니다** .
+4. 아래 매핑을 사용 하 여 계산에 최적화 된 Gen1 계층의 현재 성능 수준에 따라 전용 SQL 풀에 대해 **제안 된 성능 수준을 선택 합니다** .
 
    | 컴퓨팅 최적화 Gen1 계층 | 컴퓨팅 최적화 Gen2 계층 |
    | :-------------------------: | :-------------------------: |
@@ -59,18 +59,18 @@ SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Azure Portal을 사용하여 지원되는 지역에서 업그레이드
 
 - Azure Portal를 통해 Gen1에서 Gen2로의 마이그레이션은 영구적입니다. Gen1로 반환 하는 프로세스가 없습니다.
-- Gen2로 마이그레이션하려면 SQL 풀이 실행 되 고 있어야 합니다.
+- Gen2로 마이그레이션하려면 전용 SQL 풀을 실행 해야 합니다.
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-- SQL 풀이 실행 되 고 있는지 확인 합니다. Gen2로 마이그레이션해야 합니다.
+- 전용 SQL 풀이 실행 되 고 있는지 확인 합니다. Gen2로 마이그레이션해야 합니다.
 
 ### <a name="powershell-upgrade-commands"></a>PowerShell 업그레이드 명령
 
-1. 업그레이드할 계산에 최적화 된 Gen1 계층 SQL 풀이 일시 중지 된 경우 [sql 풀을 다시 시작](pause-and-resume-compute-portal.md)합니다.
+1. Gen1 계산에 최적화 된 계층 전용 SQL 풀이 일시 중지 된 경우 [전용 sql 풀을 다시 시작](pause-and-resume-compute-portal.md)합니다.
 
 2. 몇 분 정도의 가동 중지 시간에 대비합니다.
 
@@ -89,7 +89,7 @@ SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업
    ```
 
    > [!NOTE]
-   > -RequestedServiceObjectiveName “DW300”이 - RequestedServiceObjectiveName “DW300**c**”로 변경되었습니다.
+   > -RequestedServiceObjectiveName “DW300”이 - RequestedServiceObjectiveName “DW300 **c** ”로 변경되었습니다.
    >
 
    원래 Gen1 T-SQL 명령:
@@ -105,28 +105,28 @@ SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업
    ```
 
    > [!NOTE]
-   > SERVICE_OBJECTIVE = ‘DW300’이 SERVICE_OBJECTIVE = ‘DW300**c**’로 변경되었습니다.
+   > SERVICE_OBJECTIVE = ‘DW300’이 SERVICE_OBJECTIVE = ‘DW300 **c** ’로 변경되었습니다.
 
 ## <a name="start-the-upgrade"></a>업그레이드 시작
 
-1. Azure Portal에서 계산에 최적화 된 Gen1 SQL 풀로 이동 합니다. 업그레이드할 계산에 최적화 된 Gen1 계층 SQL 풀이 일시 중지 된 경우 [sql 풀을 다시 시작](pause-and-resume-compute-portal.md)합니다.
+1. Azure Portal에서 Compute 최적화 된 Gen1 전용 SQL 풀로 이동 합니다. Gen1 계산에 최적화 된 계층 전용 SQL 풀이 일시 중지 된 경우 [전용 sql 풀을 다시 시작](pause-and-resume-compute-portal.md)합니다.
 2. 작업 탭에서 Gen2 카드에서 **업그레이드를** 선택 합니다 ![ Upgrade_1.](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
    > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md) 하 여 구독을 승인 하세요.
 
-3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. SQL 풀이 계산에 최적화 된 Gen2 계층 SQL 풀로 다시 온라인 상태가 될 때까지 몇 분 동안 가동 중지 시간이 발생 합니다. **업그레이드를 선택합니다**.
+3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 전용 SQL 풀이 계산에 최적화 된 Gen2 계층 전용 SQL 풀로 다시 온라인 상태가 될 때까지 몇 분 동안 가동 중지 시간이 발생 합니다. **업그레이드를 선택합니다**.
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
-4. Azure Portal에서 상태를 확인하여 **업그레이드를 모니터링**합니다.
+4. Azure Portal에서 상태를 확인하여 **업그레이드를 모니터링** 합니다.
 
    ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
    비율 크기 조정 작업(“업그레이드 - 오프라인”)을 통해 업그레이드 프로세스의 첫 단계가 진행됩니다. 여기서는 모든 세션이 종료되며 연결이 삭제됩니다.
 
-   업그레이드 프로세스의 두 번째 단계는 데이터 마이그레이션(“업그레이드 - 온라인”)입니다. 데이터 마이그레이션은 지속적인 온라인 백그라운드 프로세스입니다. 이 프로세스는 로컬 SSD 캐시를 활용하여 열 형식의 데이터가 이전 스토리지 아키텍처에서 새로운 스토리지 아키텍처로 느리게 이동합니다. 이 시간 동안에는 SQL 풀이 쿼리 및 로드에 대해 온라인 상태가 됩니다. 데이터는 마이그레이션 여부에 관계 없이 쿼리에 사용할 수 있습니다. 데이터 마이그레이션은 데이터 크기, 성능 수준 및 columnstore 세그먼트의 수에 따라 다양한 속도로 발생합니다.
+   업그레이드 프로세스의 두 번째 단계는 데이터 마이그레이션(“업그레이드 - 온라인”)입니다. 데이터 마이그레이션은 지속적인 온라인 백그라운드 프로세스입니다. 이 프로세스는 로컬 SSD 캐시를 활용하여 열 형식의 데이터가 이전 스토리지 아키텍처에서 새로운 스토리지 아키텍처로 느리게 이동합니다. 이 시간 동안 전용 SQL 풀은 쿼리 및 로드에 대해 온라인 상태가 됩니다. 데이터는 마이그레이션 여부에 관계 없이 쿼리에 사용할 수 있습니다. 데이터 마이그레이션은 데이터 크기, 성능 수준 및 columnstore 세그먼트의 수에 따라 다양한 속도로 발생합니다.
 
 5. **선택적 권장 사항:** 크기 조정 작업이 완료 되 면 데이터 마이그레이션 백그라운드 프로세스의 속도를 높일 수 있습니다. 더 큰 SLO 및 리소스 클래스에서 쿼리하는 모든 기본 columnstore 테이블에서 [Alter Index rebuild](sql-data-warehouse-tables-index.md)를 실행하여 데이터를 강제로 이동할 수 있습니다. 이 작업은 지속적인 백그라운드 프로세스와 비교할 때 **오프라인** 방식이므로, 테이블의 크기와 수에 따라 완료하는 데 몇 시간이 걸릴 수 있습니다. 그러나 완료되면 고품질의 행 그룹으로 인해 스토리지 아키텍처가 새롭게 개선되므로 데이터 마이그레이션이 훨씬 더 빨라집니다.
 
@@ -184,9 +184,9 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. 복원 지점을 만들려는 SQL 풀로 이동 합니다.
+2. 복원 지점을 만들려는 전용 SQL 풀로 이동 합니다.
 
-3. 개요 섹션 위쪽에서 **+새 복원 지점**을 선택합니다.
+3. 개요 섹션 위쪽에서 **+새 복원 지점** 을 선택합니다.
 
     ![새 복원 지점](./media/upgrade-to-latest-generation/creating_restore_point_0.png)
 
@@ -197,12 +197,12 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Azure Portal을 사용하여 활성 또는 일시 중지된 데이터베이스 복원
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 복원 하려는 SQL 풀로 이동 합니다.
-3. 개요 섹션 위쪽에서 **복원**을 선택합니다.
+2. 복원 하려는 전용 SQL 풀로 이동 합니다.
+3. 개요 섹션 위쪽에서 **복원** 을 선택합니다.
 
     ![ 복원 개요](./media/upgrade-to-latest-generation/restoring_0.png)
 
-4. **자동 복원 지점이** 나 **사용자 정의 복원 위치**를 선택 합니다. 사용자 정의 복원 지점에 대해 사용자 정의 복원 지점을 **선택** 하거나 **새 사용자 정의 복원 지점을 만듭니다**. 서버에 대해 **새로 만들기** 를 선택 하 고 Gen2 지원 지역에서 서버를 선택 합니다.
+4. **자동 복원 지점이** 나 **사용자 정의 복원 위치** 를 선택 합니다. 사용자 정의 복원 지점에 대해 사용자 정의 복원 지점을 **선택** 하거나 **새 사용자 정의 복원 지점을 만듭니다**. 서버에 대해 **새로 만들기** 를 선택 하 고 Gen2 지원 지역에서 서버를 선택 합니다.
 
     ![자동 복원 지점](./media/upgrade-to-latest-generation/restoring_1.png)
 
@@ -213,7 +213,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 데이터베이스를 복구 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용 합니다.
 
 > [!NOTE]
-> 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.
+> 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000 **c** )을 선택적 매개 변수로 지정하세요.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -242,8 +242,8 @@ $GeoRestoredDatabase.status
 
 원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
 
-SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 만들고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
+전용 SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get-started-create-support-ticket.md) 을 만들고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-업그레이드 된 SQL 풀이 온라인 상태입니다. 향상된 아키텍처를 이용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
+업그레이드 된 전용 SQL 풀이 온라인 상태입니다. 향상된 아키텍처를 이용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233998"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309080"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -52,7 +52,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 + Azure Storage
 
 > [!IMPORTANT]
-> 한도는 변경될 수 있습니다. 최신 정보는 azure [구독 및 서비스 제한, 할당량 및](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) 모든 azure에 대 한 제약 조건을 참조 하세요.
+> 한도는 변경될 수 있습니다. 최신 정보는 azure [구독 및 서비스 제한, 할당량 및](../azure-resource-manager/management/azure-subscription-service-limits.md) 모든 azure에 대 한 제약 조건을 참조 하세요.
 
 ### <a name="virtual-machines"></a>가상 머신
 각 Azure 구독에는 모든 서비스의 가상 머신 수에 대 한 제한이 있습니다. 가상 컴퓨터 코어에는 지역별 총 한도와 크기 별 지역별 제한이 있습니다. 두 제한 모두 개별적으로 적용 됩니다.
@@ -100,7 +100,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 ### <a name="container-instances"></a>Container Instances
 
-자세한 내용은 [Container Instances 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)을 참조 하세요.
+자세한 내용은 [Container Instances 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)을 참조 하세요.
 
 ### <a name="storage"></a>스토리지
 Azure Storage은 구독 당 지역 당 저장소 계정 250 개로 제한 됩니다. 이 제한에는 표준 및 프리미엄 저장소 계정이 모두 포함 됩니다.
@@ -156,7 +156,7 @@ Azure Storage은 구독 당 지역 당 저장소 계정 250 개로 제한 됩니
 할당량 증가를 요청 하는 경우 염두에 두어야 하는 서비스를 선택 합니다. 예를 들어 Azure Machine Learning, Container Instances 또는 저장소를 선택 합니다. Azure Machine Learning 계산의 경우 이전 단계에서 할당량을 볼 때 **할당량 요청** 단추를 선택할 수 있습니다.
 
 > [!NOTE]
-> [무료 평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p) 에는 제한 또는 할당량 증가가 적합 하지 않습니다. 무료 평가판 구독을 사용 하는 경우 [종 량](https://azure.microsoft.com/offers/ms-azr-0003p/) 제 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [azure 무료 평가판을 종 량](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) 제 및 [AZURE 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq)로 업그레이드를 참조 하세요.
+> [무료 평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p) 에는 제한 또는 할당량 증가가 적합 하지 않습니다. 무료 평가판 구독을 사용 하는 경우 [종 량](https://azure.microsoft.com/offers/ms-azr-0003p/) 제 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [azure 무료 평가판을 종 량](../cost-management-billing/manage/upgrade-azure-subscription.md) 제 및 [AZURE 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq)로 업그레이드를 참조 하세요.
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>프라이빗 엔드포인트 및 프라이빗 DNS 할당량 증가
 
@@ -172,7 +172,7 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 
 이러한 시나리오에 대 한 허용을 요청 하려면 다음 단계를 사용 합니다.
 
-1. [Azure 지원 요청을 만들고](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
+1. [Azure 지원 요청을 만들고](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
 
     | 필드 | 선택 |
     | ----- | ----- |

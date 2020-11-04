@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077816"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308688"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -22,7 +22,7 @@ Azure Advisor는 더 긴 TTL이 구성 된 Traffic Manager 프로필을 식별 �
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>SQL Database Advisor를 사용 하 여 데이터베이스 성능 향상 (일시적으로 사용 안 함)
 
-Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Advisor와 통합 되어 데이터베이스의 성능을 향상 시키기 위한 권장 사항을 제공 합니다.SQL Database Advisor은 사용 기록을 분석 하 여 데이터베이스의 성능을 평가 합니다. 그런 다음 데이터베이스의 일반적인 워크 로드를 실행 하는 데 가장 적합 한 권장 사항을 제공 합니다.
+Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Advisor와 통합 되어 데이터베이스의 성능을 향상 시키기 위한 권장 사항을 제공 합니다. SQL Database Advisor은 사용 기록을 분석 하 여 데이터베이스의 성능을 평가 합니다. 그런 다음 데이터베이스의 일반적인 워크 로드를 실행 하는 데 가장 적합 한 권장 사항을 제공 합니다.
 
 > [!NOTE]
 > 권장 사항을 얻기 전에 데이터베이스를 일주일 동안 사용 해야 하며, 해당 주 내에는 일정 한 작업을 수행 해야 합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
@@ -108,7 +108,7 @@ Advisor는 데이터베이스에 로드할 때 일괄 처리 크기를 늘려 �
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>로드할 때 대기 시간을 최소화 하기 위해 동일한 지역에 저장소 계정 배치
 
-Advisor는 SQL 풀과 다른 지역에서 로드 하 고 있는지 검색 합니다. 데이터를 로드할 때 대기 시간을 최소화 하기 위해 SQL 풀과 동일한 지역에 있는 저장소 계정에서 로드 하는 것이 좋습니다. 이렇게 변경 하면 대기 시간을 최소화 하 고 로드 성능을 향상 시킬 수 있습니다.
+Advisor는 전용 SQL 풀과 다른 지역에서 로드 하 고 있는지 검색 합니다. 데이터를 로드할 때 대기 시간을 최소화 하기 위해 전용 SQL 풀과 동일한 지역에 있는 저장소 계정에서 로드 하는 것이 좋습니다. 이렇게 변경 하면 대기 시간을 최소화 하 고 로드 성능을 향상 시킬 수 있습니다.
 
 ## <a name="use-a-supported-kubernetes-version"></a>지원 되는 Kubernetes 버전 사용
 
@@ -120,17 +120,17 @@ Advisor가 지원 되지 않는 버전의 Kubernetes를 검색 합니다.
 장기간 CPU 사용률이 높으면 작업에 쿼리 성능이 저하 될 수 있습니다. CPU 크기를 높이면 데이터베이스 쿼리의 런타임 최적화 및 전반적인 성능 향상에 도움이 됩니다. Advisor는 CPU 제한 작업을 실행할 가능성이 높은 CPU 사용률이 높은 서버를 식별 하 고 계산 크기를 조정 하는 것이 좋습니다.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure Database for MariaDB 서버에서 메모리 제약 조건을 줄이거나 메모리 액세스에 최적화 된 SKU로 이동 합니다.
-낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이 문제는 잘못 된 쿼리 계획 또는 메모리 집약적 작업으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL, Azure Database for MySQL 또는 Azure Database for MariaDB 서버의 [메모리를 늘려서](../postgresql/concepts-pricing-tiers.md) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동의 영향을 받는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하는 것이 좋습니다. 
+낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이 문제는 잘못 된 쿼리 계획 또는 메모리 집약적 작업으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL, Azure Database for MySQL 또는 Azure Database for MariaDB 서버의 [메모리를 늘려서](../postgresql/concepts-pricing-tiers.md) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동의 영향을 받는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하는 것이 좋습니다. 
 - 쿼리 계획 수정
 - 더 많은 메모리가 있는 SKU로 이동 
 - 더 많은 IOPS를 얻기 위해 저장소 크기를 늘립니다.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>읽기/쓰기 작업에 대 한 읽기를 확장 하려면 Azure Database for MySQL 또는 Azure Database for PostgreSQL 복제본 읽기를 사용 합니다.
-Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기 비율 같은 작업 기반 추론을 사용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 높은 Azure Database for PostgreSQL 또는 Azure Database for MySQL 리소스는 CPU 또는 메모리 경합이 발생할 수 있으며 쿼리 성능이 느려질 수 있습니다.  [복제본](../postgresql/howto-read-replicas-portal.md) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 고 주 서버에서 CPU 또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 읽기 집약적인 작업을 사용 하는 서버를 식별 하 고 읽기 [복제본](../postgresql/concepts-read-replicas.md)을 추가 하 여 읽기   작업의 일부를 오프 로드 하는 것을 권장 합니다.
+Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기 비율 같은 작업 기반 추론을 사용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 높은 Azure Database for PostgreSQL 또는 Azure Database for MySQL 리소스는 CPU 또는 메모리 경합이 발생할 수 있으며 쿼리 성능이 느려질 수 있습니다. [복제본](../postgresql/howto-read-replicas-portal.md) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 고 주 서버에서 CPU 또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 읽기 집약적인 작업을 사용 하는 서버를 식별 하 고 읽기 [복제본](../postgresql/concepts-read-replicas.md) 을 추가 하 여 읽기 작업의 일부를 오프 로드 하는 것을 권장 합니다.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>연결 제약 조건을 방지 하기 위해 Azure Database for MySQL, Azure Database for PostgreSQL 또는 Azure Database for MariaDB 서버를 상위 SKU로 크기 조정
-데이터베이스 서버에 대 한 새 연결은 메모리를 차지 합니다. 서버에 대 한 연결이 메모리의 [상한](../postgresql/concepts-limits.md) 으로 인해 실패 하는 경우 데이터베이스 서버의 성능이 저하 됩니다. Azure Advisor는 여러 연결 오류가 발생 하 여 실행 되는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하 여 서버에 더 많은 메모리를 제공 하도록 서버 연결 제한을 업그레이드 하는 것이 좋습니다.
+데이터베이스 서버에 대 한 새 연결은 메모리를 차지 합니다. 서버에 대 한 연결이 메모리의 [상한](../postgresql/concepts-limits.md) 으로 인해 실패 하는 경우 데이터베이스 서버의 성능이 저하 됩니다. Azure Advisor는 여러 연결 오류가 발생 하 여 실행 되는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하 여 서버에 더 많은 메모리를 제공 하도록 서버 연결 제한을 업그레이드 하는 것이 좋습니다.
 - 계산을 확장 합니다. 
 - 코어 당 계산을 많이 사용 하는 메모리 액세스에 최적화 된 Sku를 사용 합니다.
 
@@ -163,10 +163,10 @@ Azure Advisor는 지난 7 일간 시스템 로그를 분석 하 고 클러스터
 이 권장 사항은 구성된 캐시 기간(정책)을 초과하여 가장 많은 수의 쿼리를 포함하는 Azure Data Explorer 테이블을 표시합니다(캐시 외부 데이터에 액세스하는 쿼리 비율별로 상위 10개의 테이블이 표시됨). 클러스터의 성능을 향상시키기 위한 권장 조치: 이 테이블에 대한 쿼리를 필요한 최소 시간 범위(정의된 정책 내)로 제한합니다. 또는 전체 시간 범위의 데이터가 필요한 경우 캐시 기간을 권장 값으로 늘립니다.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>MySQL 임시 테이블 크기 조정을 최적화하여 성능 향상
-Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세한 정보](https://aka.ms/azure_mysql_tmp_table)
+Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세히 알아보기](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>서버 그룹에 데이터를 배포하여 노드 간에 워크로드 분산
-Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Windows 가상 데스크톱 배포 위치에 더 가깝게 Vm을 배포 하 여 사용자 환경 및 연결 개선
 VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위치와 다른 지역에 있는 것으로 확인되었습니다. 이로 인해 연결 응답 시간이 길어질 수 있으며 WVD에서 전반적인 사용자 환경에 영향을 줄 수 있습니다. 호스트 풀에 대해 VM을 만들 때 사용자에게 가까운 지역을 사용하려고 해야 합니다. 가까운 근접성을 사용하면 WVD 서비스에 대해 계속 만족할 수 있으며 전반적인 환경의 품질이 향상됩니다. [여기에서 연결 대기 시간에 대해 자세히 알아보세요](../virtual-desktop/connection-latency.md).

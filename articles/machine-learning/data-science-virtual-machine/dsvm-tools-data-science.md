@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012409"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309115"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
 Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 인기 있는 언어로 제공 되는 기계 학습을 위한 다양 한 도구 및 라이브러리 집합이 있습니다.
@@ -24,7 +24,7 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Python용 Azure Machine Learning SDK
 
-[Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)에 대 한 전체 참조를 참조 하세요.
+[Python 용 AZURE MACHINE LEARNING SDK](../overview-what-is-azure-ml.md)에 대 한 전체 참조를 참조 하세요.
 
 | 범주 | 값 |
 | ------------- | ------------- |
@@ -32,7 +32,7 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 | 지원되는 버전     | Windows(Conda 환경: AzureML), Linux(Conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 기계 학습 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.**      |
+| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
 | 관련 도구      | Visual Studio Code, Jupyter   |
 
@@ -89,7 +89,7 @@ Dsvms에는 `scikit-learn` dsvms에 대 한 Anaconda Python 배포의 일부인 
 | 무엇인가요?   |  데이터 마이닝 작업에 대 한 기계 학습 알고리즘의 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 도구     |
-| 사용/실행 방법      | Windows의 **시작** 메뉴에서 weka을 검색 합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 **응용 프로그램**  >  **개발**  >  **weka**으로 이동 합니다. |
+| 사용/실행 방법      | Windows의 **시작** 메뉴에서 weka을 검색 합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 **응용 프로그램**  >  **개발**  >  **weka** 으로 이동 합니다. |
 | 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | 관련 도구      |LightGBM, Rattle, Xgboost   |
 
@@ -113,5 +113,3 @@ Dsvms에는 `scikit-learn` dsvms에 대 한 Anaconda Python 배포의 일부인 
 | 일반적인 사용 용도      |  ETL (추출, 변환, 로드)을 요구 하지 않고 내부 데이터 탐색을 수행 합니다. CSV, JSON, 관계형 테이블 및 Hadoop을 비롯 한 다양 한 데이터 원본 및 형식을 쿼리 합니다.     |
 | 사용 및 실행 방법      | 바탕 화면 바로 가기  <br/> [10분 내에 드릴 시작](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | DSVM의 관련 도구      |   Rattle, Weka, SQL Server Management Studio      |
-
-

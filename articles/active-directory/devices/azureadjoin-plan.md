@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083289"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308286"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -119,7 +119,7 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 - **MDM 전용** - Intune 같은 MDM 공급자를 통해서만 디바이스를 관리합니다. 모든 정책은 MDM 등록 프로세스의 일부로 전달됩니다. Azure AD Premium 또는 EMS 고객의 경우 MDM 등록 단계가 Azure AD 조인의 일부이며 자동화되어 있습니다.
 - **공동 관리** - MDM 공급자와 SCCM이 디바이스를 함께 관리합니다. 이 방법에서는 특정 측면을 관리하기 위해 SCCM 에이전트가 MDM 관리 디바이스에 설치됩니다.
 
-그룹 정책을 사용하는 경우 [MMAT(MDM 마이그레이션 분석 도구)](https://github.com/WindowsDeviceManagement/MMAT)를 사용하여 MDM 정책 패리티를 평가합니다. 
+그룹 정책을 사용 하는 경우 Microsoft Endpoint Manager의 [그룹 정책 analytics](/mem/intune/configuration/group-policy-analytics) 를 사용 하 여 GPO 및 MDM 정책 패리티를 평가 합니다. 
 
 지원되는 정책과 지원되지 않는 정책을 검토하여 그룹 정책 대신 MDM 솔루션을 사용할 수 있는지 확인합니다. 지원되지 않는 정책의 경우 다음 사항을 고려합니다.
 
@@ -272,7 +272,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="응용 프로그램 추가 페이지 Azure Active Directory의 스크린샷 몇 개의 M D M 공급자가 나열 됩니다." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="M D M 사용 약관, 검색 및 규정 준수에 대 한 U R L 필드가 있는 Azure Active Directory M D M 구성 섹션의 스크린샷" border="false":::
 
 각 URL에는 사전 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 

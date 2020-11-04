@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359752"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308566"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
@@ -32,29 +32,29 @@ ms.locfileid: "91359752"
 
    ![새 웹 서비스 환경 링크](./media/web-services-logging/new-web-services-experience-link.png)
 
-2. 상단 메뉴 모음에서 새 웹 서비스에 대한 **웹 서비스**를 클릭하거나 클래식 웹 서비스에 대한 **클래식 웹 서비스**를 클릭합니다.
+2. 상단 메뉴 모음에서 새 웹 서비스에 대한 **웹 서비스** 를 클릭하거나 클래식 웹 서비스에 대한 **클래식 웹 서비스** 를 클릭합니다.
 
    ![새로운 또는 클래식 웹 서비스 선택](./media/web-services-logging/select-web-service.png)
 
 3. 새 웹 서비스의 경우 웹 서비스 이름을 클릭합니다. 클래식 웹 서비스의 경우 웹 서비스 이름을 클릭하고, 다음 페이지에서 적절한 엔드포인트를 클릭합니다.
 
-4. 최상위 메뉴 모음에서 **구성**을 클릭합니다.
+4. 최상위 메뉴 모음에서 **구성** 을 클릭합니다.
 
-5. **로깅 사용** 옵션을 *오류*(오류만 로그) 또는 *모두*(전체 로깅의 경우)로 설정합니다.
+5. **로깅 사용** 옵션을 *오류* (오류만 로그) 또는 *모두* (전체 로깅의 경우)로 설정합니다.
 
    ![로깅 수준 선택](./media/web-services-logging/enable-logging.png)
 
-6. **Save**을 클릭합니다.
+6. **저장** 을 클릭합니다.
 
 7. 클래식 웹 서비스의 경우 **ml-diagnostics** 컨테이너를 만듭니다.
 
-   모든 웹 서비스 로그는 웹 서비스와 연결된 스토리지 계정에 있는 **ml-diagnostics**이라는 blob 컨테이너에 저장됩니다. 새 웹 서비스의 경우 이 컨테이너는 처음 웹 서비스에 액세스할 때 만들어집니다. 클래식 웹 서비스의 경우 이 컨테이너가 없는 경우 하나 만들어야 합니다. 
+   모든 웹 서비스 로그는 웹 서비스와 연결된 스토리지 계정에 있는 **ml-diagnostics** 이라는 blob 컨테이너에 저장됩니다. 새 웹 서비스의 경우 이 컨테이너는 처음 웹 서비스에 액세스할 때 만들어집니다. 클래식 웹 서비스의 경우 이 컨테이너가 없는 경우 하나 만들어야 합니다. 
 
    1. [Azure Portal](https://portal.azure.com)에서 웹 서비스와 연결된 스토리지 계정으로 이동합니다.
 
-   2. **Blob Service**에서 **컨테이너**를 클릭 합니다.
+   2. **Blob Service** 에서 **컨테이너** 를 클릭합니다.
 
-   3. 컨테이너 **ml-diagnostics**가 없는 경우 **+컨테이너**를 클릭하여 컨테이너 이름을 “ml-diagnostics”로 지정하고, **액세스 형식**을 “Blob”으로 선택합니다. **확인**을 클릭합니다.
+   3. 컨테이너 **ml-diagnostics** 가 없는 경우 **+컨테이너** 를 클릭하여 컨테이너 이름을 “ml-diagnostics”로 지정하고, **액세스 형식** 을 “Blob”으로 선택합니다. **확인** 을 클릭합니다.
 
       ![진단 로그를 저장할 새 컨테이너 만들기](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "91359752"
 ## <a name="the-effects-of-enabling-logging"></a>로깅 활성화의 효과
 로깅을 사용 하도록 설정 하면 웹 서비스 끝점의 진단 및 오류가 사용자 작업 영역과 연결 된 Azure Storage 계정의 **ml 진단** blob 컨테이너에 기록 됩니다. 이 컨테이너는 이 스토리지 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
 
-Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 스토리지 계정으로 이동한 다음, **컨테이너**를 클릭하고 컨테이너 **ml-diagnostics**를 클릭하는 것입니다.  
+Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 스토리지 계정으로 이동한 다음, **컨테이너** 를 클릭하고 컨테이너 **ml-diagnostics** 를 클릭하는 것입니다.  
 
 ## <a name="log-blob-detail-information"></a>Blob 세부 정보 기록
 컨테이너의 각 blob은 정확히 다음 작업 중 하나에 대한 진단 정보를 포함합니다.
@@ -81,9 +81,8 @@ Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-_로그 형식_은 다음 값 중 하나를 사용합니다.  
+_로그 형식_ 은 다음 값 중 하나를 사용합니다.  
 
 * 일괄 처리  
 * score/requests  
-* score/init  
-
+* score/init
