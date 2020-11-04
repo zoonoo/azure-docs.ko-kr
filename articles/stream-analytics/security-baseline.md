@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129918"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348409"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -238,9 +238,9 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침** : Azure AD에는 명시적으로 할당 해야 하는 기본 제공 역할이 있습니다. 멤버 자격을 검색 하기 위해 역할을 쿼리할 수 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center 모니터링** : 예
 
@@ -260,7 +260,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침** : 관리자 역할에 대 한 최소 권한 액세스 원칙을 포함 하 여 모범 사례에 따라 id 관리 및 역할 보안 계획을 만듭니다. Azure Privileged Identity Management (PIM)를 사용 하 여 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 합니다. Azure PIM 경고 및 감사 기록을 사용 하 여 관리 계정의 활동을 모니터링 합니다. 손상 되었을 수 있는 관리 계정을 식별 하는 데 도움이 되도록 Azure AD 보안 보고서를 사용 합니다.
 
-* [자세한 정보](../active-directory/privileged-identity-management/index.yml)
+* [자세히 알아보기](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center 모니터링** : 예
 
@@ -542,7 +542,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 * [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 **지침** : "Microsoft streamanalytics" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Stream Analytics 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. Azure Stream Analytics와 관련 된 기본 제공 정책 정의를 사용할 수도 있습니다. Azure Stream Analytics의 진단 로그를 사용 하도록 설정 해야 합니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy 기본 제공 정책 정의](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 **지침** : Azure Repos을 사용 하 여 사용자 지정 Azure 정책, Azure Resource Manager 템플릿, 필요한 상태 구성 스크립트, 사용자 정의 함수, 쿼리 등 코드를 안전 하 게 저장 하 고 관리할 수 있습니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ Azure Storage blob에 대 한 일시 삭제: https://docs.microsoft.com/azure/st
 
 Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 관리/제공 키를 백업할 수 있습니다.
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center 모니터링** : 현재 사용할 수 없음
 
@@ -940,7 +940,7 @@ Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 �
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
-**지침** : Azure 리소스를 보호하는 데 도움이 되도록 시스템의 인시던트 대응 기능을 정기적으로 테스트합니다. 약점과 결함을 식별하고 필요에 따라 계획을 수정합니다.
+**지침** : 정기적으로 시스템의 인시던트 응답 기능을 테스트 하 여 Azure 리소스를 보호 하는 연습을 수행 합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
 
 * [NIST의 게시물을 참조하세요. IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 안내](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -990,7 +990,7 @@ Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 �
 
 * [Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다.](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft에서 관리하는 클라우드 인프라, 서비스 및 애플리케이션에 대한 레드 팀 및 라이브 사이트 침투 테스트 실행에 대한 자세한 내용은 ](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 참조하세요.
+* [Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트에 대 한 자세한 내용은 Microsoft에서 확인할 수 있습니다.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링** : 해당 없음
 

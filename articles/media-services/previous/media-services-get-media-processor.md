@@ -3,7 +3,7 @@ title: Azure Media Services SDK for .NET을 사용하여 미디어 프로세서�
 description: Azure Media Services용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 11/03/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df89acb7d3686a478c87c12bbf8a42962597dca6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3215eef337ca1c9a84f2f4d917dbea8ea2e090f0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269389"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346692"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
 
@@ -29,22 +29,21 @@ ms.locfileid: "89269389"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST (영문)](media-services-rest-get-media-processor.md)
-> 
-> 
 
 ## <a name="overview"></a>개요
+
 Media Services에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
-## <a name="azure-media-processors"></a>Azure 미디어 프로세서 
+## <a name="azure-media-processors"></a>Azure 미디어 프로세서
 
 미디어 프로세스 목록은 다음 항목에서 제공됩니다.
 
-* [미디어 프로세서 인코딩](scenarios-and-availability.md#encoding-media-processors)
-* [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
+* [미디어 프로세서 인코딩](scenarios-and-availability.md)
+* [분석 미디어 프로세서](scenarios-and-availability.md)
 
 ## <a name="get-media-processor"></a>미디어 프로세서 가져오기
 
-다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-use-aad-auth-to-access-ams-api.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
+다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context** 라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-use-aad-auth-to-access-ams-api.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
 ```csharp
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -59,13 +58,14 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 }
 ```
 
-
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md) 토픽으로 이동합니다.
 
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md) 토픽으로 이동합니다.

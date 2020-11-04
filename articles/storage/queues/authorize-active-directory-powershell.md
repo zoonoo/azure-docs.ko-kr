@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785666"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346029"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 
@@ -27,7 +27,7 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 
 
 Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 큐에 대 한 사용 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
 
-큐의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.  
+큐의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령 호출
 
@@ -45,7 +45,7 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
 
     PowerShell을 사용 하 여 Azure에 로그인 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 사용 하 여 로그인](/powershell/azure/authenticate-azureps)을 참조 하세요.
 
-1. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 호출 하 여 Azure 리소스 그룹을 만듭니다. 
+1. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 호출 하 여 Azure 리소스 그룹을 만듭니다.
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148526"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346998"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -262,7 +262,8 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 레지스트리에 [범위 맵 (사용자) 또는 토큰 리소스가](./container-registry-repository-scoped-permissions.md) 있는 경우 지원 티켓을 발생 시키기 전에 삭제 하십시오 (시스템 범위 맵은 무시 될 수 있음). 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
 
 > [!NOTE]
-> 알려진 이미지를 가져오는 데 필요한 Api만 익명으로 액세스할 수 있습니다. 태그 목록 또는 리포지토리 목록과 같은 작업에 대 한 다른 Api는 익명으로 액세스할 수 없습니다.
+> * 알려진 이미지를 가져오는 데 필요한 Api만 익명으로 액세스할 수 있습니다. 태그 목록 또는 리포지토리 목록과 같은 작업에 대 한 다른 Api는 익명으로 액세스할 수 없습니다.
+> * 익명 끌어오기 작업을 시도 하기 전에를 실행 `docker logout` 하 여 기존 Docker 자격 증명을 모두 지울 수 있도록 합니다.
 
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 검사
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: 40de52773d9f205e3133543f689c9d381776d8ee
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3599052e49b91747580bf506f06ebfb8d2e34423
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130428"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346811"
 ---
 # <a name="create-an-azure-container-offer"></a>Azure 컨테이너 제품 만들기
 
@@ -38,8 +38,8 @@ ms.locfileid: "93130428"
 
 컨테이너 이미지를 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
 
-- [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Azure CLI](/cli/azure/?view=azure-cli-latest)
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/)
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 

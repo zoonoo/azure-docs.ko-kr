@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: d2a9063a202ba542279efd8017d282fe0aa78d42
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c578febf088148e9e0496d87b715c953c5bd9d36
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129867"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348375"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus 항목 출력 Azure Stream Analytics
 
@@ -61,11 +61,11 @@ Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 �
 
 다음 이미지는 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용 하 여 EventHub에서 검사 된 예상 출력 메시지 속성입니다.
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="속성 열":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="이벤트 사용자 지정 속성":::
 
 ## <a name="system-properties"></a>시스템 속성
 
-쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)이 쿼리 열 값으로 채워집니다.
+쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)이 쿼리 열 값으로 채워집니다.
 지원되는 시스템 속성은 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`입니다.
 
 이러한 열의 문자열 값은 해당 시스템 속성 값 형식으로 구문 분석되고, 구문 분석 실패는 데이터 오류로 처리됩니다.

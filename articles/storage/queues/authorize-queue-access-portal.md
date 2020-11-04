@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715511"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345995"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
-[Azure Portal](https://portal.azure.com)를 사용 하 여 큐 데이터에 액세스 하는 경우 포털은 내부적으로 Azure Storage에 대 한 요청을 수행 합니다. Azure AD 계정 또는 저장소 계정 액세스 키 중 하나를 사용 하 여 Azure Storage에 대 한 요청을 인증할 수 있습니다. 포털은 사용 중인 방법을 나타내며, 적절 한 사용 권한이 있는 경우 둘 사이를 전환할 수 있습니다.  
+[Azure Portal](https://portal.azure.com)를 사용 하 여 큐 데이터에 액세스 하는 경우 포털은 내부적으로 Azure Storage에 대 한 요청을 수행 합니다. Azure AD 계정 또는 저장소 계정 액세스 키 중 하나를 사용 하 여 Azure Storage에 대 한 요청을 인증할 수 있습니다. 포털은 사용 중인 방법을 나타내며, 적절 한 사용 권한이 있는 경우 둘 사이를 전환할 수 있습니다.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>큐 데이터에 액세스 하는 데 필요한 권한
 
@@ -28,16 +28,16 @@ Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하려는
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 Azure RBAC 동작 **Microsoft. Storage/storageAccounts/listkeys/action**을 포함 하는 azure 역할을 할당 받아야 합니다. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
+계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 Azure RBAC 동작 **Microsoft. Storage/storageAccounts/listkeys/action** 을 포함 하는 azure 역할을 할당 받아야 합니다. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
 - [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
 
-Azure Portal에서 큐 데이터에 액세스 하려고 하면 포털은 먼저 **Microsoft. Storage/storageAccounts/listkeys/action**을 사용 하 여 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할이 할당 된 경우 포털은 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업을 사용 하 여 역할을 할당 하지 않은 경우 포털은 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
+Azure Portal에서 큐 데이터에 액세스 하려고 하면 포털은 먼저 **Microsoft. Storage/storageAccounts/listkeys/action** 을 사용 하 여 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할이 할당 된 경우 포털은 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업을 사용 하 여 역할을 할당 하지 않은 경우 포털은 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
 
 > [!NOTE]
-> 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **Owner** 역할은 **Microsoft. Storage/storageaccounts/listkeys/action**을 비롯 한 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 계정 키를 사용 하 여 큐 데이터에 액세스할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
+> 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **Owner** 역할은 **Microsoft. Storage/storageaccounts/listkeys/action** 을 비롯 한 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 계정 키를 사용 하 여 큐 데이터에 액세스할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
 
 ### <a name="use-your-azure-ad-account"></a>Azure AD 계정 사용
 
@@ -58,11 +58,11 @@ Azure AD 계정을 사용 하 여 Azure Portal에서 큐 데이터에 액세스 
 클래식 구독 관리자 역할을 사용 하 여 큐를 나열 하는 것은 지원 되지 않습니다. 큐를 나열 하려면 사용자가 Azure Resource Manager **읽기 권한자** 역할, **저장소 큐 데이터 판독기** 역할 또는 **저장소 큐 데이터 참가자** 역할에 할당 되어 있어야 합니다.
 
 > [!IMPORTANT]
-> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 큐 데이터를 확인 하 고 수정 하는 기능을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면 **Microsoft. Storage/storageAccounts/listkeys/action**이 포함 된 역할이 할당 되어야 합니다.
+> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 큐 데이터를 확인 하 고 수정 하는 기능을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면 **Microsoft. Storage/storageAccounts/listkeys/action** 이 포함 된 역할이 할당 되어야 합니다.
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Azure Portal 큐로 이동 합니다.
 
-포털에서 큐 데이터를 보려면 저장소 계정에 대 한 **개요** 로 이동 하 여 **큐**에 대 한 링크를 클릭 합니다. 또는 메뉴의 **큐 서비스** 섹션으로 이동할 수 있습니다.
+포털에서 큐 데이터를 보려면 저장소 계정에 대 한 **개요** 로 이동 하 여 **큐** 에 대 한 링크를 클릭 합니다. 또는 메뉴의 **큐 서비스** 섹션으로 이동할 수 있습니다.
 
 :::image type="content" source="media/authorize-queue-access-portal/queue-access-portal.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
@@ -74,11 +74,11 @@ Azure AD 계정을 사용 하 여 Azure Portal에서 큐 데이터에 액세스 
 
 계정 액세스 키를 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **액세스 키** 가 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="계정 키를 사용 하 여 현재 큐에 액세스 하는 사용자를 보여 주는 스크린샷":::
 
 Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 사용자에 게 할당 된 Azure 역할을 통해 적절 한 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 적절 한 권한이 없으면 다음과 같은 오류 메시지가 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Azure AD 계정이 액세스를 지원 하지 않는 경우 표시 되는 오류":::
 
 Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 큐가 표시 되지 않습니다. 액세스 키를 사용 하 여 인증 **키로 전환** 링크를 클릭 하 여 인증에 대 한 액세스 키를 다시 사용 합니다.
 
@@ -86,7 +86,7 @@ Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 큐가
 
 Azure AD 계정을 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **AZURE Ad 사용자 계정이** 표시 됩니다.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Azure Portal에서 큐 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="현재 Azure AD 계정을 사용 하 여 큐에 액세스 하는 사용자를 보여 주는 스크린샷":::
 
 계정 액세스 키를 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 계정 키에 대 한 액세스 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 계정 키에 대 한 액세스 권한이 없는 경우 Azure Portal는 오류 메시지를 표시 합니다.
 

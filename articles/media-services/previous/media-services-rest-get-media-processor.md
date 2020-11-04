@@ -3,7 +3,7 @@ title: REST를 사용하여 미디어 프로세서 인스턴스를 가져오는 
 description: Azure Media Services용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: ba625aa048360a4c201b91b4a5a4a7ca4dd6277b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: e1ac2a2408e16c3f8057c49c69c354ebb1e377c7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269508"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348494"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>미디어 프로세서 인스턴스를 가져오는 방법
 
@@ -28,18 +28,18 @@ ms.locfileid: "89269508"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST (영문)](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## <a name="overview"></a>개요
-미디어 프로세서는 인코딩, 형식 변환, 콘텐츠, 암호화 또는 암호 해독 미디어와 같은 특정 비디오 또는 오디오 처리 작업을 처리하는 구성 요소입니다. Media Services에 제출된 모든 작업에는 비디오 또는 오디오 콘텐츠를 인코딩, 암호화 또는 변환하는 미디어 프로세서가 필요합니다. 
 
-## <a name="azure-media-processors"></a>Azure 미디어 프로세서 
+미디어 프로세서는 인코딩, 형식 변환, 콘텐츠, 암호화 또는 암호 해독 미디어와 같은 특정 비디오 또는 오디오 처리 작업을 처리하는 구성 요소입니다. Media Services에 제출된 모든 작업에는 비디오 또는 오디오 콘텐츠를 인코딩, 암호화 또는 변환하는 미디어 프로세서가 필요합니다.
+
+## <a name="azure-media-processors"></a>Azure 미디어 프로세서
 
 미디어 프로세스 목록은 다음 항목에서 제공됩니다.
 
-* [미디어 프로세서 인코딩](scenarios-and-availability.md#encoding-media-processors)
-* [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
+* [미디어 프로세서 인코딩](scenarios-and-availability.md)
+* [분석 미디어 프로세서](scenarios-and-availability.md)
 
 >[!NOTE]
 >Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
@@ -51,7 +51,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 
 ## <a name="get-a-media-processor"></a>미디어 프로세서 가져오기
 
-다음 REST 호출에서는 이름으로 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다(이 경우 **미디어 인코더 표준**). 
+다음 REST 호출에서는 이름으로 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다(이 경우 **미디어 인코더 표준** ). 
 
 요청:
 

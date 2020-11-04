@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567165"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345400"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -24,20 +24,35 @@ ms.locfileid: "91567165"
 ## <a name="quotas-and-limits-quick-reference"></a>할당량 및 제한 빠른 참조
 [텍스트 음성 변환 할당량 및 한도](#text-to-speech-quotas-and-limits-per-speech-resource) 로 이동
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>음성 리소스당 음성 텍스트 변환 할당량 및 한도
-아래 테이블에서 "조정 가능한" 행이 없는 매개 변수는 모든 가격 책정 계층에 대해 조정할 **수 없습니다** .
+모든 가격 책정 계층에 대해 "조정 가능" 행을 포함 하지 않고 아래의 테이블에서 행을 조정할 수 **없습니다** .
+
+#### <a name="online-transcription"></a>온라인 기록
 
 | 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
 |--|--|--|
-| **온라인 기록 동시 요청 제한 (기본 및 사용자 지정 모델)** |  |  |
-| 기본값 | 1 | 20 |
+| **동시 요청 제한 (기본 및 사용자 지정 모델)** | 1 | 20 (기본값) |
 | 빗변 | 아니요<sup>2</sup> | 예<sup>2</sup> |
-| **REST API 요청 제한 ([API Management](../../api-management/api-management-key-concepts.md) 끝점)** | 10 초 당 100 요청 | 10 초 당 100 요청 |
-| **데이터 가져오기에 대 한 최대 데이터 집합 파일 크기** | 2GB | 2GB |
-| **일괄 처리 기록을 위한 최대 입력 blob 크기** | N/A | 2.5GB |
-| **일괄 처리 기록을 위한 최대 blob 컨테이너 크기** | N/A | 5GB |
-| **일괄 처리 기록을 위한 컨테이너 당 최대 blob 수** | N/A | 10000 |
-| **일괄 처리에 대 한 기록 요청당 최대 파일 수 (여러 콘텐츠 Url을 입력으로 사용 하는 경우)** | N/A | 1000  |
-| **일괄 처리 기록을 위해 동시에 실행 되는 최대 작업 수** | N/A | 2000  |
+
+#### <a name="batch-transcription"></a>일괄 처리 기록
+| 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
+|--|--|--|
+| REST API 제한 | F0에 대 한 일괄 처리 기록을 사용할 수 없음 | 분당 300 요청 |
+| 최대 오디오 입력 파일 크기 | 해당 없음 | 1 GB |
+| 최대 입력 blob 크기 (예: zip 보관 파일에 둘 이상의 파일을 포함할 수 있습니다. 위의 파일 크기 제한을 확인 해야 함) | 해당 없음 | 2.5GB |
+| 최대 blob 컨테이너 크기 | 해당 없음 | 5GB |
+| 컨테이너 당 최대 blob 수 | 해당 없음 | 10000 |
+| 기록 요청당 최대 파일 수 (여러 콘텐츠 Url을 입력으로 사용 하는 경우) | 해당 없음 | 1000  |
+| 동시에 실행 중인 작업의 최대 수 | 해당 없음 | 2000  |
+
+#### <a name="model-customization"></a>모델 사용자 지정
+| 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
+|--|--|--|
+| REST API 제한 | 분당 300 요청 | 분당 300 요청 |
+| 최대 음성 데이터 집합 수 | 2 | 500 |
+| 데이터 가져오기에 대 한 최대 음향 데이터 집합 파일 크기 | 2GB | 2GB |
+| 데이터 가져오기에 대 한 최대 언어 데이터 집합 파일 크기 | 200MB | 1.5GB |
+| 데이터 가져오기에 대 한 최대 발음 데이터 집합 파일 크기 | 1KB | 1MB |
+| `text` [모델 API 만들기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) 요청에서 매개 변수를 사용 하는 경우 최대 텍스트 크기 | 200KB | 500KB |
 
 <sup>1</sup> **무료 (F0)** 가격 책정 계층에 대해서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)에서 월간 허용량를 참조 하세요.<br/>
 <sup>2</sup> [추가](#detailed-description-quota-adjustment-and-best-practices)설명, [모범 사례](#general-best-practices-to-mitigate-throttling-during-autoscaling)및 [조정 지침](#speech-to-text-increasing-online-transcription-concurrent-request-limit)을 참조 하세요.<br/> 
@@ -57,7 +72,7 @@ ms.locfileid: "91567165"
 | **Websocket 특정 할당량** |  |  |
 |턴 당 생성 된 최대 오디오 길이 | 10분 | 10분 |
 |테이블당 최대 SSML 메시지 크기 |64KB |64KB |
-| **REST API 요청 제한** | 분당 20 개 요청 | 5 초 당 25 개의 요청 |
+| **REST API 제한** | 분당 20 개 요청 | 5 초 당 25 개의 요청 |
 
 
 <sup>3</sup> **무료 (F0)** 가격 책정 계층에 대해서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)에서 월간 허용량을 참조 하세요.<br/>
@@ -84,7 +99,7 @@ ms.locfileid: "91567165"
 
 동시 요청 제한은 증가 해도 비용에 직접적인 영향을 주지 **않습니다** . 음성 서비스는 "사용한 만큼만 요금 지불" 모델을 사용 합니다. 이 제한은 서비스에서 요청을 제한 하기 전에 확장할 수 있는 정도를 정의 합니다.
 
-**기본** 모델 및 **사용자 지정** 모델에 대 한 동시 요청 제한은 **별도로**조정 해야 합니다.
+**기본** 모델 및 **사용자 지정** 모델에 대 한 동시 요청 제한은 **별도로** 조정 해야 합니다.
 
 Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제한 매개 변수의 기존 값이 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
 
@@ -92,22 +107,22 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
 >컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다.
 
 #### <a name="have-the-required-information-ready"></a>필요한 정보가 준비 되어 있어야 합니다.
-- **기본 모델**의 경우:
+- **기본 모델** 의 경우:
   - 음성 리소스 ID
   - 지역
-- **사용자 지정 모델**의 경우: 
+- **사용자 지정 모델** 의 경우: 
   - 지역
   - 사용자 지정 끝점 ID
 
-- **정보를 가져오는 방법 (기본 모델)**:  
+- **정보를 가져오는 방법 (기본 모델)** :  
   - [Azure Portal](https://portal.azure.com/) 로 이동
   - 동시성 요청 제한을 늘릴 음성 리소스를 선택 하세요.
-  - *속성* 선택 (*리소스 관리* 그룹) 
+  - *속성* 선택 ( *리소스 관리* 그룹) 
   - 다음 필드의 값을 복사 하 여 저장 합니다.
     - **리소스 ID**
     - **위치** (끝점 영역)
 
-- **정보를 가져오는 방법 (사용자 지정 모델)**:
+- **정보를 가져오는 방법 (사용자 지정 모델)** :
   - [Speech Studio](https://speech.microsoft.com/) 포털로 이동
   - 필요한 경우 로그인
   - Custom Speech로 이동
@@ -124,7 +139,7 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
 - [필요한 정보가](#have-the-required-information-ready) 있는지 확인 합니다.
 - [Azure Portal](https://portal.azure.com/) 로 이동
 - 동시성 요청 제한을 늘리거나 확인할 음성 리소스를 선택 합니다.
-- *새 지원 요청* (*지원 + 문제 해결* 그룹)을 선택 합니다. 
+- *새 지원 요청* ( *지원 + 문제 해결* 그룹)을 선택 합니다. 
 - Azure 구독 및 Azure 리소스에 대 한 자동 채우기 정보를 포함 하는 새 창이 표시 됩니다.
 - *Summary* 를 입력 합니다 (예: "STT Concurrency 요청 제한").
 - *문제 유형에* 서 "할당량 또는 구독 문제"를 선택 합니다.
@@ -176,7 +191,7 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
 - [필요한 정보가](#prepare-the-required-information) 있는지 확인 합니다.
 - [Azure Portal](https://portal.azure.com/) 로 이동
 - 동시성 요청 제한을 늘리거나 확인할 음성 리소스를 선택 합니다.
-- *새 지원 요청* (*지원 + 문제 해결* 그룹)을 선택 합니다. 
+- *새 지원 요청* ( *지원 + 문제 해결* 그룹)을 선택 합니다. 
 - Azure 구독 및 Azure 리소스에 대 한 자동 채우기 정보를 포함 하는 새 창이 표시 됩니다.
 - *요약* 입력 (예: "TTS 사용자 지정 끝점 동시성 요청 제한 증가")
 - *문제 유형에* 서 "할당량 또는 구독 문제"를 선택 합니다.

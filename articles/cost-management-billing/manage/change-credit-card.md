@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92131142"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가 또는 업데이트
@@ -116,7 +116,7 @@ Azure Portal에서 신용 카드 세부 정보(예: 만료 날짜 업데이트)�
    ![메뉴의 결제 방법을 보여주는 스크린샷](./media/change-credit-card/payment-methods-tab-mca.png)
 1. **신용 카드** 섹션에서 편집할 신용 카드를 찾습니다.
 1. 행 끝에 있는 줄임표(`...`)를 선택합니다.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="교체 옵션을 보여주는 스크린샷" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="줄임표를 보여 주는 스크린샷" :::
 1. 신용 카드 세부 정보를 편집하려면 바로 가기 메뉴에서 **편집** 을 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결

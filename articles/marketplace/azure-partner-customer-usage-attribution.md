@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125175"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348341"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -159,7 +159,7 @@ Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent�
 
 #### <a name="example-the-net-sdk"></a>예: .NET SDK
 
-.NET의 경우 사용자 에이전트를 설정 해야 합니다. [흐름](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 라이브러리는 다음 코드를 사용 하 여 사용자 에이전트를 설정 하는 데 사용할 수 있습니다 (예: c #의 경우).
+.NET의 경우 사용자 에이전트를 설정 해야 합니다. [흐름](/dotnet/api/microsoft.azure.management.fluent) 라이브러리는 다음 코드를 사용 하 여 사용자 에이전트를 설정 하는 데 사용할 수 있습니다 (예: c #의 경우).
 
 ```csharp
 

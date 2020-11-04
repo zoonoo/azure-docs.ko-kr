@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122626"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346114"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -91,7 +91,7 @@ SQL 출력을 사용 하는 Stream Analytics 작업에서 첫 번째 이벤트 �
 2. 작업은 대상 테이블의 스키마를 페치합니다.
 3. 작업은 대상 테이블 스키마에 대 한 열 이름 및 유형의 유효성을 검사 합니다.
 4. 작업은 일괄 처리의 출력 레코드에서 메모리 내 데이터 테이블을 준비 합니다.
-5. 작업은 대량 복사 [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)를 사용 하 여 SQL에 데이터 테이블을 작성 합니다.
+5. 작업은 대량 복사 [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)를 사용 하 여 SQL에 데이터 테이블을 작성 합니다.
 
 이러한 단계를 수행 하는 동안 SQL 출력에 다음과 같은 유형의 오류가 발생할 수 있습니다.
 

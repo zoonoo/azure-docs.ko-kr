@@ -3,12 +3,12 @@ title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653369"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347797"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -20,9 +20,9 @@ ms.locfileid: "91653369"
 
 다음 표에서 용어 영숫자는 다음을 나타냅니다.
 
-* **a**~**z**(소문자)
-* **A**~**Z**(대문자)
-* **0**~**9**(숫자)
+* **a** ~ **z** (소문자)
+* **A** ~ **Z** (대문자)
+* **0** ~ **9** (숫자)
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -489,11 +489,12 @@ ms.locfileid: "91653369"
 > | azureFirewalls | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | bastionHosts | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | connections | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | dnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com**에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
+> | dnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com** 에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
 > | expressRouteCircuits | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | firewallPolicies | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | firewallPolicies / ruleGroups | 방화벽 정책 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | frontDoors | 글로벌 | 5-64 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
+> | frontdoorWebApplicationFirewallPolicies | 리소스 그룹 | 1-128 | 영숫자<br><br>문자로 시작합니다. |
 > | loadBalancers | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | loadBalancers / inboundNatRules | 부하 분산 장치 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | localNetworkGateways | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
@@ -501,7 +502,7 @@ ms.locfileid: "91653369"
 > | networkSecurityGroups | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | networkSecurityGroups / securityRules | 네트워크 보안 그룹 | 1-80 |  영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | networkWatchers | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | privateDnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com**에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
+> | privateDnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com** 에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
 > | privateDnsZones / virtualNetworkLinks | 프라이빗 DNS 영역 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | publicIPAddresses | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | publicIPPrefixes | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
@@ -604,7 +605,7 @@ ms.locfileid: "91653369"
 > | 네임스페이스 | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다.<br><br>자세한 내용은 [네임스페이스 만들기](/rest/api/servicebus/create-namespace)를 참조하세요. |
 > | namespaces / AuthorizationRules | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / disasterRecoveryConfigs | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 영숫자로 끝납니다. |
-> | namespaces / migrationConfigurations | 네임스페이스 |  | 항상 **$default**여야 합니다. |
+> | namespaces / migrationConfigurations | 네임스페이스 |  | 항상 **$default** 여야 합니다. |
 > | namespaces / queues | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / queues / authorizationRules | queue | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / topics | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시<br><br>영숫자로 시작하고 끝납니다. |

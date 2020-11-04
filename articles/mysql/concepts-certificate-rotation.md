@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 6005e56982d6adad937586c6a1b364fab09603ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 58143bde757a44cde4e4237715823c8556ac5e12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242316"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348443"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -31,10 +31,10 @@ ms.locfileid: "93242316"
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>데이터베이스에 영향을 미치는지 여부를 어떻게 할까요? 확인
 
 SSL/TLS를 사용 하 고 루트 인증서를 확인 하는 모든 응용 프로그램은 루트 인증서를 업데이트 해야 합니다. 연결 문자열을 검토 하 여 연결에서 루트 인증서를 확인 하는지 여부를 식별할 수 있습니다.
--   연결 문자열에 `sslmode=verify-ca` 또는가 포함 `sslmode=verify-identity` 된 경우 인증서를 업데이트 해야 합니다.
--   연결 문자열에,, 또는가 포함 되어 있으면 `sslmode=disable` `sslmode=allow` `sslmode=prefer` `sslmode=require` 인증서를 업데이트할 필요가 없습니다. 
+-    연결 문자열에 `sslmode=verify-ca` 또는가 포함 `sslmode=verify-identity` 된 경우 인증서를 업데이트 해야 합니다.
+-    연결 문자열에,, 또는가 포함 되어 있으면 `sslmode=disable` `sslmode=allow` `sslmode=prefer` `sslmode=require` 인증서를 업데이트할 필요가 없습니다. 
 -  Java 커넥터를 사용 하는 경우 연결 문자열에 useSSL = false 또는 requireSSL = false가 포함 되어 있으면 인증서를 업데이트할 필요가 없습니다.
--   연결 문자열에서 sslmode를 지정 하지 않는 경우 인증서를 업데이트할 필요가 없습니다.
+-    연결 문자열에서 sslmode를 지정 하지 않는 경우 인증서를 업데이트할 필요가 없습니다.
 
 연결 문자열을 추상화 하는 클라이언트를 사용 하는 경우 클라이언트의 설명서를 검토 하 여 인증서를 확인 하는지 여부를 파악 합니다.
 Azure Database for MySQL sslmode를 이해 하려면 [SSL 모드 설명을](concepts-ssl-connection-security.md#ssl-default-settings)검토 하십시오.
@@ -80,19 +80,19 @@ Azure Database for MySQL sslmode를 이해 하려면 [SSL 모드 설명을](conc
  </br>-----최종 인증서-----
 
 *   원래 루트 CA pem 파일을 결합 된 루트 CA 파일로 바꾸고 응용 프로그램/클라이언트를 다시 시작 합니다.
-*   나중에 서버 쪽에 새 인증서를 배포한 후에는 CA pem 파일을 DigiCertGlobalRootG2로 변경할 수 있습니다.
+*    나중에 서버 쪽에 새 인증서를 배포한 후에는 CA pem 파일을 DigiCertGlobalRootG2로 변경할 수 있습니다.
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>인증서를 업데이트 하지 않을 경우의 영향은 무엇 인가요?
 여기에 설명 된 대로 발급 된 Azure Database for MySQL 인증서를 사용 하는 경우 데이터베이스에 연결할 수 없으므로 응용 프로그램의 가용성이 중단 될 수 있습니다. 응용 프로그램에 따라 다음을 비롯 한 다양 한 오류 메시지를 받을 수 있습니다.
-*   잘못 된 인증서/해지 된 인증서
-*   연결 시간이 초과됨
+*    잘못 된 인증서/해지 된 인증서
+*    연결 시간이 초과됨
 
 > [!NOTE]
 > 인증서가 변경 될 때까지 **Baltimore certificate** 를 삭제 하거나 변경 하지 마세요. 변경이 완료 되 면 통신이 전송 되며, 그 후에는 Baltimore 인증서를 삭제 하는 것이 안전 합니다. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. SSL/TLS를 사용 하는 경우에는 데이터베이스 서버를 다시 시작 하 여 루트 CA를 업데이트 해야 하나요?
@@ -104,7 +104,7 @@ SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. Azure Database for MySQL에서 App Service를 사용 하는 경우 미치는 영향은 무엇입니까?
 Azure Database for MySQL에 연결 하는 Azure app services의 경우 두 가지 시나리오를 사용할 수 있으며, 응용 프로그램에서 SSL을 사용 하는 방법에 따라 달라 집니다.
 *   이 새 인증서는 플랫폼 수준에서 App Service에 추가 되었습니다. 응용 프로그램의 App Service 플랫폼에 포함 된 SSL 인증서를 사용 하는 경우 아무 작업도 필요 하지 않습니다.
-*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress) 에서 공유 된 App Service의 사용자 지정 컨테이너를 사용 하는 경우입니다.
+*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress) 에서 공유 된 App Service의 사용자 지정 컨테이너를 사용 하는 경우입니다.
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. Azure Database for MySQL에서 AKS (Azure Kubernetes Services)를 사용 하는 경우 미치는 영향은 무엇 인가요?
 AKS (Azure Kubernetes Services)를 사용 하 여 Azure Database for MySQL에 연결 하려는 경우 전용 고객 호스트 환경에서 액세스 하는 것과 비슷합니다. [여기](../aks/ingress-own-tls.md)에서 단계를 참조 하세요.
@@ -123,13 +123,13 @@ Azure Integration Runtime를 사용 하는 커넥터의 경우 커넥터는 Azur
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9.2021 (02/15/2021)의 2 월 15 일 이후에 새 서버를 만드는 경우 영향을 받게 되나요?
 02/15/2021 2021 년 2 월 15 일 이후에 만들어진 서버에 대해 새로 발급 된 인증서를 사용 하 여 응용 프로그램에서 SSL을 사용 하 여 연결할 수 있습니다.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?
 Azure Database for MySQL에서 사용 하는 이러한 인증서는 신뢰할 수 있는 CA (인증 기관)에서 제공 합니다. 따라서 Azure Database for MySQL에서 이러한 인증서를 지 원하는 것은 CA에서 이러한 인증서를 지 원하는 것과 관련이 있습니다. 그러나이 경우에는 미리 정의 된 이러한 인증서에 예측할 수 없는 버그가 있을 수 있으며,이는 초기에 수정 해야 합니다.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 원본 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 원본 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다.
 
-### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
+###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
 [데이터에서 복제](concepts-data-in-replication.md) 를 사용 하 여 Azure Database for MySQL에 연결 하는 경우 다음 두 가지 사항을 고려해 야 합니다.
 *   가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다.  
 
@@ -152,5 +152,5 @@ SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl �
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
 아니요. 인증서 파일에 **DigiCertGlobalRootG2** 이 이미 있는 경우에는 필요한 작업이 없습니다.
 
-### <a name="15-what-if-i-have-further-questions"></a>15. 추가 질문이 있으면 어떻게 하나요?
+###    <a name="15-what-if-i-have-further-questions"></a>15. 추가 질문이 있으면 어떻게 하나요?
 질문이 있는 경우 [Microsoft Q&](mailto:AzureDatabaseforMySQL@service.microsoft.com)의 커뮤니티 전문가 로부터 답변을 받으세요. 지원 계획이 있고 기술 도움말이 필요한 경우 [microsoft에 문의 하세요](mailto:AzureDatabaseforMySQL@service.microsoft.com).

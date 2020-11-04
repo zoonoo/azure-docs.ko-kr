@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305546"
+ms.locfileid: "93346879"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -24,7 +24,11 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용 하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
+>
+> 게스트 구성 확장은 Azure Virtual Machine에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용 하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
@@ -49,7 +53,9 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 - Windows
 
 > [!NOTE]
-> ' GuestConfigurationPackage ' cmdlet에는 OMI에 대 한 종속성으로 인해 OpenSSL 버전 1.0이 필요 합니다. 이로 인해 OpenSSL 1.1 이상의 환경에서 오류가 발생 합니다.
+> Cmdlet에는 `Test-GuestConfigurationPackage` OMI에 대 한 종속성으로 인해 OpenSSL 버전 1.0이 필요 합니다. 이로 인해 OpenSSL 1.1 이상의 환경에서 오류가 발생 합니다.
+>
+> Windows에서 실행 하는 cmdlet은 `Test-GuestConfigurationPackage` 게스트 구성 모듈 버전 2.1.0에만 사용할 수 있습니다.
 
 게스트 구성 리소스 모듈에는 다음 소프트웨어가 필요합니다.
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
-정책 정의에 대한 업데이트를 릴리스하려면 주의해야 하는 필드가 두 가지 있습니다.
+정책 정의에 대 한 업데이트를 해제 하려면 주의가 필요한 세 개의 필드가 있습니다.
 
-- **버전** : `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다. 속성은 에이전트가 업데이트된 패키지를 인식하도록 게스트 구성 할당의 버전을 업데이트합니다.
+> [!NOTE]
+> `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
+
+- **버전** : `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
+- **contenturi** : cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
 - **contentHash** : 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
 
 업데이트된 패키지를 릴리스하는 가장 쉬운 방법은 이 문서에 설명된 프로세스를 반복하고 업데이트된 버전 번호를 제공하는 것입니다. 해당 프로세스는 모든 속성이 올바르게 업데이트되었음을 보장합니다.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>태그를 사용하여 게스트 구성 정책 필터링
 

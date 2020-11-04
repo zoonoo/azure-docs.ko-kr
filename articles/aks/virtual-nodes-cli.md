@@ -6,22 +6,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899885"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348477"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
-AKS(Azure Kubernetes Service) 클러스터에서 애플리케이션 워크로드 크기를 신속하게 조정하려면 가상 노드를 사용할 수 있습니다. 가상 노드를 사용하면 Pod를 신속하게 프로비전할 수 있으며, 실행 시간(초) 단위로 요금이 청구됩니다. Kubernetes 클러스터 자동 크기 조정기가 추가 Pod를 실행하는 VM 컴퓨팅 노드를 배포할 때까지 기다릴 필요가 없습니다. 가상 노드는 Linux Pod 및 노드에서만 지원됩니다.
+이 문서에서는 Azure CLI 사용 하 여 가상 네트워크 리소스와 AKS 클러스터를 만들고 구성한 다음 가상 노드를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-이 문서에서는 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성한 후 가상 노드를 사용하도록 설정하는 방법을 보여 줍니다.
+> [!NOTE]
+> [이 문서](virtual-nodes.md) 에서는 가상 노드를 사용 하 여 지역 가용성 및 제한 사항에 대 한 개요를 제공 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹을 사용하여 만든 AKS 클러스터에만 작동합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹을 사용하여 만듭니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹 (AZURE cni)을 사용 하 여 만든 AKS 클러스터 에서만 작동 합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹 (kubenet)을 사용 하 여 생성 됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -42,34 +43,6 @@ Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
-
-## <a name="regional-availability"></a>국가별 가용성
-
-가상 노드 배포에 대해 지원되는 지역은 다음과 같습니다.
-
-* 오스트레일리아 동부(australiaeast)
-* 미국 중부(centralus)
-* 미국 동부(eastus)
-* 미국 동부 2(eastus2)
-* 일본 동부(japaneast)
-* 북유럽(northeurope)
-* 동남 아시아(southeastasia)
-* 미국 중서부(westcentralus)
-* 유럽 서부(westeurope)
-* 미국 서부(westus)
-* 미국 서부 2(westus2)
-
-## <a name="known-limitations"></a>알려진 제한 사항
-가상 노드 기능은 ACI의 기능 집합에 따라 크게 달라집니다. [Azure Container Instances에 대 한 할당량 및 제한](../container-instances/container-instances-quotas.md)외에도 다음 시나리오는 가상 노드에서 아직 지원 되지 않습니다.
-
-* 서비스 주체를 사용하여 ACR 이미지를 끌어옵니다. [해결 방법](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry)은 [Kubernetes 비밀](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)을 사용하는 것입니다.
-* [Virtual Network 제한 사항](../container-instances/container-instances-vnet.md)에는 VNet 피어링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹이 있는 인터넷으로의 아웃바운드 트래픽이 포함됩니다.
-* 초기화 컨테이너
-* [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* ACI의 exec에 대한 [인수](../container-instances/container-instances-exec.md#restrictions)
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets)는 가상 노드에 Pod를 배포하지 않습니다.
-* 가상 노드는 Linux Pod 예약을 지원합니다. 오픈 소스 [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows Server 컨테이너를 ACI로 예약할 수 있습니다.
-* 가상 노드에는 Azure CNI 네트워킹을 사용 하는 AKS 클러스터가 필요 합니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 

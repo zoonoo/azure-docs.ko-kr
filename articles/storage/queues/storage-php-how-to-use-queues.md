@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809214"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345842"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 
@@ -38,7 +38,7 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 
 1. 프로젝트의 루트에 **composer.js에** 이라는 파일을 만들고 다음 코드를 추가 합니다.
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
       }
     }
     ```
+
 2. 프로젝트 루트에 **[composer.phar][composer-phar]** 을 다운로드합니다.
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Azure Queue 서비스 클라이언트를 만들려면 **QueueRestProxy** 클래스를 사용해야 합니다. 다음 기술 중 하나를 사용할 수 있습니다.
 
-* 연결 문자열을 직접 전달합니다.
-* 웹앱의 환경 변수를 사용하여 연결 문자열을 저장합니다. 연결 문자열 구성에 관한 [Azure 웹앱 구성 설정](../../app-service/configure-common.md) 문서를 참조하세요.
+- 연결 문자열을 직접 전달합니다.
+- 웹앱의 환경 변수를 사용하여 연결 문자열을 저장합니다. 연결 문자열 구성에 관한 [Azure 웹앱 구성 설정](../../app-service/configure-common.md) 문서를 참조하세요.
+
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
 ```php
@@ -139,12 +141,10 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > 메타데이터 키에서 대/소문자를 구분하려고 하면 안 됩니다. 모든 키는 서비스에서 소문자로 읽혀집니다.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐에 메시지를 추가하려면 **QueueRestProxy->createMessage**를 사용합니다. 이 메서드는 큐 이름, 메시지 텍스트 및 메시지 옵션(선택적)을 인수로 받아들입니다.
+큐에 메시지를 추가하려면 **QueueRestProxy->createMessage** 를 사용합니다. 이 메서드는 큐 이름, 메시지 텍스트 및 메시지 옵션(선택적)을 인수로 받아들입니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -174,7 +174,7 @@ catch(ServiceException $e){
 
 ## <a name="peek-at-the-next-message"></a>다음 메시지 보기
 
-큐에서 메시지를 제거하지 않고도 **QueueRestProxy->peekMessages**를 호출하여 큐의 맨 앞에서 단일 메시지 또는 여러 메시지를 볼 수 있습니다. 기본적으로, **peekMessage** 메서드는 단일 메시지를 반환하지만 **PeekMessagesOptions->setNumberOfMessages** 메서드를 사용하면 이 값을 변경할 수 있습니다.
+큐에서 메시지를 제거하지 않고도 **QueueRestProxy->peekMessages** 를 호출하여 큐의 맨 앞에서 단일 메시지 또는 여러 메시지를 볼 수 있습니다. 기본적으로, **peekMessage** 메서드는 단일 메시지를 반환하지만 **PeekMessagesOptions->setNumberOfMessages** 메서드를 사용하면 이 값을 변경할 수 있습니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>큐에서 다음 메시지 제거
 
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages**를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. (이 기간 내에 삭제 되지 않은 메시지는 큐에 다시 표시 됩니다.) 큐에서 메시지 제거를 완료 하려면 **QueueRestProxy->deleteMessage**를 호출 해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리 된 직후에 **deleteMessage** 를 호출 합니다.
+다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages** 를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. (이 기간 내에 삭제 되지 않은 메시지는 큐에 다시 표시 됩니다.) 큐에서 메시지 제거를 완료 하려면 **QueueRestProxy->deleteMessage** 를 호출 해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리 된 직후에 **deleteMessage** 를 호출 합니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -265,7 +265,7 @@ catch(ServiceException $e){
 
 ## <a name="change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경
 
-**QueueRestProxy->updateMessage**를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로 다시 시도 횟수를 유지 하 고, 메시지가 *n* 번 넘게 다시 시도 되는 경우 삭제 합니다. 이 기능은 처리될 때마다 애플리케이션 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
+**QueueRestProxy->updateMessage** 를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로 다시 시도 횟수를 유지 하 고, 메시지가 *n* 번 넘게 다시 시도 되는 경우 삭제 합니다. 이 기능은 처리될 때마다 애플리케이션 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 이제 Azure Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* [Azure Storage PHP Client Library에 대한 API 참조](https://azure.github.io/azure-storage-php/)를 방문해 보세요.
-* [고급 큐 예제](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)를 참조하세요.
+- [Azure Storage PHP Client Library에 대한 API 참조](https://azure.github.io/azure-storage-php/)를 방문해 보세요.
+- [고급 큐 예제](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)를 참조하세요.
 
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 

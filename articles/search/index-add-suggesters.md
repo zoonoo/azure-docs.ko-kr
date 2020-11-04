@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083544"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347644"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -134,7 +134,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |설명      |
+|속성      |Description      |
 |--------------|-----------------|
 |`name`        |제안기의 이름입니다.|
 |`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
@@ -146,9 +146,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 확인 기가 쿼리에 사용 됩니다. 확인 기을 만든 후에는 다음과 같은 Api 중 하나를 호출 하 여 검색을 입력 합니다.
 
-+ [제안 REST API](/rest/api/searchservice/suggestions) 
-+ [자동 완성 REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync 메서드] (/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [제안 REST API](/rest/api/searchservice/suggestions)
++ [자동 완성 REST API](/rest/api/searchservice/autocomplete)
++ [SuggestWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [AutocompleteWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 검색 응용 프로그램에서 클라이언트 코드는 [JQUERY UI 자동 완성](https://jqueryui.com/autocomplete/) 같은 라이브러리를 활용 하 여 부분 쿼리를 수집 하 고 일치 하는 항목을 제공 해야 합니다. 이 작업에 대 한 자세한 내용은 [클라이언트 코드에 자동 완성 또는 제안 된 결과 추가](search-autocomplete-tutorial.md)를 참조 하세요.
@@ -166,8 +166,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## <a name="sample-code"></a>예제 코드
 
 + [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가)](tutorial-csharp-type-ahead-and-suggestions.md) 샘플은 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되며 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
-
-+ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 는 c # 및 Java 코드를 모두 포함 하는 이전 샘플입니다. 또한 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플에서는 호스팅된 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 사용 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333467"
+ms.locfileid: "93347712"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "93333467"
 
 고객 관리형 키를 사용한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 이미 설정 되어 있어야 합니다.
 
@@ -134,7 +134,7 @@ Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여
 
 ## <a name="cli"></a>CLI 
 
-공개 미리 보기의 경우 먼저 기능을 등록해야 합니다.
+공개 미리 보기의 경우 먼저 기능에 등록 해야 합니다. 등록에는 약 30 분이 걸립니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption

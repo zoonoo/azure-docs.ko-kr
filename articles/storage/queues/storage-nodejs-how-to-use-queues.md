@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345944"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Node.js에서 Azure Queue storage를 사용 하는 방법
 
@@ -44,7 +44,7 @@ ms.locfileid: "91289687"
 
 1. 명령 창에 **npm install \@ azure/storage-queue** 를 입력 합니다.
 
-1. **Node \_ modules** 폴더가 만들어졌는지 확인 합니다. 이 폴더 내에서 저장소에 액세스 하는 데 필요한 클라이언트 라이브러리가 포함 된 ** \@ azure/storage 큐** 패키지를 찾을 수 있습니다.
+1. **Node \_ modules** 폴더가 만들어졌는지 확인 합니다. 이 폴더 내에서 저장소에 액세스 하는 데 필요한 클라이언트 라이브러리가 포함 된 **\@ azure/storage 큐** 패키지를 찾을 수 있습니다.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
@@ -82,7 +82,7 @@ var azure = require('azure-storage');
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Azure 모듈은 환경 변수 `AZURE_STORAGE_ACCOUNT` 및 `AZURE_STORAGE_ACCESS_KEY` 를 읽고 `AZURE_STORAGE_CONNECTION_STRING` azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정 되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정 해야 합니다.
+Azure 모듈은 환경 변수 `AZURE_STORAGE_ACCOUNT` 및 `AZURE_STORAGE_ACCESS_KEY` 를 읽고 `AZURE_STORAGE_CONNECTION_STRING` azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정 되지 않은 경우 **createQueueService** 를 호출할 때 계정 정보를 지정 해야 합니다.
 
 다음 코드는 **QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
@@ -160,13 +160,13 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-[UpdateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-)를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다. 
+[UpdateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-)를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-**UpdateMessage**를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다. 
+**UpdateMessage** 를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -200,13 +200,13 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessage":::
 
-기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. **ReceiveMessages**를 호출할 때 [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) 를 설정 하 여 다른 값을 지정할 수 있습니다.
+기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. **ReceiveMessages** 를 호출할 때 [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) 를 설정 하 여 다른 값을 지정할 수 있습니다.
 
 큐에 메시지가 없을 때 **receiveMessages** 를 호출 하면 오류가 반환 되지 않습니다. 그러나 메시지는 반환 되지 않습니다.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-메시지를 가져오려면 **Getmessages** 메서드를 호출 합니다. 이 호출을 수행 하면 메시지가 큐에 표시 되지 않으므로 다른 클라이언트에서 메시지를 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 **deleteMessage**를 호출하여 큐에서 삭제합니다.
+메시지를 가져오려면 **Getmessages** 메서드를 호출 합니다. 이 호출을 수행 하면 메시지가 큐에 표시 되지 않으므로 다른 클라이언트에서 메시지를 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 **deleteMessage** 를 호출하여 큐에서 삭제합니다.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
@@ -222,7 +222,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 });
 ```
 
-기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. `options.visibilityTimeout` 와 **getMessages**를 사용하여 다른 값을 지정할 수 있습니다.
+기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. `options.visibilityTimeout` 와 **getMessages** 를 사용하여 다른 값을 지정할 수 있습니다.
 
 큐에 메시지가 없을 때 **Getmessages** 를 사용 하면 오류가 반환 되지 않습니다. 그러나 메시지는 반환 되지 않습니다.
 
@@ -234,8 +234,8 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
-* [옵션. numberofmessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) -메시지 일괄 처리를 검색 합니다 (최대 32).
-* [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) -더 길거나 짧은 표시 안 함 제한 시간을 설정 합니다.
+- [옵션. numberofmessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) -메시지 일괄 처리를 검색 합니다 (최대 32).
+- [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) -더 길거나 짧은 표시 안 함 제한 시간을 설정 합니다.
 
 다음 예제에서는 **receiveMessages** 메서드를 사용 하 여 한 번의 호출로 5 개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
 
@@ -245,8 +245,8 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
-* `options.numOfMessages` - 메시지 배치를 검색합니다(최대 32개).
-* `options.visibilityTimeout` - 표시하지 않는 시간 제한을 더 길거나 짧게 설정합니다.
+- `options.numOfMessages` - 메시지 배치를 검색합니다(최대 32개).
+- `options.visibilityTimeout` - 표시하지 않는 시간 제한을 더 길거나 짧게 설정합니다.
 
 다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
 
@@ -295,13 +295,13 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-큐 목록을 검색 하려면 [QueueServiceClient 큐]()를 호출 합니다. 특정 접두사로 필터링 된 목록을 검색 하려면 **Listqueues**에 대 한 호출에서 [options. prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) 를 설정 합니다.
+큐 목록을 검색 하려면 [QueueServiceClient 큐]()를 호출 합니다. 특정 접두사로 필터링 된 목록을 검색 하려면 **Listqueues** 에 대 한 호출에서 [options. prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) 를 설정 합니다.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-큐 목록을 검색하려면 **listQueuesSegmented**를 사용합니다. 특정 접두사를 기준으로 필터링된 목록을 검색하려면 **listQueuesSegmentedWithPrefix**를 사용합니다.
+큐 목록을 검색하려면 **listQueuesSegmented** 를 사용합니다. 특정 접두사를 기준으로 필터링된 목록을 검색하려면 **listQueuesSegmentedWithPrefix** 를 사용합니다.
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -337,7 +337,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-큐에서 메시지를 삭제 하지 않고 모든 메시지를 지우려면 **Clearmessages**를 호출 합니다.
+큐에서 메시지를 삭제 하지 않고 모든 메시지를 지우려면 **Clearmessages** 를 호출 합니다.
 
 ---
 
@@ -347,8 +347,8 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그][Azure Storage Team Blog] 를 방문 하 여 새로운 기능에 대해 알아보세요.
-* GitHub에서 [JavaScript 리포지토리의 Azure Storage 클라이언트 라이브러리][Azure Storage client library for JavaScript] 방문
+- [Azure Storage 팀 블로그][Azure Storage Team Blog] 를 방문 하 여 새로운 기능에 대해 알아보세요.
+- GitHub에서 [JavaScript 리포지토리의 Azure Storage 클라이언트 라이브러리][Azure Storage client library for JavaScript] 방문
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

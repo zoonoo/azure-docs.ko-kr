@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 1c30a9997fcc7ac10b1072d4f164c3e7bfa16f0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5e1c5d696e97ac6e14c1739be2feb93814975586
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347066"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure Container 제품 만들기
 
@@ -65,7 +65,7 @@ ms.locfileid: "93130513"
 
 파트너 센터를 사용하여 제안을 상업용 Marketplace에 게시하는 경우 CRM(고객 관계 관리) 시스템에 연결할 수 있습니다. 이렇게 하면 누군가 제품에 관심을 보이거나 제품을 사용하는 즉시 고객 연락처 정보를 받을 수 있습니다.
 
-1. **잠재 고객을 보내려는 잠재 고객 대상을 선택합니다** . 파트너 센터에서 지원하는 CRM 시스템은 다음과 같습니다.
+1. **잠재 고객을 보내려는 잠재 고객 대상을 선택합니다**. 파트너 센터에서 지원하는 CRM 시스템은 다음과 같습니다.
 
    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
@@ -223,19 +223,19 @@ ms.locfileid: "93130513"
 
 Azure Marketplace의 **제품 목록** 페이지를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Azure Marketplace의 제품 목록 페이지를 보여 줍니다." :::
 
 Azure Marketplace의 검색 결과를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Azure Marketplace의 검색 결과를 보여 줍니다.":::
 
 Azure Portal의 **제품 목록** 페이지를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Azure Portal의 제품 목록 페이지를 보여 줍니다.":::
 
 Azure Portal의 검색 결과를 보여 줍니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Azure Portal의 검색 결과를 보여 줍니다.":::
 
 ## <a name="preview"></a>미리 보기
 
@@ -328,11 +328,11 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 플랜 세부 정보를 볼 때 Azure Marketplace의 필드는 다음과 같습니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Azure Marketplace에서 플랜 세부 정보를 볼 때 표시되는 필드를 보여 줍니다.":::
 
 Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Azure Portal에 대한 플랜 정보를 보여 줍니다.":::
 
 ### <a name="plan-availability"></a>플랜 가용성
 
@@ -363,13 +363,13 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 **Azure Container Registry에 대 한 관리자 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
-**Azure Container Registry의 암호** – Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다
+**Azure Container Registry의 암호** – Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Microsoft의 상업용 Marketplace의 표준 계약 확인란을 사용하는 방법을 보여 줍니다.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="액세스 키 메뉴를 보여 줍니다.":::
 
-**Azure Container Registry 내 리포지토리 이름입니다** . 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요.
+**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요.
 
 > [!NOTE]
 > 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.

@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 Azure Media Services 계정 만들기 | Micr
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Media Services 계정을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 2f8718b108ca5af0034d4d70c10422d6ac73e892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2ca47e49af06ab0a6dffc1f4011d7dceb58830be
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348511"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
 
@@ -35,30 +35,30 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 이 문서에서는 Azure Portal을 사용하여 Media Services 계정을 만드는 방법을 보여줍니다.
 
 > [!NOTE]
-> 다른 지역에서 Azure Media Services 기능의 사용 가용성에 대한 정보는 [데이터 센터에서 AMS 기능의 사용 가용성](scenarios-and-availability.md#availability)을 참조하세요.
+> 다른 지역의 Azure Media Services 기능 가용성에 대 한 자세한 내용은 [지역 간 AMS 기능](availability-regions-v-2.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="create-an-ams-account"></a>AMS 계정 만들기
 
 이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **+ 리소스 만들기**  >  **미디어**  >  **Media Services**를 클릭 합니다.
+2. **+ 리소스 만들기**  >  **미디어**  >  **Media Services** 를 클릭 합니다.
 3. **미디어 서비스 계정 만들기** 에 필요한 값을 입력합니다.
 
-   1. **계정 이름**에 새 AMS 계정의 이름을 입력합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
+   1. **계정 이름** 에 새 AMS 계정의 이름을 입력합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
    2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
-   3. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
-   4. **위치**에서 Media Services 계정에 대 한 메타 데이터 레코드 및 미디어를 저장 하는 데 사용할 지역을 선택 합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 Media Services 지역만 드롭다운 목록 상자에 표시됩니다. 
-   5. **저장소 계정**에서 저장소 계정을 선택 하 여 Media Services 계정의 미디어 콘텐츠에 대 한 blob 저장소를 제공 합니다. Media Services 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Media Services 계정의 경우와 같습니다.
-      
+   3. **리소스 그룹** 에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.
+   4. **위치** 에서 Media Services 계정에 대 한 메타 데이터 레코드 및 미디어를 저장 하는 데 사용할 지역을 선택 합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 Media Services 지역만 드롭다운 목록 상자에 표시됩니다. 
+   5. **저장소 계정** 에서 저장소 계정을 선택 하 여 Media Services 계정의 미디어 콘텐츠에 대 한 blob 저장소를 제공 합니다. Media Services 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Media Services 계정의 경우와 같습니다.
+
        스토리지에 대한 자세한 내용은 [여기](../../storage/common/storage-introduction.md)를 참조하세요.
    6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
-   
+
     계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 엔드포인트 테이블에서 계정은 **중지됨** 상태에서 기본 스트리밍 엔드포인트를 가집니다. 
 
     >[!NOTE]
@@ -66,7 +66,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
    
 ## <a name="to-manage-your-ams-account"></a>AMS 계정을 관리하려면
 
-AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연결, 비디오 업로드, 자산 인코딩, 콘텐츠 보호 구성, 작업 진행률 모니터링) 포털의 왼쪽에서 **설정**을 선택합니다. **설정**에서 사용할 수 있는 블레이드 중 하나로 이동합니다(예: **API 액세스**, **자산**, **작업**, **콘텐츠 보호**).
+AMS 계정을 관리하려면(예: 프로그래밍 방식으로 AMS API에 연결, 비디오 업로드, 자산 인코딩, 콘텐츠 보호 구성, 작업 진행률 모니터링) 포털의 왼쪽에서 **설정** 을 선택합니다. **설정** 에서 사용할 수 있는 블레이드 중 하나로 이동합니다(예: **API 액세스** , **자산** , **작업** , **콘텐츠 보호** ).
 
 ## <a name="next-steps"></a>다음 단계
 

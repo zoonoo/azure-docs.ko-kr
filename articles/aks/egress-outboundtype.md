@@ -3,15 +3,13 @@ title: AKS(Azure Kubernetes Service)에서 UDR(사용자 정의 경로) 사용�
 description: AKS(Azure Kubernetes Service)에서 사용자 지정 송신 경로를 정의하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.author: juluk
 ms.date: 06/29/2020
-author: jluk
-ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975294"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348137"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>User-Defined 경로를 사용 하 여 클러스터 송신 사용자 지정
 
