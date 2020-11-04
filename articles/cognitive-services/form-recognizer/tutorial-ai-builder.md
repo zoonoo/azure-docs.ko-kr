@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003368"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912330"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>자습서: AI Builder를 사용하여 양식 처리 앱 만들기
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 높일 수 있는 Power Platform 기능입니다. AI Builder 양식 처리를 사용하여 양식 문서에서 키-값 쌍 및 테이블 데이터를 찾아 추출하는 AI 모델을 만들 수 있습니다.
+[AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 높일 수 있는 Power Platform 기능입니다. AI Builder 양식 처리를 사용하여 양식 문서에서 키-값 쌍 및 테이블 데이터를 찾아 추출하는 AI 모델을 만들 수 있습니다.
 
 > [!NOTE]
-> 이 프로젝트는 [Microsoft Learn 모듈](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/)로도 제공됩니다.
+> 이 프로젝트는 [Microsoft Learn 모듈](/learn/modules/get-started-with-form-processing/)로도 제공됩니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -33,17 +33,17 @@ ms.locfileid: "88003368"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 학습/테스트 데이터에 사용할 동일한 형식의 양식 세트 5개 이상. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [학습 데이터 세트 빌드](./build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2128080)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다.
-* Power Apps 또는 Power Automate 라이선스 - [라이선스 가이드](https://go.microsoft.com/fwlink/?linkid=2085130)를 참조하세요. 라이선스에는 [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/)가 포함되어야 합니다.
+* Power Apps 또는 Power Automate 라이선스 - [라이선스 가이드](https://go.microsoft.com/fwlink/?linkid=2085130)를 참조하세요. 라이선스에는 [Common Data Service](https://powerplatform.microsoft.com/common-data-service/)가 포함되어야 합니다.
 * AI Builder [추가 기능 또는 평가판](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409)
 
 
 ## <a name="create-a-form-processing-project"></a>양식 처리 프로젝트 만들기
 
 1. [Power Apps](https://make.powerapps.com/) 또는 [Power Automate](https://flow.microsoft.com/signin)로 이동하여 조직 계정으로 로그인합니다.
-1. 왼쪽 창에서 **AI Builder** > **빌드**를 선택합니다.
+1. 왼쪽 창에서 **AI Builder** > **빌드** 를 선택합니다.
 1. **양식 처리** 카드를 선택합니다.
 1. 모델 이름을 입력합니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="upload-and-analyze-documents"></a>문서 업로드 및 분석
 
@@ -61,15 +61,15 @@ ms.locfileid: "88003368"
 
 ### <a name="upload-your-documents"></a>문서 업로드
 
-1. **문서 추가**를 선택하고 5개 이상의 문서를 선택한 다음, **업로드**를 선택합니다.
-1. 업로드가 완료되면 **닫기**를 선택합니다.
-1. 그런 다음, **분석**을 선택합니다.
+1. **문서 추가** 를 선택하고 5개 이상의 문서를 선택한 다음, **업로드** 를 선택합니다.
+1. 업로드가 완료되면 **닫기** 를 선택합니다.
+1. 그런 다음, **분석** 을 선택합니다.
 
 > [!NOTE] 
 > 이러한 문서를 업로드한 후 일부 문서를 제거하거나 추가 문서를 업로드할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![문서 페이지 추가](./media/tutorial-ai-builder/add-documents-page.png)
+> ![문서 추가 단추를 강조 표시하는 스크린샷.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>문서 분석
 
@@ -89,11 +89,11 @@ ms.locfileid: "88003368"
 
     감지된 필드를 클릭하면 다음 정보가 표시됩니다.
 
-    - **필드 이름**: 감지된 필드의 레이블 이름입니다.
-    - **필드 값**: 감지된 필드의 값입니다.
+    - **필드 이름** : 감지된 필드의 레이블 이름입니다.
+    - **필드 값** : 감지된 필드의 값입니다.
 
 > [!div class="mx-imgBorder"]
-> ![문서 페이지 추가](./media/tutorial-ai-builder/select-fields-page.png)
+> ![태그 지정 페이지](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>감지되지 않은 필드에 레이블 지정
 
@@ -101,18 +101,18 @@ ms.locfileid: "88003368"
 
 ## <a name="train-your-model"></a>모델 학습
 
-1. **다음**을 선택하여 선택한 양식 필드를 확인합니다. 모두 정상이면 **학습**을 선택하여 모델을 학습시킵니다.
+1. **다음** 을 선택하여 선택한 양식 필드를 확인합니다. 모두 정상이면 **학습** 을 선택하여 모델을 학습시킵니다.
 
     > [!div class="mx-imgBorder"]
-    > ![문서 페이지 추가](./media/tutorial-ai-builder/summary-train-page.png)
-1. 학습이 완료되면 **학습 완료** 화면에서 **세부 정보 페이지로 이동**을 선택합니다.
+    > ![학습 페이지](./media/tutorial-ai-builder/summary-train-page.png)
+1. 학습이 완료되면 **학습 완료** 화면에서 **세부 정보 페이지로 이동** 을 선택합니다.
 ## <a name="quick-test-your-model"></a>빠른 모델 테스트
 
 모델을 게시하거나 사용하기 전에 [세부 정보] 페이지에서 모델을 테스트할 수 있습니다.
 
-1. [세부 정보] 페이지에서 **빠른 테스트**를 선택합니다.
-2. 문서를 끌어서 놓거나 **내 디바이스에서 업로드**를 선택하여 테스트 파일을 업로드할 수 있습니다. 불과 몇 초면 빠른 테스트 결과가 표시됩니다.
-3. **다시 시작**을 선택하여 다른 테스트를 실행하거나, 모두 마쳤으면 **닫기**를 선택합니다.
+1. [세부 정보] 페이지에서 **빠른 테스트** 를 선택합니다.
+2. 문서를 끌어서 놓거나 **내 디바이스에서 업로드** 를 선택하여 테스트 파일을 업로드할 수 있습니다. 불과 몇 초면 빠른 테스트 결과가 표시됩니다.
+3. **다시 시작** 을 선택하여 다른 테스트를 실행하거나, 모두 마쳤으면 **닫기** 를 선택합니다.
 
 ### <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -124,16 +124,16 @@ ms.locfileid: "88003368"
 
 ## <a name="publish-your-model"></a>모델 게시
 
-모델에 만족하는 경우 **게시**를 선택하여 모델을 게시합니다. 게시가 완료되면 모델은 **게시됨**으로 승격되어 사용 준비가 완료됩니다.
+모델에 만족하는 경우 **게시** 를 선택하여 모델을 게시합니다. 게시가 완료되면 모델은 **게시됨** 으로 승격되어 사용 준비가 완료됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![문서 페이지 추가](./media/tutorial-ai-builder/model-page.png)
+> ![모델 게시 페이지](./media/tutorial-ai-builder/model-page.png)
 
-양식 처리 모델을 게시한 후에는 [Power Apps 캔버스 앱](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) 또는 [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)에서 사용할 수 있습니다.
+양식 처리 모델을 게시한 후에는 [Power Apps 캔버스 앱](/ai-builder/form-processor-component-in-powerapps) 또는 [Power Automate](/ai-builder/form-processing-model-in-flow)에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 AI Builder 설명서에 따라 양식 처리 모델을 사용합니다.
 
-* [Power Apps에서 양식-프로세서 구성 요소 사용](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Power Automate에서 양식 처리 모델 사용](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Power Apps에서 양식-프로세서 구성 요소 사용](/ai-builder/form-processor-component-in-powerapps)
+* [Power Automate에서 양식 처리 모델 사용](/ai-builder/form-processing-model-in-flow)
