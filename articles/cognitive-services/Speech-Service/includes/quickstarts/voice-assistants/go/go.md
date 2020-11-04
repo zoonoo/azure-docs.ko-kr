@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377533"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135933"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,7 +29,7 @@ ms.locfileid: "91377533"
 이 줄을 추가하여 최신 SDK 버전으로 go.mod 파일을 업데이트합니다.
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
 )
 ```
 
@@ -99,10 +99,10 @@ func main() {
 `YOUR_SUBSCRIPTION_KEY` 및 `YOUR_BOT_REGION` 값을 음성 리소스의 실제 값으로 바꿉니다.
 
 - Azure Portal로 이동하여 음성 리소스를 엽니다.
-- 왼쪽의 **키 및 엔드포인트**에는 사용 가능한 두 개의 구독 키가 있습니다.
+- 왼쪽의 **키 및 엔드포인트** 에는 사용 가능한 두 개의 구독 키가 있습니다.
     - `YOUR_SUBSCRIPTION_KEY` 값 대체로 하나를 사용합니다.
-- 왼쪽의 **개요**에서 지역을 확인하고 지역 식별자에 매핑합니다.
-    - 지역 식별자를 `YOUR_BOT_REGION` 값 대체로 사용합니다(예: **미국 서부**의 경우 `"westus"`).
+- 왼쪽의 **개요** 에서 지역을 확인하고 지역 식별자에 매핑합니다.
+    - 지역 식별자를 `YOUR_BOT_REGION` 값 대체로 사용합니다(예: **미국 서부** 의 경우 `"westus"`).
 
    > [!NOTE]
    > [음성 도우미에 대한 지원되는 지역 목록](~/articles/cognitive-services/speech-service/regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인하세요.

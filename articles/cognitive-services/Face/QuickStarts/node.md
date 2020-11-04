@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858225"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912823"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 
@@ -27,14 +27,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 - [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 
 ## <a name="set-up-the-node-environment"></a>노드 환경 설정
 
-프로젝트를 만들 폴더로 이동하고 *facedetection.js*라는 새 파일을 만듭니다. 그런 다음, `axios` 모듈을 이 프로젝트에 설치합니다. 그러면 스크립트로 HTTP 요청을 만들 수 있습니다.
+프로젝트를 만들 폴더로 이동하고 *facedetection.js* 라는 새 파일을 만듭니다. 그런 다음, `axios` 모듈을 이 프로젝트에 설치합니다. 그러면 스크립트로 HTTP 요청을 만들 수 있습니다.
 
 ```shell
 npm install axios --save
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>Node.js 스크립트 작성
 
-다음 코드를 *facedetection.js*에 붙여넣습니다. 이 필드는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. [환경 변수를 만들고](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) Face 구독 키와 엔드포인트를 이 환경 변수에 추가합니다. 사용자 고유의 입력 이미지를 가리키도록 `imageUrl` 필드를 변경하려고 할 수 있습니다.
+다음 코드를 *facedetection.js* 에 붙여넣습니다. 이 필드는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. [환경 변수를 만들고](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) Face 구독 키와 엔드포인트를 이 환경 변수에 추가합니다. 사용자 고유의 입력 이미지를 가리키도록 `imageUrl` 필드를 변경하려고 할 수 있습니다.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262487"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911446"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -34,7 +34,7 @@ Face 서비스는 다음 섹션에 각각 설명된 여러 가지 얼굴 분석 
 Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 필요에 따라 얼굴 감지는 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다.
 
 > [!NOTE]
-> 얼굴 감지 기능은 [Computer Vision 서비스](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 사용할 수도 있습니다. 그러나 얼굴 데이터를 사용하여 추가 작업을 수행하려는 경우에는 이 서비스를 대신 사용해야 합니다.
+> 얼굴 감지 기능은 [Computer Vision 서비스](../computer-vision/overview.md)를 통해 사용할 수도 있습니다. 그러나 얼굴 데이터를 사용하여 추가 작업을 수행하려는 경우에는 이 서비스를 대신 사용해야 합니다.
 
 ![얼굴 주위에 사각형이 그려지고 연령과 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ Verify API는 감지된 두 얼굴을 비교하여 인증하거나 하나의 감
 
 Find Similar API는 대상 얼굴과 일련의 후보 얼굴 간 얼굴 일치를 수행하고 대상 얼굴과 비슷해 보이는 몇 개의 얼굴을 찾습니다. 이는 이미지별 얼굴 검색을 수행하는 데 유용합니다. 
 
-**matchPerson** 및 **matchFace**의 두 가지 작업 모드가 지원됩니다. **matchPerson** 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람에 대해 필터링한 후 유사한 얼굴을 반환합니다. **matchFace** 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
+**matchPerson** 및 **matchFace** 의 두 가지 작업 모드가 지원됩니다. **matchPerson** 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람에 대해 필터링한 후 유사한 얼굴을 반환합니다. **matchFace** 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
 
 다음 예제에서는 대상 얼굴을 보여 줍니다.
 

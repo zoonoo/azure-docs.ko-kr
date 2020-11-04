@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5766eb821800568b567350e1360ca4cf5403be6d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135737"
 ---
 이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 
@@ -76,7 +76,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
 1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **Java 프로젝트** 를 선택하여 새 프로젝트를 만듭니다. 사용할 수 없는 경우 **프로젝트** 를 선택한 다음, **Java 프로젝트** 를 선택합니다.
 
-1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다** . **마침** 을 선택합니다.
+1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다**. **마침** 을 선택합니다.
 
    ![새 Java 프로젝트 마법사의 스크린샷](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
@@ -100,7 +100,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```

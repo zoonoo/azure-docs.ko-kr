@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 2db80cdba778d868d90d5278005791257acb0ed3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548108"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918748"
 ---
 .NET용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 NuGet 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -28,9 +28,9 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 * [이미지 조정](#moderate-images)
 * [검토 만들기](#create-a-review)
 
-[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
+[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](../../samples-dotnet.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -96,7 +96,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Content Moderator 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
 
@@ -118,10 +118,10 @@ Content Moderator .NET 클라이언트 라이브러리의 주요 기능 중 일�
 
 |이름|설명|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
-|[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
-|[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
-|[검토](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
+|[ContentModeratorClient](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
+|[ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
+|[TextModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
+|[검토](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -158,10 +158,10 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 ## <a name="moderate-images"></a>이미지 조정
 
-다음 코드에서는 [ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) 개체와 함께 Content Moderator 클라이언트를 사용하여 원격 이미지의 성인 및 외설 콘텐츠를 분석합니다.
+다음 코드에서는 [ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) 개체와 함께 Content Moderator 클라이언트를 사용하여 원격 이미지의 성인 및 외설 콘텐츠를 분석합니다.
 
 > [!NOTE]
-> 로컬 이미지의 콘텐츠를 분석할 수도 있습니다. 로컬 이미지에서 작동하는 메서드 및 작업에 대한 [참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)를 확인하세요.
+> 로컬 이미지의 콘텐츠를 분석할 수도 있습니다. 로컬 이미지에서 작동하는 메서드 및 작업에 대한 [참조 설명서](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)를 확인하세요.
 
 ### <a name="get-sample-images"></a>샘플 이미지 가져오기
 
@@ -204,7 +204,7 @@ Content Moderator가 차단하는 이미지 특성에 대한 자세한 내용은
 
 Content Moderator .NET 클라이언트 라이브러리를 사용하여 사용자 중재자가 검토할 수 있도록 콘텐츠를 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 제공할 수 있습니다. 검토 도구에 대한 자세한 내용은 [검토 도구 개념 가이드](../../review-tool-user-guide/human-in-the-loop.md)를 참조하세요.
 
-이 섹션의 메서드는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후 [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 클래스를 사용하여 검토를 작성하고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다. 이 모든 정보는 출력 텍스트 파일에 기록됩니다. 
+이 섹션의 메서드는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후 [Reviews](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 클래스를 사용하여 검토를 작성하고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다. 이 모든 정보는 출력 텍스트 파일에 기록됩니다. 
 
 ### <a name="get-sample-images"></a>샘플 이미지 가져오기
 
@@ -248,7 +248,7 @@ API 호출에서 반환된 개체에는 업로드된 각 이미지의 고유 ID 
 
 ### <a name="get-review-details"></a>검토 세부 정보 가져오기
 
-다음 코드를 사용하면 프로그램이 사용자 입력을 대기합니다. 런타임에 이 단계에 도달하면 직접 [검토 도구](https://contentmoderator.cognitive.microsoft.com)로 이동하여 샘플 이미지가 업로드되었는지 확인하고, 샘플 이미지와 상호 작용할 수 있습니다. 검토와 상호 작용하는 방법에 대한 자세한 내용은 [검토 방법 가이드](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images)를 참조하세요. 모두 마쳤으면 아무 키를 눌러 프로그램을 계속 진행하고 검토 프로세스 결과를 검색할 수 있습니다.
+다음 코드를 사용하면 프로그램이 사용자 입력을 대기합니다. 런타임에 이 단계에 도달하면 직접 [검토 도구](https://contentmoderator.cognitive.microsoft.com)로 이동하여 샘플 이미지가 업로드되었는지 확인하고, 샘플 이미지와 상호 작용할 수 있습니다. 검토와 상호 작용하는 방법에 대한 자세한 내용은 [검토 방법 가이드](../../review-tool-user-guide/review-moderated-images.md)를 참조하세요. 모두 마쳤으면 아무 키를 눌러 프로그램을 계속 진행하고 검토 프로세스 결과를 검색할 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
@@ -296,7 +296,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 이 빠른 시작에서는 Content Moderator .NET 라이브러리를 사용하여 조정 작업을 수행하는 방법을 알아보았습니다. 다음으로, 개념 가이드를 참조하여 이미지 또는 다른 미디어의 조정에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [이미지 조정 개념](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+> [이미지 조정 개념](../../image-moderation-api.md)
 
 * [Azure Content Moderator란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs)에서 확인할 수 있습니다.

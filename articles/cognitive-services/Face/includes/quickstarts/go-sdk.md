@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886659"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918719"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -34,7 +34,7 @@ Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 �
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+* 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
 
 ## <a name="setting-up"></a>설치
 
@@ -112,7 +112,7 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 > [!NOTE] 
-> 이 빠른 시작에서는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 Face 키 및 엔드포인트에 대한 [환경 변수를 만들었다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)고 가정합니다.
+> 이 빠른 시작에서는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 Face 키 및 엔드포인트에 대한 [환경 변수를 만들었다](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)고 가정합니다.
 
 **main** 함수를 만들고, 클라이언트를 엔드포인트 및 키로 인스턴스화하는 다음 코드를 이 함수에 추가합니다. 키를 사용하여 **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** 개체를 만들고, 엔드포인트에서 이 개체를 사용하여 **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** 개체를 만듭니다. 또한 이 코드는 클라이언트 개체를 만드는 데 필요한 컨텍스트 개체를 인스턴스화합니다. 뿐만 아니라 이 빠른 시작의 샘플 이미지 중 일부가 있는 원격 위치를 정의합니다.
 

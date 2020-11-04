@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226360"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135959"
 ---
 이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다.
 
@@ -35,7 +35,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
 - Speech Service를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요.
 
-  [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기**를 선택한 다음, JSON 파일을 선택합니다.
+  [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기** 를 선택한 다음, JSON 파일을 선택합니다.
 
 - PC에 [Android Studio](https://developer.android.com/studio/) 및 [Vysor](https://vysor.io/download/)을 설치합니다.
 
@@ -47,7 +47,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
 1. 디바이스가 **디바이스 선택** 아래에 나열되어야 합니다. 디바이스 옆에 있는 **보기** 단추를 선택합니다.
 
-1. 폴더 아이콘을 선택하여 무선 네트워크에 연결한 다음, **설정** > **WLAN**을 차례로 선택합니다.
+1. 폴더 아이콘을 선택하여 무선 네트워크에 연결한 다음, **설정** > **WLAN** 을 차례로 선택합니다.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
    >
    > ![Vysor 파일 폴더](../media/speech-devices-sdk/qsg-10.png)
    >
-   > **설정**을 선택합니다. "mac 주소"를 검색한 다음, **Mac 주소** > **고급 WLAN**을 차례로 선택합니다. 대화 상자의 아래쪽 근처에 표시되는 MAC 주소를 적어 둡니다.
+   > **설정** 을 선택합니다. "mac 주소"를 검색한 다음, **Mac 주소** > **고급 WLAN** 을 차례로 선택합니다. 대화 상자의 아래쪽 근처에 표시되는 MAC 주소를 적어 둡니다.
    >
    > ![Vysor MAC 주소](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -70,13 +70,13 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
 1. Android Studio를 시작합니다.
 
-1. **기존 Android Studio 프로젝트 열기**를 선택합니다.
+1. **기존 Android Studio 프로젝트 열기** 를 선택합니다.
 
    ![Android Studio - 기존 프로젝트 열기](../media/speech-devices-sdk/qsg-5.png)
 
-1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
+1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인** 을 선택하여 예제 프로젝트를 엽니다.
 
-1. Speech SDK를 참조하도록 gradle을 구성합니다. 다음 파일은 Android Studio의 **Gradle Scripts**에서 찾을 수 있습니다.
+1. Speech SDK를 참조하도록 gradle을 구성합니다. 다음 파일은 Android Studio의 **Gradle Scripts** 에서 찾을 수 있습니다.
 
     **build.gradle(Project:example)** 을 업데이트합니다. maven 줄을 추가하여 allprojects 블록이 아래와 일치해야 합니다.
 
@@ -96,7 +96,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
     종속성 섹션에 이 줄을 추가하여 **build.gradle(Module:app)** 을 업데이트합니다. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
     ```
     
 1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
@@ -152,9 +152,9 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
    |          |         | 모든 마이크를 사용하는 선형 개발 키트의 경우: `Linear4` |
    |          |         | 두 개의 마이크를 사용하는 선형 개발 키트의 경우: `Linear2` |
 
-1. 애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
+1. 애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행** 을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
 
-1. 디바이스를 선택한 다음, **확인**을 선택하여 애플리케이션을 디바이스에 배포합니다.
+1. 디바이스를 선택한 다음, **확인** 을 선택하여 애플리케이션을 디바이스에 배포합니다.
 
    ![배포 대상 선택 대화 상자](../media/speech-devices-sdk/qsg-7.png)
 
