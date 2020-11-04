@@ -3,7 +3,7 @@ title: Azure Media Services 개요 | Microsoft Docs
 description: Microsoft Azure Media Services는 개발자가 확장 가능한 미디어 관리 및 배달 애플리케이션을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. 이 문서에서는 Azure Media Services에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261158"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348749"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요
 
@@ -38,13 +38,13 @@ Microsoft AMS(Azure Media Services)는 개발자가 확장 가능한 미디어 �
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
-중요 한 알림으로 Azure Media Services 사용 시 관련 법률을 준수 해야 하 고 다른 사용자의 권리를 위반 하거나 다른 사용자에 게 유해한 영향을 주는 방식으로 Media Services 또는 Azure 서비스를 사용 하지 못할 수 있습니다.
+중요한 사항이라 다시 말씀드리지만, Azure Media Services 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 침해하거나 다른 사용자에게 해가 될 수 있는 방식으로 Media Services 또는 다른 Azure 서비스를 사용해서는 안 됩니다.
 
-Media Services에 대 한 비디오/이미지를 업로드 하기 전에, Media Services 및 Azure에서 데이터 사용, 처리 및 저장을 위해 법률에서 요구 하는 경우, 비디오/이미지에서 개인의 모든 필수 동의 (있는 경우)를 포함 하 여 비디오/이미지를 사용할 수 있는 적절 한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. 특별 한 법적 요구 사항이 적용 되는 데이터의 처리 및 저장을 위해 Media Services 및 Azure를 사용 하기 전에 사용자에 게 적용 될 수 있는 이러한 법적 요구 사항을 준수 하는지 확인 해야 합니다.
+비디오/이미지를 Media Services에 업로드하기 전에, Media Services와 Azure에서 데이터를 사용하고, 처리하고, 저장하는 데 대한 비디오/이미지에 포함된 개인(있는 경우)의 모든 필요한 동의(법에서 요구되는 경우)를 비롯하여 비디오/이미지를 사용할 수 있는 모든 적절한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. Media Services와 Azure를 특별한 법적 요구 사항이 적용되는 데이터를 처리하고 저장하는 데 사용하기 전에, 귀하에게 적용될 수 있는 이러한 법적 요구 사항을 반드시 준수해야 합니다.
 
-Media Services의 규정 준수, 개인 정보 보호 및 보안에 대 한 자세한 내용은 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조 하세요. 데이터를 삭제 하는 방법을 비롯 하 여 Microsoft의 개인 정보 취급 방침, 데이터 처리 및 보존 방법에 대 한 자세한 내용은 Microsoft [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. Media Services를 사용 하 여 OST, DPA 및 개인정보 처리 방침의 범위에 동의 하는 것입니다.
+Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. 데이터를 삭제 하는 방법을 비롯 하 여 Microsoft의 개인 정보 취급 방침, 데이터 처리 및 보존 방법에 대 한 자세한 내용은 Microsoft [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
@@ -86,13 +86,12 @@ Azure Media Services 개념은 [개념](media-services-concepts.md)을 참조하
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>지원되는 시나리오 및 데이터 센터에서 Media Services의 사용 가용성
 
-자세한 내용은 [AMS 시나리오 및 데이터 센터에서 기능 및 서비스의 사용 가용성](scenarios-and-availability.md)을 참조하세요.
+Azure 일반적인 시나리오에 대 한 자세한 내용은 [AMS 시나리오](scenarios-and-availability.md)를 참조 하세요.
+지역별 가용성에 대 한 자세한 내용은 [Media service availability](availability-regions-v-2.md)을 참조 하세요.
 
 ## <a name="service-level-agreement-sla"></a>SLA(서비스 수준 계약)
 
 자세한 내용은 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
-
-데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](scenarios-and-availability.md#availability) 섹션을 참조하세요.
 
 ## <a name="support"></a>지원
 

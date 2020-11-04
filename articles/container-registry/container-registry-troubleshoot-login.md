@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure container registry에 로그인 할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348902"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -56,7 +56,7 @@ ms.locfileid: "92148439"
 
 ### <a name="specify-correct-registry-name"></a>올바른 레지스트리 이름 지정
 
-를 사용 하는 경우 `docker login` *myregistry.azurecr.io*와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예제:
+를 사용 하는 경우 `docker login` *myregistry.azurecr.io* 와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예제:
 
 ```console
 docker login myregistry.azurecr.io
@@ -77,10 +77,11 @@ az acr login --name myregistry
 시나리오에 사용 하는 자격 증명의 유효성을 검사 하거나 레지스트리 소유자가 제공한 자격 증명의 유효성을 검사 합니다. 가능한 몇 가지 문제는 다음과 같습니다.
 
 * Active Directory 서비스 주체를 사용 하는 경우 Active Directory 테 넌 트에서 올바른 자격 증명을 사용 해야 합니다.
-  * 사용자 이름-서비스 사용자 응용 프로그램 ID ( *클라이언트 id*라고도 함)
-  * 암호 서비스 주체 암호 ( *클라이언트 암호*라고도 함)
+  * 사용자 이름-서비스 사용자 응용 프로그램 ID ( *클라이언트 id* 라고도 함)
+  * 암호 서비스 주체 암호 ( *클라이언트 암호* 라고도 함)
 * Azure Kubernetes Service 또는 Azure DevOps와 같은 Azure 서비스를 사용 하 여 레지스트리에 액세스 하는 경우 서비스에 대 한 레지스트리 구성을 확인 합니다.
 * `az acr login` `--expose-token` Docker 디먼을 사용 하지 않고 레지스트리 로그인을 사용 하도록 설정 하는 옵션을 실행 한 경우 사용자 이름으로 인증 해야 `00000000-0000-0000-0000-000000000000` 합니다.
+* [익명 끌어오기 액세스](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)를 사용 하도록 레지스트리를 구성 하면 이전 docker 로그인에서 저장 된 기존 docker 자격 증명이 익명 액세스를 차단할 수 있습니다. `docker logout`레지스트리에서 익명 끌어오기 작업을 시도 하기 전에를 실행 합니다.
 
 관련 링크:
 

@@ -4,13 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 Azure Policy를 사용 하 여
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900118"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348528"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Azure Policy로 포드 보안
 
@@ -121,8 +120,8 @@ Kubernetes에 대 한 Azure Policy는 pod, [기준선](https://portal.azure.com/
 
 |[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 외에도 적용 | 제한 된 이니셔티브 외에도 적용 |
 |---|---|---|---|
-|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 선택 사항 | 선택 사항 |
-|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 선택 사항 | 선택 사항 |
+|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 옵션 | 옵션 |
+|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 옵션 | 옵션 |
 |특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | 선택 사항-상대 볼륨 드라이버만 제한 하 고 "정의 된 볼륨 유형의 사용 제한"으로 설정 하지 않은 경우에만 사용 합니다. | 해당 없음-제한 된 이니셔티브에는 모든 vervolume 드라이버를 허용 하지 않는 "정의 된 볼륨 유형의 사용 제한"이 포함 됩니다. |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>관리 되는 AKS 클러스터에 대해 지원 되지 않는 기본 제공 정책

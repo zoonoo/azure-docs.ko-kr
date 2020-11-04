@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787468"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348596"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 
@@ -30,7 +30,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 **예상 완료 시간:** 45분
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Azure storage 계정](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
@@ -52,7 +52,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 3. **콘솔 앱 (.NET Framework)을** 선택 합니다.
 4. **다음** 을 선택합니다.
 5. **프로젝트 이름** 필드에 응용 프로그램의 이름을 입력 합니다.
-6. **만들기**
+6. **만들기** 를 선택합니다.
 
 이 자습서의 모든 코드 예제는 콘솔 응용 프로그램의 **Program.cs** 파일의 **Main ()** 메서드에 추가 될 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure 클라우드 서비스, 웹 앱, 데스크톱 및 모바일 응용 프로�
 - [.Net 용 Azure Storage 큐 라이브러리](https://www.nuget.org/packages/Azure.Storage.Queues/):이 패키지를 사용 하면 클라이언트에서 액세스할 수 있는 메시지를 저장 하기 위해 Azure Storage 큐 서비스 작업할 수 있습니다.
 - [.Net 용 Configuration Manager 라이브러리](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/):이 패키지는 클라이언트 응용 프로그램의 구성 파일에 대 한 액세스를 제공 합니다.
 
-NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행하세요.
+NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **찾아보기** 선택
@@ -84,7 +84,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 - [.Net 용 Microsoft Azure Storage Queue library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/):이 클라이언트 라이브러리를 사용 하면 클라이언트에서 액세스할 수 있는 메시지를 저장 하기 위해 Microsoft Azure Storage 큐 서비스 작업할 수 있습니다.
 - [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
-NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행하세요.
+NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **찾아보기** 선택

@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348698"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
@@ -42,10 +42,10 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | 없음 |
+| 4TiB | P50 | None |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | 없음 |
+| 32TiB | P80 | None |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
@@ -55,10 +55,6 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 - 디스크의 계층을 변경 하려면 먼저 VM의 할당을 취소 하거나 실행 중인 VM에서 디스크를 분리 해야 합니다.
 - P60, P70 및 P80 성능 계층의 사용은 4096 GiB 이상 디스크로 제한 됩니다.
 - 디스크의 성능 계층은 24 시간 마다 한 번만 다운 그레이드할 수 있습니다.
-
-## <a name="regional-availability"></a>국가별 가용성
-
-관리 디스크의 성능 계층을 조정 하는 기능은 현재 미국 동부 2, 미국 동부, 미국 서 부, 미국 동부 동부 지역에 있는 premium Ssd 에서만 사용할 수 있습니다.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>계층을 기준 계층 보다 높은 빈 데이터 디스크를 만듭니다.
 

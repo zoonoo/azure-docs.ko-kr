@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b7891f332298024c82103322cc6b58d066f587
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123237"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348579"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증
 
@@ -33,7 +33,7 @@ Azure Blob 저장소에 대 한 출력에 대 한 [관리 id 인증](../active-d
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager 배포
 
-Azure Resource Manager를 사용 하면 Stream Analytics 작업의 배포를 완벽 하 게 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](/cli/azure/?view=azure-cli-latest)를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI을 사용 합니다.
+Azure Resource Manager를 사용 하면 Stream Analytics 작업의 배포를 완벽 하 게 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](/cli/azure/)를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI을 사용 합니다.
 
 
 1. 리소스 관리자 템플릿의 리소스 섹션에 다음 속성을 포함 하 여 관리 되는 Id를 사용 하 여 **Microsoft StreamAnalytics/streamingjobs** 리소스를 만들 수 있습니다.
@@ -218,9 +218,9 @@ Stream Analytics 작업을 제공 하기 위해 선택할 수 있는 두 가지 
 
 저장소 계정의 **방화벽 및 가상 네트워크** 를 구성 하는 경우 다른 신뢰할 수 있는 Microsoft 서비스의 네트워크 트래픽을 선택적으로 허용할 수 있습니다. Stream Analytics 관리 Id를 사용 하 여 인증 하는 경우 요청을 신뢰할 수 있는 서비스에서 시작 하는 증명을 제공 합니다. 이 VNET 액세스 예외를 사용 하도록 설정 하는 지침은 다음과 같습니다.
 
-1.  저장소 계정의 구성 창에서 "방화벽 및 가상 네트워크" 창으로 이동 합니다.
-2.  "신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용" 옵션을 사용 하도록 설정 했는지 확인 합니다.
-3.  사용 하도록 설정한 경우 **저장** 을 클릭 합니다.
+1.    저장소 계정의 구성 창에서 "방화벽 및 가상 네트워크" 창으로 이동 합니다.
+2.    "신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용" 옵션을 사용 하도록 설정 했는지 확인 합니다.
+3.    사용 하도록 설정한 경우 **저장** 을 클릭 합니다.
 
    ![VNET 액세스 사용](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 

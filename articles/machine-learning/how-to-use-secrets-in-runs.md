@@ -1,7 +1,7 @@
 ---
 title: 교육의 인증 비밀
 titleSuffix: Azure Machine Learning
-description: Azure Key Vault 작업 영역을 사용 하 여 안전한 방식으로 학습 실행에 비밀을 전달 하는 방법에 대해 알아봅니다.
+description: 작업 영역에 대 한 Azure Key Vault를 사용 하 여 안전한 방식으로 학습 실행에 비밀을 전달 하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 60459579b277684355eaf5cb92ba2f75fb05cd28
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce47041d888b8a7786f0f87f54e725919638e7f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305419"
+ms.locfileid: "93349021"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Azure Machine Learning 교육 실행에서 인증 자격 증명 비밀 사용
 

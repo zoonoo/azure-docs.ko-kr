@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349089"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -59,13 +59,7 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 
 새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새로운 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. 아키텍처는 전용 Azure 인프라에서 실행 되는 VMware 기술 스택을 사용 하 여 일관 된 솔루션입니다.
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
 
-Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition을 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
-
-VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>VMRC를 통해 Azure VMware 솔루션 Vm을 관리할 수 있나요?
 예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
@@ -236,6 +230,14 @@ Microsoft는 Azure VMware 솔루션에 대 한 지원을 제공 합니다. [지�
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?
 
 Azure 구독의 Azure 계정이 필요합니다.
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
+
+Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition을 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
+
+VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 

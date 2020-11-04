@@ -1,7 +1,7 @@
 ---
 title: 데이터 수집 파이프라인에 대한 DevOps
 titleSuffix: Azure Machine Learning
-description: DevOps 방법을 적용 하 여 데이터를 준비 하는 데이터 수집 파이프라인을 빌드하는 방법을 알아봅니다. 는 Azure Data Factory 및 Azure Databricks를 사용 합니다.
+description: Azure Data Factory 및 Azure Databricks를 사용 하 여 데이터를 준비 하기 위해 데이터 수집 파이프라인을 빌드하는 DevOps 방법을 적용 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5e3774b360df6dce318d1d640903d0df2e21c856
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320686"
+ms.locfileid: "93348562"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>데이터 수집 파이프라인에 대한 DevOps
 

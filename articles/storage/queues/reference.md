@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: de504cc4209aea19925c4c3e2385c7feabceedeb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ad975840a2eab0ca51dd0a219e5d86c1bd1835c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348868"
 ---
 # <a name="azure-queue-storage-reference"></a>Azure Queue storage 참조
 
@@ -51,7 +51,7 @@ Azure Queue storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Java 용 Azure Storage 큐 클라이언트 라이브러리](/java/api/overview/azure/storage-queue-readme) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12](./storage-quickstart-queues-java.md) |
-| 8.x | [.com. azure.](/java/api/com.microsoft.azure.storage.queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [빠른 시작: Java v8 SDK를 사용 하 여 blob 관리](../blobs/storage-quickstart-blobs-java-legacy.md) |
+| 8.x | [.com. azure.](/java/api/com.microsoft.azure.storage.queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [빠른 시작: Java v8 SDK로 Blob 관리](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
 
@@ -89,7 +89,7 @@ Azure Queue storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 ### <a name="other-rest-reference"></a>기타 REST 참조
 
-- [Azure Storage 가져오기 ](/rest/api/storageimportexport/) /내보내기 REST API를 사용 하 여 Blob 저장소 간에 데이터를 전송 하는 가져오기/내보내기 작업을 관리할 수 있습니다.
+- [Azure Storage 가져오기](/rest/api/storageimportexport/) /내보내기 REST API를 사용 하 여 Blob 저장소 간에 데이터를 전송 하는 가져오기/내보내기 작업을 관리할 수 있습니다.
 
 ## <a name="other-languages-and-platforms"></a>기타 언어 및 플랫폼
 

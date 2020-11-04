@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542865"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348885"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -23,15 +23,19 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
+> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용 하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
+>
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다.
 > 모든 Windows 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용 하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
 게스트 구성 모듈은 다음과 같은 사용자 지정 콘텐츠를 만드는 프로세스를 자동화합니다.
 
 - 게스트 구성 콘텐츠 아티팩트 만들기(.zip)
-- 자동화된 아티팩트 테스트
+- 아티팩트의 자동화된 테스트
 - 정책 정의 만들기
 - 정책 게시
 
@@ -42,7 +46,7 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
-모듈을 설치할 수 있는 운영 체제는 다음과 같습니다.
+모듈을 설치할 수 있는 운영 체제:
 
 - Linux
 - macOS
@@ -136,7 +140,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>구성 요구 사항
 
-사용자 지정 구성의 이름은 모든 위치에서 일관적이어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
+사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스캐폴딩
 
@@ -227,7 +231,7 @@ Test-GuestConfigurationPackage `
   -Path ./AuditBitlocker.zip
 ```
 
-cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet에 파이프합니다.
+cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
-정책에 대한 업데이트를 릴리스하려는 경우 주의가 필요한 두 개의 필드가 있습니다.
+정책에 대 한 업데이트를 해제 하려는 경우 주의가 필요한 세 개의 필드가 있습니다.
 
-- **버전** : `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 버전보다 큰 버전 번호를 지정해야 합니다. 속성은 에이전트가 업데이트된 패키지를 인식하도록 게스트 구성 할당의 버전을 업데이트합니다.
+> [!NOTE]
+> `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
+
+- **버전** : `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
+- **contenturi** : cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
 - **contentHash** : 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
 
 업데이트된 패키지를 릴리스하는 가장 쉬운 방법은 이 문서에 설명된 프로세스를 반복하고 업데이트된 버전 번호를 제공하는 것입니다. 해당 프로세스는 모든 속성이 올바르게 업데이트되었음을 보장합니다.

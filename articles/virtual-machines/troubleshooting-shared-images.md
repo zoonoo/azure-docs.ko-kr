@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336013"
+ms.locfileid: "93348919"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -223,8 +223,8 @@ ms.locfileid: "93336013"
 **원인** : 데이터 디스크 이미지에 사용 되는 디스크 암호화 집합의 리소스 ID가 잘못 된 형식을 사용 합니다.  
 **해결 방법** : 디스크 암호화 집합의 리소스 ID가/Subscriptions/<subscriptionID \> /Resourcegroups/<ResourceGroupName/providers/Microsoft.Compute/<diskEncryptionSetName 형식으로 되어 있는지 확인 \> \> 합니다.
 
-*매개 변수 galleryArtifactVersion. publishingProfile. Diskimage. Disk setid의 값이 잘못* 
- 되었습니다. **원인** : OS 디스크 이미지에서 사용 되는 디스크 암호화 집합의 리소스 ID가 잘못 된 형식을 사용 합니다.  
+*매개 변수 galleryArtifactVersion. publishingProfile. Diskimage. Disk Setid의 값이 잘못 되었습니다.*  
+**원인** : OS 디스크 이미지에서 사용 되는 디스크 암호화 집합의 리소스 ID가 잘못 된 형식을 사용 합니다.  
 **해결 방법** : 디스크 암호화 집합의 리소스 ID가/Subscriptions/<subscriptionID \> /Resourcegroups/<ResourceGroupName/providers/Microsoft.Compute/<diskEncryptionSetName 형식으로 되어 있는지 확인 \> \> 합니다.
 
 *\> \> 업데이트 갤러리 이미지 버전 요청에 대해 지역 [<region]에 설정 된 디스크 암호화를 사용 하 여 새 데이터 디스크 이미지 암호화 lun [<번호]을 지정할 수 없습니다. 이 버전을 업데이트 하려면 새 lun을 제거 합니다. 데이터 디스크 이미지 암호화 설정을 변경 해야 하는 경우 올바른 설정을 사용 하 여 새 갤러리 이미지 버전을 만들어야 합니다.*  

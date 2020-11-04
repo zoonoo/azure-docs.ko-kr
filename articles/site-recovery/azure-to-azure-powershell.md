@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307554"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348732"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -36,22 +36,22 @@ ms.locfileid: "91307554"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](azure-to-azure-support-matrix.md)을 검토합니다.
-- Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+- Azure PowerShell `Az` 모듈이 있어야 합니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
-Cmdlet을 사용 하 여 Azure 구독에 로그인 `Connect-AzAccount` 합니다.
+`Connect-AzAccount` cmdlet을 사용하여 Azure 구독에 로그인합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Azure 구독을 선택합니다. Cmdlet을 사용 `Get-AzSubscription` 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다 `Set-AzContext` .
+Azure 구독을 선택합니다. `Get-AzSubscription` cmdlet을 사용하여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다 `Set-AzContext` .
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>영역 복제 영역을 사용 하도록 설정할 때 패브릭 및 컨테이너 만들기
+
+영역 복제 영역을 사용 하도록 설정 하는 경우 하나의 패브릭만 생성 됩니다. 그러나 두 개의 컨테이너가 있습니다. 지역이 유럽 서부 되는 경우 다음 명령을 사용 하 여 기본 및 보호 컨테이너를 가져옵니다.
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>복제 정책 만들기
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>영역 복제 영역을 사용 하도록 설정할 때 보호 컨테이너 매핑 만들기
+
+영역 복제 영역을 사용 하도록 설정 하는 경우 아래 명령을 사용 하 여 보호 컨테이너 매핑을 만듭니다. 지역이 유럽 서부 이라고 가정 하면 명령은-
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>장애 복구(failback)에 대한 보호 컨테이너 매핑을 만듭니다(장애 조치(failover) 후 역방향 복제).
 
 장애 조치 (failover) 후 장애 조치 (failover) 된 가상 머신을 원래 Azure 지역으로 다시 가져올 준비가 되 면 장애 복구 (failback)를 수행 합니다. 장애 복구 (failback)를 수행 하려면 장애 조치 (failover) 된 가상 머신이 장애 조치 (failover) 된 지역에서 원래 지역으로 역방향 복제 됩니다. 역방향 복제의 경우 원래 지역과 복구 지역의 역할이 바뀝니다. 이제 원래 지역이 새 복구 지역이 되고 원래 복구 지역이었던 곳이 기본 지역이 됩니다. 역방향 복제에 대한 보호 컨테이너 매핑은 원래 지역과 복구 지역의 전환된 역할을 나타냅니다.
@@ -316,7 +333,7 @@ $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-**관리 디스크를 사용 하지 않는**가상 컴퓨터의 경우 대상 저장소 계정은 가상 컴퓨터의 디스크를 복제 하는 복구 지역의 저장소 계정입니다. 대상 스토리지 계정은 표준 스토리지 계정 또는 Premium Storage 계정 중 하나일 수 있습니다. 디스크의 데이터 변경 률 (IO 쓰기 빈도)에 따라 필요한 저장소 계정 종류와 저장소 형식에 대해 지원 되는 Azure Site Recovery 변동 제한을 선택 합니다.
+**관리 디스크를 사용 하지 않는** 가상 컴퓨터의 경우 대상 저장소 계정은 가상 컴퓨터의 디스크를 복제 하는 복구 지역의 저장소 계정입니다. 대상 스토리지 계정은 표준 스토리지 계정 또는 Premium Storage 계정 중 하나일 수 있습니다. 디스크의 데이터 변경 률 (IO 쓰기 빈도)에 따라 필요한 저장소 계정 종류와 저장소 형식에 대해 지원 되는 Azure Site Recovery 변동 제한을 선택 합니다.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -396,7 +413,7 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 ## <a name="replicate-azure-virtual-machine"></a>Azure Virtual Machine 복제
 
-**관리 디스크**를 사용하여 Azure Virtual Machine을 복제합니다.
+**관리 디스크** 를 사용하여 Azure Virtual Machine을 복제합니다.
 
 ```azurepowershell
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -430,7 +447,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-**비관리 디스크**를 사용하여 Azure Virtual Machine을 복제합니다.
+**비관리 디스크** 를 사용하여 Azure Virtual Machine을 복제합니다.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)

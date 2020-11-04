@@ -5,16 +5,16 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 681c5e169acc30cc6708b56b5ba180d2729919e5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348792"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Azure Portal에서 업데이트 관리 사용
 
-이 문서에서는 Azure Portal을 탐색하여 VM에 [업데이트 관리](overview.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 VM을 사용하도록 설정해야 합니다.
+이 문서에서는 Azure Portal을 탐색하여 VM에 [업데이트 관리](overview.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure Vm을 사용 하도록 설정 하려면 업데이트 관리를 사용 하 여 기존 Azure VM을 사용 하도록 설정 해야 합니다.
 
 VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../../azure-resource-manager/templates/cross-scope-deployment.md)으로 제한됩니다. Resource Manager 배포(업데이트 배포와 혼동하지 말 것)는 배포당 5개의 리소스 그룹으로 제한됩니다. 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 3개의 리소스 그룹을 선택하여 업데이트 관리에서 관리할 수 있습니다. 이 제한은 Automation 기능으로 관리할 수 있는 리소스 그룹의 수가 아니라 동시 설정에만 적용됩니다.
 
@@ -33,9 +33,9 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 
-1. Azure Portal에서 **가상 머신**으로 이동합니다.
+1. Azure Portal에서 **가상 머신** 으로 이동합니다.
 
-2. 확인란을 사용하여 업데이트 관리에 추가할 VM을 선택합니다. 한 번에 최대 세 가지의 리소스 그룹을 추가할 수 있습니다. Azure VM은 Automation 계정의 위치에 관계없이 모든 지역에 있을 수 있습니다.
+2. **가상 컴퓨터** 페이지에서 확인란을 사용 하 여 업데이트 관리에 추가할 vm을 선택 합니다. 한 번에 최대 세 가지의 리소스 그룹을 추가할 수 있습니다. Azure VM은 Automation 계정의 위치에 관계없이 모든 지역에 있을 수 있습니다.
 
     ![VM 목록](media/enable-from-portal/vmlist.png)
 
@@ -48,7 +48,7 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 4. 가상 머신 목록은 동일한 구독 및 위치에 있는 가상 머신만 표시하도록 필터링됩니다. 가상 머신이 3개 초과 리소스 그룹에 있는 경우 처음 3개 리소스 그룹이 선택됩니다.
 
-5. 기존 Log Analytics 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 다른 Log Analytics 작업 영역 및 Automation 계정을 사용 하려는 경우 **사용자 지정을 선택 하 여** 사용자 지정 구성 페이지에서 선택 합니다. Log Analytics 작업 영역을 선택하면 Automation 계정에 연결되어 있는지 확인됩니다. 연결된 Automation 계정이 있으면 다음과 같은 화면이 표시됩니다. 완료되면 **확인**을 선택합니다.
+5. 기존 Log Analytics 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 다른 Log Analytics 작업 영역 및 Automation 계정을 사용 하려는 경우 **사용자 지정을 선택 하 여** 사용자 지정 구성 페이지에서 선택 합니다. Log Analytics 작업 영역을 선택하면 Automation 계정에 연결되어 있는지 확인됩니다. 연결된 Automation 계정이 있으면 다음과 같은 화면이 표시됩니다. 완료되면 **확인** 을 선택합니다.
 
     [![작업 영역 및 계정 선택](./media/enable-from-portal/select-workspace-and-account.png)](./media/enable-from-portal/select-workspace-and-account-expanded.png#lightbox)
 

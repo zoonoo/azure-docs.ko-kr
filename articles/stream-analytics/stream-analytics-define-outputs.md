@@ -8,34 +8,34 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128837"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348715"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics 출력
 
 Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. 변환 된 데이터를 보낼 수 있는 몇 가지 출력 형식이 있습니다. 이 문서에는 지원 되는 Stream Analytics 출력이 나와 있습니다. Stream Analytics 쿼리를 설계하는 경우 [INTO 절](/stream-analytics-query/into-azure-stream-analytics)을 사용하여 출력의 이름을 참조합니다. 쿼리에 여러 개의 INTO 절을 추가 하 여 작업당 단일 출력 또는 스트리밍 작업당 여러 출력 (필요한 경우)을 사용할 수 있습니다.
 
-Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](/rest/api/streamanalytics/) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
+Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), [REST API](/rest/api/streamanalytics/) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
 
 일부 출력 형식은 처리량을 최적화하기 위해 [분할](#partitioning) 및 다양한 [출력 일괄 처리 크기](#output-batch-size)를 지원합니다. 다음 표에서는 각 출력 형식에 대해 지원 되는 기능을 보여 줍니다.
 
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory 사용자 </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|예, 선택 사항입니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL 사용자 인증|
-|[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> 액세스 키|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증|
+|[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|MSI </br> 액세스 키|
 |[Azure Event Hubs](event-hubs-output.md)|예, 출력 구성에서 파티션 키 열을 설정 해야 합니다.|액세스 키|
 |[Power BI](power-bi-output.md)|아니요|Azure Active Directory 사용자 </br> MSI|
-|[Azure Table Storage](table-storage-output.md)|Yes|계정 키|
-|[Azure Service Bus 큐](service-bus-queues-output.md)|Yes|액세스 키|
-|[Azure Service Bus 항목](service-bus-topics-output.md)|Yes|액세스 키|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|액세스 키|
-|[Azure Functions](azure-functions-output.md)|Yes|액세스 키|
+|[Azure Table Storage](table-storage-output.md)|예|계정 키|
+|[Azure Service Bus 큐](service-bus-queues-output.md)|예|액세스 키|
+|[Azure Service Bus 항목](service-bus-topics-output.md)|예|액세스 키|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|예|액세스 키|
+|[Azure Functions](azure-functions-output.md)|예|액세스 키|
 
 ## <a name="partitioning"></a>분할
 

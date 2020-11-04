@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348613"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>제안 함수
 
-C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](./search-howto-dotnet-sdk.md)을 참조 하세요.
+C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
 `InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
 
@@ -253,4 +253,3 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 
 + [자습서: c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [REST side-by-side 코드 샘플을 사용 하는 c # 및 JavaScript](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

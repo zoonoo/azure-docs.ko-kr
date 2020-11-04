@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129816"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348936"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -33,12 +33,12 @@ ms.locfileid: "93129816"
 
 ## <a name="set-the-compatibility-level"></a>호환성 수준 설정
 
-Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](./stream-analytics-quick-create-portal.md)을 사용 하 여 설정할 수 있습니다.
+Azure Portal에서 Stream Analytics 작업에 대 한 호환성 수준을 설정 하거나 [작업 만들기 REST API 호출](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel)을 사용 하 여 설정할 수 있습니다.
 
 Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 를 사용 하 여 Stream Analytics 작업을 찾습니다.
-2. 호환성 수준을 업데이트 하기 전에 작업을 **중지** 합니다. 작업이 실행 중인 상태에서는 호환성 수준을 업데이트할 수 없습니다.
+2. 호환성 수준을 업데이트 하기 전에 작업을 **중지** 합니다. 작업이 실행 중인 상태 이면 호환성 수준을 업데이트할 수 없습니다.
 3. **구성** 제목 아래에서 **호환성 수준** 을 선택 합니다.
 4. 원하는 호환성 수준 값을 선택 합니다.
 5. 페이지 맨 아래에서 **저장** 을 선택 합니다.
@@ -83,7 +83,7 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>SQL 출력에 쓸 때 DateTimeOffset
 
-**이전 수준:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 형식은 UTC로 조정 되었습니다.
+**이전 수준:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) 형식은 UTC로 조정 되었습니다.
 
 **1.2 수준:** DateTimeOffset은 더 이상 조정 되지 않습니다.
 
@@ -121,11 +121,11 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예를 들면 다음과 같습니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 
