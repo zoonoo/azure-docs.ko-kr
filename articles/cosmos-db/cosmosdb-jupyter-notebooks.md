@@ -6,14 +6,15 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 0299ab1e76e742adb8d2653b8b5d6923aff2f11f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8dca9e3e29796618b905c4d266eb674f82565969
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88588159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097620"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Azure Cosmos DB에 기본 제공되는 Jupyter Notebooks 지원(미리 보기)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스트를 포함하는 문서를 만들고 공유할 수 있는 오픈 소스 웹 애플리케이션입니다. 
 
@@ -23,7 +24,7 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebooks는 Azure Portal 및 Azure Cos
 
 Azure Cosmos DB는 Core(SQL), Cassandra, Gremlin, Table 및 API for MongoDB를 비롯한 모든 API에 C# 및 Python Notebook을 모두 지원합니다. Notebook 내에서 손쉽게 Azure Cosmos DB 리소스를 만들고, 데이터를 업로드하고, Azure Cosmos DB의 데이터를 쿼리하고 시각화할 수 있게 해주는 기본 제공 명령 및 기능을 활용할 수 있습니다. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Azure Cosmos DB의 Jupyter Notebooks 시각화":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Azure Cosmos DB의 Jupyter Notebooks 지원":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Jupyter Notebooks의 이점
 

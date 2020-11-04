@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486653"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099750"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](create-cosmosdb-resources-portal.md)
@@ -70,17 +71,17 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 > - 지리적 중복
 > - 다중 지역 쓰기
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Azure Portal 데이터베이스 창":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Azure Cosmos DB에 대한 새 계정 페이지":::
 
 1. **검토 + 만들기** 를 선택합니다. **네트워크** 및 **태그** 섹션은 건너뛰어도 됩니다.
 
 1. 계정 설정을 검토한 다음, **만들기** 를 선택합니다. 계정을 만드는 데 몇 분이 걸립니다. 포털 페이지에 **배포가 완료됨** 이 표시되기를 기다립니다. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Azure Portal 데이터베이스 창":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Azure Portal 알림 창":::
 
 1. **리소스로 이동** 을 선택하여 Azure Cosmos DB 계정 페이지로 이동합니다. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Azure Portal 데이터베이스 창":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Azure Cosmos DB 계정 페이지":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>데이터베이스 및 컨테이너 추가 
@@ -91,7 +92,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
     
     **컨테이너 추가** 창을 보려면 오른쪽으로 스크롤해야 할 수도 있습니다.
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Azure Portal 데이터베이스 창":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
     
 1.  **컨테이너 추가** 창에서 새 컨테이너의 설정을 입력합니다.
     
@@ -113,7 +114,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
 
 1. **Data Explorer** 에서 **ToDoList** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. 다음으로, **항목** 을 선택한 다음, **새 항목** 을 선택합니다. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Azure Portal 데이터베이스 창":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Azure Portal의 Data Explorer에서 새 문서 만들기":::
    
 1. 다음 구조를 **문서** 창 오른쪽의 문서에 추가합니다.
 
@@ -129,7 +130,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
 
 1. **저장** 을 선택합니다.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Azure Portal 데이터베이스 창":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Azure Portal의 Data Explorer에서 Json 데이터를 복사하고 저장을 선택합니다.":::
    
 1. **새 문서** 를 다시 선택하고 고유한 `id`의 다른 문서를 만들고 저장한 다음, 원하는 다른 속성 및 값을 지정합니다. Azure Cosmos DB가 데이터에 어떠한 스키마도 적용하지 않으므로 해당 문서는 사용자가 원하는 어떠한 구조든 가질 수 있습니다.
 

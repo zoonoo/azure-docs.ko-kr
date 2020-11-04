@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure SignalR Service 만들기 - ARM 템플릿'
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure SignalR Service를 만드는 방법을 알아봅니다.
-author: mgblythe
+author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487826"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289918"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SignalR Service 배포
 

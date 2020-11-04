@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 69571afceddab61c2a6134516e237facfb7a5073
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124529"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -26,9 +26,9 @@ Azure PowerShell 모듈은 PowerShell cmdlet 또는 스크립트를 사용하여
 
 * Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-* 이 빠른 시작에서는 Azure PowerShell 모듈이 필요합니다. 로컬 컴퓨터에 설치된 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요.
+* 이 빠른 시작에서는 Azure PowerShell 모듈이 필요합니다. 로컬 컴퓨터에 설치된 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
-* 일부 IoT Hub 작업은 Azure PowerShell에서 지원되지 않으므로 Azure CLI 버전 2.0.70 이상 및 Azure CLI용 IoT 확장을 사용하여 완료해야 합니다. [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
+* 일부 IoT Hub 작업은 Azure PowerShell에서 지원되지 않으므로 Azure CLI 버전 2.0.70 이상 및 Azure CLI용 IoT 확장을 사용하여 완료해야 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name azure-iot`를 사용하여 IoT 확장을 설치합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -52,7 +52,7 @@ Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubsc
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
@@ -68,9 +68,9 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 다음 Azure CLI 코드 블록은 여러 명령을 수행하여 작업에 필요한 입력 데이터를 준비합니다. 코드를 이해하려면 섹션을 검토합니다.
 
-1. PowerShell 창에서 [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 명령을 실행하여 Azure 계정에 로그인합니다.
+1. PowerShell 창에서 [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 명령을 실행하여 Azure 계정에 로그인합니다.
 
-    성공적으로 로그인한 경우 Azure CLI는 구독 목록을 반환합니다. 이 빠른 시작에 사용 중인 구독을 복사하고 [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) 명령을 실행하여 해당 구독을 선택합니다. PowerShell을 사용하여 이전 섹션에서 선택한 것과 동일한 구독을 선택합니다. `<your subscription name>`을 구독의 이름으로 바꾸어야 합니다.
+    성공적으로 로그인한 경우 Azure CLI는 구독 목록을 반환합니다. 이 빠른 시작에 사용 중인 구독을 복사하고 [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) 명령을 실행하여 해당 구독을 선택합니다. PowerShell을 사용하여 이전 섹션에서 선택한 것과 동일한 구독을 선택합니다. `<your subscription name>`을 구독의 이름으로 바꾸어야 합니다.
 
     ```azurecli
     az login
@@ -84,7 +84,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    IoT Hub가 만들어지면 [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
+    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -112,11 +112,11 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 다음 Azure PowerShell 코드 블록은 명령을 사용하여 작업 출력에 사용되는 Blob 스토리지를 만듭니다. 코드를 이해하려면 섹션을 검토합니다.
 
-1. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet을 사용하여 표준 범용 스토리지 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 **myasaquickstartstorage** 라는 스토리지 계정을 만듭니다.
+1. [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) cmdlet을 사용하여 표준 범용 스토리지 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 **myasaquickstartstorage** 라는 스토리지 계정을 만듭니다.
 
 2. 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트 `$storageAccount.Context`를 검색합니다. 스토리지 계정으로 작업할 때 자격 증명을 반복적으로 제공하는 대신 컨텍스트를 참조합니다.
 
-3. [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 스토리지 컨테이너를 만듭니다.
+3. [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 스토리지 컨테이너를 만듭니다.
 
 4. 코드에서 출력하는 스토리지 키를 복사한 다음, 해당 키를 저장하여 나중에 스트리밍 작업의 출력을 만듭니다.
 
@@ -146,7 +146,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-[New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet을 사용하여 Stream Analytics 작업을 만듭니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름 및 작업 정의를 매개 변수로 사용합니다. 작업 이름은 작업을 식별하는 친숙한 이름일 수 있습니다. 영숫자 문자, 하이픈 및 밑줄만 포함할 수 있으며 길이는 3자에서 63자 사이여야 합니다. 작업 정의는 작업을 만드는 데 필요한 속성을 포함하는 JSON 파일입니다. 로컬 컴퓨터에서 `JobDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다.
+[New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet을 사용하여 Stream Analytics 작업을 만듭니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름 및 작업 정의를 매개 변수로 사용합니다. 작업 이름은 작업을 식별하는 친숙한 이름일 수 있습니다. 영숫자 문자, 하이픈 및 밑줄만 포함할 수 있으며 길이는 3자에서 63자 사이여야 합니다. 작업 정의는 작업을 만드는 데 필요한 속성을 포함하는 JSON 파일입니다. 로컬 컴퓨터에서 `JobDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다.
 
 ```json
 {
@@ -176,7 +176,7 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>작업에 대한 입력 구성
 
-[New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) cmdlet을 사용하여 작업에 입력을 추가합니다. 이 cmdlet은 작업 이름, 작업 입력 이름, 리소스 그룹 이름 및 작업 입력 정의를 매개 변수로 사용합니다. 작업 입력 정의는 작업의 입력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 입력으로 Blob 스토리지를 만듭니다.
+[New-AzStreamAnalyticsInput](/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) cmdlet을 사용하여 작업에 입력을 추가합니다. 이 cmdlet은 작업 이름, 작업 입력 이름, 리소스 그룹 이름 및 작업 입력 정의를 매개 변수로 사용합니다. 작업 입력 정의는 작업의 입력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 입력으로 Blob 스토리지를 만듭니다.
 
 로컬 컴퓨터에서 `JobInputDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. `accesspolicykey`의 값을 이전 섹션에서 저장한 IoT Hub 연결 문자열의 `SharedAccessKey` 부분으로 바꾸어야 합니다.
 
@@ -223,7 +223,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>작업에 대한 출력 구성
 
-[New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) cmdlet을 사용하여 작업에 출력을 추가합니다. 이 cmdlet은 작업 이름, 작업 출력 이름, 리소스 그룹 이름 및 작업 출력 정의를 매개 변수로 사용합니다. 작업 출력 정의는 작업 출력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 출력으로 Blob Storage를 사용합니다.
+[New-AzStreamAnalyticsOutput](/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) cmdlet을 사용하여 작업에 출력을 추가합니다. 이 cmdlet은 작업 이름, 작업 출력 이름, 리소스 그룹 이름 및 작업 출력 정의를 매개 변수로 사용합니다. 작업 출력 정의는 작업 출력을 구성하는 데 필요한 속성을 포함하는 JSON 파일입니다. 이 예제에서는 출력으로 Blob Storage를 사용합니다.
 
 로컬 컴퓨터에서 `JobOutputDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. `accountKey`의 값을 $storageAccountKey 값에 저장된 값인 스토리지 계정의 액세스 키로 바꾸어야 합니다.
 
@@ -272,7 +272,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>변환 쿼리 정의
 
-[New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet을 사용하여 작업에 변환을 추가합니다. 이 cmdlet은 작업 이름, 작업 변환 이름, 리소스 그룹 이름 및 작업 변환 정의를 매개 변수로 사용합니다. 로컬 컴퓨터에서 `JobTransformationDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. JSON 파일에는 변환 쿼리를 정의하는 쿼리 매개 변수가 포함됩니다.
+[New-AzStreamAnalyticsTransformation](/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet을 사용하여 작업에 변환을 추가합니다. 이 cmdlet은 작업 이름, 작업 변환 이름, 리소스 그룹 이름 및 작업 변환 정의를 매개 변수로 사용합니다. 로컬 컴퓨터에서 `JobTransformationDefinition.json`이라는 파일을 만들고 여기에 다음 JSON 데이터를 추가합니다. JSON 파일에는 변환 쿼리를 정의하는 쿼리 매개 변수가 포함됩니다.
 
 ```json
 {
@@ -310,7 +310,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics 작업을 시작하고 출력을 확인합니다.
 
-[Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet을 사용하여 작업을 시작합니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름, 출력 시작 모드 및 시작 시간을 매개 변수로 사용합니다. `OutputStartMode`는 `JobStartTime`, `CustomTime` 또는 `LastOutputEventTime`의 값을 허용합니다. 이러한 각 값에 대한 자세한 내용은 PowerShell 설명서의 [매개 변수](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) 섹션을 참조하세요.
+[Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet을 사용하여 작업을 시작합니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름, 출력 시작 모드 및 시작 시간을 매개 변수로 사용합니다. `OutputStartMode`는 `JobStartTime`, `CustomTime` 또는 `LastOutputEventTime`의 값을 허용합니다. 이러한 각 값에 대한 자세한 내용은 PowerShell 설명서의 [매개 변수](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) 섹션을 참조하세요.
 
 다음 cmdlet을 실행한 후 작업이 시작되면 `True`가 출력으로 반환됩니다. 스토리지 컨테이너에서 변환된 데이터를 사용하여 출력 폴더가 생성됩니다.
 

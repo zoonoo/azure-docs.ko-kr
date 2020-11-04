@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b4ed27e1515e898a71fb503bb0f260c608ef9f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322753"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090208"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터 쿼리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
@@ -47,9 +48,9 @@ ms.locfileid: "91322753"
 
 1. [Azure Cosmos DB 체험](https://azure.microsoft.com/try/cosmosdb/) 페이지로 이동합니다.
 
-1. **SQL** API 계정을 선택하고 **만들기**를 선택합니다. Microsoft 계정을 사용하여 로그인합니다.
+1. **SQL** API 계정을 선택하고 **만들기** 를 선택합니다. Microsoft 계정을 사용하여 로그인합니다.
 
-1. 로그인이 성공하면 Azure Cosmos 계정이 준비되어야 합니다. **Azure Portal에서 열기**를 선택하여 새로 만든 계정을 엽니다.
+1. 로그인이 성공하면 Azure Cosmos 계정이 준비되어야 합니다. **Azure Portal에서 열기** 를 선택하여 새로 만든 계정을 엽니다.
 
 "Azure Cosmos DB 체험" 옵션에는 Azure 구독이 필요하지 않으며, 30일의 제한된 기간 동안 Azure Cosmos 계정을 제공합니다. 더 오랜 기간 동안 Azure Cosmos 계정을 사용하려면 Azure 구독 내에서 [계정을 만들](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account)어야 합니다.
 
@@ -57,7 +58,7 @@ ms.locfileid: "91322753"
 
 이제 Azure Portal에서 Data Explorer 도구를 사용하여 데이터베이스 및 컨테이너를 만들 수 있습니다.
 
-1. **Data Explorer** > **새 컨테이너**를 선택합니다.
+1. **Data Explorer** > **새 컨테이너** 를 선택합니다.
 
    맨 오른쪽에 **컨테이너 추가** 영역이 표시되는데, 안 보이면 오른쪽으로 스크롤해야 합니다.
 
@@ -67,14 +68,14 @@ ms.locfileid: "91322753"
 
    | 설정           | 제안 값 | Description                                                                                                                                                                                                                                                                                                                                                                           |
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **데이터베이스 ID**   | 작업           | 새 데이터베이스의 이름으로 _작업_을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
+   | **데이터베이스 ID**   | 작업           | 새 데이터베이스의 이름으로 _작업_ 을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
    | **처리량**    | 400             | 처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.                                                                                                                                                                                                                                                    |
-   | **컨테이너 ID**  | Items           | 새 컨테이너의 이름으로 _Items_를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.                                                                                                                                                                                                                                                               |
-   | **파티션 키** | /category       | 이 문서에 설명된 샘플은 파티션 키로 _/category_를 사용합니다.                                                                                                                                                                                                                                                                                                           |
+   | **컨테이너 ID**  | Items           | 새 컨테이너의 이름으로 _Items_ 를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.                                                                                                                                                                                                                                                               |
+   | **파티션 키** | /category       | 이 문서에 설명된 샘플은 파티션 키로 _/category_ 를 사용합니다.                                                                                                                                                                                                                                                                                                           |
 
-   앞의 설정 외에도, 필요에 따라 컨테이너의 **고유 키**를 추가할 수 있습니다. 이 예에서 필드는 비워 두겠습니다. 고유 키는 데이터베이스에 데이터 무결성 계층을 추가할 수 있는 기능을 개발자에게 제공합니다. 컨테이너를 만드는 동안 고유 키 정책을 만들면 파티션 키당 하나 이상의 값에 대한 고유성이 보장됩니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md) 문서를 참조하세요.
+   앞의 설정 외에도, 필요에 따라 컨테이너의 **고유 키** 를 추가할 수 있습니다. 이 예에서 필드는 비워 두겠습니다. 고유 키는 데이터베이스에 데이터 무결성 계층을 추가할 수 있는 기능을 개발자에게 제공합니다. 컨테이너를 만드는 동안 고유 키 정책을 만들면 파티션 키당 하나 이상의 값에 대한 고유성이 보장됩니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md) 문서를 참조하세요.
 
-   **확인**을 선택합니다. Data Explorer에 새 데이터베이스와 컨테이너가 표시됩니다.
+   **확인** 을 선택합니다. Data Explorer에 새 데이터베이스와 컨테이너가 표시됩니다.
 
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
@@ -98,7 +99,7 @@ ms.locfileid: "91322753"
 
 이 단계는 선택 사항입니다. Azure Cosmos 데이터베이스 리소스를 코드로 만드는 방법을 알아보려면 다음 코드 조각을 검토하면 됩니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다.
 
-이전 버전의 SQL JavaScript SDK에 익숙한 경우 _컬렉션_ 및 _문서_라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](introduction.md)을 지원하므로 [JavaScript SDK 버전 2.0 이상](https://www.npmjs.com/package/@azure/cosmos)에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 _컨테이너_와 컨테이너의 콘텐츠를 설명하는 _항목_이라는 용어를 사용합니다.
+이전 버전의 SQL JavaScript SDK에 익숙한 경우 _컬렉션_ 및 _문서_ 라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](introduction.md)을 지원하므로 [JavaScript SDK 버전 2.0 이상](https://www.npmjs.com/package/@azure/cosmos)에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 _컨테이너_ 와 컨테이너의 콘텐츠를 설명하는 _항목_ 이라는 용어를 사용합니다.
 
 Cosmos DB JavaScript SDK는 "@azure/cosmos"라고 하며 npm에서 설치할 수 있습니다.
 
@@ -175,17 +176,17 @@ npm install @azure/cosmos
 
 Azure Portal로 돌아가서 Azure Cosmos 계정의 연결 문자열 세부 정보를 가져옵니다. 앱이 데이터베이스에 연결할 수 있도록 연결 문자열을 앱에 복사합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 선택한 다음, **읽기-쓰기 키**를 선택합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 _app.js_ 파일에 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키** 를 선택한 다음, **읽기-쓰기 키** 를 선택합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 _app.js_ 파일에 복사합니다.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Azure Portal 키 블레이드에서 액세스 키 보기 및 복사":::
 
 2. _config.js_ 파일을 엽니다.
 
-3. 포털에서 URI 값을 복사(복사 단추 사용)하고 이 값을 _config.js_에서 엔드포인트 키 값으로 만듭니다.
+3. 포털에서 URI 값을 복사(복사 단추 사용)하고 이 값을 _config.js_ 에서 엔드포인트 키 값으로 만듭니다.
 
    `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. 그런 다음, 포털에서 사용자의 기본 키 값을 복사하고 _config.js_의 `config.key` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다.
+4. 그런 다음, 포털에서 사용자의 기본 키 값을 복사하고 _config.js_ 의 `config.key` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다.
 
    `key: "<Your Azure Cosmos account key>"`
 

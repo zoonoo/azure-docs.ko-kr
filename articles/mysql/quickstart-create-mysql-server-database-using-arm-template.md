@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure DB for MySQL 만들기 - ARM 템플릿'
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 알아봅니다.
-author: mgblythe
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041199"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -70,40 +70,40 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 **VNet을 사용하여 Azure Database for MySQL 배포** 페이지에서 다음을 수행합니다.
 
-1. **리소스 그룹**에 대해 **새로 만들기**를 선택하고, 새 리소스 그룹의 이름을 입력한 다음, **확인**을 선택합니다.
+1. **리소스 그룹** 에 대해 **새로 만들기** 를 선택하고, 새 리소스 그룹의 이름을 입력한 다음, **확인** 을 선택합니다.
 
-2. 새 리소스 그룹을 만든 경우 리소스 그룹 및 새 서버에 대한 **위치**를 선택합니다.
+2. 새 리소스 그룹을 만든 경우 리소스 그룹 및 새 서버에 대한 **위치** 를 선택합니다.
 
-3. **서버 이름**, **관리자 로그인** 및 **관리자 로그인 암호**를 입력합니다.
+3. **서버 이름** , **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Azure에 배포":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for MySQL 배포":::
 
 4. 원하는 경우 다른 기본 설정을 변경합니다.
 
-    * **구독**: 서버에 사용하려는 Azure 구독
-    * **SKU 용량**: vCore 용량(*2*(기본값), *4*, *8*, *16*, *32* 또는 *64*일 수 있음)
-    * **SKU 이름**: 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1*, *GP_Gen5_2*(기본값) 또는 *MO_Gen5_32*)
-    * **SKU 크기(MB)** : Azure Database for MySQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *5120*)
-    * **SKU 계층**: 배포 계층(예: *기본*, *범용*(기본값) 또는 *메모리 최적화*)
-    * **SKU 제품군**: *Gen4* 또는 *Gen5*(기본값) - 서버 배포용 하드웨어 세대를 나타냄
-    * **MySQL 버전**: 배포할 MySQL 서버 버전(예: *5.6* 또는 *5.7*(기본값))
-    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7*)
-    * **지역 중복 백업**: Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함*(기본값)
-    * **가상 네트워크 이름**: 가상 네트워크의 이름(기본값: *azure_mysql_vnet*)
-    * **서브넷 이름**: 서브넷의 이름(기본값: *azure_mysql_subnet*)
-    * **가상 네트워크 규칙 이름**: 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet*)
-    * **Vnet 주소 접두사**: 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16*)
-    * **서브넷 접두사**: 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16*)
+    * **구독** : 서버에 사용하려는 Azure 구독
+    * **SKU 용량** : vCore 용량( *2* (기본값), *4* , *8* , *16* , *32* 또는 *64* 일 수 있음)
+    * **SKU 이름** : 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1* , *GP_Gen5_2* (기본값) 또는 *MO_Gen5_32* )
+    * **SKU 크기(MB)** : Azure Database for MySQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *5120* )
+    * **SKU 계층** : 배포 계층(예: *기본* , *범용* (기본값) 또는 *메모리 최적화* )
+    * **SKU 제품군** : *Gen4* 또는 *Gen5* (기본값) - 서버 배포용 하드웨어 세대를 나타냄
+    * **MySQL 버전** : 배포할 MySQL 서버 버전(예: *5.6* 또는 *5.7* (기본값))
+    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7* )
+    * **지역 중복 백업** : Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함* (기본값)
+    * **가상 네트워크 이름** : 가상 네트워크의 이름(기본값: *azure_mysql_vnet* )
+    * **서브넷 이름** : 서브넷의 이름(기본값: *azure_mysql_subnet* )
+    * **가상 네트워크 규칙 이름** : 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet* )
+    * **Vnet 주소 접두사** : 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16* )
+    * **서브넷 접두사** : 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16* )
 
-5. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
+5. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
-6. **구매**를 선택합니다.
+6. **구매** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 다음 대화형 코드를 사용하여 템플릿을 사용하여 새 Azure Database for MySQL 서버를 만듭니다. 이 코드는 새 서버 이름, 새 리소스 그룹의 이름과 위치 및 관리자 계정의 이름과 암호를 묻는 메시지를 표시합니다.
 
-Azure Cloud Shell에서 코드를 실행하려면 코드 블록의 위쪽 모서리에 있는 **사용해 보세요**를 선택합니다.
+Azure Cloud Shell에서 코드를 실행하려면 코드 블록의 위쪽 모서리에 있는 **사용해 보세요** 를 선택합니다.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
@@ -126,7 +126,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 다음 대화형 코드를 사용하여 템플릿을 사용하여 새 Azure Database for MySQL 서버를 만듭니다. 이 코드는 새 서버 이름, 새 리소스 그룹의 이름과 위치 및 관리자 계정의 이름과 암호를 묻는 메시지를 표시합니다.
 
-Azure Cloud Shell에서 코드를 실행하려면 코드 블록의 위쪽 모서리에 있는 **사용해 보세요**를 선택합니다.
+Azure Cloud Shell에서 코드를 실행하려면 코드 블록의 위쪽 모서리에 있는 **사용해 보세요** 를 선택합니다.
 
 ```azurecli-interactive
 echo "Enter a name for the new Azure Database for MySQL server:" &&
@@ -153,7 +153,7 @@ echo "Press [ENTER] to continue ..."
 
 다음 단계에 따라 Azure Database for MySQL 서버에 대한 개요를 표시합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Database for MySQL 서버**를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Database for MySQL 서버** 를 검색하여 선택합니다.
 
 2. 데이터베이스 목록에서 새 서버를 선택합니다. 그러면 새 Azure Database for MySQL 서버에 대한 **개요** 페이지가 표시됩니다.
 
@@ -187,13 +187,13 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 검색하여 선택합니다.
 
 2. 리소스 그룹 목록에서 리소스 그룹의 이름을 선택합니다.
 
-3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 
-4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제**를 선택합니다.
+4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

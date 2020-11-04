@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 076cb892740b99971400fbc34f60dc1083554555
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ee30af3f07c8b350393822f01833feec6e3b52e2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532208"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099813"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v4 드라이버)
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -151,7 +152,7 @@ ms.locfileid: "90532208"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열 세부 정보를 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사":::
 
@@ -161,19 +162,19 @@ ms.locfileid: "90532208"
 
 3. 포털의 CONTACT POINT 값을 줄 2의 `<Cassandra endpoint host>`에 붙여넣습니다.
 
-    *config.properties*의 줄 2는 이제 다음과 유사하게 나타납니다. 
+    *config.properties* 의 줄 2는 이제 다음과 유사하게 나타납니다. 
 
     `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
 3. 포털로 돌아가서 USERNAME 값을 복사합니다. 포털의 USERNAME 값을 줄 4의 `<cassandra endpoint username>`에 붙여넣습니다.
 
-    *config.properties*의 줄 4는 이제 다음과 유사하게 나타납니다. 
+    *config.properties* 의 줄 4는 이제 다음과 유사하게 나타납니다. 
 
     `cassandra_username=cosmos-db-quickstart`
 
 4. 포털로 돌아가서 PASSWORD 값을 복사합니다. 포털의 PASSWORD 값을 줄 5의 `<cassandra endpoint password>`에 붙여넣습니다.
 
-    *config.properties*의 줄 5는 이제 다음과 유사하게 나타납니다. 
+    *config.properties* 의 줄 5는 이제 다음과 유사하게 나타납니다. 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
@@ -213,9 +214,9 @@ ms.locfileid: "90532208"
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 Ctrl+C를 누릅니다.
 
-4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+4. Azure Portal에서 **데이터 탐색기** 를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사":::
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="데이터 탐색기에서 데이터 보기 - Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

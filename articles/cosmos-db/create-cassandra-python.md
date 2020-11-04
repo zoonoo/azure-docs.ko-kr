@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099725"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -96,7 +97,7 @@ ms.locfileid: "91824631"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
 1. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-python/copy.png"::: 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다. 
 
@@ -126,13 +127,13 @@ ms.locfileid: "91824631"
     
 ## <a name="use-the-x509-certificate"></a>X509 인증서 사용
 
-1. [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)에서 로컬로 Baltimore CyberTrust Root 인증서를 다운로드합니다. 파일 확장명 *.cer*를 사용하여 파일 이름을 바꿉니다.
+1. [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)에서 로컬로 Baltimore CyberTrust Root 인증서를 다운로드합니다. 파일 확장명 *.cer* 를 사용하여 파일 이름을 바꿉니다.
 
    인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
 
-2. *pyquickstart.py*를 열고 새 인증서를 가리키도록 `path\to\cert`를 변경합니다.
+2. *pyquickstart.py* 를 열고 새 인증서를 가리키도록 `path\to\cert`를 변경합니다.
 
-3. *pyquickstart.py*를 저장합니다.
+3. *pyquickstart.py* 를 저장합니다.
 
 ## <a name="run-the-python-app"></a>Python 앱 실행
 
@@ -157,11 +158,11 @@ ms.locfileid: "91824631"
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Azure Portal, 연결 문자열 블레이드에서 액세스 사용자 이름, 암호 및 접점 보기 및 복사":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="출력 보기 및 확인":::
     
-4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+4. Azure Portal에서 **데이터 탐색기** 를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Azure Portal, 연결 문자열 블레이드에서 액세스 사용자 이름, 암호 및 접점 보기 및 복사":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

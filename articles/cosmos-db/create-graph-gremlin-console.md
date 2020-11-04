@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409394"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099715"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -52,11 +53,11 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>앱 서비스/Graph에 연결
 
 1. Gremlin 콘솔을 시작하기 전에 `apache-tinkerpop-gremlin-console-3.2.5/conf` 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
-2. 다음 테이블에 정의된 대로 *호스트*, *포트*, *사용자 이름*, *암호*, *connectionPool* 및 *serializer* 구성을 입력합니다.
+2. 다음 테이블에 정의된 대로 *호스트* , *포트* , *사용자 이름* , *암호* , *connectionPool* 및 *serializer* 구성을 입력합니다.
 
     설정|제안 값|Description
     ---|---|---
-    호스트|[*account-name*.**gremlin**.cosmos.azure.com]|다음 스크린샷이 표시됩니다. 후행 :443/이 제거된 대괄호로 묶은 Azure Portal의 개요 페이지에있는 **Gremlin URI** 값입니다. 참고: 나중에 Gremlin 쿼리를 실행할 때 "호스트가 적시에 응답하지 않음" 예외가 발생할 가능성이 있는 [*account-name*.documents.azure.com]으로 끝나는 URI가 **아닌** Gremlin 값을 사용해야 합니다. 
+    호스트|[ *account-name*. **gremlin**.cosmos.azure.com]|다음 스크린샷이 표시됩니다. 후행 :443/이 제거된 대괄호로 묶은 Azure Portal의 개요 페이지에있는 **Gremlin URI** 값입니다. 참고: 나중에 Gremlin 쿼리를 실행할 때 "호스트가 적시에 응답하지 않음" 예외가 발생할 가능성이 있는 [ *account-name*.documents.azure.com]으로 끝나는 URI가 **아닌** Gremlin 값을 사용해야 합니다. 
     포트|443|443으로 설정합니다.
     사용자 이름|*사용자 이름*|`/dbs/<db>/colls/<coll>` 양식의 리소스에서 `<db>`은 데이터베이스 이름이고 `<coll>`은 컬렉션 이름입니다.
     password|*기본 키*| 아래에서 두 번째 스크린샷을 참조하세요. 기본 키 상자에 있는 Azure Portal의 키 페이지에서 검색할 수 있는 기본 키입니다. 상자의 왼쪽에서 복사 단추를 사용하여 값을 복사합니다.
@@ -65,11 +66,11 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
    호스트 값의 경우 **개요** 페이지에서 **Gremlin URI** 값을 복사합니다.
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Apache Gremlin 콘솔의 Azure Cosmos DB":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Portal의 개요 페이지에서 Gremlin URI 값 보기 및 복사":::
 
-   암호 값의 경우 **키** 페이지의 **기본 키**를 복사합니다.
+   암호 값의 경우 **키** 페이지의 **기본 키** 를 복사합니다.
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Apache Gremlin 콘솔의 Azure Cosmos DB":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Portal의 키 페이지에서 기본 키 보기 및 복사":::
 
    remote-secure.yaml 파일은 다음과 같은 모양입니다.
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>꼭짓점 및 에지 만들기
 
-*Thomas*, *Mary Kay*, *Robin*, *Ben* 및 *Jack*이라는 5명의 사용자에 대한 꼭짓점을 추가함으로써 시작해 보겠습니다.
+*Thomas* , *Mary Kay* , *Robin* , *Ben* 및 *Jack* 이라는 5명의 사용자에 대한 꼭짓점을 추가함으로써 시작해 보겠습니다.
 
 입력(Thomas):
 
@@ -214,7 +215,7 @@ g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLab
 
 ## <a name="update-a-vertex"></a>꼭짓점 업데이트
 
-*45*세라는 나이로 *Thomas* 꼭짓점을 업데이트하겠습니다.
+*45* 세라는 나이로 *Thomas* 꼭짓점을 업데이트하겠습니다.
 
 입력:
 ```java
