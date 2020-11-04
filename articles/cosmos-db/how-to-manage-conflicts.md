@@ -3,16 +3,17 @@ title: Azure Cosmos DB에서 지역 간의 충돌 관리
 description: 마지막-쓰기-wins 또는 사용자 지정 충돌 해결 정책을 만들어 Azure Cosmos DB에서 충돌을 관리 하는 방법에 대해 알아봅니다.
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339345"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

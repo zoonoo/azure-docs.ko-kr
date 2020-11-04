@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어 로그인
 description: 지정 된 숫자 식의 자연 로그를 반환 하 Azure Cosmos DB의 로그 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 30e1f43e283707434adfa48b8754a7b0509b9eed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 44a9d5b273e13886b0674b3b2e9f5f7a75e72fcc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075350"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338580"
 ---
 # <a name="log-azure-cosmos-db"></a>로그 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

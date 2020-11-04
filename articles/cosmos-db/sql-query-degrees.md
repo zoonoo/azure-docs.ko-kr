@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의도
 description: 라디안으로 지정 된 각도에 해당 하는 각도 (도)를 반환 하는 Azure Cosmos DB의 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 991d83a329603342975a8186fe704afc53813e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c7aa5496533a42ad726f9ed8efd8ed7429375fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095767"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338903"
 ---
 # <a name="degrees-azure-cosmos-db"></a>도 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

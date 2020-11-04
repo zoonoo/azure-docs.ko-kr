@@ -3,15 +3,16 @@ title: Azure Cosmos DB의 ORDER BY 절
 description: Azure Cosmos DB에 대 한 SQL ORDER BY 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: fdbe0f9754cc82ef790409cf2b36a7203b90855b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099286"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338303"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

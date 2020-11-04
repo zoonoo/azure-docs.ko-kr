@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 JSON 작업
 description: 중첩된 JSON 속성을 쿼리 및 액세스하고 Azure Cosmos DB에서 특수 문자를 사용하는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 1cc79862bccee3253e41ce5f1c6bc8c149d9b3ae
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a9300db1adc3ff238c44887012400702690b0e8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100646"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337832"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Azure Cosmos DB에서 JSON 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

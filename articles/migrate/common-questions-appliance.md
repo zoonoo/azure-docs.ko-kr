@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337594"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -42,12 +42,13 @@ Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결 되나요?
 
-어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. Azure에 연결 하기 위해 기기가 이러한 [url](./migrate-appliance.md#url-access) 을 승인 하는지 확인 합니다.
+어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. 
 
-- Azure Migrate 복제 트래픽에 대해 Azure Express 경로를 사용 하려면 Microsoft 피어 링 또는 기존 공용 피어 링이 필요 합니다 (공용 피어 링은 새 ER 생성에 사용 되지 않음).
-- (만 해당) 개인 피어 링을 사용 하는 Azure Express 경로를 통한 복제는 지원 되지 않습니다.
+- 기기가 이러한 [Azure url](./migrate-appliance.md#url-access)에 연결할 수 있는지 확인 합니다. 
+- Microsoft 피어 링에서 Express 경로를 사용할 수 있습니다.  공용 피어 링은 더 이상 사용 되지 않으며 새로운 Express 경로 회로에 사용할 수 없습니다.
+- 개인 피어 링은 지원 되지 않습니다.
 
-Microsoft 피어 링이 구성 된 Azure Express 경로는 복제 트래픽에 대해 권장 되는 라우팅 도메인입니다.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>어플라이언스 분석이 성능에 영향을 미칩니까?
 
@@ -65,9 +66,9 @@ Azure Migrate 어플라이언스는 지속적으로 성능 데이터를 측정 �
 
 Azure Migrate 어플라이언스에서 Vm에 대해 수집 하는 데이터에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- **VMWARE VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
-- **HYPER-V VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
-- **실제 또는 가상 서버**: 수집 된 데이터를[검토](migrate-appliance.md#collected-data---physical) 합니다.
+- **VMWARE VM** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
+- **HYPER-V VM** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
+- **실제 또는 가상 서버** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---physical) 합니다.
 
 ## <a name="how-is-data-stored"></a>데이터가 어떻게 저장되나요?
 

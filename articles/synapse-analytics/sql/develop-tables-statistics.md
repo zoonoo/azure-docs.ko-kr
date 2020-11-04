@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305027"
+ms.locfileid: "93339396"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -560,6 +560,9 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 ## <a name="statistics-in-serverless-sql-pool-preview"></a>서버를 사용 하지 않는 SQL 풀의 통계 (미리 보기)
 
 통계는 특정 데이터 세트(스토리지 경로)의 특정 열에 대해 생성됩니다.
+
+> [!NOTE]
+> LOB 열에 대해서는 통계를 만들 수 없습니다.
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 

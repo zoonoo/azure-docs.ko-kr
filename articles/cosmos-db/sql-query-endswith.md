@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 EndsWith
 description: 첫 번째 문자열 식이 두 번째 문자열 식으로 끝나는지 여부를 나타내는 부울을 반환하는 Azure Cosmos DB의 ENDSWITH SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0cc93fee8aacc711a797925cb2e2808b73cafd1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100289"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338835"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

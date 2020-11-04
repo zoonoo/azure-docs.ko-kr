@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 배열 및 개체 작업
 description: Azure Cosmos DB에서 배열 및 개체를 만드는 SQL 구문에 대해 알아봅니다. 또한이 문서에서는 배열 개체에 대 한 작업을 수행 하는 몇 가지 예제를 제공 합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 357653e89e2581dba7726e41f8a08304c619d2fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80d158e209943d65b9934d5425ccce7d69422bc4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077193"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338363"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

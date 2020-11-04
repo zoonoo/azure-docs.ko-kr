@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 StringToNumber
 description: Azure Cosmos DB의 SQL 시스템 함수 StringToNumber에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4fefc59a6f95382d093f5501a0023dc2ef50025b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f2622958a2315458ccd01da4aea7c6b75941e755
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339566"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

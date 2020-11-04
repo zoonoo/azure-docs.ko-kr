@@ -3,15 +3,16 @@ title: BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 description: BI 및 데이터 분석 소프트웨어에서 정규화된 데이터를 볼 수 있도록 Azure Cosmos DB ODBC 드라이버를 사용하여 테이블 및 뷰를 만드는 방법을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 7df9a34923ed8cd0db45df9af4feb28520d45e3a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097603"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339787"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,16 +58,27 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. **Azure Cosmos DB ODBC 드라이버 SDN 설정** 창에서 다음 정보를 입력합니다. 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC 드라이버 DSN 설정 창":::
     - **데이터 원본 이름** : ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
     - **설명** : 데이터 원본에 대한 짧은 설명입니다.
     - **호스트** : Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
     - **액세스 키** : 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
-    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자" 하위 키로 이동 합니다.
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB 키 페이지":::
+    - **액세스 키 암호화** : 이 컴퓨터의 사용자 수에 따라 가장 적합한 옵션을 선택합니다. 
+    
+1. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
+
+1.  **고급 옵션** 을 클릭하고 다음 값을 설정합니다.
+    *  **REST API 버전** : 작업에 대 한 [REST API 버전](/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
+        - REST API 버전에 **2018-12-31** 을 입력 합니다.
+        - **시작** 메뉴에서 "regedit"를 입력 하 여 **레지스트리 편집기** 응용 프로그램을 찾아 엽니다.
+        - 레지스트리 편집기에서 다음 경로로 이동 합니다. **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
+        - DSN과 같은 이름으로 새 하위 키를 만듭니다 (예: "Contoso Account ODBC DSN").
+        - "Contoso 계정 ODBC DSN" 하위 키로 이동 합니다.
         - 마우스 오른쪽 단추를 클릭 하 여 새 **문자열** 값을 추가 합니다.
             - 값 이름: **Ignoresessiontoken**
             - 값 데이터: **1** 
-             :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자"::: 1 개
+             :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="레지스트리 편집기 설정"::: 1 개
     - **쿼리 일관성** : 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
     - **재시도 횟수** : 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
     - **스키마 파일** : 다양한 옵션이 있습니다.
@@ -76,7 +88,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. 작업을 완료하고 **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창을 닫으면 새 사용자 DSN이 사용자 DSN 탭에 추가됩니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="사용자 DSN 탭의 새 Azure Cosmos DB ODBC DSN":::
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>3 단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
 
@@ -84,7 +96,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 **ODBC 드라이버 DSN 설정 Azure Cosmos DB** 창에서 **스키마 편집기** 를 클릭 합니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Azure Cosmos DB ODBC 드라이버 DSN 설정 창의 스키마 편집기 단추":::
 1. **스키마 편집기** 창에서 **새로 만들기** 를 클릭합니다.
     **스키마 생성** 창에는 Azure Cosmos DB 계정의 모든 컨테이너가 표시 됩니다. 
 
@@ -152,7 +164,7 @@ ODBC 드라이버를 살펴보겠습니다.
     
 새 연결된 서버 이름을 보려면 연결된 서버 목록을 새로 고칩니다.
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="SSMS의 연결된 서버":::
 
 ### <a name="query-linked-database"></a>연결된 데이터베이스 쿼리
 
@@ -186,7 +198,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 데이터에 대 한 뷰를 만들려면 **스키마 편집기** 창의 **정의 보기** 열에서 샘플링할 컨테이너의 행에 있는 **추가** 를 클릭 합니다. 
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="데이터 뷰 만들기":::
 
 
 그런 다음 **뷰 정의** 창에서 다음을 수행합니다.
@@ -195,7 +207,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](./sql-query-getting-started.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인** 을 클릭합니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="뷰를 만들 때 쿼리 추가":::
 
 
 원하는 수만큼 뷰를 만들 수 있습니다. 뷰 정의가 끝나면 데이터를 샘플링할 수 있습니다. 
@@ -208,21 +220,21 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. **데이터 가져오기** 를 클릭합니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Power BI Desktop에서 데이터 가져오기":::
 
 1. **데이터 가져오기** 창에서 **기타** | **ODBC** | **연결** 을 클릭합니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Power BI 데이터 가져오기에서 ODBC 데이터 원본 선택":::
 
 1. **ODBC에서** 창에서 만든 데이터 원본 이름을 선택하고 **확인** 을 클릭합니다. **고급 옵션** 항목은 빈 상태로 두어도 됩니다.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Power BI 데이터 가져오기에서 DSN(데이터 원본 이름) 선택":::
 
 1. **ODBC 드라이버를 사용하여 데이터 원본에 액세스합니다.** 창에서 **기본 또는 사용자 지정** 을 클릭하고 **연결** 을 클릭합니다. **자격 증명 연결 문자열 속성** 은 포함하지 않아도 됩니다.
 
 1. **탐색 창** 의 왼쪽 분할 창에서 데이터베이스, 스키마를 확장한 다음 테이블을 선택합니다. 결과 분할 창에는 만든 스키마를 사용하여 해당 데이터가 포함됩니다.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Power BI 데이터 가져오기에서 테이블 선택":::
 
 1. Power BI desktop의 데이터를 시각화하려면 테이블 이름 앞의 확인란을 선택하고 **로드** 를 클릭합니다.
 

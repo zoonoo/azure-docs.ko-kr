@@ -3,16 +3,17 @@ title: 키 값 저장소로 Azure Cosmos DB에 대한 요청 단위 요금
 description: 키/값 저장소로 사용될 경우 간단한 쓰기 및 읽기 작업의 Azure Cosmos DB의 요청 단위 요금에 대해 설명합니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082881"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339307"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>키 값 저장소로 Azure Cosmos DB-비용 개요
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

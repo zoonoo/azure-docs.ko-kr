@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 갤러리에 앱 게시
+title: Azure Active Directory 앱 갤러리에 앱 게시
 description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지 원하는 응용 프로그램을 나열 하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275693"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339438"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -60,11 +60,28 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 5. 앱을 제출 합니다.
 6. Microsoft 파트너 네트워크에 가입 합니다.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
-## <a name="prerequisites"></a>필수 구성 요소
+- 고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
+- 애플리케이션 구성이 간단하고 최소화됩니다.
+- 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
+- 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
+- 상호 고객을 위한 단계별 구성 자습서가 있습니다.
+- [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
+
+## <a name="prerequisites"></a>전제 조건
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
+- 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
+- Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
+- SAML 2.0/WS 급지됨의 경우 응용 프로그램에 SP 또는 IDP 모드에서 SAML/WS 공급 SSO 통합을 수행할 수 있는 기능이 있어야 합니다. 요청을 제출 하기 전에이 기능이 제대로 작동 하는지 확인 합니다.
+- 암호 SSO의 경우 응용 프로그램에서 폼 인증을 지원 하는지 확인 하 여 예상 대로 작동 하도록 Single Sign-On 수 있도록 암호 보관을 수행할 수 있도록 합니다.
+- 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
+
+**개발자 용 Azure AD를 가져오는 방법**
+
+모든 프리미엄 Azure AD 기능을 제공 하는 무료 테스트 계정 (90 일 무료)을 얻을 수 있으며,이를 통해 개발 작업을 수행 하는 동안 확장할 수 있습니다. https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>1 단계-앱에 대 한 올바른 Single Sign-On 표준 선택
 
@@ -159,9 +176,9 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 
 테 넌 트가 있으면 single sign-on 액세스를 사용 하도록 설정 하 고 테스트 해야 합니다. 
 
-**OIDC 또는 Oath 응용 프로그램의**경우 [응용 프로그램](quickstart-register-app.md) 을 다중 테 넌 트 응용 프로그램으로 등록 합니다. 지원 되는 계정 유형에서 조직 디렉터리 및 개인 Microsoft 계정 옵션의 계정을 선택 합니다.
+**OIDC 또는 Oath 응용 프로그램의** 경우 [응용 프로그램](quickstart-register-app.md) 을 다중 테 넌 트 응용 프로그램으로 등록 합니다. 지원 되는 계정 유형에서 조직 디렉터리 및 개인 Microsoft 계정 옵션의 계정을 선택 합니다.
 
-**Saml 및 WS 급지됨 기반 응용 프로그램의**경우 Azure AD에서 일반 saml 템플릿을 사용 하 여 [saml 기반 Single sign-on](../manage-apps/configure-saml-single-sign-on.md) 응용 프로그램을 구성 합니다.
+**Saml 및 WS 급지됨 기반 응용 프로그램의** 경우 Azure AD에서 일반 saml 템플릿을 사용 하 여 [saml 기반 Single sign-on](../manage-apps/configure-saml-single-sign-on.md) 응용 프로그램을 구성 합니다.
 
 필요한 경우 [단일 테 넌 트 응용 프로그램을 다중 테 넌 트로 변환할](howto-convert-app-to-be-multi-tenant.md) 수도 있습니다.
 
@@ -202,7 +219,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만듭니다. 응�
 
 "작동 하지 않습니다." 라는 메시지가 표시 되 면 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 해야 합니다. 요청을 제출 하는 데 사용할 전자 메일 계정을 제공 합니다. 과 같은 비즈니스 전자 메일 주소를 `name@yourbusiness.com` 선호 합니다. Azure AD 팀이 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가 합니다.
 
-"액세스 요청" 페이지가 표시 되 면 비즈니스 근거를 입력 하 고 **액세스 요청**을 선택 합니다.
+"액세스 요청" 페이지가 표시 되 면 비즈니스 근거를 입력 하 고 **액세스 요청** 을 선택 합니다.
 
 계정이 추가 된 후에는 홈 페이지에서 Microsoft 응용 프로그램 네트워크 포털에 로그인 하 **여 요청을** 제출할 수 있습니다.
 
@@ -236,7 +253,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에서 Openid connect Connect 응용 프로그램 나열](./media/howto-app-gallery-listing/openid.png)
 
-**Saml 2.0** 또는 **ws 급지됨**를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 표시 된 대로 **saml 2.0/ws 공급** 을 선택 합니다.
+**Saml 2.0** 또는 **ws 급지됨** 를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 표시 된 대로 **saml 2.0/ws 공급** 을 선택 합니다.
 
 ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 > [!NOTE]
 > 액세스에 문제가 있는 경우 계정을 만드는 방법에 대 한 이전 섹션을 검토 합니다. 작동 하지 않는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
+
+### <a name="list-requests-by-customers"></a>고객 별 요청 나열
+
+고객은 **고객이**  >  **새 요청을 제출** 하는 앱 요청을 선택 하 여 응용 프로그램을 나열 하는 요청을 제출할 수 있습니다.
+
+![고객이 요청한 앱 타일을 표시 합니다.](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+고객 요청 응용 프로그램의 흐름은 다음과 같습니다.
+
+![고객이 요청한 앱 흐름을 표시 합니다.](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>타임라인

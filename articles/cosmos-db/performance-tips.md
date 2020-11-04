@@ -3,16 +3,17 @@ title: .NET SDK v2에 대 한 Azure Cosmos DB 성능 팁
 description: Azure Cosmos DB .NET v2 SDK 성능 향상을 위한 클라이언트 구성 옵션에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314275"
+ms.locfileid: "93339685"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -179,7 +180,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount`속성은 페이지 매김을 위해 사용 하면 안 됩니다. 가장 기본적인 용도는 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 것입니다.  
 
-사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 다음은 그 예입니다.
+사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예를 들어:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

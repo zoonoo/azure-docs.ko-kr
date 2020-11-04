@@ -5,15 +5,16 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099643"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339770"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4를 사용하도록 애플리케이션 마이그레이션
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

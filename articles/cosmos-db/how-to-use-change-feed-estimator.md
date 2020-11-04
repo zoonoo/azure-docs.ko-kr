@@ -3,16 +3,17 @@ title: 변경 피드 추정기 사용 - Azure Cosmos DB
 description: 변경 피드 추정기를 사용하여 변경 피드 프로세서의 진행률을 분석하는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b785479a1f3169c32be0d9fbd7accf37bc7ba8ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339841"
 ---
 # <a name="use-the-change-feed-estimator"></a>변경 피드 추정기 사용
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

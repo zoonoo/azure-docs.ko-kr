@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 887e76fb1fa3dc630b12862c49689b3fa923b656
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7cc92c8bfb7dd9cb0328820009828ed0dd22e2a1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795229"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339464"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Azure Active Directory에서 사용 하는 인증 기관
 
@@ -31,7 +31,7 @@ TLS/SSL 프로토콜을 통해 Azure Active Directory (Azure AD) id 서비스에
 
 ## <a name="cas-used-in-azure-public-and-azure-us-government-clouds"></a>Azure 공용 및 Azure 미국 정부 클라우드에서 사용 되는 Ca
 
-서비스 마다 다른 루트 또는 중간 Ca를 사용할 수 있습니다.
+서비스 마다 다른 루트 또는 중간 Ca를 사용할 수 있습니다. 따라서 아래 나열 된 모든 항목이 필요할 수 있습니다.
 
 ### <a name="digicert-global-root-g2"></a>DigiCert Global Root G2
 
@@ -78,9 +78,8 @@ TLS/SSL 프로토콜을 통해 Azure Active Directory (Azure AD) id 서비스에
 | 발급 및 중간 CA| 일련 번호| 발급 날짜 만료 날짜| SHA1 지문| URI |
 | - | - | - | - | - |
 | DigiCert SHA2 Secure Server CA| 01fda3eb6eca75c 888438b724bcfbc91| 2013 년 3 월 8 일, 2023 년 3 월 8 일| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[CDP](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 Secure Server CA |02742eaa17ca8e21 c717bb1ffcfd0ca0 |2020년 9월 22일<br>2030 년 9 월 22 일|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[CDP](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## <a name="cas-used-in-azure-china-21vianet-cloud"></a>Azure 중국 21Vianet 클라우드에서 사용 되는 Ca
 

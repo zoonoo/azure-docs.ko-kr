@@ -3,15 +3,16 @@ title: Azure Cosmos DB SQL 쿼리의 스칼라 식
 description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다. 이 문서에서는 연산자를 사용 하 여 스칼라 식을 복합 식으로 결합 하는 방법에 대해서도 설명 합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c40916d975b8acabaa7083cf57259291f09b40a9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082609"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339634"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

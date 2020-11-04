@@ -3,23 +3,24 @@ title: Azure Cosmos DB 쿼리 언어의 문자열 함수
 description: Azure Cosmos DB의 문자열 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 26f1a402c4ad070b0834efe545bebea0ee3c2f0a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4516bb9c426355de1fa2ce19befddef896a2de3e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079804"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338104"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>문자열 함수 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 문자열 함수를 사용 하면 Azure Cosmos DB의 문자열에 대해 작업을 수행할 수 있습니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 다음 스칼라 함수는 문자열 입력 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다.
   

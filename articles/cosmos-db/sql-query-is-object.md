@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 IS_OBJECT
 description: Azure Cosmos DB의 SQL 시스템 함수 IS_OBJECT에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 46bbc0ff2a99f84c1f01dc12c569e08b545eab0f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1582fd0bbb89bb3e7d4f207d474f4a7e1e0b38b1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338614"
 ---
 # <a name="is_object-azure-cosmos-db"></a>IS_OBJECT (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,15 +3,16 @@ title: Azure Cosmos DB의 SQL 상수
 description: Azure Cosmos DB의 SQL 쿼리 상수가 특정 데이터 값을 나타내는 데 사용 되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100867"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339208"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 쿼리 상수  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ ms.locfileid: "93100867"
 |-|-|  
 |**되지**|단일 값: **undefined**|  
 |**Null**|단일 값: **null**|  
-|**Boolean**|값: **false** , **true** .|  
+|**Boolean**|값: **false** , **true**.|  
 |**Number**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
 |**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
 |**배열**|0개 이상의 요소 시퀀스입니다. 각 요소는 **Undefined** 를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677883"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339537"
 ---
 # <a name="vm-certification-troubleshooting"></a>VM 인증 문제 해결
 
@@ -70,7 +70,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|해결 방법|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -81,6 +81,45 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 > VM 일반화에 대 한 자세한 내용은 다음을 참조 하세요.
 > - [Linux 설명서](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows 설명서](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>VHD 사양
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix 쿠키 및 기타 VHD 사양
+' Conectix ' 문자열은 VHD 사양의 일부 이며, 파일 작성자를 식별 하는 아래 VHD 바닥글에서 8 바이트 ' cookie '로 정의 됩니다. Microsoft에서 만든 모든 vhd 파일에는이 쿠키가 있습니다. 
+
+VHD 형식의 blob에는 512 바이트 바닥글이 있어야 합니다. 다음은 VHD 바닥글 형식입니다.
+
+|하드 디스크 바닥글 필드|크기(바이트)|
+|---|---|
+쿠키|8
+기능|4
+파일 형식 버전|4
+데이터 오프셋|8
+타임스탬프|4
+Creator 응용 프로그램|4
+작성자 버전|4
+작성자 호스트 OS|4
+원래 크기|8
+현재 크기|8
+디스크 기 하 도형|4
+디스크 유형|4
+체크섬|4
+고유 ID|16
+저장 된 상태|1
+예약됨|427
+
+
+### <a name="vhd-specifications"></a>VHD 사양
+원활한 게시 환경을 보장 하려면 **VHD가 다음 조건을 충족 하는지 확인 합니다.**
+* 쿠키에는 "conectix" 문자열이 포함 되어야 합니다.
+* 디스크 유형을 고정 해야 합니다.
+* VHD의 가상 크기가 20MB 이상입니다.
+* VHD가 정렬 됩니다. 즉, 가상 크기는 1mb의 배수 여야 합니다.
+* VHD blob 길이 = 가상 크기 + VHD 바닥글 길이 (512)
+
+여기에서 VHD 사양을 다운로드할 수 있습니다 [.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Windows 용 소프트웨어 준수
 
@@ -102,7 +141,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|Description|
+|시나리오|테스트 사례|설명|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -130,7 +169,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|Description|
+|시나리오 |테스트 사례|설명|
 |---|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -283,7 +322,7 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|해결 방법|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -415,7 +454,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|해결 방법|
+|Error|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 전송 될 때 LUN (논리 단위 번호)에 잘못 된 숫자가 지정 된 경우에 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 지정 된 SAS URL에서 데이터 디스크를 찾을 수 없기 때문에 발생할 수 있습니다.|데이터 디스크가 요청에 지정 된 SAS URL에 있는지 확인 합니다.|

@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어 낮음
 description: 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환 하는 Azure Cosmos DB의 낮은 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 163b893b74b5f6d3950ae92e209f96abde8cd90e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dd1d9ddefd67cadb92632fd6db7a1fbd5a34f35a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075282"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338439"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

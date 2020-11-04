@@ -3,15 +3,16 @@ title: Azure Cosmos DB PDF 쿼리 참고 자료
 description: Azure Cosmos DB의 SQL, MongoDB, Graph 및 Table API를 사용하여 데이터를 쿼리하는 방법을 알려주는 인쇄 가능한 PDF 참고 자료입니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339651"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크�
 ## <a name="oversized-cheat-sheets"></a>Oversized 크기 참고 자료
 플로터 또는 대형 프린터를 사용하여 A3 용지(11.7" x 16.5")에 인쇄하려면 [Azure Cosmos DB A3 크기 참고 자료](https://go.microsoft.com/fwlink/?linkid=870413)를 다운로드합니다.
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - Letter 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - A3 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 쿼리 작성에 대한 추가 도움말은 다음 문서를 참조하세요.

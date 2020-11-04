@@ -3,15 +3,16 @@ title: Azure Cosmos DB의 GROUP BY 절
 description: Azure Cosmos DB의 GROUP BY 절에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 48f272ea9005d8eb24f639b4039a84163441cffa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101445"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338801"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

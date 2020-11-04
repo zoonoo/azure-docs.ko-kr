@@ -1,20 +1,20 @@
 ---
-title: 자격 증명 관리에 ID Broker (미리 보기) 사용-Azure HDInsight
+title: Azure HDInsight ID Broker (계층 2)
 description: 도메인에 가입 된 Apache Hadoop 클러스터에 대 한 인증을 간소화 하기 위해 Azure HDInsight ID Broker에 대해 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043261"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337679"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 브로커 (미리 보기)
+# <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (계층 2)
 
 이 문서에서는 Azure HDInsight ID 브로커 기능을 설정 하 고 사용 하는 방법을 설명 합니다. Azure Active Directory Domain Services (Azure AD DS)에서 레거시 암호 해시가 필요 하지 않고 다단계 인증을 적용 하는 동안이 기능을 사용 하 여 Apache Ambari에 대 한 최신 OAuth 인증을 가져올 수 있습니다.
 
@@ -45,7 +45,7 @@ HDInsight ID Broker는 Azure AD DS에 대 한 암호 해시를 동기화 할 필
 
 다음 다이어그램에서는 페더레이션된 사용자에 대 한 기본 인증 흐름을 보여 줍니다. 먼저 게이트웨이는 [Ropc flow](../../active-directory/develop/v2-oauth-ropc.md)를 사용 하 여 인증을 완료 하려고 시도 합니다. Azure AD에 동기화 된 암호 해시가 없는 경우 AD FS 끝점을 검색 하 고 AD FS 끝점에 액세스 하 여 인증을 완료 하는 것으로 대체 됩니다.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="HDInsight ID Broker의 인증 흐름을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="기본 인증을 사용 하 여 아키텍처를 보여 주는 다이어그램입니다.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>HDInsight ID Broker 사용

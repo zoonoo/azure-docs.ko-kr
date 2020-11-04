@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 수치 연산 함수
 description: 인수로 제공 되는 입력 값을 기반으로 계산을 수행 하 고 숫자 값을 반환 하는 Azure Cosmos DB의 수치 연산 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b6b2c47d5a4cb71ecf46d1eb1c33e2f667fa8052
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9dc3631b738da78df83113d89d23051033674d11
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338376"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>수치 연산 함수 (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ ms.locfileid: "93078257"
     [4]
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 다음 지원 되는 기본 제공 수치 연산 함수는 일반적으로 입력 인수를 기반으로 계산을 수행 하 고 숫자 식을 반환 합니다.
  
