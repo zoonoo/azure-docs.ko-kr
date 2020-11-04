@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078988"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318030"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -38,9 +38,9 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>만들기
+## <a name="create"></a>생성
 
 **예상 시간** : 약 5 분.
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [로 서 Einstance 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?view=azure-ml-py&preserve-view=true)
-* [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [로 서 Einstance 클래스](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
+* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -93,7 +93,7 @@ except ComputeTargetException:
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-자세한 내용은 [az ml computetarget create caeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create caeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference를 참조 하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -161,7 +161,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* 삭제
+* DELETE
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -178,7 +178,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget stop](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)를 참조 하세요.
+    자세한 내용은 [az ml computetarget stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)를 참조 하세요.
 
 * 시작 
 
@@ -186,7 +186,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget start einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
+    자세한 내용은 [az ml computetarget start einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
 
 * 재시작 
 
@@ -194,15 +194,15 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget restart 확인 einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
+    자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* 삭제
+* DELETE
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget delete einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조 하세요.
+    자세한 내용은 [az ml computetarget delete einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조 하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -226,7 +226,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 ---
 
-[AZURE RBAC](/azure/role-based-access-control/overview) 를 사용 하면 작업 영역에서 계산 인스턴스를 만들고 삭제, 시작, 중지 및 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 계산 인스턴스의 작성자나 사용자를 대신 하 여 생성 된 사용자만 해당 계산 인스턴스의 Jupyter, JupyterLab 및 RStudio에 액세스할 수 있습니다. 계산 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용 이며 Jupyter/JupyterLab/RStudio를 통해에서 터미널 할 수 있습니다. 계산 인스턴스는 단일 사용자 로그인을 포함 하 고 모든 작업은 Azure RBAC 및 실험 실행의 특성에 해당 사용자의 id를 사용 합니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
+[AZURE RBAC](../role-based-access-control/overview.md) 를 사용 하면 작업 영역에서 계산 인스턴스를 만들고 삭제, 시작, 중지 및 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 계산 인스턴스의 작성자나 사용자를 대신 하 여 생성 된 사용자만 해당 계산 인스턴스의 Jupyter, JupyterLab 및 RStudio에 액세스할 수 있습니다. 계산 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용 이며 Jupyter/JupyterLab/RStudio를 통해에서 터미널 할 수 있습니다. 계산 인스턴스는 단일 사용자 로그인을 포함 하 고 모든 작업은 Azure RBAC 및 실험 실행의 특성에 해당 사용자의 id를 사용 합니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
 
 이러한 작업은 Azure RBAC를 통해 제어할 수 있습니다.
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -294,4 +294,4 @@ Jupyter Notebook 또는 RStudio에 직접 패키지를 설치할 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [학습 실행 제출](how-to-set-up-training-targets.md) 
+* [학습 실행 제출](how-to-set-up-training-targets.md)

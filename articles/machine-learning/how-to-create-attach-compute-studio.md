@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708398"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318260"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -45,7 +45,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com)로 이동합니다.
  
-1. __관리__아래에서 __Compute__를 선택 합니다.
+1. __관리__ 아래에서 __Compute__ 를 선택 합니다.
 
 1. 위쪽에서 탭을 선택 하 여 각 계산 대상 유형을 표시 합니다.
 
@@ -59,11 +59,11 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 1. 계산 대상이 없으면 페이지 중간에서  **만들기** 를 선택 합니다.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="계산 대상 목록 보기":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="컴퓨팅 대상 만들기":::
 
 1. 계산 리소스 목록이 표시 되 면 목록 위에서 **+ 새로 만들기** 를 선택 합니다.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="계산 대상 목록 보기":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="새로 만들기 선택":::
 
 
 1. 계산 형식에 대 한 양식을 작성 합니다.
@@ -73,18 +73,18 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
   * [유추 클러스터](#inference-clusters)
   * [연결 된 계산](#attached-compute)
 
-1. __만들기__를 선택합니다.
+1. __만들기__ 를 선택합니다.
 
 1. 목록에서 컴퓨팅 대상을 선택하여 만들기 작업의 상태를 봅니다.
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="계산 대상 목록 보기":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="목록에서 계산 상태 보기":::
 
 
 ### <a name="compute-instance"></a>컴퓨팅 인스턴스
 
 [위의 단계](#portal-create) 를 사용 하 여 계산 인스턴스를 만듭니다.  그런 다음 양식을 다음과 같이 입력 합니다.
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="계산 대상 목록 보기":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="새 계산 인스턴스 만들기":::
 
 
 |필드  |Description  |
@@ -93,7 +93,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |SSH 액세스 사용/사용 안 함     |   SSH 액세스는 기본적으로 사용 되지 않습니다.  SSH 액세스는 일 수 없습니다. 만든 후 변경 됩니다. [VS Code 원격](how-to-set-up-vs-code-remote.md) 으로 대화형으로 디버깅 하려는 경우 액세스를 사용 하도록 설정 해야 합니다.   |
-|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.  |
+|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹** , **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> 계산 클러스터
 
@@ -104,17 +104,17 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |---------|---------|
 |컴퓨팅 이름     |  <li>이름은 필수 이며 길이가 3 ~ 007e; 24 자 사이 여야 합니다.</li><li>유효한 문자는 대 문자와 소문자, 숫자 및  **-** 문자입니다.</li><li>이름은 문자로 시작 해야 합니다.</li><li>이름은 Azure 지역 내의 모든 기존 계산에서 고유 해야 합니다. 선택한 이름이 고유 하지 않으면 경고가 표시 됩니다.</li><li>문자를 사용 하는 경우 **-**  이름 뒤에 하나 이상의 문자가와 야 합니다.</li>     |
 |가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
-|가상 컴퓨터 우선 순위 | **전용** 또는 **낮은 우선 순위**를 선택 합니다.  낮은 우선 순위의 가상 머신은 저렴 하지만 계산 노드를 보장 하지 않습니다. 작업을 선점할 수 있습니다.
+|가상 컴퓨터 우선 순위 | **전용** 또는 **낮은 우선 순위** 를 선택 합니다.  낮은 우선 순위의 가상 머신은 저렴 하지만 계산 노드를 보장 하지 않습니다. 작업을 선점할 수 있습니다.
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |최소 노드 개수 | 프로 비전 하려는 최소 노드 수입니다. 전용 노드 수를 원하는 경우 여기에서 해당 개수를 설정 합니다. 최소값을 0으로 설정 하 여 비용을 절약 하 여 클러스터가 유휴 상태일 때 노드에 대해 지불 하지 않습니다. |
 |최대 노드 수 | 프로 비전 하려는 최대 노드 수입니다. 작업이 제출 되 면 계산은이 노드 수의 최대값으로 자동 조정 됩니다. |
-|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
+|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹** , **가상 네트워크** 및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](./how-to-secure-training-vnet.md) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> 관리 id 설정
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-클러스터를 만드는 동안 또는 계산 클러스터 세부 정보를 편집 하는 동안 **고급 설정**에서 **관리 id 할당** 을 설정/해제 하 고 시스템 할당 id 또는 사용자 할당 id를 지정 합니다.
+클러스터를 만드는 동안 또는 계산 클러스터 세부 정보를 편집 하는 동안 **고급 설정** 에서 **관리 id 할당** 을 설정/해제 하 고 시스템 할당 id 또는 사용자 할당 id를 지정 합니다.
 
 #### <a name="managed-identity-usage"></a>관리 id 사용
 
@@ -132,16 +132,16 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |---------|---------|
 |컴퓨팅 이름     |  <li>이름은 필수입니다. 이름은 2 ~ 007e; 16 자 사이 여야 합니다. </li><li>유효한 문자는 대 문자와 소문자, 숫자 및  **-** 문자입니다.</li><li>이름은 문자로 시작 해야 합니다.</li><li>이름은 Azure 지역 내의 모든 기존 계산에서 고유 해야 합니다. 선택한 이름이 고유 하지 않으면 경고가 표시 됩니다.</li><li>문자를 사용 하는 경우 **-**  이름 뒤에 하나 이상의 문자가와 야 합니다.</li>     |
 |Kubernetes Service | **새로 만들기** 를 선택 하 고 폼의 나머지 부분을 채웁니다.  또는 **기존 사용** 을 선택한 다음 구독에서 기존 AKS 클러스터를 선택 합니다.
-|지역 |  클러스터가 생성 될 지역 선택 |
+|Azure 지역 |  클러스터가 생성 될 지역 선택 |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |클러스터 용도  | **프로덕션** 또는 **개발-테스트** 선택 |
 |노드 수 | 가상 컴퓨터의 코어 수 (vCPUs)를 곱한 노드 수는 12 보다 크거나 같아야 합니다. |
-| 네트워크 구성 | **고급** 을 선택 하 여 기존 가상 네트워크 내에서 계산을 만듭니다. 가상 네트워크의 AKS에 대 한 자세한 내용은 [개인 끝점 및 가상 네트워크를 사용 하 여 학습 및 유추 중 네트워크 격리](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요. |
+| 네트워크 구성 | **고급** 을 선택 하 여 기존 가상 네트워크 내에서 계산을 만듭니다. 가상 네트워크의 AKS에 대 한 자세한 내용은 [개인 끝점 및 가상 네트워크를 사용 하 여 학습 및 유추 중 네트워크 격리](./how-to-secure-inferencing-vnet.md)를 참조 하세요. |
 | SSL 구성 사용 | 이를 사용 하 여 계산에서 SSL 인증서를 구성 합니다. |
 
 ### <a name="attached-compute"></a>연결 된 계산
 
-Azure Machine Learning 작업 영역 외부에서 만든 컴퓨팅 대상을 사용하려면 연결해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.  **연결 된 계산** 을 사용 하 여 **학습**을 위한 계산 대상을 연결 합니다.  **유추 클러스터** 를 사용 하 여 **추론**에 대 한 AKS 클러스터를 연결 합니다.
+Azure Machine Learning 작업 영역 외부에서 만든 컴퓨팅 대상을 사용하려면 연결해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.  **연결 된 계산** 을 사용 하 여 **학습** 을 위한 계산 대상을 연결 합니다.  **유추 클러스터** 를 사용 하 여 **추론** 에 대 한 AKS 클러스터를 연결 합니다.
 
 [위의 단계](#portal-create) 를 사용 하 여 계산을 연결 합니다.  그런 다음 양식을 다음과 같이 입력 합니다.
 
@@ -157,10 +157,10 @@ Azure Machine Learning 작업 영역 외부에서 만든 컴퓨팅 대상을 사
     > [!NOTE]
     > Microsoft에서는 암호보다 더 안전한 SSH 키를 권장합니다. 암호는 무차별 암호 대입 공격에 취약합니다. SSH 키는 암호화 서명을 사용합니다. Azure Virtual Machines에 사용할 SSH 키를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
     >
-    > * [Linux 또는 macOS에서 SSH 키를 만들고 사용](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Windows에서 SSH 키를 만들고 사용](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Linux 또는 macOS에서 SSH 키를 만들고 사용](../virtual-machines/linux/mac-create-ssh-keys.md)
+    > * [Windows에서 SSH 키를 만들고 사용](../virtual-machines/linux/ssh-from-windows.md)
 
-1. __연결__을 선택합니다. 
+1. __연결__ 을 선택합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -176,4 +176,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md) 은 관리 되는 계산 대상을 사용 하 여 모델을 학습 합니다.
 * [하이퍼 매개 변수를 효율적으로 튜닝](how-to-tune-hyperparameters.md)하여 보다 나은 모델을 빌드하는 방법을 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
-* [Azure Virtual Networks에서 Azure Machine Learning 사용](how-to-enable-virtual-network.md)
+* [Azure Virtual Networks에서 Azure Machine Learning 사용](./how-to-network-security-overview.md)

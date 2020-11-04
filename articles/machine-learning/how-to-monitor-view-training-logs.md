@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285950"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316687"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -58,7 +58,7 @@ ms.locfileid: "93285950"
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 실행 모니터링
 
-**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
 
 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
     
@@ -134,4 +134,3 @@ Azure Machine Learning를 사용 하는 방법을 알아보려면 다음 단계�
 * [Azure Machine Learning 디자이너에서 실험을 추적 하 고 로그를 사용 하도록 설정](how-to-track-designer-experiments.md)하는 방법을 알아봅니다.
 
 * 최상의 모델을 등록하고 배포하는 방법에 대한 예제는 [Azure Machine Learning으로 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
-

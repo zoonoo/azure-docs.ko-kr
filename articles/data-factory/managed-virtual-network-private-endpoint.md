@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635782"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317072"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -51,7 +51,7 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 Azure SQL Data Warehouse))에 액세스할 수 있습니다.
+Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 SQL Data Warehouse))에 액세스할 수 있습니다.
 
 개인 링크를 사용 하는 경우 데이터 저장소와 관리 되는 Virtual Network 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스 됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
@@ -81,7 +81,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure 파일
 - Azure Data Lake Gen2
 - Azure SQL Database (Azure SQL Managed Instance를 포함 하지 않음)
-- Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
+- Azure Synapse Analytics(이전의 SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure 개인 링크 서비스

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521070"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317097"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -27,8 +27,8 @@ Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 �
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 만들기
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. 허브에서 **프로세스 자동화** 아래에 있는 **Runbook**을 선택하여 Runbook 목록을 엽니다.
-3. **Runbook 만들기**를 클릭합니다.
+2. 허브에서 **프로세스 자동화** 아래에 있는 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
+3. **Runbook 만들기** 를 클릭합니다.
 4. Runbook의 이름을 입력하고 [유형](automation-runbook-types.md)을 선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄, 대시 등이 포함될 수 있습니다.
 5. **만들기** 를 클릭하여 Runbook을 만들고 편집기를 엽니다.
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Runbook 가져오기
 
-PowerShell 또는 PowerShell 워크플로( **.ps1**) 스크립트, 그래픽 Runbook( **.graphrunbook**) 또는 Python 2 스크립트( **.py**)를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
+PowerShell 또는 PowerShell 워크플로( **.ps1** ) 스크립트, 그래픽 Runbook( **.graphrunbook** ) 또는 Python 2 스크립트( **.py** )를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
 * 워크플로가 포함되지 않은 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다. PowerShell 워크플로 Runbook으로 가져오는 경우 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
 
@@ -63,12 +63,12 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 > 포털을 사용하는 PowerShell 워크플로 Runbook에만 **.ps1** 파일을 가져올 수 있습니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화** 아래에서 **Runbook**을 선택하여 Runbook 목록을 엽니다.
-3. **Runbook 가져오기**를 클릭합니다.
-4. **Runbook 파일**을 클릭하고 가져올 파일을 선택합니다.
+2. **프로세스 자동화** 아래에서 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
+3. **Runbook 가져오기** 를 클릭합니다.
+4. **Runbook 파일** 을 클릭하고 가져올 파일을 선택합니다.
 5. **이름** 필드가 사용 설정된 경우 Runbook 이름을 변경할 수 있습니다. 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄, 대시 등이 포함될 수 있습니다.
 6. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다.
-7. **만들기**를 클릭합니다. 새 Runbook이 Automation 계정의 Runbook 목록에 표시됩니다.
+7. **만들기** 를 클릭합니다. 새 Runbook이 Automation 계정의 Runbook 목록에 표시됩니다.
 8. 실행에 앞서 [Runbook을 게시](#publish-a-runbook) 해야 합니다.
 
 > [!NOTE]
@@ -228,17 +228,17 @@ Start-AzAutomationRunbook `
 
 ## <a name="test-a-runbook"></a>Runbook 테스트
 
-Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 [출력](automation-runbook-output-and-messages.md#use-the-output-stream)과 [경고 및 오류](automation-runbook-output-and-messages.md#monitor-message-streams) 스트림은 테스트 출력 창에 표시됩니다. [자세한 정보 스트림](automation-runbook-output-and-messages.md#monitor-message-streams)에 대한 메시지는 [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) 변수가 `Continue`로 설정되는 경우에만 출력 창에 표시됩니다.
+Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 [출력](automation-runbook-output-and-messages.md#use-the-output-stream)과 [경고 및 오류](automation-runbook-output-and-messages.md#working-with-message-streams) 스트림은 테스트 출력 창에 표시됩니다. [자세한 정보 스트림](automation-runbook-output-and-messages.md#write-output-to-verbose-stream)에 대한 메시지는 [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) 변수가 `Continue`로 설정되는 경우에만 출력 창에 표시됩니다.
 
 초안 버전을 실행하더라도 Runbook은 정상적으로 실행되며, 해당 환경의 리소스에 대해 모든 작업을 수행합니다. 이러한 이유로 비프로덕션 리소스에서만 Runbook을 테스트해야 합니다.
 
 각 [유형의 Runbook](automation-runbook-types.md)을 테스트하는 절차는 동일합니다. Azure Portal에서 테스트할 때 텍스트 편집기와 그래픽 편집기 간에 차이가 없습니다.
 
 1. [텍스트 편집기](automation-edit-textual-runbook.md) 또는 [그래픽 편집기](automation-graphical-authoring-intro.md)에서 Runbook의 초안 버전을 엽니다.
-1. **테스트**를 클릭하여 테스트 페이지를 엽니다.
+1. **테스트** 를 클릭하여 테스트 페이지를 엽니다.
 1. Runbook에 매개 변수가 있는 경우 왼쪽 창에 나열되며, 여기서 테스트에 사용할 값을 제공할 수 있습니다.
-1. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 테스트를 실행하려는 경우는 **실행 설정**을 **Hybrid Worker**로 변경하고 대상 그룹의 이름을 선택합니다.  그렇지 않은 경우 기본 **Azure** 를 유지하여 클라우드에서 테스트를 실행합니다.
-1. **시작**을 클릭하여 테스트를 시작합니다.
+1. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 테스트를 실행하려는 경우는 **실행 설정** 을 **Hybrid Worker** 로 변경하고 대상 그룹의 이름을 선택합니다.  그렇지 않은 경우 기본 **Azure** 를 유지하여 클라우드에서 테스트를 실행합니다.
+1. **시작** 을 클릭하여 테스트를 시작합니다.
 1. 출력 창의 단추를 사용하여 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽](automation-runbook-types.md#graphical-runbooks) Runbook을 테스트 중인 동안 중지 또는 일시 중단할 수 있습니다. Runbook을 일시 중단하는 경우 일시 중단하기 전에 현재 작업을 완료합니다. Runbook이 일시 중단되면 중지하거나 다시 시작할 수 있습니다.
 1. 출력 창에서 Runbook의 출력을 검사합니다.
 
@@ -249,8 +249,8 @@ Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 게시하기
 
 1. Azure Portal에서 Runbook을 엽니다.
-2. **편집**을 클릭합니다.
-3. **게시** 단추를 클릭한 다음 확인 메시지에서 **예**를 클릭하여 응답합니다.
+2. **편집** 을 클릭합니다.
+3. **게시** 단추를 클릭한 다음 확인 메시지에서 **예** 를 클릭하여 응답합니다.
 
 ### <a name="publish-a-runbook-using-powershell"></a>PowerShell을 사용하여 Runbook 게시
 
@@ -270,19 +270,19 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 Runbook이 게시되면 작업에 대해 일정을 지정할 수 있습니다.
 
 1. Azure Portal에서 Runbook을 엽니다.
-2. **리소스**에서 **일정**을 선택합니다.
-3. **일정 추가**를 선택합니다.
-4. Runbook 예약 창에서 **Runbook에 일정 연결**을 선택합니다.
-5. 일정 창에서 **새 일정 만들기**를 선택합니다.
+2. **리소스** 에서 **일정** 을 선택합니다.
+3. **일정 추가** 를 선택합니다.
+4. Runbook 예약 창에서 **Runbook에 일정 연결** 을 선택합니다.
+5. 일정 창에서 **새 일정 만들기** 를 선택합니다.
 6. 새 일정 창에 이름, 설명 및 기타 매개 변수를 입력합니다.
-7. 일정이 생성되면 강조 표시하고 **확인**을 클릭합니다. 이제 Runbook에 연결될 것입니다.
+7. 일정이 생성되면 강조 표시하고 **확인** 을 클릭합니다. 이제 Runbook에 연결될 것입니다.
 8. 사용자의 사서함에서 Runbook 상태를 알리는 전자 메일을 찾습니다.
 
 ## <a name="obtain-job-statuses"></a>작업 상태 가져오기
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Azure Portal에서 상태 보기
 
-Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automation-runbook-execution.md#jobs)에서 제공됩니다. Runbook 작업을 볼 준비가 되면 Azure Portal을 사용하여 Automation 계정에 액세스합니다. 오른쪽에 있는 **작업 통계**에서 모든 Runbook 작업의 요약을 볼 수 있습니다.
+Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automation-runbook-execution.md#jobs)에서 제공됩니다. Runbook 작업을 볼 준비가 되면 Azure Portal을 사용하여 Automation 계정에 액세스합니다. 오른쪽에 있는 **작업 통계** 에서 모든 Runbook 작업의 요약을 볼 수 있습니다.
 
 ![작업 통계 타일](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -292,13 +292,13 @@ Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automat
 
 :::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="작업 페이지의 스크린샷":::
 
-**작업 필터링**을 선택하여 작업 목록을 필터링할 수 있습니다. 드롭다운 목록에서 특정 Runbook, 작업 상태 또는 선택 항목을 필터링하고 검색에 대한 시간 범위를 입력합니다.
+**작업 필터링** 을 선택하여 작업 목록을 필터링할 수 있습니다. 드롭다운 목록에서 특정 Runbook, 작업 상태 또는 선택 항목을 필터링하고 검색에 대한 시간 범위를 입력합니다.
 
 ![작업 상태 필터링](./media/manage-runbooks/automation-account-jobs-filter.png)
 
 또는 Automation 계정의 Runbook 페이지에서 Runbook을 선택하여 특정 Runbook에 대한 작업 요약 세부 정보를 확인한 다음, **작업** 타일을 선택할 수 있습니다. 이 작업은 작업 페이지를 표시합니다. 여기에서 작업 레코드를 클릭하여 세부 정보 및 출력을 볼 수 있습니다.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="작업 페이지의 스크린샷":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="오류 단추가 강조 표시 된 작업 페이지의 스크린샷":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>PowerShell을 사용하여 작업 상태 검색
 

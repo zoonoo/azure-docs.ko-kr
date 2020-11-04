@@ -1,7 +1,7 @@
 ---
 title: REST를 사용 하 여 ML 리소스 관리
 titleSuffix: Azure Machine Learning
-description: REST Api를 사용 하 여 Azure ML 리소스를 만들고, 실행 하 고, 삭제 하는 방법
+description: REST Api를 사용 하 여 작업 영역과 같은 Azure Machine Learning 리소스를 만들고 실행 하 고 삭제 하는 방법 또는 모델을 등록 하는 방법입니다.
 author: lobrien
 ms.author: laobri
 services: machine-learning
@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316902"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
 
 
-Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)또는 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
+Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](/cli/azure/?preserve-view=true&view=azure-cli-latest)또는 [Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -36,9 +36,9 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
-- [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-- 관리 REST 요청은 서비스 주체 인증을 사용 합니다. [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) 의 단계에 따라 작업 영역에서 서비스 주체를 만듭니다.
-- **말아 넘기기** 유틸리티입니다. **말아 넘기기** 프로그램은 [Linux 용 Windows 하위 시스템](https://aka.ms/wslinstall/) 또는 UNIX 배포에서 사용할 수 있습니다. PowerShell에서 **말아 넘기기** 는 **호출 WebRequest** 의 별칭이 며가 됩니다 `curl -d "key=val" -X POST uri` `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
+- [Azure Machine Learning 작업 영역](./how-to-manage-workspace.md)
+- 관리 REST 요청은 서비스 주체 인증을 사용 합니다. [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication) 의 단계에 따라 작업 영역에서 서비스 주체를 만듭니다.
+- **말아 넘기기** 유틸리티입니다. **말아 넘기기** 프로그램은 [Linux 용 Windows 하위 시스템](/windows/wsl/install-win10) 또는 UNIX 배포에서 사용할 수 있습니다. PowerShell에서 **말아 넘기기** 는 **호출 WebRequest** 의 별칭이 며가 됩니다 `curl -d "key=val" -X POST uri` `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>서비스 주체 인증 토큰 검색
 
@@ -48,7 +48,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 - 클라이언트 ID (생성 된 토큰과 연결 됨)
 - 클라이언트 암호 (보호 해야 함)
 
-서비스 사용자를 만들기 위한 응답에서 이러한 값이 있어야 합니다. 이러한 값을 가져오는 방법에 [대 한 자세한 내용은 Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)에 설명 되어 있습니다. 회사 구독을 사용 하는 경우 서비스 주체를 만들 수 있는 권한이 없는 것일 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)중 하나를 사용 해야 합니다.
+서비스 사용자를 만들기 위한 응답에서 이러한 값이 있어야 합니다. 이러한 값을 가져오는 방법에 [대 한 자세한 내용은 Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)에 설명 되어 있습니다. 회사 구독을 사용 하는 경우 서비스 주체를 만들 수 있는 권한이 없는 것일 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)중 하나를 사용 해야 합니다.
 
 토큰을 검색 하려면:
 
@@ -236,7 +236,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-명명 된 계산 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용 합니다. 다음에서,,, `your-subscription-id` `your-resource-group` `your-workspace-name` 및 `your-access-token` `your-compute-name` 에 대 한 `location` `vmSize` `vmPriority` `scaleSettings` `adminUserName` `adminUserPassword` ,,,,,,,,,,,,,,,, 및 값의 대체를 추가 합니다. [Machine Learning 컴퓨팅-SDK 참조 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)에서 참조에 지정 된 대로 다음 명령은 30 분 후에 규모를 축소 하는 전용 단일 노드 Standard_D1 (기본 CPU 계산 리소스)를 만듭니다.
+명명 된 계산 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용 합니다. 다음에서,,, `your-subscription-id` `your-resource-group` `your-workspace-name` 및 `your-access-token` `your-compute-name` 에 대 한 `location` `vmSize` `vmPriority` `scaleSettings` `adminUserName` `adminUserPassword` ,,,,,,,,,,,,,,,, 및 값의 대체를 추가 합니다. [Machine Learning 컴퓨팅-SDK 참조 만들기 또는 업데이트](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)에서 참조에 지정 된 대로 다음 명령은 30 분 후에 규모를 축소 하는 전용 단일 노드 Standard_D1 (기본 CPU 계산 리소스)를 만듭니다.
 
 ```bash
 curl -X PUT \
@@ -271,7 +271,7 @@ curl -X PUT \
 
 ### <a name="create-an-experimental-run"></a>실험적 실행 만들기
 
-실험 내에서 실행을 시작 하려면 학습 스크립트 및 관련 파일을 포함 하는 zip 폴더와 실행 정의 JSON 파일이 필요 합니다. Zip 폴더의 루트 디렉터리에는 Python 항목 파일이 있어야 합니다. 예를 들어 다음과 같은 간단한 Python 프로그램을 **train.zip**라는 폴더에 압축 합니다.
+실험 내에서 실행을 시작 하려면 학습 스크립트 및 관련 파일을 포함 하는 zip 폴더와 실행 정의 JSON 파일이 필요 합니다. Zip 폴더의 루트 디렉터리에는 Python 항목 파일이 있어야 합니다. 예를 들어 다음과 같은 간단한 Python 프로그램을 **train.zip** 라는 폴더에 압축 합니다.
 
 ```python
 # hello.py
@@ -279,7 +279,7 @@ curl -X PUT \
 print("Hello, REST!")
 ```
 
-이 다음 코드 조각을 **definition.js**로 저장 합니다. "스크립트" 값이 방금 압축 한 Python 파일의 이름과 일치 하는지 확인 합니다. "대상" 값이 사용 가능한 계산 리소스의 이름과 일치 하는지 확인 합니다. 
+이 다음 코드 조각을 **definition.js** 로 저장 합니다. "스크립트" 값이 방금 압축 한 Python 파일의 이름과 일치 하는지 확인 합니다. "대상" 값이 사용 가능한 계산 리소스의 이름과 일치 하는지 확인 합니다. 
 
 ```json
 {
@@ -349,7 +349,7 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 
 ### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요 하지 않은 리소스를 삭제 합니다.
 
-일부 리소스는 삭제 동사를 지원 합니다. 삭제 사용 사례에 대 한 REST API 커밋하기 전에 [API 참조](https://docs.microsoft.com/rest/api/azureml/) 를 확인 하세요. 예를 들어 모델을 삭제 하려면 다음을 사용할 수 있습니다.
+일부 리소스는 삭제 동사를 지원 합니다. 삭제 사용 사례에 대 한 REST API 커밋하기 전에 [API 참조](/rest/api/azureml/) 를 확인 하세요. 예를 들어 모델을 삭제 하려면 다음을 사용할 수 있습니다.
 
 ```bash
 curl
@@ -422,6 +422,6 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 ## <a name="next-steps"></a>다음 단계
 
-- 전체 [AzureML REST API 참조](https://docs.microsoft.com/rest/api/azureml/)를 살펴봅니다.
-- 디자이너를 사용 하 여 [자동차 가격을 디자이너와 예측](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)하는 방법을 알아봅니다.
-- [Jupyter 노트북을 사용 하 여 Azure Machine Learning을](https://docs.microsoft.com/azure//machine-learning/samples-notebooks)탐색 합니다.
+- 전체 [AzureML REST API 참조](/rest/api/azureml/)를 살펴봅니다.
+- 디자이너를 사용 하 여 [자동차 가격을 디자이너와 예측](./tutorial-designer-automobile-price-train-score.md)하는 방법을 알아봅니다.
+- [Jupyter 노트북을 사용 하 여 Azure Machine Learning을](..//machine-learning/samples-notebooks.md)탐색 합니다.

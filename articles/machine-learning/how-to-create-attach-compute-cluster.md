@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207124"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318208"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
 Azure Machine Learning 작업 영역에서 [계산 클러스터](concept-compute-target.md#azure-machine-learning-compute-managed) 를 만들고 관리 하는 방법에 대해 알아봅니다.
 
-Azure Machine Learning 계산 클러스터를 사용 하 여 클라우드의 CPU 또는 GPU 계산 노드 클러스터에서 학습 또는 일괄 처리 유추 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조하세요. 
+Azure Machine Learning 계산 클러스터를 사용 하 여 클라우드의 CPU 또는 GPU 계산 노드 클러스터에서 학습 또는 일괄 처리 유추 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](../virtual-machines/sizes-gpu.md)를 참조하세요. 
 
 이 문서에서는 다음 방법을 알아봅니다.
 
 * 컴퓨팅 클러스터 만들기
 * 계산 클러스터 비용 낮추기
-* 클러스터에 대 한 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 설정
+* 클러스터에 대 한 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 설정
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 ## <a name="what-is-a-compute-cluster"></a>계산 클러스터용 이란?
 
@@ -48,7 +48,7 @@ Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산
 
     예를 들어 클러스터 구성 설정을 변경 하기 위해 계산 대상을 다시 연결 하려면 먼저 기존 첨부 파일을 제거 해야 합니다.
 
-* 이 문서에 나열 된 일부 시나리오는 __미리 보기로__표시 되어 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+* 이 문서에 나열 된 일부 시나리오는 __미리 보기로__ 표시 되어 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 * Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은 기본적인 제한이 있습니다. 자세한 내용은 [Azure 리소스에 대한 할당량 관리 및 요청](how-to-manage-quotas.md)을 참조하세요.
 
@@ -60,7 +60,7 @@ Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산
 
 ## <a name="create"></a>생성
 
-**예상 시간**: 약 5 분.
+**예상 시간** : 약 5 분.
 
 Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있습니다. 컴퓨팅은 작업 영역에 있는 다른 사용자와 공유할 수 있으며, 실행 간에 유지되고 제출된 실행 수와 클러스터에 설정된 max_nodes 수에 따라 노드를 자동으로 확장 또는 축소합니다. min_nodes 설정은 사용 가능한 최소 노드 수를 제어합니다.
 
@@ -74,13 +74,13 @@ VM 제품군 할당량 당 지역별 전용 코어 및 계산 클러스터 만�
 
 Python에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 
     
-* **vm_size**: Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
-* **max_nodes**: Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
+* **vm_size** : Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
+* **max_nodes** : Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할 수도 있습니다. 속성을 사용하면 고정 크기로 또는 구독의 기존 Azure Virtual Network 내에서 영구적 클러스터를 만들 수 있습니다.  자세한 내용은 [AmlCompute 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true)를 참조하세요.
+Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할 수도 있습니다. 속성을 사용하면 고정 크기로 또는 구독의 기존 Azure Virtual Network 내에서 영구적 클러스터를 만들 수 있습니다.  자세한 내용은 [AmlCompute 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py)를 참조하세요.
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -90,7 +90,7 @@ Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-자세한 내용은 [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)를 참조하세요.
+자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)를 참조하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -217,4 +217,4 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 계산 클러스터를 사용 하 여 다음을 수행 합니다.
 
 * [학습 실행 제출](how-to-set-up-training-targets.md) 
-* [일괄 처리 유추를 실행](how-to-use-parallel-run-step.md)합니다.
+* [일괄 처리 유추를 실행](./tutorial-pipeline-batch-scoring-classification.md)합니다.

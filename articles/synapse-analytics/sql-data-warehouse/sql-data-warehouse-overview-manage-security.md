@@ -1,6 +1,6 @@
 ---
 title: 데이터베이스 보호
-description: Synapse SQL 풀 리소스에서 데이터베이스 보안 및 솔루션 개발을 위한 팁입니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀을 보호 하 고 솔루션을 개발 하기 위한 팁입니다.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516886"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317709"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>Azure Synapse에서 데이터베이스 보안
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 보호
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "92516886"
 > * [암호화(포털)](sql-data-warehouse-encryption-tde.md)
 > * [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-이 문서에서는 Synapse SQL 풀을 보호 하기 위한 기본 사항을 안내 합니다. 특히이 문서에서는 SQL 풀을 사용 하 여 프로 비전 된 데이터베이스에 대 한 액세스를 제한 하 고, 데이터를 보호 하 고, 작업을 모니터링 하기 위한 리소스를 시작 합니다.
+이 문서에서는 전용 SQL 풀의 보안 설정에 대 한 기본 사항을 안내 합니다. 특히이 문서에서는 전용 SQL 풀을 사용 하 여 액세스를 제한 하 고, 데이터를 보호 하 고, 작업을 모니터링 하기 위한 리소스를 시작 합니다.
 
 ## <a name="connection-security"></a>연결 보안
 
@@ -35,15 +35,15 @@ ms.locfileid: "92516886"
 
 방화벽 규칙은 [논리적 SQL server](../../azure-sql/database/logical-servers.md) 와 해당 데이터베이스 모두에서 명시적으로 승인 되지 않은 IP 주소의 연결 시도를 거부 하는 데 사용 됩니다. 애플리케이션 또는 클라이언트 컴퓨터의 공용 IP 주소에서 연결할 수 있도록 허용하려면 먼저 Azure Portal, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다.
 
-가장 좋은 방법은 서버 수준 방화벽을 통해 허용 되는 IP 주소 범위를 가능한 한 많이 제한 하는 것입니다.  로컬 컴퓨터에서 SQL 풀에 액세스 하려면 네트워크와 로컬 컴퓨터의 방화벽이 TCP 포트 1433에서 나가는 통신을 허용 하는지 확인 합니다.  
+가장 좋은 방법은 서버 수준 방화벽을 통해 허용 되는 IP 주소 범위를 가능한 한 많이 제한 하는 것입니다.  로컬 컴퓨터에서 전용 SQL 풀에 액세스 하려면 네트워크와 로컬 컴퓨터의 방화벽이 TCP 포트 1433에서 나가는 통신을 허용 하는지 확인 합니다.  
 
 Azure Synapse Analytics는 서버 수준 IP 방화벽 규칙을 사용 합니다. 데이터베이스 수준 IP 방화벽 규칙은 지원 하지 않습니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 을 참조 하세요.
 
-SQL 풀에 대 한 연결은 기본적으로 암호화 됩니다.  암호화를 사용하지 않도록 연결 설정을 수정해도 무시됩니다.
+전용 SQL 풀에 대 한 연결은 기본적으로 암호화 됩니다.  암호화를 사용하지 않도록 연결 설정을 수정해도 무시됩니다.
 
 ## <a name="authentication"></a>인증
 
-인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 풀은 현재 사용자 이름 및 암호를 사용 하는 SQL Server 인증과 Azure Active Directory를 지원 합니다.
+인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. 전용 SQL 풀은 현재 사용자 이름 및 암호를 사용 하는 SQL Server 인증과 Azure Active Directory를 지원 합니다.
 
 데이터베이스에 대 한 서버를 만들 때 사용자 이름 및 암호를 사용 하 여 "서버 관리자" 로그인을 지정 했습니다. 이러한 자격 증명을 사용하면, SQL Server 인증을 통해 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-그런 다음 서버 관리자 로그인을 사용 하 여 **SQL 풀 데이터베이스** 에 연결 하 고 사용자가 만든 서버 로그인에 따라 데이터베이스 사용자를 만듭니다.
+그런 다음 서버 관리자 로그인을 사용 하 여 **전용 SQL 풀 데이터베이스** 에 연결 하 고 사용자가 만든 서버 로그인에 따라 데이터베이스 사용자를 만듭니다.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ SQL Database에서 데이터베이스 암호화 키는 기본 제공 서버 인�
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 프로토콜을 사용 하 여 웨어하우스에 연결 하는 방법에 대 한 자세한 내용과 예제는 [SQL 풀에 연결](../sql/connect-overview.md)을 참조 하세요.
+다른 프로토콜을 사용 하 여 웨어하우스에 연결 하는 방법에 대 한 자세한 내용과 예제는 [전용 SQL 풀에 연결](../sql/connect-overview.md)을 참조 하세요.

@@ -1,7 +1,7 @@
 ---
 title: Azure Kubernetes Service 만들기 및 연결
 titleSuffix: Azure Machine Learning
-description: AKS (Azure Kubernetes Service)를 사용 하 여 machine learning 모델을 웹 서비스로 배포할 수 있습니다. Azure Machine Learning를 통해 새 AKS 클러스터를 만드는 방법에 대해 알아봅니다. Azure Machine Learning 작업 영역에 기존 AKS 클러스터를 연결 하는 방법에 대해서도 알아봅니다.
+description: Azure Machine Learning를 통해 새 Azure Kubernetes Service 클러스터를 만드는 방법 또는 작업 영역에 기존 AKS 클러스터를 연결 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318061"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -26,25 +26,25 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-- Azure Virtual Network을 사용 하 여 Azure ML 작업 영역 및 AKS 클러스터 간의 통신을 보호 하려는 경우 [학습 & 유추 문서에서 네트워크 격리](how-to-enable-virtual-network.md) 를 읽어 보세요.
+- Azure Virtual Network을 사용 하 여 Azure ML 작업 영역 및 AKS 클러스터 간의 통신을 보호 하려는 경우 [학습 & 유추 문서에서 네트워크 격리](./how-to-network-security-overview.md) 를 읽어 보세요.
 
 ## <a name="limitations"></a>제한 사항
 
 - BLB (기본 Load Balancer) 대신 클러스터에 **표준 Load Balancer (SLB)** 를 배포 해야 하는 경우 AKS PORTAL/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 **연결** 합니다.
 
-- 공용 IP 주소 만들기를 제한 하는 Azure Policy 있는 경우 AKS 클러스터를 만들 수 없습니다. AKS에는 [송신 트래픽에](/azure/aks/limit-egress-traffic)대 한 공용 IP가 필요 합니다. 또한 송신 트래픽 문서에서는 일부 정규화 된 도메인 이름을 제외 하 고 공용 IP를 통해 클러스터에서 송신 트래픽을 잠그는 지침을 제공 합니다. 공용 IP를 사용 하도록 설정 하는 방법에는 두 가지가 있습니다.
+- 공용 IP 주소 만들기를 제한 하는 Azure Policy 있는 경우 AKS 클러스터를 만들 수 없습니다. AKS에는 [송신 트래픽에](../aks/limit-egress-traffic.md)대 한 공용 IP가 필요 합니다. 또한 송신 트래픽 문서에서는 일부 정규화 된 도메인 이름을 제외 하 고 공용 IP를 통해 클러스터에서 송신 트래픽을 잠그는 지침을 제공 합니다. 공용 IP를 사용 하도록 설정 하는 방법에는 두 가지가 있습니다.
     - 클러스터는 기본적으로 BLB 또는 SLB와 함께 생성 된 공용 IP를 사용할 수 있습니다.
-    - 공용 ip 없이 클러스터를 만들 수 있으며, 공용 IP는 사용자 정의 경로를 사용 하 여 방화벽으로 구성 됩니다. 자세한 내용은 [사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정](/azure/aks/egress-outboundtype)을 참조 하세요.
+    - 공용 ip 없이 클러스터를 만들 수 있으며, 공용 IP는 사용자 정의 경로를 사용 하 여 방화벽으로 구성 됩니다. 자세한 내용은 [사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정](../aks/egress-outboundtype.md)을 참조 하세요.
     
     AML 컨트롤 평면은이 공용 IP와 통신 하지 않습니다. 배포에 대 한 AKS 제어 평면과 통신 합니다. 
 
-- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 **연결** 하는 경우 AKS 클러스터에 대해 AML 제어 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 유추 pod를 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 유추 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역](/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/download/confirmation.aspx?id=56519) 를 사용 합니다.
+- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](../aks/api-server-authorized-ip-ranges.md)있는 AKS 클러스터를 **연결** 하는 경우 AKS 클러스터에 대해 AML 제어 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 유추 pod를 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 유추 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 에 대 한 [ip 범위](https://www.microsoft.com/download/confirmation.aspx?id=56519) 를 사용 합니다.
 
     권한 있는 IP 범위는 표준 Load Balancer 에서만 작동 합니다.
 
-- Azure 개인 링크를 사용 하 여 개인 AKS 클러스터를 사용 하려면 먼저 클러스터를 만든 다음 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](/azure/aks/private-clusters)를 참조 하세요.
+- Azure 개인 링크를 사용 하 여 개인 AKS 클러스터를 사용 하려면 먼저 클러스터를 만든 다음 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
 
 - AKS 클러스터에 대 한 계산 이름은 Azure ML 작업 영역 내에서 고유 해야 합니다.
     - 이름은 필수 이며 길이가 3 ~ 007e; 24 자 사이 여야 합니다.
@@ -70,7 +70,7 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
 ## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes 서비스 버전
 
-Azure Kubernetes 서비스를 사용 하면 다양 한 Kubernetes 버전을 사용 하 여 클러스터를 만들 수 있습니다. 사용 가능한 버전에 대 한 자세한 내용은 [Azure Kubernetes Service에서 지원 되는 Kubernetes 버전](/azure/aks/supported-kubernetes-versions)을 참조 하세요.
+Azure Kubernetes 서비스를 사용 하면 다양 한 Kubernetes 버전을 사용 하 여 클러스터를 만들 수 있습니다. 사용 가능한 버전에 대 한 자세한 내용은 [Azure Kubernetes Service에서 지원 되는 Kubernetes 버전](../aks/supported-kubernetes-versions.md)을 참조 하세요.
 
 다음 방법 중 하나를 사용 하 여 Azure Kubernetes 서비스 클러스터를 **만들** 때 생성 되는 클러스터의 *버전에서 선택할 수 없습니다* .
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
+**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
 
 Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 기본 버전을 찾으려면 `orchestratorType` 가이 `Kubernetes` 고 `default` 가 인 항목을 찾습니다 `true` . 연결 된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각은 예제 항목을 보여 줍니다.
 
@@ -183,10 +183,10 @@ aks_target.wait_for_completion(show_output = True)
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-자세한 내용은 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -215,12 +215,12 @@ Azure 구독에 AKS 클러스터가 이미 있고 버전이 1.17 이하인 경�
 > [!WARNING]
 > 작업 영역에서 동일한 AKS 클러스터에 대 한 동시 첨부 파일을 여러 개 만들지 마십시오. 예를 들어 두 개의 다른 이름을 사용 하 여 하나의 AKS 클러스터를 작업 영역에 연결 합니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 >
-> AKS 클러스터를 다시 연결 하려는 경우 (예: TLS 또는 다른 클러스터 구성 설정을 변경 하려면 [) AksCompute ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--)를 사용 하 여 기존 첨부 파일을 제거 해야 합니다.
+> AKS 클러스터를 다시 연결 하려는 경우 (예: TLS 또는 다른 클러스터 구성 설정을 변경 하려면 [) AksCompute ()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--)를 사용 하 여 기존 첨부 파일을 제거 해야 합니다.
 
 Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [AKS 클러스터 만들기(CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
-* [AKS 클러스터 만들기 (포털)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
+* [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [AKS 클러스터 만들기 (포털)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [AKS 클러스터 만들기 (Azure 빠른 시작 템플릿의 ARM 템플릿)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 다음 예제에서는 기존 AKS 클러스터를 작업 영역에 연결 하는 방법을 보여 줍니다.
@@ -248,8 +248,8 @@ aks_target.wait_for_completion(show_output = True)
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
 * [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -271,7 +271,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-자세한 내용은 [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -284,7 +284,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 작업 영역에서 클러스터를 분리 하려면 다음 방법 중 하나를 사용 합니다.
 
 > [!WARNING]
-> 기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 **해도 AKS 클러스터는 삭제 되지 않습니다** . 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](/azure/aks/kubernetes-walkthrough#delete-the-cluster)을 참조 하세요.
+> 기계 학습을 위해 Azure Machine Learning studio, SDK 또는 Azure CLI 확장을 사용 하 여 AKS 클러스터를 분리 **해도 AKS 클러스터는 삭제 되지 않습니다**. 클러스터를 삭제 하려면 [AKS와 함께 Azure CLI 사용](../aks/kubernetes-walkthrough.md#delete-the-cluster)을 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 

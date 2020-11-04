@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100136"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317099"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 응용 프로그램에서 다중 지역 쓰기 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ ms.locfileid: "93100136"
 
 > [!Note]
 > 단일 쓰기 지역으로 처음 구성 된 Cosmos 계정은 중단 시간이 0 인 여러 쓰기 지역으로 구성 될 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
+
+## <a name="azure-portal"></a><a id="portal"></a> Azure Portal
+
+Azure Portal에서 다중 지역 쓰기를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+
+1. Azure Cosmos 계정으로 이동 하 고 메뉴에서 **전역으로 데이터 복제** 창을 엽니다.
+
+1. **다중 지역 쓰기** 옵션에서 **사용** 을 선택 합니다. 영역을 읽고 쓰기 위해 기존 영역을 자동으로 추가 합니다.
+
+1. 지도에서 아이콘을 선택 하거나 **지역 추가** 단추를 선택 하 여 영역을 더 추가할 수 있습니다. 추가 하는 모든 지역에서 읽기 및 쓰기를 모두 사용할 수 있습니다.
+
+1. 지역 목록을 업데이트 한 후 **저장** 을 선택 하 여 변경 내용을 적용 합니다.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Azure Portal를 사용 하 여 다중 지역 쓰기를 사용 하도록 설정 하는 스크린샷" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 33571283b876506e419ed675dde0988974c3841e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280006"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317872"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -41,7 +41,7 @@ ms.locfileid: "93280006"
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau의 셀프 서비스 분석은 플랫 파일에서 데이터베이스까지 여러 유형의 데이터를 보고 이해하는 데 도움이 됩니다. Tableau에는 라이브 데이터 및 메모리 내 분석을 모두 지원하는 Synapse SQL 풀에 대한 최적화된 네이티브 커넥터가 있습니다. |[제품 페이지](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit(Decision Suite)**<br>Targit 의사 결정 도구 모음은 실시간 대시보드, 셀프 서비스 분석, 사용자에 게 친숙 한 보고, 뛰어난 모바일 기능 및 간단한 데이터 검색 기술을 제공 하는 BI 플랫폼을 제공 합니다. 단일 통합 솔루션의 모든 항목 Targit는 회사들이 행동을 취하도록 용기를 줍니다. |[제품 페이지](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
 | ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>검색을 사용 하 여 수십억 개의 행에서 세부적인 통찰력을 얻거나 AI가 생각 하지 못할 수 있는 질문에서 통찰력을 얻을 수 있습니다. ThoughtSpot은 기업인들이 몇 초 내에 회사 데이터에 숨겨져 있는 인사이트를 찾을 수 있도록 도와줍니다. 검색을 사용하여 데이터를 분석하고 필요할 때 자동화된 인사이트를 얻을 수 있습니다.|[제품 페이지](https://www.thoughtspot.com)<br>|
-| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin는 바 c;에서 _임시_ 보고 및 대시보드에 대해 가장 많이 등급을 매긴 클라우드 BI 공급 업체입니다. BI 설문 조사입니다. Synapse SQL 풀에 연결한 다음 만들고 수상한 협업 BI 및 위치 인텔리전스 기능을 포함한 아름다운 보고서와 대시보드를 만들고 공유합니다. |[제품 페이지](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
+| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin는 바 c;에서 _임시_ 보고 및 대시보드에 대해 가장 많이 등급을 매긴 클라우드 BI 공급 업체입니다. BI 설문 조사입니다. Azure Synapse Analytics에서 전용 SQL 풀에 연결한 다음, 뛰어난 공동 작업 BI 및 위치 인텔리전스 기능을 통해 멋진 보고서와 대시보드를 만들고 공유 합니다. |[제품 페이지](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 

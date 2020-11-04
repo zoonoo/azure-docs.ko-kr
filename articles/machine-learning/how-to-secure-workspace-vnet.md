@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672857"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316696"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -48,7 +48,7 @@ ms.locfileid: "92672857"
     - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
 
-    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking) 을 참조 하세요.
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>개인 끝점을 사용 하 여 작업 영역 보호
@@ -66,7 +66,7 @@ Azure Machine Learning는 서비스 끝점이 나 개인 끝점 중 하나를 �
 >
 > 기본 스토리지 계정은 작업 영역을 만들 때 자동으로 프로비저닝됩니다.
 >
-> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
+> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
 
 가상 네트워크의 작업 영역에 Azure 스토리지 계정을 사용하려면 다음 단계를 사용합니다.
 
@@ -188,7 +188,7 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 
 가상 네트워크 내에서 Azure Container Registry를 사용 하려면 다음 요구 사항을 충족 해야 합니다.
 
-* Azure Container Registry은 프리미엄 버전 이어야 합니다. 업그레이드에 대한 자세한 내용은 [SKU 변경](/azure/container-registry/container-registry-skus#changing-skus)을 참조하세요.
+* Azure Container Registry은 프리미엄 버전 이어야 합니다. 업그레이드에 대한 자세한 내용은 [SKU 변경](../container-registry/container-registry-skus.md#changing-tiers)을 참조하세요.
 
 * Azure Container Registry가 스토리지 계정 및 학습 또는 유추에 사용되는 컴퓨팅 대상과 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
 
@@ -233,7 +233,7 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
     > [!IMPORTANT]
     > 스토리지 계정, 컴퓨팅 클러스터 및 Azure Container Registry는 모두 가상 네트워크의 동일한 서브넷에 있어야 합니다.
     
-    자세한 내용은 [update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) 메서드 참조를 확인하세요.
+    자세한 내용은 [update ()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) 메서드 참조를 확인하세요.
 
 1. 다음 Azure Resource Manager 템플릿을 적용 합니다. 이 템플릿을 사용하면 작업 영역이 ACR과 통신할 수 있습니다.
 
@@ -289,7 +289,7 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 
     이 템플릿은 작업 영역에서 ACR로의 네트워크 액세스를 위한 _개인 끝점_ 을 만듭니다. 아래 스크린샷에서는이 개인 끝점의 예를 보여 줍니다.
 
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="작업 영역에 대한 Azure Container Registry":::
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR 개인 끝점 설정":::
 
     > [!IMPORTANT]
     > 이 끝점을 삭제 하지 마세요. 실수로 삭제 한 경우이 단계에서 템플릿을 다시 적용 하 여 새 템플릿을 만들 수 있습니다.

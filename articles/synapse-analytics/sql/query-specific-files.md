@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288106"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318825"
 ---
-# <a name="use-file-metadata-in-queries"></a>쿼리에서 파일 메타데이터 사용
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>서버를 사용 하지 않는 SQL 풀 쿼리에서 파일 메타 데이터 사용
 
-[쿼리 폴더 및 여러 파일](query-folders-multiple-csv-files.md) 문서에 설명 된 대로 SQL 주문형은 여러 파일 및 폴더의 주소를 지정할 수 있습니다. 이 문서에서는 쿼리에서 파일 및 폴더 이름에 대한 메타데이터 정보를 사용하는 방법에 대해 알아봅니다.
+서버를 사용 하지 않는 SQL 풀은 [쿼리 폴더 및 여러 파일](query-folders-multiple-csv-files.md) 문서에 설명 된 대로 여러 파일 및 폴더를 처리할 수 있습니다. 이 문서에서는 쿼리에서 파일 및 폴더 이름에 대한 메타데이터 정보를 사용하는 방법에 대해 알아봅니다.
 
 경우에 따라 결과 집합의 특정 행과 상관 관계가 있는 파일 또는 폴더 원본을 알아야 할 수도 있습니다.
 
