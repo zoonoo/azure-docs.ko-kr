@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337302"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Ruby를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -39,7 +39,7 @@ Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다.
 5. `gem -v` 명령을 실행하여 설치된 버전을 확인함으로써 Gem 설치를 테스트합니다.
 6. `gem install mysql2` 명령을 실행하여 Gem을 사용하는 Ruby용 Mysql2 모듈을 빌드합니다.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. `brew install ruby` 명령을 실행하여 Homebrew로 Ruby를 설치합니다. 자세한 설치 옵션을 보려면 Ruby [설치 설명서](https://www.ruby-lang.org/en/documentation/installation/#homebrew)를 참조하세요.
 2. `ruby -v` 명령을 실행하여 설치된 버전을 확인함으로써 Ruby 설치를 테스트합니다.
 3. `gem -v` 명령을 실행하여 설치된 버전을 확인함으로써 Gem 설치를 테스트합니다.
@@ -58,9 +58,9 @@ Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다.
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
 3. 서버 이름을 클릭합니다.
-4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="run-ruby-code"></a>Ruby 코드 실행
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계

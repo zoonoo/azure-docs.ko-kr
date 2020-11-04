@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332069"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -61,13 +61,13 @@ Azure Portal에서 Azure Database for MySQL에 연결하는 데 필요한 연결
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
    
-1. 포털 검색 창에서 **mydemoserver**와 같이 만든 Azure Database for MySQL 서버를 검색하여 선택합니다.
+1. 포털 검색 창에서 **mydemoserver** 와 같이 만든 Azure Database for MySQL 서버를 검색하여 선택합니다.
    
    :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
    
-1. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 페이지에서 암호를 재설정할 수 있습니다.
+1. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 페이지에서 암호를 재설정할 수 있습니다.
    
-   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL 서버 이름 2":::
 
 ## <a name="run-the-python-examples"></a>Python 예제 실행
 
@@ -75,11 +75,11 @@ Azure Portal에서 Azure Database for MySQL에 연결하는 데 필요한 연결
 
 1. 텍스트 편집기에서 새 파일을 만듭니다.
 1. 파일에 코드 예제를 추가합니다. 코드에서 `<mydemoserver>`, `<myadmin>`, `<mypassword>` 및 `<mydatabase>` 자리 표시자를 MySQL 서버 및 데이터베이스의 값으로 바꿉니다.
-1. 파일을 *C:\pythonmysql\createtable.py* 또는 */home/username/pythonmysql/createtable.py*와 같이 *.py* 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
+1. 파일을 *C:\pythonmysql\createtable.py* 또는 */home/username/pythonmysql/createtable.py* 와 같이 *.py* 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
 1. 코드를 실행하려면 명령 프롬프트 또는 `bash` 셸을 시작한 후 디렉터리를 사용자의 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). `python` 명령 다음에 파일 이름을 입력하고(예: `python createtable.py`) Enter 키를 누릅니다. 
    
    > [!NOTE]
-   > Windows에서 *python.exe*를 찾을 수 없으면 PATH 환경 변수에 Python 경로를 추가하거나 *python.exe*에 대한 전체 경로(예: `C:\python27\python.exe createtable.py`)를 제공해야 할 수 있습니다.
+   > Windows에서 *python.exe* 를 찾을 수 없으면 PATH 환경 변수에 Python 경로를 추가하거나 *python.exe* 에 대한 전체 경로(예: `C:\python27\python.exe createtable.py`)를 제공해야 할 수 있습니다.
 
 ## <a name="create-a-table-and-insert-data"></a>테이블 만들기 및 데이터 삽입
 
@@ -270,6 +270,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계

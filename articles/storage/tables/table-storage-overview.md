@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: 2670d9ce568195fd97350bf678059ac89610422f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 73813ae06858df62a88a08bb2f4f8f9f49940b1a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236168"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316179"
 ---
 # <a name="what-is-azure-table-storage-"></a>Azure Table 스토리지란? 
 
@@ -30,10 +30,10 @@ Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 
-* [.NET에서 Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [.NET에서 Azure Table Storage 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)
 
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 
-    * [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage Client Library for .NET 참조](/dotnet/api/overview/azure/storage)
 
-    * [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API 참조](/rest/api/storageservices/)

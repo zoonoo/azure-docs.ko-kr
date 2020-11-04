@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322496"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
@@ -28,7 +28,7 @@ DSVM은 다음에서 사용할 수 있습니다.
 
 ## <a name="comparison-with-azure-machine-learning"></a>Azure Machine Learning과 비교
 
-DSVM은 데이터 과학용으로 사용자 지정된 VM 이미지이지만 [AzureML](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)(Azure Machine Learning)은 다음을 포함하는 엔드투엔드 플랫폼입니다.
+DSVM은 데이터 과학용으로 사용자 지정된 VM 이미지이지만 [AzureML](../overview-what-is-azure-ml.md)(Azure Machine Learning)은 다음을 포함하는 엔드투엔드 플랫폼입니다.
 
 + 완전 관리형 컴퓨팅
   + 컴퓨팅 인스턴스
@@ -44,7 +44,7 @@ DSVM은 데이터 과학용으로 사용자 지정된 VM 이미지이지만 [Azu
 
 ### <a name="comparison-with-azureml-compute-instances"></a>AzureML 컴퓨팅 인스턴스와 비교
 
-[Azure Machine Learning 컴퓨팅 인스턴스](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance)는 완전히 구성되고 __관리__되는 VM 이미지이지만 DSVM은 __관리되지 않는__ VM입니다.
+[Azure Machine Learning 컴퓨팅 인스턴스](../concept-compute-instance.md)는 완전히 구성되고 __관리__ 되는 VM 이미지이지만 DSVM은 __관리되지 않는__ VM입니다.
 
 이러한 두 제품 간의 주요 차이점은 아래에 자세히 설명되어 있습니다.
 

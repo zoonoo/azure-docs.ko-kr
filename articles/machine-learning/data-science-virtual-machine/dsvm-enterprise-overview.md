@@ -10,19 +10,19 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: b1357c9bb125cb881ac4aa6dd31c9dcaf53954f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87919942"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314183"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 [DSVM](overview.md)(Data Science Virtual Machine)은 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어가 포함된 다양한 환경을 Azure 플랫폼에 제공합니다.
 
 일반적으로 DSVM은 개별 분석 데스크톱으로 사용되었습니다. 개별 데이터 과학자는 미리 빌드된 이 공유 분석 환경을 통해 생산성을 향상시킵니다. 대규모 분석 팀에서 데이터 과학자 및 AI 개발자를 위한 환경을 계획함에 따라 반복되는 주제 중 하나는 개발 및 실험을 위한 공유 분석 인프라입니다. 이 인프라는 데이터 과학 및 분석 팀 전체의 협업과 일관성을 용이하게 하는 엔터프라이즈 IT 정책에 따라 관리됩니다.
 
-공유 인프라를 사용하면 분석 환경의 IT 사용률을 향상시킬 수 있습니다. 일부 조직에서는 팀 기반 데이터 과학/분석 인프라를 *분석 샌드박스*라고 합니다. 이를 사용하면 데이터 과학자가 다양한 데이터 자산에 액세스하여 데이터를 빠르게 이해할 수 있습니다. 또한 이 샌드박스 환경에서는 데이터 과학자가 프로덕션 환경에 영향을 주지 않고 실험을 실행하고, 가설의 유효성을 검사하며, 예측 모델을 빌드할 수 있습니다.
+공유 인프라를 사용하면 분석 환경의 IT 사용률을 향상시킬 수 있습니다. 일부 조직에서는 팀 기반 데이터 과학/분석 인프라를 *분석 샌드박스* 라고 합니다. 이를 사용하면 데이터 과학자가 다양한 데이터 자산에 액세스하여 데이터를 빠르게 이해할 수 있습니다. 또한 이 샌드박스 환경에서는 데이터 과학자가 프로덕션 환경에 영향을 주지 않고 실험을 실행하고, 가설의 유효성을 검사하며, 예측 모델을 빌드할 수 있습니다.
 
 DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프라이즈의 IT 정책을 준수하며 작동하도록 DSVM을 쉽게 구성할 수 있습니다. DSVM은 다양한 공유 아키텍처를 매우 유연하게 구현하면서도 회사 데이터 자산에 대한 액세스를 제어할 수 있습니다.
 
@@ -37,13 +37,13 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 
 이 시리즈에서는 위의 각 항목에 대한 지침 및 포인터를 제공합니다. 대규모 엔터프라이즈 구성에 DSVM을 배포하기 위한 모든 고려 사항과 요구 사항을 다루지는 않습니다. 엔터프라이즈에서 DSVM 인스턴스를 구현하면서 사용할 수 있는 몇 가지 다른 Azure 리소스는 다음과 같습니다.
 
-* [네트워크 보안](https://docs.microsoft.com/azure/security/fundamentals/network-security)
-* [모니터링](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) 및 [관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [로깅 및 감사](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Azure RBAC(Azure 역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [네트워크 보안](../../security/fundamentals/network-overview.md)
+* [모니터링](../../azure-monitor/insights/monitor-vm-azure.md) 및 [관리](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [로깅 및 감사](../../security/fundamentals/log-audit.md)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 * [정책 설정 및 적용](../../governance/policy/overview.md)
-* [맬웨어 방지](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
-* [데이터 검색 및 거버넌스](https://docs.microsoft.com/azure/data-catalog/)
+* [맬웨어 방지](../../security/fundamentals/antimalware.md)
+* [암호화](../../virtual-machines/windows/disk-encryption-overview.md)
+* [데이터 검색 및 거버넌스](../../data-catalog/index.yml)
 
-마지막으로 [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)는 클라우드 기반 분석 인프라를 구축하고 관리하기 위한 자세한 엔드투엔드 아키텍처와 모델을 제공합니다.
+마지막으로 [Azure 아키텍처 센터](/azure/architecture/)는 클라우드 기반 분석 인프라를 구축하고 관리하기 위한 자세한 엔드투엔드 아키텍처와 모델을 제공합니다.

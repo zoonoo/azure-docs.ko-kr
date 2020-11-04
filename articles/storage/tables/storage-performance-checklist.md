@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316187"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Table storage에 대한 성능 및 확장성 검사 목록
 
@@ -153,7 +153,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 기타 프로그래밍 언어의 경우 해당 언어의 설명서에서 연결 제한을 설정하는 방법을 확인하세요.  
 
-자세한 내용은 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/) 블로그 게시물을 참조하세요.  
+자세한 내용은 [웹 서비스: 동시 연결](/archive/blogs/darrenj/web-services-concurrent-connections) 블로그 게시물을 참조하세요.  
 
 ### <a name="increase-minimum-number-of-threads"></a>최소 스레드 수 늘리기
 
@@ -171,7 +171,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>클라이언트 라이브러리 및 도구
 
-최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다. 자세한 내용은 [Azure Storage 참조 설명서](/azure/storage/#reference)를 참조하세요.
+최상의 성능을 위해 항상 Microsoft에서 제공하는 최신 클라이언트 라이브러리와 도구를 사용합니다. Azure Storage 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 또한 Azure Storage는 PowerShell 및 Azure CLI도 지원합니다. Microsoft는 성능을 고려하여 이러한 클라이언트 라이브러리와 도구를 적극적으로 개발하고, 최신 서비스 버전으로 해당 도구를 최신 상태로 유지하며, 이를 통해 검증된 여러 성능 사례를 내부적으로 처리하고 있습니다.
 
 ## <a name="handle-service-errors"></a>서비스 오류 처리
 
@@ -197,7 +197,7 @@ Azure Storage 오류 코드에 대한 자세한 내용은 [상태 및 오류 코
 
 2013-08-15 스토리지 서비스 버전부터 Table service는 테이블 데이터를 전송하는 데 XML 기반 AtomPub 형식 대신 JSON을 사용하도록 지원합니다. JSON을 사용하면 페이로드 크기를 최대 75%까지 줄일 수 있으며 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
 
-자세한 내용은 [Microsoft Azure 테이블: JSON 소개](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) 및 [Table Service 작업의 페이로드 형식](https://msdn.microsoft.com/library/azure/dn535600.aspx)을 참조하세요.
+자세한 내용은 [Microsoft Azure 테이블: JSON 소개](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) 및 [Table Service 작업의 페이로드 형식](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations)을 참조하세요.
 
 ### <a name="disable-nagle"></a>Nagle 사용 안 함
 
@@ -273,10 +273,10 @@ Table service의 성능에 영향을 미치는 가장 중요한 단일 요인은
 
 #### <a name="upsert"></a>Upsert
 
-가능한 경우에는 항상 테이블 **Upsert** 작업을 사용합니다. **Upsert**에는 두 가지 형식이 있으며, 두 형식 모두 기존의 **Insert** 및 **Update** 작업보다는 비효율적일 수 있습니다.  
+가능한 경우에는 항상 테이블 **Upsert** 작업을 사용합니다. **Upsert** 에는 두 가지 형식이 있으며, 두 형식 모두 기존의 **Insert** 및 **Update** 작업보다는 비효율적일 수 있습니다.  
 
-- **InsertOrMerge**: 엔터티 속성 중 일부를 업로드하려고 하지만 엔터티가 이미 있는지 여부가 확실하지 않으면 이 작업을 사용합니다. 엔터티가 있는 경우 이 작업을 수행하면 **Upsert** 작업에 포함된 속성은 업데이트되고 기존의 모든 속성은 그대로 유지됩니다. 엔터티가 없으면 새 엔터티가 삽입됩니다. 이 작업은 변경되는 속성만 업데이트하면 되므로 쿼리에서 프로젝션을 사용하는 것과 비슷합니다.
-- **InsertOrReplace**: 완전히 새로운 엔터티를 업로드하려고 하지만 엔터티가 이미 있는지 여부가 확실하지 않으면 이 작업을 사용합니다. 새로 업로드된 엔터티가 이전 엔터티를 완전히 덮어쓰므로 완전히 올바른 엔터티임을 알고 있는 경우 이 작업을 사용합니다. 예를 들어 애플리케이션이 사용자의 위치 데이터를 이전에 저장했는지 여부에 관계없이 사용자의 현재 위치를 저장하는 엔터티를 업데이트하려고 하며, 새 위치 엔터티가 완전하고 이전 엔터티의 정보는 전혀 필요하지 않은 경우 이 작업을 수행할 수 있습니다.
+- **InsertOrMerge** : 엔터티 속성 중 일부를 업로드하려고 하지만 엔터티가 이미 있는지 여부가 확실하지 않으면 이 작업을 사용합니다. 엔터티가 있는 경우 이 작업을 수행하면 **Upsert** 작업에 포함된 속성은 업데이트되고 기존의 모든 속성은 그대로 유지됩니다. 엔터티가 없으면 새 엔터티가 삽입됩니다. 이 작업은 변경되는 속성만 업데이트하면 되므로 쿼리에서 프로젝션을 사용하는 것과 비슷합니다.
+- **InsertOrReplace** : 완전히 새로운 엔터티를 업로드하려고 하지만 엔터티가 이미 있는지 여부가 확실하지 않으면 이 작업을 사용합니다. 새로 업로드된 엔터티가 이전 엔터티를 완전히 덮어쓰므로 완전히 올바른 엔터티임을 알고 있는 경우 이 작업을 사용합니다. 예를 들어 애플리케이션이 사용자의 위치 데이터를 이전에 저장했는지 여부에 관계없이 사용자의 현재 위치를 저장하는 엔터티를 업데이트하려고 하며, 새 위치 엔터티가 완전하고 이전 엔터티의 정보는 전혀 필요하지 않은 경우 이 작업을 수행할 수 있습니다.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>단일 엔터티에 데이터 계열 저장
 

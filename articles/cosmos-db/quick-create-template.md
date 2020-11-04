@@ -5,17 +5,19 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339668"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 빠른 NoSQL 데이터베이스입니다. Azure Cosmos DB를 사용하여 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하여 Azure Cosmos 데이터베이스와 해당 데이터베이스 내에 컨테이너를 만드는 프로세스에 대해 중점적으로 설명합니다. 데이터는 나중에 이 컨테이너에 저장할 수 있습니다.
 
@@ -57,7 +59,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 2. 다음 값을 선택하거나 입력합니다.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Azure에 배포":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM 템플릿, Azure Cosmos DB 통합, 배포 포털":::
 
     지정되지 않은 경우 기본값을 사용하여 Azure Cosmos 리소스를 만듭니다.
 
@@ -78,7 +80,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 3. **구매** 를 선택합니다. Azure Cosmos 계정이 성공적으로 배포되면 알림을 받게 됩니다.
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Azure에 배포":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM 템플릿, Cosmos DB 통합, 배포 포털 알림":::
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 

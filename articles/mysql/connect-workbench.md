@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332043"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -35,11 +35,11 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
 
 3. 서버 이름을 클릭합니다.
 
-4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 서버에 연결 
@@ -49,7 +49,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 
 2.    **새 연결 설정** 대화 상자의 **매개 변수** 탭에 다음 정보를 입력합니다.
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="MySQL용 Azure Database 서버 이름":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="새 연결 설정":::
 
 | **설정** | **제안 값** | **필드 설명** |
 |---|---|---|
@@ -57,12 +57,12 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 | 연결 방법 | 표준(TCP/IP) | 표준(TCP/IP)이면 충분합니다. |
 | Hostname | *서버 이름* | 이전에 Azure Database for MySQL을 만들 때 사용된 서버 이름 값을 지정합니다. 표시된 예제 서버는 mydemoserver.mysql.database.azure.com입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(\*.mysql.database.azure.com)을 사용합니다. 서버 이름을 기억하지 못하는 경우 이전 섹션으로 이동하여 연결 정보를 가져옵니다.  |
 | 포트 | 3306 | Azure Database for MySQL에 연결 시 항상 포트 3306을 사용합니다. |
-| 사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL을 만들 때 제공한 서버 관리자 로그인 사용자 이름을 입력합니다. 이 예제에서는 사용자 이름이 myadmin@mydemoserver입니다. 사용자 이름을 기억하지 못하는 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
+| 사용자 이름 |  *서버 관리자 로그인 이름* | 이전에 Azure Database for MySQL을 만들 때 제공한 서버 관리자 로그인 사용자 이름을 입력합니다. 이 예제에서는 사용자 이름이 myadmin@mydemoserver입니다. 사용자 이름을 기억하지 못하는 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username\@servername* 입니다.
 | 암호 | 사용자 암호 | **Store in Vault(자격 증명 모음에 저장)...** 단추를 클릭하여 암호를 저장합니다. |
 
-3.   **연결 테스트**를 클릭하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 
+3.   **연결 테스트** 를 클릭하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 
 
-4.   **확인**을 클릭하여 연결을 저장합니다. 
+4.   **확인** 을 클릭하여 연결을 저장합니다. 
 
 5.   **MySQL 연결** 목록에서 서버에 해당하는 타일을 클릭하고 연결이 설정될 때까지 대기합니다.
 
@@ -103,13 +103,23 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 
     스크린샷은 SQL Workbench에서의 SQL 코드 예제와 실행 후 출력을 보여 줍니다.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="MySQL용 Azure Database 서버 이름":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="샘플 SQL 코드를 실행하기 위한 MySQL Workbench SQL 탭":::
 
 2. 샘플 SQL 코드를 실행하려면 **SQL 파일** 탭의 도구 모음에서 번갯불 아이콘을 클릭합니다.
 3. 페이지 중앙의 **결과 그리드** 섹션에서 세 개의 탭 결과를 확인합니다. 
 4. 페이지 하단에서 **출력** 목록을 확인합니다. 각 명령의 상태가 표시됩니다. 
 
 이제 MySQL Workbench를 사용하여 MySQL용 Azure Database에 연결했고 SQL 언어를 사용하여 데이터를 쿼리했습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8119cbbb6619b923068723a6c855c04a8de48876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904024"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332222"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Connector/C++를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -47,16 +47,16 @@ ms.locfileid: "90904024"
 2. Visual Studio, 프로젝트 -> 속성 ->C/C++ -> 일반 -> 추가 포함 디렉터리에서:
    - c++ 커넥터의 "\include" 디렉터리(예: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)를 추가합니다.
    - Boost 라이브러리의 루트 디렉터리(예: C:\boost_1_64_0\)를 추가합니다.
-3. Visual Studio, 프로젝트 -> 속성 -> 링커 > 입력 > 추가 종속성에서 텍스트 필드에 **mysqlcppconn.lib**를 추가합니다.
-4. 3단계에서 C++ 커넥터 라이브러리 폴더의 **mysqlcppconn.dll**을 애플리케이션 실행 파일과 같은 폴더에 복사하거나 애플리케이션에서 찾을 수 있도록 환경 변수에 추가합니다.
+3. Visual Studio, 프로젝트 -> 속성 -> 링커 > 입력 > 추가 종속성에서 텍스트 필드에 **mysqlcppconn.lib** 를 추가합니다.
+4. 3단계에서 C++ 커넥터 라이브러리 폴더의 **mysqlcppconn.dll** 을 애플리케이션 실행 파일과 같은 폴더에 복사하거나 애플리케이션에서 찾을 수 있도록 환경 변수에 추가합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
 3. 서버 이름을 클릭합니다.
-4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-cpp/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
@@ -306,6 +306,16 @@ int main()
     system("pause");
     return 0;
 }
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계

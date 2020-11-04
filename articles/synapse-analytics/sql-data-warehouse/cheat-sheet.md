@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136102"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319668"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics 참고 자료(이전의 SQL DW)
 
@@ -37,7 +37,7 @@ ms.locfileid: "88136102"
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)(미리 보기)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(미리 보기)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 |
 |:--- |:--- |
@@ -64,8 +64,8 @@ ms.locfileid: "88136102"
 * 공통 해시 키의 데이터 형식이 동일한지 확인합니다.
 * varchar 형식으로 배포하지 마세요.
 * 조인 작업이 빈번한 팩트 테이블에 대한 공통 해시 키가 있는 차원 테이블은 해시 분산될 수 있습니다.
-* *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 를 사용하여 데이터의 모든 왜곡도를 분석합니다.
-* *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
+* *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 를 사용하여 데이터의 모든 왜곡도를 분석합니다.
+* *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
 
 [복제된 테이블](design-guidance-for-replicated-tables.md) 및 [분산 테이블](sql-data-warehouse-tables-distribute.md)에 대해 자세히 알아보세요.
 
@@ -121,7 +121,7 @@ ELT 파이프라인을 데이터 웨어하우스로 자동화하는 데 PolyBase
 
 쿼리 시간이 오래 걸리는 경우 사용자가 큰 리소스 클래스에서 실행하지 않는지 검사합니다. 큰 리소스 클래스는 많은 동시성 슬롯을 사용합니다. 이는 다른 쿼리를 큐에 대기시킬 수 있습니다.
 
-마지막으로, [SQL 풀](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
+마지막으로, [SQL 풀](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
 
 [리소스 클래스 및 동시성](resource-classes-for-workload-management.md)으로 작업하는 방법에 대해 자세히 알아보세요.
 
