@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c1dec2c8451ddd1feb4b5b0dac9c82e1716079b7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078070"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325843"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -87,7 +87,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   * ***직접 모드 개요** _
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 연결 정책 그림" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="직접 모드 아키텍처의 그림" border="false":::
   
   직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널* *을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점** 에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 

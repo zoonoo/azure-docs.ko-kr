@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145789"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325771"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 `IS_OF_MODEL`연산자를 사용 하 여 쌍의 [**모델**](concepts-models.md)을 기준으로 필터링 할 수 있습니다.
 
-[상속](concepts-models.md#model-inheritance) 및 [버전 순서](how-to-manage-model.md#update-models) 의미 체계를 고려 하 고 쌍이 다음 조건 중 하나를 충족 하는 경우 지정 된 쌍에 대해 **true** 로 평가 됩니다.
+[상속](concepts-models.md#model-inheritance) 및 모델 [버전 관리](how-to-manage-model.md#update-models)를 고려 하 고 쌍이 다음 조건 중 하나를 충족 하는 경우 지정 된 쌍에 대해 **true** 로 평가 됩니다.
 
 * 쌍은에 제공 된 모델을 직접 구현 `IS_OF_MODEL()` 하 고 쌍에 있는 모델의 버전 번호는 제공 된 모델의 버전 번호 *보다 크거나 같습니다* .
 * 쌍은에 제공 된 모델을 *확장* 하는 모델을 구현 하 `IS_OF_MODEL()` 고 쌍의 확장 된 모델 버전 번호는 제공 된 모델의 버전 번호 *보다 크거나 같습니다* .
 
-이 메서드에는 몇 가지 오버 로드 옵션이 있습니다.
+예를 들어 모델의 쌍를 쿼리하면 `dtmi:example:widget;4` 쿼리가 **버전 4 이상의** **위젯** 모델을 기반으로 하는 모든 쌍을 반환 하 고, **위젯에 상속 된 모든 모델** 의 버전 **4 이상을** 기반으로 하는 쌍도 반환 합니다.
+
+`IS_OF_MODEL` 는 여러 가지 매개 변수를 사용할 수 있으며이 섹션의 나머지 부분은 다른 오버 로드 옵션에만 사용 됩니다.
 
 를 사용 하는 가장 간단한 방법은 매개 변수를 사용 하는 것 `IS_OF_MODEL` `twinTypeName` `IS_OF_MODEL(twinTypeName)` 입니다.
 이 매개 변수에 값을 전달 하는 쿼리 예제는 다음과 같습니다.
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 가 사용 되는 경우와 같이 두 개 이상 있을 때 검색할 쌍 컬렉션을 지정 하려면 `JOIN` `twinCollection` 매개 변수를 추가 `IS_OF_MODEL(twinCollection, twinTypeName)` 합니다.
 이 매개 변수에 대 한 값을 추가 하는 쿼리 예제는 다음과 같습니다.
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 정확히 일치 하는 항목을 수행 하려면 `exact` 매개 변수를 추가 `IS_OF_MODEL(twinTypeName, exact)` 합니다.
 이 매개 변수에 대 한 값을 추가 하는 쿼리 예제는 다음과 같습니다.
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 세 인수를 모두 함께 전달할 수도 있습니다 `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 세 매개 변수 모두에 대해 값을 지정 하는 쿼리 예제는 다음과 같습니다.
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>관계를 기반으로 하는 쿼리
