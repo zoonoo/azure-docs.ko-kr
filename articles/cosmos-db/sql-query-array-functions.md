@@ -3,23 +3,24 @@ title: Azure Cosmos DB 쿼리 언어의 배열 함수
 description: 배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e4f656d5ea917f99257ce8cbd8560cebca17eed5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0a180c8325e9b379e919e68afd9a0af6c196b55f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089494"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332614"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>배열 함수 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행할 수 있습니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 다음 스칼라 함수는 배열 입력 값에 대 한 작업을 수행 하 고 숫자, 부울 또는 배열 값을 반환 합니다.
 

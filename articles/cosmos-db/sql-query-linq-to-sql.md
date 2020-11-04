@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 LINQ to SQL 변환
 description: 지원 되는 LINQ 연산자 및 LINQ 쿼리가 Azure Cosmos DB의 SQL 쿼리에 매핑되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075404"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332375"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다.
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들어:
   
   ```
     family.Id;

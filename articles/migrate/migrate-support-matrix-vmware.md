@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate:Server Assessment 도구를 사용하여 VM을 평가하기 위한 VMware에 대한 지원을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315801"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332273"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -34,7 +34,7 @@ VMware VM을 Azure로 마이그레이션하려면 [마이그레이션 지원 매
 **VMware** | **세부 정보**
 --- | ---
 **vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5, 6.7 또는 7.0에서 관리 해야 합니다.<br/><br/> 어플라이언스에서 ESXi 호스트 세부 정보를 제공 하 여 VMware Vm을 검색 하는 기능은 현재 지원 되지 않습니다.
-**권한** | 서버 평가에는 검색 및 평가를 위한 vCenter Server 읽기 전용 계정이 필요 합니다.<br/><br/> 응용 프로그램 검색 또는 종속성 시각화를 수행 하려면 계정에 **Virtual Machines**  >  **게스트 작업**에 대 한 사용 권한이 있어야 합니다.
+**권한** | 서버 평가에는 검색 및 평가를 위한 vCenter Server 읽기 전용 계정이 필요 합니다.<br/><br/> 응용 프로그램 검색 또는 종속성 시각화를 수행 하려면 계정에 **Virtual Machines**  >  **게스트 작업** 에 대 한 사용 권한이 있어야 합니다.
 
 ## <a name="vm-requirements"></a>VM 요구 사항
 **VMware** | **세부 정보**
@@ -66,14 +66,14 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 **지원** | **세부 정보**
 --- | ---
-**지원되는 머신** | 앱 검색은 현재 VMware VM에만 지원됩니다.
+**지원되는 머신** | 앱 검색은 현재 VMware VM에만 지원됩니다. 각 Azure Migrate 어플라이언스에서 최대 1만 VMware Vm에 설치 된 앱을 검색할 수 있습니다.
 **검색** | 앱 검색은 에이전트 없이 수행됩니다. 머신 게스트 자격 증명을 사용하고 WMI 및 SSH 호출을 사용하여 머신에 원격으로 액세스합니다.
 **VM 지원** | 앱 검색은 모든 Windows 및 Linux 버전을 실행 하는 Vm에 대해 지원 됩니다.
-**vCenter** | 평가에 사용 되는 vCenter Server 읽기 전용 계정 **Virtual Machines**  >  입니다. 응용 프로그램 검색을 위해 VM과 상호 작용 하기 위해 Virtual Machines**게스트 작업**에 대해 사용 권한이 있어야 합니다.
+**vCenter** | 평가에 사용 되는 vCenter Server 읽기 전용 계정 **Virtual Machines**  >  입니다. 응용 프로그램 검색을 위해 VM과 상호 작용 하기 위해 Virtual Machines **게스트 작업** 에 대해 사용 권한이 있어야 합니다.
 **VM 액세스** | 앱 검색에는 응용 프로그램 검색을 위한 VM의 로컬 사용자 계정이 필요 합니다.<br/><br/> 현재 Azure Migrate는 모든 Windows 서버에 대해 하나의 자격 증명을 사용 하 고 모든 Linux 서버에 대해 하나의 자격 증명을 사용 하도록 지원 합니다.<br/><br/> Windows VM에 대한 게스트 사용자 계정과 모든 Linux VM에 대한 일반/정상 사용자 계정(sudo가 아닌 액세스)을 만듭니다.
 **VMware 도구** | 검색하려는 VM에 VMware 도구를 설치하고 실행해야 합니다. <br/><br/> VMware 도구 버전은 10.2.0 이상이어야 합니다.
 **PowerShell** | VM에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
-**포트 액세스** | 검색하려는 VM을 실행하는 ESXi 호스트에서 Azure Migrate 어플라이언스는 TCP 포트 443에 연결할 수 있어야 합니다.
+**포트 액세스** | Azure Migrate 어플라이언스는 앱을 검색 하려는 Vm을 실행 하는 ESXi 호스트의 TCP 포트 443에 연결할 수 있어야 합니다. VCenter Server는 ESXI 호스트 연결을 반환 하 여 앱 정보를 포함 하는 파일을 다운로드 합니다.
 **제한** | 앱 검색의 경우 각 Azure Migrate 어플라이언스에서 최대 10,000개의 VM을 검색할 수 있습니다.
 
 

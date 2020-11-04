@@ -5,14 +5,15 @@ description: NoSQL 데이터베이스의 데이터 모델링과 관계형 데이
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096651"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333243"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 모델링
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -300,7 +301,7 @@ Book documents:
 관계형 데이터베이스에서 *다대다* 관계는 다른 테이블의 레코드를 단순히 하나로 조인하는 조인 테이블을 사용해서 모델링되는 경우가 많습니다.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="관계형 데이터베이스 모델" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="테이블 조인" border="false":::
 
 여기에서도 문서를 사용해서 동일한 방식을 따르고 다음과 비슷하게 보이는 데이터 모델을 만들고 싶을 수도 있습니다.
 
@@ -403,7 +404,7 @@ Book documents:
 
 이 예에서는 **미리 계산 된 집계** 값이 있어 읽기 작업에서 비용이 많이 드는 처리를 저장 합니다. 이 예제에서 저자의 문서에 포함된 일부 데이터는 런타임에 계산되는 데이터입니다. 새 책이 게시될 때마다, 책 문서가 생성됩니다. **그리고** countOfBooks 필드가 특정 저자에 대해 존재하는 책 문서 번호를 기준으로 계산된 값으로 설정됩니다. 이러한 최적화는 읽기를 최적화하기 위해 읽기 계산을 수행할 수 있는 읽기에 집중된 시스템에서 효과적일 수 있습니다.
 
-모델에 사전 계산된 필드를 포함할 수 있는 기능은 Azure Cosmos DB에서 **다중 문서 트랜잭션** 이 지원되기 때문에 가능합니다. 많은 NoSQL 저장소에서는 문서 간 트랜잭션을 수행할 수 없기 때문에 이러한 제한으로 인해 "항상 모든 것으로 포함"하는 디자인을 선호합니다. Azure Cosmos DB에서는 서버 쪽 트리거 또는 저장 프로시저를 사용해서 ACID 트랜잭션 내에서 책을 삽입하고 저자를 업데이트할 수 있습니다. 이제 데이터를 일관되게 유지하기 위해 하나의 문서에 모든 것을 포함시킬 **필요가 없습니다** .
+모델에 사전 계산된 필드를 포함할 수 있는 기능은 Azure Cosmos DB에서 **다중 문서 트랜잭션** 이 지원되기 때문에 가능합니다. 많은 NoSQL 저장소에서는 문서 간 트랜잭션을 수행할 수 없기 때문에 이러한 제한으로 인해 "항상 모든 것으로 포함"하는 디자인을 선호합니다. Azure Cosmos DB에서는 서버 쪽 트리거 또는 저장 프로시저를 사용해서 ACID 트랜잭션 내에서 책을 삽입하고 저자를 업데이트할 수 있습니다. 이제 데이터를 일관되게 유지하기 위해 하나의 문서에 모든 것을 포함시킬 **필요가 없습니다**.
 
 ## <a name="distinguishing-between-different-document-types"></a>여러 문서 형식 구별
 

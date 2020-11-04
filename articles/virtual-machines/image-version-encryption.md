@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048086"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333467"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "92048086"
 
 ## <a name="prerequisites"></a>전제 조건
 
-이 문서에서는 이미지에 사용할 디스크 암호화가 이미 설정 되어 있어야 합니다.
+이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 이미 설정 되어 있어야 합니다.
 
 - 고객 관리 키만 사용 하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)을 사용 하 여 **서버 쪽 암호화에서 고객이 관리 하는 키 사용** 을 참조 하세요.
 
@@ -210,12 +210,12 @@ Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여
 
 
 1. **이미지 버전 만들기** 페이지에서 **암호화** 탭을 선택합니다.
-2. **암호화 유형**에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택 하거나 **플랫폼 관리 및 고객 관리 키를 사용 하는 이중 암호화**를 선택 합니다. 
-3. 이미지의 각 디스크에 대해 드롭다운에서 사용할 **디스크 암호화 집합**을 선택합니다. 
+2. **암호화 유형** 에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택 하거나 **플랫폼 관리 및 고객 관리 키를 사용 하는 이중 암호화** 를 선택 합니다. 
+3. 이미지의 각 디스크에 대해 드롭다운에서 사용할 **디스크 암호화 집합** 을 선택합니다. 
 
 ### <a name="create-the-vm"></a>VM 만들기
 
-이미지 버전에서 VM을 만들고 고객이 관리 하는 키를 사용 하 여 디스크를 암호화할 수 있습니다. 포털에서 VM을 만들 때 **디스크** 탭에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택 하거나 **플랫폼 관리 및 고객 관리 키를 사용 하** 여 **암호화 유형에**대 한 이중 암호화를 선택 합니다. 그런 다음 드롭다운에서 암호화 집합을 선택할 수 있습니다.
+이미지 버전에서 VM을 만들고 고객이 관리 하는 키를 사용 하 여 디스크를 암호화할 수 있습니다. 포털에서 VM을 만들 때 **디스크** 탭에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택 하거나 **플랫폼 관리 및 고객 관리 키를 사용 하** 여 **암호화 유형에** 대 한 이중 암호화를 선택 합니다. 그런 다음 드롭다운에서 암호화 집합을 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

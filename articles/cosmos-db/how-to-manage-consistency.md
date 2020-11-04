@@ -3,16 +3,17 @@ title: Azure Cosmos DB에서 일관성 관리
 description: Azure Portal, .NET SDK, Java SDK 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 일관성 수준을 구성 하 고 관리 하는 방법을 알아봅니다.
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4be2b8cdd987b6357df283f0791593c51417dfc7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101498"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333480"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -282,7 +283,7 @@ item = client.ReadItem(doc_link, options)
 
 최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률** 이라는 그래프를 확인 합니다 (PBS 참조).
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 일관성 메뉴":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 PBS 그래프":::
 
 ## <a name="next-steps"></a>다음 단계
 

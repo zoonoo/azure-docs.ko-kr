@@ -3,15 +3,16 @@ title: Azure Cosmos DB 및 Azure Functions를 사용 하 여 서버를 사용 �
 description: Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버를 사용하지 않는 이벤트 구동 컴퓨팅 앱을 만들 수 있는 방법을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334075"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +63,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Portal에서 Cosmos DB에 대 한 Azure Functions 트리거를 만듭니다.":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>재무 사용 사례 - 타이머 트리거 및 입력 바인딩
 
@@ -76,9 +77,9 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 이 시나리오에 대한 Azure Portal의 코드를 보여 줍니다.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Index.js 파일":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Run.csx 파일":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Cosmos DB에 대 한 게임 사용 사례-Azure Functions 트리거 및 출력 바인딩 
 
@@ -125,21 +126,21 @@ Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴�
 
 * **모든 데이터 즉시 액세스** : Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](index-policy.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
 
-* **스키마 사용 안 함** . Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
+* **스키마 사용 안 함**. Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
 
-* **확장 가능한 처리량** . Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컨테이너를 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우, [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
+* **확장 가능한 처리량**. Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컨테이너를 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우, [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
 
-* **전역 복제** . Azure Cosmos DB 데이터를 [전 세계](distribute-data-globally.md)에 복제하여 대기 시간을 줄이고 사용자에게 가장 가까운 지역에 데이터를 배치할 수 있습니다. 모든 Azure Cosmos DB 쿼리와 마찬가지로, 이벤트 구동 트리거의 데이터는 사용자에게 가장 가까운 Azure Cosmos DB에서 읽은 데이터입니다.
+* **전역 복제**. Azure Cosmos DB 데이터를 [전 세계](distribute-data-globally.md)에 복제하여 대기 시간을 줄이고 사용자에게 가장 가까운 지역에 데이터를 배치할 수 있습니다. 모든 Azure Cosmos DB 쿼리와 마찬가지로, 이벤트 구동 트리거의 데이터는 사용자에게 가장 가까운 Azure Cosmos DB에서 읽은 데이터입니다.
 
 데이터를 저장하기 위해 Azure Functions와 통합하려고 하며 심층 인덱싱이 필요 없거나 첨부 파일 및 미디어 파일을 저장해야 하는 경우 [Azure Blob Storage 트리거](../azure-functions/functions-bindings-storage-blob.md)가 더 나은 옵션일 수 있습니다.
 
 Azure Functions의 이점: 
 
-* **이벤트 구동** . Azure Functions는 이벤트 구동이며 Azure Cosmos DB의 변경 피드를 수신 대기할 수 있습니다. 따라서 수신 논리를 만들 필요가 없으며, 단지 수신 대기 중인 변경 내용을 확인합니다. 
+* **이벤트 구동**. Azure Functions는 이벤트 구동이며 Azure Cosmos DB의 변경 피드를 수신 대기할 수 있습니다. 따라서 수신 논리를 만들 필요가 없으며, 단지 수신 대기 중인 변경 내용을 확인합니다. 
 
-* **제한 없음** . 함수는 병렬로 실행되며, 서비스가 필요한 횟수만큼 실행됩니다. 매개 변수를 설정합니다.
+* **제한 없음**. 함수는 병렬로 실행되며, 서비스가 필요한 횟수만큼 실행됩니다. 매개 변수를 설정합니다.
 
-* **빠른 작업에 좋음** . 이벤트가 발생할 때마다 서비스가 함수의 새 인스턴스를 실행하고 함수가 완료되는 즉시 닫습니다. 함수가 실행되는 시간만큼만 요금을 지불하면 됩니다.
+* **빠른 작업에 좋음**. 이벤트가 발생할 때마다 서비스가 함수의 새 인스턴스를 실행하고 함수가 완료되는 즉시 닫습니다. 함수가 실행되는 시간만큼만 요금을 지불하면 됩니다.
 
 Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한지 확실하지 않은 경우 [Flow, Logic Apps, Azure Functions 및 WebJobs 중에서 선택](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)을 참조하세요.
 
