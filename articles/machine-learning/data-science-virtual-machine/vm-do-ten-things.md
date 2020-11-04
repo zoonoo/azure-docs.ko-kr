@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320941"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -58,7 +58,7 @@ Jupyter를 시작한 후 `/notebooks` DSVM에 미리 포장 된 예: 전자 필�
 
 * 전자 필기장을 선택 하 여 코드를 확인 합니다.
 * Shift + Enter를 선택 하 여 각 셀을 실행 합니다.
-* **셀**실행을 선택 하 여 전체 노트북을 실행  >  **Run**합니다.
+* **셀** 실행을 선택 하 여 전체 노트북을 실행  >  **Run** 합니다.
 * Jupyter 아이콘 (왼쪽 위 모퉁이)을 선택 하 고 오른쪽에 있는 **새로 만들기** 단추를 선택한 다음 노트북 언어 (커널이 라고도 함)를 선택 하 여 새 노트북을 만듭니다.   
 
 > [!NOTE]
@@ -75,13 +75,13 @@ R의 경우 시작 메뉴 또는 바탕 화면에서 찾을 수 있는 RStudio�
 
 Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 설치된 Visual Studio Community Edition 같은 IDE를 사용할 수 있습니다. 3.6 기본적으로 Conda (root environment)는 PTVS에서 구성 됩니다. Anaconda Python 2.7을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. **도구**  >  **python 도구**  >  **python 환경**으로 이동한 다음 Visual Studio Community Edition에서 **+ 사용자 지정** 을 선택 하 여 각 버전에 대 한 사용자 지정 환경을 만듭니다.
+1. **도구**  >  **python 도구**  >  **python 환경** 으로 이동한 다음 Visual Studio Community Edition에서 **+ 사용자 지정** 을 선택 하 여 각 버전에 대 한 사용자 지정 환경을 만듭니다.
 1. 설명을 지정 하 고 환경 접두사 경로를 Anaconda Python 2.7에 대 한 **c:\anaconda\envs\python2** 로 설정 합니다.
 1. **자동 검색**  >  **적용** 을 선택 하 여 환경을 저장 합니다.
 
-Python 환경을 만드는 방법에 대 한 자세한 내용은 [Ptvs 설명서](https://aka.ms/ptvsdocs) 를 참조 하세요.
+Python 환경을 만드는 방법에 대 한 자세한 내용은 [Ptvs 설명서](/visualstudio/python/) 를 참조 하세요.
 
-이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일**  >  **새로 만들기**프로젝트 Python으로 이동 하 여  >  **Project**  >  **Python** 빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거**를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](https://aka.ms/ptvsdocs)에서 확인할 수 있습니다.
+이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일**  >  **새로 만들기** 프로젝트 Python으로 이동 하 여  >  **Project**  >  **Python** 빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거** 를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](/visualstudio/python/)에서 확인할 수 있습니다.
 
 
 
@@ -91,7 +91,7 @@ DSVM을 사용 하면 가상 머신에서 로컬로 분석 솔루션을 빌드�
 Azure 구독 및 클라우드 리소스를 관리 하기 위해 다음 두 가지 옵션을 사용할 수 있습니다.
 + 브라우저를 사용 하 여 [Azure Portal](https://portal.azure.com)로 이동 합니다.
 
-+ PowerShell 스크립트를 사용 합니다. 바탕 화면 또는 **시작** 메뉴의 바로 가기에서 Azure PowerShell를 실행 합니다. 자세한 내용은 [Microsoft Azure PowerShell 설명서](../../powershell-azure-resource-manager.md) 를 참조 하세요. 
++ PowerShell 스크립트를 사용 합니다. 바탕 화면 또는 **시작** 메뉴의 바로 가기에서 Azure PowerShell를 실행 합니다. 자세한 내용은 [Microsoft Azure PowerShell 설명서](../../azure-resource-manager/management/manage-resources-powershell.md) 를 참조 하세요. 
 
 ## <a name="extend-storage-by-using-shared-file-systems"></a>공유 파일 시스템을 사용 하 여 저장소 확장
 데이터 과학자는 팀 내에서 대용량 데이터 세트, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM은 약 45 GB의 공간을 사용할 수 있습니다. 저장소를 확장 하려면 Azure Files을 사용 하 고 하나 이상의 DSVM 인스턴스에 탑재 하거나 REST API를 통해 액세스할 수 있습니다. [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 를 사용 하거나 [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) 를 사용 하 여 전용 데이터 디스크를 더 추가할 수도 있습니다. 
@@ -162,7 +162,7 @@ Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제�
 
    ![Azure Portal 저장소 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/create-azure-blob.png)
 
-* 명령줄 AzCopy 도구가 사전 설치 되어 있는지 확인 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` 합니다. azcopy.exe를 포함 하는 디렉터리는 PATH 환경 변수에 이미 있으므로이 도구를 실행할 때 전체 명령 경로를 입력 하지 않아도 됩니다. AzCopy 도구에 대 한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조 하세요.
+* 명령줄 AzCopy 도구가 사전 설치 되어 있는지 확인 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` 합니다. azcopy.exe를 포함 하는 디렉터리는 PATH 환경 변수에 이미 있으므로이 도구를 실행할 때 전체 명령 경로를 입력 하지 않아도 됩니다. AzCopy 도구에 대 한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy-v10.md)를 참조 하세요.
 * Azure Storage Explorer 도구를 시작합니다. [Storage 탐색기 웹 페이지](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
    ![저장소 계정에 액세스 하 Azure Storage 탐색기 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -197,7 +197,7 @@ AzCopy 명령을 실행 하 여 Azure blob에 복사 하면 파일이 Azure Stor
 Azure Storage 탐색기를 사용 하 여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
 * 컨테이너에 데이터를 업로드 하려면 대상 컨테이너를 선택 하 고 **업로드** 단추를 선택 합니다. ![ Azure Storage 탐색기 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
-* **파일 상자 오른쪽** 에 있는 줄임표 (**...**)를 선택 하 고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 다음 **업로드** 를 선택 하 여 파일 업로드를 시작 합니다. ![ 파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
+* **파일 상자 오른쪽** 에 있는 줄임표 ( **...** )를 선택 하 고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 다음 **업로드** 를 선택 하 여 파일 업로드를 시작 합니다. ![ 파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Azure blob에서 데이터 읽기: Python ODBC
 
@@ -255,7 +255,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (이전의 SQL DW) 및 데이터베이스
 Azure Synapse Analytics (이전의 SQL DW)는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적 데이터 웨어하우스 서비스로 서,
 
-[이 문서의](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)지침에 따라 Azure Synapse Analytics를 프로 비전 할 수 있습니다. Azure Synapse Analytics를 프로 비전 한 후 [이 연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용 하 여 Azure Synapse analytics 내에서 데이터를 사용 하 여 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
+[이 문서의](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)지침에 따라 Azure Synapse Analytics를 프로 비전 할 수 있습니다. Azure Synapse Analytics를 프로 비전 한 후 [이 연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용 하 여 Azure Synapse analytics 내에서 데이터를 사용 하 여 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 같은 문서를 사용 하 고 문서를 저장 및 쿼리 하는 데 사용할 수 있습니다.
@@ -269,12 +269,12 @@ Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-데이터를 가져온 후 Jupyter로 이동 하 여 *Documentdbsample*이라는 제목의 노트를 열 수 있습니다. Azure Cosmos DB에 액세스 하 고 몇 가지 기본 쿼리를 수행 하는 Python 코드를 포함 합니다. 서비스의 [설명서 페이지](https://docs.microsoft.com/azure/cosmos-db/)를 방문 하 여 Azure Cosmos DB에 대해 자세히 알아볼 수 있습니다.
+데이터를 가져온 후 Jupyter로 이동 하 여 *Documentdbsample* 이라는 제목의 노트를 열 수 있습니다. Azure Cosmos DB에 액세스 하 고 몇 가지 기본 쿼리를 수행 하는 Python 코드를 포함 합니다. 서비스의 [설명서 페이지](../../cosmos-db/index.yml)를 방문 하 여 Azure Cosmos DB에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Power BI 보고서 및 대시보드 사용 
 Power BI Desktop의 이전 Azure Cosmos DB 예제에서 화산 JSON 파일을 시각화 하 여 데이터에 대 한 시각적 정보를 얻을 수 있습니다. 자세한 단계는 [Power BI 문서](../../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 다음과 같습니다.
 
-1. Power BI Desktop을 열고 **Get Data**를 선택합니다. URL을로 지정 `https://cahandson.blob.core.windows.net/samples/volcano.json` 합니다.
+1. Power BI Desktop을 열고 **Get Data** 를 선택합니다. URL을로 지정 `https://cahandson.blob.core.windows.net/samples/volcano.json` 합니다.
 2. 목록으로 가져온 JSON 레코드가 표시 됩니다. Power BI 사용할 수 있도록 목록을 테이블로 변환 합니다.
 4. 확장 (화살표) 아이콘을 선택 하 여 열을 확장 합니다.
 5. 위치가 **레코드** 필드 임을 확인 합니다. 레코드를 확장하고 좌표만 선택합니다. **좌표** 는 목록 열입니다.
@@ -315,7 +315,7 @@ in
 ## <a name="add-more-tools"></a>도구 더 추가
 DSVM에 미리 작성 된 도구는 많은 일반 데이터 분석 요구 사항을 해결할 수 있습니다. 환경을 하나씩 설치 하 고 구성할 필요가 없기 때문에 시간을 절약할 수 있습니다. 또한 사용 하는 리소스에 대해서만 비용을 지불 하기 때문에 비용을 절감할 수 있습니다.
 
-이 문서에서 프로 파일링 한 다른 Azure 데이터 및 분석 서비스를 사용 하 여 분석 환경을 향상 시킬 수 있습니다. 일부 경우에는 일부 독점 파트너 도구를 비롯 한 추가 도구가 필요할 수 있습니다. 가상 컴퓨터에 대 한 모든 관리 권한을 보유 하 여 필요한 새 도구를 설치할 수 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 또는 중 하나를 사용할 수 있습니다 ```conda``` ```pip``` . R의 경우 ```install.packages()``` r 콘솔에서을 사용 하거나, IDE를 사용 하 고 **패키지**  >  **설치 패키지**를 선택할 수 있습니다.
+이 문서에서 프로 파일링 한 다른 Azure 데이터 및 분석 서비스를 사용 하 여 분석 환경을 향상 시킬 수 있습니다. 일부 경우에는 일부 독점 파트너 도구를 비롯 한 추가 도구가 필요할 수 있습니다. 가상 컴퓨터에 대 한 모든 관리 권한을 보유 하 여 필요한 새 도구를 설치할 수 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 또는 중 하나를 사용할 수 있습니다 ```conda``` ```pip``` . R의 경우 ```install.packages()``` r 콘솔에서을 사용 하거나, IDE를 사용 하 고 **패키지**  >  **설치 패키지** 를 선택할 수 있습니다.
 
 ## <a name="deep-learning"></a>딥 러닝
 
@@ -326,10 +326,9 @@ DSVM에 미리 작성 된 도구는 많은 일반 데이터 분석 요구 사항
 
 - [이미지 내 제품을 검색하는 엔드투엔드 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 상당한 보상을 가져올 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
 
-- [오디오에 대 한 심층 학습](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/):이 자습서에서는 [도시 소리 데이터 집합](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)에서 오디오 이벤트 검색을 위한 심층 학습 모델을 학습 하는 방법을 보여 줍니다. 또한 오디오 데이터로 작업 하는 방법에 대 한 개요를 제공 합니다.
+- [오디오에 대 한 심층 학습](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure):이 자습서에서는 [도시 소리 데이터 집합](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)에서 오디오 이벤트 검색을 위한 심층 학습 모델을 학습 하는 방법을 보여 줍니다. 또한 오디오 데이터로 작업 하는 방법에 대 한 개요를 제공 합니다.
 
 - [텍스트 문서 분류](https://github.com/anargyri/lstm_han):이 연습에서는 두 신경망 아키텍처를 작성 하 고 학습 하는 방법을 보여 줍니다. 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. 
 
 ## <a name="summary"></a>요약
 이 문서에서는 Microsoft Data Science Virtual Machine에서 수행할 수 있는 몇 가지 작업에 대해 설명 했습니다. DSVM을 효과적인 분석 환경으로 만들기 위해 수행할 수 있는 더 많은 작업이 있습니다.
-

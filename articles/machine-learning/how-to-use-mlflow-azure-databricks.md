@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347039"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319034"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 Azure Databricks ML 실험 추적 (미리 보기)
 
 이 문서에서는 MLflow [추적 URI](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)및 로깅 API를 사용 하 여 Azure Databricks (adb) 실험, mlflow 및 Azure Machine Learning에 연결 하는 방법을 알아봅니다.
 
-[MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다. [Azure Databricks 및 MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요. 
+[MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다. [Azure Databricks 및 MLflow](/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요. 
 
 추가 MLflow 및 Azure Machine Learning 기능 통합의 경우 [실험 실행 추적 및 MLflow를 사용 하 여 끝점 만들기 및 Azure Machine Learning](how-to-use-mlflow.md) 를 참조 하세요.
 
@@ -35,8 +35,8 @@ ms.locfileid: "91347039"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * `azureml-mlflow` 패키지를 설치합니다. 
-    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 자동으로 가져옵니다.
-* [Azure Databricks 작업 영역 및 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
+* [Azure Databricks 작업 영역 및 클러스터](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
 ## <a name="track-azure-databricks-runs"></a>Azure Databricks 실행 추적
@@ -72,7 +72,7 @@ ADB 클러스터를 설정 하면
 1. 왼쪽 탐색 창에서 **작업 영역** 을 선택 합니다. 
 1. 작업 영역 드롭다운 메뉴를 확장 하 고 **가져오기** 를 선택 합니다.
 1. ADB 작업 영역을 가져오려면 끌어서 놓거나 실험 노트북을 찾습니다.
-1. **가져오기**를 선택합니다. 실험 노트북이 자동으로 열립니다.
+1. **가져오기** 를 선택합니다. 실험 노트북이 자동으로 열립니다.
 1. 왼쪽 상단의 노트북 제목 아래에서 실험 노트북에 연결 하려는 클러스터를 선택 합니다. 
 
 ## <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>Azure Databricks 및 Azure Machine Learning 작업 영역 연결
@@ -156,9 +156,9 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 백 엔드 추적 서버는 기본적으로 Azure Databricks 작업 영역입니다. [Azure Machine Learning 작업 영역 에서만 추적 하도록 MLflow 추적을 설정](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace)하도록 선택 하지 않은 경우 백엔드 추적 서버는 Azure Machine Learning 작업 영역입니다.   
 
-* **이름을 가진 등록 된 모델이 없는 경우**메서드는 새 모델을 등록 하 고 버전 1을 만든 다음 Modelversion mlflow 개체를 반환 합니다. 
+* **이름을 가진 등록 된 모델이 없는 경우** 메서드는 새 모델을 등록 하 고 버전 1을 만든 다음 Modelversion mlflow 개체를 반환 합니다. 
 
-* **이름을 가진 등록 된 모델이 이미 있는 경우**메서드는 새 모델 버전을 만들고 버전 개체를 반환 합니다. 
+* **이름을 가진 등록 된 모델이 이미 있는 경우** 메서드는 새 모델 버전을 만들고 버전 개체를 반환 합니다. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -216,15 +216,15 @@ display(preds)
 
 작업 영역에서 기록 된 메트릭과 아티팩트를 사용 하지 않으려는 경우에는 개별적으로 삭제할 수 있는 기능을 현재 사용할 수 없습니다. 대신, 저장소 계정 및 작업 영역을 포함 하는 리소스 그룹을 삭제 하 여 요금이 발생 하지 않도록 합니다.
 
-1. Azure Portal의 맨 왼쪽에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 맨 왼쪽에서 **리소스 그룹** 을 선택합니다.
 
    ![Azure Portal에서 삭제](./media/how-to-use-mlflow-azure-databricks/delete-resources.png)
 
 1. 목록에서 만든 리소스 그룹을 선택합니다.
 
-1. **리소스 그룹 삭제**를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택합니다.
 
-1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
+1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제** 를 선택합니다.
 
 ## <a name="example-notebooks"></a>노트북 예제
 
@@ -234,4 +234,4 @@ display(preds)
 
 * [모델 관리](concept-model-management-and-deployment.md).
 * [MLflow 및 Azure Machine Learning를 사용 하 여 실험 실행을 추적 하 고 끝점을 만듭니다](how-to-use-mlflow.md). 
-* [Azure Databricks 및 MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요.
+* [Azure Databricks 및 MLflow](/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요.

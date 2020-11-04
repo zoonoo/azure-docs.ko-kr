@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321026"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (미리 보기) 문제 해결
 
 이 문제 해결 가이드에서는 네트워크 연결 문제에 대 한 지원 티켓을 열 때 제공할 정보에 대 한 지침을 제공 합니다. 적절 한 정보를 사용 하 여 문제를 신속 하 게 해결할 수 있습니다.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>SQL 주문형 (미리 보기) 서비스 연결 문제
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>서버를 사용 하지 않는 SQL 풀 (미리 보기) 서비스 연결 문제
 
 ### <a name="symptom-1"></a>증상 1
 
-"SQL 주문형" 옵션은 "연결 대상" 드롭다운에서 회색으로 표시 됩니다.
+"서버를 사용 하지 않는 SQL 풀" 옵션은 "연결 대상" 드롭다운에서 회색으로 표시 됩니다.
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>증상 2
 
-"SQL 주문형"을 사용 하 여 쿼리를 실행 하면 "서버에 대 한 연결을 설정 하지 못했습니다." 라는 오류 메시지가 표시 됩니다.
+"서버 리스 SQL 풀"을 사용 하 여 쿼리를 실행 하면 "서버에 대 한 연결을 설정 하지 못했습니다." 라는 오류 메시지가 표시 됩니다.
 
 ![증상 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ ms.locfileid: "91287750"
 
 문제 해결을 시작 하려면 Azure Synapse Studio에서 수행한 작업을 다시 시도 하세요.
 
-- 증상 1의 경우 "SQL 스크립트" 탭에서 "데이터베이스 사용" 드롭다운의 오른쪽에 있는 "새로 고침" 단추를 선택 하 고 "SQL 주문형"을 볼 수 있는지 확인 합니다.
+- 증상 1의 경우 "SQL 스크립트" 탭에서 "데이터베이스 사용" 드롭다운의 오른쪽에 있는 "새로 고침" 단추를 선택 하 고 "서버 리스 SQL 풀"을 볼 수 있는지 확인 합니다.
 - 증상 2의 경우 쿼리를 다시 실행 하 여 성공적으로 실행 되는지 확인 합니다.
 
 문제가 계속 되 면 브라우저에서 F12 키를 눌러 "개발자 도구" (DevTools)를 엽니다.
@@ -61,7 +61,7 @@ Url 열이 다음 패턴과 일치 하는 항목을 찾습니다.
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-여기서 [*A*]는 작업 영역 이름이 고 "-ondemand"는 "-sqlod"이 고, 여기서 [*B*]는 "master"와 같은 데이터베이스 이름 이어야 합니다. URL 값이 같지만 메서드 값이 다른 항목이 최대 두 개 있어야 합니다. 옵션 및 게시물. 이러한 두 항목의 상태 열에 "200" 또는 "20x"가 있는지 여부를 확인 합니다. 여기서 "x"는 단일 숫자일 수 있습니다.
+여기서 [ *A* ]는 작업 영역 이름이 고 "-ondemand"는 "-sqlod"이 고, 여기서 [ *B* ]는 "master"와 같은 데이터베이스 이름 이어야 합니다. URL 값이 같지만 메서드 값이 다른 항목이 최대 두 개 있어야 합니다. 옵션 및 게시물. 이러한 두 항목의 상태 열에 "200" 또는 "20x"가 있는지 여부를 확인 합니다. 여기서 "x"는 단일 숫자일 수 있습니다.
 
 둘 중 하나에 "20x" 및가 아닌 다른 항목이 있는 경우:
 
@@ -71,7 +71,7 @@ Url 열이 다음 패턴과 일치 하는 항목을 찾습니다.
 
     - ERR_NAME_NOT_RESOLVED 표시 되 고 10 분 이내에 작업 영역을 만든 경우 10 분 동안 기다린 후 다시 시도 하 여 문제가 계속 있는지 확인 합니다.
     - ERR_INTERNET_DISCONNECTED 또는 ERR_NETWORK_CHANGED 표시 되는 경우 PC 네트워크 연결에 문제가 있음을 나타낼 수 있습니다. 네트워크 연결을 확인 하 고 작업을 다시 시도 하세요.
-    - ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR 또는 "SSL"을 포함 하는 기타 오류 코드가 표시 되는 경우 로컬 SSL 구성에 문제가 있거나 네트워크 관리자가 SQL 주문형 서버에 대 한 액세스를 차단 했음을 나타낼 수 있습니다. 지원 티켓을 열고 설명에 오류 코드를 연결 합니다.
+    - ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR 또는 "SSL"을 포함 하는 다른 오류 코드가 표시 되는 경우 로컬 SSL 구성에 문제가 있거나 네트워크 관리자가 서버를 사용 하지 않는 SQL 풀 서버에 대 한 액세스를 차단한 것일 수 있습니다. 지원 티켓을 열고 설명에 오류 코드를 연결 합니다.
     - ERR_NETWORK_ACCESS_DENIED 표시 되는 경우 관리자에 게 문의 하 여 로컬 방화벽 정책에서 *. database.windows.net 도메인 또는 원격 포트 1443에 대 한 액세스를 차단 했는지 확인 해야 할 수 있습니다.
     - 필요에 따라 다른 컴퓨터 및/또는 네트워크 환경에서 동일한 작업을 즉시 시도 하 여 PC에서 네트워크 구성 문제를 제외 합니다.
 

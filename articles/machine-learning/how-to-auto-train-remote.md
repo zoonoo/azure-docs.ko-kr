@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 57108bed97b59513309213d55a0654f4405d509c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1f73e3d31e162801e540e4d4ed5881041c4178
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893315"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320780"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -43,9 +43,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>리소스 만들기
 
-[`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
+[`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
 
-**예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
+**예상 시간** : AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -90,7 +90,7 @@ else:
 
 ## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-Training_data로 정의 되 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) . `TabularDataset`기본적으로 메서드는를 `from_delimited_files` true로 설정 하 여 `infer_column_types` 열 형식을 자동으로 유추 합니다. 
+Training_data로 정의 되 [`TabularDataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) . `TabularDataset`기본적으로 메서드는를 `from_delimited_files` true로 설정 하 여 `infer_column_types` 열 형식을 자동으로 유추 합니다. 
 
 수동으로 열 유형을 설정 하려면 인수를 설정 `set_column_types` 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
@@ -200,7 +200,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-results"></a>결과 탐색
 
-[학습 자습서](tutorial-auto-train-models.md#explore-the-results) 에 표시 된 것과 동일한 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) 사용 하 여 그래프와 결과 테이블을 볼 수 있습니다.
+[학습 자습서](tutorial-auto-train-models.md#explore-the-results) 에 표시 된 것과 동일한 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) 사용 하 여 그래프와 결과 테이블을 볼 수 있습니다.
 
 ```python
 from azureml.widgets import RunDetails

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321421"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>TDE (투명한 데이터 암호화) 보호기 회전
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "92788607"
 이 가이드에서는 서버에서 TDE 보호기를 회전하는 두 가지 옵션을 설명합니다.
 
 > [!NOTE]
-> 일시 중지 된 Azure Synapse Analytics SQL 풀은 키 회전 전에 다시 시작 해야 합니다.
+> Azure Synapse Analytics에서 일시 중지 된 전용 SQL 풀은 키를 회전 하기 전에 다시 시작 해야 합니다.
 
 > [!IMPORTANT]
 > 롤오버 후에는 이전 버전의 키를 삭제 하지 마십시오. 키가 롤오버될 때 구 데이터베이스 백업 같은 일부 데이터는 이전 키로 계속 암호화되어 있습니다.

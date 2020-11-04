@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b708d85e94782ea264432ae3780b2b1f0d240396
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296776"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320819"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
 
-이 문서에서는 [PYTHON SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
 
 이렇게 하려면 다음을 수행합니다. 
 
@@ -120,7 +120,7 @@ AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방
 
 ## <a name="configure-experiment"></a>실험 구성
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
 
 ### <a name="supported-models"></a>지원되는 모델
 자동화 된 machine learning은 모델 생성 및 조정 프로세스의 일부로 다른 모델 및 알고리즘을 자동으로 시도 합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 예측 실험의 경우 기본 시계열 및 심층 학습 모델은 모두 권장 사항 시스템의 일부입니다. 다음 표에서는 이러한 모델의 하위 집합을 요약 합니다. 
@@ -138,7 +138,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 
 회귀 문제와 마찬가지로 태스크 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 
 
-다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대 한 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 를 참조 하세요.
+다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대 한 [참조 설명서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
 
 | 매개 변수&nbsp;이름 | Description | 필수 |
 |-------|-------|-------|
@@ -148,11 +148,12 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 |`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연 되는 기능은 `target_lags` 가 설정 되 고 `feature_lags` 가로 설정 된 경우 자동 ML에 의해 자동으로 결정 됩니다 `auto` . 기능 지연을 사용 하면 정확도를 향상 시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용 되지 않습니다. ||
-|`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n*개 기록 기간입니다. 생략하면 *n*은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
+|`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
+|`short_series_handling`| 데이터 부족으로 인 한 학습 중에 오류가 발생 하지 않도록 짧은 시계열 처리를 사용 합니다. Short 시리즈 처리는 기본적으로 True로 설정 됩니다.|
 
 
 다음 코드 
-* 를 `time-series settings` 사전 개체로 만듭니다. 
+* 클래스를 활용 `ForecastingParameters` 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
 * 을 `time_column_name` `day_datetime` 데이터 집합의 필드로 설정 합니다. 
 * `time_series_id_column_names`에 대 한 매개 변수를 정의 `"store"` 합니다. 이렇게 하면 데이터에 대해 **두 개의 개별 시계열 그룹이** 만들어집니다. 저장소 A와 B에 대 한 하나입니다.
 * `forecast_horizon`전체 테스트 집합을 예측 하기 위해를 50로 설정 합니다. 
@@ -161,16 +162,18 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 * 가 `target_lags` 이 값을 자동으로 검색 하는 권장 되는 "자동" 설정으로 설정 합니다.
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-`time_series_settings`그런 다음 `AutoMLConfig` `forecasting` 작업 유형, 기본 메트릭, 종료 조건 및 학습 데이터와 함께 표준 개체에 전달 됩니다. 
+`forecasting_parameters`그런 다음 `AutoMLConfig` `forecasting` 작업 유형, 기본 메트릭, 종료 조건 및 학습 데이터와 함께 표준 개체에 전달 됩니다. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -346,4 +349,3 @@ day_datetime,store,week_of_year
 * [Interpretability: 자동화 된 machine learning (미리 보기)의 모델](how-to-machine-learning-interpretability-automl.md)설명에 대해 알아봅니다. 
 * 여러 [모델 솔루션 가속기](https://aka.ms/many-models)에서 automl을 사용 하 여 여러 모델을 학습 하는 방법에 대해 알아봅니다.
 * 자동화 된 기계 학습으로 실험을 만드는 방법에 대 한 종단 간 예제는 [자습서](tutorial-auto-train-models.md) 를 따르세요.
-

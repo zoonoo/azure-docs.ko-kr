@@ -1,7 +1,7 @@
 ---
 title: 모델 메모리 및 CPU 사용량 프로 파일링
 titleSuffix: Azure Machine Learning
-description: 모델 메모리와 CPU 사용량을 프로 파일링 하는 방법 알아보기
+description: 배포 전에 모델을 프로 파일링 하는 방법을 알아봅니다. 프로 파일링은 모델의 메모리 및 CPU 사용량을 결정 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 95f35c2734e0a8dbc39d409847976b8b31716f81
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998777"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320398"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>모델을 프로 파일링 하 여 리소스 사용률 확인
 
@@ -133,7 +133,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

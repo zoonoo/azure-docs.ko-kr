@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321205"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>팀 데이터 과학 프로세스 팀에 대 한 팀 리더 작업
 
@@ -31,7 +31,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 
 1. Azure DevOps의 그룹 조직에서 **팀 프로젝트** 를 만듭니다. 
   
-1. 기본 팀 리포지토리의 이름을 **Teamutilities**로 바꿉니다.
+1. 기본 팀 리포지토리의 이름을 **Teamutilities** 로 바꿉니다.
   
 1. 팀 프로젝트에 새 **Teamtemplate** 리포지토리를 만듭니다. 
   
@@ -49,7 +49,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure DevOps 및 DSVM을 사용 하 여 TDSP 팀 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 팀 리더 작업은 동일 하지만이를 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md)에 의해 다음과 같은 리소스 및 사용 권한이 설정 되어 있다고 가정 합니다.
 
@@ -61,8 +61,8 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 
 - Azure 구독
 - Git이 컴퓨터에 설치 되어 있어야 합니다. DSVM을 사용 하는 경우 Git이 사전 설치 됩니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.
-- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](/azure/machine-learning/data-science-virtual-machine/)를 참조 하세요.
-- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자**를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
+- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](../data-science-virtual-machine/index.yml)를 참조 하세요.
+- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자** 를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
 - Linux DSVM의 경우 DSVM에 설정 되 고 Azure DevOps에 추가 된 SSH 공개 키입니다. 자세한 내용 및 지침은 [platform and tools 부록](platforms-and-tools.md#appendix)에서 **SSH 공개 키 만들기** 섹션을 참조 하세요. 
 
 ## <a name="create-a-team-project-and-repositories"></a>팀 프로젝트 및 리포지토리 만들기
@@ -77,7 +77,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 - 여러 데이터 과학 팀이 없는 작은 데이터 과학 그룹 
 - 여러 데이터 과학 팀을 포함 하는 대규모 데이터 과학 그룹으로, 그러나 그룹 수준 스 프린트 계획과 같은 작업으로 팀 간 공동 작업을 최적화 하려고 합니다. 
 
-팀이 단일 그룹 프로젝트에서 팀 특정 리포지토리를 사용 하도록 선택 하는 경우 팀은 * \<TeamName> 템플릿* 및 * \<TeamName> 유틸리티*와 같은 이름의 리포지토리를 만들어야 합니다. 예: *TeamATemplate* 및 *TeamAUtilities*. 
+팀이 단일 그룹 프로젝트에서 팀 특정 리포지토리를 사용 하도록 선택 하는 경우 팀은 *\<TeamName> 템플릿* 및 *\<TeamName> 유틸리티* 와 같은 이름의 리포지토리를 만들어야 합니다. 예: *TeamATemplate* 및 *TeamAUtilities*. 
 
 어떤 경우 든 팀 리더는 팀 멤버가 설정 하 고 복제할 템플릿 및 유틸리티 리포지토리를 알고 있어야 합니다. 프로젝트 책임자는 개별 프로젝트 또는 단일 프로젝트에서 프로젝트 리포지토리를 만들기 위해 [데이터 과학 팀에 대 한 프로젝트 리더 작업](project-lead-tasks.md) 을 따라야 합니다. 
 
@@ -85,32 +85,32 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 
 팀에 대 한 별도의 프로젝트를 만들려면 다음을 수행 합니다.
 
-1. 웹 브라우저에서 URL *https: \/ / \<server name> / \<organization name> *에서 그룹의 Azure devops 조직 홈 페이지로 이동 하 고 **새 프로젝트**를 선택 합니다. 
+1. 웹 브라우저에서 URL *https: \/ / \<server name> / \<organization name>* 에서 그룹의 Azure devops 조직 홈 페이지로 이동 하 고 **새 프로젝트** 를 선택 합니다. 
    
    ![새 프로젝트 선택](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. **프로젝트 만들기** 대화 상자에서 팀 이름 (예: *Myteam*)을 **프로젝트 이름**아래에 입력 한 다음 **고급**을 선택 합니다. 
+1. **프로젝트 만들기** 대화 상자에서 팀 이름 (예: *Myteam* )을 **프로젝트 이름** 아래에 입력 한 다음 **고급** 을 선택 합니다. 
    
-1. **버전 제어**에서 **Git**을 선택 하 고 **작업 항목 프로세스**에서 **Agile**을 선택 합니다. 그런 다음 **만들기**를 선택합니다. 
+1. **버전 제어** 에서 **Git** 을 선택 하 고 **작업 항목 프로세스** 에서 **Agile** 을 선택 합니다. 그런 다음 **만들기** 를 선택합니다. 
    
    ![프로젝트 만들기](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-팀 프로젝트 **요약** 페이지가 열리고 페이지 URL *https: \/ / \<server name> / \<organization name> / \<team name> *가 포함 됩니다.
+팀 프로젝트 **요약** 페이지가 열리고 페이지 URL *https: \/ / \<server name> / \<organization name> / \<team name>* 가 포함 됩니다.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>MyTeam 기본 리포지토리를 TeamUtilities로 이름 바꾸기
 
-1. **Myteam** 프로젝트 **요약** 페이지에서 **어떤 서비스를 시작**하 시겠습니까?에서 **리포지토리**을 선택 합니다. 
+1. **Myteam** 프로젝트 **요약** 페이지에서 **어떤 서비스를 시작** 하 시겠습니까?에서 **리포지토리** 을 선택 합니다. 
    
    ![리포지토리 선택](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
 1. **Myteam** 리포지토리 페이지에서 페이지 맨 위에 있는 **myteam** 리포지토리를 선택 하 고 드롭다운에서 **리포지토리 관리** 를 선택 합니다. 
    
    ![리포지토리 관리 선택](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
-1. **프로젝트 설정** 페이지에서 **myteam** **리포지토리 옆의 ...를** 선택 하 고 **리포지토리 이름 바꾸기**를 선택 합니다. 
+1. **프로젝트 설정** 페이지에서 **myteam** **리포지토리 옆의 ...를** 선택 하 고 **리포지토리 이름 바꾸기** 를 선택 합니다. 
    
    ![리포지토리 이름 바꾸기 선택](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. **MyTeam 리포지토리 이름 바꾸기** 팝업에서 *teamutilities*를 입력 한 다음 **이름 바꾸기**를 선택 합니다. 
+1. **MyTeam 리포지토리 이름 바꾸기** 팝업에서 *teamutilities* 를 입력 한 다음 **이름 바꾸기** 를 선택 합니다. 
 
 ### <a name="create-the-teamtemplate-repository"></a>TeamTemplate 리포지토리 만들기
 
@@ -120,7 +120,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    또는 **Myteam** 프로젝트 **요약** 페이지의 왼쪽 탐색 영역에서 **리포지토리** 를 선택 하 고 페이지 맨 위에 있는 리포지토리를 선택한 다음 드롭다운에서 **새 리포지토리** 를 선택 합니다.
    
-1. **새 리포지토리 만들기** 대화 상자에서 **Git** 이 **유형**아래에 선택 되어 있는지 확인 합니다. **리포지토리 이름**아래에서 *teamtemplate* 을 입력 한 다음 **만들기**를 선택 합니다.
+1. **새 리포지토리 만들기** 대화 상자에서 **Git** 이 **유형** 아래에 선택 되어 있는지 확인 합니다. **리포지토리 이름** 아래에서 *teamtemplate* 을 입력 한 다음 **만들기** 를 선택 합니다.
    
    ![리포지토리 만들기](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -136,19 +136,19 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    기본 **Teamtemplate** 리포지토리가 열립니다. 
    
-1. **Teamtemplate이 비어** 있습니다. 페이지에서 **가져오기**를 선택 합니다. 
+1. **Teamtemplate이 비어** 있습니다. 페이지에서 **가져오기** 를 선택 합니다. 
    
    ![가져오기 선택](./media/team-lead-tasks/import-repo.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *입니다. 예: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형** 으로 **Git** 을 선택 하 고 **복제 URL** 아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>* 입니다. 예: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
-1. **가져오기**를 선택합니다. 그룹 템플릿 리포지토리의 콘텐츠를 팀 템플릿 리포지토리로 가져옵니다. 
+1. **가져오기** 를 선택합니다. 그룹 템플릿 리포지토리의 콘텐츠를 팀 템플릿 리포지토리로 가져옵니다. 
    
    ![그룹 공통 템플릿 리포지토리 가져오기](./media/team-lead-tasks/import-repo-2.png)
    
 1. 프로젝트의 **리포지토리** 페이지 위쪽에서 **teamutilities** 리포지토리를 드롭다운 하 고 선택 합니다.
    
-1. 가져오기 프로세스를 반복 하 여 그룹 공통 유틸리티 리포지토리 (예: *Grouputilities*)의 콘텐츠를 **teamutilities** 리포지토리로 가져옵니다. 
+1. 가져오기 프로세스를 반복 하 여 그룹 공통 유틸리티 리포지토리 (예: *Grouputilities* )의 콘텐츠를 **teamutilities** 리포지토리로 가져옵니다. 
    
 이제 두 팀 리포지토리에는 해당 그룹 공통 리포지토리의 파일이 포함 됩니다. 
 
@@ -158,25 +158,25 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 
 Azure DevOps에서 직접 파일 또는 폴더를 수정, 업로드 또는 만들려면 다음을 수행 합니다.
 
-1. **Myteam** 프로젝트 **요약** 페이지에서 **리포지토리**를 선택 합니다. 
+1. **Myteam** 프로젝트 **요약** 페이지에서 **리포지토리** 를 선택 합니다. 
    
 1. 페이지 맨 위에서 사용자 지정 하려는 리포지토리를 선택 합니다.
 
 1. 리포지토리 디렉터리 구조에서 변경 하려는 폴더 또는 파일로 이동 합니다. 
    
-   - 새 폴더 또는 파일을 만들려면 **새로**만들기 옆의 화살표를 선택 합니다. 
+   - 새 폴더 또는 파일을 만들려면 **새로** 만들기 옆의 화살표를 선택 합니다. 
      
      ![새 파일 만들기](./media/team-lead-tasks/new-file.png)
      
-   - 파일을 업로드 하려면 **파일 업로드**를 선택 합니다. 
+   - 파일을 업로드 하려면 **파일 업로드** 를 선택 합니다. 
      
      ![파일 업로드](./media/team-lead-tasks/upload-files.png)
      
-   - 기존 파일을 편집 하려면 파일로 이동한 다음 **편집**을 선택 합니다. 
+   - 기존 파일을 편집 하려면 파일로 이동한 다음 **편집** 을 선택 합니다. 
      
      ![파일 편집](./media/team-lead-tasks/edit-file.png)
      
-1. 파일을 추가 하거나 편집한 후 **커밋**을 선택 합니다.
+1. 파일을 추가 하거나 편집한 후 **커밋** 을 선택 합니다.
    
    ![변경 내용 커밋](./media/team-lead-tasks/commit.png)
 
@@ -184,11 +184,11 @@ Azure DevOps에서 직접 파일 또는 폴더를 수정, 업로드 또는 만�
 
 리포지토리를 복제 하려면:
 
-1. **Myteam** 프로젝트 **요약** 페이지에서 **리포지토리**를 선택 하 고 페이지 맨 위에서 복제할 리포지토리를 선택 합니다.
+1. **Myteam** 프로젝트 **요약** 페이지에서 **리포지토리** 를 선택 하 고 페이지 맨 위에서 복제할 리포지토리를 선택 합니다.
    
 1. 리포지토리 페이지에서 오른쪽 위에 있는 **복제** 를 선택 합니다.
    
-1. **리포지토리 복제** 대화 상자의 **명령줄**에서 HTTP 연결에는 **HTTPS** 를, ssh 연결에는 **ssh** 를 선택 하 고 복제 URL을 클립보드에 복사 합니다.
+1. **리포지토리 복제** 대화 상자의 **명령줄** 에서 HTTP 연결에는 **HTTPS** 를, ssh 연결에는 **ssh** 를 선택 하 고 복제 URL을 클립보드에 복사 합니다.
    
    ![복제 URL 복사](./media/team-lead-tasks/clone.png)
    
@@ -240,28 +240,28 @@ git push
 
 1. Azure DevOps의 **Myteam** 프로젝트 홈 페이지에서 왼쪽 탐색 영역에 있는 **프로젝트 설정** 을 선택 합니다. 
    
-1. **프로젝트 설정** 왼쪽 탐색 영역에서 **팀**을 선택 하 고 **팀** 페이지에서 **myteam 팀**을 선택 합니다. 
+1. **프로젝트 설정** 왼쪽 탐색 영역에서 **팀** 을 선택 하 고 **팀** 페이지에서 **myteam 팀** 을 선택 합니다. 
    
    ![팀 구성](./media/team-lead-tasks/teams.png)
    
-1. **팀 프로필** 페이지에서 **추가**를 선택 합니다.
+1. **팀 프로필** 페이지에서 **추가** 를 선택 합니다.
    
    ![MyTeam 팀에 추가](./media/team-lead-tasks/add-to-team.png)
    
-1. **사용자 및 그룹 추가** 대화 상자에서 그룹에 추가할 멤버를 검색 하 고 선택한 다음 **변경 내용 저장**을 선택 합니다. 
+1. **사용자 및 그룹 추가** 대화 상자에서 그룹에 추가할 멤버를 검색 하 고 선택한 다음 **변경 내용 저장** 을 선택 합니다. 
    
    ![사용자 및 그룹 추가](./media/team-lead-tasks/add-users.png)
    
 
 팀 멤버에 대 한 사용 권한을 구성 하려면:
 
-1. **프로젝트 설정** 왼쪽 탐색 영역에서 **사용 권한**을 선택 합니다. 
+1. **프로젝트 설정** 왼쪽 탐색 영역에서 **사용 권한** 을 선택 합니다. 
    
 1. **사용 권한** 페이지에서 멤버를 추가 하려는 그룹을 선택 합니다. 
    
-1. 해당 그룹에 대 한 페이지에서 **멤버**를 선택 하 고 **추가**를 선택 합니다. 
+1. 해당 그룹에 대 한 페이지에서 **멤버** 를 선택 하 고 **추가** 를 선택 합니다. 
    
-1. **멤버 초대** 팝업에서 그룹에 추가할 멤버를 검색 하 고 선택한 다음, **저장**을 선택 합니다. 
+1. **멤버 초대** 팝업에서 그룹에 추가할 멤버를 검색 하 고 선택한 다음, **저장** 을 선택 합니다. 
    
    ![멤버에 사용 권한 부여](./media/team-lead-tasks/grant-permissions.png)
 
@@ -296,7 +296,7 @@ Azure HDInsight Spark 클러스터와 같은 다른 리소스를 팀과 공유 �
    
 1. 사용할 저장소 계정을 선택 하거나 선택한 구독에서 새 계정을 만듭니다. Azure 파일 저장소 이름에 소문자, 숫자 및 하이픈을 사용할 수 있습니다.
    
-1. 저장소를 쉽게 탑재 하 고 공유 하려면 Enter 키를 누르거나 *Y* 를 입력 하 여 Azure 파일 저장소 정보를 현재 디렉터리의 텍스트 파일에 저장 합니다. **Docs\DataDictionaries**아래에 있는 **teamtemplate** 리포지토리에이 텍스트 파일을 체크 인할 수 있으므로 팀의 모든 프로젝트에서 액세스할 수 있습니다. 또한 다음 섹션에서 azure DSVM에 Azure file storage를 탑재 하는 파일 정보가 필요 합니다. 
+1. 저장소를 쉽게 탑재 하 고 공유 하려면 Enter 키를 누르거나 *Y* 를 입력 하 여 Azure 파일 저장소 정보를 현재 디렉터리의 텍스트 파일에 저장 합니다. **Docs\DataDictionaries** 아래에 있는 **teamtemplate** 리포지토리에이 텍스트 파일을 체크 인할 수 있으므로 팀의 모든 프로젝트에서 액세스할 수 있습니다. 또한 다음 섹션에서 azure DSVM에 Azure file storage를 탑재 하는 파일 정보가 필요 합니다. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>로컬 컴퓨터 또는 DSVM에 Azure file storage 탑재
 
@@ -318,7 +318,7 @@ Azure HDInsight Spark 클러스터와 같은 다른 리소스를 팀과 공유 �
    
 1. 이전 단계에서 Azure file storage 정보 파일을 저장 한 경우 Enter 키를 누르거나 *Y* 를 입력 하 여 계속 합니다. 만든 파일의 전체 경로와 이름을 입력 합니다. 
    
-   Azure 파일 저장소 정보 파일이 없으면 *n*을 입력 하 고 지침에 따라 구독, azure storage 계정 및 azure 파일 저장소 정보를 입력 합니다.
+   Azure 파일 저장소 정보 파일이 없으면 *n* 을 입력 하 고 지침에 따라 구독, azure storage 계정 및 azure 파일 저장소 정보를 입력 합니다.
    
 1. 파일 공유를 탑재할 로컬 또는 TDSP 드라이브의 이름을 입력 합니다. 화면에 기존 드라이브 이름 목록이 표시 됩니다. 아직 존재 하지 않는 드라이브 이름을 제공 하십시오.
    

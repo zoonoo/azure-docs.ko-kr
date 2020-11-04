@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse SQL을 사용 하 여 테이블에 대 한 통계 만들기 및 업데이트
-description: Synapse SQL 풀의 테이블에 대 한 쿼리 최적화 통계 생성 및 업데이트에 대 한 권장 사항 및 예제입니다.
+title: 테이블에 대 한 통계 만들기 및 업데이트
+description: 전용 SQL 풀의 테이블에 대 한 쿼리 최적화 통계를 만들고 업데이트 하기 위한 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,42 +11,42 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799318"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321071"
 ---
-# <a name="table-statistics-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 통계
+# <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 테이블 통계
 
-이 문서에서는 SQL 풀에서 테이블에 대 한 쿼리 최적화 통계를 만들고 업데이트 하기 위한 권장 사항 및 예제를 찾을 수 있습니다.
+이 문서에서는 전용 SQL 풀에서 테이블에 대 한 쿼리 최적화 통계를 만들고 업데이트 하기 위한 권장 사항 및 예제를 찾을 수 있습니다.
 
 ## <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-더 많은 SQL 풀에서 데이터를 인식 하 여 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. SQL 풀로 데이터를 로드 한 후에는 쿼리를 최적화 하기 위해 수행할 수 있는 가장 중요 한 작업 중 하나가 데이터에 대 한 통계를 수집 하는 것입니다.
+전용 SQL 풀에서 데이터를 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 전용 SQL 풀로 데이터를 로드 한 후에는 쿼리를 최적화 하기 위해 수행할 수 있는 가장 중요 한 작업 중 하나가 데이터에 대 한 통계를 수집 하는 것입니다.
 
-SQL 풀 쿼리 최적화 프로그램은 비용을 기반으로 하는 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다.
+전용 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다.
 
 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우에는 특정 계획을 선택할 수 있고, 선택한 날짜가 1백만 개의 행을 반환한다고 예측하는 경우에는 또 다른 계획을 선택할 수 있습니다.
 
 ## <a name="automatic-creation-of-statistic"></a>통계 자동 생성
 
-데이터베이스 AUTO_CREATE_STATISTICS 옵션을 on으로 설정 하면 SQL 풀에서 들어오는 사용자 쿼리를 분석 하 여 누락 된 통계를 분석 합니다.
+데이터베이스 AUTO_CREATE_STATISTICS 옵션을 on으로 설정 하면 전용 SQL 풀에서 들어오는 사용자 쿼리를 분석 하 여 누락 된 통계를 분석 합니다.
 
 누락된 통계가 있는 경우 쿼리 최적화 프로그램이 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어서 쿼리 계획의 카디널리티 추정값을 개선합니다.
 
 > [!NOTE]
 > 통계 자동 생성은 현재 기본적으로 설정됩니다.
 
-다음 명령을 실행 하 여 SQL 풀이 구성 AUTO_CREATE_STATISTICS 되었는지 확인할 수 있습니다.
+다음 명령을 실행 하 여 전용 SQL 풀이 구성 AUTO_CREATE_STATISTICS 되었는지 확인할 수 있습니다.
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-SQL 풀 AUTO_CREATE_STATISTICS 구성 되지 않은 경우 다음 명령을 실행 하 여이 속성을 사용 하도록 설정 하는 것이 좋습니다.
+전용 SQL 풀 AUTO_CREATE_STATISTICS 구성 되지 않은 경우 다음 명령을 실행 하 여이 속성을 사용 하는 것이 좋습니다.
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -72,7 +72,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 만들기는 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 에 기록 됩니다.
 
-자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행 하 여 이미 생성 된 통계를 볼 수 있습니다.
+자동 통계를 만들 때 _WA_Sys_ <16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행 하 여 이미 생성 된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -82,11 +82,11 @@ Table_name은 표시할 통계가 포함 된 테이블의 이름입니다. 이 �
 
 ## <a name="update-statistics"></a>통계 업데이트
 
-모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 SQL 풀로 로드 될 때마다 새 로드 날짜나 트랜잭션 날짜가 추가 됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
+모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 전용 SQL 풀로 로드 될 때마다 새 로드 날짜나 트랜잭션 날짜가 추가 됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
 
 값 분포가 일반적으로 변경 되지 않으므로 customer 테이블의 국가/지역 열에 대 한 통계는 업데이트 하지 않아도 됩니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
 
-그러나 SQL 풀에 국가/지역이 하나만 포함 되어 있고 새 국가/지역에서 데이터를 가져와 여러 국가/지역의 데이터를 저장 하는 경우에는 국가/지역 열에서 통계를 업데이트 해야 합니다.
+그러나 전용 SQL 풀에 국가/지역이 하나만 포함 되어 있고 새 국가/지역에서 데이터를 가져와 여러 국가/지역의 데이터를 저장 하는 경우에는 국가/지역 열에서 통계를 업데이트 해야 합니다.
 
 통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
@@ -97,11 +97,11 @@ Table_name은 표시할 통계가 포함 된 테이블의 이름입니다. 이 �
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
-이 질문은 데이터의 보존 기간을 기준으로 답할 수 있는 질문이 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다. 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간*입니다. 
+이 질문은 데이터의 보존 기간을 기준으로 답할 수 있는 질문이 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다. 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간* 입니다. 
 
 통계를 마지막으로 업데이트 한 이후 테이블 내의 데이터가 변경 되었는지 여부를 확인할 수 있는 동적 관리 뷰는 없습니다.  다음 두 쿼리는 통계가 유효 하지 않은지 여부를 확인 하는 데 도움이 될 수 있습니다.
 
-**쿼리 1:**  통계 (**stats_row_count**)와 실제 행 개수 (**actual_row_count**)의 행 수 차이를 확인 합니다. 
+**쿼리 1:**  통계 ( **stats_row_count** )와 실제 행 개수 ( **actual_row_count** )의 행 수 차이를 확인 합니다. 
 
 ```sql
 select 
@@ -182,11 +182,11 @@ WHERE
     st.[user_created] = 1;
 ```
 
-예를 들어 SQL 풀의 **날짜 열** 에는 일반적으로 자주 통계 업데이트가 필요 합니다. 새 행이 SQL 풀로 로드 될 때마다 새 로드 날짜나 트랜잭션 날짜가 추가 됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
+예를 들어 전용 SQL 풀의 **날짜 열** 에는 일반적으로 자주 통계 업데이트가 필요 합니다. 새 행이 전용 SQL 풀로 로드 될 때마다 새 로드 날짜나 트랜잭션 날짜가 추가 됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
 
 반대로, 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
 
-SQL 풀에 성별이 하나만 포함 되어 있고 새 요구 사항이 여러 성별 경우 성별 열에 대 한 통계를 업데이트 해야 합니다.
+전용 SQL 풀에 성별이 하나만 포함 되어 있고 새 요구 사항이 여러 성별 경우 성별 열에 대 한 통계를 업데이트 해야 합니다.
 
 자세한 내용은 [통계](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 대한 일반 가이드를 참조하세요.
 
@@ -214,7 +214,7 @@ SQL 풀에 성별이 하나만 포함 되어 있고 새 요구 사항이 여러 
 
 열에 대해 통계를 만들려면 통계 개체의 이름과 열 이름을 지정합니다.
 
-이 구문은 모든 기본 옵션을 사용합니다. SQL 풀은 통계를 만들 때 기본적으로 테이블의 **20%** 를 샘플링합니다.
+이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 통계를 만들 때 테이블의 **20%** 가 샘플링 됩니다.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -282,7 +282,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 > [!NOTE]
 > 쿼리 결과에서 행 수를 예측하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 대해서만 사용할 수 있습니다.
 
-이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category*에서 계산됩니다.
+이 예에서 히스토그램은 *product\_category* 에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category* 에서 계산됩니다.
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -314,7 +314,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>저장된 프로시저를 사용하여 데이터베이스의 모든 열에서 통계를 만듭니다.
 
-SQL 풀에는 SQL Server의 sp_create_stats에 해당 하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
+전용 SQL 풀에는 SQL Server의 sp_create_stats에 해당 하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
 
 다음 예제는 데이터베이스 설계를 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
@@ -462,7 +462,7 @@ UPDATE STATISTICS dbo.table1;
 UPDATE STATISTICS 문은 쉽게 사용할 수 있습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능이 문제가 아니면 통계가 최신 임을 보장 하는 가장 쉽고 완전 한 방법입니다.
 
 > [!NOTE]
-> 테이블에 대한 모든 통계를 업데이트하는 경우 SQL 풀은 각 통계 개체에 대한 테이블을 검사하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
+> 테이블의 모든 통계를 업데이트할 때 전용 SQL 풀은 각 통계 개체에 대 한 테이블을 샘플링 하는 검색을 수행 합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
 
 프로시저의 구현은 `UPDATE STATISTICS` [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조 하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 통계에 대한 헤더 메타데이터입니다. 히스토그램은 통계 개체의 첫 번째 키 열에 값의 분포를 표시합니다. 밀도 벡터는 열 간 상관 관계를 측정합니다.
 
 > [!NOTE]
-> SQL 풀은 통계 개체에 있는 임의의 데이터를 사용하여 카디널리티 추정값을 계산합니다.
+> 전용 SQL 풀은 통계 개체의 데이터를 사용 하 여 카디널리티 예상치를 계산 합니다.
 
 ### <a name="show-header-density-and-histogram"></a>헤더, 밀도 및 히스토그램 표시
 
@@ -578,7 +578,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 차이점
 
-DBCC SHOW_STATISTICS ()는 SQL Server에 비해 SQL 풀에서 보다 엄격 하 게 구현 됩니다.
+DBCC SHOW_STATISTICS ()는 SQL Server에 비해 전용 SQL 풀에서 보다 엄격 하 게 구현 됩니다.
 
 - 문서화되지 않은 기능은 지원되지 않습니다.
 - Stats_stream은 사용할 수 없습니다.

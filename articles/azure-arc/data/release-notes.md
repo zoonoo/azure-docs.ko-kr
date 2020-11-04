@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286563"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321716"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure Data CLI ( `azdata` ) 버전 번호: 20.2.3. 에서 다운로드 [https://
 
 이 릴리스에는 다음과 같은 주요 변경 사항이 도입 되었습니다. 
 
-* PostgreSQL CRD (사용자 지정 리소스 정의) 파일의 `shards` 이름은로 바뀝니다 `workers` . 이 단어 ( `workers` )는 명령줄 매개 변수 이름과 일치 합니다.
+* PostgreSQL 사용자 지정 리소스 정의 (CRD)에서 용어의 `shards` 이름이로 바뀝니다 `workers` . 이 단어 ( `workers` )는 명령줄 매개 변수 이름과 일치 합니다.
 
 * `azdata arc postgres server delete` postgres 인스턴스를 삭제 하기 전에 확인 메시지를 표시 합니다.  `--force`프롬프트를 건너뛰려면를 사용 합니다.
 
@@ -50,15 +50,15 @@ Azure Data CLI ( `azdata` ) 버전 번호: 20.2.3. 에서 다운로드 [https://
 
    * Azure에 로드 된 데이터가 없으면 다시 시도 하 라는 메시지가 표시 됩니다.
 
-* `azdata arc dc debug copy-logs` 이제 폴더에서 읽고 `/var/opt/controller/log` postgres 로그를 수집 합니다.
+* `azdata arc dc debug copy-logs` 이제 폴더에서 읽고 `/var/opt/controller/log` Linux에서 PostgreSQL 엔진 로그를 수집 합니다.
 
-*   백업을 만들고 복원 하는 동안 작업 표시기를 표시 합니다.
+*   PostgreSQL Hyperscale을 사용 하 여 백업을 만들고 복원 하는 동안 작업 표시기를 표시 합니다.
 
 * `azdata arc postrgres backup list` 에는 이제 백업 크기 정보가 포함 됩니다.
 
 * Azure Portal에서 SQL Managed Instance admin name 속성이 개요 블레이드의 오른쪽 열에 추가 되었습니다.
 
-* Azure Data Studio에서는 서버 그룹에 대 한 작업자 노드 수, vCore 및 메모리 설정을 구성할 수 있습니다. 
+* Azure Data Studio는 PostgreSQL Hyperscale의 작업자 노드 수, vCore 및 메모리 설정 구성을 지원 합니다. 
 
 * Preview는 Postgres 버전 11 및 12에 대 한 백업/복원을 지원 합니다.
 
@@ -80,9 +80,7 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 - 지금은 NFS를 사용 하는 경우 `allowRunAsRoot` `true` Azure Arc 데이터 컨트롤러를 만들기 전에 배포 프로필 파일에서를로 설정 해야 합니다.
 - SQL 및 PostgreSQL 로그인 인증만.  Azure Active Directory 또는 Active Directory는 지원 되지 않습니다.
 - OpenShift를 사용 하 여 데이터 컨트롤러를 만들려면 완화 된 보안 제약 조건이 필요 합니다.  자세한 내용은 설명서를 참조하십시오.
-- PostgresSQL Hyperscale worker 노드의 수는 _축소할_ 수 없습니다.
 - Azure Arc 데이터 컨트롤러 및 데이터베이스 인스턴스를 사용 하는 Azure Stack 허브에서 AKS 엔진 (Azure Kubernetes Service Engine)을 사용 하는 경우 최신 Kubernetes 버전으로 업그레이드할 수 없습니다. Kubernetes 클러스터를 업그레이드 하기 전에 Azure Arc data controller 및 모든 데이터베이스 인스턴스를 제거 합니다.
-- Preview는 Postgres 버전 11 엔진에 대 한 백업/복원을 지원 하지 않습니다. (10 월 2020 일에 해결 됨) Postgres 버전 12에 대 한 백업/복원만 지원 합니다.
 - Azure Kubernetes 서비스 (AKS)는 [여러 가용성 영역](../../aks/availability-zones.md) 에 걸쳐 있는 클러스터가 현재 azure Arc 사용 데이터 서비스에서 지원 되지 않습니다. 이 문제를 방지 하려면 Azure Portal에서 AKS 클러스터를 만들 때 영역을 사용할 수 있는 지역을 선택 하는 경우 선택 컨트롤에서 모든 영역을 선택 취소 합니다. 다음 이미지를 참조하세요.
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="없음을 지정 하려면 각 영역에 대 한 확인란의 선택을 취소 합니다.":::
@@ -90,10 +88,11 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 
 ### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale의 알려진 문제   
 
+- Preview는 PostgreSQL 버전 11 엔진의 백업/복원을 지원 하지 않습니다. PostgreSQL 버전 12에 대 한 백업/복원만 지원 합니다.
+- `azdata arc dc debug copy-logs` n은 Windows에서 PostgreSQL 엔진 로그를 수집 하지 않습니다.
 - 방금 삭제 한 서버 그룹의 이름이 포함 된 서버 그룹을 다시 만드는 작업이 실패 하거나 중단 될 수 있습니다. 
    - **해결 방법** 서버 그룹을 다시 만들거나 이전에 삭제 한 서버 그룹의 부하 분산 장치/외부 서비스를 기다릴 때 동일한 이름을 다시 사용 하지 마세요. 삭제 한 서버 그룹의 이름이이 `postgres01` 고 네임 스페이스에 호스트 된 것으로 가정 하면 `arc` 동일한 이름의 서버 그룹을 다시 만들기 전에 `postgres01-external-svc` 가 kubectl 명령의 출력에 표시 되지 않을 때까지 기다립니다 `kubectl get svc -n arc` .
- 
-- Azure Data Studio에서 개요 페이지 및 계산 + 저장소 구성 페이지를 로드 하는 속도가 느립니다. 
+ - Azure Data Studio에서 개요 페이지 및 계산 + 저장소 구성 페이지를 로드 하는 속도가 느립니다. 
 
 
 

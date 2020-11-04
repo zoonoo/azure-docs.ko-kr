@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: cf0817ad1e9fae901bfe2b4a174d95a4f673e4c0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676658"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319010"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 실험 실행 추적 및 ML 모델 배포 (미리 보기)
 
@@ -24,9 +24,9 @@ ms.locfileid: "92676658"
 
 지원 되는 기능은 다음과 같습니다. 
 
-+ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험을 위해 MLflow 추적을 이미 사용하고 있는 경우 작업 영역이 학습 메트릭 및 모델을 저장할 중앙 집중화된 안전하고 확장성 있는 위치를 제공합니다.
++ [Azure Machine Learning 작업 영역](./concept-azure-machine-learning-architecture.md#workspace)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험을 위해 MLflow 추적을 이미 사용하고 있는 경우 작업 영역이 학습 메트릭 및 모델을 저장할 중앙 집중화된 안전하고 확장성 있는 위치를 제공합니다.
 
-+ Azure Machine Learning 백엔드 지원 (미리 보기)을 사용 하 여 MLflow 프로젝트와 함께 학습 작업을 제출 합니다. Azure Machine Learning 추적을 사용 하 여 로컬로 작업을 제출 하거나 실행을 [Azure Machine Learning 계산](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute)을 통해 클라우드로 마이그레이션할 수 있습니다.
++ Azure Machine Learning 백엔드 지원 (미리 보기)을 사용 하 여 MLflow 프로젝트와 함께 학습 작업을 제출 합니다. Azure Machine Learning 추적을 사용 하 여 로컬로 작업을 제출 하거나 실행을 [Azure Machine Learning 계산](./how-to-create-attach-compute-cluster.md)을 통해 클라우드로 마이그레이션할 수 있습니다.
 
 + MLflow 및 Azure Machine Learning 모델 레지스트리에서 모델을 추적 하 고 관리 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "92676658"
 
  다음 표에서 Azure Machine Learning 및 해당 기능 기능을 사용할 수 있는 여러 클라이언트를 요약 합니다.
 
- MLflow 추적은 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
+ MLflow 추적은 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
 
 | 기능 | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
 |---|---|---|---|---|
@@ -65,14 +65,14 @@ ms.locfileid: "92676658"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * `azureml-mlflow` 패키지를 설치합니다. 
-    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 자동으로 가져옵니다.
+    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
 ## <a name="track-local-runs"></a>로컬 실행 추적
 
 MLflow 추적을 Azure Machine Learning과 함께 사용하면 로컬 실행의 로깅된 메트릭 및 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
 
-`mlflow` 및 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
+`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
 
 다음 코드에서 `get_mlflow_tracking_uri()` 메서드는 작업 영역 `ws`에 고유한 추적 URI 주소를 할당하고, `set_tracking_uri()`는 이 주소로 MLflow 추적 URI를 가리킵니다.
 
@@ -119,7 +119,7 @@ dependencies:
     - numpy
 ```
 
-스크립트에서 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 합니다. 그런 다음  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) 계산 대상으로 원격 계산을 사용 하 여를 생성 합니다.
+스크립트에서 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 [`Environment`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 합니다. 그런 다음  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) 계산 대상으로 원격 계산을 사용 하 여를 생성 합니다.
 
 ```Python
 import mlflow
@@ -146,7 +146,7 @@ run = exp.submit(src)
 pip install azureml-mlflow
 ```
 
-`mlflow` 및 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
+`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
 
 ```Python
 import mlflow
@@ -259,7 +259,7 @@ MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 하면 Azure Mac
 
 ### <a name="deploy-to-aci"></a>ACI에 배포
 
-[Deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -290,7 +290,7 @@ webservice.wait_for_deployment(show_output=True)
 
 ### <a name="deploy-to-aks"></a>AKS에 배포
 
-AKS에 배포 하려면 먼저 AKS 클러스터를 만듭니다. [ComputeTarget ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
+AKS에 배포 하려면 먼저 AKS 클러스터를 만듭니다. [ComputeTarget ()](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -310,7 +310,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-[Deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -367,5 +367,5 @@ webservice.wait_for_deployment()
 ## <a name="next-steps"></a>다음 단계
 
 * [모델 관리](concept-model-management-and-deployment.md).
-* [데이터 드리프트](how-to-monitor-data-drift.md)를 위한 프로덕션 모델 모니터링.
-* [MLflow를 사용 하 여 실행 Azure Databricks 추적](how-to-use-mlflow-azure-databricks.md)합니다. 
+* [데이터 드리프트](./how-to-enable-data-collection.md)를 위한 프로덕션 모델 모니터링.
+* [MLflow를 사용 하 여 실행 Azure Databricks 추적](how-to-use-mlflow-azure-databricks.md)합니다.

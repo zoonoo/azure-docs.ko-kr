@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321434"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Synapse SQL의 GROUP BY 옵션
+
 Synapse SQL을 사용 하면 다른 GROUP BY 옵션을 구현 하 여 솔루션을 개발할 수 있습니다. 
 
-## <a name="what-does-group-by-do"></a>그룹화 방법
+## <a name="what-group-by-does"></a>수행할 그룹화 방법
 
 [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다.
 
-SQL 주문형은 전체 범위의 GROUP BY 옵션을 지원 합니다. SQL 풀은 제한 된 수의 GROUP BY 옵션을 지원 합니다.
+서버를 사용 하지 않는 SQL 풀은 전체 범위의 GROUP BY 옵션을 지원 합니다. 전용 SQL 풀은 제한 된 수의 GROUP BY 옵션을 지원 합니다.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>SQL 풀에서 지원 되는 GROUP BY 옵션
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>전용 SQL 풀에서 지원 되는 그룹화 방법 옵션
 
-GROUP BY에는 SQL 풀에서 지원 하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법이 있습니다.
+GROUP BY에는 전용 SQL 풀에서 지원 하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법이 있습니다.
 
 * GROUP BY with ROLLUP
 * GROUPING SETS

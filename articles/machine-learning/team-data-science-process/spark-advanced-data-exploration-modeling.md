@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321340"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 
-이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 세트 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계를 엔드투엔드 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
+이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 세트 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](./index.yml)의 단계를 엔드투엔드 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
 
 * **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
 * **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "86027548"
 
 **하이퍼 매개 변수 최적화** 는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. **하이퍼 매개 변수** 는 모델 학습 절차 외부에서 지정해야 하는 값입니다. 이러한 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(Support Vector Machine)은 오분류 페널티 조건을 설정해야 합니다. 
 
-여기에 사용된 하이퍼 매개 변수 최적화를 수행하는 일반적인 방법은 그리드 검색 또는 **매개 변수 비우기**입니다. 이 검색은 학습 알고리즘에 대한 하이퍼 매개 변수 공간의 하위 집합에 대해 수행됩니다. 교차 유효성 검사는 그리드 검색 알고리즘에 의해 생성되는 최적의 결과를 분류하는 성능 메트릭을 제공할 수 있습니다. 하이퍼 매개 변수 비우기와 함께 사용된 CV를 통해 데이터 학습 모델의 과잉 맞춤과 같은 문제를 제한하여 모델이 학습 데이터가 추출되는 일반 데이터 집합에 적용할 용량을 유지하도록 합니다.
+여기에 사용된 하이퍼 매개 변수 최적화를 수행하는 일반적인 방법은 그리드 검색 또는 **매개 변수 비우기** 입니다. 이 검색은 학습 알고리즘에 대한 하이퍼 매개 변수 공간의 하위 집합에 대해 수행됩니다. 교차 유효성 검사는 그리드 검색 알고리즘에 의해 생성되는 최적의 결과를 분류하는 성능 메트릭을 제공할 수 있습니다. 하이퍼 매개 변수 비우기와 함께 사용된 CV를 통해 데이터 학습 모델의 과잉 맞춤과 같은 문제를 제한하여 모델이 학습 데이터가 추출되는 일반 데이터 집합에 적용할 용량을 유지하도록 합니다.
 
 사용하는 모델은 로지스틱 및 선형 회귀, 임의 포리스트, 그라데이션 향상된 트리를 포함합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "86027548"
 * [임의 포리스트](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 회귀 및 분류에 사용되며 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장할 수 있습니다. 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
 * [GBTS](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts)(그라데이션 향상 트리)는 결정 트리의 결합체입니다. GBTS는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBTS는 회귀 및 분류에 사용되며 범주 기능을 처리하고 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
-이진 분류 문제에 대한 CV 및 하이퍼 매개 변수 비우기를 사용하는 모델링 예제가 표시됩니다. 더 간단한 예제(매개 변수 비우기 없음)가 회귀 작업에 대한 주요 토픽으로 표시됩니다. 하지만 부록에서는 선형 회귀에 대해 탄력적 net을 사용한 유효성 검사와 임의 포리스트 회귀에 대해 사용한 매개 변수 비우기가 있는 CV도 표시됩니다. **탄력적 net**은 L1 및 L2 메트릭을 선형으로 결합하는 선형 회귀 모델을 [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) 및 [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) 메서드의 페널티로 맞추기 위한 정칙 회귀 메서드입니다.   
+이진 분류 문제에 대한 CV 및 하이퍼 매개 변수 비우기를 사용하는 모델링 예제가 표시됩니다. 더 간단한 예제(매개 변수 비우기 없음)가 회귀 작업에 대한 주요 토픽으로 표시됩니다. 하지만 부록에서는 선형 회귀에 대해 탄력적 net을 사용한 유효성 검사와 임의 포리스트 회귀에 대해 사용한 매개 변수 비우기가 있는 CV도 표시됩니다. **탄력적 net** 은 L1 및 L2 메트릭을 선형으로 결합하는 선형 회귀 모델을 [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) 및 [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) 메서드의 페널티로 맞추기 위한 정칙 회귀 메서드입니다.   
 
 <!-- -->
 
@@ -764,7 +764,7 @@ F1 Score = 0.984174341679
 
 **ROC 곡선을 그립니다.**
 
-*predictionAndLabelsDF*는 이전 셀에서 테이블 *tmp_results*로 등록되었습니다. *tmp_results*를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
+*predictionAndLabelsDF* 는 이전 셀에서 테이블 *tmp_results* 로 등록되었습니다. *tmp_results* 를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **ROC 곡선을 그립니다.**
 
-*predictionAndLabelsDF*는 이전 셀에서 테이블 *tmp_results*로 등록되었습니다. *tmp_results*를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
+*predictionAndLabelsDF* 는 이전 셀에서 테이블 *tmp_results* 로 등록되었습니다. *tmp_results* 를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
 
 ```python
 # QUERY RESULTS
@@ -1231,7 +1231,7 @@ R-sqr = 0.732680354389
 
 **그림**
 
-*tmp_results*는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
+*tmp_results* 는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
 
 ```python
 # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
@@ -1328,7 +1328,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **Evaluate with R-SQR metric**
 
-*tmp_results*는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
+*tmp_results* 는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
 
 ```python
 # SELECT RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다.
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
-

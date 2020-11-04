@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905271"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319400"
 ---
 # <a name="permutation-feature-importance"></a>순열 기능 중요도
 
@@ -24,7 +24,7 @@ ms.locfileid: "90905271"
 
 모듈에서 반환 하는 점수는 순열의 후 학습 된 모델의 성능 *변화* 를 나타냅니다. 중요 한 기능은 일반적으로 순서 섞기 프로세스에 더 중요 하므로 중요도 점수가 높아집니다. 
 
-이 문서에서는 기계 학습: [순열 기능 중요도](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx)의 순열 기능, 이론상의 해당 응용 프로그램에 대 한 개요를 제공 합니다.  
+이 문서에서는 기계 학습: [순열 기능 중요도](/archive/blogs/machinelearning/permutation-feature-importance)의 순열 기능, 이론상의 해당 응용 프로그램에 대 한 개요를 제공 합니다.  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>순열 기능 중요도를 사용 하는 방법
 
@@ -36,11 +36,11 @@ ms.locfileid: "90905271"
 
 3.  오른쪽 입력에서 데이터 집합을 연결 합니다. 모델 학습에 사용 하는 데이터 집합과 다른 하나를 선택 하는 것이 좋습니다. 이 데이터 집합은 학습 된 모델을 기준으로 점수를 매기는 데 사용 됩니다. 또한 기능 값이 변경 된 후 모델을 평가 하는 데 사용 됩니다.  
 
-4.  **임의 초기값**의 경우 임의 값의 초기값으로 사용할 값을 입력 합니다. 0 (기본값)을 지정 하면 시스템 클록을 기준으로 숫자가 생성 됩니다.
+4.  **임의 초기값** 의 경우 임의 값의 초기값으로 사용할 값을 입력 합니다. 0 (기본값)을 지정 하면 시스템 클록을 기준으로 숫자가 생성 됩니다.
 
      초기값은 선택 사항 이지만 동일한 파이프라인의 실행 간에 재현 가능성 하려는 경우 값을 제공 해야 합니다.  
 
-5.  **성능 측정 메트릭에**대해 순열 후 모델 품질을 계산 하는 경우 사용할 단일 메트릭을 선택 합니다.  
+5.  **성능 측정 메트릭에** 대해 순열 후 모델 품질을 계산 하는 경우 사용할 단일 메트릭을 선택 합니다.  
 
      Azure Machine Learning designer는 분류 또는 회귀 모델을 평가 하 고 있는지 여부에 따라 다음과 같은 메트릭을 지원 합니다.  
 
@@ -69,4 +69,4 @@ ms.locfileid: "90905271"
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9209b33f23b7f6c836dedb6227d052610a21d9d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089834"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319486"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,4 +65,5 @@ Azure Cosmos 컨테이너에 저장된 모든 항목에는 시스템 정의 `_et
 - [Azure Cosmos 데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md)
 - [일관성 수준](consistency-levels.md)
 - [충돌 유형 및 해결 정책](conflict-resolution-policies.md)
+- [TransactionalBatch 사용](transactional-batch.md)
 - [저장 프로시저, 트리거 및 사용자 정의 함수](stored-procedures-triggers-udfs.md)

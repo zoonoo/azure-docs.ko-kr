@@ -10,12 +10,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828569"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320990"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Data Science Virtual Machine을 Ubuntu 18.04로 업그레이드
 
@@ -38,9 +38,9 @@ Azure Portal에서 검색 표시줄을 사용 하 여 **스냅숏** 기능을 �
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
 
-1. **추가**를 선택 합니다. 그러면 **스냅숏 만들기** 페이지로 이동 합니다. 가상 컴퓨터의 구독 및 리소스 그룹을 선택 합니다. **지역**에서 대상 저장소가 있는 동일한 지역을 선택 합니다. DSVM 저장소 디스크 및 추가 백업 옵션을 선택 합니다. **표준 HDD** 은이 백업 시나리오에 적합 한 저장소 유형입니다.
+1. **추가** 를 선택 합니다. 그러면 **스냅숏 만들기** 페이지로 이동 합니다. 가상 컴퓨터의 구독 및 리소스 그룹을 선택 합니다. **지역** 에서 대상 저장소가 있는 동일한 지역을 선택 합니다. DSVM 저장소 디스크 및 추가 백업 옵션을 선택 합니다. **표준 HDD** 은이 백업 시나리오에 적합 한 저장소 유형입니다.
 
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="' 스냅숏 만들기 ' 옵션을 보여 주는 스크린샷":::
 
 2. 모든 세부 정보가 채워지고 유효성 검사에 통과 하면 **검토 + 만들기** 를 선택 하 여 스냅숏 유효성을 검사 하 고 만듭니다. 스냅숏이 성공적으로 완료 되 면 배포가 완료 되었다는 메시지가 표시 됩니다.
 
@@ -56,7 +56,7 @@ Azure Portal에서 검색 표시줄을 사용 하 여 **스냅숏** 기능을 �
     sudo do-release-upgrade
     ```
 
-업그레이드 프로세스를 완료 하는 데 시간이 오래 걸립니다. 이 기능을 사용 하는 경우 프로그램은 가상 컴퓨터를 다시 시작할 수 있는 권한을 요청 합니다. **예**를 대답 합니다. 시스템이 다시 부팅 되 면 SSH 세션에서 연결을 끊습니다.
+업그레이드 프로세스를 완료 하는 데 시간이 오래 걸립니다. 이 기능을 사용 하는 경우 프로그램은 가상 컴퓨터를 다시 시작할 수 있는 권한을 요청 합니다. **예** 를 대답 합니다. 시스템이 다시 부팅 되 면 SSH 세션에서 연결을 끊습니다.
 
 ### <a name="if-necessary-regenerate-ssh-keys"></a>필요한 경우 SSH 키를 다시 생성 합니다.
 
@@ -67,10 +67,15 @@ VM을 업그레이드 하 고 다시 부팅 한 후 SSH를 통해 다시 액세�
 
 **원격 호스트 ID가 변경 되었습니다**. 라는 오류 메시지가 표시 되 면 SSH 자격 증명을 다시 생성 해야 합니다.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시"
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="원격 호스트 id 변경 경고를 보여 주는 PowerShell 스크린샷":::
+
+이렇게 하려면 로컬 컴퓨터에서 명령을 실행 합니다.
+
+```bash
+ssh-keygen -R "your server hostname or ip"
 ```
 
-이제 SSH를 사용 하 여 연결할 수 있습니다. 여전히 문제가 발생 하는 경우에는 **연결** 페이지에서 **SSH 연결 문제 해결**에 대 한 링크를 따르세요.
+이제 SSH를 사용 하 여 연결할 수 있습니다. 여전히 문제가 발생 하는 경우에는 **연결** 페이지에서 **SSH 연결 문제 해결** 에 대 한 링크를 따르세요.
 
 ## <a name="side-by-side-migration"></a>단계별 마이그레이션
 
@@ -98,19 +103,19 @@ CentOS에서 마이그레이션하는 경우 또는 운영 체제를 새로 설�
 
 앞서 설명한 대로 VM 스냅숏을 아직 만들지 않은 경우 그렇게 합니다. 
 
-1. Azure Portal에서 **디스크** 를 검색 하 고 **추가**를 선택 합니다. 그러면 **디스크** 페이지가 열립니다.
+1. Azure Portal에서 **디스크** 를 검색 하 고 **추가** 를 선택 합니다. 그러면 **디스크** 페이지가 열립니다.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="디스크 검색 페이지 및 추가 단추를 표시 하는 Azure Portal의 스크린샷":::
 
-2. **구독**, **리소스 그룹**및 **지역을** VM 스냅숏의 값으로 설정 합니다. 만들 디스크의 **이름을** 선택 합니다.
+2. **구독** , **리소스 그룹** 및 **지역을** VM 스냅숏의 값으로 설정 합니다. 만들 디스크의 **이름을** 선택 합니다.
 
-3. **원본 유형을** **스냅숏으로** 선택 하 고 **원본 스냅숏으로**VM 스냅숏을 선택 합니다. 디스크를 검토 하 고 만듭니다. 
+3. **원본 유형을** **스냅숏으로** 선택 하 고 **원본 스냅숏으로** VM 스냅숏을 선택 합니다. 디스크를 검토 하 고 만듭니다. 
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="옵션을 표시 하는 디스크 만들기 대화 상자의 스크린샷":::
 
 ### <a name="create-a-new-ubuntu-data-science-virtual-machine"></a>새 Ubuntu Data Science Virtual Machine 만들기
 
-[Azure Portal](https://portal.azure.com) 또는 [ARM 템플릿을](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager)사용 하 여 새 Ubuntu Data Science Virtual Machine를 만듭니다. 
+[Azure Portal](https://portal.azure.com) 또는 [ARM 템플릿을](./dsvm-tutorial-resource-manager.md)사용 하 여 새 Ubuntu Data Science Virtual Machine를 만듭니다. 
 
 ### <a name="recreate-user-accounts-on-your-new-data-science-virtual-machine"></a>새 Data Science Virtual Machine에서 사용자 계정을 다시 만듭니다.
 
@@ -118,17 +123,17 @@ CentOS에서 마이그레이션하는 경우 또는 운영 체제를 새로 설�
 
 Linux는 새 설치의 디렉터리와 경로를 사용자 지정 하 여 이전 컴퓨터를 따르도록 유연 하 게 사용할 수 있습니다. 그러나 일반적으로 최신 Ubuntu의 기본 레이아웃을 사용 하 고 사용자 환경 및 스크립트를 수정 하 여 조정할 수 있습니다.
 
-자세한 내용은 [빠른 시작: Linux (Ubuntu)의 Data Science Virtual Machine 설정](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)을 참조 하세요.
+자세한 내용은 [빠른 시작: Linux (Ubuntu)의 Data Science Virtual Machine 설정](./dsvm-ubuntu-intro.md)을 참조 하세요.
 
 ### <a name="mount-the-disk-of-the-snapshotted-vm-as-a-data-disk-on-your-new-data-science-virtual-machine"></a>새 Data Science Virtual Machine에서 스냅숏 VM의 디스크를 데이터 디스크로 탑재
 
 1. Azure Portal에서 Data Science Virtual Machine 실행 중인지 확인 합니다.
 
-2. Azure Portal에서 Data Science Virtual Machine 페이지로 이동 합니다. 왼쪽 레일에서 **디스크** 블레이드를 선택 합니다. **기존 디스크 연결**을 선택 합니다.
+2. Azure Portal에서 Data Science Virtual Machine 페이지로 이동 합니다. 왼쪽 레일에서 **디스크** 블레이드를 선택 합니다. **기존 디스크 연결** 을 선택 합니다.
 
 3. **디스크 이름** 드롭다운에서 이전 VM의 스냅숏에서 만든 디스크를 선택 합니다.
 
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="디스크 첨부 파일 옵션을 보여 주는 DSVM 옵션 페이지의 스크린샷":::
 
 4. **저장** 을 선택 하 여 가상 머신을 업데이트 합니다.
 
@@ -147,7 +152,7 @@ Linux는 새 설치의 디렉터리와 경로를 사용자 지정 하 여 이전
     
     결과는 다음 이미지와 유사 하 게 표시 됩니다. 이미지에서 디스크는 `sda1` 루트에 탑재 되 고 `sdb2` `/mnt` 스크래치 디스크입니다. 이전 VM의 스냅숏에서 생성 된 데이터 디스크는 탑재 위치가 부족 한 것으로 확인 `sdc1` 되었지만 아직 사용할 수 없는 것으로 식별 됩니다. 결과의 식별자는 다를 수 있지만 유사한 패턴이 표시 되어야 합니다.
     
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="분리 된 데이터 드라이브를 표시 하는 lsblk 출력의 스크린샷":::
     
 3. 데이터 드라이브에 액세스 하려면 해당 위치를 만들어 탑재 합니다. `/dev/sdc1`에서 반환 된 적절 한 값으로 대체 합니다 `lsblk` .
 
@@ -157,7 +162,7 @@ Linux는 새 설치의 디렉터리와 경로를 사용자 지정 하 여 이전
     
 4. 이제에는 `/datadrive` 이전 Data Science Virtual Machine의 디렉터리와 파일이 포함 되어 있습니다. 원하는 대로 데이터 드라이브의 디렉터리 또는 파일을 새 VM으로 이동 하거나 복사 합니다.
 
-자세한 내용은 [포털을 사용 하 여 LINUX VM에 데이터 디스크 연결을](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)참조 하세요.
+자세한 내용은 [포털을 사용 하 여 LINUX VM에 데이터 디스크 연결을](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk)참조 하세요.
 
 ## <a name="connect-and-confirm-version-upgrade"></a>버전 업그레이드 연결 및 확인
 
@@ -169,13 +174,13 @@ cat /etc/os-release
 
 Ubuntu 18.04를 실행 하는 것을 확인 해야 합니다.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="OS 버전 데이터를 표시 하는 Ubuntu 터미널의 스크린샷":::
 
 버전의 변경 내용은 Azure Portal에도 표시 됩니다.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="* * 스냅숏이 강조 표시 된 Azure Portal 및 검색 창을 보여 주는 스크린샷 * * 강조 표시":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="OS 버전을 포함 하 여 DSVM 속성을 보여 주는 포털 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure에서 Ubuntu 데이터 과학 컴퓨터를 사용 하는 데이터 과학](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [Azure Data Science Virtual Machine에 포함되는 도구는?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Azure에서 Ubuntu 데이터 과학 컴퓨터를 사용 하는 데이터 과학](./linux-dsvm-walkthrough.md)
+- [Azure Data Science Virtual Machine에 포함되는 도구는?](./tools-included.md)

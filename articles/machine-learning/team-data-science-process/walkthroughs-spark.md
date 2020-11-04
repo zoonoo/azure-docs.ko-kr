@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864148"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320138"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Azure에서 PySpark 및 Scala를 사용하여 HDInsight Spark 데이터 과학 연습
 
 이러한 연습에서는 Azure Spark 클러스터에서 PySpark 및 Scala를 사용하여 예측 분석을 수행합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. HDInsight의 Spark 개요는 [HDInsight의 Spark 소개](../../hdinsight/spark/apache-spark-overview.md)를 참조하세요.
 
-Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사용하는 **플랫폼**에 따라 그룹화됩니다. 이러한 예제의 항목 목록은 [Team Data Science Process 실행 연습](walkthroughs.md)을 참조하세요.
+Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사용하는 **플랫폼** 에 따라 그룹화됩니다. 이러한 예제의 항목 목록은 [Team Data Science Process 실행 연습](walkthroughs.md)을 참조하세요.
 
 ## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Azure Spark에서 PySpark를 사용하여 택시 팁 예측
 
@@ -40,12 +40,11 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Azure Spark에서 Scala를 사용하여 택시 팁 예측
 
-[Azure에서 Spark와 함께 Scala 사용](scala-walkthrough.md) 연습에서는 팁이 지불 되었는지 여부와 예상 금액의 범위를 예측 합니다. Azure HDInsight Spark 클러스터에서 Spark MLlib(Machine Learning 라이브러리) 및 SparkML 패키지를 사용하여 감독 Machine Learning 작업에 대해 Scala를 사용하는 방법을 보여 줍니다. 데이터 [과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 구성 하는 태스크 (데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용)를 안내 합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
+[Azure에서 Spark와 함께 Scala 사용](scala-walkthrough.md) 연습에서는 팁이 지불 되었는지 여부와 예상 금액의 범위를 예측 합니다. Azure HDInsight Spark 클러스터에서 Spark MLlib(Machine Learning 라이브러리) 및 SparkML 패키지를 사용하여 감독 Machine Learning 작업에 대해 Scala를 사용하는 방법을 보여 줍니다. 데이터 [과학 프로세스](./index.yml)를 구성 하는 태스크 (데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용)를 안내 합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 팀 데이터 과학 프로세스에 대 한 개요는 [팀 데이터 과학 프로세스 개요](overview.md)를 참조 하세요.
 
-팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기에서는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 처음부터 끝까지 간략하게 설명 합니다. 
-
+팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기에서는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 처음부터 끝까지 간략하게 설명 합니다.

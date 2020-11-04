@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440408"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321249"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 엔드투엔드 연습
-이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여줍니다. [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), 엔드투엔드, 데이터 획득에서 모델 학습한 다음, 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
+이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여줍니다. [팀 데이터 과학 프로세스](./index.yml), 엔드투엔드, 데이터 획득에서 모델 학습한 다음, 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 ## <a name="technologies"></a>기술
 
@@ -48,7 +48,7 @@ Data Lake Analytics은 또한 Cortana Analytics Suite의 핵심 부분으로, Az
 Azure Machine Learning Studio (클래식)은 두 가지 방법, 즉 Python 스크립트와 HDInsight (Hadoop) 클러스터의 Hive 테이블을 사용 하 여 예측 모델을 빌드하고 배포 하는 데 사용 됩니다.
 
 ### <a name="scripts"></a>스크립트
-이 연습에는 주요 단계만 나와 있습니다. [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)에서 전체 **U-SQL 스크립트** 및 **Jupyter Notebook**을 다운로드할 수 있습니다.
+이 연습에는 주요 단계만 나와 있습니다. [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)에서 전체 **U-SQL 스크립트** 및 **Jupyter Notebook** 을 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 토픽을 시작하기 전에 다음이 있어야 합니다.
@@ -75,7 +75,7 @@ Azure Machine Learning Studio (클래식)은 두 가지 방법, 즉 Python 스�
 
 
 > [!NOTE]
-> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 스토리지로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 스토리지 계정을 별도의 단계로 만들지 않아도 됩니다.
+> **Azure Data Lake Store** 는 별도로 만들거나 **Azure Data Lake Analytics** 을 만들 때 기본 스토리지로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 스토리지 계정을 별도의 단계로 만들지 않아도 됩니다.
 >
 >
 
@@ -92,7 +92,7 @@ Azure Machine Learning Studio (클래식)은 두 가지 방법, 즉 Python 스�
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
-[Azure Portal](https://portal.azure.com)에서 Azure Blob Storage 계정을 만듭니다. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조 하세요.
+[Azure Portal](https://portal.azure.com)에서 Azure Blob Storage 계정을 만듭니다. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-account-create.md)의 저장소 계정 만들기 섹션을 참조 하세요.
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -143,7 +143,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 U-SQL 스크립트는 여기서 설명하고 별도의 파일로 제공됩니다. **GitHub** 에서 전체 [U-SQL 스크립트](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)를 다운로드할 수 있습니다.
 
-U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 --> 프로젝트**를 클릭한 후 **U-SQL 프로젝트**를 선택하고 이름을 지정하고 폴더에 저장합니다.
+U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 --> 프로젝트** 를 클릭한 후 **U-SQL 프로젝트** 를 선택하고 이름을 지정하고 폴더에 저장합니다.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **Wasb//container_name \@ blob_storage_account_name**를 사용 하 여 Azure Data Lake Storage에 대해 **swebhdfs://data_lake_storage_name. azuredatalakestorage/folder_name/File_name**_ 또는 Azure Blob Storage 계정으로 처리 된 데이터를 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **Wasb//container_name \@ blob_storage_account_name** 를 사용 하 여 Azure Data Lake Storage에 대해 **swebhdfs://data_lake_storage_name. azuredatalakestorage/folder_name/File_name** _ 또는 Azure Blob Storage 계정으로 처리 된 데이터를 저장할 수 있습니다.
 
 ```sql
 // change data types
@@ -461,7 +461,7 @@ USING Outputters.Csv();
 ```
 
 ### <a name="run-u-sql-jobs"></a><a name="run"></a>U-SQL 작업 실행
-U-SQL 스크립트를 편집한 후 Azure Data Lake Analytics 계정을 사용 하 여 서버에 제출할 수 있습니다. **Data Lake**, **작업 제출**을 클릭하고 **분석 계정**, **병렬 처리**를 선택하고 **제출** 단추를 클릭합니다.
+U-SQL 스크립트를 편집한 후 Azure Data Lake Analytics 계정을 사용 하 여 서버에 제출할 수 있습니다. **Data Lake** , **작업 제출** 을 클릭하고 **분석 계정** , **병렬 처리** 를 선택하고 **제출** 단추를 클릭합니다.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -618,7 +618,7 @@ from azureml import services
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>웹 서비스 API 구축 및 Python에서 사용
 기계 학습 모델을 빌드한 후 운영하려고 합니다. 여기서는 예로 이진 로지스틱 모델을 사용합니다. 로컬 컴퓨터의 scikit 버전이 0.15.1 인지 확인 합니다 (Azure Machine Learning Studio는 이미이 버전에 해당).
 
-* Azure Machine Learning Studio (클래식) 설정에서 작업 영역 자격 증명을 찾습니다. Azure Machine Learning Studio에서 **설정**  -->  **이름**  -->  **권한 부여 토큰**을 클릭 합니다.
+* Azure Machine Learning Studio (클래식) 설정에서 작업 영역 자격 증명을 찾습니다. Azure Machine Learning Studio에서 **설정**  -->  **이름**  -->  **권한 부여 토큰** 을 클릭 합니다.
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -671,11 +671,11 @@ Azure Machine Learning Studio (클래식)는 Azure Data Lake Storage에서 직�
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>HDInsight에서 Hive 테이블 만들기
-이제 이전 단계에서 Azure Data Lake Storage에 저장 된 데이터를 사용 하 여 HDInsight 클러스터의 Azure Machine Learning Studio (클래식)에서 사용할 Hive 테이블을 만듭니다. 방금 만든 HDInsight 클러스터로 이동합니다. **설정**  -->  **속성**  -->  **Cluster AAD Identity**  -->  **ADLS Access**를 클릭 하 고, 읽기, 쓰기 및 실행 권한이 있는 목록에 Azure Data Lake Storage 계정이 추가 되었는지 확인 합니다.
+이제 이전 단계에서 Azure Data Lake Storage에 저장 된 데이터를 사용 하 여 HDInsight 클러스터의 Azure Machine Learning Studio (클래식)에서 사용할 Hive 테이블을 만듭니다. 방금 만든 HDInsight 클러스터로 이동합니다. **설정**  -->  **속성**  -->  **Cluster AAD Identity**  -->  **ADLS Access** 를 클릭 하 고, 읽기, 쓰기 및 실행 권한이 있는 목록에 Azure Data Lake Storage 계정이 추가 되었는지 확인 합니다.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
-그런 다음 **설정** 단추 옆의 **대시보드**를 클릭하면 팝업 창이 나타납니다. 페이지의 오른쪽 위 모서리에서 **Hive 보기**를 클릭하면 **쿼리 편집기**가 표시됩니다.
+그런 다음 **설정** 단추 옆의 **대시보드** 를 클릭하면 팝업 창이 나타납니다. 페이지의 오른쪽 위 모서리에서 **Hive 보기** 를 클릭하면 **쿼리 편집기** 가 표시됩니다.
 
  ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
 
@@ -722,8 +722,8 @@ LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 빌드 및 배포
 이제 팁이 Azure Machine Learning에서 유료인지 여부를 예측하는 모델을 빌드 및 배포할 준비가 되었습니다. 계층화된 샘플 데이터는 이 이진 분류(팁인지 아닌지) 문제에서 사용할 준비가 되었습니다. 다중 클래스 분류(tip_class) 및 회귀(tip_amount)를 사용하는 예측 모델은 Azure Machine Learning Studio를 사용하여 빌드 및 배포할 수도 있지만 여기에서는 이진 분류 모델을 사용하여 사례를 처리하는 방법만 살펴보겠습니다.
 
-1. 데이터 **입력 및 출력** 섹션에서 사용할 수 있는 데이터 **가져오기** 모듈을 사용 하 여 데이터를 Azure Machine Learning Studio (클래식)으로 가져옵니다. 자세한 내용은 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 참조 페이지를 참조하세요.
-2. **속성** 패널에서 **데이터 원본**으로 **Hive 쿼리**를 선택합니다.
+1. 데이터 **입력 및 출력** 섹션에서 사용할 수 있는 데이터 **가져오기** 모듈을 사용 하 여 데이터를 Azure Machine Learning Studio (클래식)으로 가져옵니다. 자세한 내용은 [데이터 가져오기](/azure/machine-learning/studio-module-reference/import-data) 참조 페이지를 참조하세요.
+2. **속성** 패널에서 **데이터 원본** 으로 **Hive 쿼리** 를 선택합니다.
 3. 다음 Hive 스크립트를 **Hive 데이터베이스 쿼리** 편집기에 붙여 넣습니다.
 
     ```hiveql
@@ -754,7 +754,7 @@ LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder
 이 연습을 완료 하면 Azure Data Lake에서 확장성 있는 종단 간 솔루션을 빌드하기 위한 데이터 과학 환경을 만들었습니다. 이 환경은 모델 학습을 통한 데이터 획득부터 웹 서비스로 모델 배포에 이르는 데이터 과학 프로세스의 정식 단계를 통해 가져온 대형 공용 데이터 세트를 분석하는 데 사용되었습니다. U-SQL은 데이터를 처리 하 고 탐색 하 고 샘플링 하는 데 사용 되었습니다. Python 및 Hive는 Azure Machine Learning Studio (클래식)에서 예측 모델을 빌드하고 배포 하는 데 사용 되었습니다.
 
 ## <a name="whats-next"></a>다음 작업
-[TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 토픽에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
+[TDSP(팀 데이터 과학 프로세스)](./index.yml) 에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 토픽에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
 
 * [실행 중인 팀 데이터 과학 프로세스: Azure Synapse Analytics 사용](sqldw-walkthrough.md)
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md)

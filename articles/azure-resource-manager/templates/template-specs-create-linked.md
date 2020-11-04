@@ -2,17 +2,17 @@
 title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728542"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321594"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
-[연결 된 템플릿을](linked-templates.md#linked-template)사용 하 여 [템플릿 사양을](template-specs.md) 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 이 문서에서는 `relativePath` [배포 리소스](/azure/templates/microsoft.resources/deployments)의 속성을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
+주 템플릿과 [연결 된 템플릿을](linked-templates.md#linked-template)사용 하 여 [템플릿 사양을](template-specs.md) 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 이 문서에서는 `relativePath` [배포 리소스](/azure/templates/microsoft.resources/deployments)의 속성을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -27,7 +27,7 @@ ms.locfileid: "91728542"
 
 템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 부모 템플릿의 경로에 따라 연결 된 템플릿의 상대 경로를 지정 합니다.
 
-연결 된 템플릿은 ** 에서linkedTemplate.js**이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  RelativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
+연결 된 템플릿은 **에서linkedTemplate.js** 이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  RelativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -162,7 +162,7 @@ ms.locfileid: "91728542"
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
-템플릿 사양은 리소스 그룹에 저장 됩니다.  리소스 그룹을 만든 후 다음 스크립트를 사용 하 여 템플릿 사양을 만듭니다. 템플릿 사양 이름은 **Webspec**입니다.
+템플릿 사양은 리소스 그룹에 저장 됩니다.  리소스 그룹을 만든 후 다음 스크립트를 사용 하 여 템플릿 사양을 만듭니다. 템플릿 사양 이름은 **Webspec** 입니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 CSV 파일 쿼리
-description: 이 문서에서는 SQL 주문형(미리 보기)으로 다른 파일 형식의 단일 CSV 파일을 쿼리하는 방법에 대해 알아봅니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 CSV 파일 쿼리 (미리 보기)
+description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 다른 파일 형식으로 단일 CSV 파일을 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288293"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321454"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 단일 CSV 파일을 쿼리하는 방법에 대해 알아봅니다. CSV 파일의 형식은 서로 다를 수 있습니다. 
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 단일 CSV 파일을 쿼리 하는 방법에 대해 알아봅니다. CSV 파일의 형식은 서로 다를 수 있습니다. 
 
 - 헤더 행 포함 또는 제외
 - 쉼표 및 탭으로 구분된 값
@@ -95,7 +95,7 @@ from openrowset(
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것**입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
+첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것** 입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
 
 ## <a name="windows-style-new-line"></a>Windows 스타일 줄 바꿈
 

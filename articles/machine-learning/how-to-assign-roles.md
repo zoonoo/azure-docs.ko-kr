@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320843"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
-이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure Active Directory 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
+이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure Active Directory 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
 
 ## <a name="default-roles"></a>기본 역할
 
@@ -34,18 +34,18 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 | **사용자 지정 역할** | 작업 영역 내에서 특정 컨트롤이 나 데이터 평면 작업에 대 한 액세스를 사용자 지정할 수 있습니다. 예를 들어 실행을 제출 하 고, 계산을 생성 하 고, 모델을 배포 하거나, 데이터 집합을 등록 합니다. |
 
 > [!IMPORTANT]
-> Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [AZURE RBAC 작동 방식](/azure/role-based-access-control/overview#how-azure-rbac-works)을 참조 하세요.
+> Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [AZURE RBAC 작동 방식](../role-based-access-control/overview.md#how-azure-rbac-works)을 참조 하세요.
 
-특정 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조 하세요.
+특정 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 ## <a name="manage-workspace-access"></a>작업 영역 액세스 관리
 
 작업 영역의 소유자 인 경우 작업 영역에 대 한 역할을 추가 하 고 제거할 수 있습니다. 또한 사용자에 게 역할을 할당할 수 있습니다. 다음 링크를 사용 하 여 액세스를 관리 하는 방법을 알아봅니다.
-- [Azure Portal UI](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure 리소스 관리자 템플릿](/azure/role-based-access-control/role-assignments-template)
+- [Azure Portal UI](../role-based-access-control/role-assignments-portal.md)
+- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+- [REST API](../role-based-access-control/role-assignments-rest.md)
+- [Azure 리소스 관리자 템플릿](../role-based-access-control/role-assignments-template.md)
 
 [AZURE MACHINE LEARNING cli](reference-azure-machine-learning-cli.md)를 설치한 경우 cli 명령을 사용 하 여 사용자에 게 역할을 할당할 수 있습니다.
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Azure Machine Learning 작업
 
-많은 작업 및 작업에 대 한 기본 제공 작업을 Azure Machine Learning 합니다. 전체 목록은 [Azure 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)을 참조 하세요.
+많은 작업 및 작업에 대 한 기본 제공 작업을 Azure Machine Learning 합니다. 전체 목록은 [Azure 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)을 참조 하세요.
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure Machine learning의 MLflow 작업
 
@@ -135,7 +135,7 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](/azure/role-based-access-control/custom-roles)을 참조 하세요. 사용자 지정 역할과 함께 사용할 수 있는 작업 (작업 및 작업 아님)에 대 한 자세한 내용은 [리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)을 참조 하세요.
+사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요. 사용자 지정 역할과 함께 사용할 수 있는 작업 (작업 및 작업 아님)에 대 한 자세한 내용은 [리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)을 참조 하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -165,7 +165,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>17. Machine Learning 서비스에 대 한 Azure 기본 제공 역할을 게시 하 고 있나요?
 
-현재 Machine Learning 서비스에 대 한 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles) 을 게시 하지 않습니다. 게시 한 후 기본 제공 역할을 업데이트할 수 없으며, 고객 시나리오 및 피드백에 따라 역할 정의를 아직 firming 하 고 있습니다. 
+현재 Machine Learning 서비스에 대 한 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 게시 하지 않습니다. 게시 한 후 기본 제공 역할을 업데이트할 수 없으며, 고객 시나리오 및 피드백에 따라 역할 정의를 아직 firming 하 고 있습니다. 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ Azure CLI에서 다음 명령을 실행 합니다.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-[리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)목록 에서도 찾을 수 있습니다.
+[리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)목록 에서도 찾을 수 있습니다.
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>17. Azure RBAC를 사용 하는 경우 몇 가지 일반적인 알려진 문제?
@@ -427,18 +427,18 @@ az provider operation show –n Microsoft.MachineLearningServices
 Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 할 몇 가지 사항은 다음과 같습니다.
 
 - 작업 영역 이라고 하는 Azure에서 리소스를 만들 때 작업 영역의 소유자가 아닙니다. 사용자의 역할은 해당 구독에 대해 권한이 부여 된 가장 높은 범위 역할에서 상속 됩니다. 예를 들어 네트워크 관리자이 고 Machine Learning 작업 영역을 만들 수 있는 권한이 있는 경우 소유자 역할이 아니라 해당 작업 영역에 대 한 네트워크 관리자 역할이 할당 됩니다.
-- 작업/NotActions의 충돌 하는 섹션을 사용 하 여 동일한 Azure Active Directory 사용자에 게 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할에서 작업으로 나열 되는 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
+- 작업/NotActions의 충돌 하는 섹션을 사용 하 여 동일한 Azure Active Directory 사용자에 게 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할에서 작업으로 나열 되는 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
 - VNet 내에서 계산 리소스를 배포 하려면 다음 작업에 대 한 권한을 명시적으로 부여 해야 합니다.
     - VNet 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
     
-    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking)을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조 하세요.
 
 - 경우에 따라 새 역할 할당이 스택에 캐시 된 사용 권한에 적용 되는 데 1 시간 정도 걸릴 수 있습니다.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>17. 사용자 할당 관리 id를 내 Amlcompute 클러스터와 함께 사용 하는 데 필요한 권한은 무엇 인가요?
 
-Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](/azure/role-based-access-control/built-in-roles#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 Azure RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 을 참조 하세요.
+Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](../role-based-access-control/built-in-roles.md#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 Azure RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 을 참조 하세요.
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>17. 스튜디오 포털에서 역할 기반 액세스 제어를 지원 하나요?
@@ -480,4 +480,4 @@ az role definition update --role-definition update_def.json --subscription <sub-
 - [엔터프라이즈 보안 개요](concept-enterprise-security.md)
 - [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
 - [자습서: 모델 교육](tutorial-train-models-with-aml.md)
-- [리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

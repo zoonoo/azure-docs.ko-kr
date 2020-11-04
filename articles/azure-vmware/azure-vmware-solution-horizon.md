@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369015"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321361"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -86,7 +86,7 @@ Azure 사설 클라우드 및 SDDC 최대 한도를 고려 하 여 Azure Virtual
 
 Azure Virtual Network에서 Azure 사설 클라우드/SDDCs로의 연결은 Express 경로 FastPath를 사용 하 여 구성 해야 합니다. 다음 다이어그램에서는 기본 수평 pod 배포를 보여 줍니다.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="ExpressPath Fast 경로를 사용 하는 일반적인 수평 pod 배포" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션의 수평 확장에 대 한 네트워크 연결
 
@@ -94,7 +94,7 @@ Azure Virtual Network에서 Azure 사설 클라우드/SDDCs로의 연결은 Expr
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Azure VMware 솔루션의 단일 수평 pod
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Azure VMware 솔루션의 단일 수평 pod" border="false":::
 
 단일 수평 pod는 미국 동부 지역에 하나의 수평 pod를 배포 하기 때문에 가장 간단한 전달 배포 시나리오입니다.  각 사설 클라우드와 SDDC는 4000 데스크톱 세션을 처리 하기 때문에 최대 수평 pod 크기를 배포 합니다.  최대 3 개의 사설 클라우드/SDDCs 배포를 계획할 수 있습니다.
 
@@ -112,7 +112,7 @@ VPN 또는 Express 경로 회로를 통해 Azure Virtual Network의 AD 도메인
 
 이 다이어그램에서는 온-프레미스 리소스에 대 한 연결을 지 원하는 방법을 보여 줍니다. Azure Virtual Network에 회사 네트워크에 연결 하려면 Express 경로 회로가 필요 합니다.  또한 Express 경로 Global Reach를 사용 하 여 각 사설 클라우드 및 SDDCs와 회사 네트워크를 연결 해야 합니다.  SDDC에서 Express 경로 회로 및 온-프레미스 리소스에 연결할 수 있습니다. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Azure Virtual Network에 회사 네트워크 연결" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>여러 지역에서 Azure VMware 솔루션의 여러 수평 pod
 
@@ -120,9 +120,9 @@ VPN 또는 Express 경로 회로를 통해 Azure Virtual Network의 AD 도메인
 
 각 지역의 Azure Virtual Network을 다른 지역의 사설 클라우드/SDDCs에 연결 합니다. 이를 통해 CPA 페더레이션의 수평 연결 서버를 통해 관리 되는 모든 데스크톱에 연결할 수 있습니다. 이 구성에 사설 클라우드/SDDCs를 추가 하면 전체 24000 세션으로 확장할 수 있습니다. 
 
-동일한 지역에 두 개의 수평 pod를 배포 하는 경우에도 동일한 원칙이 적용 됩니다.  *별도의 Azure Virtual Network*에 두 번째 수평 pod를 배포 해야 합니다. 단일 pod 예제와 마찬가지로 Express 경로를 사용 하 고 Global Reach를 사용 하 여 회사 네트워크 및 온-프레미스 pod를이 다중 pod/지역 예제에 연결할 수 있습니다. 
+동일한 지역에 두 개의 수평 pod를 배포 하는 경우에도 동일한 원칙이 적용 됩니다.  *별도의 Azure Virtual Network* 에 두 번째 수평 pod를 배포 해야 합니다. 단일 pod 예제와 마찬가지로 Express 경로를 사용 하 고 Global Reach를 사용 하 여 회사 네트워크 및 온-프레미스 pod를이 다중 pod/지역 예제에 연결할 수 있습니다. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Azure의 Azure VMware 솔루션 및 수평 클라우드의 수평" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" 여러 지역에서 Azure VMware 솔루션의 여러 수평 pod" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>수평 배포를 위한 Azure VMware 솔루션 호스트 크기 조정 
 
@@ -211,3 +211,6 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 | Windows 파일 공유               | D4sv3          |         | *선택 사항*                               |
 
 \$위의 예제에서 2000-데스크톱 배포에 대 한 인프라 VM은 매월 사용자 당 0.36에 해당 합니다. 이 예제에서는 미국 동부 Azure 인스턴스 2020 년 6 월 가격 책정을 사용 합니다. 가격은 지역, 선택한 옵션 및 타이밍에 따라 달라질 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+Azure VMware 솔루션의 VMware 수평에 대해 자세히 알아보려면 [Vmware 수평 FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)를 참조 하세요.

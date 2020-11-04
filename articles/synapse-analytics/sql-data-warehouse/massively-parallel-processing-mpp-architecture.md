@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319657"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics(이전의 SQL DW) 아키텍처
 
@@ -25,8 +25,8 @@ Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 �
 
 - Synapse SQL: 전체 T-SQL 기반 분석
 
-  - SQL 풀(프로비저닝되는 DWU당 요금 지불) - 일반 공급
-  - SQL 주문형(처리되는 TB당 요금 지불) – (미리 보기)
+  - 전용 SQL 풀 (프로 비전 된 DWU 당 지불) – 일반 공급
+  - 서버를 사용 하지 않는 SQL 풀 (처리 된 TB 당 비용) – (미리 보기)
 - Spark: 긴밀하게 통합된 Apache Spark(미리 보기)
 - 데이터 통합: 하이브리드 데이터 통합(미리 보기)
 - Studio: 통합 사용자 환경  (미리 보기)
@@ -35,7 +35,7 @@ Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 �
 
 ## <a name="synapse-sql-architecture-components"></a>Synapse SQL 아키텍처 구성 요소
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)은 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 컴퓨팅 능력의 추상화입니다. 시스템 데이터와 독립적으로 컴퓨팅을 확장할 수 있도록 컴퓨팅이 스토리지에서 분리됩니다.
+[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)은 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 컴퓨팅 능력의 추상화입니다. 시스템 데이터와 독립적으로 컴퓨팅을 확장할 수 있도록 컴퓨팅이 스토리지에서 분리됩니다.
 
 ![Synapse SQL 아키텍처](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
@@ -52,7 +52,7 @@ Synapse SQL은 노드 기반 아키텍처를 사용합니다. 애플리케이션
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Synapse SQL은 Azure Storage를 활용하여 사용자 데이터를 안전하게 유지합니다.  데이터가 Azure Storage에 의해 저장되고 관리되므로 스토리지 사용에 대한 별도 요금이 부과됩니다. 데이터는 시스템의 성능을 최적화하기 위해 **분산**으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
+Synapse SQL은 Azure Storage를 활용하여 사용자 데이터를 안전하게 유지합니다.  데이터가 Azure Storage에 의해 저장되고 관리되므로 스토리지 사용에 대한 별도 요금이 부과됩니다. 데이터는 시스템의 성능을 최적화하기 위해 **분산** 으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
 
 - Hash
 - 라운드 로빈

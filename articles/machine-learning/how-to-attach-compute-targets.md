@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cc4256ae0591e9fc82dcdce7c66514710fad3f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711377"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320830"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 계산 대상 설정
 
@@ -43,7 +43,7 @@ Azure Machine Learning에서 관리 하는 계산 대상을 사용 하려면 다
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -58,9 +58,9 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 ## <a name="local-computer"></a><a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터를 **학습**에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
+로컬 컴퓨터를 **학습** 에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
 
-**유추**를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [LocalWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용 하는 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
+**유추** 를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용 하는 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>원격 가상 머신
 
@@ -68,16 +68,16 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 시스템 빌드 conda 환경, 기존 Python 환경 또는 Docker 컨테이너를 사용할 수 있습니다. Docker 컨테이너에서 실행하려면 Docker 엔진이 VM에서 실행 되어야 합니다. 이 기능은 로컬 머신보다 더 유연한 클라우드 기반 개발/실험 환경을 원하는 경우에 특히 유용합니다.
 
-이 시나리오에서 azure VM (azure Data Science Virtual Machine (DSVM)을 선택 하는 것이 좋습니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm)을 참조하세요.
+이 시나리오에서 azure VM (azure Data Science Virtual Machine (DSVM)을 선택 하는 것이 좋습니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](./how-to-configure-environment.md#dsvm)을 참조하세요.
 
-1. **만들기**: 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)을 참조하세요.
+1. **만들기** : 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](./data-science-virtual-machine/dsvm-ubuntu-intro.md)을 참조하세요.
 
     > [!WARNING]
-    > Azure Machine Learning는 **Ubuntu**를 실행 하는 가상 컴퓨터만 지원 합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
+    > Azure Machine Learning는 **Ubuntu** 를 실행 하는 가상 컴퓨터만 지원 합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
     > 
-    > 또한 Azure Machine Learning에는 가상 머신에 __공용 IP 주소가__있어야 합니다.
+    > 또한 Azure Machine Learning에는 가상 머신에 __공용 IP 주소가__ 있어야 합니다.
 
-1. **연결**: 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>` 문자열 형식으로 생성할 수 있습니다.
+1. **연결** : 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>` 문자열 형식으로 생성할 수 있습니다.
 
  
    ```python
@@ -102,7 +102,7 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
     > [!WARNING]
     > 작업 영역에서 동일한 DSVM에 대 한 동시 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
-1. **구성**: DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
+1. **구성** : DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -128,16 +128,16 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니다. 플랫폼은 모델을 학습하는 데 사용할 수 있는 Apache Spark를 제공합니다.
 
-1. **만들기**:  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)를 참조하세요. 
+1. **만들기** :  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. 
 
     > [!WARNING]
-    > Azure Machine Learning 하려면 HDInsight 클러스터에 __공용 IP 주소가__있어야 합니다.
+    > Azure Machine Learning 하려면 HDInsight 클러스터에 __공용 IP 주소가__ 있어야 합니다.
 
     클러스터를 만들 때 SSH 사용자 이름 및 암호를 지정해야 합니다. 이러한 값은 HDInsight를 컴퓨팅 대상으로 사용할 때 필요하므로 기록해 둡니다.
     
     클러스터를 만든 후에 \<clustername> 는 호스트 이름-ssh.azurehdinsight.net을 사용 하 여 연결 \<clustername> 합니다. 여기서은 클러스터에 대해 제공한 이름입니다. 
 
-1. **연결**: HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. HDInsight 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>` 문자열 형식으로 생성할 수 있습니다.
+1. **연결** : HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. HDInsight 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>` 문자열 형식으로 생성할 수 있습니다.
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -165,7 +165,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
     > [!WARNING]
     > 작업 영역에서 동일한 HDInsight로 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
-1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
+1. **구성** : HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -178,9 +178,9 @@ Azure Batch는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 
 
 Azure Batch를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
--    **Azure Batch 컴퓨팅 이름**: 작업 영역 내에서 컴퓨팅에 사용되는 식별 이름입니다.
--    **Azure Batch 계정 이름**: Azure Batch 계정의 이름
--    **리소스 그룹**: Azure Batch 계정을 포함하는 리소스 그룹입니다.
+-    **Azure Batch 컴퓨팅 이름** : 작업 영역 내에서 컴퓨팅에 사용되는 식별 이름입니다.
+-    **Azure Batch 계정 이름** : Azure Batch 계정의 이름
+-    **리소스 그룹** : Azure Batch 계정을 포함하는 리소스 그룹입니다.
 
 다음 코드는 컴퓨팅 대상으로 Azure Batch를 연결하는 방법을 보여줍니다.
 
@@ -219,15 +219,15 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
-사용하기 전에 Azure Databricks 작업 영역을 만듭니다. 작업 영역 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 문서를 참조 하세요.
+사용하기 전에 Azure Databricks 작업 영역을 만듭니다. 작업 영역 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) 문서를 참조 하세요.
 
 Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제공합니다.
 
-* __Databricks compute name__:이 계산 리소스에 할당할 이름입니다.
-* __Databricks 작업 영역 이름__: Azure Databricks 작업 영역의 이름입니다.
-* __Databricks access token__: Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) 문서를 참조하세요.
+* __Databricks compute name__ :이 계산 리소스에 할당할 이름입니다.
+* __Databricks 작업 영역 이름__ : Azure Databricks 작업 영역의 이름입니다.
+* __Databricks access token__ : Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) 문서를 참조하세요.
 
-다음 코드는 Azure Machine Learning SDK를 사용 하 여 Azure Databricks를 계산 대상으로 연결 하는 방법을 보여 줍니다.__Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 합니다__.
+다음 코드는 Azure Machine Learning SDK를 사용 하 여 Azure Databricks를 계산 대상으로 연결 하는 방법을 보여 줍니다. __Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 합니다__.
 
 ```python
 import os
@@ -271,17 +271,17 @@ except ComputeTargetException:
 > [!WARNING]
 > 작업 영역에서 동일한 Azure Databricks에 대 한 여러 개의 동시 첨부 파일을 만들지 않습니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
-### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure 데이터 레이크 분석
 
 Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫폼입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
-사용하기 전에 Azure Data Lake Analytics 계정을 만듭니다. 이 리소스를 만들려면 [Azure Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) 문서를 참조하세요.
+사용하기 전에 Azure Data Lake Analytics 계정을 만듭니다. 이 리소스를 만들려면 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 문서를 참조하세요.
 
 Data Lake Analytics를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
-* __컴퓨팅 이름__: 이 컴퓨팅 리소스에 할당하려는 이름입니다.
-* __리소스 그룹__: Data Lake Analytics 계정이 포함 된 리소스 그룹입니다.
-* __계정 이름__: Data Lake Analytics 계정 이름입니다.
+* __컴퓨팅 이름__ : 이 컴퓨팅 리소스에 할당하려는 이름입니다.
+* __리소스 그룹__ : Data Lake Analytics 계정이 포함 된 리소스 그룹입니다.
+* __계정 이름__ : Data Lake Analytics 계정 이름입니다.
 
 다음 코드는 컴퓨팅 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
 
@@ -325,7 +325,7 @@ except ComputeTargetException:
 > 작업 영역에서 동일한 ADLA에 대해 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
 > [!TIP]
-> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) 하 여 학습 전에 데이터를 복사할 수 있습니다.
+> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) 하 여 학습 전에 데이터를 복사할 수 있습니다.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instance
 
@@ -350,4 +350,4 @@ AKS (Azure Kubernetes Service)를 사용 하면 Azure Machine Learning와 함께
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
 * [하이퍼 매개 변수를 효율적으로 튜닝](how-to-tune-hyperparameters.md)하여 보다 나은 모델을 빌드하는 방법을 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
-* [Azure Virtual Networks에서 Azure Machine Learning 사용](how-to-enable-virtual-network.md)
+* [Azure Virtual Networks에서 Azure Machine Learning 사용](./how-to-network-security-overview.md)

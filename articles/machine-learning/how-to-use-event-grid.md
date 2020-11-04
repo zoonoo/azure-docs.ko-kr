@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428428"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319313"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
-이 문서에서는 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/)에서 특정 조건을 감지할 때 오류 알림 이메일이나 ML 파이프라인 실행 같은 Azure Machine Learning 이벤트를 기반으로 이벤트 중심 애플리케이션, 프로세스 또는 CI/CD 워크플로를 설정하는 방법을 알아봅니다.
+이 문서에서는 [Azure Event Grid](../event-grid/index.yml)에서 특정 조건을 감지할 때 오류 알림 이메일이나 ML 파이프라인 실행 같은 Azure Machine Learning 이벤트를 기반으로 이벤트 중심 애플리케이션, 프로세스 또는 CI/CD 워크플로를 설정하는 방법을 알아봅니다.
 
 Azure Machine Learning은 모델 학습, 모델 배포 및 모니터링을 포함하여 기계 학습 프로세스의 전체 수명 주기를 관리합니다. 최신 서버리스 아키텍처를 통해 Event Grid를 사용하여 학습 실행 완료, 모델 등록 및 배포, 데이터 드리프트 감지 등의 Azure Machine Learning 이벤트에 대응할 수 있습니다. 그런 다음, 작업 영역 내에서 실행 상태 변경, 실행 완료, 모델 등록, 모델 배포, 데이터 드리프트 감지 등의 이벤트를 구독하고 사용할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Machine Learning은 모델 학습, 모델 배포 및 모니터링을 포�
 * 드리프트가 감지되면 ML 파이프라인 트리거
 
 > [!NOTE] 
-> 현재 runStatusChanged 이벤트는 실행 상태가 **실패**인 경우에만 트리거됩니다.
+> 현재 runStatusChanged 이벤트는 실행 상태가 **실패** 인 경우에만 트리거됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Event Grid를 사용하려면 이벤트를 만들 Azure Machine Learning 작업 영역에 대한 기여자 또는 소유자 권한이 있어야 합니다.
@@ -42,7 +42,7 @@ Azure Event Grid는 Azure Machine Learning이나 기타 Azure 서비스 같은 �
 
 ![Azure Event Grid 기능 모델](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-이벤트 원본과 이벤트 처리기에 대한 자세한 내용은 [Event Grid란?](/azure/event-grid/overview)을 참조하세요.
+이벤트 원본과 이벤트 처리기에 대한 자세한 내용은 [Event Grid란?](../event-grid/overview.md)을 참조하세요.
 
 ### <a name="event-types-for-azure-machine-learning"></a>Azure Machine Learning의 이벤트 유형
 
@@ -58,16 +58,16 @@ Azure Machine Learning은 기계 학습 수명 주기의 다양한 지점에서 
 
 ### <a name="filter--subscribe-to-events"></a>이벤트 필터링 및 구독
 
-다음 이벤트는 Azure Event Grid를 통해 게시됩니다. 고객은 Azure Portal, PowerShell 또는 Azure CLI를 통해 [하나 이상의 이벤트 유형을 지정하고 조건을 필터링하여](/azure/event-grid/event-filtering) 이벤트를 쉽게 구독할 수 있습니다. 
+다음 이벤트는 Azure Event Grid를 통해 게시됩니다. 고객은 Azure Portal, PowerShell 또는 Azure CLI를 통해 [하나 이상의 이벤트 유형을 지정하고 조건을 필터링하여](../event-grid/event-filtering.md) 이벤트를 쉽게 구독할 수 있습니다. 
 
-이벤트를 설정할 때 특정 이벤트 데이터에 대한 트리거에만 필터를 적용할 수 있습니다. 아래 예제의 실행 상태가 변경된 이벤트를 실행 유형으로 필터링 할 수 있습니다. 이 이벤트는 조건이 충족될 때만 트리거됩니다. 필터링할 수 있는 이벤트 데이터에 대한 자세한 내용은 [Azure Machine Learning 이벤트 그리드 스키마](/azure/event-grid/event-schema-machine-learning)를 참조하세요. 
+이벤트를 설정할 때 특정 이벤트 데이터에 대한 트리거에만 필터를 적용할 수 있습니다. 아래 예제의 실행 상태가 변경된 이벤트를 실행 유형으로 필터링 할 수 있습니다. 이 이벤트는 조건이 충족될 때만 트리거됩니다. 필터링할 수 있는 이벤트 데이터에 대한 자세한 내용은 [Azure Machine Learning 이벤트 그리드 스키마](../event-grid/event-schema-machine-learning.md)를 참조하세요. 
 
 Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access control (Azure RBAC)에 의해 보호 됩니다. 작업 영역의 [기여자 또는 소유자](how-to-assign-roles.md#default-roles)만이 이벤트 구독을 만들고, 업데이트하고, 삭제할 수 있습니다.  이벤트 구독을 [만드는 동안](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) 또는 나중에 이벤트 구독에 필터를 적용할 수 있습니다. 
 
 
 1. Azure Portal로 이동하여 새 구독 또는 기존 구독을 선택합니다. 
 
-1. 필터 탭을 선택하고 아래로 [고급 필터]까지 스크롤합니다. **키** 및 **값**에 필터링 기준으로 사용할 속성 형식을 입력합니다. 여기서는 실행 유형이 파이프라인 실행 또는 파이프라인 단계 실행인 경우에만 이벤트가 트리거되는 것을 볼 수 있습니다.  
+1. 필터 탭을 선택하고 아래로 [고급 필터]까지 스크롤합니다. **키** 및 **값** 에 필터링 기준으로 사용할 속성 형식을 입력합니다. 여기서는 실행 유형이 파이프라인 실행 또는 파이프라인 단계 실행인 경우에만 이벤트가 트리거되는 것을 볼 수 있습니다.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="이벤트 필터링":::
 
@@ -84,7 +84,7 @@ Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **고급 필터링**: Azure Event Grid는 게시된 이벤트 스키마를 기반으로 하는 고급 필터링도 지원합니다. Azure Machine Learning 이벤트 스키마 세부 정보는 [Azure Machine Learning의 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-machine-learning.md)에서 찾을 수 있습니다.  다음은 사용자가 수행할 수 있는 고급 필터링 샘플입니다.
++ **고급 필터링** : Azure Event Grid는 게시된 이벤트 스키마를 기반으로 하는 고급 필터링도 지원합니다. Azure Machine Learning 이벤트 스키마 세부 정보는 [Azure Machine Learning의 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-machine-learning.md)에서 찾을 수 있습니다.  다음은 사용자가 수행할 수 있는 고급 필터링 샘플입니다.
 
   `Microsoft.MachineLearningServices.ModelRegistered` 이벤트의 경우 모델의 태그 값을 필터링하는 방법은 다음과 같습니다.
 
@@ -92,7 +92,7 @@ Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access
   --advanced-filter data.ModelTags.key1 StringIn ('value1')
   ```
 
-  필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)을 참조하세요.
+  필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](../event-grid/how-to-filter-events.md)을 참조하세요.
 
 ## <a name="consume-machine-learning-events"></a>Machine Learning 이벤트 사용
 
@@ -116,24 +116,24 @@ Azure Event Grid를 사용하는 고객은 분리형 메시지 처리기를 만�
 
 1. [Azure Portal](https://portal.azure.com)을 열고 Azure Machine Learning 작업 영역으로 이동합니다.
 
-1. 왼쪽 막대에서 __이벤트__를 선택한 다음, **이벤트 구독**을 선택합니다. 
+1. 왼쪽 막대에서 __이벤트__ 를 선택한 다음, **이벤트 구독** 을 선택합니다. 
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. 사용할 이벤트 유형을 선택합니다. 예를 들어 다음 스크린샷에서는 __등록된 모델__, __배포된 모델__, __완료된 실행__ 및 __감지된 데이터 세트 드리프트__를 선택했습니다.
+1. 사용할 이벤트 유형을 선택합니다. 예를 들어 다음 스크린샷에서는 __등록된 모델__ , __배포된 모델__ , __완료된 실행__ 및 __감지된 데이터 세트 드리프트__ 를 선택했습니다.
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 
-1. 이벤트를 게시할 엔드포인트를 선택합니다. 다음 스크린샷에서는 __이벤트 허브__를 엔드포인트로 선택합니다.
+1. 이벤트를 게시할 엔드포인트를 선택합니다. 다음 스크린샷에서는 __이벤트 허브__ 를 엔드포인트로 선택합니다.
 
     ![이벤트 허브 선택 창이 열려 있는 이벤트 구독 만들기 창이 표시 됩니다.](./media/how-to-use-event-grid/select-event-handler.png)
 
-선택 사항을 확인한 후 __만들기__를 클릭합니다. 구성을 마치면 이벤트가 엔드포인트로 푸시됩니다.
+선택 사항을 확인한 후 __만들기__ 를 클릭합니다. 구성을 마치면 이벤트가 엔드포인트로 푸시됩니다.
 
 
 ### <a name="set-up-with-the-cli"></a>CLI를 사용하여 설정
 
-최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 설치해도 되고, Azure 구독의 일부로 제공되는 Azure Cloud Shell를 사용해도 됩니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 설치해도 되고, Azure 구독의 일부로 제공되는 Azure Cloud Shell를 사용해도 됩니다.
 
 Event Grid 확장을 설치하려면 CLI에서 다음 명령을 사용합니다.
 
@@ -160,9 +160,9 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 ### <a name="example-send-email-alerts"></a>예제: 이메일 경고 보내기
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)를 사용하여 모든 이벤트에 대한 이메일을 구성합니다. 조건을 사용하여 사용자 지정하고 수신자를 지정하여 함께 작업하는 팀 간에 협업과 인식을 가능하게 합니다.
+[Azure Logic Apps](../logic-apps/index.yml)를 사용하여 모든 이벤트에 대한 이메일을 구성합니다. 조건을 사용하여 사용자 지정하고 수신자를 지정하여 함께 작업하는 팀 간에 협업과 인식을 가능하게 합니다.
 
-1. Azure Portal에서 Azure Machine Learning 작업 영역으로 이동한 다음, 왼쪽 표시줄에서 이벤트 탭을 선택합니다. 여기서 __논리 앱__을 선택합니다. 
+1. Azure Portal에서 Azure Machine Learning 작업 영역으로 이동한 다음, 왼쪽 표시줄에서 이벤트 탭을 선택합니다. 여기서 __논리 앱__ 을 선택합니다. 
 
     ![Logic Apps 있는 Machine Learning 작업 영역 이벤트 페이지가 표시 됩니다.](./media/how-to-use-event-grid/select-logic-ap.png)
 
@@ -174,7 +174,7 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
     ![이벤트 유형이 선택 된 상태에서 리소스 이벤트가 발생 하는 경우 스크린샷 대화 상자를 표시 합니다.](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
-1. 위의 섹션에 설명된 필터링 방법을 사용할 수도 있고, 이벤트 유형 하위 세트의 논리 앱만 트리거하는 필터를 추가할 수도 있습니다. 다음 스크린샷에서는 __/datadriftID/runs/__ 의 __접두사 필터__를 사용합니다.
+1. 위의 섹션에 설명된 필터링 방법을 사용할 수도 있고, 이벤트 유형 하위 세트의 논리 앱만 트리거하는 필터를 추가할 수도 있습니다. 다음 스크린샷에서는 __/datadriftID/runs/__ 의 __접두사 필터__ 를 사용합니다.
 
     ![filter-events](./media/how-to-use-event-grid/filtering-events.png)
 
@@ -182,11 +182,11 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
     ![스크린샷 검색 줄에 입력 한 전자 메일을 사용 하 여 작업 선택 대화 상자를 보여 줍니다.](./media/how-to-use-event-grid/select-email-action.png)
 
-1. __이메일 보내기__를 선택하고 매개 변수를 입력합니다. 제목에 __이벤트 유형__ 및 __토픽__을 포함하면 이벤트를 필터링하는 데 도움이 됩니다. 또한 실행의 작업 영역 페이지에 대한 링크를 메시지 본문에 포함할 수 있습니다. 
+1. __이메일 보내기__ 를 선택하고 매개 변수를 입력합니다. 제목에 __이벤트 유형__ 및 __토픽__ 을 포함하면 이벤트를 필터링하는 데 도움이 됩니다. 또한 실행의 작업 영역 페이지에 대한 링크를 메시지 본문에 포함할 수 있습니다. 
 
     ![스크린샷 오른쪽 목록에서 제목 줄에 항목 및 이벤트 유형이 추가 된 전자 메일 보내기 대화 상자를 표시 합니다.](./media/how-to-use-event-grid/configure-email-body.png)
 
-1. 이 작업을 저장하려면 페이지의 왼쪽 모서리에서 **다른 이름으로 저장**을 선택합니다. 표시되는 오른쪽 막대에서 이 작업 만들기를 확인합니다.
+1. 이 작업을 저장하려면 페이지의 왼쪽 모서리에서 **다른 이름으로 저장** 을 선택합니다. 표시되는 오른쪽 막대에서 이 작업 만들기를 확인합니다.
 
     ![Logic Apps 디자이너의 다른 이름으로 저장 및 만들기 단추를 보여 주는 스크린샷](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
@@ -200,9 +200,9 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 시작하기 전에 다음 작업을 수행합니다.
 
 * 작업 영역에서 [데이터 드리프트를 감지](how-to-monitor-datasets.md)하도록 데이터 세트 모니터링 설정
-* 게시된 [Azure Data Factory 파이프라인](https://docs.microsoft.com/azure/data-factory/) 만들기
+* 게시된 [Azure Data Factory 파이프라인](../data-factory/index.yml) 만들기
 
-이 예제에서는 간단한 Data Factory 파이프라인을 사용하여 파일을 BLOB 저장소에 복사하고 게시된 Machine Learning 파이프라인을 실행합니다. 이 시나리오에 대한 자세한 내용은 [Azure Data Factory에서 Machine Learning 단계를 설정하는 방법](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)을 참조하세요.
+이 예제에서는 간단한 Data Factory 파이프라인을 사용하여 파일을 BLOB 저장소에 복사하고 게시된 Machine Learning 파이프라인을 실행합니다. 이 시나리오에 대한 자세한 내용은 [Azure Data Factory에서 Machine Learning 단계를 설정하는 방법](../data-factory/transform-data-machine-learning-service.md)을 참조하세요.
 
 ![스크린샷 복사를 사용 하는 팩터리 리소스의 학습 파이프라인을 보여 줍니다. Pipeline1를 실행 합니다.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
@@ -214,15 +214,15 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
     ![논리 앱 만들기 창을 보여 주는 스크린샷](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
-1. 논리 앱을 만든 후에는 __Event Grid 리소스 이벤트가 발생하는 경우__를 선택합니다. 
+1. 논리 앱을 만든 후에는 __Event Grid 리소스 이벤트가 발생하는 경우__ 를 선택합니다. 
 
     ![Event Grid 리소스 이벤트가 발생 하는 경우를 포함 하 여 시작 하는 Logic Apps 디자이너가 일반적인 트리거 옵션과 함께 표시 됩니다.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
-1. 로그인하여 이벤트의 세부 정보를 입력합니다. __리소스 이름__을 작업 영역 이름으로 설정합니다. __이벤트 유형__을 __DatasetDriftDetected__로 설정합니다.
+1. 로그인하여 이벤트의 세부 정보를 입력합니다. __리소스 이름__ 을 작업 영역 이름으로 설정합니다. __이벤트 유형__ 을 __DatasetDriftDetected__ 로 설정합니다.
 
     ![이벤트 유형 항목이 선택 된 상태에서 리소스 이벤트가 발생 하는 시점을 보여 주는 스크린샷](./media/how-to-use-event-grid/login-and-add-event.png)
 
-1. 새 단계를 추가하고, __Azure Data Factory__를 검색합니다. __파이프라인 실행 만들기__를 선택합니다. 
+1. 새 단계를 추가하고, __Azure Data Factory__ 를 검색합니다. __파이프라인 실행 만들기__ 를 선택합니다. 
 
     ![파이프라인 만들기 실행을 선택 하 여 작업 선택 창이 표시 됩니다.](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
@@ -230,7 +230,7 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
     ![스크린샷에는 다양 한 값을 사용 하 여 파이프라인 실행 만들기 창이 표시 됩니다.](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
-1. 페이지 왼쪽 위에 있는 **저장** 단추를 사용하여 논리 앱을 저장하고 만듭니다. 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 작업 영역으로 이동하여 **이벤트**를 클릭합니다.
+1. 페이지 왼쪽 위에 있는 **저장** 단추를 사용하여 논리 앱을 저장하고 만듭니다. 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 작업 영역으로 이동하여 **이벤트** 를 클릭합니다.
 
     ![논리 앱이 강조 표시 된 이벤트를 보여 주는 스크린샷](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
@@ -251,4 +251,3 @@ Event Grid에 대해 자세히 알아보고 Azure Machine Learning 이벤트를 
 - [Event Grid 정보](../event-grid/overview.md)
 
 - [Azure Machine Learning의 이벤트 스키마](../event-grid/event-schema-machine-learning.md)
-

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319411"
 ---
 # <a name="poisson-regression"></a>포아송 회귀
 
@@ -29,7 +29,7 @@ ms.locfileid: "90905249"
 - 포아송 분포는 불연속 분포입니다. 따라서 정수가 아닌 숫자를 사용 하 여이 메서드를 사용 하는 것은 의미가 없습니다.
 
 > [!TIP]
-> 대상이 개수가 아니면 포아송 회귀는 적절한 방법이 아닙니다. [디자이너에서 다른 회귀 모듈을](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms)사용해 봅니다. 
+> 대상이 개수가 아니면 포아송 회귀는 적절한 방법이 아닙니다. [디자이너에서 다른 회귀 모듈을](./module-reference.md#machine-learning-algorithms)사용해 봅니다. 
 
 회귀 메서드를 설정한 후에는 예측 하려는 값의 예제가 포함 된 데이터 집합을 사용 하 여 모델을 학습 해야 합니다. 그러면 학습된 모델을 예측에 사용할 수 있습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "90905249"
 
 ## <a name="how-to-configure-poisson-regression"></a>포아송 회귀를 구성 하는 방법
 
-1. 디자이너에서 **포아송 회귀** 모듈을 파이프라인에 추가 합니다. **회귀** 범주의 **Machine Learning 알고리즘**에서이 모듈을 찾을 수 있습니다.
+1. 디자이너에서 **포아송 회귀** 모듈을 파이프라인에 추가 합니다. **회귀** 범주의 **Machine Learning 알고리즘** 에서이 모듈을 찾을 수 있습니다.
 
 2. 올바른 유형의 학습 데이터를 포함 하는 데이터 집합을 추가 합니다. 
 
@@ -57,13 +57,13 @@ ms.locfileid: "90905249"
 
 3. **포아송 회귀** 모듈의 오른쪽 창에서 **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    - **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공 합니다.
+    - **단일 매개 변수** : 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공 합니다.
   
-    - **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 매개 변수 스윕을 수행 합니다. 강사는 최적의 구성을 찾기 위해 지정 하는 여러 값을 반복 합니다.
+    - **매개 변수 범위** : 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 매개 변수 스윕을 수행 합니다. 강사는 최적의 구성을 찾기 위해 지정 하는 여러 값을 반복 합니다.
   
-4. **최적화 허용 오차**: 최적화 중 허용 시간 간격을 정의 하는 값을 입력 합니다. 값이 작을수록는 속도는 느려지고 맞춤은 더 정확해집니다.
+4. **최적화 허용 오차** : 최적화 중 허용 시간 간격을 정의 하는 값을 입력 합니다. 값이 작을수록는 속도는 느려지고 맞춤은 더 정확해집니다.
 
-5. **L1 정규화 weight** 및 **l2 정규화 가중치**: l1 및 l2 정규화에 사용할 형식 값입니다. *정규화*를 통해 학습 데이터와 독립적인 모델의 요소에 관한 알고리즘에 제약 조건을 추가합니다. 과잉 맞춤을 방지하려는 경우에 일반적으로 정규화를 사용합니다. 
+5. **L1 정규화 weight** 및 **l2 정규화 가중치** : l1 및 l2 정규화에 사용할 형식 값입니다. *정규화* 를 통해 학습 데이터와 독립적인 모델의 요소에 관한 알고리즘에 제약 조건을 추가합니다. 과잉 맞춤을 방지하려는 경우에 일반적으로 정규화를 사용합니다. 
 
     - 모델의 스파스 수준을 최대화하려는 경우에는 L1 정규화가 유용합니다.
 
@@ -73,9 +73,9 @@ ms.locfileid: "90905249"
 
     이 모듈에서는 L1 및 L2 정규화 조합을 적용할 수 있습니다. L1 및 L2 정규화를 결합 하 여 매개 변수 값의 크기에 대 한 페널티를 적용할 수 있습니다. 학습자는 페널티를 최소화하려고 하며, 이 과정에서 손실도 최소화됩니다.
 
-    L1 및 L2 정규화에 대 한 자세한 내용은 [Machine Learning에 대 한 l1 및 L2 정규화](https://msdn.microsoft.com/magazine/dn904675.aspx)를 참조 하세요.
+    L1 및 L2 정규화에 대 한 자세한 내용은 [Machine Learning에 대 한 l1 및 L2 정규화](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)를 참조 하세요.
 
-6. **BFGS에 대 한 메모리 크기**: 모델 맞춤 및 최적화를 위해 예약할 메모리 양을 지정 합니다.
+6. **BFGS에 대 한 메모리 크기** : 모델 맞춤 및 최적화를 위해 예약할 메모리 양을 지정 합니다.
 
      BFGS는 Broyden – Fletcher – Goldfarb – Shanno (BFGS) 알고리즘을 기반으로 하는 최적화의 특정 메서드입니다. 메서드는 제한 된 양의 메모리 (L)를 사용 하 여 다음 단계 방향을 계산 합니다.
 
@@ -83,9 +83,9 @@ ms.locfileid: "90905249"
 
 7. 학습 모듈 중 하나에 학습 데이터 집합 및 학습 되지 않은 모델을 연결 합니다. 
 
-    - 담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우 [모델 학습](train-model.md) 모듈을 사용 합니다.
+    - 담당자 **모드 만들기** 를 **단일 매개 변수로** 설정한 경우 [모델 학습](train-model.md) 모듈을 사용 합니다.
 
-    - **만든이 모드** 를 **매개 변수 범위**로 설정 하는 경우 [모델 hyperparameters 변수 조정](tune-model-hyperparameters.md) 모듈을 사용 합니다.
+    - **만든이 모드** 를 **매개 변수 범위** 로 설정 하는 경우 [모델 hyperparameters 변수 조정](tune-model-hyperparameters.md) 모듈을 사용 합니다.
 
     > [!WARNING]
     > 
@@ -101,8 +101,8 @@ ms.locfileid: "90905249"
 
 학습 완료 후:
 
-+ 학습 된 모델의 스냅숏을 저장 하려면 학습 모듈을 선택한 다음 오른쪽 패널에서 **출력 + 로그** 탭으로 전환 합니다. 아이콘 **등록 데이터 집합**을 클릭 합니다.  모듈 트리에서 저장 된 모델을 모듈로 찾을 수 있습니다. 
++ 학습 된 모델의 스냅숏을 저장 하려면 학습 모듈을 선택한 다음 오른쪽 패널에서 **출력 + 로그** 탭으로 전환 합니다. 아이콘 **등록 데이터 집합** 을 클릭 합니다.  모듈 트리에서 저장 된 모델을 모듈로 찾을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

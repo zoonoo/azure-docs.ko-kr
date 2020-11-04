@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 2ba0c53b9d0b9791364f532d999d86c74fa21177
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678069"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321615"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics를 사용한 조건부 액세스
 
@@ -29,7 +29,7 @@ ms.locfileid: "92678069"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Active Directory (Azure AD) 인증을 지원 하기 위해 Azure Synapse에서 Azure SQL Database, Azure SQL Managed Instance 또는 Azure SQL 풀을 구성 해야 합니다. 특정 단계는 [SQL Database 또는 Azure Synapse를 사용 하 여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.  
+- Azure Active Directory (Azure AD) 인증을 지원 하기 위해 Azure Synapse에서 Azure SQL Database, Azure SQL Managed Instance 또는 전용 SQL 풀을 구성 해야 합니다. 특정 단계는 [SQL Database 또는 Azure Synapse를 사용 하 여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.  
 - Multi-Factor Authentication 사용 하도록 설정 된 경우 최신 SQL Server Management Studio (SSMS)와 같은 지원 되는 도구를 사용 하 여 연결 해야 합니다. 자세한 내용은 [SQL Server Management Studio에 대한 Azure SQL Database 다단계 인증 구성](authentication-mfa-ssms-configure.md)을 참조하세요.  
 
 ## <a name="configure-conditional-access"></a>조건부 액세스 구성

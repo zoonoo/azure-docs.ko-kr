@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085704"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321143"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>pandas를 사용하여 Azure Blob Storage의 데이터 탐색
 
@@ -28,7 +28,7 @@ ms.locfileid: "86085704"
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
-* Azure Blob Storage 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../../storage/common/storage-moving-data.md)
+* Azure Blob Storage 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드
 데이터 세트를 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음, pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
@@ -72,7 +72,7 @@ ms.locfileid: "86085704"
     print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
     ```
 
-1. 다음 데이터 세트에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.
+1. 다음 데이터 세트에서 첫 번째 또는 마지막 몇 **행** 을 **검사** 합니다.
 
     ```python
     dataframe_blobdata.head(10)

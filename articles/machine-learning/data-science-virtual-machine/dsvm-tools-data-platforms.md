@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320920"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -37,7 +37,7 @@ DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 > SQL Server Developer Edition은 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다.
 
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server와 관련 된 Windows 서비스 (예: `SQL Server (MSSQLSERVER)` )가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여 분석을 사용 하도록 설정할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 다음과 같은지 확인 합니다 `master` .
 
@@ -75,7 +75,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 DSVM에서 사용할 수 있는 SparkR, Sparklyr 및 Microsoft Machine Learning Server와 같은 라이브러리를 사용 하 여 R에서 Spark를 사용할 수 있습니다. 앞의 표에서 샘플에 대한 포인터를 참조하세요.
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스트를 실행 하기 전에 로컬 단일 노드 Hadoop HDFS 및 Yarn 인스턴스를 사용 하도록 설정 하려면 일회성 설치 단계를 완료 해야 합니다. 기본적으로 Hadoop 서비스는 설치되지만 DSVM에서 사용하지 않도록 설정됩니다. 이 기능을 사용 하도록 설정 하려면 처음에 루트로 다음 명령을 실행 합니다.
 
 ```bash
@@ -103,5 +103,4 @@ Microsoft MMLSpark 기계 학습 라이브러리를 사용 하 여 Azure Blob st
 
 Blob 저장소 또는 Azure Data Lake Storage에 저장 된 데이터에 액세스 하기 위해 DSVM의 Spark 인스턴스에서는 `core-site.xml` $SPARK _HOME/sv/core-site.xml 템플릿에 있는 템플릿을 기반으로 파일을 만들고 구성 해야 합니다. 또한 Blob storage에 액세스 하 고 Azure Data Lake Storage 하는 데 적절 한 자격 증명이 있어야 합니다. 템플릿 파일은 Blob 저장소 및 Azure Data Lake Storage 구성에 대 한 자리 표시자를 사용 합니다.
 
-Azure Data Lake Storage 서비스 자격 증명을 만드는 방법에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1 인증](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)을 참조 하세요. Blob 저장소 또는 Azure Data Lake Storage에 대 한 자격 증명을 core-site.xml 파일에 입력 한 후에는 wasb://또는 adl://의 URI 접두사를 통해 해당 원본에 저장 된 데이터를 참조할 수 있습니다.
-
+Azure Data Lake Storage 서비스 자격 증명을 만드는 방법에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1 인증](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조 하세요. Blob 저장소 또는 Azure Data Lake Storage에 대 한 자격 증명을 core-site.xml 파일에 입력 한 후에는 wasb://또는 adl://의 URI 접두사를 통해 해당 원본에 저장 된 데이터를 참조할 수 있습니다.

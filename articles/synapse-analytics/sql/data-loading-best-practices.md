@@ -1,6 +1,6 @@
 ---
 title: 데이터 로드 모범 사례
-description: Synapse SQL로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
+description: 전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289234"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321502"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터웨어 하우징에 대한 데이터 로드 모범 사례
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀로 데이터를 로드 하는 모범 사례 Azure Synapse Analytics
 
 이 문서에서는 데이터 로드에 대 한 권장 사항 및 성능 최적화를 찾을 수 있습니다.
 
 ## <a name="prepare-data-in-azure-storage"></a>Azure Storage에서 데이터 준비
 
-대기 시간을 최소화 하려면 저장소 계층과 데이터 웨어하우스를 공동 배치 합니다.
+대기 시간을 최소화 하려면 저장소 계층과 전용 SQL 풀을 함께 배치 합니다.
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
@@ -36,13 +36,13 @@ PolyBase는 100만 바이트 이상의 데이터를 포함 하는 행을 로드�
 
 ## <a name="run-loads-with-enough-compute"></a>계산이 충분 한 실행 로드
 
-로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
+로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 전용 SQL 풀을 확장 하는 것이 좋습니다.
 
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
 ### <a name="create-a-loading-user"></a>로드 하는 사용자 만들기
 
-이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
+이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결** 하고 로그인을 만드는 것입니다.
 
 ```sql
    -- Connect to master

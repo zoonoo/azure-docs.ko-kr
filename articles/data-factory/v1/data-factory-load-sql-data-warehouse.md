@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb0138603cad52c40b3471c60104f091367e88e9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321102"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Data Factory를 사용 하 여 15 분 이내에 Azure Synapse Analytics에 1TB를 로드 합니다.
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "92636904"
 >
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-account-create.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "92636904"
   >
   >
 
-    6000 DWUs를 사용 하 여 Synapse SQL 풀을 만들려면 성능 슬라이더를 오른쪽으로 이동 합니다.
+    6000 DWUs를 사용 하 여 전용 SQL 풀을 만들려면 성능 슬라이더를 오른쪽으로 이동 합니다.
 
     ![성능 슬라이더](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 

@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 940d4c465acb5e8478d2b204ab5b9b18c79254f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76716670"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321314"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>TDSP(팀 데이터 과학 프로세스)의 기능 선택
 이 문서에서는 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure Machine Learning Studio에서 가져온 것입니다.
 
 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스가 무엇인가요?](overview.md) 문서에 설명된 팀 데이터 과학 프로세스의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
 
-* **기능 엔지니어링**이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
-* **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
+* **기능 엔지니어링** 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
+* **선택 기능** : 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성 하기 위해 **기능 엔지니어링** 이 먼저 적용 된 후에는 관련이 없거나 중복 되거나 상관 관계가 지정 된 기능을 제거 하기 위해 **기능 선택** 단계가 수행 됩니다.
 
@@ -64,7 +64,6 @@ Azure Machine Learning Studio에서는 기능 선택에 제공되는 모듈이 �
 기능 엔지니어링이나 기능 선택을 반드시 항상 수행할 필요는 없습니다. 이러한 기능의 필요 여부는 수집한 데이터, 선택한 알고리즘 및 실험 목적에 따라 달라집니다.
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[fisher-linear-discriminant-analysis]: /azure/machine-learning/studio-module-reference/fisher-linear-discriminant-analysis

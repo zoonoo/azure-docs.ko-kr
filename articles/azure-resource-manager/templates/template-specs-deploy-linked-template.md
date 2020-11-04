@@ -2,13 +2,13 @@
 title: 템플릿 사양을 연결 된 템플릿으로 배포
 description: 연결 된 배포에 기존 템플릿 사양을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369113"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321576"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결 된 템플릿으로 배포 (미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "91369113"
 
 ## <a name="create-the-main-template"></a>기본 템플릿 만들기
 
-ARM 템플릿에서 템플릿 사양을 배포 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 템플릿 사양의 리소스 ID를 지정 합니다. **azuredeploy.js에서**라는 다음 JSON을 사용 하 여 템플릿을 만듭니다. 이 자습서에서는 **c:\Templates\deployTS\azuredeploy.js** 경로에 저장 했지만 임의의 경로를 사용할 수 있다고 가정 합니다.
+ARM 템플릿에서 템플릿 사양을 배포 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 템플릿 사양의 리소스 ID를 지정 합니다. **azuredeploy.js에서** 라는 다음 JSON을 사용 하 여 템플릿을 만듭니다. 이 자습서에서는 **c:\Templates\deployTS\azuredeploy.js** 경로에 저장 했지만 임의의 경로를 사용할 수 있다고 가정 합니다.
 
 ```json
 {
@@ -160,7 +160,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -172,8 +175,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---

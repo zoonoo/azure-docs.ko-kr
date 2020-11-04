@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091205"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320519"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
 
-이 가이드에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 자동화된 Machine Learning 실험의 다양한 구성 설정을 정의하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
+이 가이드에서는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용하여 자동화된 Machine Learning 실험의 다양한 구성 설정을 정의하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
 
 자동화 된 기계 학습 실험의 예를 보려면 [자습서: 자동화 된 machine learning을 사용 하 여 분류 모델 학습](tutorial-auto-train-models.md) 또는 [클라우드에서 자동화 된 machine learning을 사용 하 여 모델 학습](how-to-auto-train-remote.md)을 참조 하세요.
 
@@ -37,7 +37,7 @@ ms.locfileid: "92091205"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -46,7 +46,7 @@ ms.locfileid: "92091205"
     SDK를 설치 하려면 다음 중 하나를 수행할 수 있습니다. 
     * SDK를 자동으로 설치 하 고 ML 워크플로에 대해 미리 구성 된 계산 인스턴스를 만듭니다. 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md) 를 참조 하세요. 
 
-    * [SDK를 직접 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)합니다. 추가만 포함 해야 `automl` 합니다. 
+    * [SDK를 직접 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다. 추가만 포함 해야 `automl` 합니다. 
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
@@ -63,18 +63,18 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
 
-자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터를 **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset**로 읽어 들일 수 있습니다. [데이터 세트](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.
+자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터를 **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset** 로 읽어 들일 수 있습니다. [데이터 세트](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.
 
 학습 데이터 요구 사항:
 - 데이터는 테이블 형식이어야 합니다.
 - 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
-**원격 실험의**경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. AutoML은 원격 계산에서 작업 하는 경우에만 [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 을 허용 합니다. 
+**원격 실험의** 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. AutoML은 원격 계산에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)를 허용합니다. 
 
-Azure Machine Learning 데이터 집합은 다음과 같은 기능을 제공 합니다.
+Azure Machine Learning 데이터 세트는 다음과 같은 기능을 보여줍니다.
 
 * 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송 합니다.
-* 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 합니다. 클래스를 사용 하 여 원격 계산 대상에 데이터를 탑재 하는 예제는 데이터 [집합을 사용 하 여 학습 하는 방법](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 을 참조 하세요 `Dataset` .
+* 클라우드 컴퓨팅 리소스에서 실행할 때 데이터를 학습 스크립트에 사용 가능 클래스를 사용 하 여 원격 계산 대상에 데이터를 탑재 하는 예제는 데이터 [집합을 사용 하 여 학습 하는 방법](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 을 참조 하세요 `Dataset` .
 
 다음 코드는 웹 url에서 TabularDataset를 만듭니다. 로컬 파일 및 데이터 저장소와 같은 다른 원본에서 데이터 집합을 만드는 방법에 대 한 코드 예제는 [create a TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) 을 참조 하세요.
 
@@ -83,7 +83,7 @@ from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**로컬 계산 실험의**경우 처리 시간을 단축 하기 위해 pandas 데이터 프레임를 권장 합니다.
+**로컬 계산 실험의** 경우 처리 시간을 단축 하기 위해 pandas 데이터 프레임를 권장 합니다.
 
   ```python
   import pandas as pd
@@ -103,21 +103,21 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 |학습 &nbsp; 데이터 &nbsp; 크기| 유효성 검사 기술 |
 |---|-----|
 |**&nbsp; &nbsp; 2만 행 보다 &nbsp; 큼**| 학습/유효성 검사 데이터 분할이 적용 됩니다. 기본값은 유효성 검사 집합으로 초기 학습 데이터 집합의 10%를 차지 하는 것입니다. 그러면이 유효성 검사 집합이 메트릭 계산에 사용 됩니다.
-|**&nbsp; &nbsp; 2만 행 보다 &nbsp; 작음**| 교차 유효성 검사 방법이 적용 됩니다. 기본 접기 수는 행 수에 따라 달라 집니다. <br> **데이터 집합의 행이 1000 보다 작은 경우**에는 10 개의 접기가 사용 됩니다. <br> **행이 1000 ~ 2만 사이인 경우**세 가지 접기가 사용 됩니다.
+|**&nbsp; &nbsp; 2만 행 보다 &nbsp; 작음**| 교차 유효성 검사 방법이 적용 됩니다. 기본 접기 수는 행 수에 따라 달라 집니다. <br> **데이터 집합의 행이 1000 보다 작은 경우** 에는 10 개의 접기가 사용 됩니다. <br> **행이 1000 ~ 2만 사이인 경우** 세 가지 접기가 사용 됩니다.
 
 지금은 모델 평가를 위한 고유한 **테스트 데이터** 를 제공 해야 합니다. 모델 평가를 위한 고유한 테스트 데이터를 가져오는 코드 예제는 [이 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)의 **테스트** 섹션을 참조 하세요.
 
 ## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
-다음으로, 모델을 학습할 위치를 결정합니다. 자동화 된 machine learning 학습 실험을 다음 계산 옵션에서 실행할 수 있습니다. [로컬 및 원격 계산 옵션의 장단점](concept-automated-ml.md#local-remote) 에 대해 알아봅니다. 
+다음으로, 모델을 학습할 위치를 결정합니다. 자동화된 Machine Learning 실험은 다음 컴퓨팅 옵션에서 실행할 수 있습니다. [로컬 및 원격 컴퓨팅의 장단점](concept-automated-ml.md#local-remote) 옵션에 대해 알아봅니다. 
 
-* 로컬 데스크톱 또는 랩톱 등의 **로컬** 컴퓨터-일반적으로 작은 데이터 집합이 있고 탐색 단계에 있는 경우입니다. 로컬 계산 예제는 [이 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조 하세요. 
+* 로컬 데스크톱 또는 랩톱 등의 **로컬** 컴퓨터-일반적으로 작은 데이터 집합이 있고 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
 * 클라우드의 **원격** 컴퓨터 – 관리 되는 [계산 Azure Machine Learning](concept-compute-target.md#amlcompute) 는 Azure virtual machines의 클러스터에서 기계 학습 모델을 학습 하는 기능을 제공 하는 관리 되는 서비스입니다. 
 
-    Azure Machine Learning 관리 되는 계산을 사용 하는 원격 예제는 [이 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 을 참조 하세요. 
+    Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
-* Azure 구독의 **Azure Databricks 클러스터** 여기에서 자세한 정보를 찾을 수 있습니다. [자동화 된 ML에 대 한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#aml-databricks)을 참조 하세요. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
+* Azure 구독의 **Azure Databricks 클러스터** 자세한 내용은 [자동화된 ML에 대한 Azure Databricks 클러스터 설정](how-to-configure-environment.md#aml-databricks)에서 확인할 수 있습니다. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
 
 <a name='configure-experiment'></a>
 
@@ -198,10 +198,10 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 [임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[평균 퍼셉트론 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[온라인 그라데이션 하강 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[평균 퍼셉트론 분류자](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[온라인 그라데이션 하강 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
 [SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[선형 SVM 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
+|[선형 SVM 분류자](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>기본 메트릭
 `primary metric`매개 변수는 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택하는 작업 유형에 따라 선택 가능한 메트릭이 결정되며, 다음 표에서는 각 작업 유형에 유효한 기본 메트릭을 보여줍니다.
@@ -218,13 +218,13 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ### <a name="data-featurization"></a>데이터 기능화
 
-모든 자동화된 Machine Learning 실험에서, 스케일이 다른 기능에 중요한 특정 알고리즘을 지원할 수 있도록 데이터가 *자동으로 스케일링 및 정규화*됩니다. 이러한 크기 조정 및 정규화를 기능화 라고 합니다. 자세한 내용 및 코드 예제는 [AutoML에서 기능화](how-to-configure-auto-features.md#) 을 참조 하세요. 
+모든 자동화된 Machine Learning 실험에서, 스케일이 다른 기능에 중요한 특정 알고리즘을 지원할 수 있도록 데이터가 *자동으로 스케일링 및 정규화* 됩니다. 이러한 크기 조정 및 정규화를 기능화 라고 합니다. 자세한 내용 및 코드 예제는 [AutoML에서 기능화](how-to-configure-auto-features.md#) 을 참조 하세요. 
 
 개체에서 실험을 구성할 때 `AutoMLConfig` 설정을 사용 하거나 사용 하지 않도록 설정할 수 있습니다 `featurization` . 다음 표에서는 [AutoMLConfig 개체](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)의 기능화에 대해 허용 되는 설정을 보여 줍니다. 
 
 |기능화 구성 | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| 전처리의 일부로 [데이터 가드 레일 및 기능화 단계](how-to-configure-auto-features.md#featurization)가 자동으로 수행된다는 것을 나타냅니다. **기본 설정**입니다.|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 가드 레일 및 기능화 단계](how-to-configure-auto-features.md#featurization)가 자동으로 수행된다는 것을 나타냅니다. **기본 설정** 입니다.|
 |`"featurization": 'off'`| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정된 기능화 단계를 사용해야 한다는 것을 나타냅니다. [기능화를 사용자 지정하는 방법을 알아보세요](how-to-configure-auto-features.md#customize-featurization).|
 

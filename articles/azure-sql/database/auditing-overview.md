@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 5c87344c4cd179beae6502901a23b2dace6591a7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677224"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321666"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -44,8 +44,8 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 ### <a name="auditing-limitations"></a>감사 제한 사항
 
-- **프리미엄 스토리지** 는 현재 **지원되지 않습니다** .
-- **Azure Data Lake Storage Gen2 저장소 계정** 에 대 한 **계층적 네임 스페이스** 는 현재 **지원 되지 않습니다** .
+- **프리미엄 스토리지** 는 현재 **지원되지 않습니다**.
+- **Azure Data Lake Storage Gen2 저장소 계정** 에 대 한 **계층적 네임 스페이스** 는 현재 **지원 되지 않습니다**.
 - 일시 중지 된 **Azure Synapse** 에서 감사를 사용 하도록 설정 하는 것은 지원 되지 않습니다. 감사를 사용 하도록 설정 하려면 Azure Synapse를 다시 시작 합니다.
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
@@ -76,11 +76,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
   
 [Azure PowerShell를 사용 하 여 SQL Database 감사 관리](#manage-auditing) 섹션에 설명 된 대로 PowerShell을 사용 하 여 다양 한 유형의 작업 및 작업 그룹에 대 한 감사를 구성할 수 있습니다.
 
-Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드에 대해 4000 문자 데이터를 저장 합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다** .
+Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드에 대해 4000 문자 데이터를 저장 합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
   > [!NOTE]
-  > 일시 중지 된 Synapse SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 Synapse SQL 풀을 일시 중지 합니다. [SYNAPSE SQL 풀](../../synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
+  > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.

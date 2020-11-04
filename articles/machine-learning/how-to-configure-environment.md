@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6612f3df5fba834dff8fc60e90c359ceff4cbe1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e189885fbf7befcaea3f63148a42c81dc1da03e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743105"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320495"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 개발 환경 설정
 
@@ -24,7 +24,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| 환경 | 장점 | 단점 |
+| Environment | 장점 | 단점 |
 | --- | --- | --- |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
 | [Azure Machine Learning 컴퓨팅 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
@@ -55,7 +55,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리, *.azureml* 이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
 
-코드에서이 파일을 사용 하려면 메서드를 사용 [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
+코드에서이 파일을 사용 하려면 메서드를 사용 [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
 
 다음 방법 중 하나를 수행 하 여 작업 영역 구성 파일을 만듭니다.
 
@@ -67,7 +67,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Azure Machine Learning Python SDK
 
-    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 파일을 생성 하 고를 *azureml/config.js에* 저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
+    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 파일을 생성 하 고를 *azureml/config.js에* 저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
 
     ```python
     from azureml.core import Workspace
@@ -97,7 +97,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
     > Linux 또는 Mac OS에서 bash가 아닌 셸을 사용하는 경우(예: zsh) 일부 명령을 실행할 때 오류가 발생할 수 있습니다. 이 문제를 해결하려면 `bash` 명령을 사용하여 새 bash 셸을 시작하고 거기서 명령을 실행하세요.
 
 1. 새로 만든 Python 가상 환경을 활성화 합니다.
-1. [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 설치 합니다.
+1. [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치 합니다.
 1. Azure Machine Learning 작업 영역을 사용 하도록 로컬 환경을 구성 하려면 [작업 영역 구성 파일을 만들거나 기존 작업](#workspace) 영역을 사용 합니다.
 
 로컬 환경이 설정 되었으므로 이제 Azure Machine Learning 작업을 시작할 준비가 되었습니다. 시작 하려면 [Python 시작 가이드 Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md) 를 참조 하세요.
@@ -123,7 +123,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 Azure Machine Learning 및 Jupyter 노트북을 시작 하려면 [Azure Machine Learning 노트북 리포지토리](https://github.com/Azure/MachineLearningNotebooks) 를 참조 하세요.
 
 > [!NOTE]
-> 커뮤니티 중심의 예제 리포지토리는에서 찾을 수 있습니다 https://github.com/Azure/azureml-examples .
+> 커뮤니티 기반 예제 리포지토리는 https://github.com/Azure/azureml-examples 에서 찾을 수 있습니다.
 
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
@@ -223,7 +223,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 ### <a name="set-up-your-databricks-cluster"></a>Databricks 클러스터 설정
 
-[Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)를 만듭니다. 일부 설정은 Databricks에서 자동화 된 기계 학습을 위해 SDK를 설치 하는 경우에만 적용 됩니다.
+[Databricks 클러스터](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)를 만듭니다. 일부 설정은 Databricks에서 자동화 된 기계 학습을 위해 SDK를 설치 하는 경우에만 적용 됩니다.
 **클러스터를 만드는 데 몇 분이 걸립니다.**
 
 사용할 설정
@@ -297,4 +297,4 @@ Databricks이 아닌 ML runtime 7.0 이하의 경우 [init 스크립트](https:/
 ## <a name="next-steps"></a>다음 단계
 
 - MNIST 데이터 집합을 사용 하 여 Azure Machine Learning에 대 한 [모델 학습](tutorial-train-models-with-aml.md)
-- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 참조 보기
+- [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 보기

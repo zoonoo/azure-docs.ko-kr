@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 462cf6cf850885b31588123bac46ff99bf319ee8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243143"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319639"
 ---
 # <a name="regional-code-names-and-endpoints"></a>지역 코드 이름 및 끝점
 
@@ -63,6 +63,9 @@ az account list-locations
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 ### <a name="azure-germany"></a>Azure 독일
+
+> [!NOTE]
+> Azure 독일 끝점은 독일의 소 버린 클라우드에만 적용 됩니다.
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |

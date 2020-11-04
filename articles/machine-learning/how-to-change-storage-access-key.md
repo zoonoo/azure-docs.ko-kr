@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320705"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
@@ -26,13 +26,13 @@ Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키
 보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 저장소를 사용 하는 자격 증명 registred 작업 영역과 연결 된 Azure Key Vault에 저장 됩니다. Key Vault에 대해 [일시 삭제](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) 를 사용 하도록 설정한 경우 자격 증명 업데이트에 대 한이 문서를 참조 하세요. 데이터 저장소의 등록을 취소 하 고 같은 이름으로 다시 등록 하면 실패 합니다.
+> 데이터 저장소를 사용 하는 자격 증명 registred 작업 영역과 연결 된 Azure Key Vault에 저장 됩니다. Key Vault에 대해 [일시 삭제](../key-vault/general/soft-delete-overview.md) 를 사용 하도록 설정한 경우 자격 증명 업데이트에 대 한이 문서를 참조 하세요. 데이터 저장소의 등록을 취소 하 고 같은 이름으로 다시 등록 하면 실패 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 
 * [AZURE MACHINE LEARNING CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
@@ -110,7 +110,7 @@ for name, ds in datastores.items():
         이 명령은 작업 영역에서 사용 하는 Azure storage 계정에 대 한 새 키를 자동으로 동기화 합니다.
 
 1. SDK 또는 [Azure Machine Learning studio](https://ml.azure.com)를 통해 저장소 계정을 사용 하는 데이터 저장소를 다시 등록할 수 있습니다.
-    1. **Python SDK를 통해 데이터 저장소를 다시 등록 하려면**다음 코드를 사용 하 여 [업데이트](#whattoupdate) 해야 할 항목 섹션과 1 단계에서 제공 하는 키의 값을 사용 합니다. 
+    1. **Python SDK를 통해 데이터 저장소를 다시 등록 하려면** 다음 코드를 사용 하 여 [업데이트](#whattoupdate) 해야 할 항목 섹션과 1 단계에서 제공 하는 키의 값을 사용 합니다. 
     
         `overwrite=True`가 지정 되었으므로이 코드는 기존 등록을 덮어쓰고 새 키를 사용 하도록 업데이트 합니다.
     
@@ -132,13 +132,13 @@ for name, ds in datastores.items():
         
         ```
     
-    1. **스튜디오를 통해 데이터 저장소를 다시 등록 하려면**스튜디오 왼쪽 창에서 **데이터 저장소** 를 선택 합니다. 
+    1. **스튜디오를 통해 데이터 저장소를 다시 등록 하려면** 스튜디오 왼쪽 창에서 **데이터 저장소** 를 선택 합니다. 
         1. 업데이트 하려는 데이터 저장소를 선택 합니다.
         1. 왼쪽 위에서 **자격 증명 업데이트** 단추를 선택 합니다. 
-        1. 1 단계의 새 선택 키를 사용 하 여 양식을 채운 다음 **저장**을 클릭 합니다.
+        1. 1 단계의 새 선택 키를 사용 하 여 양식을 채운 다음 **저장** 을 클릭 합니다.
         
-            **기본 데이터 저장소**에 대 한 자격 증명을 업데이트 하는 경우이 단계를 완료 하 고 2b 단계를 반복 하 여 새 키를 작업 영역의 기본 데이터 저장소로 다시 동기화 합니다. 
+            **기본 데이터 저장소** 에 대 한 자격 증명을 업데이트 하는 경우이 단계를 완료 하 고 2b 단계를 반복 하 여 새 키를 작업 영역의 기본 데이터 저장소로 다시 동기화 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Datastores를 등록 하는 방법에 대 한 자세한 내용은 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) 클래스 참조를 참조 하세요.
+Datastores를 등록 하는 방법에 대 한 자세한 내용은 [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) 클래스 참조를 참조 하세요.
