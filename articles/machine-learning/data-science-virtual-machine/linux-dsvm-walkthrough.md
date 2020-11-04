@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275985"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315792"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -28,8 +28,8 @@ Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Ubuntu Data Science Virtual Machine 프로 비전](linux-dsvm-intro.md)을 참조 하세요.
-* 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#x2go)을 참조하세요.
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Ubuntu Data Science Virtual Machine 프로 비전](./release-notes.md)을 참조 하세요.
+* 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](dsvm-ubuntu-intro.md#x2go)을 참조하세요.
 * 더 부드러운 스크롤 경험을 원할 경우 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `mousewheel.enable_pixel_scrolling`을 `False`로 설정하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -62,11 +62,11 @@ mv headers spambaseHeaders.data
 
 데이터 세트에는 각 메일에 대한 다양한 통계가 있습니다.
 
-* **word\_freq\__WORD_** 와 같은 열은 메일에서 *WORD*와 일치하는 단어의 백분율을 나타냅니다. 예를 들어 **word\_freq\_make**가 **1**인 경우에는 메일에 있는 모든 단어의 1%가 *make*입니다.
+* **word\_freq\__WORD_** 와 같은 열은 메일에서 *WORD* 와 일치하는 단어의 백분율을 나타냅니다. 예를 들어 **word\_freq\_make** 가 **1** 인 경우에는 메일에 있는 모든 단어의 1%가 *make* 입니다.
 * **char\_freq\__CHAR_** 와 같은 열은 메일에 있는 모든 문자 중 *CHAR* 문자의 백분율을 나타냅니다.
-* **capital\_run\_length\_longest**는 대문자 시퀀스의 가장 긴 길이입니다.
-* **capital\_run\_length\_average**는 모든 대문자 시퀀스의 평균 길이입니다.
-* **capital\_run\_length\_total**는 모든 대문자 시퀀스의 총 길이입니다.
+* **capital\_run\_length\_longest** 는 대문자 시퀀스의 가장 긴 길이입니다.
+* **capital\_run\_length\_average** 는 모든 대문자 시퀀스의 평균 길이입니다.
+* **capital\_run\_length\_total** 는 모든 대문자 시퀀스의 총 길이입니다.
 * **spam** 은 메일이 스팸으로 간주되는지 여부를 나타냅니다(1 = 스팸, 0 = 스팸이 아님).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>R Open을 사용하여 데이터 세트 탐색
@@ -146,7 +146,7 @@ labs(fill="spam", y="Density")
 스팸 또는 햄을 포함하도록 데이터 세트에서 메일을 분류하는 기계 학습 모델 두 가지를 학습하겠습니다. 이 섹션에서는 의사 결정 트리 모델 및 임의 포리스트 모델을 학습합니다. 그런 다음 예측의 정확도를 테스트합니다.
 
 > [!NOTE]
-> 다음 코드에 사용되는 *rpart*(재귀 분할 및 회귀 트리) 패키지는 이미 DSVM에 설치되어 있습니다.
+> 다음 코드에 사용되는 *rpart* (재귀 분할 및 회귀 트리) 패키지는 이미 DSVM에 설치되어 있습니다.
 
 먼저 데이터 세트를 학습 집합과 테스트 집합으로 분할합니다.
 
@@ -213,7 +213,7 @@ accuracy
 
 - [이미지 내 제품을 검색하도록 엔드투엔드 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 엄청난 성과를 거둘 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
 
-- [오디오용 딥 러닝](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): 이 자습서에서는 [도시음 데이터 세트](https://urbansounddataset.weebly.com/)에서 오디오 이벤트 검색을 위한 딥 러닝 모델을 학습하는 방법을 보여 줍니다. 이 자습서에서는 오디오 데이터로 작업하는 방법에 대한 개요를 제공합니다.
+- [오디오용 딥 러닝](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): 이 자습서에서는 [도시음 데이터 세트](https://urbansounddataset.weebly.com/)에서 오디오 이벤트 검색을 위한 딥 러닝 모델을 학습하는 방법을 보여 줍니다. 이 자습서에서는 오디오 데이터로 작업하는 방법에 대한 개요를 제공합니다.
 
 - [텍스트 문서의 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 두 개의 다른 신경망 아키텍처를 빌드 및 학습하는 방법을 보여줍니다. Hierarchical Attention Network 및 LSTM(Long Short Term Memory). 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. Keras는 다음 세 개의 가장 인기 있는 딥러닝 프레임워크에 대한 프런트 엔드입니다. Microsoft Cognitive Toolkit, TensorFlow 및 Theano
 
@@ -315,7 +315,7 @@ DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html)(*R* *A*nalytical *T*ool *T*o *L*earn *E*asily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 Rattle의 기능을 보여 주는 연습을 제공합니다.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html)( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 Rattle의 기능을 보여 주는 연습을 제공합니다.
 
 다음 명령을 실행하여 Rattle을 설치하고 시작합니다.
 
@@ -328,40 +328,40 @@ rattle()
 > [!NOTE]
 > DSVM에 Rattle를 설치할 필요가 없습니다. 그러나 Rattle이 열릴 때 추가 패키지를 설치하라는 메시지가 표시될 수 있습니다.
 
-Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 데이터를 탐색하는 등 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행한 R 명령의 로그가 있습니다.
+Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 데이터를 탐색하는 등 [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행한 R 명령의 로그가 있습니다.
 
 데이터 세트를 로드하고 구성하려면
 
 1. 파일을 로드하려면 **데이터** 탭을 선택합니다.
-1. **파일 이름** 옆의 선택기를 선택한 다음 **spambaseHeaders.data**를 선택합니다.
-1. 파일을 로드하려면 **실행**을 선택합니다. 입력, 대상 또는 다른 유형의 변수인지 고유한 값의 수인지 식별된 데이터 형식을 포함하여 각 열에 대한 요약이 표시됩니다.
-1. Rattle은 **spam** 열을 대상으로 제대로 식별합니다. **spam** 열을 선택한 다음 **대상 데이터 형식**을 **범주**로 설정합니다.
+1. **파일 이름** 옆의 선택기를 선택한 다음 **spambaseHeaders.data** 를 선택합니다.
+1. 파일을 로드하려면 **실행** 을 선택합니다. 입력, 대상 또는 다른 유형의 변수인지 고유한 값의 수인지 식별된 데이터 형식을 포함하여 각 열에 대한 요약이 표시됩니다.
+1. Rattle은 **spam** 열을 대상으로 제대로 식별합니다. **spam** 열을 선택한 다음 **대상 데이터 형식** 을 **범주** 로 설정합니다.
 
 데이터를 탐색하려면
 
 1. **탐색** 탭을 선택합니다.
-1. 변수 형식 및 일부 요약 통계에 대한 정보를 보려면 **요약** > **실행**을 선택합니다.
+1. 변수 형식 및 일부 요약 통계에 대한 정보를 보려면 **요약** > **실행** 을 선택합니다.
 1. 각 변수에 대한 다른 종류의 통계를 보려면 **설명** 또는 **기본 사항** 등 다른 옵션을 선택합니다.
 
 **탐색** 탭을 사용하여 통찰력 있는 도표를 생성할 수도 있습니다. 데이터의 히스토그램을 나타내려면
 
-1. **배포**를 선택합니다.
-1. **word_freq_remove** 및 **word_freq_you**에서 **히스토그램**을 선택합니다.
-1. **실행**을 선택합니다. 두 밀도 도표가 단일 그래프 창에 표시되고 여기서 단어 _you_가 _remove_보다 메일에 훨씬 더 자주 나오는 것을 볼 수 있습니다.
+1. **배포** 를 선택합니다.
+1. **word_freq_remove** 및 **word_freq_you** 에서 **히스토그램** 을 선택합니다.
+1. **실행** 을 선택합니다. 두 밀도 도표가 단일 그래프 창에 표시되고 여기서 단어 _you_ 가 _remove_ 보다 메일에 훨씬 더 자주 나오는 것을 볼 수 있습니다.
 
 **상관 관계** 도표도 흥미롭습니다. 도표를 만들려면
 
-1. **유형**에 대해 **상관 관계**를 선택합니다.
-1. **실행**을 선택합니다.
+1. **유형** 에 대해 **상관 관계** 를 선택합니다.
+1. **실행** 을 선택합니다.
 1. 권장 최대 변수는 40개라는 경고 메시지가 표시됩니다. 도표를 보려면 **예** 를 선택합니다.
 
-여기서 몇 가지 흥미로운 상관 관계를 볼 수 있습니다. 예를 들어 _technology_는 _HP_ 및 _labs_와 밀접하게 상호 관련되어 있습니다. 데이터 세트 기부자의 지역 번호가 650이기 때문에 _650_과도 아주 밀접하게 상호 관련됩니다.
+여기서 몇 가지 흥미로운 상관 관계를 볼 수 있습니다. 예를 들어 _technology_ 는 _HP_ 및 _labs_ 와 밀접하게 상호 관련되어 있습니다. 데이터 세트 기부자의 지역 번호가 650이기 때문에 _650_ 과도 아주 밀접하게 상호 관련됩니다.
 
-단어 사이의 상관 관계에 대한 숫자 값은 **탐색** 창에서 사용할 수 있습니다. 예를 들어 _technology_가 _your_ 및 _money_와 부정적으로 상호 관련되어 있다는 점도 흥미로운 사실입니다.
+단어 사이의 상관 관계에 대한 숫자 값은 **탐색** 창에서 사용할 수 있습니다. 예를 들어 _technology_ 가 _your_ 및 _money_ 와 부정적으로 상호 관련되어 있다는 점도 흥미로운 사실입니다.
 
 Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트를 변환할 수 있습니다. 예를 들어 기능 크기 재조정, 누락된 값 대체, 이상값 처리, 데이터가 누락된 관찰 또는 변수를 제거할 수 있습니다. Rattle은 관찰 및 변수 간의 연결 규칙을 식별할 수도 있습니다. 이러한 탭은 이 소개 연습에서 다루지 않습니다.
 
-또한 Rattle은 클러스터 분석도 실행할 수 있습니다. 출력을 더 쉽게 읽을 수 있도록 일부 기능을 제외하겠습니다. **데이터** 탭에서 다음 10개 항목을 제외하고 각 변수 옆의 **무시**를 선택합니다.
+또한 Rattle은 클러스터 분석도 실행할 수 있습니다. 출력을 더 쉽게 읽을 수 있도록 일부 기능을 제외하겠습니다. **데이터** 탭에서 다음 10개 항목을 제외하고 각 변수 옆의 **무시** 를 선택합니다.
 
 * word_freq_hp
 * word_freq_technology
@@ -374,20 +374,20 @@ Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트
 * word_freq_business
 * spam
 
-**클러스터** 탭으로 돌아갑니다. **KMeans**를 선택하고 **클러스터 수**를 **4**로 설정합니다. **실행**을 선택합니다. 결과가 출력 창에 표시됩니다. 한 클러스터가 _george_ 및 _hp_의 빈도가 높고 아마도 합법적인 비즈니스 메일입니다.
+**클러스터** 탭으로 돌아갑니다. **KMeans** 를 선택하고 **클러스터 수** 를 **4** 로 설정합니다. **실행** 을 선택합니다. 결과가 출력 창에 표시됩니다. 한 클러스터가 _george_ 및 _hp_ 의 빈도가 높고 아마도 합법적인 비즈니스 메일입니다.
 
 기본적인 의사 결정 트리 기계 학습 모델을 빌드하려면
 
 1. **모델** 탭을 선택합니다.
-1. **형식**에 대해 **트리**를 선택합니다.
+1. **형식** 에 대해 **트리** 를 선택합니다.
 1. **실행** 을 선택하여 출력 창에 텍스트 형식으로 트리를 표시합니다.
 1. **그리기** 단추를 선택하여 그래픽 버전을 봅니다. 의사 결정 트리는 앞서 rpart를 사용하여 가져온 트리와 비슷합니다.
 
 Rattle의 유용한 기능 중 하나는 여러 기계 학습 방법을 실행하고 신속하게 평가하는 기능입니다. 단계는 다음과 같습니다.
 
-1. **형식**에 대해 **모두**를 선택합니다.
-1. **실행**을 선택합니다.
-1. Rattle 실행이 완료되면 **SVM**같은 **형식** 값을 선택하고 결과를 볼 수 있습니다.
+1. **형식** 에 대해 **모두** 를 선택합니다.
+1. **실행** 을 선택합니다.
+1. Rattle 실행이 완료되면 **SVM** 같은 **형식** 값을 선택하고 결과를 볼 수 있습니다.
 1. **평가** 탭을 사용하여 유효성 검사 집합에서 모델의 성능을 비교할 수도 있습니다. 예를 들어 **오류 매트릭스** 를 선택하면 유효성 검사 집합에서 각 모델에 대한 혼동 행렬, 전체 오류 및 평균 클래스 오류를 볼 수 있습니다. 또한 ROC 곡선을 그림으로 나타내고, 민감도 분석을 실행하고, 다른 유형의 모델 평가를 수행할 수도 있습니다.
 
 모델 빌드가 완료된 후 **로그** 탭을 선택하면 세션 동안 Rattle이 실행한 R 코드를 볼 수 있습니다. **내보내기** 단추를 선택하여 저장할 수 있습니다.
@@ -416,7 +416,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-사용자 이름 및 암호를 사용하여 로그인할 수 있도록 **ident** 대신 **md5**를 사용하도록 **IPv4 local connections** 줄을 변경합니다.
+사용자 이름 및 암호를 사용하여 로그인할 수 있도록 **ident** 대신 **md5** 를 사용하도록 **IPv4 local connections** 줄을 변경합니다.
 
 ```
 # IPv4 local connections:
@@ -429,7 +429,7 @@ host    all             all             127.0.0.1/32            md5
 sudo systemctl restart postgresql
 ```
 
-PostgreSQL용 대화형 터미널인 *psql*을 기본 제공 postgres 사용자로 시작하려면 다음 명령을 실행합니다.
+PostgreSQL용 대화형 터미널인 *psql* 을 기본 제공 postgres 사용자로 시작하려면 다음 명령을 실행합니다.
 
 ```Bash
 sudo -u postgres psql
@@ -464,23 +464,23 @@ CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all re
 
 시작하려면 **애플리케이션** 메뉴에서 SQuirreL SQL을 엽니다. 드라이버를 설정하려면
 
-1. **Windows** > **드라이버 보기**를 선택합니다.
-1. **PostgreSQL**을 마우스 오른쪽 단추로 클릭하고 **드라이버 수정**을 선택합니다.
-1. **추가 클래스 경로** > **추가**를 선택합니다.
-1. **파일 이름**에 **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**을 입력합니다.
-1. **열기**를 선택합니다.
-1. **드라이버 나열**을 선택합니다. **클래스 이름**에 대해 **org.postgresql.Driver**를 선택한 다음 **확인**을 선택합니다.
+1. **Windows** > **드라이버 보기** 를 선택합니다.
+1. **PostgreSQL** 을 마우스 오른쪽 단추로 클릭하고 **드라이버 수정** 을 선택합니다.
+1. **추가 클래스 경로** > **추가** 를 선택합니다.
+1. **파일 이름** 에 **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar** 을 입력합니다.
+1. **열기** 를 선택합니다.
+1. **드라이버 나열** 을 선택합니다. **클래스 이름** 에 대해 **org.postgresql.Driver** 를 선택한 다음 **확인** 을 선택합니다.
 
 로컬 서버에 연결을 설정하려면
 
-1. **Windows** > **별칭 보기**를 선택합니다.
-1. **+** 단추를 선택하여 새 별칭을 만듭니다. 새 별칭 이름에 **Spam database**를 입력합니다. 
-1. **드라이버**에 대해 **PostgreSQL**을 선택합니다.
-1. URL을 **jdbc:postgresql://localhost/spam**으로 설정합니다.
+1. **Windows** > **별칭 보기** 를 선택합니다.
+1. **+** 단추를 선택하여 새 별칭을 만듭니다. 새 별칭 이름에 **Spam database** 를 입력합니다. 
+1. **드라이버** 에 대해 **PostgreSQL** 을 선택합니다.
+1. URL을 **jdbc:postgresql://localhost/spam** 으로 설정합니다.
 1. 사용자 이름 및 암호를 입력합니다.
-1. **확인**을 선택합니다.
-1. **연결** 창을 열려면 별칭 **스팸 데이터베이스**를 두 번 클릭합니다.
-1. **연결**을 선택합니다.
+1. **확인** 을 선택합니다.
+1. **연결** 창을 열려면 별칭 **스팸 데이터베이스** 를 두 번 클릭합니다.
+1. **연결** 을 선택합니다.
 
 일부 쿼리를 실행하려면
 
@@ -494,13 +494,13 @@ CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all re
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-또는 *3d*가 자주 포함되는 메일의 특징은 무엇일까요?
+또는 *3d* 가 자주 포함되는 메일의 특징은 무엇일까요?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;
 ```
 
-*3d*가 많이 나타나는 메일은 대부분 스팸으로 보입니다. 이 정보는 이메일을 분류하는 예측 모델을 작성하는 데 유용할 수 있습니다.
+*3d* 가 많이 나타나는 메일은 대부분 스팸으로 보입니다. 이 정보는 이메일을 분류하는 예측 모델을 작성하는 데 유용할 수 있습니다.
 
 PostgreSQL 데이터베이스에 저장된 데이터를 사용하여 기계 학습을 수행하려면 [MADlib](https://madlib.incubator.apache.org/)을 사용하는 것이 좋습니다.
 
@@ -538,5 +538,3 @@ GO
 ```
 
 SQuirreL SQL을 사용하여 쿼리할 수도 있습니다. SQL Server JDBC 드라이버를 사용하여 PostgreSQL과 유사한 단계를 수행합니다. JDBC 드라이버는 /usr/share/java/jdbcdrivers/sqljdbc42.jar 폴더에 있습니다.
-
-

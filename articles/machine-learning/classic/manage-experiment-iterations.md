@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361946"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312870"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 실험 실행 관리 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.
@@ -33,7 +33,7 @@ ms.locfileid: "91361946"
 ## <a name="view-the-prior-run"></a>이전 실행 보기
 한 번 이상 실행한 실험이 열려 있는 경우, 속성 창에서 **이전 실행** 을 클릭하여 실험의 이전 실행을 볼 수 있습니다.
 
-예를 들어, 실험을 만들고 11:23, 11:42 및 11:55에 실험의 버전을 실행한다고 가정합니다. 마지막으로 실행된 실험(11:55)을 열고 **이전 실행**을 클릭하면 11:42에 실행한 버전이 열립니다.
+예를 들어, 실험을 만들고 11:23, 11:42 및 11:55에 실험의 버전을 실행한다고 가정합니다. 마지막으로 실행된 실험(11:55)을 열고 **이전 실행** 을 클릭하면 11:42에 실행한 버전이 열립니다.
 
 ## <a name="view-the-run-history"></a>실행 기록 보기
 열린 실험에서 **실행 기록 보기** 를 클릭하여 이전에 실행된 모든 실험을 볼 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "91361946"
 | 0.4 |2014년 9월 11일 오후 4:28:36 |
 | 0.5 |2014년 9월 11일 오후 4:33:31 |
 
-**실행 기록 보기**를 클릭하면 다음과 같은 실행 목록이 모두 표시됩니다.
+**실행 기록 보기** 를 클릭하면 다음과 같은 실행 목록이 모두 표시됩니다.
 
 ![예제 실행 기록](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,22 +58,22 @@ ms.locfileid: "91361946"
 > 
 > 
 
-Machine Learning Studio (클래식)의 **실험** 탭에 있는 실험의 목록에는 항상 최신 버전의 실험이 표시 됩니다. **이전 실행** 또는 **실행 기록 보기**를 사용하여 이전에 실행된 실험을 열면, **실행 기록 보기**를 클릭하고 **상태**가 **편집 가능**인 반복을 선택하여 초안 버전으로 돌아갈 수 있습니다.
+Machine Learning Studio (클래식)의 **실험** 탭에 있는 실험의 목록에는 항상 최신 버전의 실험이 표시 됩니다. **이전 실행** 또는 **실행 기록 보기** 를 사용하여 이전에 실행된 실험을 열면, **실행 기록 보기** 를 클릭하고 **상태** 가 **편집 가능** 인 반복을 선택하여 초안 버전으로 돌아갈 수 있습니다.
 
 ## <a name="run-a-previous-experiment"></a>이전 실험 실행
-**이전 실행** 또는 **실행 기록 보기**를 클릭하고 이전 실행을 열면 읽기 전용 모드로 완료된 실험을 볼 수 있습니다.
+**이전 실행** 또는 **실행 기록 보기** 를 클릭하고 이전 실행을 열면 읽기 전용 모드로 완료된 실험을 볼 수 있습니다.
 
-이전 실행을 위해 실험을 구성한 방식으로 실험 반복을 시작하려면 실행을 열고 **다른 이름으로 저장**을 클릭하여 수행할 수 있습니다. 그러면 실행 기록이 비어 있으며 이전 실행의 모든 구성 요소와 매개 변수 값을 사용하는 새로운 제목의 새 실험이 생성됩니다. 이 새 실험은 Machine Learning Studio (클래식) 홈페이지의 **실험** 탭에 나열 되어 있으며,이 실험을 수정 하 고 실행 하 여이 실험의 반복에 대 한 새 실행 기록을 시작할 수 있습니다. 
+이전 실행을 위해 실험을 구성한 방식으로 실험 반복을 시작하려면 실행을 열고 **다른 이름으로 저장** 을 클릭하여 수행할 수 있습니다. 그러면 실행 기록이 비어 있으며 이전 실행의 모든 구성 요소와 매개 변수 값을 사용하는 새로운 제목의 새 실험이 생성됩니다. 이 새 실험은 Machine Learning Studio (클래식) 홈페이지의 **실험** 탭에 나열 되어 있으며,이 실험을 수정 하 고 실행 하 여이 실험의 반복에 대 한 새 실행 기록을 시작할 수 있습니다. 
 
 예를 들어, 이전 섹션에 표시된 실험 실행 기록이 있다고 가정합니다. **학습 속도** 매개 변수를 0.4로 설정하면 어떻게 되는지 관찰하고 **학습 epoch 수** 매개 변수에 다른 값을 사용해 보려고 합니다.
 
 1. **실행 기록 보기** 를 클릭하고 오후 4:28:36에 실행한 반복 실험을 엽니다(매개 변수 값을 0.4로 설정함).
-2. 다른 **이름으로 저장을**클릭 합니다.
+2. 다른 **이름으로 저장을** 클릭 합니다.
 3. 새 제목을 입력하고 **확인** 확인 표시를 클릭합니다. 실험의 새 복사본이 생성됩니다.
 4. **학습 epoch 수** 매개 변수를 수정합니다.
-5. **실행**을 클릭 합니다.
+5. **실행** 을 클릭 합니다.
 
 이제 계속하여 이 버전의 실험을 수정하고 실행하여 작업을 기록할 새 실행 기록을 작성할 수 있습니다.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

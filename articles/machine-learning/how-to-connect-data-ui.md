@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841359"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312796"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "91841359"
 
 데이터 저장소 및 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조 하세요.
 
-Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 를 사용 하는 다음 문서를 참조 하세요.
+Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 를 사용 하는 다음 문서를 참조 하세요.
 * [데이터 저장소를 사용 하 여 Azure storage 서비스에 연결](how-to-access-data.md)합니다. 
 * [Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md). 
 
@@ -48,21 +48,21 @@ Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](https://docs.
 
 ## <a name="create-datastores"></a>데이터 저장소 만들기
 
-[이 Azure 스토리지 솔루션](how-to-access-data.md#matrix)에서 데이터 저장소를 만들 수 있습니다. **지원 되지 않는 저장소 솔루션의**경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](how-to-access-data.md#move) 해야 합니다. [데이터 저장소에 대해 자세히 알아보세요](how-to-access-data.md). 
+[이 Azure 스토리지 솔루션](how-to-access-data.md#matrix)에서 데이터 저장소를 만들 수 있습니다. **지원 되지 않는 저장소 솔루션의** 경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](how-to-access-data.md#move) 해야 합니다. [데이터 저장소에 대해 자세히 알아보세요](how-to-access-data.md). 
 
 
 
 Azure Machine Learning studio를 사용 하 여 몇 단계로 새 데이터 저장소를 만듭니다.
 
 > [!IMPORTANT]
-> 데이터 저장소 계정이 가상 네트워크에 있는 경우 스튜디오에서 데이터에 액세스할 수 있도록 하려면 추가 구성 단계가 필요 합니다. 적절 한 구성 단계가 적용 되도록 하려면 [네트워크 격리 & 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio) 를 참조 하세요.
+> 데이터 저장소 계정이 가상 네트워크에 있는 경우 스튜디오에서 데이터에 액세스할 수 있도록 하려면 추가 구성 단계가 필요 합니다. 적절 한 구성 단계가 적용 되도록 하려면 [네트워크 격리 & 개인 정보](how-to-enable-studio-virtual-network.md) 를 참조 하세요.
 
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
-1. 왼쪽 창의 **관리**에서 **데이터 저장소**를 선택합니다.
-1. **+ 새 데이터 저장소**를 선택합니다.
+1. 왼쪽 창의 **관리** 에서 **데이터 저장소** 를 선택합니다.
+1. **+ 새 데이터 저장소** 를 선택합니다.
 1. 새 데이터 저장소에 대한 양식을 작성합니다. 이 양식은 사용자가 선택하는 Azure 스토리지 유형 및 인증 형식에 따라 지능적으로 업데이트됩니다. 이 양식을 채우는 데 필요한 인증 자격 증명을 찾을 수 있는 위치를 이해 하려면 [저장소 액세스 및 사용 권한 섹션](#access-validation) 을 참조 하세요.
 
-다음 예제에서는 **Azure blob 데이터 저장소**를 만들 때 양식이 표시 되는 모양을 보여 줍니다.
+다음 예제에서는 **Azure blob 데이터 저장소** 를 만들 때 양식이 표시 되는 모양을 보여 줍니다.
 
 ![새 데이터 저장소에 대한 양식](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -86,7 +86,7 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 1. 데이터 집합 **만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 원본은 로컬 파일, 데이터 저장소, 공용 Url 또는 [Azure Open 데이터 집합이](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)될 수 있습니다.
 1. 데이터 집합 형식으로 **테이블** 형식 또는 **파일** 을 선택 합니다.
 1. **다음** 을 선택 하 여 **데이터 저장소 및 파일 선택** 양식을 엽니다. 이 폼에서 데이터 집합을 만든 후 데이터 집합에 사용할 데이터 파일을 선택할 뿐만 아니라 데이터 집합을 보관할 위치를 선택할 수 있습니다.
-    1. 데이터가 가상 네트워크에 있는 경우 유효성 검사 건너뛰기를 사용 하도록 설정 합니다. [가상 네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio)에 대해 자세히 알아보세요.
+    1. 데이터가 가상 네트워크에 있는 경우 유효성 검사 건너뛰기를 사용 하도록 설정 합니다. [가상 네트워크 격리 및 개인 정보](how-to-enable-studio-virtual-network.md)에 대해 자세히 알아보세요.
     1. 테이블 형식 데이터 집합의 경우 ' 시계열 ' 특성을 지정 하 여 데이터 집합에 대 한 시간 관련 작업을 활성화할 수 있습니다. [데이터 집합에 시계열 특성을 추가](how-to-monitor-datasets.md#studio-dataset)하는 방법에 대해 알아봅니다.
 1. **다음** 을 선택 하 여 **설정 및 미리 보기** 및 **스키마** 폼을 채웁니다. 이러한 형식은 파일 형식에 따라 지능적으로 채워지며 이러한 폼에서 만들기 전에 데이터 집합을 추가로 구성할 수 있습니다. 
 1. **다음** 을 선택 하 여 **확인 세부 정보** 양식을 검토 합니다. 선택 항목을 확인 하 고 데이터 집합에 대 한 선택적 데이터 프로필을 만듭니다. [데이터 프로파일링](#profile)에 대한 자세한 정보
@@ -136,24 +136,24 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="virtual-network"></a>가상 네트워크
 
-데이터 저장소 계정이 **가상 네트워크**에 있는 경우 Azure Machine Learning 데이터에 대 한 액세스 권한이 있는지 확인 하는 추가 구성 단계가 필요 합니다. 데이터 저장소를 만들고 등록할 때 적절 한 구성 단계가 적용 되도록 하려면 [네트워크 격리 & 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio) 를 참조 하세요.  
+데이터 저장소 계정이 **가상 네트워크** 에 있는 경우 Azure Machine Learning 데이터에 대 한 액세스 권한이 있는지 확인 하는 추가 구성 단계가 필요 합니다. 데이터 저장소를 만들고 등록할 때 적절 한 구성 단계가 적용 되도록 하려면 [네트워크 격리 & 개인 정보](how-to-enable-studio-virtual-network.md) 를 참조 하세요.  
 
 ### <a name="access-validation"></a>액세스 유효성 검사
 
-**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로**, Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
+**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로** , Azure Machine Learning는 기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 검사 합니다.
 
-**데이터 저장소를 만든 후**에는 데이터 저장소 개체가 검색 **될 때마다 기본** 저장소 컨테이너에 액세스 해야 하는 메서드에 대해서만이 유효성 검사가 수행 됩니다. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
+**데이터 저장소를 만든 후** 에는 데이터 저장소 개체가 검색 **될 때마다 기본** 저장소 컨테이너에 액세스 해야 하는 메서드에 대해서만이 유효성 검사가 수행 됩니다. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
 
 기본 저장소 서비스에 대 한 액세스를 인증 하려면 만들려는 데이터 저장소 유형에 따라 계정 키, SAS (공유 액세스 서명) 토큰 또는 서비스 주체를 제공 하면 됩니다. [저장소 유형 행렬](how-to-access-data.md#matrix) 에는 각 데이터 저장소 유형에 해당 하는 지원 되는 인증 유형이 나열 됩니다.
 
 [Azure Portal](https://portal.azure.com)에 대 한 계정 키, SAS 토큰 및 서비스 주체 정보를 찾을 수 있습니다.
 
-* 계정 키 또는 SAS 토큰을 인증에 사용할 계획이면 왼쪽 창에서 **스토리지 계정**을 선택하고, 등록하려는 스토리지 계정을 선택합니다.
+* 계정 키 또는 SAS 토큰을 인증에 사용할 계획이면 왼쪽 창에서 **스토리지 계정** 을 선택하고, 등록하려는 스토리지 계정을 선택합니다.
   * **개요** 페이지에서는 계정 이름, 컨테이너, 파일 공유 이름 등의 정보를 제공합니다.
-      1. 계정 키의 경우 **설정** 창에서 **액세스 키**로 이동합니다.
-      1. SAS 토큰의 경우 **설정** 창에서 **공유 액세스 서명**으로 이동합니다.
+      1. 계정 키의 경우 **설정** 창에서 **액세스 키** 로 이동합니다.
+      1. SAS 토큰의 경우 **설정** 창에서 **공유 액세스 서명** 으로 이동합니다.
 
-* 인증을 위해 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 사용 하려는 경우 **앱 등록** 으로 이동 하 여 사용 하려는 앱을 선택 합니다.
+* 인증을 위해 [서비스 주체](../active-directory/develop/howto-create-service-principal-portal.md) 를 사용 하려는 경우 **앱 등록** 으로 이동 하 여 사용 하려는 앱을 선택 합니다.
     * 해당 **개요** 페이지에는 테 넌 트 id 및 클라이언트 ID와 같은 필수 정보가 포함 됩니다.
 
 > [!IMPORTANT]
@@ -161,7 +161,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 
 
 ## <a name="train-with-datasets"></a>데이터 세트로 학습
 

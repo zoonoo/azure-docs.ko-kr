@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315822"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 공용 콘텐츠 관리
 
@@ -25,16 +25,14 @@ ms.locfileid: "93130853"
 
 ## <a name="authenticate-with-docker-hub"></a>Docker 허브를 사용 하 여 인증
 
-첫 번째 단계로, 현재 빌드 또는 배포 워크플로의 일부로 Docker 허브에서 공용 이미지를 끌어오는 경우 익명 끌어오기 요청을 수행 하는 대신 Docker 허브 계정을 사용 하 여 인증 하는 것이 좋습니다.
+첫 번째 단계로, 현재 빌드 또는 배포 워크플로의 일부로 Docker 허브에서 공용 이미지를 끌어오는 경우 익명 끌어오기 요청을 수행 하는 대신 [Docker 허브 계정을 사용 하 여 인증](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) 하는 것이 좋습니다.
 
 > [!NOTE]
-> 2020 년 11 월 2 일부 터 다운로드 요금 제한은 Docker 무료 계획 계정에서 Docker 허브에 대 한 익명 및 인증 된 요청에 적용 되며 IP 주소에 의해 적용 됩니다. 
+> 2020 년 11 월 2 일부 터 [다운로드 요금 제한은](https://docs.docker.com/docker-hub/download-rate-limit) Docker 무료 계획 계정에서 docker 허브에 대 한 익명 및 인증 된 요청에 적용 되며 IP 주소 및 docker ID respecitively에 의해 적용 됩니다. 
 >
-> 끌어오기 요청 수를 예측 하는 경우 클라우드 공급자 서비스를 사용 하거나 회사 NAT 뒤에서 작업 하는 경우 여러 사용자가 집계의 Docker 허브에 IP 주소 하위 집합으로 표시 됩니다.  Docker Hub에 대 한 요청에 Docker 유료 계정 인증을 추가 하면 요금 제한으로 인 한 잠재적인 서비스 중단이 발생 하지 않습니다.
+> 끌어오기 요청 수를 예측 하는 경우 클라우드 공급자 서비스를 사용 하거나 회사 NAT 뒤에서 작업 하는 경우 여러 사용자가 집계의 Docker 허브에 IP 주소 하위 집합으로 표시 됩니다. Docker Hub에 대 한 요청에 Docker 유료 계정 인증을 추가 하면 요금 제한으로 인 한 잠재적인 서비스 중단이 발생 하지 않습니다.
 >
 > 자세한 내용은 [docker 가격 책정 및 구독](https://www.docker.com/pricing) 및 [docker 서비스 약관](https://www.docker.com/legal/docker-terms-service)을 참조 하세요.
-
-인증 예제 및 시나리오는 [다운로드 빈도 제한](https://docs.docker.com/docker-hub/download-rate-limit/)을 참조 하세요.
 
 ### <a name="docker-hub-access-token"></a>Docker 허브 액세스 토큰
 

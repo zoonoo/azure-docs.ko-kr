@@ -1,6 +1,6 @@
 ---
-title: 시스템 뷰
-description: Synapse SQL 풀에서 지원되는 시스템 보기에 대한 설명서 링크입니다.
+title: 전용 SQL 풀의 시스템 뷰
+description: Azure Synapse Analytics에서 전용 SQL 풀의 시스템 뷰 설명서에 대 한 링크를 제공 합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 03c772287078c48a36a907c877e03836ed8ef4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81ce875b5ee9baa96fe9aaa9fa4ea99a730d307e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88796190"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313366"
 ---
-# <a name="system-views-supported-in-synapse-sql-pool"></a>Synapse SQL 풀에서 지원되는 시스템 보기
+# <a name="system-views-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 시스템 뷰
 
-Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
+전용 SQL 풀에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 
-## <a name="synapse-sql-pool-catalog-views"></a>Synapse SQL 풀 카탈로그 뷰
+## <a name="dedicated-sql-pool-catalog-views"></a>전용 SQL 풀 카탈로그 뷰
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -48,7 +48,7 @@ Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서 링크입니다
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.workload_management_workload_groups](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-groups-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="synapse-sql-pool-dynamic-management-views-dmvs"></a>Synapse SQL 풀 DMV(동적 관리 뷰)
+## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>전용 SQL 풀 Dmv (동적 관리 뷰)
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -70,9 +70,9 @@ Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서 링크입니다
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-synapse-sql-pool"></a>Synapse SQL 풀에 적용 가능한 SQL Server DMV
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>전용 SQL 풀에 적용할 수 있는 SQL Server Dmv
 
-다음 DMV는 Synapse SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
+다음 Dmv는 전용 SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -152,16 +152,16 @@ Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서 링크입니다
 * [sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-sql-pool"></a>SQL 풀에서 사용할 수 있는 SQL Server DMV
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>전용 SQL 풀에서 사용할 수 있는 SQL Server Dmv
 
-SQL 풀은 다양한 SQL Server DMV(동적 관리 보기)를 표시합니다. 이러한 보기는 SQL 풀에서 쿼리한 경우 배포에서 실행되고 있는 SQL Database의 상태를 보고합니다.
+전용 SQL 풀은 많은 SQL Server Dmv (동적 관리 뷰)를 제공 합니다. 이 보기는 전용 SQL 풀에서 쿼리 되는 경우 배포에서 실행 되는 SQL 데이터베이스의 상태를 보고 합니다.
 
-Synapse SQL 풀 및 PDW(병렬 데이터 웨어하우스)는 동일한 시스템 보기를 사용합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다.
+전용 SQL 풀 및 PDW (병렬 데이터 웨어하우스)는 동일한 시스템 뷰를 사용 합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다.
 
 > [!NOTE]
 > 이러한 보기를 사용하려면 다음 표와 같이 이름에 ‘pdw_nodes_’를 삽입합니다.
 
-| SQL 풀의 DMV 이름 | SQL Server Transact-SQL 문서|
+| 전용 SQL 풀의 DMV 이름 | SQL Server Transact-SQL 문서|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -223,9 +223,9 @@ Synapse SQL 풀 및 PDW(병렬 데이터 웨어하우스)는 동일한 시스템
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>SQL 풀에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>SQL Server 2016 PolyBase Dmv 전용 SQL 풀에서 사용 가능
 
-다음 DMV는 SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
+다음 Dmv는 전용 SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -252,4 +252,4 @@ Synapse SQL 풀 및 PDW(병렬 데이터 웨어하우스)는 동일한 시스템
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [Synapse SQL 풀의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Synapse SQL 풀의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조하세요.
+자세한 참조 정보는 [전용 sql 풀의 t-sql 문과](sql-data-warehouse-reference-tsql-statements.md) [전용 Sql 풀의 t-sql 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조 하세요.

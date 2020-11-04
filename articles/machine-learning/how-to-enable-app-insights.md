@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897661"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314221"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 
@@ -144,12 +144,12 @@ Azure Machine Learning studio에서 Azure 애플리케이션 Insights를 사용 
 
 1. 에서 studio에 로그인 https://ml.azure.com 합니다.
 1. **모델** 로 이동 하 여 배포 하려는 모델을 선택 합니다.
-1. **+ 배포**를 선택 합니다.
+1. **+ 배포** 를 선택 합니다.
 1. **모델 배포** 폼을 채웁니다.
 1. **고급** 메뉴를 확장 합니다.
 
     ![배포 양식](./media/how-to-enable-app-insights/deploy-form.png)
-1. **Application Insights 진단 및 데이터 수집 사용을**선택 합니다.
+1. **Application Insights 진단 및 데이터 수집 사용을** 선택 합니다.
 
     ![앱 Insights 사용](./media/how-to-enable-app-insights/enable-app-insights.png)
 
@@ -172,13 +172,13 @@ logs = service.get_logs()
 Azure 애플리케이션 Insights는 서비스 로그를 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 저장 합니다. Studio를 사용 하 여 데이터를 보려면 다음 단계를 수행 합니다.
 
 1. [스튜디오](https://ml.azure.com/)에서 Azure Machine Learning 작업 영역으로 이동 합니다.
-1. **엔드포인트**를 선택합니다.
+1. **엔드포인트** 를 선택합니다.
 1. 배포 된 서비스를 선택 합니다.
 1. **Application Insights url** 링크를 선택 합니다.
 
     [![Application Insights url 찾기](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Application Insights의 **개요** 탭 또는 __모니터링__ 섹션에서 __로그__를 선택 합니다.
+1. Application Insights의 **개요** 탭 또는 __모니터링__ 섹션에서 __로그__ 를 선택 합니다.
 
     [![모니터링의 개요 탭](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -204,9 +204,9 @@ Azure 애플리케이션 Insights를 사용 하는 방법에 대 한 자세한 �
 ## <a name="export-data-for-retention-and-processing"></a>보존 및 처리를 위해 데이터 내보내기
 
 >[!Important]
-> Azure 애플리케이션 Insights는 blob 저장소에 대 한 내보내기만 지원 합니다. 이 구현의 제한 사항에 대 한 자세한 내용은 [Application Insights에서 원격 분석 내보내기](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration)를 참조 하세요.
+> Azure 애플리케이션 Insights는 blob 저장소에 대 한 내보내기만 지원 합니다. 이 구현의 제한 사항에 대 한 자세한 내용은 [Application Insights에서 원격 분석 내보내기](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration)를 참조 하세요.
 
-Application Insights ' [연속 내보내기](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 를 사용 하 여 보존 설정을 정의할 수 있는 blob storage 계정으로 데이터를 내보낼 수 있습니다. Application Insights JSON 형식으로 데이터를 내보냅니다. 
+Application Insights ' [연속 내보내기](../azure-monitor/app/export-telemetry.md) 를 사용 하 여 보존 설정을 정의할 수 있는 blob storage 계정으로 데이터를 내보낼 수 있습니다. Application Insights JSON 형식으로 데이터를 내보냅니다. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="연속 내보내기":::
 
@@ -215,8 +215,8 @@ Application Insights ' [연속 내보내기](https://docs.microsoft.com/azure/az
 이 문서에서는 웹 서비스 끝점에 대 한 로깅 및 보기 로그를 사용 하도록 설정 하는 방법을 알아보았습니다. 다음 단계에 대 한 다음 문서를 사용해 보세요.
 
 
-* [AKS 클러스터에 모델을 배포 하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [AKS 클러스터에 모델을 배포 하는 방법](./how-to-deploy-azure-kubernetes-service.md)
 
-* [모델을 Azure Container Instances에 배포 하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [모델을 Azure Container Instances에 배포 하는 방법](./how-to-deploy-azure-container-instance.md)
 
-* Mlops: 프로덕션 환경에서 모델에서 수집한 데이터를 활용 하는 방법에 대 한 자세한 내용을 보려면 [Azure Machine Learning를 사용 하 여 모델을 관리, 배포 및 모니터링](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) 하세요. 이러한 데이터는 기계 학습 프로세스를 지속적으로 개선 하는 데 도움이 될 수 있습니다.
+* Mlops: 프로덕션 환경에서 모델에서 수집한 데이터를 활용 하는 방법에 대 한 자세한 내용을 보려면 [Azure Machine Learning를 사용 하 여 모델을 관리, 배포 및 모니터링](./concept-model-management-and-deployment.md) 하세요. 이러한 데이터는 기계 학습 프로세스를 지속적으로 개선 하는 데 도움이 될 수 있습니다.

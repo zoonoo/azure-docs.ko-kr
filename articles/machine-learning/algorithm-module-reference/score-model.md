@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d17af4f615907ca50b27ce8fa26973e5869608
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890314"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314255"
 ---
 # <a name="score-model"></a>모델 채점
 
@@ -48,8 +48,8 @@ ms.locfileid: "90890314"
 
 ## <a name="publish-scores-as-a-web-service"></a>점수를 웹 서비스로 게시
 
-점수 매기기의 일반적인 용도는 예측 웹 서비스의 일부로 출력을 반환 하는 것입니다. 자세한 내용은 Azure Machine Learning designer에서 파이프라인을 기반으로 실시간 끝점을 배포 하는 방법에 대 한 [자습서](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) 를 참조 하세요.
+점수 매기기의 일반적인 용도는 예측 웹 서비스의 일부로 출력을 반환 하는 것입니다. 자세한 내용은 Azure Machine Learning designer에서 파이프라인을 기반으로 실시간 끝점을 배포 하는 방법에 대 한 [자습서](../tutorial-designer-automobile-price-deploy.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

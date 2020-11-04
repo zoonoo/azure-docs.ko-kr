@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080722"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314275"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 - Vstest.console.exe 기반 테스트 프로젝트의 경우 **Test**  >  Visual Studio 테스트 메뉴에서 테스트 **테스트 설정**  >  **기본 프로세서 아키텍처 x 64** **Test** 를 선택 하 여 호스트 처리를 변경할 수 있습니다.
 
-- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구** 옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >  **Options**  >  **Projects and Solutions**  >  **Web Projects** .
+- 로컬로 배포 된 ASP.NET 웹 응용 프로그램의 경우 **도구** 옵션 프로젝트 및 솔루션 **웹 프로젝트에서 웹 사이트 및 프로젝트에 64 비트 버전의 IIS Express 사용** 을 선택 하 여 호스트 처리를 변경할 수 있습니다  >  **Options**  >  **Projects and Solutions**  >  **Web Projects**.
 
 - Azure에 배포 된 ASP.NET 웹 응용 프로그램의 경우 Azure Portal의 **응용 프로그램 설정** 에서 **64 비트** 플랫폼을 선택 하 여 호스트 처리를 변경할 수 있습니다.
 

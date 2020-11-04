@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313972"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성
 
@@ -51,7 +51,7 @@ Azure Storage는 컨테이너 및 blob에 대 한 선택적 익명 공용 읽기
 > [!IMPORTANT]
 > 저장소 계정에 대 한 공용 액세스를 허용 하지 않으면 해당 저장소 계정의 모든 컨테이너에 대 한 공용 액세스 설정이 재정의 됩니다. 저장소 계정에 대 한 공용 액세스가 허용 되지 않는 경우 해당 계정에 대 한 모든 익명 요청은 실패 합니다. 이 설정을 변경 하기 전에 저장소 계정의 데이터에 익명으로 액세스할 수 있는 클라이언트 응용 프로그램에 미치는 영향을 이해 해야 합니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 방지](anonymous-read-access-prevent.md)를 참조 하세요.
 
-저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 계정의 **Allowblobpublicaccess** 속성을 구성 합니다. 이 속성은 Azure 공용 클라우드 또는 Azure Government 클라우드에서 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
+저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 계정의 **Allowblobpublicaccess** 속성을 구성 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
 **Allowblobpublicaccess** 속성은 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 또는 **true** 일 때 공용 액세스를 허용 합니다.
 

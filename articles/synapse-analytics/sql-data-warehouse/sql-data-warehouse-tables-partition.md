@@ -1,6 +1,6 @@
 ---
 title: 테이블 분할
-description: Synapse SQL 풀에서 테이블 파티션을 사용 하기 위한 권장 사항 및 예제
+description: 전용 SQL 풀에서 테이블 파티션을 사용 하기 위한 권장 사항 및 예제
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763136"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314504"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 분할
+# <a name="partitioning-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 테이블 분할
 
-Synapse SQL 풀에서 테이블 파티션을 사용 하는 방법에 대 한 권장 사항 및 예제입니다.
+전용 SQL 풀에서 테이블 파티션을 사용 하는 방법에 대 한 권장 사항 및 예제입니다.
 
 ## <a name="what-are-table-partitions"></a>테이블 파티션이란?
 
-테이블 파티션을 사용하면 데이터를 더 작은 데이터 그룹으로 나눌 수 있습니다. 대부분의 경우 테이블 파티션은 날짜 열에 만들어집니다. 분할은 모든 Synapse SQL 풀 테이블 형식에서 지원 됩니다. 클러스터형 columnstore, 클러스터형 인덱스 및 힙을 포함 합니다. 또한 해시 또는 라운드 로빈 배포를 비롯한 모든 배포 유형에서도 분할이 지원됩니다.  
+테이블 파티션을 사용하면 데이터를 더 작은 데이터 그룹으로 나눌 수 있습니다. 대부분의 경우 테이블 파티션은 날짜 열에 만들어집니다. 분할은 모든 전용 SQL 풀 테이블 형식에서 지원 됩니다. 클러스터형 columnstore, 클러스터형 인덱스 및 힙을 포함 합니다. 또한 해시 또는 라운드 로빈 배포를 비롯한 모든 배포 유형에서도 분할이 지원됩니다.  
 
 분할은 데이터 유지 관리 및 쿼리 성능에 도움이 될 수 있습니다. 분할이 이러한 두 가지 측면 모두에 효과적인지 아니면 한 가지 측면에만 효과적인지는 데이터의 로드 방식, 동일한 열이 두 가지 용도로 사용될 수 있는지에 따라 좌우됩니다. 분할은 한 열에 대해서만 수행할 수 있기 때문입니다.
 
 ### <a name="benefits-to-loads"></a>로드에 대한 이점
 
-Synapse SQL 풀에서 분할의 주요 장점은 파티션 삭제, 전환 및 병합을 사용 하 여 데이터 로드의 효율성과 성능을 향상 시키는 것입니다. 대부분의 경우 데이터는 데이터가 데이터베이스에 로드되는 순서에 밀접하게 관련된 날짜 열에서 분할됩니다. 파티션을 사용 하 여 데이터를 유지 하는 가장 큰 이점 중 하나는 트랜잭션 로깅의 방지입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
+전용 SQL 풀에서 분할 하는 주요 장점은 파티션 삭제, 전환 및 병합을 사용 하 여 데이터 로드의 효율성과 성능을 향상 시키는 것입니다. 대부분의 경우 데이터는 데이터가 데이터베이스에 로드되는 순서에 밀접하게 관련된 날짜 열에서 분할됩니다. 파티션을 사용 하 여 데이터를 유지 하는 가장 큰 이점 중 하나는 트랜잭션 로깅의 방지입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
 
 파티션 전환을 사용하여 테이블 섹션을 빠르게 제거하거나 바꿀 수 있습니다.  예를 들어 판매 팩트 테이블은 지난 36개월 동안의 데이터만 포함할 수 있습니다. 매월 말에 가장 오래된 달의 판매 데이터는 테이블에서 삭제됩니다.  이 데이터는 delete 문을 사용하여 가장 오래된 월의 데이터를 삭제하는 방식으로 삭제할 수 있습니다. 
 
@@ -48,17 +48,17 @@ Synapse SQL 풀에서 분할의 주요 장점은 파티션 삭제, 전환 및 �
 
 분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다. 파티션 수가 너무 많은 경우와 관련해서는 엄격한 규칙이 없지만 데이터 및 동시에 로드하는 파티션 수에 따라 달라집니다. 성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
 
-**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다. 클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다. 파티션이 만들어지기 전에 Synapse SQL pool은 이미 각 테이블을 60 분산 데이터베이스로 나눕니다. 
+**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다. 클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다. 파티션이 만들어지기 전에 전용 SQL 풀은 이미 각 테이블을 60 분산 데이터베이스로 나눕니다. 
 
-백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다. 이 예를 사용 하 여 sales 팩트 테이블에 36 개의 월별 파티션이 포함 된 경우 Synapse SQL 풀에 60 분포가 있으면 sales 팩트 테이블에는 월간 6000만 행 또는 모든 월이 채워질 때 21억 행이 포함 되어야 합니다. 테이블이 파티션당 권장되는 최소 행 수보다 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다. 
+백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다. 이 예를 사용 하 여 sales 팩트 테이블에 36 개의 월별 파티션이 포함 되어 있고 전용 SQL 풀에 60 분포가 있는 경우 판매 팩트 테이블은 매월 6000만 행 또는 모든 월이 채워질 때 21억 행을 포함 해야 합니다. 테이블이 파티션당 권장되는 최소 행 수보다 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다. 
 
 자세한 내용은 [인덱싱](sql-data-warehouse-tables-index.md) 문서를 참조하세요. 여기에는 클러스터 columnstore 인덱스의 품질을 평가할 수 있는 쿼리가 포함되어 있습니다.
 
 ## <a name="syntax-differences-from-sql-server"></a>SQL Server와의 구문 차이
 
-Synapse SQL 풀에는 SQL Server 보다 간단한 파티션을 정의 하는 방법이 도입 되었습니다. 분할 함수 및 스키마는 SQL Server Synapse SQL 풀에서 사용 되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 
+전용 SQL 풀에는 SQL Server 보다 간단한 파티션을 정의 하는 방법이 도입 되었습니다. 분할 함수 및 스키마는 SQL Server에 있는 전용 SQL 풀에서 사용 되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 
 
-분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 Synapse SQL 풀은 테이블 마다 하나의 파티션 열을 지원 하며이는 원거리 파티션이 될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 전용 SQL 풀은 테이블 마다 하나의 파티션 열을 지원 하며이는 원거리 파티션이 될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 
 다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
 
@@ -88,12 +88,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>SQL Server에서 분할 마이그레이션
 
-SQL Server 파티션 정의를 Synapse SQL 풀로 마이그레이션하려면 다음을 수행 하면 됩니다.
+SQL Server 파티션 정의를 전용 SQL 풀로 마이그레이션하려면 다음을 수행 하면 됩니다.
 
 - SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 제거합니다.
 - [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 정의를 CREATE TABLE에 추가합니다.
 
-SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. Synapse SQL 풀에서 동일한 분할 세분성이 사용 되는 경우 파티션당 행 수가 60의 비율로 감소 한다는 점에 유의 하세요.  
+SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. 전용 SQL 풀에서 동일한 분할 세분성이 사용 되는 경우 파티션당 행 수가 60의 비율로 감소 합니다.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>파티션 전환
 
-Synapse SQL 풀은 파티션 분할, 병합 및 전환을 지원 합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 실행됩니다.
+전용 SQL 풀은 파티션 분할, 병합 및 전환을 지원 합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
 
@@ -253,7 +253,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 `ALTER TABLE` 사용 되는입니다.  그런 다음 `ALTER TABLE` 새 데이터를 전환 하는 데 다른 작업이 필요 했습니다.  
 
-Synapse SQL 풀에서 옵션은 `TRUNCATE_TARGET` 명령에서 지원 됩니다 `ALTER TABLE` .  명령을 사용 하 여 `TRUNCATE_TARGET` `ALTER TABLE` 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은를 사용 하 여 `CTAS` 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예입니다.
+전용 SQL 풀에서 옵션은 `TRUNCATE_TARGET` 명령에서 지원 됩니다 `ALTER TABLE` .  명령을 사용 하 여 `TRUNCATE_TARGET` `ALTER TABLE` 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은를 사용 하 여 `CTAS` 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예입니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

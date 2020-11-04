@@ -1,6 +1,6 @@
 ---
 title: Apache Spark 인스턴스의 크기를 자동으로 조정
-description: Azure Synapse 자동 크기 조정 기능을 사용하여 Apache Spark 인스턴스의 크기를 자동으로 조정
+description: Azure Synapse 자동 크기 조정 기능을 사용 하 여 Apache Spark 인스턴스의 크기를 자동으로 조정
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313633"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
 
@@ -49,7 +49,7 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 ## <a name="get-started"></a>시작하기
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>자동 크기 조정을 사용하여 Spark 풀 만들기
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>자동 크기 조정을 사용 하 여 서버를 사용 하지 않는 Apache Spark 풀 만들기
 
 자동 크기 조정 기능을 사용하려면 일반 풀 만들기 프로세스의 일부로 다음을 수행합니다.
 

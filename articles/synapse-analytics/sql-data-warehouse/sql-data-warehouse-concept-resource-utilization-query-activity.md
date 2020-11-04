@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66efb9112a9342122f5b56ab11b862ce3c7c61b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314443"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
 
@@ -45,7 +45,7 @@ Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다
 
 메트릭을 보고 경고를 설정할 때 고려해야 할 사항:
 
-- 사용된 DWU는 SQL 풀 전체에서 **사용량에 대한 상위 수준 표시**만 나타내며 포괄적인 사용률 표시기가 아닙니다. 규모를 확장 또는 축소할지를 결정하려면 DWU의 영향을 받을 수 있는 모든 요소(예: 동시성, 메모리, tempdb 및 적응 캐시 용량)를 고려합니다. 비즈니스 목표를 충족하는 데 가장 적합한 작업을 결정하기 위해 [다른 DWU 설정에서 워크로드를 실행](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units)하는 것이 좋습니다.
+- 사용된 DWU는 SQL 풀 전체에서 **사용량에 대한 상위 수준 표시** 만 나타내며 포괄적인 사용률 표시기가 아닙니다. 규모를 확장 또는 축소할지를 결정하려면 DWU의 영향을 받을 수 있는 모든 요소(예: 동시성, 메모리, tempdb 및 적응 캐시 용량)를 고려합니다. 비즈니스 목표를 충족하는 데 가장 적합한 작업을 결정하기 위해 [다른 DWU 설정에서 워크로드를 실행](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units)하는 것이 좋습니다.
 - 실패 한 연결과 성공한 연결은 서버 자체가 아닌 특정 데이터 웨어하우스에 대해 보고 됩니다.
 - 메모리 백분율은 데이터 웨어하우스가 유휴 상태에 있는 경우에도 사용률을 반영합니다. 이는 활성 작업 메모리 사용을 반영하지 않습니다. 다른 메트릭(tempdb, gen2 캐시)과 함께 이 메트릭을 사용하고 추적하여 추가 캐시 용량을 조정하면 요구 사항에 맞게 워크로드 성능이 향상되는 경우에 대한 전체적인 의사 결정을 내릴 수 있습니다.
 
@@ -53,7 +53,7 @@ Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다
 
 T-SQL을 통해 Synapse SQL을 모니터링할 때의 프로그래밍 방식 환경을 위해 서비스에서 DMV(Dynamic Management Views)의 세트를 제공합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
 
-Synapse SQL에 적용되는 DMV 목록을 보려면 [이 설명서](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs)를 참조하세요. 
+Synapse SQL에 적용되는 DMV 목록을 보려면 [이 설명서](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs)를 참조하세요. 
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅 
 

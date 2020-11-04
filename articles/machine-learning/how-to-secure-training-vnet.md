@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314164"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -47,7 +47,7 @@ ms.locfileid: "93091500"
     - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
 
-    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking) 을 참조 하세요.
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>컴퓨팅 클러스터 및 인스턴스 
@@ -61,7 +61,7 @@ ms.locfileid: "93091500"
 > * 하나의 가상 네트워크에 다수의 컴퓨팅 인스턴스나 클러스터를 배치하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청해야 할 수 있습니다.
 > * 작업 영역의 Azure Storage 계정도 가상 네트워크에서 보호되는 경우, Azure Machine Learning 컴퓨팅 인스턴스나 클러스터와 동일한 가상 네트워크에 있어야 합니다. 
 > * 컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요. 
-> * 계산 인스턴스가 개인 링크 작업 영역에 배포 된 경우 가상 네트워크 내 에서만 액세스할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여에 대 한 항목을 추가 하세요. 자세한 내용은 [사용자 지정 DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) 문서를 참조 하세요.
+> * 계산 인스턴스가 개인 링크 작업 영역에 배포 된 경우 가상 네트워크 내 에서만 액세스할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여에 대 한 항목을 추가 하세요. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md) 문서를 참조 하세요.
     
 > [!TIP]
 > Machine Learning 컴퓨팅 인스턴스나 클러스터는 __가상 네트워크를 포함하는 리소스 그룹__ 에 추가 네트워킹 리소스를 자동으로 할당합니다. 각 컴퓨팅 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "93091500"
 > * 부하 분산 장치 1개
 > 
 > 클러스터의 경우 이러한 리소스는 클러스터가 0개 노드로 축소될 때마다 삭제(재생성)되지만, 인스턴스의 경우 인스턴스가 완전히 삭제될 때까지 리소스가 유지됩니다(중지하면 리소스가 제거되지 않음). 
-> 이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)으로 제한됩니다.
+> 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> 필수 포트
@@ -154,17 +154,17 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 ### <a name="forced-tunneling"></a>강제 터널링
 
-Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) 을 사용 하는 경우 계산 리소스가 포함 된 서브넷에서 공용 인터넷과의 통신을 허용 해야 합니다. 이 통신은 작업 예약 및 Azure Storage 액세스에 사용 됩니다.
+Azure Machine Learning compute를 사용 하 여 [강제 터널링](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) 을 사용 하는 경우 계산 리소스가 포함 된 서브넷에서 공용 인터넷과의 통신을 허용 해야 합니다. 이 통신은 작업 예약 및 Azure Storage 액세스에 사용 됩니다.
 
 다음 두 가지 방법으로이 작업을 수행할 수 있습니다.
 
 * [VIRTUAL NETWORK NAT](../virtual-network/nat-overview.md)를 사용 합니다. NAT 게이트웨이는 가상 네트워크에 있는 하나 이상의 서브넷에 대해 아웃 바운드 인터넷 연결을 제공 합니다. 자세한 내용은 [NAT 게이트웨이 리소스를 사용 하 여 가상 네트워크 디자인](../virtual-network/nat-gateway-resource.md)을 참조 하세요.
 
-* 계산 리소스를 포함 하는 서브넷에 [UDRs (사용자 정의 경로)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 를 추가 합니다. 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
+* 계산 리소스를 포함 하는 서브넷에 [UDRs (사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md) 를 추가 합니다. 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
 
     * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
-    * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 사용하여 정보를 다운로드합니다. 다음 예는 IP 주소 정보를 다운로드하고 미국 동부 2 지역에 대한 정보를 필터링합니다.
+    * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예는 IP 주소 정보를 다운로드하고 미국 동부 2 지역에 대한 정보를 필터링합니다.
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -278,9 +278,9 @@ Azure 계산 인스턴스에서 노트북을 사용 하는 경우 노트북이 �
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>VM 또는 HDInsight 클러스터 만들기
 
 Azure Portal 또는 Azure CLI를 사용하여 VM 또는 HDInsight 클러스터를 만들고 이 클러스터를 Azure 가상 네트워크에 배치합니다. 자세한 내용은 다음 문서를 참조하세요.
-* [Linux VM용 Azure 가상 네트워크 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+* [Linux VM용 Azure 가상 네트워크 만들기 및 관리](../virtual-machines/linux/tutorial-virtual-network.md)
 
-* [Azure 가상 네트워크를 사용하여 HDInsight 확장](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+* [Azure 가상 네트워크를 사용하여 HDInsight 확장](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 
 ### <a name="configure-network-ports"></a>네트워크 포트 구성 
 
@@ -302,7 +302,7 @@ Azure Machine Learning VM 또는 클러스터의 SSH 포트와 통신할 수 있
 
 1. __동작__ 에서 __허용__ 을 선택합니다.
 
-네트워크 보안 그룹에 대해 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
+네트워크 보안 그룹에 대해 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](../virtual-network/network-security-groups-overview.md#default-security-rules)의 기본 보안 규칙을 참조하세요.
 
 기본 아웃바운드 규칙을 사용하지 않고 가상 네트워크의 아웃바운드 액세스를 제한하려면 [가상 네트워크에서 아웃바운드 연결 제한](#limiting-outbound-from-vnet) 섹션을 참조하세요.
 

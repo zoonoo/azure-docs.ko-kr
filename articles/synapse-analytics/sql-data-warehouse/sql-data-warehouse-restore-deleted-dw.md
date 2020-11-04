@@ -1,6 +1,6 @@
 ---
-title: 삭제 된 SQL 풀 복원
-description: 삭제 된 SQL 풀을 복원 하는 방법에 대 한 지침입니다.
+title: 삭제 된 전용 SQL 풀 복원
+description: Azure Synapse Analytics에서 삭제 된 SQL 풀을 복원 하는 방법에 대 한 가이드입니다.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 879844efdc5c2b40f69ee5f79305d4dfa596fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29edf6ebd451bf05fe24249eeacb416a70001d56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460731"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313575"
 ---
-# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용 하 여 삭제 된 SQL 풀 복원
+# <a name="restore-a-deleted-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 삭제 된 전용 SQL 풀 복원
 
-이 문서에서는 Azure Portal 또는 PowerShell을 사용 하 여 SQL을 복원 하는 방법을 알아봅니다.
+이 문서에서는 Azure Portal 또는 PowerShell을 사용 하 여 전용 SQL 풀을 복원 하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**DTU 용량을 확인합니다.** 각 SQL 풀은 기본 DTU 할당량이 있는 [논리 SQL server](../../azure-sql/database/logical-servers.md) (예: myserver.database.windows.net)에 의해 호스팅됩니다.  서버에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
+**DTU 용량을 확인합니다.** 각 전용 SQL 풀은 기본 DTU 할당량이 있는 [논리 sql server](../../azure-sql/database/logical-servers.md) (예: myserver.database.windows.net)에 의해 호스팅됩니다.  서버에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>PowerShell을 통해 삭제 된 데이터 웨어하우스 복원
 
-삭제 된 SQL 풀을 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용 합니다. 해당 서버도 삭제 된 경우 해당 데이터 웨어하우스를 복원할 수 없습니다.
+삭제 된 전용 SQL 풀을 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용 합니다. 해당 서버도 삭제 된 경우 해당 데이터 웨어하우스를 복원할 수 없습니다.
 
 1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
-4. 복원할 삭제 된 SQL 풀을 포함 하는 구독을 선택 합니다.
+4. 복원 되는 전용 SQL 풀을 포함 하는 구독을 선택 합니다.
 5. 특정 삭제 된 데이터 웨어하우스를 가져옵니다.
-6. 삭제 된 SQL 풀 복원
-    1. 삭제 된 SQL 풀을 다른 서버로 복원 하려면 다른 서버 이름을 지정 해야 합니다.  이 서버는 다른 리소스 그룹 및 지역에 있을 수도 있습니다.
+6. 삭제 된 전용 SQL 풀 복원
+    1. 삭제 된 전용 SQL 풀을 다른 서버로 복원 하려면 다른 서버 이름을 지정 해야 합니다.  이 서버는 다른 리소스 그룹 및 지역에 있을 수도 있습니다.
     1. 다른 구독으로 복원 하려면 [이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) 단추를 사용 하 여 서버를 다른 구독으로 이동 합니다.
 7. 복원 된 데이터 웨어하우스가 온라인 상태 인지 확인 합니다.
 8. 복원이 완료 된 후 [복구 후 데이터베이스 구성](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)에 따라 복구 된 데이터 웨어하우스를 구성할 수 있습니다.
@@ -87,5 +87,5 @@ $RestoredDatabase.status
 
 ## <a name="next-steps"></a>다음 단계
 
-- [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
-- [지역 백업 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
+- [기존 전용 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
+- [지역 백업 전용 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)

@@ -1,6 +1,6 @@
 ---
-title: 용량 제한-Azure Synapse Analytics (이전의 SQL DW)
-description: Azure Synapse에서 Synapse SQL 풀의 여러 구성 요소에 허용 되는 최대값입니다.
+title: 전용 SQL 풀의 용량 제한
+description: Azure Synapse Analytics에서 전용 SQL 풀의 다양 한 구성 요소에 대해 허용 되는 최대 값입니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313144"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse Analytics (이전의 SQL DW) 용량 제한
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 용량 제한
 
-Azure Synapse의 다양 한 구성 요소에 허용 되는 최대 값입니다.
+Azure Synapse Analytics에서 전용 SQL 풀의 다양 한 구성 요소에 대해 허용 되는 최대 값입니다.
 
 ## <a name="workload-management"></a>워크로드 관리
 
-| Category | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
-| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 SQL 풀 (데이터 웨어하우스) 단위에 대 한 최대 DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL server (예: myserver.database.windows.net)에는 DTU 할당량 54000이 포함 되어 있으며,이 할당량은 최대 DW5000c까지 허용 됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량* 을 요청 형식으로 선택 하 여 할당량을 늘릴 수 있습니다.  DTU 요구를 계산 하려면 7.5를 필요한 총 DWU로 곱하고, 필요한 총 cDWU로 9.5을 곱합니다. 예를 들면 다음과 같습니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW5000c x 9.5 = 47500 Dtu.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 전용 SQL 풀 (데이터 웨어하우스) 단위에 대 한 최대 DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL server (예: myserver.database.windows.net)에는 DTU 할당량 54000이 포함 되어 있으며,이 할당량은 최대 DW5000c까지 허용 됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량* 을 요청 형식으로 선택 하 여 할당량을 늘릴 수 있습니다.  DTU 요구를 계산 하려면 7.5를 필요한 총 DWU로 곱하고, 필요한 총 cDWU로 9.5을 곱합니다. 다음은 그 예입니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW5000c x 9.5 = 47500 Dtu.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
 | 데이터베이스 연결 |최대 동시 열린 세션 |1024<br/><br/>동시에 열린 세션 수는 선택한 DWU에 따라 달라 집니다. DWU600c 이상에서는 최대 1024 개의 오픈 세션을 지원 합니다. DWU500c 및 아래에서 최대 동시 오픈 세션 제한인 512를 지원 합니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리](resource-classes-for-workload-management.md) |최대 동시 쿼리 수 |128<br/><br/>  최대 128 개의 동시 쿼리가 실행 되 고 남은 쿼리가 큐에 대기 됩니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당 되거나 [데이터 웨어하우스 단위](memory-concurrency-limits.md) 설정이 낮아질 때 동시 쿼리 수가 줄어들 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행하도록 허용돼도 동시 쿼리 제한에 영향을 주지 않습니다. 동시 쿼리 실행에 대 한 자세한 내용은 [동시성 최대값](memory-concurrency-limits.md) 문서를 참조 하세요. |
@@ -36,7 +36,7 @@ Azure Synapse의 다양 한 구성 요소에 허용 되는 최대 값입니다.
 
 ## <a name="database-objects"></a>데이터베이스 개체
 
-| Category | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 | Gen1: 디스크에서 압축된 240TB 이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. <br/><br/> Gen2: columnstore 테이블에 대 한 무제한 저장소입니다.  데이터베이스의 rowstore 부분은 여전히 디스크에서 240 TB 압축으로 제한 됩니다. |
 | 테이블 |최대 크기 |Columnstore 테이블의 크기가 무제한입니다. <br>디스크에 압축 된 rowstore 테이블의 60 TB |
@@ -54,19 +54,19 @@ Azure Synapse의 다양 한 구성 요소에 허용 되는 최대 값입니다.
 | 통계 |통계 개체 당 열. |32 |
 | 통계 |테이블 당 열에 만든 통계. |30,000 |
 | 저장 프로시저 |최대 수준의 중첩. |8 |
-| 보기 |뷰당 열 수 |1,024 |
+| View |뷰당 열 수 |1,024 |
 ||||
 
 ## <a name="loads"></a>부하
 
-| Category | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1mb 보다 작은 행을 로드 합니다. CCI (클러스터형 Columnstore 인덱스)를 사용 하 여 LOB 데이터 형식을 테이블로 로드 하는 것은 지원 되지 않습니다.<br/> |
-|Polybase 로드|총 파일 수|1,000,000<br/><br/>Polybase 로드는 1M 보다 많은 파일을 초과할 수 없습니다. 다음 오류가 발생할 수 있습니다. **분할 횟수가 100만의 상한을 초과 하므로 작업이 실패 했습니다** .|
+|Polybase 로드|총 파일 수|1,000,000<br/><br/>Polybase 로드는 1M 보다 많은 파일을 초과할 수 없습니다. 다음 오류가 발생할 수 있습니다. **분할 횟수가 100만의 상한을 초과 하므로 작업이 실패 했습니다**.|
 
 ## <a name="queries"></a>쿼리
 
-| Category | Description | 최대 |
+| 범주 | 설명 | 최대 |
 |:--- |:--- |:--- |
 | 쿼리 |사용자 테이블에서 쿼리된 쿼리입니다. |1000 |
 | 쿼리 |시스템 뷰에서 동시 쿼리입니다. |100 |

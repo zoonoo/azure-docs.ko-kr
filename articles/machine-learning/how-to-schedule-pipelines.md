@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: df9447160fe6a0aa2a3ae001ad8a337c3ff488f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97d0f822e63bb6eb32b1cd2f211621af8ad1c4b8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275946"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313988"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
@@ -66,7 +66,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>시간 기반 일정 만들기
 
-생성자에는 `ScheduleRecurrence` `frequency` "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 인수가 있습니다. 또한 `interval` 일정 시작 사이에 경과 해야 하는 단위 수를 지정 하는 정수 인수도 필요 `frequency` 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py&preserve-view=true)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
+생성자에는 `ScheduleRecurrence` `frequency` "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 인수가 있습니다. 또한 `interval` 일정 시작 사이에 경과 해야 하는 단위 수를 지정 하는 정수 인수도 필요 `frequency` 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?preserve-view=true&view=azure-ml-py)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
 
 `Schedule`15 분 마다 실행을 시작 하는를 만듭니다.
 
@@ -83,11 +83,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 예를 들어 파일이 변경 될 때 또는 새 파일이 데이터 디렉터리에 추가 될 때 전처리 단계를 수행 하는 것이 좋습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
 
-파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
+파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
 
 `polling_interval`인수를 사용 하면 데이터 저장소의 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
 
-파이프라인이 [데이터 경로](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py&preserve-view=true) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py&preserve-view=true)를 사용 하 여 생성 된 경우 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다 `data_path_parameter_name` .
+파이프라인이 [데이터 경로](/python/api/azureml-core/azureml.data.datapath.datapath?preserve-view=true&view=azure-ml-py) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py)를 사용 하 여 생성 된 경우 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다 `data_path_parameter_name` .
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -106,7 +106,7 @@ Azure Logic Apps는 보다 복잡 한 워크플로를 지원 하며 Azure Machin
 
 ## <a name="view-your-scheduled-pipelines"></a>예약 된 파이프라인 보기
 
-웹 브라우저에서 Azure Machine Learning로 이동 합니다. 탐색 패널의 **끝점** 섹션에서 **파이프라인 끝점**을 선택 합니다. 그러면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
+웹 브라우저에서 Azure Machine Learning로 이동 합니다. 탐색 패널의 **끝점** 섹션에서 **파이프라인 끝점** 을 선택 합니다. 그러면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
 
 ![AML의 파이프라인 페이지](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
@@ -153,4 +153,3 @@ stop_by_schedule_id(ws, schedule_id)
 
 * [파이프라인](concept-ml-pipelines.md) 에 대 한 자세한 정보
 * [Jupyter를 사용 하 여 Azure Machine Learning 탐색](samples-notebooks.md) 에 대해 자세히 알아보기
-

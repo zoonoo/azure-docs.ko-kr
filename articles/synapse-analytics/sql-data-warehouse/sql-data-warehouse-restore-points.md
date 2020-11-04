@@ -1,6 +1,6 @@
 ---
 title: 사용자 정의 복원 지점이
-description: SQL 풀의 복원 지점을 만드는 방법
+description: 전용 SQL 풀의 복원 지점을 만드는 방법
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089210"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313246"
 ---
-# <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 사용자 정의 복원 지점이 있습니다.
 
-이 문서에서는 PowerShell 및 Azure Portal를 사용 하 여 Azure Synapse Analytics에서 SQL 풀에 대해 새 사용자 정의 복원 지점을 만드는 방법을 배웁니다.
+이 문서에서는 PowerShell 및 Azure Portal를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 대해 새 사용자 정의 복원 지점을 만드는 방법을 배웁니다.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>PowerShell을 통해 사용자 정의 복원 시점 만들기
 
@@ -62,19 +62,19 @@ Azure Portal를 통해 사용자 정의 복원 지점이 만들어질 수도 있
 
 1. [Azure Portal](https://portal.azure.com/) 계정에 로그인 합니다.
 
-2. 복원 지점을 만들려는 SQL 풀로 이동 합니다.
+2. 복원 지점을 만들려는 전용 SQL 풀로 이동 합니다.
 
-3. 왼쪽 창에서 **개요** 를 선택 하 고 **+ 새 복원 지점**을 선택 합니다. 새 복원 지점 단추를 사용할 수 없는 경우 SQL 풀이 일시 중지 되지 않았는지 확인 합니다.
+3. 왼쪽 창에서 **개요** 를 선택 하 고 **+ 새 복원 지점** 을 선택 합니다. 새 복원 지점 단추를 사용할 수 없는 경우 전용 SQL 풀이 일시 중지 되지 않았는지 확인 합니다.
 
     ![새 복원 지점](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
-4. 사용자 정의 복원 지점의 이름을 지정 하 고 **적용**을 클릭 합니다. 사용자 정의 복원 지점의 기본 보존 기간은 7 일입니다.
+4. 사용자 정의 복원 지점의 이름을 지정 하 고 **적용** 을 클릭 합니다. 사용자 정의 복원 지점의 기본 보존 기간은 7 일입니다.
 
     ![복원 지점에 대한 이름](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
-- [삭제 된 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)
-- [지역 백업 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
+- [기존 전용 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
+- [삭제 된 전용 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)
+- [지역 백업 전용 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
 
