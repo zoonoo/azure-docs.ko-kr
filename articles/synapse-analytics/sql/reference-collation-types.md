@@ -1,6 +1,6 @@
 ---
 title: 데이터 정렬 지원
-description: Azure Synapse SQL에서 지원 되는 데이터 정렬 유형
+description: Azure Synapse Analytics에서 Synapse SQL에 대 한 데이터 정렬 형식 지원
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
@@ -8,25 +8,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311920"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Synapse SQL에 대 한 데이터베이스 데이터 정렬 지원
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL에 대 한 데이터베이스 데이터 정렬 지원 
 
 데이터 정렬은 문자 기반 데이터 형식에 대 한 로캘, 코드 페이지, 정렬 순서 및 문자 민감도 규칙을 제공 합니다. 데이터 정렬 정보를 요구 하는 모든 열과 식은 데이터베이스 설정에서 선택한 데이터 정렬을 상속 합니다. 기본 상속은 문자 기반 데이터 형식에 대해 다른 데이터 정렬을 명시적으로 명시 하 여 재정의할 수 있습니다.
 
-새 SQL 풀 데이터베이스를 만들 때 Azure Portal에서 기본 데이터베이스 데이터 정렬을 변경할 수 있습니다. 이 기능을 사용 하면 3800 지원 데이터베이스 데이터 정렬 중 하나를 사용 하 여 새 데이터베이스를 훨씬 쉽게 만들 수 있습니다.
+새 전용 SQL 풀 데이터베이스를 만들 때 Azure Portal에서 기본 데이터베이스 데이터 정렬을 변경할 수 있습니다. 이 기능을 사용 하면 3800 지원 데이터베이스 데이터 정렬 중 하나를 사용 하 여 새 데이터베이스를 훨씬 쉽게 만들 수 있습니다.
 
-CREATE DATABASE 문을 사용 하 여 만들 때 기본 Synapse SQL 주문형 데이터베이스 데이터 정렬을 지정할 수 있습니다.
+CREATE DATABASE 문을 사용 하 여 생성 시 기본 서버를 사용 하지 않는 SQL 풀 데이터베이스 데이터 정렬을 지정할 수 있습니다.
 
 ## <a name="change-collation"></a>데이터 정렬 변경
-SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 업데이트 합니다. 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경 합니다. 
+전용 SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 업데이트 합니다. 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경 합니다. 
 
-SQL 주문형 데이터베이스의 기본 데이터 정렬을 변경 하려면 ALTER DATABASE 문을 사용 하면 됩니다.
+서버를 사용 하지 않는 SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 ALTER DATABASE 문을 사용 하면 됩니다.
 
 ## <a name="list-of-unsupported-collation-types"></a>지원 되지 않는 데이터 정렬 형식 목록
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ SQL 주문형 데이터베이스의 기본 데이터 정렬을 변경 하려면 
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-또한 SQL 풀은 다음 데이터 정렬 유형을 지원 하지 않습니다.
+또한 전용 SQL 풀은 다음 데이터 정렬 유형을 지원 하지 않습니다.
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 풀 및 주문형 SQL의 모범 사례에 대한 추가 정보는 다음 문서를 참조하세요.
+전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀의 모범 사례에 대 한 추가 정보는 다음 문서에서 찾을 수 있습니다.
 
-- [SQL 풀에 대한 모범 사례](best-practices-sql-pool.md)
-- [주문형 SQL에 대한 모범 사례](best-practices-sql-on-demand.md)
+- [전용 SQL 풀에 대 한 모범 사례](best-practices-sql-pool.md)
+- [서버를 사용 하지 않는 SQL 풀에 대 한 모범 사례](best-practices-sql-on-demand.md)
 
 

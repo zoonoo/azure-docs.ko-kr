@@ -1,7 +1,7 @@
 ---
 title: 패키지 관리
 titleSuffix: Azure Machine Learning
-description: Dockerfile로 모델 패키지
+description: 모델을 패키지 합니다. 모델은 docker 이미지로 패키지할 수 있습니다. 그러면이 이미지를 다운로드할 수 있습니다. 또는 Dockerfile을 만들어 이미지를 빌드하는 데 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998824"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312632"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Docker를 사용 하 여 등록 된 모델을 패키징하는 방법
 
@@ -162,7 +162,7 @@ docker kill mycontainer
 
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

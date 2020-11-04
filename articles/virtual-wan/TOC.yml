@@ -15,6 +15,10 @@
       href: virtual-wan-expressroute-portal.md
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 원격으로 작업
       items:
         - name: 원격 작업 지원

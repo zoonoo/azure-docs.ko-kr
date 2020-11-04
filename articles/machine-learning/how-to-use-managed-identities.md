@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311033"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
-[관리 id](/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 *리소스에 액세스 하는 데 필요한 최소 권한*으로 작업 영역을 구성할 수 있습니다. 
+[관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 *리소스에 액세스 하는 데 필요한 최소 권한* 으로 작업 영역을 구성할 수 있습니다. 
 
 Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성 하는 경우 작업 영역과 연결 된 여러 서비스에 올바른 액세스 수준이 있는지 확인 하는 것이 중요 합니다. 예를 들어 기계 학습 워크플로 중 작업 영역에서 Docker 이미지에 대 한 Azure Container Registry (ACR)에 액세스 하 고 학습 데이터에 대 한 저장소 계정을 사용 해야 합니다. 
 
@@ -37,16 +37,16 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)
-- [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)입니다.
-- 역할을 할당 하려면 Azure 구독에 대 한 로그인에 [관리 Id 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 또는 필요한 작업 (예: __소유자__)을 부여 하는 다른 역할이 있어야 합니다.
-- [관리 id](/azure/active-directory/managed-identities-azure-resources/overview)를 만들고 사용 하는 방법에 대해 잘 알고 있어야 합니다.
+- [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py)입니다.
+- 역할을 할당 하려면 Azure 구독에 대 한 로그인에 [관리 Id 운영자](../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 또는 필요한 작업 (예: __소유자__ )을 부여 하는 다른 역할이 있어야 합니다.
+- [관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 만들고 사용 하는 방법에 대해 잘 알고 있어야 합니다.
 
 ## <a name="configure-managed-identities"></a>관리되는 ID 구성
 
 일부 경우에는 Azure Container Registry에 대 한 관리 사용자 액세스를 허용 하지 않아야 합니다. 예를 들어 ACR을 공유 하 고 다른 사용자의 관리자 액세스를 허용 해야 하는 경우가 있습니다. 또는 관리 사용자가 사용 하도록 설정 된 ACR 만들기는 구독 수준 정책에 의해 허용 되지 않습니다.
 
 > [!IMPORTANT]
-> ACI (Azure Container Instance)에서 유추에 Azure Machine Learning를 사용 하는 경우 ACR에 대 한 관리자 액세스 권한이 __필요__합니다. 모델을 유추할 수 있도록 ACI에 배포 하려는 경우에는 사용 하지 않도록 설정 합니다.
+> ACI (Azure Container Instance)에서 유추에 Azure Machine Learning를 사용 하는 경우 ACR에 대 한 관리자 액세스 권한이 __필요__ 합니다. 모델을 유추할 수 있도록 ACI에 배포 하려는 경우에는 사용 하지 않도록 설정 합니다.
 
 관리자 사용자 액세스를 사용 하도록 설정 하지 않고 ACR을 만드는 경우 관리 되는 id를 사용 하 여 Docker 이미지를 빌드하고 가져오도록 ACR에 액세스 합니다.
 
@@ -56,10 +56,10 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 
 ACR admin 사용자가 구독 정책에 의해 허용 되지 않는 경우 먼저 관리자 사용자 없이 ACR를 만든 다음 작업 영역에 연결 해야 합니다. 또한 관리자 사용자를 사용 하지 않도록 설정 된 기존 ACR이 있는 경우이를 작업 영역에 연결할 수 있습니다.
 
-인수를 설정 하지 않고 [Azure CLI에서](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) ```--admin-enabled``` 또는 관리 사용자를 사용 하도록 설정 하지 않고 Azure Portal에서 ACR을 만듭니다. 그런 다음 Azure Machine Learning 작업 영역을 만들 때 ACR의 Azure 리소스 ID를 지정 합니다. 다음 예제에서는 기존 ACR을 사용 하는 새 Azure ML 작업 영역을 만드는 방법을 보여 줍니다.
+인수를 설정 하지 않고 [Azure CLI에서](../container-registry/container-registry-get-started-azure-cli.md) ```--admin-enabled``` 또는 관리 사용자를 사용 하도록 설정 하지 않고 Azure Portal에서 ACR을 만듭니다. 그런 다음 Azure Machine Learning 작업 영역을 만들 때 ACR의 Azure 리소스 ID를 지정 합니다. 다음 예제에서는 기존 ACR을 사용 하는 새 Azure ML 작업 영역을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
-> 매개 변수에 대 한 값을 가져오려면 `--container-registry` [az acr show](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az_acr_show) 명령을 사용 하 여 acr에 대 한 정보를 표시 합니다. 이 `id` 필드에는 ACR의 리소스 ID가 포함 되어 있습니다.
+> 매개 변수에 대 한 값을 가져오려면 `--container-registry` [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) 명령을 사용 하 여 acr에 대 한 정보를 표시 합니다. 이 `id` 필드에는 ACR의 리소스 ID가 포함 되어 있습니다.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -106,7 +106,7 @@ az ml workspace create -w <workspace name> \
 
 # <a name="python"></a>[Python](#tab/python)
 
-[AmlComputeProvisioningConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)를 사용 하 여 계산 클러스터를 만들 때 `identity_type` 매개 변수를 사용 하 여 관리 되는 id 유형을 설정 합니다.
+[AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)를 사용 하 여 계산 클러스터를 만들 때 `identity_type` 매개 변수를 사용 하 여 관리 되는 id 유형을 설정 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -173,7 +173,7 @@ env.python.user_managed_dependencies = True
 
 이 시나리오에서 Azure Machine Learning 서비스는 개인 ACR에서 제공 하는 기본 이미지 위에 학습 또는 유추 환경을 구축 합니다. 이미지 빌드 작업은 ACR 작업을 사용 하 여 작업 영역 ACR에서 발생 하기 때문에 액세스를 허용 하기 위해 추가 단계를 수행 해야 합니다.
 
-1. __사용자 할당 관리 id__ 를 만들고 __개인 ACR__에 대 한 id acrpull 액세스 권한을 부여 합니다.  
+1. __사용자 할당 관리 id__ 를 만들고 __개인 ACR__ 에 대 한 id acrpull 액세스 권한을 부여 합니다.  
 1. 이전 단계에서 __사용자 할당 관리 id__ 에 대 한 관리 id 운영자 역할을 작업 영역 __시스템 할당 관리__ id에 부여 합니다. 이 역할을 통해 작업 영역에서 관리 되는 환경을 빌드하기 위한 ACR 작업에 사용자 할당 관리 id를 할당할 수 있습니다. 
 
     1. 작업 영역 시스템 할당 관리 id의 보안 주체 ID를 가져옵니다.
@@ -190,7 +190,7 @@ env.python.user_managed_dependencies = True
 
         UAI 리소스 ID는 형식으로 사용자 할당 id의 Azure 리소스 ID입니다 `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>` .
 
-1. [Workspace.set_connection 메서드](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-)를 사용 하 여 작업 영역 연결에서 __사용자 할당 관리 ID__ 의 외부 ACR 및 클라이언트 ID를 지정 합니다.
+1. [Workspace.set_connection 메서드](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-)를 사용 하 여 작업 영역 연결에서 __사용자 할당 관리 ID__ 의 외부 ACR 및 클라이언트 ID를 지정 합니다.
 
     ```python
     workspace.set_connection(
@@ -210,7 +210,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-필요에 따라 [RegistryIdentity](https://docs.microsoft.com/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py)를 사용 하 여 환경 정의 자체에서 관리 되는 ID 리소스 URL 및 클라이언트 ID를 지정할 수 있습니다. 명시적으로 레지스트리 id를 사용 하는 경우 이전에 지정 된 작업 영역 연결을 재정의 합니다.
+필요에 따라 [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py)를 사용 하 여 환경 정의 자체에서 관리 되는 ID 리소스 URL 및 클라이언트 ID를 지정할 수 있습니다. 명시적으로 레지스트리 id를 사용 하는 경우 이전에 지정 된 작업 영역 연결을 재정의 합니다.
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

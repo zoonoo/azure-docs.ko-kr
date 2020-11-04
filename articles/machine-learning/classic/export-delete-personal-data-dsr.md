@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 6bd86dc855e5a312550abe050603aeaf45b075ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 550603b9315c1abaa025aac804afc4fe674159d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362353"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310017"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -43,15 +43,15 @@ Machine Learning Studio (클래식)에는 두 가지 종류의 사용자 데이�
 
 Machine Learning Studio (클래식)에는 세 가지 종류의 계정이 있습니다. 보유한 계정의 종류에 따라 데이터가 저장되는 방법과 데이터를 삭제하거나 내보내는 방법이 결정됩니다.
 
-- **게스트 작업 영역**은 익명 체험 계정입니다. 이메일 주소 또는 암호와 같은 자격 증명을 제공하지 않고 등록합니다.
+- **게스트 작업 영역** 은 익명 체험 계정입니다. 이메일 주소 또는 암호와 같은 자격 증명을 제공하지 않고 등록합니다.
     -  게스트 작업 영역이 만료되면 데이터가 제거됩니다.
     - 게스트 사용자는 UI, REST API 또는 PowerShell 패키지를 통해 고객 데이터를 내보낼 수 있습니다.
-- **체험 작업 영역**은 Microsoft 계정 자격 증명(이메일 주소 및 암호)으로 로그인하는 체험 계정입니다.
+- **체험 작업 영역** 은 Microsoft 계정 자격 증명(이메일 주소 및 암호)으로 로그인하는 체험 계정입니다.
     - DSR(데이터 주체 권한) 요청에 따라 개인 및 고객 데이터를 내보내고 삭제할 수 있습니다.
     - UI, REST API 또는 PowerShell 패키지를 통해 고객 데이터를 내보낼 수 있습니다.
     - Azure AD 계정을 사용하지 않는 체험 작업 영역의 경우 개인 정보 보호 포털을 사용하여 원격 분석을 내보낼 수 있습니다.
     - 작업 영역을 삭제하면 모든 개인 고객 데이터가 삭제됩니다.
-- **표준 작업 영역**은 로그인 자격 증명으로 액세스하는 유료 계정입니다.
+- **표준 작업 영역** 은 로그인 자격 증명으로 액세스하는 유료 계정입니다.
     - DSR 요청에 따라 개인 및 고객 데이터를 내보내고 삭제할 수 있습니다.
     - Azure 개인 정보 보호 포털을 통해 데이터에 액세스할 수 있습니다.
     - UI, REST API 또는 PowerShell 패키지를 통해 개인 및 고객 데이터를 내보낼 수 있습니다.
@@ -78,4 +78,4 @@ PowerShell을 사용 하 여 Azure Machine Learning Studio (클래식)에서 명
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 서비스 및 약정 계획 대금 청구에 대 한 설명서는 [Azure Machine Learning Studio (클래식) REST API 참조](https://docs.microsoft.com/rest/api/machinelearning/)를 참조 하세요. 
+웹 서비스 및 약정 계획 대금 청구에 대 한 설명서는 [Azure Machine Learning Studio (클래식) REST API 참조](/rest/api/machinelearning/)를 참조 하세요.

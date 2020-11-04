@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 16a1c966b3f5a674f0ae1dc9c7ee078f45f8bdc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598230"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311375"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 
 
-Azure Machine Learning [하이퍼 매개 변수 패키지](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true)를 사용 하 여 효율적인 하이퍼 매개 변수 튜닝을 자동화 합니다. [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)를 사용 하 여 하이퍼 매개 변수를 조정 하는 데 필요한 단계를 완료 하는 방법을 알아봅니다.
+Azure Machine Learning [하이퍼 매개 변수 패키지](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)를 사용 하 여 효율적인 하이퍼 매개 변수 튜닝을 자동화 합니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 하이퍼 매개 변수를 조정 하는 데 필요한 단계를 완료 하는 방법을 알아봅니다.
 
 1. 매개 변수 검색 공간 정의
 1. 최적화할 기본 메트릭 지정  
@@ -44,7 +44,7 @@ Azure Machine Learning를 사용 하 여 하이퍼 매개 변수 튜닝을 자�
 
 각 하이퍼 매개 변수에 대해 정의 된 값의 범위를 탐색 하 여 하이퍼 매개 변수를 튜닝 합니다.
 
-하이퍼 매개 변수는 불연속 또는 연속 일 수 있으며 [매개 변수 식](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py&preserve-view=true)에서 설명 하는 값의 분포를 가집니다.
+하이퍼 매개 변수는 불연속 또는 연속 일 수 있으며 [매개 변수 식](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py)에서 설명 하는 값의 분포를 가집니다.
 
 ### <a name="discrete-hyperparameters"></a>개별 하이퍼 매개 변수 
 
@@ -101,7 +101,7 @@ Azure Machine Learning를 사용 하 여 하이퍼 매개 변수 튜닝을 자�
 
 #### <a name="random-sampling"></a>무작위 샘플링
 
-[무작위 샘플링](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py&preserve-view=true) 은 불연속 및 연속 hyperparameters 변수를 지원 합니다. 낮은 성능 실행의 조기 종료를 지원 합니다. 일부 사용자는 무작위 샘플링을 사용 하 여 초기 검색을 수행한 다음 검색 공간을 구체화 하 여 결과를 향상 시킵니다.
+[무작위 샘플링](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?preserve-view=true&view=azure-ml-py) 은 불연속 및 연속 hyperparameters 변수를 지원 합니다. 낮은 성능 실행의 조기 종료를 지원 합니다. 일부 사용자는 무작위 샘플링을 사용 하 여 초기 검색을 수행한 다음 검색 공간을 구체화 하 여 결과를 향상 시킵니다.
 
 무작위 샘플링에서 하이퍼 매개 변수 값은 정의된 검색 공간에서 임의로 선택됩니다. 
 
@@ -118,7 +118,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>그리드 샘플링
 
-[그리드 샘플링](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py&preserve-view=true) 은 불연속 하이퍼 매개 변수를 지원 합니다. 검색 공간을 철저 하 게 검색할 수 있는 경우 그리드 샘플링을 사용 합니다. 낮은 성능 실행의 조기 종료를 지원 합니다.
+[그리드 샘플링](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) 은 불연속 하이퍼 매개 변수를 지원 합니다. 검색 공간을 철저 하 게 검색할 수 있는 경우 그리드 샘플링을 사용 합니다. 낮은 성능 실행의 조기 종료를 지원 합니다.
 
 가능한 모든 값에 대해 간단한 그리드 검색을 수행 합니다. 그리드 샘플링은 하이퍼 매개 변수와 함께 사용할 수 있습니다 `choice` . 예를 들어 다음 공간에는 6 개의 샘플이 있습니다.
 
@@ -134,7 +134,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Bayesian 샘플링
 
-[Bayesian 샘플링](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py&preserve-view=true) 은 Bayesian 최적화 알고리즘을 기반으로 합니다. 이전 샘플이 수행 된 방법에 따라 샘플을 선택 하 여 새 샘플에서 기본 메트릭을 향상 시킵니다.
+[Bayesian 샘플링](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) 은 Bayesian 최적화 알고리즘을 기반으로 합니다. 이전 샘플이 수행 된 방법에 따라 샘플을 선택 하 여 새 샘플에서 기본 메트릭을 향상 시킵니다.
 
 하이퍼 매개 변수 공간을 탐색 하는 데 충분 한 예산이 있는 경우 Bayesian 샘플링을 권장 합니다. 최상의 결과를 얻으려면 튜닝 되는 하이퍼 매개 변수 수의 20 배 이상으로 최대 실행 횟수를 권장 합니다. 
 
@@ -156,7 +156,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> 기본 메트릭 지정
 
-하이퍼 매개 변수 튜닝을 최적화할 [기본 메트릭을](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) 지정 합니다. 각 교육 실행은 기본 메트릭에 대해 평가됩니다. 초기 종료 정책은 기본 메트릭을 사용 하 여 낮은 성능 실행을 식별 합니다.
+하이퍼 매개 변수 튜닝을 최적화할 [기본 메트릭을](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?preserve-view=true&view=azure-ml-py) 지정 합니다. 각 교육 실행은 기본 메트릭에 대해 평가됩니다. 초기 종료 정책은 기본 메트릭을 사용 하 여 낮은 성능 실행을 식별 합니다.
 
 기본 메트릭에 대해 다음 특성을 지정 합니다.
 
@@ -204,7 +204,7 @@ Azure Machine Learning는 다음과 같은 조기 종료 정책을 지원 합니
 
 ### <a name="bandit-policy"></a>산적 정책
 
-[산적 정책은](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) 여유 시간 비율/여유 공간 및 평가 간격을 기준으로 합니다. 기본 메트릭이 가장 적합 한 실행에 비해 지정 된 여유 비율/여유 시간 범위 내에 있지 않은 경우 산적이 실행 됩니다.
+[산적 정책은](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) 여유 시간 비율/여유 공간 및 평가 간격을 기준으로 합니다. 기본 메트릭이 가장 적합 한 실행에 비해 지정 된 여유 비율/여유 시간 범위 내에 있지 않은 경우 산적이 실행 됩니다.
 
 > [!NOTE]
 > Bayesian 샘플링은 조기 종료를 지원 하지 않습니다. Bayesian 샘플링을 사용 하는 경우를 설정 `early_termination_policy = None` 합니다.
@@ -227,7 +227,7 @@ early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=
 
 ### <a name="median-stopping-policy"></a>중앙값 중지 정책
 
-[중앙값 중지](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true) 는 실행에서 보고 되는 기본 메트릭의 평균 실행을 기반으로 하는 초기 종료 정책입니다. 이 정책은 모든 학습 실행의 평균 실행을 계산 하 고 평균 중앙값 보다 더 나쁜 기본 메트릭 값을 사용 하 여 실행을 종료 합니다.
+[중앙값 중지](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) 는 실행에서 보고 되는 기본 메트릭의 평균 실행을 기반으로 하는 초기 종료 정책입니다. 이 정책은 모든 학습 실행의 평균 실행을 계산 하 고 평균 중앙값 보다 더 나쁜 기본 메트릭 값을 사용 하 여 실행을 종료 합니다.
 
 이 정책은 다음 구성 매개 변수를 사용합니다.
 * `evaluation_interval`: 정책 적용에 대한 빈도입니다(선택적 매개 변수).
@@ -243,7 +243,7 @@ early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_eva
 
 ### <a name="truncation-selection-policy"></a>잘림 선택 영역 정책
 
-[잘림 선택](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) 은 각 평가 간격에서 가장 적게 수행 되는 실행의 백분율을 취소 합니다. 주 메트릭을 사용 하 여 실행을 비교 합니다. 
+[잘림 선택](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?preserve-view=true&view=azure-ml-py) 은 각 평가 간격에서 가장 적게 수행 되는 실행의 백분율을 취소 합니다. 주 메트릭을 사용 하 여 실행을 비교 합니다. 
 
 이 정책은 다음 구성 매개 변수를 사용합니다.
 
@@ -298,7 +298,7 @@ max_concurrent_runs=4
 
 ## <a name="configure-experiment"></a>실험 구성
 
-하이퍼 [매개 변수 튜닝](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) 실험을 구성 하려면 다음을 제공 합니다.
+하이퍼 [매개 변수 튜닝](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) 실험을 구성 하려면 다음을 제공 합니다.
 * 정의 된 하이퍼 매개 변수 검색 공간
 * 조기 종료 정책
 * 기본 메트릭
@@ -325,7 +325,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="submit-experiment"></a>실험 제출
 
-하이퍼 매개 변수 튜닝 구성을 정의한 후 실험을 [제출 합니다](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-).
+하이퍼 매개 변수 튜닝 구성을 정의한 후 실험을 [제출 합니다](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -339,8 +339,8 @@ hyperdrive_run = experiment.submit(hd_config)
 
 
 웜 시작은 샘플링 방법에 따라 다르게 처리 됩니다.
-- **Bayesian 샘플링**: 이전 실행에서의 평가판은 새 샘플을 선택 하 고 기본 메트릭을 개선 하기 위한 이전 기술 자료로 사용 됩니다.
-- **무작위 샘플링** 또는 **그리드 샘플링**: 조기 종료는 이전 실행의 정보를 사용 하 여 실행이 제대로 수행 되지 않는 것을 확인 합니다. 
+- **Bayesian 샘플링** : 이전 실행에서의 평가판은 새 샘플을 선택 하 고 기본 메트릭을 개선 하기 위한 이전 기술 자료로 사용 됩니다.
+- **무작위 샘플링** 또는 **그리드 샘플링** : 조기 종료는 이전 실행의 정보를 사용 하 여 실행이 제대로 수행 되지 않는 것을 확인 합니다. 
 
 준비 하려는 부모 실행 목록을 지정 합니다.
 
@@ -382,7 +382,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-experiment"></a>실험 시각화
 
-[노트북 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true) 사용 하 여 학습 실행의 진행률을 시각화할 수 있습니다. 다음 코드 조각은 Jupyter Notebook에서 모든 하이퍼 매개 변수 조정 실행을 시각화합니다.
+[노트북 위젯을](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) 사용 하 여 학습 실행의 진행률을 시각화할 수 있습니다. 다음 코드 조각은 Jupyter Notebook에서 모든 하이퍼 매개 변수 조정 실행을 시각화합니다.
 
 ```Python
 from azureml.widgets import RunDetails

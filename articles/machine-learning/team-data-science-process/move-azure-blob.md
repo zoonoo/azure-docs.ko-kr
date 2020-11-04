@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5148084fa22266b1352046c7d8737b9804c5f4d0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76717580"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311859"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
 
@@ -27,14 +27,14 @@ ms.locfileid: "76717580"
 다음 문서에서는 다양한 기술을 사용하여 Azure Blob Storage 간에 데이터를 이동하는 방법을 설명합니다.
 
 * [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
-* [Python](move-data-to-azure-blob-using-python.md)
+* [AZCopy](../../storage/common/storage-use-azcopy-v10.md)
+* [Python](../../storage/blobs/storage-quickstart-blobs-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 가장 적합한 방법은 시나리오에 따라 달라집니다. [Azure Machine Learning의 고급 분석 시나리오](plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 결정하도록 도와줍니다.
 
 > [!NOTE]
-> Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
+> Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-quickstart-blobs-dotnet.md) 및 [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts)를 참조하세요.
 > 
 > 
 
@@ -49,9 +49,8 @@ ms.locfileid: "76717580"
 
 자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/transform-data-using-machine-learning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드 하기 전에 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
 
 * Azure 구독을 설정 하려면 [1 개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
-* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대 한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조 하세요.
-
+* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대 한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-account-create.md)를 참조 하세요.

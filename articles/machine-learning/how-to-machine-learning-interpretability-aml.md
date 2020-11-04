@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311598"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -242,7 +242,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     ```bash
     pip install azureml-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -354,7 +354,7 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
    [![실험의 AzureML 스튜디오에서 시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **모델** 창
-  1. [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
+  1. [Azure Machine Learning를 사용 하 여 모델 배포](./how-to-deploy-and-where.md)의 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
   1. 모델을 선택한 다음 **설명 탭을 클릭 하 여 설명** 시각화 대시보드를 확인 합니다.
 
 ## <a name="interpretability-at-inference-time"></a>유추 시 Interpretability
@@ -419,7 +419,7 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
 
 1. 다음 단계를 수행 하 여 계산 대상에 이미지를 배포 합니다.
 
-   1. 필요한 경우 [Azure Machine Learning를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)의 단계를 수행 하 여 원래 예측 모델을 등록 합니다.
+   1. 필요한 경우 [Azure Machine Learning를 사용 하 여 모델 배포](./how-to-deploy-and-where.md)의 단계를 수행 하 여 원래 예측 모델을 등록 합니다.
 
    1. 점수 매기기 파일을 만듭니다.
 
@@ -553,4 +553,3 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
 [모델 interpretability에 대 한 자세한 정보](how-to-machine-learning-interpretability.md)
 
 [Azure Machine Learning Interpretability 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

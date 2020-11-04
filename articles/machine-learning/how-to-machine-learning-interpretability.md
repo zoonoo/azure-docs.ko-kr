@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322362"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311518"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning 모델 interpretability (미리 보기)
 
@@ -39,7 +39,7 @@ Interpretability는 회사 정책, 산업 표준 및 정부 규정 준수를 보
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure Machine Learning Interpretability
 
-Interpretability 클래스는 다음 SDK 패키지를 통해 제공 됩니다. ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)하는 방법 알아보기)
+Interpretability 클래스는 다음 SDK 패키지를 통해 제공 됩니다. ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)하는 방법 알아보기)
 
 * `azureml.interpret`에는 Microsoft에서 지 원하는 기능이 포함 되어 있습니다.
 
@@ -53,7 +53,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 + 대화형 시각화 대시보드를 사용 하 여 학습 시간에 데이터 및 설명의 패턴 검색
 
 
-기계 학습에서 **기능은** 대상 데이터 요소를 예측 하는 데 사용 되는 데이터 필드입니다. 예를 들어 신용 위험을 예측 하려면 나이, 계정 크기 및 계정 사용 기간에 대 한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 크기 및 계정 사용 기간이 **기능**입니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 영향을 주는 방법을 알려 줍니다. 예를 들어 age는 예측에서 많이 사용 될 수 있으며, 계정 크기와 age는 예측 값에 크게 영향을 주지 않습니다. 이 프로세스를 통해 데이터 과학자는 결과 예측을 설명할 수 있으므로 이해 관계자가 모델에서 가장 중요 한 기능을 파악할 수 있습니다.
+기계 학습에서 **기능은** 대상 데이터 요소를 예측 하는 데 사용 되는 데이터 필드입니다. 예를 들어 신용 위험을 예측 하려면 나이, 계정 크기 및 계정 사용 기간에 대 한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 크기 및 계정 사용 기간이 **기능** 입니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 영향을 주는 방법을 알려 줍니다. 예를 들어 age는 예측에서 많이 사용 될 수 있으며, 계정 크기와 age는 예측 값에 크게 영향을 주지 않습니다. 이 프로세스를 통해 데이터 과학자는 결과 예측을 설명할 수 있으므로 이해 관계자가 모델에서 가장 중요 한 기능을 파악할 수 있습니다.
 
 지원 되는 interpretability 기술, 지원 되는 기계 학습 모델 및 지원 되는 실행 환경에 대해 알아봅니다.
 
@@ -66,8 +66,8 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 |--|--|--------------------|
 |SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
 |SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|
-|SHAP 선형 설명| SHAP의 선형 설명는 **선형 모델**에 대해 shap 값을 계산 하 고, 선택적으로 기능 간 상관 관계를 고려 합니다.|모델 관련|
-|SHAP 커널 설명| SHAP의 커널 설명는 특별히 가중치가 적용 된 로컬 선형 회귀를 사용 하 여 **모든 모델**에 대 한 shap 값을 예측 합니다.|모델 독립적|
+|SHAP 선형 설명| SHAP의 선형 설명는 **선형 모델** 에 대해 shap 값을 계산 하 고, 선택적으로 기능 간 상관 관계를 고려 합니다.|모델 관련|
+|SHAP 커널 설명| SHAP의 커널 설명는 특별히 가중치가 적용 된 로컬 선형 회귀를 사용 하 여 **모든 모델** 에 대 한 shap 값을 예측 합니다.|모델 독립적|
 |설명 모방 (전역 서로게이트)| 설명 모방은 블랙 박스 모델을 모방 하기 위해 [전역 서로게이트 모델](https://christophm.github.io/interpretable-ml-book/global.html) 을 학습 하는 아이디어를 기반으로 합니다. 전역 서로게이트 모델은 **모든 블랙 박스 모델** 의 예측을 최대한 정확 하 게 예측 하도록 학습 된 본질적으로 해석 되는 모델입니다. 데이터 과학자은 서로게이트 모델을 해석 하 여 블랙 박스 모델에 대 한 결론을 그릴 수 있습니다. 다음 해석 가능 모델 중 하나를 서로게이트 모델 (LightGBM (LGBMExplainableModel), 선형 회귀 (LinearExplainableModel), 추계 explainable) 및 의사 결정 트리 (SGDExplainableModel)로 사용할 수 있습니다.|모델 독립적|
 |순열 기능 중요도 설명 (PFI)| 순열 기능 중요도는 [Breiman의 임의 포리스트 용지](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (섹션 10 참조)에서 설명 하는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다. 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다. PFI는 **기본 모델** 의 전체 동작을 설명할 수 있지만 개별 예측에 대해서는 설명 하지 않습니다. |모델 독립적|
 
@@ -83,8 +83,8 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
 `TabularExplainer` 는 또한 직접 SHAP Explainers에서 중요 한 기능 및 성능 향상을 만들었습니다.
 
-* **초기화 데이터 집합의 요약**입니다. 설명의 속도가 가장 중요 한 경우 초기화 데이터 집합을 요약 하 고 몇 가지 대표적인 샘플 집합을 생성 하 여 전체 및 개별 기능 중요도 값의 생성 속도를 향상 시킵니다.
-* **평가 데이터 집합을 샘플링**합니다. 사용자가 많은 수의 평가 샘플을 통과 하지만 실제로 평가할 필요가 없는 경우에는 샘플링 매개 변수를 true로 설정 하 여 전체 모델 설명의 계산 속도를 높일 수 있습니다.
+* **초기화 데이터 집합의 요약** 입니다. 설명의 속도가 가장 중요 한 경우 초기화 데이터 집합을 요약 하 고 몇 가지 대표적인 샘플 집합을 생성 하 여 전체 및 개별 기능 중요도 값의 생성 속도를 향상 시킵니다.
+* **평가 데이터 집합을 샘플링** 합니다. 사용자가 많은 수의 평가 샘플을 통과 하지만 실제로 평가할 필요가 없는 경우에는 샘플링 매개 변수를 true로 설정 하 여 전체 모델 설명의 계산 속도를 높일 수 있습니다.
 
 다음 다이어그램은 지원 되는 explainers의 현재 구조를 보여 줍니다.
 

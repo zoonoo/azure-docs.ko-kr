@@ -1,7 +1,7 @@
 ---
 title: Triton를 사용 하는 고성능 모델 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning Triton 유추 서버를 사용 하 여 모델을 배포 하는 방법을 알아봅니다.
+description: Azure Machine Learning에서 NVIDIA Triton 유추 서버를 사용 하 여 모델을 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92428343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309710"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -24,10 +24,10 @@ ms.locfileid: "92428343"
 
 유추를 위해 모델을 배포 하는 방법 중 하나는 웹 서비스입니다. 예를 들어 Azure Kubernetes Service에 대 한 배포 또는 Azure Container Instances입니다. 기본적으로 Azure Machine Learning는 웹 서비스 배포에 대 한 단일 스레드 *범용* 웹 프레임 워크를 사용 합니다.
 
-Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용 효율적인 유추의 활용도를 향상 시킬 수 있습니다. 서버 쪽에서는 들어오는 요청을 일괄 처리 하 고 유추를 위해 이러한 일괄 처리를 전송 합니다. 일괄 처리는 GPU 리소스를 더 효율적으로 활용 하며, Triton의 핵심 부분입니다.
+Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비용 효율적인 유추의 활용도를 향상 시킬 수 있습니다. 서버 쪽에서는 들어오는 요청을 일괄 처리 하 고 유추를 위해 이러한 일괄 처리를 전송 합니다. 일괄 처리는 GPU 리소스를 더 효율적으로 활용 하며, Triton의 핵심 부분입니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning에서 배포 하는 데 Triton를 사용 하는 것은 현재 __미리 보기__상태입니다. 미리 보기 기능은 고객 지원에 포함 되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+> Azure Machine Learning에서 배포 하는 데 Triton를 사용 하는 것은 현재 __미리 보기__ 상태입니다. 미리 보기 기능은 고객 지원에 포함 되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 > [!TIP]
 > 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://github.com/Azure/azureml-examples/tree/main/tutorials)을 참조 하세요.
@@ -36,7 +36,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Azure Machine Learning를 사용 하 여 [모델을 배포 하는 방법과 위치](how-to-deploy-and-where.md) 에 대해 잘 알고 있어야 합니다.
-* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **또는** [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 및 [Machine Learning 확장](reference-azure-machine-learning-cli.md)
+* [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/?view=azure-ml-py) **또는** [Azure CLI](/cli/azure/?view=azure-cli-latest) 및 [Machine Learning 확장](reference-azure-machine-learning-cli.md)
 * 로컬 테스트를 위한 Docker의 작동 설치 Docker를 설치 하 고 유효성을 검사 하는 방법에 대 한 자세한 내용은 docker 설명서의 [방향 및 설정](https://docs.docker.com/get-started/) 을 참조 하세요.
 
 ## <a name="architectural-overview"></a>아키텍처 개요
@@ -47,18 +47,18 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 유추 요청은 __점수 매기기 URI__를 사용 합니다. 예: `https://myserevice.azureml.net/score`.
+* 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
 **Triton를 사용한 유추 구성 배포**
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
-* 요청은 **Triton 서버로**전달 됩니다. 
+* 요청은 **Triton 서버로** 전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myserevice.azureml.net/score`.
+* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
 
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
+:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton를 사용 하 여 Inferenceconfig 배포":::
 
 모델 배포에 Triton를 사용 하는 워크플로는 다음과 같습니다.
 
@@ -178,7 +178,7 @@ az ml model register --model-path='triton' \
 
 ## <a name="add-pre-and-post-processing"></a>전처리 및 후 처리 추가
 
-웹 서비스가 작동 하는지 확인 한 후에는 _항목 스크립트_를 정의 하 여 전처리 및 후 처리 코드를 추가할 수 있습니다. 이 파일의 이름은 `score.py` 입니다. 항목 스크립트에 대 한 자세한 내용은 [항목 스크립트 정의](how-to-deploy-and-where.md#define-an-entry-script)를 참조 하세요.
+웹 서비스가 작동 하는지 확인 한 후에는 _항목 스크립트_ 를 정의 하 여 전처리 및 후 처리 코드를 추가할 수 있습니다. 이 파일의 이름은 `score.py` 입니다. 항목 스크립트에 대 한 자세한 내용은 [항목 스크립트 정의](how-to-deploy-and-where.md#define-an-entry-script)를 참조 하세요.
 
 두 가지 주요 단계는 메서드에서 Triton HTTP 클라이언트를 초기화 하 `init()` 고 함수에서 해당 클라이언트를 호출 하는 것입니다 `run()` .
 
@@ -228,7 +228,7 @@ res = triton_client.infer(model_name,
 > [!IMPORTANT]
 > `AzureML-Triton` [큐 레이트 환경을](./resource-curated-environments.md)지정 해야 합니다.
 >
-> Python 코드 예제는 `AzureML-Triton` 라는 다른 환경으로 복제 합니다 `My-Triton` . Azure CLI 코드는이 환경도 사용 합니다. 환경 복제에 대 한 자세한 내용은 [environment. Clone ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-) 참조를 참조 하세요.
+> Python 코드 예제는 `AzureML-Triton` 라는 다른 환경으로 복제 합니다 `My-Triton` . Azure CLI 코드는이 환경도 사용 합니다. 환경 복제에 대 한 자세한 내용은 [environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) 참조를 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -283,7 +283,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-배포가 완료 되 면 점수 매기기 URI가 표시 됩니다. 이 로컬 배포의 경우이 됩니다 `http://localhost:6789/score` . 클라우드에 배포 하는 경우 [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI 명령을 사용 하 여 점수 매기기 URI를 가져올 수 있습니다.
+배포가 완료 되 면 점수 매기기 URI가 표시 됩니다. 이 로컬 배포의 경우이 됩니다 `http://localhost:6789/score` . 클라우드에 배포 하는 경우 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI 명령을 사용 하 여 점수 매기기 URI를 가져올 수 있습니다.
 
 추론 요청을 점수 매기기 URI로 보내는 클라이언트를 만드는 방법에 대 한 자세한 내용은 [웹 서비스로 배포 된 모델 사용](how-to-consume-web-service.md)을 참조 하세요.
 
@@ -310,7 +310,7 @@ az ml service delete -n triton-densenet-onnx
 * [Azure Machine Learning에서 Triton의 종단 간 샘플을 참조 하세요.](https://aka.ms/aml-triton-sample)
 * [Triton client 예제](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples) 확인
 * [Triton 유추 서버 설명서](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html) 읽기
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)

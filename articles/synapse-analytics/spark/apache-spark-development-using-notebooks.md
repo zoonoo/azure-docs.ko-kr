@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738745"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311139"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio (미리 보기) 노트북 만들기, 개발 및 유지 관리
 
@@ -86,7 +86,7 @@ Azure Synapse Studio Notebook은 네 가지 Apache Spark 언어를 지원합니�
 
 Synapse Studio Notebook의 여러 언어 간에 직접 데이터나 변수를 참조할 수 없습니다. Spark에서는 여러 언어 간에 임시 테이블을 참조할 수 있습니다. 다음은 차선책으로 Spark temp 테이블을 사용하여 `PySpark`와 `SparkSQL`에서 `Scala` DataFrame을 읽는 방법의 예입니다.
 
-1. 셀 1에서는 Scala를 사용하여 SQL 풀 커넥터에서 DataFrame을 읽고 임시 테이블을 생성합니다.
+1. 1 셀에서 Scala을 사용 하 여 SQL 풀 커넥터에서 데이터 프레임를 읽고 임시 테이블을 만듭니다.
 
    ```scala
    %%scala
@@ -112,7 +112,7 @@ Synapse Studio Notebook의 여러 언어 간에 직접 데이터나 변수를 �
 
 Azure Synapse Studio Notebook은 Monaco 편집기와 통합되어 IDE 스타일 IntelliSense를 셀 편집기로 가져옵니다. 구문 강조 표시, 오류 표식 및 자동 코드 완성을 통해 코드를 작성 하 고 문제를 더 빠르게 식별할 수 있습니다.
 
-IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되는 기능은 아래 표를 참조하세요.
+IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 다음 표를 사용 하 여 지원 되는 항목을 확인 합니다.
 
 |언어| 구문 강조 표시 | 구문 오류 표식  | 구문 코드 완성 | 변수 코드 완성| 시스템 함수 코드 완성| 사용자 함수 코드 완성| 스마트 들여쓰기 | 코드 접기|
 |--|--|--|--|--|--|--|--|--|
@@ -203,7 +203,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 ### <a name="spark-progress-indicator"></a>Spark 진행률 표시기
 
-Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 Spark 풀에서 원격으로 실행됩니다. Spark 작업 진행률 표시기에 실시간 진행률 표시줄이 제공되어 작업 실행 상태를 이해하는 데 유용합니다.
+Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 서버를 사용 하지 않는 Apache Spark 풀에서 원격으로 실행 됩니다. Spark 작업 진행률 표시기에 실시간 진행률 표시줄이 제공되어 작업 실행 상태를 이해하는 데 유용합니다.
 각 작업 또는 단계 당 태스크 수를 통해 spark 작업의 병렬 수준을 식별할 수 있습니다. 작업 (또는 단계) 이름에 대 한 링크를 선택 하 여 특정 작업 (또는 단계)의 Spark UI를 자세히 살펴볼 수도 있습니다.
 
 
@@ -294,7 +294,7 @@ df = spark.read.option("header", "true") \
 
 ### <a name="render-html-or-interactive-libraries"></a>HTML 또는 대화형 라이브러리 렌더링
 
-**Displayhtml ()** 을 사용 하 여 **빛 망 울** 와 같은 Javascript, CSS, D3 또는 대화형 라이브러리를 비롯 한 HTML 코드를 렌더링할 수 있습니다.
+**Displayhtml ()** 을 사용 하 여 JavaScript, CSS, D3 또는 대화형 라이브러리 (예: **빛 망 울** )를 포함 한 HTML 코드를 렌더링할 수 있습니다.
 
 다음 이미지는 **빛망울** 을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
 

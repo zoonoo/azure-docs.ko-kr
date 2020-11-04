@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aa1ba4aa07ee4cdc097bd4ed3e6e4d7563360a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331797"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311331"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 
 
-이 문서에서는 학습 실험에서 [Azure Machine Learning 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) 을 사용 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다.
+이 문서에서는 학습 실험에서 [Azure Machine Learning 데이터 집합](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 을 사용 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다.
 
-Azure Machine Learning 데이터 집합은 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true), [hyperdrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
+Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -34,16 +34,16 @@ Azure Machine Learning 데이터 집합은 [ScriptRunConfig](https://docs.micros
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
-* [설치 된 Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)-azureml 데이터 집합 패키지를 포함 합니다.
+* [설치 된 Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)-azureml 데이터 집합 패키지를 포함 합니다.
 
 > [!Note]
-> 일부 데이터 집합 클래스에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
+> 일부 데이터 집합 클래스에는 [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
 ## <a name="use-datasets-directly-in-training-scripts"></a>학습 스크립트에서 직접 데이터 집합 사용
 
 구조화 된 데이터를 데이터 집합으로 아직 등록 하지 않은 경우 TabularDataset를 만들어 로컬 또는 원격 실험을 위한 학습 스크립트에서 직접 사용 합니다.
 
-이 예에서는 등록 되지 않은 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 을 만들고 학습을 위해 ScriptRunConfig 개체에서 스크립트 인수로 지정 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
+이 예에서는 등록 되지 않은 [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 을 만들고 학습을 위해 ScriptRunConfig 개체에서 스크립트 인수로 지정 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -60,7 +60,7 @@ TabularDataset 개체는 TabularDataset의 데이터를 pandas 또는 Spark 데�
 
 ### <a name="access-dataset-in-training-script"></a>학습 스크립트의 데이터 집합 액세스
 
-다음 코드는 `--input-data` 학습 실행을 구성할 때 지정할 스크립트 인수를 구성 합니다 (다음 섹션 참조). 테이블 형식 데이터 집합이 인수 값으로 전달 되는 경우 Azure ML은 데이터 집합의 ID로이를 확인 하 고,이를 사용 하 여 학습 스크립트의 데이터 집합에 액세스할 수 있습니다 (스크립트에서 데이터 집합의 이름 또는 ID를 하드 코딩 하지 않음). 그런 다음 메서드를 사용 하 여 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임로 로드 합니다.
+다음 코드는 `--input-data` 학습 실행을 구성할 때 지정할 스크립트 인수를 구성 합니다 (다음 섹션 참조). 테이블 형식 데이터 집합이 인수 값으로 전달 되는 경우 Azure ML은 데이터 집합의 ID로이를 확인 하 고,이를 사용 하 여 학습 스크립트의 데이터 집합에 액세스할 수 있습니다 (스크립트에서 데이터 집합의 이름 또는 ID를 하드 코딩 하지 않음). 그런 다음 메서드를 사용 하 여 [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임로 로드 합니다.
 
 > [!Note]
 > 원래 데이터 원본에 NaN, 빈 문자열 또는 빈 값이 포함 된 경우를 사용 하면 `to_pandas_dataframe()` 해당 값이 *Null* 값으로 대체 됩니다.
@@ -88,7 +88,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>학습 실행 구성
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true) 개체는 학습 실행을 구성 하 고 제출 하는 데 사용 됩니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) 개체는 학습 실행을 구성 하 고 제출 하는 데 사용 됩니다.
 
 이 코드는를 `src` 지정 하는 ScriptRunConfig 개체를 만듭니다.
 
@@ -115,7 +115,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>원격 계산 대상에 파일 탑재
 
-구조화 되지 않은 데이터가 있는 경우 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) 을 만들고 데이터 파일을 탑재 하거나 다운로드 하 여 교육을 위해 원격 계산 대상에서 사용할 수 있도록 합니다. 원격 학습 실험을 위해 [탑재 및 다운로드](#mount-vs-download) 를 사용 하는 경우에 대해 알아봅니다. 
+구조화 되지 않은 데이터가 있는 경우 [Filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) 을 만들고 데이터 파일을 탑재 하거나 다운로드 하 여 교육을 위해 원격 계산 대상에서 사용할 수 있도록 합니다. 원격 학습 실험을 위해 [탑재 및 다운로드](#mount-vs-download) 를 사용 하는 경우에 대해 알아봅니다. 
 
 다음 예에서는 FileDataset을 만들고 학습 스크립트에 인수로 전달 하 여 계산 대상에 데이터 집합을 탑재 합니다. 
 
@@ -222,7 +222,7 @@ print (mounted_path)
 
 ## <a name="directly-access-datasets-in-your-script"></a>스크립트의 데이터 집합에 직접 액세스
 
-등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
+등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
 
 ```Python
 %%writefile $script_folder/train.py

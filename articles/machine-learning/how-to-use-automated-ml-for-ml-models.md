@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311283"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -41,7 +41,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. 구독 및 작업 영역을 선택합니다. 
 
-1. 왼쪽 창으로 이동합니다. **작성** 섹션 아래에서 **자동화된 ML**을 선택합니다.
+1. 왼쪽 창으로 이동합니다. **작성** 섹션 아래에서 **자동화된 ML** 을 선택합니다.
 
 [![Azure Machine Learning Studio 탐색 창](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png)
 
@@ -51,7 +51,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 ## <a name="create-and-run-experiment"></a>실험 만들기 및 실행
 
-1. **+ 새 자동화된 ML 실행**을 선택하고 양식을 채웁니다.
+1. **+ 새 자동화된 ML 실행** 을 선택하고 양식을 채웁니다.
 
 1. 스토리지 컨테이너에서 데이터 세트를 선택하거나 새 데이터 세트를 만듭니다. 데이터 세트는 로컬 파일, 웹 URL, 데이터 저장소 또는 Azure 오픈 데이터 세트에서 만들 수 있습니다. [데이터 집합 생성](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.  
 
@@ -60,11 +60,11 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     >* 데이터는 테이블 형식이어야 합니다.
     >* 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
-    1. 로컬 컴퓨터의 파일에서 새 데이터 집합을 만들려면 **+ 데이터 집합 만들기** 를 선택 하 고 **로컬 파일에서를**선택 합니다. 
+    1. 로컬 컴퓨터의 파일에서 새 데이터 집합을 만들려면 **+ 데이터 집합 만들기** 를 선택 하 고 **로컬 파일에서를** 선택 합니다. 
 
     1. **기본 정보** 양식에서 데이터 집합에 고유한 이름을 지정 하 고 설명 (선택 사항)을 제공 합니다. 
 
-    1. **다음**을 선택하여 **데이터 저장소 및 파일 선택 양식**을 엽니다. 이 양식에서 데이터 세트를 업로드할 위치 또는 작업 영역에서 자동으로 만들어지는 기본 스토리지 컨테이너를 선택하거나 실험에 사용하려는 스토리지 컨테이너를 선택합니다. 
+    1. **다음** 을 선택하여 **데이터 저장소 및 파일 선택 양식** 을 엽니다. 이 양식에서 데이터 세트를 업로드할 위치 또는 작업 영역에서 자동으로 만들어지는 기본 스토리지 컨테이너를 선택하거나 실험에 사용하려는 스토리지 컨테이너를 선택합니다. 
     
         1. 데이터가 가상 네트워크 뒤에 있는 경우 **유효성 검사 함수 건너뛰기** 를 사용 하도록 설정 하 여 작업 영역에서 데이터에 액세스할 수 있도록 해야 합니다. 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요. 
     
@@ -80,15 +80,15 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
         열 머리글| 데이터 세트의 헤더(있는 경우)가 처리되는 방법을 나타냅니다.
         행 건너뛰기 | 데이터 세트에서 건너뛴 행(있는 경우)의 수를 나타냅니다.
     
-        **다음**을 선택합니다.
+        **다음** 을 선택합니다.
 
     1. **스키마** 양식은 **설정 및 미리 보기** 양식의 선택 사항에 따라 지능적으로 채워집니다. 여기서는 각 열의 데이터 형식을 구성하고, 열 이름을 검토하고, 실험에 **포함하지 않을** 열을 선택합니다. 
             
-        **다음**을 선택합니다.
+        **다음** 을 선택합니다.
 
     1. **세부 정보 확인** 양식은 이전에 **기본 정보** 및 **설정 및 미리 보기** 양식에 채운 정보를 요약한 것입니다. 프로파일링을 사용하도록 설정된 컴퓨팅을 사용하여 데이터 세트에 대한 데이터 프로필을 만드는 옵션도 있습니다. [데이터 프로파일링](how-to-connect-data-ui.md#profile)에 대한 자세한 정보
 
-        **다음**을 선택합니다.
+        **다음** 을 선택합니다.
 1. 새로 만든 데이터 세트가 표시되면 선택합니다. 또한 데이터 세트 및 샘플 통계 미리 보기도 볼 수 있습니다. 
 
 1. **실행 구성** 양식에서 고유한 실험 이름을 입력합니다.
@@ -97,7 +97,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. 데이터 프로파일링 및 학습 작업에 대한 컴퓨팅을 선택합니다. 기존 컴퓨팅 목록은 드롭다운에서 사용할 수 있습니다. 새 컴퓨팅을 만들려면 7단계의 지침을 따릅니다.
 
-1. **새 컴퓨팅 만들기**를 선택하여 이 실험에 대한 컴퓨팅 컨텍스트를 구성합니다.
+1. **새 컴퓨팅 만들기** 를 선택하여 이 실험에 대한 컴퓨팅 컨텍스트를 구성합니다.
 
     필드|Description
     ---|---
@@ -108,27 +108,27 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다. 컴퓨팅에 사용할 최대 노드 수를 입력합니다. AML 컴퓨팅의 경우 기본값은 6개 노드입니다.
     고급 설정 | 이러한 설정을 사용 하 여 실험에 사용할 사용자 계정 및 기존 가상 네트워크를 구성할 수 있습니다. 
     
-    **만들기**를 선택합니다. 새 컴퓨팅을 만드는 데 몇 분 정도 걸릴 수 있습니다.
+    **만들기** 를 선택합니다. 새 컴퓨팅을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
     >[!NOTE]
-    > 컴퓨팅 이름에는 선택하고 만드는 컴퓨팅에서 *프로파일링을 사용하도록 설정*했는지 여부가 표시됩니다. (자세한 내용은 [데이터 프로파일링](how-to-connect-data-ui.md#profile) 섹션을 참조하세요.)
+    > 컴퓨팅 이름에는 선택하고 만드는 컴퓨팅에서 *프로파일링을 사용하도록 설정* 했는지 여부가 표시됩니다. (자세한 내용은 [데이터 프로파일링](how-to-connect-data-ui.md#profile) 섹션을 참조하세요.)
 
-    **다음**을 선택합니다.
+    **다음** 을 선택합니다.
 
 1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원 되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) 을 참조 하세요.
 
-    1. **분류**의 경우 심층 학습을 사용 하도록 설정할 수도 있습니다.
+    1. **분류** 의 경우 심층 학습을 사용 하도록 설정할 수도 있습니다.
     
-        심층 학습을 사용 하는 경우 유효성 검사는 _train_validation 분할_으로 제한 됩니다. [유효성 검사 옵션에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md).
+        심층 학습을 사용 하는 경우 유효성 검사는 _train_validation 분할_ 으로 제한 됩니다. [유효성 검사 옵션에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md).
 
 
     1. **예측** 을 위해 다음을 수행할 수 있습니다. 
     
         1. 심층 학습을 사용 합니다.
     
-        1. *시간 열*선택:이 열은 사용할 시간 데이터를 포함 합니다.
+        1. *시간 열* 선택:이 열은 사용할 시간 데이터를 포함 합니다.
 
-        1. *예측*간격 선택: 모델에서 미래를 예측할 수 있는 시간 단위 (분/시간/일/주/월/년) 수를 표시 합니다. 나중에 예측하는 데 더 많은 모델이 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
+        1. *예측* 간격 선택: 모델에서 미래를 예측할 수 있는 시간 단위 (분/시간/일/주/월/년) 수를 표시 합니다. 나중에 예측하는 데 더 많은 모델이 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
 
 1. (선택 사항) 추가 구성 설정 보기: 학습 작업을 더 효율적으로 제어하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
 
@@ -136,10 +136,10 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#primary-metric).
     최상의 모델에 대한 설명 | 권장 되는 최상의 모델에 대 한 설명을 표시 하려면 선택 합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에 사용할 수 없습니다. 
-    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true)을 참조 하세요.
-    종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
+    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py)을 참조 하세요.
+    종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값* :  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
     유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k 접기 교차 유효성 검사만 지원 합니다.
-    동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다.
+    동시성| *최대 동시 반복 횟수* : 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다.
 
 1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
 
@@ -153,7 +153,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 열| 사용자 지정
 ---|---
-포함 | 학습에 포함할 열을 지정 합니다.
+Included | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
 돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
@@ -161,7 +161,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
-**마침**을 선택하여 실험을 실행합니다. 실험 준비 프로세스는 최대 10분 정도 걸릴 수 있습니다. 각 파이프라인에서 실행을 완료하는 데 학습 작업에 2-3분 더 걸릴 수 있습니다.
+**마침** 을 선택하여 실험을 실행합니다. 실험 준비 프로세스는 최대 10분 정도 걸릴 수 있습니다. 각 파이프라인에서 실행을 완료하는 데 학습 작업에 2-3분 더 걸릴 수 있습니다.
 
 ### <a name="view-experiment-details"></a>실험 세부 정보 보기
 
@@ -210,13 +210,13 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     *고급* 메뉴에서는 [데이터 수집](how-to-enable-app-insights.md) 및 리소스 사용률 설정과 같은 기본 배포 기능을 제공합니다. 이러한 기본값을 재정의하려면 이 메뉴에서 해당 작업을 수행합니다.
 
-1. **배포**를 선택합니다. 배포가 완료되는 데 약 20분 정도 걸릴 수 있습니다.
+1. **배포** 를 선택합니다. 배포가 완료되는 데 약 20분 정도 걸릴 수 있습니다.
     배포가 시작되면 **모델 요약** 탭이 나타납니다. **배포 상태** 섹션에서 배포 진행률을 확인하세요. 
 
 이제 예측을 생성하는 운영 웹 서비스가 있습니다! [Power BI의 기본 제공 Azure Machine Learning 지원](how-to-consume-web-service.md#consume-the-service-from-power-bi)에서 서비스를 쿼리하여 예측을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [웹 서비스를 사용하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [웹 서비스를 사용하는 방법을 알아봅니다](./how-to-consume-web-service.md).
 * [자동화된 Machine Learning 결과를 살펴봅니다](how-to-understand-automated-ml.md).
 * Azure Machine Learning 및 [자동화된 Machine Learning에 대해 자세히 알아봅니다](concept-automated-ml.md).

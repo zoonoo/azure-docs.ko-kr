@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcd9c6430deea948804ba8c1d37e404b1897c5f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461989"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311885"
 ---
 # <a name="data-warehouse-units-dwus"></a>DWUs (데이터 웨어하우스 단위)
 
@@ -24,7 +24,7 @@ ms.locfileid: "89461989"
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위란?
 
-[SYNAPSE SQL 풀](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 은 프로 비전 중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다.
+[SYNAPSE SQL 풀](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) 은 프로 비전 중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다.
 
 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다.
 
@@ -34,8 +34,8 @@ ms.locfileid: "89461989"
 
 데이터 웨어하우스 단위의 성능은 다음과 같은 데이터 웨어하우스 워크로드 메트릭을 기반으로 합니다.
 
-- 표준 SQL 풀 쿼리가 많은 수의 행을 검색 한 후 복잡 한 집계를 수행 하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
-- SQL 풀에서 Azure Storage Blob 또는 Azure Data Lake의 데이터를 수집할 수 있는 속도입니다. 이 작업은 네트워크 및 CPU를 많이 사용합니다.
+- 표준 전용 SQL 풀 쿼리가 많은 수의 행을 검색 한 후 복잡 한 집계를 수행 하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
+- 전용 SQL 풀이 Azure Storage Blob 또는 Azure Data Lake에서 데이터를 수집할 수 있는 속도입니다. 이 작업은 네트워크 및 CPU를 많이 사용합니다.
 - [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 명령이 테이블을 복사하는 속도. 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
 
 DWU 늘리기:
@@ -48,12 +48,12 @@ DWU 늘리기:
 
 SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
 
-SLO (서비스 수준 목표)는 SQL 풀의 비용 및 성능 수준을 결정 하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
+SLO (서비스 수준 목표)는 전용 SQL 풀의 비용 및 성능 수준을 결정 하는 확장성 설정입니다. Gen2 전용 SQL 풀의 서비스 수준은 DWU (데이터 웨어하우스 단위) (예: DW2000c)로 측정 됩니다.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
-T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
+T-sql에서 SERVICE_OBJECTIVE 설정에 따라 전용 SQL 풀의 서비스 수준 및 성능 계층이 결정 됩니다.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -88,7 +88,7 @@ DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 �
 2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
 3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 작업에서 고점과 저점이 나타나는 워크로드는 크기를 자주 조정해야 할 수도 있습니다.
 
-SQL 풀은 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 프로비저닝할 수 있는 스케일 아웃 시스템입니다.
+전용 SQL 풀은 방대한 양의 계산을 프로 비전 하 고 방대한 양의 데이터를 쿼리할 수 있는 스케일 아웃 시스템입니다.
 
 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
 
@@ -98,7 +98,7 @@ SQL 풀은 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 �
 
 ## <a name="permissions"></a>사용 권한
 
-데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명된 권한이 필요합니다.
+데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 설명된 권한이 필요합니다.
 
 SQL DB 기여자 및 SQL Server 기여자와 같은 Azure 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
 
@@ -125,11 +125,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 DWU를 변경하는 방법은 다음과 같습니다.
 
-1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정** 을 클릭합니다.
 
-2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
+2. **크기 조정** 에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **저장** 을 클릭합니다. 확인 메시지가 표시됩니다. **예** 를 클릭하여 확인하거나 **아니요** 를 클릭하여 취소합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ T-SQL을 사용하여 현재 DWU 설정을 보고, 설정을 변경하고, 진�
 DWU를 변경하려면
 
 1. 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000c로 설정합니다.
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000c로 설정합니다.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -204,7 +204,7 @@ FROM      sys.databases
     ;
     ```
 
-이 DMV는 SQL 풀에서 수행되는 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)와 같은 다양한 관리 작업에 대한 정보를 반환합니다.
+이 DMV는 작업 및 작업 상태와 같은 전용 SQL 풀에서 다양 한 관리 작업에 대 한 정보를 반환 합니다 (IN_PROGRESS 또는 완료 됨).
 
 ## <a name="the-scaling-workflow"></a>크기 조정 워크플로
 

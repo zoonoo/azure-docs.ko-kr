@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541716"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312320"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -49,25 +49,25 @@ ms.locfileid: "91541716"
  
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 설치합니다.
-    - [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
+    - [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치합니다.
+    - [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
     - [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
     - 가상 네트워크 [설치 Notebook](https://aka.ms/azure-rl-env-setup)을 실행하여 분산된 보충 학습에 사용되는 네트워크 포트를 엽니다.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Pong 재생 에이전트를 학습시키는 방법
 
-RL(보충 학습)은 연습을 통해 학습하는 기계 학습 방법입니다. 다른 기계 학습 기술은 입력 데이터를 소극적으로 가져와서 포함된 패턴을 찾는 방식으로 학습하지만, RL은 **학습 에이전트**를 사용하여 적극적으로 결정하고 결과를 통해 학습합니다.
+RL(보충 학습)은 연습을 통해 학습하는 기계 학습 방법입니다. 다른 기계 학습 기술은 입력 데이터를 소극적으로 가져와서 포함된 패턴을 찾는 방식으로 학습하지만, RL은 **학습 에이전트** 를 사용하여 적극적으로 결정하고 결과를 통해 학습합니다.
 
-학습 에이전트는 **시뮬레이션된 환경**에서 Pong을 재생하는 방법을 학습합니다. 학습 에이전트는 게임의 모든 프레임에서 패들을 위아래로 이동하거나 제자리에 유지하도록 결정합니다. 게임의 상태(화면의 RGB 이미지)를 확인하여 결정합니다.
+학습 에이전트는 **시뮬레이션된 환경** 에서 Pong을 재생하는 방법을 학습합니다. 학습 에이전트는 게임의 모든 프레임에서 패들을 위아래로 이동하거나 제자리에 유지하도록 결정합니다. 게임의 상태(화면의 RGB 이미지)를 확인하여 결정합니다.
 
-RL은 **보상**을 사용하여 결정의 성공 여부를 에이전트에 알려줍니다. 이 환경에서 에이전트는 포인트 점수를 매기는 경우 긍정 보상을 받고, 포인트를 기준으로 점수가 매겨진 경우 부정 보상을 받습니다. 학습 에이전트는 많은 반복에서 현재 상태에 따라 예상되는 미래 보상의 합계를 최적화하는 작업을 선택하도록 학습합니다.
+RL은 **보상** 을 사용하여 결정의 성공 여부를 에이전트에 알려줍니다. 이 환경에서 에이전트는 포인트 점수를 매기는 경우 긍정 보상을 받고, 포인트를 기준으로 점수가 매겨진 경우 부정 보상을 받습니다. 학습 에이전트는 많은 반복에서 현재 상태에 따라 예상되는 미래 보상의 합계를 최적화하는 작업을 선택하도록 학습합니다.
 
 **DNN(심층 신경망)** 모델을 사용하여 RL에서 이 최적화를 수행하는 것이 일반적입니다. 처음에는 학습 에이전트가 비효율적으로 수행되지만 모든 게임에서 추가 샘플을 생성하여 모델을 더욱 향상시킵니다.
 
 에이전트가 교육 기간에 18점의 평균 보상 점수에 도달하면 학습이 종료됩니다. 즉 에이전트가 최대 21회의 시합에서 평균 18점 이상으로 상대를 이겼습니다.
 
-시뮬레이션을 통해 반복하고 DNN을 다시 학습하는 프로세스는 계산 비용이 많이 들고 많은 양의 데이터가 필요합니다. RL 작업의 성능을 향상시키는 한 가지 방법은 여러 학습 에이전트에서 동시에 작업하고 학습할 수 있도록 **작업 병렬화**를 수행하는 것입니다. 그러나 분산된 RL 환경을 관리하는 작업은 복잡할 수 있습니다.
+시뮬레이션을 통해 반복하고 DNN을 다시 학습하는 프로세스는 계산 비용이 많이 들고 많은 양의 데이터가 필요합니다. RL 작업의 성능을 향상시키는 한 가지 방법은 여러 학습 에이전트에서 동시에 작업하고 학습할 수 있도록 **작업 병렬화** 를 수행하는 것입니다. 그러나 분산된 RL 환경을 관리하는 작업은 복잡할 수 있습니다.
 
 Azure Machine Learning은 이러한 복잡성을 관리하여 RL 워크로드를 확장할 수 있는 프레임워크를 제공합니다.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>보충 학습 실험 만들기
 
-보충 학습 실행을 추적하는 [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)을 만듭니다. Azure Machine Learning에서 실험은 실행 로그, 기록, 출력 등을 구성하는 데 관련된 시험의 논리적 컬렉션입니다.
+보충 학습 실행을 추적하는 [실험](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)을 만듭니다. Azure Machine Learning에서 실험은 실행 로그, 기록, 출력 등을 구성하는 데 관련된 시험의 논리적 컬렉션입니다.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -131,7 +131,7 @@ vnet = 'your_vnet'
 
 이 예제에서는 GPU 장착 헤드 클러스터를 사용하여 딥 러닝 성능을 최적화합니다. 헤드 노드는 에이전트에서 결정할 때 사용하는 신경망을 학습시킵니다. 또한 헤드 노드는 작업자 노드에서 데이터 요소를 수집하여 신경망을 추가로 학습시킵니다.
 
-헤드 컴퓨팅에서 단일 [`STANDARD_NC6` VM(가상 머신)](https://docs.microsoft.com/azure/virtual-machines/nc-series)을 사용합니다. 6개의 가상 CPU가 있습니다. 즉 작업을 6개의 작업 CPU에 배포할 수 있습니다.
+헤드 컴퓨팅에서 단일 [`STANDARD_NC6` VM(가상 머신)](../virtual-machines/nc-series.md)을 사용합니다. 6개의 가상 CPU가 있습니다. 즉 작업을 6개의 작업 CPU에 배포할 수 있습니다.
 
 
 ```python
@@ -173,7 +173,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>작업자 컴퓨팅 클러스터
 
-이 예제에서는 작업자 컴퓨팅 대상에 대해 4개의 [`STANDARD_D2_V2` VM](https://docs.microsoft.com/azure/virtual-machines/nc-series)을 사용합니다. 각 작업자 노드에는 2개의 사용 가능한 CPU가 있으며, 총 8개의 사용 가능한 CPU를 통해 작업을 병렬화할 수 있습니다.
+이 예제에서는 작업자 컴퓨팅 대상에 대해 4개의 [`STANDARD_D2_V2` VM](../virtual-machines/nc-series.md)을 사용합니다. 각 작업자 노드에는 2개의 사용 가능한 CPU가 있으며, 총 8개의 사용 가능한 CPU를 통해 작업을 병렬화할 수 있습니다.
 
 작업자 노드에서 딥 러닝을 수행하지 않으므로 GPU는 필요하지 않습니다. 작업자는 게임 시뮬레이션을 실행하고 데이터를 수집합니다.
 
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>보충 학습 예측 도구 만들기
 
-이 섹션에서는 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true)를 사용하여 학습 작업을 Azure Machine Learning에 제출하는 방법을 알아봅니다.
+이 섹션에서는 [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py)를 사용하여 학습 작업을 Azure Machine Learning에 제출하는 방법을 알아봅니다.
 
 Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성하는 방법을 쉽게 지정할 수 있습니다. 
 
@@ -248,7 +248,7 @@ worker_conf = WorkerConfiguration(
 
 올바른 `num_workers`를 지정하면 병렬 처리 작업을 최대한 활용할 수 있습니다. 작업자 수를 사용 가능한 CPU 수와 동일하게 설정합니다. 다음 예제에서는 이를 다음과 같이 계산할 수 있습니다.
 
-헤드 노드는 6개의 vCPU가 있는 [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series)입니다. 작업자 클러스터는 각각 2개의 CPU가 있는 4개의 [Standard_D2_V2 VM](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series)이며, 총 8개의 CPU가 있습니다. 그러나 하나는 헤드 노드 역할 전용이어야 하므로 작업자 수에서 하나의 CPU를 빼야 합니다. 즉 6개 CPU + 8개 CPU - 1개 헤드 CPU = 13개 동시 작업자입니다. Azure Machine Learning은 헤드 및 작업자 클러스터를 사용하여 컴퓨팅 리소스를 구분합니다. 그러나 Ray는 헤드와 작업자를 구분하지 않으며, 모든 CPU가 작업자 스레드 실행에 사용할 수 있는 CPU입니다.
+헤드 노드는 6개의 vCPU가 있는 [Standard_NC6](../virtual-machines/nc-series.md)입니다. 작업자 클러스터는 각각 2개의 CPU가 있는 4개의 [Standard_D2_V2 VM](../cloud-services/cloud-services-sizes-specs.md#dv2-series)이며, 총 8개의 CPU가 있습니다. 그러나 하나는 헤드 노드 역할 전용이어야 하므로 작업자 수에서 하나의 CPU를 빼야 합니다. 즉 6개 CPU + 8개 CPU - 1개 헤드 CPU = 13개 동시 작업자입니다. Azure Machine Learning은 헤드 및 작업자 클러스터를 사용하여 컴퓨팅 리소스를 구분합니다. 그러나 Ray는 헤드와 작업자를 구분하지 않으며, 모든 CPU가 작업자 스레드 실행에 사용할 수 있는 CPU입니다.
 
 
 ```python
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>실행 제출
 
-[실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)은 진행 중이거나 완료된 작업의 실행 기록을 처리합니다. 
+[실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)은 진행 중이거나 완료된 작업의 실행 기록을 처리합니다. 
 
 ```python
 run = exp.submit(config=rl_estimator)

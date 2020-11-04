@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311480"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -41,7 +41,7 @@ ms.locfileid: "93280355"
 
 자동화 된 기계 학습 실험을 완료 한 후에는 [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)를 통해 machine learning 작업 영역에서 실행 기록을 찾을 수 있습니다. 
 
-SDK 실험의 경우 `RunDetails` [jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)사용할 때 실행 중에 동일한 결과를 볼 수 있습니다.
+SDK 실험의 경우 `RunDetails` [jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)사용할 때 실행 중에 동일한 결과를 볼 수 있습니다.
 
 다음 단계와 애니메이션은 스튜디오에서 특정 모델의 실행 기록과 성능 메트릭 및 차트를 보는 방법을 보여 줍니다.
 

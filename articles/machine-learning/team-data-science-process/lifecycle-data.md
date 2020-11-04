@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311869"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Team Data Science Process의 데이터 취득 및 이해 단계
 
@@ -40,9 +40,9 @@ ms.locfileid: "84195076"
 ## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 세 가지 기본 작업은 다음과 같습니다.
 
-   * **데이터를 대상 분석 환경에 수집**합니다.
-   * **데이터를 탐색**하여 데이터 품질이 질문에 대답하기에 적합한지 판단합니다. 
-   * **데이터 파이프라인을 설정**하여 새롭거나 정기적으로 새로 고쳐지는 데이터에 대해 점수를 매깁니다.
+   * **데이터를 대상 분석 환경에 수집** 합니다.
+   * **데이터를 탐색** 하여 데이터 품질이 질문에 대답하기에 적합한지 판단합니다. 
+   * **데이터 파이프라인을 설정** 하여 새롭거나 정기적으로 새로 고쳐지는 데이터에 대해 점수를 매깁니다.
 
 ### <a name="ingest-the-data"></a>데이터 수집
 원본 위치에서 분석 작업(예: 학습, 예측)을 실행할 대상 위치로 데이터를 이동하는 프로세스를 설정합니다. 다양한 Azure 데이터 서비스에서의 데이터 이동 방법에 대한 기술 세부 정보 및 옵션에 대해서는 [분석을 위해 스토리지 환경에 데이터로드 ](ingest-data.md)를 참조하세요. 
@@ -67,8 +67,8 @@ TDSP는 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataSc
 이 단계의 결과물은 다음과 같습니다.
 
    * [데이터 품질 보고서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): 이 보고서에는 데이터 요약, 각 속성과 대상 간의 관계, 변수 순위 등이 포함됩니다. TDSP의 일부로 제공되는 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 도구는 CSV 파일이나 관계형 테이블과 같이 테이블 형식의 데이터 집합에서 이 보고서를 신속하게 생성할 수 있습니다. 
-   * **솔루션 아키텍처**: 솔루션 아키텍처는 모델을 만든 후에 새로운 데이터에 대한 점수 매기기 또는 예측을 실행하는 데 사용되는 데이터 파이프라인의 다이어그램 또는 설명이 될 수 있습니다. 또한 새로운 데이터에 기반하여 모델을 다시 학습하는 파이프라인도 포함되어 있습니다. 이 문서를 TDSP 디렉터리 구조 템플릿을 사용할 때 [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) 디렉터리에 저장합니다.
-   * **검사점 의사 결정**: 전체 기능 엔지니어링 및 모델 빌드를 시작 하기 전에 프로젝트를 다시 평가 하 여 예상 되는 값이 계속 해 서 통과 하기에 충분 한지 여부를 확인할 수 있습니다. 예를 들어 계속 진행할 준비가 되었거나, 더 많은 데이터를 수집해야 하거나, 질문에 대답하기 위한 데이터가 존재하지 않아 프로젝트를 중단할 수 있습니다.
+   * **솔루션 아키텍처** : 솔루션 아키텍처는 모델을 만든 후에 새로운 데이터에 대한 점수 매기기 또는 예측을 실행하는 데 사용되는 데이터 파이프라인의 다이어그램 또는 설명이 될 수 있습니다. 또한 새로운 데이터에 기반하여 모델을 다시 학습하는 파이프라인도 포함되어 있습니다. 이 문서를 TDSP 디렉터리 구조 템플릿을 사용할 때 [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) 디렉터리에 저장합니다.
+   * **검사점 의사 결정** : 전체 기능 엔지니어링 및 모델 빌드를 시작 하기 전에 프로젝트를 다시 평가 하 여 예상 되는 값이 계속 해 서 통과 하기에 충분 한지 여부를 확인할 수 있습니다. 예를 들어 계속 진행할 준비가 되었거나, 더 많은 데이터를 수집해야 하거나, 질문에 대답하기 위한 데이터가 존재하지 않아 프로젝트를 중단할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -82,4 +82,4 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
 
 특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공 합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
 
-Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data)을 참조하세요.
+Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용]()을 참조하세요.

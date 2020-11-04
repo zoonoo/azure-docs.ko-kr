@@ -11,29 +11,29 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097960"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311557"
 ---
-# <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용 하는 방법
+# <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
-가상 네트워크에서 Azure Machine Learning를 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할 수](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. 그러나 __사용자 지정 dns 서버를 사용 하는 경우__ 작업 영역에 대 한 dns 항목을 수동으로 만들어야 합니다.
+가상 네트워크에서 Azure Machine Learning를 사용 하는 경우 [여러 가지 방법으로 DNS 이름 확인을 처리할 수](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)있습니다. 기본적으로 Azure는 작업 영역 및 개인 끝점에 대 한 이름 확인을 자동으로 처리 합니다. 그러나 __사용자 지정 dns 서버를 사용 하는 경우__ 작업 영역에 대 한 dns 항목을 수동으로 만들어야 합니다.
 
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [자체 DNS 서버](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
+- [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
 
 - 개인 끝점을 사용 하는 Azure Machine Learning 작업 영역입니다. 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-- [학습 & 유추 중에 네트워크 격리](how-to-enable-virtual-network.md)를 사용 하는 것에 대해 잘 알고 있어야 합니다.
+- [학습 & 유추 중에 네트워크 격리](./how-to-network-security-overview.md)를 사용 하는 것에 대해 잘 알고 있어야 합니다.
 
-- 필요에 따라 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 또는 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
+- 필요에 따라 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)합니다.
 
 ## <a name="find-the-ip-addresses"></a>IP 주소 찾기
 

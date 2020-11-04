@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090300"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312689"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -89,18 +89,18 @@ ms.locfileid: "87090300"
 
       ![예측 값 검사에 대한 코드](./media/code-test/check_prediction_values.PNG)
 
-1. **test_funcs.py**라는 Python 스크립트에 모든 테스트 함수를 배치합니다.
+1. **test_funcs.py** 라는 Python 스크립트에 모든 테스트 함수를 배치합니다.
 
     ![테스트 함수에 대한 Python 스크립트](./media/code-test/create_file_test_func.PNG)
 
 
 1. 테스트 코드가 준비되면 Visual Studio에서 테스트 환경을 설정할 수 있습니다.
 
-   **test1.py**라고 하는 Python 파일을 만듭니다. 이 파일에서 수행하려는 모든 테스트를 포함하는 클래스를 만듭니다. 다음 예제에는 준비된 6개의 테스트가 나와 있습니다.
+   **test1.py** 라고 하는 Python 파일을 만듭니다. 이 파일에서 수행하려는 모든 테스트를 포함하는 클래스를 만듭니다. 다음 예제에는 준비된 6개의 테스트가 나와 있습니다.
     
     ![클래스의 테스트 목록이 포함된 Python 파일](./media/code-test/create_file_test1_class.PNG)
 
-1. 그러한 테스트는 **codetest.testCase**를 클래스 이름 뒤에 배치하여 자동으로 검색할 수 있습니다. 오른쪽 창에서 테스트 탐색기를 열고 **모두 실행**을 선택합니다. 모든 테스트가 순차적으로 실행되고 테스트가 성공적인지 아닌지를 사용자에게 알립니다.
+1. 그러한 테스트는 **codetest.testCase** 를 클래스 이름 뒤에 배치하여 자동으로 검색할 수 있습니다. 오른쪽 창에서 테스트 탐색기를 열고 **모두 실행** 을 선택합니다. 모든 테스트가 순차적으로 실행되고 테스트가 성공적인지 아닌지를 사용자에게 알립니다.
 
     ![테스트 실행](./media/code-test/run_tests.PNG)
 
@@ -112,7 +112,7 @@ ms.locfileid: "87090300"
 
 1. 자동 빌드를 설정하고 Azure DevOps에서 테스트합니다.
 
-    a. 프로젝트 리포지토리에서 **빌드 및 릴리스**를 선택한 다음, **+새로 만들기**를 선택하여 새 빌드 프로세스를 만듭니다.
+    a. 프로젝트 리포지토리에서 **빌드 및 릴리스** 를 선택한 다음, **+새로 만들기** 를 선택하여 새 빌드 프로세스를 만듭니다.
 
     ![새 빌드 프로세스를 시작하기 위한 선택 항목](./media/code-test/create_new_build.PNG)
 
@@ -120,11 +120,11 @@ ms.locfileid: "87090300"
     
     ![원본, 이름, 리포지토리 및 분기 정보](./media/code-test/fill_in_build_info.PNG)
 
-    다. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
+    c. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스** 를 선택하여 시작합니다. 
 
     ![템플릿 목록 및 “빈 프로세스” 단추](./media/code-test/start_empty_process_template.PNG)
 
-    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용 하 여 빌드 프로세스를 완료 하려는 경우 여기에서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)를 참조하세요.
+    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용 하 여 빌드 프로세스를 완료 하려는 경우 여기에서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](/azure/devops/pipelines/agents/agents?view=vsts)를 참조하세요.
     
     ![빌드 및 에이전트 선택](./media/code-test/select_agent.PNG)
 
@@ -132,9 +132,9 @@ ms.locfileid: "87090300"
     
     ![선택된 PowerShell이 포함된 “작업 추가” 창](./media/code-test/add_task_powershell.PNG)
 
-    f. PowerShell 세부 정보에서 PowerShell의 이름 및 버전 같은 필요한 정보를 입력합니다. 형식으로 **인라인 스크립트**를 선택합니다. 
+    f. PowerShell 세부 정보에서 PowerShell의 이름 및 버전 같은 필요한 정보를 입력합니다. 형식으로 **인라인 스크립트** 를 선택합니다. 
     
-    **인라인 스크립트** 아래 상자에서 **python test1.py**를 입력할 수 있습니다. Python에 대한 환경 변수가 올바르게 설정되어 있는지 확인합니다. Python의 다른 버전 또는 커널이 필요한 경우 그림에 나와 있는 것처럼 경로를 명시적으로 지정할 수 있습니다. 
+    **인라인 스크립트** 아래 상자에서 **python test1.py** 를 입력할 수 있습니다. Python에 대한 환경 변수가 올바르게 설정되어 있는지 확인합니다. Python의 다른 버전 또는 커널이 필요한 경우 그림에 나와 있는 것처럼 경로를 명시적으로 지정할 수 있습니다. 
     
     ![PowerShell 세부 정보](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ ms.locfileid: "87090300"
 * 앞서 나온 사용자의 데이터 과학 프로젝트에서 UCI 소득 예측 시나리오의 개요 및 예제를 따릅니다.
 
 ## <a name="references"></a>참조
-* [Team Data Science Process](https://aka.ms/tdsp)
+* [Team Data Science Process](./index.yml)
 * [Visual Studio 테스트 도구](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps 테스트 리소스](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

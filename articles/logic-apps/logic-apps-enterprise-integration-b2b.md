@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310499"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
 
@@ -39,7 +39,7 @@ ms.locfileid: "91542379"
 
 * 해당 파트너에 대 한 [AS2 및 X12 계약과](logic-apps-enterprise-integration-agreements.md) 함께 통합 계정에 이미 정의 된 두 개 이상의 [거래 업체](../logic-apps/logic-apps-enterprise-integration-partners.md) .
 
-## <a name="add-request-trigger"></a>요청 트리거 추가
+## <a name="add-the-request-trigger"></a>요청 트리거 추가
 
 이 예제에서는 Azure Portal에서 논리 앱 디자이너를 사용 하지만 Visual Studio의 논리 앱 디자이너에 대해 비슷한 단계를 따를 수 있습니다.
 
@@ -53,31 +53,31 @@ ms.locfileid: "91542379"
 
    !["요청 본문 JSON 스키마"를 비워 둡니다.](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
-1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
    이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 **HTTP POST URL** 을 생성 합니다. 이 URL을 복사하려면 URL 옆에 있는 복사 아이콘을 선택합니다.
 
    ![호출을 받기 위한 요청 트리거에 대해 생성 된 URL입니다.](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>AS2 디코드 작업 추가
+## <a name="add-the-as2-decode-action"></a>AS2 디코드 작업 추가
 
 이제 사용 하려는 B2B 작업을 추가 합니다. 이 예제에서는 AS2 및 X12 작업을 사용 합니다.
 
-1. 트리거 아래에서 **새 단계**를 선택합니다. 트리거 세부 정보를 숨기려면 트리거의 제목 표시줄을 클릭 합니다.
+1. 트리거 아래에서 **새 단계** 를 선택합니다. 트리거 세부 정보를 숨기려면 트리거의 제목 표시줄을 클릭 합니다.
 
    ![논리 앱 워크플로에 다른 단계 추가](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. **작업 선택**아래의 검색 상자에를 입력 하 `as2 decode` 고 **AS2 디코드 (v2)** 를 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에를 입력 하 `as2 decode` 고 **AS2 디코드 (v2)** 를 선택 합니다.
 
    !["AS2 디코드 (v2)"를 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
 1. **디코딩할 메시지** 속성에 대해 AS2 작업에서 디코딩할 입력 ( `body` HTTP 요청 트리거가 수신 하는 콘텐츠)을 입력 합니다. 동적 콘텐츠 목록이 나 식으로이 콘텐츠를 입력으로 지정 하는 여러 가지 방법이 있습니다.
 
-   * 사용 가능한 트리거 출력을 표시 하는 목록에서 선택 하려면 **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **HTTP 요청을 받을 때**아래에서 **Body** 속성 값을 선택 합니다. 예를 들면 다음과 같습니다.
+   * 사용 가능한 트리거 출력을 표시 하는 목록에서 선택 하려면 **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **HTTP 요청을 받을 때** 아래에서 **Body** 속성 값을 선택 합니다. 예를 들면 다음과 같습니다.
 
      ![트리거에서 "Body" 값을 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * 트리거의 출력을 참조 하는 식을 입력 하려면 `body` **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
+   * 트리거의 출력을 참조 하는 식을 입력 하려면 `body` **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식** 을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인** 을 선택 합니다.
 
      `triggerOutputs()['body']`
 
@@ -91,21 +91,29 @@ ms.locfileid: "91542379"
 
 1. **메시지 헤더** 속성에 대해 `headers` HTTP 요청 트리거에서 받은 콘텐츠에서 설명 된 AS2 작업에 필요한 헤더를 입력 합니다.
 
-   트리거의 출력을 참조 하는 식을 입력 하려면 `headers` **메시지 헤더** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
+   1. 트리거의 출력을 참조 하는 식을 입력 하려면 `headers` **메시지 헤더를 텍스트 모드로 전환** 을 선택 합니다.
 
-   `triggerOutputs()['Headers']`
+      !["메시지 헤더를 텍스트 모드로 전환"이 선택 되어 표시 되는 스크린샷](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   이 토큰을이 토큰으로 확인 하려면 디자이너와 코드 뷰 간을 전환 합니다. 예를 들면 다음과 같습니다.
+   1. **메시지 헤더** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식** 을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인** 을 선택 합니다.
 
-   ![트리거에서 확인 된 헤더 출력](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      AS2 디코드 작업에서 식은 이제 토큰으로 표시 됩니다.
+
+      ![" @triggerOutputs 메시지 헤더" 상자에 "() [' Headers ']" 토큰을 표시 하는 스크린샷](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. **헤더** 토큰으로 확인할 식 토큰을 가져오려면 디자이너와 코드 뷰 간을 전환 합니다. 이 단계를 수행한 후 AS2 디코드 작업은 다음 예제와 같습니다.
+
+      ![트리거에서 확인 된 헤더 출력](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>메시지 수신 알림에 대 한 응답 작업 추가
 
 거래 파트너에 게 메시지를 수신 했음을 알리려면 **응답** 작업을 사용 하 여 AS2 MDN (메시지 처리 알림)이 포함 된 응답을 반환 하면 됩니다. **AS2 디코드** 작업 바로 뒤에이 작업을 추가 하면 작업이 실패 하 고 논리 앱이 계속 처리 되지 않습니다.
 
-1. **AS2 디코드** 작업에서 **새 단계**를 선택 합니다.
+1. **AS2 디코드** 작업에서 **새 단계** 를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에 `condition`를 입력합니다. **작업** 목록에서 **조건**을 선택합니다.
+1. **작업 선택** 아래의 검색 상자 아래에서 **기본 제공** 을 선택 합니다. 검색 상자에 `condition`를 입력합니다. **작업** 목록에서 **조건** 을 선택합니다.
 
    !["조건" 동작 추가](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -123,7 +131,7 @@ ms.locfileid: "91542379"
 
 1. 이제 **AS2 디코드** 작업 성공 여부를 반환 하는 응답을 지정 합니다.
 
-   1. **AS2 디코드** 작업이 성공 하는 경우 **true** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 하 `response` 고 **응답**을 선택 합니다.
+   1. **AS2 디코드** 작업이 성공 하는 경우 **true** 셰이프에서 **동작 추가** 를 선택 합니다. **작업 선택** 아래의 검색 상자에를 입력 하 `response` 고 **응답** 을 선택 합니다.
 
       !["응답" 작업을 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,19 +149,19 @@ ms.locfileid: "91542379"
 
       ![AS2 MDN에 액세스 하기 위한 확인 된 식](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. **AS2 디코드** 작업이 실패 하는 경우 **If False** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 하 `response` 고 **응답**을 선택 합니다. **응답** 작업을 설정 하 여 원하는 상태와 오류를 반환 합니다.
+   1. **AS2 디코드** 작업이 실패 하는 경우 **If False** 셰이프에서 **동작 추가** 를 선택 합니다. **작업 선택** 아래의 검색 상자에를 입력 하 `response` 고 **응답** 을 선택 합니다. **응답** 작업을 설정 하 여 원하는 상태와 오류를 반환 합니다.
 
 1. 논리 앱을 저장합니다.
 
 ## <a name="add-decode-x12-message-action"></a>X12 메시지 디코딩 작업 추가
 
-1. 이제 **X12 메시지 디코딩** 작업을 추가 합니다. **응답** 작업에서 **작업 추가**를 선택 합니다.
+1. 이제 **X12 메시지 디코딩** 작업을 추가 합니다. **응답** 작업에서 **작업 추가** 를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에를 입력 하 `x12 decode` 고 **X12 메시지 디코딩**을 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에를 입력 하 `x12 decode` 고 **X12 메시지 디코딩** 을 선택 합니다.
 
    !["X12 메시지 디코딩" 작업을 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 
-1. X12 작업에서 연결 정보를 묻는 메시지가 표시 되 면 연결의 이름을 입력 하 고 사용 하려는 통합 계정을 선택한 다음 **만들기**를 선택 합니다.
+1. X12 작업에서 연결 정보를 묻는 메시지가 표시 되 면 연결의 이름을 입력 하 고 사용 하려는 통합 계정을 선택한 다음 **만들기** 를 선택 합니다.
 
    ![통합 계정에 대 한 X12 연결 만들기](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
 

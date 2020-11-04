@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 JSON 파일 쿼리
-description: 이 섹션에서는 Azure Synapse Analytics에서 SQL 주문형을 사용하여 JSON 파일을 읽는 방법을 설명합니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 JSON 파일 쿼리 (미리 보기)
+description: 이 섹션에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 JSON 파일을 읽는 방법을 설명 합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310617"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 JSON 파일 쿼리
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 JSON 파일 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 쿼리를 작성하는 방법을 알아봅니다. 쿼리의 목표는 [OPENROWSET](develop-openrowset.md)을 사용 하 여 JSON 파일을 읽는 것입니다. 
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 쿼리의 목표는 [OPENROWSET](develop-openrowset.md)을 사용 하 여 JSON 파일을 읽는 것입니다. 
 - 여러 JSON 문서가 JSON 배열로 저장 되는 표준 JSON 파일입니다.
 - 줄로 구분 된 JSON 파일. JSON 문서는 줄 바꿈 문자로 구분 됩니다. 이러한 파일 형식에 대 한 일반적인 확장은 `jsonl` , `ldjson` 및 `ndjson` 입니다.
 

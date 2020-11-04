@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186623"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312046"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호 
 
@@ -92,7 +92,7 @@ Synapse 작업 영역에서 파이프라인을 실행하고 시스템 작업을 
   - 할당되지 않았으면 할당합니다.
   - MSI의 이름이 작업 영역과 동일합니다. 이 경우 이름은 &quot;WS1&quot;입니다.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>5단계: SQL 풀에 대한 관리자 액세스 구성
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>5 단계: Synapse SQL에 대 한 관리자 액세스 구성
 
 - Azure 포털 열기
 - WS1으로 이동
@@ -114,11 +114,11 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 | 숫자 | 단계 | 작업 영역 관리자 | Spark 관리자 | SQL 관리자 |
 | --- | --- | --- | --- | --- |
 | 1 | CNT1에 parquet 파일 업로드 | YES | YES | YES |
-| 2 | SQL 주문형을 사용하여 parquet 파일 읽기 | YES | 아니요 | YES |
-| 3 | Spark 풀 만들기 | 예 [1] | 예 [1] | 아니요  |
+| 2 | 서버를 사용 하지 않는 SQL 풀을 사용 하 여 parquet 파일 읽기 | YES | 아니요 | YES |
+| 3 | 서버를 사용 하지 않는 Apache Spark 풀 만들기 | 예 [1] | 예 [1] | 아니요  |
 | 4 | Notebook으로 parquet 파일 읽기 | YES | YES | 아니요 |
 | 5 | Notebook에서 파이프라인을 만들고 파이프라인을 트리거하여 지금 실행 | YES | 아니요 | 아니요 |
-| 6 | SQL 풀을 만들고 &quot;SELECT 1&quot;과 같은 SQL 스크립트 실행 | 예 [1] | 아니요 | 예[1] |
+| 6 | 전용 SQL 풀을 만들고 SELECT 1과 같은 SQL 스크립트를 실행 합니다. &quot;&quot; | 예 [1] | 아니요 | 예[1] |
 
 > [!NOTE]
 > [1] SQL 또는 Spark 풀을 만들려면 사용자에게 적어도 Synapse 작업 영역에 대한 기여자 역할이 있어야 합니다.
@@ -148,8 +148,8 @@ Synapse Studio는 사용자 역할에 따라 다르게 작동합니다. 사용�
 | 데이터 허브/연결된 ADLS Gen2 계정 및 컨테이너 보기 | 예 [1] | 예[1] | 예[1] |
 | 데이터 허브/데이터베이스 보기 | YES | YES | YES |
 | 데이터 허브/데이터베이스의 개체 보기 | YES | YES | YES |
-| 데이터 허브/SQL 풀 데이터베이스의 데이터에 액세스 | YES   | 아니요   | YES   |
-| 데이터 허브/SQL 주문형 데이터베이스의 데이터에 액세스 | 예 [2]  | 아니요  | 예 [2]  |
+| Synapse SQL 데이터베이스의 데이터 허브/액세스 데이터 | YES   | 아니요   | YES   |
+| 데이터 허브/서버를 사용 하지 않는 SQL 풀 데이터베이스의 데이터 액세스 | 예 [2]  | 아니요  | 예 [2]  |
 | 데이터 허브/Spark 데이터베이스의 데이터에 액세스 | 예 [2] | 예 [2] | 예 [2] |
 | 개발 허브 사용 | YES | YES | YES |
 | 개발 허브/SQL 스크립트 작성 | YES | 아니요 | YES |
@@ -159,7 +159,7 @@ Synapse Studio는 사용자 역할에 따라 다르게 작동합니다. 사용�
 | 오케스트레이션 허브 사용 | YES | YES | YES |
 | 오케스트레이션 허브/파이프라인 사용 | YES | 아니요 | 아니요 |
 | 관리 허브 사용 | YES | YES | YES |
-| 관리 허브/SQL 풀 | YES | 아니요 | YES |
+| 허브/Synapse SQL 관리 | YES | 아니요 | YES |
 | 관리 허브/Spark 풀 | YES | YES | 아니요 |
 | 관리 허브/트리거 | YES | 아니요 | 아니요 |
 | 관리 허브/연결된 서비스 | YES | YES | YES |

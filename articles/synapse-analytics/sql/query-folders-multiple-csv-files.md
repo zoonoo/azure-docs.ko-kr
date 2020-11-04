@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형 (미리 보기)를 사용 하 여 폴더 및 여러 파일 쿼리
-description: SQL 주문형 (미리 보기)는 Windows OS에서 사용 되는 와일드 카드와 유사한 와일드 카드를 사용 하 여 여러 파일/폴더를 읽을 수 있도록 지원 합니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 폴더 및 여러 파일 쿼리 (미리 보기)
+description: 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 Windows OS에서 사용 되는 와일드 카드와 유사한 와일드 카드를 사용 하 여 여러 파일/폴더를 읽을 수 있도록 지원 합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310841"
 ---
 # <a name="query-folders-and-multiple-files"></a>폴더 및 여러 파일 쿼리  
 
-이 문서에서는 Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 쿼리를 작성하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다.
 
-SQL 주문형은 Windows OS에서 사용 되는 와일드 카드와 유사한 와일드 카드를 사용 하 여 여러 파일/폴더를 읽을 수 있도록 지원 합니다. 그러나 여러 와일드 카드를 사용할 수 있으므로 유연성이 향상 됩니다.
+서버를 사용 하지 않는 SQL 풀은 Windows OS에서 사용 되는 와일드 카드와 유사한 와일드 카드를 사용 하 여 여러 파일/폴더 읽기를 지원 합니다. 그러나 여러 와일드 카드를 사용할 수 있으므로 유연성이 향상 됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -135,7 +135,7 @@ ORDER BY
 
 ### <a name="read-all-files-from-multiple-folders"></a>여러 폴더의 모든 파일 읽기
 
-와일드 카드를 사용 하 여 여러 폴더에서 파일을 읽을 수 있습니다. 다음 쿼리는 이름이 *t* 로 시작 하 고 *i*로 끝나는 *csv* 폴더에 있는 모든 폴더의 모든 파일을 읽습니다.
+와일드 카드를 사용 하 여 여러 폴더에서 파일을 읽을 수 있습니다. 다음 쿼리는 이름이 *t* 로 시작 하 고 *i* 로 끝나는 *csv* 폴더에 있는 모든 폴더의 모든 파일을 읽습니다.
 
 > [!NOTE]
 > 아래 쿼리의 경로 끝에/가 있는지 확인 합니다. 폴더를 나타냅니다. /이 생략 된 경우 쿼리는 대신 *t &ast; i* 라는 파일을 대상으로 합니다.
@@ -183,7 +183,7 @@ ORDER BY
 
 ## <a name="multiple-wildcards"></a>여러 와일드 카드
 
-여러 경로 수준에서 여러 와일드 카드를 사용할 수 있습니다. 예를 들어, 이전 쿼리를 보강 하 여 2017 데이터만 있는 파일을 읽을 수 있으며, 이름이 *t* 로 시작 하 고 *i*로 끝나는 모든 폴더에서 파일을 읽을 수 있습니다.
+여러 경로 수준에서 여러 와일드 카드를 사용할 수 있습니다. 예를 들어, 이전 쿼리를 보강 하 여 2017 데이터만 있는 파일을 읽을 수 있으며, 이름이 *t* 로 시작 하 고 *i* 로 끝나는 모든 폴더에서 파일을 읽을 수 있습니다.
 
 > [!NOTE]
 > 아래 쿼리의 경로 끝에/가 있는지 확인 합니다. 폴더를 나타냅니다. /이 생략 된 경우 쿼리는 대신 *t &ast; i* 라는 파일을 대상으로 합니다.

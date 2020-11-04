@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826516"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310693"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 
@@ -28,7 +28,7 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
 
 이 자습서를 방문하여 Azure Synapse Analytics를 사용하여 [Synapse Spark 풀에 대한 Apache Spark 작업 정의를 만드는 방법](apache-spark-job-definitions.md)을 알아보세요. 앱을 패키지 하 여 Azure Synapse에 제출 하지 않은 경우 다음 단계를 완료 합니다.
 
-1. 다음 명령을 실행하여 앱을 게시합니다. *mySparkApp*은 해당 앱의 경로로 바꾸어야 합니다.
+1. 다음 명령을 실행하여 앱을 게시합니다. *mySparkApp* 은 해당 앱의 경로로 바꾸어야 합니다.
 
    **Windows에서:**
 
@@ -44,7 +44,7 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
-2. 예를 들어 `publish.zip` 1 단계의 결과로 만들어진 게시 폴더의 콘텐츠를 압축 합니다. 모든 어셈블리는 ZIP 파일의 첫 번째 계층에 있어야 하며 중간 폴더 계층이 없어야 합니다. 즉, 압축을 푸는 경우 `publish.zip` 모든 어셈블리가 현재 작업 디렉터리로 추출 됩니다.
+2. 예를 들어 `publish.zip` 1 단계의 결과로 만들어진 게시 폴더의 콘텐츠를 압축 합니다. 모든 어셈블리는 ZIP 파일의 첫 번째 계층에 있어야 하며 중간 폴더 계층은 없어야 합니다. 즉, 압축을 푸는 경우 `publish.zip` 모든 어셈블리가 현재 작업 디렉터리로 추출 됩니다.
 
     **Windows:**
 
@@ -68,7 +68,7 @@ Notebook은 Apache Spark 파이프라인과 시나리오에 맞게 .NET 프로�
 
 새 Notebook을 만들 때는 비즈니스 논리를 표현할 언어 커널을 선택합니다. 커널 지원은 c #을 비롯 한 여러 언어에서 사용할 수 있습니다.
 
-Azure Synapse Analytics Notebook에서 Apache Spark용 .NET을 사용하려면 **.NET Spark(C#)** 를 커널로 선택하고 Notebook을 기존 Spark 풀에 연결합니다.
+Azure Synapse Analytics 노트북에서 Apache Spark .NET을 사용 하려면 커널로 **.Net Spark (c #)** 를 선택 하 고 기존 서버를 사용 하지 않는 Apache Spark 풀에 노트북을 연결 합니다.
 
 .Net Spark Notebook은 .NET 대화형 환경을 기반으로 하며, 기본적으로 Spark 세션 변수 `spark`가 미리 정의된 Spark용 .NET을 사용할 수 있는 대화형 C# 환경을 제공합니다.
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 27cf60f09a8c0f149aec16dd81da0e7ce0707a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fc9f082a012922a8595c2726764e84be038a26
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302097"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312232"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 
@@ -32,7 +32,7 @@ ms.locfileid: "91302097"
 
 이 자습서에서는 다음이 필요합니다.
 
-- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)있습니다. 이 SDK는 [azureml 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true) 패키지를 포함 합니다.
+- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)있습니다. 이 SDK는 [azureml 데이터 집합](/python/api/azureml-core/azureml.core.dataset?preserve-view=true&view=azure-ml-py) 패키지를 포함 합니다.
     
 - [Azure Machine Learning 작업 영역](concept-workspace.md)입니다. 다음 코드를 실행 하 여 기존 항목을 검색 하거나 [새 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
-기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
+기본적으로 클래스의 [get_by_name ()](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
 
 다음 코드는 데이터 집합의 버전 1을 가져옵니다 `titanic_ds` .
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 각 Machine Learning 실험의 경우 실험 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
-다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+다음 코드에서는 메서드를 사용 하 여 [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
 ```Python
 # get input datasets
@@ -185,7 +185,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
 
 등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델의 목록을 확인 하거나로 이동할 수 있습니다 https://ml.azure.com/ .
 
-다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
+다음 뷰는 **자산** 아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 
 ![입력 데이터 집합 모델](./media/how-to-version-track-datasets/dataset-models.png)
 

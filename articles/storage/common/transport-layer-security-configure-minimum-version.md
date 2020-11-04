@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289449"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312028"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -89,7 +89,7 @@ StorageBlobLogs
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>저장소 계정에 대 한 최소 TLS 버전 구성
 
-저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure 공용 클라우드 또는 Azure Government 클라우드에서 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
+저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
 
 이 **속성은** 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다.  속성 값이 **null** 이면 저장소 계정에서 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 

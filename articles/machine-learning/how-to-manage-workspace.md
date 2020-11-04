@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897163"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312551"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
-이 문서에서는 Azure Portal 또는 [Python 용 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 를 사용 하 여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.
+이 문서에서는 Azure Portal 또는 [Python 용 SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 를 사용 하 여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.
 
 변경 사항이 나 automation 증가에 대 한 요구 사항에 따라 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md)작업 영역을 만들고 삭제할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
-* Python SDK를 사용 하는 경우 [sdk를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)합니다.
+* Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
@@ -62,7 +62,7 @@ ms.locfileid: "92897163"
                 )
     ```
 
-* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)** . 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
+* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)**. 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -105,7 +105,7 @@ ms.locfileid: "92897163"
                              exist_ok=False)
    ```
 
-자세한 내용은 [작업 영역 SDK 참조](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)를 참조 하세요.
+자세한 내용은 [작업 영역 SDK 참조](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)를 참조 하세요.
 
 구독에 액세스 하는 데 문제가 있는 경우 [Azure Machine Learning 노트북의 인증](https://aka.ms/aml-notebook-auth) 뿐만 아니라 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요.
 
@@ -155,7 +155,7 @@ ms.locfileid: "92897163"
 
 # <a name="python"></a>[Python](#tab/python)
 
-Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py&preserve-view=true) 클래스를 제공 합니다 [. create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 를 사용 하 여 개인 끝점으로 작업 영역을 만들 수 있습니다. 이 클래스에는 기존 가상 네트워크가 필요 합니다.
+Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) 클래스를 제공 합니다 [. create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 를 사용 하 여 개인 끝점으로 작업 영역을 만들 수 있습니다. 이 클래스에는 기존 가상 네트워크가 필요 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -165,7 +165,7 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 
 1. __개인 끝점 만들기__ 양식에서 사용할 위치, 이름 및 가상 네트워크를 설정 합니다. 사설 DNS 영역에서 끝점을 사용 하려면 __개인 DNS 영역과 통합__ 을 선택 하 고 __사설 DNS 영역__ 필드를 사용 하 여 영역을 선택 합니다. __확인__ 을 선택 하 여 끝점을 만듭니다.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="개인 끝점 선택":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="개인 끝점 만들기":::   
 
 1. 네트워킹 구성을 완료 한 후 __검토 + 만들기__ 를 선택 하거나 __고급__ 구성 (선택 사항)으로 이동할 수 있습니다.
 
@@ -183,11 +183,11 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 2. __설정__ 에서 __가상 네트워크 링크__ 를 선택 합니다.
 3. __추가__ 를 선택합니다. __가상 네트워크 링크 추가__ 페이지에서 고유한 __링크 이름을__ 제공한 다음 추가할 __가상 네트워크__ 를 선택 합니다. __확인__ 을 선택 하 여 네트워크 링크를 추가 합니다.
 
-자세한 내용은 [Azure 개인 끝점 DNS 구성](/azure/private-link/private-endpoint-dns)을 참조 하세요.
+자세한 내용은 [Azure 개인 끝점 DNS 구성](../private-link/private-endpoint-dns.md)을 참조 하세요.
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center에서 리소스를 검색 하 고 권장 사항을 따를 수 있도록 해야 합니다. 자세한 내용은  [Azure Container Registry 이미지 검색 Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) 및 [Security Center와 Azure Kubernetes Services 통합](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)을 참조 하세요.
+Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center에서 리소스를 검색 하 고 권장 사항을 따를 수 있도록 해야 합니다. 자세한 내용은  [Azure Container Registry 이미지 검색 Security Center](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
 
 ### <a name="advanced"></a>고급
 
@@ -210,7 +210,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 > 이러한 단계를 수행 하기 전에 먼저 다음 작업을 수행 해야 합니다.   
 >
 > 1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.  
-> 1. [고객 관리 키 구성](/azure/cosmos-db/how-to-setup-cmk) 의 단계에 따라 다음을 수행 합니다.
+> 1. [고객 관리 키 구성](../cosmos-db/how-to-setup-cmk.md) 의 단계에 따라 다음을 수행 합니다.
 >     * Azure Cosmos DB 공급자 등록
 >     * Azure Key Vault 만들기 및 구성
 >     * 키 생성
@@ -240,11 +240,11 @@ from azureml.core import Workspace
 
 1. __고객 관리 키__ 를 선택 하 고 __키를 선택 하려면 클릭__ 하십시오 .를 선택 합니다.
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="개인 끝점 선택":::
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="고객 관리형 키":::
 
 1. __Azure Key Vault에서 키 선택__ 양식에서 기존 Azure Key Vault, 포함 된 키 및 키의 버전을 선택 합니다. 이 키는 Azure Cosmos DB에 저장 된 데이터를 암호화 하는 데 사용 됩니다. 마지막으로, __선택__ 단추를 사용 하 여이 키를 사용 합니다.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="개인 끝점 선택":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="키 선택":::
 
 ---
 
@@ -290,7 +290,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
 
-* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)** . 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
+* **[소 버린 클라우드](reference-machine-learning-cloud-parity.md)**. 소 버린 클라우드에서 작업 하는 경우 Azure에 인증 하려면 추가 코드가 필요 합니다.
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -351,7 +351,7 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 
 [Azure Portal](https://portal.azure.com/)에서 삭제 하려는 작업 영역의 맨 위에 있는 **삭제** 를 선택 합니다.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="개인 끝점 선택":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="작업 영역 삭제":::
 
 ---
 
