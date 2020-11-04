@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427563"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322343"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Azure Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 웹 서비스 관리
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -51,7 +51,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 새 웹 서비스를 관리하려면
 
 1. Microsoft Azure 계정을 사용하여 [Microsoft Azure Machine Learning 웹 서비스 ](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
-2. 메뉴에서 **웹 서비스**를 클릭합니다.
+2. 메뉴에서 **웹 서비스** 를 클릭합니다.
 
 그러면 구독에 배포된 웹 서비스의 목록이 표시됩니다. 
 
@@ -75,7 +75,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **시간에 따른 요청** 은 선택한 기간 동안 요청 수의 단계 그래프를 표시합니다. 사용량이 급증하는 경우에 식별할 수 있도록 도움을 줍니다.
 * **요청-응답 요청** 은 선택한 기간 동안 서비스가 수신한 요청-응답 호출의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 요청-응답 컴퓨팅 시간** 은 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
-* **Batch 요청**은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
+* **Batch 요청** 은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 작업 대기** 는 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
 * **오류** 웹 서비스 호출에서 발생한 오류의 집계 수를 표시합니다.
 * **서비스 비용** 은 서비스와 연결된 청구 계획에 대한 요금을 표시합니다.
@@ -104,7 +104,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 계획 대시보드에서는 다음 정보를 제공합니다.
 
 * **계획 설명** 은 계획과 관련된 비용 및 용량에 대한 정보를 표시합니다.
-* **계획 사용량**은 계획에 대한 요금이 청구된 트랜잭션 및 컴퓨팅 시간 수를 표시합니다.
+* **계획 사용량** 은 계획에 대한 요금이 청구된 트랜잭션 및 컴퓨팅 시간 수를 표시합니다.
 * **웹 서비스** 는이 요금제를 사용 하는 웹 서비스의 수를 표시 합니다.
 * **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위 4개 웹 서비스를 표시합니다.
 * **Compute 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 컴퓨팅 리소스를 사용하는 최상위 4개 웹 서비스를 표시합니다.
@@ -118,9 +118,9 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 기존 웹 서비스를 관리하려면
 
 1. Microsoft Azure 계정을 사용하여 [Microsoft Azure Machine Learning 웹 서비스 ](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
-2. 메뉴에서 **기존 웹 서비스**를 클릭합니다.
+2. 메뉴에서 **기존 웹 서비스** 를 클릭합니다.
 
-**기존 웹 서비스**를 클릭하면 해당 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스 페이지에서 수행할 수 있는 작업은 다음과 같습니다.
+**기존 웹 서비스** 를 클릭하면 해당 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스 페이지에서 수행할 수 있는 작업은 다음과 같습니다.
 
 * 웹 서비스를 클릭하여 연결된 엔드포인트를 확인합니다.
 * 웹 서비스를 삭제합니다.
@@ -142,7 +142,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **시간에 따른 요청** 은 선택한 기간 동안 요청 수의 단계 그래프를 표시합니다. 사용량이 급증하는 경우에 식별할 수 있도록 도움을 줍니다.
 * **요청-응답 요청** 은 선택한 기간 동안 서비스가 수신한 요청-응답 호출의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 요청-응답 컴퓨팅 시간** 은 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
-* **Batch 요청**은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
+* **Batch 요청** 은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 작업 대기** 는 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
 * **오류** 웹 서비스 호출에서 발생한 오류의 집계 수를 표시합니다.
 * **서비스 비용** 은 서비스와 연결된 청구 계획에 대한 요금을 표시합니다.
@@ -155,5 +155,3 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **설명** 웹 서비스에 대 한 설명을 입력할 수 있습니다. 설명은 필수 필드입니다.
 * **로깅** 오류 엔드포인트에 대한 로깅을 사용하거나 사용하지 않도록 설정할 수 있습니다. 로깅에 대 한 자세한 내용은 [Machine Learning 웹 서비스에 대 한 로깅](web-services-logging.md)사용을 참조 하세요.
 * **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio (클래식)에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습 하는 데 사용 된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
-
-

@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324861"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
 이 문서에서는 심층 학습 vs machine learning과 이러한 기능이 더 광범위 한 인공 지능 범주에 어떻게 부합 하는지 설명 합니다. 사기 감지, 음성 및 얼굴 인식, 감정 분석 및 시계열 예측과 같은 Azure Machine Learning에서 빌드할 수 있는 심층 학습 솔루션에 대해 알아봅니다.
 
-솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md)를 참조 하세요.
+솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)를 참조 하세요.
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>심층 학습, 기계 학습 및 AI
 
@@ -73,7 +73,7 @@ ms.locfileid: "91330131"
 
 개체 검색은 게임, 소매, 관광 및 자동 운전 자동차와 같은 업계에서 이미 사용 되 고 있습니다.
 
-Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 모델을 사용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 모델을 사용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지 분류](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>이미지 캡션 생성
 
@@ -93,7 +93,7 @@ Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 
 
 회사는 심층 학습을 통해 텍스트 분석을 수행 하 여 insider 거래 및 정부 규정 준수를 감지 합니다. 또 다른 일반적인 예는 보험 사기 행위입니다. 텍스트 분석은 종종 많은 양의 문서를 분석 하 여 보험 청구의 사기 가능성을 인식 하는 데 사용 됩니다. 
 
-Azure Machine Learning에서 TensorFlow 모델을 사용 하는 방법에 대해 알아봅니다. [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Azure Machine Learning에서 TensorFlow 모델을 사용 하는 방법에 대해 알아봅니다. [TensorFlow 모델을 사용 하 여 필기 숫자 분류](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>인공 신경망
 
@@ -117,8 +117,8 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)에서 오픈 소스 심층 학습 모델을 사용 하기 위한 추가 옵션을 보여 줍니다.
+다음 문서에서는 [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri)에서 오픈 소스 심층 학습 모델을 사용 하기 위한 추가 옵션을 보여 줍니다.
 
-- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [체 이너 모델을 사용 하 여 필기 숫자 분류](./how-to-set-up-training-targets.md)

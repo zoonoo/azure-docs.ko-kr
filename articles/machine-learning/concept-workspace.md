@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495724"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324808"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -52,9 +52,9 @@ ms.locfileid: "92495724"
 + 웹에서:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning 디자이너](concept-designer.md) 
-+ [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용 하는 모든 python 환경에서
++ [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하는 모든 python 환경에서
 + [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
-+ Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
++ Azure Machine Learning [CLI 확장](./reference-azure-machine-learning-cli.md) 을 사용 하 여 명령줄에서
 + [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,7 +103,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 + [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 계산 인스턴스와 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다. 
   
   > [!IMPORTANT]
-  > 기본적으로 저장소 계정은 범용 v1 계정입니다. 작업 영역을 만든 후 [이를 범용 v2로 업그레이드할](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 수 있습니다. 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
+  > 기본적으로 저장소 계정은 범용 v1 계정입니다. 작업 영역을 만든 후 [이를 범용 v2로 업그레이드할](../storage/common/storage-account-upgrade.md) 수 있습니다. 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
 
   기존 Azure Storage 계정을 사용 하려면 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
   

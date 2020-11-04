@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883080"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325454"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 
@@ -29,7 +29,7 @@ ms.locfileid: "90883080"
 > * 파이프라인 엔드포인트 사용
 > * 엔드포인트 버전 관리
 
-SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대해 알아보려면 함께 제공되는 [방법](how-to-run-batch-predictions.md)을 참조하세요.
+SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대해 알아보려면 함께 제공되는 [방법](./tutorial-pipeline-batch-scoring-classification.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,9 +51,9 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 이제 학습 파이프라인이 실행되었으므로 일괄 처리 유추 파이프라인을 만들 수 있습니다.
 
-1. **제출** 옆에 있는 새 드롭다운 **유추 파이프라인 만들기**를 선택합니다.
+1. **제출** 옆에 있는 새 드롭다운 **유추 파이프라인 만들기** 를 선택합니다.
 
-1. **일괄 처리 유추 파이프라인**을 선택합니다.
+1. **일괄 처리 유추 파이프라인** 을 선택합니다.
 
     ![일괄 처리 유추 파이프라인 만들기](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
     
@@ -67,7 +67,7 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 1. 데이터 세트 모듈을 선택합니다.
 
-1. 캔버스 오른쪽에 창이 표시됩니다. 창 아래쪽에서 **파이프라인 매개 변수 설정**을 선택합니다.
+1. 캔버스 오른쪽에 창이 표시됩니다. 창 아래쪽에서 **파이프라인 매개 변수 설정** 을 선택합니다.
    
     매개 변수에 대한 이름을 입력하거나 기본값을 수락합니다.
 
@@ -80,13 +80,13 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 1. **게시** 단추를 선택합니다.
 
-1. 표시되는 대화 상자에서 **PipelineEndpoint**에 대한 드롭다운을 확장하고 **New PipelineEndpoint**를 선택합니다.
+1. 표시되는 대화 상자에서 **PipelineEndpoint** 에 대한 드롭다운을 확장하고 **New PipelineEndpoint** 를 선택합니다.
 
 1. 엔드포인트 이름과 설명(선택 사항)을 제공합니다.
 
     대화 상자 아래쪽에서 학습 중에 사용된 데이터 세트 ID의 기본값을 사용하여 구성된 매개 변수를 볼 수 있습니다.
 
-1. **게시**를 선택합니다.
+1. **게시** 를 선택합니다.
 
 ![파이프라인 게시](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
@@ -101,13 +101,13 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 1. 배포가 완료되고 나면 **엔드포인트** 섹션으로 이동합니다.
 
-1. **파이프라인 엔드포인트**를 선택합니다.
+1. **파이프라인 엔드포인트** 를 선택합니다.
 
 1. 만든 엔드포인트의 이름을 선택합니다.
 
 ![엔드포인트 링크](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
 
-1. **게시된 파이프라인**을 선택합니다.
+1. **게시된 파이프라인** 을 선택합니다.
 
     이 화면에는 이 엔드포인트 아래 게시된 모든 파이프라인이 표시됩니다.
 
@@ -121,7 +121,7 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
     
 1. 다른 데이터 세트를 사용하도록 매개 변수를 변경합니다.
     
-1. **제출**을 선택하여 파이프라인을 실행합니다.
+1. **제출** 을 선택하여 파이프라인을 실행합니다.
 
 ### <a name="use-the-rest-endpoint"></a>REST 엔드포인트 사용
 

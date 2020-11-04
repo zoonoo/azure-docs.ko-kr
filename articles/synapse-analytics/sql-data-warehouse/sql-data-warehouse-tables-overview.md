@@ -1,6 +1,6 @@
 ---
 title: 테이블 디자인
-description: Synapse SQL 풀의 테이블 디자인에 대해 소개 합니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블을 디자인 하는 방법을 소개 합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,51 +11,51 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3bdf234156c55e3c30df74c672866a118fd2f4f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486942"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323497"
 ---
-# <a name="design-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 디자인
+# <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 디자인
 
-이 문서에서는 SQL 풀의 테이블 디자인에 대 한 주요 소개 개념을 제공 합니다.
+이 문서에서는 전용 SQL 풀에서 테이블을 디자인 하는 주요 개념을 소개 합니다.
 
 ## <a name="determine-table-category"></a>테이블 범주 확인
 
 [스타 스키마](https://en.wikipedia.org/wiki/Star_schema)는 데이터를 팩트 및 차원 테이블로 구성합니다. 일부 테이블은 팩트 또는 차원 테이블로 이동하기 전의 통합 또는 준비 데이터에 사용됩니다. 테이블을 디자인할 때 테이블 데이터가 팩트, 차원 또는 통합 테이블에 속하는지를 결정합니다. 이 결정은 적절한 테이블 구조 및 배포를 알려줍니다.
 
-- **팩트 테이블** 은 트랜잭션 시스템에서 일반적으로 생성 된 다음 SQL 풀로 로드 되는 양적 데이터를 포함 합니다. 예를 들어 소매 비즈니스는 매일 판매 트랜잭션을 생성 한 다음 분석을 위해 데이터를 SQL 풀 팩트 테이블로 로드 합니다.
+- **팩트 테이블** 은 트랜잭션 시스템에서 일반적으로 생성 된 후 전용 SQL 풀로 로드 되는 양적 데이터를 포함 합니다. 예를 들어 소매 비즈니스는 매일 판매 트랜잭션을 생성 한 다음 분석을 위해 전용 SQL 풀 팩트 테이블로 데이터를 로드 합니다.
 
-- **차원 테이블**에는 변경될 수 있지만 일반적으로 드물게 변경되는 특성 데이터가 있습니다. 예를 들어 고객의 이름과 주소는 차원 테이블에 저장되고, 고객 프로필이 변경될 때만 업데이트됩니다. 큰 팩트 테이블의 크기를 최소화 하기 위해 고객의 이름과 주소가 팩트 테이블의 모든 행에 있을 필요는 없습니다. 대신, 팩트 테이블과 차원 테이블에서 고객 ID를 공유할 수 있습니다. 쿼리는 두 테이블을 조인하여 고객 프로필과 트랜잭션을 연결할 수 있습니다.
+- **차원 테이블** 에는 변경될 수 있지만 일반적으로 드물게 변경되는 특성 데이터가 있습니다. 예를 들어 고객의 이름과 주소는 차원 테이블에 저장되고, 고객 프로필이 변경될 때만 업데이트됩니다. 큰 팩트 테이블의 크기를 최소화 하기 위해 고객의 이름과 주소가 팩트 테이블의 모든 행에 있을 필요는 없습니다. 대신, 팩트 테이블과 차원 테이블에서 고객 ID를 공유할 수 있습니다. 쿼리는 두 테이블을 조인하여 고객 프로필과 트랜잭션을 연결할 수 있습니다.
 
-- **통합 테이블**에서는 데이터를 통합하거나 준비할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 준비 테이블에 데이터를 로드하고 준비 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
+- **통합 테이블** 에서는 데이터를 통합하거나 준비할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 준비 테이블에 데이터를 로드하고 준비 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
 
 ## <a name="schema-and-table-names"></a>스키마 및 테이블 이름
 
-스키마는 비슷한 방식으로 함께 사용 되는 테이블을 그룹화 하는 좋은 방법입니다.  온-프레미스 솔루션에서 SQL 풀로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 SQL 풀의 한 스키마로 마이그레이션하는 것이 가장 좋습니다.
+스키마는 비슷한 방식으로 함께 사용 되는 테이블을 그룹화 하는 좋은 방법입니다.  온-프레미스 솔루션에서 전용 SQL 풀로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 전용 SQL 풀의 하나의 스키마로 마이그레이션하는 것이 가장 좋습니다.
 
-예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 샘플 SQL 풀의 모든 테이블을 wwi 라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi 라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 만듭니다.
+예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) SAMPLE 전용 SQL 풀의 모든 테이블을 wwi 라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi 라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 만듭니다.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-SQL 풀에서 테이블의 조직을 표시 하려면 팩트, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다.  
+전용 SQL 풀에 테이블의 조직을 표시 하려면 팩트, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다.  
 
-| WideWorldImportersDW 테이블  | 테이블 유형입니다. | SQL 풀 |
+| WideWorldImportersDW 테이블  | 테이블 유형입니다. | 전용 SQL 풀 |
 |:-----|:-----|:------|:-----|
 | 구/군/시 | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>테이블 지속성
 
-테이블은 데이터를 Azure Storage Azure Storage에 영구적으로 저장 하거나 SQL 풀 외부의 데이터 저장소에 저장 합니다.
+테이블은 데이터를 Azure Storage에 영구적으로 저장 하거나, Azure Storage에 임시로 저장 하거나, 전용 SQL 풀 외부의 데이터 저장소에 저장 합니다.
 
 ### <a name="regular-table"></a>일반 테이블
 
-일반 테이블은 SQL 풀의 일부로 Azure Storage에 데이터를 저장 합니다. 세션이 열려 있는지 여부에 관계없이 테이블과 데이터가 지속됩니다.  다음 예에서는 두 개의 열이 있는 일반 테이블을 만듭니다.
+일반 테이블은 전용 SQL 풀의 일부로 Azure Storage에 데이터를 저장 합니다. 세션이 열려 있는지 여부에 관계없이 테이블과 데이터가 지속됩니다.  다음 예에서는 두 개의 열이 있는 일반 테이블을 만듭니다.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -69,17 +69,17 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### <a name="external-table"></a>외부 테이블
 
-외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE SELECT 문과 함께 사용 하는 경우 외부 테이블에서 데이터를 선택 하면 SQL 풀로 데이터를 가져옵니다.
+외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE SELECT 문과 함께 사용 하는 경우 외부 테이블에서 데이터를 선택 하면 전용 SQL 풀로 데이터를 가져옵니다.
 
 따라서 외부 테이블은 데이터를 로드 하는 데 유용 합니다. 로드 자습서는 [PolyBase를 사용 하 여 Azure blob storage에서 데이터 로드를](load-data-from-azure-blob-storage-using-polybase.md)참조 하세요.
 
 ## <a name="data-types"></a>데이터 형식
 
-SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes)을 참조하세요. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
+전용 SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes)을 참조하세요. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
 
 ## <a name="distributed-tables"></a>분산 테이블
 
-Synapse SQL의 기본 기능은 [배포](massively-parallel-processing-mpp-architecture.md#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다. Synapse SQL은 데이터를 배포 하는 세 가지 방법, 즉 라운드 로빈 (기본값), 해시 및 복제를 지원 합니다.
+전용 SQL 풀의 기본 기능은 [배포](massively-parallel-processing-mpp-architecture.md#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다.  전용 SQL 풀은 라운드 로빈 (기본값), 해시 및 복제의 세 가지 데이터 배포 방법을 지원 합니다.
 
 ### <a name="hash-distributed-tables"></a>해시 분산 테이블
 
@@ -119,7 +119,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 ## <a name="columnstore-indexes"></a>columnstore 인덱스
 
-기본적으로 SQL 풀은 클러스터형 columnstore 인덱스로 테이블을 저장 합니다. 이러한 형태의 데이터 스토리지는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  
+기본적으로 전용 SQL 풀은 테이블을 클러스터형 columnstore 인덱스로 저장 합니다. 이러한 형태의 데이터 스토리지는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  
 
 일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 스토리지 구조인 경우도 있습니다.  
 
@@ -138,7 +138,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 ## <a name="primary-key-and-unique-key"></a>기본 키 및 고유 키
 
-기본 키는 비클러스터형이 모두 사용 되는 경우에만 지원 됩니다.  UNIQUE 제약 조건은 적용 되지 않음이 사용 되는 경우에만 지원 됩니다.  [SQL 풀 테이블 제약 조건을](sql-data-warehouse-table-constraints.md)확인 합니다.
+기본 키는 비클러스터형이 모두 사용 되는 경우에만 지원 됩니다.  UNIQUE 제약 조건은 적용 되지 않음이 사용 되는 경우에만 지원 됩니다.  [전용 SQL 풀 테이블 제약 조건을](sql-data-warehouse-table-constraints.md)확인 하십시오.
 
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 
@@ -147,19 +147,19 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 | T-SQL 문 | 설명 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 외부 테이블을 만듭니다. 테이블의 정의는 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 외부 테이블을 만듭니다. 테이블의 정의는 전용 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | select 문의 결과로 새 테이블을 채웁니다. 테이블 열과 데이터 형식은 select 문의 결과를 기반으로 합니다. 데이터를 가져오기 위해 이 문은 외부 테이블에서 선택할 수 있습니다. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | select 문의 결과를 외부 위치로 내보내 새 외부 테이블을 만듭니다.  위치는 Azure Blob Storage 또는 Azure Data Lake Store입니다. |
 
-## <a name="aligning-source-data-with-the-sql-pool"></a>원본 데이터를 SQL 풀과 정렬
+## <a name="aligning-source-data-with-dedicated-sql-pool"></a>전용 SQL 풀을 사용 하 여 원본 데이터 정렬
 
-SQL 풀 테이블은 다른 데이터 원본에서 데이터를 로드 하 여 채워집니다. 성공적인 로드를 수행 하려면 원본 데이터의 열 수와 데이터 형식이 SQL 풀의 테이블 정의와 일치 해야 합니다. 맞출 데이터를 가져오는 것이 테이블 디자인의 가장 어려운 부분일 수 있습니다.
+전용 SQL 풀 테이블은 다른 데이터 원본에서 데이터를 로드 하 여 채워집니다. 성공적인 로드를 수행 하려면 원본 데이터의 열 수와 데이터 형식이 전용 SQL 풀의 테이블 정의와 일치 해야 합니다. 맞출 데이터를 가져오는 것이 테이블 디자인의 가장 어려운 부분일 수 있습니다.
 
-데이터를 여러 데이터 저장소에서 가져오는 경우 SQL 풀에 데이터를 로드 하 여 통합 테이블에 저장 합니다. 데이터가 통합 테이블에 있으면 SQL 풀의 기능을 사용 하 여 변환 작업을 수행할 수 있습니다. 데이터가 준비되면 프로덕션 테이블에 삽입할 수 있습니다.
+데이터를 여러 데이터 저장소에서 가져오는 경우 전용 SQL 풀로 데이터를 로드 하 고 통합 테이블에 저장 합니다. 데이터가 통합 테이블에 있으면 전용 SQL 풀의 강력한 기능을 사용 하 여 변환 작업을 수행할 수 있습니다. 데이터가 준비되면 프로덕션 테이블에 삽입할 수 있습니다.
 
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
 
-SQL 풀은 다른 데이터베이스에서 제공 하는 테이블 기능을 대부분 지원 합니다.  다음 목록에서는 SQL 풀에서 지원 되지 않는 테이블 기능 중 일부를 보여 줍니다.
+전용 SQL 풀은 다른 데이터베이스에서 제공 하는 테이블 기능을 대부분 지원 합니다.  다음 목록에서는 전용 SQL 풀에서 지원 되지 않는 테이블 기능 중 일부를 보여 줍니다.
 
 - 외래 키, Check [테이블 제약 조건](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [계산 열](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -375,4 +375,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 풀에 대 한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드 하는 것입니다.  로드 자습서는 [SQL 풀에 데이터 로드](load-data-wideworldimportersdw.md)를 참조 하세요.
+전용 SQL 풀에 대 한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드 하는 것입니다.  로드 자습서는 [전용 SQL 풀에 데이터 로드](load-data-wideworldimportersdw.md)를 참조 하세요.

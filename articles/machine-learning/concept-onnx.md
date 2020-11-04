@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b818de12a968869d655a80917572ddf5f2c210
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012761"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323011"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: ML 모델 만들기 및 가속화
 
@@ -28,10 +28,10 @@ Microsoft 및 파트너 커뮤니티는 기계 학습 모델을 나타내기 위
 
 [Onnx Runtime](https://onnxruntime.ai) 은 프로덕션에 onnx 모델을 배포 하기 위한 고성능 유추 엔진입니다. 클라우드 및에 지에 최적화 되어 있으며 Linux, Windows 및 Mac에서 작동 합니다. C + +로 작성 되었으며 다양 한 환경에서 사용 하기 위한 C, Python, c #, Java 및 Javascript (Node.js) Api도 있습니다. ONNX Runtime은 DNN 및 기존 ML 모델을 모두 지원 하 고, NVidia Gpu의 TensorRT, OpenVINO on Intel processor, Windows의 DirectML 등에 있는 다른 하드웨어의 액셀러레이터와 통합 합니다. ONNX 런타임을 사용 하 여 광범위 한 프로덕션 등급 최적화, 테스트 및 지속적인 개선의 이점을 누릴 수 있습니다.
 
-ONNX Runtime은 Bing, Office 및 Azure Cognitive Services와 같은 대규모 Microsoft 서비스에서 사용 됩니다. 성능 향상은 여러 가지 요인에 따라 달라 지지만 이러한 Microsoft 서비스는 __CPU에 대 한 평균 2 배 성능 향상__을 보았습니다. Azure Machine Learning 서비스 외에도 ONNX Runtime은 다음을 비롯 하 여 Machine Learning 워크 로드를 지 원하는 다른 제품 에서도 실행 됩니다.
-+ Windows: 런타임은 [windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) 의 일부로 windows에 기본 제공 되며 수백만 개의 장치에서 실행 됩니다. 
-+ Azure SQL 제품군: azure sql [Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) 및 [azure sql Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview)의 데이터에 대해 기본 점수 매기기를 실행 합니다.
-+ ML.NET: [ML.NET에서 ONNX 모델을 실행](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx)합니다.
+ONNX Runtime은 Bing, Office 및 Azure Cognitive Services와 같은 대규모 Microsoft 서비스에서 사용 됩니다. 성능 향상은 여러 가지 요인에 따라 달라 지지만 이러한 Microsoft 서비스는 __CPU에 대 한 평균 2 배 성능 향상__ 을 보았습니다. Azure Machine Learning 서비스 외에도 ONNX Runtime은 다음을 비롯 하 여 Machine Learning 워크 로드를 지 원하는 다른 제품 에서도 실행 됩니다.
++ Windows: 런타임은 [windows Machine Learning](/windows/ai/windows-ml/) 의 일부로 windows에 기본 제공 되며 수백만 개의 장치에서 실행 됩니다. 
++ Azure SQL 제품군: azure sql [Edge](../azure-sql-edge/onnx-overview.md) 및 [azure sql Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md)의 데이터에 대해 기본 점수 매기기를 실행 합니다.
++ ML.NET: [ML.NET에서 ONNX 모델을 실행](/dotnet/machine-learning/tutorials/object-detection-onnx)합니다.
 
 
 [![교육, 변환기 및 배포를 보여 주는 ONNX flow 다이어그램](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
@@ -42,7 +42,7 @@ ONNX Runtime은 Bing, Office 및 Azure Cognitive Services와 같은 대규모 Mi
 + Azure Machine Learning에서 새 ONNX 모델 학습 (이 문서의 맨 아래에 있는 예제 참조) 또는 [자동화 된 Machine Learning 기능](concept-automated-ml.md#automl--onnx) 사용
 + 기존 모델을 다른 형식에서 ONNX로 변환 ( [자습서](https://github.com/onnx/tutorials)참조) 
 + [ONNX Model Zoo](https://github.com/onnx/models)에서 미리 학습된 ONNX 모델을 가져옵니다.
-+ [Azure Custom Vision 서비스](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)에서 사용자 지정된 ONNX 모델을 생성합니다. 
++ [Azure Custom Vision 서비스](../cognitive-services/custom-vision-service/index.yml)에서 사용자 지정된 ONNX 모델을 생성합니다. 
 
 이미지 분류, 개체 검색 및 텍스트 처리를 비롯 한 많은 모델을 ONNX 모델로 나타낼 수 있습니다. 성공적으로 변환할 수 없는 모델의 문제가 발생 하는 경우 사용한 해당 변환기의 GitHub에 문제를 파일에 넣습니다. 문제가 해결 될 때까지 기존 형식 모델을 계속 사용할 수 있습니다.
 
@@ -82,7 +82,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 전체 Python API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.    
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 ONNX 모델을 만들고 배포 하는 Python 노트북 예는 [사용 방법-azureml/배포/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) 를 참조 하세요.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
@@ -98,5 +98,3 @@ ONNX 모델을 만들고 배포 하는 Python 노트북 예는 [사용 방법-az
 **Onnx Runtime** 에 대해 자세히 알아보거나 프로젝트에 참여 하세요.
 + [ONNX 런타임 프로젝트 웹 사이트](https://onnxruntime.ai)
 + [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
-
-

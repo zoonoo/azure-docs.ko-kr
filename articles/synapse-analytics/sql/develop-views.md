@@ -1,6 +1,6 @@
 ---
-title: Synapse SQL을 사용 하는 t-sql 뷰
-description: T-sql 뷰를 사용 하 고 Synapse SQL을 사용 하 여 솔루션을 개발 하기 위한 팁입니다.
+title: SQL 풀을 사용 하는 t-sql 뷰
+description: Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 솔루션을 개발 하기 위한 팁입니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,15 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323804"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>Synapse SQL을 사용 하는 t-sql 뷰
-이 문서에서는 T-sql 뷰를 사용 하 고 Synapse SQL을 사용 하 여 솔루션을 개발 하기 위한 팁을 찾을 수 있습니다. 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기)를 사용 하는 t-sql 뷰
+
+이 문서에서는 Azure Synapse Analytics에서 T-sql 뷰를 사용 하 고 전용 SQL 풀 및 서버 리스 SQL 풀 (미리 보기)을 사용 하 여 솔루션을 개발 하기 위한 팁을 찾을 수 있습니다.
 
 ## <a name="why-use-views"></a>뷰를 사용 하는 이유
 
@@ -26,12 +27,7 @@ ms.locfileid: "90032727"
 ### <a name="sql-pool---create-view"></a>SQL 풀-create view
 
 > [!NOTE]
-> **SQL 풀**: CREATE VIEW 구문은이 문서에서 다루지 않습니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL 주문형 (미리 보기)-뷰 만들기
-
-> [!NOTE]
-> **SQL 주문형**: CREATE VIEW 구문은이 문서에서 다루지 않습니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+> CREATE VIEW에 대한 구문은 이 문서에서 다루지 않습니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 
 ## <a name="architectural-abstraction"></a>아키텍처 추상화
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 이 방법을 사용 하면 테이블이 사용자의 보기에서 사라지고 표시 되지 않고 "테이블이 없습니다." 라는 오류 메시지가 표시 될 수 있습니다. 뷰를 사용 하면 기본 개체의 이름을 바꾸는 동안 일관 된 프레젠테이션 계층을 사용자에 게 제공할 수 있습니다.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940367"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324903"
 ---
 # <a name="convert-to-image-directory"></a>이미지 디렉터리로 변환
 
@@ -49,7 +49,7 @@ ms.locfileid: "91940367"
 
     점수 매기기를 위해 이미지 데이터 집합 폴더에는 미분류 이미지만 포함 되어야 합니다.
 
-1. 이미지 디렉터리로 변환 모듈의 입력이 **파일 데이터 집합**이어야 하므로 이미지 데이터 집합을 작업 영역에서 [파일 데이터 집합으로 등록](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) 합니다.
+1. 이미지 디렉터리로 변환 모듈의 입력이 **파일 데이터 집합** 이어야 하므로 이미지 데이터 집합을 작업 영역에서 [파일 데이터 집합으로 등록](../how-to-create-register-datasets.md) 합니다.
 
 1. 등록 된 이미지 데이터 집합을 캔버스에 추가 합니다. 캔버스 왼쪽에 있는 모듈 목록의 **데이터 집합** 범주에서 등록 된 데이터 집합을 찾을 수 있습니다. 현재 디자이너는 이미지 데이터 집합 시각화를 지원 하지 않습니다.
 
@@ -70,16 +70,16 @@ ms.locfileid: "91940367"
 
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| Name          | 유형                  | Description   |
+| 이름          | 유형                  | 설명   |
 | ------------- | --------------------- | ------------- |
 | 입력 데이터 세트 | AnyDirectory, ZipFile | 입력 데이터 세트 |
 
 ###  <a name="output"></a>출력  
 
-| Name                   | 유형           | Description            |
+| 이름                   | 유형           | 설명            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

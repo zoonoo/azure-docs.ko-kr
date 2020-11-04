@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043146"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322216"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -174,13 +174,13 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 다음 두 옵션 중 하나를 선택 합니다.
 
-* *LRS (로컬 중복 저장소)* .
-* 모든 Azure 지역에서 사용할 수 없는 *ZRS (영역 중복 저장소)* .
+* *LRS (로컬 중복 저장소)*.
+* 모든 Azure 지역에서 사용할 수 없는 *ZRS (영역 중복 저장소)*.
 
 > [!NOTE]
 > LRS 및 ZRS 중복 유형만 대용량 100 TiB Azure 파일 공유와 호환 됩니다.
 
-모든 변형의 GRS (전역 중복 저장소)는 현재 지원 되지 않습니다. 나중에 중복성 유형을 전환 하 고 Azure에 대 한 지원이 도착할 때 GRS로 전환할 수 있습니다.
+모든 변형의 GRS (지역 중복 저장소)는 현재 지원 되지 않습니다. 나중에 중복성 유형을 전환 하 고 Azure에 대 한 지원이 도착할 때 GRS로 전환할 수 있습니다.
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>100-TiB 파일 공유 사용
 
@@ -206,10 +206,10 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="저장소 계정을 만들기 위한 Azure Portal의 고급 탭을 표시 하는 이미지입니다.":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="새 파일 공유 UI를 보여 주는 Azure Portal 스크린샷.":::
     :::column-end:::
     :::column:::
-        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 나중에 계층을 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
+        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
     :::column-end:::
 :::row-end:::
 
@@ -244,7 +244,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
         ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "데이터 변환 서비스 작업에 대 한 새 작업 생성 양식의 스크린샷")
     :::column-end:::
     :::column:::
-        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
+        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>Target</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
     :::column-end:::
 :::row-end:::
 
@@ -270,21 +270,21 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 |의미 문자          | 의미  |
 |:---------------------------|:---------|
 | **\\**                     | 루트 수준 표시기입니다.       |
-| **\>**                     | [원본] 및 [대상 매핑 연산자.     |
+| **\>**                     | [원본] 및 [대상-매핑] 연산자가 있습니다.     |
 |**\|** 또는 RETURN (새 줄) | 두 폴더 매핑 명령의 구분 기호입니다. </br>또는이 문자를 생략 하 고 **Enter 키** 를 선택 하 여 한 줄에 다음 매핑 식을 가져올 수 있습니다.        |
 
 ### <a name="examples"></a>예제
 *사용자 데이터* 폴더의 콘텐츠를 대상 파일 공유의 루트로 이동 합니다.
 ``` console
-\User data > \\
+\User data > \
 ```
 대상 파일 공유에서 전체 볼륨 내용을 새 경로로 이동 합니다.
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 대상 파일 공유에서 원본 폴더 내용을 새 경로로 이동 합니다.
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 여러 원본 위치를 새 디렉터리 구조로 정렬 합니다.
 ``` console
@@ -296,7 +296,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 ### <a name="semantic-rules"></a>의미 체계 규칙
 
 * 항상 루트 수준에 상대적인 폴더 경로를 지정 합니다.
-* 루트 수준 표시기를 사용 하 여 각 폴더 경로를 시작 \" 합니다. "
+* 루트 수준 표시기 ""를 사용 하 여 각 폴더 경로를 시작 \\ 합니다.
 * 드라이브 문자를 포함 하지 않습니다.
 * 여러 경로를 지정 하는 경우 원본 또는 대상 경로는 겹칠 수 없습니다.</br>
    잘못 된 원본 경로 중복 예:</br>
@@ -518,7 +518,7 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
    :::column-end:::
 :::row-end:::
 
-RoboCopy 명령의 원본 및 대상 위치를 구성 하는 경우 원본 및 대상의 구조를 검토 하 여 일치 하는지 확인 해야 합니다. 마이그레이션 작업의 디렉터리 매핑 기능을 사용 하는 경우 루트 디렉터리 구조는 StorSimple 볼륨의 구조와 다를 수 있습니다. 이 경우 각 하위 디렉터리에 대해 하나씩 여러 RoboCopy 작업이 필요할 수 있습니다.
+RoboCopy 명령의 원본 및 대상 위치를 구성 하는 경우 원본 및 대상의 구조를 검토 하 여 일치 하는지 확인 해야 합니다. 마이그레이션 작업의 디렉터리 매핑 기능을 사용 하는 경우 루트 디렉터리 구조는 StorSimple 볼륨의 구조와 다를 수 있습니다. 이 경우 각 하위 디렉터리에 대해 하나씩 여러 RoboCopy 작업이 필요할 수 있습니다. 명령이 예상 대로 수행 되는 것이 확실 하지 않으면 */l* 매개 변수를 사용할 수 있습니다 .이 매개 변수는 실제로 변경 하지 않고 명령을 시뮬레이션 합니다.
 
 이 RoboCopy 명령은/MIR을 사용 하므로 같은 (계층화 된 파일) 파일을 이동 하지 않습니다. 하지만 원본 및 대상 경로가 잘못 된 경우/MIR는 StorSimple 원본 경로에 없는 Windows Server 인스턴스 또는 Azure 파일 공유의 디렉터리 구조도 제거 합니다. 마이그레이션이 진행 되는 동안 수행 된 최신 변경 내용으로 마이그레이션된 콘텐츠를 업데이트 하는 목표를 달성 하기 위해 RoboCopy 작업에 정확히 일치 해야 합니다.
 
@@ -547,7 +547,7 @@ DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리�
 시작 하기 전에, 잠시 동안 프로덕션 환경에서 새 Azure File Sync 배포를 관찰 하는 것이 좋습니다. 이러한 시간을 사용 하면 발생할 수 있는 문제를 해결할 수 있습니다. 하루 이상 Azure File Sync 배포를 관찰 한 후에는 다음 순서로 리소스 프로 비전을 해제할 수 있습니다.
 
 1. Azure Portal를 통해 StorSimple Data Manager 리소스의 프로 비전을 해제 합니다. 모든 DTS 작업이 함께 삭제 됩니다. 복사 로그는 쉽게 검색할 수 없습니다. 레코드에 중요 한 경우 프로 비전을 해제 하기 전에 검색 합니다.
-1. StorSimple 물리적 어플라이언스가 마이그레이션 되었는지 확인 하 고 등록을 취소 합니다. 마이그레이션되지 않은 경우 계속 진행 하지 마세요. 필요에 따라 이러한 리소스를 프로 비전 해제 하는 경우 데이터 또는 해당 구성을 복구할 수 없습니다.
+1. StorSimple 물리적 어플라이언스가 마이그레이션 되었는지 확인 하 고 등록을 취소 합니다. 마이그레이션되지 않은 경우 계속 진행 하지 마세요. 필요에 따라 이러한 리소스를 프로 비전 해제 하는 경우 데이터 또는 해당 구성을 복구할 수 없습니다.<br>필요에 따라 어플라이언스의 데이터를 정리 하는 StorSimple 볼륨 리소스의 프로 비전을 해제할 수 있습니다. 이는 며칠 정도 걸릴 수 있으며, 어플라이언스의 데이터를 0 하기 **하지** 않습니다. 이 사항이 중요 한 경우 프로 비전 해제 된 리소스와 정책에 따라 별도로 디스크 제로화를 처리 합니다.
 1. StorSimple Device Manager에 더 이상 등록 된 장치가 남아 있지 않으면 해당 Device Manager 리소스 자체를 계속 제거할 수 있습니다.
 1. 이제 Azure에서 StorSimple 저장소 계정을 삭제 하는 시간입니다. 다시, 마이그레이션을 완료 했는지 확인 하 고, 마이그레이션을 완료 하 고 아무도이 데이터에 종속 되지 않도록 합니다.
 1. 데이터 센터에서 StorSimple 물리적 어플라이언스를 분리 합니다.

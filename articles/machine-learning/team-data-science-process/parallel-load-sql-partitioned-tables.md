@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 30c4838dd5a6f4e8b08d3619588ee3ae746349ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456e881d84697f4542f972ac0798cc95a3455b3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322417"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화
 
-이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL database로 빅 데이터를 로드/전송할 때 *분할 된 테이블 및 뷰*를 사용 하 여 sql database로 데이터를 가져오고 후속 쿼리를 향상 시킬 수 있습니다. 
+이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL database로 빅 데이터를 로드/전송할 때 *분할 된 테이블 및 뷰* 를 사용 하 여 sql database로 데이터를 가져오고 후속 쿼리를 향상 시킬 수 있습니다. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>새 데이터베이스 및 파일 그룹 만들기
-* 아직 존재하지 않으면 [새 데이터베이스를 만듭니다](https://technet.microsoft.com/library/ms176061.aspx).
+* 아직 존재하지 않으면 [새 데이터베이스를 만듭니다](/sql/t-sql/statements/create-database-transact-sql).
 * 분할된 실제 파일을 보유할 데이터베이스에 데이터베이스 파일 그룹을 추가합니다. 
-* 새 데이터베이스를 만드는 경우 [데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)를 사용하거나, 기존 데이터베이스가 있는 경우 [데이터베이스 변경](https://msdn.microsoft.com/library/bb522682.aspx)을 사용하여 이 작업을 수행할 수 있습니다.
+* 새 데이터베이스를 만드는 경우 [데이터베이스 만들기](/sql/t-sql/statements/create-database-transact-sql)를 사용하거나, 기존 데이터베이스가 있는 경우 [데이터베이스 변경](/sql/t-sql/statements/alter-database-transact-sql-set-options)을 사용하여 이 작업을 수행할 수 있습니다.
 * 필요한 경우 각 데이터베이스 파일 그룹에 파일을 하나 이상 추가합니다.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ ms.locfileid: "86042138"
   > 
   > 
 
-다음은 기본 그룹 및 로그 그룹이 아닌 3개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일 1개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은 [SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](https://msdn.microsoft.com/library/ms143547.aspx)를 참조하세요.
+다음은 기본 그룹 및 로그 그룹이 아닌 3개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일 1개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은 [SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server)를 참조하세요.
 
 ```sql
    DECLARE @data_path nvarchar(256);
@@ -60,7 +60,7 @@ ms.locfileid: "86042138"
 이전 단계에서 만든 데이터베이스 파일 그룹에 매핑된 데이터 스키마에 따라 분할된 테이블을 만들려면 먼저 파티션 함수 및 스키마를 만들어야 합니다. 분할된 테이블로 데이터를 대량으로 가져오는 경우 아래에 설명된 것처럼 파티션 구성표에 따라 레코드가 파일 그룹 사이에 분산됩니다.
 
 ### <a name="1-create-a-partition-function"></a>1. 파티션 함수 만들기
-[파티션 함수 만들기](https://msdn.microsoft.com/library/ms187802.aspx) 예를 들어 이 함수는 각 파티션 테이블에 포함될 값/경계 범위를 정의하여 2013년에 월별로(some\_datetime\_field) 파티션을 제한합니다.
+[파티션 함수 만들기](/sql/t-sql/statements/create-partition-function-transact-sql) 예를 들어 이 함수는 각 파티션 테이블에 포함될 값/경계 범위를 정의하여 2013년에 월별로(some\_datetime\_field) 파티션을 제한합니다.
   
 ```sql
    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -71,7 +71,7 @@ ms.locfileid: "86042138"
 ```
 
 ### <a name="2-create-a-partition-scheme"></a>2. 파티션 구성표 만들기
-[파티션 구성표 만들기](https://msdn.microsoft.com/library/ms179854.aspx) 이 파티션은 파티션 함수의 각 파티션 범위를 실제 파일 그룹에 매핑합니다. 아래는 그 예입니다.
+[파티션 구성표 만들기](/sql/t-sql/statements/create-partition-scheme-transact-sql) 이 파티션은 파티션 함수의 각 파티션 범위를 실제 파일 그룹에 매핑합니다. 아래는 그 예입니다.
   
 ```sql
       CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -94,24 +94,24 @@ ms.locfileid: "86042138"
 ```
 
 ### <a name="3-create-a-partition-table"></a>3. 파티션 테이블 만들기
-데이터 스키마에 따라 [분할된 테이블을 만들고](https://msdn.microsoft.com/library/ms174979.aspx) 테이블을 분할하는 데 사용된 파티션 구성표 및 제약 조건 필드를 지정합니다. 아래는 그 예입니다.
+데이터 스키마에 따라 [분할된 테이블을 만들고](/sql/t-sql/statements/create-table-transact-sql) 테이블을 분할하는 데 사용된 파티션 구성표 및 제약 조건 필드를 지정합니다. 아래는 그 예입니다.
   
 ```sql
    CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 ```
 
-자세한 내용은 [분할된 테이블 및 인덱스 만들기](https://msdn.microsoft.com/library/ms188730.aspx)를 참조하세요.
+자세한 내용은 [분할된 테이블 및 인덱스 만들기](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes)를 참조하세요.
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>각 파티션 테이블의 데이터를 대량으로 가져오기
 
 * BCP, BULK INSERT 또는 [SQL Server 마이그레이션 마법사](https://sqlazuremw.codeplex.com/)같은 기타 방법을 사용할 수 있습니다. 제공된 예에서는 BCP를 사용합니다.
-* 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
+* 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](/sql/t-sql/statements/alter-database-transact-sql-set-options)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
    ```sql
       ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
    ```
-* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. SQL Server 데이터베이스에 빅 데이터를 대량으로 가져오는 방법에 대 한 팁은 [1 시간 이내에 1Tb 로드](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour)를 참조 하세요.
+* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. SQL Server 데이터베이스에 빅 데이터를 대량으로 가져오는 방법에 대 한 팁은 [1 시간 이내에 1Tb 로드](/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour)를 참조 하세요.
 
 다음 PowerShell 스크립트는 BCP를 사용하여 병렬로 데이터를 로드하는 예입니다.
 
@@ -180,7 +180,7 @@ ms.locfileid: "86042138"
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>인덱스를 만들어서 조인 및 쿼리 성능 최적화
 * 여러 테이블에서 모델링에 대한 데이터를 추출하려는 경우 조인 키에 인덱스를 만들어서 조인 성능을 개선할 수 있습니다.
-* 각 파티션에 대해 동일한 파일 그룹을 대상으로 하는 클러스터형 또는 비클러스터형 [인덱스를 만듭니다](https://technet.microsoft.com/library/ms188783.aspx). 아래는 그 예입니다.
+* 각 파티션에 대해 동일한 파일 그룹을 대상으로 하는 클러스터형 또는 비클러스터형 [인덱스를 만듭니다](/sql/t-sql/statements/create-index-transact-sql). 아래는 그 예입니다.
   
 ```sql
    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -198,4 +198,3 @@ ms.locfileid: "86042138"
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>고급 분석 프로세스 및 기술 작동 예제
 공용 데이터 세트를 포함하는 팀 데이터 과학 프로세스를 사용하는 엔드투엔드 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
-

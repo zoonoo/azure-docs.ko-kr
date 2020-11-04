@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: aebe1d995f3cb6da4663876b8d39d36a1a8b16c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21d2f0debb2ade8e46b0cdb5b3fa5b51f0a180c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323868"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Synapse SQL 내의 사용자 정의 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "90030170"
 대신 Synapse SQL은 단일 데이터베이스 내에서 전체 분석 작업을 실행 합니다. 크로스 데이터베이스 조인은 허용 되지 않습니다. Synapse SQL은 웨어하우스에서 사용 되는 모든 테이블을 하나의 데이터베이스 내에 저장할 것으로 예상 합니다.
 
 > [!NOTE]
-> SQL 풀은 모든 종류의 데이터베이스 간 쿼리를 지원 하지 않습니다. 따라서이 패턴을 활용 하는 분석 구현을 수정 해야 합니다. SQL 주문형 (미리 보기)는 데이터베이스 간 쿼리를 지원 합니다.
+> 전용 SQL 풀은 모든 종류의 데이터베이스 간 쿼리를 지원 하지 않습니다. 따라서이 패턴을 활용 하는 분석 구현을 수정 해야 합니다. 서버를 사용 하지 않는 SQL 풀 (미리 보기)은 데이터베이스 간 쿼리를 지원 합니다.
 
 ## <a name="user-defined-schema-recommendations"></a>사용자 정의 스키마 권장 사항
 

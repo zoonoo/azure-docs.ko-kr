@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926991"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323794"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -30,7 +30,7 @@ ms.locfileid: "92926991"
 
 
 > [!TIP]
-> 모델 평가를 처음 사용하는 경우 Stephen Elston 박사가 EdX의 [기계 학습 과정](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/)의 일부로 제공하는 비디오 시리즈를 참조하는 것이 좋습니다. 
+> 모델 평가를 처음 사용하는 경우 Stephen Elston 박사가 EdX의 [기계 학습 과정](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials)의 일부로 제공하는 비디오 시리즈를 참조하는 것이 좋습니다. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>모델 평가 사용 방법
@@ -142,4 +142,4 @@ ms.locfileid: "92926991"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

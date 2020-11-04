@@ -1,7 +1,7 @@
 ---
 title: 코드 배포 안 함 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: 항목 스크립트 없이 모델을 배포 하는 방법을 알아봅니다.
+description: 코드를 배포 하지 않으면 수동으로 항목 스크립트를 만들지 않고도 모델을 웹 서비스로 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998857"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324919"
 ---
 # <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-모델 점수를 매기는 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)을 참조 하세요. 많은 ONNX 프로젝트에서 protobuf 파일을 사용 하 여 저장소 학습 및 유효성 검사 데이터를 조밀 서비스에서 예상 하는 데이터 형식을 파악 하기 어려울 수 있습니다. 모델 개발자는 개발자를 위한 문서를 만들어야 합니다.
+모델 점수를 매기는 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](./how-to-consume-web-service.md)을 참조 하세요. 많은 ONNX 프로젝트에서 protobuf 파일을 사용 하 여 저장소 학습 및 유효성 검사 데이터를 조밀 서비스에서 예상 하는 데이터 형식을 파악 하기 어려울 수 있습니다. 모델 개발자는 개발자를 위한 문서를 만들어야 합니다.
 
 * 입력 형식 (JSON 또는 이진)
 * 입력 데이터 모양 및 유형 (예: shape [100100, 3]의 float 배열)
@@ -130,7 +130,7 @@ print(output)
 ```
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

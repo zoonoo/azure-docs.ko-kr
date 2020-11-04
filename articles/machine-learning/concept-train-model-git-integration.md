@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275968"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324768"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -39,7 +39,7 @@ Azure Machine Learning는 작업 영역에 있는 모든 사용자에 게 공유
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>SSH를 사용 하 여 Git 계정 인증
 ### <a name="generate-a-new-ssh-key"></a>새 SSH 키 생성
-1) Azure Machine Learning 노트북 탭에서 [터미널 창을 엽니다](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) .
+1) Azure Machine Learning 노트북 탭에서 [터미널 창을 엽니다](./how-to-run-jupyter-notebooks.md#terminal) .
 
 2) 전자 메일 주소를 대체 하 여 아래 텍스트를 붙여넣습니다.
 
@@ -89,9 +89,9 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  **2 단계**에서 시작 합니다.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  **2 단계** 에서 시작 합니다.
 
-+ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). **4 단계**에서 시작 합니다.
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). **4 단계** 에서 시작 합니다.
 
 ### <a name="clone-the-git-repository-with-ssh"></a>SSH를 사용 하 여 Git 리포지토리 복제
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 SSH는 서버의 SSH 지문을 표시 하 고 확인 하도록 요청할 수 있습니다. 표시 된 지문이 SSH 공개 키 페이지의 지문 중 하 나와 일치 하는지 확인 해야 합니다.
 
-SSH는 메시지 가로채기 ( [man-in-the-middle) 공격](https://technet.microsoft.com/library/cc959354.aspx)으로부터 보호 하기 위해 알 수 없는 호스트에 연결할 때이 지문을 표시 합니다. 호스트의 지문을 수락한 후에는 지문이 변경 되지 않는 한 SSH에서 다시 묻지 않습니다.
+SSH는 메시지 가로채기 ( [man-in-the-middle) 공격](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10))으로부터 보호 하기 위해 알 수 없는 호스트에 연결할 때이 지문을 표시 합니다. 호스트의 지문을 수락한 후에는 지문이 변경 되지 않는 한 SSH에서 다시 묻지 않습니다.
 
 3) 연결을 계속할지 묻는 메시지가 표시 되 면을 입력 `yes` 합니다. Git은 리포지토리를 복제 하 고 나중에 Git 명령에 대해 SSH를 사용 하 여 연결 하도록 원본 원격을 설정 합니다.
 
@@ -153,9 +153,9 @@ Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, 
 ### <a name="azure-portal"></a>Azure portal
 
 1. [Studio 포털](https://ml.azure.com)에서 작업 영역을 선택 합니다.
-1. __실험__을 선택 하 고 실험 중 하나를 선택 합니다.
+1. __실험__ 을 선택 하 고 실험 중 하나를 선택 합니다.
 1. __실행 번호__ 열에서 실행 중 하나를 선택 합니다.
-1. __출력 + 로그__를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __ ### \_ Azure__로 시작 하는 링크를 선택 합니다.
+1. __출력 + 로그__ 를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __### \_ Azure__ 로 시작 하는 링크를 선택 합니다.
 
 기록 된 정보에는 다음 JSON과 유사한 텍스트가 포함 됩니다.
 
@@ -178,7 +178,7 @@ Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, 
 
 ### <a name="python-sdk"></a>Python SDK
 
-학습 실행을 제출한 후 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 개체가 반환 됩니다. `properties`이 개체의 특성에는 로깅된 git 정보가 포함 됩니다. 예를 들어 다음 코드는 커밋 해시를 검색 합니다.
+학습 실행을 제출한 후 [실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 개체가 반환 됩니다. `properties`이 개체의 특성에는 로깅된 git 정보가 포함 됩니다. 예를 들어 다음 코드는 커밋 해시를 검색 합니다.
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-자세한 내용은 [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) reference 설명서를 참조 하세요.
+자세한 내용은 [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) reference 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

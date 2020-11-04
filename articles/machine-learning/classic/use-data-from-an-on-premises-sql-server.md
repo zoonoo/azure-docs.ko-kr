@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357491"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325698"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>SQL Server 데이터베이스를 사용 하 여 Azure Machine Learning Studio (클래식)으로 분석 수행
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. Azure Machine Learning Studio (클래식)에서는 이제 SQL Server 데이터베이스에서 데이터를 읽은 다음이 데이터를 사용 하 여 모델을 학습 하 고 점수를 매길 수 있습니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio (클래식)의 **데이터 가져오기** 모듈에서 학습 및 점수 매기기 작업을 위해 SQL Server 데이터베이스에서 직접 읽을 수 있습니다.
 
-이 문서에서는 SQL Server 데이터를 Azure Machine Learning Studio (클래식)로 수신 하는 방법에 대 한 개요를 제공 합니다. 사용자가 작업 영역, 모듈, 데이터 집합, *실험 등의*Studio (클래식) 개념을 잘 알고 있다고 가정 합니다.
+이 문서에서는 SQL Server 데이터를 Azure Machine Learning Studio (클래식)로 수신 하는 방법에 대 한 개요를 제공 합니다. 사용자가 작업 영역, 모듈, 데이터 집합, *실험 등의* Studio (클래식) 개념을 잘 알고 있다고 가정 합니다.
 
 > [!NOTE]
 > 이 기능을 무료 작업 영역에서는 사용할 수 없습니다. Machine Learning 가격 책정 및 계층에 대한 자세한 내용은 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
@@ -83,23 +83,23 @@ Data Factory 자체 호스팅 통합 런타임을 설정하고 사용하는 경�
 3. 화면 아래쪽에 있는 **새 데이터 게이트웨이** 를 클릭합니다.
 
     ![새 데이터 게이트웨이](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
-4. **새 데이터 게이트웨이** 대화 상자에서 **게이트웨이 이름**을 입력하고 필요에 따라 **설명**을 추가합니다. 오른쪽 아래에 있는 화살표를 클릭하여 구성의 다음 단계로 이동합니다.
+4. **새 데이터 게이트웨이** 대화 상자에서 **게이트웨이 이름** 을 입력하고 필요에 따라 **설명** 을 추가합니다. 오른쪽 아래에 있는 화살표를 클릭하여 구성의 다음 단계로 이동합니다.
 
     ![게이트웨이 이름 및 설명 입력](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. 데이터 게이트웨이 다운로드 및 등록 대화 상자에서 게이트웨이 등록 키를 클립보드에 복사합니다.
 
     ![다운로드 및 데이터 게이트웨이 등록](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
-7. 게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **등록**을 클릭합니다.
-8. 게이트웨이가 이미 설치되어 있는 경우 데이터 관리 게이트웨이 구성 관리자를 실행합니다. **키 변경**을 클릭하고 이전 단계에서 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **확인**을 클릭합니다.
-9. 설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 이전 단계에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록**을 클릭합니다.
+6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드** 를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
+7. 게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키** 를 붙여 넣고 **등록** 을 클릭합니다.
+8. 게이트웨이가 이미 설치되어 있는 경우 데이터 관리 게이트웨이 구성 관리자를 실행합니다. **키 변경** 을 클릭하고 이전 단계에서 클립보드에 복사한 **게이트웨이 등록 키** 를 붙여 넣고 **확인** 을 클릭합니다.
+9. 설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 이전 단계에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록** 을 클릭합니다.
 
     ![게이트웨이 등록](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 10. Microsoft 데이터 관리 게이트웨이 구성 관리자의 **홈** 탭에서 다음 값에 설정되면 게이트웨이 구성이 완료된 것입니다.
 
-    * **게이트웨이 이름** 및 **인스턴스 이름**이 게이트웨이의 이름으로 설정됩니다.
-    * **등록**이 **등록됨**으로 설정됩니다.
-    * **상태**가 **시작됨**으로 설정됩니다.
+    * **게이트웨이 이름** 및 **인스턴스 이름** 이 게이트웨이의 이름으로 설정됩니다.
+    * **등록** 이 **등록됨** 으로 설정됩니다.
+    * **상태** 가 **시작됨** 으로 설정됩니다.
     * 아래쪽의 상태 표시줄에는 녹색 확인 표시와 함께 **데이터 관리 게이트웨이 클라우드 서비스에 연결 됨** 이 표시 됩니다.
 
       ![데이터 관리 게이트웨이 관리자](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
@@ -134,8 +134,8 @@ Azure Machine Learning Studio (클래식)에서 게이트웨이 설치 프로세
 5. 설치하여 등록한 **데이터 게이트웨이** 를 선택합니다. "(새 데이터 게이트웨이 추가...)"를 선택하여 다른 게이트웨이를 설정할 수 있습니다.
 
    ![데이터 가져오기 모듈에 대해 데이터 게이트웨이 선택](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. SQL **Database 서버 이름** 및 **Database 이름**과 실행하려는 SQL **Database 쿼리**를 입력합니다.
-7. **사용자 이름 및 암호** 아래에서 **값 입력**을 클릭하고 데이터베이스 자격 증명을 입력합니다. SQL Server 구성 된 방법에 따라 Windows 통합 인증 또는 SQL Server 인증을 사용할 수 있습니다.
+6. SQL **Database 서버 이름** 및 **Database 이름** 과 실행하려는 SQL **Database 쿼리** 를 입력합니다.
+7. **사용자 이름 및 암호** 아래에서 **값 입력** 을 클릭하고 데이터베이스 자격 증명을 입력합니다. SQL Server 구성 된 방법에 따라 Windows 통합 인증 또는 SQL Server 인증을 사용할 수 있습니다.
 
    ![데이터베이스 자격 증명 입력](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -144,6 +144,6 @@ Azure Machine Learning Studio (클래식)에서 게이트웨이 설치 프로세
    ![데이터 모듈 속성 가져오기](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. **실행** 을 클릭하여 실험을 실행합니다.
 
-실험 실행이 완료되면 **데이터 가져오기** 모듈의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터베이스에서 가져온 데이터를 시각화할 수 있습니다.
+실험 실행이 완료되면 **데이터 가져오기** 모듈의 출력 포트를 클릭하고 **시각화** 를 선택하여 데이터베이스에서 가져온 데이터를 시각화할 수 있습니다.
 
 실험 개발이 끝나면 모델을 배포하고 운영할 수 있습니다. Batch 실행 서비스를 사용 하 여 **데이터 가져오기** 모듈에 구성 된 SQL Server 데이터베이스의 데이터를 읽고 점수를 매기는 데 사용 합니다. 온-프레미스 데이터의 점수를 매기는 데 요청 응답 서비스를 사용할 수 있지만, 대신 [Excel 추가 기능](excel-add-in-for-web-services.md) 을 사용하는 것이 좋습니다. 현재 실험 또는 게시 된 웹 서비스에서 **데이터 내보내기** 를 통해 SQL Server 데이터베이스에 대 한 쓰기를 지원 하지 않습니다.

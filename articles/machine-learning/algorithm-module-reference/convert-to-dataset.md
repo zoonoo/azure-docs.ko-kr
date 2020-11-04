@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323063"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
 
@@ -25,7 +25,7 @@ ms.locfileid: "90898705"
 데이터 집합에 대해 일종의 정규화 또는 정리를 수행 하 고 다른 파이프라인에서 변경 내용을 사용 하도록 하려면 데이터 집합 형식에 데이터를 저장 하는 것이 좋습니다.  
   
 > [!NOTE]
-> 데이터 집합으로 변환은 데이터 형식만 변경 합니다. 작업 영역에 데이터의 새 복사본을 저장 하지 않습니다. 데이터 집합을 저장 하려면 출력 포트를 두 번 클릭 하 고 **데이터 집합으로 저장**을 선택한 다음 새 이름을 입력 합니다.  
+> 데이터 집합으로 변환은 데이터 형식만 변경 합니다. 작업 영역에 데이터의 새 복사본을 저장 하지 않습니다. 데이터 집합을 저장 하려면 출력 포트를 두 번 클릭 하 고 **데이터 집합으로 저장** 을 선택한 다음 새 이름을 입력 합니다.  
   
 ## <a name="how-to-use-convert-to-dataset"></a>데이터 집합으로 변환 사용 방법  
 
@@ -35,18 +35,18 @@ ms.locfileid: "90898705"
 
 2. 데이터 집합을 출력 하는 모듈에 연결 합니다.   
 
-    데이터가 [테이블](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)형식이 면 데이터 집합으로 변환할 수 있습니다. 여기에는 데이터 [가져오기를](import-data.md)통해 로드 된 데이터, [수동으로 입력 데이터](enter-data-manually.md)를 통해 생성 된 데이터 또는 [적용 변환을](apply-transformation.md)통해 변환 된 데이터 집합이 포함 됩니다.
+    데이터가 [테이블](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)형식이 면 데이터 집합으로 변환할 수 있습니다. 여기에는 데이터 [가져오기를](import-data.md)통해 로드 된 데이터, [수동으로 입력 데이터](enter-data-manually.md)를 통해 생성 된 데이터 또는 [적용 변환을](apply-transformation.md)통해 변환 된 데이터 집합이 포함 됩니다.
 
 3.  **작업** 드롭다운 목록에서 데이터 집합을 저장 하기 전에 데이터를 정리할 것인지 여부를 지정 합니다.  
   
-    - **None**: 데이터를 있는 그대로 사용 합니다.  
+    - **None** : 데이터를 있는 그대로 사용 합니다.  
   
-    - **SetMissingValue**: 데이터 집합에서 특정 값을 누락 된 값으로 설정 합니다. 기본 자리 표시자는 물음표 문자 (?) 이지만  **사용자 지정 누락 값** 옵션을 사용 하 여 다른 값을 입력할 수 있습니다. 예를 들어 **사용자 지정 누락 값**에 **Taxi** 를 입력 하면 데이터 집합에 있는 **Taxi** 의 모든 인스턴스가 누락 된 값으로 변경 됩니다.
+    - **SetMissingValue** : 데이터 집합에서 특정 값을 누락 된 값으로 설정 합니다. 기본 자리 표시자는 물음표 문자 (?) 이지만  **사용자 지정 누락 값** 옵션을 사용 하 여 다른 값을 입력할 수 있습니다. 예를 들어 **사용자 지정 누락 값** 에 **Taxi** 를 입력 하면 데이터 집합에 있는 **Taxi** 의 모든 인스턴스가 누락 된 값으로 변경 됩니다.
   
-    - **ReplaceValues**:이 옵션을 사용 하 여 정확 하 게 일치 하는 값으로 바꿀 단일 값을 지정 합니다. **Replace** 메서드를 설정 하 여 누락 값 또는 사용자 지정 값을 바꿀 수 있습니다.
+    - **ReplaceValues** :이 옵션을 사용 하 여 정확 하 게 일치 하는 값으로 바꿀 단일 값을 지정 합니다. **Replace** 메서드를 설정 하 여 누락 값 또는 사용자 지정 값을 바꿀 수 있습니다.
 
-      - **Missing**: 입력 데이터 집합에서 누락 값을 바꾸려면이 옵션을 선택 합니다. **새 값**에 대해 값을 입력 하 여 누락 된 값을로 바꿉니다.
-      - **사용자 지정**: 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값**에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 `obs` 누락 된 값에 대 한 자리 표시자로 사용 되는 문자열이 포함 된 경우을 입력 `obs` 합니다. **새 값**에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
+      - **Missing** : 입력 데이터 집합에서 누락 값을 바꾸려면이 옵션을 선택 합니다. **새 값** 에 대해 값을 입력 하 여 누락 된 값을로 바꿉니다.
+      - **사용자 지정** : 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값** 에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 `obs` 누락 된 값에 대 한 자리 표시자로 사용 되는 문자열이 포함 된 경우을 입력 `obs` 합니다. **새 값** 에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
   
     **ReplaceValues** 작업은 정확히 일치 하는 항목에만 적용 됩니다. 예를 들어, 이러한 문자열에는 영향을 주지 않습니다. `obs.` `obsolete`  
  
@@ -70,4 +70,4 @@ ms.locfileid: "90898705"
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

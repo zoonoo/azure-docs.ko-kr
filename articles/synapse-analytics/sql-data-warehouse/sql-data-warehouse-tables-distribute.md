@@ -1,6 +1,6 @@
 ---
 title: 분산 테이블 디자인 지침
-description: Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323626"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 분산 테이블 디자인에 대한 지침
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 분산 테이블을 디자인 하기 위한 지침
 
-Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+전용 SQL 풀에서 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 
-이 문서에서는 Synapse SQL의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정 합니다.  자세한 내용은 [Azure Synapse 분석 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요.
+이 문서에서는 전용 SQL 풀의 데이터 배포 및 데이터 이동 개념에 대해 잘 알고 있다고 가정 합니다.  자세한 내용은 [Azure Synapse 분석 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요.
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
 
-이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
+이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블** 에 중점을 둡니다. **라운드 로빈 테이블** 은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요.
 
@@ -36,7 +36,7 @@ Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블
 
 - 테이블이 얼마나 큰가요?
 - 테이블을 얼마나 자주 새로 고치나요?
-- Synapse SQL 풀에 팩트 및 차원 테이블이 있나요?
+- 전용 SQL 풀에 팩트 및 차원 테이블이 있나요?
 
 ### <a name="hash-distributed"></a>해시 분산
 
@@ -44,7 +44,7 @@ Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블
 
 ![분산 테이블](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "분산 테이블")  
 
-동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. Synapse SQL 풀에서 이 정보는 쿼리 중 데이터 이동을 최소화하여 쿼리 성능을 향상시키는 데 사용됩니다.
+동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. 전용 SQL 풀에서이 정보는 쿼리 중 데이터 이동을 최소화 하는 데 사용 되므로 쿼리 성능이 향상 됩니다.
 
 해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
 
@@ -113,7 +113,7 @@ WITH
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>데이터 이동을 최소화하는 배포 열 선택
 
-올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화하는 데 도움이 되는 배포 열을 선택하는 것이 Synapse SQL 풀의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.
+올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화 하는 데 도움이 되는 배포 열을 선택 하는 것은 전용 SQL 풀의 성능을 최적화 하기 위한 가장 중요 한 전략 중 하나입니다.
 
 데이터 이동을 최소화하려면 다음과 같은 배포 열을 선택합니다.
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 분산 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [CREATE TABLE(Synapse SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT(Synapse SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE SELECT (전용 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

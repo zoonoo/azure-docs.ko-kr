@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343933"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322820"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
 
@@ -71,7 +71,7 @@ ms.locfileid: "91343933"
 
 ![무게 및 가격 축](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-이제 이 데이터를 가져와서 *산점도*로 나타낼 것입니다. 이 방법은 수치 데이터 집합을 시각화하는 데 유용합니다.
+이제 이 데이터를 가져와서 *산점도* 로 나타낼 것입니다. 이 방법은 수치 데이터 집합을 시각화하는 데 유용합니다.
 
 첫 번째 데이터 요소의 경우 1.01 캐럿에 해당하는 수직선을 확인합니다. 그런 다음 $7,366에 해당하는 수평선을 확인합니다. 만나는 위치에 점을 그립니다. 이것은 첫 번째 다이아몬드를 나타냅니다.
 
@@ -82,13 +82,13 @@ ms.locfileid: "91343933"
 ## <a name="draw-the-model-through-the-data-points"></a>데이터 요소를 통해 모델 그리기
 이제 눈을 가늘게 뜨고 점들을 응시하면 두리뭉실한 선처럼 보입니다. 마커를 사용해서 그 사이로 직선을 그릴 수 있습니다.
 
-선을 그려서 *모델*을 만들었습니다. 이러한 과정은 실제 세계에서 아주 간단한 만화 버전을 만드는 것으로 간주할 수 있습니다. 그 만화는 잘못된 것입니다. 선이 모든 데이터 요소를 지나가지는 않으니까요. 하지만 유용한 단순화 기법입니다.
+선을 그려서 *모델* 을 만들었습니다. 이러한 과정은 실제 세계에서 아주 간단한 만화 버전을 만드는 것으로 간주할 수 있습니다. 그 만화는 잘못된 것입니다. 선이 모든 데이터 요소를 지나가지는 않으니까요. 하지만 유용한 단순화 기법입니다.
 
 ![선형 회귀 선](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-모든 점이 정확히 선을 지나가지 않아도 괜찮습니다. 데이터 과학자들은 이제 선에 해당하는 모델이 형성되었고 각 점에는 이와 연관된 *노이즈* 또는 *분산*이 있다고 설명합니다. 기본적인 완벽한 관계가 있으며, 또한 노이즈와 불확실성이 적용되는 단호한 실제 세계가 있는 것입니다.
+모든 점이 정확히 선을 지나가지 않아도 괜찮습니다. 데이터 과학자들은 이제 선에 해당하는 모델이 형성되었고 각 점에는 이와 연관된 *노이즈* 또는 *분산* 이 있다고 설명합니다. 기본적인 완벽한 관계가 있으며, 또한 노이즈와 불확실성이 적용되는 단호한 실제 세계가 있는 것입니다.
 
-여기서는 *가격은 얼마일까요?* 라는 질문에 답변하려고 하기 때문에 이를 *회귀*라고 합니다. 또한 직선을 사용하므로 *선형 회귀*에 해당합니다.
+여기서는 *가격은 얼마일까요?* 라는 질문에 답변하려고 하기 때문에 이를 *회귀* 라고 합니다. 또한 직선을 사용하므로 *선형 회귀* 에 해당합니다.
 
 ## <a name="use-the-model-to-find-the-answer"></a>모델을 사용하여 해답 찾기
 이제 우리에게는 모델이 있고 “1.35 캐럿의 다이아몬드 가격은 얼마나 될까요?”라는 질문을 해보겠습니다.
@@ -98,7 +98,7 @@ ms.locfileid: "91343933"
 ![모델에서 해답 찾기](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>신뢰 구간 만들기
-이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간*이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
+이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간* 이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
 
 ![예측](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -108,8 +108,8 @@ ms.locfileid: "91343933"
 데이터 과학자들이 돈을 받고 하는 일을 우리가 해넀습니다. 그림만 그려서 말이죠.
 
 * 데이터로 답변할 수 있는 질문을 했습니다.
-* *선형 회귀*를 사용하여 *모델*을 작성했습니다.
-* *신뢰 구간*을 토대로 *예측*을 했습니다.
+* *선형 회귀* 를 사용하여 *모델* 을 작성했습니다.
+* *신뢰 구간* 을 토대로 *예측* 을 했습니다.
 
 또한 수학이나 컴퓨터를 사용하지 않고 이 모든 것을 해냈습니다.
 
@@ -129,4 +129,4 @@ Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)
+* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)

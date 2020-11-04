@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f2e41779e72d565e24b67fd8b18afd87a112e62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325396"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics 데이터 관리 파트너
 
@@ -27,7 +27,7 @@ ms.locfileid: "91542101"
 | ------- | ----------- | -------------------- |
 | ![Aginity](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginity**<br>Aginity은 분석가 및 엔지니어가 Microsoft의 Synapse 플랫폼을 완벽 하 게 활용 하는 분석 개발 도구입니다. 풍부 하 고 직관적인 SQL 개발 환경에서는 팀 구성원이 수십 개의 업계 최고의 분석 플랫폼에 연결 하 고, 다양 한 형식으로 데이터를 수집 하 고, 복잡 한 비즈니스 계산을 신속 하 게 작성 하 여 비즈니스 인텔리전스 및 Machine Learning 사용 사례에 결과를 제공할 수 있습니다. 전체 응용 프로그램은 분석 팀에서 공동 작업을 수행 하는 중앙 카탈로그를 중심으로 구축 되 고 정교한 관리 기능과 세분화 된 보안을 통해 거 버 넌 스를 간편 하 게 만들 수 있습니다. |[제품 페이지](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Alation](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Alation**<br>Alation의 데이터 카탈로그는 생산성을 크게 향상 시키고 정확도를 높이고 분석가를 위한 데이터 기반 의사 결정을 유도 합니다. Alation의 데이터 카탈로그를 통해 조직의 모든 사용자가 데이터를 찾고 이해 하 고 제어할 수 있습니다. |[제품 페이지](https://www.alation.com/product/data-catalog/)<br> |
-| ![Coffing Data Warehousing](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing Data Warehousing**<br>Coffing Data Warehousing은 10년 동안 쿼리 시스템을 전용으로 디자인한 도구인 Nexus Chameleon을 제공합니다. Nexus는 Azure Synapse SQL 풀의 쿼리 도구로 사용할 수 있습니다. Nexus를 사용하여 사내 및 클라우드 컴퓨터에서 쿼리하여 다른 플랫폼에서 데이터를 조인합니다. 마우스로 클릭하여 보고합니다! |[제품 페이지](https://www.coffingdw.com/software/nexus/)<br> |
+| ![Coffing Data Warehousing](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing Data Warehousing**<br>Coffing Data Warehousing은 10년 동안 쿼리 시스템을 전용으로 디자인한 도구인 Nexus Chameleon을 제공합니다. Nexus는 Azure Synapse Analytics에서 전용 SQL 풀에 대 한 쿼리 도구로 사용할 수 있습니다. Nexus를 사용하여 사내 및 클라우드 컴퓨터에서 쿼리하여 다른 플랫폼에서 데이터를 조인합니다. 마우스로 클릭하여 보고합니다! |[제품 페이지](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>Inbrein MicroERD는 정확한 데이터 모델을 만들고, 데이터 중복을 최소화하고, 생산성을 향상시키고, 표준을 준수하는 데 필요한 도구를 제공합니다. 광범위한 사용자 환경을 기반으로 개발된 UI를 사용하여, 모델러는 DB 모델에서 쉽고 편리하게 작업할 수 있습니다. 프롬프트 기능 향상 및 업데이트를 통해 지속적으로 MicroERD의 새로운 기능과 향상된 기능을 즐길 수 있습니다. |[제품 페이지](http://microerd.com/)<br> |
 | ![Infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian-logo.png) |**Infolibrarian(Metadata Management Server)**<br>InfoLibrarian 카탈로그는 메타데이터를 저장하고 관리하여 데이터 관리의 주요 문제점을 해결하는 데 도움이 됩니다. Infolibrarian는 다양 한 도구 및 기술 집합에서 메타 데이터를 관리 하 고 게시 하기 위한 메타 데이터 관리, 데이터 관리 및 자산 관리 솔루션을 제공 합니다. |[제품 페이지](http://www.infolibcorp.com/metadata-management/software-tools)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/infolibrarian.infolibrarian-metadata-management-server)<br> |
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Apache Kylin의 작성자가 설립한 Kyligence는 아무런 장애 요인 없이 데이터 관리, 검색, 상호 작용 및 인사이트 생성을 자동화하여 고객의 생산성을 높이는 것을 목표로 합니다. Kyligence Cloud는 클러스터 배포를 지원하고, 데이터 액세스를 강화하고, 데이터 분석을 크게 가속화합니다. Kyligence의 AI 기능이 보강된 빅 데이터 분석 관리 플랫폼을 사용하면 엔터프라이즈 규모 데이터 레이크를 빌드하는 까다로운 작업을 빠르고 쉽게 처리할 수 있습니다.|[제품 페이지](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |

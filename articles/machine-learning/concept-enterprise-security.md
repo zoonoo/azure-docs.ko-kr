@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899329"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323091"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -85,7 +85,7 @@ Azure Machine Learning은 웹 서비스에 두 가지 형태의 인증(키 및 �
 
 각 작업 영역에는 작업 영역과 이름이 동일하며 연결되어 있는 시스템이 할당한 관리 ID도 있습니다. 관리 ID에는 작업 영역에서 사용되는 연결된 리소스에 대해 다음과 같은 사용 권한이 있습니다.
 
-관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 | 리소스 | 사용 권한 |
 | ----- | ----- |
@@ -118,7 +118,7 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
-> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
+> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
 
 `hbi_workspace`플래그는 [microsoft에서 진단 목적으로 수집](#microsoft-collected-data) 하 고 [microsoft에서 관리 하는 환경에서 추가 암호화](../security/fundamentals/encryption-atrest.md)를 사용 하도록 설정 하는 데이터의 양을 제어 합니다. 또한 다음 작업을 수행할 수 있습니다.
 
@@ -131,7 +131,7 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 
 Azure Machine Learning은 Azure Machine Learning 작업 영역 및 구독과 연결된 Azure Blob 스토리지 계정에 스냅샷, 출력 및 로그를 저장합니다. Azure Blob Storage에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
 
-Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법에 대한 자세한 내용은 [Azure Key Vault에서 고객 관리형 키를 사용하여 Azure Storage 암호화](../storage/common/storage-encryption-keys-portal.md)를 참조하세요.
+Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법에 대한 자세한 내용은 [Azure Key Vault에서 고객 관리형 키를 사용하여 Azure Storage 암호화](../storage/common/customer-managed-keys-configure-key-vault.md)를 참조하세요.
 
 일반적으로 학습 데이터는 Azure Blob Storage에 저장되므로 학습 컴퓨팅 대상에 액세스할 수 있습니다. 이 스토리지는 Azure Machine Learning으로 관리되지 않지만 컴퓨팅 대상에 원격 파일 시스템으로 탑재됩니다.
 
@@ -151,12 +151,12 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데
 
 * Azure Machine Learning 작업 영역을 만들 때는 다음 매개 변수를 사용합니다. 두 매개 변수 모두 필수이며 SDK, CLI, REST API 및 Resource Manager 템플릿에서 지원됩니다.
 
-    * `resource_cmk_uri`: 이 매개 변수는 [키의 버전 정보](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)를 포함하여 키 자격 증명 모음에서 고객 관리형 키의 전체 리소스 URI입니다. 
+    * `resource_cmk_uri`: 이 매개 변수는 [키의 버전 정보](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)를 포함하여 키 자격 증명 모음에서 고객 관리형 키의 전체 리소스 URI입니다. 
 
     * `cmk_keyvault`: 이 매개 변수는 구독에 있는 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용할 동일한 지역 및 구독에 있어야 합니다. 
     
         > [!NOTE]
-        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
+        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -171,7 +171,7 @@ Cosmos DB의 고객 관리형 키에 대한 자세한 내용은 [Azure Cosmos DB
 자체(고객 관리형) 키를 사용하여 Azure Container Registry를 암호화하려면 작업 영역을 프로비저닝하는 동안 자체 ACR을 생성하여 첨부하거나 작업 영역을 프로비저닝할 때 생성되는 기본 인스턴스를 암호화해야 합니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning Azure Container Registry에서 관리자 계정을 사용 하도록 설정 해야 합니다. 컨테이너 레지스트리를 만들 때 기본적으로이 설정은 사용 되지 않습니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](/azure/container-registry/container-registry-authentication#admin-account)을 참조 하십시오.
+> Azure Machine Learning Azure Container Registry에서 관리자 계정을 사용 하도록 설정 해야 합니다. 컨테이너 레지스트리를 만들 때 기본적으로이 설정은 사용 되지 않습니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조 하십시오.
 >
 > 작업 영역에 대해 Azure Container Registry가 만들어지면 이를 삭제하지 마세요. 삭제하면 Azure Machine Learning 작업 영역이 중단됩니다.
 
@@ -193,7 +193,7 @@ Azure Container Instance에 모델을 배포할 때 키를 사용하려면 `AciW
 
 배포 구성을 만들고 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
+* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
 * [배포 위치 및 방법](how-to-deploy-and-where.md)
 * [Azure Container Instances에 모델 배포](how-to-deploy-azure-container-instance.md)
 
@@ -222,7 +222,7 @@ Azure Databricks는 Azure Machine Learning 파이프라인에서 사용할 수 �
 
 Azure Machine Learning은 TLS를 사용하여 다양한 Azure Machine Learning 마이크로서비스 간의 내부 통신을 보호합니다. 모든 Azure Storage 액세스는 보안 채널을 통해 수행됩니다.
 
-점수 매기기 끝점에 대 한 외부 호출을 보호 하기 위해 Azure Machine Learning는 TLS를 사용 합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)를 참조하세요.
+점수 매기기 끝점에 대 한 외부 호출을 보호 하기 위해 Azure Machine Learning는 TLS를 사용 합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](./how-to-secure-web-service.md)를 참조하세요.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 
@@ -242,7 +242,7 @@ Azure HDInsight 및 VM과 같은 컴퓨팅 대상에 대한 SSH 암호 및 키�
 
 Microsoft는 진단을 목적으로 리소스 이름(예: 데이터 세트 이름 또는 기계 학습 실험 이름)이나 작업 환경 변수와 같은 비 사용자 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 Microsoft 소유 구독에서 호스트되는 스토리지에 Microsoft 관리형 키를 사용하여 저장되며 [Microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준](https://privacy.microsoft.com/privacystatement)을 따릅니다.
 
-또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
+또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
 
 작업 영역을 프로비저닝하는 동안 `hbi_workspace` 매개 변수를 `TRUE`로 설정하면 진단 데이터가 수집되지 않도록 옵트아웃할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST API 또는 Azure Resource Manager 템플릿을 사용할 때 지원됩니다.
 
@@ -262,7 +262,7 @@ Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 
 
 메트릭에는 실행, 배포 및 등록에 대한 정보가 포함됩니다.
 
-자세한 내용은 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-platform-metrics)을 참조하세요.
+자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조하세요.
 
 ### <a name="activity-log"></a>활동 로그
 
@@ -289,7 +289,7 @@ Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure machine learning의 경우 Azure Container Registry 리소스 및 Azure Kubernetes Service 리소스에 대 한 검사를 사용 하도록 설정 해야 합니다. [Azure Container Registry 이미지 검색 Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) 및 [Security Center와 Azure Kubernetes Services 통합](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)을 참조 하세요.
+Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure machine learning의 경우 Azure Container Registry 리소스 및 Azure Kubernetes Service 리소스에 대 한 검사를 사용 하도록 설정 해야 합니다. [Azure Container Registry 이미지 검색 Security Center](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
 
 ## <a name="data-flow-diagrams"></a>데이터 흐름 다이어그램
 
@@ -364,12 +364,12 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 
 ## <a name="audit-and-manage-compliance"></a>규정 준수 감사 및 관리
 
-[Azure Policy](/azure/governance/policy) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
+[Azure Policy](../governance/policy/index.yml) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
 
 * **고객 관리 키** : 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
 * **개인 링크** : 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
 
-Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](/azure/governance/policy/overview)를 참조 하세요.
+Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](../governance/policy/overview.md)를 참조 하세요.
 
 Azure Machine Learning 관련 된 정책에 대 한 자세한 내용은 [Azure Policy 준수 감사 및 관리](how-to-integrate-azure-policy.md)를 참조 하세요.
 
@@ -384,4 +384,4 @@ Azure Machine Learning 관련 된 정책에 대 한 자세한 내용은 [Azure P
 * [Azure Firewall과 함께 Azure Machine Learning 사용](how-to-access-azureml-behind-firewall.md)
 * [Azure Virtual Network에서 Azure Machine Learning 사용](how-to-network-security-overview.md)
 * [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
-* [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
+* [Azure에서 실시간 추천 API 빌드](/azure/architecture/reference-architectures/ai/real-time-recommendation)

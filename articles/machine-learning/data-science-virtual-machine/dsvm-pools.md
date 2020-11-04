@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708971"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324395"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "91708971"
 
 전체 AI/데이터 과학 팀에서 공유되는 대화형 VM의 풀을 사용하면 각 사용자 집합에 대해 전용 인스턴스를 가질 필요 없이 사용자가 DSVM의 사용 가능한 인스턴스에 로그인할 수 있습니다. 이 설정은 리소스의 가용성과 효율성을 향상 시킬 수 있습니다.
 
-[Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) 기술을 사용 하 여 대화형 VM 풀을 만듭니다. 확장 집합을 사용하여 동일한 그룹의 부하 분산된 자동 크기 조정 VM을 만들고 관리할 수 있습니다.
+[Azure 가상 머신 확장 집합](../../virtual-machine-scale-sets/index.yml) 기술을 사용 하 여 대화형 VM 풀을 만듭니다. 확장 집합을 사용하여 동일한 그룹의 부하 분산된 자동 크기 조정 VM을 만들고 관리할 수 있습니다.
 
 사용자는 주 풀의 IP 또는 DNS 주소에 로그인합니다. 확장 집합은 확장 집합에서 사용 가능한 DSVM으로 세션을 자동으로 라우팅합니다. 사용자가 로그인 하는 VM에 관계 없이 일관 되 고 친숙 한 환경을 원합니다. 확장 집합의 모든 VM 인스턴스는 Azure Files 공유 또는 NFS (네트워크 파일 시스템) 공유와 같은 공유 네트워크 드라이브를 탑재 합니다. 사용자의 공유 작업 영역은 일반적으로 각 인스턴스에 탑재된 공유 파일 저장소에 유지됩니다.
 
@@ -53,7 +53,7 @@ az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  -
 
 [Azure Files 공유를 탑재하는 스크립트](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh)는 Azure Data Science VM 리포지토리에서도 GitHub로 사용할 수 있습니다. 스크립트는 매개 변수 파일의 지정된 탑재 지점에서 Azure Files 공유를 탑재합니다. 또한 스크립트는 초기 사용자의 홈 디렉터리에서 탑재된 드라이브에 대한 소프트 링크를 만듭니다. `$HOME/notebooks/remote`사용자가 Jupyter 노트북에 액세스 하 고 실행 하 고 저장할 수 있도록 Azure Files 공유의 사용자 특정 노트북 디렉터리는 디렉터리에 소프트 링크 됩니다. VM에 추가 사용자를 만들 때 동일한 규칙을 사용하여 Azure Files 공유에 대한 각 사용자의 Jupyter 작업 영역을 가리킬 수 있습니다.
 
-가상 머신 확장 집합은 자동 크기 조정 기능을 지원합니다. 추가 인스턴스를 만들 시기 및 인스턴스를 확장 하는 시기에 대 한 규칙을 설정할 수 있습니다. 예를 들어 VM을 전혀 사용하지 않는 경우 클라우드 하드웨어 사용 비용을 절약하기 위해 0개의 인스턴스로 축소할 수 있습니다. 가상 머신 확장 집합의 설명서 페이지는 [자동 크기 조정](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)에 대한 자세한 단계를 제공합니다.
+가상 머신 확장 집합은 자동 크기 조정 기능을 지원합니다. 추가 인스턴스를 만들 시기 및 인스턴스를 확장 하는 시기에 대 한 규칙을 설정할 수 있습니다. 예를 들어 VM을 전혀 사용하지 않는 경우 클라우드 하드웨어 사용 비용을 절약하기 위해 0개의 인스턴스로 축소할 수 있습니다. 가상 머신 확장 집합의 설명서 페이지는 [자동 크기 조정](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)에 대한 자세한 단계를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

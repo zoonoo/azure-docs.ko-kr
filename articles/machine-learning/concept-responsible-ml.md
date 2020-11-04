@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829393"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324850"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>담당 기계 학습 이란 무엇 인가요? (미리 보기)
 
@@ -73,7 +73,7 @@ AI 시스템의 불공정성을 줄이기 위한 두 가지 주요 단계는 평
 
 동형 암호화에서는 비밀(암호 해독) 키 액세스 없이도 암호화된 데이터에 대해 계산을 수행할 수 있습니다. 계산 결과는 암호화되며 비밀 키의 소유자만 볼 수 있습니다. Homomorphic 암호화를 사용 하 여 클라우드 운영자는 저장 하 고 계산 하는 데이터에 대 한 암호화 되지 않은 액세스를 갖지 않습니다. 계산은 암호화 된 데이터에서 직접 수행 됩니다. 데이터 개인 정보는 최신 암호화에 의존 하며 데이터 소유자는 모든 정보 릴리스를 제어 합니다. Microsoft의 homomorphic encryption에 대 한 자세한 내용은 [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/)를 참조 하십시오.
 
-Azure Machine Learning에서 homomorphic 암호화를 시작 하려면 [MICROSOFT 봉인](https://github.com/microsoft/SEAL)에 대 한 [암호화 된 유추](https://pypi.org/project/encrypted-inference/) Python 바인딩을 사용 하세요. Microsoft 봉인은 암호화 된 정수 또는 실수에 대해 추가 및 multiplications를 수행할 수 있도록 하는 오픈 소스 homomorphic 암호화 라이브러리입니다. Microsoft 봉인에 대해 자세히 알아보려면 [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) 또는 [microsoft Research 프로젝트 페이지](https://www.microsoft.com/research/project/microsoft-seal/)를 참조 하세요.
+Azure Machine Learning에서 homomorphic 암호화를 시작 하려면 [MICROSOFT 봉인](https://github.com/microsoft/SEAL)에 대 한 [암호화 된 유추](https://pypi.org/project/encrypted-inference/) Python 바인딩을 사용 하세요. Microsoft 봉인은 암호화 된 정수 또는 실수에 대해 추가 및 multiplications를 수행할 수 있도록 하는 오픈 소스 homomorphic 암호화 라이브러리입니다. Microsoft 봉인에 대해 자세히 알아보려면 [Azure 아키텍처 센터](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) 또는 [microsoft Research 프로젝트 페이지](https://www.microsoft.com/research/project/microsoft-seal/)를 참조 하세요.
 
 [Azure Machine Learning에서 암호화 된 추론 웹 서비스를 배포 하는 방법을](how-to-homomorphic-encryption-seal.md)알아보려면 다음 샘플을 참조 하세요.
 
@@ -96,5 +96,5 @@ Azure Machine Learning SDK를 사용하여 [모델에 대한 데이터 시트](h
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- 자세한 내용은 최선의 구현 방법에 대 한 자세한 내용은 [담당 혁신 도구 키트](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) 를 참조 하세요.
+- 자세한 내용은 최선의 구현 방법에 대 한 자세한 내용은 [담당 혁신 도구 키트](/azure/architecture/guide/responsible-innovation/) 를 참조 하세요.
 - 기계 학습 시스템 설명서의 [ML 정보](https://www.partnershiponai.org/about-ml/) 지침 세트에 대해 자세히 알아보세요.

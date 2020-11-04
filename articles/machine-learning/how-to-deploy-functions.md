@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736558"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324593"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -26,12 +26,12 @@ Azure Functions에서 함수 앱으로 Azure Machine Learning에서 모델을 �
 > [!IMPORTANT]
 > Azure Machine Learning와 Azure Functions를 모두 사용할 수 있지만 함수에 대 한 Machine Learning 서비스에서 모델을 패키징하는 기능은 미리 보기 상태입니다.
 
-Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이제 Azure Machine Learning에는 이러한 기계 학습 모델을 [Azure Functions에 배포할](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container)수 있는 함수 앱으로 빌드하는 미리 보기 기능이 있습니다.
+Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이제 Azure Machine Learning에는 이러한 기계 학습 모델을 [Azure Functions에 배포할](../azure-functions/functions-deployment-technologies.md#docker-container)수 있는 함수 앱으로 빌드하는 미리 보기 기능이 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
 
     > [!IMPORTANT]
@@ -54,16 +54,16 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
     >
     > 요청 데이터가 모델에서 사용할 수 없는 형식인 경우 스크립트는이를 허용 되는 형식으로 변환할 수 있습니다. 클라이언트에 반환 하기 전에 응답을 변환할 수도 있습니다.
     >
-    > 기본적으로 함수를 패키징하는 경우 입력은 텍스트로 처리 됩니다. Blob 트리거의 경우와 같이 입력의 원시 바이트를 사용 하는 데 관심이 있는 경우에는 [Amlrequest를 사용 하 여 원시 데이터를 수락](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data)해야 합니다.
+    > 기본적으로 함수를 패키징하는 경우 입력은 텍스트로 처리 됩니다. Blob 트리거의 경우와 같이 입력의 원시 바이트를 사용 하는 데 관심이 있는 경우에는 [Amlrequest를 사용 하 여 원시 데이터를 수락](./how-to-deploy-advanced-entry-script.md#binary-data)해야 합니다.
 
-항목 스크립트에 대 한 자세한 내용은 [점수 매기기 코드 정의](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script) 를 참조 하세요.
+항목 스크립트에 대 한 자세한 내용은 [점수 매기기 코드 정의](./how-to-deploy-and-where.md#define-an-entry-script) 를 참조 하세요.
 
 * 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 
 이러한 엔터티는 __유추 구성__ 에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure Functions에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
+> Azure Functions에 사용할 유추 구성을 만드는 경우 [환경](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-Azure Functions에 배포 되는 Docker 이미지를 만들려면 사용 하려는 트리거에 대해 [azureml](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 또는 특정 패키지 함수를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 blob 트리거를 사용 하 여 새 패키지를 만드는 방법을 보여 줍니다.
+Azure Functions에 배포 되는 Docker 이미지를 만들려면 사용 하려는 트리거에 대해 [azureml](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 또는 특정 패키지 함수를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 blob 트리거를 사용 하 여 새 패키지를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 코드 조각에서는에 `model` 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
@@ -113,7 +113,7 @@ print(blob.location)
 `show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식입니다 `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
-> 함수에 대 한 패키징은 현재 HTTP 트리거, Blob 트리거 및 Service bus 트리거를 지원 합니다. 트리거에 대 한 자세한 내용은 [Azure Functions 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns)을 참조 하세요.
+> 함수에 대 한 패키징은 현재 HTTP 트리거, Blob 트리거 및 Service bus 트리거를 지원 합니다. 트리거에 대 한 자세한 내용은 [Azure Functions 바인딩](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns)을 참조 하세요.
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용 되는 위치 정보를 저장 합니다.
@@ -293,12 +293,12 @@ print(blob.location)
 
     명령이 완료 되 면 파일을 엽니다. 모델에 의해 반환 되는 데이터를 포함 합니다.
 
-Blob 트리거를 사용 하는 방법에 대 한 자세한 내용은 [Azure blob storage에 의해 트리거되는 함수 만들기](/azure/azure-functions/functions-create-storage-blob-triggered-function) 문서를 참조 하세요.
+Blob 트리거를 사용 하는 방법에 대 한 자세한 내용은 [Azure blob storage에 의해 트리거되는 함수 만들기](../azure-functions/functions-create-storage-blob-triggered-function.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [함수](/azure/azure-functions/functions-create-function-linux-custom-image) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
-* Blob 저장소에 대 한 자세한 내용은 [Azure blob storage 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)을 트리거합니다.
+* [함수](../azure-functions/functions-create-function-linux-custom-image.md) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
+* Blob 저장소에 대 한 자세한 내용은 [Azure blob storage 바인딩](../azure-functions/functions-bindings-storage-blob.md)을 트리거합니다.
 * [Azure App Service에 모델을 배포](how-to-deploy-app-service.md)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
-* [API 참조](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [API 참조](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

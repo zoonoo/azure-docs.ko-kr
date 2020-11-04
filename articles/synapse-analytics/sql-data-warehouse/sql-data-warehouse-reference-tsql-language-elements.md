@@ -1,6 +1,6 @@
 ---
-title: T-SQL 언어 요소
-description: Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 대 한 링크입니다.
+title: 전용 SQL 풀의 t-sql 언어 요소
+description: Azure Synapse Analytics에서 전용 SQL 풀에 대해 지원 되는 T-sql 언어 요소에 대 한 설명서 링크입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324651"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Synapse SQL 풀에서 지원 되는 t-sql 언어 요소
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 t-sql 언어 요소 
 
-Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 대 한 링크입니다.
+전용 SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서 링크입니다.
 
 ## <a name="core-elements"></a>핵심 요소
 
@@ -35,7 +35,7 @@ Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 
 * [산술식](/sql/t-sql/language-elements/expressions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [KILL](/sql/t-sql/language-elements/kill-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [IDENTITY 속성 해결 방법](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [PRINT](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [인쇄가](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [USE](/sql/t-sql/language-elements/use-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="batches-control-of-flow-and-variables"></a>일괄 처리, 흐름 제어 및 변수
@@ -290,4 +290,4 @@ Synapse SQL 풀에서 지원 되는 T-sql 언어 요소에 대 한 설명서에 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [SYNAPSE sql pool의 t-sql 문](sql-data-warehouse-reference-tsql-statements.md)및 [Synapse Sql pool의 시스템 뷰](../sql/reference-tsql-system-views.md)를 참조 하세요.
+자세한 참조 정보는 [전용 sql 풀의 t-sql 문](sql-data-warehouse-reference-tsql-statements.md)및 [전용 Sql 풀의 시스템 뷰](../sql/reference-tsql-system-views.md)를 참조 하세요.

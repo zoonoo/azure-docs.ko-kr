@@ -1,6 +1,6 @@
 ---
 title: 트랜잭션 사용
-description: 솔루션 개발을 위한 SQL 풀(데이터 웨어하우스)의 트랜잭션 구현을 위한 팁입니다.
+description: 솔루션 개발을 위해 Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션을 구현 하기 위한 팁입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288616"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323837"
 ---
-# <a name="use-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 사용
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 사용
 
-솔루션 개발을 위한 SQL 풀(데이터 웨어하우스)의 트랜잭션 구현을 위한 팁입니다.
+솔루션 개발을 위해 Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션을 구현 하기 위한 팁입니다.
 
 ## <a name="what-to-expect"></a>예상 프로그램
 
-예상한 것처럼 SQL 풀은 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL 풀의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다.
+짐작할 수 있듯이 전용 SQL 풀은 데이터 웨어하우스 워크 로드의 일부로 트랜잭션을 지원 합니다. 그러나 전용 SQL 풀의 성능이 대규모로 유지 되도록 하기 위해 SQL Server에 비해 일부 기능이 제한 됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다.
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
 
@@ -92,7 +92,7 @@ SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 �
 SQL 풀은 XACT_STATE() 함수를 사용하여 값 -2를 사용하는 실패한 트랜잭션을 보고합니다. 이 값은 트랜잭션이 실패하고 롤백만 표시함을 의미합니다.
 
 > [!NOTE]
-> XACT_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0`은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다. 또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 SQL 풀은 이를 허용하지 않습니다. SQL 풀의 트랜잭션 내부에서 오류가 발생하는 경우 자동으로 -2 상태가 되며, 해당 명령문이 롤백될 때까지 추가 select 문을 실행할 수 없습니다. 따라서 코드를 수정해야 할 수 있으므로 XACT_STATE()가 사용되는지 알기 위해 해당 애플리케이션 코드를 확인하는 것이 중요합니다.
+> XACT_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0`은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다. 또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 전용 SQL 풀을 사용 하면이 작업을 수행할 수 없습니다. 전용 SQL 풀 트랜잭션 내에서 오류가 발생 하는 경우-2 상태가 자동으로 시작 되 고 문이 롤백될 때까지 추가 select 문을 수행할 수 없습니다. 따라서 코드를 수정해야 할 수 있으므로 XACT_STATE()가 사용되는지 알기 위해 해당 애플리케이션 코드를 확인하는 것이 중요합니다.
 
 예를 들어 SQL Server에서 다음과 같은 트랜잭션이 나타날 수 있습니다.
 
@@ -138,7 +138,7 @@ Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되�
 
 또한 ERROR_* 함수의 출력도 제공되지 않습니다.
 
-SQL 풀에서 코드는 약간 변경 해야 합니다.
+전용 SQL 풀에서 코드는 약간 변경 해야 합니다.
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ SELECT @xact_state AS TransactionState;
 
 ## <a name="error_line-function"></a>Error_Line() 함수
 
-SQL 풀이 ERROR_LINE() 함수를 구현하거나 지원하지 않는다는 점도 주목할 가치가 있습니다. 코드에이 함수가 있는 경우 SQL 풀과 호환 되도록 제거 해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](develop-label.md) 문서를 참조 하세요.
+또한 전용 SQL 풀은 ERROR_LINE () 함수를 구현 하거나 지원 하지 않습니다. 코드에이 함수가 있는 경우 전용 SQL 풀과 호환 되도록 제거 해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](develop-label.md) 문서를 참조 하세요.
 
 ## <a name="use-of-throw-and-raiserror"></a>THROW 및 RAISERROR 사용
 
-THROW는 SQL 풀에서 예외를 발생시키기 위한 가장 최신 구현이지만 RAISERROR도 지원됩니다. 그러나 다음 몇 가지 사항에 주의해야 합니다.
+THROW는 전용 SQL 풀에서 예외를 발생 시키는 최신 구현 이지만 RAISERROR도 지원 됩니다. 그러나 다음 몇 가지 사항에 주의해야 합니다.
 
 * 사용자 정의 오류 메시지 번호는 10만-15만 범위에 있을 수 없습니다.
 * RAISERROR 오류 메시지는 50,000으로 고정됩니다.
@@ -204,4 +204,4 @@ SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. [SQL 풀](best-practices-sql-pool.md) 및 [SQL 주문형(미리 보기)](best-practices-sql-on-demand.md)에 대한 추가 모범 사례 가이드도 제공됩니다.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. [Sql 풀](best-practices-sql-pool.md) 및 서버를 사용 하지 않는 [sql 풀 (미리 보기)](best-practices-sql-on-demand.md)에 대 한 추가 모범 사례 가이드도 제공 됩니다.

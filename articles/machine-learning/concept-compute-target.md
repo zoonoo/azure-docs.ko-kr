@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841958"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322294"
 ---
-# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란?
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
 *계산 대상은* 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 지정 된 계산 리소스 또는 환경입니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 나중에 코드를 변경할 필요 없이 계산 환경을 쉽게 변경할 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 
 * 데이터 일괄 처리를 주기적으로 처리 하는 데 사용 되는 _일괄 처리 유추_ 끝점입니다. Batch 추론는 [계산 클러스터 Azure Machine Learning](how-to-create-attach-compute-cluster.md)를 사용 합니다.
 
-* _IoT 장치로_ (미리 보기). IoT 장치에 배포 하는 Azure Machine Learning에만 Docker 컨테이너를 빌드하는 데 사용 됩니다. 여기에서 Azure IoT Edge를 사용 하 여 배포 됩니다. 자세한 내용은 [IoT Edge 모듈로 배포 (미리 보기)](/azure/iot-edge/tutorial-deploy-machine-learning)를 참조 하세요.
+* _IoT 장치로_ (미리 보기). IoT 장치에 배포 하는 Azure Machine Learning에만 Docker 컨테이너를 빌드하는 데 사용 됩니다. 여기에서 Azure IoT Edge를 사용 하 여 배포 됩니다. 자세한 내용은 [IoT Edge 모듈로 배포 (미리 보기)](../iot-edge/tutorial-deploy-machine-learning.md)를 참조 하세요.
 
 [계산 대상에 모델을 배포 하는 위치 및 방법](how-to-deploy-and-where.md)에 대해 알아봅니다.
 
@@ -89,7 +89,7 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 
 ### <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 
-Azure Machine Learning에서 관리 되는 계산 리소스에 대 한 노드 크기를 선택 하면 Azure에서 사용할 수 있는 VM 크기 선택 중에서 선택할 수 있습니다. Azure는 다양 한 워크 로드에 대해 다양 한 크기의 Linux 및 Windows를 제공 합니다. 자세히 알아보려면 [VM 유형 및 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조 하세요.
+Azure Machine Learning에서 관리 되는 계산 리소스에 대 한 노드 크기를 선택 하면 Azure에서 사용할 수 있는 VM 크기 선택 중에서 선택할 수 있습니다. Azure는 다양 한 워크 로드에 대해 다양 한 크기의 Linux 및 Windows를 제공 합니다. 자세히 알아보려면 [VM 유형 및 크기](../virtual-machines/sizes.md)를 참조 하세요.
 
 VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습니다.
 
@@ -133,7 +133,7 @@ Azure Machine Learning compute는 특정 하드웨어 종류에 격리 되 고 �
 
 *RDMA 지원
 
-격리에 대해 자세히 알아보려면 [Azure 공용 클라우드에서 격리](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)를 참조 하세요.
+격리에 대해 자세히 알아보려면 [Azure 공용 클라우드에서 격리](../security/fundamentals/isolation-choices.md)를 참조 하세요.
 
 ## <a name="unmanaged-compute"></a>관리 되지 않는 계산
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322987"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -53,11 +53,11 @@ Azure Machine Learning 계정에서 리소스를 만들기 전에 [Azure 가격 
 
 ## <a name="get-cost-alerts"></a>비용 경고 가져오기
 
-[예산](../cost-management/tutorial-acm-create-budgets.md) 을 만들어 비용을 관리 하 고 관련자에 게 지출 및 과도 한 지출 위험을 자동으로 알리는 [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) 를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 그러나 예산 및 경고는 더 높은 수준에서 비용을 추적 하도록 설계 되었으므로 개별 Azure 서비스 비용을 관리 하는 기능이 제한 될 수 있습니다.
+[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md) 을 만들어 비용을 관리 하 고 관련자에 게 지출 및 과도 한 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) 를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대 한 예산과 경고가 생성 되므로 전체 비용 모니터링 전략의 일부로 유용 합니다. 그러나 예산 및 경고는 더 높은 수준에서 비용을 추적 하도록 설계 되었으므로 개별 Azure 서비스 비용을 관리 하는 기능이 제한 될 수 있습니다.
 
 ## <a name="monitor-costs"></a>비용 모니터링
 
-Azure Machine Learning에서 리소스를 사용 하는 경우 비용이 발생 합니다. Azure 리소스 사용 단위 비용은 시간 간격 (초, 분, 시간 및 일) 또는 요청 단위 사용에 따라 달라 집니다. Azure Machine Learning를 시작 하는 즉시 비용이 부과 됩니다. Azure Portal의 [비용 분석](../cost-management/quick-acm-cost-analysis.md) 창에서 이러한 비용을 확인 합니다.
+Azure Machine Learning에서 리소스를 사용 하는 경우 비용이 발생 합니다. Azure 리소스 사용 단위 비용은 시간 간격 (초, 분, 시간 및 일) 또는 요청 단위 사용에 따라 달라 집니다. Azure Machine Learning를 시작 하는 즉시 비용이 부과 됩니다. Azure Portal의 [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md) 창에서 이러한 비용을 확인 합니다.
 
 서로 다른 시간 간격에 대 한 그래프 및 테이블의 비용을 볼 수 있습니다. 예산 및 예상 비용에 대 한 비용을 볼 수도 있습니다. 시간이 지남에 따라 더 긴 보기로 전환 하면 지출 추세를 식별 하 고 과도 한 지출 발생 가능성을 확인할 수 있습니다. 예산을 만든 경우 초과 하는 위치를 참조 하세요.  
 
@@ -86,7 +86,7 @@ AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정
 + 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
-Amlcompute [SDK 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) [AMLCOMPUTE CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
+Amlcompute [SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) [AMLCOMPUTE CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

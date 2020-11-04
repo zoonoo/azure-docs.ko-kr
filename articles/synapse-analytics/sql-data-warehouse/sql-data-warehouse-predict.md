@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325383"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>PREDICT를 사용 하 여 기계 학습 모델 점수 매기기
 
 Synapse SQL은 익숙한 T-sql 언어를 사용 하 여 기계 학습 모델의 점수를 매기는 기능을 제공 합니다. T-sql [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)를 사용 하 여 기존 machine learning 모델을 기록 데이터로 학습 하 고 데이터 웨어하우스의 보안 경계 내에서 점수를 매길 수 있습니다. PREDICT 함수는 [Onnx (오픈 신경망 교환)](https://onnx.ai/) 모델 및 데이터를 입력으로 사용 합니다. 이 기능은 점수 매기기를 위해 데이터 웨어하우스 외부에서 중요 한 데이터를 이동 하는 단계를 제거 합니다. 데이터 전문가에 게 익숙한 T-sql 인터페이스를 사용 하 여 기계 학습 모델을 쉽게 배포 하 고, 해당 작업을 위한 올바른 프레임 워크로 작업 하는 데이터 과학자 원활 하 게 공동 작업을 수행 하는 것을 목표로 합니다.
 
 > [!NOTE]
-> 이 기능은 현재 주문형 SQL에서 지원 되지 않습니다.
+> 이 기능은 현재 서버를 사용 하지 않는 SQL 풀에서 지원 되지 않습니다.
 
 이 기능을 사용 하려면 모델을 Synapse SQL 외부에서 학습 해야 합니다. 모델을 작성 한 후 데이터 웨어하우스로 로드 하 고 T-sql Predict 구문을 사용 하 여 점수를 매기고 데이터에서 정보를 얻습니다.
 

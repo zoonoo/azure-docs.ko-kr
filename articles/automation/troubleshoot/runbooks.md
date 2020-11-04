@@ -2,16 +2,16 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e173e76b80717d6685e9a6b383ee98eddf910f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904805"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323489"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -42,7 +42,7 @@ Azure Automation에서 Runbook을 실행하는 동안 오류가 발생하면 다
     * 실행 계정이 만료되었으면 [인증서를 갱신](../manage-runas-account.md#cert-renewal)합니다.
     * 만료된 웹후크를 사용하여 Runbook을 시작하려면 [웹후크를 갱신](../automation-webhooks.md#renew-a-webhook)합니다.
     * 현재 Runbook 상태 및 문제의 가능한 원인을 확인하려면 [작업 상태를 확인](../automation-runbook-execution.md#job-statuses)합니다.
-    * Runbook이 일시 중단되기 전에 수행되는 작업을 식별하려면 [추가 출력을 Runbook에 추가](../automation-runbook-output-and-messages.md#monitor-message-streams)합니다.
+    * Runbook이 일시 중단되기 전에 수행되는 작업을 식별하려면 [추가 출력을 Runbook에 추가](../automation-runbook-output-and-messages.md#working-with-message-streams)합니다.
     * 작업에서 throw된 [예외를 처리](../automation-runbook-execution.md#exceptions)합니다.
 
 1. Runbook 작업 또는 Hybrid Runbook Worker의 환경에서 응답하지 않는 경우 이 단계를 수행합니다.
@@ -147,15 +147,15 @@ Run Login-AzureRMAccount to login.
 
 다른 구독의 리소스에 액세스하려면 다음 단계에 따라 권한을 구성합니다.
 
-1. Automation 실행 계정으로 이동하여 **애플리케이션 ID** 및 **지문**을 복사합니다.
+1. Automation 실행 계정으로 이동하여 **애플리케이션 ID** 및 **지문** 을 복사합니다.
 
     ![애플리케이션 ID 및 지문 복사](../media/troubleshoot-runbooks/collect-app-id.png)
 
-1. Automation 계정이 호스팅되지 *않은* 구독의 **액세스 제어**로 이동하여 새 역할 할당을 추가합니다.
+1. Automation 계정이 호스팅되지 *않은* 구독의 **액세스 제어** 로 이동하여 새 역할 할당을 추가합니다.
 
     ![Access Control](../media/troubleshoot-runbooks/access-control.png)
 
-1. 이전에 수집된 **애플리케이션 ID**를 추가합니다. **기여자** 권한을 선택합니다.
+1. 이전에 수집된 **애플리케이션 ID** 를 추가합니다. **기여자** 권한을 선택합니다.
 
     ![역할 할당 추가](../media/troubleshoot-runbooks/add-role-assignment.png)
 
@@ -201,7 +201,7 @@ The subscription named <subscription name> cannot be found.
 다음 단계에 따라 Azure에서 인증되고 선택하려고 하는 구독에 액세스할 수 있는 권한이 있는지 확인합니다.
 
 1. 스크립트가 독립 실행형으로 작동하는지 확인하기 위해 Azure Automation 외부에서 테스트합니다.
-1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet을 실행하는지 확인합니다.
+1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet을 실행하는지 확인합니다.
 1. Runbook의 시작 부분에 `Disable-AzContextAutosave –Scope Process`를 추가합니다. 이 cmdlet은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
 1. 오류 메시지가 계속 표시되면 `Connect-AzAccount`에 대한 `AzContext` 매개 변수를 추가하여 코드를 수정한 다음, 코드를 실행합니다.
 
@@ -291,7 +291,7 @@ Exception: A task was canceled.
 
 이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
 
-1. Automation 계정에서 **모듈**, **Azure 모듈 업데이트**를 차례로 선택합니다.
+1. Automation 계정에서 **모듈** , **Azure 모듈 업데이트** 를 차례로 선택합니다.
 1. 업데이트하는 데 약 15분 정도 걸립니다. 완료되면 실패한 Runbook을 다시 실행합니다.
 
 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
@@ -398,7 +398,7 @@ Object reference not set to an instance of an object
 
 ### <a name="resolution"></a>해결 방법
 
-폴링 논리를 구현하고 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet을 사용하여 출력을 검색합니다. 이 논리의 샘플은 다음과 같이 정의되어 있습니다.
+폴링 논리를 구현하고 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet을 사용하여 출력을 검색합니다. 이 논리의 샘플은 다음과 같이 정의되어 있습니다.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Azure Automation Runbook에 대한 웹후크를 호출하려고 하면 다음 �
 
 ### <a name="cause"></a>원인
 
-[자세한 정보 스트림](../automation-runbook-output-and-messages.md#monitor-verbose-stream)이 많은 Runbook에서 작업 출력을 검색하면 이 오류가 발생할 수 있습니다.
+[자세한 정보 스트림](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream)이 많은 Runbook에서 작업 출력을 검색하면 이 오류가 발생할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
 이 오류를 해결하려면 다음 중 하나를 수행합니다.
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
-* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 출력 스트림만 검색하도록 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet에 대한 `Stream` 매개 변수의 값을 설정할 수 있습니다. 
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 출력 스트림만 검색하도록 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet에 대한 `Stream` 매개 변수의 값을 설정할 수 있습니다. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 작업이 실패함
 
@@ -505,8 +505,8 @@ The quota for the monthly total job run time has been reached for this subscript
 
 1. Azure 구독에 로그인합니다.
 1. 업그레이드할 Automation 계정을 선택합니다.
-1. **설정**, **가격 책정**을 차례로 선택합니다.
-1. 페이지 아래쪽에서 **사용**을 선택하여 계정을 기본 계층으로 업그레이드합니다.
+1. **설정** , **가격 책정** 을 차례로 선택합니다.
+1. 페이지 아래쪽에서 **사용** 을 선택하여 계정을 기본 계층으로 업그레이드합니다.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>시나리오: Runbook 출력 스트림이 1mb를 초과 합니다.
 
@@ -576,7 +576,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 이 오류를 해결하는 방법은 두 가지가 있습니다.
 
-* [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)을 사용하는 대신 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작합니다.
+* [Start-Job](/powershell/module/microsoft.powershell.core/start-job)을 사용하는 대신 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)을 사용하여 Runbook을 시작합니다.
 * Hybrid Runbook Worker에서 Runbook 실행을 시도합니다.
 
 Azure Automation Runbook의 이 동작 및 다른 동작에 대한 자세한 내용은 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
@@ -605,8 +605,8 @@ Runbook이 Azure 샌드박스의 공평 분배에서 허용되는 3시간 제한
 
 자식 Runbook 시나리오를 사용하도록 설정하는 PowerShell cmdlet은 다음과 같습니다.
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식에 대한 작업 상태를 확인할 수 있습니다.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식에 대한 작업 상태를 확인할 수 있습니다.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>시나리오: get_SerializationSettings 메서드에 대한 작업 스트림 오류
 
@@ -642,7 +642,7 @@ Runbook 또는 애플리케이션이 Azure 샌드박스에서 실행하려고 �
 
 ### <a name="cause"></a>원인
 
-Azure 샌드박스에서 모든 out-of-process COM 서버에 대한 액세스를 차단하므로 이 문제가 발생할 수 있습니다. 예를 들어 샌드박스를 작동하는 애플리케이션 또는 Runbook은 WMI(Windows Management Instrumentation) 또는 Windows Installer 서비스(msiserver.exe)로 호출할 수 없습니다. 
+Azure 샌드박스에서 모든 out-of-process COM 서버에 대한 액세스를 차단하므로 이 문제가 발생할 수 있습니다. 예를 들어 샌드박스를 작동하는 애플리케이션 또는 Runbook은 WMI(Windows Management Instrumentation) 또는 Windows Installer 서비스(msiserver.exe)로 호출할 수 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -686,4 +686,4 @@ Key Vault에 액세스하는 데 충분한 권한이 실행 계정에 있도록 
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 지원에서 답변, 지원 및 전문가를 위해 Azure 커뮤니티에 연결합니다.
-* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

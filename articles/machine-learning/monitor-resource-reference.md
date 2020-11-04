@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323951"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -22,11 +22,11 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ## <a name="metrics"></a>메트릭
 
-이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces)입니다.
+이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)입니다.
 
-**모델**
+**모델링**
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 모델 배포 실패 | 개수 | 실패 한 모델 배포의 수입니다. |
 | 모델 배포가 시작 됨 | 개수 | 시작 된 모델 배포의 수입니다. |
@@ -38,7 +38,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 할당량 정보는 Azure Machine Learning 계산 전용입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 활성 코어 | 개수 | 활성 계산 코어의 수입니다. |
 | 활성 노드 | 개수 | 활성 노드 수입니다. |
@@ -56,7 +56,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 **리소스**
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | CpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 CPU의 양 (%)입니다. 이 메트릭은 노드에서 작업을 실행 하는 경우에만 게시 됩니다. 한 작업에서 하나 이상의 노드를 사용할 수 있습니다. 이 메트릭은 노드당 게시 됩니다. |
 | GpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 GPU의 비율입니다. 한 노드에 하나 이상의 Gpu가 있을 수 있습니다. 이 메트릭은 노드당 GPU 당 게시 됩니다. |
@@ -65,7 +65,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 학습 실행에 대 한 정보입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 완료 된 실행 | 개수 | 완료 된 실행 수입니다. |
 | 실패 한 실행 | 개수 | 실패 한 실행 수입니다. |
@@ -73,11 +73,11 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ## <a name="metric-dimensions"></a>메트릭 차원
 
-메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)을 참조 하세요.
+메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조 하세요.
 
 Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차원이 있습니다.
 
-| 차원 | Description |
+| 차원 | 설명 |
 | ---- | ---- |
 | 클러스터 이름 | 계산 인스턴스의 이름입니다. 모든 할당량 메트릭에 사용할 수 있습니다. |
 | Vm 제품군 이름 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. 할당량 사용률에 사용할 수 있습니다. |
@@ -87,13 +87,13 @@ Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차
 | NodeId | 작업이 실행 되는 위치에 생성 된 노드의 ID입니다. CpuUtilization 및 GpuUtilization에만 사용할 수 있습니다. |
 | RunId | 실행/작업의 ID입니다. CpuUtilization 및 GpuUtilization에만 사용할 수 있습니다. |
 | ComputeType | 실행에 사용 되는 계산 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
-| PipelineStepType | 실행에 사용 되는 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) 의 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
+| PipelineStepType | 실행에 사용 되는 [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) 의 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 | PublishedPipelineId | 실행에 사용 되는 게시 된 파이프라인의 ID입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 | RunType | 실행 유형입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 
 RunType 차원의 유효한 값은 다음과 같습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ----- | ----- |
 | 실험 | 비 파이프라인 실행 |
 | PipelineRun | 단계별 실행의 부모인 파이프라인 실행입니다. |
@@ -116,9 +116,9 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 
 이 섹션에서는 Azure Machine Learning 작업 영역에 대해 수집할 수 있는 리소스 로그 유형을 나열 합니다.
 
-리소스 공급자 및 유형: [MachineLearningServices/작업 영역](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+리소스 공급자 및 유형: [MachineLearningServices/작업 영역](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
-| Category | 표시 이름 |
+| 범주 | 표시 이름 |
 | ----- | ----- |
 | AmlComputeClusterEvent | AmlComputeClusterEvent |
 | AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
@@ -136,7 +136,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 |:--- |:---|
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
-| Category | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
+| 범주 | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
 | JobId | 제출 된 작업의 ID입니다. |
 | ExperimentId | 실험의 ID |
 | ExperimentName | 실험 이름 |
@@ -165,7 +165,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 |:--- |:--- |
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
-| Category | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
+| 범주 | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
 | ProvisioningState | 클러스터의 프로 비전 상태 |
 | ClusterName | 클러스터의 이름 |
 | ClusterType | 클러스터의 유형입니다. |
@@ -178,7 +178,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | MinimumNodeCount | 클러스터의 최소 노드 수 |
 | MaximumNodeCount | 클러스터의 최대 노드 수 |
 | NodeDeallocationOption | 노드의 할당을 취소 하는 방법 |
-| Publisher | 클러스터 유형 게시자 |
+| 게시자 | 클러스터 유형 게시자 |
 | 제안 | 클러스터가 생성 되는 제품 |
 | SKU | 클러스터 내에서 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
@@ -208,13 +208,13 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 |:--- |:--- |
 | TimeGenerated | 로그 항목이 생성 된 시간 |
 | OperationName | 로그 이벤트와 연결 된 작업의 이름입니다. |
-| Category | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
+| 범주 | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
 | ClusterName | 클러스터의 이름 |
 | NodeId | 만든 클러스터 노드의 ID |
 | VmSize | 노드의 Vm 크기 |
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
-| Publisher | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
+| 게시자 | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
 | 제안 | VM 만들기와 관련 된 제안 |
 | SKU | 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
@@ -231,4 +231,4 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 ## <a name="see-also"></a>참고 항목
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.

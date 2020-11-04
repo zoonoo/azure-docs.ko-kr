@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131159"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324222"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 프리미엄 계층
 
@@ -103,3 +103,12 @@ Azure Data Lake Storage에 대 한 프리미엄 계층은 다음 지역에서 �
 |오스트레일리아 동부|LRS, ZRS|
 |오스트레일리아 동남부|LRS|
 |브라질 남부|LRS|
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Databricks, Azure HDInsight 및 Azure Synapse Analytics와 같이 즐겨 사용 하는 분석 서비스와 Azure Data Lake Storage에 대 한 프리미엄 계층을 사용 합니다. 
+
+- [자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark](data-lake-storage-use-databricks-spark.md) 
+- [Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) 현재 HDInsight는 가속화 된 쓰기를 사용 하도록 설정 된 HBase 클러스터와 함께 프리미엄 성능 계층을 사용 하는 계정을 지원 합니다.
+- [빠른 시작: Synapse 작업 영역 만들기](../../synapse-analytics/quickstart-create-workspace.md)
+

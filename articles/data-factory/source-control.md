@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/08/2020
-ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/02/2020
+ms.openlocfilehash: 78e230453e256e90803b3607fa02904f90774881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637567"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325091"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -26,10 +26,14 @@ ms.locfileid: "92637567"
 - Data Factory 서비스는 사용자의 변경 사항을 위한 JSON 엔터티를 저장하는 리포지토리를 포함하지 않습니다. 변경 내용을 저장하는 유일한 방법은 **모두 게시** 단추를 사용하는 것이며 모든 변경 내용은 데이터 팩터리 서비스에 직접 게시됩니다.
 - Data Factory 서비스는 협업 및 버전 제어에 최적화되어 있지 않습니다.
 
-작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 이 자습서에서는 git 리포지토리에서 구성하고 작업하는 방법과 함께 모범 사례 및 문제 해결 가이드를 간략하게 설명합니다.
+작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 이 문서에서는 모범 사례 및 문제 해결 가이드를 강조 표시 하 여 git 리포지토리를 구성 하 고 사용 하는 방법을 간략하게 설명 합니다.
 
 > [!NOTE]
 > Azure Government 클라우드에서는 Azure Data Factory git 통합을 사용할 수 없습니다.
+
+Azure Data Factory와 Git를 통합 하는 방법에 대 한 자세한 내용은 아래의 15 분 자습서 비디오를 참조 하세요.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
 
 ## <a name="advantages-of-git-integration"></a>Git 통합의 장점
 
@@ -38,7 +42,7 @@ Git 통합이 작성 환경에 제공하는 일부 장점이 아래에 나열되
 -   **소스 제어:** 데이터 팩터리 워크로드가 중요해지면서 팩터리를 Git에 통합하여 다음과 같은 여러 소스 제어 이점을 활용할 수 있습니다.
     -   변경 내용을 추적/감사할 수 있습니다.
     -   버그를 발생한 변경 내용을 되돌릴 수 있습니다.
--   **부분 저장:** 데이터 팩터리 서비스에서 직접 작성하면 변경 내용을 초안으로 저장할 수 없으며 모든 게시는 데이터 팩터리 유효성 검사를 통과해야 합니다. 파이프라인이 완료되지 않았거나 컴퓨터 작동 중단 시 변경 사항을 잃지 않으려는 경우 git 통합을 사용하면 상태에 관계없이 데이터 팩터리 리소스를 점진적으로 변경할 수 있습니다. git 리포지토리를 구성하면 변경 사항을 저장하고 변경 사항을 만족스럽게 테스트한 경우에만 게시할 수 있습니다.
+-   **부분 저장:** 데이터 팩터리 서비스에서 직접 작성하면 변경 내용을 초안으로 저장할 수 없으며 모든 게시는 데이터 팩터리 유효성 검사를 통과해야 합니다. 파이프라인이 완료 되지 않았거나 컴퓨터가 충돌 하는 경우에만 변경 내용을 잃지 않으려는 경우, git 통합을 사용 하면 어느 상태에 있든 관계 없이 데이터 팩터리 리소스의 증분 변경 내용을 적용할 수 있습니다. git 리포지토리를 구성하면 변경 사항을 저장하고 변경 사항을 만족스럽게 테스트한 경우에만 게시할 수 있습니다.
 -   **협업 및 제어:** 동일한 팩터리에 기여하는 팀 멤버가 여러 명인 경우에는 코드 검토 프로세스를 통해 팀원이 서로 협업하도록 할 수 있습니다. 일부 기여자는 다른 권한을 갖도록 팩터리를 설정할 수도 있습니다. 일부 팀 멤버는 Git를 통해서만 변경할 수 있고, 팀에서 특정 사용자만 팩터리에 변경 내용을 게시하도록 허용할 수 있습니다.
 -   **CI/CD 향상:**  [지속적인 업데이트 프로세스](continuous-integration-deployment.md)를 통해 여러 환경에 배포하는 경우 GIT 통합을 통해 특정 작업을 더 쉽게 수행할 수 있습니다. 이러한 작업 중 일부는 다음을 포함합니다.
     -   'dev' 팩터리에 변경 사항이 생기는 즉시 자동으로 트리거되도록 릴리스 파이프라인을 구성합니다.
@@ -48,35 +52,51 @@ Git 통합이 작성 환경에 제공하는 일부 장점이 아래에 나열되
 > [!NOTE]
 > Git 리포지토리가 구성되면 Azure Data Factory UX에서 Data Factory 서비스를 사용하여 직접 작성할 수 없습니다. PowerShell 또는 SDK를 통해 수행 된 변경 내용은 Data Factory 서비스에 직접 게시 되며 Git에 입력 되지 않습니다.
 
+## <a name="connect-to-a-git-repository"></a>Git 리포지토리에 연결
+
+Azure Repos 및 GitHub에 대 한 Git 리포지토리를 데이터 팩터리에 연결 하는 방법에는 네 가지가 있습니다. Git 리포지토리에 연결한 후에는 **소스 제어** 섹션의 **git 구성** 에서 [관리 허브](author-management-hub.md) 의 구성을 보고 관리할 수 있습니다.
+
+### <a name="configuration-method-1-home-page"></a>구성 방법 1: 홈 페이지
+
+Azure Data Factory 홈 페이지에서 **코드 리포지토리 설정** 을 선택 합니다.
+
+![홈 페이지에서 코드 리포지토리 구성](media/author-visually/configure-repo.png)
+
+### <a name="configuration-method-2-authoring-canvas"></a>구성 방법 2: 캔버스 제작
+
+Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 설정** 을 선택합니다.
+
+![제작에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
+
+### <a name="configuration-method-3-management-hub"></a>구성 방법 3: 관리 허브
+
+ADF UX의 관리 허브로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **코드 리포지토리 설정** 을 클릭 합니다.
+
+![관리 허브에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-3.png)
+
+### <a name="configuration-method-4-during-factory-creation"></a>구성 방법 4: 팩터리를 만드는 동안
+
+Azure Portal에서 새 데이터 팩터리를 만들 때 **git 구성** 탭에서 git 리포지토리 정보를 구성할 수 있습니다.
+
+> [!NOTE]
+> Azure Portal에서 git를 구성 하는 경우 프로젝트 이름 및 리포지토리 이름과 같은 설정이 드롭다운에 포함 되는 대신 수동으로 입력 되어야 합니다.
+
+![Azure Portal에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-4.png)
+
 ## <a name="author-with-azure-repos-git-integration"></a>Azure Repos Git 통합을 통한 작성
 
 Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이프라인에서 작업하기 위한 원본 제어 및 협업을 지원합니다. 사용자는 원본 제어, 협업, 버전 관리 등을 위해 Azure Repos Git 조직 리포지토리와 데이터 팩터리를 연결할 수 있습니다. 단일 Azure Repos Git 계정이 여러 리포지토리를 포함할 수는 있지만 각 Azure Repos Git 리포지토리는 데이터 팩터리 하나에만 연결할 수 있습니다. Azure Repos 조직 또는 리포지토리가 없는 경우 [이러한 지침](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)에 따라 리소스를 만듭니다.
 
 > [!NOTE]
-> Azure Repos Git 리포지토리에 스크립트 및 데이터 파일을 저장할 수 있습니다. 그러나 Azure Storage에 파일을 수동으로 업로드해야 합니다. Data Factory 파이프라인은 Azure Repos Git 리포지토리에 저장된 스크립트 또는 데이터 파일을 자동으로 Azure Storage에 업로드하지 않습니다.
+> Azure Repos Git 리포지토리에 스크립트 및 데이터 파일을 저장할 수 있습니다. 그러나 Azure Storage에 파일을 수동으로 업로드해야 합니다. 데이터 팩터리 파이프라인은 Azure Repos Git 리포지토리에 저장 된 스크립트 또는 데이터 파일을 Azure Storage에 자동으로 업로드 하지 않습니다.
 
-### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Azure Data Factory를 통한 Azure Repos Git 리포지토리 구성
-
-데이터 팩터리를 사용해서 두 가지 방법으로 Azure Repos Git 리포지토리를 구성할 수 있습니다.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>구성 방법 1: Azure Data Factory 홈페이지
-
-Azure Data Factory 홈페이지에서 **코드 리포지토리 설정** 을 선택합니다.
-
-![Azure Repos 코드 리포지토리 구성](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>구성 방법 2: UX 제작 캔버스
-Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 설정** 을 선택합니다.
-
-![UX 제작을 위한 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
-
-두 방법 모두 리포지토리 설정 구성 창을 엽니다.
+### <a name="azure-repos-settings"></a>Azure Repos 설정
 
 ![코드 리포지토리 설정 구성](media/author-visually/repo-settings.png)
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -94,6 +114,9 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 ### <a name="use-a-different-azure-active-directory-tenant"></a>다른 Azure Active Directory 테넌트 사용
 
 Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 있을 수 없습니다. 다른 Azure AD 테넌트를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 [구독 관리자 변경](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator) 을 참조 하세요.
+
+> [!IMPORTANT]
+> 다른 Azure Active Directory에 연결 하려면 로그인 한 사용자가 Active Directory의 일부 여야 합니다. 
 
 ### <a name="use-your-personal-microsoft-account"></a>개인 Microsoft 계정 사용
 
@@ -117,27 +140,7 @@ Data Factory를 사용한 GitHub 통합은 공용 GitHub(즉, [https://github.co
 
 GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다.
 
-9분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
-
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
-
-### <a name="configure-a-github-repository-with-azure-data-factory"></a>Azure Data Factory를 통한 GitHub 리포지토리 구성
-
-데이터 팩터리를 사용해서 두 가지 방법으로 GitHub 리포지토리를 구성할 수 있습니다.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>구성 방법 1: Azure Data Factory 홈페이지
-
-Azure Data Factory 홈페이지에서 **코드 리포지토리 설정** 을 선택합니다.
-
-![Azure Repos 코드 리포지토리 구성](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>구성 방법 2: UX 제작 캔버스
-
-Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 설정** 을 선택합니다.
-
-![UX 제작을 위한 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
-
-두 방법 모두 리포지토리 설정 구성 창을 엽니다.
+### <a name="github-settings"></a>GitHub 설정
 
 ![GitHub 리포지토리 설정](media/author-visually/github-integration-image2.png)
 
@@ -155,6 +158,38 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX 제작 캔버스에서 기존 데이터 팩터리 리소스를 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 세트를 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기** | 데이터 팩터리 리소스(파이프라인, 데이터 세트, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 협업 b. 새로 만들기 c. 기존 리소스 사용 |  |
 
+### <a name="github-organizations"></a>GitHub 조직
+
+GitHub 조직에 연결 하려면 조직에서 Azure Data Factory에 대 한 권한을 부여 해야 합니다. 조직에 대 한 관리자 권한이 있는 사용자는 다음 단계를 수행 하 여 data factory의 연결을 허용 해야 합니다.
+
+#### <a name="connecting-to-github-for-the-first-time-in-azure-data-factory"></a>Azure Data Factory에서 처음으로 GitHub에 연결
+
+Azure Data Factory에서 GitHub에 처음으로 연결 하는 경우 다음 단계에 따라 GitHub 조직에 연결 합니다.
+
+1. Git 구성 창의 *GitHub 계정* 필드에 조직 이름을 입력 합니다. GitHub에 로그인 하 라는 메시지가 표시 됩니다. 
+1. 사용자 자격 증명을 사용 하 여 로그인 합니다.
+1. Azure Data Factory를 *AzureDataFactory* 이라는 응용 프로그램으로 권한을 부여 하 라는 메시지가 표시 됩니다. 이 화면에는 ADF에서 조직에 액세스할 수 있는 권한을 부여 하는 옵션이 표시 됩니다. 사용 권한을 부여 하는 옵션이 표시 되지 않으면 관리자에 게 GitHub를 통해 사용 권한을 수동으로 부여 하도록 요청 합니다.
+
+이러한 단계를 수행 하면 팩터리는 조직 내에서 공용 및 개인 리포지토리에 연결할 수 있습니다. 연결할 수 없는 경우 브라우저 캐시를 지우고 다시 시도 하세요.
+
+#### <a name="already-connected-to-github-using-a-personal-account"></a>개인 계정을 사용 하 여 GitHub에 이미 연결 됨
+
+GitHub에 이미 연결 되어 있고 개인 계정에 액세스할 수 있는 권한만 부여 하는 경우 아래 단계에 따라 조직에 사용 권한을 부여 합니다. 
+
+1. GitHub로 이동 하 여 **설정** 을 엽니다.
+
+    ![GitHub 설정 열기](media/author-visually/github-settings.png)
+
+1. **애플리케이션** 을 선택합니다. 승인 된 **OAuth 앱** 탭에 *AzureDataFactory* 이 표시 됩니다.
+
+    ![OAuth 앱 선택](media/author-visually/github-organization-select-application.png)
+
+1. 응용 프로그램을 선택 하 고 조직에 대 한 액세스 권한을 응용 프로그램에 부여 합니다.
+
+    ![액세스 권한 부여](media/author-visually/github-organization-grant.png)
+
+이러한 단계를 수행 하면 팩터리는 조직 내에서 공용 및 개인 리포지토리에 연결할 수 있습니다. 
+
 ### <a name="known-github-limitations"></a>알려진 GitHub 제한 사항
 
 - GitHub 리포지토리에 스크립트 및 데이터 파일을 저장할 수 있습니다. 그러나 Azure Storage에 파일을 수동으로 업로드해야 합니다. Data Factory 파이프라인은 GitHub 리포지토리에 저장된 스크립트 또는 데이터 파일을 자동으로 Azure Storage에 업로드하지 않습니다.
@@ -163,7 +198,6 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 - Data Factory 시각적 제작 도구와 GitHub 통합은 일반적으로 사용 가능한 Data Factory 버전에서만 작동합니다.
 
-- GitHub 조직 계정을 지원 하지 Azure Data Factory
 
 - 단일 GitHub 분기에서 리소스 유형(예: 파이프라인 및 데이터 세트)당 최대 1,000개의 엔터티를 가져올 수 있습니다. 이 한도에 도달하면 리소스를 별도의 팩터리에 분할하는 것이 좋습니다. Azure DevOps Git에는 이러한 제한 사항이 없습니다.
 
@@ -237,7 +271,7 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 1. 변경 내용을 협업 분기에 병합하는 끌어오기 요청을 만듭니다. 
 
 다음은 부실한 게시 분기를 유발할 수 있는 상황의 몇 가지 예입니다.
-- 사용자에게 분기가 여러 개 있습니다. 하나의 기능 분기에서 AKV와 관련이 없는 연결된 서비스를 삭제한 후(AKV 이외의 연결된 서비스는 Git에 있는지 여부에 관계없이 즉시 게시됨) 기능 분기를 협업 분기에 병합하지 않았습니다.
+- 사용자에게 분기가 여러 개 있습니다. 하나의 기능 분기에서 AKV 연결 되지 않은 연결 된 서비스를 삭제 했습니다. (AKV 연결 된 서비스는 Git에 있는지 여부에 관계 없이 즉시 게시 되며) 기능 분기를 공동 작업 분기에 병합 하지 않습니다.
 - 사용자가 SDK 또는 PowerShell을 사용하여 데이터 팩터리를 수정했습니다.
 - 사용자가 모든 리소스를 새 분기로 이동기고 처음으로 게시하려고 했습니다. 연결된 서비스는 리소스를 가져올 때 수동으로 만들어야 합니다.
 - 사용자가 AKV 이외의 연결된 서비스 또는 Integration Runtime JSON을 수동으로 업로드합니다. 데이터 세트, 연결된 서비스 또는 파이프라인과 같은 다른 리소스에서 해당 리소스를 참조합니다. UX를 통해 만든 AKV 이외의 연결된 서비스는 자격 증명을 암호화해야 하기 때문에 즉시 게시됩니다. 연결된 서비스를 참조하는 데이터 세트를 업로드하고 게시하려고 하면 UX에서 허용됩니다. Git 환경에 존재하기 때문입니다. 하지만 데이터 팩터리 서비스에 존재하지 않기 때문에 게시할 때 거부됩니다.

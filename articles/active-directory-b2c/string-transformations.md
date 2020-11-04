@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203438"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322155"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -80,10 +80,10 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - 입력 매개 변수:
-  - **stringComparison**:  ordinalIgnoreCase
+  - **stringComparison** :  ordinalIgnoreCase
 - 결과: 오류가 throw됨
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **email**: SomeOne@contoso.com
+  - **email** : SomeOne@contoso.com
 - 입력 매개 변수:
-    - **toCase**: LOWER
+    - **toCase** : LOWER
 - 출력 클레임:
-  - **email**: someone@contoso.com
+  - **email** : someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 매개 변수:
-    - **value**: Contoso 서비스 약관...
+    - **value** : Contoso 서비스 약관...
 - 출력 클레임:
-    - **createdClaim**: TOS ClaimType은 "Contoso 사용 약관..." 값을 포함합니다.
+    - **createdClaim** : TOS ClaimType은 "Contoso 사용 약관..." 값을 포함합니다.
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - 입력 매개 변수:
-    - **operator**:  NOT EQUAL
-    - **ignoreCase**: true
+    - **operator** :  NOT EQUAL
+    - **ignoreCase** : true
 - 출력 클레임:
-    - **outputClaim**: true
+    - **outputClaim** : true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ ms.locfileid: "85203438"
 
 ### <a name="example"></a>예제
 - 입력 클레임:
-    - **inputClaim1**: v1
+    - **inputClaim1** : v1
 - 입력 매개 변수:
-    - **compareTo**: V1
-    - **operator**: EQUAL
-    - **ignoreCase**: true
+    - **compareTo** : V1
+    - **operator** : EQUAL
+    - **ignoreCase** : true
 - 출력 클레임:
-    - **outputClaim**: true
+    - **outputClaim** : true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 매개 변수:
-    - **randomGeneratorType**: GUID
+    - **randomGeneratorType** : GUID
 - 출력 클레임:
-    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 다음 예제에서는 0에서 1000 사이의 임의 정수 값을 생성합니다. 값에는 OTP_{임의 값} 서식이 지정됩니다.
 
@@ -282,12 +282,12 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 매개 변수:
-    - **randomGeneratorType**: INTEGER
-    - **maximumNumber**: 1000
-    - **stringFormat**: OTP_{0}
-    - **base64**: false
+    - **randomGeneratorType** : INTEGER
+    - **maximumNumber** : 1000
+    - **stringFormat** : OTP_{0}
+    - **base64** : false
 - 출력 클레임:
-    - **outputClaim**: OTP_853
+    - **outputClaim** : OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -300,7 +300,7 @@ ms.locfileid: "85203438"
 | InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.  |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
-매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName**을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName**을 호출하여 **userPrincipalName**을 생성합니다.
+매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName** 을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName** 을 호출하여 **userPrincipalName** 을 생성합니다.
 
 ```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -319,11 +319,11 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
 - 입력 매개 변수:
-    - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat** : cpim_{0}@{RelyingPartyTenantId}
 - 출력 클레임:
-  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -336,7 +336,7 @@ ms.locfileid: "85203438"
 | InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.   |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
-두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName**을 만듭니다.
+두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName** 을 만듭니다.
 
 ```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
@@ -356,12 +356,12 @@ ms.locfileid: "85203438"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim1**: Joe
-    - **inputClaim2**: Fernando
+    - **inputClaim1** : Joe
+    - **inputClaim2** : Fernando
 - 입력 매개 변수:
-    - **stringFormat**: {0} {1}
+    - **stringFormat** : {0} {1}
 - 출력 클레임:
-    - **outputClaim**: Joe Fernando
+    - **outputClaim** : Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -411,7 +411,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 </Localization>
 ```
 
-클레임 변환은 `StringId` *email_subject* 값을 사용하여 클레임 형식 *subject*의 값을 설정합니다.
+클레임 변환은 `StringId` *email_subject* 값을 사용하여 클레임 형식 *subject* 의 값을 설정합니다.
 
 ```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -427,10 +427,10 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 출력 클레임:
-  - **subject**: Contoso 계정 이메일 확인 코드
-  - **message**: 계정을 확인해 주셔서 감사합니다.
-  - **codeIntro**: 코드는 다음과 같습니다.
-  - **signature**: 감사합니다.
+  - **subject** : Contoso 계정 이메일 확인 코드
+  - **message** : 계정을 확인해 주셔서 감사합니다.
+  - **codeIntro** : 코드는 다음과 같습니다.
+  - **signature** : 감사합니다.
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -464,7 +464,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -472,9 +472,9 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **mapFromClaim**: B2C_V1_90001
+    - **mapFromClaim** : B2C_V1_90001
 - 출력 클레임:
-    - **restrictionValueClaim**: 미성년자는 로그인할 수 없습니다.
+    - **restrictionValueClaim** : 미성년자는 로그인할 수 없습니다.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputParameterId**: test.com
+    - **inputParameterId** : test.com
 - 입력 매개 변수:
-    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**: false
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup** : false
 - 출력 클레임:
-    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim** :    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 `errorOnFailedLookup` 입력 매개 변수가 `true`로 설정된 경우 **LookupValue** 클레임 변환은 항상 [자체 어설션 기술 프로필](validation-technical-profile.md)에서 호출한 [유효성 검사 기술 프로필](self-asserted-technical-profile.md) 또는 [DisplayConrtol](display-controls.md)에서 실행됩니다. 자체 어설션 기술 프로필의 `LookupNotFound` 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
 
@@ -544,12 +544,12 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputParameterId**: live.com
+    - **inputParameterId** : live.com
 - 입력 매개 변수:
-    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**: true
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup** : true
 - 오류:
     - 입력 매개 변수 ID 목록에 입력 클레임 값과 일치하는 항목이 없으며 errorOnFailedLookup이 true입니다.
 
@@ -573,9 +573,9 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ```
 
 - 입력 클레임:
-    - **outputClaim**: Welcome to Contoso App. 이 웹 사이트를 계속 검색 및 사용하는 경우 다음 사용 약관을 준수하며 해당 약관에 구속됨에 동의하게 됩니다.
+    - **outputClaim** : Welcome to Contoso App. 이 웹 사이트를 계속 검색 및 사용하는 경우 다음 사용 약관을 준수하며 해당 약관에 구속됨에 동의하게 됩니다.
 - 출력 클레임:
-    - **outputClaim**: NULL
+    - **outputClaim** : NULL
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **emailAddress**: joe@outlook.com
+  - **emailAddress** : joe@outlook.com
 - 출력 클레임:
-    - **domain**: outlook.com
+    - **domain** : outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ```
 
 - 입력 클레임:
-    - **claimToMatch**: "64854114520"
+    - **claimToMatch** : "64854114520"
 - 입력 매개 변수:
-    - **matchTo**: "^[0-9]{4,16}$"
-    - **outputClaimIfMatched**:  "isPhone"
+    - **matchTo** : "^[0-9]{4,16}$"
+    - **outputClaimIfMatched** :  "isPhone"
 - 출력 클레임:
-    - **outputClaim**: "isPhone"
-    - **regexCompareResultClaim**: true
+    - **outputClaim** : "isPhone"
+    - **regexCompareResultClaim** : true
 
 ### <a name="example-2"></a>예제 2
 
@@ -672,15 +672,15 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ```
 
 - 입력 클레임:
-    - **claimToMatch**: "emily@contoso.com"
+    - **claimToMatch** : "emily@contoso.com"
 - 입력 매개 변수:
-    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched**:  "isEmail"
-    - **extractGroups**: true
+    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched** :  "isEmail"
+    - **extractGroups** : true
 - 출력 클레임:
-    - **outputClaim**: "isEmail"
-    - **regexCompareResultClaim**: true
-    - **mailAlias**: emily
+    - **outputClaim** : "isEmail"
+    - **regexCompareResultClaim** : true
+    - **mailAlias** : emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: v1
+    - **inputClaim** : v1
 - 입력 매개 변수:
-    - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase
-    - **stringMatchMsg**:  B2C_V1_90005
-    - **stringMatchMsgCode**:  The TOS is upgraded to v2
+    - **matchTo** : V1
+    - **stringComparison** : ordinalIgnoreCase
+    - **stringMatchMsg** :  B2C_V1_90005
+    - **stringMatchMsgCode** :  The TOS is upgraded to v2
 - 출력 클레임:
-    - **outputClaim1**: B2C_V1_90005
-    - **outputClaim2**: The TOS is upgraded to v2
-    - **stringCompareResultClaim**: true
+    - **outputClaim1** : B2C_V1_90005
+    - **outputClaim2** : The TOS is upgraded to v2
+    - **stringCompareResultClaim** : true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **claimToMatch**: Minor
+    - **claimToMatch** : Minor
 - 입력 매개 변수:
-    - **matchTo**: Minor
-    - **stringComparison**: ordinalIgnoreCase
-    - **outputClaimIfMatched**:  B2C_V1_90001
+    - **matchTo** : Minor
+    - **stringComparison** : ordinalIgnoreCase
+    - **outputClaimIfMatched** :  B2C_V1_90001
 - 출력 클레임:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode** : B2C_V1_90001
+    - **isMinor** : true
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -787,7 +787,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 |InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
 | OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 입력 클레임 내에서 substring이 발생하는 경우의 부울 표시기입니다. |
 
-이 클레임 변환을 사용하여 문자열 클레임 형식에 substring이 포함되어 있는지 확인합니다. 다음 예에서는 `roles` 문자열 클레임 형식이 **admin**의 값을 포함하는지 확인합니다.
+이 클레임 변환을 사용하여 문자열 클레임 형식에 substring이 포함되어 있는지 확인합니다. 다음 예에서는 `roles` 문자열 클레임 형식이 **admin** 의 값을 포함하는지 확인합니다.
 
 ```xml
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
@@ -807,12 +807,12 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: "Admin, Approver, Editor"
+    - **inputClaim** : "Admin, Approver, Editor"
 - 입력 매개 변수:
-    - **contains**: "admin,"
-    - **ignoreCase**: true
+    - **contains** : "admin,"
+    - **ignoreCase** : true
 - 출력 클레임:
-    - **outputClaim**: true
+    - **outputClaim** : true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: "+1644114520"
+    - **inputClaim** : "+1644114520"
 - 입력 매개 변수:
-    - **startIndex**: 0
-    - **length**:  2
+    - **startIndex** : 0
+    - **length** :  2
 - 출력 클레임:
-    - **outputClaim**: "+1"
+    - **outputClaim** : "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: "+164-411-452-054"
+    - **inputClaim** : "+164-411-452-054"
 - 입력 매개 변수:
-    - **oldValue**: "-"
-    - **length**:  ""
+    - **oldValue** : "-"
+    - **newValue** : ""
 - 출력 클레임:
-    - **outputClaim**: "+164411452054"
+    - **outputClaim** : "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+  - **inputClaim** : [ "Admin", "Author", "Reader" ]
 - 입력 매개 변수:
-  - **delimiter**: ","
+  - **delimiter** : ","
 - 출력 클레임:
-  - **outputClaim**: "Admin,Author,Reader"
+  - **outputClaim** : "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **inputClaim**: "Admin,Author,Reader"
+  - **inputClaim** : "Admin,Author,Reader"
 - 입력 매개 변수:
-  - **delimiter**: ","
+  - **delimiter** : ","
 - 출력 클레임:
-  - **outputClaim**: [ "Admin", "Author", "Reader" ]
+  - **outputClaim** : [ "Admin", "Author", "Reader" ]
 
 ## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
 Azure AD B2C 사용자 지정 정책의 클레임 변환 식은 테넌트 ID 및 기술 프로필 ID에 대한 컨텍스트 정보를 제공합니다.

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998692"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325515"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>암호화 된 추론 웹 서비스를 배포 하는 방법 (미리 보기)
 
-[ACI(Azure Container Instance)](https://docs.microsoft.com/azure/container-instances/)에서 암호화된 추론 서비스로 이미지 분류 모델을 배포하는 방법을 알아봅니다. 웹 서비스는 모델 및 채점 로직을 포함하는 Docker 컨테이너 이미지입니다.
+[ACI(Azure Container Instance)](../container-instances/index.yml)에서 암호화된 추론 서비스로 이미지 분류 모델을 배포하는 방법을 알아봅니다. 웹 서비스는 모델 및 채점 로직을 포함하는 Docker 컨테이너 이미지입니다.
 
 이 가이드에서는 Azure Machine Learning Service를 사용하여 다음을 수행합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "91998692"
 > * 암호화된 예측 만들기
 > * 리소스 정리
 
-ACI는 모델 배포 워크플로를 테스트 및 이해하기 위한 훌륭한 솔루션입니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)를 참조하세요.
+ACI는 모델 배포 워크플로를 테스트 및 이해하기 위한 훌륭한 솔루션입니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](./how-to-deploy-and-where.md)를 참조하세요.
 
 이 샘플에서 사용되는 암호화 방법은 [동형 암호화](https://github.com/Microsoft/SEAL#homomorphic-encryption)입니다. 동형 암호화에서는 비밀(암호 해독) 키 액세스 없이도 암호화된 데이터에 대해 계산을 수행할 수 있습니다. 계산 결과는 암호화되며 비밀 키의 소유자만 볼 수 있습니다. 
 
@@ -202,7 +202,7 @@ print(service.scoring_uri)
 
 ## <a name="prepare-test-data"></a>테스트 데이터 준비
 
-1. 테스트 데이터를 다운로드합니다. 이 경우 *data*라는 디렉터리에 저장됩니다.
+1. 테스트 데이터를 다운로드합니다. 이 경우 *data* 라는 디렉터리에 저장됩니다.
 
     ```python
     import os

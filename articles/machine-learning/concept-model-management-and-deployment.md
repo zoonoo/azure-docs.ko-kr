@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324835"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -34,11 +34,11 @@ Azure Machine Learning는 다음과 같은 MLOps 기능을 제공 합니다.
 
 - **재현 가능한 ML 파이프라인을 만듭니다**. Machine Learning 파이프라인을 사용 하 여 데이터 준비, 학습 및 점수 매기기 프로세스에 대해 반복 가능 하 고 재사용 가능한 단계를 정의할 수 있습니다.
 - 모델 학습 및 배포를 위한 **재사용 가능한 소프트웨어 환경을 만듭니다** .
-- **어디에서 나 모델을 등록 하 고 패키지 하 고 배포**합니다. 또한 모델을 사용 하는 데 필요한 연결 된 메타 데이터를 추적할 수 있습니다.
+- **어디에서 나 모델을 등록 하 고 패키지 하 고 배포** 합니다. 또한 모델을 사용 하는 데 필요한 연결 된 메타 데이터를 추적할 수 있습니다.
 - **종단 간 ML 수명 주기에 대 한 거 버 넌 스 데이터를 캡처합니다**. 기록 된 정보에는 모델을 게시 하는 사람, 변경 된 이유 및 프로덕션 환경에서 모델을 배포 하거나 사용한 시기 등이 포함 될 수 있습니다.
-- **ML 수명 주기의 이벤트를 알리고 경고**합니다. 예를 들면 실험 완료, 모델 등록, 모델 배포 및 데이터 드리프트 검색입니다.
-- **Ml 응용 프로그램을 모니터링 하 여 운영 및 ml 관련 문제를 해결**합니다. 학습 및 유추 간에 모델 입력을 비교 하 고, 모델 관련 메트릭을 탐색 하 고, ML 인프라에 대 한 모니터링 및 경고를 제공 합니다.
-- **Azure Machine Learning 및 Azure Pipelines를 사용 하 여 종단 간 ML 수명 주기를 자동화**합니다. 파이프라인을 사용 하면 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃할 수 있습니다.
+- **ML 수명 주기의 이벤트를 알리고 경고** 합니다. 예를 들면 실험 완료, 모델 등록, 모델 배포 및 데이터 드리프트 검색입니다.
+- **Ml 응용 프로그램을 모니터링 하 여 운영 및 ml 관련 문제를 해결** 합니다. 학습 및 유추 간에 모델 입력을 비교 하 고, 모델 관련 메트릭을 탐색 하 고, ML 인프라에 대 한 모니터링 및 경고를 제공 합니다.
+- **Azure Machine Learning 및 Azure Pipelines를 사용 하 여 종단 간 ML 수명 주기를 자동화** 합니다. 파이프라인을 사용 하면 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃할 수 있습니다.
 
 ## <a name="create-reproducible-ml-pipelines"></a>재현 가능한 ML 파이프라인 만들기
 
@@ -46,7 +46,7 @@ Azure Machine Learning의 ML 파이프라인을 사용 하 여 모델 학습 프
 
 ML 파이프라인은 모델 평가에 대 한 하이퍼 매개 변수 조정에 대 한 데이터 준비의 단계를 포함할 수 있습니다. 자세한 내용은 [ML 파이프라인](concept-ml-pipelines.md)을 참조 하세요.
 
-[디자이너](concept-designer.md) 를 사용 하 여 ML 파이프라인을 만드는 경우 언제 든 지 디자이너 페이지의 오른쪽 위에 있는 **"..."** 를 클릭 하 고 **복제**를 선택할 수 있습니다. 파이프라인을 복제 하면 이전 버전을 잃지 않고 파이프라인 디자인을 반복할 수 있습니다.  
+[디자이너](concept-designer.md) 를 사용 하 여 ML 파이프라인을 만드는 경우 언제 든 지 디자이너 페이지의 오른쪽 위에 있는 **"..."** 를 클릭 하 고 **복제** 를 선택할 수 있습니다. 파이프라인을 복제 하면 이전 버전을 잃지 않고 파이프라인 디자인을 반복할 수 있습니다.  
 
 ## <a name="create-reusable-software-environments"></a>재사용 가능한 소프트웨어 환경 만들기
 
@@ -70,6 +70,9 @@ Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 �
 
 활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
+
+> [!IMPORTANT]
+> `Tags`Azure Machine Learning Studio의 모델 페이지에서 필터링 기준 옵션을 사용 하는 경우 고객을 사용 하는 대신 `TagName : TagValue` `TagName=TagValue` (공간 없이)를 사용 해야 합니다.
 
 ### <a name="profile-models"></a>모델 프로필
 
@@ -106,7 +109,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가됩니다. 예를 들어, 웹 서비스를 실행하고 IoT Edge와 상호 작용하는 데 필요한 자산이 있습니다.
 
 #### <a name="batch-scoring"></a>일괄 처리 점수 매기기
-일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-use-parallel-run-step.md)을 참조 하세요.
+일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](./tutorial-pipeline-batch-scoring-classification.md)을 참조 하세요.
 
 #### <a name="real-time-web-services"></a>실시간 웹 서비스
 
@@ -136,13 +139,13 @@ Azure Kubernetes Service에 배포 하는 경우 제어 된 롤아웃을 사용 
 
 #### <a name="iot-edge-devices"></a>IoT Edge 장치
 
-**Azure IoT Edge 모듈**을 통해 IoT 장치에서 모델을 사용할 수 있습니다. IoT Edge 모듈은 장치에서 유추 또는 모델 점수 매기기를 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
+**Azure IoT Edge 모듈** 을 통해 IoT 장치에서 모델을 사용할 수 있습니다. IoT Edge 모듈은 장치에서 유추 또는 모델 점수 매기기를 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ### <a name="analytics"></a>분석
 
-Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)을 참조 하세요.
+Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](/power-bi/service-machine-learning-integration)을 참조 하세요.
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 캡처에 필요한 거 버 넌 스 데이터 캡처
 
@@ -156,9 +159,9 @@ Azure ML은 메타 데이터를 사용 하 여 모든 ML 자산의 종단간 감
 - [Azure와 통합](how-to-use-event-grid.md)  하면 ML 수명 주기의 이벤트에 대해 작업을 수행할 수 있습니다. 예를 들어 모델 등록, 배포, 데이터 드리프트 및 교육 (실행) 이벤트입니다.
 
 > [!TIP]
-> 모델 및 데이터 집합에 대 한 일부 정보는 자동으로 캡처되고 __태그__를 사용 하 여 추가 정보를 추가할 수 있습니다. 작업 영역에서 등록 된 모델 및 데이터 집합을 찾을 때 태그를 필터로 사용할 수 있습니다.
+> 모델 및 데이터 집합에 대 한 일부 정보는 자동으로 캡처되고 __태그__ 를 사용 하 여 추가 정보를 추가할 수 있습니다. 작업 영역에서 등록 된 모델 및 데이터 집합을 찾을 때 태그를 필터로 사용할 수 있습니다.
 >
-> 등록 된 모델을 사용 하 여 데이터 집합을 연결 하는 것은 선택적 단계입니다. 모델을 등록할 때 데이터 집합을 참조 하는 방법에 대 한 자세한 내용은 [모델](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) 클래스 참조를 참조 하세요.
+> 등록 된 모델을 사용 하 여 데이터 집합을 연결 하는 것은 선택적 단계입니다. 모델을 등록할 때 데이터 집합을 참조 하는 방법에 대 한 자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) 클래스 참조를 참조 하세요.
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>ML 수명 주기의 이벤트를 알리고, 자동화 하 고, 경고 합니다.

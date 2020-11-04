@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91342958"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322830"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
@@ -67,7 +67,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 ![점수 매기기 실험으로 변환](./media/publish-a-machine-learning-web-service/figure-1.png)
 
 ### <a name="set-up-web-service-button"></a>웹 서비스 설정 단추
-실험 캔버스 아래쪽의 **실행**을 클릭하여 실험을 실행한 후, **웹 서비스 설정** 단추를 클릭하여 **예측 웹 서비스** 옵션을 선택합니다. **웹 서비스 설정**에서는 학습 실험을 예측 실험으로 변환하는 세 단계를 수행합니다.
+실험 캔버스 아래쪽의 **실행** 을 클릭하여 실험을 실행한 후, **웹 서비스 설정** 단추를 클릭하여 **예측 웹 서비스** 옵션을 선택합니다. **웹 서비스 설정** 에서는 학습 실험을 예측 실험으로 변환하는 세 단계를 수행합니다.
 
 1. 모듈 팔레트의 **학습된 모델** 섹션(실험 캔버스의 왼쪽)에 학습된 모델을 저장합니다. 그런 다음 기계 학습 알고리즘과 [모델 학습][train-model] 모듈을 저장된 학습 모델로 바꿉니다.
 2. 실험을 분석하고, 분명히 학습에만 사용되었지만 더 이상 필요하지 않은 모듈을 제거합니다.
@@ -89,20 +89,20 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
   
     예를 들어 이 예제에서 샘플 데이터 세트에는 누락된 값이 있을 수 있으므로 이를 처리하기 위해 [누락된 데이터 정리][clean-missing-data] 모듈이 포함되어 있습니다. 또한 샘플 데이터 세트에는 모델을 학습하는 데 필요하지 않은 열도 포함되어 있습니다. 따라서 [데이터 세트의 열 선택][select-columns] 모듈이 데이터 흐름에서 이러한 여분의 열을 제외하기 위해 포함되었습니다. 점수 매기기를 위해 웹 서비스를 통해 제출할 데이터에 누락된 값이 있다는 것을 아는 경우 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다. 그러나 [데이터 세트의 열 선택][select-columns] 모듈은 학습된 모델에 필요한 데이터 열을 정의하는 데 유용하므로 해당 모듈을 유지해야 합니다.
 
-* **학습** - 이러한 모듈은 모델 학습에 사용됩니다. **웹 서비스 설정**을 클릭하면 이러한 모듈이 학습한 모델을 포함하는 단일 모듈로 바뀝니다. 이 새 모듈은 모듈 팔레트의 **학습한 모델** 섹션에 저장됩니다.
+* **학습** - 이러한 모듈은 모델 학습에 사용됩니다. **웹 서비스 설정** 을 클릭하면 이러한 모듈이 학습한 모델을 포함하는 단일 모듈로 바뀝니다. 이 새 모듈은 모듈 팔레트의 **학습한 모델** 섹션에 저장됩니다.
 
 * **점수** - 이 예제에서는 [분할 데이터][split] 모듈을 사용하여 데이터 스트림을 테스트 데이터와 학습 데이터로 나눕니다. 예측 실험에서는 더 이상 학습하지 않으므로 [분할 데이터][split]를 제거할 수 있습니다. 마찬가지로 두 번째 [모델 점수 매기기][score-model] 모듈 및 [모델 평가][evaluate-model] 모듈을 사용하여 테스트 데이터의 결과를 비교하므로 예측 실험에는 이러한 모듈도 필요하지 않습니다. 그러나 나머지 [모델 점수 매기기][score-model] 모듈은 웹 서비스를 통해 점수 결과를 반환하는 데 필요합니다.
 
-다음은 **웹 서비스 설정**을 클릭한 후 이 예제의 변화된 모양입니다.
+다음은 **웹 서비스 설정** 을 클릭한 후 이 예제의 변화된 모양입니다.
 
 ![변환된 예측 실험](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
-**웹 서비스 설정**에서 수행한 작업으로 실험을 웹 서비스로 배포하도록 준비하는 데 충분할 수 있습니다. 그러나 실험에 특정한 몇 가지 추가 작업을 수행할 수도 있습니다.
+**웹 서비스 설정** 에서 수행한 작업으로 실험을 웹 서비스로 배포하도록 준비하는 데 충분할 수 있습니다. 그러나 실험에 특정한 몇 가지 추가 작업을 수행할 수도 있습니다.
 
 #### <a name="adjust-input-and-output-modules"></a>입력 및 출력 모듈 조정
-학습 실험에서는 학습 데이터 집합을 사용한 다음 일부 처리를 수행하여 기계 학습 알고리즘에 필요한 형식의 데이터를 가져왔습니다. 웹 서비스를 통해 받아야 하는 데이터에 이 처리가 필요하지 않으면 무시할 수 있으며, **웹 서비스 입력 모듈**의 출력을 실험의 다른 모듈에 연결할 수 있습니다. 이제 사용자의 데이터가 이 위치의 모델에 도착합니다.
+학습 실험에서는 학습 데이터 집합을 사용한 다음 일부 처리를 수행하여 기계 학습 알고리즘에 필요한 형식의 데이터를 가져왔습니다. 웹 서비스를 통해 받아야 하는 데이터에 이 처리가 필요하지 않으면 무시할 수 있으며, **웹 서비스 입력 모듈** 의 출력을 실험의 다른 모듈에 연결할 수 있습니다. 이제 사용자의 데이터가 이 위치의 모델에 도착합니다.
 
-예를 들어 기본적으로 **웹 서비스 설정**은 위 그림과 같이 **웹 서비스 입력** 모듈을 데이터 흐름의 맨 위에 배치합니다. 그러나 다음과 같이 **웹 서비스 입력**을 데이터 처리 모듈 뒤에 수동으로 배치할 수 있습니다.
+예를 들어 기본적으로 **웹 서비스 설정** 은 위 그림과 같이 **웹 서비스 입력** 모듈을 데이터 흐름의 맨 위에 배치합니다. 그러나 다음과 같이 **웹 서비스 입력** 을 데이터 처리 모듈 뒤에 수동으로 배치할 수 있습니다.
 
 ![웹 서비스 입력 이동](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
@@ -138,7 +138,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 이제 예측 실험이 준비되었으므로 이를 새 Azure 웹 서비스(Resource Manager 기반)로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
-예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다.  Machine Learning Studio (클래식) 웹 서비스 포털의 배포 페이지가 열립니다.
+예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행** 을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포** 를 클릭하고 **웹 서비스 배포 [신규]** 를 선택합니다.  Machine Learning Studio (클래식) 웹 서비스 포털의 배포 페이지가 열립니다.
 
 > [!NOTE] 
 > 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용 하 여 웹 서비스 관리](manage-new-webservice.md)를 참조 하세요. 
@@ -149,8 +149,8 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 가격 책정 계획을 선택합니다. 기존 가격 책정 계획이 있는 경우 해당 계획을 선택하고 그렇지 않으면 서비스에 대한 새 가격 계획을 만들어야 합니다.
 
 1. **가격 계획** 드롭다운에서 기존 계획을 선택하거나 **새 계획 선택** 옵션을 선택합니다.
-2. **계획 이름**에 청구서의 계획을 식별하는 이름을 입력합니다.
-3. **월별 계획 계층**중 하나를 선택합니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
+2. **계획 이름** 에 청구서의 계획을 식별하는 이름을 입력합니다.
+3. **월별 계획 계층** 중 하나를 선택합니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
 
 **배포** 를 클릭 하면 웹 서비스에 대 한 **빠른** 시작 페이지가 열립니다.
 
@@ -164,17 +164,17 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 RRS 테스트 페이지에서는 실험에 대해 정의된 입력, 출력 및 모든 전역 매개 변수를 표시합니다. 웹 서비스를 테스트하려면 입력에 적절한 값을 수동으로 입력하거나 테스트 값을 포함하는 CSV(쉼표로 구분된 값) 형식의 파일을 제공할 수 있습니다.
 
-RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 입력하고 **요청-응답 테스트**를 클릭합니다. 예측 결과는 왼쪽의 출력 열에 표시됩니다.
+RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 입력하고 **요청-응답 테스트** 를 클릭합니다. 예측 결과는 왼쪽의 출력 열에 표시됩니다.
 
 ![적절 한 값을 입력 하 여 웹 서비스를 테스트 합니다.](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio (클래식)를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
+BES를 테스트하려면 **Batch** 를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio (클래식)를 사용 하 여 예측 실험을 만든 경우 예측 실험에 대 한 데이터 집합을 다운로드 하 여 사용할 수 있습니다.
 
-데이터 집합을 다운로드 하려면 Machine Learning Studio (클래식)를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 세트**를 선택한 다음, **다운로드**를 선택합니다.
+데이터 집합을 다운로드 하려면 Machine Learning Studio (클래식)를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 세트** 를 선택한 다음, **다운로드** 를 선택합니다.
 
 ![Studio (클래식) 캔버스에서 데이터 집합 다운로드](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-**테스트**를 클릭합니다. Batch 실행 작업의 상태는 **Batch 작업 테스트**의 오른쪽에 표시됩니다.
+**테스트** 를 클릭합니다. Batch 실행 작업의 상태는 **Batch 작업 테스트** 의 오른쪽에 표시됩니다.
 
 ![웹 서비스 포털을 사용 하 여 Batch 실행 작업 테스트](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
@@ -194,7 +194,7 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 
 ### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
 
-Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 웹 서비스를 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml.net/)에서 **웹 서비스**를 클릭 합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결 된 일괄 처리 작업을 모니터링 하려면 **Batch 요청 로그**를 클릭 합니다.
+Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 웹 서비스를 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml.net/)에서 **웹 서비스** 를 클릭 합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드** 를 클릭합니다. 웹 서비스와 연결 된 일괄 처리 작업을 모니터링 하려면 **Batch 요청 로그** 를 클릭 합니다.
 
 ### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> 여러 지역에 새 웹 서비스 배포
 
@@ -206,33 +206,33 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 
 1. [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/)에 로그인합니다.
 2. **계획** 메뉴 옵션을 클릭합니다.
-3. 보기 페이지의 계획에서 **새로 만들기**를 클릭합니다.
+3. 보기 페이지의 계획에서 **새로 만들기** 를 클릭합니다.
 4. **구독** 드롭다운에서 새 계획이 상주할 구독을 선택합니다.
 5. **지역** 드롭다운에서 새 계획에 대한 지역을 선택합니다. 선택한 영역에 대한 계획 옵션은 페이지의 **계획 옵션** 섹션에 표시됩니다.
 6. **리소스 그룹** 드롭다운에서 계획에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 7. **계획 이름** 에 계획의 이름을 입력합니다.
-8. **계획 옵션**에서 새 계획에 대한 청구 수준을 클릭합니다.
-9. **만들기**를 클릭합니다.
+8. **계획 옵션** 에서 새 계획에 대한 청구 수준을 클릭합니다.
+9. **만들기** 를 클릭합니다.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>다른 지역에 웹 서비스 배포
 
 1. Microsoft Azure Machine Learning 웹 서비스 페이지에서 **웹 서비스** 메뉴 옵션을 클릭합니다.
 2. 새 지역에 배포하는 웹 서비스를 선택합니다.
-3. **복사**를 클릭합니다.
-4. **웹 서비스 이름**에 웹 서비스의 새 이름을 입력합니다.
-5. **웹 서비스 설명**에 웹 서비스에 대한 설명을 입력합니다.
+3. **복사** 를 클릭합니다.
+4. **웹 서비스 이름** 에 웹 서비스의 새 이름을 입력합니다.
+5. **웹 서비스 설명** 에 웹 서비스에 대한 설명을 입력합니다.
 6. **구독** 드롭다운에서 새 웹 서비스가 상주할 구독을 선택합니다.
 7. **리소스 그룹** 드롭다운에서 웹 서비스에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 8. **지역** 드롭다운에서 웹 서비스를 배포할 지역을 선택합니다.
 9. **Storage 계정** 드롭다운에서 웹 서비스에 저장할 Storage 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
-11. **복사**를 클릭합니다.
+11. **복사** 를 클릭합니다.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>기존 웹 서비스로 배포
 
 이제 예측 실험이 충분히 준비되었으므로 이를 기존 Azure 웹 서비스로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
-예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭한 다음 **웹 서비스 배포**를 클릭합니다. 웹 서비스가 설정되고 웹 서비스 대시보드에 배치됩니다.
+예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행** 을 클릭한 다음 **웹 서비스 배포** 를 클릭합니다. 웹 서비스가 설정되고 웹 서비스 대시보드에 배치됩니다.
 
 ![Studio에서 웹 서비스 배포 (클래식)](./media/publish-a-machine-learning-web-service/figure-2.png)
 
@@ -240,7 +240,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 
 Machine Learning Studio (클래식) 웹 서비스 포털 또는 Machine Learning Studio (클래식)에서 웹 서비스를 테스트할 수 있습니다.
 
-리소스 요청 웹 서비스를 테스트하려면 웹 서비스 대시보드에서 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이러한 열이 점수 매기기 실험에 필요합니다. 데이터 집합을 입력하고 **확인**을 클릭합니다. 웹 서비스에서 생성된 결과가 대시보드 아래쪽에 표시됩니다.
+리소스 요청 웹 서비스를 테스트하려면 웹 서비스 대시보드에서 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이러한 열이 점수 매기기 실험에 필요합니다. 데이터 집합을 입력하고 **확인** 을 클릭합니다. 웹 서비스에서 생성된 결과가 대시보드 아래쪽에 표시됩니다.
 
 이전에 새 웹 서비스 섹션에 나와 있는 것 처럼 Azure Machine Learning Studio (클래식) 웹 서비스 포털에서 **테스트** 미리 보기 링크를 클릭 하 여 서비스를 테스트할 수 있습니다.
 
@@ -250,7 +250,7 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 **구성** 페이지에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 [Azure Portal](https://portal.azure.com/)에 이름과 설명이 표시됩니다.
 
-입력 **스키마**, **출력 스키마**및 **웹 서비스 매개 변수의**각 열에 대해 문자열을 입력 하 여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대 한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
+입력 **스키마** , **출력 스키마** 및 **웹 서비스 매개 변수의** 각 열에 대해 문자열을 입력 하 여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대 한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
 
 로깅을 사용하도록 설정하면 웹 서비스에 액세스할 때 나타나는 실패를 진단할 수 있습니다. 자세한 내용은 [Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용](web-services-logging.md)을 참조 하세요.
 
@@ -275,14 +275,14 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 ## <a name="update-the-web-service"></a>웹 서비스 업데이트
 추가 학습 데이터로 모델 업데이트와 같은 방식으로 웹 서비스를 변경하고 다시 배포하여 원래 웹 서비스를 덮어쓸 수 있습니다.
 
-웹 서비스를 업데이트 하려면 웹 서비스를 배포 하는 데 사용한 원래 예측 실험을 열고 다른 **이름으로 저장**을 클릭 하 여 편집 가능한 복사본을 만듭니다. 변경한 다음 **웹 서비스 배포**를 클릭합니다.
+웹 서비스를 업데이트 하려면 웹 서비스를 배포 하는 데 사용한 원래 예측 실험을 열고 다른 **이름으로 저장** 을 클릭 하 여 편집 가능한 복사본을 만듭니다. 변경한 다음 **웹 서비스 배포** 를 클릭합니다.
 
 이 실험을 이전에 배포했기 때문에 기존 서비스를 덮어쓰거나(기존 웹 서비스) 업데이트(새 웹 서비스)할지 묻는 메시지가 표시됩니다. **예** 또는 **업데이트** 를 클릭 하면 기존 웹 서비스가 중지 되 고 해당 위치에 새 예측 실험을 배포 합니다.
 
 > [!NOTE]
 > 예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
 
-웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 다시 학습 Machine Learning Studio (클래식) 모델](/azure/machine-learning/studio/retrain-machine-learning-model)을 참조 하세요.
+웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 다시 학습 Machine Learning Studio (클래식) 모델](./retrain-machine-learning-model.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -305,11 +305,11 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

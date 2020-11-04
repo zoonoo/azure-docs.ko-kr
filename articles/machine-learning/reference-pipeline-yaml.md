@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f7ee0e18187b0a5d8ad1eb83dbda9734a9ff7de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfeab990c841f6b65e665b4a8aabdfd8b251da60
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650182"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323910"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>YAML에서 기계 학습 파이프라인 정의
 
@@ -40,7 +40,7 @@ ms.locfileid: "89650182"
 
 ## <a name="pipeline-definition"></a>파이프라인 정의
 
-파이프라인 정의는 [파이프라인](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py&preserve-view=true) 클래스에 해당 하는 다음 키를 사용 합니다.
+파이프라인 정의는 [파이프라인](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?preserve-view=true&view=azure-ml-py) 클래스에 해당 하는 다음 키를 사용 합니다.
 
 | YAML 키 | 설명 |
 | ----- | ----- |
@@ -52,7 +52,7 @@ ms.locfileid: "89650182"
 
 ## <a name="parameters"></a>매개 변수
 
-이 `parameters` 섹션에서는 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py&preserve-view=true) 클래스에 해당 하는 다음 키를 사용 합니다.
+이 `parameters` 섹션에서는 [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py) 클래스에 해당 하는 다음 키를 사용 합니다.
 
 | YAML 키 | 설명 |
 | ---- | ---- |
@@ -80,7 +80,7 @@ pipeline:
 
 ## <a name="data-reference"></a>데이터 참조
 
-이 `data_references` 섹션에서는 [datareference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py&preserve-view=true)에 해당 하는 다음 키를 사용 합니다.
+이 `data_references` 섹션에서는 [datareference](/python/api/azureml-core/azureml.data.data_reference.datareference?preserve-view=true&view=azure-ml-py)에 해당 하는 다음 키를 사용 합니다.
 
 | YAML 키 | 설명 |
 | ----- | ----- |
@@ -108,12 +108,12 @@ pipeline:
 
 | 단계 유형 | 설명 |
 | ----- | ----- |
-| `AdlaStep` | Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트를 실행 합니다. [Adlastep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
-| `AzureBatchStep` | Azure Batch를 사용 하 여 작업을 실행 합니다. [Azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
-| `DatabricsStep` | Databricks 노트북, Python 스크립트 또는 JAR을 추가 합니다. [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
-| `DataTransferStep` | 저장소 옵션 간에 데이터를 전송 합니다. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
-| `PythonScriptStep` | Python 스크립트를 실행 합니다. [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
-| `ParallelRunStep` | Python 스크립트를 실행 하 여 대량의 데이터를 비동기적으로 병렬로 처리 합니다. [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) 클래스에 해당 합니다. |
+| `AdlaStep` | Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트를 실행 합니다. [Adlastep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
+| `AzureBatchStep` | Azure Batch를 사용 하 여 작업을 실행 합니다. [Azurebatchstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
+| `DatabricsStep` | Databricks 노트북, Python 스크립트 또는 JAR을 추가 합니다. [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
+| `DataTransferStep` | 저장소 옵션 간에 데이터를 전송 합니다. [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
+| `PythonScriptStep` | Python 스크립트를 실행 합니다. [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
+| `ParallelRunStep` | Python 스크립트를 실행 하 여 대량의 데이터를 비동기적으로 병렬로 처리 합니다. [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) 클래스에 해당 합니다. |
 
 ### <a name="adla-step"></a>ADLA 단계
 
@@ -122,8 +122,8 @@ pipeline:
 | `script_name` | 에 상대적인 U-SQL 스크립트의 이름 `source_directory` 입니다. |
 | `compute_target` | 이 단계에 사용할 Azure Data Lake 계산 대상입니다. |
 | `parameters` | 파이프라인에 대 한 [매개 변수](#parameters) 입니다. |
-| `inputs` | 입력은 [Inputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [datareference](#data-reference), [portdatareference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)수 있습니다. |
-| `outputs` | 출력은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 또는 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)중 하나일 수 있습니다. |
+| `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)수 있습니다. |
+| `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)중 하나일 수 있습니다. |
 | `source_directory` | 스크립트, 어셈블리 등을 포함 하는 디렉터리입니다. |
 | `priority` | 현재 작업에 사용할 우선 순위 값입니다. |
 | `params` | 이름-값 쌍의 사전입니다. |
@@ -171,8 +171,8 @@ pipeline:
 | YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Batch 계산 대상입니다. |
-| `inputs` | 입력은 [Inputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [datareference](#data-reference), [portdatareference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)수 있습니다. |
-| `outputs` | 출력은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 또는 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)중 하나일 수 있습니다. |
+| `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)수 있습니다. |
+| `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)중 하나일 수 있습니다. |
 | `source_directory` | 모듈 이진 파일, 실행 파일, 어셈블리 등을 포함 하는 디렉터리입니다. |
 | `executable` | 이 작업의 일부로 실행 되는 명령/실행 파일의 이름입니다. |
 | `create_pool` | 작업을 실행 하기 전에 풀을 만들지 여부를 나타내는 부울 플래그입니다. |
@@ -225,12 +225,12 @@ pipeline:
 | YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Databricks 계산 대상입니다. |
-| `inputs` | 입력은 [Inputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [datareference](#data-reference), [portdatareference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)수 있습니다. |
-| `outputs` | 출력은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 또는 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)중 하나일 수 있습니다. |
+| `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)수 있습니다. |
+| `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)중 하나일 수 있습니다. |
 | `run_name` | 이 실행에 대 한 Databricks의 이름입니다. |
 | `source_directory` | 스크립트 및 기타 파일을 포함 하는 디렉터리입니다. |
 | `num_workers` | Databricks 실행 클러스터에 대 한 고정 작업자 수입니다. |
-| `runconfig` | 파일에 대 한 경로 `.runconfig` 입니다. 이 파일은 [Runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) 클래스의 yaml 표현입니다. 이 파일의 구조에 대 한 자세한 내용은 [runconfigschema.js](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)를 참조 하세요. |
+| `runconfig` | 파일에 대 한 경로 `.runconfig` 입니다. 이 파일은 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) 클래스의 yaml 표현입니다. 이 파일의 구조에 대 한 자세한 내용은 [runconfigschema.js](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)를 참조 하세요. |
 | `allow_reuse` | 동일한 설정으로 다시 실행 하는 경우 단계에서 이전 결과를 다시 사용 해야 하는지 여부를 결정 합니다. |
 
 다음 예제에는 Databricks 단계가 포함 되어 있습니다.
@@ -279,8 +279,8 @@ pipeline:
 | YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Data Factory 계산 대상입니다. |
-| `source_data_reference` | 데이터 전송 작업의 원본으로 사용 되는 입력 연결입니다. 지원 되는 값은 [Inputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [datareference](#data-reference), [portdatareference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)입니다. |
-| `destination_data_reference` | 데이터 전송 작업의 대상으로 사용 되는 입력 연결입니다. 지원 되는 값은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 및 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)입니다. |
+| `source_data_reference` | 데이터 전송 작업의 원본으로 사용 되는 입력 연결입니다. 지원 되는 값은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)입니다. |
+| `destination_data_reference` | 데이터 전송 작업의 대상으로 사용 되는 입력 연결입니다. 지원 되는 값은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 및 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)입니다. |
 | `allow_reuse` | 동일한 설정으로 다시 실행 하는 경우 단계에서 이전 결과를 다시 사용 해야 하는지 여부를 결정 합니다. |
 
 다음 예제에는 데이터 전송 단계가 포함 되어 있습니다.
@@ -322,11 +322,11 @@ pipeline:
 
 | YAML 키 | 설명 |
 | ----- | ----- |
-| `inputs` | 입력은 [Inputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [datareference](#data-reference), [portdatareference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)수 있습니다. |
-| `outputs` | 출력은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 또는 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)중 하나일 수 있습니다. |
+| `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)수 있습니다. |
+| `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)중 하나일 수 있습니다. |
 | `script_name` | 에 상대적인 Python 스크립트의 이름 `source_directory` 입니다. |
 | `source_directory` | 스크립트, Conda 환경 등을 포함 하는 디렉터리입니다. |
-| `runconfig` | 파일에 대 한 경로 `.runconfig` 입니다. 이 파일은 [Runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) 클래스의 yaml 표현입니다. 이 파일의 구조에 대 한 자세한 내용은 [runconfig.js](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)를 참조 하세요. |
+| `runconfig` | 파일에 대 한 경로 `.runconfig` 입니다. 이 파일은 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) 클래스의 yaml 표현입니다. 이 파일의 구조에 대 한 자세한 내용은 [runconfig.js](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)를 참조 하세요. |
 | `allow_reuse` | 동일한 설정으로 다시 실행 하는 경우 단계에서 이전 결과를 다시 사용 해야 하는지 여부를 결정 합니다. |
 
 다음 예에는 Python 스크립트 단계가 포함 되어 있습니다.
@@ -369,11 +369,11 @@ pipeline:
 
 | YAML 키 | 설명 |
 | ----- | ----- |
-| `inputs` | 입력은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [datasetdefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)또는 [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true)일 수 있습니다. |
-| `outputs` | 출력은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 또는 [outputportbinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true)중 하나일 수 있습니다. |
+| `inputs` | 입력은 [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py)일 수 있습니다. |
+| `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py)중 하나일 수 있습니다. |
 | `script_name` | 에 상대적인 Python 스크립트의 이름 `source_directory` 입니다. |
 | `source_directory` | 스크립트, Conda 환경 등을 포함 하는 디렉터리입니다. |
-| `parallel_run_config` | 파일에 대 한 경로 `parallel_run_config.yml` 입니다. 이 파일은 [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py&preserve-view=true) 클래스의 yaml 표현입니다. |
+| `parallel_run_config` | 파일에 대 한 경로 `parallel_run_config.yml` 입니다. 이 파일은 [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py) 클래스의 yaml 표현입니다. |
 | `allow_reuse` | 동일한 설정으로 다시 실행 하는 경우 단계에서 이전 결과를 다시 사용 해야 하는지 여부를 결정 합니다. |
 
 다음 예제에는 병렬 실행 단계가 포함 되어 있습니다.
@@ -509,7 +509,7 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-**되풀이 일정**을 정의할 때 다음 키를 사용 합니다 `recurrence` .
+**되풀이 일정** 을 정의할 때 다음 키를 사용 합니다 `recurrence` .
 
 | YAML 키 | 설명 |
 | ----- | ----- |

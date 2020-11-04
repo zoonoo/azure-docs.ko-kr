@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959146"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324779"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Data Science Virtual Machine에서 공통 id 설정
 
@@ -23,9 +23,9 @@ Data Science Virtual Machine (DSVM)를 비롯 한 Microsoft Azure VM (가상 머
 
 Active Directory는 널리 사용 되는 id 공급자 이며, 클라우드 서비스와 온-프레미스 디렉터리로 Azure에서 지원 됩니다. Azure AD(Azure Active Directory) 또는 온-프레미스 Active Directory를 사용하여 독립 실행형 DSVM 또는 Azure 가상 머신 확장 집합의 DSVM 클러스터에서 사용자를 인증할 수 있습니다. DSVM 인스턴스를 Active Directory 도메인에 조인하여 수행합니다.
 
-Active Directory 이미 있는 경우이를 일반적인 id 공급자로 사용할 수 있습니다. Active Directory 없는 경우 [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (azure AD DS)를 통해 azure에서 관리 되는 Active Directory 인스턴스를 실행할 수 있습니다.
+Active Directory 이미 있는 경우이를 일반적인 id 공급자로 사용할 수 있습니다. Active Directory 없는 경우 [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) (azure AD DS)를 통해 azure에서 관리 되는 Active Directory 인스턴스를 실행할 수 있습니다.
 
-Azure [ad](https://docs.microsoft.com/azure/active-directory/) 에 대 한 설명서는 azure ad를 온-프레미스 디렉터리 (있는 경우)에 연결 하는 방법에 대 한 지침을 포함 하 여 자세한 [관리 지침](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)을 제공 합니다.
+Azure [ad](../../active-directory/index.yml) 에 대 한 설명서는 azure ad를 온-프레미스 디렉터리 (있는 경우)에 연결 하는 방법에 대 한 지침을 포함 하 여 자세한 [관리 지침](../../active-directory/hybrid/whatis-hybrid-identity.md)을 제공 합니다.
 
 이 문서에서는 azure AD DS를 사용 하 여 Azure에서 완전히 관리 되는 Active Directory 도메인 서비스를 설정 하는 방법을 설명 합니다. 그런 다음 DSVMs을 관리 되는 Active Directory 도메인에 조인할 수 있습니다. 이 접근 방식을 통해 사용자는 일반 사용자 계정 및 자격 증명을 통해 DSVMs (및 기타 Azure 리소스) 풀에 액세스할 수 있습니다.
 
@@ -37,29 +37,29 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
    1. 디렉터리에 대 한 전역 관리자 인 계정을 사용 하 여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
     
-   1. **Azure Active Directory**를 선택한 후 **사용자 및 그룹**을 선택합니다.
+   1. **Azure Active Directory** 를 선택한 후 **사용자 및 그룹** 을 선택합니다.
     
-   1. **사용자 및 그룹**에서 **모든 사용자**를 선택한 다음 **새 사용자**를 선택 합니다.
+   1. **사용자 및 그룹** 에서 **모든 사용자** 를 선택한 다음 **새 사용자** 를 선택 합니다.
    
         **사용자** 창이 열립니다.
       
         !["사용자" 창](./media/add-user.png)
     
-   1. **이름** 및 **사용자 이름**과 같은 사용자에 대한 세부 정보를 입력합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[domain name].onmicrosoft.com" 또는 "contoso.com"과 같은 확인되고 페더레이션되지 않은 [사용자 지정 도메인 이름](../../active-directory/add-custom-domain.md)이어야 합니다.
+   1. **이름** 및 **사용자 이름** 과 같은 사용자에 대한 세부 정보를 입력합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[domain name].onmicrosoft.com" 또는 "contoso.com"과 같은 확인되고 페더레이션되지 않은 [사용자 지정 도메인 이름](../../active-directory/fundamentals/add-custom-domain.md)이어야 합니다.
     
    1. 이 프로세스가 완료된 후 사용자에게 제공할 수 있도록 복사하거나 그렇지 않은 경우 생성된 사용자 암호를 기록합니다.
     
-   1. 필요에 따라 **프로필**, **그룹** 또는 사용자에 대한 **디렉터리 역할**의 정보를 열고 입력할 수 있습니다. 
+   1. 필요에 따라 **프로필** , **그룹** 또는 사용자에 대한 **디렉터리 역할** 의 정보를 열고 입력할 수 있습니다. 
     
-   1. **사용자**에서 **만들기**를 선택 합니다.
+   1. **사용자** 에서 **만들기** 를 선택 합니다.
     
    1. 생성 된 암호를 새 사용자에 게 안전 하 게 배포 하 여 로그인 할 수 있도록 합니다.
 
-1. Azure AD DS 인스턴스를 만듭니다. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 사용 ("인스턴스 만들기 및 기본 설정 구성" 섹션)의 지침을 따르세요. Azure AD DS의 암호가 동기화되도록 Active Directory에서 기존 사용자 암호를 업데이트해야 합니다. 또한이 섹션의 "Azure AD DS 인스턴스를 만들려면 Azure Portal의 기본 사항 창에서 필드 완료"에 설명 된 대로 Azure AD DS에 DNS를 추가 하는 것이 중요 합니다.
+1. Azure AD DS 인스턴스를 만듭니다. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md) 사용 ("인스턴스 만들기 및 기본 설정 구성" 섹션)의 지침을 따르세요. Azure AD DS의 암호가 동기화되도록 Active Directory에서 기존 사용자 암호를 업데이트해야 합니다. 또한이 섹션의 "Azure AD DS 인스턴스를 만들려면 Azure Portal의 기본 사항 창에서 필드 완료"에 설명 된 대로 Azure AD DS에 DNS를 추가 하는 것이 중요 합니다.
 
 1. 이전 단계의 "가상 네트워크 만들기 및 구성" 섹션에서 만든 가상 네트워크에 별도의 DSVM 서브넷을 만듭니다.
 1. DSVM 서브넷에서 DSVM 인스턴스를 하나 이상 만듭니다.
-1. [지침](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) 에 따라 dsvm을 Active Directory에 추가 합니다. 
+1. [지침](../../active-directory-domain-services/join-ubuntu-linux-vm.md) 에 따라 dsvm을 Active Directory에 추가 합니다. 
 1. 작업 영역을 모든 컴퓨터에 탑재할 수 있도록 홈 또는 노트북 디렉터리를 호스트 하는 Azure Files 공유를 탑재 합니다. (근접 한 파일 수준 사용 권한이 필요한 경우 하나 이상의 Vm에서 NFS (네트워크 파일 시스템)를 실행 해야 합니다.)
 
    1. [Azure Files 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
@@ -79,6 +79,3 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 ## <a name="next-steps"></a>다음 단계
 
 * [클라우드 리소스에 액세스하기 위한 자격 증명을 안전하게 저장](dsvm-secure-access-keys.md)
-
-
-

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325420"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -80,11 +80,11 @@ Notebook 페이지의 맨 위에 있는 도구를 사용하여 Notebook을 포�
 1. 계산 대상을 선택 하거나 새 **계산** 대상을 만들고 실행 될 때까지 기다립니다.
 1. **터미널 열기** 아이콘을 선택합니다.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="새 파일을 만듭니다.":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="터미널을 엽니다.":::
 
 1. 아이콘이 표시 되지 않으면 계산 대상의 오른쪽에 **있는 ...** 를 선택한 다음, **터미널 열기** 를 선택 합니다.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="새 파일을 만듭니다.":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="...에서 터미널 열기":::
 
 
 [작업 영역 파일 시스템에 Git 리포지토리를 복제하는 방법](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)에 대해 자세히 알아보세요.
@@ -116,7 +116,7 @@ Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있�
 1. 터미널 창 도구 모음 **에서 포커스 모드를 선택 하** 여 포커스 모드를 설정 합니다. 창 너비에 따라 도구 모음의 **...** 메뉴 항목 아래에 있을 수 있습니다.
 1. 포커스 모드에서 **표준 뷰** 를 선택 하 여 표준 뷰로 돌아갑니다.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="새 파일을 만듭니다.":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="포커스 모드/표준 뷰 설정/해제":::
 
 
 ### <a name="use-intellisense"></a>IntelliSense 사용
@@ -136,7 +136,8 @@ Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있�
 1. 모든 노트북 셀을 실행 합니다.
 1. 새 전자 필기장을 실행 하려는 코드가 포함 된 셀을 선택 합니다. 예를 들어 실험을 제출 하는 코드 또는 모델을 등록 하는 코드를 예로 들 수도 있습니다.
 1. 셀 도구 모음에 표시 되는 **수집** 아이콘을 선택 합니다.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="새 파일을 만듭니다." 노트북의 이름을 입력 합니다.  
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="스크린샷: 수집 아이콘을 선택 합니다.":::
+1. 새 "수집 된" 노트북의 이름을 입력 합니다.  
 
 새 노트북에는 코드 셀만 포함 되어 있으며, 모든 셀은 수집 하도록 선택한 셀과 동일한 결과를 생성 하는 데 필요 합니다.
 
@@ -146,7 +147,7 @@ Azure Machine Learning는 *ipynb* 파일을 만들 때 검사점 파일을 만�
 
 노트북 도구 모음에서 메뉴를 선택 하 고 **파일 &gt; 저장 및 검사점** 을 선택 하 여 노트북을 수동으로 저장 하 고 노트북에 연결 된 검사점 파일을 추가 합니다.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="새 파일을 만듭니다.":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="노트북 도구 모음에 있는 저장 도구의 스크린샷":::
 
 모든 노트북은 30 초 마다 자동으로 저장 됩니다. 자동 저장은 검사점 파일이 아닌 초기 *ip이상 b* 파일만 업데이트 합니다.
  
@@ -166,9 +167,9 @@ Azure Machine Learning는 *ipynb* 파일을 만들 때 검사점 파일을 만�
 
 ## <a name="delete-a-notebook"></a>Notebook을 삭제합니다.
 
-**샘플** Notebook을 삭제 *할 수 없습니다* .  이러한 Notebook은 스튜디오에 포함되어 있으며 새 SDK가 게시될 때마다 업데이트됩니다.  
+**샘플** Notebook을 삭제 *할 수 없습니다*.  이러한 Notebook은 스튜디오에 포함되어 있으며 새 SDK가 게시될 때마다 업데이트됩니다.  
 
-다음과 같은 방법으로 **사용자 파일** Notebook을 삭제 *할 수 있습니다* .
+다음과 같은 방법으로 **사용자 파일** Notebook을 삭제 *할 수 있습니다*.
 
 * 스튜디오에서 폴더 또는 파일의 끝에 있는 **...** 를 선택합니다.  지원되는 브라우저(Microsoft Edge, Chrome 또는 Firefox)를 사용해야 합니다.
 * 모든 Notebook 도구 모음에서 [**터미널 열기**](#terminal)를 선택하여 컴퓨팅 인스턴스에 대한 터미널 창에 액세스합니다.
@@ -187,7 +188,7 @@ Notebook에서 실험을 실행하려면 먼저 실행 중인 [컴퓨팅 인스�
 
 ### <a name="view-logs-and-output"></a>로그 및 출력 보기
 
-[Notebook 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
+[Notebook 위젯](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
 
 ## <a name="change-the-notebook-environment"></a>Notebook 환경 변경
 

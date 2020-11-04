@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330396"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323744"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -121,7 +121,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
 
-다음 샘플 코드를 참조 하 여 작업 영역에서 [등록 된 데이터 집합에 액세스할](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) 수 있습니다.
+다음 샘플 코드를 참조 하 여 작업 영역에서 [등록 된 데이터 집합에 액세스할](../how-to-create-register-datasets.md) 수 있습니다.
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
-    * **Dataset1**: 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
+    * **Dataset1** : 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
 
-    * **Dataset2**: 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
+    * **Dataset2** : 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
 
-    * **스크립트 번들**: 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
+    * **스크립트 번들** : 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
 
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 
@@ -194,7 +194,7 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
     > [!NOTE]
     > 기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
-1. 스크립트가 16kb 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 자 제한을 초과*하는 오류를 방지 합니다. 
+1. 스크립트가 16kb 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 자 제한을 초과* 하는 오류를 방지 합니다. 
     
     1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
     1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
@@ -216,7 +216,7 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
     }
     ```
 
-1.  **임의 초기값**의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
+1.  **임의 초기값** 의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
 
 1. 파이프라인을 제출합니다.  
 
@@ -237,7 +237,7 @@ R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 �
 
 R 스크립트 실행 모듈은 임의의 R 스크립트 파일을 입력으로 지원 합니다. 이를 사용 하려면 .zip 파일의 일부로 작업 영역에 업로드 해야 합니다.
 
-1. R 코드가 포함 된 .zip 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 합니다. **데이터 집합 만들기**를 선택한 다음 **로컬 파일에서** 를 선택 하 고 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
+1. R 코드가 포함 된 .zip 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 합니다. **데이터 집합 만들기** 를 선택한 다음 **로컬 파일에서** 를 선택 하 고 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
 
 1. 압축 된 파일이 왼쪽 모듈 트리의 **데이터 집합** 범주에 있는 **내 데이터 집합** 에 표시 되는지 확인 합니다.
 
@@ -289,7 +289,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 이 샘플에서는 .zip 파일의 데이터 집합을 R 스크립트 실행 모듈에 대 한 입력으로 사용 하는 방법을 보여 줍니다.
 
-1. CSV 형식의 데이터 파일을 만들고 이름을 **mydatafile.csv**로 지정 합니다.
+1. CSV 형식의 데이터 파일을 만들고 이름을 **mydatafile.csv** 로 지정 합니다.
 1. .Zip 파일을 만들고 저장소에 CSV 파일을 추가 합니다.
 1. 압축 파일을 Azure Machine Learning 작업 영역에 업로드 합니다. 
 1. 결과 데이터 집합을 **R 스크립트 실행** 모듈의 **scriptbundle** 입력에 연결 합니다.
@@ -505,4 +505,4 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

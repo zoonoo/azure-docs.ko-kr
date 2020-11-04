@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675686"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324820"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -27,7 +27,7 @@ Azure Machine Learning은 SDK를 사용 하는 코드 우선 솔루션에서 자
     | ----- | ----- |
     | [실행 구성](#run-configuration) | **모델을 학습 하는 일반적인 방법은** 학습 스크립트 및 실행 구성을 사용 하는 것입니다. 실행 구성은 모델 학습에 사용되는 학습 환경을 구성하는 데 필요한 정보를 제공합니다. 실행 구성에서 학습 스크립트, 계산 대상 및 Azure ML 환경을 지정 하 고 학습 작업을 실행할 수 있습니다. |
     | [자동화된 기계 학습](#automated-machine-learning) | 자동화된 기계 학습을 사용하면 **방대한 데이터 과학 또는 프로그래밍 지식 없이도 모델을 학습** 시킬 수 있습니다. 데이터 과학 및 프로그래밍에 대한 배경 지식이 있는 분들에게는 알고리즘 선택 및 하이퍼 매개 변수 튜닝을 자동화하여 시간과 리소스를 절약하는 방법을 제공합니다. 자동화된 기계 학습을 사용할 때 실행 구성 정의에 대해 걱정할 필요가 없습니다. |
-    | [기계 학습 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 **모듈식 재사용 가능 단계를 사용하여 워크플로를 정의하는 방법** 으로, 학습을 포함할 수 있습니다. 기계 학습 파이프라인은 자동화 된 기계 학습 및 실행 구성을 사용 하 여 모델을 학습 하도록 지원 합니다. 파이프라인은 특별히 학습에 집중하지 않으므로, 파이프라인을 사용하는 이유는 다른 학습 방법보다 다양합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용합니다.<br>* 장기 실행 학습 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약** 하려고 합니다.<br>* 이기종 컴퓨팅 리소스 및 스토리지 위치에서 조정되는 **여러 단계** 를 사용합니다.<br>* 재학습 또는 일괄 처리 채점 같은 특정 시나리오에서 파이프라인을 **재사용 가능 템플릿** 으로 사용합니다.<br>워크플로의 * **데이터 원본, 입력 및 출력을 추적하고 버전을 관리합니다** .<br>* **특정 단계를 독립적으로 작업하는 다른 팀에서 워크플로를 구현** 합니다. 그런 다음, 파이프라인에서 여러 단계를 조인하여 워크플로를 구현할 수 있습니다. |
+    | [기계 학습 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 **모듈식 재사용 가능 단계를 사용하여 워크플로를 정의하는 방법** 으로, 학습을 포함할 수 있습니다. 기계 학습 파이프라인은 자동화 된 기계 학습 및 실행 구성을 사용 하 여 모델을 학습 하도록 지원 합니다. 파이프라인은 특별히 학습에 집중하지 않으므로, 파이프라인을 사용하는 이유는 다른 학습 방법보다 다양합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용합니다.<br>* 장기 실행 학습 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약** 하려고 합니다.<br>* 이기종 컴퓨팅 리소스 및 스토리지 위치에서 조정되는 **여러 단계** 를 사용합니다.<br>* 재학습 또는 일괄 처리 채점 같은 특정 시나리오에서 파이프라인을 **재사용 가능 템플릿** 으로 사용합니다.<br>워크플로의 * **데이터 원본, 입력 및 출력을 추적하고 버전을 관리합니다**.<br>* **특정 단계를 독립적으로 작업하는 다른 팀에서 워크플로를 구현** 합니다. 그런 다음, 파이프라인에서 여러 단계를 조인하여 워크플로를 구현할 수 있습니다. |
 
 + [R에 대 한 AZURE MACHINE LEARNING sdk (미리 보기)](#r-sdk-preview): r 용 sdk는 reticulate 패키지를 사용 하 여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
@@ -41,13 +41,13 @@ Azure Machine Learning은 SDK를 사용 하는 코드 우선 솔루션에서 자
 
 Python용 Azure Machine Learning SDK를 사용하여 Azure Machine Learning에서 기계 학습 워크플로를 빌드하고 실행할 수 있습니다. 대화형 Python 세션, Jupyter Notebook, Visual Studio Code 또는 다른 IDE에서 서비스와 상호 작용할 수 있습니다.
 
-* [Python용 Azure Machine Learning SDK란?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [SDK 설치/업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Python용 Azure Machine Learning SDK란?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [SDK 설치/업데이트](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Azure Machine Learning용 개발 환경 구성](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>실행 구성
 
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)를 사용 하 여 Azure Machine Learning를 사용 하는 일반적인 학습 작업을 정의할 수 있습니다. 그런 다음 계산 대상에서 모델을 학습 하는 학습 스크립트와 함께 스크립트 실행 구성이 사용 됩니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)를 사용 하 여 Azure Machine Learning를 사용 하는 일반적인 학습 작업을 정의할 수 있습니다. 그런 다음 계산 대상에서 모델을 학습 하는 학습 스크립트와 함께 스크립트 실행 구성이 사용 됩니다.
 
 로컬 컴퓨터에 대해 실행 구성을 시작한 다음, 필요에 따라 클라우드 기반 컴퓨팅 대상의 실행 구성으로 전환할 수 있습니다. 컴퓨팅 대상을 변경할 때 사용하는 실행 구성만 변경하면 됩니다. 실행은 입력, 출력 및 로그처럼 학습 작업에 대한 정보를 기록합니다.
 
@@ -90,8 +90,8 @@ Azure 교육 수명 주기는 다음으로 구성 됩니다.
 1. Dockerfile을 계산 노드에 빌드 또는 다운로드 
     1. 시스템은 다음의 해시를 계산 합니다. 
         - 기본 이미지 
-        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)참조)
-        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)을 참조 하세요.)
+        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](./how-to-deploy-custom-docker-image.md)참조)
+        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](./how-to-use-environments.md)을 참조 하세요.)
     1. 시스템은 작업 영역 Azure Container Registry (ACR) 조회에서이 해시를 키로 사용 합니다.
     1. 찾을 수 없는 경우 전역 ACR에서 일치 하는 항목을 찾습니다.
     1. 이 파일을 찾을 수 없는 경우 시스템은 새 이미지를 빌드합니다 (작업 영역 ACR에 캐시 및 등록 됨).
@@ -101,7 +101,7 @@ Azure 교육 수명 주기는 다음으로 구성 됩니다.
 1. `./outputs`작업 영역과 연결 된 저장소 계정에 기록 된 로그, 모델 파일 및 기타 파일 저장
 1. 임시 저장소 제거를 포함 하 여 계산 확장 
 
-로컬 컴퓨터에서 학습 하도록 선택 하는 경우 ("로컬 실행으로 구성") Docker를 사용할 필요가 없습니다. 선택 하는 경우 Docker를 로컬로 사용할 수 있습니다 (예제는 [ML 파이프라인 구성](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) 섹션 참조).
+로컬 컴퓨터에서 학습 하도록 선택 하는 경우 ("로컬 실행으로 구성") Docker를 사용할 필요가 없습니다. 선택 하는 경우 Docker를 로컬로 사용할 수 있습니다 (예제는 [ML 파이프라인 구성](./how-to-debug-pipelines.md) 섹션 참조).
 
 ## <a name="r-sdk-preview"></a>R SDK (미리 보기)
 

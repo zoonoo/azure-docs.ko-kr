@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 50f8768aec12b8bda8d9d489462a8f61e8d83c18
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999185"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325186"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -31,10 +31,10 @@ Azure Machine Learning를 사용 하 여 AKS (Azure Kubernetes Service)에서 �
 - __TLS 종료__
 - GPU 및 필드 프로그래밍 가능 게이트 배열 (FPGA)과 같은 __하드웨어 가속__ 옵션
 
-Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 AKS 클러스터에 배포 합니다. AKS 클러스터를 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
+Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__ 된 AKS 클러스터에 배포 합니다. AKS 클러스터를 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally) 를 참조 하세요.
+> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](./how-to-troubleshoot-deployment.md#debug-locally) 를 참조 하세요.
 >
 > 또한 Azure Machine Learning - [로컬 Notebook에 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)를 참조할 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 
 - 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 - 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정 되었다고 가정 합니다.
 
@@ -71,8 +71,8 @@ Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 �
 1. Dockerfile을 계산 노드에 빌드 또는 다운로드 (Kubernetes와 관련 됨)
     1. 시스템은 다음의 해시를 계산 합니다. 
         - 기본 이미지 
-        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)참조)
-        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)을 참조 하세요.)
+        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](./how-to-deploy-custom-docker-image.md)참조)
+        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](./how-to-use-environments.md)을 참조 하세요.)
     1. 시스템은 작업 영역 Azure Container Registry (ACR) 조회에서이 해시를 키로 사용 합니다.
     1. 찾을 수 없는 경우 전역 ACR에서 일치 하는 항목을 찾습니다.
     1. 이 파일을 찾을 수 없는 경우 시스템은 캐시 되 고 작업 영역 ACR로 푸시되는 새 이미지를 작성 합니다.
@@ -87,7 +87,7 @@ Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 �
 들어오는 유추 요청을 배포 된 서비스로 라우팅하는 프런트 엔드 구성 요소 (azureml-fe)는 필요에 따라 자동으로 크기를 조정 합니다. Azureml-fe의 크기 조정은 AKS 클러스터 용도 및 크기 (노드 수)를 기반으로 합니다. 클러스터 용도 및 노드는 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md)때 구성 됩니다. 클러스터 마다 하나의 azureml-fe 서비스가 있으며,이는 여러 pod에서 실행 될 수 있습니다.
 
 > [!IMPORTANT]
-> __개발-테스트__로 구성 된 클러스터를 사용 하는 경우 자체 scaler 사용 **하지 않도록 설정**됩니다.
+> __개발-테스트__ 로 구성 된 클러스터를 사용 하는 경우 자체 scaler 사용 **하지 않도록 설정** 됩니다.
 
 Azureml-fe는 더 많은 코어를 사용 하도록 수직으로 확장 하 고 더 많은 pod를 사용 하기 위해 수평으로 확장 합니다. 수직 확장을 결정할 때 들어오는 유추 요청을 라우팅하는 데 걸리는 시간이 사용 됩니다. 이 시간이 임계값을 초과 하면 확장이 발생 합니다. 들어오는 요청을 라우팅하는 데 걸리는 시간이 임계값을 계속 초과 하면 확장이 발생 합니다.
 
@@ -95,7 +95,7 @@ Azureml-fe는 더 많은 코어를 사용 하도록 수직으로 확장 하 고 
 
 ## <a name="deploy-to-aks"></a>AKS에 배포
 
-Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__ 도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 > [!NOTE]
 > 배포할 모델 수는 배포 당 1000 모델 (컨테이너 당)으로 제한 됩니다.
@@ -121,10 +121,10 @@ print(service.get_logs())
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [모델. 배포](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [모델. 배포](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -136,7 +136,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +154,7 @@ Azure ML 모델 배포에 대 한 자동 크기 조정을 처리 하는 구성 �
 > [!IMPORTANT]
 > * **모델 배포에 대해 HPA (Kubernetes 수평 Pod Autoscaler)를 사용 하지 마십시오**. 이렇게 하면 두 개의 자동 크기 조정 구성 요소가 서로 경쟁 하 게 됩니다. Azureml-fe는 Azure ML에 의해 배포 된 모델의 크기를 자동으로 조정 하도록 설계 되었습니다. 여기서 HPA는 CPU 사용량 또는 사용자 지정 메트릭 구성과 같은 일반 메트릭에 대해 추측 하거나 대략적인 모델 사용률을 가져야 합니다.
 > 
-> * **Azureml-fe는 AKS 클러스터의 노드 수를 조정 하지**않습니다 .이로 인해 예기치 않은 비용 증가가 발생할 수 있습니다. 대신 실제 클러스터 경계 내에서 **모델에 대 한 복제본 수를 조정** 합니다. 클러스터 내에서 노드 수를 조정 해야 하는 경우 수동으로 클러스터의 크기를 조정 하거나 [AKS cluster autoscaler을 구성할](/azure/aks/cluster-autoscaler)수 있습니다.
+> * **Azureml-fe는 AKS 클러스터의 노드 수를 조정 하지** 않습니다 .이로 인해 예기치 않은 비용 증가가 발생할 수 있습니다. 대신 실제 클러스터 경계 내에서 **모델에 대 한 복제본 수를 조정** 합니다. 클러스터 내에서 노드 수를 조정 해야 하는 경우 수동으로 클러스터의 크기를 조정 하거나 [AKS cluster autoscaler을 구성할](../aks/cluster-autoscaler.md)수 있습니다.
 
 자동 크기 조정은 `autoscale_target_utilization` `autoscale_min_replicas` `autoscale_max_replicas` AKS 웹 서비스에 대해, 및를 설정 하 여 제어할 수 있습니다. 다음 예제에서는 자동 크기 조정을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
@@ -188,20 +188,20 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-, 및를 설정 하는 방법에 대 한 자세한 내용은 `autoscale_target_utilization` `autoscale_max_replicas` `autoscale_min_replicas` [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) 모듈 참조를 참조 하세요.
+, 및를 설정 하는 방법에 대 한 자세한 내용은 `autoscale_target_utilization` `autoscale_max_replicas` `autoscale_min_replicas` [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) 모듈 참조를 참조 하세요.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어 된 롤아웃 (미리 보기)을 사용 하 여 AKS에 모델 배포
 
 끝점을 사용 하 여 제어 된 방식으로 모델 버전을 분석 하 고 승격 합니다. 단일 끝점 뒤에 최대 6 개의 버전을 배포할 수 있습니다. 끝점은 다음과 같은 기능을 제공 합니다.
 
-* __각 끝점으로 전송 되는 점수 매기기 트래픽의 백분율__을 구성 합니다. 예를 들어 트래픽의 20%를 끝점 ' 테스트 '로, 80%를 ' 프로덕션 '으로 라우팅합니다.
+* __각 끝점으로 전송 되는 점수 매기기 트래픽의 백분율__ 을 구성 합니다. 예를 들어 트래픽의 20%를 끝점 ' 테스트 '로, 80%를 ' 프로덕션 '으로 라우팅합니다.
 
     > [!NOTE]
     > 트래픽의 100%를 고려 하지 않는 경우 남은 백분율은 __기본__ 끝점 버전으로 라우팅됩니다. 예를 들어 ' test ' 끝점 버전을 구성 하 여 트래픽의 10%를 가져오고, 30%의 경우 ' r u p '를 구성 하는 경우 나머지 60%는 기본 끝점 버전으로 전송 됩니다.
     >
     > 만든 첫 번째 끝점 버전이 자동으로 기본값으로 구성 됩니다. `is_default=True`끝점 버전을 만들거나 업데이트할 때를 설정 하 여이를 변경할 수 있습니다.
      
-* 끝점 버전을 __제어__ 또는 __처리__중 하나로 태그를 합니다. 예를 들어 현재 프로덕션 끝점 버전은 컨트롤이 될 수 있지만 잠재적 새 모델은 처리 버전으로 배포 됩니다. 처리 버전의 성능을 평가한 후에는 현재 컨트롤이 우수함 새 프로덕션/컨트롤로 승격 될 수 있습니다.
+* 끝점 버전을 __제어__ 또는 __처리__ 중 하나로 태그를 합니다. 예를 들어 현재 프로덕션 끝점 버전은 컨트롤이 될 수 있지만 잠재적 새 모델은 처리 버전으로 배포 됩니다. 처리 버전의 성능을 평가한 후에는 현재 컨트롤이 우수함 새 프로덕션/컨트롤로 승격 될 수 있습니다.
 
     > [!NOTE]
     > __컨트롤은 하나만 사용할__ 수 있습니다. 여러 처리가를 사용할 수 있습니다.
@@ -302,7 +302,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우 다음을 사용 합니다. [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> 키를 다시 생성 해야 하는 경우 다음을 사용 합니다. [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
 
@@ -324,12 +324,12 @@ print(token)
 >
 > Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 이로 인해 작업 영역을 다시 사용할 수 있을 때까지 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터의 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
 >
-> 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
+> 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
 
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center에서 리소스를 검색 하 고 권장 사항을 따를 수 있도록 해야 합니다. 자세한 내용은 [Azure Kubernetes Services와 Security Center 통합](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)을 참조 하세요.
+Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center에서 리소스를 검색 하 고 권장 사항을 따를 수 있도록 해야 합니다. 자세한 내용은 [Azure Kubernetes Services와 Security Center 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

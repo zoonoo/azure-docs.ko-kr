@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 603628e24d7ccdffeafea392ab56aa7e47781a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffe1a4b9b32223cc57c6a6399fdc074a9d51d714
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296487"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322401"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
@@ -149,7 +149,7 @@ Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들
 * [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Visual Studio용 Python 도구](https://aka.ms/ptvsdocs)
+* [Visual Studio용 Python 도구](/visualstudio/python/)
 * [Anaconda](https://www.anaconda.com/)
 * [Jupyter 노트북](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

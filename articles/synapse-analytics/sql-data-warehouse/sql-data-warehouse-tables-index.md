@@ -1,6 +1,6 @@
 ---
 title: 테이블 인덱싱
-description: Synapse SQL 풀의 테이블 인덱싱에 대 한 권장 사항 및 예제입니다.
+description: 전용 SQL 풀의 테이블 인덱싱에 대 한 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05551f39203f2c070dd2ede0740135d6963aedcf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797601"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323570"
 ---
-# <a name="indexing-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 인덱싱
+# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 테이블 인덱싱
 
-Synapse SQL 풀의 테이블 인덱싱에 대 한 권장 사항 및 예제입니다.
+전용 SQL 풀의 테이블 인덱싱에 대 한 권장 사항 및 예제입니다.
 
 ## <a name="index-types"></a>인덱스 형식
 
-Synapse SQL 풀은 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [클러스터형 인덱스 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 비롯 한 여러 인덱싱 옵션과 [힙](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)이 라고도 하는 비 인덱스 옵션을 제공 합니다.  
+전용 SQL 풀은 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [클러스터형 인덱스 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 비롯 한 여러 인덱싱 옵션과 [힙](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)이 라고도 하는 인덱스 이외 옵션을 제공 합니다.  
 
-인덱스가 있는 테이블을 만들려면 [CREATE TABLE (SYNAPSE SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 설명서를 참조 하세요.
+인덱스가 있는 테이블을 만들려면 [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 설명서를 참조 하세요.
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
 
-기본적으로 Synapse SQL 풀은 테이블에 인덱스 옵션이 지정 되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
+기본적으로 전용 SQL 풀은 테이블에 인덱스 옵션이 지정 되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
 클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
 
@@ -52,7 +52,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 ## <a name="heap-tables"></a>힙 테이블
 
-Synapse SQL 풀에서 일시적으로 데이터를 방문 하는 경우 힙 테이블을 사용 하면 전체 프로세스를 더 빠르게 수행할 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  데이터를 로드 한 후 쿼리 성능을 향상 시키기 위해 테이블에 인덱스를 만들 수 있습니다.  
+전용 SQL 풀에서 일시적으로 데이터를 방문 하는 경우 힙 테이블을 사용 하면 전체 프로세스를 더 빠르게 수행할 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  데이터를 로드 한 후 쿼리 성능을 향상 시키기 위해 테이블에 인덱스를 만들 수 있습니다.  
 
 6000만 개 이상의 행이 있는 경우 클러스터 columnstore 테이블은 최적의 압축을 얻기 시작 합니다.  6000만 행 미만의 작은 조회 테이블의 경우 더 빠른 쿼리 성능을 위해 힙 또는 클러스터형 인덱스를 사용 하는 것이 좋습니다. 
 
@@ -204,13 +204,13 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
 
-Synapse SQL 풀로 이동 하는 작은 로드를 trickle 로드 라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
+전용 SQL 풀로 이동 하는 작은 로드를 trickle 로드 라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
 
-이러한 상황에서는 데이터를 로드하기 전에 Azure Blob Storage에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
+이러한 상황에서는 데이터를 로드하기 전에 Azure Blob Storage에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리* 라고 합니다.
 
 ### <a name="too-many-partitions"></a>너무 많은 파티션
 
-클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 하기 전에 Synapse SQL pool은 이미 데이터를 60 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블을 100 파티션으로 분할 하는 경우 클러스터형 columnstore 인덱스 (60 배포판 *100 파티션* 100만 행)를 활용 하려면 테이블에 60억 행 이상이 필요 합니다. 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
+클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 하기 전에 전용 SQL 풀은 이미 데이터를 60 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블을 100 파티션으로 분할 하는 경우 클러스터형 columnstore 인덱스 (60 배포판 *100 파티션* 100만 행)를 활용 하려면 테이블에 60억 행 이상이 필요 합니다. 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
 
 테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터형 columnstore 인덱스로 테이블을 다시 작성합니다.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Synapse SQL 풀에서 인덱스를 다시 작성 하는 작업은 오프 라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)의 ALTER INDEX REBUILD 섹션을 참조하세요.
+전용 SQL 풀에서 인덱스를 다시 작성 하는 작업은 오프 라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-CTAS를 사용 하 여 파티션을 다시 만드는 방법에 대 한 자세한 내용은 [SYNAPSE SQL 풀에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조 하세요.
+CTAS를 사용 하 여 파티션을 다시 만드는 방법에 대 한 자세한 내용은 [전용 SQL 풀에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908095"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323768"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너에 대 한 예외 및 오류 코드
 
@@ -187,9 +187,9 @@ ms.locfileid: "90908095"
 
 Azure Machine Learning에서는 일부 최신 계정 유형이 지원되지 않습니다. 예를 들어, 새로운 "핫" 또는 "콜드" 스토리지 유형은 기계 학습에 사용할 수 없습니다. 클래식 스토리지 계정과 "범용"으로 만들어진 스토리지 계정은 모두 제대로 작동합니다.
 
-Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blobname**으로 지정되어 있는지 그리고 컨테이너와 Blob이 모두 계정 내에 존재하는지 확인합니다.  
+Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blobname** 으로 지정되어 있는지 그리고 컨테이너와 Blob이 모두 계정 내에 존재하는지 확인합니다.  
 
- 이 경로에는 선행 슬래시가 포함되어서는 안 됩니다. 예를 들어, **/container/blob**은 잘못된 입력이며 **container/blob**으로 입력해야 합니다.  
+ 이 경로에는 선행 슬래시가 포함되어서는 안 됩니다. 예를 들어, **/container/blob** 은 잘못된 입력이며 **container/blob** 으로 입력해야 합니다.  
 
 
 |예외 메시지|
@@ -283,7 +283,7 @@ Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blob
 
 **해결 방법:**
 
-오류가 발생한 모듈을 열고 입력으로 사용된 열을 식별합니다. 일부 모듈의 경우, 데이터 세트 입력을 마우스 오른쪽 단추로 클릭하고 **시각화**를 선택하여 고유 값의 수 및 그 배포를 포함해 개별 열에 대한 통계를 얻을 수 있습니다.
+오류가 발생한 모듈을 열고 입력으로 사용된 열을 식별합니다. 일부 모듈의 경우, 데이터 세트 입력을 마우스 오른쪽 단추로 클릭하고 **시각화** 를 선택하여 고유 값의 수 및 그 배포를 포함해 개별 열에 대한 통계를 얻을 수 있습니다.
 
 그룹화 또는 분류에 사용할 열의 경우, 각 열에서 고유한 값의 수를 줄이는 단계를 수행합니다. 그 수는 열의 데이터 형식에 따라 여러 가지 방법으로 줄일 수 있습니다. 
 <!--
@@ -493,8 +493,8 @@ Azure Machine Learning에서 이 오류는 (모듈 매개 변수에서 선택한
 
 + 오류가 발생한 모듈을 열어 레이블 열이 있는지 확인합니다. 이 열에 예측하려는 단일 결과(또는 종속 변수)가 포함되어 있다면 열의 이름 또는 데이터 형식은 중요하지 않습니다. 레이블이 어느 열에 있는지를 모를 경우, 클래스 또는 대상과 같은 일반 이름을 찾습니다. 
 +  데이터 세트에 레이블 열이 포함되어 있지 않다면 레이블 열이 명시적으로 또는 실수로 업스트림에서 제거되었을 수도 있습니다. 데이터 세트가 업스트림 채점 모듈의 출력이 아닐 수도 있습니다.
-+ 열을 레이블 열로 명시적으로 표시하려면 [메타데이터 편집](edit-metadata.md) 모듈을 추가하고 데이터 세트를 연결합니다. 레이블 열만 선택하고 **필드** 드롭다운 목록에서 **레이블**을 선택합니다. 
-+ 잘못된 열이 레이블로 선택된 경우, **필드**에서 **레이블 지우기**를 선택하여 열의 메타데이터를 수정할 수 있습니다. 
++ 열을 레이블 열로 명시적으로 표시하려면 [메타데이터 편집](edit-metadata.md) 모듈을 추가하고 데이터 세트를 연결합니다. 레이블 열만 선택하고 **필드** 드롭다운 목록에서 **레이블** 을 선택합니다. 
++ 잘못된 열이 레이블로 선택된 경우, **필드** 에서 **레이블 지우기** 를 선택하여 열의 메타데이터를 수정할 수 있습니다. 
   
 |예외 메시지|
 |------------------------|
@@ -553,7 +553,7 @@ Azure Machine Learning에서 이 오류는 (모듈 매개 변수에서 선택한
 
  Azure Machine Learning에서 이 오류는 열 이름이 중복될 때(즉, 고유하지 않을 때) 발생합니다.  
 
-**해결 방법:** 이름이 같은 열이 있다면 입력 데이터 세트와 오류가 발생하는 모듈 사이에 [메타데이터 편집](edit-metadata.md) 인스턴스를 추가합니다. [메타데이터 편집](edit-metadata.md)의 열 선택기를 사용하여 이름을 바꿀 열을 선택하고 새 열 이름을 **새 열 이름** 텍스트 상자에 입력합니다. 여러 열의 이름을 바꾸는 경우, **새 열 이름**에 입력하는 값이 고유한 값인지 확인합니다.  
+**해결 방법:** 이름이 같은 열이 있다면 입력 데이터 세트와 오류가 발생하는 모듈 사이에 [메타데이터 편집](edit-metadata.md) 인스턴스를 추가합니다. [메타데이터 편집](edit-metadata.md)의 열 선택기를 사용하여 이름을 바꿀 열을 선택하고 새 열 이름을 **새 열 이름** 텍스트 상자에 입력합니다. 여러 열의 이름을 바꾸는 경우, **새 열 이름** 에 입력하는 값이 고유한 값인지 확인합니다.  
 
 |예외 메시지|
 |------------------------|
@@ -604,7 +604,7 @@ Azure Machine Learning에서 이 오류는 (모듈 매개 변수에서 선택한
 
  Azure Machine Learning에서 이 오류는 선택한 열 수가 필요한 것보다 적으면 발생합니다.  필요한 최소 열 수를 선택하지 않으면 이 오류가 표시됩니다.  
 
-**해결 방법:** **열 선택기**를 사용하여 열 선택 영역에 열을 더 추가합니다.  
+**해결 방법:** **열 선택기** 를 사용하여 열 선택 영역에 열을 더 추가합니다.  
 
 |예외 메시지|
 |------------------------|
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **해결 방법:** 이 오류는 다양한 조건으로 인해 발생하며 특정 해결 방법이 없습니다.  
  다음 표에는 이 오류에 대한 일반 메시지가 포함되어 있으며 그 뒤에는 조건에 대한 특정 설명이 표시됩니다. 
 
- 사용 가능한 세부 정보가 없는 경우, [Microsoft Q&A 질문 페이지는 피드백을 보내며](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), 오류 및 관련 조건을 생성한 모듈에 대한 정보를 제공합니다.
+ 사용 가능한 세부 정보가 없는 경우, [Microsoft Q&A 질문 페이지는 피드백을 보내며](/answers/topics/azure-machine-learning-studio-classic.html), 오류 및 관련 조건을 생성한 모듈에 대한 정보를 제공합니다.
 
 |예외 메시지|
 |------------------------|
@@ -862,7 +862,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
  Azure Machine Learning에서 이 오류는 Azure Storage 계정에 액세스하는 데 사용된 키가 잘못된 경우에 발생합니다. 예를 들어, 복사 후 붙여넣기를 할 때 Azure Storage 키가 잘렸거나 잘못된 키가 사용된 경우, 이 오류가 표시될 수 있습니다.  
 
- Azure Storage 계정의 키를 얻는 방법에 대한 자세한 내용은 [스토리지 액세스 키 보기, 복사 및 다시 생성](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/)을 참조하세요.  
+ Azure Storage 계정의 키를 얻는 방법에 대한 자세한 내용은 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-create.md)을 참조하세요.  
 
 **해결 방법:** 모듈을 다시 방문하여 계정에 대한 Azure Storage 키가 올바른지 확인합니다. 필요하다면 Azure 클래식 포털에서 키를 다시 복사합니다.  
 
@@ -915,9 +915,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 **해결 방법:**
 
- 이 오류는 이전에 **Azure Blob Storage 쓰기 모드** 속성을 **오류**로 설정한 경우에만 표시됩니다. 기본적으로 이미 존재하는 Blob에 데이터 세트를 쓰려고 하면 이 모듈에서 오류가 발생합니다.
+ 이 오류는 이전에 **Azure Blob Storage 쓰기 모드** 속성을 **오류** 로 설정한 경우에만 표시됩니다. 기본적으로 이미 존재하는 Blob에 데이터 세트를 쓰려고 하면 이 모듈에서 오류가 발생합니다.
 
- - 모듈 속성을 열고 **Azure Blob Storage 쓰기 모드** 속성을 **덮어쓰기**로 변경합니다.
+ - 모듈 속성을 열고 **Azure Blob Storage 쓰기 모드** 속성을 **덮어쓰기** 로 변경합니다.
  - 또는 다른 대상 Blob 또는 파일의 이름을 입력할 수 있으며, 아직 존재하지 않는 Blob을 반드시 지정해야 합니다.  
 
 |예외 메시지|
@@ -1083,9 +1083,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 기계 학습을 위한 Hive 쿼리와 관련된 도움말은 다음 문서를 참조하세요.
 
-+ [Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Hive 쿼리를 사용하여 테이블의 데이터 탐색](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드](../team-data-science-process/move-hive-tables.md)
++ [Hive 쿼리를 사용하여 테이블의 데이터 탐색](../team-data-science-process/explore-data-hive-tables.md)
++ [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](../team-data-science-process/create-features-hive.md)
 + [SQL 사용자용 Hive 참고 자료(PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1107,7 +1107,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
  모듈 예외에 의해 보고된 SQL 생성 메시지가 있는 경우, 보고된 오류에 따라 작업을 수행합니다. 예를 들어 오류 메시지에는 발생 가능한 오류에 대한 특정 지침이 때때로 포함됩니다.
 + 해당 열 또는 누락된 데이터베이스가 없음: 열 이름을 잘못 입력했을 수도 있음을 나타냅니다. 열 이름이 올바른지 잘 모르겠다면 대괄호 또는 따옴표를 사용하여 열 식별자를 묶습니다.
-+ 지정 된 키워드 앞에 구문 오류가 있음을 나타내는 *SQL 논리 오류가 근처 \<SQL keyword\> *에 있습니다.
++ 지정 된 키워드 앞에 구문 오류가 있음을 나타내는 *SQL 논리 오류가 근처 \<SQL keyword\>* 에 있습니다.
 
   
 |예외 메시지|
@@ -1164,7 +1164,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 이 이벤트에 대한 오류 처리는 범주화 방법의 더 많은 사용자 지정이 허용된 이전 버전의 Azure Machine Learning에서 도입되었습니다. 현재 모든 범주화 방법은 드롭다운 목록에서 선택한 항목을 기반으로 하므로 기술적으로는 이 오류가 더 이상 발생하지 않아야 합니다.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |예외 메시지|
 |------------------------|
@@ -1516,11 +1516,10 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 이 오류는 달리 처리되지 않은 내부 엔진 오류를 캡처하기 위해 제공됩니다. 따라서 오류를 생성한 모듈에 따라 이 오류의 원인이 달라질 수 있습니다.  
 
-자세한 도움말을 보려면 입력으로 사용 되는 데이터를 포함 하 여 시나리오에 대 한 설명과 함께 오류를 수반 하는 자세한 메시지를 [Azure Machine Learning 포럼](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)에 게시 하는 것이 좋습니다. 이 피드백은 오류의 우선 순위를 지정하고 추가 작업을 위해 가장 중요한 문제를 식별하는 데 도움이 됩니다.  
+자세한 도움말을 보려면 입력으로 사용 되는 데이터를 포함 하 여 시나리오에 대 한 설명과 함께 오류를 수반 하는 자세한 메시지를 [Azure Machine Learning 포럼](/answers/topics/azure-machine-learning.html)에 게시 하는 것이 좋습니다. 이 피드백은 오류의 우선 순위를 지정하고 추가 작업을 위해 가장 중요한 문제를 식별하는 데 도움이 됩니다.  
 
 |예외 메시지|
 |------------------------|
 |라이브러리 예외입니다.|
 |라이브러리 예외: {exception}.|
 |알 수 없는 라이브러리 예외: {exception}. {customer_support_guidance}.|
-

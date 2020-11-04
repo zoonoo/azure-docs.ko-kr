@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323038"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Azure Machine Learning 워크플로에 대 한 데이터 수집 옵션
 
@@ -33,7 +33,7 @@ ms.locfileid: "90890170"
 
 ## <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) 은 데이터 수집 파이프라인에 대 한 데이터 원본 모니터링 및 트리거에 대 한 기본 지원을 제공 합니다.  
+[Azure Data Factory](../data-factory/introduction.md) 은 데이터 수집 파이프라인에 대 한 데이터 원본 모니터링 및 트리거에 대 한 기본 지원을 제공 합니다.  
 
 다음 표에서는 데이터 수집 워크플로에 Azure Data Factory를 사용 하는 경우의 장단점을 요약 하 여 보여 줍니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "90890170"
 ---|---
 특히 데이터를 추출, 로드 및 변환 하기 위해 작성 되었습니다.|현재는 제한 된 Azure Data Factory 파이프라인 작업 집합을 제공 합니다. 
 오케스트레이션 데이터 이동 및 변환을 위한 데이터 기반 워크플로를 만들 수 있습니다.|생성 및 유지 관리 비용이 많이 듭니다. 자세한 내용은 Azure Data Factory의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) 를 참조 하세요.
-[Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) 및 [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) 와 같은 다양 한 Azure 도구와 통합 | 기본적으로 스크립트를 실행 하지 않고 스크립트 실행을 위한 별도의 계산에 의존 합니다. 
+[Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) 및 [Azure Functions](../data-factory/control-flow-azure-function-activity.md) 와 같은 다양 한 Azure 도구와 통합 | 기본적으로 스크립트를 실행 하지 않고 스크립트 실행을 위한 별도의 계산에 의존 합니다. 
 기본적으로 데이터 원본에서 트리거된 데이터 수집을 지원 합니다.| 
 데이터 준비 및 모델 학습 프로세스는 별도입니다.|
 Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기능|
-스크립팅이 아닌 방법에 대 한 낮은 코드 환경 [사용자 인터페이스](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) 를 제공 합니다. |
+스크립팅이 아닌 방법에 대 한 낮은 코드 환경 [사용자 인터페이스](../data-factory/quickstart-create-data-factory-portal.md) 를 제공 합니다. |
 
 이러한 단계 및 다음 다이어그램에서는 Azure Data Factory의 데이터 수집 워크플로를 보여 줍니다.
 
@@ -60,7 +60,7 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 
 ## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning Python SDK 
 
-[PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml)를 사용 하 여 데이터 수집 작업을 [Azure Machine Learning 파이프라인](how-to-create-your-first-pipeline.md) 단계로 통합할 수 있습니다.
+[PYTHON SDK](/python/api/overview/azure/ml)를 사용 하 여 데이터 수집 작업을 [Azure Machine Learning 파이프라인](how-to-create-your-first-pipeline.md) 단계로 통합할 수 있습니다.
 
 다음 표에는 데이터 수집 태스크에 대 한 SDK 및 ML 파이프라인 단계 사용에 대 한 장단점을 요약 하 여 설명 합니다.
 

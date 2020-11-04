@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: aa58ad09a6db212633e51b89c390ff0330943131
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: be625d99d1b57ff3c66528b8af6fa0273d013ebe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325459"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 데이터 통합 파트너
 
-Azure Synapse의 Synapse SQL 풀 기능을 사용하여 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구 중에서 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 공식 데이터 통합 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
+Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터 웨어하우스 솔루션을 만들려면 다양 한 업계 최고의 도구 중에서 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 공식 데이터 통합 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
 
 ## <a name="data-integration-partners"></a>데이터 통합 파트너
 

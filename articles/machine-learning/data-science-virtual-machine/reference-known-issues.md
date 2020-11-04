@@ -9,12 +9,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 864b5e519875029149e93df248aa5953f62ec51e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78206523"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322952"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>알려진 문제 및 Azure Data Science Virtual Machine 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "78206523"
 
 ### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Ubuntu DSVM에서 디스크 암호화가 실패 합니다.
 
-Azure Disk Encryption (ADE)는 Ubuntu DSVM에서 현재 지원 되지 않습니다. 이 문제를 해결 하려면 [Azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md)를 구성 하는 것이 좋습니다.
+Azure Disk Encryption (ADE)는 Ubuntu DSVM에서 현재 지원 되지 않습니다. 이 문제를 해결 하려면 [Azure managed disks의 서버 쪽 암호화](../../virtual-machines/disk-encryption.md)를 구성 하는 것이 좋습니다.
 
 ## <a name="tool-appears-disabled"></a>도구 표시 안 함
 
@@ -46,4 +46,3 @@ Hyper-v가 처음에 Windows에서 작동 하지 않는 것이 예상 된 동작
 최종 화면은 다음과 같습니다.
 
    ![Hyper-V 사용](./media/workaround/hyperv-enable-dsvm.png)
-

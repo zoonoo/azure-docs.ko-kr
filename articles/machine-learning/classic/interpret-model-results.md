@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343174"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322549"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 모델 결과 해석
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 이 항목에서는 Azure Machine Learning Studio (클래식)에서 예측 결과를 시각화 하 고 해석 하는 방법에 대해 설명 합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
@@ -58,7 +58,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 1. 붓꽃 2클래스 분류 문제 실험
 
-그림 1에 표시된 대로 이 문제를 해결하기 위해 실험을 수행했습니다. 2클래스의 향상된 의사 결정 트리 모델이 학습되어 점수가 지정되었습니다. 이제 [모델 점수 매기기][score-model] 모듈의 출력 포트를 클릭하고 **시각화**를 클릭하여 [모델 점수 매기기][score-model] 모듈에서 예측 결과를 시각화할 수 있습니다.
+그림 1에 표시된 대로 이 문제를 해결하기 위해 실험을 수행했습니다. 2클래스의 향상된 의사 결정 트리 모델이 학습되어 점수가 지정되었습니다. 이제 [모델 점수 매기기][score-model] 모듈의 출력 포트를 클릭하고 **시각화** 를 클릭하여 [모델 점수 매기기][score-model] 모듈에서 예측 결과를 시각화할 수 있습니다.
 
 ![모델 점수 매기기 모듈](./media/interpret-model-results/1_1.png)
 
@@ -80,7 +80,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 3. 붓꽃 2클래스 분류 문제 실험 점수 매기기
 
-이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 부분입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 이 예에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하려면 [데이터 집합의 열 선택][select-columns] 모듈을 사용합니다. [데이터 집합의 열 선택][select-columns] 모듈을 클릭하고, **열 선택기 시작**을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**을 선택합니다. [데이터 집합의 열 선택][select-columns] 모듈의 출력 포트를 설정하고 다시 실행하면 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 완료될 것입니다. 마지막 실험은 그림 4와 같이 표시됩니다.
+이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 부분입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 이 예에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하려면 [데이터 집합의 열 선택][select-columns] 모듈을 사용합니다. [데이터 집합의 열 선택][select-columns] 모듈을 클릭하고, **열 선택기 시작** 을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률** 을 선택합니다. [데이터 집합의 열 선택][select-columns] 모듈의 출력 포트를 설정하고 다시 실행하면 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 완료될 것입니다. 마지막 실험은 그림 4와 같이 표시됩니다.
 
 ![붓꽃 2클래스 분류 실험](./media/interpret-model-results/4.png)
 
@@ -107,7 +107,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 6. 문자 인식 다중 클래스 분류 문제 실험
 
-[모델 점수 매기기][score-model] 모듈의 출력 포트를 클릭한 다음 **시각화**를 클릭하여 [모델 점수 매기기][score-model]의 결과를 시각화하면 그림 7과 같은 내용이 표시됩니다.
+[모델 점수 매기기][score-model] 모듈의 출력 포트를 클릭한 다음 **시각화** 를 클릭하여 [모델 점수 매기기][score-model]의 결과를 시각화하면 그림 7과 같은 내용이 표시됩니다.
 
 ![모델 점수 매기기 결과](./media/interpret-model-results/7.png)
 
@@ -185,7 +185,7 @@ Iri 데이터 집합을 다시 사용 하 여 클러스터링 실험을 작성 �
 
 클러스터링은 학습 데이터 집합에 자체 레이블이 없다는 점에서 분류와 다릅니다. 클러스터링은 학습 데이터 집합 인스턴스를 개별 클러스터로 그룹화합니다. 학습 프로세스 중에 모델에서 해당 특징 사이의 차이점을 학습하여 항목의 레이블을 지정합니다. 그런 다음 학습된 모델을 사용하여 나중에 항목을 분류할 수 있습니다. 클러스터링 문제에서 결과의 두 부분에 관심이 있습니다. 첫 번째 부분은 학습 데이터 집합의 레이블을 지정하는 것이고, 두 번째는 학습된 모델을 사용하여 새 데이터 집합을 분류하는 것입니다.
 
-결과의 첫 번째 부분은 [클러스터링 모델 학습][train-clustering-model] 모듈의 왼쪽 출력 포트를 클릭하고 **시각화**를 클릭하여 시각화할 수 있습니다. 시각화는 그림 16에 표시되어 있습니다.
+결과의 첫 번째 부분은 [클러스터링 모델 학습][train-clustering-model] 모듈의 왼쪽 출력 포트를 클릭하고 **시각화** 를 클릭하여 시각화할 수 있습니다. 시각화는 그림 16에 표시되어 있습니다.
 
 ![클러스터링 결과](./media/interpret-model-results/16.png)
 
@@ -247,7 +247,7 @@ Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-m
 
 **지정된 사용자와 항목의 등급 예측**
 
-**추천 예측 유형** 메뉴에서 **등급 예측**을 선택하여 지정된 사용자와 항목의 등급을 예측해 달라고 추천 시스템에 요청합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 21과 비슷합니다.
+**추천 예측 유형** 메뉴에서 **등급 예측** 을 선택하여 지정된 사용자와 항목의 등급을 예측해 달라고 추천 시스템에 요청합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 21과 비슷합니다.
 
 ![추천 시스템 - 등급 예측의 점수 매기기 결과](./media/interpret-model-results/21.png)
 
@@ -257,7 +257,7 @@ Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-m
 
 **지정된 사용자에게 항목 추천**
 
-**추천 예측 유형** 메뉴에서 **항목 추천**을 선택하여 지정된 사용자에게 항목을 추천해 달라고 추천 시스템에 요청합니다. 이 시나리오에서 선택할 마지막 매개 변수는 *추천 항목 선택*입니다. **등급이 지정된 항목에서(모델 평가용)** 옵션은 주로 학습 프로세스 중에 모델 평가용으로 사용됩니다. 이 예측 단계에서는 **모든 항목에서**를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 22와 비슷합니다.
+**추천 예측 유형** 메뉴에서 **항목 추천** 을 선택하여 지정된 사용자에게 항목을 추천해 달라고 추천 시스템에 요청합니다. 이 시나리오에서 선택할 마지막 매개 변수는 *추천 항목 선택* 입니다. **등급이 지정된 항목에서(모델 평가용)** 옵션은 주로 학습 프로세스 중에 모델 평가용으로 사용됩니다. 이 예측 단계에서는 **모든 항목에서** 를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 22와 비슷합니다.
 
 ![추천 시스템 - 항목 추천의 점수 매기기 결과](./media/interpret-model-results/22.png)
 
@@ -267,7 +267,7 @@ Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-m
 
 **지정된 사용자와 관련된 사용자 찾기**
 
-**추천 예측 유형**에서 **관련 사용자**를 선택하여 추천 시스템에서 지정된 사용자와 관련된 사용자를 찾도록 요청합니다. 관련된 사용자는 기본 설정이 비슷한 사용자입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 사용자 선택*입니다. 항목의 **등급을 매긴 사용자의 옵션 (모델 평가의 경우)** 은 주로 학습 프로세스 중에 모델을 평가 하는 데 사용할 수 있습니다. 이 예측 단계에서는 **모든 사용자로부터**를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 23과 비슷합니다.
+**추천 예측 유형** 에서 **관련 사용자** 를 선택하여 추천 시스템에서 지정된 사용자와 관련된 사용자를 찾도록 요청합니다. 관련된 사용자는 기본 설정이 비슷한 사용자입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 사용자 선택* 입니다. 항목의 **등급을 매긴 사용자의 옵션 (모델 평가의 경우)** 은 주로 학습 프로세스 중에 모델을 평가 하는 데 사용할 수 있습니다. 이 예측 단계에서는 **모든 사용자로부터** 를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 23과 비슷합니다.
 
 ![추천 시스템 - 관련 사용자의 점수 매기기 결과](./media/interpret-model-results/23.png)
 
@@ -277,7 +277,7 @@ Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-m
 
 **지정된 항목과 관련된 항목 찾기**
 
-**추천 예측 유형**에서 **관련 항목**을 선택하여 추천 시스템에서 지정된 항목과 관련된 항목을 찾도록 요청합니다. 관련 항목은 동일한 사용자가 좋아할 가능성이 가장 큰 항목입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 항목 선택*입니다. **등급이 지정된 항목에서(모델 평가용)** 옵션은 주로 학습 프로세스 중에 모델 평가용으로 사용됩니다. 이 예측 단계에서는 **모든 항목에서** 를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 24와 비슷합니다.
+**추천 예측 유형** 에서 **관련 항목** 을 선택하여 추천 시스템에서 지정된 항목과 관련된 항목을 찾도록 요청합니다. 관련 항목은 동일한 사용자가 좋아할 가능성이 가장 큰 항목입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 항목 선택* 입니다. **등급이 지정된 항목에서(모델 평가용)** 옵션은 주로 학습 프로세스 중에 모델 평가용으로 사용됩니다. 이 예측 단계에서는 **모든 항목에서** 를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 24와 비슷합니다.
 
 ![추천 시스템 - 관련 항목의 점수 매기기 결과](./media/interpret-model-results/24.png)
 
@@ -304,10 +304,10 @@ Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-m
 그림 26. 음식점 추천 문제의 웹 서비스 결과
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

@@ -12,6 +12,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Visual Studio 클라우드 서비스용 Python 예
       href: cloud-services-python-ptvs.md
+- name: 개념
+  items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법
   items:
     - name: 계획

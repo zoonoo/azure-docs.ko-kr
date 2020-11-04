@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907920"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323717"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
@@ -22,7 +22,7 @@ ms.locfileid: "90907920"
 
 기능 해싱 모듈을 사용 하 여 영어 텍스트 스트림을 정수 기능 집합으로 변환 합니다. 그런 다음이 해시 된 기능 집합을 기계 학습 알고리즘에 전달 하 여 텍스트 분석 모델을 학습 시킬 수 있습니다.
 
-이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)를 참조 하세요.
+이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)를 참조 하세요.
 
 ## <a name="what-is-feature-hashing"></a>기능 해싱 이란?
 
@@ -90,7 +90,7 @@ ms.locfileid: "90907920"
     
     기본 비트 크기는 10입니다. 많은 문제를 해결 하려면이 값을 적절 하 게 합니다. 학습 텍스트의 n-그램 어휘 크기에 따라 충돌을 방지 하기 위해 더 많은 공간이 필요할 수 있습니다.
     
-1. **N 그램**의 경우 학습 사전에 추가할 n 그램의 최대 길이를 정의 하는 숫자를 입력 합니다. N-영문법은 고유한 단위로 처리 되는 *n 개* 단어의 시퀀스입니다.
+1. **N 그램** 의 경우 학습 사전에 추가할 n 그램의 최대 길이를 정의 하는 숫자를 입력 합니다. N-영문법은 고유한 단위로 처리 되는 *n 개* 단어의 시퀀스입니다.
 
     예를 들어 3을 입력 하는 경우에는 3, 4, bigrams 및 trigrams을 만듭니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "90907920"
 
 변환 된 데이터 집합을 만든 후 모델 학습 모듈에 대 한 입력으로 사용할 수 있습니다.
  
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 다음 모범 사례는 기능 해싱 모듈을 최대한 활용 하는 데 도움이 될 수 있습니다.
 
@@ -131,4 +131,4 @@ ms.locfileid: "90907920"
 
 ## <a name="next-steps"></a>다음 단계
             
-Azure Machine Learning에서 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.
