@@ -3,17 +3,18 @@ title: Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 
 description: 이 문서에서는 소매점 회사에서 변경 피드를 사용 하 여 사용자 패턴을 이해 하 고 실시간 데이터 분석 및 시각화를 수행 하는 방법을 설명 합니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 1206d67b6a9d3823220b1ce1b7bd5b4b45e672fe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072708"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342167"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +56,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -171,7 +172,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 3. **컬렉션** 및 **데이터베이스** 이름을 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabcollection** 및 **changefeedlabdatabase** 여야 합니다.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="연결 문자열 업데이트":::
  
 4. 편집된 모든 파일에 변경 내용을 저장합니다.  
 
@@ -181,7 +182,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 7. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 리소스 그룹 내의 Cosmos DB 계정으로 이동한 다음 **데이터 탐색기** 하려면 **changefeedlabcollection** 에서 가져온 임의 데이터를 확인 합니다.
  
-   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="포털에서 생성된 데이터":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>스트림 분석 작업 설정
 
@@ -191,7 +192,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 2. 아래와 같이 **입력** 을 선택합니다.  
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="입력 만들기":::
 
 3. **+ 스트림 입력 추가** 를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Event Hub** 를 선택합니다.  
 
@@ -223,7 +224,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 8. 그런 다음, **streamjob1** 로 돌아가서 **쿼리 편집** 을 선택합니다.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="쿼리 편집":::
  
 9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE** (평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
 
@@ -316,7 +317,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
    샘플 대시보드에서 이러한 차트가 표시되는 방식은 다음과 같습니다.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="스크린샷은 작업 별로 평균 가격 항목, 고유 방문자, 수익 및 상위 5 개 항목으로 명명 된 차트를 포함 하는 샘플 대시보드를 보여 줍니다.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>선택 사항: 전자 상거래 사이트를 통해 시각화
 
@@ -330,13 +331,13 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초** 로 설정합니다.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="TTL(Time to live)":::
 
 3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1** 로 돌아가서 새 **출력** 을 추가합니다. **Cosmos DB** 를 선택합니다.
 
 4. 아래와 같이 필수 필드를 채웁니다.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="프로젝트 시각적 개체":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos 출력":::
  
 5. 랩의 이전 단계에서 선택적 TOP 5 쿼리를 추가한 경우 5a단계로 진행합니다. 그렇지 않은 경우 5b단계로 진행합니다.
 

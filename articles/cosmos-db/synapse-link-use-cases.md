@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3132f19bd80d6958d4d073f63eb6a01c103c2776
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340178"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우드 네이티브 HTAP(하이브리드 트랜잭션 및 분석 처리) 기능으로, 이를 통해 작동 데이터에 대해 근 실시간 분석을 실행할 수 있습니다. Synapse Link를 통해 Microsoft Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
 
@@ -71,7 +71,7 @@ Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우�
 
 오늘날 소매업체는 고객 및 비즈니스의 요구를 모두 충족하는 안전하고 확장 가능한 전자 상거래 솔루션을 구축해야 합니다. 이러한 전자 상거래 솔루션은 사용자 지정 제품 및 제안을 통해 고객을 참여시키고, 빠르고 안전하게 트랜잭션을 처리하며, 이행 및 고객 서비스에 집중해야 합니다. Microsoft Azure Cosmos DB와 최신 Microsoft Azure Cosmos DB용 Synapse Link를 통해 소매업체는 고객을 위한 맞춤형 추천을 실시간으로 생성할 수 있습니다. 이들은 즉각적인 인사이트를 얻기 위해 다음 아키텍처와 같이 지연 시간이 짧고 조정 가능한 일관성 설정을 사용합니다.
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="실시간 개인 설정의 Microsoft Azure Cosmos DB용 Synapse Link" border="false":::
 
 Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
@@ -83,7 +83,7 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 다음은 IoT 예측 유지 관리에 Microsoft Azure Cosmos DB용 Azure Synapse Link의 클라우드 네이티브 HTAP 기능을 활용하는 아키텍처입니다.
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="IOT 예측 유지 관리의 Microsoft Azure Cosmos DB용 Synapse Link" border="false" :::
 
 Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
@@ -105,7 +105,7 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로드를 지원할 뿐만 아니라 기록 작동 데이터에 대해 근 실시간 분석 워크로드를 수행할 수도 있습니다. 이는 ETL 요구 사항이 없고 트랜잭션 워크로드에서 성능 격리가 보장되는 경우에 한합니다.
 
-다음 이미지에서는 Microsoft Azure Cosmos DB를 사용하는 워크로드 패턴을 보여줍니다. :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false":::
+다음 이미지에서는 Microsoft Azure Cosmos DB를 사용하는 워크로드 패턴을 보여줍니다. :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Microsoft Azure Cosmos DB용 Synapse Link 워크로드 패턴" border="false":::
 
 인벤토리 관리 플랫폼의 트랜잭션 및 분석 요구 사항을 모두 지원하는 단일 실시간 데이터베이스로 Microsoft Azure Cosmos DB를 선택하는 이점을 설명하기 위해 전 세계 20개 국가/지역에서 사업을 운영 중인 전자 상거래 회사 CompanyXYZ를 예로 들어 보겠습니다.
 

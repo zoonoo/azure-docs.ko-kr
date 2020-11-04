@@ -3,16 +3,17 @@ title: SQL API Azure Cosmos DB에서 데이터베이스 처리량 프로 비전
 description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 SQL API Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프로 비전 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342000"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스에 대 한 표준 (수동) 처리량 프로 비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

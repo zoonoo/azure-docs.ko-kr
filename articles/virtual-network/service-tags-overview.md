@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d21b59b8822684598ac2fc3fd813278c1cf0c698
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319817"
+ms.locfileid: "93340263"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -84,7 +84,6 @@ ms.locfileid: "93319817"
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
 | **DataFactoryManagement** | Azure Data Factory에 대한 관리 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | 예 | 예 |
-| **ElasticAFD** | 탄력적 Azure Front Door입니다. | 모두 | 예 | 예 |
 | **EventHub** | Azure Event Hubs입니다. | 아웃바운드 | 예 | 예 |
 | **GatewayManager** | Azure VPN Gateway 및 Application Gateway 전용 배포에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
 | **GuestAndHybridManagement** | Azure Automation 및 게스트 구성입니다. | 아웃바운드 | 예 | 예 |

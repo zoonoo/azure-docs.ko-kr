@@ -2,21 +2,21 @@
 title: 변경을 방지하기 위해 리소스 잠그기
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281747"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340144"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
-관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있습니다. 잠금 수준을 **CanNotDelete** 또는 **ReadOnly**로 설정할 수 있습니다. 포털에서 잠금은 각각 **삭제** 및 **읽기 전용**으로 지칭됩니다.
+관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있습니다. 잠금 수준을 **CanNotDelete** 또는 **ReadOnly** 로 설정할 수 있습니다. 포털에서 잠금은 각각 **삭제** 및 **읽기 전용** 으로 지칭됩니다.
 
-* **CanNotDelete**는 권한이 부여된 사용자가 리소스를 읽고 수정할 수 있지만 삭제할 수 없음을 의미합니다.
-* **ReadOnly**는 권한이 부여된 사용자가 리소스를 읽을 수 있지만 해당 리소스를 삭제하거나 업데이트할 수 없음을 의미합니다. 이 잠금을 적용하는 것은 권한 있는 모든 사용자에게 **판독기** 역할에서 부여한 권한을 제한하는 것과 유사합니다.
+* **CanNotDelete** 는 권한이 부여된 사용자가 리소스를 읽고 수정할 수 있지만 삭제할 수 없음을 의미합니다.
+* **ReadOnly** 는 권한이 부여된 사용자가 리소스를 읽을 수 있지만 해당 리소스를 삭제하거나 업데이트할 수 없음을 의미합니다. 이 잠금을 적용하는 것은 권한 있는 모든 사용자에게 **판독기** 역할에서 부여한 권한을 제한하는 것과 유사합니다.
 
 ## <a name="how-locks-are-applied"></a>잠금을 적용하는 방법
 
@@ -24,27 +24,27 @@ ms.locfileid: "92281747"
 
 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대 한 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
-리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어, SQL Database에 대해 ReadOnly 잠금이 지정되면 데이터베이스를 삭제하거나 수정하지 못합니다. 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제하지 못하게 됩니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 트랜잭션이 허용됩니다.
+리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database 논리 서버에 대 한 ReadOnly 잠금은 서버를 삭제 하거나 수정 하는 것을 방지 합니다. 해당 서버의 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제 하는 것을 방지 하지 않습니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 트랜잭션이 허용됩니다.
 
 ## <a name="considerations-before-applying-locks"></a>잠금 적용 전 고려 사항
 
 리소스를 수정하지 않는 일부 작업에 실제로 잠금에 의해 차단되는 작업이 필요하므로 잠금을 적용하면 예기치 않은 결과가 발생할 수 있습니다. 잠금에 의해 차단되는 작업의 몇 가지 일반적인 예제는 다음과 같습니다.
 
-* **스토리지 계정**에 읽기 전용 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
+* **스토리지 계정** 에 읽기 전용 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
 
 * **App Service** 리소스에 읽기 전용 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 
-* **가상 머신**을 포함하는 **리소스 그룹**에 대한 읽기 전용 잠금은 모든 사용자가 가상 머신을 시작하거나 다시 시작하지 못하게 합니다. 이러한 작업에는 POST 요청이 필요합니다.
+* **가상 머신** 을 포함하는 **리소스 그룹** 에 대한 읽기 전용 잠금은 모든 사용자가 가상 머신을 시작하거나 다시 시작하지 못하게 합니다. 이러한 작업에는 POST 요청이 필요합니다.
 
 * **리소스 그룹** 에 대 한 삭제 잠금을 설정 하면 Azure Resource Manager가 기록에서 [배포를 자동으로 삭제할](../templates/deployment-history-deletions.md) 수 없습니다. 기록에서 800 배포에 도달 하면 배포에 실패 합니다.
 
-* **Azure Backup 서비스**가 생성한 **리소스 그룹**에 대해 잠금을 삭제할 수 없으므로 백업이 실패합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. 잠겨 있으면 백업 서비스에서 복원 지점이 정리할 수 없습니다. 자세한 내용은 [질문과 대답-Azure VM 백업](../../backup/backup-azure-vm-backup-faq.md)을 참조하세요.
+* **Azure Backup 서비스** 가 생성한 **리소스 그룹** 에 대해 잠금을 삭제할 수 없으므로 백업이 실패합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. 잠겨 있으면 백업 서비스에서 복원 지점이 정리할 수 없습니다. 자세한 내용은 [질문과 대답-Azure VM 백업](../../backup/backup-azure-vm-backup-faq.md)을 참조하세요.
 
-* **구독**에 대해 읽기 전용 잠금을 설정하면 **Azure Advisor**가 제대로 작동하지 않습니다. Advisor가 쿼리 결과를 저장할 수 없습니다.
+* **구독** 에 대해 읽기 전용 잠금을 설정하면 **Azure Advisor** 가 제대로 작동하지 않습니다. Advisor가 쿼리 결과를 저장할 수 없습니다.
 
 ## <a name="who-can-create-or-delete-locks"></a>잠금을 만들거나 삭제할 수 있는 사람
 
-관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
+관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자** 에게만 이러한 작업의 권한이 부여됩니다.
 
 ## <a name="managed-applications-and-locks"></a>관리형 애플리케이션 및 잠금
 
@@ -58,11 +58,11 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 ![서비스 선택](./media/lock-resources/select-service.png)
 
-서비스에는 **관리형 리소스 그룹**에 대한 링크가 포함되어 있습니다. 해당 리소스 그룹은 인프라를 보유하고 있으며 잠겨집니다. 직접 삭제할 수 없습니다.
+서비스에는 **관리형 리소스 그룹** 에 대한 링크가 포함되어 있습니다. 해당 리소스 그룹은 인프라를 보유하고 있으며 잠겨집니다. 직접 삭제할 수 없습니다.
 
 ![관리형 그룹 표시](./media/lock-resources/show-managed-group.png)
 
-잠긴 인프라 리소스 그룹을 포함하여 서비스에 대한 모든 항목을 삭제하려면 서비스에 대해 **삭제**를 선택합니다.
+잠긴 인프라 리소스 그룹을 포함하여 서비스에 대한 모든 항목을 삭제하려면 서비스에 대해 **삭제** 를 선택합니다.
 
 ![서비스 삭제](./media/lock-resources/delete-service.png)
 
@@ -76,12 +76,12 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위에 따라 이름 및 형식에 대해 서로 다른 값을 사용합니다.
 
-**리소스**에 잠금을 적용하는 경우 다음 형식을 사용합니다.
+**리소스** 에 잠금을 적용하는 경우 다음 형식을 사용합니다.
 
 * 이름 - `{resourceName}/Microsoft.Authorization/{lockName}`
 * 형식 - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-**리소스 그룹** 또는 **구독**에 잠금을 적용하는 경우 다음 형식을 사용합니다.
+**리소스 그룹** 또는 **구독** 에 잠금을 적용하는 경우 다음 형식을 사용합니다.
 
 * 이름 - `{lockName}`
 * 형식 - `Microsoft.Authorization/locks`
@@ -237,7 +237,7 @@ az lock delete --ids $lockid
 PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 ```
 
-범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. api-version에는 **2016-09-01**을 사용합니다.
+범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. api-version에는 **2016-09-01** 을 사용합니다.
 
 요청에서 잠금에 대한 속성을 지정하는 JSON 개체를 포함합니다.
 

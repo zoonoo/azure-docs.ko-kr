@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 CORS(크로스-원본 자원 공유)
 description: 이 문서에서는 Azure Portal 및 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB에서 CORS(크로스-원본 자원 공유)를 구성하는 방법을 설명합니다.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339904"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>CORS(원본 간 리소스 공유) 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

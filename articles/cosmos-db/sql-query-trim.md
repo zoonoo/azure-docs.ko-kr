@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어에서 자르기
 description: Azure Cosmos DB의 SQL 시스템 함수 트리밍에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 963d4ad0557c3ca2bd4cabb2afbb24d701a59c07
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 377aa042919f94ec31549f6d672a4dabc6c86859
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093783"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340739"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

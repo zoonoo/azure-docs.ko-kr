@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321666"
+ms.locfileid: "93340040"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -82,7 +82,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
   > [!NOTE]
   > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
@@ -104,6 +104,13 @@ Microsoft 지원 작업 (미리 보기)에 대 한 감사를 사용 하도록 �
   > Microsoft 지원 운영 (미리 보기) 감사는 저장소 계정 대상을 지원 하지 않습니다. 기능을 사용 하도록 설정 하려면 Log Analytics 작업 영역 또는 이벤트 허브 대상을 구성 해야 합니다.
 
 ![Microsoft 지원 작업 스크린샷](./media/auditing-overview/support-operations.png)
+
+Log Analytics 작업 영역에서 Microsoft 지원 작업의 감사 로그를 검토 하려면 다음 쿼리를 사용 합니다.
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>저장소 대상 감사
 
@@ -205,9 +212,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 - 추가 방법:
 
   - 여러 파일 또는 로그 파일이 포함된 하위 폴더를 다운로드한 후 SSMS 감사 파일 병합 지침에 설명된 대로 파일을 로컬로 병합할 수 있습니다.
-  - 프로그래밍 방식으로 Blob 감사 로그를 확인합니다.
-
-    - PowerShell을 사용하여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/)합니다.
+  - 프로그래밍 방식으로 blob 감사 로그 보기: PowerShell을 사용 하 여 [확장 이벤트 파일을 쿼리](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) 합니다.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>프로덕션 사례
 

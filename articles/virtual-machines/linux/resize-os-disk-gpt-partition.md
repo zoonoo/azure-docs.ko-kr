@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375213"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340310"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
 
@@ -34,7 +34,7 @@ ms.locfileid: "89375213"
 
 ### <a name="mbr-partition"></a>MBR 파티션
 
-다음 출력에서 **Partition Table** 값이 **msdos**로 표시됩니다. 이 값은 MBR 파티션임을 나타냅니다.
+다음 출력에서 **Partition Table** 값이 **msdos** 로 표시됩니다. 이 값은 MBR 파티션임을 나타냅니다.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>GPT 파티션
 
-다음 출력에서 **Partition Table** 값이 **gpt**로 표시됩니다. 이 값은 GPT 파티션임을 나타냅니다.
+다음 출력에서 **Partition Table** 값이 **gpt** 로 표시됩니다. 이 값은 GPT 파티션임을 나타냅니다.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -177,7 +177,7 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
 
 1. 파일 시스템 유형을 기준으로 적절한 명령을 사용하여 파일 시스템의 크기를 조정합니다.
    
-   **xfs**의 경우 다음 명령을 사용합니다.
+   **xfs** 의 경우 다음 명령을 사용합니다.
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    data blocks changed from 7470331 to 12188923
    ```
    
-   **ext4**의 경우 다음 명령을 사용합니다.
+   **ext4** 의 경우 다음 명령을 사용합니다.
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. 다음 명령을 사용하여 **df -Th**의 파일 시스템 크기가 늘어났는지 확인합니다.
+1. 다음 명령을 사용하여 **df -Th** 의 파일 시스템 크기가 늘어났는지 확인합니다.
    
    ```
    #df -Thl
@@ -231,7 +231,7 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    
    앞의 예제에서 OS 디스크의 파일 시스템 크기가 늘어난 것을 확인할 수 있습니다.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>RHEL LVM
 
 LVM을 사용하여 RHEL 7.x에서 OS 디스크의 크기를 늘리려면:
 
@@ -259,7 +259,7 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    #sgdisk -e /dev/sda
    ```
 
-1. 다음 명령을 사용하여 파티션을 삭제하지 않고 크기를 조정합니다. **parted** 명령에는 파티션을 삭제하지 않고 크기를 조정하는 **resizepart**라는 옵션이 있습니다. **resizepart** 뒤에 오는 숫자 4는 네 번째 파티션의 크기가 조정됨을 나타냅니다.
+1. 다음 명령을 사용하여 파티션을 삭제하지 않고 크기를 조정합니다. **parted** 명령에는 파티션을 삭제하지 않고 크기를 조정하는 **resizepart** 라는 옵션이 있습니다. **resizepart** 뒤에 오는 숫자 4는 네 번째 파티션의 크기가 조정됨을 나타냅니다.
 
    ```
    #parted -s /dev/sda "resizepart 4 -1" quit
@@ -310,7 +310,7 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. 다음 예제에서는 다음 명령에 의해 **/dev/mapper/rootvg-rootlv**가 2GB에서 12GB로 크기 조정됩니다(10GB 증가). 이 명령은 파일 시스템의 크키도 조정합니다.
+1. 다음 예제에서는 다음 명령에 의해 **/dev/mapper/rootvg-rootlv** 가 2GB에서 12GB로 크기 조정됩니다(10GB 증가). 이 명령은 파일 시스템의 크키도 조정합니다.
 
    ```
    #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
@@ -334,7 +334,7 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    data blocks changed from 524288 to 3145728
    ```
          
-1. 다음 명령을 사용하여 **/dev/mapper/rootvg-rootlv**의 파일 시스템 크기가 증가했는지 확인합니다.
+1. 다음 명령을 사용하여 **/dev/mapper/rootvg-rootlv** 의 파일 시스템 크기가 증가했는지 확인합니다.
 
    ```
    #df -Th /
@@ -351,6 +351,129 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
 
 > [!NOTE]
 > 동일한 절차를 사용하여 다른 논리 볼륨의 크기를 조정하려면 7단계에서 **lv** 이름을 변경하세요.
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>OS 디스크 크기를 늘리려면 항상 VM의 스냅숏을 만듭니다.
+
+RAW 파티션이 있는 RHEL에서 OS 디스크의 크기를 늘리려면 다음을 수행 하십시오.
+
+VM을 중지합니다.
+포털에서 OS 디스크의 크기를 늘립니다.
+VM을 시작합니다.
+VM이 다시 시작되면 다음 단계를 수행합니다.
+
+1. 다음 명령을 사용하여 **루트** 사용자로 VM에 액세스합니다.
+ 
+   ```
+   sudo su
+   ```
+
+1. OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치합니다.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  디스크에서 사용할 수 있는 모든 섹터를 보려면 다음 명령을 실행 합니다.
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. 파티션 형식에 대 한 자세한 정보가 표시 됩니다. GPT 인지 확인 합니다. 루트 파티션을 식별 합니다. 부팅 파티션 (BIOS 부팅 파티션) 및 시스템 파티션 (' EFI 시스템 파티션 ')을 변경 하거나 삭제 하지 마십시오.
+
+1. 다음 명령을 사용 하 여 처음으로 분할을 시작 합니다. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. 이제 다음 명령을 요청 하는 메시지가 표시 됩니다 (' Command:? 도움말의 경우). 
+
+   ```
+   w
+   ```
+
+1. "경고! 보조 헤더가 디스크에 너무 일찍 배치 되었습니다. 이 문제를 해결 하 시겠습니까? (Y/N): " ' Y '를 눌러야 합니다.
+
+   ```
+   Y
+   ```
+
+1. 최종 검사가 완료 되 고 확인을 요청 하는 메시지가 표시 됩니다. ' Y '를 누릅니다.
+
+   ```
+   Y
+   ```
+
+1. Partprobe 명령을 사용 하 여 모든 것이 올바르게 발생 했는지 확인 합니다.
+
+   ```
+   partprobe
+   ```
+
+1. 위의 단계에서 보조 GPT 헤더가 끝에 배치 되었는지 확인 했습니다. 다음 단계는 gdisk 도구를 다시 사용 하 여 크기를 조정 하는 프로세스를 시작 하는 것입니다. 다음 명령을 사용합니다.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. 명령 메뉴에서 ' p '를 눌러 파티션 목록을 표시 합니다. 루트 파티션을 식별 하 고 (단계에서는 sda2가 루트 파티션으로 간주 됨) 부팅 파티션을 식별 합니다 (단계에서는 sda3가 부팅 파티션으로 간주 됨). 
+
+   ```
+   p
+   ```
+    ![루트 파티션 및 부팅 파티션](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. ' D '를 눌러 파티션을 삭제 하 고 부팅에 할당 된 파티션 번호 (이 예제에서는 ' 3 ')를 선택 합니다.
+   ```
+   d
+   3
+   ```
+1. ' D '를 눌러 파티션을 삭제 하 고 부팅에 할당 된 파티션 번호 (이 예제에서는 ' 2 ')를 선택 합니다.
+   ```
+   d
+   2
+   ```
+    ![루트 파티션 및 부팅 파티션 삭제](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. 크기가 증가 된 루트 파티션을 다시 만들려면 ' n '을 누르고 루트에 대해 이전에 삭제 한 파티션 번호 (이 예제의 경우 ' 2 ')를 입력 하 고 첫 번째 섹터를 ' 기본값 '으로, 마지막 섹터를 ' 마지막 섹터 값-부팅 크기 섹터 8300 4096 '로
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. 부팅 파티션을 다시 만들려면 ' n '을 누르고, 이전에 부팅 하기 위해 삭제 한 파티션 번호 (이 예에서는 ' 3 ')를 입력 하 고 첫 번째 섹터를 ' 기본값 '으로, 마지막 섹터를 ' 기본값 '으로, 16 진수 코드를 ' EF02 '로 선택 합니다.
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. ' W ' 명령을 사용 하 여 변경 내용을 작성 하 고 ' Y ' 키를 눌러 확인 합니다.
+   ```
+   w
+   Y
+   ```
+1. ' Partprobe ' 명령을 실행 하 여 디스크 안정성 확인
+   ```
+   partprobe
+   ```
+1. VM을 다시 부팅 하면 루트 파티션 크기가 늘어났습니다.
+   ```
+   reboot
+   ```
+
+   ![새 루트 파티션 및 부팅 파티션](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. 파티션에서 xfs_growfs 명령을 실행 하 여 크기를 조정 합니다.
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS 확장 FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>다음 단계
 

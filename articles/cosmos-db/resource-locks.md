@@ -3,15 +3,16 @@ title: Azure Cosmos DB 리소스가 삭제 되거나 변경 되지 않도록 방
 description: Azure 리소스 잠금을 사용 하 여 Azure Cosmos DB 리소스가 삭제 되거나 변경 되는 것을 방지 합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6db7bbf03b023a80032a4ed15f2f4f82dd2b0b98
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088372"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341963"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Azure Cosmos DB 리소스가 삭제 되거나 변경 되지 않도록 방지
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

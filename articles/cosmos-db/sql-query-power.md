@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 기능
 description: Azure Cosmos DB의 SQL 시스템 기능 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 41c5cc1a6032a0aee16f1922fc59349449c65b55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091942"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341691"
 ---
 # <a name="power-azure-cosmos-db"></a>전원 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

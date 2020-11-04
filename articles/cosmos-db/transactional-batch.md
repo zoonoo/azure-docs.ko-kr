@@ -4,16 +4,18 @@ description: Azure Cosmos DB .NET SDK에서 TransactionalBatch를 사용 하 여
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328703"
+ms.locfileid: "93340569"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>.NET SDK를 사용 하 Azure Cosmos DB의 트랜잭션 일괄 처리 작업
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 트랜잭션 일괄 처리는 컨테이너에서 동일한 파티션 키와 함께 성공 하거나 실패 해야 하는 시점 작업 그룹을 설명 합니다. .NET SDK에서 `TranscationalBatch` 클래스는 이러한 작업 일괄 처리를 정의 하는 데 사용 됩니다. 트랜잭션 일괄 처리 작업 내에 설명 된 순서 대로 모든 작업이 성공 하면 트랜잭션이 커밋됩니다. 그러나 작업이 실패 하면 전체 트랜잭션이 롤백됩니다.
 

@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 TimestampToDateTime
 description: Azure Cosmos DB의 SQL 시스템 함수 TimestampToDateTime에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: c4a37206187d4b042bb69c065310f3a55fd51e37
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: af5e0eeb808835fd4f36a0eda79618f831248ad9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093836"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340773"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,15 +3,16 @@ title: Azure Cosmos DB Core 용 Azure Resource Manager 템플릿 (SQL API)
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB를 만들고 구성합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7c060b20920ec17e5de0d10ec74b5619b1575ae2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079396"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340603"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

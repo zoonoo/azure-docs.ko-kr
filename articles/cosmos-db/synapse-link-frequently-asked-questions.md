@@ -6,15 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098045"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341294"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analytics를 긴밀하게 통합합니다. 이를 통해 고객은 트랜잭션 워크로드에서 성능을 완벽하게 분리하고 ETL 파이프라인 없이 운영 데이터를 거의 실시간으로 분석할 수 있습니다. 이 문서는 Azure Cosmos DB용 Synapse Link에 대한 일반적인 질문과 대답을 제공합니다.
 
@@ -157,7 +157,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 트랜잭션 저장소 컨테이너는 다음 아이콘으로 표시됩니다.
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Azure Synapse Studio에서 Azure Cosmos DB 자격 증명을 전달 하는 방법
 

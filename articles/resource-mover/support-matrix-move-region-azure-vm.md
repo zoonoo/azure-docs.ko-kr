@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341861"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 및 15 SP1 |  모든 stock SUSE 15 및 15 커널
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
 크기 | CPU 코어가 2 개 이상이 고 1GB RAM이 있는 모든 Azure VM 크기 | [Azure Virtual Machine 크기](../virtual-machines/sizes-general.md)를 확인합니다.
-가용성 집합 | 현재 지원되지 않음 | 가용성 집합이 있는 Azure VM을 기본 옵션을 사용 하 여 이동 컬렉션에 추가 하면 준비 프로세스가 실패 합니다. VM을 가용성 영역으로 이동 하거나 단일 인스턴스 VM으로 이동 하도록 선택할 수 있습니다. 대상 속성 편집 페이지에서 이러한 설정을 수정할 수 있습니다.
+가용성 집합 | 지원됨 | 지원됨.
 가용성 영역 | 지원됨 | 대상 지역 지원에 따라 지원 됩니다.
 Azure 갤러리 이미지 (Microsoft에서 게시) | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 (타사에서 게시)  | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
@@ -170,7 +170,7 @@ IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본�
 
  URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-**이름** | **Azure 공용 클라우드** | **세부 정보** 
+**이름** | **Azure 퍼블릭 클라우드** | **세부 정보** 
 --- | --- | --- 
 스토리지 | `*.blob.core.windows.net`  | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. 
 Azure Active Directory | `login.microsoftonline.com`  | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. 

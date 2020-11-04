@@ -3,12 +3,12 @@ title: 프라이빗 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: d5193efc1b1def2dc51411630ab6a2305d369cf4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026125"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342303"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
 
@@ -306,7 +306,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 프라이빗 링크 연결의 유효성을 검사하려면 가상 네트워크에서 설정한 가상 머신에 대해 SSH를 수행합니다.
 
-또는와 같은 유틸리티를 `nslookup` 실행 `dig` 하 여 개인 링크를 통해 레지스트리의 IP 주소를 조회 합니다. 예를 들면 다음과 같습니다.
+또는와 같은 유틸리티를 `nslookup` 실행 `dig` 하 여 개인 링크를 통해 레지스트리의 IP 주소를 조회 합니다. 예를 들어:
 
 ```bash
 dig $REGISTRY_NAME.azurecr.io
@@ -387,7 +387,12 @@ az acr private-endpoint-connection list \
 
 이 예제의 개인 끝점은 기본 가상 네트워크와 연결 된 개인 DNS 영역과 통합 됩니다. 이 설치 프로그램은 Azure에서 제공 하는 DNS 서비스를 직접 사용 하 여 레지스트리의 공용 FQDN을 가상 네트워크의 개인 IP 주소에 대해 확인 합니다. 
 
-개인 링크는 사용자 지정 DNS 솔루션을 포함 하 여 개인 영역을 사용 하는 추가 DNS 구성 시나리오를 지원 합니다. 예를 들어 가상 네트워크에 배포 된 사용자 지정 DNS 솔루션이 있거나 네트워크의 온-프레미스에서 VPN gateway를 사용 하 여 가상 네트워크에 연결 하는 경우가 있을 수 있습니다. 이러한 시나리오에서 레지스트리의 공용 FQDN을 개인 IP 주소로 확인 하려면 Azure DNS 서비스 (168.63.129.16)에 대 한 서버 수준 전달자를 구성 해야 합니다. 정확한 구성 옵션 및 단계는 기존 네트워크 및 DNS에 종속 됩니다. 예제는 [Azure 개인 끝점 DNS 구성](../private-link/private-endpoint-dns.md)을 참조 하세요.
+개인 링크는 사용자 지정 DNS 솔루션을 포함 하 여 개인 영역을 사용 하는 추가 DNS 구성 시나리오를 지원 합니다. 예를 들어 가상 네트워크에 배포 된 사용자 지정 DNS 솔루션이 있거나 네트워크의 온-프레미스에서 VPN gateway 또는 Azure Express 경로를 사용 하 여 가상 네트워크에 연결 하는 경우를 예로 들어 볼 수 있습니다. 
+
+이러한 시나리오에서 레지스트리의 공용 FQDN을 개인 IP 주소로 확인 하려면 Azure DNS 서비스 (168.63.129.16)에 대 한 서버 수준 전달자를 구성 해야 합니다. 정확한 구성 옵션 및 단계는 기존 네트워크 및 DNS에 종속 됩니다. 예제는 [Azure 개인 끝점 DNS 구성](../private-link/private-endpoint-dns.md)을 참조 하세요.
+
+> [!IMPORTANT]
+> 고가용성을 위해 여러 지역에서 개인 끝점을 만든 경우 각 지역에 별도의 리소스 그룹을 사용 하 고 가상 네트워크와 연결 된 개인 DNS 영역을 추가 하는 것이 좋습니다. 또한이 구성은 동일한 개인 DNS 영역을 공유 하 여 발생 하는 예기치 않은 DNS 확인을 방지 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

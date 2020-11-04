@@ -3,17 +3,18 @@ title: .NET SDK를 사용 하 여 HTTP 408 Azure Cosmos DB 또는 요청 시간 
 description: .NET SDK 요청 시간 제한 예외를 진단 하 고 해결 하는 방법을 알아봅니다.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 735c098fcf6fed76019850a1cb58d9eb6c485b7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101020"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340501"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>.NET SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,16 +3,17 @@ title: Azure Cosmos DB Cassandra API 계정의 인덱싱
 description: Azure Azure Cosmos DB Cassandra API 계정에서 보조 인덱싱이 작동 하는 방식을 알아봅니다.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: fc9c7c2f06b9d39243b8593b20ddeb7ffa2f886c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 98e8f713ad2e4eef47e40d89a23dbf49a98ad67c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092367"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339896"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API의 보조 인덱싱
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

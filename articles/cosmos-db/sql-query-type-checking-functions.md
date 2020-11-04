@@ -3,23 +3,24 @@ title: Azure Cosmos DB 쿼리 언어의 형식 검사 함수
 description: Azure Cosmos DB에서 SQL 시스템 함수를 확인 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bafc599ddb502d5714b08ff58ed942e9c17557a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093761"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341504"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>형식 검사 함수 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 형식 검사 함수를 사용 하 여 SQL 쿼리 내에서 식의 형식을 확인할 수 있습니다. 형식 검사 함수를 사용 하 여 변수 이거나 알 수 없는 경우 즉석에서 항목 내의 속성 형식을 확인할 수 있습니다. 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 다음 표에서는 지원 되는 기본 제공 형식 검사 함수를 제공 합니다.
 

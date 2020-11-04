@@ -4,16 +4,15 @@ description: 이 문서에서는 Azure Cosmos 계정, 데이터베이스, 컨테
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087930"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341368"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 리소스 모델
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Azure 구독에서 계정을 만든 후에는 데이터베이스, 컨테이너 �
 
 다음 이미지는 Azure Cosmos DB 계정의 여러 엔터티 계층을 보여 줍니다.
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정의 계층 구조" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos 데이터베이스
 
@@ -53,10 +52,10 @@ Azure 구독에서 계정을 만든 후에는 데이터베이스, 컨테이너 �
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
-|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
-|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
-|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | Yes | 해당 없음 | 해당 없음 |
+|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
 

@@ -3,20 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeDiff
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeDiff에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: d51c8774a8646a4b961906ee77913d8edbe752ee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342269"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
 *지정 된 서 수* 와 *EndDate* 사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
   
 ## <a name="syntax"></a>구문
@@ -37,7 +37,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| Second       | "second", "ss", "s"  |
+| 초       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |

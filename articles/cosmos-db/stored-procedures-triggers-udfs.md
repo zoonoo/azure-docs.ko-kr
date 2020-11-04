@@ -3,16 +3,17 @@ title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작업
 description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리거 및 사용자 정의 함수와 같은 개념을 소개합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101309"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340705"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

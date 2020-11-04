@@ -3,16 +3,17 @@ title: .NET SDK에서 세션 토큰 형식을 변환 하는 방법-Azure Cosmos 
 description: 서로 다른 .NET SDK 버전 간에 호환성 되도록 세션 토큰 형식을 변환 하는 방법에 대해 알아봅니다.
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101666"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342048"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>.NET SDK에서 세션 토큰 형식 변환
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

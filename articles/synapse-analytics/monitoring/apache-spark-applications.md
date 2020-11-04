@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322471"
+ms.locfileid: "93341073"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
@@ -35,27 +35,11 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 - Synapse Studio 작업 영역입니다. 자세한 내용은 [Synapse Studio 작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)를 참조 하세요.
 
-- 서버를 사용 하지 않는 Apache Spark 풀이 있습니다.
+- Apache Spark 풀.
 
-## <a name="monitor-running-apache-spark-application"></a>실행 중인 Apache Spark 응용 프로그램 모니터링
-
-**모니터** 를 열고 **Apache Spark 응용 프로그램** 을 선택 합니다. 실행 되는 Apache Spark 응용 프로그램에 대 한 세부 정보를 보려면 Apache Spark 응용 프로그램 제출을 선택 하 고 세부 정보를 확인 합니다. Apache Spark 응용 프로그램이 계속 실행 중인 경우 진행률을 모니터링할 수 있습니다.
-
-  ![실행 중인 작업 선택](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
-
-2. Apache Spark 응용 프로그램을 취소 합니다.
-
-3. 로그 쿼리를 새로 고칩니다.
-
-4. 그래프를 봅니다.
-
-5. **요약** 정보를 확인 합니다.
-
-6. **로그** 를 확인 합니다. 로그 정보가 실행 되는 동안 비어 있습니다.
-
-    ![실행 중인 작업 보기](./media/how-to-monitor-spark-applications/view-running-job.png)
+## <a name="view-apache-spark-applications"></a>Apache Spark 응용 프로그램 보기 
+모든 Apache Spark 응용 프로그램은 **모니터**  ->  **Apache Spark 응용 프로그램** 에서 볼 수 있습니다.
+   ![apache spark 응용 프로그램](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>완료 된 Apache Spark 응용 프로그램 보기
 
@@ -69,17 +53,17 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 3. **Spark 기록 서버** 를 클릭 하 여 Apache Spark 기록 서버 링크를 엽니다.
 
-4. 그래프의 아이콘을 클릭 하 여 **요약** 정보를 확인 합니다.
+4. **요약** 정보를 확인 합니다.
 
-5. **로그** 를 확인 합니다. 드롭다운 목록에서 다른 유형의 로그를 선택할 수 있으며 로그 **다운로드** 를 클릭 하 여 로그 정보를 다운로드할 수 있습니다.
+5. **로그** 를 확인 합니다. 드롭다운 목록에서 다른 유형의 로그를 선택할 수 있으며, 로그 **다운로드** 를 클릭 하 여 로그 정보를 다운로드 하 고, **필터 오류 및 경고** 의 확인란을 선택 하 여 필요한 오류 및 경고를 필터링 할 수 있습니다.
 
 6. 생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. 기본적으로 그래프는 모든 작업을 표시 합니다. **작업 ID** 를 기준으로이 뷰를 필터링 할 수 있습니다.
 
-7. 기본적으로 **진행률** 표시가 선택 되어 있습니다. **표시** 드롭다운 목록에서 **읽기** 또는 **쓰기** 를 선택 하 여 데이터 흐름을 확인할 수 있습니다.
+7. 기본적으로 **진행률** 표시가 선택 되어 있습니다. **Progress** / **Read** / **Written** / **표시** 드롭다운 목록에서 진행률 읽기 기록 **기간** 을 선택 하 여 데이터 흐름을 확인할 수 있습니다.
 
-8. 작업을 재생 하려면 **재생** 을 선택 합니다. 언제 든 지 **중지** 를 선택 하 여 중지할 수 있습니다.
+8. 작업을 재생 하려면 **재생** 단추를 클릭 합니다. 언제 든 지 중지 **단추를** 클릭 하 여 중지할 수 있습니다.
 
-9. 마우스 스크롤을 사용 하 여 작업 그래프를 확대 및 축소 하거나 **크기에 맞게** 를 선택 하 여 화면에 맞게 확대 합니다.
+9. 마우스 스크롤 또는 스크롤 막대를 사용 하 여 작업 그래프를 확대 및 축소 하 고 화면에 맞게 **확대/** 축소를 선택할 수도 있습니다.
 
 10. 작업 그래프 노드에는 각 단계에 대 한 다음 정보가 표시 됩니다.
 
@@ -101,9 +85,34 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
      ![완료 된 작업 보기](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. 그래프를 클릭 하면 단계에 대 한 세부 정보가 표시 됩니다.
+11. 그래프에서 **세부 정보 보기** 를 클릭 하면 단계에 대 한 세부 정보가 표시 됩니다.
 
-   ![단계에 대 한 세부 정보](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![단계에 대 한 세부 정보](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## <a name="monitor-running-apache-spark-application"></a>실행 중인 Apache Spark 응용 프로그램 모니터링
+
+**모니터** 를 열고 **Apache Spark 응용 프로그램** 을 선택 합니다. 실행 되는 Apache Spark 응용 프로그램에 대 한 세부 정보를 보려면 Apache Spark 응용 프로그램 제출을 선택 하 고 세부 정보를 확인 합니다. Apache Spark 응용 프로그램이 계속 실행 중인 경우 진행률을 모니터링할 수 있습니다.
+
+   ![실행 중인 작업 선택](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. 완료 된 **작업** , **상태** 및 **전체 기간** 을 확인 합니다.
+
+2. Apache Spark 응용 프로그램을 **취소** 합니다.
+
+3. **새로 고침** 로그 쿼리입니다.
+
+4. Spark **UI** 단추를 클릭 하 여 spark 작업 페이지로 이동 합니다.
+
+5. 그래프를 봅니다. 생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. [완료 된 Apache Spark 응용 프로그램](#view-completed-apache-spark-application)의 6 단계, 7, 8, 9, 10 단계를 참조 하세요.
+
+6. **요약** 정보를 확인 합니다.
+
+7. **진단** 탭에서 진단을 선택 합니다.
+
+8. 이 탭에서 **로그** 를 확인 합니다. 드롭다운 목록에서 다른 유형의 로그를 선택할 수 있으며, 로그 **다운로드** 를 클릭 하 여 로그 정보를 다운로드 하 고, **필터 오류 및 경고** 의 확인란을 선택 하 여 필요한 오류 및 경고를 필터링 할 수 있습니다.
+
+    ![실행 중인 작업 보기](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## <a name="view-canceled-apache-spark-application"></a>취소 된 Apache Spark 응용 프로그램 보기
 
@@ -117,11 +126,13 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 3. **Spark 기록 서버** 를 클릭 하 여 Apache history 서버 링크를 엽니다.
 
-4. 그래프를 봅니다.
+4. 그래프를 봅니다. 생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. [완료 된 Apache Spark 응용 프로그램](#view-completed-apache-spark-application)의 6 단계, 7, 8, 9, 10 단계를 참조 하세요.
 
 5. **요약** 정보를 확인 합니다.
 
-6. **로그** 를 확인 합니다. 드롭다운 목록에서 다른 유형의 로그를 선택할 수 있으며 로그 **다운로드** 를 클릭 하 여 로그 정보를 다운로드할 수 있습니다.
+6. **로그** 를 확인 합니다. 드롭다운 목록에서 다른 유형의 로그를 선택할 수 있으며, 로그 **다운로드** 를 클릭 하 여 로그 정보를 다운로드 하 고, **필터 오류 및 경고** 의 확인란을 선택 하 여 필요한 오류 및 경고를 필터링 할 수 있습니다.
+
+7. 그래프에서 **세부 정보 보기** 를 클릭 하면 단계에 대 한 세부 정보가 표시 됩니다.
 
    ![취소 한 작업 보기](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
@@ -137,7 +148,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 3. **Spark 기록 서버** 를 클릭 하 여 Apache Spark 기록 서버 링크를 엽니다.
 
-4. 그래프를 봅니다.
+4. 그래프를 봅니다. 생성 된 작업 그래프에서 작업에 대 한 개요를 볼 수 있습니다. [완료 된 Apache Spark 응용 프로그램](#view-completed-apache-spark-application) 의 6 단계, 7, 8, 9, 10 단계를 참조 하세요.
 
 5. **요약** 정보를 확인 합니다.
 

@@ -4,15 +4,16 @@ description: Apache Cassandra 및 Azure Cosmos DB 일관성 수준
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f640ad85fd34dd5a4803e7dd96f1c0283f0c859a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a02076c09d038b02c0ab846440ad14e799271733
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100432"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339957"
 ---
 # <a name="apache-cassandra-and-azure-cosmos-db-consistency-levels"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

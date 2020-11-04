@@ -3,15 +3,16 @@ title: Azure Cosmos DB capacity planner를 사용 하 여 비용 추정
 description: Azure Cosmos DB capacity planner를 사용 하 여 워크 로드에 필요한 처리량 (r u/초)과 비용을 예측할 수 있습니다. 이 문서에서는 새 버전의 capacity planner를 사용 하 여 필요한 처리량과 비용을 예측 하는 방법을 설명 합니다.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096719"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342082"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Azure Cosmos DB capacity planner를 사용 하 여 r u/초 예측
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -63,7 +64,7 @@ Capacity planner는 두 가지 모드에서 사용할 수 있습니다.
 
 또한 **예상 값 저장** 단추를 사용 하 여 현재 추정치를 포함 하는 CSV 파일을 다운로드할 수 있습니다. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Capacity planner 기본 모드":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Capacity planner 고급 모드":::
 
 Azure Cosmos DB capacity planner에 표시 된 가격은 처리량 및 저장소에 대 한 공용 가격 책정 요금을 기준으로 예상 됩니다. 모든 가격은 미국 달러 단위로 표시 됩니다. 지역별 모든 요금을 보려면 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.  
 

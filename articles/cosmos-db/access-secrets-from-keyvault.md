@@ -4,17 +4,16 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 연결 문자열, �
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bd67f9641a644d3302e1f8bc1e53ad14a3801e47
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092843"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341385"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -71,11 +70,11 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 5. 일단 애플리케이션이 배포됩니다. Azure Portal에서 배포한 웹앱으로 이동하고 이 애플리케이션의 **관리 서비스 ID** 를 설정합니다.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="암호 만들기":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="관리 서비스 ID":::
 
 지금 애플리케이션을 실행하면 Key Vault에서 이 애플리케이션에 대한 권한을 부여하지 않았으므로 다음 오류가 표시됩니다.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="암호 만들기":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="액세스 없이 배포된 앱":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>애플리케이션 등록 및 Key Vault를 읽을 권한 부여
 
@@ -85,11 +84,11 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 2. **액세스 정책** 을 열고 **+새로 추가** 를 선택하여 배포된 웹앱을 찾은 다음, 권한을 선택하고 **확인** 을 선택합니다.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="암호 만들기":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="액세스 정책 추가":::
 
 이제 애플리케이션을 실행하는 경우 Key Vault에서 비밀을 읽을 수 있습니다.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="암호 만들기":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="비밀로 배포된 앱":::
  
 마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책** 을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 애플리케이션을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
 

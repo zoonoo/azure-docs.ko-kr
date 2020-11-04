@@ -3,18 +3,21 @@ title: Java v4 SDK를 사용 하 여 HTTP 408 Azure Cosmos DB 또는 요청 시�
 description: Java v4 SDK를 사용 하 여 Java SDK 요청 시간 제한 예외를 진단 하 고 해결 하는 방법을 알아봅니다.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 45452109582be40f007ae57a00c2a151f216bdb8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103012"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340086"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Java v4 SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 408 시간 제한이 발생 하기 전에 SDK에서 요청을 완료할 수 없는 경우 HTTP 오류가 발생 합니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계

@@ -3,15 +3,16 @@ title: Azure Cosmos DB Table API용 Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Table API를 만들고 구성합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 41f3a4fe5afad1f993d91af83c7da27ac28e3759
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8fb47cc54d520d44085c8d007a4dfe92972d1d4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340586"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Table API 리소스 관리
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]

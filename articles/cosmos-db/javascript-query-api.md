@@ -3,17 +3,18 @@ title: Azure Cosmos DB 저장 프로시저 및 트리거에서 JavaScript 통합
 description: 이 문서에서는 Azure Cosmos DB에서 저장 프로시저 및 트리거를 만들기 위한 JavaScript LINQ(Language-Integrated Query) API의 개념을 소개합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 116253e783595cf0e169c6a5774944dfd89f890e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b2563a9af0e0ca6943059698e29d139143780d93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082949"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340977"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

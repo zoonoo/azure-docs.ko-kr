@@ -4,15 +4,16 @@ description: MongoDB 쿼리 문제에 대 한 Azure Cosmos DB의 API를 식별, 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096362"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340892"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API를 사용 하는 경우 쿼리 문제 해결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

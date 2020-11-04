@@ -3,15 +3,16 @@ title: Azure Cosmos DB Gremlin API용 Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Gremlin API를 만들고 구성합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0cd738e48580f3ebdc97bf9a9889763b84a8b00b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fee06a2ceb9b8062b5150e5716f1ee9abf15cff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079464"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340632"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Gremlin API 리소스 관리
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

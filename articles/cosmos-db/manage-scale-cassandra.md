@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 Cassandra API를 사용하여 탄력적으로 크�
 description: Azure Cosmos DB Cassandra API 계정의 크기를 조정하는 데 사용할 수 있는 옵션과 해당 장점/단점에 대해 알아봅니다.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340960"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

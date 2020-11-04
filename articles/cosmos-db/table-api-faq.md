@@ -3,15 +3,16 @@ title: Azure Cosmos DB의 Table API에 대한 질문과 대답
 description: Azure Cosmos DB의 Table API에 대한 질문과 답변 가져오기
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096107"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341240"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Table API에 대한 질문과 대답
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]

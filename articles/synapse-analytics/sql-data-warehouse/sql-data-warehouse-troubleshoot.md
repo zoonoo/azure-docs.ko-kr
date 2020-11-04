@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fe20304341d6e99eb77ad2818e675b0063efd693
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319521"
+ms.locfileid: "93340280"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 문제 해결
 
@@ -67,8 +67,6 @@ ms.locfileid: "93319521"
 | :------------------------------------ | :----------------------------------------------------------- |
 | 지원되지 않는 SQL Database 기능     | [지원되지 않는 테이블 기능](sql-data-warehouse-tables-overview.md#unsupported-table-features)을 참조하세요. |
 | 지원되지 않는 SQL Database 데이터 형식   | [지원되지 않는 데이터 형식](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types)을 참조하세요.        |
-| DELETE 및 UPDATE 제한 사항         | [UPDATE 해결](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements), [DELETE 해결](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements) 및 [CTAS를 사용하여 지원되지 않는 UPDATE 및 DELETE 구문 해결](sql-data-warehouse-develop-ctas.md)을 참조하세요. |
-| MERGE 문이 지원되지 않음      | [MERGE 해결 방법](sql-data-warehouse-develop-ctas.md#replace-merge-statements)을 참조하세요.                  |
 | 저장 프로시저 제한 사항          | 저장 프로시저의 몇 가지 제한을 이해하려면 [저장 프로시저 제한 사항](sql-data-warehouse-develop-stored-procedures.md#limitations) 을 참조하세요. |
 | UDF가 SELECT 문을 지원하지 않음 | 이 문제가 UDF의 현재 제한 사항입니다.  지원되는 구문에 대해서는 [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 을 참조하세요. |
 

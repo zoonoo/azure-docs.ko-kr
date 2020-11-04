@@ -3,16 +3,17 @@ title: Azure Cosmos DB에서 Udf (사용자 정의 함수)
 description: Azure Cosmos DB의 사용자 정의 함수에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 82251cf803168c282e55438ca801ae1f30a2d019
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c7050042d59156e1203b5830d710e61bd8eb382
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341895"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB에서 Udf (사용자 정의 함수)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

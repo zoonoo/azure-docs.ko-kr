@@ -3,17 +3,18 @@ title: Azure Cosmos DB에서 "요청 헤더 너무 큼" 메시지 또는 400 잘
 description: 요청 헤더를 진단 하 고 수정 하는 방법에 대해 알아봅니다.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: fff9bc55b324875601a2c4e68835a17c61c3769b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079260"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340520"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>"요청 헤더 너무 큼" 메시지 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

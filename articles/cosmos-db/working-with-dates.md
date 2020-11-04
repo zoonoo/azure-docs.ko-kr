@@ -2,17 +2,18 @@
 title: Azure Cosmos DB에서 날짜 사용
 description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱 및 쿼리 하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9df71763c610f9773949ef618de7840ae752d82
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b74a403cef8474ae32d98a20899437c2124f3abf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073573"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340382"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

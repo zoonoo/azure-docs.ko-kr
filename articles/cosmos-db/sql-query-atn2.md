@@ -3,16 +3,17 @@ title: Azure Cosmos DB 쿼리 언어의 ATN2
 description: Azure Cosmos DB의 ATN2 SQL 시스템 함수가 y/x의 원호의 아크탄젠트 값을 라디안으로 표현 하 여 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f8fa4738cdd165d068f05cead09e25b382a83730
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6db42713ec6f0eac64e0f1123825c21a4206fa99
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081712"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341946"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
