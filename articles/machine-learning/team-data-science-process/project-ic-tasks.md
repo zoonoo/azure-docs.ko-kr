@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721254"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321920"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process에서 개별 기여자에 대한 작업
 
 이 항목에서는 tdsp ( [팀 데이터 과학 프로세스](overview.md) )에서 프로젝트를 설정 하기 위해 *개별 참가자* 가 완료 하는 작업에 대해 간략히 설명 합니다. 목표는 TDSP를 표준화 하는 공동 작업 팀 환경에서 작업 하는 것입니다. TDSP는 공동 작업 및 팀 학습을 개선 하는 데 도움이 되도록 설계 되었습니다. TDSP를 표준화 하는 데이터 과학 팀에서 처리 하는 인력 역할 및 관련 작업에 대 한 개요는 [팀 데이터 과학 프로세스 역할 및 작업](roles-tasks.md)을 참조 하세요.
 
-다음 다이어그램에서는 개별 참가자 (데이터 과학자)가 팀 환경을 설정 하는 작업을 완료 하는 작업을 보여 줍니다. TDSP에서 데이터 과학 프로젝트를 실행 하는 방법에 대 한 지침은 [데이터 과학 프로젝트 실행](project-execution.md)을 참조 하세요. 
+다음 다이어그램에서는 개별 참가자 (데이터 과학자)가 팀 환경을 설정 하는 작업을 완료 하는 작업을 보여 줍니다. TDSP에서 데이터 과학 프로젝트를 실행 하는 방법에 대 한 지침은 [데이터 과학 프로젝트 실행](./agile-development.md)을 참조 하세요. 
 
 ![개별 참가자 작업](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "76721254"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos 및 Data Science Virtual Machine (DSVM)를 사용 하 여 TDSP 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 개별 참여자 작업은 동일 하지만이 작업을 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md), [팀 리더](team-lead-tasks.md)및 [프로젝트 리더가](project-lead-tasks.md)다음 리소스 및 사용 권한을 설정 했다고 가정 합니다.
 
@@ -46,8 +46,8 @@ ms.locfileid: "76721254"
 
 - Azure 구독
 - Git이 컴퓨터에 설치 되어 있어야 합니다. DSVM을 사용 하는 경우 Git이 사전 설치 됩니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.
-- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](/azure/machine-learning/data-science-virtual-machine/)를 참조 하세요.
-- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자**를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
+- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](../data-science-virtual-machine/index.yml)를 참조 하세요.
+- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자** 를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
 - Linux DSVM의 경우 DSVM에 설정 되 고 Azure DevOps에 추가 된 SSH 공개 키입니다. 자세한 내용 및 지침은 [platform and tools 부록](platforms-and-tools.md#appendix)에서 **SSH 공개 키 만들기** 섹션을 참조 하세요. 
 - DSVM에 탑재 해야 하는 모든 Azure 파일 저장소에 대 한 Azure 파일 저장소 정보입니다. 
 
@@ -55,7 +55,7 @@ ms.locfileid: "76721254"
 
 로컬로 리포지토리를 사용 하 고 변경 내용을 공유 팀 및 프로젝트 리포지토리에 푸시 하려면 먼저 로컬 컴퓨터에 리포지토리를 복사 하거나 *복제* 합니다. 
 
-1. Azure devops에서 * \/ / \<server name> / \<organization name> https / : \<team name> * ** \/ /dev.azure.com/DataScienceUnit/MyTeam**와 같이 팀의 프로젝트 요약 페이지로 이동 합니다.
+1. Azure devops에서 *\/ / \<server name> / \<organization name> https / : \<team name>* **\/ /dev.azure.com/DataScienceUnit/MyTeam** 와 같이 팀의 프로젝트 요약 페이지로 이동 합니다.
    
 1. 왼쪽 탐색 영역에서 **리포지토리** 를 선택 하 고 페이지 맨 위에서 복제할 리포지토리를 선택 합니다.
    
@@ -103,4 +103,3 @@ ms.locfileid: "76721254"
 - [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)
 - [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)
-

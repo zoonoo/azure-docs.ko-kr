@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250660"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322020"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 
 이 문서에서는 기계 학습에서 데이터를 향상시키는 기능 엔지니어링 및 해당 역할에 대해 알아봅니다. [Azure Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 실험에서 얻은 설명 예제에 대해 알아보세요. 
 
-* **기능 엔지니어링**: 원시 데이터에서 새로운 기능을 만들어 학습 알고리즘의 예측 능력을 높이는 프로세스입니다. 엔지니어링된 기능은 원래 기능 집합에서 쉽게 드러나지 않는 추가 정보를 캡처해야 합니다.
-* **기능 선택**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 기능의 주요 하위 집합을 선택합니다.
+* **기능 엔지니어링** : 원시 데이터에서 새로운 기능을 만들어 학습 알고리즘의 예측 능력을 높이는 프로세스입니다. 엔지니어링된 기능은 원래 기능 집합에서 쉽게 드러나지 않는 추가 정보를 캡처해야 합니다.
+* **기능 선택** : 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 기능의 주요 하위 집합을 선택합니다.
 
-일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택**이 실행됩니다.
+일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링** 을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 이 실행됩니다.
 
 기능 엔지니어링 및 선택은 TDSP(Team Data Science Process)의 [모델링 단계](lifecycle-modeling.md)의 일부입니다. TDSP 및 데이터 과학 수명 주기에 대한 자세한 내용은 [TDSP란 무엇입니까?](overview.md)를 참조하세요.
 
@@ -60,7 +60,7 @@ Azure Machine Learning Studio(클래식)의 [자전거 수요 예측](https://ga
 
 ### <a name="feature-engineering-using-studio-classic"></a>Studio(클래식)를 사용하는 기능 엔지니어링
 
-Studio(클래식) 실험에서는 사전 처리된 입력 데이터 세트에서 4개의 분기를 통해 이러한 4개의 학습 데이터 세트를 구성합니다. 가장 왼쪽 분기를 제외한 각 분기에는 [R 스크립트 실행](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) 모듈이 포함되어 있습니다. 이 모듈에는 파생 기능(기능 집합 B, C 및 D)이 구성되어 있고, 가져온 데이터 세트에 추가되어 있습니다.
+Studio(클래식) 실험에서는 사전 처리된 입력 데이터 세트에서 4개의 분기를 통해 이러한 4개의 학습 데이터 세트를 구성합니다. 가장 왼쪽 분기를 제외한 각 분기에는 [R 스크립트 실행](/azure/machine-learning/studio-module-reference/execute-r-script) 모듈이 포함되어 있습니다. 이 모듈에는 파생 기능(기능 집합 B, C 및 D)이 구성되어 있고, 가져온 데이터 세트에 추가되어 있습니다.
 
 다음 그림에서는 두 번째 왼쪽 분기에서 기능 집합 B를 생성하는 데 사용하는 R 스크립트를 보여줍니다.
 
@@ -80,9 +80,9 @@ Studio(클래식) 실험에서는 사전 처리된 입력 데이터 세트에서
 
 ### <a name="feature-hashing"></a>기능 해싱
 
-이 작업을 수행하기 위해 [기능 해싱](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing)이라는 기술을 적용하여 임의의 텍스트 기능을 인덱스로 전환합니다. 각 텍스트 기능(단어/문구)을 특정 인덱스에 연관시키는 대신, 이 메서드에서는 해시 함수를 기능에 적용하고 해시 값을 인덱스로 직접 사용합니다.
+이 작업을 수행하기 위해 [기능 해싱](/azure/machine-learning/studio-module-reference/feature-hashing)이라는 기술을 적용하여 임의의 텍스트 기능을 인덱스로 전환합니다. 각 텍스트 기능(단어/문구)을 특정 인덱스에 연관시키는 대신, 이 메서드에서는 해시 함수를 기능에 적용하고 해시 값을 인덱스로 직접 사용합니다.
 
-Studio(클래식)에는 단어/문구 기능을 편리하게 생성하는 [기능 해싱](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) 모듈이 있습니다. 다음 그림에서는 이 모듈을 사용하는 예를 보여줍니다. 입력 데이터 세트에는 두 개의 열, 즉 1 ~ 5의 서적 등급과 실제 검토 내용이 들어 있습니다. 이 모듈의 목표는 특정 서적 검토에서 해당하는 단어/문구의 발생 빈도를 표시하는 여러 새 기능을 검색하는 것입니다. 이 모듈을 사용하려면 다음 단계를 완료합니다.
+Studio(클래식)에는 단어/문구 기능을 편리하게 생성하는 [기능 해싱](/azure/machine-learning/studio-module-reference/feature-hashing) 모듈이 있습니다. 다음 그림에서는 이 모듈을 사용하는 예를 보여줍니다. 입력 데이터 세트에는 두 개의 열, 즉 1 ~ 5의 서적 등급과 실제 검토 내용이 들어 있습니다. 이 모듈의 목표는 특정 서적 검토에서 해당하는 단어/문구의 발생 빈도를 표시하는 여러 새 기능을 검색하는 것입니다. 이 모듈을 사용하려면 다음 단계를 완료합니다.
 
 * 먼저 입력 텍스트를 포함하는 열을 선택합니다(이 예에서는 "Col2").
 * 둘째, "Hashing bitsize"를 8로 설정합니다. 즉, 2^8=256개의 기능이 생성됩니다. 모든 텍스트의 단어/문구가 256개의 인덱스로 해시됩니다. "Hashing bitsize" 매개 변수의 범위는 1 ~ 31입니다. 이 변수를 더 큰 수로 설정하면 단어/문구가 동일한 인덱스에 해시될 가능성이 적습니다.

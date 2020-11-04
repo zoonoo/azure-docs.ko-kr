@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76714421"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321944"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스의 프로젝트 리드 작업
 
@@ -36,7 +36,7 @@ ms.locfileid: "76714421"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos를 사용 하 여 TDSP 프로젝트를 설정 합니다. 팀에서 다른 코드 호스팅 플랫폼을 사용 하는 경우 프로젝트 리더 작업은 동일 하지만 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md) 와 [팀 리더가](team-lead-tasks.md) 다음과 같은 리소스 및 권한을 설정 했다고 가정 합니다.
 
@@ -49,21 +49,21 @@ ms.locfileid: "76714421"
 
 - Azure 구독
 - Git이 컴퓨터에 설치 되어 있어야 합니다. DSVM을 사용 하는 경우 Git이 사전 설치 됩니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.
-- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](/azure/machine-learning/data-science-virtual-machine/)를 참조 하세요.
-- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자**를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
+- DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](../data-science-virtual-machine/index.yml)를 참조 하세요.
+- Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자** 를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 
 - Linux DSVM의 경우 DSVM에 설정 되 고 Azure DevOps에 추가 된 SSH 공개 키입니다. 자세한 내용 및 지침은 [platform and tools 부록](platforms-and-tools.md#appendix)에서 **SSH 공개 키 만들기** 섹션을 참조 하세요. 
 
 ## <a name="create-a-project-repository-in-your-team-project"></a>팀 프로젝트에서 프로젝트 리포지토리 만들기
 
 팀의 **Myteam** 프로젝트에서 프로젝트 리포지토리를 만들려면 다음을 수행 합니다.
 
-1. Https: (예 * \/ / \<server name> / : \<organization name> / https \<team name> * **: \/ /dev.azure.com/DataScienceUnit/MyTeam**)에서 팀의 프로젝트 **요약** 페이지로 이동한 다음 왼쪽 탐색 모음에서 **리포지토리** 를 선택 합니다. 
+1. Https: (예 *\/ / \<server name> / : \<organization name> / https \<team name>* **: \/ /dev.azure.com/DataScienceUnit/MyTeam** )에서 팀의 프로젝트 **요약** 페이지로 이동한 다음 왼쪽 탐색 모음에서 **리포지토리** 를 선택 합니다. 
    
 1. 페이지 맨 위에서 리포지토리 이름을 선택 하 고 드롭다운에서 **새 리포지토리** 를 선택 합니다.
    
    ![새 리포지토리 선택](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. **새 리포지토리 만들기** 대화 상자에서 **Git** 이 **유형**아래에 선택 되어 있는지 확인 합니다. **리포지토리 이름**아래에 *DSProject1* 을 입력 하 고 **만들기**를 선택 합니다.
+1. **새 리포지토리 만들기** 대화 상자에서 **Git** 이 **유형** 아래에 선택 되어 있는지 확인 합니다. **리포지토리 이름** 아래에 *DSProject1* 을 입력 하 고 **만들기** 를 선택 합니다.
    
    ![리포지토리 만들기](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -79,13 +79,13 @@ ms.locfileid: "76714421"
    
 1. 페이지 맨 위에 있는 리포지토리 이름을 선택 하 고 드롭다운에서 **DSProject1** 를 선택 합니다.
    
-1. **DSProject1가 비어** 있습니다. 페이지에서 **가져오기**를 선택 합니다. 
+1. **DSProject1가 비어** 있습니다. 페이지에서 **가져오기** 를 선택 합니다. 
    
    ![가져오기 선택](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 **teamtemplate** 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *입니다. 예: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형** 으로 **Git** 을 선택 하 고 **복제 URL** 아래에 **teamtemplate** 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>* 입니다. 예: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
-1. **가져오기**를 선택합니다. 팀 템플릿 리포지토리의 콘텐츠를 프로젝트 리포지토리로 가져옵니다. 
+1. **가져오기** 를 선택합니다. 팀 템플릿 리포지토리의 콘텐츠를 프로젝트 리포지토리로 가져옵니다. 
    
    ![팀 템플릿 리포지토리 가져오기](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 

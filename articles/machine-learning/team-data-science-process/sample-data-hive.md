@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321886"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive 테이블에서 데이터 샘플링
 이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링함으로써 분석을 위해 보다 관리하기 쉬운 크기로 줄이는 방법에 대해 설명합니다. 많이에 사용 되는 세 가지 샘플링 방법이 포함 되어 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "86026052"
 **데이터를 샘플링하는 이유**
 분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 다운 샘플링을 수행하면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. 팀 데이터 과학 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
-이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
+이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](./index.yml)의 단계입니다.
 
 ## <a name="how-to-submit-hive-queries"></a>Hive 쿼리를 제출하는 방법
 Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다.  Hadoop 클러스터의 헤드 노드에 로그인 하 여 Hadoop Command-Line 콘솔을 열고 여기에서 Hive 쿼리를 제출 합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 여기서 `<sample rate, 0-1>` 은 사용자가 샘플링할 레코드의 비율을 지정합니다.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> 그룹별 무작위 샘플링
-범주 데이터를 샘플링할 때 범주 변수의 일부 값 인스턴스를 모두 포함하거나 제외할 수 있습니다. 이러한 종류의 샘플링을 "그룹별 샘플링"이라고 합니다. 예를 들어 값이 NY, MA, CA, NJ, PA 등인 범주 변수 "*State*"가 있는 경우 샘플링 여부에 상관없이 각 state의 레코드를 항상 함께 유지할 수 있습니다.
+범주 데이터를 샘플링할 때 범주 변수의 일부 값 인스턴스를 모두 포함하거나 제외할 수 있습니다. 이러한 종류의 샘플링을 "그룹별 샘플링"이라고 합니다. 예를 들어 값이 NY, MA, CA, NJ, PA 등인 범주 변수 " *State* "가 있는 경우 샘플링 여부에 상관없이 각 state의 레코드를 항상 함께 유지할 수 있습니다.
 
 다음은 그룹별로 샘플링하는 예제 쿼리입니다.
 
@@ -105,4 +105,3 @@ where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 ```
 
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
-

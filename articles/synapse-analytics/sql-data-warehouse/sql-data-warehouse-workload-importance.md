@@ -1,6 +1,6 @@
 ---
 title: 워크로드 중요도
-description: Azure Synapse Analytics에서 Synapse SQL 풀 쿼리의 중요도를 설정 하는 방법에 대 한 지침입니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀 쿼리의 중요도를 설정 하는 방법에 대 한 지침입니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322124"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics 워크 로드 중요도
 
-이 문서에서는 워크 로드 중요도가 Azure Synapse의 Synapse SQL 풀 요청에 대 한 실행 순서에 어떤 영향을 미치는지 설명 합니다.
+이 문서에서는 워크 로드 중요도가 Azure Synapse의 전용 SQL 풀 요청에 대 한 실행 순서에 영향을 주는 방법을 설명 합니다.
 
 ## <a name="importance"></a>중요도
 
@@ -38,9 +38,9 @@ ms.locfileid: "85212346"
 
 ### <a name="locking"></a>잠금
 
-읽기 및 쓰기 작업의 잠금에 대 한 액세스는 자연 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [개체 이름 바꾸기](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 와 같은 활동에는 상승 된 잠금이 필요 합니다.  워크 로드가 중요 하지 않은 경우 Azure Synapse의 Synapse SQL 풀은 처리량을 최적화 합니다. 처리량을 최적화 하는 것은 실행 중이 고 대기 중인 요청이 동일한 잠금 요구와 리소스를 사용할 수 있는 경우 지연 된 요청은 이전에 요청 큐에 도착 한 더 높은 잠금 요구가 있는 요청을 무시할 수 있음을 의미 합니다. 잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 더 높은 요청은 중요도가 낮은 요청 보다 먼저 실행 됩니다.
+읽기 및 쓰기 작업의 잠금에 대 한 액세스는 자연 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [개체 이름 바꾸기](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 와 같은 활동에는 상승 된 잠금이 필요 합니다.  워크 로드의 중요성이 없는 경우 Azure Synapse의 전용 SQL 풀은 처리량을 최적화 합니다. 처리량을 최적화 하는 것은 실행 중이 고 대기 중인 요청이 동일한 잠금 요구와 리소스를 사용할 수 있는 경우 지연 된 요청은 이전에 요청 큐에 도착 한 더 높은 잠금 요구가 있는 요청을 무시할 수 있음을 의미 합니다. 잠금 요구 사항이 높은 요청에 워크 로드 중요도가 적용 되 면 중요도가 더 높은 요청은 중요도가 낮은 요청 보다 먼저 실행 됩니다.
 
-다음 예제를 참조하세요.
+다음과 같은 예제를 참조하세요.
 
 - Q1이 적극적으로 실행 중이 고 SalesFact에서 데이터를 선택 합니다.
 - Q2가 Q1이 완료 될 때까지 대기 하는 중입니다.  오전 9 시에서 전송 되었으며 새 데이터를 SalesFact로 분할 하려고 합니다.
@@ -50,7 +50,7 @@ Q2와 Q3의 중요도가 같고 Q1이 여전히 실행 중이면 Q3은 실행을
 
 ### <a name="non-uniform-requests"></a>균일 하지 않은 요청
 
-쿼리가 요청을 충족 하는 데 도움이 되는 또 다른 시나리오는 다른 리소스 클래스를 사용 하는 요청이 제출 되는 경우입니다.  앞에서 설명한 것 처럼 동일한 중요도에서 Azure Synapse의 Synapse SQL 풀은 처리량을 최적화 합니다. Smallrc 또는 mediumrc와 같은 혼합 크기 요청을 큐에 대기 하는 경우 Synapse SQL 풀은 사용 가능한 리소스에 맞는 가장 이른 도착 요청을 선택 합니다. 작업 중요도가 적용 되 면 가장 높은 중요도 요청이 다음에 예약 됩니다.
+쿼리가 요청을 충족 하는 데 도움이 되는 또 다른 시나리오는 다른 리소스 클래스를 사용 하는 요청이 제출 되는 경우입니다.  앞에서 설명한 것 처럼 Azure Synapse의 전용 SQL 풀은 처리량을 최적화 합니다. Smallrc 또는 mediumrc와 같은 혼합 크기 요청을 큐에 대기 시킬 때 전용 SQL 풀은 사용 가능한 리소스에 맞는 가장 이른 도착 요청을 선택 합니다. 작업 중요도가 적용 되 면 가장 높은 중요도 요청이 다음에 예약 됩니다.
   
 DW500c에 대 한 다음 예제를 살펴보십시오.
 
