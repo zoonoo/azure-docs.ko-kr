@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널 Preview에 CEF 데이터 연결 | Microsoft Docs
-description: Linux 컴퓨터를 프록시로 사용 하 여 CEF (Common Event Format) 메시지를 Azure 센티널로 보내는 외부 솔루션을 연결 합니다.
+description: Linux 컴퓨터를 로그 전달자로 사용 하 여 CEF (Common Event Format) 메시지를 Azure 센티널로 보내는 외부 솔루션을 연결 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747908"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304984"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -50,40 +50,49 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
  
 ## <a name="prerequisites"></a>필수 구성 요소
 
-프록시로 사용 하는 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
+로그 전달자로 사용할 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
 - 64비트
-  - CentOS 7 및 하위 버전 이상 (6 아님)
+  - CentOS 7 및 8 (하위 버전 포함) (6 아님)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 및 하위 버전 이상 (6 아님)
-  - Debian GNU/Linux 8 및 9
+  - 하위 버전 (6 아님)을 포함 하 여 Red Hat Enterprise Linux (RHEL) 서버 7 및 8
+  - Debian GNU/Linux 8, 9, 10
   - Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32비트
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 및 9
-   - Ubuntu Linux 14.04 LTS 및 16.04 LTS
+  - CentOS 7 및 8 (하위 버전 포함) (6 아님)
+  - Oracle Linux 7
+  - 하위 버전 (6 아님)을 포함 하 여 Red Hat Enterprise Linux (RHEL) 서버 7 및 8
+  - Debian GNU/Linux 8, 9, 10
+  - Ubuntu Linux 14.04 LTS 및 16.04 LTS
  
- - 디먼 버전
-   - Syslog-기능: 2.1-3.22.1
-   - Rsyslog: v8
+- 디먼 버전
+  - Syslog-기능: 2.1-3.22.1
+  - Rsyslog: v8
   
- - Syslog Rfc 지원
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+- Syslog Rfc 지원
+  - Syslog RFC 3164
+  - Syslog RFC 5424
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
-- 권한
-    - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
+
+- 사용 권한
+  - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
+
 - 소프트웨어 요구 사항
-    - 컴퓨터에서 python 2.7이 실행 되 고 있는지 확인 합니다.
+  - 컴퓨터에서 python 2.7이 실행 되 고 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Azure 센티널이 보안 솔루션 및 어플라이언스에서 CEF 로그를 수집 하는 방법을 배웠습니다. Azure 센티널에 솔루션을 연결 하는 방법을 알아보려면 다음 문서를 참조 하세요.
+
+- 1 단계: [Syslog/cef 전달자를 배포 하 여 Cef 연결](connect-cef-agent.md)
+- 2 단계: [솔루션 관련 단계 수행](connect-cef-solution-config.md)
+- 3 단계: [연결 확인](connect-cef-verify.md)
+
+Azure 센티널에서 수집한 데이터로 수행할 작업에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
 

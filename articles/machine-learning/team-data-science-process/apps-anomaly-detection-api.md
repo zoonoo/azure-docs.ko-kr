@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087166"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305698"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 
@@ -28,9 +28,9 @@ ms.locfileid: "86087166"
 
 이 API는 시계열 데이터에서 다음과 같은 유형의 이상 패턴을 감지할 수 있습니다.
 
-* **긍정적인 추세 및 부정적인 추세**: 예를 들어, 계산에서 메모리 사용량을 모니터링 할 때, 상향 추세는 메모리 누수를 나타낼 수 있기 때문에 유용할 수 있습니다.
-* **값의 동적 범위 변화**: 예를 들어 클라우드 서비스에서 발생하는 예외를 모니터링할 때 값의 동적 범위 변화는 서비스 상태의 불안정성을 나타낼 수 있습니다.
-* **급증 및 급락**: 예를 들어 서비스 로그인 실패 횟수 또는 전자 상거래 사이트의 체크 아웃 수를 모니터링할 때 급증 또는 급락은 이상 동작을 나타낼 수 있습니다.
+* **긍정적인 추세 및 부정적인 추세** : 예를 들어, 계산에서 메모리 사용량을 모니터링 할 때, 상향 추세는 메모리 누수를 나타낼 수 있기 때문에 유용할 수 있습니다.
+* **값의 동적 범위 변화** : 예를 들어 클라우드 서비스에서 발생하는 예외를 모니터링할 때 값의 동적 범위 변화는 서비스 상태의 불안정성을 나타낼 수 있습니다.
+* **급증 및 급락** : 예를 들어 서비스 로그인 실패 횟수 또는 전자 상거래 사이트의 체크 아웃 수를 모니터링할 때 급증 또는 급락은 이상 동작을 나타낼 수 있습니다.
 
 이러한 기계 학습 감지기는 시간에 따른 값의 변화를 추적하여 해당 값의 계속적인 변화를 이상 점수로 보고합니다. 임시 임계값을 조정할 필요 없이 해당 점수를 사용하여 가양성 비율을 제어할 수 있습니다. 이상 감지 API는 시간에 따른 KPI 추적을 통한 서비스 모니터링, 검색 횟수, 클릭 횟수 등의 메트릭을 통한 사용 현황 모니터링, 시간에 따른 메모리, CPU, 파일 읽기 등과 같은 카운터를 통한 성능 모니터링 등의 몇 가지 시나리오에 유용합니다.
 
@@ -39,20 +39,20 @@ ms.locfileid: "86087166"
 * [웹 애플리케이션](https://anomalydetection-aml.azurewebsites.net/)은 데이터에서 비상 감지 API의 결과를 평가하고 시각화하는 데 도움이 됩니다.
 
 > [!NOTE]
-> [이 API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)에서 제공되는 **IT Anomaly Insights 솔루션**을 사용해 봅니다.
+> [이 API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)에서 제공되는 **IT Anomaly Insights 솔루션** 을 사용해 봅니다.
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>API 배포
-API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 Azure Machine Learning Studio(클래식) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 검색을 포함한 변칙 검색용이고, 나머지 하나는 계절성 검색이 없는 변칙 검색용입니다.  배포가 완료되면 [Azure Machine Learning Studio(클래식) 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](/azure/machine-learning/studio/manage-new-webservice)에 있습니다.
+API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 Azure Machine Learning Studio(클래식) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 검색을 포함한 변칙 검색용이고, 나머지 하나는 계절성 검색이 없는 변칙 검색용입니다.  배포가 완료되면 [Azure Machine Learning Studio(클래식) 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](../classic/manage-new-webservice.md)에 있습니다.
 
 ## <a name="scaling-the-api"></a>API 크기 조정
 기본적으로 배포에는 1,000 트랜잭션/월 및 2 컴퓨팅 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
 
 ## <a name="managing-aml-plans"></a>AML 관리 계획
-[여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](/azure/machine-learning/studio/manage-new-webservice)의 "청구 계획 관리" 섹션에 있습니다.
+[여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](../classic/manage-new-webservice.md)의 "청구 계획 관리" 섹션에 있습니다.
 
 ## <a name="api-definition"></a>API 정의
 웹 서비스는 웹 또는 모바일 애플리케이션, R, Python, Excel 등 다양한 방식으로 사용할 수 있는 REST 기반 API over HTTPS를 제공합니다.  REST API 호출을 통해 시계열 데이터를 이 서비스로 보내고 아래에서 설명한 세 가지 이상 유형의 조합을 실행합니다.
@@ -197,4 +197,3 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

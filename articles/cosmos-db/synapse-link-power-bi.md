@@ -1,22 +1,23 @@
 ---
-title: Synapse 링크로 Azure Cosmos DB 데이터를 분석 하기 위해 Power BI 및 서버 리스 Synapse SQL 풀
-description: Azure Cosmos DB에 대 한 서버를 Power BI 사용 하지 않는 Synapse SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다.
+title: Synapse 링크를 사용 하 여 Azure Cosmos DB 데이터를 분석 하기 위해 Power BI 및 서버 리스 SQL 풀
+description: Synapse SQL 서버를 사용 하지 않는 데이터베이스 및 뷰를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 빌드하고 Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 보기에 대해 Power BI를 사용 하 여 모델을 작성 하는 방법을 알아봅니다
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38077dca1b8a27098e8db17354b82340a651b880
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098062"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305187"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기) 
+# <a name="use-power-bi-and-serverless-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기)
+
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
-이 문서에서는 서버를 사용 하지 않는 Synapse SQL 풀 (이전에는 **SQL 주문형** ) 데이터베이스 및 뷰를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 이러한 보기에 대해 Power BI를 사용 하 여 모델을 작성 합니다.
+이 문서에서는 Azure Cosmos DB에 대 한 Synapse 링크를 통해 서버 리스 SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 Power BI를 사용 하 여 모델을 작성 합니다.
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 
@@ -42,9 +43,9 @@ Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘�
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
-모든 작업 영역에는 서버를 사용 하지 않는 SQL 끝점이 제공 됩니다. SQL 스크립트를 만든 후 맨 위에 있는 도구 모음에서 **요청 시 sql** 에 연결 합니다.
+모든 작업 영역에는 서버를 사용 하지 않는 SQL 끝점이 제공 됩니다. SQL 스크립트를 만든 후에는 맨 위의 도구 모음에서 **기본 제공** 에 연결 합니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="작업 영역에서 서버를 사용 하지 않는 SQL 끝점을 사용 하도록 SQL 스크립트를 설정 합니다.":::
 
 **RetailCosmosDB** 라는 새 데이터베이스와 Synapse 링크를 사용 하도록 설정 된 컨테이너에 대 한 SQL 뷰를 만듭니다. 다음 명령은 데이터베이스를 만드는 방법을 보여 줍니다.
 
@@ -104,7 +105,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 다음 테이블을 결과로 제공 하는 **실행** 을 선택 합니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="RetailSales 및 뷰를 조인한 후의 쿼리 결과":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Power BI를 사용 하 여 컨테이너에 대 한 모델 뷰
 
@@ -139,10 +140,10 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 1. **RetailSales** 보기의 **productCode** 를 범례에 끌어서 놓고 특정 제품 라인을 선택 합니다.
 이러한 옵션을 선택 하면 다음 스크린샷 처럼 그래프가 표시 됩니다.
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="가사 크기의 상대적 중요도와 매장 당 평균 수익을 비교 하는 보고서":::
 
 ## <a name="next-steps"></a>다음 단계
 
 [T-sql을 사용 하 여 Azure Synapse 링크를 사용 하 여 Azure Cosmos DB 데이터 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 azure [Open 데이터 집합 분석 및 Azure Synapse Studio에서 결과 시각화](../synapse-analytics/sql/tutorial-data-analyst.md)
+서버를 사용 하지 않는 SQL 풀을 사용 하 여 azure [Open 데이터 집합 분석 및 Azure Synapse Studio에서 결과 시각화](../synapse-analytics/sql/tutorial-data-analyst.md)

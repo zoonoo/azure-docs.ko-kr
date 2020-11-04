@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720455"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305599"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
 
@@ -43,12 +43,12 @@ TDSP 수명 주기는 예측 모델을 사용하는 데 필요한 작업에 대�
 
 각 단계마다 다음 정보를 제공합니다.
 
-   * **목표**: 구체적 목적입니다.
-   * **수행 방법**: 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
-   * **아티팩트**: 결과물 및 이를 생성하기 위한 지원입니다.
+   * **목표** : 구체적 목적입니다.
+   * **수행 방법** : 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
+   * **아티팩트** : 결과물 및 이를 생성하기 위한 지원입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 전체 엔드투엔드 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
 
-Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)을 참조하세요.
+Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](./index.yml)을 참조하세요.

@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881899"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305831"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Azure Synapse Analytics 출력
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)(이전의 SQL Data Warehouse)는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 무제한 분석 서비스입니다. 
 
-Azure Stream Analytics 작업은 Azure Synapse Analytics의 SQL 풀 테이블로 출력할 수 있으며 최대 200MB/초의 처리량 속도를 처리할 수 있습니다. 이 경우 보고 및 대시보드와 같은 워크로드에 대한 가장 까다로운 실시간 분석 및 실행 부하 과다 경로 데이터 처리 요구 사항을 지원할 수 있습니다.  
+Azure Stream Analytics 작업은 Azure Synapse Analytics의 전용 SQL 풀 테이블로 출력 될 수 있으며 최대 200MB/초의 처리량 속도를 처리할 수 있습니다. 이는 보고 및 일점 보 딩과 같은 워크 로드에 대 한 가장 까다로운 실시간 분석 및 핫 경로 데이터 처리 요구를 지원 합니다.  
 
-먼저 SQL 풀 테이블이 있어야 이를 Stream Analytics 작업의 출력으로 추가할 수 있습니다. 테이블 스키마는 작업 출력의 필드 및 해당 형식과 일치해야 합니다. 
+전용 SQL 풀 테이블이 있어야 Stream Analytics 작업에 출력으로 추가할 수 있습니다. 테이블 스키마는 작업 출력의 필드 및 해당 형식과 일치해야 합니다. 
 
 Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되어 있는지 확인해야 합니다. 스토리지 계정 설정으로 이동하여 스토리지 계정을 구성합니다. 테이블을 지원하는 스토리지 계정 유형(범용 V2 및 범용 V1)만 허용됩니다. 표준 계층만 선택합니다. 프리미엄 계층은 지원되지 않습니다.
 
@@ -31,7 +31,7 @@ Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되�
 |속성 이름|Description|
 |-|-|
 |출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
-|데이터베이스 |출력을 보내는 SQL 풀 이름입니다. |
+|데이터베이스 |출력을 전송 하는 전용 SQL 풀 이름입니다. |
 |서버 이름 |Azure Synapse 서버 이름입니다.  |
 |사용자 이름 |데이터베이스에 대한 쓰기 액세스 권한이 있는 사용자 이름입니다. Stream Analytics는 SQL 인증만 지원합니다. |
 |암호 |데이터베이스에 연결하는 암호입니다. |

@@ -10,26 +10,26 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305036"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Synapse SQL의 임시 테이블
 
 이 문서에는 임시 테이블 사용에 대 한 필수 지침이 포함 되어 있으며 Synapse SQL 내에서 세션 수준 임시 테이블의 원리를 강조 표시 합니다. 
 
-SQL 풀 및 SQL 주문형 (미리 보기) 리소스는 모두 임시 테이블을 사용할 수 있습니다. SQL 주문형 요청에는이 문서의 끝 부분에서 설명 하는 제한 사항이 있습니다. 
+전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 (미리 보기) 리소스는 모두 임시 테이블을 사용할 수 있습니다. 서버를 사용 하지 않는 SQL 풀에는이 문서의 끝 부분에서 설명 하는 제한 사항이 있습니다. 
 
 ## <a name="temporary-tables"></a>임시 테이블
 
 특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. Synapse SQL을 사용 하면 임시 테이블이 세션 수준에서 존재 합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
 
-## <a name="temporary-tables-in-sql-pool"></a>SQL 풀의 임시 테이블
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
 
-SQL 풀 리소스에서 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
+전용 SQL 풀 리소스에서 임시 테이블은 결과가 원격 저장소가 아닌 로컬에 기록 되기 때문에 성능상의 이점을 제공 합니다.
 
 ### <a name="create-a-temporary-table"></a>임시 테이블 만들기
 
@@ -99,6 +99,7 @@ GROUP BY
 > 
 
 ### <a name="drop-temporary-tables"></a>임시 테이블 삭제
+
 새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 이름이 같은 임시를 만드는 동일한 저장 프로시저를 호출 하는 경우 `CREATE TABLE` 문이 성공적으로 실행 되도록 하려면 다음과 같이 간단한 사전 존재 검사를 사용 합니다  `DROP` . 
 
 ```sql
@@ -117,6 +118,7 @@ DROP TABLE #stats_ddl
 ```
 
 ### <a name="modularize-code"></a>모듈화 코드
+
 임시 테이블은 사용자 세션의 모든 위치에서 사용할 수 있습니다. 그러면이 기능을 활용 하 여 응용 프로그램 코드를 모듈화 수 있습니다.  이를 보여 주기 위해 다음 저장 프로시저는 DDL을 생성 하 여 통계 이름별로 데이터베이스의 모든 통계를 업데이트 합니다.
 
 ```sql
@@ -195,7 +197,7 @@ GO
 
 저장 `DROP TABLE` 프로시저의 끝에는이 없으므로 저장 프로시저가 완료 되 면 생성 된 테이블은 유지 되 고 저장 프로시저 외부에서 읽을 수 있습니다.  
 
-다른 SQL Server 데이터베이스와 달리 Synapse SQL에서는 임시 테이블을 만든 프로시저 외부에서 임시 테이블을 사용할 수 있습니다.  SQL 풀을 통해 만든 임시 테이블은 **세션 내부에서** 사용할 수 있습니다. 결과적으로 아래 샘플에서 볼 수 있듯이 모듈식 및 관리 하기 쉬운 코드를 사용할 수 있습니다.
+다른 SQL Server 데이터베이스와 달리 Synapse SQL에서는 임시 테이블을 만든 프로시저 외부에서 임시 테이블을 사용할 수 있습니다.  전용 SQL 풀을 통해 만든 임시 테이블은 **세션 내부에서** 사용할 수 있습니다. 결과적으로 아래 샘플에서 볼 수 있듯이 모듈식 및 관리 하기 쉬운 코드를 사용할 수 있습니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -218,15 +220,15 @@ DROP TABLE #stats_ddl;
 
 ### <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
 
-SQL 풀에는 임시 테이블에 대 한 몇 가지 구현 제한 사항이 있습니다.
+전용 SQL 풀에는 임시 테이블에 대 한 몇 가지 구현 제한 사항이 있습니다.
 
 - 세션 범위 임시 테이블만 지원 됩니다.  전역 임시 테이블은 지원되지 않습니다.
 - 임시 테이블에는 뷰를 만들 수 없습니다.
 - 임시 테이블은 해시 또는 라운드 로빈 배포를 통해서만 만들 수 있습니다.  복제된 임시 테이블 배포가 지원되지 않습니다. 
 
-## <a name="temporary-tables-in-sql-on-demand-preview"></a>SQL 주문형 임시 테이블 (미리 보기)
+## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>서버를 사용 하지 않는 SQL 풀의 임시 테이블 (미리 보기)
 
-SQL 주문형 임시 테이블은 지원 되지만 사용이 제한 됩니다. 이러한 파일은 파일을 대상으로 하는 쿼리에서 사용할 수 없습니다. 
+서버를 사용 하지 않는 SQL 풀의 임시 테이블은 지원 되지만 사용이 제한 됩니다. 이러한 파일은 파일을 대상으로 하는 쿼리에서 사용할 수 없습니다. 
 
 예를 들어 저장소에 있는 파일의 데이터를 사용 하 여 임시 테이블에 조인할 수 없습니다. 임시 테이블의 수는 100 개로 제한 되 고 총 크기는 100MB로 제한 됩니다.
 

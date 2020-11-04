@@ -10,18 +10,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to
-ms.openlocfilehash: eb1a3c1f306b6941987d0981967cf5d096a68735
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133676"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305772"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>.NET에서 AutoML ONNX 모델을 사용 하 여 예측 수행
 
 이 문서에서는 ML.NET를 사용 하 여 c # .NET Core 콘솔 응용 프로그램에서 자동화 된 ML (AutoML) Open 신경망 교환 (ONNX) 모델을 사용 하 여 예측을 만드는 방법에 대해 알아봅니다.
 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) 는 c # 또는 F #에서 코드 우선 방법을 사용 하 여 사용자 지정 기계 학습 모델을 학습 하 고 사용할 수 있도록 하는 .net 에코 시스템의 오픈 소스 플랫폼 간 기계 학습 프레임 워크로, [모델 작성기](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) 및 [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli)와 같은 낮은 코드 도구를 통해 사용자 지정 기계 학습 모델을 학습 하 고 사용할 수 있도록 합니다. 프레임 워크는 확장 가능 하며 TensorFlow 및 ONNX와 같은 기타 인기 있는 기계 학습 프레임 워크를 활용할 수 있습니다.
+[ML.NET](/dotnet/machine-learning/) 는 c # 또는 F #에서 코드 우선 방법을 사용 하 여 사용자 지정 기계 학습 모델을 학습 하 고 사용할 수 있도록 하는 .net 에코 시스템의 오픈 소스 플랫폼 간 기계 학습 프레임 워크로, [모델 작성기](/dotnet/machine-learning/automate-training-with-model-builder) 및 [ML.NET CLI](/dotnet/machine-learning/automate-training-with-cli)와 같은 낮은 코드 도구를 통해 사용자 지정 기계 학습 모델을 학습 하 고 사용할 수 있도록 합니다. 프레임 워크는 확장 가능 하며 TensorFlow 및 ONNX와 같은 기타 인기 있는 기계 학습 프레임 워크를 활용할 수 있습니다.
 
 ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레임워크 간의 상호 운용성을 지원합니다. 즉, PyTorch와 같은 널리 사용 되는 여러 기계 학습 프레임 워크 중 하나에서 모델을 학습 하 고, ONNX 형식으로 변환 하 고, ML.NET와 같은 다른 프레임 워크에서 ONNX 모델을 사용할 수 있습니다. 자세히 알아보려면 [ONNX 웹 사이트](https://onnx.ai/)를 방문하세요.
 
@@ -34,7 +34,7 @@ ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레
 
 ## <a name="create-a-c-console-application"></a>C# 콘솔 애플리케이션 만들기
 
-이 샘플에서는 .NET Core CLI 사용 하 여 응용 프로그램을 빌드합니다. 하지만 Visual Studio를 사용 하 여 동일한 작업을 수행할 수 있습니다. [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/)에 대해 자세히 알아보세요.
+이 샘플에서는 .NET Core CLI 사용 하 여 응용 프로그램을 빌드합니다. 하지만 Visual Studio를 사용 하 여 동일한 작업을 수행할 수 있습니다. [.NET Core CLI](/dotnet/core/tools/)에 대해 자세히 알아보세요.
 
 1. 터미널을 열고 새 c # .NET Core 콘솔 응용 프로그램을 만듭니다. 이 예제에서 응용 프로그램의 이름은 `AutoMLONNXConsoleApp` 입니다. 응용 프로그램의 내용과 동일한 이름을 사용 하 여 디렉터리를 만듭니다.
 
@@ -71,7 +71,7 @@ ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레
 
 ## <a name="add-a-reference-to-the-onnx-model"></a>ONNX 모델에 대 한 참조 추가
 
-콘솔 응용 프로그램에서 ONNX 모델에 액세스 하는 방법은 빌드 출력 디렉터리에 추가 하는 것입니다.  MSBuild 공통 항목에 대해 자세히 알아보려면 [msbuild 가이드](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items)를 참조 하세요.
+콘솔 응용 프로그램에서 ONNX 모델에 액세스 하는 방법은 빌드 출력 디렉터리에 추가 하는 것입니다.  MSBuild 공통 항목에 대해 자세히 알아보려면 [msbuild 가이드](/visualstudio/msbuild/common-msbuild-project-items)를 참조 하세요.
 
 응용 프로그램에서 ONNX 모델 파일에 대 한 참조 추가
 
@@ -161,7 +161,7 @@ public class OnnxInput
   
 숫자 값의 경우 ML.NET는 값 형식에 대해서만 작동 [`Single`](xref:System.Single) 합니다. 그러나 일부 열의 원래 데이터 형식은 정수입니다. [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute)특성은 ONNX와 ML.NET 간에 형식을 매핑합니다.
 
-데이터 특성에 대 한 자세한 내용은 [ML.NET load data guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net)를 참조 하세요.
+데이터 특성에 대 한 자세한 내용은 [ML.NET load data guide](/dotnet/machine-learning/how-to-guides/load-data-ml-net)를 참조 하세요.
 
 ### <a name="define-model-output-schema"></a>모델 출력 스키마 정의
 
@@ -179,7 +179,7 @@ public class OnnxOutput
 
 ## <a name="define-a-prediction-pipeline"></a>예측 파이프라인 정의
 
-ML.NET의 파이프라인은 일반적으로 입력 데이터에서 작동 하 여 출력을 생성 하는 일련의 연결 된 변환입니다. 데이터 변환에 대해 자세히 알아보려면 [ML.NET 데이터 변환 가이드](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms)를 참조 하세요.
+ML.NET의 파이프라인은 일반적으로 입력 데이터에서 작동 하 여 출력을 생성 하는 일련의 연결 된 변환입니다. 데이터 변환에 대해 자세히 알아보려면 [ML.NET 데이터 변환 가이드](/dotnet/machine-learning/resources/transforms)를 참조 하세요.
 
 1. `GetPredictionPipeline`클래스 내에서 라는 새 메서드를 만듭니다. `Program`
 
@@ -226,7 +226,7 @@ ML.NET의 파이프라인은 일반적으로 입력 데이터에서 작동 하 �
     메서드는를 [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) [`IDataView`](xref:Microsoft.ML.IDataView) 입력으로 예상 하므로에서 작업을 수행할 수 있습니다. 는 [`IDataView`](xref:Microsoft.ML.IDataView) 테이블 형식을 사용 하 여 ML.NET에 데이터를 표시 하는 방법입니다. 이 경우 파이프라인은 예측에만 사용 되므로 빈를 제공 [`IDataView`](xref:Microsoft.ML.IDataView) 하 여 [`ITransformer`](xref:Microsoft.ML.ITransformer) 필요한 입력 및 출력 스키마 정보를 제공할 수 있습니다. [`ITransformer`](xref:Microsoft.ML.ITransformer)그러면 응용 프로그램에서 나중에 사용 하기 위해 적합 한가 반환 됩니다.
 
     > [!TIP]
-    > 이 샘플에서는 파이프라인이 동일한 응용 프로그램 내에서 정의 되 고 사용 됩니다. 그러나 별도의 응용 프로그램을 사용 하 여 파이프라인을 정의 하 고 사용 하 여 예측을 수행 하는 것이 좋습니다. ML.NET에서는 파이프라인을 직렬화 하 고 다른 .NET 최종 사용자 응용 프로그램에서 추가로 사용할 수 있도록 저장할 수 있습니다. ML.NET는 데스크톱 응용 프로그램, 웹 서비스, WebAssembly 응용 프로그램 * 등의 다양 한 배포 대상을 지원 합니다. 파이프라인을 저장 하는 방법에 대 한 자세한 내용은 [학습 된 모델 저장 및 로드 가이드 ML.NET](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)를 참조 하세요.
+    > 이 샘플에서는 파이프라인이 동일한 응용 프로그램 내에서 정의 되 고 사용 됩니다. 그러나 별도의 응용 프로그램을 사용 하 여 파이프라인을 정의 하 고 사용 하 여 예측을 수행 하는 것이 좋습니다. ML.NET에서는 파이프라인을 직렬화 하 고 다른 .NET 최종 사용자 응용 프로그램에서 추가로 사용할 수 있도록 저장할 수 있습니다. ML.NET는 데스크톱 응용 프로그램, 웹 서비스, WebAssembly 응용 프로그램 * 등의 다양 한 배포 대상을 지원 합니다. 파이프라인을 저장 하는 방법에 대 한 자세한 내용은 [학습 된 모델 저장 및 로드 가이드 ML.NET](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)를 참조 하세요.
     >
     > * Weasembomis는 .NET Core 5 이상 에서만 지원 됩니다.
 
@@ -284,9 +284,9 @@ ML.NET의 파이프라인은 일반적으로 입력 데이터에서 작동 하 �
     Predicted Fare: 15.621523
     ```
 
-ML.NET에서 예측을 만드는 방법에 대 한 자세한 내용은 [모델을 사용 하 여 예측 하기 가이드](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)를 참조 하세요.
+ML.NET에서 예측을 만드는 방법에 대 한 자세한 내용은 [모델을 사용 하 여 예측 하기 가이드](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모델을 ASP.NET Core 웹 API로 배포](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
-- [서버를 사용 하지 않는 .NET Azure 함수로 모델 배포](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
+- [모델을 ASP.NET Core 웹 API로 배포](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [서버를 사용 하지 않는 .NET Azure 함수로 모델 배포](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7214915e28158fe5dbb7b350e175b068afed1244
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166202"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305958"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -78,7 +78,7 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)에서 **API 테스트 콘솔** 을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 POST하기
 
@@ -184,7 +184,7 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
         "documents": [
             {
                 "id": "1",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "English",
                         "iso6391Name": "en",
@@ -194,7 +194,7 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
             },
             {
                 "id": "2",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "French",
                         "iso6391Name": "fr",
@@ -212,7 +212,7 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
 ```json
     {
         "id": "5",
-        "detectedLanguages": [
+        "detectedLanguage": [
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
@@ -248,7 +248,7 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
       "documents": [
         {
           "id": "1",
-          "detectedLanguages": [
+          "detectedLanguage": [
             {
               "name": "Spanish",
               "iso6391Name": "es",

@@ -270,7 +270,7 @@
         - name: 연결 관리
           href: manage-connections.md
           displayName: best practice
-        - name: 오류 처리
+        - name: 오류 처리 및 재시도
           href: functions-bindings-error-pages.md
         - name: HTTP 이외 트리거 함수를 수동으로 실행
           href: functions-manually-run-non-http.md

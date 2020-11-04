@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676633"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305546"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -160,7 +160,7 @@ AuditFilePathExists -out ./Config
 - **Name** : 게스트 구성 패키지 이름입니다.
 - **구성** : 컴파일된 구성 문서 전체 경로입니다.
 - **경로** : 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
-- **ChefProfilePath** : InSpec 프로필의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
+- **ChefInspecProfilePath** : InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
 
 다음 명령을 실행하여 이전 단계에 지정된 구성을 사용하는 패키지를 만듭니다.
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프합니다.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다.  이 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .

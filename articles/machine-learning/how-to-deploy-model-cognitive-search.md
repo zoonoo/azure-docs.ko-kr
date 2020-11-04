@@ -1,7 +1,7 @@
 ---
 title: Cognitive Search에 사용할 모델 배포
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 Azure Machine Learning를 사용 하 여 Azure Cognitive Search에서 사용할 모델을 배포 하는 방법을 설명 합니다. Azure Machine Learning 사용자 지정 기술로 배포 된 모델을 사용 하 여 검색 환경을 보강할 수 Cognitive Search.
+description: Azure Machine Learning를 사용 하 여 Cognitive Search에서 사용할 모델을 배포 하는 방법을 알아봅니다. 이 모델은 검색 환경을 보강 하기 위한 사용자 지정 기술로 사용 됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998913"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305913"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Cognitive Search에 사용할 모델 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "91998913"
 
 Cognitive Search는 다른 유형의 콘텐츠를 통해 콘텐츠 처리를 수행 하 여 사람이 나 응용 프로그램에서 쿼리할 수 있도록 합니다. Azure Machine Learning에서 배포 된 모델을 사용 하 여이 프로세스를 향상 시킬 수 있습니다.
 
-Azure Machine Learning 학습 된 모델을 웹 서비스로 배포할 수 있습니다. 그런 다음 웹 서비스는 처리 파이프라인의 일부가 되는 Cognitive Search _기술_에 포함 됩니다.
+Azure Machine Learning 학습 된 모델을 웹 서비스로 배포할 수 있습니다. 그런 다음 웹 서비스는 처리 파이프라인의 일부가 되는 Cognitive Search _기술_ 에 포함 됩니다.
 
 > [!IMPORTANT]
 > 이 문서의 정보는 모델 배포에만 적용 됩니다. Cognitive Search에서 모델을 사용할 수 있도록 지원 되는 배포 구성에 대 한 정보를 제공 합니다.
@@ -46,7 +46,7 @@ Azure Cognitive Search와 함께 사용할 모델을 배포 하는 경우 배포
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 참조 하세요.  
+* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 참조 하세요.  
 
 * 등록 된 모델입니다. 모델이 없는 경우의 예제 노트북을 사용 [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) 합니다.
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-**예상 시간**: 약 20 분.
+**예상 시간** : 약 20 분.
 
 Kubernetes 클러스터는 컨테이너 화 된 응용 프로그램을 실행 하는 데 사용 되는 가상 컴퓨터 인스턴스 (노드) 집합입니다.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-자세한 내용은 [모델](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="issue-a-sample-query-to-your-service"></a>서비스에 대 한 샘플 쿼리 실행
 

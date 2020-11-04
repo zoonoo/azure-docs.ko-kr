@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631050"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305483"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -28,9 +28,9 @@ ms.locfileid: "92631050"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** . 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
+* CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
 
 * 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "92631050"
 > [!TIP]
 > 이 문서와 연결된 템플릿은 새 Azure Container Registry를 만들지만 컨테이너 레지스트리를 만들지 않고도 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 필요한 작업을 수행할 때 하나의 작업 영역이 만들어집니다. 예를 들어 모델을 학습하거나 배포합니다.
 >
-> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 그러나 사용 하는 컨테이너 레지스트리에는 __관리자 계정이__ 활성화 되어 있어야 합니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](/azure/container-registry/container-registry-authentication#admin-account)을 참조 하십시오.
+> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 그러나 사용 하는 컨테이너 레지스트리에는 __관리자 계정이__ 활성화 되어 있어야 합니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조 하십시오.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ ms.locfileid: "92631050"
 
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServices 리소스 종류](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>템플릿 배포
 
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면에 도착 하면 드롭다운에서 **201-machine learning-고급** 템플릿을 선택 합니다.
+1. [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면에 도착 하면 드롭다운에서 **201-machine learning-고급** 템플릿을 선택 합니다.
 1. 템플릿을 사용 하려면 __템플릿 선택__ 을 선택 합니다. 배포 시나리오에 따라 다음과 같은 필수 정보 및 기타 매개 변수를 제공 합니다.
 
    * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
@@ -576,7 +576,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    템플릿의 `accessPolicies` 섹션 사용에 대한 자세한 내용은 [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조하세요.
+    템플릿의 `accessPolicies` 섹션 사용에 대한 자세한 내용은 [AccessPolicyEntry 개체 참조](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조하세요.
 
 * Key Vault 리소스가 이미 있는지 확인합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새로 만드는 대신 기존 Key Vault를 사용하려면 템플릿을 다음과 같이 변경합니다.
 

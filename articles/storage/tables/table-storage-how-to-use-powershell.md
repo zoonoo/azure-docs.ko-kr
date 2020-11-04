@@ -8,17 +8,17 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070414"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306907"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 문서에서는 Azure Table Storage 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [Table Service 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) 및 [.NET을 사용하여 Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 문서에서는 Azure Table Storage 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [Table Service 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) 및 [.NET을 사용하여 Azure Table Storage 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)을 참조하세요.
 
 이 방법 문서에서는 일반 Azure Table Storage 작업에 대해 설명합니다. 다음 방법을 알아봅니다. 
 
@@ -38,7 +38,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 > PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. 최신 버전의 `AzTable` 가 이전 AzureRM 모듈과 호환 되지 않습니다.
 > 필요한 경우 [설치 된 Az module의 최신 설치 지침](/powershell/azure/install-az-ps) 을 따르세요.
 
-Azure PowerShell를 설치 하거나 업데이트 한 후에는 엔터티를 관리 하기 위한 명령이 있는 모듈 **AzTable**를 설치 해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
+Azure PowerShell를 설치 하거나 업데이트 한 후에는 엔터티를 관리 하기 위한 명령이 있는 모듈 **AzTable** 를 설치 해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 
 > [!IMPORTANT]
 > 모듈 이름 호환성을 위해 PowerShell 갤러리의 이전 이름에 동일한 모듈을 계속 게시 하 고 있습니다 `AzureRmStorageTables` . 이 문서에서는 새 이름만 참조 합니다.
@@ -57,7 +57,7 @@ Add-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>위치의 목록 검색
 
-사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이러한 예제에서는 **eastus**를 사용합니다. 이 값은 나중에 사용하기 위해 변수 **location**에 저장합니다.
+사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이러한 예제에서는 **eastus** 를 사용합니다. 이 값은 나중에 사용하기 위해 변수 **location** 에 저장합니다.
 
 ```powershell
 Get-AzLocation | select Location
@@ -68,7 +68,7 @@ $location = "eastus"
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹 이름을 나중에 사용할 수 있도록 변수에 저장합니다. 이 예제에서는 *eastus* 지역에 *pshtablesrg*라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹 이름을 나중에 사용할 수 있도록 변수에 저장합니다. 이 예제에서는 *eastus* 지역에 *pshtablesrg* 라는 리소스 그룹을 만듭니다.
 
 ```powershell
 $resourceGroup = "pshtablesrg"
@@ -120,7 +120,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 > [!IMPORTANT]
 > **AzTable** PowerShell 모듈을 사용 하는 경우 cloudtable을 사용 하는 것이 필수입니다. **AzStorageTable** 명령을 호출 하 여이 개체에 대 한 참조를 가져옵니다. 또한이 명령은 테이블이 아직 없는 경우 테이블을 만듭니다.
 
-**AzTable**를 사용 하 여 테이블에 대 한 작업을 수행 하려면 특정 테이블의 cloudtable 속성에 대 한 참조가 필요 합니다.
+**AzTable** 를 사용 하 여 테이블에 대 한 작업을 수행 하려면 특정 테이블의 cloudtable 속성에 대 한 참조가 필요 합니다.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable

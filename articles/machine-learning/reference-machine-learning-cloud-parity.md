@@ -1,7 +1,7 @@
 ---
 title: 공용 지역과 소 버린 지역 간 패리티
 titleSuffix: Azure Machine Learning
-description: 공개 미리 보기 기능과 같은 Azure Machine Learning의 일부 기능은 공용 클라우드 지역 에서만 사용할 수 있습니다. 이 문서에서는 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 에서도 사용할 수 있는 기능을 나열 합니다.
+description: 이 문서는 공용 클라우드와 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 간의 기능 패리티를 나열 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426520"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305747"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
 
@@ -63,7 +63,7 @@ ms.locfileid: "92426520"
 | **SDK 지원** |  |  | | 
 | R SDK 지원                                                              | 공개 미리 보기       | YES                | YES         |
 | Python SDK 지원                                                         | GA                   | YES                | YES         |
-| **Security** |   | | | 
+| **보안** |   | | | 
 | 교육에 대 한 VNet (Virtual Network) 지원                                | GA                   | YES                | YES         |
 | 유추를 위한 VNet (Virtual Network) 지원                               | GA                   | YES                | YES         |
 | 끝점 인증 점수 매기기                                            | 공개 미리 보기       | YES                | YES         |
@@ -176,7 +176,7 @@ ms.locfileid: "92426520"
 | **SDK 지원** |    | | |
 | R SDK 지원                                                              | 공개 미리 보기   | YES       | 해당 없음        |
 | Python SDK 지원                                                         | GA               | YES       | 해당 없음        |
-| **Security** |   | | |
+| **보안** |   | | |
 | 교육에 대 한 VNet (Virtual Network) 지원                                | GA               | YES       | 해당 없음        |
 | 유추를 위한 VNet (Virtual Network) 지원                               | GA               | YES       | 해당 없음        |
 | 끝점 인증 점수 매기기                                            | 공개 미리 보기   | YES       | 해당 없음        |

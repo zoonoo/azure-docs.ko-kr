@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 Parquet 파일 쿼리
-description: 이 문서에서는 SQL 주문형(미리 보기)을 사용하여 Parquet 파일을 쿼리하는 방법에 대해 설명합니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 파일 쿼리 (미리 보기)
+description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 Parquet 파일을 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242435"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306851"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 Parquet 파일 쿼리
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 Parquet 파일 쿼리
 
-이 문서에서는 Parquet 파일을 읽는 SQL 주문형(미리 보기)을 사용하여 쿼리를 작성하는 방법을 알아봅니다.
+이 문서에서는 Parquet 파일을 읽는 서버 리스 SQL 풀 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다.
 
 ## <a name="quickstart-example"></a>빠른 시작 예제
 
@@ -111,7 +111,7 @@ Parquet 파일을 읽을 때 OPENROWSET WITH 절을 사용할 필요가 없습�
 아래 샘플에서는 Parquet 파일에 대한 자동 스키마 유추 기능을 보여줍니다. 스키마를 지정하지 않고 2017년 9월의 행 수를 반환합니다.
 
 > [!NOTE]
-> Parquet 파일을 읽을 때 OPENROWSET WITH 절에 열을 지정할 필요가 없습니다. 이 경우 SQL 주문형 쿼리 서비스는 Parquet 파일의 메타데이터를 활용하여 열을 이름별로 바인딩합니다.
+> Parquet 파일을 읽을 때 OPENROWSET WITH 절에 열을 지정할 필요가 없습니다. 이 경우 서버를 사용 하지 않는 SQL 풀 쿼리 서비스는 Parquet 파일에서 메타 데이터를 활용 하 고 이름으로 열을 바인딩합니다.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 이 샘플에 제공된 데이터 세트는 별도의 하위 폴더로 분할(파티션)됩니다. filepath 함수를 사용하여 특정 파티션을 대상으로 지정할 수 있습니다. 이 예제에서는 2017년 첫 3개월 동안의 년, 월 및 payment_type별 요금을 보여줍니다.
 
 > [!NOTE]
-> SQL 주문형 쿼리는 Hive/Hadoop 파티션 구성표와 호환됩니다.
+> 서버를 사용 하지 않는 SQL 풀 쿼리는 Hive/Hadoop 파티션 구성표와 호환 됩니다.
 
 ```sql
 SELECT

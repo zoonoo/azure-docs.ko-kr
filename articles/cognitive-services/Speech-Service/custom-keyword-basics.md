@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+zone_pivot_groups: keyword-quickstart
+ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305893"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 
@@ -36,9 +37,9 @@ ms.locfileid: "92166457"
 
 1. [Speech Studio](https://aka.ms/sdsdk-speechportal) 로 이동 하 여 **로그인** 하거나, 아직 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754)를 선택 합니다.
 
-1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 **새 프로젝트**를 만듭니다. 
+1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 **새 프로젝트** 를 만듭니다. 
 
-1. **이름**, **설명**(선택 사항)을 입력 하 고 언어를 선택 합니다. 언어 당 하나의 프로젝트가 필요 하 고 현재 언어에 대 한 지원이 제한 됩니다 `en-US` .
+1. **이름** , **설명** (선택 사항)을 입력 하 고 언어를 선택 합니다. 언어 당 하나의 프로젝트가 필요 하 고 현재 언어에 대 한 지원이 제한 됩니다 `en-US` .
 
     ![키워드 프로젝트 설명](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -46,9 +47,9 @@ ms.locfileid: "92166457"
 
     ![키워드 프로젝트를 선택 합니다.](media/custom-keyword/custom-kws-portal-project-list.png)
 
-1. 새 키워드 모델을 만들려면 **모델 학습**을 클릭 합니다.
+1. 새 키워드 모델을 만들려면 **모델 학습** 을 클릭 합니다.
 
-1. 모델 **이름** , 선택적 **설명**및 선택한 **키워드** 를 입력 한 후 **다음**을 클릭 합니다. 효과적인 키워드를 선택 하는 방법에 대 한 [지침](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) 을 참조 하세요.
+1. 모델 **이름** , 선택적 **설명** 및 선택한 **키워드** 를 입력 한 후 **다음** 을 클릭 합니다. 효과적인 키워드를 선택 하는 방법에 대 한 [지침](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) 을 참조 하세요.
 
     ![키워드 입력](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -64,25 +65,17 @@ ms.locfileid: "92166457"
 
 ## <a name="use-a-keyword-model-with-the-sdk"></a>SDK와 함께 키워드 모델 사용
 
-먼저을 반환 하는 정적 함수를 사용 하 여 키워드 모델 파일을 로드 `FromFile()` `KeywordRecognitionModel` 합니다. `.table`Speech Studio에서 다운로드 한 파일의 경로를 사용 합니다. 또한 `AudioConfig` 기본 마이크를 사용 하 여를 만든 다음, `KeywordRecognizer` 오디오 구성을 사용 하 여 새를 인스턴스화합니다.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
+::: zone-end
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/keyword-recognition/keyword-basics-python.md)]
+::: zone-end
 
-var keywordModel = KeywordRecognitionModel.FromFile("your/path/to/Activate_device.table");
-using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-using var keywordRecognizer = new KeywordRecognizer(audioConfig);
-```
-
-다음으로, 모델 개체를 전달 하 여에 대 한 호출로 키워드 인식을 실행 `RecognizeOnceAsync()` 합니다. 그러면 키워드가 인식 될 때까지 지속 되는 키워드 인식 세션이 시작 됩니다. 따라서 일반적으로 다중 스레드 응용 프로그램에서이 디자인 패턴을 사용 하거나, 절전 모드 해제 단어를 무기한 대기할 수 있는 사용 사례에서이 디자인 패턴을 사용 합니다.
-
-```csharp
-KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(keywordModel);
-```
-
-> [!NOTE]
-> 여기에 표시 된 예제에서는 `SpeechConfig` 인증 컨텍스트에 개체가 필요 하지 않으며 백 엔드에 연결 하지 않기 때문에 로컬 키워드 인식을 사용 합니다. 그러나 [연속 백 엔드 연결을 활용](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword)하 여 키워드 인식 및 확인을 모두 실행할 수 있습니다.
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
+::: zone-end
 
 ## <a name="next-steps"></a>다음 단계
 

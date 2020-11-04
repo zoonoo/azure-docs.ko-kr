@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135558"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306839"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -38,7 +38,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 - **일부 내보낼 수 없음** -모든 메트릭은 REST API를 사용 하 여 내보낼 수 있지만 일부 메트릭은 Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 진단 설정을 사용 하 여 내보낼 수 없습니다. 아래 표에서 *진단 설정을 통해 내보낼* 수 있는 열은 이러한 방식으로 내보낼 수 있는 메트릭을 나열 합니다.  
 
-- **다차원 메트릭** -진단 설정을 통해 여러 차원 메트릭을 다른 위치로 보내는 것은 현재 지원 되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+- **다차원 메트릭** -진단 설정을 통해 여러 차원 메트릭을 다른 위치로 보내는 것은 현재 지원 되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예* : Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 
 ## <a name="guest-os-and-host-os-metrics"></a>게스트 OS 및 호스트 OS 메트릭
 
@@ -117,7 +117,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |---|---|---|---|---|---|---|
 |BackendDuration|예|백 엔드 요청 지속 시간|밀리초|평균|백 엔드 요청 기간 (밀리초)|위치, 호스트 이름|
 |용량|예|용량|백분율|평균|ApiManagement 서비스에 대한 사용률 메트릭|위치|
-|기간|예|게이트웨이 요청의 전체 기간|밀리초|평균|게이트웨이 요청의 전체 기간(밀리초)|위치, 호스트 이름|
+|Duration|예|게이트웨이 요청의 전체 기간|밀리초|평균|게이트웨이 요청의 전체 기간(밀리초)|위치, 호스트 이름|
 |EventHubDroppedEvents|예|삭제된 EventHub 이벤트|개수|합계|큐 크기 제한에 도달 하 여 건너뛴 이벤트 수|위치|
 |EventHubRejectedEvents|예|거부된 EventHub 이벤트|개수|합계|거부 된 EventHub 이벤트 수 (잘못 된 구성 또는 권한 없음)|위치|
 |EventHubSuccessfulEvents|예|성공한 EventHub 이벤트|개수|합계|성공한 EventHub 이벤트 수|위치|
@@ -952,10 +952,10 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |d2c.endpoints.latency.serviceBusQueues|예|라우팅: Service Bus 큐에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c.endpoints.latency.serviceBusTopics|예|라우팅: Service Bus 토픽에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c.endpoints.latency.storage|예|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c.telemetry.egress.dropped|예|라우팅: 삭제된 원격 분석 메시지 |개수|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
+|d2c.telemetry.egress.dropped|예|라우팅: 삭제된 원격 분석 메시지 |개수|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
 |d2c.telemetry.egress.fallback|예|라우팅: 대체에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 대체 경로와 연결된 엔드포인트에 메시지를 배달한 횟수입니다.|차원 없음|
 |d2c.telemetry.egress.invalid|예|라우팅: 원격 분석 메시지 호환되지 않음|개수|합계|IoT Hub 라우팅에서 엔드포인트와의 비호환성으로 인해 메시지를 배달하지 못한 횟수입니다. 이 값은 재시도를 포함하지 않습니다.|차원 없음|
-|d2c.telemetry.egress.orphaned|예|라우팅: 분리된 원격 분석 메시지 |개수|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
+|d2c.telemetry.egress.orphaned|예|라우팅: 분리된 원격 분석 메시지 |개수|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
 |d2c.telemetry.egress.success|예|라우팅: 배달된 원격 분석 메시지|개수|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|차원 없음|
 |d2c.telemetry.ingress.allProtocol|예|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|차원 없음|
 |d2c.telemetry.ingress.sendThrottle|예|제한 오류 수|개수|합계|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
@@ -1007,7 +1007,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|---|
-|AddRegion|예|추가 된 지역|개수|개수|추가 된 지역|지역|
+|AddRegion|예|추가 된 지역|개수|개수|추가 된 지역|Azure 지역|
 |AutoscaleMaxThroughput|아니요|자동 크기 조정 최대 처리량|개수|최대|자동 크기 조정 최대 처리량|DatabaseName, CollectionName|
 |AvailableStorage|아니요|mapi 사용 가능한 저장소|바이트|합계|9 월 2020 일 말에 Azure Monitor에서 "사용 가능한 저장소"가 제거 됩니다. Cosmos DB 컬렉션 저장소 크기는 이제 제한 되지 않습니다. 유일한 제한 사항은 각 논리 파티션 키의 저장소 크기가 20GB는 것입니다. 진단 로그에서 분할 키 통계를 사용 하도록 설정 하 여 상위 파티션 키에 대 한 저장소 사용량을 파악할 수 있습니다. Cosmos DB 저장소 할당량에 대 한 자세한 내용은이 문서를 확인 하세요 https://docs.microsoft.com/azure/cosmos-db/concepts-limits . 사용 중단 후 더 이상 사용 되지 않는 메트릭에 아직 정의 된 나머지 경고 규칙은 사용 중단 날짜 후에도 자동으로 비활성화 됩니다.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|아니요|Cassandra 연결 차단|개수|합계|1 분 세분성으로 보고 된 Cassandra 연결의 수입니다.|지역, ClosureReason|
@@ -1056,7 +1056,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |NormalizedRUConsumption|아니요|정규화 된 과도 소비|백분율|최대|분당 최대 r 소비 비율|CollectionName, DatabaseName, Region, PartitionKeyRangeId|
 |ProvisionedThroughput|아니요|프로비전된 처리량|개수|최대|프로비전된 처리량|DatabaseName, CollectionName|
 |지역 장애 조치 (failover)|예|지역 장애 조치|개수|개수|지역 장애 조치|차원 없음|
-|RemoveRegion|예|지역이 제거 됨|개수|개수|지역이 제거 됨|지역|
+|RemoveRegion|예|지역이 제거 됨|개수|개수|지역이 제거 됨|Azure 지역|
 |ReplicationLatency|예|P99 복제 대기 시간|밀리초|평균|지역 사용 계정에 대한 원본 및 대상 지역의 P99 복제 대기 시간|SourceRegion, TargetRegion|
 |ServerSideLatency|아니요|서버 쪽 대기 시간|밀리초|평균|서버 쪽 대기 시간|DatabaseName, CollectionName, Region, ConnectionMode, OperationType, PublicAPIType|
 |ServiceAvailability|아니요|서비스 가용성|백분율|평균|1 시간, 일 또는 월 세분성의 계정 요청 가용성|차원 없음|
@@ -1091,7 +1091,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |DroppedEventCount|예|삭제된 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 삭제된 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName, DropReason|
 |MatchedEventCount|예|일치하는 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName|
 |PublishFailCount|예|실패한 이벤트 게시|개수|합계|이 토픽에 게시하지 못한 총 이벤트|토픽, ErrorType, 오류|
-|PublishSuccessCount|예|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|항목|
+|PublishSuccessCount|예|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|토픽|
 |PublishSuccessLatencyInMs|예|게시 성공 대기 시간|밀리초|합계|게시 성공 대기 시간 (밀리초)|차원 없음|
 
 
@@ -1434,12 +1434,12 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |선점된 노드|예|선점된 노드|개수|평균|선점 된 노드 수입니다. 이러한 노드는 사용 가능한 노드 풀에서 멀리 떨어져 있는 낮은 우선 순위 노드입니다.|시나리오, ClusterName|
 |실행 준비|예|실행 준비|개수|합계|이 작업 영역에 대해 준비 중인 실행 수입니다. 실행 환경을 준비 하는 동안 실행이 준비 상태에 들어가면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
 |프로 비전 실행|예|프로 비전 실행|개수|합계|이 작업 영역에 대해 프로 비전 되는 실행 수입니다. 실행이 계산 대상 생성 또는 프로 비전을 기다리는 경우 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
-|대기 중인 실행|예|대기 중인 실행|개수|합계|이 작업 영역에 대해 큐에 대기 중인 실행의 수입니다. 계산 대상에서 실행이 큐에 대기 하면 개수가 업데이트 됩니다. 필수 계산 노드가 준비 될 때까지 대기 하는 경우 occure 수 있습니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
+|대기 중인 실행|예|대기 중인 실행|개수|합계|이 작업 영역에 대해 큐에 대기 중인 실행의 수입니다. 계산 대상에서 실행이 큐에 대기 하면 개수가 업데이트 됩니다. 는 필수 계산 노드가 준비 될 때까지 대기 하는 경우에 발생할 수 있습니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
 |할당량 사용률|예|할당량 사용률|개수|평균|사용한 할당량 백분율|시나리오, ClusterName, VmFamilyName, VmPriority|
 |실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 실행 중인 실행 수입니다. 실행이 필요한 리소스에서 실행 되기 시작 하면 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
 |실행 시작|예|실행 시작|개수|합계|이 작업 영역에 대해 시작 된 실행 수입니다. 실행 Id와 같은 실행 및 실행 정보에 대 한 요청을 채운 후에 개수가 업데이트 됩니다.|Scenario, RunType, PublishedPipelineId, PipelineStepType Etype,|
 |총 코어 수|예|총 코어 수|개수|평균|총 코어 수|시나리오, ClusterName|
-|총 노드 수|예|총 노드 수|개수|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, Premepted 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
+|총 노드 수|예|총 노드 수|개수|평균|총 노드 수입니다. 이 합계에는 활성 노드, 유휴 노드, 사용할 수 없는 노드, 선점 된 노드, 노드가 남아 있습니다.|시나리오, ClusterName|
 |사용 불가 코어|예|사용 불가 코어|개수|평균|사용할 수 없는 코어 수|시나리오, ClusterName|
 |사용 불가 노드|예|사용 불가 노드|개수|평균|사용할 수 없는 노드 수입니다. 확인할 수 없는 노드는 확인할 수 없는 문제 때문에 작동 하지 않습니다. Azure는 이러한 노드를 재활용 합니다.|시나리오, ClusterName|
 |경고|예|경고|개수|합계|이 작업 영역에 있는 실행 경고 수입니다. 실행에 경고가 발생할 때마다 개수가 업데이트 됩니다.|시나리오|
@@ -1450,7 +1450,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|---|
 |가용성|예|가용성|백분율|평균|Api의 가용성|ApiCategory, ApiName|
-|사용|아니요|사용|개수|개수|API 호출 수|ApiCategory, ApiName, ResultType, ResponseCode|
+|사용량|아니요|사용|개수|개수|API 호출 수|ApiCategory, ApiName, ResultType, ResponseCode|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -1494,7 +1494,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |AverageReadLatency|예|평균 읽기 대기 시간|밀리초|평균|작업당 평균 읽기 대기 시간(밀리초)|차원 없음|
 |AverageWriteLatency|예|평균 쓰기 대기 시간|밀리초|평균|작업당 평균 쓰기 대기 시간(밀리초)|차원 없음|
 |CbsVolumeBackupActive|예|볼륨 백업 활성 상태|개수|평균|현재 볼륨에 대해 백업이 일시 중단 되었습니다.|차원 없음|
-|CbsVolumeLogicalBackupBytes|예|논리적으로 백업 되는 바이트|바이트|평균|이 볼륨에 대해 백업 된 압축 취소/암호화 되지 않은 바이트 바이트입니다.|차원 없음|
+|CbsVolumeLogicalBackupBytes|예|논리적으로 백업 되는 바이트|바이트|평균|이 볼륨에 대해 백업 된 압축 되지 않은/암호화 되지 않은 총 바이트 바이트입니다.|차원 없음|
 |CbsVolumeOperationComplete|예|작업 상태|개수|평균|마지막 백업/복원 작업이 성공 했습니다.|차원 없음|
 |CbsVolumeOperationTransferredBytes|예|작업에 대해 전송 된 바이트|바이트|평균|마지막 백업/복원 작업에 대해 전송 된 총 바이트 수입니다.|차원 없음|
 |CbsVolumeProtected|예|볼륨 보호 상태|개수|평균|은 (는) 클라우드 백업 서비스에 의해 볼륨이 보호 되 고 있습니다.|차원 없음|
@@ -1929,7 +1929,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |ActiveMessages|아니요|큐/토픽에 있는 활성 메시지 수|개수|평균|큐/토픽에 있는 활성 메시지 수|EntityName|
 |ConnectionsClosed|아니요|끊어진 연결.|개수|평균|Microsoft.ServiceBus에 대한 끊어진 연결.|EntityName|
 |ConnectionsOpened|아니요|열린 연결.|개수|평균|Microsoft.ServiceBus에 대한 열린 연결.|EntityName|
-|CPUXNS|아니요|CPU(사용되지 않음)|백분율|최대|Service bus 프리미엄 네임 스페이스 CPU 사용량 메트릭 이 메트릭은 depricated입니다. 대신 CPU 메트릭 (NamespaceCpuUsage)을 사용 하세요.|차원 없음|
+|CPUXNS|아니요|CPU(사용되지 않음)|백분율|최대|Service bus 프리미엄 네임 스페이스 CPU 사용량 메트릭 이 메트릭은 사용되지 않습니다. 대신 CPU 메트릭 (NamespaceCpuUsage)을 사용 하세요.|차원 없음|
 |DeadletteredMessages|아니요|큐/토픽에서 배달 못한 메시지 수입니다.|개수|평균|큐/토픽에서 배달 못한 메시지 수입니다.|EntityName|
 |IncomingMessages|예|들어오는 메시지|개수|합계|Microsoft.ServiceBus에 대한 들어오는 메시지.|EntityName|
 |IncomingRequests|예|들어오는 요청|개수|합계|Microsoft.ServiceBus에 대한 들어오는 요청.|EntityName|
@@ -2171,7 +2171,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |StorageSyncRecalledTotalNetworkBytes|예|클라우드 계층화 회수 크기|바이트|합계|회수되는 데이터 크기|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|예|클라우드 계층화 회수|바이트|합계|서버에서 회수 한 데이터의 총 크기|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|예|클라우드 계층화 회수 처리량|초당 바이트 수|평균|데이터 회수 처리량 크기|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|예|서버 온라인 상태|개수|최대|Resigtered 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 값 1을 기록 하는 메트릭입니다.|ServerName|
+|StorageSyncServerHeartbeat|예|서버 온라인 상태|개수|최대|등록 된 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 1 값을 기록 하는 메트릭입니다.|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|예|동기화된 파일 수|개수|합계|동기화 된 파일 수|SyncGroupName, ServerEndpointName, Syncgroupname|
 |StorageSyncSyncSessionPerItemErrorsCount|예|동기화 상태가 아닌 파일|개수|합계|동기화 하지 못한 파일 수|SyncGroupName, ServerEndpointName, Syncgroupname|
 
@@ -2180,7 +2180,7 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|예|서버 온라인 상태|개수|최대|Resigtered 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 값 1을 기록 하는 메트릭입니다.|ServerResourceId, ServerName|
+|ServerHeartbeat|예|서버 온라인 상태|개수|최대|등록 된 서버가 클라우드 끝점과 하트 비트를 성공적으로 기록할 때마다 1 값을 기록 하는 메트릭입니다.|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|예|클라우드 계층화 회수|바이트|합계|서버에서 회수 한 데이터의 총 크기|ServerResourceId, ServerName|
 
 
@@ -2251,14 +2251,14 @@ Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내�
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|아니요|적응 캐시 적중률|백분율|최대|워크 로드가 적응 캐시를 얼마나 잘 활용 하 고 있는 지를 측정 합니다. 캐시 적중률 메트릭과 함께이 메트릭을 사용 하 여 추가 용량을 조정 하거나 작업을 다시 실행 하 여 캐시를 하이드레이션 하며 나중 여부를 결정 합니다.|차원 없음|
 |AdaptiveCacheUsedPercent|아니요|적응 캐시 사용 백분율|백분율|최대|워크 로드가 적응 캐시를 얼마나 잘 활용 하 고 있는 지를 측정 합니다. 캐시 사용 백분율 메트릭에이 메트릭을 사용 하 여 추가 용량에 대해 크기를 조정할지 또는 작업을 다시 실행 하 여 캐시를 하이드레이션 하며 나중 여부를 결정 합니다.|차원 없음|
-|Connections|예|Connections|개수|합계|SQL 풀에 대 한 총 로그인 수|결과|
-|ConnectionsBlockedByFirewall|아니요|방화벽에 의해 차단 된 연결|개수|합계|방화벽 규칙에 의해 차단 된 연결 수입니다. SQL 풀에 대 한 액세스 제어 정책을 다시 방문 하 고, 수가 높으면 이러한 연결을 모니터링 합니다.|차원 없음|
-|DWULimit|아니요|DWU 제한|개수|최대|SQL 풀의 서비스 수준 목표|차원 없음|
-|DWUUsed|아니요|DWU 사용됨|개수|최대|SQL 풀에서의 사용에 대 한 상위 수준 표시를 나타냅니다. DWU 제한 * DWU 백분율로 측정 됩니다.|차원 없음|
-|DWUUsedPercent|아니요|DWU 사용 백분율|백분율|최대|SQL 풀에서의 사용에 대 한 상위 수준 표시를 나타냅니다. CPU 비율과 데이터 IO 비율의 최대값을 취하여 측정 됩니다.|차원 없음|
+|Connections|예|Connections|개수|합계|전용 SQL 풀에 대 한 총 로그인 수|결과|
+|ConnectionsBlockedByFirewall|아니요|방화벽에 의해 차단 된 연결|개수|합계|방화벽 규칙에 의해 차단 된 연결 수입니다. 전용 SQL 풀에 대 한 액세스 제어 정책을 다시 방문 하 고, 수가 높으면 이러한 연결을 모니터링 합니다.|차원 없음|
+|DWULimit|아니요|DWU 제한|개수|최대|전용 SQL 풀의 서비스 수준 목표|차원 없음|
+|DWUUsed|아니요|DWU 사용됨|개수|최대|전용 SQL 풀에서의 사용에 대 한 상위 수준 표현을 나타냅니다. DWU 제한 * DWU 백분율로 측정 됩니다.|차원 없음|
+|DWUUsedPercent|아니요|DWU 사용 백분율|백분율|최대|전용 SQL 풀에서의 사용에 대 한 상위 수준 표현을 나타냅니다. CPU 비율과 데이터 IO 비율의 최대값을 취하여 측정 됩니다.|차원 없음|
 |LocalTempDBUsedPercent|아니요|로컬 tempdb 사용 백분율|백분율|최대|모든 계산 노드의 로컬 tempdb 사용률-5 분 마다 값이 내보내집니다.|차원 없음|
-|MemoryUsedPercent|아니요|사용 되는 메모리 백분율|백분율|최대|SQL 풀의 모든 노드에 대 한 메모리 사용률|차원 없음|
-|wlg_effective_min_resource_percent|예|유효 최소 리소스 비율|백분율|최소값|서비스 수준 및 작업 그룹 설정을 고려 하 여 유효 min 리소스 비율 설정이 허용 됩니다. 낮은 서비스 수준에서 효과적인 min_percentage_resource을 더 높은 수준으로 조정할 수 있습니다.|IsUserDefined,|
+|MemoryUsedPercent|아니요|사용 되는 메모리 백분율|백분율|최대|전용 SQL 풀의 모든 노드에 대 한 메모리 사용률|차원 없음|
+|wlg_effective_min_resource_percent|예|유효 최소 리소스 비율|백분율|최소|서비스 수준 및 작업 그룹 설정을 고려 하 여 유효 min 리소스 비율 설정이 허용 됩니다. 낮은 서비스 수준에서 효과적인 min_percentage_resource을 더 높은 수준으로 조정할 수 있습니다.|IsUserDefined,|
 |WLGActiveQueries|아니요|작업 그룹 활성 쿼리|개수|합계|작업 그룹 내의 활성 쿼리입니다. 필터링 되지 않은이 메트릭과 분할 되지 않은 메트릭을 사용 하 여 시스템에서 실행 중인 모든 활성 쿼리를 표시 합니다.|IsUserDefined,|
 |WLGActiveQueriesTimeouts|아니요|작업 그룹 쿼리 시간 제한|개수|합계|시간이 초과 된 작업 그룹에 대 한 쿼리입니다. 이 메트릭에 의해 보고 된 쿼리 시간 제한은 쿼리가 실행을 시작한 후에만 수행 됩니다 (잠금 또는 리소스 대기로 인 한 대기 시간을 포함 하지 않음).|IsUserDefined,|
 |WLGAllocationByMaxResourcePercent|아니요|최대 리소스 비율별 작업 그룹 할당|백분율|최대|작업 그룹당 유효 캡 리소스 비율을 기준으로 하는 리소스의 백분율 할당을 표시 합니다. 이 메트릭은 작업 그룹의 효과적인 사용률을 제공 합니다.|IsUserDefined,|

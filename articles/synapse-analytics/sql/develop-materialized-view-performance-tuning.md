@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474770"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305105"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
+# <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 구체화 된 뷰로 성능 조정
 
-Synapse SQL 풀에서 구체화된 뷰는 복잡한 분석 쿼리에 대해 낮은 유지 관리 방법을 제공하여 쿼리를 변경하지 않고 빠른 성능을 얻을 수 있도록 합니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침을 설명합니다.
+전용 SQL 풀에서 구체화 된 뷰를 사용 하면 복잡 한 분석 쿼리에 대해 낮은 유지 관리 방법을 제공 하 여 쿼리를 변경 하지 않고 성능을 빠르게 얻을 수 있습니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침을 설명합니다.
 
 ## <a name="materialized-views-vs-standard-views"></a>구체화된 뷰 및 표준 뷰 비교
 
@@ -27,7 +27,7 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 
 표준 뷰는 뷰가 사용될 때마다 데이터를 계산합니다.  디스크에 저장되는 데이터는 없습니다. 일반적으로 사용자는 표준 뷰를 데이터베이스에서 논리 개체와 쿼리를 구성하는 데 도움이 되는 도구로 사용합니다.  표준 뷰를 사용하려면 쿼리에서 해당 뷰를 직접 참조해야 합니다.
 
-구체화된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산하고 저장하고 유지 관리합니다.  구체화된 뷰가 사용될 때마다 다시 계산할 필요는 없습니다.  따라서 구체화된 뷰의 데이터 전체 또는 일부를 사용하는 쿼리가 더 빠른 성능을 얻을 수 있습니다.  그뿐 아니라 쿼리에서는 구체화된 뷰를 직접 참조하지 않고 사용할 수 있으므로 애플리케이션 코드를 변경할 필요가 없습니다.  
+구체화 된 뷰는 테이블과 마찬가지로 전용 SQL 풀에서 데이터를 미리 계산 하 고 저장 하 고 유지 관리 합니다.  구체화된 뷰가 사용될 때마다 다시 계산할 필요는 없습니다.  따라서 구체화된 뷰의 데이터 전체 또는 일부를 사용하는 쿼리가 더 빠른 성능을 얻을 수 있습니다.  그뿐 아니라 쿼리에서는 구체화된 뷰를 직접 참조하지 않고 사용할 수 있으므로 애플리케이션 코드를 변경할 필요가 없습니다.  
 
 표준 뷰의 대부분의 요구 사항은 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
@@ -46,13 +46,13 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 
 - JOIN 및 집계 함수를 사용하여 복잡한 쿼리의 실행 시간을 줄입니다. 쿼리가 복잡할수록 실행 시간 절감 가능성이 높아집니다. 쿼리의 컴퓨팅 비용이 높고 결과 데이터 세트가 작은 경우 가장 많은 이점을 얻을 수 있습니다.  
 
-- SQL 풀의 최적화 프로그램은 배포된 구체화된 뷰를 자동으로 사용하여 쿼리 실행 플랜을 향상시킬 수 있습니다.  이 프로세스는 사용자에게 투명하게 진행되어 더 빠른 쿼리 성능을 제공하며 쿼리에 구체화된 뷰에 대한 직접 참조를 수행하도록 요구하지 않습니다.
+- 전용 SQL 풀의 쿼리 최적화 프로그램은 자동으로 배포 된 구체화 된 뷰를 사용 하 여 쿼리 실행 계획을 향상 시킬 수 있습니다.  이 프로세스는 사용자에게 투명하게 진행되어 더 빠른 쿼리 성능을 제공하며 쿼리에 구체화된 뷰에 대한 직접 참조를 수행하도록 요구하지 않습니다.
 
 - 뷰에 대한 유지 관리 부담이 낮아집니다.  구체화된 뷰는 두 위치에 데이터를 저장합니다. 즉, 뷰를 만들 때는 초기 데이터에 대한 클러스터형 columnstore 인덱스에 저장하고 증분 데이터 변경 내용은 델타 저장소에 저장합니다.  기본 테이블의 모든 데이터 변경 내용은 동기 방식으로 델타 저장소에 자동으로 추가됩니다.  백그라운드 프로세스(튜플 이동기)는 주기적으로 델타 저장소에서 뷰의 columnstore 인덱스로 데이터를 이동합니다.  이 디자인에서는 구체화된 뷰를 쿼리하여 기본 테이블을 직접 쿼리하는 것과 동일한 데이터를 반환할 수 있습니다.
 - 구체화된 뷰의 데이터를 기본 테이블과 다르게 배포할 수 있습니다.  
 - 구체화된 뷰의 데이터는 일반 테이블의 데이터와 동일한 고가용성 및 복원력 혜택을 얻습니다.  
 
-다른 데이터 웨어하우스 공급자와 비교할 때 SQL 풀에서 구현된 구체화된 뷰는 다음과 같은 추가 이점도 제공합니다.
+다른 데이터 웨어하우스 공급자와 비교할 때 전용 SQL 풀에서 구현 된 구체화 된 뷰는 다음과 같은 추가 이점도 제공 합니다.
 
 - 기본 테이블의 데이터 변경 내용으로 자동 및 동기식 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
 - 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
@@ -151,7 +151,7 @@ GROUP BY A, C
 
 **구체화된 뷰 및 결과 세트 캐싱**
 
-이러한 두 기능은 쿼리 성능 조정을 위해 거의 동시에 SQL 풀에서 도입되었습니다. 결과 세트 캐싱은 정적 데이터에 대한 반복 쿼리에서 높은 동시성 및 빠른 응답 시간을 얻는 데 사용됩니다.  
+이러한 두 기능은 쿼리 성능 튜닝을 위해 동시에 전용 SQL 풀에서 도입 되었습니다. 결과 세트 캐싱은 정적 데이터에 대한 반복 쿼리에서 높은 동시성 및 빠른 응답 시간을 얻는 데 사용됩니다.  
 
 캐시된 결과를 사용하려면 쿼리를 요청하는 캐시의 형식이 캐시를 생성한 쿼리와 일치해야 합니다.  또한 캐시된 결과가 전체 쿼리에 적용되어야 합니다.  
 
