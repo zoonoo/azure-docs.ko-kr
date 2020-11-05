@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973583"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395090"
 ---
 # <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
 
@@ -38,11 +38,11 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
    ![MarketPlace의 SQL Edge](media/deploy-portal/find-offer-marketplace.png)
 
-2. 요구 사항에 가장 부합하는 소프트웨어 요금제를 선택하고 **만들기**를 클릭합니다. <br><br>
+2. 요구 사항에 가장 부합하는 소프트웨어 요금제를 선택하고 **만들기** 를 클릭합니다. <br><br>
 
    ![올바른 소프트웨어 요금제 선택](media/deploy-portal/pick-correct-plan.png)
 
-3. IoT Edge 모듈의 대상 디바이스 페이지에서 다음 세부 정보를 지정한 후 **만들기**를 클릭합니다.
+3. IoT Edge 모듈의 대상 디바이스 페이지에서 다음 세부 정보를 지정한 후 **만들기** 를 클릭합니다.
 
    |**필드**  |**설명**  |
    |---------|---------|
@@ -50,9 +50,9 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
    |IoT Hub   |  IoT Edge 디바이스가 등록된 IoT Hub의 이름이며 "디바이스에 배포" 옵션 선택|
    |IoT Edge 디바이스 이름  |  SQL Edge를 배포할 IoT Edge 디바이스의 이름 |
 
-4. **장치에서 모듈 설정:** 페이지의 **IoT Edge 모듈**에서 Azure SQL Edge 모듈을 클릭 합니다. 기본 모듈 이름은 *AzureSQLEdge*로 설정 됩니다. 
+4. **장치에서 모듈 설정:** 페이지의 **IoT Edge 모듈** 에서 Azure SQL Edge 모듈을 클릭 합니다. 기본 모듈 이름은 *AzureSQLEdge* 로 설정 됩니다. 
 
-5. **업데이트 IoT Edge 모듈** 블레이드의 *모듈 설정* 섹션에서 *IoT Edge 모듈 이름*, *다시 시작 정책* 및 *원하는 상태*에 대해 원하는 값을 지정 합니다. 
+5. **업데이트 IoT Edge 모듈** 블레이드의 *모듈 설정* 섹션에서 *IoT Edge 모듈 이름* , *다시 시작 정책* 및 *원하는 상태* 에 대해 원하는 값을 지정 합니다. 
 
    > [!IMPORTANT]    
    > 모듈에서 **이미지 URI** 설정을 변경 하거나 업데이트 하지 마십시오.
@@ -106,13 +106,13 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
    > [!IMPORTANT]    
    > `PlanId`구성 만들기 설정에 정의 된 환경 변수를 변경 하지 마십시오. 이 값이 변경 되 면 Azure SQL Edge 컨테이너가 시작 되지 않습니다. 
    
-8. **업데이트 IoT Edge 모듈** 창에서 **업데이트**를 클릭 합니다.
-9. **장치에서 모듈 설정** 페이지에서 다음을 클릭 합니다. 배포에 대 한 경로를 정의 해야 하는 경우 **>경로** 를 클릭 합니다. 그렇지 않으면 **검토 + 만들기**를 클릭 합니다. 경로를 구성 하는 방법에 대 한 자세한 내용은 [모듈 배포 및 IoT Edge에서 경로 설정](../iot-edge/module-composition.md)을 참조 하세요.
-11. **장치에 모듈 설정** 페이지에서 **만들기**를 클릭 합니다.
+8. **업데이트 IoT Edge 모듈** 창에서 **업데이트** 를 클릭 합니다.
+9. **장치에서 모듈 설정** 페이지에서 다음을 클릭 합니다. 배포에 대 한 경로를 정의 해야 하는 경우 **>경로** 를 클릭 합니다. 그렇지 않으면 **검토 + 만들기** 를 클릭 합니다. 경로를 구성 하는 방법에 대 한 자세한 내용은 [모듈 배포 및 IoT Edge에서 경로 설정](../iot-edge/module-composition.md)을 참조 하세요.
+11. **장치에 모듈 설정** 페이지에서 **만들기** 를 클릭 합니다.
 
 ## <a name="connect-to-azure-sql-edge"></a>Azure SQL Edge에 연결
 
-다음 단계에서는 Azure SQL Edge에 연결하기 위해 컨테이너 내에서 Azure SQL Edge 명령줄 도구 **sqlcmd**를 사용합니다.
+다음 단계에서는 Azure SQL Edge에 연결하기 위해 컨테이너 내에서 Azure SQL Edge 명령줄 도구 **sqlcmd** 를 사용합니다.
 
 > [!NOTE]      
 > SQL 명령줄 도구 (sqlcmd)는 ARM64 버전의 Azure SQL Edge 컨테이너 내에서 사용할 수 없습니다.
@@ -212,7 +212,7 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
 ## <a name="connect-from-outside-the-container"></a> 컨테이너 외부에서 연결
 
-SQL 연결을 지 원하는 모든 외부 Linux, Windows 또는 macOS 도구에서 Azure SQL Edge 인스턴스에 대해 SQL 쿼리를 연결 하 고 실행할 수 있습니다. 외부에서 SQL Edge 컨테이너에 연결하는 방법에 대한 자세한 내용은 [Azure SQL Edge 연결 및 쿼리](https://docs.microsoft.com/azure/azure-sql-edge/connect)를 참조하세요.
+SQL 연결을 지 원하는 모든 외부 Linux, Windows 또는 macOS 도구에서 Azure SQL Edge 인스턴스에 대해 SQL 쿼리를 연결 하 고 실행할 수 있습니다. 외부에서 SQL Edge 컨테이너에 연결하는 방법에 대한 자세한 내용은 [Azure SQL Edge 연결 및 쿼리](./connect.md)를 참조하세요.
 
 이 빠른 시작에서는 IoT Edge 디바이스에 SQL Edge 모듈을 배포했습니다. 
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902502"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395158"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>데이터 보존 정책 사용 및 사용 안 함
 
@@ -22,7 +22,7 @@ ms.locfileid: "90902502"
 
 ## <a name="enable-data-retention-for-a-database"></a>데이터베이스에 대 한 데이터 보존 사용
 
-다음 예에서는 [Alter database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)를 사용 하 여 데이터 보존을 설정 하는 방법을 보여 줍니다.
+다음 예에서는 [Alter database](/sql/t-sql/statements/alter-database-transact-sql-set-options)를 사용 하 여 데이터 보존을 설정 하는 방법을 보여 줍니다.
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>테이블에 대 한 데이터 보존 사용
 
-데이터를 자동으로 제거 하려는 각 테이블에 대해 데이터 보존을 사용 하도록 설정 해야 합니다. 데이터베이스와 테이블에 데이터 보존이 설정 되어 있으면 백그라운드 시스템 태스크에서 테이블을 정기적으로 검색 하 여 사용 되지 않는 (오래 된) 행을 식별 하 고 삭제 합니다. [Create table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 또는 [Alter table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블을 만드는 동안 테이블에서 데이터 보존을 사용 하도록 설정할 수 있습니다.
+데이터를 자동으로 제거 하려는 각 테이블에 대해 데이터 보존을 사용 하도록 설정 해야 합니다. 데이터베이스와 테이블에 데이터 보존이 설정 되어 있으면 백그라운드 시스템 태스크에서 테이블을 정기적으로 검색 하 여 사용 되지 않는 (오래 된) 행을 식별 하 고 삭제 합니다. [Create table](/sql/t-sql/statements/create-table-transact-sql) 또는 [Alter table](/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블을 만드는 동안 테이블에서 데이터 보존을 사용 하도록 설정할 수 있습니다.
 
-다음 예에서는 [Create table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql)을 사용 하 여 테이블에 대 한 데이터 보존을 설정 하는 방법을 보여 줍니다. 
+다음 예에서는 [Create table](/sql/t-sql/statements/create-table-transact-sql)을 사용 하 여 테이블에 대 한 데이터 보존을 설정 하는 방법을 보여 줍니다. 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
     - DateTimeOffset
 - RETENTION_PERIOD-정수 값 뒤에 단위 설명자가 있습니다. 허용 되는 단위는 일, 일, 주, 주, 월, 월, 연도 및 연도입니다.
 
-다음 예에서는 [Alter table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블에 대 한 데이터 보존을 설정 하는 방법을 보여 줍니다.  
+다음 예에서는 [Alter table](/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블에 대 한 데이터 보존을 설정 하는 방법을 보여 줍니다.  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ and object_id = object_id(N'dbo.data_retention_table', N'U')
 
 ## <a name="disable-data-retention-on-a-table"></a>테이블에서 데이터 보존 사용 안 함 
 
-[Alter table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블에서 데이터 보존을 사용 하지 않도록 설정할 수 있습니다. 다음 명령을 사용 하 여 테이블에 대 한 데이터 보존을 사용 하지 않도록 설정할 수 있습니다.
+[Alter table](/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블에서 데이터 보존을 사용 하지 않도록 설정할 수 있습니다. 다음 명령을 사용 하 여 테이블에 대 한 데이터 보존을 사용 하지 않도록 설정할 수 있습니다.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>데이터베이스에서 데이터 보존 사용 안 함
 
-[Alter database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)를 사용 하 여 테이블에서 데이터 보존을 사용 하지 않도록 설정할 수 있습니다. 다음 명령을 사용 하 여 데이터베이스에 대 한 데이터 보존을 사용 하지 않도록 설정할 수 있습니다.
+[Alter database](/sql/t-sql/statements/alter-database-transact-sql-set-options)를 사용 하 여 테이블에서 데이터 보존을 사용 하지 않도록 설정할 수 있습니다. 다음 명령을 사용 하 여 데이터베이스에 대 한 데이터 보존을 사용 하지 않도록 설정할 수 있습니다.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975861"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393390"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Azure Active Directory에서 리소스 응용 프로그램 등록
 
@@ -41,13 +41,13 @@ Azure 용 오픈 소스 FHIR 서버를 사용 하는 경우 아래 단계에 따
 
 ### <a name="app-registrations-in-azure-portal"></a>Azure Portal 앱 등록
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory** 를 클릭합니다.
 
-2. **Azure Active Directory** 블레이드에서 **앱 등록**를 클릭 합니다.
+2. **Azure Active Directory** 블레이드에서 **앱 등록** 를 클릭 합니다.
 
     ![Azure Portal. 새 앱 등록.](media/how-to-aad/portal-aad-new-app-registration.png)
 
-3. **새 등록**을 클릭 합니다.
+3. **새 등록** 을 클릭 합니다.
 
 ### <a name="add-a-new-application-registration"></a>새 응용 프로그램 등록 추가
 
@@ -61,9 +61,9 @@ Azure 용 오픈 소스 FHIR 서버를 사용 하는 경우 아래 단계에 따
 
 1. **API 노출** 클릭
 
-2. *응용 프로그램 ID URI*옆의 **설정** 을 클릭 합니다.
+2. *응용 프로그램 ID URI* 옆의 **설정** 을 클릭 합니다.
 
-3. 식별자 URI를 입력 하 고 **저장**을 클릭 합니다. 올바른 식별자 URI는 FHIR 서버의 URI입니다.
+3. 식별자 URI를 입력 하 고 **저장** 을 클릭 합니다. 올바른 식별자 URI는 FHIR 서버의 URI입니다.
 
 4. **범위 추가** 를 클릭 하 고 API에 대해 정의 하려는 범위를 추가 합니다. 나중에 리소스 응용 프로그램에 대 한 사용 권한을 부여 하려면 범위를 하나 이상 추가 해야 합니다. 추가 하려는 특정 범위가 없는 경우 user_impersonation를 범위로 추가할 수 있습니다.
 
@@ -71,9 +71,9 @@ Azure 용 오픈 소스 FHIR 서버를 사용 하는 경우 아래 단계에 따
 
 ### <a name="define-application-roles"></a>응용 프로그램 역할 정의
 
-Azure 용 Azure API 및 Azure 용 OSS FHIR 서버는 역할 기반 액세스 제어를 위해 [응용 프로그램 역할을 Azure Active Directory](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) 사용 합니다. FHIR 서버 API에 사용할 수 있는 역할을 정의 하려면 리소스 응용 프로그램의 [매니페스트](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/)를 엽니다.
+Azure 용 Azure API 및 Azure 용 OSS FHIR 서버는 역할 기반 액세스 제어를 위해 [응용 프로그램 역할을 Azure Active Directory](/azure/architecture/multitenant-identity/app-roles) 사용 합니다. FHIR 서버 API에 사용할 수 있는 역할을 정의 하려면 리소스 응용 프로그램의 [매니페스트](/azure/active-directory/active-directory-application-manifest/)를 엽니다.
 
-1. **매니페스트**를 클릭 합니다.
+1. **매니페스트** 를 클릭 합니다.
 
     ![애플리케이션 역할](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
 

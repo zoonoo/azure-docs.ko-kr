@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232311"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394733"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
@@ -50,11 +50,11 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 
 | 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
 | --- | --- | --- | --- |
-| 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
-| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
-| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
+| 권한 있는 역할 관리자</br>(활성화/적격) | yes</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | yes |
+| 보안 관리자</br>(활성화/적격) | 예 | 예* | yes |
+| 전역 관리자</br>(활성화/적격) | 예 | 예* | yes |
 
-\*[**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
+\*[**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용** 으로 설정된 경우
 
 다음에서는 사용자가 가상의 Contoso 조직에 대한 Azure AD 역할을 활성화할 때 전송되는 예제 이메일을 보여줍니다.
 
@@ -68,7 +68,7 @@ Azure AD 역할에 대 한 주별 Privileged Identity Management 요약 전자 �
 
 이메일에는 4개의 타일이 포함됩니다.
 
-| Tile | 설명 |
+| Tile | Description |
 | --- | --- |
 | **Users activated(사용자가 활성화함)** | 사용자가 조직 내에서 적격 역할을 활성화 한 횟수입니다. |
 | **Users made permanent(사용자 영구 지정)** | 적격 할당이 있는 사용자가 영구 지정된 횟수입니다. |
@@ -79,10 +79,13 @@ Azure AD 역할에 대 한 주별 Privileged Identity Management 요약 전자 �
 
 ## <a name="email-timing-for-activation-approvals"></a>활성화 승인에 대 한 전자 메일 타이밍
 
-사용자가 자신의 역할을 활성화 하 고 역할 설정에 승인이 필요 하면 승인자는 각 승인에 대해 3 개의 전자 메일을 받게 됩니다.
+사용자가 자신의 역할을 활성화 하 고 역할 설정에 승인이 필요 하면 승인자는 각 승인에 대해 두 개의 전자 메일을 받게 됩니다.
 
 - 사용자의 활성화 요청 승인 또는 거부 요청 (요청 승인 엔진에서 전송)
 - 사용자의 요청이 승인 됩니다 (요청 승인 엔진에서 보냄).
+
+또한 전역 관리자 및 권한 있는 역할 관리자는 각 승인에 대해 전자 메일을 받습니다.
+
 - 사용자의 역할이 활성화 됩니다 (Privileged Identity Management에서 보냄).
 
 요청 승인 엔진에서 전송 하는 처음 두 개의 전자 메일이 지연 될 수 있습니다. 현재 90%의 전자 메일에는 3 ~ 10 분이 걸리지만 1% 고객의 경우 최대 15 분까지 훨씬 더 길어질 수 있습니다.

@@ -9,23 +9,23 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72248577"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394614"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 SAS를 사용하여 Microsoft Genomics에 워크플로 제출 
 
-이 문서에서는 저장소 계정 키 대신 [SAS (공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 를 포함 하는 config.txt 파일을 사용 하 여 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다. 이 기능은 config.txt 파일에 표시되는 스토리지 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 
+이 문서에서는 저장소 계정 키 대신 [SAS (공유 액세스 서명)](../storage/common/storage-sas-overview.md) 를 포함 하는 config.txt 파일을 사용 하 여 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다. 이 기능은 config.txt 파일에 표시되는 스토리지 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 
 
 이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공 된 샘플 데이터를 사용 하 여 워크플로를 성공적으로 제출 하면이 문서를 진행할 준비가 된 것입니다. 
 
 ## <a name="what-is-a-sas"></a>SAS는 무엇인가요?
-[SAS (공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS로 계정 키를 공유하지 않고 스토리지 계정의 리소스에 대한 액세스를 승인할 수 있습니다. 이는 애플리케이션에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 계정 키를 손상시키지 않고 스토리지 리소스를 공유할 수 있는 보안 방법입니다.
+[SAS (공유 액세스 서명)](../storage/common/storage-sas-overview.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS로 계정 키를 공유하지 않고 스토리지 계정의 리소스에 대한 액세스를 승인할 수 있습니다. 이는 애플리케이션에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 계정 키를 손상시키지 않고 스토리지 리소스를 공유할 수 있는 보안 방법입니다.
 
-Microsoft Genomics에 제출된 SAS는 입력 및 출력 파일이 저장되는 Blob 또는 컨테이너에만 액세스를 위임하는 [서비스 SAS](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS)이어야 합니다. 
+Microsoft Genomics에 제출된 SAS는 입력 및 출력 파일이 저장되는 Blob 또는 컨테이너에만 액세스를 위임하는 [서비스 SAS](/rest/api/storageservices/Constructing-a-Service-SAS)이어야 합니다. 
 
 서비스 수준 SAS(공유 액세스 서명) 토큰에 대한 URI는 SAS 토큰이 뒤에 오는 SAS에서 액세스를 위임하는 리소스에 대한 URI로 이루어져 있습니다. SAS 토큰은 리소스 지정, 액세스에 사용할 수 있는 권한, 서명이 유효한 시간 간격, 요청에서 생성할 수 있는 지원되는 IP 주소 또는 주소 범위, 요청이 만들어질 수 있는 지원되는 프로토콜, 요청과 연결된 선택적 액세스 정책 식별자 및 서명 자체뿐만 아니라 SAS를 인증하는 데 필요한 모든 정보를 포함하는 쿼리 문자열입니다. 
 
@@ -49,18 +49,18 @@ Azure Storage Explorer를 사용하거나 프로그래밍 방식의 두 가지 �
 
 ### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>설정: Azure Storage Explorer를 사용하여 SAS 만들기
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Azure Storage에 저장한 리소스를 관리하는 도구입니다.  [여기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Azure Storage Explorer를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
+[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Azure Storage에 저장한 리소스를 관리하는 도구입니다.  [여기](../vs-azure-tools-storage-manage-with-storage-explorer.md)에서 Azure Storage Explorer를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
+입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
 
  ![Genomics SAS Storage 탐색기](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage 탐색기")
 
 
 ### <a name="set-up-create-a-sas-programmatically"></a>설정: 프로그래밍 방식으로 SAS 만들기
 
-Azure Storage SDK를 사용하여 SAS를 만들려면 [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) 및 [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage)를 포함하여 여러 언어에서 기존 설명서를 참조합니다. 
+Azure Storage SDK를 사용하여 SAS를 만들려면 [.NET](../storage/common/storage-sas-overview.md), [Python](../storage/blobs/storage-quickstart-blobs-python.md) 및 [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)를 포함하여 여러 언어에서 기존 설명서를 참조합니다. 
 
-SDK 없이 SAS를 만들려면 SAS를 인증하는 데 필요한 모든 정보를 포함하여 SAS 쿼리 문자열을 직접 생성할 수 있습니다. 이러한 [지침](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas)은 SAS 쿼리 문자열의 구성 요소 및 이를 생성하는 방법을 자세히 설명합니다. 이러한 [지침](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples)에 설명된 대로 Blob/컨테이너 인증 정보를 사용하여 HMAC를 생성하여 필요한 SAS 서명을 만듭니다.
+SDK 없이 SAS를 만들려면 SAS를 인증하는 데 필요한 모든 정보를 포함하여 SAS 쿼리 문자열을 직접 생성할 수 있습니다. 이러한 [지침](/rest/api/storageservices/constructing-a-service-sas)은 SAS 쿼리 문자열의 구성 요소 및 이를 생성하는 방법을 자세히 설명합니다. 이러한 [지침](/rest/api/storageservices/service-sas-examples)에 설명된 대로 Blob/컨테이너 인증 정보를 사용하여 HMAC를 생성하여 필요한 SAS 서명을 만듭니다.
 
 
 ## <a name="add-the-sas-to-the-configtxt-file"></a>config.txt 파일에 SAS 추가
@@ -86,4 +86,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 계정 키 대신 SAS 토큰을 사용하여 `msgen` Python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 계정 키 대신 SAS 토큰을 사용하여 `msgen` Python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요.

@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886531"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392030"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Azure SQL Edge의 지원 되는 기능 
 
 Azure SQL Edge는 최신 버전의 SQL Database 엔진을 기반으로 합니다. Linux의 SQL Server 2019에서 지원 되는 기능 및 Linux의 SQL Server 2019 (또는 Windows의 SQL Server)에서 지원 되지 않는 일부 기능을 지원 합니다.
 
-SQL Server on Linux에서 지원되는 기능의 전체 목록은 [SQL Server 2019 on Linux 버전 및 지원되는 기능](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019)을 참조하세요. Windows의 버전 및 지원 되는 SQL Server 기능에 대 한 자세한 내용은 [SQL Server 2019 (4.x)의 버전 및 지원 되는 기능](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15)을 참조 하세요.
+SQL Server on Linux에서 지원되는 기능의 전체 목록은 [SQL Server 2019 on Linux 버전 및 지원되는 기능](/sql/linux/sql-server-linux-editions-and-components-2019)을 참조하세요. Windows의 버전 및 지원 되는 SQL Server 기능에 대 한 자세한 내용은 [SQL Server 2019 (4.x)의 버전 및 지원 되는 기능](/sql/sql-server/editions-and-components-of-sql-server-version-15)을 참조 하세요.
 
 ## <a name="azure-sql-edge-editions"></a>Azure SQL Edge 버전
 

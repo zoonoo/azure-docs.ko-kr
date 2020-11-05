@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d28b8f2ff3045c9fdf5e8a866419a22bfbc6504
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321789"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392513"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 Synapse Studio 작업 영역 리소스에 연결
 
@@ -26,7 +26,6 @@ ms.locfileid: "93321789"
 * **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Synapse 작업 영역** : Synapse Studio가 없는 경우 Azure Synapse Analytics에서 Synapse 작업 영역을 만듭니다. 작업 영역 이름은 4 단계에서 필요 합니다.
 * **제한 된 네트워크** : 회사 it 관리자가 제한 된 네트워크를 유지 관리 합니다. it 관리자에 게는 네트워크 정책을 구성할 수 있는 권한이 있습니다. 3 단계에서는 가상 네트워크 이름 및 서브넷이 필요 합니다.
-
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>1 단계: 제한 된 네트워크에 네트워크 아웃 바운드 보안 규칙 추가
@@ -51,9 +50,9 @@ Azure Portal에서 Azure Synapse Analytics (개인 링크 허브)를 만들어�
 
 ![Synapse Analytics 개인 링크 허브를 만드는 중](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-private-link-endpoint-for-synapse-studio-gateway"></a>3 단계: Synapse Studio 게이트웨이에 대 한 개인 링크 엔드포인트 만들기
+## <a name="step-3-create-private-endpoint-for-synapse-studio-gateway"></a>3 단계: Synapse Studio 게이트웨이에 대 한 개인 끝점 만들기
 
-Synapse Studio 게이트웨이에 액세스 하려면 Azure Portal에서 개인 링크 끝점을 만들어야 합니다. Azure Portal를 통해 " **개인 링크** "를 검색 합니다. " **개인 링크 센터** "에서 " **개인 끝점 만들기** "를 선택한 다음 필요한 필드를 입력 하 고 만듭니다. 
+Synapse Studio 게이트웨이에 액세스 하려면 Azure Portal에서 개인 끝점을 만들어야 합니다. Azure Portal를 통해 " **개인 링크** "를 검색 합니다. " **개인 링크 센터** "에서 " **개인 끝점 만들기** "를 선택한 다음 필요한 필드를 입력 하 고 만듭니다. 
 
 > [!Note]
 > 지역은 Synapse 작업 영역이 있는 위치와 동일 해야 합니다.
@@ -73,7 +72,7 @@ Synapse Studio 게이트웨이에 액세스 하려면 Azure Portal에서 개인 
 
 개인 링크 끝점이 생성 된 후 Synapse studio 웹 도구의 로그인 페이지에 액세스할 수 있습니다. 그러나 다음 단계를 완료 해야 할 때까지 Synapse 작업 영역 내의 리소스에는 액세스할 수 없습니다.
 
-## <a name="step-4-create-private-link-endpoints-for-synapse-studio-workspace-resource"></a>4 단계: Synapse Studio 작업 영역 리소스에 대 한 개인 링크 엔드포인트 만들기
+## <a name="step-4-create-private-endpoints-for-synapse-studio-workspace-resource"></a>4 단계: Synapse Studio 작업 영역 리소스에 대 한 개인 끝점 만들기
 
 Synapse Studio 작업 영역 리소스 내의 리소스에 액세스 하려면 " **Dev** " 유형의 " **대상 하위 리소스** "를 포함 하는 개인 링크 엔드포인트를 하나 이상 만들어야 하며, " **Sql** " 또는 " **SqlOnDemand** " 유형의 두 가지 선택적 개인 링크 끝점은 액세스 하려는 Synapse Studio 작업 영역에 있는 리소스에 따라 달라 집니다. Synapse studio 작업 영역에 대 한이 개인 링크 끝점 생성은 끝점을 만드는 것과 유사 합니다.  
 
@@ -86,6 +85,30 @@ Synapse Studio 작업 영역 리소스 내의 리소스에 액세스 하려면 "
   * **Dev** : Synapse Studio 작업 영역 내에서 다른 모든 항목에 액세스 하는 데 사용할 수 있습니다. 이 형식의 개인 링크 끝점을 하나 이상 만들어야 합니다.
 
 ![Synapse studio 작업 영역에 대 한 개인 끝점을 만드는 중](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
+
+
+## <a name="step-5-create-private-endpoints-for-synapse-studio-workspace-linked-storage"></a>5 단계: Synapse Studio 작업 영역 연결 된 저장소에 대 한 개인 끝점 만들기
+
+Synapse Studio 작업 영역에서 저장소 탐색기를 사용 하 여 연결 된 저장소에 액세스 하려면 위의 3 단계에서와 비슷한 단계를 사용 하 여 하나의 개인 끝점을 만들어야 합니다. 
+
+" **리소스** " 탭의 아래 영역에 주의 하세요.
+* " **리소스 종류** "에 " **Synapse/storageaccounts** "를 선택 합니다.
+* 이전에 만든 " **Resource** "를 " **YourWorkSpaceName** "으로 선택 합니다.
+* " **대상 하위 리소스** "에서 끝점 형식을 선택 합니다.
+  * **blob** :은 Azure blob 저장소에 대 한입니다.
+  * **dfs** :은 Azure Data Lake Storage Gen2입니다.
+
+![Synapse studio 작업 영역 연결 된 저장소에 대 한 개인 끝점을 만드는 중](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+
+이제 vNet 내의 Synapse Studio 작업 영역에 있는 저장소 탐색기에서 연결 된 저장소 리소스에 액세스할 수 있습니다.
+
+다음과 같이 작업 영역을 만드는 동안 작업 영역에 " **관리 되는 가상 네트워크 사용** "이 있는 경우
+
+![Synapse studio 작업 영역 연결 된 저장소에 대 한 개인 끝점을 만드는 중 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+
+노트북에서 특정 저장소 계정으로 연결 된 저장소 리소스에 액세스 하려는 경우 Synapse Studio 아래에 " **관리 되는 개인 끝점** "을 추가 해야 합니다. " **저장소 계정 이름** "은 노트북에서 액세스 해야 하는 항목 이어야 합니다. [관리 되는 개인 끝점 만들기에서 데이터 원본에 대 한](./how-to-create-managed-private-endpoints.md)자세한 단계를 알아봅니다.
+
+이 끝점이 생성 된 후 " **승인 상태** "가 " **보류 중** " 상태가 되 면이 저장소 계정의 소유자에 게 Azure Portal의이 저장소 계정에 대 한 " **개인 끝점 연결** " 탭에서 승인을 요청 해야 합니다. 승인 된 후에는 노트북에서이 저장소 계정으로 연결 된 저장소 리소스에 액세스할 수 있습니다.
 
 이제 모든 집합이 있습니다. Synapse studio 작업 영역 리소스에 액세스할 수 있습니다.
 

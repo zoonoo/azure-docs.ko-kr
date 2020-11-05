@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50b88b4af6ea8479097b88b51fe7acfbea355ab8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461734"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392319"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -62,7 +62,17 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음 연구 및 분석을 수행할 수 있습니다.
 
 1. [Azure 활동](connect-azure-activity.md) 데이터 원본에 연결 합니다. 이 작업을 수행한 후에 감사 이벤트는 AzureActivity 라는 **로그** 화면에서 새 테이블로 스트리밍됩니다.
-2. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.
+
+1. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.
+
+    예를 들어 특정 분석 규칙을 편집 하는 마지막 사용자를 확인 하려면 다음 쿼리를 사용 합니다 (를 확인 하려는 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 규칙의 규칙 ID로 대체).
+
+    ```kusto
+    AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
+    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    | project Caller , TimeGenerated , Properties
+    ```
 
 
 

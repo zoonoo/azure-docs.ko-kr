@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446954"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392336"
 ---
 # <a name="configure-azure-sql-edge"></a>Azure SQL Edge 구성
 
@@ -47,17 +47,17 @@ Azure SQL Edge에 다음과 같은 새 환경 변수가 추가 되었습니다.
 | **MSSQL_ENABLE_HADR** | 가용성 그룹을 사용 하도록 설정 합니다. 예를 들어 **1** 은 사용 하도록 설정 되 고 **0** 은 사용 하지 않도록 설정 됩니다. |
 
 > [!IMPORTANT]
-> SQL Edge에 대한 **MSSQL_PID** 환경 변수는 **Premium** 및 **Developer**를 유효한 값으로 허용합니다. Azure SQL Edge는 제품 키를 사용 하 여 초기화를 지원 하지 않습니다.
+> SQL Edge에 대한 **MSSQL_PID** 환경 변수는 **Premium** 및 **Developer** 를 유효한 값으로 허용합니다. Azure SQL Edge는 제품 키를 사용 하 여 초기화를 지원 하지 않습니다.
 
 ### <a name="specify-the-environment-variables"></a>환경 변수 지정
 
-[Azure Portal](deploy-portal.md)를 통해 서비스를 배포할 때 SQL Edge에 대 한 환경 변수를 지정 합니다. 모듈 배포의 **환경 변수** 섹션에서 또는 **컨테이너 만들기 옵션**의 일부로 이러한 항목을 추가할 수 있습니다.
+[Azure Portal](deploy-portal.md)를 통해 서비스를 배포할 때 SQL Edge에 대 한 환경 변수를 지정 합니다. 모듈 배포의 **환경 변수** 섹션에서 또는 **컨테이너 만들기 옵션** 의 일부로 이러한 항목을 추가할 수 있습니다.
 
-**환경 변수에**값을 추가 합니다.
+**환경 변수에** 값을 추가 합니다.
 
 ![환경 변수 목록을 사용 하 여 설정](media/configure/set-environment-variables.png)
 
-**컨테이너 만들기 옵션**에서 값을 추가 합니다.
+**컨테이너 만들기 옵션** 에서 값을 추가 합니다.
 
 ![컨테이너 만들기 옵션을 사용 하 여 설정](media/configure/set-environment-variables-using-create-options.png)
 
@@ -66,7 +66,7 @@ Azure SQL Edge에 다음과 같은 새 환경 변수가 추가 되었습니다.
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Mssql 파일을 사용 하 여 구성
 
-Azure SQL Edge는 SQL Server on Linux와 같은 [mssql 구성 유틸리티](/sql/linux/sql-server-linux-configure-mssql-conf/) 를 포함 하지 않습니다. Mssql 파일을 수동으로 구성 하 고 SQL Edge 모듈의/var/opt/mssql/폴더에 매핑된 영구 저장소 드라이브에 저장 해야 합니다. Azure Marketplace에서 SQL Edge를 배포 하는 경우이 매핑은 **컨테이너 만들기 옵션**에서 **탑재** 옵션으로 지정 됩니다.
+Azure SQL Edge는 SQL Server on Linux와 같은 [mssql 구성 유틸리티](/sql/linux/sql-server-linux-configure-mssql-conf/) 를 포함 하지 않습니다. Mssql 파일을 수동으로 구성 하 고 SQL Edge 모듈의/var/opt/mssql/폴더에 매핑된 영구 저장소 드라이브에 저장 해야 합니다. Azure Marketplace에서 SQL Edge를 배포 하는 경우이 매핑은 **컨테이너 만들기 옵션** 에서 **탑재** 옵션으로 지정 됩니다.
 
 ```json
     {
@@ -83,7 +83,7 @@ Azure SQL Edge는 SQL Server on Linux와 같은 [mssql 구성 유틸리티](/sql
 
 Azure SQL Edge에 대해 다음과 같은 새로운 mssql 옵션이 추가 되었습니다. 
 
-|옵션|설명|
+|옵션|Description|
 |:---|:---|
 |**customerfeedback** | SQL Server 사용자 의견을 Microsoft에 보낼지 여부를 선택 합니다. 자세한 내용은 사용 [안 함 및 진단 데이터 수집 사용 안 함](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection) 을 참조 하세요.|      
 |**userrequestedlocalauditdirectory** | 사용 및 진단 데이터 수집 감사 파일에 대 한 대상 디렉터리를 설정 합니다. 자세한 내용은 [사용 현황 및 진단 데이터 수집](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) 에 대 한 로컬 감사를 참조 하세요. |        
@@ -95,11 +95,11 @@ Azure SQL Edge에 대해 다음과 같은 새로운 mssql 옵션이 추가 되�
 |**고객 의견** | SQL Server 사용자 의견을 Microsoft에 보낼지 여부를 선택 합니다. |
 |**데이터베이스 메일 프로필** | SQL Server on Linux의 기본 데이터베이스 메일 프로필을 설정합니다. |
 |**고가용성** | 가용성 그룹을 사용하도록 설정합니다. |
-|**Microsoft Distributed Transaction Coordinator** | Linux에서 MSDTC를 구성하고 문제를 해결합니다. 추가 분산 트랜잭션 관련 구성 옵션은 SQL Edge에 대해 지원 되지 않습니다. 이러한 추가 구성 옵션에 대 한 자세한 내용은 [MSDTC 구성](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc)을 참조 하세요. |
+|**Microsoft Distributed Transaction Coordinator** | Linux에서 MSDTC를 구성하고 문제를 해결합니다. 추가 분산 트랜잭션 관련 구성 옵션은 SQL Edge에 대해 지원 되지 않습니다. 이러한 추가 구성 옵션에 대 한 자세한 내용은 [MSDTC 구성](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc)을 참조 하세요. |
 |**ML 서비스 Eula** | Azure Machine Learning 패키지에 R 및 Python Eula을 적용 합니다. SQL Server 2019에만 적용됩니다.|
 |**outboundnetworkaccess** |[Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python 및 Java 확장의 아웃바운드 네트워크 액세스를 사용하도록 설정합니다.|
 
-다음 샘플 mssql 파일은 SQL Edge에 대해 작동 합니다. Mssql 파일의 형식에 대 한 자세한 내용은 [mssql 파일 형식](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)을 참조 하십시오.
+다음 샘플 mssql 파일은 SQL Edge에 대해 작동 합니다. Mssql 파일의 형식에 대 한 자세한 내용은 [mssql 파일 형식](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)을 참조 하십시오.
 
 ```ini
 [EULA]
@@ -176,7 +176,7 @@ chown -R 10001:0 <database file dir>
 
 ## <a name="persist-your-data"></a> 데이터 유지
 
-및를 사용 하 여 컨테이너를 다시 시작 하는 경우에도 Azure SQL Edge 구성 변경 및 데이터베이스 파일은 컨테이너에 유지 됩니다 `docker stop` `docker start` . 그러나를 사용 하 여 컨테이너를 제거 하면 `docker rm` AZURE SQL Edge 및 데이터베이스를 포함 하 여 컨테이너의 모든 항목이 삭제 됩니다. 다음 섹션에서는 연결된 컨테이너가 삭제된 경우에도 **데이터 볼륨**을 사용하여 데이터베이스 파일을 유지하는 방법을 설명합니다.
+및를 사용 하 여 컨테이너를 다시 시작 하는 경우에도 Azure SQL Edge 구성 변경 및 데이터베이스 파일은 컨테이너에 유지 됩니다 `docker stop` `docker start` . 그러나를 사용 하 여 컨테이너를 제거 하면 `docker rm` AZURE SQL Edge 및 데이터베이스를 포함 하 여 컨테이너의 모든 항목이 삭제 됩니다. 다음 섹션에서는 연결된 컨테이너가 삭제된 경우에도 **데이터 볼륨** 을 사용하여 데이터베이스 파일을 유지하는 방법을 설명합니다.
 
 > [!IMPORTANT]
 > Azure SQL Edge의 경우 Docker의 데이터 지 속성을 이해 하는 것이 중요 합니다. 이 섹션의 설명 외에도 [Docker 컨테이너의 데이터를 관리하는 방법](https://docs.docker.com/engine/tutorials/dockervolumes/)에 대한 Docker 설명서를 참조하세요.
@@ -196,14 +196,14 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 14
 이 방법을 사용하여 Docker 외부에서 호스트의 파일을 공유하고 볼 수도 있습니다.
 
 > [!IMPORTANT]
-> **Docker on Windows**의 호스트 볼륨 매핑은 현재 전체 `/var/opt/mssql` 디렉터리 매핑을 지원하지 않습니다. 그러나 `/var/opt/mssql/data` 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있습니다.
+> **Docker on Windows** 의 호스트 볼륨 매핑은 현재 전체 `/var/opt/mssql` 디렉터리 매핑을 지원하지 않습니다. 그러나 `/var/opt/mssql/data` 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure SQL Edge 이미지를 사용 하는 **Mac의 Docker** 에 대 한 호스트 볼륨 매핑은 현재 지원 되지 않습니다. 대신, 데이터 볼륨 컨테이너를 사용합니다. 이 제한 사항은 `/var/opt/mssql` 디렉터리에만 적용됩니다. 탑재된 디렉터리에서 읽을 수는 있습니다. 예를 들어 Mac에서-v를 사용하여 호스트 디렉터리를 탑재하고 호스트에 있는 .bak 파일에서 백업을 복원할 수 있습니다.
 
 ### <a name="use-data-volume-containers"></a>데이터 볼륨 컨테이너 사용
 
-두 번째 옵션은 데이터 볼륨 컨테이너를 사용하는 것입니다. `-v` 매개 변수를 사용하여 호스트 디렉터리 대신 볼륨 이름을 지정하면 데이터 볼륨 컨테이너를 만들 수 있습니다. 다음 예제에서는 **sqlvolume**이라는 공유 데이터 볼륨을 만듭니다.
+두 번째 옵션은 데이터 볼륨 컨테이너를 사용하는 것입니다. `-v` 매개 변수를 사용하여 호스트 디렉터리 대신 볼륨 이름을 지정하면 데이터 볼륨 컨테이너를 만들 수 있습니다. 다음 예제에서는 **sqlvolume** 이라는 공유 데이터 볼륨을 만듭니다.
 
 ```bash
 docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge

@@ -1,5 +1,5 @@
 ---
-title: FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 보기 및 구성
+title: Azure IoT Connector for FHIR 보기 및 구성(미리 보기) 메트릭
 description: 이 문서에서는 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터를 표시 하 고 구성 하는 방법을 설명 합니다.
 services: healthcare-apis
 author: msjasteppe
@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: jasteppe
-ms.openlocfilehash: 76166fc5c525d36474a585179472e93b22dad647
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cdae789b8286be408735fff92e2de46e28ce514
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133626"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394291"
 ---
-# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 보기 및 구성 
+# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Azure IoT Connector for FHIR 보기 및 구성(미리 보기) 메트릭 
 
 이 문서에서는 FHIR * 메트릭에 대 한 Azure IoT 커넥터를 보고 구성 하는 방법에 대해 알아봅니다. 
 
 > [!TIP]
-> [진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 내보내기](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) 의 지침에 따라 메트릭 데이터의 내보내기를 설정 하는 방법을 알아봅니다.
+> [진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 내보내기](./iot-metrics-diagnostics-export.md) 의 지침에 따라 메트릭 데이터의 내보내기를 설정 하는 방법을 알아봅니다.
 
 ## <a name="view-metrics-for-azure-iot-connector-for-fhir-preview"></a>FHIR 용 Azure IoT 커넥터 (미리 보기)에 대 한 메트릭 보기
 1. IoT 커넥터에 대 한 메트릭을 보려면 Azure Portal에서 Azure API for FHIR 서비스를 선택 합니다. 
@@ -33,14 +33,14 @@ ms.locfileid: "93133626"
 
 4. IoT 커넥터를 선택 하 여 메트릭을 볼 수 있습니다. 예를 들어이 Azure API for FHIR 서비스와 연결 된 IoT 커넥터가 있습니다 (4).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
 > [!NOTE]
 > **사용자 지정** 탭에서는 IoT 커넥터 메트릭을 보기 위한 특정 시간/날짜 조합을 만들 수 있습니다.
 
 5. 표시할 IoT 커넥터 메트릭의 기간을 선택 합니다 (예: 1 시간, 24 시간, 7 일 또는 사용자 지정).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT Connector3" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metrics-types-for-azure-iot-connector-for-fhir-preview"></a>FHIR 용 Azure IoT 커넥터 메트릭 유형 (미리 보기) 
 표시 되는 IoT 커넥터 메트릭은 다음과 같습니다.
@@ -59,11 +59,11 @@ ms.locfileid: "93133626"
 
 1. 초점을 맞출 특정 시점을 선택 합니다.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT Connector4" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
 
 2. 이 화면에서 **메트릭을 추가** 하 고 필터를 **추가** 하 고 추가 사용자 지정을 위해 **분할을 적용할** 수 있습니다. 
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT Connector5" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## <a name="conclusion"></a>결론 
 데이터 평면 메트릭에 대 한 액세스는 모니터링 및 문제 해결에 필수적입니다.  FHIR 용 Azure IoT 커넥터는 메트릭을 통해 이러한 작업을 수행 하는 데 도움이 됩니다. 

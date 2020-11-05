@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026601"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393441"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -29,7 +29,7 @@ PowerShell을 사용 하 고 관리 장치 관리에 Microsoft Graph을 준비 �
 
 ## <a name="available-roles"></a>사용 가능한 역할
 
-역할  |  설명
+역할  |  Description
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  는 할당 된 관리 단위 에서만 이름 지정 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.

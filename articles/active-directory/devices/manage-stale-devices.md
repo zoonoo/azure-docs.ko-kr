@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083187"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393679"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -59,7 +59,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 - [AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="장치에 대 한 이름, 소유자 및 기타 정보를 나열 하는 Azure Portal 페이지의 스크린샷 한 열에는 활동 타임 스탬프가 나열 됩니다." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="명령줄 출력을 보여 주는 스크린샷 한 줄이 강조 표시 되 고 ApproximateLastLogonTimeStamp 값에 대 한 타임 스탬프가 나열 됩니다." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>부실 디바이스 정리 계획
 
@@ -147,7 +147,7 @@ Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, Displa
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>알아야 할 사항

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905944"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395243"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터베이스 백업 및 복원 
 
@@ -75,9 +75,9 @@ Azure SQL Edge는 SQL Server와 동일한 백업 유형을 지원 합니다. 전
 
 ### <a name="back-up-to-url"></a>URL로 백업
 
-Azure SQL Edge는 페이지 Blob 및 블록 Blob에 백업하는 것을 지원합니다. 자세한 내용은 [블록 blob 및 페이지 blob에 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob)을 참조 하세요. 다음 예제에서는 *IronOreSilicaPrediction* 데이터베이스를 블록 blob에 백업 합니다. 
+Azure SQL Edge는 페이지 Blob 및 블록 Blob에 백업하는 것을 지원합니다. 자세한 내용은 [블록 blob 및 페이지 blob에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob)을 참조 하세요. 다음 예제에서는 *IronOreSilicaPrediction* 데이터베이스를 블록 blob에 백업 합니다. 
 
-1. 블록 blob에 백업을 구성 하려면 먼저 Azure SQL Edge에서 SQL Server 자격 증명을 만드는 데 사용할 수 있는 SAS (공유 액세스 서명) 토큰을 생성 합니다. 스크립트는 저장 된 액세스 정책과 연결 된 SAS를 만듭니다. 자세한 내용은 [공유 액세스 서명, 1 부: SAS 모델 이해](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)를 참조 하세요. 또한 스크립트는 SQL Server에 자격 증명을 만드는 데 필요한 T-SQL 명령을 작성합니다. 다음 스크립트는 저장소 계정이 있는 Azure 구독 및 백업용 저장소 컨테이너가 이미 있다고 가정 합니다.
+1. 블록 blob에 백업을 구성 하려면 먼저 Azure SQL Edge에서 SQL Server 자격 증명을 만드는 데 사용할 수 있는 SAS (공유 액세스 서명) 토큰을 생성 합니다. 스크립트는 저장 된 액세스 정책과 연결 된 SAS를 만듭니다. 자세한 내용은 [공유 액세스 서명, 1 부: SAS 모델 이해](../storage/common/storage-sas-overview.md)를 참조 하세요. 또한 스크립트는 SQL Server에 자격 증명을 만드는 데 필요한 T-SQL 명령을 작성합니다. 다음 스크립트는 저장소 계정이 있는 Azure 구독 및 백업용 저장소 컨테이너가 이미 있다고 가정 합니다.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ Azure SQL Edge는 페이지 Blob 및 블록 Blob에 백업하는 것을 지원�
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터베이스 복원
 
-Azure SQL Edge에서는 로컬 디스크, 네트워크 위치 또는 Azure Blob storage 계정에서 복원할 수 있습니다. SQL Server의 복원 및 복구에 대 한 자세한 내용은 [복원 및 복구 개요](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server)를 참조 하세요. SQL Server의 단순 복구 모델에 대 한 개요는 [전체 데이터베이스 복원 (단순 복구 모델)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model)을 참조 하세요.
+Azure SQL Edge에서는 로컬 디스크, 네트워크 위치 또는 Azure Blob storage 계정에서 복원할 수 있습니다. SQL Server의 복원 및 복구에 대 한 자세한 내용은 [복원 및 복구 개요](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server)를 참조 하세요. SQL Server의 단순 복구 모델에 대 한 개요는 [전체 데이터베이스 복원 (단순 복구 모델)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model)을 참조 하세요.
 
 > [!IMPORTANT] 
 > Azure SQL Edge에서 만든 데이터베이스는 Microsoft SQL Server 또는 Azure SQL 인스턴스에서 복원할 수 없습니다. 또한 데이터베이스에 Azure SQL Edge에서 지원 하지 않는 기능이 포함 되어 있지 않으면 Microsoft SQL Server 또는 Azure SQL에서 만든 데이터베이스를 Azure SQL Edge에서 복원할 수 있습니다. 
@@ -142,13 +142,13 @@ Azure SQL Edge에서는 로컬 디스크, 네트워크 위치 또는 Azure Blob 
 
 이 예제에서는 이전 예제에서 만든 *IronOreSilicaPrediction* 백업을 사용 합니다. 이제 다른 이름을 사용 하 여 새 데이터베이스로 복원 합니다.
 
-1. 데이터베이스 백업 파일이 아직 컨테이너에 없는 경우 다음 명령을 사용 하 여 컨테이너에 파일을 복사할 수 있습니다. 다음 예에서는 백업 파일이 로컬 호스트에 있고/var/opt/mssql/backup 폴더에 *sql1*라는 Azure SQL Edge 컨테이너에 복사 되는 것으로 가정 합니다.
+1. 데이터베이스 백업 파일이 아직 컨테이너에 없는 경우 다음 명령을 사용 하 여 컨테이너에 파일을 복사할 수 있습니다. 다음 예에서는 백업 파일이 로컬 호스트에 있고/var/opt/mssql/backup 폴더에 *sql1* 라는 Azure SQL Edge 컨테이너에 복사 되는 것으로 가정 합니다.
 
     ```bash
     sudo docker cp IronOrePredictDB.bak sql1:/var/opt/mssql/backup
     ```
 
-2. SSMS 또는 Azure Data Studio를 사용 하 여 Azure SQL Edge 인스턴스에 연결 하 여 복원 명령을 실행 합니다. 다음 예제에서 **IronOrePredictDB** 는 **IronOreSilicaPrediction_2**새 데이터베이스를 만들기 위해 복원 됩니다.
+2. SSMS 또는 Azure Data Studio를 사용 하 여 Azure SQL Edge 인스턴스에 연결 하 여 복원 명령을 실행 합니다. 다음 예제에서 **IronOrePredictDB** 는 **IronOreSilicaPrediction_2** 새 데이터베이스를 만들기 위해 복원 됩니다.
 
     ```sql
     Restore FilelistOnly from disk = N'/var/opt/mssql/backup/IronOrePredictDB.bak'
@@ -171,7 +171,7 @@ Azure SQL Edge에서는 로컬 디스크, 네트워크 위치 또는 Azure Blob 
 
 ### <a name="restore-from-url"></a>URL에서 복원
 
-Azure SQL Edge는 Azure Storage 계정에서 데이터베이스를 복원하는 것도 지원합니다. 블록 blob 또는 페이지 blob 백업에서 복원할 수 있습니다. 다음 예제에서는 블록 blob의 *IronOreSilicaPrediction_2020_04_16 .bak* 데이터베이스 백업 파일을 복원 하 여 *IronOreSilicaPrediction_3*데이터베이스를 만듭니다.
+Azure SQL Edge는 Azure Storage 계정에서 데이터베이스를 복원하는 것도 지원합니다. 블록 blob 또는 페이지 blob 백업에서 복원할 수 있습니다. 다음 예제에서는 블록 blob의 *IronOreSilicaPrediction_2020_04_16 .bak* 데이터베이스 백업 파일을 복원 하 여 *IronOreSilicaPrediction_3* 데이터베이스를 만듭니다.
 
 ```sql
 RESTORE DATABASE IronOreSilicaPrediction_3
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

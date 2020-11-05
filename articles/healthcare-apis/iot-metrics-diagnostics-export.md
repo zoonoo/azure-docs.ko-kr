@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322362"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394257"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 내보내기
 
-이 문서에서는 FHIR * 메트릭 로그를 위해 Azure IoT 커넥터를 내보내는 방법에 대해 알아봅니다. 메트릭 로깅을 사용 하도록 설정 하는 기능은 Azure Portal의 [**진단 설정**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 입니다. 
+이 문서에서는 FHIR * 메트릭 로그를 위해 Azure IoT 커넥터를 내보내는 방법에 대해 알아봅니다. 메트릭 로깅을 사용 하도록 설정 하는 기능은 Azure Portal의 [**진단 설정**](../azure-monitor/platform/diagnostic-settings.md) 입니다. 
 
 > [!TIP]
 > [FHIR 용 AZURE API의 진단 로깅 사용 및 fhir 용 Azure IoT 커넥터](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) 에서 감사 로깅 설정의 지침을 따릅니다.
@@ -48,7 +48,7 @@ ms.locfileid: "93322362"
 > [!Note] 
 > 선택한 리포지토리에서 첫 번째 메트릭 로그가 표시 되는 데 최대 15 분이 걸릴 수 있습니다.  
  
-진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview) 를 참조 하세요.
+진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](../azure-monitor/platform/platform-logs-overview.md) 를 참조 하세요.
 
 ## <a name="conclusion"></a>결론 
 메트릭 로그에 대 한 액세스 권한은 모니터링 및 문제 해결에 필수적입니다.  FHIR 용 Azure IoT 커넥터를 사용 하면 메트릭 로그를 통해 이러한 작업을 수행할 수 있습니다. 

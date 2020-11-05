@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967970"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393169"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Active Directory Domain Services 관리 되는 도메인에 대 한 암호 및 계정 잠금 정책
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory Domain Services 관리 되는 도메인에 대 한 암호 및 계정 잠금 정책
 
 Azure Active Directory Domain Services (Azure AD DS)에서 사용자 보안을 관리 하려면 계정 잠금 설정 또는 최소 암호 길이 및 복잡성을 제어 하는 세분화 된 암호 정책을 정의할 수 있습니다. 기본 세분화 된 암호 정책이 만들어지고 Azure AD DS 관리 되는 도메인의 모든 사용자에 게 적용 됩니다. 세부적인 제어를 제공 하 고 특정 비즈니스 또는 규정 준수 요구 사항을 충족 하기 위해 특정 사용자 그룹에 추가 정책을 만들고 적용할 수 있습니다.
 
@@ -90,18 +90,18 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 > [!NOTE]
 > 관리 되는 도메인에서 사용자 지정 암호 정책을 만들려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
-1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
+1. 시작 화면에서 **관리 도구** 를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
-1. **시스템** 컨테이너를 열고 **암호 설정 컨테이너**합니다.
+1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com* )을 선택 합니다.
+1. **시스템** 컨테이너를 열고 **암호 설정 컨테이너** 합니다.
 
     관리 되는 도메인에 대 한 기본 제공 암호 정책이 표시 됩니다. 이 기본 제공 정책은 수정할 수 없습니다. 대신, 기본 정책을 재정의 하는 사용자 지정 암호 정책을 만듭니다.
 
     ![Active Directory 관리 센터에서 암호 정책 만들기](./media/password-policy/create-password-policy-adac.png)
 
-1. 오른쪽의 **작업** 패널에서 **새로 만들기 > 암호 설정**을 선택 합니다.
-1. **암호 설정 만들기** 대화 상자에서 *Mycustomfgpp*와 같이 정책의 이름을 입력 합니다.
-1. 암호 정책이 여러 개 있는 경우 우선 순위가 가장 높은 정책이 사용자에 게 적용 됩니다. 번호가 낮을수록 우선 순위가 높습니다. 기본 암호 정책의 우선 순위는 *200*입니다.
+1. 오른쪽의 **작업** 패널에서 **새로 만들기 > 암호 설정** 을 선택 합니다.
+1. **암호 설정 만들기** 대화 상자에서 *Mycustomfgpp* 와 같이 정책의 이름을 입력 합니다.
+1. 암호 정책이 여러 개 있는 경우 우선 순위가 가장 높은 정책이 사용자에 게 적용 됩니다. 번호가 낮을수록 우선 순위가 높습니다. 기본 암호 정책의 우선 순위는 *200* 입니다.
 
     사용자 지정 암호 정책에 대 한 우선 순위를 설정 하 여 기본값을 재정의 합니다 (예: *1)*.
 
@@ -112,12 +112,12 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
     ![사용자 지정 세분화 된 암호 정책 만들기](./media/password-policy/custom-fgpp.png)
 
-1. **실수로 삭제 되지 않도록 보호를**선택 취소 합니다. 이 옵션을 선택 하면 FGPP를 저장할 수 없습니다.
+1. **실수로 삭제 되지 않도록 보호를** 선택 취소 합니다. 이 옵션을 선택 하면 FGPP를 저장할 수 없습니다.
 1. 에 **직접 적용** 섹션에서 **추가** 단추를 선택 합니다. **사용자 또는 그룹 선택** 대화 상자에서 **위치** 단추를 선택 합니다.
 
     ![암호 정책을 적용할 사용자 및 그룹을 선택 합니다.](./media/password-policy/fgpp-applies-to.png)
 
-1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *aaddscontoso.com*)을 확장 한 다음 **AADDC 사용자**와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
+1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *aaddscontoso.com* )을 확장 한 다음 **AADDC 사용자** 와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
 
     ![그룹이 속하는 OU를 선택 합니다.](./media/password-policy/fgpp-container.png)
 

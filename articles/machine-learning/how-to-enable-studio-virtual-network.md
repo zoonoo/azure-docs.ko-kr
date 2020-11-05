@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325524"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392999"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -97,7 +97,10 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 
 ## <a name="technical-notes-for-managed-identity"></a>관리 id에 대 한 기술 정보
 
-관리 id를 사용 하 여 저장소 서비스에 액세스 하면 몇 가지 보안 고려 사항에 영향을 줍니다. 이러한 고려 사항은 액세스 하는 저장소 계정 유형에 대해 고유 합니다. 이 섹션에서는 각 저장소 계정 유형에 대 한 변경 내용을 설명 합니다.
+관리 id를 사용 하 여 저장소 서비스에 액세스 하면 몇 가지 보안 고려 사항에 영향을 줍니다. 이 섹션에서는 각 저장소 계정 유형에 대 한 변경 내용을 설명 합니다.
+
+> [!IMPORTANT]
+> 이러한 고려 사항은 액세스 하는 __저장소 계정 유형에 대해__ 고유 합니다.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 

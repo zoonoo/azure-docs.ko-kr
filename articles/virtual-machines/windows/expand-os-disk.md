@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393832"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -46,11 +46,11 @@ ms.locfileid: "92927688"
  
 3. **디스크 이름** 에서 크기를 조정 하려는 디스크를 선택 합니다.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="디스크 이름이 선택 된 디스크 창을 보여 주는 스크린샷":::
 
 4. 왼쪽 메뉴의 **설정** 아래에서 **구성** 을 선택 합니다.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 구성 옵션을 보여 주는 스크린샷":::
 
 5. **크기 (GiB)** 에서 원하는 디스크 크기를 선택 합니다.
    
@@ -58,11 +58,11 @@ ms.locfileid: "92927688"
    > 새 크기가 기존 디스크 크기보다 커야 합니다. 허용 되는 최대값은 OS 디스크에 2048 GB입니다. (이 크기를 초과 하는 VHD blob을 확장할 수 있지만 OS는 처음 2048 GB의 공간만 사용할 수 있습니다.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="선택한 디스크 크기를 사용 하 여 구성 창을 보여 주는 스크린샷":::
 
 6. **저장** 을 선택합니다.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="저장 단추가 선택 된 상태에서 구성 창을 보여 주는 스크린샷":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>PowerShell을 사용 하 여 관리 디스크 크기 조정
@@ -226,7 +226,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 **관리되지 않는 디스크**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>OS 내에서 볼륨 확장

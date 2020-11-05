@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72249187"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395753"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Microsoft Genomics를 사용한 비즈니스 연속성 개요
 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 야기할 수 있는 Azure 지역 가동 중단과 같은 재해 이벤트에서 복구하기 위한 옵션에 대해 알아봅니다. 
@@ -43,7 +43,7 @@ ms.locfileid: "72249187"
 데이터 센터 가동 중단에서 더 빠르게 복구하고 싶은 경우 다음과 같은 몇 가지 단계를 수행하여 Microsoft Genomics 워크플로를 보조 지역으로 수동으로 다시 전송하는 데 걸리는 시간을 단축할 수 있습니다.
 
 * 해당 보조 지역을 식별하고 해당 지역에서 Genomics 계정을 미리 만듭니다.
-* 보조 지역에서 데이터를 즉시 사용할 수 있도록 기본 및 보조 지역에서 데이터를 복제합니다. 이 작업은 수동으로 완료하거나 Azure Storage의 [지역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용하여 수행할 수 있습니다. 
+* 보조 지역에서 데이터를 즉시 사용할 수 있도록 기본 및 보조 지역에서 데이터를 복제합니다. 이 작업은 수동으로 완료하거나 Azure Storage의 [지역 중복 스토리지](../storage/common/storage-redundancy.md) 기능을 사용하여 수행할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Microsoft Genomics 서비스를 사용할 때의 비즈니스 연속성 및 재해 복구 옵션에 대해 알아보았습니다. Azure 내의 일반적인 비즈니스 연속성 및 재해 복구에 대한 자세한 내용은 [Azure 복원 기술 지침](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)을 참조하세요. 
+이 문서에서는 Microsoft Genomics 서비스를 사용할 때의 비즈니스 연속성 및 재해 복구 옵션에 대해 알아보았습니다. Azure 내의 일반적인 비즈니스 연속성 및 재해 복구에 대한 자세한 내용은 [Azure 복원 기술 지침](/azure/architecture/resiliency/recovery-loss-azure-region)을 참조하세요.

@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284485"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395039"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
@@ -25,7 +25,7 @@ ms.locfileid: "91284485"
 
 ### <a name="sql-engine-build-number---15020001552"></a>SQL 엔진 빌드 번호-15.0.2000.1552
 
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1. Ubuntu 18.04 기반 컨테이너 이미지입니다. 
 2. 및 `IGNORE NULL` 함수로 및 `RESPECT NULL` 구문을 지원 `LAST_VALUE()` `FIRST_VALUE()` 합니다. 
 3. ONNX를 사용 하 여 예측 하기 위한 안정성 향상.
@@ -37,9 +37,9 @@ ms.locfileid: "91284485"
    - 병렬 실행 시나리오 사용
 6. 절전 모드의 절전 모드 향상
 7. 스트리밍 새 기능 지원 
-   - [스냅숏 창](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : 새 창 유형을 통해 정확히 동일한 시간에 도착 하는 이벤트를 그룹화 할 수 있습니다. 
-   - [Topone](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) 및 [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) as 분석 함수를 사용 하도록 설정 하면가 창의 일부가 될 필요 없이 선택한 열을 기준으로 정렬 된 레코드를 반환할 수 있습니다. 
-   - [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics)개선 
+   - [스냅숏 창](/stream-analytics-query/snapshot-window-azure-stream-analytics) : 새 창 유형을 통해 정확히 동일한 시간에 도착 하는 이벤트를 그룹화 할 수 있습니다. 
+   - [Topone](/stream-analytics-query/topone-azure-stream-analytics) 및 [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) as 분석 함수를 사용 하도록 설정 하면가 창의 일부가 될 필요 없이 선택한 열을 기준으로 정렬 된 레코드를 반환할 수 있습니다. 
+   - [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics)개선 
 
 ### <a name="fixes"></a>수정 프로그램
 1. TSQL 스트리밍 작업 문제 해결에 대 한 추가 오류 메시지 및 세부 정보입니다. 
@@ -58,7 +58,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>SQL 엔진 빌드 번호-15.0.2000.1549
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1. Date_Bucket () 함수에서 사용자 지정 원본을 지원 합니다. 
 2. SQL 배포의 일부로 BacPac 파일 지원.
 3. 데이터 보존 정책 기반 정리에 대 한 지원.      
@@ -76,7 +76,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>SQL 엔진 빌드 번호-15.0.2000.1546
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1. 루트가 아닌 컨테이너 지원 
 2. 사용 현황 및 진단 데이터 수집에 대 한 지원 
 3. T-sql 스트리밍 업데이트
@@ -98,7 +98,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-20"></a>CTP 2.0 
 ### <a name="sql-engine-build-number---15020001401"></a>SQL 엔진 빌드 번호-15.0.2000.1401
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1.  ' Azure SQL Edge '로 업데이트 된 제품 이름
 1.  Date_bucket 함수
 
@@ -127,7 +127,7 @@ ms.locfileid: "91284485"
 
 ## <a name="ctp-15"></a>CTP 1.5
 ### <a name="sql-engine-build-number---15020001331"></a>SQL 엔진 빌드 번호-15.0.2000.1331
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1. Date_bucket 함수
     
     i. DateTimeOffset 형식에 대 한 지원
@@ -137,7 +137,7 @@ ms.locfileid: "91284485"
  
 ## <a name="ctp-14"></a>CTP 1.4
 ### <a name="sql-engine-build-number---15020001247"></a>SQL 엔진 빌드 번호-15.0.2000.1247
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1.  ONNX 모델을 사용 하 여 예측
  
     i.  Varchar 지원
@@ -157,7 +157,7 @@ ms.locfileid: "91284485"
  
 ## <a name="ctp-13"></a>CTP 1.3
 ### <a name="sql-engine-build-number---15020001147"></a>SQL 엔진 빌드 번호-15.0.2000.1147
-### <a name="whats-new"></a>새로운 기능은 무엇입니까?
+### <a name="whats-new"></a>새로운 기능
 1. Azure IOT 포털 배포 
 
     i.   AMD64 및 ARM 이미지 배포 지원

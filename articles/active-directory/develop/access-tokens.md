@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740171"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393373"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -33,7 +33,7 @@ ms.locfileid: "92740171"
 > [!IMPORTANT]
 > 액세스 토큰은 토큰의 *대상* , 즉 토큰의 범위를 소유하는 애플리케이션을 기반으로 만들어집니다.  이렇게 해서 [앱 매니페스트](reference-app-manifest.md#manifest-reference)의 `accessTokenAcceptedVersion` 리소스를 `2`로 설정하면 v1.0 엔드포인트를 호출하는 클라이언트가 v2.0 액세스 토큰을 받게 됩니다.  마찬가지로, 리소스가 소유한 `user.read`에 대해 토큰이 요청될 때 클라이언트에 대한 액세스 토큰 [선택적 클레임](active-directory-optional-claims.md)을 변경해도 수신된 액세스 토큰이 변경되지 않는 이유도 여기에 있습니다.
 >
-> 동일한 이유로 개인 계정 (예: hotmail.com 또는 outlook.com)을 지 원하는 Microsoft API를 사용 하 여 클라이언트 응용 프로그램을 테스트 하는 동안 클라이언트에서 받은 액세스 토큰이 불투명 문자열 임을 알 수 있습니다. 이는 액세스 되는 리소스가 암호화 된 토큰을 사용 하 고 클라이언트에서 인식할 수 없기 때문입니다.  이는 예상 된 것 이며 앱에 문제가 되어서는 안 됩니다. 클라이언트 앱은 액세스 토큰의 형식에 종속 되지 않아야 합니다. 
+> 동일한 이유로 개인 계정 (예: hotmail.com 또는 outlook.com)을 지 원하는 Microsoft API를 사용 하 여 클라이언트 응용 프로그램을 테스트 하는 동안 클라이언트에서 받은 액세스 토큰이 불투명 문자열 임을 알 수 있습니다. 이는 액세스 되는 리소스가 암호화 된 토큰을 사용 하 고 클라이언트에서 인식할 수 없기 때문입니다.  이는 예상 된 것 이며 앱에 문제가 되어서는 안 됩니다. 클라이언트 앱은 액세스 토큰의 형식에 종속 되지 않아야 합니다.
 
 ## <a name="sample-tokens"></a>샘플 토큰
 
@@ -245,7 +245,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 ### <a name="token-timeouts"></a>토큰 제한 시간
 
-[토큰 수명 구성](active-directory-configurable-token-lifetimes.md)을 사용하여 새로고침 토큰의 수명을 변경할 수 있습니다.  일부 토큰이 사용되지 않고(예를 들어 사용자가 3개월 동안 앱을 열지 않음) 그 결과 만료되는 경우는 일상적으로 발생합니다.  앱에서는 로그인 서버가 새로 고침 토큰의 기간 탓에 토큰을 거부하는 시나리오가 발생합니다. 
+[토큰 수명 구성](active-directory-configurable-token-lifetimes.md)을 사용하여 새로고침 토큰의 수명을 변경할 수 있습니다.  일부 토큰이 사용되지 않고(예를 들어 사용자가 3개월 동안 앱을 열지 않음) 그 결과 만료되는 경우는 일상적으로 발생합니다.  앱에서는 로그인 서버가 새로 고침 토큰의 기간 탓에 토큰을 거부하는 시나리오가 발생합니다.
 
 * MaxInactiveTime: MaxInactiveTime에 의해 결정된 시간 내에 새로 고침 토큰을 사용하지 않은 경우 새로 고침 토큰은 더 이상 유효하지 않습니다.
 * MaxSessionAge: MaxAgeSessionMultiFactor 또는 MaxAgeSessionSingleFactor가 (해지될 때까지) 기본값 이외의 값으로 설정된 경우 MaxAgeSession*에 설정된 시간이 경과된 후에 다시 인증해야 합니다.
@@ -255,7 +255,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 ### <a name="revocation"></a>해지
 
-자격 증명의 변경이나 사용 또는 관리 작업으로 인해 서버에서 새로 고침 토큰을 해지할 수 있습니다.  새로 고침 토큰은 기밀 클라이언트에 발급된 토큰(가장 오른쪽 열)과 퍼블릭 클라이언트에 발급된 토큰(다른 모든 열)의 두 클래스에 속합니다.   
+자격 증명의 변경이나 사용 또는 관리 작업으로 인해 서버에서 새로 고침 토큰을 해지할 수 있습니다.  새로 고침 토큰은 기밀 클라이언트에 발급된 토큰(가장 오른쪽 열)과 퍼블릭 클라이언트에 발급된 토큰(다른 모든 열)의 두 클래스에 속합니다.
 
 | 변경 | 암호 기반 쿠키 | 암호 기반 토큰 | 비암호 기반 쿠키 | 비암호 기반 토큰 | 기밀 클라이언트 토큰 |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -273,14 +273,14 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 - Windows Hello에서 얼굴 사용
 - FIDO2 키
-- SMS
+- sms
 - 음성
-- PIN 
+- PIN
 
 > [!NOTE]
 > Windows 10의 PRT(기본 새로 고침 토큰)는 자격 증명에 따라 분리됩니다. 예를 들어 Windows Hello 및 암호에는 서로 격리된 각각의 PRT가 있습니다. 사용자가 Hello 자격 증명(PIN 또는 생체 인식)으로 로그인한 다음, 암호를 변경하는 경우 이전에 획득된 암호 기반 PRT는 철회됩니다. 암호를 사용하여 다시 로그인하면 이전 PRT가 무효화되고 새 PRT가 요청됩니다.
 >
-> 새로 고침 토큰은 새 액세스 토큰과 새로 고침 토큰을 가져오는 데 사용하면 무효화되거나 취소되지 않습니다.  그러나 새 토큰에는 새로운 만료 시간이 있으므로 앱에서 사용하는 즉시 이전 항목을 삭제하고 새 토큰으로 대체해야 합니다. 
+> 새로 고침 토큰은 새 액세스 토큰과 새로 고침 토큰을 가져오는 데 사용하면 무효화되거나 취소되지 않습니다.  그러나 새 토큰에는 새로운 만료 시간이 있으므로 앱에서 사용하는 즉시 이전 항목을 삭제하고 새 토큰으로 대체해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

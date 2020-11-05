@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/04/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377014"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393628"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -38,15 +38,15 @@ Microsoft 365와 같이 SharePoint 및 OneDrive를 포함 하는 일부 제품�
 
 1. Power BI에 등록 하 여 관리 되지 않는 조직에서 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
 
-2. [Power BI 사이트](https://powerbi.com)를 열고 **무료로 시작**을 선택합니다. 조직에 대한 도메인 이름을 사용하는 사용자 계정을 입력합니다. 예: `admin@fourthcoffee.xyz`. 확인 코드를 입력한 후 인증 코드에 대한 전자 메일을 확인합니다.
+2. [Power BI 사이트](https://powerbi.com)를 열고 **무료로 시작** 을 선택합니다. 조직에 대한 도메인 이름을 사용하는 사용자 계정을 입력합니다. 예: `admin@fourthcoffee.xyz`. 확인 코드를 입력한 후 인증 코드에 대한 전자 메일을 확인합니다.
 
-3. Power BI에서 온 확인 전자 메일에서 **예, 바로 저입니다**를 선택합니다.
+3. Power BI에서 온 확인 전자 메일에서 **예, 바로 저입니다** 를 선택합니다.
 
-4. Power BI 사용자 계정을 사용 하 여 [Microsoft 365 관리 센터](https://portal.office.com/admintakeover) 에 로그인 합니다. 관리 되지 않는 조직에서 이미 확인 된 도메인 이름의 **관리자** 가 되도록 지시 하는 메시지가 표시 됩니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
+4. Power BI 사용자 계정을 사용 하 여 [Microsoft 365 관리 센터](https://portal.office.com/admintakeover) 에 로그인 합니다. 관리 되지 않는 조직에서 이미 확인 된 도메인 이름의 **관리자** 가 되도록 지시 하는 메시지가 표시 됩니다. **예, 관리자가 되고 싶습니다** 를 선택합니다.
   
    ![관리자 되기에 대한 첫 번째 스크린샷](./media/domains-admin-takeover/become-admin-first.png)
   
-5. 도메인 이름 등록자에서 도메인 이름 **fourthcoffee.xyz**을 소유하고 있음을 증명하기 위해 TXT 레코드를 추가합니다. 이 예제에서는 GoDaddy.com입니다.
+5. 도메인 이름 등록자에서 도메인 이름 **fourthcoffee.xyz** 을 소유하고 있음을 증명하기 위해 TXT 레코드를 추가합니다. 이 예제에서는 GoDaddy.com입니다.
   
    ![도메인 이름에 대한 TXT 레코드 추가](./media/domains-admin-takeover/become-admin-txt-record.png)
 
@@ -59,20 +59,20 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com)를 엽니다.
 2. 사용자 **탭을** 선택 하 고 사용자 지정 도메인 이름을 사용 하지 않는 *사용자 \@ fourthcoffeexyz.onmicrosoft.com* 같은 이름으로 새 사용자 계정을 만듭니다. 
 3. 새 사용자 계정에 Azure AD 조직에 대 한 전역 관리자 권한이 있는지 확인 합니다.
-4. Microsoft 365 관리 센터에서 **도메인** 탭을 열고 도메인 이름을 선택한 다음 **제거**를 선택 합니다. 
+4. Microsoft 365 관리 센터에서 **도메인** 탭을 열고 도메인 이름을 선택한 다음 **제거** 를 선택 합니다. 
   
    ![Microsoft 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 제거 된 도메인 이름을 참조 하는 Microsoft 365의 사용자 또는 그룹이 있는 경우 해당 이름을 onmicrosoft.com 도메인으로 변경 해야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자 \@ fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
+5. 제거 된 도메인 이름을 참조 하는 Microsoft 365의 사용자 또는 그룹이 있는 경우 해당 이름을 onmicrosoft.com 도메인으로 변경 해야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자 \@ fourthcoffeexyz.onmicrosoft.com* 에 모든 사용자의 이름이 자동으로 바뀝니다.
   
 6. Azure ad 조직에 대 한 전역 관리자 인 계정으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
   
-7. **사용자 지정 도메인 이름**을 선택하고 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
+7. **사용자 지정 도메인 이름** 을 선택하고 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
   
    ![Azure AD에 추가 된 것으로 확인 된 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Microsoft 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름을 제거 하는 경우 해당 대시보드를 저장 해야 합니다. 사용자 * \@ fourthcoffee*대신 사용자 * \@ fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
+> Microsoft 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름을 제거 하는 경우 해당 대시보드를 저장 해야 합니다. 사용자 *\@ fourthcoffee* 대신 사용자 *\@ fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
 
 ## <a name="external-admin-takeover"></a>외부 관리자 인수
 
@@ -113,7 +113,7 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용
+Cmdlet | 사용량
 ------- | -------
 `connect-msolservice` | 메시지가 표시 되 면 관리 되는 조직에 로그인 합니다.
 `get-msoldomain` | 현재 조직과 연결 된 도메인 이름을 표시 합니다.
@@ -121,7 +121,7 @@ Cmdlet | 사용
 `get-msoldomain` | 이제 도메인 이름이 관리 되는 조직과 연결 된 도메인 이름 목록에 포함 되어 있지만 확인 되지 **않음으로 표시 됩니다.**
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 도메인에 대해 새 DNS TXT 레코드를 저장할 정보 제공 (MS = xxxxx). TXT 레코드가 전파되는 데 약간의 시간이 걸리므로 확인이 즉시 이뤄지지 않을 수도 있습니다. 따라서 **-ForceTakeover** 옵션을 고려하기 전에 몇 분 정도 기다리십시오. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>여전히 도메인 이름이 확인되지 않는 경우 **-ForceTakeover** 옵션을 사용하여 진행할 수 있습니다. TXT 레코드가 만들어졌는지 확인하고 인수 프로세스를 시작합니다.<li>**ForceTakeover** 옵션은 관리 되지 않는 조직에 인수를 차단 하는 Microsoft 365 서비스가 있는 경우와 같이 외부 관리자 인수을 적용 하는 경우에만 cmdlet에 추가 해야 합니다.
-`get-msoldomain` | 이제 도메인 목록은 도메인 이름을 **확인됨**으로 표시합니다.
+`get-msoldomain` | 이제 도메인 목록은 도메인 이름을 **확인됨** 으로 표시합니다.
 
 > [!NOTE]
 > 관리 되지 않는 Azure AD 조직은 external 인수 force 옵션을 실행 한 후 10 일 후에 삭제 됩니다.
@@ -174,7 +174,7 @@ Cmdlet | 사용
 * [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

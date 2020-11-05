@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513379"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394869"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
 
@@ -26,7 +26,7 @@ ms.locfileid: "87513379"
 다음은 FHIR 용 Azure IoT 커넥터에서 데이터를 받은 후에 발생 하는 다양 한 단계입니다.
 
 ## <a name="ingest"></a>수집
-수집은 장치 데이터를 Azure IoT Connector for FHIR에 수신 하는 첫 번째 단계입니다. 장치 데이터에 대 한 수집 끝점은 [Azure 이벤트 허브](https://docs.microsoft.com/azure/event-hubs/)에서 호스팅됩니다. Azure 이벤트 허브 플랫폼은 초당 수백만 개의 메시지를 받고 처리 하는 기능을 통해 높은 확장성과 처리량을 지원 합니다. 또한 Azure IoT 커넥터를 사용 하 여 메시지를 비동기적으로 사용 하 여 장치 데이터를 처리 하는 동안 장치가 대기할 필요가 없습니다.
+수집은 장치 데이터를 Azure IoT Connector for FHIR에 수신 하는 첫 번째 단계입니다. 장치 데이터에 대 한 수집 끝점은 [Azure 이벤트 허브](../event-hubs/index.yml)에서 호스팅됩니다. Azure 이벤트 허브 플랫폼은 초당 수백만 개의 메시지를 받고 처리 하는 기능을 통해 높은 확장성과 처리량을 지원 합니다. 또한 Azure IoT 커넥터를 사용 하 여 메시지를 비동기적으로 사용 하 여 장치 데이터를 처리 하는 동안 장치가 대기할 필요가 없습니다.
 
 > [!NOTE]
 > 이번에는 장치 데이터에 대해 JSON이 유일 하 게 지원 되는 형식입니다.

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308876"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393458"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
 
@@ -51,15 +51,9 @@ ms.locfileid: "92308876"
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Azure AD Premium 라이선스를 받은 후에 지난 달의 데이터를 확인할 수 있나요?
-
-최근에 Premium 버전(평가판 버전을 포함)으로 전환한 경우 처음에는 최대 7일 동안의 데이터를 확인할 수 있습니다. 데이터가 누적되면 지난 30일간의 데이터를 볼 수 있습니다.
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Azure AD는 언제 보안 신호 데이터 수집을 시작하나요?  
 
-보안 신호의 경우 **ID 보호 센터**를 사용하도록 옵트인할 때 수집 프로세스가 시작됩니다. 
+보안 신호의 경우 **ID 보호 센터** 를 사용하도록 옵트인할 때 수집 프로세스가 시작됩니다. 
 
 ---
 
@@ -81,5 +75,11 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 | :--            | :--           | :--                 | :--                 |
 | 위험에 노출된 사용자  | 7 일        | 30일             | 90일             |
 | 위험한 로그인 | 7 일        | 30일             | 90일             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Azure AD Premium 라이선스를 받은 후에 지난 달의 데이터를 확인할 수 있나요?
+
+**아니요** , 할 수 없습니다. Azure는 무료 버전에 대 한 최대 7 일간의 활동 데이터를 저장 합니다. 즉, 무료에서 a를 프리미엄 버전으로 전환 하는 경우 최대 7 일의 데이터만 볼 수 있습니다.
 
 ---

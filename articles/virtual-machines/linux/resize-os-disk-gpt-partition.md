@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340310"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392693"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
 
@@ -231,95 +231,144 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    
    앞의 예제에서 OS 디스크의 파일 시스템 크기가 늘어난 것을 확인할 수 있습니다.
 
-### <a name="rhel-lvm"></a>RHEL LVM
-
-LVM을 사용하여 RHEL 7.x에서 OS 디스크의 크기를 늘리려면:
-
-1. VM을 중지합니다.
-1. 포털에서 OS 디스크의 크기를 늘립니다.
-1. VM을 시작합니다.
-
-VM이 다시 시작되면 다음 단계를 수행합니다.
+### <a name="rhel-with-lvm"></a>LVM을 사용 하는 RHEL
 
 1. 다음 명령을 사용하여 **루트** 사용자로 VM에 액세스합니다.
- 
-   ```
-   #sudo su
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치합니다.
+1. 명령을 사용 `lsblk` 하 여 파일 시스템 ("/")의 루트에 탑재 된 논리 볼륨 (LV)을 찾습니다. 이 경우 **_rootvg-rootlv_*_가 _* / 에 탑재** 된 것을 알 수 있습니다.  다른 파일 시스템을 원하는 경우이 문서를 통해 LV 및 탑재 지점으로 대체 합니다.
 
-   ```
-   #yum install gdisk -y
-   ```
-
-1. 디스크에서 사용할 수 있는 가장 큰 섹터를 보려면 다음 명령을 실행합니다.
-
-   ```
-   #sgdisk -e /dev/sda
-   ```
-
-1. 다음 명령을 사용하여 파티션을 삭제하지 않고 크기를 조정합니다. **parted** 명령에는 파티션을 삭제하지 않고 크기를 조정하는 **resizepart** 라는 옵션이 있습니다. **resizepart** 뒤에 오는 숫자 4는 네 번째 파티션의 크기가 조정됨을 나타냅니다.
-
-   ```
-   #parted -s /dev/sda "resizepart 4 -1" quit
-   ```
-    
-1. 다음 명령을 실행하여 파티션이 늘어났는지 확인합니다.
-
-   ```
-   #lsblk
+   ```shell
+   [root@dd-rhel7vm ~]# lsblk -f
+   NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
+   fd0
+   sda
+   ├─sda1                vfat                C13D-C339                              /boot/efi
+   ├─sda2                xfs                 8cc4c23c-fa7b-4a4d-bba8-4108b7ac0135   /boot
+   ├─sda3
+   └─sda4                LVM2_member         zx0Lio-2YsN-ukmz-BvAY-LCKb-kRU0-ReRBzh
+      ├─rootvg-tmplv      xfs                 174c3c3a-9e65-409a-af59-5204a5c00550   /tmp
+      ├─rootvg-usrlv      xfs                 a48dbaac-75d4-4cf6-a5e6-dcd3ffed9af1   /usr
+      ├─rootvg-optlv      xfs                 85fe8660-9acb-48b8-98aa-bf16f14b9587   /opt
+      ├─rootvg-homelv     xfs                 b22432b1-c905-492b-a27f-199c1a6497e7   /home
+      ├─rootvg-varlv      xfs                 24ad0b4e-1b6b-45e7-9605-8aca02d20d22   /var
+      └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-   다음 출력에서 **/dev/sda4** 파티션이 99GB로 크기 조정된 것을 볼 수 있습니다.
+1. 루트 파티션이 포함 된 LVM 볼륨 그룹에 사용 가능한 공간이 있는지 확인 합니다.  여유 공간이 있으면 **12** 단계로 건너뜁니다.
 
-   ```
-   [user@myvm ~]# lsblk
-   NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0                 2:0    1    4K  0 disk
-   sda                 8:0    0  100G  0 disk
-   ├─sda1              8:1    0  500M  0 part /boot/efi
-   ├─sda2              8:2    0  500M  0 part /boot
-   ├─sda3              8:3    0    2M  0 part
-   └─sda4              8:4    0   99G  0 part
-   ├─rootvg-tmplv    253:0    0    2G  0 lvm  /tmp
-   ├─rootvg-usrlv    253:1    0   10G  0 lvm  /usr
-   ├─rootvg-optlv    253:2    0    2G  0 lvm  /opt
-   ├─rootvg-homelv   253:3    0    1G  0 lvm  /home
-   ├─rootvg-varlv    253:4    0    8G  0 lvm  /var
-   └─rootvg-rootlv   253:5    0    2G  0 lvm  /
-   sdb                 8:16   0   50G  0 disk
-   └─sdb1              8:17   0   50G  0 part /mnt/resource
+   ```bash
+   [root@dd-rhel7vm ~]# vgdisplay rootvg
+   --- Volume group ---
+   VG Name               rootvg
+   System ID
+   Format                lvm2
+   Metadata Areas        1
+   Metadata Sequence No  7
+   VG Access             read/write
+   VG Status             resizable
+   MAX LV                0
+   Cur LV                6
+   Open LV               6
+   Max PV                0
+   Cur PV                1
+   Act PV                1
+   VG Size               <63.02 GiB
+   PE Size               4.00 MiB
+   Total PE              16132
+   Alloc PE / Size       6400 / 25.00 GiB
+   Free  PE / Size       9732 / <38.02 GiB
+   VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-1. 다음 명령을 사용하여 PV(실제 볼륨)의 크기를 조정합니다.
+   이 예제에서 **FREE PE/Size** 줄은 볼륨 그룹에서 38.02 gb를 사용할 수 있음을 명시 합니다.  볼륨 그룹에 공간을 추가 하기 전에 디스크 크기를 조정할 필요가 없습니다.
 
-   ```
-   #pvresize /dev/sda4
+1. LVM을 사용하여 RHEL 7.x에서 OS 디스크의 크기를 늘리려면:
+
+   1. VM을 중지합니다.
+   1. 포털에서 OS 디스크의 크기를 늘립니다.
+   1. VM을 시작합니다.
+
+1. VM이 다시 시작되면 다음 단계를 수행합니다.
+
+   1. **유틸리티-growpart** 패키지를 설치 하 여 OS 디스크의 크기를 늘리는 데 필요한 **growpart** 명령을 제공 합니다.
+
+      이 패키지는 대부분의 Azure Marketplace 이미지에 미리 설치 되어 있습니다.
+
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
+
+1. **Pvscan** 명령을 사용 하 여 rootvg 라는 볼륨 그룹 (VG)의 lvm 물리적 볼륨 (PV)을 보유 하는 디스크 및 파티션을 결정 합니다.  대괄호 **[]** 사이에 표시 되는 크기와 사용 가능한 공간을 기록해 둡니다.
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+     PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-   다음 출력에서 PV가 99.02GB로 크기 조정된 것을 볼 수 있습니다.
+1. **Lsblk** 를 사용 하 여 파티션 크기를 확인 합니다.  다음을 확인 합니다. 
 
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  63G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
-   [user@myvm ~]# pvresize /dev/sda4
+
+1. **Growpart** , 장치 이름 및 파티션 번호를 사용 하 여이 PV를 포함 하는 파티션을 확장 합니다.  그러면 지정 된 파티션이 확장 되어 장치에서 사용 가능한 모든 연속 공간이 사용 됩니다.
+
+   ```bash
+   [root@dd-rhel7vm ~]# growpart /dev/sda 4
+   CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
+   ```
+
+1. 파티션이 **lsblk** 명령을 사용 하 여 예상 크기로 크기 조정 되었는지 확인 합니다.  예제 sda4는 63G에서 95G로 변경 되었습니다.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  95G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
+   ```
+
+1. 새로 확장 된 파티션의 나머지를 사용 하려면 PV를 확장 합니다.
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvresize /dev/sda4
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-
-   [user@myvm ~]# pvs
-   PV         VG     Fmt  Attr PSize   PFree
-   /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. 다음 예제에서는 다음 명령에 의해 **/dev/mapper/rootvg-rootlv** 가 2GB에서 12GB로 크기 조정됩니다(10GB 증가). 이 명령은 파일 시스템의 크키도 조정합니다.
+1. 원래 **[크기/무료]** 값과 비교 하 여 PV의 새 크기가 예상 크기 인지 확인 합니다.
 
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+   PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
-   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+
+1. 원하는 크기 만큼 원하는 논리 볼륨 (lv)을 확장 합니다. 볼륨 그룹의 모든 여유 공간이 필요 하지는 않습니다.  다음 예제에서는 다음 명령에 의해 **/dev/mapper/rootvg-rootlv** 가 2GB에서 12GB로 크기 조정됩니다(10GB 증가). 이 명령은 파일 시스템의 크키도 조정합니다.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    ```
 
    예제 출력:
 
-   ```
-   [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -333,24 +382,24 @@ VM이 다시 시작되면 다음 단계를 수행합니다.
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 524288 to 3145728
    ```
-         
-1. 다음 명령을 사용하여 **/dev/mapper/rootvg-rootlv** 의 파일 시스템 크기가 증가했는지 확인합니다.
 
-   ```
-   #df -Th /
+1. Lvresize 명령은 LV에서 파일 시스템에 대해 적절 한 크기 조정 명령을 자동으로 호출 합니다. 다음 명령을 사용 하 여에 탑재 된 **/dev/mapper/rootvg-rootlv** 의 **/** 파일 시스템 크기가 증가 하는지 여부를 확인 합니다.
+
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    ```
 
    예제 출력:
 
-   ```
-   [user@myvm ~]# df -Th /
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-   [user@myvm ~]#
+   [root@dd-rhel7vm ~]#
    ```
 
 > [!NOTE]
-> 동일한 절차를 사용하여 다른 논리 볼륨의 크기를 조정하려면 7단계에서 **lv** 이름을 변경하세요.
+> 동일한 절차를 사용 하 여 다른 논리 볼륨의 크기를 조정 하려면 **12** 단계에서 **lv** 이름을 변경 합니다.
 
 ### <a name="rhel-raw"></a>RHEL RAW
 >[!NOTE]

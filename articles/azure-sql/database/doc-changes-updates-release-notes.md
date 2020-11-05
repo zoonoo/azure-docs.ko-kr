@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791038"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391996"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,7 +73,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ---
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
@@ -104,7 +104,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
-|[리소스 그룹에 대 한 사용 권한이 SQL Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020년 2월|해결 방법 있음||
+|[리소스 그룹에 대 한 사용 권한이 SQL Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020년 2월|해결됨|11 월 2020|
 |[장애 조치(failover) 그룹용 포털을 통한 수동 장애 조치(failover)의 제한 사항](#limitation-of-manual-failover-via-portal-for-failover-groups)|2020년 1월|해결 방법 있음||
 |[SQL 에이전트 역할에는 non-sysadmin 로그인에 대한 명시적 EXECUTE 권한 필요](#in-memory-oltp-memory-limits-are-not-applied)|2019년 12월|해결 방법 있음||
 |[에이전트 프로세스를 다시 시작하면 SQL 에이전트 작업이 중단될 수 있음](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019년 12월|해결됨|2020년 3월|

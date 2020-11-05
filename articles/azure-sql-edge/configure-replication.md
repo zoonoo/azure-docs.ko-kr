@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888426"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395226"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Azure SQL Edge로 복제 구성 
 
@@ -24,8 +24,8 @@ Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 �
   
 - Azure SQL Edge 인스턴스는 게시자의 푸시 구독자 여야 합니다.
 - 게시자 및 배포자는 다음 중 하나일 수 있습니다.
-   - 온-프레미스 또는 Azure 가상 머신에서 실행 되는 SQL Server 인스턴스를 실행 하는 SQL Server 인스턴스입니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](https://docs.microsoft.com/azure/azure-sql/virtual-machines/)를 참조하세요. SQL Server 인스턴스는 SQL Server 2016 이상 버전을 사용 해야 합니다.
-   - Azure SQL Managed Instance의 인스턴스입니다. SQL Managed Instance은 게시자, 배포자 및 구독자 데이터베이스를 호스팅할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance를 사용하여 복제](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/)를 참조하세요.
+   - 온-프레미스 또는 Azure 가상 머신에서 실행 되는 SQL Server 인스턴스를 실행 하는 SQL Server 인스턴스입니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../azure-sql/virtual-machines/index.yml)를 참조하세요. SQL Server 인스턴스는 SQL Server 2016 이상 버전을 사용 해야 합니다.
+   - Azure SQL Managed Instance의 인스턴스입니다. SQL Managed Instance은 게시자, 배포자 및 구독자 데이터베이스를 호스팅할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance를 사용하여 복제](/azure/sql-database/replication-with-sql-database-managed-instance/)를 참조하세요.
 
 - 배포 데이터베이스 및 복제 에이전트는 Azure SQL Edge 인스턴스에 배치할 수 없습니다.  
 
@@ -36,7 +36,7 @@ Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 �
 
 복제를 구성할 때 다음 요구 사항 및 모범 사례를 이해 하는 것이 중요 합니다.
 
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 복제를 구성할 수 있습니다. SQL Server Management Studio 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 사용 하 여 게시자에서 transact-sql 문을 실행 하 여 수행할 수도 있습니다.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 복제를 구성할 수 있습니다. SQL Server Management Studio 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 사용 하 여 게시자에서 transact-sql 문을 실행 하 여 수행할 수도 있습니다.
 - Azure SQL Edge 인스턴스에 복제 하려면 SQL Server 인증을 사용 하 여 로그인 해야 합니다.
 - 복제된 테이블에는 기본 키가 있어야 합니다.
 - SQL Server에서 단일 게시는 Azure SQL Edge 및 SQL Server(온-프레미스 및 Azure 가상 머신의 SQL Server) 구독자를 모두 지원할 수 있습니다.  
@@ -82,15 +82,13 @@ Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 �
 
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- Azure SQL Edge 서버 이름 및 IP를 구독자 (예: **myEdgeinstance, 1433**)로 사용 하 고 Azure sql edge 인스턴스에서 대상 데이터베이스로 데이터베이스 이름 (예: **AdventureWorks**)을 사용 하 여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) .  
+- [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
+- Azure SQL Edge 서버 이름 및 IP를 구독자 (예: **myEdgeinstance, 1433** )로 사용 하 고 Azure sql edge 인스턴스에서 대상 데이터베이스로 데이터베이스 이름 (예: **AdventureWorks** )을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [모니터링 (복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [구독 초기화](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
+- [밀어넣기 구독 만들기](/sql/relational-databases/replication/create-a-push-subscription/)
+- [복제 유형](/sql/relational-databases/replication/types-of-replication)
+- [모니터링 (복제)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [구독 초기화](/sql/relational-databases/replication/initialize-a-subscription)

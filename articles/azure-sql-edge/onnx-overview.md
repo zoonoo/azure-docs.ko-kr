@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907145"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392064"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>SQL Edge에서 ONNX를 통한 기계 학습 및 AI
 
@@ -28,7 +28,7 @@ Azure SQL Edge에서 기계 학습 모델을 유추하려면 먼저 모델을 �
 
 ONNX 형식으로 모델을 가져오려면 다음을 수행합니다.
 
-- **모델 빌드 서비스**: [Azure Machine Learning의 자동화된 Machine Learning 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)와 같은 서비스는 학습된 모델을 ONNX 형식으로 직접 내보내는 것을 지원합니다.
+- **모델 빌드 서비스** : [Azure Machine Learning의 자동화된 Machine Learning 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md)와 같은 서비스는 학습된 모델을 ONNX 형식으로 직접 내보내는 것을 지원합니다.
 
 - [**기존 모델 변환 및/또는 내보내기**](https://github.com/onnx/tutorials#converting-to-onnx-format): 여러 학습 프레임워크(예: [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer 및 Caffe2)는 ONNX 형식으로의 기본 내보내기 기능을 지원하여 학습된 모델을 특정 버전의 ONNX 형식으로 저장할 수 있습니다. 네이티브 내보내기를 지원하지 않는 프레임워크의 경우 다양한 기계 학습 프레임워크에서 학습된 모델을 ONNX 형식으로 변환하는 데 사용할 수 있는 독립 실행형 ONNX 변환기 설치 가능 패키지가 있습니다.
 
@@ -43,12 +43,12 @@ ONNX 형식으로 모델을 가져오려면 다음을 수행합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-현재 Azure SQL Edge에서 모든 ONNX 모델이 지원되는 것은 아닙니다. 다음과 같이 **숫자 데이터 형식**인 모델에 대한 지원은 제한됩니다.
+현재 Azure SQL Edge에서 모든 ONNX 모델이 지원되는 것은 아닙니다. 다음과 같이 **숫자 데이터 형식** 인 모델에 대한 지원은 제한됩니다.
 
-- [int 및 bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [real 및 float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql)
+- [int 및 bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [real 및 float](/sql/t-sql/data-types/float-and-real-transact-sql)
   
-다른 숫자 유형은 [CAST 및 CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)를 사용하여 지원되는 유형으로 변환할 수 있습니다.
+다른 숫자 유형은 [CAST 및 CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql)를 사용하여 지원되는 유형으로 변환할 수 있습니다.
 
 모델에 대한 각 입력이 테이블의 단일 열에 해당하도록 모델 입력을 구성해야 합니다. 예를 들어 pandas 데이터 프레임를 사용하여 모델을 학습하는 경우 각 입력은 모델에 대한 별도의 열이어야 합니다.
 

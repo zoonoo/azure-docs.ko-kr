@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026533"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395396"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
     
     b. 응용 프로그램 목록에서 **그래프 탐색기** 를 선택 합니다.
     
-    다. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
+    c. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
 
     !["Graph explorer에 대 한 관리자 동의 부여" 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
 

@@ -9,29 +9,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/31/2019
+ms.date: 11/05/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376955"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393611"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
-대다수 디렉터리 리소스 식별자에서 중요한 부분인 도메인 이름은 사용자의 경우 사용자 이름 또는 전자 메일 주소 부분이고 그룹의 경우 주소 부분이며, 애플리케이션의 경우 경우에 따라 앱 ID URI 부분입니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인을 관리할 수 있습니다.
+도메인 이름은 많은 Azure Active Directory (Azure AD) 리소스에 대 한 식별자의 중요 한 부분입니다. 사용자의 사용자 이름 또는 전자 메일 주소, 그룹의 주소 부분 및 응용 프로그램에 대 한 앱 ID URI의 일부인 경우도 있습니다. Azure AD의 리소스는 리소스를 포함 하는 조직에서 소유 하는 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인을 관리할 수 있습니다.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Azure AD 디렉터리에 대한 주 도메인 이름 설정
+## <a name="set-the-primary-domain-name-for-your-azure-ad-organization"></a>Azure AD 조직의 주 도메인 이름 설정
 
-디렉터리를 만든 경우 'contoso.onmicrosoft.com'과 같은 초기 도메인 이름은 주 도메인 이름이기도 합니다. 주 도메인은 새 사용자를 만들 때 새 사용자에 대한 기본 도메인 이름입니다. 주 도메인 이름을 설정하면 관리자에 대한 프로세스를 간소화하여 포털에 새 사용자를 만듭니다. 주 도메인 이름을 변경하려면:
+조직이 생성 될 때 ' contoso.onmicrosoft.com '과 같은 초기 도메인 이름도 주 도메인 이름 이기도 합니다. 주 도메인은 새 사용자를 만들 때 새 사용자에 대한 기본 도메인 이름입니다. 주 도메인 이름을 설정하면 관리자에 대한 프로세스를 간소화하여 포털에 새 사용자를 만듭니다. 주 도메인 이름을 변경하려면:
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory**를 선택합니다.
-3. **사용자 지정 도메인 이름**을 선택합니다.
+1. 조직의 전역 관리자 인 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+2. **Azure Active Directory** 를 선택합니다.
+3. **사용자 지정 도메인 이름** 을 선택합니다.
   
    ![사용자 관리 페이지 열기](./media/domains-manage/add-custom-domain.png)
 4. 기본 도메인으로 사용할 도메인의 이름을 선택합니다.
@@ -39,19 +39,19 @@ ms.locfileid: "92376955"
   
    ![도메인 이름을 기본으로 설정](./media/domains-manage/make-primary-domain.png)
 
-디렉터리의 주 도메인 이름을 페더레이션되지 않은 확인된 사용자 지정 도메인으로 변경할 수 있습니다. 디렉터리의 주 도메인을 변경해도 기존 사용자의 사용자 이름은 변경되지 않습니다.
+페더레이션 되지 않은 모든 확인 된 사용자 지정 도메인이 되도록 조직의 주 도메인 이름을 변경할 수 있습니다. 조직의 주 도메인을 변경 해도 기존 사용자의 사용자 이름은 변경 되지 않습니다.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Azure AD 조직에 사용자 지정 도메인 이름 추가
 
-관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 모든 도메인을 온-프레미스 Active Directory와 페더레이션하도록 구성하려는 경우 각 디렉터리에서 최대 450개의 도메인 이름을 추가할 수 있습니다.
+관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 온-프레미스 Active Directory를 사용 하 여 페더레이션을 위해 모든 도메인을 구성 하는 경우 각 조직에서 최대 450 개의 도메인 이름을 추가할 수 있습니다.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>사용자 지정 도메인의 하위 도메인 추가
 
-디렉터리에 'europe.contoso.com'과 같은 세 번째 수준 도메인 이름을 추가하려면 먼저 contoso.com과 같은 두 번째 수준 도메인을 추가 및 확인해야 합니다. Azure AD에서 자동으로 하위 도메인을 확인합니다. 추가한 하위 도메인이 확인되었는지 보려면 브라우저에서 도메인 목록을 새로 고칩니다.
+조직에 ' europe.contoso.com '과 같은 하위 도메인 이름을 추가 하려면 먼저 contoso.com와 같은 루트 도메인을 추가 하 고 확인 해야 합니다. Azure AD에서 자동으로 하위 도메인을 확인합니다. 추가한 하위 도메인이 확인되었는지 보려면 브라우저에서 도메인 목록을 새로 고칩니다.
 
-참고
+하나의 Azure AD 조직에 contoso.com 도메인을 이미 추가한 경우 다른 Azure AD 조직에서 하위 도메인 europe.contoso.com 확인할 수도 있습니다. 하위 도메인을 추가할 때 DNS 호스팅 공급자에 TXT 레코드를 추가 하 라는 메시지가 표시 됩니다.
 
-Azure AD 테넌트에 contoso.com 도메인을 이미 추가한 경우 하위 도메인 europe.contoso.com을 두 번째 Azure AD 테넌트에 추가할 수도 있습니다. 하위 도메인을 추가할 때 DNS 호스팅 공급자에 TXT 레코드를 추가하라는 메시지가 표시됩니다.
+
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>사용자 지정 도메인 이름의 DNS 등록 기관을 변경하는 경우 수행할 작업
 
@@ -61,19 +61,19 @@ DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 �
 
 조직이 더 이상 해당 도메인 이름을 사용하지 않는 경우 또는 다른 Azure AD와 해당 도메인 이름을 사용해야 하는 경우, Azure AD에서 사용자 지정 도메인 이름을 삭제할 수 있습니다.
 
-사용자 지정 도메인 이름을 삭제하려면 먼저 디렉터리에 도메인 이름을 사용하는 리소스가 없는지 확인해야 합니다. 다음의 경우 디렉터리에서 도메인 이름을 삭제할 수 없습니다.
+사용자 지정 도메인 이름을 삭제 하려면 먼저 조직의 리소스가 도메인 이름을 사용 하지 않는지 확인 해야 합니다. 다음의 경우 조직에서 도메인 이름을 삭제할 수 없습니다.
 
 * 임의 사용자가 도메인 이름을 포함하는 사용자 이름, 메일 주소 또는 프록시 주소 사용
 * 임의 그룹이 도메인 이름을 포함하는 메일 주소 또는 프록시 주소 사용
 * Azure AD의 임의 애플리케이션이 도메인 이름을 포함하는 앱 ID URI 사용
 
-사용자 지정 도메인 이름을 삭제하려면 먼저 Azure AD 디렉터리에서 이러한 리소스를 변경 또는 삭제해야 합니다.
+사용자 지정 도메인 이름을 삭제 하려면 먼저 Azure AD 조직에서 이러한 리소스를 변경 하거나 삭제 해야 합니다.
 
 ### <a name="forcedelete-option"></a>ForceDelete 옵션
 
-[Azure AD 관리 센터](https://aad.portal.azure.com)에서, 또는 [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta)를 사용하여 도메인 이름 **ForceDelete**를 수행할 수 있습니다. 이러한 옵션은 비동기 작업을 사용하여 모든 참조를 “user@contoso.com” 등의 사용자 지정 도메인 이름에서 “user@contoso.onmicrosoft.com” 등의 초기 기본 도메인 이름으로 업데이트합니다. 
+[Azure AD 관리 센터](https://aad.portal.azure.com)에서, 또는 [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)를 사용하여 도메인 이름 **ForceDelete** 를 수행할 수 있습니다. 이러한 옵션은 비동기 작업을 사용하여 모든 참조를 “user@contoso.com” 등의 사용자 지정 도메인 이름에서 “user@contoso.onmicrosoft.com” 등의 초기 기본 도메인 이름으로 업데이트합니다.
 
-Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한 참조가 1,000개 미만인지 확인해야 합니다. 또한 프로비저닝 서비스가 Exchange인 모든 참조는 [ Exchange 관리 센터](https://outlook.office365.com/ecp/)에서 업데이트하거나 제거해야 합니다. 여기에는 Exchange 메일 사용이 가능한 보안 그룹 및 배포 목록이 포함됩니다. 자세한 내용은 [메일 사용이 가능한 보안 그룹 제거](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)를 참조하세요. 또한 다음 중 하나에 해당하는 경우에는 **ForceDelete** 작업이 정상적으로 실행되지 않습니다.
+Azure Portal에서 **ForceDelete** 를 호출하려면 도메인 이름에 대한 참조가 1,000개 미만인지 확인해야 합니다. 또한 프로비저닝 서비스가 Exchange인 모든 참조는 [ Exchange 관리 센터](https://outlook.office365.com/ecp/)에서 업데이트하거나 제거해야 합니다. 여기에는 Exchange 메일 사용이 가능한 보안 그룹 및 배포 목록이 포함됩니다. 자세한 내용은 [메일 사용이 가능한 보안 그룹 제거](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)를 참조하세요. 또한 다음 중 하나에 해당하는 경우에는 **ForceDelete** 작업이 정상적으로 실행되지 않습니다.
 
 * Microsoft 365 도메인 구독 서비스를 통해 도메인을 구입 했습니다.
 * 다른 고객 조직을 대신하여 관리하는 파트너
@@ -110,11 +110,11 @@ Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한
 
 Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 Microsoft Graph API를 사용하여 완료할 수도 있습니다.
 
-* [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [도메인 리소스 유형](/graph/api/resources/domain?view=graph-rest-1.0)
+* [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [도메인 리소스 유형](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Azure AD의 사용자 지정 도메인 이름에 대해 Exchange 관리 센터에서 Exchange 메일 사용이 가능한 보안 그룹 제거](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
-* [Microsoft Graph API를 통해 사용자 지정 도메인 이름 ForceDelete](/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [Azure AD의 사용자 지정 도메인 이름에 대해 Exchange 관리 센터에서 Exchange 메일 사용이 가능한 보안 그룹 제거](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [Microsoft Graph API를 통해 사용자 지정 도메인 이름 ForceDelete](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)

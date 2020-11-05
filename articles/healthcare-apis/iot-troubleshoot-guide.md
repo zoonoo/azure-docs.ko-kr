@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558519"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394223"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
@@ -91,7 +91,7 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 > 현재 JSON은 장치 및 FHIR 매핑 파일에 대해 지원 되는 유일한 형식입니다.
 
 > [!TIP]
-> FHIR [장치 및 fhir 변환 JSON JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates) 에 대 한 Azure IoT 커넥터에 대해 자세히 알아보세요.
+> FHIR [장치 및 fhir 변환 JSON JSON](./iot-mapping-templates.md) 에 대 한 Azure IoT 커넥터에 대해 자세히 알아보세요.
 
 1. **"추가 기능"** 섹션에서 Azure API for FHIR 리소스 대시보드의 왼쪽 아래에 있는 **"IoT 커넥터 (미리 보기)"** 를 선택 합니다.
 
@@ -99,18 +99,18 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 
 2. 변환 매핑 JSON을 복사할 **"커넥터"** 를 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > 이 프로세스를 사용 하 여 **"FHIR 매핑 구성"** JSON의 내용을 복사 하 고 저장할 수도 있습니다.
 
 3. **"장치 매핑 구성"** 을 선택 합니다.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. JSON의 콘텐츠를 선택 하 고 복사 작업을 수행 합니다 (예: Ctrl + c 선택). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. 편집기 내의 새 파일 (예: Visual Studio Code, 메모장)에 붙여넣기 작업 (예: Ctrl + v 선택)을 수행 하 고 *. i n i 확장명을 사용 하 여 파일을 저장 합니다.
 

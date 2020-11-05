@@ -9,30 +9,30 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 8da0b34339f2ac03f50e2dcb1a4ed13cc2ea9785
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075436"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392183"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL machine learning을 사용 하 여 배포 및 예측
 
 이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge](onnx-overview.md) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 후 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 
-이 빠른 시작은 **scikit-learn**을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
+이 빠른 시작은 **scikit-learn** 을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 * Azure SQL edge를 사용 하는 경우 Azure SQL edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL edge 배포](deploy-portal.md)의 단계를 따르세요.
 
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download)를 설치합니다.
+* [Azure Data Studio](/sql/azure-data-studio/download)를 설치합니다.
 
 * 이 빠른 시작에 필요한 Python 패키지를 설치 합니다.
 
-  1. Python 3 커널에 연결된 [새 Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks)을 엽니다. 
+  1. Python 3 커널에 연결된 [새 Notebook](/sql/azure-data-studio/sql-notebooks)을 엽니다. 
   1. **패키지 관리** 클릭
-  1. **설치 됨** 탭의 설치 된 패키지 목록에서 다음 Python 패키지를 찾습니다. 이러한 패키지 중 하나라도 설치 되지 않은 경우 **새로 추가** 탭을 선택 하 고 패키지를 검색 한 다음 **설치**를 클릭 합니다.
+  1. **설치 됨** 탭의 설치 된 패키지 목록에서 다음 Python 패키지를 찾습니다. 이러한 패키지 중 하나라도 설치 되지 않은 경우 **새로 추가** 탭을 선택 하 고 패키지를 검색 한 다음 **설치** 를 클릭 합니다.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
@@ -72,14 +72,14 @@ y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n*** Training dataset y\n")
+print("\n**_ Training dataset y\n")
 print(y_train.head())
 ```
 
-**출력**:
+_ * 출력 * *:
 
 ```text
-*** Training dataset x
+**_ Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -95,7 +95,7 @@ print(y_train.head())
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-*** Training dataset y
+_*_ Training dataset y
 
 0    24.0
 1    21.6
@@ -137,15 +137,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 y_pred = model.predict(x_train)
 sklearn_r2_score = r2_score(y_train, y_pred)
 sklearn_mse = mean_squared_error(y_train, y_pred)
-print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
-print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
+print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
+print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-**출력**:
+_ * 출력 * *:
 
 ```text
-*** Scikit-learn r2 score: 0.7406426641094094
-*** Scikit-learn MSE: 21.894831181729206
+**_ Scikit-learn r2 score: 0.7406426641094094
+_*_ Scikit-learn MSE: 21.894831181729206
 ```
 
 ## <a name="convert-the-model-to-onnx"></a>모델을 ONNX로 변환
@@ -208,18 +208,18 @@ onnx_r2_score = r2_score(y_train, y_pred)
 onnx_mse = mean_squared_error(y_train, y_pred)
 
 print()
-print('*** Onnx r2 score: {}'.format(onnx_r2_score))
-print('*** Onnx MSE: {}\n'.format(onnx_mse))
+print('_*_ Onnx r2 score: {}'.format(onnx_r2_score))
+print('_*_ Onnx MSE: {}\n'.format(onnx_mse))
 print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
 print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
 print()
 ```
 
-**출력**:
+_ * 출력 * *:
 
 ```text
-*** Onnx r2 score: 0.7406426691136831
-*** Onnx MSE: 21.894830759270633
+**_ Onnx r2 score: 0.7406426691136831
+_*_ Onnx MSE: 21.894830759270633
 
 R2 Scores are equal
 MSE are equal
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>ONNX 모델 삽입
 
-모델을 Azure SQL Edge 또는 Azure SQL Managed Instance 데이터베이스의 테이블에 저장 `models` `onnx` 합니다. 연결 문자열에서 **서버 주소**, **사용자 이름**및 **암호**를 지정합니다.
+모델을 Azure SQL Edge 또는 Azure SQL Managed Instance 데이터베이스의 테이블에 저장 `models` `onnx` 합니다. 연결 문자열에서 _ * 서버 주소 * *, **사용자 이름** 및 **암호** 를 지정 합니다.
 
 ```python
 import pyodbc
@@ -287,10 +287,10 @@ conn.commit()
 
 SQL에 데이터를 로드 합니다.
 
-먼저 **features** 및 **target**이란 두 개의 테이블을 만들어 보스턴 하우징 데이터 세트의 하위 집합을 저장합니다.
+먼저 **features** 및 **target** 이란 두 개의 테이블을 만들어 보스턴 하우징 데이터 세트의 하위 집합을 저장합니다.
 
-* **features**에는 대상(중앙값)을 예측하는 데 사용되는 모든 데이터가 포함됩니다. 
-* **target**에는 데이터 세트의 각 레코드에 대한 중앙값이 포함됩니다. 
+* **features** 에는 대상(중앙값)을 예측하는 데 사용되는 모든 데이터가 포함됩니다. 
+* **target** 에는 데이터 세트의 각 레코드에 대한 중앙값이 포함됩니다. 
 
 ```python
 import sqlalchemy
