@@ -4,19 +4,19 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875610"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377805"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
 이제 [Azure 앱 서비스](../../app-service/index.yml) 에서 실행 되는 ASP.NET 및 ASP.NET Core 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 훨씬 쉬워졌습니다. 이전에 사이트 확장을 수동으로 설치 해야 하는 경우에는 이제 기본적으로 최신 확장/에이전트가 app service 이미지에 기본 제공 됩니다. 이 문서에서는 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 
 > [!NOTE]
-> **개발 도구**확장을 통해 Application Insights 사이트 확장을 수동으로 추가 하  >  **Extensions** 는 것은 더 이상 사용 되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 됩니다. 파일은에 있으며 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 각 안정적인 릴리스로 자동 업데이트 됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용 하는 경우 사용 되지 않는 확장이 자동으로 제거 됩니다.
+> **개발 도구** 확장을 통해 Application Insights 사이트 확장을 수동으로 추가 하  >  **Extensions** 는 것은 더 이상 사용 되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 됩니다. 파일은에 있으며 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 각 안정적인 릴리스로 자동 업데이트 됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용 하는 경우 사용 되지 않는 확장이 자동으로 제거 됩니다.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -42,14 +42,14 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 > APPINSIGHTS_JAVASCRIPT_ENABLED와 urlCompression의 조합은 지원 되지 않습니다. 자세한 내용은 [문제 해결 섹션](#troubleshooting)의 설명을 참조 하세요.
 
 
-1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
+1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
     ![설정에서 Application Insights 선택](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
 
      > [!NOTE]
-     > **확인**을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용**할지 묻는 메시지가 표시됩니다. **계속**을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거**됩니다. 
+     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
@@ -61,11 +61,11 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
         
 | 데이터 | .NET 기본 컬렉션 | .NET 권장 컬렉션 |
 | --- | --- | --- |
-| CPU, 메모리 및 I/O 사용량 추세를 추가합니다. |예 |예 |
-| 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | 예 |예 |
-| 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | 예 |예 |
-| 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | 예 |예 |
-| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |예 |
+| CPU, 메모리 및 I/O 사용량 추세를 추가합니다. |yes |yes |
+| 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | yes |yes |
+| 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | yes |yes |
+| 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | yes |yes |
+| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |yes |
 
 3. 이전에 applicationinsights.config 파일을 통해 제어할 수 있는 샘플과 같은 설정을 구성 하려면 이제 해당 접두사를 사용 하 여 응용 프로그램 설정을 통해 동일한 설정과 상호 작용할 수 있습니다. 
 
@@ -79,14 +79,14 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 .NET Core, 자체 포함 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 것은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
 
-1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
+1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
     ![설정에서 Application Insights 선택](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
 
      > [!NOTE]
-     > **확인**을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용**할지 묻는 메시지가 표시됩니다. **계속**을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거**됩니다. 
+     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
@@ -96,11 +96,12 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-App Service 웹 앱 내의 **설정**에서  >  **Application Insights**  >  **사용**을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
+App Service 웹 앱 내의 **설정** 에서  >  **Application Insights**  >  **사용** 을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/확장 기반 모니터링을 지원 하지 않습니다. Java 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [수동으로 응용 프로그램을 계측](./java-get-started.md)해야 합니다.
+[Application Insights java 3.0 에이전트](./java-in-process-agent.md) 에 대 한 지침에 따라 코드를 변경 하지 않고 java 앱에 대 한 자동 계측을 사용 하도록 설정 합니다.
+자동 통합은 아직 App Service 사용할 수 없습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,30 +116,30 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 클라이언트 쪽 모니터링이 ASP.NET에 대해 옵트인 (opt in) 됩니다. 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면:
 
 * **설정** **>** **구성**
-   * 응용 프로그램 설정에서 **새 응용 프로그램 설정**을 만듭니다.
+   * 응용 프로그램 설정에서 **새 응용 프로그램 설정** 을 만듭니다.
 
      이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      값: `true`
 
-   * 설정을 **저장**하고 앱을 **다시 시작**합니다.
+   * 설정을 **저장** 하고 앱을 **다시 시작** 합니다.
 
 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려면 응용 프로그램 설정에서 연결 된 키 값 쌍을 제거 하거나 값을 false로 설정 합니다.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이**있는 .net Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
+클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이** 있는 .net Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
 
 어떤 이유로 든 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려는 경우:
 
 * **설정** **>** **구성**
-   * 응용 프로그램 설정에서 **새 응용 프로그램 설정**을 만듭니다.
+   * 응용 프로그램 설정에서 **새 응용 프로그램 설정** 을 만듭니다.
 
      이름의 `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      값: `false`
 
-   * 설정을 **저장**하고 앱을 **다시 시작**합니다.
+   * 설정을 **저장** 하고 앱을 **다시 시작** 합니다.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
@@ -165,7 +166,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진을 켤 지 여부를 제어 `InstrumentationEngine` 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고: 응용 프로그램 콜드 시작 시간이 영향을 받습니다. 이 설정에는가 필요 합니다 `InstrumentationEngine` . | `~1` |
 
@@ -350,7 +351,8 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 다음은 Azure 앱 서비스에서 실행 되는 .NET 및 .NET Core 기반 응용 프로그램에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드입니다.
 
 > [!NOTE]
-> Java 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure 앱 서비스 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+
 
 1. 를 통해 응용 프로그램을 모니터링 하는지 확인 `ApplicationInsightsAgent` 합니다.
     * `ApplicationInsightsAgent_EXTENSION_VERSION`앱 설정이 "~ 2" 값으로 설정 되어 있는지 확인 합니다.
@@ -401,7 +403,7 @@ Azure 앱 Services에서 또는 런타임을 사용 하 여 웹 앱을 만들 �
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress는 지원 되지 않습니다.
 
-PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 javascript를 웹 페이지에 추가 하 여 클라이언트 쪽 javascript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](./javascript.md)를 사용 하 여 수행할 수 있습니다.
+PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워크 로드의 서버 쪽 모니터링에 대 한 공식적으로 지원 되는 SDK/에이전트가 없습니다. 그러나 클라이언트 쪽 JavaScript를 웹 페이지에 추가 하 여 클라이언트 쪽 JavaScript를 PHP 또는 WordPress 사이트에 수동으로 계측 하면 [JAVASCRIPT SDK](./javascript.md)를 사용 하 여 수행할 수 있습니다.
 
 ### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
 

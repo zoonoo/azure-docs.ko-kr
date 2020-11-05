@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
-ms.openlocfilehash: 021c3705ff96774583438d261f894ff1bc24c21f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/06/2020
+ms.openlocfilehash: 1885dd76a94a7a4a6b91c67735103350c473ba44
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636326"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378434"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -135,7 +135,7 @@ Express 사용자 지정 설치에 대해 **환경 변수 형식 추가** 를 �
 
 #### <a name="installing-azure-powershell"></a>Azure PowerShell 설치
 
-Express 사용자 지정 설치에 대 한 **설치 Azure PowerShell** 유형을 선택 하는 경우 Azure-SSIS IR에서 PowerShell의 Az 모듈을 설치할 수 있습니다. 이렇게 하려면 [지원 되는 목록](https://www.powershellgallery.com/stats/packages/Az?groupby=Version)에서 원하는 Az module version 번호 (x-y)를 입력 합니다. 이렇게 하면 패키지에서 Azure PowerShell cmdlet/스크립트를 실행 하 여 Azure 리소스를 관리할 수 있습니다 (예: [Azure Analysis Services (.aas))](../analysis-services/analysis-services-powershell.md).
+Express 사용자 지정 설치에 대 한 **설치 Azure PowerShell** 유형을 선택 하는 경우 Azure-SSIS IR에서 PowerShell의 Az 모듈을 설치할 수 있습니다. 이렇게 하려면 [지원 되는 목록](https://www.powershellgallery.com/packages/az)에서 원하는 Az module version 번호 (x-y)를 입력 합니다. 이렇게 하면 패키지에서 Azure PowerShell cmdlet/스크립트를 실행 하 여 Azure 리소스를 관리할 수 있습니다 (예: [Azure Analysis Services (.aas))](../analysis-services/analysis-services-powershell.md).
 
 #### <a name="installing-licensed-components"></a>사용이 허가 된 구성 요소 설치
 
@@ -289,7 +289,7 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
 
       * *Sample* 폴더 - 기본 작업을 Azure-SSIS IR의 각 노드에 설치하는 사용자 지정 설치가 포함되어 있습니다. 이 작업은 몇 초 동안 대기하면서 아무 것도 수행하지 않습니다. 또한 폴더에는 *gacutil* 폴더도 포함되어 있습니다. 이 폴더의 전체 콘텐츠( *gacutil.exe* , *gacutil.exe.config* 및 *1033\gacutlrc.dll* )는 있는 그대로 컨테이너에 복사할 수 있습니다.
 
-      * *UserScenarios* 폴더 - 실제 사용자 시나리오의 몇 가지 사용자 지정 설치 샘플이 포함되어 있습니다.
+      * *UserScenarios* 폴더 - 실제 사용자 시나리오의 몇 가지 사용자 지정 설치 샘플이 포함되어 있습니다. Azure-SSIS IR에 여러 샘플을 설치 하려는 경우 사용자 지정 설치 스크립트 ( *기본 .cmd* ) 파일을 단일 파일로 결합 하 고 모든 관련 파일을 사용 하 여 컨테이너에 업로드할 수 있습니다.
 
         ![공개 미리 보기 컨테이너의 콘텐츠](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34c3c20b277a768ba27016f1c76bd782ef05dc36
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d014a901791f16ecdcb9c3d5f0858a8626cc1072
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377645"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379080"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>클라우드 그룹을 사용 하 여 Azure Active Directory에서 역할 할당 관리 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure ad (Azure Active Directory)는 클라우드 그룹을 Azure AD 기본 제�
 
 ## <a name="how-this-feature-works"></a>이 기능의 작동 원리
 
-' IsAssignableToRole ' 속성이 ' t r u e '로 설정 된 새 Microsoft 365 또는 보안 그룹을 만듭니다. Azure AD 역할을 설정 하 여 **그룹에 할당할 수**있는 Azure Portal에서 그룹을 만들 때이 속성을 사용 하도록 설정할 수도 있습니다. 어떤 방법으로 사용자에 게 역할을 할당 하는 것과 동일한 방식으로 하나 이상의 Azure AD 역할에 그룹을 할당할 수 있습니다. 단일 Azure AD 조직 (테 넌 트)에서 최대 200의 역할 할당 가능 그룹을 만들 수 있습니다.
+' IsAssignableToRole ' 속성이 ' t r u e '로 설정 된 새 Microsoft 365 또는 보안 그룹을 만듭니다. Azure AD 역할을 설정 하 여 **그룹에 할당할 수** 있는 Azure Portal에서 그룹을 만들 때이 속성을 사용 하도록 설정할 수도 있습니다. 어떤 방법으로 사용자에 게 역할을 할당 하는 것과 동일한 방식으로 하나 이상의 Azure AD 역할에 그룹을 할당할 수 있습니다. 단일 Azure AD 조직 (테 넌 트)에서 최대 200의 역할 할당 가능 그룹을 만들 수 있습니다.
 
 그룹 구성원에 게 역할에 대 한 액세스 권한을 부여할 수 없도록 하려면 Azure AD Privileged Identity Management를 사용할 수 있습니다. 그룹을 Azure AD 역할의 적격 멤버로 할당 합니다. 그런 다음 그룹의 각 구성원은 그룹이 할당 된 역할에 대 한 할당을 활성화할 수 있습니다. 그런 다음 고정 된 기간 동안 해당 역할 할당을 활성화할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure AD를 사용 하면 그룹에 대해 isAssignableToRole 라는 새 속성�
 ## <a name="known-issues"></a>알려진 문제
 
 - **관리 되는 사용자 로그인 기능에 대해 준비 된 롤아웃 사용** 은 그룹을 통한 할당을 지원 하지 않습니다.
-- *AZURE Ad P2 사용이 허가 된 고객만*해당: azure ad 및 PRIVILEGED IDENTITY MANAGEMENT (PIM)을 통해 역할에 활성으로 그룹을 할당 하지 않습니다. 특히 역할 할당을 만들 때 역할 할당 가능 그룹에 역할을 할당 *하지 않고 나중* 에 PIM을 사용 하 여 그룹에 역할을 할당 합니다. 이렇게 하면 사용자가 PIM에서 활성 역할 할당을 볼 수 없는 문제가 발생 하 고 해당 PIM 할당을 제거할 수 없습니다. 적격 할당은이 시나리오에서 영향을 받지 않습니다. 이 할당을 수행 하려고 하면 다음과 같은 예기치 않은 동작이 발생할 수 있습니다.
+- *AZURE Ad P2 사용이 허가 된 고객만* 해당: azure ad 및 PRIVILEGED IDENTITY MANAGEMENT (PIM)을 통해 역할에 활성으로 그룹을 할당 하지 않습니다. 특히 역할 할당을 만들 때 역할 할당 가능 그룹에 역할을 할당 *하지 않고 나중* 에 PIM을 사용 하 여 그룹에 역할을 할당 합니다. 이렇게 하면 사용자가 PIM에서 활성 역할 할당을 볼 수 없는 문제가 발생 하 고 해당 PIM 할당을 제거할 수 없습니다. 적격 할당은이 시나리오에서 영향을 받지 않습니다. 이 할당을 수행 하려고 하면 다음과 같은 예기치 않은 동작이 발생할 수 있습니다.
   - 역할 할당의 종료 시간이 잘못 표시 될 수 있습니다.
   - PIM 포털에서 **내 역할** 은 하나 이상의 그룹을 통해 할당을 허용 하는 방법에 관계 없이 역할 할당을 하나만 표시할 수 있습니다.
 - *AZURE AD P2 라이선스 고객만* 그룹을 삭제 한 후에도 여전히 PIM UI에서 역할의 적격 멤버가 표시 됩니다. 기능적으로 문제가 발생 하지 않습니다. 단지 Azure Portal의 캐시 문제입니다.  

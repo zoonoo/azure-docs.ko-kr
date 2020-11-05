@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/21/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18e97aea5c556c4f8e6ff1fb1b91a82da6de1b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14cfd1aef3a49baa11050293fc216256f33cee7a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749367"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376666"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>HANA 대규모 인스턴스에 대해 호환되는 운영 체제
 
@@ -39,14 +39,15 @@ ms.locfileid: "88749367"
   | SLES 12 SP4      | 사용 가능    | S224oo, S224om, S224ooo, S224oom |
   
 ## <a name="hana-large-instance-type-ii"></a>HANA 대규모 인스턴스 유형 II     
-  |  운영 체제       | 가용성        | SKU                                                              |
-  |-------------------------|---------------------|-------------------------------------------------------------------|
-  | SLES 12 SP2             | 더 이상 제공되지 않음 | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
-  | SLES 12 SP3             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
-  | SLES 12 SP4             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
+  |  운영 체제       | 가용성        | SKU                                                                     |
+  |-------------------------|---------------------|--------------------------------------------------------------------------|
+  | SLES 12 SP2             | 더 이상 제공되지 않음 | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
+  | SLES 12 SP3             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
+  | SLES 12 SP4             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
   | SLES 12 SP5             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | SLES 15 SP1             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
-  
+  | RHEL 7.6                | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
+
 ## <a name="related-documents"></a>관련 문서
 
 - [사용 가능한 SKU](hana-available-skus.md)에 대해 자세히 알아보려면

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e578c90a05085df33c2d547402256cfc38229aa3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f8fdfd99b2ef5c1578bc9e87534461d68398c9f6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377533"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378281"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Azure Active Directory의 그룹에 할당 된 역할 보기
 
@@ -28,7 +28,7 @@ ms.locfileid: "92377533"
 
 1. 관심이 있는 그룹을 선택 합니다.
 
-1. **할당 된 역할**을 선택 합니다. 이제이 그룹에 할당 된 모든 Azure AD 역할을 볼 수 있습니다.
+1. **할당 된 역할** 을 선택 합니다. 이제이 그룹에 할당 된 모든 Azure AD 역할을 볼 수 있습니다.
 
    ![선택한 그룹에 할당 된 모든 역할 보기](./media/groups-view-assignments/view-assignments.png)
 
@@ -62,5 +62,5 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용 하 여 역할 할당 관리](groups-concept.md)
+- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
 - [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377575"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379165"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용 하 여 그룹에 역할 할당
 
@@ -37,7 +37,7 @@ ms.locfileid: "92377575"
 
     !["역할 선택" 및 "멤버 선택" 섹션이 강조 표시 된 "할당 추가" 페이지를 보여 주는 스크린샷](./media/groups-pim-eligible/select-member.png)
 
-1. 원하는 멤버 자격 설정을 선택 합니다. 활성화가 필요한 역할의 경우 **적격**을 선택 합니다. 기본적으로 사용자는 영구적으로 사용할 수 있지만 사용자의 자격에 대 한 시작 및 종료 시간을 설정할 수도 있습니다. 완료 되 면 저장 및 추가를 눌러 역할 할당을 완료 합니다.
+1. 원하는 멤버 자격 설정을 선택 합니다. 활성화가 필요한 역할의 경우 **적격** 을 선택 합니다. 기본적으로 사용자는 영구적으로 사용할 수 있지만 사용자의 자격에 대 한 시작 및 종료 시간을 설정할 수도 있습니다. 완료 되 면 저장 및 추가를 눌러 역할 할당을 완료 합니다.
 
     ![역할을 할당할 사용자 선택](./media/groups-pim-eligible/set-assignment-settings.png)
 
@@ -103,7 +103,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용 하 여 역할 할당 관리](groups-concept.md)
+- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
 - [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)
 - [Privileged Identity Management에서 Azure AD 관리자 역할 설정 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Privileged Identity Management에서 Azure 리소스 역할 할당](../privileged-identity-management/pim-resource-roles-assign-roles.md)

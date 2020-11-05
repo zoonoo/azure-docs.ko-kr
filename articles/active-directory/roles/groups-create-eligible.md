@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377644"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378621"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "92377644"
 ## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
-1. **그룹**  >  **모든 그룹**  >  **새 그룹**을 선택 합니다.
+1. **그룹**  >  **모든 그룹**  >  **새 그룹** 을 선택 합니다.
 
     [![Azure Active Directory를 열고 새 그룹을 만듭니다.](./media/groups-create-eligible/new-group.png "Azure Active Directory를 열고 새 그룹을 만듭니다.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
@@ -40,7 +40,7 @@ ms.locfileid: "92377644"
 
     [![역할 할당 가능 그룹에 멤버를 추가 하 고 역할을 할당 합니다.](./media/groups-create-eligible/specify-members.png "역할 할당 가능 그룹에 멤버를 추가 하 고 역할을 할당 합니다.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
 
-1. 멤버 및 소유자를 지정한 후 **만들기**를 선택 합니다.
+1. 멤버 및 소유자를 지정한 후 **만들기** 를 선택 합니다.
 
     [![페이지 맨 아래에 만들기 단추가 있습니다.](./media/groups-create-eligible/create-button.png "페이지 맨 아래에 만들기 단추가 있습니다.")](./media/groups-create-eligible/create-button.png#<lightbox>)
 
@@ -127,5 +127,5 @@ POST https://graph.microsoft.com/beta/groups
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드 그룹에 역할 할당](groups-assign-role.md)
-- [클라우드 그룹을 사용 하 여 역할 할당 관리](groups-concept.md)
+- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
 - [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)

@@ -6,20 +6,20 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 04/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf41a16975505b76e4b49fdf4e73faeb187ddfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378246"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378638"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -78,7 +78,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 2. Privileged Identity Management를 사용하려는 Azure AD 조직을 선택하려면 Azure Portal의 오른쪽 위 모서리에서 사용자 이름을 선택합니다.
 
-3. Azure Portal 메뉴에서 **모든 서비스**를 선택하고, **Azure AD Privileged Identity Management**를 찾기 위해 목록을 필터링합니다.
+3. Azure Portal 메뉴에서 **모든 서비스** 를 선택하고, **Azure AD Privileged Identity Management** 를 찾기 위해 목록을 필터링합니다.
 
 4. **모든 서비스** 목록에서 Privileged Identity Management를 열고 대시보드에 고정합니다.
 

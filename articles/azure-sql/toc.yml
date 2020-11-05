@@ -111,7 +111,7 @@
                   href: database/long-term-retention-overview.md
         - name: 모니터링 및 튜닝
           items:
-            - name: 문서화
+            - name: 설명서
               href: database/monitoring-tuning-index.yml
             - name: 개요
               href: database/monitor-tune-overview.md
@@ -223,7 +223,7 @@
                   href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: SQL Database(SQL DB)
   items:
-    - name: 문서화
+    - name: 설명서
       href: database/index.yml
     - name: 개요
       items:
@@ -361,7 +361,7 @@
               href: database/network-access-controls-overview.md
             - name: DNS 별칭
               href: database/dns-alias-overview.md
-            - name: vNet 엔드포인트
+            - name: VNet 엔드포인트
               href: database/vnet-service-endpoint-rule-overview.md
             - name: Private Link
               href: database/private-endpoint-overview.md
@@ -635,7 +635,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Managed Instance(SQL MI)
   items:
-    - name: 문서화
+    - name: 설명서
       href: managed-instance/index.yml
     - name: 개요
       items:
@@ -948,7 +948,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM의 SQL Server
   items:
-    - name: 문서화
+    - name: 설명서
       href: virtual-machines/index.yml
     - name: Windows
       items:
@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: 관리
               items:
+                - name: SQL IaaS 에이전트 확장
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: 전용 호스트
                   href: virtual-machines/windows/dedicated-host.md
                 - name: SQL 2008 및 R2에 대한 지원 확장
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: 스토리지
                   href: virtual-machines/windows/storage-configuration.md
+                - name: 자동화된 패치
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Azure Key Vault 통합
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: SQL VM RP에 등록
-                  displayName: 'resource provider, registration'
+                - name: SQL IaaS 에이전트 확장 설치
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: 자동 등록
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: 여러 VM 대량 등록
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: 관리 작업 자동화
-                  items:
-                    - name: SQL Server IaaS 에이전트 확장 사용
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: 자동화된 패치
-                      href: virtual-machines/windows/automated-patching.md
             - name: 마이그레이션
               items:
                 - name: SQL Server 데이터베이스를 VM으로 마이그레이션
@@ -1070,7 +1068,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 사전 요구 사항
+                            - name: 필수 구성 요소
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1194,7 +1192,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SSDT(SQL Server Data Tools)
+    - name: SQL Server Data Tools(SSDT)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility

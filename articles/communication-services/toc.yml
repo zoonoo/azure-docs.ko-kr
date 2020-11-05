@@ -98,14 +98,50 @@
       href: samples/web-calling-sample.md
 - name: 참조
   items:
+    - name: 참조 설명서 개요
+      href: concepts/reference.md
     - name: REST API 설명서
       href: 'https://docs.microsoft.com/rest/api/communication/'
-    - name: 통화 라이브러리(Android/Java)
-      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
-    - name: 통화 라이브러리(JS)
-      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
-    - name: 통화 라이브러리(iOS)
-      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: 호출 라이브러리
+      items:
+        - name: 호출(JavaScript)
+          href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+        - name: 호출(Android/Java)
+          href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+        - name: 호출(iOS)
+          href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+    - name: 채팅 라이브러리
+      items:
+        - name: 채팅(JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
+        - name: 채팅(.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
+        - name: 채팅(Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+    - name: SMS 라이브러리
+      items:
+        - name: SMS(JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
+        - name: SMS(.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
+        - name: SMS(Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
+    - name: 관리 라이브러리
+      items:
+        - name: 관리(JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
+        - name: 관리(.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
+        - name: 관리(Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
+    - name: 일반 라이브러리
+      items:
+        - name: 일반(JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
+        - name: 일반(.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
+        - name: 일반(Android-Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
 - name: 리소스
   items:
     - name: 릴리스 정보

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376318"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378553"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리 하는 사용자 지정 역할 할당
 
@@ -46,31 +46,31 @@ ms.locfileid: "92376318"
 > 사용자 지정 역할은 조직 전체 수준에서 만들어지고 관리 되며 조직의 개요 페이지 에서만 사용할 수 있습니다.
 
 1. 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory**를 선택하고 **역할 및 관리자**를 선택한 다음, **새 사용자 지정 역할**을 선택합니다.
+1. **Azure Active Directory** 를 선택하고 **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
 
     ![Azure AD의 역할 목록에서 새 사용자 지정 역할 추가](./media/custom-enterprise-apps/new-custom-role.png)
 
-1. **기본 정보** 탭에서 역할의 이름에 "사용자 및 그룹 할당 관리"를 제공 하 고 역할 설명에 "사용자 및 그룹 할당을 관리 하는 권한 부여"를 선택한 후 **다음**을 선택 합니다.
+1. **기본 정보** 탭에서 역할의 이름에 "사용자 및 그룹 할당 관리"를 제공 하 고 역할 설명에 "사용자 및 그룹 할당을 관리 하는 권한 부여"를 선택한 후 **다음** 을 선택 합니다.
 
     ![사용자 지정 역할에 대 한 이름 및 설명 제공](./media/custom-enterprise-apps/role-name-and-description.png)
 
-1. **사용 권한** 탭의 검색 상자에 "microsoft Directory/Serviceprincipals/appRoleAssignedTo/update"를 입력 하 고 원하는 권한 옆의 확인란을 선택한 후 **다음**을 선택 합니다.
+1. **사용 권한** 탭의 검색 상자에 "microsoft Directory/Serviceprincipals/appRoleAssignedTo/update"를 입력 하 고 원하는 권한 옆의 확인란을 선택한 후 **다음** 을 선택 합니다.
 
     ![사용자 지정 역할에 사용 권한 추가](./media/custom-enterprise-apps/role-custom-permissions.png)
 
-1. **검토 + 만들기** 탭에서 권한을 검토하고 **만들기**를 선택합니다.
+1. **검토 + 만들기** 탭에서 권한을 검토하고 **만들기** 를 선택합니다.
 
     ![이제 사용자 지정 역할을 만들 수 있습니다.](./media/custom-enterprise-apps/role-custom-create.png)
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 사용자에게 역할 할당
 
 1. 권한 있는 역할 관리자 역할 권한으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory**를 선택한 다음, **역할 및 관리자**를 선택합니다.
+1. **Azure Active Directory** 를 선택한 다음, **역할 및 관리자** 를 선택합니다.
 1. **사용자 및 그룹 할당을 관리할 수 있는 권한 부여 역할을** 선택 합니다.
 
     ![역할 및 관리자를 열고 사용자 지정 역할 검색](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. **할당 추가**를 선택 하 고 원하는 사용자를 선택한 다음 **선택** 을 클릭 하 여 사용자에 게 역할 할당을 추가 합니다.
+1. **할당 추가** 를 선택 하 고 원하는 사용자를 선택한 다음 **선택** 을 클릭 하 여 사용자에 게 역할 할당을 추가 합니다.
 
     ![사용자에 게 사용자 지정 역할에 대 한 할당 추가](./media/custom-enterprise-apps/assign-user-to-role.png)
 

@@ -437,5 +437,7 @@
       href: limits-quotas-constraints.md
     - name: Azure 클라우드 및 지역
       href: azure-clouds-regions.md
+    - name: 지역 코드 이름 및 엔드포인트
+      href: azure-regions-code-names.md
     - name: 설명서 업데이트
       href: docs-release-notes.md

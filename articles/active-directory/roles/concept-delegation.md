@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376319"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378366"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Azure Active Directory의 관리 위임
 
@@ -73,12 +73,12 @@ Azure AD에서 관리 액세스 대신 Azure 리소스에 대 한 액세스를 �
 
 기본적으로 모든 사용자는 애플리케이션 등록을 만들 수 있습니다. 애플리케이션 등록을 만드는 기능을 선택적으로 부여하려면:
 
-* **사용자 설정**에서 **사용자가 애플리케이션을 등록할 수 있음**을 아니요로 설정합니다.
+* **사용자 설정** 에서 **사용자가 애플리케이션을 등록할 수 있음** 을 아니요로 설정합니다.
 * 애플리케이션 개발자 역할에 사용자 할당
 
 애플리케이션이 데이터에 액세스할 수 있도록 동의하는 기능을 선택적으로 부여하려면:
 
-* **사용자 설정**에서 **사용자는 애플리케이션이 사용자 대신 회사 데이터에 액세스하도록 동의할 수 있음**을 아니요로 설정합니다.
+* **사용자 설정** 에서 **사용자는 애플리케이션이 사용자 대신 회사 데이터에 액세스하도록 동의할 수 있음** 을 아니요로 설정합니다.
 * 애플리케이션 개발자 역할에 사용자 할당
 
 애플리케이션 개발자는 새 애플리케이션 등록을 만들 때 자동으로 첫 번째 소유자로 추가됩니다.

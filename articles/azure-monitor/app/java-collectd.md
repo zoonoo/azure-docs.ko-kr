@@ -3,15 +3,17 @@ title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
 description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761025"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379012"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
+> [!IMPORTANT]
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
 Linux 시스템 성능 메트릭을[Application Insights](./app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 
@@ -94,7 +96,7 @@ Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metr
 * 구성 파일을 편집합니다. 
 * `<Plugin ApplicationInsightsWriter>`에서 다음과 같은 지시문 줄을 추가 합니다.
 
-| 지시문 | 영향 |
+| 지시문 | 효과 |
 | --- | --- |
 | `Exclude disk` |`disk` 플러그인에 의해 수집된 모든 데이터를 제외 |
 | `Exclude disk:read,write` |`disk` 플러그인에서 `read`과 `write`라고 명명된 원본을 제외합니다. |

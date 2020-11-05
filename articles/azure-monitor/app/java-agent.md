@@ -4,17 +4,19 @@ description: Application Insights로 Java 웹 사이트의 확장된 성능 및 
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e91e0252ac2af02157c30fe025e75b6cfee7de6e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371365"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378485"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
+> [!IMPORTANT]
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
-[Application Insights로 Java 웹앱을 계측][java]한 경우, Java Agent를 사용하여 코드의 변경 없이 보다 심층적인 정보를 얻을 수 있습니다.
+[APPLICATION INSIGHTS SDK를 사용 하 여 java 웹 앱을 계측][java]한 경우 java 에이전트를 사용 하 여 코드를 변경 하지 않고 보다 심층적인 정보를 얻을 수 있습니다.
 
 * **종속성:** 애플리케이션이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
   * Apache HttpClient, OkHttp 및를 통해 생성 된 **나가는 HTTP 호출은** `java.net.HttpURLConnection` 캡처됩니다.
@@ -90,7 +92,7 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )에서 릴리스를 확인 하세요. 
 
-에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구**디버그 콘솔로 이동 하 여  >  **Debug Console** 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
+에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구** 디버그 콘솔로 이동 하 여  >  **Debug Console** 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 
 * 설정을 저장하고 앱을 다시 시작합니다. 이러한 단계는 Windows에서 실행 되는 App Services에만 적용 됩니다.
 
@@ -114,7 +116,7 @@ AI-Agent.xml에 다음을 추가합니다.
 
 이상적으로는 모든 서비스 W3C 프로토콜을 지원하는 최신 버전의 SDK로 업데이트된 경우입니다. 가능한 한 빨리 W3C를 지원하는 최신 버전의 SDK로 전환하는 것이 좋습니다.
 
-**[수신](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) 및 발신(에이전트) 구성이 둘 다 정확히 동일**한지 확인합니다.
+**[수신](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) 및 발신(에이전트) 구성이 둘 다 정확히 동일** 한지 확인합니다.
 
 ## <a name="view-the-data"></a>데이터 보기
 Application Insights 리소스에서 집계 된 원격 종속성과 메서드 실행 시간은 [성능 타일 아래][metrics]에 나타납니다.

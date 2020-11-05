@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: 메시지 보강
       href: tutorial-message-enrichments.md
-    - name: 메트릭 및 진단 로그 사용
+    - name: 메트릭 및 로그 사용
       href: tutorial-use-metrics-and-diags.md
     - name: 수동 장애 조치(failover) 수행
       href: tutorial-manual-failover.md

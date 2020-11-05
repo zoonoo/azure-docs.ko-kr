@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a6d6ca825a556ea3c98fb94d4becbb75b8f2a7d7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294328"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376887"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 TheAccessHub Admin 도구를 구성 하기 위한 자습서
 
@@ -52,7 +52,7 @@ TheAccessHub Admin 도구는 Azure의 다른 응용 프로그램과 마찬가지
 
 ![N8identity 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자는 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C TheAccessHub Admin 도구를 호출 하 고 사용자 특성을 전달 합니다.
@@ -102,7 +102,7 @@ TheAccessHub 관리자 도구에 디렉터리에 대 한 액세스 권한을 부
 
 5. 프롬프트에 따라 **동의 함** 을 선택 하 여 TheAccessHub 관리 도구에 요청 된 사용 권한을 부여 합니다.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-your-enterprise-identity"></a>엔터프라이즈 id를 사용 하 여 새 CSR/기술 지원팀 사용자 구성
+## <a name="configure-a-new-csr-user-using-your-enterprise-identity"></a>엔터프라이즈 id를 사용 하 여 새 CSR 사용자 구성
 
 기존 엔터프라이즈 Azure Active Directory 자격 증명을 사용 하 여 TheAccessHub Admin 도구에 액세스 하는 CSR/헬프데스크 사용자를 만듭니다.
 
@@ -126,7 +126,7 @@ SSO (Single Sign-on)를 사용 하 여 CSR/헬프데스크 사용자를 구성 �
 
 6. **제출** 을 선택합니다.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-a-new-identity"></a>새 id를 사용 하 여 새 CSR/기술 지원팀 사용자 구성
+## <a name="configure-a-new-csr-user-using-a-new-identity"></a>새 id를 사용 하 여 새 CSR 사용자 구성
 
 TheAccessHub Admin 도구에 고유한 새 로컬 자격 증명을 사용 하 여 TheAccessHub 관리 도구에 액세스 하는 CSR/헬프데스크 사용자를 만듭니다. 엔터프라이즈에 대해 Azure AD를 사용 하지 않는 조직에서 주로 사용 됩니다.
 
@@ -150,7 +150,7 @@ SSO 없이 [CSR/헬프데스크](https://youtu.be/iOpOI2OpnLI) 사용자를 설�
 
 7. **제출** 을 선택합니다.
 
-## <a name="configure-partitioned-csrhelpdesk-administration"></a>분할 된 CSR/기술 지원팀 관리 구성
+## <a name="configure-partitioned-csr-administration"></a>분할 된 CSR 관리 구성
 
 TheAccessHub 관리 도구에서 고객 및 CSR/기술 지원팀 사용자를 관리할 수 있는 권한은 조직 계층 구조를 사용 하 여 관리 됩니다. 모든 동료와 고객은 거주 하는 홈 조직을 보유 하 고 있습니다. 특정 동료 또는 동료 그룹을 조직의 소유자로 할당할 수 있습니다.  조직 소유자는 자신이 소유한 조직 또는 하위 조직의 동료와 고객을 관리 (변경) 할 수 있습니다. 여러 동료가 사용자 집합을 관리할 수 있도록 하려면 많은 멤버를 사용 하 여 그룹을 만들 수 있습니다. 그런 다음 그룹을 조직 소유자로 할당 하 고 모든 그룹의 구성원이 조직의 동료와 고객을 관리할 수 있습니다.
 
@@ -324,7 +324,7 @@ TheAccessHub Admin 도구를 사용 하 여 다양 한 데이터베이스, LDAPs
 
 18. 로드 단계에서 **데이터 동기화** 레코드가 100%가 되 면 로드로 인해 발생 하는 모든 변경 내용이 시작 됩니다. 고객은 Azure AD B2C에서 변경 내용을 받거나 받아야 합니다.
 
-## <a name="synchronize-azure-ad-b2c-customer-data-into-theaccesshub-admin-tool"></a>TheAccessHub 관리 도구에 Azure AD B2C 고객 데이터 동기화
+## <a name="synchronize-azure-ad-b2c-customer-data"></a>Azure AD B2C 고객 데이터 동기화 
 
 일회성 또는 지속적인 작업으로 TheAccessHub Admin 도구는 Azure AD B2C의 모든 고객 정보를 TheAccessHub Admin 도구로 동기화 할 수 있습니다. 이렇게 하면 CSR/기술 지원팀 관리자가 최신 고객 정보를 볼 수 있습니다.
 
@@ -356,7 +356,7 @@ Azure AD B2C에서 TheAccessHub Admin 도구로 데이터를 동기화 하려면
 
 13. 로드 단계에서 **데이터 동기화** 레코드가 100%가 되 면 로드로 인해 발생 하는 모든 변경 내용이 시작 됩니다.
 
-## <a name="configure-azure-ad-b2c-policies-to-call-theaccesshub-admin-tool"></a>TheAccessHub Admin 도구를 호출 하도록 Azure AD B2C 정책 구성
+## <a name="configure-azure-ad-b2c-policies"></a>Azure AD B2C 정책 구성
 
 Azure AD B2C를 사용 하 여 상태를 최신 상태로 유지 하는 기능이 TheAccessHub 관리 도구를 동기화 하는 경우도 있습니다. TheAccessHub 관리 도구의 API 및 Azure AD B2C 정책을 활용 하 여 TheAccessHub 관리 도구를 변경 하는 것을 알릴 수 있습니다. 이 솔루션에는 [Azure AD B2C 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20)에 대 한 기술 지식이 필요 합니다. 다음 섹션에서는 Sign-Up 사용자 지정 정책에 새 계정에 대 한 TheAccessHub 관리 도구를 알리는 정책 단계 및 보안 인증서 예제를 제공 합니다.
 

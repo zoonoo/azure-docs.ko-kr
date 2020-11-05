@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165515"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377754"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "92165515"
 
 사용자는 Azure Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정) 중에 사용되는 인증의 보조 형식처럼 휴대폰 또는 사무실 전화를 사용하여 자신을 확인할 수도 있습니다.
 
-올바르게 작동하려면 전화번호가 *+CountryCode PhoneNumber* 형식으로 저장되어야 합니다(예: *+1 4251234567*).
+올바르게 작동하려면 전화번호가 *+CountryCode PhoneNumber* 형식으로 저장되어야 합니다(예: *+1 4251234567* ).
 
 > [!NOTE]
 > 국가/지역 코드와 전화번호 사이에 공백이 필요합니다.
@@ -49,8 +49,6 @@ SSPR 또는 Azure Multi-Factor Authentication 중에 문자 메시지를 확인�
 SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 사용자에게 키패드에서 PIN 번호와 #을 입력하라는 메시지가 안내가 표시됩니다.
 
 ## <a name="office-phone-verification"></a>사무실 전화 확인
-
-사무실 전화 특성은 Azure AD 관리자에 의해 관리되며 사용자가 스스로 등록할 수 없습니다.
 
 SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 사용자에게 키패드에서 PIN 번호와 #을 입력하라는 메시지가 안내가 표시됩니다.
 
@@ -81,7 +79,7 @@ SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재�
 
 MFA 옵션에 대해 자세히 알아보려면 [Azure Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
 
-[Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
+[Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

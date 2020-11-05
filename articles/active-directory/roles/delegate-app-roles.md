@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9ad21e15d33dabba74d338b339e4b2fdc25df52e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378275"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379216"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -62,8 +62,8 @@ ms.locfileid: "92378275"
 
 1. 조직의 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자에 게 적합 한 계정을 사용 하 여 [AZURE AD 조직](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
 1. 조직의 [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 에서 앱을 선택 하 여 앱에 대 한 개요 페이지를 엽니다.
-1. **소유자**를 선택하여 앱의 소유자 목록을 확인합니다.
-1. **추가**를 선택하여 앱에 추가할 소유자를 하나 이상 선택합니다.
+1. **소유자** 를 선택하여 앱의 소유자 목록을 확인합니다.
+1. **추가** 를 선택하여 앱에 추가할 소유자를 하나 이상 선택합니다.
 
 > [!IMPORTANT]
 > 사용자 및 서비스 주체는 응용 프로그램 등록의 소유자가 될 수 있습니다. 사용자만 엔터프라이즈 응용 프로그램의 소유자가 될 수 있습니다. 그룹을 소유자로 할당할 수 없습니다.
@@ -89,10 +89,10 @@ Azure AD에는 모든 응용 프로그램에 대해 Azure AD의 구성 관리에
 
 사용자 지정 역할을 만들고 사용자 지정 역할을 할당 하는 단계는 다음과 같습니다.
 
-- [사용자 지정 *역할 정의* ](custom-create.md) 를 만들고 [기본 설정 목록에서 해당 정의에 대 한 권한을 추가](custom-available-permissions.md)합니다. 이러한 권한은 기본 제공 역할에 사용 되는 것과 동일한 권한입니다.
+- [사용자 지정 *역할 정의*](custom-create.md) 를 만들고 [기본 설정 목록에서 해당 정의에 대 한 권한을 추가](custom-available-permissions.md)합니다. 이러한 권한은 기본 제공 역할에 사용 되는 것과 동일한 권한입니다.
 - 사용자 지정 역할을 할당 하 [는 *역할 할당* 을 만듭니다](custom-assign-powershell.md) .
 
-이러한 분리를 통해 단일 역할 정의를 만든 다음 여러 *범위*에서 여러 번 할당할 수 있습니다. 사용자 지정 역할은 조직 전체의 범위에서 할당 되거나 단일 Azure AD 개체의 경우 범위에서 할당 될 수 있습니다. 개체 범위의 예로는 단일 앱 등록이 있습니다. 서로 다른 범위를 사용 하 여 조직의 모든 앱 등록에 대해 Sally에 동일한 역할 정의를 할당 한 후 Contoso Expense Reports 앱 등록만 Naveen 수 있습니다.
+이러한 분리를 통해 단일 역할 정의를 만든 다음 여러 *범위* 에서 여러 번 할당할 수 있습니다. 사용자 지정 역할은 조직 전체의 범위에서 할당 되거나 단일 Azure AD 개체의 경우 범위에서 할당 될 수 있습니다. 개체 범위의 예로는 단일 앱 등록이 있습니다. 서로 다른 범위를 사용 하 여 조직의 모든 앱 등록에 대해 Sally에 동일한 역할 정의를 할당 한 후 Contoso Expense Reports 앱 등록만 Naveen 수 있습니다.
 
 응용 프로그램 관리 위임에 대 한 사용자 지정 역할을 만들고 사용 하는 경우의 팁:
 - 사용자 지정 역할은 Azure AD 포털의 최신 앱 등록 블레이드에만 액세스 권한을 부여 합니다. 레거시 앱 등록 블레이드에는 액세스 권한을 부여 하지 않습니다.

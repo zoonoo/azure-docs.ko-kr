@@ -13,16 +13,22 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488888"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379267"
 ---
-# <a name="enable-kdump-service"></a>Kdump 서비스 사용
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>HLI (Azure의 SAP HANA(대규모 인스턴스) 용 kdump)
 
-이 문서에서는 Azure HANA Large Instance에서 Kdump 서비스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용 (**유형 I 및 유형 II**)을 설명 합니다.
+Kdump를 구성 하 고 사용 하도록 설정 하는 것은 명백한 원인이 없는 시스템 작동 중단 문제를 해결 하는 데 필요한 단계입니다.
+시스템이 예기치 않게 작동이 중단 되 고 하드웨어 또는 인프라 문제로 설명할 수 없는 경우가 있습니다.
+이러한 경우 운영 체제 또는 응용 프로그램 문제가 발생할 수 있으며, kdump에서 시스템이 충돌 하는 이유를 SUSE 수 있습니다.
+
+## <a name="enable-kdump-service"></a>Kdump 서비스 사용
+
+이 문서에서는 Azure HANA Large Instance에서 Kdump 서비스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용 ( **유형 I 및 유형 II** )을 설명 합니다.
 
 ## <a name="supported-skus"></a>지원되는 SKU
 
@@ -55,13 +61,17 @@ ms.locfileid: "84488888"
 |   형식 II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   형식 II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Kdump 서비스는 디렉터리를 사용 하 여 `/var/crash` 덤프를 쓰고,이 디렉터리에 해당 하는 파티션에 덤프를 수용할 수 있는 충분 한 공간이 있는지 확인 합니다.
 
 ## <a name="setup-details"></a>설정 정보
 
 - Kdump를 사용 하도록 설정 하는 스크립트는 [여기](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh) 에서 찾을 수 있습니다.
+> [!NOTE]
+> 이 스크립트는 랩 설정에 따라 결정 되며, 추가 튜닝을 위해 OS 공급 업체에 문의 해야 합니다.
+> 덤프를 저장 하기 위해 새 서버와 기존 서버에 대해 별도의 LUN이 프로 비전 되 고 스크립트가 LUN에서 파일 시스템을 구성 하는 과정을 처리 합니다.
+> Microsoft는 덤프 분석에 대해 책임을 지지 않습니다. 고객은 분석을 위해 OS 공급 업체에서 티켓을 열어야 합니다.
 
 - 아래의 명령을 사용 하 여 HANA Large Instance에서이 스크립트를 실행 합니다.
 
@@ -72,7 +82,7 @@ ms.locfileid: "84488888"
     sudo bash enable-kdump.sh
     ```
 
-- Kdump 출력이 성공적으로 사용 하도록 설정 된 경우 시스템을 다시 부팅 하 여 변경 내용을 적용 하 고 Kdump를 사용 하도록 설정 합니다. 시스템을 다시 부팅 하 여 변경 내용을 적용 합니다.
+- Kdump 출력이 성공적으로 설정 된 경우에는 시스템을 다시 부팅 하 여 변경 내용을 적용 해야 합니다.
 
 - 명령 출력에서 특정 작업을 수행 하지 못한 경우!!!!,를 끝낸 후 Kdump 서비스를 사용할 수 없습니다. [지원 문제](#support-issue)섹션을 참조 하세요.
 
@@ -104,3 +114,6 @@ ms.locfileid: "84488888"
 * OS 버전
 
 * 커널 버전
+
+## <a name="related-documents"></a>관련 문서
+- [Kdump 구성](https://www.suse.com/support/kb/doc/?id=3374462) 에 대해 자세히 알아보려면

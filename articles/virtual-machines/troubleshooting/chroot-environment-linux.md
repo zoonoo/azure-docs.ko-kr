@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332188"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377941"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Linux 복구 VM의 chroot 환경
 
@@ -34,7 +34,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -53,17 +53,17 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -71,16 +71,16 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,7 +101,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -120,17 +120,17 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -138,16 +138,16 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,7 +171,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -190,9 +190,9 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 논리 볼륨 그룹을 활성화 합니다.
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. 명령을 사용 `lsblk` 하 여 lvm 이름을 검색 합니다.
@@ -221,23 +221,23 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -245,22 +245,22 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,7 +284,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -303,9 +303,9 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 논리 볼륨 그룹을 활성화 합니다.
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. 명령을 사용 `lsblk` 하 여 lvm 이름을 검색 합니다.
@@ -333,22 +333,22 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -356,21 +356,21 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,7 +391,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -410,18 +410,18 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -429,17 +429,17 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,7 +460,7 @@ ms.locfileid: "92332188"
 
    1. 다음 명령을 사용 하 여 루트 사용자로 VM에 액세스 합니다.
 
-      `#sudo su -`
+      `sudo su -`
 
    1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
@@ -479,18 +479,18 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경에 액세스 합니다.
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Chroot 환경 문제를 해결 합니다.
@@ -498,17 +498,17 @@ ms.locfileid: "92332188"
    1. 다음 명령을 사용 하 여 chroot 환경을 종료 합니다.
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

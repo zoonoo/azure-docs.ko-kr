@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377630"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377737"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
 
@@ -32,9 +32,9 @@ ms.locfileid: "92377630"
 
 **A:** 기본적으로 권한 있는 역할 관리자와 전역 관리자만 역할 할당 그룹의 멤버 자격을 관리 하지만 그룹 소유자를 추가 하 여 역할 할당 그룹의 관리를 위임할 수 있습니다.
 
-**Q**: 내 조직의 기술 지원팀 관리자 이지만 디렉터리 판독기 인 사용자의 암호를 업데이트할 수 없습니다. 왜 발생 하나요?
+**Q** : 내 조직의 기술 지원팀 관리자 이지만 디렉터리 판독기 인 사용자의 암호를 업데이트할 수 없습니다. 왜 발생 하나요?
 
-**A**: 사용자는 역할 할당 가능 그룹을 통해 디렉터리 판독기를 사용할 수 있습니다. 역할 할당 그룹의 모든 멤버 및 소유자는 보호 됩니다. 권한 있는 인증 관리자 또는 전역 관리자 역할의 사용자만 보호 된 사용자에 대 한 자격 증명을 다시 설정할 수 있습니다.
+**A** : 사용자는 역할 할당 가능 그룹을 통해 디렉터리 판독기를 사용할 수 있습니다. 역할 할당 그룹의 모든 멤버 및 소유자는 보호 됩니다. 권한 있는 인증 관리자 또는 전역 관리자 역할의 사용자만 보호 된 사용자에 대 한 자격 증명을 다시 설정할 수 있습니다.
 
 **Q:** 사용자의 암호를 업데이트할 수 없습니다. 할당 된 높은 권한이 있는 역할이 없습니다. 왜 발생 하나요?
 
@@ -69,27 +69,27 @@ SharePoint 관리자 | 카탈로그 소유자 | &nbsp; | ✔️  | &nbsp;  | ✔
 
 **A:** 이 대답은 Azure AD Premium P1 조직에만 적용 됩니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory**를 엽니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory** 를 엽니다.
 1. 사용자를 선택 하 고 사용자 프로필을 엽니다.
-1. **할당 된 역할**을 선택 합니다.
+1. **할당 된 역할** 을 선택 합니다.
 1. 기어 아이콘을 선택 합니다. 이 정보를 제공할 수 있는 창이 열립니다. 직접 할당 옆에는 "제거" 단추가 있습니다. 간접 역할 할당을 제거 하려면 역할이 할당 된 그룹에서 사용자를 제거 합니다.
 
 **Q:** 역할을 할당할 수 있는 모든 그룹을 볼 어떻게 할까요? 있나요?
 
 **A:** 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory**를 엽니다.
-1. **그룹**  >  **모든 그룹**을 선택 합니다.
-1. **필터 추가**를 선택 합니다.
-1. 할당 가능한 **역할**에 필터링 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory** 를 엽니다.
+1. **그룹**  >  **모든 그룹** 을 선택 합니다.
+1. **필터 추가** 를 선택 합니다.
+1. 할당 가능한 **역할** 에 필터링 합니다.
 
 **Q:** 보안 주체에 직접적이 고 간접적으로 할당 되는 역할을 어떻게 할까요? 하는 것은 무엇 인가요?
 
 **A:** 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory**를 엽니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory** 를 엽니다.
 1. 사용자를 선택 하 고 사용자 프로필을 엽니다.
-1. **할당 된 역할**을 선택 하 고 다음을 수행 합니다.
+1. **할당 된 역할** 을 선택 하 고 다음을 수행 합니다.
 
     - Azure AD Premium P1 사용이 허가 된 조직: 기어 아이콘을 선택 합니다. 이 정보를 제공할 수 있는 창이 열립니다.
     - Azure AD Premium P2 사용이 허가 된 조직: **멤버 자격** 열에서 직접 및 상속 된 라이선스 정보를 찾을 수 있습니다.
@@ -100,5 +100,5 @@ SharePoint 관리자 | 카탈로그 소유자 | &nbsp; | ✔️  | &nbsp;  | ✔
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용 하 여 역할 할당 관리](groups-concept.md)
+- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
 - [역할 할당 가능 그룹 만들기](groups-create-eligible.md)

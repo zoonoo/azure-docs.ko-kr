@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377813"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377074"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대 한 응용 프로그램 등록 권한
 
@@ -28,7 +28,7 @@ ms.locfileid: "92377813"
 
 사용자 지정 역할에 대 한 사용 권한을 선택할 때 단일 테 넌 트 응용 프로그램을 관리 하기 위해 액세스 권한을 부여할 수 있는 옵션이 있습니다. 단일 테 넌 트 응용 프로그램은 응용 프로그램이 등록 된 Azure AD 조직의 사용자만 사용할 수 있습니다. 단일 테 넌 트 응용 프로그램은 지원 되는 **계정 유형이** "이 조직 디렉터리의 계정 전용 계정"으로 설정 된 것으로 정의 됩니다. Graph API에서 단일 테 넌 트 응용 프로그램은 signInAudience 속성을 "AzureADMyOrg"로 설정 합니다.
 
-단일 테 넌 트 응용 프로그램만 관리할 수 있는 액세스 권한을 부여 하려면 하위 형식 **응용 프로그램. myOrganization**에서 아래 권한을 사용 합니다. 예를 들어 microsoft. directory/applications. myOrganization/기본/업데이트입니다.
+단일 테 넌 트 응용 프로그램만 관리할 수 있는 액세스 권한을 부여 하려면 하위 형식 **응용 프로그램. myOrganization** 에서 아래 권한을 사용 합니다. 예를 들어 microsoft. directory/applications. myOrganization/기본/업데이트입니다.
 
 일반 용어 하위 유형, 권한 및 속성 집합의 의미에 대 한 설명은 [사용자 지정 역할 개요](custom-overview.md) 를 참조 하세요. 다음 정보는 응용 프로그램 등록에만 적용 됩니다.
 

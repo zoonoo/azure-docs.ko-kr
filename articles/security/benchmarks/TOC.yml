@@ -127,6 +127,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
+    - name: Cloud Services 보안 기준
+      href: ../../cloud-services/security-baseline.md
     - name: Cloud Shell 보안 기준
       href: ../../cloud-shell/security-baseline.md
     - name: Cognitive Services 보안 기준
@@ -177,5 +179,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Virtual Network 보안 옵션
       href: ../../virtual-network/security-baseline.md
+    - name: Virtual WAN 보안 기준
+      href: ../../virtual-wan/security-baseline.md
     - name: VPN Gateway 보안 기준
       href: ../../vpn-gateway/security-baseline.md

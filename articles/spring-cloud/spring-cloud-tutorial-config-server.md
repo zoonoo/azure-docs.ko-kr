@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d5196e612bcf20e11f17634b32db028cd5bc88
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904242"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378094"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
 
@@ -55,12 +55,12 @@ Azure Spring Cloud는 Config 서버 파일을 저장하기 위해 Azure DevOps, 
 퍼블릭 Git 리포지토리를 설정하는 데 사용되는 모든 구성 가능한 속성은 다음 표에 나와 있습니다.
 
 > [!NOTE]
-> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label*은 사용할 수 있지만, *defaultLabel*은 사용할 수 없습니다.
+> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label* 은 사용할 수 있지만, *defaultLabel* 은 사용할 수 없습니다.
 
 | 속성        | 필수 | 기능                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작합니다. |
-| `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
+| `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름* , *태그 이름* 또는 *commit-id* 여야 합니다. |
 | `search-paths`  | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 
 ------
@@ -70,17 +70,20 @@ Azure Spring Cloud는 Config 서버 파일을 저장하기 위해 Azure DevOps, 
 SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용되는 모든 구성 가능한 속성은 다음 표에 나와 있습니다.
 
 > [!NOTE]
-> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label*은 사용할 수 있지만, *defaultLabel*은 사용할 수 없습니다.
+> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label* 은 사용할 수 있지만, *defaultLabel* 은 사용할 수 없습니다.
 
 | 속성                   | 필수 | 기능                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
-| `default-label`            | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
+| `default-label`            | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름* , *태그 이름* 또는 *commit-id* 여야 합니다. |
 | `search-paths`             | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 | `private-key`              | 예     | Git 리포지토리에 액세스하기 위한 SSH 프라이빗 키이며, URI가 *git@* 또는 *ssh://* 로 시작하는 경우에 _필요합니다_. |
 | `host-key`                 | 예     | Git 리포지토리 서버의 호스트 키이며, `host-key-algorithm`에 포함된 알고리즘 접두사를 포함하지 않아야 합니다. |
-| `host-key-algorithm`       | 예     | 호스트 키 알고리즘은 *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* 또는 *ecdsa-sha2-nistp521*이어야 합니다. `host-key`가 있는 경우에만 *필요합니다*. |
-| `strict-host-key-checking` | 예     | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true*(기본값) 또는 *false*여야 합니다. |
+| `host-key-algorithm`       | 예     | 호스트 키 알고리즘은 *ssh-dss* , *ssh-rsa* , *ecdsa-sha2-nistp256* , *ecdsa-sha2-nistp384* 또는 *ecdsa-sha2-nistp521* 이어야 합니다. `host-key`가 있는 경우에만 *필요합니다*. |
+| `strict-host-key-checking` | 예     | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true* (기본값) 또는 *false* 여야 합니다. |
+
+> [!NOTE]
+> 구성 서버는 `master` 지정 되지 않은 경우 기본 레이블로 (Om Git 자체)를 사용 합니다. 그러나 GitHub는 기본 분기를에서 `master` 최근에로 변경 했습니다 `main` . Azure 스프링 클라우드 구성 서버 실패를 방지 하려면 GitHub를 사용 하 여 구성 서버를 설정 하는 경우, 특히 새로 만든 리포지토리에 대해 주의를 기울여야 합니다.
 
 -----
 
@@ -89,12 +92,12 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 기본 인증을 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용되는 모든 구성 가능한 속성은 아래에 나와 있습니다.
 
 > [!NOTE]
-> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label*은 사용할 수 있지만, *defaultLabel*은 사용할 수 없습니다.
+> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label* 은 사용할 수 있지만, *defaultLabel* 은 사용할 수 없습니다.
 
 | 속성        | 필수 | 기능                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | 예    | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
-| `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
+| `default-label` | 예     | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름* , *태그 이름* 또는 *commit-id* 여야 합니다. |
 | `search-paths`  | 예     | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 | `username`      | 예     | Git 리포지토리 서버에 액세스하는 데 사용되는 사용자 이름이며, Git 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 경우에 _필요합니다_. |
 | `password`      | 예     | Git 리포지토리 서버에 액세스하는 데 사용되는 암호이며, Git 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 경우에 _필요합니다_. |
@@ -107,22 +110,22 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 패턴을 사용하는 Git 리포지토리를 설정하는 데 사용되는 모든 구성 가능한 속성은 아래에 나와 있습니다.
 
 > [!NOTE]
-> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label*은 사용할 수 있지만, *defaultLabel*은 사용할 수 없습니다.
+> 현재 지원되는 유일한 명명 규칙은 하이픈(-)을 사용하여 단어를 구분하는 것입니다. 예를 들어 *default-label* 은 사용할 수 있지만, *defaultLabel* 은 사용할 수 없습니다.
 
 | 속성                           | 필수         | 기능                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | 예             | 지정된 이름이 있는 Git 리포지토리의 설정으로 구성된 맵입니다. |
 | `repos."uri"`                      | `repos`가 있는 경우 예 | Config 서버 백 엔드로 사용되는 Git 리포지토리의 URI는 *http://* , *https://* , *git@* 또는 *ssh://* 로 시작해야 합니다. |
-| `repos."name"`                     | `repos`가 있는 경우 예 | Git 리포지토리를 식별하는 이름이며, `repos`가 있는 경우에만 _필요합니다_. 예를 들어 *team-A*, *team-B*입니다. |
+| `repos."name"`                     | `repos`가 있는 경우 예 | Git 리포지토리를 식별하는 이름이며, `repos`가 있는 경우에만 _필요합니다_. 예를 들어 *team-A* , *team-B* 입니다. |
 | `repos."pattern"`                  | 예             | 애플리케이션 이름을 매칭하는 데 사용되는 문자열 배열입니다. 각 패턴의 경우 와일드 카드가 포함된 `{application}/{profile}` 형식을 사용합니다. |
-| `repos."default-label"`            | 예             | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름*, *태그 이름* 또는 *commit-id*여야 합니다. |
+| `repos."default-label"`            | 예             | Git 리포지토리의 기본 레이블은 리포지토리의 *분기 이름* , *태그 이름* 또는 *commit-id* 여야 합니다. |
 | `repos."search-paths`"             | 예             | Git 리포지토리의 하위 디렉터리를 검색하는 데 사용되는 문자열 배열입니다. |
 | `repos."username"`                 | 예             | Git 리포지토리 서버에 액세스하는 데 사용되는 사용자 이름이며, Git 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 경우에 _필요합니다_. |
 | `repos."password"`                 | 예             | Git 리포지토리 서버에 액세스하는 데 사용되는 암호이며, Git 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 경우에 _필요합니다_. |
 | `repos."private-key"`              | 예             | Git 리포지토리에 액세스하기 위한 SSH 프라이빗 키이며, URI가 *git@* 또는 *ssh://* 로 시작하는 경우에 _필요합니다_. |
 | `repos."host-key"`                 | 예             | Git 리포지토리 서버의 호스트 키이며, `host-key-algorithm`에 포함된 알고리즘 접두사를 포함하지 않아야 합니다. |
-| `repos."host-key-algorithm"`       | 예             | 호스트 키 알고리즘은 *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* 또는 *ecdsa-sha2-nistp521*이어야 합니다. `host-key`가 있는 경우에만 *필요합니다*. |
-| `repos."strict-host-key-checking"` | 예             | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true*(기본값) 또는 *false*여야 합니다. |
+| `repos."host-key-algorithm"`       | 예             | 호스트 키 알고리즘은 *ssh-dss* , *ssh-rsa* , *ecdsa-sha2-nistp256* , *ecdsa-sha2-nistp384* 또는 *ecdsa-sha2-nistp521* 이어야 합니다. `host-key`가 있는 경우에만 *필요합니다*. |
+| `repos."strict-host-key-checking"` | 예             | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true* (기본값) 또는 *false* 여야 합니다. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Azure Spring Cloud에 Config 서버 리포지토리 연결
 
@@ -142,24 +145,24 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 #### <a name="default-repository"></a>기본 리포지토리
 
-* **퍼블릭 리포지토리**: **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣습니다.  **레이블**을 **config**로 설정합니다. **인증** 설정이 **퍼블릭**인지 확인한 다음, **적용**을 선택하여 완료합니다. 
+* **퍼블릭 리포지토리** : **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣습니다.  **레이블** 을 **config** 로 설정합니다. **인증** 설정이 **퍼블릭** 인지 확인한 다음, **적용** 을 선택하여 완료합니다. 
 
-* **프라이빗 리포지토리**: Azure Spring Cloud는 기본 암호/토큰 기반 인증 및 SSH를 지원합니다.
+* **프라이빗 리포지토리** : Azure Spring Cloud는 기본 암호/토큰 기반 인증 및 SSH를 지원합니다.
 
-    * **기본 인증**: **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣은 다음, **인증**("연필" 아이콘) 단추를 선택합니다. **인증 편집** 창의 **인증 유형** 드롭다운 목록에서 **HTTP Basic**을 선택한 다음, 사용자 이름과 암호/토큰을 입력하여 Azure Spring Cloud에 대한 액세스 권한을 부여합니다. **확인**을 선택한 다음, **적용**을 클릭하여 Config 서버 인스턴스 설정을 완료합니다.
+    * **기본 인증** : **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣은 다음, **인증** ("연필" 아이콘) 단추를 선택합니다. **인증 편집** 창의 **인증 유형** 드롭다운 목록에서 **HTTP Basic** 을 선택한 다음, 사용자 이름과 암호/토큰을 입력하여 Azure Spring Cloud에 대한 액세스 권한을 부여합니다. **확인** 을 선택한 다음, **적용** 을 클릭하여 Config 서버 인스턴스 설정을 완료합니다.
 
     ![인증 편집 창 기본 인증](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
-    > 일부 리포지토리 서버(예: GitHub)에서는 암호와 같은 *personal-token* 또는 *access-token*을 **기본 인증**에 사용합니다. 이러한 종류의 토큰은 만료되지 않으므로 Azure Spring Cloud에서 암호로 사용할 수 있습니다. 그러나 다른 Git 리포지토리 서버(예: Bitbucket 및 Azure DevOps)의 경우 *access-token*은 1~2시간 후에 만료됩니다. 즉, Azure Spring Cloud에서 이러한 리포지토리 서버를 사용하는 경우에는 이 옵션을 사용할 수 없습니다.
+    > 일부 리포지토리 서버(예: GitHub)에서는 암호와 같은 *personal-token* 또는 *access-token* 을 **기본 인증** 에 사용합니다. 이러한 종류의 토큰은 만료되지 않으므로 Azure Spring Cloud에서 암호로 사용할 수 있습니다. 그러나 다른 Git 리포지토리 서버(예: Bitbucket 및 Azure DevOps)의 경우 *access-token* 은 1~2시간 후에 만료됩니다. 즉, Azure Spring Cloud에서 이러한 리포지토리 서버를 사용하는 경우에는 이 옵션을 사용할 수 없습니다.
 
-    * **SSH**: **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣은 다음, **인증**("연필" 아이콘) 단추를 선택합니다. **인증 편집** 창의 **인증 유형** 드롭다운 목록에서 **SSH**를 선택한 다음, **프라이빗 키**를 입력합니다. 필요에 따라 **호스트 키** 및 **호스트 키 알고리즘**을 지정합니다. Config 서버 리포지토리에 공개 키를 포함해야 합니다. **확인**을 선택한 다음, **적용**을 클릭하여 Config 서버 인스턴스 설정을 완료합니다.
+    * **SSH** : **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣은 다음, **인증** ("연필" 아이콘) 단추를 선택합니다. **인증 편집** 창의 **인증 유형** 드롭다운 목록에서 **SSH** 를 선택한 다음, **프라이빗 키** 를 입력합니다. 필요에 따라 **호스트 키** 및 **호스트 키 알고리즘** 을 지정합니다. Config 서버 리포지토리에 공개 키를 포함해야 합니다. **확인** 을 선택한 다음, **적용** 을 클릭하여 Config 서버 인스턴스 설정을 완료합니다.
 
     ![인증 편집 창 ssh 인증](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### <a name="pattern-repository"></a>패턴 리포지토리
 
-선택 사항인 **패턴 리포지토리**를 사용하여 서비스를 구성하려면 **기본 리포지토리**와 같은 방법으로 **URI** 및 **인증**을 지정합니다. 패턴에 대한 **이름**을 포함한 다음, **적용**을 선택하여 인스턴스에 연결해야 합니다. 
+선택 사항인 **패턴 리포지토리** 를 사용하여 서비스를 구성하려면 **기본 리포지토리** 와 같은 방법으로 **URI** 및 **인증** 을 지정합니다. 패턴에 대한 **이름** 을 포함한 다음, **적용** 을 선택하여 인스턴스에 연결해야 합니다. 
 
 ### <a name="enter-repository-information-into-a-yaml-file"></a>YAML 파일에 리포지토리 정보 입력
 
@@ -177,12 +180,12 @@ spring:
 
 ```
 
-**설정 가져오기** 단추를 선택한 다음, 프로젝트 디렉터리에서 YAML 파일을 선택합니다. **가져오기**를 선택합니다. 그러면 **알림**에서 `async` 작업이 팝업됩니다. 1-2분 후 성공 여부가 보고됩니다.
+**설정 가져오기** 단추를 선택한 다음, 프로젝트 디렉터리에서 YAML 파일을 선택합니다. **가져오기** 를 선택합니다. 그러면 **알림** 에서 `async` 작업이 팝업됩니다. 1-2분 후 성공 여부가 보고됩니다.
 
 ![Config 서버 알림 창](media/spring-cloud-tutorial-config-server/local-yml-success.png)
 
 
-YAML 파일의 정보가 Azure Portal에 표시됩니다. **적용**을 선택하여 완료합니다. 
+YAML 파일의 정보가 Azure Portal에 표시됩니다. **적용** 을 선택하여 완료합니다. 
 
 ## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Azure 스프링 클라우드 구성에 Azure Repos 사용
 
@@ -218,7 +221,7 @@ Azure 스프링 클라우드는 공용, SSH로 보호 또는 HTTP 기본 인증�
 
 1. 구성할 서비스를 선택합니다.
 
-1. 서비스 페이지의 왼쪽 창에 있는 **설정**에서 **구성 서버** 탭을 선택 합니다. 이전에 만든 리포지토리를 구성 합니다.
+1. 서비스 페이지의 왼쪽 창에 있는 **설정** 에서 **구성 서버** 탭을 선택 합니다. 이전에 만든 리포지토리를 구성 합니다.
    - 이전 섹션에서 저장 한 리포지토리 URL 추가
    - 설정을 클릭 하 고 다음을 선택 합니다. `Authentication``HTTP Basic`
    - __사용자 이름은__ 이전 섹션에서 저장 한 사용자 이름입니다.

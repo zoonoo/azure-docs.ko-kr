@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314724"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377225"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -29,11 +29,16 @@ VM에 대 한 복제 주기가 실패할 수 있습니다. 이러한 오류는 �
 다음 단계를 사용 하 여 가상 컴퓨터의 복제 상태를 모니터링 합니다.
 
   1. Azure Portal Azure Migrate의 서버 페이지로 이동 합니다.
-  2. 서버 마이그레이션 타일에서 "서버 복제"를 클릭 하 여 "컴퓨터 복제" 페이지로 이동 합니다.
-  3. 상태, 상태, 마지막 동기화 시간 등의 추가 정보와 함께 복제 서버 목록이 표시 됩니다. 상태 열은 VM의 현재 복제 상태를 나타냅니다. 상태 열의 ' 위험 ' 또는 ' 경고 ' 값은 일반적으로 VM에 대 한 이전 복제 주기가 실패 했음을 나타냅니다. 자세한 내용을 보려면 VM을 마우스 오른쪽 단추로 클릭 하 고 "오류 정보"를 선택 합니다. 오류 정보 페이지에는 오류에 대 한 정보 및 문제 해결 방법에 대 한 추가 정보가 포함 되어 있습니다. 또한 VM에 대 한 이벤트 페이지로 이동 하는 데 사용할 수 있는 "최근 이벤트" 링크도 표시 됩니다.
-  4. "최근 이벤트"를 클릭 하 여 VM에 대 한 이전 복제 주기 실패를 확인 합니다. 이벤트 페이지에서 VM에 대 한 "복제 주기 실패" 또는 "디스크의 복제 주기 실패" 유형의 최신 이벤트를 찾습니다.
-  5. 이벤트를 클릭 하 여 오류의 가능한 원인과 권장 수정 단계를 이해 합니다. 제공 된 정보를 사용 하 여 오류를 해결 하 고 해결 합니다.
-    
+  ![이미지 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. 서버 마이그레이션 타일에서 "서버 복제"를 클릭 하 여 "컴퓨터 복제" 페이지로 이동 합니다.
+  ![이미지 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. 상태, 상태, 마지막 동기화 시간 등의 추가 정보와 함께 복제 서버 목록이 표시 됩니다. 상태 열은 VM의 현재 복제 상태를 나타냅니다. 상태 열의 ' 위험 ' 또는 ' 경고 ' 값은 일반적으로 VM에 대 한 이전 복제 주기가 실패 했음을 나타냅니다. 자세한 내용을 보려면 VM을 마우스 오른쪽 단추로 클릭 하 고 "오류 정보"를 선택 합니다. 오류 정보 페이지에는 오류에 대 한 정보 및 문제 해결 방법에 대 한 추가 정보가 포함 되어 있습니다. 또한 VM에 대 한 이벤트 페이지로 이동 하는 데 사용할 수 있는 "최근 이벤트" 링크도 표시 됩니다.
+  ![이미지 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. "최근 이벤트"를 클릭 하 여 VM에 대 한 이전 복제 주기 실패를 확인 합니다. 이벤트 페이지에서 VM에 대 한 "복제 주기 실패" 또는 "디스크의 복제 주기 실패" 유형의 최신 이벤트를 찾습니다.
+  ![이미지 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. 이벤트를 클릭 하 여 오류의 가능한 원인과 권장 수정 단계를 이해 합니다. 제공 된 정보를 사용 하 여 오류를 해결 하 고 해결 합니다.
+ ![이미지 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>일반적인 복제 오류
 
 이 섹션에서는 몇 가지 일반적인 오류와 이러한 오류를 해결 하는 방법을 설명 합니다.
@@ -54,7 +59,7 @@ VM에 대 한 복제 주기가 실패할 수 있습니다. 이러한 오류는 �
 
 - 이 문제가 발생할 수 있는 다른 경우는 한 사용자 (user1)가 처음에 복제를 설정 하 고 오류가 발생 했지만 key vault가 이미 생성 된 경우 (그리고 사용자 액세스 정책이이 사용자에 게 적절 하 게 할당 된 경우)입니다. 이제 나중에 다른 사용자 (사용자 2)가 복제를 설정 하려고 하지만, 키 자격 증명 모음에 사용자 지정에 해당 하는 사용자 액세스 정책이 없으므로 관리 저장소 계정 구성 또는 SAS 정의 생성 작업이 실패 합니다.
 
-**해결**방법:이 문제를 해결 하려면 관리 되는 저장소 계정을 구성 하 고 SAS 정의를 생성 하는 keyvault에서 사용자 2에 대 한 사용자 액세스 정책을 만듭니다. 다음 cmdlet을 사용 하 여 Azure PowerShell에서이 작업을 수행할 수 있습니다.
+**해결** 방법:이 문제를 해결 하려면 관리 되는 저장소 계정을 구성 하 고 SAS 정의를 생성 하는 keyvault에서 사용자 2에 대 한 사용자 액세스 정책을 만듭니다. 다음 cmdlet을 사용 하 여 Azure PowerShell에서이 작업을 수행할 수 있습니다.
 
 $userPrincipalId = $ (Get-azurermaduser-UserPrincipalName "user2_email_address"). A-id
 
@@ -134,7 +139,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     이 명령은 TCP 연결을 시도 하 고 출력을 반환 합니다.
     
-     - 출력에서 "_Tcptestsucceeded_" 필드를 확인 합니다. 값이 "_True_" 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
+     - 출력에서 " _Tcptestsucceeded_ " 필드를 확인 합니다. 값이 " _True_ " 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
     
     **해결 방법:** 이 테스트에 실패 하면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 있습니다. 연결 문제를 확인 하기 위해 로컬 네트워킹 팀에 참여 합니다. 일반적으로 오류를 발생 시키는 일부 방화벽 설정이 있을 수 있습니다.
     
@@ -220,7 +225,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     이 명령은 TCP 연결을 시도 하 고 출력을 반환 합니다.
     
-    1. 출력에서 "_Tcptestsucceeded_" 필드를 확인 합니다. 값이 "_True_" 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
+    1. 출력에서 " _Tcptestsucceeded_ " 필드를 확인 합니다. 값이 " _True_ " 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
     
     **해결 방법:** 이 테스트에 실패 하면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 있습니다. 연결 문제를 확인 하기 위해 로컬 네트워킹 팀에 참여 합니다. 일반적으로 오류를 발생 시키는 일부 방화벽 설정이 있을 수 있습니다.
     
@@ -271,7 +276,7 @@ _오류 메시지: 내부 오류가 발생 했습니다. [오류 메시지]_
 
 이 문제는 스냅숏 생성이 응답 하지 않을 때 발생 합니다. 이 문제가 발생 하면 95% 또는 99%에서 스냅숏 만들기 작업 중지를 확인할 수 있습니다. 이 문제를 해결 하려면이 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) 를 참조 하십시오.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_ ]
 
 복제 주기 끝에 디스크를 통합 하면 작업이 실패 합니다. 적절 한 _이유_ 를 선택 하 여 문제를 해결 하는 [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) 의 지침을 따르세요.
 

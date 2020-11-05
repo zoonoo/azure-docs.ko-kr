@@ -1,17 +1,17 @@
 ---
-title: 모든 환경에서 실행 중인 Java 응용 프로그램 모니터링-Azure Monitor Application Insights
-description: 앱을 계측 하지 않고 Java 독립 실행형 에이전트가 있는 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
+title: JVM 인수 추가-Azure Monitor Application Insights Java
+description: Azure Monitor Application Insights Java에 대 한 JVM 인수 추가
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374306"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377636"
 ---
-# <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Azure Monitor Application Insights에 대 한 JVM args Java 독립 실행형 에이전트 구성
+# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java에 대 한 JVM 인수 추가
 
 
 
@@ -170,7 +170,7 @@ set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-
 
 ## <a name="websphere-8"></a>WebSphere 8
 
-관리 콘솔을 엽니다. **서버 > WebSphere 응용 프로그램 서버 > 응용 프로그램 서버**로 이동한 후 적절 한 응용 프로그램 서버를 선택 하 고 다음을 클릭 합니다. 
+관리 콘솔을 엽니다. **서버 > WebSphere 응용 프로그램 서버 > 응용 프로그램 서버** 로 이동한 후 적절 한 응용 프로그램 서버를 선택 하 고 다음을 클릭 합니다. 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine

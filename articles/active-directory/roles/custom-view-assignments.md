@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4267921f123d163a98c7244d009b06430a8717d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7311f4faf4d8e93c4d3d2724bb9810342a769473
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377435"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379233"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
 
@@ -32,7 +32,7 @@ ms.locfileid: "92377435"
 이 절차에서는 조직 전체 범위에서 역할의 할당을 확인 하는 방법을 설명 합니다.
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory**를 선택 하 고 **역할 및 관리자**를 선택한 다음 역할을 선택 하 여 열고 해당 속성을 확인 합니다.
+1. **Azure Active Directory** 를 선택 하 고 **역할 및 관리자** 를 선택한 다음 역할을 선택 하 여 열고 해당 속성을 확인 합니다.
 1. **할당** 을 선택 하 여 역할에 대 한 할당을 확인 합니다.
 
     ![목록에서 역할을 열 때 역할 할당 및 사용 권한 보기](./media/custom-view-assignments/role-assignments.png)
@@ -105,11 +105,11 @@ HTTP/1.1 200 OK
 이 섹션에서는 단일 응용 프로그램 범위를 사용 하는 역할의 할당을 보는 방법을 설명 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **앱 등록**를 선택 하 고 앱 등록을 선택 하 여 해당 속성을 확인 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션**을 선택해야 할 수도 있습니다.
+1. **앱 등록** 를 선택 하 고 앱 등록을 선택 하 여 해당 속성을 확인 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
 
     ![앱 등록 페이지에서 앱 등록 만들기 또는 편집](./media/custom-view-assignments/appreg-all-apps.png)
 
-1. 앱 등록에서 **역할 및 관리자**를 선택한 다음 해당 속성을 볼 역할을 선택 합니다.
+1. 앱 등록에서 **역할 및 관리자** 를 선택한 다음 해당 속성을 볼 역할을 선택 합니다.
 
     ![앱 등록 페이지에서 앱 등록 역할 할당 보기](./media/custom-view-assignments/appreg-assignments.png)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294289"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376858"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>층를 사용 하 여 온-프레미스 응용 프로그램을 보호 하기 위한 Azure AD B2C 확장을 위한 자습서
 
@@ -57,7 +57,7 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 ![이미지 하이브리드 앱에 액세스할 수 있도록 층 Maverics와 Azure AD B2C 통합의 아키텍처를 보여 줍니다.](./media/partner-strata/strata-architecture-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |:-------|:---------------|
 | 1. | 사용자가 온-프레미스 호스팅된 응용 프로그램에 대 한 액세스를 요청 합니다. Maverics Id Orchestrator는 응용 프로그램에 대 한 사용자의 요청을 프록시 합니다.|
 | 2. | Orchestrator에서 사용자의 인증 상태를 확인 합니다. 세션 토큰이 수신 되지 않거나 제공 된 세션 토큰이 잘못 된 경우 인증을 위해 Azure AD B2C 사용자에 게 보냅니다.|
@@ -65,13 +65,11 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 | 4. | IdP은 사용자에 게 자격 증명을 요구 합니다. IdP에 따라 사용자는 MFA (Multi-factor authentication)를 수행 해야 할 수 있습니다.|
 | 5. | IdP 인증 응답을 Azure AD B2C으로 다시 보냅니다. 필요에 따라이 단계를 수행 하는 동안 사용자가 Azure AD B2C 디렉터리에 로컬 계정을 만들 수 있습니다.|
 | 6. | Azure AD B2C은 Azure AD B2C 테 넌 트에서 Orchestrator 앱 등록 중에 지정 된 끝점으로 사용자 요청을 보냅니다.|
-| 7. | Orchestrator는 액세스 정책을 평가 하 고 앱에 전달 된 HTTP 헤더에 포함할 특성 값을 계산 합니다. 이 단계를 수행 하는 동안 Orchestrator는 추가 특성 공급자를 호출 하 여 헤더 값을 올바르게 설정 하는 데 필요한 정보를 검색할 수 있습니다.|
-| 8. | Orchestrator는 헤더 값을 설정 하 고 요청을 앱으로 보냅니다.|
-| 9. | 이제 사용자가 인증 되 고 앱에 액세스할 수 있습니다.|
+| 7. | Orchestrator는 액세스 정책을 평가 하 고 앱에 전달 된 HTTP 헤더에 포함할 특성 값을 계산 합니다. 이 단계를 수행 하는 동안 Orchestrator는 추가 특성 공급자를 호출 하 여 헤더 값을 올바르게 설정 하는 데 필요한 정보를 검색할 수 있습니다. Orchestrator는 헤더 값을 설정 하 고 요청을 앱으로 보냅니다.|
+| 8. | 이제 사용자가 인증 되 고 앱에 액세스할 수 있습니다.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Maverics Id Orchestrator 가져오기
 
-기존 온-프레미스 앱을 Azure AD B2C와 통합 하는 데 사용할 소프트웨어를 다운로드 하려면 [층](https://www.strata.io/contact/)에 문의 하세요. 소프트웨어를 가져온 후에는 다음 단계에 따라 Orchestrator 관련 필수 구성 요소를 확인 하 고 필요한 설치 및 구성 단계를 수행 합니다.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테 넌 트 구성
 

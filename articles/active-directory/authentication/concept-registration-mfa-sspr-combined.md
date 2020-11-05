@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424572"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378009"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
@@ -51,18 +51,18 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 메서드 | 등록 | 변경 | 삭제 |
+| 방법 | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
-| 하드웨어 토큰 | 아니요 | 아니요 | 예 |
-| Phone | 예 | 예 | 예 |
-| 대체 전화 | 예 | 예 | 예 |
-| 사무실 전화 | 아니요 | 아니요 | 아니요 |
-| 메일 | 예 | 예 | 예 |
-| 본인 확인 질문 | 예 | 아니요 | 예 |
-| 앱 암호 | 예 | 아니요 | 예 |
-| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |
+| Microsoft Authenticator | 예 (최대 5 개) | 예 | yes |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 예 | yes |
+| 하드웨어 토큰 | 예 | 예 | yes |
+| 전화 | yes | yes | yes |
+| 대체 전화 | yes | yes | yes |
+| 사무실 전화 | yes | yes | yes |
+| Email | yes | yes | yes |
+| 본인 확인 질문 | yes | 예 | yes |
+| 앱 암호 | yes | 예 | yes |
+| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| yes | yes | yes |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.

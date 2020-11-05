@@ -1,16 +1,16 @@
 ---
-title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor Application Insights
-description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
+title: Azure Monitor Application Insights Java
+description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215283"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377040"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
 Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입니다. 코드 변경이 없으며 Java 에이전트는 몇 가지 구성 변경만으로 활성화할 수 있습니다.
 
@@ -26,15 +26,20 @@ Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입�
 
 **1. 에이전트를 다운로드 합니다.**
 
-[Applicationinsights-agent-3.0.0-PREVIEW. 7 jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar) 다운로드
+> [!WARNING]
+> **3.0 미리 보기에서 업그레이드 하는 경우**
+>
+> 모든 구성 옵션은 json 구조가 완전히 변경 되었으므로 모든 [구성 옵션](./java-standalone-config.md) 을 신중 하 게 검토 해야 합니다.
+
+[Applicationinsights-agent-3.0.0를 다운로드 합니다.](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 
 **2. JVM을 에이전트로 가리키기**
 
-`-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
+`-javaagent:path/to/applicationinsights-agent-3.0.0.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
 
 일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
 
-응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [3.0 미리 보기: JVM 인수 업데이트에 대 한 팁](./java-standalone-arguments.md)을 참조 하세요.
+응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [jvm 인수를 업데이트 하기 위한 팁](./java-standalone-arguments.md)을 참조 하세요.
 
 **3. 에이전트가 Application Insights 리소스를 가리키도록 합니다.**
 
@@ -46,7 +51,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가�
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-또는 이라는 구성 파일을 만들고와 `ApplicationInsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0-PREVIEW.7.jar` 다음과 같은 내용을 포함 합니다.
+또는 이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0.jar` 다음과 같은 내용을 포함 합니다.
 
 ```json
 {
@@ -70,19 +75,21 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 ## <a name="configuration-options"></a>구성 옵션
 
-파일에서 `ApplicationInsights.json` 다음을 추가로 구성할 수 있습니다.
+파일에서 `applicationinsights.json` 다음을 추가로 구성할 수 있습니다.
 
 * 클라우드 역할 이름
 * 클라우드 역할 인스턴스
-* 응용 프로그램 로그 캡처
-* JMX 메트릭
-* 마이크로미터
-* 하트비트
 * 샘플링
+* JMX 메트릭
+* 사용자 지정 차원
+* 원격 분석 프로세서
+* 자동 수집 된 로깅
+* 자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
+* 하트비트
 * HTTP 프록시
 * 자체 진단
 
-[3.0 공개 미리 보기: 구성 옵션](./java-standalone-config.md)에서 세부 정보를 참조 하세요.
+전체 정보는 [구성 옵션](./java-standalone-config.md) 을 참조 하세요.
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autocollected 된 요청, 종속성, 로그 및 메트릭
 
@@ -134,13 +141,13 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  예    |
-| **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  예    |
-| **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  예    |
-| **요청**        |            |                     |  예    |
-| **추적**          |            |  예                |  예    |
+| **사용자 지정 이벤트**   |            |                     |  yes    |
+| **사용자 지정 메트릭**  |  yes       |                     |  yes    |
+| **종속성**    |            |                     |  yes    |
+| **예외**      |            |  yes                |  yes    |
+| **페이지 보기**      |            |                     |  yes    |
+| **요청**        |            |                     |  yes    |
+| **추적**          |            |  yes                |  yes    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 
@@ -226,9 +233,14 @@ telemetryClient.trackEvent("WinGame");
 
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Application Insights Java SDK 2.x에서 업그레이드
 
-응용 프로그램에서 Java SDK 2.x Application Insights 이미 사용 중인 경우에는 제거할 필요가 없습니다. Java 3.0 에이전트는이를 검색 하 고, java SDK 2.x를 통해 전송 하는 모든 사용자 지정 원격 분석을 캡처하고 상관 관계를 지정 하 고, Java SDK 2.x에서 수행 되는 autocollection을 억제 하 여 중복 캡처를 방지 합니다.
+응용 프로그램에서 Java SDK 2.x Application Insights 이미 사용 중인 경우에는 제거할 필요가 없습니다.
+Java 3.0 에이전트는이를 검색 하 여 java SDK 2.x를 통해 전송 하는 모든 사용자 지정 원격 분석을 캡처하고 상관 관계를 지정 하는 동시에 Java SDK 2.x에서 수행 되는 자동 컬렉션을 무시 하 고 중복 된 원격 분석을 방지 합니다.
 
 Application Insights 2.x 에이전트를 사용 하는 경우 2.x `-javaagent:` 에이전트를 가리키는 JVM 인수를 제거 해야 합니다.
 
 > [!NOTE]
-> 참고: 3.0 에이전트를 사용 하는 경우 Java SDK 2.x TelemetryInitializers 및 TelemetryProcessors는 실행 되지 않습니다.
+> 3.0 에이전트를 사용 하는 경우 Java SDK 2.x TelemetryInitializers 및 TelemetryProcessors가 실행 되지 않습니다.
+> [사용자 지정 차원을](./java-standalone-config.md#custom-dimensions) 구성 하거나 [원격 분석 프로세서](./java-standalone-telemetry-processors.md)를 구성 하 여 이전에 필요한 사용 사례를 3.0에서 해결할 수 있습니다.
+
+> [!NOTE]
+> 3.0는 단일 JVM에서 여러 계측 키를 아직 지원 하지 않습니다.

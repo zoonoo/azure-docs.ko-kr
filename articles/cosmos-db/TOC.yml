@@ -557,14 +557,9 @@
               href: sql-query-linq-to-sql.md
         - name: 컨테이너 및 항목
           items:
-            - name: 인덱싱
-              items:
-                - name: 인덱싱 개요
-                  displayName: 'range, spatial'
-                  href: index-overview.md
-                - name: 인덱싱 정책
-                  displayName: 'consistent, none'
-                  href: index-policy.md
+            - name: 인덱싱 개요
+              displayName: 'range, spatial'
+              href: index-overview.md
             - name: TTL(Time to live)
               displayName: 'delete, delete data, ttl'
               href: time-to-live.md
@@ -665,8 +660,6 @@
             - name: TTL(Time to Live) 구성
               displayName: 'delete, delete data, ttl'
               href: how-to-time-to-live.md
-            - name: 인덱싱 정책 관리
-              href: how-to-manage-indexing-policy.md
             - name: 고유 키 정의
               href: how-to-define-unique-keys.md
         - name: 성능
@@ -677,6 +670,13 @@
                   href: profile-sql-api-query.md
                 - name: 쿼리 성능 조정
                   href: sql-api-query-metrics.md
+            - name: 인덱싱
+              items:
+                - name: 인덱싱 정책
+                  displayName: 'consistent, none, indexing, policy'
+                  href: index-policy.md
+                - name: 인덱싱 정책 관리
+                  href: how-to-manage-indexing-policy.md
             - name: .NET
               items:
                 - name: .NET SDK v3용 성능 팁
@@ -753,6 +753,8 @@
               href: create-sql-api-java-changefeed.md
         - name: 서버 쪽 프로그래밍
           items:
+            - name: 트랜잭션 일괄 처리 작업 수행
+              href: transactional-batch.md
             - name: '저장 프로시저, 트리거 및 UDF 작성'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: 저장 프로시저 및 JavaScript 쿼리 API를 사용하는 트리거 작성

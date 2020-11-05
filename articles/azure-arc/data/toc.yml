@@ -116,6 +116,8 @@
           items:
             - name: 백업 및 복원
               href: backup-restore-postgresql-hyperscale.md
+            - name: PostgreSQL 포트 변경
+              href: change-postgresql-port.md
             - name: 구성 및 스케일링
               items:
                 - name: 구성 표시

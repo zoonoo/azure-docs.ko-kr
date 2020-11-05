@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378302"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378825"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -56,10 +56,10 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 이 역할의 사용자는 엔터프라이즈 애플리케이션, 애플리케이션 등록 및 애플리케이션 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할에 할당된 사용자는 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가되지 않습니다.
 
-또한 이 역할은 Microsoft Graph API에 대한 권한을 제외하고 위임된 권한 및 애플리케이션 권한에 _동의_하는 기능을 부여합니다.
+또한 이 역할은 Microsoft Graph API에 대한 권한을 제외하고 위임된 권한 및 애플리케이션 권한에 _동의_ 하는 기능을 부여합니다.
 
 > [!IMPORTANT]
-> 이 예외는 _다른_ 앱(예: 타사 앱 또는 사용자가 등록한 앱)에 대한 권한에는 동의할 수 있지만, Azure AD 자체에 대한 권한에는 동의할 수 없다는 뜻입니다. 여전히 앱을 등록할 때 이 권한을 _요청_할 수 있지만, 이 권한을 _부여_하려면 Azure AD 관리자여야 합니다. 즉, 악의적인 사용자가 자신의 권한을 쉽게 상승시킬 수 없습니다. 예를 들어 전체 디렉터리에 쓸 수 있는 앱을 만들고 동의한 다음, 해당 앱의 권한을 통해 자신을 전역 관리자로 승격할 수 없습니다.
+> 이 예외는 _다른_ 앱(예: 타사 앱 또는 사용자가 등록한 앱)에 대한 권한에는 동의할 수 있지만, Azure AD 자체에 대한 권한에는 동의할 수 없다는 뜻입니다. 여전히 앱을 등록할 때 이 권한을 _요청_ 할 수 있지만, 이 권한을 _부여_ 하려면 Azure AD 관리자여야 합니다. 즉, 악의적인 사용자가 자신의 권한을 쉽게 상승시킬 수 없습니다. 예를 들어 전체 디렉터리에 쓸 수 있는 앱을 만들고 동의한 다음, 해당 앱의 권한을 통해 자신을 전역 관리자로 승격할 수 없습니다.
 >
 >이 역할은 애플리케이션 자격 증명을 관리하는 기능을 부여합니다. 이 역할이 할당된 사용자는 애플리케이션에 자격 증명을 추가하고 해당 자격 증명을 사용하여 애플리케이션의 ID를 가장할 수 있습니다. 응용 프로그램의 id에 사용자 또는 다른 개체를 만들거나 업데이트 하는 기능과 같은 리소스에 대 한 액세스 권한이 부여 된 경우이 역할에 할당 된 사용자는 응용 프로그램을 가장 하는 동안 이러한 작업을 수행할 수 있습니다. 응용 프로그램의 id를 가장 하는이 기능은 사용자가 해당 역할 할당을 통해 수행할 수 있는 작업에 대 한 권한 상승 일 수 있습니다. 애플리케이션 관리자 역할에 사용자를 할당하면 애플리케이션의 ID를 가장하는 기능이 해당 사용자에게 부여된다는 점을 이해해야 합니다.
 
@@ -69,7 +69,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="authentication-administrator"></a>[인증 관리자](#authentication-administrator-permissions)
 
-이 역할이 할당된 사용자는 일부 사용자의 암호가 아닌 자격 증명을 설정하거나 초기화하고 모든 사용자의 암호를 업데이트할 수 있습니다. 인증 관리자는 관리자가 아닌 사용자 또는 일부 역할이 할당된 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 재등록하도록 요구할 수 있으며, 다음에 로그인할 때 MFA를 요청하도록 **디바이스에 MFA 저장**을 철회할 수도 있습니다. 이러한 작업은 관리자가 아닌 사용자 또는 다음 역할 중 하나 이상에 할당된 사용자에게만 적용됩니다.
+이 역할이 할당된 사용자는 일부 사용자의 암호가 아닌 자격 증명을 설정하거나 초기화하고 모든 사용자의 암호를 업데이트할 수 있습니다. 인증 관리자는 관리자가 아닌 사용자 또는 일부 역할이 할당된 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 재등록하도록 요구할 수 있으며, 다음에 로그인할 때 MFA를 요청하도록 **디바이스에 MFA 저장** 을 철회할 수도 있습니다. 이러한 작업은 관리자가 아닌 사용자 또는 다음 역할 중 하나 이상에 할당된 사용자에게만 적용됩니다.
 
 * 인증 관리자
 * 디렉터리 읽기 권한자
@@ -231,9 +231,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > 글로벌 읽기 권한자 역할에는 현재 다음과 같은 제한이 있습니다.
 >
 >- [Onedrive 관리 센터](https://admin.onedrive.com/) -onedrive 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다.
->- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) - 글로벌 읽기 권한자는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원**에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
+>- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) - 글로벌 읽기 권한자는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) - 글로벌 읽기 권한자는 SCC 감사 로그를 읽거나, 콘텐츠를 검색하거나, 보안 점수를 볼 수 없습니다.
->- [Teams 관리 센터](https://admin.teams.microsoft.com) - 글로벌 읽기 권한자는 **Teams 수명 주기**, **분석 및 보고서**, **IP 전화 디바이스 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
+>- [Teams 관리 센터](https://admin.teams.microsoft.com) - 글로벌 읽기 권한자는 **Teams 수명 주기** , **분석 및 보고서** , **IP 전화 디바이스 관리** 및 **앱 카탈로그** 를 읽을 수 없습니다.
 >- [PAM(Privileged Access Management)](/office365/securitycompliance/privileged-access-management-overview)은 글로벌 읽기 권한자 역할을 지원하지 않습니다.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - 글로벌 읽기 권한자는 [중앙 보고](/azure/information-protection/reports-aip)에만 지원되고, Azure AD 조직이 [통합 레이블 플랫폼](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않은 경우에만 지원됩니다.
 >
@@ -311,7 +311,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 사용하지 마십시오. 이 역할은 상거래에서 자동으로 할당되며 다른 용도로 사용하기에 적합하거나 지원되지 않습니다. 아래에서 자세한 내용을 참조하세요.
 
-최신 상거래 사용자 역할은 Microsoft 365 관리 센터에 액세스할 수 있는 권한을 특정 사용자에 게 제공 하 고 **홈**, **대금 청구**및 **지원**에 대 한 왼쪽 탐색 항목을 표시 합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](../../cost-management-billing/manage/understand-mca-roles.md)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
+최신 상거래 사용자 역할은 Microsoft 365 관리 센터에 액세스할 수 있는 권한을 특정 사용자에 게 제공 하 고 **홈** , **대금 청구** 및 **지원** 에 대 한 왼쪽 탐색 항목을 표시 합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](../../cost-management-billing/manage/understand-mca-roles.md)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
 
 최신 상거래 사용자 역할의 사용자에 게는 일반적으로 다른 Microsoft 구매 시스템에서 관리 권한이 있지만 관리 센터에 액세스 하는 데 사용 되는 전역 관리자 또는 청구 관리자 역할은 없습니다. 
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377770"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379097"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -211,7 +211,7 @@ Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 로그인 로그 읽기 | 보고서 읽기 권한자 | 보안 읽기 권한자, 보안 관리자
 
-## <a name="multi-factor-authentication"></a>다단계 인증
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -351,6 +351,7 @@ Task | 최소 권한 역할 | 추가 역할
 제한된 관리자의 사용자 계정 이름 업데이트(설명서 참조) | 사용자 관리자 | 
 권한 있는 관리자의 사용자 계정 이름 속성 업데이트(설명서 참조) | 전역 관리자 | 
 사용자 설정 업데이트 | 전역 관리자 | 
+인증 방법 업데이트 | 인증 관리자 | 권한 있는 인증 관리자, 전역 관리자
 
 
 ## <a name="support"></a>지원

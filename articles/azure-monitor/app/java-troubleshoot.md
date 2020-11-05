@@ -4,14 +4,18 @@ description: 문제 해결 가이드 - Application Insights를 사용하여 라�
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372521"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379539"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
+
+> [!IMPORTANT]
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
 
 ## <a name="build-errors"></a>빌드 오류
@@ -85,7 +89,7 @@ XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작
 **내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경 하려면 어떻게 해야 하나요?**
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
-* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고**Azure**, **Application Insights 구성**을 차례로 선택한 다음, 키를 변경합니다.
+* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** , **Application Insights 구성** 을 차례로 선택한 다음, 키를 변경합니다.
 * 계측 키를 환경 변수로 구성한 경우, 환경 변수 값을 새 iKey로 업데이트합니다.
 * 그렇지 않으면 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml에서 키를 업데이트합니다.
 

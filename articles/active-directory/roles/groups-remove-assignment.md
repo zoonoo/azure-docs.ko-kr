@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f441930d9d99f35c2e53bb040b0db0a427659
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377574"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378383"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 역할 할당 제거
 
@@ -28,13 +28,13 @@ ms.locfileid: "92377574"
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
 
-1. **역할 및 관리자** > **_역할 이름_*_을 선택 합니다.
+1. **역할 및 관리자** > * *_역할 이름_* _을 선택 합니다.
 
 1. 역할 할당을 제거할 그룹을 선택 하 고 _ * 할당 제거 * *를 선택 합니다.
 
    ![선택한 그룹에서 역할 할당을 제거 합니다.](./media/groups-remove-assignment/remove-assignment.png)
 
-1. 작업을 확인 하 라는 메시지가 표시 되 면 **예**를 선택 합니다.
+1. 작업을 확인 하 라는 메시지가 표시 되 면 **예** 를 선택 합니다.
 
 ## <a name="using-powershell"></a>PowerShell 사용
 
@@ -107,5 +107,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용 하 여 역할 할당 관리](groups-concept.md)
+- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
 - [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)

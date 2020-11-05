@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361205"
+ms.locfileid: "93377023"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -132,6 +132,9 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 ### <a name="behavior"></a>동작
 
 상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 비정상 인스턴스는 부하 분산 장치 순환에서 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
+
+> [!NOTE]
+> 부하 분산 장치 제외를 수행 하려면 App Service 계획을 2 개 이상의 인스턴스로 확장 해야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
 
 나머지 정상 인스턴스는 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
 

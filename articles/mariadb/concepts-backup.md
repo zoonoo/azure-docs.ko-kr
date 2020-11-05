@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480737"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378961"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 백업 및 복원
 
@@ -90,7 +90,12 @@ Azure Database for MariaDB 복원 작업을 수행 하면 원래 서버의 백�
 
 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 애플리케이션을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 지리적 복원은 서버의 최신 백업을 활용 합니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
 
+> [!IMPORTANT]
+>새로 만든 서버에 대해 지역 복원이 수행 되는 경우 초기 전체 스냅숏 백업 복사 시간이 훨씬 더 높기 때문에 초기 백업 동기화는 데이터 크기에 따라 24 시간 넘게 걸릴 수 있습니다. 후속 스냅숏 백업은 증분 복사 이므로 24 시간 서버를 만든 후에 복원이 더 빠릅니다. RTO를 정의 하기 위해 지역 복원을 평가 하는 경우 더 나은 예측을 위해 **24 시간** 서버를 만든 후에만 지역 복원을 대기 하 고 평가 하는 것이 좋습니다.
+
 지역 복원 중에 변경할 수 있는 서버 구성으로는 컴퓨팅 생성, vCore, 백업 보존 기간 및 백업 중복 옵션이 있습니다. 가격 책정 계층(기본, 범용 또는 메모리 최적화) 또는 스토리지 크기는 지역 복원 중에 변경할 수 없습니다.
+
+예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 
 ### <a name="perform-post-restore-tasks"></a>복원 후 작업 수행
 

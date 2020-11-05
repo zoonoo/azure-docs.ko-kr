@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure container registry에 로그인 할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348902"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379505"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -98,7 +98,9 @@ az acr login --name myregistry
 
 `AcrPull`레지스트리에서 이미지를 끌어오는 Azure 역할 또는 이미지를 푸시하는 역할 등 자격 증명과 연결 된 레지스트리 사용 권한을 확인 합니다 `AcrPush` . 
 
-Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트리에 대 한 액세스에는 최소한 `Reader` Azure Resource Manager 작업을 수행할 역할이 필요 합니다.
+Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트리에 대 한 액세스에는 최소한 `Reader` Azure Resource Manager 작업을 수행할 수 있는 역할 또는 동등한 권한이 필요 합니다.
+
+포털을 통해 레지스트리 액세스를 허용 하도록 사용 권한이 최근에 변경 된 경우 오래 된 브라우저 캐시 또는 쿠키를 방지 하려면 브라우저에서 incognito 또는 개인 세션을 시도해 야 할 수 있습니다.
 
 사용자 또는 레지스트리 소유자는 구독에서 역할 할당을 추가 하거나 제거할 수 있는 충분 한 권한을 보유 해야 합니다.
 
