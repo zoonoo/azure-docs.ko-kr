@@ -558,7 +558,7 @@
     - name: VM 보안
       items:
         - name: 권장 사항
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Just-In-Time 액세스
           href: ../../security-center/security-center-just-in-time.md
         - name: Bastion 사용
@@ -666,7 +666,7 @@
         - name: Azure VM 에이전트
           href: ../extensions/agent-windows.md
         - name: 투기적 실행 완화
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: 모니터 메타데이터
           href: instance-metadata-service.md
         - name: 중첩된 가상화 사용
@@ -959,7 +959,7 @@
         - name: 가속 네트워킹 사용
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 공용 DNS 이름 할당
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: DNS 확인
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 관리되는 ID 구성

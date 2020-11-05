@@ -86,6 +86,7 @@
       href: dns-settings.md
     - name: 진단 로그 모니터링
       href: firewall-diagnostics.md
+      displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Azure Monitor 로그
       href: log-analytics-samples.md
     - name: Azure Firewall 통합 문서
@@ -104,9 +105,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/firewall
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

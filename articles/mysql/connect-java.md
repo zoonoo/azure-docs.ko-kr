@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL에서 Java 및 JDBC 사용
+title: '빠른 시작: Azure Database for MySQL에서 Java 및 JDBC 사용'
 description: Azure Database for MySQL 데이터베이스에서 Java 및 JDBC를 사용하는 방법을 알아봅니다.
 author: jdubois
 ms.author: judubois
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745266"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337442"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Azure Database for MySQL에서 Java 및 JDBC 사용
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>빠른 시작: Azure Database for MySQL에서 Java 및 JDBC 사용
 
 이 항목에서는 Java 및 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity)를 사용하여 [Azure Database for MySQL](./index.yml)에 정보를 저장하고 검색하는 애플리케이션 샘플을 만드는 방법을 보여줍니다.
 
@@ -493,7 +493,7 @@ deleteData(todo, connection);
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>결론 및 리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 축하합니다! JDBC를 사용하여 Azure Database for MySQL에서 데이터를 저장하고 검색하는 Java 애플리케이션을 만들었습니다.
 

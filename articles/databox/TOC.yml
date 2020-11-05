@@ -127,6 +127,7 @@
           items:
             - name: 설정 - Azure Portal
               href: data-box-disk-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: 자습서
           items:
             - name: 1 - 주문
@@ -177,6 +178,7 @@
           items:
             - name: 설정 - Azure Portal
               href: data-box-heavy-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: 자습서
           items:
             - name: 1 - 주문

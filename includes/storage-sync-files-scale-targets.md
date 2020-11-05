@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331105"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116717"
 | 스토리지 동기화 서비스당 동기화 그룹 수 | 200개 동기화 그룹 | 예 |
 | 스토리지 동기화 서비스당 등록된 서버 | 서버 99대 | 예 |
 | 동기화 그룹당 클라우드 엔드포인트 수 | 1개 클라우드 엔드포인트 | 예 |
-| 동기화 그룹당 서버 엔드포인트 수 | 50개 서버 엔드포인트 | 아니요 |
+| 동기화 그룹당 서버 엔드포인트 수 | 100개 서버 엔드포인트 | 예 |
 | 서버당 서버 엔드포인트 수 | 30개 서버 엔드포인트 | 예 |
 | 동기화 그룹당 파일 시스템 개체(디렉터리 및 파일) 수 | 1억 개 개체 | 아니요 |
 | 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 | 500만 개 개체 | 예 |

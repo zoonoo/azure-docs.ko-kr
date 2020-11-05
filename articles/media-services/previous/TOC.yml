@@ -3,8 +3,10 @@
 - name: 개요
   href: media-services-overview.md
   items:
-    - name: 시나리오 및 가용성
+    - name: 일반적인 시나리오
       href: scenarios-and-availability.md
+    - name: 국가별 가용성
+      href: availability-regions-v-2.md
     - name: 개념
       href: media-services-concepts.md
 - name: 시작하기
@@ -39,7 +41,7 @@
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
-        - name: REST
+        - name: REST (영문)
           href: media-services-rest-get-started.md
     - name: 라이브 스트리밍 수행
       items:

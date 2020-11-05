@@ -147,6 +147,7 @@
       items:
         - name: 통합 계정 만들기
           href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
         - name: 거래 업체
           href: logic-apps-enterprise-integration-partners.md
         - name: 규약
@@ -209,7 +210,7 @@
           href: ../connectors/connectors-create-api-container-instances.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure 기능
+        - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
