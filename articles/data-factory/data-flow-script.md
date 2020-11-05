@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598091"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360278"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -218,6 +218,17 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Select를 사용 하 여 스키마 드리프트 자동 매핑
+들어오는 열을 알 수 없거나 동적 집합에서 기존 데이터베이스 스키마를 로드 해야 하는 경우에는 싱크 변환의 오른쪽 열을 매핑해야 합니다. 이는 기존 테이블을 로드 하는 경우에만 필요 합니다. 열을 자동으로 매핑하는 Select를 만들려면 싱크 앞에이 코드 조각을 추가 합니다. 싱크 매핑을 자동 맵으로 그대로 둡니다.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
 ```
 
 ## <a name="next-steps"></a>다음 단계

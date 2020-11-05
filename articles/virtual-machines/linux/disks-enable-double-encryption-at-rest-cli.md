@@ -8,22 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1b2773b1d860126748e0dd05134d778073478d9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 55a49c5f8d066cd6893c46ef9942462bb7911307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360618"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure CLI를 사용 하 여 관리 디스크에 대 한 미사용 암호화를 사용 하도록 설정 합니다.
 
-Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 지원 합니다. 휴지 상태의 이중 암호화 및 기타 관리 되는 디스크 암호화 유형에 대 한 개념 정보는 디스크 암호화 문서의 [휴지 상태의 이중 암호화](disk-encryption.md#double-encryption-at-rest) 섹션을 참조 하세요.
+Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 지원 합니다. 휴지 상태의 이중 암호화 및 기타 관리 되는 디스크 암호화 유형에 대 한 개념 정보는 디스크 암호화 문서의 [휴지 상태의 이중 암호화](../disk-encryption.md#double-encryption-at-rest) 섹션을 참조 하세요.
 
-## <a name="supported-regions"></a>지원되는 지역
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 최신 [Azure CLI](/cli/azure/install-az-cli2) 를 설치 하 고 [az login](/cli/azure/reference-index)을 사용 하 여 Azure 계정에 로그인 합니다.
 

@@ -1,7 +1,7 @@
 ---
 title: Log ML 실험 & 메트릭
 titleSuffix: Azure Machine Learning
-description: Azure ML 실험과 실행 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킵니다. run.log, Run.start_logging, 또는 ScriptRunConfig를 사용하여 로깅을 학습 스크립트에 추가합니다.
+description: ML 학습 실행에 대 한 로깅을 사용 하 여 실시간 실행 메트릭을 모니터링 하 고 오류 및 경고를 진단 하는 데 도움을 줍니다.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318433"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361066"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML 학습 실행에서 로깅 사용
+# <a name="enable-logging-in-ml-training-runs"></a>ML 학습 실행에서 로깅 사용
 
 
 Azure Machine Learning Python SDK를 사용하면 기본 Python 로깅 패키지와 SDK 관련 기능을 모두 사용하여 실시간 정보를 기록할 수 있습니다. 로컬로 로그인하고 로그를 포털의 작업 영역에 보낼 수 있습니다.

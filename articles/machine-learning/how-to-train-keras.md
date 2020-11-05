@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a7d55c6e550000d2dd6c2930d95086ec433c246b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308060"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361100"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 통해 대규모로 Keras 모델 학습
 
@@ -31,7 +31,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 > [!NOTE]
 > [TensorFlow 모델을 학습](how-to-train-tensorflow.md)하는 대신 TensorFlow에 기본 제공 되는 KERAS API **tf** 를 사용 하는 경우를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -60,6 +60,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 import os
 import azureml
 from azureml.core import Experiment
+from azureml.core import Environment
 from azureml.core import Workspace, Run
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -147,8 +148,6 @@ dependencies:
 기본적으로 기본 이미지가 지정 되지 않은 경우 Azure ML은 CPU 이미지를 `azureml.core.environment.DEFAULT_CPU_IMAGE` 기본 이미지로 사용 합니다. 이 예제에서는 GPU 클러스터에서 학습을 실행 하므로 필요한 GPU 드라이버 및 종속성이 있는 GPU 기본 이미지를 지정 해야 합니다. Azure ML은 사용자가 사용할 수 있는 Microsoft Container Registry (MCR)에 게시 된 기본 이미지 집합을 유지 관리 합니다. 자세한 내용은 [azure/AzureML 컨테이너](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조 하세요.
 
 ```python
-from azureml.core import Environment
-
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
 
 # Specify a GPU base image

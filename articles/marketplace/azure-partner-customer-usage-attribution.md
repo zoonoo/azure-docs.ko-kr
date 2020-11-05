@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348341"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360227"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -48,7 +48,7 @@ GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적�
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 모두에서 사용할 수 있는 경우 두 개의 고유 GUID를 만들어 등록할 수 있습니다.
+템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 모두에서 사용할 수 있는 경우 두 개의 고유 Guid를 만들어 등록할 수 있습니다.
 
 - Azure Marketplace의 제품 A
 - GitHub의 제품 A
@@ -311,10 +311,6 @@ Microsoft는 고객의 솔루션 배포 및 영향을 받는 사용량에 대한
 **이 방법론은 DPOR(디지털 공식 파트너)과 유사한가요?**
 
 배포 및 사용량을 파트너 솔루션에 연결하는 이 새로운 방법은 파트너 솔루션을 Azure 사용량에 연결하는 메커니즘을 제공합니다. DPOR는 컨설팅(시스템 통합자) 또는 관리(관리 서비스 공급자) 파트너를 고객의 Azure 구독과 연결하기 위한 것입니다.
-
-**Azure Storage의 GUID 생성기 양식을 사용하면 어떤 이점이 있나요?**
-
-Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하도록 보장합니다. 또한, Azure Storage의 데이터 평면 추적 방법을 사용하는 경우 Marketplace 제어 평면 추적에 동일한 GUID를 활용할 수 있습니다. 이렇게 하면 별도의 GUIDS를 유지하지 않고도 파트너 특성으로 단일 통합 GUID를 활용할 수 있습니다.
 
 **Azure Marketplace에서 솔루션 템플릿 제품에 프라이빗 사용자 지정 VHD를 사용할 수 있나요?**
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfb2fa5f45a23d387741d4865aa9707df960e86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eb5f1d81874c8303d095aec320f60cc9ae6a7dc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018419"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360567"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Azure SDK를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 Azure 리소스에 대한 관리 ID에 해당하는 Azure SDK 지원을 사용하는 방법을 보여주는 SDK 샘플 목록을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

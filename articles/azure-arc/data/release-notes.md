@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321716"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359819"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -90,7 +90,7 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 
 - Preview는 PostgreSQL 버전 11 엔진의 백업/복원을 지원 하지 않습니다. PostgreSQL 버전 12에 대 한 백업/복원만 지원 합니다.
 - `azdata arc dc debug copy-logs` n은 Windows에서 PostgreSQL 엔진 로그를 수집 하지 않습니다.
-- 방금 삭제 한 서버 그룹의 이름이 포함 된 서버 그룹을 다시 만드는 작업이 실패 하거나 중단 될 수 있습니다. 
+- 방금 삭제 한 서버 그룹의 이름이 포함 된 서버 그룹을 다시 만드는 작업이 실패 하거나 응답 하지 않을 수 있습니다. 
    - **해결 방법** 서버 그룹을 다시 만들거나 이전에 삭제 한 서버 그룹의 부하 분산 장치/외부 서비스를 기다릴 때 동일한 이름을 다시 사용 하지 마세요. 삭제 한 서버 그룹의 이름이이 `postgres01` 고 네임 스페이스에 호스트 된 것으로 가정 하면 `arc` 동일한 이름의 서버 그룹을 다시 만들기 전에 `postgres01-external-svc` 가 kubectl 명령의 출력에 표시 되지 않을 때까지 기다립니다 `kubectl get svc -n arc` .
  - Azure Data Studio에서 개요 페이지 및 계산 + 저장소 구성 페이지를 로드 하는 속도가 느립니다. 
 

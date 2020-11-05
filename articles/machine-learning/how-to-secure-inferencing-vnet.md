@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325348"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361168"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "93325348"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -115,35 +115,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 만들기 프로세스가 완료되면 가상 네트워크 뒤에서 AKS 클러스터에 유추 또는 모델 채점을 수행할 수 있습니다. 자세한 내용은 [AKS에 배포하는 방법](how-to-deploy-and-where.md)을 참조하세요.
 
-## <a name="secure-vnet-traffic"></a>VNet 트래픽 보안
-
-AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
-
-* __PRIVATE AKS cluster__ :이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
-* __내부 AKS 부하 분산 장치__ :이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
-
-> [!WARNING]
-> 내부 부하 분산 장치는 kubenet를 사용 하는 AKS 클러스터에서 작동 하지 않습니다. 내부 부하 분산 장치 및 개인 AKS 클러스터를 동시에 사용 하려면 CNI (Azure Container 네트워킹 인터페이스)를 사용 하 여 개인 AKS 클러스터를 구성 합니다. 자세한 내용은 [Azure Kubernetes Service에서 azure CNI 네트워킹 구성](../aks/configure-azure-cni.md)을 참조 하세요.
-
-### <a name="private-aks-cluster"></a>개인 AKS 클러스터
-
-기본적으로 AKS 클러스터에는 공용 IP 주소를 사용 하는 제어 평면 또는 API 서버가 있습니다. 개인 AKS 클러스터를 만들어 개인 제어 평면을 사용 하도록 AKS를 구성할 수 있습니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
-
-개인 AKS 클러스터를 만든 후에는 [클러스터를 가상 네트워크에 연결](how-to-create-attach-kubernetes.md) 하 여 Azure Machine Learning에 사용 합니다.
+## <a name="network-contributor-role"></a>네트워크 참가자 역할
 
 > [!IMPORTANT]
-> Azure Machine Learning에서 개인 링크 사용 AKS 클러스터를 사용 하려면 먼저 지원 인시던트를 열어이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
-
-### <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
-
-기본적으로 AKS 배포는 [공용 부하 분산 장치](../aks/load-balancer-standard.md)를 사용 합니다. 이 섹션에서는 내부 부하 분산 장치를 사용 하도록 AKS를 구성 하는 방법에 대해 알아봅니다. 내부 (또는 개인) 부하 분산 장치는 개인 Ip만 프런트 엔드로 허용 되는 경우에 사용 됩니다. 내부 부하 분산 장치는 가상 네트워크 내에서 트래픽 부하를 분산 하는 데 사용 됩니다.
-
-_내부 부하 분산_ 장치를 사용 하도록 AKS를 구성 하 여 전용 부하 분산 장치를 사용 하도록 설정 합니다. 
-
-#### <a name="network-contributor-role"></a>네트워크 참가자 역할
-
-> [!IMPORTANT]
-> 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다. 내부 부하 분산 장치를 개인 IP로 변경 하기 전에이 작업을 수행 해야 합니다.
+> 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다.
 >
 > 네트워크 참가자로 id를 추가 하려면 다음 단계를 사용 합니다.
 
@@ -171,6 +146,31 @@ _내부 부하 분산_ 장치를 사용 하도록 AKS를 구성 하 여 전용 �
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
 AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](../aks/internal-lb.md)을 참조하세요.
+
+## <a name="secure-vnet-traffic"></a>VNet 트래픽 보안
+
+AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
+
+* __PRIVATE AKS cluster__ :이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
+* __내부 AKS 부하 분산 장치__ :이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
+
+> [!WARNING]
+> 내부 부하 분산 장치는 kubenet를 사용 하는 AKS 클러스터에서 작동 하지 않습니다. 내부 부하 분산 장치 및 개인 AKS 클러스터를 동시에 사용 하려면 CNI (Azure Container 네트워킹 인터페이스)를 사용 하 여 개인 AKS 클러스터를 구성 합니다. 자세한 내용은 [Azure Kubernetes Service에서 azure CNI 네트워킹 구성](../aks/configure-azure-cni.md)을 참조 하세요.
+
+### <a name="private-aks-cluster"></a>개인 AKS 클러스터
+
+기본적으로 AKS 클러스터에는 공용 IP 주소를 사용 하는 제어 평면 또는 API 서버가 있습니다. 개인 AKS 클러스터를 만들어 개인 제어 평면을 사용 하도록 AKS를 구성할 수 있습니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
+
+개인 AKS 클러스터를 만든 후에는 [클러스터를 가상 네트워크에 연결](how-to-create-attach-kubernetes.md) 하 여 Azure Machine Learning에 사용 합니다.
+
+> [!IMPORTANT]
+> Azure Machine Learning에서 개인 링크 사용 AKS 클러스터를 사용 하려면 먼저 지원 인시던트를 열어이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
+
+### <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
+
+기본적으로 AKS 배포는 [공용 부하 분산 장치](../aks/load-balancer-standard.md)를 사용 합니다. 이 섹션에서는 내부 부하 분산 장치를 사용 하도록 AKS를 구성 하는 방법에 대해 알아봅니다. 내부 (또는 개인) 부하 분산 장치는 개인 Ip만 프런트 엔드로 허용 되는 경우에 사용 됩니다. 내부 부하 분산 장치는 가상 네트워크 내에서 트래픽 부하를 분산 하는 데 사용 됩니다.
+
+_내부 부하 분산_ 장치를 사용 하도록 AKS를 구성 하 여 전용 부하 분산 장치를 사용 하도록 설정 합니다. 
 
 #### <a name="enable-private-load-balancer"></a>전용 부하 분산 장치 사용
 

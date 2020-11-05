@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee28addd5f6ac0faaf03d29d712c4e750ed6e293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584754edf3ff7ae31c3b9ace72baf16459dbc44
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177485"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359997"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 ID 액세스 권한 할당
 
@@ -41,7 +41,7 @@ Azure [VM](qs-configure-portal-windows-vm.md) 또는 azure [virtual machine scal
 
 2. 액세스 제어를 수정하려는 리소스로 이동합니다. 이 예제에서는 Azure 가상 머신 액세스 권한을 스토리지 계정에 제공하므로 스토리지 계정으로 이동합니다.
 
-3. 리소스의 **액세스 제어(IAM)** 페이지를 선택하고 **+ 역할 할당 추가**를 선택합니다. 그런 다음, **역할**을 지정하고, **액세스를 할당**하고, 해당 **구독**을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장**을 선택합니다. 
+3. 리소스의 **액세스 제어(IAM)** 페이지를 선택하고 **+ 역할 할당 추가** 를 선택합니다. 그런 다음, **역할** 을 지정하고, **액세스를 할당** 하고, 해당 **구독** 을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장** 을 선택합니다. 
 
    ![액세스 제어(IAM) 스크린샷](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      

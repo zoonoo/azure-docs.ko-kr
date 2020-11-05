@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186589"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359717"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -62,7 +62,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>재귀적으로 Acl (access control 목록) 설정 지원
 
-부모 디렉터리에서 자식 항목으로 ACL 변경 내용을 재귀적으로 적용 하는 기능은 [공개 미리 보기로](recursive-access-control-lists.md)제공 됩니다. 이 기능의 현재 릴리스에서는 PowerShell, .NET SDK 및 Python SDK를 사용 하 여 ACL 변경 내용을 적용할 수 있습니다. Java SDK, Azure CLI, Azure Portal 또는 Azure Storage 탐색기에 대 한 지원은 아직 제공 되지 않습니다.
+부모 디렉터리에서 자식 항목으로 ACL 변경 내용을 재귀적으로 적용 하는 기능을 일반적으로 사용할 수 있습니다. 이 기능의 현재 릴리스에서는 PowerShell, Azure CLI, .NET, Java 및 Python SDK를 사용 하 여 ACL 변경 내용을 적용할 수 있습니다. Azure Portal 또는 Azure Storage 탐색기에 대 한 지원은 아직 제공 되지 않습니다.
 
 <a id="known-issues-tools"></a>
 

@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312796"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359870"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "93312796"
 
 다음 표에서는 데이터 저장소 및 데이터 집합의 이점을 정의 하 고 요약 합니다. 
 
-|Object|설명| 이점|   
+|Object|Description| 이점|   
 |---|---|---|
 |데이터 저장소| 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하 여 Azure의 저장소 서비스에 안전 하 게 연결 합니다. | 사용자 정보를 안전 하 게 저장 하기 때문에 <br><br> <li> &nbsp; &nbsp; 인증 &nbsp; 자격 증명이 &nbsp; 나 &nbsp; 원본 &nbsp; 데이터 원본을 위험에 노출 하지 마십시오. <li> 더 이상 스크립트에서 하드 코드를 코딩할 필요가 없습니다.
 |데이터 세트| 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. <br><br><li> 모델 학습 중 데이터에 액세스 합니다.<li> 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.<li> 데이터 탐색을 위해 pandas와 같은 오픈 소스 라이브러리를 활용 합니다. | 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에 <br><br><li>저장소에 데이터의 단일 복사본을 유지 합니다.<li> 추가 저장소 비용이 발생 하지 않음 <li> 실수로 원래 데이터 원본을 변경 하는 것은 위험 하지 않습니다.<li>ML 워크플로 성능 속도를 향상 시킵니다. 
@@ -35,7 +35,7 @@ Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](/python/api/o
 * [데이터 저장소를 사용 하 여 Azure storage 서비스에 연결](how-to-access-data.md)합니다. 
 * [Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md). 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -50,8 +50,6 @@ Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](/python/api/o
 
 [이 Azure 스토리지 솔루션](how-to-access-data.md#matrix)에서 데이터 저장소를 만들 수 있습니다. **지원 되지 않는 저장소 솔루션의** 경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](how-to-access-data.md#move) 해야 합니다. [데이터 저장소에 대해 자세히 알아보세요](how-to-access-data.md). 
 
-
-
 Azure Machine Learning studio를 사용 하 여 몇 단계로 새 데이터 저장소를 만듭니다.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Azure Machine Learning studio를 사용 하 여 몇 단계로 새 데이터 저�
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 1. 왼쪽 창의 **관리** 에서 **데이터 저장소** 를 선택합니다.
 1. **+ 새 데이터 저장소** 를 선택합니다.
-1. 새 데이터 저장소에 대한 양식을 작성합니다. 이 양식은 사용자가 선택하는 Azure 스토리지 유형 및 인증 형식에 따라 지능적으로 업데이트됩니다. 이 양식을 채우는 데 필요한 인증 자격 증명을 찾을 수 있는 위치를 이해 하려면 [저장소 액세스 및 사용 권한 섹션](#access-validation) 을 참조 하세요.
+1. 양식을 작성 하 여 새 데이터 저장소를 만들고 등록 합니다. 이 양식은 사용자가 선택하는 Azure 스토리지 유형 및 인증 형식에 따라 지능적으로 업데이트됩니다. 이 양식을 채우는 데 필요한 인증 자격 증명을 찾을 수 있는 위치를 이해 하려면 [저장소 액세스 및 사용 권한 섹션](#access-validation) 을 참조 하세요.
 
 다음 예제에서는 **Azure blob 데이터 저장소** 를 만들 때 양식이 표시 되는 모양을 보여 줍니다.
 
@@ -157,11 +155,15 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
     * 해당 **개요** 페이지에는 테 넌 트 id 및 클라이언트 ID와 같은 필수 정보가 포함 됩니다.
 
 > [!IMPORTANT]
-> 보안상의 이유로 Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 할 수 있습니다. 이렇게 하려면 작업 영역 및 연결 된 데이터 저장소와 새 자격 증명을 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다.
+> * Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 하는 경우 새 자격 증명과 해당 작업 영역에 연결 된 데이터 저장소를 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. <br> <br>
+> * 같은 이름으로 데이터 저장소의 등록을 취소 하 고 다시 등록 하는 경우 실패 하 고 작업 영역에 대 한 Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하지 않았을 수 있습니다. 기본적으로 일시 삭제는 작업 영역에서 만든 주요 자격 증명 모음 인스턴스에 대해 사용 하도록 설정 되지만 기존 키 자격 증명 모음을 사용 하거나 10 월 2020 일 이전에 만든 작업 영역을 사용 하는 경우에는 사용 하지 못할 수 있습니다. 일시 삭제를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [기존 키 자격 증명 모음에 대 한 일시 삭제]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)사용을 참조 하세요.
 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
+* 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 
+
+* 데이터 **쓰기 액세스** 의 경우 쓰기 및 추가 권한도 필요 합니다.
 
 ## <a name="train-with-datasets"></a>데이터 세트로 학습
 

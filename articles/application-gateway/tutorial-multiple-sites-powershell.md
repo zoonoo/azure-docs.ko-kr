@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595863"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360312"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
-Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 사용자가 여러 도메인을 소유 하 고 *www.contoso.com* 및 *www.fabrikam.com*의 예제를 사용 한다고 가정 합니다.
+Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 사용자가 여러 도메인을 소유 하 고 *www.contoso.com* 및 *www.fabrikam.com* 의 예제를 사용 한다고 가정 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -123,11 +123,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. *Contoso.com* 및 *fabrikam.com* 도메인에 대해 수신기가 생성 됩니다.
 
-[New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule*이라는 기본 규칙을 만듭니다.
+[New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule* 이라는 기본 규칙을 만듭니다.
 
 >[!NOTE]
 > Application Gateway 또는 WAF v2 SKU를 사용 하 여 수신기 당 호스트 이름을 5 개까지 구성할 수 있으며 호스트 이름에 와일드 카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 을 참조 하세요.
->Azure PowerShell를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `-HostNames` `-HostName` 합니다. 호스트 이름을 사용 하면 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 지정할 수 있습니다. 예, `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Azure PowerShell를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `-HostNames` `-HostName` 합니다. 호스트 이름을 사용 하면 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 지정할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -185,7 +185,7 @@ $appgw = New-AzApplicationGateway `
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 사용자가 만든 두 개의 백 엔드 풀을 지원하는 두 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* 및 *myvmss2*입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+이 예제에서는 사용자가 만든 두 개의 백 엔드 풀을 지원하는 두 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* 및 *myvmss2* 입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

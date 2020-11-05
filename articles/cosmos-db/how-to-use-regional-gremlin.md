@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 그래프 데이터베이스의 지역별 엔드포인트
 description: 애플리케이션에 가장 가까운 그래프 데이터베이스 엔드포인트에 연결하는 방법을 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085771"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361790"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB 그래프 계정의 지역별 엔드포인트
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

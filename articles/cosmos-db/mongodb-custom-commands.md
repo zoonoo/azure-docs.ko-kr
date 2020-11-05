@@ -1,19 +1,19 @@
 ---
 title: MongoDB에 대 한 Azure Cosmos DB API의 데이터를 관리 하기 위한 MongoDB 확장 명령
 description: 이 문서에서는 MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 하는 방법을 설명 합니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333012"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359649"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 합니다. 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -236,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들어: 
+그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들면 다음과 같습니다. 
 
 ```javascript
 use test

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/04/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081878"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360159"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -100,9 +100,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 영역 중복성은 [다중 지역 쓰기 기능에서 복제](how-to-multi-master.md) 에 대 한 *추가 기능* 입니다. 영역 중복성 만으로는 지역 복원 력을 달성할 수 없습니다. 예를 들어 지역에 걸친 지역 가동 중단 또는 짧은 대기 시간에 대 한 이벤트의 경우 영역 중복성 외에도 여러 쓰기 영역을 사용 하는 것이 좋습니다.
 
-Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추가 비용 없이 영역 중복성을 옵트인 (opt in) 할 수 있습니다. 그렇지 않으면 영역 중복성 지원에 대 한 가격 책정과 관련 된 아래 참고를 참조 하세요. 지역을 제거 하 고 영역 중복성을 사용 하 여 다시 추가 하 여 Azure Cosmos 계정의 기존 지역에서 영역 중복성을 사용 하도록 설정할 수 있습니다.
-
-이 기능은 *영국 남부, 동남 아시아, 미국 동부, 미국 동부 2, 미국 중부, 유럽 서부, 미국 서 부 2, 일본 동부, 북아메리카 유럽, 프랑스 중부, 오스트레일리아 동부, 미국 동부 2 EUAP* 지역에서 사용할 수 있습니다.
+Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추가 비용 없이 영역 중복성을 옵트인 (opt in) 할 수 있습니다. 그렇지 않으면 영역 중복성 지원에 대 한 가격 책정과 관련 된 아래 참고를 참조 하세요. 지역을 제거 하 고 영역 중복성을 사용 하 여 다시 추가 하 여 Azure Cosmos 계정의 기존 지역에서 영역 중복성을 사용 하도록 설정할 수 있습니다. 가용성 영역이 지원 되는 지역 목록은 [가용성 영역](../availability-zones/az-region.md) 설명서를 참조 하세요.
 
 다음 표에는 다양 한 계정 구성의 고가용성 기능이 요약 되어 있습니다.
 

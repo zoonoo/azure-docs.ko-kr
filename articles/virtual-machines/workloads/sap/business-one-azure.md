@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994106"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359887"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -139,7 +139,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 
  
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
-이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
+이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
 - [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)

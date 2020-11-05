@@ -1,19 +1,19 @@
 ---
 title: Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
 description: 리소스 토큰을 만들어서 Graph 데이터베이스에 액세스하는 데 사용하는 방법을 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085737"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361696"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

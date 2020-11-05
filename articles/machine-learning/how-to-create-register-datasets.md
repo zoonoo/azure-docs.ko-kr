@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperfq1, data4ml
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 9f2f2386e37dd7dbfe4c41bb3a83fcc46232cf6d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312713"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359836"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -37,7 +37,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -173,7 +173,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
 

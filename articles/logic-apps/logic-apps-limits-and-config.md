@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
-ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/04/2020
+ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094509"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360040"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -108,14 +108,23 @@ ms.locfileid: "93094509"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
+### <a name="loops"></a>루프
+
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 트리거 동시성 | - 동시성 제어가 꺼지면 무제한 <p><p>- 동시성 제어가 켜지면 25가 기본 제한이며, 동시성을 켠 후에는 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고** : 동시성이 켜져 있으면 [배열 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)에 대한 SplitOn 제한이 100개 항목으로 축소됩니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
-| 최대 대기 중인 실행 | - 동시성이 없으면 최소 대기 실행 수는 1이고, 최대 수는 50입니다. <p><p>- 동시성이 있으면 최소 대기 실행 수는 10 + 동시 실행 수입니다(트리거 동시성). 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
 | Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](logic-apps-perform-data-operations.md#filter-array-action)을 사용하면 됩니다. |
-| Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. |
-| SplitOn 항목 | - 트리거 동시성이 없으면 100,000개 <p><p>- 트리거 동시성이 있으면 100개 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고** : 동시성이 켜져 있으면 SplitOn 제한이 100개 항목으로 축소됩니다. |
-| Until 반복 | - 기본값: 60 <p><p>- 최대: 5,000 | |
+| Foreach 동시성 | With concurrency: 20 <p><p>동시성 사용: <p><p>-기본값: 20 <br>-최소: 1 <br>-최대: 50 | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>이 제한을 변경 하려면 ["for each" 동시성 제한을 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 하거나 " [for each" 루프를 순차적으로 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)하십시오. |
+| Until 반복 | - 기본값: 60 <br>-최소: 1 <br>-최대: 5000 | 논리 앱을 실행 하는 동안 "Until" 루프에서 수행할 수 있는 가장 높은 주기 수입니다. <p><p>이 제한을 변경 하려면 "Until" 루프 셰이프에서 **제한 변경** 을 선택 하 고 **Count** 속성의 값을 지정 합니다. |
+| 제한 시간까지 | -기본값: PT1H.JSON (1 시간) | "Until" 루프가 종료 되기 전에 실행 될 수 있는 가장 많은 시간이 며 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 됩니다. 시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. <p><p>이 제한을 변경 하려면 "Until" 루프 셰이프에서 **제한 변경** 을 선택 하 고 **Timeout** 속성의 값을 지정 합니다. |
+||||
+
+### <a name="concurrency-and-debatching"></a>동시성 및 일괄 처리
+
+| 속성 | 제한 | 메모 |
+| ---- | ----- | ----- |
+| 트리거 동시성 | 동시성이 off 인: 무제한 <p><p>동시성을 사용 하는 경우 다음을 사용 하도록 설정 하면 실행 취소할 수 없습니다. <p><p>-기본값: 25 <br>-최소: 1 <br>-최대: 50 | 이 제한은 동시에 실행 되거나 동시에 실행 될 수 있는 논리 앱 인스턴스의 가장 많은 수입니다. <p><p>**참고** : 동시성이 켜져 있으면 [배열 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)에 대한 SplitOn 제한이 100개 항목으로 축소됩니다. <p><p>이 제한을 변경 하려면 [트리거 동시성 제한](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [트리거 인스턴스를 순차적](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)으로 변경을 참조 하세요. |
+| 최대 대기 중인 실행 | 동시성이 꺼져 있는 경우: <p><p>-최소: 1 <br>-최대: 50 <p><p>동시성 사용: <p><p>-Min: 10과 동시 실행 수 (동시성 트리거) <br>-최대: 100 | 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행을 대기할 수 있는 논리 앱 인스턴스의 가장 많은 수입니다. <p><p>이 제한을 변경 하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조 하세요. |
+| SplitOn 항목 | With concurrency: 10만 <p><p>동시성 사용: 100 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고** : 동시성이 켜져 있으면 SplitOn 제한이 100개 항목으로 축소됩니다. |
 ||||
 
 <a name="throughput-limits"></a>

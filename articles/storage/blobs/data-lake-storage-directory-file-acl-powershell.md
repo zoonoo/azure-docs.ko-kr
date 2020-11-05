@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8083d42d9ce79bcf31e3875f2ff5d5f06970a7ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e2138fc03fcdb614daef2051b7fc1a840e421658
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131516"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359734"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -285,7 +285,7 @@ $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
 $filesystem.ACL
 ```
 
-이 예에서는 **디렉터리**의 acl을 가져온 다음 해당 acl을 콘솔에 출력 합니다.
+이 예에서는 **디렉터리** 의 acl을 가져온 다음 해당 acl을 콘솔에 출력 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -390,7 +390,7 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>재귀적으로 ACL 설정 (미리 보기)
+### <a name="set-an-acl-recursively"></a>재귀적으로 ACL 설정
 
 각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에서 Acl을 재귀적으로 추가, 업데이트 및 제거할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에 대해 재귀적으로 acl (액세스 제어 목록) 설정](recursive-access-control-lists.md)을 참조 하세요.
 
@@ -400,7 +400,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 다음 표에서는 Data Lake Storage Gen1에 사용 되는 cmdlet이 Data Lake Storage Gen2 cmdlet에 매핑되는 방법을 보여 줍니다.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 메모 |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 참고 |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|기본적으로 Get-AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 자식 항목만 나열 합니다. -재귀 매개 변수는 자식 항목을 재귀적으로 나열 합니다. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Get-AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, Owner, Group, Permission 속성이 있습니다.|

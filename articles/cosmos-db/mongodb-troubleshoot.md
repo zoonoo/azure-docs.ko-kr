@@ -1,18 +1,18 @@
 ---
 title: Mongo DB에 대 한 Azure Cosmos DB의 API의 일반적인 오류 문제 해결
 description: 이 문서에서는 Azure Cosmos DB의 MongoDB API에서 발생 하는 일반적인 문제를 해결 하는 방법을 설명 합니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: jasonh
-ms.openlocfilehash: fa33e2ccc5c6cca94ab4e2294a4865745145c1ce
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 9d76c3d9943300f88a146e82b862624d491cf546
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096328"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360210"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API의 일반적인 문제 해결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "93096328"
 
 ## <a name="common-errors-and-solutions"></a>일반 오류 및 해결 방법
 
-| 오류               | 코드  | Description  | 해결 방법  |
+| Error               | 코드  | Description  | 해결 방법  |
 |---------------------|-------|--------------|-----------|
 | ExceededTimeLimit   | 50 | 요청이 실행 시간 제한인 60초를 초과했습니다. | 이 오류의 원인은 여러 가지가 있을 수 있습니다. 원인 중 하나는 현재 할당된 요청 단위 용량이 요청을 완료하기에 충분하지 않은 경우입니다. 이는 해당 컬렉션 또는 데이터베이스의 요청 단위를 늘려서 해결할 수 있습니다. 다른 경우에는 대규모 요청을 더 작은 요청으로 분할 하 여이 오류를 해결할 수 있습니다. |
 | TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 작업을 다시 시도하는 것이 좋습니다. |

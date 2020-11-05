@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory로 데이터 수집
 titleSuffix: Azure Machine Learning
-description: Azure Data Factory를 사용 하 여 데이터 수집 파이프라인을 빌드하는 방법을 알아봅니다.
+description: Azure Data Factory를 사용 하 여 데이터 수집 파이프라인을 구축 하는 데 사용할 수 있는 옵션과 각각의 이점을 알아보세요.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307363"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360635"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Azure Data Factory로 데이터 수집
 
-이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 데이터 수집 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 파이프라인은 Azure Machine Learning에 사용할 데이터를 수집 하는 데 사용 됩니다. Azure Data Factory를 사용 하 여 ETL (추출, 변환 및 로드) 데이터를 쉽게 추출할 수 있습니다. 데이터가 변환 되 고 저장소로 로드 되 면 machine learning 모델을 학습 하는 데 사용할 수 있습니다.
+이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 데이터 수집 파이프라인을 구축 하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이 파이프라인은 Azure Machine Learning에 사용할 데이터를 수집 하는 데 사용 됩니다. Azure Data Factory를 사용 하 여 ETL (추출, 변환 및 로드) 데이터를 쉽게 추출할 수 있습니다. 데이터가 변환 되 고 저장소로 로드 되 면 machine learning 모델을 학습 하는 데 사용할 수 있습니다.
 
 단순 데이터 변환은 [데이터 흐름과](../data-factory/control-flow-execute-data-flow-activity.md)같은 기본 ADF 작업 및 악기를 사용 하 여 처리할 수 있습니다. 더 복잡 한 시나리오의 경우 일부 사용자 지정 코드를 사용 하 여 데이터를 처리할 수 있습니다. 예를 들어 Python 또는 R 코드입니다.
 

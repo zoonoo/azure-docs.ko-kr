@@ -1,7 +1,7 @@
 ---
 title: 클라우드의 데이터 액세스 보안
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 데이터에 안전 하 게 연결 하는 방법 및 ML 작업에 데이터 집합 및 데이터 저장소를 사용 하는 방법에 대해 알아봅니다. Datastores는 Azure Data Lake Gen 1 & 2, SQL db 및 Azure Databricks Azure Blob의 데이터를 저장할 수 있습니다.
+description: Azure Machine Learning 데이터 저장소 및 데이터 집합을 사용 하 여 Azure에서 데이터 저장소에 안전 하 게 연결 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322238"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360176"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 

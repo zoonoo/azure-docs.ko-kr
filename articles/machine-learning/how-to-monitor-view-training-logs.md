@@ -1,7 +1,7 @@
 ---
 title: ML 실행 로그 & 메트릭 모니터링 및 보기
 titleSuffix: Azure Machine Learning
-description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 보고 모델 생성 프로세스를 향상 시킵니다. 위젯 및 studio 포털을 사용 하 여 실행 상태를 탐색 하 고 실행 레코드를 볼 수 있습니다.
+description: ML 실험을 모니터링 하 고 Jupyter 위젯을 사용 하 여 실행 메트릭과 Azure Machine Learning studio를 확인 합니다.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316687"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360601"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
-
-
 
 이 문서에서는 Azure Machine Learning 실행을 모니터링 하 고 로그를 보는 방법에 대해 알아봅니다. 로그를 보려면 먼저 해당 로그를 사용 하도록 설정 해야 합니다. 자세한 내용은 [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.
 

@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fb7dfb24a3c0a0b73b5fb18924f233080f73e80
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314447"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360907"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>학습 scikit-Azure Machine Learning를 사용 하 여 대규모로 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "93314447"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -71,6 +71,8 @@ ws = Workspace.from_config()
 큐 레이트 환경을 사용 하려는 경우 다음 명령을 대신 실행할 수 있습니다.
 
 ```python
+from azureml.core import Environment
+
 sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 

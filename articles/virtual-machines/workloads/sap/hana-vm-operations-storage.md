@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670672"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359853"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -46,7 +46,7 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 - 최소 **/hana/log** 볼륨에 대 한 Azure Ultra disk. **/Hana/data** 볼륨은 Azure 쓰기 가속기 없는 premium storage에 배치 하거나 Ultra disk를 더 빠르게 다시 시작 하는 데 사용할 수 있습니다.
 - **/Hana/log 및/hana/data** 에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
-일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data** 에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log** )에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다** .
+일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data** 에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log** )에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다**.
 
 온-프레미스 환경의 경우 I/O 하위 시스템 및 해당 성능은 신경 쓸 필요가 거의 없었습니다. SAP HANA에 대한 최소 스토리지 요구 사항을 충족하는 것은 어플라이언스 공급업체의 몫이었기 때문입니다. 자체적으로 Azure 인프라를 빌드하는 동안에는 그러한 SAP 발행 요구 사항 몇 가지에 대해 알아야 합니다. SAP에서 권장 하는 최소 처리량 특성 중 일부는 다음과 같습니다.
 
@@ -179,8 +179,8 @@ SAP **/hana/data** 볼륨에 대 한 구성:
 
 | VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/shared | /root 볼륨 | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192GiB | 500MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256GiB | 500MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192GiB | 500MBps | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256GiB | 500MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1,000GiB | 1,000MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1,750GiB | 1,000MBps | 1 x P30 | 1 x P6 | 1 x P6 | 

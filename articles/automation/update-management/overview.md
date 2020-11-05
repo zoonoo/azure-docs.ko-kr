@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348681"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360788"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -18,6 +18,9 @@ Azure Automation에서 업데이트 관리를 사용 하 여 Azure, 온-프레�
 
 > [!NOTE]
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
+
+> [!NOTE]
+> 지금은 Arc 사용 서버에서 직접 업데이트 관리를 사용 하도록 설정할 수 없습니다. 요구 사항 및 서버에 대해를 사용 하도록 설정 하는 방법을 이해 하려면 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) 을 참조 하세요.
 
 Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다운로드 하 여 설치 하려면 Windows Vm에 대 한 [자동 VM 게스트 패치](../../virtual-machines/windows/automatic-vm-guest-patching.md) 를 검토 합니다.
 

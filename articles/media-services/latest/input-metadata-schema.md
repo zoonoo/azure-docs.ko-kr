@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295567"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360057"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
 
@@ -43,15 +43,15 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 > 
 > 
 
-| Name  | 설명 |
+| 이름  | Description |
 | --- | --- | 
 | **VideoTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [Videotracks](#videotracks)같은 항목을 참조 하세요. |
 | **AudioTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 자세한 내용은 [오디오 트랙](#audiotracks) 을 참조 하세요. |
-| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />`<Metadata key="language" value="eng" />` |
+| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />예: `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>다른 자식 요소
 
-| Name | 설명 |
+| 이름 | Description |
 | --- | --- |
 | **이름**<br />필수 |자산 파일의 이름입니다. <br /><br />예: `"Name": "Ignite-short.mp4"` |
 | **Uri**<br />필수 |입력 자산이 있는 URL입니다. 출력 자산이 속한 입력 자산을 식별 하려면 `Uri` ID 대신 필드를 사용 합니다.|
@@ -65,10 +65,10 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Name |  | 설명 |
+| 이름 | Description |
 | --- | --- |
 | **FourCC**<br />필수 |비디오 코덱은 ffmpeg에서 보고 하는 코드를 FourCC 합니다.<br /><br />예: `"FourCC": "avc1"` |
-| **Profile** |비디오 트랙의 프로필입니다. <br /><br />예: `"Profile": "Main"`|
+| **프로필** |비디오 트랙의 프로필입니다. <br /><br />예: `"Profile": "Main"`|
 | **수준** |비디오 트랙의 수준입니다. <br /><br />예: `"Level": "3.2"`|
 | **PixelFormat** |비디오 트랙의 픽셀 형식입니다. <br /><br />예: `"PixelFormat": "yuv420p"`|
 | **Width**<br />필수 |인코딩된 비디오 너비(픽셀)입니다. <br /><br />예: `"Width": "1280"`|
@@ -81,7 +81,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | **Bitrate** |자산 파일에서 계산 되는 평균 비디오 비트 전송률 (비트/초)입니다. 기본 스트림 페이로드만 계산되며, 패키징 오버헤드는 포함되지 않습니다. <br /><br />예: `"Bitrate": 8421583`|
 | **HasBFrames** |B 프레임의 비디오 트랙 번호입니다. <br /><br />예: `"HasBFrames": 2`|
 | **메타데이터** |다양한 정보를 저장하는 데 사용할 수 있는 일반 key/value 문자열입니다. <br />이 문서의 끝에 있는 전체 예제를 참조 하세요. |
-| **ID**<br />필수 |이 오디오 또는 비디오 트랙의 0 기준 인덱스입니다.<br /><br /> 이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. <br /><br />예: `"Id": 2`|
+| **ID**<br />필수 |이 오디오 또는 비디오 트랙의 0 기준 인덱스입니다.<br /><br /> 이 **ID** 가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. <br /><br />예: `"Id": 2`|
 | **Codec** |비디오 트랙 코덱 문자열입니다. <br /><br />예: `"Codec": "h264"`|
 | **CodecLongName** |오디오 또는 비디오 트랙 코덱의 긴 이름입니다. <br /><br />예: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
 | **Codec** |비디오 트랙 코덱 문자열입니다. <br /><br />예: `"Codec": "h264"`|
@@ -92,7 +92,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 
 ## <a name="audiotracks"></a>AudioTracks
 
-| Name  | 설명 |
+| 이름  | Description |
 | --- | --- | 
 | **SampleFormat** |샘플 형식입니다. <br /><br />예: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |채널 레이아웃입니다. <br /><br />예: `"ChannelLayout": "stereo"`|
@@ -110,10 +110,10 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 
 ## <a name="metadata"></a>메타데이터
 
-| Name | Description |
+| 이름 | Description |
 | --- | --- |
-| **key**<br />필수 |key/value 쌍의 키입니다. |
-| **value**<br /> 필수 |key/value 쌍의 값입니다. |
+| **key**<br />필수 |키/값 쌍의 키입니다. |
+| **value**<br /> 필수 |키/값 쌍의 값입니다. |
 
 ## <a name="schema-example"></a>스키마 예제
 

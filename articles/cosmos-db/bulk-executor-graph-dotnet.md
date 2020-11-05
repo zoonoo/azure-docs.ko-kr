@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB Gremlin API에서 Graph Bulk Executor .NET 라이브러리 사용
 description: Bulk Executor 라이브러리를 사용하여 그래프 데이터를 대량으로 Azure Cosmos DB Gremlin API 컨테이너로 가져오는 방법을 알아봅니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: jasonh
+ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100493"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360516"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

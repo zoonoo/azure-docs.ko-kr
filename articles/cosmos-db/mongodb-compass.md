@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/05/2020
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: c005c4fc15f7c7955a7254f386597eee01800da5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 6c48639279556d495be57a2933f1d7f3c139294a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126603"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361117"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -41,17 +41,17 @@ Cosmos DB 계정을 Compass에 연결하려면 아래 단계를 따릅니다.
 
 2. Cosmos DB에서 **기본/보조 연결 문자열** 옆에 있는 **클립보드로 복사** 라는 단추를 클릭합니다. 이 단추를 클릭하면 전체 연결 문자열이 클립보드로 복사됩니다.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="연결 문자열 블레이드의 스크린샷":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="클립보드로 복사 단추의 스크린샷":::
 
 3. 데스크톱/머신에서 Compass를 열고 **연결** , **연결 대상...** 을 차례로 클릭합니다.
 
 4. Compass는 클립보드에서 연결 문자열을 자동으로 검색하며 연결하는 데 이 연결 문자열을 사용할지 묻는 메시지를 표시합니다. 아래 스크린샷과 같이 **예** 를 클릭합니다.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="연결 문자열 블레이드의 스크린샷":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="스크린샷에는 클립보드에 연결 문자열이 있음을 나타내는 대화 상자가 표시 됩니다.":::
 
 5. 위 단계에서 **예** 를 클릭하면 연결 문자열의 세부 정보가 자동으로 채워집니다. **복제본 세트 이름** 필드에서 채워진 값을 제거하여 비어 있는지 확인합니다.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="연결 문자열 블레이드의 스크린샷":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="복제 세트 이름 입력란을 보여 주는 스크린샷":::
 
 6. 페이지 아래쪽에서 **연결** 을 클릭합니다. 이제 Cosmos DB 계정 및 데이터베이스가 MongoDB Compass 내에 표시됩니다.
 

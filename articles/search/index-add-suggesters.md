@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347644"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360023"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리를 위한 부분 입력을 완료 하 고,는 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
+Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
 [C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
@@ -44,6 +44,8 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 + 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 합니다. `"analyzer": "en.Microsoft"`
 
+기존 필드를 사용 하 여 확인 기를 만들려고 하면 API에서이를 허용 하지 않습니다. 두 개 이상의 문자 조합에서 부분 용어를 전체 용어와 함께 토큰화 하는 경우 인덱싱을 수행 하는 동안 접두사가 생성 됩니다. 기존 필드가 이미 토큰화 된 경우 확인 기에 추가 하려면 인덱스를 다시 작성 해야 합니다. 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
+
 ### <a name="choose-fields"></a>필드 선택
 
 확인 기에는 여러 속성이 있지만 주로 검색 기능을 사용 하도록 설정 하는 문자열 필드 모음이 있습니다. 각 인덱스 마다 하나의 확인 기 있습니다. 따라서 확인 기 목록에는 제안과 자동 완성 모두에 콘텐츠를 제공 하는 모든 필드가 포함 되어야 합니다.
@@ -64,12 +66,6 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 > [!NOTE]
 > 분석기 제약 조건을 해결 해야 하는 경우, 예를 들어 특정 쿼리 시나리오에 키워드 또는 ngram 분석기가 필요한 경우 동일한 콘텐츠에 대해 두 개의 개별 필드를 사용 해야 합니다. 이렇게 하면 필드 중 하나에 확인 기를 사용할 수 있고 다른 하나는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
-
-### <a name="when-to-create-a-suggester"></a>확인 기를 만들어야 하는 경우
-
-확인 기를 만드는 가장 좋은 시기는 필드 정의를 만드는 것입니다.
-
-기존 필드를 사용 하 여 확인 기를 만들려고 하면 API에서이를 허용 하지 않습니다. 두 개 이상의 문자 조합에서 부분 용어를 전체 용어와 함께 토큰화 하는 경우 인덱싱을 수행 하는 동안 접두사가 생성 됩니다. 기존 필드가 이미 토큰화 된 경우 확인 기에 추가 하려면 인덱스를 다시 작성 해야 합니다. 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
 
 ## <a name="create-using-rest"></a>REST를 사용 하 여 만들기
 

@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147238"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360252"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -71,9 +71,11 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 
 **TempDB 사용:** 기본적으로 Data Factory는 로드 프로세스의 일부로 데이터를 저장 하기 위해 전역 임시 테이블을 사용 합니다. 또는 "TempDB 사용" 옵션을 선택 취소 하 고 대신이 싱크에 사용 되는 데이터베이스에 있는 사용자 데이터베이스에 임시 보관 테이블을 저장 하도록 Data Factory 하도록 요청할 수 있습니다.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![임시 DB 사용](media/data-flow/tempdb.png "임시 DB 사용")
 
 ## <a name="cache-sink"></a>캐시 싱크
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
 *캐시 싱크* 는 데이터 흐름이 데이터 저장소 대신 Spark 캐시로 데이터를 기록 하는 경우입니다. 데이터 흐름 매핑에서는 *캐시 조회* 를 사용 하 여 동일한 흐름 내에서이 데이터를 여러 번 참조할 수 있습니다. 이 방법은 데이터를 식의 일부로 참조 하지만 명시적으로 열에 조인 하지 않으려는 경우에 유용 합니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 
 
@@ -101,6 +103,11 @@ Azure Data Factory는 90 개 이상의 [기본 커넥터](connector-overview.md)
 기본적으로 데이터는 비결 정적 순서로 여러 싱크에 기록 됩니다. 변환 논리가 완료 되 면 실행 엔진이 데이터를 병렬로 쓰고 싱크 순서가 각 실행 마다 다를 수 있습니다. 정확한 싱크 순서 지정을 지정 하려면 데이터 흐름의 **일반** 탭에서 **사용자 지정 싱크 순서** 를 사용 하도록 설정 합니다. 사용 하도록 설정 하면 싱크는 오름차순으로 순차적으로 작성 됩니다.
 
 ![사용자 지정 싱크 순서를 보여 주는 스크린샷](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서를 보여 주는 스크린샷")
+
+> [!NOTE]
+> 캐시 된 [조회](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)를 활용 하는 경우 싱크 순서로 캐시 된 싱크가 0으로 설정 되어 있는지 확인 합니다.
+
+![사용자 지정 싱크 순서 지정](media/data-flow/cache-2.png "사용자 지정 싱크 순서 지정")
 
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 

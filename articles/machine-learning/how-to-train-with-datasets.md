@@ -1,7 +1,7 @@
 ---
 title: Azureml-데이터 집합으로 학습
 titleSuffix: Azure Machine Learning
-description: 학습에서 데이터 집합을 사용 하는 방법 알아보기
+description: Azure Machine Learning 데이터 집합을 사용 하 여 ML 모델 학습을 위해 로컬 또는 원격 계산에서 데이터를 사용할 수 있도록 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: bf1dcb34b762c3dcae39316d804b617edbf2302d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311331"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360737"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 
@@ -26,7 +26,7 @@ ms.locfileid: "93311331"
 
 Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 

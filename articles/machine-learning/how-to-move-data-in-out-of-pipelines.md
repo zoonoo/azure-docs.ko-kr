@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인에서 데이터 이동
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 파이프라인에서 데이터의 입력 & 출력에 대해 알아봅니다.
+description: Azure Machine Learning 파이프라인이 데이터를 수집 하는 방법과 파이프라인 단계 간에 데이터를 관리 하 고 이동 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: d96f5c0b6b1bb4a38724f53de68c9aad6608b258
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq4, devx-track-python, data4ml
+ms.openlocfilehash: bf5bfd8c2047764f9a03889c8fdd5012dc38ab65
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316597"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359768"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 

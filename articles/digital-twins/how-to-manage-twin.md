@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280382"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360074"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "93280382"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "93280382"
 쌍을 만들려면 `CreateOrReplaceDigitalTwinAsync()` 서비스 클라이언트에서 다음과 같이 메서드를 사용 합니다.
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 디지털 쌍을 만들려면 다음을 제공 해야 합니다.
@@ -55,12 +55,7 @@ await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 
 쌍 생성 API는 쌍 속성의 유효한 JSON 설명으로 직렬화 된 개체를 허용 합니다. 쌍의 JSON 형식에 대 한 설명은 [*개념: Digital 쌍 및 쌍 그래프*](concepts-twins-graph.md) 를 참조 하세요. 
 
-먼저 다음과 같이 쌍 및 해당 속성 데이터를 나타내는 데이터 개체를 만들 수 있습니다.
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-매개 변수 개체는 수동으로 만들거나 제공 된 도우미 클래스를 사용 하 여 만들 수 있습니다. 다음은 각각의 예제입니다.
+먼저 쌍 및 해당 속성 데이터를 나타내는 데이터 개체를 만들 수 있습니다. 매개 변수 개체는 수동으로 만들거나 제공 된 도우미 클래스를 사용 하 여 만들 수 있습니다. 다음은 각각의 예제입니다.
 
 #### <a name="create-twins-using-manually-created-data"></a>수동으로 만든 데이터를 사용 하 여 쌍 만들기
 
@@ -87,7 +82,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 다음은 그 예입니다.
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예를 들면 다음과 같습니다.
 >
 >```csharp
 >twin.Id = "myRoomId";
