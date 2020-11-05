@@ -1,7 +1,7 @@
 ---
 title: 분산 교육 이란?
 titleSuffix: Azure Machine Learning
-description: 분산 학습 및 Azure Machine Learning 지 원하는 방법에 대해 알아봅니다.
+description: 에서 지 원하는 분산 교육 Azure Machine Learning 유형과 분산 학습에 사용할 수 있는 오픈 소스 프레임 워크 통합에 대해 알아보세요.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322221"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358578"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Azure Machine Learning를 사용한 분산 학습
 

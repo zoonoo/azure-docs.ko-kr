@@ -10,13 +10,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314221"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357674"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 
@@ -32,7 +32,7 @@ ms.locfileid: "93314221"
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독- [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 

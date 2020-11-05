@@ -4,23 +4,23 @@ description: 여러 메시지 broker를 사용하여 Service Bus 큐 및 항목�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 380f18e16d09dc9f641a7a6b6cf9c1cb3f05e075
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007964"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356283"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
-Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 여러 메시징 저장소가 메시지를 저장하도록 합니다. 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. Service Bus *파티션*을 사용하면 큐 및 항목 또는 *메시징 엔터티*가 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 분할은 분할된 엔터티의 전체 처리량이 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않는다는 의미입니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 Service Bus 기능을 포함할 수 있습니다.
+Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 여러 메시징 저장소가 메시지를 저장하도록 합니다. 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. Service Bus *파티션* 을 사용하면 큐 및 항목 또는 *메시징 엔터티* 가 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 분할은 분할된 엔터티의 전체 처리량이 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않는다는 의미입니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 Service Bus 기능을 포함할 수 있습니다.
 
 > [!NOTE]
 > 분할은 기본 또는 표준 SKU의 모든 큐와 항목에서 엔터티 생성에 지원됩니다. 프리미엄 메시지 SKU에 지원되지 않지만 프리미엄 네임스페이스에서 기존에 분할된 엔터티는 정상적으로 계속 작동합니다.
  
 기존 큐 또는 토픽에 대해 분할 옵션을 변경할 수 없으며 엔터티를 만들 때만 이 옵션을 설정할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 각 분할 된 큐 또는 토픽은 여러 파티션으로 구성 됩니다. 각 파티션은 다른 메시징 저장소에 저장 되 고 다른 메시지 브로커에 의해 처리 됩니다. 분할 된 큐 또는 토픽으로 메시지를 보내면 Service Bus는 파티션 중 하나에 메시지를 할당 합니다. 선택은 발신자가 지정할 수 있는 Service Bus 또는 파티션 키에서 임의로 수행됩니다.
 
@@ -29,6 +29,8 @@ Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 
 분할 되지 않은 엔터티의 피킹 (peeking) 작업은 항상 가장 오래 된 메시지를 반환 하지만 분할 된 엔터티는 반환 하지 않습니다. 대신, 메시지 브로커가 먼저 응답 한 파티션 중 하나에서 가장 오래 된 메시지를 반환 합니다. 반환 된 메시지가 모든 파티션에서 가장 오래 된 메시지 임을 보장 하지는 않습니다. 
 
 분할된 큐 또는 항목에 메시지를 보내거나 메시지를 받을 때 추가 비용이 없습니다.
+>[!NOTE]
+> 피킹 (peeking) 작업은 SequenceNumber를 기반으로 하는 파티션이에서 가장 오래 된 메시지를 반환 합니다. 분할 엔터티의 경우 시퀀스 번호는 파티션에 상대적으로 발급 됩니다. 자세한 내용은 [메시지 시퀀싱 및 타임 스탬프](../service-bus-messaging/message-sequencing.md)를 참조 하세요.
 
 ## <a name="enable-partitioning"></a>분할 사용
 
@@ -38,13 +40,13 @@ Azure Service Bus로 분할된 큐 및 항목을 사용하려면 Azure SDK 버�
 
 표준 메시징 계층에서 Service Bus 큐 및 토픽은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용 하도록 설정 하면 Service Bus는 엔터티의 16 개 복사본 (16 개 파티션)을 만듭니다. 이때 각각 동일한 크기가 지정 됩니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 \* 16) = 80GB가 됩니다. [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
-### <a name="premium"></a>Premium
+### <a name="premium"></a>프리미엄
 
 프리미엄 계층 네임 스페이스에서 분할 엔터티는 지원 되지 않습니다. 그러나 Service Bus 큐 및 항목은 1, 2, 3, 4, 5, 10, 20, 40 또는 80GB 크기로 만들 수 있습니다(기본값은 1GB). [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 큐 또는 토픽의 크기를 확인할 수 있습니다.
 
 ### <a name="create-a-partitioned-entity"></a>분할된 엔터티 만들기
 
-분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 애플리케이션에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 또는 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 속성을 각각 **true**로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목을 만든 시간에 설정해야 하며, 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. 앞서 설명한 것처럼 기존 큐 또는 토픽에서 이러한 속성을 변경하는 것은 불가능합니다. 예를 들면 다음과 같습니다.
+분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 애플리케이션에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 또는 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 속성을 각각 **true** 로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목을 만든 시간에 설정해야 하며, 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. 앞서 설명한 것처럼 기존 큐 또는 토픽에서 이러한 속성을 변경하는 것은 불가능합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // Create partitioned topic
@@ -66,11 +68,11 @@ ns.CreateTopic(td);
 
 시나리오에 따라 다양한 메시지 속성이 파티션 키로 사용됩니다.
 
-**SessionId**: 메시지에 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성 집합이 있으면 Service Bus는 **SessionID**를 파티션 키로 사용합니다. 이러한 방식으로 동일한 세션에 속한 모든 메시지가 동일한 메시지 broker에서 처리됩니다. 세션을 사용하면 Service Bus가 세션 상태의 일관성 뿐만 아니라 메시지 순서를 보장할 수 있습니다.
+**SessionId** : 메시지에 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성 집합이 있으면 Service Bus는 **SessionID** 를 파티션 키로 사용합니다. 이러한 방식으로 동일한 세션에 속한 모든 메시지가 동일한 메시지 broker에서 처리됩니다. 세션을 사용하면 Service Bus가 세션 상태의 일관성 뿐만 아니라 메시지 순서를 보장할 수 있습니다.
 
-**PartitionKey**: 메시지에 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 있지만 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성 집합이 없으면 Service Bus는 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성 값을 파티션 키로 사용합니다. 메시지에 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 및 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성 집합이 모두 있으면 속성이 모두 동일해야 합니다. [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성이 아닌 다른 값으로 설정되면 Service Bus는 잘못된 작업 예외를 반환합니다. 발신자가 비 세션 인식 트랜잭션 메시지를 보내는 경우 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성을 사용해야 합니다. 파티션 키는 트랜잭션 내에서 전송되는 모든 메시지가 동일한 메시징 broker에서 처리되도록 합니다.
+**PartitionKey** : 메시지에 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 있지만 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성 집합이 없으면 Service Bus는 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성 값을 파티션 키로 사용합니다. 메시지에 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 및 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성 집합이 모두 있으면 속성이 모두 동일해야 합니다. [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성이 아닌 다른 값으로 설정되면 Service Bus는 잘못된 작업 예외를 반환합니다. 발신자가 비 세션 인식 트랜잭션 메시지를 보내는 경우 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성을 사용해야 합니다. 파티션 키는 트랜잭션 내에서 전송되는 모든 메시지가 동일한 메시징 broker에서 처리되도록 합니다.
 
-**MessageId**: 큐 또는 항목에 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 속성이 **true**로 설정되고 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 또는 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 설정되지 않은 경우 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성 값이 파티션 키로 제공됩니다. (보내는 응용 프로그램에서 자동으로 메시지 ID를 할당 하지 않는 경우 Microsoft .NET 및 AMQP 라이브러리에서 자동으로 메시지 ID를 할당 합니다.) 이 경우 동일한 메시지의 모든 복사본이 동일한 메시지 브로커에 의해 처리 됩니다. 이 ID를 사용하면 Service Bus가 중복 메시지를 감지하고 제거할 수 있습니다. [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 속성이 **true**로 설정되지 않으면 Service Bus는 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성을 파티션 키로 고려하지 않습니다.
+**MessageId** : 큐 또는 항목에 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 속성이 **true** 로 설정되고 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 또는 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성이 설정되지 않은 경우 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성 값이 파티션 키로 제공됩니다. (보내는 응용 프로그램에서 자동으로 메시지 ID를 할당 하지 않는 경우 Microsoft .NET 및 AMQP 라이브러리에서 자동으로 메시지 ID를 할당 합니다.) 이 경우 동일한 메시지의 모든 복사본이 동일한 메시지 브로커에 의해 처리 됩니다. 이 ID를 사용하면 Service Bus가 중복 메시지를 감지하고 제거할 수 있습니다. [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 속성이 **true** 로 설정되지 않으면 Service Bus는 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성을 파티션 키로 고려하지 않습니다.
 
 ### <a name="not-using-a-partition-key"></a>파티션 키 사용하지 않음
 
@@ -123,10 +125,10 @@ committableTransaction.Commit();
 Service Bus는 분할된 엔터티 간에 자동 메시지 전달을 지원합니다. 자동 메시지 전달을 사용하려면 원본 큐 또는 구독에 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 속성을 설정합니다. 메시지가 파티션 키([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 또는 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid))를 지정하는 경우 해당 파티션 키를 대상 엔터티에 사용합니다.
 
 ## <a name="considerations-and-guidelines"></a>고려 사항 및 지침
-* **높은 일관성 기능**: 엔터티에서 세션, 중복 검색 또는 분할 키의 명시적 제어와 같은 기능을 사용 하는 경우 메시징 작업은 항상 특정 파티션으로 라우팅됩니다. 파티션이 높은 트래픽을 경험 하거나 기본 저장소가 비정상 상태 이면 해당 작업이 실패 하 고 가용성이 줄어듭니다. 결과적으로 분할되지 않은 엔터티보다 일관성은 훨씬 높아집니다. 모든 트래픽이 아닌 트래픽 일부에서만 문제가 나타나기 때문입니다. 자세한 내용은 이 [가용성 및 일관성 논의](../event-hubs/event-hubs-availability-and-consistency.md)를 참조하세요.
-* **관리**: 만들기, 업데이트 및 삭제와 같은 작업은 엔터티의 모든 파티션에서 수행 되어야 합니다. 파티션이 비정상 이면 이러한 작업에 오류가 발생할 수 있습니다. 가져오기 작업의 경우 메시지 개수와 같은 정보는 모든 파티션에서 집계 되어야 합니다. 파티션이 비정상 이면 엔터티 가용성 상태가 제한 됨으로 보고 됩니다.
-* **저용량 메시지 시나리오**: 이런 시나리오에서, 특히 HTTP 프로토콜을 사용하는 경우 모든 메시지를 가져오기 위해 여러 수신 작업을 수행해야 할 수 있습니다. 수신 요청의 경우 프런트 엔드는 모든 파티션에서 수신을 수행 하 고 수신 된 모든 응답을 캐시 합니다. 동일한 연결에 대한 후속 수신 요청은 이러한 캐싱 덕분에 수신 대기 시간이 감소합니다. 그러나 연결이 여러 개 있거나 HTTP를 사용하는 경우 각 요청에 대해 새 연결이 설정됩니다. 따라서 동일한 노드에 요청이 들어온다고 보장할 수 없습니다. 모든 기존 메시지가 잠기고 다른 프런트 엔드에 캐시될 경우 수신 작업은 **null**을 반환합니다. 결과적으로 메시지가 만료되고 다시 받을 수 있습니다. HTTP 연결 유지를 사용하는 것이 좋습니다. 볼륨이 낮은 시나리오에서 분할을 사용 하는 경우 수신 작업이 예상 보다 오래 걸릴 수 있습니다. 따라서 이러한 시나리오에서는 분할을 사용 하지 않는 것이 좋습니다. 기존 분할 된 엔터티를 삭제 하 고 분할을 사용 하지 않도록 설정 하 여 다시 만들어 성능을 향상 시킵니다.
-* **메시지 찾아보기/보기**: 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)가 [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) 속성에 지정된 메시지 수를 항상 반환하지는 않습니다. 이 동작에는 일반적으로 다음 두 가지 이유가 있습니다. 하나는 메시지 컬렉션의 집계 크기가 최대 크기인 256KB를 초과하기 때문입니다. 또 다른 이유는 큐 또는 토픽이 [EnablePartitioning 속성](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning)을 **true**로 설정하면 파티션에 요청된 메시지 수를 완료하기 위한 충분한 메시지에 없을 수 있기 때문입니다. 일반적으로 애플리케이션이 특정 개수의 메시지를 받으려는 경우 해당 메시지 수에 도달할 때까지 또는 엿볼 수 있는 추가 메시지가 없게 될 때까지 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)를 반복적으로 호출해야 합니다. 코드 샘플을 비롯한 자세한 내용은 [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 또는 [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API 설명서를 참조하세요.
+* **높은 일관성 기능** : 엔터티에서 세션, 중복 검색 또는 분할 키의 명시적 제어와 같은 기능을 사용 하는 경우 메시징 작업은 항상 특정 파티션으로 라우팅됩니다. 파티션이 높은 트래픽을 경험 하거나 기본 저장소가 비정상 상태 이면 해당 작업이 실패 하 고 가용성이 줄어듭니다. 결과적으로 분할되지 않은 엔터티보다 일관성은 훨씬 높아집니다. 모든 트래픽이 아닌 트래픽 일부에서만 문제가 나타나기 때문입니다. 자세한 내용은 이 [가용성 및 일관성 논의](../event-hubs/event-hubs-availability-and-consistency.md)를 참조하세요.
+* **관리** : 만들기, 업데이트 및 삭제와 같은 작업은 엔터티의 모든 파티션에서 수행 되어야 합니다. 파티션이 비정상 이면 이러한 작업에 오류가 발생할 수 있습니다. 가져오기 작업의 경우 메시지 개수와 같은 정보는 모든 파티션에서 집계 되어야 합니다. 파티션이 비정상 이면 엔터티 가용성 상태가 제한 됨으로 보고 됩니다.
+* **저용량 메시지 시나리오** : 이런 시나리오에서, 특히 HTTP 프로토콜을 사용하는 경우 모든 메시지를 가져오기 위해 여러 수신 작업을 수행해야 할 수 있습니다. 수신 요청의 경우 프런트 엔드는 모든 파티션에서 수신을 수행 하 고 수신 된 모든 응답을 캐시 합니다. 동일한 연결에 대한 후속 수신 요청은 이러한 캐싱 덕분에 수신 대기 시간이 감소합니다. 그러나 연결이 여러 개 있거나 HTTP를 사용하는 경우 각 요청에 대해 새 연결이 설정됩니다. 따라서 동일한 노드에 요청이 들어온다고 보장할 수 없습니다. 모든 기존 메시지가 잠기고 다른 프런트 엔드에 캐시될 경우 수신 작업은 **null** 을 반환합니다. 결과적으로 메시지가 만료되고 다시 받을 수 있습니다. HTTP 연결 유지를 사용하는 것이 좋습니다. 볼륨이 낮은 시나리오에서 분할을 사용 하는 경우 수신 작업이 예상 보다 오래 걸릴 수 있습니다. 따라서 이러한 시나리오에서는 분할을 사용 하지 않는 것이 좋습니다. 기존 분할 된 엔터티를 삭제 하 고 분할을 사용 하지 않도록 설정 하 여 다시 만들어 성능을 향상 시킵니다.
+* **메시지 찾아보기/보기** : 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)가 [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) 속성에 지정된 메시지 수를 항상 반환하지는 않습니다. 이 동작에는 일반적으로 다음 두 가지 이유가 있습니다. 하나는 메시지 컬렉션의 집계 크기가 최대 크기인 256KB를 초과하기 때문입니다. 또 다른 이유는 큐 또는 토픽이 [EnablePartitioning 속성](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning)을 **true** 로 설정하면 파티션에 요청된 메시지 수를 완료하기 위한 충분한 메시지에 없을 수 있기 때문입니다. 일반적으로 애플리케이션이 특정 개수의 메시지를 받으려는 경우 해당 메시지 수에 도달할 때까지 또는 엿볼 수 있는 추가 메시지가 없게 될 때까지 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)를 반복적으로 호출해야 합니다. 코드 샘플을 비롯한 자세한 내용은 [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 또는 [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API 설명서를 참조하세요.
 
 ## <a name="latest-added-features"></a>최근에 추가된 기능
 

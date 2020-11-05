@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289624"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356691"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -34,6 +34,9 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 -  **C + +/c #/Java/Python/Objective-C/Swift** : `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), 여기 ( [Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
 - **C #, c + +, Java** : `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), 여기 ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable)에서 참조 설명서를 읽으십시오.
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+
+**주요 변경 내용**
+- **JavaScript** : PullAudioOutputStream ()에는 내부 약속에서 네이티브 JavaScript 약속으로의 반환 형식 변경 내용이 있습니다.
 
 **버그 수정**
 - **All** : `SetServiceProperty` 특정 특수 문자가 포함 된 값이 무시 된에서 1.13 회귀를 수정 했습니다.

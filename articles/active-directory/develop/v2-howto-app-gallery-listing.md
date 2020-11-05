@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339438"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356351"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -69,7 +69,7 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
@@ -97,6 +97,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 지원 되�
 | 모바일 기반 single sign-on| √| √* |
 | 모바일 응용 프로그램에 대 한 조건부 액세스 정책| √| X |
 | 모바일 응용 프로그램에 대 한 원활한 MFA 환경| √| X |
+| SCIM 프로비저닝| √| √ |
 | 액세스 Microsoft Graph| √| X |
 
 * 가능 하지만 Microsoft는 샘플 또는 지침을 제공 하지 않습니다.
@@ -261,7 +262,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
-사용자 프로 비전을 위해 SCIM 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 
+사용자 프로 비전을 위해 [Scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 끝점을 구현 하는 경우 표시 된 대로 옵션을 선택 합니다. 
 
    ![사용자 프로 비전 요청](./media/howto-app-gallery-listing/user-provisioning.png)
 

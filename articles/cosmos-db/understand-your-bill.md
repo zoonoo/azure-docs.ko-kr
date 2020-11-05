@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073828"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358714"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 * 720시간이 있는 월에서 300시간 동안 프로비전된 처리량이 120K RU/초였고 나머지 420시간 동안 프로비전된 처리량이 155K RU/초였다면 월별 청구서에 다음 금액이 표시됩니다. 300 x $9.60/시 + 420 x $12.40/시 = $2,880 + $5,208 = $8,088/월 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="전용 처리량 청구 예제":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="공유 처리량 청구 예제":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>지역에서 복제 및 다중 지역 쓰기를 사용 하는 청구 예  
+## <a name="billing-examples-with-geo-replication"></a>지역에서 복제를 사용 하는 청구 예  
 
-언제든지 전 세계의 Azure 지역을 Azure Cosmos 데이터베이스 계정에 추가/제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성한 처리량은 Azure Cosmos 데이터베이스 계정과 연결된 각 Azure 지역에서 예약됩니다. Azure Cosmos 데이터베이스 계정 내의 모든 데이터베이스 및 컨테이너에서 구성된 프로비전된 처리량 합계(시간 기준으로 프로비전됨)가 T이고 데이터베이스 계정과 연결된 Azure 지역 수가 N이면 Azure Cosmos 데이터베이스 계정에 대한 지정된 시간 동안의 총 프로비전된 처리량은 (a) 단일 쓰기 지역으로 구성된 경우 T x N RU/초이고 (b) 쓰기를 처리할 수 있는 모든 지역으로 구성된 경우 T x (N+1) RU/초입니다. 프로 비전 된 처리량 (단일 쓰기 지역) 비용 $0.008/시간 100 r u/초 및 여러 쓰기 가능 영역 (다중 지역 쓰기 구성) 비용 $0.016/100 r u/초 ( [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)참조) 단일 쓰기 지역이든, 다중 쓰기 지역이든 관계없이 Azure Cosmos DB에서는 모든 지역의 데이터를 읽을 수 있습니다.
+언제든지 전 세계의 Azure 지역을 Azure Cosmos 데이터베이스 계정에 추가/제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성한 처리량은 Azure Cosmos 데이터베이스 계정과 연결된 각 Azure 지역에서 예약됩니다. Azure Cosmos 데이터베이스 계정 (시간당 프로 비전 됨) 내에서 모든 데이터베이스 및 컨테이너에 대해 구성 된 프로 비전 된 처리량 (r u/초)의 합계가 T이 고, 데이터베이스 계정과 연결 된 Azure 지역 수가 N 이면, 지정 된 시간 동안 프로 비전 된 총 처리량은 T x N r u/초와 같습니다. 프로 비전 된 처리량 (단일 쓰기 지역) 비용 $0.008/시간 100 r u/초 및 여러 쓰기 가능 영역 (다중 지역 쓰기 구성) 비용 $0.016/100 r u/초 ( [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)참조) 단일 쓰기 지역이든, 다중 쓰기 지역이든 관계없이 Azure Cosmos DB에서는 모든 지역의 데이터를 읽을 수 있습니다.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>청구 예제: 다중 지역 Azure Cosmos 계정, 단일 지역 쓰기
 
@@ -193,7 +193,7 @@ Azure Cosmos 컨테이너가 미국 서부에 있다고 가정해보겠습니다
 
 해당 월의 720시간 동안 프로비전된 총 처리량의 변화량은 아래 그림과 같습니다. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="전용 처리량 청구 예제":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="실제 예제":::
 
 월간 총 청구 금액(한달을 30일/720시간으로 가정)은 다음과 같이 계산됩니다.
 

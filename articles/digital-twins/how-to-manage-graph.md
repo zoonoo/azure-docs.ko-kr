@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 82c5c7b2d221cdf10c69e0a8921eef6e6d85e554
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279500"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356334"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -22,7 +22,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
     
@@ -32,7 +32,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 관계는 서로 다른 디지털 쌍이 서로 연결 되는 방법을 설명 하며,이는 쌍 그래프의 기본을 형성 합니다.
 
-관계는 호출을 사용 하 여 생성 됩니다 `CreateRelationship()` . 
+관계는 호출을 사용 하 여 생성 됩니다 `CreateOrReplaceRelationshipAsync()` . 
 
 관계를 만들려면 다음을 지정 해야 합니다.
 * 원본 쌍 ID ( `srcId` 아래 코드 샘플에서): 관계가 시작 되는 쌍의 id입니다.
@@ -57,7 +57,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -351,7 +351,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)

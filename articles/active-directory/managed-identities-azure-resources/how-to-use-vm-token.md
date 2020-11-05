@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266292"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358170"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -30,7 +30,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 이 문서에서는 토큰 획득을 위한 다양한 코드 및 스크립트 예제뿐만 아니라 토큰 만료 및 HTTP 오류를 처리하는 등 중요한 항목에 대한 지침을 제공합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -47,7 +47,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 클라이언트 애플리케이션은 지정된 리소스에 액세스하기 위해 Azure 리소스에 대한 관리 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 이 토큰은 [Azure 리소스 서비스 주체에 대한 관리 ID를 기준으로](overview.md#managed-identity-types) 합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v2-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
 
-| 링크 | 설명 |
+| 링크 | Description |
 | -------------- | -------------------- |
 | [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) | Azure 리소스에 대한 관리 ID 토큰 엔드포인트에 대한 프로토콜 세부 정보 |
 | [.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | .NET 클라이언트에서 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하는 예
@@ -64,13 +64,13 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 애플리케이션에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 엔드포인트를 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
 
-IMDS(Instance Metadata Service) 엔드포인트를 사용하는 요청 샘플 *(권장됨)*:
+IMDS(Instance Metadata Service) 엔드포인트를 사용하는 요청 샘플 *(권장됨)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Instance Metadata Service에 대한 Azure 리소스 관리 ID 엔드포인트입니다. |
@@ -81,14 +81,14 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 | `mi_res_id` | 필드 토큰을 원하는 관리 id의 mi_res_id (Azure 리소스 ID)을 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다. |
 
-Azure 리소스에 대한 관리 ID VM 확장 엔드포인트를 사용하는 요청 샘플 *(2019년 1월에 사용 중단될 예정)*:
+Azure 리소스에 대한 관리 ID VM 확장 엔드포인트를 사용하는 요청 샘플 *(2019년 1월에 사용 중단될 예정)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `http://localhost:50342/oauth2/token` | Azure 리소스에 대한 관리 ID 엔드포인트입니다. 여기서 50342는 기본 포트이며 구성 가능합니다. |
@@ -362,7 +362,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 오류가 발생하면 해당하는 HTTP 응답 본문에는 다음과 같은 오류 세부 정보와 함께 JSON이 포함됩니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | error   | 오류 식별자 |
 | error_description | 오류의 자세한 설명입니다. **오류 설명은 언제 든 지 변경 될 수 있습니다. 오류 설명의 값을 기반으로 분기 하는 코드를 작성 하지 마십시오.**|
@@ -371,7 +371,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 이 섹션에서는 가능한 오류 응답을 문서화합니다. "200 확인" 상태는 성공적인 응답이며 액세스 토큰은 access_token 요소의 JSON 응답 본문에 포함되어 있습니다.
 
-| 상태 코드 | Error | 오류 설명 | 솔루션 |
+| 상태 코드 | Error | 오류 설명 | 해결 방법 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 잘못된 요청 | invalid_resource | AADSTS50001: 라는 테 넌 트에서 라는 응용 프로그램을 *\<URI\>* 찾을 수 없습니다 *\<TENANT-ID\>* . 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
 | 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 예제는 이전 REST 섹션에서 "샘플 요청"을 참조하세요.|
@@ -391,7 +391,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 다시 시도하는 경우 다음 전략을 사용하는 것이 좋습니다. 
 
-| **재시도 전략** | **설정** | **값** | **작동 방법** |
+| **재시도 전략** | **설정** | **값** | **작동 방식** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |재시도 횟수<br />최소 백오프<br />최대 백오프<br />델타 백오프<br />첫 번째 빠른 재시도 |5<br />0초<br />60초<br />2초<br />false |시도 1 - 0초 지연<br />시도 2 - ~2초 지연<br />시도 3 - ~6초 지연<br />시도 4 - ~14초 지연<br />시도 5 - ~30초 지연 |
 

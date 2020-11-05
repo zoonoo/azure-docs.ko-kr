@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bcbad58935300c765fdcccb1701b64f239de43fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081232"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357881"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -60,15 +60,15 @@ Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표�
 
 - Security Center **개요** 의 타일 (주 대시보드):
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="포털에 표시 된 전체 보안 점수":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Security Center 대시보드의 보안 점수":::
 
 - 전용 **보안 점수** 페이지에서 다음을 수행 합니다.
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="포털에 표시 된 전체 보안 점수":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Security Center 보안 점수 페이지의 보안 점수":::
 
 - **권장 사항** 페이지의 맨 위에:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="포털에 표시 된 전체 보안 점수":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Security Center 권장 사항 페이지의 보안 점수":::
 
 
 
@@ -90,7 +90,7 @@ Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 �
 
 1. Azure Portal에서 **Azure 리소스 그래프 탐색기** 를 엽니다.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="포털에 표시 된 전체 보안 점수" :::
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Azure 리소스 그래프 탐색기 시작 * * 권장 사항 페이지" :::
 
 1. (지침을 보려면 아래 예제를 사용 하 여) Kusto 쿼리를 입력 합니다.
 
@@ -150,7 +150,7 @@ Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 �
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="포털에 표시 된 전체 보안 점수":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 
@@ -203,11 +203,11 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">전송 중 데이터 암호화(최대 점수 4)</p></strong>데이터는 구성 요소, 위치 또는 프로그램 간에 전송될 때 "전송 중" 상태입니다. 전송 중인 데이터 보호에 실패하는 조직은 가로채기(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 대해 취약합니다. SSL/TLS 프로토콜을 사용하여 데이터를 교환하고 VPN을 사용하는 것이 좋습니다. 인터넷을 통해 Azure Virtual Machine과 온-프레미스 위치 간에 암호화된 데이터를 전송하는 경우 <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN Gateway</a>와 같은 가상 네트워크 게이트웨이를 사용하여 암호화된 트래픽을 보낼 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br>- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br>- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br>- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br>- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 합니다.<br>- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 함<br>- TLS는 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 함수 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- FTPS는 API 앱에 필요 합니다.<br>- FTPS는 함수 앱에 필요 합니다.<br>- 웹 앱에서 FTPS가 필요 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br><a href="/azure/role-based-access-control/overview">RBAC(역할 기반 Access Control)</a>에서 역할 할당을 만들어 리소스에 대한 액세스를 제어합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
-    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).</td>
+    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 웹 앱은 들어오는 모든 요청에 대해 SSL 인증서를 요청 해야 합니다.<br>- API 앱에서 관리 id를 사용 해야 합니다.<br>- 관리 id는 함수 앱에서 사용 해야 합니다.<br>- 관리 id는 웹 앱에서 사용 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
@@ -215,7 +215,7 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).<br>- Azure 방화벽 (미리 보기)으로 가상 네트워크를 보호 해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).<br>- Azure 방화벽 (미리 보기)으로 가상 네트워크를 보호 해야 합니다.<br>- 개인 끝점은 MariaDB 서버에 대해 사용 하도록 설정 해야 합니다.<br>- MySQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 machine learning을 사용 하 여 컴퓨터 그룹의 알려진 안전한 응용 프로그램 목록을 만듭니다.<br>승인 된 응용 프로그램 목록에 대 한이 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공 합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
@@ -243,7 +243,7 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. VPN을 사용할 수 없는 경우 <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>과 같은 복잡한 암호 및 2단계 인증을 사용합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>
-    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>- 인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>- 인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.<br>- 가상 컴퓨터에 대해 Azure Backup를 사용 하도록 설정 해야 합니다.<br>- Azure Database for MariaDB에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for MySQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- PHP는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- PHP는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python을 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- Python은 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python은 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- SQL server에 대 한 감사 보존은 90 일 이상으로 설정 해야 합니다.</td>
   </tr>
 </tbody>
 </table>

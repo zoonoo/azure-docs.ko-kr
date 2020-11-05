@@ -1,7 +1,7 @@
 ---
 title: AutoML을 사용 하 여 배포 & 모델 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델을 만들고, 검토하고, 배포합니다.
+description: Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 모델을 만들고 검토 하 고 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311283"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358901"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 

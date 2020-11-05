@@ -1,5 +1,5 @@
 ---
-title: Azure 스토리지 서비스에 연결
+title: Azure에서 저장소 서비스에 연결
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning으로 학습하는 동안 데이터 저장소를 사용하여 Azure 스토리지 서비스에 안전하게 연결하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320860"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358102"
 ---
-# <a name="connect-to-azure-storage-services"></a>Azure 스토리지 서비스에 연결
+# <a name="connect-to-storage-services-azure"></a>Storage 서비스에 연결 Azure
 
-이 문서에서는 **Azure Machine Learning 데이터 저장소를 통해 Azure storage 서비스에 연결** 하는 방법을 알아봅니다. 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure storage 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [Azure Machine Learning PYTHON SDK](#python) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md) 를 사용 하 여 datastores를 만들고 등록할 수 있습니다.
+이 문서에서는 **Azure Machine Learning 데이터 저장소를 통해 Azure에서 저장소 서비스에 연결** 하는 방법에 대해 알아봅니다. 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure storage 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [Azure Machine Learning PYTHON SDK](#python) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md) 를 사용 하 여 datastores를 만들고 등록할 수 있습니다.
 
 Azure Machine Learning VS Code 확장을 사용 하 여 데이터 저장소를 만들고 관리 하는 것을 선호 하는 경우 자세한 내용은 [리소스 관리 방법 가이드 VS Code](how-to-manage-resources-vscode.md#datastores) 를 참조 하세요.
 
@@ -109,11 +109,13 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
     * 해당 **개요** 페이지에는 테 넌 트 id 및 클라이언트 ID와 같은 필수 정보가 포함 됩니다.
 
 > [!IMPORTANT]
-> 보안상의 이유로 Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 할 수 있습니다. 이렇게 하려면 작업 영역 및 연결 된 데이터 저장소와 새 자격 증명을 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
-
+> * Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 하는 경우 새 자격 증명과 해당 작업 영역에 연결 된 데이터 저장소를 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 데이터 읽기 액세스의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 데이터 쓰기 액세스의 경우 쓰기 및 추가 권한도 필요 합니다.
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
+* 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 
+
+* 데이터 **쓰기 액세스** 의 경우 쓰기 및 추가 권한도 필요 합니다.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ Azure 스토리지 솔루션을 데이터 저장소로 등록하면 해당 데�
  지원 되는 다른 저장소 서비스에 대 한 데이터 저장소를 만들려면 [해당 `register_azure_*` 메서드에 대 한 참조 설명서](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods)를 참조 하세요.
 
 낮은 코드 환경을 선호 하는 경우 [Azure Machine Learning studio를 사용 하 여 데이터에 연결](how-to-connect-data-ui.md)을 참조 하세요.
+>[!IMPORTANT]
+> 같은 이름으로 데이터 저장소의 등록을 취소 하 고 다시 등록 하는 경우 실패 하 고 작업 영역에 대 한 Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하지 않았을 수 있습니다. 기본적으로 일시 삭제는 작업 영역에서 만든 주요 자격 증명 모음 인스턴스에 대해 사용 하도록 설정 되지만 기존 키 자격 증명 모음을 사용 하거나 10 월 2020 일 이전에 만든 작업 영역을 사용 하는 경우에는 사용 하지 못할 수 있습니다. 일시 삭제를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [기존 키 자격 증명 모음에 대 한 일시 삭제]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)사용을 참조 하세요.
 
 > [!NOTE]
 > 데이터 저장소 이름은 소문자, 숫자 및 밑줄로만 구성 되어야 합니다. 

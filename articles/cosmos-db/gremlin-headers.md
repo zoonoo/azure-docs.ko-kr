@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100391"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356963"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin 서버 응답 헤더
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -21,9 +21,9 @@ ms.locfileid: "93100391"
 
 이러한 헤더에 대 한 종속성을 유지 하는 것은 응용 프로그램의 이식성을 다른 Gremlin 구현으로 제한 한다는 점에 유의 해야 합니다. 반환 시 Cosmos DB Gremlin와 긴밀 하 게 통합 됩니다. 이러한 헤더는 TinkerPop 표준이 아닙니다.
 
-## <a name="headers"></a>헤더
+## <a name="headers"></a>headers
 
-| 헤더 | 형식 | 샘플 값 | 포함 된 경우 | 설명 |
+| 헤더 | 유형 | 샘플 값 | 포함 된 경우 | 설명 |
 | --- | --- | --- | --- | --- |
 | **x-ms 요청 요금** | double | 11.3243 | Success and Failure | 부분 응답 메시지에 대 한 [요청 단위 (o s/s 또는 RUs)](request-units.md) 에서 사용 되는 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 특정 응답 청크의 요금을 반영 합니다. 단일 응답 청크로 구성 된 요청에 대해서만이 헤더는 총 순회 비용과 일치 합니다. 그러나 대부분의 복합 순회에서이 값은 부분 비용을 나타냅니다. |
 | **x-밀리초-총 요청 요금** | double | 423.987 | Success and Failure | 전체 요청에 대 한 [요청 단위 (r u/초 또는 RUs)](request-units.md) 에서 사용 된 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 요청 시작 이후 누적 요금을 나타냅니다. 마지막 청크의이 헤더의 값은 전체 요청 요금을 나타냅니다. |

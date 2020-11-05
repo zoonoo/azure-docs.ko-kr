@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 description: Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스를 모델링하는 방법을 알아봅니다. 이 문서에서는 그래프 데이터베이스와 모범 사례를 사용하여 엔터티 및 관계를 모델링하는 경우를 설명합니다.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129646"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357048"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -46,15 +46,15 @@ ms.locfileid: "93129646"
 
 다음은 그래프 개체의 속성에 대한 모범 사례입니다.
 
-| Object | 속성 | 형식 | 참고 |
+| Object | 속성 | Type | 참고 |
 | --- | --- | --- |  --- |
 | 꼭짓점 | ID | String | 파티션별로 고유하게 적용됩니다. 삽입 시 값이 제공되지 않으면 자동 생성된 GUID가 저장됩니다. |
 | 꼭짓점 | label | String | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |
 | 꼭짓점 | properties | 문자열, 부울, 숫자 | 꼭짓점마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 | 꼭짓점 | 파티션 키 | 문자열, 부울, 숫자 | 이 속성은 꼭짓점과 나가는 가장자리를 저장할 위치를 정의합니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 읽어보세요. |
-| Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
-| Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
-| Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
+| Microsoft Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
+| Microsoft Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
+| Microsoft Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 
 > [!NOTE]
 > 가장자리 값은 원본 꼭짓점에 따라 자동으로 할당되기 때문에 가장자리에는 파티션 키 값이 필요하지 않습니다. 자세한 내용은 [그래프 분할](graph-partitioning.md) 문서를 참조하세요.
@@ -78,7 +78,7 @@ ms.locfileid: "93129646"
 
 * **속성 포함 꼭 짓 점** :이 방법은 키-값 쌍 목록을 사용 하 여 꼭 짓 점 내의 모든 엔터티 속성을 나타냅니다. 이 방식은 모델 복잡성을 줄여서 쿼리를 간소화하고 순회의 비용 효율을 높입니다.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="속성에 대한 꼭짓점이 있는 엔터티 모델입니다." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="다이어그램은 위의 다이어그램에서 i d, label 및 properties를 사용 하 여 Luis 꼭 짓 점을 보여 줍니다." border="false":::
 
 > [!NOTE]
 > 위의 예는 엔터티 속성을 구분하는 두 가지 방법의 비교만 보여주는 간소화된 그래프 모델을 보여줍니다.
@@ -106,7 +106,7 @@ ms.locfileid: "93129646"
 * 관계에 레이블을 지정할 때는 제네릭이 아닌 용어를 사용합니다.
 * 원본 꼭짓점의 레이블을 관계 이름을 사용하여 대상 꼭짓점의 레이블과 연결합니다.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="속성에 대한 꼭짓점이 있는 엔터티 모델입니다." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="관계 레이블 지정 예시." border="false":::
 
 트래버서(traverser)가 가장자리를 필터링하는 데 사용하는 레이블이 구체적일수록 좋습니다. 이 결정은 쿼리 비용에도 상당한 영향을 줄 수 있습니다. 쿼리 비용은 [executionProfile 단계를 사용](graph-execution-profile.md)하여 언제든지 평가할 수 있습니다.
 

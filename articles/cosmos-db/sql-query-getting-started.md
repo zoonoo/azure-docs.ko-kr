@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341912"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356623"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,26 +21,35 @@ SQL API 계정 Azure Cosmos DB에서는 두 가지 방법으로 데이터를 읽
 
 **Point reads** -단일 *항목 ID* 및 파티션 키에 대 한 키/값 조회를 수행할 수 있습니다. *항목 ID* 와 파티션 키 조합은 키 이며 항목 자체는 값입니다. 1kb 문서의 경우 지점은 일반적으로 10 밀리초 미만의 대기 시간으로 비용 1 [요청 단위](request-units.md) 를 읽습니다. Point reads는 단일 항목을 반환 합니다.
 
-**Sql 쿼리** -JSON 쿼리 언어로 구조적 쿼리 언어 (sql)를 사용 하 여 쿼리를 작성 하 여 데이터를 쿼리할 수 있습니다. 쿼리는 항상 최소 2.3 요청 단위를 비용으로 청구 하며, 일반적으로 지점 읽기 보다 더 높은 가변 대기 시간을 갖습니다. 쿼리에서 많은 항목을 반환할 수 있습니다.
-
-Azure Cosmos DB에 대 한 대부분의 읽기 작업은 지점 읽기와 SQL 쿼리의 조합을 사용 합니다. 단일 항목을 읽어야 하는 경우 쿼리 보다 더 저렴 하 고 더 빠른 지점 읽기가 있습니다. Point reads는 쿼리 엔진을 사용 하 여 데이터에 액세스할 필요가 없으며 데이터를 직접 읽을 수 있습니다. 물론, 모든 작업에서 지점 읽기를 사용 하 여 데이터를 독점적으로 읽을 수 있는 것은 아니므로 SQL을 쿼리 언어로 지원 하 고 [스키마에 관계 없는 인덱싱을](index-overview.md) 사용 하 여 데이터에 보다 유연 하 게 액세스할 수 있습니다.
-
-다음은 각 SDK를 사용 하 여 요소 읽기를 수행 하는 방법에 대 한 몇 가지 예입니다.
+다음은 각 SDK를 사용 하 여 **요소 읽기** 를 수행 하는 방법에 대 한 몇 가지 예입니다.
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Sql 쿼리** -JSON 쿼리 언어로 구조적 쿼리 언어 (sql)를 사용 하 여 쿼리를 작성 하 여 데이터를 쿼리할 수 있습니다. 쿼리는 항상 최소 2.3 요청 단위를 비용으로 청구 하며, 일반적으로 지점 읽기 보다 더 높은 가변 대기 시간을 갖습니다. 쿼리에서 많은 항목을 반환할 수 있습니다.
+
+Azure Cosmos DB에 대 한 대부분의 읽기 작업은 지점 읽기와 SQL 쿼리의 조합을 사용 합니다. 단일 항목을 읽어야 하는 경우 쿼리 보다 더 저렴 하 고 더 빠른 지점 읽기가 있습니다. Point reads는 쿼리 엔진을 사용 하 여 데이터에 액세스할 필요가 없으며 데이터를 직접 읽을 수 있습니다. 물론, 모든 작업에서 지점 읽기를 사용 하 여 데이터를 독점적으로 읽을 수 있는 것은 아니므로 SQL을 쿼리 언어로 지원 하 고 [스키마에 관계 없는 인덱싱을](index-overview.md) 사용 하 여 데이터에 보다 유연 하 게 액세스할 수 있습니다.
+
+다음은 각 SDK를 사용 하 여 **SQL 쿼리** 를 수행 하는 방법에 대 한 몇 가지 예입니다.
+
+- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 이 문서의 나머지 부분에서는 Azure Cosmos DB에서 SQL 쿼리 작성을 시작 하는 방법을 보여 줍니다. SQL 쿼리는 SDK 또는 Azure Portal를 통해 실행할 수 있습니다.
 
 ## <a name="upload-sample-data"></a>샘플 데이터 업로드
 
-SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 컨테이너에 두 개의 간단한 JSON 항목을 만듭니다. 이 데이터 집합을 사용 하 여 Azure Cosmos DB 쿼리 설명서에서 대부분의 샘플 쿼리를 실행할 수 있습니다.
+SQL API Cosmos DB 계정에서 [데이터 탐색기](https://docs.microsoft.com/azure/cosmos-db/data-explorer) 를 열어 라는 컨테이너를 만듭니다 `Families` . 만든 후에는 데이터 구조 브라우저를 사용 하 여 찾아서 엽니다. 컨테이너에서 `Families` `Items` 컨테이너 이름 바로 아래에 옵션이 표시 됩니다. 이 옵션을 선택 하면 화면 가운데의 메뉴 모음에서 ' 새 항목 '을 만들 수 있는 단추가 표시 됩니다. 이 기능을 사용 하 여 아래 JSON 항목을 만듭니다.
 
 ### <a name="create-json-items"></a>JSON 항목 만들기
 
-다음 코드는 패밀리에 대해 두 개의 간단한 JSON 항목을 만듭니다. Andersen 및 Wakefield 제품군에 대 한 간단한 JSON 항목에는 부모, 자식, 애완 동물, 주소 및 등록 정보가 포함 됩니다. 첫 번째 항목에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
+다음 2 개의 JSON 항목은 Andersen 및 Wakefield 제품군에 대 한 문서입니다. 부모, 자식, 애완 동물, 주소 및 등록 정보를 포함 합니다. 
+
+첫 번째 항목에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
 
 ```json
 {
@@ -64,7 +73,7 @@ SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 
 }
 ```
 
-두 번째 항목은 `givenName` 및 대신 및를 사용 `familyName` `firstName` `lastName` 합니다.
+두 번째 항목은 `givenName` 및 대신 및를 사용 합니다 `familyName` `firstName` `lastName` .
 
 ```json
 {

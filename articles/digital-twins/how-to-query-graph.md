@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 57b6bac49f0142b008a21accfffb614453cc6aec
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325771"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358153"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -154,21 +154,19 @@ AND T.Temperature = 70
 **특정 속성이 정의 되어 있는지 여부** 에 따라 쌍을 가져올 수도 있습니다. 다음은 정의 된 *Location* 속성을 가진 쌍를 가져오는 쿼리입니다.
 
 ```sql
-SELECT *
-FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
 그러면 태그를 [디지털 쌍에 추가](how-to-use-tags.md)에 설명 된 대로 *태그* 속성에 따라 쌍을 가져오는 데 도움이 될 수 있습니다. *Red* 로 태그가 지정 된 모든 쌍를 가져오는 쿼리는 다음과 같습니다.
 
 ```sql
-select * from digitaltwins where is_defined(tags.red)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
 ```
 
 **속성의 형식** 에 따라 쌍을 가져올 수도 있습니다. *온도* 속성이 숫자 인 쌍를 가져오는 쿼리는 다음과 같습니다.
 
 ```sql
-SELECT * FROM DIGITALTWINS T
-WHERE IS_NUMBER(T.Temperature)
+SELECT * FROM DIGITALTWINS T WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>모델 별로 쿼리
@@ -279,7 +277,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 조합 연산자를 사용 하 여 위의 쿼리 유형을 조합 하 여 단일 쿼리에 자세한 정보를 **포함할 수 있습니다** . 다음은 한 번에 둘 이상의 쌍 설명자 유형을 쿼리 하는 복합 쿼리의 몇 가지 추가 예입니다.
 
-| 설명 | 쿼리 |
+| Description | 쿼리 |
 | --- | --- |
 | *공간 123* 가 있는 장치에서 운영자 역할을 하는 MxChip 장치를 반환 합니다. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | ID가 *id1* 인 다른 쌍이 *포함* 된 relationship 이라는 관계가 있는 쌍을 가져옵니다. | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -303,7 +301,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
 | IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -316,7 +314,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | STARTSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

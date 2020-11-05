@@ -10,12 +10,12 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 22d048b15cc097cd8a24e5ed57bbe4d5a6183e2f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131601"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359445"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리, 파일 및 ACL 관리
 
@@ -225,7 +225,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 
 ### <a name="get-an-acl"></a>ACL 가져오기
 
-`az storage fs access show` 명령을 사용하여 **디렉터리**의 ACL을 가져옵니다.
+`az storage fs access show` 명령을 사용하여 **디렉터리** 의 ACL을 가져옵니다.
 
 다음 예제에서는 디렉터리의 ACL을 가져온 다음 해당 ACL을 콘솔에 출력합니다.
 
@@ -233,7 +233,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-`az storage fs access show` 명령을 사용하여 **파일**의 액세스 권한을 가져옵니다. 
+`az storage fs access show` 명령을 사용하여 **파일** 의 액세스 권한을 가져옵니다. 
 
 다음 예제에서는 파일의 ACL을 가져온 다음 해당 ACL을 콘솔에 출력합니다.
 
@@ -249,7 +249,7 @@ az storage fs access show -p my-directory/upload.txt -f my-file-system --account
 
 ### <a name="set-an-acl"></a>ACL 설정
 
-`az storage fs access set` 명령을 사용하여 **디렉터리**의 ACL을 설정합니다. 
+`az storage fs access set` 명령을 사용하여 **디렉터리** 의 ACL을 설정합니다. 
 
 다음 예제에서는 디렉터리의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -263,7 +263,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-`az storage fs access set` 명령을 사용하여 **파일**의 ACL을 설정합니다. 
+`az storage fs access set` 명령을 사용하여 **파일** 의 ACL을 설정합니다. 
 
 다음 예제에서는 파일의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -283,13 +283,13 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 `-permissions` 매개 변수를 약식 형식의 ACL로 설정하여 디렉터리 또는 파일의 ACL을 업데이트합니다.
 
-다음 예제에서는 **디렉터리**의 ACL을 업데이트합니다.
+다음 예제에서는 **디렉터리** 의 ACL을 업데이트합니다.
 
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-다음 예제에서는 **파일**의 ACL을 업데이트합니다.
+다음 예제에서는 **파일** 의 ACL을 업데이트합니다.
 
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -307,7 +307,12 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
+
 ```
+
+### <a name="set-an-acl-recursively"></a>재귀적으로 ACL 설정
+
+각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에서 Acl을 재귀적으로 추가, 업데이트 및 제거할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에 대해 재귀적으로 acl (액세스 제어 목록) 설정](recursive-access-control-lists.md)을 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
 

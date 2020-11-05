@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318188"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356640"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -59,11 +59,11 @@ ms.locfileid: "92318188"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
+1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭합니다.
 
-1. **새 액세스 패키지**를 클릭합니다.
+1. **새 액세스 패키지** 를 클릭합니다.
    
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
@@ -79,17 +79,17 @@ ms.locfileid: "92318188"
 
     ![액세스 패키지-기본 사항](./media/entitlement-management-access-package-create/basics.png)
 
-    전역 관리자, 사용자 관리자 또는 카탈로그 작성자 이며 나열 되지 않은 새 카탈로그에서 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기**를 클릭 합니다. 카탈로그 이름 및 설명을 입력 하 고 **만들기**를 클릭 합니다.
+    전역 관리자, 사용자 관리자 또는 카탈로그 작성자 이며 나열 되지 않은 새 카탈로그에서 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기** 를 클릭 합니다. 카탈로그 이름 및 설명을 입력 하 고 **만들기** 를 클릭 합니다.
 
     만든 액세스 패키지와 여기에 포함 된 리소스는 새 카탈로그에 추가 됩니다. 나중에 카탈로그 소유자를 더 추가할 수도 있습니다.
 
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
 
 ## <a name="resource-roles"></a>리소스 역할
 
 **리소스 역할** 탭에서 액세스 패키지에 포함할 리소스를 선택 합니다. 액세스 패키지를 요청 하 고 수신 하는 사용자는 액세스 패키지의 모든 리소스 역할을 받게 됩니다.
 
-1. 추가 하려는 리소스 종류 (**그룹 및 팀**, **응용 프로그램**또는 **SharePoint 사이트**)를 클릭 합니다.
+1. 추가 하려는 리소스 종류 ( **그룹 및 팀** , **응용 프로그램** 또는 **SharePoint 사이트** )를 클릭 합니다.
 
 1. 표시 되는 선택 창의 목록에서 하나 이상의 리소스를 선택 합니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "92318188"
 
     ![액세스 패키지-리소스 역할 선택](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
 
 ## <a name="requests"></a>요청
 
@@ -125,7 +125,7 @@ ms.locfileid: "92318188"
 
 1. 액세스 패키지의 설정 검토
 
-    ![액세스 패키지-정책-정책 설정 사용](./media/entitlement-management-access-package-create/review-create.png)
+    ![액세스 패키지-정책 설정 사용](./media/entitlement-management-access-package-create/review-create.png)
 
 1. **만들기** 를 클릭 하 여 액세스 패키지를 만듭니다.
 

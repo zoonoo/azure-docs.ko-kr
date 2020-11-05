@@ -9,23 +9,20 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0323bed627fd622471724b20677914736c564d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38699f94ae446295332deb9529a0da80d6df4301
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319908"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356866"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
 부모 디렉터리 아래에 생성 된 새 자식 항목에는 ACL 상속이 이미 사용할 수 있습니다. 이제 각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에 대해 Acl을 재귀적으로 추가, 업데이트 및 제거할 수 있습니다.
 
-> [!NOTE]
-> 액세스 목록을 재귀적으로 설정 하는 기능은 공개 미리 보기 상태 이며 모든 지역에서 사용할 수 있습니다.  
-
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -847,40 +844,19 @@ def remove_permission_recursively(is_default_scope):
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-이 예에서는 Acl을 일괄 처리로 설정 합니다. **AzDataLakeGen2AclRecursive** 에 대 한 각 호출은 모든 acl이 설정 될 때까지 연속 토큰을 반환 합니다. 이 예에서는 라는 변수를로 설정 하 여 `$ContinueOnFailure` `$false` 권한 오류가 발생 한 경우 프로세스가 acl을 계속 설정 하지 않아야 함을 표시 합니다. 연속 토큰은 변수에 저장 됩니다 `&token` . 오류가 발생 하는 경우 해당 토큰을 사용 하 여 오류 발생 지점에서 프로세스를 다시 시작할 수 있습니다.
+이 예에서는 결과를 변수로 반환 하 고 실패 한 항목을 형식이 지정 된 테이블로 파이프 합니다.
 
 ```powershell
-$ContinueOnFailure = $false
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result
+$result.FailedEntries | ft 
+```
 
-$token = $null
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
-echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
+테이블의 출력에 따라 모든 사용 권한 오류를 수정한 다음 연속 토큰을 사용 하 여 실행을 다시 시작할 수 있습니다.
 
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
+$result
 
 ```
 
@@ -991,41 +967,22 @@ def resume_set_acl_recursive(continuation_token):
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-이 예에서는 변수를로 설정 하 여 `$ContinueOnFailure` `$true` 권한 오류가 발생 한 경우 프로세스가 acl을 계속 설정 하도록 지정 합니다. 
+이 예제에서는 매개 변수를 사용 하 여 `ContinueOnFailure` 작업에 사용 권한 오류가 발생 해도 계속 실행 되도록 합니다. 
 
 ```powershell
-$ContinueOnFailure = $true
 
-$token = $null
 $TotalDirectoriesSuccess = 0
 $TotalFilesSuccess = 0
 $totalFailure = 0
 $FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
+
 echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
-
-
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

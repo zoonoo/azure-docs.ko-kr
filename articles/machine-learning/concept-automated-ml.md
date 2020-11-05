@@ -1,7 +1,7 @@
 ---
 title: 자동화 된 ML 이란? AutoML
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델에 가장 적합한 알고리즘을 선택하기 위해 제공하는 매개 변수 및 조건에 따라 자동으로 알고리즘을 선택하고, 모델을 생성하여 시간을 절약하는 방법을 알아봅니다.
+description: 사용자가 제공한 매개 변수 및 조건을 사용 하 여 모델을 자동으로 생성 Azure Machine Learning는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,13 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
-ms.openlocfilehash: 31cb2b2b5411968f1eba71fa9afc7bdc8296407c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: automl
+ms.openlocfilehash: ca0cfd7c38dde5e7307c31989791aa3906b9cbe5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307391"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357286"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 

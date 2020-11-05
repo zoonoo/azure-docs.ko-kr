@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348069"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358459"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
 논리 앱에서 배열을 처리하려면 ["Foreach" 루프](#foreach-loop)를 만들 수 있습니다. 이 루프는 배열의 각 항목에 대해 하나 이상의 작업을 반복합니다. "Foreach" 루프에서 처리할 수 있는 배열 항목 수에 대 한 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
-조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내부의 모든 작업을 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프의 수에 대 한 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내부의 모든 작업을 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
 > [!TIP]
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다.
@@ -152,7 +152,7 @@ ms.locfileid: "93348069"
 
 ## <a name="until-loop"></a>"Until" 루프
   
-조건이 충족되거나 상태가 변경될 때마다 작업을 실행하고 반복하려면 "Until" 루프에 해당 작업을 추가합니다. 논리 앱은 먼저 루프 내부의 작업을 모두 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프의 수에 대 한 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+조건이 충족되거나 상태가 변경될 때마다 작업을 실행하고 반복하려면 "Until" 루프에 해당 작업을 추가합니다. 논리 앱은 먼저 루프 내부의 작업을 모두 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
 "Until" 루프를 사용할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -245,17 +245,19 @@ ms.locfileid: "93348069"
 
       ![받은 이메일](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>무한 루프 방지
 
-"Until" 루프에는 다음 조건 중 하나가 발생하는 경우 실행을 중지하는 기본 제한이 있습니다.
+"Until" 루프는 이러한 속성을 기반으로 실행을 중지 하므로 적절 하 게 값을 설정 해야 합니다.
 
-| 속성 | 기본값 | Description | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
-| **Timeout** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
-|||| 
+* **개수** :이 값은 루프를 종료 하기 전에 실행 되는 가장 높은 루프의 수입니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
-이러한 기본 제한을 변경하려면 루프 작업 셰이프에서 **고급 옵션 표시** 를 선택합니다.
+* **Timeout** :이 값은 루프가 종료 되기 전에 실행 되 고 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 되는 가장 많은 시간입니다. **제한 시간** 값에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+
+  시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다.
+
+이러한 한도를 변경 하려면 루프 동작에서 **제한 변경** 을 선택 합니다.
 
 <a name="until-json"></a>
 

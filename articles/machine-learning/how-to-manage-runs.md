@@ -1,7 +1,7 @@
 ---
 title: Python에서 학습 실행 시작, 모니터링 및 취소
 titleSuffix: Azure Machine Learning
-description: 기계 학습 실험을 시작 하 고, 상태를 설정 하 고, 태그를 구성 하 고, 구성 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning Python SDK를 사용 하 여 기계 학습 실험을 시작 하 고, 상태를 관리 하 고, 관리 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0baee1646d2346a411b3b7bdb8efc90e9aeb7a4a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f7d102ad6bf2aba2056456acfe6207a0b0643ba
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316893"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357983"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -30,7 +30,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 * 자식 실행을 만듭니다.
 * 태그를 만들고 실행을 찾습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 

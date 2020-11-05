@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791956"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356810"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>C # .NET 응용 프로그램에서 Azure.Search.Documents를 사용 하는 방법
 
@@ -60,7 +60,7 @@ Azure.Search.Documents (버전 11) [ `2020-06-30` Azure Cognitive Search REST AP
 
 ## <a name="example-application"></a>예제 응용 프로그램
 
-이 문서에서는 GitHub의 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) 코드 예제에 의존 하 여 Azure Cognitive Search의 기본 개념을 설명 하는 (예:) 검색 인덱스를 만들고 로드 하 고 쿼리 하는 방법에 대해 설명 합니다.
+이 문서에서는 GitHub의 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 코드 예제에 의존 하 여 Azure Cognitive Search의 기본 개념을 설명 하는 (예:) 검색 인덱스를 만들고 로드 하 고 쿼리 하는 방법에 대해 설명 합니다.
 
 이 문서의 나머지 부분에서는 몇 개의 문서로 채워진 "호텔" 이라는 새 인덱스를 가정 합니다. 여기에는 결과와 일치 하는 몇 개의 쿼리가 포함 되어 있습니다.
 

@@ -8,14 +8,14 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: b708d85e94782ea264432ae3780b2b1f0d240396
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3be1d404d0cac7f9e5c9b1c2f7350cf05c5fe794
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320819"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358119"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "93320819"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어, 판매를 예측하는 경우 판매 결과에 기록 추세의 상호 작용, 환율 및 가격이 모두 함께 영향을 미칩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 

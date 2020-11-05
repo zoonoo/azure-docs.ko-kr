@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: f37fc8e19025b78475f706ff96c502cc6094d54f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186759"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358425"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -52,7 +52,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 리소스 로그를 수집 하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 **파일** 을 로그를 사용 하도록 설정 하려는 저장소 유형으로 선택 합니다. 그런 다음 로그를 수집 하려는 작업의 다음 범주 중 하나를 지정 합니다. 
 
-| Category | Description |
+| 범주 | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
@@ -661,7 +661,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Files 모니터링 데이터 참조](storage-files-monitoring.md)
+- [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)
 - [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)
 - [Azure Files 배포 계획](https://docs.microsoft.com/azure/storage/files/storage-files-planning)

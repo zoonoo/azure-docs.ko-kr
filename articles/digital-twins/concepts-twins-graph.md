@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c62d1a0b17fda2531a963c292fbd16aaf3a551b3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145993"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356406"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -71,7 +71,7 @@ var relationship = new BasicRelationship
 try
 {
     string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

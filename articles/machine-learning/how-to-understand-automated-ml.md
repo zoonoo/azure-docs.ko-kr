@@ -10,25 +10,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311480"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359088"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
-이 문서에서는 자동화 된 machine learning, AutoML, 실험의 결과를 확인 하 고 평가 하는 방법에 대해 알아봅니다. 이러한 실험은 여러 실행으로 구성 되며 각 실행은 모델을 만듭니다. 각 모델을 평가 하는 데 도움이 되도록 AutoML은 실험 유형에 맞는 성능 메트릭과 차트를 자동으로 생성 합니다. 
+이 문서에서는 자동화 된 기계 학습, 자동화 된 ML, 실험의 결과를 확인 하 고 평가 하는 방법에 대해 알아봅니다. 이러한 실험은 여러 실행으로 구성 되며 각 실행은 모델을 만듭니다. 각 모델을 평가 하는 데 도움이 되도록 자동화 된 ML은 실험 유형에 맞는 성능 메트릭과 차트를 자동으로 생성 합니다. 
 
-예를 들어 AutoML은 분류 및 회귀 모델에 대해 다양 한 차트를 제공 합니다. 
+예를 들어 자동화 된 ML은 분류 및 회귀 모델에 대해 다양 한 차트를 제공 합니다. 
 
 |분류|회귀
 |---|---|
 |<li> [혼동 행렬](#confusion-matrix) <li>[전체 자릿수-회수 차트](#precision-recall-chart) <li> [ROC(수신기 작동 특성)](#roc) <li> [리프트 곡선](#lift-curve)<li> [게인 곡선](#gains-curve)<li> [보정 플롯](#calibration-plot) | <li> [예측 및 True](#pvt) <li> [나머지 히스토그램](#histo)|
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -61,9 +61,9 @@ SDK 실험의 경우 `RunDetails` [jupyter 위젯을](/python/api/azureml-widget
 
 ## <a name="classification-performance-metrics"></a>분류 성능 메트릭
 
-다음 표에서는 실험에 대해 생성 된 각 분류 모델에 대해 AutoML이 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 
+다음 표에서는 실험을 위해 생성 된 각 분류 모델에 대해 자동화 된 ML에서 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 
 
-메트릭|설명|계산|추가 매개 변수
+메트릭|Description|계산|추가 매개 변수
 --|--|--|--
 AUC_macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. 마이크로는 각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 전역적으로 계산 됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -88,7 +88,7 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 ### <a name="binary-vs-multiclass-metrics"></a>Binary 및 다중 클래스 메트릭
 
-AutoML은 이진 메트릭과 다중 클래스 메트릭을 구별 하지 않습니다. 데이터 집합에 두 개 이상의 클래스가 있는지 여부와 상관 없이 동일한 유효성 검사 메트릭이 보고 됩니다. 그러나 일부 메트릭은 다중 클래스 분류를 위한 것입니다. 이러한 메트릭은 이진 데이터 집합에 적용 될 때 클래스를 클래스로 처리 하지 않습니다 `true` . 다중 클래스에 대해 명확 하 게 사용 되는 메트릭은 `micro` , `macro` 또는로 시작 `weighted` 합니다. 예를 들면,,, `average_precision_score` `f1_score` 및가 `precision_score` `recall_score` `AUC` 있습니다.
+자동화 된 ML은 이진 메트릭과 다중 클래스 메트릭을 구별 하지 않습니다. 데이터 집합에 두 개 이상의 클래스가 있는지 여부와 상관 없이 동일한 유효성 검사 메트릭이 보고 됩니다. 그러나 일부 메트릭은 다중 클래스 분류를 위한 것입니다. 이러한 메트릭은 이진 데이터 집합에 적용 될 때 클래스를 클래스로 처리 하지 않습니다 `true` . 다중 클래스에 대해 명확 하 게 사용 되는 메트릭은 `micro` , `macro` 또는로 시작 `weighted` 합니다. 예를 들면,,, `average_precision_score` `f1_score` 및가 `precision_score` `recall_score` `AUC` 있습니다.
 
 예를 들어, 다중 클래스를 계산 하는 대신 `tp / (tp + fn)` `micro` `macro` `weighted` 이진 분류 데이터 집합의 두 클래스에 대 한 평균 회수 (, 또는)의 평균을 계산 합니다. 이는 클래스와 클래스에 대 한 회수를 `true` 별도로 계산한 `false` 다음이 두 값의 평균을 가져오는 것과 같습니다.
 
@@ -209,9 +209,9 @@ ROC 차트 아래의 영역을 올바르게 분류 된 샘플의 비율로 시�
 
 ## <a name="regression-performance-metrics"></a>회귀 성능 메트릭
 
-다음 표에서는 실험에 대해 생성 되는 각 회귀 또는 예측 모델에 대해 AutoML이 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 
+다음 표에서는 실험을 위해 생성 되는 각 회귀 또는 예측 모델에 대해 자동화 된 ML에서 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 
 
-|메트릭|설명|계산|추가 매개 변수
+|메트릭|Description|계산|추가 매개 변수
 --|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오류의 평균은 0 인 경우 결정 계수와 같습니다 (아래 r2_score 참조).|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R ^ 2는 평균을 출력 하는 기준선 모델과 비교 했을 때의 결정 계수 또는 백분율 감소입니다. |[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|

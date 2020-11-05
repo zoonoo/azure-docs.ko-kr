@@ -10,13 +10,13 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 21fc9f082a012922a8595c2726764e84be038a26
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312232"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358340"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 
@@ -28,7 +28,7 @@ ms.locfileid: "93312232"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 다음이 필요합니다.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: how-to
-ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305772"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358816"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>.NET에서 AutoML ONNX 모델을 사용 하 여 예측 수행
 
@@ -25,7 +25,7 @@ ms.locfileid: "93305772"
 
 ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레임워크 간의 상호 운용성을 지원합니다. 즉, PyTorch와 같은 널리 사용 되는 여러 기계 학습 프레임 워크 중 하나에서 모델을 학습 하 고, ONNX 형식으로 변환 하 고, ML.NET와 같은 다른 프레임 워크에서 ONNX 모델을 사용할 수 있습니다. 자세히 알아보려면 [ONNX 웹 사이트](https://onnx.ai/)를 방문하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [.NET Core SDK 3.1 이상](https://dotnet.microsoft.com/download)
 - 텍스트 편집기 또는 IDE (예: [Visual Studio](https://visualstudio.microsoft.com/vs/) 또는 [Visual Studio Code](https://code.visualstudio.com/Download))

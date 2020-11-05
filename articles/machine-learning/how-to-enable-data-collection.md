@@ -10,13 +10,13 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314231"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357646"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
@@ -57,7 +57,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!NOTE]
 > 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 됩니다 `identifier` . 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 

@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348562"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358629"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>데이터 수집 파이프라인에 대한 DevOps
 
@@ -211,18 +211,18 @@ JSON 파일의 값은 파이프라인 정의에 구성 된 기본값입니다. A
 
 연속 배달 프로세스는 아티팩트를 사용 하 여 첫 번째 대상 환경에 배포 합니다. 테스트를 실행 하 여 솔루션이 작동 하는지 확인할 수 있습니다. 성공 하면 다음 환경으로 계속 진행 됩니다. 
 
-CD Azure 파이프라인은 환경을 나타내는 여러 단계로 구성 됩니다. 각 단계에는 다음 단계를 수행 하는 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) 및 [작업이](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) 포함 됩니다.
+CD Azure 파이프라인은 환경을 나타내는 여러 단계로 구성 됩니다. 각 단계에는 다음 단계를 수행 하는 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) 및 [작업이](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) 포함 됩니다.
 
 _ Azure Databricks 작업 영역에 Python 노트북 배포
 * Azure Data Factory 파이프라인 배포 
 * 파이프라인 실행
 * 데이터 수집 결과 확인
 
-파이프라인 단계는 배포 프로세스가 환경 체인을 통해 진화 하는 방법에 대 한 추가 제어를 제공 하는 [승인](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) 및 [게이트](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) 를 사용 하 여 구성할 수 있습니다.
+파이프라인 단계는 배포 프로세스가 환경 체인을 통해 진화 하는 방법에 대 한 추가 제어를 제공 하는 [승인](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) 및 [게이트](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) 를 사용 하 여 구성할 수 있습니다.
 
 ### <a name="deploy-a-python-notebook"></a>Python 노트북 배포
 
-다음 코드 조각은 Python 노트북을 Databricks 클러스터에 복사 하는 Azure 파이프라인 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) 를 정의 합니다.
+다음 코드 조각은 Python 노트북을 Databricks 클러스터에 복사 하는 Azure 파이프라인 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) 를 정의 합니다.
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ _ Azure Databricks 작업 영역에 Python 노트북 배포
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-CI에 의해 생성 된 아티팩트는 자동으로 배포 에이전트에 복사 되 고 폴더에서 사용할 수 있습니다 `$(Pipeline.Workspace)` . 이 경우 배포 작업은 Python 노트북을 포함 하는 아티팩트를 참조 합니다 `di-notebooks` . 이 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) 에서는 [Databricks Azure devops 확장](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) 을 사용 하 여 노트북 파일을 Databricks 작업 영역에 복사 합니다.
+CI에 의해 생성 된 아티팩트는 자동으로 배포 에이전트에 복사 되 고 폴더에서 사용할 수 있습니다 `$(Pipeline.Workspace)` . 이 경우 배포 작업은 Python 노트북을 포함 하는 아티팩트를 참조 합니다 `di-notebooks` . 이 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) 에서는 [Databricks Azure devops 확장](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) 을 사용 하 여 노트북 파일을 Databricks 작업 영역에 복사 합니다.
 
 단계에는 `Deploy_to_QA` `devops-ds-qa-vg` Azure devops 프로젝트에 정의 된 변수 그룹에 대 한 참조가 포함 되어 있습니다. 이 단계의 단계는이 변수 그룹의 변수 (예: `$(DATABRICKS_URL)` 및)를 참조 `$(DATABRICKS_TOKEN)` 합니다. 그 이유는 다음 단계 (예: `Deploy_to_UAT` )가 자체 UAT 범위 변수 그룹에 정의 된 동일한 변수 이름을 사용 하 여 작동 한다는 것입니다.
 
@@ -339,7 +339,7 @@ Azure Data Factory에 대 한 배포 가능 아티팩트는 Azure Resource Manag
     * Databricks + ADF에 배포
     * 통합 테스트
 
-여기에는 보유 하 고 있는 대상 환경의 수와 동일한 수의 * **Deploy** _ 단계가 포함 됩니다. 각 _*_배포_*_ 단계에는 병렬로 실행 되는 두 개의 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) 와 환경에서 솔루션을 테스트 하기 위해 배포 후 실행 되는 [작업이](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) 포함 됩니다.
+여기에는 보유 하 고 있는 대상 환경의 수와 동일한 수의 * **Deploy** _ 단계가 포함 됩니다. 각 _*_배포_*_ 단계에는 병렬로 실행 되는 두 개의 [배포](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) 와 환경에서 솔루션을 테스트 하기 위해 배포 후 실행 되는 [작업이](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) 포함 됩니다.
 
 파이프라인의 샘플 구현은 다음 _*_yaml_*_ 코드 조각에서 어셈블됩니다.
 
