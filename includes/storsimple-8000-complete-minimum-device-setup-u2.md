@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182254"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376101"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>최소 StorSimple 디바이스 설치를 완료하려면
 
@@ -30,15 +30,15 @@ ms.locfileid: "67182254"
 
        2. 컨트롤러 0과 컨트롤러 1에 대한 고정 IP 주소를 입력합니다. **컨트롤러 고정 IP 주소는 디바이스 IP 주소를 통해 접근할 수 있는 서브넷 내의 사용 가능한 IP여야 합니다.** 데이터 0 인터페이스가 IPv4에 대해 구성된 경우 고정 IP 주소는 IPv4 형식으로 제공해야 합니다. IPv6 구성에 대한 접두사를 제공하는 경우 고정 IP 주소는 이러한 필드에 자동으로 채워집니다.
 
-            ![StorSimple 최소 디바이스 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+            ![StorSimple 최소 장치 설치 네트워크 인터페이스 2](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
             컨트롤러의 고정 IP 주소는 가비지 수집 및 디바이스에 대한 업데이트를 제공하는 데 사용됩니다. 따라서 고정 IP는 라우팅 가능하고 인터넷에 연결할 수 있어야 합니다. [Test-HcsmConnection][Test] cmdlet을 사용하여 고정된 컨트롤러 IP가 라우팅할 수 있는지 확인할 수 있습니다. 다음 예제는 고정된 컨트롤러 IP가 인터넷으로 라우팅되고 Microsoft 업데이트 서버에 액세스할 수 있음을 보여줍니다.
 
             ![라우팅 가능한 IP를 표시하는 Test-HcsmConnection](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 
-1. **확인**을 클릭합니다. 디바이스 구성이 시작됩니다. 디바이스 구성이 완료되면 알림이 표시됩니다. 디바이스 상태가 **디바이스** 블레이드에서 **온라인**으로 변경됩니다.
+1. **확인** 을 클릭합니다. 디바이스 구성이 시작됩니다. 디바이스 구성이 완료되면 알림이 표시됩니다. 디바이스 상태가 **디바이스** 블레이드에서 **온라인** 으로 변경됩니다.
 
-    ![StorSimple 최소 디바이스 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+    ![StorSimple 최소 장치 설치 네트워크 인터페이스 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

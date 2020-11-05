@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182401"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376231"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure 포털에서 업데이트를 설치하려면
 
@@ -17,17 +17,17 @@ ms.locfileid: "67182401"
 
     ![디바이스 선택](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. **장치 설정**  >  **장치 업데이트**로 이동 합니다.
+2. **장치 설정**  >  **장치 업데이트** 로 이동 합니다.
 
     ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. 새 업데이트를 사용할 수 있는 경우 알림이 나타납니다. 또는 **디바이스 업데이트** 블레이드에서 **업데이트 검색**을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
+2. 새 업데이트를 사용할 수 있는 경우 알림이 나타납니다. 또는 **디바이스 업데이트** 블레이드에서 **업데이트 검색** 을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
 
-    ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![장치 업데이트 2를 클릭 합니다.](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. 디바이스에 업데이트를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다. 업데이트를 적용하려면 **업데이트 설치**를 클릭합니다. **Confirm regular updates(정기 업데이트 확인)** 블레이드에서 업데이트를 적용하기 전에 완료할 필수 구성 요소를 검토합니다. 디바이스를 업데이트할 준비가 되었음을 나타내는 확인란을 선택한 후 **설치**를 클릭합니다.
+3. 디바이스에 업데이트를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다. 업데이트를 적용하려면 **업데이트 설치** 를 클릭합니다. **Confirm regular updates(정기 업데이트 확인)** 블레이드에서 업데이트를 적용하기 전에 완료할 필수 구성 요소를 검토합니다. 디바이스를 업데이트할 준비가 되었음을 나타내는 확인란을 선택한 후 **설치** 를 클릭합니다.
 
-    ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![장치 업데이트 3 클릭](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. 일련의 필수 조건 검사가 시작됩니다. 이들 검사는 다음과 같습니다.
    
@@ -45,11 +45,11 @@ ms.locfileid: "67182401"
 
 9. 업데이트를 완료하는 데 몇 시간이 걸립니다. 업데이트 작업을 선택하고 **세부 정보** 를 클릭하여 언제든지 작업의 세부 정보를 봅니다.
 
-    ![업데이트 작업 만들기](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![업데이트 작업 만들기 2](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     **디바이스 설정 &gt; 작업**에서 업데이트 작업의 진행률을 모니터링할 수도 있습니다. **작업** 블레이드에서 업데이트 진행률을 볼 수 있습니다.
+     **디바이스 설정 &gt; 작업** 에서 업데이트 작업의 진행률을 모니터링할 수도 있습니다. **작업** 블레이드에서 업데이트 진행률을 볼 수 있습니다.
 
-     ![업데이트 작업 만들기](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![업데이트 작업 만들기 3](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
-10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트**로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
+10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트** 로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
 
