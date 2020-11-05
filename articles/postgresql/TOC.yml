@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL 설명서
+- name: Azure Database for PostgreSQL 설명서
   href: index.yml
 - name: 개요
   items:
@@ -255,6 +255,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore, georestore, geo-restore, outage'
+            - name: 삭제된 서버 복원
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: 인증 사용
           items:
             - name: 사용자 만들기

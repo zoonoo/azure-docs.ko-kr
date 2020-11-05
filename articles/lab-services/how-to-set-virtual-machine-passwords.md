@@ -3,12 +3,12 @@ title: Azure Lab Services의 VM 암호 설정 | Microsoft Docs
 description: Azure Lab Services의 클래스룸 랩에서 VM(가상 머신)의 암호를 설정하고 재설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334075"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379692"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행하는 방법을 보여줍니다.
@@ -20,9 +20,9 @@ ms.locfileid: "91334075"
 ## <a name="update-the-lab-capacity"></a>랩 용량 업데이트
 랩 용량(랩의 가상 머신 수)을 늘리거나 줄이려면 다음 단계를 수행합니다.
 
-1. **가상 머신 풀** 페이지에서 **랩 용량: &lt;number&gt;개 머신**을 선택합니다.
-2. 랩에서 원하는 새 **VM 수**를 입력합니다. 이 숫자는 랩에 등록된 사용자 수보다 크거나 같아야 합니다. 
-3. 그런 다음 **저장**을 선택합니다. 
+1. **가상 머신 풀** 페이지에서 **랩 용량: &lt;number&gt;개 머신** 을 선택합니다.
+2. 랩에서 원하는 새 **VM 수** 를 입력합니다. 이 숫자는 랩에 등록된 사용자 수보다 크거나 같아야 합니다. 
+3. 그런 다음 **저장** 을 선택합니다. 
 
     !["랩의 최대 컴퓨터" 및 "저장" 단추가 선택 된 "랩 용량" 창을 보여 주는 스크린샷](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. 용량을 늘린 경우 VM이 생성되는 것을 확인할 수 있습니다. 새 VM이 목록에 표시되지 않으면 페이지를 새로 고칩니다. 
@@ -41,27 +41,26 @@ ms.locfileid: "91334075"
     ![모두 시작 단추](./media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>선택한 VM 시작
-선택한 VM(하나 이상)을 시작하는 방법은 두 가지입니다. 첫 번째 방법은 목록에서 VM을 선택한 다음, 도구 모음에서 **시작**을 선택하는 것입니다. 
+선택한 VM(하나 이상)을 시작하는 방법은 두 가지입니다. 첫 번째 방법은 목록에서 VM을 선택한 다음, 도구 모음에서 **시작** 을 선택하는 것입니다. 
 
 두 번째 방법은 목록에서 하나 이상의 VM을 선택하고 **상태** 열의 단추를 설정/해제하는 것입니다. 
 
 ![선택한 VM 시작](./media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-마찬가지로 **상태** 열의 단추를 전환하거나 도구 모음의 **중지**를 선택하여 하나 이상의 VM을 중지할 수 있습니다. 
+마찬가지로 **상태** 열의 단추를 전환하거나 도구 모음의 **중지** 를 선택하여 하나 이상의 VM을 중지할 수 있습니다. 
 
 > [!NOTE]
 > 교육자가 학생 VM을 켜는 경우 학생에 대한 할당량에 영향을 주지 않습니다. 사용자에 대한 할당량은 사용자가 예약된 수업 시간 이외의 시간에 사용할 수 있는 랩 시간 수를 지정합니다. 할당량에 대한 자세한 내용은 [사용자에 대한 할당량 설정](how-to-configure-student-usage.md?#set-quotas-for-users)을 참조하세요.
 
 ## <a name="reset-vms"></a>VM 초기화
-하나 이상의 VM을 초기화하려면 목록에서 해당 VM을 선택한 다음, 도구 모음에서 **초기화**를 선택합니다. 
+
+하나 이상의 VM을 초기화하려면 목록에서 해당 VM을 선택한 다음, 도구 모음에서 **초기화** 를 선택합니다. 
 
 ![선택한 VM 초기화](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
 
-**가상 머신 초기화** 대화 상자에서 **초기화**를 선택합니다. 
+**가상 머신 초기화** 대화 상자에서 **초기화** 를 선택합니다. 
 
 ![VM 초기화 대화 상자](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>VM의 암호 설정
 랩 소유자(교육자)는 랩을 만들 때(랩 만들기 마법사) 또는 **템플릿** 페이지에서 랩을 만든 후 VM의 암호를 설정/재설정할 수 있습니다. 
@@ -75,8 +74,8 @@ ms.locfileid: "91334075"
 
 ### <a name="reset-password-later"></a>나중에 암호 재설정
 
-1. 랩의 **템플릿** 페이지에서 도구 모음의 **암호 다시 설정**을 선택합니다. 
-1. **암호 다시 설정** 대화 상자에서 암호를 입력하고 **암호 다시 설정**을 선택합니다.
+1. 랩의 **템플릿** 페이지에서 도구 모음의 **암호 다시 설정** 을 선택합니다. 
+1. **암호 다시 설정** 대화 상자에서 암호를 입력하고 **암호 다시 설정** 을 선택합니다.
     
     ![암호 설정 대화 상자](./media/how-to-set-virtual-machine-passwords/set-password.png)
 
@@ -96,7 +95,7 @@ ms.locfileid: "91334075"
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>가상 머신 목록을 CSV 파일로 내보내기
 
 1. **가상 머신 풀** 탭으로 전환합니다.
-2. 도구 모음에서 **...** (줄임표)를 선택한 후 **CSV 내보내기**를 선택합니다. 
+2. 도구 모음에서 **...** (줄임표)를 선택한 후 **CSV 내보내기** 를 선택합니다. 
 
     ![가상 머신 목록 내보내기](./media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
