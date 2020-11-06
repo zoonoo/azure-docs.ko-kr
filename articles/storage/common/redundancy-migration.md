@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784221"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330294"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -142,7 +142,7 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 지원 담당자가 사용자에게 연락하여 필요한 모든 지원을 제공합니다.
 
 > [!NOTE]
-> 실시간 마이그레이션은 프리미엄 파일 공유에 현재 지원 되지 않습니다. 현재 데이터를 수동으로 복사 하거나 이동 하는 것만 지원 됩니다.
+> 프리미엄 파일 공유 (FileStorage 계정)는 LRS 및 ZRS에 대해서만 사용할 수 있습니다.
 >
 > GZRS 저장소 계정은 현재 보관 계층을 지원 하지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md) 을 참조 하세요.
 >

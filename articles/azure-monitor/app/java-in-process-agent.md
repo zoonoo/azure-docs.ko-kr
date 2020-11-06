@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377040"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331926"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -48,7 +48,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가�
 환경 변수를 설정 하 여 에이전트가 Application Insights 리소스를 가리키도록 합니다.
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 또는 이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0.jar` 다음과 같은 내용을 포함 합니다.
@@ -56,7 +56,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
@@ -141,13 +141,13 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  yes    |
-| **사용자 지정 메트릭**  |  yes       |                     |  yes    |
-| **종속성**    |            |                     |  yes    |
-| **예외**      |            |  yes                |  yes    |
-| **페이지 보기**      |            |                     |  yes    |
-| **요청**        |            |                     |  yes    |
-| **추적**          |            |  yes                |  yes    |
+| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 메트릭**  |  예       |                     |  yes    |
+| **종속성**    |            |                     |  예    |
+| **예외**      |            |  예                |  예    |
+| **페이지 보기**      |            |                     |  예    |
+| **요청**        |            |                     |  예    |
+| **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 

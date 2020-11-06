@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740147"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331609"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
 
@@ -30,7 +30,7 @@ SSO (Single sign-on)는 앱 사용자에 게 쉽고 안전한 로그인을 제�
 
 또한 앱에서 Single Sign-On를 사용 하도록 설정 하면 [암호 없는 로그인](../authentication/concept-authentication-passwordless.md)과 같은 최신 인증과 함께 제공 되는 새 인증 메커니즘이 잠금 해제 됩니다. 사용자 이름 및 암호는 응용 프로그램에 대해 가장 널리 사용 되는 공격 벡터 중 하나 이며 SSO를 사용 하도록 설정 하면 보안을 강화 하거나 보다 안전한 인증 메커니즘을 사용 하는 조건부 액세스 또는 암호 없는 로그인을 적용 하 여이 위험을 완화할 수 있습니다. 마지막으로 Single Sign-On를 사용 하도록 설정 하면 [단일 로그 아웃](v2-protocols-oidc.md#single-sign-out)도 사용할 수 있습니다. 이는 공유 장치에서 사용 되는 회사 응용 프로그램과 같은 상황에서 유용 합니다.
 
-[앱 보호 정책 (앱)](/mem/intune/apps/app-protection-policy) 은 조직의 데이터가 안전 하 게 유지 되 고 포함 되어 있는지 확인 합니다. 이를 통해 회사는 앱 내에서 데이터를 관리 하 고 보호할 수 있으며 앱 및 해당 데이터에 액세스할 수 있는 사용자를 제어할 수 있습니다. 앱 보호 정책을 구현 하면 앱이 조건부 액세스 정책에 의해 보호 되는 리소스에 사용자를 연결 하 고 보호 된 다른 앱 간에 데이터를 안전 하 게 전송할 수 있습니다. 앱 보호 정책에 의해 잠금 해제 된 시나리오에는 앱을 열고, 앱 간의 데이터 공유를 제어 하 고, 회사 앱 데이터가 장치의 개인 저장소 위치에 저장 되지 않도록 하는 PIN이 필요 합니다.
+[앱 보호 정책 (앱)](/mem/intune/apps/app-protection-policy) 은 조직의 데이터가 안전 하 게 유지 되 고 포함 되어 있는지 확인 합니다. 이를 통해 회사는 앱 내에서 데이터를 관리 하 고 보호할 수 있으며 앱 및 해당 데이터에 액세스할 수 있는 사용자를 제어할 수 있습니다. 앱 보호 정책을 구현 하면 앱이 조건부 액세스 정책에 의해 보호 되는 리소스에 사용자를 연결 하 고 보호 된 다른 앱 간에 데이터를 안전 하 게 전송할 수 있습니다. 앱 보호 정책에 의해 잠금 해제 된 시나리오에는 앱을 열 때 PIN을 요구 하 고, 앱 간의 데이터 공유를 제어 하 고, 회사 앱 데이터가 개인 저장소 위치에 저장 되지 않도록 하는 작업이 포함 됩니다.
 
 ## <a name="implementing-single-sign-on"></a>Single Sign-On 구현
 

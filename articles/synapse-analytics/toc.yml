@@ -14,8 +14,9 @@
     - name: 릴리스 정보
       href: release-notes.md
 - name: 빠른 시작
+  expanded: true
   items:
-    - name: 소개
+    - name: 시작하기
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1 Synapse 작업 영역 만들기
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: 리소스 사용 모델
           href: sql/resource-consumption-models.md
-        - name: 모범 사례 서버리스 SQL 풀
+        - name: 처리된 데이터
+          href: sql/data-processed.md
+        - name: SQL 주문형 모범 사례
           href: sql/best-practices-sql-on-demand.md
         - name: 모범 사례 전용 SQL 풀
           href: sql/best-practices-sql-pool.md

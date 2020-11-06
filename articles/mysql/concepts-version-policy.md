@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 75e24f9437257769a3d9bfd69980a9b8606d0563
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0670107d84374589aa60cc18f184b9b3d3facce1
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424114"
+ms.locfileid: "94331807"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Azure Database for MySQL 버전 관리 정책
 
@@ -48,12 +48,13 @@ Azure Database for MySQL는 다음 데이터베이스 버전을 지원 합니다
 ## <a name="retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql"></a>사용 중지 된 MySQL 엔진 버전은 Azure Database for MySQL에서 지원 되지 않습니다.
 
 각 MySQL 데이터베이스 버전에 대 한 사용 중지 날짜 이후에는 사용 중지 된 버전을 계속 실행 하는 경우 다음 제한 사항을 확인 하세요.
-- 커뮤니티에서 추가 버그 수정 또는 보안 수정 사항을 릴리스할 수 없게 되므로, MySQL 용 Azure는 버그 또는 보안 문제에 대해 사용 중지 된 데이터베이스 엔진을 패치 하거나 사용 중지 된 데이터베이스 엔진과 관련 하 여 보안 조치를 취합니다. 그러나 Azure는 호스트, OS, 컨테이너 및 기타 서비스 관련 구성 요소에 대해 정기적으로 유지 관리 및 패치를 계속 수행 합니다.
+- 커뮤니티는 추가 버그 수정 또는 보안 Azure Database for MySQL 수정 사항을 릴리스할 수 없으므로 버그 또는 보안 문제에 대 한 사용 중지 된 데이터베이스 엔진을 패치 하거나 사용 중지 된 데이터베이스 엔진과 관련 하 여 보안 조치를 취합니다. 그러나 Azure는 호스트, OS, 컨테이너 및 기타 서비스 관련 구성 요소에 대해 정기적으로 유지 관리 및 패치를 계속 수행 합니다.
 - 지원 문제가 발생할 수 있는 경우 MySQL 데이터베이스와 관련 하 여 지원을 제공 하지 못할 수 있습니다. 이러한 경우에는 지원을 제공 하기 위해 데이터베이스를 업그레이드 해야 합니다.
 - 사용 중지 된 버전에 대해서는 새 데이터베이스 서버를 만들 수 없습니다. 그러나 지정 시간 복구를 수행 하 고 기존 서버에 대 한 읽기 복제본을 만들 수 있습니다.
 - Azure Database for MySQL에서 개발한 새 서비스 기능은 지원 되는 데이터베이스 서버 버전 에서만 사용할 수 있습니다.
 - 작동 시간 Sla는 Azure Database for MySQL 서비스 관련 문제에만 적용 되며 데이터베이스 엔진 관련 버그로 인 한 가동 중지 시간에는 적용 되지 않습니다.  
-- 사용 중지 된 데이터베이스 버전에서 식별 된 MySQL 데이터베이스 엔진 취약성으로 인해 발생 하는 서비스에 심각한 위협이 발생 하는 극단적인 경우 Azure는 먼저 서비스를 보호 하기 위해 데이터베이스 서버의 계산 노드를 중지 하도록 선택할 수 있습니다. 서버를 온라인 상태로 전환 하기 전에 서버를 업그레이드 하 라는 메시지가 표시 됩니다. 업그레이드 프로세스 중에는 원하는 경우 이전 버전으로 복원 하는 데 사용할 수 있는 서비스에서 수행 되는 자동 백업을 사용 하 여 데이터가 항상 보호 됩니다.
+- 사용 중지 된 데이터베이스 버전에서 식별 된 MySQL 데이터베이스 엔진 취약성으로 인해 발생 하는 서비스에 심각한 위협이 발생 하는 극단적인 경우 Azure는 먼저 서비스를 보호 하기 위해 데이터베이스 서버의 계산 노드를 중지 하도록 선택할 수 있습니다. 서버를 온라인 상태로 전환 하기 전에 서버를 업그레이드 하 라는 메시지가 표시 됩니다. 업그레이드 프로세스 중에는 원하는 경우 이전 버전으로 복원 하는 데 사용할 수 있는 서비스에서 수행 되는 자동 백업을 사용 하 여 데이터가 항상 보호 됩니다. 
+
 
 
 ## <a name="next-steps"></a>다음 단계

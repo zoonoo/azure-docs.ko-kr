@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 30ca4d330d9b16214396ac81e5ab5722ca0e7569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254300"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375839"
 ---
-1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요**로 이동합니다. 디바이스는 온라인 상태여야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다.
 
-2. 디바이스 명령 모음에서 **+ 스토리지 계정 추가**를 선택합니다. 
+2. 디바이스 명령 모음에서 **+ 스토리지 계정 추가** 를 선택합니다. 
 
    ![스토리지 계정 추가](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-1.png)
 
@@ -29,11 +29,11 @@ ms.locfileid: "89254300"
 
     <!--![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
 
-    e. 모든 스토리지 계정 옵션을 지정한 후 **추가**를 선택하여 Edge 스토리지 계정을 만듭니다. Edge 스토리지 계정이 성공적으로 만들어지면 알림이 표시됩니다. 그러면, 새 Edge 스토리지 계정이 Azure Portal의 스토리지 계정 목록에 표시됩니다. 
+    e. 모든 스토리지 계정 옵션을 지정한 후 **추가** 를 선택하여 Edge 스토리지 계정을 만듭니다. Edge 스토리지 계정이 성공적으로 만들어지면 알림이 표시됩니다. 그러면, 새 Edge 스토리지 계정이 Azure Portal의 스토리지 계정 목록에 표시됩니다. 
 
     
-4. 새 스토리지 계정을 선택하고 **액세스 키**로 이동하면 Blob service 엔드포인트 및 해당하는 스토리지 계정 이름을 찾을 수 있습니다. 이 정보를 복사합니다. 이러한 값은 액세스 키와 함께 Edge 스토리지 계정에 연결하는 데 도움이 됩니다.
+4. 새 스토리지 계정을 선택하고 **액세스 키** 로 이동하면 Blob service 엔드포인트 및 해당하는 스토리지 계정 이름을 찾을 수 있습니다. 이 정보를 복사합니다. 이러한 값은 액세스 키와 함께 Edge 스토리지 계정에 연결하는 데 도움이 됩니다.
 
-    ![스토리지 계정 추가](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
+    ![스토리지 계정 2 추가](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     [Azure Resource Manager를 사용하여 디바이스 로컬 API에 연결](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)하여 액세스 키를 가져옵니다. 

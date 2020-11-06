@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226517"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330991"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -28,7 +28,7 @@ ms.locfileid: "89226517"
 
 이 문서에서는 논리 앱이 인바운드 호출을 수신 하 고 응답할 수 있도록 요청 트리거 및 응답 작업을 사용 하는 방법을 보여 줍니다.
 
-[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security)), 이전에 SSL(SECURE SOCKETS LAYER) (SSL) 또는 [Azure Active Directory 오픈 인증 (Azure AD OAuth)](../active-directory/develop/index.yml)과 같은 논리 앱에 대 한 인바운드 호출에 대 한 암호화, 보안 및 권한 부여에 대 한 자세한 내용은 [요청 기반 트리거에 대 한 인바운드 호출에 대 한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)를 참조 하세요.
+[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security))와 같은 논리 앱에 대 한 인바운드 호출에 대 한 보안, 권한 부여 및 암호화에 대 한 자세한 내용은 SSL(Secure Sockets Layer) TLS (전송 계층 보안 [), Azure Active Directory 오픈 인증 (azure AD OAuth)](../active-directory/develop/index.yml), azure API Management를 사용 하 여 논리 앱 노출 또는 인바운드 호출을 시작 하는 IP 주소 제한 [을 참조 하세요](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,8 +42,7 @@ ms.locfileid: "89226517"
 
 이 기본 제공 트리거는 HTTPS를 *통한 인바운드 요청만* 처리할 수 있는 수동으로 호출할 수 있는 끝점을 만듭니다. 호출자가이 끝점에 요청을 보내면 [요청 트리거가](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 발생 하 고 논리 앱이 실행 됩니다. 이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
-논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 동작이 포함 되지 않은 경우 
-> 논리 앱 `202 ACCEPTED` 은 호출자에 게 즉시 상태를 반환 합니다.
+논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 작업이 포함 되어 있지 않으면 논리 앱은 즉시 `202 ACCEPTED` 호출자에 게 상태를 반환 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
@@ -125,11 +124,11 @@ ms.locfileid: "89226517"
 
    예상 페이로드(데이터)를 기반으로 하는 JSON 스키마를 생성하려면 [JSONSchema.net](https://jsonschema.net)과 같은 도구를 사용하거나 다음 단계를 수행합니다.
 
-   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
       !["샘플 페이로드를 사용 하 여 스키마 생성"을 선택 하는 스크린샷](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
-   1. 샘플 페이로드를 입력하고 **완료**를 선택합니다.
+   1. 샘플 페이로드를 입력하고 **완료** 를 선택합니다.
 
       ![샘플 페이로드를 입력 하 여 스키마 생성](./media/connectors-native-reqres/enter-payload.png)
 
@@ -154,9 +153,9 @@ ms.locfileid: "89226517"
 
 1. 인바운드 호출에 지정 된 스키마와 일치 하는 요청 본문이 있는지 확인 하려면 다음 단계를 수행 합니다.
 
-   1. 요청 트리거의 제목 표시줄에서 줄임표 단추 (**...**)를 선택 합니다.
+   1. 요청 트리거의 제목 표시줄에서 줄임표 단추 ( **...** )를 선택 합니다.
 
-   1. 트리거의 설정에서 **스키마 유효성 검사**를 켜고 **완료**를 선택 합니다.
+   1. 트리거의 설정에서 **스키마 유효성 검사** 를 켜고 **완료** 를 선택 합니다.
 
       인바운드 호출의 요청 본문이 스키마와 일치 하지 않는 경우 트리거는 오류를 반환 합니다 `HTTP 400 Bad Request` .
 
@@ -176,13 +175,13 @@ ms.locfileid: "89226517"
 
    ![Select 메서드](./media/connectors-native-reqres/select-method.png)
 
-1. 이제 워크플로의 다음 단계로 다른 작업을 추가합니다. 트리거 아래에서 **다음 단계**를 선택하면 추가하려는 작업을 찾을 수 있습니다.
+1. 이제 워크플로의 다음 단계로 다른 작업을 추가합니다. 트리거 아래에서 **다음 단계** 를 선택하면 추가하려는 작업을 찾을 수 있습니다.
 
    예를 들어 사용자 지정된 응답을 반환하는 데 사용할 수 있으며 이 토픽의 뒷부분에서 설명하는 [응답 작업을 추가](#add-response)하여 요청에 응답할 수 있습니다.
 
    논리 앱은 [제한된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits) 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함되어 있다고 가정하면 논리 앱이 이 시간 경과 후 응답을 반환하지 않는 경우 논리 앱은 호출자에게 `504 GATEWAY TIMEOUT`을 반환합니다. 그렇지 않은 경우 논리 앱에 응답 작업이 포함되어 있지 않으면 논리 앱은 즉시 호출자에게 `202 ACCEPTED` 응답을 반환합니다.
 
-1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
    이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 URL을 생성합니다. 이 URL을 복사하려면 URL 옆에 있는 복사 아이콘을 선택합니다.
 
@@ -194,6 +193,8 @@ ms.locfileid: "89226517"
 1. 논리 앱을 트리거하려면 생성된 URL에 HTTP POST를 보냅니다.
 
    예를 들어 [Postman](https://www.getpostman.com/)과 같은 도구를 사용하여 HTTP POST를 보낼 수 있습니다. 트리거의 기본 JSON 정의 및 이 트리거를 호출하는 방법에 대한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+
+[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security))와 같은 논리 앱에 대 한 인바운드 호출에 대 한 보안, 권한 부여 및 암호화에 대 한 자세한 내용은 SSL(Secure Sockets Layer) TLS (전송 계층 보안 [), Azure Active Directory 오픈 인증 (azure AD OAuth)](../active-directory/develop/index.yml), azure API Management를 사용 하 여 논리 앱 노출 또는 인바운드 호출을 시작 하는 IP 주소 제한 [을 참조 하세요](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="trigger-outputs"></a>트리거 출력
 
@@ -224,15 +225,15 @@ ms.locfileid: "89226517"
 >
 > 논리 앱에서 사용자가 이러한 헤더를 사용하여 응답 작업이 있는 논리 앱을 저장할 수는 있지만, 논리 앱은 이러한 헤더를 무시합니다.
 
-1. 논리 앱 디자이너에서 응답 작업을 추가하려는 단계 아래에서 **새 단계**를 선택합니다.
+1. 논리 앱 디자이너에서 응답 작업을 추가하려는 단계 아래에서 **새 단계** 를 선택합니다.
 
    예를 들어 앞에 나온 요청 트리거를 사용합니다.
 
    ![새 단계 추가](./media/connectors-native-reqres/add-response.png)
 
-   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
-1. **작업 선택**아래의 검색 상자에서를 `response` 필터로 입력 하 고 **응답** 작업을 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에서를 `response` 필터로 입력 하 고 **응답** 작업을 선택 합니다.
 
    ![응답 작업 선택](./media/connectors-native-reqres/select-response-action.png)
 
@@ -246,7 +247,7 @@ ms.locfileid: "89226517"
 
    ![응답 작업 세부 정보](./media/connectors-native-reqres/response-details.png)
 
-   헤더를 JSON 형식으로 보려면 **텍스트 뷰로 전환**를 선택합니다.
+   헤더를 JSON 형식으로 보려면 **텍스트 뷰로 전환** 를 선택합니다.
 
    ![머리글 - 텍스트 뷰로 전환](./media/connectors-native-reqres/switch-to-text-view.png)
 
@@ -261,7 +262,7 @@ ms.locfileid: "89226517"
 
 1. 응답 본문에 대한 JSON 스키마와 같은 추가 속성을 지정하려면 **새 매개 변수 추가** 목록을 열고 추가하려는 매개 변수를 선택합니다.
 
-1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

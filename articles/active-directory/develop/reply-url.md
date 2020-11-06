@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042900"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331858"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI (회신 URL) 제한 사항 및 제한 사항
 
@@ -62,7 +62,9 @@ Azure Active Directory (Azure AD) 응용 프로그램 모델은 현재 조직의
 
 개발 관점에서이는 다음과 같은 몇 가지 것을 의미 합니다.
 
-* 포트가 서로 다른 경우에는 여러 리디렉션 Uri를 등록 하지 마십시오. 로그인 서버는 임의의 항목을 임의로 선택 하 고 해당 리디렉션 URI와 연결 된 동작을 사용 합니다 (예: `web` -, `native` -또는 `spa` -type 리디렉션).
+* 포트가 서로 다른 경우에는 여러 리디렉션 Uri를 등록 하지 마십시오. 로그인 서버는 임의의 항목을 임의로 선택 하 고 해당 리디렉션 URI와 연결 된 동작을 사용 합니다 (예: `web` -, `native` -또는 `spa` -형식 리디렉션).
+
+    이는 인증 코드 부여 및 암시적 흐름과 같이 동일한 응용 프로그램 등록에서 다른 인증 흐름을 사용 하려는 경우에 특히 중요 합니다. 올바른 응답 동작을 각 리디렉션 URI와 연결 하려면 로그인 서버에서 리디렉션 Uri를 구분할 수 있어야 하며, 포트가 서로 다른 경우에는이 작업을 수행할 수 없습니다.
 * 호스트에서 여러 리디렉션 Uri를 등록 하 여 개발 중에 서로 다른 흐름을 테스트 해야 하는 경우에는 URI의 *경로* 구성 요소를 사용 하 여 구분 합니다. 예를 들어,는 `http://127.0.0.1/MyWebApp` 와 일치 하지 않습니다 `http://127.0.0.1/MyNativeApp` .
 * IPv6 루프백 주소 ( `[::1]` )는 현재 지원 되지 않습니다.
 * 잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스에 의해 앱이 중단 되지 않도록 하려면 대신 리디렉션 URI에서 IP 리터럴 루프백 주소를 사용 `127.0.0.1` `localhost` 합니다.

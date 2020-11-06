@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217051"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331892"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
 
 Azure NetApp Files는 256 암호화를 사용 하는 Kerberos 모드 (krb5.conf, krb5i 및 krb5p)에서 NFS 클라이언트 암호화를 지원 합니다. 이 문서에서는 Kerberos 암호화와 함께 NFSv 4.1 볼륨을 사용 하는 데 필요한 구성을 설명 합니다.
+
+## <a name="considerations"></a>고려 사항
+
+* NFSv 4.1 Kerberos 암호화 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다. 
 
 ## <a name="requirements"></a>요구 사항
 
@@ -40,7 +44,7 @@ NFSv 4.1 클라이언트 암호화에는 다음 요구 사항이 적용 됩니�
 
 1.  [Azure NetApp Files에 대 한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md) 의 단계에 따라 nfsv 4.1 볼륨을 만듭니다.   
 
-    볼륨 만들기 페이지에서 NFS 버전을 **nfsv 4.1**으로 설정 하 고 Kerberos를 **사용**으로 설정 합니다.
+    볼륨 만들기 페이지에서 NFS 버전을 **nfsv 4.1** 으로 설정 하 고 Kerberos를 **사용** 으로 설정 합니다.
 
     > [!IMPORTANT] 
     > 볼륨을 만든 후에는 Kerberos를 사용할 수 있는 선택 항목을 수정할 수 없습니다.
@@ -61,7 +65,7 @@ NFSv 4.1 클라이언트 암호화에는 다음 요구 사항이 적용 됩니�
 
     Kerberos를 사용 하려면 Active Directory에서 하나 이상의 컴퓨터 계정을 만들어야 합니다. 제공 하는 계정 정보는 SMB *및* Nfsv 4.1 Kerberos 볼륨 모두에 대 한 계정을 만드는 데 사용 됩니다. 이 컴퓨터는 볼륨을 만드는 동안 자동으로 생성 됩니다.
 
-2.  **Kerberos 영역**에서 **AD 서버 이름과** **KDC IP** 주소를 입력 합니다.
+2.  **Kerberos 영역** 에서 **AD 서버 이름과** **KDC IP** 주소를 입력 합니다.
 
     AD 서버와 KDC IP는 동일한 서버 일 수 있습니다. 이 정보는 Azure NetApp Files에서 사용 하는 SPN 컴퓨터 계정을 만드는 데 사용 됩니다. 컴퓨터 계정을 만든 후에는 DNS 서버 레코드를 사용 하 여 필요에 따라 추가 KDC 서버를 찾을 Azure NetApp Files. 
 
@@ -89,7 +93,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예를 들어: 
+    예: 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 

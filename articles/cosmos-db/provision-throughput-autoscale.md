@@ -6,21 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097348"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330617"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준(수동) 또는 자동 크기 조정 프로비저닝된 처리량을 설정할 수 있습니다. 이 문서에서는 자동 크기 조정 프로비저닝된 처리량의 이점과 사용 사례에 대해 설명합니다. 
+Azure Cosmos DB에서 데이터베이스 및 컨테이너에 대 한 표준 (수동) 또는 자동 크기 조정 프로 비전 된 처리량을 구성할 수 있습니다. Azure Cosmos DB에서 프로 비전 된 처리량 자동 크기 조정 기능을 사용 하면 **데이터베이스 또는 컨테이너의 처리량 (r u/초)을 자동으로 즉시 확장할** 수 있습니다. 처리량은 작업의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 사용량을 기준으로 크기가 조정 됩니다.
 
-자동 크기 조정 프로비저닝된 처리량은 변수 또는 예측할 수 없는 트래픽 패턴이 있는 중요 업무용 워크로드에 적합하며 고성능과 규모에 대한 SLA가 필요합니다. 
-
-자동 크기 조정을 사용하면 Azure Cosmos DB는 워크로드의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 사용량에 따라 데이터베이스 또는 컨테이너의 **처리량(RU/s)을 자동으로 즉시 크기 조정** 합니다. 
+자동 크기 조정 프로비저닝된 처리량은 변수 또는 예측할 수 없는 트래픽 패턴이 있는 중요 업무용 워크로드에 적합하며 고성능과 규모에 대한 SLA가 필요합니다. 이 문서에서는 자동 크기 조정 프로비저닝된 처리량의 이점과 사용 사례에 대해 설명합니다.
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
 

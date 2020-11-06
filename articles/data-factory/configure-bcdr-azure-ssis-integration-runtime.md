@@ -11,13 +11,13 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/09/2020
-ms.openlocfilehash: 761841c1f2146a33b35cdddc4adc4d3eb1a4b139
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/06/2020
+ms.openlocfilehash: 6b37a0df994546762abbcf3452d8e7b52dec6847
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635289"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331416"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임 구성
 
@@ -39,23 +39,26 @@ SMK는 장애 조치(failover) 그룹에 복제되지 않습니다. 장애 조�
 
 1. 기본 인스턴스에서 SSISDB에 대해 다음 명령을 실행합니다. 이 단계에서는 새 암호화 암호를 추가합니다.
 
-    ```sql
-    ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
-    ```
+   ```sql
+   ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
+   ```
 
 2. SQL Managed Instance에서 장애 조치 (failover) 그룹을 만듭니다.
 
 3. 새 암호화 암호를 사용하여 보조 인스턴스에서 **sp_control_dbmasterkey_password** 를 실행합니다.
 
-    ```sql
-    EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB',   
-        @password = N'<password>', @action = N'add';  
-    GO
-    ```
+   ```sql
+   EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'<password>', @action = N'add';  
+   GO
+   ```
 
 ### <a name="scenario-1-azure-ssis-ir-is-pointing-to-a-readwrite-listener-endpoint"></a>시나리오 1: Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리킴
 
-Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려면 먼저 기본 서버 엔드포인트를 가리켜야 합니다. SSISDB를 장애 조치(failover) 그룹에 넣은 후 읽기/쓰기 수신기 엔드포인트로 변경하고 Azure-SSIS IR을 다시 시작할 수 있습니다.
+Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려면 먼저 기본 서버 엔드포인트를 가리켜야 합니다. SSISDB를 장애 조치 (failover) 그룹에 배치한 후 Azure-SSIS IR를 중지 하 고 Azure PowerShell를 사용 하 여 읽기/쓰기 수신기 끝점을 가리키도록 변경한 후 다시 시작할 수 있습니다.
+
+```powershell
+Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Managed Instance read/write listener endpoint"
+```
 
 #### <a name="solution"></a>해결 방법
 
@@ -65,12 +68,12 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
 
 2. 보조 인스턴스에서 사용자 지정 설치에 대한 새 지역, 가상 네트워크 및 SAS(공유 액세스 서명) URI 정보를 사용하여 Azure-SSIS IR을 편집합니다. Azure-SSIS IR이 읽기/쓰기 수신기를 가리키고 엔드포인트가 Azure-SSIS IR에 투명하므로 엔드포인트를 편집할 필요가 없습니다.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+      -VNetId "new VNet" `
+      -Subnet "new subnet" `
+      -SetupScriptContainerSasUri "new custom setup SAS URI"
+   ```
 
 3. Azure-SSIS IR을 다시 시작합니다.
 
@@ -86,35 +89,35 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
 
 2. 보조 인스턴스에 대한 새 지역, 엔드포인트 및 가상 네트워크 정보를 사용하여 Azure-SSIS IR을 편집합니다.
 
-    ```powershell
-      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
-        ```
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+      -CatalogServerEndpoint "Azure SQL Database endpoint" `
+      -CatalogAdminCredential "Azure SQL Database admin credentials" `
+      -VNetId "new VNet" `
+      -Subnet "new subnet" `
+      -SetupScriptContainerSasUri "new custom setup SAS URI"
+   ```
 
-3. Restart the Azure-SSIS IR.
+3. Azure-SSIS IR을 다시 시작합니다.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
+### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-managed-instance"></a>시나리오 3: Azure-SSIS IR가 SQL Managed Instance의 공용 끝점을 가리키고 있습니다.
 
-This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
+이 시나리오는 Azure-SSIS IR가 Azure SQL Managed Instance의 공용 끝점을 가리키고 가상 네트워크에 연결 되지 않는 경우에 적합 합니다. 시나리오 2와의 유일한 차이점은 장애 조치(failover) 후 Azure-SSIS IR의 가상 네트워크 정보를 편집할 필요가 없다는 것입니다.
 
-#### Solution
+#### <a name="solution"></a>해결 방법
 
-When failover occurs, take the following steps:
+장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
 
-1. Stop the Azure-SSIS IR in the primary region.
+1. 주 지역에서 Azure-SSIS IR을 중지합니다.
 
-2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
+2. 보조 인스턴스에 대한 새 지역 및 엔드포인트 정보를 사용하여 Azure-SSIS IR을 편집합니다.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+      -CatalogServerEndpoint "Azure SQL Database server endpoint" `
+      -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+      -SetupScriptContainerSasUri "new custom setup SAS URI"
+   ```
 
 3. Azure-SSIS IR을 다시 시작합니다.
 
@@ -133,43 +136,41 @@ When failover occurs, take the following steps:
 
 2. 및의 연결을 허용 하도록 SSISDB의 메타 데이터를 업데이트 하는 저장 프로시저를 실행 **\<new_data_factory_name\>** **\<new_integration_runtime_name\>** 합니다.
    
-    ```sql
-    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-    ```
+   ```sql
+   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
 
 3. 새 지역에 이라는 새 데이터 팩터리를 만듭니다 **\<new_data_factory_name\>** .
 
-    ```powershell
-    Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-                      -Location "new region"`
-                      -Name "<new_data_factory_name>"
-    ```
-    
-    이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+   ```powershell
+   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+      -Location "new region"`
+      -Name "<new_data_factory_name>"
+   ```
+   
+   이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 4. **\<new_integration_runtime_name\>** Azure PowerShell를 사용 하 여 새 지역에 이라는 새 Azure-SSIS IR를 만듭니다.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-                                           -DataFactoryName "new data factory name" `
-                                           -Name "<new_integration_runtime_name>" `
-                                           -Description $AzureSSISDescription `
-                                           -Type Managed `
-                                           -Location $AzureSSISLocation `
-                                           -NodeSize $AzureSSISNodeSize `
-                                           -NodeCount $AzureSSISNodeNumber `
-                                           -Edition $AzureSSISEdition `
-                                           -LicenseType $AzureSSISLicenseType `
-                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -VnetId "new vnet" `
-                                           -Subnet "new subnet" `
-                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
-                                           -CatalogPricingTier $SSISDBPricingTier
-    ```
-
-    이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
-
-
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+      -DataFactoryName "new data factory name" `
+      -Name "<new_integration_runtime_name>" `
+      -Description $AzureSSISDescription `
+      -Type Managed `
+      -Location $AzureSSISLocation `
+      -NodeSize $AzureSSISNodeSize `
+      -NodeCount $AzureSSISNodeNumber `
+      -Edition $AzureSSISEdition `
+      -LicenseType $AzureSSISLicenseType `
+      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+      -VnetId "new vnet" `
+      -Subnet "new subnet" `
+      -CatalogServerEndpoint $SSISDBServerEndpoint `
+      -CatalogPricingTier $SSISDBPricingTier
+   ```
+   
+   이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 
 ## <a name="azure-ssis-ir-failover-with-sql-database"></a>SQL Database를 사용한 Azure-SSIS IR 장애 조치(Failover)
 
@@ -178,9 +179,13 @@ When failover occurs, take the following steps:
 이 시나리오는 다음과 같은 경우에 적합합니다.
 
 - Azure-SSIS IR이 장애 조치(Failover) 그룹의 읽기/쓰기 수신기 엔드포인트를 가리키고 있습니다.
-- SQL Database 서버가 가상 네트워크 서비스 엔드포인트의 규칙으로 구성되지 *않았습니다* .
+- SQL Database 서버가 가상 네트워크 서비스 엔드포인트의 규칙으로 구성되지 *않았습니다*.
 
-Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려면 먼저 기본 서버 엔드포인트를 가리켜야 합니다. SSISDB를 장애 조치(failover) 그룹에 넣은 후 읽기/쓰기 수신지 엔드포인트로 변경하고 Azure-SSIS IR을 다시 시작할 수 있습니다.
+Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려면 먼저 기본 서버 엔드포인트를 가리켜야 합니다. SSISDB를 장애 조치 (failover) 그룹에 배치한 후 Azure-SSIS IR를 중지 하 고 Azure PowerShell를 사용 하 여 읽기/쓰기 수신기 끝점을 가리키도록 변경한 후 다시 시작할 수 있습니다.
+
+```powershell
+Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Database read/write listener endpoint"
+```
 
 #### <a name="solution"></a>해결 방법
 
@@ -201,14 +206,14 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 
 2. 보조 인스턴스에 대한 새 지역, 엔드포인트 및 가상 네트워크 정보를 사용하여 Azure-SSIS IR을 편집합니다.
 
-    ```powershell
-      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
-                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
-                        -VNetId "new VNet" `
-                        -Subnet "new subnet" `
-                        -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+      -CatalogServerEndpoint "Azure SQL Database endpoint" `
+      -CatalogAdminCredential "Azure SQL Database admin credentials" `
+      -VNetId "new VNet" `
+      -Subnet "new subnet" `
+      -SetupScriptContainerSasUri "new custom setup SAS URI"
+   ```
 
 3. Azure-SSIS IR을 다시 시작합니다.
 
@@ -227,42 +232,41 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 
 2. 및의 연결을 허용 하도록 SSISDB의 메타 데이터를 업데이트 하는 저장 프로시저를 실행 **\<new_data_factory_name\>** **\<new_integration_runtime_name\>** 합니다.
    
-    ```sql
-    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-    ```
+   ```sql
+   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
 
 3. 새 지역에 이라는 새 데이터 팩터리를 만듭니다 **\<new_data_factory_name\>** .
 
-    ```powershell
-    Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-                         -Location "new region"`
-                         -Name "<new_data_factory_name>"
-    ```
-    
-    이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+   ```powershell
+   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+      -Location "new region"`
+      -Name "<new_data_factory_name>"
+   ```
+   
+   이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 4. **\<new_integration_runtime_name\>** Azure PowerShell를 사용 하 여 새 지역에 이라는 새 Azure-SSIS IR를 만듭니다.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-                                           -DataFactoryName "new data factory name" `
-                                           -Name "<new_integration_runtime_name>" `
-                                           -Description $AzureSSISDescription `
-                                           -Type Managed `
-                                           -Location $AzureSSISLocation `
-                                           -NodeSize $AzureSSISNodeSize `
-                                           -NodeCount $AzureSSISNodeNumber `
-                                           -Edition $AzureSSISEdition `
-                                           -LicenseType $AzureSSISLicenseType `
-                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -VnetId "new vnet" `
-                                           -Subnet "new subnet" `
-                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
-                                           -CatalogPricingTier $SSISDBPricingTier
-    ```
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+      -DataFactoryName "new data factory name" `
+      -Name "<new_integration_runtime_name>" `
+      -Description $AzureSSISDescription `
+      -Type Managed `
+      -Location $AzureSSISLocation `
+      -NodeSize $AzureSSISNodeSize `
+      -NodeCount $AzureSSISNodeNumber `
+      -Edition $AzureSSISEdition `
+      -LicenseType $AzureSSISLicenseType `
+      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+      -VnetId "new vnet" `
+      -Subnet "new subnet" `
+      -CatalogServerEndpoint $SSISDBServerEndpoint `
+      -CatalogPricingTier $SSISDBPricingTier
+   ```
 
-    이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
-
+   이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

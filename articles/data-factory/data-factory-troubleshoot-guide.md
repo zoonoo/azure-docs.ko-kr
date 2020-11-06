@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632586"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331382"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ ms.locfileid: "92632586"
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>오류 코드: 200
-
-- **메시지** : `Unexpected error happened: '%error;'.`
-
-- **원인** : 내부 서비스 문제가 있습니다.
-
-- **권장 사항** : 추가 지원이 필요한 경우 ADF 지원 팀에 문의하세요.
-
-### <a name="error-code-201"></a>오류 코드: 201
-
-- **메시지** : `JobType %jobType; is not found.`
-
-- **원인** : ADF에서 지원되지 않는 새 작업 유형이 있습니다.
-
-- **권장 사항** : 추가 지원이 필요한 경우 ADF 지원 팀에 문의하세요.
-
-### <a name="error-code-202"></a>오류 코드: 202
-
-- **메시지** : `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **원인** : 발생한 문제에 대한 세부 정보가 오류 메시지에 포함되어 있습니다.
-
-- **권장 사항** : 오류 메시지의 세부 정보를 통해 문제를 해결할 수 있습니다. 정보가 충분하지 않으면 ADF 지원 팀에 문의하여 추가 도움을 받으세요.
-
-### <a name="error-code-203"></a>오류 코드: 203
-
-- **메시지** : `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **원인** : 발생한 문제에 대한 세부 정보가 오류 메시지에 포함되어 있습니다.
-
-- **권장 사항** : 오류 메시지의 세부 정보를 통해 문제를 해결할 수 있습니다. 정보가 충분하지 않으면 ADF 지원 팀에 문의하여 추가 도움을 받으세요.
-
-### <a name="error-code-204"></a>오류 코드: 204
-
-- **메시지** : `The resumption token is missing for runId '%runId;'.`
-
-- **원인** : 내부 서비스 문제가 있습니다.
-
-- **권장 사항** : 추가 지원이 필요한 경우 ADF 지원 팀에 문의하세요.
-
-### <a name="error-code-205"></a>오류 코드: 205
-
-- **메시지** : `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **원인** : HDI 주문형 클러스터를 만드는 동안 오류가 발생했습니다.
-
-- **권장 사항** : 추가 지원이 필요한 경우 ADF 지원 팀에 문의하세요.
-
 ### <a name="error-code-206"></a>오류 코드: 206
 
-- **메시지** : `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **메시지** : `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **원인** : 이 오류를 초래한 서비스에 내부 문제가 발생했습니다.
 
-- **권장 사항** : 이 문제는 일시적일 수 있습니다. 작업을 다시 시도하고, 문제가 계속되면 ADF 지원 팀에 문의하여 추가 지원을 요청하세요.
+- **권장 사항** : 이 문제는 일시적일 수 있습니다. 잠시 후 작업을 다시 시도 하세요.
 
 ### <a name="error-code-207"></a>오류 코드: 207
 
-- **메시지** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **메시지** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **원인** : 기본 저장소 계정에서 지역을 확인하는 동안 내부 오류가 발생했습니다.
 
-- **권장 사항** : 다른 저장소를 사용해 보세요. 이 옵션이 적합한 해결 방법이 아닌 경우 ADF 지원 팀에 문의하여 추가 지원을 요청하세요.
+- **권장 사항** : 다른 저장소를 사용해 보세요. 
 
 ### <a name="error-code-208"></a>오류 코드: 208
 
-- **메시지** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **메시지** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **원인** : 서비스 주체를 읽거나 MSI 인증을 인스턴스화하는 중 내부 오류가 발생했습니다.
 
 - **권장 사항** : 제공된 구독에서 HDInsight 클러스터를 생성할 권한이 있는 서비스 주체를 제공하고 다시 시도하세요. [ID 관리가 올바르게 설정](../hdinsight/hdinsight-managed-identities.md)되어 있는지 확인하세요.
 
-   이 옵션이 적합한 해결 방법이 아닌 경우 ADF 지원 팀에 문의하여 추가 지원을 요청하세요.
 
 ### <a name="error-code-2300"></a>오류 코드: 2300
 
@@ -612,7 +563,7 @@ ms.locfileid: "92632586"
 
 - **권장 사항** : 일반적인 HDInsight 연결 또는 네트워크 연결 문제일 수 있습니다. 먼저 브라우저에서 HDInsight Ambari UI를 사용할 수 있는지 확인하세요. 그리고 나서 자격 증명이 여전히 유효한지 확인합니다.
    
-   자체 호스팅 IR(Integrated Runtime)을 사용하는 경우 자체 호스팅 IR이 설치된 VM 또는 컴퓨터에서 이 단계를 수행합니다. 그런 다음, Data Factory에서 작업을 다시 제출해 보세요. 오류가 계속 발생하면 Data Factory 팀에 지원을 요청하세요.
+   자체 호스팅 IR(Integrated Runtime)을 사용하는 경우 자체 호스팅 IR이 설치된 VM 또는 컴퓨터에서 이 단계를 수행합니다. 그런 다음, Data Factory에서 작업을 다시 제출해 보세요.
 
    자세한 내용은 [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui)를 참조하세요.
 

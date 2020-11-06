@@ -8,18 +8,18 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069139"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330311"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
-저장소 계정에서 대용량 파일 공유를 사용 하도록 설정 하면 파일 공유가 최대 100 TiB 확장 될 수 있습니다. 기존 파일 공유에 대 한 기존 저장소 계정에 이러한 크기 조정을 사용 하도록 설정할 수 있습니다.
+저장소 계정에서 대용량 파일 공유를 사용 하도록 설정 하면 파일 공유는 최대 100 TiB 확장 될 수 있으며 표준 공유에 대 한 IOPS 및 처리량 한도를 늘릴 수 있습니다. 기존 파일 공유에 대 한 기존 저장소 계정에 이러한 크기 조정을 사용 하도록 설정할 수도 있습니다. 자세한 내용은 [파일 공유 및 파일 배율 목표](storage-files-scale-targets.md#azure-files-scale-targets) 를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
@@ -36,17 +36,17 @@ ms.locfileid: "89069139"
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 
-1. 리소스 목록에서 **저장소 계정**을 입력 합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Storage 계정**을 선택합니다.
-1. 표시 되는 **저장소 계정** 창에서 **추가**를 선택 합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 
+1. 리소스 목록에서 **저장소 계정** 을 입력 합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Storage 계정** 을 선택합니다.
+1. 표시 되는 **저장소 계정** 창에서 **추가** 를 선택 합니다.
 1. 저장소 계정을 만드는 데 사용할 구독을 선택 합니다.
-1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 새 리소스 그룹의 이름을 입력 합니다.
+1. **리소스 그룹** 필드 아래에서 **새로 만들기** 를 선택합니다. 새 리소스 그룹의 이름을 입력 합니다.
 
     ![포털에서 리소스 그룹을 만드는 방법을 보여주는 스크린샷](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 이름은 Azure에서 고유해야 합니다. 이름은 3 자에서 24 자 사이 여야 하며 숫자와 소문자만 사용할 수 있습니다.
 1. 스토리지 계정의 위치를 선택합니다.
-1. 복제를 **로컬 중복 저장소** 또는 **영역 중복 저장소**로 설정 합니다.
+1. 복제를 **로컬 중복 저장소** 또는 **영역 중복 저장소** 로 설정 합니다.
 1. 다음 필드를 기본값으로 둡니다.
 
    |필드  |값  |
@@ -56,12 +56,12 @@ ms.locfileid: "89069139"
    |계정 종류     |StorageV2(범용 v2)         |
    |액세스 계층     |핫         |
 
-1. **고급**을 선택한 다음, **Large file 공유**의 오른쪽에 있는 **사용** 옵션 단추를 선택 합니다.
-1. **검토 + 만들기**를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
+1. **고급** 을 선택한 다음, **Large file 공유** 의 오른쪽에 있는 **사용** 옵션 단추를 선택 합니다.
+1. **검토 + 만들기** 를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
 
     ![Azure Portal의 새 저장소 계정에서 "사용" 옵션 단추가 있는 스크린샷](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -93,9 +93,9 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)를 열고 대량 파일 공유를 사용 하도록 설정할 저장소 계정으로 이동 합니다.
-1. 저장소 계정을 열고 **구성**을 선택 합니다.
-1. **Large file 공유**에서 **사용** 을 선택한 다음 **저장**을 선택 합니다.
-1. **개요** 를 선택 하 고 **새로 고침**을 선택 합니다.
+1. 저장소 계정을 열고 **구성** 을 선택 합니다.
+1. **Large file 공유** 에서 **사용** 을 선택한 다음 **저장** 을 선택 합니다.
+1. **개요** 를 선택 하 고 **새로 고침** 을 선택 합니다.
 
 ![Azure Portal에서 기존 저장소 계정에 대해 사용 옵션 단추를 선택 합니다.](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
@@ -131,9 +131,9 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 대량 파일 공유를 만드는 것은 표준 파일 공유 만들기와 거의 동일 합니다. 주요 차이점은 최대 100 TiB 할당량을 설정할 수 있다는 것입니다.
 
-1. 저장소 계정에서 **파일 공유**를 선택 합니다.
-1. **+ 파일 공유**를 선택 합니다.
-1. 파일 공유의 이름을 입력 합니다. 원하는 할당량 크기를 최대 100 TiB 설정할 수도 있습니다. 그런 다음 **만들기**를 선택합니다. 
+1. 저장소 계정에서 **파일 공유** 를 선택 합니다.
+1. **+ 파일 공유** 를 선택 합니다.
+1. 파일 공유의 이름을 입력 합니다. 원하는 할당량 크기를 최대 100 TiB 설정할 수도 있습니다. 그런 다음 **만들기** 를 선택합니다. 
 
 ![이름 및 할당량 상자를 표시 하는 Azure Portal UI](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
@@ -165,9 +165,9 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 저장소 계정에서 **파일 공유**를 선택 합니다.
-1. 파일 공유를 마우스 오른쪽 단추로 클릭 한 다음 **할당량**을 선택 합니다.
-1. 원하는 새 크기를 입력 하 고 **확인**을 선택 합니다.
+1. 저장소 계정에서 **파일 공유** 를 선택 합니다.
+1. 파일 공유를 마우스 오른쪽 단추로 클릭 한 다음 **할당량** 을 선택 합니다.
+1. 원하는 새 크기를 입력 하 고 **확인** 을 선택 합니다.
 
 ![기존 파일 공유의 할당량이 있는 Azure Portal UI](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 

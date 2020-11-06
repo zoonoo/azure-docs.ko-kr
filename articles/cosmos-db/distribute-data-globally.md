@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 709c802b8b23a39a0f723db3ac7b4636a0c53930
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 45f4b00bcb3bc1c14d49ef1e79b258dc2008882c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096770"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330651"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 전역적으로 데이터 배포
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 오늘날의 애플리케이션은 응답성이 뛰어나며 항상 온라인을 유지해야 합니다. 짧은 대기 시간 및 고가용성을 이루려면 이러한 애플리케이션의 인스턴스를 해당 사용자에서 가까운 데이터 센터에 배포해야 합니다. 이러한 애플리케이션은 일반적으로 여러 데이터 센터에 배포되며 글로벌 분산형이라고 합니다. 글로벌 분산형 애플리케이션에는 해당 사용자와 가까이 있는 데이터의 복사본에서 해당 애플리케이션이 작동하도록 설정하려면 전 세계 어디서나 데이터를 투명하게 복제할 수 있는 글로벌 분산형 데이터베이스가 있어야 합니다. 
 
-Azure Cosmos DB는 전역적으로 분산되는 데이터베이스 서비스로 짧은 대기 시간, 탄력적인 처리량 확장성, 데이터 일관성에 대해 잘 정의된 의미 체계 및 고가용성을 제공하도록 설계되었습니다. 간단히 말해서 응용 프로그램에 전 세계 어디에서 나 빠른 응답 시간이 필요한 경우 항상 온라인 상태 여야 하며 처리량 및 저장소의 무제한 및 탄력적 확장성이 필요한 경우 Azure Cosmos DB에서 응용 프로그램을 빌드해야 합니다.
+Azure Cosmos DB은 데이터베이스의 로컬 복제본에서 데이터를 읽고 쓸 수 있도록 하는 전역적으로 분산 된 데이터베이스 시스템입니다. Azure Cosmos DB는 Cosmos 계정과 연결 된 모든 지역에 데이터를 투명 하 게 복제 합니다. Azure Cosmos DB는 전역적으로 분산되는 데이터베이스 서비스로 짧은 대기 시간, 탄력적인 처리량 확장성, 데이터 일관성에 대해 잘 정의된 의미 체계 및 고가용성을 제공하도록 설계되었습니다. 간단히 말해서 응용 프로그램에 전 세계 어디에서 나 빠른 응답 시간이 필요한 경우 항상 온라인 상태 여야 하며 처리량 및 저장소의 무제한 및 탄력적 확장성이 필요한 경우 Azure Cosmos DB에서 응용 프로그램을 빌드해야 합니다.
 
 고객은 데이터베이스가 전역적으로 분산되고 모든 Azure 지역에서 사용 가능하도록 구성할 수 있습니다. 대기 시간을 줄이려면 사용자가 있는 위치에 가까운 데이터를 저장 합니다. 필수 지역을 선택하는 작업은 애플리케이션의 글로벌 도달률 및 사용자가 있는 위치에 따라 달라집니다. Cosmos DB는 Cosmos 계정과 연결 된 모든 지역에 데이터를 투명 하 게 복제 합니다. 애플리케이션이 로컬로 읽고 쓸 수 있는 전역적으로 분산된 Azure Cosmos 데이터베이스 및 컨테이너의 단일 시스템 이미지를 제공합니다. 
 

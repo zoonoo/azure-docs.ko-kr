@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 109ce54b48df0724c0d4ba64c02721088ed7ffad
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342014"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330634"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 응용 프로그램에서 다중 지역 쓰기 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "93342014"
 
 ## <a name="azure-portal"></a><a id="portal"></a> Azure Portal
 
-Azure Portal에서 다중 지역 쓰기를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+Azure Portal에서 다중 지역 쓰기를 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
