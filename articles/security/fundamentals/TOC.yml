@@ -68,6 +68,8 @@
   items:
     - name: Microsoft 맬웨어 방지
       href: antimalware.md
+    - name: Microsoft Antimalware 코드 샘플
+      href: antimalware-code-samples.md
     - name: 가상 머신 보안 개요
       href: virtual-machines-overview.md
     - name: 모범 사례 - IaaS 워크로드

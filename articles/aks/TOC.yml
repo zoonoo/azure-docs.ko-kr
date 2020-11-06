@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:
+            - name: 가상 노드 사용
+              href: virtual-nodes.md
             - name: Azure CLI 사용
               href: virtual-nodes-cli.md
             - name: Azure Portal 사용

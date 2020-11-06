@@ -529,6 +529,8 @@
       items:
         - name: 복사 작업을 사용하여 SQL 풀에 데이터 로드
           href: quickstart-copy-activity-load-sql-pool.md
+        - name: 데이터 흐름 매핑을 사용하여 데이터 변환
+          href: quickstart-data-flow.md
     - name: 개념
       items:
         - name: 파이프라인 및 활동

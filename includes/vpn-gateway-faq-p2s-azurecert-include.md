@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75752483"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376235"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
 ### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>인증서 인증을 사용하여 연결할 때 인증서 불일치가 발생하면 어떻게 해야 합니까?
 
-수동으로 프로필을 만들 때 **"인증서를 확인하여 서버 ID 확인"** 을 선택 취소하거나 **인증서와 함께 서버 FQDN을 추가합니다**. 명령 프롬프트에서 **rasphone**을 실행하고 드롭다운 목록에서 프로필을 선택하여 이 작업을 수행할 수 있습니다.
+수동으로 프로필을 만들 때 **"인증서를 확인하여 서버 ID 확인"** 을 선택 취소하거나 **인증서와 함께 서버 FQDN을 추가합니다**. 명령 프롬프트에서 **rasphone** 을 실행하고 드롭다운 목록에서 프로필을 선택하여 이 작업을 수행할 수 있습니다.
 
 일반적으로 서버 ID 유효성 검사를 우회하는 것은 권장되지 않지만 Azure 인증서 인증을 사용하면 VPN 터널링 프로토콜(IKEv2/SSTP) 및 EAP 프로토콜에서 서버 유효성 검사에 동일한 인증서가 사용됩니다. 서버 인증서와 FQDN은 이미 VPN 터널링 프로토콜에 의해 유효성이 검사되었으므로 EAP에서 동일한 유효성을 다시 검사하는 것은 중복입니다.
 
-![지점 및 사이트 간](./media/vpn-gateway-faq-p2s-all-include/servercert.png "서버 인증서")
+![지점 및 사이트 간 인증](./media/vpn-gateway-faq-p2s-all-include/servercert.png "서버 인증서")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>지점 및 사이트 간 연결을 위한 인증서를 생성하기 위해 내부 PKI 루트 CA를 사용할 수 있습니까?
 
@@ -52,4 +52,4 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
     * 클라이언트 인증서:
 
       * 프라이빗 키를 만들 때에는 길이를 4096으로 지정합니다.
-      * 인증서를 만들 때에는 *-extensions* 매개 변수에 대해 *usr_cert*를 지정합니다.
+      * 인증서를 만들 때에는 *-extensions* 매개 변수에 대해 *usr_cert* 를 지정합니다.

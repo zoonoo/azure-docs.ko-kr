@@ -223,7 +223,8 @@
         - name: Azure VM에 SQL용 Azure Defender 구성
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: 정보 보호 정책 사용자 지정
+        - name: SQL 정보 보호 정책 사용자 지정
+          displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
     - name: 컨테이너 레지스트리용 Azure Defender 사용
       items:
