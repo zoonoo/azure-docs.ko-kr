@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108476"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422538"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -20,7 +20,7 @@ PowerShell Azure 함수 (함수)는 트리거될 때 실행 되는 PowerShell �
 
 다른 종류의 함수와 마찬가지로 PowerShell 스크립트 함수는 파일에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수를 사용 `function.json` 합니다. `TriggerMetadata`함수를 시작한 트리거에 대 한 추가 정보를 포함 하는 매개 변수도 전달 됩니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](./create-first-function-vs-code-powershell.md) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | Description                                     | 형식     |
+| 속성   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
 | MethodName | 트리거된 함수의 이름     | 문자열   |
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| Name | 유형 | 위치 | Description |
+| 이름 | Type | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 request 개체의 형식은 `HttpRequestContext` 다음과 같습니다.
 
-| 속성  | Description                                                    | 형식                      |
+| 속성  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 다음과 같은 속성을 포함 하는 형식입니다 `HttpResponseContext` .
 
-| 속성      | Description                                                 | 형식                      |
+| 속성      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
@@ -418,11 +418,11 @@ PowerShell Core 6에서 PowerShell 7로 업그레이드 하려면 함수 앱이 
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱으로 이동합니다.
 
-1. **설정**아래에서 **구성**을 선택 합니다. **일반 설정** 탭에서 **PowerShell 버전**을 찾습니다. 
+1. **설정** 아래에서 **구성** 을 선택 합니다. **일반 설정** 탭에서 **PowerShell 버전** 을 찾습니다. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="함수 앱에서 사용 하는 PowerShell 버전 선택"::: 
 
-1. 원하는 **PowerShell Core 버전** 을 선택 하 고 **저장**을 선택 합니다. 보류 중인 다시 시작에 대 한 경고가 표시 되 면 **계속**을 선택 합니다. 선택한 PowerShell 버전에서 함수 앱이 다시 시작 됩니다. 
+1. 원하는 **PowerShell Core 버전** 을 선택 하 고 **저장** 을 선택 합니다. 보류 중인 다시 시작에 대 한 경고가 표시 되 면 **계속** 을 선택 합니다. 선택한 PowerShell 버전에서 함수 앱이 다시 시작 됩니다. 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -525,7 +525,7 @@ PSFunctionApp
 모듈의 현재 목록은 다음과 같습니다.
 
 * [Microsoft. PowerShell Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive):, 등의 보관 작업에 사용 되는 `.zip` 모듈 `.nupkg` 입니다.
-* **Threadjob**: PowerShell 작업 api의 스레드 기반 구현입니다.
+* **Threadjob** : PowerShell 작업 api의 스레드 기반 구현입니다.
 
 기본적으로 함수는 이러한 모듈의 최신 버전을 사용 합니다. 특정 모듈 버전을 사용 하려면 함수 앱의 폴더에 특정 버전을 배치 `Modules` 합니다.
 

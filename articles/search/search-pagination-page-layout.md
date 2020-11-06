@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934925"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421722"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 
 이 문서에서는 총 일치 문서 수, 페이지를 매긴 결과, 정렬 된 결과 및 적중 강조 표시 된 용어와 함께 반환 되는 쿼리 응답을 가져오는 방법을 설명 합니다.
 
-응답의 구조는 쿼리의 매개 변수에 의해 결정 됩니다. REST API 또는 .NET SDK의 [DocumentSearchResult 클래스](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) 에 있는 [검색 문서를 검색](/rest/api/searchservice/Search-Documents) 합니다.
+응답의 구조는 쿼리의 매개 변수에 의해 결정 됩니다. REST API 또는 .NET SDK의 [Searchresults 클래스](/dotnet/api/azure.search.documents.models.searchresults-1) 에서 [검색 문서](/rest/api/searchservice/Search-Documents) 입니다.
 
 ## <a name="result-composition"></a>결과 컴퍼지션
 
@@ -52,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 + 두 번째 집합을 반환 하 고 첫 15를 건너뛰고 다음 15:을 가져옵니다 `$top=15&$skip=15` . 세 번째 15 번째 집합에 대해 동일한 작업을 수행 합니다. `$top=15&$skip=30`
 
 기본 인덱스가 변경 되는 경우 페이지가 매겨진 쿼리 결과가 안정적이 지 않을 수 있습니다. 페이징은 `$skip` 각 페이지에 대 한 값을 변경 하지만 각 쿼리는 독립적 이며 쿼리 시의 인덱스에 있는 데이터의 현재 보기에서 작동 합니다. 즉, 일반적인 용도의 데이터베이스에 있는 것과 같은 결과의 캐싱 또는 스냅숏이 없습니다.
- 
+ 
 다음은 중복을 얻는 방법에 대 한 예입니다. 4 개의 문서를 포함 하는 인덱스를 가정 합니다.
 
 ```text
@@ -61,21 +61,21 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 이제 등급 별로 정렬 된 결과를 한 번에 두 번 반환 하려는 경우를 가정 합니다. 이 쿼리를 실행 하 여 결과의 첫 번째 페이지를 가져올 수 있습니다. 즉 `$top=2&$skip=0&$orderby=rating desc` , 다음과 같은 결과를 생성 합니다.
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 서비스에서는 쿼리 호출 사이에 다섯 번째 문서가 인덱스에 추가 된 것으로 가정 합니다. `{ "id": "5", "rating": 4 }`  잠시 후에 두 번째 페이지를 인출 하는 쿼리를 실행 하 `$top=2&$skip=2&$orderby=rating desc` 고 이러한 결과를 가져옵니다.
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 문서 2는 두 번 인출 됩니다. 새 문서 5는 등급에 대 한 값이 크므로 문서 2 보다 먼저 정렬 되 고 첫 번째 페이지에 도달 하기 때문입니다. 이 동작은 예기치 않을 수 있지만 검색 엔진의 동작 방식에 일반적입니다.
 
 ## <a name="ordering-results"></a>결과 정렬
@@ -92,7 +92,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 ### <a name="consistent-ordering"></a>일관 된 순서 지정
 
-결과 정렬에 flex가 지정 된 경우 일관성이 응용 프로그램 요구 사항인 경우 다른 옵션을 탐색 하는 것이 좋습니다. 가장 쉬운 방법은 등급 또는 날짜와 같은 필드 값을 기준으로 정렬 하는 것입니다. 등급 또는 날짜와 같은 특정 필드를 기준으로 정렬 하려는 시나리오의 경우 **정렬할**수 있는 것으로 인덱싱되는 모든 필드에 적용할 수 있는 [ `$orderby` 식을](query-odata-filter-orderby-syntax.md)명시적으로 정의할 수 있습니다.
+결과 정렬에 flex가 지정 된 경우 일관성이 응용 프로그램 요구 사항인 경우 다른 옵션을 탐색 하는 것이 좋습니다. 가장 쉬운 방법은 등급 또는 날짜와 같은 필드 값을 기준으로 정렬 하는 것입니다. 등급 또는 날짜와 같은 특정 필드를 기준으로 정렬 하려는 시나리오의 경우 **정렬할** 수 있는 것으로 인덱싱되는 모든 필드에 적용할 수 있는 [ `$orderby` 식을](query-odata-filter-orderby-syntax.md)명시적으로 정의할 수 있습니다.
 
 또 다른 옵션은 [사용자 지정 점수 매기기 프로필](index-add-scoring-profiles.md)을 사용 하는 것입니다. 점수 매기기 프로필을 사용 하면 검색 결과의 항목 순위를 보다 세밀 하 게 제어할 수 있으며 특정 필드에서 찾은 일치 항목을 높일 수 있습니다. 추가 점수 매기기 논리는 각 문서에 대 한 검색 점수가 떨어져 있기 때문에 복제본 간의 사소한 차이를 무시 하는 데 도움이 될 수 있습니다. 이 방법에 대 한 [순위 알고리즘](index-ranking-similarity.md) 을 사용 하는 것이 좋습니다.
 

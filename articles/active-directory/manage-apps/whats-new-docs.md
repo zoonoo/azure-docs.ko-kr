@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 응용 프로그램 관리의 새로운 기능
 description: Azure Active Directory 응용 프로그램 관리를 위한 새롭고 업데이트 된 설명서입니다.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,23 +10,41 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428022"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422606"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
 Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="october-2020"></a>2020년 10월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory 응용 프로그램 관리: 새로운 기능](whats-new-docs.md)
+- [OIDC 기반 Single Sign-On 이해](configure-oidc-single-sign-on.md)
+- [권한 분류 구성](configure-permission-classifications.md)
+- [그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성](configure-user-consent-groups.md)
+- [앱 동의 정책 관리](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [SAML 기반 Single Sign-On 구성 된 앱에 로그인 하는 문제](application-sign-in-problem-federated-sso-gallery.md)
+- [애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생](application-proxy-connector-installation-problem.md)
+- [Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동](migrate-adfs-apps-to-azure.md)
+- [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>2020년 9월
 
 ### <a name="new-articles"></a>새 문서
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
 - [빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당](add-application-portal-assign-users.md)
-- [Docs의 새로운 기능](whats-new-docs.md)
+- [문서의 새로운 기능](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>업데이트된 문서

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661060"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422572"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기
 
@@ -102,7 +102,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -169,22 +169,22 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 필요에 따라 다음을 편집 합니다.
 
-**REQUIRED**
-- **위치**: 데이터 컨트롤러에 대 한 _메타 데이터가_ 저장 될 Azure 위치로 변경 합니다.  [데이터 컨트롤러 만들기 개요](create-data-controller.md) 문서에서 사용 가능한 Azure 위치 목록을 볼 수 있습니다.
-- **resourceGroup**: Azure Resource Manager에서 데이터 컨트롤러 azure 리소스를 만들려는 azure 리소스 그룹입니다.  일반적으로이 리소스 그룹은 이미 존재 해야 하지만 데이터를 Azure에 업로드할 때 까지는 필요 하지 않습니다.
-- **구독**: azure 리소스를 만들려는 구독에 대 한 AZURE 구독 GUID입니다.
+**필수**
+- **위치** : 데이터 컨트롤러에 대 한 _메타 데이터가_ 저장 될 Azure 위치로 변경 합니다.  [데이터 컨트롤러 만들기 개요](create-data-controller.md) 문서에서 사용 가능한 Azure 위치 목록을 볼 수 있습니다.
+- **resourceGroup** : Azure Resource Manager에서 데이터 컨트롤러 azure 리소스를 만들려는 azure 리소스 그룹입니다.  일반적으로이 리소스 그룹은 이미 존재 해야 하지만 데이터를 Azure에 업로드할 때 까지는 필요 하지 않습니다.
+- **구독** : azure 리소스를 만들려는 구독에 대 한 AZURE 구독 GUID입니다.
 
 **기본값을 검토 하 고 변경 하는 것이 좋습니다.**
-- **저장소. className**: 데이터 컨트롤러 데이터 및 로그 파일에 사용할 저장소 클래스입니다.  Kubernetes 클러스터에서 사용 가능한 저장소 클래스를 모를 경우 다음 명령을 실행할 수 있습니다 `kubectl get storageclass` .  기본값은 저장소 클래스가 있는 것으로 `default` 가정 하 고 이름이 인 저장소 `default` 클래스가 기본값 _인_ 것으로 가정 합니다.  참고: 원하는 저장소 클래스에 설정 해야 하는 두 개의 className 설정이 있습니다. 하나는 데이터이 고 하나는 로그입니다.
-- **serviceType**: `NodePort` LoadBalancer를 사용 하지 않는 경우 서비스 유형을로 변경 합니다.  참고: 두 개의 serviceType 설정을 변경 해야 합니다.
+- **저장소. className** : 데이터 컨트롤러 데이터 및 로그 파일에 사용할 저장소 클래스입니다.  Kubernetes 클러스터에서 사용 가능한 저장소 클래스를 모를 경우 다음 명령을 실행할 수 있습니다 `kubectl get storageclass` .  기본값은 저장소 클래스가 있는 것으로 `default` 가정 하 고 이름이 인 저장소 `default` 클래스가 기본값 _인_ 것으로 가정 합니다.  참고: 원하는 저장소 클래스에 설정 해야 하는 두 개의 className 설정이 있습니다. 하나는 데이터이 고 하나는 로그입니다.
+- **serviceType** : `NodePort` LoadBalancer를 사용 하지 않는 경우 서비스 유형을로 변경 합니다.  참고: 두 개의 serviceType 설정을 변경 해야 합니다.
 
 **필드**
-- **이름**: 데이터 컨트롤러의 기본 이름은 이지만 `arc` 원하는 경우 변경할 수 있습니다.
-- **displayName**:이 값을 파일 위쪽의 이름 특성과 동일한 값으로 설정 합니다.
-- **레지스트리**: Microsoft Container Registry 기본값입니다.  Microsoft Container Registry에서 이미지를 끌어오거나 [개인 컨테이너 레지스트리에 푸시하](offline-deployment.md)는 경우 여기에 레지스트리의 IP 주소 또는 DNS 이름을 입력 합니다.
-- **Dockerregistry**: 필요한 경우 개인 컨테이너 레지스트리에서 이미지를 끌어오는 데 사용할 이미지 풀 비밀입니다.
-- **리포지토리**: Microsoft Container Registry의 기본 리포지토리는 `arcdata` 입니다.  개인 컨테이너 레지스트리를 사용 하는 경우 Azure Arr을 사용 하는 데이터 서비스 컨테이너 이미지를 포함 하는 폴더/리포지토리의 경로를 입력 합니다.
-- **Imagetag**: 현재 최신 버전 태그는 템플릿에서 기본값으로 사용 되지만 이전 버전을 사용 하려는 경우 변경할 수 있습니다.
+- **이름** : 데이터 컨트롤러의 기본 이름은 이지만 `arc` 원하는 경우 변경할 수 있습니다.
+- **displayName** :이 값을 파일 위쪽의 이름 특성과 동일한 값으로 설정 합니다.
+- **레지스트리** : Microsoft Container Registry 기본값입니다.  Microsoft Container Registry에서 이미지를 끌어오거나 [개인 컨테이너 레지스트리에 푸시하](offline-deployment.md)는 경우 여기에 레지스트리의 IP 주소 또는 DNS 이름을 입력 합니다.
+- **Dockerregistry** : 필요한 경우 개인 컨테이너 레지스트리에서 이미지를 끌어오는 데 사용할 이미지 풀 비밀입니다.
+- **리포지토리** : Microsoft Container Registry의 기본 리포지토리는 `arcdata` 입니다.  개인 컨테이너 레지스트리를 사용 하는 경우 Azure Arr을 사용 하는 데이터 서비스 컨테이너 이미지를 포함 하는 폴더/리포지토리의 경로를 입력 합니다.
+- **Imagetag** : 현재 최신 버전 태그는 템플릿에서 기본값으로 사용 되지만 이전 버전을 사용 하려는 경우 변경할 수 있습니다.
 
 완료 된 데이터 컨트롤러 yaml 파일의 예:
 ```yaml
@@ -200,7 +200,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

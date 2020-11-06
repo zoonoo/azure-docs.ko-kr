@@ -1,36 +1,36 @@
 ---
-title: PowerShell을 사용 하 여 하이브리드 컴퓨터를 Azure에 연결
-description: 이 문서에서는 PowerShell을 사용 하 여 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 Azure에 하이브리드 컴퓨터 연결
+description: 이 문서에서는 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다. 이 작업은 PowerShell을 사용하여 수행할 수 있습니다.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f85e2564b2e5b194d306ef4bad2269982331a7d4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901538"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422776"
 ---
-# <a name="connect-hybrid-machines-to-azure-using-powershell"></a>PowerShell을 사용 하 여 하이브리드 컴퓨터를 Azure에 연결
+# <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>PowerShell을 사용 하 여 Azure에 하이브리드 컴퓨터 연결
 
-일련의 수동 단계를 수행 하 여 사용자 환경에서 하나 이상의 Windows 또는 Linux 컴퓨터에 대해 Azure Arc 사용 서버를 사용 하도록 설정할 수 있습니다. 또는 PowerShell cmdlet [AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) 을 사용 하 여 연결 된 컴퓨터 에이전트를 다운로드 하 고, 에이전트를 설치 하 고, Azure Arc에 컴퓨터를 등록할 수 있습니다. 이 cmdlet은 microsoft 다운로드 센터에서 Windows 에이전트 Windows Installer 패키지를 다운로드 하 고 Microsoft 패키지 리포지토리의 Linux 에이전트 패키지를 다운로드 합니다.
+Azure Arc에서 사용 하도록 설정 된 서버의 경우 수동 단계를 수행 하 여 환경에서 하나 이상의 Windows 또는 Linux 컴퓨터에 대해 사용 하도록 설정할 수 있습니다. 또는 PowerShell cmdlet [AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) 을 사용 하 여 연결 된 컴퓨터 에이전트를 다운로드 하 고, 에이전트를 설치 하 고, Azure Arc에 컴퓨터를 등록할 수 있습니다. 이 cmdlet은 microsoft 다운로드 센터에서 Windows 에이전트 패키지 (Windows Installer)를 다운로드 하 고 Microsoft 패키지 리포지토리의 Linux 에이전트 패키지를 다운로드 합니다.
 
 이 방법을 사용하려면 머신에 대한 관리자 권한으로 에이전트를 설치하고 구성할 수 있어야 합니다. Linux에서는 루트 계정을 사용하여 수행하고, Windows에서는 로컬 관리자 그룹의 멤버로 수행해야 합니다. [PowerShell 원격](/powershell/scripting/learn/ps101/08-powershell-remoting)을 사용 하 여 Windows 서버에서 대화형으로 또는 원격으로이 프로세스를 완료할 수 있습니다.
 
-시작하려면 먼저 [사전 요구 사항](agent-overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. 지원 되는 지역 및 기타 관련 고려 사항에 대 한 자세한 내용은 [지원 되는 Azure 지역](overview.md#supported-regions)을 참조 하세요.
+시작 하기 전에 [필수 구성 요소](agent-overview.md#prerequisites) 를 검토 하 고 구독과 리소스가 요구 사항을 충족 하는지 확인 합니다. 지원 되는 지역 및 기타 관련 고려 사항에 대 한 자세한 내용은 [지원 되는 Azure 지역](overview.md#supported-regions)을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure PowerShell 있는 컴퓨터입니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
-Azure PowerShell를 사용 하 여 Arc 사용 서버에서 관리 하는 하이브리드 서버에서 VM 확장을 관리 하려면 먼저 모듈을 설치 해야 `Az.ConnectedMachine` 합니다. Arc 사용 서버에서 다음 명령을 실행 합니다.
+PowerShell을 사용 하 여 Azure Arc 사용 서버에서 관리 하는 하이브리드 서버에서 VM 확장을 관리 합니다. PowerShell을 사용 하기 전에 모듈을 설치 `Az.ConnectedMachine` 합니다. Azure Arc에서 사용 하도록 설정 된 서버에서 다음 명령을 실행 합니다.
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
 ```
 
-설치가 완료 되 면 다음 메시지가 반환 됩니다.
+설치가 완료 되 면 다음 메시지가 표시 됩니다.
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
@@ -54,11 +54,11 @@ Install-Module -Name Az.ConnectedMachine
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
         ```
 
-설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* 의 Windows와 */var/opt/azcmagent/log/himds.log* 의 Linux
+설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. Windows에서 다음 파일을 확인 합니다. *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. Linux에서 다음 파일을 확인 합니다. */var/opt/azcmagent/log/himds.log*.
 
-## <a name="install-and-connect-using-powershell-remoting"></a>PowerShell 원격을 사용 하 여 설치 및 연결
+## <a name="install-and-connect-by-using-powershell-remoting"></a>PowerShell 원격을 사용 하 여 설치 및 연결
 
-Azure Arc 사용 서버를 사용 하 여 하나 이상의 Windows server를 구성 하려면 다음 단계를 수행 합니다. 원격 컴퓨터에서 PowerShell 원격을 사용 하도록 설정 해야 합니다. PowerShell 원격 기능을 사용하려면 `Enable-PSRemoting` cmdlet을 사용하세요.
+Azure Arc로 설정 된 서버를 사용 하 여 하나 이상의 Windows server를 구성 하는 방법은 다음과 같습니다. 원격 컴퓨터에서 PowerShell 원격을 사용 하도록 설정 해야 합니다. `Enable-PSRemoting` cmdlet을 사용하여 이를 수행하십시오.
 
 1. 관리자 권한으로 PowerShell 콘솔을 엽니다.
 
@@ -80,7 +80,7 @@ Azure Arc 사용 서버를 사용 하 여 하나 이상의 Windows server를 구
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
         ```
 
-    다음 예제는 단일 컴퓨터를 대상으로 하는 명령의 결과입니다.
+    다음 예에서는 단일 컴퓨터를 대상으로 하는 명령의 결과를 보여 줍니다.
     
     ```azurepowershell
     time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
@@ -95,14 +95,14 @@ Azure Arc 사용 서버를 사용 하 여 하나 이상의 Windows server를 구
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc 연결 확인
 
-에이전트가 설치되고 Azure Arc 사용 서버에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://portal.azure.com)에서 머신을 확인합니다.
+Azure Arc 사용 서버에 등록 하도록 에이전트를 설치 하 고 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://portal.azure.com)에서 머신을 확인합니다.
 
-![성공적인 서버 연결](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+![성공적인 서버 연결을 보여 주는 서버 대시보드의 스크린샷](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 문제 해결 정보는 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
+* 필요한 경우 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)를 참조 하세요.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
+* [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법을 알아봅니다. VM [게스트 구성을](../../governance/policy/concepts/guest-configuration.md)사용 하 여 컴퓨터가 예상 Log Analytics 작업 영역에 보고 하는지 확인 하 고 [vm에서 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)를 사용 하 여 모니터링을 사용 하도록 설정할 수 있습니다.
 
-* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나 Azure Automation runbook 또는 업데이트 관리와 같은 기능을 사용 하 여 관리 하려는 경우에 필요 합니다. 또한이 에이전트는 [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하는 데 필요 합니다.

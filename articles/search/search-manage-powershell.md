@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 9f189d1889f3ca3a3aa3234432452b1b3d696c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7b672b7e2c3004eba4a38bd659965b7dee24db6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935095"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422487"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Windows, Linux 또는 [Azure Cloud Shell](../cloud-shell/overview.md) 에서 Pow
 
 경우에 따라 위의 목록에 *없는* 작업에 대 한 질문을 받게 됩니다. 현재는 **Az. Search** 모듈이 나 management REST API를 사용 하 여 서버 이름, 지역 또는 계층을 변경할 수 없습니다. 서비스를 만들 때 전용 리소스가 할당 됩니다. 따라서 기본 하드웨어 (위치 또는 노드 형식)를 변경 하려면 새 서비스가 필요 합니다. 마찬가지로 한 서비스에서 다른 서비스로 콘텐츠를 전송 하기 위한 도구나 Api는 없습니다.
 
-서비스 내에서 콘텐츠 작성 및 관리는 [Search Service REST API](/rest/api/searchservice/) 또는 [.net SDK](/dotnet/api/?term=microsoft.azure.search)를 통해 진행 됩니다. 콘텐츠에 대 한 전용 PowerShell 명령은 없지만 REST 또는 .NET Api를 호출 하는 PowerShell 스크립트를 작성 하 여 인덱스를 만들고 로드할 수 있습니다.
+서비스 내에서 콘텐츠 작성 및 관리는 [Search Service REST API](/rest/api/searchservice/) 또는 [.net SDK](/dotnet/api/overview/azure/search.documents-readme)를 통해 진행 됩니다. 콘텐츠에 대 한 전용 PowerShell 명령은 없지만 REST 또는 .NET Api를 호출 하는 PowerShell 스크립트를 작성 하 여 인덱스를 만들고 로드할 수 있습니다.
 
 <a name="check-versions-and-load"></a>
 
@@ -90,7 +90,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-services-in-a-subscription"></a>구독의 서비스 나열
 
-다음 명령은 [**Az. resources**](/powershell/module/az.resources/?view=azps-1.4.0#resources)에서 구독에 이미 프로 비전 된 기존 리소스 및 서비스에 대 한 정보를 반환 합니다. 이미 생성 된 검색 서비스 수를 모르는 경우 이러한 명령은 해당 정보를 반환 하 여 포털에 대 한 여행 정보를 저장 합니다.
+다음 명령은 [**Az. resources**](/powershell/module/az.resources)에서 구독에 이미 프로 비전 된 기존 리소스 및 서비스에 대 한 정보를 반환 합니다. 이미 생성 된 검색 서비스 수를 모르는 경우 이러한 명령은 해당 정보를 반환 하 여 포털에 대 한 여행 정보를 저장 합니다.
 
 첫 번째 명령은 모든 검색 서비스를 반환 합니다.
 
@@ -116,7 +116,7 @@ ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroup
 
 ## <a name="import-azsearch"></a>가져오기 Az. Search
 
-[**Az. Search**](/powershell/module/az.search/?view=azps-1.4.0#search) 는 모듈을 로드할 때까지 사용할 수 없습니다.
+[**Az. Search**](/powershell/module/az.search) 는 모듈을 로드할 때까지 사용할 수 없습니다.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Search
@@ -148,7 +148,7 @@ Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
 
 ## <a name="get-search-service-information"></a>검색 서비스 정보 가져오기
 
-**Az. 검색** 을 가져오고 검색 서비스를 포함 하는 리소스 그룹을 알고 있는 경우 [AzSearchService](/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) 를 실행 하 여 이름, 지역, 계층, 복제본 및 파티션 수를 비롯 한 서비스 정의를 반환 합니다.
+**Az. 검색** 을 가져오고 검색 서비스를 포함 하는 리소스 그룹을 알고 있는 경우 [AzSearchService](/powershell/module/az.search/get-azsearchservice) 를 실행 하 여 이름, 지역, 계층, 복제본 및 파티션 수를 비롯 한 서비스 정의를 반환 합니다.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
@@ -170,7 +170,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>서비스 만들기 또는 삭제
 
-[**AzSearchService**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 는 [새 검색 서비스를 만드는](search-create-service-portal.md)데 사용 됩니다.
+[**AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) 는 [새 검색 서비스를 만드는](search-create-service-portal.md)데 사용 됩니다.
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
@@ -191,7 +191,7 @@ Tags
 
 ## <a name="regenerate-admin-keys"></a>관리자 키 다시 생성
 
-[**AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 는 관리 [API 키](search-security-api-keys.md)를 롤오버 하는 데 사용 됩니다. 각 서비스에서 인증 된 액세스에 대해 두 개의 관리 키가 생성 됩니다. 모든 요청에 키가 필요 합니다. 두 관리 키는 기능적으로 동일 하며, 모든 정보를 검색 하거나 개체를 만들고 삭제할 수 있는 기능을 사용 하 여 검색 서비스에 대 한 모든 쓰기 권한을 부여 합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
+[**AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey) 는 관리 [API 키](search-security-api-keys.md)를 롤오버 하는 데 사용 됩니다. 각 서비스에서 인증 된 액세스에 대해 두 개의 관리 키가 생성 됩니다. 모든 요청에 키가 필요 합니다. 두 관리 키는 기능적으로 동일 하며, 모든 정보를 검색 하거나 개체를 만들고 삭제할 수 있는 기능을 사용 하 여 검색 서비스에 대 한 모든 쓰기 권한을 부여 합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
 
 또는 키로 지정 된 한 번에 하나씩만 다시 생성할 수 `primary` 있습니다 `secondary` . 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
 
@@ -213,7 +213,7 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>쿼리 키 만들기 또는 삭제
 
-[**AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) 은 클라이언트 앱에서 Azure Cognitive Search 인덱스에 대 한 읽기 전용 액세스를 위한 쿼리 [API 키](search-security-api-keys.md) 를 만드는 데 사용 됩니다. 쿼리 키는 검색 결과를 검색 하기 위해 특정 인덱스에 인증 하는 데 사용 됩니다. 쿼리 키는 인덱스, 데이터 원본 또는 인덱서와 같은 서비스의 다른 항목에 대 한 읽기 전용 액세스 권한을 부여 하지 않습니다.
+[**AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey) 은 클라이언트 앱에서 Azure Cognitive Search 인덱스에 대 한 읽기 전용 액세스를 위한 쿼리 [API 키](search-security-api-keys.md) 를 만드는 데 사용 됩니다. 쿼리 키는 검색 결과를 검색 하기 위해 특정 인덱스에 인증 하는 데 사용 됩니다. 쿼리 키는 인덱스, 데이터 원본 또는 인덱서와 같은 서비스의 다른 항목에 대 한 읽기 전용 액세스 권한을 부여 하지 않습니다.
 
 사용할 Azure Cognitive Search에 대 한 키를 제공할 수 없습니다. API 키는 서비스에 의해 생성 됩니다.
 
@@ -223,7 +223,7 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 
 ## <a name="scale-replicas-and-partitions"></a>복제본 및 파티션 크기 조정
 
-[**AzSearchService**](/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) 은 서비스 내에서 청구 가능한 리소스를 다시 조정 [복제본과 파티션을 늘리거나 줄이는](search-capacity-planning.md) 데 사용 됩니다. 복제본 또는 파티션을 증가 시키면 청구에 추가 되 고,이에 따라 고정 및 가변 요금이 청구 됩니다. 추가 처리 성능이 일시적으로 필요한 경우에는 워크 로드를 처리 하기 위해 복제본과 파티션을 늘릴 수 있습니다. 개요 포털 페이지의 모니터링 영역에는 쿼리 대기 시간, 초당 쿼리 수 및 제한 (현재 용량이 충분 한지 여부를 나타냄)에 대 한 타일이 있습니다.
+[**AzSearchService**](/powershell/module/az.search/set-azsearchservice) 은 서비스 내에서 청구 가능한 리소스를 다시 조정 [복제본과 파티션을 늘리거나 줄이는](search-capacity-planning.md) 데 사용 됩니다. 복제본 또는 파티션을 증가 시키면 청구에 추가 되 고,이에 따라 고정 및 가변 요금이 청구 됩니다. 추가 처리 성능이 일시적으로 필요한 경우에는 워크 로드를 처리 하기 위해 복제본과 파티션을 늘릴 수 있습니다. 개요 포털 페이지의 모니터링 영역에는 쿼리 대기 시간, 초당 쿼리 수 및 제한 (현재 용량이 충분 한지 여부를 나타냄)에 대 한 타일이 있습니다.
 
 높아지면를 추가 하거나 제거 하는 데 시간이 걸릴 수 있습니다. 용량에 대 한 조정 작업은 백그라운드에서 발생 하므로 기존 작업을 계속할 수 있습니다. 추가 구성은 필요 없이 들어오는 요청에 대해 준비 되는 즉시 추가 용량이 사용 됩니다. 
 

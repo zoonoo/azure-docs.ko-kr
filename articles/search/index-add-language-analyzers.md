@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935886"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422334"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다.** 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 내용이 영어 및 중국어 텍스트의 개별 필드와 같이 번역 된 문자열로 구성 된 경우 각 필드에 언어 분석기를 지정 하 여 해당 분석기의 다양 한 언어 기능에 액세스할 수 있습니다.
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 내용이 영어 및 중국어 텍스트의 개별 필드와 같이 번역 된 문자열로 구성 된 경우 각 필드에 언어 분석기를 지정 하 여 해당 분석기의 다양 한 언어 기능에 액세스할 수 있습니다.
 
 ## <a name="when-to-use-a-language-analyzer"></a>언어 분석기를 사용 하는 경우
 
@@ -68,7 +68,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 ## <a name="language-analyzer-list"></a>언어 분석기 목록 
  다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.  
 
-|Language|Microsoft 분석기 이름|Lucene 분석기 이름|  
+|언어|Microsoft 분석기 이름|Lucene 분석기 이름|  
 |--------------|-----------------------------|--------------------------|  
 |아랍어|ar.microsoft|ar.lucene|  
 |아르메니아어||hy.lucene|  
@@ -133,4 +133,4 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 
 + [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName 클래스](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [LexicalAnalyzerName 클래스](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

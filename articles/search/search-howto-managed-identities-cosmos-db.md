@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519608"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422096"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "92519608"
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
-**저장**을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
+**저장** 을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
  
@@ -43,19 +43,19 @@ ms.locfileid: "92519608"
 
 1. Azure Portal에서 인덱싱할 데이터가 포함된 Cosmos DB 계정으로 이동합니다.
 2. **액세스 제어(IAM)** 를 선택합니다.
-3. **추가**를 선택한 다음 **역할 할당 추가**를 선택합니다.
+3. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택합니다.
 
     ![역할 할당 추가](./media/search-managed-identities/add-role-assignment-cosmos-db.png "역할 할당 추가")
 
-4. **Cosmos DB 계정 독자 역할**을 선택합니다.
-5. **액세스 할당**을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**로 둡니다.
-6. 검색 서비스를 검색하고 선택한 다음 **저장**을 선택합니다.
+4. **Cosmos DB 계정 독자 역할** 을 선택합니다.
+5. **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 로 둡니다.
+6. 검색 서비스를 검색하고 선택한 다음 **저장** 을 선택합니다.
 
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Cosmos DB에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Cosmos DB에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
 관리 id를 사용 하 여 인증 하는 경우 **자격 증명** 은 계정 키를 포함 하지 않습니다.
 
@@ -80,12 +80,12 @@ api-key: [Search service admin key]
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | 설명 |
+| 필드   | Description |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
-|**credentials** | 필수 사항입니다. <br/><br/>관리 ID를 사용하여 연결하는 경우 **자격 증명** 형식은 다음과 같아야 합니다. *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>ResourceId 형식: *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.DocumentDB/databaseAccounts/**your cosmos db account name**/;*<br/><br/>SQL 컬렉션의 경우 연결 문자열에 ApiKind가 필요하지 않습니다.<br/><br/>MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. <br/><br/>Gremlin 그래프 및 Cassandra 테이블의 경우 [제어된 인덱서 미리 보기](https://aka.ms/azure-cognitive-search/indexer-preview)에 등록하여 미리 보기 액세스와 자격 증명 형식 지정 방법에 관한 정보를 얻습니다.<br/>|
-| **container** | 다음과 같은 요소가 있습니다. <br/>**name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.<br/>**query**: (선택 사항) 추상 JSON 문서를 Azure Cognitive Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB API, Gremlin API 및 Cassandra API의 경우 쿼리는 지원되지 않습니다. |
+|**credentials** | 필수 사항입니다. <br/><br/>관리 ID를 사용하여 연결하는 경우 **자격 증명** 형식은 다음과 같아야 합니다. *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>ResourceId 형식: *ResourceId=/subscriptions/ **your subscription ID** /resourceGroups/ **your resource group name** /providers/Microsoft.DocumentDB/databaseAccounts/ **your cosmos db account name** /;*<br/><br/>SQL 컬렉션의 경우 연결 문자열에 ApiKind가 필요하지 않습니다.<br/><br/>MongoDB 컬렉션의 경우 **ApiKind=MongoDb** 를 연결 문자열에 추가합니다. <br/><br/>Gremlin 그래프 및 Cassandra 테이블의 경우 [제어된 인덱서 미리 보기](https://aka.ms/azure-cognitive-search/indexer-preview)에 등록하여 미리 보기 액세스와 자격 증명 형식 지정 방법에 관한 정보를 얻습니다.<br/>|
+| **container** | 다음과 같은 요소가 있습니다. <br/>**name** : 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.<br/>**query** : (선택 사항) 추상 JSON 문서를 Azure Cognitive Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB API, Gremlin API 및 Cassandra API의 경우 쿼리는 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장 |
 |**dataDeletionDetectionPolicy** | 옵션 |
 

@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927518"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422521"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -19,7 +19,7 @@ Java 개발자로 서 Azure Functions를 처음 접하는 경우 먼저 다음 �
 
 | 시작 | 개념| 
 | -- | -- |  
-| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[터미널/명령 프롬프트를 사용 하는 Java/Maven 함수](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
+| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](./create-first-function-vs-code-java.md)</li><li>[터미널/명령 프롬프트를 사용 하는 Java/Maven 함수](./create-first-function-cli-java.md)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Java 함수 기본 사항
 
@@ -55,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-이 아키타입 사용을 시작하려면 [Java 빠른 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)을 참조하세요. 
+이 아키타입 사용을 시작하려면 [Java 빠른 시작](./create-first-function-cli-java.md)을 참조하세요.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -153,7 +153,7 @@ Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 
 
 Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
 
-| 요소 |  Java 8 값 | Java 11 값 | 설명 |
+| 요소 |  Java 8 값 | Java 11 값 | Description |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Maven-플러그 인에서 사용 하는 Java 버전입니다. |
 | **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트 하는 Java 버전입니다. |

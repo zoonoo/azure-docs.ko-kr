@@ -6,21 +6,21 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104872"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422810"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle를 사용 하 여 Azure에 함수 만들기 및 게시
 
 이 문서에서는 Gradle 명령줄 도구를 사용 하 여 Azure Functions 위해 Java 함수 프로젝트를 빌드하고 게시 하는 방법을 보여 줍니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](functions-scale.md#consumption-plan)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다. 
 
 > [!NOTE]
-> Gradle가 권장 되 개발 도구가 아닌 경우 [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ 아이디어](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)를 사용 하 여 Java 개발자를 위한 유사한 자습서를 확인 하세요.
+> Gradle가 권장 되 개발 도구가 아닌 경우 [Maven](./create-first-function-cli-java.md), [IntelliJ 아이디어](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS Code](./create-first-function-vs-code-java.md)를 사용 하 여 Java 개발자를 위한 유사한 자습서를 확인 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
@@ -124,10 +124,10 @@ gradle azureFunctionsDeploy
 
 이렇게 하면 gradle 파일의 값을 기반으로 Azure에서 다음 리소스가 생성 됩니다.
 
-+ 리소스 그룹 지정한 _resourceGroup_을 사용하여 명명됩니다.
++ 리소스 그룹 지정한 _resourceGroup_ 을 사용하여 명명됩니다.
 + Storage 계정 함수에 필요합니다. 이름은 스토리지 계정 이름 요구 사항에 따라 임의로 생성됩니다.
-+ App Service 계획 지정 된 _appRegion_에서 함수 앱에 대 한 서버 리스 소비 계획을 호스팅합니다. 이름은 임의로 생성됩니다.
-+ 함수 앱 함수 앱은 함수에 대한 배포 및 실행 단위입니다. 이름은 임의로 생성된 번호와 함께 추가되는 _appName_입니다. 
++ App Service 계획 지정 된 _appRegion_ 에서 함수 앱에 대 한 서버 리스 소비 계획을 호스팅합니다. 이름은 임의로 생성됩니다.
++ 함수 앱 함수 앱은 함수에 대한 배포 및 실행 단위입니다. 이름은 임의로 생성된 번호와 함께 추가되는 _appName_ 입니다. 
 
 또한 배포는 프로젝트 파일을 패키지하고 패키지에서 실행 모드가 활성화되어 [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 새 함수 앱에 배포합니다.
 
@@ -140,13 +140,13 @@ gradle azureFunctionsDeploy
 
 Azure Portal에서 함수 키를 사용하여 함수를 트리거하는 데 필요한 URL을 가져올 수 있습니다. 
 
-1. [Azure Portal]로 이동하여 로그인하고, 함수 앱의 _appName_을 페이지 맨 위에 있는 **검색**에 입력하고 enter 키를 누릅니다.
+1. [Azure Portal]로 이동하여 로그인하고, 함수 앱의 _appName_ 을 페이지 맨 위에 있는 **검색** 에 입력하고 enter 키를 누릅니다.
  
-1. 함수 앱 **에서 함수를 선택 하**고 함수를 선택한 다음 **</> 오른쪽 위에 있는 함수 Url 가져오기** 를 클릭 합니다. 
+1. 함수 앱 **에서 함수를 선택 하** 고 함수를 선택한 다음 **</> 오른쪽 위에 있는 함수 Url 가져오기** 를 클릭 합니다. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Azure Portal에서 함수 URL 복사":::
 
-1. **기본(함수 키)** 을 선택하고 **복사**를 선택합니다. 
+1. **기본(함수 키)** 을 선택하고 **복사** 를 선택합니다. 
 
 이제 복사된 URL을 사용하여 함수에 액세스할 수 있습니다.
 

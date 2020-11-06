@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547421"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422300"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -29,9 +29,9 @@ ARM (Azure Resource Manager) 템플릿에서 특정 네트워크 속성을 구�
 
 기본 가상 네트워크 아키텍처에서 사용 되는 기본 부하 분산 장치는 자동으로 공용 NAT (네트워크 주소 변환)를 제공 하 여 HDInsight RP와 같은 필요한 아웃 바운드 종속성에 액세스 합니다. 공용 인터넷에 대 한 아웃 바운드 연결을 제한 하려는 경우 방화벽을 [구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 반드시 필요한 것은 아닙니다.
 
-`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. HDInsight 클러스터를 만들기 전에 개인 끝점과 DNS 항목을 구성 해야 합니다. 클러스터를 만드는 동안 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다.
+`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. 이러한 리소스에 대해 개인 끝점을 사용 하는 것은 mandetory 않지만 이러한 리소스에 대 한 개인 끝점을 사용 하려는 경우에는 HDInsight 클러스터를 만드는 개인 끝점 및 DNS 항목을 구성 해야 합니다 `before` . 클러스터를 만들 때 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다. 요구 사항은 해당 하는 모든 리소스를 자체 개인 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다. 그렇지 않으면입니다.
 
-Azure Key Vault에 대 한 전용 끝점은 지원 되지 않습니다. 미사용 CMK 암호화에 Azure Key Vault를 사용 하는 경우 개인 끝점이 없는 HDInsight 서브넷 내에서 Azure Key Vault 끝점에 액세스할 수 있어야 합니다.
+Azure Key Vault에 대 한 전용 끝점 사용은 지원 되지 않습니다. 미사용 CMK 암호화에 Azure Key Vault를 사용 하는 경우 개인 끝점이 없는 HDInsight 서브넷 내에서 Azure Key Vault 끝점에 액세스할 수 있어야 합니다.
 
 다음 다이어그램에서는 `resourceProviderConnection` 이 아웃 바운드로 설정 된 경우 잠재적 HDInsight 가상 네트워크 아키텍처의 모양을 보여 줍니다.
 
@@ -52,7 +52,7 @@ Azure Key Vault에 대 한 전용 끝점은 지원 되지 않습니다. 미사�
 
 ## <a name="enable-private-link"></a>개인 링크 사용
 
-기본적으로 사용 하지 않도록 설정 된 개인 링크에는 클러스터를 만들기 전에 UDR (사용자 정의 경로) 및 방화벽 규칙을 제대로 설정 하는 데 필요한 광범위 한 네트워킹 정보가 필요 합니다. 클러스터에 대 한 개인 링크 액세스는 `resourceProviderConnection` 이전 섹션에서 설명한 대로 네트워크 속성이 *아웃 바운드* 로 설정 된 경우에만 사용할 수 있습니다.
+기본적으로 사용 하지 않도록 설정 된 개인 링크에는 클러스터를 만들기 전에 UDR (사용자 정의 경로) 및 방화벽 규칙을 제대로 설정 하는 데 필요한 광범위 한 네트워킹 정보가 필요 합니다. 이 설정은 선택 사항 이지만 `resourceProviderConnection` 이전 섹션에서 설명한 대로 네트워크 속성이 *아웃 바운드* 로 설정 된 경우에만 사용할 수 있습니다.
 
 `privateLink`이 *사용* 으로 설정 되 면 내부 [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md) (SLB)가 만들어지고 각 Slb에 대해 Azure 개인 링크 서비스가 프로 비전 됩니다. 개인 링크 서비스를 사용 하면 개인 끝점에서 HDInsight 클러스터에 액세스할 수 있습니다.
 
@@ -64,11 +64,11 @@ Successgfull 개인 링크 서비스를 만들려면 [개인 링크 서비스에
 
 다음 다이어그램에서는 클러스터를 만들기 전에 필요한 네트워킹 구성의 예를 보여 줍니다. 이 예제에서 모든 아웃 바운드 트래픽은 UDR을 사용 하 여 Azure 방화벽에 [강제](../firewall/forced-tunneling.md) 적용 되며 클러스터를 만들기 전에 방화벽에서 필요한 아웃 바운드 종속성이 "허용" 이어야 합니다. Enterprise Security Package 클러스터의 경우 VNet 피어 링에서 Azure Active Directory Domain Services에 대 한 네트워크 연결을 제공할 수 있습니다.
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="아웃 바운드 리소스 공급자 연결을 사용한 HDInsight 아키텍처 다이어그램":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="클러스터 만들기 전의 개인 링크 환경 다이어그램":::
 
 네트워킹을 설정한 후에는 다음 그림에 표시 된 것 처럼 아웃 바운드 리소스 공급자 연결 및 개인 링크를 사용 하는 클러스터를 만들 수 있습니다. 이 구성에서는 공용 Ip가 없으며 각 표준 부하 분산 장치에 대해 개인 링크 서비스가 프로 비전 됩니다.
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="아웃 바운드 리소스 공급자 연결을 사용한 HDInsight 아키텍처 다이어그램":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="클러스터를 만든 후 개인 링크 환경의 다이어그램":::
 
 ### <a name="access-a-private-cluster"></a>개인 클러스터에 액세스
 
@@ -84,7 +84,7 @@ Azure에서 관리 되는 공용 DNS 영역에서 만든 개인 링크 항목은
 
 다음 이미지는 피어 링 되지 않거나 클러스터 부하 분산 장치에 직접적인 시야를 갖지 않는 가상 네트워크에서 클러스터에 액세스 하는 데 필요한 개인 DNS 항목의 예를 보여 줍니다. Azure 개인 영역을 사용 하 여 fqdn을 재정의 하 `*.privatelink.azurehdinsight.net` 고 사용자 고유의 개인 끝점 IP 주소로 확인할 수 있습니다.
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="아웃 바운드 리소스 공급자 연결을 사용한 HDInsight 아키텍처 다이어그램":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="개인 링크 아키텍처 다이어그램":::
 
 ## <a name="arm-template-properties"></a>ARM 템플릿 속성
 

@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321361"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423106"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -127,6 +127,18 @@ VPN 또는 Express 경로 회로를 통해 Azure Virtual Network의 AD 도메인
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>수평 배포를 위한 Azure VMware 솔루션 호스트 크기 조정 
 
 Azure VMware 솔루션에서 실행 되는 호스트에 대 한 수평 크기 조정 방법은 수평 온-프레미스 보다 간단 합니다.  Azure VMware 솔루션 호스트가 표준화 되었기 때문입니다.  정확한 호스트 크기 조정은 VDI 요구 사항을 지 원하는 데 필요한 호스트 수를 결정 하는 데 도움이 됩니다.  데스크톱 당 비용을 결정 하는 것이 중요 합니다.
+
+### <a name="sizing-tables"></a>테이블 크기 조정
+
+테이블은 로그인 .VSI 지식 근로자 작업 및 Power Worker 워크 로드에 대 한 일반적인 워크 로드를 보여 줍니다.
+
+#### <a name="knowledge-worker-workloads"></a>지식 근로자 작업
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="로그인 .VSI 기술 자료 작업을 위한 VMware 수평의 일반적인 VDI 프로필 표" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Power worker 워크 로드
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="로그인 .VSI Power worker 작업을 위한 VMware 대역에 대 한 일반적인 VDI 프로필 표" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Azure VMware 솔루션 호스트 인스턴스
 

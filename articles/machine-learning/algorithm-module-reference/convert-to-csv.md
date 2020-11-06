@@ -1,7 +1,7 @@
 ---
 title: 'CSV로 변환: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 CSV로 변환 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 CSV로 변환 모듈을 사용 하 여 데이터 집합을 나중에 다시 사용할 수 있는 CSV 파일로 변환 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898795"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421926"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
 
@@ -46,11 +46,11 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 ### <a name="results"></a>결과
   
 
-**CSV로 변환**의 오른쪽 패널에서 **출력** 탭을 선택 하 고 **포트 출력**아래에서 이러한 아이콘 중 하나를 선택 합니다.  
+**CSV로 변환** 의 오른쪽 패널에서 **출력** 탭을 선택 하 고 **포트 출력** 아래에서 이러한 아이콘 중 하나를 선택 합니다.  
 
-+ **데이터 집합 등록**: 아이콘을 선택 하 고 CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다. **내 데이터** 집합 섹션의 모듈 트리에서 데이터 집합을 모듈로 찾을 수 있습니다.
++ **데이터 집합 등록** : 아이콘을 선택 하 고 CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다. **내 데이터** 집합 섹션의 모듈 트리에서 데이터 집합을 모듈로 찾을 수 있습니다.
 
- + **출력 보기**: 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 data.csv 파일을 다운로드 합니다.
+ + **출력 보기** : 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 data.csv 파일을 다운로드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

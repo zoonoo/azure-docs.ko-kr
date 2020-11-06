@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 08d1d393b4ba52e6feeb36c0538f2664e1407d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708291"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422181"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버에서 읽기 복제본 만들기 및 관리
 
@@ -28,28 +28,30 @@ ms.locfileid: "91708291"
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.
 
 * **Off** -WAL에 최소 정보를 저장 합니다. 이 설정은 대부분의 Azure Database for PostgreSQL 서버에서 사용할 수 없습니다.  
-* **복제본** -보다 자세한 정보를 **해제**합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
-* **논리적** - **복제본**보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
+* **복제본** -보다 자세한 정보를 **해제** 합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
+* **논리적** - **복제본** 보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
 
-이 매개 변수를 변경한 후에는 서버를 다시 시작 해야 합니다. 내부적으로이 매개 변수는 Postgres 매개 변수, 및를 설정 합니다 `wal_level` `max_replication_slots` `max_wal_senders` .
+
+> [!NOTE]
+> 영구적으로 많은 쓰기를 많이 사용 하는 기본 작업에 대 한 읽기 복제본을 배포할 때 복제 지연은 계속 증가 하 고 주 복제본을 사용 하 여이를 처리할 수 없습니다. 이렇게 하면 WAL 파일이 복제본에서 수신 될 때까지 삭제 되지 않으므로 주 복제본에서 저장소 사용량이 늘어날 수도 있습니다.
 
 ## <a name="prepare-the-primary-server"></a>주 서버 준비
 
 1. Azure Portal에서 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. 서버 메뉴에서 **복제**를 선택 합니다. Azure 복제 지원이 **복제본**이상으로 설정 된 경우에는 읽기 복제본을 만들 수 있습니다. 
+2. 서버 메뉴에서 **복제** 를 선택 합니다. Azure 복제 지원이 **복제본** 이상으로 설정 된 경우에는 읽기 복제본을 만들 수 있습니다. 
 
-3. Azure 복제 지원이 **복제본**이상으로 설정 되어 있지 않으면 설정 합니다. **저장**을 선택합니다.
+3. Azure 복제 지원이 **복제본** 이상으로 설정 되어 있지 않으면 설정 합니다. **저장** 을 선택합니다.
 
    :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
 
-4. **예**를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
+4. **예** 를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-다시 시작 확인":::
 
 5. 작업이 완료 되 면 두 개의 Azure Portal 알림을 받게 됩니다. 서버 매개 변수를 업데이트 하는 한 가지 알림이 있습니다. 서버 다시 시작에 대 한 또 다른 알림은 즉시 따릅니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="성공 알림":::
 
 6. Azure Portal 페이지를 새로 고쳐 복제 도구 모음을 업데이트 합니다. 이제이 서버에 대 한 읽기 복제본을 만들 수 있습니다.
    
@@ -59,28 +61,28 @@ ms.locfileid: "91708291"
 
 1. 주 서버로 사용할 기존 Azure Database for PostgreSQL 서버를 선택 합니다. 
 
-2. 서버 사이드바의 **설정**에서 **복제**를 선택 합니다.
+2. 서버 사이드바의 **설정** 에서 **복제** 를 선택 합니다.
 
-3. **복제본 추가**를 선택합니다.
+3. **복제본 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="복제본 추가":::
 
 4. 읽기 복제본의 이름을 입력합니다. 
 
-    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="복제본 이름 지정":::
 
 5. 복제본의 위치를 선택 합니다. 기본 위치는 주 서버의와 동일 합니다.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="위치 선택":::
 
    > [!NOTE]
    > 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서](concepts-read-replicas.md)를 참조하세요. 
 
-6. **확인**을 선택하여 복제본 만들기를 확인합니다.
+6. **확인** 을 선택하여 복제본 만들기를 확인합니다.
 
 읽기 복제본을 만든 후에는 **복제** 창에서 확인할 수 있습니다.
 
-:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="복제 창에서 새 복제본 보기":::
  
 
 > [!IMPORTANT]
@@ -98,19 +100,19 @@ Azure Portal에서 주 서버와 읽기 복제본 간의 복제를 중지 하려
 
 1. Azure Portal에서 주 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 서버 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
 3. 복제를 중지할 복제본 서버를 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="복제본 선택":::
  
-4. **복제 중지**를 선택합니다.
+4. **복제 중지** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="복제 중지를 선택 합니다.":::
  
-5. **확인**을 선택하여 복제를 중지합니다.
+5. **확인** 을 선택하여 복제를 중지합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="복제 중지 확인":::
  
 
 ## <a name="delete-a-primary-server"></a>주 서버 삭제
@@ -123,39 +125,39 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 주 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. 서버의 **개요** 페이지를 엽니다. **삭제**를 선택합니다.
+2. 서버의 **개요** 페이지를 엽니다. **삭제** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="서버 개요 페이지에서 주 서버를 삭제 하려면 선택 합니다.":::
  
 3. 삭제할 주 서버의 이름을 입력 합니다. **삭제** 를 선택 하 여 주 서버 삭제를 확인 합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="주 서버 삭제 확인":::
  
 
 ## <a name="delete-a-replica"></a>복제본 삭제
 주 서버를 삭제 하는 방법과 유사한 읽기 복제본을 삭제할 수 있습니다.
 
-- Azure Portal에서 읽기 복제본에 대한 **개요** 페이지를 엽니다. **삭제**를 선택합니다.
+- Azure Portal에서 읽기 복제본에 대한 **개요** 페이지를 엽니다. **삭제** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="복제본 개요 페이지에서 복제본을 선택하여 삭제":::
  
 다음 단계에 따라 **복제** 창에서 읽기 복제본을 삭제할 수도 있습니다.
 
 1. Azure Portal에서 주 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. 서버 메뉴의 **설정** 아래에서 **복제**를 선택합니다.
+2. 서버 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
 3. 삭제할 읽기 복제본을 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="삭제할 복제본 선택":::
  
-4. **복제본 삭제**를 선택 합니다.
+4. **복제본 삭제** 를 선택 합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="복제본 삭제 선택":::
  
-5. 삭제할 복제본의 이름을 입력합니다. **삭제**를 선택하여 복제본 삭제를 확인합니다.
+5. 삭제할 복제본의 이름을 입력합니다. **삭제** 를 선택하여 복제본 삭제를 확인합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="복제본 삭제 확인":::
  
 
 ## <a name="monitor-a-replica"></a>복제본 모니터링
@@ -166,11 +168,11 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
 1.  Azure Portal에서 주 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2.  **메트릭**을 선택합니다. **메트릭** 창에서 **복제본 간 최대 지연 시간**을 선택합니다.
+2.  **메트릭** 을 선택합니다. **메트릭** 창에서 **복제본 간 최대 지연 시간** 을 선택합니다.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="복제본 간 최대 지연 시간 모니터링":::
  
-3.  **집계**에 대해 **최대**를 선택합니다.
+3.  **집계** 에 대해 **최대** 를 선택합니다.
 
 
 ### <a name="replica-lag-metric"></a>복제본 지연 시간 메트릭
@@ -178,11 +180,11 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Azure Database for PostgreSQL 읽기 복제본을 선택합니다.
 
-2. **메트릭**을 선택합니다. **메트릭** 창에서 **복제본 지연 시간**을 선택합니다.
+2. **메트릭** 을 선택합니다. **메트릭** 창에서 **복제본 지연 시간** 을 선택합니다.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="복제-복제 설정 및 저장 Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="복제본 지연 시간 모니터링":::
  
-3. **집계**에 대해 **최대**를 선택합니다. 
+3. **집계** 에 대해 **최대** 를 선택합니다. 
  
 ## <a name="next-steps"></a>다음 단계
 * [Azure Database for PostgreSQL의 읽기 복제본](concepts-read-replicas.md)에 대해 자세히 알아봅니다.

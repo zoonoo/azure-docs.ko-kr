@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177094"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422963"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-이 함수 앱은 [PowerShell 빠른](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)시작을 완료할 때 표시 되는 것과 비슷합니다.
+이 함수 앱은 [PowerShell 빠른](./create-first-function-vs-code-powershell.md)시작을 완료할 때 표시 되는 것과 비슷합니다.
 
 의 함수 코드는 `run.ps1` 다음 스크립트와 같습니다.
 
@@ -95,10 +95,10 @@ if($name) {
 Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설치 되어 있어야 합니다.
 
 * [Visual Studio Code에 대 한 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
-* [Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md)
+* [Visual Studio Code용 Azure Functions 확장](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-이러한 종속성을 설치한 후 기존 PowerShell 함수 프로젝트를 로드 하거나 [첫 번째 Powershell 함수 프로젝트를 만듭니다](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+이러한 종속성을 설치한 후 기존 PowerShell 함수 프로젝트를 로드 하거나 [첫 번째 Powershell 함수 프로젝트를 만듭니다](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > 프로젝트에 필요한 구성 파일이 없는 경우 추가 하 라는 메시지가 표시 됩니다.
@@ -109,9 +109,9 @@ PowerShell Core는 Windows PowerShell과 나란히 설치 됩니다. Powershell 
 
 1. F1 키를 눌러 명령 팔레트를 표시 한 다음를 검색 `Session` 합니다.
 
-1. **PowerShell: 세션 표시 메뉴**를 선택 합니다.
+1. **PowerShell: 세션 표시 메뉴** 를 선택 합니다.
 
-1. **현재 세션이** **powershell core 6**이 아닌 경우 **전환: powershell core 6**을 선택 합니다.
+1. **현재 세션이** **powershell core 6** 이 아닌 경우 **전환: powershell core 6** 을 선택 합니다.
 
 PowerShell 파일이 열려 있으면 창의 오른쪽 아래에 녹색으로 표시 된 버전이 표시 됩니다. 이 텍스트를 선택 하면 세션 메뉴도 표시 됩니다. 자세히 알아보려면 [확장에 사용할 PowerShell 버전 선택](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension)을 참조 하세요.
 
@@ -119,7 +119,7 @@ PowerShell 파일이 열려 있으면 창의 오른쪽 아래에 녹색으로 �
 
 디버거를 `Wait-Debugger` 연결 하려는 함수에이 설정 되어 있는지 확인 합니다.  `Wait-Debugger`을 추가 하면 Visual Studio Code를 사용 하 여 함수 앱을 디버그할 수 있습니다.
 
-**디버그** 창을 선택한 다음 **PowerShell 함수에 연결**합니다.
+**디버그** 창을 선택한 다음 **PowerShell 함수에 연결** 합니다.
 
 ![디버거](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 

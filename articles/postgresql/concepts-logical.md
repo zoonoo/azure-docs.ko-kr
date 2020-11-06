@@ -5,24 +5,27 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708614"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421812"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
  
+> [!NOTE]
+> 논리적 디코딩은 Azure Database for PostgreSQL 단일 서버에서 공개 미리 보기로 제공 됩니다.
+
 [PostgreSQL의 논리적 디코딩을](https://www.postgresql.org/docs/current/logicaldecoding.html) 통해 외부 소비자에 게 데이터 변경 내용을 스트리밍할 수 있습니다. 논리적 디코딩은 이벤트 스트리밍 및 변경 데이터 캡처 시나리오에 사용 되는 많이입니다.
 
-논리적 디코딩은 출력 플러그 인을 사용 하 여 Postgres의 쓰기 미리 로그 (WAL)를 읽을 수 있는 형식으로 변환 합니다. Azure Database for PostgreSQL 출력 플러그 인 [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) 및 pgoutput을 제공 합니다. pgoutput은 Postgres 버전 10 이상에서 Postgres를 통해 사용할 수 있습니다.
+논리적 디코딩은 출력 플러그 인을 사용 하 여 Postgres의 쓰기 미리 로그 (WAL)를 읽을 수 있는 형식으로 변환 합니다. Azure Database for PostgreSQL 출력 플러그 인 [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) 및 pgoutput을 제공 합니다. pgoutput은 PostgreSQL 버전 10 이상에서 PostgreSQL에 의해 제공 됩니다.
 
 Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려면 [블로그를 방문](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421)하세요. 
 
 > [!NOTE]
-> 논리적 디코딩은 Azure Database for PostgreSQL 단일 서버에서 공개 미리 보기로 제공 됩니다.
+> PostgreSQL 게시/구독을 사용 하는 논리적 복제는 Azure Database for PostgreSQL 단일 서버에서 지원 되지 않습니다.
 
 
 ## <a name="set-up-your-server"></a>서버 설정 
@@ -31,33 +34,37 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.
 
 * **Off** -WAL에 최소 정보를 저장 합니다. 이 설정은 대부분의 Azure Database for PostgreSQL 서버에서 사용할 수 없습니다.  
-* **복제본** -보다 자세한 정보를 **해제**합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
-* **논리적** - **복제본**보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
+* **복제본** -보다 자세한 정보를 **해제** 합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
+* **논리적** - **복제본** 보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
 
 이 매개 변수를 변경한 후에는 서버를 다시 시작 해야 합니다. 내부적으로이 매개 변수는 Postgres 매개 변수, 및를 설정 합니다 `wal_level` `max_replication_slots` `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
 1. Azure.replication_support를로 설정 `logical` 합니다.
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. Postgres 9.5 또는 9.6를 실행 하 고 공용 네트워크 액세스를 사용 하는 경우 논리 복제를 실행할 클라이언트의 공용 IP 주소를 포함 하는 방화벽 규칙을 추가 합니다. 방화벽 규칙 이름에는 **_replrule** 포함 되어야 합니다. 예를 들어 *test_replrule* 합니다. 서버에 새 방화벽 규칙을 만들려면 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) 명령을 실행합니다. 
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
 
-1. Azure replication support를 **logical**로 설정 합니다. **저장**을 선택합니다.
+1. Azure replication support를 **logical** 로 설정 합니다. **저장** 을 선택합니다.
 
    :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL-복제-Azure 복제 지원":::
 
-2. **예**를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
+2. **예** 를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-Azure 복제 지원":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-다시 시작 확인":::
 
+3. Postgres 9.5 또는 9.6를 실행 하 고 공용 네트워크 액세스를 사용 하는 경우 논리 복제를 실행할 클라이언트의 공용 IP 주소를 포함 하는 방화벽 규칙을 추가 합니다. 방화벽 규칙 이름에는 **_replrule** 포함 되어야 합니다. 예를 들어 *test_replrule* 합니다. 그런 다음 **Save** 를 클릭합니다.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL-복제-방화벽 규칙 추가":::
 
 ## <a name="start-logical-decoding"></a>논리적 디코딩 시작
 

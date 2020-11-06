@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 975933a97b089cb208ecd7ff4461a893364262ff
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275639"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422368"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -59,7 +59,7 @@ ms.locfileid: "92275639"
 
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
-| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42; servicebus.windows.net: 5671 (최신 버전의 에이전트에서는 필요 하지 않음)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 
@@ -122,30 +122,30 @@ PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. �
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
 
-1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
-2. **Security Settings\Local Policies\User Rights Assignment** 폴더로 이동한 후 **보안 감사 생성**을 두 번 클릭합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열되어 있지 않으면 **사용자 또는 그룹 추가**를 클릭하여 해당 계정을 목록에 추가하고 **확인**을 클릭합니다.
+1. 시작 화면에서 **서버 관리자** 를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책** 을 연 다음 **도구/로컬 보안 정책** 을 클릭합니다.
+2. **Security Settings\Local Policies\User Rights Assignment** 폴더로 이동한 후 **보안 감사 생성** 을 두 번 클릭합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열되어 있지 않으면 **사용자 또는 그룹 추가** 를 클릭하여 해당 계정을 목록에 추가하고 **확인** 을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable``` 명령을 실행합니다.
-5. **로컬 보안 정책**을 닫습니다.
+5. **로컬 보안 정책** 을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
-7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+7. **작업** 창에서 **페더레이션 서비스 속성 편집** 을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
-9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
+9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인** 을 클릭합니다.
 10. 명령을 사용 하 여 powershell을 통해 자세한 정보 로깅을 사용 하도록 설정할 수 있습니다 ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016에서 AD FS에 대해 감사를 사용하도록 설정하려면
 
-1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
-2. **Security Settings\Local Policies\User Rights Assignment** 폴더로 이동한 후 **보안 감사 생성**을 두 번 클릭합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인**을 클릭합니다.
+1. 시작 화면에서 **서버 관리자** 를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책** 을 연 다음 **도구/로컬 보안 정책** 을 클릭합니다.
+2. **Security Settings\Local Policies\User Rights Assignment** 폴더로 이동한 후 **보안 감사 생성** 을 두 번 클릭합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가** 를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인** 을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code> 명령을 실행합니다.
-5. **로컬 보안 정책**을 닫습니다.
+5. **로컬 보안 정책** 을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
-7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+7. **작업** 창에서 **페더레이션 서비스 속성 편집** 을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
-9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다. 기본적으로 사용하도록 설정되어 있습니다.
+9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인** 을 클릭합니다. 기본적으로 사용하도록 설정되어 있습니다.
 10. PowerShell 창을 열고 다음 명령을 실행합니다. ```Set-AdfsProperties -AuditLevel Verbose```.
 
 기본적으로 "기본" 감사 수준을 사용하도록 설정되어 있습니다. [Windows Server 2016의 AD FS 감사 기능 향상](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)에 대해 자세히 알아보세요.
@@ -153,10 +153,10 @@ PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. �
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>AD FS 감사 로그를 찾으려면
 
-1. **이벤트 뷰어**를 엽니다.
-2. Windows 로그로 이동하여 **보안**을 선택합니다.
-3. 오른쪽에서 **현재 로그 필터링**을 클릭합니다.
-4. 이벤트 소스에서 **AD FS 감사**를 선택합니다.
+1. **이벤트 뷰어** 를 엽니다.
+2. Windows 로그로 이동하여 **보안** 을 선택합니다.
+3. 오른쪽에서 **현재 로그 필터링** 을 클릭합니다.
+4. 이벤트 소스에서 **AD FS 감사** 를 선택합니다.
 
     감사 로그에 대한 빠른 [FAQ 참고](reference-connect-health-faq.md#operations-questions)도 살펴보세요.
 

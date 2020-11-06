@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/05/2020
+ms.openlocfilehash: feca2e83646264b28e42125b3fdebf41266c06bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951582"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422725"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -53,7 +53,7 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 검색 서비스에서 콘텐츠를 만들고 관리 합니다.
 
-| 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | 설명 |
+| 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | Description |
 |-------------------------|--------|------------------------------|
 | [검색 2020-06-30](/rest/api/searchservice/index)| Stable | 최신 버전의 검색 REST Api를 제공 하며, 관련 점수 매기기 및 일반적으로 기술 자료 저장소에 대 한 가용성을 제공 합니다.|
 | [검색 2020-06-30-Preview](/rest/api/searchservice/index-preview)| 미리 보기 | 안정적인 버전과 연결 된 미리 보기 버전입니다. 에는 여러 [미리 보기 기능이](search-api-preview.md)포함 되어 있습니다. |
@@ -72,7 +72,7 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 검색 서비스를 만들고 구성 하며 API 키를 관리 합니다.
 
-| 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | 설명 |
+| 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | Description |
 |-------------------------|--------|------------------------------|
 | [관리 2020-08-01](/rest/api/searchmanagement/) | Stable | 안정적인 최신 버전의 관리 REST Api. 미리 보기 버전에 명시 된 리소스를 제외 하 고 모든 아웃 바운드 액세스 리소스에 대해 일반적으로 사용 가능한 공유 개인 링크 리소스 지원을 추가 합니다. |
 | [관리 2020-08-01-미리 보기](/rest/api/searchmanagement/index-preview) | 미리 보기  | 현재 미리 보기 상태: Azure Functions 및 Azure Database for MySQL에 대 한 공유 개인 링크 리소스 지원. |
@@ -85,30 +85,30 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 다음 표에서는 최신 SDK 버전에 대 한 링크를 제공 합니다. 
 
-| SDK 버전 | 상태 | 설명 |
+| SDK 버전 | 상태 | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](/dotnet/api/overview/azure/search.documents-readme) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 아직 지원 하지는 [않습니다.](/dotnet/api/microsoft.azure.search.fieldbuilder) |
-| [10.0 검색](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | 출시 5 월 2019. 검색 REST api-version = 2019-05-06을 대상으로 합니다.|
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 지역 필터는 아직 지원 하지 않습니다. |
+| [Microsoft. Azure 검색 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | 출시 5 월 2019. 검색 REST api-version = 2019-05-06을 대상으로 합니다.|
 | [4.0.0를 검색 합니다.](/dotnet/api/overview/azure/search/management) | Stable | 관리 REST api-버전 = 2020-08-01을 대상으로 합니다.  |
 | 3.0.0를 검색 합니다. | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다.  |
 
 ## <a name="azure-sdk-for-java"></a>Java용 Azure SDK
 
-| SDK 버전 | 상태 | 설명  |
+| SDK 버전 | 상태 | Description  |
 |-------------|--------|------------------------------|
 | [Java azure-검색-문서 11](https://newreleases.io/project/github/Azure/azure-sdk-for-java/release/azure-search-documents_11.1.0) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2019-05-06을 대상으로 합니다. |
 | [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
 
 ## <a name="azure-sdk-for-javascript"></a>JavaScript용 Azure SDK
 
-| SDK 버전 | 상태 | 설명  |
+| SDK 버전 | 상태 | Description  |
 |-------------|--------|------------------------------|
 | [JavaScript azure-검색 11.0](https://azure.github.io/azure-sdk-for-node/azure-search/latest/) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2016-09-01을 대상으로 합니다. |
 | [JavaScript azure-arm-검색](https://azure.github.io/azure-sdk-for-node/azure-arm-search/latest/) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
 
 ## <a name="azure-sdk-for-python"></a>Python용 Azure SDK
 
-| SDK 버전 | 상태 | 설명  |
+| SDK 버전 | 상태 | Description  |
 |-------------|--------|------------------------------|
 | [Python azure-검색-문서 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2019-05-06을 대상으로 합니다. |
 | [Python azure-관리-검색 1.0](/python/api/overview/azure/search) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |

@@ -1,7 +1,7 @@
 ---
 title: '행 추가: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 행 추가 모듈을 사용 하 여 두 데이터 집합을 연결 하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너에서 행 추가 모듈을 사용 하 여 두 데이터 집합을 연결 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 353ecc89e242e1d17dd83436f83afe77cc8c84ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c2a74ee88e7161ab8dd1701ef4d105df67c0938
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898982"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421943"
 ---
 # <a name="add-rows-module"></a>행 추가 모듈
 
@@ -32,7 +32,7 @@ ms.locfileid: "90898982"
 
 두 데이터 집합의 행을 연결 하려면 행에 정확히 동일한 스키마가 있어야 합니다. 즉, 열에 동일한 수의 열과 동일한 데이터 형식이 있습니다.
 
-1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환**아래에서 찾을 수 있습니다.
+1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환** 아래에서 찾을 수 있습니다.
 
 2. 두 입력 포트에 데이터 집합을 연결합니다. 추가할 데이터 집합이 두 번째(오른쪽) 포트에 연결되어야 합니다. 
   

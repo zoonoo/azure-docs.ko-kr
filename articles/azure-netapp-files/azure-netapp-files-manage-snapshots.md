@@ -1,6 +1,6 @@
 ---
 title: NetApp Azure Files를 사용하여 스냅샷 관리 | Microsoft Docs
-description: Azure NetApp Files를 사용 하 여 스냅숏을 만들고 관리 하는 방법을 설명 합니다.
+description: Azure NetApp Files를 사용 하 여 스냅숏을 만들고 관리 하 고 사용 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932280"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421882"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
-Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다.  또한 스냅숏을 새 볼륨으로 복원 하거나 클라이언트를 사용 하 여 단일 파일을 복원할 수 있습니다.  
+Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다. 스냅숏을 새 볼륨으로 복원 하거나, 클라이언트를 사용 하 여 단일 파일을 복원 하거나, 스냅숏을 사용 하 여 기존 볼륨을 되돌릴 수도 있습니다.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
 요청 시 볼륨 스냅숏을 만들 수 있습니다. 
 
-1.  스냅숏을 만들 볼륨으로 이동 합니다. **스냅숏**을 클릭 합니다.
+1.  스냅숏을 만들 볼륨으로 이동 합니다. **스냅숏** 을 클릭 합니다.
 
     ![스냅샷으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
-2.  **+ 스냅샷 추가**를 클릭하여 볼륨에 대한 주문형 스냅샷을 만듭니다.
+2.  **+ 스냅샷 추가** 를 클릭하여 볼륨에 대한 주문형 스냅샷을 만듭니다.
 
     ![스냅샷 추가](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
 
@@ -41,7 +41,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![새 스냅샷](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. **확인**을 클릭합니다. 
+4. **확인** 을 클릭합니다. 
 
 ## <a name="manage-snapshot-policies"></a>스냅숏 정책 관리
 
@@ -49,7 +49,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 ### <a name="register-the-feature"></a>기능 등록
 
-**스냅숏 정책** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 해야 합니다. 
+**스냅숏 정책** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용하는 경우 먼저 기능을 등록해야 합니다. 
 
 1. 기능을 등록 합니다. 
 
@@ -71,13 +71,13 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 스냅숏 정책을 사용 하면 매시간, 매일, 매주 또는 매월 주기로 스냅숏 생성 빈도를 지정할 수 있습니다. 또한 볼륨에 대해 유지할 최대 스냅숏 수를 지정 해야 합니다.  
 
-1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+1.  NetApp 계정 보기에서 **스냅숏 정책** 을 클릭 합니다.
 
     ![스냅숏 정책 탐색](../media/azure-netapp-files/snapshot-policy-navigation.png)
 
-2.  스냅숏 정책 창에서 정책 상태를 **사용**으로 설정 합니다. 
+2.  스냅숏 정책 창에서 정책 상태를 **사용** 으로 설정 합니다. 
 
-3.  **매시간,** **매일**, **매주**또는 **매월** 탭을 클릭 하 여 매시간, 매일, 매주 또는 매월 스냅숏 정책을 만듭니다. **유지할 스냅숏의 수**를 지정 합니다.  
+3.  **매시간,** **매일** , **매주** 또는 **매월** 탭을 클릭 하 여 매시간, 매일, 매주 또는 매월 스냅숏 정책을 만듭니다. **유지할 스냅숏의 수** 를 지정 합니다.  
 
     볼륨에 허용 되는 최대 스냅숏 수에 대 한 [Azure NetApp Files 리소스 제한을](azure-netapp-files-resource-limits.md) 참조 하세요. 
 
@@ -97,7 +97,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![스냅숏 정책 매월](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  **Save**을 클릭합니다.  
+4.  **저장** 을 클릭합니다.  
 
 추가 스냅숏 정책을 만들어야 하는 경우 3 단계를 반복 합니다.
 만든 정책이 스냅숏 정책 페이지에 표시 됩니다.
@@ -108,11 +108,11 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 만든 스냅숏 정책을 볼륨에 사용 하려면 해당 정책을 볼륨에 적용 해야 합니다. 
 
-1.  **볼륨** 페이지로 이동 하 여 스냅숏 정책을 적용 하려는 볼륨을 마우스 오른쪽 단추로 클릭 하 고 **편집**을 선택 합니다.
+1.  **볼륨** 페이지로 이동 하 여 스냅숏 정책을 적용 하려는 볼륨을 마우스 오른쪽 단추로 클릭 하 고 **편집** 을 선택 합니다.
 
     ![볼륨 오른쪽 클릭 메뉴](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  편집 창의 **스냅숏 정책**에서 볼륨에 사용할 정책을 선택 합니다.  **확인** 을 클릭 하 여 정책을 적용 합니다.  
+2.  편집 창의 **스냅숏 정책** 에서 볼륨에 사용할 정책을 선택 합니다.  **확인** 을 클릭 하 여 정책을 적용 합니다.  
 
     ![스냅숏 정책 편집](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -120,21 +120,21 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 기존 스냅숏 정책을 수정 하 여 정책 상태, 스냅숏 빈도 (매시간, 매일, 매주 또는 매월) 또는 유지할 스냅숏 수를 변경할 수 있습니다.  
  
-1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+1.  NetApp 계정 보기에서 **스냅숏 정책** 을 클릭 합니다.
 
-2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **편집**을 선택 합니다.
+2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **편집** 을 선택 합니다.
 
     ![스냅숏 정책 마우스 오른쪽 단추 클릭 메뉴](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
-3.  표시 되는 스냅숏 정책 창에서 변경한 다음 **저장**을 클릭 합니다. 
+3.  표시 되는 스냅숏 정책 창에서 변경한 다음 **저장** 을 클릭 합니다. 
 
 ### <a name="delete-a-snapshot-policy"></a>스냅숏 정책 삭제 
 
 더 이상 유지 하지 않을 스냅숏 정책을 삭제할 수 있습니다.   
 
-1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+1.  NetApp 계정 보기에서 **스냅숏 정책** 을 클릭 합니다.
 
-2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **삭제**를 선택 합니다.
+2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **삭제** 를 선택 합니다.
 
     ![스냅숏 정책 마우스 오른쪽 단추 클릭 메뉴](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -161,7 +161,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![새 볼륨으로 복원](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. **검토 + 만들기**를 클릭 합니다.  **만들기**를 클릭합니다.   
+4. **검토 + 만들기** 를 클릭 합니다.  **만들기** 를 클릭합니다.   
     새 볼륨은 스냅숏에 사용 되는 것과 동일한 프로토콜을 사용 합니다.   
     스냅샷이 복원된 새 볼륨은 볼륨 블레이드에 표시됩니다.
 
@@ -207,7 +207,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![숨겨진 항목 표시](../media/azure-netapp-files/snapshot-show-hidden.png) 
 
-2. 에서 하위 디렉터리로 이동 `~snapshot` 하 여 복원 하려는 파일을 찾습니다.  파일을 마우스 오른쪽 단추로 클릭 합니다. **복사**를 선택합니다.  
+2. 에서 하위 디렉터리로 이동 `~snapshot` 하 여 복원 하려는 파일을 찾습니다.  파일을 마우스 오른쪽 단추로 클릭 합니다. **복사** 를 선택합니다.  
 
     ![복원할 파일 복사](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
 
@@ -215,9 +215,40 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![복원할 파일 붙여넣기](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. 부모 디렉터리를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택한 다음 **이전 버전** 탭을 클릭 하 여 스냅숏 목록을 확인 하 고 **복원** 을 선택 하 여 파일을 복원할 수도 있습니다.  
+4. 부모 디렉터리를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택한 다음 **이전 버전** 탭을 클릭 하 여 스냅숏 목록을 확인 하 고 **복원** 을 선택 하 여 파일을 복원할 수도 있습니다.  
 
     ![속성 이전 버전](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Snapshot revert를 사용 하 여 볼륨 되돌리기
+
+스냅숏 되돌리기 기능을 사용 하면 특정 스냅숏을 만들 때의 상태로 볼륨을 신속 하 게 되돌릴 수 있습니다. 대부분의 경우 볼륨을 되돌리면 개별 파일을 스냅숏에서 활성 파일 시스템으로 복원 하는 것 보다 훨씬 빠릅니다. 또한 스냅숏을 새 볼륨으로 복원 하는 것 보다 더 효율적입니다. 
+
+볼륨의 스냅숏 메뉴에서 볼륨 되돌리기 옵션을 찾을 수 있습니다. 변경할지에 대 한 스냅숏을 선택한 후에는 선택한 스냅숏을 만들 때 포함 된 데이터 및 타임 스탬프로 볼륨을 되돌릴 Azure NetApp Files. 
+
+> [!IMPORTANT]
+> 선택한 스냅숏이 만들어진 후에 수행 된 활성 파일 시스템 데이터 및 스냅숏은 손실 됩니다. 스냅숏 되돌리기 작업은 대상 볼륨의 *모든* 데이터를 선택한 스냅숏의 데이터로 바꿉니다. 스냅숏을 선택 하는 경우 스냅숏 콘텐츠와 만든 날짜에 주의를 기울여야 합니다. 스냅숏 되돌리기 작업을 실행 취소할 수 없습니다.
+
+1. 볼륨의 **스냅숏** 메뉴로 이동 합니다.  되돌리기 작업에 사용할 스냅숏을 마우스 오른쪽 단추로 클릭 합니다. **볼륨 되돌리기** 를 선택 합니다. 
+
+    ![스냅숏의 오른쪽 클릭 메뉴를 설명 하는 스크린샷](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. 볼륨을 스냅숏으로 되돌리기 창에서 볼륨의 이름을 입력 하 고 **되돌리기** 를 클릭 합니다.   
+
+    이제 볼륨이 선택한 스냅숏의 지정 시간으로 복원 됩니다.
+
+    ![볼륨을 스냅숏으로 되돌리기 창 스크린샷](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>스냅샷 삭제  
+
+더 이상 유지 하지 않아도 되는 스냅숏을 삭제할 수 있습니다. 
+
+1. 볼륨의 **스냅숏** 메뉴로 이동 합니다. 삭제할 스냅숏을 마우스 오른쪽 단추로 클릭 합니다. **삭제** 를 선택합니다.
+
+    ![스냅숏의 오른쪽 클릭 메뉴를 설명 하는 스크린샷](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. 스냅숏 삭제 창에서 **예** 를 클릭 하 여 스냅숏을 삭제할 것인지 확인 합니다. 
+
+    ![스냅숏 삭제를 확인 하는 스크린샷](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>다음 단계
 
