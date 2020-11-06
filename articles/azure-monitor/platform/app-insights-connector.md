@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449410"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335879"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -44,12 +44,12 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [Windows 에이전트](./agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](./om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure storage 계정](./resource-logs.md#send-to-log-analytics-workspace) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](./agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 예 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](./om-agents.md) | 예 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure Storage 계정](./resource-logs.md#send-to-log-analytics-workspace) | 예 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
@@ -57,10 +57,10 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ## <a name="configuration"></a>구성
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
-2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
-3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 애플리케이션을 선택합니다.
-4. **Save**을 클릭합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
+2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스** 를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
+3. **구독** 에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름** 에서 하나 이상의 애플리케이션을 선택합니다.
+4. **저장** 을 클릭합니다.
 
 약 30분 내에 데이터가 제공되며 다음 이미지와 같이 Application Insights 타일이 데이터로 업데이트됩니다.
 
@@ -87,7 +87,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ![서버 요청, 오류 및 예외에 대 한 블레이드를 보여 주는 Application Insights 대시보드의 스크린샷](./media/app-insights-connector/app-insights-dash02.png)
 
-표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
+표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기** 를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
 
 | **열** | **설명** |
@@ -135,10 +135,10 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 애플리케이션에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
 
-피벗하려면 각 행의 끝에 표시되는 줄임표(**…**)를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
+피벗하려면 각 행의 끝에 표시되는 줄임표( **…** )를 클릭하고 **Open in Application Insights** (Application Insights에서 열기)를 선택합니다.
 
 >[!NOTE]
->Azure Portal에서는 **Open in Application Insights**(Application Insights에서 열기)를 사용할 수 없습니다.
+>Azure Portal에서는 **Open in Application Insights** (Application Insights에서 열기)를 사용할 수 없습니다.
 
 ![Application Insights에서 열기](./media/app-insights-connector/open-in-app-insights.png)
 
@@ -152,7 +152,7 @@ Application Insights는 *[샘플링 수정](../app/sampling.md)* 을 제공하�
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-**Sampled Count**(샘플링된 수) 필드는 모든 항목에 있으며 항목이 나타내는 데이터 요소 수를 보여 줍니다. Application Insights 앱에 대해 샘플링이 설정된 경우 **Sampled Count**(샘플링된 수)가 1보다 큽니다. 애플리케이션에서 생성하는 실제 항목 수를 계산하려면 **Sampled Count**(샘플링된 수) 필드를 합산합니다.
+**Sampled Count** (샘플링된 수) 필드는 모든 항목에 있으며 항목이 나타내는 데이터 요소 수를 보여 줍니다. Application Insights 앱에 대해 샘플링이 설정된 경우 **Sampled Count** (샘플링된 수)가 1보다 큽니다. 애플리케이션에서 생성하는 실제 항목 수를 계산하려면 **Sampled Count** (샘플링된 수) 필드를 합산합니다.
 
 샘플링은 애플리케이션에서 생성하는 총 항목 수에만 영향을 줍니다. **RequestDuration** 또는 **AvailabilityDuration** 같은 메트릭 필드는 표시된 항목의 평균을 보여 주므로 해당 필드에 대한 샘플링은 수정할 필요가 없습니다.
 
@@ -170,13 +170,13 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ## <a name="output-data"></a>출력 데이터
 
-각 형식의 입력 데이터에 대해 *종류*가 *ApplicationInsights*인 레코드가 만들어집니다. ApplicationInsights 레코드에는 다음 섹션에 표시된 속성이 포함되어 있습니다.
+각 형식의 입력 데이터에 대해 *종류* 가 *ApplicationInsights* 인 레코드가 만들어집니다. ApplicationInsights 레코드에는 다음 섹션에 표시된 속성이 포함되어 있습니다.
 
 ### <a name="generic-fields"></a>일반 필드
 
 | 속성 | 설명 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -244,7 +244,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 속성 | 설명 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |
@@ -304,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-이 스크립트가 Azure Active Directory에 인증하려면 전달자 인증 토큰이 필요합니다. 이 토큰을 검색하는 한 가지 방법은 [REST API 문서 사이트](/rest/api/loganalytics/datasources/createorupdate)의 문서를 사용하는 것입니다. **사용해 보기**를 클릭하고 Azure 구독에 로그인합니다. 다음 이미지와 같이 **요청 미리 보기**에서 전달자 토큰을 복사할 수 있습니다.
+이 스크립트가 Azure Active Directory에 인증하려면 전달자 인증 토큰이 필요합니다. 이 토큰을 검색하는 한 가지 방법은 [REST API 문서 사이트](/rest/api/loganalytics/datasources/createorupdate)의 문서를 사용하는 것입니다. **사용해 보기** 를 클릭하고 Azure 구독에 로그인합니다. 다음 이미지와 같이 **요청 미리 보기** 에서 전달자 토큰을 복사할 수 있습니다.
 
 
 ![전달자 토큰](media/app-insights-connector/bearer-token.png)

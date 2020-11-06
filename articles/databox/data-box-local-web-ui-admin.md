@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127527"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337290"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -35,7 +35,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
 
-1. 로컬 웹 UI에서 **지원 담당자** 로 이동 하 여 지원 **패키지 만들기**를 선택 합니다.
+1. 로컬 웹 UI에서 **지원 담당자** 로 이동 하 여 지원 **패키지 만들기** 를 선택 합니다.
 
     ![지원 패키지 만들기 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,7 +43,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![지원 패키지 만들기 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. 지원 패키지 만들기가 완료 되 면 **지원 패키지 다운로드**를 선택 합니다.
+3. 지원 패키지 만들기가 완료 되 면 **지원 패키지 다운로드** 를 선택 합니다.
 
     ![지원 패키지 만들기 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
@@ -57,8 +57,8 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 장치를 종료 하려면 다음 단계를 수행 합니다.
 
-1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-2. **종료**를 선택합니다.
+1. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+2. **종료** 를 선택합니다.
 
     ![Data Box 종료 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -70,8 +70,8 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-2. **다시 시작**을 선택합니다.
+1. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+2. **다시 시작** 을 선택합니다.
 
     ![Data Box 다시 시작 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
@@ -85,7 +85,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
 시작 하기 전에 다음 단계를 수행 하 여 가져오기 순서로 BOM 또는 매니페스트 파일을 다운로드 합니다.
 
-1. 장치의 로컬 웹 UI로 이동 합니다. 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료**로 표시됩니다.
+1. 장치의 로컬 웹 UI로 이동 합니다. 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료** 로 표시됩니다.
 
     ![디바이스 배송 준비 완료](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
@@ -159,7 +159,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
 디바이스 대시보드를 통해 디바이스에서 사용 가능한 용량과 사용한 용량을 확인할 수 있습니다.
 
-1. 로컬 웹 UI에서 **대시보드 보기**로 이동합니다.
+1. 로컬 웹 UI에서 **대시보드 보기** 로 이동합니다.
 2. **연결 및 복사** 아래에 디바이스의 사용 가능한 공간과 사용한 공간이 표시됩니다.
 
     ![사용 가능한 용량 확인](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
@@ -172,12 +172,12 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
 성능이 매우 낮은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**으로 이동 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 으로 이동 합니다.
 
     ![체크섬 사용 안 함](media/data-box-local-web-ui-admin/disable-checksum.png)
 
-2. 체크섬 유효성 검사를 **사용 안 함**으로 설정합니다.
-3. **적용**을 선택합니다.
+2. 체크섬 유효성 검사를 **사용 안 함** 으로 설정합니다.
+3. **적용** 을 선택합니다.
 
 > [!NOTE]
 > 체크섬 계산 건너뛰기 옵션은 Azure Data Box 잠금 해제 된 경우에만 사용할 수 있습니다. 장치가 잠겨 있으면이 옵션이 표시 되지 않습니다.
@@ -190,7 +190,7 @@ SMB 서명과 관련 된 자세한 내용은 [서버 메시지 블록 서명 개
 
 Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
 
     ![설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
@@ -198,9 +198,9 @@ Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수
 
     ![SMB 서명 사용](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. **적용**을 선택합니다.
-4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-5. **다시 시작**을 선택합니다.
+3. **적용** 을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+5. **다시 시작** 을 선택합니다.
 
 ## <a name="enable-backup-operator-privileges"></a>Backup 운영자 권한 사용
 
@@ -210,17 +210,17 @@ Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수
 
 Azure 장치에서 Backup 운영자 권한을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
 
-   ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Data Box 설정 열기-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **사용** Backup Operator 권한입니다.
 
    ![Backup 운영자 권한 사용](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
-3. **적용을 선택**합니다.
-4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-5. **다시 시작**을 선택합니다.
+3. **적용을 선택** 합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+5. **다시 시작** 을 선택합니다.
 
 ## <a name="enable-acls-for-azure-files"></a>Azure Files Acl 사용
 
@@ -233,17 +233,17 @@ Azure 장치에서 Backup 운영자 권한을 사용 하도록 설정 하려면 
 
 Azure 파일에 대 한 Acl 전송을 사용 하도록 설정 하려면:
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
 
-    ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Data Box 설정 열기-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **사용** Azure 파일에 대 한 Acl.
 
      ![Azure 파일에 Acl 사용](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. **적용**을 선택합니다.
-4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-5. **다시 시작**을 선택합니다.
+3. **적용** 을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+5. **다시 시작** 을 선택합니다.
 
 ## <a name="enable-tls-11"></a>TLS 1.1 사용
 
@@ -253,17 +253,17 @@ TLS와 관련 된 자세한 내용은 [Azure Data Box Gateway 보안](../databox
 
 Azure 장치에서 TLS 1.1을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
 
-    ![Data Box 설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Data Box 설정 열기-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **사용** TLS 1.1.
 
     ![TLS 1.1 사용](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. **적용**을 선택합니다.
-4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-5. **다시 시작**을 선택합니다.
+3. **적용** 을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
+5. **다시 시작** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123718"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336421"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Portal를 사용 하 여 Azure Data Box를 관리 하 고 Azure Data Box Heavy
 
@@ -32,15 +32,15 @@ ms.locfileid: "92123718"
 
 다음 단계에 따라 주문을 취소합니다.
 
-1.  **개요 > 취소**로 이동합니다.
+1.  **개요 > 취소** 로 이동합니다.
 
-    ![주문 취소 1](media/data-box-portal-admin/cancel-order1.png)
+    ![개요 탭의 주문에 대 한 취소 명령](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  주문을 취소하는 이유를 채웁니다.  
 
-    ![주문 취소 2](media/data-box-portal-admin/cancel-order2.png)
+    ![순서 취소 대화 상자](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
-3.  주문이 취소되면 포털은 주문의 상태를 업데이트하고 **취소됨**으로 표시합니다.
+3.  주문이 취소되면 포털은 주문의 상태를 업데이트하고 **취소됨** 으로 표시합니다.
 
 ## <a name="clone-an-order"></a>주문 복제
 
@@ -51,11 +51,11 @@ ms.locfileid: "92123718"
 
 가져오기 순서를 복제 하려면 다음 단계를 수행 합니다.
 
-1.  **개요 > 복제**로 이동합니다. 
+1.  **개요 > 복제** 로 이동합니다. 
 
-    ![주문 복제 1](media/data-box-portal-admin/clone-order1.png)
+    ![개요 탭의 주문에 대 한 복제 명령](media/data-box-portal-admin/portal-admin-clone-command.png)
 
-2.  주문의 모든 세부 사항을 동일하게 유지합니다. 주문 이름은 *-Clone*으로 추가된 원래 주문 이름입니다. 확인란을 선택하여 개인 정보 취급 방침을 검토한 것을 확인합니다. **만들기**를 클릭합니다.
+2.  주문의 모든 세부 사항을 동일하게 유지합니다. 주문 이름은 *-Clone* 으로 추가된 원래 주문 이름입니다. 확인란을 선택하여 개인 정보 취급 방침을 검토한 것을 확인합니다. **만들기** 를 클릭합니다.
 
 잠시 후에 복제가 생성되고 포털에서 새 주문을 표시하도록 업데이트합니다.
 
@@ -66,13 +66,13 @@ ms.locfileid: "92123718"
 
 완료되거나 취소된 주문을 삭제할 수 있습니다. 주문을 삭제하려면 다음 단계를 수행합니다.
 
-1. **모든 리소스**로 이동 합니다. 주문을 검색합니다.
+1. **모든 리소스** 로 이동 합니다. 주문을 검색합니다.
 
-2. 삭제하려는 주문을 클릭하고 **개요**로 이동합니다. 명령 모음에서 **삭제**를 클릭합니다.
+2. 삭제하려는 주문을 클릭하고 **개요** 로 이동합니다. 명령 모음에서 **삭제** 를 클릭합니다.
 
-    ![Data Box 주문 삭제 1](media/data-box-portal-admin/delete-order1.png)
+    ![개요 탭의 주문에 대 한 삭제 명령](media/data-box-portal-admin/portal-admin-delete-command.png)
 
-3. 주문 삭제를 확인하라는 메시지가 나타나면 주문의 이름을 입력합니다. **삭제**를 클릭합니다.
+3. 주문 삭제를 확인하라는 메시지가 나타나면 주문의 이름을 입력합니다. **삭제** 를 클릭합니다.
 
 ## <a name="download-shipping-label"></a>포장용 레이블 다운로드
 
@@ -80,13 +80,13 @@ Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표
 
 다음 단계에 따라 포장용 레이블을 다운로드합니다.
 
-1.  **개요 > 포장용 레이블 다운로드**로 이동합니다. 이 옵션은 디바이스가 배송된 후에만 사용 가능합니다. 
+1.  **개요 > 포장용 레이블 다운로드** 로 이동합니다. 이 옵션은 디바이스가 배송된 후에만 사용 가능합니다. 
 
-    ![포장용 레이블 다운로드](media/data-box-portal-admin/download-shipping-label.png)
+    ![포장용 레이블 다운로드](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  다음 반송 포장용 레이블을 다운로드합니다. 레이블을 저장 하 고 인쇄 합니다. 장치에서 일반 슬리브에 레이블을 넣고 삽입 합니다. 레이블이 표시되는지 확인합니다. 이전 배송 시 부착된 디바이스의 스티커를 제거합니다.
 
-    ![예제 포장용 레이블](media/data-box-portal-admin/example-shipping-label.png)
+    ![예제 포장용 레이블](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>배송 주소 편집
 
@@ -94,13 +94,13 @@ Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표
 
 주문을 편집하려면 다음 단계를 수행합니다.
 
-1. **주문 세부 정보 > 배송 주소 편집**으로 이동합니다.
+1. **주문 세부 정보 > 배송 주소 편집** 으로 이동합니다.
 
-    ![배송 주소 편집 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![주문 세부 정보에서 배송 주소 명령 편집](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. 배송 주소를 편집하고 유효성을 검사한 다음 변경 내용을 저장합니다.
 
-    ![배송 주소 편집 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![배송 주소 편집 대화 상자](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>알림 세부 정보 편집
 
@@ -108,13 +108,13 @@ Data Box의 E-ink 디스플레이가 작동하지 않아 반송 레이블이 표
 
 알림 세부 정보를 편집하려면 다음 단계를 수행합니다.
 
-1. **주문 세부 정보 > 알림 세부 정보 편집**으로 이동합니다.
+1. **주문 세부 정보 > 알림 세부 정보 편집** 으로 이동합니다.
 
-    ![알림 세부 정보 편집 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![알림 세부 정보 명령을 순서 대로 편집](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. 이제 알림 세부 정보를 편집한 다음, 변경 내용을 저장할 수 있습니다.
  
-    ![알림 세부 정보 편집 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![알림 세부 정보 편집 대화 상자](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
@@ -123,11 +123,11 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 주문 내역을 다운로드하려면 다음 단계를 수행합니다.
 
-1. Data Box 주문에서 **개요**로 이동합니다. 주문이 완료되었는지 확인합니다. 주문이 완료되고 디바이스 정리가 완료되면 **주문 세부 정보**로 이동합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다.
+1. Data Box 주문에서 **개요** 로 이동합니다. 주문이 완료되었는지 확인합니다. 주문이 완료되고 디바이스 정리가 완료되면 **주문 세부 정보** 로 이동합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다.
 
-    ![주문 기록 다운로드](media/data-box-portal-admin/download-order-history-1.png)
+    ![주문 기록 다운로드](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. **주문 기록 다운로드**를 클릭합니다. 다운로드된 기록에는 운송업체 추적 로그 기록이 나와 있습니다. Data Box Heavy의 두 노드에 해당 하는 두 개의 로그 집합이 있습니다. 이 로그의 맨 아래로 스크롤하면 다음 링크를 볼 수 있습니다.
+2. **주문 기록 다운로드** 를 클릭합니다. 다운로드된 기록에는 운송업체 추적 로그 기록이 나와 있습니다. Data Box Heavy의 두 노드에 해당 하는 두 개의 로그 집합이 있습니다. 이 로그의 맨 아래로 스크롤하면 다음 링크를 볼 수 있습니다.
     
    - **로그 복사** -Data Box에서 Azure storage 계정으로 데이터를 복사 하는 동안 오류 발생 된 파일 목록 (가져오기 순서) 또는 *그 반대로* (내보내기 순서)를 수행 합니다.
    - **감사 로그** -Azure 데이터 센터 외부에 있을 때 Data Box에서 공유를 켜고 액세스 하는 방법에 대 한 정보를 포함 합니다.
@@ -198,11 +198,11 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
     그런 다음, 스토리지 계정으로 이동하여 복사 로그를 볼 수 있습니다.
 
-![스토리지 계정 로그](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![저장소 계정에 대 한 복사 로그](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-또한 감사 로그와 BOM 파일을 포함하는 커스터디 로그 체인도 볼 수 있습니다.
+   감사 로그 및 BOM 파일을 포함 하는 관리 권의 로그의 체인을 볼 수도 있습니다.
 
-![저장소 계정 2의 로그](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![저장소 계정에 대 한 관리 권의 로그 체인](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>주문 상태 보기
 

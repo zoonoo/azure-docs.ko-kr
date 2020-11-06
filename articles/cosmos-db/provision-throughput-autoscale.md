@@ -6,12 +6,13 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330617"
+ms.locfileid: "94337545"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

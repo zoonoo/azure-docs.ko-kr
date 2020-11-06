@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897476"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337885"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "90897476"
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning 공평 SDK 
 
-Azure Machine Learning 공평 SDK는 `azureml-contrib-fairness` Azure Machine Learning 내에서 오픈 소스 Python 패키지 [Fairlearn](http://fairlearn.github.io)를 통합 합니다. Azure Machine Learning 내에서 Fairlearn의 통합에 대해 자세히 알아보려면 이러한 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)을 확인 하세요. Fairlearn에 대 한 자세한 내용은 [예제 가이드](https://fairlearn.github.io/auto_examples/) 및 [샘플 노트북](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 참조 하세요. 
+Azure Machine Learning 공평 SDK는 `azureml-contrib-fairness` Azure Machine Learning 내에서 오픈 소스 Python 패키지 [Fairlearn](http://fairlearn.github.io)를 통합 합니다. Azure Machine Learning 내에서 Fairlearn의 통합에 대해 자세히 알아보려면 이러한 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)을 확인 하세요. Fairlearn에 대 한 자세한 내용은 [예제 가이드](https://fairlearn.github.io/master/auto_examples/) 및 [샘플 노트북](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 참조 하세요. 
 
 다음 명령을 사용 하 여 및 패키지를 설치 합니다 `azureml-contrib-fairness` `fairlearn` .
 ```bash
@@ -205,7 +205,7 @@ pip install fairlearn==0.4.6
     1. 이전 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
     1. 모델을 선택 하 고 **공평** 탭을 클릭 하 여 설명 시각화 대시보드를 표시 합니다.
 
-    시각화 대시보드 및 여기에 포함 된 내용에 대 한 자세한 내용은 Fairlearn의 [사용자 가이드](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)를 확인 하세요.
+    시각화 대시보드 및 여기에 포함 된 내용에 대 한 자세한 내용은 Fairlearn의 [사용자 가이드](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard)를 확인 하세요.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>여러 모델에 대 한 공평 정보 업로드
 
@@ -306,14 +306,14 @@ pip install fairlearn==0.4.6
     ```
 
 
-    이전 섹션과 마찬가지로 Azure Machine Learning studio에서 위에 설명 된 경로 중 하나를 수행 하 여 시각화 **Experiments** 대시보드에 액세스 하 고 **두 모델을**공평 성과 성능 측면에서 비교할 수 있습니다.
+    이전 섹션과 마찬가지로 Azure Machine Learning studio에서 위에 설명 된 경로 중 하나를 수행 하 여 시각화 **Experiments** 대시보드에 액세스 하 고 **두 모델을** 공평 성과 성능 측면에서 비교할 수 있습니다.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Unmitigated 업로드 및 완화 되는 공평 통찰력
 
-Fairlearn의 [완화 알고리즘](https://fairlearn.github.io/user_guide/mitigation.html)을 사용 하 여 생성 된 완화 된 모델을 원래 unmitigated 모델과 비교 하 고 비교 된 모델 간에 성능/공평 절충을 탐색할 수 있습니다.
+Fairlearn의 [완화 알고리즘](https://fairlearn.github.io/master/user_guide/mitigation.html)을 사용 하 여 생성 된 완화 된 모델을 원래 unmitigated 모델과 비교 하 고 비교 된 모델 간에 성능/공평 절충을 탐색할 수 있습니다.
 
-다양 한 공평 성과 절충으로 완화 된 모델의 컬렉션을 만드는 [그리드 검색](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) 완화 알고리즘을 사용 하는 방법을 보여 주는 예제를 보려면이 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인 하세요. 
+다양 한 공평 성과 절충으로 완화 된 모델의 컬렉션을 만드는 [그리드 검색](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) 완화 알고리즘을 사용 하는 방법을 보여 주는 예제를 보려면이 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인 하세요. 
 
 단일 실행에서 여러 모델의 공평 정보를 업로드 하는 것은 공평 성과 성능을 고려 하 여 모델을 비교할 수 있습니다. 모델 비교 차트에 표시 된 모델을 클릭 하 여 특정 모델에 대 한 자세한 정보를 볼 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791021"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337324"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 
@@ -52,9 +52,9 @@ Azure VMware 솔루션 사설 클라우드 클러스터에서 사용 되는 현�
 
 | 소프트웨어              |    버전   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U2    | 
-| ESXi                  |    6.7 U2    | 
-| vSAN                  |    6.7 U2    |
+| VCSA/vSphere/ESXi |    6.7 U3    | 
+| ESXi                  |    6.7 U3    | 
+| vSAN                  |    6.7 U3    |
 | NSX-T                 |      2.5     |
 
 사설 클라우드의 새 클러스터의 경우 소프트웨어 버전은 현재 실행 중인 항목과 일치 합니다. 구독의 새 사설 클라우드의 경우 소프트웨어 스택의 최신 버전이 설치 됩니다.

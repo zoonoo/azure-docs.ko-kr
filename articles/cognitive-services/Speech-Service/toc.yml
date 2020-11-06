@@ -419,8 +419,6 @@
                   href: 'http://aka.ms/speech/va-samples'
                 - name: 음성 도우미 FAQ
                   href: faq-voice-assistants.md
-                - name: 음성 SDK
-                  href: speech-sdk.md
                 - name: 미사용 데이터의 사용자 지정 명령 암호화
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech

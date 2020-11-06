@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760566"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337579"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -43,7 +43,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 * **arm-templates** 폴더. Azure Resource Manager 템플릿을 포함합니다. 템플릿에 대해서는 이 문서에서 설명합니다.
 * **client-application** 폴더. [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) 샘플의 복사본입니다. 이 문서에서는 필요하지 않습니다.
-* Windows 64 비트 버전의 [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) **hpc 응용 프로그램** 폴더입니다.
+* Windows 64 비트 버전의 [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) **hpc 응용 프로그램** 폴더입니다.
 * **pipelines** 폴더. 빌드 프로세스를 설명하는 YAML 파일을 포함합니다. 이에 대해서는 이 문서에서 설명합니다.
 
 이 섹션에서는 사용자가 버전 제어 및 Resource Manager 템플릿 설계에 대해 잘 알고 있다고 가정합니다. 이러한 개념을 잘 모른다면 다음 페이지에서 관련 정보를 살펴보세요.
@@ -300,7 +300,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 * Infrastructure as Code를 저장하는 **arm-templates** 폴더
 * ffmpeg의 이진 파일을 포함하는 **hpc-application** 폴더
 * 빌드 파이프라인의 정의를 포함하는 **pipelines** 폴더
-* **선택 사항**: .NET 애플리케이션 코드를 저장하는 **client-application** 폴더 여기서는 이 샘플을 사용하지 않지만, 자체 프로젝트에서는 클라이언트 애플리케이션을 통해 HPC Batch 애플리케이션의 실행을 실행할 수 있습니다.
+* **선택 사항** : .NET 애플리케이션 코드를 저장하는 **client-application** 폴더 여기서는 이 샘플을 사용하지 않지만, 자체 프로젝트에서는 클라이언트 애플리케이션을 통해 HPC Batch 애플리케이션의 실행을 실행할 수 있습니다.
 
 > [!NOTE]
 > 이는 코드 기반 구조의 한 가지 예입니다. 이 접근 방식은 애플리케이션, 인프라 및 파이프라인 코드가 동일한 리포지토리에 저장됨을 보여 주기 위해 사용됩니다.
@@ -317,7 +317,7 @@ Azure DevOps Services의 [Azure Pipelines](/azure/devops/pipelines/get-started/)
 
 이 예제에서는 **hpc-application** 폴더를 집중적으로 살펴봅니다. **hpc-application** 폴더는 Azure Batch 계정 내에서 실행될 ffmpeg 소프트웨어입니다.
 
-1. Azure DevOps 조직에서 Azure Pipelines의 빌드 섹션으로 이동합니다. **새 파이프라인**을 만듭니다.
+1. Azure DevOps 조직에서 Azure Pipelines의 빌드 섹션으로 이동합니다. **새 파이프라인** 을 만듭니다.
 
     ![새 빌드 파이프라인 만들기](media/batch-ci-cd/new-build-pipeline.jpg)
 
@@ -348,7 +348,7 @@ Azure DevOps Services의 [Azure Pipelines](/azure/devops/pipelines/get-started/)
         targetPath: '$(Build.ArtifactStagingDirectory)/package'
     ```
 
-1. 빌드를 필요에 따라 구성한 후에는 **저장 및 큐**를 선택합니다. **트리거** 섹션에서 연속 통합을 사용하도록 설정한 경우, 리포지토리에 빌드에 설정된 조건을 충족하는 새 커밋이 적용되면 빌드가 자동으로 트리거됩니다.
+1. 빌드를 필요에 따라 구성한 후에는 **저장 및 큐** 를 선택합니다. **트리거** 섹션에서 연속 통합을 사용하도록 설정한 경우, 리포지토리에 빌드에 설정된 조건을 충족하는 새 커밋이 적용되면 빌드가 자동으로 트리거됩니다.
 
     ![기존 빌드 파이프라인의 예](media/batch-ci-cd/existing-build-pipeline.jpg)
 
@@ -367,35 +367,35 @@ Azure Pipelines는 애플리케이션과 기본 인프라를 배포하는 데도
 
 인프라 배포를 진행하려면 몇 가지 단계가 수행됩니다. [연결된 템플릿](../azure-resource-manager/templates/linked-templates.md)을 사용한 것처럼 퍼블릭 엔드포인트(HTTP 또는 HTTPS)에서 템플릿에 액세스할 수 있어야 합니다. 퍼블릭 엔드포인트는 GitHub의 리포지토리, Azure Blob Storage 계정 또는 다른 스토리지 위치일 수 있습니다. 업로드한 템플릿 아티팩트는 프라이빗 모드로 보관되나 SAS(공유 액세스 서명) 토큰으로 액세스되므로 안전하게 유지됩니다. 다음 예제에서는 Azure Storage Blob에서 템플릿을 사용하여 인프라를 배포하는 방법을 보여 줍니다.
 
-1. **새 릴리스 정의**를 만들고 빈 정의를 선택합니다. 그런 다음 새로 만든 환경에 파이프라인과 관련 있는 이름을 지정해야 합니다.
+1. **새 릴리스 정의** 를 만들고 빈 정의를 선택합니다. 그런 다음 새로 만든 환경에 파이프라인과 관련 있는 이름을 지정해야 합니다.
 
     ![초기 릴리스 파이프라인](media/batch-ci-cd/Release-0.jpg)
 
 1. HPC 애플리케이션의 출력을 얻기 위해 빌드 파이프라인에 대해 종속성을 만듭니다.
 
     > [!NOTE]
-    > 릴리스 정의 내에 작업이 만들어질 때 필요한 **소스 별칭**을 기록해 둡니다.
+    > 릴리스 정의 내에 작업이 만들어질 때 필요한 **소스 별칭** 을 기록해 둡니다.
 
     ![해당 빌드 파이프라인에서 HPCApplicationPackage에 대한 아티팩트 링크 만들기](media/batch-ci-cd/Release-1.jpg)
 
 1. 다른 아티팩트(Azure Repo)에 대한 링크를 만듭니다. 이 링크는 리포지토리에 저장된 Resource Manager 템플릿에 액세스하는 데 필요합니다. Resource Manager 템플릿에는 컴파일이 필요하지 않으므로 빌드 파이프라인을 통과하도록 푸시하지 않아도 됩니다.
 
     > [!NOTE]
-    > 릴리스 정의 내에 작업이 만들어질 때 필요한 **소스 별칭**을 기록해 둡니다.
+    > 릴리스 정의 내에 작업이 만들어질 때 필요한 **소스 별칭** 을 기록해 둡니다.
 
     ![Azure Repo에 대한 아티팩트 링크 만들기](media/batch-ci-cd/Release-2.jpg)
 
 1. **변수** 섹션으로 이동합니다. 여러 작업에 동일한 정보를 입력하지 않도록 파이프라인에서 여러 변수를 만드는 것이 좋습니다. 아래에서는 이 예제에서 사용되는 변수와 각 변수가 배포에 주는 영향을 설명합니다.
 
-    * **applicationStorageAccountName**: HPC 애플리케이션 이진 파일을 저장하는 스토리지 계정의 이름
-    * **batchAccountApplicationName**: Azure Batch 계정의 애플리케이션 이름
-    * **batchAccountName**: Azure Batch 계정의 이름
-    * **batchAccountPoolName**: 처리를 수행하는 VM의 풀 이름
-    * **batchApplicationId**: Azure Batch 애플리케이션의 고유 ID
-    * **batchApplicationVersion**: 배치 애플리케이션(즉, ffmpeg 이진 파일)의 의미론적 버전
-    * **location**: Azure 리소스를 배포할 위치
-    * **resourceGroupName**: 만들려는 리소스 그룹의 이름과 리소스를 배포할 위치
-    * **storageAccountName**: 연결된 Resource Manager 템플릿을 저장할 스토리지 계정의 이름
+    * **applicationStorageAccountName** : HPC 애플리케이션 이진 파일을 저장하는 스토리지 계정의 이름
+    * **batchAccountApplicationName** : Azure Batch 계정의 애플리케이션 이름
+    * **batchAccountName** : Azure Batch 계정의 이름
+    * **batchAccountPoolName** : 처리를 수행하는 VM의 풀 이름
+    * **batchApplicationId** : Azure Batch 애플리케이션의 고유 ID
+    * **batchApplicationVersion** : 배치 애플리케이션(즉, ffmpeg 이진 파일)의 의미론적 버전
+    * **location** : Azure 리소스를 배포할 위치
+    * **resourceGroupName** : 만들려는 리소스 그룹의 이름과 리소스를 배포할 위치
+    * **storageAccountName** : 연결된 Resource Manager 템플릿을 저장할 스토리지 계정의 이름
 
     ![Azure Pipelines 릴리스의 변수 세트 예](media/batch-ci-cd/Release-4.jpg)
 
@@ -404,66 +404,66 @@ Azure Pipelines는 애플리케이션과 기본 인프라를 배포하는 데도
     ![HPC 애플리케이션을 Azure Batch로 릴리스하는 데 사용되는 작업의 예](media/batch-ci-cd/Release-3.jpg)
 
 1. **파이프라인 아티팩트 다운로드(미리 보기)** 작업을 추가하고 다음 속성을 설정합니다.
-    * **표시 이름**: ApplicationPackage를 에이전트로 다운로드
+    * **표시 이름** : ApplicationPackage를 에이전트로 다운로드
     * **다운로드할 아티팩트의 이름:** hpc-application
-    * **다운로드 경로**: $(System.DefaultWorkingDirectory)
+    * **다운로드 경로** : $(System.DefaultWorkingDirectory)
 
 1. 아티팩트를 저장할 스토리지 계정을 만듭니다. 솔루션의 기존 스토리지 계정을 사용할 수 있지만, 자체 포함된 샘플을 구현하고 콘텐츠를 분리하기 위해 아티팩트(Resource Manager 템플릿)를 위한 전용 스토리지 계정을 만들겠습니다.
 
     **Azure 리소스 그룹 배포** 작업을 추가하고 다음 속성을 설정합니다.
-    * **표시 이름**: Resource Manager 템플릿을 위한 스토리지 계정 배포
+    * **표시 이름** : Resource Manager 템플릿을 위한 스토리지 계정 배포
     * **Azure 구독:** 적절한 Azure 구독 선택
-    * **작업**: 리소스 그룹을 만들기 또는 업데이트
-    * **리소스 그룹**: $(resourceGroupName)
-    * **위치**: $(location)
-    * **템플릿**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
-    * **템플릿 매개 변수 재정의**: -accountName $(storageAccountName)
+    * **작업** : 리소스 그룹을 만들기 또는 업데이트
+    * **리소스 그룹** : $(resourceGroupName)
+    * **위치** : $(location)
+    * **템플릿** : $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
+    * **템플릿 매개 변수 재정의** : -accountName $(storageAccountName)
 
 1. 소스 제어에서 스토리지 계정으로 아티팩트를 업로드합니다. 이를 수행하기 위한 Azure 파이프라인 작업이 있습니다. 이 작업의 일부로, 스토리지 계정 컨테이너 URL과 SAS 토큰을 Azure Pipelines의 변수로 출력할 수 있습니다. 즉, 이 에이전트 단계에서 재사용할 수 있습니다.
 
     **Azure 파일 복사** 작업을 추가하고 다음 속성을 설정합니다.
     * **원본:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
-    * **Azure 연결 형식**: Azure 리소스 관리자
+    * **Azure 연결 형식** : Azure 리소스 관리자
     * **Azure 구독:** 적절한 Azure 구독 선택
-    * **대상 유형**: Azure Blob
-    * **RM 스토리지 계정**: $(storageAccountName)
-    * **컨테이너 이름**: templates
-    * **스토리지 컨테이너 URI**: templateContainerUri
-    * **스토리지 컨테이너 SAS 토큰**: templateContainerSasToken
+    * **대상 유형** : Azure Blob
+    * **RM 스토리지 계정** : $(storageAccountName)
+    * **컨테이너 이름** : templates
+    * **스토리지 컨테이너 URI** : templateContainerUri
+    * **스토리지 컨테이너 SAS 토큰** : templateContainerSasToken
 
 1. 오케스트레이터 템플릿을 배포합니다. 앞에 나온 오케스트레이터 템플릿에는 SAS 토큰 외에도 스토리지 계정 컨테이너 URL을 위한 매개 변수가 있었습니다. Resource Manager 템플릿에 필요한 변수는 릴리스 정의의 변수 섹션에 있거나 다른 Azure Pipelines 작업에서 설정되었습니다(예: Azure Blob 복사 작업의 일부로).
 
     **Azure 리소스 그룹 배포** 작업을 추가하고 다음 속성을 설정합니다.
-    * **표시 이름**: Azure Batch 배포
-    * **Azure 구독**: 적절한 Azure 구독 선택
-    * **작업**: 리소스 그룹을 만들기 또는 업데이트
-    * **리소스 그룹**: $(resourceGroupName)
-    * **위치**: $(location)
-    * **템플릿**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
-    * **템플릿 매개 변수 재정의**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **표시 이름** : Azure Batch 배포
+    * **Azure 구독** : 적절한 Azure 구독 선택
+    * **작업** : 리소스 그룹을 만들기 또는 업데이트
+    * **리소스 그룹** : $(resourceGroupName)
+    * **위치** : $(location)
+    * **템플릿** : $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
+    * **템플릿 매개 변수 재정의** : ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 일반적인 방법은 Azure Key Vault 작업을 사용하는 것입니다. 서비스 주체(Azure 구독에 대한 연결)에 적절한 액세스 정책이 설정되어 있다면, 서비스 주체가 Azure Key Vault에서 비밀을 다운로드하여 파이프라인에서 이를 변수로 사용할 수 있습니다. 비밀의 이름은 해당 값으로 설정됩니다. 예를 들어, sshPassword의 비밀은 릴리스 정의에서 $(sshPassword)로 참조할 수 있습니다.
 
 1. 다음 단계는 Azure CLI를 호출하는 것입니다. 첫 번째는 Azure Batch에서 애플리케이션을 만들고 관련 패키지를 업로드하는 데 사용됩니다.
 
     **Azure CLI** 작업을 추가하고 다음 속성을 설정합니다.
-    * **표시 이름**: Azure Batch 계정에서 애플리케이션 만들기
-    * **Azure 구독**: 적절한 Azure 구독 선택
-    * **스크립트 위치**: 인라인 스크립트
-    * **인라인 스크립트**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **표시 이름** : Azure Batch 계정에서 애플리케이션 만들기
+    * **Azure 구독** : 적절한 Azure 구독 선택
+    * **스크립트 위치** : 인라인 스크립트
+    * **인라인 스크립트** : ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. 두 번째 단계는 애플리케이션으로 관련 패키지를 업로드하는 데 사용됩니다. 이 예제에서 관련 패키지는 ffmpeg 파일입니다.
 
     **Azure CLI** 작업을 추가하고 다음 속성을 설정합니다.
-    * **표시 이름**: Azure Batch 계정으로 패키지 업로드
-    * **Azure 구독**: 적절한 Azure 구독 선택
-    * **스크립트 위치**: 인라인 스크립트
-    * **인라인 스크립트**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **표시 이름** : Azure Batch 계정으로 패키지 업로드
+    * **Azure 구독** : 적절한 Azure 구독 선택
+    * **스크립트 위치** : 인라인 스크립트
+    * **인라인 스크립트** : ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > 애플리케이션 패키지의 버전 번호는 변수로 설정됩니다. 이는 패키지의 이전 버전을 덮어쓰는 것으로 충분하며 Azure Batch로 푸시된 패키지의 버전 번호를 수동으로 제어하려는 경우에 편리합니다.
 
-1. **릴리스 > 새 릴리스 만들기**를 선택하여 새 릴리스를 만듭니다. 트리거되면 새 릴리스에 대한 링크를 선택하여 상태를 확인합니다.
+1. **릴리스 > 새 릴리스 만들기** 를 선택하여 새 릴리스를 만듭니다. 트리거되면 새 릴리스에 대한 링크를 선택하여 상태를 확인합니다.
 
 1. 환경 아래의 **로그** 단추를 선택하여 에이전트에서 라이브 출력을 볼 수 있습니다.
 

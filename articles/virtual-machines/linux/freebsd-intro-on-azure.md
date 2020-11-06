@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 2959904029643e5345590bd49f81b231c49771d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39564a34eb7a57cbd20e37b90d064917d5bf3b7a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286311"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337532"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
@@ -22,9 +22,9 @@ Microsoft Azure용 FreeBSD는 최신 서버, 데스크톱 및 포함된 플랫�
 
 Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/)가 미리 구성된 FreeBSD 이미지를 만들고 있습니다. 현재 다음 FreeBSD 버전이 Microsoft에서 이미지로 제공됩니다.
 
-- [Azure Marketplace의 FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [Azure Marketplace의 FreeBSD 11.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
-- [Azure Marketplace의 FreeBSD 12.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
+- Azure Marketplace의 FreeBSD 10.4
+- Azure Marketplace의 FreeBSD 11.2
+- Azure Marketplace의 FreeBSD 12.0
 
 이 에이전트는 처음 사용 시 VM을 프로비전(사용자 이름, 암호 또는 SSH 키, 호스트 이름 등)하고 선택적 VM 확장 기능을 사용하도록 설정하는 것과 같은 작업을 위해 FreeBSD VM과 Azure 패브릭 간의 통신을 담당합니다.
 
@@ -33,22 +33,22 @@ FreeBSD 후속 버전에서는 제품을 최신 상태로 유지하고, FreeBSD 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>FreeBSD에서 Azure CLI를 통해 FreeBSD VM 만들기
 먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 설치해야 합니다.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-bash가 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+bash가 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
 
 ```bash
 sudo pkg install bash
 ```
 
-python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -57,7 +57,7 @@ sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 이제 Azure에 로그인한 후 FreeBSD VM을 만들 수 있습니다. 다음은 FreeBSD 11.0 VM을 만드는 예제입니다. 새로 만든 공용 IP의 정규화된 DNS 이름을 사용하여 `--public-ip-address-dns-name` 매개 변수를 추가할 수도 있습니다. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \

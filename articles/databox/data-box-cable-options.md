@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744171"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334619"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 
@@ -32,12 +32,12 @@ ms.locfileid: "91744171"
 
 1. RJ45 케이블을 사용하여 데이터가 있는 서버에 MGMT 포트를 연결합니다.
 
-    ![1개 포트 설치](media/data-box-cable-options/cabling-mgmt-only.png)
+    ![단일 포트 설정](media/data-box-cable-options/cabling-mgmt-only.png)
 
 2. 서버에서 다음을 설정합니다.
 
-    - **IP 주소**를 192.168.100.5로 설정
-    - **서브넷**을 255.255.255.0으로 설정
+    - **IP 주소** 를 192.168.100.5로 설정
+    - **서브넷** 을 255.255.255.0으로 설정
 
 3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 
@@ -62,10 +62,10 @@ ms.locfileid: "91744171"
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 데이터 원본 역할을 하는 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다.
 3. 서버에서 다음을 설정합니다.
 
-   - **IP 주소**를 192.168.100.5로 설정
-   - **서브넷**을 255.255.255.0으로 설정
+   - **IP 주소** 를 192.168.100.5로 설정
+   - **서브넷** 을 255.255.255.0으로 설정
 
-     ![2개 포트 설치](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![2 포트 설정](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
@@ -78,10 +78,10 @@ ms.locfileid: "91744171"
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다. 데이터 포트는 10GbE 스위치를 통해 데이터가 있는 서버에 연결됩니다.
 3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 
-   - **IP 주소**를 192.168.100.5로 설정
-   - **서브넷**을 255.255.255.0으로 설정
-
-     ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-static-ip.png)
+   - **IP 주소** 를 192.168.100.5로 설정
+   - **서브넷** 을 255.255.255.0으로 설정
+  
+   ![스위치를 사용 하는 2 포트 설정](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. DHCP 서버에서 할당한 IP 주소를 식별합니다.
@@ -102,10 +102,10 @@ ms.locfileid: "91744171"
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다.
 3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 
-   - **IP 주소**를 192.168.100.5로 설정
-   - **서브넷**을 255.255.255.0으로 설정
+   - **IP 주소** 를 192.168.100.5로 설정
+   - **서브넷** 을 255.255.255.0으로 설정
 
-     ![스위치 2를 사용 하는 두 개의 포트 설정](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![스위치 2를 사용 하는 2 포트 설정](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
@@ -126,6 +126,7 @@ ms.locfileid: "91744171"
 1. DHCP 서버에 액세스할 수 있는 스위치를 통해 RJ45 또는 SFP+ 케이블을 서버에 연결합니다.
 
     ![스위치 3을 사용 하는 두 개의 포트 설정](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. IP 주소를 식별하려면 DHCP 서버 또는 DNS 서버를 사용합니다.
 3. 동일한 네트워크의 서버에서 DHCP 서버가 할당한 IP 주소를 사용하는 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 

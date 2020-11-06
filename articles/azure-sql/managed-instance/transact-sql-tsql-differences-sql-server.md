@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790613"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337647"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -159,6 +159,8 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
+  - EXECUTE AS 문을 사용 하 여 사용자를 가장 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. Azure ad 서버 보안 주체에 매핑되는 Azure AD 그룹의 멤버인 사용자는 호출자에 게 지정 된 사용자 이름에 대 한 impersonate 권한이 있더라도 EXECUTE AS 문으로 효과적으로 가장할 수 없습니다.
+
 - Bacpac 파일을 사용 하는 데이터베이스 내보내기/가져오기는 [SSMS v 18.4 이상](/sql/ssms/download-sql-server-management-studio-ssms)또는 [SQLPackage.exe](/sql/tools/sqlpackage-download)를 사용 하 여 SQL Managed Instance의 Azure AD 사용자에 대해 지원 됩니다.
   - 데이터베이스 bacpac 파일을 사용하여 다음 구성이 지원됩니다. 
     - 동일한 Azure AD 도메인 내의 서로 다른 관리 인스턴스 간에 데이터베이스 내보내기/가져오기
@@ -300,6 +302,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
   - 경고는 아직 지원되지 않습니다.
   - 프록시는 지원되지 않습니다.
 - EventLog는 지원되지 않습니다.
+- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 생성, 수정 또는 실행할 수 있는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
 
 현재 지원되지 않는 SQL 에이전트 기능은 다음과 같습니다.
 

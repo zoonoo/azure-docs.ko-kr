@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565765"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337361"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -32,11 +32,11 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 
 다음 다이어그램은 온-프레미스에서 Azure로 Azure Data Box 솔루션을 통해 데이터 흐름을 표시 하 고 데이터를 솔루션을 통해 흐를 때 다양 한 보안 기능을 제공 합니다. 이 흐름은 Data Box 가져오기 순서를 위한 것입니다.
 
-![Data Box 가져오기 보안](media/data-box-security/data-box-security-2.png)
+![Data Box 가져오기 보안](media/data-box-security/data-box-security-import.png)
 
 다음 다이어그램은 Data Box 내보내기 순서를 위한 것입니다.
 
-![Data Box 내보내기 보안](media/data-box-security/data-box-security-3.png)
+![Data Box 내보내기 보안](media/data-box-security/data-box-security-export.png)
 
 데이터가 이러한 솔루션을 흐르면 이벤트가 로깅되고 로그가 생성됩니다. 자세한 내용은 다음을 참조하세요.
 

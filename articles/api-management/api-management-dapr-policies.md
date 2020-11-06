@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558400"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335488"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management Eapr 통합 정책
 
@@ -25,7 +25,7 @@ ms.locfileid: "92558400"
 
 ## <a name="enable-dapr-support-in-the-self-hosted-gateway"></a>자체 호스팅 게이트웨이에서 6Apr 지원 사용
 
-자체 호스팅 게이트웨이에서이 지원 기능을 설정 하려면 "Kubernetes"를 원하는 이름으로 대체 [하는 '](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) 앱 이름 '을 [배포 템플릿에](how-to-deploy-self-hosted-gateway-kubernetes.md) 추가 합니다. API Management를 설정 하 고 사용 하는 방법에 대 한 전체 연습은 [여기](https://aka.ms/apim/dapr/walkthru)에서 사용할 수 있습니다.
+자체 호스팅 게이트웨이에서이 지원 기능을 설정 하려면 "Kubernetes"를 원하는 이름으로 대체 [하는 '](https://github.com/dapr/docs/blob/master/README.md) 앱 이름 '을 [배포 템플릿에](how-to-deploy-self-hosted-gateway-kubernetes.md) 추가 합니다. API Management를 설정 하 고 사용 하는 방법에 대 한 전체 연습은 [여기](https://aka.ms/apim/dapr/walkthru)에서 사용할 수 있습니다.
 ```yml
 template:
     metadata:
@@ -39,9 +39,9 @@ template:
 
 ## <a name="distributed-application-runtime-dapr-integration-policies"></a>Dapr(Distributed Application Runtime) 통합 정책
 
--  [서비스에 요청 보내기](api-management-dapr-policies.md#invoke): eapr 런타임을 사용 하 여 마이크로 서비스를 찾고 안정적으로 통신 합니다. D 4에서 서비스 호출에 대 한 자세한 내용은이 [추가 정보](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) 파일의 설명을 참조 하세요.
--  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub): aapr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다. 6Apr의 게시/구독 메시징에 대해 자세히 알아보려면이 [추가 정보](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) 파일의 설명을 참조 하세요.
--  [출력 바인딩 트리거](api-management-dapr-policies.md#bind): gapr 런타임을 사용 하 여 출력 바인딩을 통해 외부 시스템을 호출 합니다. Eapr의 바인딩에 대해 자세히 알아보려면이 [추가 정보](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) 파일의 설명을 참조 하세요.
+-  [서비스에 요청 보내기](api-management-dapr-policies.md#invoke): eapr 런타임을 사용 하 여 마이크로 서비스를 찾고 안정적으로 통신 합니다. D 4에서 서비스 호출에 대 한 자세한 내용은이 [추가 정보](https://github.com/dapr/docs/blob/master/README.md#service-invocation) 파일의 설명을 참조 하세요.
+-  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub): aapr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다. 6Apr의 게시/구독 메시징에 대해 자세히 알아보려면이 [추가 정보](https://github.com/dapr/docs/blob/master/README.md) 파일의 설명을 참조 하세요.
+-  [출력 바인딩 트리거](api-management-dapr-policies.md#bind): gapr 런타임을 사용 하 여 출력 바인딩을 통해 외부 시스템을 호출 합니다. Eapr의 바인딩에 대해 자세히 알아보려면이 [추가 정보](https://github.com/dapr/docs/blob/master/README.md) 파일의 설명을 참조 하세요.
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> 서비스에 요청 보내기
 
@@ -85,15 +85,15 @@ template:
 
 | 요소             | 설명  | 필수 |
 |---------------------|--------------|----------|
-| set-backend-service | 루트 요소 | 예      |
+| set-backend-service | 루트 요소 | yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | Default |
+| 특성        | 설명                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | "Eapr"로 설정 해야 합니다.           | 예      | 해당 없음     |
-| i 4-앱 id      | 대상 마이크로 서비스의 이름입니다. 는 Eapr의 [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
-| aapr-메서드      | 대상 마이크로 서비스 호출할 메서드 또는 URL의 이름입니다. D 4의 [메서드 이름](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
+| i 4-앱 id      | 대상 마이크로 서비스의 이름입니다. 는 Eapr의 [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
+| aapr-메서드      | 대상 마이크로 서비스 호출할 메서드 또는 URL의 이름입니다. D 4의 [메서드 이름](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
 
 ### <a name="usage"></a>사용량
 
@@ -120,7 +120,7 @@ template:
 
 #### <a name="example"></a>예제
 
-다음 예제에서는 현재 요청의 본문을 "orders" Pub/Sub [구성 요소의](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters)"new" [항목](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) 으로 보내는 방법을 보여 줍니다. 6Apr 런타임에서 받은 응답은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 개체의 Variables 컬렉션의 "' d 4-응답 ' 항목에 저장 됩니다.
+다음 예제에서는 현재 요청의 본문을 "orders" Pub/Sub [구성 요소의](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters)"new" [항목](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) 으로 보내는 방법을 보여 줍니다. 6Apr 런타임에서 받은 응답은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 개체의 Variables 컬렉션의 "' d 4-응답 ' 항목에 저장 됩니다.
 
 예를 들어, 및가 오류로 응답 하는 경우에는 ccruntime이 대상 항목을 찾을 수 없는 경우 "오류 발생" 섹션이 트리거됩니다. 6Apr 런타임에서 받은 응답은 호출자로 축 자로 반환 됩니다. 그렇지 않으면 기본 `200 OK` 응답이 반환 됩니다.
 
@@ -153,17 +153,17 @@ template:
 
 | 요소             | 설명  | 필수 |
 |---------------------|--------------|----------|
-| 게시-d 4 월     | 루트 요소 | 예      |
+| 게시-d 4 월     | 루트 요소 | yes      |
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | Default |
+| 특성        | 설명                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
-| pubsub 이름      | 대상 PubSub 구성 요소의 이름입니다. 은 (는) d 4에서 [pubceparameter](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) 에 매핑됩니다. 표시 되지 않는 경우 __토픽__ 특성 값은 형식 이어야 합니다 `pubsub-name/topic-name` .    | 예       | None    |
-| 토픽            | 항목의 이름입니다. 는 d 4의 [토픽](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다.               | 예      | 해당 없음     |
-| ignore-error     | 로 설정 하 `true` 는 경우에는 Gapr 런타임에서 오류를 수신 하는 동안 ["오류 발생"](api-management-error-handling-policies.md) 섹션을 트리거하지 않도록 정책에 지시 합니다. | 아니요 | `false` |
+| pubsub 이름      | 대상 PubSub 구성 요소의 이름입니다. 은 (는) d 4에서 [pubceparameter](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 에 매핑됩니다. 표시 되지 않는 경우 __토픽__ 특성 값은 형식 이어야 합니다 `pubsub-name/topic-name` .    | 예       | None    |
+| 토픽            | 항목의 이름입니다. 는 d 4의 [토픽](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다.               | 예      | 해당 없음     |
+| ignore-error     | 로 설정 하 `true` 는 경우에는 Gapr 런타임에서 오류를 수신 하는 동안 ["오류 발생"](api-management-error-handling-policies.md) 섹션을 트리거하지 않도록 정책에 지시 합니다. | 예 | `false` |
 | response-variable-name | 6Apr 런타임의 응답을 저장 하는 데 사용할 [Variables](api-management-policy-expressions.md#ContextVariables) 컬렉션 항목의 이름입니다. | 예 | None |
-| 시간 제한 | 6Apr 런타임이 응답할 때까지 대기 하는 시간 (초)입니다. 범위는 1 ~ 240 초입니다. | 아니요 | 5 |
+| 시간 제한 | 6Apr 런타임이 응답할 때까지 대기 하는 시간 (초)입니다. 범위는 1 ~ 240 초입니다. | 예 | 5 |
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 
@@ -176,7 +176,7 @@ template:
 
 ## <a name="trigger-output-binding"></a><a name="bind"></a> 트리거 출력 바인딩
 
-이 정책은 API Management 게이트웨이에서 아웃 바운드 64 차 [바인딩을](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md)트리거하도록 지시 합니다. 정책에서는 `http://localhost:3500/v1.0/bindings/{{bind-name}}` 템플릿 매개 변수를 바꾸고 정책 문에 지정 된 콘텐츠를 추가 하는 HTTP POST 요청을 수행 하 여이 작업을 수행 합니다.
+이 정책은 API Management 게이트웨이에서 아웃 바운드 64 차 [바인딩을](https://github.com/dapr/docs/blob/master/README.md)트리거하도록 지시 합니다. 정책에서는 `http://localhost:3500/v1.0/bindings/{{bind-name}}` 템플릿 매개 변수를 바꾸고 정책 문에 지정 된 콘텐츠를 추가 하는 HTTP POST 요청을 수행 하 여이 작업을 수행 합니다.
 
 이 정책에서는 사이드카가 게이트웨이와 동일한 pod의 컨테이너에서 실행 되 고 있다고 가정 합니다. 6apr 런타임에서는 바인딩으로 표시 되는 외부 리소스를 호출 합니다.
 
@@ -236,20 +236,20 @@ template:
 
 | 요소             | 설명  | 필수 |
 |---------------------|--------------|----------|
-| 호출-차원 4-바인딩 | 루트 요소 | 예      |
-| metadata            | 특정 메타 데이터를 키/값 쌍의 형식으로 바인딩합니다. 는 Eapr의 [metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 아니요 |
-| 데이터            | 메시지 내용입니다. 는 d 4의 [데이터](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 아니요 |
+| 호출-차원 4-바인딩 | 루트 요소 | yes      |
+| metadata            | 특정 메타 데이터를 키/값 쌍의 형식으로 바인딩합니다. 는 Eapr의 [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 |
+| 데이터            | 메시지 내용입니다. 는 d 4의 [데이터](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 |
 
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | Default |
+| 특성        | 설명                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
-| name            | 대상 바인딩 이름입니다. 은 (는) d 4에서 [정의](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) 된 바인딩의 이름과 일치 해야 합니다.           | 예      | 해당 없음     |
-| operation       | 대상 작업 이름 (바인딩 관련)입니다. 는 d 4의 [작업](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 | None |
-| ignore-error     | 로 설정 하 `true` 는 경우에는 Gapr 런타임에서 오류를 수신 하는 동안 ["오류 발생"](api-management-error-handling-policies.md) 섹션을 트리거하지 않도록 정책에 지시 합니다. | 아니요 | `false` |
+| name            | 대상 바인딩 이름입니다. 은 (는) d 4에서 [정의](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) 된 바인딩의 이름과 일치 해야 합니다.           | 예      | 해당 없음     |
+| operation       | 대상 작업 이름 (바인딩 관련)입니다. 는 d 4의 [작업](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 | None |
+| ignore-error     | 로 설정 하 `true` 는 경우에는 Gapr 런타임에서 오류를 수신 하는 동안 ["오류 발생"](api-management-error-handling-policies.md) 섹션을 트리거하지 않도록 정책에 지시 합니다. | 예 | `false` |
 | response-variable-name | 6Apr 런타임의 응답을 저장 하는 데 사용할 [Variables](api-management-policy-expressions.md#ContextVariables) 컬렉션 항목의 이름입니다. | 예 | None |
-| 시간 제한 | 6Apr 런타임이 응답할 때까지 대기 하는 시간 (초)입니다. 범위는 1 ~ 240 초입니다. | 아니요 | 5 |
+| 시간 제한 | 6Apr 런타임이 응답할 때까지 대기 하는 시간 (초)입니다. 범위는 1 ~ 240 초입니다. | 예 | 5 |
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 

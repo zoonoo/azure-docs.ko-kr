@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167817"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335697"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
@@ -31,10 +31,11 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 1. [가상 네트워크에서 가상 네트워크 게이트웨이가 실행 중인지 확인](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)합니다.
 2. [가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인](#check-whether-an-application-gateway-is-running-in-the-virtual-network)합니다.
-3. [가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)합니다.
-4. [가상 네트워크가 다른 리소스에 연결되어 있는지 확인](#check-whether-the-virtual-network-is-connected-to-other-resource)합니다.
-5. [가상 네트워크에서 가상 컴퓨터가 여전히 실행 중인지 확인](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)합니다.
-6. [가상 네트워크가 마이그레이션 도중에 걸려 있는지 확인](#check-whether-the-virtual-network-is-stuck-in-migration)합니다.
+3. [가상 네트워크에 Azure container instances가 계속 있는지 확인](#check-whether-azure-container-instances-still-exist-in-the-virtual-network)합니다.
+4. [가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)합니다.
+5. [가상 네트워크가 다른 리소스에 연결되어 있는지 확인](#check-whether-the-virtual-network-is-connected-to-other-resource)합니다.
+6. [가상 네트워크에서 가상 컴퓨터가 여전히 실행 중인지 확인](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)합니다.
+7. [가상 네트워크가 마이그레이션 도중에 걸려 있는지 확인](#check-whether-the-virtual-network-is-stuck-in-migration)합니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 
@@ -46,7 +47,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ![게이트웨이가 실행 중인지 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-가상 네트워크의 경우 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 가상 네트워크 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
+가상 네트워크의 경우 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 가상 네트워크 게이트웨이에 대한 **연결된 디바이스** 를 확인합니다.
 
 ![Azure Portal의 가상 네트워크에 대 한 연결 된 장치 목록의 스크린샷 목록에 가상 네트워크 게이트웨이가 강조 표시 됩니다.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
@@ -54,11 +55,24 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인
 
-가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
+가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 디바이스** 를 확인합니다.
 
 ![Azure Portal의 가상 네트워크에 대 한 연결 된 장치 목록의 스크린샷 응용 프로그램 게이트웨이가 목록에 강조 표시 됩니다.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 애플리케이션 게이트웨이가 있는 경우 이를 제거해야 가상 네트워크를 삭제할 수 있습니다.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>가상 네트워크에 Azure container instances가 계속 있는지 확인
+
+1. Azure Portal에서 리소스 그룹의 **개요** 페이지로 이동 합니다.
+1. 리소스 그룹의 리소스 목록에 대 한 헤더에서 **숨겨진 유형 표시** 를 선택 합니다. 네트워크 프로필 유형은 기본적으로 Azure Portal에서 숨겨집니다.
+1. 컨테이너 그룹과 관련 된 네트워크 프로필을 선택 합니다.
+1. **삭제** 를 선택합니다.
+
+   ![숨겨진 네트워크 프로필 목록의 스크린샷](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. 서브넷 또는 가상 네트워크를 다시 삭제 하십시오.
+
+이러한 단계를 수행 해도 문제가 해결 되지 않으면 다음 [Azure CLI 명령을](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) 사용 하 여 리소스를 정리 합니다. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인
 

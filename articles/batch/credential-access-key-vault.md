@@ -4,12 +4,12 @@ description: Azure Batch를 사용하여 Key Vault의 자격 증명에 프로그
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913214"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337494"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Batch를 사용하여 Key Vault에 안전하게 액세스
 
@@ -67,7 +67,7 @@ $newAzureAdPrincipal = New-AzureRmADServicePrincipal -ApplicationId $newADApplic
 
 ## <a name="grant-rights-to-key-vault"></a>Key Vault에 대한 권한 부여
 
-이전 단계에서 만든 서비스 사용자는 Key Vault에서 비밀을 검색할 수 있는 권한이 필요합니다. 사용 권한은 [Azure Portal](/key-vault/general/assign-access-policy-portal.md) 또는 아래의 PowerShell 명령을 통해 부여할 수 있습니다.
+이전 단계에서 만든 서비스 사용자는 Key Vault에서 비밀을 검색할 수 있는 권한이 필요합니다. 사용 권한은 [Azure Portal](/azure/key-vault/general/assign-access-policy-portal) 또는 아래의 PowerShell 명령을 통해 부여할 수 있습니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'

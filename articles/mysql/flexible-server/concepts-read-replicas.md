@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420889"
+ms.locfileid: "94336066"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL-유연한 서버에서 복제본 읽기
 
@@ -125,7 +125,7 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에서 **복제 지연
 | 중지된 복제본 | 원본 서버와 읽기 복제본 간의 복제를 중지 하면 중지 된 복제본이 읽기와 쓰기를 모두 수락 하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다. |
 | 삭제 된 원본 및 독립 실행형 서버 | 원본 서버를 삭제 하면 복제가 모든 읽기 복제본으로 중지 됩니다. 이러한 복제본은 자동으로 독립 실행형 서버가 되며 읽기와 쓰기를 모두 허용할 수 있습니다. 원본 서버 자체가 삭제 됩니다. |
 | 사용자 계정 | 원본 서버의 사용자는 읽기 복제본에 복제 됩니다. 원본 서버에서 사용할 수 있는 사용자 계정을 사용 하 여 읽기 복제본에만 연결할 수 있습니다. |
-| 서버 매개 변수 | 데이터가 동기화되지 않고 데이터가 손실 또는 손상될 가능성으로부터 데이터를 보호하기 위해 읽기 복제본을 사용하는 경우 일부 서버 매개 변수는 업데이트할 수 없도록 잠깁니다. <br> 다음 서버 매개 변수는 원본 서버와 복제 서버 모두에서 잠깁니다.<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다. <br> 원본 서버에서 위의 매개 변수 중 하나를 업데이트 하려면 복제본 서버를 삭제 하 고, 원본의 매개 변수 값을 업데이트 하 고, 복제본을 다시 만드십시오. |
+| 서버 매개 변수 | 데이터가 동기화되지 않고 데이터가 손실 또는 손상될 가능성으로부터 데이터를 보호하기 위해 읽기 복제본을 사용하는 경우 일부 서버 매개 변수는 업데이트할 수 없도록 잠깁니다. <br> 다음 서버 매개 변수는 원본 서버와 복제 서버 모두에서 잠깁니다.<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다. <br> 원본 서버에서 위의 매개 변수 중 하나를 업데이트 하려면 복제본 서버를 삭제 하 고, 원본의 매개 변수 값을 업데이트 하 고, 복제본을 다시 만드십시오. |
 | 기타 | -복제본의 복제본을 만드는 것은 지원 되지 않습니다. <br> -메모리 내 테이블에서 복제본이 동기화 되지 않을 수 있습니다. MySQL 복제 기술의 제한 사항입니다. 자세한 내용은 [MySQL 참조 문서](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)를 참조하세요. <br>-원본 서버 테이블에 기본 키가 있는지 확인 합니다. 기본 키가 없으면 원본과 복제본 간의 복제 대기 시간이 발생할 수 있습니다.<br>- [Mysql 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) 에서 mysql 복제 제한 사항의 전체 목록을 검토 하세요. |
 
 ## <a name="next-steps"></a>다음 단계

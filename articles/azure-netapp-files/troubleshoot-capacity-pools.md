@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013647"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337562"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
 
@@ -38,7 +38,6 @@ ms.locfileid: "92013647"
 |-|-|
 | 볼륨의 용량 풀을 변경 하는 것은 허용 되지 않습니다. | 이 기능을 사용 하기 위한 권한이 아직 부여 되지 않았을 수 있습니다. <br> 볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 하 고를 설정 해야 `-FeatureName ANFTierChange` 합니다. [볼륨의 서비스 수준 동적 변경](dynamic-change-volume-service-level.md)에서 등록 단계를 참조 하세요. |
 | 총 볼륨 크기에 비해 용량 풀 크기가 너무 작습니다. |  이 오류는 이동 하는 볼륨에 사용 가능한 용량이 없는 대상 용량 풀의 결과입니다.  <br> 대상 풀의 크기를 늘리거나 더 큰 다른 풀을 선택 하십시오.  [용량 풀 또는 볼륨 크기 조정을](azure-netapp-files-resize-capacity-pools-or-volumes.md)참조 하세요.   |
-| 대상 용량 풀의 암호화 유형이 원본 용량 풀과 다른 경우 볼륨을 이동할 수 없습니다.  예를 들어 이중 암호화에서 단일 암호화로 이동 하거나 그 반대로 이동 합니다.  | 원본 용량 풀과 동일한 암호화 유형으로 대상 용량 풀을 선택 하세요.   |
 |  호출한 볼륨이 `'{source pool name}'` 대상 풀에 이미 있으므로 풀 변경을 완료할 수 없습니다. `'{target pool name}'` | 이 오류는 동일한 이름의 볼륨이 대상 용량 풀에 이미 있는 경우에 발생 합니다.  이름이 같은 볼륨이 없는 다른 용량 풀을 선택 하십시오.   | 
 
 ## <a name="next-steps"></a>다음 단계  

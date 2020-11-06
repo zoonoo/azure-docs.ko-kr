@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
-ms.custom: seodec18
-ms.openlocfilehash: 8c9007cf14b485c37b94e9f475e2ce890ea0ea2b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seodec18, "seo-nov-2020"
+ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330804"
+ms.locfileid: "94336134"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,10 +28,10 @@ Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변
 
 | **클라이언트 드라이버** | **SQL API** | **Azure Cosmos DB의 API for Cassandra** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 예 | 예 | 예 | 예 | 예 |
-|Java|예|예|예|예|예|
-|Python|예|예|예|예|예|
-|Node/JS|예|예|예|예|예|
+| .NET | 예 | 예 | 예 | yes | 예 |
+|Java|예|예|예|yes|예|
+|Python|예|예|예|yes|예|
+|Node/JS|예|예|예|yes|예|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 

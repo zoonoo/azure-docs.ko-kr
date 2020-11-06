@@ -4,12 +4,12 @@ description: 최신 릴리스 정보, 버전, 알려진 문제 및 예정 된 �
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948462"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335029"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Azure Blockchain 서비스의 새로운 기능
 
@@ -27,7 +27,7 @@ Azure Blockchain 서비스는 지속적으로 향상 된 기능을 받습니다.
 
 ### <a name="version-upgrades"></a>버전 업그레이드
 
-- 2.6.0으로 쿼럼 버전을 업그레이드 합니다. 버전 2.6.0를 사용 하 여 서명 된 개인 트랜잭션을 보낼 수 있습니다. 개인 트랜잭션 전송에 대 한 자세한 내용은 [쿼럼 API 설명서](https://docs.goquorum.com/en/latest/Getting%20Started/api/)를 참조 하세요.
+- 2.6.0으로 쿼럼 버전을 업그레이드 합니다. 버전 2.6.0를 사용 하 여 서명 된 개인 트랜잭션을 보낼 수 있습니다. 개인 트랜잭션 전송에 대 한 자세한 내용은 [쿼럼 API 설명서](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis)를 참조 하세요.
 - Tessera 버전을 0.10.5로 업그레이드 합니다.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>계약 크기 및 트랜잭션 크기가 128 KB로 증가
@@ -69,7 +69,7 @@ Azure Blockchain 서비스는 지속적으로 향상 된 기능을 받습니다.
 쿼럼 v 2.6.0에서 추가 *값* 매개 변수를 제공 하지 않고 *eth* 함수를 호출 하면 *메서드 처리기* 가 예외를 손상 시킵니다. 쿼럼 팀에 알림이 표시 되었으며 7 월 2020 일에 수정이 예상 됩니다. 수정을 사용할 수 있을 때까지 다음 해결 방법을 사용할 수 있습니다.
 
 - 성능에 영향을 줄 수 있으므로 *eth. estimateGas* 를 사용 하지 마십시오. Eth. estimateGas 성능 문제에 대 한 자세한 내용은 [estimateGas 함수를 호출 하면 성능이 저하](#calling-ethestimategas-function-reduces-performance)됩니다. 각 트랜잭션에 가스 값을 포함 합니다. 대부분의 라이브러리는 가스 값이 제공 되지 않은 경우 eth를 호출 하 여 쿼럼 v 2.6.0의 작동이 중단 되도록 합니다.
-- *Eth*를 호출 해야 하는 경우에는 쿼럼 팀에서 추가 매개 변수 *값* 을 *0* 으로 전달 하 여 해결 방법을 제안 합니다.
+- *Eth* 를 호출 해야 하는 경우에는 쿼럼 팀에서 추가 매개 변수 *값* 을 *0* 으로 전달 하 여 해결 방법을 제안 합니다.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>4 개 미만의 유효성 검사기 노드가 있는 경우 마이닝 중지
 
@@ -119,7 +119,7 @@ Azure Blockchain 서비스 기본 계층 및 사설 트랜잭션을 사용 하�
 
 *Eth estimateGas 함수를* 여러 번 호출 하면 초당 트랜잭션이 크게 줄어듭니다. 각 트랜잭션 전송에 *eth. estimateGas* 함수를 사용 하지 마십시오. *Eth. estimateGas* 함수는 메모리를 많이 사용 합니다.
 
-가능 하면 트랜잭션 제출에 대해 보수적인 가스 값을 사용 하 고 *eth. estimateGas*의 사용을 최소화 합니다.
+가능 하면 트랜잭션 제출에 대해 보수적인 가스 값을 사용 하 고 *eth. estimateGas* 의 사용을 최소화 합니다.
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>스마트 계약의 바인딩되지 않은 루프로 인 한 성능 저하
 
@@ -127,5 +127,5 @@ Azure Blockchain 서비스 기본 계층 및 사설 트랜잭션을 사용 하�
 
 - [바인딩되지 않은 루프 방지](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [스마트 계약 보안 모범 사례](https://github.com/ConsenSys/smart-contract-best-practices)
-- [쿼럼에서 제공 하는 스마트 계약 지침](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [쿼럼에서 제공 하는 스마트 계약 지침](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [농담에서 제공 하는 가스 한도 및 루프에 대 한 지침](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

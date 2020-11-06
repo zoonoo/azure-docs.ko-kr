@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324730"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334995"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -253,7 +253,7 @@ VM에서 모델을 R 또는 Python으로 빌드한 다음, Azure Machine Learnin
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 여기에는 다음이 포함됩니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 개체는 다음과 같습니다.
 
 * **Vowpal Wabbit** : 속성 온라인 학습 알고리즘입니다.
 * **xgboost** : 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
@@ -310,7 +310,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-.model 파일이 지정된 디렉터리에 기록됩니다. 이 데모 예제에 대한 정보는 [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification)에서 찾을 수 있습니다.
+.model 파일이 지정된 디렉터리에 기록됩니다. 이 데모 예제에 대한 정보는 [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification)에서 찾을 수 있습니다.
 
 xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgboost.readthedocs.org/en/latest/) 및 해당 [GitHub 리포지토리](https://github.com/dmlc/xgboost)를 참조하세요.
 

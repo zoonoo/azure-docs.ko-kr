@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088638"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337919"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
@@ -28,14 +28,18 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 
 ## <a name="dependencies"></a>종속성
 
-다음 NuGet 패키지를 설치 합니다.
+Steeltoe 2.4.4의 경우 다음 NuGet 패키지를 추가 합니다.
 
 * [Steeltoe. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 * [Steeltoe. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
+Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
+
+* [Steeltoe. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+
 ## <a name="update-startupcs"></a>Startup.cs 업데이트
 
-1. `ConfigureServices`메서드에서 및 메서드를 호출 합니다 `AddDistributedTracing` `AddZipkinExporter` .
+1. Steeltoe 2.4.4의 경우 `AddDistributedTracing` 메서드에서 및를 호출 `AddZipkinExporter` `ConfigureServices` 합니다.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -45,14 +49,29 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
    }
    ```
 
-1. `Configure`메서드에서 메서드를 호출 `UseTracingExporter` 합니다.
+   Steeltoe 3.0.0의 경우 `AddDistributedTracing` 메서드에서를 호출 `ConfigureServices` 합니다.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
+   }
+   ```
+
+1. Steeltoe 2.4.4의 경우 `UseTracingExporter` 메서드에서를 호출 `Configure` 합니다.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
         app.UseTracingExporter();
    }
    ```
+
+   Steeltoe 3.0.0의 경우에는 메서드에 변경이 필요 하지 않습니다 `Configure` .
 
 ## <a name="update-configuration"></a>구성 업데이트
 
@@ -60,9 +79,9 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 
 1. `management.tracing.alwaysSample`를 true로 설정합니다.
 
-2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송 된 추적 범위를 보려면 `management.tracing.egressIgnorePattern` "/api/v2/spans |/v2/apps/.* 로 설정 합니다. /cvor 권한 |/eureka/.*| /oauth/. * "
+2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송 된 추적 범위를 보려면 `management.tracing.egressIgnorePattern` "/api/v2/spans |/v2/apps/. *로 설정 합니다. /cvor 권한 |/eureka/.* | /oauth/. * "
 
-예를 들어 * 의appsettings.js에* 는 다음과 같은 속성이 포함 됩니다.
+예를 들어 *의appsettings.js에* 는 다음과 같은 속성이 포함 됩니다.
  
 ```json
 "management": {
@@ -136,19 +155,19 @@ spring.sleuth.sampler.probability=0.5
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
 1. Azure Portal에서 Azure Spring Cloud 서비스 페이지로 이동합니다.
-1. **모니터링**  페이지에서 **분산 추적**을 선택합니다.
-1. **설정 편집**을 선택하여 새 설정을 편집하거나 추가합니다.
+1. **모니터링**  페이지에서 **분산 추적** 을 선택합니다.
+1. **설정 편집** 을 선택하여 새 설정을 편집하거나 추가합니다.
 1. 새 Application Insights 쿼리를 만들거나 기존 쿼리를 선택합니다.
 1. 모니터링할 로깅 범주를 선택하고 보존 시간(일)을 지정합니다.
-1. **적용**을 선택하여 추적을 적용합니다.
+1. **적용** 을 선택하여 추적을 적용합니다.
 
 ## <a name="view-the-application-map"></a>애플리케이션 맵 보기
 
-**분산 추적** 페이지로 돌아가서 **애플리케이션 맵 보기**를 선택합니다. 애플리케이션 및 모니터링 설정의 시각적 표현을 검토합니다. 애플리케이션 맵 사용 방법을 알아보려면 [애플리케이션 맵: 분산 애플리케이션 심사](../azure-monitor/app/app-map.md)를 참조하세요.
+**분산 추적** 페이지로 돌아가서 **애플리케이션 맵 보기** 를 선택합니다. 애플리케이션 및 모니터링 설정의 시각적 표현을 검토합니다. 애플리케이션 맵 사용 방법을 알아보려면 [애플리케이션 맵: 분산 애플리케이션 심사](../azure-monitor/app/app-map.md)를 참조하세요.
 
 ## <a name="use-search"></a>검색 사용
 
-검색 함수를 사용하여 기타 특정한 원격 분석 항목을 쿼리할 수 있습니다. **분산 추적** 페이지에서 **검색**을 선택합니다. 검색 함수를 사용하는 방법에 대한 자세한 내용은 [Application Insights에서 검색 사용](../azure-monitor/app/diagnostic-search.md)을 참조하세요.
+검색 함수를 사용하여 기타 특정한 원격 분석 항목을 쿼리할 수 있습니다. **분산 추적** 페이지에서 **검색** 을 선택합니다. 검색 함수를 사용하는 방법에 대한 자세한 내용은 [Application Insights에서 검색 사용](../azure-monitor/app/diagnostic-search.md)을 참조하세요.
 
 ## <a name="use-application-insights"></a>Application Insights 사용
 
@@ -157,8 +176,8 @@ Application Insights는 애플리케이션 맵과 검색 기능 외에도 모니
 ## <a name="disable-application-insights"></a>Application Insights를 사용하지 않도록 설정
 
 1. Azure Portal에서 Azure Spring Cloud 서비스 페이지로 이동합니다.
-1. **모니터링**에서 **분산 추적**을 선택합니다.
-1. **사용 안 함**을 선택하여 Application Insights를 사용하지 않도록 설정합니다.
+1. **모니터링** 에서 **분산 추적** 을 선택합니다.
+1. **사용 안 함** 을 선택하여 Application Insights를 사용하지 않도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

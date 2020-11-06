@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675628"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335267"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 
@@ -30,19 +30,19 @@ SPA (단일 페이지 응용 프로그램)를 빌드하는 데 필요한 모든 
 
 ## <a name="overview"></a>개요
 
-많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript 또는 Angular, Vue, React 같은 SPA 프레임워크를 사용하여 단일 페이지 애플리케이션을 작성합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다.
+많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript 또는 Angular, Vue, React 같은 SPA 프레임워크를 사용하여 단일 페이지 애플리케이션을 작성합니다. 이러한 애플리케이션은 웹 브라우저에서 실행되며 기존 서버 쪽 웹 애플리케이션과 다른 인증 특징이 있습니다.
 
 Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 로그인 하 고 백 엔드 서비스 또는 웹 Api에 액세스 하는 토큰을 가져올 수 있도록 하는 **두 가지** 옵션을 제공 합니다.
 
-- [OAuth 2.0 인증 코드 흐름 (PKCE 포함)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용 하면 응용 프로그램이 **ID** 토큰에 대 한 권한 부여 코드를 교환 하 여 보호 된 api를 호출 하는 데 필요한 인증 된 사용자 및 **액세스** 토큰을 나타낼 수 있습니다. 또한 사용자를 대신 하 여 리소스에 대 한 장기 액세스를 제공 하는 **새로 고침** 토큰을 반환 합니다. 이것이 **권장** 되는 방법입니다.
+- [OAuth 2.0 인증 코드 흐름(PKCE 사용)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용하면 인증된 사용자를 나타내는 **ID** 토큰과 보호된 API를 호출하는 데 필요한 **액세스** 토큰의 권한 부여 코드를 애플리케이션에서 교환할 수 있습니다. 뿐만 아니라 애플리케이션은 해당 사용자와의 상호 작용을 요구하지 않고 사용자 대신 리소스에 대한 장기 액세스 권한을 제공하는 **새로 고침** 토큰을 반환합니다. 이 방법을 사용하는 것이 **좋습니다**.
 
-![단일 페이지 응용 프로그램-인증](./media/scenarios/spa-app-auth.svg)
+![단일 페이지 애플리케이션 인증](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 암시적 흐름](./v2-oauth2-implicit-grant-flow.md)입니다. 암시적 권한 부여 흐름을 사용 하면 응용 프로그램에서 **ID** 및 **액세스** 토큰을 가져올 수 있습니다. 권한 부여 코드 흐름과 달리 암시적 허용 흐름은 **새로 고침 토큰** 을 반환 하지 않습니다.
+- [OAuth 2.0 암시적 흐름](./v2-oauth2-implicit-grant-flow.md). 암시적 권한 부여 흐름을 사용하면 애플리케이션에서 **ID** 및 **액세스** 토큰을 얻을 수 있습니다. 권한 부여 코드 흐름과 달리, 암시적 허용 흐름은 **새로 고침 토큰** 을 반환하지 않습니다.
 
-![단일 페이지 응용 프로그램-암시적](./media/scenarios/spa-app.svg)
+![단일 페이지 애플리케이션 암시적](./media/scenarios/spa-app.svg)
 
-이 인증 흐름에는 전자 및 반응-네이티브와 같은 플랫폼 간 JavaScript 프레임 워크를 사용 하는 응용 프로그램 시나리오가 포함 되지 않습니다. 네이티브 플랫폼과 상호 작용 하려면 추가 기능이 필요 합니다.
+이 인증 흐름에는 Electron 및 React-Native와 같은 플랫폼 간 JavaScript 프레임워크를 사용하는 애플리케이션 시나리오가 포함되지 않습니다. 네이티브 플랫폼과 상호 작용 하려면 추가 기능이 필요 합니다.
 
 ## <a name="specifics"></a>특수 적용 사항
 
@@ -58,5 +58,4 @@ Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [앱 등록](scenario-spa-app-registration.md)
+[앱 등록](scenario-spa-app-registration.md)

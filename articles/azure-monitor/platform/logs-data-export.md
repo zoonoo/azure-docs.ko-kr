@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637346"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335097"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -58,7 +58,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
@@ -189,6 +189,7 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +271,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 
 | 테이블 | 제한 사항 |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -436,7 +437,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

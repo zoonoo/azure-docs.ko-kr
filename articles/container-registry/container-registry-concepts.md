@@ -3,12 +3,12 @@ title: 리포지토리 & 이미지 정보
 description: Azure 컨테이너 레지스트리, 리포지토리 및 컨테이너 이미지의 주요 개념을 소개 합니다.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390451"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335897"
 ---
 # <a name="about-registries-repositories-and-images"></a>레지스트리, 리포지토리 및 이미지 정보
 
@@ -16,7 +16,7 @@ ms.locfileid: "85390451"
 
 ## <a name="registry"></a>레지스트리
 
-컨테이너 *레지스트리*는 컨테이너 이미지를 저장하고 배포하는 서비스입니다. Docker 허브는 오픈 소스 커뮤니티를 지 원하는 공용 컨테이너 레지스트리 이며 이미지의 일반 카탈로그로 사용 됩니다. Azure Container Registry은 사용자에 게 이미지에 대 한 직접 제어를 제공 하 고, 통합 인증을 사용 하 여 네트워크에 가까운 배포, [가상 네트워크 및 방화벽 구성](container-registry-vnet.md), [태그 잠금](container-registry-image-lock.md)및 기타 다양 한 기능에 대 한 글로벌 배포와 안정성을 지 원하는 [지역 복제](container-registry-geo-replication.md) 를 제공 합니다. 
+컨테이너 *레지스트리* 는 컨테이너 이미지를 저장하고 배포하는 서비스입니다. Docker 허브는 오픈 소스 커뮤니티를 지 원하는 공용 컨테이너 레지스트리 이며 이미지의 일반 카탈로그로 사용 됩니다. Azure Container Registry은 사용자에 게 이미지에 대 한 직접 제어를 제공 하 고, 통합 인증을 사용 하 여 네트워크에 가까운 배포, [가상 네트워크 및 방화벽 구성](container-registry-vnet.md), [태그 잠금](container-registry-image-lock.md)및 기타 다양 한 기능에 대 한 글로벌 배포와 안정성을 지 원하는 [지역 복제](container-registry-geo-replication.md) 를 제공 합니다. 
 
 Docker 컨테이너 이미지 외에도 Azure Container Registry은 OCI (Open Container 이니셔티브) 이미지 형식을 비롯 한 관련 [콘텐츠 아티팩트](container-registry-image-formats.md) 를 지원 합니다.
 
@@ -45,7 +45,7 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 - *acr-helloworld: v1*
 - *acr-helloworld: v2*
 
-리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예:
+리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예를 들면 다음과 같습니다.
 
 - *marketing/campaign10-18/웹: v2*
 - *marketing/campaign10-18/api: v3*
@@ -73,7 +73,7 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 ### <a name="layer"></a>계층
 
-컨테이너 이미지는 각각 이미지를 정의 하는 Dockerfile의 줄에 해당 하는 하나 이상의 *계층*으로 구성 됩니다. 레지스트리의 이미지는 공용 계층을 공유하므로 스토리지 효율성이 높아집니다. 예를 들어, 다른 리포지토리에 있는 여러 이미지가 동일한 Alpine Linux 기본 계층을 공유할 수 있지만 해당 계층의 복사본 하나만 레지스트리에 저장됩니다.
+컨테이너 이미지는 각각 이미지를 정의 하는 Dockerfile의 줄에 해당 하는 하나 이상의 *계층* 으로 구성 됩니다. 레지스트리의 이미지는 공용 계층을 공유하므로 스토리지 효율성이 높아집니다. 예를 들어, 다른 리포지토리에 있는 여러 이미지가 동일한 Alpine Linux 기본 계층을 공유할 수 있지만 해당 계층의 복사본 하나만 레지스트리에 저장됩니다.
 
 계층 공유는 여러 개의 이미지가 공통 계층을 공유하는 방식으로 노드에 대한 계층 분산을 최적화합니다. 예를 들어, 노드에 이미 있는 이미지가 맨 아래에 Alpine Linux 계층을 포함하는 경우 이후에 같은 계층을 참조하는 다른 이미지를 끌어올 경우 해당 계층이 노드로 전송되지 않습니다. 대신, 노드에 이미 존재하는 계층을 참조합니다.
 
@@ -81,7 +81,7 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 ### <a name="manifest"></a>file:///
 
-컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지 또는 아티팩트는 *매니페스트와*연결 됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
+컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지 또는 아티팩트는 *매니페스트와* 연결 됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
@@ -122,7 +122,7 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>매니페스트 다이제스트
 
-매니페스트는 고유한 SHA-256 해시 또는 *매니페스트 다이제스트*에 의해 식별됩니다. 각 이미지 또는 아티팩트-태그가 지정 되었는지 아니면 그렇지 않은지는 다이제스트로 식별 됩니다. 다이제스트 값은 이미지의 계층 데이터가 다른 이미지의 계층 데이터와 동일하더라도 고유합니다. 이 메커니즘에 따르면 동일하게 태그가 지정된 이미지를 레지스트리에 반복적으로 밀어넣을 수 있습니다. 예를 들어, 각 이미지는 고유한 다이제스트로 식별되므로 `myimage:latest`(을)를 레지스트리에 오류 없이 반복적으로 밀어넣을 수 있습니다.
+매니페스트는 고유한 SHA-256 해시 또는 *매니페스트 다이제스트* 에 의해 식별됩니다. 각 이미지 또는 아티팩트-태그가 지정 되었는지 아니면 그렇지 않은지는 다이제스트로 식별 됩니다. 다이제스트 값은 이미지의 계층 데이터가 다른 이미지의 계층 데이터와 동일하더라도 고유합니다. 이 메커니즘에 따르면 동일하게 태그가 지정된 이미지를 레지스트리에 반복적으로 밀어넣을 수 있습니다. 예를 들어, 각 이미지는 고유한 다이제스트로 식별되므로 `myimage:latest`(을)를 레지스트리에 오류 없이 반복적으로 밀어넣을 수 있습니다.
 
 끌어오기 작업에서 해당 다이제스트를 지정하여 레지스트리에서 이미지를 끌어올 수 있습니다. 일부 시스템은 다이제스트별로 끌어오도록 구성이 가능합니다. 동일하게 태그가 지정된 이미지를 나중에 레지스트리로 밀어넣더라도 해당 이미지 버전 끌어오기가 보장되기 때문입니다.
 

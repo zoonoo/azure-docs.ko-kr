@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147957"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337511"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
 
@@ -39,7 +39,7 @@ Data Box 또는 Data Box Heavy 내보내기 순서는 순서, 설정, 데이터 
 Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 
 - **Data Box 판독기** -범위에 정의 된 주문에 대 한 읽기 전용 액세스 권한이 있습니다. 주문에 대 한 세부 정보만 볼 수 있습니다. 저장소 계정과 관련 된 다른 정보에 액세스 하거나 주소 등의 주문 세부 정보를 편집할 수 없습니다.
-- **Data Box 참여자** - *저장소 계정에 대 한 쓰기 권한이 이미 있는 경우*지정 된 저장소 계정으로 데이터를 전송 하는 순서만 만들 수 있습니다. 저장소 계정에 대 한 액세스 권한이 없는 경우 계정에 데이터를 복사 하는 Data Box 순서를 만들 수 없습니다. 이 역할은 저장소 계정 관련 사용 권한을 정의 하지 않으며 저장소 계정에 대 한 액세스 권한을 부여 하지 않습니다.  
+- **Data Box 참여자** - *저장소 계정에 대 한 쓰기 권한이 이미 있는 경우* 지정 된 저장소 계정으로 데이터를 전송 하는 순서만 만들 수 있습니다. 저장소 계정에 대 한 액세스 권한이 없는 경우 계정에 데이터를 복사 하는 Data Box 순서를 만들 수 없습니다. 이 역할은 저장소 계정 관련 사용 권한을 정의 하지 않으며 저장소 계정에 대 한 액세스 권한을 부여 하지 않습니다.  
 
 주문에 대 한 액세스를 제한 하려면 다음을 수행할 수 있습니다.
 
@@ -52,9 +52,9 @@ Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다
 
 Data Box에 대 한 내보내기 순서를 배치할 때 자세한 로그 컬렉션을 사용 하도록 설정 하는 옵션이 있습니다. 자세한 로그를 사용 하도록 설정할 수 있는 주문 화면은 다음과 같습니다.
 
-![내보내기 옵션 선택](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![내보내기 옵션 선택](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-**자세한 정보 표시 로그 포함** 옵션을 선택 하면 Azure Storage 계정에서 데이터를 복사할 때 자세한 로그 파일이 생성 됩니다. 이 로그에는 성공적으로 내보낸 모든 파일의 목록이 포함 됩니다.      
+**자세한 정보 표시 로그 포함** 옵션을 선택 하면 Azure Storage 계정에서 데이터를 복사할 때 자세한 로그 파일이 생성 됩니다. 이 로그에는 성공적으로 내보낸 모든 파일의 목록이 포함 됩니다.
 
 내보내기 순서에 대 한 자세한 내용은 [Data Box 내보내기 순서 만들기](data-box-deploy-export-ordered.md) 를 참조 하세요.
 
@@ -129,7 +129,7 @@ Data Box에서 데이터를 복사 하기 전에 **연결 및 복사** 페이지
 
 ### <a name="verbose-log"></a>자세한 정보 표시 로그
 
-*자세한 정보 로그*에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함되어 있습니다. 로그에는 파일 크기 및 체크섬 계산도 포함됩니다.
+*자세한 정보 로그* 에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함되어 있습니다. 로그에는 파일 크기 및 체크섬 계산도 포함됩니다.
 
 자세한 정보 표시 로그는 다음과 같은 형식으로 되어 있습니다.
 
@@ -246,13 +246,13 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보**로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
+Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보** 로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
 
 주문 내역을 스크롤하면 다음과 같이 표시 됩니다.
 
 - 장치에 대 한 반송파 추적 정보입니다.
 - *Secureerase* 작업을 사용 하는 이벤트입니다. 이러한 이벤트는 디스크의 데이터를 지울 때 해당 됩니다.
-- 로그 링크를 Data Box 합니다. *감사 로그*, *복사 로그*및 *BOM* 파일의 경로가 표시 됩니다.
+- 로그 링크를 Data Box 합니다. *감사 로그* , *복사 로그* 및 *BOM* 파일의 경로가 표시 됩니다.
 
 다음은 Azure Portal의 주문 기록 로그 샘플입니다.
 

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360227"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337902"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -43,7 +43,7 @@ Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지�
 GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적할 Guid를 만들려면 PowerShell을 통해 GUID 생성기를 사용 해야 합니다.
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.

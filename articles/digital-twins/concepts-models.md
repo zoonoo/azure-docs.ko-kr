@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: fecadf3cd6fd0d654315038680b9aa3fa2b71782
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913911"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337936"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -138,7 +138,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface* 입니다. |
@@ -228,11 +228,17 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="converting-industry-standard-models"></a>산업 표준 모델 변환
+## <a name="integrating-with-industry-standard-models"></a>업계 표준 모델과 통합
 
-RDF 또는 OWL와 같은 업계 표준을 기반으로 하는 Azure Digital Twins 외부에 기존 모델이 있는 경우이를 **DTDL로 변환** 하 여 Azure Digital twins와 함께 사용 해야 합니다. 그러면 DTDL 버전이 Azure Digital Twins 내에서 모델에 대 한 원인이 됩니다.
+업계 표준을 기반으로 하는 모델을 사용 하거나 RDF 또는 OWL와 같은 표준 ontology 표현을 사용 하면 Azure Digital Twins 모델을 디자인할 때 다양 한 시작 지점을 제공 합니다. 산업 모델을 사용 하면 표준화 및 정보 공유에도 도움이 됩니다.
 
-이 프로세스에 대 한 자세한 내용은 [*방법: 산업 표준 모델 변환*](how-to-convert-models.md)을 참조 하세요.
+Azure Digital Twins에서 사용 하려면 모델이 JSON-LD 기반 [**디지털 Twins 정의 언어 (DTDL)**](concepts-models.md)로 표시 되어야 합니다. 따라서이 문서에서는 DTDL에서 업계 표준 모델을 표시 하는 방법에 대해 설명 하 고, Azure Digital Twins에서 사용할 수 있도록 기존 업계 개념을 DTDL 의미 체계와 통합 합니다. 그런 다음 DTDL 모델은 Azure Digital Twins 내에서 모델에 대 한 진위의 원본으로 사용 됩니다.
+
+사용자의 상황에 따라 다음과 같은 두 가지 주요 경로를 사용 하 여 DTDL과 함께 산업 표준 모델을 통합할 수 있습니다.
+* 모델을 아직 만들지 않은 경우 업계와 관련 된 언어를 포함 하는 **기존 스타터 DTDL 온톨로지** 을 기반으로 모델을 디자인할 수 있습니다.
+* 산업 표준을 기반으로 하는 기존 모델이 이미 있는 경우 Azure Digital Twins로 가져오려면 **DTDL로 변환** 해야 합니다.
+
+이러한 두 프로세스에 대 한 자세한 내용은 [*방법: 업계 표준 모델 통합*](how-to-integrate-models.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

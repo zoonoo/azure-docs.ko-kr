@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092803"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337613"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -30,15 +30,38 @@ Azure 스프링 클라우드는 Steeltoe 앱을 호스트, 모니터링, 크기 
 Azure 스프링 클라우드는 다음을 지원 합니다.
 
 * .NET Core 3.1
-* Steeltoe 2.4
+* Steeltoe 2.4 및 3.0
 
 ## <a name="dependencies"></a>종속성
 
-[SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 패키지를 설치 합니다.
+Steeltoe 2.4의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 1.x 패키지를 추가 합니다.
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+Steeltoe 3.0의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 2.x 패키지를 추가 합니다.
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>Program.cs 업데이트
 
-`Program.Main`메서드에서 메서드를 호출 합니다 `UseAzureSpringCloudService` .
+`Program.Main`메서드에서 메서드를 호출 `UseAzureSpringCloudService` 합니다.
+
+Steeltoe 2.4.4의 경우 호출 된 후 다음을 호출 합니다 `UseAzureSpringCloudService` `ConfigureWebHostDefaults` `AddConfigServer` .
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,14 +70,28 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+Steeltoe 3.0.0의 경우 `UseAzureSpringCloudService` Steeltoe 구성 코드 전후에를 호출 합니다 `ConfigureWebHostDefaults` .
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>Eureka 서버 서비스 검색 사용
 
 앱이 Azure 스프링 클라우드에서 실행 될 때 사용 되는 구성 원본에서 `spring.application.name` 프로젝트가 배포 될 Azure 스프링 클라우드 앱과 동일한 이름으로 설정 합니다.
 
-예를 들어 이라는 .NET 프로젝트를 `EurekaDataProvider` Azure 스프링 클라우드 앱에 배포 하는 경우 `planet-weather-provider` 파일 * 의appSettings.js* 에 다음 JSON이 포함 되어야 합니다.
+예를 들어 이라는 .NET 프로젝트를 `EurekaDataProvider` Azure 스프링 클라우드 앱에 배포 하는 경우 `planet-weather-provider` 파일 *의appSettings.js* 에 다음 JSON이 포함 되어야 합니다.
 
 ```json
 "spring": {

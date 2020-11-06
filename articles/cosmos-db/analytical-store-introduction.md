@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330906"
+ms.locfileid: "94337409"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Azure Cosmos DB 분석 저장소 (미리 보기) 란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +20,9 @@ ms.locfileid: "94330906"
 > [!IMPORTANT]
 > Microsoft Azure Cosmos DB 분석 저장소는 현재 미리 보기입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Cosmos DB 분석 저장소는 트랜잭션 워크 로드에 영향을 주지 않고 Azure Cosmos DB에서 작업 데이터에 대해 대규모 분석을 사용할 수 있는 완전히 격리 된 열 저장소입니다. Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 않으며 스키마나 인덱스 관리를 처리할 필요 없이 트랜잭션 애플리케이션을 반복할 수 있습니다. 이와 달리 Microsoft Azure Cosmos DB 분석 저장소는 분석 쿼리 성능을 최적화하도록 스키마화됩니다. 이 문서에서는 분석 저장소에 대해 자세히 설명 합니다.
+Azure Cosmos DB 분석 저장소는 트랜잭션 워크 로드에 영향을 주지 않고 Azure Cosmos DB에서 작업 데이터에 대해 대규모 분석을 사용할 수 있는 완전히 격리 된 열 저장소입니다. 
+
+Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 않으며 스키마나 인덱스 관리를 처리할 필요 없이 트랜잭션 애플리케이션을 반복할 수 있습니다. 이와 달리 Microsoft Azure Cosmos DB 분석 저장소는 분석 쿼리 성능을 최적화하도록 스키마화됩니다. 이 문서에서는 분석 저장소에 대해 자세히 설명 합니다.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>작동 데이터의 대규모 분석 문제
 
