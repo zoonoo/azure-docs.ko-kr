@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: ca210f144d56aa56ddbcb959e0240bd4816dc3af
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: b1aa2c098ead7086e670a92ce0657aa5a20a2b61
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92547115"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93323107"
 highlightedContent:
   items:
   - title: Cognitive Services란?
@@ -118,9 +118,12 @@ conceptualContent:
   - title: Cognitive Service 컨테이너
     summary: 개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에서 사용할 수 있는 동일한 여러 API를 사용할 수 있으며 Docker 컨테이너에 제공되는 서비스를 유연하게 배포 및 호스트할 수 있습니다.
     links:
+    - url: ./containers/index.yml
+      itemType: overview
+      text: Cognitive Services 컨테이너 설명서
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Cognitive Service 컨테이너
+      text: Cognitive Service 컨테이너란?
     - url: ./containers/container-reuse-recipe.md
       itemType: learn
       text: 재사용할 컨테이너 만들기

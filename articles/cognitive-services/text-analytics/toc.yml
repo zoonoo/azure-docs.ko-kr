@@ -80,6 +80,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Kubernetes 서비스(AKS) 사용
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
     - name: API 버전 3으로 마이그레이션
       href: migration-guide.md
 - name: 참조

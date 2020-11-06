@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: 카메라 배치
           href: spatial-analysis-camera-placement.md
+    - name: Cognitive Services 컨테이너 설명서
+      href: ../containers/index.yml
 - name: 방법 가이드
   items:
     - name: Computer Vision API 호출

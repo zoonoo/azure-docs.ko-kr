@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: 일괄 처리 기록 API 사용
           href: batch-transcription.md
-        - name: 발음 평가
-          href: how-to-pronunciation-assessment.md
     - name: 자습서
       items:
         - name: Blob 스토리지에 저장된 음성 인식
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: 컨테이너 FAQ
           href: speech-container-faq.md
+        - name: Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
 - name: 디바이스
   items:
     - name: 음성 디바이스 설명서
