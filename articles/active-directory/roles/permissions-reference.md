@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378825"
+ms.locfileid: "93396518"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -90,7 +90,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps 관리자](#azure-devops-administrator-permissions)
 
-이 역할이 할당된 사용자는 Azure DevOps 정책을 관리하여 새 Azure DevOps 조직 만들기를 구성 가능한 사용자 또는 그룹 세트로 제한할 수 있습니다. 이 역할의 사용자는 회사의 Azure AD 조직에서 지원하는 모든 Azure DevOps 조직을 통해 이 정책을 관리할 수 있습니다.
+이 역할이 할당된 사용자는 Azure DevOps 정책을 관리하여 새 Azure DevOps 조직 만들기를 구성 가능한 사용자 또는 그룹 세트로 제한할 수 있습니다. 이 역할의 사용자는 회사의 Azure AD 조직에서 지원 되는 모든 Azure DevOps 조직을 통해이 정책을 관리할 수 있습니다. 이 역할은 회사의 Azure AD 조직에 의해 지원 되는 Azure DevOps 조직 내에서 다른 Azure DevOps 관련 사용 권한 (예: Project Collection Administrators)을 부여 하지 않습니다.
 
 모든 엔터프라이즈 Azure DevOps 정책은 이 역할의 사용자가 관리할 수 있습니다.
 

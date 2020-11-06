@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558946"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398218"
 ---
 # <a name="configure-private-link"></a>개인 링크 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "92558946"
 - FHIR 용 Azure API – 개인 끝점 뒤에 배치할 FHIR 리소스입니다.
 - Virtual Network – 클라이언트 서비스 및 개인 끝점이 연결 될 VNet입니다.
 
-자세한 내용은 [개인 링크 설명서](https://docs.microsoft.com/azure/private-link/)를 참조 하세요.
+자세한 내용은 [개인 링크 설명서](../private-link/index.yml)를 참조 하세요.
 
 ## <a name="disable-public-network-access"></a>공용 네트워크 액세스 사용 안 함
 
@@ -38,9 +38,9 @@ FHIR 리소스에 대 한 개인 끝점을 만드는 경우 해당 리소스에 
 
 ![공용 네트워크 액세스 사용 안 함](media/private-link/private-link-disable.png)
 
-## <a name="create-private-endpoint"></a>개인 끝점 만들기
+## <a name="create-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
-FHIR 리소스에 대 한 RBAC 권한이 있는 개발자는 Azure Portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)또는 [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)를 사용할 수 있습니다. 이 문서에서는 Azure Portal를 사용 하는 단계를 안내 합니다. 사설 DNS 영역을 만들고 구성 하는 것을 자동화 하므로 Azure Portal를 사용 하는 것이 좋습니다. 자세한 내용은 [개인 링크 빠른 시작 가이드](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) 를 참조할 수 있습니다.
+FHIR 리소스에 대 한 RBAC 권한이 있는 개발자는 Azure Portal, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)또는 [Azure CLI](../private-link/create-private-endpoint-cli.md)를 사용할 수 있습니다. 이 문서에서는 Azure Portal를 사용 하는 단계를 안내 합니다. 사설 DNS 영역을 만들고 구성 하는 것을 자동화 하므로 Azure Portal를 사용 하는 것이 좋습니다. 자세한 내용은 [개인 링크 빠른 시작 가이드](../private-link/create-private-endpoint-portal.md) 를 참조할 수 있습니다.
 
 두 가지 방법으로 개인 끝점을 만들 수 있습니다. 자동 승인 흐름을 사용 하면 FHIR 리소스에 대 한 RBAC 권한이 있는 사용자가 승인 없이 개인 끝점을 만들 수 있습니다. 수동 승인 흐름을 사용 하면 FHIR 리소스에 대 한 사용 권한이 없는 사용자가 FHIR 리소스 소유자가 승인할 개인 끝점을 요청할 수 있습니다.
 

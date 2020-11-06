@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336533"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398014"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -45,7 +45,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="영역 간 부하 분산 장치 다이어그램." border="true":::
 
 > [!NOTE]
-> 영역 간 부하 분산 장치에 대 한 부하 분산 규칙 부하의 백 엔드 포트는 지역 표준 부하 분산 장치에 대 한 부하 분산 규칙/인바운드 nat 규칙의 프런트 엔드 포트와 일치 해야 합니다. 
+> 지역 간 부하 분산 장치에 대 한 부하 분산 규칙의 백 엔드 포트는 지역 표준 부하 분산 장치에 대 한 부하 분산 규칙/인바운드 nat 규칙의 프런트 엔드 포트와 일치 해야 합니다. 
 
 ### <a name="regional-redundancy"></a>지역 중복
 
@@ -55,7 +55,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 
 지역 간 부하 분산 장치의 상태 프로브는 20 초 마다 가용성에 대 한 정보를 수집 합니다. 한 지역 부하 분산 장치에서 가용성을 0으로 설정 하면 지역 간 부하 분산 장치에서 오류를 검색 합니다. 그러면 지역 부하 분산 장치는 순환에서 제외 됩니다. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="영역 간 부하 분산 장치 다이어그램." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="글로벌 지역 트래픽 보기의 다이어그램입니다." border="true":::
 
 ### <a name="ultra-low-latency"></a>매우 낮은 대기 시간
 
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남 아시아
+* 동남아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남 아시아 
+* 동남아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -149,6 +149,6 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
  
 ## <a name="next-steps"></a>다음 단계
 
-- 부하 분산 장치를 사용 하 여 시작 하려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md) 를 참조 하세요.
+- 부하 분산 장치를 사용하여 시작하려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
 - 부하 분산 장치 [faq](load-balancer-faqs.md)

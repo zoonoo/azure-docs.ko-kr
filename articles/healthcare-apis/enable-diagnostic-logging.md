@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84870873"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398133"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR® 진단 로깅 사용
 
-이 문서에서는 Azure API에서 FHIR®에 대 한 진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 몇 가지 샘플 쿼리를 검토할 수 있는 방법에 대해 설명 합니다. 진단 로그에 대 한 액세스는 HIPAA와 같은 규정 요구 사항을 준수 해야 하는 의료 서비스에 필수적입니다. 진단 로그를 사용 하도록 설정 하는 FHIR® 용 Azure API의 기능은 Azure Portal의 [**진단 설정**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 입니다. 
+이 문서에서는 Azure API에서 FHIR®에 대 한 진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 몇 가지 샘플 쿼리를 검토할 수 있는 방법에 대해 설명 합니다. 진단 로그에 대 한 액세스는 HIPAA와 같은 규정 요구 사항을 준수 해야 하는 의료 서비스에 필수적입니다. 진단 로그를 사용 하도록 설정 하는 FHIR® 용 Azure API의 기능은 Azure Portal의 [**진단 설정**](../azure-monitor/platform/diagnostic-settings.md) 입니다. 
 
 ## <a name="enable-audit-logs"></a>감사 로그 사용
 1. Azure API에서 FHIR®에 대 한 진단 로깅을 사용 하도록 설정 하려면 Azure Portal에서 FHIR® 서비스에 대 한 Azure API를 선택 합니다. 
@@ -42,32 +42,32 @@ ms.locfileid: "84870873"
 > [!Note] 
 > Log Analytics에 첫 번째 로그가 표시 되는 데 최대 15 분이 걸릴 수 있습니다.  
  
-진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview) 를 참조 하세요.
+진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](../azure-monitor/platform/platform-logs-overview.md) 를 참조 하세요.
 
 ## <a name="audit-log-details"></a>감사 로그 정보
 이번에는 Azure API for FHIR® 서비스에서 감사 로그에 다음 필드를 반환 합니다. 
 
-|필드 이름  |Type  |메모  |
+|필드 이름  |Type  |참고  |
 |---------|---------|---------|
 |CallerIdentity|동적|Id 정보를 포함 하는 일반 속성 모음
-|CallerIdentityIssuer|문자열|발급자 
-|CallerIdentityObjectId|문자열|Object_Id 
-|CallerIPAddress|문자열|호출자의 IP 주소 
-|CorrelationId|문자열| 상관관계 ID
-|FhirResourceType|문자열|작업이 실행 된 리소스 형식입니다.
-|LogCategory|문자열|로그 범주 (현재 ' AuditLogs ' LogCategory를 반환 합니다.)
-|위치|문자열|요청을 처리 한 서버의 위치 (예: 미국 중 남부)
+|CallerIdentityIssuer|String|발급자 
+|CallerIdentityObjectId|String|Object_Id 
+|CallerIPAddress|String|호출자의 IP 주소 
+|CorrelationId|String| 상관관계 ID
+|FhirResourceType|String|작업이 실행 된 리소스 형식입니다.
+|LogCategory|String|로그 범주 (현재 ' AuditLogs ' LogCategory를 반환 합니다.)
+|위치|String|요청을 처리 한 서버의 위치 (예: 미국 중 남부)
 |OperationDuration|Int|이 요청을 완료 하는 데 걸린 시간 (초)
-|OperationName|문자열| 작업 유형 (예: 업데이트, 검색 유형)을 설명 합니다.
-|RequestUri|문자열|요청 URI 
-|ResultType|문자열|사용 가능한 값이 현재 **시작**, **성공**또는 **실패입니다.**
+|OperationName|String| 작업 유형 (예: 업데이트, 검색 유형)을 설명 합니다.
+|RequestUri|String|요청 URI 
+|ResultType|String|사용 가능한 값이 현재 **시작** , **성공** 또는 **실패입니다.**
 |StatusCode|Int|HTTP 상태 코드입니다. (예: 200) 
 |TimeGenerated|DateTime|이벤트의 날짜 및 시간|
-|속성|문자열| FhirResourceType의 속성을 설명 합니다.
-|SourceSystem|문자열| 원본 시스템 (이 경우 항상 Azure)
-|TenantId|문자열|테넌트 ID
+|속성|String| FhirResourceType의 속성을 설명 합니다.
+|SourceSystem|String| 원본 시스템 (이 경우 항상 Azure)
+|TenantId|String|테넌트 ID
 |Type|String|로그 유형 (이 경우 항상 MicrosoftHealthcareApisAuditLog)
-|_ResourceId|문자열|리소스에 대 한 세부 정보
+|_ResourceId|String|리소스에 대 한 세부 정보
 
 ## <a name="sample-queries"></a>샘플 쿼리
 
@@ -80,7 +80,7 @@ MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-다음 쿼리를 실행 하 여 **리소스 유형별로**작업을 그룹화 합니다.
+다음 쿼리를 실행 하 여 **리소스 유형별로** 작업을 그룹화 합니다.
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 

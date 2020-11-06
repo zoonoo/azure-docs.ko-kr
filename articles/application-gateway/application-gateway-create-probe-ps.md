@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186744"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397844"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager에 대해 PowerShell을 사용하여 Azure Application Gateway에 대한 사용자 지정 프로브 만들기
 
@@ -58,7 +58,7 @@ ms.locfileid: "86186744"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 애플리케이션 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
-이전 예제에서는 **West US** 위치에 **appgw-RG**라는 리소스 그룹을 만들었습니다.
+이전 예제에서는 **West US** 위치에 **appgw-RG** 라는 리소스 그룹을 만들었습니다.
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>가상 네트워크 및 서브넷 만들기
 
@@ -197,5 +197,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-[Tls 오프 로드 구성](application-gateway-ssl-arm.md) 을 방문 하 여 tls 오프 로딩을 구성 하는 방법을 알아봅니다.
-
+[Tls 오프 로드 구성](./tutorial-ssl-powershell.md) 을 방문 하 여 tls 오프 로딩을 구성 하는 방법을 알아봅니다.

@@ -8,12 +8,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 5de1d99442f307fc7850114915851f994258b537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9949ab4cfa42553e5a8d28244b8f621f09334d1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845904"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398167"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 추가 설정
 
@@ -29,7 +29,7 @@ FHIR 용 Azure API는 데이터베이스를 사용 하 여 데이터를 저장 �
 
 ## <a name="access-control"></a>Access Control
 
-FHIR 용 Azure API를 사용 하면 권한 있는 사용자만 FHIR API에 액세스할 수 있습니다. 권한 있는 사용자는 두 가지 메커니즘을 통해 구성할 수 있습니다. 액세스 제어를 구성 하는 기본 및 권장 방법은 **액세스 제어 (IAM)** 블레이드를 통해 액세스할 수 있는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/)를 사용 하는 것입니다. Azure RBAC는 구독과 연결 된 Azure Active Directory 테 넌 트를 사용 하 여 데이터 평면 액세스를 보호 하려는 경우에만 작동 합니다. 다른 테 넌 트를 사용 하려는 경우 FHIR 용 Azure API는 로컬 FHIR 데이터 평면 액세스 제어 메커니즘을 제공 합니다. 로컬 RBAC 메커니즘을 사용 하는 경우 구성 옵션은 풍부 하지 않습니다. 자세한 내용을 보려면 다음 옵션 중 하나를 선택 하십시오.
+FHIR 용 Azure API를 사용 하면 권한 있는 사용자만 FHIR API에 액세스할 수 있습니다. 권한 있는 사용자는 두 가지 메커니즘을 통해 구성할 수 있습니다. 액세스 제어를 구성 하는 기본 및 권장 방법은 **액세스 제어 (IAM)** 블레이드를 통해 액세스할 수 있는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml)를 사용 하는 것입니다. Azure RBAC는 구독과 연결 된 Azure Active Directory 테 넌 트를 사용 하 여 데이터 평면 액세스를 보호 하려는 경우에만 작동 합니다. 다른 테 넌 트를 사용 하려는 경우 FHIR 용 Azure API는 로컬 FHIR 데이터 평면 액세스 제어 메커니즘을 제공 합니다. 로컬 RBAC 메커니즘을 사용 하는 경우 구성 옵션은 풍부 하지 않습니다. 자세한 내용을 보려면 다음 옵션 중 하나를 선택 하십시오.
 
 * [FHIR 데이터 평면에 대 한 AZURE RBAC](configure-azure-rbac.md). 구독과 연결 된 Azure Active Directory 테 넌 트를 사용 하는 경우이 옵션을 사용 하는 것이 좋습니다.
 * [로컬 FHIR 데이터 평면 액세스 제어](configure-local-rbac.md)입니다. 데이터 평면 액세스 제어에 외부 Azure Active Directory 테 넌 트를 사용 해야 하는 경우에만이 옵션을 사용 합니다. 

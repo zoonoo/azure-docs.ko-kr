@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506556"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397470"
 ---
 # <a name="how-an-application-gateway-works"></a>응용 프로그램 게이트웨이의 작동 원리
 
@@ -32,7 +32,7 @@ ms.locfileid: "86506556"
 
 Azure 애플리케이션 게이트웨이를 내부 응용 프로그램 부하 분산 장치 또는 인터넷 연결 응용 프로그램 부하 분산 장치로 사용할 수 있습니다. 인터넷 연결 응용 프로그램 게이트웨이는 공용 IP 주소를 사용 합니다. 인터넷 연결 응용 프로그램 게이트웨이의 DNS 이름은 공용 IP 주소에 공개적으로 확인할 수 있습니다. 결과적으로 인터넷 연결 응용 프로그램 게이트웨이는 클라이언트 요청을 인터넷으로 라우팅할 수 있습니다.
 
-내부 응용 프로그램 게이트웨이는 개인 IP 주소만 사용 합니다. 사용자 지정 또는 [사설 DNS 영역](https://docs.microsoft.com/azure/dns/private-dns-overview)을 사용 하는 경우 Application Gateway의 개인 IP 주소에서 도메인 이름을 내부적으로 확인할 수 있어야 합니다. 따라서 내부 부하 분산 장치는 응용 프로그램 게이트웨이에 대 한 가상 네트워크에 대 한 액세스 권한이 있는 클라이언트의 요청만 라우팅할 수 있습니다.
+내부 응용 프로그램 게이트웨이는 개인 IP 주소만 사용 합니다. 사용자 지정 또는 [사설 DNS 영역](../dns/private-dns-overview.md)을 사용 하는 경우 Application Gateway의 개인 IP 주소에서 도메인 이름을 내부적으로 확인할 수 있어야 합니다. 따라서 내부 부하 분산 장치는 응용 프로그램 게이트웨이에 대 한 가상 네트워크에 대 한 액세스 권한이 있는 클라이언트의 요청만 라우팅할 수 있습니다.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>응용 프로그램 게이트웨이에서 요청을 라우팅하는 방법
 
@@ -53,7 +53,7 @@ Application gateway는 백 엔드 서버에 원래 요청을 보내면 호스트
  >[!NOTE]
 >백 엔드 풀 인 경우:
 > - **는 공용 끝점입니다**. 응용 프로그램 게이트웨이는 프런트 엔드 공용 IP를 사용 하 여 서버에 연결 합니다. 프런트 엔드 공용 IP 주소가 없으면 아웃 바운드 외부 연결에 대해 하나가 할당 됩니다.
-> - **내부적으로 확인할 수 있는 FQDN 또는 개인 ip 주소를 포함**하는 응용 프로그램 게이트웨이는 해당 인스턴스 개인 ip 주소를 사용 하 여 백 엔드 서버로 요청을 라우팅합니다.
+> - **내부적으로 확인할 수 있는 FQDN 또는 개인 ip 주소를 포함** 하는 응용 프로그램 게이트웨이는 해당 인스턴스 개인 ip 주소를 사용 하 여 백 엔드 서버로 요청을 라우팅합니다.
 > - **외부 끝점 또는 외부적으로 확인할 수 있는 FQDN이 포함 되어 있습니다**. application gateway는 프런트 엔드 공용 IP 주소를 사용 하 여 백 엔드 서버로 요청을 라우팅합니다. DNS 확인은 개인 DNS 영역 또는 사용자 지정 DNS 서버 (구성 된 경우)를 기반으로 하며, Azure에서 제공 하는 기본 DNS를 사용 합니다. 프런트 엔드 공용 IP 주소가 없으면 아웃 바운드 외부 연결에 대해 하나가 할당 됩니다.
 
 ### <a name="modifications-to-the-request"></a>요청에 대 한 수정

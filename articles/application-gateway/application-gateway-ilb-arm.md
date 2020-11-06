@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d663dc4e2bd860ec9494785ecbf6dbf10a4c5b5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808131"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397759"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
@@ -50,7 +50,7 @@ Resource Manager를 사용하면 애플리케이션 게이트웨이를 만드는
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
-Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자와 함께 Windows PowerShell을 사용 하 여](../powershell-azure-resource-manager.md)제공 됩니다.
+Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자와 함께 Windows PowerShell을 사용 하 여](../azure-resource-manager/management/manage-resources-powershell.md)제공 됩니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -258,10 +258,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](./tutorial-ssl-powershell.md)을 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

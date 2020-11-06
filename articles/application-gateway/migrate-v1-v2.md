@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311600"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397226"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
 
@@ -102,8 +102,8 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
      ```
 
    * **subnetAddressRange: [String]: 필수** -새 v2 게이트웨이를 포함 하는 새 서브넷에 할당 했거나 할당 하려고 하는 IP 주소 공간입니다. CIDR 표기법으로 지정 해야 합니다. 예: 10.0.0.0/24. 이 서브넷을 미리 만들 필요는 없습니다. 스크립트가 존재 하지 않는 경우 만듭니다.
-   * **appgwName: [String]: 선택 사항**입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 접미사 *_v2* 추가 된 상태로 사용 됩니다.
-   * **Sslcertificates: [PSApplicationGatewaySslCertificate]: 선택 사항**입니다.  V1 게이트웨이에서 TLS/SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성 된 각 TLS/SSL 인증서에 대해 여기에 표시 된 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다 `New-AzApplicationGatewaySslCertificate` . TLS/SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
+   * **appgwName: [String]: 선택 사항** 입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 접미사 *_v2* 추가 된 상태로 사용 됩니다.
+   * **Sslcertificates: [PSApplicationGatewaySslCertificate]: 선택 사항** 입니다.  V1 게이트웨이에서 TLS/SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성 된 각 TLS/SSL 인증서에 대해 여기에 표시 된 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다 `New-AzApplicationGatewaySslCertificate` . TLS/SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
 
      이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성 된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기를 설정 하는 경우이 매개 변수를 지정 해야 합니다.
 
@@ -118,18 +118,18 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
       ```
 
      `$mySslCert1, $mySslCert2`이전 예의 (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
-   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항**입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.
+   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항** 입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.
    
       ```azurepowershell
       $certFilePath = ".\rootCA.cer"
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
-   * **privateIpAddress: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
-   * **publicIpResourceId: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 기존 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
-   * **validateMigration: [switch]: 선택 사항**입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
-   * **Enableautoscale 크기 조정: [스위치]: 선택 사항**입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
+      PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
+   * **privateIpAddress: [String]: 선택 사항** 입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
+   * **publicIpResourceId: [String]: 선택 사항** 입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 기존 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
+   * **validateMigration: [switch]: 선택 사항** 입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
+   * **Enableautoscale 크기 조정: [스위치]: 선택 사항** 입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
 
 1. 적절 한 매개 변수를 사용 하 여 스크립트를 실행 합니다. 완료 하는 데 5 ~ 7 분 정도 걸릴 수 있습니다.
 
@@ -166,7 +166,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
     [Traffic Manager 프로필](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)에 v1 및 v2 응용 프로그램 게이트웨이의 DNS 레이블을 추가 하 고 사용자 지정 DNS 레코드 (예: `www.contoso.com` )를 Traffic Manager 도메인 (예: contoso.trafficmanager.net)에 추가 하 여이 작업을 수행할 수 있습니다.
   * 또는 새 v2 application gateway의 DNS 레이블을 가리키도록 사용자 지정 도메인 DNS 레코드를 업데이트할 수 있습니다. DNS 레코드에 구성 된 TTL에 따라 모든 클라이언트 트래픽이 새 v2 게이트웨이로 마이그레이션될 때까지 시간이 걸릴 수 있습니다.
-* **클라이언트는 application gateway의 프런트 엔드 IP 주소에 연결**합니다.
+* **클라이언트는 application gateway의 프런트 엔드 IP 주소에 연결** 합니다.
 
    새로 만든 v2 application gateway와 연결 된 IP 주소를 사용 하도록 클라이언트를 업데이트 합니다. IP 주소를 직접 사용 하지 않는 것이 좋습니다. 사용자 지정 DNS 영역 (예: contoso.com)에 CNAME 할 수 있는 응용 프로그램 게이트웨이와 연결 된 DNS 이름 레이블 (예: yourgateway.eastus.cloudapp.azure.com)을 사용 하는 것이 좋습니다.
 

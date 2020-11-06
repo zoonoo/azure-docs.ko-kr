@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168191"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397368"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>수신 컨트롤러에 대 한 일반적인 질문 및 문제 해결
 
@@ -132,7 +132,7 @@ AGIC (Application Gateway 수신 컨트롤러)는 [배포](https://kubernetes.io
 
 
 AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
-  1. AKS에는 정상 **pod**가 하나 이상 있어야 합니다.
+  1. AKS에는 정상 **pod** 가 하나 이상 있어야 합니다.
      를 사용 하 여 Pod가 있는 경우 [Cloud Shell](https://shell.azure.com/) 에서이를 확인 합니다 `kubectl get pods -o wide --show-labels` `apsnetapp` . 출력은 다음과 같습니다.
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -150,7 +150,7 @@ AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. 위의 서비스를 참조 하 여에 주석이 추가 된 **수신**, `kubernetes.io/ingress.class: azure/application-gateway` [Cloud Shell](https://shell.azure.com/) 에서이를 확인 합니다.`kubectl get ingress -o wide --show-labels`
+  3. 위의 서비스를 참조 하 여에 주석이 추가 된 **수신** , `kubernetes.io/ingress.class: azure/application-gateway` [Cloud Shell](https://shell.azure.com/) 에서이를 확인 합니다.`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -243,7 +243,7 @@ Kubernetes 커뮤니티는 [kubectl](https://kubernetes.io/docs/reference/kubect
 |  5        | 마샬링된 개체를 로깅합니다. ARM에 적용 된 삭제 된 JSON 구성 표시 |
 
 
-세부 정보 표시 수준은 `verbosityLevel` [투구-.config](#sample-helm-config-file) 파일의 변수를 통해 조정할 수 있습니다. 세부 정보 표시 수준을로 늘려 `5` [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 디스패치 된 JSON 구성을 가져옵니다.
+세부 정보 표시 수준은 `verbosityLevel` [투구-.config](#sample-helm-config-file) 파일의 변수를 통해 조정할 수 있습니다. 세부 정보 표시 수준을로 늘려 `5` [ARM](../azure-resource-manager/management/overview.md)에 디스패치 된 JSON 구성을 가져옵니다.
   - `verbosityLevel: 5`투구에서 한 줄에 단독으로 추가 하 고 다시 설치 [합니다.](#sample-helm-config-file)
   - 로그 가져오기 `kubectl logs <pod-name>`
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

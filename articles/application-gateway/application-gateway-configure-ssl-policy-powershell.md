@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808234"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397929"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 TLS 정책 버전 및 암호 그룹 구성
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>미리 정의 된 TLS 정책으로 기존 응용 프로그램 게이트웨이 업데이트
 
-사용자 지정 TLS 정책을 설정 하려면 **PolicyType**, **MinProtocolVersion**, **ciphersuite**및 **applicationgateway**매개 변수를 전달 합니다. 미리 정의 된 TLS 정책을 설정 하려면 **PolicyType**, **PolicyName**및 **applicationgateway**매개 변수를 전달 합니다. 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
+사용자 지정 TLS 정책을 설정 하려면 **PolicyType** , **MinProtocolVersion** , **ciphersuite** 및 **applicationgateway** 매개 변수를 전달 합니다. 미리 정의 된 TLS 정책을 설정 하려면 **PolicyType** , **PolicyName** 및 **applicationgateway** 매개 변수를 전달 합니다. 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
 
 다음 예제에는 사용자 지정 정책과 미리 정의된 정책 모두에 대한 코드 샘플이 나옵니다. 사용하려는 정책의 주석 처리를 제거하세요.
 
@@ -217,4 +217,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 방문하여 HTTPS 엔드포인트에 HTTP 트래픽을 리디렉션하는 방법에 대해 알아봅니다.
+[Application Gateway 리디렉션 개요](./redirect-overview.md)를 방문하여 HTTPS 엔드포인트에 HTTP 트래픽을 리디렉션하는 방법에 대해 알아봅니다.

@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3af2705fedbb9c19d4f128e8e997d3fa73f8b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7806cf9518090539ba540a9a522af1aae2691f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807961"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397419"
 ---
 # <a name="enable-cookie-based-affinity-with-an-application-gateway"></a>Application Gateway를 사용 하 여 쿠키 기반 선호도 사용
-[Azure 애플리케이션 Gateway 설명서](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings)에 설명 된 대로 Application Gateway는 쿠키 기반 선호도를 지원 합니다. 즉, 사용자 세션에서 후속 트래픽을 처리 하기 위해 동일한 서버로 보낼 수 있습니다.
+[Azure 애플리케이션 Gateway 설명서](./application-gateway-components.md#http-settings)에 설명 된 대로 Application Gateway는 쿠키 기반 선호도를 지원 합니다. 즉, 사용자 세션에서 후속 트래픽을 처리 하기 위해 동일한 서버로 보낼 수 있습니다.
 
 ## <a name="example"></a>예제
 ```yaml

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595947"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396892"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 
@@ -80,10 +80,10 @@ X-Powered-By: ASP.NET
 
 ## <a name="solution-rewrite-the-location-header"></a>해결 방법: 위치 헤더 다시 작성
 
-Location 헤더의 호스트 이름을 application gateway의 도메인 이름으로 설정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 [다시 쓰기 규칙](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) 을 만듭니다. 또한 응용 프로그램 게이트웨이의 호스트 이름을 갖도록 location 헤더를 다시 작성 하는 작업을 수행 해야 합니다. 자세한 내용은 [location 헤더를 다시 작성 하는 방법](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url)에 대 한 지침을 참조 하세요.
+Location 헤더의 호스트 이름을 application gateway의 도메인 이름으로 설정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 [다시 쓰기 규칙](./rewrite-http-headers.md) 을 만듭니다. 또한 응용 프로그램 게이트웨이의 호스트 이름을 갖도록 location 헤더를 다시 작성 하는 작업을 수행 해야 합니다. 자세한 내용은 [location 헤더를 다시 작성 하는 방법](./rewrite-http-headers.md#modify-a-redirection-url)에 대 한 지침을 참조 하세요.
 
 > [!NOTE]
-> HTTP 헤더 재작성 지원은 Application Gateway의 [Standard_v2 및 WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 에서만 사용할 수 있습니다. V1 SKU를 사용 하는 경우 v 1에서 v 2 [로 마이그레이션하](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2)는 것이 좋습니다. V2 SKU에서 사용할 수 있는 재작성 및 기타 [고급 기능](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) 을 사용 하려고 합니다.
+> HTTP 헤더 재작성 지원은 Application Gateway의 [Standard_v2 및 WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) 에서만 사용할 수 있습니다. V1 SKU를 사용 하는 경우 v 1에서 v 2 [로 마이그레이션하](./migrate-v1-v2.md)는 것이 좋습니다. V2 SKU에서 사용할 수 있는 재작성 및 기타 [고급 기능](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) 을 사용 하려고 합니다.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>대체 솔루션: 사용자 지정 도메인 이름 사용
 
@@ -93,7 +93,7 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 사용자 지정 도메인을 소유 하 고이 프로세스를 수행 해야 합니다.
 
-- App service의 사용자 지정 도메인 목록에 도메인을 등록 합니다. 사용자 지정 도메인에 app service의 FQDN을 가리키는 CNAME이 있어야 합니다. 자세한 내용은 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain)을 참조 하세요.
+- App service의 사용자 지정 도메인 목록에 도메인을 등록 합니다. 사용자 지정 도메인에 app service의 FQDN을 가리키는 CNAME이 있어야 합니다. 자세한 내용은 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](//azure/app-service/app-service-web-tutorial-custom-domain)을 참조 하세요.
 
     ![App service 사용자 지정 도메인 목록](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
@@ -101,12 +101,12 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 - `www.contoso.com`DNS 쿼리를 수행할 때 도메인이 application gateway의 FQDN으로 확인 되는지 확인 합니다.
 
-- 사용자 지정 프로브를 설정 하 여 **백 엔드 HTTP 설정에서 호스트 이름 선택**을 사용 하지 않도록 설정 합니다. Azure Portal에서 프로브 설정의 확인란을 선택 취소 합니다. PowerShell에서 **AzApplicationGatewayProbeConfig** 명령에 **-PickHostNameFromBackendHttpSettings** 스위치를 사용 하지 마세요. 프로브의 호스트 이름 필드에 app service의 FQDN, example.azurewebsites.net를 입력 합니다. Application gateway에서 전송 된 프로브 요청은 호스트 헤더에이 FQDN을 포함 합니다.
+- 사용자 지정 프로브를 설정 하 여 **백 엔드 HTTP 설정에서 호스트 이름 선택** 을 사용 하지 않도록 설정 합니다. Azure Portal에서 프로브 설정의 확인란을 선택 취소 합니다. PowerShell에서 **AzApplicationGatewayProbeConfig** 명령에 **-PickHostNameFromBackendHttpSettings** 스위치를 사용 하지 마세요. 프로브의 호스트 이름 필드에 app service의 FQDN, example.azurewebsites.net를 입력 합니다. Application gateway에서 전송 된 프로브 요청은 호스트 헤더에이 FQDN을 포함 합니다.
 
   > [!NOTE]
   > 다음 단계에서 사용자 지정 프로브가 백 엔드 HTTP 설정에 연결 되지 않았는지 확인 합니다. 현재 HTTP 설정에는이 시점에서 사용 가능한 **백 엔드 주소에서 호스트 선택** 스위치가 있습니다.
 
-- **백 엔드 주소에서 호스트 이름 선택**을 사용 하지 않도록 응용 프로그램 게이트웨이의 HTTP 설정을 설정 합니다. Azure Portal에서 확인란의 선택을 취소 합니다. PowerShell에서 **AzApplicationGatewayBackendHttpSettings** 명령에 **-PickHostNameFromBackendAddress** 스위치를 사용 하지 마세요.
+- **백 엔드 주소에서 호스트 이름 선택** 을 사용 하지 않도록 응용 프로그램 게이트웨이의 HTTP 설정을 설정 합니다. Azure Portal에서 확인란의 선택을 취소 합니다. PowerShell에서 **AzApplicationGatewayBackendHttpSettings** 명령에 **-PickHostNameFromBackendAddress** 스위치를 사용 하지 마세요.
 
 - 사용자 지정 프로브를 백 엔드 HTTP 설정에 다시 연결 하 고 백 엔드가 정상 상태 인지 확인 합니다.
 

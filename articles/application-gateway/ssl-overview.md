@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723302"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396926"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요
 
@@ -51,10 +51,10 @@ Application Gateway는 다음과 같은 유형의 인증서를 지원합니다.
 - 와일드카드 인증서: 이 인증서는 *.site.com을 기반으로 하는 여러 하위 도메인을 지원합니다. 여기서 하위 도메인은 *을 대체합니다. 그러나 site.com이 지원되지 않으므로 사용자가 "www"를 입력하지 않고 웹 사이트에 액세스하는 경우 와일드카드 인증서에 포함되지 않습니다.
 - 자체 서명된 인증서: 클라이언트 브라우저는 이러한 인증서를 신뢰하지 않으며 사용자에게 가상 서비스의 인증서가 신뢰 체인에 포함되지 않는다고 경고합니다. 자체 서명된 인증서는 관리자가 클라이언트를 제어하고 브라우저의 보안 경고를 안전하게 무시할 수 있는 테스트 또는 환경에 적합합니다. 프로덕션 워크로드는 자체 서명된 인증서를 사용해서는 안 됩니다.
 
-자세한 내용은 [Application Gateway를 사용하여 TLS 종료 구성](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)을 참조하세요.
+자세한 내용은 [Application Gateway를 사용하여 TLS 종료 구성](./create-ssl-portal.md)을 참조하세요.
 
 ### <a name="size-of-the-certificate"></a>인증서의 크기
-[Application Gateway 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) 섹션을 확인하여 지원되는 최대 TLS/SSL 인증서 크기를 파악합니다.
+[Application Gateway 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) 섹션을 확인하여 지원되는 최대 TLS/SSL 인증서 크기를 파악합니다.
 
 ## <a name="end-to-end-tls-encryption"></a>엔드투엔드 TLS 암호화
 
@@ -62,7 +62,7 @@ Application Gateway는 다음과 같은 유형의 인증서를 지원합니다.
 
 엔드투엔드 TLS를 사용하면 Application Gateway의 계층 7 부하 분산 기능을 사용하는 동안 중요한 데이터를 암호화하여 백 엔드로 안전하게 전송할 수 있습니다. 이러한 기능에는 쿠키 기반 세션 선호도, URL 기반 라우팅, 사이트 기반 라우팅 지원 또는 X-Forwarded-* 헤더 재작성 또는 삽입 기능 등이 포함됩니다.
 
-엔드투엔드 TLS 통신 모드로 구성한 경우 Application Gateway가 게이트웨이에서 TLS 세션을 종료하고 사용자 트래픽을 암호 해독합니다. 그런 다음 구성된 규칙을 적용하여 트래픽을 라우팅할 적절한 백 엔드 풀 인스턴스를 선택합니다. 그런 다음, Application Gateway에서 백 엔드 서버에 대한 새로운 TLS 연결을 시작하고, 백 엔드 서버의 공개 키 인증서를 사용하여 데이터를 다시 암호화한 다음, 백 엔드에 해당 요청을 전송합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다. 엔드투엔드 TLS는 [백 엔드 HTTP 설정](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings)에서 프로토콜 설정을 HTTPS로 설정하여 활성화된 후에 백 엔드 풀에 적용됩니다.
+엔드투엔드 TLS 통신 모드로 구성한 경우 Application Gateway가 게이트웨이에서 TLS 세션을 종료하고 사용자 트래픽을 암호 해독합니다. 그런 다음 구성된 규칙을 적용하여 트래픽을 라우팅할 적절한 백 엔드 풀 인스턴스를 선택합니다. 그런 다음, Application Gateway에서 백 엔드 서버에 대한 새로운 TLS 연결을 시작하고, 백 엔드 서버의 공개 키 인증서를 사용하여 데이터를 다시 암호화한 다음, 백 엔드에 해당 요청을 전송합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다. 엔드투엔드 TLS는 [백 엔드 HTTP 설정](./configuration-overview.md#http-settings)에서 프로토콜 설정을 HTTPS로 설정하여 활성화된 후에 백 엔드 풀에 적용됩니다.
 
 Application Gateway 및 WAF v1 SKU의 경우 TLS 정책은 프런트 엔드 및 백 엔드 트래픽에 모두 적용됩니다. 프런트 엔드에서 Application Gateway는 서버 역할을 하고 정책을 적용합니다. 백 엔드에서 Application Gateway는 클라이언트 역할을 하고 TLS 핸드셰이크 중에 프로토콜/암호 정보를 기본 설정으로 보냅니다.
 
@@ -74,7 +74,7 @@ Application Gateway는 인증서가 Application Gateway에 나열 되도록 허�
 
 > [!NOTE] 
 >
-> 백 엔드 서버를 인증하기 위해 **백 엔드 HTTP 설정**에 추가된 인증서는 애플리케이션 게이트웨이에서 TLS 종료를 위해 **수신기**에 추가된 인증서와 동일할 수 있고 또는 향상된 보안의 경우 다를 수 있습니다.
+> 백 엔드 서버를 인증하기 위해 **백 엔드 HTTP 설정** 에 추가된 인증서는 애플리케이션 게이트웨이에서 TLS 종료를 위해 **수신기** 에 추가된 인증서와 동일할 수 있고 또는 향상된 보안의 경우 다를 수 있습니다.
 
 ![엔드투엔드 TLS 시나리오][1]
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563763"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397572"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>게이트웨이 세션 선호도 문제 Azure 애플리케이션 문제 해결
 
@@ -40,9 +40,9 @@ Azure 애플리케이션 Gateway를 사용 하 여 세션 선호도 문제를 �
 
 1. [Azure 포털](https://portal.azure.com/)에 로그온합니다.
 
-2. **왼쪽 탐색** 창에서 **모든 리소스**를 클릭 합니다. 모든 리소스 블레이드에서 응용 프로그램 게이트웨이 이름을 클릭 합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링 ...** 에 응용 프로그램 게이트웨이 이름을 입력할 수 있습니다. 애플리케이션 게이트웨이에 간편하게 액세스할 수 있는 상자입니다.
+2. **왼쪽 탐색** 창에서 **모든 리소스** 를 클릭 합니다. 모든 리소스 블레이드에서 응용 프로그램 게이트웨이 이름을 클릭 합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링 ...** 에 응용 프로그램 게이트웨이 이름을 입력할 수 있습니다. 애플리케이션 게이트웨이에 간편하게 액세스할 수 있는 상자입니다.
 
-3. **설정**아래에서 **HTTP 설정** 탭을 선택 합니다.
+3. **설정** 아래에서 **HTTP 설정** 탭을 선택 합니다.
 
    ![H T P 설정이 선택 된 설정을 보여 주는 스크린샷](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
@@ -52,9 +52,9 @@ Azure 애플리케이션 Gateway를 사용 하 여 세션 선호도 문제를 �
 
 
 
-다음 방법 중 하나를 사용 하 여 "**backendHttpSettingsCollection**"에서 "**CookieBasedAffinity**"의 값이 *사용*으로 설정 된 것을 확인할 수도 있습니다.
+다음 방법 중 하나를 사용 하 여 " **backendHttpSettingsCollection** "에서 " **CookieBasedAffinity** "의 값이 *사용* 으로 설정 된 것을 확인할 수도 있습니다.
 
-- PowerShell에서 [AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) 실행
+- PowerShell에서 [AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) 실행
 - Azure Resource Manager 템플릿을 사용 하 여 JSON 파일을 살펴봅니다.
 
 ```
@@ -80,9 +80,9 @@ Internet Explorer에서 짧은 이름 URL을 사용 하 여 Application Gateway�
 이 문제를 확인 하려면 다음 지침을 따르세요.
 
 1. Application Gateway 뒤에 응용 프로그램에 연결 하는 "클라이언트"에서 웹 디버거 추적을 사용 합니다 (이 예제에서는 Fiddler 사용).
-    **팁** Fiddler를 사용 하는 방법을 모르는 경우 맨 아래에 있는 "**네트워크 트래픽을 수집 하 고 웹 디버거를 사용 하 여 분석 합니다**." 옵션을 선택 합니다.
+    **팁** Fiddler를 사용 하는 방법을 모르는 경우 맨 아래에 있는 " **네트워크 트래픽을 수집 하 고 웹 디버거를 사용 하 여 분석 합니다**." 옵션을 선택 합니다.
 
-2. 세션 로그를 확인 하 고 분석 하 여 클라이언트에서 제공한 쿠키에 ARRAffinity 세부 정보가 있는지 여부를 확인 합니다. 쿠키 집합 내에서 "**ARRAffinity =** *ARRAffinityValue*"와 같은 ARRAffinity 세부 정보를 찾지 못하면 클라이언트는 Application Gateway에서 제공 하는 arra 쿠키를 사용 하 여 응답 하지 않습니다.
+2. 세션 로그를 확인 하 고 분석 하 여 클라이언트에서 제공한 쿠키에 ARRAffinity 세부 정보가 있는지 여부를 확인 합니다. 쿠키 집합 내에서 " **ARRAffinity =** *ARRAffinityValue* "와 같은 ARRAffinity 세부 정보를 찾지 못하면 클라이언트는 Application Gateway에서 제공 하는 arra 쿠키를 사용 하 여 응답 하지 않습니다.
     예를 들면 다음과 같습니다.
 
     ![스크린 샷에서는 단일 항목이 강조 표시 된 세션 로그를 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -109,11 +109,11 @@ Application Gateway 로그를 수집 하려면 다음 지침을 따르세요.
 
 Azure Portal을 통한 로깅 사용
 
-1. [Azure Portal](https://portal.azure.com/)에서 리소스를 찾은 다음 **진단 로그**를 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 리소스를 찾은 다음 **진단 로그** 를 클릭 합니다.
 
    Application Gateway 로그, 성능 로그, 방화벽 로그의 세 가지 로그를 사용할 수 있습니다.
 
-2. 데이터 수집을 시작 하려면 **진단 켜기**를 클릭 합니다.
+2. 데이터 수집을 시작 하려면 **진단 켜기** 를 클릭 합니다.
 
    ![진단 로그가 선택 된 application gateway가 스크린샷으로 표시 됩니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
 
@@ -121,7 +121,7 @@ Azure Portal을 통한 로깅 사용
 
    ![스크린샷 Log Analytics 구성을 선택한 진단 설정 창을 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
 
-4. 설정을 확인 하 고 **저장**을 클릭 합니다.
+4. 설정을 확인 하 고 **저장** 을 클릭 합니다.
 
    ![스크린샷이 선택 된 상태에서 진단 설정 창을 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-7.png)
 
@@ -131,7 +131,7 @@ Azure Portal을 통한 로깅 사용
 
    ![진단 로그를 선택 하 여 모니터링을 보여 주는 스크린샷](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
-2. 오른쪽의 로그 범주에 있는 드롭다운 목록에서 "**Applicationgatewayaccesslog**"를 선택 **합니다.**  
+2. 오른쪽의 로그 범주에 있는 드롭다운 목록에서 " **Applicationgatewayaccesslog** "를 선택 **합니다.**  
 
    ![스크린샷에는 ApplicationGatewayAccessLog가 선택 된 로그 범주 드롭다운 목록이 표시 됩니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
@@ -141,19 +141,19 @@ Azure Portal을 통한 로깅 사용
 
 5. 다음 데이터를 확인 합니다.
 
-- **ClientIP**– 연결 하는 클라이언트의 클라이언트 IP 주소입니다.
+- **ClientIP** – 연결 하는 클라이언트의 클라이언트 IP 주소입니다.
 - **Clientport** -요청에 대 한 연결 하는 클라이언트의 원본 포트입니다.
 - **Requestquery** – 요청이 수신 되는 대상 서버를 나타냅니다.
-- **서버에서 라우트된**: 요청이 수신 된 백 엔드 풀 인스턴스입니다.
-- **X-AzureApplicationGateway-LOG-ID**: 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. 예: X-y = 0&서버-라우트된 = 10.0.2.4.
+- **서버에서 라우트된** : 요청이 수신 된 백 엔드 풀 인스턴스입니다.
+- **X-AzureApplicationGateway-LOG-ID** : 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. 예: X-y = 0&서버-라우트된 = 10.0.2.4.
 
-  - **SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드
+  - **SERVER-STATUS** : Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드
 
   ![스크린샷은 일반적으로 가장 많이 가려진 서버 상태를 clientPort 및 서버-라우트된 강조 표시와 함께 표시 합니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 두 항목이 동일한 ClientIP 및 Client 포트에서 오고 동일한 백 엔드 서버에 전송 되는 것을 확인 하면 Application Gateway 올바르게 구성 된 것입니다.
 
-두 항목이 동일한 ClientIP 및 클라이언트 포트에서 발생 하 고 다른 백 엔드 서버에 전송 되는 경우,이는 백 엔드 서버 간의 요청이 발생 하는 것을 의미 합니다. 즉, "**응용 프로그램에서 쿠키 기반 선호도를 사용 하 고 있지만 백 엔드 서버 간의 요청이 여전히 바운스**"를 선택 하 여 문제를 해결 합니다.
+두 항목이 동일한 ClientIP 및 클라이언트 포트에서 발생 하 고 다른 백 엔드 서버에 전송 되는 경우,이는 백 엔드 서버 간의 요청이 발생 하는 것을 의미 합니다. 즉, " **응용 프로그램에서 쿠키 기반 선호도를 사용 하 고 있지만 백 엔드 서버 간의 요청이 여전히 바운스** "를 선택 하 여 문제를 해결 합니다.
 
 ### <a name="use-web-debugger-to-capture-and-analyze-the-http-or-https-traffics"></a>웹 디버거를 사용 하 여 HTTP 또는 HTTPS 트래픽을 캡처 및 분석
 
@@ -174,7 +174,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
     ![스크린샷에는 캡처 표시기가 강조 표시 된 Fiddler 웹 디버거가 표시 됩니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. 일반적으로 암호 해독 된 https 트래픽을 확인 하 고 **도구**Fiddler 옵션을 선택 하 여 https 암호 해독을 사용 하도록 설정 하  >  **Fiddler Options**고 " **https 트래픽 암호 해독**" 확인란을 선택 하면 됩니다.
+4. 일반적으로 암호 해독 된 https 트래픽을 확인 하 고 **도구** Fiddler 옵션을 선택 하 여 https 암호 해독을 사용 하도록 설정 하  >  **Fiddler Options** 고 " **https 트래픽 암호 해독** " 확인란을 선택 하면 됩니다.
 
     ![Fiddler에서 H T P를 선택 하 고 HTTPS 트래픽 암호 해독을 선택 하 여 옵션을 보여 주는 스크린샷](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
     ![모든 제거 옵션을 표시 하는 X 아이콘이 선택 된 것을 보여 주는 스크린샷](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. 문제를 재현 한 후 **파일**  >  **Save**  >  **모든 세션**저장 ...을 선택 하 여 검토를 위해 파일을 저장 합니다. 
+6. 문제를 재현 한 후 **파일**  >  **Save**  >  **모든 세션** 저장 ...을 선택 하 여 검토를 위해 파일을 저장 합니다. 
 
     ![스크린샷 선택 된 파일 저장 모든 세션 옵션을 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
@@ -190,7 +190,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
     예:
 
-- **예 A:** 요청이 클라이언트에서 전송 되 고 Application Gateway의 공용 IP 주소로 이동 하는 세션 로그를 찾은 후이 로그를 클릭 하 여 세부 정보를 확인 합니다.  오른쪽에서 아래쪽 상자의 데이터는 Application Gateway 클라이언트에 반환 되는 데이터입니다. "RAW" 탭을 선택 하 고 클라이언트가 "**Set-Cookie: ARRAffinity =** *ARRAffinityValue*"를 수신 하는지 여부를 확인 합니다. 쿠키가 없거나 세션 선호도가 설정 되지 않았거나 Application Gateway 쿠키를 클라이언트에 다시 적용 하지 않는 경우
+- **예 A:** 요청이 클라이언트에서 전송 되 고 Application Gateway의 공용 IP 주소로 이동 하는 세션 로그를 찾은 후이 로그를 클릭 하 여 세부 정보를 확인 합니다.  오른쪽에서 아래쪽 상자의 데이터는 Application Gateway 클라이언트에 반환 되는 데이터입니다. "RAW" 탭을 선택 하 고 클라이언트가 " **Set-Cookie: ARRAffinity =** *ARRAffinityValue* "를 수신 하는지 여부를 확인 합니다. 쿠키가 없거나 세션 선호도가 설정 되지 않았거나 Application Gateway 쿠키를 클라이언트에 다시 적용 하지 않는 경우
 
    > [!NOTE]
    > 이 ARRAffinity 값은 특정 백 엔드 서버에 클라이언트를 전송 하기 위해 Application Gateway 설정 하는 쿠키 id입니다.

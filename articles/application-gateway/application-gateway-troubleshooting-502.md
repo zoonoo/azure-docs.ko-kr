@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808150"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397708"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -41,7 +41,7 @@ NSG, UDR 또는 사용자 지정 DNS로 인해 백 엔드에 대 한 액세스�
 
 마찬가지로 VNet에 사용자 지정 DNS가 있으면 문제가 발생할 수도 있습니다. 백 엔드 풀 구성원에 사용 되는 FQDN은 사용자가 VNet에 대해 구성 된 DNS 서버에 의해 올바르게 확인 되지 않을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 단계를 통해 NSG, UDR 및 DNS 구성을 확인합니다.
 
@@ -89,14 +89,14 @@ DhcpOptions            : {
 | 시간 제한 |30 |프로브 시간 제한(초) |
 | 비정상 임계값 |3 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 * 기본 사이트를 구성하고 127.0.0.1에서 수신 대기 중인지를 확인합니다.
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
 * `http://127.0.0.1:port` 호출은 HTTP 결과 코드 200을 반환해야 합니다. 이는 30 초 제한 시간 내에 반환 되어야 합니다.
 * 구성 된 포트가 열려 있고 구성 된 포트에서 들어오거나 나가는 트래픽을 차단 하는 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지 확인 합니다.
-* Azure 클래식 Vm 또는 클라우드 서비스를 FQDN 또는 공용 IP와 함께 사용 하는 경우 해당 [끝점이](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 열려 있는지 확인 합니다.
-* VM이 Azure Resource Manager를 통해 구성 되 고 응용 프로그램 게이트웨이가 배포 된 VNet 외부에 있는 경우, 원하는 포트에서 액세스를 허용 하도록 [네트워크 보안 그룹](../virtual-network/security-overview.md) 을 구성 해야 합니다.
+* Azure 클래식 Vm 또는 클라우드 서비스를 FQDN 또는 공용 IP와 함께 사용 하는 경우 해당 [끝점이](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) 열려 있는지 확인 합니다.
+* VM이 Azure Resource Manager를 통해 구성 되 고 응용 프로그램 게이트웨이가 배포 된 VNet 외부에 있는 경우, 원하는 포트에서 액세스를 허용 하도록 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 을 구성 해야 합니다.
 
 ## <a name="problems-with-custom-health-probe"></a>사용자 지정 상태 검색의 문제
 
@@ -116,7 +116,7 @@ DhcpOptions            : {
 | 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브가 실패로 표시됩니다. |
 | 비정상 임계값 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 앞의 테이블처럼 사용자 지정 상태 프로브를 올바르게 구성했는지 유효성을 검사합니다. 앞의 문제 해결 단계 외에도 다음 사항을 확인합니다.
 
@@ -132,7 +132,7 @@ DhcpOptions            : {
 
 사용자 요청이 수신 되 면 응용 프로그램 게이트웨이에서 요청에 구성 된 규칙을 적용 하 여 백 엔드 풀 인스턴스로 라우팅합니다. 백 엔드 인스턴스의 응답에 대해 구성 가능한 시간 간격을 기다립니다. 기본적으로이 간격은 **20** 초입니다. Application gateway가이 간격의 백 엔드 응용 프로그램에서 응답을 받지 못하면 사용자 요청에서 502 오류를 가져옵니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Application Gateway를 사용 하 여 BackendHttpSetting를 통해이 설정을 구성할 수 있습니다. 그런 다음 다른 풀에 적용할 수 있습니다. 다른 백 엔드 풀에는 서로 다른 BackendHttpSetting 및 다른 요청 시간 제한이 구성 되어 있을 수 있습니다.
 
@@ -146,7 +146,7 @@ Application Gateway를 사용 하 여 BackendHttpSetting를 통해이 설정을 
 
 응용 프로그램 게이트웨이에 백 엔드 주소 풀에 구성 된 Vm 또는 가상 머신 확장 집합이 없는 경우 고객 요청을 라우팅할 수 없고 잘못 된 게이트웨이 오류를 보낼 수 없습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 백 엔드 주소 풀이 비어 있지 않은지 확인 합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
 
@@ -188,11 +188,10 @@ BackendAddressPoolsText:
 
 BackendAddressPool의 모든 인스턴스가 비정상 이면 응용 프로그램 게이트웨이에 사용자 요청을 라우팅할 백 엔드가 없습니다. 이는 백 엔드 인스턴스가 정상 이지만 필수 응용 프로그램을 배포 하지 않은 경우에도 가능 합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 인스턴스가 정상이고 애플리케이션이 올바르게 구성되어 있는지 확인합니다. 백 엔드 인스턴스가 동일한 VNet의 다른 VM에서 ping에 응답할 수 있는지 확인 합니다. 공용 끝점을 사용 하 여 구성 하는 경우 웹 응용 프로그램에 대 한 브라우저 요청을 서비스할 수 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 위의 단계를 수행 해도 문제가 해결 되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.
-

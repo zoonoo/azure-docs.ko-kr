@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323385"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397555"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
@@ -30,15 +30,15 @@ Application Gateway는 요청이 `Pick host name from backend target` Applicatio
 
 - Application gateway: 백 엔드 풀 대상을 사용 하지 않고 응용 프로그램 게이트웨이를 만듭니다. 자세한 내용은 [빠른 시작: Azure 애플리케이션 게이트웨이를 사용 하 여 웹 트래픽 직접 사용-Azure Portal](quick-create-portal.md) 을 참조 하세요.
 
-- App service: 기존 App service가 없는 경우 [app service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조 하세요.
+- App service: 기존 App service가 없는 경우 [app service 설명서](../app-service/index.yml)를 참조 하세요.
 
 ## <a name="add-app-service-as-backend-pool"></a>백 엔드 풀로 App service 추가
 
 1. Azure Portal에서 응용 프로그램 게이트웨이를 선택 합니다.
 
-2. **백 엔드 풀**에서 백 엔드 풀을 선택 합니다.
+2. **백 엔드 풀** 에서 백 엔드 풀을 선택 합니다.
 
-4. **대상 유형**에서 **App Services**를 선택 합니다.
+4. **대상 유형** 에서 **App Services** 를 선택 합니다.
 
 5. **대상** 아래에서 App Service를 선택 합니다.
 
@@ -46,23 +46,23 @@ Application Gateway는 요청이 `Pick host name from backend target` Applicatio
    
    > [!NOTE]
    > 드롭다운은 Application Gateway와 동일한 구독에 있는 앱 서비스만 채웁니다. Application Gateway 아닌 다른 구독에 있는 앱 서비스를 사용 하려는 경우 **대상** 드롭다운에서 **App Services** 를 선택 하는 대신 **IP 주소 또는 호스트 이름** 옵션을 선택 하 고 호스트 이름 (예:)을 입력 합니다. azurewebsites.net)를 다운로드 합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="edit-http-settings-for-app-service"></a>App Service에 대 한 HTTP 설정 편집
 
-1. **Http 설정**에서 기존 http 설정을 선택 합니다.
+1. **Http 설정** 에서 기존 http 설정을 선택 합니다.
 
-2. **새 호스트 이름으로 재정의**아래에서 **예**를 선택 합니다.
-3. **호스트 이름 재정의**에서 **백 엔드 대상에서 호스트 이름**선택을 선택 합니다.
-4. **저장**을 선택합니다.
+2. **새 호스트 이름으로 재정의** 아래에서 **예** 를 선택 합니다.
+3. **호스트 이름 재정의** 에서 **백 엔드 대상에서 호스트 이름** 선택을 선택 합니다.
+4. **저장** 을 선택합니다.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="App service 백 엔드":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="백 엔드 http 설정에서 호스트 이름 선택":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>App service의 상대 경로로 리디렉션하는 경우 추가 구성
 
 App service가 상대 경로 (예:에서로의 리디렉션)로 리디렉션되는 클라이언트에 리디렉션 응답을 보낼 때 `contoso.azurewebsites.net/path1` `contoso.azurewebsites.net/path2` 응용 프로그램 게이트웨이에서 받은 요청의 위치 헤더에 있는 것과 동일한 호스트 이름을 사용 합니다. 따라서 클라이언트는 `contoso.azurewebsites.net/path2` 응용 프로그램 게이트웨이 ()를 통하지 않고 직접 요청을 만듭니다 `contoso.com/path2` . Application gateway를 무시 하는 것은 바람직하지 않습니다.
 
-사용 사례에서 응용 프로그램 서비스가 클라이언트에 리디렉션 응답을 보내야 하는 경우에는 추가 단계를 수행 하 여 [위치 헤더를 다시 작성](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)해야 합니다.
+사용 사례에서 응용 프로그램 서비스가 클라이언트에 리디렉션 응답을 보내야 하는 경우에는 추가 단계를 수행 하 여 [위치 헤더를 다시 작성](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration)해야 합니다.
 
 ## <a name="restrict-access"></a>액세스 제한
 
@@ -72,4 +72,4 @@ App service가 상대 경로 (예:에서로의 리디렉션)로 리디렉션되�
 
 ## <a name="next-steps"></a>다음 단계
 
-Application gateway를 사용 하 여 App service 및 기타 다중 테 넌 트 지원에 대 한 자세한 내용은 [application gateway를 사용 하 여 다중 테 넌 트 서비스 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)을 참조 하세요.
+Application gateway를 사용 하 여 App service 및 기타 다중 테 넌 트 지원에 대 한 자세한 내용은 [application gateway를 사용 하 여 다중 테 넌 트 서비스 지원](./application-gateway-web-app-overview.md)을 참조 하세요.

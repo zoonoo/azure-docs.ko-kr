@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807151"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397385"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러)를 설치 하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "84807151"
 
 [Azure Cloud Shell](https://shell.azure.com/) 에는 이미 필요한 도구가 모두 있습니다. 다른 환경을 사용 하도록 선택 하는 경우 다음 명령줄 도구가 설치 되어 있는지 확인 하세요.
 
-* `az` -Azure CLI: [설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` -Azure CLI: [설치 지침](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * `kubectl` -Kubernetes 명령줄 도구: [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` -Kubernetes 패키지 관리자: [설치 지침](https://github.com/helm/helm/releases/latest)
 * `jq` -명령줄 JSON 프로세서: [설치 지침](https://stedolan.github.io/jq/download/)
@@ -38,9 +38,9 @@ ms.locfileid: "84807151"
 
 ## <a name="create-an-identity"></a>Id 만들기
 
-다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 만듭니다. `appId`, `password` 및 값을 기록 하세요 `objectId` .이 값은 다음 단계에서 사용 됩니다.
+다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만듭니다. `appId`, `password` 및 값을 기록 하세요 `objectId` .이 값은 다음 단계에서 사용 됩니다.
 
-1. AD 서비스 주체 만들기 ([RBAC에 대 한 자세한 정보](https://docs.microsoft.com/azure/role-based-access-control/overview)):
+1. AD 서비스 주체 만들기 ([RBAC에 대 한 자세한 정보](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -71,11 +71,11 @@ ms.locfileid: "84807151"
 ## <a name="deploy-components"></a>구성 요소 배포
 이 단계에서는 구독에 다음 구성 요소를 추가 합니다.
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- 2 개의 [서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 이 있는 [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [AAD Pod id](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 에서 사용 되는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Application Gateway](./overview.md) v2
+- 2 개의 [서브넷](../virtual-network/virtual-networks-overview.md) 이 있는 [Virtual Network](../virtual-network/virtual-networks-overview.md)
+- [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)
+- [AAD Pod id](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 에서 사용 되는 [관리 id](../active-directory/managed-identities-azure-resources/overview.md)
 
 1. Azure Resource Manager 템플릿을 다운로드 하 고 필요에 따라 템플릿을 수정 합니다.
     ```bash
@@ -111,7 +111,7 @@ ms.locfileid: "84807151"
 ### <a name="setup-kubernetes-credentials"></a>Kubernetes 자격 증명 설정
 다음 단계에서는 새 Kubernetes 클러스터에 연결 하는 데 사용할 수 있는 setup [kubectl](https://kubectl.docs.kubernetes.io/) 명령이 필요 합니다. [Cloud Shell](https://shell.azure.com/) `kubectl` 이미 설치 되어 있습니다. `az`Kubernetes에 대 한 자격 증명을 얻기 위해 CLI를 사용 합니다.
 
-새로 배포 된 AKS에 대 한 자격 증명을 가져옵니다 ([자세히 읽기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)).
+새로 배포 된 AKS에 대 한 자격 증명을 가져옵니다 ([자세히 읽기](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)).
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -121,7 +121,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 ```
 
 ### <a name="install-aad-pod-identity"></a>AAD Pod Id 설치
-  Azure Active Directory Pod Id는 [ARM (Azure Resource Manager)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 대 한 토큰 기반 액세스를 제공 합니다.
+  Azure Active Directory Pod Id는 [ARM (Azure Resource Manager)](../azure-resource-manager/management/overview.md)에 대 한 토큰 기반 액세스를 제공 합니다.
 
   [AAD Pod id](https://github.com/Azure/aad-pod-identity) 는 다음 구성 요소를 Kubernetes 클러스터에 추가 합니다.
    * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
@@ -144,9 +144,9 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
      ```
 
 ### <a name="install-helm"></a>Helm 설치
-[투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 는 Kubernetes 패키지 관리자입니다. 이를 활용 하 여 패키지를 설치 합니다 `application-gateway-kubernetes-ingress` .
+[투구](../aks/kubernetes-helm.md) 는 Kubernetes 패키지 관리자입니다. 이를 활용 하 여 패키지를 설치 합니다 `application-gateway-kubernetes-ingress` .
 
-1. [투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
+1. [투구](../aks/kubernetes-helm.md) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
 
     - *RBAC 사용* AKS 클러스터
 

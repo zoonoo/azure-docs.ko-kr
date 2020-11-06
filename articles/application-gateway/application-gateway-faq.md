@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791548"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397793"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -29,7 +29,7 @@ Azure Application Gateway는 ADC(애플리케이션 제공 컨트롤러)를 서�
 
 ### <a name="what-features-does-application-gateway-support"></a>Application Gateway에서 지원하는 기능은 어떤 것이 있나요?
 
-Application Gateway는 자동 스케일링, TLS 오프로딩, 엔드투엔드 TLS, WAF(웹 애플리케이션 방화벽), 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 및 기타 기능을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway는 자동 스케일링, TLS 오프로딩, 엔드투엔드 TLS, WAF(웹 애플리케이션 방화벽), 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 및 기타 기능을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](./overview.md)를 참조하세요.
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Application Gateway와 Azure Load Balancer는 어떻게 다른가요?
 
@@ -41,17 +41,17 @@ Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket을 지원합니다.
 
 ### <a name="how-does-application-gateway-support-http2"></a>Application Gateway는 어떻게 HTTP/2를 지원하나요?
 
-[HTTP/2 지원](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support)을 참조하세요.
+[HTTP/2 지원](./configuration-listeners.md#http2-support)을 참조하세요.
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>백 엔드 풀의 일부로 어떤 리소스가 지원되나요?
 
-[지원되는 백 엔드 리소스](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools)를 참조하세요.
+[지원되는 백 엔드 리소스](./application-gateway-components.md#backend-pools)를 참조하세요.
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>Application Gateway를 사용할 수 있는 지역은 어디인가요?
 
 Application Gateway v1 (표준 및 WAF)은 글로벌 Azure의 모든 지역에서 사용할 수 있습니다. [Azure 중국 21Vianet](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
 
-Application Gateway v2 (Standard_v2 및 WAF_v2) 가용성은 Application Gateway v 2 [의 지원 되는 지역](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions) 을 참조 하세요.
+Application Gateway v2 (Standard_v2 및 WAF_v2) 가용성은 Application Gateway v 2 [의 지원 되는 지역](./application-gateway-autoscaling-zone-redundant.md#supported-regions) 을 참조 하세요.
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>이 배포가 내 구독 전용인가요 아니면 고객 사이에서 공유되나요?
 
@@ -59,11 +59,11 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 ### <a name="does-application-gateway-support-http-to-https-redirection"></a>Application Gateway는 HTTP-HTTPS 리디렉션을 지원하나요?
 
-리디렉션은 지원됩니다. [Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 참조하세요.
+리디렉션은 지원됩니다. [Application Gateway 리디렉션 개요](./redirect-overview.md)를 참조하세요.
 
 ### <a name="in-what-order-are-listeners-processed"></a>수신기는 어떤 순서로 처리되나요?
 
-[수신기 처리 순서](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners)를 참조하세요.
+[수신기 처리 순서](./configuration-listeners.md#order-of-processing-listeners)를 참조하세요.
 
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Application Gateway IP 및 DNS는 어디서 찾나요?
 
@@ -97,7 +97,7 @@ Application Gateway V1 SKU에서는 애플리케이션 게이트웨이를 중지
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Application Gateway에 대해 얼마나 큰 서브넷을 만들어야 하나요?
 
-[Application Gateway 서브넷 크기 고려 사항](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet)을 참조하세요.
+[Application Gateway 서브넷 크기 고려 사항](./configuration-infrastructure.md#size-of-the-subnet)을 참조하세요.
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?
 
@@ -111,7 +111,7 @@ Application Gateway V1 SKU에서는 애플리케이션 게이트웨이를 중지
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
-예. [요청 수정](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request)을 참조하세요.
+예. [요청 수정](./how-application-gateway-works.md#modifications-to-the-request)을 참조하세요.
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>애플리케이션 게이트웨이를 배포하는 데 얼마나 걸리나요? 애플리케이션 게이트웨이를 업데이트하는 중에도 작동하나요?
 
@@ -138,7 +138,7 @@ v2 SKU를 사용하는 대부분의 배포는 프로비저닝하는 데 약 6분
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
 예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 
 
-이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure* . 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.
+이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.
 
 ## <a name="performance"></a>성능
 
@@ -172,7 +172,7 @@ Traffic Manager를 사용하여 서로 다른 데이터 센터에 있는 여러 
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
-예. Application Gateway는 항상 가상 네트워크 서브넷에 배포됩니다. 이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 자세한 내용은 [가상 네트워크 및 서브넷 요구 사항](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet)을 참조하세요.
+예. Application Gateway는 항상 가상 네트워크 서브넷에 배포됩니다. 이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 자세한 내용은 [가상 네트워크 및 서브넷 요구 사항](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet)을 참조하세요.
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Application Gateway는 가상 네트워크 외부 또는 구독 외부의 인스턴스와 통신할 수 있나요?
 
@@ -184,15 +184,15 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 네트워크 보안 그룹이 지원되나요?
 
-[Application Gateway 서브넷의 네트워크 보안 그룹](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups)을 참조하세요.
+[Application Gateway 서브넷의 네트워크 보안 그룹](./configuration-infrastructure.md#network-security-groups)을 참조하세요.
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로를 지원하나요?
 
-[Application Gateway 서브넷에서 지원되는 사용자 정의 경로](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes)를 참조하세요.
+[Application Gateway 서브넷에서 지원되는 사용자 정의 경로](./configuration-infrastructure.md#supported-user-defined-routes)를 참조하세요.
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 서비스 끝점 정책이 지원 되나요?
 
-아니요. 저장소 계정에 대 한 [서비스 끝점 정책은](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) Application Gateway 서브넷에서 지원 되지 않으며 구성 하면 Azure 인프라 트래픽이 차단 됩니다.
+아니요. 저장소 계정에 대 한 [서비스 끝점 정책은](../virtual-network/virtual-network-service-endpoint-policies-overview.md) Application Gateway 서브넷에서 지원 되지 않으며 구성 하면 Azure 인프라 트래픽이 차단 됩니다.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -220,7 +220,7 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Application Gateway에서 회람 규칙은 어떻게 처리되나요?
 
-[처리 규칙 순서](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules)를 참조하세요.
+[처리 규칙 순서](./configuration-request-routing-rules.md#order-of-processing-rules)를 참조하세요.
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>사용자 지정 프로브의 호스트 필드는 무엇을 나타내나요?
 
@@ -228,7 +228,7 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Application Gateway가 일부 원본 IP 주소에만 액세스하도록 허용할 수 있나요?
 
-예. [특정 원본 IP로 액세스 제한](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips)을 참조하세요.
+예. [특정 원본 IP로 액세스 제한](./configuration-infrastructure.md#allow-access-to-a-few-source-ips)을 참조하세요.
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>퍼블릭 연결 수신기와 프라이빗 연결 수신기에 똑같은 포트를 사용할 수 있나요?
 
@@ -247,7 +247,7 @@ Application Gateway v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사�
 하지만 아래 프로세스를 수행하면 Application Gateway V2에서 사설 IP만 사용할 수 있습니다.
 1. 공용 및 개인 프런트 엔드 IP 주소를 모두 사용하는 Application Gateway를 만듭니다.
 2. 공용 프런트 엔드 IP 주소용 수신기를 만들지 않습니다. 공용 IP 주소용 수신기를 만들지 않으면 Application Gateway는 공용 IP 주소의 트래픽을 수신 대기하지 않습니다.
-3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 만들고 연결합니다.
+3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 만들고 연결합니다.
     
     a. 원본 **GatewayManager** 서비스 태그, 대상 **모두** , 대상 포트 **65200-65535** 의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
     
@@ -337,7 +337,7 @@ Application Gateway는 최대 100의 인증 인증서를 지원합니다.
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>.com 및 .net 사이트에 대해 HTTPS 수신기를 구성하려면 어떻게 할까요?? 
 
-다중 도메인 기반(호스트 기반) 라우팅의 경우 다중 사이트 수신기를 만들고, HTTPS를 프로토콜로 사용하는 수신기를 설정하고, 수신기를 회람 규칙과 연결할 수 있습니다. 자세한 내용은 [Application Gateway를 사용하여 여러 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)을 참조하세요.
+다중 도메인 기반(호스트 기반) 라우팅의 경우 다중 사이트 수신기를 만들고, HTTPS를 프로토콜로 사용하는 수신기를 설정하고, 수신기를 회람 규칙과 연결할 수 있습니다. 자세한 내용은 [Application Gateway를 사용하여 여러 사이트 호스팅](./multiple-site-overview.md)을 참조하세요.
 
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>.pfx 파일 암호에 특수 문자를 사용해도 되나요?
 
@@ -365,7 +365,7 @@ Application Gateway 특정 정보는 아래를 참조 하세요.
 이 문제로 인해 응용 프로그램의 중단을 방지 하거나 해지 된 CA를 다시 발급 하려면 다음 작업을 수행 해야 합니다. 
 
 1.  인증서를 다시 발급 하는 방법에 대해서는 인증서 공급자에 게 문의 하세요.
-2.  다시 발급 된 후에는 완전 한 [신뢰 체인](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (리프, 중간, 루트 인증서)으로 Azure 애플리케이션 Gateway/waf의 인증서를 업데이트 합니다. 인증서를 사용 하는 위치에 따라 수신기 또는 Application Gateway의 HTTP 설정에서 다음 단계에 따라 인증서를 업데이트 하 고 자세한 내용은 설명 된 설명서 링크를 확인 합니다.
+2.  다시 발급 된 후에는 완전 한 [신뢰 체인](/windows/win32/seccrypto/certificate-chains) (리프, 중간, 루트 인증서)으로 Azure 애플리케이션 Gateway/waf의 인증서를 업데이트 합니다. 인증서를 사용 하는 위치에 따라 수신기 또는 Application Gateway의 HTTP 설정에서 다음 단계에 따라 인증서를 업데이트 하 고 자세한 내용은 설명 된 설명서 링크를 확인 합니다.
 3.  다시 발급 된 인증서를 사용 하도록 백 엔드 응용 프로그램 서버를 업데이트 합니다. 사용 중인 백 엔드 서버에 따라 인증서 업데이트 단계가 다를 수 있습니다. 공급 업체의 설명서를 확인 하세요.
 
 수신기에서 인증서를 업데이트 하려면 다음을 수행 합니다.
@@ -374,14 +374,14 @@ Application Gateway 특정 정보는 아래를 참조 하세요.
 2.  인증서와 연결 된 수신기 설정 열기
 3.  "선택한 인증서 갱신 또는 편집"을 클릭 합니다.
 4.  암호를 사용 하 여 새 PFX 인증서를 업로드 하 고 저장을 클릭 합니다.
-5.  웹 사이트에 액세스 하 고 사이트가 예상 대로 작동 하는지 확인 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/application-gateway/renew-certificates)에서 설명서를 참조 하세요.
+5.  웹 사이트에 액세스 하 고 사이트가 예상 대로 작동 하는지 확인 합니다. 자세한 내용은 [여기](./renew-certificates.md)에서 설명서를 참조 하세요.
 
 Application Gateway 수신기의 Azure KeyVault에서 인증서를 참조 하는 경우 빠른 변경에 대 한 다음 단계를 수행 하는 것이 좋습니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에서 Application Gateway 연결 된 Azure keyvault 설정으로 이동 합니다.
-2.  저장소에서 다시 발급 된 인증서를 추가/가져옵니다. 방법에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) 에서 설명서를 참조 하세요.
+2.  저장소에서 다시 발급 된 인증서를 추가/가져옵니다. 방법에 대 한 자세한 내용은 [여기](../key-vault/certificates/quick-create-portal.md) 에서 설명서를 참조 하세요.
 3.  인증서를 가져온 후 Application Gateway 수신기 설정으로 이동 하 고 "Key Vault에서 인증서 선택" 아래에서 "인증서" 드롭다운을 클릭 하 고 최근에 추가 된 인증서를 선택 합니다.
-4.  Key Vault 인증서를 사용 하 여 Application Gateway의 TLS 종료에 대 한 자세한 내용을 보려면 저장을 클릭 하세요. [여기](https://docs.microsoft.com/azure/application-gateway/key-vault-certs)에서 설명서를 확인 하세요.
+4.  Key Vault 인증서를 사용 하 여 Application Gateway의 TLS 종료에 대 한 자세한 내용을 보려면 저장을 클릭 하세요. [여기](./key-vault-certs.md)에서 설명서를 확인 하세요.
 
 
 HTTP 설정에서 인증서를 업데이트 하려면 다음을 수행 합니다.
@@ -391,7 +391,7 @@ Application Gateway/WAF 서비스의 V1 SKU를 사용 하는 경우 백 엔드 �
 2.  인증서와 연결 된 HTTP 설정을 엽니다.
 3.  "인증서 추가"를 클릭 하 고 다시 발급 된 인증서를 업로드 하 고 저장을 클릭 합니다.
 4.  나중에 "..."를 클릭 하 여 이전 인증서를 제거할 수 있습니다. 이전 인증서 옆의 옵션 단추를 클릭 하 고 삭제를 선택 하 고 저장을 클릭 합니다.
-자세한 내용은 [여기](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers)에서 설명서를 확인 하세요.
+자세한 내용은 [여기](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)에서 설명서를 확인 하세요.
 
 Application Gateway/WAF 서비스의 V2 SKU를 사용 하는 경우 V2 SKU가 "신뢰할 수 있는 루트 인증서"를 사용 하므로 여기에서 작업을 수행할 필요가 없으므로 HTTP 설정에 새 인증서를 업로드할 필요가 없습니다.
 
@@ -454,7 +454,7 @@ PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` 또는 포털을 사�
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway로 경고를 설정할 수 있나요?
 
-예. Application Gateway에서 경고는 메트릭에 대해 구성됩니다. 자세한 내용은 [Application Gateway 메트릭](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) 및 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 참조하세요.
+예. Application Gateway에서 경고는 메트릭에 대해 구성됩니다. 자세한 내용은 [Application Gateway 메트릭](./application-gateway-metrics.md) 및 [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)를 참조하세요.
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?
 

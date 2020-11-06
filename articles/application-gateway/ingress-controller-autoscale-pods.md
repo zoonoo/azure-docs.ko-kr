@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f015085baa8fffa6f208e9d8dd749e397c76c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85125466"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397436"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Application Gateway 메트릭을 사용 하 여 AKS pod 자동 크기 조정 (베타)
 
@@ -23,7 +23,7 @@ ms.locfileid: "85125466"
 다음 두 구성 요소를 사용할 예정입니다.
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) -메트릭 어댑터를 사용 하 여 메트릭 서버를 통해 Application Gateway 메트릭을 노출 합니다. Azure Kubernetes 메트릭 어댑터는 Application Gateway 수신 컨트롤러와 유사 하 게 Azure에서 오픈 소스 프로젝트입니다. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) -HPA을 사용 하 여 Application Gateway 메트릭을 사용 하 고 크기 조정을 위한 배포를 대상으로 합니다.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) -HPA을 사용 하 여 Application Gateway 메트릭을 사용 하 고 크기 조정을 위한 배포를 대상으로 합니다.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Azure Kubernetes 메트릭 어댑터 설정
 
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>새 메트릭을 사용 하 여 배포 확장
 
-메트릭 서버를 통해 노출할 수 있게 되 면를 `appgw-request-count-metric` 사용 하 여 [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) 대상 배포를 확장할 수 있습니다.
+메트릭 서버를 통해 노출할 수 있게 되 면를 `appgw-request-count-metric` 사용 하 여 [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) 대상 배포를 확장할 수 있습니다.
 
 다음 예제에서는 샘플 배포를 대상으로 `aspnet` 합니다. `appgw-request-count-metric`최대 pod까지 Pod 당 200을 > 때 pod를 확장 합니다 `10` .
 

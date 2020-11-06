@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: de580d8f94292ae65769c696aa232f5b660bf414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60aa9f072a447af97aa7cc66534e6e893fdbcf6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806752"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396943"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용하여 Azure Application Gateway 자체 서명된 인증서 생성
 
-Application Gateway v2 SKU는 백 엔드 서버를 허용하기 위해 신뢰할 수 있는 루트 인증서를 사용하는 방식을 도입했습니다. 따라서 v1 SKU에 필요한 인증 인증서가 제거되었습니다. *루트 인증서*는 백 엔드 인증서 서버의 Base-64로 인코딩된 X.509(.CER) 형식 루트 인증서입니다. 이 인증서는 서버 인증서를 발급한 루트 CA(인증 기관)를 식별하며 TLS/SSL 통신에 서버 인증서가 사용됩니다.
+Application Gateway v2 SKU는 백 엔드 서버를 허용하기 위해 신뢰할 수 있는 루트 인증서를 사용하는 방식을 도입했습니다. 따라서 v1 SKU에 필요한 인증 인증서가 제거되었습니다. *루트 인증서* 는 백 엔드 인증서 서버의 Base-64로 인코딩된 X.509(.CER) 형식 루트 인증서입니다. 이 인증서는 서버 인증서를 발급한 루트 CA(인증 기관)를 식별하며 TLS/SSL 통신에 서버 인증서가 사용됩니다.
 
 Application Gateway는 잘 알려진 CA(예: GoDaddy 또는 DigiCert)에 의해 서명된 경우 기본적으로 웹 사이트의 인증서를 신뢰합니다. 이 경우 루트 인증서를 명시적으로 업로드하지 않아도 됩니다. 자세한 내용은 [Application Gateway를 사용한 TLS 종료 및 엔드투엔드 TLS 개요](ssl-overview.md)를 참조하세요. 그러나 개발/테스트 환경이 있고 확인된 CA 서명 인증서를 구매하지 않으려는 경우 사용자 고유의 사용자 지정 CA를 만들고 이를 사용하여 자체 서명된 인증서를 만들 수 있습니다. 
 
@@ -133,7 +133,7 @@ CSR은 인증서를 요청할 때 CA에 제공되는 퍼블릭 키입니다. CA�
 
 인증서를 가져오고 IIS에서 서버 인증서로 업로드하는 방법에 대한 지침은 [방법: Windows Server 2003에서 웹 서버에 가져온 인증서 설치](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)를 참조하세요.
 
-TLS 바인딩 지침은 [IIS 7에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1)을 참조하세요.
+TLS 바인딩 지침은 [IIS 7에서 SSL을 설정하는 방법](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1)을 참조하세요.
 
 ### <a name="apache"></a>Apache
 
@@ -181,7 +181,7 @@ Application Gateway에서 인증서를 업로드하려면 .crt 인증서를 Base
 
 ### <a name="azure-portal"></a>Azure portal
 
-포털에서 신뢰할 수 있는 루트 인증서를 업로드하려면 **HTTP 설정**을 선택하고 **HTTPS** 프로토콜을 선택합니다.
+포털에서 신뢰할 수 있는 루트 인증서를 업로드하려면 **HTTP 설정** 을 선택하고 **HTTPS** 프로토콜을 선택합니다.
 
 ![포털을 사용하여 인증서 추가](media/self-signed-certificates/portal-cert.png)
 
@@ -266,11 +266,10 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ### <a name="verify-the-application-gateway-backend-health"></a>Application Gateway 백 엔드 상태 확인
 
 1. Application Gateway의 **백 엔드 상태** 보기를 클릭하여 프로브가 정상 상태인지 확인합니다.
-1. HTTPS 프로브이 상태가 **정상**으로 표시되어야 합니다.
+1. HTTPS 프로브이 상태가 **정상** 으로 표시되어야 합니다.
 
 ![HTTPS 프로브](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 Application Gateway의 SSL\TLS에 대한 자세한 내용은 [Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요](ssl-overview.md)를 참조하세요.
-

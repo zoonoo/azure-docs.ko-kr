@@ -9,16 +9,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1464c0c0b0d573711ed07332a76bb67e73dc0484
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131210"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397776"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
 
-Application Gateway와 Security Center에서 웹 애플리케이션 리소스를 보호하는 방법에 대해 알아봅니다. Application gateway WAF (웹 응용 프로그램 방화벽)는 [Security Center](../security-center/security-center-intro.md) 와 통합 되어 사용자 환경에서 보호 되지 않는 웹 응용 프로그램에 대 한 위협을 방지, 감지 및 대응 하기 위한 원활한 보기를 제공 합니다.
+Application Gateway와 Security Center에서 웹 애플리케이션 리소스를 보호하는 방법에 대해 알아봅니다. Application gateway WAF (웹 응용 프로그램 방화벽)는 [Security Center](../security-center/security-center-introduction.md) 와 통합 되어 사용자 환경에서 보호 되지 않는 웹 응용 프로그램에 대 한 위협을 방지, 감지 및 대응 하기 위한 원활한 보기를 제공 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -30,7 +30,7 @@ Application Gateway WAF는 악용 및 취약성으로부터 웹 애플리케이�
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>기존 리소스에 웹 애플리케이션 방화벽 추가
 
-**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **응용 프로그램**을 클릭 합니다. **Security Center - 애플리케이션**의 표에는 Security Center를 통해 구독에서 검색한 애플리케이션 목록이 있습니다.
+**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요** 에서 **응용 프로그램** 을 클릭 합니다. **Security Center - 애플리케이션** 의 표에는 Security Center를 통해 구독에서 검색한 애플리케이션 목록이 있습니다.
 
 ![웹 애플리케이션][3]
 
@@ -38,9 +38,9 @@ Application Gateway WAF는 악용 및 취약성으로부터 웹 애플리케이�
 
 ![보호되지 않는 웹 리소스][2]
 
-**권장 사항** 아래에서 **웹 애플리케이션 방화벽 추가**를 클릭하여 **웹 애플리케이션 방화벽 추가** 페이지를 엽니다.
+**권장 사항** 아래에서 **웹 애플리케이션 방화벽 추가** 를 클릭하여 **웹 애플리케이션 방화벽 추가** 페이지를 엽니다.
 
-기존 Application Gateway가 없거나 새 Application Gateway를 만들려면, **새 웹 애플리케이션 방화벽 만들기**에서 **새로 만들기**, **Microsoft - Application Gateway**를 차례로 클릭합니다. 이를 통해 애플리케이션 게이트웨이를 단계적으로 만듭니다. 이 시점에서 웹 애플리케이션을 보호되는 리소스로 추가하면 Security Center에서 이 리소스가 웹 애플리케이션 방화벽으로 보호되고 있는지를 추적합니다. 이 경우 백 엔드 풀 멤버로는 추가하지 않습니다.
+기존 Application Gateway가 없거나 새 Application Gateway를 만들려면, **새 웹 애플리케이션 방화벽 만들기** 에서 **새로 만들기** , **Microsoft - Application Gateway** 를 차례로 클릭합니다. 이를 통해 애플리케이션 게이트웨이를 단계적으로 만듭니다. 이 시점에서 웹 애플리케이션을 보호되는 리소스로 추가하면 Security Center에서 이 리소스가 웹 애플리케이션 방화벽으로 보호되고 있는지를 추적합니다. 이 경우 백 엔드 풀 멤버로는 추가하지 않습니다.
 
 기존 애플리케이션 게이트웨이가 있는 경우 **기존 솔루션 사용** 아래에서 선택할 수 있습니다.
 
@@ -50,23 +50,23 @@ Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>기존 웹 애플리케이션 방화벽에 리소스 추가
 
-**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **파트너 솔루션**을 클릭 합니다. 기존 Security Center 인식 애플리케이션 게이트웨이가 **파트너 솔루션** 페이지에 표시됩니다.
+**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요** 에서 **파트너 솔루션** 을 클릭 합니다. 기존 Security Center 인식 애플리케이션 게이트웨이가 **파트너 솔루션** 페이지에 표시됩니다.
 
 ![파트너 솔루션][7]
 
-**앱 연결**을 클릭하여 **링크 애플리케이션 연결** 페이지를 엽니다. 여기서는 기존 애플리케이션을 선택할 수 있는 옵션이 제공됩니다. 보호할 애플리케이션을 선택하고 **확인**을 클릭합니다. 이 경우 웹 애플리케이션은 애플리케이션 게이트웨이의 백 엔드 풀에 추가되지 않습니다. 이렇게 하면 Security Center에서 추적할 수 있도록 리소스를 보호된 리소스로 설정합니다. 리소스를 백 엔드 풀 멤버로 추가하려면 애플리케이션 게이트웨이에서 수행해야 합니다. 즉 현재 페이지에서 **솔루션 콘솔**을 클릭하여 웹 애플리케이션을 백 엔드 풀에 추가할 수 있는 애플리케이션 게이트웨이 리소스로 가져오면 됩니다.
+**앱 연결** 을 클릭하여 **링크 애플리케이션 연결** 페이지를 엽니다. 여기서는 기존 애플리케이션을 선택할 수 있는 옵션이 제공됩니다. 보호할 애플리케이션을 선택하고 **확인** 을 클릭합니다. 이 경우 웹 애플리케이션은 애플리케이션 게이트웨이의 백 엔드 풀에 추가되지 않습니다. 이렇게 하면 Security Center에서 추적할 수 있도록 리소스를 보호된 리소스로 설정합니다. 리소스를 백 엔드 풀 멤버로 추가하려면 애플리케이션 게이트웨이에서 수행해야 합니다. 즉 현재 페이지에서 **솔루션 콘솔** 을 클릭하여 웹 애플리케이션을 백 엔드 풀에 추가할 수 있는 애플리케이션 게이트웨이 리소스로 가져오면 됩니다.
 
 ![파트너 솔루션 애플리케이션][6]
 
 ## <a name="finalize-configuration"></a>구성 완료
 
-Security Center에서는 애플리케이션 게이트웨이에 추가한 애플리케이션을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 애플리케이션 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 머신의 프라이빗 IP, 공용 IP 또는 NIC를 애플리케이션 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **애플리케이션 보호 마무리**에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
+Security Center에서는 애플리케이션 게이트웨이에 추가한 애플리케이션을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 애플리케이션 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 머신의 프라이빗 IP, 공용 IP 또는 NIC를 애플리케이션 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **애플리케이션 보호 마무리** 에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
 
 ![응용 프로그램 하나를 표시 하는 응용 프로그램 보호 완료 페이지의 스크린샷 텍스트 응용 프로그램을 보호 하기 위해 수행할 단계를 설명 합니다.][5]
 
 ## <a name="security-alerts"></a>보안 경고
 
-Security Center 내에서 **검색**  >  **보안 경고**로 이동 합니다.  여기서 애플리케이션 게이트웨이에 대한 WAF 경고를 찾습니다. 경고는 WAF 규칙으로 분류됩니다.
+Security Center 내에서 **검색**  >  **보안 경고** 로 이동 합니다.  여기서 애플리케이션 게이트웨이에 대한 WAF 경고를 찾습니다. 경고는 WAF 규칙으로 분류됩니다.
 
 ![보안 경고][8]
 
@@ -76,7 +76,7 @@ Security Center 내에서 **검색**  >  **보안 경고**로 이동 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-기존 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 사용하도록 설정하는 방법을 알아보려면 [웹 애플리케이션 방화벽이 있는 Azure Application Gateway 만들기 또는 업데이트](application-gateway-web-application-firewall-portal.md)를 참조하세요.
+기존 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 사용하도록 설정하는 방법을 알아보려면 [웹 애플리케이션 방화벽이 있는 Azure Application Gateway 만들기 또는 업데이트](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)를 참조하세요.
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

@@ -7,22 +7,22 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397538"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Application Gateway 요청 라우팅 규칙
 
-Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만들 때 기본 규칙 (*rule1*)을 만듭니다. 이 규칙은 기본 수신기 (*appGatewayHttpListener*)를 기본 백 엔드 풀 (*appGatewayBackendPool*)과 기본 백 엔드 HTTP 설정 (*appGatewayBackendHttpSettings*)에 바인딩합니다. 게이트웨이를 만든 후에는 기본 규칙의 설정을 편집 하거나 새 규칙을 만들 수 있습니다.
+Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만들 때 기본 규칙 ( *rule1* )을 만듭니다. 이 규칙은 기본 수신기 ( *appGatewayHttpListener* )를 기본 백 엔드 풀 ( *appGatewayBackendPool* )과 기본 백 엔드 HTTP 설정 ( *appGatewayBackendHttpSettings* )에 바인딩합니다. 게이트웨이를 만든 후에는 기본 규칙의 설정을 편집 하거나 새 규칙을 만들 수 있습니다.
 
 ## <a name="rule-type"></a>규칙 유형
 
-규칙을 만들 때 [ *기본* 및 *경로 기반*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)중에서 선택 합니다.
+규칙을 만들 때 [ *기본* 및 *경로 기반*](./application-gateway-components.md#request-routing-rules)중에서 선택 합니다.
 
-- 연결 된 수신기의 모든 요청 (예: * <i></i> contoso.com/ \* )* 을 단일 백 엔드 풀로 전달 하려면 기본을 선택 합니다.
+- 연결 된 수신기의 모든 요청 (예: *<i></i> contoso.com/ \* )* 을 단일 백 엔드 풀로 전달 하려면 기본을 선택 합니다.
 - 특정 URL 경로에서 특정 백 엔드 풀로 요청을 라우팅하 려는 경우 경로 기반을 선택 합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다.
 
 ### <a name="order-of-processing-rules"></a>처리 규칙 순서
@@ -51,13 +51,13 @@ V1 및 v2 SKU의 경우 들어오는 요청의 패턴 일치는 경로가 경로
 
 ## <a name="redirection-setting"></a>리디렉션 설정
 
-기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/ \* *로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
+기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/ \** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
 
 리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](redirect-overview.md)를 참조 하세요.
 
 ### <a name="redirection-type"></a>리디렉션 유형
 
-필요한 리디렉션 유형 ( *301)*, *임시 (307)*, *찾음 (302)* 또는 *기타 참조 (303)* 를 선택 합니다.
+필요한 리디렉션 유형 ( *301)* , *임시 (307)* , *찾음 (302)* 또는 *기타 참조 (303)* 를 선택 합니다.
 
 ### <a name="redirection-target"></a>리디렉션 대상
 

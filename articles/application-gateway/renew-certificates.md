@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 413ae2ee19f0b8e427de9167b52971e413cdf573
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397215"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
@@ -22,11 +22,11 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연
 
 ## <a name="azure-portal"></a>Azure portal
 
-포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집**을 클릭합니다.
+포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집** 을 클릭합니다.
 
 ![인증서 갱신](media/renew-certificate/ssl-cert.png)
 
-새 PFX 인증서를 업로드하고, 이름을 지정하고, 암호를 입력한 다음, **저장**을 클릭합니다.
+새 PFX 인증서를 업로드하고, 이름을 지정하고, 암호를 입력한 다음, **저장** 을 클릭합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 애플리케이션 Gateway를 사용 하 여 TLS 오프 로드를 구성 하는 방법을 알아보려면 [Tls 오프 로드 구성](application-gateway-ssl-portal.md) 을 참조 하세요.
+Azure 애플리케이션 Gateway를 사용 하 여 TLS 오프 로드를 구성 하는 방법을 알아보려면 [Tls 오프 로드 구성](./create-ssl-portal.md) 을 참조 하세요.

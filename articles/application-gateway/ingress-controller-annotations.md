@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335818"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397453"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러에 대 한 주석 
 
@@ -72,7 +72,7 @@ spec:
 
 ## <a name="tls-redirect"></a>TLS 리디렉션
 
-HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP가 됩니다 `301 Moved Permanently` .
+HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](./redirect-overview.md) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP가 됩니다 `301 Moved Permanently` .
 
 ### <a name="usage"></a>사용법
 

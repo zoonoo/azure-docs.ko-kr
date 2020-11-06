@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595277"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397061"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 기반 회람 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 문서에서는  [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용 하 여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](./overview.md)를 만들 때 [URL 기반 회람 규칙](./url-route-overview.md)을 구성할 수 있습니다. 이 문서에서는  [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용 하 여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -31,7 +31,7 @@ Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](applicatio
 
 원하는 경우 [Azure CLI](tutorial-url-redirect-cli.md)를 사용하여 이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,7 +49,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet* 에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet* 이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress* 라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -84,7 +84,7 @@ New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress*를 애플리케이션 게이트웨이에 할당합니다. 그런 후 [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
+[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet* 을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress* 를 애플리케이션 게이트웨이에 할당합니다. 그런 후 [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -112,7 +112,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>기본 풀 및 설정 만들기
 
-[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대해 *appGatewayBackendPool*이라는 기본 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
+[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대해 *appGatewayBackendPool* 이라는 기본 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -130,7 +130,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 문서에서는 여러 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: `http://52.168.55.24:8080/images/` 또는 `http://52.168.55.24:8081/video/`)에서 트래픽을 예상합니다.
 
-이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *defaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *defaultListener* 라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1* 이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -149,7 +149,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
+필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -173,7 +173,7 @@ New-AzApplicationGateway `
 
 ### <a name="add-backend-pools-and-ports"></a>백 엔드 풀과 포트 추가
 
-[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 백 엔드 풀을 추가할 수 있습니다. 이 예제에서는 *imagesBackendPool* 및 *videoBackendPool*이 생성됩니다. [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway)를 사용하여 애플리케이션 게이트웨이에 변경 내용을 제출합니다.
+[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 백 엔드 풀을 추가할 수 있습니다. 이 예제에서는 *imagesBackendPool* 및 *videoBackendPool* 이 생성됩니다. [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway)를 사용하여 애플리케이션 게이트웨이에 변경 내용을 제출합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -205,7 +205,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-listeners"></a>수신기 추가
 
-[Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener* 및 *redirectedListener*라는 수신기를 추가합니다.
+[Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener* 및 *redirectedListener* 라는 수신기를 추가합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -242,7 +242,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-default-url-path-map"></a>기본 URL 경로 맵 추가
 
-URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) 및 [Add-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만들 수 있습니다.
+URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) 및 [Add-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)를 사용하여 *imagePathRule* 및 *videoPathRule* 이라는 URL 경로 맵을 만들 수 있습니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -347,7 +347,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-라우팅 규칙은 URL 맵을 생성된 수신기에 연결합니다. [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)을 사용하여 *defaultRule* 및 *redirectedRule*이라는 규칙을 추가할 수 있습니다.
+라우팅 규칙은 URL 맵을 생성된 수신기에 연결합니다. [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)을 사용하여 *defaultRule* 및 *redirectedRule* 이라는 규칙을 추가할 수 있습니다.
 
 
 ```azurepowershell-interactive
@@ -390,7 +390,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* , *myvmss2* 및 *myvmss3* 입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [애플리케이션 게이트웨이 통해 수행할 수 있는 작업에 대한 자세한 정보](application-gateway-introduction.md)
+> [애플리케이션 게이트웨이 통해 수행할 수 있는 작업에 대한 자세한 정보](./overview.md)

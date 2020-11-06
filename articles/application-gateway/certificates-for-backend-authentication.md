@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362715"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397725"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
 
@@ -35,27 +35,27 @@ Application Gateway v1 SKU의 백 엔드 인스턴스를 허용 하려면 인증
 
 TLS/SSL 인증서에서 공개 키 .cer 파일 (개인 키 아님)을 내보냅니다. 다음 단계는 Base-64로 인코딩된 .cer 파일을 내보내는 데 도움이 됩니다. x.509 (. 인증서에 대 한 CER 형식:
 
-1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리**를 엽니다. 일반적으로 ' 인증서-현재 User\Personal\Certificates '에서 인증서를 찾아 마우스 오른쪽 단추로 클릭 합니다. **모든 태스크**를 클릭한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다. Current User\Personal\Certificates에서 인증서를 찾을 수 없는 경우 “인증서 -현재 사용자” 대신 실수로 “인증서 - 로컬 컴퓨터”를 열었을 수 있습니다. PowerShell을 사용하여 현재 사용자 범위에서 인증서 관리자를 열려는 경우 콘솔 창에 *certmgr*을 입력합니다.
+1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리** 를 엽니다. 일반적으로 ' 인증서-현재 User\Personal\Certificates '에서 인증서를 찾아 마우스 오른쪽 단추로 클릭 합니다. **모든 태스크** 를 클릭한 다음 **내보내기** 를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사** 가 열립니다. Current User\Personal\Certificates에서 인증서를 찾을 수 없는 경우 “인증서 -현재 사용자” 대신 실수로 “인증서 - 로컬 컴퓨터”를 열었을 수 있습니다. PowerShell을 사용하여 현재 사용자 범위에서 인증서 관리자를 열려는 경우 콘솔 창에 *certmgr* 을 입력합니다.
 
    ![스크린샷 선택한 인증서를 사용 하는 인증서 관리자와 모든 작업을 포함 하는 상황에 맞는 메뉴를 보여 줍니다.](./media/certificates-for-backend-authentication/export.png)
 
-2. 마법사에서 **다음**을 클릭합니다.
+2. 마법사에서 **다음** 을 클릭합니다.
 
    ![인증서 내보내기](./media/certificates-for-backend-authentication/exportwizard.png)
 
-3. **아니요, 프라이빗를 내보내지 않습니다.** 를 선택한 후, **다음**을 클릭합니다.
+3. **아니요, 프라이빗를 내보내지 않습니다.** 를 선택한 후, **다음** 을 클릭합니다.
 
    ![아니요, 프라이빗 키를 내보내지 않습니다](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)** 를 선택한 후 **다음**을 클릭합니다.
+4. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)** 를 선택한 후 **다음** 을 클릭합니다.
 
    ![Base-64로 인코딩됨](./media/certificates-for-backend-authentication/base64.png)
 
-5. **내보낼 파일**에서 인증서를 내보내려는 위치를 **찾습니다**. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
+5. **내보낼 파일** 에서 인증서를 내보내려는 위치를 **찾습니다**. **파일 이름** 에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음** 을 클릭합니다.
 
    ![내보낼 파일을 지정 하는 인증서 내보내기 마법사가 스크린샷 화면에 표시 됩니다.](./media/certificates-for-backend-authentication/browse.png)
 
-6. **마침**을 클릭하여 인증서를 내보냅니다.
+6. **마침** 을 클릭하여 인증서를 내보냅니다.
 
    ![파일 내보내기를 완료 한 후 스크린샷에서 인증서 내보내기 마법사를 보여 줍니다.](./media/certificates-for-backend-authentication/finish.png)
 
@@ -89,7 +89,7 @@ Application gateway v2 SKU에서 백 엔드 인스턴스를 허용 하려면 신
 
    ![인증서 세부 정보](./media/certificates-for-backend-authentication/certdetails.png)
 
-4. 루트 인증서를 선택 하 고 **인증서 보기**를 클릭 합니다.
+4. 루트 인증서를 선택 하 고 **인증서 보기** 를 클릭 합니다.
 
    ![인증서 경로](./media/certificates-for-backend-authentication/rootcert.png)
 
@@ -101,9 +101,8 @@ Application gateway v2 SKU에서 백 엔드 인스턴스를 허용 하려면 신
 
    ![루트 인증서 복사](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. 이 시점에서 백 엔드 인증서에서 루트 인증서의 세부 정보를 추출 했습니다. **인증서 내보내기 마법사**가 표시 됩니다. 이제 위의 **백 엔드 인증서 (V1 SKU)에서 인증 인증서 내보내기** 섹션에 언급 된 2-9 단계를 사용 하 여 Base-64로 인코딩된 x.509 (. CER) 형식을 지정 합니다.
+6. 이 시점에서 백 엔드 인증서에서 루트 인증서의 세부 정보를 추출 했습니다. **인증서 내보내기 마법사** 가 표시 됩니다. 이제 위의 **백 엔드 인증서 (V1 SKU)에서 인증 인증서 내보내기** 섹션에 언급 된 2-9 단계를 사용 하 여 Base-64로 인코딩된 x.509 (. CER) 형식을 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Base-64로 인코딩된 인증 인증서/신뢰할 수 있는 루트 인증서가 x.509 (. CER) 형식을 지정 합니다. 종단 간 TLS 암호화를 위한 백 엔드 서버를 허용 하도록 응용 프로그램 게이트웨이에이를 추가할 수 있습니다. [PowerShell과 함께 Application Gateway를 사용 하 여 종단 간 TLS 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)을 참조 하세요.
-
+이제 Base-64로 인코딩된 인증 인증서/신뢰할 수 있는 루트 인증서가 x.509 (. CER) 형식을 지정 합니다. 종단 간 TLS 암호화를 위한 백 엔드 서버를 허용 하도록 응용 프로그램 게이트웨이에이를 추가할 수 있습니다. [PowerShell과 함께 Application Gateway를 사용 하 여 종단 간 TLS 구성](./application-gateway-end-to-end-ssl-powershell.md)을 참조 하세요.

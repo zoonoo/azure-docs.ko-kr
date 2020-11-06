@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397175"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Azure 애플리케이션 Gateway Resource Health 개요
 
@@ -43,7 +43,7 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ![사용할 수 없음 상태](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Unknown
+## <a name="unknown"></a>알 수 없음
 
 **알 수 없음** 상태는 Resource Health 게이트웨이 정보를 10 분 넘게 수신 하지 못했음을 나타냅니다. 이 상태는 게이트웨이의 상태를 명확 하 게 표시 하지 않습니다. 하지만 문제 해결 프로세스의 중요 한 데이터 요소입니다.
 
@@ -61,4 +61,4 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF (웹 응용 프로그램 방화벽) Application Gateway 문제 해결에 대해 알아보려면 [Azure 애플리케이션 게이트웨이의 WAF (웹 응용 프로그램 방화벽) 문제 해결](web-application-firewall-troubleshoot.md)을 참조 하세요.
+WAF (웹 응용 프로그램 방화벽) Application Gateway 문제 해결에 대해 알아보려면 [Azure 애플리케이션 게이트웨이의 WAF (웹 응용 프로그램 방화벽) 문제 해결](../web-application-firewall/ag/web-application-firewall-troubleshoot.md)을 참조 하세요.

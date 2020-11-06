@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bc5761f4e629a90dacf06cd7503ca86a5448fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d0a130830c8b03fd1f47086b9a997f6fc3df9a4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595872"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396960"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
 
-애플리케이션 게이트웨이는 사용자가 유지 관리하는 서버로 전송되는 웹 트래픽을 관리하고 보호하는 데 사용 됩니다. Azure CLI를 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합에는 두 개의 가상 머신 인스턴스가 포함되어 있습니다. 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가됩니다.
+애플리케이션 게이트웨이는 사용자가 유지 관리하는 서버로 전송되는 웹 트래픽을 관리하고 보호하는 데 사용 됩니다. Azure CLI를 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용하는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합에는 두 개의 가상 머신 인스턴스가 포함되어 있습니다. 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -37,7 +37,7 @@ CLI를 로컬로 설치하여 사용하려면 이 빠른 시작에서 Azure CLI 
 
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -45,7 +45,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet* 이라는 가상 네트워크와 *myAGSubnet* 이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet* 이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress* 라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -71,7 +71,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[Az network application gateway create](/cli/azure/network/application-gateway) 를 사용 하 여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress*에 할당됩니다. 
+[Az network application gateway create](/cli/azure/network/application-gateway) 를 사용 하 여 *myAppGateway* 라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress* 에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -93,13 +93,13 @@ az network application-gateway create \
 
 - *appGatewayBackendPool* - 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 - *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
-- *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
-- *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
-- *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
+- *appGatewayHttpListener* - *appGatewayBackendPool* 에 연결되는 기본 수신기입니다.
+- *appGatewayFrontendIP* - *myAGPublicIPAddress* 를 *appGatewayHttpListener* 에 할당합니다.
+- *rule1* - *appGatewayHttpListener* 에 연결되는 기본 라우팅 규칙입니다.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
+이 예제에서는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool* 에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -155,4 +155,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>다음 단계
 
-[웹 애플리케이션 방화벽으로 웹 트래픽 제한](./tutorial-restrict-web-traffic-cli.md)
+[웹 애플리케이션 방화벽으로 웹 트래픽 제한](../web-application-firewall/ag/tutorial-restrict-web-traffic-cli.md)

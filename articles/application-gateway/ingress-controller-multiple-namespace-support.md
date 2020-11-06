@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556169"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397334"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러를 사용 하 여 AKS 클러스터에서 여러 네임 스페이스 지원 사용
 
@@ -35,7 +35,7 @@ AGIC 버전 0.7는 `default` 이를 투구 구성에서 하나 이상의 다른 
   - 액세스 가능한 모든 네임 스페이스의 수신 리소스 나열
   - 로 주석이 추가 된 수신 리소스를 필터링 합니다. `kubernetes.io/ingress.class: azure/application-gateway`
   - 구성 결합 [Application Gateway 구성](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 을 통해 연결 된 Application Gateway에 구성을 적용 합니다.
+  - [ARM](../azure-resource-manager/management/overview.md) 을 통해 연결 된 Application Gateway에 구성을 적용 합니다.
 
 ## <a name="conflicting-configurations"></a>충돌 하는 구성
 여러 namespaced [수신 리소스](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) 는 단일 Application Gateway에 대해 충돌 하는 구성을 만들도록 AGIC에 지시할 수 있습니다. (두 조절기는 인스턴스에 대해 동일한 도메인을 주장 합니다.)
@@ -90,7 +90,7 @@ spec:
   - HTTP 설정: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - 상태 프로브: `pb-production-contoso-web-service-80-websocket-ingress`
 
-*수신기* 및 *라우팅 규칙*을 제외 하 고 만들어진 Application Gateway 리소스는 생성 된 네임 스페이스 ()의 이름을 포함 합니다 `production` .
+*수신기* 및 *라우팅 규칙* 을 제외 하 고 만들어진 Application Gateway 리소스는 생성 된 네임 스페이스 ()의 이름을 포함 합니다 `production` .
 
 두 개의 수신 리소스가 서로 다른 시점에 AKS 클러스터에 도입 되는 경우 AGIC를 다시 구성 하 고에서로 트래픽을 다시 라우팅하는 Application Gateway 시나리오에서가 종료 될 수 있습니다 `namespace-B` `namespace-A` .
 
@@ -99,7 +99,7 @@ spec:
 ## <a name="restrict-access-to-namespaces"></a>네임 스페이스에 대 한 액세스 제한
 기본적으로 AGIC는 네임 스페이스 내에서 주석이 추가 된 수신에 따라 Application Gateway를 구성 합니다. 이 동작을 제한 하려는 경우 다음 옵션을 선택할 수 있습니다.
   - AGIC에서 yaml 키를 통해 관찰 해야 하는 네임 스페이스를 명시적으로 정의 하 여 네임 스페이스를 제한 합니다 `watchNamespace` [. yaml](#sample-helm-config-file)
-  - [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) 을 사용 하 여 AGIC를 특정 네임 스페이스로 제한
+  - [Role/RoleBinding](../aks/azure-ad-rbac.md) 을 사용 하 여 AGIC를 특정 네임 스페이스로 제한
 
 ## <a name="sample-helm-config-file"></a>샘플 투구 구성 파일
 
@@ -155,4 +155,3 @@ spec:
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

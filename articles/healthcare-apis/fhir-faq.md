@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558570"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398099"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -52,7 +52,7 @@ Azure API for FHIR에 릴리스 하는 항목 중 일부를 보려면 오픈 소
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>어떤 지역이 Azure API for FHIR을 사용할 수 있나요?
 
-현재 [여러 지리적 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)에서 공개 및 정부에 대 한 일반 공급이 있습니다. Microsoft의 정부 클라우드 서비스에 대 한 자세한 내용은 [FedRAMP에서 Azure 서비스](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)를 확인 하세요.
+현재 [여러 지리적 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)에서 공개 및 정부에 대 한 일반 공급이 있습니다. Microsoft의 정부 클라우드 서비스에 대 한 자세한 내용은 [FedRAMP에서 Azure 서비스](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)를 확인 하세요.
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Azure API for FHIR에 릴리스 되는 항목은 어디에서 확인할 수 있나요?
 
@@ -97,17 +97,17 @@ FHIR 용 Azure API에서 [컴파트먼트 검색](https://www.hl7.org/fhir/compa
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>FHIR 용 Azure API에서 리소스를 검색할 때의 기본 정렬은 무엇 인가요?
 
-마지막으로 업데이트 한 날짜의 정렬을 지원 합니다. _sort = _lastUpdated. 지원 되는 다른 검색 매개 변수에 대 한 자세한 내용은 [지원 되는 기능 페이지](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search)를 참조 하세요.
+마지막으로 업데이트 한 날짜의 정렬을 지원 합니다. _sort = _lastUpdated. 지원 되는 다른 검색 매개 변수에 대 한 자세한 내용은 [지원 되는 기능 페이지](./fhir-features-supported.md#search)를 참조 하세요.
 
 ### <a name="how-does-export-work"></a>$export 작동 방법
 
-$export은 FHIR 사양 ()의 일부 https://hl7.org/fhir/uv/bulkdata/export/index.html 입니다. FHIR 서비스가 관리 되는 id 및 저장소 계정으로 구성 되 고 관리 id에 해당 저장소 계정에 대 한 액세스 권한이 있는 경우 FHIR API에서 $export를 간단히 호출할 수 있으며 모든 FHIR 리소스는 저장소 계정으로 내보내집니다. 자세한 내용은 [$export에서 문서](https://docs.microsoft.com/azure/healthcare-apis/export-data)를 참조 하세요.
+$export은 FHIR 사양 ()의 일부 https://hl7.org/fhir/uv/bulkdata/export/index.html 입니다. FHIR 서비스가 관리 되는 id 및 저장소 계정으로 구성 되 고 관리 id에 해당 저장소 계정에 대 한 액세스 권한이 있는 경우 FHIR API에서 $export를 간단히 호출할 수 있으며 모든 FHIR 리소스는 저장소 계정으로 내보내집니다. 자세한 내용은 [$export에서 문서](./export-data.md)를 참조 하세요.
 
 ## <a name="using-azure-api-for-fhir"></a>FHIR 용 Azure API 사용
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Azure API에 대 한 log analytics를 사용 하도록 설정 어떻게 할까요?
 
-진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 샘플 쿼리를 검토 합니다. 감사 로그 및 샘플 쿼리를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [이 섹션](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging)을 참조 하세요. 로그에 추가 정보를 포함 하려면 [사용자 지정 HTTP 헤더를 사용 하 여](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers)확인 합니다.
+진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 샘플 쿼리를 검토 합니다. 감사 로그 및 샘플 쿼리를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [이 섹션](./enable-diagnostic-logging.md)을 참조 하세요. 로그에 추가 정보를 포함 하려면 [사용자 지정 HTTP 헤더를 사용 하 여](./use-custom-headers.md)확인 합니다.
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>워크플로 내에서 Azure API for FHIR을 사용 하는 몇 가지 예는 어디에서 확인할 수 있나요?
 
@@ -121,7 +121,7 @@ $export은 FHIR 사양 ()의 일부 https://hl7.org/fhir/uv/bulkdata/export/inde
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>기본 키가 아닌 개인 키를 사용 하 여 데이터를 암호화 하는 방법이 있나요?
 
-예, FHIR 용 Azure API는 고객이 관리 하는 키를 구성 하 여 Cosmos DB 지원을 활용할 수 있도록 합니다. 개인 키를 사용 하 여 데이터를 암호화 하는 방법에 대 한 자세한 내용은 [이 섹션](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key)을 확인 하세요.
+예, FHIR 용 Azure API는 고객이 관리 하는 키를 구성 하 여 Cosmos DB 지원을 활용할 수 있도록 합니다. 개인 키를 사용 하 여 데이터를 암호화 하는 방법에 대 한 자세한 내용은 [이 섹션](./customer-managed-key.md)을 확인 하세요.
 
 ## <a name="azure-api-for-fhir-preview-features"></a>FHIR 용 Azure API: 미리 보기 기능
 

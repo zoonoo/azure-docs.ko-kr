@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 Azure에 하이브리드 머신 연결
 description: 이 문서에서는 Azure Portal에서 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370154"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398031"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -28,11 +28,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **서버-Azure Arc** 페이지에서 왼쪽 위에 있는 **추가** 를 선택 합니다.
 
-1. **방법 선택** 페이지에서 **대화형 스크립트를 사용 하 여 서버 추가** 타일을 선택한 다음 **스크립트 생성**을 선택 합니다.
+1. **방법 선택** 페이지에서 **대화형 스크립트를 사용 하 여 서버 추가** 타일을 선택한 다음 **스크립트 생성** 을 선택 합니다.
 
 1. **스크립트 생성** 페이지에서 머신을 Azure 내에서 관리하려는 구독 및 리소스 그룹을 선택합니다. 머신 메타데이터를 저장할 Azure 위치를 선택합니다. 이 위치는 리소스 그룹의 위치와 같을 수도 있고 다를 수도 있습니다.
 
-1. **필수 구성 요소** 페이지에서 정보를 검토 한 후 **다음: 리소스 정보**를 선택 합니다.
+1. **필수 구성 요소** 페이지에서 정보를 검토 한 후 **다음: 리소스 정보** 를 선택 합니다.
 
 1. **리소스 정보** 페이지에서 다음을 제공 합니다.
 
@@ -40,13 +40,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. **지역** 드롭다운 목록에서 서버 메타 데이터를 저장할 Azure 지역을 선택 합니다.
     1. **운영** 체제 드롭다운 목록에서 스크립트가 실행 되도록 구성 된 운영 체제를 선택 합니다.
     1. 컴퓨터에서 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 프록시 서버 IP 주소 또는 컴퓨터에서 프록시 서버와 통신 하는 데 사용할 이름 및 포트 번호를 지정 합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
-    1. 완료되면 **다음: 태그**를 선택합니다.
+    1. 완료되면 **다음: 태그** 를 선택합니다.
 
 1. **태그** 페이지에서 제안 된 기본 **물리적 위치 태그** 를 검토 하 고 값을 입력 하거나 표준을 지원할 **사용자 지정 태그** 를 하나 이상 지정 합니다.
 
-1. **다음: 스크립트 다운로드 및 실행을**선택 합니다.
+1. **다음: 스크립트 다운로드 및 실행을** 선택 합니다.
 
-1. **스크립트 다운로드 및 실행** 페이지에서 요약 정보를 검토 하 고 **다운로드**를 선택 합니다. 그래도 변경해야 하는 경우 **이전**을 선택합니다.
+1. **스크립트 다운로드 및 실행** 페이지에서 요약 정보를 검토 하 고 **다운로드** 를 선택 합니다. 그래도 변경해야 하는 경우 **이전** 을 선택합니다.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Windows에서 에이전트 설치 및 유효성 검사
 
@@ -74,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%ProgramData%\AzureConnectedMachineAgent\log*입니다.
+    설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%ProgramData%\AzureConnectedMachineAgent\log* 입니다.
 
 2. 컴퓨터가 프록시 서버를 통해 통신 해야 하는 경우 프록시 서버 환경 변수를 설정 하려면 다음 명령을 실행 합니다.
 
@@ -107,15 +107,15 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. 스크립트를 복사한 폴더 또는 공유로 변경하고, `./OnboardingScript.ps1` 스크립트를 실행하여 서버에서 실행합니다.
 
-설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%ProgramData%\AzureConnectedMachineAgent\log*입니다.
+설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%ProgramData%\AzureConnectedMachineAgent\log* 입니다.
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Linux에서 에이전트 설치 및 유효성 검사
 
 Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 호스팅되는 배포(.RPM 또는 .DEB)에 대한 기본 설정 패키지 형식으로 제공됩니다. [`Install_linux_azcmagent.sh` 셸 스크립트 번들](https://aka.ms/azcmagent)에서 수행하는 작업은 다음과 같습니다.
 
-- packages.microsoft.com에서 에이전트 패키지를 다운로드하도록 호스트 머신을 구성합니다.
-- 하이브리드 리소스 공급자 패키지를 설치합니다.
-- Azure Arc에 컴퓨터를 등록 합니다.
+* packages.microsoft.com에서 에이전트 패키지를 다운로드하도록 호스트 머신을 구성합니다.
+
+* 하이브리드 리소스 공급자 패키지를 설치합니다.
 
 필요에 따라 `--proxy "{proxy-url}:{proxy-port}"` 매개 변수를 포함하여 에이전트를 프록시 정보로 구성할 수 있습니다.
 
@@ -131,17 +131,32 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-프록시 서버를 통해 통신하도록 에이전트를 구성하는 `--proxy` 매개 변수를 포함하여 에이전트를 다운로드하고 설치하려면 다음 명령을 실행합니다.
+1. 프록시 서버를 통해 통신하도록 에이전트를 구성하는 `--proxy` 매개 변수를 포함하여 에이전트를 다운로드하고 설치하려면 다음 명령을 실행합니다.
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
 
-## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc와의 연결 확인
+2. 에이전트를 설치한 후 다음 명령을 실행하여 Azure Arc 서비스와 통신하도록 구성해야 합니다.
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>스크립팅된 메서드를 사용하여 설치
+
+1. 루트 액세스 권한이 있는 계정으로 서버에 로그인 합니다.
+
+1. 스크립트를 복사한 폴더 또는 공유로 변경하고, `./OnboardingScript.sh` 스크립트를 실행하여 서버에서 실행합니다.
+
+설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *var/opt/azcmagent/log* 입니다.
+
+## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc 연결 확인
 
 에이전트가 설치되고 Azure Arc 사용 서버에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
 

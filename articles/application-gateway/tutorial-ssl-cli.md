@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595821"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397079"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
-Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 백 엔드 서버의 경우 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 을 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
+Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 백 엔드 서버의 경우 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -54,7 +54,7 @@ openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.cr
 
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -62,7 +62,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet* 이라는 가상 네트워크와 *myAGSubnet* 이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet* 이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress* 라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -90,7 +90,7 @@ az network public-ip create \
 
 [az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
 
-애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
+애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress* 에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -115,13 +115,13 @@ az network application-gateway create \
 
 - *appGatewayBackendPool* - 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 - *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
-- *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
-- *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
-- *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
+- *appGatewayHttpListener* - *appGatewayBackendPool* 에 연결되는 기본 수신기입니다.
+- *appGatewayFrontendIP* - *myAGPublicIPAddress* 를 *appGatewayHttpListener* 에 할당합니다.
+- *rule1* - *appGatewayHttpListener* 에 연결되는 기본 라우팅 규칙입니다.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 애플리케이션 게이트웨이의 기본 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
+이 예제에서는 애플리케이션 게이트웨이의 기본 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool* 에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -168,7 +168,7 @@ az network public-ip show \
 
 ![보안 경고](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동**을 차례로 선택합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
+자체 서명 된 인증서를 사용 하는 경우 보안 경고를 수락 하려면 **세부 정보** 를 선택한 다음 **웹 페이지로 이동** 합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 

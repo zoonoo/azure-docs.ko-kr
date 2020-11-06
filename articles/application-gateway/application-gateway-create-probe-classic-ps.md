@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088073"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397861"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
@@ -140,14 +140,14 @@ Get-AzureApplicationGateway AppGwTest
 
 구성 매개 변수:
 
-|매개 변수|설명|
+|매개 변수|Description|
 |---|---|
 |**이름** |사용자 지정 프로브에 대한 참조 이름입니다. |
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
 | **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 http:/contoso.com/웹 사이트가 있는 경우 \/ 프로브 검사에 대 한 사용자 지정 프로브를 "http: \/ /contoso.com/path/custompath.htm"에 대해 구성 하 여 성공적인 http 응답을 받을 수 있습니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
 | **Timeout** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
-| **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
+| **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy* (비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>다음 단계
 
-이전에 SSL(Secure Sockets Layer) (SSL) 오프 로드를 통해 TLS (전송 계층 보안)를 구성 하려는 경우 [tls 오프 로드에 대 한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조 하세요.
+이전에 SSL(Secure Sockets Layer) (SSL) 오프 로드를 통해 TLS (전송 계층 보안)를 구성 하려는 경우 [tls 오프 로드에 대 한 응용 프로그램 게이트웨이 구성](./tutorial-ssl-powershell.md)을 참조 하세요.
 
-내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
-
+내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](./application-gateway-ilb-arm.md)를 참조하세요.

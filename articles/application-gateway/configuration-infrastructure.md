@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319795"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397623"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>인프라 구성 Application Gateway
 
@@ -41,7 +41,7 @@ Application Gateway (Standard_v2 또는 WAF_v2 SKU)는 최대 125 인스턴스 (
 
 NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다. 하지만 다음과 같은 몇 가지 제한 사항이 있습니다.
 
-- 들어오는 인터넷 트래픽을 Application Gateway v1 SKU의 경우 65503-65534 TCP 포트에서 허용하고, 대상 서브넷이 **Any**이고 원본이 **GatewayManager** 서비스 태그인 v2 SKU의 경우 65200-65535 TCP 포트에서 허용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
+- 들어오는 인터넷 트래픽을 Application Gateway v1 SKU의 경우 65503-65534 TCP 포트에서 허용하고, 대상 서브넷이 **Any** 이고 원본이 **GatewayManager** 서비스 태그인 v2 SKU의 경우 65200-65535 TCP 포트에서 허용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
 
 - 아웃 바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 권장합니다.
 
@@ -55,15 +55,15 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 이 시나리오에서는 Application Gateway 서브넷에 NSGs를 사용 합니다. 이 우선 순위에 따라 서브넷에 다음과 같은 제한 사항을 적용 합니다.
 
 1. 인바운드 액세스 포트 (예: HTTP 액세스용 포트 80)로 전체 Application Gateway 서브넷 주소 범위 및 대상 포트를 대상으로 하는 원본 IP 또는 IP 범위에서 들어오는 트래픽을 허용 합니다.
-2. 원본에서 **Gmanager** 서비스 태그 및 **destination으로 들어오는** 요청을 Application Gateway v1 sku의 경우 65503-65534로, [백 엔드 상태 통신](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)의 경우 포트 65200-65535을 사용 하도록 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
-3. [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)에서 들어오는 Azure Load Balancer 프로브 (*azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 (*VirtualNetwork* 태그)을 허용 합니다.
+2. 원본에서 **Gmanager** 서비스 태그 및 **destination으로 들어오는** 요청을 Application Gateway v1 sku의 경우 65503-65534로, [백 엔드 상태 통신](./application-gateway-diagnostics.md)의 경우 포트 65200-65535을 사용 하도록 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
+3. [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에서 들어오는 Azure Load Balancer 프로브 ( *azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 ( *VirtualNetwork* 태그)을 허용 합니다.
 4. 모든 수신 트래픽 거부 규칙을 사용 하 여 차단 합니다.
 5. 모든 대상에 대해 인터넷에 대 한 아웃 바운드 트래픽을 허용 합니다.
 
 ## <a name="supported-user-defined-routes"></a>지원 되는 사용자 정의 경로 
 
 > [!IMPORTANT]
-> Application Gateway 서브넷에서 UDRs를 사용 하면 [백 엔드 상태 보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) 의 상태가 **알 수 없음**으로 표시 될 수 있습니다. 이로 인해 Application Gateway 로그 및 메트릭이 생성 되지 않을 수도 있습니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 UDRs를 사용 하지 않는 것이 좋습니다.
+> Application Gateway 서브넷에서 UDRs를 사용 하면 [백 엔드 상태 보기](./application-gateway-diagnostics.md#back-end-health) 의 상태가 **알 수 없음** 으로 표시 될 수 있습니다. 이로 인해 Application Gateway 로그 및 메트릭이 생성 되지 않을 수도 있습니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 UDRs를 사용 하지 않는 것이 좋습니다.
 
 - **v1**
 
@@ -78,7 +78,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
    > 경로 테이블을 잘못 구성 하면 Application Gateway v 2에서 비대칭 라우팅이 발생할 수 있습니다. 모든 관리/제어 평면 트래픽이 가상 어플라이언스를 통하지 않고 인터넷으로 직접 전송 되는지 확인 합니다. 로깅 및 메트릭도 영향을 받을 수 있습니다.
 
 
-  **시나리오 1**: udr을 사용 하 여 Application Gateway 서브넷에 대 한 BGP (Border Gateway Protocol) 경로 전파 사용 안 함
+  **시나리오 1** : udr을 사용 하 여 Application Gateway 서브넷에 대 한 BGP (Border Gateway Protocol) 경로 전파 사용 안 함
 
    경우에 따라 기본 게이트웨이 경로 (0.0.0.0/0)가 Application Gateway 가상 네트워크와 연결 된 Express 경로 또는 VPN 게이트웨이를 통해 보급 됩니다. 이렇게 하면 인터넷에 직접 경로를 사용 해야 하는 관리 평면 트래픽이 중단 됩니다. 이러한 시나리오에서는 UDR을 사용 하 여 BGP 경로 전파를 사용 하지 않도록 설정할 수 있습니다. 
 
@@ -90,11 +90,11 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
    이 시나리오에 UDR을 사용 하도록 설정 하면 기존 설정이 중단 되지 않습니다.
 
-  **시나리오 2**: Udr-인터넷에 0.0.0.0/0을 전달 합니다.
+  **시나리오 2** : Udr-인터넷에 0.0.0.0/0을 전달 합니다.
 
    UDR을 만들어 0.0.0.0/0 트래픽을 인터넷으로 직접 보낼 수 있습니다. 
 
-  **시나리오 3**: kubenet를 사용 하는 Azure Kubernetes Service에 대 한 udr
+  **시나리오 3** : kubenet를 사용 하는 Azure Kubernetes Service에 대 한 udr
 
   AKS (Azure Kubernetes Service) 및 AGIC (Application Gateway 수신 컨트롤러)와 함께 kubenet를 사용 하는 경우 Application Gateway에서 pod로 전송 된 트래픽을 올바른 노드로 라우팅할 수 있도록 경로 테이블이 필요 합니다. Azure CNI를 사용 하는 경우에는이 작업이 필요 하지 않습니다. 
 
@@ -109,7 +109,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
     
   **v2 지원 되지 않는 시나리오**
 
-  **시나리오 1**: 가상 어플라이언스에 대 한 udr
+  **시나리오 1** : 가상 어플라이언스에 대 한 udr
 
   가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스 (강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 s 2에서 지원 되지 않습니다.
 

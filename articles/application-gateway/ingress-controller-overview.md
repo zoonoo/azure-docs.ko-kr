@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668103"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397351"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러는 무엇입니까?
 AGIC (Application Gateway 수신 컨트롤러)는 Kubernetes 응용 프로그램으로, azure [Kubernetes 서비스 (AKS)](https://azure.microsoft.com/services/kubernetes-service/) 고객이 azure의 기본 [Application Gateway](https://azure.microsoft.com/services/application-gateway/) L7 부하 분산 장치를 활용 하 여 클라우드 소프트웨어를 인터넷에 노출할 수 있도록 합니다. AGIC는 호스트 되는 Kubernetes 클러스터를 모니터링 하 고 Application Gateway를 지속적으로 업데이트 하 여 선택 된 서비스가 인터넷에 노출 되도록 합니다.
 
-수신 컨트롤러는 고객의 AKS에서 자체 pod로 실행 됩니다. AGIC는 Kubernetes 리소스의 하위 집합을 모니터링 하 여 변경 내용을 모니터링 합니다. AKS 클러스터의 상태는 특정 구성 Application Gateway 변환 되 고 [ARM (Azure Resource Manager)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 적용 됩니다.
+수신 컨트롤러는 고객의 AKS에서 자체 pod로 실행 됩니다. AGIC는 Kubernetes 리소스의 하위 집합을 모니터링 하 여 변경 내용을 모니터링 합니다. AKS 클러스터의 상태는 특정 구성 Application Gateway 변환 되 고 [ARM (Azure Resource Manager)](../azure-resource-manager/management/overview.md)에 적용 됩니다.
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러의 이점
 AGIC를 사용 하면 AKS 클러스터 앞에 다른 부하 분산 장치/공용 IP가 필요 하지 않으며 요청이 AKS 클러스터에 도달 하기 전에 데이터 경로에서 여러 홉을 피할 수 있습니다. Application Gateway는 해당 개인 IP를 직접 사용 하 여 pod에 대 한 통신을 수행 하며 NodePort 또는 KubeProxy services가 필요 하지 않습니다. 또한 배포에 더 나은 성능을 제공 합니다.
@@ -77,4 +77,3 @@ AGIC 추가 기능은 여전히 고객의 AKS 클러스터에 pod로 배포 되�
 - [**AKS Add-On Brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): 기존 Application Gateway를 사용 하 여 AKS 클러스터에 AGIC 추가 기능을 설치 합니다.
 - [**투구 최적의 배포**](ingress-controller-install-new.md): 빈 슬레이트 인프라에서 투구, new AKS 클러스터 및 새로운 Application Gateway를 통해 AGIC를 설치 합니다.
 - [**투구 Brownfield 배포**](ingress-controller-install-existing.md): 기존 AKS 클러스터에 대 한 AGIC를 통해, Application Gateway을 배포 합니다.
-

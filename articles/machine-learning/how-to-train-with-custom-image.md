@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 23b59c80c8e44cf6473a2de9be9807eaf8a756c6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4b4a1e601a5a0dbf5e56fc1d930e14150f27fee3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310549"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398235"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>교육 작업 구성
 
-이 자습서에서는 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)의 교육 스크립트 *train.py* 을 사용 합니다. 실제로 사용자 지정 학습 스크립트를 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py)의 교육 스크립트 *train.py* 을 사용 합니다. 실제로 사용자 지정 학습 스크립트를 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
 
 `ScriptRunConfig`원하는 [계산 대상](how-to-set-up-training-targets.md)에서 실행 되도록 작업을 구성 하는 리소스를 만듭니다.
 

@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042493"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398201"
 ---
 # <a name="configure-database-settings"></a>데이터베이스 설정 구성 
 
 FHIR 용 Azure API는 데이터베이스를 사용 하 여 데이터를 저장 합니다. 기본 데이터베이스의 성능은 서비스를 프로 비전 하는 동안 선택 된 요청 단위 (작업 단위) 수 또는 서비스가 프로 비전 된 후 데이터베이스 설정에 따라 달라 집니다.
 
-FHIR 용 Azure API는 기본 데이터베이스의 성능을 설정할 때 Cosmos DB의 RUs 개념을 활용 ( [Azure Cosmos DB의 요청 단위](https://docs.microsoft.com/azure/cosmos-db/request-units)참조). 
+FHIR 용 Azure API는 기본 데이터베이스의 성능을 설정할 때 Cosmos DB의 RUs 개념을 활용 ( [Azure Cosmos DB의 요청 단위](../cosmos-db/request-units.md)참조). 
 
 데이터베이스에 대 한 충분 한 시스템 리소스를 항상 사용할 수 있도록 처리량을 프로 비전 해야 합니다. 응용 프로그램에 필요한 RUs 수는 수행 하는 작업에 따라 달라 집니다. 작업의 범위는 단순 읽기 및 쓰기에서 보다 복잡 한 쿼리에 이르기까지 다양 합니다. 
 
