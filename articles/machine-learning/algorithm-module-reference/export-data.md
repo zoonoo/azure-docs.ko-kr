@@ -1,7 +1,7 @@
 ---
 title: '데이터 내보내기: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 데이터 내보내기 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너에서 데이터 내보내기 모듈을 사용 하 여 Azure Machine Learning 외부에 결과와 중간 데이터를 저장할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907991"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421314"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
@@ -40,12 +40,12 @@ ms.locfileid: "90907991"
 
 1. **데이터 내보내기** 를 선택 하 여 **속성** 창을 엽니다.
 
-1. **데이터 저장소**의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 방문 하 여 방법을 확인 합니다.
+1. **데이터 저장소** 의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 방문 하 여 방법을 확인 합니다.
 
     > [!NOTE]
     > 특정 데이터 형식의 데이터를 다른 데이터 형식으로 지정 된 SQL database 열로 내보내는 것은 지원 되지 않습니다. 대상 테이블이 먼저 존재할 필요는 없습니다.
 
-1. **출력 다시 생성**확인란은 실행 시 출력을 다시 생성 하기 위해 모듈을 실행할지 여부를 결정 합니다. 
+1. **출력 다시 생성** 확인란은 실행 시 출력을 다시 생성 하기 위해 모듈을 실행할지 여부를 결정 합니다. 
 
     기본적으로 선택 취소 되어 있습니다. 즉, 모듈이 이전에 동일한 매개 변수를 사용 하 여 실행 되는 경우 시스템은 마지막 실행의 출력을 다시 사용 하 여 실행 시간을 줄입니다. 
 
@@ -54,7 +54,7 @@ ms.locfileid: "90907991"
 1. 데이터 저장소에서 데이터가 인 경로를 정의 합니다. 경로가 상대 경로입니다. 빈 경로 또는 URL 경로는 허용 되지 않습니다.
 
 
-1. **파일 형식**에 대해 데이터를 저장할 형식을 선택 합니다.
+1. **파일 형식** 에 대해 데이터를 저장할 형식을 선택 합니다.
  
 1. 파이프라인을 제출합니다.
 

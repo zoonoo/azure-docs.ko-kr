@@ -1,7 +1,7 @@
 ---
 title: ResNet
 titleSuffix: Azure Machine Learning
-description: ResNet 알고리즘을 사용 하 여 이미지 분류 모델을 만드는 방법에 대해 알아봅니다.
+description: ResNet 알고리즘을 사용 하 여 Azure Machine Learning designer에서 이미지 분류 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442038"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421212"
 ---
 # <a name="resnet"></a>ResNet
 
@@ -34,9 +34,9 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 1.  디자이너에서 **Resnet** 모듈을 파이프라인에 추가 합니다.  
 
-2.  **모델 이름**에 대해 특정 resnet 구조의 이름을 지정 하 고 지원 되는 resnet: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 ' 중에서 선택할 수 있습니다.
+2.  **모델 이름** 에 대해 특정 resnet 구조의 이름을 지정 하 고 지원 되는 resnet: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 ' 중에서 선택할 수 있습니다.
 
-3.  사전 **학습**에 대해 ImageNet에서 미리 학습 된 모델을 사용할지 여부를 지정 합니다. 선택 하는 경우 선택한 미리 학습 된 모델을 기반으로 모델을 미세 조정할 수 있습니다. 선택 취소 하면 처음부터 학습할 수 있습니다.
+3.  사전 **학습** 에 대해 ImageNet에서 미리 학습 된 모델을 사용할지 여부를 지정 합니다. 선택 하는 경우 선택한 미리 학습 된 모델을 기반으로 모델을 미세 조정할 수 있습니다. 선택 취소 하면 처음부터 학습할 수 있습니다.
 
 4.  **DenseNet** 모듈, 학습 및 유효성 검사 이미지 데이터 집합 모듈의 출력을 [학습 Pytorch 모델](train-pytorch-model.md)에 연결 합니다. 
 
@@ -50,15 +50,15 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| Name       | 범위 | Type    | 기본값           | 설명                              |
+| 이름       | 범위 | Type    | 기본값           | Description                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
-| 모델 이름 | 모두   | 모드    | resnext101 \_ 32x8d | 특정 ResNet 구조의 이름입니다.       |
+| 모델 이름 | 모두   | Mode    | resnext101 \_ 32x8d | 특정 ResNet 구조의 이름입니다.       |
 | 미리 학습 된 | 모두   | 부울 | True              | ImageNet에서 미리 학습 된 모델을 사용할지 여부 |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>출력  
 
-| Name            | 유형                    | 설명                              |
+| 이름            | Type                    | Description                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델 | UntrainedModelDirectory | 학습 Pytorch 모델에 연결할 수 있는 학습 되지 않은 ResNet 모델입니다. |
 

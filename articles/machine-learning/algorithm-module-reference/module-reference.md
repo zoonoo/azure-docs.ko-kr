@@ -1,6 +1,6 @@
 ---
 title: 알고리즘 및 모듈 참조
-description: Azure Machine Learning 디자이너에서 사용할 수 있는 모듈에 대 한 자세한 정보
+description: 고유한 Machine Learning 프로젝트를 만드는 데 사용할 수 있는 Azure Machine Learning designer 모듈에 대해 알아봅니다.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 998f9ef7bddfd988dc0af8183fb9c000bf8c79e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886395"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421297"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 알고리즘 & 모듈 참조
 

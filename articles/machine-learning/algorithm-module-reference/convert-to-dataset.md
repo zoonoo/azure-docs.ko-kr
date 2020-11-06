@@ -1,7 +1,7 @@
 ---
 title: '데이터 집합으로 변환: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 데이터 집합으로 변환 모듈을 사용 하 여 Microsoft Azure Machine Learning에서 사용 하는 내부 데이터 집합 형식으로 데이터 입력을 변환 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 데이터 집합으로 변환 모듈을 사용 하 여 데이터 입력을 내부 데이터 집합 형식으로 변환 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323063"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420872"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
 

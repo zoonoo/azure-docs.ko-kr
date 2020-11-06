@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class 로지스틱 회귀: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 Two-Class 로지스틱 회귀 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만드는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에서 Two-Class 로지스틱 회귀 모듈을 사용 하 여 이진 분류자를 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309991"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420583"
 ---
 # <a name="two-class-logistic-regression-module"></a>로지스틱 회귀 모듈 Two-Class
 

@@ -1,7 +1,7 @@
 ---
 title: 표시기 값으로 변환
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 표시기 값으로 변환 모듈을 사용 하 여 범주 값을 포함 하는 열을 일련의 이진 표시기 열로 변환 하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너의 표시기 값으로 변환 모듈을 사용 하 여 범주 열을 일련의 이진 표시기 열로 변환할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477666"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420855"
 ---
 # <a name="convert-to-indicator-values"></a>표시기 값으로 변환
 이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
@@ -49,9 +49,9 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 | --------- | ------------- |
 | 10301     | 낮음           |
 | 10302     | 중간        |
-| 10303     | 높음          |
+| 10303     | 높은          |
 
-**변환을 표시기 값으로**적용 하는 경우 디자이너는 단일 레이블 열을 부울 값을 포함 하는 여러 열로 변환 합니다.  
+**변환을 표시기 값으로** 적용 하는 경우 디자이너는 단일 레이블 열을 부울 값을 포함 하는 여러 열로 변환 합니다.  
 
 | 서버 ID입니다. | 오류 점수-낮음 | 오류 점수-보통 | 오류 점수-높음 |
 | --------- | ------------------- | ---------------------- | -------------------- |
@@ -71,8 +71,8 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 
 모듈은 두 개의 출력을 반환 합니다.
 
-- **결과 데이터 집합**: 변환 된 표시기 값 열이 있는 데이터 집합입니다. 정리 하도록 선택 되지 않은 열도 "통과" 됩니다.
-- **표시기 값 변환**: 표시기 값으로 변환 하는 데 사용 되는 데이터 변환으로, 작업 영역에 저장 하 여 나중에 새 데이터에 적용할 수 있습니다.
+- **결과 데이터 집합** : 변환 된 표시기 값 열이 있는 데이터 집합입니다. 정리 하도록 선택 되지 않은 열도 "통과" 됩니다.
+- **표시기 값 변환** : 표시기 값으로 변환 하는 데 사용 되는 데이터 변환으로, 작업 영역에 저장 하 여 나중에 새 데이터에 적용할 수 있습니다.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>새 데이터에 저장 된 표시기 값 작업 적용
 
@@ -104,7 +104,7 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 
 -   표시기 열로 변환할 수 있는 열 수에는 제한이 없습니다. 그러나 값의 각 열에서 여러 개의 표시기 열을 생성할 수 있으므로 한 번에 몇 개의 열만 변환 하 고 검토할 수 있습니다.  
 
--   열에 누락 값이 포함 된 경우 누락 된 범주에 대 한 별도의 표시기 열이 생성 됩니다 .이 이름에는 * \<source column> -missing*  
+-   열에 누락 값이 포함 된 경우 누락 된 범주에 대 한 별도의 표시기 열이 생성 됩니다 .이 이름에는 *\<source column> -missing*  
 
 -   표시기 값으로 변환 하는 열에 숫자가 포함 된 경우 다른 기능 열 처럼 범주로 표시 되어야 합니다. 이 작업을 완료 한 후에는 숫자를 불연속 값으로 처리 합니다. 예를 들어 25 ~ 30 범위의 MPG 값이 있는 숫자 열이 있는 경우 각 불연속 값에 대해 새 표시기 열이 생성 됩니다.  
 

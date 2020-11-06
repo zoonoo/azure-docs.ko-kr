@@ -1,7 +1,7 @@
 ---
 title: '열 변환 선택: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 열 변형 선택 모듈을 사용 하 여 지정 된 데이터 집합에서와 동일한 열의 하위 집합을 선택 하는 변환을 만드는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너의 열 변형 선택 모듈을 사용 하 여 선택 변환을 수행 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945597"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420719"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
 

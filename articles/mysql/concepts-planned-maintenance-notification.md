@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544837"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417591"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 계획 된 유지 관리 알림-단일 서버
 
@@ -48,7 +48,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 1. [Azure Portal](https://portal.azure.com)에서 **Service Health** 를 선택 합니다.
 2. **계획 된 유지 관리** 탭 선택
-3. 계획 된 유지 관리 알림을 확인 하려는 **구독** , * * 지역 및 **서비스** 를 선택 합니다. 
+3. 계획 된 유지 관리 알림을 확인 하려는 **구독** , **지역** 및 **서비스** 를 선택 합니다. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>계획 된 유지 관리 알림을 받으려면
 

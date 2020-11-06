@@ -1,6 +1,6 @@
 ---
 title: '웹 서비스 입력/출력: 모듈 참조'
-description: Azure Machine Learning 디자이너의 웹 서비스 모듈에 대 한 자세한 정보
+description: Azure Machine Learning 디자이너에서 웹 서비스 모듈을 사용 하 여 입력 및 출력을 관리 하는 방법을 알아봅니다.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 475ad3de8e0a7636a14949d4fcd8a5ec2812ad5e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310035"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421127"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>웹 서비스 입력 및 웹 서비스 출력 모듈
 
@@ -40,7 +40,7 @@ ms.locfileid: "93310035"
 
 다음 예제에서는 Python 스크립트 실행 모듈에서 실시간 유추 파이프라인을 수동으로 만드는 방법을 보여 줍니다. 
 
-![예제](media/module/web-service-input-output-example.png)
+![예](media/module/web-service-input-output-example.png)
    
 파이프라인을 제출 하 고 실행이 성공적으로 완료 되 면 실시간 끝점을 배포할 수 있습니다.
    

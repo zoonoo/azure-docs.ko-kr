@@ -1,7 +1,7 @@
 ---
 title: 기능 해싱 모듈 참조
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 기능 해시 모듈을 사용 하 여 피쳐화 텍스트 데이터를 사용 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너의 기능 해시 모듈을 사용 하 여 텍스트 데이터를 피쳐화 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323717"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420787"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
@@ -22,7 +22,7 @@ ms.locfileid: "93323717"
 
 기능 해싱 모듈을 사용 하 여 영어 텍스트 스트림을 정수 기능 집합으로 변환 합니다. 그런 다음이 해시 된 기능 집합을 기계 학습 알고리즘에 전달 하 여 텍스트 분석 모델을 학습 시킬 수 있습니다.
 
-이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)를 참조 하세요.
+이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true)를 참조 하세요.
 
 ## <a name="what-is-feature-hashing"></a>기능 해싱 이란?
 

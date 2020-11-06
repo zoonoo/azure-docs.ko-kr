@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893580"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420962"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>메트릭 관리자에 게 질문과 대답
 
@@ -88,7 +88,7 @@ ms.locfileid: "92893580"
 
 이러한 쿼리는 단일 타임 스탬프로 데이터만 반환 하 고 메트릭 관리자가 수집 하는 모든 차원 조합을 포함 합니다. 
 
-:::image type="content" source="media/query-result.png" alt-text="F0 리소스가 이미 있는 경우의 메시지" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="하나의 타임 스탬프를 포함 하는 쿼리 결과" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>비정상 상태에서 급증 & dip를 검색 어떻게 할까요??
@@ -104,6 +104,19 @@ ms.locfileid: "92893580"
 
 데이터가 정상적으로 안정적이 고 변동 되지 않으며, 너무 안정적으로 전환 되거나 평평한 선 일 때 경고를 표시 하려는 경우 변경이 너무 작은 경우 이러한 데이터 요소를 검색 하도록 "변경 임계값"을 구성할 수 있습니다.
 자세한 내용은 [변칙 검색 구성](how-tos/configure-metrics.md#anomaly-detection-methods) 을 참조 하세요.
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>전자 메일 설정을 설정 하 고 전자 메일로 경고를 사용 하도록 설정 하는 방법
+
+1.  구독 관리자 또는 리소스 그룹 관리자 권한이 있는 사용자는 Azure Portal에서 만든 메트릭 관리자 리소스를 탐색 하 고 **액세스 제어 (IAM)** 탭을 선택 해야 합니다. 
+2.  **역할 할당 추가** 선택
+3.  **Cognitive Services 메트릭 관리자 관리자** 의 역할을 선택 하 고 아래 이미지와 같이 계정을 선택 합니다.
+4.  **저장** 단추를 클릭 하면 메트릭 관리자 리소스의 관리자로 성공적으로 추가 된 것입니다. 위의 모든 작업은 구독 관리자 또는 리소스 그룹 관리자가 수행 해야 합니다. 
+
+:::image type="content" source="media/access-control.png" alt-text="역할 할당 추가가 선택 된 상태에서 선택 된 Cognitive Services 사용자에 게 액세스 권한을 할당 하는 상자, 사용자를 검색 하 고 특정 수준의 액세스 권한을 추가 하는 단계를 보여 주기 위해 선택 된 UI의 저장 단추를 차례로 선택 하 여 액세스 제어 (IAM) 메뉴 페이지를 선택 합니다." lightbox="media/access-control.png":::
+
+
+5.  권한을 전파 하는 데 최대 1 분 정도 걸릴 수 있습니다. 그런 다음 메트릭 Advisor 작업 영역을 선택 하 고 왼쪽 탐색 패널에서 **전자 메일 설정** 옵션을 선택 합니다. 필요한 항목 (특히 SMTP 관련 정보)을 입력 합니다. 
+6.  **저장** 을 선택 하면 모두 전자 메일 구성으로 설정 됩니다. 새 후크를 만들고 거의 실시간 경고에 대 한 메트릭 이상 상태를 구독할 수 있습니다. 
 
 ## <a name="advanced-concepts"></a>고급 개념
 
@@ -127,7 +140,7 @@ ms.locfileid: "92893580"
 
 메트릭 관리자에서 사용자는 계층 토폴로지의 한 노드에서 드릴 다운 하거나 롤업할 경로를 지정할 수 있습니다. 보다 정확 하 게, 계층 토폴로지는 트리 구조가 아니라 방향이 지정 된 비순환 그래프입니다. 다음과 같이 모든 잠재적 차원 조합으로 구성 된 전체 계층 토폴로지가 있습니다. 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="F0 리소스가 이미 있는 경우의 메시지" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="계층 토폴로지 다이어그램은 여러 개의 차원이 포함 된 여러 개의 interconnecting 꼭 짓 점 및 가장자리로 구성 되며 1 ~ 6 범위의 해당 하는 숫자를 포함 합니다." lightbox="media/dimension-combinations-view.png":::
 
 이론적으로 차원에 고유한 값이 있고 차원에 고유한 값이 있으며 차원에 고유한 값이 있는 경우 `Service` `Ls` `Data center` `Ldc` `Machine` `Lm` `(Ls + 1) * (Ldc + 1) * (Lm + 1)` 계층 구조 토폴로지에서 차원 조합이 있을 수 있습니다. 
 

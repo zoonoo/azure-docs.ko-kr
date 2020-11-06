@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276947"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420492"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -42,8 +42,8 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 ### <a name="on-premises-active-directory"></a>온-프레미스 Active Directory
 * Active Directory 스키마 버전 및 포리스트 기능 수준은 Windows Server 2003 이상 이어야 합니다. 도메인 컨트롤러는 스키마 버전 및 포리스트 수준 요구 사항이 충족 되는 한 모든 버전을 실행할 수 있습니다.
-* *비밀 번호 쓰기 저장*기능을 사용 하려는 경우 도메인 컨트롤러는 Windows Server 2008 R2 이상에 있어야 합니다.
-* Azure AD에서 사용되는 도메인 컨트롤러는 쓰기 가능해야 합니다. RODC (읽기 전용 도메인 컨트롤러)를 사용 하는 것은 *지원 되지*않으며 Azure AD Connect는 쓰기 리디렉션을 따르지 않습니다.
+* *비밀 번호 쓰기 저장* 기능을 사용 하려는 경우 도메인 컨트롤러는 Windows Server 2012 이상에 있어야 합니다.
+* Azure AD에서 사용되는 도메인 컨트롤러는 쓰기 가능해야 합니다. RODC (읽기 전용 도메인 컨트롤러)를 사용 하는 것은 *지원 되지* 않으며 Azure AD Connect는 쓰기 리디렉션을 따르지 않습니다.
 * "점으로 구분 된" (이름에 마침표 ".")를 사용 하 여 온-프레미스 포리스트 또는 도메인을 사용 합니다. NetBIOS 이름은 *지원 되지 않습니다*.
 * [Active Directory 휴지통을 사용 하도록 설정](how-to-connect-sync-recycle-bin.md)하는 것이 좋습니다.
 
@@ -62,7 +62,7 @@ Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니
 
 Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
-#### <a name="installation-prerequisites"></a>설치 필수 조건
+#### <a name="installation-prerequisites"></a>설치 필수 구성 요소
 
 - Azure AD Connect 도메인에 가입 된 Windows Server 2012 이상에 설치 해야 합니다. 
 - Azure AD Connect는 Small Business Server 또는 Windows Server Essentials 2019 이전에 설치할 수 없습니다 (Windows Server Essentials 2019이 지원 됨). 서버는 Windows Server Standard 이상을 사용해야 합니다. 
@@ -95,7 +95,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
   * SQL 인스턴스당 동기화 엔진을 하나만 사용할 수 있습니다. FIM/MIM 동기화, DirSync 또는 Azure AD Sync를 사용 하 여 SQL 인스턴스를 공유 하는 것은 *지원 되지 않습니다*.
 
 ### <a name="accounts"></a>계정
-* 통합 하려는 Azure AD 테 넌 트에 대 한 Azure AD 전역 관리자 계정이 있어야 합니다. 이 계정은 *학교 또는 조직 계정* 이어야 하며 *Microsoft 계정*수 없습니다.
+* 통합 하려는 Azure AD 테 넌 트에 대 한 Azure AD 전역 관리자 계정이 있어야 합니다. 이 계정은 *학교 또는 조직 계정* 이어야 하며 *Microsoft 계정* 수 없습니다.
 * [Express 설정을](reference-connect-accounts-permissions.md#express-settings-installation) 사용 하거나 DirSync에서 업그레이드 하는 경우 온-프레미스 Active Directory에 대 한 엔터프라이즈 관리자 계정이 있어야 합니다.
 * 사용자 지정 설정 설치 경로를 사용 하는 경우에는 더 많은 옵션을 사용할 수 있습니다. 자세한 내용은 [사용자 지정 설치 설정](reference-connect-accounts-permissions.md#custom-installation-settings)을 참조 하세요.
 
@@ -106,7 +106,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
   * 독일 또는 Microsoft Azure Government 클라우드에서 Microsoft 클라우드를 사용 하는 경우 Url에 대 한 [동기화 서비스 인스턴스 고려 사항 Azure AD Connect](reference-connect-instances.md) 을 참조 하세요.
 * Azure AD Connect(1.1.614.0 버전 이상)는 기본적으로 TLS 1.2를 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. 기본 운영 체제에서 TLS 1.2를 사용할 수 없는 경우 Azure AD Connect에 이전 프로토콜(TLS 1.1 및 TLS 1.0)이 점차적으로 다시 적용됩니다.
 * 1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. TLS 1.2로 변경하려면 [Azure AD Connect에 TLS 1.2 사용](#enable-tls-12-for-azure-ad-connect)의 단계를 수행합니다.
-* 인터넷에 연결 하기 위해 아웃 바운드 프록시를 사용 하는 경우 설치 마법사에 **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** 파일의 다음 설정을 추가 하 고 인터넷 및 Azure AD에 연결할 수 있도록 동기화를 Azure AD Connect 해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 * &lt; proxyaddress &gt; * 는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
+* 인터넷에 연결 하기 위해 아웃 바운드 프록시를 사용 하는 경우 설치 마법사에 **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** 파일의 다음 설정을 추가 하 고 인터넷 및 Azure AD에 연결할 수 있도록 동기화를 Azure AD Connect 해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 *&lt; proxyaddress &gt;* 는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
 
     ```
         <system.net>
@@ -180,9 +180,9 @@ Azure AD Connect를 사용 하 여 AD FS 또는 WAP (웹 응용 프로그램 프
   * 대상 컴퓨터가 도메인에 가입 되어 있지 않거나 신뢰할 수 없는 도메인에 있는 경우 마법사가 실행 되 고 있는 컴퓨터에서 다음을 수행 합니다.
     * 관리자 권한 PowerShell 명령 창에서 명령을 사용 `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` 합니다.
     * 서버 관리자에서 다음을 수행 합니다.
-      * 컴퓨터 풀에 DMZ WAP 호스트를 추가 합니다. 서버 관리자에서 **관리**  >  **서버 추가**를 선택 하 고 **DNS** 탭을 사용 합니다.
-      * **모든 서버 서버 관리자** 탭에서 WAP 서버를 마우스 오른쪽 단추로 클릭 하 고 **다른 이름으로 관리**를 선택 합니다. WAP 컴퓨터에 대 한 로컬 (도메인 아님) 자격 증명을 입력 합니다.
-      * 원격 PowerShell 연결의 유효성을 검사 하려면 **모든 서버 서버 관리자** 탭에서 WAP 서버를 마우스 오른쪽 단추로 클릭 하 고 **Windows PowerShell**을 선택 합니다. 원격 powershell 세션을 설정할 수 있도록 원격 PowerShell 세션이 열립니다.
+      * 컴퓨터 풀에 DMZ WAP 호스트를 추가 합니다. 서버 관리자에서 **관리**  >  **서버 추가** 를 선택 하 고 **DNS** 탭을 사용 합니다.
+      * **모든 서버 서버 관리자** 탭에서 WAP 서버를 마우스 오른쪽 단추로 클릭 하 고 **다른 이름으로 관리** 를 선택 합니다. WAP 컴퓨터에 대 한 로컬 (도메인 아님) 자격 증명을 입력 합니다.
+      * 원격 PowerShell 연결의 유효성을 검사 하려면 **모든 서버 서버 관리자** 탭에서 WAP 서버를 마우스 오른쪽 단추로 클릭 하 고 **Windows PowerShell** 을 선택 합니다. 원격 powershell 세션을 설정할 수 있도록 원격 PowerShell 세션이 열립니다.
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 인증서 요구 사항
 * AD FS 팜과 모든 웹 응용 프로그램 프록시 서버의 모든 노드에 대해 동일한 TLS/SSL 인증서를 사용 하는 것이 좋습니다.

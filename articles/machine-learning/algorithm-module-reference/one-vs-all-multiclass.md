@@ -1,7 +1,7 @@
 ---
 title: OVA(One-vs-All)  다중 클래스
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 일대다 다중 클래스 모듈을 사용 하 여 앙상블 이진 분류 모델에서 다중 클래스 분류 모델을 만드는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 일대다 다중 클래스 모듈을 사용 하 여 앙상블 이진 분류 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898504"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420685"
 ---
 # <a name="one-vs-all-multiclass"></a>OVA(One-vs-All)  다중 클래스
 
@@ -40,7 +40,7 @@ ms.locfileid: "90898504"
 
 모델을 결합할 때 일대다 다중 클래스는 여러 이진 분류 모델을 만들고 각 클래스에 대 한 알고리즘을 최적화 한 다음 모델을 병합 합니다. 이 모듈은 학습 데이터 집합에 여러 클래스 값이 있을 수 있는 경우에도이 작업을 수행 합니다.
 
-1. 디자이너에서 일대다 다중 클래스 모듈을 파이프라인에 추가 합니다. 이 모듈은 **분류** 범주의 **Machine Learning-Initialize**에서 찾을 수 있습니다.
+1. 디자이너에서 일대다 다중 클래스 모듈을 파이프라인에 추가 합니다. 이 모듈은 **분류** 범주의 **Machine Learning-Initialize** 에서 찾을 수 있습니다.
 
    일대다 다중 클래스 분류자에는 자체의 구성 가능한 매개 변수가 없습니다. 사용자 지정은 입력으로 제공 되는 이진 분류 모델에서 수행 해야 합니다.
 
