@@ -307,6 +307,8 @@
           href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Marketplace 계량 서비스
       items:
+        - name: 변칙 검색 서비스
+          href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: 인증 전략
           href: partner-center-portal/marketplace-metering-service-authentication.md
         - name: Marketplace 계량 서비스 API

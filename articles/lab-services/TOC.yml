@@ -4,6 +4,10 @@
   items:
     - name: About Lab Services
       href: lab-services-overview.md
+- name: 빠른 시작
+  items:
+    - name: 시작하기
+      href: get-started-manage-labs.md
 - name: 자습서
   items:
     - name: 랩 계정 설정

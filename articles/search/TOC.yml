@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: postman
+    - name: REST (영문)
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: 전체 텍스트 검색
       href: search-lucene-query-architecture.md
+    - name: 관련성 채점
+      href: index-similarity-and-scoring.md
     - name: 인덱서
       href: search-indexer-overview.md
     - name: AI 보강
@@ -294,8 +296,6 @@
       items:
         - name: 결과 작업
           href: search-pagination-page-layout.md
-        - name: 관련성 채점
-          href: index-similarity-and-scoring.md
         - name: 점수 매기기 프로필
           href: index-add-scoring-profiles.md
         - name: 유사성 알고리즘

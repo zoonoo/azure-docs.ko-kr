@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: 고유 키 정의
               href: how-to-define-unique-keys.md
+            - name: 트랜잭션 일괄 처리 작업 수행
+              href: transactional-batch.md
         - name: 성능
           items:
             - name: 쿼리
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: 서버 쪽 프로그래밍
           items:
-            - name: 트랜잭션 일괄 처리 작업 수행
-              href: transactional-batch.md
             - name: '저장 프로시저, 트리거 및 UDF 작성'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: 저장 프로시저 및 JavaScript 쿼리 API를 사용하는 트리거 작성

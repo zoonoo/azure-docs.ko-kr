@@ -47,7 +47,7 @@
         - name: Kubernetes에서 배포
           href: deploy-kubernetes.md
         - name: Azure Data Studio를 사용하여 배포
-          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%252fazure%252fazure-sql-edge%252ftoc.json
     - name: 기계 학습
       items:
         - name: ONNX를 통한 기계 학습 및 AI
@@ -91,9 +91,9 @@
         - name: DATE_BUCKET(Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE(Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
         - name: LAST_VALUE(Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
         - name: 데이터 보존 및 정리
           items:
             - name: 데이터 보존 개요
@@ -109,11 +109,11 @@
         - name: 보안 개요
           href: security-overview.md
         - name: 보안 기능
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%252fazure%252fazure-sql-edge%252ftoc.json
         - name: 연결 암호화
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%252fazure%252fazure-sql-edge%252ftoc.json
         - name: IoT용 Azure Security Center
-          href: 'https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json'
+          href: ../defender-for-iot/overview.md?bc=%252fazure%252fazure-sql-edge%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fazure-sql-edge%252ftoc.json
 - name: 방법
   items:
     - name: SQL Edge 구성
@@ -141,7 +141,7 @@
 - name: 참조
   items:
     - name: Transact-SQL(T-SQL) 참조
-      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+      href: /sql/t-sql/language-reference
 - name: 리소스
   items:
     - name: 파트너

@@ -29,6 +29,9 @@
     - name: 데이터베이스 손상 완화
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: 버전 관리 정책
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: 단일 서버
   expanded: true
   items:

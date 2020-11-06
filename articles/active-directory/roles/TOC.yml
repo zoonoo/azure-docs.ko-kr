@@ -11,14 +11,14 @@
 - name: 자습서
   items:
     - name: 동적 그룹 만들기
-      href: /azure/active-directory/enterprise-users/users-revoke-access
+      href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: 개념
   expanded: true
   items:
     - name: Azure AD 관리자 역할 위임
       href: concept-delegation.md
     - name: 기본 사용자 사용 권한 비교
-      href: /azure/active-directory/fundamentals/users-default-permissions
+      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Azure 및 Azure AD 역할 비교
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Azure AD의 관리 단위 이해
@@ -29,15 +29,15 @@
     - name: 사용자 및 역할
       items:
         - name: 관리자 역할에 사용자 할당
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: 사용자의 액세스 권한 취소
-          href: /azure/active-directory/enterprise-users/users-revoke-access
+          href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: 게스트 사용자에게 역할 할당
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/add-guest-to-role.md?context=azure/active-directory/roles/context/ugr-context
         - name: 게스트 사용자 액세스 제한
-          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: 동적 그룹 및 게스트
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/roles/context/ugr-context
     - name: 역할 및 권한
       expanded: true
       items:
@@ -57,7 +57,7 @@
         - name: 사용자 지정 역할 할당 보기
           href: custom-view-assignments.md
         - name: Azure Portal에서 사용자 지정 역할 할당
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: PowerShell에서 사용자 지정 역할 할당
           href: custom-assign-powershell.md
         - name: 엔터프라이즈 앱에 대한 사용자 지정 역할 할당
@@ -111,7 +111,7 @@
     - name: 문제 해결
       items:
         - name: Azure AD에 대한 지원
-          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: 참조
   items:
     - name: 태스크별 최소 권한 있는 역할
@@ -125,4 +125,4 @@
     - name: Azure AD PowerShell for Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Azure AD 서비스 제한
-      href: /azure/active-directory/enterprise-users/directory-service-limits-restrictions
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
