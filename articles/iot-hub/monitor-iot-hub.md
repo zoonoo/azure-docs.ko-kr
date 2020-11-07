@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128882"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357609"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -65,7 +65,7 @@ Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 에서 **진
 
 다음 스크린샷은 리소스 로그 유형 *연결 작업* 및 모든 플랫폼 메트릭을 Log Analytics 작업 영역으로 라우팅하는 진단 설정을 보여 줍니다.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT hub 개요 페이지의 기본 메트릭 차트":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT hub에 대 한 진단 설정 창.":::
 
 Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](/azure/azure-monitor/platform/diagnostic-settings) 참조 하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure IoT Hub에 대 한 범주는 [모니터링 Azure IoT Hub 데이터 참조의 리소스 로그에](monitor-iot-hub-reference.md#resource-logs)나열 됩니다.
 
@@ -81,7 +81,7 @@ IoT Hub 플랫폼 메트릭을 다른 위치로 라우팅하는 경우 다음에
 
 Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 아래에서 **메트릭** 을 선택 하 여 기본적으로 메트릭 탐색기 범위를 iot hub에서 내보낸 플랫폼 메트릭에 열 수 있습니다.
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT hub 개요 페이지의 기본 메트릭 차트":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT hub에 대 한 메트릭 탐색기 페이지.":::
 
 Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure IoT Hub 데이터 참조의 메트릭](monitor-iot-hub-reference.md#metrics)을 참조 하세요. 모든 Azure 서비스에 대해 수집 되는 플랫폼 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](/azure/azure-monitor/platform/metrics-supported)을 참조 하세요.
 
@@ -97,7 +97,7 @@ Azure Monitor 로그에 데이터를 라우팅하려면 Log Analytics 작업 영
 
 Azure Portal에서 iot hub의 왼쪽 창에 있는 **모니터링** 에서 **로그** 를 선택 하 여 기본적으로 범위 지정 된 Log Analytics 쿼리를 iot hub에 대 한 Azure Monitor 로그에 수집 된 로그 및 메트릭으로 수행할 수 있습니다.
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="IoT hub 개요 페이지의 기본 메트릭 차트":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="IoT hub에 대 한 로그 페이지.":::
 
 Azure Monitor 로그 및 Log Analytics에서 쿼리할 때 사용 하는 테이블 목록은 [모니터링 Azure IoT Hub 데이터 참조에서 Azure Monitor Logs 테이블](monitor-iot-hub-reference.md#azure-monitor-logs-tables)을 참조 하세요.
 
@@ -291,6 +291,14 @@ class Program
 Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 이를 통해 사용자는 시스템에서 문제를 파악 하 고 해결할 수 있습니다. [메트릭](/azure/azure-monitor/platform/alerts-metric-overview), [로그](/azure/azure-monitor/platform/alerts-unified-log)및 [활동 로그](/azure/azure-monitor/platform/activity-log-alerts)에 대 한 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
 
 플랫폼 메트릭을 기반으로 경고 규칙을 만들 때 개수 단위로 수집 되는 IoT Hub 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다. 자세히 알아보려면 [모니터링 Azure IoT Hub 데이터 참조에서 지원 되는 집계](monitor-iot-hub-reference.md#supported-aggregations)를 참조 하세요.
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Event Grid와 장치 당 모니터의 연결 끊김
+
+Azure Monitor는 IoT Hub에 연결 된 장치 수를 모니터링 하 고 연결 된 장치 수가 임계값 아래로 떨어지면 경고를 트리거하는 데 사용할 수 있는 메트릭 *연결 된 장치* 를 제공 합니다. 일부 시나리오에서는이 방법이 충분할 수 있지만 [Azure Event Grid](/azure/event-grid/) 중요 한 장치 및 인프라에 대 한 장치 연결을 추적 하는 데 사용할 수 있는 낮은 대기 시간, 장치 단위 모니터링 솔루션을 제공 합니다.
+
+Event Grid를 사용 하면 IoT Hub [ **DeviceConnected** 및 **devicedisconnected** 이벤트](iot-hub-event-grid.md#event-types) 를 구독 하 여 경고를 트리거하고 장치 연결 상태를 모니터링할 수 있습니다. Event Grid는 Azure Monitor 보다 훨씬 낮은 이벤트 대기 시간을 제공 하 고, 연결 된 장치의 총 수가 아니라 장치별로 모니터링할 수 있습니다. 이러한 요인은 중요 한 장치 및 인프라에 대 한 연결을 모니터링 하는 기본 방법 Event Grid 합니다. 프로덕션 환경에서 장치 연결을 모니터링 하려면 Event Grid를 사용 하는 것이 좋습니다.
+
+Event Grid 및 Azure Monitor를 사용 하 여 장치 연결을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure IoT Hub와의 연결 끊기 모니터링, 진단 및 문제 해결](iot-hub-troubleshoot-connectivity.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355825"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357235"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 ThousandEyes 구성
 
@@ -57,31 +57,31 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-2. 이미 ThousandEyes에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ThousandEyes의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **ThousandEyes**를 검색합니다. 검색 결과에서 ThousandEyes를 선택하고 애플리케이션 목록에 추가합니다.
+2. 이미 ThousandEyes에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ThousandEyes의 인스턴스를 검색합니다. 그러지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **ThousandEyes** 를 검색합니다. 검색 결과에서 ThousandEyes를 선택하고 애플리케이션 목록에 추가합니다.
 
 3. ThousandEyes의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![프로 비전 모드에서 자동으로 선택 된 ThousandEyes의 프로 비전 탭을 보여 주는 스크린샷](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. **관리자 자격 증명** 섹션 아래에 ThousandEyes 계정에서 생성한 **OAuth 전달자 토큰**을 입력합니다(이 토큰은 ThousandEyes 계정의 **Profile**(프로필) 섹션 아래에서 찾거나 생성할 수 있음).
+5. **관리자 자격 증명** 섹션 아래에 ThousandEyes 계정에서 생성한 **OAuth 전달자 토큰** 을 입력합니다(이 토큰은 ThousandEyes 계정의 **Profile** (프로필) 섹션 아래에서 찾거나 생성할 수 있음).
 
     ![현재 계정 그룹에 대 한 계정 설정 링크를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ThousandEyes 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ThousandEyes 계정에 관리자 권한이 있는지 확인하고 5단계를 다시 시도합니다.
+6. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 ThousandEyes 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ThousandEyes 계정에 관리자 권한이 있는지 확인하고 5단계를 다시 시도합니다.
 
 7. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 “오류가 발생할 경우 메일 알림 보내기” 확인란을 선택합니다.
 
-8. **Save**을 클릭합니다.
+8. **저장** 을 클릭합니다.
 
-9. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to ThousandEyes**(Azure Active Directory 사용자를 ThousandEyes에 동기화)를 선택합니다.
+9. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to ThousandEyes** (Azure Active Directory 사용자를 ThousandEyes에 동기화)를 선택합니다.
 
 10. **특성 매핑** 섹션에서 Azure AD에서 ThousandEyes로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 ThousandEyes의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-11. ThousandEyes에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+11. ThousandEyes에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-12. **Save**을 클릭합니다.
+12. **저장** 을 클릭합니다.
 
 [사용자 및 그룹] 섹션에서 ThousandEyes에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 

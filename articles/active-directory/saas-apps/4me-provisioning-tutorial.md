@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851291"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357592"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 4me 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91851291"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -41,11 +41,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 4me를 구�
 
 **Azure AD 응용 프로그램 갤러리에서 4me를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -53,13 +53,13 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 4me를 구�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **4me**를 입력 하 고 결과 패널에서 **4me** 를 선택한 다음 **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **4me** 를 입력 하 고 결과 패널에서 **4me** 를 선택한 다음 **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 4me](common/search-new-app.png)
 
 ## <a name="assigning-users-to-4me"></a>4me에 사용자 할당
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 대 한 액세스 권한이 필요한 지 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 4me에 할당할 수 있습니다.
 
@@ -80,11 +80,11 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Azure AD에서 4me에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **4me**를 선택합니다.
+2. 애플리케이션 목록에서 **4me** 를 선택합니다.
 
     ![애플리케이션 목록의 4me 링크](common/all-applications.png)
 
@@ -92,13 +92,13 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 4me 계정의 **테 넌 트 URL** 및 **암호 토큰** 을 검색 하려면 6 단계에 설명 된 대로 연습을 수행 합니다.
 
-6. 4me 관리 콘솔에 로그인 합니다. **설정**으로 이동 합니다.
+6. 4me 관리 콘솔에 로그인 합니다. **설정** 으로 이동 합니다.
 
     ![4me 설정](media/4me-provisioning-tutorial/4me01.png)
 
@@ -118,19 +118,19 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-9. **Save**을 클릭합니다.
+9. **저장** 을 클릭합니다.
 
-10. **매핑** 섹션 아래에서 **Azure Active Directory 사용자와 4를 동기화**합니다 .를 선택 합니다.
+10. **매핑** 섹션 아래에서 **Azure Active Directory 사용자와 4를 동기화** 합니다 .를 선택 합니다.
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
     
 11. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 사용자 계정을 일치 시키는 데 사용 됩니다. 사용자가 선택한 일치 특성에 대 한 [필터링이 지원](https://developer.4me.com/v1/scim/users/) 되는지 확인 하세요. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="특성 매핑 페이지의 스크린샷 테이블에 Azure Active Directory 특성, 해당 FourMe 특성 및 일치 상태가 나열 됩니다." border="false":::
     
-12. **매핑** 섹션에서 **Azure Active Directory 그룹을 4로 동기화를**선택 합니다.
+12. **매핑** 섹션에서 **Azure Active Directory 그룹을 4로 동기화를** 선택 합니다.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 사용자 Azure Active Directory 동기화가 강조 표시 됩니다." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="매핑 페이지의 스크린샷 이름 아래에서 FourMe에 Azure Active Directory 그룹 동기화가 강조 표시 됩니다." border="false":::
     
 13. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -146,11 +146,11 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+17. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행 상황을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 팔 로우 하 여 4Me에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행 상황을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 팔 로우 하 여 4Me에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

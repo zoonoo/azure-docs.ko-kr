@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329264"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358170"
 ---
-# <a name="public-ip-addresses"></a>공용 IP 주소
+# <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 공용 IP 주소를 사용 하면 Azure 리소스가 인터넷 및 공용 Azure 서비스와 통신할 수 있습니다. 주소는 사용자가 할당을 해제 하기 전까지 리소스 전용입니다. 공용 IP가 할당 되지 않은 리소스는 아웃 바운드 통신할 수 있습니다. Azure는 리소스 전용으로 사용 가능한 IP 주소를 동적으로 할당 합니다. Azure에서 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -38,6 +38,8 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 공용 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 
 
 ## <a name="sku"></a>SKU
+
+SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](../virtual-network/virtual-network-public-ip-address-upgrade.md)를 참조 하세요.
 
 공용 IP 주소는 다음 SKU 중 하나로 만들어집니다.
 
@@ -91,12 +93,12 @@ Sku를 소개 하 고 공용 IP 주소를 원하는 SKU를 지정 합니다.
 
 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다.  
 
-예를 들어 **리소스 a**라는 리소스에서 공용 IP 리소스를 해제 합니다. **리소스 A** 는 공용 ip 리소스를 다시 할당 하는 경우 시작 시 다른 IP를 수신 합니다.
+예를 들어 **리소스 a** 라는 리소스에서 공용 IP 리소스를 해제 합니다. **리소스 A** 는 공용 ip 리소스를 다시 할당 하는 경우 시작 시 다른 IP를 수신 합니다.
 
-할당 방법이 **정적** 에서 **동적**으로 변경 되 면 IP 주소가 해제 됩니다. 연결 된 리소스에 대 한 IP 주소가 동일 하 게 유지 되도록 하려면 할당 메서드를 명시적으로 **정적**으로 설정 합니다. 고정 IP 주소가 즉시 할당됩니다.
+할당 방법이 **정적** 에서 **동적** 으로 변경 되 면 IP 주소가 해제 됩니다. 연결 된 리소스에 대 한 IP 주소가 동일 하 게 유지 되도록 하려면 할당 메서드를 명시적으로 **정적** 으로 설정 합니다. 고정 IP 주소가 즉시 할당됩니다.
 
 > [!NOTE]
-> 할당 방법을 **고정**으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
+> 할당 방법을 **고정** 으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
 >
 
 정적 공용 IP 주소는 일반적으로 다음과 같은 시나리오에서 사용됩니다.
@@ -114,7 +116,7 @@ Sku를 소개 하 고 공용 IP 주소를 원하는 SKU를 지정 합니다.
 
 공용 IP 리소스에 대 한 DNS 도메인 이름 레이블을 지정 하는 옵션을 선택 합니다. 
 
-이렇게 선택 하면 **domainnamelabel**에 대 한 매핑이 만들어집니다. cloudapp.azure.com는 Azure에서 관리 되는 DNS의 공용 IP에 대 한 **위치**입니다. 
+이렇게 선택 하면 **domainnamelabel** 에 대 한 매핑이 만들어집니다. cloudapp.azure.com는 Azure에서 관리 되는 DNS의 공용 IP에 대 한 **위치** 입니다. 
 
 예를 들어 다음을 사용 하 여 공용 IP를 만듭니다.
 
@@ -137,7 +139,7 @@ DNS 레코드에 대 한 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2f
 
 ## <a name="virtual-machines"></a>가상 머신
 
-공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 
+공용 IP 주소를 **네트워크 인터페이스** 에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 
 
 공용 IP 주소에 대해 **동적** 또는 **정적** 을 선택 합니다. [네트워크 인터페이스에 IP 주소를 할당](virtual-network-network-interface-addresses.md)하는 방법에 대해 자세히 알아봅니다.
 
@@ -160,7 +162,7 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 
 ## <a name="application-gateways"></a>애플리케이션 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway** 와 연결할 수 있습니다. 
 
 * 응용 프로그램 게이트웨이 V1 프런트 엔드 구성에 **동적** 기본 공용 IP를 할당 합니다. 
 * V2 프런트 엔드 구성에 **정적** 표준 SKU 주소를 할당 합니다.
@@ -178,11 +180,11 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |네트워크 인터페이스 |예 |예 |
-| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니요 |
+| 가상 머신 |네트워크 인터페이스 |yes |yes |
+| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |yes |예 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
-| Azure Firewall | 프런트 엔드 구성 | 아니요 | 예|
+| Azure Firewall | 프런트 엔드 구성 | 예 | yes|
 
 ## <a name="limits"></a>제한
 

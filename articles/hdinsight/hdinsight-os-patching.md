@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447202"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357762"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터에 대 한 OS 패치 일정 구성
 
@@ -64,7 +64,7 @@ Welcome to Spark on HDInsight.
 
 | 매개 변수 | 허용되는 값 | 정의 |
 | --- | --- | --- |
-| 설치할 업데이트 유형 | 0, 1 또는 2 | 값 0은 커널 업데이트만 설치 합니다. 값 1은 모든 업데이트를 설치 하 고, 2는 커널 + 보안 업데이트만 설치 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. |
+| 설치할 업데이트 유형 | 0, 1 또는 2 | 값 0은 커널 업데이트만 설치 합니다. 값 1은 커널 + 보안 업데이트를 설치 하 고 2는 모든 업데이트를 설치 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. |
 | 수행할 다시 시작 유형 | 0, 1 또는 2 | 0 값은 다시 시작을 사용 하지 않습니다. 값 1은 일정 다시 시작을 사용 하도록 설정 하 고 2는 즉시 다시 시작을 사용 하도록 설정 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. 사용자는 입력 매개 변수 1을 입력 매개 변수 2로 변경 해야 합니다. |
 
 > [!NOTE]

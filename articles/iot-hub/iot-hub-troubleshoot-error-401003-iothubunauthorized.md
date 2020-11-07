@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909644"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357252"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -42,7 +42,7 @@ ms.locfileid: "92909644"
 
 ### <a name="cause-1"></a>원인 1
 
-MQTT의 경우 일부 Sdk는 IoT Hub를 사용 하 여 SAS 토큰이 만료 될 때이를 새로 고칠 시기를 알 수 없을 때 연결을 발급 합니다. 따라서 
+MQTT의 경우 일부 Sdk는 IoT Hub를 사용 하 여 SAS 토큰이 만료 될 때이를 새로 고칠 시기를 알 수 없을 때 연결을 발급 합니다. 따라서
 
 1. SAS 토큰이 만료 됩니다.
 1. IoT Hub 만료를 통지 하 고 **401003 IoTHubUnauthorized** 장치 연결을 끊습니다.
@@ -58,9 +58,11 @@ IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다. 증상�
 
 ### <a name="solution-1"></a>해결 방법 1
 
-장치 연결 문자열을 사용 하 여 연결 하는 데 IoT SDK를 사용 하는 경우 아무 작업도 필요 하지 않습니다. IoT SDK는 SAS 토큰 만료 시 다시 연결 하기 위해 새 토큰을 다시 생성 합니다. 
+장치 연결 문자열을 사용 하 여 연결 하는 데 IoT SDK를 사용 하는 경우 아무 작업도 필요 하지 않습니다. IoT SDK는 SAS 토큰 만료 시 다시 연결 하기 위해 새 토큰을 다시 생성 합니다.
 
-오류가 발생 한 경우에는 C SDK로 전환 합니다. 그러면 만료 되기 전에 SAS 토큰을 갱신 합니다. 또한 AMQP의 경우 SAS 토큰은 연결을 끊지 않고 새로 고칠 수 있습니다.
+기본 토큰 수명은 Sdk 전체에서 60 분입니다. 그러나 일부 Sdk의 경우 토큰 수명 및 토큰 갱신 임계값을 구성할 수 있습니다. 또한 장치를 분리 하 고 토큰 갱신 시 다시 연결 하는 경우 생성 되는 오류는 각 SDK 마다 다릅니다. 자세히 알아보고, 장치에서 로그에 사용 중인 SDK를 확인 하는 방법에 대 한 자세한 내용은 [Azure IoT sdk를 사용 하 여 Mqtt 장치 연결 끊기 동작](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks)을 참조 하세요.
+
+장치 개발자의 경우 오류 볼륨이 문제가 되 면 C SDK로 전환 합니다. 그러면 만료 되기 전에 SAS 토큰을 갱신 합니다. AMQP의 경우 SAS 토큰은 연결을 끊지 않고 새로 고칠 수 있습니다.
 
 ### <a name="solution-2"></a>해결 방법 2
 

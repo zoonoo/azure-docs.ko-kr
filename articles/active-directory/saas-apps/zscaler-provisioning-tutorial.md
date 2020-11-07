@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519727"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357694"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Zscaler 구성
 
@@ -47,7 +47,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Zscaler를 �
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -55,7 +55,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Zscaler를 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Zscaler**를 입력하고 결과 패널에서 **Zscaler**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Zscaler** 를 입력하고 결과 패널에서 **Zscaler** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Zscaler](common/search-new-app.png)
 
@@ -82,11 +82,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Azure AD에서 Zscaler에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 하 고 **Zscaler**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **엔터프라이즈 응용 프로그램** 을 선택한 다음 **모든 응용 프로그램** 을 선택 하 고 **Zscaler** 를 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Zscaler**를 선택합니다.
+2. 애플리케이션 목록에서 **Zscaler** 를 선택합니다.
 
     ![애플리케이션 목록의 Zscaler 링크](common/all-applications.png)
 
@@ -94,13 +94,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![프로 비전 옵션이 강조 표시 된 Zscaler 엔터프라이즈 응용 프로그램 사이드바의 스크린샷](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![프로 비전 모드가 자동으로 설정 된 프로 비전 페이지의 스크린샷](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 6 단계에 설명 된 대로 **테 넌 트 URL** 및 Zscaler 계정의 **암호 토큰** 을 입력 합니다.
 
-6. **테 넌 트 URL** 및 **암호 토큰**을 가져오려면 Zscaler 포털 사용자 인터페이스에서 **관리 > 인증 설정** 으로 이동 하 고 **인증 유형**아래에서 **SAML** 을 클릭 합니다.
+6. **테 넌 트 URL** 및 **암호 토큰** 을 가져오려면 Zscaler 포털 사용자 인터페이스에서 **관리 > 인증 설정** 으로 이동 하 고 **인증 유형** 아래에서 **SAML** 을 클릭 합니다.
 
     ![인증 설정 페이지의 스크린샷](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,7 +108,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![기본 U R L 및 전달자 토큰 입력란이 out 인 구성 S A M L 대화 상자의 스크린샷](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    **SCIM-Based 프로 비전 사용** 을 선택 하 여 **기본 URL** 및 **전달자 토큰**을 검색 한 다음 설정을 저장 합니다. **테 넌 트 url**에 대 한 **기준 Url** 및 **전달자 토큰** 을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
+    **SCIM-Based 프로 비전 사용** 을 선택 하 여 **기본 URL** 및 **전달자 토큰** 을 검색 한 다음 설정을 저장 합니다. **테 넌 트 url** 에 대 한 **기준 Url** 및 **전달자 토큰** 을 Azure Portal의 **비밀 토큰** 에 복사 합니다.
 
 7. 5 단계에 표시 된 필드를 채우면 **연결 테스트** 를 클릭 하 여 Azure AD가 Zscaler에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Zscaler 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
@@ -118,9 +118,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![알림 전자 메일 텍스트 상자의 스크린샷](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. **Save**을 클릭합니다.
+9. **저장** 을 클릭합니다.
 
-10. **매핑** 섹션 아래에서 **Zscaler에 사용자 Azure Active Directory 동기화를**선택 합니다.
+10. **매핑** 섹션 아래에서 **Zscaler에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
     ![Zscaler 사용자에 게 Azure Active Directory 동기화 옵션이 강조 표시 된 매핑 섹션의 스크린샷](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
@@ -128,7 +128,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![7개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
-12. **매핑** 섹션 아래에서 **Zscaler에 Azure Active Directory 그룹 동기화를**선택 합니다.
+12. **매핑** 섹션 아래에서 **Zscaler에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 
     ![Zscaler에 Azure Active Directory 그룹 동기화 옵션이 강조 표시 된 매핑 섹션의 스크린샷](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
@@ -146,11 +146,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![할당 된 사용자 및 그룹만 동기화 옵션이 강조 표시 된 범위 설정의 스크린샷](./media/zscaler-provisioning-tutorial/scoping.png)
 
-17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+17. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![저장 옵션이 포함 된 Zscaler 엔터프라이즈 응용 프로그램 사이드바의 스크린샷](./media/zscaler-provisioning-tutorial/save-provisioning.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Zscaler의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Zscaler의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

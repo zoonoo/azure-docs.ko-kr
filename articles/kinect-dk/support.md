@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rgb, IR, 기록, 센서, sdk, 액세스, 깊이, 비디오, 카메라, imu, 동작, 센서, 오디오, 마이크, matroska, 센서 sdk, 다운로드, 본문, 추적, 지원
-ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277100"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357048"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Azure Kinect 지원 옵션 및 리소스
 
@@ -32,9 +32,9 @@ Azure Kinect에 대 한 보조 지원을 받는 방법에는 여러 가지가 �
 
 ### <a name="microsoft-qa"></a>Microsoft Q&A
 
-Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](https://aka.ms/azureqa)에 참여하세요.
+Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](/answers/products/azure)에 참여하세요.
 
-- [Microsoft Q&Azure Kinect의](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html)경우 질문을 하거나 기존 질문 라이브러리를 검색할 수 있습니다.
+- [Microsoft Q&Azure Kinect의](/answers/topics/azure-kinect-dk.html)경우 질문을 하거나 기존 질문 라이브러리를 검색할 수 있습니다.
 
 ### <a name="development-azure-kinect-on-azure"></a>Azure에서 Azure Kinect 개발
 
@@ -50,7 +50,7 @@ Azure 구독자는 Azure Portal에서 지원 요청을 만들고 관리할 수 �
 
 ### <a name="azure-kinect-dk-device"></a>Azure Kinect 진한 장치
 
-하드웨어 지원에 문의 하기 전에 Azure Kinect 진한를 설정 하 고 업데이트 했는지 확인 합니다. 장치가 작동 하는지 테스트 하려면 [Azure Kinect viewer](azure-kinect-viewer.md)를 사용 합니다. [Azure KINECT 진한 도움말](https://aka.ms/kinectsupport) 페이지에서 자세히 알아보세요.
+하드웨어 지원에 문의 하기 전에 Azure Kinect 진한를 설정 하 고 업데이트 했는지 확인 합니다. 장치가 작동 하는지 테스트 하려면 [Azure Kinect viewer](azure-kinect-viewer.md)를 사용 합니다. [Azure KINECT 진한 도움말](./index.yml) 페이지에서 자세히 알아보세요.
 [알려진 문제 및 문제 해결](troubleshooting.md)을 확인할 수도 있습니다.
 
 장치 또는 센서 기능, 펌웨어 업데이트 또는 구매 옵션에 대 한 [도움말](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) 을 확인 하세요.

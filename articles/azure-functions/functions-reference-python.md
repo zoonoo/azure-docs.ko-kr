@@ -2,14 +2,14 @@
 title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3d459f4249c65f2d09f9d8df6e7958adf852a2ea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346318"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358051"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -69,72 +69,70 @@ def main(req: azure.functions.HttpRequest) -> str:
 Python Functions 프로젝트에 권장하는 폴더 구조는 다음 예제와 같습니다.
 
 ```
- __app__
- | - my_first_function
+ <project_root>/
+ | - .venv/
+ | - .vscode/
+ | - my_first_function/
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - my_second_function
+ | - my_second_function/
  | | - __init__.py
  | | - function.json
- | - shared_code
+ | - shared_code/
+ | | - __init__.py
  | | - my_first_helper_function.py
  | | - my_second_helper_function.py
+ | - tests/
+ | | - test_my_second_function.py
+ | - .funcignore
  | - host.json
+ | - local.settings.json
  | - requirements.txt
  | - Dockerfile
- tests
 ```
-기본 프로젝트 폴더(\_\_app\_\_)에는 다음 파일이 포함될 수 있습니다.
+기본 프로젝트 폴더 (<project_root>)에는 다음 파일이 포함 될 수 있습니다.
 
 * *local.settings.json* : 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-run-local.md#local-settings-file)을 참조하세요.
-* *requirements.txt* : Azure에 게시할 때 설치되는 패키지 목록이 포함됩니다.
+* *requirements.txt* : Azure에 게시할 때 시스템이 설치 하는 Python 패키지 목록을 포함 합니다.
 * *host.json* : 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
-* *.funcignore* : (선택 사항) Azure에 게시하면 안 되는 파일을 선언합니다.
-* *Dockerfile* : (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용됩니다.
+* *. vscode/* : (선택 사항) 저장소 vscode 구성을 포함 합니다. 자세히 알아보려면 [Vscode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조 하세요.
+* *. venv/* : (선택 사항) 로컬 개발에 사용 되는 Python 가상 환경을 포함 합니다.
+* *Dockerfile* : (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용 됩니다.
+* *테스트/* : (선택 사항) 함수 앱의 테스트 사례를 포함 합니다.
+* *. funcignore* : (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다. 일반적으로이 파일에는 `.vscode/` 편집기 설정을 무시 하 고, `.venv/` 로컬 Python 가상 환경을 무시 하 `tests/` 고, 테스트 사례를 무시 하 고, `local.settings.json` 로컬 앱 설정을 게시 하지 않도록 하는가 포함 됩니다.
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다.
 
-Azure의 함수 앱에 프로젝트를 배포할 때 기본 프로젝트( *\_\_app\_\_* ) 폴더 자체가 아닌 폴더의 전체 내용을 패키지에 포함해야 합니다. 프로젝트 폴더와 다른 별도의 폴더에 테스트를 유지하는 것이 좋습니다(이 예제에서는 `tests`). 이렇게 하면 앱에서 테스트 코드를 배포하는 일이 없습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
+Azure의 함수 앱에 프로젝트를 배포할 때 주 프로젝트 ( *<project_root>* ) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 합니다. 즉, `host.json` 패키지 루트에 있어야 합니다. 이 예제에서는 다른 함수와 함께 폴더의 테스트를 유지 관리 하는 것이 좋습니다 `tests/` . 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
 
 ## <a name="import-behavior"></a>가져오기 동작
 
-함수 코드에서 명시적 상대 참조와 절대 참조를 모두 사용하여 모듈을 가져올 수 있습니다. 위에 표시된 폴더 구조에 따라, 다음 가져오기는 함수 파일 *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py* 내부에서 작동합니다.
+절대 참조와 상대 참조를 모두 사용 하 여 함수 코드에서 모듈을 가져올 수 있습니다. 위에 표시 된 폴더 구조를 기반으로 다음 가져오기는 함수 파일 내에서 작업 *<project_root> \my \_ first \_ 함수 \\ _ \_ init \_ \_ . py* :
 
 ```python
-from . import example #(explicit relative)
+from shared_code import my_first_helper_function #(absolute)
 ```
 
 ```python
-from ..shared_code import my_first_helper_function #(explicit relative)
+import shared_code.my_second_helper_function #(absolute)
 ```
 
 ```python
-from __app__ import shared_code #(absolute)
+from . import example #(relative)
+```
+
+> [!NOTE]
+>  *Shared_code/* 폴더는 \_ \_ \_ \_ 절대 가져오기 구문을 사용할 때 Python 패키지로 표시 하는 py 파일을 포함 해야 합니다.
+
+다음 \_ \_ 앱 \_ \_ 가져오기 및 상위 수준 상대적 가져오기는 정적 형식 검사기에서 지원 되지 않고 Python 테스트 프레임 워크에서 지원 되지 않으므로 더 이상 사용 되지 않습니다.
+
+```python
+from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
 ```
 
 ```python
-import __app__.shared_code #(absolute)
-```
-
-다음 가져오기는 동일한 파일 내에서 *작동하지 않습니다*.
-
-```python
-import example
-```
-
-```python
-from example import some_helper_code
-```
-
-```python
-import shared_code
-```
-
-공유 코드는 *\_\_app\_\_* 에 있는 별도의 폴더에 보관해야 합니다. *shared\_code* 폴더의 모듈을 참조하려면 다음 구문을 사용합니다.
-
-```python
-from __app__.shared_code import my_first_helper_function
+from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
@@ -319,7 +317,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 |함수 앱 특징| <ul><li>앱은 많은 동시 호출을 처리 해야 합니다.</li> <li> 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다.</li> </ul>| <ul><li>앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.</li> <li>앱에서 데이터를 변환 합니다.</li> </ul> |
 |예| <ul><li>Web API</li><ul> | <ul><li>데이터 처리</li><li> 기계 학습 유추</li><ul>|
 
- 
+
 > [!NOTE]
 >  실제 함수 워크 로드는 대부분 i/o와 CPU를 혼합 하는 경우가 많기 때문에 실제 프로덕션 부하에서 워크 로드를 프로 파일링 하는 것이 좋습니다.
 
@@ -539,12 +537,14 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Python으로 작성된 함수는 다른 Python 코드와 마찬가지로 표준 테스트 프레임워크를 사용하여 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지로 적절한 클래스 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [`azure.functions`](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로, 위의 [패키지 관리](#package-management) 섹션에서 설명한 대로 `requirements.txt` 파일을 통해 설치해야 합니다.
 
-예를 들어 다음은 HTTP 트리거 함수의 모의 테스트입니다.
+예제로 *my_second_function* 다음은 HTTP 트리거 함수의 모의 테스트입니다.
+
+먼저 *<project_root>/my_second_function/function.js파일에* 만들고이 함수를 http 트리거로 정의 해야 합니다.
 
 ```json
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
+  "entryPoint": "main",
   "bindings": [
     {
       "authLevel": "function",
@@ -565,106 +565,72 @@ Python으로 작성된 함수는 다른 Python 코드와 마찬가지로 표준 
 }
 ```
 
+이제 *my_second_function* 및 *shared_code _second_helper_function* 를 구현할 수 있습니다.
+
 ```python
-# __app__/HttpTrigger/__init__.py
+# <project_root>/my_second_function/__init__.py
 import azure.functions as func
 import logging
 
-def my_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+# Use absolute import to resolve shared_code modules
+from shared_code import my_second_helper_function
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+# Define an http trigger which accepts ?value=<int> query parameter
+# Double the value and return the result in HttpResponse
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Executing my_second_function.')
 
-    if name:
-        return func.HttpResponse(f"Hello {name}")
-    else:
-        return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
-        )
+    initial_value: int = int(req.params.get('value'))
+    doubled_value: int = my_second_helper_function.double(initial_value)
+
+    return func.HttpResponse(
+      body=f"{initial_value} * 2 = {doubled_value}",
+      status_code=200
+    )
 ```
 
 ```python
-# tests/test_httptrigger.py
+# <project_root>/shared_code/__init__.py
+# Empty __init__.py file marks shared_code folder as a Python package
+```
+
+```python
+# <project_root>/shared_code/my_second_helper_function.py
+
+def double(value: int) -> int:
+  return value * 2
+```
+
+Http 트리거에 대 한 테스트 사례 작성을 시작할 수 있습니다.
+
+```python
+# <project_root>/tests/test_my_second_function.py
 import unittest
 
 import azure.functions as func
-from __app__.HttpTrigger import my_function
+from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_function(self):
+    def test_my_second_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/api/HttpTrigger',
-            params={'name': 'Test'})
+            url='/api/my_second_function',
+            params={'value': '21'})
 
         # Call the function.
-        resp = my_function(req)
+        resp = main(req)
 
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            b'Hello Test',
+            b'21 * 2 = 42',
         )
 ```
 
-다음은 큐 트리거 함수를 사용하는 또 다른 예입니다.
+`.venv`Python 가상 환경 내에서 즐겨 사용 하는 python 테스트 프레임 워크 (예:)를 설치 `pip install pytest` 합니다. 단순히 `pytest tests` 를 실행 하 여 테스트 결과를 확인 합니다.
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "python-queue-items",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-```python
-# __app__/QueueTrigger/__init__.py
-import azure.functions as func
-
-def my_function(msg: func.QueueMessage) -> str:
-    return f'msg body: {msg.get_body().decode()}'
-```
-
-```python
-# tests/test_queuetrigger.py
-import unittest
-
-import azure.functions as func
-from __app__.QueueTrigger import my_function
-
-class TestFunction(unittest.TestCase):
-    def test_my_function(self):
-        # Construct a mock Queue message.
-        req = func.QueueMessage(
-            body=b'test')
-
-        # Call the function.
-        resp = my_function(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp,
-            'msg body: test',
-        )
-```
 ## <a name="temporary-files"></a>임시 파일
 
 `tempfile.gettempdir()` 메서드는 임시 폴더를 반환하며, 이 폴더는 Linux에서 `/tmp`입니다. 애플리케이션에서는 함수가 실행 중에 만들어서 사용하는 임시 파일을 이 디렉터리에 저장할 수 있습니다.

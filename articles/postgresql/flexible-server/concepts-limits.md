@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940397"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357184"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -73,10 +73,12 @@ ms.locfileid: "90940397"
 - VNET에서는 방화벽 규칙이 지원 되지 않습니다. 대신 네트워크 보안 그룹을 사용할 수 있습니다.
 - 공용 액세스 데이터베이스 서버는와 같은 공용 인터넷에 연결할 수 `postgres_fdw` 있으며,이 액세스는 제한할 수 없습니다. VNET 기반 서버는 네트워크 보안 그룹을 사용 하 여 제한 된 아웃 바운드 액세스를 가질 수 있습니다.
 
-### <a name="high-availability"></a>고가용성
+### <a name="high-availability-ha"></a>HA (고가용성)
 
 - Zone-Redundant HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
 - 서버에서 HA 대기로 장애 조치 (failover) 될 때 데이터베이스 서버 IP 주소가 변경 됩니다. 서버 IP 주소 대신 DNS 레코드를 사용 해야 합니다.
+- HA로 구성 된 유연한 서버를 사용 하 여 논리적 복제를 구성 하는 경우 대기 서버에 대 한 장애 조치 (failover) 시에는 논리 복제 슬롯이 대기 서버로 복사 되지 않습니다. 
+- 추가 HA 제한 사항은 [개념-ha 설명서](concepts-high-availability.md) 페이지를 참조 하세요.
 
 ### <a name="availability-zones"></a>가용성 영역
 

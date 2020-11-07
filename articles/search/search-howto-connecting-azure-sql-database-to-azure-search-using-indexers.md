@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530564"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358629"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL 콘텐츠 연결 및 인덱싱
 
@@ -26,9 +26,9 @@ Azure Cognitive Search는 Azure SQL Database 및 SQL Managed Instance 외에도 
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
 
-**데이터 원본**은 인덱싱할 데이터, 데이터 액세스를 위한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
+**데이터 원본** 은 인덱싱할 데이터, 데이터 액세스를 위한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
-**인덱서**는 단일 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
+**인덱서** 는 단일 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
 
 * 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
 * 예약에 따라 데이터 원본의 변경 내용으로 인덱스를 업데이트합니다.
@@ -39,10 +39,10 @@ Azure Cognitive Search는 Azure SQL Database 및 SQL Managed Instance 외에도 
 다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
 
 * [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
-* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
-이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만듭니다.
+이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본** 을 만듭니다.
 
 ## <a name="when-to-use-azure-sql-indexer"></a>Azure SQL 인덱서를 사용하는 경우
 데이터와 관련된 여러 요소에 따라 Azure SQL 인덱서를 사용하는 것이 적절할 수도 있고 그렇지 않을 수도 있습니다. 데이터가 다음 요구 사항에 적합한 경우 Azure SQL 인덱서를 사용할 수 있습니다.
@@ -176,7 +176,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 Azure Cognitive Search는 **증분 인덱싱을** 사용 하 여 인덱서가 실행 될 때마다 전체 테이블 또는 뷰를 인덱싱하지 않아도 됩니다. Azure Cognitive Search는 증분 인덱싱을 지원 하기 위해 두 가지 변경 검색 정책을 제공 합니다. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 통합 변경 내용 추적 정책
-SQL 데이터베이스에서 [변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 지 원하는 경우 **Sql 통합 변경 내용 추적 정책을**사용 하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "소프트 삭제" 열을 명시적으로 추가 하지 않고도 Azure Cognitive Search에서 삭제 된 행을 식별할 수 있습니다.
+SQL 데이터베이스에서 [변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 지 원하는 경우 **Sql 통합 변경 내용 추적 정책을** 사용 하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "소프트 삭제" 열을 명시적으로 추가 하지 않고도 Azure Cognitive Search에서 삭제 된 행을 식별할 수 있습니다.
 
 #### <a name="requirements"></a>요구 사항 
 
@@ -187,7 +187,7 @@ SQL 데이터베이스에서 [변경 내용 추적](/sql/relational-databases/tr
 + 데이터베이스에서 테이블에 대해 [변경 내용 추적을 설정](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)합니다. 
 + 테이블에서 복합 기본 키(두 개 이상의 열을 포함하는 기본 키)가 없습니다.  
 
-#### <a name="usage"></a>사용
+#### <a name="usage"></a>사용량
 
 이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -222,9 +222,9 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 * 다음 WHERE 및 ORDER BY 절이 포함된 쿼리를 효율적으로 실행할 수 있습니다. `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> 상위 워터 마크 열에는 [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다. 읽기 전용 복제본이 있는 구성에 **rowversion**을 사용하는 경우 주 복제본에서 인덱서를 가리켜야 합니다. 데이터 동기화 시나리오에는 주 복제본만 사용할 수 있습니다.
+> 상위 워터 마크 열에는 [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다. 읽기 전용 복제본이 있는 구성에 **rowversion** 을 사용하는 경우 주 복제본에서 인덱서를 가리켜야 합니다. 데이터 동기화 시나리오에는 주 복제본만 사용할 수 있습니다.
 
-#### <a name="usage"></a>사용
+#### <a name="usage"></a>사용량
 
 높은 워터 마크 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -311,7 +311,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
     }
 ```
 
-**softDeleteMarkerValue**는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `True` 또는 `true`를 사용합니다. 대소문자는 상관 없습니다.
+**softDeleteMarkerValue** 는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `True` 또는 `true`를 사용합니다. 대소문자는 상관 없습니다.
 
 <a name="TypeMapping"></a>
 
@@ -333,7 +333,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 ## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.
 
-| 설정 | 데이터 형식 | 목적 | 기본값 |
+| 설정 | 데이터 형식 | 용도 | 기본값 |
 | --- | --- | --- | --- |
 | queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
@@ -386,7 +386,7 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 **Q: 상위 워터 마크 변경 내용 추적에 대체의 rowversion이 아닌 열을 사용할 수 있습니까?**
 
-권장되지 않습니다. 신뢰할 수 있는 데이터 동기화를 위해서는 **rowversion**만 허용됩니다. 그러나 애플리케이션 논리에 따라 다음과 같은 경우 안전할 수 있습니다.
+권장되지 않습니다. 신뢰할 수 있는 데이터 동기화를 위해서는 **rowversion** 만 허용됩니다. 그러나 애플리케이션 논리에 따라 다음과 같은 경우 안전할 수 있습니다.
 
 + 인덱서가 실행 될 때 인덱싱되는 테이블에 처리 중인 트랜잭션이 없는 경우 (예: 모든 테이블 업데이트는 일정에 따라 일괄 처리로 수행 되 고 Azure Cognitive Search 인덱서 일정은 테이블 업데이트 일정과 겹치지 않도록 설정 됨)를 확인할 수 있습니다.  
 

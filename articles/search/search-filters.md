@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534797"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355987"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91534797"
 
 구현 과정에서 필터 요구 사항이 있는 검색 환경도 일부 있기는 하지만 *값 기반* 조건을 사용하여 검색을 제한하려는 경우는 언제든지 필터를 사용할 수 있습니다("Simon & Schuster"에서 출판된 "논픽션" 카테고리를 찾기 위해 제품 유형 검색 범위를 "책"으로 지정).
 
-특정 데이터 *구조*로 검색 대상을 설정하려는 경우(검색 범위를 고객 리뷰 필드로 지정) 아래에 대체 방법이 나와 있습니다.
+특정 데이터 *구조* 로 검색 대상을 설정하려는 경우(검색 범위를 고객 리뷰 필드로 지정) 아래에 대체 방법이 나와 있습니다.
 
 ## <a name="when-to-use-a-filter"></a>필터를 사용하는 경우
 
@@ -98,13 +98,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 다음 예에서는 필터 시나리오에 대 한 몇 가지 사용 패턴을 보여 줍니다. 자세한 내용은 [OData 식 구문 > 예제](./search-query-odata-filter.md#examples)를 참조하세요.
 
-+ 독립 실행형 **$filter**는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 "모든 문서 일치"를 의미 하는 별표입니다.
++ 독립 실행형 **$filter** 는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 "모든 문서 일치"를 의미 하는 별표입니다.
 
    ```
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ 쿼리 문자열과 **$filter**의 조합에서 필터가 하위 집합을 만들면 쿼리 문자열이 필터링된 하위 집합에 대해 전체 텍스트 검색에 용어 입력을 제공합니다. 용어를 추가 (이동 거리 극장) 하면 결과에 검색 점수가 도입 됩니다. 여기에서 용어와 가장 일치 하는 문서는 더 높은 순위를 갖습니다. 쿼리 문자열에 필터를 사용 하는 것은 가장 일반적인 사용 패턴입니다.
++ 쿼리 문자열과 **$filter** 의 조합에서 필터가 하위 집합을 만들면 쿼리 문자열이 필터링된 하위 집합에 대해 전체 텍스트 검색에 용어 입력을 제공합니다. 용어를 추가 (이동 거리 극장) 하면 결과에 검색 점수가 도입 됩니다. 여기에서 용어와 가장 일치 하는 문서는 더 높은 순위를 갖습니다. 쿼리 문자열에 필터를 사용 하는 것은 가장 일반적인 사용 패턴입니다.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
@@ -138,11 +138,11 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되어 있습니다. 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
 
-.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](/dotnet/api/microsoft.azure.search.models.field) 개체의 [isfilterable 가능 속성](/dotnet/api/microsoft.azure.search.models.field.isfilterable) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . [Isfilterable 가능한 특성](/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
+.NET SDK에서는 필터링 가능이 기본적으로 *해제* 되어 있습니다. 해당 [Searchfield](/dotnet/api/azure.search.documents.indexes.models.searchfield) 개체의 [isfilterable 가능 속성](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>필터링 가능한 기존 필드 만들기
@@ -171,7 +171,7 @@ REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되
 
 ## <a name="next-steps"></a>다음 단계
 
-먼저 포털의 **검색 탐색기**에서 **$filter** 매개 변수를 사용하여 쿼리를 제출합니다. 필터링된 다음 쿼리를 검색 창에 붙여넣으면 [부동산 샘플 인덱스](search-get-started-portal.md)에서 해당 쿼리에 대한 흥미로운 결과를 제공합니다.
+먼저 포털의 **검색 탐색기** 에서 **$filter** 매개 변수를 사용하여 쿼리를 제출합니다. 필터링된 다음 쿼리를 검색 창에 붙여넣으면 [부동산 샘플 인덱스](search-get-started-portal.md)에서 해당 쿼리에 대한 흥미로운 결과를 제공합니다.
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](./search-query-odata-filter.md#examples)를 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](/rest/api/searchservice/search-documents)

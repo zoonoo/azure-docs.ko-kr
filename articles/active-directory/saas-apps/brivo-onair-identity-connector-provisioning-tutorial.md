@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: dd5a0e05b303d6fc7a5cfa012f49fab99828e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300074"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357813"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Brivo Onair Identity Connector 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91300074"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91300074"
 
 ## <a name="assigning-users-to-brivo-onair-identity-connector"></a>Brivo Onair Identity Connector에 사용자 할당
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Brivo Onair Identity Connector에 대 한 액세스가 필요한 Azure AD의 사용자 및/또는 그룹을 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Brivo Onair Identity Connector에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,15 +50,15 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>프로 비전을 위한 Brivo Onair Id 커넥터 설정
 
-1. [Brivo Onair Identity Connector 관리 콘솔](https://acs.brivo.com/login/)에 로그인 합니다. **계정 > 계정 설정**으로 이동 합니다.
+1. [Brivo Onair Identity Connector 관리 콘솔](https://acs.brivo.com/login/)에 로그인 합니다. **계정 > 계정 설정** 으로 이동 합니다.
 
    ![Brivo Onair Id 커넥터 관리 콘솔](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2. **AZURE AD** 탭을 클릭 합니다. **AZURE AD** 세부 정보 페이지에서 선임 관리자 계정의 암호를 다시 입력 합니다. **제출**을 클릭합니다.
+2. **AZURE AD** 탭을 클릭 합니다. **AZURE AD** 세부 정보 페이지에서 선임 관리자 계정의 암호를 다시 입력 합니다. **제출** 을 클릭합니다.
 
    ![Brivo Onair Id 커넥터 azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3. **토큰 복사** 단추를 클릭 하 고 **비밀 토큰**을 저장 합니다. 이 값은 Azure Portal Brivo Onair Identity Connector 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
+3. **토큰 복사** 단추를 클릭 하 고 **비밀 토큰** 을 저장 합니다. 이 값은 Azure Portal Brivo Onair Identity Connector 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
 
    ![Brivo Onair Id 커넥터 토큰](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
@@ -68,11 +68,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
 **Azure AD 응용 프로그램 갤러리에서 Brivo Onair Identity Connector를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Brivo Onair Identity connector**를 입력 하 고, 결과 패널에서 **Brivo Onair identity connector** 를 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **Brivo Onair Identity connector** 를 입력 하 고, 결과 패널에서 **Brivo Onair identity connector** 를 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 Brivo Onair Id 커넥터](common/search-new-app.png)
 
@@ -90,11 +90,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
 ### <a name="to-configure-automatic-user-provisioning-for-brivo-onair-identity-connector-in-azure-ad"></a>Azure AD에서 Brivo Onair Identity Connector에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 응용 프로그램 목록에서 **Brivo Onair Identity Connector**를 선택 합니다.
+2. 응용 프로그램 목록에서 **Brivo Onair Identity Connector** 를 선택 합니다.
 
     ![응용 프로그램 목록의 Brivo Onair Id 커넥터 링크](common/all-applications.png)
 
@@ -102,11 +102,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 `https://scim.brivo.com/ActiveDirectory/v2/` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Brivo Onair Identity Connector에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Brivo Onair Id 커넥터 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에 `https://scim.brivo.com/ActiveDirectory/v2/` 있는 **테 넌 트 URL** 에 입력 합니다. 이전에 **비밀 토큰** 에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Brivo Onair Identity Connector에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Brivo Onair Id 커넥터 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -114,9 +114,9 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션 아래에서 **Brivo Onair Identity Connector에 사용자 Azure Active Directory 동기화를**선택 합니다.
+8. **매핑** 섹션 아래에서 **Brivo Onair Identity Connector에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
     ![Brivo Onair Id 커넥터 사용자 매핑](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
 
@@ -124,7 +124,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
     ![Brivo Onair Identity Connector 사용자 특성](media/brivo-onair-identity-connector-provisioning-tutorial/user-attributes.png)
 
-10. **매핑** 섹션 아래에서 **Brivo Onair Identity Connector에 Azure Active Directory 그룹 동기화를**선택 합니다.
+10. **매핑** 섹션 아래에서 **Brivo Onair Identity Connector에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 
     ![Brivo Onair Id 커넥터 그룹 매핑](media/brivo-onair-identity-connector-provisioning-tutorial/group-mappings.png)
 
@@ -142,11 +142,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Brivo Onair Identity Connector의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Brivo Onair Identity Connector의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: 문제 해결, 업데이트, 버그, kinect, 피드백, 복구, 로깅, 팁
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277092"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356385"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect 알려진 문제 및 문제 해결
 
-이 페이지에는 Azure Kinect 진한에서 센서 SDK를 사용 하는 경우 알려진 문제 및 문제 해결 팁이 포함 되어 있습니다. 제품 하드웨어 관련 문제는 [제품 지원 페이지](https://aka.ms/kinectsupport) 를 참조 하세요.
+이 페이지에는 Azure Kinect 진한에서 센서 SDK를 사용 하는 경우 알려진 문제 및 문제 해결 팁이 포함 되어 있습니다. 제품 하드웨어 관련 문제는 [제품 지원 페이지](./index.yml) 를 참조 하세요.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -144,7 +144,7 @@ K4A.dll에 대 한 로깅은 환경 변수를 통해 사용 하도록 설정 됩
 
 장치 관리자에서 장치를 열거 하지 않는 경우 지원 되지 않는 USB3 controller에 연결 되었기 때문일 수 있습니다. 
 
-Azure Kinect 진한 Windows의 경우 **Intel**, **텍사스 악기 (TI)** 및 **Renesas** 는 지원 되는 *유일한 호스트 컨트롤러*입니다. Windows 플랫폼의 Azure Kinect SDK는 통합 컨테이너 ID를 사용 하며, SDK가 실제로 동일한 장치에 있는 깊이, 색 및 오디오 장치를 찾을 수 있도록 USB 2.0 및 3.0 장치를 확장 해야 합니다. Linux에서 더 많은 호스트 컨트롤러가 지원 될 수 있습니다. 해당 플랫폼은 장치 일련 번호에 대 한 컨테이너 ID와 더 적은 수를 사용 합니다. 
+Azure Kinect 진한 Windows의 경우 **Intel** , **텍사스 악기 (TI)** 및 **Renesas** 는 지원 되는 *유일한 호스트 컨트롤러* 입니다. Windows 플랫폼의 Azure Kinect SDK는 통합 컨테이너 ID를 사용 하며, SDK가 실제로 동일한 장치에 있는 깊이, 색 및 오디오 장치를 찾을 수 있도록 USB 2.0 및 3.0 장치를 확장 해야 합니다. Linux에서 더 많은 호스트 컨트롤러가 지원 될 수 있습니다. 해당 플랫폼은 장치 일련 번호에 대 한 컨테이너 ID와 더 적은 수를 사용 합니다. 
 
 USB 호스트 컨트롤러의 항목은 PC에 호스트 컨트롤러가 두 개 이상 설치 된 경우 훨씬 더 복잡해 집니다. 호스트 컨트롤러가 혼합 되어 있는 경우 사용자에 게 일부 포트가 정상적으로 작동 하 고 다른 포트가 전혀 작동 하지 않는 문제가 발생할 수 있습니다. 포트를 케이스에 연결 하는 방법에 따라 Azure Kinect에 문제가 있는 모든 front 포트가 표시 될 수 있습니다.
 

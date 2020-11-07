@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544233"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356776"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Elium 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88544233"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 미리 보기의 Azure 기능에 대 한 일반적인 사용 약관은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -51,11 +51,11 @@ Azure AD는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Elium를 구성 하기 전에 Elium에서 SCIM (도메인 간 Id 관리) 프로 비전을 위해 시스템을 사용 하도록 설정 해야 합니다. 다음 단계를 수행합니다.
 
-1. Elium에 로그인 하 고 **내 프로필**  >  **설정**으로 이동 합니다.
+1. Elium에 로그인 하 고 **내 프로필**  >  **설정** 으로 이동 합니다.
 
     ![Elium의 설정 메뉴 항목](media/Elium-provisioning-tutorial/setting.png)
 
-1. 왼쪽 아래 모서리에 있는 **고급**에서 **보안**을 선택 합니다.
+1. 왼쪽 아래 모서리에 있는 **고급** 에서 **보안** 을 선택 합니다.
 
     ![Elium의 보안 링크](media/Elium-provisioning-tutorial/security.png)
 
@@ -67,11 +67,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Elium를 구
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Elium를 구성 하려면 Azure AD 응용 프로그램 갤러리의 Elium를 관리 되는 SaaS (software as a service) 응용 프로그램 목록에 추가 해야 합니다. 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 메뉴 항목](common/select-azuread.png)
 
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
      ![Azure AD 엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Elium를 구
 
     ![새 응용 프로그램 링크](common/add-new-app.png)
 
-1. 검색 상자에 **Elium**를 입력 하 고 결과 목록에서 **Elium** 를 선택한 다음 **추가** 를 선택 하 여 응용 프로그램을 추가 합니다.
+1. 검색 상자에 **Elium** 를 입력 하 고 결과 목록에서 **Elium** 를 선택한 다음 **추가** 를 선택 하 여 응용 프로그램을 추가 합니다.
 
     ![갤러리 검색 상자](common/search-new-app.png)
 
@@ -92,11 +92,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Elium를 구
 
 Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 **엔터프라이즈 응용 프로그램** 을 선택한 다음 **모든 응용 프로그램** 을 선택 합니다.
 
     ![Azure AD 엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
 
-1. 애플리케이션 목록에서 **Elium**을 선택합니다.
+1. 애플리케이션 목록에서 **Elium** 을 선택합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드의 응용 프로그램 목록](common/all-applications.png)
 
@@ -104,11 +104,11 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![엔터프라이즈 응용 프로그램 블레이드의 프로 비전 탭](common/provisioning.png)
 
-1. **프로비전 모드**를 **자동**으로 설정합니다.
+1. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![프로 비전 모드 자동 설정](common/provisioning-automatic.png)
 
-1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 ** \<tenantURL\> /scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 **\<tenantURL\> /scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![관리자 자격 증명의 테 넌 트 URL 및 암호 토큰 필드](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -116,13 +116,13 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-1. **Save**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
-1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Elium에 동기화를**선택 합니다.
+1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Elium에 동기화를** 선택 합니다.
 
     ![Azure AD 사용자를 Elium에 매핑하기 위한 동기화 링크](media/Elium-provisioning-tutorial/usermapping.png)
 
-1. **특성 매핑** 섹션에서 Azure AD에서 Elium로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Elium의 사용자 계정을 일치 시키는 데 사용 됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
+1. **특성 매핑** 섹션에서 Azure AD에서 Elium로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Elium의 사용자 계정을 일치 시키는 데 사용 됩니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
 
     ![Azure AD와 Elium 간의 특성 매핑](media/Elium-provisioning-tutorial/userattribute.png)
 
@@ -136,7 +136,7 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![프로 비전 범위 목록 상자](common/provisioning-scope.png)
 
-1. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
+1. 프로비저닝할 준비가 되면 **저장** 을 선택합니다.
 
     ![프로 비전 구성의 저장 단추](common/provisioning-configuration-save.png)
 

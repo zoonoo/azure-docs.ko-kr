@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: ebee5d986007e07d497056620f0cfc437b2da4d1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459376"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356402"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Jive 구성
 
@@ -57,11 +57,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
 
-1. 이미 Jive에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Jive의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Jive**를 검색합니다. 검색 결과에서 Jive를 선택하고 애플리케이션 목록에 추가합니다.
+1. 이미 Jive에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Jive의 인스턴스를 검색합니다. 그러지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **Jive** 를 검색합니다. 검색 결과에서 Jive를 선택하고 애플리케이션 목록에 추가합니다.
 
 1. Jive의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-1. **프로비전 모드**를 **자동**으로 설정합니다. 
+1. **프로비전 모드** 를 **자동** 으로 설정합니다. 
 
     ![스크린샷은 Jive 프로 비전 페이지를 표시 하며 프로 비전 모드를 자동으로 설정 하 고 다른 값을 설정할 수 있습니다.](./media/jive-provisioning-tutorial/provisioning.png)
 
@@ -77,19 +77,19 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
       > Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다.  
       > 일반적으로 URL의 형식은 다음과 같습니다. **www. \<organization\> . jive.com**.          
 
-1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Jive 앱에 연결할 수 있는지 확인합니다.
+1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 Jive 앱에 연결할 수 있는지 확인합니다.
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 필드에 입력하고 아래 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
-1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Jive**(Azure Active Directory 사용자를 Jive에 동기화)를 선택합니다.
+1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Jive** (Azure Active Directory 사용자를 Jive에 동기화)를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Jive로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Jive의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-1. Jive에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. Jive에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 [사용자 및 그룹] 섹션에서 Jive에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 Jive 앱의 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 로그를 확인할 수 있습니다.
 

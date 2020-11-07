@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850696"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356827"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Looop 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91850696"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91850696"
 
 ## <a name="assign-users-to-looop"></a>Looop에 사용자 할당
 
-Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 할당 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 Looop에 대 한 액세스가 필요한 지 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Looop에 할당할 수 있습니다.
 
@@ -53,15 +53,15 @@ Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용�
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop을 구성 하기 전에 Looop에서 일부 프로 비전 정보를 검색 해야 합니다.
 
-1. [Looop 관리 콘솔](https://app.looop.co/#/login) 에 로그인 하 고 **계정**을 선택 합니다. **계정 설정** 에서 **인증**을 선택 합니다.
+1. [Looop 관리 콘솔](https://app.looop.co/#/login) 에 로그인 하 고 **계정** 을 선택 합니다. **계정 설정** 에서 **인증** 을 선택 합니다.
 
     :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Looop 관리 콘솔의 스크린샷 계정 탭이 강조 표시 되 고 열립니다. 계정 설정에서 인증이 강조 표시 됩니다." border="false":::
 
-2. **Scim 통합**에서 **토큰 다시 설정** 을 클릭 하 여 새 토큰을 생성 합니다.
+2. **Scim 통합** 에서 **토큰 다시 설정** 을 클릭 하 여 새 토큰을 생성 합니다.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Looop 관리 콘솔의 스크린샷 계정 탭이 강조 표시 되 고 열립니다. 계정 설정에서 인증이 강조 표시 됩니다." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Looop 관리 콘솔 페이지의 S C I M 통합 섹션의 스크린샷 토큰 다시 설정 단추가 강조 표시 됩니다." border="false":::
 
-3. **Scim 끝점과** **토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 Looop 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다. 
+3. **Scim 끝점과** **토큰** 을 복사 합니다. 이러한 값은 Azure Portal에서 Looop 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다. 
 
     ![Looop 토큰 만들기](media/looop-provisioning-tutorial/token.png)
 
@@ -69,11 +69,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop을 구
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구성 하려면 Azure AD 응용 프로그램 갤러리의 Looop를 관리 되는 SaaS 응용 프로그램 목록에 추가 해야 합니다.
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Looop**를 입력 하 고 결과 패널에서 **looop** 를 선택 합니다. 
+4. 검색 상자에 **Looop** 를 입력 하 고 결과 패널에서 **looop** 를 선택 합니다. 
 
     ![결과 목록의 looop](common/search-new-app.png)
 
@@ -103,11 +103,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
 ### <a name="to-configure-automatic-user-provisioning-for-looop-in-azure-ad"></a>Azure AD에서 Looop에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 응용 프로그램 목록에서 **Looop**를 선택 합니다.
+2. 응용 프로그램 목록에서 **Looop** 를 선택 합니다.
 
     ![응용 프로그램 목록의 Looop 링크](common/all-applications.png)
 
@@ -115,11 +115,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 `https://<organisation_domain>.looop.co/scim/v2` 있는 **테 넌 트 URL**에 입력 합니다. 예: `https://demo.looop.co/scim/v2`. **비밀 토큰**의 looop에서 이전에 검색 하 고 저장 한 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 looop에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Looop 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에 `https://<organisation_domain>.looop.co/scim/v2` 있는 **테 넌 트 URL** 에 입력 합니다. 예: `https://demo.looop.co/scim/v2`. **비밀 토큰** 의 looop에서 이전에 검색 하 고 저장 한 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 looop에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Looop 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -127,9 +127,9 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Looop에 동기화를**선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Looop에 동기화를** 선택 합니다.
 
     ![Looop 사용자 매핑](media/looop-provisioning-tutorial/usermappings.png)
 
@@ -137,7 +137,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
     ![Looop 사용자 특성](media/looop-provisioning-tutorial/userattributes.png)
 
-10. **매핑** 섹션 아래에서 **메타 네트워크에 Azure Active Directory 그룹 동기화 커넥터**를 선택 합니다.
+10. **매핑** 섹션 아래에서 **메타 네트워크에 Azure Active Directory 그룹 동기화 커넥터** 를 선택 합니다.
 
     ![Looop 그룹 매핑](media/looop-provisioning-tutorial/groupmappings.png)
 
@@ -155,11 +155,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Looop를 구
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Looop의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Looop의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

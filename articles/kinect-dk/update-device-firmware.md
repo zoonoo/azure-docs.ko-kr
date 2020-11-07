@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 펌웨어, 업데이트, 복구
-ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030687"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356229"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Azure Kinect 진한 펌웨어 업데이트
 
@@ -41,7 +41,7 @@ Azure Kinect는 펌웨어를 자동으로 업데이트 하지 않습니다. [Azu
 
     `AzureKinectFirmwareTool.exe -u <device_firmware_file.bin>`
 
-    예제:
+    예:
 
     `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
@@ -82,7 +82,7 @@ Azure Kinect는 펌웨어를 자동으로 업데이트 하지 않습니다. [Azu
 
 3. 다른 모든 작업이 실패 하는 경우 [복구](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) 단계를 따라 공장 펌웨어로 되돌리고 다시 시도 합니다.
 
-추가 문제는 [Microsoft 지원 페이지](https://aka.ms/kinectsupport) 를 참조 하세요.
+추가 문제는 [Microsoft 지원 페이지](./index.yml) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

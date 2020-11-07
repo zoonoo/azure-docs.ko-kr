@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b51b219daec01d0bce3bbfb71c29e9374363665d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711593"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357541"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob storage 모니터링 데이터 참조
 
@@ -26,7 +26,7 @@ Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [
 
 ### <a name="capacity-metrics"></a>용량 메트릭
 
-용량 메트릭 값은 매 1시간마다 Azure Monitor에 전송됩니다. 값은 매일 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
+용량 메트릭 값은 매일 (최대 24 시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
 
 Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공합니다.
 
@@ -40,8 +40,8 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
-| BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
+| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier** ( [정의](#metrics-dimensions)) |
+| BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier** ( [정의](#metrics-dimensions)) |
 | BlobProvisionedSize | 저장소 계정에 프로 비전 된 저장소의 양입니다. 이 메트릭은 premium storage 계정에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
 | ContainerCount    | 스토리지 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
@@ -66,10 +66,10 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 | 차원 이름 | Description |
 | ------------------- | ----------------- |
-| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob**, **PageBlob** 및 **Azure Data Lake Storage**입니다. 추가 blob은 **blockblob**에 포함 되어 있습니다. |
-| **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫**: 핫 액세스 계층</li> <li>**쿨**: 쿨 액세스 계층</li> <li>**보관**: 보관 액세스 계층</li> <li>**프리미엄**: 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 Blob 계층 유형</li> <li>**표준**: 표준 페이지 Blob 계층 유형</li> <li>**계층 없음**: 범용 v1 스토리지 계정 계층 유형</li> |
+| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob** , **PageBlob** 및 **Azure Data Lake Storage** 입니다. 추가 blob은 **blockblob** 에 포함 되어 있습니다. |
+| **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫** : 핫 액세스 계층</li> <li>**쿨** : 쿨 액세스 계층</li> <li>**보관** : 보관 액세스 계층</li> <li>**프리미엄** : 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : 프리미엄 페이지 Blob 계층 유형</li> <li>**표준** : 표준 페이지 Blob 계층 유형</li> <li>**계층 없음** : 범용 v1 스토리지 계정 계층 유형</li> |
 
-메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 블록 Blob에 대 한 **Blobcount** 값을 확인 하는 경우 **blockblob**을 사용 하 여 **blobcount** 차원을 필터링 해야 합니다.
+메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공** 을 포함한 **ResponseType** 차원을 필터링해야 합니다. 블록 Blob에 대 한 **Blobcount** 값을 확인 하는 경우 **blockblob** 을 사용 하 여 **blobcount** 차원을 필터링 해야 합니다.
 
 ## <a name="resource-logs-preview"></a>리소스 로그(미리 보기)
 

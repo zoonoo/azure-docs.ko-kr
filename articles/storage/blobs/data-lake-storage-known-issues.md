@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359717"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358486"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -54,7 +54,9 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 * [페이지 범위 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Blob 증분 복사](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [URL에서 페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [추가 블록](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [URL에서 블록 추가](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
 

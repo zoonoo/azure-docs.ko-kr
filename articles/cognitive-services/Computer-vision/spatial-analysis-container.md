@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496120"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357116"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "92496120"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 공간 분석 컨테이너를 실행 하려면 만든 리소스의 키와 끝점이 필요 합니다. 키와 끝점은 나중에 사용 합니다.
 
 
@@ -97,21 +97,21 @@ Azure 구독이 승인 되지 않은 경우에는 컨테이너를 실행할 수 
 * 장치에 액세스 하기 위해 PowerShell 5.0 이상을 실행 하는 Windows 클라이언트 시스템이 있습니다.  
 * Kubernetes 클러스터를 배포 하려면 [Azure Portal](https://portal.azure.com/)에서 **로컬 UI** 를 통해 Azure Stack Edge 장치를 구성 해야 합니다. 
   1. Azure Stack Edge 장치에서 계산 기능을 사용 하도록 설정 합니다. 계산을 사용 하도록 설정 하려면 장치의 웹 인터페이스에서 **계산** 페이지로 이동 합니다. 
-  2. 계산에 사용할 네트워크 인터페이스를 선택한 다음 **사용**을 클릭 합니다. 그러면 해당 네트워크 인터페이스에서 장치에 가상 스위치가 생성 됩니다.
+  2. 계산에 사용할 네트워크 인터페이스를 선택한 다음 **사용** 을 클릭 합니다. 그러면 해당 네트워크 인터페이스에서 장치에 가상 스위치가 생성 됩니다.
   3. Kubernetes 테스트 노드 IP 주소와 Kubernetes external services IP 주소는 비워 둡니다.
-  4. **적용**을 클릭합니다. 이 작업은 약 2 분 정도 걸릴 수 있습니다. 
+  4. **적용** 을 클릭합니다. 이 작업은 약 2 분 정도 걸릴 수 있습니다. 
 
 ![컴퓨팅 구성](media/spatial-analysis/configure-compute.png)
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>에 지 계산 역할 설정 및 IoT Hub 리소스 만들기
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스로 이동 합니다. **개요** 페이지 또는 탐색 목록에서에 지 계산 **시작** 단추를 클릭 합니다.  **Edge 계산 구성**   타일에서 **구성**을 클릭 합니다. 
+[Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스로 이동 합니다. **개요** 페이지 또는 탐색 목록에서에 지 계산 **시작** 단추를 클릭 합니다.  **Edge 계산 구성**   타일에서 **구성** 을 클릭 합니다. 
 
 ![링크](media/spatial-analysis/configure-edge-compute-tile.png)
 
  **Edge 계산 구성**   페이지에서 기존 IoT Hub를 선택 하거나 새 항목을 만들도록 선택 합니다. 기본적으로 표준 (S1) 가격 책정 계층은 IoT Hub 리소스를 만드는 데 사용 됩니다. 무료 계층 IoT Hub 리소스를 사용 하려면 하나를 만든 다음 선택 합니다. IoT Hub 리소스는 Azure Stack에 지 리소스에서 사용 하는 것과 동일한 구독 및 리소스 그룹을 사용 합니다. 
 
-**만들기**를 클릭합니다. IoT Hub 리소스 생성은 몇 분 정도 걸릴 수 있습니다. IoT Hub 리소스를 만든 후에에 **지 계산 구성** 타일이 새 구성을 표시 하도록 업데이트 됩니다. Edge 계산 역할이 구성 되어 있는지 확인 하려면 **계산 구성**타일에서 구성 **보기** 를 선택   합니다.
+**만들기** 를 클릭합니다. IoT Hub 리소스 생성은 몇 분 정도 걸릴 수 있습니다. IoT Hub 리소스를 만든 후에에 **지 계산 구성** 타일이 새 구성을 표시 하도록 업데이트 됩니다. Edge 계산 역할이 구성 되어 있는지 확인 하려면 **계산 구성** 타일에서 구성 **보기** 를 선택   합니다.
 
 Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. Azure IoT Edge 런타임은 이미 IoT Edge 장치에서 실행 되 고 있습니다.            
 
@@ -289,7 +289,7 @@ sudo apt-get update
 1.0.9 릴리스를 설치 합니다.
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 그런 다음 [연결 문자열](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
@@ -354,7 +354,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 ## <a name="validate-that-the-deployment-is-successful"></a>배포가 성공 했는지 확인
 
-컨테이너가 실행되고 있는지 확인하는 방법은 여러 가지가 있습니다. Azure Portal의 Azure IoT Hub 인스턴스에서 공간 분석 모듈의 **IoT Edge 모듈 설정** 에서 *런타임 상태* 를 찾습니다. *런타임 상태* 에 대 한 **원하는 값** 및 **보고 된 값** 이 *실행*중인지 확인 합니다.
+컨테이너가 실행되고 있는지 확인하는 방법은 여러 가지가 있습니다. Azure Portal의 Azure IoT Hub 인스턴스에서 공간 분석 모듈의 **IoT Edge 모듈 설정** 에서 *런타임 상태* 를 찾습니다. *런타임 상태* 에 대 한 **원하는 값** 및 **보고 된 값** 이 *실행* 중인지 확인 합니다.
 
 ![배포 확인 예](./media/spatial-analysis/deployment-verification.png)
 
@@ -381,7 +381,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
     1. **사용 하지 않도록 설정** 해야 하는 **보안 전환** 변경
     2. **Blob 공용 액세스 허용** 을 **사용** 으로 변경
 
-**컨테이너** 섹션으로 이동 하 고 새 컨테이너를 만들거나 기존 컨테이너를 사용 합니다. 그런 다음 비디오 파일을 컨테이너에 업로드 합니다. 업로드 된 파일에 대 한 파일 설정을 확장 하 고 **SAS 생성**을 선택 합니다. 테스트 기간을 포함 하기에 충분 한 **만료 날짜** 를 설정 해야 합니다. 허용 되는 **프로토콜** 을 *HTTP* (*HTTPS* 는 지원 되지 않음)로 설정 합니다.
+**컨테이너** 섹션으로 이동 하 고 새 컨테이너를 만들거나 기존 컨테이너를 사용 합니다. 그런 다음 비디오 파일을 컨테이너에 업로드 합니다. 업로드 된 파일에 대 한 파일 설정을 확장 하 고 **SAS 생성** 을 선택 합니다. 테스트 기간을 포함 하기에 충분 한 **만료 날짜** 를 설정 해야 합니다. 허용 되는 **프로토콜** 을 *HTTP* ( *HTTPS* 는 지원 되지 않음)로 설정 합니다.
 
 **SAS 토큰 및 URL 생성** 을 클릭 하 고 BLOB SAS url을 복사 합니다. 를로 바꾸고 `https` `http` 비디오 재생을 지 원하는 브라우저에서 URL을 테스트 합니다.
 

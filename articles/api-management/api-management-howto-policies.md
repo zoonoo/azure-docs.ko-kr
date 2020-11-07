@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070897"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358119"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -38,7 +38,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 > 
 > 
 
-구성은 `inbound`, `backend`, `outbound` 및 `on-error`로 구분됩니다. 지정된 일련의 정책 문은 요청과 응답을 위해 실행됩니다.
+구성은 `inbound`, `backend`, `outbound` 및 `on-error`로 구분됩니다. 지정 된 일련의 정책 문이 요청 및 응답을 위해 실행 됩니다.
 
 ```xml
 <policies>
@@ -60,7 +60,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API Management 정책에서 오류 처리](./api-management-error-handling-policies.md)를 참조하세요.
 
-## <a name="how-to-configure-policies"></a><a name="scopes"> </a>정책을 구성하는 방법
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>정책을 구성 하는 방법
 
 정책을 구성하는 방법에 대한 내용은 [정책 설정 또는 편집](set-edit-policies.md)을 참조하세요.
 

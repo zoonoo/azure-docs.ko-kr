@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532570"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358799"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 예약 하는 방법
 
@@ -30,8 +30,8 @@ ms.locfileid: "91532570"
 ## <a name="define-schedule-properties"></a>일정 속성 정의
 
 인덱서 일정에는 두 가지 속성이 있습니다.
-* 예약 된 인덱서 실행 간의 시간을 정의 하는 **간격**입니다. 허용 되는 최소 간격은 5 분이 고 최대값은 24 시간입니다.
-* **시작 시간 (UTC)**-처음으로 인덱서를 실행 해야 하는 시간을 나타냅니다.
+* 예약 된 인덱서 실행 간의 시간을 정의 하는 **간격** 입니다. 허용 되는 최소 간격은 5 분이 고 최대값은 24 시간입니다.
+* **시작 시간 (UTC)** -처음으로 인덱서를 실행 해야 하는 시간을 나타냅니다.
 
 인덱서를 처음 만들 때 또는 나중에 인덱서의 속성을 업데이트 하 여 일정을 지정할 수 있습니다. 인덱서 일정은 [포털](#portal), [REST API](#restApi)또는 [.net SDK](#dotNetSdk)를 사용 하 여 설정할 수 있습니다.
 
@@ -50,11 +50,11 @@ ms.locfileid: "91532570"
 
 ## <a name="schedule-in-the-portal"></a>포털의 일정
 
-포털에서 데이터 가져오기 마법사를 사용 하 여 만들 때 인덱서의 일정을 정의할 수 있습니다. 기본 일정 설정은 **매시간**이며이는 인덱서를 만든 후 한 번 실행 하 고 나중에 1 시간 마다 다시 실행 함을 의미 합니다.
+포털에서 데이터 가져오기 마법사를 사용 하 여 만들 때 인덱서의 일정을 정의할 수 있습니다. 기본 일정 설정은 **매시간** 이며이는 인덱서를 만든 후 한 번 실행 하 고 나중에 1 시간 마다 다시 실행 함을 의미 합니다.
 
 인덱서를 자동으로 다시 실행 하지 않으려는 경우 또는 **매일** 한 번씩 실행 되도록 일정 설정을 **한 번** 으로 변경할 수 있습니다. 다른 간격이 나 특정 이후 시작 시간을 지정 하려면 **사용자 지정** 으로 설정 합니다.
 
-일정을 **사용자 지정**으로 설정 하는 경우 **간격** 및 **시작 시간 (UTC)** 을 지정할 수 있는 필드가 표시 됩니다. 허용 되는 최단 시간 간격은 5 분이 고 가장 긴 시간은 1440 분 (24 시간)입니다.
+일정을 **사용자 지정** 으로 설정 하는 경우 **간격** 및 **시작 시간 (UTC)** 을 지정할 수 있는 필드가 표시 됩니다. 허용 되는 최단 시간 간격은 5 분이 고 가장 긴 시간은 1440 분 (24 시간)입니다.
 
    ![데이터 가져오기 마법사에서 인덱서 일정 설정](media/search-howto-schedule-indexers/schedule-import-data.png "데이터 가져오기 마법사에서 인덱서 일정 설정")
 
@@ -82,7 +82,7 @@ REST API를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. �
 
 **interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-선택적 **startTime** 은 예약 된 실행을 시작 해야 하는 시기를 나타냅니다. 생략한 경우 현재 UTC 시간이 사용됩니다. 이 시간은 이전에 일 수 있습니다 .이 경우 첫 번째 실행은 인덱서가 원래 **startTime**이후에도 계속 실행 되 고 있는 것 처럼 예약 됩니다.
+선택적 **startTime** 은 예약 된 실행을 시작 해야 하는 시기를 나타냅니다. 생략한 경우 현재 UTC 시간이 사용됩니다. 이 시간은 이전에 일 수 있습니다 .이 경우 첫 번째 실행은 인덱서가 원래 **startTime** 이후에도 계속 실행 되 고 있는 것 처럼 예약 됩니다.
 
 인덱서 실행 호출을 사용 하 여 언제 든 지 요청 시 인덱서를 실행할 수도 있습니다. 인덱서를 실행 하 고 인덱서 일정을 설정 하는 방법에 대 한 자세한 내용은 REST API 참조에서 [인덱서 실행](/rest/api/searchservice/run-indexer), [인덱서 가져오기](/rest/api/searchservice/get-indexer)및 [업데이트 인덱서](/rest/api/searchservice/update-indexer) 를 참조 하세요.
 
@@ -90,30 +90,34 @@ REST API를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. �
 
 ## <a name="schedule-using-the-net-sdk"></a>.NET SDK를 사용 하 여 예약
 
-Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
+Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **Schedule** 속성을 포함 합니다.
 
-다음 c # 예제에서는 미리 정의 된 데이터 원본 및 인덱스를 사용 하 여 인덱서를 만들고 지금부터 30 분부터 30 분 마다 실행 되도록 일정을 설정 합니다.
+다음 c # 예제에서는 미리 정의 된 데이터 원본 및 인덱스를 사용 하 여 Azure SQL database 인덱서를 만들고 매일 매일 한 번씩 실행 되도록 일정을 설정 합니다.
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-**일정** 매개 변수를 생략 하면 인덱서가 생성 된 후 즉시 실행 됩니다.
 
-**StartTime** 매개 변수는 과거 시간으로 설정할 수 있습니다. 이 경우 첫 번째 실행은 지정 된 **startTime**이후에 인덱서가 지속적으로 실행 된 것 처럼 예약 됩니다.
 
-일정은 [Indexingschedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) 클래스를 사용 하 여 정의 됩니다. **Indexingschedule** 생성자에는 **TimeSpan** 개체를 사용 하 여 지정 된 **interval** 매개 변수가 필요 합니다. 허용 되는 최소 간격 값은 5 분이 고 최대값은 24 시간입니다. **DateTimeOffset** 개체로 지정 된 두 번째 **startTime** 매개 변수는 선택 사항입니다.
+**Schedule** 속성을 생략 하면 인덱서가 생성 된 후 즉시 실행 됩니다.
 
-.NET SDK를 사용 하면 **IIndexersOperations** 인터페이스에서 메서드를 구현 하는 [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) 클래스 및 [인덱서](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) 속성을 사용 하 여 인덱서 작업을 제어할 수 있습니다. 
+**StartTime** 매개 변수는 과거 시간으로 설정할 수 있습니다. 이 경우 첫 번째 실행은 지정 된 **StartTime** 이후에 인덱서가 지속적으로 실행 된 것 처럼 예약 됩니다.
 
-[Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [Runasync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)또는 [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) 메서드 중 하나를 사용 하 여 언제 든 지 요청 시 인덱서를 실행할 수 있습니다.
+일정은 [Indexingschedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) 클래스를 사용 하 여 정의 됩니다. **Indexingschedule** 생성자에는 **TimeSpan** 개체를 사용 하 여 지정 된 **Interval** 매개 변수가 필요 합니다. 허용 되는 최소 간격 값은 5 분이 고 최대값은 24 시간입니다. **DateTimeOffset** 개체로 지정 된 두 번째 **StartTime** 매개 변수는 선택 사항입니다.
 
-인덱서를 만들고 업데이트 하 고 실행 하는 방법에 대 한 자세한 내용은 [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations)를 참조 하세요.
+.NET SDK를 사용 하 여 [Searchindexerclient](/dotnet/api/azure.search.documents.indexes.searchindexerclient)를 사용 하는 인덱서 작업을 제어할 수 있습니다. 
+
+[Runindexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) 또는 [Runindexerasync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) 메서드 중 하나를 사용 하 여 언제 든 지 요청 시 인덱서를 실행할 수 있습니다.
+
+인덱서를 만들고 업데이트 하 고 실행 하는 방법에 대 한 자세한 내용은 [Searchindexerclient](/dotnet/api/azure.search.documents.indexes.searchindexerclient)를 참조 하세요.

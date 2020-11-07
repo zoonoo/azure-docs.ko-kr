@@ -5,29 +5,31 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 2f9c4cc5bac27e4734c9aabe7895002a045d583d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272086"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357014"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 저속 쿼리 로그
 Azure Database for MariaDB에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
 
 느린 쿼리 로그에 대한 자세한 내용은 MariaDB 설명서에서 [느린 쿼리 로그](https://mariadb.com/kb/en/library/slow-query-log-overview/)를 참조하세요.
 
+서버에서 [쿼리 저장소](concepts-query-store.md) 를 사용 하도록 설정 하면 `CALL mysql.az_procedure_collect_wait_stats (900, 30);` 저속 쿼리 로그에 ""와 같은 쿼리가 기록 될 수 있습니다. 이 동작은 쿼리 저장소 기능이 쿼리에 대 한 통계를 수집 하는 것으로 예상 됩니다. 
+
 ## <a name="configure-slow-query-logging"></a>저속 쿼리 로깅 구성
 기본적으로 느린 쿼리 로그는 비활성화됩니다. 사용 하도록 설정 하려면을 `slow_query_log` ON으로 설정 합니다. Azure Portal 또는 Azure CLI를 사용 하 여이 기능을 사용 하도록 설정할 수 있습니다. 
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
-- **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
-- **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
-- **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
-- **log_output**: "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
+- **long_query_time** : 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
+- **log_slow_admin_statements** : ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
+- **log_queries_not_using_indexes** : 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
+- **log_throttle_queries_not_using_indexes** :이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
+- **log_output** : "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
 
 > [!IMPORTANT]
 > 테이블이 인덱싱되지 않은 경우 `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 및 매개 변수를 ON으로 설정 하면 MariaDB 성능에 영향을 줄 수 있습니다.<br><br>
