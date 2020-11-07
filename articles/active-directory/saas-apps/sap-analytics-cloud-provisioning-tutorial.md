@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7d9f5792fe3da9f47dd1391d1e7cb0162fd36fad
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670846"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352968"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SAP Analytics 클라우드 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "92670846"
 > * Azure AD와 SAP Analytics 클라우드 간에 사용자 특성을 동기화 상태로 유지
 > * SAP Analytics Cloud에 대 [한 Single sign-on](sapboc-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

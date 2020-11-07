@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421841"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352577"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "93421841"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -46,7 +46,7 @@ ms.locfileid: "93421841"
     SDK를 설치 하려면 다음 중 하나를 수행할 수 있습니다. 
     * SDK를 자동으로 설치 하 고 ML 워크플로에 대해 미리 구성 된 계산 인스턴스를 만듭니다. 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md) 를 참조 하세요. 
 
-    * [SDK를 직접 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다. 추가만 포함 해야 `automl` 합니다. 
+    * [패키지를 `automl` 직접 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치가](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) 포함 됩니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 

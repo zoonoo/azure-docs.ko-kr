@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱에서 Windows 10 Vm에 언어 팩 설치-Azur
 description: Windows 가상 데스크톱에서 Windows 10 다중 세션 Vm 용 언어 팩을 설치 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084212"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354039"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 다중 세션 이미지에 언어 팩 추가
 
@@ -24,7 +24,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 
 후자의 방법은 훨씬 효율적이 고 비용 효율적입니다. 그러나 사용자의 요구에 가장 적합 한 방법을 결정 하는 것은 사용자의 결정입니다. 이 문서에서는 이미지에 대 한 언어를 사용자 지정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 여러 언어를 추가 하려면 Windows 10 Enterprise 다중 세션 이미지를 사용자 지정 하려면 다음 항목이 필요 합니다.
 
@@ -43,6 +43,11 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
      - 수신함 앱 ISO:
         - [Windows 10, 버전 1903 또는 1909 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, 버전 2004 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, 버전 20H2 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Windows 10, 버전 2004 또는 20H2를 사용 하는 경우 LXP (Local Experience Pack) Iso를 사용 하 여 새 언어를 다운로드할 수 있습니다. [Windows 10에서 언어 추가:](/windows-hardware/manufacture/desktop/language-packs-known-issue) 9B 했으면 또는 9C 버전을 다운로드 해야 하는지 여부를 파악 하기 위한 알려진 문제에 대 한 정보를 사용 합니다.
+        - [Windows 10, 버전 2004 또는 20H2 **9b 했으면** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, 버전 2004 또는 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - Windows 파일 서버 가상 컴퓨터의 Azure Files 공유 또는 파일 공유
 
@@ -59,7 +64,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 
 3. 언어 팩 ISO로 이동 하 여 **LocalExperiencePacks** 및 **x64 \\ langpacks** 폴더에서 콘텐츠를 복사한 다음 파일 공유에 내용을 붙여넣습니다.
 
-4. 해당 콘텐츠를 모두 복사 하 여 파일 공유에 붙여 넣는 방법으로는 **d ISO 파일로**이동 합니다.
+4. 해당 콘텐츠를 모두 복사 하 여 파일 공유에 붙여 넣는 방법으로는 **d ISO 파일로** 이동 합니다.
 5. 받은 편지함 앱 ISO의 **amd64fre** 폴더로 이동 하 고 준비한 수신함 앱에 대 한 저장소의 콘텐츠를 복사 합니다.
 
      >[!NOTE]
@@ -164,7 +169,7 @@ Set-WinUserLanguageList $LanguageList -force
 
 스크립트는 설치 해야 하는 언어의 수에 따라 다소 시간이 걸릴 수 있습니다.
 
-스크립트 실행이 완료 되 면 **시작**  >  **설정**  >  **시간 & 언어**  >  **언어**로 이동 하 여 언어 팩이 올바르게 설치 되었는지 확인 합니다. 언어 파일이 있으면 모든 설정이 완료 됩니다.
+스크립트 실행이 완료 되 면 **시작**  >  **설정**  >  **시간 & 언어**  >  **언어** 로 이동 하 여 언어 팩이 올바르게 설치 되었는지 확인 합니다. 언어 파일이 있으면 모든 설정이 완료 됩니다.
 
 Windows 이미지에 언어를 추가 하 고 나면 추가 된 언어를 지원 하도록 수신함 앱도 업데이트 해야 합니다. 이 작업은 수신함 앱 ISO의 콘텐츠로 사전 설치 된 앱을 새로 고쳐 수행할 수 있습니다. 연결 되지 않은 환경에서 새로 고침을 수행 하려면 (VM에서 인터넷에 액세스할 수 없음) 다음 PowerShell 스크립트 샘플을 사용 하 여 프로세스를 자동화할 수 있습니다.
 

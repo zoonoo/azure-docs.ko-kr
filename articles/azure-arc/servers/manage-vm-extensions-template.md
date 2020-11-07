@@ -1,14 +1,14 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 10/22/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d5c7f5055f3e41a91fa00e1e3ad08e7686145b9e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491209"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353869"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용 하 여 Azure VM 확장 사용
 
@@ -623,8 +623,85 @@ Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linu
 }
 ```
 
+## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 (미리 보기) 배포
+
+다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 특히:
+
+### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+
+```json
+{
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "KeyVaultForLinux",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <ingnored on linux>,
+          "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          }
+      }
+     }
+}
+```
+
+### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+
+```json
+{
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "KVVMExtensionForWindows",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        },
+        "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+      }
+     }
+}
+```
+
+> [!NOTE]
+> 관찰된 인증서 URL은 `https://myVaultName.vault.azure.net/secrets/myCertName` 형식이어야 합니다.
+> 
+> `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](../../key-vault/general/about-keys-secrets-certificates.md)
+
+디스크에 템플릿 파일을 저장 합니다. 그런 다음, 다음 명령을 사용 하 여 리소스 그룹 내에 있는 모든 연결 된 컴퓨터에 확장을 설치할 수 있습니다.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-* Azure CLI 또는 PowerShell을 사용 하 여 확장을 배포 하 고 제거할 수 있습니다.
+* [Azure PowerShell](manage-vm-extensions-powershell.md), [Azure Portal](manage-vm-extensions-portal.md)또는 [AZURE CLI](manage-vm-extensions-cli.md)를 사용 하 여 VM 확장을 배포, 관리 및 제거할 수 있습니다.
 
 * 문제 해결 정보는 [VM 확장 문제 해결 가이드](troubleshoot-vm-extensions.md)에서 찾을 수 있습니다.

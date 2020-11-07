@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996477"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354005"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -47,6 +47,8 @@ Linux 가상 머신에서 OS 디스크 암호화 프로세스가 완료되면 VM
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
 Azure Disk Encryption [2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities) 및 [Lsv2 시리즈 vm](../lsv2-series.md)에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-linux.md#unsupported-scenarios)를 참조하세요.
+
+임시 디스크 (Dv4, Dsv4, Ev4 및 Esv4)가 없는 VM 이미지에서는 Azure Disk Encryption를 사용할 수 없습니다.  [로컬 임시 디스크가 없는 AZURE VM 크기를](../azure-vms-no-temp-disk.md)참조 하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 

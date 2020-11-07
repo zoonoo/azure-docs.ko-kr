@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532367"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354906"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Velpic 구성
 
@@ -62,11 +62,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. Velpic의 인스턴스를 선택한 다음 **프로 비전** 탭을 선택 합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![Velpic 프로 비전](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Velpic의 **비밀 토큰&테 넌 트 URL** 을 입력 합니다. (Velpic 계정에서 이러한 값을 찾을 수 있습니다. **관리**  >  **통합**  >  **플러그 인**  >  **Scim**)
+5. **관리자 자격 증명** 섹션 아래에서 Velpic의 **비밀 토큰&테 넌 트 URL** 을 입력 합니다. (Velpic 계정에서 이러한 값을 찾을 수 있습니다. **관리**  >  **통합**  >  **플러그 인**  >  **Scim** )
 
     ![권한 부여 값](./media/velpic-provisioning-tutorial/Velpic2.png)
 
@@ -74,15 +74,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 7. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 필드에 입력하고 아래 확인란을 선택합니다.
 
-8. **Save**을 클릭합니다.
+8. **저장** 을 클릭합니다.
 
-9. 매핑 섹션 아래에서 **Velpic에 사용자 Azure Active Directory 동기화를**선택 합니다.
+9. 매핑 섹션 아래에서 **Velpic에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
 10. **특성 매핑** 섹션에서 Azure AD에서 Velpic로 동기화 할 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Velpic의 사용자 계정을 일치 시키는 데 사용 됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
 11. Velpic에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-12. **Save**을 클릭합니다.
+12. **저장** 을 클릭합니다.
 
 사용자 및 그룹 섹션에서 Velpic에 할당 된 모든 사용자 및/또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 수행하는 데 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 보고서를 확인할 수 있습니다.
 

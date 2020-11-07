@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317526"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354231"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 작업 팀 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91317526"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91317526"
 
 ## <a name="assigning-users-to-workteam"></a>사용자를 근무 팀에 할당 
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 대 한 액세스 권한이 있어야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 작업 팀에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -52,7 +52,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 회사 팀을 구성 하기 전에 근무 팀에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
 
-1. [근무 팀](https://app.workte.am/account/signin)에 로그인 합니다. **조직 설정**  >  **설정**을 클릭 합니다.
+1. [근무 팀](https://app.workte.am/account/signin)에 로그인 합니다. **조직 설정**  >  **설정** 을 클릭 합니다.
 
     ![조직 설정 및 설정 옵션이 있는 근무 팀 U I의 스크린샷](media/workteam-provisioning-tutorial/settings.png)
 
@@ -60,7 +60,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 회사 팀�
 
     ![S C I M 사용자 프로 비전 기어 아이콘이 out 인 설정 섹션 아래쪽의 스크린샷](media/workteam-provisioning-tutorial/icon.png)
 
-3. **기준 Url** 및 **전달자 토큰**을 복사 합니다. 이러한 값은 Azure Portal에서 근무 팀 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL**및 **비밀 토큰** 필드에 입력 됩니다.
+3. **기준 Url** 및 **전달자 토큰** 을 복사 합니다. 이러한 값은 Azure Portal에서 근무 팀 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다.
 
     ![기본 U R L 및 전달자 토큰 입력란이 out 인 S C I M 설정 대화 상자의 스크린샷](media/workteam-provisioning-tutorial/scim.png)
 
@@ -71,11 +71,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
 **Azure AD 응용 프로그램 갤러리에서 작업 팀을 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 회사 **팀**을 입력 하 고, 결과 패널에서 업무 **팀** 을 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 회사 **팀** 을 입력 하 고, 결과 패널에서 업무 **팀** 을 선택한 다음, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 근무 팀](common/search-new-app.png)
 
@@ -96,11 +96,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
 ### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Azure AD에서 작업 팀에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Workteam**을 선택합니다.
+2. 애플리케이션 목록에서 **Workteam** 을 선택합니다.
 
     ![응용 프로그램 목록의 근무 팀 링크](common/all-applications.png)
 
@@ -108,7 +108,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
@@ -120,9 +120,9 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션 아래에서 업무 **팀에 Azure Active Directory 사용자 동기화를**선택 합니다.
+8. **매핑** 섹션 아래에서 업무 **팀에 Azure Active Directory 사용자 동기화를** 선택 합니다.
 
     ![근무 팀 사용자 매핑](media/workteam-provisioning-tutorial/usermapping.png)
 
@@ -140,11 +140,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 회사 팀을 구
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-14. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+14. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요.
 
 **현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 작업 팀의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 

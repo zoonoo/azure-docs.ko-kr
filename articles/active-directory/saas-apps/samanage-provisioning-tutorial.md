@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675449"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353002"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SolarWinds 서비스 데스크 (이전 Samanage) 구성
 
@@ -49,7 +49,7 @@ SolarWinds Service Desk와 기존 통합이 있는 경우 예정 된 변경 내�
 > * SolarWinds Service Desk에서 그룹 및 그룹 멤버 자격 프로 비전
 > * SolarWinds Service Desk에 대 [한 Single sign-on](./samanage-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

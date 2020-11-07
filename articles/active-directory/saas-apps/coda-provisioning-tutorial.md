@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: aa377dae5d80da39faf6ac2e70926301004024e8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: dd625d082d15ce4a6ec59972483b06a84ea6d080
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455683"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355042"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Coda 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "92455683"
 > * Azure AD와 Coda 간에 사용자 특성을 동기화 상태로 유지
 > * Coda에 [Single sign-on](./coda-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "92455683"
 2. SCIM을 사용 하 여 프로 비전을 사용 하도록 설정 했는지 확인 합니다.
 3. SCIM 기준 URL 및 SCIM 전달자 토큰을 확인 합니다. 전달자 토큰이 없으면 새 토큰 생성을 클릭 합니다.
 
-## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Coda 추가
+## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Coda 추가
 
 Azure AD 응용 프로그램 갤러리에서 Coda를 추가 하 여 Coda에 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Coda를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
@@ -64,7 +64,7 @@ Azure AD 응용 프로그램 갤러리에서 Coda를 추가 하 여 Coda에 프�
 
 Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 한 할당 또는 사용자의 특성을 기반으로 프로 비전 되는 사용자의 범위를 지정할 수 있습니다. 할당에 따라 앱에 프로 비전 할 사용자의 범위를 선택 하는 경우 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md) 를 사용 하 여 응용 프로그램에 사용자를 할당할 수 있습니다. 사용자의 특성만을 기준으로 프로 비전 할 사용자의 범위를 선택 하는 경우 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 설명 된 대로 범위 지정 필터를 사용할 수 있습니다.
 
-* Coda에 사용자를 할당 하는 경우 **기본 액세스**이외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다.
+* Coda에 사용자를 할당 하는 경우 **기본 액세스** 이외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다.
 
 * 소규모로 시작합니다. 모든 사용자에 게 롤아웃 전에 작은 사용자 집합으로 테스트 합니다. 프로 비전 범위가 할당 된 사용자로 설정 된 경우 앱에 한 명 또는 두 명의 사용자를 할당 하 여이를 제어할 수 있습니다. Scope를 모든 사용자로 설정 하면 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다.
 
@@ -75,11 +75,11 @@ Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-coda-in-azure-ad"></a>Azure AD에서 Coda에 대해 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Coda**를 선택합니다.
+2. 애플리케이션 목록에서 **Coda** 를 선택합니다.
 
     ![응용 프로그램 목록의 Coda 링크](common/all-applications.png)
 
@@ -87,7 +87,7 @@ Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 �
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
@@ -99,9 +99,9 @@ Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 �
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 선택합니다.
+7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션에서 **사용자 Azure Active Directory Coda에 동기화를**선택 합니다.
+8. **매핑** 섹션에서 **사용자 Azure Active Directory Coda에 동기화를** 선택 합니다.
 
 9. **특성 매핑** 섹션에서 Azure AD에서 coda로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 coda의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](../app-provisioning/customize-application-attributes.md)을 변경 하도록 선택 하는 경우 CODA API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -123,7 +123,7 @@ Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 �
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 

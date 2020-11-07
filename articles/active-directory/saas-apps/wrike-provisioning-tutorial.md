@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520033"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354309"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Wrike 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "92520033"
 * 관리자 권한이 있는 Wrike의 사용자 계정
 
 ## <a name="assign-users-to-wrike"></a>Wrike에 사용자 할당
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 또는 그룹만 동기화됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Wrike에 액세스 해야 하는 Azure AD의 사용자 또는 그룹을 결정 합니다. 그런 다음 여기에 설명 된 지침에 따라 이러한 사용자 또는 그룹을 Wrike에 할당 합니다.
 
@@ -52,7 +52,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Wrike를 구성 하기 전에 Wrike에서 SCIM (도메인 간 Id 관리) 프로 비전을 위해 시스템을 사용 하도록 설정 해야 합니다.
 
-1. [Wrike 관리 콘솔](https://www.Wrike.com/login/)에 로그인 합니다. 테 넌 트 ID로 이동 합니다. **앱 & 통합**을 선택 합니다.
+1. [Wrike 관리 콘솔](https://www.Wrike.com/login/)에 로그인 합니다. 테 넌 트 ID로 이동 합니다. **앱 & 통합** 을 선택 합니다.
 
     ![앱 & 통합](media/Wrike-provisioning-tutorial/admin.png)
 
@@ -60,11 +60,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Wrike를 구
 
     ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
 
-3.  SCIM을 선택 합니다. **기본 URL**을 복사 합니다.
+3.  SCIM을 선택 합니다. **기본 URL** 을 복사 합니다.
 
     ![기준 URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. **API**  >  **Azure scim**을 선택 합니다.
+4. **API**  >  **Azure scim** 을 선택 합니다.
 
     ![Azure SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -72,7 +72,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Wrike를 구
 
     ![Wrike 토큰 만들기](media/Wrike-provisioning-tutorial/password.png)
 
-6.  **비밀 토큰**을 복사 하 여 Azure AD에 붙여넣습니다. **저장** 을 선택 하 여 Wrike에서 프로 비전 설정을 마칩니다.
+6.  **비밀 토큰** 을 복사 하 여 Azure AD에 붙여넣습니다. **저장** 을 선택 하 여 Wrike에서 프로 비전 설정을 마칩니다.
 
     ![영구 액세스 토큰](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -83,11 +83,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Wrike를 구
 
 Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -95,7 +95,7 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Wrike**를 입력 하 고, 결과 패널에서 **Wrike** 를 선택한 다음, **추가** 를 선택 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **Wrike** 를 입력 하 고, 결과 패널에서 **Wrike** 를 선택한 다음, **추가** 를 선택 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 Wrike](common/search-new-app.png)
 
@@ -109,11 +109,11 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Azure AD에서 Wrike에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램** 을 선택 합니다.
 
     ![모든 애플리케이션](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Wrike**를 선택합니다.
+2. 애플리케이션 목록에서 **Wrike** 를 선택합니다.
 
     ![애플리케이션 목록의 Wrike 링크](common/all-applications.png)
 
@@ -121,11 +121,11 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![프로 비전 모드를 자동으로 설정](common/provisioning-automatic.png)
 
-5. 관리자 자격 증명 섹션 아래에서 **테 넌 트 url** 및 **암호 토큰**에서 각각 검색 된 **기본 URL** 및 **영구 액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Wrike에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Wrike 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. 관리자 자격 증명 섹션 아래에서 **테 넌 트 url** 및 **암호 토큰** 에서 각각 검색 된 **기본 URL** 및 **영구 액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Wrike에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Wrike 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -133,13 +133,13 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![전자 메일 알림](common/provisioning-notification-email.png)
 
-8. **저장**을 선택합니다.
+8. **저장** 을 선택합니다.
 
-9. **매핑** 섹션 아래에서 **Wrike에 사용자 Azure Active Directory 동기화를**선택 합니다.
+9. **매핑** 섹션 아래에서 **Wrike에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
     ![Wrike 사용자 매핑](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
-10. **특성 매핑** 섹션에서 Azure AD에서 Wrike로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Wrike의 사용자 계정을 일치 시키는 데 사용 됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
+10. **특성 매핑** 섹션에서 Azure AD에서 Wrike로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Wrike의 사용자 계정을 일치 시키는 데 사용 됩니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
 
     ![Wrike 사용자 특성](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
@@ -153,11 +153,11 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-14. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
+14. 프로비저닝할 준비가 되면 **저장** 을 선택합니다.
 
     ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
 
 **현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Wrike의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676739"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353107"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 

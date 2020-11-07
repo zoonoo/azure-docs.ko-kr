@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 791c9e8ea8f7c8ffbf9268af2b3a93f592a77f9e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629755"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353359"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -118,7 +118,7 @@ $validate.ValidationMessages
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약된 IP의 이름을 사용 하 여 만들어집니다. 위의 예에서는 리소스 그룹 **Myreservedip-마이그레이션됩니다** .
+Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약된 IP의 이름을 사용 하 여 만들어집니다. 위의 예에서는 리소스 그룹 **Myreservedip-마이그레이션됩니다**.
 
 # <a name="reserved-to-basic---cli"></a>[**기본-CLI로 예약 됨**](#tab/option-migrate-cli)
 
@@ -142,7 +142,7 @@ azure network reserved-ip validate-migration $name
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약된 IP의 이름을 사용 하 여 만들어집니다. 위의 예에서는 리소스 그룹 **Myreservedip-마이그레이션됩니다** .
+Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약된 IP의 이름을 사용 하 여 만들어집니다. 위의 예에서는 리소스 그룹 **Myreservedip-마이그레이션됩니다**.
 
 ---
 
@@ -154,11 +154,18 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 미국 서부<br>
 미국 서부 2<br>
 노르웨이 동부<br>
+남아프리카 북부<br>
 미국 동부<br>
+북유럽<br>
+한국 중부<br>
+인도 중부<br>
 미국 동부 2<br>
 스위스 북부<br>
 인도 서부<br>
-독일 북부
+독일 북부<br>
+캐나다 중부<br>
+프랑스 남부<br>
+인도 서부
 
 * 기본 공용 IP를 업그레이드 하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.  마찬가지로 예약된 IP 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약 된 Ip의 연관을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) 를 참조 하세요.  
 * 기본에서 표준 SKU로 업그레이드 된 공용 Ip는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) 을 계속 갖지 않으므로 영역 중복 또는 영역 인 Azure 리소스에 연결할 수 없습니다.  참고이는 가용성 영역을 제공 하는 지역에만 적용 됩니다.

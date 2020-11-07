@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278943"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352917"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 RFPIO 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91278943"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91278943"
 
 ## <a name="assigning-users-to-rfpio"></a>RFPIO에 사용자 할당
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 RFPIO에 액세스 해야 하는 Azure AD의 사용자 및/또는 그룹을 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 RFPIO에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -52,19 +52,19 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 RFPIO를 구성 하기 전에 RFPIO에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
 
-1.  RFPIO 관리 콘솔에 로그인 합니다. 관리 콘솔의 왼쪽 아래에서 **테 넌 트**를 클릭 합니다.
+1.  RFPIO 관리 콘솔에 로그인 합니다. 관리 콘솔의 왼쪽 아래에서 **테 넌 트** 를 클릭 합니다.
 
     ![RFPIO 관리 콘솔](media/rfpio-provisioning-tutorial/aadtest0.png)
 
-2.  **조직 설정**을 클릭 합니다.
+2.  **조직 설정** 을 클릭 합니다.
     
     ![RFPIO 관리자](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  **사용자 관리**  >  **보안**  >  **scim**으로 이동 합니다.
+3.  **사용자 관리**  >  **보안**  >  **scim** 으로 이동 합니다.
 
     ![RFPIO SCIM 추가](media/rfpio-provisioning-tutorial/scim.png)
 
-4.  **자동 사용자 프로 비전이** 사용 하도록 설정 되어 있는지 확인 합니다. **SCIM API 토큰 생성**을 클릭 합니다.
+4.  **자동 사용자 프로 비전이** 사용 하도록 설정 되어 있는지 확인 합니다. **SCIM API 토큰 생성** 을 클릭 합니다.
 
     ![C를 생성 하 고 C I M A P I를 호출 합니다.](media/rfpio-provisioning-tutorial/generate.png)
 
@@ -78,11 +78,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
 **Azure AD 응용 프로그램 갤러리에서 RFPIO를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **RFPIO**를 입력 하 고, 결과 패널에서 **RFPIO** 를 선택한 다음,    **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **RFPIO** 를 입력 하 고, 결과 패널에서 **RFPIO** 를 선택한 다음,    **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 RFPIO](common/search-new-app.png)
 
@@ -103,11 +103,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-rfpio-in-azure-ad"></a>Azure AD에서 RFPIO에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **RFPIO**를 선택합니다.
+2. 애플리케이션 목록에서 **RFPIO** 를 선택합니다.
 
     ![애플리케이션 목록의 RFPIO 링크](common/all-applications.png)
 
@@ -115,11 +115,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` 있는 **테 넌 트 URL**에 입력 합니다. 예제 값은 `https://Azure-test1.rfpio.com/rfpserver/scim/v2` 입니다. **비밀 토큰**에서 이전에 검색 한 **Scim API 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 RFPIO에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 RFPIO 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. **관리자 자격 증명** 섹션 아래에 `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` 있는 **테 넌 트 URL** 에 입력 합니다. 예제 값은 `https://Azure-test1.rfpio.com/rfpserver/scim/v2` 입니다. **비밀 토큰** 에서 이전에 검색 한 **Scim API 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 RFPIO에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 RFPIO 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -127,9 +127,9 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션 아래에서 **RFPIO에 사용자 Azure Active Directory 동기화를**선택 합니다.
+8. **매핑** 섹션 아래에서 **RFPIO에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
     ![RFPIO 사용자 매핑](media/rfpio-provisioning-tutorial/usermapping.png)
 
@@ -147,11 +147,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 RFPIO의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 RFPIO의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
