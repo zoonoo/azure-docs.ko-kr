@@ -3,12 +3,12 @@ title: 코드 워크플로로 Azure Policy 디자인
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320608"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359683"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>코드 워크플로로 Azure Policy 디자인
 
@@ -38,8 +38,6 @@ Azure Policy의 세부 정보를 코드 워크플로로 가져오기 전에 다�
 
 - 정책 정의: [리소스에 태그 추가](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - 이니셔티브 정의: [청구 태그](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-또한 [Azure Policy 리소스 내보내기](../how-to/export-resources.md) 를 검토 하 여 기존 정의 및 할당을 원본 코드 관리 환경 [GitHub](https://www.github.com)로 가져옵니다.
 
 ## <a name="workflow-overview"></a>워크플로 개요
 
@@ -74,6 +72,8 @@ Azure Policy의 세부 정보를 코드 워크플로로 가져오기 전에 다�
 
 새 정책이 추가되거나 기존 정책이 업데이트되면 워크플로가 Azure의 정책 정의를 자동으로 업데이트해야 합니다. 신규 또는 업데이트된 정책 정의 테스트는 이후 단계에서 수행합니다.
 
+또한 [Azure Policy 리소스 내보내기](../how-to/export-resources.md) 를 검토 하 여 기존 정의 및 할당을 원본 코드 관리 환경 [GitHub](https://www.github.com)로 가져옵니다.
+
 ### <a name="create-and-update-initiative-definitions"></a>이니셔티브 정의 만들기 및 업데이트
 
 이니셔티브에도 정책 정의와 마찬가지로 동일한 폴더에 저장해야 하는 고유한 JSON 파일 및 관련 파일이 있습니다. 이니셔티브 정의를 사용하려면 정책 정의가 이미 있어야 하므로 정책 소스가 소스 제어에서 업데이트된 후 Azure에서 업데이트되어야만 이니셔티브 정의를 만들거나 업데이트할 수 있습니다. 다음 구조는 소스 제어에서 이니셔티브 정의를 유지할 때 권장되는 방법입니다.
@@ -102,7 +102,7 @@ Azure Policy의 세부 정보를 코드 워크플로로 가져오기 전에 다�
 
 ### <a name="test-and-validate-the-updated-definition"></a>업데이트된 정의 테스트 및 유효성 검사
 
-Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔티브 정의를 가져와 Azure의 개체를 업데이트한 후에는 변경 내용을 테스트해야 합니다. 정책 또는 관련 이니셔티브는 프로덕션 단계보다 훨씬 이전에 리소스에 할당되어야 합니다. 이 환경은 일반적으로 _Dev_입니다.
+Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔티브 정의를 가져와 Azure의 개체를 업데이트한 후에는 변경 내용을 테스트해야 합니다. 정책 또는 관련 이니셔티브는 프로덕션 단계보다 훨씬 이전에 리소스에 할당되어야 합니다. 이 환경은 일반적으로 _Dev_ 입니다.
 
 할당은 리소스 생성과 업데이트가 차단되지 않도록 _사용 안 함_ [enforcementMode](./assignment-structure.md#enforcement-mode)를 사용해야 하지만 기존 리소스는 업데이트된 정책 정의 준수 여부를 계속 감사합니다. enforcementMode를 사용하는 경우에도 할당 범위는 정책 유효성 검사 전용 리소스 그룹 또는 구독이어야 합니다.
 
@@ -129,13 +129,13 @@ Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔�
 
 ### <a name="update-to-enforced-assignments"></a>적용된 할당으로 업데이트
 
-모든 유효성 검사 게이트가 완료된 후 _enabled_라는 **enforcementMode**를 사용하도록 할당을 업데이트합니다. 프로덕션 단계보다 훨씬 이전에 동일한 환경에서 이 변경을 수행하는 것이 좋습니다. 올바르게 작동하는 환경의 유효성 검사를 완료한 후에는 정책이 프로덕션 리소스에 배포될 때까지 다음 환경을 포함하도록 변경 범위를 지정해야 합니다.
+모든 유효성 검사 게이트가 완료된 후 _enabled_ 라는 **enforcementMode** 를 사용하도록 할당을 업데이트합니다. 프로덕션 단계보다 훨씬 이전에 동일한 환경에서 이 변경을 수행하는 것이 좋습니다. 올바르게 작동하는 환경의 유효성 검사를 완료한 후에는 정책이 프로덕션 리소스에 배포될 때까지 다음 환경을 포함하도록 변경 범위를 지정해야 합니다.
 
 ## <a name="process-integrated-evaluations"></a>프로세스 통합 평가
 
 코드로 Azure Policy에 대 한 일반적인 워크플로는 정책 및 이니셔티브를 규모에 따라 환경으로 개발 하 고 배포 하기 위한 것입니다. 그러나 정책 평가는 인프라를 만들기 위해 응용 프로그램 배포 또는 ARM 템플릿 실행과 같이 Azure에서 리소스를 배포 하거나 만드는 모든 워크플로에 대 한 배포 프로세스의 일부 여야 합니다.
 
-이러한 경우 테스트 구독 또는 리소스 그룹에 대해 애플리케이션 또는 인프라 배포가 수행된 후 해당 범위에 대한 정책 평가를 수행하여 모든 기존 정책과 이니셔티브의 유효성을 확인해야 합니다. 이러한 환경에서는 **enforcementMode**가 _사용 안 함_으로 구성될 수 있지만 애플리케이션 또는 인프라 배포가 정책 정의를 위반하는지 초기에 확인하기에 유용합니다. 따라서 이 정책 평가는 이러한 워크플로의 한 단계로 포함되어야 하며 미준수 리소스를 만드는 배포에 실패합니다.
+이러한 경우 테스트 구독 또는 리소스 그룹에 대해 애플리케이션 또는 인프라 배포가 수행된 후 해당 범위에 대한 정책 평가를 수행하여 모든 기존 정책과 이니셔티브의 유효성을 확인해야 합니다. 이러한 환경에서는 **enforcementMode** 가 _사용 안 함_ 으로 구성될 수 있지만 애플리케이션 또는 인프라 배포가 정책 정의를 위반하는지 초기에 확인하기에 유용합니다. 따라서 이 정책 평가는 이러한 워크플로의 한 단계로 포함되어야 하며 미준수 리소스를 만드는 배포에 실패합니다.
 
 ## <a name="review"></a>검토
 

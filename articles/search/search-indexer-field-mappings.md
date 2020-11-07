@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532503"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358935"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -28,7 +28,7 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 * 데이터 원본에 라는 필드가 `_id` 있지만 Azure Cognitive Search는 밑줄로 시작 하는 필드 이름을 허용 하지 않습니다. 필드 매핑을 사용 하면 필드를 효과적으로 바꿀 수 있습니다.
 * 동일한 데이터 원본 데이터에서 인덱스의 여러 필드를 채워야 합니다. 예를 들어 이러한 필드에 다른 분석기를 적용 하는 것이 좋습니다.
 * 두 개 이상의 데이터 원본에 있는 데이터를 사용 하 여 인덱스 필드를 채우면 서로 다른 필드 이름을 사용 합니다.
-* 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수**를 지원합니다.
+* 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수** 를 지원합니다.
 
 > [!NOTE]
 > 인덱서의 필드 매핑은 간단한 데이터 변환 기능을 사용 하 여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡 한 데이터는 인덱싱에 취약 형식으로 변형 하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](../data-factory/index.yml)입니다.
@@ -81,7 +81,7 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-the-net-sdk"></a>.NET SDK를 사용 하 여 필드 매핑
 
-속성과 및 선택적 참조를 포함 하는 [Fieldmapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 `SourceFieldName` `TargetFieldName` `MappingFunction` 합니다.
+속성과 및 선택적 참조를 포함 하는 [Fieldmapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 `SourceFieldName` `TargetFieldName` `MappingFunction` 합니다.
 
 인덱서를 생성할 때 또는 나중에 속성을 직접 설정 하 여 필드 매핑을 지정할 수 있습니다 `Indexer.FieldMappings` .
 

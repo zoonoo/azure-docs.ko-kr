@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 다운로드 업데이트, 최신, 사용 가능, 설치, 본문, 추적
-ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ac0598d893617f341b9e1fd4d45c0c3e3f3c619
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277068"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359598"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Azure Kinect Body 추적 SDK 다운로드
 
@@ -41,7 +41,7 @@ ms.locfileid: "85277068"
 
 현재 유일하게 지원되는 배포는 Ubuntu 18.04입니다. 다른 배포에 대한 지원을 요청하려면 [이 페이지](https://aka.ms/azurekinectfeedback)를 참조하세요.
 
-먼저 [여기](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
+먼저 [여기](/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
 
 `libk4abt<major>.<minor>-dev` 패키지에는 `libk4abt`에 대해 빌드할 헤더와 CMake 파일이 포함되어 있습니다.
 패키지에는 `libk4abt<major>.<minor>` 에 종속 된 실행 파일 `libk4abt` 및 예제 뷰어를 실행 하는 데 필요한 공유 개체가 포함 되어 있습니다.

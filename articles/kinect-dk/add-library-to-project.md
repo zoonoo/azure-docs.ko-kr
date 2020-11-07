@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, visual studio 2017, visual studio 2019, nuget
-ms.openlocfilehash: b0395118481cbaecd5ad0b6a3a6b3e89cc29dfaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd71f0d327b8c828cc9ddac5810757cccdffbcea
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276970"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359615"
 ---
 # <a name="add-azure-kinect-library-to-your-visual-studio-project"></a>Visual Studio 프로젝트에 Azure Kinect library 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "85276970"
 
 Azure Kinect NuGet 패키지를 설치 하려면 다음을 수행 합니다.
 
-1. [빠른 시작: Visual studio에서 패키지 설치 및 사용](https://docs.microsoft.com/nuget/quickstart/install-and-use-a-package-in-visual-studio)의 visual Studio에서 NuGet 패키지를 설치 하는 방법에 대 한 자세한 지침을 찾을 수 있습니다.
+1. [빠른 시작: Visual studio에서 패키지 설치 및 사용](/nuget/quickstart/install-and-use-a-package-in-visual-studio)의 visual Studio에서 NuGet 패키지를 설치 하는 방법에 대 한 자세한 지침을 찾을 수 있습니다.
 2. 패키지를 추가 하려면 참조를 마우스 오른쪽 단추로 클릭 하 고 솔루션 탐색기에서 NuGet 패키지 관리를 선택 하 여 패키지 관리자 UI를 사용할 수 있습니다.
 3. 패키지 원본으로 [nuget.org](https://www.nuget.org) 을 선택 하 고 찾아보기 탭을 선택 하 고을 검색 `Microsoft.Azure.Kinect.Sensor` 합니다.
 4. 목록에서 해당 패키지를 선택 하 고 설치 합니다.

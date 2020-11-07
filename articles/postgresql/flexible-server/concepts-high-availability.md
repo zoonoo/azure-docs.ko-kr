@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937049"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359547"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 고가용성 개념
 
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL 유연한 서버는 **영역 중복** 서버 배�
 
 PostgreSQL client 응용 프로그램은 DB 서버 이름을 사용 하 여 주 서버에 연결 됩니다. 응용 프로그램 읽기는 주 서버에서 직접 제공 되는 반면, 커밋 및 쓰기는 주 서버와 대기 복제본 모두에서 데이터가 유지 된 후에만 응용 프로그램에 확인 됩니다. 이러한 추가 왕복 요구 사항으로 인해 응용 프로그램은 쓰기 및 커밋에 대 한 대기 시간을 높일 수 있습니다. 포털에서 고가용성의 상태를 모니터링할 수 있습니다.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="영역 중복 고가용성"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="영역 중복 고가용성-안정적인 상태"::: 
 
 1. 클라이언트는 유연한 서버에 연결 하 여 쓰기 작업을 수행 합니다.
 2. 변경 내용은 대기 사이트에 복제 됩니다.
@@ -64,7 +64,7 @@ PostgreSQL client 응용 프로그램은 DB 서버 이름을 사용 하 여 주 
 
 계획 되지 않은 중단에는 소프트웨어 버그 또는 인프라 구성 요소 오류가 포함 되어 데이터베이스의 가용성에 영향을 줍니다. 모니터링 시스템에서 서버를 사용할 수 없는 경우 대기 복제본에 대 한 복제가 중단 되 고 주 데이터베이스 서버가 되도록 대기 복제본이 활성화 됩니다. 클라이언트는 동일한 연결 문자열을 사용 하 여 데이터베이스 서버에 다시 연결 하 고 해당 작업을 다시 시작할 수 있습니다. 전반적인 장애 조치 (failover) 시간에는 60-120s을 사용 해야 합니다. 그러나 장애 조치 (failover) 시 주 데이터베이스 서버의 활동 (예: 큰 트랜잭션 및 복구 시간)에 따라 장애 조치 (failover)가 더 오래 걸릴 수 있습니다.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="영역 중복 고가용성"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="영역 중복 고가용성-장애 조치 (failover)"::: 
 
 1. 주 데이터베이스 서버가 다운 되 고 클라이언트가 데이터베이스 연결을 잃게 됩니다. 
 2. 대기 서버가 새 주 서버가 되도록 활성화 됩니다. 클라이언트는 동일한 연결 문자열을 사용 하 여 새 주 서버에 연결 합니다. 클라이언트 응용 프로그램을 주 데이터베이스 서버와 같은 영역에 두면 대기 시간이 줄어들고 성능이 향상 됩니다.
@@ -112,6 +112,8 @@ PostgreSQL client 응용 프로그램은 DB 서버 이름을 사용 하 여 주 
 -   관리 되는 유지 관리 기간 동안에는 고객 시작 관리 작업을 예약할 수 없습니다.
 
 -   확장 컴퓨팅 및 확장 스토리지와 같은 계획된 이벤트는 먼저 대기 서버에서 발생한 다음 주 서버에서 발생합니다. 서비스가 장애 조치(failover)되지 않습니다. 
+
+-  HA로 구성 된 유연한 서버를 사용 하 여 논리적 디코딩 또는 논리적 복제를 구성 하는 경우 대기 서버에 대 한 장애 조치 (failover) 시에는 논리 복제 슬롯이 대기 서버로 복사 되지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

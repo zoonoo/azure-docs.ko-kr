@@ -1068,7 +1068,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 필수 구성 요소
+                            - name: 사전 요구 사항
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1130,7 +1130,7 @@
             - name: 보관된 클래식 RM 문서
               href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
             - name: SSDT(SQL Server Data Tools)
-              href: //sql/ssdt/download-sql-server-data-tools-ssdt
+              href: /sql/ssdt/download-sql-server-data-tools-ssdt
             - name: SSMS(SQL Server Management Studio)
               href: /sql/ssms/download-sql-server-management-studio-ssms
             - name: SQL Server 도구

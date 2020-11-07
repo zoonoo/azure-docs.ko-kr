@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 19736a37e0da07237f6b112de7da86efe3d8bfe5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323091"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359377"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -126,6 +126,7 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 * 실행 사이에 로컬 스크래치 디스크를 정리합니다
 * 키 자격 증명 모음을 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
 * IP 필터링이 가능하도록 설정하여 AzureMachineLearningService 이외의 외부 서비스에서 기본 배치 풀을 호출할 수 없도록 합니다.
+* 계산 인스턴스는 HBI 작업 영역에서 지원 되지 않습니다.
 
 #### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 

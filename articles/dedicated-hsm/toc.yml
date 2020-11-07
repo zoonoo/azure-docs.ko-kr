@@ -28,6 +28,10 @@
       href: deployment-architecture.md
     - name: 문제 해결
       href: troubleshoot.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/Az.DedicatedHsm
 - name: 리소스
   items:
     - name: 질문과 대답

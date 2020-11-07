@@ -1,15 +1,15 @@
 ---
 title: Azure CLI를 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure CLI를 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336748"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359118"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure VM 확장을 사용 하도록 설정
 
@@ -33,11 +33,17 @@ az connectedmachine machine-extension create --machine-name "myMachineName" --na
 az connectedmachine machine-extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
+다음 예에서는 Arc 사용 서버에서 Key Vault VM 확장 (미리 보기)을 사용 하도록 설정 합니다.
+
+```azurecli
+az connectedmachine machine-extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
 ## <a name="list-extensions-installed"></a>설치 된 목록 확장
 
 Arc 사용 서버에서 VM 확장 목록을 가져오려면 및 매개 변수와 함께 [az connectedmachine list](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) 를 사용 `--machine-name` `--resource-group` 합니다.
 
-예제:
+예:
 
 ```azurecli
 az connectedmachine machine-extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
@@ -70,6 +76,6 @@ az connectedmachine machine-extension delete --machine-name "myMachineName" --na
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell](manage-vm-extensions-powershell.md), [Azure Portal](manage-vm-extensions-portal.md)또는 [AZURE RESOURCE MANAGER 템플릿을](manage-vm-extensions-template.md)사용 하 여 VM 확장을 배포, 관리 및 제거할 수 있습니다.
+- [Azure PowerShell](manage-vm-extensions-powershell.md), [Azure Portal](manage-vm-extensions-portal.md)또는 [AZURE RESOURCE MANAGER 템플릿을](manage-vm-extensions-template.md)사용 하 여 VM 확장을 배포, 관리 및 제거할 수 있습니다.
 
 - 문제 해결 정보는 [VM 확장 문제 해결 가이드](troubleshoot-vm-extensions.md)에서 찾을 수 있습니다.

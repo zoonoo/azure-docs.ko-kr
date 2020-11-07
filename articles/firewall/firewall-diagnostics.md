@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348770"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358850"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -50,74 +50,55 @@ ms.locfileid: "93348770"
 8. 구독을 선택합니다.
 9. **저장** 을 선택합니다.
 
-## <a name="enable-logging-with-powershell"></a>PowerShell을 통해 로깅을 사용하도록 설정
+## <a name="enable-diagnostic-logging-by-using-powershell"></a>PowerShell을 사용 하 여 진단 로깅 사용
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 이벤트 로깅을 사용하도록 설정해야 합니다.
 
-진단 로깅을 활성화하려면 다음 단계를 사용합니다.
+PowerShell에서 진단 로깅을 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
 
-1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 */Subscriptions/ \<subscriptionId\> /Stggg/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\>* 입니다.
+1. 로그 데이터가 저장 되는 Log Analytics 작업 영역 리소스 ID를 확인 합니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>` 입니다.
 
-   구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
+   구독에서 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값의 형식은 */Subscriptions/ \<subscriptionId\> /Stggg/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>* 입니다.
+2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` 입니다.
 
    포털을 사용하여 이 정보를 찾을 수 있습니다.
 
-3. 다음 PowerShell cmdlet을 사용하여 진단 로깅을 사용하도록 설정합니다.
+3. 다음 PowerShell cmdlet을 사용 하 여 모든 로그 및 메트릭에 대해 진단 로깅을 사용 하도록 설정 합니다.
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
-
-## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Azure CLI를 사용 하 여 진단 로깅 사용
+## <a name="enable-diagnostic-logging-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 진단 로깅 사용
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 이벤트 로깅을 사용하도록 설정해야 합니다.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+Azure CLI 진단 로깅을 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
 
-### <a name="enable-diagnostic-logging"></a>진단 로깅 사용
+1. 로그 데이터가 저장 되는 Log Analytics 작업 영역 리소스 ID를 확인 합니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` 입니다.
 
-진단 로깅을 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+   구독에서 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-1. [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 실행 하 여 진단 로깅을 사용 하도록 설정 합니다.
+2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` 입니다.
 
-   ```azurecli
-   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
-     --resource Firewall07 --storage-account MyStorageAccount
+   포털을 사용하여 이 정보를 찾을 수 있습니다.
+
+3. 다음 Azure CLI 명령을 사용 하 여 모든 로그 및 메트릭에 대해 진단 로깅을 사용 하도록 설정 합니다.
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
-
-   [Az monitor 진단-settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) 명령을 실행 하 여 리소스에 대 한 진단 설정을 확인 합니다.
-
-   ```azurecli
-   az monitor diagnostic-settings list --resource Firewall07
-   ```
-
-   [Az monitor 진단-설정 표시](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) 를 사용 하 여 리소스에 대 한 활성 진단 설정을 확인 합니다.
-
-   ```azurecli
-   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-1. [Az monitor 진단-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) 명령을 실행 하 여 설정을 업데이트 합니다.
-
-   ```azurecli
-   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
-   ```
-
-   [Az monitor 진단-settings delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) 명령을 사용 하 여 진단 설정을 삭제 합니다.
-
-   ```azurecli
-   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-> [!TIP]
->진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
@@ -133,6 +114,8 @@ ms.locfileid: "93348770"
 
 Azure 방화벽 로그 분석 샘플 쿼리를 보려면 [Azure 방화벽 로그 분석 샘플](log-analytics-samples.md)을 참조 하세요.
 
+Azure [방화벽 통합 문서](firewall-workbook.md) 는 azure 방화벽 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 이를 사용 하 여 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있습니다. Azure에 배포 된 여러 방화벽을 탭 하 여 통합 된 대화형 환경에 통합할 수 있습니다.
+
 스토리지 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
@@ -144,5 +127,7 @@ Azure 방화벽으로 이동 하 고 **모니터링** 에서 **메트릭** 을 �
 ## <a name="next-steps"></a>다음 단계
 
 로그를 수집하도록 방화벽을 구성했으므로 Azure Monitor 로그를 살펴보고 데이터를 볼 수 있습니다.
+
+[Azure 방화벽 통합 문서를 사용 하 여 로그 모니터링](firewall-workbook.md)
 
 [Azure Monitor 로그의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)

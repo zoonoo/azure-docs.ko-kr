@@ -203,6 +203,8 @@
       href: concepts-roles-permissions.md
     - name: 이름 지정 규칙
       href: naming-rules.md
+    - name: 데이터 중복
+      href: concepts-data-redundancy.md
 - name: 방법 가이드
   items:
     - name: 작성자
