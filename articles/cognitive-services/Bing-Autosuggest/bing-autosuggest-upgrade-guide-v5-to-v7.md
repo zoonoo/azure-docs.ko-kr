@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: c4b02ef7bc833a7f5ab41e0203836637613244e0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e887d8f7579a90e7d4e8d54dcf28e1256269063
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101989"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368460"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Autosuggest API 업그레이드 가이드
 
@@ -76,4 +76,4 @@ InsufficientScope|InsufficientAuthorization
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용 및 표시 요구 사항](./UseAndDisplayRequirements.md)
+> [사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)

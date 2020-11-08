@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6f4068ece2b08937188397317844a126a9699aee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed2c8b4b6dae8713d3ce1c6755c559cda9a9dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102108"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368885"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기
 
@@ -31,7 +31,7 @@ Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보�
 
 * [Java](quickstarts/java.md)
 
-* [Node.JS](quickstarts/nodejs.md)
+* [Node.js](quickstarts/nodejs.md)
 
 * [Python](quickstarts/python.md)).
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
-* 이 코드를 컴파일하고 실행 하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks) 입니다. 즐겨찾기를 사용 하는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기는 충분 합니다.
+* 이 코드를 컴파일하고 실행 하려면 [JDK 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 입니다. 즐겨찾기를 사용 하는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기는 충분 합니다.
 
 
 ## <a name="run-the-java-application"></a>Java 응용 프로그램 실행
@@ -536,4 +536,4 @@ if __name__ == '__main__':
 [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search API란?](overview.md)  
 [Cognitive Services 체험하기](https://aka.ms/bingvisualsearchtryforfree)  
-[이미지-Visual Search](https://aka.ms/bingvisualsearchreferencedoc)
+[이미지-Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d99cfc8b50155eb4cb2aecb3cb770f71b927ce1d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148706"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368766"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -32,39 +32,39 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Microsoft Q&A에 질문 게시
 
-Microsoft 엔지니어의 기술 제품 관련 질문에 대 한 빠르고 안정적인 답변을 얻기 위해 Azure에서 가장 귀중 한 전문가 (Mvp) 또는 전문가 커뮤니티는 [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure?product=all), 커뮤니티 지원을 위한 azure의 선호 하는 대상을 microsoft에 문의 하세요.
+Microsoft 엔지니어의 기술 제품 관련 질문에 대 한 빠르고 안정적인 답변을 얻기 위해 Azure에서 가장 귀중 한 전문가 (Mvp) 또는 전문가 커뮤니티는 [Microsoft Q&A](/answers/products/azure?product=all), 커뮤니티 지원을 위한 azure의 선호 하는 대상을 microsoft에 문의 하세요.
 
 검색을 사용하여 문제에 대한 답변을 찾을 수 없으면 Microsoft Q&A에 새 질문을 제출합니다. 질문을 할 때 다음 태그 중 하나를 사용합니다.
 
-* [Cognitive Services](https://docs.microsoft.com/answers/topics/azure-cognitive-services.html)
+* [Cognitive Services](/answers/topics/azure-cognitive-services.html)
 
 **Vision**
 
-* [Computer Vision](https://docs.microsoft.com/answers/topics/azure-computer-vision.html)
-* [Custom Vision](https://docs.microsoft.com/answers/topics/azure-custom-vision.html)
-* [Face](https://docs.microsoft.com/answers/topics/azure-face.html)
-* [Form Recognizer](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html)
-* [Video Indexer](https://docs.microsoft.com/answers/topics/azure-media-services.html)
+* [Computer Vision](/answers/topics/azure-computer-vision.html)
+* [Custom Vision](/answers/topics/azure-custom-vision.html)
+* [Face](/answers/topics/azure-face.html)
+* [Form Recognizer](/answers/topics/azure-form-recognizer.html)
+* [Video Indexer](/answers/topics/azure-media-services.html)
 
 **언어**
 
-* [몰입형 리더](https://docs.microsoft.com/answers/topics/azure-immersive-reader.html)
-* [언어 이해(LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
-* [QnA Maker](https://docs.microsoft.com/answers/topics/azure-qna-maker.html)
-* [텍스트 분석](https://docs.microsoft.com/answers/topics/azure-text-analytics.html)
-* [Translator](https://docs.microsoft.com/answers/topics/azure-translator.html)
+* [몰입형 리더](/answers/topics/azure-immersive-reader.html)
+* [언어 이해(LUIS)](/answers/topics/azure-language-understanding.html)
+* [QnA Maker](/answers/topics/azure-qna-maker.html)
+* [Text Analytics](/answers/topics/azure-text-analytics.html)
+* [Translator](/answers/topics/azure-translator.html)
 
 **Speech**
 
-* [Speech Service](https://docs.microsoft.com/answers/topics/azure-speech.html)
+* [Speech Service](/answers/topics/azure-speech.html)
 
 
 **의사 결정**
 
-* [Anomaly Detector](https://docs.microsoft.com/answers/topics/azure-anomaly-detector.html) 
-* [Content Moderator](https://docs.microsoft.com/answers/topics/azure-content-moderator.html)
+* [Anomaly Detector](/answers/topics/azure-anomaly-detector.html) 
+* [Content Moderator](/answers/topics/azure-content-moderator.html)
 * [Metrics Advisor(미리 보기)]()
-* [Personalizer](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
+* [Personalizer](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
@@ -91,7 +91,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 * [몰입형 리더](https://stackoverflow.com/search?q=azure+immersive+reader)
 * [언어 이해(LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
 * [QnA Maker](https://stackoverflow.com/search?q=azure+qna+maker)
-* [텍스트 분석](https://stackoverflow.com/search?q=azure+text+analytics)
+* [Text Analytics](https://stackoverflow.com/search?q=azure+text+analytics)
 * [Translator](https://stackoverflow.com/search?q=azure+translator+text)
 
 **Speech**
@@ -143,4 +143,4 @@ Azure 블로그의 새 릴리스 또는 뉴스의 기능에 대 한 정보를 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Services란?](welcome.md)
+> [Azure Cognitive Services란?](./what-are-cognitive-services.md)

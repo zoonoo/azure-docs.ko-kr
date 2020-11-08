@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80215a22c5af3698aee6719f52e42c457220b7f9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090701"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367460"
 ---
 # <a name="custom-search"></a>사용자 지정 검색
 
@@ -33,10 +33,10 @@ Bing Custom Search API를 사용하여 결과를 가져오려면 `GET` 요청을
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Custom Search 원본을 설정하는 방법을 설명하는 예제는 [자습서](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)를 참조하세요. 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Custom Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) 참조를 참조하세요.
+Custom Search 원본을 설정하는 방법을 설명하는 예제는 [자습서](./tutorials/custom-search-web-page.md)를 참조하세요. 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Custom Search API v7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) 참조를 참조하세요.
 
 ## <a name="custom-search-response-json"></a>Custom Search 응답 JSON
-사용자 지정 검색 요청은 결과를 JSON 개체로 반환합니다. [응답 개체](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)를 참조하세요. 
+사용자 지정 검색 요청은 결과를 JSON 개체로 반환합니다. [응답 개체](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)를 참조하세요. 
 
 ## <a name="custom-autosuggest"></a>Custom Autosuggest
 Custom Autosuggest API를 사용하면 부분 검색 쿼리 용어를 Bing에 전송하고 구성할 수 있는 제안된 쿼리 목록을 받을 수 있습니다. Custom Autosuggest를 사용하는 경우 API에서 반환된 제안을 추가하고, 선택적으로 Bing에서 생성된 제안을 포함할지 여부를 지정합니다.
@@ -60,10 +60,10 @@ Custom Search 인스턴스에서 이미지를 요청하려면 GET 요청을 다�
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Custom Search 인스턴스 구성에 대한 자세한 내용은 [사용자 지정 검색 환경 구성](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view)을 참조하세요.
+Custom Search 인스턴스 구성에 대한 자세한 내용은 [사용자 지정 검색 환경 구성](./define-your-custom-view.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 **Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.  모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
 
 각 엔드포인트에서 지원하는 매개 변수에 대한 자세한 내용은 각 유형에 대한 참조 페이지를 참조하세요.
-Custom Search API를 사용하는 기본 요청의 예는 [Custom Search 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)을 참조하세요.
+Custom Search API를 사용하는 기본 요청의 예는 [Custom Search 빠른 시작](/azure/cognitive-services/bing-custom-search/)을 참조하세요.

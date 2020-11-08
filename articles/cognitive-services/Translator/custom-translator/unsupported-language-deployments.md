@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221199"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369038"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -57,4 +57,4 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 ## <a name="next-steps"></a>다음 단계
 
 - [모델을 학습](how-to-train-model.md)합니다.
-- 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 사용합니다.
+- 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 사용합니다.

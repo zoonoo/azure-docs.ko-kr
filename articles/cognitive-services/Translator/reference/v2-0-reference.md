@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588618"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369514"
 ---
 # <a name="translator-v20"></a>Translator v2.0
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588618"
 변환기의 버전 2는 다국어 사용자 환경을 제공 하기 위해 앱, 웹 사이트, 도구 또는 기타 솔루션에 원활 하 게 통합할 수 있습니다. 산업 표준에 따라 언어 번역 및 기타 언어 관련 작업 (예: 텍스트 언어 검색 및 텍스트 음성)을 수행 하기 위해 모든 하드웨어 플랫폼 및 운영 체제에서 사용할 수 있습니다. 자세한 내용은 [Translator](../translator-info-overview.md)를 참조 하세요.
 
 ## <a name="getting-started"></a>시작
-변환기에 액세스 하려면 [Microsoft Azure에 등록](../translator-text-how-to-signup.md)해야 합니다.
+변환기에 액세스 하려면 [Microsoft Azure에 등록](../translator-how-to-signup.md)해야 합니다.
 
 ## <a name="authentication"></a>인증 
 변환기에 대 한 모든 호출에는 인증을 위한 구독 키가 필요 합니다. API는 세 가지 인증 방법을 지원 합니다.
@@ -87,10 +87,10 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 |:--|:--|:--|:--|:--|
 |appId  |(empty)    |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
 |text|(empty)   |필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트는 1만 자를 초과할 수 없습니다.|Query|문자열|
-|원본|(empty)   |(선택 사항) 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|Query|문자열|
+|원본|(empty)   |선택 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|Query|문자열|
 |to|(empty) |필수 사항입니다. 텍스트를 변환할 언어의 코드를 나타내는 문자열입니다.|Query|문자열|
-|contentType|(empty)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` (기본값) 및  `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.|Query|문자열|
-|category|(empty)   |(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
+|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` (기본값) 및  `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.|Query|문자열|
+|category|(empty)   |선택 사항입니다. 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
 |권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -333,8 +333,8 @@ binary
 |appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
 |text|(empty)   |필수 사항입니다. 지정 된 언어로 스트림에 대해 말할 문장이 하나 이상 포함 된 문자열입니다. 텍스트는 2000 자를 초과 하면 안 됩니다.|Query|문자열|
 |언어|(empty)   |필수 사항입니다. 텍스트를 말할 언어의 지원 되는 언어 코드를 나타내는 문자열입니다. 코드는 메서드에서 반환 되는 코드 중 하나 여야 합니다 `GetLanguagesForSpeak` .|Query|문자열|
-|format|(empty)|(선택 사항) Content-type ID를 지정 하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|Query|문자열|
-|옵션|(empty)    |(선택 사항) 합성 된 음성의 속성을 지정 하는 문자열입니다.<ul><li>`MaxQuality` 및는 `MinSize` 오디오 신호의 품질을 지정 합니다. `MaxQuality` 최고 품질을 제공 합니다. `MinSize` 가장 작은 파일 크기를 제공 합니다. 기본값은  `MinSize` 입니다.</li><li>`female` 및 `male` 원하는 음성의 성별을 지정 합니다. 기본값은 `female`입니다. 세로 막대 ( <code>\|</code> )를 사용 하 여 여러 옵션을 포함 합니다. 예: `MaxQuality|Male`.</li></li></ul>  |Query|문자열|
+|format|(empty)|선택 사항입니다. Content-type ID를 지정 하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|Query|문자열|
+|옵션|(empty)    |선택 사항입니다. 합성 된 음성의 속성을 지정 하는 문자열입니다.<ul><li>`MaxQuality` 및는 `MinSize` 오디오 신호의 품질을 지정 합니다. `MaxQuality` 최고 품질을 제공 합니다. `MinSize` 가장 작은 파일 크기를 제공 합니다. 기본값은  `MinSize` 입니다.</li><li>`female` 및 `male` 원하는 음성의 성별을 지정 합니다. 기본값은 `female`입니다. 세로 막대 ( <code>\|</code> )를 사용 하 여 여러 옵션을 포함 합니다. 예: `MaxQuality|Male`.</li></li></ul>  |Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -461,11 +461,11 @@ binary
 |translatedText|(empty) |필수 사항입니다. 대상 언어로 번역 된 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 2000 자입니다.|Query|문자열|
 |원본|(empty)   |필수 사항입니다. 텍스트의 원래 언어에 대 한 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우 en, 독일의 경우 de입니다.|Query|문자열|
 |to|(empty)|필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|rating|(empty) |(선택 사항) 문자열의 품질 등급을 나타내는 정수입니다. 값은-10에서 10 사이입니다. 기본값은 1입니다.|Query|정수|
-|contentType|(empty)    |(선택 사항) 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.    |Query|문자열|
-|category|(empty)|(선택 사항) 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
+|rating|(empty) |선택 사항입니다. 문자열의 품질 등급을 나타내는 정수입니다. 값은-10에서 10 사이입니다. 기본값은 1입니다.|Query|integer|
+|contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.    |Query|문자열|
+|category|(empty)|선택 사항입니다. 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
 |사용자|(empty)|필수 사항입니다. 제출 작성기를 추적 하는 데 사용 되는 문자열입니다.|Query|문자열|
-|uri|(empty)|(선택 사항) 변환의 콘텐츠 위치를 포함 하는 문자열입니다.|Query|문자열|
+|uri|(empty)|선택 사항입니다. 변환의 콘텐츠 위치를 포함 하는 문자열입니다.|Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.  |header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -560,7 +560,7 @@ binary
 ### <a name="response-class-status-200"></a>Response 클래스 (상태 200)
 문장의 길이를 나타내는 정수의 배열입니다. 배열의 길이는 문장의 수를 나타냅니다. 값은 각 문장의 길이를 나타냅니다.
 
-정수
+integer
 
 응답 콘텐츠 형식: application/xml
 
@@ -607,11 +607,11 @@ binary
 
 * `Category`: 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.
 * `ContentType`: 지원 되는 유일한 옵션은 이며 기본값은 `text/plain` 입니다.
-* `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 변환 프레임 워크)와 완전히 통합 된 인공 대안을 만들 수 있습니다. 이 기능을 사용 하면 디코더의 *n*-최적 목록에서 인공 대안을 추가 하 여 ctf에서 번역이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
+* `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 변환 프레임 워크)와 완전히 통합 된 인공 대안을 만들 수 있습니다. 이 기능을 사용 하면 디코더의 *n* -최적 목록에서 인공 대안을 추가 하 여 ctf에서 번역이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
     - 평점. 등급은 다음과 같이 적용 됩니다. 
          - 최고 품질의 자동 번역은 5등급입니다.
        - CTF의 대안은 검토자의 권한을 반영 합니다. 범위는-10에서 + 10 사이입니다.
-       - 자동으로 생성 된 (*n*최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
+       - 자동으로 생성 된 ( *n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
     - 대안의 수입니다. 반환 되는 대체 항목의 수는에 지정 된 값 만큼 높을 수 `maxTranslations` 있지만 더 낮을 수 있습니다.
     - 언어 쌍. 이 기능은 두 방향 모두에서 중국어 간체와 중국어 번체 간 번역에는 사용할 수 없습니다. Microsoft Translator에서 지 원하는 다른 모든 언어 쌍에 사용할 수 있습니다.
 * `State`: 요청 및 응답의 상관 관계를 관리할 수 있는 사용자 상태입니다. 동일한 콘텐츠가 응답에서 반환 됩니다.
@@ -669,7 +669,7 @@ binary
 |text|(empty)|필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
 |원본|(empty)|필수 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
 |to |(empty)    |필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|maxTranslations|(empty)|필수 사항입니다. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|정수|
+|maxTranslations|(empty)|필수 사항입니다. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|integer|
 |권한 부여| (empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|문자열|  header|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -719,11 +719,11 @@ binary
 * `Options`: 선택 사항입니다. `Options`다음 값을 포함 하는 개체입니다. 모든 옵션 이며 기본값은 가장 일반적인 설정입니다. 지정된 요소는 사전순으로 나열되어야 합니다.
     - `Category`: 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.
     - `ContentType`: 지원 되는 유일한 옵션은 이며 기본값은 `text/plain` 입니다.
-    - `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 번역 프레임 워크)와 완전히 통합 된 번역에서 인공 대안을 생성할 수 있습니다. 이 기능을 사용 하면 디코더의 *n*-최적 목록에서 인공 대안을 추가 하 여 ctf에서 대안이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
+    - `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 번역 프레임 워크)와 완전히 통합 된 번역에서 인공 대안을 생성할 수 있습니다. 이 기능을 사용 하면 디코더의 *n* -최적 목록에서 인공 대안을 추가 하 여 ctf에서 대안이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
         - 등급 등급은 다음과 같이 적용 됩니다.
           - 최고 품질의 자동 번역은 5등급입니다.
           - CTF의 대안은 검토자의 권한을 반영 합니다. 범위는-10에서 + 10 사이입니다.
-          - 자동으로 생성 된 (*n*최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
+          - 자동으로 생성 된 ( *n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
         - 대안의 수입니다. 반환 되는 대체 항목의 수는에 지정 된 값 만큼 높을 수 `maxTranslations` 있지만 더 낮을 수 있습니다.
         - 언어 쌍. 이 기능은 두 방향 모두에서 중국어 간체와 중국어 번체 간 번역에는 사용할 수 없습니다. Microsoft Translator에서 지 원하는 다른 모든 언어 쌍에 사용할 수 있습니다.
 * `State`: 요청 및 응답의 상관 관계를 관리할 수 있는 사용자 상태입니다. 동일한 콘텐츠가 응답에서 반환 됩니다.
@@ -804,5 +804,3 @@ binary
 
 > [!div class="nextstepaction"]
 > [Translator v3로 마이그레이션](../migrate-to-v3.md)
-
-

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 11/06/2020
+ms.openlocfilehash: 7532366d533aa957525235511a1f29649d6f8828
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360040"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369213"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -137,13 +137,57 @@ ms.locfileid: "93360040"
 
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 작업: 5분당 실행 | 기본 제한은 100,000이고, 최대 제한은 300,000입니다. | 기본 제한을 변경하려면 미리 보기 상태인 ["높은 처리량" 모드에서 논리 앱 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)을 참조하세요. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 배포할 수 있습니다. |
+| 작업: 5분당 실행 | 기본 제한은 100,000이고, 최대 제한은 300,000입니다. | 논리 앱의 기본 제한을 최대로 높이려면 미리 보기에 있는 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조 하세요. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다. |
 | 작업: 동시 아웃 바운드 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
 | 런타임 끝점: 동시 인바운드 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
 | 런타임 엔드포인트: 5분당 읽기 호출  | 60,000 | 이 제한은 논리 앱의 실행 기록에서 원시 입력 및 출력을 가져오는 호출에 적용 됩니다. 필요에 따라 두 개 이상의 앱에 워크 로드를 배포할 수 있습니다. |
 | 런타임 엔드포인트: 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. |
 | 5분당 콘텐츠 처리량 | 600MB | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### <a name="run-in-high-throughput-mode"></a>높은 처리량 모드에서 실행
+
+단일 논리 앱 정의의 경우 5 분 마다 실행 되는 작업 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 논리 앱의 기본 제한을 최대로 높이려면 미리 보기에 있는 높은 처리량 모드를 사용 하도록 설정할 수 있습니다. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다.
+
+1. Azure Portal의 논리 앱 메뉴에 있는 **설정** 에서 **워크플로 설정** 을 선택 합니다.
+
+1. **런타임 옵션** 의  >  **높은 처리량** 에서 설정을 **켜기** 로 변경 합니다.
+
+   !["워크플로 설정" 및 "높은 처리량"이 "설정"으로 설정 된 Azure Portal에서 논리 앱 메뉴를 보여 주는 스크린샷](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+논리 앱을 배포 하기 위해 ARM 템플릿에서이 설정을 사용 하도록 설정 하려면 `properties` 논리 앱의 리소스 정의에 대 한 개체에서 `runtimeConfiguration` 속성이로 설정 된 개체를 추가 합니다 `operationOptions` `OptimizedForHighThroughput` .
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+논리 앱 리소스 정의에 대 한 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 Azure Logic Apps에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)를 참조 하세요.
 
 ### <a name="integration-service-environment-ise"></a>ISE(통합 서비스 환경)
 

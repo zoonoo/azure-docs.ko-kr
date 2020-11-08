@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090820"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367559"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
 
@@ -32,8 +32,8 @@ Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이
 
 | 조각 이름 | 설명                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com`. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
-| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예를 들어 `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예를 들어 `www.microsoft.com`. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
+| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | 웹 페이지    | 웹 페이지 조각은 사용자 지정 검색에 해당 웹 페이지만 포함할 수 있습니다. 하위 페이지를 포함할지 여부를 선택적으로 지정할 수 있습니다.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -79,16 +79,16 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 ## <a name="search-for-images-and-videos"></a>이미지 및 비디오를 검색합니다.
 
-[Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
+[Bing Custom Image Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
 
-이러한 API는 사용자 지정이 아닌 [Bing Image Search](../Bing-Image-Search/overview.md) 및 [Bing Video Search](../Bing-Video-Search/search-the-web.md) API와 비슷하지만 전체 웹을 검색하며 `customConfig` 쿼리 매개 변수가 필요하지 않습니다. 이미지 및 비디오 작업에 대한 자세한 내용은 해당 설명서 세트를 참조하세요. 
+이러한 API는 사용자 지정이 아닌 [Bing Image Search](../Bing-Image-Search/overview.md) 및 [Bing Video Search](../bing-video-search/overview.md) API와 비슷하지만 전체 웹을 검색하며 `customConfig` 쿼리 매개 변수가 필요하지 않습니다. 이미지 및 비디오 작업에 대한 자세한 내용은 해당 설명서 세트를 참조하세요. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>미리 보기 창에서 검색 인스턴스 테스트
 
 포털의 오른쪽 미리 보기 창을 사용하여 검색 인스턴스를 테스트하고 검색 쿼리를 제출하며 결과를 볼 수 있습니다. 
 
 1. 검색 상자 아래에서 **내 인스턴스** 를 선택합니다. **Bing** 을 선택하여 검색 환경의 결과를 Bing에 대해 비교할 수 있습니다. 
-2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조).
+2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조).
 3. 쿼리를 입력하고 Enter 키를 누르거나, 검색 아이콘을 클릭하여 현재 구성의 결과를 확인합니다. 해당 결과를 가져오기 위해 **웹** , **이미지** 또는 **비디오** 를 클릭하여 수행할 검색 유형을 변경할 수 있습니다. 
 
 <a name="adjustrank"></a>
@@ -165,4 +165,4 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 - [사용자 지정 검색 호출](./search-your-custom-view.md)
 - [호스트된 UI 환경 구성](./hosted-ui.md)
 - [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
-- [웹 페이지 페이징](./page-webpages.md)
+- [웹 페이지 페이징](../bing-web-search/paging-search-results.md)

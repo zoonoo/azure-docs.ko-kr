@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590641"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368817"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Cognitive Services에 대 한 사용자 지정 하위 도메인 이름
 
-Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 통해 생성 된 각 리소스에 대해 사용자 지정 하위 도메인 이름을 사용 합니다. 특정 Azure 지역에 있는 모든 고객에 게 공통적인 지역 끝점과 달리 사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 사용자 지정 하위 도메인 이름은 인증을 위해 Azure AD (Azure Active Directory)와 같은 기능을 사용 하도록 설정 하는 데 필요 합니다.
+Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)또는 [Azure CLI](/cli/azure/install-azure-cli)를 통해 생성 된 각 리소스에 대해 사용자 지정 하위 도메인 이름을 사용 합니다. 특정 Azure 지역에 있는 모든 고객에 게 공통적인 지역 끝점과 달리 사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 사용자 지정 하위 도메인 이름은 인증을 위해 Azure AD (Azure Active Directory)와 같은 기능을 사용 하도록 설정 하는 데 필요 합니다.
 
 ## <a name="how-does-this-impact-existing-resources"></a>이 방법은 기존 리소스에 어떤 영향을 미칩니까?
 
@@ -27,7 +27,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 사용자 지정 하위 도메인 이름을 활용 하기 위해 기존 리소스를 마이그레이션하려는 경우 Azure AD와 같은 기능을 사용 하도록 설정 하려면 다음 지침을 따르세요.
 
 1. Azure Portal에 로그인 하 고 사용자 지정 하위 도메인 이름을 추가할 Cognitive Services 리소스를 찾습니다.
-2. **개요** 블레이드에서 **사용자 지정 도메인 이름 생성**을 찾아 선택 합니다.
+2. **개요** 블레이드에서 **사용자 지정 도메인 이름 생성** 을 찾아 선택 합니다.
 3. 그러면 리소스에 대해 고유한 사용자 지정 하위 도메인을 만드는 지침이 포함 된 패널이 열립니다.
    > [!WARNING]
    > 사용자 지정 하위 도메인 이름을 만든 후에는 변경할 수 **없습니다** .
@@ -68,7 +68,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 > [!NOTE]
 > Translator 서비스와 Bing Search API는 전역 끝점을 사용 합니다.
 
-| 엔드포인트 유형 | Azure 지역 | 엔드포인트 |
+| 엔드포인트 유형 | 지역 | 엔드포인트 |
 |---------------|--------|----------|
 | 공용 | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | 오스트레일리아 동부 | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -98,5 +98,5 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 
 ## <a name="see-also"></a>참고 항목
 
-* [Cognitive Services은 무엇 인가요?](Welcome.md)
+* [Cognitive Services은 무엇 인가요?](./what-are-cognitive-services.md)
 * [인증](authentication.md)

@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548574"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368800"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -23,10 +23,10 @@ Azure Cognitive Services는 개발자가 기계 학습에 대 한 심층 지식 
 
 Cognitive Services는 의사 결정, 언어, 음성 및 비전의 네 가지 범주로 구성 됩니다. 일반적으로 Microsoft에서 제공 하는 REST Api, 클라이언트 라이브러리 및 사용자 지정 도구 (예: 명령줄 인터페이스)를 통해 이러한 서비스에 액세스 합니다. 그러나이는 성공의 유일한 경로입니다. Azure를 통해 다음과 같은 몇 가지 개발 옵션에 액세스할 수도 있습니다.
 
-* Logic Apps 및 파워 자동화와 같은 자동화 및 통합 도구
+* Logic Apps 및 Power Automate와 같은 자동화 및 통합 도구
 * Azure Functions 및 App Service와 같은 배포 옵션입니다. 
-* 보안 액세스를 위해 Docker 컨테이너를 Cognitive Services 합니다.
-* 빅 데이터 시나리오에 대 한 Apache Spark, Azure Databricks, Azure Synapse Analytics 및 Azure Kubernetes Service와 같은 도구입니다. 
+* 안전한 액세스를 위한 Cognitive Services Docker 컨테이너입니다.
+* Apache Spark, Azure Databasericks, Azure Synapse Analytics 및 Azure Kubernetes Service for Big Data 시나리오와 같은 도구입니다. 
 
 을 (를) 시작 하기 전에 Cognitive Services는 두 개의 고유한 작업에 주로 사용 되는 것을 알고 있어야 합니다. 수행 하려는 작업에 따라 다양 한 개발 및 배포 옵션을 선택할 수 있습니다. 
 
@@ -69,7 +69,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Azure Functions 및 Azure 서비스 웹 작업
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 및 [Azure App Service 웹 작업](https://docs.microsoft.com/azure/app-service/) 은 모두 개발자를 위해 설계 되었으며 [Azure 앱 서비스](https://docs.microsoft.com/azure/app-service/)를 기반으로 하는 코드 우선 integration services를 제공 합니다. 이러한 제품은 서버를 사용 하지 않는 인프라를 제공 하 여 코드를 작성 합니다. 해당 코드 내에서 클라이언트 라이브러리와 REST Api를 사용 하 여 서비스에 대 한 호출을 수행할 수 있습니다. 
+[Azure Functions](../azure-functions/index.yml) 및 [Azure App Service 웹 작업](../app-service/index.yml) 은 모두 개발자를 위해 설계 되었으며 [Azure 앱 서비스](../app-service/index.yml)를 기반으로 하는 코드 우선 integration services를 제공 합니다. 이러한 제품은 서버를 사용 하지 않는 인프라를 제공 하 여 코드를 작성 합니다. 해당 코드 내에서 클라이언트 라이브러리와 REST Api를 사용 하 여 서비스에 대 한 호출을 수행할 수 있습니다. 
 
 * **대상 사용자** : 개발자 및 데이터 과학자
 * **이점** : 서버를 사용 하지 않는 계산 서비스를 사용 하 여 이벤트 트리거 코드를 실행할 수 있습니다. 
@@ -78,7 +78,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) 는 전원 자동화와 동일한 워크플로 디자이너 및 커넥터를 공유 하지만 Visual Studio 및 devops와의 통합을 포함 하 여 고급 및 제어를 제공 합니다. 전원 자동화를 사용 하면 Api에 대 한 프록시 또는 래퍼를 제공 하는 서비스별 커넥터를 통해 인식 서비스 리소스와 쉽게 통합할 수 있습니다. 이러한 커넥터는 전원 자동화에서 사용할 수 있는 커넥터와 동일 합니다. 
+[Azure Logic Apps](../logic-apps/index.yml) 는 전원 자동화와 동일한 워크플로 디자이너 및 커넥터를 공유 하지만 Visual Studio 및 devops와의 통합을 포함 하 여 고급 및 제어를 제공 합니다. 전원 자동화를 사용 하면 Api에 대 한 프록시 또는 래퍼를 제공 하는 서비스별 커넥터를 통해 인식 서비스 리소스와 쉽게 통합할 수 있습니다. 이러한 커넥터는 전원 자동화에서 사용할 수 있는 커넥터와 동일 합니다. 
 
 * **대상 사용자** : 개발자, 통합자, IT 전문가, devops
 * **이점** : 디자이너 중심 (선언적) 개발 모델은 낮은 코드 솔루션의 고급 옵션 및 통합을 제공 합니다.
@@ -87,7 +87,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 
 ### <a name="power-automate"></a>Power Automate 
 
-전원 자동화는 코드를 작성 하지 않고도 앱과 서비스 간에 자동화 된 워크플로를 만드는 데 도움이 되는 [강력한 플랫폼](https://docs.microsoft.com/power-platform/) 의 서비스입니다. 여러 커넥터를 제공 하 여 전원 자동화 솔루션에서 Cognitive Services 리소스와 쉽게 상호 작용할 수 있도록 합니다. Power Automate는 Logic Apps를 기반으로 빌드됩니다. 
+전원 자동화는 코드를 작성 하지 않고도 앱과 서비스 간에 자동화 된 워크플로를 만드는 데 도움이 되는 [강력한 플랫폼](/power-platform/) 의 서비스입니다. 여러 커넥터를 제공 하 여 전원 자동화 솔루션에서 Cognitive Services 리소스와 쉽게 상호 작용할 수 있도록 합니다. Power Automate는 Logic Apps를 기반으로 빌드됩니다. 
 
 * **대상 사용자** : 비즈니스 사용자 (분석가) 및 Sharepoint 관리자
 * **이점** : 바탕 화면에서 마우스 클릭, 키 입력 및 복사 붙여넣기 단계를 기록 하기만 하면 반복적인 수동 작업을 자동화 합니다.
@@ -96,7 +96,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) 는 프로세스를 자동화 하 고 결과를 예측 하 여 비즈니스 성능을 개선 하는 데 사용할 수 있는 Microsoft의 강력한 플랫폼 기능입니다. AI 작성기는 특정 시점에서 클릭 환경을 통해 솔루션에 AI 기능을 제공 합니다. 양식 인식기, Text Analytics 및 Computer Vision와 같은 여러 인식 서비스가 여기에 직접 통합 되었으며 고유한 Cognitive Services를 만들 필요가 없습니다. 
+[AI Builder](/ai-builder/overview) 는 프로세스를 자동화 하 고 결과를 예측 하 여 비즈니스 성능을 개선 하는 데 사용할 수 있는 Microsoft의 강력한 플랫폼 기능입니다. AI 작성기는 특정 시점에서 클릭 환경을 통해 솔루션에 AI 기능을 제공 합니다. 양식 인식기, Text Analytics 및 Computer Vision와 같은 여러 인식 서비스가 여기에 직접 통합 되었으며 고유한 Cognitive Services를 만들 필요가 없습니다. 
 
 * **대상 사용자** : 비즈니스 사용자 (분석가) 및 Sharepoint 관리자
 * **이점** : 지점 및 클릭 환경을 통해 AI 기능을 제공 하는 턴키 솔루션입니다. 코딩 또는 데이터 과학 기술이 필요 하지 않습니다.
@@ -124,24 +124,24 @@ Cognitive Services를 사용 하 여 응용 프로그램 또는 워크플로를 
 
 | 핵심 요소 | 서비스 | 사용자 지정 UI | 빠른 시작 |
 |--------|---------|------------------|------------|
-| 시각 | Custom Vision | https://www.customvision.ai/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| 시각 | Form Recognizer | 샘플 레이블 지정 도구 | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| 의사 결정 | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| 의사 결정 | Personalizer | UI는 Personalizer 리소스의 Azure Portal에서 사용할 수 있습니다. | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| 시각 | Custom Vision | https://www.customvision.ai/ | [빠른 시작](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| 시각 | Form Recognizer | 샘플 레이블 지정 도구 | [빠른 시작](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| 의사 결정 | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [빠른 시작](./metrics-advisor/quickstarts/web-portal.md) |
+| 의사 결정 | Personalizer | UI는 Personalizer 리소스의 Azure Portal에서 사용할 수 있습니다. | [빠른 시작](./personalizer/quickstart-personalizer-sdk.md) |
 | 언어 | 언어 이해(LUIS) | https://www.luis.ai/ | |
-| 언어 | QnA Maker | https://www.qnamaker.ai/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| 언어 | 변환기/사용자 지정 변환기 | https://portal.customtranslator.azure.ai/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| 음성 | 사용자 지정 명령 | https://speech.microsoft.com/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| 음성 | Custom Speech | https://speech.microsoft.com/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| 음성 | Custom Voice | https://speech.microsoft.com/ | [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| 언어 | QnA Maker | https://www.qnamaker.ai/ | [빠른 시작](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| 언어 | 변환기/사용자 지정 변환기 | https://portal.customtranslator.azure.ai/ | [빠른 시작](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Speech | 사용자 지정 명령 | https://speech.microsoft.com/ | [빠른 시작](./speech-service/custom-commands.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [빠른 시작](./speech-service/how-to-custom-speech.md) |
+| Speech | Custom Voice | https://speech.microsoft.com/ | [빠른 시작](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>DevOps 및 GitHub 작업을 사용한 연속 통합 및 제공
 
 Language Understanding 및 음성 서비스는 Azure DevOps 및 GitHub 작업으로 구동 되는 연속 통합 및 지속적인 배포 솔루션을 제공 합니다. 이러한 도구는 사용자 지정 모델의 자동화 된 학습, 테스트 및 릴리스 관리에 사용 됩니다. 
 
-* [Custom Speech용 CI/CD](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [LUIS 용 CI/CD](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [Custom Speech용 CI/CD](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [LUIS 용 CI/CD](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>온-프레미스 컨테이너 
 
@@ -150,4 +150,4 @@ Language Understanding 및 음성 서비스는 Azure DevOps 및 GitHub 작업으
 ## <a name="next-steps"></a>다음 단계
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Cognitive Services 리소스를 만들고 빌드를 시작 합니다.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Cognitive Services 리소스를 만들고 빌드를 시작 합니다.](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

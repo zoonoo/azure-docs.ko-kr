@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510745"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368970"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Custom Translator 작업 영역이란?
 
@@ -25,13 +25,13 @@ ms.locfileid: "88510745"
 
 ## <a name="what-is-a-custom-translator-project"></a>Custom Translator 프로젝트란?
 
-프로젝트란 모델, 문서 및 테스트에 대한 래퍼입니다. 각 프로젝트에는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드된 모든 문서가 자동으로 포함됩니다. 예를 들어 영어-스페인어 프로젝트와 스페인어-영어 프로젝트가 모두 있다면 동일한 문서가 두 프로젝트 모두에 포함됩니다. 각 프로젝트에는 번역에 대해 [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 쿼리할 때 사용되는 연결된 CategoryID가 있습니다. CategoryID는 Custom Translator로 빌드된 사용자 지정 시스템에서 번역을 가져오는 데 사용되는 매개 변수입니다.
+프로젝트란 모델, 문서 및 테스트에 대한 래퍼입니다. 각 프로젝트에는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드된 모든 문서가 자동으로 포함됩니다. 예를 들어 영어-스페인어 프로젝트와 스페인어-영어 프로젝트가 모두 있다면 동일한 문서가 두 프로젝트 모두에 포함됩니다. 각 프로젝트에는 번역에 대해 [V3 API](../reference/v3-0-translate.md?tabs=curl)를 쿼리할 때 사용되는 연결된 CategoryID가 있습니다. CategoryID는 Custom Translator로 빌드된 사용자 지정 시스템에서 번역을 가져오는 데 사용되는 매개 변수입니다.
 
 ## <a name="project-categories"></a>프로젝트 범주
 
 범주는 프로젝트에 대해 사용자가 사용하려는 용어 및 스타일의 영역인 도메인을 식별합니다. 사용자 문서와 가장 관련성이 높은 범주를 선택합니다. 경우에 따라 선택한 범주는 Custom Translator의 동작에 직접 영향을 줍니다.
 
-두 세트의 기준 모델이 있습니다. 일반 및 기술입니다. 범주 **기술**을 선택한 경우 기술 기준 모델이 사용됩니다. 다른 범주 선택의 경우 일반 기준 모델이 사용됩니다. 기술 기준 모델은 기술 도메인에서도 잘 작동하지만 변환에 사용되는 문장이 기술 도메인 내에 속하지 않는 경우 낮은 품질을 보여줍니다. 문장이 기술 도메인 내에 엄격하게 속하는 경우 기술 범주를 선택하는 것이 좋습니다.
+두 세트의 기준 모델이 있습니다. 일반 및 기술입니다. 범주 **기술** 을 선택한 경우 기술 기준 모델이 사용됩니다. 다른 범주 선택의 경우 일반 기준 모델이 사용됩니다. 기술 기준 모델은 기술 도메인에서도 잘 작동하지만 변환에 사용되는 문장이 기술 도메인 내에 속하지 않는 경우 낮은 품질을 보여줍니다. 문장이 기술 도메인 내에 엄격하게 속하는 경우 기술 범주를 선택하는 것이 좋습니다.
 
 동일한 작업 영역에서 다양한 범주에 있는 동일한 언어 쌍에 대한 프로젝트를 만들 수도 있습니다. Custom Translator는 동일한 언어 쌍 및 범주를 사용하여 중복된 프로젝트의 생성을 방지합니다. 프로젝트에 레이블을 적용하면 이 제한 사항을 피할 수 있습니다. 프로젝트에 고유한 레이블을 추가하면 프로젝트 CategoryID에 반영되므로 여러 클라이언트에 대한 번역 시스템을 빌드하지 않는 한 레이블을 사용하지 마십시오.
 

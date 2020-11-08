@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523998"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368936"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
 사용자 지정 번역기는 번역기 서비스의 기능으로, 사용자가 변환기 (버전 3에만 해당)를 사용 하 여 텍스트를 번역할 때 Microsoft Translator의 고급 신경망 번역을 사용자 지정할 수 있습니다.
 
-이 기능은 [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
+이 기능은 [Cognitive Services Speech](../speech-service/index.yml)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 적절한 형식 및 양의 학습 데이터가 제공될 경우, 5~10 사이의 향상을 기대하는 것도 드문 일은 아니며, Custom Translator를 사용하여 번역 품질에 더 많은 BLUE 포인트가 추가될 수도 있습니다.
 
-사용 가능한 데이터를 기준으로 하는 다양한 수준의 사용자 지정에 대한 자세한 내용은 [Custom Translator 사용자 가이드](https://aka.ms/CustomTranslatorDocs)를 참조하세요.
+사용 가능한 데이터를 기준으로 하는 다양한 수준의 사용자 지정에 대한 자세한 내용은 [Custom Translator 사용자 가이드](./custom-translator/overview.md)를 참조하세요.
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -51,10 +51,10 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 | ------- | :-: | :---------------: |
 |사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
 | Text API 버전    | V2만    | V3만 |
-| SMT 사용자 지정    | 예    | 아니요 |
-| NMT 사용자 지정    | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정    | 아니요    | 예 |
-| [추적 없음](https://www.aka.ms/notrace) | 예    | 예 |
+| SMT 사용자 지정    | yes    | 예 |
+| NMT 사용자 지정    | 예    | yes |
+| 새로운 통합 Speech Service 사용자 지정    | 예    | yes |
+| [추적 없음](https://www.aka.ms/notrace) | yes    | yes |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 
@@ -64,4 +64,4 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 설정](https://aka.ms/CustomTranslatorDocs)
+> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 설정](./custom-translator/overview.md)

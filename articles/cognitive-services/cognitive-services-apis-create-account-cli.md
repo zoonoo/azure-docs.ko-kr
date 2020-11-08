@@ -10,33 +10,33 @@ keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비�
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e276d96e8a81b435ec4d0c270cf818555d512ae0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262436"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368902"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: CLI (Azure Command-Line Interface)를 사용 하 여 Cognitive Services 리소스 만들기
 
-[AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 azure Cognitive Services를 시작 하려면이 빠른 시작을 사용 하세요.
+[AZURE CLI (명령줄 인터페이스)](/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 azure Cognitive Services를 시작 하려면이 빠른 시작을 사용 하세요.
 
 Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
 
-Cognitive Services은 Azure 구독에서 만든 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) 표시 됩니다. 리소스를 만든 후에는 응용 프로그램을 인증 하기 위해 생성 된 키 및 끝점을 사용 합니다.
+Cognitive Services은 Azure 구독에서 만든 Azure [리소스로](../azure-resource-manager/management/manage-resources-portal.md) 표시 됩니다. 리소스를 만든 후에는 응용 프로그램을 인증 하기 위해 생성 된 키 및 끝점을 사용 합니다.
 
-이 빠른 시작에서는 azure Cognitive Services에 등록 하 고 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 단일 서비스 또는 다중 서비스 구독이 있는 계정을 만드는 방법에 대해 알아봅니다. 이러한 서비스는 하나 이상의 Azure Cognitive Services API에 연결할 수 있는 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)표시 됩니다.
+이 빠른 시작에서는 azure Cognitive Services에 등록 하 고 [AZURE CLI (명령줄 인터페이스)](/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 단일 서비스 또는 다중 서비스 구독이 있는 계정을 만드는 방법에 대해 알아봅니다. 이러한 서비스는 하나 이상의 Azure Cognitive Services API에 연결할 수 있는 Azure [리소스로](../azure-resource-manager/management/manage-resources-portal.md)표시 됩니다.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/cognitive-services) .
-* [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [AZURE CLI (명령줄 인터페이스)](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Azure CLI 설치 및 로그인
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. CLI의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 실행 합니다.
+[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. CLI의 로컬 설치에 로그인 하려면 [az login](/cli/azure/reference-index#az-login) 명령을 실행 합니다.
 
 ```azurecli-interactive
 az login
@@ -134,7 +134,7 @@ az group create \
 | Content Moderator | `ContentModerator` |
 | Personalizer      | `Personalizer`     |
 
-[Az cognitiveservices account account list-종류](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) 명령을 사용 하 여 사용 가능한 인식 서비스 "종류"의 목록을 찾을 수 있습니다.
+[Az cognitiveservices account account list-종류](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) 명령을 사용 하 여 사용 가능한 인식 서비스 "종류"의 목록을 찾을 수 있습니다.
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -142,7 +142,7 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>리소스 그룹에 새 리소스 추가
 
-새 Cognitive Services 리소스를 만들고 구독 하려면 [az cognitiveservices account account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) 명령을 사용 합니다. 이 명령은 이전에 만든 리소스 그룹에 청구 가능한 리소스를 새로 추가 합니다. 새 리소스를 만들 때 가격 책정 계층 (또는 sku) 및 Azure 위치와 함께 사용 하려는 서비스의 "종류"를 알고 있어야 합니다.
+새 Cognitive Services 리소스를 만들고 구독 하려면 [az cognitiveservices account account create](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) 명령을 사용 합니다. 이 명령은 이전에 만든 리소스 그룹에 청구 가능한 리소스를 새로 추가 합니다. 새 리소스를 만들 때 가격 책정 계층 (또는 sku) 및 Azure 위치와 함께 사용 하려는 서비스의 "종류"를 알고 있어야 합니다.
 
 다음 명령을 사용 하 여 명명 된 변칙 감지기에 대 한 F0 (무료) 리소스를 만들 수 있습니다 `anomaly-detector-resource` .
 
@@ -160,13 +160,13 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>리소스의 키를 가져옵니다.
 
-CLI (Command-Line 인터페이스)의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
+CLI (Command-Line 인터페이스)의 로컬 설치에 로그인 하려면 [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[Az cognitiveservices account account keys list](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) 명령을 사용 하 여 인식 서비스 리소스의 키를 가져옵니다.
+[Az cognitiveservices account account keys list](/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) 명령을 사용 하 여 인식 서비스 리소스의 키를 가져옵니다.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -185,7 +185,7 @@ az login
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>리소스의 현재 할당량 사용량을 가져옵니다.
 
-[Az cognitiveservices account account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 명령을 사용 하 여 인지 서비스 리소스에 대 한 사용 현황을 가져옵니다.
+[Az cognitiveservices account account list-usage](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 명령을 사용 하 여 인지 서비스 리소스에 대 한 사용 현황을 가져옵니다.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -207,6 +207,6 @@ az group delete --name cognitive-services-resource-group
 ## <a name="see-also"></a>참고 항목
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
-* [Azure Cognitive Services란?](Welcome.md)
+* [Azure Cognitive Services란?](./what-are-cognitive-services.md)
 * [자연어 지원](language-support.md)
 * [Docker 컨테이너 지원](cognitive-services-container-support.md)

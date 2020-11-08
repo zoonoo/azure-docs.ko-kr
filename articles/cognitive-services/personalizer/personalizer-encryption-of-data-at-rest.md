@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: a19f0a204bec1c0a43a84d93c2dc4b70ef6ecbe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27199930587c1a096dd99462ebd0c9d65054ee
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069914"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369361"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 Personalizer 서비스 암호화
 
@@ -30,4 +30,4 @@ Personalizer 서비스는 데이터를 클라우드에 보관할 때 데이터�
 ## <a name="next-steps"></a>다음 단계
 
 * [Personalizer Service Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)

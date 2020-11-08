@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080977"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367593"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
 
@@ -93,6 +93,6 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 제안 가져오기](./get-custom-suggestions.md)
+- [사용자 지정 제안 가져오기]()
 - [사용자 지정 인스턴스 검색](./search-your-custom-view.md)
 - [사용자 지정 호스트된 UI 구성 및 사용](./hosted-ui.md)

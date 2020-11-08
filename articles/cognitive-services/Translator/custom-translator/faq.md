@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3d8131635fae55fd8dc2fd2649ae5dda1e62ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507232"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368239"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
 
@@ -41,7 +41,7 @@ ms.locfileid: "88507232"
 
 ## <a name="how-do-you-access-a-deployed-system"></a>배포된 시스템에는 어떻게 액세스하나요?
 
-배포된 시스템은 CategoryID를 지정하여 Microsoft Translator Text API V3을 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 정보는 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포된 시스템은 CategoryID를 지정하여 Microsoft Translator Text API V3을 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 정보는 [API 참조](../reference/v3-0-reference.md) 웹 페이지에서 확인할 수 있습니다.
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>내 데이터가 이미 정렬된 문장인 경우 정렬 및 문장 분리를 건너뛰려면 어떻게 해야 하나요?
 

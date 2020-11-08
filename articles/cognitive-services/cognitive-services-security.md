@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152279"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368783"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -60,7 +60,7 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-**명령 프롬프트**의 새 인스턴스에서 환경 변수를 읽습니다.
+**명령 프롬프트** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-**Windows PowerShell**의 새 인스턴스에서 환경 변수를 읽습니다.
+**Windows PowerShell** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-**Bash**의 새 인스턴스에서 환경 변수를 읽습니다.
+**Bash** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```Bash
 # Prints the env var value
@@ -113,7 +113,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은을 참조 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```java
 import java.lang.*;
@@ -162,9 +162,9 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/node-js)
+# <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-자세한 내용은을 참조 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은을 참조 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-자세한 내용은을 참조 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -201,7 +201,7 @@ NSString* value =
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* Translator
+* 변환기
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
@@ -211,7 +211,7 @@ NSString* value =
 * Personalizer
 
 > [!IMPORTANT]
-> **양식 인식기**의 경우 Microsoft 엔지니어가 2020 년 7 월 10 일 이후에 생성 된 리소스에서 고객 데이터에 액세스 하지 않습니다.
+> **양식 인식기** 의 경우 Microsoft 엔지니어가 2020 년 7 월 10 일 이후에 생성 된 리소스에서 고객 데이터에 액세스 하지 않습니다.
 
 E0 SKU를 사용 하는 기능을 요청 하려면이 [요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS에서 E0 SKU를 사용 하도록 승인 되 면 Azure Portal에서 새 리소스를 만들고이를 가격 책정 계층으로 선택 해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 
@@ -222,5 +222,5 @@ E0 SKU를 사용 하는 기능을 요청 하려면이 [요청 양식을](https
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다양 한 [Cognitive Services](welcome.md) 살펴보기
+* 다양 한 [Cognitive Services](./what-are-cognitive-services.md) 살펴보기
 * [Cognitive Services 가상 네트워크](cognitive-services-virtual-networks.md) 에 대 한 자세한 정보

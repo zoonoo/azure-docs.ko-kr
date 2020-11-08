@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090565"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367389"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 
@@ -54,7 +54,7 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 
 6. **추가 구성** 아래에서 앱에 적합한 값을 제공합니다. 이러한 설정은 선택 사항입니다. 적용하거나 제거한 경우의 효과를 보려면 오른쪽에 있는 미리 보기 창을 확인합니다. 사용 가능한 구성 옵션은 다음과 같습니다.  
 
-7. 검색 구독 키를 입력하거나, 드롭다운 목록에서 키를 선택합니다. 드롭다운 목록은 Azure 계정의 구독에 있는 키로 채워집니다. [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 참조하세요.  
+7. 검색 구독 키를 입력하거나, 드롭다운 목록에서 키를 선택합니다. 드롭다운 목록은 Azure 계정의 구독에 있는 키로 채워집니다. [Cognitive Services API 계정](../cognitive-services-apis-create-account.md)을 참조하세요.  
 
 8. 자동 제안을 사용하도록 설정한 경우 자동 제안 구독 키를 입력하거나, 드롭다운 목록에서 키를 선택합니다. 드롭다운 목록은 Azure 계정의 구독에 있는 키로 채워집니다. 사용자 지정 자동 제안에는 특정 구독 계층이 필요합니다. [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)을 참조하세요.
 
@@ -82,7 +82,7 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
+  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
   >
   > - q
   > - mkt
@@ -153,4 +153,4 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 ## <a name="next-steps"></a>다음 단계
 
 - [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
-- [웹 페이지 페이징](./page-webpages.md)
+- [웹 페이지 페이징](../bing-web-search/paging-search-results.md)

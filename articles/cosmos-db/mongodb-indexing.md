@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 23e9b45c47cdbdb671146b772d16354b1ee3c31b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392608"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369293"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -229,7 +229,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {
 
 특정 컬렉션에서 문서 만료를 사용 하도록 설정 하려면 [TTL (time-to-live) 인덱스](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 값이 있는 필드의 인덱스입니다 `_ts` `expireAfterSeconds` .
 
-예제:
+예:
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
@@ -335,6 +335,51 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 > [!NOTE]
 > [인덱스 진행률을 추적할](#track-index-progress)수 있습니다.
+
+## <a name="reindex-command"></a>명령 인덱스
+
+`reIndex`이 명령은 컬렉션의 모든 인덱스를 다시 만듭니다. 대부분의 경우이는 필요 하지 않습니다. 그러나 드문 경우 이지만 명령을 실행 한 후 쿼리 성능이 향상 될 수 있습니다 `reIndex` .
+
+`reIndex`다음 구문을 사용 하 여 명령을 실행할 수 있습니다.
+
+`db.runCommand({ reIndex: <collection> })`
+
+다음 구문을 사용 하 여 명령을 실행 해야 하는지 여부를 확인할 수 있습니다 `reIndex` .
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+샘플 출력:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+`reIndex`가 필요한 경우 **requiresReIndex** 가 true가 됩니다. `reIndex`필요 하지 않은 경우이 속성은 생략 됩니다.
 
 ## <a name="migrate-collections-with-indexes"></a>인덱스를 사용 하 여 컬렉션 마이그레이션
 

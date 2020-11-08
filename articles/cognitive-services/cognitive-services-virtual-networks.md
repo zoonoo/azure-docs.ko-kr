@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843144"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369378"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -69,7 +69,7 @@ Vnet (가상 네트워크)는 [Cognitive Services을 사용할 수 있는 지역
 기본적으로 Cognitive Services 리소스는 네트워크에 있는 클라이언트의 연결을 허용 합니다. 선택한 네트워크에 대한 액세스를 제한하려면 먼저 기본 동작을 변경해야 합니다.
 
 > [!WARNING]
-> 네트워크 규칙을 변경 하면 응용 프로그램에서 Azure Cognitive Services에 연결 하는 기능에 영향을 줄 수 있습니다. 기본 네트워크 규칙을 **거부**로 설정하면 액세스를 **허용**하는 특정 네트워크 규칙이 적용되지 않는 한 데이터에 대한 모든 액세스가 차단됩니다. 액세스를 거부하도록 기본 규칙을 변경하기 전에 네트워크 규칙을 사용하여 허용된 모든 네트워크에 대한 액세스를 허가해야 합니다. 온-프레미스 네트워크에 대 한 IP 주소를 나열 하도록 허용 하는 경우 온-프레미스 네트워크에서 가능한 모든 나가는 공용 IP 주소를 추가 해야 합니다.
+> 네트워크 규칙을 변경 하면 응용 프로그램에서 Azure Cognitive Services에 연결 하는 기능에 영향을 줄 수 있습니다. 기본 네트워크 규칙을 **거부** 로 설정하면 액세스를 **허용** 하는 특정 네트워크 규칙이 적용되지 않는 한 데이터에 대한 모든 액세스가 차단됩니다. 액세스를 거부하도록 기본 규칙을 변경하기 전에 네트워크 규칙을 사용하여 허용된 모든 네트워크에 대한 액세스를 허가해야 합니다. 온-프레미스 네트워크에 대 한 IP 주소를 나열 하도록 허용 하는 경우 온-프레미스 네트워크에서 가능한 모든 나가는 공용 IP 주소를 추가 해야 합니다.
 
 ### <a name="managing-default-network-access-rules"></a>기본 네트워크 액세스 규칙 관리
 
@@ -79,20 +79,20 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
-1. **가상 네트워크**라는 **리소스 관리** 메뉴를 선택 합니다.
+1. **가상 네트워크** 라는 **리소스 관리** 메뉴를 선택 합니다.
 
    ![가상 네트워크 옵션](media/vnet/virtual-network-blade.png)
 
-1. 기본적으로 액세스를 거부하려면 **선택한 네트워크**에서 액세스를 허용하도록 선택합니다. **선택한 네트워크** 설정 만으로 구성 된 **가상 네트워크** 또는 **주소 범위** 를 함께 사용 하지 않으면 모든 액세스가 효과적으로 거부 됩니다. 모든 액세스가 거부 되 면 Cognitive Services 리소스를 사용 하려고 시도 하는 요청은 허용 되지 않습니다. Azure Portal Azure PowerShell 또는 Azure CLI를 사용 하 여 Cognitive Services 리소스를 구성할 수 있습니다.
-1. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크**에서 액세스를 허용하도록 선택합니다.
+1. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. **선택한 네트워크** 설정 만으로 구성 된 **가상 네트워크** 또는 **주소 범위** 를 함께 사용 하지 않으면 모든 액세스가 효과적으로 거부 됩니다. 모든 액세스가 거부 되 면 Cognitive Services 리소스를 사용 하려고 시도 하는 요청은 허용 되지 않습니다. Azure Portal Azure PowerShell 또는 Azure CLI를 사용 하 여 Cognitive Services 리소스를 구성할 수 있습니다.
+1. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
    ![가상 네트워크 거부](media/vnet/virtual-network-deny.png)
 
-1. **저장**을 선택하여 변경 내용을 적용합니다.
+1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
+1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험** 을 선택 합니다.
 
 1. Cognitive Services 리소스에 대 한 기본 규칙의 상태를 표시 합니다.
 
@@ -128,7 +128,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험** 을 선택 합니다.
 
 1. Cognitive Services 리소스에 대 한 기본 규칙의 상태를 표시 합니다.
 
@@ -154,7 +154,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
 
@@ -166,7 +166,7 @@ VNet 내에서 Azure Cognitive Services에 대 한 [서비스 끝점](../virtual
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
-Cognitive Services 리소스에 가상 네트워크 규칙을 적용 하려면 추가할 서브넷에 대 한 적절 한 권한이 사용자에 게 있어야 합니다. 필요한 권한은 기본 *참가자* 역할 또는 *Cognitive Services 기여자* 역할입니다. 필요한 사용 권한을 사용자 지정 역할 정의에 추가할 수도 있습니다.
+Cognitive Services 리소스에 가상 네트워크 규칙을 적용 하려면 추가할 서브넷에 대 한 적절 한 권한이 사용자에 게 있어야 합니다. 필요한 권한은 기본 _Contributor * 역할 또는 *Cognitive Services 기여자* 역할입니다. 필요한 사용 권한을 사용자 지정 역할 정의에 추가할 수도 있습니다.
 
 다른 Azure AD 테 넌 트의 일부인 구독을 포함 하 여, Cognitive Services 리소스 및 액세스 권한이 부여 된 가상 네트워크가 서로 다른 구독에 있을 수 있습니다.
 
@@ -181,23 +181,23 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
-1. **가상 네트워크**라는 **리소스 관리** 메뉴를 선택 합니다.
+1. **가상 네트워크** 라는 **리소스 관리** 메뉴를 선택 합니다.
 
-1. **선택한 네트워크**에서 액세스를 허용하도록 선택했는지 확인합니다.
+1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. 기존 네트워크 규칙을 사용 하 여 가상 네트워크에 대 한 액세스 권한을 부여 하려면 **가상**네트워크에서 **기존 가상 네트워크 추가**를 선택 합니다.
+1. 기존 네트워크 규칙을 사용 하 여 가상 네트워크에 대 한 액세스 권한을 부여 하려면 **가상** 네트워크에서 **기존 가상 네트워크 추가** 를 선택 합니다.
 
    ![기존 vNet 추가](media/vnet/virtual-network-add-existing.png)
 
-1. **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음 **사용**을 선택 합니다.
+1. **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음 **사용** 을 선택 합니다.
 
    ![기존 vNet 세부 정보 추가](media/vnet/virtual-network-add-existing-details.png)
 
-1. 새 가상 네트워크를 만들고 액세스 권한을 부여 하려면 **새 가상 네트워크 추가**를 선택 합니다.
+1. 새 가상 네트워크를 만들고 액세스 권한을 부여 하려면 **새 가상 네트워크 추가** 를 선택 합니다.
 
    ![새 vNet 추가](media/vnet/virtual-network-add-new.png)
 
-1. 새 가상 네트워크를 만드는 데 필요한 정보를 제공 하 고 **만들기**를 선택 합니다.
+1. 새 가상 네트워크를 만드는 데 필요한 정보를 제공 하 고 **만들기** 를 선택 합니다.
 
    ![VNet 만들기](media/vnet/virtual-network-create.png)
 
@@ -206,15 +206,15 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
     >
     > 현재, 규칙을 만드는 동안 동일한 Azure Active Directory 테넌트에 속한 가상 네트워크만 선택할 수 있도록 표시됩니다. 다른 테넌트에 속한 가상 네트워크의 서브넷에 대한 액세스 권한을 부여하려면 Powershell, CLI 또는 REST API를 사용하세요.
 
-1. 가상 네트워크 또는 서브넷 규칙을 제거 **하려면 ...을 선택 하** 여 가상 네트워크 또는 서브넷에 대 한 상황에 맞는 메뉴를 열고 **제거**를 선택 합니다.
+1. 가상 네트워크 또는 서브넷 규칙을 제거 **하려면 ...을 선택 하** 여 가상 네트워크 또는 서브넷에 대 한 상황에 맞는 메뉴를 열고 **제거** 를 선택 합니다.
 
    ![VNet 제거](media/vnet/virtual-network-remove.png)
 
-1. **저장**을 선택하여 변경 내용을 적용합니다.
+1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
+1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험** 을 선택 합니다.
 
 1. 가상 네트워크 규칙을 나열합니다.
 
@@ -274,7 +274,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험** 을 선택 합니다.
 
 1. 가상 네트워크 규칙을 나열합니다.
 
@@ -322,10 +322,10 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> [기본 규칙](#change-the-default-network-access-rule) 을 _ * deny * *로 설정 해야 하며, 그렇지 않으면 네트워크 규칙이 적용 되지 않습니다.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>인터넷 IP 범위의 액세스 허가
 
@@ -357,11 +357,11 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 1. 보안을 유지 하려는 Cognitive Services 리소스로 이동 합니다.
 
-1. **가상 네트워크**라는 **리소스 관리** 메뉴를 선택 합니다.
+1. **가상 네트워크** 라는 **리소스 관리** 메뉴를 선택 합니다.
 
-1. **선택한 네트워크**에서 액세스를 허용하도록 선택했는지 확인합니다.
+1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. 인터넷 ip 범위에 대 한 액세스 권한을 부여 하려면 **방화벽**주소 범위 아래에 IP 주소 또는 주소 범위 ( [CIDR 형식](https://tools.ietf.org/html/rfc4632))를 입력 합니다  >  **Address Range**. 유효한 공용 IP (예약 되지 않은) 주소만 허용 됩니다.
+1. 인터넷 ip 범위에 대 한 액세스 권한을 부여 하려면 **방화벽** 주소 범위 아래에 IP 주소 또는 주소 범위 ( [CIDR 형식](https://tools.ietf.org/html/rfc4632))를 입력 합니다  >  **Address Range**. 유효한 공용 IP (예약 되지 않은) 주소만 허용 됩니다.
 
    ![IP 범위 추가](media/vnet/virtual-network-add-ip-range.png)
 
@@ -369,11 +369,11 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
    ![IP 범위 삭제](media/vnet/virtual-network-delete-ip-range.png)
 
-1. **저장**을 선택하여 변경 내용을 적용합니다.
+1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험**을 선택 합니다.
+1. [Azure PowerShell](/powershell/azure/install-az-ps) 를 설치 하 고 [로그인](/powershell/azure/authenticate-azureps)하거나 **체험** 을 선택 합니다.
 
 1. IP 네트워크 규칙을 나열합니다.
 
@@ -431,7 +431,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험**을 선택 합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고 [로그인](/cli/azure/authenticate-azure-cli)하거나 **체험** 을 선택 합니다.
 
 1. IP 네트워크 규칙을 나열합니다.
 
@@ -472,10 +472,10 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부**로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+> [기본 규칙](#change-the-default-network-access-rule) 을 _ * deny * *로 설정 해야 하며, 그렇지 않으면 네트워크 규칙이 적용 되지 않습니다.
 
 ## <a name="use-private-endpoints"></a>프라이빗 엔드포인트 사용
 
@@ -497,7 +497,7 @@ VNet의 응용 프로그램은 다른 방법으로 사용 하는 것과 동일�
 
 VNet에서 Cognitive Services 리소스에 대 한 개인 끝점을 만드는 경우 승인 요청이 Cognitive Services 리소스 소유자에 게 전송 됩니다. 개인 끝점의 생성을 요청 하는 사용자가 리소스의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다.
 
-Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.com)의 Cognitive Services 리소스에 대해 '*개인 끝점*' 탭을 통해 동의 요청 및 개인 끝점을 관리할 수 있습니다.
+Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.com)의 Cognitive Services 리소스에 대해 ' *개인 끝점* ' 탭을 통해 동의 요청 및 개인 끝점을 관리할 수 있습니다.
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
@@ -519,7 +519,7 @@ Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.co
 
 ### <a name="dns-changes-for-private-endpoints"></a>전용 끝점에 대 한 DNS 변경
 
-개인 끝점을 만들 때 Cognitive Services 리소스에 대 한 DNS CNAME 리소스 레코드는 접두사가 '*privatelink*' 인 하위 도메인의 별칭으로 업데이트 됩니다. 또한 기본적으로 개인 끝점에 대 한 DNS A 리소스 레코드를 사용 하 여 '*privatelink*' 하위 도메인에 해당 하는 [개인 DNS 영역](../dns/private-dns-overview.md)을 만듭니다.
+개인 끝점을 만들 때 Cognitive Services 리소스에 대 한 DNS CNAME 리소스 레코드는 접두사가 ' *privatelink* ' 인 하위 도메인의 별칭으로 업데이트 됩니다. 또한 기본적으로 개인 끝점에 대 한 DNS A 리소스 레코드를 사용 하 여 ' *privatelink* ' 하위 도메인에 해당 하는 [개인 DNS 영역](../dns/private-dns-overview.md)을 만듭니다.
 
 개인 끝점을 사용 하 여 VNet 외부에서 끝점 URL을 확인 하면 Cognitive Services 리소스의 공용 끝점으로 확인 됩니다. 개인 끝점을 호스트 하는 VNet에서 확인 되 면 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다.
 
@@ -532,8 +532,8 @@ Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.co
 
 전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [Azure 가상 네트워크의 리소스 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [전용 끝점에 대 한 DNS 구성](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Azure 가상 네트워크의 리소스 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [전용 끝점에 대 한 DNS 구성](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>가격 책정
 
@@ -541,5 +541,5 @@ Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.co
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다양 한 [Azure Cognitive Services](welcome.md) 살펴보기
+* 다양 한 [Azure Cognitive Services](./what-are-cognitive-services.md) 살펴보기
 * [Azure Virtual Network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 에 대 한 자세한 정보

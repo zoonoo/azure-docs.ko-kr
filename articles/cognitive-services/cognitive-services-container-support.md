@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677437"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368851"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -35,7 +35,7 @@ Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 �
 > * [Form Recognizer][fr-containers]
 > * [언어 이해(LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
-> * [텍스트 분석][ta-containers]
+> * [Text Analytics][ta-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -68,14 +68,14 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | [Speech Service API][sp-containers-tts] | F0, S0 | **텍스트 음성 변환** ( [이미지](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | 텍스트를 자연스럽게 들리는 음성으로 변환합니다. |
 | [Speech Service API][sp-containers-ctts] | F0, S0 | **사용자 지정 텍스트 음성 변환** ( [이미지](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | 사용자 지정 모델을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. |
 | [Speech Service API][sp-containers-ntts] | F0, S0 | **신경망 텍스트 음성 변환** ( [이미지](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. |
-| [텍스트 분석][ta-containers-keyphrase] | F0, S | **핵심 구 추출** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. |
-| [텍스트 분석][ta-containers-language] | F0, S | **언어 감지** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
-| [텍스트 분석][ta-containers-sentiment] | F0, S | **감정 분석 v3** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수* )을 반환 합니다. |
-| [텍스트 분석][ta-containers-health] | F0, S | **상태 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
+| [Text Analytics][ta-containers-keyphrase] | F0, S | **핵심 구 추출** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. |
+| [Text Analytics][ta-containers-language] | F0, S | **언어 감지** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
+| [Text Analytics][ta-containers-sentiment] | F0, S | **감정 분석 v3** ( [이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수* )을 반환 합니다. |
+| [Text Analytics][ta-containers-health] | F0, S | **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
 | [공간 분석][spa-containers] | S0 | **공간 분석** | 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 파악 합니다. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 또한 일부 컨테이너는 Cognitive Services 제공 리소스 키를 [**제공**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 합니다. 하나의 단일 Cognitive Services 단일 리소스를 만들고 다음 서비스에 대해 지원 되는 서비스에서 동일한 청구 키를 사용할 수 있습니다.
@@ -83,7 +83,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 * Computer Vision
 * Face
 * LUIS
-* Text Analytics
+* 텍스트 분석
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -91,7 +91,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
@@ -132,7 +132,7 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

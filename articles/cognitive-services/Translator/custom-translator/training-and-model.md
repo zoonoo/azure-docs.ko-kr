@@ -9,17 +9,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510830"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369021"
 ---
 # <a name="what-are-trainings-and-models"></a>학습 및 모델이란?
 
 모델은 특정 언어 쌍에 대한 번역을 제공하는 시스템입니다.
-성공적인 학습의 결과가 모델입니다. 모델을 학습할 때 학습, 조정 및 테스트 라는 세 개의 상호 배타적인 문서 유형이 필요 합니다. 사전 문서 형식을 제공할 수도 있습니다. [문장 맞춤](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)을 참조 하십시오.
+성공적인 학습의 결과가 모델입니다. 모델을 학습할 때 학습, 조정 및 테스트 라는 세 개의 상호 배타적인 문서 유형이 필요 합니다. 사전 문서 형식을 제공할 수도 있습니다. [문장 맞춤](./sentence-alignment.md#suggested-minimum-number-of-sentences)을 참조 하십시오.
 
 학습을 큐에 대기 시킬 때 학습 데이터만 제공 되는 경우에는 사용자 지정 변환기가 튜닝 및 테스트 데이터를 자동으로 어셈블합니다. 학습 문서에서 무작위로 문장의 임의 하위 집합을 사용 하 고 이러한 문장을 학습 데이터 자체에서 제외 합니다.
 

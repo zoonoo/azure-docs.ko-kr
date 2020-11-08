@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337562"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369242"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
 
@@ -34,6 +34,10 @@ ms.locfileid: "94337562"
 | 오류가 발생 하 여 볼륨을 만들거나 수정할 때 오류가 발생 함 `Requested throughput not available` | 볼륨에 사용 가능한 처리량은 용량 풀의 크기와 서비스 수준에 따라 결정 됩니다. 충분 한 처리량이 없으면 풀 크기를 늘리거나 기존 볼륨 처리량을 조정 해야 합니다. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>용량 풀 이동 문제 
+
+> [!IMPORTANT] 
+> 볼륨 공개 미리 보기 등록 [의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 하는 것은 추가 공지가 있을 때까지 보류 중입니다.
+
 |     오류 조건    |     해결 방법    |
 |-|-|
 | 볼륨의 용량 풀을 변경 하는 것은 허용 되지 않습니다. | 이 기능을 사용 하기 위한 권한이 아직 부여 되지 않았을 수 있습니다. <br> 볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 하 고를 설정 해야 `-FeatureName ANFTierChange` 합니다. [볼륨의 서비스 수준 동적 변경](dynamic-change-volume-service-level.md)에서 등록 단계를 참조 하세요. |
