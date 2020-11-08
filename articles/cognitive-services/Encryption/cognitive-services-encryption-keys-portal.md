@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d161c82c087fd86a3774f0d121330260b1574e4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310702"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366097"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Cognitive Services에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키 구성
 
@@ -38,5 +38,5 @@ Cognitive Services에 대 한 Azure Key Vault에서 Customer-Managed 키를 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Azure Key Vault란](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233886"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364295"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -110,7 +110,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 - Workday에서 Active Directory/Workday Azure Active Directory
 - SuccessFactors to Active Directory/SuccessFactors to Azure Active Directory
 - Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
-- [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
+- [Scim 2.0](https://tools.ietf.org/html/rfc7643) 을 지 원하는 앱
 - Workday 또는 SuccessFactors에 대 한 쓰기 저장 (writeback) Azure Active Directory 경우 지원 되는 특성 (XPATH 및 JSONPath)에 대 한 관련 메타 데이터를 업데이트할 수 있지만, 기본 스키마에 포함 된 것 보다는 새 Workday 또는 SuccessFactors 특성을 추가 하는 것은 지원 되지 않습니다.
 
 
@@ -146,7 +146,7 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
 
 이러한 지침은 SCIM 사용 애플리케이션에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 애플리케이션은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 특정 네임스페이스가 필요하지 않습니다.
 
-사용자 지정 특성은 참조 특성 또는 다중값 특성일 수 없습니다. 사용자 지정 다중값 확장 특성은 현재 갤러리의 애플리케이션에 대해서만 지원됩니다.  
+사용자 지정 특성은 참조 특성, 다중 값 또는 복합 형식의 특성 일 수 없습니다. 사용자 지정 다중 값 및 복합 형식화 된 확장 특성은 현재 갤러리의 응용 프로그램에 대해서만 지원 됩니다.  
  
 **확장 특성이 있는 사용자 표현 예:**
 

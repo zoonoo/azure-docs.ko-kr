@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095393"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364652"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
 
@@ -34,7 +34,7 @@ Local Business Search API는 Bing에 검색 쿼리를 전송하여 식당, 호�
   
 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.
 
-허용되는 결과 사용 및 표시에 대한 자세한 내용은 [사용 및 표시 요구 사항](use-display-requirements.md)을 참조하세요.
+허용되는 결과 사용 및 표시에 대한 자세한 내용은 [사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 참조하세요.
 
 
   
@@ -78,14 +78,14 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 |Name|값|형식|필수|  
 |----------|-----------|----------|--------------|
-|<a name="count"></a>count|매개 변수로 지정 된 인덱스부터 시작 하 여 반환할 결과 수입니다 `offset` .|String|아니요|   
-|<a name="localCategories"></a>localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|아니요|  
+|<a name="count"></a>count|매개 변수로 지정 된 인덱스부터 시작 하 여 반환할 결과 수입니다 `offset` .|String|예|   
+|<a name="localCategories"></a>localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|예|  
 |<a name="mkt"></a>mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|String|예|
 |<a name="offset"></a>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수|예|  
-|<a name="query"></a>q|사용자의 검색 용어입니다.|String|아니요|  
-|<a name="responseformat"></a>responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|String|아니요|  
-|<a name="safesearch"></a>safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:**`site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |String|아니요|  
-|<a name="setlang"></a>setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [](#acceptlanguage)Accept-Language&mdash; 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|String|아니요| 
+|<a name="query"></a>q|사용자의 검색 용어입니다.|String|예|  
+|<a name="responseformat"></a>responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|String|예|  
+|<a name="safesearch"></a>safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:**`site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |String|예|  
+|<a name="setlang"></a>setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [](#acceptlanguage)Accept-Language&mdash; 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|String|예| 
 
 
 ## <a name="response-objects"></a>응답 개체  
@@ -120,7 +120,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
   
   
-### <a name="license"></a>라이선스  
+### <a name="license"></a>License  
 텍스트 또는 사진을 사용할 수 있는 라이선스를 정의합니다.  
   
 |Name|값|형식|  
@@ -199,7 +199,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 |resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|정수|
 |answerType|표시할 항목이 포함된 답변입니다. 예를 들어 뉴스입니다.<br /><br />유형을 사용하여 SearchResponse 개체에서 답변을 찾습니다. 유형은 SearchResponse 필드의 이름입니다.<br /><br /> 그러나 이 개체에 value 필드가 포함된 경우에만 답변 유형을 사용합니다. value 필드가 없으면 무시합니다.|String|
 |textualIndex|textualAnswers에서 표시할 답변의 인덱스입니다.| 부호 없는 정수|
-|값|표시할 답변 또는 표시할 답변 항목을 식별하는 ID입니다. ID가 답변을 식별하는 경우 답변의 모든 항목을 표시합니다.|Identifiable|
+|value|표시할 답변 또는 표시할 답변 항목을 식별하는 ID입니다. ID가 답변을 식별하는 경우 답변의 모든 항목을 표시합니다.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 검색 결과 페이지에서 콘텐츠를 배치할 위치와 순서를 정의합니다.  

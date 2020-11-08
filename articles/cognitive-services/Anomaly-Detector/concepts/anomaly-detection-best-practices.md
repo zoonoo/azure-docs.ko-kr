@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018392"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363653"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>변칙 탐지기 API 사용에 대 한 모범 사례
 
@@ -52,7 +52,7 @@ ms.locfileid: "92018392"
 
 ## <a name="data-preparation"></a>데이터 준비
 
-변칙 탐지기 API는 JSON 요청 개체에 형식이 지정 된 시계열 데이터를 허용 합니다. 시계열은 시간에 따라 순차적으로 기록 되는 모든 숫자 데이터를 사용할 수 있습니다. 시계열 데이터의 windows를 변칙 탐지기 API 끝점으로 보내 API의 성능을 향상 시킬 수 있습니다. 전송할 수 있는 데이터 요소의 최소 수는 12이 고 최대값은 8640입니다. [세분성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) 은 데이터가 샘플링 되는 속도로 정의 됩니다. 
+변칙 탐지기 API는 JSON 요청 개체에 형식이 지정 된 시계열 데이터를 허용 합니다. 시계열은 시간에 따라 순차적으로 기록 되는 모든 숫자 데이터를 사용할 수 있습니다. 시계열 데이터의 windows를 변칙 탐지기 API 끝점으로 보내 API의 성능을 향상 시킬 수 있습니다. 전송할 수 있는 데이터 요소의 최소 수는 12이 고 최대값은 8640입니다. [세분성](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) 은 데이터가 샘플링 되는 속도로 정의 됩니다. 
 
 변칙 탐지기 API로 전송 되는 데이터 요소에는 유효한 UTC (협정 세계시) 타임 스탬프 및 숫자 값이 있어야 합니다. 
 

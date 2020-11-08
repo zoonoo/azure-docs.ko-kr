@@ -2,19 +2,19 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369317"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366340"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
 복잡 한 솔루션을 배포 하려면 템플릿을 여러 관련 템플릿으로 분할 한 다음 주 템플릿을 통해 함께 배포할 수 있습니다. 관련 템플릿은 기본 템플릿 내에 포함 된 별도의 파일 또는 템플릿 구문이 될 수 있습니다. 이 문서에서는 **연결 된 템플릿** 이라는 용어를 사용 하 여 주 템플릿의 링크를 통해 참조 되는 별도의 템플릿 파일을 참조 합니다. **중첩 된 템플릿** 이라는 용어를 사용 하 여 기본 템플릿 내에 포함 된 템플릿 구문을 참조 합니다.
 
-중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결 된 템플릿을 사용 하 여 솔루션을 대상 구성 요소로 나눌 수 있습니다. 이러한 템플릿은 다른 시나리오에서 쉽게 다시 사용할 수 있습니다.
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. 이러한 템플릿은 다른 시나리오에서 쉽게 다시 사용할 수 있습니다.
 
 자습서의 경우 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./deployment-tutorial-linked-template.md)를 참조하세요.
 
@@ -96,7 +96,7 @@ ms.locfileid: "91369317"
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>중첩 된 템플릿의 식 계산 범위
 
-중첩 된 템플릿을 사용 하는 경우 템플릿 식이 부모 템플릿 또는 중첩 된 템플릿의 범위 내에서 계산 되는지 여부를 지정할 수 있습니다. 범위는 [resourceGroup](template-functions-resource.md#resourcegroup) 및 [subscription](template-functions-resource.md#subscription) 과 같은 매개 변수, 변수 및 함수를 확인 하는 방법을 결정 합니다.
+중첩된 템플릿을 사용하면 템플릿 식이 부모 템플릿 또는 중첩된 템플릿의 범위 내에서 평가되는지 여부를 지정할 수 있습니다. 범위는 [resourceGroup](template-functions-resource.md#resourcegroup) 및 [subscription](template-functions-resource.md#subscription) 과 같은 매개 변수, 변수 및 함수를 확인 하는 방법을 결정 합니다.
 
 속성을 통해 범위를 설정 합니다 `expressionEvaluationOptions` . 기본적으로 속성은 `expressionEvaluationOptions` 로 설정 됩니다 `outer` . 즉, 부모 템플릿 범위를 사용 합니다. `inner`식이 중첩 된 템플릿의 범위 내에서 계산 되도록 하려면 값을로 설정 합니다.
 
@@ -283,7 +283,7 @@ ms.locfileid: "91369317"
 
 ## <a name="linked-template"></a>연결된 템플릿
 
-템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **Templatelink** 속성에서 포함할 템플릿의 URI를 지정 합니다. 다음 예에서는 새 저장소 계정을 배포 하는 템플릿에 연결 합니다.
+템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **Templatelink** 속성에서 포함할 템플릿의 URI를 지정 합니다. 다음 예제에서는 저장소 계정에 있는 템플릿에 연결 합니다.
 
 ```json
 {
@@ -310,13 +310,17 @@ ms.locfileid: "91369317"
 }
 ```
 
-연결 된 템플릿을 참조할 때의 값은 로컬 `uri` 네트워크에서 사용할 수 있는 로컬 파일이 나 파일이 아니어야 합니다. **Http** 또는 **https**로 다운로드 가능한 URI 값을 제공 해야 합니다.
+연결 된 템플릿을 참조할 때의 값은 로컬 `uri` 파일 또는 로컬 네트워크 에서만 사용할 수 있는 파일 일 수 없습니다. Azure Resource Manager는 템플릿에 액세스할 수 있어야 합니다. **Http** 또는 **https** 로 다운로드 가능한 URI 값을 제공 합니다. 
 
-> [!NOTE]
->
-> 예를 들어 다음과 같이 매개 변수를 사용 하 여 **http** 또는 **https**를 사용 하는 것으로 확인 되는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다 `_artifactsLocation` . `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+**Http** 또는 **https** 를 포함 하는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다. 예를 들어 일반적인 패턴은 매개 변수를 사용 하는 것입니다 `_artifactsLocation` . 연결 된 템플릿은 다음과 같은 식을 사용 하 여 설정할 수 있습니다.
 
-Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링크의 형식은 `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` 입니다. 원시 링크를 가져오려면 **raw** 를 선택 합니다.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="원시 URL 선택":::
 
 ### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 
@@ -384,7 +388,7 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 
 앞의 예제에서는 템플릿 링크에 대한 하드 코딩된 URL 값을 보여 주었습니다. 이 방법은 간단한 템플릿에는 적용 될 수 있지만, 많은 모듈식 템플릿 집합에 대해서는 제대로 작동 하지 않습니다. 대신, 주 템플릿에 대한 기본 URL을 보관하는 정적 변수를 만든 다음 해당 기본 URL에서 연결된 템플릿에 대한 URL을 동적으로 만들 수 있습니다. 이 방법의 장점으로는 주 템플릿에서 정적 변수만 변경 하면 되므로 템플릿을 쉽게 이동 하거나 분기할 수 있습니다. 주 템플릿은 분해된 템플릿 전체에서 올바른 URI를 전달합니다.
 
-다음 예제에서는 기본 URL을 사용하여 연결된 템플릿에 대한 두 개의 URL을 만드는 방법을 보여 줍니다(**sharedTemplateUrl** 및 **vmTemplate**).
+다음 예제에서는 기본 URL을 사용하여 연결된 템플릿에 대한 두 개의 URL을 만드는 방법을 보여 줍니다( **sharedTemplateUrl** 및 **vmTemplate** ).
 
 ```json
 "variables": {
@@ -801,9 +805,9 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 |기본 템플릿  |연결된 템플릿 |설명  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
-|[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |
-|[여러 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |연결된 템플릿에서 여러 공용 IP 주소를 만듭니다.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
+|[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |
+|[여러 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |연결된 템플릿에서 여러 공용 IP 주소를 만듭니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

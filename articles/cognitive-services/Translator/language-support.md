@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669623"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364428"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -347,7 +347,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 웨일스어 | `cy` |
 
 ## <a name="speech-translation"></a>Speech Translation
-음성 변환은 Cognitive Services 음성 서비스와 함께 번역기를 사용 하 여 사용할 수 있습니다. 음성 번역을 사용 하는 방법에 대해 자세히 알아보고 [사용 가능한 모든 언어 옵션](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)을 보려면 [음성 서비스 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/) 를 참조 하세요.
+음성 변환은 Cognitive Services 음성 서비스와 함께 번역기를 사용 하 여 사용할 수 있습니다. 음성 번역을 사용 하는 방법에 대해 자세히 알아보고 [사용 가능한 모든 언어 옵션](../speech-service/language-support.md)을 보려면 [음성 서비스 설명서](../speech-service/index.yml) 를 참조 하세요.
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 선택한 텍스트 언어로 번역 하기 위해 음성을 텍스트로 변환 합니다. 음성 텍스트 변환은 음성 합성과 함께 사용 될 경우 음성 변환 또는 음성 변환에 사용 됩니다.

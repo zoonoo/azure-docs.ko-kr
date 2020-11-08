@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef3f7cde226d7246b1de3ae23cd9b4340b012b33
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101724"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366369"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
 
@@ -167,4 +167,4 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |미국|US|
 
 ## <a name="next-steps"></a>다음 단계
-Bing News Search 엔드포인트에 대한 자세한 내용은 [News Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)를 참조하세요.
+Bing News Search 엔드포인트에 대한 자세한 내용은 [News Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)를 참조하세요.

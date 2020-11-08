@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359547"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366726"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 고가용성 개념
 
@@ -101,17 +101,17 @@ PostgreSQL client 응용 프로그램은 DB 서버 이름을 사용 하 여 주 
 -   고가용성은 여러 영역을 사용할 수 있는 지역 에서만 지원 됩니다.
 -   다른 가용성 영역에 대 한 동기 복제로 인해 응용 프로그램은 높은 쓰기 및 커밋 대기 시간을 경험할 수 있습니다.
 
--   대기 복제본은 읽기 전용 쿼리에 사용할 수 없습니다.
+-   읽기 쿼리에는 대기 복제본을 사용할 수 없습니다.
 
--   장애 조치 (failover) 시 주 서버의 활동에 따라 장애 조치 (failover)를 완료 하는 데 최대 2 분 이상 걸릴 수 있습니다.
+-   주 서버의 작업 및 작업에 따라 장애 조치 (failover) 프로세스가 120 초 보다 오래 걸릴 수 있습니다.
 
--   주 데이터베이스 서버를 다시 시작 하 여 정적 매개 변수 변경 내용을 선택 하면 대기 복제본도 다시 시작 됩니다.
+-   주 데이터베이스 서버를 다시 시작 하면 대기 복제본도 다시 시작 됩니다. 
 
 -   추가 읽기 복제본 구성은 지원 되지 않습니다.
 
 -   관리 되는 유지 관리 기간 동안에는 고객 시작 관리 작업을 예약할 수 없습니다.
 
--   확장 컴퓨팅 및 확장 스토리지와 같은 계획된 이벤트는 먼저 대기 서버에서 발생한 다음 주 서버에서 발생합니다. 서비스가 장애 조치(failover)되지 않습니다. 
+-   확장 컴퓨팅 및 확장 스토리지와 같은 계획된 이벤트는 먼저 대기 서버에서 발생한 다음 주 서버에서 발생합니다. 이러한 계획 된 작업에 대해 서버는 장애 조치 (failover) 되지 않습니다. 
 
 -  HA로 구성 된 유연한 서버를 사용 하 여 논리적 디코딩 또는 논리적 복제를 구성 하는 경우 대기 서버에 대 한 장애 조치 (failover) 시에는 논리 복제 슬롯이 대기 서버로 복사 되지 않습니다.  
 

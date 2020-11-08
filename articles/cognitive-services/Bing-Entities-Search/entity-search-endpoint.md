@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5d6b0a6be0d99815c4d14bb04e56241d011812b5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d9b7c79919569830834915fc609b849e717dce8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084955"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365842"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing Entity Search API 엔드포인트
 
@@ -29,7 +29,7 @@ Bing Entity Search API는 쿼리를 기반으로 웹의 엔터티를 반환하�
 
 ## <a name="get-entity-results-from-the-endpoint"></a>엔드포인트에서 엔터티 결과 가져오기
 
-**Bing API** 를 사용하여 엔터티 결과를 가져오려면 `GET` 요청을 다음 엔드포인트로 전송합니다. [헤더](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) 및 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters)를 사용하여 검색 요청을 사용자 지정할 수 있습니다. `?q=` 매개 변수를 사용하여 검색 요청을 보낼 수 있습니다.
+**Bing API** 를 사용하여 엔터티 결과를 가져오려면 `GET` 요청을 다음 엔드포인트로 전송합니다. [헤더](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) 및 [쿼리 매개 변수](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters)를 사용하여 검색 요청을 사용자 지정할 수 있습니다. `?q=` 매개 변수를 사용하여 검색 요청을 보낼 수 있습니다.
 
 ```cURL
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -40,6 +40,6 @@ Bing Entity Search API는 쿼리를 기반으로 웹의 엔터티를 반환하�
 > [!div class="nextstepaction"]
 > [Bing Entity Search API란?](overview.md)
 
-## <a name="see-also"></a>추가 정보 
+## <a name="see-also"></a>참고 항목 
 
-헤더, 매개 변수, 시장 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 참조 문서를 확인하세요.
+헤더, 매개 변수, 시장 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Entity Search API v7](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 참조 문서를 확인하세요.

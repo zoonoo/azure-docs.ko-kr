@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086442"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366056"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Azure Logic Apps에서 제한 문제 (429-"요청이 너무 많음" 오류)를 처리 합니다.
 
@@ -35,31 +35,31 @@ Azure Logic Apps 서비스에는 고유한 [처리량 제한이](../logic-apps/l
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱 메뉴의 **모니터링**아래에서 **메트릭**을 선택 합니다.
+1. 논리 앱 메뉴의 **모니터링** 아래에서 **메트릭** 을 선택 합니다.
 
-1. **차트 제목**에서 **메트릭 추가** 를 선택 하 여 기존에 다른 메트릭을 추가 합니다.
+1. **차트 제목** 에서 **메트릭 추가** 를 선택 하 여 기존에 다른 메트릭을 추가 합니다.
 
-1. 첫 번째 메트릭 표시줄의 **메트릭** 목록에서 **작업 제한 이벤트**를 선택 합니다. 두 번째 메트릭 표시줄의 **메트릭** 목록에서 **스로틀 된 이벤트 트리거**를 선택 합니다.
+1. 첫 번째 메트릭 표시줄의 **메트릭** 목록에서 **작업 제한 이벤트** 를 선택 합니다. 두 번째 메트릭 표시줄의 **메트릭** 목록에서 **스로틀 된 이벤트 트리거** 를 선택 합니다.
 
 이 수준에서 제한을 처리 하기 위해 다음 옵션을 사용할 수 있습니다.
 
 * 동시에 실행할 수 있는 논리 앱 인스턴스 수를 제한 합니다.
 
-  기본적으로 논리 앱의 트리거 조건이 동시에 두 번 이상 충족 되는 경우 논리 앱에 대 한 여러 트리거 인스턴스가 동시에 또는 동시 *에*실행 됩니다. 이 동작은 이전 워크플로 인스턴스의 실행이 완료 되기 전에 각 트리거 인스턴스가 발생 함을 의미 합니다.
+  기본적으로 논리 앱의 트리거 조건이 동시에 두 번 이상 충족 되는 경우 논리 앱에 대 한 여러 트리거 인스턴스가 동시에 또는 동시 *에* 실행 됩니다. 이 동작은 이전 워크플로 인스턴스의 실행이 완료 되기 전에 각 트리거 인스턴스가 발생 함을 의미 합니다.
 
   동시에 실행 될 수 있는 트리거 인스턴스의 기본 수는 [제한](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)되지 않지만 [트리거의 동시성 설정을](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)설정 하 여이 수를 제한 하 고 필요한 경우 기본값 이외의 제한을 선택할 수 있습니다.
 
 * 높은 처리량 모드를 사용 합니다.
 
-  논리 앱에는 [5 분의 이동 간격 동안 실행할 수 있는 작업 수에 대 한 기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 이 제한을 최대 작업 수로 올리려면 논리 앱에서 [높은 처리량 모드](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) 를 설정 합니다.
+  논리 앱에는 [5 분의 이동 간격 동안 실행할 수 있는 작업 수에 대 한 기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 이 제한을 최대 작업 수로 올리려면 논리 앱에서 [높은 처리량 모드](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) 를 설정 합니다.
 
 * 트리거에서 배열 분리 처리 ("분할") 동작을 사용 하지 않도록 설정 합니다.
 
-  트리거가 처리할 나머지 워크플로 작업에 대 한 배열을 반환 하는 경우 트리거의 [ **분할** 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) 은 배열 항목을 분할 하 고 각 배열 항목에 대 한 워크플로 인스턴스를 시작 하 여 한 [도 **의 분할** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)에 대해 여러 동시 실행을 효과적으로 트리거합니다. 제한을 제어 하려면 **분할** 동작을 해제 하 고 논리 앱에서 호출 당 단일 항목을 처리 하는 대신 단일 호출로 전체 배열을 처리 하도록 합니다.
+  트리거가 처리할 나머지 워크플로 작업에 대 한 배열을 반환 하는 경우 트리거의 [ **분할** 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) 은 배열 항목을 분할 하 고 각 배열 항목에 대 한 워크플로 인스턴스를 시작 하 여 한 [도 **의 분할**](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)에 대해 여러 동시 실행을 효과적으로 트리거합니다. 제한을 제어 하려면 **분할** 동작을 해제 하 고 논리 앱에서 호출 당 단일 항목을 처리 하는 대신 단일 호출로 전체 배열을 처리 하도록 합니다.
 
 * 더 작은 논리 앱으로 작업을 리팩터링 합니다.
 
-  앞에서 설명한 것 처럼 논리 앱은 [5 분 동안 실행 될 수 있는 기본 작업 수](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 제한 됩니다. [높은 처리량 모드](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)를 사용 하도록 설정 하 여이 제한을 늘릴 수 있지만 각 논리 앱에서 실행 되는 작업 수가 한도 미만으로 유지 되도록 논리 앱의 작업을 더 작은 논리 앱으로 나눌 지 여부를 고려할 수도 있습니다. 이렇게 하면 단일 논리 앱 리소스에 대 한 부담을 줄이고 여러 논리 앱에 부하를 분산 시킬 수 있습니다. 이 솔루션은 많은 데이터 집합을 처리 하거나 동시에 실행 되는 여러 작업, 루프 반복 또는 작업 실행 제한을 초과 하는 각 루프 반복 내에서 작업을 실행 하는 작업에 더 적합 합니다.
+  앞에서 설명한 것 처럼 논리 앱은 [5 분 동안 실행 될 수 있는 기본 작업 수](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 제한 됩니다. [높은 처리량 모드](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)를 사용 하도록 설정 하 여이 제한을 늘릴 수 있지만 각 논리 앱에서 실행 되는 작업 수가 한도 미만으로 유지 되도록 논리 앱의 작업을 더 작은 논리 앱으로 나눌 지 여부를 고려할 수도 있습니다. 이렇게 하면 단일 논리 앱 리소스에 대 한 부담을 줄이고 여러 논리 앱에 부하를 분산 시킬 수 있습니다. 이 솔루션은 많은 데이터 집합을 처리 하거나 동시에 실행 되는 여러 작업, 루프 반복 또는 작업 실행 제한을 초과 하는 각 루프 반복 내에서 작업을 실행 하는 작업에 더 적합 합니다.
 
   예를 들어이 논리 앱은 SQL Server 데이터베이스에서 테이블을 가져오는 모든 작업을 수행 하 고 각 테이블의 행을 가져옵니다. **For each** 루프는 **행 가져오기** 작업에서 각 테이블에 대 한 행을 반환 하도록 각 테이블을 동시에 반복 합니다. 이러한 작업은 해당 테이블에 있는 데이터의 양에 따라 작업 실행의 제한을 초과할 수 있습니다.
 
@@ -135,7 +135,7 @@ HTTP와 같은 일부 트리거 및 작업에는 예외 처리를 구현 하기 
 
 커넥터에는 자체 제한 한도가 있지만 커넥터에 의해 호출 되는 대상 서비스 또는 시스템에도 제한 제한이 있을 수 있습니다. 예를 들어 Microsoft Exchange Server의 일부 Api는 Office 365 Outlook 커넥터 보다 제한 한도가 더 엄격 합니다.
 
-기본적으로 논리 앱의 인스턴스 및 해당 인스턴스 내의 루프 또는 분기는 *병렬로*실행 됩니다. 이 동작은 여러 인스턴스가 동시에 동일한 끝점을 호출할 수 있음을 의미 합니다. 각 인스턴스는 다른의 존재에 대해 알지 못합니다. 실패 한 작업을 다시 시도 하면 여러 호출이 동시에 실행 하려고 시도 하는 [경합 상태](https://en.wikipedia.org/wiki/Race_condition) 를 만들 수 있지만, 성공적으로 실행 하려면 조정이 시작 되기 전에 대상 서비스 또는 시스템에 해당 호출이 도착 해야 합니다.
+기본적으로 논리 앱의 인스턴스 및 해당 인스턴스 내의 루프 또는 분기는 *병렬로* 실행 됩니다. 이 동작은 여러 인스턴스가 동시에 동일한 끝점을 호출할 수 있음을 의미 합니다. 각 인스턴스는 다른의 존재에 대해 알지 못합니다. 실패 한 작업을 다시 시도 하면 여러 호출이 동시에 실행 하려고 시도 하는 [경합 상태](https://en.wikipedia.org/wiki/Race_condition) 를 만들 수 있지만, 성공적으로 실행 하려면 조정이 시작 되기 전에 대상 서비스 또는 시스템에 해당 호출이 도착 해야 합니다.
 
 예를 들어 100 개의 항목이 있는 배열이 있다고 가정 합니다. "For each" 루프를 사용 하 여 배열을 반복 하 고 루프의 동시성 제어를 설정 하 여 병렬 반복의 수를 20 또는 [현재 기본 제한](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)으로 제한할 수 있습니다. 이 루프 내에서 작업은 배열의 항목을 SQL Server 데이터베이스에 삽입 하 여 초당 15 개의 호출만 허용 합니다. 이 시나리오에서는 다시 시도의 백로그가 작성 되 고 실행 되지 않기 때문에 제한 문제가 발생 합니다.
 

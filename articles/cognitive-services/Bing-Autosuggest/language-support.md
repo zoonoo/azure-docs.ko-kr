@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: d6971dafc7e3157b3de62284b400ebdc6ddc19c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6156dbe4d189800172250f56ad3ab095bea17bb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101904"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364516"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 언어 및 지역 지원
 
@@ -69,7 +69,7 @@ ms.locfileid: "93101904"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
-- [Azure Cognitive Services 문서 페이지](https://docs.microsoft.com/azure/cognitive-services/)
+- [Azure Cognitive Services 문서 페이지](../index.yml)
 - [Azure Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

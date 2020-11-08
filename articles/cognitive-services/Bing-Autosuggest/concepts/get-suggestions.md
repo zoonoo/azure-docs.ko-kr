@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cdbbd6afeedc1c8808e02aefa268be4fe0de5f9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101972"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363377"
 ---
 # <a name="suggesting-query-terms"></a>쿼리 용어 제안
 
@@ -28,7 +28,7 @@ ms.locfileid: "93101972"
 
 ## <a name="example-request"></a>요청 예
 
-다음 예제에서는 *sail* 에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les* 를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
+다음 예제에서는 *sail* 에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les* 를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -39,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-다음 응답에는 제안된 쿼리 용어를 포함하는 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) 개체 목록이 포함됩니다.
+다음 응답에는 제안된 쿼리 용어를 포함하는 [SearchAction](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) 개체 목록이 포함됩니다.
 
 ```json
 {
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 ![드롭다운 검색 상자 목록 자동 제안](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-사용자가 드롭다운 목록에서 제안된 쿼리를 선택하면 개발자는 `query` 필드의 쿼리 용어를 사용하여 [Bing Web Search API](../../bing-web-search/search-the-web.md)를 호출하고 결과를 직접 표시할 수 있습니다. 또는 `url` 필드에 URL을 사용하여 사용자를 Bing 검색 결과 페이지로 보낼 수도 있습니다.
+사용자가 드롭다운 목록에서 제안된 쿼리를 선택하면 개발자는 `query` 필드의 쿼리 용어를 사용하여 [Bing Web Search API](../../bing-web-search/overview.md)를 호출하고 결과를 직접 표시할 수 있습니다. 또는 `url` 필드에 URL을 사용하여 사용자를 Bing 검색 결과 페이지로 보낼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

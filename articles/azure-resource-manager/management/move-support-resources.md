@@ -2,13 +2,13 @@
 title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 11/06/2020
+ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337953"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364232"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -792,7 +792,6 @@ ms.locfileid: "94337953"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | 예 | yes |
-> | datafactoryschema | 예 | 예 |
 > | factories | 예 | yes |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
@@ -882,7 +881,7 @@ ms.locfileid: "94337953"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | 예 | 예 |
+> | applicationgroups | 예 | yes |
 > | hostpools | 예 | 예 |
 > | workspaces | 예 | 예 |
 
@@ -894,7 +893,7 @@ ms.locfileid: "94337953"
 > | elasticpools | 예 | 예 |
 > | elasticpools / iothubtenants | 예 | 예 |
 > | iothubs | 예 | yes |
-> | provisioningservices | 예 | 예 |
+> | provisioningservices | 예 | yes |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
@@ -1068,7 +1067,7 @@ ms.locfileid: "94337953"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | 예 | 예 |
+> | datamanagers | 예 | yes |
 
 ## <a name="microsofthybridnetwork"></a>HybridNetwork
 
@@ -1106,7 +1105,7 @@ ms.locfileid: "94337953"
 > | alertrules | 예 | 예 |
 > | autoscalesettings | 예 | 예 |
 > | baseline | 예 | 예 |
-> | components | 예 | yes |
+> | components | 예 | 예 |
 > | datacollectionrules | 예 | 예 |
 > | diagnosticsettings | 예 | 예 |
 > | diagnosticsettingscategories | 예 | 예 |
@@ -1137,7 +1136,7 @@ ms.locfileid: "94337953"
 > | webtests | 예 | 예 |
 > | 웹 테스트/gettestresultfile | 예 | 예 |
 > | workbooks | 예 | 예 |
-> | workbooktemplates | 예 | 예 |
+> | workbooktemplates | 예 | yes |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -1351,7 +1350,7 @@ ms.locfileid: "94337953"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | mediaservices | 예 | yes |
+> | mediaservices | 예 | 예 |
 > | mediaservices / liveevents | 예 | yes |
 > | mediaservices / streamingendpoints | 예 | yes |
 
@@ -1787,7 +1786,7 @@ ms.locfileid: "94337953"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | signalr | 예 | yes |
+> | signalr | 예 | 예 |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
@@ -1837,7 +1836,7 @@ ms.locfileid: "94337953"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | storageaccounts | 예 | yes |
+> | storageaccounts | 예 | 예 |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
@@ -1924,7 +1923,7 @@ ms.locfileid: "94337953"
 > | ------------- | ----------- | ---------- |
 > | environments | 예 | yes |
 > | environments / eventsources | 예 | 예 |
-> | environments / referencedatasets | 예 | yes |
+> | environments / referencedatasets | 예 | 예 |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 
@@ -2015,7 +2014,7 @@ ms.locfileid: "94337953"
 > | runtimes | 예 | 예 |
 > | serverfarms | 예 | 예 |
 > | serverfarms / eventgridfilters | 예 | 예 |
-> | sites | 예 | 예 |
+> | sites | 예 | yes |
 > | sites / premieraddons | 예 | 예 |
 > | sites / slots | 예 | yes |
 > | sourcecontrols | 예 | 예 |

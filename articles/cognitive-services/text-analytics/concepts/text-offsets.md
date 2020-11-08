@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855637"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363785"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>텍스트 분석 API 출력의 텍스트 오프셋
 
@@ -34,9 +34,9 @@ ms.locfileid: "88855637"
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>오프셋을 사용 하 여 텍스트에서 부분 문자열 추출
 
-기호는 문자 기반 부분 문자열 메서드 (예: .NET [substring () 메서드)](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) 를 사용할 때 문제를 일으킬 수 있습니다. 한 가지 문제는 오프셋으로 인해 substring 메서드가 끝이 아닌 다중 문자 grapheme 인코딩 중간에 종료 될 수 있다는 것입니다.
+기호는 문자 기반 부분 문자열 메서드 (예: .NET [substring () 메서드)](/dotnet/api/system.string.substring?view=netframework-4.8) 를 사용할 때 문제를 일으킬 수 있습니다. 한 가지 문제는 오프셋으로 인해 substring 메서드가 끝이 아닌 다중 문자 grapheme 인코딩 중간에 종료 될 수 있다는 것입니다.
 
-.NET에서는 [쌍인지](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) 클래스를 사용 하는 것이 좋습니다 .이 클래스를 사용 하면 개별 문자 개체가 아닌 일련의 텍스트 요소로 문자열을 사용할 수 있습니다. 선호 하는 소프트웨어 환경에서 grapheme 분할기 라이브러리를 찾을 수도 있습니다. 
+.NET에서는 [쌍인지](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) 클래스를 사용 하는 것이 좋습니다 .이 클래스를 사용 하면 개별 문자 개체가 아닌 일련의 텍스트 요소로 문자열을 사용할 수 있습니다. 선호 하는 소프트웨어 환경에서 grapheme 분할기 라이브러리를 찾을 수도 있습니다. 
 
 텍스트 분석 API는 편의상 이러한 텍스트 요소도 반환 합니다.
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357184"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366641"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -78,7 +78,7 @@ ms.locfileid: "94357184"
 - Zone-Redundant HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
 - 서버에서 HA 대기로 장애 조치 (failover) 될 때 데이터베이스 서버 IP 주소가 변경 됩니다. 서버 IP 주소 대신 DNS 레코드를 사용 해야 합니다.
 - HA로 구성 된 유연한 서버를 사용 하 여 논리적 복제를 구성 하는 경우 대기 서버에 대 한 장애 조치 (failover) 시에는 논리 복제 슬롯이 대기 서버로 복사 되지 않습니다. 
-- 추가 HA 제한 사항은 [개념-ha 설명서](concepts-high-availability.md) 페이지를 참조 하세요.
+- 제한 사항을 비롯 한 영역 중복 HA에 대 한 자세한 내용은 [개념-HA 설명서](concepts-high-availability.md) 페이지를 참조 하세요.
 
 ### <a name="availability-zones"></a>가용성 영역
 

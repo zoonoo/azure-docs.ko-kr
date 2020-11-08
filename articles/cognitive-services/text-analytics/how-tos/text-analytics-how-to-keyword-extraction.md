@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e81286ffa5930b802df3b3bfe657091175f391
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704381"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363646"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "91704381"
 
 이 기능은 문서 컬렉션에서 주요 지점을 빠르게 식별해야 하는 경우에 유용합니다. 예를 들어 "음식이 맛있고 훌륭한 직원이 있었습니다"라는 입력 텍스트가 제공되면 서비스에서 "음식" 및 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
-자세한 내용은 [지원되는 언어](../text-analytics-supported-languages.md)를 참조하세요.
+자세한 내용은 [지원되는 언어](../language-support.md)를 참조하세요.
 
 > [!TIP]
 > Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "91704381"
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
+핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업 모두에서 최상의 결과를 얻으려면 적절하게 입력을 재구성하는 것을 고려해보세요.
 
 ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
@@ -83,7 +83,7 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔** 을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 

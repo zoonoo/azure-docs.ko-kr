@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084209"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367083"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing Spell Check API에 대한 언어 및 지역 지원
 
@@ -26,7 +26,7 @@ ms.locfileid: "93084209"
 
 이러한 언어는 Bing Spell Check API(`spell` 모드만 해당)에서 지원됩니다.
 
-`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
+`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -71,7 +71,7 @@ ms.locfileid: "93084209"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
-- [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/cognitive-services/)
+- [Cognitive Services 설명서 페이지](../index.yml)
 - [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051103"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365366"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Ink Recognizer API에 잉크 데이터 보내기 
 
@@ -64,7 +64,7 @@ Ink Recognizer API는 잉크 콘텐츠에서 인식된 개체에 대한 분석 �
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Ink Recognizer API에서 인식되는 도형
 
-Ink Recognizer API는 노트 작성에서 가장 일반적으로 사용되는 도형을 식별할 수 있습니다. 아래 이미지에는 몇 가지 기본 예제가 나와 있습니다. API에서 인식되는 도형 및 다른 잉크 콘텐츠에 대한 전체 목록은 [API 참조 문서](https://go.microsoft.com/fwlink/?linkid=2089907)를 참조하세요. 
+Ink Recognizer API는 노트 작성에서 가장 일반적으로 사용되는 도형을 식별할 수 있습니다. 아래 이미지에는 몇 가지 기본 예제가 나와 있습니다. API에서 인식되는 도형 및 다른 잉크 콘텐츠에 대한 전체 목록은 [API 참조 문서](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)를 참조하세요. 
 
 ![Ink Recognizer API에서 인식되는 도형의 목록](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Ink Recognizer REST API는 애플리케이션에 따라 다양한 패턴으로 �
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Ink Recognizer API와 Windows Ink 통합
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)는 다양한 디바이스에서 디지털 잉크 입력 환경을 사용할 수 있게 하는 도구와 기술을 제공합니다. Windows 잉크 플랫폼과 잉크 인식기 API를 결합 하 여 디지털 잉크 스트로크를 표시 하 고 해석 하는 응용 프로그램을 만들 수 있습니다.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)는 다양한 디바이스에서 디지털 잉크 입력 환경을 사용할 수 있게 하는 도구와 기술을 제공합니다. Windows 잉크 플랫폼과 잉크 인식기 API를 결합 하 여 디지털 잉크 스트로크를 표시 하 고 해석 하는 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Ink Recognizer API란?](../overview.md)
-* [Ink Recognizer REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Ink Recognizer REST API 참조](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * 다음을 사용하여 디지털 잉크 스트로크 데이터 보내기를 시작합니다.
     * [C#](../quickstarts/csharp.md)

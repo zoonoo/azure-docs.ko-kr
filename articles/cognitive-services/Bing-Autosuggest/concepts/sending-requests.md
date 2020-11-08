@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101955"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364040"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
 
@@ -38,13 +38,13 @@ Bing API를 사용하여 제안된 쿼리를 가져오려면 `GET` 요청을 다
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
+헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
 
 **Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.
 모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
 
 각 엔드포인트에서 지원하는 매개 변수에 대한 자세한 내용은 각 유형에 대한 참조 페이지를 참조하세요.
-Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest)을 참조하세요.
+Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시작](/azure/cognitive-services/Bing-Autosuggest)을 참조하세요.
 
 ## <a name="bing-autosuggest-api-requests"></a>Bing Autosuggest API 요청
 
@@ -53,18 +53,18 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 
 모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 애플리케이션의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 애플리케이션에 액세스할 가능성이 높아집니다. 또한 서버에서 호출하면 향후 업데이트를 위한 단일 업그레이드 지점이 제공됩니다.
 
-요청에서 사용자의 부분 검색어가 포함된 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) 쿼리 매개 변수도 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters)를 참조 하세요. 모든 쿼리 매개 변수 값은 URL로 인코드되어야 합니다.
+요청에서 사용자의 부분 검색어가 포함된 [q](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) 쿼리 매개 변수도 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters)를 참조 하세요. 모든 쿼리 매개 변수 값은 URL로 인코드되어야 합니다.
 
-요청에서 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.
+요청에서 [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.
 
-- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
-- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
-- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [User-Agent](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [X-MSEdge-ClientID](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
+- [X-Search-ClientIP](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
+- [X-Search-Location](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
 클라이언트 IP 및 위치 헤더는 위치 인식 콘텐츠를 반환하는 데 중요합니다.
 
-모든 요청 및 응답 헤더 목록은 [헤더](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers)를 참조하세요.
+모든 요청 및 응답 헤더 목록은 [헤더](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers)를 참조하세요.
 
 > [!NOTE]
 > JavaScript에서 Bing Autosuggest API를 호출하는 경우 브라우저의 기본 제공 보안 기능으로 인해 이러한 헤더 값에 액세스하지 못할 수 있습니다.
@@ -110,7 +110,7 @@ Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 �
 
 `displayText` 필드에는 검색 상자의 드롭다운 목록을 채우는 데 사용하는 제안된 쿼리가 포함됩니다. 응답에 포함된 모든 제안을 지정된 순서대로 표시해야 합니다.  
 
-사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다.
+사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -181,5 +181,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>다음 단계
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Bing Autosuggest API에서 제안된 검색어 가져오기](get-suggestions.md)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291646"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365011"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
@@ -31,11 +31,11 @@ ms.locfileid: "87291646"
 
 + [SQL Server 데이터를 사용하여 논리 앱에서 감정 분석(TechNet 블로그)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Dynamics 365 CRM Online을 사용한 감정 분석(MSDN 블로그)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Dynamics 365 CRM Online을 사용한 감정 분석(MSDN 블로그)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + Power BI 블로그: Facebook 메시지에서 키 문구 추출: [1 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [MS Flow를 사용 하 여 Yammer 그룹에서 의견의 감정 식별 (Microsoft tech community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [MS Flow를 사용 하 여 Yammer 그룹에서 의견의 감정 식별 (Microsoft tech community)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232749"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363326"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -177,6 +177,6 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## <a name="see-also"></a>참고 항목
 
-* [Cognitive Services란?](welcome.md)
+* [Cognitive Services란?](./what-are-cognitive-services.md)
 * [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [사용자 지정 하위 도메인](cognitive-services-custom-subdomains.md)

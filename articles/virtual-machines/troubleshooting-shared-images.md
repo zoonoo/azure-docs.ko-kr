@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348919"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364482"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -153,7 +153,7 @@ ms.locfileid: "93348919"
 
 *속성 ' galleryImageVersion. storageProfile Profile. \> source.id '은 (는) 변경할 수 없습니다.*  
 **원인** : 갤러리 이미지 버전의 원본 ID를 만든 후에는 변경할 수 없습니다.  
-**해결 방법** : 원본 id가 이미 존재 하는 원본 id와 동일한 지 확인 하거나 이미지 버전의 버전 번호를 변경 합니다.
+**해결 방법** : 원본 id가 이미 존재 하는 원본 id와 동일한 지 확인 하 고, 이미지 버전의 버전 번호를 변경 하거나, 현재 이미지 버전을 삭제 한 후 다시 시도 하십시오.
 
 *입력 데이터 디스크에서 중복 된 lun 번호가 검색 되었습니다. Lun 번호는 각 데이터 디스크에 대해 고유 해야 합니다.*  
 **원인** : 디스크 및/또는 디스크 스냅숏 목록을 사용 하 여 이미지 버전을 만들 때 둘 이상의 디스크 또는 디스크 스냅숏에 동일한 lun 번호가 있습니다.  

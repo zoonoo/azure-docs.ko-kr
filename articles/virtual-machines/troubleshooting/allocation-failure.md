@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509361"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365876"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
 VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 컴퓨팅 리소스를 할당합니다. 당사는 고객의 요구를 지원할 수 있는 모든 VM 유형을 항상 제공할 수 있도록 추가 인프라와 기능에 지속적으로 투자하고 있습니다. 하지만 Azure 서비스에 대한 수요가 특정 지역에서 전례 없이 증가하여 리소스 할당 오류가 때때로 발생할 수 있습니다. VM이 다음 오류 코드 및 메시지를 표시하는 동안 해당 지역에서 VM을 만들거나 시작하려고 하면 이런 문제가 발생할 수 있습니다.
 
-**오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
+**오류 코드** : AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해 자세히 알아보세요. \/
+**오류 메시지** : "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해 자세히 알아보세요. \/
+
+> [!NOTE]
+> VMSS (가상 머신 확장 집합)의 문제를 해결 하는 경우 프로세스는 표준 VM과 동일 합니다. 이 문제를 해결 하려면이 문서의 지침을 따라야 합니다.
+> 
+>**오류 메시지** : "할당하지 못했습니다. 단일 배치 그룹을 사용 하 여 가상 머신 확장 집합에 새 VM을 추가 하거나 단일 배치 그룹을 사용 하는 가상 머신 확장 집합에 기존 VM을 업데이트/크기를 조정 하려는 경우 해당 할당이 단일 클러스터로 범위가 지정 되며 클러스터의 용량이 부족 한 것을 확인할 수 있습니다. Http:/aka.ms/allocation-guidance에서 할당 성공 가능성을 개선 하는 방법에 대 한 자세한 내용을 참조 하세요 \/ .
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
@@ -85,7 +90,7 @@ Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사
 
 Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하려면 레거시 시리즈 가상 머신을 사용하는 경우 다음 권장 사항에 따라 신규 VM으로 이동을 고려하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 맞게 최적화되어 보다 나은 가격 및 성능의 이점을 활용할 수 있습니다. 
 
-|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
+|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|추가 정보|
 |----------------------|----------------------------|--------------------|
 |Av1 시리즈|[Av2 시리즈](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173960"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363870"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -84,7 +84,7 @@ ms.locfileid: "92173960"
 여러 가지 방법으로 컨테이너를 설치 하 고 실행할 수 있습니다. 
 
 - [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) 를 사용 하 여 Text Analytics 리소스를 만들고 Docker를 사용 하 여 컨테이너를 가져옵니다.
-- 다음 PowerShell 및 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 스크립트를 사용 하 여 리소스 배포 컨테이너 구성을 자동화할 수 있습니다.
+- 다음 PowerShell 및 [Azure CLI](/cli/azure/?view=azure-cli-latest) 스크립트를 사용 하 여 리소스 배포 컨테이너 구성을 자동화할 수 있습니다.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Azure Web App for Containers을 사용 하 여 컨테이너 설치
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 또한 ACI (Azure Container Instance)를 사용 하 여 배포를 보다 쉽게 만들 수 있습니다. ACI는 서버를 사용 하지 않는 관리 되는 Azure 환경에서 주문형 Docker 컨테이너를 실행할 수 있는 리소스입니다. 
 
 Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure Container Instances 사용 방법을](text-analytics-how-to-use-container-instances.md) 참조 하세요. 컨테이너 이미지를 사용 하 여 구독에서 ACI를 만드는 Azure CLI를 사용 하 여 아래 PowerShell 스크립트를 사용할 수도 있습니다.  첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).  최대 Cpu 수에 대 한 제한으로 인해 요청 당 5 개 이상의 매우 많은 문서 (각각 5000 자)를 전송 하려는 경우이 옵션을 선택 하지 마십시오.
-가용성 정보는 [ACI 지역 지원](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) 문서를 참조 하세요. 
+가용성 정보는 [ACI 지역 지원](../../../container-instances/container-instances-region-availability.md) 문서를 참조 하세요. 
 
 > [!NOTE] 
 > Azure Container Instances 기본 제공 도메인에 대 한 HTTPS 지원을 포함 하지 않습니다. HTTPS가 필요한 경우 인증서를 만들고 도메인을 등록 하는 등 수동으로 구성 해야 합니다. 아래 NGINX를 사용 하 여이 작업을 수행 하는 지침을 찾을 수 있습니다.
@@ -399,7 +399,7 @@ example.json
 
 ### <a name="relation-extraction-output"></a>관계 추출 출력
 
-관계 추출 출력에는 관계의 *원본* 및 *대상*에 대 한 URI 참조가 포함 됩니다. 관계 역할이 인 엔터티 `ENTITY` 는 필드에 할당 됩니다 `target` . 관계 역할이 인 엔터티 `ATTRIBUTE` 는 필드에 할당 됩니다 `source` . 약어 관계는 양방향 `source` 및 `target` 필드를 포함 하며 `bidirectional` 로 설정 됩니다 `true` . 
+관계 추출 출력에는 관계의 *원본* 및 *대상* 에 대 한 URI 참조가 포함 됩니다. 관계 역할이 인 엔터티 `ENTITY` 는 필드에 할당 됩니다 `target` . 관계 역할이 인 엔터티 `ATTRIBUTE` 는 필드에 할당 됩니다 `source` . 약어 관계는 양방향 `source` 및 `target` 필드를 포함 하며 `bidirectional` 로 설정 됩니다 `true` . 
 
 ```json
 "relations": [

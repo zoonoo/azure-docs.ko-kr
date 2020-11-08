@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837132"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364941"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 FAQ(질문과 대답)
 
@@ -29,11 +29,11 @@ ms.locfileid: "73837132"
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>나만의 학습 데이터 또는 모델을 추가할 수 있나요?
 
-아니요. 모델은 미리 학습됩니다. 업로드된 데이터에 대해 사용 가능한 유일한 작업은 점수 매기기, 핵심 구 추출 및 언어 감지입니다. 사용자 지정 모델은 호스트하지 않습니다. 사용자 지정 기계 학습 모델을 만들고 호스트하려면 [Microsoft R Server의 Machine Learning 기능](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)을 고려하세요.
+아니요. 모델은 미리 학습됩니다. 업로드된 데이터에 대해 사용 가능한 유일한 작업은 점수 매기기, 핵심 구 추출 및 언어 감지입니다. 사용자 지정 모델은 호스트하지 않습니다. 사용자 지정 기계 학습 모델을 만들고 호스트하려면 [Microsoft R Server의 Machine Learning 기능](/r-server/r/concept-what-is-the-microsoftml-package)을 고려하세요.
 
 ## <a name="can-i-request-additional-languages"></a>추가 언어를 요청할 수 있나요?
 
-[선택한 언어 수](text-analytics-supported-languages.md)에 대해 감정 분석 및 핵심 구 추출을 사용할 수 있습니다. 자연어 처리는 복잡하며 새 기능이 출시되기 전에 실질적인 테스트가 필요합니다. 이러한 이유로 숙성 시간이 좀 더 필요한 기능에는 아무도 의존하지 않도록 지원 정보를 미리 발표하지 않으려고 합니다. 
+[선택한 언어 수](./language-support.md)에 대해 감정 분석 및 핵심 구 추출을 사용할 수 있습니다. 자연어 처리는 복잡하며 새 기능이 출시되기 전에 실질적인 테스트가 필요합니다. 이러한 이유로 숙성 시간이 좀 더 필요한 기능에는 아무도 의존하지 않도록 지원 정보를 미리 발표하지 않으려고 합니다. 
 
 다음에 제공할 언어 지원에 대한 순서를 지정하는 데 도움이 되도록 [사용자 의견](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 특정 언어에 투표하세요. 
 
