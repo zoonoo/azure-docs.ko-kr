@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461535"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372560"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -30,7 +30,7 @@ ms.locfileid: "92461535"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기|
+|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |가격 책정:|**컴퓨터의 SQL server에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |보호되는 SQL 버전:|Azure SQL Server (Microsoft 지원에 포함 된 모든 버전)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
@@ -53,7 +53,7 @@ ms.locfileid: "92461535"
 
 - **SQL Server 온-프레미스** -SQL Server azure Arc 없이 온-프레미스 Windows 컴퓨터에서 호스트 되는 경우 azure에 연결 하는 두 가지 옵션이 있습니다.
     
-    - **Azure Arc 배포** -모든 Windows 컴퓨터를 Security Center에 연결할 수 있습니다. 그러나 Azure Arc는 *모든* azure 환경에서 심층 통합을 제공 합니다. Azure Arc를 설정 하는 경우 포털에서 **SQL Server – Azure arc** 페이지가 표시 되 고 해당 페이지의 전용 **보안** 탭에 보안 경고가 표시 됩니다. 따라서 첫 번째 및 권장 옵션은 [호스트에서 Azure arc를 설정](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) 하 고 위의 **azure arc에서 SQL Server**에 대 한 지침을 따르는 것입니다.
+    - **Azure Arc 배포** -모든 Windows 컴퓨터를 Security Center에 연결할 수 있습니다. 그러나 Azure Arc는 *모든* azure 환경에서 심층 통합을 제공 합니다. Azure Arc를 설정 하는 경우 포털에서 **SQL Server – Azure arc** 페이지가 표시 되 고 해당 페이지의 전용 **보안** 탭에 보안 경고가 표시 됩니다. 따라서 첫 번째 및 권장 옵션은 [호스트에서 Azure arc를 설정](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) 하 고 위의 **azure arc에서 SQL Server** 에 대 한 지침을 따르는 것입니다.
         
     - **Azure arc를 사용 하지 않고 windows 컴퓨터 연결** -azure arc를 사용 하지 않고 windows 컴퓨터에서 실행 되는 SQL Server 연결 하도록 선택 하는 경우 [Azure Monitor에 windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md)의 지침을 따르세요.
 
@@ -62,13 +62,13 @@ ms.locfileid: "92461535"
 
 1. Security Center의 메뉴에서 **가격 책정 & 설정** 페이지를 엽니다.
 
-    - **Azure Security Center의 기본 작업 영역** 을 사용 하는 경우 ("defaultworkspace-[사용자의 구독 id]-[region]") 관련 **구독**을 선택 합니다.
+    - **Azure Security Center의 기본 작업 영역** 을 사용 하는 경우 ("defaultworkspace-[사용자의 구독 id]-[region]") 관련 **구독** 을 선택 합니다.
 
-    - **기본이 아닌 작업 영역**을 사용 하는 경우 관련 **작업 영역** 을 선택 합니다. 필요한 경우 필터에 작업 영역 이름을 입력 합니다.
+    - **기본이 아닌 작업 영역** 을 사용 하는 경우 관련 **작업 영역** 을 선택 합니다. 필요한 경우 필터에 작업 영역 이름을 입력 합니다.
 
         ![제목별로 기본이 아닌 작업 영역 찾기](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. **컴퓨터 (미리 보기) 계획의 SQL server에 대 한 Azure Defender** 옵션을 **on**으로 설정 합니다. 
+1. **컴퓨터 (미리 보기) 계획의 SQL server에 대 한 Azure Defender** 옵션을 **on** 으로 설정 합니다. 
 
     ![선택적 요금제를 사용 하는 Security Center 가격 책정 페이지](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -97,7 +97,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
 
     이 권장 사항에 대 한 상세 뷰가 나타납니다.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="컴퓨터의 SQL server에 대 한 취약성 평가 결과를 재구성 해야 함 (미리 보기)":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="권장 사항에 대 한 자세한 보기":::
 
 1. 자세한 내용은 드릴 다운:
 
@@ -105,7 +105,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
 
     * 특정 SQL 데이터베이스 별로 그룹화 된 취약점의 개요를 보려면 원하는 데이터베이스를 선택 합니다.
 
-    각 보기에서 보안 검사는 **심각도**를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크**와 같은 기타 관련 정보를 표시 합니다.
+    각 보기에서 보안 검사는 **심각도** 를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크** 와 같은 기타 관련 정보를 표시 합니다.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender for SQL 경고
 경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 [경고 참조 페이지의 SQL Database에 대 한 경고 및 Azure Synapse Analytics (이전의 SQL Data Warehouse) 섹션](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.

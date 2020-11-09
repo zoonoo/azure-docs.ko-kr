@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428113"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372781"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -39,7 +39,7 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기|
+|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독에 대한 **소유자** 또는 **기여자**|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
@@ -71,7 +71,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 
 #### <a name="create-an-iam-role-for-security-center"></a>Security Center에 대한 IAM 역할 만들기
 1. Amazon Web Services 콘솔의 **보안, ID 및 규정 준수** 에서 **IAM** 을 선택합니다.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS 서비스":::
 
 1. **역할** 을 선택하고 **역할 만들기** 를 선택합니다.
 1. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
@@ -130,13 +130,13 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 
 1. Security Center 메뉴에서 **다중 클라우드 커넥터** 를 선택합니다.
 1. **AWS 계정 추가** 를 선택합니다.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Security Center의 다중 클라우드 커넥터 페이지에 표시되는 [AWS 계정 추가] 단추":::
 1. 다음과 같이 **AWS 인증** 탭에서 옵션을 구성합니다.
     1. 커넥터의 **표시 이름** 을 입력합니다.
     1. 구독이 올바른지 확인합니다. 커넥터 및 AWS Security Hub 권장 사항을 포함할 구독입니다.
     1. [2단계. AWS에서 Security Center 인증 설정](#step-2-set-up-authentication-for-security-center-in-aws)에서 선택한 인증 옵션에 따라 다음을 수행합니다.
         - **역할 맡기** 를 선택하고 [Security Center의 IAM 역할 만들기](#create-an-iam-role-for-security-center)에서 ARN을 붙여넣습니다.
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Azure Portal에서 AWS 연결 마법사의 관련 필드에 ARN 파일 붙여넣기":::
 
             또는
 
@@ -168,7 +168,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 - ASC 서비스는 6시간마다 새 AWS EC2 인스턴스를 검색하고 구성에 따라 온보딩합니다.
 - AWS CIS 표준이 Security Center의 규정 준수 대시보드에 표시됩니다.
 - Security Hub 정책을 사용하도록 설정하면 온보딩이 완료되고 5~10분 후에 Security Center 포털과 규정 준수 대시보드에 권장 사항이 표시됩니다.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Security Center의 권장 사항 페이지에 표시되는 AWS 리소스 및 권장 사항":::
 
 
 
@@ -178,7 +178,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 
 리소스 종류별로 리소스에 대한 모든 활성 권장 사항을 보려면 Security Center의 자산 인벤토리 페이지를 사용하여 관심 있는 AWS 리소스 종류로 필터링합니다.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="AWS 옵션을 보여주는 자산 인벤토리 페이지의 리소스 종류 필터"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>Security Center의 AWS 관련 FAQ

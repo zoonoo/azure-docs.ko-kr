@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342028"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372540"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -23,17 +23,17 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|**Azure SQL 데이터베이스 서버용 Azure Defender** - 일반 공급(GA)<br>**머신의 SQL 서버용 Azure Defender** - 미리 보기|
-|가격 책정:|**Azure Defender for SQL**을 구성하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 청구됩니다.|
+|릴리스 상태:|**Azure SQL 데이터베이스 서버용 Azure Defender** - 일반 공급(GA)<br>**머신의 SQL 서버용 Azure Defender** - 미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|가격 책정:|**Azure Defender for SQL** 을 구성하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 청구됩니다.|
 |보호되는 SQL 버전:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics(이전의 SQL DW)<br>SQL Server(지원되는 모든 버전)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Azure Defender for SQL은 무엇을 보호하나요?
 
-**Azure Defender for SQL**은 두 개의 개별 Azure Defender 요금제로 구성됩니다.
+**Azure Defender for SQL** 은 두 개의 개별 Azure Defender 요금제로 구성됩니다.
 
-- **Azure SQL 데이터베이스 서버용 Azure Defender**는 다음을 보호합니다.
+- **Azure SQL 데이터베이스 서버용 Azure Defender** 는 다음을 보호합니다.
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
   - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

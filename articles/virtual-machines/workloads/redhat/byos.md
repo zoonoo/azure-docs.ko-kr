@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993345"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372798"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -21,14 +21,14 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 >[!NOTE]
 > RHEL BYOS 골드 이미지는 Azure 공용 (상용) 및 Azure Government 클라우드에서 사용할 수 있습니다. Azure 중국 또는 Azure 블랙 포리스트 클라우드에서 사용할 수 없습니다.
 
-## <a name="important-points-to-consider"></a>고려해 야 할 중요 사항
+## <a name="important-points-to-consider"></a>고려할 중요한 사항
 
 - 이 프로그램에서 제공 하는 Red Hat 골드 이미지는 Azure Marketplace의 RHEL 종 량 제 이미지와 비슷한 프로덕션 준비 RHEL 이미지입니다.
 - 이미지는 [Azure의 Red Hat Enterprise Linux 이미지](./redhat-images.md)에 설명 된 현재 정책을 따릅니다.
 - 표준 지원 정책은 이러한 이미지에서 만든 Vm에 적용 됩니다.
 - Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL 종 량 제 이미지와 관련 된 RHEL 요금을 운반 하지 않습니다.
 - 이미지에 대 한 자격이 없습니다. Red hat에서 직접 업데이트를 받으려면 Red Hat Subscription-Manager를 사용 하 여 Vm을 등록 하 고 구독 해야 합니다.
-- 현재는 BYOS와 Linux 이미지에 대 한 종 량 제 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+- [Azure 하이브리드 혜택](../../linux/azure-hybrid-benefit-linux.md)를 사용 하 여 종 량 제 이미지에서 byos로 전환할 수 있습니다. 그러나 처음에 배포한 BYOS에서 Linux 이미지에 대 한 종 량 제 청구 모델로 전환 하는 것은 불가능 합니다. 청구 모델을 BYOS에서 종 량 제로 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
 
 >[!NOTE]
 > 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. 2 세대 RHEL BYOS 이미지가 필요한 경우 Red Hat 구독 관리에서 클라우드 액세스 대시보드를 방문 합니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)를 참조 하세요.
@@ -45,7 +45,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Azure Portal의 Red Hat 금색 이미지를 사용 합니다.
 
-1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기**를  >  **참조**하세요.
+1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기** 를  >  **참조** 하세요.
 
 1. 페이지 맨 위에 개인 제안이 있는 것을 볼 수 있습니다.
 
@@ -93,7 +93,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     ```
 
     >[!NOTE]
-    >이러한 용어 *는 이미지 SKU 당 Azure 구독 당 한 번만*허용 해야 합니다.
+    >이러한 용어 *는 이미지 SKU 당 Azure 구독 당 한 번만* 허용 해야 합니다.
 
 1. 필드 다음 명령을 사용 하 여 VM 배포의 유효성을 검사 합니다.
 

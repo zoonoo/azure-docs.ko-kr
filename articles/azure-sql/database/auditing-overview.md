@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340040"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372730"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - 보고서를 **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> Azure SQL Database 감사는 가용성 및 성능에 맞게 최적화 되어 있습니다. 매우 높은 활동 Azure SQL Database 또는 Azure Synapse를 사용 하 여 작업을 계속 진행 하 고 일부 감사 되는 이벤트를 기록 하지 않을 수 있습니다.
+> Azure SQL Database 및 Azure Synapse에 대 한 감사는 가용성 및 성능에 맞게 최적화 되어 있습니다. 매우 높은 활동이 나 높은 네트워크 부하 중에 Azure SQL Database 및 Azure Synapse를 사용 하 여 작업을 계속 진행 하 고 일부 감사 이벤트를 기록 하지 않을 수 있습니다.
 
 ### <a name="auditing-limitations"></a>감사 제한 사항
 

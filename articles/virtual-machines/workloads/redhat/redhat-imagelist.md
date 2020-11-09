@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629224"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372679"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
 Azure는 다양 한 사용 사례에 대 한 다양 한 RHEL 이미지를 제공 합니다.
@@ -26,12 +26,12 @@ Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 �
 > [!NOTE]
 > 원시 이미지는 LVM 분할 이미지를 위해 더 이상 생성 되지 않습니다. LVM은 훨씬 더 유연한 파티션 크기 조정 옵션을 포함 하 여 오래 된 원시 (LVM) 파티션 구성표에 비해 여러 가지 이점을 제공 합니다.
 
-제안| SKU | 분할 | 프로비전 | 메모
+제안| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux 에이전트 | 
-|             | 6.8      | RAW    | Linux 에이전트 | 
-|             | 6.9      | RAW    | Linux 에이전트 | 
-|             | 6.10     | RAW    | Linux 에이전트 | 
+RHEL          | 6.7      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님).
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님). 배포할 표준 RHEL 이미지를 찾고 있는 경우이 이미지 집합 및/또는 해당 하는 2 세대를 사용 합니다.
 |             | 7lvm-gen2| LVM    | Linux 에이전트 | 2 세대, RHEL 7.x 이미지 제품군 <br> 기본적으로 일반 리포지토리에 연결 됩니다 (EUS 아님). 배포할 표준 RHEL 이미지를 찾고 있는 경우이 이미지 집합 및/또는 해당 하는 1 세대를 사용 합니다.
@@ -67,9 +67,9 @@ RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니�
 |             | 7.6       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.6. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 76sap-gen2| LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.6. 2 세대 이미지입니다. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
 |             | 7.7       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱에 대 한 RHEL 7.7. E4S 리포지토리에 연결 된는 SAP 및 RHEL에 대 한 프리미엄 및 기본 계산 요금을 부과 합니다.
-RHEL (2020 년 10 월 일에 Marketplace에서 제거 됨) | 6.7       | RAW    | Linux 에이전트 | SAP HANA RHEL 6.7입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
-|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.2입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
-|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.3입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 2020 년 10 월에 Azure Martketplace에서 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
+RHEL (11 월 2020에서 제거 됨) | 6.7       | RAW    | Linux 에이전트 | SAP HANA RHEL 6.7입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 11 월 2020에 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
+|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.2입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 11 월 2020에 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
+|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA RHEL 7.3입니다. 오래 된 RHEL 이미지를 선호 합니다. 이 이미지는 11 월 2020에 제거 됩니다. Red Hat의 SAP 클라우드 제품에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 제공 됩니다.
 RHEL-SAP-APPS | 6.8       | RAW    | Linux 에이전트 | RHEL 6.8 for SAP Business Applications. 오래 된 RHEL 이미지를 선호 합니다.
 |             | 7.3       | LVM    | Linux 에이전트 | RHEL 7.3 for SAP Business Applications. 오래 된 RHEL 이미지를 선호 합니다.
 |             | 7.4       | LVM    | Linux 에이전트 | RHEL 7.4 for SAP Business Applications.

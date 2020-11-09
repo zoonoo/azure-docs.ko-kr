@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289210"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372611"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
 
@@ -113,6 +113,9 @@ Azure Resource Manager 기반 Azure Container Registry에 저장 된 이미지�
 
 
 ## <a name="disable-specific-findings-preview"></a>특정 검색 (미리 보기) 사용 안 함
+
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.
 

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082209"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371853"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -23,18 +23,18 @@ ms.locfileid: "92082209"
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
 
-* **Nsgs (네트워크 보안 그룹)**: 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
-* **UDRs (경로 테이블)**: 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
+* **Nsgs (네트워크 보안 그룹)** : 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
+* **UDRs (경로 테이블)** : 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
 
 기본적으로 앱은 RFC1918 트래픽만 VNet에 라우팅합니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하려면 앱 설정 WEBSITE_VNET_ROUTE_ALL 앱에 적용 합니다. 앱 설정을 구성 하려면:
 
-1. 앱 포털에서 **구성** UI로 이동 합니다. **새 애플리케이션 설정**을 선택합니다.
+1. 앱 포털에서 **구성** UI로 이동 합니다. **새 애플리케이션 설정** 을 선택합니다.
 1. **이름** 상자에 **WEBSITE_VNET_ROUTE_ALL** 를 입력 하 고 **값** 상자에 **1** 을 입력 합니다.
 
    ![응용 프로그램 설정 제공][4]
 
-1. **확인**을 선택합니다.
-1. **저장**을 선택합니다.
+1. **확인** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
 > [!NOTE]
 > 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 통합 서브넷에 적용 되는 NSGs 및 UDRs가 적용 됩니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 다른 곳에서 트래픽을 전송 하기 위한 경로를 제공 하지 않으면 아웃 바운드 주소는 여전히 앱 속성에 나열 된 아웃 바운드 주소입니다.
@@ -42,7 +42,7 @@ ms.locfileid: "92082209"
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
 
 * 전역 피어 링 연결에서 리소스에 연결할 수 없습니다.
-* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 Azure App Service 배율 단위 에서만 사용할 수 있습니다. *PremiumV2 가격 책정 계층에서 실행 해야*하는 것은 아닙니다. PremiumV2 옵션을 사용할 수 있는 App Service 계획에서 실행 되어야 한다는 것을 의미 하는 것은 아닙니다. 즉,이 VNet 통합 기능을 사용할 수 있는 최신 배율 단위 이기도 합니다.
+* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 Azure App Service 배율 단위 에서만 사용할 수 있습니다. *PremiumV2 가격 책정 계층에서 실행 해야* 하는 것은 아닙니다. PremiumV2 옵션을 사용할 수 있는 App Service 계획에서 실행 되어야 한다는 것을 의미 하는 것은 아닙니다. 즉,이 VNet 통합 기능을 사용할 수 있는 최신 배율 단위 이기도 합니다.
 * 통합 서브넷은 하나의 App Service 계획 에서만 사용할 수 있습니다.
 * 이 기능은 App Service Environment에 있는 격리 된 계획 앱에서 사용할 수 없습니다.
 * 이 기능을 사용 하려면 Azure Resource Manager VNet에서 32 주소 이상의/27 인 사용 하지 않는 서브넷이 필요 합니다.
@@ -82,12 +82,17 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones 작업 하려면 다음 앱 설정을 추가 해야 합니다.
+앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones를 사용 하려면 다음 앱 설정을 추가 해야 합니다.
 
-1. WEBSITE_DNS_SERVER 값 168.63.129.16 
+1. WEBSITE_DNS_SERVER 값 168.63.129.16
 1. 값 1로 WEBSITE_VNET_ROUTE_ALL
 
-이러한 설정은 앱에서 Azure DNS 전용 영역을 사용 하도록 설정 하는 것 외에도 앱의 모든 아웃 바운드 호출을 VNet으로 보냅니다.
+이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보냅니다. 또한 작업자 수준에서 사설 DNS 영역을 쿼리하여 앱이 Azure DNS를 사용할 수 있도록 합니다. 이 기능은 실행 중인 응용 프로그램이 사설 DNS 영역에 액세스할 때 사용 됩니다.
+
+> [!NOTE]
+>VNET 통합 사설 DNS 영역을 사용 하 여 웹 앱에 사용자 지정 도메인을 추가 하려는 시도는 불가능 합니다. 사용자 지정 도메인 유효성 검사는 작업자 수준이 아니라 컨트롤러 수준에서 수행 되며,이로 인해 DNS 레코드가 표시 되지 않습니다. 사설 DNS 영역에서 사용자 지정 도메인을 사용 하려면 Application Gateway 또는 ILB App Service Environment를 사용 하 여 유효성 검사를 무시 해야 합니다.
+
+
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
