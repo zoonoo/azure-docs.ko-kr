@@ -3,12 +3,12 @@ title: Azure Container Registry의 리포지토리에 대한 권한
 description: 프리미엄 레지스트리에서 특정 리포지토리로 범위가 지정 된 토큰을 만들어 이미지를 끌어오거나 푸시 하거나 다른 작업을 수행 합니다.
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509409"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381238"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
 
@@ -32,11 +32,11 @@ ms.locfileid: "84509409"
 
 ## <a name="concepts"></a>개념
 
-리포지토리 범위 권한을 구성하려면 연결된 *범위 맵*이 포함된 *토큰*을 만듭니다. 
+리포지토리 범위 권한을 구성하려면 연결된 *범위 맵* 이 포함된 *토큰* 을 만듭니다. 
 
-* 생성된 암호와 함께 **토큰**을 사용하면 사용자가 레지스트리를 사용하여 인증할 수 있습니다. 토큰 암호의 만료 날짜를 설정하거나 언제든지 토큰을 사용하지 않도록 설정할 수 있습니다.  
+* 생성된 암호와 함께 **토큰** 을 사용하면 사용자가 레지스트리를 사용하여 인증할 수 있습니다. 토큰 암호의 만료 날짜를 설정하거나 언제든지 토큰을 사용하지 않도록 설정할 수 있습니다.  
 
-  토큰을 사용하여 인증되면 사용자 또는 서비스에서 하나 이상의 리포지토리로 범위가 지정된 하나 이상의 *작업*을 수행할 수 있습니다.
+  토큰을 사용하여 인증되면 사용자 또는 서비스에서 하나 이상의 리포지토리로 범위가 지정된 하나 이상의 *작업* 을 수행할 수 있습니다.
 
   |작업  |Description  | 예제 |
   |---------|---------|--------|
@@ -46,7 +46,7 @@ ms.locfileid: "84509409"
   |`metadata/read`    | 리포지토리에서 메타데이터 읽기   | 태그 또는 매니페스트 나열 |
   |`metadata/write`     |  리포지토리에 메타데이터 쓰기  | 읽기, 쓰기 또는 삭제 작업 사용/사용 안 함 |
 
-* **범위 맵**은 토큰에 적용하는 리포지토리 권한을 그룹화하고 다른 토큰에 다시 적용할 수 있습니다. 모든 토큰은 단일 범위 맵에 연결됩니다. 
+* **범위 맵** 은 토큰에 적용하는 리포지토리 권한을 그룹화하고 다른 토큰에 다시 적용할 수 있습니다. 모든 토큰은 단일 범위 맵에 연결됩니다. 
 
    범위 맵을 사용하는 경우
 
@@ -150,19 +150,19 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 다음 예제에서는 토큰을 만들고, `samples/hello-world` 리포지토리에 대한 `content/write` 및 `content/read` 권한이 있는 범위 맵을 만듭니다.
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **리포지토리 권한**에서 **토큰 (미리 보기) > + 추가**를 선택 합니다.
+1. **리포지토리 권한** 에서 **토큰 (미리 보기) > + 추가** 를 선택 합니다.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="포털에서 토큰 만들기":::
 1. 토큰 이름을 입력합니다.
-1. **범위 맵** 아래에서 **새로 만들기**를 선택합니다.
+1. **범위 맵** 아래에서 **새로 만들기** 를 선택합니다.
 1. 범위 맵을 구성합니다.
     1. 범위 맵에 대한 이름 및 설명을 입력합니다. 
-    1. **리포지토리** 아래에서 `samples/hello-world`를 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가**를 선택합니다.  
+    1. **리포지토리** 아래에서 `samples/hello-world`를 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가** 를 선택합니다.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="포털에서 토큰 만들기":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="포털에서 범위 맵 만들기":::
 
-    1. 리포지토리 및 권한이 추가되면 **추가**를 선택하여 범위 맵을 추가합니다.
-1. 기본 토큰 **상태**를 **사용**으로 적용한 다음, **만들기**를 선택합니다.
+    1. 리포지토리 및 권한이 추가되면 **추가** 를 선택하여 범위 맵을 추가합니다.
+1. 기본 토큰 **상태** 를 **사용** 으로 적용한 다음, **만들기** 를 선택합니다.
 
 토큰의 유효성이 검사되고 토큰이 만들어지면 **토큰** 화면에 토큰 세부 정보가 표시됩니다.
 
@@ -171,12 +171,12 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 포털에서 만든 토큰을 사용 하려면 암호를 생성 해야 합니다. 하나 또는 두 개의 암호를 생성하고 각 암호의 만료 날짜를 설정할 수 있습니다. 
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **리포지토리 권한**에서 **토큰 (미리 보기)** 을 선택 하 고 토큰을 선택 합니다.
-1. 토큰 세부 정보에서 **password1** 또는 **password2**를 선택하고, [생성] 아이콘을 선택합니다.
-1. 암호 화면에서 필요에 따라 암호의 만료 날짜를 설정하고, **생성**을 선택합니다. 만료 날짜를 설정 하는 것이 좋습니다.
+1. **리포지토리 권한** 에서 **토큰 (미리 보기)** 을 선택 하 고 토큰을 선택 합니다.
+1. 토큰 세부 정보에서 **password1** 또는 **password2** 를 선택하고, [생성] 아이콘을 선택합니다.
+1. 암호 화면에서 필요에 따라 암호의 만료 날짜를 설정하고, **생성** 을 선택합니다. 만료 날짜를 설정 하는 것이 좋습니다.
 1. 암호가 생성되면 이를 복사하여 안전한 위치에 저장합니다. 화면을 닫으면 생성된 암호를 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="포털에서 토큰 만들기":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="포털에서 토큰 암호 만들기":::
 
 ## <a name="authenticate-with-token"></a>토큰을 사용하여 인증
 
@@ -204,7 +204,7 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>토큰을 사용하여 인증
@@ -259,9 +259,9 @@ az acr scope-map update \
 Azure Portal에서 다음을 수행합니다.
 
 1. 컨테이너 레지스트리로 이동합니다.
-1. **리포지토리 권한**에서 **범위 맵 (미리 보기)** 을 선택 하 고 업데이트할 범위 맵을 선택 합니다.
-1. **리포지토리** 아래에서 `samples/alpine`을 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가**를 선택합니다.
-1. **리포지토리** 아래에서 `samples/hello-world`를 선택하고, **권한** 아래에서 `content/write`를 선택 취소합니다. 그런 다음 **저장**을 선택합니다.
+1. **리포지토리 권한** 에서 **범위 맵 (미리 보기)** 을 선택 하 고 업데이트할 범위 맵을 선택 합니다.
+1. **리포지토리** 아래에서 `samples/alpine`을 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가** 를 선택합니다.
+1. **리포지토리** 아래에서 `samples/hello-world`를 선택하고, **권한** 아래에서 `content/write`를 선택 취소합니다. 그런 다음 **저장** 을 선택합니다.
 
 범위 맵이 업데이트되면 다음 푸시가 성공합니다.
 
@@ -413,7 +413,7 @@ az acr token update --name MyToken --registry myregistry \
   --status disabled
 ```
 
-포털의 **토큰(미리 보기)** 화면에서 토큰을 선택하고, **상태** 아래에서 **사용 안 함**을 선택합니다.
+포털의 **토큰(미리 보기)** 화면에서 토큰을 선택하고, **상태** 아래에서 **사용 안 함** 을 선택합니다.
 
 토큰을 삭제하여 해당 자격 증명을 사용하는 모든 사용자의 액세스를 영구적으로 무효화하려면 [az acr token delete][az-acr-token-delete] 명령을 실행합니다. 
 
@@ -421,7 +421,7 @@ az acr token update --name MyToken --registry myregistry \
 az acr token delete --name MyToken --registry myregistry
 ```
 
-포털의 **토큰(미리 보기)** 화면에서 토큰을 선택하고, **취소**를 선택합니다.
+포털의 **토큰(미리 보기)** 화면에서 토큰을 선택하고, **취소** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

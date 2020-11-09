@@ -2,15 +2,15 @@
 title: Automation 계정에서 Azure Automation 업데이트 관리 사용
 description: 이 문서에서는 Automation 계정에서 업데이트 관리를 사용하도록 설정하는 방법을 설명합니다.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348834"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380541"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "93348834"
 > [!NOTE]
 > 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](../how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](../index.yml)
@@ -49,7 +49,7 @@ ms.locfileid: "93348834"
 
 ## <a name="enable-non-azure-vms"></a>비 Azure VM 사용
 
-Azure에 없는 컴퓨터는 수동으로 추가해야 합니다.
+Azure Arc 사용 서버에 등록 된 서버를 포함 하 여 Azure 외부에서 호스팅되는 컴퓨터 또는 서버에 대해 다음 단계를 수행 하 여 업데이트 관리에서 사용 하도록 설정 합니다.  
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리** 를 선택합니다.
 

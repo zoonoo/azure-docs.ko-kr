@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076281"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380452"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>순위를 사용하여 Bing Web Search API 결과를 표시하는 방법  
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-각 검색 응답에는 검색 결과를 표시하는 방법을 지정하는 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 일반적인 검색 결과 페이지에 대한 기본 줄 콘텐츠와 사이드바 콘텐츠를 기준으로 결과를 그룹화합니다. 일반적인 기본 줄과 사이드바 형식으로 결과를 표시하지 않는 경우 기본 줄 콘텐츠에 사이드바 콘텐츠보다 높은 가시성을 제공해야 합니다.  
+각 검색 응답에는 검색 결과를 표시하는 방법을 지정하는 [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 일반적인 검색 결과 페이지에 대한 기본 줄 콘텐츠와 사이드바 콘텐츠를 기준으로 결과를 그룹화합니다. 일반적인 기본 줄과 사이드바 형식으로 결과를 표시하지 않는 경우 기본 줄 콘텐츠에 사이드바 콘텐츠보다 높은 가시성을 제공해야 합니다.  
 
-각 그룹(기본 줄 또는 사이드바) 내에서 [항목](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠가 나타나는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 다음 두 가지 방법을 제공합니다.  
+각 그룹(기본 줄 또는 사이드바) 내에서 [항목](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠가 나타나는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 다음 두 가지 방법을 제공합니다.  
 
 -   `answerType` 및 `resultIndex` - `answerType` 필드는 답변(예: 웹 페이지 또는 뉴스)을 식별하고, `resultIndex`는 답변 내의 결과(예: 뉴스 기사)를 식별합니다. 인덱스는 0부터 시작합니다.  
 
@@ -35,11 +35,11 @@ ms.locfileid: "93076281"
 
 순위 ID를 답변 또는 결과 중 하나의 ID와 일치하기만 하면 되므로 ID를 사용하는 것이 더 간단합니다. 답변 개체에 `id` 필드가 포함된 경우 모든 답변의 결과를 함께 표시합니다. 예를 들어 `News` 개체에 `id` 필드가 포함된 경우 모든 뉴스 기사를 함께 표시합니다. `News` 개체에 `id` 필드가 포함되지 않은 경우에는 각 뉴스 기사에 `id` 필드가 포함되며, 순위 응답이 뉴스 기사와 다른 답변의 결과를 함께 사용합니다.  
 
-`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. 값은 `answerType` [searchresponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다. 모든 답의 결과를 함께 표시 해야 하는 경우 순위 응답 항목에는 필드가 포함 되지 않습니다 `resultIndex` .  
+`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. 값은 `answerType` [searchresponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다. 모든 답의 결과를 함께 표시 해야 하는 경우 순위 응답 항목에는 필드가 포함 되지 않습니다 `resultIndex` .  
 
 ## <a name="ranking-response-example"></a>순위 응답 예제
 
-다음은 예제 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)를 보여 줍니다. 웹 답변에는 `id` 필드가 포함되어 있지 않으므로 순위에 따라 모든 웹 페이지를 개별적으로 표시합니다(각 웹 페이지에 `id` 필드가 포함됨). 또한 이미지, 비디오 및 관련 검색 답변에는 `id` 필드가 포함되어 있으므로 순위에 따라 각 답변의 결과를 함께 표시합니다.
+다음은 예제 [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)를 보여 줍니다. 웹 답변에는 `id` 필드가 포함되어 있지 않으므로 순위에 따라 모든 웹 페이지를 개별적으로 표시합니다(각 웹 페이지에 `id` 필드가 포함됨). 또한 이미지, 비디오 및 관련 검색 답변에는 `id` 필드가 포함되어 있으므로 순위에 따라 각 답변의 결과를 함께 표시합니다.
 
 ```json
 {  

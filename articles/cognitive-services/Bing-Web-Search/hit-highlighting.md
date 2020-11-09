@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078546"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380711"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>장식 표식을 사용하여 텍스트를 강조 표시
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 Bing은 몇 가지 답변의 표시 문자열에서 쿼리 용어 (또는 Bing에서 관련 된 다른 용어)를 표시 하는 적중 항목 강조 표시를 지원 합니다. 예를 들어, 웹 페이지 결과의 `name` , `displayUrl` 및 필드에는 표시 된 `snippet` 쿼리 용어가 포함 될 수 있습니다. 
 
@@ -39,7 +39,7 @@ Bing은 몇 가지 답변의 표시 문자열에서 쿼리 용어 (또는 Bing�
 
 ## <a name="marker-formatting"></a>표식 서식 지정
 
-Bing에서는 유니코드 문자 또는 HTML 태그를 표식으로 사용할 수 있는 옵션을 제공 합니다. 사용할 표식을 지정 하려면 [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 쿼리 매개 변수를 포함 합니다. 
+Bing에서는 유니코드 문자 또는 HTML 태그를 표식으로 사용할 수 있는 옵션을 제공 합니다. 사용할 표식을 지정 하려면 [textFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 쿼리 매개 변수를 포함 합니다. 
 
 | 값             | 표식                       |
 |-------------------|------------------------------|
@@ -56,7 +56,7 @@ Bing은 여러 다른 텍스트 장식을 반환할 수 있습니다. 예를 들
 
 `textDecorations`가 이면 `true` Bing은 응답 표시 문자열에 다음 표식을 포함할 수 있습니다. 해당 하는 HTML 태그가 없는 경우 테이블 셀은 비어 있습니다.
 
-|유니코드(Unicode)|HTML|설명
+|유니코드(Unicode)|HTML|Description
 |-|-|-
 |U+E000|\<b>|쿼리 용어의 시작을 표시(적중 항목 강조 표시)
 |U+E001|\</b>|쿼리 용어의 끝을 표시

@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167749"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380966"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -139,7 +139,7 @@ public static class BindingExpressionsExample
 
 이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예는 다음과 같습니다.
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -199,7 +199,7 @@ public static class BindingExpressionsExample
 
 Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
 
-npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
+npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* 에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -565,7 +565,7 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-앱 설정은 로컬로 개발할 때와 Azure에서 실행할 때 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 `Values`local.settings.json* 파일의 * 컬렉션에서 가져옵니다. 로컬 및 Azure의 두 환경에서 `GetEnvironmentVariable("<app setting name>")`은 명명된 앱 설정의 값을 검색합니다. 예를 들어 로컬로 실행하는 경우 *local.settings.json* 파일에 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`이 포함된 경우 "My Site Name"이 반환됩니다.
+앱 설정은 로컬로 개발할 때와 Azure에서 실행할 때 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 `Values`local.settings.json *파일의* 컬렉션에서 가져옵니다. 로컬 및 Azure의 두 환경에서 `GetEnvironmentVariable("<app setting name>")`은 명명된 앱 설정의 값을 검색합니다. 예를 들어 로컬로 실행하는 경우 *local.settings.json* 파일에 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`이 포함된 경우 "My Site Name"이 반환됩니다.
 
 [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
 

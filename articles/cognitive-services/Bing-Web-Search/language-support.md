@@ -10,23 +10,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3ce1fdc0b52db2706f81950fff735cf7f95e52b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095461"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379683"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가 또는 지역 지정은 해당 국가 또는 지역의 관심 분야에 따라 검색 결과를 구체화하는 데 유용합니다. 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
-`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정 된 경우 [ `Accept-Language` 헤더](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers)를 사용 하 여 언어 코드를 하나 이상 지정 해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
+`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정 된 경우 [ `Accept-Language` 헤더](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers)를 사용 하 여 언어 코드를 하나 이상 지정 해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
 
 또는 **시장** 테이블에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 시장을 지정할 수 있습니다. 시장을 지정하면 동시에 국가 또는 지역 및 기본 언어가 지정됩니다. `setLang` 쿼리 매개 변수로 언어를 명시적으로 설정할 수 있습니다.
 
@@ -81,14 +81,14 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|캐나다|영어|en-CA|
-|캐나다|프랑스어|fr-CA|
+|Canada|영어|en-CA|
+|Canada|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별행정구|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
@@ -105,14 +105,14 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카 공화국|영어|en-ZA|
+|남아프리카|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|영국|영어|en-GB|
+|United Kingdom|영어|en-GB|
 |미국|영어|ko-KR|
 |미국|스페인어|es-US|
 

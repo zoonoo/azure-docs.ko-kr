@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375621"
+ms.locfileid: "94380908"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -96,14 +96,14 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기
 이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
-* 답변 당 최대 대체 질문 수: 300
+* 답변 당 추천 된 최대 질문 수: 300
 * 최대 URL 수: 10
 * 최대 파일 수: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>기술 자료 호출 제한 업데이트
 이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
 * 각 원본 이름 길이: 300
-* 추가 되거나 삭제 된 대체 질문의 최대 수: 300
+* 추가 되거나 삭제 된 추천 질문의 최대 수: 300
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
 

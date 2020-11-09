@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102023"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380881"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -111,7 +111,7 @@ ITSM 도구를 준비 후 다음 단계를 수행 하 여 연결을 만듭니다
 
 ## <a name="template-definitions"></a>템플릿 정의
    ITSM 도구에 정의 된 템플릿을 사용할 수 있는 작업 항목 형식이 있습니다.
-템플릿을 사용 하면 작업 그룹의 일부로 정의 된 고정 값에 따라 자동으로 채워지는 필드를 정의할 수 있습니다. ITSM 도구에서 템플릿을 정의 합니다.
+템플릿을 사용 하면 작업 그룹의 일부로 정의 된 고정 값에 따라 자동으로 채워지는 필드를 정의할 수 있습니다. ITSM 도구에서 템플릿을 정의 합니다. 작업 그룹 정의의 일부로 사용 하고자 하는 템플릿을 정의할 수 있습니다.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure Alerts에서 ITSM 작업 항목 만들기
 
@@ -146,9 +146,11 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
 9. **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 구성 항목 마다 작업 항목이 하나씩 있습니다. 생성 되는 경고에 따라 업데이트 됩니다.
 
-   **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
+   * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
 
    ![ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다. 
 
 10. **확인** 을 선택합니다.
 

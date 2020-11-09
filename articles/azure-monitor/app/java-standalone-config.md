@@ -2,14 +2,14 @@
 title: 구성 옵션-Java Azure Monitor Application Insights
 description: Azure Monitor Application Insights Java에 대 한 구성 옵션
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331909"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381034"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java에 대 한 구성 옵션
 
@@ -48,7 +48,7 @@ ms.locfileid: "94331909"
 
 ## <a name="connection-string"></a>연결 문자열
 
-이것은 필수입니다. Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다.
+연결 문자열이 필요 합니다. Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다.
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="연결 문자열 Application Insights":::
 
@@ -105,7 +105,7 @@ ms.locfileid: "94331909"
 
 예를 들어 샘플링을 10%로 설정 하면 트랜잭션의 10%만 표시 되지만 이러한 10% 중 각각에는 완전 한 종단 간 트랜잭션 세부 정보가 포함 됩니다.
 
-다음은 **모든 트랜잭션의 약 1/3** 을 캡처하기 위해 샘플링을 설정 하는 방법의 예입니다. 사용 사례에 맞는 샘플링 주기를 설정 했는지 확인 하세요.
+다음은 **모든 트랜잭션의 약 1/3** 을 캡처하기 위해 샘플링을 설정 하는 방법의 예입니다. 사용 사례에 맞는 샘플링 주기를 설정 했는지 확인 합니다.
 
 ```json
 {
@@ -169,16 +169,16 @@ ms.locfileid: "94331909"
 
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서 (미리 보기)
 
-이 기능은 미리 보기 기능입니다.
+이 기능은 미리 보기 상태입니다.
 
-이를 통해 요청, 종속성 및 추적 원격 분석에 적용 되는 규칙을 구성할 수 있습니다 (예:).
+이를 통해 요청, 종속성 및 추적 원격 분석에 적용 되는 규칙을 구성할 수 있습니다. 예를 들면 다음과 같습니다.
  * 중요 한 데이터 마스킹
  * 조건부로 사용자 지정 차원 추가
  * 집계 및 표시에 사용 되는 원격 분석 이름을 업데이트 합니다.
 
 자세한 내용은 [원격 분석 프로세서](./java-standalone-telemetry-processors.md) 설명서를 확인 하세요.
 
-## <a name="auto-collected-logging"></a>자동 수집 된 로깅
+## <a name="autocollected-logging"></a>자동 수집 된 로깅
 
 Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 자동으로 수집 됩니다.
 
@@ -213,13 +213,16 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 | 추적 (또는 가장) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Autocollected 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
 
-응용 프로그램에서 [마이크로 측정기](https://micrometer.io)를 사용 하는 경우 마이크로 측정기 글로벌 레지스트리로 전송 되는 메트릭은 자동으로 수집 됩니다.
+응용 프로그램에서 [마이크로 측정기](https://micrometer.io)를 사용 하는 경우 마이크로 측정기 글로벌 레지스트리로 전송 되는 메트릭이 자동으로 수집 됩니다.
 
 또한 응용 프로그램에서 [스프링 부팅 발동기](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)를 사용 하는 경우 스프링 부트 발동기로 구성 된 메트릭도 자동으로 수집 됩니다.
 
-마이크로 측정기 메트릭의 자동 수집을 사용 하지 않도록 설정 하려면 (스프링 부트 발동기 메트릭 포함):
+마이크로 측정기 메트릭의 autocollection을 사용 하지 않도록 설정 하려면 (스프링 부트 발동기 메트릭 포함):
+
+> [!NOTE]
+> 사용자 지정 메트릭은 별도로 청구 되며 추가 비용을 생성할 수 있습니다. 자세한 [가격 정보](https://azure.microsoft.com/pricing/details/monitor/)를 확인 해야 합니다. 마이크로 측정기 및 스프링 발동기 메트릭을 사용 하지 않도록 설정 하려면 구성 파일에 아래 구성을 추가 합니다.
 
 ```json
 {
@@ -244,7 +247,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 ```
 
 > [!NOTE]
-> 하트 비트 데이터가 Application Insights 사용을 추적 하는 데에도 사용 되므로이 하트 비트의 빈도는 낮출 수 없습니다.
+> 하트 비트 데이터는 Application Insights 사용량을 추적 하는 데에도 사용 되므로 하트 비트의 빈도는 낮출 수 없습니다.
 
 ## <a name="http-proxy"></a>HTTP 프록시
 
@@ -279,7 +282,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 
 "자체 진단"은 Application Insights Java 3.0의 내부 로깅을 나타냅니다.
 
-Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는 데 도움이 될 수 있습니다.
+이 기능은 Application Insights 자체의 문제를 발견 하 고 진단 하는 데 유용할 수 있습니다.
 
 기본적으로 Application Insights Java 3.0 `INFO` 은 `applicationinsights.log` 이 구성에 해당 하는 파일 및 콘솔 모두에 대 한 수준으로 로그를 기록 합니다.
 

@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331926"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379772"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -133,7 +133,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 3.0 +의 목표는 표준 Api를 사용 하 여 사용자 지정 원격 분석을 보낼 수 있도록 하는 것입니다.
 
-마이크로 측정기, OpenTelemetry API 및 인기 있는 로깅 프레임 워크를 지원 합니다. Application Insights Java 3.0는 원격 분석을 자동으로 캡처하고 자동으로 수집 된 모든 원격 분석과 함께 상호 연결 합니다.
+마이크로 측정기, OpenTelemetry API 및 인기 있는 로깅 프레임 워크를 지원 합니다. Application Insights Java 3.0는 원격 분석을 자동으로 캡처하고 모든 자동 수집 된 원격 분석과 함께 연결 합니다.
 
 ### <a name="supported-custom-telemetry"></a>지원 되는 사용자 지정 원격 분석
 

@@ -4,15 +4,14 @@ description: AKS(Azure Kubernetes Service)에서 송신 트래픽을 제어하�
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900480"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380214"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -63,7 +62,6 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |
@@ -92,7 +90,6 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |
@@ -119,7 +116,6 @@ _ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종�
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |

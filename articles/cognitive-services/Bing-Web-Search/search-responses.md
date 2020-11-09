@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2cea88c2e20c9e96c5ad5504815886b2cc771e44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100561"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380983"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
+Bing Web Search 검색 요청을 보내면 [`SearchResponse`](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 
 ```json
 {
@@ -43,13 +43,13 @@ Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.micro
 }, ...
 ```
 
-일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies* 인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies* 인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## <a name="webpages-answer"></a>웹 페이지 응답
 
-[webPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 응답은 Bing Web Search가 쿼리와 관련이 있다고 결정한 웹 페이지에 대한 링크의 목록을 포함합니다. 목록의 각 [웹 페이지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)는 페이지의 이름, URL, 표시 URL, 콘텐츠에 대한 짧은 설명 및 Bing이 콘텐츠를 찾은 날짜를 포함합니다.
+[webPages](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 응답은 Bing Web Search가 쿼리와 관련이 있다고 결정한 웹 페이지에 대한 링크의 목록을 포함합니다. 목록의 각 [웹 페이지](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)는 페이지의 이름, URL, 표시 URL, 콘텐츠에 대한 짧은 설명 및 Bing이 콘텐츠를 찾은 날짜를 포함합니다.
 
 ```json
 {
@@ -72,7 +72,7 @@ The following shows an example of how you might display the webpage in a search 
 
 ## <a name="images-answer"></a>이미지 응답
 
-[images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 이미지 목록을 포함합니다. 목록에서 각 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image)는 이미지의 URL, 해당 크기, 차원 및 인코딩 형식을 포함합니다. 또한 이미지 개체는 이미지 썸네일의 URL 및 썸네일의 차원도 포함합니다.
+[images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 이미지 목록을 포함합니다. 목록에서 각 [이미지](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image)는 이미지의 URL, 해당 크기, 차원 및 인코딩 형식을 포함합니다. 또한 이미지 개체는 이미지 썸네일의 URL 및 썸네일의 차원도 포함합니다.
 
 ```json
 {
@@ -98,7 +98,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-사용자의 디바이스에 따라 일반적으로 사용자가 나머지 이미지를 [넘겨볼 수 있는](paging-webpages.md) 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
+사용자의 디바이스에 따라 일반적으로 사용자가 나머지 이미지를 [넘겨볼 수 있는](./paging-search-results.md) 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -112,11 +112,11 @@ The following shows an example of how you might display the webpage in a search 
 
 사용자가 썸네일을 클릭하면 이미지의 콜라주가 포함된 이미지에 대한 Bing의 검색 결과 페이지로 사용자를 이동시키려면 `webSearchUrl`을 사용합니다.
 
-이미지 응답 및 이미지에 대한 자세한 내용은 [Image Search API](../bing-image-search/search-the-web.md)를 참조하세요.
+이미지 응답 및 이미지에 대한 자세한 내용은 [Image Search API](../bing-image-search/overview.md)를 참조하세요.
 
 ## <a name="related-searches-answer"></a>관련 검색 응답
 
-[relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) 응답은 다른 사용자가 수행한 가장 인기 있는 관련 쿼리의 목록을 포함합니다. 목록에서 각 [쿼리](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj)는 해당 쿼리에 대한 Bing의 검색 결과에 대한 쿼리 문자열(`text`), 적중 항목 강조 표시 문자가 포함된 쿼리 문자열(`displayText`) 및 URL(`webSearchUrl`)을 포함합니다.
+[relatedSearches](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) 응답은 다른 사용자가 수행한 가장 인기 있는 관련 쿼리의 목록을 포함합니다. 목록에서 각 [쿼리](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj)는 해당 쿼리에 대한 Bing의 검색 결과에 대한 쿼리 문자열(`text`), 적중 항목 강조 표시 문자가 포함된 쿼리 문자열(`displayText`) 및 URL(`webSearchUrl`)을 포함합니다.
 
 ```json
 {
@@ -136,7 +136,7 @@ The following shows an example of how you might display the webpage in a search 
 
 ## <a name="videos-answer"></a>비디오 응답
 
-[videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 비디오 목록을 포함합니다. 목록에서 각 [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video)는 비디오의 URL, 해당 기간, 해당 차원 및 해당 인코딩 형식을 포함합니다. 또한 비디오 개체는 비디오 썸네일의 URL 및 썸네일의 차원도 포함합니다.
+[videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 비디오 목록을 포함합니다. 목록에서 각 [video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video)는 비디오의 URL, 해당 기간, 해당 차원 및 해당 인코딩 형식을 포함합니다. 또한 비디오 개체는 비디오 썸네일의 URL 및 썸네일의 차원도 포함합니다.
 
 ```json
 {
@@ -186,11 +186,11 @@ The following shows an example of how you might display the webpage in a search 
 - Bing 비디오 브라우저에서 비디오를 보려면 `webSearchUrl`을 사용합니다.
 - 사용자의 고유한 환경에 비디오를 포함시키려면 `embedHtml`을 사용합니다.
 
-비디오 응답 및 비디오에 대한 자세한 내용은 [Video Search API](../bing-video-search/search-the-web.md)를 참조하세요.
+비디오 응답 및 비디오에 대한 자세한 내용은 [Video Search API](../bing-video-search/overview.md)를 참조하세요.
 
 ## <a name="news-answer"></a>뉴스 응답
 
-[news](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 뉴스 기사의 목록을 포함합니다. 목록에서 각 [뉴스 기사](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)는 기사의 제목, 설명 및 호스트의 웹 사이트에서 기사에 대한 URL을 포함합니다. 기사가 이미지를 포함하는 경우 개체는 이미지의 썸네일을 포함합니다.
+[news](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) 응답은 Bing이 인식하기에 쿼리와 관련이 있는 뉴스 기사의 목록을 포함합니다. 목록에서 각 [뉴스 기사](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)는 기사의 제목, 설명 및 호스트의 웹 사이트에서 기사에 대한 URL을 포함합니다. 기사가 이미지를 포함하는 경우 개체는 이미지의 썸네일을 포함합니다.
 
 ```json
 {
@@ -225,7 +225,7 @@ The following shows an example of how you might display articles in a search res
 
 ## <a name="computation-answer"></a>계산 응답
 
-사용자가 수학 표현식 또는 단위 변환 쿼리를 입력하는 경우 응답은 [Computation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) 응답을 포함할 수 있습니다. `computation` 응답은 정규화된 식 및 해당 결과를 포함합니다.
+사용자가 수학 표현식 또는 단위 변환 쿼리를 입력하는 경우 응답은 [Computation](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) 응답을 포함할 수 있습니다. `computation` 응답은 정규화된 식 및 해당 결과를 포함합니다.
 
 단위 변환 쿼리는 한 단위를 다른 단위로 변환하는 쿼리입니다. 예를 들어 *10m는 몇 피트인가?* 또는 *1/4컵은 몇 테이블스푼인가?* 가 있습니다.
 
@@ -309,7 +309,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
-|기호|설명|
+|기호|Description|
 |------------|-----------------|
 |Pi|3.14159...|
 |도|도|
@@ -319,7 +319,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 함수를 포함할 수 있습니다.
 
-|기호|설명|
+|기호|Description|
 |------------|-----------------|
 |정렬|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
@@ -333,7 +333,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 ## <a name="timezone-answer"></a>표준 시간대 응답
 
-사용자가 시간 또는 날짜 쿼리를 입력하는 경우 응답은 [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) 응답을 포함할 수 있습니다. 이 응답은 암시적 또는 명시적 쿼리를 지원합니다. *몇 시입니까?* 와 같은 암시적 쿼리는 사용자의 위치를 기준으로 현지 시간을 반환합니다. *시애틀은 몇 시입니까?* 와 같은 명시적 쿼리는 워싱턴 주 시애틀의 현지 시간을 반환합니다.
+사용자가 시간 또는 날짜 쿼리를 입력하는 경우 응답은 [TimeZone](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) 응답을 포함할 수 있습니다. 이 응답은 암시적 또는 명시적 쿼리를 지원합니다. *몇 시입니까?* 와 같은 암시적 쿼리는 사용자의 위치를 기준으로 현지 시간을 반환합니다. *시애틀은 몇 시입니까?* 와 같은 명시적 쿼리는 워싱턴 주 시애틀의 현지 시간을 반환합니다.
 
 `timeZone` 응답은 위치 이름, 지정된 위치의 현재 UTC 날짜 및 시간, UTC 오프셋을 제공합니다. 위치의 경계가 여러 표준 시간대 내에 있으면 응답은 경계 내 모든 표준 시간대의 현재 UTC 날짜 및 시간을 포함합니다. 예를 들어, 플로리다 주는 두 표준 시간대에 속하기 때문에 응답은 두 표준 시간대의 현지 날짜 및 시간을 포함합니다.  
 
@@ -424,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion 응답
 
-Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen* 을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다( *carlos pen* 을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
+Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen* 을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다( *carlos pen* 을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
 
 ```json
 "spellSuggestions": {
@@ -485,6 +485,6 @@ cors-proxy-server
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>추가 정보  
+## <a name="see-also"></a>참조  
 
-* [Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Web Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

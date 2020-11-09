@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171932"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380435"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -21,13 +21,6 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
 
 [Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)의 Azure AD 통합 흐름에 대해 자세히 알아보세요.
-
-## <a name="region-availability"></a>지역 가용성
-
-AKS 관리 Azure Active Directory 통합은 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역에서 사용할 수 있습니다.
-
-* Azure Government 현재 지원 되지 않습니다.
-* Azure 중국 21Vianet은 현재 지원 되지 않습니다.
 
 ## <a name="limitations"></a>제한 사항 
 

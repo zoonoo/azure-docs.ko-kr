@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355790"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381153"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -31,7 +31,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 링크 합니다.
 1. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 여 다시 만들어야 하는 모든 부분을 명확 하 게 파악할 수 있습니다.
 
@@ -120,7 +120,7 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 ### <a name="create-a-new-instance"></a>새 인스턴스 만들기
 
-먼저 대상 지역에 Azure Digital Twins의 새 인스턴스를 만듭니다. [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 단계를 따릅니다. 다음 포인터를 염두에 두어야 합니다.
+먼저 대상 지역에 Azure Digital Twins의 새 인스턴스를 만듭니다. [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 단계를 따릅니다. 다음 포인터를 염두에 두어야 합니다.
 
 * 다른 리소스 그룹에 있는 *경우* 새 인스턴스와 동일한 이름을 유지할 수 있습니다. 원래 인스턴스를 포함 하는 것과 동일한 리소스 그룹을 사용 해야 하는 경우에는 새 인스턴스에 고유한 이름이 필요 합니다.
 * 위치를 묻는 메시지가 표시 되 면 새 대상 지역을 입력 합니다.

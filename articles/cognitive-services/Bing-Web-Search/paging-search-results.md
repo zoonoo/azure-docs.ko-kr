@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074100"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381068"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Bing Search API 결과를 페이징 하는 방법
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 Bing Web, Custom, Image, News 또는 Video Search Api에 대 한 호출을 보내면 Bing에서 쿼리와 관련이 있을 수 있는 총 결과 수의 하위 집합을 반환 합니다. 사용 가능한 총 예상 결과 수를 가져오려면 응답 개체의 필드에 액세스 합니다 `totalEstimatedMatches` . 
 
-다음은 그 예입니다. 
+예를 들어: 
 
 ```json
 {
@@ -49,7 +49,7 @@ Bing Web, Custom, Image, News 또는 Video Search Api에 대 한 호출을 보�
 > * Bing Video, Image 및 News Api로 페이징은 일반 비디오 ( `/video/search` ), 뉴스 ( `/news/search` ) 및 이미지 () 검색에만 적용 됩니다 `/image/search` . 추세 항목 및 범주를 통한 페이징은 지원 되지 않습니다.  
 > * `TotalEstimatedMatches`필드는 현재 쿼리에 대 한 총 검색 결과 수의 예상 값입니다. `count`및 매개 변수를 설정 하면 `offset` 이 예상 값이 변경 될 수 있습니다.
 
-| 매개 변수 | 설명                                                                                                                                                                |
+| 매개 변수 | Description                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | 응답에서 반환할 결과의 수를 지정합니다. 의 기본값 `count` 및 요청할 수 있는 최대 결과 수는 API에 따라 달라 집니다. [다음 단계](#next-steps)에서 참조 설명서에서 이러한 값을 찾을 수 있습니다. |
 | `offset`  | 건너뛸 결과의 수를 지정합니다. `offset`은 0부터 시작하며 (`totalEstimatedMatches` - `count`)보다 작아야 합니다.                                           |
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 Bing 이미지 및 비디오 Api를 사용 하는 경우 값을 사용 `nextOffset` 하 여 중복 검색 결과를 방지할 수 있습니다. `Images`또는 `Videos` 응답 개체에서 값을 가져온 다음 매개 변수를 사용 하 여 요청에 사용 합니다 `offset` .  
 
 > [!NOTE]
-> Bing Web Search API은 웹 페이지, 이미지, 비디오 및 뉴스를 포함할 수 있는 검색 결과를 반환 합니다. Bing Web Search API에서 검색 결과를 페이징 하는 경우에는 이미지 또는 뉴스와 같은 다른 응답 형식이 아닌 [웹 페이지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)만 페이징할 수 있습니다. 개체의 검색 결과에 `WebPage` 는 다른 응답 형식에도 표시 되는 결과가 포함 될 수 있습니다.
+> Bing Web Search API은 웹 페이지, 이미지, 비디오 및 뉴스를 포함할 수 있는 검색 결과를 반환 합니다. Bing Web Search API에서 검색 결과를 페이징 하는 경우에는 이미지 또는 뉴스와 같은 다른 응답 형식이 아닌 [웹 페이지](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)만 페이징할 수 있습니다. 개체의 검색 결과에 `WebPage` 는 다른 응답 형식에도 표시 되는 결과가 포함 될 수 있습니다.
 >
 > `responseFilter`필터 값을 지정 하지 않고 쿼리 매개 변수를 사용 하는 경우 `count` 및 매개 변수를 사용 하지 마세요 `offset` . 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Bing Web Search Api는 무엇 인가요?](bing-api-comparison.md)
-* [Bing Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Bing Custom Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Bing News Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Bing Video Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Bing Image Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Bing Web Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Custom Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Bing News Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Bing Video Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Bing Image Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

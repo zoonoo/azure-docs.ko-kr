@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078699"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381119"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Bing Web Search API v5를 v7로 업그레이드
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 업그레이드 가이드는 Bing Web Search API 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
-## <a name="breaking-changes"></a>주요 변경 내용
+## <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 ### <a name="endpoints"></a>엔드포인트
 
@@ -44,7 +44,7 @@ ms.locfileid: "93078699"
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
-|코드|SubCode|설명
+|코드|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
@@ -78,16 +78,16 @@ InsufficientScope|InsufficientAuthorization
 
 ## <a name="non-breaking-changes"></a>호환성이 손상되지 않는 변경  
 
-### <a name="headers"></a>헤더
+### <a name="headers"></a>headers
 
-- 선택적 [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) 요청 헤더가 추가되었습니다. 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
+- 선택적 [Pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) 요청 헤더가 추가되었습니다. 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
+- [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
 
-- [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오 및 이미지를 응답으로 승격 하려면 *비디오, 이미지* 로 수준 올리기를 설정 합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount` 가 2이 고 `promote` 가 *비디오, 이미지* 로 설정 된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함 될 수 있습니다.
+- [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오 및 이미지를 응답으로 승격 하려면 *비디오, 이미지* 로 수준 올리기를 설정 합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount` 가 2이 고 `promote` 가 *비디오, 이미지* 로 설정 된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함 될 수 있습니다.
 
 ### <a name="object-changes"></a>개체 변경 내용
 
-- `someResultsRemoved` 필드가 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 개체에 추가되었습니다. 이 필드에는 응답이 웹 답변에서 일부 결과를 제외했는지 여부를 나타내는 부울 값이 포함됩니다.  
+- `someResultsRemoved` 필드가 [WebAnswer](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 개체에 추가되었습니다. 이 필드에는 응답이 웹 답변에서 일부 결과를 제외했는지 여부를 나타내는 부울 값이 포함됩니다.

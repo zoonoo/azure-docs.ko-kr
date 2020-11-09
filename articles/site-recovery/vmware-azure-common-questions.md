@@ -3,12 +3,12 @@ title: Azure Site Recovery 사용 하는 VMware 재해 복구에 대 한 일반�
 description: Azure Site Recovery를 사용 하 여 Azure에 온-프레미스 VMware Vm의 재해 복구에 대 한 일반적인 질문에 대 한 답을 얻을 수 있습니다.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359801"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379993"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -106,7 +106,7 @@ GPv2 저장소 Azure Site Recovery 계정에 발생 하는 트랜잭션 비용�
 Site Recovery 온-프레미스 VMware Vm 및 물리적 서버를 Azure의 managed disks에 복제 합니다.
 
 - Site Recovery 프로세스 서버는 대상 지역의 캐시 저장소 계정에 복제 로그를 씁니다.
-- 이러한 로그는 **asrseeddisk**접두사가 있는 Azure 관리 디스크에서 복구 위치를 만드는 데 사용 됩니다.
+- 이러한 로그는 **asrseeddisk** 접두사가 있는 Azure 관리 디스크에서 복구 위치를 만드는 데 사용 됩니다.
 - 장애 조치 (failover)가 발생 하면 선택 하는 복구 지점이 새 대상 관리 디스크를 만드는 데 사용 됩니다. 이 관리 디스크는 Azure의 VM에 연결 되어 있습니다.
 - 이전에 저장소 계정에 복제 된 Vm (3 월 2019 일 이전)에는 영향을 주지 않습니다.
 
@@ -153,7 +153,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="what-is-asrseeddisk"></a>Asrseeddisk 란?
 
-모든 원본 디스크에 대해 Azure의 관리 디스크에 데이터가 복제 됩니다. 이 디스크에는 **asrseeddisk**접두사가 있습니다. 원본 디스크의 복사본과 모든 복구 지점 스냅숏을 저장 합니다.
+모든 원본 디스크에 대해 Azure의 관리 디스크에 데이터가 복제 됩니다. 이 디스크에는 **asrseeddisk** 접두사가 있습니다. 원본 디스크의 복사본과 모든 복구 지점 스냅숏을 저장 합니다.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>디스크를 복제에서 제외할 수 있나요?
 
@@ -176,7 +176,7 @@ Azure에 대 한 VMware 복제의 경우 원본 Vm의 디스크 크기를 수정
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 온-프레미스 컴퓨터를 새 vCenter Server 마이그레이션할 수 있나요?
 
-아니요. VMware Vcenter 또는 migration이 변경 되 면 진행 중인 복제에 영향을 줍니다. 새 vCenter Server를 사용 하 여 Site Recovery를 설정 하 고 컴퓨터에 대 한 복제를 다시 사용 하도록 설정 합니다.
+새 vCenter로 컴퓨터를 마이그레이션하기 위한 [지침](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) 을 참조 하세요.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>가상 네트워크 (Azure 방화벽 포함)가 구성 된 캐시 또는 대상 저장소 계정에 복제할 수 있나요?
 
@@ -202,7 +202,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>업그레이드 마다 원본 컴퓨터를 다시 부팅 해야 하나요?
 
-다시 부팅 하는 것이 좋지만 각 업그레이드에 반드시 필요한 것은 아닙니다. [자세히 알아보기](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
+다시 부팅 하는 것이 좋지만 각 업그레이드에 반드시 필요한 것은 아닙니다. [자세히 알아봅니다](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>구성 서버
 
@@ -258,11 +258,11 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>구성 서버를 설정할 때 MySQL을 수동으로 다운로드하여 설치할 수 있나요?
 
-예. MySQL을 다운로드하여 C:\Temp\ASRSetup 폴더에 넣습니다. 그런 다음 수동으로 설치 합니다. 구성 서버 VM을 설정하고 조건에 동의하면 MySQL이 **다운로드 및 설치**에 **이미 설치됨**으로 표시됩니다.
+예. MySQL을 다운로드하여 C:\Temp\ASRSetup 폴더에 넣습니다. 그런 다음 수동으로 설치 합니다. 구성 서버 VM을 설정하고 조건에 동의하면 MySQL이 **다운로드 및 설치** 에 **이미 설치됨** 으로 표시됩니다.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
 
-예. MySQL 설치 관리자를 다운로드하여 C:\Temp\ASRSetup 폴더에 넣습니다. 구성 서버 VM을 설정 하는 경우 사용 약관에 동의 하 고 **다운로드 및 설치**를 선택 합니다. 포털에서 추가 된 설치 관리자를 사용 하 여 MySQL을 설치 합니다.
+예. MySQL 설치 관리자를 다운로드하여 C:\Temp\ASRSetup 폴더에 넣습니다. 구성 서버 VM을 설정 하는 경우 사용 약관에 동의 하 고 **다운로드 및 설치** 를 선택 합니다. 포털에서 추가 된 설치 관리자를 사용 하 여 MySQL을 설치 합니다.
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
 
@@ -286,7 +286,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
-Recovery Services 자격 증명 모음에서 **Site Recovery 인프라**관리에서 **구성 서버** 를 선택  >  **Manage**합니다. 그런 다음 **서버**에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
+Recovery Services 자격 증명 모음에서 **Site Recovery 인프라** 관리에서 **구성 서버** 를 선택  >  **Manage** 합니다. 그런 다음 **서버** 에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>단일 구성 서버를 사용 하 여 여러 vCenter 인스턴스를 보호할 수 있나요?
 
@@ -330,7 +330,7 @@ VMware에서 Azure로의 경우 사용할 수 있는 가장 오래 된 복구 �
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
 
-장애 조치 (failover) 후에는 보안 인터넷 연결, 사이트 간 VPN 또는 Azure Express 경로를 통해 Azure Vm에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+장애 조치 (failover) 후에는 보안 인터넷 연결, 사이트 간 VPN 또는 Azure Express 경로를 통해 Azure Vm에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아봅니다](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치 (failover) 데이터 복원 력이 있나요?
 
@@ -342,7 +342,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA (
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
 
-예. Azure로 장애 조치 (failover) 한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 복구 (failback) 할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).
+예. Azure로 장애 조치 (failover) 한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 복구 (failback) 할 수 있습니다. [자세히 알아봅니다](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>장애 복구를 위해 개인 피어 링이 있는 VPN 또는 Express 경로를 사용 해야 하는 이유는 무엇 인가요?
 
@@ -353,7 +353,7 @@ Azure에서 장애 복구 (failback) 하는 경우 Azure의 데이터가 온-프
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>스크립팅을 사용하여 복제를 설정할 수 있나요?
 
-예. Rest API, PowerShell 또는 Azure SDK를 사용 하 여 Site Recovery 워크플로를 자동화할 수 있습니다. [자세히 알아보기](vmware-azure-disaster-recovery-powershell.md).
+예. Rest API, PowerShell 또는 Azure SDK를 사용 하 여 Site Recovery 워크플로를 자동화할 수 있습니다. [자세히 알아봅니다](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>성능 및 용량
 

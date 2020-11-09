@@ -4,22 +4,22 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143093"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380575"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
-프라이빗 클러스터에서 컨트롤 플레인 또는 API 서버에는 [RFC1918 - 프라이빗 인터넷용 주소 할당](https://tools.ietf.org/html/rfc1918) 문서에 정의된 내부 IP 주소가 있습니다. 개인 클러스터를 사용 하 여 API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 남아 있는지 확인할 수 있습니다.
+개인 클러스터에서 제어 평면이 나 API 서버에는 [개인 인터넷 문서의 RFC1918 할당](https://tools.ietf.org/html/rfc1918) 에 정의 된 내부 IP 주소가 있습니다. 개인 클러스터를 사용 하 여 API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 남아 있는지 확인할 수 있습니다.
 
 컨트롤 플레인 또는 API 서버는 AKS(Azure Kubernetes Service)에서 관리되는 Azure 구독에 있습니다. 고객의 클러스터 또는 노드 풀은 고객의 구독에 있습니다. 서버와 클러스터 또는 노드 풀은 API 서버 가상 네트워크의 [Azure Private Link 서비스][private-link-service]를 통해 서로 통신할 수 있으며, 고객의 AKS 클러스터의 서브넷에 노출되는 프라이빗 엔드포인트입니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-개인 클러스터는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역에서 사용할 수 있습니다.
+개인 클러스터는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역, Azure Government 및 Azure 중국 21vianet 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > Azure Government 사이트는 지원 되지만 개인 링크 지원이 없으므로 현재 US Gov 텍사스 지원 되지 않습니다.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-여기서 *--enable-private-cluster*는 프라이빗 클러스터에 대한 필수 플래그에 속합니다. 
+여기서 `--enable-private-cluster` 는 개인 클러스터에 대 한 필수 플래그입니다. 
 
 ### <a name="advanced-networking"></a>고급 네트워킹  
 
@@ -59,14 +59,14 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-여기서 *--enable-private-cluster*는 프라이빗 클러스터에 대한 필수 플래그에 속합니다. 
+여기서 `--enable-private-cluster` 는 개인 클러스터에 대 한 필수 플래그입니다. 
 
 > [!NOTE]
 > Docker 브리지 주소 CIDR(172.17.0.1/16)이 서브넷 CIDR과 충돌하는 경우, Docker 브리지 주소를 적절하게 변경합니다.
 
 ## <a name="options-for-connecting-to-the-private-cluster"></a>프라이빗 클러스터에 연결하기 위한 옵션
 
-API 서버 엔드포인트에 공용 IP 주소가 없습니다. API 서버를 관리하려면 AKS 클러스터의 Azure Virtual Network(VNet)에 대한 액세스 권한이 있는 VM을 사용해야 합니다. 프라이빗 클러스터에 대한 네트워크 연결을 설정할 경우, 몇 가지 옵션이 있습니다.
+API 서버 엔드포인트에 공용 IP 주소가 없습니다. API 서버를 관리 하려면 AKS 클러스터의 Azure Virtual Network (VNet)에 대 한 액세스 권한이 있는 VM을 사용 해야 합니다. 프라이빗 클러스터에 대한 네트워크 연결을 설정할 경우, 몇 가지 옵션이 있습니다.
 
 * AKS 클러스터와 동일한 Azure Virtual Network(VNet)에서 VM을 만듭니다.
 * 별도의 네트워크에서 VM을 사용하고 [가상 네트워크 피어링][virtual-network-peering]을 설정합니다.  이 옵션에 관한 자세한 내용은 아래의 해당 섹션을 참조하세요.
@@ -84,9 +84,9 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 4. VM의 가상 네트워크를 프라이빗 DNS 영역에 추가하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있을 때까지 몇 분 정도 걸립니다.  
 5. Azure Portal에서 클러스터의 가상 네트워크를 포함 하는 리소스 그룹으로 이동 합니다.  
 6. 오른쪽 창에서 가상 네트워크를 선택합니다. 가상 네트워크 이름은 *aks-vnet-\** 형식으로 되어 있습니다.  
-7. 왼쪽 창에서 **피어링**을 선택합니다.  
-8. **추가**를 선택하고 VM의 가상 네트워크를 추가한 다음, 피어링을 만듭니다.  
-9. VM이 있는 가상 네트워크로 이동하여 **피어링**을 선택하고 AKS 가상 네트워크를 선택한 후 피어링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌하는 경우, 피어링이 실패합니다. 자세한 내용은 [가상 네트워크 피어링][virtual-network-peering]을 참조하세요.
+7. 왼쪽 창에서 **피어링** 을 선택합니다.  
+8. **추가** 를 선택하고 VM의 가상 네트워크를 추가한 다음, 피어링을 만듭니다.  
+9. VM이 있는 가상 네트워크로 이동하여 **피어링** 을 선택하고 AKS 가상 네트워크를 선택한 후 피어링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌하는 경우, 피어링이 실패합니다. 자세한 내용은 [가상 네트워크 피어링][virtual-network-peering]을 참조하세요.
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>사용자 지정 DNS를 사용하는 허브 및 스포크
 
@@ -94,7 +94,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 ![프라이빗 클러스터 허브 및 스포크](media/private-clusters/aks-private-hub-spoke.png)
 
-1. 기본적으로 프라이빗 클러스터가 프로비전되면 프라이빗 엔드포인트 (1)과 프라이빗 DNS 영역(2)이 클러스터 관리되는 리소스 그룹에서 생성됩니다. 클러스터는 프라이빗 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 IP를 확인합니다.
+1. 기본적으로 개인 클러스터가 프로 비전 되 면 개인 끝점 (1)과 개인 DNS 영역 (2)이 클러스터 관리 리소스 그룹에 만들어집니다. 클러스터는 프라이빗 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 IP를 확인합니다.
 
 2. 프라이빗 DNS 영역은 클러스터 노드가 (3)과 연결된 VNet에만 연결됩니다. 즉, 연결된 VNet의 호스트만 프라이빗 엔드포인트를 확인할 수 있습니다. VNet에 사용자 지정 DNS가 구성 되지 않은 경우 (기본값),이는 연결로 인해 개인 DNS 영역에 있는 레코드를 확인할 수 있는 168.63.129.16 for DNS의 호스트 지점으로 문제 없이 작동 합니다.
 

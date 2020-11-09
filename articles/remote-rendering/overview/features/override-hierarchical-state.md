@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207736"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381005"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
@@ -28,26 +28,26 @@ ms.locfileid: "92207736"
 
 재정의할 수 있는 상태의 고정 집합은 다음과 같습니다.
 
-* **`Hidden`**: 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
-* **`Tint color`**: 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
+* **`Hidden`** : 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
+* **`Tint color`** : 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
   
   ![개체를 녹색으로 전환 하는 데 사용 되는 색조 색입니다.](./media/color-tint.png)
 
-* **`See-through`**: 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
+* **`See-through`** : 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
 
   ![선택한 개체를 투명 하 게 만드는 데 사용 되는 보기 모드](./media/see-through.png)
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
 
-* **`Selected`**: Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
+* **`Selected`** : Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
 
   ![선택한 파트를 강조 표시 하는 데 사용 되는 윤곽선 옵션](./media/selection-outline.png)
 
-* **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
+* **`DisableCollision`** : 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
 
-* **`UseCutPlaneFilterMask`**: 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요.
-![선택적 잘라내기 평면](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요. 장면의 나머지 부분이 영향을 받지 않는 동안에는 타이어 및 테두리만 잘라내는 다음 예제를 참조 하세요.
+![선택적 잘라내기 평면](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +101,7 @@ component->SetState(
 
 `HierarchicalStateOverrideComponent` 자체의 인스턴스는 런타임 오버헤드를 많이 추가하지는 않습니다. 그러나 활성 구성 요소의 수를 낮게 유지하는 것은 언제나 바람직합니다. 예를 들어 선택한 개체를 강조 표시하는 선택 시스템을 구현하는 경우 강조 표시가 제거될 때 구성 요소를 삭제하는 것이 좋습니다. 중립 기능을 중심으로 구성 요소를 유지하면 신속하게 추가할 수 있습니다.
 
-투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through*로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [윤곽 선택](../../overview/features/outlines.md#performance)이 있는 개체에도 동일하게 사용할 수 있습니다.
+투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through* 로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [윤곽 선택](../../overview/features/outlines.md#performance)이 있는 개체에도 동일하게 사용할 수 있습니다.
 
 ## <a name="api-documentation"></a>API 설명서
 

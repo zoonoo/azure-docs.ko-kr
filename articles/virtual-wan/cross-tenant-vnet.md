@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078972"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381272"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>가상 Wan 허브에 교차 테 넌 트 Vnet 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "92078972"
 1. 그런 다음 PowerShell의 현재 세션에 원격 테 넌 트 구독과 부모 테 넌 트 구독을 추가 합니다. 다음 명령을 실행합니다. 부모에 로그인 한 경우에는 원격 테 넌 트에 대해서만 명령을 실행 하면 됩니다.
 
    ```azurepowershell-interactive
-   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. 부모 자격 증명을 사용 하 여 Azure PowerShell에 로그인 하 고 다음 명령을 실행 하 여 역할 할당에 성공 했는지 확인 합니다.
@@ -96,7 +96,7 @@ ms.locfileid: "92078972"
 1. PowerShell 또는 Azure Portal에서 새 연결을 볼 수 있습니다.
 
    * **PowerShell:** 연결을 성공적으로 구성 했으면 새로 만든 연결의 메타 데이터가 PowerShell 콘솔에 표시 됩니다.
-   * **Azure Portal:** 가상 허브, **연결 > Virtual Network 연결**로 이동 합니다. 연결에 대 한 포인터를 볼 수 있습니다. 실제 리소스를 보려면 적절 한 권한이 필요 합니다.
+   * **Azure Portal:** 가상 허브, **연결 > Virtual Network 연결** 로 이동 합니다. 연결에 대 한 포인터를 볼 수 있습니다. 실제 리소스를 보려면 적절 한 권한이 필요 합니다.
    
 ## <a name="troubleshooting"></a><a name="troubleshoot"></a>문제 해결
 

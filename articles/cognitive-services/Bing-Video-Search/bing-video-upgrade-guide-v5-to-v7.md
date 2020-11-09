@@ -10,27 +10,27 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: c67ef6ddcd709dea8727a67100607bfc4f8cc8f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 392bb46d481df1f872b9a61beffed9e5b46f4dc5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099847"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379840"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Video Search API 업그레이드 가이드
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 업그레이드 가이드는 Bing Video Search API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
-## <a name="breaking-changes"></a>주요 변경 내용
+## <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`)을 입력합니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -43,7 +43,7 @@ ms.locfileid: "93099847"
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
-|코드|SubCode|설명
+|코드|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
@@ -76,11 +76,10 @@ InsufficientScope|InsufficientAuthorization
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)로 변경했습니다.  
+- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)로 변경했습니다.  
 
 ### <a name="object-changes"></a>개체 변경 내용
 
-- [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 앞에서는 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffset` 값에 이전 오프셋 값과 결과의 비디오 수를 더한 값으로 설정했습니다. 이번에는 간단하게 `offset` 쿼리 매개 변수를 `nextOffset` 값으로 설정했습니다.  
+- [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 앞에서는 [offset](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffset` 값에 이전 오프셋 값과 결과의 비디오 수를 더한 값으로 설정했습니다. 이번에는 간단하게 `offset` 쿼리 매개 변수를 `nextOffset` 값으로 설정했습니다.  
   
-- `relatedVideos` 필드의 데이터 형식을 `Video[]`에서 [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule)로 변경했습니다([VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) 참조).
-
+- `relatedVideos` 필드의 데이터 형식을 `Video[]`에서 [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule)로 변경했습니다([VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) 참조).
