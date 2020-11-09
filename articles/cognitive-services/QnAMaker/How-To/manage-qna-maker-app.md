@@ -4,13 +4,13 @@ description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/11/2020
-ms.openlocfilehash: 77290d271709db36f9c62e165b0b4070783b3ec6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.date: 11/09/2020
+ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128479"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376488"
 ---
 # <a name="manage-qna-maker-app"></a>QnA Maker 앱 관리
 
@@ -43,7 +43,7 @@ QnA Maker 서비스에서는 특정 기술 자료를 공유할 수 없습니다.
 
     ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
     ![QnA Maker IAM 추가](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.png)
 
@@ -59,7 +59,7 @@ QnA Maker 서비스에서는 특정 기술 자료를 공유할 수 없습니다.
 
     :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="IAM 역할 추가를 QnA Maker 합니다.":::
 
-1. 사용자의 전자 메일 주소를 입력 하 고 **저장**을 누릅니다.
+1. 사용자의 전자 메일 주소를 입력 하 고 **저장** 을 누릅니다.
 
     ![QnA Maker IAM 메일 추가](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.png)
 
@@ -69,30 +69,46 @@ QnA Maker 서비스를 공유 하는 사람이 [QnA Maker 포털](https://qnamak
 
 기술 자료를 선택 하면 해당 QnA Maker 리소스에 대 한 현재 역할이 기술 자료 이름 옆에 표시 됩니다.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="IAM 역할 추가를 QnA Maker 합니다.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="웹 페이지의 왼쪽 위 모서리에 있는 기술 자료 이름 옆의 괄호 안에 역할 이름을 사용 하 여 편집 모드에 있는 기술 자료의 스크린샷":::
 
 ## <a name="upgrade-runtime-version-to-use-active-learning"></a>활성 학습을 사용 하도록 런타임 버전 업그레이드
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)합니다.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체에서 호스트 되므로 런타임을 수동으로 업그레이드할 필요가 없습니다.
+
+---
+
 ## <a name="turn-on-active-learning-for-alternate-questions"></a>대체 질문에 대해 활성 학습 설정
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
 
 활성 학습은 기본적으로 해제되어 있습니다. 제안된 질문을 확인하려면 활성 학습을 설정합니다. 활성 학습을 켠 후에는 클라이언트 앱의 정보를 QnA Maker으로 보내야 합니다. 자세한 내용은 [GenerateAnswer를 사용 하는 아키텍처 흐름 및 봇에서 Api 학습](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot)을 참조 하세요.
 
 1. **게시** 를 선택 하 여 기술 자료를 게시 합니다. 활성 학습 쿼리는 GenerateAnswer API 예측 끝점 에서만 수집 됩니다. QnA Maker 포털에서 테스트 창에 대 한 쿼리는 활성 학습에 영향을 주지 않습니다.
 
-1. QnA Maker 포털에서 활성 학습을 설정 하려면 오른쪽 위 모서리로 이동 하 여 사용자의 **이름을**선택 하 고 [**서비스 설정**](https://www.qnamaker.ai/UserSettings)으로 이동 합니다.
+1. QnA Maker 포털에서 활성 학습을 설정 하려면 오른쪽 위 모서리로 이동 하 여 사용자의 **이름을** 선택 하 고 [**서비스 설정**](https://www.qnamaker.ai/UserSettings)으로 이동 합니다.
 
     ![서비스 설정 페이지에서 활성 학습의 제안 된 질문을 사용 하도록 설정 합니다. 오른쪽 위에 있는 메뉴에서 사용자 이름을 선택한 다음 서비스 설정을 선택 합니다.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
-1. QnA Maker 서비스를 찾은 다음 **활성 학습**을 설정 상태로 전환합니다.
+1. QnA Maker 서비스를 찾은 다음 **활성 학습** 을 설정 상태로 전환합니다.
 
     > [!div class="mx-imgBorder"]
     > [![서비스 설정 페이지에서 활성 학습 기능을 설정/해제 합니다. 기능을 설정/해제할 수 없는 경우 서비스를 업그레이드 해야 할 수 있습니다.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
     > [!Note]
     > 이전 이미지의 정확한 버전은 예제로만 표시 됩니다. 버전이 다를 수 있습니다.
-    **활성 학습** 을 사용 하도록 설정 하면 기술 자료에서 사용자가 제출한 질문에 따라 정기적인 간격으로 새로운 질문을 제안 합니다. 설정을 다시 전환하여 **활성 학습**을 사용하지 않도록 설정할 수 있습니다.
+    **활성 학습** 을 사용 하도록 설정 하면 기술 자료에서 사용자가 제출한 질문에 따라 정기적인 간격으로 새로운 질문을 제안 합니다. 설정을 다시 전환하여 **활성 학습** 을 사용하지 않도록 설정할 수 있습니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+기본적으로 활성 학습은 QnA Maker 관리 (미리 보기)에서 **설정** 됩니다. 제안 된 대체 질문을 확인 하려면 편집 페이지에서 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions) 합니다.
+
+---
 
 ## <a name="review-suggested-alternate-questions"></a>제안 된 대체 질문 검토
 

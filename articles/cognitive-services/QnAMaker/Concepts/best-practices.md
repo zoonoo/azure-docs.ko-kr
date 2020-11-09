@@ -4,13 +4,13 @@ description: 모범 사례를 사용하여 기술 자료를 개선하고 애플�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777023"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376760"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -113,14 +113,20 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>메타데이터 태그를 사용하여 질문과 답변 필터링
 
-[메타 데이터](../How-To/edit-knowledge-base.md) 는 클라이언트 응용 프로그램에서 모든 답변을 받지 않고 메타 데이터 태그를 기준으로 사용자 쿼리 결과의 범위를 좁히는 기능을 추가 합니다. 쿼리가 같더라도 메타데이터 태그에 따라 기술 자료 답변이 달라질 수 있습니다. 예를 들어 식당 지점의 위치가 다르면 *"주차장 위치는 어디인가요"* 에 대한 대답이 달라질 수 있습니다. 즉, 메타데이터는 *위치: 시애틀* 또는 *위치: 레드몬드*입니다.
+[메타 데이터](../How-To/edit-knowledge-base.md) 는 클라이언트 응용 프로그램에서 모든 답변을 받지 않고 메타 데이터 태그를 기준으로 사용자 쿼리 결과의 범위를 좁히는 기능을 추가 합니다. 쿼리가 같더라도 메타데이터 태그에 따라 기술 자료 답변이 달라질 수 있습니다. 예를 들어 식당 지점의 위치가 다르면 *"주차장 위치는 어디인가요"* 에 대한 대답이 달라질 수 있습니다. 즉, 메타데이터는 *위치: 시애틀* 또는 *위치: 레드몬드* 입니다.
 
 ### <a name="use-synonyms"></a>동의어 사용
-영어 동의어에 대 한 일부 지원이 있지만 변경 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형식을 사용 하는 키워드에 동의어를 추가 합니다. 동의어는 QnA Maker 서비스 수준에서 추가 되 고 서비스의 모든 기술 자료에서 공유 됩니다.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. 동의어는 QnA Maker 서비스 수준에서 추가 되 고 **서비스의 모든 기술 자료에서 공유** 됩니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+영어에서 동의어에 대 한 지원이 제공 되는 경우에는 변경 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 를 통해 대/소문자를 구분 하지 않는 단어 변경 사항을 사용 하 여 다른 형태를 사용 하는 키워드에 동의어를 추가 합니다. QnA Maker 관리 (미리 보기)의 동의어가 **기술 자료에 따라 추가** 됩니다.
 
 |원래 단어|동의어|
 |--|--|
 |구입|구매<br>네트워크-은행<br>인터넷 뱅킹|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>고유한 단어를 사용하여 질문을 구분
 사용자 쿼리를 기술 자료의 질문과 일치시키는 QnA Maker 순위 알고리즘은 각 질문이 다른 요구 사항을 다루는 경우에 가장 효과적입니다. 질문 사이에 같은 단어 집합을 반복하면 해당 단어가 포함된 특정 사용자 쿼리에 대해 올바른 대답이 선택될 확률이 감소합니다.
@@ -129,7 +135,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 
 |QnA|
 |--|
-|주차 *위치*는 어디인가요|
+|주차 *위치* 는 어디인가요|
 |여기서은 ATM *위치* 입니다.|
 
 이러한 두 QnA가 매우 유사한 단어로 구성되었으므로 이 유사성은 *"`<x>`위치는 어디인가요"* 와 같이 구성된 사용자 쿼리에 대해 유사한 점수가 발생할 수 있습니다. 대신, KB에서 많은 질문을 받을 수 있는 "위치"와 같은 단어를 방지 하 여 "  *어디에 주차장"* 및 *"ATM"* 과 같은 쿼리를 명확 하 게 구분 합니다.

@@ -4,28 +4,27 @@ description: 리소스를 구성 하는 방법 및 위치를 이해 합니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/21/2020
-ms.openlocfilehash: 1d54b912d2177a3ccd0cf34d57fc0358af653199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/9/2020
+ms.openlocfilehash: eac930971cab041fbf398da1ac5f8a055412832d
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776717"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376862"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
-QnA Maker는 Cognitive Search, App Service, App Service 계획 및 Application Insights를 비롯 한 여러 Azure 리소스 (서비스)를 사용 합니다.
-
-QnA Maker에서 지 원하는 이러한 설정에 대 한 모든 사용자 지정은 아래에 나열 되어 있습니다.
+각 버전의 QnA Maker는 서로 다른 Azure 리소스 (서비스) 집합을 사용 합니다. 이 문서에서는 이러한 서비스에 대해 지원 되는 사용자 지정을 설명 합니다. 
 
 ## <a name="app-service"></a>App Service
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 QnA Maker는 App Service를 사용 하 여 [Generateanswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)에서 사용 하는 쿼리 런타임을 제공 합니다.
 
+이러한 설정은 App Service에 대 한 Azure Portal에서 사용할 수 있습니다. 설정은 **설정** , **구성** 을 차례로 선택 하 여 사용할 수 있습니다.
 
-이러한 설정은 App Service에 대 한 Azure Portal에서 사용할 수 있습니다. 설정은 **설정**, **구성**을 차례로 선택 하 여 사용할 수 있습니다.
-
-개별 설정은 응용 프로그램 설정 목록을 통해 설정 하거나 **고급 편집**을 선택 하 여 여러 설정을 수정할 수 있습니다.
+개별 설정은 응용 프로그램 설정 목록을 통해 설정 하거나 **고급 편집** 을 선택 하 여 여러 설정을 수정할 수 있습니다.
 
 |리소스|설정|
 |--|--|
@@ -36,9 +35,13 @@ QnA Maker는 App Service를 사용 하 여 [Generateanswer API](https://docs.mic
 |UserAppInsightsKey|채팅 로그 및 원격 분석|
 |UserAppInsightsName|채팅 로그 및 원격 분석|
 
-Cognitive Search 서비스를 서비스에 [추가 하는 방법](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
-
 변경을 완료 한 후에는 Azure Portal의 **개요** 페이지에서 서비스를 **다시 시작** 해야 합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+App Service 사용자 지정은 QnA Maker 관리 (미리 보기)에 적용 되지 않습니다.
+
+---
 
 ## <a name="qna-maker-service"></a>QnA Maker Service
 
@@ -46,13 +49,37 @@ QnA Maker 서비스는 단일 QnA Maker 서비스와 모든 해당 기술 자료
 
 서비스에 [협력자를 추가 하는 방법을](./how-to/collaborate-knowledge-base.md) 알아봅니다.
 
-## <a name="application-insights"></a>Application Insights
+## <a name="change-azure-cognitive-search"></a>Azure Cognitive Search 변경
 
-Application Insights에 QnA Maker 관련 된 구성 설정이 없습니다.
+QnA Maker 서비스에 연결 된 [Cognitive Search 서비스를 변경 하는 방법](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
+
+## <a name="change-default-answer"></a>기본 답변 변경
+
+[기본 답변의 텍스트를 변경 하는 방법](How-To/change-default-answer.md)에 대해 알아봅니다. 
+
+## <a name="telemetry"></a>원격 분석
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
+Application Insights는 QnA Maker GA를 사용 하 여 원격 분석을 모니터링 하는 데 사용 됩니다. QnA Maker와 관련 된 구성 설정은 없습니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+[QnA Maker 관리 (미리 보기) 서비스에 원격 분석을 추가 하는 방법](How-To/get-analytics-knowledge-base.md)에 대해 알아봅니다. 
+
+---
 
 ## <a name="app-service-plan"></a>App Service 플랜
 
+# <a name="qnamaker-ga-stable-release"></a>[QnAMaker GA (안정적인 릴리스)](#tab/v1)
+
 App Service 계획에는 QnA Maker 관련 된 구성 설정이 없습니다.
+
+# <a name="qnamaker-managed-preview-release"></a>[QnAMaker 관리 (미리 보기 릴리스)](#tab/v2)
+
+App Service 계획은 QnA Maker 관리 (미리 보기)와 함께 사용 되지 않습니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

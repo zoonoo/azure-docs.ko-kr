@@ -4,13 +4,13 @@ description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776258"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375621"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -20,7 +20,7 @@ ms.locfileid: "91776258"
 
 기술 자료의 최대 수는 [Azure Cognitive Search 계층 제한을](../../search/search-limits-quotas-capacity.md)기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **무료** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |게시할 수 있는 기술 자료의 최대 수|2|14|49|199|199|2,999|
 
@@ -39,7 +39,7 @@ ms.locfileid: "91776258"
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|형식|최대 파일 크기 (MB)|
+|서식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -50,6 +50,9 @@ ms.locfileid: "91776258"
 ### <a name="maximum-number-of-files"></a>최대 파일 수
 
 추출할 수 있는 최대 파일 수 및 최대 파일 크기는 **[QnA Maker 가격 책정 계층 제한](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** 에 따라 달라 집니다.
+
+> [!NOTE]
+> QnA Maker 관리 (미리 보기)는 추가 될 수 있는 원본 수에 제한이 없는 무료 서비스입니다. 현재 처리량은 관리 Api와 예측 Api 모두에서 초당 10 개의 트랜잭션으로 제한 됩니다.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>URL의 최대 딥 링크 수
 
@@ -63,7 +66,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 기술 자료 당 최대 메타 데이터 필드 수는 **[Azure Cognitive Search 계층 제한을](../../search/search-limits-quotas-capacity.md)** 기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **무료** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 
@@ -92,13 +95,13 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 * URL/HTML 페이지: 100만 문자
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기
-이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.**
+이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
 * 답변 당 최대 대체 질문 수: 300
 * 최대 URL 수: 10
 * 최대 파일 수: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>기술 자료 호출 제한 업데이트
-이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.**
+이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
 * 각 원본 이름 길이: 300
 * 추가 되거나 삭제 된 대체 질문의 최대 수: 300
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10

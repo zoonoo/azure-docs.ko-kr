@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042401"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375355"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -60,7 +60,7 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 에이전트를 완전히 다시 설치 하면 대부분의 문제가 해결 됩니다. 실제로 지원 팀에서 에이전트를 uncurropted 상태로 전환 하는 것이 가장 먼저 제안 된 제안 일 수 있습니다. 문제 해결사를 실행 하 여 로그를 수집 하 고 새로 다시 설치를 시도 하면 문제를 보다 신속 하 게 해결할 수 있습니다.
 
 1. 제거 스크립트를 다운로드 합니다.
-- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+- `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
 2. 제거 스크립트 (sudo 권한 포함)를 실행 합니다.
 - `$ sudo sh purge_omsagent.sh`
 
@@ -92,7 +92,7 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent- *rpm* .sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent- *deb* .sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent- *rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent- *deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
 | 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent- *x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |

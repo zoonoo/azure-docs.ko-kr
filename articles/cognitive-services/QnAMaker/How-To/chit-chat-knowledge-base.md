@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330641"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376655"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "91330641"
 사용자 쿼리의 경우 각 사용자에 게 `When is your birthday?` 다음과 같은 스타일의 응답이 있습니다.
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|개성|예제|
+|개성|예|
 |--|--|
 |Professional|나이는 전혀 적용 되지 않습니다.|
 |친숙한|나의 나이가 없습니다.|
@@ -55,19 +55,27 @@ Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
 
 
 ## <a name="add-chit-chat-during-kb-creation"></a>KB 생성 중에 잡담 추가
-기술 자료 생성 중에 원본 URL 및 파일을 추가하면 잡담을 추가하는 옵션이 생깁니다. 잡담 기반으로 사용하려는 성격을 선택합니다. 잡담을 추가하지 않으려는 경우 또는 이미 데이터 원본에 잡담 지원 기능이 있는 경우 **없음**을 선택합니다.
+기술 자료 생성 중에 원본 URL 및 파일을 추가하면 잡담을 추가하는 옵션이 생깁니다. 잡담 기반으로 사용하려는 성격을 선택합니다. 잡담을 추가하지 않으려는 경우 또는 이미 데이터 원본에 잡담 지원 기능이 있는 경우 **없음** 을 선택합니다.
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>기존 KB에 잡담 추가
 KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** 형식으로 된 모든 잡담 데이터 세트에 대한 링크가 있습니다. 원하는 성격을 다운로드한 다음, 파일 원본으로 업로드하세요. 파일을 다운로드하고 업로드할 때 형식 또는 메타데이터를 편집하지 않도록 하세요.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 ![기존 KB에 잡담 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+![Chit-기존 KB 미리 보기 릴리스에 대 한 채팅을 추가 합니다.](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>잡담의 질문과 답변 편집
 KB를 편집할 때 선택된 성격에 따라 잡담의 새 원본이 표시됩니다. 이제 다른 모든 원본과 마찬가지로 변경된 질문을 추가하거나 응답을 편집할 수 있습니다.
 
 ![잡담 QnA 편집](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-메타 데이터를 보려면 도구 모음에서 **옵션 보기** 를 선택 하 고 **메타 데이터 표시**를 선택 합니다.
+메타 데이터를 보려면 도구 모음에서 **옵션 보기** 를 선택 하 고 **메타 데이터 표시** 를 선택 합니다.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>잡담 질문과 답변 추가
 미리 정의 된 데이터 집합에 없는 새 chit-chat QnA 쌍을 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. Ranker이이를 이해 하 고 있는지 확인 하려면 다음 이미지에 표시 된 것 처럼 메타 데이터 키/값 쌍 "편집: chitchat"을 추가 합니다.
@@ -84,6 +92,6 @@ KB를 선택하고 **설정** 페이지로 이동합니다. 특정 잠담 원본
 > [!div class="nextstepaction"]
 > [기술 자료 가져오기](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고자료
 
 [QnA Maker 개요](../Overview/overview.md)

@@ -4,13 +4,13 @@ description: 활성 학습 제안을 통해 사용자의 질문 및 답변 쌍�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777040"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376522"
 ---
 # <a name="active-learning-suggestions"></a>활성 학습 제안
 
@@ -37,10 +37,18 @@ QnA Maker 포털에서 질문이 제안 되 면 해당 제안을 검토 하 고 
 
 ## <a name="turn-on-active-learning"></a>활성 학습 설정
 
-기본적으로 활성 학습은 **해제**되어 있습니다.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
+기본적으로 활성 학습은 **해제** 되어 있습니다.
 활성 학습을 사용 하려면:
 * QnA Maker에서 기술 자료에 대 한 대체 질문을 수집 하도록 [활성 학습을 설정](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) 해야 합니다.
 * 제안 된 대체 질문을 확인 하려면 편집 페이지에서 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions) 합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+기본적으로 활성 학습은 QnA Maker 관리 (미리 보기)에서 **설정** 됩니다. 제안 된 대체 질문을 확인 하려면 편집 페이지에서 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions) 합니다.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>QnA Maker의 암시적 피드백 작동 방법
 

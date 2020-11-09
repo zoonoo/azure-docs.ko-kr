@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321002"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375507"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -46,11 +46,19 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
-1. **내 기술 자료**에서 기술 자료에 대 한 **코드 보기** 를 선택 합니다.
+1. **내 기술 자료** 에서 기술 자료에 대 한 **코드 보기** 를 선택 합니다.
     ![내 기술 자료의 스크린샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
     ![끝점 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+    ![관리 되는 끝점 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 기술 자료의 **설정** 탭에서 엔드포인트 세부 정보를 가져올 수도 있습니다.
 
@@ -128,7 +136,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>C에서 봇과 QnA Maker 사용 #
 
-Bot framework는 [Getanswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot framework는 [Getanswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 QnA Maker 사용
 
-Bot framework는 [Getanswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot framework는 [Getanswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

@@ -4,13 +4,13 @@ description: QnA Maker 앱을 계획 하는 방법을 알아봅니다. QnA Maker
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776938"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376680"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -20,6 +20,8 @@ QnA Maker 앱을 계획 하려면 QnA Maker 작동 하 고 다른 Azure 서비�
 
 QnA Maker를 사용 하 여 만든 각 [Azure 리소스](azure-resources.md#resource-purposes) 는 특정 목적이 있습니다. 각 리소스에는 고유한 용도, 제한 및 [가격 책정 계층이](azure-resources.md#pricing-tier-considerations)있습니다. 이러한 리소스의 기능을 이해 하 여 계획 프로세스에 해당 정보를 사용할 수 있도록 하는 것이 중요 합니다.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 | 리소스 | 목적 |
 |--|--|
 | [QnA Maker](azure-resources.md#qna-maker-resource) 리소스 | 작성 및 쿼리 예측 |
@@ -27,6 +29,14 @@ QnA Maker를 사용 하 여 만든 각 [Azure 리소스](azure-resources.md#reso
 | [App Service 리소스 및 앱 계획 서비스](azure-resources.md#app-service-and-app-service-plan) 리소스 | 예측 엔드포인트 쿼리 |
 | [Application Insights](azure-resources.md#application-insights) 리소스 | 쿼리 예측 원격 분석 |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+| 리소스 | 목적 |
+|--|--|
+| [QnA Maker](azure-resources.md#qna-maker-resource) 리소스 | 작성, 쿼리 예측 끝점 및 원격 분석|
+| [Cognitive Search](azure-resources.md#cognitive-search-resource) 리소스 | 데이터 저장 및 검색 |
+
+---
 ### <a name="resource-planning"></a>리소스 계획
 
 `F0`각 리소스의 무료 계층은 작동 하며 작성 및 쿼리 예측 환경을 모두 제공할 수 있습니다. 이 계층을 사용 하 여 작성 및 쿼리 예측을 학습할 수 있습니다. 프로덕션 또는 라이브 시나리오로 전환 하는 경우 리소스 선택을 다시 계산 합니다.
@@ -65,9 +75,22 @@ QnA Maker를 사용 하 여 만든 각 [Azure 리소스](azure-resources.md#reso
 
 ### <a name="language-considerations"></a>언어 관련 고려 사항
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 QnA Maker 리소스에 대해 만들어진 첫 번째 기술 자료는 리소스의 언어를 설정 합니다. QnA Maker 리소스에 대해 언어가 하나만 있을 수 있습니다.
 
 쿼리 예측 끝점에 쿼리를 보내기 전에 언어를 사용 하 여 QnA Maker 리소스를 구조화 하거나 [번역기](../../translator/translator-info-overview.md) 를 사용 하 여 다른 언어에서 기술 자료의 언어로 쿼리를 변경할 수 있습니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+이제 동일한 QnA Maker 리소스 내에서 기술 자료를 다른 언어로 사용할 수 있습니다. 첫 번째 기술 자료를 만들 때 기술 자료에 대 한 리소스를 단일 언어나 여러 언어로 사용할지 여부를 선택할 수 있습니다.
+
+![QnA Maker 관리 (미리 보기) 다국어 기술 자료 선택](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> 기술 자료 당 언어 설정을 사용 하도록 설정 하는 경우 QnA Maker 리소스에 많은 기술 자료를 만들 수 없습니다. [언어 설정 제한 사항에 대 한 자세한 내용은](./azure-resources.md)을 참조 하십시오.
+
+---
 
 ### <a name="ingest-data-sources"></a>데이터 원본 수집
 
@@ -87,7 +110,7 @@ QnA 쌍의 최종 형식은 markdown 이므로 [markdown 지원을](../reference
 
 ### <a name="bot-personality"></a>Bot
 
-[Chit-채팅](../how-to/chit-chat-knowledge-base.md)을 통해 기술 자료에 봇 개성을 추가 합니다. 이 특성은 *전문가* 와 *친숙*한 특정 대화형 톤에 제공 된 답변을 통해 제공 됩니다. 이 chit-채팅은 사용자가 추가, 편집 및 제거 하는 데 사용할 수 있는 대화 집합으로 제공 됩니다.
+[Chit-채팅](../how-to/chit-chat-knowledge-base.md)을 통해 기술 자료에 봇 개성을 추가 합니다. 이 특성은 *전문가* 와 *친숙* 한 특정 대화형 톤에 제공 된 답변을 통해 제공 됩니다. 이 chit-채팅은 사용자가 추가, 편집 및 제거 하는 데 사용할 수 있는 대화 집합으로 제공 됩니다.
 
 봇이 기술 자료에 연결 하는 경우 bot를 권장 합니다. 다른 서비스에도 연결 하는 경우에도 기술 자료에서 chit-채팅을 사용 하도록 선택할 수 있지만, 사용자가 사용 하기에 적합 한 아키텍처 디자인 인지 확인 하기 위해 봇 서비스의 상호 작용 방식을 검토 해야 합니다.
 
@@ -129,7 +152,7 @@ QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 
 
 ### <a name="providing-a-default-answer"></a>기본 대답 제공
 
-기술 자료가 대답을 찾지 못하면 _기본 답_을 반환 합니다. 이 응답은 QnA Maker 포털 또는 [api](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body)의 **설정** 페이지에서 구성할 수 있습니다.
+기술 자료가 대답을 찾지 못하면 _기본 답_ 을 반환 합니다. 이 응답은 QnA Maker 포털 또는 [api](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body)의 **설정** 페이지에서 구성할 수 있습니다.
 
 이 기본 대답은 Azure bot 기본 대답과 다릅니다. 구성 설정의 일부로 Azure Portal에서 Azure bot의 기본 대답을 구성 합니다. 점수 임계값이 충족 되지 않는 경우 반환 됩니다.
 
@@ -152,7 +175,15 @@ QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 
 
 ### <a name="service-updates"></a>서비스 업데이트
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 [최신 런타임 업데이트](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) 를 적용 하 여 서비스 업데이트를 자동으로 관리 합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체를 통해 관리 됩니다. 따라서 서비스 업데이트가 적용 되지 않습니다.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>크기 조정, 처리량 및 복원 력
 
@@ -160,7 +191,16 @@ QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 
 
 ### <a name="analytics-with-application-insights"></a>Application Insights 분석
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 기술 자료에 대 한 모든 쿼리는 Application Insights에 저장 됩니다. [가장 많이](../how-to/get-analytics-knowledge-base.md) 사용 되는 쿼리를 사용 하 여 메트릭을 파악 합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+관리 되는 배포에서 원격 분석은 [Azure Monitor 서비스](https://docs.microsoft.com/azure/azure-monitor/)를 통해 제공 됩니다. [가장 많이](../how-to/get-analytics-knowledge-base.md) 사용 되는 쿼리를 사용 하 여 메트릭을 파악 합니다.
+
+
+---
 
 ## <a name="development-lifecycle"></a>개발 수명 주기
 

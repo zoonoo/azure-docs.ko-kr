@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545160"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376777"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -31,7 +31,7 @@ Azure Database for MySQL는 [Azure Portal](./howto-server-parameters.md), [Azure
 
 ### <a name="thread-pools"></a>스레드 풀
 
-MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 성능이 저하 됩니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
+MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 formance에 해당 하는 놓기가 있습니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
 
 서버 쪽 기능이 며 연결 풀링과는 다른 스레드 풀은 서버에서 실행 되는 활성 스레드 수를 제한 하 고 스레드 변동 (code churn)을 최소화 하는 데 사용할 수 있는 작업자 스레드의 동적 풀을 도입 하 여 성능을 최대화 합니다. 이렇게 하면 연결 버스트로 인해 서버에서 리소스가 부족 하거나 메모리 부족 오류가 발생 하 여 작동이 중단 되지 않도록 할 수 있습니다. 스레드 풀은 OLTP 워크 로드와 같이 짧은 쿼리와 CPU 집약적 워크 로드에 가장 효율적입니다.
 
@@ -106,9 +106,9 @@ Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 
 > [!NOTE]
 > `innodb_file_per_table` 은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 업데이트할 수 있습니다.
 
-MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 아니면 InnoDB가 file-per-table 테이블스페이스에 테이블을 만듭니다.
+MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 그렇지 않으면 InnoDB는 file-per-table 테이블스페이스에 테이블을 만듭니다.
 
-Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB** 를 지원합니다. 데이터베이스 크기가 1TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 1TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
+Azure Database for MySQL는 단일 데이터 파일에서 최대 **4 TB** 를 지원 합니다. 데이터베이스 크기가 2TB 보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블 스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 4 TB 보다 큰 경우 파티션 테이블을 사용 해야 합니다.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 

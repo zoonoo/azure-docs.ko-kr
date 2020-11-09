@@ -4,13 +4,13 @@ description: QnA Maker는 각각 다른 용도로 사용 되는 여러 Azure 소
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 62f627fb9765f2a86a373f74c33437680c9305af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777057"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376799"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -18,31 +18,47 @@ QnA Maker는 각각 다른 용도로 사용 되는 여러 Azure 소스를 사용
 
 ## <a name="resource-planning"></a>리소스 계획
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+
 QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타입 단계에서 테스트와 프로덕션 모두에 단일 QnA Maker 리소스를 보유 하는 것이 일반적입니다.
 
 프로젝트의 개발 단계로 이동 하는 경우 다음을 고려해 야 합니다.
 
-* 기술 자료 시스템에서 보유할 언어 수
-* 지원 되는/에서 기술 자료가 필요한 지역 수
-* 시스템이 보유 하는 각 도메인의 문서 수
+* 기술 자료 시스템에서 보유할 언어는 몇 개입니까?
+* 사용 가능한 기술 자료가 필요한 지역 수
+* 시스템에 포함 될 각 도메인의 문서 수는 몇 개입니까?
 
 단일 QnA Maker 리소스에 동일한 언어, 동일한 지역 및 동일한 주체 도메인 조합을 가진 모든 기술 자료를 보유 하도록 계획 합니다.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는 프로토타입 단계에서 테스트와 프로덕션 모두에 대해 관리 되는 단일 QnA Maker 리소스를 보유 하는 것이 일반적입니다.
+
+프로젝트의 개발 단계로 이동 하는 경우 다음을 고려해 야 합니다.
+
+* 기술 자료 시스템에서 보유할 언어는 몇 개입니까?
+* 사용 가능한 기술 자료가 필요한 지역 수
+* 시스템에 포함 될 각 도메인의 문서 수는 몇 개입니까?
+
+---
+
 ## <a name="pricing-tier-considerations"></a>가격 책정 계층 고려 사항
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
 
 일반적으로 고려해야 하는 다음 세 가지 매개 변수가 있습니다.
 
-* **서비스에서 필요한 처리량**:
+* **서비스에서 필요한 처리량** :
     * 필요에 따라 App Service에 적합한 [앱 플랜](https://azure.microsoft.com/pricing/details/app-service/plans/)을 선택합니다. 앱을 [확장](https://docs.microsoft.com/azure/app-service/manage-scale-up)하거나 축소할 수 있습니다.
     * 이는 Azure **Cognitive Search** SKU 선택에도 영향을 줍니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/search/search-sku-tier)를 참조 하세요. 또한 복제본을 사용 하 여 Cognitive Search [용량](../../../search/search-capacity-planning.md) 을 조정 해야 할 수도 있습니다.
 
-* **기술 자료의 크기 및 개수**: 시나리오에 적합한 [Azure Search SKU](https://azure.microsoft.com/pricing/details/search/)를 선택합니다. 일반적으로 다양 한 주체 도메인의 수에 따라 필요한 기술 자료의 수를 결정 합니다. 단일 언어에 대 한 주체 도메인은 하나의 기술 자료에 있어야 합니다.
+* **기술 자료의 크기 및 개수** : 시나리오에 적합한 [Azure Search SKU](https://azure.microsoft.com/pricing/details/search/)를 선택합니다. 일반적으로 다양 한 주체 도메인의 수에 따라 필요한 기술 자료의 수를 결정 합니다. 단일 언어에 대 한 주체 도메인은 하나의 기술 자료에 있어야 합니다.
 
     특정 계층에 N-1개의 기술 자료를 게시할 수 있습니다. 여기서 N은 계층에서 허용되는 최대 인덱스 개수입니다. 또한 계층당 허용되는 문서의 최대 크기 및 개수를 확인합니다.
 
     예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다.
 
-* **원본 문서 수**: QnA Maker 관리 서비스의 체험 SKU는 포털 및 API를 통해 관리할 수 있는 문서 수를 3개(각각 1MB 크기)로 제한합니다. 표준 SKU는 관리할 수 있는 문서 수에 대한 제한이 없습니다. 자세한 내용은 [여기](https://aka.ms/qnamaker-pricing)를 참조하세요.
+* **원본 문서 수** : QnA Maker 관리 서비스의 체험 SKU는 포털 및 API를 통해 관리할 수 있는 문서 수를 3개(각각 1MB 크기)로 제한합니다. 표준 SKU는 관리할 수 있는 문서 수에 대한 제한이 없습니다. 자세한 내용은 [여기](https://aka.ms/qnamaker-pricing)를 참조하세요.
 
 다음 표에서는 몇 가지 전반적인 지침을 제공합니다.
 
@@ -52,7 +68,39 @@ QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타�
 | **개발/테스트 환경**   | 표준 SKU         | 공유됨      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
 | **프로덕션 환경** | 표준 SKU         | Basic       | Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+일반적으로 고려해야 하는 다음 세 가지 매개 변수가 있습니다.
+
+* **서비스에서 필요한 처리량** :
+    * QnA Maker 관리 (미리 보기)는 무료 서비스 이며, 현재 처리량은 관리 Api와 예측 Api 모두에 대해 10 개에 해당 합니다.
+    * 이는 Azure **Cognitive Search** SKU 선택에도 영향을 줍니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/search/search-sku-tier)를 참조 하세요. 또한 복제본을 사용 하 여 Cognitive Search [용량](../../../search/search-capacity-planning.md) 을 조정 해야 할 수도 있습니다.
+
+* **기술 자료의 크기 및 개수** : 시나리오에 적합한 [Azure Search SKU](https://azure.microsoft.com/pricing/details/search/)를 선택합니다. 일반적으로 다양 한 주체 도메인의 수에 따라 필요한 기술 자료의 수를 결정 합니다. 단일 언어에 대 한 주체 도메인은 하나의 기술 자료에 있어야 합니다.
+
+    QnA Maker 관리 (미리 보기)를 사용 하 여 단일 언어 또는 여러 언어로 Kb 용 QnA Maker 서비스를 설정할 수 있습니다. QnA Maker 관리 (미리 보기) 서비스에서 첫 번째 기술 자료를 만들 때이를 선택할 수 있습니다.
+
+    ![QnA Maker 관리 (미리 보기) 다국어 기술 자료 선택](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+    단일 언어의 N-1 기술 자료를 게시 하거나 특정 계층에 다른 언어의 N/2 기술 자료를 게시할 수 있습니다. 여기서 N은 계층에서 허용 되는 최대 인덱스입니다. 또한 계층당 허용되는 문서의 최대 크기 및 개수를 확인합니다.
+
+    예를 들어 계층에 허용 되는 인덱스가 15 인 경우 동일한 언어의 14 개 기술 자료를 게시할 수 있습니다 (게시 된 기술 자료 당 인덱스 1 개). 15번째 인덱스는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다. 기술 자료를 다른 언어로 선택 하는 경우에는 7 개의 기술 자료만 게시할 수 있습니다.
+
+* **원본으로** 사용 되는 문서 수: 관리 되는 (미리 보기) QnA Maker은 무료 서비스 이며 소스로 추가할 수 있는 문서 수에는 제한이 없습니다. 자세한 내용은 [여기](https://aka.ms/qnamaker-pricing)를 참조하세요.
+
+다음 표에서는 몇 가지 전반적인 지침을 제공합니다.
+
+|                            |Azure Cognitive Search | 제한 사항                      |
+| -------------------------- |------------ | -------------------------------- |
+| **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
+| **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
+| **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
+
+---
+
 ## <a name="recommended-settings"></a>권장 설정
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
 
 |대상 QPS | App Service | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
@@ -62,7 +110,15 @@ QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타�
 | 100         | P3V2가, 10 개 인스턴스  | S3, 12 개 인스턴스, 3 개 파티션   |
 | 200 ~ 250         | P3V2가, 20 개 인스턴스 | S3, 12 개 인스턴스, 3 개 파티션    |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+관리 되는 QnA Maker은 무료 서비스 이며, 현재 처리량은 관리 Api와 예측 Api 모두에서 초당 10 개의 트랜잭션으로 제한 됩니다. 서비스의 초당 10 개 트랜잭션을 대상으로 하려면 Azure Cognitive Search의 S1 (인스턴스) SKU를 권장 합니다.
+
+---
+
 ## <a name="when-to-change-a-pricing-tier"></a>가격 책정 계층을 변경 하는 경우
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
 
 |업그레이드|이유|
 |--|--|
@@ -72,7 +128,15 @@ QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타�
 
 [Azure Portal에서 App Service를 업데이트](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)하 여 최신 런타임 업데이트를 가져옵니다.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search 서비스를 통해 많은 기술 자료를 사용할 계획입니다.
+
+---
+
 ## <a name="resource-naming-considerations"></a>리소스 명명 고려 사항
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
 
 과 같은 QnA Maker 리소스의 리소스 이름도 `qna-westus-f0-b` 다른 리소스의 이름을 사용 하는 데 사용 됩니다.
 
@@ -92,7 +156,7 @@ Azure Portal 만들기 창에서 QnA Maker 리소스를 만들고 다른 리소�
 > [!TIP]
 > 명명 규칙을 사용 하 여 리소스 이름 또는 리소스 그룹 내의 가격 책정 계층을 지정 합니다. 새 기술 자료를 만들거나 새 문서를 추가 하는 것에서 오류가 발생 하는 경우 Cognitive Search 가격 책정 계층 한도가 일반적인 문제입니다.
 
-## <a name="resource-purposes"></a>리소스 목적
+### <a name="resource-purposes"></a>리소스 목적
 
 QnA Maker를 사용 하 여 만든 각 Azure 리소스는 특정 목적이 있습니다.
 
@@ -168,30 +232,105 @@ QnA Maker 관리 서비스는 QnA Maker 포털 및 초기 데이터 처리에만
 
 QnA Maker 서비스는 App service에서 호스팅되는 런타임과 함께 사용 되는 키와 **쿼리 끝점 키** 를 **작성** 하는 두 가지 종류의 키를 처리 합니다.
 
-**구독 키**를 찾고 있는 경우 [용어가 변경 되었습니다](#subscription-keys).
+**구독 키** 를 찾고 있는 경우 [용어가 변경 되었습니다](#subscription-keys).
 
 Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 합니다.
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-|이름|위치|목적|
+|이름|위치|용도|
 |--|--|--|
 |작성 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점을 쿼리하여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 쿼리 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
 
 ### <a name="subscription-keys"></a>구독 키
 
-용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키**였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
+용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키** 였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
 
 어떤 키를 찾아야 하는지 파악 하기 위해 키에 액세스 하는 기술 자료 관리 또는 기술 자료 쿼리를 알고 있어야 합니다.
 
-## <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
+### <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
 * [가상 네트워크를 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)하 여 공용 액세스에서 인지 서비스 리소스를 보호 합니다.
 * 공용 액세스에서 App Service (QnA Runtime) 보호:
     * 인지 서비스 Ip의 트래픽만 허용 합니다. 이러한 설정은 서비스 태그 "CognitiveServicesManagement"에 이미 포함 되어 있습니다. 이는 app service를 호출 하 고 Azure Search 서비스를 업데이트 하는 Api (만들기/업데이트 KB)를 작성 하는 데 필요 합니다.
     * 또한 Bot service, QnA Maker portal (corpnet 일 수 있음) 등의 다른 진입점을 허용 하 고, 예측 "GenerateAnswer" API 액세스를 위한 것입니다.
     * [서비스 태그에 대 한 자세한 정보를](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) 확인 하세요.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+
+등의 관리 되는 (미리 보기) 리소스 QnA Maker의 리소스 이름 (예:)을 `qna-westus-f0-b` 사용 하 여 다른 리소스의 이름을 사용 하기도 합니다.
+
+Azure Portal 만들기 창에서 관리 되는 QnA Maker (미리 보기) 리소스를 만들고 다른 리소스에 대 한 가격 책정 계층을 선택할 수 있습니다.
+
+> [!div class="mx-imgBorder"]
+> ![리소스를 만든 후에 QnA Maker 관리 (미리 보기) 리소스를 만들기 위한 Azure Portal의 스크린샷 ](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png) 동일한 이름을 갖습니다.
+
+> [!div class="mx-imgBorder"]
+> ![관리 QnA Maker (미리 보기) Azure Portal 리소스 목록 스크린샷](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+> [!TIP]
+> QnA Maker 리소스를 만들 때 새 리소스 그룹을 만듭니다. 이렇게 하면 리소스 그룹별로 검색할 때 QnA Maker 관리 (미리 보기) 리소스와 연결 된 모든 리소스를 볼 수 있습니다.
+> [!TIP]
+> 명명 규칙을 사용 하 여 리소스 이름 또는 리소스 그룹 내의 가격 책정 계층을 지정 합니다. 새 기술 자료를 만들거나 새 문서를 추가 하는 것에서 오류가 발생 하는 경우 Cognitive Search 가격 책정 계층 한도가 일반적인 문제입니다.
+
+### <a name="resource-purposes"></a>리소스 목적
+
+QnA Maker 관리 (미리 보기)를 사용 하 여 만든 각 Azure 리소스는 특정 목적이 있습니다.
+
+* QnA Maker 리소스
+* Cognitive Search 리소스
+
+### <a name="azure-cognitive-search-resource"></a>Azure Cognitive Search 리소스
+
+[Cognitive Search](../../../search/index.yml) 리소스는 다음 작업에 사용 됩니다.
+
+* QnA 쌍 저장
+* 런타임에 QnA 쌍의 초기 순위 (ranker #1)를 제공 합니다.
+
+#### <a name="index-usage"></a>인덱스 사용
+
+단일 언어의 N-1 기술 자료를 게시 하거나 특정 계층에 다른 언어의 N/2 기술 자료를 게시할 수 있습니다. 여기서 N은 Azure Cognitive Search 계층에서 허용 되는 최대 인덱스입니다. 또한 계층당 허용되는 문서의 최대 크기 및 개수를 확인합니다.
+
+예를 들어 계층에 허용 되는 인덱스가 15 인 경우 동일한 언어의 14 개 기술 자료를 게시할 수 있습니다 (게시 된 기술 자료 당 인덱스 1 개). 15번째 인덱스는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다. 기술 자료를 다른 언어로 선택 하는 경우에는 7 개의 기술 자료만 게시할 수 있습니다.
+
+#### <a name="language-usage"></a>언어 사용
+
+QnA Maker 관리 (미리 보기)를 사용 하면 기술 자료에 대 한 QnA Maker 서비스를 단일 언어나 여러 언어로 설정할 수 있습니다. QnA Maker 서비스에서 첫 번째 기술 자료를 만드는 동안이 옵션을 선택 합니다. 기술 자료 당 언어 설정을 사용 하도록 설정 [하는 방법을 참조 하세요.](#pricing-tier-considerations)
+
+### <a name="qna-maker-resource"></a>QnA Maker 리소스
+
+QnA Maker 관리 (미리 보기) 리소스는 작성 및 게시 Api에 대 한 액세스를 제공 하 고, 순위 런타임을 호스팅하고, 원격 분석을 제공 합니다.
+
+## <a name="region-support"></a>지역 지원
+
+QnA Maker 관리 (미리 보기)에서 관리와 예측 서비스는 모두 동일한 지역에 배치 됩니다. 현재 QnA Maker 관리 (미리 보기)는 **미국 중 북부, 북부 유럽 및 오스트레일리아 동부** 에서 사용할 수 있습니다.
+
+### <a name="keys-in-qna-maker-managed-preview"></a>관리 QnA Maker의 키 (미리 보기)
+
+QnA Maker 관리 (미리 보기) 서비스는 고객의 구독에서 서비스에 액세스 하는 데 사용 되는 키와 **Azure Cognitive Search 키** 를 **작성** 하는 두 가지 종류의 키를 처리 합니다.
+
+**구독 키** 를 찾고 있는 경우 [용어가 변경 되었습니다](#subscription-keys).
+
+Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 합니다.
+
+![키 관리 관리 미리 보기](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+
+|이름|위치|용도|
+|--|--|--|
+|작성 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|Azure Cognitive Search 관리자 키|[Azure Portal](https://docs.microsoft.com/azure/search/search-security-api-keys)|이러한 키는 사용자의 Azure 구독에 배포 된 Azure 인식 검색 서비스와 통신 하는 데 사용 됩니다. Azure 인식 검색을 QnA Maker 관리 (미리 보기) 서비스와 연결 하면 관리자 키가 자동으로 QnA Maker 서비스에 전달 됩니다. <br><br>**키** 페이지의 **Azure Cognitive Search** 리소스에서 이러한 키를 찾을 수 있습니다.|
+
+### <a name="subscription-keys"></a>구독 키
+
+용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키** 였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
+
+어떤 키를 찾아야 하는지 파악 하기 위해 키에 액세스 하는 기술 자료 관리 또는 기술 자료 쿼리를 알고 있어야 합니다.
+
+### <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정 
+
+[가상 네트워크를 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)하 여 공용 액세스에서 인지 서비스 리소스를 보호 합니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

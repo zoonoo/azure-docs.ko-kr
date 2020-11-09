@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420617"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375930"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>승격 된 의사 결정 트리 모듈 Two-Class
 
@@ -56,7 +56,7 @@ ms.locfileid: "93420617"
   
 6.  생성 되는 **트리 수** 에 대해 앙상블에서 만들 의사 결정 트리의 총 수를 지정 합니다. 추가 의사 결정 트리를 만들면 적용 범위가 확대될 수 있지만 학습 시간이 증가됩니다.
   
-     또한이 값은 학습 된 모델을 시각화할 때 표시 되는 트리 수를 제어 합니다. 단일 트리를 보거나 인쇄 하려면 값을 1로 설정 합니다. 그러나 이렇게 하면 하나의 트리 (초기 매개 변수 집합이 있는 트리)만 생성 되 고 추가 반복은 수행 되지 않습니다.
+     값을 1로 설정 하면 하나의 트리 (초기 매개 변수 집합이 있는 트리)만 생성 되 고 추가 반복은 수행 되지 않습니다.
   
 7.  **난수 초기값** 의 경우 필요에 따라 임의의 초기값으로 사용할 음수가 아닌 정수를 입력 합니다. 초기값을 지정 하면 동일한 데이터 및 매개 변수가 있는 실행에 대해 재현 가능성 됩니다.  
   

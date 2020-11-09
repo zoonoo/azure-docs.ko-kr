@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985314"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376995"
 ---
 # <a name="configure-the-application-dashboard"></a>애플리케이션 대시보드 구성
 
@@ -23,19 +23,19 @@ ms.locfileid: "90985314"
 
 ## <a name="add-tiles"></a>타일 추가
 
-다음 스크린샷은 **사용자 지정 응용 프로그램** 템플릿에서 만든 응용 프로그램의 대시보드를 보여 줍니다. 현재 대시보드를 사용자 지정 하려면 **편집**을 선택 하 고 사용자 지정 개인 또는 공유 대시보드를 추가 하려면 **새로 만들기**를 선택 합니다.
+다음 스크린샷은 **사용자 지정 응용 프로그램** 템플릿에서 만든 응용 프로그램의 대시보드를 보여 줍니다. 현재 대시보드를 사용자 지정 하려면 **편집** 을 선택 하 고 사용자 지정 개인 또는 공유 대시보드를 추가 하려면 **새로 만들기** 를 선택 합니다.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
 
-**편집** 또는 **새로 만들기**를 선택 하면 대시보드가 *편집* 모드에 있습니다. 대시보드 **편집** 패널의 도구를 사용 하 여 타일을 대시보드에 추가 하 고 대시보드 자체에서 타일을 사용자 지정 및 제거할 수 있습니다. 예를 들어 **원격 분석** 타일을 추가 하 여 하나 이상의 장치에서 보고 하는 현재 온도를 표시 하려면 다음을 수행 합니다.
+**편집** 또는 **새로 만들기** 를 선택 하면 대시보드가 *편집* 모드에 있습니다. 대시보드 **편집** 패널의 도구를 사용 하 여 타일을 대시보드에 추가 하 고 대시보드 자체에서 타일을 사용자 지정 및 제거할 수 있습니다. 예를 들어 **원격 분석** 타일을 추가 하 여 하나 이상의 장치에서 보고 하는 현재 온도를 표시 하려면 다음을 수행 합니다.
 
-1. **대시보드 편집** 패널에서 **장치 그룹**을 선택 합니다.
+1. **대시보드 편집** 패널에서 **장치 그룹** 을 선택 합니다.
 1. **장치** 드롭다운에서 타일에 표시할 하나 이상의 장치를 선택 합니다. 이제 장치에서 사용 가능한 원격 분석, 속성 및 명령이 표시 됩니다.
-1. 원격 분석 섹션에서 **온도** 를 선택 하 고 **타일 추가**를 선택 합니다. 이제 타일은 시각화를 변경 하 고, 타일의 크기를 조정 하 고, 구성할 수 있는 대시보드에서 표시 됩니다.
+1. 원격 분석 섹션에서 **온도** 를 선택 하 고 **타일 추가** 를 선택 합니다. 이제 타일은 시각화를 변경 하 고, 타일의 크기를 조정 하 고, 구성할 수 있는 대시보드에서 표시 됩니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="대시보드에 온도 원격 분석 타일 추가":::
 
-대시보드에서 타일을 추가 하 고 사용자 지정 하는 작업이 완료 되 면 **저장**을 선택 합니다.
+대시보드에서 타일을 추가 하 고 사용자 지정 하는 작업이 완료 되 면 **저장** 을 선택 합니다.
 
 ## <a name="customize-tiles"></a>타일 사용자 지정
 
@@ -51,7 +51,7 @@ ms.locfileid: "90985314"
 
 다음 표에서는 대시보드에 추가할 수 있는 다양 한 유형의 타일에 대해 설명 합니다.
 
-| Tile             | 설명 |
+| Tile             | Description |
 | ---------------- | ----------- |
 | Markdown         | Markdown 타일은 Markdown를 사용 하 여 서식이 지정 된 제목 및 설명 텍스트를 표시 하는 클릭할 수 있는 타일입니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
 | 이미지            | 이미지 타일은 사용자 지정 이미지를 표시하며 클릭할 수 있습니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
@@ -71,27 +71,31 @@ ms.locfileid: "90985314"
 
 ### <a name="customizing-visualizations"></a>시각화 사용자 지정
 
+기본적으로 꺾은선형 차트는 일정 시간 동안 데이터를 표시 합니다. 선택한 시간 범위는 50 같은 크기의 버킷으로 분할 되 고 장치 데이터는 버킷 당 집계 되어 선택한 시간 범위에 대해 50 데이터 요소를 제공 합니다. 원시 데이터를 보려면 선택 항목을 변경 하 여 최근 100 값을 볼 수 있습니다. 시간 범위를 변경 하거나 원시 데이터 시각화를 선택 하려면 **차트 구성** 패널에서 범위 표시 드롭다운을 사용 합니다.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="꺾은선형 차트의 표시 범위 변경":::
+
 집계 값을 표시 하는 타일의 경우 **차트 구성** 패널에서 원격 분석 유형 옆의 기어 아이콘을 선택 하 여 집계를 선택 합니다. 평균, 합계, 최대값, 최소값, 개수를 선택할 수 있습니다.
 
 꺾은선형 차트, 가로 막대형 차트 및 원형 차트의 경우 다양 한 원격 분석 값의 색을 사용자 지정할 수 있습니다. 사용자 지정 하려는 원격 분석 옆에 있는 색상표 아이콘을 선택 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="원격 분석 값의 색 변경":::
 
 문자열 속성 또는 원격 분석 값을 표시 하는 타일의 경우 텍스트를 표시 하는 방법을 선택할 수 있습니다. 예를 들어 장치에서 문자열 속성에 URL을 저장 하는 경우 클릭 가능한 링크로 표시할 수 있습니다. URL이 이미지를 참조하는 경우 마지막으로 알려진 값 또는 속성 타일로 이미지를 렌더링할 수 있습니다. 문자열이 표시 되는 방식을 변경 하려면 타일 구성에서 원격 분석 유형 또는 속성 옆의 기어 아이콘을 선택 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="타일에 문자열이 표시 되는 방식 변경":::
 
-숫자 **KPI**, **마지막으로 알려진 값**및 **속성** 타일의 경우 조건부 서식을 사용 하 여 현재 값을 기준으로 타일의 색을 사용자 지정할 수 있습니다. 조건부 서식을 추가 하려면 타일에서 **구성** 을 선택한 다음 사용자 지정할 값 옆에 있는 **조건부 서식** 아이콘을 선택 합니다.
+숫자 **KPI** , **마지막으로 알려진 값** 및 **속성** 타일의 경우 조건부 서식을 사용 하 여 현재 값을 기준으로 타일의 색을 사용자 지정할 수 있습니다. 조건부 서식을 추가 하려면 타일에서 **구성** 을 선택한 다음 사용자 지정할 값 옆에 있는 **조건부 서식** 아이콘을 선택 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="타일에 대 한 구성 옵션을 찾는 방법 및 조건부 서식 아이콘을 찾는 방법을 보여 주는 스크린샷":::
 
 조건부 서식 지정 규칙을 추가 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="평균 흐름에 대 한 조건부 서식 규칙을 보여 주는 스크린샷 Tha 20 개의 규칙 (20 개는 녹색, 50은 노란색, 50 보다는 빨강)이 있습니다.":::
 
 다음 스크린샷은 조건부 서식 지정 규칙의 효과를 보여 줍니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="사용자 지정 응용 프로그램 템플릿을 기반으로 하는 응용 프로그램 대시보드":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="평균 급수 흐름 타일의 노랑 배경색을 보여 주는 스크린샷 타일의 번호는 40.84입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

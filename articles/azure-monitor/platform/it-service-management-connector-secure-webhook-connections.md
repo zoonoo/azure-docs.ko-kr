@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377142"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376539"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
 
@@ -117,7 +117,7 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 
 ### <a name="configure-the-servicenow-connection"></a>ServiceNow 연결 구성
 
-1. https://. service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> 링크를 사용 하 여 <instance name> 보안 내보내기 정의에 대 한 URI를 <합니다.
+1. https://(instance name) 링크를 사용 합니다. 서비스-이제 .com/api/sn_em_connector/em/inbound_event? source = azuremonitor는 보안 내보내기 정의에 대 한 URI를 모니터링 합니다.
 
 2. 버전에 따라 다음 지침을 따르세요.
    * [파리](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
