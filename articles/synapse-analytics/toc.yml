@@ -50,13 +50,13 @@
   items:
     - name: 빠른 시작
       items:
-        - name: Azure Portal을 사용하여 Synapse 작업 영역 만들기
+        - name: Azure Portal을 사용하여 작업 영역 만들기
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Azure CLI를 사용하여 Synapse 작업 영역 만들기
+        - name: Azure CLI를 사용하여 작업 영역 만들기
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Azure PowerShell을 사용하여 Synapse 작업 영역 만들기
+        - name: Azure PowerShell을 사용하여 작업 영역 만들기
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: 템플릿을 사용하여 배포
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: 방법 가이드
       items:
+        - name: 백업 및 복원
+          items:
+            - name: 복원 지점 만들기
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Synapse SQL 풀 복원
+              href: ./backuprestore/restore-sql-pool.md
         - name: 관리 및 모니터링
           items:
             - name: Gen2 캐시 모니터링

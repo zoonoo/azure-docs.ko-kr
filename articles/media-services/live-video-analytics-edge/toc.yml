@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Azure Stack Edge에 배포
       href: deploy-azure-stack-edge-how-to.md
+    - name: 신호 게이트 구성
+      href: configure-signal-gate-how-to.md
     - name: 문제 해결
       href: troubleshoot-how-to.md
 - name: 참조

@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936054"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329569"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
-다음 제한은 구독당 지역별로 **Azure Resource Manager**를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
+다음 제한은 구독당 지역별로 **Azure Resource Manager** 를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 > [!NOTE]
 > 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다. 이러한 제한이 이전의 지원으로 증가하고 다음 표에서 업데이트된 제한을 확인하지 않으려는 경우 [무료로 온라인 고객 지원 요청을 열](../articles/azure-resource-manager/templates/error-resource-quota.md) 수 있습니다.
@@ -55,6 +55,7 @@ ms.locfileid: "91936054"
 | 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
 | 고정 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
 | 표준 공용 IP 주소<sup>1</sup> | 10 | 지원에 문의 |
+| [리소스 그룹당 공용 IP 주소](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | 지원에 문의 | 
 | 공용 IP 접두사 | 구독에서 표준 공용 IP 수로 제한됨 | 지원에 문의 |
 | 공용 IP 접두사 길이 | /28 | 지원에 문의 |
 
@@ -106,6 +107,6 @@ ms.locfileid: "91936054"
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
 | 공용 IP 주소(동적) |500 |500 |
 | 예약된 공용 IP 주소 |500 |500 |
-| 배포당 공용 VIP |5 |지원에 문의 |
-| 배포당 개인 VIP(내부 부하 분산) |1 |1 |
+| 배포당 공용 IP |5 |지원에 문의 |
+| 배포당 개인 IP(내부 부하 분산) |1 |1 |
 | 엔드포인트 ACL(Access Control 목록) |50 |50 |

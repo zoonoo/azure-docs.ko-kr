@@ -1,20 +1,20 @@
 ---
-title: 빠른 시작-Azure PowerShell를 사용 하 여 Azure 개인 끝점 만들기
-description: 이 빠른 시작을 사용 하 여 Azure PowerShell를 사용 하 여 개인 끝점을 만드는 방법을 알아보세요.
+title: 빠른 시작 - Azure PowerShell을 사용하여 Azure 프라이빗 엔드포인트 만들기
+description: 이 빠른 시작을 통해 Azure PowerShell을 사용하여 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
-ms.translationtype: MT
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233596"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368664"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용 하 여 개인 끝점 만들기
+# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
 Private Endpoint를 통해 Azure 웹앱에 안전하게 연결하여 Azure Private Link를 시작합니다.
 
@@ -47,11 +47,11 @@ New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
 
 베스천 호스트는 가상 머신에 안전하게 연결하여 프라이빗 엔드포인트를 테스트하는 데 사용됩니다.
 
-다음을 사용 하 여 가상 네트워크 및 요새 호스트를 만듭니다.
+가상 네트워크 및 베스천 호스트 만들기
 
 * [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
-* [AzBastion](/powershell/module/az.network/new-azbastion)
+* [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
 ```azurepowershell-interactive
 ## Create backend subnet config. ##
@@ -147,14 +147,15 @@ New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM 
 
 ## <a name="create-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
-이 섹션에서는 다음을 사용 하 여 개인 끝점 및 연결을 만듭니다.
+이 섹션에서는 다음을 사용하여 프라이빗 엔드포인트 및 연결을 만듭니다.
 
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -183,7 +184,7 @@ New-AzPrivateEndpoint @parameters2
 ```
 ## <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성
 
-이 섹션에서는 다음을 사용 하 여 개인 DNS 영역을 만들고 구성 합니다.
+이 섹션에서는 다음을 사용하여 프라이빗 DNS 영역을 만들어 구성합니다.
 
 * [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
 * [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
@@ -259,7 +260,7 @@ New-AzPrivateDnsZoneGroup @parameters4
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    웹 앱 이름에 대해 **10.0.0.5** 의 개인 IP 주소가 반환 됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
+    웹앱 이름에 대해 **10.0.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
 10. **myVM** 에 대한 베스천 연결에서 Internet Explorer를 엽니다.
 
@@ -272,7 +273,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 13. **myVM** 에 대한 연결을 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리 
-개인 끝점 및 VM을 사용 하 여 작업을 완료 한 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 해당 그룹에 포함 된 모든 리소스를 제거 합니다.
+프라이빗 엔드포인트 및 VM 사용을 마쳤으면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 제거합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force

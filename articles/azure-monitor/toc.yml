@@ -618,8 +618,6 @@
                 - name: 웹 앱
                   displayname: java
                   href: app/java-get-started.md
-                - name: Docker 앱
-                  href: app/docker.md
                 - name: 로그 추적
                   href: app/java-trace-logs.md
                 - name: Unix 메트릭
@@ -692,12 +690,14 @@
               href: app/kubernetes-codeless.md
             - name: 독립 실행형 - 모든 환경
               items:
-                - name: Java(미리 보기)
+                - name: Java
                   items:
                     - name: 개요
                       href: app/java-in-process-agent.md
                     - name: 구성 옵션
                       href: app/java-standalone-config.md
+                    - name: 원격 분석 프로세서
+                      href: app/java-standalone-telemetry-processors.md
                     - name: JVM 인수 설정
                       href: app/java-standalone-arguments.md
             - name: 온-프레미스 서버
@@ -1344,10 +1344,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights 커넥터
           href: platform/app-insights-connector.md
-        - name: AKS용 Application Insights(코드리스)
-          href: app/kubernetes.md
-        - name: Docker 애플리케이션 모니터링
-          href: app/docker.md
         - name: OMS 포털 사용 중단
           href: platform/oms-portal-transition.md
         - name: 디스크 메트릭 사용 중단

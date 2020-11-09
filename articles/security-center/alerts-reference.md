@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784289"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372696"
 ---
 # <a name="security-alerts---a-reference-guide"></a>보안 경고 - 참조 가이드
 
@@ -456,6 +456,8 @@ Security Center에서 지원되는 킬 체인(kill chain)의 의도는 [MITRE AT
 | **영향**              | 영향 이벤트는 주로 시스템, 서비스 또는 네트워크의 가용성이나 무결성을 직접적으로 줄입니다(비즈니스 또는 운영 프로세스에 영향을 미치는 데이터 조작 포함). 이 이벤트는 종종 랜섬웨어, 변조, 데이터 조작 등과 같은 기술을 가리킵니다.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> 미리 보기로 표시되는 경고의 경우: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>다음 단계
 경고에 대한 자세한 내용은 다음을 참조하세요.

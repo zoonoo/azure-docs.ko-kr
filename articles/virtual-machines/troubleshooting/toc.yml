@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: 보안 정책을 적용하는 동안 VM이 응답하지 않음
           href: unresponsive-vm-apply-security-policy.md
+        - name: 로컬 세션 관리자를 기다리는 동안 VM이 응답하지 않음
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Windows 부팅 관리자 오류 - 잘못된 이미지 해시 상태
           href: windows-boot-error-invalid-image-hash.md
         - name: Windows 중지 오류 - 잘못된 시스템 구성 정보
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Windows 중지 오류 - 시스템 프로세스가 종료됨
           href: windows-stop-error-system-process-terminated.md
+        - name: Windows 중지 오류 - 시스템 스레드 예외가 처리되지 않음
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: VM에 연결할 수 없습니다.
   items:
     - name: RDP

@@ -140,8 +140,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: JavaScript용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 기능 관리
       items:
         - name: .NET Core 라이브러리
@@ -156,6 +154,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: REST API
+      items:
+        - name: 개요
+          href: rest-api.md
+        - name: 리소스
+          items:
+            - name: 구성
+              href: ./rest-api-keys.md
+            - name: 키-값
+              href: ./rest-api-key-value.md
+            - name: 레이블
+              href: ./rest-api-labels.md
+            - name: 잠금
+              href: ./rest-api-locks.md
+            - name: 수정 내용
+              href: ./rest-api-revisions.md
+        - name: 프로토콜
+          items:
+            - name: 인증
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Azure Active Directory 인증
+                  href: rest-api-authentication-azure-ad.md
+                - name: HMAC 인증
+                  href: rest-api-authentication-hmac.md
+            - name: 권한 부여
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Azure Active Directory 권한 부여
+                  href: rest-api-authorization-azure-ad.md
+                - name: HMAC 권한 부여
+                  href: rest-api-authorization-hmac.md
+            - name: 일관성 모델
+              href: ./rest-api-consistency.md
+            - name: 일반 헤더
+              href: ./rest-api-headers.md
+            - name: 스로틀
+              href: ./rest-api-throttling.md
+            - name: 버전 관리
+              href: ./rest-api-versioning.md
+        - name: 개발
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: postman
+              href: ./rest-api-postman.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

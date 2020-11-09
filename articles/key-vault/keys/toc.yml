@@ -30,6 +30,10 @@
   items:
     - name: Key Vault 코드 샘플
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+- name: 개념
+  items:
+    - name: '키 유형, 알고리즘 및 작업'
+      href: about-keys-details.md
 - name: 참조
   items:
     - name: Azure PowerShell

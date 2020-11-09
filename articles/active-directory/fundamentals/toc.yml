@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: '''로그인 상태를 유지하시겠습니까?'' 구성'
           href: keep-me-signed-in.md
+        - name: 테넌트 ID를 찾는 방법
+          href: active-directory-how-to-find-tenant.md
         - name: Azure 구독 연결
           href: active-directory-how-subscriptions-associated-directory.md
         - name: 개인 정보 추가

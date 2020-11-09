@@ -266,8 +266,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: 참조
   items:
+    - name: Azure CLI
+      href: /cli/azure/apim
     - name: Azure PowerShell
-      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+      href: /powershell/module/az.apimanagement/
     - name: REST (영문)
       href: /rest/api/apimanagement/
     - name: REST(원본)
@@ -277,6 +279,8 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: 리소스 로그 스키마
+      href: gateway-log-schema-reference.md
 - name: 리소스
   items:
     - name: FAQ
