@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270902"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911293"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
@@ -37,15 +37,15 @@ Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 
 
 1. [청구서 액세스 권한이 있는 사용자](manage-billing-access.md)로 Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
 
-2. **청구서**를 선택합니다.
+2. **청구서** 를 선택합니다.
 
     ![청구 및 사용 현황 옵션을 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. 다운로드 단추를 클릭하여 PDF 청구서의 복사본을 다운로드한 다음, **청구서 다운로드**를 선택합니다. **사용할 수 없음**이 표시될 경우 [왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?](#noinvoice)를 참조하세요.
+3. 다운로드 단추를 클릭하여 PDF 청구서의 복사본을 다운로드한 다음, **청구서 다운로드** 를 선택합니다. **사용할 수 없음** 이 표시될 경우 [왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?](#noinvoice)를 참조하세요.
 
     ![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. 또한 **csv 다운로드**를 클릭하여 일일 사용량 및 예상 요금을 다운로드할 수 있습니다.
+4. 또한 **csv 다운로드** 를 클릭하여 일일 사용량 및 예상 요금을 다운로드할 수 있습니다.
 
     ![청구서 및 사용량 다운로드 옵션을 보여주는 스크린샷](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
@@ -55,14 +55,14 @@ Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 
 
 Microsoft 고객 계약의 [청구 프로필](../understand/mca-overview.md#billing-profiles)마다 청구서가 생성됩니다. 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure Portal에서 청구서를 다운로드할 수 있습니다.
 
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 2. 청구 프로필을 선택합니다.
-3. **청구서**를 선택합니다.
+3. **청구서** 를 선택합니다.
 4. 청구서 그리드에서 다운로드하려는 청구서의 행을 찾습니다.
 5. 행의 끝에 있는 다운로드 단추를 클릭합니다.
-6. 다운로드 상황에 맞는 메뉴에서 **청구서**를 선택합니다.
+6. 다운로드 상황에 맞는 메뉴에서 **청구서** 를 선택합니다.
 
-마지막 청구 기간에 대한 청구서가 보이지 않으면 **추가 정보**를 참조하세요. <!-- Fix this -->
+마지막 청구 기간에 대한 청구서가 보이지 않으면 **추가 정보** 를 참조하세요. <!-- Fix this -->
 ### <a name="why-dont-i-see-an-invoice-for-the-last-billing-period"></a><a name="noinvoice"></a> 왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?
 
 몇 가지 이유로 인해 청구서가 보이지 않을 수 있습니다.
@@ -81,11 +81,11 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>이메일로 구독의 청구서 받기
 
-1. [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다. 소유하고 있는 각 구독에 대해 옵트인합니다. **청구서**를 클릭한 다음 **전자 메일로 청구서 받기**를 클릭합니다.
+1. [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다. 소유하고 있는 각 구독에 대해 옵트인합니다. **청구서** 를 클릭한 다음 **전자 메일로 청구서 받기** 를 클릭합니다.
 
     ![옵트인 흐름을 보여주는 스크린샷](./media/download-azure-invoice-daily-usage-date/invoicesdeeplink01.png)
 
-2. **옵트인**을 클릭하고 조건에 동의합니다.
+2. **옵트인** 을 클릭하고 조건에 동의합니다.
 
     ![옵트인 흐름 2단계를 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/invoicearticlestep02.png)
 
@@ -97,7 +97,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>이메일로 구독의 청구서 받기 옵트아웃
 
-위의 단계를 수행하고 **이메일로 보낸 청구서 옵트아웃**을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 청구서를 메일로 받기 위해 설정된 메일 주소가 모두 제거됩니다. 다시 옵트인하는 경우 받는 사람을 다시 구성할 수 있습니다.
+위의 단계를 수행하고 **이메일로 보낸 청구서 옵트아웃** 을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 청구서를 메일로 받기 위해 설정된 메일 주소가 모두 제거됩니다. 다시 옵트인하는 경우 받는 사람을 다시 구성할 수 있습니다.
 
  ![옵트아웃 흐름을 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/invoicearticlestep04.png)
 
@@ -105,16 +105,16 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 Microsoft 고객 계약이 있으면 이메일로 청구서 받기로 옵트인할 수 있습니다. 모든 청구 프로필 소유자, 기여자, 독자 및 청구서 관리자는 이메일로 청구서를 받습니다. 읽기 권한자는 이메일 청구서 기본 설정을 업데이트할 수 없습니다.
 
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 1. 청구 프로필을 선택합니다.
-1. **설정** 아래에서 **속성**을 선택합니다.
-1. **이메일 청구서**에서 **이메일 청구서 기본 설정 업데이트**를 선택합니다.
-1. **옵트인**을 선택합니다.
-1. **업데이트**를 클릭합니다.
+1. **설정** 아래에서 **속성** 을 선택합니다.
+1. **이메일 청구서** 에서 **이메일 청구서 기본 설정 업데이트** 를 선택합니다.
+1. **옵트인** 을 선택합니다.
+1. **업데이트** 를 클릭합니다.
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>이메일로 청구 프로필 청구서 받기에서 옵트아웃
 
-위의 단계를 수행하고 **옵트아웃**을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 소유자, 기여자, 읽기 권한자 및 청구서 관리자가 이메일로 청구서 받기에서 모두 옵트아웃됩니다. 읽기 권한자는 이메일 청구서 기본 설정을 변경할 수 없습니다.
+위의 단계를 수행하고 **옵트아웃** 을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 소유자, 기여자, 읽기 권한자 및 청구서 관리자가 이메일로 청구서 받기에서 모두 옵트아웃됩니다. 읽기 권한자는 이메일 청구서 기본 설정을 변경할 수 없습니다.
 
 ## <a name="download-usage-in-azure-portal"></a>Azure Portal에서 사용량 다운로드
 
@@ -122,25 +122,23 @@ Microsoft 고객 계약이 있으면 이메일로 청구서 받기로 옵트인�
 
 1. [청구서 액세스 권한이 있는 사용자](manage-billing-access.md)로 Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
 
-2. **청구서**를 선택합니다.
+2. **청구서** 를 선택합니다.
 
     ![청구 및 사용 현황 옵션을 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
 3. 확인하려는 청구서 기간의 다운로드 단추를 클릭합니다.
 
-4. **csv 다운로드**를 클릭하여 일일 사용량 및 예상 요금을 다운로드합니다.  csv 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.
+4. **csv 다운로드** 를 클릭하여 일일 사용량 및 예상 요금을 다운로드합니다.  csv 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
 EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 보기 정책을 사용하도록 설정된 엔터프라이즈 관리자, 계정 소유자 또는 부서 관리자여야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. *Cost Management + 청구*를 검색합니다.
-
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
-1. **사용량 + 요금**을 선택합니다.
-1. 다운로드하려는 월의 **다운로드**를 선택합니다.
+1. *Cost Management + 청구* 를 검색합니다.
+1. 여러 청구 계정에 액세스할 수 있는 경우 EA 청구 계정의 청구 범위를 선택합니다.
+1. **사용량 + 요금** 을 선택합니다.
+1. 다운로드하려는 월의 **다운로드** 를 선택합니다.
 
 ### <a name="download-usage-for-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 사용량 다운로드
 
@@ -148,27 +146,23 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 
 #### <a name="download-usage-for-billed-charges"></a>청구 요금에 대한 사용량 다운로드
 
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 2. 청구 프로필을 선택합니다.
-3. **청구서**를 선택합니다.
+3. **청구서** 를 선택합니다.
 4. 청구서 그리드에서 다운로드하려는 사용량에 해당하는 청구서의 행을 찾습니다.
 5. 행 끝에 있는 줄임표(`...`)를 클릭합니다.
-6. 다운로드 상황에 맞는 메뉴에서 **Azure 사용량 및 요금**을 선택합니다.
+6. 다운로드 상황에 맞는 메뉴에서 **Azure 사용량 및 요금** 을 선택합니다.
 
 #### <a name="download-usage-for-open-charges"></a>미결 요금에 대한 사용량 다운로드
 
 현재 청구 기간에 대한 월간 누계(즉, 요금이 아직 청구되지 않은) 사용량도 다운로드할 수 있습니다.
 
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 2. 청구 프로필을 선택합니다.
-3. **개요** 블레이드에서 **Azure 사용량 및 요금 다운로드**를 클릭합니다.
+3. **개요** 블레이드에서 **Azure 사용량 및 요금 다운로드** 를 클릭합니다.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
-
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 
