@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081113"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 예를 들어 검색 환경을 제공하는 무술 웹 사이트를 소유하고 있는 경우 Bing에서 검색하는 도메인, 하위 사이트 및 웹 페이지를 지정할 수 있습니다. 사용자는 관련 없는 콘텐츠를 포함할 수 있는 일반적인 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다. 
 
@@ -45,9 +50,9 @@ Bing Custom Search 인스턴스를 만들려면
   
 2. 사용자 지정 검색 [포털](https://customsearch.ai)로 이동합니다.  
   
-3. MSA(Microsoft 계정)를 사용하여 포털에 로그인합니다. MSA가 없는 경우 **Microsoft 계정 만들기**를 클릭합니다. 포털을 처음 사용하는 경우 포털에서 데이터에 액세스할 수 있는 권한을 요청합니다. **예**를 클릭합니다.  
+3. MSA(Microsoft 계정)를 사용하여 포털에 로그인합니다. MSA가 없는 경우 **Microsoft 계정 만들기** 를 클릭합니다. 포털을 처음 사용하는 경우 포털에서 데이터에 액세스할 수 있는 권한을 요청합니다. **예** 를 클릭합니다.  
   
-4. 로그인한 후 **새 사용자 지정 검색**을 클릭합니다. **새 사용자 지정 검색 인스턴스 만들기** 창에서 의미 있는 이름을 입력하고 검색에서 반환하는 콘텐츠 형식을 설명합니다. 언제든지 이름을 변경할 수 있습니다.  
+4. 로그인한 후 **새 사용자 지정 검색** 을 클릭합니다. **새 사용자 지정 검색 인스턴스 만들기** 창에서 의미 있는 이름을 입력하고 검색에서 반환하는 콘텐츠 형식을 설명합니다. 언제든지 이름을 변경할 수 있습니다.  
   
    ![새 사용자 지정 검색 인스턴스 만들기 상자 스크린샷](../media/newCustomSrch.png)  
   
@@ -103,7 +108,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
    ![호스트된 UI 색 테마 선택 스크린샷](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   웹앱과 더 효율적으로 통합되도록 색 테마를 미세 조정해야 하는 경우 **사용자 지정 테마**를 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
+   웹앱과 더 효율적으로 통합되도록 색 테마를 미세 조정해야 하는 경우 **사용자 지정 테마** 를 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
   
    ![호스트된 UI 색 테마 사용자 지정 스크린샷](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
@@ -112,7 +117,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
    ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-   고급 구성을 가져오려면 **고급 구성 표시**를 클릭합니다. 그러면 *링크 대상* 등의 구성이 웹 검색 옵션에 추가되고, *필터 사용* 등의 구성이 이미지 및 비디오 옵션에 추가되며, *검색 상자 텍스트 개체 틀* 등의 구성이 기타 옵션에 추가됩니다.
+   고급 구성을 가져오려면 **고급 구성 표시** 를 클릭합니다. 그러면 *링크 대상* 등의 구성이 웹 검색 옵션에 추가되고, *필터 사용* 등의 구성이 이미지 및 비디오 옵션에 추가되며, *검색 상자 텍스트 개체 틀* 등의 구성이 기타 옵션에 추가됩니다.
 
    ![호스트된 UI 고급 구성 단계 스크린샷](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
@@ -130,25 +135,25 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 - 옵션 1: 제공된 JavaScript 코드 조각을 애플리케이션에 통합합니다.
 - 옵션 2: 제공된 HTML 엔드포인트를 사용합니다.
 
-이 자습서의 나머지 부분에서는 **옵션 1: JavaScript 코드 조각**을 설명합니다.  
+이 자습서의 나머지 부분에서는 **옵션 1: JavaScript 코드 조각** 을 설명합니다.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Visual Studio 솔루션 설정
 
-1. 컴퓨터에서 **Visual Studio**를 엽니다.  
+1. 컴퓨터에서 **Visual Studio** 를 엽니다.  
   
-2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.  
+2. **파일** 메뉴에서 **새로 만들기** 와 **프로젝트** 를 차례로 선택합니다.  
   
-3. **새 프로젝트** 창에서 **Visual C#/Web/ASP.NET Core 웹 애플리케이션**을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.  
+3. **새 프로젝트** 창에서 **Visual C#/Web/ASP.NET Core 웹 애플리케이션** 을 선택하고, 프로젝트 이름을 지정한 다음, **확인** 을 클릭합니다.  
   
    ![새 프로젝트 창의 스크린샷](./media/custom-search-new-project.png)  
   
-4. **새 ASP.NET Core 웹 애플리케이션** 창에서 **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.  
+4. **새 ASP.NET Core 웹 애플리케이션** 창에서 **웹 애플리케이션** 을 선택하고 **확인** 을 클릭합니다.  
   
    ![새 웹앱 창의 스크린샷](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>index.cshtml 편집
 
-1. **솔루션 탐색기**에서 **페이지**를 확장하고 **index.cshtml**을 두 번 클릭하여 파일을 엽니다.  
+1. **솔루션 탐색기** 에서 **페이지** 를 확장하고 **index.cshtml** 을 두 번 클릭하여 파일을 엽니다.  
   
    ![페이지가 확장되고 index.cshtml이 선택된 솔루션 탐색기 스크린샷](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
@@ -174,7 +179,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
    <div id="customSearch"></div>
    ```  
   
-4. **호스트된 UI** 페이지에서 아래의 **UI 사용** 섹션으로 스크롤합니다. *엔드포인트*를 클릭하여 JavaScript 코드 조각에 액세스합니다. **프로덕션**과 **호스트된 UI** 탭을 차례로 클릭하여 코드 조각으로 이동할 수도 있습니다.
+4. **호스트된 UI** 페이지에서 아래의 **UI 사용** 섹션으로 스크롤합니다. *엔드포인트* 를 클릭하여 JavaScript 코드 조각에 액세스합니다. **프로덕션** 과 **호스트된 UI** 탭을 차례로 클릭하여 코드 조각으로 이동할 수도 있습니다.
   
    <!-- Get new screenshot after prod gets new bits
    ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
@@ -197,7 +202,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
    </div>
    ```  
   
-6. **솔루션 탐색기**에서 **wwwroot**를 마우스 오른쪽 단추로 클릭하고 **브라우저에서 보기**를 클릭합니다.  
+6. **솔루션 탐색기** 에서 **wwwroot** 를 마우스 오른쪽 단추로 클릭하고 **브라우저에서 보기** 를 클릭합니다.  
   
    ![wwwroot 바로 가기 메뉴에서 브라우저에서 보기를 선택하는 솔루션 탐색기 스크린샷](./media/custom-search-webapp-view-in-browser.png)  
 

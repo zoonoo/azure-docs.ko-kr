@@ -2,16 +2,15 @@
 title: 제작 리소스 선택
 ms.topic: include
 ms.date: 03/25/2020
-ms.openlocfilehash: b16e720e8b28d9440cde4fdf5e84dbfc00c00ca8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b8544ca5cea6b717863410c0add303d32386157c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83658739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128234"
 ---
 ## <a name="select-subscription-and-authoring-resource"></a>구독 및 제작 리소스 선택
 
-LUIS 포털에서 앱 목록을 보거나 앱을 만들려면 구독 및 제작 리소스를 선택합니다. 앱은 LUIS 제작 리소스에서 액세스합니다.
+특정 구독 및 제작 리소스를 선택하면 연결된 앱 목록이 표시됩니다.
 
-> [!div class="mx-imgBorder"]
-> ![제작 구독 및 제작 리소스 선택](../media/select-authoring-resource/select-authoring-resource-my-english-app.png)
+:::image type="content" source="../media/select-authoring-resource/select-authoring-resource-my-english-app-2.png" alt-text="제작 구독 및 제작 리소스 선택" lightbox="../media/select-authoring-resource/select-authoring-resource-my-english-app-2.png":::

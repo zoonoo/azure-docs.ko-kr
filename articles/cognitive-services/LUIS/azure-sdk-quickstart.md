@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자연어 이해, ai 챗봇, 챗봇 작성자, 자연어 이해
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327290"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241381"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>빠른 시작: LUIS 앱을 만들고 쿼리하는 LUIS(Language Understanding) SDK 클라이언트 라이브러리
 
@@ -21,7 +21,8 @@ C#, Python 또는 JavaScript를 통해 이 빠른 시작을 사용하여 LUIS SD
 
 LUIS(Language Understanding)를 사용하면 사용자의 대화형 자연어 텍스트에 NLP(자연어 처리)를 적용하여 전반적인 의미를 예측하고 관련된 세부 정보를 끌어올 수 있습니다.
 
-* **작성 SDK** 클라이언트 라이브러리를 사용하면 LUIS 앱을 생성, 편집, 학습 및 게시할 수 있습니다. * **예측 런타임 SDK** 클라이언트 라이브러리를 사용하면 게시된 앱을 쿼리할 수 있습니다.
+* **작성 SDK** 클라이언트 라이브러리를 사용하면 LUIS 앱을 생성, 편집, 학습 및 게시할 수 있습니다.
+* **예측 런타임 SDK** 클라이언트 라이브러리를 사용하면 게시된 앱을 쿼리할 수 있습니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]

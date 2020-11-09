@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647469"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289699"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -29,7 +29,9 @@ Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 이 API 기능은 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.
+[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 
+
+이 기능은 문장 및 문서 수준에서 서비스가 찾은 가장 높은 신뢰도 점수에 따라 감정 레이블(예: "부정", "중립" 및 "긍정")을 제공합니다. 또한 이 기능은 긍정, 중립, 부정 감정에 대한 각 문서 및 그 안의 문장에 대해 0과 1 사이의 신뢰도 점수를 반환합니다. [컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에서 서비스를 실행할 수도 있습니다.
 
 v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
 

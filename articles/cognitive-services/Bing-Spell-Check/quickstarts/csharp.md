@@ -11,29 +11,34 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d11430ab02b37d066fb74dcc1b67833577471fd3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323044"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084139"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 C# 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
 
 이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs)에 제공됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Newtonsoft.Json NuGet 패키지입니다. 
      
    Visual Studio에서 이 패키지를 설치하려면 다음을 수행합니다.
 
-     1. **솔루션 탐색기**에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
-     1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
-     1. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
+     1. **솔루션 탐색기** 에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
+     1. **솔루션용 NuGet 패키지 관리** 를 선택합니다.
+     1. *Newtonsoft.Json* 을 검색하고 패키지를 설치합니다.
 
 * Linux/MacOS를 사용하는 경우 [Mono](https://www.mono-project.com/)를 사용하여 이 애플리케이션을 실행할 수 있습니다.
 
@@ -150,7 +155,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-프로젝트를 빌드한 후 실행합니다. Visual Studio를 사용하는 경우 **F5**를 눌러 파일을 디버그합니다.
+프로젝트를 빌드한 후 실행합니다. Visual Studio를 사용하는 경우 **F5** 를 눌러 파일을 디버그합니다.
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 

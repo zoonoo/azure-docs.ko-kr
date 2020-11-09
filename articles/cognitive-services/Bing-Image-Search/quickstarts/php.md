@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7f9a72084cc9dd138eed58e395e009e1161c9382
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603369"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099898"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 이미지 검색
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 문서의 간단한 애플리케이션은 검색 쿼리를 보내고 원시 결과를 표시합니다.
 
@@ -39,7 +44,7 @@ ms.locfileid: "85603369"
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
-1. `php.ini` 파일에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다. Windows의 경우 이 파일은 *C:\windows*에 있습니다.
+1. `php.ini` 파일에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다. Windows의 경우 이 파일은 *C:\windows* 에 있습니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.
 3. API 엔드포인트, 구독 키 및 검색어를 정의합니다. 엔드포인트는 다음 코드의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
 

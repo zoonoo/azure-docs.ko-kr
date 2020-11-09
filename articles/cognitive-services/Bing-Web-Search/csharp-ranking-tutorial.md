@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933225"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078682"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 자습서에서는 사용자가 Bing Web Search API를 쿼리하고 순위 결과를 표시하게 하는 간단한 .NET Core 콘솔 앱을 빌드하는 방법을 설명합니다.
 
@@ -33,7 +38,7 @@ ms.locfileid: "88933225"
 자습서를 따르려면 다음을 수행해야 합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
 * [Visual Studio IDE](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-new-console-app-project"></a>새 콘솔 앱 프로젝트 만들기
@@ -42,28 +47,28 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니
 
 **새 프로젝트** 대화 상자에서 **Visual C# > Windows 클래식 바탕 화면 > 콘솔 앱(.NET Framework)** 을 클릭합니다.
 
-애플리케이션 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
+애플리케이션 이름을 **MyConsoleSearchApp** 으로 지정한 다음, **확인** 을 클릭합니다.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>JSON.net NuGet 패키지를 프로젝트에 추가
 
 JSON.net을 사용하면 API에서 반환한 JSON 응답으로 작업할 수 있습니다. NuGet 패키지를 프로젝트에 추가합니다.
 
-- **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리...** 를 선택합니다.
-- **찾아보기** 탭에서 `Newtonsoft.Json`를 검색합니다. 최신 버전을 선택한 다음, **설치**를 클릭합니다.
+- **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리...** 를 선택합니다.
+- **찾아보기** 탭에서 `Newtonsoft.Json`를 검색합니다. 최신 버전을 선택한 다음, **설치** 를 클릭합니다.
 - **변경 내용 검토** 창에서 **확인** 단추를 클릭합니다.
-- **NuGet: MyConsoleSearchApp**이라는 Visual Studio 탭을 닫습니다.
+- **NuGet: MyConsoleSearchApp** 이라는 Visual Studio 탭을 닫습니다.
 
 ## <a name="add-a-reference-to-systemweb"></a>System.Web에 참조 추가
 
 이 자습서는 `System.Web` 어셈블리를 따릅니다. 이 어셈블리에 대한 참조를 프로젝트에 추가합니다.
 
-- **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...** 를 선택합니다.
-- **어셈블리 > 프레임워크**를 선택한 다음, 아래로 스크롤하여 **System.Web** 확인
-- **확인**을 선택합니다.
+- **솔루션 탐색기** 에서 **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가...** 를 선택합니다.
+- **어셈블리 > 프레임워크** 를 선택한 다음, 아래로 스크롤하여 **System.Web** 확인
+- **확인** 을 선택합니다.
 
 ## <a name="add-some-necessary-using-statements"></a>명령문을 사용하여 필요한 몇 가지 추가
 
-이 자습서에서 코드는 명령문을 사용하는 세 개의 추가 항목이 필요합니다. 기존 `using` 문 아래의 이러한 명령문을 **Program.cs**의 상단에 추가합니다.
+이 자습서에서 코드는 명령문을 사용하는 세 개의 추가 항목이 필요합니다. 기존 `using` 문 아래의 이러한 명령문을 **Program.cs** 의 상단에 추가합니다.
 
 ```csharp
 using System.Web;
@@ -72,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>사용자에게 쿼리 요청
 
-**솔루션 탐색기**에서 **Program.cs**를 엽니다. `Main()` 메서드를 업데이트합니다.
+**솔루션 탐색기** 에서 **Program.cs** 를 엽니다. `Main()` 메서드를 업데이트합니다.
 
 ```csharp
 static void Main()
@@ -231,7 +236,7 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 순위 응답 JSON은 그룹 중 하나 이상을 포함할 수 있습니다.
 
-**Program.cs**에서 올바른 순위에 따라 결과를 표시하려면 다음 메서드를 추가합니다.
+**Program.cs** 에서 올바른 순위에 따라 결과를 표시하려면 다음 메서드를 추가합니다.
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -278,7 +283,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 - 응답이 포함하는 `rankingResponse` 그룹에 대해 루프
 - `DisplaySpecificResults(...)`를 호출하여 각 그룹에 항목 표시
 
-**Program.cs**에서 다음 두 메서드를 추가합니다.
+**Program.cs** 에서 다음 두 메서드를 추가합니다.
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)

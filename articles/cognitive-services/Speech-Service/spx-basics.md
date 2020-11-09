@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893818"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286689"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
@@ -31,7 +31,7 @@ ms.locfileid: "91893818"
 spx
 ```
 
-명령 매개 변수 오른쪽에 나열된 도움말 항목을 **참조**하세요. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
+명령 매개 변수 오른쪽에 나열된 도움말 항목을 **참조** 하세요. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
 
 키워드를 기준으로 도움말 항목을 검색할 수 있습니다. 예를 들어 다음 명령을 입력하여 Speech CLI 사용 예제 목록을 확인합니다.
 
@@ -65,21 +65,22 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-이 명령에서는 원본(**원래** 언어)과 대상(**번역되는** 언어)을 모두 지정합니다. `--microphone` 인수를 사용하면 현재 활성 입력 디바이스에서 오디오를 수신 대기하고, `ENTER`를 누르면 중지됩니다. 출력은 텍스트 파일에 대상 언어로 작성된 텍스트 번역입니다.
+이 명령에서는 원본( **원래** 언어)과 대상( **번역되는** 언어)을 모두 지정합니다. `--microphone` 인수를 사용하면 현재 활성 입력 디바이스에서 오디오를 수신 대기하고, `ENTER`를 누르면 중지됩니다. 출력은 텍스트 파일에 대상 언어로 작성된 텍스트 번역입니다.
 
 > [!NOTE]
 > 지원되는 언어와 해당 로캘 코드 목록은 [언어 및 로캘 문서](language-support.md)를 참조하세요.
 
 ### <a name="configuration-files-in-the-datastore"></a>데이터 저장소의 구성 파일
 
-Speech CLI는 로컬 Speech CLI 데이터 저장소에 저장되고 @ 기호를 사용하여 Speech CLI 호출 내에서 이름이 지정되는 구성 파일에서 여러 설정을 읽고 쓸 수 있습니다. Speech CLI는 현재 작업 디렉터리에서 만든 새 `./spx/data` 하위 디렉터리에 새 설정을 저장하려고 합니다.
-구성 값을 검색할 때 Speech CLI는 현재 작업 디렉터리를 찾은 다음, `./spx/data` 경로를 찾습니다.
+Speech CLI의 동작은 @ 기호를 사용하여 Speech CLI 호출 내에서 참조할 수 있는 구성 파일의 설정에 의존할 수 있습니다.
+Speech CLI는 현재 작업 디렉터리에서 만든 새 `./spx/data` 하위 디렉터리에 새 설정을 저장합니다.
+구성 값을 검색할 때 Speech CLI는 현재 작업 디렉터리, `./spx/data`의 데이터 저장소, `spx` 이진의 마지막 읽기 전용 데이터 저장소를 포함한 다른 데이터 저장소에 차례로 표시됩니다.
 이전에는 데이터 저장소를 사용하여 `@key` 및 `@region` 값을 저장했으므로 각 명령줄 호출에서 지정할 필요가 없었습니다.
 구성 파일을 사용하여 사용자 고유의 구성 설정을 저장하거나, 런타임에 생성된 URL 또는 기타 동적 콘텐츠를 전달하는 데 사용할 수도 있습니다.
 
 이 섹션에서는 `spx config`를 사용하여 명령 설정을 저장 및 가져오고 `--output` 옵션을 사용하여 Speech CLI의 출력을 저장하기 위해 로컬 데이터 저장소의 구성 파일을 사용하는 방법을 보여줍니다.
 
-다음 예제에서는 `@my.defaults` 구성 파일을 지우고, 파일에 **키** 및 **지역**에 대한 키-값 쌍을 추가하고, `spx recognize`에 대한 호출에서 구성을 사용합니다.
+다음 예제에서는 `@my.defaults` 구성 파일을 지우고, 파일에 **키** 및 **지역** 에 대한 키-값 쌍을 추가하고, `spx recognize`에 대한 호출에서 구성을 사용합니다.
 
 ```shell
 spx config @my.defaults --clear
@@ -162,7 +163,7 @@ spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 
 * 열 헤더 `audio.output` 및 `text`는 각각 명령줄 인수 `--audio output` 및 `--text`에 해당합니다. `--audio output`처럼 여러 부분으로 구성된 명령줄 인수는 파일에서 공백, 선행 대시, 문자열을 구분하는 마침표 없이 서식을 지정해야 합니다(예: `audio.output`). 그 외의 기존 명령줄 인수는 이 패턴을 사용하여 파일에 추가 열로 추가할 수 있습니다.
 * 이 방법으로 파일의 형식을 지정하면 `--foreach`에 추가 인수를 전달할 필요가 없습니다.
-* `.tsv`의 각 값을 **탭**으로 구분해야 합니다.
+* `.tsv`의 각 값을 **탭** 으로 구분해야 합니다.
 
 그러나 다음 예제와 같은 `.tsv` 파일이 있고 열 헤더가 명령줄 인수와 **일치하지 않는** 경우:
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>다음 단계
 
-* SDK를 사용하여 [음성 인식](./quickstarts/speech-to-text-from-microphone.md) 또는 [음성 합성](./quickstarts/text-to-speech.md) 빠른 시작을 완료합니다.
+* Speech CLI를 사용하여 [음성 인식](get-started-speech-to-text.md?pivots=programmer-tool-spx) 또는 [음성 합성](get-started-text-to-speech.md?pivots=programmer-tool-spx) 빠른 시작을 완료합니다.

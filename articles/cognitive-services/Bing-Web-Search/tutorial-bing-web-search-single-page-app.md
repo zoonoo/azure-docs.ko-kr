@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3c404f0028705754a68be113a331132eec02f7cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095444"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 단일 페이지 앱은 Bing Web Search API에서 검색 결과를 검색, 구문 분석 및 표시하는 방법을 보여 줍니다. 자습서에서는 상용구 HTML 및 CSS를 사용하고 JavaScript 코드에 초점을 맞춥니다. HTML, CSS 및 JS 파일은 빠른 시작 지침이 있는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search)에서 사용할 수 있습니다.
 
@@ -38,7 +43,7 @@ ms.locfileid: "91304035"
 앱을 실행하는 데 필요한 몇 가지 사항은 다음과 같습니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
 
 * Node.js 8 이상
 
@@ -133,7 +138,7 @@ function bingSearchOptions(form) {
 
 **수준 올리기** 확인란을 선택하면 `answerCount` 매개 변수가 쿼리에 추가됩니다. `promote` 매개 변수를 사용할 때 `answerCount`가 필요합니다. 이 코드 조각에서 값은 모든 사용 가능한 결과 형식을 반환하도록 `9`로 설정됩니다.
 > [!NOTE]
-> 결과 형식의 수준을 올려도 검색 결과에 포함되도록 *보장*되지 않습니다. 대신 프로모션은 일반적인 해당 순위를 기준으로 이러한 종류의 결과 순위를 높입니다. 특정 종류의 결과에 대한 검색을 제한하려면 `responseFilter` 쿼리 매개 변수를 사용하거나 Bing Image Search 또는 Bing News Search와 같은 구체적인 엔드포인트를 호출합니다.
+> 결과 형식의 수준을 올려도 검색 결과에 포함되도록 *보장* 되지 않습니다. 대신 프로모션은 일반적인 해당 순위를 기준으로 이러한 종류의 결과 순위를 높입니다. 특정 종류의 결과에 대한 검색을 제한하려면 `responseFilter` 쿼리 매개 변수를 사용하거나 Bing Image Search 또는 Bing News Search와 같은 구체적인 엔드포인트를 호출합니다.
 
 `textDecoration` 및 `textFormat` 쿼리 매개 변수는 스크립트로 하드 코드되고 검색 용어가 검색 결과에 굵게 지정되도록 합니다. 이러한 매개 변수는 필요하지 않습니다.
 

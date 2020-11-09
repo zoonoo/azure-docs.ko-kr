@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 미리 빌드된 도메인 `HomeAutomati
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316491"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128205"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -21,28 +21,31 @@ ms.locfileid: "91316491"
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>새 앱 만들기
-애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다.
+애플리케이션은 **내 앱** 에서 만들고 관리할 수 있습니다.
 
-1. 내 앱 목록에서 **+ 대화용 새 앱**을 선택한 다음, 옵션 목록에서 **+ 대화용 새 앱**을 다시 선택합니다.
+### <a name="create-an-application"></a>애플리케이션 만들기
 
-1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정합니다.
-1. 문화권으로 **영어**를 선택합니다.
-1. 선택적 설명을 입력합니다.
-1. 리소스를 아직 만들지 않은 경우 예측 리소스를 선택하지 마세요. 앱의 예측 엔드포인트(스테이징 또는 프로덕션)를 사용하려면 예측 리소스를 할당해야 합니다.
-1. **완료**를 선택합니다.
+애플리케이션을 만들려면  **+ 새 앱** 을 클릭합니다. 
 
-    LUIS가 앱을 만듭니다.
+표시되는 창에 다음 정보를 입력합니다.
 
-    ![대화 상자에서 애플리케이션 이름을 'Home Automation'으로 지정합니다.](./media/create-new-app-details.png)
+|이름  |설명  |
+|---------|---------|
+|AName     | 앱의 이름입니다. 예: "홈 자동화".        |
+|culture     | 앱이 이해하고 말하는 언어입니다.   |
+|설명 | 앱에 대한 설명입니다.
+|예측 리소스 | 쿼리를 수신할 예측 리소스입니다. |
 
-    >[!NOTE]
-    >애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다.
+**완료** 를 선택합니다.
+
+>[!NOTE]
+>애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다.
 
 ## <a name="add-prebuilt-domain"></a>미리 빌드된 도메인 추가
 
-1. 왼쪽 탐색 영역에서 **미리 빌드된 도메인**을 선택합니다.
-1. **HomeAutomation**을 검색합니다.
-1. HomeAutomation 카드에서 **도메인 추가**를 선택합니다.
+1. 왼쪽 탐색 영역에서 **미리 빌드된 도메인** 을 선택합니다.
+1. **HomeAutomation** 을 검색합니다.
+1. HomeAutomation 카드에서 **도메인 추가** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > !['미리 빌드된 도메인'을 선택한 다음, 'HomeAutomation'을 검색합니다. HomeAutomation 카드에서 '도메인 추가'를 선택합니다.](media/luis-quickstart-new-app/home-automation.png)
@@ -51,18 +54,19 @@ ms.locfileid: "91316491"
 
 ## <a name="intents-and-entities"></a>의도 및 엔터티
 
-1. **의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 미리 빌드된 도메인 의도에는 예제 발화가 있습니다.
-
-    > [!div class="mx-imgBorder"]
-    > ![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")
+1. 왼쪽 탐색 메뉴에서 **의도** 를 선택하여 HomeAutomation 도메인 의도를 확인합니다. `HomeAutomation.QueryState` 및 `HomeAutomation.SetDevice`와 같은 예제 발화가 있습니다.
 
     > [!NOTE]
-    > **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이는 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다.
+    > **없음** 은 모든 LUIS 앱에 제공되는 의도입니다. 이는 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다.
 
 1. **HomeAutomation.TurnOff** 의도를 선택합니다. 의도에는 엔터티를 사용하여 레이블이 지정된 예제 발화 목록이 포함되어 있습니다.
 
     > [!div class="mx-imgBorder"]
     > [![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. 앱의 엔터티를 보려면 **엔터티** 를 선택합니다. **HomeAutomation.DeviceName** 과 같은 엔터티 중 하나를 클릭하면 연결된 값 목록이 표시됩니다. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="이미지 대체 텍스트" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
@@ -71,19 +75,15 @@ ms.locfileid: "91316491"
 ## <a name="test-your-app"></a>앱 테스트
 앱을 학습시킨 후에는 테스트할 수 있습니다.
 
-1. 오른쪽 상단 탐색에서 **테스트**를 선택합니다.
+1. 오른쪽 상단 탐색에서 **테스트** 를 선택합니다.
 
-1. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다.
+1. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다. 예를 들어 *광원을 해제* 합니다.
 
-    ```
-    Turn off the lights
-    ```
-
-    이 예제에서 `Turn off the lights`는 **HomeAutomation.TurnOff**의 최고 득점 의도로 올바르게 확인되었습니다.
+    이 예제에서 `Turn off the lights`는 **HomeAutomation.TurnOff** 의 최고 득점 의도로 올바르게 확인되었습니다.
 
     ![발언이 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. **검사**를 선택하여 예측에 대한 자세한 정보를 봅니다.
+1. **검사** 를 선택하여 예측에 대한 자세한 정보를 봅니다.
 
     > [!div class="mx-imgBorder"]
     > ![검사 정보가 포함된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png)
@@ -94,7 +94,18 @@ ms.locfileid: "91316491"
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 예측 엔드포인트에 게시해야 합니다.
+
+1. 창의 오른쪽 상단에 있는 **게시** 를 선택합니다.
+
+1. **프로덕션** 슬롯을 선택한 다음, **완료** 를 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![엔드포인트에 LUIS 게시 스크린샷](media/howto-publish/publish-app-popup.png)
+
+1. 알림에서 **엔드포인트 URL에 액세스** 링크를 선택하여 **Azure Resources** 페이지로 이동합니다. 엔드포인트 URL은 **예제 쿼리** 로 나열됩니다.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 

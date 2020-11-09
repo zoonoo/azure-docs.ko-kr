@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495959"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324568"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -48,7 +48,7 @@ ms.locfileid: "92495959"
 
 다음은 빌딩 시나리오 *AdtSampleApp* 샘플 앱에서 구현하는 구성 요소입니다.
 * 디바이스 인증 
-* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 사용 예( *CommandLoop.cs* 에 있음)
+* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 사용 예( *CommandLoop.cs* 에 있음)
 * Azure Digital Twins API를 호출하는 콘솔 인터페이스
 * *SampleClientApp* - 샘플 Azure Digital Twins 솔루션
 * *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석의 결과로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
@@ -329,7 +329,7 @@ ObserveProperties thermostat67 Temperature
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="화살표 C, Azure Digital Twins 후의 요소(Event Grid와 두 번째 Azure 함수)를 강조 표시한 전체 빌딩 시나리오 그래픽에서 발췌":::
 
 다음은 이 데이터 흐름 설정을 위해 완료해야 하는 작업입니다.
-1. Event Grid에 인스턴스를 연결하는 Azure Digital Twins 엔드포인트를 만듭니다.
+1. Event Grid에 인스턴스를 연결하는 Azure Digital Twins에서 Event Grid 엔드포인트 만들기
 2. Azure Digital Twins 내에서 경로를 설정하여 엔드포인트에 트윈 속성 변경 이벤트를 보냅니다.
 3. 엔드포인트에서 [Event Grid](../event-grid/overview.md)를 통해 수신 대기하고 그에 따라 다른 트윈을 업데이트하는 Azure Functions 앱을 배포합니다.
 4. 시뮬레이션된 디바이스를 실행하고 Azure Digital Twins를 쿼리하여 라이브 결과를 봅니다.
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 이 명령을 실행하면 사용자가 만든 이벤트 그리드 토픽에 대한 정보가 출력됩니다.
 
-다음으로, 이벤트 그리드 토픽을 가리키는 Azure Digital Twins 엔드포인트를 만듭니다. 아래 명령을 사용하여 필요에 따라 자리 표시자 필드를 작성합니다.
+다음으로, 인스턴스를 이벤트 그리드 토픽에 연결하는 Azure Digital Twins에 Event Grid 엔드포인트를 만듭니다. 아래 명령을 사용하여 필요에 따라 자리 표시자 필드를 작성합니다.
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="provisioningState가 성공인 엔드포인트를 보여주는 엔드포인트 쿼리의 결과":::
 
-이벤트 그리드 토픽에 지정한 이름과 Azure Digital Twins 엔드포인트를 저장합니다. 나중에 사용합니다.
+Azure Digital Twins에서 이벤트 그리드 토픽 및 Event Grid 엔드포인트에 지정한 이름을 저장합니다. 나중에 사용합니다.
 
 ### <a name="set-up-route"></a>경로 설정
 
-그런 다음, 방금 만든 Azure Digital Twins 엔드포인트에 이벤트를 보내는 Azure Digital Twins 경로를 만듭니다.
+그런 다음, 방금 만든 Event Grid 엔드포인트에 이벤트를 보내는 Azure Digital Twins 경로를 만듭니다.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

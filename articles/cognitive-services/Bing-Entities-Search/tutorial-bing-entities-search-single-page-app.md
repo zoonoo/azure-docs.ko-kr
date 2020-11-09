@@ -11,16 +11,21 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 58bbda6d3b02042c6e512e03e108cd69fbd7ed51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277328"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084632"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
-Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+
+Bing Entity Search API를 사용하면 *엔터티* 및 *장소* 에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
 
 | 결과 | Description |
 |-|-|
@@ -63,8 +68,8 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 만든 후에는 다음을 수행합니다.
-  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
-  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
+  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 

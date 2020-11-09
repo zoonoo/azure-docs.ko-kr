@@ -11,14 +11,19 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4cbf79abaf915e7f6e055f5bcb0d8f09de026ad5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2c0d84854f593511196a236f4c449d5b609ae6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85604865"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073420"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. Bing Web Search는 검색 관련성 및 Bing Web Search 구독에 기반한 JSON으로 결과를 제공합니다.
 

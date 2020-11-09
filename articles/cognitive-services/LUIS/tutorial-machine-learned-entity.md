@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130768"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -72,18 +72,18 @@ ms.locfileid: "91334732"
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    `pickup`의 가장 왼쪽 텍스트 바로 앞에서 선택을 시작한 다음(#1), 가장 오른쪽 텍스트인 `anchovies`로 바로 이동합니다(#2 - 레이블 지정 프로세스가 종료됨). 팝업 메뉴가 나타납니다. 팝업 상자에서 엔터티의 이름을 `Order`로 입력합니다(#3). 그런 다음, 목록에서 `Order Create new entity`를 선택 합니다(#4).
+    첫 번째 예제 의도를 보려면 텍스트 위로 커서를 클릭하여 끌어다 놓습니다. 표시되는 메뉴에서 엔터티의 이름을 `Order`로 입력합니다. 그런 다음, 목록에서 `Order Create new entity`을 선택합니다.
 
     ![전체 주문 텍스트의 시작 및 끝 레이블](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
     > 엔터티가 항상 전체 발화가 되는 것은 아닙니다. 이 예제의 `pickup`은 주문을 받는 방법을 나타냅니다. 개념적 관점에서 `pickup`은 주문에 대한 레이블이 지정 된 엔터티의 일부여야 합니다.
 
-1. **엔터티 형식 선택** 상자에서 **구조 추가**를 선택하고, **다음**을 선택합니다. 크기 및 수량과 같은 하위 엔터티를 추가하려면 구조가 필요합니다.
+1. **엔터티 형식 선택** 상자에서 **구조 추가** 를 선택하고, **다음** 을 선택합니다. 크기 및 수량과 같은 하위 엔터티를 추가하려면 구조가 필요합니다.
 
     ![스크린샷은 구조 추가 옵션이 선택된 엔터티 형식 선택 창을 보여줍니다.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. **하위 엔터티 추가(선택 사항)** 상자의 `Order` 행에서 **+** 를 선택한 다음, `Size` 및 `Quantity`을 하위 엔터티로 추가하고 **만들기**를 선택합니다.
+1. **하위 엔터티 추가(선택 사항)** 상자의 `Order` 행에서 **+** 를 선택한 다음, `Size` 및 `Quantity`을 하위 엔터티로 추가하고 **만들기** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![스크린샷은 하위 엔터티가 강조 표시된 하위 엔터티 추가(선택 사항)를 보여줍니다.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
@@ -94,13 +94,13 @@ ms.locfileid: "91334732"
 
 ### <a name="improve-size-extraction-with-phrase-list"></a>구 목록을 사용하여 크기 추출 향상
 
-1. 왼쪽 메뉴에서 **엔터티**를 선택한 다음, **Order** 엔터티를 선택합니다.
+1. 왼쪽 메뉴에서 **엔터티** 를 선택한 다음, **Order** 엔터티를 선택합니다.
 
-1. **스키마 및 기능** 탭에서 **Size** 하위 엔터티를 선택한 다음, **+ 기능 추가**를 선택합니다.
+1. **스키마 및 기능** 탭에서 **Size** 하위 엔터티를 선택한 다음, **+ 기능 추가** 를 선택합니다.
 
-1. 드롭다운 메뉴에서 **새 구 목록 만들기**를 선택합니다.
+1. 드롭다운 메뉴에서 **새 구 목록 만들기** 를 선택합니다.
 
-1. **새 구 목록 만들기** 상자에서 이름으로 `SizePhraselist`를 입력한 다음, `small`, `medium` 및 `large`의 값을 입력합니다. **제안** 상자가 채워지면 `extra large` 및 `xl`을 선택합니다. **만들기**를 선택하여 새로운 구 목록을 만듭니다.
+1. **새 구 목록 만들기** 상자에서 이름으로 `SizePhraselist`를 입력한 다음, `small`, `medium` 및 `large`의 값을 입력합니다. **제안** 상자가 채워지면 `extra large` 및 `xl`을 선택합니다. **만들기** 를 선택하여 새로운 구 목록을 만듭니다.
 
     이 구 목록 기능은 예제 단어를 제공하여 `Size` 하위 엔터티에서 크기와 관련된 단어를 찾는 데 도움이 됩니다. 이 구 목록에 모든 크기 단어가 꼭 있어야 하는 것은 아니지만 크기를 나타내는 데 필요한 단어는 꼭 있어야 합니다.
 
@@ -108,9 +108,9 @@ ms.locfileid: "91334732"
 
 클라이언트 애플리케이션에서 인식하는 알려진 크기 목록을 추가해도 추출에 도움이 됩니다.
 
-1. 왼쪽 메뉴에서 **엔터티**를 선택한 다음, **+ 만들기**를 선택합니다.
+1. 왼쪽 메뉴에서 **엔터티** 를 선택한 다음, **+ 만들기** 를 선택합니다.
 
-1. 이전 섹션에서 만든 `SizePhraselist`와 비교할 때 쉽게 구분할 수 있도록 엔터티 이름을 `SizeListentity`로 유형은 **목록**으로 설정합니다.
+1. 이전 섹션에서 만든 `SizePhraselist`와 비교할 때 쉽게 구분할 수 있도록 엔터티 이름을 `SizeListentity`로 유형은 **목록** 으로 설정합니다.
 
 1. 클라이언트 애플리케이션에 필요한 크기 `Small`, `Medium`, `Large` 및 `XLarge`를 추가한 다음, 각 크기의 동의어를 추가합니다. 동의어는 사용자가 챗봇에 입력하는 용어여야 합니다. 엔터티가 정규화된 값 또는 동의어와 정확히 일치하면 목록 엔터티를 사용하여 엔터티가 추출됩니다.
 
@@ -127,13 +127,13 @@ ms.locfileid: "91334732"
 
 ### <a name="add-feature-of-sizelist-entity"></a>SizeList 엔터티의 기능 추가
 
-1. 왼쪽 메뉴에서 **엔터티**를 선택하여 엔터티 목록으로 돌아갑니다.
+1. 왼쪽 메뉴에서 **엔터티** 를 선택하여 엔터티 목록으로 돌아갑니다.
 
-1. 엔터티 목록에서 **Order**를 선택합니다.
+1. 엔터티 목록에서 **Order** 를 선택합니다.
 
-1. **스키마 및 기능** 탭에서 **Size** 엔터티를 선택한 다음, **+ 기능 추가**를 선택합니다.
+1. **스키마 및 기능** 탭에서 **Size** 엔터티를 선택한 다음, **+ 기능 추가** 를 선택합니다.
 
-1. 드롭다운 목록에서 **@ SizeListentity**를 선택합니다.
+1. 드롭다운 목록에서 **@ SizeListentity** 를 선택합니다.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 
@@ -141,19 +141,19 @@ ms.locfileid: "91334732"
 
 미리 빌드된 number 엔터티를 추가해도 추출에 도움이 됩니다.
 
-1. 왼쪽 메뉴에서 **엔터티**를 선택한 다음, **미리 작성된 엔터티 추가**를 선택합니다.
+1. 왼쪽 메뉴에서 **엔터티** 를 선택한 다음, **미리 작성된 엔터티 추가** 를 선택합니다.
 
-1. 목록에서 **Number**를 선택하고 **완료**를 선택합니다.
+1. 목록에서 **Number** 를 선택하고 **완료** 를 선택합니다.
 
-1. 왼쪽 메뉴에서 **엔터티**를 선택하여 엔터티 목록으로 돌아갑니다.
+1. 왼쪽 메뉴에서 **엔터티** 를 선택하여 엔터티 목록으로 돌아갑니다.
 
 ### <a name="add-feature-of-prebuilt-number-entity"></a>미리 빌드된 number 엔터티 기능 추가
 
-1. 엔터티 목록에서 **Order**를 선택합니다.
+1. 엔터티 목록에서 **Order** 를 선택합니다.
 
-1. **스키마 및 기능** 탭에서 **Quantity** 엔터티를 선택한 다음, **+ 기능 추가**를 선택합니다.
+1. **스키마 및 기능** 탭에서 **Quantity** 엔터티를 선택한 다음, **+ 기능 추가** 를 선택합니다.
 
-1. 드롭다운 목록에서 **@ number**를 선택합니다.
+1. 드롭다운 목록에서 **@ number** 를 선택합니다.
 
 <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
 
@@ -171,9 +171,9 @@ ms.locfileid: "91334732"
 
 기계 학습 엔터티가 만들어지고 하위 엔터티에 기능이 생겼습니다. 추출 개선을 완료하려면 예제 발화의 레이블을 하위 엔터티로 지정해야 합니다.
 
-1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **OrderPizza** 의도를 선택합니다.
+1. 왼쪽 탐색 영역에서 **의도** 를 선택한 다음, **OrderPizza** 의도를 선택합니다.
 
-1. **엔터티 팔레트**를 열려면 상황에 맞는 도구에서 **@** 기호를 선택합니다.
+1. **엔터티 팔레트** 를 열려면 상황에 맞는 도구에서 **@** 기호를 선택합니다.
 
 1. 팔레트에서 각 엔터티 행을 선택한 다음, 팔레트 커서를 사용하여 각 예제 발화의 엔터티를 선택합니다. 모두 마쳤으면 엔터티 목록이 다음 이미지와 비슷할 것입니다.
 
@@ -182,7 +182,7 @@ ms.locfileid: "91334732"
 
 ## <a name="train-the-app"></a>앱 학습
 
-앱을 학습시키려면 **학습**을 선택합니다. 학습은 새 엔터티 및 레이블이 지정된 발화와 같은 변경 내용을 활성 모델에 적용합니다.
+앱을 학습시키려면 **학습** 을 선택합니다. 학습은 새 엔터티 및 레이블이 지정된 발화와 같은 변경 내용을 활성 모델에 적용합니다.
 
 ## <a name="add-a-new-example-utterance"></a>새 예제 발화 추가
 
@@ -209,7 +209,7 @@ ms.locfileid: "91334732"
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>엔터티 변경 내용을 앱에 적용하도록 앱 학습
 
-**학습**을 선택하여 이 새 발화로 앱을 학습시킵니다.
+**학습** 을 선택하여 이 새 발화로 앱을 학습시킵니다.
 
 이 시점에서 주문에는 추출할 수 있는 몇 가지 세부 정보(크기, 수량 및 전체 주문 텍스트)가 있습니다. `Order` 엔터티를 피자 토핑, 크러스트 유형 및 추가 주문과 같이 추가로 구체화합니다. 이러한 각 항목은 `Order` 엔터티의 하위 엔터티로 만들어야 합니다.
 
@@ -217,11 +217,11 @@ ms.locfileid: "91334732"
 
 대화형 **테스트** 패널을 사용하여 앱을 테스트합니다. 이 프로세스를 통해 새 발화를 입력한 다음, 예측 결과를 살펴보고 학습된 활성 앱이 얼마나 잘 작동하는지 확인할 수 있습니다. 의도 예측은 상당히 신뢰할 수 있어야 하며(60% 이상), 엔터티 추출은 적어도 `Order` 엔터티를 선택해야 합니다. 이러한 발화 몇 개로는 모든 사례를 처리하기에 충분하지 않으므로 주문 엔터티의 세부 정보가 누락될 수 있습니다.
 
-1. 맨 위 탐색에서 **테스트**를 선택합니다.
+1. 맨 위 탐색에서 **테스트** 를 선택합니다.
 1. `2 small cheese pizzas for pickup` 발화를 입력하고 Enter 키를 선택합니다. 활성 모델이 의도를 올바르게 예측한 신뢰도가 60%를 넘습니다.
 
 
-1. **검사**를 선택하여 엔터티 예측을 확인합니다.
+1. **검사** 를 선택하여 엔터티 예측을 확인합니다.
 
     > [!div class="mx-imgBorder"]
     > ![대화형 테스트 패널에서 엔터티 예측 보기의 부분 스크린샷](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
@@ -232,26 +232,26 @@ ms.locfileid: "91334732"
 
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다.
 
-1. 오른쪽 위 탐색에서 **게시**를 선택합니다.
+1. 오른쪽 위 탐색에서 **게시** 를 선택합니다.
 
     ![오른쪽 상단 메뉴의 엔드포인트 단추에 LUIS 게시 스크린샷](./media/howto-publish/publish-button.png)
 
-1. **프로덕션** 슬롯, **설정 변경**, **감정 분석**, **완료**를 차례로 선택합니다.
+1. **프로덕션** 슬롯, **설정 변경** , **감정 분석** , **완료** 를 차례로 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![엔드포인트에 LUIS 게시 스크린샷](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
 
-1. 알림에서 **엔드포인트 URL에 액세스** 링크를 선택하여 **Azure Resources** 페이지로 이동합니다. 엔드포인트 URL은 **예제 쿼리**로 나열됩니다.
+1. 알림에서 **엔드포인트 URL에 액세스** 링크를 선택하여 **Azure Resources** 페이지로 이동합니다. 엔드포인트 URL은 **예제 쿼리** 로 나열됩니다.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>HTTP 엔드포인트에서 의도 및 엔터티 예측 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 주소 표시줄의 URL 끝으로 이동하여 대화형 테스트 패널에 입력한 것과 동일한 쿼리로 _YOUR_QUERY_HERE_를 바꿉니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 대화형 테스트 패널에 입력한 것과 동일한 쿼리로 _YOUR_QUERY_HERE_ 를 바꿉니다.
 
     `2 small cheese pizzas for pickup`
 
-    마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `query`입니다.
+    마지막 쿼리 문자열 매개 변수는 발언 **쿼리** 를 나타내는 `query`입니다.
 
     ```json
     {

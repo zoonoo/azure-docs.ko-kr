@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099864"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하는 웹 페이지 빌드합니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html)에 제공됩니다.
 
@@ -123,7 +128,7 @@ getSubscriptionKeyLocalStorage 도우미 함수는 먼저 적절한 쿠키를 �
     }
 ```
 
-getSubscriptionKey 도우미 함수는 **invalidate** 매개 변수를 사용합니다. **무효화**가 **true**인 경우 getSubscriptionKey는 Bing Spell Check API 키가 포함된 쿠키를 삭제합니다. **무효화**가 **false**인 경우 getSubscriptionKey는 Bing Spell Check API 키의 값을 반환합니다.
+getSubscriptionKey 도우미 함수는 **invalidate** 매개 변수를 사용합니다. **무효화** 가 **true** 인 경우 getSubscriptionKey는 Bing Spell Check API 키가 포함된 쿠키를 삭제합니다. **무효화** 가 **false** 인 경우 getSubscriptionKey는 Bing Spell Check API 키의 값을 반환합니다.
 
 ```html
     function getSubscriptionKey(invalidate) {
