@@ -12,12 +12,12 @@ metadata:
   title: Personalizer 설명서
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
-  ms.openlocfilehash: 51aba4941eb1e1e575e6d33a48a8fe1552eb4d47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: f4d263e551360b326fbe849e4cb62347e8125849
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371140"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94368137"
 landingContent:
 - title: Personalizer 정보
   linkLists:
@@ -58,27 +58,27 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: SDK 사용
-      url: sdk-learning-loop.md
+      url: ./quickstart-personalizer-sdk.md
 - title: Personalizer로 개발
   linkLists:
   - linkListType: get-started
     links:
     - text: .NET으로 Personalizer 루프 개발
-      url: sdk-learning-loop.md?pivots=programming-language-csharp
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-csharp
     - text: NuGet 패키지
       url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
     - text: NuGet 참조 설명서
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
   - linkListType: get-started
     links:
     - text: Node.js로 Personalizer 루프 개발
-      url: sdk-learning-loop.md?pivots=programming-language-javascript
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-javascript
     - text: NPM 패키지
       url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
   - linkListType: get-started
     links:
     - text: Python으로 Personalizer 루프 개발
-      url: sdk-learning-loop.md?pivots=programming-language-python
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-python
     - text: Pypi 패키지
       url: https://pypi.org/project/azure-cognitiveservices-personalizer/
   - linkListType: get-started

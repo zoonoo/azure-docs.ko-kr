@@ -32,14 +32,14 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
     - name: Swift 및 iOS 모바일 앱
       href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
-- name: 참조
+- name: 참고
   items:
     - name: REST API 참조
-      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+      href: /rest/api/cognitiveservices/inkrecognizer/inkrecognizer
     - name: PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: 언어 지원
       href: language-support.md
     - name: 영역

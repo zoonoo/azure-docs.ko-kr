@@ -1,9 +1,9 @@
 - name: Speaker Recognition 설명서
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: 개요
   items:
     - name: Speaker Recognition에 대해 알아보기
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: 참조
   items:
     - name: API 참조

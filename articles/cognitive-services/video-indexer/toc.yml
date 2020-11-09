@@ -4,7 +4,7 @@
     - name: Video Indexer란?
       href: ../../media-services/video-indexer/video-indexer-overview.md
     - name: 개념
-      href: ../../media-services/video-indexer/video-indexer-concepts.md
+      href: ../../media-services/video-indexer/video-indexer-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -13,7 +13,7 @@
 - name: 방법 가이드
   items:
     - name: v1에서 v2로 마이그레이션
-      href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
+      href: ../../media-services/video-indexer/video-indexer-overview.md
     - name: Azure에 연결
       href: ../../media-services/video-indexer/connect-to-azure.md
     - name: Azure에 연결된 계정 관리
@@ -29,7 +29,7 @@
     - name: Video Indexer 정보 보기 및 편집
       href: ../../media-services/video-indexer/video-indexer-view-edit.md
     - name: 기존 비디오에서 비디오 정보 만들기
-      href: ../../media-services/video-indexer/video-indexer-create-new.md
+      href: ../../media-services/video-indexer/use-editor-create-project.md
     - name: 애플리케이션에 위젯 포함
       href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: 참조

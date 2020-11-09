@@ -72,6 +72,8 @@
           href: concepts-api-management.md
         - name: 허브 및 스포크
           href: concepts-hub-and-spoke.md
+        - name: Azure Security Center
+          href: azure-security-integration.md
         - name: Azure Backup 서버
           items:
             - name: Backup 서버 설정
