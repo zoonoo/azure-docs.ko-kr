@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312485"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442143"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -177,7 +177,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 > [!IMPORTANT]
 > 높은 비즈니스 영향을 선택 하는 작업은 작업 영역을 만들 때만 수행할 수 있습니다. 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다.
 
-고객 관리 키 및 높은 비즈니스 영향 작업 영역에 대 한 자세한 내용은 [Azure Machine Learning Enterprise security](concept-enterprise-security.md#encryption-at-rest)을 참조 하십시오.
+고객 관리 키 및 높은 비즈니스 영향 작업 영역에 대 한 자세한 내용은 [Azure Machine Learning Enterprise security](concept-data-encryption.md#encryption-at-rest)을 참조 하십시오.
 
 ### <a name="use-existing-resources"></a>기존 리소스 사용
 

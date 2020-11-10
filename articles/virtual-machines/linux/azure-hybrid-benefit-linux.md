@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413108"
+ms.locfileid: "94443435"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>공개 미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
 
 ## <a name="overview"></a>개요
 
@@ -45,30 +45,26 @@ Linux Vm에 대 한 혜택을 이미 사용 하 고 있는 경우 예약 된 인
 
 ## <a name="how-to-get-started"></a>시작하는 방법
 
-Azure 하이브리드 혜택 현재 Linux Vm에 대 한 미리 보기 단계입니다. 미리 보기에 대 한 액세스 권한을 얻은 후 Azure Portal 또는 Azure CLI를 사용 하 여 혜택을 사용 하도록 설정할 수 있습니다.
+Azure 하이브리드 혜택 현재 Linux Vm에 대 한 미리 보기 단계입니다. 미리 보기에 대 한 액세스 권한을 얻은 후 Azure CLI를 사용 하 여 혜택을 사용 하도록 설정할 수 있습니다.
 
-### <a name="preview"></a>미리 보기
+### <a name="public-preview"></a>공개 미리 보기
 
-이 단계에서는 [여기](https://aka.ms/ahb-linux-form)에 양식을 입력 하 여 혜택에 대 한 액세스 권한을 얻을 수 있습니다. 양식을 작성 하 고 나면 혜택에 대해 Azure 구독을 사용할 수 있으며 영업일 기준 3 일 이내에 Microsoft의 확인을 받게 됩니다.
+Azure 하이브리드 혜택 (Linux의 경우)은 (는) 현재 공개 미리 보기 단계입니다. 아래 단계를 사용 하 여 Red Hat 및 SUSE 배포판의 혜택을 사용 하도록 설정할 수 있습니다. 
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
-1.    위의 미리 보기 요청 양식을 작성 합니다.
 1.    [Red Hat 클라우드 액세스 프로그램](https://aka.ms/rhel-cloud-access) 에 등록
 1.    클라우드 액세스를 위해 Azure 구독을 사용 하도록 설정 하 고 혜택을 사용 하려는 Vm이 포함 된 구독을 사용 하도록 설정 합니다.
-1.    Azure Portal 또는 Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
-1.    선택 사항으로, Vm을 등록 하 여 별도 업데이트 원본으로 혜택을 받을 수 있습니다. 전환 된 Vm은 RHSM을 통해 [RHUI](../workloads/redhat/redhat-rhui.md) 에 연결 된 상태로 유지 하거나 등록할 수 있습니다.
+1.    Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
+1.    별도의 업데이트 원본으로 혜택을 받을 수 있도록 Vm 등록
+
 
 ### <a name="suse-customers"></a>SUSE 고객
 
-1.    위의 미리 보기 요청 양식을 작성 합니다.
 1.    SUSE 공용 클라우드 프로그램에 등록
-1.    Azure Portal 또는 Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
+1.    Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
 1.    별도의 업데이트 원본으로 혜택을 받을 수 있도록 Vm 등록
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Azure Portal 혜택 사용 및 사용 안 함
-
-**구성** 블레이드를 방문 하 고 해당 단계를 수행 하 여 기존 vm에 대 한 혜택을 사용 하도록 설정할 수 있습니다. VM 만들기 환경에서 새 Vm에 대 한 혜택을 사용 하도록 설정할 수 있습니다.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI 혜택 사용 및 사용 안 함
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>VM의 AHB 상태 확인
-다음 세 가지 방법으로 VM의 AHB 상태를 확인할 수 있습니다. 포털에서 체크 인 하거나, Azure CLI를 사용 하거나, azure Instance Metadata Service (Azure IMDS)를 사용 합니다.
+Azure CLI를 사용 하거나 Azure Instance Metadata Service (Azure IMDS)를 사용 하는 두 가지 방법으로 VM의 AHB 상태를 볼 수 있습니다.
 
-
-### <a name="portal"></a>포털
-
-구성 블레이드를 확인 하 고 라이선스 상태를 확인 하 여 VM에 대해 AHB가 사용 하도록 설정 되어 있는지 확인 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -152,9 +144,7 @@ A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 �
 
 | 오류 | 완화 방법 |
 | ----- | ---------- |
-| "구독이 Azure 하이브리드 혜택의 Linux 미리 보기에 등록 되어 있지 않습니다. 단계별 지침은 다음을 참조 하세요. https://aka.ms/ahb-linux | 에서 양식을 작성 하 여 https://aka.ms/ahb-linux-form Azure 하이브리드 혜택 Linux 미리 보기에 등록 합니다.
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
-|"Azure 하이브리드 혜택에 대 한 옵션이 포털에 표시 되지 않습니다." | 공유 이미지 갤러리, 스냅숏 또는 캡처된 PAYG 이미지에서 만든 RHEL 및 SLES Vm의 알려진 문제입니다. 이 경우 "[Azure CLI 혜택 사용 및 사용 안 함](#enable-and-disable-the-benefit-in-the-azure-cli)" 섹션에 설명 된 CLI 단계를 사용 합니다. AHB 상태를 보려면 명령을 사용 합니다 ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>다음 단계
-* [여기](https://aka.ms/ahb-linux-form)에 양식을 입력 하 여 미리 보기를 통해 시작 하세요.
+* Azure CLI를 사용 하 여 Vm을 만들고 업데이트 하 고 Azure 하이브리드 혜택에 대 한 라이선스 유형 (RHEL_BYOS, SLES_BYOS)을 추가 하는 방법에 대해 알아봅니다 [.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

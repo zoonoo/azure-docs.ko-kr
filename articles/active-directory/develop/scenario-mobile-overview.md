@@ -13,14 +13,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257540"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443112"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 모바일 응용 프로그램
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 모바일 애플리케이션
 
 웹 API를 호출하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다.
 
@@ -40,10 +40,10 @@ ms.locfileid: "91257540"
 
 모바일 앱에 대 한 고려 사항:
 
-- **사용자 환경**: 로그인을 요청 하기 전에 사용자가 앱의 값을 볼 수 있도록 허용 합니다. 필요한 권한만 요청 합니다.
-- **모든 사용자 구성 지원**: 많은 모바일 비즈니스 사용자가 조건부 액세스 정책 및 장치 준수 정책을 준수 해야 합니다. 이러한 주요 시나리오를 지원 해야 합니다.
-- **SSO (Single Sign-On) 구현**: msal 및 Microsoft identity platform을 사용 하 여 장치의 브라우저 또는 Microsoft Authenticator를 통해 Single Sign-On를 사용 하도록 설정 하 고 Android에서 Intune 회사 포털 수 있습니다.
-- **공유 장치 모드 구현**: 병원, 제조, 소매, 재무 등의 공유 장치 시나리오에서 사용할 수 있는 응용 프로그램을 사용 하도록 설정 합니다. [공유 장치 모드 지원에 대해 자세히](msal-shared-devices.md)알아보세요.
+- **사용자 환경** : 로그인을 요청 하기 전에 사용자가 앱의 값을 볼 수 있도록 허용 합니다. 필요한 권한만 요청 합니다.
+- **모든 사용자 구성 지원** : 많은 모바일 비즈니스 사용자가 조건부 액세스 정책 및 장치 준수 정책을 준수 해야 합니다. 이러한 주요 시나리오를 지원 해야 합니다.
+- **SSO (Single Sign-On) 구현** : msal 및 Microsoft identity platform을 사용 하 여 장치의 브라우저 또는 Microsoft Authenticator를 통해 Single Sign-On를 사용 하도록 설정 하 고 Android에서 Intune 회사 포털 수 있습니다.
+- **공유 장치 모드 구현** : 병원, 제조, 소매, 재무 등의 공유 장치 시나리오에서 사용할 수 있는 응용 프로그램을 사용 하도록 설정 합니다. [공유 장치 모드 지원에 대해 자세히](msal-shared-devices.md)알아보세요.
 
 ## <a name="specifics"></a>특수 적용 사항
 
@@ -59,5 +59,4 @@ Microsoft id 플랫폼에서 모바일 앱을 빌드하는 경우 다음 사항�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [앱 등록](scenario-mobile-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](scenario-mobile-app-registration.md)으로 이동 합니다.

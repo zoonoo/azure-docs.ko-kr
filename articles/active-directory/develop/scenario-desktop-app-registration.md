@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257516"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443146"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -48,8 +48,8 @@ ms.locfileid: "91257516"
 - 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
 - [디먼 응용](scenario-daemon-overview.md)프로그램에서 사용 되는 클라이언트 자격 증명 흐름을 사용 하 여 비밀 클라이언트 응용 프로그램에서 [장치 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)및 [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password) 를 구분 하려면, 리디렉션 URI가 필요 하지 않은 경우 공용 클라이언트 응용 프로그램으로 구성 해야 합니다. 이 구성을 설정하려면
 
-    1. [Azure Portal](https://portal.azure.com)에서 **앱 등록**의 앱을 선택한 다음 **인증**을 선택 합니다.
-    1. **고급 설정**에서  >  **기본 클라이언트 유형**  >  **응용 프로그램을 공용 클라이언트로 처리**에서 **예**를 선택 합니다.
+    1. [Azure Portal](https://portal.azure.com)에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
+    1. **고급 설정** 에서  >  **기본 클라이언트 유형**  >  **응용 프로그램을 공용 클라이언트로 처리** 에서 **예** 를 선택 합니다.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
 
@@ -59,5 +59,4 @@ ms.locfileid: "91257516"
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [데스크톱 앱: 앱 구성](scenario-desktop-app-configuration.md)
+이 시나리오에서 [앱 코드 구성](scenario-desktop-app-configuration.md)의 다음 문서로 이동 합니다.

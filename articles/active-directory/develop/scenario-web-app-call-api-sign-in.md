@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5246100815fde569c55027a555464c44a240d4b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7f59f235f4baa270b36b01cc4532227ab23fbc8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120000"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442534"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>웹 Api를 호출 하는 웹 앱: 전역 로그 아웃 시 토큰 캐시에서 계정 제거
 
@@ -50,22 +50,18 @@ Python 샘플은 전역 로그 아웃 시 캐시에서 계정을 제거 하지 �
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [웹 앱에 대 한 토큰 획득](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
+이 시나리오의 다음 문서로 이동 하 여 [웹 앱에 대 한 토큰을 가져옵니다](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [웹 앱에 대 한 토큰 획득](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
+이 시나리오의 다음 문서로 이동 하 여 [웹 앱에 대 한 토큰을 가져옵니다](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [웹 앱에 대 한 토큰 획득](./scenario-web-app-call-api-acquire-token.md?tabs=java)
+이 시나리오의 다음 문서로 이동 하 여 [웹 앱에 대 한 토큰을 가져옵니다](./scenario-web-app-call-api-acquire-token.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [웹 앱에 대 한 토큰 획득](./scenario-web-app-call-api-acquire-token.md?tabs=python)
+이 시나리오의 다음 문서로 이동 하 여 [웹 앱에 대 한 토큰을 가져옵니다](./scenario-web-app-call-api-acquire-token.md?tabs=python).
 
 ---

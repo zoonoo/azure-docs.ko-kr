@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396130"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443605"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
 
@@ -29,7 +29,7 @@ ms.locfileid: "91396130"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-*Microsoft. Identity*를 사용 하는 경우 API를 호출 하기 위한 세 가지 사용 옵션이 있습니다.
+*Microsoft. Identity* 를 사용 하는 경우 API를 호출 하기 위한 세 가지 사용 옵션이 있습니다.
 
 - [옵션 1: Microsoft Graph SDK를 사용 하 여 Microsoft Graph 호출](#option-1-call-microsoft-graph-with-the-sdk)
 - [옵션 2: 도우미 클래스를 사용 하 여 다운스트림 웹 API 호출](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -199,5 +199,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-web-app-call-api-production.md)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-web-app-call-api-production.md)합니다.

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83771743"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444030"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>모바일 앱에서 웹 API 호출
 
@@ -119,9 +119,9 @@ task.resume()
 
 동일한 API를 여러 번 호출해야 하거나 여러 API를 호출해야 하는 경우에는 앱을 빌드할 때 다음 사항을 고려해야 합니다.
 
-- **증분 동의**: Microsoft ID 플랫폼을 사용하면 앱 시작 시가 아닌 권한이 필요할 때 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 필요한 범위만 요청해야 합니다.
+- **증분 동의** : Microsoft ID 플랫폼을 사용하면 앱 시작 시가 아닌 권한이 필요할 때 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 필요한 범위만 요청해야 합니다.
 
-- **조건부 액세스**: 여러 API 요청을 만들 때 특정 시나리오에서는 추가 조건부 액세스 요구 사항을 충족해야 할 수 있습니다. 첫 번째 요청에 조건부 액세스 정책이 없고 앱에서 조건부 액세스가 필요한 새 API에 자동으로 액세스하려는 경우 이런 식으로 요구 사항이 늘어날 수 있습니다. 이 문제를 처리하려면 자동 요청에서 오류를 파악하고 대화형 요청을 준비해야 합니다.  자세한 내용은 [조건부 액세스에 대한 지침](../azuread-dev/conditional-access-dev-guide.md)을 참조하세요.
+- **조건부 액세스** : 여러 API 요청을 만들 때 특정 시나리오에서는 추가 조건부 액세스 요구 사항을 충족해야 할 수 있습니다. 첫 번째 요청에 조건부 액세스 정책이 없고 앱에서 조건부 액세스가 필요한 새 API에 자동으로 액세스하려는 경우 이런 식으로 요구 사항이 늘어날 수 있습니다. 이 문제를 처리하려면 자동 요청에서 오류를 파악하고 대화형 요청을 준비해야 합니다.  자세한 내용은 [조건부 액세스에 대한 지침](../azuread-dev/conditional-access-dev-guide.md)을 참조하세요.
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>증분 동의 및 조건부 액세스를 사용하여 여러 API 호출
 
@@ -159,5 +159,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [프로덕션 환경으로 이동](scenario-mobile-production.md)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-mobile-production.md)합니다.

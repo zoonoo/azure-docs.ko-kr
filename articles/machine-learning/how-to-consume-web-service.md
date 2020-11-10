@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318167"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441990"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -119,7 +119,7 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 
 키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 형식이 지정 되어야 합니다 `Bearer <key-or-token>` `<key-or-token>` . 여기서은 키 또는 토큰 값입니다.
 
-키와 토큰의 주요 차이점은 키가 **정적 이며 수동으로 다시 생성할 수** 있고 **만료 시 토큰을 새로 고쳐야** 하는 것입니다. 키 기반 인증은 azure Container Instance 및 Azure Kubernetes 서비스 배포 웹 서비스에 대해 지원 되며, 토큰 기반 인증은 Azure Kubernetes Service 배포에 **만** 사용할 수 있습니다. 자세한 내용은 인증 [방법](how-to-setup-authentication.md#web-service-authentication) 에 대 한 자세한 내용 및 특정 코드 샘플을 참조 하세요.
+키와 토큰의 주요 차이점은 키가 **정적 이며 수동으로 다시 생성할 수** 있고 **만료 시 토큰을 새로 고쳐야** 하는 것입니다. 키 기반 인증은 azure Container Instance 및 Azure Kubernetes 서비스 배포 웹 서비스에 대해 지원 되며, 토큰 기반 인증은 Azure Kubernetes Service 배포에 **만** 사용할 수 있습니다. 인증 구성에 대 한 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
 
 
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증

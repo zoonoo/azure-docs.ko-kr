@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257074"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443588"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자에 게 로그인 하는 웹 앱
+# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자를 로그인하는 웹앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
@@ -28,29 +28,25 @@ Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱�
 
 사용자를 로그인 하는 첫 번째 이식 가능 (ASP.NET Core) 웹 앱을 만들려면 다음 빠른 시작을 수행 합니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: 사용자에 게 로그인 하는 웹 앱 ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
+[빠른 시작: 사용자에 게 로그인 하는 웹 앱 ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 기존 ASP.NET 웹 응용 프로그램에 로그인을 추가 하는 방법을 이해 하려면 다음 빠른 시작을 시도 합니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: 사용자에 게 로그인 하는 ASP.NET 웹 앱](quickstart-v2-aspnet-webapp.md)
+[빠른 시작: 사용자에 게 로그인 하는 ASP.NET 웹 앱](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Java 개발자 인 경우 다음 빠른 시작을 시도 합니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Java 웹앱에 Microsoft로 로그인 추가](quickstart-v2-java-webapp.md)
+[빠른 시작: Java 웹앱에 Microsoft로 로그인 추가](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 보세요.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Python 웹앱에 Microsoft로 로그인 추가](quickstart-v2-python-webapp.md)
+[빠른 시작: Python 웹앱에 Microsoft로 로그인 추가](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)으로 이동 합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)으로 이동 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=java)으로 이동 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=python)으로 이동 합니다.
 
 ---

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845088"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443554"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -432,5 +432,4 @@ Python 빠른 시작에서 사후 로그 리디렉션 URI는 index.html 페이�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-web-app-sign-user-production.md)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-web-app-sign-user-production.md)합니다.

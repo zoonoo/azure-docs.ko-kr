@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335267"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443860"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 
@@ -58,4 +58,4 @@ Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[앱 등록](scenario-spa-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](scenario-spa-app-registration.md)으로 이동 합니다.

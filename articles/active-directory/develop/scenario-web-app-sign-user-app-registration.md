@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0f4ad8db5b750a8e75a921a6d459a1a294a4bad0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 29f5d2960a678204387b2bd1dfd6d4acdc4f9c3d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910035"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442517"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -123,5 +123,4 @@ ms.locfileid: "92910035"
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [앱의 코드 구성](scenario-web-app-sign-user-app-configuration.md)
+이 시나리오에서 [앱의 코드 구성](scenario-web-app-sign-user-app-configuration.md)으로 다음 문서로 이동 합니다.

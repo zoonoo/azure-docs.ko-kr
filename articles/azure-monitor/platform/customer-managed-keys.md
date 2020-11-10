@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427975"
+ms.locfileid: "94443384"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -27,9 +27,10 @@ Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microso
 
 고객 관리 키 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 이를 통해 [Lockbox](#customer-lockbox-preview) 제어를 사용 하 여 데이터를 보호할 수 있으며 언제 든 지 데이터에 대 한 액세스를 취소할 수 있습니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 Customer-Managed 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
 
-지역에서 전용 클러스터를 프로 비전 하는 데 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Customer-Managed 키 구성을 시작 하기 전에 Microsoft 연락처 또는 오픈 지원 요청을 사용 하 여 구독을 허용 하세요.
-
 [Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters) 은 1000 g b/일 수준부터 용량 예약을 사용 합니다.
+
+> [!IMPORTANT]
+> 임시 용량 제약 조건으로 인해 클러스터를 만들기 전에를 미리 등록 해야 합니다. 연락처를 Microsoft에 사용 하거나 지원 요청을 열어 구독 Id를 등록 합니다.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 Customer-Managed 키가 작동 하는 방식
 
@@ -63,11 +64,11 @@ Azure Monitor는 시스템이 할당한 관리 ID를 활용하여 Azure Key Vaul
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Customer-Managed 키 프로 비전 절차
 
-1. 구독 허용-이 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
-2. Azure Key Vault 만들기 및 키 저장
-3. 클러스터를 만드는 중
-4. Key Vault에 권한 부여
-5. Log Analytics 작업 영역 연결
+1. 클러스터를 만들 수 있도록 구독 등록
+1. Azure Key Vault 만들기 및 키 저장
+1. 클러스터를 만드는 중
+1. Key Vault에 권한 부여
+1. Log Analytics 작업 영역 연결
 
 Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로 비전은 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) 또는 [REST](https://docs.microsoft.com/rest/api/loganalytics/) 요청을 통해 수행 됩니다.
 
@@ -149,7 +150,6 @@ Authorization: Bearer <token>
 
 > [!IMPORTANT]
 > Customer-Managed 키 기능은 지역입니다. Azure Key Vault, 클러스터 및 연결 된 Log Analytics 작업 영역은 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다.
-> 지역에서 전용 클러스터를 프로 비전 하는 데 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Customer-Managed 키 구성을 시작 하기 전에 Microsoft 연락처 또는 오픈 지원 요청을 사용 하 여 구독을 허용 하세요. 
 
 ### <a name="storing-encryption-key-kek"></a>암호화 키(KEK) 저장
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Response**
@@ -288,6 +307,11 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 
 *쿼리에* 사용할 저장소 계정을 작업 영역에 연결 합니다. *저장 된 검색* 쿼리는 저장소 계정에 저장 됩니다. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Content-type: application/json
 **로그 경고 쿼리를 위한 BYOS 구성**
 
 *경고* 에 대 한 저장소 계정을 작업 영역에 연결 합니다.- *로그-경고* 쿼리는 저장소 계정에 저장 됩니다. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
@@ -362,7 +391,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   Authorization: Bearer <token>
   ```
 
-  **Response**
+  **응답**
   
   ```json
   {

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403197"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443758"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -44,7 +44,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 ## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일 * 의appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일 *의appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
 
 - 다운스트림 웹 API의 URL
 - API를 호출 하는 데 필요한 범위
@@ -99,7 +99,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 ## <a name="startupcs"></a>Startup.cs
 
-웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs*에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
+웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs* 에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -519,5 +519,4 @@ def _build_msal_app(cache=None):
 
 이 시점에서 사용자가 로그인하면 토큰이 토큰 캐시에 저장됩니다. 웹앱의 다른 부분에서 사용되는 방법을 살펴보겠습니다.
 
-> [!div class="nextstepaction"]
-> [웹 API를 호출하는 웹앱: 글로벌 로그아웃 시 캐시에서 계정 제거](scenario-web-app-call-api-sign-in.md)
+[전역 로그 아웃 시 캐시에서 계정 제거](scenario-web-app-call-api-sign-in.md)

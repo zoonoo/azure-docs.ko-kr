@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257234"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442806"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
@@ -29,7 +29,7 @@ ms.locfileid: "91257234"
 
 *Microsoft. Identity* 는 Microsoft Graph 또는 다운스트림 웹 API를 호출 하기 위한 편리한 서비스를 제공 하는 확장 메서드를 추가 합니다. 이러한 메서드는 web api를 [호출 하는 WEB api](scenario-web-api-call-api-call-api.md)에 자세히 설명 되어 있습니다. Api를 호출 합니다. 이러한 도우미 메서드를 사용 하 여 토큰을 수동으로 가져올 필요가 없습니다.
 
-그러나 토큰을 수동으로 획득 하려는 경우 다음 코드에서는 API 컨트롤러에서 이러한 작업을 *수행 하는 데 사용 하* 는 예제를 보여 줍니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+그러나 토큰을 수동으로 획득 하려는 경우 다음 코드에서는 API 컨트롤러에서 이러한 작업을 *수행 하는 데 사용 하* 는 예제를 보여 줍니다. *Todolist* 이라는 다운스트림 API를 호출 합니다.
 다운스트림 API를 호출 하는 토큰을 가져오려면 `ITokenAcquisition` 컨트롤러의 생성자 (또는 Blazor를 사용 하는 경우 페이지 생성자)에서 종속성 주입을 사용 하 여 서비스를 삽입 하 고, `GetAccessTokenForUserAsync` `GetAccessTokenForAppAsync` 디먼 시나리오의 경우 사용자 () 또는 응용 프로그램 자체 ()에 대 한 토큰을 가져오는 컨트롤러 작업에서 해당 서비스를 사용 합니다.
 
 ```csharp
@@ -92,5 +92,4 @@ Python web API를 사용 하려면 미들웨어를 사용 하 여 클라이언�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 api를 호출 하는 web API: API 호출](scenario-web-api-call-api-call-api.md)
+이 시나리오에서 다음 문서로 이동 하 여 API를 [호출](scenario-web-api-call-api-call-api.md)합니다.

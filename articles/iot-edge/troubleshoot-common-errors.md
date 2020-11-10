@@ -4,19 +4,19 @@ description: IoT Edge 솔루션을 배포할 때 발생 하는 일반적인 문�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783748"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442364"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -153,13 +153,13 @@ IoT Edge 장치를 게이트웨이로 사용할 필요가 없으면 edgeHub의 �
 
 Azure Portal에서 다음을 수행합니다.
 
-1. IoT hub로 이동 하 여 **IoT Edge**을 선택 합니다.
+1. IoT hub로 이동 하 여 **IoT Edge** 을 선택 합니다.
 
 2. 업데이트 하려는 IoT Edge 장치를 선택 합니다.
 
-3. **모듈 설정**을 선택 합니다.
+3. **모듈 설정** 을 선택 합니다.
 
-4. **런타임 설정**을 선택 합니다.
+4. **런타임 설정** 을 선택 합니다.
 
 5. **Edge 허브** 모듈 설정에서 **옵션 만들기** 텍스트 상자에 있는 모든 항목을 삭제 합니다.
 
@@ -217,12 +217,12 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 이 오류를 표시하는 경우 가상 머신의 DNS 이름을 구성한 다음, 설정 명령에서 DNS 이름을 호스트 이름으로 설정하여 해결할 수 있습니다.
 
 1. Azure Portal에서 가상 머신의 개요 페이지로 이동합니다.
-2. DNS 이름에서 **구성**을 선택합니다. 가상 머신에 DNS 이름이 이미 구성되어 있으면 새 이름을 구성할 필요가 없습니다.
+2. DNS 이름에서 **구성** 을 선택합니다. 가상 머신에 DNS 이름이 이미 구성되어 있으면 새 이름을 구성할 필요가 없습니다.
 
    ![가상 머신의 DNS 이름 구성](./media/troubleshoot/configure-dns.png)
 
-3. **DNS 이름 레이블**에 대한 값을 입력하고 **저장**을 선택합니다.
-4. 새 DNS 이름 (형식 이어야 함)을 복사 합니다. ** \<DNSnamelabel\> \<vmlocation\> cloudapp.azure.com**.
+3. **DNS 이름 레이블** 에 대한 값을 입력하고 **저장** 을 선택합니다.
+4. 새 DNS 이름 (형식 이어야 함)을 복사 합니다. **\<DNSnamelabel\> \<vmlocation\> cloudapp.azure.com**.
 5. 가상 머신 내에서 다음 명령을 사용하여 DNS 이름으로 IoT Edge 런타임을 설정합니다.
 
    * Linux에서:
@@ -272,11 +272,11 @@ IoT Edge 런타임의 일부인 IoT Edge 허브는 기본적으로 성능에 맞
 
 **해결 방법:**
 
-IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false**로 설정 합니다. 환경 변수를 설정 하는 방법에는 다음 두 가지가 있습니다.
+IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false** 로 설정 합니다. 환경 변수를 설정 하는 방법에는 다음 두 가지가 있습니다.
 
 Azure Portal에서 다음을 수행합니다.
 
-IoT Hub에서 IoT Edge 장치를 선택 하 고 장치 세부 정보 페이지에서 **모듈**  >  **런타임 설정**설정을 선택 합니다. *False*로 설정 된 *OptimizeForPerformance* 이라는 IoT Edge hub 모듈에 대 한 환경 변수를 만듭니다.
+IoT Hub에서 IoT Edge 장치를 선택 하 고 장치 세부 정보 페이지에서 **모듈**  >  **런타임 설정** 설정을 선택 합니다. *False* 로 설정 된 *OptimizeForPerformance* 이라는 IoT Edge hub 모듈에 대 한 환경 변수를 만듭니다.
 
 ![OptimizeForPerformance를 false로 설정](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -331,6 +331,25 @@ IoT Edge 장치에 대 한 모듈을 설정한 후에는 모듈이 성공적으�
 장치 마다 한 가지 유형의 배포 메커니즘 (자동 배포 또는 개별 장치 배포)만 사용 합니다. 장치를 대상으로 하는 여러 자동 배포를 사용 하는 경우 지정 된 장치에 올바른 항목을 적용할 수 있도록 우선 순위 또는 대상 설명을 변경할 수 있습니다. 자동 배포의 대상 설명과 더 이상 일치 하지 않도록 장치 쌍을 업데이트할 수도 있습니다.
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>게이트웨이가 뒤에 IoT Edge HTTP 요청을 수행 하 고 edgeAgent 모듈을 시작할 수 없습니다.
+
+**관찰된 동작:**
+
+IoT Edge 데몬이 올바른 구성 파일을 사용 하 여 활성화 되어 있지만 edgeAgent 모듈을 시작할 수 없습니다. 이 명령은 `iotedge list` 빈 목록을 반환 합니다. IoT Edge 디먼 로그 보고서 `Could not perform HTTP request` 입니다.
+
+**근본 원인:**
+
+게이트웨이 뒤에 있는 장치를 IoT Edge는 `parent_hostname` config.xml 파일의 필드에 지정 된 부모 IoT Edge 장치에서 모듈 이미지를 가져옵니다. `Could not perform HTTP request`오류는 자식 장치가 HTTP를 통해 부모 장치에 연결할 수 없음을 의미 합니다.
+
+**해결 방법:**
+
+부모 IoT Edge 장치가 자식 IoT Edge 장치에서 들어오는 요청을 받을 수 있는지 확인 합니다. 자식 장치에서 들어오는 요청에 대해 포트 443 및 6617에서 네트워크 트래픽을 엽니다.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>다음 단계
 

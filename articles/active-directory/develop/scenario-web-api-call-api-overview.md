@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee9d879849a94ac255a0967ad4fbc762417f8cd4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257166"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442653"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>시나리오: web Api를 호출 하는 web API
 
 Web Api를 호출 하는 web API를 빌드하기 위해 알아야 할 내용을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 보호 된 웹 API가 다른 웹 Api를 호출 하는이 시나리오는 [시나리오: 보호 된 WEB API](scenario-protected-web-api-overview.md)를 기반으로 합니다.
 
@@ -40,5 +40,4 @@ API 권한과 관련 된 앱 등록 파트는 클래식입니다. 앱 구성에�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [앱 등록](scenario-web-api-call-api-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](scenario-web-api-call-api-app-registration.md)으로 이동 합니다.

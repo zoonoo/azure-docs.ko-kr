@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365938"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443792"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
@@ -88,7 +88,7 @@ Microsoft. Identity는 구성 또는 코드를 통해 인증서를 설명 하는
 
 ## <a name="startupcs"></a>Startup.cs
 
-Web API는 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러/페이지 동작에서 사용할 수 있는 서비스를 노출 합니다. 그러나 다음 두 가지 글머리 기호에서 볼 수 있듯이 훨씬 더 간단 하 게 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs*에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
+Web API는 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러/페이지 동작에서 사용할 수 있는 서비스를 노출 합니다. 그러나 다음 두 가지 글머리 기호에서 볼 수 있듯이 훨씬 더 간단 하 게 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs* 에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -256,5 +256,4 @@ OBO 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAut
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득](scenario-web-api-call-api-acquire-token.md)
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](scenario-web-api-call-api-acquire-token.md)합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a9b710ffbf98ebc523217a3b8a7fd9a2640c49
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003030"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443044"
 ---
 # <a name="single-page-application-code-configuration"></a>단일 페이지 응용 프로그램: 코드 구성
 
@@ -26,7 +26,7 @@ SPA (단일 페이지 응용 프로그램)에 대 한 코드를 구성 하는 �
 
 Microsoft id 플랫폼은 업계 권장 보안 방법으로 PKCE를 사용 하 여 암시적 흐름 및 권한 부여 코드 흐름을 지원 하기 위해 다음과 같은 JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)를 제공 합니다.
 
-| MSAL 라이브러리 | 흐름 | 설명 |
+| MSAL 라이브러리 | 흐름 | Description |
 |--------------|------|-------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | 권한 부여 코드 흐름 (PKCE) | 모든 클라이언트 쪽 웹 앱에서 사용할 일반 JavaScript 라이브러리로, 각도, Vue.js 및 React.js 같은 JavaScript 또는 SPA 프레임 워크를 통해 작성 됩니다. |
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | 암시적 흐름 | 모든 클라이언트 쪽 웹 앱에서 사용할 일반 JavaScript 라이브러리로, 각도, Vue.js 및 React.js 같은 JavaScript 또는 SPA 프레임 워크를 통해 작성 됩니다. |
@@ -75,5 +75,4 @@ export class AppModule { }
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [로그인 및 로그아웃](scenario-spa-sign-in.md)
+이 시나리오에서 다음 문서로 이동 하 여 로그인 [및 로그 아웃](scenario-spa-sign-in.md)합니다.

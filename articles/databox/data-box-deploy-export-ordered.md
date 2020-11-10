@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336975"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442024"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>자습서: Azure Data Box (미리 보기)에 대 한 내보내기 순서 만들기
 
@@ -70,7 +70,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |전송 형식     | **Azure로 내보내기를** 선택 합니다.        |
     |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |리소스 그룹     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |Resource group     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |원본 Azure 지역    |    현재 데이터가 있는 Azure 지역을 선택 합니다.         |
     |대상 국가     |     장치를 배송 하려는 국가를 선택 합니다.        |
 
@@ -102,7 +102,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |스토리지 계정     | 데이터를 내보낼 Azure Storage 계정입니다. |
     |내보내기 유형     | **모든 개체** 에서 내보내고 **XML 파일을 사용** 하는 데이터 형식을 지정 합니다.<ul><li> **모든 개체** - **전송 옵션** 에 대 한 선택 항목에 따라 작업에서 모든 데이터를 내보내도록 지정 합니다.</li><li> **Xml 파일 사용** – 저장소 계정에서 내보낼 blob 및/또는 파일의 경로 및 접두사 집합을 포함 하는 xml 파일을 지정 합니다. XML 파일은 선택한 저장소 계정의 컨테이너에 있어야 하 고, 파일 공유에서 선택 하는 기능은 현재 지원 되지 않습니다. 파일은 비어 있지 않은 .xml 파일 이어야 합니다.</li></ul>        |
-    |전송 옵션     |  **모두 선택** , **모든 blob** 및 **모든 파일** 에서 데이터 전송 옵션을 지정 합니다. <ul><li> **모두 선택** -모든 Blob 및 Azure 파일을 내보내도록 지정 합니다. Blob만 지 원하는 저장소 계정 (Blob Storage 계정)을 사용 하는 경우 **모든 파일** 옵션은 선택할 수 없습니다.</li><li> **모든 blob** -블록 및 페이지 blob만 내보내도록 지정 합니다.</li><li> **모든 파일** -blob을 제외 하 고 모든 파일을 내보내도록 지정 합니다. 저장소 계정 유형 (GPv1 및 GPv2, premium storage 또는 blob storage)은 내보낼 수 있는 데이터의 유형을 결정 합니다. 자세한 내용은 [지원 되는 저장소 계정 내보내기](../storage/common/storage-import-export-requirements.md#supported-storage-types)를 참조 하세요.</li></ul>         |
+    |전송 옵션     |  **모두 선택** , **모든 blob** 및 **모든 파일** 에서 데이터 전송 옵션을 지정 합니다. <ul><li> **모두 선택** -모든 blob 및 Azure Files을 내보내도록 지정 합니다. Blob만 지 원하는 저장소 계정 (Blob Storage 계정)을 사용 하는 경우 **모든 파일** 옵션은 선택할 수 없습니다.</li><li> **모든 blob** -블록 및 페이지 blob만 내보내도록 지정 합니다.</li><li> **모든 파일** -blob을 제외 하 고 모든 파일을 내보내도록 지정 합니다. 저장소 계정 유형 (GPv1 및 GPv2, premium storage 또는 blob storage)은 내보낼 수 있는 데이터의 유형을 결정 합니다. 자세한 내용은 [지원 되는 저장소 계정 내보내기](../storage/common/storage-import-export-requirements.md#supported-storage-types)를 참조 하세요.</li></ul>         |
     |자세한 로그 포함     | 성공적으로 내보낸 모든 파일의 목록을 포함 하는 자세한 로그 파일이 필요한 지 여부를 나타냅니다.        |
 
     > [!NOTE]
@@ -183,11 +183,11 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
    ![컨테이너 세부 정보 보기](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. 컨테이너를 두 번 클릭 하면 컨테이너 속성 보기가 표시 됩니다. 이제 내보내려는 blob 및/또는 Azure 파일 목록이 포함 된 XML 파일을 첨부 (또는 탐색) 하려고 합니다. **업로드** 를 선택합니다.
+6. 컨테이너를 두 번 클릭 하면 컨테이너 속성 보기가 표시 됩니다. 이제 내보낼 blob 및/또는 Azure Files 목록이 포함 된 XML 파일을 첨부 (또는 탐색) 하려고 합니다. **업로드** 를 선택합니다.
 
    ![컨테이너에 blob 업로드](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. 컨테이너에 XML 파일을 추가 했습니다. 이 XML에서 지정한 blob 및 Azure 파일만 내보내집니다.
+7. 컨테이너에 XML 파일을 추가 했습니다. 이 XML에서 지정한 blob 및 Azure Files만 내보내집니다.
 
    ![컨테이너에 추가 된 XML 파일](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -227,7 +227,7 @@ Data Box은 원본 저장소 계정에서 데이터를 복사 합니다. 데이�
 
 ## <a name="sample-xml-file"></a>샘플 XML 파일
 
-다음 xml은 **xml 파일 사용** 옵션을 선택할 때 내보내기 순서에서 사용 하는 xml 형식에 포함 된 blob 이름, blob 접두사 및 Azure 파일의 예를 보여 줍니다.
+다음 xml은 **xml 파일 사용** 옵션을 선택할 때 내보내기 순서에서 사용 하는 xml 형식에 포함 된 blob 이름, blob 접두사 및 Azure Files의 예를 보여 줍니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -259,7 +259,7 @@ Xml 파일에 대 한 몇 가지 중요 한 사항은 다음과 같습니다.
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | 설명 |
+   | 선택기 | Blob 경로 | Description |
    | --- | --- | --- |
    | 다음으로 시작 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 다음으로 시작 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

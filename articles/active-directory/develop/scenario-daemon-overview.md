@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257625"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443265"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 디먼 애플리케이션
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
 
@@ -61,5 +61,4 @@ ms.locfileid: "91257625"
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [디먼 앱-앱 등록](./scenario-daemon-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](./scenario-daemon-app-registration.md)으로 이동 합니다.

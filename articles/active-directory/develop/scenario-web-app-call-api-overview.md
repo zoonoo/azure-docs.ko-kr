@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257132"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442636"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
 Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다음 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 시나리오 [에서는 사용자에 게 로그인 하는 웹 앱 시나리오](scenario-web-app-sign-user-overview.md)를 이미 완료 했다고 가정 합니다.
 
@@ -30,7 +30,7 @@ Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다
 
 로그인 한 사용자를 대신 하 여 사용자를 로그인 하 고 web API를 호출할 수 있도록 웹 앱에 인증을 추가 합니다.
 
-![Web API를 호출하는 웹앱](./media/scenario-webapp/web-app.svg)
+![웹 API를 호출하는 웹앱](./media/scenario-webapp/web-app.svg)
 
 웹 Api를 호출 하는 웹 앱은 기밀 클라이언트 응용 프로그램입니다.
 따라서 Azure Active Directory (Azure AD)를 사용 하 여 비밀 (응용 프로그램 암호 또는 인증서)을 등록 합니다. 이 암호는 토큰을 가져오기 위해 Azure AD를 호출 하는 동안 전달 됩니다.
@@ -53,5 +53,4 @@ Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 웹 앱: 앱 등록](scenario-web-app-call-api-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](scenario-web-app-call-api-app-registration.md)으로 이동 합니다.

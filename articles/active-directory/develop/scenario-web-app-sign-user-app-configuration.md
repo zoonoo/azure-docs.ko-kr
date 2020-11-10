@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728338"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443656"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91728338"
 <!-- This section can be in an include for web app and web APIs -->
 웹 앱 및 웹 API를 보호 하는 데 사용 되는 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | 설명 |
+| 플랫폼 | 라이브러리 | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. 실제로 복잡성은 [Microsoft. Identity. 웹](https://aka.ms/ms-identity-web) 라이브러리에 캡슐화 됩니다. |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램에 대 한 지원 |
@@ -245,7 +245,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
      }).AddMicrosoftIdentityUI();
     ```
 
-3. `Configure` *Startup.cs*의 메서드에서를 호출 하 여 인증을 사용 하도록 설정 합니다.`app.UseAuthentication();`
+3. `Configure` *Startup.cs* 의 메서드에서를 호출 하 여 인증을 사용 하도록 설정 합니다.`app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -259,7 +259,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
    ```
 
 위의 코드에서 다음을 수행 합니다.
-- `AddMicrosoftIdentityWebAppAuthentication`확장 메서드는 **Microsoft. Identity. Web**에 정의 되어 있습니다. 메서드
+- `AddMicrosoftIdentityWebAppAuthentication`확장 메서드는 **Microsoft. Identity. Web** 에 정의 되어 있습니다. 메서드
   - 인증 서비스를 추가 합니다.
   - 구성 파일을 읽는 옵션을 구성 합니다 (여기서는 "AzureAD" 섹션에서).
   - Openid connect Connect 옵션을 구성 하 여 권한이 Microsoft id 플랫폼 엔드포인트가 되도록 합니다.
@@ -344,22 +344,18 @@ Session(app)
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [로그인 및 로그아웃](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+이 시나리오의 다음 문서로 이동 하 여 [로그인 하 고 로그 아웃](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [로그인 및 로그아웃](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+이 시나리오의 다음 문서로 이동 하 여 [로그인 하 고 로그 아웃](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [로그인 및 로그아웃](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+이 시나리오의 다음 문서로 이동 하 여 [로그인 하 고 로그 아웃](./scenario-web-app-sign-user-sign-in.md?tabs=java)합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [로그인 및 로그아웃](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+이 시나리오의 다음 문서로 이동 하 여 [로그인 하 고 로그 아웃](./scenario-web-app-sign-user-sign-in.md?tabs=python)합니다.
 
 ---

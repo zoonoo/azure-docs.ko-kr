@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8eb737752741dc55da24ad6b605b081053b8a11
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396198"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443704"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "91396198"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-*Microsoft. Identity. Web*을 사용 하면 세 가지 사용 시나리오가 있습니다.
+*Microsoft. Identity. Web* 을 사용 하면 세 가지 사용 시나리오가 있습니다.
 
 - [옵션 1: Microsoft Graph SDK를 사용 하 여 Microsoft Graph 호출](#option-1-call-microsoft-graph-with-the-sdk)
 - [옵션 2: 도우미 클래스를 사용 하 여 다운스트림 웹 API 호출](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -117,7 +117,7 @@ ms.locfileid: "91396198"
 
 #### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>옵션 3: 도우미 클래스 없이 다운스트림 웹 API 호출
 
-서비스를 사용 하 여 토큰을 수동으로 획득 하기로 결정 `ITokenAcquisition` 한 경우 이제 토큰을 사용 해야 합니다. 이 경우 다음 코드는 웹 api를 호출 하는 web API에 표시 된 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+서비스를 사용 하 여 토큰을 수동으로 획득 하기로 결정 `ITokenAcquisition` 한 경우 이제 토큰을 사용 해야 합니다. 이 경우 다음 코드는 웹 api를 호출 하는 web API에 표시 된 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist* 이라는 다운스트림 API를 호출 합니다.
 
  토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
 
@@ -164,5 +164,4 @@ MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 web API: 프로덕션으로 이동](scenario-web-api-call-api-production.md)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-web-api-call-api-production.md)합니다.

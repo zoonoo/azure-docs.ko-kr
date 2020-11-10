@@ -9,18 +9,28 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 07/24/2020
-ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
+ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320843"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441702"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
-이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure Active Directory 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
+이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스 (권한 부여)를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 는 새 리소스를 만들거나 기존 리소스를 사용 하는 기능과 같은 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure AD (Azure Active Directory)의 사용자에 게는 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
+
+> [!TIP]
+> 이 문서에서는 Azure Machine Learning에 중점을 둔 반면, Azure ML에 의존 하는 개별 서비스는 자체 RBAC 설정을 제공 합니다. 예를 들어이 문서의 정보를 사용 하 여 Azure Kubernetes Service에서 웹 서비스로 배포 된 모델에 점수 매기기 요청을 제출할 수 있는 사람을 구성할 수 있습니다. 그러나 Azure Kubernetes Service는 자체 Azure RBAC 역할 집합을 제공 합니다. Azure Machine Learning에 유용할 수 있는 서비스별 RBAC 정보는 다음 링크를 참조 하세요.
+>
+> * [Azure Kubernetes 클러스터 리소스에 대 한 액세스 제어](../aks/azure-ad-rbac.md)
+> * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
+> * [Blob 데이터에 액세스 하기 위해 Azure RBAC 사용](/storage/common/storage-auth-aad-rbac-portal.md)
+
+> [!WARNING]
+> 일부 역할을 적용 하면 Azure Machine Learning studio에서 다른 사용자에 대 한 UI 기능이 제한 될 수 있습니다. 예를 들어 사용자의 역할에 계산 인스턴스를 만들 수 있는 권한이 없는 경우에는 계산 인스턴스를 만드는 옵션을 스튜디오에서 사용할 수 없습니다. 이 동작은 예상 된 것 이며, 사용자가 액세스 거부 오류를 반환 하는 작업을 시도 하지 못하도록 합니다.
 
 ## <a name="default-roles"></a>기본 역할
 
@@ -36,7 +46,7 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 > [!IMPORTANT]
 > Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [AZURE RBAC 작동 방식](../role-based-access-control/overview.md#how-azure-rbac-works)을 참조 하세요.
 
-특정 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
+현재 Azure Machine Learning와 관련 된 추가 기본 제공 역할은 없습니다. 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 ## <a name="manage-workspace-access"></a>작업 영역 액세스 관리
 
@@ -61,27 +71,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 > [!NOTE]
 > "az ml workspace share" 명령은 Azure Active Directory B2B에서 페더레이션된 계정에 대해 작동 하지 않습니다. 명령 대신 Azure UI 포털을 사용 하세요.
-
-
-## <a name="azure-machine-learning-operations"></a>Azure Machine Learning 작업
-
-많은 작업 및 작업에 대 한 기본 제공 작업을 Azure Machine Learning 합니다. 전체 목록은 [Azure 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)을 참조 하세요.
-
-## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure Machine learning의 MLflow 작업
-
-이 표에서는 MLflow 작업을 수행 하기 위해 만든 사용자 지정 역할의 작업에 추가 해야 하는 권한 범위에 대해 설명 합니다.
-
-| MLflow 작업 | Scope |
-| --- | --- |
-| 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | MachineLearningServices/작업 영역/실험/읽기 |
-| 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| MachineLearningServices/작업 영역/실험/쓰기 | 
-| 실험 삭제 | MachineLearningServices/작업 영역/실험/삭제 |
-| 실행 및 관련 데이터 및 메타 데이터를 가져오고, 지정 된 실행에 대해 지정 된 메트릭에 대 한 모든 값의 목록을 가져오고, 실행에 대 한 아티팩트를 나열 합니다. | MachineLearningServices/작업 영역/실험/실행/읽기 |
-| 실험 내에서 새 실행을 만들고, 실행을 삭제 하 고, 삭제 된 실행을 복원 하 고, 현재 실행에 대 한 태그를 설정 하 고, 실행에 사용 되는 실행에 대 한 태그를 삭제 하 고, 실행에 사용 되는 로그 매개 변수 (키-값 쌍)를 삭제 합니다. | MachineLearningServices/작업 영역/실험/실행/쓰기 |
-| 이름으로 등록 된 모델을 가져오고, 레지스트리에서 등록 된 모든 모델의 목록을 가져오고, 등록 된 모델을 검색 하 고, 각 요청에 대 한 최신 버전 모델을 검색 하 고, 등록 된 모델 버전을 가져오고, 모델 버전을 검색 하 고, 모델 버전의 아티팩트가 저장 된 URI를 가져오고, 실험 id로 실행을 검색 합니다. | MachineLearningServices/작업 영역/모델/읽기 |
-| 새 등록 된 모델 만들기, 등록 된 모델의 이름/설명 업데이트, 기존 등록 된 모델 이름 바꾸기, 새 버전의 모델 만들기, 모델 버전 설명 업데이트, 등록 된 모델을 단계 중 하나로 전환 | MachineLearningServices/작업 영역/모델/쓰기 |
-| 등록 된 모델을 모든 버전과 함께 삭제 하 고 등록 된 모델의 특정 버전을 삭제 합니다. | MachineLearningServices/작업 영역/모델/삭제 |
-
 
 ## <a name="create-custom-role"></a>사용자 지정 역할 만들기
 
@@ -135,275 +124,17 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요. 사용자 지정 역할과 함께 사용할 수 있는 작업 (작업 및 작업 아님)에 대 한 자세한 내용은 [리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)을 참조 하세요.
+사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요. 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+### <a name="azure-machine-learning-operations"></a>Azure Machine Learning 작업
 
+사용자 지정 역할과 함께 사용할 수 있는 작업 (작업 및 작업 아님)에 대 한 자세한 내용은 [리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)을 참조 하세요. 다음 Azure CLI 명령을 사용 하 여 작업을 나열할 수도 있습니다.
 
-### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>17. Azure Machine Learning 서비스에서 몇 가지 일반적인 시나리오를 수행 하는 데 필요한 권한은 무엇 인가요?
+```azurecli-interactive
+az provider operation show –n Microsoft.MachineLearningServices
+```
 
-다음 표에는 Azure Machine Learning 작업에 대 한 요약과 최소 범위에서 작업을 수행 하는 데 필요한 사용 권한이 정리 되어 있습니다. 예를 들어 작업 영역 범위 (열 4)를 사용 하 여 작업을 수행할 수 있는 경우 해당 사용 권한을 가진 상위 범위가 모두 자동으로 적용 됩니다.
-
-> [!IMPORTANT]
-> 이 테이블에서로 시작 하는 모든 경로 `/` 는 다음에 대 한 **상대 경로** 입니다 `Microsoft.MachineLearningServices/` .
-
-| 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
-| ----- | ----- | ----- | ----- |
-| 새 작업 영역 만들기 | 필요 없음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
-| 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
-| 새 계산 클러스터 만들기 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
-| 새 계산 인스턴스 만들기 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
-| 모든 유형의 실행 제출 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| 파이프라인 끝점 게시 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| AKS/ACI 리소스에 등록 된 모델 배포 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요 없음 | 필요 없음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (Azure Active Directory auth를 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
-| 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
-| 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할 `Microsoft.Authorization/roleDefinitions/write` | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
-
-> [!TIP]
-> 작업 영역을 처음 만들 때 오류가 발생 하는 경우 역할에서을 허용 하는지 확인 `Microsoft.MachineLearningServices/register/action` 합니다. 이 작업을 통해 Azure 구독에 Azure Machine Learning 리소스 공급자를 등록할 수 있습니다.
-
-### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>17. Machine Learning 서비스에 대 한 Azure 기본 제공 역할을 게시 하 고 있나요?
-
-현재 Machine Learning 서비스에 대 한 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 게시 하지 않습니다. 게시 한 후 기본 제공 역할을 업데이트할 수 없으며, 고객 시나리오 및 피드백에 따라 역할 정의를 아직 firming 하 고 있습니다. 
-
-<a id="customroles"></a>
-
-### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>17. Machine Learning 서비스에서 가장 일반적인 시나리오에 대 한 사용자 지정 역할 템플릿이 있나요?
-
-예 여기에는 사용자 지정 역할을 정의 하는 기본으로 사용할 수 있는 사용자 지정 제안 역할 정의가 포함 된 몇 가지 일반적인 시나리오가 나와 있습니다.
-
-* __Data 과학자 Custom__ : 데이터 과학자가 다음을 **제외 하 고** 작업 영역 내의 모든 작업을 수행할 수 있습니다.
-
-    * 계산 만들기
-    * 프로덕션 AKS 클러스터에 모델 배포
-    * 프로덕션 환경에 파이프라인 끝점 배포
-
-    `data_scientist_custom_role.json` :
-    ```json
-    {
-        "Name": "Data Scientist Custom",
-        "IsCustom": true,
-        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/*/action",
-            "Microsoft.MachineLearningServices/workspaces/*/delete",
-            "Microsoft.MachineLearningServices/workspaces/*/write"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
-
-* __데이터 과학자 제한 된 사용자 지정__ : 허용 된 작업에 와일드 카드가 없는 더 제한적인 역할 정의입니다. 다음을 **제외 하 고** 작업 영역 내에서 모든 작업을 수행할 수 있습니다.
-
-    * 계산 만들기
-    * 프로덕션 AKS 클러스터에 모델 배포
-    * 프로덕션 환경에 파이프라인 끝점 배포
-
-    `data_scientist_restricted_custom_role.json` :
-    ```json
-    {
-        "Name": "Data Scientist Restricted Custom",
-        "IsCustom": true,
-        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
-            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-            "Microsoft.MachineLearningServices/workspaces/environments/write",
-            "Microsoft.MachineLearningServices/workspaces/models/write",
-            "Microsoft.MachineLearningServices/workspaces/modules/write",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
-            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/computes/write",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/delete",
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
-            "Microsoft.MachineLearningServices/workspaces/datastores/write",
-            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
-     
-* __Mlflow Data 과학자 Custom__ : 데이터 과학자가 다음을 **제외한** 모든 mlflow AzureML 지원 작업을 수행할 수 있도록 허용 합니다.
-
-   * 계산 만들기
-   * 프로덕션 AKS 클러스터에 모델 배포
-   * 프로덕션 환경에 파이프라인 끝점 배포
-
-   `mlflow_data_scientist_custom_role.json` :
-   ```json
-   {
-        "Name": "MLFlow Data Scientist Custom",
-        "IsCustom": true,
-        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/experiments/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/models/read",
-            "Microsoft.MachineLearningServices/workspaces/models/write",
-            "Microsoft.MachineLearningServices/workspaces/models/delete"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
-        ],
-     "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```   
-
-* __Mlops 사용자 지정__ : 서비스 주체에 역할을 할당 하 고이를 사용 하 여 mlops 파이프라인을 자동화할 수 있습니다. 예를 들어 이미 게시 된 파이프라인에 대해 실행을 제출 하려면 다음을 수행 합니다.
-
-    `mlops_custom_role.json` :
-    ```json
-    {
-        "Name": "MLOps Custom",
-        "IsCustom": true,
-        "Description": "Can run pipelines against a published pipeline endpoint",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/read",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
-            "Microsoft.MachineLearningServices/workspaces/environments/read",    
-            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
-            "Microsoft.MachineLearningServices/workspaces/modules/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
-            "Microsoft.MachineLearningServices/workspaces/datastores/read",
-            "Microsoft.MachineLearningServices/workspaces/environments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/computes/write",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/delete",
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.Authorization/*"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
-
-* __작업 영역 관리자__ : 다음을 **제외** 하 고 작업 영역 범위 내에서 모든 작업을 수행할 수 있습니다.
-
-    * 새 작업 영역 만들기
-    * 구독 또는 작업 영역 수준 할당량 할당
-
-    작업 영역 관리자도 새 역할을 만들 수 없습니다. 작업 영역의 범위 내에서 기존 기본 제공 또는 사용자 지정 역할만 할당할 수 있습니다.
-
-    `workspace_admin_custom_role.json` :
-    ```json
-    {
-        "Name": "Workspace Admin Custom",
-        "IsCustom": true,
-        "Description": "Can perform all operations except quota management and upgrades",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/*/action",
-            "Microsoft.MachineLearningServices/workspaces/*/write",
-            "Microsoft.MachineLearningServices/workspaces/*/delete",
-            "Microsoft.Authorization/roleAssignments/*"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/write"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
-
-<a name="labeler"></a>
-* __Labeler Custom__ : 레이블 데이터에만 한정 되는 역할을 정의할 수 있습니다.
-
-    `labeler_custom_role.json` :
-    ```json
-    {
-        "Name": "Labeler Custom",
-        "IsCustom": true,
-        "Description": "Can label data for Labeling",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/read",
-            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
-
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>17. 내 구독의 모든 사용자 지정 역할을 나열 어떻게 할까요??
+## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
 Azure CLI에서 다음 명령을 실행 합니다.
 
@@ -411,52 +142,13 @@ Azure CLI에서 다음 명령을 실행 합니다.
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>17. Machine Learning 서비스에서 지 원하는 작업을 찾을 어떻게 할까요? 있나요?
-
-Azure CLI에서 다음 명령을 실행 합니다.
-
-```azurecli-interactive
-az provider operation show –n Microsoft.MachineLearningServices
-```
-
-[리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)목록 에서도 찾을 수 있습니다.
-
-
-### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>17. Azure RBAC를 사용 하는 경우 몇 가지 일반적인 알려진 문제?
-
-Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 할 몇 가지 사항은 다음과 같습니다.
-
-- 작업 영역 이라고 하는 Azure에서 리소스를 만들 때 작업 영역의 소유자가 아닙니다. 사용자의 역할은 해당 구독에 대해 권한이 부여 된 가장 높은 범위 역할에서 상속 됩니다. 예를 들어 네트워크 관리자이 고 Machine Learning 작업 영역을 만들 수 있는 권한이 있는 경우 소유자 역할이 아니라 해당 작업 영역에 대 한 네트워크 관리자 역할이 할당 됩니다.
-- 작업/NotActions의 충돌 하는 섹션을 사용 하 여 동일한 Azure Active Directory 사용자에 게 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할에서 작업으로 나열 되는 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
-- VNet 내에서 계산 리소스를 배포 하려면 다음 작업에 대 한 권한을 명시적으로 부여 해야 합니다.
-    - VNet 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
-    - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
-    
-    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조 하세요.
-
-- 경우에 따라 새 역할 할당이 스택에 캐시 된 사용 권한에 적용 되는 데 1 시간 정도 걸릴 수 있습니다.
-
-### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>17. 사용자 할당 관리 id를 내 Amlcompute 클러스터와 함께 사용 하는 데 필요한 권한은 무엇 인가요?
-
-Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](../role-based-access-control/built-in-roles.md#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 Azure RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 을 참조 하세요.
-
-
-### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>17. 스튜디오 포털에서 역할 기반 액세스 제어를 지원 하나요?
-
-Azure Machine Learning Studio는 azure 역할 기반 액세스 제어 (Azure RBAC)를 지원 합니다. 
-
-> [!IMPORTANT]
-> 작업 영역의 데이터 과학자에 대 한 특정 사용 권한이 있는 사용자 지정 역할을 할당 한 후에는 해당 작업 (예: 계산 단추 추가)이 자동으로 사용자에 게 숨겨집니다. 이러한 항목을 숨기면 혼동을 통해 서비스에서 무단 액세스 알림을 반환 하는 컨트롤을 사용할 때 볼 수 없습니다.
-
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>17. 내 구독에서 역할에 대 한 역할 정의를 찾을 어떻게 할까요? 있나요?
-
-Azure CLI에서 다음 명령을 실행 합니다. 는 `<role-name>` 위의 명령에서 반환 된 것과 동일한 형식 이어야 합니다.
+특정 사용자 지정 역할에 대 한 역할 정의를 보려면 다음 Azure CLI 명령을 사용 합니다. 는 `<role-name>` 위의 명령에서 반환 된 것과 동일한 형식 이어야 합니다.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>17. 역할 정의를 업데이트 어떻게 할까요??
+## <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
 
 Azure CLI에서 다음 명령을 실행 합니다.
 
@@ -469,11 +161,311 @@ az role definition update --role-definition update_def.json --subscription <sub-
 > [!NOTE]
 > 역할 업데이트는 해당 범위의 모든 역할 할당에 적용 되는 데 15 분에서 1 시간 정도 걸릴 수 있습니다.
 
+## <a name="common-scenarios"></a>일반적인 시나리오
 
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>17. 작업 영역에서 할당량 작업을 수행 하는 데 필요한 권한은 무엇 인가요? 
+다음 표에는 Azure Machine Learning 작업에 대 한 요약과 최소 범위에서 작업을 수행 하는 데 필요한 사용 권한이 정리 되어 있습니다. 예를 들어 작업 영역 범위 (열 4)를 사용 하 여 작업을 수행할 수 있는 경우 해당 사용 권한을 가진 상위 범위가 모두 자동으로 적용 됩니다.
 
-작업 영역에서 할당량 관련 작업을 수행 하려면 구독 수준 권한이 있어야 합니다. 즉, 구독 범위에서 쓰기 권한이 있는 경우에만 관리 되는 계산 리소스에 대 한 구독 수준 할당량 또는 작업 영역 수준 할당량 설정이 발생할 수 있습니다. 
+> [!IMPORTANT]
+> 이 테이블에서로 시작 하는 모든 경로 `/` 는 다음에 대 한 **상대 경로** 입니다 `Microsoft.MachineLearningServices/` .
 
+| 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
+| ----- | ----- | ----- | ----- |
+| 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
+| 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
+| 새 계산 클러스터 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+| 새 계산 인스턴스 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+| 모든 유형의 실행 제출 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| 파이프라인 끝점 게시 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| AKS/ACI 리소스에 등록 된 모델 배포 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요하지 않음 | 필요하지 않음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (Azure Active Directory auth를 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
+| 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할 `Microsoft.Authorization/roleDefinitions/write` | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
+
+> [!TIP]
+> 작업 영역을 처음 만들 때 오류가 발생 하는 경우 역할에서을 허용 하는지 확인 `Microsoft.MachineLearningServices/register/action` 합니다. 이 작업을 통해 Azure 구독에 Azure Machine Learning 리소스 공급자를 등록할 수 있습니다.
+
+### <a name="user-assigned-managed-identity-with-azure-ml-compute-cluster"></a>Azure ML 계산 클러스터를 사용 하 여 사용자 할당 관리 id
+
+사용자 할당 id를 Azure Machine Learning 계산 클러스터에 할당 하려면 계산 및 [관리 Id 운영자 역할](../role-based-access-control/built-in-roles.md#managed-identity-operator)을 만들기 위한 쓰기 권한이 필요 합니다. 관리 Id를 사용 하는 Azure RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 을 참조 하세요.
+
+### <a name="mlflow-operations"></a>MLflow 작업
+
+Azure Machine Learning 작업 영역을 사용 하 여 MLflow 작업을 수행 하려면 사용자 지정 역할에 다음 범위를 사용 합니다.
+
+| MLflow 작업 | Scope |
+| --- | --- |
+| 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
+| 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 
+| 실험 삭제 | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
+| 실행 및 관련 데이터 및 메타 데이터를 가져오고, 지정 된 실행에 대해 지정 된 메트릭에 대 한 모든 값의 목록을 가져오고, 실행에 대 한 아티팩트를 나열 합니다. | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
+| 실험 내에서 새 실행을 만들고, 실행을 삭제 하 고, 삭제 된 실행을 복원 하 고, 현재 실행에 대 한 태그를 설정 하 고, 실행에 사용 되는 실행에 대 한 태그를 삭제 하 고, 실행에 사용 되는 로그 매개 변수 (키-값 쌍)를 삭제 합니다. | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
+| 이름으로 등록 된 모델을 가져오고, 레지스트리에서 등록 된 모든 모델의 목록을 가져오고, 등록 된 모델을 검색 하 고, 각 요청에 대 한 최신 버전 모델을 검색 하 고, 등록 된 모델 버전을 가져오고, 모델 버전을 검색 하 고, 모델 버전의 아티팩트가 저장 된 URI를 가져오고, 실험 id로 실행을 검색 합니다. | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| 새 등록 된 모델 만들기, 등록 된 모델의 이름/설명 업데이트, 기존 등록 된 모델 이름 바꾸기, 새 버전의 모델 만들기, 모델 버전 설명 업데이트, 등록 된 모델을 단계 중 하나로 전환 | `Microsoft.MachineLearningServices/workspaces/models/write` |
+| 등록 된 모델을 모든 버전과 함께 삭제 하 고 등록 된 모델의 특정 버전을 삭제 합니다. | `Microsoft.MachineLearningServices/workspaces/models/delete` |
+
+<a id="customroles"></a>
+
+## <a name="example-custom-roles"></a>사용자 지정 역할 예제
+
+### <a name="data-scientist"></a>데이터 과학자
+
+데이터 과학자가 다음을 **제외 하 고** 작업 영역 내의 모든 작업을 수행할 수 있습니다.
+
+* 계산 만들기
+* 프로덕션 AKS 클러스터에 모델 배포
+* 프로덕션 환경에 파이프라인 끝점 배포
+
+`data_scientist_custom_role.json` :
+```json
+{
+    "Name": "Data Scientist Custom",
+    "IsCustom": true,
+    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/*/write"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
+
+### <a name="data-scientist-restricted"></a>데이터 과학자 제한 됨
+
+허용 되는 작업에 와일드 카드가 없는 더 제한적인 역할 정의입니다. 다음을 **제외 하 고** 작업 영역 내에서 모든 작업을 수행할 수 있습니다.
+
+* 계산 만들기
+* 프로덕션 AKS 클러스터에 모델 배포
+* 프로덕션 환경에 파이프라인 끝점 배포
+
+`data_scientist_restricted_custom_role.json` :
+```json
+{
+    "Name": "Data Scientist Restricted Custom",
+    "IsCustom": true,
+    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+        "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+        "Microsoft.MachineLearningServices/workspaces/environments/write",
+        "Microsoft.MachineLearningServices/workspaces/models/write",
+        "Microsoft.MachineLearningServices/workspaces/modules/write",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+        "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/write",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/delete",
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+        "Microsoft.MachineLearningServices/workspaces/datastores/write",
+        "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
+     
+### <a name="mlflow-data-scientist"></a>MLflow 데이터 과학자
+
+데이터 과학자가 다음을 **제외한** 모든 Mlflow AzureML 지원 작업을 수행할 수 있도록 허용 합니다.
+
+* 계산 만들기
+* 프로덕션 AKS 클러스터에 모델 배포
+* 프로덕션 환경에 파이프라인 끝점 배포
+
+`mlflow_data_scientist_custom_role.json` :
+```json
+{
+    "Name": "MLFlow Data Scientist Custom",
+    "IsCustom": true,
+    "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/experiments/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/models/read",
+        "Microsoft.MachineLearningServices/workspaces/models/write",
+        "Microsoft.MachineLearningServices/workspaces/models/delete"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```   
+
+### <a name="mlops"></a>MLOps
+
+를 사용 하면 서비스 주체에 역할을 할당 하 고이를 사용 하 여 MLOps 파이프라인을 자동화할 수 있습니다. 예를 들어 이미 게시 된 파이프라인에 대해 실행을 제출 하려면 다음을 수행 합니다.
+
+`mlops_custom_role.json` :
+```json
+{
+    "Name": "MLOps Custom",
+    "IsCustom": true,
+    "Description": "Can run pipelines against a published pipeline endpoint",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+        "Microsoft.MachineLearningServices/workspaces/environments/read",    
+        "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+        "Microsoft.MachineLearningServices/workspaces/modules/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+        "Microsoft.MachineLearningServices/workspaces/datastores/read",
+        "Microsoft.MachineLearningServices/workspaces/environments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+        "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/write",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/delete",
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.Authorization/*"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
+
+### <a name="workspace-admin"></a>작업 영역 관리자
+
+다음을 **제외** 하 고 작업 영역 범위 내에서 모든 작업을 수행할 수 있습니다.
+
+* 새 작업 영역 만들기
+* 구독 또는 작업 영역 수준 할당량 할당
+
+작업 영역 관리자도 새 역할을 만들 수 없습니다. 작업 영역의 범위 내에서 기존 기본 제공 또는 사용자 지정 역할만 할당할 수 있습니다.
+
+`workspace_admin_custom_role.json` :
+```json
+{
+    "Name": "Workspace Admin Custom",
+    "IsCustom": true,
+    "Description": "Can perform all operations except quota management and upgrades",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/write",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.Authorization/roleAssignments/*"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
+
+<a name="labeler"></a>
+### <a name="data-labeler"></a>데이터 레이블 er
+
+데이터 레이블 지정 전용으로 지정 된 역할을 정의할 수 있습니다.
+
+`labeler_custom_role.json` :
+```json
+{
+    "Name": "Labeler Custom",
+    "IsCustom": true,
+    "Description": "Can label data for Labeling",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
+
+## <a name="troubleshooting"></a>문제 해결
+
+Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 할 몇 가지 사항은 다음과 같습니다.
+
+- 작업 영역과 같은 Azure에서 리소스를 만들 때 리소스 소유자가 아닙니다. 사용자의 역할은 해당 구독에 대해 권한이 부여 된 가장 높은 범위 역할에서 상속 됩니다. 예를 들어 네트워크 관리자이 고 Machine Learning 작업 영역을 만들 수 있는 권한이 있는 경우 소유자 역할이 아니라 해당 작업 영역에 대 한 네트워크 관리자 역할이 할당 됩니다.
+
+- 작업 영역에서 할당량 작업을 수행 하려면 구독 수준 사용 권한이 필요 합니다. 즉, 구독 범위에서 쓰기 권한이 있는 경우에만 관리 되는 계산 리소스에 대 한 구독 수준 할당량 또는 작업 영역 수준 할당량 설정이 발생할 수 있습니다.
+
+- 작업/NotActions의 충돌 하는 섹션을 사용 하 여 동일한 Azure Active Directory 사용자에 게 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할에서 작업으로 나열 되는 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
+
+- VNet 내에서 계산 리소스를 배포 하려면 다음 작업에 대 한 권한을 명시적으로 부여 해야 합니다.
+    - `Microsoft.Network/virtualNetworks/join/action` VNet 리소스에서.
+    - `Microsoft.Network/virtualNetworks/subnet/join/action` 서브넷 리소스에 있습니다.
+    
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조 하세요.
+
+- 경우에 따라 새 역할 할당이 스택에서 캐시 된 사용 권한에 적용 되는 데 최대 1 시간이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

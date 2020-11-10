@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21ba0193c3f1e19ffc74452aaceee34759c7e606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a51442870fb72e2b3cd93d9f03736d2c679ed06
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949017"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442823"
 ---
 # <a name="single-page-application-move-to-production"></a>단일 페이지 응용 프로그램: 프로덕션으로 이동
 
@@ -36,27 +36,12 @@ Azure Storage 및 Azure 앱 서비스를 사용 하 여 SPA 및 Web API 프로�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 로그인 및 **MSAL.js**를 사용 하 여 **Microsoft Graph API** 를 호출 하는 액세스 토큰을 가져오는 방법에 대 한 코드를 설명 하는 빠른 시작 샘플을 자세히 설명 합니다.
+- 사용자 로그인 및 **MSAL.js** : [JavaScript SPA 자습서](./tutorial-v2-javascript-spa.md)를 사용 하 여 **Microsoft Graph API** 를 호출 하는 액세스 토큰을 가져오는 방법에 대 한 코드를 설명 하는 빠른 시작 샘플을 자세히 설명 합니다.
 
-> [!div class="nextstepaction"]
-> [JavaScript SPA 자습서](./tutorial-v2-javascript-spa.md)
+- [ASP.NET 백 엔드를](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)사용 하 여 **MSAL.js** : SPA를 사용 하 여 사용자 고유의 백 엔드 웹 API (ASP.NET Core)에 대 한 토큰을 가져오는 방법을 보여 주는 샘플입니다.
 
-**MSAL.js**를 사용 하 여 사용자 고유의 백 엔드 웹 API (ASP.NET Core)에 대 한 토큰을 가져오는 방법을 보여 주는 샘플입니다.
+- [Node.js](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) **passport** (azure ad)를 사용 하 여 백 엔드 웹 api (Node.js)에 대 한 액세스 토큰의 유효성을 검사 하는 방법을 보여 주는 샘플입니다.
 
-> [!div class="nextstepaction"]
-> [ASP.NET 백 엔드를 사용 하는 SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- **MSAL.js** 를 사용 하 여 **Azure Active Directory B2C** (Azure AD B2C)에 등록 된 앱에서 사용자를 로그인 하는 방법을 보여 주는 샘플: [SPA with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-**Passport-azure-ad**를 사용 하 여 백 엔드 웹 API (Node.js)에 대 한 액세스 토큰의 유효성을 검사 하는 방법을 보여 주는 샘플입니다.
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-**MSAL.js** 를 사용 하 여 **Azure Active Directory B2C** (Azure AD B2C)에 등록 된 앱에서 사용자를 로그인 하는 방법을 보여 주는 샘플입니다.
-
-> [!div class="nextstepaction"]
-> [Azure AD B2C SPA](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-**Passport-azure-ad** 를 사용 하 여 **Azure Active Directory B2C** 에 등록 된 앱에 대 한 액세스 토큰의 유효성을 검사 하는 방법을 보여 주는 샘플 (Azure AD B2C)
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- **Passport-azure-ad** 를 사용 하 여 **Azure Active Directory B2C** (Azure AD B2C)에 등록 된 앱에 대 한 액세스 토큰의 유효성을 검사 하는 방법을 보여 주는 샘플: [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

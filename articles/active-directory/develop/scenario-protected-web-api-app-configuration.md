@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257455"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442959"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> 클라이언트 응용 프로그램은 *웹 API에 대 한*Microsoft id 플랫폼 끝점에 전달자 토큰을 요청 합니다. 웹 API는 토큰을 확인 하 고 포함 된 클레임을 확인 해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사 해 서 사용해 서는 안 됩니다.
+> 클라이언트 응용 프로그램은 *웹 API에 대 한* Microsoft id 플랫폼 끝점에 전달자 토큰을 요청 합니다. 웹 API는 토큰을 확인 하 고 포함 된 클레임을 확인 해야 하는 유일한 응용 프로그램입니다. 클라이언트 앱은 토큰의 클레임을 검사 해 서 사용해 서는 안 됩니다.
 >
 > 이후에 웹 API에서 토큰을 암호화 해야 할 수도 있습니다. 이 요구 사항은 액세스 토큰을 볼 수 있는 클라이언트 앱에 대 한 액세스를 방지 합니다.
 
@@ -119,7 +119,7 @@ _Microsoft. Identity_ 는 ASP.NET Core, 인증 미들웨어 및 .NET 용 [Msal (
 
 #### <a name="using-microsoftidentityweb-templates"></a>Microsoft. Identity. 웹 템플릿 사용
 
-Microsoft. Identity. 웹 프로젝트 템플릿을 사용 하 여 웹 API를 처음부터 만들 수 있습니다. 자세한 내용은 [Microsoft. Identity 웹 API 프로젝트 템플릿](https://aka.ms/ms-id-web/webapi-project-templates) 을 참조 하세요.
+Microsoft. Identity. 웹 프로젝트 템플릿을 사용 하 여 웹 API를 처음부터 만들 수 있습니다. 자세한 내용은 [Microsoft. Identity 웹 API 프로젝트 템플릿](https://aka.ms/ms-id-web/webapi-project-templates)을 참조 하세요.
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>기존 ASP.NET Core 3.1 응용 프로그램에서 시작
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs*에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
+ 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs* 에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -195,7 +195,7 @@ services.AddControllers();
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | 설명 |
+| 유효성 검사기 | Description |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |
@@ -210,7 +210,7 @@ services.AddControllers();
 
 대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱은 예외입니다. 이러한 웹 앱은 모든 조직이 나 개인 Microsoft 계정의 사용자를 허용 합니다. 이 경우 발급자의 유효성을 검사 해야 합니다. Microsoft. Identity는 발급자 유효성 검사도 처리 합니다. 자세한 내용은 [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)를 참조 하세요.
 
-ASP.NET Core에서 토큰 유효성 검사 매개 변수를 사용자 지정 하려는 경우 *Startup.cs*에서 다음 코드 조각을 사용 합니다.
+ASP.NET Core에서 토큰 유효성 검사 매개 변수를 사용자 지정 하려는 경우 *Startup.cs* 에서 다음 코드 조각을 사용 합니다.
 
 ```c#
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -242,5 +242,4 @@ Azure Functions에서 들어오는 액세스 토큰의 유효성을 검사할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [코드에서 범위 및 앱 역할 확인](scenario-protected-web-api-verification-scope-app-roles.md)
+이 시나리오의 다음 문서로 이동 하 여 [코드의 범위 및 앱 역할을 확인](scenario-protected-web-api-verification-scope-app-roles.md)합니다.

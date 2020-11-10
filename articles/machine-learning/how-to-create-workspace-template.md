@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305483"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442058"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "93305483"
 
 * 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
 
-    * __CMK (고객이 관리 하는 키)가 있는 개인 링크 사용 작업 영역__
+    * __고객 관리형 키가 있는 Private Link 사용 작업 영역__
     * __가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry__
 
     자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
@@ -170,7 +170,7 @@ New-AzResourceGroupDeployment `
 > [!IMPORTANT]
 > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
-자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조하세요.
+자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 템플릿을 사용하기 전에 구독에서 충족해야 하는 특정 요구 사항이 있습니다.
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
 데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true** 로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
 
@@ -264,7 +264,7 @@ New-AzResourceGroupDeployment `
     > [!IMPORTANT]
     > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
-  자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+  자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>가상 네트워크 뒤에 작업 영역 배포
 

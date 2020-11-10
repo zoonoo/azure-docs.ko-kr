@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8608da33c747f76452a0106e4e2737849e06a75c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287541"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443231"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -1390,5 +1390,4 @@ namespace CommonCacheMsalV3
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [데스크톱 앱에서 웹 API 호출](scenario-desktop-call-api.md)
+이 시나리오의 다음 문서로 이동 하 여 [데스크톱 앱에서 WEB API를 호출](scenario-desktop-call-api.md)합니다.
