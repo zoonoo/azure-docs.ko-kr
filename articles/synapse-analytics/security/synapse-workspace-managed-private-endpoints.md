@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313769"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 
@@ -43,17 +43,17 @@ Azure Synapse에서 관리형 프라이빗 엔드포인트를 만들 때 프라�
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
 
-## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>SQL 풀 및 SQL 주문형의 관리형 프라이빗 엔드포인트
+## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>전용 SQL 풀 및 서버리스 SQL 풀을 위한 관리형 프라이빗 엔드포인트
 
-SQL 풀 및 SQL 주문형은 Azure Synapse 작업 영역의 분석 기능입니다. 이러한 기능은 [관리형 작업 영역 Virtual Network](./synapse-workspace-managed-vnet.md)에 배포되지 않은 다중 테넌트 인프라를 사용합니다.
+전용 SQL 풀 및 서버리스 SQL 풀은 Azure Synapse 작업 영역의 분석 기능입니다. 이러한 기능은 [관리형 작업 영역 Virtual Network](./synapse-workspace-managed-vnet.md)에 배포되지 않은 다중 테넌트 인프라를 사용합니다.
 
-작업 영역이 만들어지면 Azure Synapse는 해당 작업 영역의 SQL 풀과 SQL 주문형에 대한 두 개의 관리형 프라이빗 엔드포인트를 만듭니다. 
+작업 영역이 만들어지면 Azure Synapse는 해당 작업 영역에 전용 SQL 풀용과 서버리스 SQL 풀용인 두 개의 관리형 프라이빗 엔드포인트를 만듭니다. 
 
 이러한 두 개의 관리형 프라이빗 엔드포인트는 Azure Synapse Studio에 나열됩니다. 왼쪽 탐색 영역에서 **관리** 를 선택한 다음, **관리형 가상 네트워크** 를 선택하여 Studio에서 확인합니다.
 
-SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sql--\<workspacename\>* 이라고 하고, SQL 주문형을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sqlOnDemand--\<workspacename\>* 라고 합니다.
+SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sql--\<workspacename\>* 이라고 하고, 서버리스 SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sqlOnDemand--\<workspacename\>* 라고 합니다.
 
-![SQL 풀 및 SQL 주문형의 관리형 프라이빗 엔드포인트](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+![전용 SQL 풀 및 서버리스 SQL 풀을 위한 관리형 프라이빗 엔드포인트](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 이러한 두 개의 관리형 프라이빗 엔드포인트는 Azure Synapse 작업 영역을 만들 때 자동으로 만들어집니다. 두 관리형 프라이빗 엔드포인트에 대한 요금은 청구되지 않습니다.
 

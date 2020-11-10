@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220638"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308963"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -59,12 +59,12 @@ Media Services를 사용하여 클라우드에서 다양한 미디어 워크플�
 * [Azure Cognitive Services API](../../index.yml?pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
 * Azure CDN을 사용하여 순간적인 높은 부하(예: 제품 런칭 이벤트 시작)를 더 효율적으로 처리하기 위한 대규모 크기 조정을 구현합니다.
 
-## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요? 
+## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요?
 
 Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
 > [!TIP]
-> 개발을 시작하기 전에 다음 사항을 검토합니다.<br/>* [기본 개념](concepts-overview.md)(패키징, 인코딩 및 보호와 같은 중요 개념 포함)<br/>* [Media Services v3 API로 개발](media-services-apis-overview.md)(API 액세스, 명명 규칙 등에 대한 정보 포함)
+> 개발을 시작하기 전에 다음 사항을 검토합니다. 패키징, 인코딩 및 보호와 같은 중요한 개념을 포함하는 [기본 개념](concepts-overview.md) 및 API 액세스, 명명 규칙 등에 대한 정보를 포함하는 [Media Services v3 API를 사용한 개발](media-services-apis-overview.md).
 
 ### <a name="sdks"></a>SDK
 

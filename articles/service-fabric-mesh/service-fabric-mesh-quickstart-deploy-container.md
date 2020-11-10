@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: a22356e89dcc3ab465226bad196068d934ff1182
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 0c6bb8ba680612acbd497598b3e56efa5c28244a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840288"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146248"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
 
@@ -41,6 +41,12 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>애플리케이션 배포
+
+>[!NOTE]
+> 2020년 11월 2일부터 Docker Free 계획 계정에서 Docker Hub에 대한 익명 및 인증된 요청에 [다운로드 속도 제한이 적용](https://docs.docker.com/docker-hub/download-rate-limit/)되며 IP 주소에 의해 적용됩니다. 
+> 
+> 이러한 템플릿은 Docker Hub의 공용 이미지를 사용합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub)을 참조하세요.
+
 `az mesh deployment create` 명령을 사용하여 리소스 그룹에 애플리케이션을 만듭니다.  다음을 실행합니다.
 
 ```azurecli-interactive
@@ -71,7 +77,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
   }
 ```
 
-## <a name="open-the-application"></a>애플리케이션 열기
+## <a name="open-the-application"></a>애플리케이션을 엽니다.
 애플리케이션이 성공적으로 배포되면 CLI 출력의 서비스 엔드포인트에 대한 공용 IP 주소를 복사합니다. 웹 브라우저에서 IP 주소를 엽니다. Azure Service Fabric Mesh 로고가 있는 웹 페이지가 표시됩니다.
 
 ## <a name="check-the-application-details"></a>애플리케이션 세부 정보 확인

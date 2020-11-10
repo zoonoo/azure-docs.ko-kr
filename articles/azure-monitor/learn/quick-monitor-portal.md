@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080952"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927552"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -33,26 +33,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
 1. Visual Studio 2019에서 프로젝트를 엽니다.
-2. 프로젝트 메뉴에서 **Application Insights 구성**을 선택합니다. Visual Studio는 애플리케이션에 Application Insights SDK를 추가합니다.
+2. 프로젝트 메뉴에서 **Application Insights 구성** 을 선택합니다. Visual Studio는 애플리케이션에 Application Insights SDK를 추가합니다.
 
     > [!IMPORTANT]
-    > Application Insights를 추가하는 프로세스는 ASP.NET 템플릿 유형에 따라 다릅니다. **빈** 템플릿이나 **Azure 모바일 앱** 템플릿을 사용하는 경우에는 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다. 다른 모든 ASP.NET 템플릿의 경우 위의 단계에서 지침을 참조하세요. 
+    > Application Insights를 추가하는 프로세스는 ASP.NET 템플릿 유형에 따라 다릅니다. **빈** 템플릿이나 **Azure 모바일 앱** 템플릿을 사용하는 경우에는 **프로젝트** > **Application Insights 원격 분석 추가** 를 선택합니다. 다른 모든 ASP.NET 템플릿의 경우 위의 단계에서 지침을 참조하세요. 
 
-3. **시작**을 클릭합니다(Visual Studio의 이전 버전에는 **무료 시작** 단추가 있음).
+3. **시작** 을 클릭합니다(Visual Studio의 이전 버전에는 **무료 시작** 단추가 있음).
 
     ![Visual Studio에 Application Insights 추가](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. 구독을 선택하고 **등록**을 클릭합니다.
+4. 구독을 선택하고 **등록** 을 클릭합니다.
 
-5. **프로젝트** > **NuGet 패키지 관리** > **패키지 소스: nuget.org** > **업데이트**를 선택하여 Application Insights SDK 패키지를 안정적인 최신 릴리스로 업데이트합니다.
+5. **프로젝트** > **NuGet 패키지 관리** > **패키지 소스: nuget.org** > **업데이트** 를 선택하여 Application Insights SDK 패키지를 안정적인 최신 릴리스로 업데이트합니다.
 
-6. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
+6. **디버그** 메뉴에서 **디버깅 시작** 을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
 
 ## <a name="confirm-app-configuration"></a>앱 구성 확인
 
 Application Insights는 실행 중인 위치에 관계 없이 애플리케이션에 대한 원격 분석 데이터를 수집합니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
 
-1. **보기** -> **기타 Windows** -> **Application Insights 검색**을 클릭하여 Application Insights를 엽니다.  현재 세션에서 원격 분석이 표시됩니다.<BR><br>![Visual Studio에서의 원격 분석](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. **보기** -> **기타 Windows** -> **Application Insights 검색** 을 클릭하여 Application Insights를 엽니다.  현재 세션에서 원격 분석이 표시됩니다.<BR><br>![Visual Studio에서의 원격 분석](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. 목록(이 예에서 홈/인덱스 가져오기)에서 첫 번째 요청을 클릭하여 요청 정보를 확인합니다. 요청에 관한 다른 중요한 정보와 함께 상태 코드 및 응답 시간이 모두 포함됩니다.<br><br>![Visual Studio에서 응답 세부 정보](media/quick-monitor-portal/request-details.png)
 
@@ -60,19 +60,19 @@ Application Insights는 실행 중인 위치에 관계 없이 애플리케이션
 
 이제 Azure Portal에서 Application Insights를 열어 실행 중인 애플리케이션에 대한 다양한 세부 정보를 볼 수 있습니다.
 
-1. 솔루션 탐색기에서 **연결된 서비스** 폴더(구름과 플러그 모양의 아이콘)를 확장한 후 **Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
+1. 솔루션 탐색기에서 **연결된 서비스** 폴더(구름과 플러그 모양의 아이콘)를 확장한 후 **Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기** 를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/04-overview.png)
+    ![Application Insights 포털 내에서 애플리케이션에 대한 정보를 보여주는 스크린샷.](media/quick-monitor-portal/04-overview.png)
 
-2. **애플리케이션 맵**을 클릭하여 애플리케이션 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. **애플리케이션 맵** 을 클릭하여 애플리케이션 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
     ![애플리케이션 맵](media/quick-monitor-portal/05-appmap.png)
 
-3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-viewinlogs-icon.png) **Logs(Analytics)에서 보기**를 클릭합니다. 그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Logs(Analytics)** 가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘, ![앱 분석 아이콘의 스크린샷](media/quick-monitor-portal/app-viewinlogs-icon.png)을 클릭합니다. 애플리케이션 구성 요소 중 하나에 대한 **로그에서 보기(분석)** . 그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Logs(Analytics)** 가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
     ![분석](media/quick-monitor-portal/6viewanalytics.png)
 
-4. 왼쪽의 조사 아래에 있는 **라이브 메트릭 스트림**을 클릭합니다. 그러면 애플리케이션이 실행될 때 이에 대한 실시간 통계가 표시됩니다. 여기에는 들어오는 요청 수, 그러한 요청의 기간 및 발생하는 모든 오류와 같은 정보가 포함됩니다. 또한 프로세서 및 메모리와 같은 중요한 성능 메트릭을 검사할 수 있습니다.
+4. 왼쪽의 조사 아래에 있는 **라이브 메트릭 스트림** 을 클릭합니다. 그러면 애플리케이션이 실행될 때 이에 대한 실시간 통계가 표시됩니다. 여기에는 들어오는 요청 수, 그러한 요청의 기간 및 발생하는 모든 오류와 같은 정보가 포함됩니다. 또한 프로세서 및 메모리와 같은 중요한 성능 메트릭을 검사할 수 있습니다.
 
     ![라이브 스트림](media/quick-monitor-portal/7livemetrics.png)
 
@@ -103,8 +103,8 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다.
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 과 **myResourceGroup** 을 차례로 클릭합니다.
+2. 리소스 그룹 페이지에서 **삭제** 를 클릭하고 텍스트 상자에 **myResourceGroup** 을 입력한 후 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure Application Insights로 모니터링하기 위해 애플리케이션을 활성화했습니다.  애플리케이션에서 통계를 모니터링하고 문제를 감지하는 방법을 알아보려면 이 자습서를 계속합니다.

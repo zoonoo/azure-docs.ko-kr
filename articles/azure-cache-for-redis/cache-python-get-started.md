@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Python 앱 만들기 - Azure Cache for Redis'
+title: '빠른 시작: Python에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 Azure Cache for Redis를 사용하는 Python 앱을 만드는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845327"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099439"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>빠른 시작: Azure Cache for Redis를 사용하는 Python 앱 만들기
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
 이 문서에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Python 앱에 통합합니다.
 
@@ -34,9 +34,9 @@ ms.locfileid: "87845327"
 
 ## <a name="install-redis-py"></a>redis-py 설치
 
-[Redis-py](https://github.com/andymccurdy/redis-py)는 Azure Cache for Redis에 대한 Python 인터페이스입니다. Python 패키지 도구 *pip*를 사용하여 명령 프롬프트에서 *redis-py* 패키지를 설치합니다. 
+[Redis-py](https://github.com/andymccurdy/redis-py)는 Azure Cache for Redis에 대한 Python 인터페이스입니다. Python 패키지 도구 *pip* 를 사용하여 명령 프롬프트에서 *redis-py* 패키지를 설치합니다. 
 
-다음 예제에서는 Python 3용 *pip3*를 사용하여 관리자 명령 프롬프트에서 Windows 10에 *redis-py*를 설치하는 방법을 소개합니다.
+다음 예제에서는 Python 3용 *pip3* 를 사용하여 관리자 명령 프롬프트에서 Windows 10에 *redis-py* 를 설치하는 방법을 소개합니다.
 
 ![Azure Cache for Redis에 redis-py Python 인터페이스 설치](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -59,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Python 샘플 앱 만들기
 
-새 텍스트 파일을 만들고, 다음 스크립트를 추가한 후 파일을 *PythonApplication1.py*로 저장합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS name>.redis.cache.windows.net* 형식입니다.
+새 텍스트 파일을 만들고, 다음 스크립트를 추가한 후 파일을 *PythonApplication1.py* 로 저장합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS name>.redis.cache.windows.net* 형식입니다.
 
 ```python
 import redis
@@ -85,7 +85,7 @@ for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
-Python을 사용하여 *PythonApplication1.py*를 실행합니다. 다음 예제와 같은 결과가 표시됩니다.
+Python을 사용하여 *PythonApplication1.py* 를 실행합니다. 다음 예제와 같은 결과가 표시됩니다.
 
 ![Python 스크립트를 실행하여 캐시 액세스 테스트](./media/cache-python-get-started/cache-python-completed.png)
 
@@ -94,14 +94,14 @@ Python을 사용하여 *PythonApplication1.py*를 실행합니다. 다음 예제
 이 빠른 시작에서 만든 Azure 리소스 그룹 및 리소스 애플리케이션을 완료했으면 요금이 청구되지 않도록 삭제할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 그룹을 삭제하면 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 유지하려는 기존 리소스 그룹에 Azure Cache for Redis 인스턴스를 만든 경우 캐시 **개요** 페이지에서 **삭제**를 선택하여 캐시만 삭제할 수 있습니다. 
+> 리소스 그룹을 삭제하면 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 유지하려는 기존 리소스 그룹에 Azure Cache for Redis 인스턴스를 만든 경우 캐시 **개요** 페이지에서 **삭제** 를 선택하여 캐시만 삭제할 수 있습니다. 
 
 Azure 인스턴스에 대한 리소스 그룹 및 해당 Redis Cache을 삭제하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 찾아 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 찾아 선택합니다.
 1. **이름으로 필터링** 텍스트 상자에 캐시 인스턴스를 포함하는 리소스 그룹의 이름을 입력한 다음, 검색 결과에서 선택합니다. 
-1. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 선택합니다.
-1. 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
+1. 리소스 그룹 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
+1. 리소스 그룹 이름을 입력한 다음, **삭제** 를 선택합니다.
    
    ![Azure Cache for Redis에 대한 리소스 그룹 삭제](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 

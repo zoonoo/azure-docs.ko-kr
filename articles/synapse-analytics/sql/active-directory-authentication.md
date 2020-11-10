@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093415"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311721"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -39,7 +39,7 @@ Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용�
 3. Synapse 작업 영역(미리 보기)에서 만든 Azure Active Directory ID에 역할 할당
 4. Azure AD ID를 사용하여 Synapse Studio에 연결합니다.
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 AAD 통과
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Azure AD 통과
 
 Azure Synapse Analytics를 사용하면 Azure Active Directory ID를 사용하여 데이터 레이크의 데이터에 액세스할 수 있습니다.
 
@@ -49,13 +49,13 @@ Azure Synapse Analytics를 사용하면 Azure Active Directory ID를 사용하�
 
 다음은 Synapse SQL에서 Azure AD 인증을 사용하는 솔루션 아키텍처를 요약하여 보여주는 간략한 다이어그램입니다. Azure AD 기본 사용자 암호를 지원하기 위해 클라우드 부분 및 Azure AD/Synapse SQL만 고려합니다. 페더레이션 인증(또는 Windows 자격 증명에 대한 사용자/암호)을 지원하려면 ADFS 블록과의 통신이 필요합니다. 화살표는 통신 경로 나타냅니다.
 
-![aad auth 다이어그램](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![Azure AD 인증 다이어그램](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 다음 다이어그램은 토큰을 제출하여 클라이언트가 데이터베이스에 연결할 수 있는 페더레이션, 신뢰 및 호스팅 관계를 나타냅니다. 이 토큰은 Azure AD를 통해 인증되고 데이터베이스에서 신뢰됩니다. 
 
 고객 1은 기본 사용자가 있는 Azure Active Directory 또는 페더레이션된 사용자가 있는 Azure AD를 나타낼 수 있습니다. 고객 2는 가져온 사용자를 포함하는 가능한 해결 방법을 나타냅니다. 이 예에서는 Azure Active Directory와 동기화되는 ADFS로 페더레이션된 Azure Active Directory에서 가져옵니다. 
 
-Azure AD 인증을 사용하는 데이터베이스에 액세스하려면 호스팅 구독이 Azure AD에 연결되어 있어야 합니다. Azure SQL Database 또는 SQL 풀을 호스트하는 SQL Server를 만들려면 동일한 구독을 사용해야 합니다.
+Azure AD 인증을 사용하는 데이터베이스에 액세스하려면 호스팅 구독이 Azure AD에 연결되어 있어야 합니다. Azure SQL Database 또는 전용 SQL 풀을 호스트하는 SQL Server를 만들려면 동일한 구독을 사용해야 합니다.
 
 ![구독 관계](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -109,7 +109,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
 - 애플리케이션 토큰 인증 사용
 
-Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지원되는 인증 방법은 다음과 같습니다.
+Azure AD 서버 보안 주체(로그인)( **공개 미리 보기** )에 대해 지원되는 인증 방법은 다음과 같습니다.
 
 - Azure Active Directory 암호
 - Azure Active Directory 통합
@@ -119,10 +119,10 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지
 
 - 관리 효율성을 높일 수 있게 관리자 권한으로 전용 Azure AD 그룹을 프로비전하는 것이 좋습니다.
 - Synapse SQL 풀에 대한 Azure AD 관리자(사용자 또는 그룹)는 항상 한 명만 구성할 수 있습니다.
-  - SQL 주문형(미리 보기)에 대한 Azure AD 서버 보안 주체(로그인)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)를 여러 개 만들 수 있습니다.
-- 오직 Synapse SQL의 Azure AD 관리자만이 Azure Active Directory 계정을 사용하여 Synapse SQL에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
+  - Synapse SQL(미리 보기)에 대한 Azure AD 서버 보안 주체(로그인)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)를 여러 개 만들 수 있습니다.
+- Synapse SQL의 Azure AD 관리자만이 Azure Active Directory 계정을 사용하여 Synapse SQL에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
-- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 .BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.
+- SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer** (.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 .BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.
 - 버전 15.0.1부터 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [bcp 유틸리티](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)는 MFA를 사용하는 Active Directory 대화형 인증을 지원합니다.
 - Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure AD 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 사용자를 봅니다.
 - [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/download/details.aspx?id=11774)은 Azure AD 인증을 지원합니다. 또한 [연결 속성 설정](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.

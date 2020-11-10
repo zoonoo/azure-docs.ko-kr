@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)에서 뷰 만들기 및 사용
-description: 이 섹션에서는 뷰를 만들고 사용하여 SQL 주문형(미리 보기) 쿼리를 래핑하는 방법에 대해 알아봅니다. 뷰를 사용하면 해당 쿼리를 다시 사용할 수 있습니다. Power BI와 같은 도구를 SQL 주문형과 함께 사용하려는 경우에도 뷰가 필요합니다.
+title: 서버리스 SQL 풀(미리 보기)에서 뷰 만들기 및 사용
+description: 이 섹션에서는 뷰를 만들고 사용하여 서버리스 SQL 풀(미리 보기) 쿼리를 래핑하는 방법을 알아봅니다. 뷰를 사용하면 해당 쿼리를 다시 사용할 수 있습니다. Power BI와 같은 도구를 서버리스 SQL 풀과 함께 사용하려는 경우에도 뷰가 필요합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289313"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316235"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 SQL 주문형(미리 보기)에서 뷰 만들기 및 사용
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 뷰 만들기 및 사용
 
-이 섹션에서는 뷰를 만들고 사용하여 SQL 주문형(미리 보기) 쿼리를 래핑하는 방법에 대해 알아봅니다. 뷰를 사용하면 해당 쿼리를 다시 사용할 수 있습니다. Power BI와 같은 도구를 SQL 주문형과 함께 사용하려는 경우에도 뷰가 필요합니다.
+이 섹션에서는 뷰를 만들고 사용하여 서버리스 SQL 풀(미리 보기) 쿼리를 래핑하는 방법을 알아봅니다. 뷰를 사용하면 해당 쿼리를 다시 사용할 수 있습니다. Power BI와 같은 도구를 서버리스 SQL 풀과 함께 사용하려는 경우에도 뷰가 필요합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -57,7 +57,7 @@ WITH (
 
 이 예제의 보기에서는 기본 파일에 대한 절대 경로를 사용하는 `OPENROWSET` 함수를 사용합니다. 스토리지의 루트 URL을 사용하는 `EXTERNAL DATA SOURCE`가 있는 경우 `DATA_SOURCE` 및 상대 파일 경로와 함께 `OPENROWSET`를 사용할 수 있습니다.
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

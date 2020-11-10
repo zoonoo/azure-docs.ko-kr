@@ -8,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945216"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305822"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터에서 작업 만들기 및 삭제
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터에서 작업 추가 및 제거
 
 Stream Analytics 클러스터에서 여러 Azure Stream Analytics 작업을 실행할 수 있습니다. 클러스터에서 작업을 실행하는 것은 클러스터에 작업을 추가하고 작업을 시작하는 간단한 2단계 프로세스입니다. 이 문서에서는 기존 클러스터에서 작업을 추가하고 제거하는 방법을 보여 줍니다. 아직 없는 경우 빠른 시작을 수행하여 [Stream Analytics 클러스터를 만듭니다](create-cluster.md).
 
@@ -25,7 +25,7 @@ Stream Analytics 클러스터에서 여러 Azure Stream Analytics 작업을 실�
 
 1. Azure Portal에서 Stream Analytics 클러스터를 찾아 선택합니다.
 
-1. **설정**에서 **Stream Analytics 작업**을 선택합니다. 그런 다음, **기존 작업 추가**를 선택합니다.
+1. **설정** 에서 **Stream Analytics 작업** 을 선택합니다. 그런 다음, **기존 작업 추가** 를 선택합니다.
 
 1. 클러스터에 추가하려는 구독 및 Stream Analytics 작업을 선택합니다. 클러스터와 동일한 지역에 있는 Stream Analytics 작업만 클러스터에 추가할 수 있습니다.
 
@@ -41,9 +41,9 @@ Stream Analytics 작업은 중지된 상태여야 클러스터에서 제거할 �
 
 1. Stream Analytics 클러스터를 찾아 선택합니다.
 
-1. **설정**에서 **Stream Analytics 작업**을 선택합니다.
+1. **설정** 에서 **Stream Analytics 작업** 을 선택합니다.
 
-1. 클러스터에서 제거할 작업을 선택한 다음, **제거**를 선택합니다.
+1. 클러스터에서 제거할 작업을 선택한 다음, **제거** 를 선택합니다.
 
    ![클러스터에서 작업 제거](./media/manage-jobs-cluster/remove-job.png)
 

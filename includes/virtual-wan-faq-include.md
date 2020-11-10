@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038471"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331118"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -259,6 +259,8 @@ ExpressRoute 회로가 가상 허브에 연결되면 온-프레미스와 Azure �
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 
 IPv6는 Virtual WAN 허브 및 해당 게이트웨이에서 지원되지 않습니다. IPv4 및 IPv6를 지원하는 VNet이 있고 해당 VNet을 Virtual WAN에 연결하려는 경우 이 시나리오는 현재 지원되지 않습니다. 
+
+Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간(사용자) VPN 시나리오의 경우 Virtual WAN 허브에 트래픽을 강제로 적용하기 위해 클라이언트 디바이스에서 IPv6 연결을 해제해야 할 수 있습니다. 최신 디바이스는 기본적으로 IPv6 주소를 사용하기 때문입니다.
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>스크립트에서 다양한 Virtual WAN 기능을 자동화하는 데 사용할 수 있는 권장 API 버전은 무엇인가요?
 

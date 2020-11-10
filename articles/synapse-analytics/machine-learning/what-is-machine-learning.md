@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 5e422b5292f77150e2755cb5963e2cd95d148654
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939106"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316082"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics의 Machine Learning 기능(작업 영역 미리 보기)
 
@@ -81,4 +81,4 @@ Azure Synapse에서 또는 Azure Synapse 외부에서 학습된 모델은 일괄
 * [Azure Synapse Analytics 시작](../get-started.md)
 * [작업 영역 만들기](../get-started-create-workspace.md)
 * [빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기](quickstart-integrate-azure-machine-learning.md)
-* [자습서: 기계 학습 모델 점수 매기기 마법사 - SQL 풀](tutorial-sql-pool-model-scoring-wizard.md)
+* [자습서: 기계 학습 모델 점수 매기기 마법사 - 전용 SQL 풀](tutorial-sql-pool-model-scoring-wizard.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88948864"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077900"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구
 
@@ -27,7 +27,7 @@ ms.locfileid: "88948864"
 
 이 빠른 시작에서는 사용자 환경에서 선택한 클라우드 앱에 대한 ToU에 동의하도록 요구하는 [Azure AD 조건부 액세스 정책](./overview.md)을 구성하는 방법을 보여 줍니다.
 
-![정책 만들기](./media/require-tou/5555.png)
+:::image type="content" source="./media/require-tou/5555.png" alt-text="Azure Portal의 스크린샷. Isabella에 대한 TOU 요구라는 정책을 정의하는 창이 표시됩니다." border="false":::
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -49,40 +49,40 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-your-terms-of-use"></a>사용 약관 만들기
 
-이 섹션에서는 ToU 샘플을 만드는 단계를 제공합니다. ToU를 만드는 경우 **조건부 액세스 정책 템플릿으로 적용**에 대한 값을 선택합니다. **사용자 지정 정책**을 선택하면 ToU를 만든 즉시 새 조건부 액세스 정책을 만들 수 있는 대화 상자가 열립니다.
+이 섹션에서는 ToU 샘플을 만드는 단계를 제공합니다. ToU를 만드는 경우 **조건부 액세스 정책 템플릿으로 적용** 에 대한 값을 선택합니다. **사용자 지정 정책** 을 선택하면 ToU를 만든 즉시 새 조건부 액세스 정책을 만들 수 있는 대화 상자가 열립니다.
 
 **사용 약관을 만들려면:**
 
 1. Microsoft Word에서 새 문서를 만듭니다.
-1. **내 사용 약관**을 입력한 다음, 컴퓨터에서 문서를 **mytou.pdf**로 저장합니다.
+1. **내 사용 약관** 을 입력한 다음, 컴퓨터에서 문서를 **mytou.pdf** 로 저장합니다.
 1. [Azure Portal](https://portal.azure.com)에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-1. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다.
+1. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory** 를 클릭합니다.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
+1. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스** 를 클릭합니다.
 
    ![조건부 액세스](./media/require-tou/03.png)
 
-1. **관리** 섹션에서 **사용 약관**을 클릭합니다.
+1. **관리** 섹션에서 **사용 약관** 을 클릭합니다.
 
-   ![사용 약관](./media/require-tou/04.png)
+   :::image type="content" source="./media/require-tou/04.png" alt-text="Azure Active Directory 페이지의 관리 섹션 스크린샷. 사용 약관 항목이 강조 표시됩니다." border="false":::
 
-1. 위쪽 메뉴에서 **새로운 약관**을 클릭합니다.
+1. 위쪽 메뉴에서 **새로운 약관** 을 클릭합니다.
 
-   ![사용 약관](./media/require-tou/05.png)
+   :::image type="content" source="./media/require-tou/05.png" alt-text="Azure Active Directory 페이지의 메뉴 스크린샷. 새 용어 항목이 강조 표시됩니다." border="false":::
 
 1. **새로운 사용 약관** 페이지에서:
 
-   ![사용 약관](./media/require-tou/112.png)
+   :::image type="content" source="./media/require-tou/112.png" alt-text="이름, 표시 이름, 문서, 언어, 조건부 액세스 및 용어 확장 토글이 강조 표시된 새 사용 약관 페이지의 스크린샷." border="false":::
 
-   1. **이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
-   1. **표시 이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
+   1. **이름** 텍스트 상자에서 **내 TOU** 를 입력합니다.
+   1. **표시 이름** 텍스트 상자에서 **내 TOU** 를 입력합니다.
    1. 사용 약관 PDF 파일을 업로드합니다.
-   1. **언어**로 **영어**를 선택합니다.
-   1. **사용자가 사용 약관을 확장해야 함**으로 **켜기**를 선택합니다.
-   1. **조건부 액세스 정책 템플릿으로 적용**으로 **사용자 지정 정책**을 선택합니다.
-   1. **만들기**를 클릭합니다.
+   1. **언어** 로 **영어** 를 선택합니다.
+   1. **사용자가 사용 약관을 확장해야 함** 으로 **켜기** 를 선택합니다.
+   1. **조건부 액세스 정책 템플릿으로 적용** 으로 **사용자 지정 정책** 을 선택합니다.
+   1. **만들기** 를 클릭합니다.
 
 ## <a name="create-your-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
@@ -99,39 +99,39 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 클라우드 앱 | Microsoft Azure 관리 |
 | 액세스 권한 부여 | 내 TOU |
 
-![정책 만들기](./media/require-tou/1234.png)
+:::image type="content" source="./media/require-tou/1234.png" alt-text="정책을 정의하는 Azure Portal 창의 스크린샷. 화살표는 정책이 내 TOU에 대한 액세스 권한을 부여하고 하나의 사용자 및 앱을 포함함을 나타냅니다." border="false":::
 
 **조건부 액세스 정책을 구성하려면:**
 
-1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
+1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구** 를 입력합니다.
 
    ![Name](./media/require-tou/71.png)
 
-1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
+1. **할당** 섹션에서 **사용자 및 그룹** 을 클릭합니다.
 
-   ![개요](./media/require-tou/06.png)
+   :::image type="content" source="./media/require-tou/06.png" alt-text="정책을 정의하는 Azure Portal 창의 할당 섹션 스크린샷. 선택된 항목이 없는 사용자 및 그룹 항목이 표시됩니다." border="false":::
 
 1. **사용자 및 그룹** 페이지에서:
 
-   ![개요](./media/require-tou/24.png)
+   :::image type="content" source="./media/require-tou/24.png" alt-text="사용자 및 그룹 페이지의 포함 탭 스크린샷. 사용자 및 그룹과 마찬가지로 사용자 및 그룹 선택이 선택됩니다. 선택이 강조 표시됩니다." border="false":::
 
-   1. **사용자 및 그룹 선택**을 클릭한 다음, **사용자 및 그룹**을 선택합니다.
-   1. **선택**을 클릭합니다.
-   1. **선택** 페이지에서 **Isabella Simonsen**을 선택한 다음, **선택**을 클릭합니다.
-   1. **사용자 및 그룹** 페이지에서 **완료**를 클릭합니다.
-1. **클라우드 앱**을 클릭합니다.
+   1. **사용자 및 그룹 선택** 을 클릭한 다음, **사용자 및 그룹** 을 선택합니다.
+   1. **선택** 을 클릭합니다.
+   1. **선택** 페이지에서 **Isabella Simonsen** 을 선택한 다음, **선택** 을 클릭합니다.
+   1. **사용자 및 그룹** 페이지에서 **완료** 를 클릭합니다.
+1. **클라우드 앱** 을 클릭합니다.
 
-   ![클라우드 앱](./media/require-tou/08.png)
+   :::image type="content" source="./media/require-tou/08.png" alt-text="정책을 정의하는 Azure Portal 창의 할당 섹션 스크린샷. 선택된 항목이 없는 클라우드 앱 항목이 표시됩니다." border="false":::
 
 1. **클라우드 앱** 페이지에서:
 
    ![클라우드 앱 선택](./media/require-tou/26.png)
 
-   1. **앱 선택**을 클릭합니다.
-   1. **선택**을 클릭합니다.
-   1. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
-   1. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
-1. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
+   1. **앱 선택** 을 클릭합니다.
+   1. **선택** 을 클릭합니다.
+   1. **선택** 페이지에서 **Microsoft Azure 관리** 를 선택한 다음, **선택** 을 클릭합니다.
+   1. **클라우드 앱** 페이지에서 **완료** 를 클릭합니다.
+1. **액세스 제어** 섹션에서 **허용** 을 클릭합니다.
 
    ![액세스 제어](./media/require-tou/10.png)
 
@@ -139,14 +139,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![허용](./media/require-tou/111.png)
 
-   1. **액세스 권한 부여**를 선택합니다.
-   1. **내 TOU**를 선택합니다.
-   1. **선택**을 클릭합니다.
-1. **정책 사용** 섹션에서 **켬**을 클릭합니다.
+   1. **액세스 권한 부여** 를 선택합니다.
+   1. **내 TOU** 를 선택합니다.
+   1. **선택** 을 클릭합니다.
+1. **정책 사용** 섹션에서 **켬** 을 클릭합니다.
 
    ![정책 설정](./media/require-tou/18.png)
 
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>시뮬레이션된 로그인 평가
 
@@ -157,33 +157,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 사용자로 **Isabella Simonsen**
 - 클라우드 앱으로 **Microsoft Azure 관리**
 
-**What If**를 클릭하면 다음 내용을 보여주는 시뮬레이션 보고서가 작성됩니다.
+**What If** 를 클릭하면 다음 내용을 보여주는 시뮬레이션 보고서가 작성됩니다.
 
 - **적용되는 정책** 아래에 있는 **Isabella에게 TOU 요구**
-- **컨트롤 권한 부여**로 **내 TOU**
+- **컨트롤 권한 부여** 로 **내 TOU**
 
 ![What if 정책 도구](./media/require-tou/79.png)
 
 **조건부 액세스 정책을 평가하려면:**
 
-1. [조건부 액세스 - 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 페이지의 위쪽 메뉴에서 **What If**를 클릭합니다.  
+1. [조건부 액세스 - 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 페이지의 위쪽 메뉴에서 **What If** 를 클릭합니다.  
 
    ![What If](./media/require-tou/14.png)
 
-1. **사용자**를 클릭하고, **Isabella Simonsen**을 선택하고, **선택**을 클릭합니다.
+1. **사용자** 를 클릭하고, **Isabella Simonsen** 을 선택하고, **선택** 을 클릭합니다.
 
    ![사용자](./media/require-tou/15.png)
 
 1. 클라우드 앱을 선택하려면:
 
-   ![클라우드 앱](./media/require-tou/16.png)
+   :::image type="content" source="./media/require-tou/16.png" alt-text="클라우드 앱 섹션의 스크린샷. 텍스트는 하나의 앱을 선택했음을 나타냅니다." border="false":::
 
-   1. **클라우드 앱**을 클릭합니다.
-   1. **클라우드 앱** 페이지에서 **앱 선택**을 클릭합니다.
-   1. **선택**을 클릭합니다.
-   1. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
-   1. 클라우드 앱 페이지에서 **완료**를 클릭합니다.
-1. **What If**를 클릭합니다.
+   1. **클라우드 앱** 을 클릭합니다.
+   1. **클라우드 앱** 페이지에서 **앱 선택** 을 클릭합니다.
+   1. **선택** 을 클릭합니다.
+   1. **선택** 페이지에서 **Microsoft Azure 관리** 를 선택한 다음, **선택** 을 클릭합니다.
+   1. 클라우드 앱 페이지에서 **완료** 를 클릭합니다.
+1. **What If** 를 클릭합니다.
 
 ## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책 테스트
 
@@ -191,20 +191,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 정책을 테스트하려면 **Isabella Simonsen** 테스트 계정을 사용하여 [Azure portal](https://portal.azure.com)에 로그인합니다. 사용 약관에 동의하도록 요구하는 대화 상자가 표시됩니다.
 
-![사용 약관](./media/require-tou/57.png)
+:::image type="content" source="./media/require-tou/57.png" alt-text="거부 및 수락 단추 및 레이블이 지정된 내 TOU 단추가 있는 ID 보안 보호 사용 약관이라는 대화 상자의 스크린샷." border="false":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 테스트 사용자 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
 - Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-a-user)를 참조하세요.
-- 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
+- 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제** 를 클릭합니다.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    :::image type="content" source="./media/require-tou/33.png" alt-text="Azure Portal 사용자에 대해 MFA 요구라는 정책을 보여주는 스크린샷. 바로 가기 메뉴가 표시되고 삭제가 강조 표시됩니다." border="false":::
 
-- 사용 약관을 삭제하려면 해당 사용 약관을 선택한 다음, 위쪽의 도구 모음에서 **약관 삭제**를 클릭합니다.
+- 사용 약관을 삭제하려면 해당 사용 약관을 선택한 다음, 위쪽의 도구 모음에서 **약관 삭제** 를 클릭합니다.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    :::image type="content" source="./media/require-tou/29.png" alt-text="사용 약관 문서를 나열하는 표의 일부를 보여주는 스크린샷. 내 TOU 문서가 표시됩니다. 메뉴에서 약관 삭제가 강조 표시됩니다." border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

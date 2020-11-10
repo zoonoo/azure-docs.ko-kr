@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287732"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322579"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Azure Synapse Link(미리 보기)에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
 
@@ -35,9 +35,9 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 
 환경의 차이점은 Azure Cosmos DB 컨테이너의 기본 데이터 변경 내용이 Spark에서 수행되는 분석에 자동으로 반영되는지 여부와 관련이 있습니다. Spark 데이터 프레임이 등록되거나 컨테이너의 분석 저장소에 대해 Spark 테이블이 생성되면 후속 분석의 효율적인 푸시다운을 위해 분석 저장소에 있는 데이터의 현재 스냅샷에 대한 메타데이터가 Spark로 페치됩니다. Spark는 지연 계산 정책을 따르기 때문에 작업이 Spark 데이터 프레임에서 호출되거나 SparkSQL 쿼리가 Spark 테이블에 대해 실행되지 않는 이상, 실제 데이터는 기본 컨테이너의 분석 저장소에서 페치되지 않습니다.
 
-**Spark 데이터 프레임 로드**를 선택하는 경우 페치된 메타데이터는 Spark 세션의 수명 추기 동안 캐시되므로 데이터 프레임에서 호출된 후속 작업은 데이터 프레임 생성 시 분석 저장소의 스냅샷에 대해 평가됩니다.
+**Spark 데이터 프레임 로드** 를 선택하는 경우 페치된 메타데이터는 Spark 세션의 수명 추기 동안 캐시되므로 데이터 프레임에서 호출된 후속 작업은 데이터 프레임 생성 시 분석 저장소의 스냅샷에 대해 평가됩니다.
 
-반면 **Spark 테이블 만들기**를 선택하는 경우 분석 저장소 상태의 메타데이터가 Spark에 캐시되지 않고 Spark 테이블에 대한 SparkSQL 쿼리가 실행될 때마다 다시 로드됩니다.
+반면 **Spark 테이블 만들기** 를 선택하는 경우 분석 저장소 상태의 메타데이터가 Spark에 캐시되지 않고 Spark 테이블에 대한 SparkSQL 쿼리가 실행될 때마다 다시 로드됩니다.
 
 따라서 분석 저장소의 고정된 스냅샷과 분석 저장소의 최신 스냅샷 중 무엇에 대해 Spark 분석을 평가할 것인지에 따라 Spark 데이터 프레임에 로드하는 방법 또는 Spark 테이블을 만드는 방법 중에 선택할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 
 이 예제에서는 Azure Cosmos DB 분석 저장소를 가리키는 Spark 데이터 프레임을 만듭니다. 그런 다음, 데이터 프레임에 대해 Spark 작업을 호출하여 추가 분석을 수행할 수 있습니다. 이 작업은 트랜잭션 저장소에 영향을 주지 않습니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -58,7 +58,7 @@ df = spark.read.format("cosmos.olap")\
     .load()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -93,7 +93,7 @@ create table call_center using cosmos.olap options (
 
 이 예제에서는 Azure Cosmos DB 컨테이너에 Spark 데이터 프레임을 씁니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # Write a Spark DataFrame into an Azure Cosmos DB container
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
@@ -106,7 +106,7 @@ YOURDATAFRAME.write.format("cosmos.oltp")\
     .save()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -130,7 +130,7 @@ df.write.format("cosmos.oltp").
 
 아래 예제의 */localReadCheckpointFolder* 폴더가 없으면 자동으로 생성됩니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -145,7 +145,7 @@ dfStream = spark.readStream\
     .load()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -163,7 +163,7 @@ val dfStream = spark.readStream.
 ## <a name="write-streaming-dataframe-to-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너에 스트리밍 데이터 프레임 쓰기
 이 예제에서는 Azure Cosmos DB 컨테이너에 스트리밍 데이터 프레임을 씁니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다. 아래 예제의 */localWriteCheckpointFolder* 폴더가 없으면 자동으로 생성됩니다. 
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -180,7 +180,7 @@ streamQuery = dfStream\
 streamQuery.awaitTermination()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -209,7 +209,7 @@ query.awaitTermination()
     ]
 }
 ```
-Synapse Spark 풀에 원격 Spark 작업 정의를 제출하려는 경우 이 [자습서](../spark/apache-spark-job-definitions.md)의 설명에 따라 외부 라이브러리를 참조하는 방법을 배울 수 있습니다.
+서버리스 Apache Spark 풀에 원격 Spark 작업 정의를 제출하려는 경우 이 [자습서](../spark/apache-spark-job-definitions.md)에 따라 외부 라이브러리를 참조하는 방법을 배울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

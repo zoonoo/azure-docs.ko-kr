@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322717"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Synapse 작업 영역을 만드는 단계를 설명합니다.
@@ -65,6 +65,6 @@ Azure Synapse 작업 영역의 관리 ID는 이미 스토리지 계정에 액세
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SQL 풀 만들기](quickstart-create-sql-pool-studio.md) 
-* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)
-* [SQL 주문형 사용](quickstart-sql-on-demand.md)
+* [전용 SQL 풀 만들기](quickstart-create-sql-pool-studio.md) 
+* [서버리스 Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)
+* [서버리스 SQL 풀 사용](quickstart-sql-on-demand.md)

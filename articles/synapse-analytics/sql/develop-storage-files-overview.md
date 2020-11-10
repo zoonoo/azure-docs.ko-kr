@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)의 스토리지에서 파일에 액세스
-description: Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀의 스토리지에 있는 파일 액세스(미리 보기)
+description: Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288990"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315927"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Synapse SQL(주문형)에서 외부 스토리지에 액세스
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 외부 스토리지에 액세스
 
-이 문서에서는 사용자가 Synapse SQL(주문형)의 Azure Storage에 저장된 파일의 데이터를 읽는 방법에 대해 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
+이 문서에서는 사용자가 서버리스 SQL 풀의 Azure Storage에 저장된 파일에서 데이터를 읽을 수 있는 방법을 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
 
 - [OPENROWSET](develop-openrowset.md) 함수 - Azure Storage의 파일에 대한 임시 쿼리를 사용할 수 있습니다.
 - [외부 테이블](develop-tables-external-tables.md) - 외부 파일 세트를 기반으로 미리 정의된 데이터 구조입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "91288990"
 
 ## <a name="query-files-using-openrowset"></a>OPENROWSET를 사용하여 파일 쿼리
 
-OPENROWSET를 사용하면 스토리지에 대한 액세스 권한이 있는 사용자는 Azure 스토리지의 외부 파일을 쿼리할 수 있습니다. Synapse SQL 주문형 엔드포인트에 연결된 사용자는 다음 쿼리를 사용하여 Azure 스토리지의 파일 콘텐츠를 읽어야 합니다.
+OPENROWSET를 사용하면 사용자가 스토리지에 대한 액세스 권한이 있는 경우 Azure 스토리지의 외부 파일을 쿼리할 수 있습니다. 서버리스 SQL 풀에 연결된 사용자는 다음 쿼리를 사용하여 Azure 스토리지에 있는 파일 콘텐츠를 읽어야 합니다.
 
 ```sql
 SELECT * FROM

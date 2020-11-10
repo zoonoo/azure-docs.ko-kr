@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: 처리된 데이터
           href: sql/data-processed.md
-        - name: SQL 주문형 모범 사례
+        - name: 모범 사례 서버리스 SQL 풀
           href: sql/best-practices-sql-on-demand.md
         - name: 모범 사례 전용 SQL 풀
           href: sql/best-practices-sql-pool.md

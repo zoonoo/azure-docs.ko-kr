@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093551"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318406"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
 이 문서에서는 Synapse SQL(미리 보기)의 리소스 사용 모델을 설명합니다.
 
-## <a name="sql-on-demand"></a>SQL 주문형
+## <a name="serverless-sql-pool"></a>서버리스 SQL 풀
 
-SQL 주문형은 적절한 크기를 선택할 필요가 없는 쿼리당 과금제 서비스입니다. 사용자의 요구 사항에 따라 시스템이 자동으로 조정되므로 인프라를 관리하고 솔루션에 적합한 크기를 선택해야 하는 업무 부담이 없습니다.
+서버리스 SQL 풀은 적절한 크기를 선택할 필요가 없는 쿼리당 과금제 서비스입니다. 사용자의 요구 사항에 따라 시스템이 자동으로 조정되므로 인프라를 관리하고 솔루션에 적합한 크기를 선택해야 하는 업무 부담이 없습니다.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>SQL 풀 - DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>전용 SQL 풀 - DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
 
 가격 및 성능을 최적화하기 위한 이상적인 DWU(데이터 웨어하우스 단위) 수를 선택하는 방법에 대한 권장 사항 및 단위 수를 변경하는 방법을 안내합니다.
 
@@ -50,12 +50,12 @@ DWU 늘리기:
 
 SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
 
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 전용 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
-T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
+T-SQL에서 SERVICE_OBJECTIVE 설정은 전용 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -125,11 +125,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 DWU를 변경하는 방법은 다음과 같습니다.
 
-1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음, **크기 조정**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음, **크기 조정** 을 선택합니다.
 
-2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
+2. **크기 조정** 에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **저장**을 선택합니다. 확인 메시지가 표시됩니다. **예**를 선택하여 확인하거나 **아니요**를 선택하여 취소합니다.
+3. **저장** 을 선택합니다. 확인 메시지가 표시됩니다. **예** 를 선택하여 확인하거나 **아니요** 를 선택하여 취소합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-이 DMV는 SQL 풀에서 수행되는 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)와 같은 다양한 관리 작업에 대한 정보를 반환합니다.
+이 DMV는 전용 SQL 풀에서 수행되는 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)와 같은 다양한 관리 작업에 대한 정보를 반환합니다.
 
 ### <a name="the-scaling-workflow"></a>크기 조정 워크플로
 

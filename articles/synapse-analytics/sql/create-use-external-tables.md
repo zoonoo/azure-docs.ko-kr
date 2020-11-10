@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
-description: 이 섹션에서는 SQL 주문형(미리 보기)에서 외부 테이블을 만들고 사용하는 방법에 대해 알아봅니다.
+title: 서버리스 SQL 풀(미리 보기)에서 외부 테이블 만들기 및 사용
+description: 이 섹션에서는 서버리스 SQL 풀(미리 보기)에서 외부 테이블을 만들고 사용하는 방법을 알아봅니다.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289330"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314732"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 외부 테이블 만들기 및 사용
 
-이 섹션에서는 SQL 주문형(미리 보기)에서 [외부 테이블](develop-tables-external-tables.md)을 만들고 사용하는 방법에 대해 알아봅니다. 외부 테이블은 SQL 주문형에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 주문형 SQL과 함께 사용하려는 경우에 유용합니다. 외부 테이블은 두 가지 유형의 스토리지에 액세스할 수 있습니다.
+이 섹션에서는 서버리스 SQL 풀(미리 보기)에서 [외부 테이블](develop-tables-external-tables.md)을 만들고 사용하는 방법을 알아봅니다. 외부 테이블은 서버리스 SQL 풀에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 서버리스 SQL 풀과 함께 사용하려는 경우에 유용합니다. 외부 테이블은 두 가지 유형의 스토리지에 액세스할 수 있습니다.
 - 사용자가 공용 스토리지 파일에 액세스하는 공용 스토리지입니다.
 - 사용자가 SAS 자격 증명, Azure AD ID 또는 Synapse 작업 영역의 관리 ID를 사용하여 스토리지 파일에 액세스하는 보호된 스토리지입니다.
 

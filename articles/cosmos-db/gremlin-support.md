@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: sngun
-ms.openlocfilehash: f435185d0f00d8f64425e3f2b7081e0ee9a393ce
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083000"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 그래프 지원 및 TinkerPop 기능과의 호환성
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다.
 
@@ -167,27 +168,27 @@ Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 �
 
 ## <a name="behavior-differences"></a>동작 차이점
 
-* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 ***폭 우선*** 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
+* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 * **폭 우선** _ 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
-***[Gremlin 바이트 코드](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 는 프로그래밍 언어의 제약을 받지 않는 그래프 조회에 대한 사양입니다. Cosmos DB Graph는 아직 이 사양을 지원하지 않습니다. `GremlinClient.SubmitAsync()`를 사용하여 순회를 텍스트 문자열로 전달하세요.
+_ * **[Gremlin 바이트 코드](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _는 프로그래밍 언어의 제약을 받지 않는 그래프 순회에 대한 사양입니다. Cosmos DB Graph는 아직 이 사양을 지원하지 않습니다. `GremlinClient.SubmitAsync()`를 사용하여 순회를 텍스트 문자열로 전달하세요.
 
-***`property(set, 'xyz', 1)`*** 세트 카디널리티는 현재 지원되지 않습니다. 대신 `property(list, 'xyz', 1)`를 사용하세요. 자세한 내용은 [TinkerPop을 사용하는 꼭짓점 속성](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)을 참조하세요.
+_ * **`property(set, 'xyz', 1)`** _ 세트 카디널리티는 현재 지원되지 않습니다. 대신 `property(list, 'xyz', 1)`를 사용하세요. 자세한 내용은 [TinkerPop을 사용하는 꼭짓점 속성](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)을 참조하세요.
 
-***`match()` 단계*** 는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
+_ * **`match()` 단계** _는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
 
-꼭짓점 또는 에지에 대한 ***속성인 개체*** 는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
+_ 꼭짓점 또는 에지에 대한 * **속성인 개체** _는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
 
-***배열 속성 정렬*** `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
+_ * **배열 속성 정렬** _ `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
 
-***기본이 아닌 JSON 형식*** 은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
+_ * **기본이 아닌 JSON 형식** _은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
 
-***GraphSONv3*** 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
+_ * **GraphSONv3** _ 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
 
-**람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
+_ **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
 
-* ***트랜잭션*** 은 시스템의 분산 특성으로 인해 지원되지 않습니다.  "사용자 고유의 쓰기를 읽기"로 Gremlin 계정에서 적절한 일관성 모델을 구성하고, 낙관적 동시성을 사용하여 충돌하는 쓰기를 해결하세요.
+* ***트랜잭션** _은 시스템의 분산 특성으로 인해 지원되지 않습니다.  "사용자 고유의 쓰기를 읽기"로 Gremlin 계정에서 적절한 일관성 모델을 구성하고, 낙관적 동시성을 사용하여 충돌하는 쓰기를 해결하세요.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
@@ -219,7 +220,7 @@ Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 �
 
     You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
-## <a name="next-steps"></a>기본 인덱싱을 사용하는 경우 `.V()` 단계로 시작하는 일반적인 읽기 Gremlin 쿼리는 연결된 필터링 단계에서 `.has()` 또는 `.where()` 같은 매개 변수를 사용하여 쿼리의 비용과 성능을 최적화합니다.
+## <a name="next-steps"></a>다음 단계
 
-* 예를 들면 다음과 같습니다. 
-* 그러나 Gremlin 쿼리에 `.V()` 단계가 여러 개 포함된 경우에는 쿼리에서 확인한 데이터가 최적의 데이터가 아닐 수 있습니다.
+* [SDK를 사용하여](create-graph-dotnet.md) 그래프 애플리케이션 빌드 시작 
+* Azure Cosmos DB에서 [그래프 지원](graph-introduction.md)에 대해 알아보기

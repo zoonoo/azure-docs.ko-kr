@@ -6,26 +6,28 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
-ms.date: 07/30/2020
-ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/28/2020
+ms.openlocfilehash: 0d7f455e748a52595839cc509720bf7ad5b9b617
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747175"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099065"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
 
-이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic?view=azure-cli-latest)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
+이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
 
 > [!WARNING]
-> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다* . 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
+> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
+
+Logic Apps를 처음 사용하는 경우에는 [Azure Portal](quickstart-create-first-logic-app-workflow.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) 및 [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)를 통해 첫 번째 논리 앱을 만드는 방법을 알아볼 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 로컬 컴퓨터에 설치된 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
-* 컴퓨터에 설치된 [Logic Apps Azure CLI 확장](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest). 이 확장을 설치하려면 `az extension add --name logic` 명령을 사용합니다.
+* 로컬 컴퓨터에 설치된 [Azure CLI](/cli/azure/install-azure-cli)
+* 컴퓨터에 설치된 [Logic Apps Azure CLI 확장](/cli/azure/azure-cli-extensions-list). 이 확장을 설치하려면 `az extension add --name logic` 명령을 사용합니다.
 * 논리 앱을 만들 [Azure 리소스 그룹](#example---create-resource-group)입니다.
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
@@ -33,8 +35,8 @@ ms.locfileid: "92747175"
 시작하기 전에 현재 환경의 유효성을 검사합니다.
 
 * Azure Portal에 로그인하고 `az login`을 실행하여 구독이 활성 상태인지 확인합니다.
-* 터미널 또는 명령 창에서 `az --version`을 실행하여 Azure CLI 버전을 확인합니다. 최신 버전은 [최신 릴리스 정보](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest)를 참조하세요.
-  * 최신 버전이 없는 경우 [사용 중인 운영 체제 또는 플랫폼의 설치 가이드](/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 설치를 업데이트합니다.
+* 터미널 또는 명령 창에서 `az --version`을 실행하여 Azure CLI 버전을 확인합니다. 최신 버전은 [최신 릴리스 정보](/cli/azure/release-notes-azure-cli?tabs=azure-cli)를 참조하세요.
+  * 최신 버전이 없는 경우 [사용 중인 운영 체제 또는 플랫폼의 설치 가이드](/cli/azure/install-azure-cli)에 따라 설치를 업데이트합니다.
 
 ### <a name="example---create-resource-group"></a>예제 - 리소스 그룹 만들기
 
@@ -67,7 +69,7 @@ Azure CLI를 사용하여 [새 논리 앱을 만들거나](#create-logic-apps-fr
 
 ## <a name="create-logic-apps-from-cli"></a>CLI에서 논리 앱 만들기
 
-Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) 명령과 정의에 대한 JSON 파일을 사용하여 논리 앱 워크플로를 만들 수 있습니다.
+Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) 명령과 정의에 대한 JSON 파일을 사용하여 논리 앱 워크플로를 만들 수 있습니다.
 
 ```azurecli
 
@@ -84,7 +86,7 @@ az logic workflow create --definition
 
 ```
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다.
 
 | 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
@@ -93,7 +95,7 @@ az logic workflow create --definition
 | Name | `--name -n` | 논리 앱의 이름입니다. 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`()`) 및 마침표(`.`)만 사용할 수 있습니다. 또한 이름은 모든 Azure 지역에서 고유해야 합니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱을 만들 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)입니다. 논리 앱에 대한 리소스 그룹이 아직 없는 경우 시작하기 전에 [리소스 그룹을 만듭니다](#example---create-resource-group). |
 
-[선택적 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters)를 추가로 포함시켜 논리 앱의 액세스 제어, 엔드포인트, 통합 계정, 통합 서비스 환경, 상태 및 리소스 태그를 구성할 수도 있습니다.
+[선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters)를 추가로 포함시켜 논리 앱의 액세스 제어, 엔드포인트, 통합 계정, 통합 서비스 환경, 상태 및 리소스 태그를 구성할 수도 있습니다.
 
 ### <a name="example---create-logic-app"></a>예제 - 논리 앱 만들기
 
@@ -109,9 +111,9 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ## <a name="update-logic-apps-from-cli"></a>CLI에서 논리 앱 업데이트
 
-Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) 명령을 사용하여 논리 앱의 워크플로를 업데이트할 수도 있습니다.
+Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) 명령을 사용하여 논리 앱의 워크플로를 업데이트할 수도 있습니다.
 
-명령에는 [논리 앱을 만들 때](#create-logic-apps-from-cli)와 동일한 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다. 논리 앱을 만들 때와 동일한 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters)를 추가할 수도 있습니다.
+명령에는 [논리 앱을 만들 때](#create-logic-apps-from-cli)와 동일한 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다. 논리 앱을 만들 때와 동일한 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters)를 추가할 수도 있습니다.
 
 ```azurecli
 
@@ -142,16 +144,16 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ## <a name="delete-logic-apps-from-cli"></a>CLI에서 논리 앱 삭제
 
-Azure CLI에서 [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete) 명령을 사용하여 논리 앱의 워크플로를 삭제할 수 있습니다.
+Azure CLI에서 [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete) 명령을 사용하여 논리 앱의 워크플로를 삭제할 수 있습니다.
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | 설명 |
+| 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `-resource-group -g` | 논리 앱이 배치되는 리소스 그룹입니다. |
 
-확인 프롬프트를 건너뛰는 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete-optional-parameters) `--yes -y`를 포함할 수도 있습니다.
+확인 프롬프트를 건너뛰는 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-optional-parameters) `--yes -y`를 포함할 수도 있습니다.
 
 ```azurecli
 
@@ -185,7 +187,7 @@ az logic workflow delete --resource-group "testResourceGroup" --name "testLogicA
 
 ## <a name="show-logic-apps-in-cli"></a>CLI에서 논리 앱 표시
 
-[`az logic workflow show`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show) 명령을 사용하여 특정 논리 앱 워크플로를 가져올 수 있습니다.
+[`az logic workflow show`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show) 명령을 사용하여 특정 논리 앱 워크플로를 가져올 수 있습니다.
 
 ```azurecli
 
@@ -194,9 +196,9 @@ az logic workflow show --name
 
 ```
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | 설명 |
+| 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |
@@ -213,9 +215,9 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## <a name="list-logic-apps-in-cli"></a>CLI에서 논리 앱 나열
 
-[`az logic workflow list`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list) 명령을 사용하여 논리 앱을 구독별로 나열할 수 있습니다. 이 명령은 논리 앱의 워크플로에 대한 JSON 코드를 반환합니다.
+[`az logic workflow list`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list) 명령을 사용하여 논리 앱을 구독별로 나열할 수 있습니다. 이 명령은 논리 앱의 워크플로에 대한 JSON 코드를 반환합니다.
 
-다음과 같은 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list-optional-parameters)로 결과를 필터링할 수 있습니다.
+다음과 같은 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list-optional-parameters)로 결과를 필터링할 수 있습니다.
 
 | 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
@@ -265,7 +267,7 @@ Expecting value: line 1 column 1 (char 0)
 
 | 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
-| 출력 형식 | `--output -o` | 기본 JSON의 [출력 형식](/cli/azure/format-output-azure-cli?view=azure-cli-latest)을 변경합니다. |
+| 출력 형식 | `--output -o` | 기본 JSON의 [출력 형식](/cli/azure/format-output-azure-cli)을 변경합니다. |
 | 오류만 표시 | `--only-show-errors` | 경고를 표시하지 않고 오류만 표시합니다. |
 | 자세히 | `--verbose` | 자세한 정보 로그를 표시합니다. |
 | 디버그 | `--debug` | 모든 디버그 로그를 표시합니다. |
@@ -274,8 +276,11 @@ Expecting value: line 1 column 1 (char 0)
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/?view=azure-cli-latest)를 참조하세요.
-
-CLI를 통해 기본 논리 앱을 만드는 방법에 대한 예제는 [샘플 스크립트 및 워크플로 정의](sample-logic-apps-cli-script.md)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/)를 참조하세요.
 
 [Microsoft 코드 샘플 브라우저](/samples/browse/?products=azure-logic-apps)에서 더 많은 Logic Apps CLI 스크립트 샘플을 찾을 수 있습니다.
+
+다음으로, 샘플 스크립트와 워크플로 정의를 사용하여 Azure CLI를 통해 예제 앱 논리를 만들 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [샘플 스크립트를 사용하여 논리 앱을 만듭니다](sample-logic-apps-cli-script.md).

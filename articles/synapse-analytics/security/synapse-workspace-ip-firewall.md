@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480550"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313896"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Azure Synapse Analytics IP 방화벽 규칙(미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "92480550"
 
 ## <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 
-IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 Synapse 작업 영역 액세스 권한을 부여하거나 거부합니다. 작업 영역에 대한 IP 방화벽 규칙을 구성할 수 있습니다. 작업 영역 수준에서 구성된 IP 방화벽 규칙은 작업 영역의 모든 퍼블릭 엔드포인트(SQL 풀, SQL 주문형 및 개발)에 적용됩니다.
+IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 Synapse 작업 영역 액세스 권한을 부여하거나 거부합니다. 작업 영역에 대한 IP 방화벽 규칙을 구성할 수 있습니다. 작업 영역 수준에서 구성된 IP 방화벽 규칙은 작업 영역의 모든 퍼블릭 엔드포인트(전용 SQL 풀, 서버리스 SQL 풀 및 개발)에 적용됩니다.
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>IP 방화벽 규칙 만들기 및 관리
 
@@ -37,7 +37,7 @@ Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 �
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>자체 네트워크에서 Synapse에 연결
 
-Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니다. SSMS(SQL Server Management Studio)를 사용하여 작업 영역의 SQL 리소스(SQL 풀 및 SQL 주문형)에 연결할 수도 있습니다.
+Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니다. SSMS(SQL Server Management Studio)를 사용하여 작업 영역의 SQL 리소스(전용 SQL 풀 및 서버리스 SQL 풀)에 연결할 수도 있습니다.
 
 네트워크와 로컬 컴퓨터의 방화벽이 Synapse Studio에 대한 TCP 포트 80, 443 및 1443에서 나가는 통신을 허용해야 합니다.
 

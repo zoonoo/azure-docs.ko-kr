@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d288b80b646851df9a3900a8ad3e5e0bf1a977ef
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131329"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>빠른 시작: Python 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -74,7 +75,7 @@ ms.locfileid: "91409343"
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* 폴더의 *connect.py* 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-information)로 건너뛸 수 있습니다. 
 
-* Gremlin `client`는 *connect.py*의 줄 104에서 초기화됩니다.
+* Gremlin `client`는 *connect.py* 의 줄 104에서 초기화됩니다.
 
     ```python
     ...
@@ -94,7 +95,7 @@ ms.locfileid: "91409343"
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **키**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **키** 를 선택합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 
@@ -128,7 +129,7 @@ ms.locfileid: "91409343"
         password="<YOUR_PASSWORD>")
     ```
 
-4. **키 페이지**에서 복사 단추를 통해 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
+4. **키 페이지** 에서 복사 단추를 통해 기본 키를 복사하여 `password=<YOUR_PASSWORD>` 매개 변수의 `<YOUR_PASSWORD>`에 붙여넣습니다.
 
     전체 `client` 개체 정의가 이 코드처럼 표시됩니다.
     ```python
@@ -170,21 +171,21 @@ ms.locfileid: "91409343"
 
 꼭짓점과 에지를 삽입한 후 이제 데이터 탐색기로 돌아가서 그래프에 추가된 꼭짓점을 확인하고 추가 데이터 포인트를 추가할 수 있습니다.
 
-1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기**를 선택하고, **sample-graph**를 확장하고, **그래프**를 선택한 다음, **필터 적용**을 선택합니다. 
+1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기** 를 선택하고, **sample-graph** 를 확장하고, **그래프** 를 선택한 다음, **필터 적용** 을 선택합니다. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="스크린샷은 필터를 적용하는 옵션과 함께 API에서 선택한 그래프를 보여줍니다.":::
 
 2. **결과** 목록에서 그래프에 추가된 세 명의 새로운 사용자를 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Azure Portal의 데이터 탐색기에 있는 그래프의 새 꼭짓점":::
 
 3. 몇몇 새로운 사용자를 추가해 보겠습니다. **새 꼭짓점** 단추를 선택하여 그래프에 데이터를 추가합니다.
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="스크린샷은 값을 입력할 수 있는 새 꼭짓점 창을 보여줍니다.":::
 
-4. *사람*이라는 레이블을 입력합니다.
+4. *사람* 이라는 레이블을 입력합니다.
 
-5. **속성 추가**를 선택하여 다음 속성을 각각 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. ID 키만 필요합니다.
+5. **속성 추가** 를 선택하여 다음 속성을 각각 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. ID 키만 필요합니다.
 
     key|값|메모
     ----|----|----
@@ -196,13 +197,13 @@ ms.locfileid: "91409343"
     > [!NOTE]
     > 이 빠른 시작에서는 분할되지 않은 컬렉션을 만듭니다. 그러나 컬렉션을 만드는 중 파티션 키를 지정하여 파티션된 컬렉션을 만드는 경우에는 각 새로운 꼭지점에 키로 파티션 키를 포함해야 합니다. 
 
-6. **확인**을 선택합니다. 화면 맨 아래에 **확인**이 보이도록 화면을 확장해야 합니다.
+6. **확인** 을 선택합니다. 화면 맨 아래에 **확인** 이 보이도록 화면을 확장해야 합니다.
 
-7. **새 꼭짓점**을 다시 선택하고 새로운 추가 사용자를 추가합니다. 
+7. **새 꼭짓점** 을 다시 선택하고 새로운 추가 사용자를 추가합니다. 
 
-8. *사람*이라는 레이블을 입력합니다.
+8. *사람* 이라는 레이블을 입력합니다.
 
-9. **속성 추가**를 선택하여 다음 속성을 각각 추가합니다.
+9. **속성 추가** 를 선택하여 다음 속성을 각각 추가합니다.
 
     key|값|메모
     ----|----|----
@@ -211,23 +212,23 @@ ms.locfileid: "91409343"
     gender|male| 
     school|MIT| 
 
-10. **확인**을 선택합니다. 
+10. **확인** 을 선택합니다. 
 
 11. 기본 `g.V()` 필터를 포함하는 **필터 적용** 단추를 선택하여 그래프에 있는 모든 값을 표시합니다. 이제 **결과** 목록에 모든 사용자가 표시됩니다. 
 
-    더 많은 데이터를 추가하면서 필터를 사용하여 결과를 한정할 수 있습니다. 기본적으로 데이터 탐색기는 `g.V()`를 사용하여 그래프에 있는 모든 꼭짓점을 검색합니다. `g.V().count()`와 같은 다른 [그래프 쿼리](tutorial-query-graph.md)를 변경하여 JSON 형식으로 그래프의 모든 꼭짓점 수를 반환할 수 있습니다. 필터를 변경한 경우 필터를 다시 `g.V()`로 변경하고 **필터 적용**을 선택하여 모든 결과를 다시 표시합니다.
+    더 많은 데이터를 추가하면서 필터를 사용하여 결과를 한정할 수 있습니다. 기본적으로 데이터 탐색기는 `g.V()`를 사용하여 그래프에 있는 모든 꼭짓점을 검색합니다. `g.V().count()`와 같은 다른 [그래프 쿼리](tutorial-query-graph.md)를 변경하여 JSON 형식으로 그래프의 모든 꼭짓점 수를 반환할 수 있습니다. 필터를 변경한 경우 필터를 다시 `g.V()`로 변경하고 **필터 적용** 을 선택하여 모든 결과를 다시 표시합니다.
 
-12. 이제 rakesh 및 ashley를 연결할 수 있습니다. **결과** 목록에서 **ashley**가 선택되어 있는지 확인한 다음, 하단 오른쪽의 **대상** 옆의 편집 단추를 선택합니다. **속성** 영역을 표시하려면 창을 확장해야 할 수도 있습니다.
+12. 이제 rakesh 및 ashley를 연결할 수 있습니다. **결과** 목록에서 **ashley** 가 선택되어 있는지 확인한 다음, 하단 오른쪽의 **대상** 옆의 편집 단추를 선택합니다. **속성** 영역을 표시하려면 창을 확장해야 할 수도 있습니다.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="그래프에서 한 꼭짓점의 대상 변경":::
 
-13. **대상** 상자에 *rakesh*를 입력하고 **Edge 레이블** 상자에 *knows*를 입력한 다음, 확인을 선택합니다.
+13. **대상** 상자에 *rakesh* 를 입력하고 **Edge 레이블** 상자에 *knows* 를 입력한 다음, 확인을 선택합니다.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="데이터 탐색기에서 ashley와 rakesh 간의 연결 추가":::
 
-14. 이제 결과 목록에서 **rakesh**를 선택하고 ashley와 rakesh가 연결되어 있는지 확인합니다. 
+14. 이제 결과 목록에서 **rakesh** 를 선택하고 ashley와 rakesh가 연결되어 있는지 확인합니다. 
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="데이터 탐색기에서 연결된 두 꼭짓점":::
 
 이것으로 이 자습서의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
 

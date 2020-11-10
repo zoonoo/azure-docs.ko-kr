@@ -1,6 +1,6 @@
 ---
-title: Spark 풀(미리 보기)과 SQL 풀 간에 데이터 가져오기 및 내보내기
-description: 이 문서에서는 사용자 지정 커넥터를 사용하여 SQL 풀과 Spark 풀(미리 보기) 간에 데이터를 이동하는 방법에 대한 정보를 제공합니다.
+title: 서버리스 Apache Spark 풀(미리 보기)과 SQL 풀 간에 데이터 가져오기 및 내보내기
+description: 이 문서에서는 전용 SQL 풀과 서버리스 Apache Spark 풀(미리 보기) 간에 데이터를 이동하기 위해 사용자 지정 커넥터를 사용하는 방법에 대한 정보를 제공합니다.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323897"
 ---
 # <a name="introduction"></a>소개
 
-Azure Synapse Apache Spark-Synapse SQL 커넥터는 Azure Synapse에서 Spark 풀(미리 보기)과 SQL 풀 간에 데이터를 효율적으로 전송하도록 설계되었습니다. Azure Synapse Apache Spark-Synapse SQL 커넥터는 SQL 풀에서만 작동하며, SQL 주문형에서는 작동하지 않습니다.
+Azure Synapse Apache Spark-Synapse SQL 커넥터는 Azure Synapse에서 서버리스 Apache Spark 풀(미리 보기)과 SQL 풀 간에 데이터를 효율적으로 전송하도록 설계되었습니다. Azure Synapse Apache Spark-Synapse SQL 커넥터는 전용 SQL 풀에서만 작동하며, 서버리스 SQL 풀에서는 작동하지 않습니다.
 
 ## <a name="design"></a>디자인
 
 JDBC를 사용하여 Spark 풀과 SQL 풀 간에 데이터를 전송할 수 있습니다. 그러나 Spark 및 SQL 풀과 같은 두 개의 분산 시스템이 사용되므로 JDBC는 직렬 데이터를 전송할 때 병목 상태가 발생하는 경향이 있습니다.
 
-Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원본 구현입니다. Azure Data Lake Storage Gen2 및 SQL 풀의 Polybase를 사용하여 Spark 클러스터와 Synapse SQL 인스턴스 간에 데이터를 효율적으로 전송합니다.
+Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원본 구현입니다. Azure Data Lake Storage Gen2 및 전용 SQL 풀의 Polybase를 사용하여 Spark 클러스터와 Synapse SQL 인스턴스 간에 데이터를 효율적으로 전송합니다.
 
 ![커넥터 아키텍처](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,7 +32,7 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 
 시스템 간 인증은 Azure Synapse Analytics에서 원활하게 수행됩니다. Token Service는 Azure Active Directory와 연결하여 스토리지 계정 또는 데이터 웨어하우스 서버에 액세스할 때 사용할 보안 토큰을 가져옵니다.
 
-따라서 스토리지 계정 및 데이터 웨어하우스 서버에 AAD 인증을 구성하면 자격 증명을 만들거나 커넥터 API에서 자격 증명을 지정할 필요가 없습니다. AAD 인증을 구성하지 않는 경우 SQL 인증을 지정할 수 있습니다. 자세한 내용은 [사용](#usage) 섹션에서 확인할 수 있습니다.
+따라서 스토리지 계정 및 데이터 웨어하우스 서버에 Azure AD 인증을 구성하면 자격 증명을 만들거나 커넥터 API에서 자격 증명을 지정할 필요가 없습니다. AAD 인증을 구성하지 않는 경우 SQL 인증을 지정할 수 있습니다. 자세한 내용은 [사용](#usage) 섹션에서 확인할 수 있습니다.
 
 ## <a name="constraints"></a>제약 조건
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 import 문은 필요하지 않으며 Notebook 환경용으로 미리 가져옵니다.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>작업 영역과 연결된 SQL 풀과 데이터 주고 받기
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>작업 영역 내에 연결된 전용 SQL 풀과 데이터 주고 받기
 
 > [!NOTE]
 > **Notebook 환경에서 가져올 필요 없음**
@@ -91,12 +91,12 @@ val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-쓰기 API는 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 오류가 반환됩니다.
+쓰기 API는 전용 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 전용 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 오류가 반환됩니다.
 
 TableType 값
 
-- Constants.INTERNAL - SQL 풀의 관리형 테이블
-- Constants.EXTERNAL - SQL 풀의 외부 테이블
+- Constants.INTERNAL - 전용 SQL 풀의 관리형 테이블
+- Constants.EXTERNAL - 전용 SQL 풀의 외부 테이블
 
 SQL 풀 관리형 테이블
 
@@ -106,10 +106,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL 풀 외부 테이블
 
-SQL 풀 외부 테이블에 쓰려면 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.  아래는 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
+전용 SQL 풀 외부 테이블에 쓰려면 전용 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 전용 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.  아래는 전용 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 데이터베이스와 데이터를 주고 받는 경우
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 전용 SQL 풀 또는 데이터베이스 간에 데이터 전송
 
 > [!NOTE]
 > Notebook 환경에서 가져올 필요 없음
@@ -160,11 +160,11 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>AAD 대신 SQL 인증 사용
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Azure AD 대신 SQL 인증 사용
 
 #### <a name="read-api"></a>읽기 API
 
-현재 이 커넥터는 작업 영역 외부에 있는 SQL 풀에 대한 토큰 기반 인증을 지원하지 않습니다. SQL 인증을 사용해야 합니다.
+현재 이 커넥터는 작업 영역 외부에 있는 전용 SQL 풀에 대한 토큰 기반 인증을 지원하지 않습니다. SQL 인증을 사용해야 합니다.
 
 ```scala
 val df = spark.read.
@@ -227,7 +227,7 @@ scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 
 - “synapse” 및 Azure Portal 아래쪽의 모든 폴더에 대해 ACL을 지정해야 합니다. 루트 “/” 폴더에 ACL을 적용하려면 아래 지침을 따르세요.
 
-- AAD를 사용하여 Storage Explorer에서 작업 영역과 연결된 스토리지 계정에 연결합니다.
+- Azure AD를 사용하여 Storage Explorer에서 작업 영역과 연결된 스토리지 계정에 연결
 - 계정을 선택하고 작업 영역에 대한 ADLS Gen2 URL 및 기본 파일 시스템을 지정합니다.
 - 나열된 스토리지 계정이 표시되면 목록 작업 영역을 마우스 오른쪽 단추로 클릭하고 “액세스 관리”를 선택합니다.
 - “실행” 액세스 권한을 사용하여 / 폴더에 사용자를 추가합니다. “확인”을 선택합니다.
@@ -237,5 +237,5 @@ scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 SQL 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Azure Portal을 사용하여 전용 SQL 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Azure Portal을 사용하여 Apache Spark 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

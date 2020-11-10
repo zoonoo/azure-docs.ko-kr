@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333089"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -71,7 +71,7 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -79,9 +79,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
-1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 `3`를 입력하여 **Windows** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
+1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
@@ -92,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : java 8
@@ -110,10 +111,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
-1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
-1. Enter를 눌러 기본 웹 컨테이너인 Tomcat 8.5를 사용합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 `3`를 입력하여 **Windows** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
+1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
+1. Enter를 눌러 기본 웹 컨테이너인 **Tomcat 8.5** 를 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
@@ -124,7 +126,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : tomcat 8.5
@@ -147,9 +149,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
-1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
+1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -158,7 +161,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : JAVA 8-jre8
     Deploy to slot : false
@@ -175,10 +178,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
-1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
-1. Enter를 눌러 기본 웹 컨테이너인 Tomcat 8.5를 사용합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
+1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
+1. Enter를 눌러 기본 웹 컨테이너인 **Tomcat 8.5** 를 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -187,7 +191,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : TOMCAT 8.5-jre8
     Deploy to slot : false
@@ -207,16 +211,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | 설명 | 버전
+속성 | 필수 | Description | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
-`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
-`<pricingTier>` | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 **P1V2**입니다.| 0.1.0+
-`<runtime>` | true | 런타임 환경 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
-`<deployment>` | true | 배포 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
+`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope** ). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
+`<pricingTier>` | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1V2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | true | 런타임 환경 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
+`<deployment>` | true | 배포 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
 `<appName>` 및 `<resourceGroup>`값을 잘 보어야 합니다(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`). 나중에 사용됩니다.
 
@@ -225,7 +229,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ## <a name="deploy-the-app"></a>앱 배포
 
-Maven 플러그 인은 Azure CLI의 계정 자격 증명을 사용하여 App Services에 배포합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+Maven 플러그 인은 Azure CLI의 계정 자격 증명을 사용하여 App Services에 배포합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)합니다.
 
 ```azurecli
 az login

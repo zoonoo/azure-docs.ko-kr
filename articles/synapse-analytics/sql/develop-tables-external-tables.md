@@ -9,38 +9,38 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167538"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314959"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
-외부 테이블은 Hadoop, Azure Storage Blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다. 외부 테이블은 Azure Storage의 파일에서 데이터를 읽거나 쓰는 데 사용됩니다. Synapse SQL을 사용하면 외부 테이블을 사용하여 SQL 풀 또는 SQL 주문형(미리 보기)에서 데이터를 읽고 쓸 수 있습니다.
+외부 테이블은 Hadoop, Azure Storage Blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다. 외부 테이블은 Azure Storage의 파일에서 데이터를 읽거나 쓰는 데 사용됩니다. Synapse SQL을 통해 외부 테이블을 사용하여 전용 SQL 풀 또는 서버리스 SQL 풀(미리 보기)에서 데이터를 읽고 쓸 수 있습니다.
 
-## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Synapse SQL 풀 및 주문형의 외부 테이블
+## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>전용 SQL 풀 및 서버리스 SQL 풀의 외부 테이블
 
-### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[전용 SQL 풀](#tab/sql-pool) 
 
-SQL 풀에서 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
+전용 SQL 풀에서 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
 
 - Transact-SQL 문을 사용하여 Azure Blob Storage 및 Azure Data Lake Gen2를 쿼리합니다.
-- 데이터를 Azure Blob Storage 및 Azure Data Lake Storage에서 SQL 풀로 가져오고 저장합니다.
+- 데이터를 Azure Blob Storage 및 Azure Data Lake Storage에서 전용 SQL 풀로 가져오고 저장합니다.
 
 [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL 풀 내의 테이블로 가져옵니다. 외부 테이블은 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 외에도 데이터를 로드하는 데 유용합니다. 
 
 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
-### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[서버리스 SQL 풀](#tab/sql-on-demand)
 
-SQL 주문형의 경우 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
+서버리스 SQL 풀의 경우 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
 
 - Transact-SQL 문을 사용하여 Azure Blob Storage 또는 Azure Data Lake Storage에서 데이터를 쿼리합니다.
-- [CETAS](develop-tables-cetas.md)를 사용하여 SQL 주문형 쿼리 결과를 Azure Blob Storage 또는 Azure Data Lake Storage의 파일에 저장합니다.
+- [CETAS](develop-tables-cetas.md)를 사용하여 서버리스 SQL 풀 쿼리 결과를 Azure Blob Storage 또는 Azure Data Lake Storage의 파일에 저장합니다.
 
-다음 단계를 통해 SQL 주문형을 사용하여 외부 테이블을 만들 수 있습니다.
+다음 단계를 통해 서버리스 SQL 풀을 사용하여 외부 테이블을 만들 수 있습니다.
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
@@ -56,7 +56,7 @@ SQL 주문형의 경우 외부 테이블을 사용하여 다음을 수행할 수
 - 데이터 원본에는 외부 테이블이 SAS 토큰 또는 작업 영역 관리 ID를 사용해서 Azure Storage에 있는 파일만 액세스하도록 설정하는 자격 증명이 포함되어 있습니다. 예를 들어 [스토리지 파일 개발 스토리지 액세스 제어](develop-storage-files-storage-access-control.md#examples) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> SQL 풀에서 자격 증명이 없는 데이터 원본에서는 Azure AD 사용자가 자신의 Azure AD ID를 사용해서 스토리지 파일에 액세스할 수 있습니다. 주문형 SQL에서는 `IDENTITY='User Identity'` 속성이 포함된 데이터베이스 범위의 자격 증명을 사용하여 데이터 원본을 만들어야 합니다. [예제는 여기를 참조하세요](develop-storage-files-storage-access-control.md#examples).
+> 전용 SQL 풀에서 자격 증명 없이 만든 데이터 원본을 통해 Azure AD 사용자는 자신의 Azure AD ID를 사용하여 스토리지 파일에 액세스할 수 있습니다. 서버리스 SQL 풀에서는 `IDENTITY='User Identity'` 속성이 포함된 데이터베이스 범위의 자격 증명을 사용하여 데이터 원본을 만들어야 합니다. [예제는 여기](develop-storage-files-storage-access-control.md#examples)를 참조하세요.
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
@@ -64,7 +64,7 @@ SQL 주문형의 경우 외부 테이블을 사용하여 다음을 수행할 수
 
 ### <a name="syntax-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 구문
 
-#### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[전용 SQL 풀](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[서버리스 SQL 풀](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,16 +110,16 @@ LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프�
 #### <a name="credential"></a>자격 증명
 CREDENTIAL = `<database scoped credential>`은 Azure Storage에서 인증을 수행하기 위해 사용되는 선택적인 자격 증명입니다. 자격 증명이 없는 외부 데이터 원본은 공용 스토리지 계정에 액세스할 수 있습니다. 
 
-SQL 풀에서 자격 증명이 없는 외부 데이터 원본은 또한 호출자 Azure AD ID를 사용하여 스토리지에 있는 파일에 액세스할 수 있습니다. 자격 증명이 있는 외부 데이터 원본은 자격 증명에 지정된 ID를 사용하여 파일에 액세스합니다.
-- SQL 풀에서 데이터베이스 범위의 자격 증명은 사용자 지정 애플리케이션 ID, 작업 영역 관리 ID 또는 SAK 키를 지정할 수 있습니다. 
-- 주문형 SQL에서 데이터베이스 범위의 자격 증명은 호출자의 Azure AD ID, 작업 영역 관리 ID 또는 SAS 키를 지정할 수 있습니다. 
+전용 SQL 풀에서 자격 증명이 없는 외부 데이터 원본은 호출자의 Azure AD ID를 사용하여 스토리지에 있는 파일에 액세스합니다. 자격 증명 `IDENTITY='User Identity'`를 사용하는 서버리스 SQL 풀의 외부 데이터 원본은 호출자의 Azure AD ID를 사용하여 파일에 액세스합니다.
+- 전용 SQL 풀에서 데이터베이스 범위의 자격 증명은 사용자 지정 애플리케이션 ID, 작업 영역 관리 ID 또는 SAK 키를 지정할 수 있습니다. 
+- 서버리스 SQL 풀에서 데이터베이스 범위의 자격 증명은 호출자의 Azure AD ID, 작업 영역 관리 ID 또는 SAS 키를 지정할 수 있습니다. 
 
 #### <a name="type"></a>TYPE
-TYPE = `HADOOP`는 SQL 풀에서 필수 옵션이며, 기본 파일 액세스를 위해 Polybase 기술이 사용되도록 지정합니다. 기본 제공되는 고유 판독기를 사용하는 주문형 SQL 서비스에서는 이 매개 변수를 사용할 수 없습니다.
+TYPE = `HADOOP`는 전용 SQL 풀의 필수 옵션이며, 기본 파일에 액세스하는 데 Polybase 기술을 사용하도록 지정합니다. 기본 제공되는 네이티브 리더를 사용하는 서버리스 SQL 풀에서는 이 매개 변수를 사용할 수 없습니다.
 
 ### <a name="example-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 예제
 
-#### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[전용 SQL 풀](#tab/sql-pool)
 
 다음 예제에서는 뉴욕 데이터 세트를 가리키는 Azure Data Lake Gen2에 대한 외부 데이터 원본을 만듭니다.
 
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[서버리스 SQL 풀](#tab/sql-on-demand)
 
 다음 예제에서는 SAS 자격 증명을 사용하여 액세스될 수 있는 Azure Data Lake Gen2에 대한 외부 데이터 원본을 만듭니다.
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[서버리스 SQL 풀](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -266,7 +266,7 @@ TRUE - 텍스트 파일에서 데이터를 검색하는 경우 외부 테이블 
 
 FALSE - 모든 누락된 값을 NULL로 저장합니다. 구분 기호로 분리된 텍스트 파일에서 NULL이라는 단어를 사용하여 저장된 모든 NULL 값은 문자열 'NULL'로 가져옵니다.
 
-Encoding = {'UTF8' | 'UTF16'} - SQL 주문형에서 분리된 UTF8 및 UTF16 인코딩 텍스트 파일을 읽을 수 있습니다.
+Encoding = {'UTF8' | 'UTF16'} - 서버리스 SQL 풀은 분리된 UTF8 및 UTF16으로 인코딩된 구분 텍스트 파일을 읽을 수 있습니다.
 
 DATA_COMPRESSION = *data_compression_method* - 이 인수는 외부 데이터에 대한 데이터 압축 방법을 지정합니다. 
 
@@ -321,7 +321,7 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 SQL 주문형은 테이블 메타데이터만 저장합니다. SQL 주문형에서는 실제 데이터가 이동하거나 저장되지 않습니다.
+만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 서버리스 SQL 풀은 테이블 메타데이터만 저장합니다. 서버리스 SQL 풀에서는 실제 데이터가 이동하거나 저장되지 않습니다.
 
 <column_definition>, ... *n* ]
 
@@ -336,12 +336,12 @@ LOCATION = ' *folder_or_filepath* '
 
 Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및 파일 이름을 지정합니다. 위치는 루트 폴더에서 시작합니다. 루트 폴더는 외부 데이터 원본에 지정된 데이터 위치입니다.
 
-폴더 위치가 지정되면 SQL 주문형 쿼리를 통해 외부 테이블에서 선택하고 폴더에서 파일을 검색합니다.
+폴더 위치가 지정되면 서버리스 SQL 풀 쿼리를 통해 외부 테이블에서 선택하고 폴더에서 파일을 검색합니다.
 
 > [!NOTE]
-> Hadoop 및 PolyBase와 달리 SQL 주문형은 하위 폴더를 반환하지 않습니다. 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일을 반환합니다.
+> Hadoop 및 PolyBase와 달리 서버리스 SQL 풀은 하위 폴더를 반환하지 않습니다. 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일을 반환합니다.
 
-다음 예에서 LOCATION='/webdata/'이면 SQL 주문형 쿼리에서 mydata.txt 및 _hidden.txt의 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
+이 예제에서 서버리스 SQL 풀 쿼리인 LOCATION='/webdata/'인 경우 mydata.txt 및 _hidden.txt에서 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
 
 ![외부 테이블에 대한 재귀적 데이터](./media/develop-tables-external-tables/folder-traversal.png)
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Azure Data Lake의 파일에서 외부 테이블 만들기 및 쿼리
 
-이제 Data Lake 검색 기능을 사용하면 마우스 오른쪽 단추로 파일을 간단히 클릭하여 SQL 풀 또는 SQL 주문형에서 외부 테이블을 만들고 쿼리할 수 있습니다.
+이제 Data Lake 검색 기능을 사용하여 마우스 오른쪽 단추로 파일을 클릭하기만 하면 전용 SQL 풀 또는 서버리스 SQL 풀을 통해 외부 테이블을 만들고 쿼리할 수 있습니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
@@ -395,7 +395,7 @@ SELECT TOP 1 * FROM census_external_table
 > [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
 
-대화 상자 창이 열립니다. SQL 풀 또는 SQL 주문형을 선택하고, 테이블 이름을 지정하고, [스크립트 열기]를 선택합니다.
+대화 상자 창이 열립니다. 전용 SQL 풀 또는 서버리스 SQL 풀을 선택하고, 테이블에 이름을 지정하고, [스크립트 열기]를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 >![externaltable2](./media/develop-tables-external-tables/external-table-2.png)

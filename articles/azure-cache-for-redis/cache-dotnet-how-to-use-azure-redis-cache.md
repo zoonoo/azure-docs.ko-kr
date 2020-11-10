@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: .NET 앱에서 Azure Cache for Redis 사용'
+title: '빠른 시작: .NET Framework에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 .NET 앱에서 Azure Cache for Redis에 액세스하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077067"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>빠른 시작: .NET Framework 애플리케이션에서 Azure Cache for Redis 사용
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>빠른 시작: .NET Framework에서 Azure Cache for Redis 사용
 
 이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 .NET Framework 앱에 통합합니다. 구체적으로 .NET 콘솔 앱에서 C# 코드를 통해 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용합니다.
 

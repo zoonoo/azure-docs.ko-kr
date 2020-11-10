@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a90b63f39a4c1cff53686e7ea67c3481f1274f85
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322637"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Synapse SQL에 대한 연결 문자열(미리 보기)
 
 [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) 및 [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx)와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 Synapse SQL(미리 보기)에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 
 
-또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동하여 *Essentials*에서 *데이터베이스 연결 문자열 표시*를 선택합니다.
+또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동하여 *Essentials* 에서 *데이터베이스 연결 문자열 표시* 를 선택합니다.
 
 ## <a name="sample-adonet-connection-string"></a>샘플 ADO.NET 연결 문자열
 
@@ -52,7 +52,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## <a name="recommendations"></a>권장 사항
 
-**SQL 주문형** 쿼리를 실행하기 위해 권장되는 도구는 [Azure Data Studio](get-started-azure-data-studio.md) 및 Azure Synapse Studio입니다.
+**서버리스 SQL 풀** 쿼리를 실행하기 위해 권장되는 도구는 [Azure Data Studio](get-started-azure-data-studio.md) 및 Azure Synapse Studio입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

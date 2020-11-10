@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기'
-description: 이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀을 만들고 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
+title: '빠른 시작: 웹 도구를 사용하여 서버리스 Apache Spark 풀 만들기'
+description: 이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse Analytics에서 서버리스 Apache Spark 풀을 만드는 방법과 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742564"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316136"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기
+# <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 서버리스 Apache Spark 풀 만들기
 
-이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse에서 Apache Spark 풀(미리 보기)을 만드는 방법에 대해 알아봅니다. 그런 다음, Apache Spark 풀에 연결하고 파일 및 테이블에 대해 Spark SQL 쿼리를 실행하는 방법에 대해 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. Azure Synapse의 Spark에 대한 자세한 내용은 [개요: Azure Synapse의 Apache Spark](./spark/apache-spark-overview.md)를 참조하세요.
+이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse에서 서버리스 Apache Spark 풀(미리 보기)을 만드는 방법에 대해 알아봅니다. 그런 다음, Apache Spark 풀에 연결하고 파일 및 테이블에 대해 Spark SQL 쿼리를 실행하는 방법에 대해 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. Azure Synapse의 Spark에 대한 자세한 내용은 [개요: Azure Synapse의 Apache Spark](./spark/apache-spark-overview.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Spark 인스턴스 요금은 인스턴스 사용 여부에 관계없이 분 단위 비례 배분 방식으로 청구됩니다. Spark 인스턴스를 사용한 후 꼭 인스턴스를 종료하거나 짧은 시간 제한을 설정해야 합니다. 자세한 내용은 이 문서의 **리소스 정리** 섹션을 참조하세요.
@@ -29,7 +29,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse Analytics 작업 영역](quickstart-create-workspace.md)
-- [Apache Spark 풀](quickstart-create-apache-spark-pool-studio.md)
+- [서버리스 Apache Spark 풀](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -132,9 +132,12 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
 11. 이전에 실행한 각 셀에는 **기록 서버** 및 **모니터링** 으로 이동할 수 있는 옵션이 있었습니다. 링크를 클릭하면 사용자 환경의 다른 부분으로 이동합니다.
 
+> [!NOTE]
+> 일부 [Apache Spark 공식 설명서](https://spark.apache.org/docs/latest/)에서는 Synapse Spark에서 사용할 수 없는 Spark 콘솔을 사용합니다. [Notebook](quickstart-apache-spark-notebook.md) 또는 [IntelliJ](./spark/intellij-tool-synapse.md) 환경을 대신 사용하세요.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure Synapse는 데이터를 Azure Data Lake Storage에 저장합니다. Spark 인스턴스를 사용하지 않는 경우 안전하게 종료할 수 있습니다. Azure Synapse Apache Spark 풀이 사용되지 않는 경우에도 실행되는 동안에는 요금이 청구됩니다. 
+Azure Synapse는 데이터를 Azure Data Lake Storage에 저장합니다. Spark 인스턴스를 사용하지 않는 경우 안전하게 종료할 수 있습니다. 서버리스 Apache Spark 풀이 사용되지 않는 경우에도 실행되는 동안에는 요금이 청구됩니다. 
 
 풀 요금은 스토리지 요금보다 몇 배나 비싸므로 사용하지 않는 경우 Spark 인스턴스를 종료하는 것이 경제적입니다.
 
@@ -142,11 +145,10 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Synapse Apache Spark 풀을 만들고 기본 Spark SQL 쿼리를 실행하는 방법에 대해 알아보았습니다.
+이 빠른 시작에서는 서버리스 Apache Spark 풀을 만들고 기본 Spark SQL 쿼리를 실행하는 방법에 대해 알아보았습니다.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [Apache Spark용 .NET 설명서](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Apache Spark 공식 설명서](https://spark.apache.org/docs/latest/)
 
->[!NOTE]
-> 일부 공식 Apache Spark 설명서에서는 Azure Synapse Spark에서 사용할 수 없는 Spark 콘솔을 사용합니다. [Notebook](quickstart-apache-spark-notebook.md) 또는 [IntelliJ](./spark/intellij-tool-synapse.md) 환경을 대신 사용하세요.
+
+

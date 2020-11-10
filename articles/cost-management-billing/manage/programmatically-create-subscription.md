@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748175"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043273"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -232,7 +232,7 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Azure 엔터프라이즈 구독 생성 API의 제한 사항
 
 - 오직 Azure 엔터프라이즈 구독만이 이 API를 사용하여 생성됩니다.
-- 등록 계정당 구독 수는 2000개로 제한됩니다. 그 후에는 Azure Portal에서만 계정에 대해 더 많은 구독을 만들 수 있습니다. API를 통해 더 많은 구독을 만들려면 또 다른 등록 계정을 만드세요.
+- 등록 계정당 구독 수는 2000개로 제한됩니다. 그 후에는 Azure Portal에서만 계정에 대해 더 많은 구독을 만들 수 있습니다. API를 통해 더 많은 구독을 만들려면 또 다른 등록 계정을 만드세요. 취소, 삭제 및 전송된 구독은 2000개 제한에 포함됩니다.
 - 계정 소유자가 아니지만 Azure RBAC를 통해 등록 계정에 추가된 사용자는 Azure Portal에서 구독을 만들 수 없습니다.
 - 만들려는 구독에 대한 테넌트를 선택할 수 없습니다. 구독은 항상 계정 소유자의 홈 테넌트에 만들어집니다. 구독을 다른 테넌트로 이동하려면 [구독 테넌트 변경](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 

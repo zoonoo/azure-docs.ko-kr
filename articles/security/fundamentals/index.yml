@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 10/28/2019
-  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 95136ee22ec6799a4e35b9b4619d62994d708fc1
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "81115235"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94410082"
 landingContent:
 - title: Azure 보안 정보
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Azure Security Center
-      url: ../../security-center/security-center-intro.md
+      url: ../../security-center/security-center-introduction.md
   - linkListType: concept
     links:
     - text: 관리 및 모니터링
@@ -76,7 +76,7 @@ landingContent:
     - text: 휴지 상태의 암호화
       url: encryption-atrest.md
     - text: 데이터 보호
-      url: database-security-overview.md
+      url: ../../azure-sql/database/security-overview.md
     - text: 네트워크 보안
       url: network-overview.md
     - text: 가상 머신 보안
@@ -86,16 +86,16 @@ landingContent:
   - linkListType: learn
     links:
     - text: 클라우드 애플리케이션 보호
-      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+      url: /learn/paths/secure-your-cloud-apps/
 - title: 보안 기술 빌드
   linkLists:
   - linkListType: learn
     links:
     - text: 네트워크 보안 구현
-      url: https://docs.microsoft.com/learn/paths/implement-network-security
+      url: /learn/paths/implement-network-security
     - text: ID 및 액세스 관리
-      url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+      url: /learn/paths/manage-identity-and-access
     - text: 리소스 관리 보안 구현
-      url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+      url: /learn/paths/implement-resource-mgmt-security
     - text: 가상 머신 호스트 보안 구현
       url: https://docs.microsoft.com/learn/paths/implement-host-security

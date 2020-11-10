@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/07/2020
-ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/27/2020
+ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322447"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101394"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -20,7 +20,7 @@ ms.locfileid: "91322447"
 
 Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 [Azure Portal에서 논리 앱을 만들기 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 시도해보세요. 논리 앱 디자이너는 Azure Portal 및 Visual Studio에서 유사하게 작동합니다.
 
-이 빠른 시작에서는 Visual Studio를 사용하여 Azure Portal 빠른 시작과 동일한 논리 앱을 만듭니다. 이 논리 앱은 웹 사이트의 RSS 피드를 모니터링하고 이 피드의 새 항목마다 이메일을 보냅니다. 완성한 논리 앱은 다음과 같은 대략적인 워크플로와 비슷한 모양입니다.
+이 빠른 시작에서는 Visual Studio를 사용하여 Azure Portal 빠른 시작과 동일한 논리 앱을 만듭니다. [Visual Studio Code에서 예제 앱을 생성](quickstart-create-logic-apps-visual-studio-code.md)하고 [Azure CLI(Azure 명령줄 인터페이스)를 통해 논리 앱을 만들고 관리](quickstart-logic-apps-azure-cli.md)하는 방법에 대해서도 배울 수 있습니다. 이 논리 앱은 웹 사이트의 RSS 피드를 모니터링하고 해당 피드의 각 새 항목에 대한 이메일을 보냅니다. 완성한 논리 앱은 다음과 같은 대략적인 워크플로와 비슷한 모양입니다.
 
 ![완료된 논리 앱에 대한 개략적인 워크플로를 보여주는 스크린샷.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -37,7 +37,7 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
     > [!IMPORTANT]
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
 
-  * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
+  * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). [Azure SDK for .NET](/dotnet/azure/dotnet-tools?tabs=vs)에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -70,7 +70,7 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-Azure Logic Apps에서 Azure Government 구독을 사용하려면 [Visual Studio에 Azure Government Cloud의 검색 엔드포인트를 추가](../azure-government/documentation-government-connect-vs.md)해야 합니다. 그러나 *Azure Government 계정을 사용하여 Visual Studio에 로그인하기 전*에 다음 단계를 수행하여 검색 엔드포인트를 추가한 후 생성된 JSON 파일의 이름을 바꿔야 합니다.
+Azure Logic Apps에서 Azure Government 구독을 사용하려면 [Visual Studio에 Azure Government Cloud의 검색 엔드포인트를 추가](../azure-government/documentation-government-connect-vs.md)해야 합니다. 그러나 *Azure Government 계정을 사용하여 Visual Studio에 로그인하기 전* 에 다음 단계를 수행하여 검색 엔드포인트를 추가한 후 생성된 JSON 파일의 이름을 바꿔야 합니다.
 
 1. Visual Studio를 닫습니다.
 
@@ -96,26 +96,26 @@ Azure Logic Apps에서 Azure Government 구독을 사용하려면 [Visual Studio
 
 1. Visual Studio를 시작합니다. Azure 계정으로 로그인합니다.
 
-1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다. (키보드: Ctrl + Shift + N)
+1. **파일** 메뉴에서 **새로 만들기** > **프로젝트** 를 선택합니다. (키보드: Ctrl + Shift + N)
 
    ![“파일” 메뉴에서 “새로 만들기” > “프로젝트” 선택](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
-1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. **클라우드** > **Azure 리소스 그룹**을 선택합니다. 예를 들어 프로젝트 이름을 지정합니다.
+1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic** 을 선택합니다. **클라우드** > **Azure 리소스 그룹** 을 선택합니다. 예를 들어 프로젝트 이름을 지정합니다.
 
    ![Azure 리소스 그룹 프로젝트 만들기](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
-   > 리소스 그룹 이름은 문자, 숫자, 마침표(`.`), 밑줄(`_`), 하이픈(`-`) 및 괄호(`(`, `)`)만 포함할 수 있지만 마침표(`.`)로 *종료*할 수 없습니다.
+   > 리소스 그룹 이름은 문자, 숫자, 마침표(`.`), 밑줄(`_`), 하이픈(`-`) 및 괄호(`(`, `)`)만 포함할 수 있지만 마침표(`.`)로 *종료* 할 수 없습니다.
    >
-   > **클라우드**나 **Azure 리소스 그룹**이 나타나지 않으면 Visual Studio 용 Azure SDK를 설치해야 합니다.
+   > **클라우드** 나 **Azure 리소스 그룹** 이 나타나지 않으면 Visual Studio 용 Azure SDK를 설치해야 합니다.
 
    Visual Studio 2019를 사용하는 경우 다음 단계를 따르세요.
 
-   1. **새 프로젝트 만들기** 상자에서 Visual C# 또는 Visual Basic용 **Azure 리소스 그룹**을 선택합니다. **다음**을 선택합니다.
+   1. **새 프로젝트 만들기** 상자에서 Visual C# 또는 Visual Basic용 **Azure 리소스 그룹** 을 선택합니다. **다음** 을 선택합니다.
 
-   1. 사용하려는 Azure 리소스 그룹의 이름과 기타 프로젝트 정보를 제공합니다. **만들기**를 선택합니다.
+   1. 사용하려는 Azure 리소스 그룹의 이름과 기타 프로젝트 정보를 제공합니다. **만들기** 를 선택합니다.
 
-1. 템플릿 목록에서 **논리 앱** 템플릿을 선택합니다. **확인**을 선택합니다.
+1. 템플릿 목록에서 **논리 앱** 템플릿을 선택합니다. **확인** 을 선택합니다.
 
    ![Logic App 템플릿 선택](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
@@ -127,7 +127,7 @@ Azure Logic Apps에서 Azure Government 구독을 사용하려면 [Visual Studio
 
 Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** 템플릿으로 논리 앱을 만듭니다.
 
-1. 솔루션 탐색기에서 **LogicApp.json** 파일에 대한 바로 가기 메뉴를 엽니다. **Logic Apps 디자이너를 사용하여 열기**를 선택합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기에서 **LogicApp.json** 파일에 대한 바로 가기 메뉴를 엽니다. **Logic Apps 디자이너를 사용하여 열기** 를 선택합니다. (키보드: Ctrl + L)
 
    ![Logic App 디자이너로 논리 앱 .json 파일 열기](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -136,7 +136,7 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
    논리 앱 및 연결을 위한 리소스를 만들고 배포하기 위한 Azure 구독 및 Azure 리소스 그룹을 묻는 메시지가 Visual Studio에 표시됩니다.
 
-1. **구독**에 대해 Azure 구독을 선택합니다. **리소스 그룹**에 대해서는 **새로 만들기**를 선택하여 또 다른 Azure 리소스 그룹을 만듭니다.
+1. **구독** 에 대해 Azure 구독을 선택합니다. **리소스 그룹** 에 대해서는 **새로 만들기** 를 선택하여 또 다른 Azure 리소스 그룹을 만듭니다.
 
    ![Azure 구독, 리소스 그룹 및 리소스 위치 선택](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -145,10 +145,10 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
    | 사용자 계정 | Fabrikam <br> sophia-owen@fabrikam.com | Visual Studio에 로그인 할 때 사용한 계정 |
    | **구독** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Azure 구독 및 연결된 계정에 대한 이름 |
    | **리소스 그룹** | MyLogicApp-RG <br> (미국 서부) | 논리 앱의 리소스를 저장하고 배포하는 Azure 리소스 그룹 및 위치 |
-   | **위치** | **리소스 그룹과 동일** | 논리 앱을 배포하기 위한 위치 유형 및 특정 위치입니다. 위치 유형은 Azure 지역이거나 기존 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment.md)입니다. <p>이 빠른 시작에서는 위치 유형을 **지역**으로, 위치를 **리소스 그룹과 동일**로 설정합니다. <p>**참고**: 리소스 그룹 프로젝트를 만든 후에는 [위치 유형 및 위치를 변경](manage-logic-apps-with-visual-studio.md#change-location)할 수 있지만 위치 유형마다 다양한 방식으로 논리 앱에 영향을 줍니다. |
+   | **위치** | **리소스 그룹과 동일** | 논리 앱을 배포하기 위한 위치 유형 및 특정 위치입니다. 위치 유형은 Azure 지역이거나 기존 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment.md)입니다. <p>이 빠른 시작에서는 위치 유형을 **지역** 으로, 위치를 **리소스 그룹과 동일** 로 설정합니다. <p>**참고** : 리소스 그룹 프로젝트를 만든 후에는 [위치 유형 및 위치를 변경](manage-logic-apps-with-visual-studio.md#change-location)할 수 있지만 위치 유형마다 다양한 방식으로 논리 앱에 영향을 줍니다. |
    ||||
 
-1. 소개 비디오 및 많이 사용되는 트리거를 보여주는 페이지가 Logic Apps 디자이너에 열립니다. 비디오를 지나 아래로 스크롤하여 **템플릿**을 트리거하고 **비어 있는 논리 앱**을 선택합니다.
+1. 소개 비디오 및 많이 사용되는 트리거를 보여주는 페이지가 Logic Apps 디자이너에 열립니다. 비디오를 지나 아래로 스크롤하여 **템플릿** 을 트리거하고 **비어 있는 논리 앱** 을 선택합니다.
 
    ![“빈 논리 앱”을 선택하기](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -156,7 +156,7 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
 다음으로, 새 피드 항목이 나타나면 실행되는 RSS [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 조건을 충족할 경우 실행되는 트리거로 시작됩니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 실행하는 논리 앱 인스턴스를 만듭니다.
 
-1. 논리 앱 디자이너의 검색 상자에서 **모두**를 선택합니다. 검색 상자에 "rss"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **피드 항목이 게시된 경우**
+1. 논리 앱 디자이너의 검색 상자에서 **모두** 를 선택합니다. 검색 상자에 "rss"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **피드 항목이 게시된 경우**
 
    ![트리거 및 작업을 추가하여 논리 앱 빌드](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -172,11 +172,11 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
 논리 앱을 실행하고 테스트하기 전에 Visual Studio에서 Azure에 앱을 배포합니다.
 
-1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기**를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기** 를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
    ![논리 앱 배포 만들기](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
-1. 이 배포에 대해서는 기본 Azure 구독, 리소스 그룹 및 다른 설정을 유지합니다. **배포**를 선택합니다.
+1. 이 배포에 대해서는 기본 Azure 구독, 리소스 그룹 및 다른 설정을 유지합니다. **배포** 를 선택합니다.
 
    ![Azure 리소스 그룹에 논리 앱 배포](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
@@ -206,13 +206,13 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
 1. 솔루션 탐색기에서 `<logic-app-name>.json` 파일을 엽니다.
 
-1. **보기** 메뉴에서 **다른 창** > **JSON 개요**를 선택합니다.
+1. **보기** 메뉴에서 **다른 창** > **JSON 개요** 를 선택합니다.
 
-1. 템플릿 파일에 리소스를 추가하려면 JSON 개요 창의 위쪽에서 **리소스 추가**를 선택합니다. 또는 JSON 개요 창에서 **리소스** 바로 가기 메뉴를 열고 **새 리소스 추가**를 선택합니다.
+1. 템플릿 파일에 리소스를 추가하려면 JSON 개요 창의 위쪽에서 **리소스 추가** 를 선택합니다. 또는 JSON 개요 창에서 **리소스** 바로 가기 메뉴를 열고 **새 리소스 추가** 를 선택합니다.
 
    ![JSON 개요 창](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
-1. **리소스 추가** 대화 상자의 검색 상자에서 `logic app`을 찾은 후 **논리 앱**을 선택합니다. 논리 앱의 이름을 지정하고 **추가**를 선택합니다.
+1. **리소스 추가** 대화 상자의 검색 상자에서 `logic app`을 찾은 후 **논리 앱** 을 선택합니다. 논리 앱의 이름을 지정하고 **추가** 를 선택합니다.
 
    ![리소스 추가](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
@@ -222,9 +222,9 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
 1. 논리 앱을 만드는 데 사용된 동일한 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹**을 선택합니다. 논리 앱의 리소스 그룹을 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 그룹** 을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹** 을 선택합니다. 논리 앱의 리소스 그룹을 선택합니다.
 
-1. **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
+1. **개요** 페이지에서 **리소스 그룹 삭제** 를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제** 를 선택합니다.
 
    !["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 

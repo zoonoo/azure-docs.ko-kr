@@ -1,20 +1,20 @@
 ---
-title: Azure Attestation 정책을 작성하고 서명하는 방법
-description: 증명 정책을 작성하고 서명하는 방법의 설명입니다.
+title: Azure Attestation 정책을 작성하는 방법
+description: 증명 정책을 작성하는 방법의 설명입니다.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675997"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341810"
 ---
-# <a name="how-to-author-and-sign-an-attestation-policy"></a>증명 정책을 작성하고 서명하는 방법
+# <a name="how-to-author-an-attestation-policy"></a>증명 정책을 작성하는 방법
 
 증명 정책은 Microsoft Azure Attestation에 업로드된 파일입니다. Azure Attestation은 증명 특정 정책 형식으로 정책을 업로드하는 유연성을 제공합니다. 또는 JSON 웹 서명에서 인코딩된 버전의 정책을 업로드할 수도 있습니다. 정책 관리자는 증명 정책을 작성해야 합니다. 대부분의 증명 시나리오에서 신뢰 당사자는 정책 관리자 역할을 합니다. 증명 호출을 수행하는 클라이언트는 증명 증거를 보냅니다. 서비스에서 이를 구문 분석하고 들어오는 클레임(속성, 값 집합)으로 변환합니다. 그런 다음, 서비스는 정책에 정의된 항목을 기반으로 클레임을 처리하고, 계산된 결과를 반환합니다.
 
@@ -134,41 +134,6 @@ issuancerules
 3. JWS를 업로드하고 정책의 유효성을 검사합니다.
      - 정책 파일에 구문 오류가 없는 경우 정책 파일은 서비스에서 허용됩니다.
      - 정책 파일에 구문 오류가 있는 경우 정책 파일은 서비스에서 거부됩니다.
-
-## <a name="signing-the-policy"></a>정책에 서명
-
-다음은 정책 서명 작업을 수행하는 방법에 대한 샘플 Python 스크립트입니다.
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## <a name="next-steps"></a>다음 단계
 - [PowerShell을 사용하여 Azure Attestation 설정](quickstart-powershell.md)

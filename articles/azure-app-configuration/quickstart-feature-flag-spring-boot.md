@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075538"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124189"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -30,7 +30,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
+7. **기능 관리자** >  **+추가** 를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
@@ -45,16 +45,16 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 다음 옵션을 지정합니다.
 
-   * **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
+   * **Java** 를 사용하는 **Maven** 프로젝트를 생성합니다.
    * **Spring Boot** 버전 2.0 이상을 지정합니다.
    * 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.  이 문서에서는 `com.example` 및 `demo`를 사용합니다.
    * **Spring Web** 종속성을 추가합니다.
 
-1. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
+1. 이전 옵션을 지정한 후 **프로젝트 생성** 을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
 
 ## <a name="add-feature-management"></a>기능 관리 추가
 
-1. 로컬 시스템에서 파일의 압축을 풀면 Spring Boot 애플리케이션을 편집할 수 있습니다. 앱의 루트 디렉터리에서 *pom.xml*을 찾습니다.
+1. 로컬 시스템에서 파일의 압축을 풀면 Spring Boot 애플리케이션을 편집할 수 있습니다. 앱의 루트 디렉터리에서 *pom.xml* 을 찾습니다.
 
 1. 텍스트 편집기에서 *pom.xml* 파일을 열고 `<dependencies>` 목록에 다음을 추가합니다.
 
@@ -131,7 +131,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *MessageProperties.java*라는 새 Java 파일을 만듭니다.
+1. 앱의 패키지 디렉터리에 *MessageProperties.java* 라는 새 Java 파일을 만듭니다.
 
     ```java
     package com.example.demo;
@@ -154,7 +154,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다.
+1. 앱의 패키지 디렉터리에 *HelloController.java* 라는 새 Java 파일을 만듭니다.
 
     ```java
     package com.example.demo;
@@ -185,7 +185,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 템플릿 디렉터리에 *welcome.html*이라는 새 HTML 파일을 만듭니다.
+1. 앱의 템플릿 디렉터리에 *welcome.html* 이라는 새 HTML 파일을 만듭니다.
 
     ```html
     <!DOCTYPE html>
@@ -242,7 +242,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
     ```
 
-1. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css*라는 새 CSS 파일을 만듭니다.
+1. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css* 라는 새 CSS 파일을 만듭니다.
 
     ```css
     html {
@@ -286,9 +286,9 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 새 브라우저 창을 열고 URL(`http://localhost:8080/welcome`)로 이동합니다.
 
-    ![로컬로 빠른 시작 앱 시작](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![스크린샷은 시작 메시지가 포함된 브라우저 창을 보여줍니다.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. App Configuration 포털에서 **기능 관리자**를 선택하고, **Beta** 키의 상태를 다음과 같이 **On**으로 변경합니다.
+1. App Configuration 포털에서 **기능 관리자** 를 선택하고, **Beta** 키의 상태를 다음과 같이 **On** 으로 변경합니다.
 
     | 키 | 시스템 상태 |
     |---|---|
@@ -296,7 +296,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 
-    ![로컬로 빠른 시작 앱 시작](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![스크린샷은 시작 메시지와 베타 링크가 호출된 브라우저 창을 보여줍니다.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

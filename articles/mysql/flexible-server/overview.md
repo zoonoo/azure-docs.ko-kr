@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537952"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927977"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -50,7 +50,7 @@ Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 �
 
 자세한 내용은 [고가용성 개념](concepts-high-availability.md)을 참조하세요.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="단일 영역 고가용성 개념 다이어그램"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="영역 중복 고가용성 개념 다이어그램"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>관리되는 유지 관리 기간을 사용하여 자동 패치
 
@@ -84,6 +84,17 @@ Azure Database for MySQL 유연한 서버에 연결하는 두 가지 네트워�
 유연한 서버 서비스는 버스트 가능, 범용 및 메모리 최적화의 세 가지 SKU 계층으로 제공됩니다. 버스트 가능 계층은 전체 컴퓨팅 용량이 지속적으로 필요하지 않은 저렴한 개발 및 낮은 동시성 워크로드에 가장 적합합니다. 범용 및 메모리 최적화는 높은 동시성, 규모 및 예측 가능한 성능이 필요한 프로덕션 워크로드에 더 적합합니다. 한 달에 불과 몇 달러의 비용으로 작은 데이터베이스에 첫 번째 앱을 빌드하고, 이후에 솔루션의 요구에 맞게 원활하게 스케일링할 수 있습니다. 스토리지 스케일링은 온라인으로 수행되며 스토리지 자동 확장을 지원합니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 사용하는 리소스 비용만 지불하면 됩니다. 
 
 자세한 내용은 [컴퓨팅 및 스토리지 개념](concepts-compute-storage.md)을 참조하세요.
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>최대 10개의 읽기 복제본을 사용하여 읽기 작업 확장
+
+MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 데 널리 사용되는 데이터베이스 엔진 중 하나입니다. 대부분의 고객은 온라인 교육 서비스, 비디오 스트리밍 서비스, 디지털 결제 솔루션, 전자 상거래 플랫폼, 게임 서비스, 뉴스 포털, 정부 및 의료 웹 사이트에서 이 기능을 사용합니다. 이러한 서비스는 웹 또는 모바일 애플리케이션의 트래픽이 늘어남에 따라 서비스를 제공하고 확장해야 합니다.
+
+애플리케이션 쪽에서 애플리케이션은 일반적으로 Java 또는 php로 개발되고  [Azure 가상 머신 확장 집합](/azure/virtual-machine-scale-sets/overview.md)  또는  [Azure App Services](/azure/app-service/overview.md) 에서 실행되거나  [AKS(Azure Kubernetes Service)](/azure/aks/intro-kubernetes.md)에서 실행되도록 마이그레이션됩니다. 가상 머신 확장 집합, App Service 또는 AKS를 기본 인프라로 사용하면 새 VM을 즉시 프로비저닝하고 애플리케이션의 상태 비저장 구성 요소를 복제하여 요청을 처리함으로써 애플리케이션 확장이 단순화되지만, 데이터베이스는 중앙 집중식 상태 저장 구성 요소로 인해 병목 현상이 발생하는 경우가 많습니다.
+
+읽기 복제본 기능을 사용하면 Azure Database for MySQL 유연한 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 원본 서버에서 **최대 10개의 복제본** 으로 복제할 수 있습니다. 복제본은 MySQL 엔진의 네이티브 [이진 로그(binlog) 파일의 위치 기반 복제 기술](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)을 사용하여 비동기식으로 업데이트됩니다. [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)과 같은 부하 분산 장치 프록시 솔루션을 사용하여 애플리케이션 리팩터링 비용 없이 애플리케이션 워크로드를 원활하게 확장하여 복제본을 읽을 수 있습니다. 
+
+자세한 내용은 [읽기 복제본 개념](concepts-read-replicas.md)을 참조하세요. 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>서버를 중지/시작하여 비용 최적화
 

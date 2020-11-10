@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306973"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
-이 문서에서는 Apache Spark [MLlib](https://spark.apache.org/mllib/)를 사용하여 Azure 공개 데이터 세트에 대한 간단한 예측 분석을 수행하는 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류*를 사용합니다.
+이 문서에서는 Apache Spark [MLlib](https://spark.apache.org/mllib/)를 사용하여 Azure 공개 데이터 세트에 대한 간단한 예측 분석을 수행하는 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류* 를 사용합니다.
 
 MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
 
@@ -31,9 +31,9 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 ## <a name="understand-classification-and-logistic-regression"></a>분류 및 로지스틱 회귀의 이해
 
-널리 사용되는 Machine Learning 작업인 *분류*는 입력 데이터를 범주로 정렬하는 프로세스입니다. 사용자가 제공하는 입력 데이터에 *레이블*을 할당하는 방법을 파악하는 분류 알고리즘 작업입니다. 예를 들어 입력으로 주식 정보를 받아서 판매할 주식과 보유할 주식의 두 가지 범주로 주식을 나누는 기계 학습 알고리즘을 생각할 수 있습니다.
+널리 사용되는 Machine Learning 작업인 *분류* 는 입력 데이터를 범주로 정렬하는 프로세스입니다. 사용자가 제공하는 입력 데이터에 *레이블* 을 할당하는 방법을 파악하는 분류 알고리즘 작업입니다. 예를 들어 입력으로 주식 정보를 받아서 판매할 주식과 보유할 주식의 두 가지 범주로 주식을 나누는 기계 학습 알고리즘을 생각할 수 있습니다.
 
-*로지스틱 회귀*는 분류에 사용할 수 있는 알고리즘입니다. Spark의 로지스틱 회귀 API는 *이진 분류*또는 입력 데이터를 두 그룹 중 하나로 분류하는 데 유용합니다. 로지스틱 회귀에 대한 자세한 내용은 [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)를 참조하세요.
+*로지스틱 회귀* 는 분류에 사용할 수 있는 알고리즘입니다. Spark의 로지스틱 회귀 API는 *이진 분류* 또는 입력 데이터를 두 그룹 중 하나로 분류하는 데 유용합니다. 로지스틱 회귀에 대한 자세한 내용은 [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)를 참조하세요.
 
 요약하자면, 로지스틱 회귀 프로세스는 입력 벡터가 한 그룹 또는 다른 그룹에 속할 확률을 예측할 수 있는 *로지스틱 함수* 를 만듭니다.
 
@@ -71,7 +71,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 원시 데이터는 Parquet 형식이기 때문에 Spark 컨텍스트를 사용하여 직접 데이터 프레임으로 파일을 메모리로 풀할 수 있습니다. 아래 코드에서는 기본 옵션을 사용하지만 필요에 따라 데이터 형식 및 기타 스키마 특성을 강제로 매핑할 수도 있습니다.
 
-1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. Open Datasets API를 통해 데이터를 검색합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용하여 한 달 분량의 데이터를 반환하는 필터를 적용합니다.
+1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. Open Datasets API를 통해 데이터를 검색합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. 서버리스 Apache Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용하여 한 달 분량의 데이터를 반환하는 필터를 적용합니다.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>로지스틱 회귀 모델 만들기
 
-마지막 작업은 레이블이 지정된 데이터를 로지스틱 회귀로 분석할 수 있는 형식으로 변환하는 것입니다. 로지스틱 회귀 알고리즘에 대한 입력은 *레이블-기능 벡터 쌍* 세트여야 하며, 여기서 *기능 벡터*는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 범주 열을 숫자로 변환해야 합니다. `trafficTimeBins` 및 `weekdayString` 열을 정수 표현으로 변환해야 합니다. 변환을 수행하는 방법에는 여러 가지가 있지만, 이 예제에서 사용되는 방법은 일반적인 방법인 *OneHotEncoding*입니다.
+마지막 작업은 레이블이 지정된 데이터를 로지스틱 회귀로 분석할 수 있는 형식으로 변환하는 것입니다. 로지스틱 회귀 알고리즘에 대한 입력은 *레이블-기능 벡터 쌍* 세트여야 하며, 여기서 *기능 벡터* 는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 범주 열을 숫자로 변환해야 합니다. `trafficTimeBins` 및 `weekdayString` 열을 정수 표현으로 변환해야 합니다. 변환을 수행하는 방법에는 여러 가지가 있지만, 이 예제에서 사용되는 방법은 일반적인 방법인 *OneHotEncoding* 입니다.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 이제 두 개의 DataFrame이 있으므로 다음 작업은 모델 수식을 만들고 학습 DataFrame에 대해 실행한 다음, DataFrame 테스트에 대해 유효성을 검사하는 것입니다. 모델 수식의 여러 버전을 실험하여 다양한 조합의 영향을 확인해야 합니다.
 
 > [!Note]
-> 모델을 저장하려면 Storage Blob 데이터 기여자 Azure 역할이 필요합니다. 스토리지 계정 아래에서 [액세스 제어(IAM)]로 이동하여 **역할 할당 추가**를 선택합니다. Storage Blob 데이터 기여자 Azure 역할을 SQL Database 서버에 할당합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
+> 모델을 저장하려면 Storage Blob 데이터 기여자 Azure 역할이 필요합니다. 스토리지 계정 아래에서 [액세스 제어(IAM)]로 이동하여 **역할 할당 추가** 를 선택합니다. Storage Blob 데이터 기여자 Azure 역할을 SQL Database 서버에 할당합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
 
 ```python
 ## Create a new LR object for the model
@@ -276,7 +276,7 @@ plt.show()
 
 ## <a name="shut-down-the-spark-instance"></a>Spark 인스턴스 종료
 
-애플리케이션 실행을 마친 후에는 탭을 닫아 리소스를 해제하도록 Notebook을 종료하거나, Notebook 아래쪽에 있는 상태 패널에서 **세션 종료**를 선택합니다.
+애플리케이션 실행을 마친 후에는 탭을 닫아 리소스를 해제하도록 Notebook을 종료하거나, Notebook 아래쪽에 있는 상태 패널에서 **세션 종료** 를 선택합니다.
 
 ## <a name="see-also"></a>참고 항목
 

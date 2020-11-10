@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d52e8e0157c891cf8be6c610b7c0185d83ef9f06
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638060"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027332"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -26,7 +26,7 @@ ms.locfileid: "92638060"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 *복사합니다* . Azure Data Factory를 사용하여 데이터를 *변환* 하려면 [매핑 데이터 흐름](concepts-data-flow-overview.md) 및 [랭글링 데이터 흐름(미리 보기)](wrangling-data-flow-overview.md)을 참조하세요.
+이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 *복사합니다*. Azure Data Factory를 사용하여 데이터를 *변환* 하려면 [매핑 데이터 흐름](concepts-data-flow-overview.md) 및 [랭글링 데이터 흐름(미리 보기)](wrangling-data-flow-overview.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Azure Data Factory 소개](introduction.md)를 참조하세요. 
@@ -61,6 +61,8 @@ ms.locfileid: "92638060"
 1. **위치** 에 데이터 팩터리의 위치를 선택합니다.
 
    이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. Data Factory에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
+
+1. 완료되면 **다음: Git 구성** 을 선택한 다음, **나중에 Git 구성** 을 선택합니다.
 
 1. **만들기** 를 선택합니다. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
 

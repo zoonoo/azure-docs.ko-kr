@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ae86f918b1ecaf28d5f0118d90ea6c2389674da
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129714"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>빠른 시작: Java SDK 및 Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스 빌드
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -100,7 +101,7 @@ ms.locfileid: "91409411"
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **키**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **키** 를 선택합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 
@@ -108,7 +109,7 @@ ms.locfileid: "91409411"
 
 2. *src/remote.yaml* 파일을 열고 `hosts: [$name$.graphs.azure.com]`의 `$name$`에 고유한 ID 값을 붙여넣습니다.
 
-    이제 *remote.yaml*의 1줄은 다음과 비슷하게 표시됩니다. 
+    이제 *remote.yaml* 의 1줄은 다음과 비슷하게 표시됩니다. 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -120,11 +121,11 @@ ms.locfileid: "91409411"
 
 4. Azure Portal에서 복사 단추를 사용하여 기본 키를 복사하고 `password: $masterKey$`의 `$masterKey$`에 붙여넣습니다.
 
-    *이제 remote.yaml*의 4줄은 다음과 비슷하게 표시됩니다. 
+    *이제 remote.yaml* 의 4줄은 다음과 비슷하게 표시됩니다. 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. 다음에서 *remote.yaml*의 3줄을 변경합니다.
+5. 다음에서 *remote.yaml* 의 3줄을 변경합니다.
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -167,21 +168,21 @@ ms.locfileid: "91409411"
 
 이제 데이터 탐색기로 다시 돌아가서 그래프에 추가된 꼭짓점을 확인하고 추가 데이터 지점을 추가할 수 있습니다.
 
-1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기**를 선택하고, **sample-graph**를 확장하고, **그래프**를 선택한 다음, **필터 적용**을 선택합니다. 
+1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기** 를 선택하고, **sample-graph** 를 확장하고, **그래프** 를 선택한 다음, **필터 적용** 을 선택합니다. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="스크린샷은 필터를 적용하는 옵션과 함께 API에서 선택한 그래프를 보여줍니다.":::
 
-2. **결과** 목록에서 그래프에 추가된 새 사용자를 확인합니다. **ben**을 선택하고 해당 사용자가 robin에 연결되어 있는지 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
+2. **결과** 목록에서 그래프에 추가된 새 사용자를 확인합니다. **ben** 을 선택하고 해당 사용자가 robin에 연결되어 있는지 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Azure Portal의 데이터 탐색기에 있는 그래프의 새 꼭짓점":::
 
-3. 몇몇 새로운 사용자를 추가해 보겠습니다. **새 꼭짓점**을 선택하여 그래프에 데이터를 추가합니다.
+3. 몇몇 새로운 사용자를 추가해 보겠습니다. **새 꼭짓점** 을 선택하여 그래프에 데이터를 추가합니다.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="스크린샷은 값을 입력할 수 있는 새 꼭짓점 창을 보여줍니다.":::
 
-4. 레이블 상자에 *사람*을 입력합니다.
+4. 레이블 상자에 *사람* 을 입력합니다.
 
-5. **속성 추가**를 선택하여 다음 속성을 각각 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. ID 키만 필요합니다.
+5. **속성 추가** 를 선택하여 다음 속성을 각각 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. ID 키만 필요합니다.
 
     key|값|메모
     ----|----|----
@@ -192,13 +193,13 @@ ms.locfileid: "91409411"
     > [!NOTE]
     > 이 빠른 시작에서는 분할되지 않은 컬렉션을 만듭니다. 그러나 컬렉션을 만드는 중 파티션 키를 지정하여 파티션된 컬렉션을 만드는 경우에는 각 새로운 꼭지점에 키로 파티션 키를 포함해야 합니다. 
 
-6. **확인**을 선택합니다. 화면 맨 아래에 **확인**이 보이도록 화면을 확장해야 합니다.
+6. **확인** 을 선택합니다. 화면 맨 아래에 **확인** 이 보이도록 화면을 확장해야 합니다.
 
-7. **새 꼭짓점**을 다시 선택하고 새로운 추가 사용자를 추가합니다. 
+7. **새 꼭짓점** 을 다시 선택하고 새로운 추가 사용자를 추가합니다. 
 
-8. *사람*이라는 레이블을 입력합니다.
+8. *사람* 이라는 레이블을 입력합니다.
 
-9. **속성 추가**를 선택하여 다음 속성을 각각 추가합니다.
+9. **속성 추가** 를 선택하여 다음 속성을 각각 추가합니다.
 
     key|값|메모
     ----|----|----
@@ -206,23 +207,23 @@ ms.locfileid: "91409411"
     gender|male| 
     school|MIT| 
 
-10. **확인**을 선택합니다. 
+10. **확인** 을 선택합니다. 
 
 11. 기본 `g.V()` 필터를 포함하는 **필터 적용** 단추를 선택하여 그래프에 있는 모든 값을 표시합니다. 이제 **결과** 목록에 모든 사용자가 표시됩니다. 
 
-    더 많은 데이터를 추가하면서 필터를 사용하여 결과를 한정할 수 있습니다. 기본적으로 데이터 탐색기는 `g.V()`를 사용하여 그래프에 있는 모든 꼭짓점을 검색합니다. `g.V().count()`와 같은 다른 [그래프 쿼리](tutorial-query-graph.md)를 변경하여 JSON 형식으로 그래프의 모든 꼭짓점 수를 반환할 수 있습니다. 필터를 변경한 경우 필터를 다시 `g.V()`로 변경하고 **필터 적용**을 선택하여 모든 결과를 다시 표시합니다.
+    더 많은 데이터를 추가하면서 필터를 사용하여 결과를 한정할 수 있습니다. 기본적으로 데이터 탐색기는 `g.V()`를 사용하여 그래프에 있는 모든 꼭짓점을 검색합니다. `g.V().count()`와 같은 다른 [그래프 쿼리](tutorial-query-graph.md)를 변경하여 JSON 형식으로 그래프의 모든 꼭짓점 수를 반환할 수 있습니다. 필터를 변경한 경우 필터를 다시 `g.V()`로 변경하고 **필터 적용** 을 선택하여 모든 결과를 다시 표시합니다.
 
-12. 이제 rakesh 및 ashley를 연결할 수 있습니다. **결과** 목록에서 **ashley**가 선택되었는지 확인한 다음, 오른쪽 하단의 **대상** 옆에 있는 :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::을 선택합니다. 하단을 보려면 창을 확장해야 할 수도 있습니다.
+12. 이제 rakesh 및 ashley를 연결할 수 있습니다. **결과** 목록에서 **ashley** 가 선택되었는지 확인한 다음, 오른쪽 하단의 **대상** 옆에 있는 :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="그래프에서 한 꼭짓점의 대상 변경":::을 선택합니다. 하단을 보려면 창을 확장해야 할 수도 있습니다.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="그래프에서 한 꼭짓점의 대상 변경 - Azure CosmosDB":::
 
-13. **대상** 상자에 *rakesh*, **에지 레이블** 상자에 *knows*를 입력한 다음, 확인란을 선택합니다.
+13. **대상** 상자에 *rakesh* , **에지 레이블** 상자에 *knows* 를 입력한 다음, 확인란을 선택합니다.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="데이터 탐색기에서 연결 추가 - Azure CosmosDB":::
 
-14. 이제 결과 목록에서 **rakesh**를 선택하고 ashley와 rakesh가 연결되어 있는지 확인합니다. 
+14. 이제 결과 목록에서 **rakesh** 를 선택하고 ashley와 rakesh가 연결되어 있는지 확인합니다. 
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="데이터 탐색기에서 연결된 두 꼭짓점 - Azure CosmosDB":::
 
 이것으로 이 자습서의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
 

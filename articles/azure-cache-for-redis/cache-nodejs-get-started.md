@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330998"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087148"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 
 이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Node.js 앱에 통합합니다.
 
@@ -51,11 +51,11 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-코드에서 각 작업에 대한 새 연결을 만들지 마십시오. 대신 가능한 한 연결을 다시 사용합니다. 
+코드에서 각 작업에 대해 새 연결을 만들지 마세요. 대신 가능한 한 연결을 다시 사용합니다. 
 
 ## <a name="create-a-new-nodejs-app"></a>새 Node.js 앱 만들기
 
-*redistest.js*라는 새 스크립트 파일을 만듭니다. `npm install redis bluebird` 명령을 사용하여 필요한 패키지를 설치합니다.
+*redistest.js* 라는 새 스크립트 파일을 만듭니다. `npm install redis bluebird` 명령을 사용하여 필요한 패키지를 설치합니다.
 
 다음 예제 JavaScript를 파일에 추가합니다. 이 코드는 캐시 호스트 이름 및 키 환경 변수를 사용하여 Azure Cache for Redis 인스턴스에 연결하는 방법을 보여 줍니다. 코드는 또한 캐시에 문자열 값을 저장하고 검색합니다. 또한 `PING` 및 `CLIENT LIST` 명령을 실행했습니다. [node_redis](https://github.com/mranney/node_redis) 클라이언트가 포함된 Redis 사용에 관한 더 많은 예는 [https://redis.js.org/](https://redis.js.org/)를 참조하세요.
 
@@ -119,13 +119,13 @@ node redistest.js
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
-[Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹**을 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.
 
-**이름으로 필터링** 텍스트 상자에서 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+**이름으로 필터링** 텍스트 상자에서 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
 ![Azure Resource 그룹 삭제](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인하고 **삭제**를 선택합니다.
+리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인하고 **삭제** 를 선택합니다.
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 

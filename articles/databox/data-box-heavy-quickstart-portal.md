@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122826"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347425"
 ---
 ::: zone target = "docs"
 
@@ -60,14 +60,87 @@ ms.locfileid: "92122826"
 
 ## <a name="order"></a>주문
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 이 단계에는 약 5분 정도가 걸립니다.
 
 1. Azure Portal에서 새 Azure Data Box 리소스를 만듭니다.
-2. 이 서비스에 대해 활성화된 기존 구독을 선택하고 전송 형식을 **가져오기**로 선택합니다. 데이터가 있는 **원본 국가** 및 데이터 전송에 대한 **Azure 대상 지역**을 제공합니다.
-3. **Data Box Heavy**를 선택합니다. 사용 가능한 최대 용량은 770TB이며, 더 큰 데이터인 경우 여러 주문을 만들 수 있습니다.
+2. 이 서비스에 대해 활성화된 기존 구독을 선택하고 전송 형식을 **가져오기** 로 선택합니다. 데이터가 있는 **원본 국가** 및 데이터 전송에 대한 **Azure 대상 지역** 을 제공합니다.
+3. **Data Box Heavy** 를 선택합니다. 사용 가능한 최대 용량은 770TB이며, 더 큰 데이터인 경우 여러 주문을 만들 수 있습니다.
 4. 주문 세부 정보 및 배송 정보를 입력합니다. 해당 지역에서 서비스를 사용할 수 있는 경우 알림 이메일 주소를 제공하고, 요약을 검토한 다음, 주문을 만듭니다.
 
 주문을 작성하고 나면 디바이스가 배송 가능하도록 준비됩니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이러한 Azure CLI 명령을 사용하여 Data Box Heavy 작업을 만듭니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. [az group create](/cli/azure/group#az_group_create) 명령을 실행하여 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 스토리지 계정을 만들거나 기존 스토리지 계정을 사용합니다.
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) 명령을 실행하여 **--sku** 값이 `DataBoxHeavy`인 Data Box 작업을 만듭니다.
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > 구독에서 Data Box Heavy를 지원하는지 확인합니다.
+
+1. 연락처 이름과 이메일을 변경하는 이 예제에서와 같이 [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update)를 실행하여 작업을 업데이트합니다.
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) 명령을 실행하여 작업에 대한 정보를 가져옵니다.
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) 명령을 사용하여 리소스 그룹에 대한 모든 Data Box 작업을 확인합니다.
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) 명령을 실행하여 작업을 취소합니다.
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) 명령을 실행하여 작업을 삭제합니다.
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) 명령을 사용하여 Data Box 작업에 대한 자격 증명을 나열합니다.
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+주문을 작성하고 나면 디바이스가 배송 가능하도록 준비됩니다.
+
+---
 
 ::: zone-end
 
@@ -104,7 +177,7 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
 
-1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다. 디바이스의 두 노드에는 동일한 암호가 사용됩니다.
+1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보** 로 이동합니다. 디바이스의 두 노드에는 동일한 암호가 사용됩니다.
 2. 192.168.100.5 고정 IP 주소 및 255.255.255.0 서브넷을 Data Box Heavy에 연결하는 데 사용하는 컴퓨터의 이더넷 어댑터에 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다.
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 인터페이스(MGMT 제외)에 대한 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이러한 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다.
@@ -134,7 +207,7 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 이 작업을 완료하는 시간은 데이터 크기에 따라 달라집니다.
 
 1. 오류 없이 데이터 복사가 완료되면 로컬 웹 UI에서 **배송 준비** 페이지로 이동하여 배송 준비를 시작합니다.
-2. 두 노드 모두에서 **배송 준비**가 완료되면 로컬 웹 UI에서 디바이스를 끕니다.
+2. 두 노드 모두에서 **배송 준비** 가 완료되면 로컬 웹 UI에서 디바이스를 끕니다.
 
 ## <a name="ship-to-azure"></a>Azure에 배송
 
@@ -159,9 +232,9 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 
 이 단계를 완료하려면 2-3분이 걸립니다.
 
-- 주문이 처리되기 전에는 Azure Portal에서 Data Box Heavy 주문을 취소할 수 있습니다. 주문이 처리되면 주문을 취소할 수 없습니다. 완료된 단계에 도달할 때까지 주문이 진행됩니다. 주문을 취소하려면 **개요**로 이동하고 명령 모음에서 **취소**를 클릭합니다.
+- 주문이 처리되기 전에는 Azure Portal에서 Data Box Heavy 주문을 취소할 수 있습니다. 주문이 처리되면 주문을 취소할 수 없습니다. 완료된 단계에 도달할 때까지 주문이 진행됩니다. 주문을 취소하려면 **개요** 로 이동하고 명령 모음에서 **취소** 를 클릭합니다.
 
-- 상태가 Azure Portal에서 **완료됨** 또는 **취소됨**으로 표시되면 주문을 삭제할 수 있습니다. 주문을 삭제하려면 **개요**로 이동하고 명령 모음에서 **삭제**를 클릭합니다.
+- 상태가 Azure Portal에서 **완료됨** 또는 **취소됨** 으로 표시되면 주문을 삭제할 수 있습니다. 주문을 삭제하려면 **개요** 로 이동하고 명령 모음에서 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

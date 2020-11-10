@@ -86,7 +86,7 @@
     - name: Azure Database for PostgreSQL - 하이퍼스케일 보안 기준
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Azure Databricks 보안 기준
-      href: ../../azure-databricks/security-baseline.md
+      href: /azure/databricks/scenarios/security-baseline
     - name: Azure DNS 보안 기준
       href: ../../dns/security-baseline.md
     - name: Azure DevTest Labs 보안 기준
@@ -118,7 +118,7 @@
     - name: Azure Sentinel 보안 기준
       href: ../../sentinel/security-baseline.md
     - name: Azure SQL Database 보안 기준
-      href: ../../sql-database/security-baseline.md
+      href: ../../azure-sql/database/security-baseline.md
     - name: Azure Storage 보안 기준
       href: ../../storage/common/security-baseline.md
     - name: Azure Traffic Manager 보안 기준
@@ -154,7 +154,7 @@
     - name: HDInsight 보안 기준
       href: ../../hdinsight/security-baseline.md
     - name: Key Vault 보안 기준
-      href: ../../key-vault/security-baseline.md
+      href: ../../key-vault/general/security-baseline.md
     - name: Logic Apps 보안 기준
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher 보안 기준

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f159e38eb66e1758feaf743c32d8de30c614b234
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310323"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -54,7 +54,7 @@ Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되�
 | **INSERT 문** | 예 | 예 |
 | **UPDATE 문** | 예 | 예 |
 | **DELETE 문** | 예 | 예 |
-| **MERGE 문** | 예 | 예 |
+| **MERGE 문** | 아니요 | 예 |
 | **[트랜잭션](develop-transactions.md)** | 예 | 예 |
 | **[레이블](develop-label.md)** | 예 | 예 |
 | **데이터 로드** | 예. 기본 설정 유틸리티는 [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문이지만 데이터 로드를 위한 BULK 로드(BCP)와 [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)가 시스템에서 모두 지원됩니다. | 예 |
@@ -79,8 +79,8 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 | **사용자** |  해당 없음(포함된 사용자만 데이터베이스에서 지원됨) | 예 |
 | **[포함된 사용자](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | 예. **참고:** Azure AD 사용자 한 명만 무제한 관리자가 될 수 있음 | 예 |
 | **SQL 사용자 이름/암호 인증**| 예 | 예 |
-| **AAD(Azure Active Directory) 인증**| 예, Azure AD 사용자 | 예, Azure AD 로그인 및 사용자 |
-| **스토리지 AAD(Azure Active Directory) 통과 인증** | 예 | 예 |
+| **Azure AD(Azure Active Directory) 인증**| 예, Azure AD 사용자 | 예, Azure AD 로그인 및 사용자 |
+| **스토리지 Azure AD(Azure Active Directory) 통과 인증** | 예 | 예 |
 | **스토리지 SAS 토큰 인증** | 예 | 예, 인스턴스 수준 [자격 증명](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 또는 [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용합니다. |
 | **스토리지 액세스 키 인증** | 예, [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용합니다. | 예 |
 | **스토리지 [관리 ID](../security/synapse-workspace-managed-identity.md) 인증** | 예, [관리되는 서비스 ID 자격 증명](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용합니다. | 예, `Managed Identity` 자격 증명을 사용합니다. |
@@ -103,7 +103,7 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 | **[방화벽 규칙](../security/synapse-workspace-ip-firewall.md)**| 예 | 예 |
 | **[프라이빗 엔드포인트](../security/synapse-workspace-managed-private-endpoints.md)**| 예 | 예 |
 
-SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이터를 쿼리합니다. 자세한 차이점은 [Transact-SQL 언어 참조](/sql/t-sql/language-reference)에서 참조하세요.
+전용 SQL 풀 및 서버리스 SQL 풀은 표준 Transact-SQL 언어를 사용하여 데이터를 쿼리합니다. 자세한 차이점은 [Transact-SQL 언어 참조](/sql/t-sql/language-reference)에서 참조하세요.
 
 ## <a name="tools"></a>도구
 
@@ -118,7 +118,7 @@ SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이�
 | **SQL Server Management Studio** | 예 | 예, 버전 18.5 이상 |
 
 > [!NOTE]
-> SSMS를 사용하여 SQL 주문형(미리 보기) 및 쿼리에 연결할 수 있습니다. 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
+> SSMS를 사용하여 서버리스 SQL 풀(미리 보기) 및 쿼리에 연결할 수 있습니다. 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
 
 대부분의 애플리케이션은 표준 Transact-SQL 언어를 사용하여 Synapse SQL의 서버리스 및 프로비저닝된 소비 모델을 모두 쿼리할 수 있습니다.
 
@@ -150,7 +150,7 @@ SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이�
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
-SQL 풀 및 주문형 SQL의 모범 사례에 대한 추가 정보는 다음 문서를 참조하세요.
+전용 SQL 풀 및 서버리스 SQL 풀의 모범 사례에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다.
 
-- [SQL 풀에 대한 모범 사례](best-practices-sql-pool.md)
-- [주문형 SQL에 대한 모범 사례](best-practices-sql-on-demand.md)
+- [전용 SQL 풀에 대한 모범 사례](best-practices-sql-pool.md)
+- [서버리스 SQL 풀에 대한 모범 사례](best-practices-sql-on-demand.md)

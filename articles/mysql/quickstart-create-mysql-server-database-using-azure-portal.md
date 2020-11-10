@@ -1,22 +1,24 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure Portal - Azure Database for MySQL'
-description: 이 문서에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버 샘플을 만드는 과정을 안내합니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버 샘플을 만드는 과정을 안내합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cae0187643eb596bd98bcd99a588a4d214e6f6e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541403"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341215"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for MySQL 서버 만들기
 
-Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다.  
+Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -39,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Azure Database for MySQL 옵션":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="서버 양식 만들기":::
 
 **설정** | **제안 값** | **필드 설명** 
 ---|---|---
@@ -67,7 +69,7 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 기본적으로 만들어진 서버는 방화벽으로 보호되며 공개적으로 액세스할 수 없습니다. IP에 대한 액세스 권한을 부여하려면 Azure Portal의 서버 리소스로 이동하여 서버 리소스의 왼쪽 메뉴에서 **연결 보안** 을 선택합니다. 리소스를 찾는 방법을 모를 경우 [리소스를 여는 방법](../azure-resource-manager/management/manage-resources-portal.md#open-resources)을 참조하세요.
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Azure Database for MySQL 옵션":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="연결 보안 - 방화벽 규칙":::
    
 이제 **현재 클라이언트 IP 주소 추가** 를 선택한 다음, **저장** 을 선택합니다. 추가 IP를 추가하거나 IP 범위를 제공하여 해당 IP에서 서버에 연결할 수 있습니다. 자세한 내용은 [Azure Database for MySQL 서버에서 방화벽 규칙을 관리하는 방법](./concepts-firewall-rules.md)을 참조하세요.
 
@@ -83,7 +85,7 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
     >클라우드 셸을 처음 시작하는 경우 리소스 그룹, 스토리지 계정을 생성하라는 메시지가 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Azure Database for MySQL 옵션":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="포털 전체 보기 Cloud Shell":::
 2. Azure Cloud Shell 터미널에서 이 명령을 실행합니다. 값을 실제 서버 이름 및 관리 사용자 로그인 이름으로 바꿉니다. 관리자 사용자 이름에는 아래와 같이 Azure Database for MySQL에 대해 '@\<servername>'이 필요합니다.  
 
   ```azurecli-interactive
@@ -136,10 +138,8 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 
 서버를 삭제하려면 아래와 같이 서버의 **개요** 페이지에서 **삭제** 단추를 클릭하면 됩니다.
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Azure Database for MySQL 옵션":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="리소스 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 >[MySQL을 사용하여 Windows에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md)
->[MySQL을 사용하여 Linux에서 PHP 앱 빌드](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[MySQL을 사용하여 Java 기반 Spring 앱 빌드](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 860fcb2948869d21eb78d0b318074b9a5e2ba0b9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790324"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310654"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 또는 Power BI를 사용한 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 엔드투엔드 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터를 사용하여 분석을 통해 샘플 Wingtip Tickets SaaS 애플리케이션을 비롯한 테넌트 동작을 살펴보게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다.
 
-1. 각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출** 합니다. 이 경우는 SQL 풀입니다.
+1. 각 테넌트 데이터베이스에서 분석 저장소(이 경우 전용 SQL 풀)로 **데이터를 추출** 합니다.
 2. 분석 처리를 위해 **추출된 데이터를 최적화** 합니다.
 3. **비즈니스 인텔리전스** 도구를 사용하여 의사 결정에 도움이 되는 유용한 인사이트를 얻습니다.
 
@@ -45,7 +45,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 대규모로 분산되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하여 쿼리하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소로 SQL Database나 SQL 풀을 사용할 수 있습니다. 이 자습서에서는 [Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)를 분석 저장소로 사용합니다.
+이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소는 SQL Database 또는 전용 SQL 풀일 수 있습니다. 이 자습서에서는 [Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)를 분석 저장소로 사용합니다.
 
 다음으로, 추출된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환해 로드합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -77,7 +77,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
 
-이 자습서는 티켓 판매량 데이터에 대한 분석을 탐색합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다. 다음 단계에서 이 데이터는 분석을 위해 추출됩니다. (앞서 설명한 대로) 충분한 데이터가 있어 다른 티켓 구매 패턴의 범위를 공개할 수 있도록 _테넌트의 일괄 처리를 프로비전했는지 확인합니다_ .
+이 자습서는 티켓 판매량 데이터에 대한 분석을 탐색합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다. 다음 단계에서 이 데이터는 분석을 위해 추출됩니다. (앞서 설명한 대로) 충분한 데이터가 있어 다른 티켓 구매 패턴의 범위를 공개할 수 있도록 _테넌트의 일괄 처리를 프로비전했는지 확인합니다_.
 
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* 을 열고 다음 값을 설정합니다.
     - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입
@@ -87,7 +87,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)로 데이터를 가장 효율적으로 로드하기 위해 ADF는 데이터를 중간 Blob 파일로 추출한 다음, [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md)를 사용하여 데이터를 데이터웨어하우스로 로드합니다.
 
-이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_ 라는 SQL 풀, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 이라는 Azure Storage 계정입니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
+이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_ 라는 전용 SQL 풀, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 이라는 Azure 스토리지 계정입니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
 
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* 을 열고 다음을 설정합니다.
     - **$DemoScenario** = **2** 테넌트 분석 데이터 웨어하우스, Blob Storage 및 데이터 팩터리 배포
@@ -159,7 +159,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 
 **파이프라인 3 - TableCopy** 는 SQL Database( _rowversion_ )에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets** , **raw_Customers** , **raw_Venues** 및 **raw_Events** 의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다.
 
-원본 SQL Database, 대상 SQL 풀 및 중간 Blob Storage에 데이터 팩토리를 연결하는 세 개의 매개 변수가 있는 연결된 서비스가 있습니다. 다음 그림에 설명된 것 처럼 **작성자** 탭에서 **연결** 을 클릭하여 연결된 서비스를 탐색합니다.
+원본 SQL Database, 대상 전용 SQL 풀 및 중간 Blob 스토리지에 데이터 팩토리를 연결하는 세 개의 매개 변수가 있는 연결된 서비스가 있습니다. 다음 그림에 설명된 것 처럼 **작성자** 탭에서 **연결** 을 클릭하여 연결된 서비스를 탐색합니다.
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 

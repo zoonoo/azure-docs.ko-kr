@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540509"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313625"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>자습서: Azure 자동화된 ML 및 Apache Spark를 사용하여 실험 실행
 
@@ -29,13 +29,16 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 - 모델 정확도 계산
 
 ### <a name="before-you-begin"></a>시작하기 전 주의 사항
-- [Apache Spark 풀 만들기 자습서](../quickstart-create-apache-spark-pool-studio.md)에 따라 Apache Spark 풀을 만듭니다.
+
+- [서버리스 Apache Spark 풀 만들기 빠른 시작](../quickstart-create-apache-spark-pool-studio.md)에 따라 서버리스 Apache Spark 풀을 만듭니다.
 - 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정 자습서](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup)를 완료합니다. 
 
 ### <a name="understand-regression-models"></a>회귀 모델 이해
-*회귀 모델*은 독립 예측 변수를 기반으로 하여 숫자 출력 값을 예측합니다. 회귀 분석이 목표는 한 변수가 다른 변수에 미치는 영향을 추정하여 이러한 독립 예측 변수 간의 관계를 설정하는 데 도움을 주는 것입니다.  
+
+*회귀 모델* 은 독립 예측 변수를 기반으로 하여 숫자 출력 값을 예측합니다. 회귀 분석이 목표는 한 변수가 다른 변수에 미치는 영향을 추정하여 이러한 독립 예측 변수 간의 관계를 설정하는 데 도움을 주는 것입니다.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>NYC 택시 데이터의 회귀 분석 예제
+
 이 예제에서는 Spark를 사용하여 뉴욕의 택시 이동 팁 데이터를 분석합니다. 데이터는 [Azure 공개 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 통해 사용할 수 있습니다. 이 데이터 세트의 하위 집합에는 각 이동에 대한 정보, 시작 및 종료 시간과 위치, 비용 및 기타 흥미로운 특성을 포함한 노랑 택시 이동에 대한 정보가 포함되어 있습니다.
 
 > [!IMPORTANT]
@@ -125,7 +128,7 @@ training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 이 단계에서는 데이터를 사용하여 모델을 학습시키는 데 사용되지 않은 완성된 모델을 테스트하도록 합니다. 
 
 ## <a name="connect-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 연결
-Azure Machine Learning에서 **작업 영역**은 Azure 구독 및 리소스 정보를 수락하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. 이 단계에서는 기존 Azure Machine Learning 작업 영역에서 작업 영역 개체를 만듭니다.
+Azure Machine Learning에서 **작업 영역** 은 Azure 구독 및 리소스 정보를 수락하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. 이 단계에서는 기존 Azure Machine Learning 작업 영역에서 작업 영역 개체를 만듭니다.
    
 ```python
 from azureml.core import Workspace
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>데이터 프레임을 Azure Machine Learning 데이터 세트로 변환
-원격 실험을 제출하려면 데이터 세트를 Azure Machine Learning ```TabularDatset```로 변환해야 합니다. [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)는 제공된 파일을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다.
+원격 실험을 제출하려면 데이터 세트를 Azure Machine Learning ```TabularDatset```로 변환해야 합니다. [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)는 제공된 파일을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다.
 
 다음 코드는 기존 작업 영역과 기본 Azure Machine Learning 기본 데이터 저장소를 가져옵니다. 그런 다음, 데이터 저장소 및 파일 위치를 경로 매개 변수에 전달하여 새 ```TabularDataset```를 만듭니다. 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![업로드된 데이터 세트의 그림](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>자동화된 ML 실험 제출
+## <a name="submit-an-automl-experiment"></a>AutoML 실험 제출
 
 #### <a name="define-training-settings"></a>학습 설정 정의
 

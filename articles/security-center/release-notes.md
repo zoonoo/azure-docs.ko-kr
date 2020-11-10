@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900245"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357813"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -29,6 +29,37 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 > [!TIP]
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
+
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
+
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](../security/benchmarks/introduction.md).
+
+이 벤치마크의 적용 범위를 넓히기 위해 다음 29개의 새로운 추천 사항이 Security Center에 추가되었습니다.
+
+미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
+
+| 보안 컨트롤                     | 새로운 권장 사항                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 전송 중인 데이터 암호화              | - PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br>- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br>- TLS를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- TLS를 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- TLS를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- API 앱에서 FTPS를 요구해야 합니다.<br>- 함수 앱에서 FTPS를 요구해야 합니다.<br>- 웹앱에서 FTPS를 요구해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 액세스 및 사용 권한 관리        | - 웹앱에서 들어오는 모든 요청에 대해 SSL 인증서를 요청해야 합니다.<br>- API 앱에서 관리 ID를 사용해야 합니다.<br>- 함수 앱에서 관리 ID를 사용해야 합니다.<br>- 웹앱에서 관리 ID를 사용해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 무단 네트워크 액세스 제한 | - 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용할 수 있어야 합니다.<br>- 프라이빗 엔드포인트를 MariaDB 서버에서 사용할 수 있어야 합니다.<br>- 프라이빗 엔드포인트를 MySQL 서버에서 사용할 수 있어야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 감사 및 로깅 사용          | - App Services에서 진단 로그를 사용하도록 설정해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 보안 모범 사례 구현    | - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.<br>- Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- PHP를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- PHP를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 API 앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 웹앱 버전으로 업데이트해야 합니다.<br>- SQL 서버에 대한 감사 보존 기간은 90일 이상으로 설정해야 합니다. |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+관련 링크:
+
+- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [Azure API 앱에 대한 자세한 정보](../app-service/app-service-web-tutorial-rest-api.md)
+- [Azure 함수 앱에 대한 자세한 정보](../azure-functions/functions-overview.md)
+- [Azure 웹앱에 대한 자세한 정보](../app-service/overview.md)
+- [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
+- [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
+- [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
+
 
 
 
@@ -741,137 +772,3 @@ Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log A
 |                                                                                                                                                                                                                                                                       |                                      |
 
 [Azure Security Center의 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
-
-
-
-
-
-## <a name="may-2020"></a>2020년 5월
-
-5월의 업데이트는 다음과 같습니다.
-- [중복된 경고 제거 규칙(미리 보기)](#alert-suppression-rules-preview)
-- [공급되는 가상 머신 취약성 평가 일반 공급](#virtual-machine-vulnerability-assessment-is-now-generally-available)
-- [JIT(just-in-Time) VM(가상 머신) 액세스의 변경 사항](#changes-to-just-in-time-jit-virtual-machine-vm-access)
-- [사용자 지정 권장 사항이 별도의 보안 컨트롤로 이동됨](#custom-recommendations-have-been-moved-to-a-separate-security-control)
-- [설정/해제가 컨트롤의 권장 사항 보기에 또는 단순 목록으로 추가됨](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
-- [확장된 보안 컨트롤 "보안 모범 사례 구현"](#expanded-security-control-implement-security-best-practices)
-- [이제 일반 공급되는 사용자 지정 메타데이터가 포함된 사용자 지정 정책](#custom-policies-with-custom-metadata-are-now-generally-available)
-- [파일리스 공격 탐지로 마이그레이션하는 크래시 덤프 분석 기능](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
-
-
-### <a name="alert-suppression-rules-preview"></a>중복된 경고 제거 규칙(미리 보기)
-
-이 새로운 기능(현재 미리 보기 상태)은 경고 피로를 줄이는 데 도움이 됩니다. 규칙을 사용하여 조직 내 정상적인 작업에 무해하거나 관련이 있는 것으로 알려진 경고를 자동으로 숨깁니다. 이렇게 하면 가장 관련성이 높은 위협에 집중할 수 있습니다. 
-
-활성화된 중복된 경고 제거 규칙과 일치하는 경고는 계속 생성되지만 해당 상태는 해제됨으로 설정됩니다. Azure Portal에서 상태를 보거나 Security Center 보안 경고에 액세스할 수 있습니다.
-
-중복된 경고 제거 규칙은 경고를 자동으로 해제할 조건을 정의합니다. 일반적으로 다음과 같은 경우에는 중복된 경고 제거 규칙을 사용합니다.
-
-- 거짓 긍정으로 식별한 경고를 표시 안 함
-
-- 너무 자주 트리거되는 경고를 표시 안 함
-
-[Azure Security Center의 위협 방지에서 경고 표시 안 함](alerts-suppression-rules.md)에 대해 자세히 알아보세요.
-
-
-### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>공급되는 가상 머신 취약성 평가 일반 공급
-
-가상 머신에 대한 통합 취약성 평가가 이제 Security Center의 표준 계층에 추가 비용 없이 포함됩니다. 이 확장은 Qualys에서 제공하지만 검색 결과를 다시 Security Center에 보고합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다.
-
-새 솔루션은 가상 머신을 지속적으로 스캔하여 취약성을 찾고 Security Center에 검색 결과를 제공할 수 있습니다. 
-
-솔루션을 배포하려면 새 보안 권장 사항을 사용합니다.
-
-"가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)"
-
-[가상 머신에 대한 Security Center의 통합 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요.
-
-
-
-### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>JIT(just-in-Time) VM(가상 머신) 액세스의 변경 사항
-
-Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 포함되어 있습니다. 이는 가장 일반적인 형태의 무차별 암호 대입 공격에 대한 방어를 제공합니다.
-
-이 업데이트는 이 기능을 다음과 같이 변경합니다.
-
-- VM에서 JIT를 사용하도록 설정하라는 권장 사항의 이름이 변경되었습니다. 이전의 "가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 함"은 이제 다음과 같습니다. "가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함".
-
-- 추천 사항은 열린 관리 포트가 있는 경우에만 트리거됩니다.
-
-[JIT 액세스 기능](security-center-just-in-time.md)에 대해 자세히 알아보세요.
-
-
-### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>사용자 지정 권장 사항이 별도의 보안 컨트롤로 이동됨
-
-향상된 보안 점수와 함께 도입된 보안 제어 중 하나는 "보안 모범 사례 구현"이었습니다. 구독에 대해 생성된 사용자 지정 권장 사항은 자동으로 해당 컨트롤에 배치되었습니다. 
-
-사용자 지정 권장 사항을 더 쉽게 찾을 수 있도록 이를 전용 보안 컨트롤인 "사용자 지정 권장 사항"으로 이동했습니다. 이 컨트롤은 보안 점수에 영향을 미치지 않습니다.
-
-[Azure Security Center에서 향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 컨트롤에 대해 자세히 알아보세요.
-
-
-### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>설정/해제가 컨트롤의 권장 사항 보기에 또는 단순 목록으로 추가됨
-
-보안 컨트롤은 관련된 보안 권장 사항의 논리적 그룹입니다. 취약한 공격 노출 영역을 반영합니다. 컨트롤은 이러한 권장 사항을 구현하는 데 도움이 되는 지침을 포함하는 보안 권장 사항 집합입니다.
-
-조직이 각 개별 공격 노출 영역을 얼마나 잘 보호하고 있는지 즉시 확인하려면 각 보안 컨트롤의 점수를 검토합니다.
-
-기본적으로 권장 사항은 보안 컨트롤에 표시됩니다. 이 업데이트에서는 목록으로 표시할 수도 있습니다. 영향을 받는 리소스의 상태를 기준으로 정렬된 간단한 목록으로 표시하려면 새 ' 컨트롤 그룹화' 토글을 사용합니다. 토글은 포털의 목록 상단에 있습니다.
-
-보안 컨트롤 및 이 토글은 새로운 보안 점수 환경의 일부입니다. 포털 내에서 사용자 의견을 보내 주시기 바랍니다.
-
-[Azure Security Center에서 향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 컨트롤에 대해 자세히 알아보세요.
-
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="추천 사항에 대한 제어를 기준으로 그룹화 설정/해제":::
-
-### <a name="expanded-security-control-implement-security-best-practices"></a>확장된 보안 컨트롤 "보안 모범 사례 구현" 
-
-향상된 보안 점수와 함께 도입된 보안 제어 중 하나는 "보안 모범 사례 구현"입니다. 이 컨트롤에 권장 사항이 있으면 보안 점수에 영향을 주지 않습니다. 
-
-이 업데이트를 사용하면 세 가지 권장 사항이 원래 배치된 컨트롤에서 이 모범 사례 제어로 이동했습니다. 이러한 세 가지 권장 사항에 대한 위험이 처음에 생각된 것보다 낮은 것으로 판단했기 때문에 이 단계를 수행했습니다.
-
-또한 이 컨트롤에는 두 가지 새로운 권장 사항이 도입되어 추가되었습니다.
-
-이동한 세 가지 권장 사항은 다음과 같습니다.
-
-- **구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다** (원래 "MFA 사용" 컨트롤).
-- **읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
-- **구독에 대해 최대 3명의 소유자를 지정해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
-
-컨트롤에 추가된 두 가지 새로운 권장 사항은 다음과 같습니다.
-
-- **Windows Virtual Machines에 게스트 구성 확장을 설치해야 함(미리 보기)** - [Azure Policy 게스트 구성](../governance/policy/concepts/guest-configuration.md)을 사용하면 가상 머신 내에서 서버 및 애플리케이션 설정에 대한 가시성을 제공합니다(Windows만 해당).
-
-- **Windows Defender Exploit Guard를 머신에서 사용하도록 설정해야 함(미리 보기)** - Windows Defender Exploit Guard는 Azure Policy 게스트 구성 에이전트를 활용합니다. Exploit Guard에는 다양한 공격 벡터에 대해 디바이스를 잠그고 맬웨어 공격에서 일반적으로 사용되는 동작을 차단하면서 기업에서 보안 위험과 생산성 요구 사항 사이의 균형을 맞출 수 있도록 설계된 4가지 구성 요소가 있습니다(Windows에만 해당).
-
-[Exploit Guard 정책 만들기 및 배포](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy)에서 Windows Defender Exploit Guard에 대해 자세히 알아보세요.
-
-[향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 제어에 대해 자세히 알아보세요.
-
-
-
-### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>이제 일반 공급되는 사용자 지정 메타데이터가 포함된 사용자 지정 정책
-
-사용자 지정 정책은 이제 Security Center 권장 사항 환경, 보안 점수 및 규정 준수 표준 대시보드의 일부입니다. 이 기능은 이제 일반 공급되며, Security Center에서 조직의 보안 평가 적용 범위를 확장할 수 있습니다. 
-
-Azure 정책에서 사용자 지정 이니셔티브를 만들고, 여기에 정책을 추가하고 Azure Security Center에 온보딩하고, 권장 사항으로 시각화합니다.
-
-이제 사용자 지정 권장 구성 메타데이터를 편집하는 옵션도 추가했습니다. 메타데이터 옵션에는 심각도, 수정 단계, 위협 정보 등이 포함됩니다.  
-
-[세부 정보를 사용하여 사용자 지정 권장 사항 향상](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information)에 대해 자세히 알아보세요.
-
-
-
-### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>파일리스 공격 탐지로 마이그레이션하는 크래시 덤프 분석 기능 
-
-Microsoft는 CDA(Windows 크래시 덤프 분석) 탐지 기능을 [파일리스 공격 탐지](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers)에 통합하고 있습니다. 파일리스 공격 탐지 분석은 Windows 컴퓨터에 대해 다음과 같은 보안 경고의 향상된 버전을 제공합니다. 코드 주입 검색됨, 모조 Windows 모듈 탐지됨, Shellcode 검색됨 및 의심스러운 코드 세그먼트 탐지됨.
-
-이러한 전환의 이점 중 일부는 다음과 같습니다.
-
-- **사전 예방적이고 시기 적절한 맬웨어 탐지** - 작동 중단이 발생할 때까지 기다린 다음, 분석을 실행하여 악성 아티팩트를 찾는 데 관련된 CDA 접근 방법입니다. 파일리스 공격 탐지를 사용하면 실행되는 동안 메모리 내 위협이 사전 예방적으로 식별됩니다. 
-
-- **보강 경고** - 파일리스 공격 탐지의 보안 경고에는 CDA에서 사용할 수 없는 강화(예: 활성 네트워크 연결 정보)가 포함됩니다. 
-
-- **경고 집계** - CDA는 단일 크래시 덤프 내에서 여러 공격 패턴을 탐지한 경우 여러 보안 경고를 트리거했습니다. 파일리스 공격 탐지는 동일한 프로세스에서 식별된 모든 공격 패턴을 단일 경고로 결합하여 여러 경고를 상호 연결할 필요가 없도록 합니다.
-
-- **Log Analytics 작업 영역에 대한 요구 사항 감소** - 잠재적으로 중요한 데이터가 포함된 크래시 덤프는 Log Analytics 작업 영역에 더 이상 업로드되지 않습니다.

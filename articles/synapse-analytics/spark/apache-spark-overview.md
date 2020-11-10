@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0ea46122cffe03ffe2e6a4e07afc6995d88a3acb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306983"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark
 
-Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 병렬 처리 프레임워크입니다. Azure Synapse Analytics의 Apache Spark는 Microsoft가 구현한 클라우드의 Apache Spark 중 하나입니다. Azure Synapse를 사용하면 Azure에서 Spark 풀(미리 보기)을 쉽게 만들고 구성할 수 있습니다. Azure Synapse의 Spark 풀은 Azure Storage 및 Azure Data Lake 2세대 스토리지와 호환됩니다. 따라서 Azure Spark 풀을 사용하여 Azure에 저장된 데이터를 처리할 수 있습니다.
+Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 병렬 처리 프레임워크입니다. Azure Synapse Analytics의 Apache Spark는 Microsoft가 구현한 클라우드의 Apache Spark 중 하나입니다. Azure Synapse를 사용하면 Azure에서 서버리스 Apache Spark 풀(미리 보기)을 쉽게 만들고 구성할 수 있습니다. Azure Synapse의 Spark 풀은 Azure Storage 및 Azure Data Lake 2세대 스토리지와 호환됩니다. 따라서 Spark 풀을 사용하여 Azure에 저장된 데이터를 처리할 수 있습니다.
 
 ![Spark: 통합된 프레임워크](./media/apache-spark-overview/spark-overview.png)
 

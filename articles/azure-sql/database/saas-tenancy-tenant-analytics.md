@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790936"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305970"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "92790936"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 잠재적으로 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하고 트랜잭션 데이터에 대한 분석 쿼리의 영향을 최소화하는 한 가지 방법은 데이터를 목적이 있는 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다.  분석 저장소로 SQL Database나 SQL 풀을 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다. 분석 저장소는 SQL Database 또는 전용 SQL 풀일 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.  Wingtip Tickets의 경우 다음과 같습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "92790936"
  
 ![architectureOverView](./media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-마지막으로 테넌트 동작에 대한 정보와 Wingtip Tickets 애플리케이션의 사용을 강조 표시하기 위해 **PowerBI** 를 통해 분석 저장소가 쿼리됩니다. 다음과 같은 쿼리를 실행합니다.
+마지막으로 테넌트 동작에 대한 인사이트와 Wingtip Tickets 애플리케이션의 사용을 강조 표시하기 위해 **Power BI** 를 통해 분석 저장소가 쿼리됩니다. 다음과 같은 쿼리를 실행합니다.
  
 - 각 장소의 상대적 인기도를 표시하는 쿼리
 - 다른 이벤트에 대한 티켓 판매의 패턴을 강조 표시하는 쿼리
@@ -77,7 +77,7 @@ ms.locfileid: "92790936"
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
 
-이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다* . 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
+이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다*. 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
 
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 을 열고 다음 값을 설정합니다.
     - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입

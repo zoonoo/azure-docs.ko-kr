@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/25/2020
-ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/28/2020
+ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91361214"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099191"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "91361214"
 
 [Azure Portal](https://portal.azure.com) 및 Visual Studio에서 이러한 동일 작업을 수행할 수도 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code를 사용하면 작업을 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
-이 문서의 경우 기본적인 개념에 대해 더 중점적으로 설명하는 [빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서 동일한 논리 앱을 만들 수 있습니다. Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
+이 문서의 경우 기본적인 개념에 대해 더 중점적으로 설명하는 [빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서 동일한 논리 앱을 만들 수 있습니다. 또한 [Visual Studio에서 예제 앱을 만드는 방법에 대해 학습](quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure CLI(Azure 명령줄 인터페이스)를 통해 앱을 만들고 관리하는 방법을 학습할 수 있습니다](quickstart-logic-apps-azure-cli.md). Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
 
 ![논리 앱 워크플로 정의 예제](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -224,7 +224,7 @@ Azure Portal에서 논리 앱을 검토하려면 다음 단계를 수행합니�
 
 ## <a name="disable-or-enable-logic-app"></a>논리 앱 사용 또는 사용 안 함
 
-Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다* . 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
+Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다*. 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
 
 1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 

@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: SQL 주문형 사용'
-description: 이 빠른 시작에서는 SQL 주문형(미리 보기)을 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
+title: '빠른 시작: 서버리스 SQL 풀 사용'
+description: 이 빠른 시작에서는 서버리스 SQL 풀(미리 보기)을 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321687"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
+# <a name="quickstart-use-serverless-sql-pool"></a>빠른 시작: 서버리스 SQL 풀 사용
 
-Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 SQL 주문형을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다. 지원되는 형식은 [OPENROWSET](sql/develop-openrowset.md)에 나열되어 있습니다.
+Synapse 서버리스 SQL 풀(미리 보기)은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 서버리스 SQL 풀을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다. 지원되는 형식은 [OPENROWSET](sql/develop-openrowset.md)에 나열되어 있습니다.
 
 이 빠른 시작에서는 쿼리를 보여줍니다. CSV, Apache Parquet 및 JSON 파일.
 
@@ -34,8 +34,8 @@ Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL
 
 | 매개 변수                                 | 설명                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
-| SQL 주문형 서비스 엔드포인트 영역     | 샘플에 사용할 스토리지를 결정하는 데 사용 |
+| 서버리스 SQL 풀 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
+| 서버리스 SQL 풀 서비스 엔드포인트 지역     | 샘플에 사용할 스토리지를 결정하는 데 사용 |
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 엑세스에 사용                               |
 | 보기를 만드는 데 사용되는 데이터베이스         | 샘플에서 시작점으로 사용되는 데이터베이스       |
 
@@ -44,7 +44,7 @@ Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL
 샘플을 사용하기 전에 다음을 수행합니다.
 
 - 보기에 대한 데이터베이스 만들기(보기를 사용하려는 경우)
-- SQL 주문형에서 스토리지의 파일에 액세스하는 데 사용할 자격 증명 만들기
+- 서버리스 SQL 풀에서 스토리지의 파일에 액세스하는 데 사용할 자격 증명 만들기
 
 ### <a name="create-database"></a>데이터베이스 만들기
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>데이터 원본 만들기
 
-SQL 주문형을 사용하여 쿼리를 실행하려면 SQL 주문형이 스토리지의 파일에 액세스하는 데 사용할 수 있는 데이터 원본을 만듭니다.
+서버리스 SQL 풀을 사용하여 쿼리를 실행하려면 서버리스 SQL 풀이 스토리지의 파일에 액세스하는 데 사용할 수 있는 데이터 원본을 만듭니다.
 다음 코드 조각을 실행하여 이 섹션의 샘플에 사용된 데이터 원본을 만듭니다.
 
 ```sql
@@ -115,7 +115,7 @@ WHERE
 다음 샘플에서는 Parquet 파일을 쿼리하기 위한 자동 스키마 유추 기능을 보여줍니다. 이 샘플에서는 스키마를 지정하지 않고 2017년 9월의 행 수를 반환합니다.
 
 > [!NOTE]
-> Parquet 파일을 읽을 때 `OPENROWSET WITH` 절에서 열을 지정할 필요가 없습니다. 이 경우 SQL 주문형은 Parquet 파일의 메타데이터를 활용하여 열을 이름별로 바인딩합니다.
+> Parquet 파일을 읽을 때 `OPENROWSET WITH` 절에서 열을 지정할 필요가 없습니다. 이 경우 서버리스 SQL 풀은 Parquet 파일의 메타데이터를 활용하여 열을 이름별로 바인딩합니다.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -153,7 +153,7 @@ FROM OPENROWSET
 
 ### <a name="query-json-files"></a>JSON 파일 쿼리
 
-다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*라는 제목의 서적에서 스칼라 값(제목, 게시자)을 검색하는 방법을 보여 줍니다.
+다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* 라는 제목의 서적에서 스칼라 값(제목, 게시자)을 검색하는 방법을 보여 줍니다.
 
 ```sql
 SELECT

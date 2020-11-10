@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Apache Spark 풀 만들기'
-description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 Apache Spark 풀을 만듭니다.
+title: '빠른 시작: Azure Portal을 사용하여 서버리스 Apache Spark 풀 만들기'
+description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 서버리스 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260872"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323529"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 Apache Spark 풀 만들기
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 서버리스 Apache Spark 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 배포하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. Apache Spark 풀은 오픈 소스 빅 데이터 컴퓨팅 기능을 제공합니다. Synapse 작업 영역에서 Apache Spark 풀을 만든 후 보다 빠른 분석 인사이트를 위해 데이터를 로드, 모델링, 처리 및 배포할 수 있습니다.
 
@@ -39,13 +39,13 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 ## <a name="navigate-to-the-synapse-workspace"></a>Synapse 작업 영역으로 이동 
 1. 검색 창에 서비스 이름(또는 리소스 이름)을 직접 입력하여 Apache Spark 풀이 생성될 때 Synapse 작업 영역으로 이동합니다.
 ![Synapse 작업 영역이 입력된 Azure Portal 검색 창.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. 작업 영역 목록에서 열려는 작업 영역의 이름(또는 이름의 일부)을 입력합니다. 이 예제에서는 **contosoanalytics**라는 작업 영역을 사용합니다.
+1. 작업 영역 목록에서 열려는 작업 영역의 이름(또는 이름의 일부)을 입력합니다. 이 예제에서는 **contosoanalytics** 라는 작업 영역을 사용합니다.
 ![Contoso라는 이름이 포함된 작업 영역을 표시하도록 필터링된 Synapse 작업 영역 목록.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>새 Apache Spark 풀 만들기
 
-1. Apache Spark 풀을 만들려는 Synapse 작업 영역에서 **새 Apache Spark 풀**을 선택합니다.
+1. Apache Spark 풀을 만들려는 Synapse 작업 영역에서 **새 Apache Spark 풀** 을 선택합니다.
     ![새 Apache Spark 풀을 만드는 명령 주위에 빨간색 상자가 있는 Synapse 작업 영역 개요](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. **기본 사항** 탭에서 다음 정보를 입력합니다.
 
@@ -61,19 +61,19 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
     > [!IMPORTANT]
     > Apache Spark 풀이 사용할 수 있는 이름과 관련된 제한 사항이 있습니다. 이름은 문자 또는 숫자만 포함해야 하고, 15자 이하여야 하고, 문자로 시작하고 예약어를 포함하지 않아야 하고, 작업 영역에서 고유해야 합니다.
 
-3. **다음: 추가 설정**을 선택하고 기본 설정을 검토합니다. 기본 설정을 수정하지 마세요.
-    ![Apache Spark 풀 만들기 흐름 - 추가 설정 탭](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+3. **다음: 추가 설정** 을 선택하고 기본 설정을 검토합니다. 기본 설정을 수정하지 마세요.
+    !["추가 설정" 탭이 선택된 "Apache Spark 풀 만들기" 페이지를 보여주는 스크린샷.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. **다음: 태그**를 선택합니다. 태그를 추가하지 마세요.
+4. **다음: 태그** 를 선택합니다. 태그를 추가하지 마세요.
     ![Apache Spark 풀 만들기 흐름 - 추가 설정 탭](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. **검토 + 만들기**를 선택합니다.
+5. **검토 + 만들기** 를 선택합니다.
 
-6. 이전에 입력한 내용에 따라 세부 정보가 올바른지 확인하고 **만들기**를 선택합니다.
+6. 이전에 입력한 내용에 따라 세부 정보가 올바른지 확인하고 **만들기** 를 선택합니다.
     ![Apache Spark 풀 만들기 흐름 - 설정 검토 탭](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. 이제 리소스 프로비저닝 흐름이 시작되고 완료되면 표시됩니다.
-    ![Apache Spark 풀 만들기 흐름 - 리소스 프로비저닝](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    !["배포 완료" 메시지가 표시된 "개요" 페이지를 보여주는 스크린샷.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. 프로비전이 완료된 후 작업 영역으로 돌아가면 새로 만든 Apache Spark 풀에 대한 새 항목이 표시됩니다.
     ![Apache Spark 풀 만들기 흐름 - 리소스 프로비저닝](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -89,8 +89,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 Apache Spark 풀을 삭제하려면 다음을 수행합니다.
 
 1. 작업 영역에서 Apache Spark 풀 블레이드로 이동합니다.
-2. 삭제할 Apache Spark 풀을 선택합니다(여기서는 **contosospark**).
-3. **삭제**를 누릅니다.
+2. 삭제할 Apache Spark 풀을 선택합니다(여기서는 **contosospark** ).
+3. **삭제** 를 누릅니다.
  ![최근에 만든 풀이 선택된 Apache Spark 풀 목록](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. 삭제를 확인하고 **삭제** 단추를 누릅니다.
  ![선택한 Apache Spark 풀을 삭제하는 확인 대화 상자](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
@@ -99,4 +99,4 @@ Apache Spark 풀을 삭제하려면 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Apache Spark Notebook 만들기](quickstart-apache-spark-notebook.md)를 참조하세요.
-- [빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.
+- [빠른 시작: Azure Portal을 사용하여 Synapse 전용 SQL 풀 만들기](quickstart-create-sql-pool-portal.md)를 참조하세요.

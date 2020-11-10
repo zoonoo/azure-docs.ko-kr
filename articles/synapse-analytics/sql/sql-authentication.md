@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093534"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317277"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -22,24 +22,24 @@ Azure Synapse Analytics에는 리소스 소비량을 제어할 수 있는 두 �
 
 Synapse SQL에 대한 권한을 부여하려면 다음 두 가지 권한 부여 유형을 사용하면 됩니다.
 
-- AAD 권한 부여
+- Azure Active Directory 권한 부여
 - SQL 권한 부여
 
-AAD 권한 부여는 Azure Active Directory를 사용하여 사용자 관리를 위한 단일 장소를 가질 수 있습니다. SQL 권한 부여를 통해 레거시 애플리케이션은 Synapse SQL을 친숙한 방법으로 사용할 수 있습니다.
+Azure Active Directory를 사용하면 사용자 관리를 위한 단일 장소를 가질 수 있습니다. SQL 권한 부여를 통해 레거시 애플리케이션은 Synapse SQL을 친숙한 방법으로 사용할 수 있습니다.
 
 ## <a name="administrative-accounts"></a>관리자 계정
 
-관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 Synapse SQL의 속성 탭으로 이동합니다.
+관리자로 작동하는 두 가지 관리 계정( **서버 관리자** 및 **Active Directory 관리자** )이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 Synapse SQL의 속성 탭으로 이동합니다.
 
 ![SQL Server 관리자](./media/sql-authentication/sql-admins.png)
 
 - **서버 관리자**
 
-  Azure Synapse Analytics를 만들 때 **서버 관리자 로그인**의 이름을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.
+  Azure Synapse Analytics를 만들 때 **서버 관리자 로그인** 의 이름을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 
 - **Azure Active Directory 관리자**
 
-  하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 Synapse SQL에 연결하려면 Azure AD 관리자를 구성**해야 합니다**.
+  하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 Synapse SQL에 연결하려면 Azure AD 관리자를 구성 **해야 합니다**.
 
 **서버 관리자** 및 **Azure AD 관리자** 계정에는 다음과 같은 특징이 있습니다.
 
@@ -51,18 +51,18 @@ AAD 권한 부여는 Azure Active Directory를 사용하여 사용자 관리를 
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
-## <a name="sql-on-demand-preview"></a>[SQL 주문형(미리 보기)](#tab/serverless)
+## <a name="serverless-sql-pool-preview"></a>[서버리스 SQL 풀(미리 보기)](#tab/serverless)
 
-SQL에 액세스할 수 있는 사용자를 관리하려면 아래 지침을 사용하면 됩니다.
+서버리스 SQL 풀에 액세스할 수 있는 사용자를 관리하려면 아래 지침을 사용하면 됩니다.
 
-SQL 주문형 로그인을 만들려면 다음 구문을 사용합니다.
+서버리스 SQL 풀에 대한 로그인을 만들려면 다음 구문을 사용합니다.
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-로그인이 있으면 SQL 주문형 엔드포인트 내에서 개별 데이터베이스에 사용자를 만들고 이 사용자에게 필요한 권한을 부여할 수 있습니다. 사용을 만들려면 다음 구문을 사용하면 됩니다.
+로그인이 있으면 서버리스 SQL 풀 엔드포인트 내에서 개별 데이터베이스에 사용자를 만들고 이 사용자에게 필요한 권한을 부여할 수 있습니다. 사용을 만들려면 다음 구문을 사용하면 됩니다.
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -77,7 +77,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 
-서버 수준 방화벽이 제대로 구성되면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**가 SQL Server Management Studio 또는 SQL Server Data Tools와 같은 클라이언트 도구를 사용하여 연결할 수 있습니다. 최신 도구만 모든 특징 및 기능을 제공합니다. 
+서버 수준 방화벽이 제대로 구성되면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자** 가 SQL Server Management Studio 또는 SQL Server Data Tools와 같은 클라이언트 도구를 사용하여 연결할 수 있습니다. 최신 도구만 모든 특징 및 기능을 제공합니다. 
 
 다음 다이어그램에서는 두 관리자 계정에 대한 일반적인 구성을 보여줍니다.
  
@@ -158,7 +158,7 @@ Azure SQL Database 또는 synapse 서버리스에서 `ALTER ROLE` 문을 사용�
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-SQL 풀에서 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용합니다.
+전용 SQL 풀에서 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용합니다.
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -187,7 +187,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 - SQL Server 인증을 사용하는 경우 포함된 데이터베이스 사용자를 데이터베이스에 만듭니다. 하나 이상의 데이터베이스 사용자를 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 배치한 다음 해당 데이터베이스 역할에 [권한](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 할당합니다.
 
-데이터베이스 역할은 **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, **db_denydatareader**와 같은 기본 제공된 역할일 수 있습니다. **db_owner**는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 
+데이터베이스 역할은 **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** , **db_denydatareader** 와 같은 기본 제공된 역할일 수 있습니다. **db_owner** 는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 
 
 예를 들어 **db_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 필요합니다. 
 
@@ -208,7 +208,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - `CREATE/ALTER/DROP DATABASE` 문을 실행할 경우 **master** 데이터베이스에 연결해야 합니다.
 - **Server 관리자** 로그인에 해당하는 데이터베이스 사용자를 변경 또는 삭제할 수 없습니다.
 - **Server 관리자** 로그인의 기본 언어는 미국 영어입니다.
-- 관리자(**Server 관리자** 로그인 또는 Azure AD 관리자) 및 **master** 데이터베이스에서 **dbmanager** 데이터베이스 역할의 멤버만 `CREATE DATABASE` 및 `DROP DATABASE` 문을 실행할 사용 권한이 있습니다.
+- 관리자( **Server 관리자** 로그인 또는 Azure AD 관리자) 및 **master** 데이터베이스에서 **dbmanager** 데이터베이스 역할의 멤버만 `CREATE DATABASE` 및 `DROP DATABASE` 문을 실행할 사용 권한이 있습니다.
 - `CREATE/ALTER/DROP LOGIN` 문을 실행할 경우 master 데이터베이스에 연결해야 합니다. 그러나 로그인 사용은 권장되지 않습니다. 대신에 포함된 데이터베이스 사용자를 사용합니다.
 - 사용자 데이터베이스에 연결하려면 연결 문자열에 데이터베이스 이름을 제공해야 합니다.
 - **master** 데이터베이스에서 **loginmanager** 데이터베이스 역할의 서버 수준 보안 주체 로그인 및 멤버는 `CREATE LOGIN`, `ALTER LOGIN` 및 `DROP LOGIN` 문을 실행할 권한이 있습니다.

@@ -40,6 +40,8 @@
       href: front-door-backend-pool.md
     - name: Front Door를 통한 캐싱
       href: front-door-caching.md
+    - name: DDoS 보호
+      href: front-door-ddos.md
     - name: Front Door FAQ
       href: front-door-faq.md
     - name: 지역 필터링

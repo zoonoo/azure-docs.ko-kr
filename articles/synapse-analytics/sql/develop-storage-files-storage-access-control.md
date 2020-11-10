@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
-description: SQL 주문형(미리 보기)에서 Azure Storage에 액세스하는 방법과 Azure Synapse Analytics에서 SQL 주문형 스토리지 액세스를 제어하는 방법을 설명합니다.
+title: 서버리스 SQL 풀(미리 보기)에 대한 스토리지 계정 액세스 제어
+description: 서버리스 SQL 풀(미리 보기)에서 Azure Storage에 액세스하는 방법과 Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 액세스를 제어하는 방법을 설명합니다.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315722"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
+# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)에 대한 스토리지 계정 액세스 제어
 
-SQL 주문형 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure Storage의 파일에 액세스할 수 있는 권한은 두 가지 수준으로 제어됩니다.
+서버리스 SQL 풀 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure Storage의 파일에 액세스할 수 있는 권한은 두 가지 수준으로 제어됩니다.
 - **스토리지 수준** - 사용자에게 기본 스토리지 파일에 액세스할 수 있는 권한이 있어야 합니다. 스토리지 관리자가 Azure AD 보안 주체에게 파일 읽기/쓰기를 허용하거나 스토리지에 액세스하는 데 사용할 SAS 키를 생성해야 합니다.
 - **SQL 서비스 수준** - 사용자에게 [외부 테이블](develop-tables-external-tables.md)의 데이터를 읽을 수 있는 `SELECT` 권한이나 `OPENROWSET`를 실행할 수 있는 `ADMINISTER BULK ADMIN` 권한이 있고 스토리지에 액세스하는 데 사용할 자격 증명을 사용할 권한도 있어야 합니다.
 
@@ -26,14 +26,14 @@ SQL 주문형 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure
 
 ## <a name="supported-storage-authorization-types"></a>지원되는 스토리지 권한 부여 유형
 
-SQL 주문형 리소스에 로그인한 사용자는 파일을 공개적으로 사용할 수 없는 경우 Azure Storage의 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
+서버리스 SQL 풀에 로그인한 사용자는 파일을 공개적으로 사용할 수 없는 경우 Azure Storage의 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
 
 > [!NOTE]
-> **Azure AD 통과**는 작업 영역을 만들 때의 기본 동작입니다.
+> **Azure AD 통과** 는 작업 영역을 만들 때의 기본 동작입니다.
 
 ### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
 
-**사용자 ID**("Azure AD 통과"라고도 함)는 주문형 SQL에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
+**사용자 ID** ("Azure AD 통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
 
 > [!IMPORTANT]
 > 이 ID를 사용하여 데이터에 액세스하려면 Storage Blob 데이터 소유자/기여자/읽기 권한자 역할이 있어야 합니다.
@@ -46,10 +46,10 @@ SQL 주문형 리소스에 로그인한 사용자는 파일을 공개적으로 �
 
 **SAS(공유 액세스 서명)** 는 스토리지 계정의 리소스에 대한 위임된 액세스를 제공합니다. SAS를 사용하면 고객이 계정 키를 공유하지 않고 스토리지 계정의 리소스에 대한 액세스 권한을 클라이언트에 부여할 수 있습니다. SAS는 유효성 간격, 부여된 권한, 허용되는 IP 주소 범위 및 허용되는 프로토콜(https/http)을 포함하여 SAS를 사용하는 클라이언트에 부여하는 액세스 유형에 대한 세부적인 제어를 제공합니다.
 
-**Azure Portal > 스토리지 계정 > 공유 액세스 서명 > 권한 구성 > SAS 및 연결 문자열 생성**으로 차례로 이동하여 SAS 토큰을 가져올 수 있습니다.
+**Azure Portal > 스토리지 계정 > 공유 액세스 서명 > 권한 구성 > SAS 및 연결 문자열 생성** 으로 차례로 이동하여 SAS 토큰을 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> SAS 토큰이 생성되면 토큰의 시작 부분에 물음표('?')가 포함됩니다. SQL 주문형에서 토큰을 사용하려면 자격 증명을 만들 때 물음표('')를 제거해야 합니다. 예를 들면 다음과 같습니다.
+> SAS 토큰이 생성되면 토큰의 시작 부분에 물음표('?')가 포함됩니다. 서버리스 SQL 풀에서 토큰을 사용하려면 자격 증명을 만들 때 물음표('?')를 제거해야 합니다. 예를 들면 다음과 같습니다.
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -57,7 +57,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
-**관리 ID**는 MSI라고도 합니다. Azure 서비스를 SQL 주문형에 제공하는 Azure AD(Azure Active Directory)의 기능입니다. 또한 Azure AD에서 관리 ID를 자동으로 배포합니다. 이 ID는 Azure Storage에서 데이터 액세스에 대한 요청을 승인하는 데 사용될 수 있습니다.
+**관리 ID** 는 MSI라고도 합니다. Azure 서비스를 서버리스 SQL 풀에 제공하는 Azure AD(Azure Active Directory)의 기능입니다. 또한 Azure AD에서 관리 ID를 자동으로 배포합니다. 이 ID는 Azure Storage에서 데이터 액세스에 대한 요청을 승인하는 데 사용될 수 있습니다.
 
 데이터에 액세스하기 전에 Azure Storage 관리자가 데이터에 액세스할 수 있는 권한을 관리 ID에 부여해야 합니다. 관리 ID에 대한 권한 부여는 다른 Azure AD 사용자에게 권한을 부여하는 것과 동일한 방식으로 수행됩니다.
 
@@ -95,7 +95,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 ## <a name="credentials"></a>자격 증명
 
-Azure Storage에 있는 파일을 쿼리하려면 SQL 주문형 엔드포인트에 인증 정보가 포함된 자격 증명이 필요합니다. 두 가지 유형의 자격 증명이 사용됩니다.
+Azure Storage에 있는 파일을 쿼리하려면 서버리스 SQL 풀 엔드포인트에 인증 정보가 포함된 자격 증명이 필요합니다. 두 가지 유형의 자격 증명이 사용됩니다.
 - 서버 수준 자격 증명은 `OPENROWSET` 함수를 사용하여 실행되는 임시 쿼리에 사용됩니다. 자격 증명 이름은 스토리지 URL과 일치해야 합니다.
 - 데이터베이스 범위 자격 증명은 외부 테이블에 사용됩니다. 외부 테이블은 스토리지에 액세스하는 데 사용해야 하는 자격 증명으로 `DATA SOURCE`를 참조합니다.
 
@@ -144,7 +144,7 @@ SQL 사용자는 Azure AD 인증을 사용하여 스토리지에 액세스할 �
 
 다음 스크립트는 `OPENROWSET` 함수가 SAS 토큰을 사용하여 Azure 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다. 이 자격 증명을 만들면 `OPENROWSET` 함수를 실행하는 SQL 보안 주체가 자격 증명 이름의 URL과 일치하는 Azure 스토리지에서 SAS 키로 보호된 파일을 읽을 수 있습니다.
 
-<*mystorageaccountname*>을 실제 스토리지 계정 이름으로 교환하고, <*mystorageaccountcontainername*>을 실제 컨테이너 이름으로 교환합니다.
+< *mystorageaccountname* >을 실제 스토리지 계정 이름으로 교환하고, < *mystorageaccountcontainername* >을 실제 컨테이너 이름으로 교환합니다.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

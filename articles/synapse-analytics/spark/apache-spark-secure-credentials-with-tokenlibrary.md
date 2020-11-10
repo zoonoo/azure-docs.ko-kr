@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324955"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>TokenLibrary와 연결된 서비스를 통해 자격 증명 보호
 외부 소스에서 데이터에 액세스하는 것은 일반적인 패턴입니다. 외부 데이터 원본에서 익명 액세스를 허용하지 않는 한, 자격 증명, 비밀 또는 연결 문자열로 연결을 보호해야 할 수도 있습니다.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 풀에 쓰기](./synapse-spark-sql-pool-import-export.md)
+- [전용 SQL 풀에 쓰기](./synapse-spark-sql-pool-import-export.md)
 

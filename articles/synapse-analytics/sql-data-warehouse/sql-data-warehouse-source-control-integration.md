@@ -1,6 +1,6 @@
 ---
 title: 소스 제어 통합
-description: Azure Repos(Git 및 GitHub)를 사용하여 SQL 풀과 네이티브 소스 제어 통합을 위한 엔터프라이즈급 데이터베이스 DevOps 환경
+description: Azure Repos(Git 및 GitHub)를 사용하는 네이티브 소스 제어 통합이 포함된 전용 SQL 풀에 대한 엔터프라이즈급 데이터베이스 DevOps 환경.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441324"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313290"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 소스 제어 통합
 
-이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  원본 제어 통합은 Azure Synapse Analytics에서 SQL 풀 리소스를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다.
+이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  소스 제어 통합은 Azure Synapse Analytics에서 전용 SQL 풀 리소스를 사용하여 연속 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,15 +33,15 @@ ms.locfileid: "89441324"
 
    ![프로젝트 만들기](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "프로젝트 만들기")
 
-2. Visual Studio를 열고 **연결 관리**를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
+2. Visual Studio를 열고 **연결 관리** 를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
 
    ![연결 관리](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "연결 관리")
 
-3. **연결 관리**를 선택한 다음, 프**프로젝트에 연결**을 선택하여 프로젝트에 연결합니다.
+3. **연결 관리** 를 선택한 다음, 프 **프로젝트에 연결** 을 선택하여 프로젝트에 연결합니다.
  ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "연결")
 
 
-4. 1단계에서 만든 프로젝트를 찾고 **연결**을 선택합니다.
+4. 1단계에서 만든 프로젝트를 찾고 **연결** 을 선택합니다.
 ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "연결")
 
 
@@ -53,7 +53,7 @@ Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자�
 
 ## <a name="create-and-connect-your-project"></a>프로젝트 생성 및 연결
 
-1. Visual Studio에서 **로컬 복제 리포지토리**의 디렉터리와 로컬 Git 리포지토리를 모두 사용하여 새 SQL Server 데이터베이스 프로젝트를 만듭니다.
+1. Visual Studio에서 **로컬 복제 리포지토리** 의 디렉터리와 로컬 Git 리포지토리를 모두 사용하여 새 SQL Server 데이터베이스 프로젝트를 만듭니다.
 
    ![새 프로젝트 만들기](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "새 프로젝트 만들기")  
 
@@ -85,8 +85,8 @@ Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자�
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "변경 내용 확인")
 
-4. (**선택 사항**) 스키마 비교를 사용하고 SSDT를 사용하여 대상 데이터 웨어하우스의 변경 내용을 업데이트하여 Azure Repo 리포지토리 및 로컬 리포지토리의 개체 정의가 데이터 웨어하우스에 반영되도록 합니다.
+4. ( **선택 사항** ) 스키마 비교를 사용하고 SSDT를 사용하여 대상 데이터 웨어하우스의 변경 내용을 업데이트하여 Azure Repo 리포지토리 및 로컬 리포지토리의 개체 정의가 데이터 웨어하우스에 반영되도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 풀 개발](sql-data-warehouse-overview-develop.md)
+- [전용 SQL 풀 개발](sql-data-warehouse-overview-develop.md)

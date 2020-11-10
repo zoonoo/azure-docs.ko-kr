@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594342"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096005"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -81,7 +81,7 @@ Azure AD를 사용하면 조직 내의 사용자 및 외부 사용자와 협업�
 
 Azure AD Premium P2 라이선스는 액세스 검토를 설정하거나, 설정을 구성하거나, 검토에서 나온 결정 사항을 적용하는 전역 관리자 또는 사용자 관리자 역할을 가진 사용자에게는 필요하지 **않습니다**.
 
-자체 조직의 사용자 중 한 명에게 할당하는 각 유료 Azure AD Premium P2 라이선스에 대해 Azure AD B2B(business-to-business)를 사용하여 외부 사용자 허용에 따라 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스 지침](../external-identities/licensing-guidance.md)을 참조하세요.
+Azure AD 게스트 사용자 액세스는 1:5 비율 청구 모델을 대체하는 MAU(월간 활성 사용자) 청구 모델을 기반으로 합니다. 자세한 내용은 [Azure AD 외부 ID 가격 책정](../external-identities/external-identities-pricing.md)을 참조하세요.
 
 라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

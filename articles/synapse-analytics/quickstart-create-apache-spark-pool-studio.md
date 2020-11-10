@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기'
-description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 새 Apache Spark 풀을 만듭니다.
+title: '빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀(미리 보기) 만들기'
+description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 서버리스 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748323"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324187"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀(미리 보기) 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 제공하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. Apache Spark 풀은 오픈 소스 빅 데이터 컴퓨팅 기능을 제공합니다. Synapse 작업 영역에서 Apache Spark 풀을 만든 후에는 데이터를 로드, 모델링, 처리 및 제공하여 인사이트를 얻을 수 있습니다.  
 
@@ -47,7 +47,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="launch-synapse-studio"></a>Synapse Studio 시작 
 
-작업 영역 개요에서 **Synapse Studio 시작** 을 선택하여 Apache Spark 풀을 만들 위치를 엽니다. 서비스 이름 또는 리소스 이름을 검색 창에 직접 입력합니다.
+작업 영역 개요에서 **작업 영역 웹 URL** 을 선택하여 Synapse Studio를 엽니다.
 
 ![Synapse Synapse Studio 시작이 강조 표시된 Azure Portal 작업 영역 개요.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 

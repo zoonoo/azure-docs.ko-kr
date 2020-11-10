@@ -49,7 +49,7 @@
     - name: 보안 검사 목록
       href: steps-secure-identity.md
     - name: 암호 없음 선택
-      href: ad-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md
 - name: 네트워크 보안
   items:
     - name: 보안 개요
@@ -63,7 +63,7 @@
     - name: 현수 DNS 및 하위 도메인 인수
       href: subdomain-takeover.md
     - name: 하이브리드 네트워크 아키텍처 보안
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
 - name: IaaS 보안
   items:
     - name: Microsoft 맬웨어 방지
@@ -97,13 +97,13 @@
     - name: 데이터베이스 보안
       items:
         - name: 개요
-          href: ../../sql-database/sql-database-security-overview.md
+          href: ../../azure-sql/database/security-overview.md
         - name: 모범 사례
-          href: ../../sql-database/sql-database-security-best-practice.md
+          href: ../../azure-sql/database/security-best-practice.md
         - name: 보안 검사 목록
           href: database-security-checklist.md
     - name: 스토리지 보안 지침
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
     - name: 고객 Lockbox
       href: customer-lockbox-overview.md
     - name: 고객 Lockbox에 대한 보안 기준

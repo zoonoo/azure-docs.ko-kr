@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132468"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323824"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
 
@@ -42,11 +42,11 @@ Synapse SQL에 연결하려면 Azure Data Studio를 열고 **새 연결** 을 �
 * **데이터베이스:** 데이터베이스 이름
 
 > [!NOTE]
-> **SQL 주문형(미리 보기)** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
+> **서버리스 SQL 풀(미리 보기)** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> **SQL 풀** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
+> **전용 SQL 풀** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
@@ -77,7 +77,7 @@ Azure Active Directory를 사용하려면 필요한 인증 유형을 선택해�
 
 ![새 쿼리](./media/get-started-azure-data-studio/5-new-query.png)
 
-예를 들어 다음 Transact-SQL 문을 사용하여 SQL 주문형을 통해 [Parquet 파일을 쿼리](query-parquet-files.md)할 수 있습니다.
+예를 들어 다음 Transact-SQL 문을 사용하여 서버리스 SQL 풀을 통해 [Parquet 파일을 쿼리](query-parquet-files.md)할 수 있습니다.
 
 ```sql
 SELECT COUNT(*)

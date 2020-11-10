@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791072"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145857"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **+추가** 를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL 가상 머신** 타일에서 **세부 정보 표시** 를 선택하여 추가 정보를 볼 수 있습니다.
 1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 드롭다운에서 선택합니다.
 
-   ![새 검색 창](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![무료 SQL Server 라이선스를 선택하는 위치를 보여주는 스크린샷: Windows Server 2016의 SQL Server 2017 Developer 이미지를 선택합니다.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. **만들기** 를 선택합니다.
 

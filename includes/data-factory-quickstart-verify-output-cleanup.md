@@ -4,26 +4,26 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544693"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136246"
 ---
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
 파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
 
-1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 **새로 고침**을 선택하여 출력 폴더를 확인합니다. 
+1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 **새로 고침** 을 선택하여 출력 폴더를 확인합니다. 
     
-    ![새로 고침](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![스크린샷은 페이지를 새로 고칠 수 있는 페이지를 보여줍니다.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
-2. 폴더 목록에서 **출력**을 선택합니다. 
+2. 폴더 목록에서 **출력** 을 선택합니다. 
 
-3. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
+3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다. 
 
-    ![새로 고침](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![스크린샷은 출력 폴더 내용을 보여줍니다.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

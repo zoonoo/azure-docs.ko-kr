@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219793"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147286"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -27,8 +27,10 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 가입합니다.
 
+Video Indexer를 사용하기 시작하면 저장된 모든 데이터와 업로드된 콘텐츠가 Microsoft 관리 키를 사용하여 미사용으로 암호화됩니다.
+
 > [!NOTE]
-> Video Indexer를 사용하기 시작하면 저장된 모든 데이터와 업로드된 콘텐츠가 Microsoft 관리 키를 사용하여 미사용으로 암호화됩니다.
+> [계획된 Video Indexer 웹 사이트 인증 변경](release-notes.md#planned-video-indexer-website-authenticatication-changes)을 검토합니다.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 비디오 업로드
 
@@ -49,12 +51,12 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 1. 비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다. 진행률이 표시됩니다. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드 진행률":::
 1. Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 이메일을 받게 됩니다. 예: 사람, 음성 및 필기 단어, 토픽 및 명명된 엔터티.
 1. 나중에 라이브러리 목록에서 비디오를 찾아 다른 작업을 수행할 수 있습니다. 예: 검색, 다시 인덱싱, 편집.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="업로드":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="업로드가 업로드됨":::
  
 ## <a name="see-also"></a>참고 항목
 

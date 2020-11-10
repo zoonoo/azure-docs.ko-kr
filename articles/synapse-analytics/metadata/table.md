@@ -1,6 +1,6 @@
 ---
 title: 공유 메타데이터 테이블
-description: Azure Synapse Analytics는 Apache Spark에서 테이블을 만들면 데이터를 복제하지 않고도 SQL 주문형(미리 보기) 및 SQL 풀 엔진에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
+description: Azure Synapse Analytics는 서버리스 Apache Spark 풀에서 테이블을 만들면 데이터를 복제하지 않고 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,30 +10,30 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260734"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314533"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀(미리 보기), SQL 주문형(미리 보기) 엔진 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
 
 Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 
-또한 Spark에서 만든 관리형 및 외부 테이블은 SQL 주문형의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#expose-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
+또한 Spark에서 만든 관리형 및 외부 테이블은 서버리스 SQL 풀의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#expose-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
 
-테이블은 SQL 주문형에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
+테이블은 서버리스 SQL 풀에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
 
 ## <a name="manage-a-spark-created-table"></a>Spark에서 만든 테이블 관리
 
-Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
+Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 서버리스 Apache Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
 
-SQL 주문형에서 이러한 데이터베이스의 개체를 만들거나 데이터베이스를 삭제하려고 하면 이 작업이 성공하지만 원본 Spark 데이터베이스는 변경되지 않습니다.
+서버리스 SQL 풀에서 이러한 데이터베이스의 개체를 만들거나 데이터베이스를 삭제하려고 하면 이 작업이 성공하지만 원본 Spark 데이터베이스는 변경되지 않습니다.
 
 ## <a name="expose-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
 
@@ -74,12 +74,12 @@ Spark 테이블은 Synapse SQL 엔진과 다른 데이터 형식을 제공합니
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | `Latin1_General_CP1_CI_AS_UTF8` 데이터 정렬 사용 |
+| `string`    |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬 사용 |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | `Latin1_General_CP1_CI_AS_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
-| `map`       |    `varchar(max)`   | `Latin1_General_CP1_CI_AS_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
-| `struct`    |    `varchar(max)`   | `Latin1_General_CP1_CI_AS_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
+| `array`     |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
+| `map`       |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
+| `struct`    |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -95,9 +95,9 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 
 ## <a name="examples"></a>예제
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 관리형 테이블 만들기 및 SQL 주문형에서 쿼리
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 Parquet로 지원되는 관리형 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
 
-이 시나리오에는 `mytestdb`라는 Spark 데이터베이스가 있습니다. [SQL 주문형을 사용하여 Spark 데이터베이스 만들기 및 연결](database.md#create-and-connect-to-spark-database-with-sql-on-demand)을 참조하세요.
+이 시나리오에는 `mytestdb`라는 Spark 데이터베이스가 있습니다. [서버리스 SQL 풀을 사용하여 Spark 데이터베이스 만들기 및 연결](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool)을 참조하세요.
 
 다음 명령을 실행하여 SparkSQL을 통해 관리형 Spark 테이블을 만듭니다.
 
@@ -105,7 +105,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-이 명령은 `mytestdb` 데이터베이스에 `myParquetTable` 테이블을 만듭니다. 잠시 지연된 후에 SQL 주문형에서 테이블을 볼 수 있습니다. 예를 들어 SQL 주문형에서 다음 명령문을 실행합니다.
+이 명령은 `mytestdb` 데이터베이스에 `myParquetTable` 테이블을 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
 
 ```sql
     USE mytestdb;
@@ -140,7 +140,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-이제 다음과 같이 SQL 주문형에서 데이터를 읽을 수 있습니다.
+이제 다음과 같이 서버리스 SQL 풀에서 데이터를 읽을 수 있습니다.
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -154,7 +154,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 외부 테이블 만들기 및 SQL 주문형에서 쿼리
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 Parquet로 지원되는 외부 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
 
 다음 예제에서는 관리형 테이블에 대해 이전 예제에서 만든 Parquet 데이터 파일에 외부 Spark 테이블을 만듭니다.
 
@@ -168,7 +168,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 `<fs>` 자리 표시자를 작업 영역 기본 파일 시스템인 파일 시스템 이름으로 바꾸고, `<synapse_ws>` 자리 표시자를 이 예제를 실행하는 데 사용하는 Synapse 작업 영역의 이름으로 바꿉니다.
 
-이전 예제에서는 `myExtneralParquetTable` 테이블을 `mytestdb` 데이터베이스에 만듭니다. 잠시 지연된 후에 SQL 주문형에서 테이블을 볼 수 있습니다. 예를 들어 SQL 주문형에서 다음 명령문을 실행합니다.
+이전 예제에서는 `myExtneralParquetTable` 테이블을 `mytestdb` 데이터베이스에 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
 
 ```sql
 USE mytestdb;
@@ -177,7 +177,7 @@ SELECT * FROM sys.tables;
 
 결과에 `myExternalParquetTable`이 포함되어 있는지 확인합니다.
 
-이제 다음과 같이 SQL 주문형에서 데이터를 읽을 수 있습니다.
+이제 다음과 같이 서버리스 SQL 풀에서 데이터를 읽을 수 있습니다.
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

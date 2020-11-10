@@ -9,12 +9,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 41e064d34f9fdb004feb72d7becdb08fe377aec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91271225"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100187"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -24,17 +24,17 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 ![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. 로컬로 사용하려면 2.0.55 버전 이상이 권장됩니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+- 이 빠른 시작에는 Azure CLI 버전 2.0.55 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 모든 Azure 리소스와 마찬가지로 Azure 컨테이너 인스턴스는 리소스 그룹에 배포해야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-먼저, 다음 [az group create][az-group-create] 명령을 사용하여 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create][az-group-create] 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
+컨테이너의 `ProvisioningState`가 **Succeeded** (성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
 ![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
@@ -101,7 +101,7 @@ listening on port 80
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 내용이 출력됩니다.
+연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 결과가 나타나야 합니다.
 
 ```output
 Container 'mycontainer' is in state 'Running'...

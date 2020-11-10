@@ -1,6 +1,6 @@
 ---
 title: 공유 메타데이터 모델
-description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 Spark 풀(미리 보기), SQL 주문형 엔진(미리 보기), SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387339"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324661"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 
-Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 Spark 풀(미리 보기)과 SQL 주문형 엔진(미리 보기) 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 
 2. Spark에서 만든 데이터베이스와 모든 테이블은 모든 Azure Synapse 작업 영역 Spark 풀 인스턴스에 표시되며 모든 Spark 작업에서 사용할 수 있습니다. 작업 영역의 모든 Spark 풀이 동일한 기본 카탈로그 메타 저장소를 공유하므로 이 기능에는 [권한](#security-model-at-a-glance)이 적용됩니다.
 
-3. Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 작업 영역 SQL 주문형 엔진에 표시됩니다. [데이터베이스](database.md)는 SQL 주문형 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 SQL 주문형 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. 
+3. Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 작업 영역 서버리스 SQL 풀에 표시됩니다. [데이터베이스](database.md)는 서버리스 SQL 풀 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 서버리스 SQL 풀 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Spark 데이터베이스와 테이블은 SQL 엔진에서 동기화되는 해당
 
 ## <a name="change-maintenance"></a>변경 내용 유지 관리
 
-Spark를 사용하여 메타데이터 개체를 삭제하거나 변경하는 경우 변경 내용이 선택되어 SQL 주문형 엔진으로 전파됩니다. 동기화는 비동기 작업이며 약간의 지연 후 변경 내용이 SQL 엔진에 반영됩니다.
+Spark를 사용하여 메타데이터 개체를 삭제하거나 변경하는 경우 변경 내용이 선택되어 서버리스 SQL 풀로 전파됩니다. 동기화는 비동기 작업이며 약간의 지연 후 변경 내용이 SQL 엔진에 반영됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

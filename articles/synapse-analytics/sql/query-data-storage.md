@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 스토리지의 데이터 쿼리
-description: 이 문서에서는 Azure Synapse Analytics 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀(미리 보기)로 데이터 스토리지 쿼리
+description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288378"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310957"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일 쿼리
 
-SQL 주문형(미리 보기)을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
+서버리스 SQL 풀(미리 보기)을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
 - 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
 
-현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [SQL 주문형 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
+현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [서버리스 SQL 풀 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
 - [External table](develop-tables-external-tables.md) 및 [OPENROWSET](develop-openrowset.md) 함수를 사용하여 스토리지의 데이터를 읽는 방법을 배울 수 있는 [스토리지 액세스 개발](develop-storage-files-overview.md)
 - SAS 인증 또는 작업 영역의 관리 ID를 사용하여 Synapse SQL이 스토리지에 액세스할 수 있게 설정하는 방법을 배울 수 있는 [스토리지 액세스 제어](develop-storage-files-storage-access-control.md)
 
 ## <a name="overview"></a>개요
 
-SQL 주문형은 Azure Storage 파일에 있는 데이터를 적절히 쿼리할 수 있는 원활한 환경을 지원하기 위해 다음과 같은 추가 기능을 통해 [OPENROWSET](develop-openrowset.md) 함수를 사용합니다.
+서버리스 SQL 풀은 Azure Storage 파일에 있는 데이터를 적절히 쿼리할 수 있는 원활한 환경을 지원하기 위해 다음과 같은 추가 기능을 통해 [OPENROWSET](develop-openrowset.md) 함수를 사용합니다.
 
 - [여러 파일 또는 폴더 쿼리](#query-multiple-files-or-folders)
 - [PARQUET 파일 형식](#query-parquet-files)
@@ -66,7 +66,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 - ESCAPE_CHAR = 'char' - 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다.
 ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 - FIELDTERMINATOR ='field_terminator' - 사용할 필드 종결자를 지정합니다. 기본 필드 종결자는 쉼표(" **,** ")입니다.
-- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n**)입니다.
+- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n** )입니다.
 
 ## <a name="file-schema"></a>파일 스키마
 
@@ -146,7 +146,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/myroot/*/mysubfolder/*
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>복합 형식 및 중첩되거나 반복되는 데이터 구조 작업
 
-[Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) 파일처럼 중첩되거나 반복되는 데이터 형식으로 저장된 데이터에 원활한 환경을 사용하도록 설정하기 위해, SQL 주문형에는 다음 확장이 추가되었습니다.
+[Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) 파일과 같이 중첩되거나 반복되는 데이터 형식으로 저장된 데이터에 원활한 환경을 사용하도록 설정하기 위해 서버리스 SQL 풀에는 다음 확장이 추가되었습니다.
 
 #### <a name="project-nested-or-repeated-data"></a>중첩되거나 반복되는 데이터 프로젝션
 
