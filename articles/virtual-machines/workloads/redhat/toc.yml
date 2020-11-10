@@ -16,3 +16,5 @@
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS 이미지 제품
   href: byos.md
+- name: Red Hat Enterprise Linux 연장된 수명 주기 지원
+  href: redhat-extended-lifecycle-support.md

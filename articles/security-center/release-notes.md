@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357813"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372344"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -32,6 +32,12 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 
 ## <a name="november-2020"></a>2020년 11월
+
+11월의 업데이트는 다음과 같습니다.
+
+- [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
 
@@ -61,10 +67,21 @@ Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기�
 - [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
 
 
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨
+
+NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대시보드에서 사용할 수 있는 기본 이니셔티브로 제공됩니다. 제어에 대한 매핑은 [NIST SP 800-171 R2 규정 준수 기본 제공 이니셔티브의 세부 정보](../governance/policy/samples/nist-sp-800-171-r2.md)에 설명되어 있습니다. 
+
+표준을 구독에 적용하고 규정 준수 상태를 지속적으로 모니터링하려면 [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)의 지침을 사용합니다.
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Security Center 규정 준수 대시보드의 NIST SP 800 171 R2 표준":::
+
+이 규정 준수 표준에 대한 자세한 내용은 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)를 참조하세요.
+
 
 
 ## <a name="october-2020"></a>2020년 10월
 
+10월의 업데이트는 다음과 같습니다.
 - [온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall 권장 사항 추가(미리 보기)](#azure-firewall-recommendation-added-preview)
 - [[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
