@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977377"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427380"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -32,7 +32,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 ## <a name="use-cases-and-samples"></a>사용 사례 및 샘플
 
-각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
+각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
 - Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조 하세요.
@@ -42,7 +42,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](custom-script-windows.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -92,7 +92,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="powershell"></a>PowerShell
 
-개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장*을 필터링합니다.
+개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장* 을 필터링합니다.
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -142,7 +142,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
+Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장** 을 선택한 다음, **추가** 를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
 다음 예제에서는 Azure Portal에서 Microsoft 맬웨어 방지 확장을 설치하는 경우를 보여줍니다.
 
@@ -286,9 +286,9 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>에이전트 업데이트
 
-Windows 게스트 에이전트에는 *확장 처리 코드*만 포함됩니다. *Windows 프로비전 코드*는 별도입니다. Windows 게스트 에이전트를 제거할 수 있습니다. Windows 게스트 에이전트의 자동 업데이트를 비활성화할 수 없습니다.
+Windows 게스트 에이전트에는 *확장 처리 코드* 만 포함됩니다. *Windows 프로비전 코드* 는 별도입니다. Windows 게스트 에이전트를 제거할 수 있습니다. Windows 게스트 에이전트의 자동 업데이트를 비활성화할 수 없습니다.
 
-*확장 처리 코드*는 Azure 패브릭과 통신하고 설치, 상태 보고, 개별 확장 업데이트 및 제거 등 VM 확장 작업을 처리하는 역할을 담당합니다. 업데이트에는 보안 수정, 버그 수정 및 *확장 처리 코드*에 대한 향상된 기능이 포함됩니다.
+*확장 처리 코드* 는 Azure 패브릭과 통신하고 설치, 상태 보고, 개별 확장 업데이트 및 제거 등 VM 확장 작업을 처리하는 역할을 담당합니다. 업데이트에는 보안 수정, 버그 수정 및 *확장 처리 코드* 에 대한 향상된 기능이 포함됩니다.
 
 실행 중인 버전을 확인하려면 [설치된 Windows 게스트 에이전트 검색](agent-windows.md#detect-the-vm-agent)을 참조하세요.
 
@@ -322,7 +322,7 @@ Windows 게스트 에이전트에는 *확장 처리 코드*만 포함됩니다. 
  $vm.Extensions
 ```
 
-다음 예제 출력에서는 *autoUpgradeMinorVersion*이 *true*로 설정되었다고 보여줍니다.
+다음 예제 출력에서는 *autoUpgradeMinorVersion* 이 *true* 로 설정되었다고 보여줍니다.
 
 ```powershell
 ForceUpdateTag              :
@@ -334,9 +334,9 @@ AutoUpgradeMinorVersion     : True
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>autoUpgradeMinorVersion이 발생한 경우 식별
 
-확장에 대한 업데이트가 발생한 경우 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.log*에서 VM의 에이전트 로그를 검토합니다.
+확장에 대한 업데이트가 발생한 경우 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 VM의 에이전트 로그를 검토합니다.
 
-다음 예제에서 VM에는 *Microsoft.Compute.CustomScriptExtension 1.8*이 설치되었습니다. 핫픽스는 *1.9* 버전에 지원되었습니다.
+다음 예제에서 VM에는 *Microsoft.Compute.CustomScriptExtension 1.8* 이 설치되었습니다. 핫픽스는 *1.9* 버전에 지원되었습니다.
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -355,7 +355,7 @@ AutoUpgradeMinorVersion     : True
 
 1. Windows 게스트 에이전트 로그를 확인 하려면 확장이 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 프로 비전 되는 경우 활동을 확인 합니다.
 
-2. *C:\WindowsAzure\Logs\Plugins \<extensionName> * 에 대 한 자세한 내용은 실제 확장 로그를 참조 하세요.
+2. C:\WindowsAzure\Logs\Plugins에 대 한 자세한 내용은 실제 확장 로그를 참조 하세요. *\\ <extensionName>*
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 특정 설명서 문제 해결 섹션을 확인합니다.
 
@@ -403,7 +403,7 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 VM을 선택하고, **확장**을 선택한 다음, 원하는 확장을 선택합니다.
+Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 VM을 선택하고, **확장** 을 선택한 다음, 원하는 확장을 선택합니다.
 
 ### <a name="rerun-vm-extensions"></a>VM 확장 다시 실행
 
@@ -416,9 +416,9 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 다음과 같이 Azure Portal에서 확장을 제거할 수도 있습니다.
 
 1. VM을 선택합니다.
-2. **확장**을 선택합니다.
+2. **확장** 을 선택합니다.
 3. 원하는 확장을 선택합니다.
-4. **제거**를 선택합니다.
+4. **제거** 를 선택합니다.
 
 ## <a name="common-vm-extensions-reference"></a>일반 VM 확장 참조
 | 확장 이름 | Description | 자세한 정보 |

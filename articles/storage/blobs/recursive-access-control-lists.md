@@ -9,12 +9,12 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d61942155e46792f95091957925523381a5a9cda
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: efa434959df1d0310e390e78cee2ada726f61827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422623"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427538"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "93422623"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -411,7 +411,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 설정 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예를 들면 `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`과 다음과 같습니다.
+> **기본** ACL 항목을 설정 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 설정 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
@@ -604,7 +604,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 업데이트 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예를 들면 `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`과 다음과 같습니다.
+> **기본** ACL 항목을 업데이트 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
 
 일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 업데이트 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
@@ -619,7 +619,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 업데이트 하려면 `default:` 각 항목에 접두사를 추가 합니다. `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`)을 입력합니다.
+> **기본** ACL 항목을 업데이트 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예들 들어 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`입니다.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -745,7 +745,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 제거 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예를 들면 `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`과 다음과 같습니다.
+> **기본** ACL 항목을 제거 하려면 **AzDataLakeGen2ItemAclObject** 명령을 실행할 때 **-defaultscope** 매개 변수를 사용 합니다. 예: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
 일괄 처리 크기를 지정 하 여 일괄 처리에서 Acl을 재귀적으로 제거 하는 예제를 보려면 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) 참조 문서를 참조 하세요.
 
@@ -760,7 +760,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 제거 하려면 `default:` 각 항목에 접두사를 추가 합니다. `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)을 입력합니다.
+> **기본** ACL 항목을 제거 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예들 들어 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -994,12 +994,6 @@ def resume_set_acl_recursive(continuation_token):
 이 예제에서는 매개 변수를 사용 하 여 `ContinueOnFailure` 작업에 사용 권한 오류가 발생 해도 계속 실행 되도록 합니다. 
 
 ```powershell
-
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
 echo "[Result Summary]"
@@ -1164,7 +1158,7 @@ def continue_on_failure():
 
 에서 사용자 의견을 제공 하거나 문제를 보고할 수 있습니다  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [알려진 문제](data-lake-storage-known-issues.md)

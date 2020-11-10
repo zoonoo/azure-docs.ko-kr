@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 001b1e0b9c738e263e8425f43076ef6e451a297f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50d592d0020ae1b5a704296ef68f5153f0207714
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018827"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427578"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>.NET을 사용 하 여 Blob 저장소에 대 한 요청에 고객이 제공한 키를 지정 합니다.
 
@@ -75,5 +75,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)
 - [미사용 데이터에 대한 Azure Storage 암호화](../common/storage-service-encryption.md)
-- [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad-msi.md)

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094392"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427465"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux 용 SAP BusinessObjects BI 플랫폼 배포 가이드
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
 이 문서에서는 Linux 용 Azure에서 SAP BOBI 플랫폼을 배포 하는 전략을 설명 합니다. 이 예제에서는 프리미엄 SSD Managed Disks 설치 디렉터리로 구성 된 두 개의 가상 컴퓨터가 구성 됩니다. Azure Database for MySQL는 CMS 데이터베이스에 사용 되 고, 파일 리포지토리 서버에 대 한 Azure NetApp Files는 두 서버에서 공유 됩니다. 기본 Tomcat Java 웹 응용 프로그램 및 BI 플랫폼 응용 프로그램은 두 가상 컴퓨터에 함께 설치 됩니다. 사용자 요청의 부하를 분산 하기 위해 기본 TLS/SSL 오프 로딩 기능을 포함 하는 Application Gateway 사용 됩니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "92094392"
 - Azure Database for MySQL (버전: 8.0.15)
 - MySQL C API 커넥터-Libmysqlclient (버전: 6.1.11)
 
-| 파일 시스템        | Description                                                                                                               | 크기(GB)             | 소유자  | 그룹  | 스토리지                    |
+| 파일 시스템        | Description                                                                                                               | 크기(GB)             | 소유자  | 그룹  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | SAP BOBI 인스턴스, 기본 Tomcat 웹 응용 프로그램 및 데이터베이스 드라이버 (필요한 경우)를 설치 하기 위한 파일 시스템 | SAP 크기 조정 지침 | bl1adm | sapsys | 관리 되는 프리미엄 디스크-SSD |
 | /usr/sap/frsinput  | 탑재 디렉터리는 입력 파일 리포지토리 디렉터리로 사용 되는 모든 BOBI 호스트에서 공유 파일에 대 한 것입니다.  | 비즈니스 요구 사항         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +113,7 @@ SAP BOBI Platform 파일 리포지토리 서버에 대 한 Azure NetApp Files를
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-**[A]**: 단계가 모든 호스트에 적용 됩니다.
+**[A]** : 단계가 모든 호스트에 적용 됩니다.
 
 ### <a name="format-and-mount-sap-file-system"></a>SAP 파일 시스템 포맷 및 탑재
 
@@ -196,7 +196,7 @@ SAP BOBI Platform 파일 리포지토리 서버에 대 한 Azure NetApp Files를
 
    **NFS 도메인 설정 확인**
 
-   도메인이 기본 Azure NetApp Files 도메인 (  **defaultv4iddomain.com** )으로 구성 되어 있고 매핑이 **없음으로 설정**되어 있는지 확인 합니다.
+   도메인이 기본 Azure NetApp Files 도메인 (  **defaultv4iddomain.com** )으로 구성 되어 있고 매핑이 **없음으로 설정** 되어 있는지 확인 합니다.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -210,9 +210,9 @@ SAP BOBI Platform 파일 리포지토리 서버에 대 한 Azure NetApp Files를
 
    > [!Important]
    >
-   > Azure NetApp Files: **defaultv4iddomain.com**의 기본 도메인 구성과 일치 하도록 VM에서/ETC/IDMAPD.CONF의 NFS 도메인을 설정 해야 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 없음으로 표시 됩니다.
+   > Azure NetApp Files: **defaultv4iddomain.com** 의 기본 도메인 구성과 일치 하도록 VM에서/ETC/IDMAPD.CONF의 NFS 도메인을 설정 해야 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 없음으로 표시 됩니다.
 
-   `nfs4_disable_idmapping`를 확인합니다. **Y**로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.
+   `nfs4_disable_idmapping`를 확인합니다. **Y** 로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.
 
    ```bash
    # Check nfs4_disable_idmapping
@@ -274,7 +274,7 @@ SAP BOBI Platform 파일 리포지토리 서버에 대 한 Azure NetApp Files를
 
 ### <a name="create-an-azure-database-for-mysql"></a>Azure database for MySQL 만들기
 
-Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server)에 설명 된 단계를 따릅니다. 프로 비전 하는 동안 주의 사항 Azure Database for MySQL-
+Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md)에 설명 된 단계를 따릅니다. 프로 비전 하는 동안 주의 사항 Azure Database for MySQL-
 
 1. SAP BI 플랫폼 응용 프로그램 서버가 실행 되는 Azure Database for MySQL에 대해 동일한 지역을 선택 합니다.
 
@@ -286,7 +286,7 @@ Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for
 
 5. 기본적으로 **백업 보존 기간은** 7 일 이지만 [선택적으로](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다.
 
-6. Azure Database for MySQL 백업은 기본적으로 중복 되므로 지역 중복 저장소에서 서버 백업을 수행 하려면 **백업 중복 옵션**에서 **지역적 중복** 을 선택 합니다.
+6. Azure Database for MySQL 백업은 기본적으로 중복 되므로 지역 중복 저장소에서 서버 백업을 수행 하려면 **백업 중복 옵션** 에서 **지역적 중복** 을 선택 합니다.
 
 > [!NOTE]
 > 서버 생성 후 [백업 중복성 옵션](../../../mysql/concepts-backup.md#backup-redundancy-options) 변경은 지원 되지 않습니다.
@@ -296,9 +296,9 @@ Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for
 기본적으로 만들어진 서버는 방화벽으로 보호 되 고 공개적으로 액세스할 수 없습니다. SAP BI 플랫폼 응용 프로그램 서버가 실행 되는 가상 네트워크에 대 한 액세스를 제공 하려면 다음 단계를 수행 합니다.  
 
 1. Azure Portal에서 서버 리소스로 이동 하 고 서버 리소스에 대해 왼쪽 메뉴에서 **연결 보안** 을 선택 합니다.
-2. **예** 를 선택 하 여 **Azure 서비스에 대 한 액세스를 허용**합니다.
-3. VNET 규칙에서 **기존 가상 네트워크 추가**를 선택 합니다. SAP BI 플랫폼 응용 프로그램 서버의 가상 네트워크 및 서브넷을 선택 합니다. 또한 [MySQL 워크 벤치](../../../mysql/connect-workbench.md) 를 Azure Database for MySQL에 연결할 수 있는 점프 상자 또는 다른 서버에 대 한 액세스를 제공 해야 합니다. MySQL 워크 벤치는 CMS 및 감사 데이터베이스를 만드는 데 사용 됩니다.
-4. 가상 네트워크가 추가 되 면 **저장**을 선택 합니다.
+2. **예** 를 선택 하 여 **Azure 서비스에 대 한 액세스를 허용** 합니다.
+3. VNET 규칙에서 **기존 가상 네트워크 추가** 를 선택 합니다. SAP BI 플랫폼 응용 프로그램 서버의 가상 네트워크 및 서브넷을 선택 합니다. 또한 [MySQL 워크 벤치](../../../mysql/connect-workbench.md) 를 Azure Database for MySQL에 연결할 수 있는 점프 상자 또는 다른 서버에 대 한 액세스를 제공 해야 합니다. MySQL 워크 벤치는 CMS 및 감사 데이터베이스를 만드는 데 사용 됩니다.
+4. 가상 네트워크가 추가 되 면 **저장** 을 선택 합니다.
 
 ### <a name="create-cms-and-audit-database"></a>CMS 및 감사 데이터베이스 만들기
 
@@ -395,15 +395,15 @@ SAP BOBI 응용 프로그램 서버에서 데이터베이스에 액세스 하려
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-**[A]**: 단계가 모든 호스트에 적용 됩니다.
+**[A]** : 단계가 모든 호스트에 적용 됩니다.
 
 1. **[A]** Linux의 버전 (SLES 또는 RHEL)에 따라 커널 매개 변수를 설정 하 고 필요한 라이브러리를 설치 해야 합니다. [Unix 용 비즈니스 인텔리전스 플랫폼 설치 가이드](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US)의 **시스템 요구 사항** 섹션을 참조 하세요.
 
 2. **[A]** 컴퓨터의 표준 시간대가 올바르게 설정 되었는지 확인 합니다. 설치 가이드의 [추가 Unix 및 Linux 요구 사항 섹션](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) 을 참조 하세요.
 
-3. **[A]** 소프트웨어의 백그라운드 프로세스를 실행할 수 있는 사용자 계정 (**bl1**adm) 및 그룹 (sapsys)을 만듭니다. 이 계정을 사용 하 여 설치를 실행 하 고 소프트웨어를 실행 합니다. 계정에 루트 권한이 필요 하지 않습니다.
+3. **[A]** 소프트웨어의 백그라운드 프로세스를 실행할 수 있는 사용자 계정 ( **bl1** adm) 및 그룹 (sapsys)을 만듭니다. 이 계정을 사용 하 여 설치를 실행 하 고 소프트웨어를 실행 합니다. 계정에 루트 권한이 필요 하지 않습니다.
 
-4. **[A]** 지원 되는 utf-8 로캘을 사용 하도록 사용자 계정 (**bl1**adm) 환경을 설정 하 고 콘솔 소프트웨어가 utf-8 문자 집합을 지원 하는지 확인 합니다. 운영 체제에서 올바른 로캘을 사용 하는지 확인 하려면 LC_ALL 및 LANG 환경 변수를 (**bl1**adm) 사용자 환경에서 기본 설정 로캘로 설정 합니다.
+4. **[A]** 지원 되는 utf-8 로캘을 사용 하도록 사용자 계정 ( **bl1** adm) 환경을 설정 하 고 콘솔 소프트웨어가 utf-8 문자 집합을 지원 하는지 확인 합니다. 운영 체제에서 올바른 로캘을 사용 하는지 확인 하려면 LC_ALL 및 LANG 환경 변수를 ( **bl1** adm) 사용자 환경에서 기본 설정 로캘로 설정 합니다.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +413,7 @@ SAP BOBI 응용 프로그램 서버에서 데이터베이스에 액세스 하려
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** 사용자 계정 구성 (**bl1**adm).
+5. **[A]** 사용자 계정 구성 ( **bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +445,7 @@ SAP BOBI 응용 프로그램 서버에서 데이터베이스에 액세스 하려
 
 ## <a name="installation"></a>설치
 
-서버에서 **bl1**adm 사용자 계정에 대 한 로캘 확인
+서버에서 **bl1** adm 사용자 계정에 대 한 로캘 확인
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +453,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-**Bl1**adm 사용자를 사용 하 여 SAP BusinessObjects BI 플랫폼의 미디어로 이동 하 고 아래 명령을 실행 합니다.
+**Bl1** adm 사용자를 사용 하 여 SAP BusinessObjects BI 플랫폼의 미디어로 이동 하 고 아래 명령을 실행 합니다.
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
@@ -465,17 +465,17 @@ LC_ALL=en_US.utf8
 
 - **설치 유형 선택** 화면에서 첫 번째 서버에서 **전체** 설치 (azusbosl1)를 선택 하 고 다른 서버 (azusbosl2)에 대해 기존 Bobi 설정을 확장할 **사용자 지정/확장** 을 선택 합니다.
 
-- **기본 또는 기존 데이터베이스 선택** 화면에서 **기존 데이터베이스 구성**을 선택 합니다. 그러면 CMS 및 감사 데이터베이스를 선택 하 라는 메시지가 표시 됩니다. CMS 데이터베이스 유형 및 감사 데이터베이스 유형에 대해 **MySQL** 을 선택 합니다.
+- **기본 또는 기존 데이터베이스 선택** 화면에서 **기존 데이터베이스 구성** 을 선택 합니다. 그러면 CMS 및 감사 데이터베이스를 선택 하 라는 메시지가 표시 됩니다. CMS 데이터베이스 유형 및 감사 데이터베이스 유형에 대해 **MySQL** 을 선택 합니다.
 
   설치 중에 감사를 구성 하지 않으려면 감사 데이터베이스 없음을 선택할 수도 있습니다.
 
 - SAP BOBI 아키텍처에 따라 **Java 웹 응용 프로그램 서버 선택 화면** 에서 적절 한 옵션을 선택 합니다. 이 예제에서는 동일한 SAP BOBI 플랫폼에 tomcat 서버를 설치 하는 옵션 1을 선택 했습니다.
 
-- **Cms 리포지토리 데이터베이스 구성**에서 cms 데이터베이스 정보를 입력 합니다. Linux 설치를 위한 CMS 데이터베이스 정보에 대 한 예제 입력입니다. Azure Database for MySQL는 기본 포트 3306에서 사용 됩니다.
+- **Cms 리포지토리 데이터베이스 구성** 에서 cms 데이터베이스 정보를 입력 합니다. Linux 설치를 위한 CMS 데이터베이스 정보에 대 한 예제 입력입니다. Azure Database for MySQL는 기본 포트 3306에서 사용 됩니다.
   
   ![Linux에서 SAP BOBI 배포-CMS 데이터베이스](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
-- 필드 감사 데이터베이스 정보를 **구성 감사 리포지토리 데이터베이스-MySQL**을 입력 합니다. Linux 설치를 위한 감사 데이터베이스 정보에 대 한 예제 입력입니다.
+- 필드 감사 데이터베이스 정보를 **구성 감사 리포지토리 데이터베이스-MySQL** 을 입력 합니다. Linux 설치를 위한 감사 데이터베이스 정보에 대 한 예제 입력입니다.
 
   ![Linux에서 SAP BOBI 배포-감사 데이터베이스](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 
@@ -557,7 +557,7 @@ Azure에서 응용 프로그램 서버 및 연결 된 모든 디스크를 백업
 
 #### <a name="backup--restore-for-file-repository-server"></a>파일 저장소 서버에 대 한 백업 & 복원
 
-**Azure NetApp Files**의 경우 스냅숏 정책을 사용 하 여 주문형 스냅숏을 만들고 자동 스냅숏을 예약할 수 있습니다. 스냅숏 복사는 ANF 볼륨의 특정 시점 복사본을 제공 합니다. 자세한 내용은 [Azure NetApp Files를 사용 하 여 스냅숏 관리](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md)를 참조 하세요.
+**Azure NetApp Files** 의 경우 스냅숏 정책을 사용 하 여 주문형 스냅숏을 만들고 자동 스냅숏을 예약할 수 있습니다. 스냅숏 복사는 ANF 볼륨의 특정 시점 복사본을 제공 합니다. 자세한 내용은 [Azure NetApp Files를 사용 하 여 스냅숏 관리](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md)를 참조 하세요.
 
 **Azure Files** 백업은 vm 백업과 함께 백업 및 복원 기능을 중앙 집중화 하 고 작업 작업을 간소화 하는 기본 [Azure Backup](../../../backup/backup-overview.md) 서비스와 통합 됩니다. 자세한 내용은 [Azure 파일 공유 백업](../../../backup/azure-file-share-backup-overview.md) 및 [faq-백업 Azure Files](../../../backup/backup-azure-files-faq.md)를 참조 하세요.
 
@@ -584,7 +584,7 @@ SAP BusinessObjects BI 플랫폼에는 특정 작업 및 작업에 최적화 된
 
 고가용성은 동일한 데이터 센터 내의 중복성, 내결함성 또는 장애 조치 (failover) 보호 구성 요소를 통해 응용 프로그램/서비스의 비즈니스 연속성을 제공 함으로써 IT 중단을 최소화할 수 있는 기술 집합을 말합니다. 이 경우 데이터 센터는 하나의 Azure 지역 내에 있습니다. [Sap 용 고가용성 아키텍처 및 시나리오](sap-high-availability-architecture-scenarios.md) 문서에서는 Sap 응용 프로그램용 Azure에서 제공 되는 다양 한 고가용성 기술 및 권장 사항에 대 한 초기 정보를 제공 하며,이 섹션의 지침을 보완 합니다.
 
-SAP BOBI 플랫폼의 크기 조정 결과에 따라, 가로를 디자인 하 고 Azure Virtual Machines 및 서브넷에 걸쳐 BI 구성 요소의 배포를 결정 해야 합니다. 분산 아키텍처의 중복성 수준은 비즈니스에 필요한 RTO (복구 시간 목표) 및 RPO (복구 지점 목표)에 따라 달라 집니다. SAP BOBI 플랫폼에는 여러 계층이 포함 되며 각 계층의 구성 요소는 중복성을 얻기 위해 설계 되어야 합니다. 따라서 한 구성 요소에 오류가 발생 하는 경우 SAP BOBI 응용 프로그램에 대 한 중단이 거의 없습니다. 예를 들면
+SAP BOBI 플랫폼의 크기 조정 결과에 따라, 가로를 디자인 하 고 Azure Virtual Machines 및 서브넷에 걸쳐 BI 구성 요소의 배포를 결정 해야 합니다. 분산 아키텍처의 중복성 수준은 비즈니스에 필요한 RTO (복구 시간 목표) 및 RPO (복구 지점 목표)에 따라 달라 집니다. SAP BOBI 플랫폼에는 여러 계층이 포함 되며 각 계층의 구성 요소는 중복성을 얻기 위해 설계 되어야 합니다. 따라서 한 구성 요소에 오류가 발생 하는 경우 SAP BOBI 응용 프로그램에 대 한 중단이 거의 없습니다. 예를 들면 다음과 같습니다.
 
 - BI 응용 프로그램 서버 및 웹 서버와 같은 중복 응용 프로그램 서버
 - CMS 데이터베이스, 파일 리포지토리 서버, Load Balancer 등의 고유한 구성 요소

@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에 대 한 서비스 �
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871227"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427516"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 대 한 자격 증명 업데이트 또는 순환
 
@@ -22,7 +22,7 @@ ms.locfileid: "88871227"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>AKS 클러스터에 대 한 새 서비스 주체를 업데이트 하거나 만듭니다.
 
@@ -82,7 +82,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-다음 예제와 같이 고유한 [az ad sp create-for-rbac][az-ad-sp-create] 명령의 출력을 사용하여 서비스 주체 ID 및 클라이언트 암호의 변수를 정의합니다. *SP_ID*는 사용자의 ‘앱 ID’이고, *SP_SECRET*은 사용자의 ‘암호’입니다.****
+다음 예제와 같이 고유한 [az ad sp create-for-rbac][az-ad-sp-create] 명령의 출력을 사용하여 서비스 주체 ID 및 클라이언트 암호의 변수를 정의합니다. *SP_ID* 는 사용자의 ‘앱 ID’이고, *SP_SECRET* 은 사용자의 ‘암호’입니다.
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -96,7 +96,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 > [!IMPORTANT]
 > 대량 클러스터의 경우 새 서비스 주체를 사용 하 여 AKS 클러스터를 업데이트 하는 것이 완료 되는 데 시간이 오래 걸릴 수 있습니다.
 
-기존 서비스 주체의 자격 증명을 업데이트하거나 서비스 주체를 만들도록 선택했는지 여부에 관계없이 이제 [az aks update-credentials][az-aks-update-credentials] 명령을 사용하여 새 자격 증명으로 AKS 클러스터를 업데이트합니다. *--service-principal* 및 *--client-secret*의 변수는 다음과 같이 사용됩니다.
+기존 서비스 주체의 자격 증명을 업데이트하거나 서비스 주체를 만들도록 선택했는지 여부에 관계없이 이제 [az aks update-credentials][az-aks-update-credentials] 명령을 사용하여 새 자격 증명으로 AKS 클러스터를 업데이트합니다. *--service-principal* 및 *--client-secret* 의 변수는 다음과 같이 사용됩니다.
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -104,7 +104,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 중소 규모의 클러스터의 경우 AKS에서 서비스 주체 자격 증명을 업데이트 하는 데 몇 분 정도 걸립니다.

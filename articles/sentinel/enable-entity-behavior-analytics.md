@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148238"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425782"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
 
 > [!IMPORTANT]
 >
-> - UEBA 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
+> - UEBA 및 엔터티 페이지 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 >    - 미국 지리
 >    - 유럽 서 부 지역
 >    - 오스트레일리아 지리
 >
-> - 다른 모든 지역과 지역에서이 기능은 **공개 미리 보기로** 제공 되는 시간 동안 유지 되며 서비스 수준 계약 없이 제공 됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> - 다른 모든 지역 및 지역에서 이러한 기능은 **미리 보기** 기간 동안 유지 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055973"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427601"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -52,8 +52,8 @@ Azure Portal는 대상 계정에 대해 구성한 후 원본 계정에 정책을
 Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
-1. **Blob service**에서 **개체 복제**를 선택 합니다.
-1. **복제 규칙 설정**을 선택 합니다.
+1. **Blob service** 에서 **개체 복제** 를 선택 합니다.
+1. **복제 규칙 설정** 을 선택 합니다.
 1. 대상 구독 및 스토리지 계정을 선택합니다.
 1. **컨테이너 쌍** 섹션에서 원본 계정에서 원본 컨테이너를 선택하고 대상 계정에서 대상 컨테이너를 선택합니다. 복제 정책에 따라 최대 10개의 컨테이너 쌍을 만들 수 있습니다.
 
@@ -65,19 +65,19 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
     다음 이미지는 복제 규칙의 일부로 복사할 blob을 제한하는 필터를 보여 줍니다.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="복제 규칙에 대한 필터를 보여 주는 스크린샷":::
 
 1. 기본적으로 복사 범위는 새 개체만 복사하도록 설정됩니다. 컨테이너의 모든 개체를 복사하거나 사용자 지정 날짜 및 시간에 시작된 개체를 복사하려면 **변경** 링크를 선택하고 컨테이너 쌍의 복사 범위를 구성합니다.
 
     다음 이미지는 지정 된 날짜와 시간 이후 개체를 복사 하는 사용자 지정 복사 범위를 보여 줍니다.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="개체 복제에 대한 사용자 지정 복사 범위를 보여 주는 스크린샷":::
 
-1. **저장 및 적용**을 선택하여 복제 정책을 만들고 데이터 복제를 시작합니다.
+1. **저장 및 적용** 을 선택하여 복제 정책을 만들고 데이터 복제를 시작합니다.
 
 개체 복제를 구성한 후에는 다음 그림에 표시 된 것 처럼 Azure Portal에 복제 정책 및 규칙이 표시 됩니다.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Azure Portal의 개체 복제 정책을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -244,7 +244,7 @@ az storage account or-policy show \
 
 | 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID 및 규칙 Id를이 값으로 설정 ... |
 |-|-|
-| 대상 계정 | 문자열 값의 *기본값*입니다. Azure Storage에서 정책 ID 및 규칙 Id를 만듭니다. |
+| 대상 계정 | 문자열 값의 *기본값* 입니다. Azure Storage에서 정책 ID 및 규칙 Id를 만듭니다. |
 | 원본 계정 | 대상 계정에 정의 된 정책을 JSON 파일로 다운로드 하는 경우 반환 되는 정책 ID 및 규칙 Id의 값입니다. |
 
 다음 예에서는 접두사 *b* 와 일치 하는 단일 규칙을 사용 하 여 대상 계정에 대 한 복제 정책을 정의 하 고 복제할 blob에 대 한 최소 생성 시간을 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
@@ -281,19 +281,19 @@ Azure Portal의 JSON 파일을 사용 하 여 대상 계정에서 개체 복제�
     복제 정책을 정의 하는 JSON 파일을 만드는 쉬운 방법은 먼저 Azure Portal의 두 저장소 계정 간에 테스트 복제 정책을 만드는 것입니다. 그런 다음 필요에 따라 복제 규칙을 다운로드 하 고 JSON 파일을 수정할 수 있습니다.
 
 1. Azure Portal에서 대상 계정에 대 한 **개체 복제** 설정으로 이동 합니다.
-1. **복제 규칙 업로드**를 선택 합니다.
+1. **복제 규칙 업로드** 를 선택 합니다.
 1. JSON 파일을 업로드 합니다. Azure Portal는 다음 이미지와 같이 생성 될 정책 및 규칙을 표시 합니다.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="JSON 파일을 업로드 하 여 복제 정책을 정의 하는 방법을 보여 주는 스크린샷":::
 
 1. **업로드** 를 선택 하 여 대상 계정에 대 한 복제 정책을 만듭니다.
 
 그런 다음 다른 사용자에 게 제공할 수 있는 정책 정의가 포함 된 JSON 파일을 다운로드 하 여 원본 계정을 구성할 수 있습니다. 이 JSON 파일을 다운로드 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 대상 계정에 대 한 **개체 복제** 설정으로 이동 합니다.
-1. 다음 그림에 표시 된 것 처럼 다운로드 하려는 정책 옆에 있는 **자세히** 단추를 선택 하 고 **규칙 다운로드**를 선택 합니다.
+1. 다음 그림에 표시 된 것 처럼 다운로드 하려는 정책 옆에 있는 **자세히** 단추를 선택 하 고 **규칙 다운로드** 를 선택 합니다.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="JSON 파일에 복제 규칙을 다운로드 하는 방법을 보여 주는 스크린샷":::
 
 1. 로컬 컴퓨터에 JSON 파일을 저장 하 여 다른 사용자와 공유 하 여 원본 계정에 정책을 구성 합니다.
 
@@ -330,7 +330,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 대상 계정에 대 한 복제 정책 정의를 Azure CLI의 JSON 파일에 쓰려면 [az storage account 또는-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) 명령을 호출 하 고 파일에 출력 합니다.
 
-다음 예제에서는 *policy.js에 있는*JSON 파일에 정책 정의를 씁니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+다음 예제에서는 *policy.js에 있는* JSON 파일에 정책 정의를 씁니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
 
 ```azurecli
 az storage account or-policy show \
@@ -338,7 +338,7 @@ az storage account or-policy show \
     --policy-id  <policy-id> > policy.json
 ```
 
-JSON 파일을 사용 하 여 Azure CLI 사용 하 여 원본 계정에 대 한 복제 정책을 구성 하려면 [az storage account 또는-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) 명령을 호출 하 고 file * 에서policy.js* 을 참조 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+JSON 파일을 사용 하 여 Azure CLI 사용 하 여 원본 계정에 대 한 복제 정책을 구성 하려면 [az storage account 또는-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) 명령을 호출 하 고 file *에서policy.js* 을 참조 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
 
 ```azurecli
 az storage account or-policy create \
@@ -359,9 +359,9 @@ Azure Portal의 원본 계정에서 blob에 대 한 복제 상태를 확인 하�
 
 1. Azure Portal에서 소스 계정으로 이동 합니다.
 1. 원본 blob을 포함 하는 컨테이너를 찾습니다.
-1. Blob을 선택 하 여 속성을 표시 합니다. Blob이 성공적으로 복제 되 면 **개체 복제** 섹션에서 상태가 *완료*로 설정 된 것을 볼 수 있습니다. 이 컨테이너에 대 한 개체 복제를 관리 하는 규칙의 복제 정책 ID 및 ID도 나열 됩니다.
+1. Blob을 선택 하 여 속성을 표시 합니다. Blob이 성공적으로 복제 되 면 **개체 복제** 섹션에서 상태가 *완료* 로 설정 된 것을 볼 수 있습니다. 이 컨테이너에 대 한 개체 복제를 관리 하는 규칙의 복제 정책 ID 및 ID도 나열 됩니다.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="원본 계정의 blob에 대 한 복제 상태를 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -392,6 +392,12 @@ az storage blob show \
 
 ---
 
+원본 계정의 blob에 대 한 복제 상태가 실패를 나타내는 경우 다음과 같은 가능한 원인을 조사 하십시오.
+
+- 대상 계정에 개체 복제 정책이 구성 되어 있는지 확인 합니다.
+- 대상 컨테이너가 여전히 존재 하는지 확인 합니다.
+- 원본 blob이 쓰기 작업의 일부로 고객이 제공한 키로 암호화 된 경우에는 개체 복제가 실패 합니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)을 참조 하세요.
+
 ## <a name="remove-a-replication-policy"></a>복제 정책 제거
 
 복제 정책 및 관련 규칙을 제거하려면 Azure Portal, PowerShell 또는 CLI를 사용합니다.
@@ -401,9 +407,9 @@ az storage blob show \
 Azure Portal에서 복제 정책을 제거하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
-1. **설정**에서 **개체 복제**를 선택합니다.
+1. **설정** 에서 **개체 복제** 를 선택합니다.
 1. 정책 이름 옆에 있는 **더 보기** 단추를 클릭합니다.
-1. **규칙 삭제**를 선택합니다.
+1. **규칙 삭제** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

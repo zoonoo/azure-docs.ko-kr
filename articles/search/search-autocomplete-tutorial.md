@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348613"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426173"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -56,8 +56,8 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 + [제안 REST API](/rest/api/searchservice/suggestions) 
 + [자동 완성 REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync 메서드](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>응답 구성
 
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용량 |
+| 매개 변수 | 사용 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>제안 함수
 
-C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
+C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
-`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
+`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
 
 자동 완성의 경우 유사 항목 일치는 단일 편집 거리 (생략 되거나 잘못 된 문자 하나)로 제한 됩니다. 자동 완성 쿼리의 유사 항목 일치는 인덱스 크기 및 분할 된 방식에 따라 예기치 않은 결과를 생성 하는 경우도 있습니다. 자세한 내용은 [partition and 분할 개념](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)을 참조 하세요.
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 메서드는 제안 API에 전달 되는 [SuggestParameters 개체](/dotnet/api/microsoft.azure.search.models.suggestparameters)를 만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
+SuggestAsync 함수는 적중 항목이 반환 되는지 여부를 결정 하는 두 개의 매개 변수를 사용 하 고 검색 용어 입력 외에 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 제안 된 결과에 최대 8 개의 일치 항목을 포함할 수 있습니다. 메서드는 제안 API에 전달 되는 [SuggestOptions 개체](/dotnet/api/azure.search.documents.suggestoptions)를 만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
 ## <a name="autocomplete"></a>자동 완성
 
@@ -185,7 +183,7 @@ Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이�
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,28 +218,25 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>자동 완성 함수
 
-자동 완성은 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController.cs** 파일로 이동 합니다.
+자동 완성은 [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController.cs** 파일로 이동 합니다.
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 

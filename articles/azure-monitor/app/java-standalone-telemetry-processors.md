@@ -3,12 +3,12 @@ title: 원격 분석 프로세서 (미리 보기)-Azure Monitor Application Insi
 description: Azure Monitor Application Insights Java 용 원격 분석 프로세서
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 1908e36dcf5b24301a08e543c5cf7cc106af6bff
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e3c41a7a9968a7de743f0c513b1f2b194501d0df
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380329"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425799"
 ---
 # <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 용 원격 분석 프로세서 (미리 보기)
 
@@ -305,7 +305,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
         "name": {
           "toAttributes": {
             "rules": [
-              "^/api/v1/document/(?P<documentId>.*)/update$"
+              "^/api/v1/document/(?<documentId>.*)/update$"
             ]
           }
         }
@@ -340,7 +340,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
         "name": {
           "toAttributes": {
             "rules": [
-              "(?P<operation_website>.*?)$"
+              "(?<operation_website>.*?)$"
             ]
           }
         }

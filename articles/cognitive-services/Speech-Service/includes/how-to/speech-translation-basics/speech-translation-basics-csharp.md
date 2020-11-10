@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1302b3e959530b0ff738e4fb5c3898355088591d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c8392770d7edb18f776f7664657c6985b9f7fb63
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470917"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425435"
 ---
 음성 서비스의 핵심 기능 중 하나는 휴먼 음성을 인식 하 고 다른 언어로 번역 하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 음성 SDK를 사용 하 여 고품질 음성 번역을 수행 하는 방법에 대해 알아봅니다. 이 빠른 시작은 다음을 비롯 한 항목을 다룹니다.
 
@@ -76,7 +76,7 @@ public class Program
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-키와 영역을 사용하여 [`SpeechTranslationConfig`][config]를 만드는 방법을 살펴보겠습니다. [음성 서비스를 무료로 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).의 단계를 수행 하 여 이러한 자격 증명을 가져옵니다.
+키와 영역을 사용하여 [`SpeechTranslationConfig`][config]를 만드는 방법을 살펴보겠습니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
 
 ```csharp
 public class Program
@@ -228,7 +228,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-음성 텍스트에 대 한 자세한 내용은 [음성 인식의 기본 사항](../../../speech-to-text-basics.md)을 참조 하세요.
+음성 텍스트에 대 한 자세한 내용은 [음성 인식의 기본 사항](../../../get-started-speech-to-text.md)을 참조 하세요.
 
 ## <a name="synthesize-translations"></a>번역 합성
 
@@ -333,13 +333,13 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-음성 합성에 대 한 자세한 내용은 [음성 합성의 기본 사항](../../../text-to-speech-basics.md)을 참조 하세요.
+음성 합성에 대 한 자세한 내용은 [음성 합성의 기본 사항](../../../get-started-text-to-speech.md)을 참조 하세요.
 
-[config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
-[audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
-[recognizer]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet
-[recognitionlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
-[addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
-[translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
-[voicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
-[speechsynthesisvoicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename?view=azure-dotnet
+[config]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
+[audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
+[recognizer]: /dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet
+[recognitionlang]: /dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
+[addlang]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
+[translations]: /dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
+[voicename]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
+[speechsynthesisvoicename]: /dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename?view=azure-dotnet

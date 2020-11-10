@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379772"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426836"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -16,9 +16,9 @@ Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입�
 
  Java 에이전트는 모든 환경에서 작동 하며 모든 Java 응용 프로그램을 모니터링할 수 있도록 합니다. 즉, 온-프레미스 Vm, 온-프레미스, Windows, Linux에서 Java 앱을 실행 하 고 있는지 여부에 관계 없이 Java 3.0 에이전트가 앱을 모니터링 하 게 됩니다.
 
-3.0 에이전트가 자체적으로 요청, 종속성 및 로그를 자동으로 수집 하므로 Application Insights Java SDK를 응용 프로그램에 추가 하는 것은 더 이상 필요 하지 않습니다.
+3.0 에이전트가 요청, 종속성 및 로그를 모두 자동으로 수집할 수 있으므로 응용 프로그램에 Application Insights Java SDK를 추가 하는 것은 더 이상 필요 하지 않습니다.
 
-응용 프로그램에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다. 3.0 에이전트는이를 추적 하 고 자동 수집 된 모든 원격 분석과 함께 상호 연결 합니다.
+응용 프로그램에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다. 3.0 에이전트는 자동으로 수집 된 모든 원격 분석과 함께 추적 하 고 상관 관계를 바꿉니다.
 
 3.0 에이전트는 Java 8 이상을 지원 합니다.
 
@@ -82,7 +82,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 * 샘플링
 * JMX 메트릭
 * 사용자 지정 차원
-* 원격 분석 프로세서
+* 원격 분석 프로세서 (미리 보기)
 * 자동 수집 된 로깅
 * 자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
 * 하트비트
@@ -91,7 +91,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 전체 정보는 [구성 옵션](./java-standalone-config.md) 을 참조 하세요.
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autocollected 된 요청, 종속성, 로그 및 메트릭
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>자동 수집 된 요청, 종속성, 로그 및 메트릭
 
 ### <a name="requests"></a>요청
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8f4d16931f09f94af81dd4e0f178ce6e0f990881
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398099"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426207"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -29,6 +29,9 @@ ms.locfileid: "93398099"
 ### <a name="what-identity-provider-do-you-support"></a>지원 되는 id 공급자는 무엇 인가요?
 
 현재 id 공급자로 Microsoft Azure Active Directory을 지원 합니다.
+
+### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 RPO (복구 지점 목표) 란 무엇 인가요?
+FHIR 용 Azure API는 지 속성 공급자로 Cosmos DB에 의해 지원 됩니다. 이로 인해 서비스에 대 한 RPO는 [Cosmos DB (단일 지역)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) 과 같고 240 분 < 됩니다.
 
 ### <a name="what-fhir-version-do-you-support"></a>어떤 FHIR 버전을 지원 하나요?
 

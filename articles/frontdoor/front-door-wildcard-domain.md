@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570328"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425765"
 ---
 # <a name="wildcard-domains"></a>와일드 카드 도메인
 
@@ -27,7 +27,7 @@ Apex 도메인 및 하위 도메인 외에도 와일드 카드 도메인을 Azur
 - 응용 프로그램이 새 하위 도메인을 추가 하는 경우 더 이상 프로덕션 Azure Front 도어 구성을 변경할 필요가 없습니다. 이전에는 하위 도메인을 추가 하 고, 여기에 인증서를 바인딩하고, WAF (웹 응용 프로그램 방화벽) 정책을 연결한 후 다른 라우팅 규칙에 도메인을 추가 해야 했습니다.
 
 > [!NOTE]
-> 현재 와일드 카드 도메인은 API, PowerShell 및 Azure CLI 통해서만 지원 됩니다. Azure Portal에서 와일드 카드 도메인 추가 및 관리에 대 한 지원을 사용할 수 없습니다.
+> 현재 Azure DNS을 통해 와일드 카드 도메인을 추가 하는 것은 API, PowerShell 및 Azure CLI을 통해서만 지원 됩니다. Azure Portal에서 와일드 카드 도메인 추가 및 관리에 대 한 지원을 사용할 수 없습니다.
 
 ## <a name="adding-wildcard-domains"></a>와일드 카드 도메인 추가
 
