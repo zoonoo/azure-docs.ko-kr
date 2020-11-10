@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457994"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408008"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -36,7 +36,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->원활한 SSO 사용을 위해서는 사용자의 디바이스가 **도메인 조인**되어야만 하지만, [Azure AD 조인된](../devices/concept-azure-ad-join.md) 디바이스 또는 [하이브리드 Azure AD 조인된](../devices/concept-azure-ad-join-hybrid.md) 디바이스에서는 사용되지 않습니다. Azure AD 조인된 디바이스, 하이브리드 Azure AD 조인된 디바이스 및 Azure AD 등록된 디바이스의 SSO는 [기본 새로 고침 토큰](../devices/concept-primary-refresh-token.md)을 기반으로 작동합니다.
+>원활한 SSO 사용을 위해서는 사용자의 디바이스가 **도메인 조인** 되어야만 하지만, [Azure AD 조인된](../devices/concept-azure-ad-join.md) 디바이스 또는 [하이브리드 Azure AD 조인된](../devices/concept-azure-ad-join-hybrid.md) 디바이스에서는 사용되지 않습니다. Azure AD 조인된 디바이스, 하이브리드 Azure AD 조인된 디바이스 및 Azure AD 등록된 디바이스의 SSO는 [기본 새로 고침 토큰](../devices/concept-primary-refresh-token.md)을 기반으로 작동합니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -85,8 +85,8 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**배포 계획**](https://aka.ms/deploymentplans/sso) - 단계별 배포 계획입니다.
+- [**배포 계획**](../manage-apps/plan-sso-deployment.md) - 단계별 배포 계획입니다.
 - [**기술 심층 분석**](how-to-connect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**FAQ(질문과 대답)** ](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

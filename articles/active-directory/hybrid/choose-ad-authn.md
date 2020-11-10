@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602373"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410294"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
 
@@ -221,4 +221,4 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 Azure AD로 [시작](../fundamentals/active-directory-whatis.md)하여 조직에 맞는 올바른 인증 솔루션을 배포하세요.
 
-페더레이션 인증에서 클라우드 인증으로 마이그레이션을 고려하는 경우 [로그인 방법 변경](../../active-directory/hybrid/plan-connect-user-signin.md)에 대해 자세히 알아보세요. 마이그레이션을 계획하고 구현하는 데 도움이 되도록 [이러한 프로젝트 배포 계획을 사용](https://aka.ms/deploymentplans)하거나 새로운 [단계별 롤아웃](../../active-directory/hybrid/how-to-connect-staged-rollout.md) 기능을 사용하여 단계적으로 페더레이션된 사용자를 클라우드 인증으로 마이그레이션하는 것이 좋습니다.
+페더레이션 인증에서 클라우드 인증으로 마이그레이션을 고려하는 경우 [로그인 방법 변경](../../active-directory/hybrid/plan-connect-user-signin.md)에 대해 자세히 알아보세요. 마이그레이션을 계획하고 구현하는 데 도움이 되도록 [이러한 프로젝트 배포 계획을 사용](../fundamentals/active-directory-deployment-plans.md)하거나 새로운 [단계별 롤아웃](../../active-directory/hybrid/how-to-connect-staged-rollout.md) 기능을 사용하여 단계적으로 페더레이션된 사용자를 클라우드 인증으로 마이그레이션하는 것이 좋습니다.

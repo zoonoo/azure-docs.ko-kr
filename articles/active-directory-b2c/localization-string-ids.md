@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096201"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410507"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -57,7 +57,7 @@ ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>등록 또는 로그인 id 공급자
 
-ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType**은 `ClaimsProvider`로 설정하고 **StringId**는 `ClaimsExchange`의 ID로 설정합니다.
+ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType** 은 `ClaimsProvider`로 설정하고 **StringId** 는 `ClaimsExchange`의 ID로 설정합니다.
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -87,6 +87,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | ID | 기본값 |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 암호가 올바르지 않습니다. |
+| **UserMessageIfPasswordExpired**| 암호가 만료되었습니다.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 계정을 찾을 수 없는 것 같습니다. |
 | **UserMessageIfOldPasswordUsed** | 이전 암호를 사용한 것 같습니다. |
 | **DefaultMessage** | 잘못된 사용자 이름 또는 암호 |
@@ -122,6 +123,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>

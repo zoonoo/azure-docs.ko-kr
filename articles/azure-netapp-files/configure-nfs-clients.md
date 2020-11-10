@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216864"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409572"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -75,7 +75,10 @@ ms.locfileid: "92216864"
     예를 들어: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    `default_realm`가에서 제공 된 영역으로 설정 되어 있는지 확인 `/etc/krb5.conf` 합니다.  그렇지 않은 경우 `[libdefaults]` 다음 예제와 같이 파일의 섹션 아래에 추가 합니다.
+    
+    `default_realm = CONTOSO.COM`
 
 7. 모든 NFS 서비스를 다시 시작 합니다.  
  
@@ -199,7 +202,7 @@ ms.locfileid: "92216864"
 
 5. Ubuntu 18.04는 기본적으로 chrony를 사용 합니다. Ubuntu Bionic의 구성 지침에 따라 [chrony를 사용 하 여 NTP를 구성](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)합니다.
 
-6. Active Directory 도메인에 조인 합니다.   
+6. Active Directory 도메인에 가입 합니다.   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

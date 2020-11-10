@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241330"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410932"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -74,7 +74,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 ## <a name="lookup-current-error-code-information"></a>현재 오류 코드 정보 조회
 오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보를 보려면 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 페이지에서 AADSTS 오류 설명, 픽스 및 몇 가지 제안 된 해결 방법을 살펴보세요.  
 
-반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "16000"에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
+예를 들어 "AADSTS50058" 오류 코드를 받은 경우 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "50058"에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) .
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 

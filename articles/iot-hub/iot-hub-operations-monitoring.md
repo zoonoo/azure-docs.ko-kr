@@ -1,27 +1,27 @@
 ---
 title: Azure IoT Hub 작업 모니터링(사용되지 않음) | Microsoft Docs
 description: IoT Hub 작업 모니터링을 사용하여 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링하는 방법입니다.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538496"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408127"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링(사용되지 않음)
 
 IoT Hub 작업 모니터링을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 >[!NOTE]
->IoT Hub **작업 모니터링은 더 이상 사용되지 않으며, 2019년 3월 10일에 IoT Hub에서 제거되었습니다** . IoT Hub의 작업 및 상태를 모니터링 하려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
+>IoT Hub **작업 모니터링은 더 이상 사용되지 않으며, 2019년 3월 10일에 IoT Hub에서 제거되었습니다**. IoT Hub의 작업 및 상태를 모니터링 하려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
 
 IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+Azure Monitor를 사용 하 여 IoT Hub 모니터링 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [IoT Hub 개발자 가이드](iot-hub-devguide.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)
 
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)
+* [IoT Hub 작업 모니터링에서 Azure Monitor로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)

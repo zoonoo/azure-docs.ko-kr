@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91402925"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408892"
 ---
 # <a name="security-control-v2-endpoint-security"></a>보안 제어 V2: 끝점 보안
 
@@ -34,9 +34,9 @@ Microsoft Defender Advanced Threat Protection은 엔터프라이즈 끝점 보�
 
 - [비 Windows 서버용 Microsoft Defender ATP 서비스](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,11 +60,11 @@ Azure Cloud Services에 대 한 Microsoft 맬웨어 방지 프로그램은 Windo
 
 - [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../fundamentals/antimalware.md)
 
-- [지원 되는 endpoint protection 솔루션](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [지원 되는 endpoint protection 솔루션](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -86,9 +86,9 @@ Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝�
 
 - [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 프로그램을 배포 하는 방법](../fundamentals/antimalware.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 

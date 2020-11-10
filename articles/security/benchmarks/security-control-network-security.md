@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82193125"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409062"
 ---
 # <a name="security-control-network-security"></a>보안 제어: 네트워크 보안
 
@@ -28,15 +28,15 @@ ms.locfileid: "82193125"
 
 또는 특정 사용 사례가 있는 경우 Azure 방화벽을 구현 하 여 요구 사항을 충족할 수 있습니다.
 
-- [Virtual Network 서비스 끝점 이해](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Virtual Network 서비스 끝점 이해](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-- [Azure 개인 링크 이해](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Azure 개인 링크 이해](../../private-link/private-link-overview.md)
 
-- [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Virtual Network를 만드는 방법](../../virtual-network/quick-create-portal.md)
 
-- [보안 구성을 사용 하 여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [보안 구성을 사용 하 여 NSG를 만드는 방법](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Azure 방화벽을 배포 및 구성 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Azure 방화벽을 배포 및 구성 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: 가상 네트워크, 서브넷 및 Nic의 구성과 트래픽을 모니터링 하 고 기록 합니다.
 
@@ -46,11 +46,11 @@ ms.locfileid: "82193125"
 
 Azure Security Center를 사용 하 고 네트워크 보호 권장 사항을 따라 Azure에서 네트워크 리소스를 보호 합니다. NSG 흐름 로그를 사용하도록 설정하고, 트래픽 감사를 위해 로그를 스토리지 계정에 보냅니다. 또한 Log Analytics 작업 영역에 NSG 흐름 로그를 보내고 트래픽 분석를 사용 하 여 Azure 클라우드의 트래픽 흐름에 대 한 통찰력을 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
-- [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [NSG 흐름 로그를 사용하도록 설정하는 방법](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../../network-watcher/traffic-analytics.md)
 
-- [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Azure Security Center에서 제공 하는 네트워크 보안 이해](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1.3: 중요한 웹 애플리케이션 보호
 
@@ -60,7 +60,7 @@ Azure Security Center를 사용 하 고 네트워크 보호 권장 사항을 따
 
 들어오는 트래픽의 추가 검사를 위해 중요 한 웹 응용 프로그램 앞에 Azure WAF (웹 응용 프로그램 방화벽)를 배포 합니다. WAF에 대해 진단 설정을 사용 하도록 설정 하 고 로그를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역에 수집 합니다.
 
-- [Azure WAF를 배포 하는 방법](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Azure WAF를 배포 하는 방법](../../web-application-firewall/ag/create-waf-policy-ag.md)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: 알려진 악성 IP 주소와의 통신 거부
 
@@ -76,15 +76,15 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-- [DDoS 보호를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../../virtual-network/manage-ddos-protection.md)
 
-- [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/azure-defender.md)
 
-- [적응 네트워크 강화 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [적응 네트워크 강화 Azure Security Center 이해](../../security-center/security-center-adaptive-network-hardening.md)
 
-- [Azure Security Center Just-in-time 네트워크 Access Control 이해](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Azure Security Center Just-in-time 네트워크 Access Control 이해](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1.5: 네트워크 패킷을 기록 합니다.
 
@@ -94,7 +94,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 Network Watcher 패킷 캡처를 사용 하 여 비정상적인 활동을 조사할 수 있습니다.
 
-- [Network Watcher를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Network Watcher를 사용하도록 설정하는 방법](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: 네트워크 기반 IDS/IPS(침입 탐지/침입 방지 시스템) 배포
 
@@ -108,9 +108,9 @@ Network Watcher 패킷 캡처를 사용 하 여 비정상적인 활동을 조사
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1.7: 웹 애플리케이션에 대한 트래픽 관리
 
@@ -120,11 +120,11 @@ Network Watcher 패킷 캡처를 사용 하 여 비정상적인 활동을 조사
 
 신뢰할 수 있는 인증서에 대해 HTTPS/TLS를 사용 하도록 설정 된 웹 응용 프로그램용 Azure 애플리케이션 게이트웨이를 배포 합니다.
 
-- [Application Gateway 배포 하는 방법](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [Application Gateway 배포 하는 방법](../../application-gateway/quick-create-portal.md)
 
-- [HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+- [HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법](../../application-gateway/create-ssl-portal.md)
 
-- [Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: 네트워크 보안 규칙의 복잡성 및 관리 오버헤드 최소화
 
@@ -136,9 +136,9 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 응용 프로그램 보안 그룹을 사용 하 여 복잡 한 보안 구성의 간소화를 지원할 수도 있습니다. 애플리케이션 보안 그룹을 사용하면 네트워크 보안을 애플리케이션 구조의 자연 확장으로 구성하여 가상 머신을 그룹화하고 해당 그룹에 따라 네트워크 보안 정책을 정의할 수 있습니다.
 
-- [서비스 태그 이해 및 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [서비스 태그 이해 및 사용](../../virtual-network/service-tags-overview.md)
 
-- [응용 프로그램 보안 그룹 이해 및 사용](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [응용 프로그램 보안 그룹 이해 및 사용](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
@@ -150,11 +150,11 @@ Azure Policy를 사용 하 여 네트워크 리소스에 대 한 표준 보안 �
 
 Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화할 수도 있습니다. 청사진을 새 구독에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../../governance/policy/samples/built-in-policies.md#network)
 
-- [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Azure Blueprint를 만드는 방법](../../governance/blueprints/create-blueprint-portal.md)
 
 ## <a name="110-document-traffic-configuration-rules"></a>1.10: 트래픽 구성 규칙 문서화
 
@@ -168,11 +168,11 @@ NSGs 및 네트워크 보안 및 트래픽 흐름과 관련 된 기타 리소스
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
-- [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Virtual Network를 만드는 방법](../../virtual-network/quick-create-portal.md)
 
-- [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [보안 구성을 사용하여 NSG를 만드는 방법](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
@@ -182,9 +182,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 Azure 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb4c4c5a0cf6610af17aabc562c42d2e0eb4e6a4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81408428"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409096"
 ---
 # <a name="security-control-incident-response"></a>보안 제어: 인시던트 응답
 
@@ -42,9 +42,9 @@ Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해�
 
 또한 태그를 사용하여 구독(예: 프로덕션, 비 프로덕션)을 명확하게 표시하고 Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 명확하게 식별하고 분류하는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
-- [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Azure Security Center의 보안 경고](../../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../../azure-resource-manager/management/tag-resources.md).
 
 ## <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
@@ -64,7 +64,7 @@ Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해�
 
 Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는 당사자가 데이터에 액세스 한 것을 발견 한 경우 Microsoft에서 사용자에 게 연락 하는 보안 인시던트 연락처 정보를 사용 합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../../security-center/security-center-provide-security-contact-details.md)
 
 ## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: 보안 경고를 인시던트 대응 시스템에 통합
 
@@ -74,9 +74,9 @@ Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는
 
 연속 내보내기 기능을 사용 하 여 Azure 리소스에 대 한 위험을 식별 하는 데 도움이 되는 Azure Security Center 경고 및 권장 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
-- [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [연속 내보내기를 구성하는 방법](../../security-center/continuous-export.md)
 
-- [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [경고를 Azure Sentinel로 스트림하는 방법](../../sentinel/connect-azure-security-center.md)
 
 ## <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 
@@ -86,7 +86,7 @@ Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는
 
 Azure Security Center의 워크플로 자동화 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-- [워크플로 자동화 및 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [워크플로 자동화 및 Logic Apps를 구성하는 방법](../../security-center/workflow-automation.md)
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -16,15 +16,15 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "64918448"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408535"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
-비즈니스의 콘텐츠 관리 요구 사항에 대한 이해는 어떤 하이브리드 ID 솔루션을 사용할지 결정하는 데 직접적인 영향을 미칠 수 있습니다. 여러 디바이스 및 사용자가 자신의 디바이스를 가져오는 기능([BYOD](https://aka.ms/byodcg))이 확산됨에 따라 회사는 회사만의 데이터도 보호해야 하지만 사용자의 개인 정보도 보호해야 합니다. 일반적으로 사용자에게 자신만의 디바이스가 있는 경우 사용하는 애플리케이션에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다. 
+비즈니스의 콘텐츠 관리 요구 사항에 대한 이해는 어떤 하이브리드 ID 솔루션을 사용할지 결정하는 데 직접적인 영향을 미칠 수 있습니다. 여러 디바이스 및 사용자가 자신의 디바이스를 가져오는 기능([BYOD](/mem/intune/fundamentals/byod-technology-decisions))이 확산됨에 따라 회사는 회사만의 데이터도 보호해야 하지만 사용자의 개인 정보도 보호해야 합니다. 일반적으로 사용자에게 자신만의 디바이스가 있는 경우 사용하는 애플리케이션에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다. 
 
 ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공하기 위해 여러 기술적 컨트롤에서 활용합니다.
 
@@ -69,4 +69,3 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0930e0845e8e8bd6dc4571dc3e8e27491a7be6
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403529"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408795"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>보안 제어 V2: 거 버 넌 스 및 전략
 
@@ -45,19 +45,19 @@ ms.locfileid: "91403529"
 - 적절 한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 권장 사항-저장소, 데이터 및 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 권장 사항-저장소, 데이터 및 암호화](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
 
 - [Azure 보안 기본 사항-Azure 데이터 보안, 암호화 및 저장소](../fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임 워크-Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임 워크-Azure 데이터 보안 및 암호화 모범 사례](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
 
 - [Azure 보안 벤치 마크-자산 관리](security-controls-v2-asset-management.md)
 
 - [Azure 보안 벤치 마크-데이터 보호](security-controls-v2-data-protection.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -79,9 +79,9 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [기업 구분 전략을 사용 하 여 네트워크 조각화 맞추기](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -95,9 +95,9 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [Azure 보안 벤치 마크-상태 및 취약성 관리](security-controls-v2-posture-vulnerability-management.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -105,19 +105,19 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| GS-4 | N/A | PL, PM |
+| GS-4 | 해당 없음 | PL, PM |
 
 보안 조직의 역할 및 책임에 대 한 명확한 전략을 문서화 하 고 전달 하는지 확인 합니다. 보안에 대 한 책임을 명확 하 게 제공 하 고, 공유 책임 모델에 대 한 모든 것을 교육 하 고, 클라우드를 보호 하는 기술 팀을 교육 합니다.
 
-- [Azure 보안 모범 사례 1 – 사람: 클라우드 보안 경험에 대 한 팀 교육](https://aka.ms/AzSec1)
+- [Azure 보안 모범 사례 1 – 사람: 클라우드 보안 경험에 대 한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure 보안 모범 사례 2-사람: 클라우드 보안 기술에 대 한 팀 교육](https://aka.ms/AzSec2)
+- [Azure 보안 모범 사례 2-사람: 클라우드 보안 기술에 대 한 팀 교육](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure 보안 모범 사례 3-프로세스: 클라우드 보안 결정에 대 한 책임 할당](https://aka.ms/AzSec3)
+- [Azure 보안 모범 사례 3-프로세스: 클라우드 보안 결정에 대 한 책임 할당](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -145,7 +145,7 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](https://aka.ms/AzSec11)
+- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure 보안 벤치 마크-네트워크 보안](security-controls-v2-network-security.md)
 
@@ -153,9 +153,9 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [엔터프라이즈 네트워크 아키텍처 전략](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -185,13 +185,13 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [Azure 보안 벤치 마크-권한 있는 액세스](security-controls-v2-privileged-access.md)
 
-- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](https://aka.ms/AzSec11)
+- [Azure 보안 모범 사례 11-아키텍처. 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure ID 관리 보안 개요](../fundamentals/identity-management-overview.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -224,15 +224,15 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [Azure 보안 벤치 마크-인시던트 응답](security-controls-v2-incident-response.md)
 
-- [Azure 보안 모범 사례 4-프로세스. 클라우드에 대 한 인시던트 응답 프로세스 업데이트](https://aka.ms/AzSec4)
+- [Azure 보안 모범 사례 4-프로세스. 클라우드에 대 한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Azure 채택 프레임 워크, 로깅 및 보고 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
 - [Azure 엔터프라이즈 규모, 관리 및 모니터링](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -259,9 +259,8 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 - [Azure 채택 프레임 워크-비즈니스 연속성 및 재해 복구](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [모든 관련자](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
-

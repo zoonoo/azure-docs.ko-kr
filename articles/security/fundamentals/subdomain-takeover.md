@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911395"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409895"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -27,7 +27,7 @@ ms.locfileid: "92911395"
 
 ## <a name="what-is-subdomain-takeover"></a>하위 도메인 인수 무엇 인가요?
 
-하위 도메인 takeovers은 정기적으로 많은 리소스를 만들고 삭제 하는 조직에 대 한 일반적이 고 높은 심각도 위협입니다. 하위 도메인 인수는 프로 비전 해제 Azure 리소스를 가리키는 [DNS 레코드가](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) 있는 경우에 발생할 수 있습니다. 이러한 DNS 레코드는 "현 수 DNS" 항목으로도 알려져 있습니다. CNAME 레코드는 특히이 위협에 취약 합니다. 하위 도메인 takeovers 악의적인 행위자는 악의적인 작업을 수행 하는 사이트에 조직의 도메인을 위한 트래픽을 리디렉션할 수 있습니다.
+하위 도메인 takeovers은 정기적으로 많은 리소스를 만들고 삭제 하는 조직에 대 한 일반적이 고 높은 심각도 위협입니다. 하위 도메인 인수는 프로 비전 해제 Azure 리소스를 가리키는 [DNS 레코드가](../../dns/dns-zones-records.md#dns-records) 있는 경우에 발생할 수 있습니다. 이러한 DNS 레코드는 "현 수 DNS" 항목으로도 알려져 있습니다. CNAME 레코드는 특히이 위협에 취약 합니다. 하위 도메인 takeovers 악의적인 행위자는 악의적인 작업을 수행 하는 사이트에 조직의 도메인을 위한 트래픽을 리디렉션할 수 있습니다.
 
 하위 도메인 인수 일반적인 시나리오는 다음과 같습니다.
 
@@ -91,7 +91,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 | Azure Front Door          | microsoft.network/frontdoors                | 속성. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | microsoft.storage/storageaccounts           | 속성. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
 | Azure CDN                 | microsoft.cdn/profiles/endpoints            | 속성. 호스트 이름                        | `abc.azureedge.net`             |
-| 공용 IP 주소       | microsoft.network/publicipaddresses         | dnsSettings. fqdn                | `abc.EastUs.cloudapp.azure.com` |
+| 퍼블릿 IP 주소       | microsoft.network/publicipaddresses         | dnsSettings. fqdn                | `abc.EastUs.cloudapp.azure.com` |
 | Azure Traffic Manager     | microsoft.network/trafficmanagerprofiles    | 속성. dnsConfig. fqdn                  | `abc.trafficmanager.net`        |
 | Azure Container Instance  | microsoft.containerinstance/containergroups | 속성. ipAddress. fqdn                  | `abc.EastUs.azurecontainer.io`  |
 | Azure API Management      | microsoft.apimanagement/service             | hostnameConfigurations. hostName | `abc.azure-api.net`             |

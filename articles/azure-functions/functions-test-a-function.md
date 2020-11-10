@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677605"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409657"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -32,7 +32,7 @@ ms.locfileid: "92677605"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
@@ -251,7 +251,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message** :이 테스트는의 인스턴스를 만들어 `ListLogger` 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [inject](./functions-dotnet-dependency-injection.md) `IConfiguration` 모의 환경 변수 값을 사용 하 여 인스턴스를 함수에 삽입할 수 있습니다.
 
 ### <a name="run-tests"></a>테스트 실행
 
@@ -269,7 +269,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

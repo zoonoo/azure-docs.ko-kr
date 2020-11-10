@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246489"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409963"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -54,7 +54,6 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 > [!NOTE]
 > 시나리오의 규모에 따라 노드 형식에 골드 또는 실버 [내구성 수준이][durability] 없으면 적절 한 노드 이름으로 [remove-servicefabricnodestate cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출 해야 합니다. 청동 내구성의 경우 한 번에 두 개 이상의 노드에서 크기를 조정 하지 않는 것이 좋습니다.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>노드 형식/가상 머신 확장 집합에 수동으로 Vm 추가
 
@@ -68,7 +67,7 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 [빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 의 샘플/지침에 따라 각 노드 형식의 vm 수를 변경 합니다. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>PowerShell 또는 CLI 명령을 사용 하 여 Vm 추가
-다음 코드는 이름별로 확장 집합을 가져오고 확장 집합의 **용량**을 1단위로 늘립니다.
+다음 코드는 이름별로 확장 집합을 가져오고 확장 집합의 **용량** 을 1단위로 늘립니다.
 
 ```powershell
 $scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -97,6 +96,9 @@ Service fabric 시스템 서비스는 클러스터의 주 노드 형식에서 �
 ### <a name="remove-the-service-fabric-node"></a>Service Fabric 노드 제거
 
 노드 상태를 수동으로 제거 하는 단계는 *청동* 내구성 계층이 있는 노드 형식에만 적용 됩니다.  *실버* 및 *골드* 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행 됩니다. 내구성에 자세한 내용은 [Service Fabric 클러스터 용량 계획][durability]을 참조하세요.
+
+>[!NOTE]
+> Gold 또는 Silver 내구성 수준이 활성화된 가상 머신 확장 집합의 노드 수는 최소 5개로 유지합니다. 이 임계값 이하로 크기를 조정 하면 클러스터에서 오류 상태가 시작 되며 제거 된 노드를 수동으로 정리 해야 합니다.
 
 클러스터의 노드를 업그레이드 도메인과 장애 도메인 전체에 고르게 분산하여 균등하게 사용하려면 가장 최근에 생성된 노드를 먼저 제거해야 합니다. 즉, 노드는 생성된 순서의 역순으로 제거되어야 합니다. 가장 최근에 생성된 노드는 `virtual machine scale set InstanceId` 속성 값이 최대인 노드입니다. 아래 코드 예제에는 가장 최근에 생성된 노드를 반환합니다.
 
@@ -239,6 +241,9 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 
 1. 클러스터에서 노드 형식에 대해 골드 또는 실버 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그런 다음 확장할 때 FM (시스템 서비스) 상태에서 노드를 자동으로 제거 합니다.
 [여기에서 내구성 수준에 대한 세부 정보](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Gold 또는 Silver 내구성 수준이 활성화된 가상 머신 확장 집합의 노드 수는 최소 5개로 유지합니다. 이 임계값 이하로 크기를 조정 하면 클러스터에서 오류 상태가 시작 되며 제거 된 노드를 수동으로 정리 해야 합니다.
 
 2. VM 인스턴스가에서 확장 된 후에는 [remove-servicefabricnodestate cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate)을 호출 해야 합니다.
 

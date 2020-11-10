@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458623"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410218"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -45,15 +45,15 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 세 가지 서버 쪽 암호화 모델은 요구 사항에 따라 선택할 수 있는 서로 다른 키 관리 특성을 제공합니다.
 
-- **서비스 관리형 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
+- **서비스 관리형 키** : 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
 
-- **고객 관리형 키**: BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
+- **고객 관리형 키** : BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
 
-- **고객 제어형 하드웨어의 서비스 관리형 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
+- **고객 제어형 하드웨어의 서비스 관리형 키** : Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
+[Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
 암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/general/overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
@@ -83,13 +83,13 @@ Key Vault를 사용한 클라이언트 쪽 암호화에 대해 자세히 알아�
 
 #### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
 
-[Tde](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) 는 복구 중 가용성을 위해 데이터베이스 부트 레코드에 저장 된 Dek (데이터베이스 암호화 키)를 사용 하 여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화 하는 데 사용 됩니다.
+[Tde](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) 는 복구 중 가용성을 위해 데이터베이스 부트 레코드에 저장 된 Dek (데이터베이스 암호화 키)를 사용 하 여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화 하는 데 사용 됩니다.
 
 TDE는 AES 및 3DES(Triple Data Encryption Standard) 암호화 알고리즘을 사용하여 데이터 및 로그 파일을 보호합니다. 데이터베이스 파일의 암호화는 페이지 수준에서 수행됩니다. 암호화된 데이터베이스에서 페이지는 디스크에 기록되기 전에 암호화되고 메모리로 읽어올 때 암호 해독됩니다. 기본적으로 TDE는 이제 새로 만든 Azure SQL 데이터베이스에서 사용하도록 설정됩니다.
 
 #### <a name="always-encrypted-feature"></a>Always Encrypted 기능
 
-Azure SQL의 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능을 사용하면 클라이언트 애플리케이션의 데이터를 Azure SQL Database에 저장하기 전에 암호화할 수 있습니다. 또한 온-프레미스 데이터베이스 관리를 제3자에게 위임하여 데이터를 소유하고 볼 수 있는 사람과 데이터를 관리하지만 액세스할 수 없는 사람을 분리할 수 있습니다.
+Azure SQL의 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능을 사용하면 클라이언트 애플리케이션의 데이터를 Azure SQL Database에 저장하기 전에 암호화할 수 있습니다. 또한 온-프레미스 데이터베이스 관리를 제3자에게 위임하여 데이터를 소유하고 볼 수 있는 사람과 데이터를 관리하지만 액세스할 수 없는 사람을 분리할 수 있습니다.
 
 #### <a name="cell-level-or-column-level-encryption"></a>셀 수준 또는 열 수준 암호화
 
@@ -125,9 +125,9 @@ Microsoft는 클라우드 서비스와 고객 간에 이동할 때 TLS ( [Transp
 
 Azure Portal을 통해 Azure Storage와 상호 작용하는 경우 모든 트랜잭션이 HTTPS를 통해 발생합니다. 또한 HTTPS를 통한 Storage REST API를 사용하여 Azure Storage와 상호 작용할 수 있습니다. 스토리지 계정에 보안 전송을 사용하도록 설정하여 스토리지 계정의 개체에 액세스하는 REST API를 호출할 때 HTTPS를 적용할 수 있습니다.
 
-Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하는 옵션이 포함됩니다. 이 방식은 SAS 토큰이 있는 링크를 보내는 모든 사용자가 적절한 프로토콜을 사용할 수 있습니다.
+Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md)에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하는 옵션이 포함됩니다. 이 방식은 SAS 토큰이 있는 링크를 보내는 모든 사용자가 적절한 프로토콜을 사용할 수 있습니다.
 
-Azure 파일 공유에 액세스하는 데 사용되는 [SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption)은 암호화를 지원하며 Windows Server 2012 R2, Windows 8, Windows 8.1 및 Windows 10에서 사용할 수 있습니다. 지역 간 액세스 및 데스크톱 액세스도 허용합니다.
+Azure 파일 공유에 액세스하는 데 사용되는 [SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption)은 암호화를 지원하며 Windows Server 2012 R2, Windows 8, Windows 8.1 및 Windows 10에서 사용할 수 있습니다. 지역 간 액세스 및 데스크톱 액세스도 허용합니다.
 
 클라이언트 쪽 암호화는 Azure Storage 인스턴스에 전송되기 전에 데이터를 암호화하므로 네트워크 간에 이동할 때 암호화됩니다.
 
@@ -143,7 +143,7 @@ Windows를 실행 하는 Vm 간에 전송 되는 데이터는 연결의 특성�
 
 ### <a name="rdp-sessions"></a>RDP 세션
 
-Windows 클라이언트 컴퓨터 또는 RDP 클라이언트가 설치된 Mac에서 [RDP(원격 데스크톱 프로토콜)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx)를 사용하여 VM에 연결하고 로그인할 수 있습니다. RDP 세션에서 네트워크를 통해 전송 중인 데이터는 TLS로 보호할 수 있습니다.
+Windows 클라이언트 컴퓨터 또는 RDP 클라이언트가 설치된 Mac에서 [RDP(원격 데스크톱 프로토콜)](/windows/win32/termserv/remote-desktop-protocol)를 사용하여 VM에 연결하고 로그인할 수 있습니다. RDP 세션에서 네트워크를 통해 전송 중인 데이터는 TLS로 보호할 수 있습니다.
 
 Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 수도 있습니다.
 
@@ -163,7 +163,7 @@ Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 �
 
 ### <a name="point-to-site-vpns"></a>지점 및 사이트 간 VPN
 
-지점 및 사이트 간 VPN을 통해 개별 클라이언트 컴퓨터에서 Azure 가상 네트워크에 액세스가 가능합니다. [SSTP(Secure Socket Tunneling Protocol)](https://technet.microsoft.com/library/2007.06.cableguy.aspx)는 VPN 터널을 만드는 데 사용됩니다. 방화벽을 트래버스할 수 있습니다(터널은 HTTPS 연결로 표시됨). 지점 및 사이트 간 연결에 사용자 고유의 내부 PKI(공개 키 인프라) 루트 CA(인증 기관)를 사용할 수 있습니다.
+지점 및 사이트 간 VPN을 통해 개별 클라이언트 컴퓨터에서 Azure 가상 네트워크에 액세스가 가능합니다. [SSTP(Secure Socket Tunneling Protocol)](/previous-versions/technet-magazine/cc162322(v=msdn.10))는 VPN 터널을 만드는 데 사용됩니다. 방화벽을 트래버스할 수 있습니다(터널은 HTTPS 연결로 표시됨). 지점 및 사이트 간 연결에 사용자 고유의 내부 PKI(공개 키 인프라) 루트 CA(인증 기관)를 사용할 수 있습니다.
 
 인증서 인증 또는 PowerShell을 사용하여 Azure Portal에서 가상 네트워크에 지점 및 사이트 간 VPN 연결을 구성할 수 있습니다.
 
@@ -201,9 +201,9 @@ Key Vault는 조직이 HSM(하드웨어 보안 모듈) 및 키 관리 소프트�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 개요](get-started-overview.md)
+- [Azure 보안 개요](./overview.md)
 - [Azure 네트워크 보안 개요](network-overview.md)
-- [Azure 데이터베이스 보안 개요](database-security-overview.md)
+- [Azure 데이터베이스 보안 개요](../../azure-sql/database/security-overview.md)
 - [Azure 가상 머신 보안 개요](virtual-machines-overview.md)
 - [저장 데이터 암호화](encryption-atrest.md)
 - [데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)

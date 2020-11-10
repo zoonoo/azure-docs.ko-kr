@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314320"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408925"
 ---
 # <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
 
@@ -32,11 +32,11 @@ Azure sql Information Protection를 사용 하 여 Azure SQL Database에 저장 
 
 - [Azure Information Protection를 사용 하 여 중요 한 정보에 태그](/azure/information-protection/what-is-information-protection) 
 
-- [Azure SQL 데이터 검색을 구현 하는 방법](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Azure SQL 데이터 검색을 구현 하는 방법](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**책임**: 공유됨
+**책임** : 공유됨
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -60,9 +60,9 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [Azure의 고객 데이터 보호 이해](../fundamentals/protection-customer-data.md)
 
-**책임**: 공유됨
+**책임** : 공유됨
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,11 +86,11 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 - [Azure SQL ATP 사용](../../azure-sql/database/threat-detection-overview.md)
 
-- [ATP Azure Storage 사용](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [ATP Azure Storage 사용](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**책임**: 공유됨
+**책임** : 공유됨
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 - [전송 중인 Azure 데이터에 대 한 이중 암호화](../fundamentals/double-encryption.md#data-in-transit)
 
-**책임**: 공유됨
+**책임** : 공유됨
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -140,15 +140,15 @@ Azure는 기본적으로 미사용 데이터에 대 한 암호화를 제공 합�
 
 - [Azure에서 미사용 암호화 이해](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [고객 관리 암호화 키를 구성 하는 방법](../../storage/common/storage-encryption-keys-portal.md)
+- [고객 관리 암호화 키를 구성 하는 방법](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [암호화 모델 및 키 관리 테이블](../fundamentals/encryption-models.md)
 
 - [Azure의 미사용 데이터 이중 암호화](../fundamentals/double-encryption.md#data-at-rest)
 
-**책임**: 공유됨
+**책임** : 공유됨
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -157,4 +157,3 @@ Azure는 기본적으로 미사용 데이터에 대 한 암호화를 제공 합�
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [데이터 보안](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322124"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408943"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>보안 제어 V2: 백업 및 복구
 
@@ -32,13 +32,13 @@ Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기
 
 - [엔터프라이즈 규모 비즈니스 연속성 및 재해 복구](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Azure Backup를 사용 하도록 설정 하는 방법](/azure/backup/)
+- [Azure Backup를 사용 하도록 설정 하는 방법](../../backup/index.yml)
 
-- [지역 간 복원을 사용 하도록 설정 하는 방법](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [지역 간 복원을 사용 하도록 설정 하는 방법](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [정책 및 표준](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -60,17 +60,17 @@ Azure Backup를 사용 하는 온-프레미스 백업의 경우 제공 된 암�
 
 Azure Backup, Azure Key Vault 또는 기타 리소스의 역할 기반 액세스 제어를 사용 하 여 백업 및 고객 관리 키를 보호 합니다. 또한 백업을 변경 하거나 삭제 하기 전에 고급 보안 기능을 사용 하도록 설정 하 여 MFA를 요구할 수 있습니다.
 
-- [Azure Backup의 보안 기능 개요](/azure/backup/security-overview)
+- [Azure Backup의 보안 기능 개요](../../backup/security-overview.md)
 
-- [고객 관리 키를 사용 하 여 백업 데이터 암호화](/azure/backup/encryption-at-rest-with-cmk) 
+- [고객 관리 키를 사용 하 여 백업 데이터 암호화](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Azure에서 Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [공격 으로부터 하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [공격 으로부터 하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -86,13 +86,13 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 역할 기반 액세스
 
 정기적으로 백업 데이터 복원을 수행 합니다. 백업 된 고객 관리 키를 복원할 수 있는지 확인 합니다.
 
-- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](/azure/backup/backup-azure-restore-files-from-vm)
+- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Azure에서 Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,15 +106,14 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 역할 기반 액세스
 
 키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.  
 
-- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [데이터 보안](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

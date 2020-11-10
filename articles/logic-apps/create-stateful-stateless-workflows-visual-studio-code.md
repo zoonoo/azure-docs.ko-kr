@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322060"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410558"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps(미리 보기) 확장을 사용하여 Visual Studio Code에서 상태 저장 또는 상태 비저장 워크플로 만들기
 
@@ -110,9 +110,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
 
-* Azure Portal에서는 새 **논리 앱 (미리 보기)** 리소스 유형을 사용 하 여 새 논리 앱을 만들 수 없습니다. 이러한 논리 앱은 Visual Studio Code 에서만 만들 수 있습니다. 그러나 Visual Studio Code에서 Azure로이 리소스 유형을 사용 하 여 논리 앱을 배포한 후에는 [해당 논리 앱에 새 워크플로를 추가할](#add-workflows)수 있습니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -525,7 +523,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -774,12 +772,7 @@ Visual Studio Code은 Azure 구독에서 배포 된 모든 논리 앱 (원래 **
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>포털에서 배포 된 논리 앱 찾기 및 관리
 
-Azure Portal에서 Azure 구독에 있는 모든 배포 된 논리 앱 (원래 **Logic Apps** 리소스 유형 인지 또는 **논리 앱 (미리 보기)** 리소스 유형)을 볼 수 있습니다. 현재 각 리소스 종류는 Azure에서 별도의 범주로 구성 되 고 관리 됩니다.
-
-> [!NOTE]
-> 공개 미리 보기의 경우에는 배포 된 **논리 앱 (미리 보기)** 리소스만 Azure Portal에서 볼 수 있으며 새 **논리 앱 (미리 보기)** 리소스를 만들 수는 없습니다. 이러한 논리 앱은 Visual Studio Code 에서만 만들 수 있습니다. 그러나이 리소스 종류를 사용 하 여 배포 된 논리 앱에 [워크플로를 추가할](#add-workflows) 수 있습니다.
-
-**논리 앱 (미리 보기)** 리소스 종류를 포함 하는 논리 앱을 찾으려면 다음 단계를 수행 합니다.
+Azure Portal에서 Azure 구독에 있는 모든 배포 된 논리 앱 (원래 **Logic Apps** 리소스 유형 인지 또는 **논리 앱 (미리 보기)** 리소스 유형)을 볼 수 있습니다. 현재 각 리소스 종류는 Azure에서 별도의 범주로 구성 되 고 관리 됩니다. **논리 앱 (미리 보기)** 리소스 종류를 포함 하는 논리 앱을 찾으려면 다음 단계를 수행 합니다.
 
 1. Azure Portal 검색 상자에을 입력 `logic app preview` 합니다. 결과 목록이 표시 되 면 **서비스** 에서 **논리 앱 (미리 보기)** 을 선택 합니다.
 
@@ -876,7 +869,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 1. **값** 상자에 다음 값을 입력 합니다.`WithStatelessRunHistory`
 
-   다음은 그 예입니다.
+   예를 들어:
 
    !["구성" > "새 응용 프로그램 설정" < "새 응용 프로그램 설정", "응용 프로그램 설정 추가/편집" 창이 열리고 "워크플로를 사용 하 여 Azure Portal 및 논리 앱 (미리 보기) 리소스를 보여 주는 스크린샷 {{Workflowname}. OperationOptions "옵션을" WithStatelessRunHistory "로 설정 합니다.](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 

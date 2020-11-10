@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547693"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410694"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -69,7 +69,7 @@ IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이�
 
    마지막으로, 페이로드 크기가 156KB에서 160 KB 사이인 경우 허브 당 장치당 초당 1 개의 호출을 수행할 수 있으며, 160 k b/초/단위 제한에 도달 합니다.
 
-*  계층 s 2에 대 한 *작업 장치 작업 (업데이트 쌍, 호출 직접 메서드)* 의 경우 작업을 사용 하 여 메서드를 호출 하는 경우에만 50/초/단위가 적용 됩니다. 직접 메서드를 직접 호출 하는 경우 원래 제한 제한인 24 m b/초/단위 (s 2의 경우)가 적용 됩니다.
+*  *작업* 의 경우 작업을 사용 하 여 메서드를 호출 하는 경우에만 50/sec/unit이에 적용 됩니다. 직접 메서드를 직접 호출 하는 경우 원래 제한 제한인 24 m b/초/단위 (s 3의 경우)가 적용 됩니다.
 
 *  **할당량** 은 *하루* 에 허브에서 보낼 수 있는 집계 메시지 수입니다. [IoT Hub 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)의 **총 메시지 수/일** 열에서 허브의 할당량 한도를 찾을 수 있습니다.
 
@@ -139,4 +139,4 @@ IoT Hub 제한 동작에 대한 자세한 설명을 보려면 블로그 게시�
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)
-* [모니터 IoT Hub](monitor-iot-hub.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)

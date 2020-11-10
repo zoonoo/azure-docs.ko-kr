@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329434"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408671"
 ---
 # <a name="security-control-v2-network-security"></a>보안 제어 V2: 네트워크 보안
 
@@ -40,9 +40,9 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 - [Azure 센티널 안전 하지 않은 프로토콜 통합 문서](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +54,7 @@ Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-2 | N/A | CA-3, AC-17, MA-4 |
+| NS-2 | 해당 없음 | CA-3, AC-17, MA-4 |
 
 Azure Express 경로 또는 Azure VPN (가상 사설망)을 사용 하 여 공동 배치 환경의 온-프레미스 인프라와 Azure 데이터 센터 간에 개인 연결을 만듭니다. Express 경로 연결은 공용 인터넷을 통해 이동 하지 않으며 일반적인 인터넷 연결 보다 안정적이 고 속도가 빠르며 대기 시간이 짧습니다. 지점 및 사이트 간 VPN 및 사이트 간 VPN의 경우 이러한 VPN 옵션과 Azure Express 경로를 조합 하 여 온-프레미스 장치 또는 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
@@ -68,9 +68,9 @@ Azure에서 둘 이상의 가상 네트워크를 함께 연결 하려면 가상 
 
 - [Azure Private Link](../../private-link/private-link-service-overview.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -92,9 +92,9 @@ Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네�
 
 - [Virtual Network 서비스 끝점 이해](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -116,15 +116,15 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 -   Azure 가상 네트워크에서 DDoS 표준 보호를 사용 하도록 설정 하 여 DDoS 공격 으로부터 자산을 보호 하세요. 
 -   Azure Security Center를 사용 하 여 위와 관련 된 잘못 된 구성 위험을 검색 합니다. 
 
-- [Azure 방화벽 설명서](/azure/firewall/)
+- [Azure 방화벽 설명서](../../firewall/index.yml)
 
 - [Azure WAF를 배포 하는 방법](../../web-application-firewall/overview.md)
 
 - [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../../virtual-network/manage-ddos-protection.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 없음
 
@@ -144,9 +144,9 @@ Azure 방화벽 위협 인텔리전스 기반 필터링을 사용 하 여 알려
 
 - [Microsoft Defender ATP EDR 기능](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -168,11 +168,11 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 - [서비스 태그 이해 및 사용](../../virtual-network/service-tags-overview.md)
 
-- [응용 프로그램 보안 그룹 이해 및 사용](/azure/virtual-network/security-overview#application-security-groups)
+- [응용 프로그램 보안 그룹 이해 및 사용](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -184,7 +184,7 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| NS-7 | N/A | SC-20, SC-21 |
+| NS-7 | 해당 없음 | SC-20, SC-21 |
 
 DNS 보안에 대 한 모범 사례에 따라 현 DNS, DNS amplifications 공격, DNS 포 이즈 및 스푸핑 등의 일반적인 공격을 완화 합니다. 
 
@@ -196,13 +196,12 @@ Azure DNS를 권한 있는 DNS 서비스로 사용 하는 경우 DNS 영역 및 
 
 - [현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지](../fundamentals/subdomain-takeover.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
-- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

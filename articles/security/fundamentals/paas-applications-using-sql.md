@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462533"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408076"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
@@ -40,7 +40,7 @@ Azure SQL Database는 두 가지 인증 유형 중 하나를 사용 하도록 �
 
 - **Azure Active Directory 인증은** Azure Active Directory에서 관리 되는 id를 사용 하며, 관리 되는 도메인 및 통합 된 도메인에 대해 지원 됩니다. Azure Active Directory 인증을 사용하려면 Azure AD 사용자와 그룹을 관리할 수 있는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다.
 
-[Azure Active Directory 인증은](../../active-directory/develop/authentication-scenarios.md) AD (Azure Active Directory)에서 id를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics에 연결 하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
+[Azure Active Directory 인증은](../../active-directory/develop/authentication-vs-authorization.md) AD (Azure Active Directory)에서 id를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics에 연결 하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>SQL 인증 대신 Azure AD를 사용하는 경우의 이점
 
@@ -50,7 +50,7 @@ Azure SQL Database는 두 가지 인증 유형 중 하나를 사용 하도록 �
 - 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 - SQL Database에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
 - 도메인 동기화 없이 로컬 Azure AD에 대해 ADFS(Active Directory Federation Services)를 사용하는 도메인 페더레이션 또는 기본 사용자/암호 인증을 지원합니다.
-- Azure AD는 [MFA(Multi-Factor Authentication)](/azure/active-directory/authentication/multi-factor-authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL Database 및 Azure Synapse Analytics를 사용한 유니버설 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 참조 하세요.
+- Azure AD는 [MFA(Multi-Factor Authentication)](../../active-directory/authentication/concept-mfa-howitworks.md)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL Database 및 Azure Synapse Analytics를 사용한 유니버설 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 참조 하세요.
 
 Azure AD 인증에 대한 자세한 내용은 다음을 참조하세요.
 

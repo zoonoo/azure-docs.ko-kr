@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326391"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408758"
 ---
 # <a name="security-control-v2-incident-response"></a>보안 제어 V2: 인시던트 응답
 
@@ -26,13 +26,13 @@ ms.locfileid: "91326391"
 
 조직이 보안 인시던트에 대응 하 고, Azure에 대 한 이러한 프로세스를 업데이트 했으며, 준비 상태를 확인 하기 위해 정기적으로 수행 하는 프로세스 인지 확인 합니다.
 
-- [엔터프라이즈 환경에서 보안 구현](https://aka.ms/AzSec4)
+- [엔터프라이즈 환경에서 보안 구현](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [인시던트 대응 참조 가이드](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -50,9 +50,9 @@ Azure Security Center에서 보안 인시던트 연락처 정보를 설정 합�
 
 - [Azure Security Center 보안 연락처를 설정 하는 방법](../../security-center/security-center-provide-security-contact-details.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -76,9 +76,9 @@ Azure Security Center는 많은 Azure 자산에서 고품질의 경고를 제공
 
 - [경고를 Azure Sentinel로 스트림하는 방법](../../sentinel/connect-azure-security-center.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -116,9 +116,9 @@ Azure 센티널은 거의 모든 로그 원본 및 사례 관리 포털에서 �
 
 - [Azure 센티널을 사용 하 여 인시던트 조사](../../sentinel/tutorial-investigate-cases.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -140,11 +140,11 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 - [Azure Security Center의 보안 경고](../../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../../azure-resource-manager/management/tag-resources.md).
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -166,13 +166,12 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 - [Azure Sentinel에서 자동화된 위협 응답 설정](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

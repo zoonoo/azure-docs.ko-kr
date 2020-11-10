@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319897"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411136"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 사용자가 Microsoft 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Microsoft 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "91319897"
 >
 >
 
-Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나요?](https://aka.ms/datamaps)에서 찾을 수 있습니다.
+Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나요?](/microsoft-365/enterprise/o365-data-locations)에서 찾을 수 있습니다.
 
 다중 지역에서 사용할 수 있는 Microsoft 365의 지역는 다음과 같습니다.
 
@@ -62,20 +62,20 @@ Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있�
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
-Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로는 다음과 같습니다.
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 특히:
 
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 
-기본적으로 **preferredDataLocation**은 동기화가 허용되지 않습니다. 이 기능은 대규모 조직을 대상으로 합니다. Windows Server 2019의 Active Directory 스키마에는이를 위해 사용 해야 하는 **의 msds-primary-computer preferredDataLocation** 특성이 있습니다. Active Directory 스키마를 업데이트 하지 않은 경우이를 수행할 수 없는 경우 사용자에 대 한 Microsoft 365 지역을 보유할 특성을 식별 해야 합니다. 이러한 특성은 각 조직마다 다를 수 있습니다.
+기본적으로 **preferredDataLocation** 은 동기화가 허용되지 않습니다. 이 기능은 대규모 조직을 대상으로 합니다. Windows Server 2019의 Active Directory 스키마에는이를 위해 사용 해야 하는 **의 msds-primary-computer preferredDataLocation** 특성이 있습니다. Active Directory 스키마를 업데이트 하지 않은 경우이를 수행할 수 없는 경우 사용자에 대 한 Microsoft 365 지역을 보유할 특성을 식별 해야 합니다. 이러한 특성은 각 조직마다 다를 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD를 사용하면 Azure AD PowerShell을 사용하여 **클라우드 User 개체**의 **preferredDataLocation** 특성을 직접 구성할 수 있습니다. **동기화된 User 개체**에 이 특성을 구성하려면 Azure AD Connect를 사용해야 합니다.
+> Azure AD를 사용하면 Azure AD PowerShell을 사용하여 **클라우드 User 개체** 의 **preferredDataLocation** 특성을 직접 구성할 수 있습니다. **동기화된 User 개체** 에 이 특성을 구성하려면 Azure AD Connect를 사용해야 합니다.
 
 동기화를 활성화하기 전에:
 
 * Active Directory 스키마를 2019으로 업그레이드 하지 않은 경우 원본 특성으로 사용할 온-프레미스 Active Directory 특성을 결정 합니다. **단일 값 문자열** 형식이어야 합니다.
-* Azure AD PowerShell을 사용하여 Azure AD의 기존 **동기화된 User 개체**에 **preferredDataLocation** 특성을 미리 구성한 경우, 특성 값을 온-프레미스 Active Directory의 해당 **User** 개체로 백포팅해야 합니다.
+* Azure AD PowerShell을 사용하여 Azure AD의 기존 **동기화된 User 개체** 에 **preferredDataLocation** 특성을 미리 구성한 경우, 특성 값을 온-프레미스 Active Directory의 해당 **User** 개체로 백포팅해야 합니다.
 
     > [!IMPORTANT]
     > 이 값을 백포팅하지 않으면 Azure AD Connect는 **preferredDataLocation** 특성에 대한 동기화가 활성화된 경우 Azure AD의 기존 속성 값을 제거합니다.
@@ -92,8 +92,8 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
 1. Azure AD Connect 서버에서 PowerShell 세션을 시작합니다.
 2. `Set-ADSyncScheduler -SyncCycleEnabled $false` cmdlet을 실행하여 예약된 동기화를 사용하지 않게 설정합니다.
-3. **시작** > **동기화 서비스**로 이동하여 **Synchronization Service Manager**를 시작합니다.
-4. **작업** 탭을 선택하고 상태가 *진행 중*인 작업이 없는지 확인합니다.
+3. **시작** > **동기화 서비스** 로 이동하여 **Synchronization Service Manager** 를 시작합니다.
+4. **작업** 탭을 선택하고 상태가 *진행 중* 인 작업이 없는지 확인합니다.
 
 ![Synchronization Service Manager 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
@@ -101,9 +101,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전에 연결을 설치한 경우에는 연결 스키마 캐시에 업데이트 된 스키마가 없습니다. 그런 다음 마법사에서 스키마를 새로 고쳐 UI에 표시 되도록 해야 합니다.
 
 1. 바탕 화면에서 Azure AD Connect 마법사를 시작 합니다.
-2. **디렉터리 스키마 새로 고침** 옵션을 선택 하 고 **다음**을 클릭 합니다.
-3. Azure AD 자격 증명을 입력 하 고 **다음**을 클릭 합니다.
-4. **디렉터리 스키마 새로 고침** 페이지에서 모든 포리스트가 선택 되어 있는지 확인 하 고 **다음**을 클릭 합니다.
+2. **디렉터리 스키마 새로 고침** 옵션을 선택 하 고 **다음** 을 클릭 합니다.
+3. Azure AD 자격 증명을 입력 하 고 **다음** 을 클릭 합니다.
+4. **디렉터리 스키마 새로 고침** 페이지에서 모든 포리스트가 선택 되어 있는지 확인 하 고 **다음** 을 클릭 합니다.
 5. 완료 되 면 마법사를 닫습니다.
 
 ![연결 마법사에서 디렉터리 스키마 새로 고침의 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-refreshschema.png)
@@ -113,10 +113,10 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 모든 Azure AD 특성을 온-프레미스 Active Directory 커넥터 공간으로 가져오지는 않습니다. 기본적으로 동기화되지 않은 특성을 사용하도록 선택한 경우 해당 특성을 가져와야 합니다. 가져온 특성 목록에 원본 특성을 추가하려면 다음을 수행합니다.
 
 1. Synchronization Service Manager에 있는 **커넥터** 탭을 선택합니다.
-2. 온-프레미스 Active Directory Connector를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+2. 온-프레미스 Active Directory Connector를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
 3. 팝업 대화 상자에서 **특성 선택** 탭으로 이동합니다.
 4. 특성 목록에서 사용하도록 선택한 원본 특성이 선택되어 있는지 확인합니다. 특성이 표시되지 않으면 **모두 표시** 확인란을 선택합니다.
-5. 저장하려면 **확인**을 선택합니다.
+5. 저장하려면 **확인** 을 선택합니다.
 
 !["특성" 목록이 강조 표시 된 Synchronization Service Manager 및 속성 대화 상자를 보여 주는 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
@@ -125,19 +125,19 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 기본적으로 **preferredDataLocation** 특성은 Azure AD 커넥터 공간으로 가져오지 않습니다. 가져온 속성 목록에 추가하려면 다음을 수행합니다.
 
 1. Synchronization Service Manager에 있는 **커넥터** 탭을 선택합니다.
-2. Azure AD 커넥터를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
+2. Azure AD 커넥터를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
 3. 팝업 대화 상자에서 **특성 선택** 탭으로 이동합니다.
 4. 목록에서 **preferredDataLocation** 특성을 선택합니다.
-5. 저장하려면 **확인**을 선택합니다.
+5. 저장하려면 **확인** 을 선택합니다.
 
 ![Synchronization Service Manager 및 속성 대화 상자의 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
 ## <a name="step-5-create-an-inbound-synchronization-rule"></a>5 단계: 인바운드 동기화 규칙 만들기
 인바운드 동기화 규칙은 온-프레미스 Active Directory의 원본 특성에서 메타버스로 특성 값이 흐르도록 허용합니다.
 
-1. **시작** > **동기화 규칙 편집기**로 이동하여 **동기화 규칙 편집기**를 시작합니다.
-2. **방향** 검색 필터를 **인바운드**로 설정합니다.
-3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
+1. **시작** > **동기화 규칙 편집기** 로 이동하여 **동기화 규칙 편집기** 를 시작합니다.
+2. **방향** 검색 필터를 **인바운드** 로 설정합니다.
+3. 새 인바운드 규칙을 만들려면 **새 규칙 추가** 를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
     | attribute | 값 | 세부 정보 |
@@ -151,22 +151,22 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. 모든 개체를 포함 하려면 **범위 지정 필터** 를 비워 둡니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
-6. **변환 탭**으로 이동 하 여 다음 변환 규칙을 구현 합니다.
+6. **변환 탭** 으로 이동 하 여 다음 변환 규칙을 구현 합니다.
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
     |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소됨 | 업데이트 |
 
-7. 인바운드 규칙을 만들려면 **추가**를 선택합니다.
+7. 인바운드 규칙을 만들려면 **추가** 를 선택합니다.
 
 ![인바운드 동기화 규칙 만들기 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
 ## <a name="step-6-create-an-outbound-synchronization-rule"></a>6 단계: 아웃 바운드 동기화 규칙 만들기
 아웃 바운드 동기화 규칙은 메타 버스에서 Azure AD의 **preferredDataLocation** 특성으로 특성 값을 전달 하도록 허용 합니다.
 
-1. **동기화 규칙 편집기**로 이동 합니다.
-2. **방향** 검색 필터를 **아웃바운드**로 설정합니다.
-3. **새 규칙 추가**를 선택합니다.
+1. **동기화 규칙 편집기** 로 이동 합니다.
+2. **방향** 검색 필터를 **아웃바운드** 로 설정합니다.
+3. **새 규칙 추가** 를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
     | attribute | 값 | 세부 정보 |
@@ -194,7 +194,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
     | --- | --- | --- | --- | --- |
     | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소됨 | 업데이트 |
 
-7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
+7. **추가** 를 클릭하여 아웃바운드 규칙을 만듭니다.
 
 ![아웃바운드 동기화 규칙 만들기 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
@@ -204,8 +204,8 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 1. 온-프레미스 Active Directory Connector에서 **전체 가져 오기** 실행:
 
    1. Synchronization Service Manager에 있는 **작업** 탭으로 이동합니다.
-   2. **온-프레미스 Active Directory Connector**를 마우스 오른쪽 단추로 클릭하고 **실행**을 선택합니다.
-   3. 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 선택합니다.
+   2. **온-프레미스 Active Directory Connector** 를 마우스 오른쪽 단추로 클릭하고 **실행** 을 선택합니다.
+   3. 대화 상자에서 **전체 가져오기** 를 선택하고 **확인** 을 선택합니다.
    4. 작업이 완료될 때까지 기다립니다.
 
       > [!NOTE]
@@ -213,34 +213,34 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 
 2. Azure AD 커넥터에 **전체 가져오기** 실행:
 
-   1. **AZURE AD Connector**를 마우스 오른쪽 단추로 클릭 하 고 **실행**을 선택 합니다.
-   2. 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 선택합니다.
+   1. **AZURE AD Connector** 를 마우스 오른쪽 단추로 클릭 하 고 **실행** 을 선택 합니다.
+   2. 대화 상자에서 **전체 가져오기** 를 선택하고 **확인** 을 선택합니다.
    3. 작업이 완료될 때까지 기다립니다.
 
 3. 기존 **사용자** 개체에 대 한 동기화 규칙 변경 내용을 확인 합니다.
 
-   온-프레미스 Active Directory의 원본 특성과 Azure AD의 **preferredDataLocation**을 각각의 커넥터 공간으로 가져왔습니다. 전체 동기화 단계를 진행하기 전에 온-프레미스 Active Directory Connector 공간에서 기존 **User** 개체에 대한 미리 보기를 수행합니다. 선택한 개체에 원본 특성이 채워져야 합니다. **preferredDataLocation**이 메타버스에 채워진 성공적인 미리 보기는 동기화 규칙을 올바르게 구성했음을 나타내는 좋은 지표입니다. 미리 보기를 수행하는 방법에 대한 자세한 내용은 [변경 확인](how-to-connect-sync-change-the-configuration.md#verify-the-change)을 참조하세요.
+   온-프레미스 Active Directory의 원본 특성과 Azure AD의 **preferredDataLocation** 을 각각의 커넥터 공간으로 가져왔습니다. 전체 동기화 단계를 진행하기 전에 온-프레미스 Active Directory Connector 공간에서 기존 **User** 개체에 대한 미리 보기를 수행합니다. 선택한 개체에 원본 특성이 채워져야 합니다. **preferredDataLocation** 이 메타버스에 채워진 성공적인 미리 보기는 동기화 규칙을 올바르게 구성했음을 나타내는 좋은 지표입니다. 미리 보기를 수행하는 방법에 대한 자세한 내용은 [변경 확인](how-to-connect-sync-change-the-configuration.md#verify-the-change)을 참조하세요.
 
 4. 온-프레미스 Active Directory Connector에서 **전체 동기화** 실행:
 
-   1. **온-프레미스 Active Directory Connector**를 마우스 오른쪽 단추로 클릭하고 **실행**을 선택합니다.
-   2. 대화 상자에서 **전체 동기화**를 선택하고 **확인**을 선택합니다.
+   1. **온-프레미스 Active Directory Connector** 를 마우스 오른쪽 단추로 클릭하고 **실행** 을 선택합니다.
+   2. 대화 상자에서 **전체 동기화** 를 선택하고 **확인** 을 선택합니다.
    3. 작업이 완료될 때까지 기다립니다.
 
-5. Azure AD로의 **보류 중인 내보내기**를 확인합니다.
+5. Azure AD로의 **보류 중인 내보내기** 를 확인합니다.
 
-   1. **AZURE AD 커넥터**를 마우스 오른쪽 단추로 클릭 하 고 **커넥터 공간 검색**을 선택 합니다.
+   1. **AZURE AD 커넥터** 를 마우스 오른쪽 단추로 클릭 하 고 **커넥터 공간 검색** 을 선택 합니다.
    2. **커넥터 공간 검색** 대화 상자에서:
 
-        a. **범위**를 **보류 중인 내보내기**로 설정합니다.<br>
-        b. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.<br>
-        다. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
+        a. **범위** 를 **보류 중인 내보내기** 로 설정합니다.<br>
+        b. **추가, 수정 및 삭제** 를 포함한 세 개의 확인란을 모두 선택합니다.<br>
+        c. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색** 을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
         d. 필요한 변경 내용인지 확인합니다.
 
 6. **AZURE AD Connector** 에서 **내보내기** 실행
 
-   1. **AZURE AD Connector**를 마우스 오른쪽 단추로 클릭 하 고 **실행**을 선택 합니다.
-   2. **커넥터 실행** 대화 상자에서 **내보내기**를 선택하고 **확인**을 선택합니다.
+   1. **AZURE AD Connector** 를 마우스 오른쪽 단추로 클릭 하 고 **실행** 을 선택 합니다.
+   2. **커넥터 실행** 대화 상자에서 **내보내기** 를 선택하고 **확인** 을 선택합니다.
    3. 작업이 완료될 때까지 기다립니다.
 
 > [!NOTE]
@@ -267,8 +267,8 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 Microsoft 365의 다중 지역에 대해 자세히 알아보세요.
 
 * [Ignite의 다중 지역 세션](https://aka.ms/MultiGeoIgnite)
-* [OneDrive의 다중 지역](https://aka.ms/OneDriveMultiGeo)
-* [SharePoint Online의 다중 지역](https://aka.ms/SharePointMultiGeo)
+* [OneDrive의 다중 지역](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [SharePoint Online의 다중 지역](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 동기화 엔진의 구성 모델에 대한 자세한 정보:
 

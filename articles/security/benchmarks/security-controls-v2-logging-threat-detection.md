@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360856"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408705"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
 
@@ -30,7 +30,7 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 또한 Azure 센티널을 사용 하 여 사용자 환경에서 특정 조건과 일치 하는 위협을 검색 하는 분석 규칙을 작성 합니다. 규칙은 조건이 일치할 때 인시던트를 생성 하므로 각 인시던트를 조사할 수 있습니다. 또한 Azure 센티널은 타사 위협 인텔리전스를 가져와서 위협 검색 기능을 향상 시킬 수 있습니다. 
 
-- [위협 방지 및 Azure Security Center](../../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../../security-center/azure-defender.md)
 
 - [Azure Security Center 보안 경고 참조 가이드](../../security-center/alerts-reference.md)
 
@@ -44,7 +44,7 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -73,7 +73,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [Azure Id 보호 사용](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [위협 방지 및 Azure Security Center](../../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../../security-center/azure-defender.md)
 
 **책임** : Customer
 
@@ -81,7 +81,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -115,7 +115,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -141,7 +141,7 @@ Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 
 
 **고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 인프라 및 엔드포인트 보안 
 
@@ -201,7 +201,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [파트너 규정 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -230,4 +230,3 @@ Azure 내에서 리소스에 의해 생성 된 모든 로그는 기본적으로 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

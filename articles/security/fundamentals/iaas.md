@@ -15,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c68bb9c7a94cf32bd1d9342660a9f0029f5d10d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448408"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410405"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
 
 모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 시간이 지남에 따라 의견 및 기술이 변경될 수 있으므로 이 문서는 해당 변경 내용을 반영하도록 업데이트됩니다.
 
-대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 머신)](/azure/virtual-machines/)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
+대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 머신)](../../virtual-machines/index.yml)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
 
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>인증 및 액세스 제어를 사용하여 VM 보호
 VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정하고 VM에 액세스할 수 있게 하는 것입니다.
 
 > [!NOTE]
-> Azure에서 Linux Vm의 보안을 개선 하기 위해 Azure AD 인증과 통합할 수 있습니다. [Linux vm에 대해 AZURE AD 인증](/azure/virtual-machines/linux/login-using-aad)을 사용 하는 경우 vm에 대 한 액세스를 허용 하거나 거부 하는 정책을 중앙에서 제어 하 고 적용 합니다.
+> Azure에서 Linux Vm의 보안을 개선 하기 위해 Azure AD 인증과 통합할 수 있습니다. [Linux vm에 대해 AZURE AD 인증](../../virtual-machines/linux/login-using-aad.md)을 사용 하는 경우 vm에 대 한 액세스를 허용 하거나 거부 하는 정책을 중앙에서 제어 하 고 적용 합니다.
 >
 >
 
-**모범 사례**: VM 액세스 제어   
-**세부 정보**: [Azure 정책](/azure/azure-policy/azure-policy-introduction)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](/azure/azure-resource-manager/resource-group-overview)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
+**모범 사례** : VM 액세스 제어   
+**세부 정보** : [Azure 정책](../../governance/policy/overview.md)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](../../azure-resource-manager/management/overview.md)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
 
-조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/azure-resource-manager/management-groups-overview) 은 구독 위의 범위 수준을 제공 합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](../../governance/management-groups/overview.md) 은 구독 위의 범위 수준을 제공 합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 
-**모범 사례**: VM 설정 및 배포에서 가변성 감소   
-**세부 정보**: [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) 템플릿을 사용하여 배포 선택을 강화하고 사용자 환경에서 VM을 쉽게 이해하고 목록을 만듭니다.
+**모범 사례** : VM 설정 및 배포에서 가변성 감소   
+**세부 정보** : [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿을 사용하여 배포 선택을 강화하고 사용자 환경에서 VM을 쉽게 이해하고 목록을 만듭니다.
 
-**모범 사례**: 권한 있는 액세스 보호   
-**세부 정보**: [최소 권한 접근 방식](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 및 기본 제공 Azure 역할을 사용하여 사용자가 VM에 액세스하고 VM을 설정할 수 있도록 합니다.
+**모범 사례** : 권한 있는 액세스 보호   
+**세부 정보** : [최소 권한 접근 방식](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 및 기본 제공 Azure 역할을 사용하여 사용자가 VM에 액세스하고 VM을 설정할 수 있도록 합니다.
 
 - [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM을 관리할 수 있으나 해당 컴퓨터가 연결된 가상 네트워크 또는 스토리지 계정은 관리할 수 없습니다.
 - [클래식 Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): 클래식 배포 모델을 사용하여 만든 VM을 관리할 수 있으나 VM이 연결된 가상 네트워크 또는 스토리지 계정은 관리할 수 없습니다.
@@ -63,7 +63,7 @@ VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정�
 VM 액세스 및 설정을 제어하는 조직은 해당 VM의 전반적인 보안을 개선합니다.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>가용성 향상을 위해 여러 VM 사용
-VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 가용성 [집합](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 또는 가용성 [영역](../../availability-zones/az-overview.md)을 사용 합니다.
+VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 가용성 [집합](../../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 또는 가용성 [영역](../../availability-zones/az-overview.md)을 사용 합니다.
 
 가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
 
@@ -74,17 +74,17 @@ Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색
 
 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/index.yml)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 
-**모범 사례**: 맬웨어로부터 보호하는 맬웨어 방지 솔루션 설치   
-**세부 정보**: [Microsoft 파트너 솔루션 또는 Microsoft 맬웨어 방지 프로그램 설치](../../security-center/security-center-install-endpoint-protection.md)
+**모범 사례** : 맬웨어로부터 보호하는 맬웨어 방지 솔루션 설치   
+**세부 정보** : [Microsoft 파트너 솔루션 또는 Microsoft 맬웨어 방지 프로그램 설치](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
-**모범 사례**: 보호 상태를 모니터링하기 위해 Security Center와 맬웨어 방지 솔루션 통합   
-**세부 정보**: [Security Center를 사용하여 엔드포인트 보호 문제 관리](../../security-center/security-center-partner-integration.md)
+**모범 사례** : 보호 상태를 모니터링하기 위해 Security Center와 맬웨어 방지 솔루션 통합   
+**세부 정보** : [Security Center를 사용하여 엔드포인트 보호 문제 관리](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>VM 업데이트 관리
 모든 온-프레미스 VM과 같이 Azure VM은 사용자가 관리하도록 합니다. Azure에서 Windows 업데이트를 푸시하지 않습니다. VM 업데이트를 관리해야 합니다.
 
-**모범 사례**: 최신 상태로 VM 유지   
-**세부 정보**: Azure Automation의 [업데이트 관리](../../automation/update-management/update-mgmt-overview.md) 솔루션을 사용하면 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에 배포된 Windows 및 Linux 컴퓨터에 대한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
+**모범 사례** : 최신 상태로 VM 유지   
+**세부 정보** : Azure Automation의 [업데이트 관리](../../automation/update-management/overview.md) 솔루션을 사용하면 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에 배포된 Windows 및 Linux 컴퓨터에 대한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
 업데이트 관리를 통해 관리되는 컴퓨터는 다음 구성을 사용하여 평가 및 업데이트 배포를 수행합니다.
 
@@ -95,20 +95,20 @@ Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색
 
 Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지하는 것이 좋습니다.
 
-**모범 사례**: 배포 시 빌드한 이미지에 최신 Windows 업데이트가 포함되는지 확인   
-**세부 정보**: 모든 배포의 첫 번째 단계로 모든 Windows 업데이트 확인 및 설치 이 측정값은 사용자 또는 사용자의 고유한 라이브러리에서 제공되는 이미지를 배포할 때 적용하는 것이 특히 중요합니다. Azure Marketplace의 이미지가 기본적으로 자동으로 업데이트되지만 공용 릴리스 이후 최대 몇 주 동안 지연 시간이 발생할 수 있습니다.
+**모범 사례** : 배포 시 빌드한 이미지에 최신 Windows 업데이트가 포함되는지 확인   
+**세부 정보** : 모든 배포의 첫 번째 단계로 모든 Windows 업데이트 확인 및 설치 이 측정값은 사용자 또는 사용자의 고유한 라이브러리에서 제공되는 이미지를 배포할 때 적용하는 것이 특히 중요합니다. Azure Marketplace의 이미지가 기본적으로 자동으로 업데이트되지만 공용 릴리스 이후 최대 몇 주 동안 지연 시간이 발생할 수 있습니다.
 
-**모범 사례**: OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
-**세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
+**모범 사례** : OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
+**세부 정보** : [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
-**모범 사례**: vm에 보안 업데이트를 신속 하 게 적용 합니다.   
-**세부 정보**: Azure Security Center (무료 계층 또는 표준 계층)를 사용 하 여 [누락 된 보안 업데이트를 식별 하 고 적용](../../security-center/security-center-apply-system-updates.md)합니다.
+**모범 사례** : vm에 보안 업데이트를 신속 하 게 적용 합니다.   
+**세부 정보** : Azure Security Center (무료 계층 또는 표준 계층)를 사용 하 여 [누락 된 보안 업데이트를 식별 하 고 적용](../../security-center/asset-inventory.md)합니다.
 
-**모범 사례**: 최신 보안 업데이트 설치   
-**세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
+**모범 사례** : 최신 보안 업데이트 설치   
+**세부 정보** : 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
 
-**모범 사례**: 백업 솔루션 배포 및 테스트   
-**세부 정보**: 다른 작업을 처리하는 것과 동일한 방식으로 백업을 처리해야 합니다. 클라우드로 확장되는 프로덕션 환경에 속하는 시스템의 경우도 마찬가지입니다.
+**모범 사례** : 백업 솔루션 배포 및 테스트   
+**세부 정보** : 다른 작업을 처리하는 것과 동일한 방식으로 백업을 처리해야 합니다. 클라우드로 확장되는 프로덕션 환경에 속하는 시스템의 경우도 마찬가지입니다.
 
 테스트 및 개발 시스템은 온-프레미스 환경에 대한 경험을 토대로 사용자에게 친숙한 비슷한 복원 기능을 제공하는 백업 전략을 따라야 합니다. Azure로 이동되는 프로덕션 작업은 가능한 경우 기존 백업 솔루션과 통합되어야 합니다. 또는 [Azure Backup](../../backup/backup-azure-vms-first-look-arm.md)을 사용하여 백업 요구를 보다 쉽게 처리할 수 있습니다.
 
@@ -119,7 +119,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 ## <a name="manage-your-vm-security-posture"></a>VM 보안 태세 관리
 사이버 위협은 진화하고 있습니다. VM을 보호하려면 신속하게 위협을 감지하고 리소스에 대한 무단 액세스를 방지하고 경고를 트리거하며 거짓 오류를 줄일 수 있는 모니터링 기능이 필요합니다.
 
-[Windows](../../security-center/security-center-virtual-machine.md) 및 [Linux VM](../../security-center/security-center-linux-virtual-machine.md)의 보안 태세를 모니터링하기 위해 [Azure Security Center](../../security-center/security-center-intro.md)를 사용합니다. Security Center에서 다음 기능을 활용하여 VM을 보호합니다.
+[Windows](../../security-center/security-center-introduction.md) 및 [Linux VM](../../security-center/security-center-introduction.md)의 보안 태세를 모니터링하기 위해 [Azure Security Center](../../security-center/security-center-introduction.md)를 사용합니다. Security Center에서 다음 기능을 활용하여 VM을 보호합니다.
 
 - 권장된 구성 규칙으로 OS 보안 설정 적용
 - 누락될 수 있는 시스템 보안 및 중요 업데이트 식별 및 다운로드
@@ -130,38 +130,38 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 
 Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center는 [Azure Monitor 로그](/azure/log-analytics/log-analytics-overview)에 데이터를 저장 합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작동에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Security Center는 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)에 데이터를 저장 합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작동에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 
 ## <a name="monitor-vm-performance"></a>VM 성능 모니터링
 리소스 남용은 VM 프로세스가 소비해야 하는 것보다 더 많은 리소스를 소비하는 경우 문제가 될 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. CPU 또는 메모리 사용량이 높으면 DoS(서비스 거부) 공격을 나타낼 수 있기 때문에 IIS 또는 다른 웹 서버를 호스팅하는 VM에 특히 중요합니다. 문제가 발생하는 동안 VM 액세스를 적극적으로 모니터링할 뿐만 아니라 정상 작업 중에 측정된 기준 성능에 대해 사전 대처식으로 모니터링해야 합니다.
 
-[Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics)를 사용하여 리소스 상태에 대한 가시성을 얻는 것이 좋습니다. Azure Monitor 기능:
+[Azure Monitor](../../azure-monitor/platform/data-platform.md)를 사용하여 리소스 상태에 대한 가시성을 얻는 것이 좋습니다. Azure Monitor 기능:
 
 - [리소스 진단 로그 파일](../../azure-monitor/platform/platform-logs-overview.md): VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다.
-- [Azure Diagnostics 확장](/azure/azure-monitor/platform/diagnostics-extension-overview): Windows VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](/azure/virtual-machines/windows/extensions-diagnostics-template)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
+- [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md): Windows VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../../virtual-machines/extensions/diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
 
 VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인할 수 없습니다. 정상보다 더 많은 리소스를 소비하는 VM은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
 
 ## <a name="encrypt-your-virtual-hard-disk-files"></a>가상 하드 디스크 파일 암호화
 VHD(가상 하드 디스크)를 암호화하여 암호화 키 및 비밀과 함께 스토리지의 미사용 부팅 볼륨 및 데이터 볼륨을 보호할 수 있는 것이 좋습니다.
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md)을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. Azure Disk Encryption은 산업 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어 하 고 관리 하는 데 도움을 주는 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 와 통합 됩니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 Azure Storage에서 미사용 시 암호화되도록 합니다.
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md)을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. Azure Disk Encryption은 산업 표준인 Windows의 [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어 하 고 관리 하는 데 도움을 주는 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 와 통합 됩니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 Azure Storage에서 미사용 시 암호화되도록 합니다.
 
 Azure Disk Encryption을 사용하는 모범 사례는 다음과 같습니다.
 
-**모범 사례**: VM에서 암호화 사용   
-**세부 정보**: Azure Disk Encryption은 암호화 키를 생성하고 키 자격 증명 모음에 작성합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 애플리케이션을 만듭니다. 인증을 위해 클라이언트 암호 기반 인증 또는 [클라이언트 인증서 기반 AZURE AD 인증](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
+**모범 사례** : VM에서 암호화 사용   
+**세부 정보** : Azure Disk Encryption은 암호화 키를 생성하고 키 자격 증명 모음에 작성합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 애플리케이션을 만듭니다. 인증을 위해 클라이언트 암호 기반 인증 또는 [클라이언트 인증서 기반 AZURE AD 인증](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
 
-**모범 사례**: 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용합니다. KEK를 키 자격 증명 모음에 추가합니다.   
-**세부 정보**: [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용 하 여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/keys/hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
+**모범 사례** : 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용합니다. KEK를 키 자격 증명 모음에 추가합니다.   
+**세부 정보** : [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용 하 여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/keys/hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
 
-**모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅샷](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업을 수행하세요. 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
-**세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM에는 백업이 필요합니다. 백업이 수행 된 후에는 **AzVMDiskEncryptionExtension** cmdlet을 사용 하 여 *-skipvmbackup* 매개 변수를 지정 하 여 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
+**모범 사례** : 디스크가 암호화되기 전에 먼저 [스냅샷](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업을 수행하세요. 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
+**세부 정보** : 암호화가 수행되기 전에 관리 디스크가 있는 VM에는 백업이 필요합니다. 백업이 수행 된 후에는 **AzVMDiskEncryptionExtension** cmdlet을 사용 하 여 *-skipvmbackup* 매개 변수를 지정 하 여 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
 
-**모범 사례**: 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서는 키 자격 증명 모음과 VM을 동일한 지역에 배치해야 합니다.   
-**세부 정보**: 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다.
+**모범 사례** : 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서는 키 자격 증명 모음과 VM을 동일한 지역에 배치해야 합니다.   
+**세부 정보** : 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다.
 
 Azure Disk Encryption을 적용할 때 다음 비즈니스 요구 사항을 충족할 수 있습니다.
 
@@ -171,18 +171,18 @@ Azure Disk Encryption을 적용할 때 다음 비즈니스 요구 사항을 충�
 ## <a name="restrict-direct-internet-connectivity"></a>직접 인터넷 연결 제한
 VM 다이렉트 인터넷 연결을 모니터링 하 고 제한 합니다. 공격자는 개방형 관리 포트에 대해 공용 클라우드 IP 범위를 지속적으로 검색 하 고 일반 암호 및 알려진 패치가 적용 되지 않은 취약점과 같은 "쉬운" 공격을 시도 합니다. 다음 표에서는 이러한 공격 으로부터 보호 하는 데 도움이 되는 모범 사례를 보여 줍니다.
 
-**모범 사례**: 네트워크 라우팅 및 보안에 대 한 실수로 인 한 노출을 방지 합니다.   
-**세부 정보**: RBAC를 사용 하 여 중앙 네트워킹 그룹에만 리소스에 대 한 사용 권한이 있는지 확인 합니다.
+**모범 사례** : 네트워크 라우팅 및 보안에 대 한 실수로 인 한 노출을 방지 합니다.   
+**세부 정보** : RBAC를 사용 하 여 중앙 네트워킹 그룹에만 리소스에 대 한 사용 권한이 있는지 확인 합니다.
 
-**모범 사례**: "any" 원본 IP 주소에서 액세스를 허용 하는 노출 된 vm을 식별 하 고 재구성 합니다.   
-**세부 정보**: Azure Security Center을 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. Security Center 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-network-recommendations.md) 하는 것이 Security Center 합니다.
+**모범 사례** : "any" 원본 IP 주소에서 액세스를 허용 하는 노출 된 vm을 식별 하 고 재구성 합니다.   
+**세부 정보** : Azure Security Center을 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. Security Center 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-network-recommendations.md) 하는 것이 Security Center 합니다.
 
-**모범 사례**: 관리 포트 (RDP, SSH)를 제한 합니다.   
-**세부 정보**: [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
+**모범 사례** : 관리 포트 (RDP, SSH)를 제한 합니다.   
+**세부 정보** : [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
-* [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.
+* [Azure 보안 팀 블로그](/archive/blogs/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.
 * [Microsoft 보안 응답 센터](https://technet.microsoft.com/library/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 secure@microsoft.com으로 이메일을 보낼 수 있습니다.

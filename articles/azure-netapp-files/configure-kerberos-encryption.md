@@ -12,22 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 1ffbcc24a2ee386be1a8ce50b55375d5bd458df1
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331892"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410099"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
 
 Azure NetApp Files는 256 암호화를 사용 하는 Kerberos 모드 (krb5.conf, krb5i 및 krb5p)에서 NFS 클라이언트 암호화를 지원 합니다. 이 문서에서는 Kerberos 암호화와 함께 NFSv 4.1 볼륨을 사용 하는 데 필요한 구성을 설명 합니다.
-
-## <a name="considerations"></a>고려 사항
-
-* NFSv 4.1 Kerberos 암호화 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다. 
 
 ## <a name="requirements"></a>요구 사항
 
@@ -93,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예: 
+    예를 들어: 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 

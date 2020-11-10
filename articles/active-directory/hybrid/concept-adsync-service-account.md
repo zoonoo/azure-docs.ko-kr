@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144716"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410898"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
 Azure AD Connect Active Directory와 Azure Active Directory 간의 동기화를 오케스트레이션 온-프레미스 서비스를 설치 합니다.  ADSync (Microsoft Azure AD Sync synchronization service)는 온-프레미스 환경의 서버에서 실행 됩니다.  서비스의 자격 증명은 기본적으로 Express 설치에서 설정 되지만 조직의 보안 요구 사항에 맞게 사용자 지정할 수 있습니다.  이러한 자격 증명은 온-프레미스 포리스트 또는 Azure Active Directory 연결 하는 데 사용 되지 않습니다.
@@ -55,21 +55,21 @@ Microsoft는 가상 서비스 계정 또는 독립 실행형 또는 그룹 관�
 
 ADSync 서비스는 시작할 수 없는 경우 이벤트 로그에 오류 수준 메시지를 발행 합니다.  메시지의 내용은 기본 제공 데이터베이스 (localdb) 또는 전체 SQL의 사용 여부에 따라 달라 집니다.  다음은 표시 될 수 있는 이벤트 로그 항목의 예입니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 AdSync 서비스 암호화 키를 찾을 수 없어서 다시 만들었습니다.  이 문제가 해결 될 때까지 동기화가 수행 되지 않습니다.
 
 이 문제를 해결 하는 경우 AdSync 서비스 로그온 자격 증명이 변경 되 면 Microsoft Azure AD 동기화 암호화 키에 액세스할 수 없게 됩니다.  자격 증명이 변경 된 경우 서비스 응용 프로그램을 사용 하 여 로그온 계정을 원래 구성 된 값으로 다시 변경 합니다 (예: NT SERVICE\AdSync)를 클릭 하 고 서비스를 다시 시작 합니다.  그러면 AdSync 서비스의 올바른 작업이 즉시 복원 됩니다.
 
-자세한 내용은 다음 [문서](https://go.microsoft.com/fwlink/?linkid=2086764) 를 참조 하세요.
+자세한 내용은 다음 [문서](./whatis-hybrid-identity.md) 를 참조 하세요.
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 로컬 데이터베이스 (localdb)에 대 한 연결을 설정할 수 없기 때문에 서비스를 시작할 수 없습니다.
 
 이 문제를 해결 하는 경우 AdSync 서비스 로그온 자격 증명을 변경 하는 경우 동기화 서비스 Microsoft Azure AD는 로컬 데이터베이스 공급자에 대 한 액세스 권한을 잃게 됩니다.  자격 증명이 변경 된 경우 서비스 응용 프로그램을 사용 하 여 로그온 계정을 원래 구성 된 값으로 다시 변경 합니다 (예: NT SERVICE\AdSync)를 클릭 하 고 서비스를 다시 시작 합니다.  그러면 AdSync 서비스의 올바른 작업이 즉시 복원 됩니다.
 
-자세한 내용은 다음 [문서](https://go.microsoft.com/fwlink/?linkid=2086764) 를 참조 하세요.
+자세한 내용은 다음 [문서](./whatis-hybrid-identity.md) 를 참조 하세요.
 
 추가 정보 공급자에서 반환 된 오류 정보는 다음과 같습니다.
  

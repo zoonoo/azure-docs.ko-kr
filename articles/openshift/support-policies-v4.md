@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049964"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408416"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -30,6 +30,7 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 * 모든 클러스터 가상 머신에는 최소한 ARM(Azure Resource Manager) 및 서비스 로깅(Geneva) 엔드포인트에 대한 직접적인 아웃바운드 인터넷 액세스 권한이 있어야 합니다.  HTTPS 프록시 형식은 지원되지 않습니다.
 * 클러스터의 가상 네트워크에 대한 DNS 구성을 수정하지 마세요. 기본 Azure DNS 확인자를 사용해야 합니다.
 * 어떤 방식으로든 클러스터의 MachineConfig 개체(예: kubelet 구성)를 재정의하지 마세요.
+* UnsupportedConfigOverrides 옵션을 설정 하지 마세요. 이러한 옵션을 설정 하면 부 버전 업그레이드를 수행할 수 없습니다.
 * Azure Red Hat OpenShift 서비스는 Private Link Service를 통해 클러스터에 액세스합니다.  서비스 액세스를 제거하거나 수정하지 마세요.
 * 비 RHCOS 컴퓨팅 노드는 지원되지 않습니다. 예를 들어 RHEL 컴퓨팅 노드를 사용할 수 없습니다.
 

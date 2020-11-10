@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f0fa8e5923639ea74a83a9a775bd5d580234b7ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e2e2797bd01635c4c066a60f379a884e545e5af2
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340127"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409708"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -109,3 +109,5 @@ Cosmos DB에 연결 하는 동안 정확한 이름을 사용 해야 합니다.
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB .NET SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-dot-net-sdk.md) 합니다.
 * [.Net v3](performance-tips-dotnet-sdk-v3-sql.md) 및 [.net v2](performance-tips.md)의 성능 지침에 대해 알아봅니다.
+* Azure Cosmos DB Java v4 SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-java-sdk-v4-sql.md) 합니다.
+* [Java V4 SDK](performance-tips-java-sdk-v4-sql.md)의 성능 지침에 대해 알아봅니다.

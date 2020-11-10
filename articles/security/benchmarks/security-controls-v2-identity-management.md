@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757939"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408740"
 ---
 # <a name="security-control-v2-identity-management"></a>보안 제어 V2: Id 관리
 
@@ -39,13 +39,13 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 - [Azure AD 테 넌 트 정의](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [응용 프로그램에 외부 id 공급자 사용](/azure/active-directory/b2b/identity-providers)
+- [응용 프로그램에 외부 id 공급자 사용](../../active-directory/external-identities/identity-providers.md)
 
 - [Azure AD에서 id 보안 점수는 무엇 인가요?](../../active-directory/fundamentals/identity-secure-score.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -59,7 +59,7 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| IM-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | 해당 없음 | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 서비스 또는 자동화와 같은 비 사용자 계정의 경우 리소스에 액세스 하거나 코드를 실행 하는 데 더 강력한 인간 계정을 만드는 대신 Azure 관리 id를 사용 합니다. Azure 관리 되는 id는 azure AD 인증을 지 원하는 Azure 서비스 및 리소스에 인증할 수 있습니다. 소스 코드 또는 구성 파일에서 하드 코드 된 자격 증명을 방지 하기 위해 미리 정의 된 액세스 권한 부여 규칙을 통해 인증을 사용할 수 있습니다. 
 
@@ -75,9 +75,9 @@ Azure AD 보안은 조직의 클라우드 보안 관행에서 높은 우선 순�
 
 보안 주체 등록에 Azure Key Vault 사용: 인증 # 권한 부여-보안 주체-키-자격 증명 모음
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -95,9 +95,9 @@ Azure AD Single Sign-On (SSO)를 사용 하 여 온-프레미스 및 클라우�
 
 - [Azure AD를 사용 하 여 응용 프로그램 SSO 이해](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -130,9 +130,9 @@ Azure AD 인증에 레거시 암호 기반 인증을 여전히 사용 하는 경
 
 - [Azure AD 암호 보호를 사용 하 여 잘못 된 암호 제거](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -163,13 +163,13 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [Azure AD의 감사 활동 보고서](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../../security-center/security-center-identity-access.md)
 
-- [Azure Security Center의 위협 인텔리전스 보호 모듈의 경고](/azure/security-center/alerts-reference)
+- [Azure Security Center의 위협 인텔리전스 보호 모듈의 경고](../../security-center/alerts-reference.md)
 
 - [Azure Monitor에 Azure 활동 로그를 통합 하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,9 +177,9 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -189,7 +189,7 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| IM-6 | N/A | AC-2, AC-3 |
+| IM-6 | 해당 없음 | AC-2, AC-3 |
 
 사용자 정의 조건에 따라 보다 세부적인 액세스 제어를 위해 Azure AD 조건부 액세스를 사용 합니다 (예: 특정 IP 범위의 사용자 로그인에 MFA를 사용 하도록 요구). 다양 한 사용 사례에 대 한 Azure AD 조건부 액세스 정책을 통해 세부적인 인증 세션 관리를 사용할 수도 있습니다. 
 
@@ -199,9 +199,9 @@ Azure ATP (Advanced Threat Protection)는 온-프레미스 Active Directory 신�
 
 - [조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -225,9 +225,9 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용 하 여 코드 내�
 
 - [GitHub 암호 검색](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -245,13 +245,13 @@ Azure AD 응용 프로그램 프록시를 사용 하면 Azure AD 조건부 액�
 
 또는 기존 온-프레미스 응용 프로그램과 클라우드 SaaS (software as a service) 응용 프로그램 모두에 대 한 사용자의 응용 프로그램 세션 및 차단 작업을 모니터링 하는 컨트롤을 제공할 수 있는 CASB (cloud access Security broker) 서비스 Microsoft Cloud App Security입니다. 
 
-- [Azure AD 응용 프로그램 프록시](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
+- [Azure AD 애플리케이션 프록시](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 
 - [Microsoft Cloud App Security 모범 사례](/cloud-app-security/best-practices)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201837"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408977"
 ---
 # <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
@@ -36,9 +36,9 @@ Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있
 
 - [Azure 관리 그룹 개요](../../governance/management-groups/overview.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -56,15 +56,15 @@ Azure Security Center inventory 기능 및 Azure 리소스 그래프는 Azure �
 
 Azure의 다른 메타 데이터 (이름, 설명 및 범주)를 사용 하 여 조직의 분류에 따라 자산을 논리적으로 구성 합니다.  
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md)
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태그 지정 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -80,13 +80,13 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 - [Azure Policy 구성 및 관리](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/index.md)
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -104,9 +104,9 @@ Azure Policy를 사용 하 여 사용자 환경에서 사용자가 프로 비전
 
 - [Azure 리소스 그룹 및 리소스 삭제](../../azure-resource-manager/management/delete-resource-group.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -124,9 +124,9 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 - [Azure 리소스 관리자에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법](../../role-based-access-control/conditional-access-azure-management.md)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -152,15 +152,14 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 - [Azure Automation 변경 내용 추적 및 인벤토리 이해](../../automation/change-tracking/overview.md)
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**책임**: Customer
+**책임** : Customer
 
-**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**고객 보안 관련자** ( [자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-

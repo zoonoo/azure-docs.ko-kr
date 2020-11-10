@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168055"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408518"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -43,13 +43,13 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 이 백서는 Microsoft Azure 클라우드 플랫폼 내에서 Azure 운영 보안에 대한 Microsoft 접근 방식을 간략히 설명하고 다음 서비스를 다룹니다.
 1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Azure Security Center](../../security-center/security-center-intro.md)
+2.  [Azure Security Center](../../security-center/security-center-introduction.md)
 
 3.  [Azure Monitor](../../azure-monitor/overview.md)
 
 4.  [Azure 네트워크 감시자](../../network-watcher/network-watcher-monitoring-overview.md)
 
-5.  [Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+5.  [Azure Storage 분석](/rest/api/storageservices/fileservices/storage-analytics)
 
 6.  [Azure Active directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -100,15 +100,15 @@ Azure Monitor 서비스는 다음 방법을 사용 하 여 클라우드 기반 �
 Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저장소에 저장됩니다. 데이터는 동일 지역 내에서 복제되며, 보관 유형에 따라 복원력을 높이기 위해 다른 지역에 복제될 수 있습니다.
 
 ### <a name="management-solutions"></a>관리 솔루션
-[Azure Monitor](../../security-center/security-center-intro.md) 은 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
+[Azure Monitor](../../security-center/security-center-introduction.md) 은 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
 
 
-[관리 솔루션](../../monitoring/monitoring-solutions.md) 은 하나 이상의 Azure Monitor 서비스를 사용 하 여 특정 관리 시나리오를 구현 하는 논리의 미리 패키지 된 집합입니다. Microsoft 및 파트너 로부터 다양 한 솔루션을 사용할 수 있으며,이를 통해 Azure 구독에 쉽게 추가 하 여 Azure Monitor 투자 가치를 높일 수 있습니다. 파트너는 응용 프로그램 및 서비스를 지원 하 고 Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에 게 제공 하는 고유한 솔루션을 만들 수 있습니다.
+[관리 솔루션](../../azure-monitor/insights/solutions.md) 은 하나 이상의 Azure Monitor 서비스를 사용 하 여 특정 관리 시나리오를 구현 하는 논리의 미리 패키지 된 집합입니다. Microsoft 및 파트너 로부터 다양 한 솔루션을 사용할 수 있으며,이를 통해 Azure 구독에 쉽게 추가 하 여 Azure Monitor 투자 가치를 높일 수 있습니다. 파트너는 응용 프로그램 및 서비스를 지원 하 고 Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에 게 제공 하는 고유한 솔루션을 만들 수 있습니다.
 
 
 ![관리 솔루션](./media/operational-security/azure-operational-security-fig4.png)
 
-여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)이 있습니다. 이 솔루션은 Windows 및 Linux 용 [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent를 사용 하 여 각 에이전트의 필수 업데이트에 대 한 정보를 수집 합니다. 이 데이터는 포함 된 대시보드를 사용 하 여 분석할 수 있는 Azure Monitor logs 리포지토리에 기록 됩니다.
+여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](../../automation/update-management/overview.md)이 있습니다. 이 솔루션은 Windows 및 Linux 용 [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) agent를 사용 하 여 각 에이전트의 필수 업데이트에 대 한 정보를 수집 합니다. 이 데이터는 포함 된 대시보드를 사용 하 여 분석할 수 있는 Azure Monitor logs 리포지토리에 기록 됩니다.
 
 배포를 만들 때 [Azure Automation](../../automation/automation-intro.md)의 runbook을 사용하여 필요한 업데이트를 설치합니다. 이 전체 프로세스를 포털에서 관리할 수 있으며 기본적인 세부 사항에 대해 걱정할 필요가 없습니다.
 
@@ -148,19 +148,19 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
 
--   **데이터 분리**: 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
+-   **데이터 분리** : 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
 
--   **데이터 액세스**: Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅샷 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
+-   **데이터 액세스** : Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅샷 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
 
--   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인정보처리방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인정보처리방침 약정에 따라 수행합니다.
+-   **데이터 사용** : Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인정보처리방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인정보처리방침 약정에 따라 수행합니다.
 
 ### <a name="data-location"></a>데이터 위치
 
 Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집하고 이용 시도 및 손상 성공의 증거를 찾기 위해 분석합니다. Azure Security Center는 작업 영역과 동일한 지역 내에서 이 분석을 수행하고 분석이 완료되면 임시 복사본을 삭제합니다. 컴퓨터 아티팩트는 VM과 동일한 지역에 중앙 집중식으로 저장됩니다.
 
--   **Storage 계정**: 가상 머신이 실행되는 각 지역에 대해 지정됩니다. 그러면 데이터를 수집하는 가상 머신과 동일한 지역에 데이터를 저장할 수 있습니다.
+-   **Storage 계정** : 가상 머신이 실행되는 각 지역에 대해 지정됩니다. 그러면 데이터를 수집하는 가상 머신과 동일한 지역에 데이터를 저장할 수 있습니다.
 
--   **Azure Security Center Storage**: 보안 경고(파트너 경고 포함), 권장 사항 및 보안 상태에 대한 정보는 현재 미국에 있는 Azure Security Center Storage에 중앙 집중식으로 저장됩니다. 이 정보는 필요한 가상 머신에서 수집된 관련된 구성 정보 및 보안 이벤트를 포함하여 보안 경고, 권장 사항 또는 보안 상태를 제공할 수 있습니다.
+-   **Azure Security Center Storage** : 보안 경고(파트너 경고 포함), 권장 사항 및 보안 상태에 대한 정보는 현재 미국에 있는 Azure Security Center Storage에 중앙 집중식으로 저장됩니다. 이 정보는 필요한 가상 머신에서 수집된 관련된 구성 정보 및 보안 이벤트를 포함하여 보안 경고, 권장 사항 또는 보안 상태를 제공할 수 있습니다.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -199,17 +199,17 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 
 ### <a name="metrics"></a>메트릭
 
-Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 [메트릭을](../../monitoring/monitoring-data-collection.md) 구성 하 고 사용 하는 여러 가지 방법을 제공 합니다. 메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
+Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 [메트릭을](../../azure-monitor/platform/data-platform.md) 구성 하 고 사용 하는 여러 가지 방법을 제공 합니다. 메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
 
--   포털 차트에 메트릭을 넣고 해당 차트를 대시보드에 고정하여 리소스(예: VM, 웹 사이트, 논리 앱)의 **성능을 추적**합니다.
+-   포털 차트에 메트릭을 넣고 해당 차트를 대시보드에 고정하여 리소스(예: VM, 웹 사이트, 논리 앱)의 **성능을 추적** 합니다.
 
 -   메트릭이 특정 임계값을 초과할 때 리소스 성능에 영향을 미치는 **문제에 대한 알림을 받습니다**.
 
 -   메트릭이 특정 임계값을 초과할 때 리소스 자동 크기 조정 또는 runbook 실행과 같은 **자동화된 작업을 구성합니다**.
 
--   리소스의 성능 또는 사용 추세에 대한 **고급 분석**이나 보고를 수행합니다.
+-   리소스의 성능 또는 사용 추세에 대한 **고급 분석** 이나 보고를 수행합니다.
 
--   규정 준수 또는 감사 목적으로 리소스의 성능 또는 상태 기록을 **보관**합니다.
+-   규정 준수 또는 감사 목적으로 리소스의 성능 또는 상태 기록을 **보관** 합니다.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -225,22 +225,22 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 
 Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">감사 로그</a>** - 네트워크 구성의 일부로 수행되는 작업이 기록됩니다. 이러한 로그는 Azure Portal에서 보거나 Power BI 또는 타사 도구와 같은 Microsoft 도구를 사용하여 검색할 수 있습니다. 감사 로그는 포털, PowerShell, CLI 및 Rest API를 통해 사용할 수 있습니다. 감사 로그에 대한 자세한 내용은 Resource Manager로 작업 감사를 참조하세요. 감사 로그는 모든 네트워크 리소스에서 수행된 작업에 사용할 수 있습니다.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">감사 로그</a>** - 네트워크 구성의 일부로 수행되는 작업이 기록됩니다. 이러한 로그는 Azure Portal에서 보거나 Power BI 또는 타사 도구와 같은 Microsoft 도구를 사용하여 검색할 수 있습니다. 감사 로그는 포털, PowerShell, CLI 및 Rest API를 통해 사용할 수 있습니다. 감사 로그에 대한 자세한 내용은 Resource Manager로 작업 감사를 참조하세요. 감사 로그는 모든 네트워크 리소스에서 수행된 작업에 사용할 수 있습니다.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 흐름 확인 </a>** -흐름 정보의 5 개 튜플 패킷 매개 변수 (대상 Ip, 원본 Ip, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용 되거나 거부 되는지 확인 합니다. 네트워크 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 네트워크 보안 그룹이 반환됩니다.
+-   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 흐름 확인</a>** -흐름 정보의 5 개 튜플 패킷 매개 변수 (대상 Ip, 원본 Ip, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용 되거나 거부 되는지 확인 합니다. 네트워크 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 네트워크 보안 그룹이 반환됩니다.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">다음 홉</a>** - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
+-   **<a href="/azure/network-watcher/network-watcher-next-hop-overview">다음 홉</a>** - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">보안 그룹 보기</a>** -VM에 적용 되는 효과적이 고 적용 된 보안 규칙을 가져옵니다.
+-   **<a href="/azure/network-watcher/network-watcher-security-group-view-overview">보안 그룹 보기</a>** -VM에 적용 되는 효과적이 고 적용 된 보안 규칙을 가져옵니다.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG 흐름 로깅</a>** - 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
+-   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG 흐름 로깅</a>** - 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage 분석
 
-[스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) 는 저장소 서비스에 대 한 요청에 대 한 집계 된 트랜잭션 통계 및 용량 데이터를 포함 하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 스토리지 서비스 수준에서 모두 보고되며 용량은 스토리지 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 스토리지 서비스 사용량을 분석하고 스토리지 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
+[스토리지 분석](/rest/api/storageservices/fileservices/storage-analytics) 는 저장소 서비스에 대 한 요청에 대 한 집계 된 트랜잭션 통계 및 용량 데이터를 포함 하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 스토리지 서비스 수준에서 모두 보고되며 용량은 스토리지 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 스토리지 서비스 사용량을 분석하고 스토리지 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
-[Azure 스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) 는 로깅을 수행 하 고 저장소 계정에 대 한 메트릭 데이터를 제공 합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure 스토리지 분석](/rest/api/storageservices/fileservices/storage-analytics) 는 로깅을 수행 하 고 저장소 계정에 대 한 메트릭 데이터를 제공 합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 작업이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 생성됩니다.
 
@@ -256,7 +256,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 -   메트릭용 테이블 엔터티 작성 요청
 
 > [!Note]
-> 청구 및 데이터 보존 정책에 대한 자세한 내용은 [스토리지 분석 및 청구](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)를 참조하세요.
+> 청구 및 데이터 보존 정책에 대한 자세한 내용은 [스토리지 분석 및 청구](/rest/api/storageservices/fileservices/storage-analytics-and-billing)를 참조하세요.
 > 최적의 성능을 얻기 위해 가상 머신에 연결되어 자주 활용되는 디스크의 수를 제한하여 가능한 제한을 방지하려고 합니다. 모든 디스크가 동시에 자주 활용되지 않으면 스토리지 계정에서 많은 디스크를 지원할 수 있습니다.
 
 > [!Note]
@@ -271,7 +271,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 |실패한 요청(시간 제한, 제한, 네트워크, 권한 부여 및 기타 오류) | SAS(공유 액세스 서명)를 사용하는 요청(실패한 요청 및 성공한 요청 포함) |
 | SAS(공유 액세스 서명)를 사용하는 요청(실패한 요청 및 성공한 요청 포함) |클라이언트와 서버 모두에 대한 시간 제한 오류 |
 |   분석 데이터에 대한 요청 |    오류 코드가 304(수정되지 않음)인 실패한 GET 요청 |
-| 로그 만들기/삭제 등 스토리지 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
+| 로그 만들기/삭제 등 스토리지 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -281,7 +281,7 @@ Azure AD에는 다단계 인증, 디바이스 등록, 셀프 서비스 암호 �
 
 -   애플리케이션 사용을 모니터링하고 보안 보고 및 모니터링을 통해 비즈니스를 고급 위협으로부터 보호합니다.
 
-Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. [Azure Active Directory 감사 보고서](../../active-directory/active-directory-reporting-azure-portal.md)를 사용하면 고객이 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다.
+Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. [Azure Active Directory 감사 보고서](../../active-directory/reports-monitoring/overview-reports.md)를 사용하면 고객이 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다.
 
 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [감사 로그 보기](../../active-directory/reports-monitoring/overview-reports.md)에서 설명한 대로 [Azure Portal](https://portal.azure.com/)을 통해 Azure Active Directory에 대한 감사 이벤트 목록을 검색할 수 있습니다. 포함된 보고서 목록은 다음과 같습니다.
 
@@ -299,14 +299,14 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 
 
 
-이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 애플리케이션에 유용할 수 있습니다. Azure AD 보고 [API](../../active-directory/active-directory-reporting-api-getting-started-azure-portal.md)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
+이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 애플리케이션에 유용할 수 있습니다. Azure AD 보고 [API](../../active-directory/reports-monitoring/concept-reporting-api.md)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
 
 Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 > [!Note]
 > 보고서 보존에 대 한 자세한 내용은 [Azure Active Directory 보고서 보존 정책](../../active-directory/reports-monitoring/reference-reports-data-retention.md)을 참조 하세요.
 
-장기 보존 기간 동안 감사 이벤트를 저장하려는 고객의 경우 보고 API를 사용하여 [감사 이벤트](../../active-directory/active-directory-reporting-activity-audit-logs.md)를 정기적으로 별도의 데이터 저장소로 가져올 수 있습니다.
+장기 보존 기간 동안 감사 이벤트를 저장하려는 고객의 경우 보고 API를 사용하여 [감사 이벤트](../../active-directory/reports-monitoring/concept-audit-logs.md)를 정기적으로 별도의 데이터 저장소로 가져올 수 있습니다.
 
 ## <a name="summary"></a>요약
 
@@ -342,4 +342,3 @@ Microsoft는 클라우드 인프라의 탄력성을 보장하고 공격으로부
 Microsoft 보안 데이터 및 분석을 사용하여 더 지능적이고 효과적인 위협 검색을 수행합니다.
 
 - [Azure Security Center 계획 및 작업 가이드](../../security-center/security-center-planning-and-operations-guide.md) - 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터를 최적으로 사용하기 위해 수행할 수 있는 일단의 단계 및 작업입니다.
-
