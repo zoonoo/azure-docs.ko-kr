@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173281"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427737"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -22,11 +22,11 @@ Azure Backup은 온-프레미스 컴퓨터 및 Azure VM (가상 컴퓨터) 인�
 
 여러 가지 방법을 사용 하 여 컴퓨터 및 데이터를 백업할 수 있습니다.
 
-- **온-프레미스 머신 백업**:
+- **온-프레미스 머신 백업** :
   - MARS (Azure Backup Microsoft Azure Recovery Services) 에이전트를 사용 하 여 온-프레미스 Windows 컴퓨터를 Azure에 직접 백업할 수 있습니다. Linux 컴퓨터는 지원되지 않습니다.
   - 온-프레미스 컴퓨터를 백업 서버 (System Center Data Protection Manager (DPM) 또는 Microsoft Azure Backup 서버 (MABS)에 백업할 수 있습니다. 그런 다음 백업 서버를 Azure의 Recovery Services 자격 증명 모음에 백업할 수 있습니다.
 
-- **Azure Vm 백업**:
+- **Azure Vm 백업** :
   - Azure VM을 직접 백업할 수 있습니다. Azure Backup VM에서 실행 되는 Azure VM 에이전트에 대 한 백업 확장을 설치 합니다. 이 확장은 전체 VM을 백업합니다.
   - MARS 에이전트를 실행하여 Azure VM에서 특정 파일 및 폴더를 백업할 수 있습니다.
   - Azure Vm은 Azure에서 실행 되는 MABS에 백업할 수 있으며, 그런 다음, MABS를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.
@@ -35,7 +35,7 @@ Azure Backup은 온-프레미스 컴퓨터 및 Azure VM (가상 컴퓨터) 인�
 
 ## <a name="where-is-data-backed-up"></a>데이터는 어디에 백업되나요?
 
-Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 백업 자격 증명 모음에 백업 된 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
+Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 백업 자격 증명 모음에 백업 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
 
 자격 증명 모음에는 다음과 같은 기능이 있습니다.
 
@@ -43,9 +43,9 @@ Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS (영역 중복 저장소)**: [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (영역 중복 저장소)** : [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 Recovery Services 자격 증명 모음에는 다음과 같은 추가 기능이 있습니다.
@@ -69,7 +69,7 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 --- | --- | ---
 **전체** | 전체 백업은 전체 데이터 원본을 포함 합니다. 차등 또는 증분 백업 보다 더 많은 네트워크 대역폭을 사용 합니다. | 초기 백업에 사용됩니다.
 **큰** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
-**대비** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
+**증분** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
 
 ## <a name="sql-server-backup-types"></a>SQL Server 백업 유형
 
@@ -87,8 +87,8 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 - 데이터 원본 A는 매월 백업 되는 10 개의 저장소 블록 A1-A10으로 구성 됩니다.
 - 블록 A2, A3, A4 및 A9는 첫 번째 달에 변경되고 블록 A5는 다음 달에 변경됩니다.
-- 차등 백업의 경우 두 번째 달에 변경된 블록 A2, A3, A4 및 A9가 백업됩니다. 세 번째 달에 이와 동일한 블록이 변경된 블록 A5와 함께 다시 백업됩니다. 변경된 블록은 다음 전체 백업이 발생할 때가지 계속 백업됩니다.
-- 증분 백업의 경우 두 번째 달에는 블록 A2, A3, A4 및 A9가 변경 된 것으로 표시 되 고 전송 됩니다. 세 번째 달에는 변경된 블록 A5만 표시되고 전송됩니다.
+- 차등 백업의 경우 두 번째 달 변경 된 블록 A2, A3, A4 및 A9이 백업 됩니다. 세 번째 달에 이와 동일한 블록이 변경된 블록 A5와 함께 다시 백업됩니다. 변경된 블록은 다음 전체 백업이 발생할 때가지 계속 백업됩니다.
+- 증분 백업의 경우 두 번째 달 블록 A2, A3, A4 및 A9가 변경 되 고 전송 된 것으로 표시 됩니다. 세 번째 달에는 변경된 블록 A5만 표시되고 전송됩니다.
 
 ![백업 방법의 비교를 보여 주는 이미지](./media/backup-architecture/backup-method-comparison.png)
 
@@ -123,6 +123,12 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 - "월간", "매년" 백업 지점의 보존은 LTR (장기 보존) 이라고 합니다.
 - 자격 증명 모음을 만들면 "DefaultPolicy"도 만들어지고 리소스를 백업 하는 데 사용할 수 있습니다.
 - 백업 정책의 보존 기간에 대 한 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>복구 지점의 정책 변경의 영향
+
+- **보존 기간을 늘리거나 줄입니다.** 보존 기간이 변경 되 면 새 보존 기간이 기존 복구 시점에도 적용 됩니다. 따라서 일부 복구 지점이 정리 됩니다. 보존 기간을 늘리면 기존 복구 지점의 보존도 증가 합니다.
+- **매일에서 매주 변경 됨:** 예약 된 백업이 매일 또는 매주로 변경 되 면 기존 일별 복구 지점이 정리 됩니다.
+- **매주에서 매일 변경 됨:** 기존의 주간 백업은 현재 보존 정책에 따라 남은 일 수를 기준으로 보존 됩니다.
 
 ### <a name="additional-reference"></a>추가 참조
 

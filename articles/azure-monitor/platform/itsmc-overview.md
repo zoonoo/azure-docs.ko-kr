@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380881"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428030"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -28,6 +28,9 @@ ITSMC는 다음 ITSM 도구와의 연결을 지원합니다.
 -   System Center Service Manager
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> 1-10 월-2020 Cherwell 및 Azure 경고와 Provance ITSM 통합은 더 이상 새 고객에 대해 사용 하도록 설정 되지 않습니다. 새 ITSM 연결은 지원 되지 않습니다. 기존 ITSM 연결이 지원 됩니다.
 
 ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
@@ -150,7 +153,8 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
    ![ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
    
-   * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다. 
+   * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다.
+   ![ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. **확인** 을 선택합니다.
 

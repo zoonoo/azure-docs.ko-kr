@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780022"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427941"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ ms.locfileid: "92780022"
         GO
         ```
 
-        [서버 감사 사양 또는 데이터베이스 감사 사양을 만들어](#createspec)계속 합니다.
+     1. [서버 감사 사양 또는 데이터베이스 감사 사양을 만들어](#createspec)계속 합니다.
 
    - <a id="blobssms"></a>SQL Server Management Studio 18 (미리 보기)을 사용 하 여 감사 로그에 대 한 blob storage 구성:
 
@@ -234,15 +234,15 @@ Azure SQL Managed Instance 데이터베이스의 감사와 SQL Server 데이터�
 - Azure SQL Managed Instance를 사용 하 여 감사는 서버 수준에서 작동 하며 `.xel` Azure Blob storage에 로그 파일을 저장 합니다.
 - SQL Server에서 감사는 서버 수준에서 작동 하지만, 파일 시스템/w i s 이벤트 로그에 이벤트를 저장 합니다.
 
-관리 되는 인스턴스의 XEvent 감사는 Azure Blob 저장소 대상을 지원 합니다. 파일 및 Windows 로그는 **지원되지 않습니다** .
+관리 되는 인스턴스의 XEvent 감사는 Azure Blob 저장소 대상을 지원 합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
 
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - 새 구문이 `TO URL` 제공 되 고 파일이 배치 되는 Azure Blob 저장소 컨테이너의 URL을 지정할 수 있습니다 `.xel` .
 - `TO EXTERNAL MONITOR`Event Hubs 및 Azure Monitor 로그 대상을 사용할 수 있도록 새 구문이 제공 됩니다.
 - `TO FILE`AZURE SQL Managed Instance Windows 파일 공유에 액세스할 수 없으므로 구문은 **지원 되지 않습니다** .
-- 종료 옵션은 **지원되지 않습니다** .
-- `queue_delay` 0은 **지원되지 않습니다** .
+- 종료 옵션은 **지원되지 않습니다**.
+- `queue_delay` 0은 **지원되지 않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

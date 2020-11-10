@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375961"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427669"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "94375961"
 > [!NOTE]
 > 아래 지침에 따라 기존 기술 자료를 관리 되는 새 QnA Maker (미리 보기)로 마이그레이션합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
@@ -59,12 +59,12 @@ ms.locfileid: "94375961"
 
 **내보내기**
 
-* [기술 자료 API 다운로드](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+* [기술 자료 API 다운로드](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **가져오기**
 
-* [API 바꾸기 (동일한 기술 자료 ID로 다시 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
-* [API 만들기 (새 기술 자료 ID로 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [API 바꾸기 (동일한 기술 자료 ID로 다시 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [API 만들기 (새 기술 자료 ID로 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>채팅 로그 및 변경 내용

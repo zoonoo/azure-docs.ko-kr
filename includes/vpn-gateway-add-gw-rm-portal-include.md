@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92479578"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427850"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 **리소스, 서비스 및 문서 검색(G+/)** 에 **가상 네트워크 게이트웨이** 를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다.
 
@@ -21,12 +21,12 @@ ms.locfileid: "92479578"
 
 1. **가상 네트워크 게이트웨이** 페이지에서 **+ 추가** 를 선택합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="검색 필드":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="가상 네트워크 게이트웨이 페이지":::
 1. **기본** 탭에서 가상 네트워크 게이트웨이 값을 입력합니다.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="검색 필드":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="게이트웨이 필드":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="검색 필드":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="추가 게이트웨이 필드":::
 
    * **구독** : 드롭다운 목록에서 사용하려는 구독을 선택합니다.
    * **리소스 그룹** : 이 페이지에서 가상 네트워크를 선택하면 이 설정이 자동으로 채워집니다.
@@ -52,6 +52,6 @@ ms.locfileid: "92479578"
      * **active-active 모드를 사용하도록 설정** : 활성-활성 게이트웨이 구성을 만드는 경우에만 **활성-활성 모드 활성화** 를 선택합니다. 그렇지 않은 경우 이 설정을 **사용 안 함** 상태로 둡니다.
      * 구성에서 이 설정이 명시적으로 필요한 경우를 제외하고 **BGP 구성** 을 **사용 안 함** 상태로 둡니다. 이 설정이 필요한 경우 기본 ASN은 65515이며 변경 가능합니다.
 1. **검토 + 만들기** 를 선택하여 유효성 검사를 실행합니다.
-1. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다. 게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다.
+1. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다.
 
-게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.
+게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.

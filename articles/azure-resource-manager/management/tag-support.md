@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370290"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427771"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -284,7 +284,7 @@ ms.locfileid: "92370290"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | 예 | 예 |
+> | configurationStores | 예 | 아니요 |
 > | configurationStores/eventGridFilters | 아니요 | 아니요 |
 > | configurationStores/keyValues | 아니요 | 예 |
 
@@ -847,7 +847,7 @@ ms.locfileid: "92370290"
 > | ReservationTransactions | 아니요 | 아니요 |
 > | 태그 | 아니요 | 예 |
 > | tenants | 예 | 아니요 |
-> | 용어 | 아니요 | 아니요 |
+> | 사용 약관 | 아니요 | 아니요 |
 > | UsageDetails | 아니요 | 예 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance

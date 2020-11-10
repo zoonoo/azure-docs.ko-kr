@@ -1,79 +1,75 @@
 ---
 title: Azure Monitor 고객 관리형 키
-description: CMK(고객 관리형 키)를 구성하여 Azure Key Vault 키를 사용하여 Log Analytics 작업 영역의 데이터를 암호화하는 방법에 대한 정보 및 단계입니다.
+description: Azure Key Vault 키를 사용 하 여 Log Analytics 작업 영역에서 데이터를 암호화 하도록 Customer-Managed 키를 구성 하는 방법에 대 한 정보 및 단계입니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 09/09/2020
-ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/09/2020
+ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108000"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427975"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
-이 문서에는 Log Analytics 작업 영역에 대한 CMK(고객 관리형 키)를 구성하는 방법에 대한 배경 정보와 단계가 나와 있습니다. 구성된 후에는 작업 영역으로 보낸 모든 데이터가 Azure Key Vault 키로 암호화됩니다.
+이 문서에서는 Log Analytics 작업 영역에 대 한 고객 관리 키를 구성 하는 단계 및 배경 정보를 제공 합니다. 구성된 후에는 작업 영역으로 보낸 모든 데이터가 Azure Key Vault 키로 암호화됩니다.
 
 구성하기 전에 아래 [제한 사항 및 제약 조건](#limitationsandconstraints)을 검토하는 것이 좋습니다.
 
-## <a name="customer-managed-key-cmk-overview"></a>CMK(고객 관리형 키) 개요
+## <a name="customer-managed-key-overview"></a>고객 관리 키 개요
 
-[미사용 암호화](../../security/fundamentals/encryption-atrest.md) 는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다.  Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
+[미사용 암호화](../../security/fundamentals/encryption-atrest.md) 는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. 암호화 또는 암호화 키를 긴밀 하 게 관리 하는 다양 한 옵션을 사용 하 여 Azure에서 미사용 암호화를 완전히 관리할 수 있습니다.
 
-Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
+Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 데이터 암호화를 위해 저장소에서 사용 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 키는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
 
-CMK 기능은 전용 Log Analytics 클러스터에서 제공 되며 언제 든 지 데이터에 대 한 액세스를 취소 하 고 [Lockbox](#customer-lockbox-preview) 제어를 사용 하 여 보호할 수 있는 컨트롤을 제공 합니다. 지역에서 전용 클러스터에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. CMK 구성을 시작 하기 전에 Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
+고객 관리 키 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 이를 통해 [Lockbox](#customer-lockbox-preview) 제어를 사용 하 여 데이터를 보호할 수 있으며 언제 든 지 데이터에 대 한 액세스를 취소할 수 있습니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 Customer-Managed 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
+
+지역에서 전용 클러스터를 프로 비전 하는 데 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Customer-Managed 키 구성을 시작 하기 전에 Microsoft 연락처 또는 오픈 지원 요청을 사용 하 여 구독을 허용 하세요.
 
 [Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters) 은 1000 g b/일 수준부터 용량 예약을 사용 합니다.
 
-또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. CMK 구성에 관계 없이이 데이터는 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#cmk-kek-revocation)를 따릅니다. 2020년 하반기에는 CMK를 사용하여 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
+## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 Customer-Managed 키가 작동 하는 방식
 
-## <a name="how-cmk-works-in-azure-monitor"></a>Azure Monitor에서 CMK가 작동하는 방식
+Azure Monitor는 시스템이 할당한 관리 ID를 활용하여 Azure Key Vault에 대한 액세스 권한을 부여합니다. 시스템 할당 관리 id는 클러스터 수준에서 Log Analytics 클러스터의 id가 지원 되는 동안 단일 Azure 리소스와만 연결할 수 있습니다 .이는 기능이 전용 Log Analytics 클러스터에서 제공 됨을 나타냅니다. 여러 작업 영역에서 Customer-Managed 키를 지원 하기 위해 새 Log Analytics *클러스터* 리소스는 Key Vault와 Log Analytics 작업 영역 간에 중간 id 연결로 수행 됩니다. Log Analytics 클러스터 스토리지는 *클러스터* 리소스와 연결된 관리 ID를 사용하여 Azure Active Directory를 통해 Azure Key Vault에 인증합니다. 
 
-Azure Monitor는 시스템이 할당한 관리 ID를 활용하여 Azure Key Vault에 대한 액세스 권한을 부여합니다. 시스템이 할당한 관리 ID는 단일 Azure 리소스에만 연결될 수 있지만, Log Analytics 클러스터의 ID는 클러스터 수준에서 지원됩니다. 이는 CMK 기능이 전용 Log Analytics 클러스터에서 제공됨을 나타냅니다. 여러 작업 영역에서 CMK를 지원하기 위해 새 Log Analytics *클러스터* 리소스에서 Key Vault와 Log Analytics 작업 영역 간의 중간 ID 연결 역할을 수행합니다. Log Analytics 클러스터 스토리지는 *클러스터* 리소스와 연결된 관리 ID를 사용하여 Azure Active Directory를 통해 Azure Key Vault에 인증합니다. 
-
-CMK 구성 후 전용 클러스터에 연결 된 작업 영역에 대 한 모든 데이터 수집 Key Vault에서 키를 사용 하 여 암호화 됩니다. 언제 든 지 클러스터에서 작업 영역의 연결을 해제할 수 있습니다. 새 데이터는 Log Analytics 스토리지에 수집되고 Microsoft 키를 사용하여 암호화되지만, 새 데이터와 기존 데이터를 원활하게 쿼리할 수 있습니다.
+구성 후 전용 클러스터에 연결 된 작업 영역에 대 한 모든 데이터 수집 Key Vault의 키를 사용 하 여 암호화 됩니다. 언제 든 지 클러스터에서 작업 영역의 연결을 해제할 수 있습니다. 새 데이터는 수집 저장소 및 Microsoft 키를 사용 Log Analytics 하 여 암호화 되는를 가져오며, 새 데이터와 이전 데이터를 원활 하 게 쿼리할 수 있습니다.
 
 
-![CMK 개요](media/customer-managed-keys/cmk-overview.png)
+![Customer-Managed 키 개요](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Key Vault에 대한 권한이 있는 관리 ID를 사용하는 Log Analytics *클러스터* 리소스 - 이 ID는 기본 전용 Log Analytics 클러스터 스토리지로 전파됩니다.
 3. 전용 Log Analytics 클러스터
-4. CMK 암호화를 위해 *클러스터* 리소스에 연결 된 작업 영역
+4. *클러스터* 리소스에 연결 된 작업 영역 
 
 ## <a name="encryption-keys-operation"></a>암호화 키 작업
 
 스토리지 데이터 암호화에는 세 가지 유형의 키가 있습니다.
 
-- **KEK** - CMK(키 암호화 키)
+- **KEK** -키 암호화 키 (사용자 Customer-Managed 키)
 - **AEK** - 계정 암호화 키
 - **DEK** - 데이터 암호화 키
 
 다음 규칙이 적용됩니다.
 
-- Log Analytics 클러스터 스토리지 계정은 모든 스토리지 계정에 대해 AEK라고 하는 고유한 암호화 키를 생성합니다.
-
-- AEK는 디스크에 기록되는 각 데이터 블록을 암호화하는 데 사용되는 키인 DEK를 파생하는 데 사용됩니다.
-
+- Log Analytics 클러스터 저장소 계정은 AEK로 알려진 모든 저장소 계정에 대해 고유한 암호화 키를 생성 합니다.
+- AEK는 디스크에 기록 되는 데이터의 각 블록을 암호화 하는 데 사용 되는 키인 DEKs를 파생 하는 데 사용 됩니다.
 - Key Vault에서 키를 구성 하 고 클러스터에서 참조 하는 경우 Azure Storage는 데이터 암호화 및 암호 해독 작업을 수행 하기 위해 AEK를 래핑하고 래핑 해제 하는 요청을 Azure Key Vault 보냅니다.
-
-- KEK는 Key Vault를 유지하며, HSM 키의 경우 하드웨어를 그대로 유지합니다.
-
+- KEK는 Key Vault을 유지 하지 않으며 HSM 키의 경우 하드웨어를 그대로 유지 합니다.
 - Azure Storage는 *클러스터* 리소스와 연결 된 관리 되는 id를 사용 하 여 인증 하 고 Azure Active Directory를 통해 Azure Key Vault에 액세스 합니다.
 
-## <a name="cmk-provisioning-procedure"></a>CMK 프로비저닝 절차
+## <a name="customer-managed-key-provisioning-procedure"></a>Customer-Managed 키 프로 비전 절차
 
-1. 구독 허용--CMK 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
+1. 구독 허용-이 기능은 전용 Log Analytics 클러스터에서 제공 됩니다. 사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
 2. Azure Key Vault 만들기 및 키 저장
 3. 클러스터를 만드는 중
 4. Key Vault에 권한 부여
 5. Log Analytics 작업 영역 연결
 
-CMK 구성은 Azure Portal에서 지원 되지 않으며 프로 비전은 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) 또는 [REST](https://docs.microsoft.com/rest/api/loganalytics/) 요청을 통해 수행 됩니다.
+Customer-Managed 키 구성은 Azure Portal에서 지원 되지 않으며 프로 비전은 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) 또는 [REST](https://docs.microsoft.com/rest/api/loganalytics/) 요청을 통해 수행 됩니다.
 
 ### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
@@ -88,7 +84,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-응답에는 작업 및 해당 *상태*에 대한 정보가 포함됩니다. 다음 중 하나일 수 있습니다.
+응답에는 작업 및 해당 *상태* 에 대한 정보가 포함됩니다. 다음 중 하나일 수 있습니다.
 
 작업 진행 중
 ```json
@@ -149,20 +145,19 @@ Authorization: Bearer <token>
 }
 ```
 
-### <a name="allowing-subscription-for-cmk-deployment"></a>CMK 배포에 대 한 구독 허용
-
-CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다.사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. 연락처를 Microsoft에 사용하여 구독 ID를 제공합니다.
+### <a name="allowing-subscription"></a>구독 허용
 
 > [!IMPORTANT]
-> CMK 기능은 지역별 기능입니다. Azure Key Vault, 클러스터 및 연결 된 Log Analytics 작업 영역은 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다.
+> Customer-Managed 키 기능은 지역입니다. Azure Key Vault, 클러스터 및 연결 된 Log Analytics 작업 영역은 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다.
+> 지역에서 전용 클러스터를 프로 비전 하는 데 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. Customer-Managed 키 구성을 시작 하기 전에 Microsoft 연락처 또는 오픈 지원 요청을 사용 하 여 구독을 허용 하세요. 
 
 ### <a name="storing-encryption-key-kek"></a>암호화 키(KEK) 저장
 
-이미 생성해야 하는 Azure Key Vault를 만들거나 사용하거나 데이터 암호화에 사용할 키를 가져옵니다. Azure Monitor에서 키와 데이터에 대한 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다. 이 구성은 Key Vault의 속성에서 확인할 수 있습니다. *일시 삭제* 및 *제거 보호*를 모두 사용하도록 설정되어 있어야 합니다.
+이미 생성해야 하는 Azure Key Vault를 만들거나 사용하거나 데이터 암호화에 사용할 키를 가져옵니다. Azure Monitor에서 키와 데이터에 대한 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다. 이 구성은 Key Vault의 속성에서 확인할 수 있습니다. *일시 삭제* 및 *제거 보호* 를 모두 사용하도록 설정되어 있어야 합니다.
 
 ![일시 삭제 및 제거 보호 설정](media/customer-managed-keys/soft-purge-protection.png)
 
-이러한 설정은 CLI 및 PowerShell을 통해 업데이트할 수 있습니다.
+이러한 설정은 CLI 및 PowerShell을 통해 Key Vault에서 업데이트할 수 있습니다.
 
 - [일시 삭제](../../key-vault/general/soft-delete-overview.md)
 - [제거 보호](../../key-vault/general/soft-delete-overview.md#purge-protection)는 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 방지합니다.
@@ -176,7 +171,7 @@ CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다.사용자�
 
 ### <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
 
-새 액세스 정책을 사용 하 여 Key Vault를 업데이트 하 여 클러스터에 대 한 권한을 부여 합니다. 이러한 권한은 기본 Azure Monitor 스토리지에서 데이터를 암호화하는 데 사용됩니다. Azure Portal에서 Key Vault를 열고, "액세스 정책"을 클릭한 다음, "+ 액세스 정책 추가"를 클릭하여 다음 설정을 통해 정책을 만듭니다.
+클러스터에 대 한 사용 권한을 부여 하는 Key Vault에 대 한 액세스 정책을 만듭니다. 이러한 권한은 기본 Azure Monitor 스토리지에서 데이터를 암호화하는 데 사용됩니다. Azure Portal에서 Key Vault를 열고, "액세스 정책"을 클릭한 다음, "+ 액세스 정책 추가"를 클릭하여 다음 설정을 통해 정책을 만듭니다.
 
 - 키 권한: '가져오기', '키 래핑' 및 '키 래핑 해제' 권한을 선택합니다.
 - 보안 주체 선택: 이전 단계의 응답에서 반환 된 클러스터 이름 또는 사용자 id 값을 입력 합니다.
@@ -199,47 +194,21 @@ Azure Monitor 데이터에 대한 액세스와 키를 보호하기 위해 Key Va
 
 작업은 비동기적 이며 완료 하는 데 다소 시간이 걸릴 수 있습니다.
 
+```azurecli
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+```
+
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
-> [!NOTE]
-> PATCH를 사용 하 여 클러스터의 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
+**Response**
 
-```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-   "identity": { 
-     "type": "systemAssigned" 
-     },
-   "sku": {
-     "name": "capacityReservation",
-     "capacity": 1000
-     },
-   "properties": {
-    "billingType": "cluster",
-     "KeyVaultProperties": {
-       "KeyVaultUri": "https://<key-vault-name>.vault.azure.net",
-       "KeyName": "<key-name>",
-       "KeyVersion": "<current-version>"
-       }
-   },
-   "location":"<region-name>"
-}
-```
-
-**응답**
-
-200 OK 및 헤더입니다.
 키 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
 1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
 2. 클러스터에 GET 요청을 보내고 *KeyVaultProperties* 속성을 확인 합니다. 최근에 업데이트한 키 식별자 세부 정보가 응답으로 반환됩니다.
 
-키 식별자 업데이트가 완료 되 면 GET 요청에 대 한 응답이 다음과 같이 표시 됩니다.
-
+키 식별자 업데이트가 완료 되 면 GET 요청에 대 한 응답이 다음과 같이 표시 됩니다. 200 OK and header
 ```json
 {
   "identity": {
@@ -283,7 +252,7 @@ Content-type: application/json
 
 [전용 클러스터 문서](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster)에 설명 된 절차를 따릅니다.
 
-## <a name="cmk-kek-revocation"></a>CMK(KEK) 해지
+## <a name="key-revocation"></a>키 해지
 
 키를 사용 하지 않도록 설정 하거나 Key Vault에서 클러스터의 액세스 정책을 삭제 하 여 데이터에 대 한 액세스 권한을 해지할 수 있습니다. Log Analytics 클러스터 스토리지는 키 권한의 변경 내용을 항상 1시간 이내에 적용합니다. 이로 인해 스토리지가 사용할 수 없게 됩니다. 클러스터와 연결 된 작업 영역에 대 한 모든 새 데이터 수집는 삭제 되 고 복구할 수 없으며, 데이터에 액세스할 수 없고 이러한 작업 영역에 대 한 쿼리가 실패 합니다. 이전에 수집 데이터는 클러스터와 작업 영역을 삭제 하지 않는 한 저장소에 남아 있습니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 따라 제어되며 보존 기간에 도달하면 삭제됩니다. 
 
@@ -291,22 +260,22 @@ Content-type: application/json
 
 스토리지는 Key Vault를 주기적으로 폴링하여 암호화 키를 래핑 해제하려고 시도하며, 액세스한 후에는 30분 이내에 데이터 수집 및 쿼리가 다시 시작됩니다.
 
-## <a name="cmk-kek-rotation"></a>CMK(KEK) 회전
+## <a name="key-rotation"></a>키 회전
 
-CMK를 회전 하려면 Azure Key Vault의 새 키 버전을 사용 하 여 클러스터를 명시적으로 업데이트 해야 합니다. "키 식별자 세부 정보를 사용 하 여 클러스터 업데이트" 단계의 지침을 따르세요. 클러스터에서 새 키 식별자 세부 정보를 업데이트 하지 않으면 Log Analytics 클러스터 저장소는 암호화를 위해 이전 키를 계속 사용 합니다. 클러스터의 새 키를 업데이트 하기 전에 이전 키를 사용 하지 않도록 설정 하거나 삭제 하면 [키 해지](#cmk-kek-revocation) 상태가 됩니다.
+Customer-Managed 키를 회전 하려면 Azure Key Vault에서 새 키 버전을 사용 하는 클러스터에 대 한 명시적 업데이트가 필요 합니다. "키 식별자 세부 정보를 사용 하 여 클러스터 업데이트" 단계의 지침을 따르세요. 클러스터에서 새 키 식별자 세부 정보를 업데이트 하지 않으면 Log Analytics 클러스터 저장소는 암호화를 위해 이전 키를 계속 사용 합니다. 클러스터의 새 키를 업데이트 하기 전에 이전 키를 사용 하지 않도록 설정 하거나 삭제 하면 [키 해지](#key-revocation) 상태가 됩니다.
 
 AEK는 이제 Key Vault의 새 KEK(키 암호화 키) 버전을 사용하여 암호화되지만, 데이터는 항상 AEK(계정 암호화 키)를 사용하여 암호화되므로 키 회전 작업 후에도 모든 데이터에 계속 액세스할 수 있습니다.
 
-## <a name="cmk-for-queries"></a>쿼리에 CMK
+## <a name="customer-managed-key-for-queries"></a>쿼리에 대 한 Customer-Managed 키
 
-Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 하는 설명 또는 쿼리 구문에 중요 한 정보를 포함할 수 있습니다. 일부 조직에서는 이러한 정보를 CMK 정책의 일부로 보호 된 상태로 유지 하 고 암호화 된 쿼리를 키로 저장 해야 합니다. Azure Monitor를 사용 하면 작업 영역에 연결 될 때 사용자 고유의 저장소 계정에서 키로 암호화 된 *저장 된 검색* 및 *로그 경고* 쿼리를 저장할 수 있습니다. 
+Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 하는 설명 또는 쿼리 구문에 중요 한 정보를 포함할 수 있습니다. 일부 조직에서는 Customer-Managed 키 정책에서 이러한 정보를 보호 된 상태로 유지 해야 하며, 암호화 된 쿼리를 키로 저장 해야 합니다. Azure Monitor를 사용 하면 작업 영역에 연결 될 때 사용자 고유의 저장소 계정에서 키로 암호화 된 *저장 된 검색* 및 *로그 경고* 쿼리를 저장할 수 있습니다. 
 
 > [!NOTE]
-> Log Analytics 쿼리는 사용 된 시나리오에 따라 다양 한 저장소에 저장할 수 있습니다. CMK 구성: Azure Monitor, Azure 대시보드, Azure 논리 앱, Azure Notebooks 및 자동화 Runbook의 통합 문서와 상관 없이 쿼리는 Microsoft key (MMK)를 사용 하 여 암호화 된 상태로 유지 됩니다.
+> Log Analytics 쿼리는 사용 된 시나리오에 따라 다양 한 저장소에 저장할 수 있습니다. Customer-Managed 키 구성: Azure Monitor, Azure 대시보드, Azure 논리 앱, Azure Notebooks 및 자동화 Runbook의 통합 문서에 관계 없이 쿼리는 Microsoft key (MMK)를 사용 하 여 암호화 된 상태로 유지 됩니다.
 
 사용자 고유의 저장소 (BYOS)를 가져와서 작업 영역에 연결 하는 경우 서비스는 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](../../storage/common/customer-managed-keys-overview.md) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
 
-**쿼리에 CMK를 설정 하기 전 고려 사항**
+**쿼리에 대해 Customer-Managed 키를 설정 하기 전의 고려 사항**
 * 작업 영역 및 저장소 계정에 대 한 ' 쓰기 ' 권한이 있어야 합니다.
 * Log Analytics 작업 영역이 있는 동일한 지역에 저장소 계정을 만들어야 합니다.
 * 저장소의 *저장 검색* 은 서비스 아티팩트로 간주 되 고 형식은 변경 될 수 있습니다.
@@ -331,12 +300,12 @@ Content-type: application/json
  
 {
   "properties": {
-    "dataSourceType": "Query", 
-    "storageAccountIds": 
-    [
-      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
-    ]
-  }
+    "dataSourceType": "Query", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
 }
 ```
 
@@ -358,12 +327,12 @@ Content-type: application/json
  
 {
   "properties": {
-    "dataSourceType": "Alerts", 
-    "storageAccountIds": 
-    [
-      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
-    ]
-  }
+    "dataSourceType": "Alerts", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
 }
 ```
 
@@ -376,10 +345,14 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
 [Microsoft Azure 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md) 에 대 한 자세한 정보
 
-## <a name="cmk-management"></a>CMK 관리
+## <a name="customer-managed-key-operations"></a>Customer-Managed 키 작업
 
 - **리소스 그룹의 모든 클러스터 가져오기**
   
+  ```azurecli
+  az monitor log-analytics cluster list --resource-group "resource-group-name"
+  ```
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
@@ -425,7 +398,11 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   ```
 
 - **구독의 모든 클러스터 가져오기**
-  
+
+  ```azurecli
+  az monitor log-analytics cluster list
+  ```
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
@@ -443,8 +420,12 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
   연결 된 작업 영역에 대 한 데이터 볼륨이 시간이 지남에 따라 변경 되 고 용량 예약 수준을 적절 하 게 업데이트 하려는 경우. [업데이트 클러스터](#update-cluster-with-key-identifier-details) 를 따르고 새 용량 값을 제공 합니다. 1000 ~ 3000 g b의 범위와 100의 단계에 있을 수 있습니다. 하루 3000 g b 보다 높은 수준의 경우 Microsoft 담당자에 게 연락 하 여 사용 하도록 설정 합니다. 전체 REST 요청 본문을 제공할 필요는 없지만 sku는 다음과 같습니다.
 
+  ```azurecli
+  az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
+  ```
+
   ```powershell
-  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
+  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
 
   ```rst
@@ -455,7 +436,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   {
     "sku": {
       "name": "capacityReservation",
-      "Capacity": 1000
+      "Capacity": daily-ingestion-gigabyte
     }
   }
   ```
@@ -463,10 +444,10 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 - **클러스터에서 *billingType* 업데이트**
 
   *BillingType* 속성은 클러스터 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
-  - *cluster*(기본값) - 클러스터 리소스를 호스팅하는 구독을 기반으로 하는 청구입니다.
+  - *cluster* (기본값) - 클러스터 리소스를 호스팅하는 구독을 기반으로 하는 청구입니다.
   - *workspaces* - 작업 영역을 비례적으로 호스팅하는 구독을 기반으로 하는 청구입니다.
   
-  [업데이트 클러스터](#update-cluster-with-key-identifier-details) 에 따라 새로운 billingType 값을 제공 합니다. 전체 REST 요청 본문을 제공할 필요는 없으며 *billingType*을 포함해야 합니다.
+  [업데이트 클러스터](#update-cluster-with-key-identifier-details) 에 따라 새로운 billingType 값을 제공 합니다. 전체 REST 요청 본문을 제공할 필요는 없으며 *billingType* 을 포함해야 합니다.
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -486,6 +467,10 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
   이 작업은 비동기 작업 이므로 완료 하는 데는 몇를 사용할 수 있습니다.
 
+  ```azurecli
+  az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
+  ```
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
@@ -495,18 +480,13 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   Authorization: Bearer <token>
   ```
 
-  **응답**
-
-  200 OK 및 헤더입니다.
-
-  연결 해제 작업이 Log Analytics 저장소에 저장 된 후 수집 데이터를 완료 하는 데 90 분 정도 걸릴 수 있습니다. 다음 두 가지 방법으로 작업 영역 연결 해제 상태를 확인할 수 있습니다.
-
-  1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-  2. [작업 영역 보내기 –](/rest/api/loganalytics/workspaces/get) 요청을 가져오고 응답을 관찰 합니다. 연결 되지 않은 작업 영역은 *기능*에서 *clusterresourceid* 를 갖지 않습니다.
-
-- **작업 영역 링크 상태 확인**
+  - **작업 영역 링크 상태 확인**
   
-  작업 영역에서 가져오기 작업을 수행 하 고, *기능의*응답에 *clusterresourceid* 속성이 있는지 확인 합니다. 연결 된 작업 영역에는 *Clusterresourceid* 속성이 포함 됩니다.
+  작업 영역에서 가져오기 작업을 수행 하 고, *기능의* 응답에 *clusterresourceid* 속성이 있는지 확인 합니다. 연결 된 작업 영역에는 *Clusterresourceid* 속성이 포함 됩니다.
+
+  ```azurecli
+  az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+  ```
 
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
@@ -518,6 +498,10 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   
   연결 해제 작업은 비동기적 이며 완료 하는 데 최대 90 분이 걸릴 수 있습니다.
 
+  ```azurecli
+  az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
+  ```
+ 
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
@@ -526,28 +510,24 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
-
-  **응답**
-
-  200 정상
-
+  
 - **클러스터 및 데이터 복구** 
   
-  지난 14 일 동안 삭제 된 클러스터는 일시 삭제 상태 이며 해당 데이터를 사용 하 여 복구할 수 있습니다. 모든 작업 영역은 삭제 시 클러스터에서 연결 해제 되었으므로 CMK 암호화에 대 한 복구 후 작업 영역을 다시 연결 해야 합니다. 복구 작업은 현재 제품 그룹에서 수동으로 수행됩니다. Microsoft 채널을 복구 요청에 사용합니다.
+  지난 14 일 동안 삭제 된 클러스터는 일시 삭제 상태 이며 해당 데이터를 사용 하 여 복구할 수 있습니다. 모든 작업 영역에서 클러스터 삭제와의 연결이 해제 되었으므로 클러스터 복구 후 작업 영역을 다시 연결 해야 합니다. 현재 제품 그룹에서 복구 작업을 수동으로 수행 하 고 있습니다. Microsoft 채널을 사용 하거나 삭제 된 클러스터의 복구에 대 한 지원 요청을 여세요.
 
-## <a name="limitationsandconstraints"></a>제한 사항 및 제약 조건
+## <a name="limitations-and-constraints"></a>제한 사항 및 제약 조건
 
-- CMK는 전용 Log Analytics 클러스터에서 지원 되며 매일 1TB를 전송 하는 고객에 게 적합 합니다.
+- Customer-Managed 키는 전용 Log Analytics 클러스터에서 지원 되며 매일 1TB를 전송 하는 고객에 게 적합 합니다.
 
 - 하위 지역 및 구독 당 최대 클러스터 수는 2입니다.
 
-클러스터에 연결 된 작업 영역의 최대값은 100입니다.
+- 클러스터에 연결 된 작업 영역의 최대값은 1000입니다.
 
-- 작업 영역을 클러스터에 연결 하 고, 작업 영역에 CMK가 필요 하지 않은 경우 연결을 해제할 수 있습니다. 특정 작업 영역에 대 한 작업 영역 링크 작업 수는 30 일 동안 2 개로 제한 됩니다.
+- 작업 영역을 클러스터에 연결 하 고 연결을 끊을 수 있습니다. 특정 작업 영역에 대 한 작업 영역 링크 작업 수는 30 일 동안 2 개로 제한 됩니다.
 
 - 클러스터에 대 한 작업 영역 링크는 Log Analytics 클러스터 프로 비전이 완료 되었음을 확인 한 후에만 수행 해야 합니다.  완료된 후에는 작업 영역으로 보낸 데이터를 삭제하고 복구할 수 있습니다.
 
-- Cmk 암호화는 CMK 구성 후에 새로 수집 데이터에 적용 됩니다.  CMK가 구성되기 전에 수집된 데이터는Microsoft 키를 사용하여 암호화된 상태로 유지됩니다.  CMK가 구성되기 전후에 수집된 데이터는 원활하게 쿼리할 수 있습니다.
+- Customer-Managed 키 암호화는 구성 시간 이후 새로 수집 데이터에 적용 됩니다. 구성 이전에 수집 된 데이터는 Microsoft 키로 암호화 된 상태로 유지 됩니다. Customer-Managed 키 구성 전후에 데이터 수집을 원활 하 게 쿼리할 수 있습니다.
 
 - Azure Key Vault를 복구할 수 있는 것으로 구성 해야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 또는 PowerShell을 사용 하 여 구성 해야 합니다.<br>
   - [일시 삭제](../../key-vault/general/soft-delete-overview.md)
@@ -557,7 +537,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
 - Azure Key Vault, 클러스터 및 연결 된 작업 영역은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다.
 
-- 다른 클러스터에 연결 된 경우 클러스터에 대 한 작업 영역 링크가 실패 합니다.
+- 다른 클러스터에 연결 된 경우에는 클러스터에 대 한 작업 영역 링크가 실패 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -566,7 +546,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
     
   - 일시적인 연결 오류 - 스토리지에서 키를 짧은 시간 동안 캐시에서 유지할 수 있도록 하여 일시적인 오류(시간 제한, 연결 실패, DNS 문제)를 처리하고, 이로 인한 사소한 가용성 문제도 해결합니다. 쿼리 및 수집 기능은 중단 없이 계속됩니다.
     
-  - 라이브 사이트 - 약 30분 동안 사용할 수 없으면 스토리지 계정을 사용할 수 없게 됩니다. 쿼리 기능을 사용할 수 없으며, 수집된 데이터는 데이터 손실을 방지하기 위해 Microsoft 키를 사용하여 몇 시간 동안 캐시됩니다. Key Vault에 대한 액세스가 복원되면 쿼리를 사용할 수 있게 되고, 임시로 캐시된 데이터가 데이터 저장소에 수집되어 CMK를 사용하여 암호화됩니다.
+  - 라이브 사이트 - 약 30분 동안 사용할 수 없으면 스토리지 계정을 사용할 수 없게 됩니다. 쿼리 기능을 사용할 수 없으며, 수집된 데이터는 데이터 손실을 방지하기 위해 Microsoft 키를 사용하여 몇 시간 동안 캐시됩니다. Key Vault에 대 한 액세스가 복원 되 면 쿼리를 사용할 수 있게 되며 임시 캐시 된 데이터는 데이터 저장소에 수집 되 고 Customer-Managed 키로 암호화 됩니다.
 
   - Key Vault 액세스 속도 - 래핑 및 래핑 해제 작업을 위해 Azure Monitor 스토리지에서 Key Vault에 액세스하는 빈도는 6-60초입니다.
 
@@ -584,7 +564,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
 - 일부 작업은 길고 완료 하는 데 시간이 걸릴 수 있습니다 (클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 다음 두 가지 방법으로 작업 상태를 확인할 수 있습니다.
   1. REST를 사용 하는 경우 응답에서 Azure-AsyncOperation URL 값을 복사 하 고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 따릅니다.
-  2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능*아래에 *clusterresourceid* 가 없습니다.
+  2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결 되지 않은 작업 영역에는 *기능* 아래에 *clusterresourceid* 가 없습니다.
 
 - 고객 관리형 키와 관련된 지원 및 도움을 받으려면 Microsoft에 문의하세요.
 

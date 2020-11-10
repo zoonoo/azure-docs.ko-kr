@@ -4,12 +4,12 @@ description: Azure Monitor Application Insights Java에 대 한 구성 옵션
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381034"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427703"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java에 대 한 구성 옵션
 
@@ -178,7 +178,7 @@ ms.locfileid: "94381034"
 
 자세한 내용은 [원격 분석 프로세서](./java-standalone-telemetry-processors.md) 설명서를 확인 하세요.
 
-## <a name="autocollected-logging"></a>자동 수집 된 로깅
+## <a name="auto-collected-logging"></a>자동 수집 된 로깅
 
 Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 자동으로 수집 됩니다.
 
@@ -213,13 +213,13 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 | 추적 (또는 가장) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Autocollected 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
 
-응용 프로그램에서 [마이크로 측정기](https://micrometer.io)를 사용 하는 경우 마이크로 측정기 글로벌 레지스트리로 전송 되는 메트릭이 자동으로 수집 됩니다.
+응용 프로그램에서 [마이크로 측정기](https://micrometer.io)를 사용 하는 경우 마이크로 측정기 글로벌 레지스트리로 전송 되는 메트릭은 자동으로 수집 됩니다.
 
 또한 응용 프로그램에서 [스프링 부팅 발동기](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)를 사용 하는 경우 스프링 부트 발동기로 구성 된 메트릭도 자동으로 수집 됩니다.
 
-마이크로 측정기 메트릭의 autocollection을 사용 하지 않도록 설정 하려면 (스프링 부트 발동기 메트릭 포함):
+마이크로 측정기 메트릭의 자동 수집을 사용 하지 않도록 설정 하려면 (스프링 부트 발동기 메트릭 포함):
 
 > [!NOTE]
 > 사용자 지정 메트릭은 별도로 청구 되며 추가 비용을 생성할 수 있습니다. 자세한 [가격 정보](https://azure.microsoft.com/pricing/details/monitor/)를 확인 해야 합니다. 마이크로 측정기 및 스프링 발동기 메트릭을 사용 하지 않도록 설정 하려면 구성 파일에 아래 구성을 추가 합니다.
