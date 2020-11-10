@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895446"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413380"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 웹 페이지에서 맵 컨트롤를 사용 하려면 다음 필수 구성 요소 중 하나가 있어야 합니다.
 
@@ -99,8 +99,8 @@ ms.locfileid: "92895446"
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ ms.locfileid: "92895446"
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 

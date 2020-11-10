@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eedd19189d1e1ccedd3d505aecf407aca8fca831
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793061"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413363"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
 
@@ -176,14 +176,14 @@ cd scripts/linux
  *Pnpbridge* 폴더로 이동 하 고 명령 프롬프트에서 다음을 실행 하 여 환경 센서에 대 한 IoT 플러그 앤 플레이 bridge 샘플을 시작 합니다.
 
 ```bash
- cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+ cd cmake/pnpbridge_linux/src/adapters/samples/environmental_sensor/
 ./pnpbridge_environmentalsensor
 
 ```
 
 ```cmd
 REM Windows
-cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
+cd cmake\pnpbridge_x86\src\adapters\samples\environmental_sensor
 Debug\pnpbridge_environmentalsensor.exe
 ```
 

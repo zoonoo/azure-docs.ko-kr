@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203486"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411391"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -133,7 +133,7 @@ SecurityEvent
 
 [조인](/azure/kusto/query/joinoperator?pivots=azuremonitor) 및 [요약](/azure/kusto/query/summarizeoperator) 명령을 사용 하면 큰 데이터 집합을 처리할 때 CPU 사용률이 높아질 수 있습니다. 복잡성은 *cardinality* `by` 요약 또는 조인 특성으로를 사용 하는 열의 가능한 값 (카디널리티 라고 함)의 수와 직접적으로 관련이 있습니다. 조인 및 요약의 설명 및 최적화에 대 한 자세한 내용은 해당 설명서 문서 및 최적화 팁을 참조 하세요.
 
-예를 들어, **Counterpath** 는 항상 **CounterName** 및 **ObjectName**에 매핑되어야 하므로 다음 쿼리는 정확히 동일한 결과를 생성 합니다. 두 번째 방법은 집계 차원이 더 작기 때문에 더 효율적입니다.
+예를 들어, **Counterpath** 는 항상 **CounterName** 및 **ObjectName** 에 매핑되어야 하므로 다음 쿼리는 정확히 동일한 결과를 생성 합니다. 두 번째 방법은 집계 차원이 더 작기 때문에 더 효율적입니다.
 
 ```Kusto
 //less efficient
@@ -342,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들어:
 
 ```Kusto
 Perf

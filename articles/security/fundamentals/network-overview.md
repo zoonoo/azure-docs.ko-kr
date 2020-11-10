@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811089"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413295"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -63,25 +63,25 @@ Azure는 다음과 같은 다양한 유형의 네트워크 액세스 제어를 �
 모든 보안 배포에는 몇 가지 네트워크 액세스 제어가 필요합니다. 네트워크 액세스 제어의 목표는 가상 머신 통신을 필요한 시스템으로 제한하는 것입니다. 다른 통신 시도는 차단됩니다.
 
 > [!NOTE]
-> 스토리지 방화벽은 [Azure Storage 보안 개요](storage-overview.md) 문서에서 다룹니다.
+> 스토리지 방화벽은 [Azure Storage 보안 개요](../../storage/blobs/security-recommendations.md) 문서에서 다룹니다.
 
 #### <a name="network-security-rules-nsgs"></a>네트워크 보안 그룹(NSG)
 
 기본적인 네트워크 수준 액세스 제어(IP 주소 및 TCP 또는 UDP 프로토콜 기반)가 필요한 경우 NSG(네트워크 보안 그룹)를 사용할 수 있습니다. NSG는 기본적인 상태 저장 패킷 필터링 방화벽이며, [5-튜플](https://www.techopedia.com/definition/28190/5-tuple)에 기반하여 액세스를 제어할 수 있게 합니다. NSG는 구성 실수 가능성을 줄이고 관리를 간소화하는 기능을 포함합니다.
 
-* **보강된 보안 규칙**은 NSG 규칙 정의를 간소화하며, 동일한 결과를 달성하려면 여러 간단한 규칙을 만드는 것보다는 복잡한 규칙을 만들 수 있습니다.
-* **서비스 태그**는 IP 주소 그룹을 나타내는 Microsoft에서 만든 레이블입니다. 서비스 태그는 레이블에서 포함을 정의하는 조건을 충족하는 IP 범위를 포함하도록 동적으로 업데이트합니다. 예를 들어 동부 지역에서 모든 Azure 스토리지에 적용되는 규칙을 만들려는 경우 Storage.EastUS를 사용할 수 있습니다.
-* **애플리케이션 보안 그룹**을 사용하면 애플리케이션 그룹에 리소스를 배포하고 해당 애플리케이션 그룹을 사용하는 규칙을 만들어 해당 리소스에 대한 액세스를 제어할 수 있습니다. 예를 들어 webservers를 'Webservers' 애플리케이션 그룹에 배포한 경우 인터넷에서 'Webservers' 애플리케이션 그룹의 모든 시스템까지 443 트래픽을 허용하는 NSG를 적용한 규칙을 만들 수 있습니다.
+* **보강된 보안 규칙** 은 NSG 규칙 정의를 간소화하며, 동일한 결과를 달성하려면 여러 간단한 규칙을 만드는 것보다는 복잡한 규칙을 만들 수 있습니다.
+* **서비스 태그** 는 IP 주소 그룹을 나타내는 Microsoft에서 만든 레이블입니다. 서비스 태그는 레이블에서 포함을 정의하는 조건을 충족하는 IP 범위를 포함하도록 동적으로 업데이트합니다. 예를 들어 동부 지역에서 모든 Azure 스토리지에 적용되는 규칙을 만들려는 경우 Storage.EastUS를 사용할 수 있습니다.
+* **애플리케이션 보안 그룹** 을 사용하면 애플리케이션 그룹에 리소스를 배포하고 해당 애플리케이션 그룹을 사용하는 규칙을 만들어 해당 리소스에 대한 액세스를 제어할 수 있습니다. 예를 들어 webservers를 'Webservers' 애플리케이션 그룹에 배포한 경우 인터넷에서 'Webservers' 애플리케이션 그룹의 모든 시스템까지 443 트래픽을 허용하는 NSG를 적용한 규칙을 만들 수 있습니다.
 
 NSG는 애플리케이션 계층 검사 또는 인증된 액세스 제어를 제공하지 않습니다.
 
 자세한 정보:
 
-* [네트워크 보안 그룹](../../virtual-network/security-overview.md)
+* [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC Just-In-Time VM 액세스
 
-[Azure 보안 센터](../../security-center/security-center-intro.md)는 적절한 RBAC[역할 기반 액세스 제어](/azure/role-based-access-control/overview) 사용 권한이 있는 사용자가 액세스를 요청할 때까지 VM에서 NSG를 관리하고 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
+[Azure 보안 센터](../../security-center/security-center-introduction.md)는 적절한 RBAC[역할 기반 액세스 제어](../../role-based-access-control/overview.md) 사용 권한이 있는 사용자가 액세스를 요청할 때까지 VM에서 NSG를 관리하고 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
 
 자세한 정보:
 
@@ -141,7 +141,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 자세한 정보:
 
-* [Azure Firewall 개요](/azure/firewall/overview)
+* [Azure Firewall 개요](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>안전한 원격 액세스 및 크로스-프레미스 연결
 
@@ -202,7 +202,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 한 가지 옵션은 인터넷을 통해 "루프백"을 실행하여 특정 가상 네트워크의 서비스를 다른 가상 네트워크의 서비스에 연결하는 것입니다. 연결은 하나의 가상 네트워크에서 시작하여 인터넷을 거친 다음, 대상 가상 네트워크로 돌아옵니다. 이 옵션을 사용하면 인터넷 기반 통신에 내재된 보안 문제에 연결이 노출됩니다.
 
-더 나은 옵션은 두 가상 네트워크를 연결하는 사이트 간 VPN을 만드는 것입니다. 이 방법은 위에서 언급 한 크로스-프레미스 사이트 간 VPN 연결과 동일한 [IPSec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx) 프로토콜을 사용 합니다.
+더 나은 옵션은 두 가상 네트워크를 연결하는 사이트 간 VPN을 만드는 것입니다. 이 방법은 위에서 언급 한 크로스-프레미스 사이트 간 VPN 연결과 동일한 [IPSec 터널 모드](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) 프로토콜을 사용 합니다.
 
 이 접근 방법의 이점은 VPN 연결이 인터넷을 통해 연결되지 않고 Azure 네트워크 패브릭을 통해 설정된다는 것입니다. 따라서 인터넷을 통해 연결하는 사이트 간 VPN에 비해 추가적인 보안 계층을 제공합니다.
 
@@ -237,7 +237,7 @@ Azure Application Gateway는 웹 기반 서비스에 대한 HTTP 기반 부하 �
 
 자세한 정보:
 
-* [Application Gateway 개요](/azure/application-gateway/application-gateway-introduction)
+* [Application Gateway 개요](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>네트워크 수준 부하 분산
 
@@ -252,8 +252,8 @@ Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분�
 
 자세한 정보:
 
-* [여러 가상 머신 또는 서비스 간의 인터넷 연결 부하 분산 장치](/azure/load-balancer/load-balancer-internet-overview)
-* [내부 부하 분산 장치 개요](/azure/load-balancer/load-balancer-internal-overview)
+* [여러 가상 머신 또는 서비스 간의 인터넷 연결 부하 분산 장치](../../load-balancer/load-balancer-overview.md)
+* [내부 부하 분산 장치 개요](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>전역 부하 분산
 
@@ -315,7 +315,7 @@ Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔�
 ## <a name="azure-ddos-protection"></a>Azure DDoS 보호
 
 DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 애플리케이션의 리소스를 소진시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
-Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 보호를 제공합니다. 이는 무료로 제공되며, 일반적인 네트워크 수준 공격에 대한 Always On 모니터링 및 실시간 완화를 포함합니다. **기본** DDoS 보호에 포함된 보호 외에도 **표준** 옵션을 사용하도록 설정할 수 있습니다. DDoS Protection 표준 기능에는 다음이 포함됩니다.
+Microsoft에서는 Azure 플랫폼의 일부로 **기본** 으로 알려진 DDoS 보호를 제공합니다. 이는 무료로 제공되며, 일반적인 네트워크 수준 공격에 대한 Always On 모니터링 및 실시간 완화를 포함합니다. **기본** DDoS 보호에 포함된 보호 외에도 **표준** 옵션을 사용하도록 설정할 수 있습니다. DDoS Protection 표준 기능에는 다음이 포함됩니다.
 
 * **네이티브 플랫폼 통합:** 기본적으로 Azure에 통합됩니다. Azure Portal을 통해 구성을 포함합니다. DDoS Protection 표준은 사용자의 리소스 및 리소스 구성을 인식합니다.
 * **턴키 보호:** 간소화된 구성으로 DDoS Protection 표준이 사용되는 즉시 가상 네트워크의 모든 리소스를 바로 보호할 수 있습니다. 작업 또는 사용자 정의가 필요하지 않습니다. DDoS Protection 표준은 공격이 감지되는 즉시 자동으로 공격을 완화시킵니다.
@@ -381,7 +381,7 @@ Security Center는 다음과 같은 방법을 통해 네트워크 보안을 최�
 
 자세한 정보:
 
-* [Azure Security Center 소개](../../security-center/security-center-intro.md)
+* [Azure Security Center 소개](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>가상 네트워크 TAP
 

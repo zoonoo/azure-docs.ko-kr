@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897078"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413091"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -116,6 +116,9 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> 가상 네트워크 트리거를 사용 하도록 설정 하면 응용 프로그램 성능에 영향을 줄 수 있습니다. App Service 계획 인스턴스는 크기를 조정 하는 시기를 결정 하기 위해 트리거를 모니터링 해야 하기 때문입니다. 이러한 영향은 매우 작을 가능성이 높습니다.
 
 가상 네트워크 트리거는 Functions 런타임의 버전 2.x 이상에서 지원됩니다. 다음과 같은 비 HTTP 트리거 형식이 지원됩니다.
 

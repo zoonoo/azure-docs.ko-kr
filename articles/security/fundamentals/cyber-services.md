@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: fa873baa2d2006164536dd26e040ffbf5cdd51cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff56c32fb1fb6ef2fef862e50277e8ef3e5b81
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85123986"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412887"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>사이버 보안에 대한 Microsoft 서비스
 
@@ -37,7 +37,7 @@ Microsoft 서비스에서 제공하는 서비스에 대한 자세한 정보를 �
 * [Active Directory 서비스에 대한 오프라인 평가](https://download.microsoft.com/download/1/C/1/1C15BA51-840E-498D-86C6-4BD35D33C79E/Prerequisites_Offline_AD.pdf)
 * [향상된 보안 관리 환경](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
 * [Azure AD 구현 서비스](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [Lateral 계정 이동에 대한 보안 유지](https://docs.microsoft.com/azure-advanced-threat-protection/use-case-lateral-movement-path)
+* [Lateral 계정 이동에 대한 보안 유지](/azure-advanced-threat-protection/use-case-lateral-movement-path)
 * [사고 대응 및 복구](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 
 [자세히 알아봅니다](https://aka.ms/cyberserv) .

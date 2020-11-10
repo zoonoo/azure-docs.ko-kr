@@ -1,14 +1,14 @@
 ---
 title: 대규모로 위임된 구독에 Azure Policy 배포
 description: Azure Lighthouse를 사용 하 여 여러 테 넌 트에 정책 정의 및 정책 할당을 배포 하는 방법을 알아봅니다.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167286"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412071"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> 여러 테 넌 트에 정책을 배포할 수 있지만, 현재는이 테 넌 트에서 비규격 리소스에 대 한 [호환성 세부 정보를 볼](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) 수 없습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Policy](../../governance/policy/index.yml)에 대해 알아봅니다.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
+- 위임 된 구독 내에서 수정할 [수 있는 정책을 배포](deploy-policy-remediation.md) 하는 방법에 대해 알아봅니다.

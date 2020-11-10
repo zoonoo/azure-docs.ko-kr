@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369780"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412377"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
@@ -83,7 +83,7 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 이점을 제공 합�
 
 Mcas ( [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) )를 사용 하면 사용자가 SSO 및 조건부 액세스와 같은 기능을 활용할 수 있도록 사용 권한 부여 하 고 엔터프라이즈 응용 프로그램 갤러리에 추가할 수 있는 사용자에 게 널리 사용 되는 유용한 앱을 식별할 수 있습니다.
 
-<em>"**Cloud App Security** Accenture를 보호 하는 데 도움이 되는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."</em> --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** Accenture를 보호 하는 데 도움이 되는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."</em> --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 섀도 IT를 검색 하는 것 외에도 MCAS는 앱의 위험 수준을 결정 하 고, 회사 데이터에 대 한 무단 액세스, 가능한 데이터 유출 및 기타 보안 위험을 응용 프로그램에 내재 할 수 있습니다.
 
@@ -147,7 +147,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 
 ### <a name="self-service-app-management"></a>셀프 서비스 앱 관리
 
-사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [응용 프로그램의 암호 Single-Sign](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
+사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [응용 프로그램의 암호 Single-Sign](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
 
 ### <a name="self-service-group-management"></a>셀프 서비스 그룹 관리
 
@@ -267,6 +267,6 @@ SIEM 솔루션이 없는 조직은 Azure AD 용 [Power BI 콘텐츠 팩](../repo
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory 기능을 사용 하 여 보안 상태를 높일 수 있는 방법 및 5 단계 검사 목록- [id 인프라를 보호 하는 5 단계](https://aka.ms/securitysteps)를 알아보세요.
+Azure Active Directory 기능을 사용 하 여 보안 상태를 높일 수 있는 방법 및 5 단계 검사 목록- [id 인프라를 보호 하는 5 단계](../../security/fundamentals/steps-secure-identity.md)를 알아보세요.
 
-조직이 기존 온-프레미스 시스템에서 Azure AD로의 id 관리를 신속 하 게 채택 하 고 이동할 수 있도록 하는 솔루션 및 기능을 제공 하 여 클라우드 관리 관리로의 전환을 가속화 하는 방법에 대해 알아봅니다. [AZURE Ad는 온-프레미스 워크 로드에 대 한 클라우드 관리 관리](https://aka.ms/cloudgoverned)기능을 제공 합니다.
+조직이 기존 온-프레미스 시스템에서 Azure AD로의 id 관리를 신속 하 게 채택 하 고 이동할 수 있도록 하는 솔루션 및 기능을 제공 하 여 클라우드 관리 관리로의 전환을 가속화 하는 방법에 대해 알아봅니다. [AZURE Ad는 온-프레미스 워크 로드에 대 한 클라우드 관리 관리](./cloud-governed-management-for-on-premises.md)기능을 제공 합니다.

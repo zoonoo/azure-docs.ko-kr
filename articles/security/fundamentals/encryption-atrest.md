@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397252"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412785"
 ---
 # <a name="azure-data-encryption-at-rest"></a>휴지 상태의 Azure 데이터 암호화
 
@@ -48,7 +48,7 @@ Microsoft Azure에는 회사의 보안 및 규정 준수 요구 사항에 따라
 
 미사용 데이터 암호화는 디스크에 있을 때 데이터를 암호화하여 공격자가 암호화되지 않은 데이터에 액세스하지 못하도록 설계되었습니다. 데이터가 암호화된 하드 드라이브를 공격자가 획득했지만 암호화 키를 획득하지 못한 경우 공격자는 데이터를 읽으려면 암호화를 풀어야 합니다. 이 공격은 하드 드라이브의 암호화되지 않은 데이터에 액세스하는 것보다 훨씬 복잡하고 더 많은 리소스를 소모합니다. 이러한 이유로 미사용 데이터 암호화는 적극적으로 권장되며 많은 조직에서 우선 순위가 높은 요구 사항입니다.
 
-데이터 거 버 넌 스 및 규정 준수를 위해 조직의 요구에 따라 미사용 암호화가 필요할 수도 있습니다. HIPAA, PCI, FedRAMP 등의 산업 및 정부 규정에는 데이터 보호 및 암호화 요구 사항과 관련된 구체적인 보호 조치가 명시되어 있습니다. 미사용 데이터 암호화는 이러한 규정 중 일부를 사용하는 규정 준수에 필수적인 조치입니다. FIPS 140-2 유효성 검사에 대 한 Microsoft의 접근 방법에 대 한 자세한 내용은 [FIPS(Federal Information Processing Standard) (fips) 게시 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)를 참조 하세요.
+데이터 거 버 넌 스 및 규정 준수를 위해 조직의 요구에 따라 미사용 암호화가 필요할 수도 있습니다. HIPAA, PCI, FedRAMP 등의 산업 및 정부 규정에는 데이터 보호 및 암호화 요구 사항과 관련된 구체적인 보호 조치가 명시되어 있습니다. 미사용 데이터 암호화는 이러한 규정 중 일부를 사용하는 규정 준수에 필수적인 조치입니다. FIPS 140-2 유효성 검사에 대 한 Microsoft의 접근 방법에 대 한 자세한 내용은 [FIPS(Federal Information Processing Standard) (fips) 게시 140-2](/microsoft-365/compliance/offering-fips-140-2)를 참조 하세요.
 
 규정 준수 및 규제 요구 사항 충족 외에도, 저장 데이터 암호화는 심층 방어 보호를 제공합니다. Microsoft Azure는 서비스, 애플리케이션 및 데이터를 위한 규격 플랫폼을 제공합니다. 또한 포괄적인 시설과 물리적 보안, 데이터 액세스 제어 및 감사를 제공합니다. 그러나 다른 보안 조치 중 하나가 실패 하 고 미사용 암호화가 이러한 보안 조치를 제공 하는 경우 추가 "겹치는" 보안 조치를 제공 하는 것이 중요 합니다.
 
@@ -115,22 +115,22 @@ Microsoft Azure 서비스마다 하나 이상의 미사용 데이터 암호화 �
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 Azure Disk Encryption을 통해 IaaS VM 및 디스크에 대한 미사용 데이터 암호화를 달성할 수 있습니다. Azure Disk encryption에 대 한 자세한 내용은 [Azure Disk Encryption 설명서](../azure-security-disk-encryption-overview.md)를 참조 하세요.
+Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 Azure Disk Encryption을 통해 IaaS VM 및 디스크에 대한 미사용 데이터 암호화를 달성할 수 있습니다. Azure Disk encryption에 대 한 자세한 내용은 [Azure Disk Encryption 설명서](./azure-disk-encryption-vms-vmss.md)를 참조 하세요.
 
 #### <a name="azure-storage"></a>Azure Storage
 
 모든 Azure Storage 서비스 (Blob 저장소, 큐 저장소, 테이블 저장소 및 Azure Files)는 미사용 서버 쪽 암호화를 지원 합니다. 일부 서비스는 고객 관리 키 및 클라이언트 쪽 암호화를 추가로 지원 합니다.
 
-- 서버 쪽: 모든 Azure Storage 서비스는 기본적으로 애플리케이션에 투명한 서비스 관리 키를 사용하여 서버 쪽 암호화를 활성화합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요. Azure Blob Storage 및 Azure Files도 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](../../storage/common/storage-encryption-keys-portal.md)를 참조하세요.
+- 서버 쪽: 모든 Azure Storage 서비스는 기본적으로 애플리케이션에 투명한 서비스 관리 키를 사용하여 서버 쪽 암호화를 활성화합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요. Azure Blob Storage 및 Azure Files도 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](../../storage/common/customer-managed-keys-configure-key-vault.md)를 참조하세요.
 - 클라이언트 쪽: Azure Blob, 테이블 및 큐에서 클라이언트 쪽 암호화를 지원합니다. 클라이언트 쪽 암호화를 사용하는 경우 고객은 데이터를 암호화하고 암호화된 Blob으로 데이터를 업로드합니다. 키 관리는 고객이 수행합니다. 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)를 참조하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database는 현재 Microsoft 관리 서비스 쪽 및 클라이언트 쪽 암호화 시나리오에 대한 저장 데이터 암호화를 지원합니다.
 
-서버 암호화 지원은 현재 투명한 데이터 암호화라는 SQL 기능을 통해 제공됩니다. Azure SQL Database 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정되어 있습니다. Azure SQL Database는 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure SQL Database 및 데이터 웨어하우스에 대한 BYOK(Bring Your Own Key) 지원을 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current)를 참조하세요.
+서버 암호화 지원은 현재 투명한 데이터 암호화라는 SQL 기능을 통해 제공됩니다. Azure SQL Database 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정되어 있습니다. Azure SQL Database는 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure SQL Database 및 데이터 웨어하우스에 대한 BYOK(Bring Your Own Key) 지원을 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current)를 참조하세요.
 
-Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 기능을 통해 지원됩니다. Always Encrypted는 클라이언트에서 만들고 저장한 키를 사용합니다. 고객은 Windows 인증서 저장소, Azure Key Vault 또는 로컬 HSM(하드웨어 보안 모듈)에 마스터 키를 저장할 수 있습니다. SQL 사용자는 SQL Server Management Studio를 사용 하 여 어떤 열을 암호화 하는 데 사용할 키를 선택 합니다.
+Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능을 통해 지원됩니다. Always Encrypted는 클라이언트에서 만들고 저장한 키를 사용합니다. 고객은 Windows 인증서 저장소, Azure Key Vault 또는 로컬 HSM(하드웨어 보안 모듈)에 마스터 키를 저장할 수 있습니다. SQL 사용자는 SQL Server Management Studio를 사용 하 여 어떤 열을 암호화 하는 데 사용할 키를 선택 합니다.
 
 ## <a name="conclusion"></a>결론
 

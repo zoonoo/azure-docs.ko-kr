@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950247"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412934"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -21,7 +21,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 > [!NOTE]
 > 일부 서비스에는 제한 사항이 있습니다.
 >
-> 서비스의 제한이 없는 경우 다음 표에서는 헤더 **제한을**사용 합니다. 이러한 경우에는 기본값과 최대 한도가 동일 합니다.
+> 서비스의 제한이 없는 경우 다음 표에서는 헤더 **제한을** 사용 합니다. 이러한 경우에는 기본값과 최대 한도가 동일 합니다.
 >
 > 제한을 조정할 수 있는 경우 테이블에는 **기본 제한** 및 **최대 제한** 헤더가 포함 됩니다. 제한은 기본 한도를 초과 하는 경우에만 발생할 수 있으며 최대 한도를 초과 하면 안 됩니다.
 >
@@ -96,7 +96,7 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음
 
 * 다른 Azure 구독자와 공유 되는 **무료** 다중 테 넌 트 서비스는 평가 및 소규모 개발 프로젝트를 위한 것입니다.
 * **기본** 은 높은 가용성의 쿼리 작업에 대한 최대 3개의 복제본과 함께 프로덕션 워크로드 전용 컴퓨팅 리소스를 더 작은 규모로 제공합니다.
-* S1, S2, S3 및 S3 고밀도를 포함 하는 **표준**은 대규모 프로덕션 워크 로드를 위한 것입니다. 표준 계층 내에는 여러 수준이 있으므로 워크 로드 프로필과 가장 일치 하는 리소스 구성을 선택할 수 있습니다.
+* S1, S2, S3 및 S3 고밀도를 포함 하는 **표준** 은 대규모 프로덕션 워크 로드를 위한 것입니다. 표준 계층 내에는 여러 수준이 있으므로 워크 로드 프로필과 가장 일치 하는 리소스 구성을 선택할 수 있습니다.
 
 **구독당 제한**
 
@@ -227,7 +227,7 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 �
 ## <a name="digital-twins-limits"></a>Digital Twins 제한
 
 > [!NOTE]
-> 이 서비스의 일부 영역에는 제한이 적용 되지 않습니다. 이는 아래 표에는 *조정 가능한?* 열이 표시 됩니다. 제한을 조정할 수 있는 경우 *조정 가능한?* 값은 *예*입니다.
+> 이 서비스의 일부 영역에는 제한이 적용 되지 않습니다. 이는 아래 표에는 *조정 가능한?* 열이 표시 됩니다. 제한을 조정할 수 있는 경우 *조정 가능한?* 값은 *예* 입니다.
 
 [!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
@@ -285,7 +285,11 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 
 ### <a name="virtual-network-gateway-limits"></a>Virtual Network 게이트웨이 제한
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>NAT 게이트웨이 제한
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>가상 WAN 제한
 

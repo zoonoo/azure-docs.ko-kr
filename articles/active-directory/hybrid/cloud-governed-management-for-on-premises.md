@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369797"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413448"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD가 온-프레미스 워크 로드에 대 한 클라우드 관리 관리를 제공 하는 방법
 
@@ -39,7 +39,7 @@ Azure AD (Azure Active Directory)는 id, 액세스 관리 및 보안의 모든 �
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>클라우드 관리 id 관리에 대 한 Azure AD 접근 방법
 
-조직에서 클라우드로 전환 하는 경우 완벽 한 환경에 대 한 제어 권한을 보유 하 고, 자동화 및 예방적 정보를 지 원하는 활동에 대 한 추가 보안 및 가시성을 보유 하 고 있음을 보장 해야 합니다. "**클라우드 관리 관리**"는 조직이 클라우드에서 사용자, 응용 프로그램, 그룹 및 장치를 관리 하 고 제어 하는 방법을 설명 합니다.
+조직에서 클라우드로 전환 하는 경우 완벽 한 환경에 대 한 제어 권한을 보유 하 고, 자동화 및 예방적 정보를 지 원하는 활동에 대 한 추가 보안 및 가시성을 보유 하 고 있음을 보장 해야 합니다. " **클라우드 관리 관리** "는 조직이 클라우드에서 사용자, 응용 프로그램, 그룹 및 장치를 관리 하 고 제어 하는 방법을 설명 합니다.
 
 이 현대적인 세계에서 조직은 SaaS 응용 프로그램의 확산 및 공동 작업 및 외부 id의 증가에 의해 규모에 맞게 효과적으로 관리할 수 있어야 합니다. 클라우드의 새로운 위험 요소는 조직의 응답성이 향상 됨을 의미 합니다. 클라우드 사용자를 손상 시키는 악의적인 행위자는 클라우드 및 온-프레미스 응용 프로그램에 영향을 줄 수 있습니다.
 
@@ -77,7 +77,7 @@ B2b 공동 작업은 점점 더 많은 조직 외부 사용자에 게 액세스 
 
 Azure AD는 필요에 따라 [게스트 사용자를 위해 AD에서 자동으로 계정을 만들어](../external-identities/hybrid-cloud-to-on-premises.md) 비즈니스 게스트가 다른 암호 없이 온-프레미스 AD 통합 응용 프로그램에 액세스할 수 있도록 합니다. 조직에서는 [게스트 사용자에 대 한 mfa (multi-factor authentication) 정책을](../external-identities/conditional-access.md)설정할 수 있으므로 응용 프로그램 프록시 인증 중에 mfa 검사가 수행 됩니다. 또한 클라우드 B2B 사용자에 대해 수행 되는 모든 [액세스 검토](../governance/manage-guest-access-with-access-reviews.md) 는 온-프레미스 사용자에 게 적용 됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자를 삭제 하는 경우 온-프레미스 사용자도 삭제 됩니다.
 
-**Active Directory 계정에 대 한 자격 증명 관리** Azure AD의 셀프 서비스 암호 재설정을 사용 하면 암호를 잊어버린 사용자가 다시 인증을 받을 수 있으며, [온-프레미스 Active Directory에 기록](../authentication/concept-sspr-writeback.md)된 변경 된 암호를 사용 하 여 암호를 다시 설정할 수 있습니다. 암호 재설정 프로세스는 온-프레미스 Active Directory 암호 정책을 사용할 수도 있습니다. 사용자가 암호를 다시 설정 하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 Active Directory 정책을 충족 하는지 확인 합니다. 셀프 서비스 암호 재설정 [배포 계획](https://aka.ms/deploymentplans/sspr) 은 웹 및 Windows 통합 환경을 통해 사용자에 게 셀프 서비스 암호 재설정을 배포 하는 모범 사례를 간략하게 설명 합니다.
+**Active Directory 계정에 대 한 자격 증명 관리** Azure AD의 셀프 서비스 암호 재설정을 사용 하면 암호를 잊어버린 사용자가 다시 인증을 받을 수 있으며, [온-프레미스 Active Directory에 기록](../authentication/concept-sspr-writeback.md)된 변경 된 암호를 사용 하 여 암호를 다시 설정할 수 있습니다. 암호 재설정 프로세스는 온-프레미스 Active Directory 암호 정책을 사용할 수도 있습니다. 사용자가 암호를 다시 설정 하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 Active Directory 정책을 충족 하는지 확인 합니다. 셀프 서비스 암호 재설정 [배포 계획](../authentication/howto-sspr-deployment.md) 은 웹 및 Windows 통합 환경을 통해 사용자에 게 셀프 서비스 암호 재설정을 배포 하는 모범 사례를 간략하게 설명 합니다.
 
 ![Azure AD SSPR 아키텍처](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Azure AD는 필요에 따라 [게스트 사용자를 위해 AD에서 자동으�
 
 * [응용 프로그램을 Azure Active Directory로 마이그레이션하](https://aka.ms/migrateapps/whitepaper)는 백서로, 마이그레이션의 이점을 제시 하 고, 검색, 분류, 마이그레이션 및 지속적인 관리의 네 가지 명확 하 게 설명 된 단계로 마이그레이션을 계획 하는 방법을 설명 합니다. 프로세스에 대해 생각 하 고 프로젝트를 사용 하기 쉬운 조각으로 분할 하는 방법을 안내 합니다. 문서 전체에는 과정에 도움이 되는 중요한 리소스에 대한 링크가 있습니다.
 
-* 응용 프로그램 [인증을 Active Directory Federation Services에서 Azure Active Directory으로 마이그레이션하](https://aka.ms/migrateapps/adfssolutionguide) 는 솔루션 가이드에서는 응용 프로그램 마이그레이션 프로젝트를 계획 하 고 실행 하는 것과 동일한 4 단계를 자세히 살펴봅니다. 이 가이드에서는 Active Directory Federation Services (AD FS)에서 Azure AD로 응용 프로그램을 이동 하는 특정 목표에 이러한 단계를 적용 하는 방법을 알아봅니다.
+* 응용 프로그램 [인증을 Active Directory Federation Services에서 Azure Active Directory으로 마이그레이션하](../manage-apps/migrate-adfs-apps-to-azure.md) 는 솔루션 가이드에서는 응용 프로그램 마이그레이션 프로젝트를 계획 하 고 실행 하는 것과 동일한 4 단계를 자세히 살펴봅니다. 이 가이드에서는 Active Directory Federation Services (AD FS)에서 Azure AD로 응용 프로그램을 이동 하는 특정 목표에 이러한 단계를 적용 하는 방법을 알아봅니다.
 
 * [Active Directory Federation Services 마이그레이션 준비 스크립트](https://aka.ms/migrateapps/adfstools) 를 기존 온-프레미스 Active Directory Federation Services (AD FS) 서버에서 실행 하 여 Azure AD로 마이그레이션하도록 응용 프로그램의 준비 상태를 확인할 수 있습니다.
 
@@ -111,7 +111,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ## <a name="future-directions"></a>이후 지침
 
-하이브리드 환경에서 Microsoft의 전략은 **클라우드가 id의 제어 평면 인**배포를 사용 하도록 설정 하는 것이 고, 온-프레미스 디렉터리와 Active Directory 및 기타 온-프레미스 응용 프로그램과 같은 기타 id 시스템은 액세스 권한이 있는 사용자를 프로 비전 하는 대상입니다. 이 전략은 해당 응용 프로그램 및 해당 응용 프로그램에 의존 하는 작업에서 권한, id 및 액세스를 계속 보장 합니다. 이 최종 사용자는 조직에서 완전히 최종 사용자 생산성을 높일 수 있습니다.
+하이브리드 환경에서 Microsoft의 전략은 **클라우드가 id의 제어 평면 인** 배포를 사용 하도록 설정 하는 것이 고, 온-프레미스 디렉터리와 Active Directory 및 기타 온-프레미스 응용 프로그램과 같은 기타 id 시스템은 액세스 권한이 있는 사용자를 프로 비전 하는 대상입니다. 이 전략은 해당 응용 프로그램 및 해당 응용 프로그램에 의존 하는 작업에서 권한, id 및 액세스를 계속 보장 합니다. 이 최종 사용자는 조직에서 완전히 최종 사용자 생산성을 높일 수 있습니다.
 
 ![Azure AD 아키텍처](media/cloud-governed-management-for-on-premises/image6.png)
 

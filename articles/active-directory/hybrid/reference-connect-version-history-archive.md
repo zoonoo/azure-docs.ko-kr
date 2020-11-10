@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018495"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413414"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: 버전 릴리스 기록 보관
 
@@ -167,7 +167,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 - Azure AD Connect의 Ping Federate 통합은 현재 일반 공급됩니다. [Ping Federate를 사용하여 Azure AD를 페더레이션하는 방법에 대해 자세히 알아보기](./plan-connect-user-signin.md#federation-with-pingfederate)
-- Azure AD Connect는 이제 업데이트가 수행될 때마다 AD FS에서 Azure AD 트러스트의 백업을 만들고, 필요한 경우 쉽게 복원할 수 있도록 별도 파일에 저장합니다. [Azure AD Connect의 새로운 기능 및 Azure AD 트러스트 관리에 대해 자세히 알아보세요](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect는 이제 업데이트가 수행될 때마다 AD FS에서 Azure AD 트러스트의 백업을 만들고, 필요한 경우 쉽게 복원할 수 있도록 별도 파일에 저장합니다. [Azure AD Connect의 새로운 기능 및 Azure AD 트러스트 관리에 대해 자세히 알아보세요](./how-to-connect-azure-ad-trust.md).
 - 새 문제 해결 도구는 기본 전자 메일 주소 변경 및 전체 주소 목록에서 계정 숨기기와 관련된 문제를 해결하는 데 도움이 됩니다.
 - Azure AD Connect는 최신 SQL Server 2012 Native Client를 포함하도록 업데이트되었습니다.
 - "사용자 로그인 변경" 작업에서 사용자 로그인을 암호 해시 동기화 또는 통과 인증 태스크로 전환하면 기본적으로 Seamless Single Sign-On 확인란이 사용되도록 설정됩니다.
@@ -212,8 +212,8 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 - 디바이스 쓰기 저장 구성은 이제 Azure AD Connect 마법사에서만 관리됩니다.
 - SQL 연결 문제 및 다양한 다른 문제 해결 유틸리티 문제를 해결하는 데 사용할 수 있는 ADSyncTools.psm1이라는 새 PowerShell 모듈이 추가되었습니다. ADSyncTools 모듈에 대한 자세한 내용은 [여기](tshoot-connect-tshoot-sql-connectivity.md)를 참조하세요. 
 - 새 "디바이스 옵션 구성" 추가 작업이 추가되었습니다. 이 작업을 사용하여 구성할 수 있는 두 가지 작업은 다음과 같습니다. 
-  - **하이브리드 Azure AD 조인**: 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 디바이스입니다.
-  - **디바이스 쓰기 저장**: 디바이스 쓰기 저장은 AD FS(2012 R2 이상) 보호 디바이스에 대한 디바이스에 따라 조건부 액세스를 사용하도록 설정하는 데 사용됩니다.
+  - **하이브리드 Azure AD 조인** : 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 디바이스입니다.
+  - **디바이스 쓰기 저장** : 디바이스 쓰기 저장은 AD FS(2012 R2 이상) 보호 디바이스에 대한 디바이스에 따라 조건부 액세스를 사용하도록 설정하는 데 사용됩니다.
 
     >[!NOTE] 
     > - 동기화 사용자 지정 옵션에서 디바이스 쓰기 저장을 사용하도록 설정하는 옵션이 회색으로 표시됩니다. 
@@ -418,34 +418,34 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 상태: 2017년 10월 19일
 
 > [!IMPORTANT]
-> Azure AD Connect 버전 1.1.647.0과 Azure AD Connect Health Agent(동기화용) 버전 3.0.127.0 사이에 알려진 호환성 문제가 있습니다. 이 문제로 인해 Health Agent가 Azure AD Connect 동기화 서비스에 대한 상태 데이터(개체 동기화 오류 및 실행 기록 데이터 포함)를 Azure AD Health Service에 보낼 수 없습니다. Azure AD Connect 배포를 버전 1.1.647.0으로 수동으로 업그레이드하기 전에 Azure AD Connect 서버에 설치된 Azure AD Connect Health Agent의 현재 버전을 확인하십시오. 이를 수행하려면 *제어판 → 프로그램 추가/제거*로 이동하여 *동기화용 Microsoft Azure AD Connect Health Agent* 애플리케이션을 찾으십시오. 해당 버전이 3.0.127.0인 경우 업그레이드하기 전에 다음 Azure AD Connect 버전을 사용할 수 있을 때까지 기다리는 것이 좋습니다. Health Agent 버전이 3.0.127.0이 아닌 경우 수동 전체 업그레이드를 수행해도 됩니다. 이 문제는 스윙 업그레이드 또는 Azure AD Connect를 새로 설치하는 고객에게는 영향을 미치지 않습니다.
+> Azure AD Connect 버전 1.1.647.0과 Azure AD Connect Health Agent(동기화용) 버전 3.0.127.0 사이에 알려진 호환성 문제가 있습니다. 이 문제로 인해 Health Agent가 Azure AD Connect 동기화 서비스에 대한 상태 데이터(개체 동기화 오류 및 실행 기록 데이터 포함)를 Azure AD Health Service에 보낼 수 없습니다. Azure AD Connect 배포를 버전 1.1.647.0으로 수동으로 업그레이드하기 전에 Azure AD Connect 서버에 설치된 Azure AD Connect Health Agent의 현재 버전을 확인하십시오. 이를 수행하려면 *제어판 → 프로그램 추가/제거* 로 이동하여 *동기화용 Microsoft Azure AD Connect Health Agent* 애플리케이션을 찾으십시오. 해당 버전이 3.0.127.0인 경우 업그레이드하기 전에 다음 Azure AD Connect 버전을 사용할 수 있을 때까지 기다리는 것이 좋습니다. Health Agent 버전이 3.0.127.0이 아닌 경우 수동 전체 업그레이드를 수행해도 됩니다. 이 문제는 스윙 업그레이드 또는 Azure AD Connect를 새로 설치하는 고객에게는 영향을 미치지 않습니다.
 >
 >
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>해결된 문제
 * Azure AD Connect 마법사의 *사용자 로그인 변경* 작업 관련 문제가 해결되었습니다.
 
-  * 이 문제는 암호 동기화를 **사용하는** 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법을 *통과 인증*으로 설정하려고 할 때 발생합니다. 변경 내용을 적용하기 전에 마법사에 "*Disable Password Synchronization*(암호 동기화 사용 안 함)" 프롬프트가 잘못 표시됩니다. 하지만 암호 동기화는 변경이 적용된 후에도 사용하는 상태로 유지됩니다. 이 문제가 해결되어, 마법사에 프롬프트가 더 이상 표시되지 않습니다.
+  * 이 문제는 암호 동기화를 **사용하는** 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법을 *통과 인증* 으로 설정하려고 할 때 발생합니다. 변경 내용을 적용하기 전에 마법사에 " *Disable Password Synchronization* (암호 동기화 사용 안 함)" 프롬프트가 잘못 표시됩니다. 하지만 암호 동기화는 변경이 적용된 후에도 사용하는 상태로 유지됩니다. 이 문제가 해결되어, 마법사에 프롬프트가 더 이상 표시되지 않습니다.
 
   * 기본적으로 *사용자 로그인 변경* 작업을 사용하여 사용자 로그인 방법을 업데이트할 때 마법사는 암호 동기화를 비활성화하지 않습니다. 통과 인증 또는 페더레이션을 기본 사용자 로그인 방법으로 사용하도록 설정하더라도 암호 동기화를 유지하려는 고객에게 혼란을 주지 않기 위해서 입니다.
 
-  * 사용자 로그인 방법을 업데이트한 후 암호 동기화를 사용 안 함으로 설정하려면 마법사에서 *Customize Synchronization Configuration*(동기화 구성 사용자 지정) 작업을 실행해야 합니다. *선택적 기능* 페이지로 이동하여 *암호 동기화* 옵션을 선택 취소하십시오.
+  * 사용자 로그인 방법을 업데이트한 후 암호 동기화를 사용 안 함으로 설정하려면 마법사에서 *Customize Synchronization Configuration* (동기화 구성 사용자 지정) 작업을 실행해야 합니다. *선택적 기능* 페이지로 이동하여 *암호 동기화* 옵션을 선택 취소하십시오.
 
-  * 원활한 Single Sign-On을 사용/사용 안 함으로 설정하려는 경우에도 동일한 문제가 발생합니다. 특히, 암호 동기화를 사용하는 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법이 *통과 인증*으로 이미 설정되어 있는 경우 그렇습니다. *사용자 로그인 변경* 작업을 사용하여, 사용자 로그인 방법이 "통과 인증"으로 구성되어 있는 동안 *Enable Seamless Single Sign-On*(원활한 Single Sign-On 사용) 옵션에 대해 선택/선택 취소를 시도합니다. 변경 내용을 적용하기 전에 마법사에 "*Disable Password Synchronization*(암호 동기화 사용 안 함)" 프롬프트가 잘못 표시됩니다. 하지만 암호 동기화는 변경이 적용된 후에도 사용하는 상태로 유지됩니다. 이 문제가 해결되어, 마법사에 프롬프트가 더 이상 표시되지 않습니다.
+  * 원활한 Single Sign-On을 사용/사용 안 함으로 설정하려는 경우에도 동일한 문제가 발생합니다. 특히, 암호 동기화를 사용하는 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법이 *통과 인증* 으로 이미 설정되어 있는 경우 그렇습니다. *사용자 로그인 변경* 작업을 사용하여, 사용자 로그인 방법이 "통과 인증"으로 구성되어 있는 동안 *Enable Seamless Single Sign-On* (원활한 Single Sign-On 사용) 옵션에 대해 선택/선택 취소를 시도합니다. 변경 내용을 적용하기 전에 마법사에 " *Disable Password Synchronization* (암호 동기화 사용 안 함)" 프롬프트가 잘못 표시됩니다. 하지만 암호 동기화는 변경이 적용된 후에도 사용하는 상태로 유지됩니다. 이 문제가 해결되어, 마법사에 프롬프트가 더 이상 표시되지 않습니다.
 
 * Azure AD Connect 마법사의 *사용자 로그인 변경* 작업 관련 문제가 해결되었습니다.
 
-  * 이 문제는 암호 동기화를 **사용하지 않는** 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법을 *통과 인증*으로 설정하려고 할 때 발생합니다. 변경이 적용되면 마법사는 통과 인증과 암호 동기화를 모두 사용하도록 설정합니다. 이 문제가 해결되어 마법사에서 암호 동기화를 더 이상 사용하도록 설정하지 않습니다.
+  * 이 문제는 암호 동기화를 **사용하지 않는** 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법을 *통과 인증* 으로 설정하려고 할 때 발생합니다. 변경이 적용되면 마법사는 통과 인증과 암호 동기화를 모두 사용하도록 설정합니다. 이 문제가 해결되어 마법사에서 암호 동기화를 더 이상 사용하도록 설정하지 않습니다.
 
-  * 이전에는 암호 동기화가 통과 인증을 사용하기 위한 필수 구성 요소였습니다. 사용자 로그인 방법을 *통과 인증*으로 설정하면 마법사가 통과 인증과 암호 동기화를 모두 사용하도록 설정합니다. 최근 암호 동기화가 필수 구성 요소로 제거되었습니다. Azure AD Connect 버전 1.1.557.0의 일부로, 사용자 로그인 방법을 *통과 인증*으로 설정할 때 암호 동기화를 사용하도록 설정하지 않게 Azure AD Connect가 변경되었습니다. 이 변경 사항은 Azure AD Connect 설치에만 적용되었습니다. 이 문제가 해결되어 동일한 변화가 *사용자 로그인 변경* 작업에도 적용됩니다.
+  * 이전에는 암호 동기화가 통과 인증을 사용하기 위한 필수 구성 요소였습니다. 사용자 로그인 방법을 *통과 인증* 으로 설정하면 마법사가 통과 인증과 암호 동기화를 모두 사용하도록 설정합니다. 최근 암호 동기화가 필수 구성 요소로 제거되었습니다. Azure AD Connect 버전 1.1.557.0의 일부로, 사용자 로그인 방법을 *통과 인증* 으로 설정할 때 암호 동기화를 사용하도록 설정하지 않게 Azure AD Connect가 변경되었습니다. 이 변경 사항은 Azure AD Connect 설치에만 적용되었습니다. 이 문제가 해결되어 동일한 변화가 *사용자 로그인 변경* 작업에도 적용됩니다.
 
-  * 원활한 Single Sign-On을 사용/사용 안 함으로 설정하려는 경우에도 동일한 문제가 발생합니다. 특히, 암호 동기화를 사용하지 않는 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법이 *통과 인증*으로 이미 설정되어 있는 경우 그렇습니다. *사용자 로그인 변경* 작업을 사용하여, 사용자 로그인 방법이 "통과 인증"으로 구성되어 있는 동안 *Enable Seamless Single Sign-On*(원활한 Single Sign-On 사용) 옵션에 대해 선택/선택 취소를 시도합니다. 변경이 적용되면 마법사가 암호 동기화를 사용하도록 설정합니다. 이 문제가 해결되어 마법사에서 암호 동기화를 더 이상 사용하도록 설정하지 않습니다. 
+  * 원활한 Single Sign-On을 사용/사용 안 함으로 설정하려는 경우에도 동일한 문제가 발생합니다. 특히, 암호 동기화를 사용하지 않는 기존 Azure AD Connect 배포가 있고 사용자 로그인 방법이 *통과 인증* 으로 이미 설정되어 있는 경우 그렇습니다. *사용자 로그인 변경* 작업을 사용하여, 사용자 로그인 방법이 "통과 인증"으로 구성되어 있는 동안 *Enable Seamless Single Sign-On* (원활한 Single Sign-On 사용) 옵션에 대해 선택/선택 취소를 시도합니다. 변경이 적용되면 마법사가 암호 동기화를 사용하도록 설정합니다. 이 문제가 해결되어 마법사에서 암호 동기화를 더 이상 사용하도록 설정하지 않습니다. 
 
-* Azure AD Connect 업그레이드가 "*Unable to upgrade the Synchronization Service*(동기화 서비스를 업그레이드 할 수 없음)" 오류로 인해 실패하는 문제가 해결되었습니다. 또한 동기화 서비스가 더 이상 이벤트 오류 "*The service was unable to start because the version of the database is newer than the version of the binaries installed*(데이터베이스 버전이 설치된 바이너리 버전보다 최신이기 때문에 서비스를 시작할 수 없습니다.)"로 시작되지 않습니다. 이 문제는 업그레이드를 수행하는 관리자에게 Azure AD Connect에서 사용 중인 SQL 서버에 대한 sysadmin 권한이 없는 경우 발생합니다. 이 문제가 해결되어 Azure AD Connect에서 업그레이드 중 관리자는 ADSync 데이터베이스에 대한 db_owner 권한만 있으면 됩니다.
+* Azure AD Connect 업그레이드가 " *Unable to upgrade the Synchronization Service* (동기화 서비스를 업그레이드 할 수 없음)" 오류로 인해 실패하는 문제가 해결되었습니다. 또한 동기화 서비스가 더 이상 이벤트 오류 " *The service was unable to start because the version of the database is newer than the version of the binaries installed* (데이터베이스 버전이 설치된 바이너리 버전보다 최신이기 때문에 서비스를 시작할 수 없습니다.)"로 시작되지 않습니다. 이 문제는 업그레이드를 수행하는 관리자에게 Azure AD Connect에서 사용 중인 SQL 서버에 대한 sysadmin 권한이 없는 경우 발생합니다. 이 문제가 해결되어 Azure AD Connect에서 업그레이드 중 관리자는 ADSync 데이터베이스에 대한 db_owner 권한만 있으면 됩니다.
 
 * [원활한 Single Sign-On](./how-to-connect-sso.md)을 사용하도록 설정한 고객에게 영향을 미치는 Azure AD Connect 업그레이드 문제가 해결되었습니다. Azure AD Connect가 업그레이드된 후, 원활한 Single Sign-On 기능이 사용하도록 설정되어 있고 완전히 작동하는 경우에도 Azure AD Connect 마법사에 사용 안 함으로 잘못 표시됩니다. 이 문제가 해결되어 해당 기능이 마법사에 사용하도록 설정된 것으로 제대로 표시됩니다.
 
-* 원본 앵커와 관련된 변경 사항이 없는 경우에도 Azure AD Connect 마법사가 *구성 준비 완료* 페이지에 "*원본 앵커 구성*" 프롬프트를 표시하는 문제가 해결되었습니다.
+* 원본 앵커와 관련된 변경 사항이 없는 경우에도 Azure AD Connect 마법사가 *구성 준비 완료* 페이지에 " *원본 앵커 구성* " 프롬프트를 표시하는 문제가 해결되었습니다.
 
 * Azure AD Connect의 수동 전체 업그레이드를 수행할 때 해당 Azure AD 테넌트의 전역 관리자 자격 증명을 제공해야 합니다. 이전에는 전역 관리자 자격 증명이 다른 Azure AD 테넌트에 속해 있어도 업그레이드가 진행될 수 있었습니다. 업그레이드가 성공적으로 완료된 것처럼 보이지만 특정 구성이 업그레이드와 제대로 유지되지 않습니다. 이 변경으로 제공된 자격 증명이 Azure AD 테넌트와 일치하지 않으면 마법사가 업그레이드가 진행되는 것을 막습니다.
 
@@ -470,7 +470,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="ad-fs-management"></a>AD FS 관리
 #### <a name="fixed-issue"></a>해결된 문제
-* [ms-DS-ConsistencyGuid를 원본 앵커](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 기능으로 사용하는 것과 관련된 문제가 해결되었습니다. 이 문제는 *AD FS로 페더레이션*을 사용자 로그인 방법으로 구성한 고객에게 영향을 줍니다. 마법사에서 *원본 앵커 구성* 작업을 실행하면 Azure AD Connect가 immutableId의 원본 특성으로 *ms-DS-ConsistencyGuid를 사용하도록 전환합니다. 이 변경의 일환으로 Azure AD Connect가 AD FS의 ImmutableId에 대한 클레임 규칙을 업데이트하려고 시도합니다. 하지만 Azure AD Connect에 AD FS를 구성하는 데 필요한 관리자 자격 증명이 없어서 이 단계가 실패했습니다. 이 문제가 해결되어 이제 *원본 앵커 구성* 작업을 실행하면 AD FS에 대한 관리자 자격 증명을 입력하라는 메시지가 Azure AD Connect에 표시됩니다.
+* [ms-DS-ConsistencyGuid를 원본 앵커](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 기능으로 사용하는 것과 관련된 문제가 해결되었습니다. 이 문제는 *AD FS로 페더레이션* 을 사용자 로그인 방법으로 구성한 고객에게 영향을 줍니다. 마법사에서 *원본 앵커 구성* 작업을 실행하면 Azure AD Connect가 immutableId의 원본 특성으로 *ms-DS-ConsistencyGuid를 사용하도록 전환합니다. 이 변경의 일환으로 Azure AD Connect가 AD FS의 ImmutableId에 대한 클레임 규칙을 업데이트하려고 시도합니다. 하지만 Azure AD Connect에 AD FS를 구성하는 데 필요한 관리자 자격 증명이 없어서 이 단계가 실패했습니다. 이 문제가 해결되어 이제 *원본 앵커 구성* 작업을 실행하면 AD FS에 대한 관리자 자격 증명을 입력하라는 메시지가 Azure AD Connect에 표시됩니다.
 
 
 
@@ -480,7 +480,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>알려진 문제
-* Azure AD Connect 업그레이드가 "*Unable to upgrade the Synchronization Service*(동기화 서비스를 업그레이드 할 수 없음)" 오류로 인해 실패하는 알려진 문제가 있습니다. 또한 동기화 서비스가 더 이상 이벤트 오류 "*The service was unable to start because the version of the database is newer than the version of the binaries installed*(데이터베이스 버전이 설치된 바이너리 버전보다 최신이기 때문에 서비스를 시작할 수 없습니다.)"로 시작되지 않습니다. 이 문제는 업그레이드를 수행하는 관리자에게 Azure AD Connect에서 사용 중인 SQL 서버에 대한 sysadmin 권한이 없는 경우 발생합니다. Dbo 권한은 충분하지 않습니다.
+* Azure AD Connect 업그레이드가 " *Unable to upgrade the Synchronization Service* (동기화 서비스를 업그레이드 할 수 없음)" 오류로 인해 실패하는 알려진 문제가 있습니다. 또한 동기화 서비스가 더 이상 이벤트 오류 " *The service was unable to start because the version of the database is newer than the version of the binaries installed* (데이터베이스 버전이 설치된 바이너리 버전보다 최신이기 때문에 서비스를 시작할 수 없습니다.)"로 시작되지 않습니다. 이 문제는 업그레이드를 수행하는 관리자에게 Azure AD Connect에서 사용 중인 SQL 서버에 대한 sysadmin 권한이 없는 경우 발생합니다. Dbo 권한은 충분하지 않습니다.
 
 * [원활한 Single Sign-On](how-to-connect-sso.md)을 설정한 고객에게 영향을 미치는 Azure AD Connect 업그레이드와 관련한 알려진 문제가 있습니다. Azure AD Connect를 업그레이드한 후 기능은 활성화된 상태로 남아 있는 경우라도 마법사에서는 비활성화된 것으로 표시됩니다. 이 문제의 해결책은 향후 릴리스에서 제공될 예정입니다. 이 디스플레이 문제에 대해 염려하는 고객은 마법사에서 원활한 Single Sign-On을 사용하도록 설정하면 수동으로 해결할 수 있습니다.
 
@@ -495,12 +495,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 업그레이드 후 불필요하게 발생하는 전체 동기화 단계를 유발하는 문제가 해결되었습니다. 기본 제공 동기화 규칙에 변화가 있는 경우 일반적으로 업그레이드한 후 전체 동기화 단계를 실행해야 합니다. 이 문제는 줄 바꿈 문자가 있는 동기화 규칙 식이 발생하는 경우 변경 사항을 잘못 감지한 변경 검색 논리의 오류로 인한 것입니다. 줄 바꿈 문자는 가독성을 높이기 위해 동기화 규칙 식에 삽입됩니다.
 * Azure AD Connect 서버가 자동 업그레이드 후 올바르게 작동하지 않을 수 있는 문제가 수정되었습니다. 이 문제는 1.1.443.0(또는 이전) 버전을 사용하는 Azure AD Connect 서버에 영향을 미칩니다. 문제에 대한 자세한 내용은 아티클 [자동 업그레이드 후 Azure AD Connect가 제대로 작동하지 않습니다](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade)를 참조하세요.
 * 오류가 발생한 경우 자동 업그레이드가 5분마다 다시 시도되는 문제가 해결되었습니다. 수정 후에는 오류가 발생하면 자동 업그레이드가 지수적 백오프로 다시 시도합니다.
-* 암호 동기화 이벤트 611이 Windows 애플리케이션 이벤트 로그에 **오류**가 아닌 **정보**로 잘못 표시되는 문제가 해결되었습니다. 이벤트 611이 암호 동기화에 문제가 발생할 때마다 생성됩니다. 
+* 암호 동기화 이벤트 611이 Windows 애플리케이션 이벤트 로그에 **오류** 가 아닌 **정보** 로 잘못 표시되는 문제가 해결되었습니다. 이벤트 611이 암호 동기화에 문제가 발생할 때마다 생성됩니다. 
 * Azure AD Connect 마법사에서 그룹 쓰기 저장에 필요한 OU를 선택하지 않고 그룹 쓰기 저장 기능을 사용하도록 설정하는 문제가 해결되었습니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 * 추가 작업에서 Azure AD Connect 마법사에 문제 해결 작업이 추가되었습니다. 고객은 이 작업을 활용하여 암호 동기화와 관련된 문제를 해결하고 일반 진단을 수집할 수 있습니다. 나중에 문제 해결 작업은 다른 디렉터리 동기화와 관련된 문제를 포함하도록 확장될 예정입니다.
-* 이제 Azure AD Connect에서 **기존 데이터베이스 사용**이라는 새 설치 모드를 지원합니다. 이 설치 모드를 사용하면 고객은 기존 ADSync 데이터베이스를 지정하는 Azure AD Connect를 설치할 수 있습니다. 이 기능에 대한 자세한 내용은 아티클 [기존 데이터베이스 사용](how-to-connect-install-existing-database.md)을 참조하세요.
+* 이제 Azure AD Connect에서 **기존 데이터베이스 사용** 이라는 새 설치 모드를 지원합니다. 이 설치 모드를 사용하면 고객은 기존 ADSync 데이터베이스를 지정하는 Azure AD Connect를 설치할 수 있습니다. 이 기능에 대한 자세한 내용은 아티클 [기존 데이터베이스 사용](how-to-connect-install-existing-database.md)을 참조하세요.
 * 향상된 보안을 위해 Azure AD Connect는 이제 디렉터리 동기화를 위해 기본적으로 TLS1.2를 사용하여 Azure AD에 연결합니다. 이전에 기본 방법은 TLS1.0이었습니다.
 * Azure AD Connect 암호 동기화 에이전트가 시작되면 암호 동기화에 대해 잘 알려진 Azure AD 엔드포인트에 연결하려고 합니다. 연결에 성공하면 지역별 엔드포인트로 리디렉션됩니다. 이전에는 암호 동기화 에이전트가 다시 시작될 때까지 지역별 엔드포인트를 캐시합니다. 이제 에이전트는 지역별 엔드포인트와 관련된 연결 문제가 발생하는 경우 캐시를 지우고 잘 알려진 엔드포인트로 재시도합니다. 이 변경을 통해 캐시된 지역별 엔드포인트를 더 이상 사용할 수 없는 경우 암호 동기화를 다른 지역별 엔드포인트로 장애 조치(failover)할 수 있도록 보장합니다.
 * 온-프레미스 AD 포리스트에서 변경 내용을 동기화하려면 AD DS 계정이 필요합니다. (i) 직접 AD DS 계정을 만들고 Azure AD Connect에 해당 자격 증명을 제공하거나 (ii) 엔터프라이즈 관리자 자격 증명을 제공하고 Azure AD Connect에서 AD DS 계정을 만들도록 할 수 있습니다. 이전은 (i)이 Azure AD Connect 마법사에서 기본 옵션입니다. 이제 (ii)가 기본 옵션입니다.
@@ -533,7 +533,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * 기본 제공 동기화 규칙 “Out to AD - User ImmutableId”를 삭제하는 문제가 해결되었습니다.
 
-  * Azure AD Connect를 업그레이드하는 경우 또는 Azure AD Connect 마법사에서 *동기화 구성 업데이트*를 작업 옵션을 사용하여 Azure AD Connect 동기화 구성을 업데이트하는 경우 문제가 발생합니다.
+  * Azure AD Connect를 업그레이드하는 경우 또는 Azure AD Connect 마법사에서 *동기화 구성 업데이트* 를 작업 옵션을 사용하여 Azure AD Connect 동기화 구성을 업데이트하는 경우 문제가 발생합니다.
 
   * 이 동기화 규칙은 [소스 앵커 기능으로 ms-DS-ConsistencyGuid](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)를 사용하도록 설정한 고객에게 적용할 수 있습니다. 이 기능은 1.1.524.0 이후 버전에서 도입되었습니다. 동기화 규칙이 제거되면 Azure AD Connect에서는 더 이상 ObjectGuid 특성 값으로 온-프레미스 AD ms-DS-ConsistencyGuid 특성을 채울 수 없습니다. 새 사용자가 Azure AD에 프로비전되지 않도록 방지하지 않습니다.
 
@@ -608,7 +608,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 ### <a name="pass-through-authentication"></a>통과 인증
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
-* 통과 인증에 필요한 에이전트 이름이 *Microsoft Azure AD 애플리케이션 프록시 커넥터*에서 *Microsoft Azure AD Connect 인증 에이전트*로 변경되었습니다.
+* 통과 인증에 필요한 에이전트 이름이 *Microsoft Azure AD 애플리케이션 프록시 커넥터* 에서 *Microsoft Azure AD Connect 인증 에이전트* 로 변경되었습니다.
 
 * 통과 인증을 사용하도록 설정하면 기본적으로 암호 해시 동기화가 더 이상 활성화되지 않습니다.
 
@@ -627,13 +627,13 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
   * OU 기반 필터링이 사용되는 경우 **선택한 도메인 및 OU 동기화** 옵션이 선택됩니다.
   * 그렇지 않은 경우 **모든 도메인 및 OU 동기화** 옵션이 선택됩니다.
 
-발생하는 문제는 마법사를 실행할 때 항상 **모든 도메인 및 OU 동기화**가 선택된다는 것입니다.  이 문제는 OU 기반 필터링이 이전에 구성된 경우에도 발생합니다. Azure AD Connect 구성 변경 내용을 저장 하기 전에 **선택한 도메인 및 Ou 동기화 옵션이 선택 되어** 있는지 확인 하 고 동기화 해야 하는 모든 ou를 다시 사용 하도록 설정 해야 합니다. 그렇지 않으면 OU 기반 필터링이 비활성화됩니다.
+발생하는 문제는 마법사를 실행할 때 항상 **모든 도메인 및 OU 동기화** 가 선택된다는 것입니다.  이 문제는 OU 기반 필터링이 이전에 구성된 경우에도 발생합니다. Azure AD Connect 구성 변경 내용을 저장 하기 전에 **선택한 도메인 및 Ou 동기화 옵션이 선택 되어** 있는지 확인 하 고 동기화 해야 하는 모든 ou를 다시 사용 하도록 설정 해야 합니다. 그렇지 않으면 OU 기반 필터링이 비활성화됩니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
 
 * Azure AD 관리자가 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 있도록 하는, 비밀번호 쓰기 저장과 관련된 문제가 해결되었습니다. 이 문제는 Azure AD Connect에 권한 있는 계정에 대한 암호 다시 설정 권한이 부여된 경우에 발생합니다. 이 버전의 Azure AD Connect에서는 Azure AD 관리자가 계정의 소유자가 아닌 경우 임의의 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 없도록 하여 이 문제를 해결합니다. 자세한 내용은 [보안 권고 4033453](/security-updates/SecurityAdvisories/2017/4033453)을 참조하세요.
 
-* Azure AD Connect가 온-프레미스 AD ms-DS-ConsistencyGuid 특성에 쓰기 저장하지 않는, [원본 앵커로서의 ms-DS-ConsistencyGuid](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 기능과 관련된 문제가 해결되었습니다. 이 문제는 여러 개의 온-프레미스 AD 포리스트가 Azure AD Connect에 추가되어 있고 *사용자 ID가 여러 디렉터리에 있습니다. 옵션*이 선택된 경우에 발생합니다. 이러한 구성을 사용하면 결과로 생성된 동기화 규칙이 메타버스의 sourceAnchorBinary 특성을 채우지 않습니다. sourceAnchorBinary 특성은 ms-DS-ConsistencyGuid 특성에 대한 원본 특성으로 사용됩니다. 결과적으로 ms-DSConsistencyGuid 특성에 대한 쓰기 저장이 발생하지 않습니다. 이 문제를 해결하기 위해 메타버스의 sourceAnchorBinary 특성이 항상 채워지도록 다음 동기화 규칙이 업데이트되었습니다.
+* Azure AD Connect가 온-프레미스 AD ms-DS-ConsistencyGuid 특성에 쓰기 저장하지 않는, [원본 앵커로서의 ms-DS-ConsistencyGuid](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 기능과 관련된 문제가 해결되었습니다. 이 문제는 여러 개의 온-프레미스 AD 포리스트가 Azure AD Connect에 추가되어 있고 *사용자 ID가 여러 디렉터리에 있습니다. 옵션* 이 선택된 경우에 발생합니다. 이러한 구성을 사용하면 결과로 생성된 동기화 규칙이 메타버스의 sourceAnchorBinary 특성을 채우지 않습니다. sourceAnchorBinary 특성은 ms-DS-ConsistencyGuid 특성에 대한 원본 특성으로 사용됩니다. 결과적으로 ms-DSConsistencyGuid 특성에 대한 쓰기 저장이 발생하지 않습니다. 이 문제를 해결하기 위해 메타버스의 sourceAnchorBinary 특성이 항상 채워지도록 다음 동기화 규칙이 업데이트되었습니다.
   * In from AD - InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
@@ -1013,7 +1013,7 @@ AD FS 관리
 **수정된 문제:**
 
 * 설치 파일이 기본 C:\Program Files 폴더에 없는 경우 이전 릴리스에서 업그레이드되지 않습니다.
-* 설치하고 설치 마법사의 마지막 단계에서 **동기화 프로세스 시작**을 선택 취소하면 설치 마법사를 다시 실행해도 스케줄러를 사용할 수 없습니다.
+* 설치하고 설치 마법사의 마지막 단계에서 **동기화 프로세스 시작** 을 선택 취소하면 설치 마법사를 다시 실행해도 스케줄러를 사용할 수 없습니다.
 * 날짜/시간 형식이 US-en이 아닌 서버에서는 스케줄러가 작동하지 않습니다. 또한 올바른 시간을 반환하도록 `Get-ADSyncScheduler`도 차단합니다.
 * 로그인 옵션으로 AD FS를 사용하는 Azure AD Connect의 이전 릴리스를 설치하고 업그레이드하는 경우 설치 마법사를 다시 실행할 수 없습니다.
 

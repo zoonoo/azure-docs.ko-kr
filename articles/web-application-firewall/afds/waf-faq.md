@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837637"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413074"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure Front 도어 서비스의 Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -64,7 +64,7 @@ Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>DDoS 보호가 전면 도어와 통합 되나요? 
 
-Azure 네트워크에 지에서 전 세계적으로 배포 되는 Azure Front 도어가 대규모 볼륨 공격을 흡수 하 고 지리적으로 격리할 수 있습니다. 알려진 서명이 있는 http (s) 공격을 자동으로 차단 및 평가 하는 사용자 지정 WAF 정책을 만들 수 있습니다. 또한 백 엔드가 배포 되는 VNet에서 DDoS Protection Standard를 사용 하도록 설정할 수 있습니다. Azure DDoS Protection 표준 고객은 비용 보호, SLA 보증, 공격 중에 즉각적인 도움을 받을 수 있는 DDoS 빠른 응답 팀의 전문가에 게 액세스 등의 추가 혜택을 받습니다.
+Azure 네트워크에 지에서 전 세계적으로 배포 되는 Azure Front 도어가 대규모 볼륨 공격을 흡수 하 고 지리적으로 격리할 수 있습니다. 알려진 서명이 있는 http (s) 공격을 자동으로 차단 및 평가 하는 사용자 지정 WAF 정책을 만들 수 있습니다. 또한 백 엔드가 배포 되는 VNet에서 DDoS Protection Standard를 사용 하도록 설정할 수 있습니다. Azure DDoS Protection 표준 고객은 비용 보호, SLA 보증, 공격 중에 즉각적인 도움을 받을 수 있는 DDoS 빠른 응답 팀의 전문가에 게 액세스 등의 추가 혜택을 받습니다. 자세한 내용은 [DDoS protection On Front 도어가](../../frontdoor/front-door-ddos.md)항목을 참조 하세요.
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>내 요금 제한 규칙에 대해 구성 된 임계값을 초과 하는 추가 요청이 내 백 엔드 서버에 전달 되는 이유는 무엇 인가요?
 

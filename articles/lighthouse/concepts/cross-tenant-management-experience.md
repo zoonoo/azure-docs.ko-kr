@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460668"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413125"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -104,7 +104,6 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- 규정 준수 스냅샷에 위임된 구독 내에 할당된 정책에 대한 세부 정보를 표시합니다.
 - 위임 된 구독 내에서 정책 정의 만들기 및 편집
 - 위임 된 구독 내에서 고객 정의 정책 정의 할당
 - 고객은 자신이 직접 작성한 정책과 함께 서비스 공급자가 작성한 정책을 볼 수 있습니다.
@@ -171,4 +170,4 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager 템플릿을 사용](../how-to/onboard-customer.md) 하거나 [개인 또는 공용 관리 서비스 제품을 Azure Marketplace에 게시](../how-to/publish-managed-services-offers.md)하 여 Azure Lighthouse에 고객을 등록 합니다.
-- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](../how-to/view-manage-customers.md)합니다.
+- Azure Portal의 **내 고객** 으로 이동하여 [고객을 보고 관리](../how-to/view-manage-customers.md)합니다.

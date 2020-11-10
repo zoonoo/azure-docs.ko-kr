@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368851"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413040"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -58,7 +58,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 
 | 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | Description |
 |--|--|--|--|
-| [변칙 탐지기][ad-containers] | F0, S0 | **변칙-탐지기** ( [이미지](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청][request-access] |
+| [변칙 탐지기][ad-containers] | F0, S0 | **변칙-탐지기** ( [이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **읽기** OCR ( [이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | 읽기 OCR 컨테이너를 사용 하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대 한 지원이 포함 된 이미지와 문서에서 인쇄 된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [READ API 설명서](./computer-vision/concept-recognizing-text.md)를 참조 하세요.<br>[액세스 요청][request-access] |
 | [Face][fa-containers] | F0, S0 | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. |
 | [폼 인식기][fr-containers] | F0, S0 | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. |
@@ -83,7 +83,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 * Computer Vision
 * Face
 * LUIS
-* 텍스트 분석
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -91,7 +91,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

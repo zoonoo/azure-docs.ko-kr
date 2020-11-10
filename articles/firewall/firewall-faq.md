@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611180"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413006"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -40,9 +40,9 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 다음과 같은 세 가지 유형의 규칙 컬렉션이 있습니다.
 
-* *애플리케이션 규칙*: 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 구성합니다.
-* *네트워크 규칙*: 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성합니다.
-* *NAT 규칙*: 들어오는 인터넷 연결을 허용하도록 DNAT 규칙을 구성합니다.
+* *애플리케이션 규칙* : 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 구성합니다.
+* *네트워크 규칙* : 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성합니다.
+* *NAT 규칙* : 들어오는 인터넷 연결을 허용하도록 DNAT 규칙을 구성합니다.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
@@ -115,7 +115,7 @@ Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, �
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure Firewall이 동일한 가상 네트워크 또는 피어링된 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
-예. 그러나 UDR을 동일한 VNET의 서브넷 간에 트래픽을 리디렉션하도록 구성하려면 좀 더 주의해야 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET**의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
+예. 그러나 UDR을 동일한 VNET의 서브넷 간에 트래픽을 리디렉션하도록 구성하려면 좀 더 주의해야 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET** 의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Azure Firewall이 개인 네트워크 간에 SNAT를 아웃바운드하나요?
 
@@ -125,7 +125,7 @@ Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, �
 
 강제 터널링은 새 방화벽을 만들 때 지원됩니다. 강제 터널링을 위해 기존 방화벽을 구성할 수는 없습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
-Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
+Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet** 으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 
 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요하고 인터넷 대상의 대상 IP 접두사를 확인할 수 있는 경우, AzureFirewallSubnet의 사용자 정의 경로를 통해 온-프레미스 네트워크를 사용하여 이러한 범위를 다음 홉으로 구성할 수 있습니다. 또는 BGP를 사용하여 이러한 경로를 정의할 수 있습니다.
 
@@ -139,11 +139,11 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드카드는 애플리케이션 규칙 대상 FQDN에서 어떻게 작동하나요?
 
-와일드 카드는 현재 FQDN의 왼쪽에만 사용할 수 있습니다. 예: ***. contoso.com** 및 ***contoso.com**.
+와일드 카드는 현재 FQDN의 왼쪽에만 사용할 수 있습니다. 예: * *_. contoso.com_* 및 * *_contoso.com_*.
 
-* **.contoso.com**을 구성하면 *anyvalue*.contoso.com은 허용되지만 contoso.com(도메인 정점)은 허용되지 않습니다. 도메인 정점을 허용하려면 대상 FQDN으로 명시적으로 구성해야 합니다.
+* *_. Contoso.com_* 을 구성 하는 경우 contoso.com (도메인 apex)가 아닌 *anyvalue*. contoso.com가 허용 됩니다. 도메인 정점을 허용하려면 대상 FQDN으로 명시적으로 구성해야 합니다.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>*프로비저닝 상태: 실패*는 무엇을 의미하나요?
+## <a name="what-does-provisioning-state-failed-mean"></a>*프로비저닝 상태: 실패* 는 무엇을 의미하나요?
 
 구성 변경이 적용될 때마다 Azure Firewall은 모든 기본 백 엔드 인스턴스를 업데이트하려고 합니다. 드물지만, 이러한 백 엔드 인스턴스 중 하나가 새 구성으로 업데이트되지 않고 업데이트 프로세스가 프로비저닝 실패 상태로 중지되는 경우가 있습니다. Azure Firewall은 여전히 작동하지만 적용된 구성이 “일부 인스턴스는 이전 구성을 갖고 있고, 다른 인스턴스를 업데이트된 규칙 집합을 갖고 있는”일관성이 없는 상태일 수 있습니다. 이 경우 작업이 성공하고 방화벽이 *성공* 프로비저닝 상태가 될 때까지 구성을 한 번 더 업데이트해 봅니다.
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Azure Firewall의 규칙에서 해당 트래픽을 허용하지 않는 경우에도 TCP ping 및 유사한 도구가 대상 FQDN에 성공적으로 연결할 수 있는 이유는 무엇인가요?
 
-TCP ping은 실제로는 대상 FQDN에 연결하지 않습니다. 이러한 상황이 발생하는 이유는 Azure Firewall의 투명 프록시가 아웃바운드 트래픽에 대해 포트 80/443에서 수신 대기하기 때문입니다. TCP ping은 방화벽과의 연결을 설정한 다음, 패킷을 삭제하고 연결을 기록합니다. 이 동작은 보안에 영향을 주지 않습니다. 그러나 혼동을 피하기 위해 이 동작에 대한 잠재적인 변경 내용을 조사하고 있습니다.
+TCP ping은 실제로는 대상 FQDN에 연결하지 않습니다. 이러한 상황이 발생하는 이유는 Azure Firewall의 투명 프록시가 아웃바운드 트래픽에 대해 포트 80/443에서 수신 대기하기 때문입니다. TCP ping은 방화벽과의 연결을 설정 하 여 패킷을 삭제 합니다. 이 동작은 보안에 영향을 주지 않습니다. 그러나 혼동을 피하기 위해 이 동작에 대한 잠재적인 변경 내용을 조사하고 있습니다.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>IP 그룹에서 지원되는 IP 주소 수에 제한이 있나요?
 

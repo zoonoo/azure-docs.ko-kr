@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356477"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413465"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory와 동기화되지 않는 개체 문제 해결
 
@@ -81,17 +81,17 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 | completed-\*-warnings |실행이 완료되었지만 일부 데이터가 예상된 상태가 아닙니다. 오류가 발생하는 경우 이 메시지는 일반적으로 증상일 뿐입니다. 오류를 해결할 때까지 경고를 조사하지 않습니다. |
 | 성공 |문제가 없습니다. |
 
-행을 선택하면 해당 실행의 세부 정보가 표시되도록 **작업** 탭 아래쪽이 업데이트됩니다. 이 영역의 왼쪽 끝에는 **#단계** 목록이 표시될 수 있습니다. 이 목록은 포리스트에 여러 도메인이 있고 각 도메인이 단계로 표시되는 경우에만 표시됩니다. 도메인 이름은 **파티션**머리글 아래에서 찾을 수 있습니다. **동기화 통계** 제목 아래에서 처리된 변경 내용의 수에 대한 자세한 정보를 찾을 수 있습니다. 링크를 선택하여 변경된 개체의 목록을 가져옵니다. 오류가 있는 개체가 있으면 해당 오류는 **동기화 오류** 제목 아래에 표시됩니다.
+행을 선택하면 해당 실행의 세부 정보가 표시되도록 **작업** 탭 아래쪽이 업데이트됩니다. 이 영역의 왼쪽 끝에는 **#단계** 목록이 표시될 수 있습니다. 이 목록은 포리스트에 여러 도메인이 있고 각 도메인이 단계로 표시되는 경우에만 표시됩니다. 도메인 이름은 **파티션** 머리글 아래에서 찾을 수 있습니다. **동기화 통계** 제목 아래에서 처리된 변경 내용의 수에 대한 자세한 정보를 찾을 수 있습니다. 링크를 선택하여 변경된 개체의 목록을 가져옵니다. 오류가 있는 개체가 있으면 해당 오류는 **동기화 오류** 제목 아래에 표시됩니다.
 
 ### <a name="errors-on-the-operations-tab"></a>작업 탭의 오류
 오류가 발생하는 경우 Synchronization Service Manager는 오류 개체 및 오류 자체가 모두 자세한 정보를 제공하는 링크를 표시합니다.
 
 ![Synchronization Service Manager의 오류 스크린샷](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-먼저 오류 문자열을 선택합니다. 위의 그림에서 오류 문자열은 **동기화-오류-함수 트리거**입니다. 먼저 개체의 개요가 표시 됩니다. 실제 오류를 보려면 **스택 추적**을 선택합니다. 이 추적은 오류에 대한 디버그 수준 정보를 제공합니다.
+먼저 오류 문자열을 선택합니다. 위의 그림에서 오류 문자열은 **동기화-오류-함수 트리거** 입니다. 먼저 개체의 개요가 표시 됩니다. 실제 오류를 보려면 **스택 추적** 을 선택합니다. 이 추적은 오류에 대한 디버그 수준 정보를 제공합니다.
 
-**호출 스택 정보** 상자를 마우스 오른쪽 단추로 클릭하고 **모두 선택**을 클릭한 후 **복사**를 선택합니다. 그런 다음 스택을 복사하고 메모장 등 즐겨 사용하는 편집기에서 오류를 확인합니다.
+**호출 스택 정보** 상자를 마우스 오른쪽 단추로 클릭하고 **모두 선택** 을 클릭한 후 **복사** 를 선택합니다. 그런 다음 스택을 복사하고 메모장 등 즐겨 사용하는 편집기에서 오류를 확인합니다.
 
-오류가 **SyncRulesEngine**에서 발생한 경우 호출 스택 정보가 개체에 대한 모든 특성의 목록을 먼저 제공합니다. **InnerException =>** 머리글이 표시될 때까지 아래로 스크롤합니다.  
+오류가 **SyncRulesEngine** 에서 발생한 경우 호출 스택 정보가 개체에 대한 모든 특성의 목록을 먼저 제공합니다. **InnerException =>** 머리글이 표시될 때까지 아래로 스크롤합니다.  
 
   ![InnerException 제목 아래에 오류 정보를 표시하는 Synchronization Service Manager 스크린샷 =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
@@ -104,19 +104,19 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 
 ### <a name="searching-for-an-object-in-the-cs"></a>CS에서 개체 검색
 
-Synchronization Service Manager에서 **커넥터**를 선택하고 Active Directory Connector를 선택한 후 **커넥터 공간 검색**을 선택합니다.
+Synchronization Service Manager에서 **커넥터** 를 선택하고 Active Directory Connector를 선택한 후 **커넥터 공간 검색** 을 선택합니다.
 
-**범위** 상자에서 **RDN**(CN 특성에 대해 검색하려는 경우) 또는 **DN 또는 앵커**(**distinguishedName** 특성에 대해 검색하려는 경우)를 선택합니다. 값을 입력하고 **검색**을 선택합니다. 
+**범위** 상자에서 **RDN** (CN 특성에 대해 검색하려는 경우) 또는 **DN 또는 앵커** ( **distinguishedName** 특성에 대해 검색하려는 경우)를 선택합니다. 값을 입력하고 **검색** 을 선택합니다. 
  
 ![커넥터 공간 검색 스크린샷](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
 찾으려는 개체를 찾지 못할 경우 [도메인 기반 필터링](how-to-connect-sync-configure-filtering.md#domain-based-filtering) 또는 [OU 기반 필터링](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)으로 필터링되었을 수 있습니다. 필터링이 예상 대로 구성 되었는지 확인 하려면 [Azure AD Connect 동기화: 필터링 구성](how-to-connect-sync-configure-filtering.md)을 참조 하세요.
 
-Azure AD Connect를 선택하여 또 다른 유용한 검색을 수행할 수 있습니다. **범위** 상자에서 **보류 중인 가져오기**를 선택한 후 **추가** 확인란을 선택합니다. 이 검색은 온-프레미스 개체와 연결될 수 없는 Azure AD의 모든 동기화된 개체를 제공합니다.  
+Azure AD Connect를 선택하여 또 다른 유용한 검색을 수행할 수 있습니다. **범위** 상자에서 **보류 중인 가져오기** 를 선택한 후 **추가** 확인란을 선택합니다. 이 검색은 온-프레미스 개체와 연결될 수 없는 Azure AD의 모든 동기화된 개체를 제공합니다.  
 
 ![커넥터 공간 검색의 고아 개체 스크린샷](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-이러한 개체는 다른 동기화 엔진 또는 다른 필터링 구성을 갖는 동기화 엔진에서 만들어졌습니다. 이러한 고아 개체는 더 이상 관리되지 않습니다. 이 목록을 검토하고 [Azure AD PowerShell](https://aka.ms/aadposh) cmdlet을 사용하여 이러한 개체를 제거하는 것이 좋습니다.
+이러한 개체는 다른 동기화 엔진 또는 다른 필터링 구성을 갖는 동기화 엔진에서 만들어졌습니다. 이러한 고아 개체는 더 이상 관리되지 않습니다. 이 목록을 검토하고 [Azure AD PowerShell](/previous-versions/azure/jj151815(v=azure.100)) cmdlet을 사용하여 이러한 개체를 제거하는 것이 좋습니다.
 
 ### <a name="cs-import"></a>CS 가져오기
 CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오기** 탭은 가져온 후에 준비된 데이터를 표시합니다.  
@@ -143,7 +143,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 **계보** 탭에서 [**메타버스 개체 속성**](#mv-attributes)을 선택하여 메타버스로 이동할 수 있습니다.
 
 ### <a name="preview"></a>미리 보기
-**커넥터 공간 개체 속성** 창의 왼쪽 아래 모서리에는 **미리 보기** 단추가 있습니다. 이 단추를 선택하여 단일 개체를 동기화할 수 있는 **미리 보기** 페이지를 엽니다. 이 페이지는 일부 사용자 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화** 또는 **델타 동기화**를 선택할 수 있습니다. 메모리 에서만 변경 내용을 유지 하는 **미리 보기 생성**을 선택할 수도 있습니다. 또는 메타버스를 업데이트하고 대상 커넥터 공간에 모든 변경 내용을 단계적으로 적용하는 **커밋 미리 보기**를 선택합니다.  
+**커넥터 공간 개체 속성** 창의 왼쪽 아래 모서리에는 **미리 보기** 단추가 있습니다. 이 단추를 선택하여 단일 개체를 동기화할 수 있는 **미리 보기** 페이지를 엽니다. 이 페이지는 일부 사용자 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화** 또는 **델타 동기화** 를 선택할 수 있습니다. 메모리 에서만 변경 내용을 유지 하는 **미리 보기 생성** 을 선택할 수도 있습니다. 또는 메타버스를 업데이트하고 대상 커넥터 공간에 모든 변경 내용을 단계적으로 적용하는 **커밋 미리 보기** 를 선택합니다.  
 
 ![미리 보기 시작이 선택된 미리 보기 페이지 스크린샷](./media/tshoot-connect-object-not-syncing/preview.png)  
 
@@ -158,7 +158,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 일반적으로는 원본 Active Directory 커넥터 공간에서 검색을 시작하는 것이 좋습니다. 하지만 메타버스에서 검색을 시작할 수도 있습니다.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>MV에서 개체 검색
-다음 그림과 같이 Synchronization Service Manager에서 **메타버스 검색**을 선택합니다. 사용자를 찾는 쿼리를 만듭니다. **accountName**(**sAMAccountName**) 및 **userPrincipalName** 등의 일반적인 특성을 검색합니다. 자세한 내용은 [Sync Service Manager 메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md)을 참조하세요.
+다음 그림과 같이 Synchronization Service Manager에서 **메타버스 검색** 을 선택합니다. 사용자를 찾는 쿼리를 만듭니다. **accountName** ( **sAMAccountName** ) 및 **userPrincipalName** 등의 일반적인 특성을 검색합니다. 자세한 내용은 [Sync Service Manager 메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md)을 참조하세요.
 
 ![메타버스 검색 탭이 선택된 Synchronization Service Manager 스크린샷](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
@@ -167,15 +167,15 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 개체를 찾지 못한 경우 메타버스에 아직 도달하지 않은 것입니다. Active Directory [커넥터 공간](#connector-space-object-properties)에서 개체를 계속 검색합니다. Active Directory 커넥터 공간에 개체가 있는 경우 동기화 오류가 발생하여 개체를 메타버스로 가져올 수 없는 상태이거나, 동기화 규칙 범위 지정 필터가 적용된 것일 수 있습니다.
 
 ### <a name="object-not-found-in-the-mv"></a>MV에 개체가 없음
-개체가 Active Directory CS에는 있는데 MV에는 없으면 범위 지정 필터가 적용된 것입니다. 범위 지정 필터를 확인하려면 데스크톱 애플리케이션 메뉴로 이동하여 **동기화 규칙 편집기**를 선택합니다. 아래 필터를 조정하여 개체에 해당하는 규칙을 필터링합니다.
+개체가 Active Directory CS에는 있는데 MV에는 없으면 범위 지정 필터가 적용된 것입니다. 범위 지정 필터를 확인하려면 데스크톱 애플리케이션 메뉴로 이동하여 **동기화 규칙 편집기** 를 선택합니다. 아래 필터를 조정하여 개체에 해당하는 규칙을 필터링합니다.
 
   ![인바운드 동기화 규칙 검색을 표시하는 동기화 규칙 편집기 스크린샷](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
 
-위의 목록에서 각 규칙을 확인하고 **범위 지정 필터**를 선택합니다. 다음 범위 지정 필터에서 **isCriticalSystemObject** 값이 null 또는 FALSE이거나 비어 있으면 해당 값은 범위 내에 포함되는 것입니다.
+위의 목록에서 각 규칙을 확인하고 **범위 지정 필터** 를 선택합니다. 다음 범위 지정 필터에서 **isCriticalSystemObject** 값이 null 또는 FALSE이거나 비어 있으면 해당 값은 범위 내에 포함되는 것입니다.
 
   ![인바운드 동기화 규칙 검색의 범위 지정 필터 스크린샷](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 
-[CS 가져오기](#cs-import) 특성 목록으로 이동하여 MV로 개체를 이동할 수 없도록 차단하는 필터를 선택합니다. **커넥터 공간** 특성 목록에 null이 아니며 비어 있지 않은 특성만 표시됩니다. 예를 들어 **isCriticalSystemObject**가 목록에 나타나지 않으면 이 특성의 값이 null이거나 비어 있는 것입니다.
+[CS 가져오기](#cs-import) 특성 목록으로 이동하여 MV로 개체를 이동할 수 없도록 차단하는 필터를 선택합니다. **커넥터 공간** 특성 목록에 null이 아니며 비어 있지 않은 특성만 표시됩니다. 예를 들어 **isCriticalSystemObject** 가 목록에 나타나지 않으면 이 특성의 값이 null이거나 비어 있는 것입니다.
 
 ### <a name="object-not-found-in-the-azure-ad-cs"></a>Azure AD CS에 개체가 없음
 개체가 Azure AD의 커넥터 공간에는 없고 MV에는 있는 경우 해당 커넥터 공간의 아웃바운드 규칙 범위 지정 필터를 확인하여 [MV 특성](#mv-attributes)이 조건을 충족하지 않아 개체가 필터링되었는지 여부를 확인합니다.
@@ -191,8 +191,8 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 ![특성 탭이 선택된 메타버스 개체 속성 창 스크린샷](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 개체가 동기화되지 않는 경우 메타버스의 특성 상태에 대해 다음과 같은 질문을 합니다.
-- 특성 **cloudFiltered**가 있고 **True**로 설정되어 있나요? 그렇다면 [특성 기반 필터링](how-to-connect-sync-configure-filtering.md#attribute-based-filtering)의 단계에 따라 필터링된 것입니다.
-- 특성 **sourceAnchor**가 있나요? 없으면 계정-리소스 포리스트 토폴로지가 있나요? 개체가 연결된 사서함으로 식별되는 경우(특성 **msExchRecipientTypeDetails**의 값이 **2**임) **sourceAnchor**는 Active Directory 계정이 사용하도록 설정된 포리스트에서 제공한 것입니다. 마스터 계정을 제대로 가져와 동기화했는지 확인합니다. 마스터 계정은 개체에 대한 [커넥터](#mv-connectors)에 나열되어야 합니다.
+- 특성 **cloudFiltered** 가 있고 **True** 로 설정되어 있나요? 그렇다면 [특성 기반 필터링](how-to-connect-sync-configure-filtering.md#attribute-based-filtering)의 단계에 따라 필터링된 것입니다.
+- 특성 **sourceAnchor** 가 있나요? 없으면 계정-리소스 포리스트 토폴로지가 있나요? 개체가 연결된 사서함으로 식별되는 경우(특성 **msExchRecipientTypeDetails** 의 값이 **2** 임) **sourceAnchor** 는 Active Directory 계정이 사용하도록 설정된 포리스트에서 제공한 것입니다. 마스터 계정을 제대로 가져와 동기화했는지 확인합니다. 마스터 계정은 개체에 대한 [커넥터](#mv-connectors)에 나열되어야 합니다.
 
 ### <a name="mv-connectors"></a>MV 커넥터
 **커넥터** 탭은 개체를 표시 하는 모든 커넥터 공간을 표시 합니다. 
@@ -206,7 +206,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 
 Azure AD에 대한 커넥터가 없으면 [MV 특성](#mv-attributes)에 대한 섹션을 읽어 Azure AD로 프로비전하기 위한 기준을 확인합니다.
 
-**커넥터** 탭에서 [커넥터 공간 개체](#connector-space-object-properties)로 이동할 수도 있습니다. 행을 선택하고 **속성**을 클릭합니다.
+**커넥터** 탭에서 [커넥터 공간 개체](#connector-space-object-properties)로 이동할 수도 있습니다. 행을 선택하고 **속성** 을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)에 대해 자세히 알아봅니다.

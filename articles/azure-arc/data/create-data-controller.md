@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372296"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413227"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -36,7 +36,8 @@ ms.locfileid: "92372296"
 - 오픈 소스, 일반적으로 kubeadm을 사용하여 배포되는 업스트림 Kubernetes
 
 > [!IMPORTANT]
-> * Kubernetes의 지원 되는 최소 버전은 v 1.14입니다.
+> * Kubernetes의 지원 되는 최소 버전은 v 1.17입니다.
+> * 지원 되는 최소 버전의 OCP는 4.3입니다.
 > * 환경 및 Azure 간에 필요한 연결을 이해 하려면 [연결 요구 사항](connectivity.md) 을 참조 하세요.
 > * 영구 저장소를 구성 하는 방법에 대 한 세부 정보를 이해 하려면 [저장소 구성 지침](storage-configuration.md) 을 참조 하세요.
 > * Azure Kubernetes Service를 사용 하는 경우 클러스터의 작업자 노드 VM 크기는 **Standard_D8s_v3** 이상 이어야 하며 **프리미엄 디스크** 를 사용 해야 합니다. 클러스터가 여러 가용성 영역에 걸쳐 있지 않아야 합니다. 
@@ -45,7 +46,7 @@ ms.locfileid: "92372296"
 > [!NOTE]
 > Azure에서 Red Hat OpenShift Container Platform을 사용 하는 경우 사용 가능한 최신 버전을 사용 하는 것이 좋습니다.
 
-선택한 옵션에 따라 특정 도구가 _필요_하지만, Azure Arc 데이터 컨트롤러 만들기를 시작 하기 전에 [모든 클라이언트 도구를 설치](./install-client-tools.md) 하는 것이 좋습니다.
+선택한 옵션에 따라 특정 도구가 _필요_ 하지만, Azure Arc 데이터 컨트롤러 만들기를 시작 하기 전에 [모든 클라이언트 도구를 설치](./install-client-tools.md) 하는 것이 좋습니다.
 
 사용자가 선택 하는 옵션에 관계 없이 만들기 프로세스 중에 다음 정보를 제공 해야 합니다.
 

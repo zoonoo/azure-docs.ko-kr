@@ -16,17 +16,17 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313317"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413431"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원 력은 Microsoft의 동기화 도구 중 하나를 실행할 때 **UserPrincipalName** 및 SMTP **proxyaddress** 충돌로 인 한 마찰을 제거 하는 Azure Active Directory의 기능입니다.
 
-이 두 특성은 일반적으로 지정된 Azure Active Directory 테넌트의 모든 **사용자**, **그룹** 또는 **연락처** 개체에 고유해야 합니다.
+이 두 특성은 일반적으로 지정된 Azure Active Directory 테넌트의 모든 **사용자** , **그룹** 또는 **연락처** 개체에 고유해야 합니다.
 
 > [!NOTE]
 > 사용자만 UPN을 가질 수 있습니다.
@@ -40,11 +40,11 @@ ms.locfileid: "91313317"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>중복 특성 복원력으로 동작
 중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은  
-_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
+_**\<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 복원 력 프로세스 특성은 UPN 및 SMTP **Proxyaddress** 값만 처리 합니다.
 
-**Proxyaddress**와 같은 특성이 필요 하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리할 하 고 개체 생성 또는 업데이트를 진행 합니다.
+**Proxyaddress** 와 같은 특성이 필요 하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리할 하 고 개체 생성 또는 업데이트를 진행 합니다.
 
 특성을 격리 시 충돌에 대한 정보는 이전 동작에 사용된 동일한 오류 보고서 전자 메일에 전송됩니다. 그러나 격리가 발생할 때 이 정보는 오류 보고서에 한 번만 표시되며 이후 메일에 계속해서 기록되지 않습니다. 또한 이 개체에 대한 내보내기가 성공했으므로 동기화 클라이언트는 오류를 기록하지 않고 후속 동기화 주기 시 만들기 / 업데이트 작업을 시도하지 않습니다.
 
@@ -75,9 +75,9 @@ _** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.
 이 항목에서 PowerShell cmdlet의 경우 다음은 true입니다.
 
 * 다음 cmdlet은 모두 대/소문자 구분입니다.
-* **–ErrorCategory PropertyConflict**는 항상 포함되어야 합니다. 현재 다른 종류의 **ErrorCategory**는 없지만 나중에 확장될 수 있습니다.
+* **–ErrorCategory PropertyConflict** 는 항상 포함되어야 합니다. 현재 다른 종류의 **ErrorCategory** 는 없지만 나중에 확장될 수 있습니다.
 
-먼저 **Connect-MsolService**를 실행하고 테넌트 관리자에 대한 자격 증명을 입력하여 시작합니다.
+먼저 **Connect-MsolService** 를 실행하고 테넌트 관리자에 대한 자격 증명을 입력하여 시작합니다.
 
 그런 다음 다양한 방법으로 오류를 보려면 다음 cmdlet 및 연산자를 사용합니다.
 
@@ -106,12 +106,12 @@ _** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
 #### <a name="by-conflicting-value"></a>충돌 값으로
-특정 속성에 관련된 오류를 확인하려면 **-PropertyValue** 플래그를 추가합니다(이 플래그를 추가하는 경우 **-PropertyName**을 함께 사용해야 함).
+특정 속성에 관련된 오류를 확인하려면 **-PropertyValue** 플래그를 추가합니다(이 플래그를 추가하는 경우 **-PropertyName** 을 함께 사용해야 함).
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
 #### <a name="using-a-string-search"></a>문자열 검색을 사용하여
-광범위한 문자열 검색을 수행하려면 **-SearchString** 플래그를 사용합니다. 항상 필수 항목인 **-ErrorCategory PropertyConflict**를 제외하고 위의 모든 플래그와 독립적으로 사용할 수 있습니다.
+광범위한 문자열 검색을 수행하려면 **-SearchString** 플래그를 사용합니다. 항상 필수 항목인 **-ErrorCategory PropertyConflict** 를 제외하고 위의 모든 플래그와 독립적으로 사용할 수 있습니다.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
@@ -140,42 +140,41 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 다음 문서에서는 다양한 문제 해결 및 해결 방법을 간략하게 설명합니다. [Office 365에서 중복되거나 잘못된 특성이 디렉터리 동기화를 방해할 경우](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>알려진 문제
-이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “*사전 복원력*” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
+이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “ *사전 복원력* ” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
 
 **핵심 동작:**
 
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
-   예를 들면 다음과 같습니다.
+   예를 들어:
    
     a. 새 사용자는 **joe \@ Contoso.com** 및 proxyaddress **smtp: Joe \@ contoso.com** 의 UPN을 사용 하 여 AD에서 만들어집니다.
    
-    b. 이 개체의 속성이 기존 그룹과 충돌 합니다. 여기서 ProxyAddress는 **SMTP: Joe \@ contoso.com**입니다.
+    b. 이 개체의 속성이 기존 그룹과 충돌 합니다. 여기서 ProxyAddress는 **SMTP: Joe \@ contoso.com** 입니다.
    
-    다. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
+    c. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
 2. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
 
-**Office 포털 보고서**:
+**Office 포털 보고서** :
 
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들면 다음과 같습니다.
+2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들어:
    
-    a. **사용자 A는** 먼저 **UPN = User \@ contoso.com**를 사용 하 여 동기화 됩니다.
+    a. **사용자 A는** 먼저 **UPN = User \@ contoso.com** 를 사용 하 여 동기화 됩니다.
    
-    b. **사용자 B** 는 **UPN = User \@ contoso.com**다음에 동기화 하려고 시도 합니다.
+    b. **사용자 B** 는 **UPN = User \@ contoso.com** 다음에 동기화 하려고 시도 합니다.
    
-    다. **사용자 B** UPN이 **User1234 \@ contoso.onmicrosoft.com** 로 변경 되 고 **사용자 \@ contoso.com** 가 **DirSyncProvisioningErrors**에 추가 됩니다.
+    c. **사용자 B** UPN이 **User1234 \@ contoso.onmicrosoft.com** 로 변경 되 고 **사용자 \@ contoso.com** 가 **DirSyncProvisioningErrors** 에 추가 됩니다.
    
     d. 사용자 **b** 의 오류 메시지에는 사용자 **A** 가 이미 UPN으로 **사용자 \@ contoso.com** 있음을 표시 하지만 **사용자 b의** 고유한 displayName이 표시 됩니다.
 
-**ID 동기화 오류 보고서**:
+**ID 동기화 오류 보고서** :
 
-*이 문제를 해결하는 방법에 대한 단계*의 링크가 잘못되었습니다.  
+*이 문제를 해결하는 방법에 대한 단계* 의 링크가 잘못되었습니다.  
     ![활성 사용자](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "활성 사용자")  
 
-을 가리켜야 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) 합니다.
+을 가리켜야 [https://aka.ms/duplicateattributeresiliency]() 합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 * [Microsoft 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-

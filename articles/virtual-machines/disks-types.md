@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596781"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413156"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -60,6 +60,8 @@ Azure ultra disks는Azure IaaS VM에 대해 높은 처리량, 높은 IOPS 및 �
 |512     |153600         |2,000         |
 |1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2,000         |
 
+울트라 디스크는 이전 테이블의 99.99%에 설명 된 시간 (밀리초) 및 대상 IOPS 및 처리량을 제공 하도록 설계 되었습니다.
+
 ### <a name="ga-scope-and-limitations"></a>GA 범위 및 제한 사항
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
@@ -84,7 +86,7 @@ P30 보다 작은 프리미엄 SSD 크기는 이제 디스크 버스트를 제�
 
 디스크 버스트 지원은 기본적으로 적용 가능한 디스크 크기의 새 배포에서 사용 하도록 설정 되며 사용자 작업은 필요 하지 않습니다. 해당 하는 크기의 기존 디스크의 경우 두 옵션 중 하나를 사용 하 여 버스트를 사용 하도록 설정할 수 있습니다. 디스크를 분리 하 고 다시 연결 하거나 연결 된 VM을 중지 했다가 다시 시작 합니다. 최대 버스트 제한인 30 분의 최대 기간을 지 원하는 가상 컴퓨터에 디스크가 연결 되어 있는 경우 적용 가능한 모든 디스크 크기가 전체 버스트 크레딧 버킷으로 시작 됩니다. Azure 디스크에서 버스트가 작동 하는 방식에 대해 자세히 알아보려면 [프리미엄 SSD 버스트](linux/disk-bursting.md)를 참조 하세요. 
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 Premium Ssd의 경우 256 KiB 처리량 보다 작거나 같은 각 i/o 작업은 단일 i/o 작업으로 간주 됩니다. KiB의 처리량이 256 보다 큰 i/o 작업은 크기 256 KiB의 여러 i/o로 간주 됩니다.
 
@@ -97,7 +99,7 @@ Azure 표준 SSD는 더 낮은 IOPS 수준에서 일관된 성능이 필요한 �
 
 표준 Ssd는 1 자리 밀리초 대기 시간 및 IOPS 및 처리량을 앞의 표 99%에 설명 된 제한까지 제공 하도록 설계 되었습니다. 실제 IOPS 및 처리량은 트래픽 패턴에 따라 때때로 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 표준 Ssd의 경우 256 KiB 처리량 보다 작거나 같은 각 i/o 작업은 단일 i/o 작업으로 간주 됩니다. KiB의 처리량이 256 보다 큰 i/o 작업은 크기 256 KiB의 여러 i/o로 간주 됩니다. 이러한 트랜잭션은 청구에 영향을 미칩니다.
 
@@ -108,7 +110,7 @@ Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행�
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 표준 Hdd 경우 각 IO 작업은 i/o 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다. 이러한 트랜잭션은 청구에 영향을 미칩니다.
 
@@ -124,13 +126,13 @@ Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행�
 
 **관리 디스크 크기:** 관리 디스크의 요금은 프로비저닝된 크기에 따라 청구됩니다. Azure에서 프로비저닝된 크기(반올림)는 가장 가깝게 제안되는 디스크 크기에 매핑됩니다. 제안되는 디스크 크기에 대한 자세한 내용은 이전 표를 참조하세요. 각 디스크는 지원되는 프로비저닝된 디스크 크기 제안에 매핑되고 이에 따라 요금이 청구됩니다. 예를 들어 200GiB 표준 SSD를 프로비저닝한 경우 E15(256GiB)의 디스크 크기 제안에 매핑됩니다. 프로 비전 된 디스크에 대 한 요금 청구는 저장소 제공에 대 한 월별 가격을 사용 하 여 시간당 비례 합니다. 예를 들어 E10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 E10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양에 관계없이 적용됩니다.
 
-**스냅숏**: 스냅숏은 사용 된 크기를 기준으로 요금이 청구 됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다.
+**스냅숏** : 스냅숏은 사용 된 크기를 기준으로 요금이 청구 됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다.
 
 스냅샷에 대한 자세한 내용은 [관리형 디스크 개요](managed-disks-overview.md)의 스냅샷 섹션을 참조하세요.
 
-**아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용량에 대해 청구가 발생합니다.
+**아웃바운드 데이터 전송** : [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용량에 대해 청구가 발생합니다.
 
-**트랜잭션**: 표준 관리 디스크에서 수행 하는 트랜잭션 수에 대 한 요금이 청구 됩니다. 표준 Ssd의 경우 256 KiB 처리량 보다 작거나 같은 각 i/o 작업은 단일 i/o 작업으로 간주 됩니다. KiB의 처리량이 256 보다 큰 i/o 작업은 크기 256 KiB의 여러 i/o로 간주 됩니다. 표준 Hdd 경우 각 IO 작업은 i/o 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다.
+**트랜잭션** : 표준 관리 디스크에서 수행 하는 트랜잭션 수에 대 한 요금이 청구 됩니다. 표준 Ssd의 경우 256 KiB 처리량 보다 작거나 같은 각 i/o 작업은 단일 i/o 작업으로 간주 됩니다. KiB의 처리량이 256 보다 큰 i/o 작업은 크기 256 KiB의 여러 i/o로 간주 됩니다. 표준 Hdd 경우 각 IO 작업은 i/o 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다.
 
 트랜잭션 비용을 포함 하 여 Managed Disks에 대 한 가격 책정에 대 한 자세한 내용은 [가격 책정 Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)를 참조 하세요.
 

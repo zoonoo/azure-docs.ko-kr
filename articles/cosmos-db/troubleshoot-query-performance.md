@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087182"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411357"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -494,3 +494,4 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 * [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 가져오기](profile-sql-api-query.md)
 * [Azure Cosmos DB와 함께 쿼리 성능 튜닝](./sql-api-query-metrics.md)
 * [.NET SDK용 성능 팁](performance-tips.md)
+* [Java v4 SDK에 대 한 성능 팁](performance-tips-java-sdk-v4-sql.md)

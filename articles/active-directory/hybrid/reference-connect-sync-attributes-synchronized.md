@@ -16,19 +16,19 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016081"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413193"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
 
 ## <a name="attributes-to-synchronize"></a>동기화할 특성
-일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장 되는 방법은 전체 GAL (전체 주소 목록)을 클라우드에서 생성 하 고 Microsoft 365 작업의 모든 기능을 가져올 수 있도록 기본 특성을 유지 하는 것입니다. 이러한 특성에는 다음 예제와 같이 중요 한 개인 데이터가 포함 되어 있기 때문에 조직에서 클라우드에 동기화 하지 않으려는 몇 가지 특성이 있습니다.  
+일반적으로 *동기화할 최소 특성 목록* 에 대해 궁금해 합니다. 기본 및 권장 되는 방법은 전체 GAL (전체 주소 목록)을 클라우드에서 생성 하 고 Microsoft 365 작업의 모든 기능을 가져올 수 있도록 기본 특성을 유지 하는 것입니다. 이러한 특성에는 다음 예제와 같이 중요 한 개인 데이터가 포함 되어 있기 때문에 조직에서 클라우드에 동기화 하지 않으려는 몇 가지 특성이 있습니다.  
 ![잘못된 특성](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 이 경우이 항목의 특성 목록에서 시작 하 고 개인 데이터를 포함 하 고 동기화 할 수 없는 특성을 식별 합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
@@ -373,7 +373,7 @@ ms.locfileid: "90016081"
 이 그룹은 일반 워크로드 또는 애플리케이션에 필요한 최소한의 특성으로 사용되는 특성 모음입니다. 다른 섹션에 나열되지 않은 워크로드 또는 타사 앱에 사용할 수 있습니다. 다음에 명시적으로 사용됩니다.
 
 * Yammer(User만 사용됨)
-* [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](/sharepoint/create-b2b-extranet)
 
 이 그룹은 Azure AD 디렉터리를 사용 하 여 Microsoft 365, Dynamics 또는 Intune을 지원 하지 않는 경우 사용할 수 있는 특성 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램을 Single Sign-On 또는 프로 비전 하려면 여기에 설명 된 특성과 함께 특성 동기화를 구성 해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대 한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md) 에 설명 되어 있습니다.
 
@@ -396,7 +396,7 @@ ms.locfileid: "90016081"
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>윈도우 10
+## <a name="windows-10"></a>Windows 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../devices/hybrid-azuread-join-plan.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 디바이스 | 의견 |
@@ -420,7 +420,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 | msDS-KeyCredentialLink |X |사용자가 비즈니스용 Windows Hello에 등록됩니다. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 하이브리드 쓰기 저장
-이 특성들은 **Exchange 하이브리드**를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
+이 특성들은 **Exchange 하이브리드** 를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
 
 | 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |---|
@@ -435,7 +435,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
-이러한 특성은 **Exchange 메일 공용 폴더**를 사용하도록 설정할 때 온-프레미스 Active Directory에서 Azure AD에서 동기화됩니다.
+이러한 특성은 **Exchange 메일 공용 폴더** 를 사용하도록 설정할 때 온-프레미스 Active Directory에서 Azure AD에서 동기화됩니다.
 
 | 특성 이름 | PublicFolder | 의견 |
 | --- | :---:| --- |
@@ -468,7 +468,7 @@ Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azu
 
 ## <a name="notes"></a>참고
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
-* 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
+* 위의 목록에서 개체 형식 **User** 는 개체 형식 **iNetOrgPerson** 에도 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](how-to-connect-sync-whatis.md) 구성에 대해 자세히 알아봅니다.

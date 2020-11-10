@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441202"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413147"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -34,10 +34,11 @@ ms.locfileid: "91441202"
 |미국 중남부    |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |US Gov 애리조나     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |US Gov 버지니아     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
+|US Gov 텍사스     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |미국 서부     |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)        |
 |오스트레일리아 중부    |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |오스트레일리아 동부     |3 개의 가용성 영역         |
-|동남 아시아    |3 개의 가용성 영역        |
+|동남아시아    |3 개의 가용성 영역        |
 |캐나다 중부 *     |3 개의 가용성 영역          |
 |미국 중부     |3 개의 가용성 영역          |
 |미국 동부     |3 개의 가용성 영역          |

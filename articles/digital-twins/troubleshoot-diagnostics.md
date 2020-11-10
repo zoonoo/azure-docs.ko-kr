@@ -1,34 +1,38 @@
 ---
-title: 진단 설정
+title: 진단 로그 사용 및 쿼리
 titleSuffix: Azure Digital Twins
-description: 진단 설정을 사용 하 여 로깅을 사용 하도록 설정 하는 방법을 참조 하세요.
+description: 진단 설정으로 로깅을 사용 하도록 설정 하는 방법을 참조 하 고 즉시 볼 수 있도록 로그를 쿼리 합니다.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091738"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411768"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
-Azure Digital Twins는 리소스의 상태에 대 한 정보를 제공 하는 서비스 인스턴스에 대 한 [메트릭을](troubleshoot-metrics.md) 수집 합니다. 이러한 메트릭을 사용 하 여 Azure Digital Twins 서비스의 전반적인 상태와 연결 된 리소스를 평가할 수 있습니다. 이러한 사용자 지향 통계는 azure 지원에 문의 하지 않고도 문제에 대 한 근본 원인 분석을 수행 하는 데 도움이 되는 Azure Digital Twins의 기능을 확인 하는 데 도움이 됩니다.
+Azure Digital Twins는 서비스 인스턴스에 대 한 로그를 수집 하 여 성능, 액세스 및 기타 데이터를 모니터링할 수 있습니다. 이러한 로그를 사용 하 여 Azure Digital Twins 인스턴스에서 발생 하는 상황을 파악 하 고, Azure 지원에 문의 하지 않고도 문제에 대 한 근본 원인 분석을 수행할 수 있습니다.
 
-이 문서에서는 Azure Digital Twins 인스턴스에서 메트릭 데이터에 대 한 **진단 로깅을** 설정 하는 방법을 보여 줍니다. 이러한 로그를 사용 하 여 서비스 문제를 해결 하 고 진단 설정을 구성 하 여 Azure Digital Twins 메트릭을 다른 대상으로 보낼 수 있습니다. 진단 설정 만들기에서 이러한 설정에 대 한 자세한 내용을 참조 [*하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보낼*](../azure-monitor/platform/diagnostic-settings.md)수 있습니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com) 에서 [**진단 설정을 구성**](#turn-on-diagnostic-settings) 하 여 Azure Digital twins 인스턴스에서 로그 수집을 시작 하는 방법을 보여 줍니다. 로그를 저장할 위치를 지정할 수도 있습니다 (예: Log Analytics 또는 선택한 저장소 계정).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Azure Portal를 사용 하 여 진단 설정 켜기
+이 문서에는 Azure 디지털 쌍이 수집 하는 모든 [로그 범주](#log-categories) 및 [로그 스키마](#log-schemas) 의 목록도 포함 되어 있습니다.
 
-Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 설정 하는 방법은 다음과 같습니다.
+로그를 설정한 후 [**로그를 쿼리하여**](#view-and-query-logs) 사용자 지정 정보를 신속 하 게 수집할 수도 있습니다.
+
+## <a name="turn-on-diagnostic-settings"></a>진단 설정 켜기 
+
+진단 설정을 켜서 Azure Digital Twins 인스턴스에서 로그 수집을 시작 합니다. 내보낸 로그를 저장 해야 하는 대상을 선택할 수도 있습니다. Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure Digital twins 인스턴스로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다. 
 
 2. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정을 추가** 합니다.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. 뒤에 나오는 페이지에서 다음 값을 입력 합니다.
      * **진단 설정 이름** : 진단 설정에 이름을 지정 합니다.
@@ -39,7 +43,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
         - QueryOperation
         - AllMetrics
         
-        이러한 옵션에 대 한 자세한 내용은 아래의 [*범주 세부 정보*](#category-details) 섹션을 참조 하세요.
+        이러한 범주 및 해당 범주에 포함 된 정보에 대 한 자세한 내용은 아래 [*로그 범주*](#log-categories) 섹션을 참조 하세요.
      * **대상 세부 정보** : 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
         - Log Analytics에 보내기
         - 스토리지 계정에 보관
@@ -49,15 +53,17 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
     
 4. 새 설정을 저장합니다. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="사용자가 진단 설정 이름을 입력 한 진단 설정 페이지를 보여 주는 스크린샷 및 범주 세부 정보 및 대상 세부 정보에 대 한 몇 가지 확인란을 선택 했습니다. 저장 단추가 강조 표시 됩니다." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 새 설정은 약 10분 후에 적용됩니다. 그 후에는 해당 인스턴스에 대 한 **진단 설정** 페이지에서 로그가 구성 된 대상에 다시 표시 됩니다. 
 
-## <a name="category-details"></a>범주 세부 정보
+진단 설정 및 설정 옵션에 대 한 자세한 내용은 [*진단 설정 만들기를 방문 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보낼*](../azure-monitor/platform/diagnostic-settings.md)수 있습니다.
 
-진단 설정을 설정할 때 **범주 세부 정보** 에서 선택할 수 있는 로그 범주에 대 한 자세한 내용은 다음과 같습니다.
+## <a name="log-categories"></a>로그 범주
 
-| 로그 범주 | 설명 |
+Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내용은 다음과 같습니다.
+
+| 로그 범주 | Description |
 | --- | --- |
 | ADTModelsOperation | 모델과 관련 된 모든 API 호출을 기록 합니다. |
 | ADTQueryOperation | 쿼리와 관련 된 모든 API 호출을 기록 합니다. |
@@ -222,6 +228,34 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>로그 보기 및 쿼리
+
+이 문서의 앞부분에서 저장소 위치를 저장 하 고 지정 하는 로그 유형을 구성 했습니다.
+
+이러한 로그에서 문제를 해결 하 고 통찰력을 생성 하기 위해 **사용자 지정 쿼리** 를 생성할 수 있습니다. 시작 하려면 서비스에서 제공 하는 몇 가지 예제 쿼리를 활용할 수도 있습니다. 이러한 쿼리는 고객이 해당 인스턴스에 대해 가질 수 있는 일반적인 질문을 해결 하는 데 사용 됩니다.
+
+다음은 인스턴스에 대 한 로그를 쿼리 하는 방법입니다.
+
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure Digital twins 인스턴스로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다. 
+
+2. 메뉴에서 **로그** 를 선택 하 여 로그 쿼리 페이지를 엽니다. 페이지가 *쿼리* 라는 창으로 열립니다.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Azure Digital Twins 인스턴스에 대 한 로그 페이지를 보여 주는 스크린샷 DigitalTwin API 대기 시간 및 모델 API 대기 시간과 같은 다양 한 로그 옵션 후에 명명 된 미리 작성 된 쿼리를 보여 주는 쿼리 창에 중첩 됩니다." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    다음은 다양 한 로그에 대해 작성 된 미리 작성 된 예제 쿼리입니다. 쿼리 중 하나를 선택 하 여 쿼리 편집기에 로드 하 고 실행 하 여 인스턴스에 대 한 이러한 로그를 볼 수 있습니다.
+
+    또한 사용자 지정 쿼리 코드를 작성 하거나 편집할 수 있는 쿼리 편집기 페이지로 바로 이동 하기 위해 아무것도 실행 하지 않고도 *쿼리* 창을 닫을 수 있습니다.
+
+3. *쿼리* 창을 종료 한 후에는 주 쿼리 편집기 페이지가 표시 됩니다. 여기에서 예제 쿼리 텍스트를 보거나 편집 하거나 처음부터 직접 쿼리를 작성할 수 있습니다.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Azure Digital Twins 인스턴스에 대 한 로그 페이지를 보여 주는 스크린샷 쿼리 창이 사라지고 대신 다른 로그 목록, 편집 가능한 쿼리 코드를 표시 하는 편집 창 및 쿼리 기록을 보여 주는 창이 있습니다." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    왼쪽 창에서 
+    - *테이블* 탭에는 쿼리에 사용할 수 있는 다양 한 Azure Digital twins [로그 범주가](#log-categories) 표시 됩니다. 
+    - *쿼리* 탭에는 편집기에 로드할 수 있는 예제 쿼리가 포함 되어 있습니다.
+    - *필터* 탭에서는 쿼리가 반환 하는 데이터의 필터링 된 뷰를 사용자 지정할 수 있습니다.
+
+로그 쿼리와 이러한 쿼리를 작성 하는 방법에 대 한 자세한 내용은 Azure Monitor의 [*로그 쿼리 개요*](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
