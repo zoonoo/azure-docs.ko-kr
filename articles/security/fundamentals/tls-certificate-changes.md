@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409810"
+ms.locfileid: "94444880"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -22,12 +22,15 @@ Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록
 
 ## <a name="when-will-this-change-happen"></a>언제 변경되나요?
 
+기존 Azure 끝점은 2020 년 8 월 13 일 이후 단계적으로 전환 되었습니다. 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
+
+서비스 관련 세부 정보:
+
 - Azure AD([Azure Active Directory](../../active-directory/index.yml)) 서비스는 2020년 7월 7일에 이 전환을 시작했습니다.
-- 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
-- 기존 Azure 엔드포인트는 2020년 8월 13일부터 단계적으로 전환됩니다.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](../../iot-dps/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](../../storage/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Redis 용 Azure Cache](../../azure-cache-for-redis/index.yml) 는 Baltimore CYBERTRUST Root CA에 그대로 남아 있지만 중간 ca는 변경 됩니다. [자세한 내용을 보려면 여기를 클릭하세요](../../azure-cache-for-redis/cache-whats-new.md).
+
 > [!IMPORTANT]
 > 고객은 Azure 서비스에 연결을 시도할 때 연결 오류를 방지하려면 이 변경 후에 애플리케이션을 업데이트해야 할 수도 있습니다.
 

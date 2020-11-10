@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286603"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445186"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -65,7 +65,7 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가하려면 다음이 필요합니다.
 
@@ -79,11 +79,11 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 
 1.  새 키 자격 증명 모음에 대 한 Azure RBAC 사용 권한 설정:
 
-    ![RBAC 권한 사용-새 자격 증명 모음](../media/rbac/image-1.png)
+    ![Azure RBAC 권한 사용-새 자격 증명 모음](../media/rbac/image-1.png)
 
 2.  기존 키 자격 증명 모음에 대 한 Azure RBAC 사용 권한 설정:
 
-    ![RBAC 권한 사용-기존 자격 증명 모음](../media/rbac/image-2.png)
+    ![Azure RBAC 권한 사용-기존 자격 증명 모음](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>역할 할당
 

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427040"
+ms.locfileid: "94445339"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -26,9 +26,9 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 이러한 기능은 개별적으로 또는 함께 사용할 수 있습니다. Azure Cognitive Search에서 이러한 동작을 구현 하기 위해 인덱스 및 쿼리 구성 요소가 있습니다. 
 
-+ 인덱스에서 확인 기를 인덱스에 추가 합니다. 포털, [Create Index (REST) (/rest/api/searchservice/create-index) 또는 [확인 기 속성](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters)을 사용할 수 있습니다. 이 문서의 나머지 부분에서는 확인 기를 만드는 방법에 대해 집중적으로 설명 합니다.
++ 검색 인덱스 정의에 확인 기를 추가 합니다. 이 문서의 나머지 부분에서는 확인 기를 만드는 방법에 대해 집중적으로 설명 합니다.
 
-+ 쿼리 요청에서 [아래에 나열 된 api](#how-to-use-a-suggester)중 하나를 호출 합니다.
++ [아래 나열 된 api](#how-to-use-a-suggester)중 하나를 사용 하 여 제안 요청 또는 자동 완성 요청 형식으로 확인 기 사용 쿼리를 호출 합니다.
 
 검색 형식 지원은 문자열 필드에 대 한 필드 기준으로 설정 됩니다. 스크린샷에 표시 된 것과 비슷한 환경을 원할 경우 동일한 검색 솔루션 내에서 형식 미리 동작을 구현할 수 있습니다. 두 요청은 특정 인덱스의 *문서* 컬렉션을 대상으로 하 고 사용자가 적어도 3 개의 문자 입력 문자열을 제공한 후 응답이 반환 됩니다.
 
@@ -36,9 +36,9 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 확인 기는 부분 쿼리에 일치 하는 접두사를 저장 하 여 검색 형식 동작을 지 원하는 내부 데이터 구조입니다. 토큰화 된 용어와 마찬가지로 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대해 하나씩 반전 된 인덱스에 저장 됩니다.
 
-## <a name="define-a-suggester"></a>확인 기 정의
+## <a name="how-to-create-a-suggester"></a>확인 기를 만드는 방법
 
-확인 기를 만들려면 [인덱스 스키마](/rest/api/searchservice/create-index) 에 하나를 추가 하 고 [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
+확인 기를 만들려면 [인덱스 정의](/rest/api/searchservice/create-index)에 하나를 추가 합니다. 확인 기에는 이름 및 필드의 컬렉션을 가져옵니다 .이 필드의 형식에 따라 미리 결정 된 형식이 사용 됩니다. [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
 
 + 문자열 필드만 사용
 
@@ -60,12 +60,22 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 분석기를 선택 하면 필드를 토큰화 하 고 그 다음에 접두사를 붙일 방법이 결정 됩니다. 예를 들어 "상황에 맞는"와 같은 하이픈을 사용 하는 문자열의 경우 언어 분석기를 사용 하면 "컨텍스트", "중요", "상황에 맞는" 등의 토큰 조합이 발생 합니다. 표준 Lucene 분석기를 사용 했지만 하이픈을 넣은 문자열이 존재 하지 않습니다. 
 
-분석기를 평가할 때는 [텍스트 분석 API](/rest/api/searchservice/test-analyzer) 를 사용 하 여 용어가 토큰화 되는 방법에 대 한 통찰력을 얻고 이후 접두사를 접두사로 사용 하는 방법을 고려 인덱스를 작성 한 후에는 문자열에 대해 다양 한 분석기를 시도 하 여 토큰 출력을 볼 수 있습니다.
+분석기를 평가할 때는 [텍스트 분석 API](/rest/api/searchservice/test-analyzer) 를 사용 하 여 용어를 처리 하는 방법을 파악 하는 것이 좋습니다. 인덱스를 작성 한 후에는 문자열에 대해 다양 한 분석기를 시도 하 여 토큰 출력을 볼 수 있습니다.
 
 [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [미리 정의 된 분석기](index-add-custom-analyzers.md#predefined-analyzers-reference) (표준 Lucene 제외)를 사용 하는 필드는 잘못 된 결과를 방지 하기 위해 명시적으로 허용 되지 않습니다.
 
 > [!NOTE]
 > 분석기 제약 조건을 해결 해야 하는 경우, 예를 들어 특정 쿼리 시나리오에 키워드 또는 ngram 분석기가 필요한 경우 동일한 콘텐츠에 대해 두 개의 개별 필드를 사용 해야 합니다. 이렇게 하면 필드 중 하나에 확인 기를 사용할 수 있고 다른 하나는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
+
+## <a name="create-using-the-portal"></a>포털을 사용 하 여 만들기
+
+인덱스 **추가** 또는 **데이터 가져오기** 마법사를 사용 하 여 인덱스를 만드는 경우 확인 기를 사용 하도록 설정 하는 옵션이 있습니다.
+
+1. 인덱스 정의에서 확인 기의 이름을 입력 합니다.
+
+1. 새 필드에 대 한 각 필드 정의의 확인 기 열에서 확인란을 선택 합니다. 확인란은 문자열 필드에만 사용할 수 있습니다. 
+
+앞에서 설명한 것 처럼 analyzer 선택은 토큰화 및 접두사에 영향을 줍니다. 확인 기를 사용 하도록 설정할 때 전체 필드 정의를 고려 합니다. 
 
 ## <a name="create-using-rest"></a>REST를 사용 하 여 만들기
 
@@ -131,9 +141,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |속성      |Description      |
 |--------------|-----------------|
-|`name`        |제안기의 이름입니다.|
-|`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
-|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
+|`name`        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
+|`sourceFields`| 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
+|`searchMode`  | REST 전용 매개 변수 이지만 포털에도 표시 됩니다. 이 매개 변수는 .NET SDK에서 사용할 수 없습니다. 후보 구를 검색 하는 데 사용 되는 전략을 나타냅니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -160,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>예제 코드
 
-+ [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가)](tutorial-csharp-type-ahead-and-suggestions.md) 샘플은 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되며 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
++ [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가) 샘플은](tutorial-csharp-type-ahead-and-suggestions.md) 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되 고 이미 생성 된 확인 기를 사용 하 여 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

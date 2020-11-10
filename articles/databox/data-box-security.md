@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337361"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444761"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -106,7 +106,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 Data Box에서 구현되는 보안 지침은 다음과 같습니다. 
 
-|지침   |설명   |
+|지침   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | 방수/방진         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |

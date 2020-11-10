@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425952"
+ms.locfileid: "94444506"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -38,7 +38,7 @@ Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [
 
 버전 관리를 사용 하도록 설정 된 blob을 만들 때 새 blob은 blob (또는 기본 blob)의 현재 버전입니다. 이후에 해당 blob을 수정 하면 Azure Storage는 blob의 상태를 수정 하기 전에 캡처하는 버전을 만듭니다. 수정 된 blob은 새로운 현재 버전이 됩니다. 새 버전은 blob를 수정할 때마다 생성 됩니다.
 
-Blob의 버전 수에는 제한이 없습니다. 그러나 blob 당 버전 수가 많으면 blob 목록 작업에 대 한 대기 시간이 길어질 수 있습니다. Microsoft는 blob 당 1000 개 미만의 버전을 유지 관리 하는 것이 좋습니다. 수명 주기 관리를 사용 하 여 이전 버전을 자동으로 삭제할 수 있습니다. 수명 주기 관리에 대 한 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화 하 여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조 하세요.
+Blob 당 버전 수가 많으면 blob 목록 작업에 대 한 대기 시간이 길어질 수 있습니다. Microsoft는 blob 당 1000 개 미만의 버전을 유지 관리 하는 것이 좋습니다. 수명 주기 관리를 사용 하 여 이전 버전을 자동으로 삭제할 수 있습니다. 수명 주기 관리에 대 한 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화 하 여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조 하세요.
 
 버전 관리를 사용 하는 blob을 삭제 하면 Azure Storage는 blob의 상태를 삭제 하기 전에 캡처하는 버전을 만듭니다. 그러면 blob의 현재 버전이 삭제 되지만 blob의 버전은 유지 되므로 필요한 경우 다시 만들 수 있습니다. 
 

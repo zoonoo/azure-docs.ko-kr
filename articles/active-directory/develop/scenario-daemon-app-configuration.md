@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257676"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444166"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -51,13 +51,13 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 구성 파일은 다음을 정의 합니다.
 
-- 클라우드 인스턴스 및 테 넌 트 ID는 함께 *인증 기관을*구성 합니다.
+- 클라우드 인스턴스 및 테 넌 트 ID는 함께 *인증 기관을* 구성 합니다.
 - 응용 프로그램 등록에서 가져온 클라이언트 ID입니다.
 - 클라이언트 암호 또는 인증서 중 하나입니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-다음은 파일 [* 에 대 한appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 의 구성을 정의 하는 예제입니다. 이 예제는 GitHub의 [.Net Core 콘솔 데몬](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서 가져온 것입니다.
+다음은 파일 [*에 대 한appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 의 구성을 정의 하는 예제입니다. 이 예제는 GitHub의 [.Net Core 콘솔 데몬](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서 가져온 것입니다.
 
 ```json
 {
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [앱에 대 한 디먼 앱 획득 토큰](./scenario-daemon-acquire-token.md?tabs=dotnet)
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=dotnet)합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [앱에 대 한 디먼 앱 획득 토큰](./scenario-daemon-acquire-token.md?tabs=python)
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=python)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [앱에 대 한 디먼 앱 획득 토큰](./scenario-daemon-acquire-token.md?tabs=java)
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=java)합니다.
 
 ---

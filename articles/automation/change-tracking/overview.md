@@ -3,14 +3,14 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 개요
 description: 이 문서에서는 사용자 환경에서 소프트웨어 및 Microsoft 서비스 변경 내용을 식별 하는 데 도움이 되는 변경 내용 추적 및 인벤토리 기능을 설명 합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130343"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445424"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -61,6 +61,16 @@ Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전�
 변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. 현재 Log Analytics 에이전트에서 지 원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원 되는 운영 체제](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) 를 참조 하세요.
 
 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](../automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
+
+### <a name="python-requirement"></a>Python 요구 사항
+
+변경 내용 추적 및 인벤토리는 Python2만 지원 합니다. 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
+
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 

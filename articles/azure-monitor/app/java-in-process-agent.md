@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426836"
+ms.locfileid: "94444744"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -55,9 +55,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=..."
-  }
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 

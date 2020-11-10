@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289874"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445526"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침** : 해당 사항 없음 Azure Key Vault는 Active Directory에서 제공 하는 인증 및 역할 기반 액세스 제어를 사용 하 여 보안이 설정 됨에 따라 기본 암호 개념이 없습니다.
+**지침** : 해당 사항 없음 Active Directory에서 인증을 제공 하 고 azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 보호 하므로 Azure Key Vault는 기본 암호의 개념이 없습니다.
 
 
 **Azure Security Center 모니터링** : 해당 없음
@@ -445,7 +445,7 @@ Azure Active Directory 조건부 액세스의 위치 조건은 무엇입니까?:
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침** : Key Vault와 같은 azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
+**지침** : Key Vault와 같은 azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. Azure RBAC (역할 기반 액세스 제어)를 통해 중요 한 리소스를 관리할 수 있습니다.
 
  
 

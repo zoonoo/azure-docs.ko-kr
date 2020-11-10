@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312551"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445628"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
@@ -23,7 +23,7 @@ ms.locfileid: "93312551"
 
 변경 사항이 나 automation 증가에 대 한 요구 사항에 따라 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md)작업 영역을 만들고 삭제할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다.
@@ -125,12 +125,12 @@ ms.locfileid: "93312551"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|설명 
+   필드|Description 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
    Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml** 을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
-   Azure 지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
+   지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
 
     ![작업 영역 구성](./media/how-to-manage-workspace/create-workspace-form.png)
 
@@ -193,7 +193,7 @@ Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보
 
 기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
 
-Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 포털에서 __높은 비즈니스 영향 작업 영역__ 을 선택 하거나 `hbi_workspace=true ` Python에서 설정 합니다. 이 설정에 대 한 자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 포털에서 __높은 비즈니스 영향 작업 영역__ 을 선택 하거나 `hbi_workspace=true ` Python에서 설정 합니다. 이 설정에 대 한 자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
 > [!IMPORTANT]  
 > 높은 비즈니스 영향을 선택 하는 작업은 작업 영역을 만들 때만 수행할 수 있습니다. 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다.   
@@ -376,7 +376,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 작업 영역을 만드는 예는 다음과 같습니다.
 * Azure Portal를 사용 하 여 [작업 영역 및 계산 인스턴스 만들기](tutorial-1st-experiment-sdk-setup.md)

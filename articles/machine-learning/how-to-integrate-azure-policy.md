@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325495"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444564"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure Machine Learning 감사 및 관리
 
@@ -42,11 +42,11 @@ Azure Machine Learning와 관련 된 기본 제공 정책 정의를 보려면 �
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하 여 작업 영역 암호화
 
-작업 영역을 CMK (고객이 관리 하는 키)로 암호화할지 또는 Microsoft 관리 키를 사용 하 여 메트릭과 메타 데이터를 암호화 해야 하는지 여부를 제어 합니다. CMK를 사용 하는 방법에 대 한 자세한 내용은 엔터프라이즈 보안 문서의 [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) 섹션을 참조 하세요.
+작업 영역을 고객이 관리 하는 키로 암호화할지, 아니면 Microsoft 관리 키를 사용 하 여 메트릭과 메타 데이터를 암호화 해야 하는지 여부를 제어 합니다. 고객 관리 키를 사용 하는 방법에 대 한 자세한 내용은 데이터 암호화 문서의 [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) 섹션을 참조 하세요.
 
-이 정책을 구성 하려면 effect 매개 변수를 __audit__ 또는 __deny__ 로 설정 합니다. __Audit__ 로 설정 된 경우 cmk 없이 작업 영역을 만들 수 있으며 활동 로그에 경고 이벤트가 생성 됩니다.
+이 정책을 구성 하려면 effect 매개 변수를 __audit__ 또는 __deny__ 로 설정 합니다. __Audit__ 로 설정 하면 고객이 관리 하는 키 없이 작업 영역을 만들 수 있으며 활동 로그에 경고 이벤트가 생성 됩니다.
 
-정책이 __거부__ 로 설정 된 경우 cmk를 지정 하지 않으면 작업 영역을 만들 수 없습니다. CMK를 사용 하지 않고 작업 영역을 만들려고 하면와 유사한 오류가 발생 하 `Resource 'clustername' was disallowed by policy` 고 활동 로그에 오류가 생성 됩니다. 이 오류의 일부로 정책 식별자도 반환 됩니다.
+정책이 __거부__ 로 설정 된 경우 고객이 관리 하는 키를 지정 하지 않으면 작업 영역을 만들 수 없습니다. 고객 관리 키를 사용 하지 않고 작업 영역을 만들려고 하면와 유사한 오류가 발생 하 `Resource 'clustername' was disallowed by policy` 고 활동 로그에 오류가 생성 됩니다. 이 오류의 일부로 정책 식별자도 반환 됩니다.
 
 ## <a name="workspaces-should-use-private-link"></a>작업 영역에서 개인 링크를 사용 해야 함
 

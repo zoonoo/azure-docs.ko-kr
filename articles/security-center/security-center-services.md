@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425151"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445254"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -35,7 +35,7 @@ ms.locfileid: "92425151"
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|예|
-|[기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|예|
+|[기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|예|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|예|
 |[적응 애플리케이션 컨트롤](security-center-adaptive-application.md)|✔|-|✔|예|
 |[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|예|
@@ -46,7 +46,7 @@ ms.locfileid: "92425151"
 |잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
 |[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
 |디스크 암호화 평가|✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당)|✔|-|아니요|
-|제3자 취약성 평가|✔|-|-|아니요|
+|제3자 취약성 평가|✔|-|✔|아니요|
 |[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
 
 
@@ -59,7 +59,7 @@ ms.locfileid: "92425151"
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|예|
-|[기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|예|
+|[기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|예|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|예|
 |[적응 애플리케이션 컨트롤](security-center-adaptive-application.md)|✔|-|✔|예|
 |[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|예|
@@ -70,7 +70,7 @@ ms.locfileid: "92425151"
 |잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
 |[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|아니요|
 |디스크 암호화 평가|✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당)|✔|-|아니요|
-|제3자 취약성 평가|✔|-|-|아니요|
+|제3자 취약성 평가|✔|-|✔|아니요|
 |[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
 
 --- 

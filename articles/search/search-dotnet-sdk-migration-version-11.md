@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539574"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445441"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -49,7 +49,7 @@ ms.locfileid: "91539574"
 |---------------------|------------------------------|------------------------------|
 | 쿼리에 사용 되 고 인덱스를 채우는 데 사용 되는 클라이언트입니다. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | 인덱스, 분석기, 동의어 맵에 사용 되는 클라이언트 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| 인덱서, 데이터 원본, 기술력과에 사용 되는 클라이언트 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**신규**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| 인덱서, 데이터 원본, 기술력과에 사용 되는 클라이언트 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **신규** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` 는 두 버전에 모두 존재 하지만 다른 작업을 지원 합니다. 버전 10에서 `SearchIndexClient` 인덱스 및 기타 개체를 만듭니다. 버전 11에서는 `SearchIndexClient` 기존 인덱스와 함께 작동 합니다. 코드를 업데이트할 때 혼동을 피하려면 클라이언트 참조가 업데이트 되는 순서에 주의 해야 합니다. [업그레이드 단계](#UpgradeSteps) 에서 순서를 따라 문자열 대체 문제를 완화할 수 있습니다.
@@ -169,6 +169,24 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
    ```
 
 1. 인덱서 관련 개체에 대 한 새 클라이언트 참조를 추가 합니다. 인덱서, 데이터 원본 또는 기술력과를 사용 하는 경우 [Searchindexerclient](/dotnet/api/azure.search.documents.indexes.searchindexerclient)에 대 한 클라이언트 참조를 변경 합니다. 이 클라이언트는 버전 11에서 새로 되었으며 선행 작업이 없습니다.
+
+1. 컬렉션을 다시 방문 합니다. 새 SDK에서는 목록에 null 값이 포함 된 경우 다운스트림 문제를 방지 하기 위해 모든 목록이 읽기 전용입니다. 코드를 변경 하는 것은 목록에 항목을 추가 하는 것입니다. 예를 들어 Select 속성에 문자열을 할당 하는 대신 다음과 같이 추가 합니다.
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. 쿼리 및 데이터 가져오기에 대 한 클라이언트 참조를 업데이트 합니다. [Searchindexclient](/dotnet/api/microsoft.azure.search.searchindexclient) 인스턴스는 [searchclient](/dotnet/api/azure.search.documents.searchclient)로 변경 해야 합니다. 이름 혼동을 방지 하려면 다음 단계로 진행 하기 전에 모든 인스턴스를 catch 해야 합니다.
 

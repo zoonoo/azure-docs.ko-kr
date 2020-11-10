@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739693"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445033"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -25,7 +25,7 @@ Azure Key Vault를 사용 하 여 클라우드에서 인증서, 연결 문자열
 Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 자격 증명 모음에서 콘텐츠를 관리하거나 검색하려는 사용자는 Azure AD의 인증을 받은 사용자여야 합니다.
 
 - 인증은 호출자의 ID를 설정합니다.
-- 권한은 호출자가 수행할 수 있는 작업을 결정합니다. Key Vault의 권한 부여에서는 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))와 Azure Key Vault 액세스 정책을 함께 사용합니다.
+- 권한은 호출자가 수행할 수 있는 작업을 결정합니다. Key Vault의 권한 부여에서는 azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 및 Azure Key Vault 액세스 정책 조합을 사용 합니다.
 
 ### <a name="access-model-overview"></a>액세스 모델 개요
 
@@ -34,7 +34,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 - ‘관리 평면’은 Key Vault 자체를 관리하는 곳으로, 자격 증명 모음을 만들고 삭제하는 데 사용되는 인터페이스입니다. 키 자격 증명 모음 속성을 읽고 액세스 정책을 관리할 수도 있습니다.
 - ‘데이터 평면’에서는 키 자격 증명 모음에 저장된 데이터로 작업할 수 있습니다. 키, 비밀 및 인증서를 추가, 삭제 및 수정할 수 있습니다.
 
-두 평면에서 키 자격 증명 모음에 액세스하려면 모든 호출자(사용자 또는 애플리케이션)에게 적절한 인증 및 권한이 있어야 합니다. 두 평면은 인증을 위해 Azure AD(Azure Active Directory)를 사용합니다. 권한 부여를 위해 관리 평면에서는 RBAC(역할 기반 액세스 제어)를 사용하고, 데이터 평면에서는 Key Vault 액세스 정책을 사용합니다.
+두 평면에서 키 자격 증명 모음에 액세스하려면 모든 호출자(사용자 또는 애플리케이션)에게 적절한 인증 및 권한이 있어야 합니다. 두 평면은 인증을 위해 Azure AD(Azure Active Directory)를 사용합니다. 권한 부여를 위해 관리 평면은 azure RBAC (역할 기반 액세스 제어)를 사용 하 고 데이터 평면에서는 Key Vault 액세스 정책을 사용 합니다.
 
 두 평면에 대한 인증에 단일 메커니즘을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
 
@@ -46,11 +46,11 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 리소스 그룹에서 키 자격 증명 모음을 만든 경우 Azure AD를 사용하여 액세스를 관리합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절 한 Azure 역할을 할당 하 여 특정 범위 수준에서 액세스 권한을 부여할 수 있습니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. Azure 역할에 할당 될 수 있는 범위 수준은 다음과 같습니다.
 
-- **구독**: 구독 수준에서 할당 된 Azure 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
-- **리소스 그룹**: 리소스 그룹 수준에서 할당 된 Azure 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
-- **특정 리소스**: 특정 리소스에 할당 된 Azure 역할이 해당 리소스에 적용 됩니다. 이 경우 리소스는 특정 Key Vault입니다.
+- **구독** : 구독 수준에서 할당 된 Azure 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
+- **리소스 그룹** : 리소스 그룹 수준에서 할당 된 Azure 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
+- **특정 리소스** : 특정 리소스에 할당 된 Azure 역할이 해당 리소스에 적용 됩니다. 이 경우 리소스는 특정 Key Vault입니다.
 
-미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [AZURE RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > 사용자에게 Key Vault 관리 평면에 대한 `Contributor` 사용 권한이 있는 경우 이 사용자는 Key Vault 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. Key Vault에 대한 `Contributor` 역할 액세스 권한이 있는 사용자를 긴밀하게 제어해야 합니다. 권한이 있는 사람만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있는지 확인합니다.
@@ -79,7 +79,7 @@ Azure Key Vault 네트워크 주소에 대한 자세한 내용은 [Azure Key Vau
 
 *   Key Vault 프런트 엔드 (데이터 평면)는 다중 테 넌 트 서버입니다. 즉, 서로 다른 고객의 키 자격 증명 모음이 동일한 공용 IP 주소를 공유할 수 있습니다. 격리를 위해 각 HTTP 요청은 다른 요청과 독립적으로 인증 되 고 권한이 부여 됩니다.
 *   이전 버전의 TLS는 취약성을 보고할 수 있지만 공용 IP 주소는 공유 되므로 key vault 서비스 팀은 전송 수준에서 개별 키 자격 증명 모음에 대해 이전 버전의 TLS를 사용 하지 않도록 설정할 수 없습니다.
-*   HTTPS 프로토콜을 사용 하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수**있으며, 클라이언트에서이를 수행할 때마다 전체 연결에서 해당 하는 수준 보호를 사용 합니다. 이전 TLS 버전을 지 원하는 Key Vault 사실은 최신 TLS 버전을 사용 하는 연결 보안을 약화 하지 않습니다.
+*   HTTPS 프로토콜을 사용 하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수** 있으며, 클라이언트에서이를 수행할 때마다 전체 연결에서 해당 하는 수준 보호를 사용 합니다. 이전 TLS 버전을 지 원하는 Key Vault 사실은 최신 TLS 버전을 사용 하는 연결 보안을 약화 하지 않습니다.
 *   TLS 프로토콜의 알려진 취약성에도 불구 하 고 공격자가 취약성이 있는 TLS 버전과의 연결을 시작할 때 악의적인 에이전트가 키 자격 증명 모음에서 모든 정보를 추출할 수 있도록 하는 알려진 공격은 없습니다. 공격자는 자신을 인증 하 고 권한을 부여 해야 하며 합법적인 클라이언트가 항상 최신 TLS 버전에 연결 하는 한 이전 TLS 버전의 취약성으로 인해 자격 증명이 누출 되지 않을 수 있습니다.
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
@@ -91,4 +91,4 @@ Key Vault 로깅은 자격 증명 모음에서 수행된 작업에 대한 정보
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
-- [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+- [Azure RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)

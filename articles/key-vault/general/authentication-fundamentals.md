@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286232"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445560"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
@@ -45,9 +45,9 @@ Azure Active Directory에서 사용자 또는 응용 프로그램을 등록 하�
 * Azure Active Directory [링크](../../active-directory/fundamentals/add-users-azure-active-directory.md) 에 사용자 등록
 * Azure Active Directory [링크](../../active-directory/develop/quickstart-register-app.md) 에 응용 프로그램 등록
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Azure Active Directory에서 보안 주체를 역할에 할당
+## <a name="assign-your-security-principal-a-role"></a>보안 주체에 역할 할당
 
-Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 사용 권한을 할당 합니다. 이러한 사용 권한을 역할 할당 이라고 합니다.
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 권한을 할당할 수 있습니다. 이러한 사용 권한을 역할 할당 이라고 합니다.
 
 키 자격 증명 모음의 컨텍스트에서 이러한 역할 할당은 키 자격 증명 모음의 관리 평면 (제어 평면이 라고도 함)에 대 한 보안 주체의 액세스 수준을 결정 합니다. 이러한 역할 할당은 데이터 평면 비밀에 직접 액세스 하는 것을 제공 하지 않지만 key vault의 속성을 관리 하는 액세스 권한을 제공 합니다. 예를 들어 **독자 역할이** 할당 된 사용자 또는 응용 프로그램은 주요 자격 증명 모음 방화벽 설정을 변경할 수 없으며, **참가자 역할이** 할당 된 사용자 또는 응용 프로그램은 변경 작업을 수행할 수 있습니다. 두 역할 모두 키 자격 증명 모음 데이터 평면에 대 한 액세스 권한이 할당 될 때까지 해당 값을 만들거나 검색 하는 등의 방법으로 암호, 키 및 인증서에 대 한 작업을 수행할 수 없습니다. 이에 대해서는 다음 단계에서 설명 합니다.
 
@@ -57,7 +57,7 @@ Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 �
 >[!NOTE]
 > Azure Active Directory 테 넌 트 수준에서 사용자에 게 역할 할당을 할당 하는 경우이 권한 집합은 할당 범위 내에 있는 모든 구독, 리소스 그룹 및 리소스에 trickle 됩니다. 최소 권한 보안 주체를 따르려면 보다 세분화 된 범위에서이 역할 할당을 수행할 수 있습니다. 예를 들어 사용자에 게 구독 수준에서 읽기 권한자 역할을 할당 하 고 단일 키 자격 증명 모음에 대 한 소유자 역할을 할당할 수 있습니다. 구독, 리소스 그룹 또는 주요 자격 증명 모음의 IAM (Id 액세스 관리) 설정으로 이동 하 여 역할 할당을 보다 세분화 된 범위에서 만듭니다.
 
-* Azure Active Directory 역할 [링크](../../role-based-access-control/built-in-roles.md) 에 대 한 자세한 내용은
+* Azure 역할 [링크](../../role-based-access-control/built-in-roles.md) 에 대 한 자세한 내용은
 * 역할 [할당 할당](../../role-based-access-control/role-assignments-portal.md) 또는 제거에 대 한 자세한 내용은
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>보안 주체에 대 한 key vault 액세스 정책 구성
@@ -91,7 +91,7 @@ Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 �
 키 자격 증명 모음 액세스 정책은 사용자 및 응용 프로그램에 키 자격 증명 모음에 대 한 데이터 평면 작업을 수행할 수 있는 권한을 부여 합니다.
 
 > [!NOTE]
-> 이 액세스 모델은 아래에 설명 된 key vault RBAC (옵션 2)와 호환 되지 않습니다. 하나를 선택 해야 합니다. 키 자격 증명 모음의 액세스 정책 탭을 클릭 하면이 항목을 선택할 수 있습니다.
+> 이 액세스 모델은 아래에 설명 된 key vault에 대 한 Azure RBAC (옵션 2)와 호환 되지 않습니다. 하나를 선택 해야 합니다. 키 자격 증명 모음의 액세스 정책 탭을 클릭 하면이 항목을 선택할 수 있습니다.
 
 클래식 액세스 정책은 세분화 되어 있으며,이는 각 개별 사용자 또는 응용 프로그램이 키 자격 증명 모음 내에서 개별 작업을 수행 하는 기능을 허용 하거나 거부할 수 있음을 의미 합니다. 다음은 몇 가지 예입니다.
 
@@ -104,25 +104,25 @@ Azure Active Directory는 RBAC (역할 기반 액세스 제어)를 사용 하 �
 > [!IMPORTANT]
 > 클래식 키 자격 증명 모음 액세스 정책 및 Azure Active Directory 역할 할당은 서로 독립적입니다. 보안 주체를 구독 수준에서 ' 참가자 ' 역할로 할당 하면 보안 주체가 구독 범위 내의 모든 key vault에서 데이터 평면 작업을 수행 하는 기능을 자동으로 허용 하지 않습니다. 데이터 평면 작업을 수행할 수 있는 보안 주체를 계속 부여 하거나 자신에 게 액세스 정책 권한을 부여 해야 합니다.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>데이터 평면 액세스 옵션 2: RBAC (미리 보기) Key Vault
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>데이터 평면 액세스 옵션 2: Key Vault에 대 한 Azure RBAC (미리 보기)
 
-키 자격 증명 모음 데이터 평면에 대 한 액세스 권한을 부여 하는 새로운 방법은 키 자격 증명 모음 RBAC (역할 기반 액세스 제어)를 사용 하는 것입니다.
+키 자격 증명 모음에 대 한 액세스 권한을 부여 하는 새로운 방법은 키 자격 증명 모음에 대 한 Azure RBAC (역할 기반 액세스 제어)를 사용 하는 것입니다.
 
 > [!NOTE]
 > 이 액세스 모델은 위에 표시 된 key vault 클래식 액세스 정책과 호환 되지 않습니다. 하나를 선택 해야 합니다. 키 자격 증명 모음의 액세스 정책 탭을 클릭 하면이 항목을 선택할 수 있습니다.
 
 역할 할당 Key Vault 키, 암호 및 인증서에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 할당 집합입니다. 또한이 권한 모델을 사용 하면 클래식 키 자격 증명 모음 액세스 정책 모델에서 사용할 수 없는 추가 기능을 사용할 수 있습니다.
 
-* 사용자가 구독, 리소스 그룹 또는 개별 키 자격 증명 모음 수준에서 이러한 역할을 할당할 수 있도록 허용 하 여 RBAC 사용 권한을 대규모로 관리할 수 있습니다. 사용자는 RBAC 할당 범위 내에서 모든 주요 자격 증명 모음에 대 한 데이터 평면 사용 권한을 갖게 됩니다. 이렇게 하면 키 자격 증명 모음 당 사용자/응용 프로그램 마다 개별 액세스 정책 권한을 할당할 필요가 없습니다.
+* 사용자가 구독, 리소스 그룹 또는 개별 키 자격 증명 모음 수준에서 이러한 역할을 할당할 수 있도록 허용 하 여 Azure RBAC 사용 권한을 대규모로 관리할 수 있습니다. 사용자에 게는 Azure RBAC 할당 범위 내에서 모든 key vault에 대 한 데이터 평면 권한이 있습니다. 이렇게 하면 키 자격 증명 모음 당 사용자/응용 프로그램 마다 개별 액세스 정책 권한을 할당할 필요가 없습니다.
 
-* RBAC 권한은 Privileged Identity Management 또는 PIM과 호환 됩니다. 이를 통해 Key Vault 관리자와 같은 권한 있는 역할에 대 한 just-in-time 액세스 제어를 구성할 수 있습니다. 이는 최상의 보안 방법 이며 주요 자격 증명 모음에 대 한 액세스를 제거 하 여 최소 권한 보안 주체를 따릅니다.
+* Azure RBAC 권한은 Privileged Identity Management 또는 PIM과 호환 됩니다. 이를 통해 Key Vault 관리자와 같은 권한 있는 역할에 대 한 just-in-time 액세스 제어를 구성할 수 있습니다. 이는 최상의 보안 방법 이며 주요 자격 증명 모음에 대 한 액세스를 제거 하 여 최소 권한 보안 주체를 따릅니다.
 
-* RBAC 권한은 개체별 세부적인 권한과 호환 되므로 일부 주요 자격 증명 모음 개체에 대 한 작업만 수행 하도록 사용자를 제한할 수 있습니다. 이렇게 하면 여러 응용 프로그램에서 응용 프로그램 간의 액세스를 격리 하면서 단일 키 자격 증명 모음을 공유할 수 있습니다.
+* Azure RBAC 권한은 개체별 세부적인 권한과 호환 되므로 일부 주요 자격 증명 모음 개체에 대 한 작업만 수행 하도록 사용자를 제한할 수 있습니다. 이렇게 하면 여러 응용 프로그램에서 응용 프로그램 간의 액세스를 격리 하면서 단일 키 자격 증명 모음을 공유할 수 있습니다.
 
-Key Vault RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+Key Vault에 대 한 Azure RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-* Azure Key Vault RBAC [링크](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* Azure Key Vault RBAC 역할 (미리 보기) [링크](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
+* Key Vault에 대 한 Azure RBAC [링크](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Key Vault 역할 (미리 보기) [링크](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) 에 대 한 Azure RBAC
 
 ## <a name="configure-key-vault-firewall"></a>Key Vault 방화벽 구성
 

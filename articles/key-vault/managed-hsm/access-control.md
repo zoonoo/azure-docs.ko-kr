@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784425"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445237"
 ---
 # <a name="managed-hsm-access-control"></a>관리형 HSM 액세스 제어
 
@@ -35,7 +35,7 @@ Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서�
 
 관리 되는 HSM을 만들면 요청자는 데이터 평면 관리자의 목록 (모든 [보안 주체가](../../role-based-access-control/overview.md#security-principal) 지원 됨)도 제공 합니다. 이러한 관리자만이 관리 되는 HSM 데이터 평면에 액세스 하 여 주요 작업을 수행 하 고 데이터 평면 역할 할당을 관리할 수 있습니다 (관리 되는 HSM 로컬 RBAC).
 
-두 평면에 대 한 권한 모델은 동일한 구문 (RBAC)을 사용 하지만 다른 수준에서 적용 되며 역할 할당은 다른 범위를 사용 합니다. 관리 평면 rbac는 관리 되는 HSM 자체에 의해 적용 되는 동안 Azure Resource Manager에 의해 적용 됩니다.
+두 평면에 대 한 권한 모델은 동일한 구문을 사용 하지만 다른 수준에서 적용 되며 역할 할당은 서로 다른 범위를 사용 합니다. 관리 평면 Azure RBAC는 Azure Resource Manager에 의해 적용 되는 반면, 데이터 평면의 관리 HSM 로컬 RBAC는 관리 되는 HSM 자체에서 적용 됩니다.
 
 > [!IMPORTANT]
 > 보안 주체 관리 평면에 관리 되는 HSM에 대 한 액세스 권한을 부여 하는 것은 키 또는 데이터 평면 역할 할당 관리 되는 HSM 로컬 RBAC에 액세스 하는 데이터 평면에 대 한 액세스 권한을 부여 하지 않습니다. 이러한 격리는 관리 되는 HSM에 저장 된 키에 대 한 액세스에 영향을 주는 실수로 인 한 권한 확장이 발생 하지 않도록 설계 되었습니다.
@@ -67,16 +67,16 @@ Azure 구독에서 관리 되는 HSM을 만들 때 구독의 Azure Active Direct
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>관리 평면 및 Azure RBAC
 
-관리 평면에서 Azure RBAC를 사용 하 여 호출자가 실행할 수 있는 작업에 권한을 부여 합니다. RBAC 모델에서 각 Azure 구독은 Azure Active Directory의 인스턴스를 포함 합니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](/rest/api/authorization/roleassignments)를 사용합니다.
+관리 평면에서 Azure RBAC를 사용 하 여 호출자가 실행할 수 있는 작업에 권한을 부여 합니다. Azure RBAC 모델에서 각 Azure 구독은 Azure Active Directory의 인스턴스를 포함 합니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](/rest/api/authorization/roleassignments)를 사용합니다.
 
-리소스 그룹에 키 자격 증명 모음을 만들고 Azure Active Directory를 사용 하 여 액세스를 관리 합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절한 RBAC 역할을 할당하여 특정 범위 수준에서 액세스 권한을 부여합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. 다음 범위 수준을 RBAC 역할에 할당할 수 있습니다.
+리소스 그룹에 키 자격 증명 모음을 만들고 Azure Active Directory를 사용 하 여 액세스를 관리 합니다. 사용자 또는 그룹에 리소스 그룹에서 key vault를 관리하는 기능을 부여합니다. 적절 한 Azure 역할을 할당 하 여 특정 범위 수준에서 액세스 권한을 부여 합니다. key vault를 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 사용자에게 미리 정의된 `key vault Contributor` 역할을 할당합니다. Azure 역할에 할당 될 수 있는 범위 수준은 다음과 같습니다.
 
-- **관리 그룹** : 구독 수준에서 할당 된 RBAC 역할은 해당 관리 그룹의 모든 구독에 적용 됩니다.
-- **구독** : 구독 수준에서 할당된 RBAC 역할은 해당 구독 내 모든 리소스 그룹 및 리소스에 적용됩니다.
-- **리소스 그룹** : 리소스 그룹 수준에서 할당된 RBAC 역할은 해당 리소스 그룹의 모든 리소스에 적용됩니다.
-- **특정 리소스** : 특정 리소스에 할당된 RBAC 역할이 해당 리소스에 적용됩니다. 이 경우 리소스는 특정 Key Vault입니다.
+- **관리 그룹** : 구독 수준에서 할당 된 Azure 역할은 해당 관리 그룹의 모든 구독에 적용 됩니다.
+- **구독** : 구독 수준에서 할당 된 Azure 역할은 해당 구독 내의 모든 리소스 그룹 및 리소스에 적용 됩니다.
+- **리소스 그룹** : 리소스 그룹 수준에서 할당 된 Azure 역할은 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
+- **특정 리소스** : 특정 리소스에 할당 된 Azure 역할이 해당 리소스에 적용 됩니다. 이 경우 리소스는 특정 Key Vault입니다.
 
-미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 내용은 [AZURE RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 ## <a name="data-plane-and-managed-hsm-local-rbac"></a>데이터 평면 및 관리 되는 HSM 로컬 RBAC
 

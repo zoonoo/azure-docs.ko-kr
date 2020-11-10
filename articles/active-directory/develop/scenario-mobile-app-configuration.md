@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204221"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444064"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
@@ -148,9 +148,9 @@ UWP에서는 회사 네트워크를 사용할 수 있습니다. 다음 섹션에
 
 Android 및 iOS에서 broker를 사용 하도록 설정 합니다.
 
-- **Sso (Single sign-on)**: Azure Active Directory (Azure AD)에 등록 된 장치에 대해 sso를 사용할 수 있습니다. SSO를 사용 하는 경우 사용자는 각 응용 프로그램에 로그인 할 필요가 없습니다.
-- **장치 식별**:이 설정은 Azure AD 장치와 관련 된 조건부 액세스 정책을 사용 하도록 설정 합니다. 인증 프로세스는 장치가 작업 공간에 조인 될 때 생성 된 장치 인증서를 사용 합니다.
-- **응용 프로그램 id 확인**: 응용 프로그램에서 broker를 호출할 때 해당 리디렉션 URL을 전달 합니다. 그런 다음 broker에서 확인 합니다.
+- **Sso (Single sign-on)** : Azure Active Directory (Azure AD)에 등록 된 장치에 대해 sso를 사용할 수 있습니다. SSO를 사용 하는 경우 사용자는 각 응용 프로그램에 로그인 할 필요가 없습니다.
+- **장치 식별** :이 설정은 Azure AD 장치와 관련 된 조건부 액세스 정책을 사용 하도록 설정 합니다. 인증 프로세스는 장치가 작업 공간에 조인 될 때 생성 된 장치 인증서를 사용 합니다.
+- **응용 프로그램 id 확인** : 응용 프로그램에서 broker를 호출할 때 해당 리디렉션 URL을 전달 합니다. 그런 다음 broker에서 확인 합니다.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Xamarin에서 broker 사용
 
@@ -367,5 +367,4 @@ Android에서 broker를 사용 하도록 설정 하는 방법에 대 한 자세�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [토큰 획득](scenario-mobile-acquire-token.md)
+[토큰을 획득](scenario-mobile-acquire-token.md)하는이 시나리오의 다음 문서로 이동 합니다.

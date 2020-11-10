@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127640"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444965"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -35,7 +35,7 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
     
    b. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
     
-   c. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
+   다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
    다음 표는 **테이블 형식의** 데이터에 대 한 예입니다.
 
@@ -111,6 +111,19 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 4.  제한 시간 크기는 1 분입니다. 따라서 창 크기가 1 분 보다 큰 쿼리는 데이터를 가져올 수 없습니다.
 
 5.  Machine learning은 지원 되지 않습니다.
+
+
+## <a name="troubleshooting"></a>문제 해결
+
+1.  이 오류가 발생 하면 "결과를 가져올 때 네트워크 연결 문제가 발생 했습니다. 네트워크 및 방화벽 설정을 확인 하십시오. "를 확인 하려면 다음 단계를 따르세요.
+
+  * 서비스에 대 한 연결을 확인 하려면 [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) 브라우저에서를 엽니다. 이 링크를 열 수 없는 경우 방화벽 설정을 업데이트 합니다.
+  
+2. 이 오류가 발생 하면 "요청 크기가 너무 큽니다. 입력 데이터 크기를 줄이고 다시 시도 하세요. "라는 다음 단계를 따르세요.
+
+  * 입력 크기 줄이기 – 작은 크기의 샘플 파일이 나 더 작은 시간 범위를 사용 하 여 쿼리를 테스트 합니다.
+  * 쿼리 크기 줄이기 – 쿼리 선택을 테스트 하려면 쿼리의 일부를 선택한 다음 **선택한 쿼리 테스트** 를 클릭 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](./stream-analytics-build-an-iot-solution-using-stream-analytics.md):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.

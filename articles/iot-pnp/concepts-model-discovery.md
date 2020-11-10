@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042918"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445577"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 모델 사용
 
@@ -121,7 +121,7 @@ content-encoding:utf-8
 
 새 장치 연결에 대 한 모델 ID를 확인 한 후에는 다음 단계를 수행 합니다.
 
-1. 모델 리포지토리에서 모델 ID를 사용 하 여 모델 정의를 검색 합니다. 자세한 내용은 [모델 가져오기](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)를 참조 하세요.
+1. 모델 리포지토리에서 모델 ID를 사용 하 여 모델 정의를 검색 합니다. 자세한 내용은 [장치 모델 리포지토리](concepts-model-repository.md)를 참조 하세요.
 
 1. 연결 된 장치의 모델 정의를 사용 하 여 장치의 기능을 열거할 수 있습니다.
 

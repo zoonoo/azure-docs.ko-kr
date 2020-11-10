@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287601"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445135"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -79,7 +79,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 
 ## <a name="manage-keys-certificates-and-secrets"></a>키, 인증서 및 비밀 관리
 
-키, 암호 및 인증서에 대 한 액세스는 데이터 평면에 의해 제어 됩니다. 데이터 평면 액세스 제어는 로컬 자격 증명 모음 액세스 정책 또는 RBAC (미리 보기)를 사용 하 여 수행할 수 있습니다.
+키, 암호 및 인증서에 대 한 액세스는 데이터 평면에 의해 제어 됩니다. 데이터 평면 액세스 제어는 로컬 자격 증명 모음 액세스 정책 또는 Azure RBAC (미리 보기)를 사용 하 여 수행할 수 있습니다.
 
 **키 Api 및 Sdk**
 
@@ -104,7 +104,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 
 설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md) 를 참조 하세요.
 
-데이터 평면 보안 Key Vault에 대 한 자세한 내용은 [Key Vault 데이터 평면 및 액세스 정책](./secure-your-key-vault.md#data-plane-and-access-policies) 및 [Key Vault 데이터 평면 및 RBAC (미리 보기)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview) 를 참조 하세요.
+데이터 평면 보안 Key Vault에 대 한 자세한 내용은 [Key Vault 데이터 평면 및 액세스 정책](./secure-your-key-vault.md#data-plane-and-access-policies) 및 [Key Vault 데이터 평면 및 Azure RBAC (미리 보기)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview) 를 참조 하세요.
 
 ### <a name="code-examples"></a>코드 예제
 

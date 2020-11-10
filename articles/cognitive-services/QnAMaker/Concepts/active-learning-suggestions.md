@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376522"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445016"
 ---
 # <a name="active-learning-suggestions"></a>활성 학습 제안
 
@@ -137,7 +137,7 @@ QnA Maker에는 가장 적합 한 답변에 대 한 명시적인 피드백이 �
 * 허용 가능한 점수 범위를 결정 하는 등의 비즈니스 논리
 * 사용자 피드백과 비즈니스 논리의 조합입니다.
 
-[학습 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) 를 사용 하 여 사용자가 선택한 후 QnA Maker에 올바른 답변을 보냅니다.
+[학습 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) 를 사용 하 여 사용자가 선택한 후 QnA Maker에 올바른 답변을 보냅니다.
 
 ## <a name="next-step"></a>다음 단계
 

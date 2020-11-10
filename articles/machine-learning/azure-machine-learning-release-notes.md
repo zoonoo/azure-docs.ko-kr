@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423014"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445084"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -53,7 +53,7 @@ ms.locfileid: "93423014"
     + Azureml-설명 모델 패키지는 공식적으로 사용 되지 않습니다.
   + **azureml.mlflow**
     + Mlflow. 프로젝트에서 버그를 해결 했습니다. 상태를 종료 하는 동안 azureml 백 엔드에 대해 실행 합니다.
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 파이프라인 끝점 하나를 기반으로 파이프라인 일정을 만들고 나열 하 고 가져오는 지원을 추가 합니다.
     +  잘못 된 사용 예제를 사용 하 여 PipelineData.as_dataset에 대 한 설명서 개선-PipelineData.as_dataset를 부적절 하 게 사용 하면 이제 ValueException이 throw 됩니다.
     + HyperPipelineStep estep가 실행 된 후 바로 한 내에서 가장 적합 한 모델을 등록 하도록 Hyper Estep 파이프라인 노트북을 변경 했습니다.
@@ -608,7 +608,7 @@ ms.locfileid: "93423014"
   + **azureml-opendatasets**
     + 반환 된 데이터가 없으면 None을 반환 합니다.
     + To_pandas_dataframe의 성능을 향상 시킵니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + YAML에서 로드가 중단 된 ParallelRunStep에 대 한 빠른 수정
     + ParallelRunStep는 일반 공급으로 릴리스 되었습니다. 즉, 사용 중단 알림이 있고 azureml로 이동 합니다.-새로운 기능은 다음과 같습니다. 1. PipelineParameter 2로 서의 데이터 집합. 새 매개 변수 run_max_retry 3입니다. 구성 가능한 append_row 출력 파일 이름
   + **azureml-pipeline-steps**
@@ -1084,7 +1084,7 @@ ms.locfileid: "93423014"
 
 + **새로운 기능**
   + 데이터 집합: 두 옵션을 추가 하 `on_error` 고, `out_of_range_datetime` `to_pandas_dataframe` 데이터에 오류 값이 포함 된 경우 데이터를로 채우지 않고 실패 `None` 합니다.
-  + 작업 영역: `hbi_workspace` 추가 암호화를 사용 하 고 작업 영역에서 고급 진단을 사용 하지 않도록 설정 하는 중요 한 데이터가 포함 된 작업 영역에 대 한 플래그 또한 작업 영역을 만들 때 및 매개 변수를 지정 하 여 연결 된 Cosmos DB 인스턴스에 대 한 사용자 고유의 키를 가져오기 위한 지원을 추가 했습니다. 그러면 작업 `cmk_keyvault` `resource_cmk_uri` 영역을 프로 비전 하는 동안 구독에 Cosmos DB 인스턴스를 만듭니다. [여기서 자세히 알아보세요.](./concept-enterprise-security.md#azure-cosmos-db)
+  + 작업 영역: `hbi_workspace` 추가 암호화를 사용 하 고 작업 영역에서 고급 진단을 사용 하지 않도록 설정 하는 중요 한 데이터가 포함 된 작업 영역에 대 한 플래그 또한 작업 영역을 만들 때 및 매개 변수를 지정 하 여 연결 된 Cosmos DB 인스턴스에 대 한 사용자 고유의 키를 가져오기 위한 지원을 추가 했습니다. 그러면 작업 `cmk_keyvault` `resource_cmk_uri` 영역을 프로 비전 하는 동안 구독에 Cosmos DB 인스턴스를 만듭니다. [여기서 자세히 알아보세요.](./concept-data-encryption.md#azure-cosmos-db)
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-runtime**
@@ -1201,7 +1201,7 @@ ms.locfileid: "93423014"
 ### <a name="azure-machine-learning-sdk-for-python-v1074"></a>Azure Machine Learning SDK for Python v 1.0.74
 
   + **미리 보기 기능**
-    + **azureml-contrib-dataset**
+    + **azureml-데이터 집합**
       + Azureml-데이터 집합을 가져온 후에는 대신를 호출 `Dataset.Labeled.from_json_lines` 하 여 `._Labeled` 레이블이 지정 된 데이터 집합을 만들 수 있습니다.
       + `to_pandas_dataframe`다운로드 옵션을 사용 하 여 레이블이 지정 된 데이터 집합에서 호출 하는 경우 이제 기존 파일을 덮어쓸지 여부를 지정할 수 있습니다.
       + 또는를 호출할 때 시계열 `keep_columns` `drop_columns` , 레이블 또는 이미지 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
@@ -1474,7 +1474,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 데이터 집합 기반 데이터 드리프트 출력 검색을 지원 합니다.
   + **azureml-explain-model**
     + MimicWrapper를 사용 하 여 직접 만들 [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) 에 대 한 지원 추가
-  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
+  + **[azureml 파이프라인-코어](/python/api/azureml-pipeline-core)**
     + 대량 파이프라인 생성을 위한 향상 된 성능.
   + **[azureml-train-core](/python/api/azureml-train-core)**
     + [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow) 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.

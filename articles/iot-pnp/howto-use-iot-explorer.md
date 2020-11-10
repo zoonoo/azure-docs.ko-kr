@@ -1,30 +1,30 @@
 ---
 title: Azure IoT 탐색기 설치 및 사용 | Microsoft Docs
-description: Azure IoT 탐색기 도구를 설치 하 고이 도구를 사용 하 여 iot hub에 연결 된 IoT 플러그 앤 플레이 장치와 상호 작용 합니다.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Azure IoT 탐색기 도구를 설치 하 고 iot hub에 연결 된 IoT 플러그 앤 플레이 장치와 상호 작용 하는 데 사용 합니다. 이 문서에서는 IoT 플러그 앤 플레이 장치를 사용 하는 데 중점을 두지만 허브에 연결 된 모든 장치에서 도구를 사용할 수 있습니다.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019157"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445305"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
-Azure IoT 탐색기는 IoT 플러그 앤 플레이 장치를 조작 하 고 테스트 하는 그래픽 도구입니다. 로컬 컴퓨터에 도구를 설치한 후 허브에 연결 하는 데 사용할 수 있습니다. 도구를 사용 하 여 장치에서 보내는 원격 분석을 보고, 장치 속성을 사용 하 고, 명령을 호출할 수 있습니다.
+Azure IoT 탐색기는 IoT hub에 연결 된 및 장치와 상호 작용 하는 그래픽 도구입니다. 이 문서에서는 도구를 사용 하 여 IoT 플러그 앤 플레이 장치를 테스트 하는 방법을 집중적으로 설명 합니다. 로컬 컴퓨터에 도구를 설치한 후 허브에 연결 하는 데 사용할 수 있습니다. 도구를 사용 하 여 장치에서 보내는 원격 분석을 보고, 장치 속성을 사용 하 고, 명령을 호출할 수 있습니다.
 
 이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
-- 도구를 사용 하 여 장치를 조작 하 고 테스트 합니다.
+- 도구를 사용 하 여 IoT 플러그 앤 플레이 장치와 상호 작용 하 고 테스트 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+도구 사용에 대 한 일반적인 정보는 GitHub [추가](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)정보를 참조 하세요.
 
 Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
@@ -40,13 +40,13 @@ Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
 ## <a name="use-azure-iot-explorer"></a>Azure IoT 탐색기 사용
 
-장치의 경우 장치를 연결 하거나 시뮬레이션 된 샘플 장치 중 하나를 사용할 수 있습니다. 시뮬레이션 된 장치 샘플을 실행 하려면 [다음 지침](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) 을 따르세요.
+장치의 경우 장치를 연결 하거나 시뮬레이션 된 샘플 장치 중 하나를 사용할 수 있습니다. 다른 언어로 작성 된 일부 예제 시뮬레이션 된 장치는 IoT Hub 빠른 시작 [에 샘플 IoT 플러그 앤 플레이 장치 응용 프로그램 연결](quickstart-connect-device-node.md) 을 참조 하세요.
 
 ### <a name="connect-to-your-hub"></a>허브에 연결
 
-Azure IoT 탐색기를 처음 실행 하면 IoT hub의 연결 문자열을 입력 하 라는 메시지가 표시 됩니다. 연결 문자열을 추가한 후 **연결**을 선택 합니다. 도구의 설정을 사용 하 여 연결 문자열을 업데이트 하 여 다른 IoT hub로 전환할 수 있습니다.
+Azure IoT 탐색기를 처음 실행 하면 IoT hub의 연결 문자열을 입력 하 라는 메시지가 표시 됩니다. 연결 문자열을 추가한 후 **연결** 을 선택 합니다. 도구의 설정을 사용 하 여 연결 문자열을 업데이트 하 여 다른 IoT hub로 전환할 수 있습니다.
 
-IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지토리, 연결 된 장치 또는 로컬 폴더에 저장 됩니다. 기본적으로이 도구는 공용 리포지토리와 연결 된 장치에서 모델 정의를 찾습니다. 원본 추가/제거 또는 **설정**에서 원본의 우선 순위를 구성할 수 있습니다.
+IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지토리, 연결 된 장치 또는 로컬 폴더에 저장 됩니다. 기본적으로이 도구는 공용 리포지토리와 연결 된 장치에서 모델 정의를 찾습니다. 원본 추가/제거 또는 **설정** 에서 원본의 우선 순위를 구성할 수 있습니다.
 
 소스를 추가 하려면:
 
@@ -74,11 +74,11 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 ## <a name="interact-with-a-device"></a>디바이스와 상호 작용
 
-**장치 목록 페이지** 의 **장치 ID** 열에서 값을 선택 하 여 등록 된 장치에 대 한 세부 정보 페이지를 표시 합니다. 각 장치에는 **장치** 및 **디지털**쌍의 두 섹션이 있습니다.
+**장치 목록 페이지** 의 **장치 ID** 열에서 값을 선택 하 여 등록 된 장치에 대 한 세부 정보 페이지를 표시 합니다. 각 장치에는 **장치** 및 **디지털** 쌍의 두 섹션이 있습니다.
 
 ### <a name="device"></a>디바이스
 
-이 섹션에는 **장치 id**,  **장치**쌍, **원격 분석**, **직접 메서드**, **클라우드-장치 메시지**, **모듈 id**  탭이 포함 되어 있습니다.
+이 섹션에는 **장치 id** ,  **장치** 쌍, **원격 분석** , **직접 메서드** , **클라우드-장치 메시지** , **모듈 id**  탭이 포함 되어 있습니다.
 
 - **장치 id 탭에서** [장치 id](../iot-hub/iot-hub-devguide-identity-registry.md) 정보를 확인 하 고 업데이트할 수 있습니다.
 - [장치 쌍 정보는](../iot-hub/iot-hub-devguide-device-twins.md) **장치** 쌍 탭에서 액세스할 수 있습니다.
@@ -89,7 +89,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 ### <a name="iot-plug-and-play-components"></a>IoT 플러그 앤 플레이 구성 요소
 
-장치가 **모델 id**를 사용 하 여 허브에 연결 된 경우이 도구는 **모델 id**를 볼 수 있는 **IoT 플러그 앤 플레이 구성 요소** 탭 ' '을 표시 합니다.
+장치가 **모델 id** 를 사용 하 여 허브에 연결 된 경우이 도구는 **모델 id** 를 볼 수 있는 **IoT 플러그 앤 플레이 구성 요소** 탭을 표시 합니다.
 
 구성 된 원본-공용 리포지토리 또는 로컬 폴더 중 하나에서 **모델 ID** 를 사용할 수 있는 경우 구성 요소 목록이 표시 됩니다. 구성 요소를 선택 하면 사용할 수 있는 속성, 명령 및 원격 분석이 표시 됩니다.
 
@@ -99,7 +99,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 #### <a name="properties"></a>속성
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Azure IoT 탐색기에서 구성 요소 보기":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Azure IoT 탐색기에서 속성 보기":::
 
 **속성 (읽기 전용)** 탭의 인터페이스에 정의 된 읽기 전용 속성을 볼 수 있습니다. **속성 (쓰기 가능)** 탭의 인터페이스에 정의 된 쓰기 가능한 속성을 업데이트할 수 있습니다.
 
@@ -109,7 +109,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 1. 장치에 전송할 페이로드를 미리 봅니다.
 1. 변경 내용을 제출 합니다.
 
-변경을 제출한 후 업데이트 상태 ( **동기화**, **성공**또는 **오류**)를 추적할 수 있습니다. 동기화가 완료 되 면 **보고 된 속성** 열에 속성의 새 값이 표시 됩니다. 동기화가 완료 되기 전에 다른 페이지로 이동 하는 경우에도 업데이트가 완료 되 면 도구에서 사용자에 게 알려줍니다. 도구의 알림 센터를 사용 하 여 알림 기록을 볼 수도 있습니다.
+변경을 제출한 후 업데이트 상태 ( **동기화** , **성공** 또는 **오류** )를 추적할 수 있습니다. 동기화가 완료 되 면 **보고 된 속성** 열에 속성의 새 값이 표시 됩니다. 동기화가 완료 되기 전에 다른 페이지로 이동 하는 경우에도 업데이트가 완료 되 면 도구에서 사용자에 게 알려줍니다. 도구의 알림 센터를 사용 하 여 알림 기록을 볼 수도 있습니다.
 
 #### <a name="commands"></a>명령
 
@@ -126,13 +126,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 #### <a name="known-issues"></a>알려진 문제
 
-- IoT Edge 지원: 현재 버전은 장치 목록에 IoT Edge 장치를 표시 하지 않습니다.
-- DTDL 언어 기능: IoT 탐색기 0.12는 완전 한 DTDL v2 규격이 아닙니다. 지원 되지 않는 기능은 다음과 같습니다.
-  - 인터페이스 상속 `extends`
-  - Map in map (중첩 맵)
-  - 배열 형식
-  - 사용자 지정 스키마
-  - 사용자 지정 의미 유형
+최신 버전의 도구에서 지 원하는 IoT 기능 목록은 [기능 목록](https://github.com/Azure/azure-iot-explorer/wiki)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

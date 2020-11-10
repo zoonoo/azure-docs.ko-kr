@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381005"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445157"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
@@ -39,6 +39,13 @@ ms.locfileid: "94381005"
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
+
+* **`Shell`** : 기 하 도형은 투명 한 비 포화 셸로 렌더링 됩니다. 이 모드를 사용 하면 모양과 상대 위치를 그대로 유지 하면서 장면의 중요 하지 않은 부분을 페이드 아웃할 수 있습니다. 셸 렌더링의 모양을 변경 하려면 [ShellRenderingSettings](shell-effect.md) 상태를 사용 합니다. 파란색 스프링을 제외 하 고 완전히 셸 렌더링 되는 자동차 모델은 다음 이미지를 참조 하세요.
+
+  ![특정 개체를 페이드 아웃 하는 데 사용 되는 셸 모드](./media/shell.png)
+
+  > [!IMPORTANT]
+  > 셸 효과는 *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md) 를 사용 하는 경우에만 작동 합니다.
 
 * **`Selected`** : Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
 
@@ -101,7 +108,7 @@ component->SetState(
 
 `HierarchicalStateOverrideComponent` 자체의 인스턴스는 런타임 오버헤드를 많이 추가하지는 않습니다. 그러나 활성 구성 요소의 수를 낮게 유지하는 것은 언제나 바람직합니다. 예를 들어 선택한 개체를 강조 표시하는 선택 시스템을 구현하는 경우 강조 표시가 제거될 때 구성 요소를 삭제하는 것이 좋습니다. 중립 기능을 중심으로 구성 요소를 유지하면 신속하게 추가할 수 있습니다.
 
-투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through* 로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [윤곽 선택](../../overview/features/outlines.md#performance)이 있는 개체에도 동일하게 사용할 수 있습니다.
+투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through* 로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [선택 윤곽이](../../overview/features/outlines.md#performance) 있는 개체와 [셸 렌더링](../../overview/features/shell-effect.md#performance) 의 경우에도 마찬가지입니다. 
 
 ## <a name="api-documentation"></a>API 설명서
 

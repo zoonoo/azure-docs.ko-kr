@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314758"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445394"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "93314758"
      
 * **Azureml-자동 ml-클라이언트를 설치 하는 경우 설명 패키지가 설치 되어 있지 않을 수 있습니다.** 
    
-   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제입니다. 해결 방법으로 다음 단계 중 하나를 수행 합니다.
+   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제이며 해결 방법으로 다음 단계 중 하나를 수행 합니다.
   
   1. Azureml를 로컬로 설치 합니다.
    ```
@@ -258,7 +258,20 @@ ms.locfileid: "93314758"
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
-* **긴 계산 준비 시간:**
+### <a name="dataset-visualization-in-the-designer"></a>디자이너의 데이터 집합 시각화
+
+**데이터 집합 자산 페이지** 또는 SDK를 사용 하 여 데이터 집합을 등록 한 후 디자이너 캔버스로 왼쪽에 있는 목록에서 **데이터** 집합 범주 아래에 찾을 수 있습니다.
+
+그러나 데이터 집합을 캔버스 및 시각화로 끌면 다음과 같은 이유 중 하나로 인해 시각화 하지 못할 수 있습니다.
+
+- 현재는 디자이너 에서만 테이블 형식 데이터 집합을 시각화할 수 있습니다. 디자이너 외부에서 파일 데이터 집합을 등록 하는 경우 디자이너 캔버스에서 시각화할 수 없습니다.
+- 데이터 집합은 VNet (가상 네트워크)에 저장 됩니다. 시각화 하려는 경우 데이터 저장소의 작업 영역 관리 id를 사용 하도록 설정 해야 합니다.
+    1. 관련 데이터 저장소로 이동 하 고 **자격 증명** 업데이트 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="자격 증명"::: 업데이트를 클릭 합니다.
+    1. 작업 영역 관리 id를 사용 하려면 **예** 를 선택 합니다.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="작업 영역 관리 Id 사용":::
+
+### <a name="long-compute-preparation-time"></a>긴 계산 준비 시간
 
 계산 대상을 처음으로 연결 하거나 만드는 경우 몇 분 정도 걸릴 수 있습니다. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **실시간 끝점에 대 한 로그:**
+### <a name="log-for-real-time-endpoints"></a>실시간 끝점에 대 한 로그
 
 실시간 끝점의 로그는 고객 데이터입니다. 실시간 끝점 문제 해결을 위해 다음 코드를 사용 하 여 로그를 사용 하도록 설정할 수 있습니다. 
 
@@ -410,7 +423,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

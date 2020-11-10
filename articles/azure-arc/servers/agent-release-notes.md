@@ -2,13 +2,13 @@
 title: Azure Arc 사용 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 추가 정보를 참조 하세요.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908154"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445288"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
 
@@ -17,6 +17,21 @@ Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향
 - 최신 릴리스
 - 알려진 문제
 - 버그 수정
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="fixed"></a>고정
+
+RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 수 있는 문제를 해결 했습니다.
+
+## <a name="october-2020"></a>2020년 10월
+
+### <a name="fixed"></a>고정
+
+- 대체 GC 데몬 단위 파일 위치를 처리 하는 프록시 스크립트를 수정 했습니다.
+- GuestConfig 에이전트 안정성 변경
+- US Gov 버지니아 지역에 대 한 GuestConfig agent 지원.
+- GuestConfig 에이전트 확장 보고서 메시지는 오류가 발생 하는 경우 보다 자세한 정보를 표시 합니다.
 
 ## <a name="september-2020"></a>2020년 9월
 

@@ -2,19 +2,19 @@
 title: 태그 및 매니페스트 제거
 description: 제거 명령을 사용하여 연령 및 태그 필터를 기준으로 Azure 컨테이너 레지스트리에서 여러 태그와 매니페스트를 삭제하고 필요에 따라 제거 작업을 예약합니다.
 ms.topic: article
-ms.date: 05/14/2020
-ms.openlocfilehash: ab6794648babd2bd491ded5788455b75c10d675a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 406a1f231af57407e9475a8888b68aad9d88dcb3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652642"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445118"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Azure 컨테이너 레지스트리에서 자동으로 이미지 제거
 
 개발 워크플로의 일부로 Azure 컨테이너 레지스트리를 사용하는 경우 레지스트리는 짧은 기간 후 필요하지 않은 이미지 또는 기타 아티팩트로 신속하게 채울 수 있습니다. 특정 기간보다 오래되었거나 지정된 이름 필터와 일치하는 모든 태그를 삭제하는 것이 좋습니다. 여러 아티팩트를 신속하게 삭제하기 위해 이 문서에서는 주문형 또는 [예약된](container-registry-tasks-scheduled.md) ACR 작업으로 실행할 수 있는 `acr purge` 명령을 소개합니다. 
 
-`acr purge` 명령은 현재 GitHub의 [acr-cli](https://github.com/Azure/acr-cli) 리포지토리의 소스 코드에서 빌드된 공용 컨테이너 이미지(`mcr.microsoft.com/acr/acr-cli:0.2`)에 배포되어 있습니다.
+`acr purge` 명령은 현재 GitHub의 [acr-cli](https://github.com/Azure/acr-cli) 리포지토리의 소스 코드에서 빌드된 공용 컨테이너 이미지(`mcr.microsoft.com/acr/acr-cli:0.3`)에 배포되어 있습니다.
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서의 ACR 작업 예제를 실행할 수 있습니다. 로컬로 사용하려는 경우 2.0.76 이상 버전이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요. 
 
@@ -44,6 +44,7 @@ Azure CLI 명령을 사용하여 단일 이미지 태그나 매니페스트를 �
 
 * `--untagged` - 연결된 태그를 포함하지 않는 매니페스트(‘태그가 지정되지 않은 매니페스트’)를 삭제하도록 지정합니다.
 * `--dry-run` - 데이터를 삭제하지 않도록 지정하지만, 출력은 이 플래그 없이 명령이 실행될 때와 같습니다. 이 매개 변수는 보존하려는 데이터를 실수로 삭제하지 않도록 제거 명령을 테스트하는 데 유용합니다.
+* `--keep` -삭제 된 최신 태그의 최신 x 수를 유지 하도록 지정 합니다.
 
 추가 매개 변수의 경우 `acr purge --help`를 실행합니다. 
 
@@ -51,7 +52,7 @@ Azure CLI 명령을 사용하여 단일 이미지 태그나 매니페스트를 �
 
 ### <a name="run-in-an-on-demand-task"></a>주문형 작업 실행
 
-다음 예제에서는 [az acr run][az-acr-run] 명령을 사용하여 주문형으로 `acr purge` 명령을 실행합니다. 이 예제에서는 1일 전보다 이전에 수정된 *myregistry*의 `hello-world` 리포지토리에 있는 모든 이미지 태그 및 매니페스트를 삭제합니다. 컨테이너 명령은 환경 변수를 사용하여 전달되며, 작업은 소스 컨텍스트 없이 실행됩니다.
+다음 예제에서는 [az acr run][az-acr-run] 명령을 사용하여 주문형으로 `acr purge` 명령을 실행합니다. 이 예제에서는 1일 전보다 이전에 수정된 *myregistry* 의 `hello-world` 리포지토리에 있는 모든 이미지 태그 및 매니페스트를 삭제합니다. 컨테이너 명령은 환경 변수를 사용하여 전달되며, 작업은 소스 컨텍스트 없이 실행됩니다.
 
 ```azurecli
 # Environment variable for container command line

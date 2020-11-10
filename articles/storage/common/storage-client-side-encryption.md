@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151138"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445067"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -167,14 +167,14 @@ V11의 Key Vault 사용에 대 한 자세한 내용은 [v11 암호화 코드 샘
   * 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.
 
 ### <a name="requireencryption-mode-v11-only"></a>RequireEncryption 모드 (v11에만 해당)
-사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.
+사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 을 **true** 로 설정합니다.
 
 
 ### <a name="blob-service-encryption"></a>Blob service 암호화
 
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-**SpecializedBlobClientOptions**를 사용 하 여 클라이언트 만들기에서 **클라이언트로 옵션** 개체를 만들고 설정 합니다. API 별로 암호화 옵션을 설정할 수 없습니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**SpecializedBlobClientOptions** 를 사용 하 여 클라이언트 만들기에서 **클라이언트로 옵션** 개체를 만들고 설정 합니다. API 별로 암호화 옵션을 설정할 수 없습니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -207,9 +207,9 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-**BlobServiceClient** 는 암호화 옵션을 적용 하는 데 필요 하지 않습니다. **BlobContainerClient** / **Blobclientoptions** 개체를 허용 하는 BlobContainerClient**blobclient** 생성자에도 전달할 수 있습니다.
+**BlobServiceClient** 는 암호화 옵션을 적용 하는 데 필요 하지 않습니다. **BlobContainerClient** / **Blobclientoptions** 개체를 허용 하는 BlobContainerClient **blobclient** 생성자에도 전달할 수 있습니다.
 
-원하는 **blobclient** 개체가 이미 존재 하지만 클라이언트 쪽 암호화 옵션이 없으면 지정 된 **clientside 옵션**을 사용 하 여 해당 개체의 복사본을 만드는 확장 메서드가 있습니다. 이 확장 메서드는 새 **Blobclient** 개체를 처음부터 생성 하는 오버 헤드를 방지 합니다.
+원하는 **blobclient** 개체가 이미 존재 하지만 클라이언트 쪽 암호화 옵션이 없으면 지정 된 **clientside 옵션** 을 사용 하 여 해당 개체의 복사본을 만드는 확장 메서드가 있습니다. 이 확장 메서드는 새 **Blobclient** 개체를 처음부터 생성 하는 오버 헤드를 방지 합니다.
 
 ```csharp
 using Azure.Storage.Blobs.Specialized;
@@ -223,7 +223,7 @@ BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOpti
 ```
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
-**BlobEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions**를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**BlobEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다( **DefaultRequestOptions** 를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -247,7 +247,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>큐 서비스 암호화
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-**SpecializedQueueClientOptions**를 사용 하 여 클라이언트 만들기에서 **클라이언트로 옵션** 개체를 만들고 설정 합니다. API 별로 암호화 옵션을 설정할 수 없습니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**SpecializedQueueClientOptions** 를 사용 하 여 클라이언트 만들기에서 **클라이언트로 옵션** 개체를 만들고 설정 합니다. API 별로 암호화 옵션을 설정할 수 없습니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -279,7 +279,7 @@ QueueMessage[] queue.ReceiveMessages();
 
 **QueueServiceClient** 는 암호화 옵션을 적용 하는 데 필요 하지 않습니다. **QueueClientOptions** 개체를 허용 하는 **QueueClient** 생성자에 전달 될 수도 있습니다.
 
-원하는 **QueueClient** 개체가 이미 존재 하지만 클라이언트 쪽 암호화 옵션이 없으면 지정 된 **clientside 옵션**을 사용 하 여 해당 개체의 복사본을 만드는 확장 메서드가 있습니다. 이 확장 메서드는 새 **QueueClient** 개체를 처음부터 생성 하는 오버 헤드를 방지 합니다.
+원하는 **QueueClient** 개체가 이미 존재 하지만 클라이언트 쪽 암호화 옵션이 없으면 지정 된 **clientside 옵션** 을 사용 하 여 해당 개체의 복사본을 만드는 확장 메서드가 있습니다. 이 확장 메서드는 새 **QueueClient** 개체를 처음부터 생성 하는 오버 헤드를 방지 합니다.
 
 ```csharp
 using Azure.Storage.Queues.Specialized;
@@ -292,7 +292,7 @@ ClientSideEncryptionOptions encryptionOptions;
 QueueClient clientSideEncryptionQueue = plaintextQueue.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-일부 사용자에 게는 수신 된 모든 메시지의 암호가 해독 되 고 키 또는 확인자를 throw 해야 하는 큐가 있을 수 있습니다. 위의 예에서는이 경우를 throw 하 고 받은 메시지는 모두 액세스할 수 없습니다. 이러한 시나리오에서 하위 클래스 **QueueClientSideEncryptionOptions** 는 클라이언트에 암호화 옵션을 제공 하는 데 사용할 수 있습니다. 하나 이상의 호출이 이벤트에 추가 된 경우 큐 메시지를 해독 하지 못할 때마다 트리거하는 이벤트 **DecryptionFailed** 를 노출 합니다. 개별적으로 실패 한 메시지는 이러한 방식으로 처리 될 수 있으며 **ReceiveMessages**에 의해 반환 되는 최종 **QueueMessage []** 에서 필터링 됩니다.
+일부 사용자에 게는 수신 된 모든 메시지의 암호가 해독 되 고 키 또는 확인자를 throw 해야 하는 큐가 있을 수 있습니다. 위의 예에서는이 경우를 throw 하 고 받은 메시지는 모두 액세스할 수 없습니다. 이러한 시나리오에서 하위 클래스 **QueueClientSideEncryptionOptions** 는 클라이언트에 암호화 옵션을 제공 하는 데 사용할 수 있습니다. 하나 이상의 호출이 이벤트에 추가 된 경우 큐 메시지를 해독 하지 못할 때마다 트리거하는 이벤트 **DecryptionFailed** 를 노출 합니다. 개별적으로 실패 한 메시지는 이러한 방식으로 처리 될 수 있으며 **ReceiveMessages** 에 의해 반환 되는 최종 **QueueMessage []** 에서 필터링 됩니다.
 
 ```csharp
 // Create your encryption options using the sub-class.
@@ -324,7 +324,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
-**QueueEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions**를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**QueueEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다( **DefaultRequestOptions** 를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -344,7 +344,7 @@ Debug.Assert(messages.Length == 4)
 ---
 
 ### <a name="table-service-encryption-v11-only"></a>Table service 암호화 (v11에만 해당)
-암호화 정책을 생성하고 요청 옵션에 설정하는 것 외에도 사용자는 **TableRequestOptions**에서 **EncryptionResolver**를 지정하거나 엔터티에 대해 [EncryptProperty] 특성을 설정해야 합니다.
+암호화 정책을 생성하고 요청 옵션에 설정하는 것 외에도 사용자는 **TableRequestOptions** 에서 **EncryptionResolver** 를 지정하거나 엔터티에 대해 [EncryptProperty] 특성을 설정해야 합니다.
 
 #### <a name="using-the-resolver"></a>확인자를 사용하여
 
@@ -383,7 +383,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 #### <a name="using-attributes"></a>특성 사용
-앞서 설명한 것처럼 엔터티가 TableEntity를 구현하는 경우 **EncryptionResolver**를 지정하는 대신 [EncryptProperty] 특성으로 속성을 데코레이트할 수 있습니다.
+앞서 설명한 것처럼 엔터티가 TableEntity를 구현하는 경우 **EncryptionResolver** 를 지정하는 대신 [EncryptProperty] 특성으로 속성을 데코레이트할 수 있습니다.
 
 ```csharp
 [EncryptProperty]
