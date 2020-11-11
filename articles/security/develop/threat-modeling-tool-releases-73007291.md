@@ -6,12 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: fc343f292fa32ed2db67dd74aba7a66dbc00d6ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e6fcd52ad9cb6c127c14bac2f33223fb921519e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317840"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516376"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00729.1-07/29/2020
 
@@ -48,7 +48,7 @@ TMT7 파일을 두 번 클릭 하 여 Threat Modeling Tool를 시작 하면이 �
 
 ## <a name="documentation-and-feedback"></a>문서 및 피드백
 
-- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)에 있으며 [도구 사용](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)에 대한 정보를 포함합니다.
+- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](./threat-modeling-tool.md)에 있으며 [도구 사용](./threat-modeling-tool-getting-started.md)에 대한 정보를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

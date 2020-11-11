@@ -6,18 +6,18 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 10/16/2019
-ms.openlocfilehash: e45d1347993611130d1bb5036ad4638210c15517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761ad45496e799a555b60480ff575b9d8f30e984
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317942"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516988"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.61015.1 - 2019/10/16
 
 TMT (Microsoft Threat Modeling Tool 버전 7.1.61015.1)는 10 월 16 2019 일에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- 향상된 접근성 기능
+- 내게 필요한 옵션 기능 향
 - 버그 수정
 - Azure Logic Apps 및 Azure 데이터 탐색기에 대 한 새 스텐실
 
@@ -60,7 +60,7 @@ System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'L
 
 ## <a name="documentation-and-feedback"></a>문서 및 피드백
 
-- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)에 있으며 [도구 사용](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)에 대한 정보를 포함합니다.
+- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](./threat-modeling-tool.md)에 있으며 [도구 사용](./threat-modeling-tool-getting-started.md)에 대한 정보를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934859"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517175"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure의 보안 개발 모범 사례
 이 문서 시리즈에서는 클라우드의 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. 주기의 각 단계에서 고려해 야 하는 Microsoft SDL(Security Development Lifecycle) 단계와 보안 질문 및 개념에 대해 설명 합니다. 목표는 수명 주기의 각 단계에서 더 안전한 응용 프로그램을 디자인, 개발 및 배포 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주기 위한 것입니다.
@@ -37,11 +37,11 @@ ms.locfileid: "68934859"
 
 나중에 개발 수명 주기에서 문제를 해결 하는 경우 더 많은 문제를 해결 하 게 됩니다. 보안 문제는 예외입니다. 소프트웨어 개발의 초기 단계에서 보안 문제를 무시 하는 경우 뒤에 나오는 각 단계는 이전 단계의 취약성을 상속할 수 있습니다. 최종 제품에는 여러 보안 문제 및 위반 가능성이 누적 됩니다. 개발 수명 주기의 각 단계에 대 한 보안 빌드를 통해 문제를 조기에 파악 하 고 개발 비용을 줄일 수 있습니다.
 
-Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 단계를 수행 하 여 수명 주기의 각 단계에서 보안 소프트웨어 개발 사례를 수행 하는 데 사용할 수 있는 활동 및 Azure 서비스를 소개 합니다.
+Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 의 단계를 수행 하 여 수명 주기의 각 단계에서 보안 소프트웨어 개발 사례를 수행 하는 데 사용할 수 있는 활동 및 Azure 서비스를 소개 합니다.
 
 SDL 단계는 다음과 같습니다.
 
-  - 교육
+  - 학습
   - 요구 사항
   - 디자인
   - 구현
@@ -63,7 +63,7 @@ SDL 단계는 다음과 같습니다.
 
 다음 리소스를 사용 하 여 보안 응용 프로그램을 개발 하 고 Azure에서 응용 프로그램을 보호 하는 방법에 대해 자세히 알아보세요.
 
-[Microsoft SDL(Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – SDL은 개발자가 보다 안전한 소프트웨어를 빌드하는 데 도움이 되는 Microsoft의 소프트웨어 개발 프로세스입니다. 개발 비용을 절감 하면서 보안 규정 준수 요구 사항을 해결 하는 데 도움이 됩니다.
+[Microsoft SDL(Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) – SDL은 개발자가 보다 안전한 소프트웨어를 빌드하는 데 도움이 되는 Microsoft의 소프트웨어 개발 프로세스입니다. 개발 비용을 절감 하면서 보안 규정 준수 요구 사항을 해결 하는 데 도움이 됩니다.
 
 [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP은 웹 응용 프로그램 보안의 필드에서 무료로 사용할 수 있는 문서, 방법론, 설명서, 도구 및 기술을 생성 하는 온라인 커뮤니티입니다.
 

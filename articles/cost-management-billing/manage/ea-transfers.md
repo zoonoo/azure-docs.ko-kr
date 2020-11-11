@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/05/2020
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371901"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411561"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise 전송
 
@@ -59,7 +60,7 @@ ms.locfileid: "91371901"
 엔터프라이즈 등록 전체를 다른 등록에 양도해 달라고 요청하면 다음 작업이 수행됩니다.
 
 - 모든 EA 부서 관리자를 포함하여 모든 Azure 서비스, 구독, 계정, 부서 및 전체 등록계약 구조가 새 대상 등록계약으로 양도됩니다.
-- 등록 상태가 _전송됨_으로 설정됩니다. 양도된 등록은 이전 사용량 보고 용도로만 사용할 수 있습니다.
+- 등록 상태가 _전송됨_ 으로 설정됩니다. 양도된 등록은 이전 사용량 보고 용도로만 사용할 수 있습니다.
 - 양도된 등록에 역할 또는 구독을 추가할 수 없습니다. 양도됨 상태에서는 등록에 사용량을 추가할 수 없습니다.
 - 이후 조건을 포함하여 계약의 남아 있는 Azure 선불 잔액은 모두 소멸됩니다.
 -    RI 구매가 양도하는 등록계약에 있는 경우 RI 구매 요금은 원본 등록계약에 그대로 유지되지만, 모든 RI 혜택은 새 등록계약에서 활용할 수 있도록 양도됩니다.
@@ -93,21 +94,25 @@ Azure 선불은 등록 간에 양도할 수 없습니다. Azure 선불 잔액은
 
 계정이나 등록계약을 양도하는 동안 가동 중지 시간이 없습니다. 모든 필수 정보를 입력하면 요청 당일에 양도를 완료할 수 있습니다.
 
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>엔터프라이즈 구독을 종량제 구독으로 전환
+
+Enterprise 구독을 종량제를 사용하는 개별 구독으로 전환하려면 Azure Enterprise Portal에서 새 지원 요청을 작성해야 합니다. 지원 요청을 작성하려면 **도움말 및 지원** 영역에서 **+ 새 지원 요청** 을 선택합니다.
+
 ## <a name="change-account-owner"></a>계정 소유자 변경
 
-Azure EA Portal에서는 한 계정 소유자에서 다른 계정 소유자로 구독을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-get-started.md#change-account-owner)을 참조하세요.
+Azure EA Portal에서는 한 계정 소유자에서 다른 계정 소유자로 구독을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-administration.md#change-account-owner)을 참조하세요.
 
 ## <a name="subscription-transfer-effects"></a>구독 양도 효과
 
 Azure 구독이 동일한 Azure Active Directory 테넌트의 계정으로 양도되는 경우 리소스를 관리하기 위해 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 그대로 유지됩니다.
 
-구독에 대한 Azure RBAC 액세스 권한이 있는 사용자를 보려면 다음을 수행합니다.
+구독에 대한 RBAC 액세스 권한이 있는 사용자를 보려면 다음을 수행합니다.
 
-1. Azure Portal에서 **구독**을 엽니다.
+1. Azure Portal에서 **구독** 을 엽니다.
 2. 보고 싶은 구독을 선택한 다음, **액세스 제어(IAM)** 를 선택합니다.
-3. **역할 할당**을 선택합니다. 역할 할당 페이지에는 구독에 대한 Azure RBAC 액세스 권한이 있는 모든 사용자가 나열됩니다.
+3. **역할 할당** 을 선택합니다. 역할 할당 페이지에는 구독에 대한 RBAC 액세스 권한이 있는 모든 사용자가 나열됩니다.
 
-구독이 다른 Azure AD 테넌트의 계정으로 양도되면 리소스 관리를 위한 [Azure RBAC](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 _사라집니다_. Azure RBAC 액세스 권한이 없지만 다음과 같은 보안 메커니즘을 통해 구독에 액세스할 수 있습니다.
+구독이 다른 Azure AD 테넌트의 계정으로 양도되면 리소스 관리를 위한 [RBAC](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 _사라집니다_. RBAC 액세스 권한이 없지만 다음과 같은 보안 메커니즘을 통해 구독에 액세스할 수 있습니다.
 
 - 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../../cloud-services/cloud-services-certs-create.md)를 참조하세요.
 - 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요.
@@ -116,9 +121,9 @@ Azure 구독이 동일한 Azure Active Directory 테넌트의 계정으로 양�
 수신자가 Azure 리소스에 대한 액세스를 제한해야 하는 경우 서비스와 연결된 모든 비밀을 업데이트해야 합니다. 다음 단계를 사용하여 대부분의 리소스를 업데이트할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **모든 리소스**를 선택합니다.
+2. 허브 메뉴에서 **모든 리소스** 를 선택합니다.
 3. 리소스를 선택합니다.
-4. 리소스 페이지에서 **설정**을 선택하여 기존 비밀을 확인하고 업데이트합니다.
+4. 리소스 페이지에서 **설정** 을 선택하여 기존 비밀을 확인하고 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

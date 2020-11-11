@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742840"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516740"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -38,7 +38,7 @@ ms.locfileid: "92742840"
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
-- Linux 컴퓨터에 **python 2.7** 이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
+- Linux 컴퓨터에 **python 2.7** 또는 **3** 이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
 
 - Log Analytics 에이전트를 설치 하기 전에 Linux 컴퓨터가 Azure 작업 영역에 연결 되어 있지 않아야 합니다.
 

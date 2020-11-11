@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131924"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408146"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -24,24 +24,24 @@ ms.locfileid: "92131924"
 
 청구 소유권을 유지하면서 구독 유형만 변경하려면 [Azure 구독을 다른 제안으로 전환](switch-azure-offer.md)을 참조하세요. 구독의 리소스에 액세스할 수 있는 사용자를 제어하려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-get-started.md#change-account-owner)을 참조하세요.
+EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-administration.md#change-account-owner)을 참조하세요.
 
 계정의 대금 청구 관리자만 구독의 소유권을 양도할 수 있습니다.
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Azure 구독의 청구 소유권 양도
 
 1. 양도하려는 구독이 있는 청구 계정의 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 자신이 관리자인지 여부를 잘 모르는 경우 또는 누가 관리자인지 확인해야 하는 경우 [계정의 대금 청구 관리자 확인](../understand/subscription-transfer.md#whoisaa)을 참조하세요.
-1. **Cost Management + 청구**를 검색합니다.  
+1. **Cost Management + 청구** 를 검색합니다.  
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
-1. 왼쪽 창에서 **구독**을 선택합니다. 액세스 권한에 따라 청구 범위를 선택하고 **구독** 또는 **Azure 구독**을 선택해야 할 수도 있습니다.
-1. 양도하려는 구독의 **청구 소유권 양도**를 선택합니다.  
+1. 왼쪽 창에서 **구독** 을 선택합니다. 액세스 권한에 따라 청구 범위를 선택하고 **구독** 또는 **Azure 구독** 을 선택해야 할 수도 있습니다.
+1. 양도하려는 구독의 **청구 소유권 양도** 를 선택합니다.  
    ![양도할 구독 선택](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 1. 구독의 새 소유자가 될 계정의 청구 관리자인 사용자의 이메일 주소를 입력합니다.
 1. 구독을 다른 Azure AD 테넌트의 계정으로 양도하는 경우 구독을 새 계정의 테넌트로 이전할지 여부를 선택합니다. 자세한 내용은 [다른 Azure AD 테넌트의 계정으로 구독 양도](#transfer-a-subscription-to-another-azure-ad-tenant-account)를 참조하세요.
     > [!IMPORTANT]
     > 구독을 새 계정의 Azure AD 테넌트로 이동하기로 선택하면 구독의 리소스에 액세스하기 위한 모든 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)이 영구적으로 제거됩니다. 양도 요청을 수락하는 새 계정의 사용자에게만 구독의 리소스를 관리할 수 있는 권한이 제공됩니다. 또는 구독을 새 계정의 테넌트로 양도하지 않고도 **구독 Azure AD 테넌트** 옵션의 선택을 취소하여 청구 소유권을 양도할 수 있습니다. 이렇게 하면 Azure 리소스에 액세스하기 위한 기존 Azure 역할 할당이 유지됩니다.  
     ![양도 요청 보내기 페이지](./media/billing-subscription-transfer/billing-send-transfer-request.png)
-1. **이전 요청 보내기**를 선택합니다.
+1. **이전 요청 보내기** 를 선택합니다.
 1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
    ![받는 사람에게 전송된 구독 양도 이메일](./media/billing-subscription-transfer/billing-receiver-email.png)
 1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다. 그런 다음, 사용자는 구독 요금을 결제하는 데 사용할 결제 방법을 선택합니다. 사용자는 Azure 계정이 없는 경우 새 계정에 가입해야 합니다.  

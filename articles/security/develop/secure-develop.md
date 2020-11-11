@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283489"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517090"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
-이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
+이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
@@ -34,11 +34,11 @@ ms.locfileid: "87283489"
 
 ### <a name="perform-code-reviews"></a>코드 검토 수행
 
-코드를 체크 인하기 전에, [코드 검토](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs)를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
+코드를 체크 인하기 전에, [코드 검토](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs)를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
 
 ### <a name="perform-static-code-analysis"></a>정적 코드 분석 수행
 
-[정적 코드 분석](https://owasp.org/www-community/controls/Static_Code_Analysis)(*소스 코드 분석*이라고도 함)은 일반적으로 코드 검토의 일부로 수행됩니다. 정적 코드 분석은 일반적으로 정적 코드 분석 도구를 실행하고 [오류 검사](https://en.wikipedia.org/wiki/Taint_checking) 및 [데이터 흐름 분석](https://en.wikipedia.org/wiki/Data-flow_analysis) 같은 기술을 사용하여 비-실행 코드의 잠재적 취약성을 찾는 것을 의미합니다.
+[정적 코드 분석](https://owasp.org/www-community/controls/Static_Code_Analysis)( *소스 코드 분석* 이라고도 함)은 일반적으로 코드 검토의 일부로 수행됩니다. 정적 코드 분석은 일반적으로 정적 코드 분석 도구를 실행하고 [오류 검사](https://en.wikipedia.org/wiki/Taint_checking) 및 [데이터 흐름 분석](https://en.wikipedia.org/wiki/Data-flow_analysis) 같은 기술을 사용하여 비-실행 코드의 잠재적 취약성을 찾는 것을 의미합니다.
 
 Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지원하는 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review)를 제공합니다.
 
@@ -62,9 +62,9 @@ Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지�
 
 ### <a name="verify-your-applications-outputs"></a>애플리케이션의 출력 확인
 
-시각적으로 또는 문서 내에서 표시하는 모든 출력은 항상 인코딩 및 이스케이프되어야 합니다. *출력 인코딩*이라고도 하는 [이스케이프](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29)는 신뢰할 수 없는 데이터가 삽입 공격의 수단으로 사용되지 않도록 하는 데 사용됩니다. 이스케이프를 데이터 유효성 검사와 함께 사용하면 계층형 방어를 통해 시스템 보안을 전체적으로 강화할 수 있습니다.
+시각적으로 또는 문서 내에서 표시하는 모든 출력은 항상 인코딩 및 이스케이프되어야 합니다. *출력 인코딩* 이라고도 하는 [이스케이프](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29)는 신뢰할 수 없는 데이터가 삽입 공격의 수단으로 사용되지 않도록 하는 데 사용됩니다. 이스케이프를 데이터 유효성 검사와 함께 사용하면 계층형 방어를 통해 시스템 보안을 전체적으로 강화할 수 있습니다.
 
-이스케이프를 사용하면 모든 항목이 *출력*으로 표시됩니다. 또한 이스케이프를 통해 실행용 데이터가 아니라는 것을 인터프리터에 알릴 수 있으며, 이렇게 하면 공격이 작동하지 못하게 차단됩니다. 이것을 *XSS(사이트 간 스크립팅*)라고 하며 또 다른 형태의 일반적인 공격 기술입니다.
+이스케이프를 사용하면 모든 항목이 *출력* 으로 표시됩니다. 또한 이스케이프를 통해 실행용 데이터가 아니라는 것을 인터프리터에 알릴 수 있으며, 이렇게 하면 공격이 작동하지 못하게 차단됩니다. 이것을 *XSS(사이트 간 스크립팅* )라고 하며 또 다른 형태의 일반적인 공격 기술입니다.
 
 타사 웹 프레임워크를 사용하는 경우 [OWASP XSS 방지 참고 자료](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md)를 사용하여 웹 사이트에서 출력 인코딩에 대한 옵션을 확인할 수 있습니다.
 
@@ -99,7 +99,7 @@ ID 프레임워크를 사용하여 암호 정책을 만들고 적용할 수 있�
 
 애플리케이션에서 [파일 업로드](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)를 허용하는 경우 이 위험한 작업에 대해 수행할 수 있는 예방 조치를 생각해야 합니다. 많은 공격의 첫 번째 단계는 공격을 받는 시스템에 악성 코드를 심는 것입니다. 파일 업로드를 사용하면 공격자가 이 첫 번째 단계를 달성하도록 도와주는 꼴입니다. OWASP는 파일의 유효성을 검사하여 업로드하는 파일을 안전하게 보호하는 솔루션을 제공합니다.
 
-맬웨어 방지 보호 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 됩니다. [Microsoft Antimalware](../fundamentals/antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
+맬웨어 방지 보호 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 됩니다. [Microsoft Antimalware](../fundamentals/antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
 [Microsoft Antimalware](../fundamentals/antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/security-center-partner-integration.md)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 

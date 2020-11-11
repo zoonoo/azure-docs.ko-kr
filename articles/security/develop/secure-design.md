@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364051"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517158"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
-이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
+이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
@@ -38,12 +38,12 @@ ms.locfileid: "92364051"
 
   - [Azure 개발자를 위한 시작 가이드](../../guides/developer/azure-developer-guide.md) 에서는 개발 요구 사항에 따라 azure 플랫폼을 사용 하 여 시작 하려는 개발자를 위한 필수 정보를 제공 합니다.
 
-  - [Sdk 및 도구](https://docs.microsoft.com/azure/index?pivot=sdkstools) 는 Azure에서 사용할 수 있는 도구에 대해 설명 합니다.
+  - [Sdk 및 도구](../../index.yml?pivot=sdkstools) 는 Azure에서 사용할 수 있는 도구에 대해 설명 합니다.
 
-  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) 는 개발 공동 작업 도구를 제공 합니다. 이러한 도구에는 고성능 파이프라인, 무료 Git 리포지토리, 구성 가능한 간판 보드, 광범위 한 자동화 된 클라우드 기반 부하 테스트가 포함 됩니다.
-    [Devops 리소스 센터](https://docs.microsoft.com/azure/devops/learn/) 는 devops 사례, Git 버전 제어, agile 방법, Microsoft에서 devops를 사용 하는 방법 및 사용자 고유의 devops 진행을 평가 하는 방법을 학습 하기 위한 리소스를 결합 합니다.
+  - [Azure DevOps Services](/azure/devops/) 는 개발 공동 작업 도구를 제공 합니다. 이러한 도구에는 고성능 파이프라인, 무료 Git 리포지토리, 구성 가능한 간판 보드, 광범위 한 자동화 된 클라우드 기반 부하 테스트가 포함 됩니다.
+    [Devops 리소스 센터](/azure/devops/learn/) 는 devops 사례, Git 버전 제어, agile 방법, Microsoft에서 devops를 사용 하는 방법 및 사용자 고유의 devops 진행을 평가 하는 방법을 학습 하기 위한 리소스를 결합 합니다.
 
-  - [프로덕션으로 푸시 하기 전에 고려해 야 할 상위 5 개 보안 항목](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) 은 Azure에서 웹 응용 프로그램을 보호 하 고 가장 일반적이 고 위험한 웹 응용 프로그램 공격 으로부터 앱을 보호 하는 방법을 보여 줍니다.
+  - [프로덕션으로 푸시 하기 전에 고려해 야 할 상위 5 개 보안 항목](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) 은 Azure에서 웹 응용 프로그램을 보호 하 고 가장 일반적이 고 위험한 웹 응용 프로그램 공격 으로부터 앱을 보호 하는 방법을 보여 줍니다.
 
   - [Secure Devops Kit For azure](https://azsk.azurewebsites.net/index.html) 는 광범위 한 자동화를 사용 하는 devops 팀의 포괄적인 Azure 구독 및 리소스 보안 요구를 맞춘 하는 스크립트, 도구, 확장 및 자동화 모음입니다. Azure 용 보안 DevOps 키트는 보안을 기본 DevOps 워크플로에 원활 하 게 통합 하는 방법을 보여 줄 수 있습니다. 키트는 SVTs (보안 확인 테스트)와 같은 도구를 처리 합니다 .이 도구를 통해 개발자는 보안 코드를 작성 하 고 코딩 및 초기 개발 단계에서 클라우드 응용 프로그램의 보안 구성을 테스트할 수 있습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "92364051"
 
   - 응용 프로그램에 중요 한 데이터가 포함 되어 있나요?
 
-  - 내 응용 프로그램은 [연방 금융 기관 조사 Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) 또는 [지불 카드 업계의 PCI DSS (데이터 보안 표준)](../blueprints/pcidss-analytics-overview.md)와 같은 업계 표준 및 규정 준수 프로그램을 준수 하도록 요구 하는 데이터를 수집 하거나 저장 합니까?
+  - 내 응용 프로그램은 [연방 금융 기관 조사 Council (FFIEC)](/previous-versions/azure/security/blueprints/ffiec-analytics-overview) 또는 [지불 카드 업계의 PCI DSS (데이터 보안 표준)](/previous-versions/azure/security/blueprints/pcidss-analytics-overview)와 같은 업계 표준 및 규정 준수 프로그램을 준수 하도록 요구 하는 데이터를 수집 하거나 저장 합니까?
 
   - 내 응용 프로그램은 자체 또는 다른 정보와 함께 사용 될 수 있는 중요 한 개인 또는 고객 데이터를 수집 하거나 포함 하 여 단일 사용자를 식별 하거나 연락 하거나 찾을 수 있나요?
 
@@ -89,7 +89,7 @@ OWASP 상위 10 개는 웹 응용 프로그램에 대 한 중요 한 보안 위�
 이러한 보안 위험을 인식 하면 응용 프로그램에서 이러한 위험을 최소화 하는 요구 사항 및 디자인 결정을 내리는 데 도움이 됩니다.
 
 보안 제어를 고려 하 여 위반을 방지 하는 것이 중요 합니다.
-그러나 위반이 발생 하 [는 것으로 간주할](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) 수도 있습니다. 보안 위험을 통해 사전에 발생 하는 보안에 대 한 몇 가지 중요 한 질문에 답변 하는 데 도움이 될 것으로 가정 합니다.
+그러나 위반이 발생 하 [는 것으로 간주할](/azure/devops/learn/devops-at-microsoft/security-in-devops) 수도 있습니다. 보안 위험을 통해 사전에 발생 하는 보안에 대 한 몇 가지 중요 한 질문에 답변 하는 데 도움이 될 것으로 가정 합니다.
 
   - 공격을 어떻게 검색 하나요?
 
@@ -126,7 +126,7 @@ OWASP 상위 10 개는 웹 응용 프로그램에 대 한 중요 한 보안 위�
 최신 버전의 프레임 워크와 프레임 워크에서 사용할 수 있는 모든 보안 기능을 사용 하 고 있는지를 알고 있어야 합니다. Microsoft는 모든 개발자가 모든 플랫폼 또는 언어를 사용 하 여 클라우드 응용 프로그램을 제공 하는 포괄적인 [개발 도구 집합](https://azure.microsoft.com/product-categories/developer-tools/) 을 제공 합니다. 다양 한 [sdk](https://azure.microsoft.com/downloads/)중에서 선택 하 여 원하는 언어로 코딩할 수 있습니다.
 모든 기능을 갖춘 Ide (통합 개발 환경) 및 고급 디버깅 기능 및 기본 제공 Azure 지원이 있는 편집기를 활용할 수 있습니다.
 
-Microsoft는 Azure에서 응용 프로그램을 개발 하는 데 사용할 수 있는 다양 한 [언어, 프레임 워크 및 도구](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) 를 제공 합니다. 예제는 [.net 및 .Net Core 개발자를 위한 Azure](https://docs.microsoft.com/dotnet/azure/)입니다. 제공 하는 각 언어와 프레임 워크에 대해 빠른 시작, 자습서 및 API 참조를 통해 빠르게 시작할 수 있습니다.
+Microsoft는 Azure에서 응용 프로그램을 개발 하는 데 사용할 수 있는 다양 한 [언어, 프레임 워크 및 도구](../../index.yml?panel=sdkstools-all&pivot=sdkstools) 를 제공 합니다. 예제는 [.net 및 .Net Core 개발자를 위한 Azure](/dotnet/azure/)입니다. 제공 하는 각 언어와 프레임 워크에 대해 빠른 시작, 자습서 및 API 참조를 통해 빠르게 시작할 수 있습니다.
 
 Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사용할 수 있는 다양 한 서비스를 제공 합니다. 이러한 서비스를 사용 하면 .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
 Web Apps ( [Azure App Service Web Apps](../../app-service/overview.md) )은 이러한 서비스 중 하나입니다.
@@ -153,9 +153,9 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 
 | 위협 | 보안 속성 | 잠재적 Azure 플랫폼 완화 |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 스푸핑               | 인증        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
-| 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates)합니다. |
-| 부인            | 부인 방지       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
+| 스푸핑               | 인증        | [HTTPS 연결이 필요](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1)합니다. |
+| 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](../../key-vault/general/about-keys-secrets-certificates.md)합니다. |
+| 부인            | 부인 방지       | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
 | 서비스 거부      | 사용 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
 | 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
@@ -209,7 +209,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 사용자 지정 코드 대신 플랫폼에서 제공하는 인증 및 권한 부여 메커니즘을 사용합니다. 이는 사용자 지정 인증 코드를 개발 하는 데 오류가 발생할 수 있기 때문입니다. 상업적 코드 (예: Microsoft)는 광범위 하 게 보안을 검토 하는 경우가 많습니다. [Azure AD(Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md)는 ID 및 액세스 관리를 위한 Azure 솔루션입니다. 이러한 Azure AD 도구 및 서비스는 보안 개발에 도움이 됩니다.
 
-- [Microsoft id 플랫폼](/azure/active-directory/develop/) 은 개발자가 사용자를 안전 하 게 로그인 하는 앱을 빌드하는 데 사용 하는 구성 요소 집합입니다. 플랫폼은 다중 테 넌 트 앱을 개발 하려고 하는 단일 테 넌 트, LOB (기간 업무) 앱 및 개발자를 빌드하는 개발자를 지원 합니다. 기본 로그인 외에도 Microsoft id 플랫폼을 사용 하 여 빌드한 앱은 Microsoft Api 및 사용자 지정 Api를 호출할 수 있습니다. Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜을 지원 합니다.
+- [Microsoft id 플랫폼](../../active-directory/develop/index.yml) 은 개발자가 사용자를 안전 하 게 로그인 하는 앱을 빌드하는 데 사용 하는 구성 요소 집합입니다. 플랫폼은 다중 테 넌 트 앱을 개발 하려고 하는 단일 테 넌 트, LOB (기간 업무) 앱 및 개발자를 빌드하는 개발자를 지원 합니다. 기본 로그인 외에도 Microsoft id 플랫폼을 사용 하 여 빌드한 앱은 Microsoft Api 및 사용자 지정 Api를 호출할 수 있습니다. Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜을 지원 합니다.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) 는 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리 하는 방법을 사용자 지정 하 고 제어 하는 데 사용할 수 있는 id 관리 서비스입니다. 여기에는 iOS, Android 및 .NET 용으로 개발 된 응용 프로그램이 포함 됩니다. Azure AD B2C는 고객 id를 보호 하면서 이러한 작업을 수행할 수 있도록 합니다.
 
@@ -219,7 +219,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 소프트웨어 개발자에 게 도메인 관리자 권한이 필요 한가요? 관리 도우미가 개인용 컴퓨터의 관리 제어에 액세스 해야 하나요? 소프트웨어에 대 한 액세스를 평가 하는 것은 다릅니다. [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 사용 하 여 응용 프로그램에서 사용자에 게 다른 기능 및 권한을 제공 하는 경우 모든 사용자에 게 모든 액세스 권한을 부여 하는 것은 아닙니다. 각 역할에 필요한 항목에 대 한 액세스를 제한 하 여 보안 문제가 발생 하는 위험을 제한할 수 있습니다.
 
-응용 프로그램에서 액세스 패턴에 [최소한의 권한을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) 적용 하는지 확인 합니다.
+응용 프로그램에서 액세스 패턴에 [최소한의 권한을](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) 적용 하는지 확인 합니다.
 
 > [!NOTE]
 > 최소 권한 규칙은 소프트웨어 및 소프트웨어를 만드는 사용자에 게 적용 해야 합니다. 소프트웨어 개발자는 너무 많은 액세스 권한을 제공 하는 경우 IT 보안에 큰 위험을 초래할 수 있습니다. 개발자가 악의적인 의도를가지고 있거나 너무 많은 액세스 권한을 제공 하는 경우 결과가 심각한 영향을 받을 수 있습니다. 개발 수명 주기 동안 개발자에 게 최소 권한 규칙을 적용 하는 것이 좋습니다.
@@ -233,7 +233,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 ### <a name="require-re-authentication-for-important-transactions"></a>중요 한 트랜잭션에 대 한 재인증 필요
 
-[사이트 간 요청 위조](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) ( *XSRF* 또는 *csrf*라고도 함)는 악의적인 웹 앱이 클라이언트 브라우저와 해당 브라우저를 신뢰 하는 웹 앱 간의 상호 작용에 영향을 주는 웹 호스팅 앱에 대 한 공격입니다. 웹 브라우저에서 웹 사이트에 대 한 모든 요청과 함께 일부 형식의 인증 토큰을 자동으로 보내기 때문에 사이트 간 요청 위조 공격을 수행할 수 있습니다.
+[사이트 간 요청 위조](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) ( *XSRF* 또는 *csrf* 라고도 함)는 악의적인 웹 앱이 클라이언트 브라우저와 해당 브라우저를 신뢰 하는 웹 앱 간의 상호 작용에 영향을 주는 웹 호스팅 앱에 대 한 공격입니다. 웹 브라우저에서 웹 사이트에 대 한 모든 요청과 함께 일부 형식의 인증 토큰을 자동으로 보내기 때문에 사이트 간 요청 위조 공격을 수행할 수 있습니다.
 이러한 형태의 악용은 공격이 사용자의 이전에 인증 된 세션을 활용 하기 때문에 *한 번 클릭 공격* 또는 *세션 riding* 라고도 합니다.
 
 이러한 종류의 공격 으로부터 보호 하는 가장 좋은 방법은 구매, 계정 비활성화 또는 암호 변경과 같은 중요 한 모든 트랜잭션 전에 사용자가 제공할 수 있는 항목을 사용자에 게 요청 하는 것입니다. 사용자에 게 암호를 다시 입력 하거나, captcha를 완료 하거나, 사용자 에게만 있는 비밀 토큰을 제출 하도록 요청할 수 있습니다. 가장 일반적인 방법은 비밀 토큰입니다.
@@ -244,9 +244,9 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 키 관리 솔루션에는 항상 키, 인증서, 암호 및 연결 문자열을 입력 합니다. 키와 비밀이 Hsm (하드웨어 보안 모듈)에 저장 되는 중앙 집중화 된 솔루션을 사용할 수 있습니다. Azure는 [Azure Key Vault](../../key-vault/general/overview.md)를 사용 하 여 클라우드에서 HSM을 제공 합니다.
 
-*비밀 저장소*Key Vault입니다. 응용 프로그램 암호를 저장 하는 중앙 집중식 클라우드 서비스입니다. Key Vault는 응용 프로그램 비밀을 단일 중앙 위치에 보관 하 고 보안 액세스, 권한 제어 및 액세스 로깅을 제공 하 여 기밀 데이터를 안전 하 게 유지 합니다.
+*비밀 저장소* Key Vault입니다. 응용 프로그램 암호를 저장 하는 중앙 집중식 클라우드 서비스입니다. Key Vault는 응용 프로그램 비밀을 단일 중앙 위치에 보관 하 고 보안 액세스, 권한 제어 및 액세스 로깅을 제공 하 여 기밀 데이터를 안전 하 게 유지 합니다.
 
-비밀은 개별 *자격 증명 모음*에 저장 됩니다. 각 자격 증명 모음에는 액세스를 제어 하는 자체 구성 및 보안 정책이 있습니다. REST API 또는 대부분의 프로그래밍 언어에 사용할 수 있는 클라이언트 SDK를 통해 데이터에 액세스할 수 있습니다.
+비밀은 개별 *자격 증명 모음* 에 저장 됩니다. 각 자격 증명 모음에는 액세스를 제어 하는 자체 구성 및 보안 정책이 있습니다. REST API 또는 대부분의 프로그래밍 언어에 사용할 수 있는 클라이언트 SDK를 통해 데이터에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Key Vault은 서버 응용 프로그램에 대 한 구성 암호를 저장 하도록 설계 되었습니다. 앱 사용자에 게 속한 데이터를 저장 하기 위한 것이 아닙니다. 이는 성능 특성, API 및 비용 모델에 반영됩니다.
@@ -277,21 +277,21 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 기본적으로 개발 프로젝트의 모든 항목은 배포 시 공용 지식이 있는 것으로 가정 합니다. 프로젝트에 모든 종류의 중요 한 데이터를 포함 하지 않도록 합니다.
 
-이전에는 [Azure Key Vault](../../key-vault/general/overview.md)에 대해 설명 했습니다. Key Vault를 사용 하 여 키 및 암호와 같은 암호를 하드 코딩 하는 대신 저장할 수 있습니다. Azure 리소스에 대 한 관리 되는 id와 함께 Key Vault를 사용 하는 경우 Azure 웹 앱은 원본 제어 또는 구성에 비밀을 저장 하지 않고도 안전 하 고 안전 하 게 암호 구성 값에 액세스할 수 있습니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 서버 앱에서 비밀 관리](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)를 참조 하세요.
+이전에는 [Azure Key Vault](../../key-vault/general/overview.md)에 대해 설명 했습니다. Key Vault를 사용 하 여 키 및 암호와 같은 암호를 하드 코딩 하는 대신 저장할 수 있습니다. Azure 리소스에 대 한 관리 되는 id와 함께 Key Vault를 사용 하는 경우 Azure 웹 앱은 원본 제어 또는 구성에 비밀을 저장 하지 않고도 안전 하 고 안전 하 게 암호 구성 값에 액세스할 수 있습니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 서버 앱에서 비밀 관리](/learn/modules/manage-secrets-with-azure-key-vault/)를 참조 하세요.
 
 ### <a name="implement-fail-safe-measures"></a>유사 시 대기 조치 구현
 
-응용 프로그램은 실행 중에 발생 하는 [오류](https://docs.microsoft.com/dotnet/standard/exceptions/) 를 일관 된 방식으로 처리할 수 있어야 합니다. 응용 프로그램은 모든 오류를 catch 하 고 안전 하거나 종결 되지 않아야 합니다.
+응용 프로그램은 실행 중에 발생 하는 [오류](/dotnet/standard/exceptions/) 를 일관 된 방식으로 처리할 수 있어야 합니다. 응용 프로그램은 모든 오류를 catch 하 고 안전 하거나 종결 되지 않아야 합니다.
 
 또한 의심 스러운 또는 악의적인 활동을 식별 하기 위해 충분 한 사용자 컨텍스트로 오류가 기록 되었는지 확인 해야 합니다. 로그는 지연 된 법정 분석을 허용 하기에 충분 한 시간 동안 보존 되어야 합니다. 로그는 로그 관리 솔루션에서 쉽게 사용할 수 있는 형식 이어야 합니다. 보안과 관련 된 오류에 대 한 경고가 트리거되는 지 확인 합니다. 로깅 및 모니터링 부족으로 인해 공격자가 시스템을 추가로 공격 하 고 지 속성을 유지할 수 있습니다.
 
 ### <a name="take-advantage-of-error-and-exception-handling"></a>오류 및 예외 처리를 활용 합니다.
 
-올바른 오류 및 [예외 처리](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) 를 구현 하는 것은 방어 코딩의 중요 한 부분입니다. 시스템을 안정적이 고 안전 하 게 만들려면 오류 및 예외 처리를 수행 하는 것이 중요 합니다. 오류 처리의 실수는 공격자에 게 정보 누출 및 사용자의 플랫폼과 디자인에 대해 더 잘 이해 하는 데 도움이 되는 다양 한 종류의 보안 취약성으로 이어질 수 있습니다.
+올바른 오류 및 [예외 처리](/dotnet/standard/exceptions/best-practices-for-exceptions) 를 구현 하는 것은 방어 코딩의 중요 한 부분입니다. 시스템을 안정적이 고 안전 하 게 만들려면 오류 및 예외 처리를 수행 하는 것이 중요 합니다. 오류 처리의 실수는 공격자에 게 정보 누출 및 사용자의 플랫폼과 디자인에 대해 더 잘 이해 하는 데 도움이 되는 다양 한 종류의 보안 취약성으로 이어질 수 있습니다.
 
 다음 사항을 확인합니다.
 
-- 코드에서 중복 된 [try/catch 블록](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) 을 방지 하기 위해 중앙 집중식으로 예외를 처리 합니다.
+- 코드에서 중복 된 [try/catch 블록](/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) 을 방지 하기 위해 중앙 집중식으로 예외를 처리 합니다.
 
 - 모든 예기치 않은 동작은 응용 프로그램 내에서 처리 됩니다.
 
@@ -303,7 +303,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 ### <a name="use-logging-and-alerting"></a>로깅 및 경고 사용
 
-보안 조사에 대 한 보안 문제를 [기록](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) 하 고 사용자가 적시에 문제를 알 수 있도록 문제에 대 한 경고를 트리거합니다. 모든 구성 요소에 감사 및 로깅을 사용하도록 설정합니다. 감사 로그는 사용자 컨텍스트를 캡처하고 모든 중요 이벤트를 식별 합니다.
+보안 조사에 대 한 보안 문제를 [기록](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) 하 고 사용자가 적시에 문제를 알 수 있도록 문제에 대 한 경고를 트리거합니다. 모든 구성 요소에 감사 및 로깅을 사용하도록 설정합니다. 감사 로그는 사용자 컨텍스트를 캡처하고 모든 중요 이벤트를 식별 합니다.
 
 사용자가 사이트에 제출 하는 중요 한 데이터를 기록 하지 않았는지 확인 합니다. 중요한 데이터의 예는 다음과 같습니다.
 

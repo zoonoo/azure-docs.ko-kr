@@ -8,27 +8,26 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5073cd33d9dada666324e92f3418b2548d9af374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98782f02c871f676ec3506d0bad45cd8cce079a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502565"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516529"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
 Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 방법 가이드를 완료하려면 다음이 필요합니다.
+- [Azure Database for MariaDB 서버와 데이터베이스가](quickstart-create-mariadb-server-database-using-azure-cli.md)필요 합니다.
 
-- [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-> [!IMPORTANT]
-> 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 방법 가이드에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="set-backup-configuration"></a>백업 구성 설정
 
@@ -70,9 +69,9 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 `az mariadb server restore` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 제안 값 | Description  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
+| resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
 | name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 복원할 특정 시점을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2018-03-13T05:59:00-08:00`과 같이 현지 표준 시간대를 사용할 수 있습니다. UTC Zulu 형식을 사용할 수도 있습니다(예: `2018-03-13T13:59:00Z`). |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
@@ -101,7 +100,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
 
-이 명령은 *myresourcegroup*에 속하는 미국 동부에 *mydemoserver-georestored*라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버가 *mydemoserver*의 지역 중복 백업에서 생성되며 이는 리소스 그룹 *myresourcegroup*에도 있습니다.
+이 명령은 *myresourcegroup* 에 속하는 미국 동부에 *mydemoserver-georestored* 라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버가 *mydemoserver* 의 지역 중복 백업에서 생성되며 이는 리소스 그룹 *myresourcegroup* 에도 있습니다.
 
 기존 서버에서 다른 리소스 그룹에 새 서버를 만들려는 경우 `--source-server` 매개 변수에서 다음 예제에서와 같이 서버 이름을 한정합니다.
 
@@ -112,7 +111,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 `az mariadb server georestore` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 제안 값 | Description  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 새 서버가 속하게 되는 리소스 그룹의 이름입니다.|
 |name | mydemoserver-georestored | 새 서버의 이름입니다. |

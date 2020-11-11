@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744214"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515713"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
@@ -29,7 +29,7 @@ ms.locfileid: "92744214"
 
 - 로그 전달자 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
-- 로그 전달자 컴퓨터에 **python 2.7** 이 설치 되어 있어야 합니다.<br>
+- 로그 전달자 컴퓨터에 **python 2.7** 또는 **3** 이 설치 되어 있어야 합니다.<br>
 명령을 사용 `python –version` 하 여 확인 합니다.
 
 - 이 프로세스의 어느 시점에서 작업 영역 ID 및 작업 영역 기본 키가 필요할 수 있습니다. 작업 영역 리소스의 **에이전트 관리** 에서 찾을 수 있습니다.

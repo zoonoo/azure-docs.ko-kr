@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1b8b95ea318dd7a82d9512908838209bc5cc2995
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131635"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349106"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure Cache for Redis는 [Redis](https://redis.io/) 소프트웨어를 기반으로 하는 메모리 내 데이터 저장소를 제공합니다. Redis는 백 엔드 데이터 저장소에서 많이 사용하는 애플리케이션의 성능과 확장성을 개선합니다. 자주 액세스하는 데이터를 빠르게 쓰고 읽을 수 있는 서버 메모리에 보관하여 대량의 애플리케이션 요청을 처리할 수 있습니다. Redis는 최신 애플리케이션에 매우 짧은 대기 시간 및 높은 처리량의 데이터 스토리지 솔루션을 제공합니다.
@@ -35,9 +35,6 @@ Azure Cache for Redis는 일반적인 애플리케이션 아키텍처 패턴을 
 
 Azure Cache for Redis는 OSS Redis 버전 4.x를 지원하고, 미리 보기로 6.0을 지원합니다. 최신 버전을 제공하기 위해 Redis 5.0을 건너뛰기로 결정했습니다. 이전에는 Azure Cache for Redis가 단일 Redis 버전만 유지 관리했습니다. 최신 주 릴리스 업그레이드와 안정적인 이전 버전이 하나 이상 제공됩니다. 애플리케이션에 가장 적합한 [버전을 선택](cache-how-to-version.md)할 수 있습니다.
 
-> [!NOTE]
-> Redis 6.0은 현재 미리 보기로 제공되고 있습니다. 관심이 있으시면 [문의](mailto:azurecache@microsoft.com)하세요. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="service-tiers"></a>서비스 계층
 Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.

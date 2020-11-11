@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 654924d25a567ed6c63405d27444eb6ff96d480d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c46bb2233fe38380dd5ba19804791c7c9f3da91
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603648"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517345"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Azure virtual network에서 IPv4 응용 프로그램에 IPv6 추가-Azure CLI
 
 이 문서에서는 Azure CLI를 사용 하 여 표준 Load Balancer에 대 한 Azure 가상 네트워크에서 IPv4 공용 IP 주소를 사용 하는 응용 프로그램에 IPv6 주소를 추가 하는 방법을 보여 줍니다. 현재 위치의 업그레이드에는 가상 네트워크 및 서브넷, IPv4 + IPV6 프런트 엔드 구성을 사용 하는 표준 Load Balancer, IPv4 + IPv6 구성, 네트워크 보안 그룹 및 공용 Ip가 있는 Nic가 있는 Vm이 포함 됩니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.28 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서에서는 [빠른 시작: 표준 Load Balancer Azure CLI 만들기](../load-balancer/quickstart-load-balancer-standard-public-cli.md)에 설명 된 대로 표준 Load Balancer를 배포 했다고 가정 합니다.
+- 이 문서에서는 [빠른 시작: 표준 Load Balancer Azure CLI 만들기](../load-balancer/quickstart-load-balancer-standard-public-cli.md)에 설명 된 대로 표준 Load Balancer를 배포 했다고 가정 합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-ipv6-addresses"></a>IPv6 주소 만들기
 
@@ -141,8 +141,8 @@ az network nic ip-config create \
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
 
 다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
-1. 포털의 검색 창에서 *Myvnet*을 입력 합니다.
-2. 검색 결과에 **Myvnet** 이 표시 되 면 선택 합니다. 그러면 *Myvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Mysubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 세 개의 nic를 표시 합니다.
+1. 포털의 검색 창에서 *Myvnet* 을 입력 합니다.
+2. 검색 결과에 **Myvnet** 이 표시 되 면 선택 합니다. 그러면 *Myvnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Mysubnet* 이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 세 개의 nic를 표시 합니다.
 
   ![Azure의 IPv6 이중 스택 가상 네트워크](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 

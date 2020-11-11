@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913027"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515730"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
 
 Microsoft Threat Modeling Tool 2018은 2018년 9월에 무료 **[다운로드하여 클릭](https://aka.ms/threatmodelingtool)** 형태로 GA 버전으로 릴리스되었습니다. 전달 메커니즘의 변경을 통해 고객이 도구를 열 때마다 고객에게 최신 기능 향상 및 버그 수정을 푸시하여 유지 관리 및 사용이 쉽도록 할 수 있습니다.
 이 문서는 Microsoft SDL 위협 모델링 접근 방식을 시작하는 과정을 안내하고 도구를 사용하여 보안 프로세스의 핵심으로 위협 모델을 개발하는 방법을 보여 줍니다.
 
-이 문서는 SDL 위협 모델링 접근 방식의 기존 지식을 기반으로 합니다. 빠른 검토는 **[위협 모델링 웹 애플리케이션](https://msdn.microsoft.com/library/ms978516.aspx)** 및 2006년에 게시된 보관된 **[STRIDE 접근 방식을 사용하여 보안 결함 파악](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** 버전의 MSDN 문서를 참조하세요.
+이 문서는 SDL 위협 모델링 접근 방식의 기존 지식을 기반으로 합니다. 빠른 검토는 **[위협 모델링 웹 애플리케이션](/previous-versions/msp-n-p/ff648006(v=pandp.10))** 및 2006년에 게시된 보관된 **[STRIDE 접근 방식을 사용하여 보안 결함 파악](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** 버전의 MSDN 문서를 참조하세요.
 
 신속하게 요약하기 위해 접근 방식은 다이어그램 만들기, 위협 식별, 완화 및 각 완화의 유효성 검사를 포함합니다. 이 프로세스를 강조 표시하는 다이어그램은 다음과 같습니다.
 

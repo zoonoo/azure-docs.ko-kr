@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 462242b001da5a5a6d2eba8e4bd06315c0b263a6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 35ed275419cc4319e7edfed608340853c986a927
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491858"
+ms.locfileid: "94515628"
 ---
 # <a name="azure-monitor-logs-overview"></a>Azure Monitor 로그 개요
-Azure Monitor 로그는 모니터링 되는 [리소스](../monitor-reference.md)에서 로그 및 성능 데이터를 수집 하 고 구성 하는 Azure Monitor의 기능입니다. Azure 서비스의 [플랫폼 로그](platform-logs-overview.md) , [virtual machines 에이전트](agents-overview.md)의 로그 및 성능 데이터, [응용 프로그램](../app/app-insights-overview.md) 의 사용 현황 및 성능 데이터 등 다양 한 원본에서 데이터를 단일 작업 영역으로 통합 하 여 수백만 개의 레코드를 신속 하 게 분석할 수 있는 정교한 쿼리 언어를 사용 하 여 함께 분석할 수 있습니다. 특정 레코드 집합을 검색 하거나 정교한 데이터 분석을 수행 하 여 모니터링 데이터에서 중요 한 패턴을 식별 하는 간단한 쿼리를 수행할 수 있습니다. Log Analytics를 사용 하 여 로그 쿼리 및 해당 결과를 대화형으로 작업 하 고, 경고 규칙에서 사용 하 여 사전에 문제에 대 한 알림을 수행 하거나, 통합 문서 또는 대시보드에서 결과를 시각화할 수 있습니다.
+Azure Monitor 로그는 모니터링 되는 [리소스](../monitor-reference.md)에서 로그 및 성능 데이터를 수집 하 고 구성 하는 Azure Monitor의 기능입니다. Azure 서비스의 [플랫폼 로그](platform-logs-overview.md) , [virtual machines 에이전트](agents-overview.md)의 로그 및 성능 데이터, [응용 프로그램](../app/app-insights-overview.md) 의 사용 현황 및 성능 데이터와 같은 여러 원본의 데이터를 단일 작업 영역으로 통합 하 여 수백만 개의 레코드를 신속 하 게 분석할 수 있는 정교한 쿼리 언어를 사용 하 여 함께 분석할 수 있습니다. 특정 레코드 집합을 검색 하거나 정교한 데이터 분석을 수행 하 여 모니터링 데이터에서 중요 한 패턴을 식별 하는 간단한 쿼리를 수행할 수 있습니다. Log Analytics를 사용 하 여 로그 쿼리 및 해당 결과를 대화형으로 작업 하 고, 경고 규칙에서 사용 하 여 사전에 문제에 대 한 알림을 수행 하거나, 통합 문서 또는 대시보드에서 결과를 시각화할 수 있습니다.
 
 > [!NOTE]
 > Azure Monitor 로그는 Azure Monitor를 지 원하는 데이터 플랫폼 중 절반입니다. 다른는 시계열 데이터베이스에 숫자 데이터를 저장 하는 [Azure Monitor 메트릭입니다](data-platform-metrics.md) . 이렇게 하면이 데이터를 Azure Monitor 로그의 데이터 보다 더 간단 하 게 만들고, 거의 실시간 시나리오를 지원 하 여 문제를 경고 하 고 신속 하 게 검색 하는 데 유용 하 게 사용할 수 있습니다. 그러나 메트릭은 특정 구조에 숫자 데이터만 저장할 수 있는 반면, 로그는 고유 구조를 사용 하 여 다양 한 데이터 형식을 저장할 수 있습니다. 또한 메트릭 데이터의 분석에 사용할 수 없는 로그 쿼리를 사용 하 여 로그 데이터에 대 한 복잡 한 분석을 수행할 수 있습니다.

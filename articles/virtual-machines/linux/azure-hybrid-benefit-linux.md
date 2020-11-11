@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443435"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516444"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>공개 미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
 
@@ -53,10 +53,12 @@ Azure 하이브리드 혜택 (Linux의 경우)은 (는) 현재 공개 미리 보
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
-1.    [Red Hat 클라우드 액세스 프로그램](https://aka.ms/rhel-cloud-access) 에 등록
-1.    클라우드 액세스를 위해 Azure 구독을 사용 하도록 설정 하 고 혜택을 사용 하려는 Vm이 포함 된 구독을 사용 하도록 설정 합니다.
-1.    Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
-1.    별도의 업데이트 원본으로 혜택을 받을 수 있도록 Vm 등록
+RHEL에 대 한 Azure 하이브리드 혜택은 Azure에서 사용 하기에 적합 한 활성/사용 하지 않는 RHEL 구독을 사용 하 고 Azure에서 [Red Hat 클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용 하 여 해당 구독을 하나 이상 사용 하도록 설정한 고객에 게 제공 됩니다. 
+
+1.  [Red Hat Cloud Access customer 인터페이스](https://access.redhat.com/management/cloud)를 사용 하 여 Azure에서 사용 하기에 적합 한 RHEL 구독을 하나 이상 사용 하도록 설정 합니다.
+1.  Red Hat Cloud Access 사용 프로세스 중에 제공한 Azure 구독은 Azure 하이브리드 혜택 기능을 사용 하도록 허용 됩니다.
+1.  기존 RHEL PAYG Vm 및 Azure Marketplace PAYG 이미지에서 배포 하는 모든 새 RHEL Vm에 Azure 하이브리드 혜택을 적용 합니다.
+1.  RHEL Vm에 대 한 업데이트 원본을 구성 하는 데 권장 되는 [다음 단계](https://access.redhat.com/articles/5419341) 와 RHEL 구독 준수 지침을 따릅니다.
 
 
 ### <a name="suse-customers"></a>SUSE 고객
@@ -124,7 +126,19 @@ VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licen
 
 ### <a name="red-hat"></a>Red Hat
 
-RHEL Vm에 대 한 Azure 하이브리드 혜택를 사용 하려면 먼저 Red Hat 클라우드 액세스 프로그램에 등록 해야 합니다. 여기서는 Red Hat Cloud Access 사이트를 통해이 작업을 수행할 수 있습니다. VM에서 혜택을 사용 하도록 설정한 후에는 Red Hat Subscription Manager 또는 Red Hat 위성을 사용 하 여 사용자 고유의 업데이트 원본으로 VM을 등록 해야 합니다. 업데이트를 등록 하면 지원 되는 상태로 유지 됩니다.
+RHEL에 대 한 Azure 하이브리드 혜택를 사용 하는 고객은 Azure Marketplace [RHEL 제품과 관련 된 표준 약관 및](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) [개인 정보 취급 방침](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) 에 동의 합니다.
+
+RHEL에 대해 Azure 하이브리드 혜택를 사용 하는 고객에 게는 해당 Vm에 소프트웨어 업데이트 및 패치를 제공 하는 세 가지 옵션이 있습니다.
+
+1.  [RHUI (Red Hat 업데이트 인프라](../workloads/redhat/redhat-rhui.md) ) (기본 옵션)
+1.  Red Hat 위성 서버
+1.  Red Hat 구독 관리자
+
+RHUI 옵션을 선택 하는 고객은 RHEL 구독을 해당 Vm에 연결 하지 않고도 RHUI를 AHB RHEL Vm에 대 한 주 업데이트 원본으로 계속 사용할 수 있습니다.  RHUI 옵션을 선택 하는 고객은 RHEL 구독 준수를 보장 해야 합니다.
+
+Red Hat 위성 서버 또는 Red Hat Subscription Manager를 선택 하는 고객은 RHUI 구성을 제거한 후 해당 AHB RHEL VM에 Cloud Access enabled RHEL 구독을 연결 해야 합니다.  
+
+Red Hat 구독 준수, 소프트웨어 업데이트 및 AHB RHEL Vm에 대 한 원본에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/5419341)에서 찾을 수 있습니다.
 
 ### <a name="suse"></a>SUSE
 
@@ -142,7 +156,7 @@ A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 �
 ## <a name="common-issues"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| 오류 | 완화 방법 |
+| Error | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
 

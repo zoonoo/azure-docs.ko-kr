@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 11/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0950c92b5a7bb1e782537aa46acad2e949e565c7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441796"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515509"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업
 
@@ -32,9 +32,9 @@ OneDrive/SharePoint Online에는 별도 초대 관리자가 있습니다. OneDri
 
 - Azure AD B2B 협업의 초대된 사용자는 OneDrive/SharePoint Online 공유 대화 상자에서 선택할 수 있습니다. OneDrive/SharePoint Online의 초대된 사용자는 초대를 상환한 후 Azure AD에도 표시됩니다.
 
-- 라이선싱 요구 사항이 다릅니다. 각 유료 Azure AD 라이선스의 경우 최대 5명의 게스트 사용자가 유료 Azure AD 기능에 액세스할 수 있도록 할 수 있습니다. 라이선스에 대해 자세히 알아보려면 [Azure AD B2B 라이선스](./external-identities-pricing.md) 및 [SharePoint Online 외부 공유 개요의 “외부 사용자란?”](/sharepoint/external-sharing-overview#what-happens-when-users-share)을 참조하세요.
+- 라이선싱 요구 사항이 다릅니다. 라이선스에 대해 자세히 알아보려면 [Azure AD B2B 라이선스](./external-identities-pricing.md) 및 [SharePoint Online 외부 공유 개요의 “외부 사용자란?”](/sharepoint/external-sharing-overview#what-happens-when-users-share)을 참조하세요.
 
-Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 관리하려면 OneDrive/SharePoint Online 외부 공유 설정을 **조직의 디렉터리에 이미 있는 외부 사용자와의 공유만 허용**으로 설정합니다. 사용자는 외부에서 공유되는 사이트로 이동하여 관리자가 추가한 외부 공동 관리자 중에서 선택할 수 있습니다. 관리자는 B2B 협업 초대 API를 통해 외부 협업자를 추가할 수 있습니다.
+Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 관리하려면 OneDrive/SharePoint Online 외부 공유 설정을 **조직의 디렉터리에 이미 있는 외부 사용자와의 공유만 허용** 으로 설정합니다. 사용자는 외부에서 공유되는 사이트로 이동하여 관리자가 추가한 외부 공동 관리자 중에서 선택할 수 있습니다. 관리자는 B2B 협업 초대 API를 통해 외부 협업자를 추가할 수 있습니다.
 
 
 ![OneDrive/SharePoint 외부 공유 설정](media/o365-external-user/odsp-sharing-setting.png)
