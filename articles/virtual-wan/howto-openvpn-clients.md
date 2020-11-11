@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3e9674916ea9bb5e756a5e57ff18517f53ca7497
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 05502b344b1224dff5d12f95b96b05baace98970
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427561"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491004"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Azure 가상 WAN에 대 한 OpenVPN 클라이언트 구성
 
-이 문서는 **Openvpn &reg; 프로토콜** 클라이언트를 구성 하는 데 도움이 됩니다. Windows 10 용 Azure VPN 클라이언트를 사용 하 여 OpenVPN 프로토콜을 통해 연결할 수도 있습니다. 
+이 문서는 **Openvpn &reg; 프로토콜** 클라이언트를 구성 하는 데 도움이 됩니다. Windows 10 용 Azure VPN 클라이언트를 사용 하 여 OpenVPN 프로토콜을 통해 연결할 수도 있습니다. 자세한 지침은 여기를 참조 [하세요](openvpn-azure-ad-client.md) .
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

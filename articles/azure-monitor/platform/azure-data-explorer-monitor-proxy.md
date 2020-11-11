@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050079"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491259"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 데이터 쿼리
 Azure 데이터 탐색기 프록시 클러스터를 사용 하면 Azure Monitor에서 Azure 데이터 탐색기, Log Analytics 작업 영역 및 클래식 Application Insights 응용 프로그램 간에 제품 간 쿼리를 수행할 수 있습니다. Azure Monitor 또는 클래식 Application Insights 앱의 Log Analytics 작업 영역을 프록시 클러스터로 매핑할 수 있습니다. 그런 다음 Azure 데이터 탐색기 도구를 사용 하 여 프록시 클러스터를 쿼리하고 클러스터 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 프록시 클러스터에 연결 하 고, Azure 데이터 탐색기 웹 UI에 프록시 클러스터를 추가 하 고, Azure 데이터 탐색기에서 Log Analytics 작업 영역 또는 클래식 Application Insights 앱에 대해 쿼리를 실행 하는 방법을 보여 줍니다.
@@ -28,7 +28,7 @@ Azure 데이터 탐색기 프록시 클러스터를 사용 하면 Azure Monitor�
 ## <a name="connect-to-the-proxy"></a>프록시에 연결
 Log Analytics 작업 영역 또는 클래식 Application Insights 앱에 연결 하려면[Azure 데이터 탐색기 웹 UI](https://dataexplorer.azure.com/clusters)를 엽니다. Log Analytics 또는 Application Insights 클러스터에 연결 하기 전에 Azure 데이터 탐색기 기본 클러스터 (예: *help* cluster)가 왼쪽 메뉴에 나타나는지 확인 합니다.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure 데이터 탐색기 native cluster.":::
 
 **클러스터 추가** 를 클릭 한 다음 Log Analytics 또는 Application Insights 클러스터의 URL을 다음 형식 중 하나로 추가 합니다. 
     
@@ -37,14 +37,14 @@ Log Analytics 작업 영역 또는 클래식 Application Insights 앱에 연결 
 
 **추가** 를 클릭 하 여 연결을 설정 합니다.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="클러스터를 추가 합니다.":::
  
 > [!NOTE]
 > 둘 이상의 프록시 클러스터에 연결을 추가 하는 경우 각각 다른 이름을 지정 합니다. 그렇지 않으면 모두 왼쪽 창에 같은 이름을 갖게 됩니다.
 
 연결이 설정 되 면 기본 Azure 데이터 탐색기 클러스터와 함께 Log Analytics 또는 Application Insights 클러스터가 왼쪽 창에 표시 됩니다. 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics 및 Azure 데이터 탐색기 클러스터":::
  
 > [!NOTE]
 > 매핑될 수 있는 Azure Monitor 작업 영역 수는 100 개로 제한 됩니다.
@@ -70,7 +70,7 @@ Log Analytics 또는 Application Insights 클러스터에 대해 쿼리를 실�
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="쿼리 Log Analytics 작업 영역입니다.":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Log Analytics 또는 Application Insights 프록시 클러스터와 Azure 데이터 탐색기 네이티브 클러스터의 크로스 쿼리
 
@@ -85,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Union 대신 [ `join` 연산자](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)를 사용 하는 경우에는 프록시가 아닌 Azure 데이터 탐색기 네이티브 클러스터에서 실행 하는 [힌트가](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) 필요할 수 있습니다. 
+Union 대신 [ `join` 연산자](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)를 사용 하는 경우에는 프록시가 아닌 Azure 데이터 탐색기 네이티브 클러스터에서 실행 하는 [힌트가](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) 필요할 수 있습니다. 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>다른 테 넌 트의 Azure 데이터 탐색기 클러스터에서 다른 Azure Monitor 리소스를 사용 하 여 데이터 조인
 
@@ -113,7 +113,7 @@ Azure 데이터 탐색기 프록시 클러스터는 Log Analytics 및 Applicatio
 
 다음 이미지는 Azure 데이터 탐색기 웹 UI에서 테이블 형식 함수를 쿼리 하는 예를 보여 줍니다. 함수를 사용 하려면 쿼리 창에서 이름을 실행 합니다.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Azure 데이터 탐색기 프록시 흐름입니다.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Azure 데이터 탐색기 웹 UI에서 테이블 형식 함수를 쿼리 합니다.":::
  
 > [!NOTE]
 > Azure Monitor는 매개 변수를 지원 하지 않는 테이블 형식 함수만 지원 합니다.
@@ -124,7 +124,7 @@ Log Analytics 또는 Application Insights 클러스터를 호출 하는 경우 �
 
 |구문 설명  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 (**클러스터 간 쿼리에 권장**) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 ( **클러스터 간 쿼리에 권장** ) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | 이 구독의 모든 앱/작업 영역을 포함 하는 클러스터입니다.    |     cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |구독의 모든 앱/작업 영역을 포함 하 고이 리소스 그룹의 구성원 인 클러스터    |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |이 구독에 정의 된 리소스를 포함 하는 클러스터      |    cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |

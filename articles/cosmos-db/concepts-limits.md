@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319818"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491820"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ ms.locfileid: "93319818"
 
 Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 400RU/s 이상이어야 합니다. 컨테이너가 확장될 때 다음 요소에 따라 지원되는 최소 처리량도 달라집니다.
 
-* 지금까지 컨테이너에 프로비저닝된 최대 처리량. 예를 들어 처리량을 50,000RU/s로 늘린 경우 프로비저닝되었을 가능성이 있는 최소 처리량은 500RU/s입니다.
-* 컨테이너의 현재 스토리지(GB). 예를 들어 컨테이너의 스토리지가 100GB인 경우 프로비저닝되었을 가능성이 있는 최소 처리량은 1000RU/s입니다.
-* 공유 처리량 데이터베이스의 최소 처리량 역시 공유 처리량 데이터베이스에서 만든 컨테이너의 총 수에 따라 다르며, 컨테이너당 100RU/s로 측정됩니다. 예를 들어 공유 처리량 데이터베이스 내에 5개의 컨테이너를 만든 경우 처리량은 500RU/s 이상이어야 합니다.
+* 지금까지 컨테이너에 프로비저닝된 최대 처리량. 예를 들어 처리량이 5만 r u/초로 증가 한 경우 프로 비전 된 가장 낮은 처리량은 500 r u/초입니다.
+* 컨테이너의 현재 스토리지(GB). 예를 들어 컨테이너의 저장소가 100 GB 인 경우 프로 비전 된 가장 낮은 처리량은 1000 r u/초입니다. **참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정에 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)을 사용할 수 있습니다.
+* 공유 처리량 데이터베이스의 최소 처리량 역시 공유 처리량 데이터베이스에서 만든 컨테이너의 총 수에 따라 다르며, 컨테이너당 100RU/s로 측정됩니다. 예를 들어 공유 처리량 데이터베이스 내에 5 개의 컨테이너를 만든 경우 처리량은 500 r u/초 이상 이어야 합니다.
 
 컨테이너 또는 데이터베이스의 현재 및 최소 처리량은 Azure Portal 또는 SDK에서 검색할 수 있습니다. 자세한 내용은 [컨테이너 및 데이터베이스의 처리량 프로비저닝](set-throughput.md)을 참조하세요. 
 

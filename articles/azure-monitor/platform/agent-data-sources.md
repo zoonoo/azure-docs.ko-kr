@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460804"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490579"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Azure Monitor에서 에이전트 데이터 원본 Log Analytics
 [Log Analytics](log-analytics-agent.md) 에이전트를 사용 하 여 가상 머신에서 Azure Monitor 수집 하는 데이터는 [Log Analytics 작업 영역](data-platform-logs.md)에서 구성 하는 데이터 원본에 의해 정의 됩니다.   각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -20,6 +20,9 @@ ms.locfileid: "92460804"
 > 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 에 대 한 데이터 원본을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![로그 데이터 수집](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> 이 문서에서 설명 하는 데이터 원본은 Log Analytics 에이전트를 실행 하는 가상 컴퓨터에만 적용 됩니다. 
 
 ## <a name="summary-of-data-sources"></a>데이터 원본 요약
 다음 표에서는 현재 Log Analytics 에이전트에서 사용할 수 있는 에이전트 데이터 원본을 보여 줍니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   수집 방법 및 빈도에 대한 정보도 제공합니다. 
@@ -37,7 +40,7 @@ ms.locfileid: "92460804"
 
 
 ## <a name="configuring-data-sources"></a>데이터 원본 구성
-Log Analytics 에이전트에 대 한 데이터 원본을 구성 하려면 Azure Portal의 **Log Analytics 작업 영역** 메뉴로 이동 하 여 작업 영역을 선택 합니다. **고급 설정** 및 **데이터**를 차례로 클릭 합니다. 구성 하려는 데이터 원본을 선택 합니다. 위의 표에 있는 링크를 따라 각 데이터 원본에 대 한 설명서와 구성에 대 한 세부 정보를 볼 수 있습니다.
+Log Analytics 에이전트에 대 한 데이터 원본을 구성 하려면 Azure Portal의 **Log Analytics 작업 영역** 메뉴로 이동 하 여 작업 영역을 선택 합니다. **고급 설정** 및 **데이터** 를 차례로 클릭 합니다. 구성 하려는 데이터 원본을 선택 합니다. 위의 표에 있는 링크를 따라 각 데이터 원본에 대 한 설명서와 구성에 대 한 세부 정보를 볼 수 있습니다.
 
 모든 구성은 해당 작업 영역에 연결 된 모든 에이전트로 배달 됩니다.  이 구성에서는 연결 된 에이전트를 제외할 수 없습니다.
 

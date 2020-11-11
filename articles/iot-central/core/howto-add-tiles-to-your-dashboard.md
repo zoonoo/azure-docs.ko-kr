@@ -1,18 +1,17 @@
 ---
-title: Azure IoT Central 대시보드에 타일 추가 | Microsoft Docs
+title: Azure IoT Central 대시보드로 구성 | Microsoft Docs
 description: 작성기로 타일을 사용 하 여 기본 Azure IoT Central 응용 프로그램 대시보드를 구성 하는 방법을 알아봅니다.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376995"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492001"
 ---
 # <a name="configure-the-application-dashboard"></a>애플리케이션 대시보드 구성
 
@@ -29,29 +28,32 @@ ms.locfileid: "94376995"
 
 **편집** 또는 **새로 만들기** 를 선택 하면 대시보드가 *편집* 모드에 있습니다. 대시보드 **편집** 패널의 도구를 사용 하 여 타일을 대시보드에 추가 하 고 대시보드 자체에서 타일을 사용자 지정 및 제거할 수 있습니다. 예를 들어 **원격 분석** 타일을 추가 하 여 하나 이상의 장치에서 보고 하는 현재 온도를 표시 하려면 다음을 수행 합니다.
 
-1. **대시보드 편집** 패널에서 **장치 그룹** 을 선택 합니다.
-1. **장치** 드롭다운에서 타일에 표시할 하나 이상의 장치를 선택 합니다. 이제 장치에서 사용 가능한 원격 분석, 속성 및 명령이 표시 됩니다.
-1. 원격 분석 섹션에서 **온도** 를 선택 하 고 **타일 추가** 를 선택 합니다. 이제 타일은 시각화를 변경 하 고, 타일의 크기를 조정 하 고, 구성할 수 있는 대시보드에서 표시 됩니다.
+1. **장치 그룹** 을 선택 하 고 장치 드롭다운에서 타일에 표시할 장치를 **선택 합니다.** 이제 장치에서 사용 가능한 원격 분석, 속성 및 명령이 표시 됩니다.
+
+1. 필요한 경우 드롭다운을 사용 하 여 타일에 표시할 원격 분석 값을 선택 합니다. **+ 원격 분석** , **+ 속성** 또는 **+ 클라우드 속성** 을 선택 하 여 다른 타일에 더 많은 항목을 추가할 수 있습니다.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="대시보드에 온도 원격 분석 타일 추가":::
 
-대시보드에서 타일을 추가 하 고 사용자 지정 하는 작업이 완료 되 면 **저장** 을 선택 합니다.
+타일에 표시할 값을 모두 선택 했으면 **타일 추가를 클릭 합니다.** 이제 타일은 시각화를 변경 하 고, 크기를 조정 하 고, 이동 하 고, 구성할 수 있는 대시보드에 표시 됩니다.
+
+대시보드에서 타일 추가 및 사용자 지정을 완료 한 후에는 **저장** 을 선택 하 여 변경 내용을 대시보드에 저장 합니다. 그러면 편집 모드에서 제외 됩니다.
 
 ## <a name="customize-tiles"></a>타일 사용자 지정
 
-대시보드의 타일을 사용자 지정 하려면 대시보드가 편집 모드에 있어야 합니다. 사용할 수 있는 사용자 지정 옵션은 [타일 유형에](#tile-types)따라 달라 집니다.
+타일을 편집 하려면 편집 모드 여야 합니다.  사용할 수 있는 사용자 지정 옵션은 [타일 유형에](#tile-types)따라 달라 집니다.
 
-* 타일의 눈금자 아이콘을 사용 하 여 시각화를 변경할 수 있습니다. 시각화는 꺾은선형 차트, 마지막으로 알려진 값 및 열 지도를 포함 합니다.
+* 타일의 눈금자 아이콘을 사용 하 여 시각화를 변경할 수 있습니다. 시각화에는 꺾은선형 차트, 가로 막대형 차트, 원형 차트, 마지막으로 알려진 값, Kpi (핵심 성과 지표), 열 지도 및 지도가 포함 됩니다.
 
 * 사각형 아이콘을 사용 하 여 타일의 크기를 조정할 수 있습니다.
 
 * 기어 아이콘을 사용 하 여 시각화를 구성할 수 있습니다. 예를 들어 꺾은선형 차트를 시각화 하는 경우 범례와 축을 표시 하도록 선택 하 고 그릴 시간 범위를 선택할 수 있습니다.
 
+
 ## <a name="tile-types"></a>타일 유형
 
 다음 표에서는 대시보드에 추가할 수 있는 다양 한 유형의 타일에 대해 설명 합니다.
 
-| Tile             | Description |
+| Tile             | 설명 |
 | ---------------- | ----------- |
 | Markdown         | Markdown 타일은 Markdown를 사용 하 여 서식이 지정 된 제목 및 설명 텍스트를 표시 하는 클릭할 수 있는 타일입니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
 | 이미지            | 이미지 타일은 사용자 지정 이미지를 표시하며 클릭할 수 있습니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
@@ -91,11 +93,16 @@ ms.locfileid: "94376995"
 
 조건부 서식 지정 규칙을 추가 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="평균 흐름에 대 한 조건부 서식 규칙을 보여 주는 스크린샷 Tha 20 개의 규칙 (20 개는 녹색, 50은 노란색, 50 보다는 빨강)이 있습니다.":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="평균 흐름에 대 한 조건부 서식 규칙을 보여 주는 스크린샷 20 개 미만의 규칙 (20 개 미만)은 녹색, 50은 노란색, 50은 빨강입니다.":::
+   
 다음 스크린샷은 조건부 서식 지정 규칙의 효과를 보여 줍니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="평균 급수 흐름 타일의 노랑 배경색을 보여 주는 스크린샷 타일의 번호는 40.84입니다.":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="평균 워터 마크 흐름 타일의 빨간색 배경색을 보여 주는 스크린샷 타일의 번호는 50.54입니다.":::
+
+### <a name="tile-formatting"></a>"타일" 서식 지정
+KPI, LKV 및 속성 타일에서 사용할 수 있는이 기능을 통해 사용자는 글꼴 크기를 조정 하거나, 10 진수 전체 자릿수를 선택 하거나, 숫자 값의 약어를 지정 하거나 (예: 1700을 1.7 K 형식으로), 타일에서 문자열 값을 래핑할 수 있습니다.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="타일 형식":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029464"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491633"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -82,11 +82,11 @@ Azure Portal의 가상 머신 메뉴에 있는 **인사이트** 옵션에서 VM�
 ### <a name="configure-log-analytics-workspace"></a>Log Analytics 작업 영역 구성
 VM용 Azure Monitor에서 사용하는 Log Analytics 에이전트는 [Log Analytics 작업 영역](../platform/data-platform-logs.md)으로 데이터를 보냅니다. Log Analytics 작업 영역을 구성하여 에이전트에서 추가 성능 데이터, 이벤트 및 기타 모니터링 데이터의 수집을 사용하도록 설정할 수 있습니다. 작업 영역에 연결하는 에이전트가 자동으로 구성을 다운로드하고 정의된 데이터 수집을 즉시 시작하므로 한 번만 구성하면 됩니다. 
 
-**시작**에서 **작업 영역 구성**을 선택하여 VM용 Azure Monitor에서 직접 작업 영역에 대한 구성에 액세스할 수 있습니다. 작업 영역 이름을 클릭하여 해당 메뉴를 엽니다.
+**시작** 에서 **작업 영역 구성** 을 선택하여 VM용 Azure Monitor에서 직접 작업 영역에 대한 구성에 액세스할 수 있습니다. 작업 영역 이름을 클릭하여 해당 메뉴를 엽니다.
 
 ![작업 영역 구성](media/monitor-vm-azure/workspace-configuration.png)
 
-작업 영역 메뉴에서 **고급 설정**을 선택하고 **데이터**를 선택하여 데이터 원본을 구성합니다. Windows 에이전트의 경우 **Windows 이벤트 로그**를 선택하고 *시스템* 및 *애플리케이션*과 같은 일반적인 이벤트 로그를 추가합니다. Linux 에이전트의 경우 **Syslog**를 선택하고 *커닝* 및 *디먼* 등의 일반적인 기능을 추가 합니다. 사용할 수 있는 데이터 원본의 목록과 구성 세부 사항에 대한 자세한 내용은 [Azure Monitor의 에이전트 데이터 원본](../platform/agent-data-sources.md)을 참조하세요. 
+작업 영역 메뉴에서 **고급 설정** 을 선택하고 **데이터** 를 선택하여 데이터 원본을 구성합니다. Windows 에이전트의 경우 **Windows 이벤트 로그** 를 선택하고 *시스템* 및 *애플리케이션* 과 같은 일반적인 이벤트 로그를 추가합니다. Linux 에이전트의 경우 **Syslog** 를 선택하고 *커닝* 및 *디먼* 등의 일반적인 기능을 추가 합니다. 사용할 수 있는 데이터 원본의 목록과 구성 세부 사항에 대한 자세한 내용은 [Azure Monitor의 에이전트 데이터 원본](../platform/agent-data-sources.md)을 참조하세요. 
 
 ![이벤트 구성](media/monitor-vm-azure/configure-events.png)
 
@@ -98,7 +98,7 @@ VM용 Azure Monitor에서 사용하는 Log Analytics 에이전트는 [Log Analyt
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>진단 확장 및 Telegraf 에이전트 사용
 VM용 Azure Monitor는 Log Analytics 작업 영역으로 데이터를 전송 하는 Log Analytics 에이전트를 기반으로 합니다. 이 기능은 로그 쿼리[로그 경고](../platform/alerts-log.md), [통합 문서](../platform/workbooks-overview.md) 등, [Azure Monitor의 여러 기능](../log-query/log-query-overview.md)을 지원합니다. [진단 확장](../platform/diagnostics-extension-overview.md)은 Windows 가상 머신의 게스트 운영 체제에서 Azure Storage로 성능 데이터를 수집하고, 필요에 따라 성능 데이터를 [Azure Monitor 메트릭](../platform/data-platform-metrics.md)으로 보냅니다. Linux 가상 머신의 경우 Azure 메트릭에 데이터를 전송하기 위해 [Telegraf 에이전트](../platform/collect-custom-metrics-linux-telegraf.md)가 필요합니다.  이를 통해 [메트릭 탐색기](../platform/metrics-getting-started.md) 및 [메트릭 경고](../platform/alerts-metric.md) 등의 다른 Azure Monitor 기능을 사용할 수 있습니다. Azure Event Hubs를 사용하여 Azure Monitor 외부에서 이벤트 및 성능 데이터를 보내도록 진단 확장을 구성할 수도 있습니다.
 
-VM 메뉴의 **진단 설정** 옵션에서 Azure Portal에 단일 Windows 가상 머신에 대한 진단 확장을 설치합니다. **싱크** 탭에서 **Azure Monitor**를 사용하도록 설정하는 옵션을 선택합니다. 여러 가상 머신에 대한 템플릿 또는 명령줄에서 확장을 사용하도록 설정하려면 [설치 및 구성](../platform/diagnostics-extension-overview.md#installation-and-configuration)을 참조하세요. Log Analytics 에이전트와 달리, 수집할 데이터는 각 가상 머신의 확장 구성에 정의됩니다.
+VM 메뉴의 **진단 설정** 옵션에서 Azure Portal에 단일 Windows 가상 머신에 대한 진단 확장을 설치합니다. **싱크** 탭에서 **Azure Monitor** 를 사용하도록 설정하는 옵션을 선택합니다. 여러 가상 머신에 대한 템플릿 또는 명령줄에서 확장을 사용하도록 설정하려면 [설치 및 구성](../platform/diagnostics-extension-overview.md#installation-and-configuration)을 참조하세요. Log Analytics 에이전트와 달리, 수집할 데이터는 각 가상 머신의 확장 구성에 정의됩니다.
 
 ![진단 설정](media/monitor-vm-azure/diagnostic-setting.png)
 
@@ -139,12 +139,12 @@ az monitor diagnostic-settings create \
 | 메트릭 | 범위가 현재 가상 머신으로 설정된 [메트릭 탐색기](../platform/metrics-getting-started.md)를 엽니다. |
 | 진단 설정 | 현재 가상 머신에 대한 [진단 확장](../platform/diagnostics-extension-overview.md)를 사용하도록 설정하고 구성합니다. |
 | Advisor 권장 사항 | [Azure Advisor](../../advisor/index.yml)에서 제공하는 현재 가상 머신에 대한 권장 사항입니다. |
-| 로그 | [범위](../log-query/scope.md)가 현재 가상 머신으로 설정된 [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics)를 엽니다. |
+| 로그 | [범위](../log-query/scope.md)가 현재 가상 머신으로 설정된 [Log Analytics](../log-query/log-analytics-overview.md)를 엽니다. |
 | 연결 모니터 | [Network Watcher 연결 모니터](../../network-watcher/connection-monitor-preview.md)를 열어 현재 가상 머신과 다른 가상 머신 간의 연결을 모니터링합니다. |
 
 
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
-가상 머신 메뉴에서 **메트릭**을 열어 메트릭 탐색기를 통해 가상 머신의 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 참조하세요. 
+가상 머신 메뉴에서 **메트릭** 을 열어 메트릭 탐색기를 통해 가상 머신의 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 참조하세요. 
 
 가상 머신에서 메트릭에 사용하는 세 가지 네임스페이스는 다음과 같습니다.
 
@@ -170,7 +170,7 @@ VM용 Azure Monitor에서는 *InsightsMetrics* 테이블에 기록되는 미리 
 
 
 > [!NOTE]
-> Log Analytics 에이전트에서 수집하는 성능 데이터는 *성능* 테이블에 기록되고, VM용 Azure Monitor는 *InsightsMetrics* 테이블에 수집합니다. 데이터는 동일하지만 테이블의 구조는 다릅니다. *성능*을 기준으로 하는 기존 쿼리가 있는 경우 *InsightsMetrics*를 사용하도록 다시 작성해야 합니다.
+> Log Analytics 에이전트에서 수집하는 성능 데이터는 *성능* 테이블에 기록되고, VM용 Azure Monitor는 *InsightsMetrics* 테이블에 수집합니다. 데이터는 동일하지만 테이블의 구조는 다릅니다. *성능* 을 기준으로 하는 기존 쿼리가 있는 경우 *InsightsMetrics* 를 사용하도록 다시 작성해야 합니다.
 
 
 ## <a name="alerts"></a>경고
@@ -184,7 +184,7 @@ Azure Monitor의 [경고](../platform/alerts-overview.md)는 모니터링 데이
 
 활동 로그 경고의 대상 리소스는 특정 가상 머신, 리소스 그룹의 모든 가상 머신 또는 구독의 모든 가상 머신일 수 있습니다.
 
-예를 들어, 신호 이름으로 *가상 머신 전원 끄기*를 선택하여 중요한 가상 머신이 중지되는 경우 경고를 만듭니다.
+예를 들어, 신호 이름으로 *가상 머신 전원 끄기* 를 선택하여 중요한 가상 머신이 중지되는 경우 경고를 만듭니다.
 
 ![활동 로그 경고](media/monitor-vm-azure/activity-log-alert.png)
 
@@ -194,7 +194,7 @@ Azure Monitor의 [경고](../platform/alerts-overview.md)는 모니터링 데이
 
 활동 로그 경고의 대상 리소스는 특정 가상 머신 또는 리소스 그룹의 모든 가상 머신일 수 있습니다.
 
-예를 들어, 가상 머신의 프로세서가 특정 값을 초과하는 경우 경고를 만들려면 신호 유형으로 *백분율 CPU*를 사용하여 메트릭 경고 규칙을 만듭니다. 특정 임계값을 설정하거나 Azure Monitor에서 동적 임계값을 설정하도록 허용합니다. 
+예를 들어, 가상 머신의 프로세서가 특정 값을 초과하는 경우 경고를 만들려면 신호 유형으로 *백분율 CPU* 를 사용하여 메트릭 경고 규칙을 만듭니다. 특정 임계값을 설정하거나 Azure Monitor에서 동적 임계값을 설정하도록 허용합니다. 
 
 ![메트릭 경고](media/monitor-vm-azure/metric-alert.png)
 

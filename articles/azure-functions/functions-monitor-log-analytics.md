@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208364"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491225"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
 
@@ -22,23 +22,23 @@ Azure Monitor 로그는 동일한 작업 영역에 있는 여러 리소스의 �
 Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](../azure-monitor/log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.
 
 > [!NOTE]
-> Azure Monitor 로그와의 통합은 현재 Windows 사용량, 프리미엄 및 전용 호스팅 계획에서 실행 되는 함수 앱에 대 한 공개 미리 보기로 제공 됩니다.
+> Azure Monitor 로그와의 통합은 현재 Windows 사용량, 프리미엄 및 전용 호스팅 계획에서 실행 되는 v2 및 v3 함수 앱에 대 한 공개 미리 보기로 제공 됩니다.
 
 ## <a name="setting-up"></a>설치
 
-1. [Azure Portal](https://portal.azure.com)의 함수 앱 **모니터링** 섹션에서 **진단 설정**을 선택한 다음 **진단 설정 추가**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱 **모니터링** 섹션에서 **진단 설정** 을 선택한 다음 **진단 설정 추가** 를 선택 합니다.
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="진단 설정 선택":::
 
-1. **진단 설정** 페이지의 **범주 세부 정보** 및 **로그**에서 **FunctionAppLogs**를 선택 합니다.
+1. **진단 설정** 페이지의 **범주 세부 정보** 및 **로그** 에서 **FunctionAppLogs** 를 선택 합니다.
 
    **FunctionAppLogs** 테이블은 원하는 로그를 포함 합니다.
 
-1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 하 고 **Log Analytics 작업 영역**을 선택 합니다. 
+1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 하 고 **Log Analytics 작업 영역** 을 선택 합니다. 
 
-1. **진단 설정 이름을**입력 하 고 **저장**을 선택 합니다.
+1. **진단 설정 이름을** 입력 하 고 **저장** 을 선택 합니다.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="진단 설정 선택":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="진단 설정 추가":::
 
 ## <a name="user-generated-logs"></a>사용자 생성 로그
 
@@ -81,15 +81,15 @@ logging.info('My app logs here.')
 
 생성 된 로그를 쿼리하려면:
  
-1. 함수 앱에서 **진단 설정**을 선택 합니다. 
+1. 함수 앱에서 **진단 설정** 을 선택 합니다. 
 
 1. **진단 설정** 목록에서 함수 로그를 보내도록 구성 된 Log Analytics 작업 영역을 선택 합니다. 
 
-1. **Log Analytics 작업 영역** 페이지에서 **로그**를 선택 합니다.
+1. **Log Analytics 작업 영역** 페이지에서 **로그** 를 선택 합니다.
 
-   Azure Functions은 **Logmanagement**의 **FunctionAppLogs** 테이블에 모든 로그를 기록 합니다. 
+   Azure Functions은 **Logmanagement** 의 **FunctionAppLogs** 테이블에 모든 로그를 기록 합니다. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="진단 설정 선택":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Log Analytics 작업 영역의 쿼리 창":::
 
 다음은 몇 가지 샘플 쿼리입니다.
 

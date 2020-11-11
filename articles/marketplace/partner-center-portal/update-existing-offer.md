@@ -4,16 +4,16 @@ description: 기존 상업적 marketplace 제품 또는 계획을 업데이트 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
-ms.openlocfilehash: 376852c214d503867cd938507760e963b9b75e93
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129986"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491956"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>상용 marketplace에서 기존 제품 업데이트
 
@@ -49,7 +49,7 @@ ms.locfileid: "93129986"
 이미 게시 한 제품에 대 한 계획을 변경 하려면 다음 단계를 완료 합니다.
 
 1. 기존 제품에 대 한 **제품 개요** 페이지를 열고 변경 하려는 계획을 선택 합니다. 계획 **개요** 목록에서 요금제에 액세스할 수 없는 경우 **모든 계획 보기** 를 선택 합니다.
-1. 계획 **이름** , **가격 책정 모델** 또는 **가용성** 을 선택 합니다. *현재 요금제는 영어 (미국)로만 제공 됩니다* .
+1. 계획 **이름** , **가격 책정 모델** 또는 **가용성** 을 선택 합니다. *현재 요금제는 영어 (미국)로만 제공 됩니다*.
 1. 계획 이름, 설명 또는 대상 그룹의 가용성을 변경한 후에는 **초안 저장** 을 선택 합니다.
 1. 업데이트를 게시할 준비가 되 면 **검토 및 게시** 를 선택 합니다. **[검토 및 게시](../review-publish-offer.md)** 페이지가 열리고 업데이트에 대 한 완료 상태를 제공 합니다.
 1. 게시 **를 선택 하 여 게시** 를 위해 업데이트 된 계획을 제출 합니다. 업데이트 된 제품의 미리 보기 버전을 검토 하 고 승인할 수 있는 경우 전자 메일을 보내 드리겠습니다.

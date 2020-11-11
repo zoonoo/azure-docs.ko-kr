@@ -2,19 +2,19 @@
 title: Azure 단추에 배포
 description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포 하려면 단추를 사용 합니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675398"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490902"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포
 
 이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일에 직접 단추를 추가할 수 있습니다. 또는 리포지토리를 참조 하는 웹 페이지에 단추를 추가할 수 있습니다.
 
-배포 범위는 템플릿 스키마에 의해 결정 됩니다. 자세한 내용은 다음을 참조하세요.
+배포 범위는 템플릿 스키마에 의해 결정 됩니다. 자세한 내용은 다음을 참조하십시오.
 
 * [리소스 그룹](deploy-to-resource-group.md)
 * [등에](deploy-to-subscription.md)
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 링크에 대 한 전체 URL이 있습니다.
 
+GitHub 리포지토리 대신 [Azure Repos에서 Git](/azure/devops/repos/git/) 를 사용 하는 경우 Azure에 배포 단추를 계속 사용할 수 있습니다. 리포지토리가 공용 인지 확인 합니다. [항목 작업](/rest/api/azure/devops/git/items/get) 을 사용 하 여 템플릿을 가져옵니다. 요청은 다음 형식 이어야 합니다.
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+이 요청 URL을 인코딩합니다.
+
 ## <a name="create-deploy-to-azure-button"></a>Azure에 배포 단추 만들기
 
 마지막으로 링크와 이미지를 함께 배치 합니다.
@@ -87,6 +95,12 @@ HTML의 경우 다음을 사용 합니다.
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Azure 리포지토리를 사용 하는 Git의 경우 단추는 다음과 같은 형식입니다.
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>템플릿 배포

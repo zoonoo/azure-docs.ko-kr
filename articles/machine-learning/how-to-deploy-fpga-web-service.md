@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 6ac28e430681f35d9935cf0f484529074403bf54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324970"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491701"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 ML 모델을 필드 프로그래밍 가능 게이트 배열 (FPGAs)에 배포 
 
@@ -60,7 +60,7 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전
 
 이 예제에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만듭니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
 
@@ -362,6 +362,8 @@ converted_model.delete()
 ## <a name="next-steps"></a>다음 단계
 
 + [웹 서비스](how-to-secure-web-service.md) 문서를 보호 하는 방법을 알아봅니다.
+
++ FPGA 및 [Azure Machine Learning 가격 책정 및 비용](https://azure.microsoft.com/pricing/details/machine-learning/)에 대해 알아보세요.
 
 + [하이퍼 크기 조정 하드웨어: Azure + FPGA의 맨 위에 있는 ML: 빌드 2018 (비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 

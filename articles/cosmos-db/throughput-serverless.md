@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: f6fbd963966dd1a5c433a97cb8d37ae22998be4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079342"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491191"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>프로 비전 된 처리량과 서버 리스 서버 중에서 선택 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,9 +19,6 @@ ms.locfileid: "93079342"
 Azure Cosmos DB는 [프로 비전 된 처리량](set-throughput.md) 및 [서버](serverless.md)를 사용 하지 않는 두 가지 용량 모드로 제공 됩니다. 두 모드 모두에서 정확히 동일한 데이터베이스 작업을 수행할 수 있지만 이러한 작업에 대해 비용이 청구 되는 방식은 매우 다릅니다. 다음 비디오에서는 이러한 모드와 이러한 모드의 여러 가지 작업 유형에 대 한 주요 차이점을 설명 합니다.
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
-
-> [!NOTE]
-> 서버 리스는 현재 Azure Cosmos DB 코어 (SQL) API 에서만 지원 됩니다.
 
 ## <a name="detailed-comparison"></a>자세히 비교
 

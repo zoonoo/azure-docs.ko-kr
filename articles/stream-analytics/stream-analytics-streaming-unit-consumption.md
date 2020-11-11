@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127555"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490953"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -20,10 +20,10 @@ SUs (스트리밍 단위)는 Stream Analytics 작업을 실행 하기 위해 할
 
 Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 위해 모든 처리를 메모리 안에서 수행합니다. 메모리가 부족하면 스트리밍 작업이 실패합니다. 결과적으로, 프로덕션 작업의 경우 스트리밍 작업의 리소스 사용을 모니터링하고 작업을 중단 없이 실행하기에 충분한 리소스가 할당되도록 확인해야 합니다.
 
-0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU% 사용률이 높으면 (80% 이상) 또는 입력 이벤트가 백로그 (CPU 사용량을 표시 하지 않기 때문에 SU% 사용률이 낮은 경우에도)를 사용 하는 경우 워크 로드에 더 많은 계산 리소스가 필요할 수 있으며,이 경우에는 SUs의 수를 늘려야 합니다. 경우에 따른 사용량 급증을 대비하여 SU 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)을 참조하세요.
+0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU% 사용률이 높으면 (80% 이상) 또는 입력 이벤트가 백로그 (CPU 사용량을 표시 하지 않기 때문에 SU% 사용률이 낮은 경우에도)를 사용 하는 경우 워크 로드에 더 많은 계산 리소스가 필요할 수 있으며,이 경우에는 SUs의 수를 늘려야 합니다. 가끔 급증 하는 경우를 고려 하 여 SU 메트릭을 80% 미만으로 유지 하는 것이 가장 좋습니다. 증가 하는 워크 로드에 대응 하 고 스트리밍 단위를 늘리려면 SU 사용률 메트릭에 80%의 경고를 설정 하는 것이 좋습니다. 또한 워터 마크 지연 및 백로그 이벤트 메트릭을 사용 하 여 영향이 있는지 확인할 수 있습니다.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics 스트리밍 단위(SU) 구성
-1. [Azure Portal](https://portal.azure.com/) 에 로그인
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 리소스 목록에서 확장할 Stream Analytics 작업을 찾은 후 엽니다. 
 

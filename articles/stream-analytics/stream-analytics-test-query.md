@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444965"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490970"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -101,8 +101,8 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 
 1.  시간 정책은 포털 테스트에서 지원 되지 않습니다.
 
-   * 순서가 잘못 됨: 들어오는 모든 이벤트가 정렬 됩니다.
-   * 지연 도착: Stream Analytics는 테스트용 으로만 기존 데이터를 사용할 수 있으므로 지연 도착 이벤트가 발생 하지 않습니다.
+    * 순서가 잘못 됨: 들어오는 모든 이벤트가 정렬 됩니다.
+    * 지연 도착: Stream Analytics는 테스트용 으로만 기존 데이터를 사용할 수 있으므로 지연 도착 이벤트가 발생 하지 않습니다.
    
 2.  C # UDF는 지원 되지 않습니다.
 
@@ -112,6 +112,7 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 
 5.  Machine learning은 지원 되지 않습니다.
 
+6. 샘플 데이터 API는 15 분 창에서 5 개 요청 후에 제한 됩니다. 15 분 기간이 끝난 후 더 많은 샘플 데이터 요청을 수행할 수 있습니다. 이 제한은 구독 수준에서 적용 됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421882"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491650"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -108,6 +108,8 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 만든 스냅숏 정책을 볼륨에 사용 하려면 해당 정책을 볼륨에 적용 해야 합니다. 
 
+지역 간 복제에서 대상 볼륨에 스냅숏 정책을 적용할 수 없습니다.  
+
 1.  **볼륨** 페이지로 이동 하 여 스냅숏 정책을 적용 하려는 볼륨을 마우스 오른쪽 단추로 클릭 하 고 **편집** 을 선택 합니다.
 
     ![볼륨 오른쪽 클릭 메뉴](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -172,6 +174,8 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 탑재 된 볼륨에는  `.snapshot` (NFS 클라이언트에서) 또는 `~snapshot` 클라이언트에서 액세스할 수 있는 (SMB 클라이언트) 라는 스냅숏 디렉터리가 포함 되어 있습니다. 스냅숏 디렉터리는 볼륨의 스냅숏에 해당 하는 하위 디렉터리를 포함 합니다. 각 하위 디렉터리에는 스냅숏의 파일이 포함 되어 있습니다. 실수로 파일을 삭제 하거나 덮어쓴 경우 snapshot 하위 디렉터리에서 읽기/쓰기 디렉터리로 파일을 복사 하 여 부모 읽기/쓰기 디렉터리에 파일을 복원할 수 있습니다. 
 
 볼륨을 만들 때 스냅숏 경로 숨기기 확인란을 선택한 경우 스냅숏 디렉터리는 숨겨집니다. 볼륨을 선택 하 여 볼륨의 스냅숏 경로 숨기기 상태를 볼 수 있습니다. 볼륨 페이지에서 **편집** 을 클릭 하 여 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
+
+지역 간 복제의 대상 볼륨에서 스냅숏 경로 숨기기는 기본적으로 사용 하도록 설정 되어 있으며 설정은 수정할 수 없습니다.
 
 ![볼륨 스냅숏 옵션 편집](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376641"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491446"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -19,9 +19,9 @@ ms.locfileid: "89376641"
 
 ## <a name="encoding"></a>Encoding
 
-함수에 *base64*로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64*로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
+함수에 *base64* 로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64* 로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 새 항목이 큐에 수신될 때 큐 트리거를 사용하여 함수를 시작합니다. 큐 메시지는 함수에 입력으로 제공됩니다.
 
@@ -163,7 +163,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-* _ \_ _ \_ Py* 코드는 `func.QueueMessage` 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를로 선언 합니다.
+*_\__ \_ Py* 코드는 `func.QueueMessage` 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를로 선언 합니다.
 
 ```python
 import logging
@@ -336,7 +336,7 @@ public class QueueTriggerDemo {
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 는 `paramName` `name` *function.js*의 속성에 지정 된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 는 `paramName` `name` *function.js* 의 속성에 지정 된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
 * 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다. 
 * `string`
@@ -347,7 +347,7 @@ public class QueueTriggerDemo {
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-에서 `context.bindings.<NAME>` `<NAME>` *function.js*에 정의 된 이름과 일치 하는를 통해 큐 항목 페이로드를 사용할 수 있습니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
+에서 `context.bindings.<NAME>` `<NAME>` *function.js* 에 정의 된 이름과 일치 하는를 통해 큐 항목 페이로드를 사용할 수 있습니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -363,7 +363,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|형식|설명|
+|속성|Type|설명|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
@@ -375,7 +375,7 @@ public class QueueTriggerDemo {
 
 ## <a name="poison-messages"></a>포이즌 메시지
 
-큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5 번의 시도가 모두 실패 하면 함수 런타임은 * &lt; functions 런타임은 originalqueuename>-poison>-포이즌*이라는 큐에 메시지를 추가 합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
+큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5 번의 시도가 모두 실패 하면 함수 런타임은 *&lt; functions 런타임은 originalqueuename>-poison>-포이즌* 이라는 큐에 메시지를 추가 합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
 포이즌 메시지를 수동으로 처리하려면 큐 메시지의 [dequeueCount](#message-metadata)를 확인합니다.
 
@@ -408,7 +408,7 @@ public class QueueTriggerDemo {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob storage 메시지 쓰기 (출력 바인딩)](./functions-bindings-storage-blob-output.md)
+- [큐 저장소 메시지 쓰기 (출력 바인딩)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

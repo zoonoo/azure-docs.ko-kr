@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047058"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491803"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -69,7 +69,7 @@ ms.locfileid: "89047058"
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_라는 정책 정의를 작성합니다.
+   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_ 라는 정책 정의를 작성합니다.
    사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition)을 참조하세요.
 
    위치 매개 변수 없이 호출할 경우 `New-AzPolicyDefinition`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
@@ -85,14 +85,14 @@ ms.locfileid: "89047058"
    New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
-   _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
+   _ContosoRG_ 를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
    `New-AzPolicyAssignment`의 **Scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
-   `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
+   `{rType}`은 리소스의 **리소스 종류** 로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 리소스 그룹 - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - 구독 - `/subscriptions/{subId}/`
+   - 구독 - `/subscriptions/{subId}`
    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 리소스 관리자 PowerShell 모듈을 사용 하 여 리소스 정책을 관리 하는 방법에 대 한 자세한 내용은 [Az. Resources](/powershell/module/az.resources/#policies)를 참조 하세요.
@@ -202,7 +202,7 @@ ms.locfileid: "89047058"
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
-   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_라는 정책 정의를 작성합니다.
+   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_ 라는 정책 정의를 작성합니다.
    사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create)를 참조하세요.
 
    위치 매개 변수 없이 호출할 경우 `az policy definition creation`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
@@ -216,7 +216,7 @@ ms.locfileid: "89047058"
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   `az policy assignment create`의 **scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
+   `az policy assignment create`의 **scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류** 로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 리소스 그룹 - `/subscriptions/{subID}/resourceGroups/{rgName}`

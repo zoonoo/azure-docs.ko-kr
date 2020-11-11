@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906257"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491735"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure Cosmos DB
 
@@ -34,12 +34,12 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국 21Vianet 및 A
 | 계정 ID | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. |
 | 계정 키 | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다. |
 | 데이터베이스 | Azure Cosmos DB 데이터베이스 이름입니다. |
-| 컨테이너 이름 | 사용할 컨테이너 이름이며, Cosmos DB에 있어야 합니다. 예제:  <br /><ul><li> _MyContainer_: "MyContainer"라는 컨테이너가 있어야 합니다.</li>|
+| 컨테이너 이름 | 사용할 컨테이너 이름이며, Cosmos DB에 있어야 합니다. 예제:  <br /><ul><li> _MyContainer_ : "MyContainer"라는 컨테이너가 있어야 합니다.</li>|
 | 문서 ID |(선택 사항) 삽입 또는 업데이트 작업의 기반이 되는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.
 
 ## <a name="partitioning"></a>분할
 
-파티션 키는 쿼리의 PARTITION BY 절을 기반으로 합니다. 출력 작성기의 수는 [완전히 병렬화 된 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다. Stream Analytics Cosmos DB 출력 파티션 키를 문자열로 변환 합니다. 예를 들어 값이 bigint 형식의 파티션 키가 있는 경우 문자열 형식의 "1"로 변환 됩니다.
+파티션 키는 쿼리의 PARTITION BY 절을 기반으로 합니다. 출력 작성기의 수는 [완전히 병렬화 된 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다. Stream Analytics Cosmos DB 출력 파티션 키를 문자열로 변환 합니다. 예를 들어 값이 bigint 형식의 파티션 키가 있는 경우 문자열 형식의 "1"로 변환 됩니다. 이 변환은 파티션 속성이 Cosmos DB에 기록 되었는지 여부에 관계 없이 항상 발생 합니다.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
