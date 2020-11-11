@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310693"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506433"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 
@@ -48,15 +48,15 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
 
     **Windows:**
 
-[7-Zip](https://www.7-zip.org/) 또는 [WinZip](https://www.winzip.com/)과 같은 추출 프로그램을 사용 하 여 게시 된 모든 이진 파일을 사용 하 여 bin 디렉터리에 파일을 추출 합니다.
+    [7-Zip](https://www.7-zip.org/) 또는 [WinZip](https://www.winzip.com/)과 같은 추출 프로그램을 사용 하 여 게시 된 모든 이진 파일을 사용 하 여 bin 디렉터리에 파일을 추출 합니다.
 
-     **On Linux:**
+    **Linux:**
 
-     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+    모든 게시 된 이진 파일을 사용 하 여 bash 셸 및 cd를 bin 디렉터리에 열고 다음 명령을 실행 합니다.
 
-       ```bash
-       zip -r publish.zip
-       ```
+    ```bash
+    zip -r publish.zip
+    ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>Azure Synapse Analytics Notebook의 Apache Spark용 .NET 
 
