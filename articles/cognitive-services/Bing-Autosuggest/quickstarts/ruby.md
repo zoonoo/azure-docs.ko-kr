@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: cdb4a174ee5d33270b89e34ce9b80d997486978a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bbb1009fb45f1f1040dbab1c7be7edb6603c2a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101802"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367627"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안
 
@@ -27,7 +27,7 @@ ms.locfileid: "93101802"
 이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 Ruby 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상.
 
@@ -43,7 +43,7 @@ ms.locfileid: "93101802"
     require 'json'
     ```
 
-2. API 호스트 및 경로, [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용합니다.
+2. API 호스트 및 경로, [시장 코드](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용합니다.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -159,4 +159,4 @@ ms.locfileid: "93101802"
 ## <a name="see-also"></a>참고 항목
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

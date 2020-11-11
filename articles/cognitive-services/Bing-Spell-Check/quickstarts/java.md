@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: a0a973b7981c97aaf0b13feaecd03158ab6ac284
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e74954e33be1b2d24219ca61762dd43941415306
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084020"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366981"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사
 
@@ -29,7 +29,7 @@ ms.locfileid: "93084020"
 
 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * JDK(Java Development Kit) 7 이상
 
@@ -205,4 +205,4 @@ ms.locfileid: "93084020"
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

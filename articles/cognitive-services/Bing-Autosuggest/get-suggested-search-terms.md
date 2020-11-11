@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0187a5d2be6b2f93897fc358e26ad095e5a70f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101938"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364584"
 ---
 # <a name="what-is-bing-autosuggest"></a>Bing Autosuggest란?
 
@@ -36,7 +36,7 @@ ms.locfileid: "93101938"
 
 Bing Autosuggest API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](../cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
 2. 사용자가 애플리케이션의 검색 상자에 새 문자를 입력할 때마다 이 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
@@ -52,11 +52,11 @@ Bing Autosuggest API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 첫 번째 요청을 빠르게 시작하려면 [첫 번째 쿼리 만들기](quickstarts/csharp.md)를 참조하세요.
 
-[Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조를 익숙하게 다룰 수 있도록 연습하세요. 참조에는 제안된 쿼리 용어를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수 목록과 응답 개체 정의가 포함되어 있습니다.
+[Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조를 익숙하게 다룰 수 있도록 연습하세요. 참조에는 제안된 쿼리 용어를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수 목록과 응답 개체 정의가 포함되어 있습니다.
 
-[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+[Bing Search API 허브 페이지](../bing-web-search/overview.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
 
 
-[Bing Web Search API](../bing-web-search/search-the-web.md)를 사용하여 웹을 검색하고 다른 [Bing Search API](../bing-web-search/index.yml)를 탐색하는 방법을 알아보세요.
+[Bing Web Search API](../bing-web-search/overview.md)를 사용하여 웹을 검색하고 다른 [Bing Search API](../bing-web-search/index.yml)를 탐색하는 방법을 알아보세요.
 
-검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)을 반드시 읽도록 합니다.
+검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 반드시 읽도록 합니다.

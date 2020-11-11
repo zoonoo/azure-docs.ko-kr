@@ -8,59 +8,59 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776632"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363309"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>빅 데이터용 Azure Cognitive Services
 
 ![빅 데이터용 Azure Cognitive Services](media/cognitive-services-big-data-overview.svg)
 
-빅 데이터용 Azure Cognitive Services는 사용자가 [Apache Spark&trade;](https://docs.microsoft.com/dotnet/spark/what-is-spark)를 통해 테라바이트 단위의 데이터를 위한 채널로 Cognitive Services를 사용할 수 있도록 지원합니다. 빅 데이터용 Cognitive Services를 사용하면 데이터 저장소가 있는 대규모 인텔리전트 애플리케이션을 쉽게 만들 수 있습니다.
+빅 데이터용 Azure Cognitive Services는 사용자가 [Apache Spark&trade;](/dotnet/spark/what-is-spark)를 통해 테라바이트 단위의 데이터를 위한 채널로 Cognitive Services를 사용할 수 있도록 지원합니다. 빅 데이터용 Cognitive Services를 사용하면 데이터 저장소가 있는 대규모 인텔리전트 애플리케이션을 쉽게 만들 수 있습니다.
 
 빅 데이터용 Cognitive Services를 사용하면 지속적으로 향상되는 인텔리전트 모델을 Apache Spark&trade; 및 SQL 컴퓨팅에 직접 포함할 수 있습니다. 이러한 도구를 사용하면 개발자가 낮은 수준의 네트워킹 세부 정보를 알고 있을 필요가 없으므로 스마트 분산 애플리케이션을 만드는 데 집중할 수 있습니다.
 
 ## <a name="features-and-benefits"></a>기능 및 혜택
 
-빅 데이터용 Cognitive Services는 [컨테이너화된 Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support)뿐만 아니라 전 세계 모든 지역의 서비스도 사용할 수 있습니다. 컨테이너는 대기 시간이 매우 짧은 응답을 사용하는 연결성이 낮거나 없는 배포를 지원합니다. 컨테이너화된 Cognitive Services는 Spark 클러스터의 작업자 노드 또는 외부 오케스트레이터(예: Kubernetes)에서 로컬로 직접 실행할 수 있습니다.
+빅 데이터용 Cognitive Services는 [컨테이너화된 Cognitive Services](../cognitive-services-container-support.md)뿐만 아니라 전 세계 모든 지역의 서비스도 사용할 수 있습니다. 컨테이너는 대기 시간이 매우 짧은 응답을 사용하는 연결성이 낮거나 없는 배포를 지원합니다. 컨테이너화된 Cognitive Services는 Spark 클러스터의 작업자 노드 또는 외부 오케스트레이터(예: Kubernetes)에서 로컬로 직접 실행할 수 있습니다.
 
 ## <a name="supported-services"></a>지원되는 서비스
 
-API 및 SDK를 통해 액세스되는 [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)는 개발자가 AI 또는 데이터 과학 기술을 사용하지 않고도 인텔리전트 애플리케이션을 빌드할 수 있도록 지원합니다. Cognitive Services를 사용하면 애플리케이션에서 보고, 듣고, 말하고, 인식하고, 추론할 수 있습니다. Cognitive Services를 사용하려면 애플리케이션에서 네트워크를 통해 데이터를 서비스에 보내야 합니다. 수신되면 서비스에서 인텔리전트 응답을 반환합니다. 빅 데이터 워크로드에 사용할 수 있는 서비스는 다음과 같습니다.
+API 및 SDK를 통해 액세스되는 [Cognitive Services](../index.yml)는 개발자가 AI 또는 데이터 과학 기술을 사용하지 않고도 인텔리전트 애플리케이션을 빌드할 수 있도록 지원합니다. Cognitive Services를 사용하면 애플리케이션에서 보고, 듣고, 말하고, 인식하고, 추론할 수 있습니다. Cognitive Services를 사용하려면 애플리케이션에서 네트워크를 통해 데이터를 서비스에 보내야 합니다. 수신되면 서비스에서 인텔리전트 응답을 반환합니다. 빅 데이터 워크로드에 사용할 수 있는 서비스는 다음과 같습니다.
 
 ### <a name="vision"></a>시각
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")| Computer Vision 서비스는 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. |
-|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다. |
+|[Computer Vision](../computer-vision/index.yml "Computer Vision")| Computer Vision 서비스는 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. |
+|[Face](../face/index.yml "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다. |
 
 ### <a name="speech"></a>Speech
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service")|Speech Service는 음성 인식, 음성 합성, 음성 번역 및 화자 검증/식별과 같은 기능에 대한 액세스를 제공합니다.|
+|[Speech Service](../speech-service/index.yml "Speech Service")|Speech Service는 음성 인식, 음성 합성, 음성 번역 및 화자 검증/식별과 같은 기능에 대한 액세스를 제공합니다.|
 
 ### <a name="decision"></a>의사 결정
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") | Anomaly Detector(미리 보기) 서비스를 사용하면 시계열 데이터의 변칙을 모니터링하고 감지할 수 있습니다.|
+|[Anomaly Detector](../anomaly-detector/index.yml "Anomaly Detector") | Anomaly Detector(미리 보기) 서비스를 사용하면 시계열 데이터의 변칙을 모니터링하고 감지할 수 있습니다.|
 
 ### <a name="language"></a>언어
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "텍스트 분석")| Text Analytics 서비스는 감정 분석, 핵심 구 추출 및 언어 감지를 위해 원시 텍스트에 대한 자연어 처리를 제공합니다.|
+|[텍스트 분석](../text-analytics/index.yml "텍스트 분석")| Text Analytics 서비스는 감정 분석, 핵심 구 추출 및 언어 감지를 위해 원시 텍스트에 대한 자연어 처리를 제공합니다.|
 
 ### <a name="search"></a>검색
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing 이미지 검색")|Bing Image Search 서비스는 사용자의 쿼리와 관련이 있다고 확인된 이미지의 표시를 반환합니다.|
+|[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing 이미지 검색")|Bing Image Search 서비스는 사용자의 쿼리와 관련이 있다고 확인된 이미지의 표시를 반환합니다.|
 
 ## <a name="supported-programming-languages-for-cognitive-services-for-big-data"></a>빅 데이터용 Cognitive Services에 지원되는 프로그래밍 언어
 
@@ -80,19 +80,19 @@ Scala 및 Java 기반 Spark API를 [Microsoft ML for Apache Spark](https://aka.m
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. 한 번 클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어 및 비즈니스 분석가 간의 협업을 지원하는 대화형 작업 영역을 제공합니다.
+[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. 한 번 클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어 및 비즈니스 분석가 간의 협업을 지원하는 대화형 작업 영역을 제공합니다.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Azure Synapse Analytics](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/synapse-analytics)(이전의 SQL Data Warehouse)는 대규모 병렬 처리를 사용하는 엔터프라이즈 데이터 웨어하우스입니다. Synapse Analytics를 사용하면 페타바이트 단위의 데이터에서 복합 쿼리를 빠르게 실행할 수 있습니다. Azure Synapse Analytics는 직관적인 Jupyter Notebook 인터페이스를 사용하여 Spark 작업을 실행할 수 있는 관리형 Spark 풀을 제공합니다.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)(이전의 SQL Data Warehouse)는 대규모 병렬 처리를 사용하는 엔터프라이즈 데이터 웨어하우스입니다. Synapse Analytics를 사용하면 페타바이트 단위의 데이터에서 복합 쿼리를 빠르게 실행할 수 있습니다. Azure Synapse Analytics는 직관적인 Jupyter Notebook 인터페이스를 사용하여 Spark 작업을 실행할 수 있는 관리형 Spark 풀을 제공합니다.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[AKS(Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/)는 Docker 컨테이너 및 분산 애플리케이션을 대규모로 조정합니다. AKS는 Azure에서 Kubernetes 사용을 간소화하는 관리되는 Kubernetes 제품입니다. Kubernetes는 Cognitive Service 크기 조정, 대기 시간 및 네트워킹을 세부적으로 제어할 수 있습니다. 그러나 Apache Spark에 익숙하지 않은 경우 Azure Databricks 또는 Synapse Analytics를 사용하는 것이 좋습니다.
+[AKS(Azure Kubernetes Service)](../../aks/index.yml)는 Docker 컨테이너 및 분산 애플리케이션을 대규모로 조정합니다. AKS는 Azure에서 Kubernetes 사용을 간소화하는 관리되는 Kubernetes 제품입니다. Kubernetes는 Cognitive Service 크기 조정, 대기 시간 및 네트워킹을 세부적으로 제어할 수 있습니다. 그러나 Apache Spark에 익숙하지 않은 경우 Azure Databricks 또는 Synapse Analytics를 사용하는 것이 좋습니다.
 
 ### <a name="data-connectors"></a>데이터 커넥터
 
-Spark 클러스터가 있는 경우 다음 단계는 데이터에 연결하는 것입니다. Apache Spark에는 광범위한 데이터베이스 커넥터 컬렉션이 있습니다. 이러한 커넥터를 사용하면 저장된 위치에 관계없이 애플리케이션에서 큰 데이터 세트를 사용할 수 있습니다. 지원되는 데이터베이스 및 커넥터에 대한 자세한 내용은[Azure Databricks에 지원되는 데이터 원본 목록](https://docs.microsoft.com/azure/databricks/data/data-sources/)을 참조하세요.
+Spark 클러스터가 있는 경우 다음 단계는 데이터에 연결하는 것입니다. Apache Spark에는 광범위한 데이터베이스 커넥터 컬렉션이 있습니다. 이러한 커넥터를 사용하면 저장된 위치에 관계없이 애플리케이션에서 큰 데이터 세트를 사용할 수 있습니다. 지원되는 데이터베이스 및 커넥터에 대한 자세한 내용은[Azure Databricks에 지원되는 데이터 원본 목록](/azure/databricks/data/data-sources/)을 참조하세요.
 
 ## <a name="concepts"></a>개념
 
@@ -113,7 +113,7 @@ Spark의 기본은 DataFrame입니다. 이는 Apache Spark 작업자 노드에 �
 
 ### <a name="http-on-spark"></a>HTTP on Spark
 
-빅 데이터용 Cognitive Services는 인텔리전트 웹 서비스를 빅 데이터와 통합할 수 있는 방법의 예입니다. 웹 서비스는 전 세계의 많은 애플리케이션을 강화시키며, 대부분의 서비스는 HTTP(Hypertext Transfer Protocol)를 통해 통신합니다. *임의*의 웹 서비스를 대규모로 사용하기 위해 HTTP on Spark가 제공됩니다. HTTP on Spark를 사용하면 모든 웹 서비스를 통해 테라바이트 단위의 데이터를 전달할 수 있습니다. 이 기술을 내부적으로 사용하여 빅 데이터용 Cognitive Services를 강화시킵니다.
+빅 데이터용 Cognitive Services는 인텔리전트 웹 서비스를 빅 데이터와 통합할 수 있는 방법의 예입니다. 웹 서비스는 전 세계의 많은 애플리케이션을 강화시키며, 대부분의 서비스는 HTTP(Hypertext Transfer Protocol)를 통해 통신합니다. *임의* 의 웹 서비스를 대규모로 사용하기 위해 HTTP on Spark가 제공됩니다. HTTP on Spark를 사용하면 모든 웹 서비스를 통해 테라바이트 단위의 데이터를 전달할 수 있습니다. 이 기술을 내부적으로 사용하여 빅 데이터용 Cognitive Services를 강화시킵니다.
 
 ## <a name="developer-samples"></a>개발자 샘플
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b0cac94ac3a0c8dff24cf154e4dd7ab7ddf4dd9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084853"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368426"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -30,7 +30,7 @@ ms.locfileid: "93084853"
 이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 - 또는 Linux나 MacOS를 사용하는 경우 [Visual Studio Code](https://code.visualstudio.com/) 및 [.NET Core](/dotnet/core/install/macos)를 사용하여 이 빠른 시작을 수행할 수 있습니다.
@@ -185,4 +185,4 @@ ms.locfileid: "93084853"
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Bing Entity Search API란?](../overview.md )
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Bing Entity Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

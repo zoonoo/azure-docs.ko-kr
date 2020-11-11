@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87133081"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363887"
 ---
 # <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
@@ -31,7 +31,7 @@ ms.locfileid: "87133081"
 
 ### <a name="may-2020---build-conference"></a>2020년 5월 - //빌드 컨퍼런스
 
-**공개 미리 보기**에서는 다음을 사용할 수 있습니다.
+**공개 미리 보기** 에서는 다음을 사용할 수 있습니다.
 
  * 학습 동작으로 [실습생 모드](concept-apprentice-mode.md)
 
@@ -62,5 +62,5 @@ ms.locfileid: "87133081"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: C#으로 피드백 루프 만들기](csharp-quickstart-commandline-feedback-loop.md)
+* [빠른 시작: C#으로 피드백 루프 만들기](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [대화형 데모 사용](https://personalizationdemo.azurewebsites.net/)

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258274"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363836"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Text Analytics API에 대한 데이터 및 속도 제한
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ ms.locfileid: "88258274"
 
 | 제한 | 값 |
 |------------------------|---------------|
-| 단일 문서의 최대 크기 | [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 5,120자. 상태 컨테이너용 Text Analytics에도 적용됩니다. |
+| 단일 문서의 최대 크기 | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 5,120자. 상태 컨테이너용 Text Analytics에도 적용됩니다. |
 | 전체 요청의 최대 크기 | 1MB 상태 컨테이너용 Text Analytics에도 적용됩니다. |
 
 단일 요청으로 보낼 수 있는 최대 문서 수는 사용 중인 API 버전 및 기능에 따라 달라집니다.

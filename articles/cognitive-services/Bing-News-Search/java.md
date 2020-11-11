@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: 4d1e178d5ed8ea00c277a6c15c63746c66a0a298
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 263d3e9020c749dd42981f70ce7787252443853b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100170"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364499"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>빠른 시작: Java 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -33,7 +33,7 @@ ms.locfileid: "93100170"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks).
+* [JDK(Java Development Kit) 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Gson 라이브러리](https://github.com/google/gson).
 
 

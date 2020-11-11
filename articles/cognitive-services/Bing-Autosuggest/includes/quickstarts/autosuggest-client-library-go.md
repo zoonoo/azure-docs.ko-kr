@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0715b3570bf60205c83390ab93b272e49e8733
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88246129"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371838"
 ---
 Go용 Bing Autosuggest 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 라이브러리를 설치하고 기본 작업에 대한 예제를 사용해보십시오.
 
@@ -33,7 +33,7 @@ Azure 리소스를 만들어 Bing Autosuggest 클라이언트 라이브러리 �
 ## <a name="create-environment-variables"></a>환경 변수 만들기
 
 >[!NOTE]
-> 2019년 7월 1일 이후에 생성된 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)을 참조하세요.
+> 2019년 7월 1일 이후에 생성된 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../../../cognitive-services-custom-subdomains.md)을 참조하세요.
 
 만든 리소스의 키 및 엔드포인트를 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
 <!-- replace the below variable names with the names expected in the code sample.-->
@@ -76,9 +76,9 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 콘솔 창(cmd, PowerShell, 터미널, Bash)에서 Go 프로젝트에 대한 새 작업 영역을 만들고 해당 작업 영역으로 이동합니다. 작업 영역에는 다음 세 개의 폴더가 있습니다.
 
-* **src**: 이 디렉터리에는 소스 코드와 패키지가 포함되어 있습니다. 여기에는 `go get` 명령으로 설치된 패키지가 모두 있습니다.
-* **pkg**: 이 디렉터리에는 컴파일된 Go 패키지 개체가 포함되어 있습니다. 이러한 파일의 확장명은 모두 `.a`입니다.
-* **bin**: 이 디렉터리에는 `go install`을 실행할 때 만들어지는 이진 실행 파일이 포함되어 있습니다.
+* **src** : 이 디렉터리에는 소스 코드와 패키지가 포함되어 있습니다. 여기에는 `go get` 명령으로 설치된 패키지가 모두 있습니다.
+* **pkg** : 이 디렉터리에는 컴파일된 Go 패키지 개체가 포함되어 있습니다. 이러한 파일의 확장명은 모두 `.a`입니다.
+* **bin** : 이 디렉터리에는 `go install`을 실행할 때 만들어지는 이진 실행 파일이 포함되어 있습니다.
 
 > [!TIP]
 > [Go 작업 영역](https://golang.org/doc/code.html#Workspaces)의 구조에 대해 자세히 알아보세요. 이 가이드에는 `$GOPATH` 및 `$GOROOT` 설정에 대한 정보가 있습니다.
@@ -155,7 +155,7 @@ func main() {
 ### <a name="authenticate-the-client"></a>클라이언트 인증
 
 > [!NOTE]
-> 이 빠른 시작에서는 `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`라는 Bing Autosuggest 키와 `BING_AUTOSUGGEST_ENDPOINT`라는 엔드포인트에 대한 [환경 변수를 만들었다고](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) 가정합니다.
+> 이 빠른 시작에서는 `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`라는 Bing Autosuggest 키와 `BING_AUTOSUGGEST_ENDPOINT`라는 엔드포인트에 대한 [환경 변수를 만들었다고](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) 가정합니다.
 
 `main()` 함수에서 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다.
 
@@ -171,7 +171,7 @@ client.Endpoint = endpoint
 
 ### <a name="send-an-api-request"></a>API 요청 보내기
 
-동일한 메서드에서 클라이언트의 [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) 메서드를 사용하여 Bing에 쿼리를 보냅니다. 그런 다음, [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) 응답을 반복하고 첫 번째 제안을 인쇄합니다.
+동일한 메서드에서 클라이언트의 [AutoSuggestMethodAsync](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) 메서드를 사용하여 Bing에 쿼리를 보냅니다. 그런 다음, [Suggestions](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) 응답을 반복하고 첫 번째 제안을 인쇄합니다.
 
 ```Go
 // This should return the query suggestion "xbox."
@@ -220,4 +220,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="see-also"></a>참고 항목
 
 - [Bing Autosuggest란?](../../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

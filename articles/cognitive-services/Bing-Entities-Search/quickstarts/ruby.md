@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 20eec55a7a875ff124737069d699e76674b27c3b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee050759181b5d28577e3a47620cce8b1cf9a847
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084649"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365689"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>빠른 시작: Ruby를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -150,5 +150,5 @@ ms.locfileid: "93084649"
 > [!div class="nextstepaction"]
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Bing Entity Search API란?](../search-the-web.md)
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Bing Entity Search API란?](../overview.md)
+* [Bing Entity Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

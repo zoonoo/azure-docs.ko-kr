@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: e8628d051db7f5066a81171567f6f7e54fb0ab97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fd748a0184c1718ac9450aaca3e2db1a185051a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262453"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368953"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-management-client-library"></a>빠른 시작: Azure Management 클라이언트 라이브러리를 사용하여 Cognitive Services 리소스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "91262453"
 
 Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
 
-개별 AI 서비스는 Azure 구독에서 만든 Azure [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)로 표시됩니다. 리소스를 만든 후 생성된 키와 엔드포인트를 사용하여 애플리케이션을 인증할 수 있습니다.
+개별 AI 서비스는 Azure 구독에서 만든 Azure [리소스](../azure-resource-manager/management/manage-resources-portal.md)로 표시됩니다. 리소스를 만든 후 생성된 키와 엔드포인트를 사용하여 애플리케이션을 인증할 수 있습니다.
 
 ::: zone pivot="programming-language-csharp"
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 22311c48c64ae1bd62a055aae3aa39362dd13421
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4119ea39a9de769af29576c677e7d44ebfb0426a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083807"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364159"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
@@ -154,4 +154,4 @@ python <FILE_NAME>.py
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

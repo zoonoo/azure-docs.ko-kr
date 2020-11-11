@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.topic: overview
 ms.date: 06/26/2019
 keywords: azure, kinect, 개요, 개발 키트, DK, 디바이스, 깊이, 신체 추적, 음성, cognitive services, SDKs, SDK, 펌웨어
-ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d188d37c0247aebb16f51b4404da81d469136468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277864"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359656"
 ---
 # <a name="about-azure-kinect-dk"></a>Azure Kinect DK 정보
 
@@ -86,7 +86,7 @@ Azure Kinect 센서 SDK에 대한 자세한 내용은 [센서 SDK 사용](about-
 >[!NOTE]
 >Azure Kinect DK에는 스피커가 없습니다.
 
-자세한 내용은 [Speech Service 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 참조하세요.
+자세한 내용은 [Speech Service 설명서](../cognitive-services/speech-service/index.yml)를 참조하세요.
 
 ## <a name="vision-services"></a>비전 서비스
 

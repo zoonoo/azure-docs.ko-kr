@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1a9756277faf98939ad609231f46bb2f2c04b8b6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1f207a93af22029e4bfdc20e5f84ed8ef3dee37c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084003"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366964"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>빠른 시작: Bing Spell Check REST API 및 Node.js로 맞춤법 검사
 
@@ -169,4 +169,4 @@ req.end ();
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

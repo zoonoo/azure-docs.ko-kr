@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3304cc36c37a548eabd3aa6ddc32255f3d09dffb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b2df7bab9bceaefae5793e4802eba6a6aa218e96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083731"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364805"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사
 
@@ -110,4 +110,4 @@ Bing Spell Check SDK를 프로젝트에 추가하려면 Visual Studio의 **솔�
 > [단일 페이지 웹앱 만들기](tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](overview.md)
-- [Bing Spell Check C# SDK 참조 가이드](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Bing Spell Check C# SDK 참조 가이드](/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

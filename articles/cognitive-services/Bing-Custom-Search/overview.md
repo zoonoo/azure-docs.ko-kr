@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077343"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367338"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Custom Search API란?
 
@@ -50,16 +50,15 @@ Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 
 
 검색 인스턴스를 사용자 지정하는 방법에 대한 자세한 내용은 [사용자 지정 검색 인스턴스 정의](define-your-custom-view.md)를 참조하세요.
 
-서비스 및 애플리케이션에서 결과를 사용하려면 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 반드시 읽어보세요.
+서비스 및 애플리케이션에서 결과를 사용하려면 [Bing 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 반드시 읽어보세요.
 
-[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+[Bing Search API 허브 페이지](../bing-web-search/overview.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
 
 각 사용자 지정 검색 엔드포인트에 대한 참조 콘텐츠를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수가 포함됩니다. 응답 개체의 정의도 포함됩니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [Custom Image API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [Custom Video API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
