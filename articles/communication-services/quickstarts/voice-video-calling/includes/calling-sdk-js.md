@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779770"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482745"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
-- `User Access Token`호출 클라이언트를 사용 하도록 설정 하는입니다. 을 [ `User Access Token` 다운로드 하는 방법](../../access-tokens.md) 에 대 한 자세한 내용은
+- 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
 - 선택 사항: [응용 프로그램에 대 한 호출 추가를 시작](../getting-started-with-calling.md) 하기 위한 빠른 시작을 완료 합니다.
 
 ## <a name="setting-up"></a>설치
@@ -99,7 +99,7 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
-### <a name="join-a-group-call"></a>그룹 호출 조인
+### <a name="join-a-group-call"></a>그룹 통화 참가
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 ' join ' 메서드를 사용 하 고 속성을 사용 하 여 개체를 전달 합니다 `groupId` . 값은 GUID 여야 합니다.
 ```js
 
@@ -147,7 +147,8 @@ const callState = call.state;
 * ' Connected '-호출이 연결 되어 있습니다.
 * ' 보유 '-호출이 대기 중 이며, 로컬 끝점과 원격 참가자 간에 미디어가 전달 되지 않습니다.
 * ' 연결 끊기 '-호출이 ' Disconnected ' 상태가 되기 전에 전환 상태입니다.
-* ' Disconnected '-최종 호출 상태
+* ' Disconnected '-최종 호출 상태입니다.
+   * 네트워크 연결이 끊어지면 상태는 약 2 분 후에 ' 연결 끊김 '으로 이동 합니다.
 
 
 * 지정 된 호출이 종료 된 이유를 확인 하려면 속성을 검사 `callEndReason` 합니다.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>FAQ
+ * 네트워크 연결이 끊어지면 통화 상태가 ' 연결 끊김 '으로 변경 됩니까?
+    * 예, 2 분 넘게 네트워크 연결이 끊어지면 호출은 연결이 끊긴 상태로 전환 되 고 호출이 종료 됩니다.
 
 ## <a name="remote-participants-management"></a>원격 참여자 관리
 
@@ -270,7 +274,8 @@ const state = remoteParticipant.state;
 * ' 연결 됨 '-참가자가 호출에 연결 되었습니다.
 * ' 보유 '-참가자가 보류 중입니다.
 * ' EarlyMedia '-참가자가 호출에 연결 되기 전에 알림이 재생 됩니다.
-* ' Disconnected '-최종 상태-참가자가 호출에서 연결이 끊겼습니다.
+* ' Disconnected '-최종 상태-참가자가 호출에서 연결이 끊어졌습니다.
+   * 원격 참가자의 네트워크 연결이 끊어지면 원격 참가자 상태는 약 2 분 후에 ' 연결 끊김 '으로 이동 합니다.
 
 참가자가 전화를 떠난 이유를 알아보려면 속성을 검사 합니다 `callEndReason` .
 ```js
@@ -410,7 +415,9 @@ document.body.appendChild(rendererView.target);
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>FAQ
+* 원격 참가자의 네트워크 연결이 끊어지면 해당 상태가 ' 연결 끊김 '으로 변경 됩니까?
+    * 예, 원격 참가자가 2 분 넘게 네트워크 연결을 끊으면 해당 상태가 Disconnected로 전환 되 고 호출에서 제거 됩니다.
 ## <a name="device-management"></a>디바이스 관리
 
 `DeviceManager` 오디오/비디오 스트림을 전송 하는 호출에 사용할 수 있는 로컬 장치를 열거할 수 있습니다. 또한 네이티브 브라우저 API를 사용 하 여 사용자가 마이크 및 카메라에 액세스할 수 있는 권한을 요청할 수 있습니다.
