@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f72d8b332f00b3d298f4d5a1a04937f562647f9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347167"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -21,26 +21,26 @@ JavaScript용 Azure Queue storage 클라이언트 라이브러리 버전 12를 �
 
 JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행할 수 있습니다.
 
-* 큐 만들기
-* 큐에 메시지 추가
-* 큐의 메시지 피킹(Peeking)
-* 큐의 메시지 업데이트
-* 큐에서 메시지 받기
-* 큐에서 메시지 삭제
-* 큐 삭제
+- 큐 만들기
+- 큐에 메시지 추가
+- 큐의 메시지 피킹(Peeking)
+- 큐의 메시지 업데이트
+- 큐에서 메시지 받기
+- 큐에서 메시지 삭제
+- 큐 삭제
 
 추가 리소스:
 
-* [API 참조 설명서](/javascript/api/@azure/storage-queue/)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-* [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-queue)
-* [샘플](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API 참조 설명서](/javascript/api/@azure/storage-queue/)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+- [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-queue)
+- [샘플](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
-* 현재 운영 체제의 [Node.js](https://nodejs.org/en/download/)입니다.
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+- 현재 운영 체제의 [Node.js](https://nodejs.org/en/download/)입니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -126,9 +126,9 @@ npm install
 
 Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입니다. 큐 메시지의 크기는 최대 64KB입니다. 큐는 스토리지 계정의 용량 제한에 도달할 때까지 수백만 개의 메시지를 포함할 수 있습니다. 큐는 비동기적으로 처리할 작업의 백로그를 만드는 데 일반적으로 사용됩니다. Queue storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 큐
-* 큐 내의 메시지
+- 스토리지 계정
+- 스토리지 계정의 큐
+- 큐 내의 메시지
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -136,22 +136,22 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 JavaScript 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` 클래스는 큐에서 [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+- [QueueClient](/javascript/api/@azure/storage-queue/queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` 클래스는 큐에서 [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 다음 예제 코드 조각은 JavaScript용 Azure Queue storage 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
-* [연결 문자열 가져오기](#get-the-connection-string)
-* [큐 만들기](#create-a-queue)
-* [큐에 메시지 추가](#add-messages-to-a-queue)
-* [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
-* [큐의 메시지 업데이트](#update-a-message-in-a-queue)
-* [큐에서 메시지 받기](#receive-messages-from-a-queue)
-* [큐에서 메시지 삭제](#delete-messages-from-a-queue)
-* [큐 삭제](#delete-a-queue)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [큐 만들기](#create-a-queue)
+- [큐에 메시지 추가](#add-messages-to-a-queue)
+- [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
+- [큐의 메시지 업데이트](#update-a-message-in-a-queue)
+- [큐에서 메시지 받기](#receive-messages-from-a-queue)
+- [큐에서 메시지 삭제](#delete-messages-from-a-queue)
+- [큐 삭제](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 
-[receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다.  `numberOfMessages` 필드에서 이 호출에 대해 받을 최대 메시지 수를 전달합니다.
+[receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다. `numberOfMessages` 필드에서 이 호출에 대해 받을 최대 메시지 수를 전달합니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -356,5 +356,5 @@ Done
 > [!div class="nextstepaction"]
 > [JavaScript용 Azure 설명서](/azure/developer/javascript/)
 
-* 자세한 내용은 [JavaScript용 Azure Storage Queue 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)를 참조하세요.
-* 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)을 계속 진행하세요.
+- 자세한 내용은 [JavaScript용 Azure Storage Queue 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)를 참조하세요.
+- 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)을 계속 진행하세요.

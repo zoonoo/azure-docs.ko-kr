@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8166e2a937b905ae153e6b86cb026ff2be2415a8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89263071"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360550"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Windows VM 시스템 할당 관리 ID를 사용하여 Resource Manager에 액세스
 
@@ -37,25 +37,26 @@ ms.locfileid: "89263071"
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>VM에 Resource Manager의 리소스 그룹 액세스 권한 부여
+
 Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  Azure Resource Manager는 Azure AD 인증을 지원합니다.  먼저 이 VM의 시스템 할당 관리 ID에 Azure Resource Manager의 리소스(이 예제에서는 VM이 포함된 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다.  
 
-1.  **리소스 그룹**의 탭으로 이동합니다. 
-2.  **Windows VM**용으로 만든 특정 **리소스 그룹**을 선택합니다. 
+1.  **리소스 그룹** 의 탭으로 이동합니다. 
+2.  **Windows VM** 용으로 만든 특정 **리소스 그룹** 을 선택합니다. 
 3.  왼쪽 패널의 **액세스 제어(IAM)** 로 이동합니다. 
-4.  다음으로, **역할 할당 추가**에서 **Windows VM**에 대한 새 역할 할당을 추가합니다.  **역할**로 **독자**를 선택합니다. 
-5.  다음 드롭다운에서 **Virtual Machine** 리소스에 대한 **액세스를 할당**합니다. 
-6.  그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹**에서는 **모든 리소스 그룹**을 선택합니다. 
-7.  마지막으로 **선택**의 드롭다운에서 Windows VM을 선택하고 **저장**을 클릭합니다.
+4.  다음으로, **역할 할당 추가** 에서 **Windows VM** 에 대한 새 역할 할당을 추가합니다.  **역할** 로 **독자** 를 선택합니다. 
+5.  다음 드롭다운에서 **Virtual Machine** 리소스에 대한 **액세스를 할당** 합니다. 
+6.  그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹** 에서는 **모든 리소스 그룹** 을 선택합니다. 
+7.  마지막으로 **선택** 의 드롭다운에서 Windows VM을 선택하고 **저장** 을 클릭합니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 시스템 할당 관리 ID를 통해 액세스 토큰을 가져오고 Azure Resource Manager를 호출하는 데 사용합니다. 
 
-이 부분에서는 **PowerShell**을 사용해야 합니다.  **PowerShell**이 설치되어 있지 않으면 [여기](/powershell/azure/)서 다운로드하세요. 
+이 부분에서는 **PowerShell** 을 사용해야 합니다.  **PowerShell** 이 설치되어 있지 않으면 [여기](/powershell/azure/)서 다운로드하세요. 
 
-1.  Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요**에서 **연결**을 클릭합니다. 
-2.  Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
-3.  이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다. 
+1.  Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요** 에서 **연결** 을 클릭합니다. 
+2.  Windows VM을 만들 때 추가한 **사용자 이름** 과 **암호** 를 입력합니다. 
+3.  이제 가상 머신에 대한 **원격 데스크톱 연결** 을 만들었으므로 원격 세션에서 **PowerShell** 을 엽니다. 
 4.  Invoke-WebRequest cmdlet을 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.
 
     ```powershell

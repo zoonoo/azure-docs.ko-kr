@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 399c078481fb205221a683e44f74b4d70c383cbe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096566"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412955"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -138,7 +138,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$lookup    |    예|
 |$out        |예|
 |$indexStats|        예|
-|$facet    |예|
+|$facet    |Yes|
 |$bucket|    예|
 |$bucketAuto|    예|
 |$sortByCount|    예|
@@ -148,7 +148,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$currentOp|    예|
 |$listLocalSessions    |예|
 |$listSessions    |예|
-|$graphLookup    |예|
+|$graphLookup    |Yes|
 
 ### <a name="boolean-expressions"></a>부울 식
 

@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945240"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392081"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Docker를 사용하여 Azure SQL Edge 배포
 
-이 빠른 시작에서는 Docker를 사용하여 Azure SQL Edge 컨테이너 이미지를 끌어와 실행합니다. 그런 다음, **sqlcmd**로 연결하여 첫 번째 데이터베이스를 만들고 쿼리를 실행합니다.
+이 빠른 시작에서는 Docker를 사용하여 Azure SQL Edge 컨테이너 이미지를 끌어와 실행합니다. 그런 다음, **sqlcmd** 로 연결하여 첫 번째 데이터베이스를 만들고 쿼리를 실행합니다.
 
 이 이미지는 Ubuntu 18.04 기반의 Azure SQL Edge로 구성됩니다. Linux 또는 Mac/Windows용 Docker에서 Docker Engine 1.8+와 함께 사용할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "90945240"
 - Docker **overlay2** 스토리지 드라이버. 대부분의 사용자에게 적용되는 기본값입니다. 이 스토리지 공급자를 사용하지 않고 변경해야 하는 경우 [overlay2 구성에 대한 docker 설명서](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver)의 지침 및 경고를 참조하세요.
 - 최소 10GB의 디스크 공간.
 - 최소 1GB의 RAM.
-- [Azure SQL Edge의 하드웨어 요구 사항](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support)
+- [Azure SQL Edge의 하드웨어 요구 사항](./features.md#hardware-support)
 
 
 ## <a name="pull-and-run-the-container-image"></a>컨테이너 이미지를 끌어와 실행하기
@@ -70,7 +70,7 @@ ms.locfileid: "90945240"
     | 매개 변수 | Description |
     |-----|-----|
     | **-e "ACCEPT_EULA=Y"** |  [최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=2139274) 수락을 확인하기 위해 **ACCEPT_EULA** 변수를 어떤 값에 설정합니다. Azure SQL Edge 이미지에 대한 필수 설정입니다. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | 8자 이상이고 [Azure SQL Edge 암호 요구 사항](https://docs.microsoft.com/sql/relational-databases/security/password-policy)을 충족하는 강력한 암호를 지정합니다. Azure SQL Edge 이미지에 대한 필수 설정입니다. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | 8자 이상이고 [Azure SQL Edge 암호 요구 사항](/sql/relational-databases/security/password-policy)을 충족하는 강력한 암호를 지정합니다. Azure SQL Edge 이미지에 대한 필수 설정입니다. |
     | **-p 1433:1433** | 호스트 환경의 TCP 포트(첫 번째 값)를 컨테이너의 TCP 포트(두 번째 값)로 매핑합니다. 이 예제에서 Azure SQL Edge는 컨테이너의 TCP 1433에서 수신 대기하고 호스트의 1433 포트에 공개됩니다. |
     | **--name azuresqledge** | 컨테이너에 대해 임의로 생성된 이름보다는 사용자 지정 이름을 지정합니다. 둘 이상의 컨테이너를 실행하는 경우 이 동일한 이름을 다시 사용할 수 없습니다. |
     | **-d** | 백그라운드(디먼)에서 컨테이너를 실행합니다. |
@@ -83,7 +83,7 @@ ms.locfileid: "90945240"
     sudo docker ps -a
    ```
 
-4. **상태** 열이 **Up**이면 Azure SQL Edge는 컨테이너에서 실행되고 **포트** 열에 지정된 포트에서 수신 대기합니다. Azure SQL Edge 컨테이너의 **상태** 열이 **Exited**이면 Azure SQL Edge 설명서의 문제 해결 섹션을 참조하세요.
+4. **상태** 열이 **Up** 이면 Azure SQL Edge는 컨테이너에서 실행되고 **포트** 열에 지정된 포트에서 수신 대기합니다. Azure SQL Edge 컨테이너의 **상태** 열이 **Exited** 이면 Azure SQL Edge 설명서의 문제 해결 섹션을 참조하세요.
 
     `-h`(호스트 이름) 매개 변수도 유용하지만 간단한 설명을 위해 이 자습서에서 사용되지 않습니다. 이렇게 하면 컨테이너의 내부 이름이 사용자 지정 값으로 변경됩니다. 이 값은 다음 Transact SQL 쿼리에서 반환되는 이름입니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "90945240"
 
 1. SA 사용자에게 사용할 강력한 암호를 선택합니다.
 
-2. `docker exec`를 사용하여 **sqlcmd**를 실행하고 Transact-SQL을 사용하여 암호를 변경합니다. 다음 예제에서는 이전 암호 `<YourStrong!Passw0rd>`와 새 암호 `<YourNewStrong!Passw0rd>`를 사용자 고유의 암호 값으로 바꿉니다.
+2. `docker exec`를 사용하여 **sqlcmd** 를 실행하고 Transact-SQL을 사용하여 암호를 변경합니다. 다음 예제에서는 이전 암호 `<YourStrong!Passw0rd>`와 새 암호 `<YourNewStrong!Passw0rd>`를 사용자 고유의 암호 값으로 바꿉니다.
 
    ```bash
    sudo docker exec -it azuresqledge /opt/mssql-tools/bin/sqlcmd \
@@ -114,7 +114,7 @@ ms.locfileid: "90945240"
 
 ## <a name="connect-to-azure-sql-edge"></a>Azure SQL Edge에 연결
 
-다음 단계에서는 Azure SQL Edge에 연결하기 위해 컨테이너 내에서 Azure SQL Edge 명령줄 도구 **sqlcmd**를 사용합니다.
+다음 단계에서는 Azure SQL Edge에 연결하기 위해 컨테이너 내에서 Azure SQL Edge 명령줄 도구 **sqlcmd** 를 사용합니다.
 
 > [!NOTE]
 > sqlcmd 도구는 SQL Edge 컨테이너의 ARM64 버전 내에서 사용할 수 없습니다.

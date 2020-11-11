@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099150"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337460"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>빠른 시작: 첫 번째 Logic Apps 워크플로 만들기 - Azure Portal
 
@@ -112,7 +112,7 @@ ms.locfileid: "93099150"
 
 ## <a name="add-the-send-email-action"></a>"메일 보내기" 작업 추가
 
-[논리 앱에 대한 트리거가 추가](#add-rss-trigger)되면 논리 앱에서 RSS 피드를 확인하고 새 항목을 표시할 때 응답을 결정하는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가해야 합니다. 또한 [Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일 처리](/tutorial-process-email-attachments-workflow.md) 자습서와 같이 훨씬 더 복잡한 작업이 포함된 논리 앱을 만들 수도 있습니다.
+[논리 앱에 대한 트리거가 추가](#add-rss-trigger)되면 논리 앱에서 RSS 피드를 확인하고 새 항목을 표시할 때 응답을 결정하는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가해야 합니다. 또한 [Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일 처리](/azure/logic-apps/tutorial-process-email-attachments-workflow) 자습서와 같이 훨씬 더 복잡한 작업이 포함된 논리 앱을 만들 수도 있습니다.
 
 > [!NOTE]
 > 이 예제에서는 Office 365 Outlook을 이메일 서비스로 사용합니다. 논리 앱에서 지원되는 다른 이메일 서비스를 사용하는 경우 사용자 인터페이스가 다르게 보일 수 있습니다. 그러나 다른 이메일 서비스에 연결하기 위한 기본 개념은 동일하게 유지됩니다.

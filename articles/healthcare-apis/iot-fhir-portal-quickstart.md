@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594376"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394512"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -46,14 +46,14 @@ Azure IoT Connector for FHIR*는 IoMT(의료 사물 인터넷) 디바이스에�
 새 Azure IoT Connector for FHIR에 대한 설정을 입력합니다. **만들기** 단추를 클릭하고 Azure IoT Connector for FHIR가 배포될 때까지 기다립니다.
 
 > [!NOTE]
-> 이 설치에 대한 **해결 유형** 드롭다운의 값으로 **만들기**를 선택해야 합니다. 
+> 이 설치에 대한 **해결 유형** 드롭다운의 값으로 **만들기** 를 선택해야 합니다. 
 
 [![IoT Connector 만들기](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
 |설정|값|설명 |
 |---|---|---|
 |커넥터 이름|고유한 이름|Azure IoT Connector for FHIR을 식별하는 이름을 입력합니다. 이 이름은 Azure API for FHIR 리소스 내에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 문자 또는 숫자로 시작하고 끝나야 하며, 길이가 3-24자 사이여야 합니다.|
-|해결 유형|조회 또는 만들기|Azure API for FHIR에서 [디바이스](https://www.hl7.org/fhir/device.html) 및 [환자](https://www.hl7.org/fhir/patient.html) FHIR 리소스를 만드는 대역 외 프로세스가 있는 경우 **조회**를 선택합니다. Azure IoT Connector for FHIR는 디바이스 데이터를 나타내는 [관찰](https://www.hl7.org/fhir/observation.html) FHIR 리소스를 만들 때 이러한 리소스에 대한 참조를 사용합니다. Azure IoT Connector for FHIR가 디바이스 데이터에 제공된 각 식별자 값을 사용하여 Azure API for FHIR에 베어본 디바이스 및 환자 리소스를 만들게 하려면 **만들기**를 선택합니다.|
+|해결 유형|조회 또는 만들기|Azure API for FHIR에서 [디바이스](https://www.hl7.org/fhir/device.html) 및 [환자](https://www.hl7.org/fhir/patient.html) FHIR 리소스를 만드는 대역 외 프로세스가 있는 경우 **조회** 를 선택합니다. Azure IoT Connector for FHIR는 디바이스 데이터를 나타내는 [관찰](https://www.hl7.org/fhir/observation.html) FHIR 리소스를 만들 때 이러한 리소스에 대한 참조를 사용합니다. Azure IoT Connector for FHIR가 디바이스 데이터에 제공된 각 식별자 값을 사용하여 Azure API for FHIR에 베어본 디바이스 및 환자 리소스를 만들게 하려면 **만들기** 를 선택합니다.|
 
 설치가 완료되면 새로 만든 Azure IoT Connector for FHIR가 **IoT Connector** 페이지에 표시됩니다.
 
@@ -61,7 +61,7 @@ Azure IoT Connector for FHIR*는 IoMT(의료 사물 인터넷) 디바이스에�
 
 ## <a name="configure-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기) 구성
 
-Azure IoT Connector for FHIR에는 디바이스 메시지를 FHIR 기반 관찰 리소스로 변환하는 두 가지 매핑 템플릿인 **디바이스 매핑** 및 **FHIR 매핑**이 필요합니다. 두 매핑이 업로드되기 전에는 Azure IoT Connector for FHIR가 완전하게 작동하지 않습니다.
+Azure IoT Connector for FHIR에는 디바이스 메시지를 FHIR 기반 관찰 리소스로 변환하는 두 가지 매핑 템플릿인 **디바이스 매핑** 및 **FHIR 매핑** 이 필요합니다. 두 매핑이 업로드되기 전에는 Azure IoT Connector for FHIR가 완전하게 작동하지 않습니다.
 
 [![IoT 커넥터 매핑 없음](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg#lightbox)
 
@@ -75,7 +75,7 @@ Azure IoT Connector for FHIR에는 디바이스 메시지를 FHIR 기반 관찰 
 
 [![IoT Connector 디바이스 매핑 구성 클릭](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg#lightbox)
 
-**디바이스 매핑** 페이지에서 다음 스크립트를 JSON 편집기에 추가하고 **저장**을 클릭합니다.
+**디바이스 매핑** 페이지에서 다음 스크립트를 JSON 편집기에 추가하고 **저장** 을 클릭합니다.
 
 ```json
 {
@@ -108,7 +108,7 @@ FHIR 매핑 템플릿은 정규화된 메시지를 FHIR 기반 관찰 리소스�
 
 [![IoT Connector FHIR 매핑 구성 클릭](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
 
-**FHIR 매핑** 페이지에서 다음 스크립트를 JSON 편집기에 추가하고 **저장**을 클릭합니다.
+**FHIR 매핑** 페이지에서 다음 스크립트를 JSON 편집기에 추가하고 **저장** 을 클릭합니다.
 
 ```json
 {
@@ -163,20 +163,20 @@ IoMT 디바이스는 Azure IoT Connector for FHIR에 연결하여 메시지를 �
 
 Azure는 IoT 디바이스를 연결하고 관리할 수 있는 광범위한 IoT 제품군을 제공합니다. Azure IoT Hub를 사용하여 PaaS 기반의 자체 솔루션을 빌드할 수도 있고, Azure IoT Central에서 IoT 앱 플랫폼 관리를 시작할 수도 있습니다. 이 자습서에서는 시작하는 데 도움이 되는 업계 중심의 솔루션 템플릿을 포함하고 있는 Azure IoT Central을 활용합니다.
 
-[지속적인 환자 모니터링 애플리케이션 템플릿](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template)을 배포합니다. 이 템플릿에는 처음 시작하는 분들을 위해 실시간 데이터를 생성하는 두 개의 시뮬레이션된 디바이스인 **Smart Vitals Patch** 및 **Smart Knee Brace**가 포함되어 있습니다.
+[지속적인 환자 모니터링 애플리케이션 템플릿](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template)을 배포합니다. 이 템플릿에는 처음 시작하는 분들을 위해 실시간 데이터를 생성하는 두 개의 시뮬레이션된 디바이스인 **Smart Vitals Patch** 및 **Smart Knee Brace** 가 포함되어 있습니다.
 
 > [!NOTE]
-> 실제 디바이스가 준비되면 언제든지 동일한 IoT Central 애플리케이션을 사용하여 [디바이스를 온보딩](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template)하고 디바이스 시뮬레이터를 바꿀 수 있습니다. 디바이스 데이터는 자동으로 FHIR에 전달되기 시작합니다. 
+> 실제 디바이스가 준비되면 언제든지 동일한 IoT Central 애플리케이션을 사용하여 [디바이스를 온보딩](../iot-central/core/howto-set-up-template.md)하고 디바이스 시뮬레이터를 바꿀 수 있습니다. 디바이스 데이터는 자동으로 FHIR에 전달되기 시작합니다. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 IoT 데이터 연결
 > [!WARNING]
 > 이 가이드에서 제공하는 디바이스 매핑 템플릿은 IoT Central 내에서 데이터 내보내기(레거시)를 사용하도록 설계되었습니다.
 
-IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy)합니다. 연속 데이터 내보내기 페이지에서 다음을 수행합니다.
-- 내보내기 대상으로 *Azure Event Hubs*를 선택합니다.
-- **Event Hubs 네임스페이스**에 대해 *연결 문자열 사용* 값을 선택합니다.
+IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../iot-central/core/howto-export-data-legacy.md)합니다. 연속 데이터 내보내기 페이지에서 다음을 수행합니다.
+- 내보내기 대상으로 *Azure Event Hubs* 를 선택합니다.
+- **Event Hubs 네임스페이스** 에 대해 *연결 문자열 사용* 값을 선택합니다.
 - 이전 단계에서 얻은 Azure IoT Connector for FHIR의 연결 문자열을 **연결 문자열** 필드에 입력합니다.
-- **내보낼 데이터** 필드에서 **원격 분석** 옵션을 *켜기*로 유지합니다.
+- **내보낼 데이터** 필드에서 **원격 분석** 옵션을 *켜기* 로 유지합니다.
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Azure API for FHIR에서 디바이스 데이터 보기
 
@@ -189,7 +189,7 @@ Postman을 사용하여 Azure API for FHIR에서 Azure IoT Connector for FHIR을
 
 더 이상 필요하지 않은 경우 연결된 리소스 그룹, 연결된 Azure API for FHIR 서비스 또는 Azure IoT Connector for FHIR 인스턴스 자체를 제거하여 Azure IoT Connector for FHIR 인스턴스를 삭제할 수 있습니다. 
 
-Azure IoT Connector for FHIR 인스턴스를 직접 제거하려면 **IoT Connector** 페이지에서 인스턴스를 선택하여 **IoT Connector** 페이지로 이동한 다음, **삭제** 단추를 클릭합니다. 확인 메시지가 표시되면 **예**를 선택합니다. 
+Azure IoT Connector for FHIR 인스턴스를 직접 제거하려면 **IoT Connector** 페이지에서 인스턴스를 선택하여 **IoT Connector** 페이지로 이동한 다음, **삭제** 단추를 클릭합니다. 확인 메시지가 표시되면 **예** 를 선택합니다. 
 
 [![IoT Connector 인스턴스 삭제](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 

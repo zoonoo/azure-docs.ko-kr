@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25b6bdcb293379e3206cc6714fae65fe40f6e6c5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345604"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -21,26 +21,26 @@ Java용 Azure Queue storage 클라이언트 라이브러리 버전 12를 시작�
 
 Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행할 수 있습니다.
 
-* 큐 만들기
-* 큐에 메시지 추가
-* 큐의 메시지 피킹(Peeking)
-* 큐의 메시지 업데이트
-* 큐에서 메시지 수신 및 삭제
-* 큐 삭제
+- 큐 만들기
+- 큐에 메시지 추가
+- 큐의 메시지 피킹(Peeking)
+- 큐의 메시지 업데이트
+- 큐에서 메시지 수신 및 삭제
+- 큐 삭제
 
 추가 리소스:
 
-* [API 참조 설명서](/java/api/overview/azure/storage-queue-readme)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-* [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [샘플](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API 참조 설명서](/java/api/overview/azure/storage-queue-readme)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+- [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+- [샘플](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>설치
 
@@ -151,9 +151,9 @@ public class App
 
 Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입니다. 큐 메시지의 크기는 최대 64KB입니다. 큐는 스토리지 계정의 용량 제한에 도달할 때까지 수백만 개의 메시지를 포함할 수 있습니다. 큐는 비동기적으로 처리할 작업의 백로그를 만드는 데 일반적으로 사용됩니다. Queue storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 큐
-* 큐 내의 메시지
+- 스토리지 계정
+- 스토리지 계정의 큐
+- 큐 내의 메시지
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -161,22 +161,22 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 Java 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): `QueueClientBuilder` 클래스는 `QueueClient` 개체를 구성하고 인스턴스화합니다.
-* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](/java/api/com.azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): `QueueMessageItem` 클래스는 큐에서 [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+- [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): `QueueClientBuilder` 클래스는 `QueueClient` 개체를 구성하고 인스턴스화합니다.
+- [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+- [QueueClient](/java/api/com.azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+- [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): `QueueMessageItem` 클래스는 큐에서 [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 다음 예제 코드 조각은 Java용 Azure Queue storage 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
-* [연결 문자열 가져오기](#get-the-connection-string)
-* [큐 만들기](#create-a-queue)
-* [큐에 메시지 추가](#add-messages-to-a-queue)
-* [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
-* [큐의 메시지 업데이트](#update-a-message-in-a-queue)
-* [큐에서 메시지 수신 및 삭제](#receive-and-delete-messages-from-a-queue)
-* [큐 삭제](#delete-a-queue)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [큐 만들기](#create-a-queue)
+- [큐에 메시지 추가](#add-messages-to-a-queue)
+- [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
+- [큐의 메시지 업데이트](#update-a-message-in-a-queue)
+- [큐에서 메시지 수신 및 삭제](#receive-and-delete-messages-from-a-queue)
+- [큐 삭제](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -202,7 +202,6 @@ String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
 > [!IMPORTANT]
 > 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
-
 
 [QueueClient](/java/api/com.azure.storage.queue.queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create](/java/api/com.azure.storage.queue.queueclient.create) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
 
@@ -266,7 +265,7 @@ System.out.println("\nUpdating the third message in the queue...");
 // Update a message using the result that
 // was saved when sending the message
 queueClient.updateMessage(result.getMessageId(),
-                          result.getPopReceipt(), 
+                          result.getPopReceipt(),
                           "Third message has been updated",
                           Duration.ofSeconds(1));
 ```
@@ -374,4 +373,4 @@ Done
 > [!div class="nextstepaction"]
 > [Java 클라우드 개발자용 Azure](/azure/developer/java/)
 
-* 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage SDK v12 Java 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)을 계속 진행하세요.
+- 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage SDK v12 Java 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)을 계속 진행하세요.

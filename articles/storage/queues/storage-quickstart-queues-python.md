@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345724"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>빠른 시작: Python용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -21,26 +21,26 @@ Python용 Azure Queue storage 클라이언트 라이브러리 버전 12를 시�
 
 Python용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행할 수 있습니다.
 
-* 큐 만들기
-* 큐에 메시지 추가
-* 큐의 메시지 피킹(Peeking)
-* 큐의 메시지 업데이트
-* 큐에서 메시지 받기
-* 큐에서 메시지 삭제
-* 큐 삭제
+- 큐 만들기
+- 큐에 메시지 추가
+- 큐의 메시지 피킹(Peeking)
+- 큐의 메시지 업데이트
+- 큐에서 메시지 받기
+- 큐에서 메시지 삭제
+- 큐 삭제
 
 추가 리소스:
 
-* [API 참조 설명서](/python/api/azure-storage-queue/index)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-queue/)
-* [샘플](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API 참조 설명서](/python/api/azure-storage-queue/index)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-queue/)
+- [샘플](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
-* 운영 체제에 맞는 [Python](https://www.python.org/downloads/) - 2.7, 3.5 이상
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+- 운영 체제에 맞는 [Python](https://www.python.org/downloads/) - 2.7, 3.5 이상
 
 ## <a name="setting-up"></a>설치
 
@@ -101,9 +101,9 @@ pip install azure-storage-queue
 
 Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입니다. 큐 메시지의 크기는 최대 64KB입니다. 큐는 스토리지 계정의 용량 제한에 도달할 때까지 수백만 개의 메시지를 포함할 수 있습니다. 큐는 비동기적으로 처리할 작업의 백로그를 만드는 데 일반적으로 사용됩니다. Queue storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 큐
-* 큐 내의 메시지
+- 스토리지 계정
+- 스토리지 계정의 큐
+- 큐 내의 메시지
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -111,22 +111,22 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 Python 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` 클래스는 큐에서 [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` 클래스는 큐에서 [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 다음 예제 코드 조각은 Python용 Azure Queue storage 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
-* [연결 문자열 가져오기](#get-the-connection-string)
-* [큐 만들기](#create-a-queue)
-* [큐에 메시지 추가](#add-messages-to-a-queue)
-* [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
-* [큐의 메시지 업데이트](#update-a-message-in-a-queue)
-* [큐에서 메시지 받기](#receive-messages-from-a-queue)
-* [큐에서 메시지 삭제](#delete-messages-from-a-queue)
-* [큐 삭제](#delete-a-queue)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [큐 만들기](#create-a-queue)
+- [큐에 메시지 추가](#add-messages-to-a-queue)
+- [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
+- [큐의 메시지 업데이트](#update-a-message-in-a-queue)
+- [큐에서 메시지 받기](#receive-messages-from-a-queue)
+- [큐에서 메시지 삭제](#delete-messages-from-a-queue)
+- [큐 삭제](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -316,5 +316,5 @@ Done
 > [!div class="nextstepaction"]
 > [Python 개발자용 Azure](/azure/python/)
 
-* 자세한 내용은 [Python용 Azure Storage 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage)를 참조하세요.
-* 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage v12 Python 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)을 계속 진행하세요.
+- 자세한 내용은 [Python용 Azure Storage 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage)를 참조하세요.
+- 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage v12 Python 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)을 계속 진행하세요.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 7ccc83a61ac4ffe6e1bb6767a9c611bd3fcc0edf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52bc2a20be0d7113583b7f23cc569dbb9503d364
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892782"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397249"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -28,7 +28,7 @@ Application Gateway는 URI 경로 또는 호스트 헤더와 같은 HTTP 요청�
 >[!NOTE]
 > Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. 고성능, 낮은 대기 시간, 계층 4 부하 분산이 필요한 경우 [Azure Load Balancer란?](../load-balancer/load-balancer-overview.md)을 참조하세요. 글로벌 DNS 부하 분산을 확인하려는 경우 [Traffic Manager란?](../traffic-manager/traffic-manager-overview.md)을 참조하세요. 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 >
-> Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
+> Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 
 ## <a name="features"></a>기능
 

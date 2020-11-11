@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa94c58dfb051eadc0059aa556383260a00b10
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135000"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335403"
 ---
 # <a name="what-is-identity-lifecycle-management"></a>ID 수명 주기 관리란?
 
@@ -70,7 +70,7 @@ ms.locfileid: "93135000"
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD 권한 관리에서 외부 사용자에 대한 액세스 제어](/azure/active-directory/governance/entitlement-management-external-users.md)
+- [Azure AD 권한 관리에서 외부 사용자에 대한 액세스 제어](/azure/active-directory/governance/entitlement-management-external-users)
 - [HR 기반 프로비저닝이란?](what-is-hr-driven-provisioning.md)
 - [앱 프로비저닝이란?](what-is-app-provisioning.md)
 - [디렉터리 간 프로비저닝이란?](what-is-inter-directory-provisioning.md)
