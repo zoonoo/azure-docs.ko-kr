@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082048"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369344"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -53,7 +53,7 @@ Bing Visual Search 결과에는 이미지의 관심 영역에 대한 경계 상�
 
 Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 서비스에 REST API 또는 SDK를 사용할 수 있습니다.
 
-1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
+1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](../cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
@@ -74,8 +74,8 @@ Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 
 ## <a name="see-also"></a>참고 항목
 
-* [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참조에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 요청, 헤더, 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 설명되어 있습니다.
+* [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참조에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 요청, 헤더, 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 설명되어 있습니다.
 
 * [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)에서는 Bing Search API를 통해 확보한 콘텐츠와 정보의 적합한 용도를 지정합니다.
 
-* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+* [Bing Search API 허브 페이지](../bing-web-search/overview.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

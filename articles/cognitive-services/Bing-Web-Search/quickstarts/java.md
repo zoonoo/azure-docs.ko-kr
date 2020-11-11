@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4db81571fe4b77382ccf269351ddbf46ef5f06e2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c19aca20b1b5dff53630c0b51c75689394ad3d53
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076710"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381085"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>빠른 시작: Java를 사용하여 Azure 인지 서비스인 Bing Web Search REST API로 웹 검색
 
@@ -31,7 +31,7 @@ ms.locfileid: "93076710"
 
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-* [JDK 7 또는 8](https://aka.ms/azure-jdks)
+* [JDK 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Gson 라이브러리](https://github.com/google/gson)
 * 구독 키
 
@@ -333,4 +333,4 @@ Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답�
 > [!div class="nextstepaction"]
 > [Bing Web Search API 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

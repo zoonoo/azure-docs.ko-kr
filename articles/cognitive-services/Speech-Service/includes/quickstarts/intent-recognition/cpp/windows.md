@@ -6,14 +6,14 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298826"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425328"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
@@ -46,14 +46,14 @@ ms.locfileid: "87298826"
 `recognizeIntent()` 메서드에 이 코드를 삽입합니다. 다음 값을 업데이트해야 합니다.
 
 * `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다.
-* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다.  [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**를 사용합니다.
+* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다.  [지역](../../../../regions.md)의 **영역 식별자** 를 사용합니다.
 
 >[!TIP]
 > 이러한 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 참조하세요.
+이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](/cpp/cognitive-services/speech/speechconfig)를 참조하세요.
 
 Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
@@ -105,8 +105,8 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 
 이제 앱을 빌드하고 음성 서비스를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
 
-1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션**을 선택합니다.
-2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 <kbd>F5</kbd> 키를 누릅니다.
+1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션** 을 선택합니다.
+2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작** 을 선택하거나 <kbd>F5</kbd> 키를 누릅니다.
 3. **인식 시작** - 영어로 문구를 말하라는 메시지가 표시됩니다. 음성은 Speech Service로 전송되어 텍스트로 변환되고 콘솔에 렌더링됩니다.
 
 ## <a name="next-steps"></a>다음 단계

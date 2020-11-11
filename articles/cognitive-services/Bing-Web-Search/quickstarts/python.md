@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 9d6de9b29f0e68d48eab0b2c4081470858d3d69c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63706eefd4f46c055e8bcbd58a86fdded6f3527d
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076438"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381051"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  
 
@@ -31,7 +31,7 @@ ms.locfileid: "93076438"
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 2.x 또는 3.x](https://www.python.org/)
 
@@ -62,7 +62,7 @@ ms.locfileid: "93076438"
 
 이 코드에서는 `requests` 라이브러리를 사용하여 Bing Web Search API를 호출하고 결과를 JSON 개체로 반환합니다. API 키는 `headers` 사전에 전달되고, 검색 용어와 쿼리 매개 변수는 `params` 사전에 전달됩니다. 
 
-옵션 및 매개 변수의 전체 목록은 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)을 참조하세요.
+옵션 및 매개 변수의 전체 목록은 [Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)을 참조하세요.
 
 ```python
 import requests

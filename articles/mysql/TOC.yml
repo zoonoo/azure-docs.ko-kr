@@ -471,6 +471,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: 모니터링 및 로그
           items:
+            - name: 서버 매개 변수
+              href: flexible-server/concepts-server-parameters.md
             - name: 느린 쿼리 로그
               href: flexible-server/concepts-slow-query-logs.md
             - name: 감사 로그

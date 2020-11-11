@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 1b0fa12aa00165ad4ddd02d36383b41bdf74f4d8
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376504"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386616"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Node.js 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 
@@ -107,4 +107,4 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Node SDK 참조](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
+* [Azure Node SDK 참조](/javascript/api/@azure/cognitiveservices-websearch/)

@@ -41,8 +41,6 @@
           href: batch-transcription.md
     - name: 자습서
       items:
-        - name: Blob 스토리지에 저장된 음성 인식
-          href: quickstarts/from-blob.md
         - name: 테넌트 모델을 사용하여 정확도 향상
           href: tutorial-tenant-model.md
     - name: 사용자 지정

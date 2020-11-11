@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094101"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379857"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>빠른 시작: Bing Video Search REST API 및 PHP를 사용하여 비디오 검색
 
@@ -36,7 +36,7 @@ ms.locfileid: "93094101"
 
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
+[Bing Video Search API](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
 
 1. 다음 코드에 설명된 대로 `;extension=php_openssl.dll` 줄의 주석 처리를 제거하여 `php.ini` 파일에서 보안 HTTP 지원을 사용하도록 설정합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.

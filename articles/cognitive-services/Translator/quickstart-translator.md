@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322522"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369531"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -105,7 +105,7 @@ REST를 통해 Translator 서비스를 호출하는 경우 다음 헤더가 각 
   <th>Description</th>
   <tr>
     <td>인증 헤더</td>
-    <td><em>필수 요청 헤더</em><br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cognitive Services 리소스를 사용하는 경우 필요한 요청 헤더입니다. Translator 리소스를 사용하는 경우 선택 사항입니다.</em><br/><code>Ocp-Apim-Subscription-Region</code><br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
+    <td><em>필수 요청 헤더</em><br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cognitive Services 리소스를 사용하는 경우 필요한 요청 헤더입니다. Translator 리소스를 사용하는 경우 선택 사항입니다.</em><br/><code>Ocp-Apim-Subscription-Region</code><br/><br/><a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
@@ -123,7 +123,7 @@ REST를 통해 Translator 서비스를 호출하는 경우 다음 헤더가 각 
 
 ## <a name="keys-and-endpoints"></a>키 및 엔드포인트
 
-이 페이지의 샘플에서는 편의상 하드 코딩된 키와 엔드포인트를 사용합니다. **완료되면 코드에서 키를 제거** 하고 **공개적으로 게시하지 마세요**. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
+이 페이지의 샘플에서는 편의상 하드 코딩된 키와 엔드포인트를 사용합니다. **완료되면 코드에서 키를 제거** 하고 **공개적으로 게시하지 마세요**. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../cognitive-services-security.md) 문서를 참조하세요.
 
 ## <a name="translate-text"></a>텍스트 번역 
 
@@ -686,7 +686,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ### <a name="detect-source-language-without-translation"></a>번역 없이 원본 언어 감지
 
-번역을 수행하지 않고도 Translator 서비스를 사용하여 원본 텍스트의 언어를 감지할 수 있습니다. 이렇게 하려면 [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) 엔드포인트를 사용합니다. 
+번역을 수행하지 않고도 Translator 서비스를 사용하여 원본 텍스트의 언어를 감지할 수 있습니다. 이렇게 하려면 [`/detect`](./reference/v3-0-detect.md) 엔드포인트를 사용합니다. 
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13e08d2c273b242a902203abf0879fd11fbdf801
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85940415"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386472"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
@@ -177,7 +177,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Bing에서 반환하는 결과 수 제한
 
-이 샘플에서는 `count` 및 `offset` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 반환되는 결과의 수를 제한합니다. 첫 번째 결과에 대한 `name` 및 `url`이 출력됩니다.
+이 샘플에서는 `count` 및 `offset` 매개 변수를 사용하여 SDK의 [`search` 메서드](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 반환되는 결과의 수를 제한합니다. 첫 번째 결과에 대한 `name` 및 `url`이 출력됩니다.
 
 1. 이 코드를 Python 프로젝트에 추가합니다.
 
@@ -266,7 +266,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>안전 검색, 응답 수 및 승격 필터 사용
 
-이 샘플에서는 `answer_count`, `promote` 및 `safe_search` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 검색 결과를 필터링합니다. 첫 번째 결과에 대한 `name` 및 `url`이 표시됩니다.
+이 샘플에서는 `answer_count`, `promote` 및 `safe_search` 매개 변수를 사용하여 SDK의 [`search` 메서드](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 검색 결과를 필터링합니다. 첫 번째 결과에 대한 `name` 및 `url`이 표시됩니다.
 
 1. 이 코드를 Python 프로젝트에 추가합니다.
 
@@ -320,4 +320,4 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Python SDK 참조](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)
+* [Azure Python SDK 참조](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)

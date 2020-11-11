@@ -15,10 +15,6 @@
       href: virtual-wan-expressroute-portal.md
 - name: 개념
   items:
-    - name: 보안
-      items:
-        - name: 보안 기준
-          href: security-baseline.md
     - name: 원격으로 작업
       items:
         - name: 원격 작업 지원
@@ -109,6 +105,8 @@
           href: about-vpn-profile-download.md
         - name: 글로벌 및 허브 기반 프로필
           href: global-hub-profile.md
+        - name: Windows 10용 Azure VPN Client 구성
+          href: openvpn-azure-ad-client.md
         - name: OpenVPN 클라이언트 구성
           href: howto-openvpn-clients.md?
         - name: Always On VPN 사용자 터널 구성
@@ -119,8 +117,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: Azure AD 인증 구성
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: Windows 10용 Azure VPN Client 구성
-          href: openvpn-azure-ad-client.md
         - name: 다중 애플리케이션 Azure AD 인증 구성
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: 라우팅

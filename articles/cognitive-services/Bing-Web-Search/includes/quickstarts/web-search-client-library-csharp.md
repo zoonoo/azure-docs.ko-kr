@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217592"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386590"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 C# 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search�
 > [!TIP]
 > [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
-첫 번째 단계는 새 콘솔 프로젝트를 만드는 것입니다. 콘솔 프로젝트를 설정하는 데 도움이 필요하면 [Hello World - 프로그램 처음 만들기(C# 프로그래밍 가이드)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)를 참조하세요. 애플리케이션에서 Bing Web Search SDK를 사용하려면 NuGet 패키지 관리자를 사용하여 `Microsoft.Azure.CognitiveServices.Search.WebSearch`를 설치해야 합니다.
+첫 번째 단계는 새 콘솔 프로젝트를 만드는 것입니다. 콘솔 프로젝트를 설정하는 데 도움이 필요하면 [Hello World - 프로그램 처음 만들기(C# 프로그래밍 가이드)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)를 참조하세요. 애플리케이션에서 Bing Web Search SDK를 사용하려면 NuGet 패키지 관리자를 사용하여 `Microsoft.Azure.CognitiveServices.Search.WebSearch`를 설치해야 합니다.
 
 또한 [Web Search SDK 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)는 다음을 설치합니다.
 
@@ -424,4 +424,3 @@ dotnet run
 
 > [!div class="nextstepaction"]
 > [Cognitive Services Node.js SDK 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

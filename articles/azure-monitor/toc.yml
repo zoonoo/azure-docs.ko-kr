@@ -114,15 +114,7 @@
     - name: 데이터 원본
       href: platform/data-sources.md
     - name: 데이터 플랫폼
-      items:
-        - name: 개요
-          href: platform/data-platform.md
-        - name: 로그
-          href: platform/data-platform-logs.md
-        - name: 메트릭
-          href: platform/data-platform-metrics.md
-        - name: Event Hubs로 데이터 스트리밍
-          href: platform/stream-monitoring-data-event-hubs.md
+      href: platform/data-platform.md
     - name: 데이터 보안
       items:
         - name: 로그 데이터
@@ -188,98 +180,13 @@
               href: app/pricing.md
             - name: 로그 데이터 사용량 및 비용
               href: platform/manage-cost-storage.md
-    - name: 플랫폼 로그
+    - name: Azure Monitor 로그
       items:
         - name: 개요
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: 활동 로그
-          href: platform/activity-log.md
-        - name: 리소스 로그
-          href: platform/resource-logs.md
-        - name: 진단 설정
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
-        - name: 개요
-          displayname: 'Log Analytics, log query, log queries, query, queries'
-          href: log-query/log-query-overview.md
-        - name: 자습서
-          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
-          href: log-query/get-started-portal.md
-        - name: 쿼리 범위
-          href: log-query/scope.md
-        - name: Azure Data Explorer를 사용한 쿼리
-          href: platform/azure-data-explorer-monitor-proxy.md
-        - name: 로그 쿼리
-          items:
-            - name: 표준 열
-              href: platform/log-standard-columns.md
-            - name: 감사 쿼리
-              href: log-query/query-audit.md
-            - name: 쿼리 최적화
-              href: log-query/query-optimization.md
-            - name: Functions
-              href: log-query/functions.md
-            - name: 텍스트 데이터 구문 분석
-              href: log-query/parse-text.md
-            - name: 쿼리 예
-              href: log-query/saved-queries.md
-            - name: 컴퓨터 그룹
-              href: platform/computer-groups.md
-        - name: 쿼리 언어
-          items:
-            - name: KQL 참조
-              href: /azure/data-explorer/kusto/query/
-            - name: Azure 데이터 탐색기와의 차이
-              href: log-query/data-explorer-difference.md
-            - name: 예
-              href: log-query/examples.md
-            - name: 스마트 분석 예제
-              href: log-query/smart-analytics.md
-            - name: 단원
-              items:
-                - name: 문자열 작업
-                  href: log-query/string-operations.md
-                - name: 날짜 및 시간 작업
-                  href: log-query/datetime-operations.md
-                - name: 집계 함수
-                  href: log-query/aggregations.md
-                - name: 고급 집계
-                  href: log-query/advanced-aggregations.md
-                - name: 조인
-                  href: log-query/joins.md
-                - name: JSON 및 데이터 구조
-                  href: log-query/json-data-structures.md
-                - name: 고급 쿼리 작성
-                  href: log-query/advanced-query-writing.md
-                - name: 차트 및 다이어그램
-                  href: log-query/charts.md
-                - name: 검색 쿼리
-                  href: log-query/search-queries.md
-            - name: Cheatsheets
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-        - name: 리소스 간 쿼리
-          items:
-            - name: 개요
-              href: log-query/cross-workspace-query.md
-            - name: 앱 식
-              href: log-query/app-expression.md
-            - name: 작업 영역 식
-              href: log-query/workspace-expression.md
-            - name: 리소스 식
-              href: log-query/resource-expression.md
-            - name: 애플리케이션 데이터 리소스 통합
-              href: log-query/unify-app-resource-data.md
+          displayname: 'Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries'
+          href: platform/data-platform-logs.md
         - name: 작업 영역 및 클러스터
           items:
-            - name: 작업 영역 배포 디자인
-              href: platform/design-logs-deployment.md
             - name: 작업 영역 만들기
               items:
                 - name: Azure portal
@@ -288,6 +195,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+            - name: 작업 영역 배포 디자인
+              href: platform/design-logs-deployment.md
             - name: 작업 영역 모니터링
               href: platform/monitor-workspace.md
             - name: 작업 영역 삭제 및 복구
@@ -301,6 +210,50 @@
               href: platform/service-providers.md
             - name: Dedicated 클러스터
               href: log-query/logs-dedicated-clusters.md
+        - name: Log Analytics
+          items:
+            - name: 개요
+              displayname: 'Log Analytics, log query, log queries, query, queries'
+              href: log-query/log-analytics-overview.md
+            - name: 자습서
+              displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+              href: log-query/log-analytics-tutorial.md
+            - name: 쿼리 범위
+              href: log-query/scope.md
+            - name: 쿼리 예
+              href: log-query/example-queries.md
+        - name: 로그 쿼리
+          items:
+            - name: 개요
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: KQL 참조
+              href: /azure/data-explorer/kusto/query/
+            - name: 샘플 쿼리
+              href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+            - name: 표준 열
+              href: platform/log-standard-columns.md
+            - name: 쿼리 최적화
+              href: log-query/query-optimization.md
+            - name: 함수
+              href: log-query/functions.md
+            - name: 텍스트 데이터 구문 분석
+              href: log-query/parse-text.md
+            - name: 컴퓨터 그룹
+              href: platform/computer-groups.md
+            - name: 리소스 간 쿼리
+              items:
+                - name: 개요
+                  displayname: cross-resource queries
+                  href: log-query/cross-workspace-query.md
+                - name: 앱 식
+                  href: log-query/app-expression.md
+                - name: 작업 영역 식
+                  href: log-query/workspace-expression.md
+                - name: 리소스 식
+                  href: log-query/resource-expression.md
+                - name: 애플리케이션 데이터 리소스 통합
+                  href: log-query/unify-app-resource-data.md
         - name: 데이터 내보내기
           items:
             - name: 작업 영역 데이터 내보내기
@@ -309,16 +262,33 @@
               href: platform/logs-export-logic-app.md
             - name: 데이터 탐색기를 사용하여 내보낸 데이터 쿼리
               href: platform/azure-data-explorer-query-storage.md
-    - name: 메트릭 탐색기
+    - name: Azure Monitor 메트릭
       items:
-        - name: 메트릭 탐색기로 시작
-          href: platform/metrics-getting-started.md
-        - name: 메트릭 탐색기의 고급 기능
-          href: platform/metrics-charts.md
-        - name: 메트릭 차트의 예
-          href: platform/metric-chart-samples.md
-        - name: 메트릭 차트 문제 해결
-          href: platform/metrics-troubleshoot.md
+        - name: 개요
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: 메트릭 탐색기
+          items:
+            - name: 메트릭 탐색기로 시작
+              href: platform/metrics-getting-started.md
+            - name: 메트릭 탐색기의 고급 기능
+              href: platform/metrics-charts.md
+            - name: 메트릭 차트의 예
+              href: platform/metric-chart-samples.md
+            - name: 메트릭 차트 문제 해결
+              href: platform/metrics-troubleshoot.md
+    - name: 플랫폼 로그
+      items:
+        - name: 개요
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: 활동 로그
+          href: platform/activity-log.md
+        - name: 리소스 로그
+          href: platform/resource-logs.md
+        - name: 진단 설정
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
     - name: 데이터 수집
       items:
         - name: 데이터 수집 규칙

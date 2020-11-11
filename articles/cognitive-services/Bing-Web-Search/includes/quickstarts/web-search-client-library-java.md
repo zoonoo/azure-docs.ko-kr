@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 042a3edf8efe080064a3c41fd55975a40bf47e5e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87375721"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386661"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Java 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
@@ -24,7 +24,7 @@ Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search�
 
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-* [JDK 7 또는 8](https://aka.ms/azure-jdks)
+* [JDK 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Apache Maven](https://maven.apache.org/download.cgi) 또는 즐겨찾는 빌드 자동화 도구
 * 구독 키
 
@@ -295,4 +295,4 @@ mvn compile exec:java
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Java SDK 참조](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)
+* [Azure Java SDK 참조](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

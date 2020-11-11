@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 10/30/2019
-  ms.openlocfilehash: ba3439ab515539149bb53bcd38c7c646f9f2da07
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: c6d4a6afa1e85a4b159673a11081bc694e3b9cf4
+  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92790851"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94490868"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -117,6 +117,16 @@ landingContent:
       url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - text: 성능 지침
       url: virtual-machines/windows/performance-guidelines-best-practices.md
+- title: SQL Server에서 마이그레이션
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure SQL Database
+      url: migration-guides/database/sql-server-to-sql-database-overview.md
+    - text: Azure SQL Managed Instance
+      url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+    - text: Azure VM의 SQL Server
+      url: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
 - title: 연결 및 쿼리
   linkLists:
   - linkListType: quickstart
@@ -137,40 +147,6 @@ landingContent:
       url: database/connect-query-dotnet-core.md
     - text: Python
       url: database/connect-query-python.md
-- title: 개발
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 애플리케이션 개발
-      url: database/develop-overview.md
-    - text: 재해 복구 앱 디자인
-      url: database/designing-cloud-solutions-for-disaster-recovery.md
-    - text: 롤링 업그레이드(SQL DB) 관리
-      url: database/manage-application-rolling-upgrade.md
-    - text: 개발 전략(SQL VM)
-      url: virtual-machines/windows/application-patterns-development-strategies.md
-    - text: SaaS 데이터베이스 테넌시 패턴
-      url: database/saas-tenancy-app-design-patterns.md
-  - linkListType: how-to-guide
-    links:
-    - text: 첫 번째 데이터베이스(SSMS) 디자인
-      url: database/design-first-database-tutorial.md
-    - text: 첫 번째 데이터베이스(C#) 디자인
-      url: database/design-first-database-csharp-tutorial.md
-- title: Azure SQL 알아보기
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: 초보자용 Azure SQL
-      url: https://aka.ms/azuresql4beginners
-    - text: Azure SQL 기본 사항
-      url: /learn/paths/azure-sql-fundamentals/
-    - text: Azure SQL 실습 랩
-      url: https://aka.ms/asqlworkshop
-    - text: Azure SQL 부트캠프
-      url: https://aka.ms/azuresqlbootcamp
-    - text: 교육용 SQL 리소스
-      url: /sql/sql-server/educational-sql-resources
 - title: 참조
   linkLists:
   - linkListType: deploy
@@ -203,3 +179,37 @@ landingContent:
       url: /powershell/module/az.sql
     - text: REST API
       url: /rest/api/sql/
+- title: Azure SQL 알아보기
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 초보자용 Azure SQL
+      url: https://aka.ms/azuresql4beginners
+    - text: Azure SQL 기본 사항
+      url: /learn/paths/azure-sql-fundamentals/
+    - text: Azure SQL 실습 랩
+      url: https://aka.ms/asqlworkshop
+    - text: Azure SQL 부트캠프
+      url: https://aka.ms/azuresqlbootcamp
+    - text: 교육용 SQL 리소스
+      url: /sql/sql-server/educational-sql-resources
+- title: 개발
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 개발
+      url: database/develop-overview.md
+    - text: 재해 복구 앱 디자인
+      url: database/designing-cloud-solutions-for-disaster-recovery.md
+    - text: 롤링 업그레이드(SQL DB) 관리
+      url: database/manage-application-rolling-upgrade.md
+    - text: 개발 전략(SQL VM)
+      url: virtual-machines/windows/application-patterns-development-strategies.md
+    - text: SaaS 데이터베이스 테넌시 패턴
+      url: database/saas-tenancy-app-design-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: 첫 번째 데이터베이스(SSMS) 디자인
+      url: database/design-first-database-tutorial.md
+    - text: 첫 번째 데이터베이스(C#) 디자인
+      url: database/design-first-database-csharp-tutorial.md

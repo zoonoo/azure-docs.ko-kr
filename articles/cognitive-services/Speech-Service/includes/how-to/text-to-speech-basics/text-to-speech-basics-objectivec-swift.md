@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
-ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332531"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424903"
 ---
 Swift 및 Objective-C에 대해 Speech SDK를 사용하여 텍스트에서 음성을 합성할 수 있습니다.
 
@@ -27,4 +27,4 @@ Swift 및 Objective-C에 대해 Speech SDK를 사용하여 텍스트에서 음�
 * [iOS에서 Swift로 음성 합성](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [iOS에서 Objective-C에 대한 추가 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-또한 온라인 [Objective-C 참조에 대한 Speech SDK](https://docs.microsoft.com/objectivec/cognitive-services/speech/)를 제공합니다.
+또한 온라인 [Objective-C 참조에 대한 Speech SDK](/objectivec/cognitive-services/speech/)를 제공합니다.
