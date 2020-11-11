@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314753"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505226"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "92314753"
 **문제점** | **해결**
 --- | ---
 지원되지 않는 부팅 유형 | Azure는 EFI 부팅 유형을 사용 하는 Vm을 지원 하지 않습니다. 마이그레이션을 실행 하기 전에 부팅 유형을 BIOS로 변환 하는 것이 좋습니다. <br/><br/>Azure Migrate Server Migration을 사용 하 여 이러한 Vm의 마이그레이션을 처리할 수 있습니다. 마이그레이션하는 동안 VM의 부팅 유형을 BIOS로 변환 합니다.
-조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](/troubleshoot/azure/virtual-machines/server-software-support)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다.
+조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](/troubleshoot/azure/virtual-machines/server-software-support)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다. Azure로 마이그레이션하기 위해 [Windows Server 2003를 실행 하는 컴퓨터 준비](prepare-windows-server-2003-migration.md) 에 대 한 정보를 [검토]() 합니다.
 지원 되지 않는 Windows 운영 체제 | Azure는 [선택한 WINDOWS OS 버전만](/troubleshoot/azure/virtual-machines/server-software-support)지원 합니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다.
 조건부로 보증되는 Linux OS | Azure 보증에는 [선택한 LINUX OS 버전만](../virtual-machines/linux/endorsed-distros.md)있습니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다. 자세한 내용은 [여기](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) 를 참조 하세요.
 보증되지 않는 Linux OS | 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 운영 체제를 지원 하지 않습니다. Azure로 마이그레이션하기 전에 [보증 Linux 버전](../virtual-machines/linux/endorsed-distros.md) 으로 업그레이드 하는 것이 좋습니다.
@@ -48,7 +48,7 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 내부 오류로 인해 하나 이상의 디스크에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 네트워크 어댑터에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 제안 통화 예약 인스턴스에 대 한 VM 크기를 찾을 수 없습니다. | 선택 된 RI, 제안 및 통화 조합에 대 한 VM 크기를 찾을 수 없기 때문에 컴퓨터가 적절 하지 않음으로 표시 되었습니다. 평가 속성을 편집 하 여 유효한 조합을 선택 하 고 평가를 다시 계산 합니다. 
-조건적으로 준비 된 인터넷 프로토콜 | Azure VMware 솔루션 (AVS) 평가에만 적용 됩니다. AVS는 IPv6 인터넷 주소 요인을 지원 하지 않습니다.컴퓨터가 i p v 6을 통해 검색 되는 경우에는 업데이트를 위해 AVS 팀에 문의 하세요.
+조건적으로 준비 된 인터넷 프로토콜 | Azure VMware 솔루션 (AVS) 평가에만 적용 됩니다. AVS는 IPv6 인터넷 주소 요인을 지원 하지 않습니다. 컴퓨터가 i p v 6을 통해 검색 되는 경우에는 업데이트를 위해 AVS 팀에 문의 하세요.
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>가져오기 기반 AVS 평가에서 알 수 없음으로 표시 된 제안 된 마이그레이션 도구
 
@@ -75,7 +75,7 @@ VMware 및 Hyper-v Vm의 경우 서버 평가는 서버 평가의 알려진 간�
 Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 할당 보다 더 많은 코어 및 메모리를 사용 하는 Azure VM Sku를 권장할 수 있습니다.
 
 - VM SKU 권장 사항은 평가 속성에 따라 달라 집니다.
-- 이는 서버 평가에서 수행 하는 평가 유형 ( *성능 기반*또는 *온-프레미스)* 의 영향을 받습니다.
+- 이는 서버 평가에서 수행 하는 평가 유형 ( *성능 기반* 또는 *온-프레미스)* 의 영향을 받습니다.
 - 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 또한 효과적인 사용률을 결정할 때 쾌적 인자를 추가합니다.
 - 온-프레미스 크기 조정의 경우 성능 데이터를 고려 하지 않으며 대상 SKU는 온-프레미스 할당을 기반으로 하는 것이 좋습니다.
 
@@ -83,7 +83,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 
 50% CPU 사용률과 50%의 메모리 사용률과 지정 된 1.3 편안 하 게 코어와 8 GB의 메모리가 있는 온-프레미스 VM이 있습니다.
 
--  평가를 **온-프레미스로**사용 하는 경우 4 개의 코어와 8gb의 메모리를 사용 하는 AZURE VM SKU를 사용 하는 것이 좋습니다.
+-  평가를 **온-프레미스로** 사용 하는 경우 4 개의 코어와 8gb의 메모리를 사용 하는 AZURE VM SKU를 사용 하는 것이 좋습니다.
 - 평가가 성능 기반 인 경우 유효한 CPU 및 메모리 사용률 (4 개 코어의 50% * 1.3 = 2.6 코어 및 50% 8gb memory * 1.3 = 5.3 GB memory)을 기반으로 하 여 4 개 코어 (지원 되는 가장 가까운 코어 수)와 8GB의 메모리 (지원 되는 가장 가까운 메모리 크기)의 가장 저렴 한 VM SKU를 사용 하는 것이 좋습니다.
 - 평가 크기 조정에 대해 [자세히 알아보세요](concepts-assessment-calculation.md#types-of-assessments) .
 
@@ -91,8 +91,8 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 
 Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권장할 수 있습니다.
 - 서버 평가의 디스크 크기 조정은 두 가지 평가 속성인 크기 조정 조건 및 저장소 유형에 따라 달라 집니다.
-- 크기 조정 기준이 성능에 **따라 결정**되 고 저장소 유형이 **자동**으로 설정 된 경우 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄)을 식별 하는 경우 디스크의 IOPS 및 처리량 값이 고려 됩니다. 그런 다음 디스크 유형의 디스크 SKU를 권장 하며 권장 사항은 온-프레미스 디스크의 크기 요구 사항을 고려 합니다.
-- 크기 조정 기준이 **성능 기반**이며 저장소 유형이 **프리미엄**인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 AZURE의 premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 **온-프레미스** 이 고 저장소 유형이 **표준 HDD**, **표준 SSD**또는 **Premium**인 경우 동일한 논리를 사용 하 여 디스크 크기를 조정 합니다.
+- 크기 조정 기준이 성능에 **따라 결정** 되 고 저장소 유형이 **자동** 으로 설정 된 경우 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄)을 식별 하는 경우 디스크의 IOPS 및 처리량 값이 고려 됩니다. 그런 다음 디스크 유형의 디스크 SKU를 권장 하며 권장 사항은 온-프레미스 디스크의 크기 요구 사항을 고려 합니다.
+- 크기 조정 기준이 **성능 기반** 이며 저장소 유형이 **프리미엄** 인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 AZURE의 premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 **온-프레미스** 이 고 저장소 유형이 **표준 HDD** , **표준 SSD** 또는 **Premium** 인 경우 동일한 논리를 사용 하 여 디스크 크기를 조정 합니다.
 
 예를 들어 32 GB의 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대해 집계 된 읽기/쓰기 IOPS가 800 IOPS 인 경우 서버 평가는 프리미엄 디스크 (IOPS 요구 사항)를 권장 하 고 필요한 IOPS 및 크기를 지원할 수 있는 디스크 SKU를 권장 합니다. 이 예제에서 가장 가까운 일치 항목은 P15(256GB, 1100IOPS)입니다. 온-프레미스 디스크에 필요한 크기가 32 GB 이더라도 서버 평가는 온-프레미스 디스크의 높은 IOPS 요구 사항으로 인해 더 큰 디스크를 권장 합니다.
 
@@ -126,7 +126,7 @@ Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 �
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
-' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](./concepts-assessment-calculation.md#whats-an-assessment).
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아봅니다](./concepts-assessment-calculation.md#whats-an-assessment).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
 
@@ -165,8 +165,8 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
-- **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
+- **MMS 에이전트** : 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
+- **종속성 에이전트** : 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
 
@@ -202,15 +202,15 @@ Azure Migrate는 현재 미국 동부, 동남 아시아 및 서유럽 지역에�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. F12 키를 눌러 개발자 도구를 시작 합니다. 필요한 경우  **탐색에서 항목 지우기** 설정을 선택 취소 합니다.
 3. **네트워크** 탭을 선택 하 고 네트워크 트래픽 캡처를 시작 합니다.
-   - 크롬에서 **Preserve log**를 클릭합니다. 자동으로 기록이 시작됩니다. 빨간색 원은 트래픽이 캡처되고 있음을 나타냅니다. 빨간색 원이 나타나지 않으면 시작할 검정색 원을 선택 합니다.
+   - 크롬에서 **Preserve log** 를 클릭합니다. 자동으로 기록이 시작됩니다. 빨간색 원은 트래픽이 캡처되고 있음을 나타냅니다. 빨간색 원이 나타나지 않으면 시작할 검정색 원을 선택 합니다.
    - Microsoft Edge 및 Internet Explorer에서 기록이 자동으로 시작 됩니다. 그렇지 않으면 녹색 재생 단추를 선택 합니다.
 4. 오류를 재현해 봅니다.
 5. 기록하는 동안 오류가 발생하면 기록을 중지하고 기록된 활동의 복사본을 저장합니다.
-   - Chrome에서 마우스 오른쪽 단추를 클릭 하 고 **콘텐츠를 사용 하 여 HAR로 저장**을 선택 합니다. 이 작업은 로그를 압축 하 고 har 파일로 내보냅니다.
+   - Chrome에서 마우스 오른쪽 단추를 클릭 하 고 **콘텐츠를 사용 하 여 HAR로 저장** 을 선택 합니다. 이 작업은 로그를 압축 하 고 har 파일로 내보냅니다.
    - Microsoft Edge 또는 Internet Explorer에서 **캡처된 트래픽 내보내기** 옵션을 선택 합니다. 이 작업은 로그를 압축 하 고 내보냅니다.
 6. **콘솔** 탭을 선택 하 여 경고 또는 오류를 확인 합니다. 콘솔 로그를 저장하려면:
-   - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. 다른 **이름으로 저장**을 선택 하 고 로그를 내보내고 압축 합니다.
-   - Microsoft Edge 또는 Internet Explorer에서 오류를 마우스 오른쪽 단추로 클릭 하 고 **모두 복사**를 선택 합니다.
+   - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. 다른 **이름으로 저장** 을 선택 하 고 로그를 내보내고 압축 합니다.
+   - Microsoft Edge 또는 Internet Explorer에서 오류를 마우스 오른쪽 단추로 클릭 하 고 **모두 복사** 를 선택 합니다.
 7. 개발자 도구를 닫습니다.
 
 

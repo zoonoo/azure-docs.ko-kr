@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995731"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506297"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성
 VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM용 Azure Monitor에 대해 구성 합니다.
@@ -20,10 +20,10 @@ VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상�
 ## <a name="overview"></a>개요
 단일 구독은 요구 사항에 따라 원하는 수의 작업 영역을 사용할 수 있습니다. 작업 영역의 유일한 요구 사항은 지원 되는 위치에 있고 *VMInsights* 솔루션을 사용 하 여 구성 되어야 한다는 것입니다.
 
-작업 영역을 구성한 후에는 사용 가능한 옵션 중 하나를 사용 하 여 VM 및 VMMS에 필요한 에이전트를 설치 하 고 데이터를 보낼 작업 영역을 지정할 수 있습니다. VM용 Azure Monitor는 해당 구독의 구성 된 작업 영역에서 데이터를 수집 합니다.
+작업 영역을 구성한 후에는 사용 가능한 옵션 중 하나를 사용 하 여 VM 및 VMSS에 필요한 에이전트를 설치 하 고 데이터를 보낼 작업 영역을 지정할 수 있습니다. VM용 Azure Monitor는 해당 구독의 구성 된 작업 영역에서 데이터를 수집 합니다.
 
 > [!NOTE]
-> Azure Portal를 사용 하 여 단일 VM 또는 VMMS에서 VM용 Azure Monitor를 사용 하도록 설정 하면 기존 작업 영역을 선택 하거나 새 작업 영역을 만들 수 있습니다. *VMInsights* 솔루션은이 작업 영역에 아직 설치 되지 않은 경우 설치 됩니다. 그런 다음 다른 에이전트에 대해이 작업 영역을 사용할 수 있습니다.
+> Azure Portal를 사용 하 여 단일 VM 또는 VMSS에서 VM용 Azure Monitor를 사용 하도록 설정 하면 기존 작업 영역을 선택 하거나 새 작업 영역을 만들 수 있습니다. *VMInsights* 솔루션은이 작업 영역에 아직 설치 되지 않은 경우 설치 됩니다. 그런 다음 다른 에이전트에 대해이 작업 영역을 사용할 수 있습니다.
 
 
 ## <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
@@ -43,7 +43,7 @@ VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상�
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 Azure 지역
 
 모든 지역에서 가상 컴퓨터를 모니터링할 수는 있지만 VM용 Azure Monitor은 다음 지역에서 Log Analytics 작업 영역을 지원 합니다. 가상 컴퓨터 자체는 Log Analytics 작업 영역에서 지원 되는 지역으로 제한 되지 않습니다.
 
@@ -80,7 +80,7 @@ VM용 Azure Monitor에서 Log Analytics 작업 영역을 사용 하려면 먼저
 ### <a name="azure-portal"></a>Azure portal
 Azure Portal에서 기존 작업 영역을 구성 하는 세 가지 옵션이 있습니다.
 
-단일 작업 영역을 구성 하려면 **다른 온 보 딩 옵션** 을 선택한 다음 **작업 영역을 구성**합니다. 구독 및 작업 영역을 선택한 다음 **구성**을 클릭 합니다.
+단일 작업 영역을 구성 하려면 **다른 온 보 딩 옵션** 을 선택한 다음 **작업 영역을 구성** 합니다. 구독 및 작업 영역을 선택한 다음 **구성** 을 클릭 합니다.
 
 [![작업 영역 구성](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
@@ -89,7 +89,7 @@ Azure Portal에서 기존 작업 영역을 구성 하는 세 가지 옵션이 �
 [![작업 영역 구성](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Azure Portal를 사용 하 여 단일 VM 또는 VMMS에서 VM용 Azure Monitor를 사용 하도록 설정 하면 기존 작업 영역을 선택 하거나 새 작업 영역을 만들 수 있습니다. *VMInsights* 솔루션은이 작업 영역에 아직 설치 되지 않은 경우 설치 됩니다. 그런 다음 다른 에이전트에 대해이 작업 영역을 사용할 수 있습니다.
+Azure Portal를 사용 하 여 단일 VM 또는 VMSS에서 VM용 Azure Monitor를 사용 하도록 설정 하면 기존 작업 영역을 선택 하거나 새 작업 영역을 만들 수 있습니다. *VMInsights* 솔루션은이 작업 영역에 아직 설치 되지 않은 경우 설치 됩니다. 그런 다음 다른 에이전트에 대해이 작업 영역을 사용할 수 있습니다.
 
 [![포털에서 단일 VM 사용](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

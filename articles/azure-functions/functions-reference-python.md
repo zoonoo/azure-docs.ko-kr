@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358051"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506076"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -312,10 +312,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 기본 구성은 대부분의 Azure Functions 응용 프로그램에 적합 합니다. 그러나 워크 로드 프로필을 기반으로 구성을 사용 하 여 응용 프로그램 처리량의 성능을 향상 시킬 수 있습니다. 첫 번째 단계는 실행 중인 작업의 유형을 이해 하는 것입니다.
 
-|&nbsp;| I/o 바인딩된 작업 | CPU 바인딩된 작업 |
+| | I/o 바인딩된 작업 | CPU 바인딩된 작업 |
 |--| -- | -- |
-|함수 앱 특징| <ul><li>앱은 많은 동시 호출을 처리 해야 합니다.</li> <li> 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다.</li> </ul>| <ul><li>앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.</li> <li>앱에서 데이터를 변환 합니다.</li> </ul> |
-|예| <ul><li>Web API</li><ul> | <ul><li>데이터 처리</li><li> 기계 학습 유추</li><ul>|
+|**함수 앱 특징**| <ul><li>앱은 많은 동시 호출을 처리 해야 합니다.</li> <li> 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다.</li> </ul>| <ul><li>앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.</li> <li>앱에서 데이터를 변환 합니다.</li> </ul> |
+|**예**| <ul><li>Web API</li><ul> | <ul><li>데이터 처리</li><li> 기계 학습 유추</li><ul>|
 
 
 > [!NOTE]

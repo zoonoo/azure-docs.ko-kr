@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289367"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506059"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 프라이빗 링크 구성 문제 진단
 
@@ -142,21 +142,29 @@ DNS 확인은 주요 자격 증명 모음 호스트 이름 (예:)을 `fabrikam.v
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 이름이 공용 IP 주소로 확인 되 고 별칭이 없는 것을 볼 수 있습니다 `privatelink` . 별칭은 나중에 설명 합니다. 지금은 걱정 하지 마세요.
 
@@ -168,23 +176,24 @@ Linux:
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
-
+신뢰할 수 없는 응답: 주소: 52.168.109.101 별칭: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 이전 시나리오에서 주목할 만한 차이점은 값이 포함 된 새 별칭이 있다는 것입니다 `{vaultname}.privatelink.vaultcore.azure.net` . 즉, key vault 데이터 평면이 개인 링크의 요청을 받을 준비가 된 것입니다.
 
@@ -198,19 +207,27 @@ Virtual Network *외부* 의 컴퓨터에서 수행 된 요청 (예: 방금 사�
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 두 가지 주목할 만한 차이점이 있습니다. 먼저 이름이 개인 IP 주소로 확인 됩니다. 이는이 문서의 [해당 섹션](#find-the-key-vault-private-ip-address-in-the-virtual-network) 에서 찾을 수 있는 IP 주소 여야 합니다. 둘째, 그 뒤에 다른 별칭이 없습니다 `privatelink` . 이는 Virtual Network DNS 서버가 별칭 체인을 *가로채서* 이름에서 직접 개인 IP 주소를 반환 하기 때문에 발생 합니다 `fabrikam.privatelink.vaultcore.azure.net` . 이 항목은 실제로 `A` 사설 DNS 영역에 있는 레코드입니다. 이에 대 한 자세한 내용은 다음을 참조 하세요.
 
@@ -227,7 +244,7 @@ Linux:
 
 Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/private-dns-privatednszone.md) 리소스가 있어야 합니다.
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 포털의 구독 페이지로 이동 하 고 왼쪽 메뉴에서 "리소스"를 선택 하 여이 리소스가 있는지 확인할 수 있습니다. 리소스 이름은 여야 `privatelink.vaultcore.azure.net` 하 고 리소스 형식은 **사설 DNS 영역** 이어야 합니다.
 
@@ -282,37 +299,48 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 Windows (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux 또는 다음을 포함 하는 최신 버전의 Windows 10 `curl`
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 이와 유사한 출력이 표시 되지 않거나 네트워크 오류가 발생 하는 경우에는 사용자가 지정한 호스트 이름 (예:)을 통해 키 자격 증명 모음에 액세스할 수 없음을 의미 `fabrikam.vault.azure.net` 합니다. 호스트 이름이 올바른 IP 주소로 확인 되지 않거나 전송 계층에 연결 문제가 있습니다. 라우팅 문제, 패키지 삭제 및 기타 이유로 인해 발생할 수 있습니다. 자세히 조사 해야 합니다.
 
 응답은 다음 헤더를 포함 해야 합니다 `x-ms-keyvault-network-info` .
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 `addr`헤더의 필드는 `x-ms-keyvault-network-info` 요청 원본에 대 한 IP 주소를 표시 합니다. 이 IP 주소는 다음 중 하나일 수 있습니다.
 
@@ -330,11 +358,15 @@ Linux 또는 다음을 포함 하는 최신 버전의 Windows 10 `curl`
 
 최신 버전의 PowerShell을 설치한 경우를 사용 `-SkipCertificateCheck` 하 여 HTTPS 인증서 검사를 건너뛸 수 있습니다. 그러면 [키 자격 증명 모음 IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network) 를 직접 대상으로 지정할 수 있습니다.
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 를 사용 하는 경우 인수를 사용 하 여 `curl` 동일한 작업을 수행할 수 있습니다 `-k` .
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 응답은 이전 섹션과 동일 해야 합니다. 즉, `x-ms-keyvault-network-info` 같은 값을 가진 헤더를 포함 해야 합니다. `/healthstatus`키 자격 증명 모음 호스트 이름 또는 IP 주소를 사용 하는 경우에는 끝점이 필요 하지 않습니다.
 

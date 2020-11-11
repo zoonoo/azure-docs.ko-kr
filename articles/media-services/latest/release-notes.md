@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791599"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505260"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -56,6 +56,11 @@ ms.locfileid: "92791599"
 라이브 이벤트는 다양 한 입력 가로 세로 비율 수신을 지원 합니다. 스트레치 모드를 사용 하면 고객이 출력의 스트레치 동작을 지정할 수 있습니다.
 
 이제 라이브 인코딩은 고정 키 프레임 간격 조각을 0.5 ~ 20 초 사이에 출력 하는 기능을 추가 합니다.
+
+## <a name="accounts"></a>계정
+
+> [!WARNING]
+> 2020-05-01 API 버전을 사용 하 여 Media Services 계정을 만드는 경우 RESTv2에서 작동 하지 않습니다. 
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -407,12 +412,12 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 .NET SDK에는 다음과 같은 기능이 있습니다.
 
-* 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job** . 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
-* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터** .
-* 콘텐츠를 전송할 때 키 전송 및 콘텐츠 보호(DRM)를 구성하는 **스트리밍 정책** 및 **콘텐츠 키 정책** .
-* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **라이브 이벤트** 및 **라이브 스트리밍** .
-* Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset** . 
-* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성하고 확장하는 **스트리밍 엔드포인트** .
+* 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
+* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.
+* 콘텐츠를 전송할 때 키 전송 및 콘텐츠 보호(DRM)를 구성하는 **스트리밍 정책** 및 **콘텐츠 키 정책**.
+* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **라이브 이벤트** 및 **라이브 스트리밍**.
+* Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset**. 
+* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성하고 확장하는 **스트리밍 엔드포인트**.
 
 ### <a name="known-issues"></a>알려진 문제
 

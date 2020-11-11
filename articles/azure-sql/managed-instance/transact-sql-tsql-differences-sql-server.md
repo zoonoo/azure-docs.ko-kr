@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337647"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506382"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -410,7 +410,7 @@ SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 
 
 ### <a name="polybase"></a>PolyBase
 
-HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지원되지 않습니다. PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
+유일 하 게 지원 되는 외부 소스 유형은 RDBMS, Azure SQL Database 및 기타 Azure SQL Managed Instance입니다. PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 

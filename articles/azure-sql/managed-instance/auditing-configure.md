@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427941"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505668"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "94427941"
   
 3. 감사 로그에 대 한 컨테이너를 만든 후에는 두 가지 방법으로 감사 로그의 대상으로 구성할 수 있습니다. [t-sql을 사용](#blobtsql) 하거나 [SSMS (SQL Server Management Studio) UI를 사용](#blobssms)합니다.
 
-   - <a id="blobtsql"></a>T-sql을 사용 하 여 감사 로그에 대 한 blob storage 구성:
+   - <a id="blobtsql"></a>**T-sql을 사용 하 여 감사 로그에 대 한 blob storage 구성:**
 
      1. 컨테이너 목록에서 새로 만든 컨테이너를 클릭한 다음, **컨테이너 속성** 을 클릭합니다.
 
@@ -120,7 +120,7 @@ ms.locfileid: "94427941"
 
      1. [서버 감사 사양 또는 데이터베이스 감사 사양을 만들어](#createspec)계속 합니다.
 
-   - <a id="blobssms"></a>SQL Server Management Studio 18 (미리 보기)을 사용 하 여 감사 로그에 대 한 blob storage 구성:
+   - <a id="blobssms"></a>**SQL Server Management Studio 18을 사용 하 여 감사 로그에 대 한 blob 저장소를 구성 합니다.**
 
      1. SQL Server Management Studio UI를 사용 하 여 관리 되는 인스턴스에 연결 합니다.
 
@@ -143,8 +143,8 @@ ms.locfileid: "94427941"
         ![Azure 구독, 저장소 계정 및 blob 컨테이너를 선택 합니다.](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. **감사 만들기** 대화 상자에서 **확인을** 클릭 합니다.
-
-4. <a id="createspec"></a>감사 로그의 대상으로 blob 컨테이너를 구성한 후 SQL Server와 같이 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용 하도록 설정 합니다.
+     
+     1. <a id="createspec"></a>감사 로그의 대상으로 blob 컨테이너를 구성한 후 SQL Server와 같이 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용 하도록 설정 합니다.
 
    - [서버 감사 사양 만들기 T-sql 가이드](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [데이터베이스 감사 사양 T-sql 가이드 만들기](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

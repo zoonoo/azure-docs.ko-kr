@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546282"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504699"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
@@ -71,7 +71,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
    
 1. **새로 만들기** 페이지에서 **데이터베이스** 를 선택한 다음, **Azure Cache for Redis** 를 선택합니다.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="리소스 만들기를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Azure Cache for Redis를 선택합니다.":::
    
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
    
@@ -89,7 +89,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 1. **추가** 단추를 클릭 하 여 개인 끝점을 만듭니다.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="리소스 만들기를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="네트워킹에서 개인 끝점을 추가 합니다.":::
 
 1. **개인 끝점 만들기** 페이지에서, 마지막 섹션에서 만든 가상 네트워크 및 서브넷을 사용 하 여 개인 끝점에 대 한 설정을 구성 하 고 **확인** 을 선택 합니다. 
 
@@ -98,7 +98,6 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 1. 기본 또는 표준 캐시 인스턴스의 **고급** 탭에서 TLS 포트가 아닌 다른 포트를 사용하도록 설정하려면 사용 토글을 선택합니다.
 
 1. 프리미엄 캐시 인스턴스의 **고급** 탭에서 TLS가 아닌 다른 포트, 클러스터링 및 데이터 지속성에 대한 설정을 구성합니다.
-
 
 1. 페이지 맨 아래에서 **다음: 태그** 탭을 선택하거나 페이지 하단에서 **다음: 태그** 단추를 클릭합니다.
 
@@ -170,7 +169,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 1. Azure Portal에서 **Azure Cache For Redis** 를 검색 하 고 enter 키를 누르거나 검색 제안에서 선택 합니다.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="리소스 만들기를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Redis에 대 한 Azure 캐시를 검색 합니다.":::
 
 2. 개인 끝점을 추가 하려는 캐시 인스턴스를 선택 합니다.
 
@@ -178,7 +177,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. 개인 **끝점** 단추를 클릭 하 여 개인 끝점을 만듭니다.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="리소스 만들기를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="개인 끝점을 추가 합니다.":::
 
 5. **개인 끝점 만들기 페이지** 에서 개인 끝점에 대 한 설정을 구성 합니다.
 
@@ -205,7 +204,37 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 13. 녹색 **유효성 검사 통과** 메시지가 표시 되 면 **만들기** 를 선택 합니다.
 
+## <a name="faq"></a>FAQ
+
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>개인 끝점에 연결할 수 없는 이유는 무엇입니까?
+캐시가 이미 VNet 삽입 캐시 인 경우 개인 끝점은 캐시 인스턴스와 함께 사용할 수 없습니다. 캐시 인스턴스가 지원 되지 않는 기능을 사용 하 고 있는 경우 (아래에 나열 됨) 개인 끝점 인스턴스에 연결할 수 없습니다. 또한 개인 끝점을 사용 하려면 7 월 27 일 이후 캐시 인스턴스를 만들어야 합니다.
+
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>개인 끝점에서 지원 되지 않는 기능은 무엇입니까?
+지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시 당 여러 끝점, 방화벽 규칙 및 영역 중복성에 대 한 지 속성 
+
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>내 개인 끝점을 공용 네트워크 액세스에서 사용 하지 않도록 변경 하려면 어떻게 해야 하나요?
+`publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+```http
+PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>개인 끝점에 대해 NSG (네트워크 보안 그룹)를 사용할 수 있나요?
+아니요. 전용 끝점에 대해서는 사용할 수 없습니다. 그러나 서브넷에 다른 리소스가 있는 경우 NSG 적용이 해당 리소스에 적용 됩니다.
+
+### <a name="how-can-i-connect-to-a-clustered-cache"></a>어떻게 클러스터형 캐시에 연결할 수 있나요?
+`publicNetworkAccess` 는로 설정 해야 `Disabled` 하며 개인 끝점 연결은 하나만 있을 수 있습니다.
+
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>내 개인 끝점 인스턴스는 내 VNet에 있지 않으므로 VNet에 연결 하는 방법은 무엇 인가요?
+VNet에만 연결 됩니다. VNet에 있지 않으므로 종속 끝점에 대 한 NSG 규칙을 수정할 필요가 없습니다.
+
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>VNet 삽입 된 캐시를 개인 끝점 캐시로 마이그레이션하려면 어떻게 해야 하나요?
+VNet 삽입 캐시를 삭제 하 고 개인 끝점을 사용 하 여 새 캐시 인스턴스를 만들어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크 설명서](../private-link/private-link-overview.md)를 참조 하세요.
+* Azure 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크 설명서](../private-link/private-link-overview.md)를 참조 하세요.
+* 캐시 인스턴스에 대 한 다양 한 네트워크 격리 옵션을 비교 하려면 [Azure cache For Redis 네트워크 격리 옵션 설명서](cache-network-isolation.md)를 참조 하세요.

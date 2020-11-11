@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490392"
+ms.locfileid: "94504410"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 
@@ -29,24 +29,24 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용할 수 있는 방법을 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure VMware 솔루션 환경
-- Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
+- Azure VMware 솔루션 환경에서 실행 되는 웹 서버.
 - 가상 WAN 허브 배포에 대 한 새로운 겹치지 않는 IP 범위 (일반적으로) `/24` 입니다.
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="공용 IP 아키텍처 다이어그램" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-아키텍처 다이어그램은 Azure VMware 솔루션 환경에서 호스트 되 고 RFC1918 개인 IP 주소를 사용 하 여 구성 된 고객 웹 서버를 보여 줍니다.  이 웹 서비스는 가상 WAN 공용 IP 기능을 통해 인터넷에서 사용할 수 있게 됩니다.  공용 IP는 일반적으로 Azure 방화벽에서 변환 되는 대상 NAT입니다. DNAT 규칙을 사용 하는 방화벽 정책은 공용 IP 주소 요청을 포트를 사용 하는 개인 주소 (웹 서버)로 변환 합니다.
+아키텍처 다이어그램은 Azure VMware 솔루션 환경에서 호스트 되 고 RFC1918 개인 IP 주소를 사용 하 여 구성 된 웹 서버를 보여 줍니다.  웹 서비스는 가상 WAN 공용 IP 기능을 통해 인터넷에서 사용할 수 있게 됩니다.  공용 IP는 일반적으로 Azure 방화벽에서 변환 되는 대상 NAT입니다. DNAT 규칙을 사용 하는 경우 방화벽 정책은 공용 IP 주소 요청을 포트가 있는 개인 주소 (웹 서버)로 변환 합니다.
 
 사용자 요청은 Azure 방화벽의 규칙에 따라 DNAT 사용 하 여 개인 IP로 변환 된 공용 IP의 방화벽을 적중 합니다. 방화벽은 NAT 테이블을 확인 하 고, 요청이 항목과 일치 하는 경우 Azure VMware 솔루션 환경의 변환 된 주소 및 포트로 트래픽을 전달 합니다.
 
 웹 서버는 요청을 수신 하 고 요청 된 정보 또는 페이지를 사용 하 여 방화벽에 회신 한 다음 사용자에 게 공용 IP 주소에 대 한 정보를 전달 합니다.
 
 ## <a name="test-case"></a>테스트 사례
-이 시나리오에서는 IIS 웹 서버를 인터넷에 게시 해야 합니다. Azure VMware 솔루션의 공용 IP 기능을 사용 하 여 공용 IP 주소에 웹 사이트를 게시 합니다.  방화벽에서 NAT 규칙을 구성 하 고 공용 IP를 사용 하 여 Azure VMware 솔루션 리소스 (웹 서버를 사용 하는 Vm)에 액세스 합니다.
+이 시나리오에서는 IIS 웹 서버를 인터넷에 게시 해야 합니다. Azure VMware 솔루션의 공용 IP 기능을 사용 하 여 공용 IP 주소에 웹 사이트를 게시 합니다.  방화벽에서 NAT 규칙을 구성 하 고 공용 IP를 사용 하는 Azure VMware 솔루션 리소스 (웹 서버 포함)에 액세스 합니다.
 
 ## <a name="deploy-virtual-wan"></a>Virtual WAN을 배포합니다.
 

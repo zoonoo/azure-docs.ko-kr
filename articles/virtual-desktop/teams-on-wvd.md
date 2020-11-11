@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱의 Microsoft 팀-Azure
 description: Windows 가상 데스크톱에서 Microsoft 팀을 사용 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131771"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505549"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
 
@@ -25,14 +25,13 @@ Windows 가상 데스크톱의 Microsoft 팀은 채팅 및 공동 작업을 지�
 
 Microsoft 팀을 위한 미디어 최적화를 사용 하는 Windows 데스크톱 클라이언트는 팀 호출 및 모임에 대해 로컬로 오디오 및 비디오를 처리 합니다. Windows 가상 데스크톱의 Microsoft 팀을 다른 클라이언트와 함께 사용할 수 있습니다. 팀 채팅 및 공동 작업 기능은 모든 플랫폼에서 지원 됩니다. 원격 세션에서 로컬 장치를 리디렉션하려면 [호스트 풀의 사용자 지정 원격 데스크톱 프로토콜 속성](#customize-remote-desktop-protocol-properties-for-a-host-pool)을 선택 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다음 작업을 수행 해야 합니다.
 
 - Microsoft 팀을 위해 [네트워크를 준비](/microsoftteams/prepare-network/) 합니다.
 - Windows [PC의 팀에 대 한 Microsoft 팀 하드웨어 요구 사항을](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)충족 하는 windows 10 또는 Windows 10 IoT Enterprise 장치에 [windows 데스크톱 클라이언트](connect-windows-7-10.md) 를 설치 합니다.
 - Windows 10 다중 세션 또는 Windows 10 Enterprise VM (가상 머신)에 연결 합니다.
-- 컴퓨터 단위 설치를 사용 하 여 호스트에 팀 데스크톱 앱을 [다운로드](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) 하 고 설치 합니다. Microsoft 팀을 위한 미디어 최적화를 사용 하려면 팀 데스크톱 앱 버전 1.3.00.4461 이상이 필요 합니다.
 
 ## <a name="install-the-teams-desktop-app"></a>팀 데스크톱 앱 설치
 
@@ -42,16 +41,17 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 
 팀에 미디어 최적화를 사용 하도록 설정 하려면 호스트에서 다음 레지스트리 키를 설정 합니다.
 
-1. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**로 이동 합니다.
+1. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams** 로 이동 합니다. 팀 키가 아직 없는 경우 만듭니다.
+
 2. 팀 키에 대해 다음 값을 만듭니다.
 
-| Name             | Type   | 데이터/값  |
+| Name             | 유형   | 데이터/값  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>팀 WebSocket 서비스 설치
 
-VM 이미지에 최신 [WebSocket 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) 를 설치 합니다. 설치 오류가 발생 하는 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 설치 하 고 다시 시도 하세요.
+VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) 를 설치 합니다. 설치 오류가 발생 하는 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 설치 하 고 다시 시도 하세요.
 
 #### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
 
@@ -94,7 +94,7 @@ VM 이미지에 최신 [WebSocket 서비스](https://query.prod.cms.rt.microsoft
 
         그러면 팀이 32 비트 운영 체제의 Program Files (x86) 폴더와 64 비트 운영 체제의 Program Files 폴더에 설치 됩니다. 이제 골든 이미지 설정이 완료 되었습니다. 비 영구적인 설치에는 컴퓨터별 팀을 설치 해야 합니다.
 
-        팀을 설치할 때 설정할 수 있는 두 가지 플래그는 **Alluser = 1** 및 **ALLUSERS = 1**입니다. 이러한 매개 변수 간의 차이점을 이해 하는 것이 중요 합니다. **Alluser = 1** 매개 변수는 컴퓨터 단위 설치를 지정 하기 위해 VDI 환경 에서만 사용 됩니다. 비 VDI 및 VDI 환경에서 **ALLUSERS = 1** 매개 변수를 사용할 수 있습니다. 이 매개 변수를 설정 하는 경우 팀 Machine-Wide 설치 관리자는 제어판의 프로그램 및 기능 및 Windows 설정의 앱 & 기능에 나타납니다. 컴퓨터에서 관리자 자격 증명을 사용 하는 모든 사용자는 팀을 제거할 수 있습니다.
+        팀을 설치할 때 설정할 수 있는 두 가지 플래그는 **Alluser = 1** 및 **ALLUSERS = 1** 입니다. 이러한 매개 변수 간의 차이점을 이해 하는 것이 중요 합니다. **Alluser = 1** 매개 변수는 컴퓨터 단위 설치를 지정 하기 위해 VDI 환경 에서만 사용 됩니다. 비 VDI 및 VDI 환경에서 **ALLUSERS = 1** 매개 변수를 사용할 수 있습니다. 이 매개 변수를 설정 하는 경우 **팀 Machine-Wide 설치 관리자** 는 제어판의 프로그램 및 기능 및 Windows 설정의 앱 & 기능에 나타납니다. 컴퓨터에서 관리자 자격 증명을 사용 하는 모든 사용자는 팀을 제거할 수 있습니다.
 
         > [!NOTE]
         > 사용자 및 관리자는 현재 로그인 하는 동안 팀에 대해 자동 실행을 사용 하지 않도록 설정할 수 없습니다.
@@ -114,14 +114,19 @@ VM 이미지에 최신 [WebSocket 서비스](https://query.prod.cms.rt.microsoft
 
 WebSocket 서비스 및 팀 데스크톱 앱을 설치한 후 다음 단계에 따라 팀 미디어 최적화가 로드 되었는지 확인 합니다.
 
-1. 사용자 프로필 이미지를 선택 하 고 **정보**를 선택 합니다.
-2. **버전**을 선택 합니다.
+1. 팀 응용 프로그램을 종료 하 고 다시 시작 합니다.
 
-      미디어 최적화가 로드 되 면이 배너에 **Wvd 미디어 최적화**됨이 표시 됩니다. 배너에 **Wvd 미디어가 연결 되지 않은**것으로 표시 되 면 팀 앱을 종료 하 고 다시 시도 하세요.
+2. 사용자 프로필 이미지를 선택 하 고 **정보** 를 선택 합니다.
 
-3. 사용자 프로필 이미지를 선택한 다음 **설정**을 선택 합니다.
+3. **버전** 을 선택 합니다.
 
-      미디어 최적화가 로드 되 면 로컬에서 사용할 수 있는 오디오 장치와 카메라가 장치 메뉴에 열거 됩니다. 메뉴에 **원격 오디오가**표시 되 면 팀 앱을 종료 하 고 다시 시도 합니다. 장치가 메뉴에 여전히 표시 되지 않으면 로컬 PC의 개인 정보 설정을 확인 합니다. **설정**  >  **개인 정보**  >  **앱 사용 권한** 아래에서 **앱에 대 한 액세스 허용** 설정이 전환 되어 **On**있는지 확인 합니다. 원격 세션에서 연결을 끊은 다음 다시 연결 하 여 오디오 및 비디오 장치를 다시 확인 합니다. 통화 및 모임을 비디오와 조인 하려면 앱에서 카메라에 액세스할 수 있는 권한도 부여 해야 합니다.
+      미디어 최적화가 로드 되 면이 배너에 **Wvd 미디어 최적화** 됨이 표시 됩니다. 배너에 **Wvd 미디어가 연결 되지 않은** 것으로 표시 되 면 팀 앱을 종료 하 고 다시 시도 하세요.
+
+4. 사용자 프로필 이미지를 선택한 다음 **설정** 을 선택 합니다.
+
+      미디어 최적화가 로드 되 면 로컬에서 사용할 수 있는 오디오 장치와 카메라가 장치 메뉴에 열거 됩니다. 메뉴에 **원격 오디오가** 표시 되 면 팀 앱을 종료 하 고 다시 시도 합니다. 장치가 메뉴에 여전히 표시 되지 않으면 로컬 PC의 개인 정보 설정을 확인 합니다. **설정**  >  **개인 정보**  >  **앱 사용 권한** 아래에서 **앱에 대 한 액세스 허용** 설정이 전환 되어 **On** 있는지 확인 합니다. 원격 세션에서 연결을 끊은 다음 다시 연결 하 여 오디오 및 비디오 장치를 다시 확인 합니다. 통화 및 모임을 비디오와 조인 하려면 앱에서 카메라에 액세스할 수 있는 권한도 부여 해야 합니다.
+
+      최적화가 로드 되지 않는 경우 팀을 제거한 후 다시 설치 하 고 다시 확인 합니다.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
@@ -152,7 +157,7 @@ WebSocket 서비스 및 팀 데스크톱 앱을 설치한 후 다음 단계에 �
 
 Windows 가상 데스크톱 환경에서 팀 데스크톱 앱에 문제가 발생 하는 경우 호스트 VM에서 **% appdata% \Microsoft\Teams\logs.txt** 아래에 있는 클라이언트 로그를 수집 합니다.
 
-통화 및 모임에 문제가 발생 하는 경우 **Ctrl**  +  **Alt**  +  **Shift**  +  **1**키 조합을 사용 하 여 팀 웹 클라이언트 로그를 수집 합니다. 로그는 호스트 VM의 **%Userprofile%\Downloads\MSTeams 진단 로그 DATE_TIME.txt** 에 기록 됩니다.
+통화 및 모임에 문제가 발생 하는 경우 **Ctrl**  +  **Alt**  +  **Shift**  +  **1** 키 조합을 사용 하 여 팀 웹 클라이언트 로그를 수집 합니다. 로그는 호스트 VM의 **%Userprofile%\Downloads\MSTeams 진단 로그 DATE_TIME.txt** 에 기록 됩니다.
 
 ## <a name="contact-microsoft-teams-support"></a>Microsoft 팀 지원에 문의
 

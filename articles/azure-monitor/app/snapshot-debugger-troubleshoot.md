@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760515"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504971"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅샷이 생성되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
@@ -57,22 +57,24 @@ Azure App Service 또는 가상 머신의 IIS에 호스트 된 ASP.NET 응용 �
 > TargetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인 합니다. Azure App Service TLS 1.2을 사용할 수 있습니다. 그러나 사용자 고유의 가상 컴퓨터를 사용 하는 경우 OS에서 TLS 1.2를 사용 하도록 설정 해야 할 수 있습니다.
 
 ## <a name="preview-versions-of-net-core"></a>.NET Core 미리 보기 버전
-응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해를 사용 하도록 설정 하는 ***것 외에도*** 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하려면 먼저 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 의 지침을 따릅니다.
+응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 의 지침에 따라 먼저 응용 **프로그램과 함께** [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 고 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해를 사용 하도록 설정 합니다.
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
 [포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 Nuget 패키지 관리자를 사용 하 여 microsoft.applicationinsights.snapshotcollector의 최신 버전을 사용 하 고 있는지 확인 합니다.
 
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./snapshot-collector-release-notes.md)하세요.
+
 ## <a name="check-the-uploader-logs"></a>업로더 로그 확인
 
 스냅샷을 만들면 디스크에 미니덤프 파일(.dmp)이 생성됩니다. 별도의 업로더 프로세스에서 해당 미니덤프 파일을 만들어 관련 PDB와 함께 Application Insights 스냅샷 디버거 스토리지에 업로드합니다. 미니덤프가 성공적으로 업로드되면 디스크에서 삭제됩니다. 업로더 프로세스에 대한 로그 파일은 디스크에 유지됩니다. App Service 환경에서는 `D:\Home\LogFiles`에서 이러한 로그를 찾을 수 있습니다. App Service에 대한 Kudu 관리 사이트를 사용하여 이러한 로그 파일을 찾을 수 있습니다.
 
 1. Azure Portal에서 App Service 애플리케이션을 엽니다.
-2. **고급 도구**를 클릭하거나 **Kudu**를 검색합니다.
-3. **이동**을 클릭합니다.
-4. **디버그 콘솔** 드롭다운 목록 상자에서 **CMD**를 선택합니다.
-5. **LogFiles**를 클릭합니다.
+2. _ * 고급 도구 * *를 클릭 하거나 **Kudu** 를 검색 합니다.
+3. **이동** 을 클릭합니다.
+4. **디버그 콘솔** 드롭다운 목록 상자에서 **CMD** 를 선택합니다.
+5. **LogFiles** 를 클릭합니다.
 
 이름이 `Uploader_` 또는 `SnapshotUploader_`로 시작하고 확장명이 `.log`인 파일이 하나 이상 있어야 합니다. 해당 아이콘을 클릭하여 모든 로그 파일을 다운로드하거나 브라우저에서 엽니다.
 파일 이름에는 App Service 인스턴스를 식별하는 고유한 접미사가 포함됩니다. App Service 인스턴스가 둘 이상의 컴퓨터에서 호스팅되는 경우 각 컴퓨터에 대한 별도의 로그 파일이 있습니다. 업로더에서 새 미니덤프 파일을 검색하면 로그 파일에 기록됩니다. 성공적인 스냅샷 및 업로드의 예는 다음과 같습니다.
@@ -185,13 +187,13 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 - APPDATA
 - TEMP
 
-적당한 폴더를 찾을 수 없으면 Snapshot Collector는 _"Could not find a suitable shadow copy folder."_(적합한 섀도 복사본 폴더를 찾을 수 없습니다.)라는 오류를 보고합니다.
+적당한 폴더를 찾을 수 없으면 Snapshot Collector는 _"Could not find a suitable shadow copy folder."_ (적합한 섀도 복사본 폴더를 찾을 수 없습니다.)라는 오류를 보고합니다.
 
 복사에 실패하면 Snapshot Collector는 `ShadowCopyFailed` 오류를 보고합니다.
 
 업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 애플리케이션이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
 
-이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_(업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
+이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_ (업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
 
 이러한 오류를 해결하려면 `ShadowCopyFolder` 구성을 통해 섀도 복사본 폴더를 수동으로 지정하면 됩니다. ApplicationInsights.config를 사용하는 예:
 
@@ -220,10 +222,10 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Application Insights 검색을 사용하여 스냅샷 예외 찾기
 
-스냅샷이 생성될 때 throw되는 예외에는 스냅샷 ID로 태그가 지정됩니다. 예외 원격 분석이 Application Insights에 보고될 때 이 스냅샷 ID가 사용자 지정 속성으로 포함됩니다. Application Insights에서 **검색**을 사용하여 `ai.snapshot.id` 사용자 지정 속성으로 모든 원격 분석을 찾을 수 있습니다.
+스냅샷이 생성될 때 throw되는 예외에는 스냅샷 ID로 태그가 지정됩니다. 예외 원격 분석이 Application Insights에 보고될 때 이 스냅샷 ID가 사용자 지정 속성으로 포함됩니다. Application Insights에서 **검색** 을 사용하여 `ai.snapshot.id` 사용자 지정 속성으로 모든 원격 분석을 찾을 수 있습니다.
 
 1. Azure Portal에서 Application Insights 리소스로 이동합니다.
-2. **검색**을 클릭합니다.
+2. **검색** 을 클릭합니다.
 3. 검색 텍스트 상자에 `ai.snapshot.id`를 입력하고 Enter 키를 누릅니다.
 
 ![포털에서 스냅샷 ID로 원격 분석 검색](./media/snapshot-debugger/search-snapshot-portal.png)

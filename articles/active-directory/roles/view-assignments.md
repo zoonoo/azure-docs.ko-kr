@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0300bd66dbeec84aba2102a510b4f6194debc5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ccb158548f52059b780fd71bf19788ba200aa7c4
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378587"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505583"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 사용자 지정 역할 할당 보기
 
 이 문서에서는 Azure Active Directory (Azure AD)에서 할당 한 사용자 지정 역할을 보는 방법을 설명 합니다. Azure AD (Azure Active Directory)에서 역할은 조직 전체의 범위 또는 단일 응용 프로그램 범위에서 할당 될 수 있습니다.
 

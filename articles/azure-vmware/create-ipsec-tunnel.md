@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 대 한 IPSec 터널 만들기
 description: 가상 WAN 허브를 만들어 Azure VMware 솔루션으로의 IPSec 터널을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 63318b9fdd0de5e0ce102fafe332f40f595f38f1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9f869f04bf165f4791f13c626b63257ea98a7ca9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357847"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506450"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 IPSec 터널 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "94357847"
 
 ## <a name="topology"></a>토폴로지
 
-![VPN 사이트 간 터널 아키텍처.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
+![VPN 사이트 간 터널 아키텍처를 보여 주는 다이어그램](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
 Azure 가상 허브는 Azure VMware 솔루션 Express 경로 게이트웨이 및 사이트 간 VPN 게이트웨이를 포함 합니다. 온-프레미스 VPN 장치를 Azure VMware 솔루션 끝점과 연결 합니다.
 
@@ -39,17 +39,17 @@ Azure 가상 허브는 Azure VMware 솔루션 Express 경로 게이트웨이 및
    | **형식** | VPN 게이트웨이 트래픽만 허용 하는 **표준** 을 선택 합니다.  |
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="WAN을 만듭니다.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Azure Portal에서 WAN 만들기 페이지를 보여 주는 스크린샷":::
 
 3. Azure Portal에서 이전 단계에서 만든 가상 WAN을 선택 하 고, **가상 허브 만들기** 를 선택 하 고, 필요한 필드를 입력 한 후 **다음: 사이트 간을** 선택 합니다. 
 
    | 필드 | 값 |
    | --- | --- |
    | **지역** | 관리 관점에서 지역 선택이 필요 합니다.  |
-   | **Name** |    |
+   | **이름** |    |
    | **허브 개인 주소 공간** | (최소)를 사용 하 여 서브넷을 입력 `/24` 합니다.  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="가상 허브를 만듭니다.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="가상 허브 만들기 페이지를 보여 주는 스크린샷":::
 
 4. **사이트 간** 탭에서 **게이트웨이 배율 단위** 드롭다운에서 집계 처리량을 설정 하 여 사이트 간 게이트웨이를 정의 합니다. 
 
@@ -70,14 +70,14 @@ Azure 가상 허브는 Azure VMware 솔루션 Express 경로 게이트웨이 및
 2. 가상 허브의 **개요** 에서 **연결**  >  **VPN (사이트 간)** 을 선택 하 고 **새 VPN 사이트 만들기** 를 선택 합니다.
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="VPN 사이트를 만듭니다.":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="VPN (사이트 간) 및 새 VPN 사이트 만들기가 선택 된 가상 허브에 대 한 개요 페이지의 스크린샷":::  
  
 3. **기본 사항** 탭에서 필수 필드를 입력 하 고 **다음: 링크** 를 선택 합니다. 
 
    | 필드 | 값 |
    | --- | --- |
    | **지역** | 이전 섹션에서 지정한 것과 동일한 영역입니다.  |
-   | **Name** |  |
+   | **이름** |  |
    | **디바이스 공급 업체** |  |
    | **Border Gateway Protocol** | Azure VMware 솔루션과 온-프레미스 서버가 모두 터널을 통해 해당 경로를 보급 하도록 하려면 **사용** 을 설정으로 설정 합니다. 사용 하지 않도록 설정 된 경우 보급 해야 하는 서브넷은 수동으로 유지 관리 해야 합니다. 서브넷이 누락 되 면 HCX에서 서비스 메시를 구성 하지 못합니다. 자세한 내용은  [Azure VPN Gateway를 사용 하 여 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조 하세요. |
    | **개인 주소 공간**  | 온-프레미스 CIDR 블록을 입력 합니다.  터널을 통해 온-프레미스에 대해 바인딩된 모든 트래픽을 라우팅하는 데 사용 됩니다.  CIDR 블록은 BGP를 사용 하도록 설정 하지 않은 경우에만 필요 합니다. |
@@ -93,14 +93,14 @@ Azure 가상 허브는 Azure VMware 솔루션 Express 경로 게이트웨이 및
 
 2. VPN 사이트 이름을 선택 하 고 오른쪽 끝에 있는 줄임표 (...)를 선택 합니다. 그런 다음 **이 허브에 대 한 VPN 연결 편집을** 선택 합니다.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="이 허브에 대 한 VPN 연결을 편집 합니다." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="이 허브에 대 한 VPN 연결 편집에 액세스 하도록 선택 된 줄임표를 표시 하는 가상 WAN 허브 사이트에 대 한 Azure 페이지의 스크린샷" lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. VPN 사이트와 허브 간의 연결을 편집 하 고 **저장** 을 선택 합니다.
    - IPSec (인터넷 프로토콜 보안), **사용자 지정** 을 선택 합니다.
    - 정책 기반 트래픽 선택기를 사용 하 고 **사용** 을 선택 합니다.
    - **Ike 1 단계** 및 **ike 2 단계 (ipsec)** 에 대 한 세부 정보를 지정 합니다. 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="VPN 연결 편집"::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="VPN 연결 편집 페이지의 스크린샷"::: 
  
     정책 기반 암호화 도메인에 속하는 트래픽 선택기 또는 서브넷은 다음과 같아야 합니다.
     
@@ -122,14 +122,14 @@ Azure 가상 허브는 Azure VMware 솔루션 Express 경로 게이트웨이 및
 
     Azure VMware 솔루션 사설 클라우드의 **연결** 섹션으로 이동 합니다. **Express** 경로 탭에서 **+ 인증 키 요청** 을 선택 합니다. 이름을로 선택 하 고 **만들기** 를 선택 합니다. 키를 만드는 데 30 초 정도 걸릴 수 있습니다. Express 경로 ID와 권한 부여 키를 복사 합니다. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Express 경로 ID 및 권한 부여 키를 복사 합니다.":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Express 경로 탭에서 선택 된 권한 부여 키를 요청 하는 사설 클라우드의 연결 페이지 스크린샷":::
 
     > [!NOTE]
     > 권한 부여 키는 일정 시간 후에 사라지고 표시 되는 즉시 복사 합니다.
 
 4. 다음으로, 가상 WAN 허브에서 Azure VMware 솔루션과 VPN 게이트웨이를 연결 합니다. Azure Portal에서 이전에 만든 가상 WAN을 엽니다. 만든 가상 WAN 허브를 선택한 다음 왼쪽 창에서 **express** 경로를 선택 합니다. **+ 권한 부여 키** 를 선택 합니다.
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="인증 키를 교환 합니다.":::
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="인증 인증 키가 선택 된 사설 클라우드의 Express 경로 페이지 스크린샷":::
 
     권한 부여 키를 인증 키 필드에 붙여넣고 Express 경로 ID를 **피어 회로 URI** 필드에 붙여넣습니다. **이 express 경로 회로를 허브와 자동으로 연결** 을 선택 해야 합니다. **추가** 를 선택 하 여 링크를 설정 합니다. 
 

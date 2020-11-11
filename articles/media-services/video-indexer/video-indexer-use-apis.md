@@ -8,21 +8,21 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaef4460df040ecc9b055fba83d33a3b687b200
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458300"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505379"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
 Video Indexer는 Microsoft에서 제공하는 다양한 오디오 및 비디오 AI(인공 지능) 기술을 하나의 통합 서비스로 통합하여 더 쉽게 개발할 수 있도록 합니다. 이 API는 개발자가 클라우드 플랫폼의 규모, 글로벌 범위, 가용성 및 안정성에 대해 걱정하지 않고 미디어 AI 기술 사용에 집중할 수 있도록 설계되었습니다. 이 API를 사용하여 파일을 업로드하고, 자세한 비디오 인사이트를 얻고, 포함 가능한 인사이트 및 플레이어 위젯의 URL을 가져오는 등의 작업을 수행할 수 있습니다.
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다.
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조 하세요.
 
 이 문서에서는 개발자가 [Video Indexer API](https://api-portal.videoindexer.ai/)를 활용하는 방법을 보여 줍니다.
 
@@ -45,7 +45,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
     > [!NOTE]
     > 새 사용자는 자동으로 권한 부여에 가입됩니다.
     
-    가입한 후에는 **제품**  ->  **권한 부여**에서 구독을 찾을 수 있습니다. 구독 페이지에서 기본 및 보조 키를 찾을 수 있습니다. 키는 보호해야 하고, 서버 코드에서만 사용할 수 있습니다. 클라이언트 쪽(.js, .html 등)에서 사용할 수 없습니다.
+    가입한 후에는 **제품**  ->  **권한 부여** 에서 구독을 찾을 수 있습니다. 구독 페이지에서 기본 및 보조 키를 찾을 수 있습니다. 키는 보호해야 하고, 서버 코드에서만 사용할 수 있습니다. 클라이언트 쪽(.js, .html 등)에서 사용할 수 없습니다.
 
     ![Video Indexer 개발자 포털의 구독 및 키](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -60,13 +60,13 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 - 사용자 수준: 사용자 수준 액세스 토큰을 사용하여 **사용자** 수준에서 작업을 수행할 수 있습니다. 예를 들어 연결된 계정 가져오기가 있습니다.
 - 계정 수준: 계정 수준 액세스 토큰을 사용하여 **계정** 수준 또는 **비디오** 수준에서 작업을 수행할 수 있습니다. 예를 들어 비디오 업로드, 모든 비디오 나열, 비디오 인사이트 가져오기 등이 있습니다.
-- 비디오 수준: 비디오 수준 액세스 토큰을 사용하여 특정 **비디오**에서 작업을 수행할 수 있습니다. 예를 들어 비디오 인사이트 가져오기, 자막 다운로드, 위젯 가져오기 등이 있습니다.
+- 비디오 수준: 비디오 수준 액세스 토큰을 사용하여 특정 **비디오** 에서 작업을 수행할 수 있습니다. 예를 들어 비디오 인사이트 가져오기, 자막 다운로드, 위젯 가져오기 등이 있습니다.
 
-**allowEdit=true/false**를 지정하여 이러한 토큰이 읽기 전용인지, 아니면 편집할 수 있는지 여부를 제어할 수 있습니다.
+**allowEdit=true/false** 를 지정하여 이러한 토큰이 읽기 전용인지, 아니면 편집할 수 있는지 여부를 제어할 수 있습니다.
 
 대부분의 서버 간 시나리오에서는 **계정** 작업 및 **비디오** 작업을 모두 처리하므로 동일한 **계정** 토큰을 사용합니다. 그러나 클라이언트 쪽에서(예: JavaScript에서) Video Indexer를 호출하려는 경우 클라이언트에서 전체 계정에 액세스하지 못하도록 **비디오** 액세스 토큰을 사용하려고 합니다. 또한 Video Indexer 클라이언트 코드를 클라이언트에 포함할 때(예: **인사이트 위젯 가져오기** 또는 **플레이어 위젯 가져오기** 사용) **비디오** 토큰을 제공해야 하는 이유이기도 합니다.
 
-작업을 더 쉽게 수행하려면 **권한 부여** API > **GetAccounts**를 사용하여 먼저 사용자 토큰을 가져오지 않고 계정을 가져올 수 있습니다. 유효한 토큰이 있는 계정을 가져오도록 요청하여 추가 호출을 건너뛰고 계정 토큰을 가져올 수 있습니다.
+작업을 더 쉽게 수행하려면 **권한 부여** API > **GetAccounts** 를 사용하여 먼저 사용자 토큰을 가져오지 않고 계정을 가져올 수 있습니다. 유효한 토큰이 있는 계정을 가져오도록 요청하여 추가 호출을 건너뛰고 계정 토큰을 가져올 수 있습니다.
 
 액세스 토큰은 1시간 후에 만료됩니다. 작업 API를 사용하기 전에 먼저 액세스 토큰이 유효한지 확인해야 합니다. 만료되면 권한 부여 API를 다시 호출하여 새 액세스 토큰을 받으세요.
 
@@ -76,7 +76,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 계정 ID 매개 변수는 모든 작업 API 호출에 필요합니다. 계정 ID는 다음 방법 중 하나를 사용하여 얻을 수 있는 GUID입니다.
 
-* **Video Indexer 웹 사이트**를 사용하여 계정 ID를 가져옵니다.
+* **Video Indexer 웹 사이트** 를 사용하여 계정 ID를 가져옵니다.
 
     1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
     2. **설정** 페이지로 이동합니다.
@@ -84,7 +84,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
         ![Video Indexer 설정 및 계정 ID](./media/video-indexer-use-apis/account-id.png)
 
-* **Video Indexer 개발자 포털**을 사용하여 계정 ID를 프로그래밍 방식으로 가져옵니다.
+* **Video Indexer 개발자 포털** 을 사용하여 계정 ID를 프로그래밍 방식으로 가져옵니다.
 
     [계정 가져오기](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API를 사용합니다.
 
@@ -103,9 +103,9 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 이 섹션에는 Video Indexer API를 사용할 때의 몇 가지 추천 사항이 나와 있습니다.
 
-- 비디오를 업로드하려는 경우 일부 공용 네트워크 위치(예: OneDrive)에 파일을 배치하는 것이 좋습니다. 비디오에 대한 링크를 가져오고, URL을 파일 업로드 매개 변수로 제공합니다.
+- 비디오를 업로드 하려는 경우 몇 가지 공용 네트워크 위치 (예: Azure Blob Storage 계정)에 파일을 배치 하는 것이 좋습니다. 비디오에 대한 링크를 가져오고, URL을 파일 업로드 매개 변수로 제공합니다.
 
-    Video Indexer에 제공된 URL은 미디어(오디오 또는 비디오) 파일을 가리켜야 합니다. OneDrive에서 생성된 링크 중 일부는 파일이 포함된 HTML 페이지를 위한 것입니다. URL은 브라우저에 붙여넣어 쉽게 확인할 수 있습니다. 파일 다운로드가 시작되면 좋은 URL일 가능성이 높습니다. 브라우저에서 일부 시각화를 렌더링하는 경우 파일이 아니라 HTML 페이지에 대한 링크일 수 있습니다.
+    Video Indexer에 제공된 URL은 미디어(오디오 또는 비디오) 파일을 가리켜야 합니다. URL 또는 SAS URL을 쉽게 확인 하는 것은 브라우저에 붙여 넣는 것입니다. 파일이 재생/다운로드를 시작 하면 좋은 URL 일 수 있습니다. 브라우저에서 일부 시각화를 렌더링하는 경우 파일이 아니라 HTML 페이지에 대한 링크일 수 있습니다.
 
 - 지정된 비디오에 대한 비디오 인사이트를 가져오는 API를 호출하면 자세한 JSON 출력을 응답 콘텐츠로 가져옵니다. [이 항목에서 반환된 JSON에 대한 자세한 내용을 참조하세요](video-indexer-output-json-v2.md).
 
@@ -215,5 +215,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>다음 단계
 
 - [출력 JSON에 대한 세부 정보 검사](video-indexer-output-json-v2.md)
-- 비디오 업로드 및 인덱싱의 중요한 측면을 보여 주는 [샘플 코드](https://github.com/Azure-Samples/media-services-video-indexer)를 확인하세요. 코드를 따라가면 기본 기능에 API를 사용하는 방법을 이해할 수 있습니다. 인라인 주석을 읽고 모범 사례를 확인하세요.
+- 비디오 업로드 및 인덱싱의 중요한 측면을 보여 주는 [샘플 코드](https://github.com/Azure-Samples/media-services-video-indexer)를 확인하세요. 이 코드를 따르면 기본 기능에 API를 사용 하는 방법을 알 수 있습니다. 인라인 주석을 읽고 모범 사례를 확인하세요.
 

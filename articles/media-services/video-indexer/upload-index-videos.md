@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218982"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506178"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -26,7 +26,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.
 * [자산 ID](../latest/assets-concept.md)를 제공하여 기존 Azure Media Services 자산을 사용합니다(유료 계정에서만 지원됨).
 
-비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조 하세요.
 
 이 문서에서는 다음 옵션으로 비디오를 업로드 하 고 인덱싱하는 방법을 보여 줍니다.
 
@@ -79,8 +79,8 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 1. 비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드":::
-1. 분석이 완료 되 Video Indexer 면 비디오에 대 한 링크가 포함 된 전자 메일 및 비디오에 있는 항목에 대 한 간략 한 설명이 포함 된 전자 메일을 받게 됩니다. 예: 사람, 주제, OCR.
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드 진행률":::
+1. Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 이메일을 받게 됩니다. 예: 사람, 주제, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>API를 사용 하 여 업로드 및 인덱싱
 
@@ -109,7 +109,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - 속성
     
-      |속성|Description|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -118,7 +118,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
         
     - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>참고
+##### <a name="other-considerations"></a>기타 고려 사항
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
@@ -140,7 +140,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 #### <a name="priority"></a>priority
 
-비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low**(낮음), **Normal**(보통, 기본값), and **High**(높음)입니다.
+비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low** (낮음), **Normal** (보통, 기본값), and **High** (높음)입니다.
 
 **priority** 매개 변수는 유료 계정에서만 지원됩니다.
 
@@ -177,7 +177,7 @@ SingleBitrate 전송률의 경우 출력 마다 표준 인코더 비용이 적�
 
     * https://api-portal.videoindexer.ai/ 로 이동합니다.
     * 로그인
-    * **제품**  ->  **권한**부여  ->  **권한 부여 구독** 으로 이동
+    * **제품**  ->  **권한** 부여  ->  **권한 부여 구독** 으로 이동
     * **기본 키** 를 복사 합니다.
 * 비디오 URL – 인덱싱할 비디오/오디오 파일의 URL입니다. URL은 미디어 파일을 가리켜야 합니다(HTML 페이지는 지원되지 않음). 파일은 URI의 일부로 제공되는 액세스 토큰으로 보호할 수 있으며, 파일을 제공하는 엔드포인트는 TLS 1.2 이상으로 보호해야 합니다. URL은 인코딩해야 합니다.
 
@@ -355,11 +355,11 @@ public class AccountContractSlim
 }
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|Description|
+|상태 코드|ErrorType(응답 본문 내)|설명|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

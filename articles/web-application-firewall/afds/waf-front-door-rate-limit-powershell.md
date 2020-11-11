@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005415"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506416"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 요금 제한 규칙 구성
 Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit 규칙은 1 분 동안 클라이언트에서 허용 되는 요청 수를 제어 합니다.
@@ -20,7 +20,10 @@ Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 각 클라이언트 IP 주소에 대해 요율 한도가 적용 됩니다. 여러 클라이언트가 서로 다른 IP 주소에서 앞 도어에 액세스 하는 경우 자체의 요금 제한이 적용 됩니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 속도 제한 정책 설정을 시작 하기 전에 PowerShell 환경을 설정 하 고 전면 도어 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 
@@ -46,7 +49,7 @@ Install-Module -Name Az.FrontDoor
 ### <a name="create-a-front-door-profile"></a>Front Door 프로필 만들기
 [빠른 시작: Front 도어 프로필 만들기](../../frontdoor/quickstart-create-front-door.md) 에 설명 된 지침에 따라 front 도어 프로필을 만듭니다.
 
-## <a name="define-url-match-conditions"></a>Url 일치 조건 정의
+## <a name="define-url-match-conditions"></a>URL 일치 조건 정의
 [AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)를 사용 하 여 url 일치 조건 (url 포함/프로 모션)을 정의 합니다.
 다음 예에서는 */프로 모션* 을 *RequestUri* 변수의 값으로 일치 시킵니다.
 
@@ -73,9 +76,7 @@ Install-Module -Name Az.FrontDoor
 
 `Get-AzureRmResourceGroup`을 사용하여 Front Door 프로필이 포함된 리소스 그룹의 이름을 찾습니다. 그런 다음, Front 도어 프로필을 포함 하는 지정 된 리소스 그룹에서 [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) 를 사용 하 여 사용자 지정 rate limit 규칙으로 보안 정책을 구성 합니다.
 
-아래 예제에서는 [빠른 시작: 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md) 문서에 제공 된 지침을 사용 하 여 front 도어 프로필을 만들었다고 가정 하 고 리소스 그룹 이름 *myResourceGroupFD1* 를 사용 합니다.
-
- [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)사용.
+아래 예제에서는 [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)를 사용 하 여 [빠른 시작: 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md) 문서에 제공 된 지침을 사용 하 여 front 도어 프로필을 만들었다고 가정 하 고 리소스 그룹 이름 *myResourceGroupFD1* 를 사용 합니다.
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `
