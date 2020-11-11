@@ -94,7 +94,7 @@
       href: enable-diagnostic-logging.md
     - name: 진단 설정을 통해 Azure IoT Connector for FHIR(미리 보기) 메트릭 내보내기
       href: iot-metrics-diagnostics-export.md
-    - name: Azure IoT Connector for FHIR 보기 및 구성(미리 보기) 메트릭
+    - name: Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭
       href: iot-metrics-display.md
     - name: Azure API for FHIR의 토큰 가져오기 - CLI
       href: get-healthcare-apis-access-token-cli.md

@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786278"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426989"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 
@@ -137,29 +137,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>공유 액세스 서명 정의 확인
 
-Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 및 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 공유 액세스 서명 정의가 키 자격 증명 모음에 저장되었는지 확인할 수 있습니다.
+Azure CLI [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) 명령을 사용하여 공유 액세스 서명 정의가 키 자격 증명 모음에 저장되었는지 확인할 수 있습니다.
 
-먼저 [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) 명령을 사용하여 키 자격 증명 모음에서 공유 액세스 서명 정의를 찾습니다.
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-SAS 정의에 해당하는 비밀의 속성은 다음과 같습니다.
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-이제 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령 및 `id` 속성을 사용하여 해당 비밀의 내용을 볼 수 있습니다.
+이제 [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) 명령 및 `id` 속성을 사용하여 해당 비밀의 내용을 볼 수 있습니다.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-이 명령의 출력은 SAS 정의 문자열을 `value`로 보여줍니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

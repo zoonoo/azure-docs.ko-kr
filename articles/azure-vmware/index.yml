@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 10/19/2020
-  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
-  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+  ms.openlocfilehash: b72ec69edaae7681cd3310c66bcd209b3eae1a4e
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92172145"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94412581"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -94,6 +94,8 @@ landingContent:
       url: concepts-api-management.md
     - text: 허브 및 스포크
       url: concepts-hub-and-spoke.md
+    - text: Azure Security Center
+      url: azure-security-integration.md
     - text: Azure Backup 서버
       url: set-up-backup-server-for-azure-vmware-solution.md
     - text: VM의 수명 주기 관리
@@ -122,7 +124,11 @@ landingContent:
     links:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.vmware
-    - text: 배포 또는 프로비저닝 실패에 대한 도움 받기
-      url: fix-deployment-provisioning-failures.md
     - text: FAQ
       url: faq.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 배포 실패에 대한 지원 요청 열기
+      url: fix-deployment-provisioning-failures.md

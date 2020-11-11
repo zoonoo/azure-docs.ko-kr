@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: fe7a8a3df535d05c3c834d3e2fbba5f7df5d6fcd
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a1c6b054a9caac8ba223bc81e164e7ebf34bd267
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372254"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413329"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 
@@ -64,6 +64,7 @@ ms.locfileid: "94372254"
 |Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[Marvell BYOK 도구 및 설명서](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[Cryptomathic BYOK 도구 및 설명서](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|제조업체, 서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
+|StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 StorMagic 사이트](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)를 참조하세요.|[SvKMS 및 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 ||||
 
 

@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Livestream을 사용하여 헌트
           href: livestream.md
+        - name: REST-API로 헌팅 쿼리 관리
+          href: hunting-with-rest-api.md
     - name: Azure Sentinel 제거
       href: offboard.md
 - name: 참조(신규!)

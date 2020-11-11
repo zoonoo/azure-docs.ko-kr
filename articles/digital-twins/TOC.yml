@@ -111,7 +111,7 @@
       items:
         - name: Azure Monitor의 메트릭 보기
           href: troubleshoot-metrics.md
-        - name: 진단 로그 사용
+        - name: 진단 로그 사용 및 쿼리
           href: troubleshoot-diagnostics.md
         - name: 경고 사용
           href: troubleshoot-alerts.md

@@ -471,7 +471,7 @@
       items:
         - name: 작업 모니터링
           href: iot-hub-operations-monitoring.md
-        - name: 진단 설정으로 마이그레이션
+        - name: Azure Monitor로 마이그레이션
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 및 1.1 사용 중단
           href: iot-hub-tls-deprecating-1-0-and-1-1.md

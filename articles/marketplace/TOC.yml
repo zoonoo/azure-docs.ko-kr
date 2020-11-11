@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Azure Resource Manager 시험 사용
           href: azure-resource-manager-test-drive.md
+        - name: 호스트된 테스트 드라이브의 세부 구성
+          href: test-drive-hosted-detailed-config.md
+        - name: 호스트된 테스트 드라이브에 대한 Azure 구독 설정
+          href: test-drive-azure-subscription-setup.md
     - name: Azure 파트너 고객 사용량 특성
       href: azure-partner-customer-usage-attribution.md
     - name: 출시 옵션
@@ -270,15 +274,15 @@
     - name: 상업용 마켓플레이스 분석
       href: partner-center-portal/analytics.md
     - name: 요약 대시보드
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: 주문 대시보드
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: 사용량 대시보드
-      href: partner-center-portal/usage-dashboard.md
+      href: usage-dashboard.md
     - name: 고객 대시보드
-      href: partner-center-portal/customer-dashboard.md
+      href: customer-dashboard.md
     - name: Marketplace 인사이트 대시보드
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: 다운로드 대시보드
       href: partner-center-portal/downloads-dashboard.md
     - name: 평점 및 리뷰 대시보드

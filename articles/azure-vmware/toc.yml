@@ -100,7 +100,7 @@
   items:
     - name: 문제 해결
       items:
-        - name: 배포 또는 프로비저닝 실패에 대한 도움 받기
+        - name: 배포 실패에 대한 지원 요청 열기
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md

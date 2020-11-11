@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287505"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445543"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
@@ -125,4 +125,4 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 - [Key Vault 액세스 정책 문제 해결](troubleshooting-access-issues.md)
 - [Key Vault REST API 오류 코드](rest-error-codes.md)
 - [Key Vault 개발자 가이드](developers-guide.md)
-- [Azure RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
