@@ -4,15 +4,15 @@ description: 지원 요청을 파일 하는 방법을 비롯 하 여 파트너 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284253"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488896"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 
@@ -31,7 +31,7 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
    ![지원 드롭다운 메뉴](./media/support/commercial-marketplace-support-pane.png)
 
-    또는 **홈 페이지** 창으로 이동한 다음 **도움말 및 지원**을 선택 합니다.
+    또는 **홈 페이지** 창으로 이동한 다음 **도움말 및 지원** 을 선택 합니다.
 
    ![홈 페이지에서 도움말 및 지원](./media/support/homepage-help-support.png)
 
@@ -54,27 +54,27 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 **옵션 2:** 항목 찾아보기- **범주** = 상용 marketplace > 선택 하 > 해당 항목을 선택 하 고 하위 **항목** 을 선택 **합니다.**
 
-선택한 항목을 찾았으면 **솔루션 검토**를 선택 합니다.
+선택한 항목을 찾았으면 **솔루션 검토** 를 선택 합니다.
 
 ![다음 단계](./media/support/next-step.png)
 
 다음 옵션을 사용할 수 있습니다.
 
-- 다른 항목을 선택 하려면 **선택한 문제**에서 다른 토픽 링크를 선택 합니다.
-- 사용 가능한 경우이 문제에 대 한 설명을 검토 합니다.  **권장 단계**위에 표시 되는 텍스트입니다.
-- **권장 단계**를 검토 합니다 (사용 가능한 경우).
-- 사용 가능한 경우 **권장 문서**를 검토 합니다.
+- 다른 항목을 선택 하려면 **선택한 문제** 에서 다른 토픽 링크를 선택 합니다.
+- 사용 가능한 경우이 문제에 대 한 설명을 검토 합니다.  **권장 단계** 위에 표시 되는 텍스트입니다.
+- **권장 단계** 를 검토 합니다 (사용 가능한 경우).
+- 사용 가능한 경우 **권장 문서** 를 검토 합니다.
 
 ![권장 해결 방법](./media/support/recommended-solutions.png)
 
-**권장 솔루션**에서 답변을 찾을 수 없는 경우 **문제 세부 정보 제공**을 선택 합니다. 모든 필수 필드를 입력 하 여 해결 프로세스의 속도를 높이고, **제출**을 선택 합니다.
+**권장 솔루션** 에서 답변을 찾을 수 없는 경우 **문제 세부 정보 제공** 을 선택 합니다. 모든 필수 필드를 입력 하 여 해결 프로세스의 속도를 높이고, **제출** 을 선택 합니다.
 
 >[!Note]
 >파트너 센터에 로그인 하지 않고 토픽에 인증이 필요한 경우 계속 진행 하기 전에 로그인 하도록 요청 합니다.  공개 항목의 경우 인증이 필요 하지 않습니다.
 
 ## <a name="track-your-existing-support-requests"></a>기존 지원 요청 추적
 
-모든 오픈 및 폐쇄 티켓을 검토 하려면 왼쪽 탐색 모음에서 **상업용 Marketplace** 로 이동한 다음 **지원**을 선택 합니다.
+모든 오픈 및 폐쇄 티켓을 검토 하려면 왼쪽 탐색 모음에서 **상업용 Marketplace** 로 이동한 다음 **지원** 을 선택 합니다.
 
 ## <a name="record-issue-details-with-a-har-file"></a>HAR 파일을 사용 하 여 문제 정보 기록
 
@@ -85,10 +85,10 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Microsoft Edge 및 Google Chrome
 
-**Microsoft Edge** 또는 **Google Chrome**을 사용 하 여 HAR 파일을 생성 하려면:
+**Microsoft Edge** 또는 **Google Chrome** 을 사용 하 여 HAR 파일을 생성 하려면:
 
 1. 문제가 발생 하는 웹 페이지로 이동 합니다.
-2. 창의 오른쪽 위 모퉁이에서 줄임표 아이콘, **기타 도구**  >  **개발자 도구**를 차례로 선택 합니다. F12 키를 바로 가기로 사용할 수 있습니다.
+2. 창의 오른쪽 위 모퉁이에서 줄임표 아이콘, **기타 도구**  >  **개발자 도구** 를 차례로 선택 합니다. F12 키를 바로 가기로 사용할 수 있습니다.
 3. 개발자 도구 창에서 **네트워크** 탭을 선택 합니다.
 4. **네트워크 로그 기록 중지** 를 선택 하 고 기존 로그를 제거 하려면 **선택을 취소** 합니다. 레코드 아이콘은 회색으로 바뀝니다.
 
@@ -99,33 +99,33 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
     ![Microsoft Edge 또는 Google Chrome에서 기록을 시작 하는 방법](media/support/chromium-start-session.png)
 
 6. 문제를 해결 하려는 문제를 재현 합니다.
-7. 문제를 재현 한 후 **네트워크 로그 기록 중지**를 선택 합니다.
-8. **HAR 내보내기**를 선택 하 고 아래쪽 화살표 아이콘으로 표시 한 다음 파일을 저장 합니다.
+7. 문제를 재현 한 후 **네트워크 로그 기록 중지** 를 선택 합니다.
+8. **HAR 내보내기** 를 선택 하 고 아래쪽 화살표 아이콘으로 표시 한 다음 파일을 저장 합니다.
 
     ![Microsoft Edge 또는 Google Chrome에서 HAR 파일을 내보내는 방법](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-**Mozilla Firefox**를 사용 하 여 HAR 파일을 생성 하려면:
+**Mozilla Firefox** 를 사용 하 여 HAR 파일을 생성 하려면:
 
 1. 문제가 발생 하는 웹 페이지로 이동 합니다.
-1. 창의 오른쪽 위 모퉁이에서 줄임표 아이콘, **웹 개발자**  >  **토글 도구**를 차례로 선택 합니다. F12 키를 바로 가기로 사용할 수 있습니다.
+1. 창의 오른쪽 위 모퉁이에서 줄임표 아이콘, **웹 개발자**  >  **토글 도구** 를 차례로 선택 합니다. F12 키를 바로 가기로 사용할 수 있습니다.
 1. **네트워크** 탭을 선택 하 고 **지우기** 를 선택 하 여 기존 로그를 제거 합니다.
 
     ![Mozilla Firefox에서 기존 로그를 제거 하는 방법](media/support/firefox-clear-session.png)
 
 1. 문제를 해결 하려는 문제를 재현 합니다.
-1. 문제를 재현 한 후 **HAR 내보내기/가져오기**  >  **모두 HAR로 저장**을 선택 합니다.
+1. 문제를 재현 한 후 **HAR 내보내기/가져오기**  >  **모두 HAR로 저장** 을 선택 합니다.
 
     ![Mozilla Firefox에서 HAR 파일을 내보내는 방법](media/support/firefox-network-export-har.png)
 
 ### <a name="apple-safari"></a>Apple Safari
 
-**Safari**를 사용 하 여 HAR 파일을 생성 하려면:
+**Safari** 를 사용 하 여 HAR 파일을 생성 하려면:
 
-1. Safari에서 개발자 도구 사용: **safari**  >  **기본 설정**을 선택 합니다. **고급** 탭으로 이동한 다음 **메뉴 모음에서 개발 메뉴 표시**를 선택 합니다.
+1. Safari에서 개발자 도구 사용: **safari**  >  **기본 설정** 을 선택 합니다. **고급** 탭으로 이동한 다음 **메뉴 모음에서 개발 메뉴 표시** 를 선택 합니다.
 1. 문제가 발생 하는 웹 페이지로 이동 합니다.
-1. **개발**을 선택한 다음 **웹 검사기 표시**를 선택합니다.
+1. **개발** 을 선택한 다음 **웹 검사기 표시** 를 선택합니다.
 1. **네트워크** 탭을 선택한 다음 **네트워크 항목 지우기** 를 선택 하 여 기존 로그를 제거 합니다.
 
     ![Safari에서 기존 로그를 제거 하는 방법](media/support/safari-clear-session.png)

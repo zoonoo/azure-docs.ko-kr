@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331705"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489151"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -73,6 +73,9 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 **상태** 필드에 **성공** 값이 있는 경우 JSON 응답은 이미지 또는 문서에서 추출 된 텍스트 콘텐츠를 포함 합니다. JSON 응답은 인식 된 단어의 원래 줄 그룹을 유지 관리 합니다. 추출 된 텍스트 줄과 해당 경계 상자 좌표가 포함 됩니다. 각 텍스트 줄에는 추출 된 모든 단어가 해당 좌표와 신뢰도 점수가 포함 됩니다.
 
+> [!NOTE]
+> 작업에 전송 된 데이터는 `Read` 임시로 암호화 되 고 저장 된 상태로 저장 되며 48 시간 이내에 삭제 됩니다. 이렇게 하면 응용 프로그램이 서비스 응답의 일부로 추출 된 텍스트를 검색할 수 있습니다.
+
 ## <a name="sample-json-output"></a>샘플 JSON 출력
 
 성공적인 JSON 응답의 다음 예를 참조 하세요.
@@ -87,7 +90,6 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,

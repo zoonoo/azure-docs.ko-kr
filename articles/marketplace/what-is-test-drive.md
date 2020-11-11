@@ -4,15 +4,15 @@ description: Marketplace 시험 구동 기능 설명
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911140"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489967"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -87,7 +87,7 @@ ms.locfileid: "92911140"
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 
-## <a name="other-resources"></a>다른 리소스
+## <a name="other-resources"></a>기타 리소스
 
 추가 시험 사용 리소스:
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377122"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489457"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
 
@@ -85,26 +85,26 @@ ms.locfileid: "92377122"
 ## <a name="configure-naming-policy-in-azure-portal"></a>Azure Portal에서 명명 정책 구성
 
 1. 그룹 관리자 계정으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **그룹**을 선택한 다음, **명명 정책**을 선택하여 명명 정책 페이지를 엽니다.
+1. **그룹** 을 선택한 다음, **명명 정책** 을 선택하여 명명 정책 페이지를 엽니다.
 
     ![관리 센터에서 명명 정책 페이지 열기](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>접두사 접미사 명명 정책을 보거나 편집 합니다.
 
-1. **명명 정책** 페이지에서 **그룹 명명 정책**을 선택합니다.
+1. **명명 정책** 페이지에서 **그룹 명명 정책** 을 선택합니다.
 1. 명명 정책의 일부로 적용하려는 특성 또는 문자열을 선택하여 현재 접두사 또는 접미사 명명 정책을 개별적으로 보거나 편집할 수 있습니다.
-1. 목록에서 접두사 또는 접미사를 제거하려면 접두사 또는 접미사를 선택한 다음, **삭제**를 선택합니다. 동시에 여러 항목을 삭제할 수 있습니다.
-1. **저장**을 선택 하 여 적용 되도록 새 정책에 대 한 변경 내용을 저장 합니다.
+1. 목록에서 접두사 또는 접미사를 제거하려면 접두사 또는 접미사를 선택한 다음, **삭제** 를 선택합니다. 동시에 여러 항목을 삭제할 수 있습니다.
+1. **저장** 을 선택 하 여 적용 되도록 새 정책에 대 한 변경 내용을 저장 합니다.
 
 ### <a name="edit-custom-blocked-words"></a>사용자 지정 차단 된 단어 편집
 
-1. **명명 정책** 페이지에서 **차단된 단어**를 선택합니다.
+1. **명명 정책** 페이지에서 **차단된 단어** 를 선택합니다.
 
     ![명명 정책에서 차단된 단어 목록 편집 및 업로드](./media/groups-naming-policy/blockedwords.png)
 
-1. **다운로드**를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다.
+1. **다운로드** 를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다.
 1. 파일 아이콘을 선택하여 사용자 지정 차단 단어의 새로운 목록을 업로드합니다.
-1. **저장**을 선택 하 여 적용 되도록 새 정책에 대 한 변경 내용을 저장 합니다.
+1. **저장** 을 선택 하 여 적용 되도록 새 정책에 대 한 변경 내용을 저장 합니다.
 
 ## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
 
@@ -123,7 +123,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
    Install-Module AzureADPreview
    ```
 
-   신뢰할 수 없는 리포지토리에 액세스 하 라는 메시지가 표시 되 면 **Y**를 입력 합니다. 새 모듈을 설치 하는 데 몇 분 정도 걸릴 수 있습니다.
+   신뢰할 수 없는 리포지토리에 액세스 하 라는 메시지가 표시 되 면 **Y** 를 입력 합니다. 새 모듈을 설치 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="configure-naming-policy-in-powershell"></a>PowerShell에서 명명 정책 구성
 
@@ -136,7 +136,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
    Connect-AzureAD
    ```
 
-   **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
+   **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인** 을 선택합니다.
 
 1. [그룹 설정을 구성 하는 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md) 의 단계에 따라이 조직에 대 한 그룹 설정을 만듭니다.
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Azure Portal을 사용하여 명명 정책 제거
 
-1. **명명 정책** 페이지에서 **정책 삭제**를 선택합니다.
+1. **명명 정책** 페이지에서 **정책 삭제** 를 선택합니다.
 1. 삭제를 확인한 후 모든 접두사-접미사 명명 정책 및 모든 사용자 지정 차단 단어를 비롯한 명명 정책이 제거됩니다.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용 하 여 명명 정책 제거
@@ -249,7 +249,6 @@ Outlook iOS 및 Android 앱 | Outlook 앱에서 만든 그룹은 구성된 명�
 Planner | Planner는 명명 정책을 준수합니다. 계획 이름을 입력하면 Planner에 명명 정책 미리 보기가 표시됩니다. 사용자 정의 차단 단어를 입력하면 계획을 생성할 때 오류 메시지가 표시됩니다.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement는 명명 정책을 준수합니다. 사용자가 그룹 이름 또는 그룹 메일 별칭을 입력하면 Dynamics 365에는 명명 규칙이 적용된 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 SDS(학교 데이터 동기화) | SDS를 통해 만든 그룹은 명명 정책을 준수하지만 명명 정책이 자동으로 적용되지 않습니다. SDS 관리자는 그룹을 작성한 다음, SDS로 업로드해야 하는 그룹의 클래스 이름에 접두사 및 접미사를 추가해야 합니다. 그렇지 않으면 그룹 작성 또는 편집이 실패하지 않습니다.
-OCM(Outlook Customer Manager) | Outlook Customer Manager는 Outlook Customer Manager에서 생성된 그룹에 자동으로 적용되는 이름 명명 정책을 준수합니다. 사용자 정의 차단 단어가 검색되면 OCM에서 그룹 생성이 차단되고 사용자의 OCM 애플리케이션 앱 사용이 차단됩니다.
 교실 앱 | 교실 앱에서 만든 그룹은 명명 정책을 준수하지만 명명 정책은 자동으로 적용되지 않으며 교실 그룹 이름을 입력하는 동안 명명 정책 미리 보기가 사용자에게 표시되지 않습니다. 사용자는 접두사 및 접미사와 함께 적용된 교실 그룹 이름을 입력해야 합니다. 그렇지 않으면 교실 그룹 생성 또는 편집 작업에 실패하고 오류가 발생합니다.
 Power BI | Power BI 작업 공간은 명명 정책을 준수합니다.    
 Yammer | Azure Active Directory 계정을 사용하여 Yammer에 로그인한 사용자가 그룹을 만들거나 그룹 이름을 편집할 때는 그룹 이름이 이름 지정 정책을 준수해야 합니다. 이는 Microsoft 365 연결 된 그룹 및 다른 모든 Yammer 그룹에 적용 됩니다.<br>명명 정책을 적용 하기 전에 Microsoft 365 연결 그룹이 만들어진 경우 그룹 이름이 명명 정책을 자동으로 따르지 않습니다. 사용자가 해당 그룹 이름을 편집할 때 접두사와 접미사를 추가하라는 메시지가 표시됩니다.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166933"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366760"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -23,7 +23,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다.
 
-감정 분석은 다양한 언어를 지원하며 미리 보기로 제공됩니다. 자세한 내용은 [지원되는 언어](../text-analytics-supported-languages.md)를 참조하세요.
+감정 분석은 다양한 언어를 지원하며 미리 보기로 제공됩니다. 자세한 내용은 [지원되는 언어](../language-support.md)를 참조하세요.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>감정 분석 버전 및 기능
 
@@ -40,7 +40,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 감정 분석 v3는 텍스트에 감정 레이블을 적용합니다. 이는 문장과 문서 각각에 대한 신뢰도 점수와 함께 문장과 문서 수준에서 반환됩니다. 
 
-레이블은 *긍정*, *부정* 및 *중립*입니다. 문서 수준에서 *혼합된* 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
+레이블은 *긍정* , *부정* 및 *중립* 입니다. 문서 수준에서 *혼합된* 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
 
 | 문장 감정                                                                            | 반환된 문서 레이블 |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -76,7 +76,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 ## <a name="structure-the-request"></a>요청 구성
 
-POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔**을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
+POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔** 을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
 #### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
 
@@ -146,7 +146,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 ### <a name="sentiment-analysis-v31-example-response"></a>감정 분석 v3.1 응답 예제
 
-감정 분석 v3.1은 **버전 3.0** 탭의 응답 개체 외에 의견 마이닝도 제공합니다. 아래 응답에서 *식당의 음식은 훌륭했고 웨이터도 친절했어요*라는 문장에는 *음식* 및 *웨이터*라는 두 가지 양상이 있습니다. 각 양상의 `relations` 속성에는 연결된 `documents`, `sentences` 및 `opinions` 개체에 대한 URI 참조를 포함하는 `ref` 값이 포함되어 있습니다.
+감정 분석 v3.1은 **버전 3.0** 탭의 응답 개체 외에 의견 마이닝도 제공합니다. 아래 응답에서 *식당의 음식은 훌륭했고 웨이터도 친절했어요* 라는 문장에는 *음식* 및 *웨이터* 라는 두 가지 양상이 있습니다. 각 양상의 `relations` 속성에는 연결된 `documents`, `sentences` 및 `opinions` 개체에 대한 URI 참조를 포함하는 `ref` 값이 포함되어 있습니다.
 
 ```json
 {

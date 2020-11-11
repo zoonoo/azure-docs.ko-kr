@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099000"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379874"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
 
@@ -47,7 +47,7 @@ Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관�
 
 자습서 페이지는 완전히 독립적입니다. 즉, 모든 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
 
-이 자습서에서는 소스 코드의 선택된 부분에 대해 설명합니다. 전체 [소스 코드](tutorial-bing-video-search-single-page-app-source.md)를 확인할 수 있습니다. 예제를 실행하려면 소스 코드를 복사한 후 텍스트 편집기에 붙여넣고 `bing.html`로 저장합니다.
+이 자습서에서는 소스 코드의 선택된 부분에 대해 설명합니다. 전체 [소스 코드]()를 확인할 수 있습니다. 예제를 실행하려면 소스 코드를 복사한 후 텍스트 편집기에 붙여넣고 `bing.html`로 저장합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.

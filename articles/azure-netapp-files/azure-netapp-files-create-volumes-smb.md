@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932348"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488182"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -119,19 +119,19 @@ Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용�
 
 Active Directory 연결을 만들 때 AADDS에 대한 다음 사항에 유의해야 합니다.
 
-* AADDS 메뉴에서 **기본 DNS**, **보조 DNS**및 **AD DNS 도메인 이름**에 대한 정보를 찾을 수 있습니다.  
+* AADDS 메뉴에서 **기본 DNS** , **보조 DNS** 및 **AD DNS 도메인 이름** 에 대한 정보를 찾을 수 있습니다.  
 DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사용됩니다. 
-* **조직 구성 단위 경로**는 `OU=AADDC Computers`입니다.  
-이 설정은 **Active Directory 연결**의 **NetApp 계정**에서 구성합니다.
+* **조직 구성 단위 경로** 는 `OU=AADDC Computers`입니다.  
+이 설정은 **Active Directory 연결** 의 **NetApp 계정** 에서 구성합니다.
 
   ![조직 구성 단위 경로](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
-* **사용자 이름** 자격 증명은 Microsoft Azure Active Directory 그룹 **Microsoft Azure Active Directory DC 관리자**의 구성원인 사용자일 수 있습니다.
+* **사용자 이름** 자격 증명은 Microsoft Azure Active Directory 그룹 **Microsoft Azure Active Directory DC 관리자** 의 구성원인 사용자일 수 있습니다.
 
 
 ## <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
 
-1. NetApp 계정에서 **Active Directory 연결**을 클릭하고 **조인**을 클릭합니다.  
+1. NetApp 계정에서 **Active Directory 연결** 을 클릭하고 **조인** 을 클릭합니다.  
 
     ![Active Directory 연결](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -146,7 +146,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
     * **AD DNS 도메인 이름**  
         가입하려는 Active Directory Domain Services의 도메인 이름입니다.
     * **AD 사이트 이름**  
-        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다.
+        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다. 이는 Active Directory 사이트 및 서비스의 사이트 이름과 일치 해야 합니다.
     * **SMB 서버(컴퓨터 계정) 접두사**  
         Azure NetApp Files에서 새 계정을 만드는 데 사용할 Active Directory의 머신 계정에 대한 명명 접두사입니다.
 
@@ -230,11 +230,11 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         
         [Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
-    * **사용자 이름**과 **암호**를 포함한 자격 증명
+    * **사용자 이름** 과 **암호** 를 포함한 자격 증명
 
         ![Active Directory 자격 증명](../media/azure-netapp-files/active-directory-credentials.png)
 
-3. **조인**을 클릭합니다.  
+3. **조인** 을 클릭합니다.  
 
     만든 Active Directory 연결이 나타납니다.
 
@@ -246,7 +246,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     ![볼륨으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2. **+ 볼륨 추가**를 클릭하여 볼륨을 만듭니다.  
+2. **+ 볼륨 추가** 를 클릭하여 볼륨을 만듭니다.  
     볼륨 만들기 창이 나타납니다.
 
 3. 볼륨 만들기 창에서 **만들기** 를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
@@ -279,7 +279,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 VNet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
+        서브넷을 위임하지 않은 경우 볼륨 만들기 페이지에서 **새로 만들기** 를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes** 를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 VNet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
  
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -291,14 +291,14 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. **프로토콜**을 클릭하고 다음 정보를 입력합니다.  
-    * 볼륨의 프로토콜 유형으로 **SMB**를 선택합니다. 
+4. **프로토콜** 을 클릭하고 다음 정보를 입력합니다.  
+    * 볼륨의 프로토콜 유형으로 **SMB** 를 선택합니다. 
     * 드롭다운 목록에서 **Active Directory** 연결을 선택합니다.
-    * **공유 이름**에 공유 볼륨의 이름을 지정합니다.
+    * **공유 이름** 에 공유 볼륨의 이름을 지정합니다.
 
     ![SMB 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
-5. **검토 + 만들기**를 클릭하여 볼륨 정보를 검토합니다.  그런 다음, **만들기**를 클릭하여 SMB 볼륨을 만듭니다.
+5. **검토 + 만들기** 를 클릭하여 볼륨 정보를 검토합니다.  그런 다음, **만들기** 를 클릭하여 SMB 볼륨을 만듭니다.
 
     만든 볼륨이 볼륨 페이지에 표시됩니다. 
  

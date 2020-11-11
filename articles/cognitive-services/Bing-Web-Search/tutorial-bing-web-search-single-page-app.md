@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095444"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381289"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "93095444"
 > * 구독 키 관리
 > * 오류 처리
 
-이 앱을 사용하려면 Bing Search API와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다.
+이 앱을 사용하려면 Bing Search API와 함께 [Azure Cognitive Services 계정](../cognitive-services-apis-create-account.md)이 필요합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -86,7 +86,7 @@ npm install
 
 ## <a name="query-options"></a>쿼리 옵션
 
-HTML 양식에는 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)의 쿼리 매개 변수에 매핑되는 옵션이 포함됩니다. 이 표에서는 사용자가 샘플 앱을 사용하여 검색 결과를 필터링하는 방법을 구분합니다.
+HTML 양식에는 [Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)의 쿼리 매개 변수에 매핑되는 옵션이 포함됩니다. 이 표에서는 사용자가 샘플 앱을 사용하여 검색 결과를 필터링하는 방법을 구분합니다.
 
 | 매개 변수 | Description |
 |-----------|-------------|
@@ -99,7 +99,7 @@ HTML 양식에는 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/c
 | `offset` | 숨겨진 필드입니다. 요청의 첫 번째 검색 결과에 대한 오프셋으로, 페이징에 사용됩니다. 각각의 새 요청을 사용하여 `0`으로 재설정됩니다. |
 
 > [!NOTE]
-> Bing Web Search API는 검색 결과를 구체화하는 데 도움이 되는 추가 쿼리 매개 변수를 제공합니다. 이 샘플에는 몇 가지만 사용됩니다. 사용 가능한 매개 변수의 전체 목록은 [Bing Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)를 참조하세요.
+> Bing Web Search API는 검색 결과를 구체화하는 데 도움이 되는 추가 쿼리 매개 변수를 제공합니다. 이 샘플에는 몇 가지만 사용됩니다. 사용 가능한 매개 변수의 전체 목록은 [Bing Web Search API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)를 참조하세요.
 
 `bingSearchOptions()` 함수는 Bing Search API에 필요한 형식과 일치하도록 이러한 옵션을 변환합니다.
 
@@ -303,7 +303,7 @@ function handleBingResponse() {
 
 ## <a name="display-search-results"></a>검색 결과 표시
 
-Bing Web Search API에서 반환된 결과에 대한 [사용 및 표시 요구 사항](useanddisplayrequirements.md)이 있습니다. 응답에는 다양한 결과 형식이 포함될 수 있으므로 최상위 `WebPages` 컬렉션을 반복하기에 충분하지 않습니다. 대신에 샘플 앱은 `RankingResponse`를 사용하여 결과를 사양에 맞게 정렬합니다.
+Bing Web Search API에서 반환된 결과에 대한 [사용 및 표시 요구 사항](./use-display-requirements.md)이 있습니다. 응답에는 다양한 결과 형식이 포함될 수 있으므로 최상위 `WebPages` 컬렉션을 반복하기에 충분하지 않습니다. 대신에 샘플 앱은 `RankingResponse`를 사용하여 결과를 사양에 맞게 정렬합니다.
 
 > [!NOTE]
 > 단일 결과 형식만 필요한 경우 `responseFilter` 쿼리 매개 변수를 사용하거나 Bing Image Search와 같은 다른 Bing Search 엔드포인트 중 하나를 사용하는 것이 좋습니다.

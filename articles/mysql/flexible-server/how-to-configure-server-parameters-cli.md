@@ -6,16 +6,20 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ec99a68c538e8133d64351cdecbbf8b10459e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525104"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489542"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+
 Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 매개 변수를 나열 하 고, 표시 하 고, 업데이트할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 및 권장 값으로 구성 됩니다.  
 
 이 문서에서는 Azure CLI를 사용 하 여 서버 매개 변수를 나열, 표시 및 업데이트 하는 방법을 설명 합니다.
@@ -31,7 +35,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for M
 ## <a name="list-server-parameters-for-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에 대 한 서버 매개 변수 나열
 서버에 있는 모든 매개 변수와 해당 값을 나열 하려면 [az mysql 신축-server parameter list](/cli/azure/mysql/flexible-server/parameter) 명령을 실행 합니다.
 
-리소스 그룹 **myresourcegroup**에서 **mydemoserver.mysql.database.azure.com** 서버에 대 한 서버 매개 변수를 나열할 수 있습니다.
+리소스 그룹 **myresourcegroup** 에서 **mydemoserver.mysql.database.azure.com** 서버에 대 한 서버 매개 변수를 나열할 수 있습니다.
 ```azurecli-interactive
 az mysql flexible-server parameter list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -94,7 +98,7 @@ SELECT name FROM mysql.time_zone_name;
 
 [Az mysql 신축 서버 매개 변수 set](/cli/azure/mysql/flexible-server/parameter) 명령을 사용 하 여 전역 수준 표준 시간대를 설정할 수 있습니다.
 
-다음 명령은 리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver.mysql.database.azure.com** 의 **표준 \_ 시간대** 서버 매개 변수를 **US/태평양**로 업데이트 합니다.
+다음 명령은 리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver.mysql.database.azure.com** 의 **표준 \_ 시간대** 서버 매개 변수를 **US/태평양** 로 업데이트 합니다.
 
 ```azurecli-interactive
 az mysql flexible-server parameter set --name time_zone --resource-group myresourcegroup --server-name mydemoserver --value "US/Pacific"

@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420492"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488403"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -102,7 +102,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 ### <a name="connectivity"></a>연결
 * Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
 * 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](reference-connect-ports.md) 를 참조 하세요.
-* 프록시 또는 방화벽에 액세스할 수 있는 Url을 제한 하는 경우 [Office 365 url 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에 설명 된 url을 열어야 합니다.
+* 프록시 또는 방화벽에 액세스할 수 있는 Url을 제한 하는 경우 [Office 365 url 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에 설명 된 url을 열어야 합니다. [방화벽 또는 프록시 서버에서 Azure Portal Url Safelist](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)도 참조 하세요.
   * 독일 또는 Microsoft Azure Government 클라우드에서 Microsoft 클라우드를 사용 하는 경우 Url에 대 한 [동기화 서비스 인스턴스 고려 사항 Azure AD Connect](reference-connect-instances.md) 을 참조 하세요.
 * Azure AD Connect(1.1.614.0 버전 이상)는 기본적으로 TLS 1.2를 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. 기본 운영 체제에서 TLS 1.2를 사용할 수 없는 경우 Azure AD Connect에 이전 프로토콜(TLS 1.1 및 TLS 1.0)이 점차적으로 다시 적용됩니다.
 * 1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. TLS 1.2로 변경하려면 [Azure AD Connect에 TLS 1.2 사용](#enable-tls-12-for-azure-ad-connect)의 단계를 수행합니다.
@@ -215,8 +215,8 @@ Azure AD Connect는 Azure AD Connect가 설치 된 서버에서 다음 구성 �
 
 | Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
 | --- | --- | --- | --- |
-| 10,000개 미만 |1.6GHz |4GB |70GB |
-| 10,000–50,000개 |1.6GHz |4GB |70GB |
+| 10,000개 미만 |1.6GHz |4 GB |70GB |
+| 10,000–50,000개 |1.6GHz |4 GB |70GB |
 | 50,000–100,000개 |1.6GHz |16GB |100GB |
 | 10만 이상의 개체에는 SQL Server의 전체 버전이 필요 합니다. | | | |
 | 100,000–300,000개 |1.6GHz |32GB |300GB |

@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881904"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488092"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure Functions
 
 Azure Functions는 인프라를 명시적으로 프로비저닝하거나 관리할 필요 없이 요청 시 코드를 실행하는 데 사용할 수 있는 서버리스 컴퓨팅 서비스입니다. Azure 또는 파트너 서비스에서 발생하는 이벤트에서 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답하는 Azure Functions의 이 기능을 사용하면 Azure Stream Analytics 출력을 자연스럽게 제공할 수 있습니다. 이 출력 어댑터를 사용하면 사용자가 Stream Analytics를 Azure Functions에 연결하여 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
 
-Stream Analytics의 Azure Functions 출력은 현재 Azure 중국 21Vianet 및 Azure 독일(T-Systems International) 지역에서 사용할 수 없습니다.
+Stream Analytics의 Azure Functions 출력은 Azure 중국 21Vianet 및 Azure 독일 (T-sql 국제) 지역에서 사용할 수 없습니다. 다중 테 넌 트 클러스터에서 실행 되는 Stream Analytics 작업에서 VNet (가상 네트워크) 내 Azure Functions에 대 한 연결도 지원 되지 않습니다.
 
 Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합니다. Azure Functions 출력 어댑터는 다음과 같은 구성 가능한 속성을 통해 사용할 수 있습니다.
 

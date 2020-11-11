@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098776"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490273"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 워크로드에 데이터베이스의 모든 컬렉션을 삭제하고 다시 만드는 작업이 포함된 경우에는 컬렉션을 만들기 전에 빈 데이터베이스를 삭제하고 새 데이터베이스를 다시 만드는 것이 좋습니다. 다음 이미지는 데이터베이스 내 여러 컨테이너에 속하는 하나 이상의 논리 파티션을 실제 파티션에 호스트할 수 있다는 것을 보여줍니다.
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="다른 컨테이너에 속한 하나 이상의 논리 파티션을 호스트 하는 실제 파티션 " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>데이터베이스 및 컨테이너의 처리량 설정
 
@@ -82,7 +82,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 * 이름이 *Z* 이고 프로비전된 처리량이 *"K"* RU인 Azure Cosmos 데이터베이스를 만들 수 있습니다. 
 * 다음으로, 데이터베이스 내에서 5개 컨테이너 *A* , *B* , *C* , *D* , *E* 를 만듭니다. 컨테이너 B를 만들 때 **이 컨테이너에 전용 처리량 프로비전** 옵션을 사용하도록 설정하고 이 컨테이너에서 프로비전된 처리량 *"P"* RU를 명시적으로 구성해야 합니다. 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="컨테이너 수준에서 처리량 설정":::
 
 * *"K"* RU 처리량은 4개의 컨테이너 *A* , *C* , *D* , *E* 간에 공유됩니다. *A* , *C* , *D* 또는 *E* 에 사용 가능한 정확한 처리량은 변동합니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 컨테이너 *B* 는 항상 *"P"* RU 처리량을 보장받을 수 있으며 SLA가 지원됩니다.
@@ -109,7 +109,7 @@ Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베
 실제 최소/s는 계정 구성에 따라 다를 수 있습니다. 그러나 일반적으로 다음의 최대값입니다.
 
 * 400RU/s 
-* 현재 저장소 (GB) * 10 r u/초
+* 현재 저장소 (GB) * 10 r u/초 (컨테이너 또는 데이터베이스에 1TB 이상의 데이터가 포함 되어 있지 않은 경우 [높은 저장소/낮은 처리량 프로그램](#high-storage-low-throughput-program)참조)
 * 데이터베이스 또는 컨테이너/100에 프로 비전 된 최고 r u/초
 * 컨테이너 수 * 100 r u/초 (공유 처리량 데이터베이스만)
 

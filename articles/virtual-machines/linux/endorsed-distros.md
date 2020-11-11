@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b27b7344d84ce1361d8294fa4f3490c50afbb4c3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978937"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489661"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 
@@ -70,11 +70,11 @@ Microsoft에는 CoreOS 사용자를 위한 2 개의 마이그레이션 채널이
 - Flatcar by Kinvolk ("Flatcar Container Linux by Kinvolk" 항목 참조)
 - [Fedora CORE OS](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (고객은 자신의 이미지를 업로드 해야 합니다. [마이그레이션 설명서](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)는 다음과 같습니다.
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-Credativ는 독립적인 컨설팅 및 서비스 회사로, 주요 사업 분야는 무료 소프트웨어를 사용하여 전문 솔루션을 개발하고 구현하는 것입니다. 시장을 선도하는 오픈 소스 전문 회사인 Credative는 지원을 받는 많은 IT 부서들로부터 국제적인 명성을 얻고 있습니다. 현재 Credativ는 Microsoft와 협력 관계를 맺고 Debian 8(Jessie) 및 Debian 7(Wheezy) 이전 버전에 해당하는 Debian 이미지를 준비 중입니다. 두 이미지 모두 Azure에서 실행하도록 특별히 설계되었으며 플랫폼을 통해 쉽게 관리할 수 있습니다. Credativ는 또한 자체적인 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure의 Debian 이미지 업데이트를 지원합니다.
+credativ는 무료 소프트웨어를 사용 하 여 전문적인 솔루션의 개발 및 구현을 전문적으로 하는 독립적인 컨설팅 및 서비스 회사입니다. 최첨단 오픈 소스 전문가로 서, credativ는 지원 서비스를 사용 하는 많은 IT 부서가 국제 인식을 제공 합니다. Microsoft와 함께 credativ는 Debian 이미지를 준비 하 고 있습니다. 이미지는 Azure에서 실행 되도록 특별히 설계 되었으며 플랫폼을 통해 쉽게 관리할 수 있습니다. 또한 credativ는 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure 용 Debian 이미지 업데이트를 지원 합니다.
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

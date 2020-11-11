@@ -4,15 +4,15 @@ description: Azure Table 스토리지를 사용하여 Microsoft AppSource 및 Az
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 925bc79d54def3f2aec4657196b8cea53704396f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130649"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489355"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -38,7 +38,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 1. Azure Portal의 **홈** 페이지에서 저장소 계정에 액세스 하기 위한 **모든 리소스 보기** 를 선택 합니다. Azure Portal의 왼쪽 표시줄에서 **모든 리소스** 를 선택할 수도 있습니다.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Azure storage 계정을 만드는 단계입니다.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Azure storage 계정에 액세스 합니다.":::
 
 1. 스토리지 계정 창에서 **액세스 키** 를 선택하고 키의 **연결 문자열** 값을 복사합니다. 이 값은 Azure Marketplace 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 입력해야 하는 **스토리지 계정 연결 문자열** 이므로 저장해 두세요.
 
@@ -48,7 +48,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage 계정을 만드는 단계입니다.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure 저장소 키입니다.":::
 
 
 1. 스토리지 계정 창에서 **테이블** 을 선택하고 **+ 테이블** 을 선택하여 테이블을 만듭니다. 테이블의 이름을 입력하고 **확인** 을 선택합니다. 이 값은 잠재 고객이 수신되었을 때 메일 알림을 받는 흐름을 구성하려는 경우 필요하므로 저장해 두세요.
@@ -185,7 +185,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 1. **잠재 고객** 섹션에서 **연결** 을 선택합니다.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Azure storage 계정을 만드는 단계입니다.":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="잠재 고객":::
 
 1. **연결 세부 정보** 팝업 창에서 **잠재 고객 대상** 으로 **Azure Table** 을 선택합니다. 
      ![잠재 고객 관리, 연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

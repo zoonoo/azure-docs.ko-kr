@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102207"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366131"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>다양한 작업에 대한 인사이트 표시
 
-다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 사용할 수 있는 모든 필드를 보려면 [이미지 - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) 참고 자료를 참조하세요.
+다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 사용할 수 있는 모든 필드를 보려면 [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참고 자료를 참조하세요.
 
 > [!NOTE]
 > 페이지에 표시해야 하는 최소한의 인사이트 정보 양이 있습니다. 자세한 내용은 [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 참조하세요.

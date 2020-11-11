@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358102"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489304"
 ---
-# <a name="connect-to-storage-services-azure"></a>Storage 서비스에 연결 Azure
+# <a name="connect-to-storage-services-on-azure"></a>Azure에서 저장소 서비스에 연결
 
 이 문서에서는 **Azure Machine Learning 데이터 저장소를 통해 Azure에서 저장소 서비스에 연결** 하는 방법에 대해 알아봅니다. 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure storage 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [Azure Machine Learning PYTHON SDK](#python) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md) 를 사용 하 여 datastores를 만들고 등록할 수 있습니다.
 

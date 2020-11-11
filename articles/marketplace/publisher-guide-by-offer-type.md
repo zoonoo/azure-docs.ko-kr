@@ -4,15 +4,15 @@ description: 이 문서에서는 Microsoft 상업적 marketplace에서 사용할
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: a2b41ac32f8c887d7a8ffd33d51baebaa0e2482e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366488"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488981"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 

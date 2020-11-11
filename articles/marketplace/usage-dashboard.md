@@ -1,20 +1,20 @@
 ---
-title: Microsoft 상업적 marketplace 분석, Azure Marketplace 및 Microsoft AppSource의 사용량 대시보드
-description: 모든 VM 제품 및 요금 청구 메트릭에 액세스하는 방법을 알아봅니다. 상업용 Marketplace에서 파트너 센터의 사용량 대시보드로 이동합니다.
+title: 상용 marketplace 분석의 사용량 대시보드 | Azure Marketplace
+description: Azure Marketplace에 게시 된 제품에 대 한 모든 사용량 및 요금제 청구 메트릭에 액세스 하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414864"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490120"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Microsoft 상업용 Marketplace 분석의 사용량 대시보드
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
 이 문서에서는 파트너 센터의 사용량 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 모든 VM (가상 컴퓨터)에서 표준화 된 사용량, 원시 사용량 및 요금제 청구 메트릭을 3 개의 별도 탭 (VM 정규화 된 사용량, VM 원시 사용량 및 요금제 청구 사용량)으로 표시 합니다.
 

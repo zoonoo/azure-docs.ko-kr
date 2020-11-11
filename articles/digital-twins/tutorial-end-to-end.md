@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 689de4d9fbd9eafeda54b8c157e5174d200c93da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324568"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338259"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -286,8 +286,8 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 이 새 Visual Studio 창의 *솔루션 탐색기* 창에서 _DeviceSimulator/ **AzureIoTHub.cs**_ 를 선택하여 편집 창에서 엽니다. 다음 연결 문자열 값을 위에서 수집한 값으로 변경합니다.
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 파일을 저장합니다.

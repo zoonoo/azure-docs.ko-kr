@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125685"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490086"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -98,9 +98,4 @@ Microsoft가 사용자를 대신해서 시험 사용을 배포하도록 하려�
 - [시험 드라이브 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF, 팝업 차단이 해제 되어 있는지 확인)
 - [상업용 마켓플레이스에서 기존 제품 업데이트](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>추가 리소스
-
-## <a name="feedback"></a>피드백
-
-[이 제품](https://feedback.azure.com/forums/216369-azure-marketplace) 에 대 한 사용자 의견 제출 및 보기
+- [Azure Marketplace 피드백 포럼](https://feedback.azure.com/forums/216369-azure-marketplace)

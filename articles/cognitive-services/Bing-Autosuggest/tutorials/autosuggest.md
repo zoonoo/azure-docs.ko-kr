@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095920"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367576"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 
@@ -358,4 +358,4 @@ Bing 로고를 표시합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용 및 표시 요구 사항](../UseAndDisplayRequirements.md)
+> [사용 및 표시 요구 사항](../../bing-web-search/use-display-requirements.md)

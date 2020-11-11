@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: bf1dcb34b762c3dcae39316d804b617edbf2302d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 263509ce7d348e51bf4a2a1d7ad83fb5dfdb5e29
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360737"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489440"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 
@@ -254,7 +254,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Notebook 예제
 
-[데이터 집합 노트북](https://aka.ms/dataset-tutorial) 은이 문서의 개념을 시연 하 고 확장 합니다.
++ [데이터 집합 노트북](https://aka.ms/dataset-tutorial) 은이 문서의 개념을 시연 하 고 확장 합니다.
++ [ML 파이프라인에서 데이터 집합을 parametize](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)하는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447660"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489287"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
 
@@ -43,7 +43,7 @@ ms.locfileid: "94447660"
 
 * 무료 또는 표준 IoT hub
 * 두 개 이상의 **IoT Edge 장치** , 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
-* Azure CLI를 사용 하 여 장치를 만들고 관리 하는 경우 Azure IoT extension v 0.9.10 이상이 설치 된 Azure CLI v 2.3.1을 보유 해야 합니다.
+* Azure CLI를 사용 하 여 장치를 만들고 관리 하는 경우 Azure IoT extension v 0.10.6 이상이 설치 된 Azure CLI v 2.3.1을 보유 해야 합니다.
 
 이 문서에서는 시나리오에 적합 한 게이트웨이 계층 구조를 만드는 데 도움이 되는 자세한 단계와 옵션을 제공 합니다. 단계별 자습서는 [게이트웨이를 사용 하 여 IoT Edge 장치 계층 구조 만들기](tutorial-nested-iot-edge.md)를 참조 하세요.
 

@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777261"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363921"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>자습서: .NET 웹앱에 Personalizer 추가
 
@@ -24,13 +24,13 @@ Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작
 > * Personalizer 키 및 엔드포인트 설정
 > * 기능 수집
 > * 순위 및 보상 API 호출
-> * _rewardActionId_로 지정된 상위 작업 표시
+> * _rewardActionId_ 로 지정된 상위 작업 표시
 
 
 
 ## <a name="select-the-best-content-for-a-web-app"></a>웹앱에 가장 적합한 콘텐츠 선택
 
-표시할 단일 상위 항목(rewardActionId)에 개인 맞춤해야 하는 _작업_(일부 콘텐츠 형식) 목록이 웹 페이지에 있는 경우 웹앱에서 Personalizer를 사용해야 합니다. 작업 목록의 예로 뉴스 기사, 단추 배치 위치 및 제품 이름에 대한 단어 선택이 있습니다.
+표시할 단일 상위 항목(rewardActionId)에 개인 맞춤해야 하는 _작업_ (일부 콘텐츠 형식) 목록이 웹 페이지에 있는 경우 웹앱에서 Personalizer를 사용해야 합니다. 작업 목록의 예로 뉴스 기사, 단추 배치 위치 및 제품 이름에 대한 단어 선택이 있습니다.
 
 컨텍스트 기능과 함께 작업 목록을 Personalizer 반복에 보냅니다. Personalizer는 최상의 단일 작업을 선택한 다음, 해당 작업을 웹앱에 표시합니다.
 
@@ -44,9 +44,9 @@ Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작
 * 커피
 * 스프
 
-Personalizer에서 작업을 이해할 수 있도록 지원하기 위해 각 순위 API 요청을 사용하여 _기능이 포함된 작업_ 및 _콘텍스트 기능_을 모두 보냅니다.
+Personalizer에서 작업을 이해할 수 있도록 지원하기 위해 각 순위 API 요청을 사용하여 _기능이 포함된 작업_ 및 _콘텍스트 기능_ 을 모두 보냅니다.
 
-모델의 **기능**은 웹앱 사용자 기반의 멤버 간에 집계(그룹화)할 수 있는 작업 또는 컨텍스트에 대한 정보입니다. 기능은 개별적으로 구체적(예: 사용자 ID)이거나 매우 구체적(예: 정확한 하루 중 시간)이지 _않습니다_.
+모델의 **기능** 은 웹앱 사용자 기반의 멤버 간에 집계(그룹화)할 수 있는 작업 또는 컨텍스트에 대한 정보입니다. 기능은 개별적으로 구체적(예: 사용자 ID)이거나 매우 구체적(예: 정확한 하루 중 시간)이지 _않습니다_.
 
 ### <a name="actions-with-features"></a>기능이 포함된 작업
 
@@ -157,8 +157,8 @@ private string GetUsersTastePreference()
 웹앱은 Personalizer를 사용하여 음식 선택 목록에서 최상의 작업을 선택합니다. 이를 위해 각 순위 API 호출과 함께 다음 정보를 보냅니다.
 * 기능(예: `taste` 및 `spiceLevel`)이 포함된 **작업**
 * **컨텍스트** 기능(예: 하루 중 `time`, 사용자의 `taste` 선호도, 브라우저의 사용자 에이전트 정보 및 컨텍스트 기능)
-* **제외하는 작업**(예: 주스)
-* **eventId**(순위 API에 대한 호출마다 다름)
+* **제외하는 작업** (예: 주스)
+* **eventId** (순위 API에 대한 호출마다 다름)
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>웹앱의 Personalizer 모델 기능
 
@@ -216,7 +216,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - 백 엔드 서버 샘플에서 .NET Core를 사용합니다.
 * [Node.js](https://nodejs.org/) - 클라이언트/프런트 엔드에서 이 애플리케이션을 사용합니다.
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 또는 [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - Visual Studio 2019의 개발자 환경 또는 .NET Core CLI를 사용하여 앱을 만들고 실행합니다.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 또는 [.NET Core CLI](/dotnet/core/tools/) - Visual Studio 2019의 개발자 환경 또는 .NET Core CLI를 사용하여 앱을 만들고 실행합니다.
 
 ### <a name="set-up-the-sample"></a>샘플 설정
 1. Azure Personalizer 샘플 리포지토리를 복제합니다.
@@ -225,7 +225,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-1. _samples/HttpRequestFeatures_로 이동하여 `HttpRequestFeaturesExample.sln` 솔루션을 엽니다.
+1. _samples/HttpRequestFeatures_ 로 이동하여 `HttpRequestFeaturesExample.sln` 솔루션을 엽니다.
 
     요청되는 경우 Visual Studio에서 Personalizer용 .NET 패키지를 업데이트하도록 허용합니다.
 
@@ -234,8 +234,8 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 1. Azure Portal에서 [Personalizer 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 
 1. Azure Portal의 **키 및 엔드포인트** 탭에서 `Endpoint` 및 `Key1` 또는 `Key2`(둘 중 하나가 작동함)를 찾습니다. 이러한 항목은 `PersonalizerServiceEndpoint` 및 `PersonalizerApiKey`입니다.
-1. **appsettings.json**에서 `PersonalizerServiceEndpoint`를 입력합니다.
-1. 다음 방법 중 하나를 사용하여 `PersonalizerApiKey`를 [앱 비밀](https://docs.microsoft.com/aspnet/core/security/app-secrets)로 구성합니다.
+1. **appsettings.json** 에서 `PersonalizerServiceEndpoint`를 입력합니다.
+1. 다음 방법 중 하나를 사용하여 `PersonalizerApiKey`를 [앱 비밀](/aspnet/core/security/app-secrets)로 구성합니다.
 
     * .NET Core CLI를 사용하는 경우 `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` 명령을 사용할 수 있습니다.
     * Visual Studio를 사용하는 경우 마우스 오른쪽 단추로 프로젝트를 클릭하고, **사용자 비밀 관리** 메뉴 옵션을 선택하여 Personalizer 키를 구성할 수 있습니다. 이렇게 하면 Visual Studio에서 다음과 같이 키를 추가할 수 있는 `secrets.json` 파일이 열립니다.
@@ -264,7 +264,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 
     사용자 고유의 향후 애플리케이션의 경우 작업과 기능은 클라이언트, 서버, 이 둘의 혼합 또는 다른 서비스에 대한 호출에서 생성될 수 있습니다.
 
-1. **순위 요청 보내기**를 선택하여 JSON 개체를 서버에 보냅니다. 서버에서 Personalizer 순위 API를 호출합니다. 서버에서 응답을 받고, 높은 순위의 작업을 표시할 수 있도록 클라이언트에 보냅니다.
+1. **순위 요청 보내기** 를 선택하여 JSON 개체를 서버에 보냅니다. 서버에서 Personalizer 순위 API를 호출합니다. 서버에서 응답을 받고, 높은 순위의 작업을 표시할 수 있도록 클라이언트에 보냅니다.
 
 1. 보상 값을 설정한 다음, **보상 요청 보내기** 단추를 선택합니다. 보상 값을 변경하지 않으면 클라이언트 애플리케이션에서 항상 `1` 값을 Personalizer에 보냅니다.
 
@@ -277,13 +277,13 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 
 웹앱 샘플에는 기능 컬렉션을 관리하고 Personalizer 엔드포인트에 대한 HTTP 호출을 보내고 받는 **C# .NET** 서버가 있습니다.
 
-웹앱 샘플은 **녹아웃 프런트 엔드 클라이언트 애플리케이션**을 사용하여 기능을 캡처하고, 단추를 클릭하여 데이터를 .NET 서버에 보내는 것과 같은 사용자 인터페이스 작업을 처리합니다.
+웹앱 샘플은 **녹아웃 프런트 엔드 클라이언트 애플리케이션** 을 사용하여 기능을 캡처하고, 단추를 클릭하여 데이터를 .NET 서버에 보내는 것과 같은 사용자 인터페이스 작업을 처리합니다.
 
 다음 섹션에서는 개발자가 Personalizer를 사용하기 위해 이해해야 하는 서버와 클라이언트 부분에 대해 설명합니다.
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>순위 API: 클라이언트 애플리케이션에서 서버에 컨텍스트 보내기
 
-클라이언트 애플리케이션에서 사용자의 브라우저 _사용자 에이전트_를 수집합니다.
+클라이언트 애플리케이션에서 사용자의 브라우저 _사용자 에이전트_ 를 수집합니다.
 
 > [!div class="mx-imgBorder"]
 > ![HTTPRequestFeaturesExample 프로젝트를 빌드하고 실행합니다. 브라우저 창이 열려 단일 페이지 애플리케이션을 표시합니다.](./media/tutorial-web-app/user-agent.png)
@@ -294,7 +294,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko)
 
 ### <a name="create-personalizer-client"></a>Personalizer 클라이언트 만들기
 
-서버의 **Startup.cs**에서 Personalizer 엔드포인트 및 키를 사용하여 Personalizer 클라이언트를 만듭니다. 클라이언트 애플리케이션은 이 앱에서 Personalizer와 통신할 필요가 없으며, 서버를 대신 사용하여 SDK 호출을 수행합니다.
+서버의 **Startup.cs** 에서 Personalizer 엔드포인트 및 키를 사용하여 Personalizer 클라이언트를 만듭니다. 클라이언트 애플리케이션은 이 앱에서 Personalizer와 통신할 필요가 없으며, 서버를 대신 사용하여 SDK 호출을 수행합니다.
 
 웹 서버의 .NET 시작 코드는 다음과 같습니다.
 
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>최상의 작업 선택
 
-서버의 **PersonalizerController.cs**에서 **GenerateRank** 서버 API는 다음과 같이 순위 API를 호출하기 위한 준비를 요약합니다.
+서버의 **PersonalizerController.cs** 에서 **GenerateRank** 서버 API는 다음과 같이 순위 API를 호출하기 위한 준비를 요약합니다.
 
 * 순위 호출에 대한 새 `eventId` 만들기
 * 작업 목록 가져오기
@@ -515,9 +515,9 @@ public RankRequest GenerateRank()
 
 ### <a name="return-personalizer-rewardactionid-to-client"></a>Personalizer rewardActionId를 클라이언트에 반환
 
-순위 API는 선택한 최상의 작업인 **rewardActionId**를 서버에 반환합니다.
+순위 API는 선택한 최상의 작업인 **rewardActionId** 를 서버에 반환합니다.
 
-**rewardActionId**에서 반환된 작업이 표시됩니다.
+**rewardActionId** 에서 반환된 작업이 표시됩니다.
 
 ```json
 {
@@ -566,7 +566,7 @@ public RankRequest GenerateRank()
 
 [보상 점수](concept-rewards.md)는 기능 계획과 마찬가지로 신중하게 계획해야 합니다. 보상 점수는 일반적으로 0에서 1까지의 값이어야 합니다. 이 값은 클라이언트 애플리케이션에서 사용자 동작에 따라 부분적으로, 그리고 서버에서 비즈니스 논리와 목표에 따라 부분적으로 _계산할 수 있습니다_.
 
-Azure Portal에서 Personalizer 리소스에 대해 구성된 **보상 대기 시간** 내에 서버에서 Reward API를 호출하지 않는 경우 **기본 보상**(Azure Portal에도 구성됨)이 해당 이벤트에 사용됩니다.
+Azure Portal에서 Personalizer 리소스에 대해 구성된 **보상 대기 시간** 내에 서버에서 Reward API를 호출하지 않는 경우 **기본 보상** (Azure Portal에도 구성됨)이 해당 이벤트에 사용됩니다.
 
 이 애플리케이션 샘플에서 값을 선택하여 보상이 선택에 미치는 영향을 확인할 수 있습니다.
 

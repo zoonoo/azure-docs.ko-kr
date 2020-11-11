@@ -1,15 +1,15 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357296"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487792"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -194,6 +194,12 @@ Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도
 
 예. NSX-T 관리자를 사용하여 VM의 인터넷 액세스를 제한하는 방화벽을 만들어야 합니다.
 
+
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>Azure VMware 솔루션은 Azure 가상 WAN 호스트 된 Express 경로 게이트웨이를 사용할 수 있나요?
+예.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Express 경로 Global Reach를 통해 Azure 가상 WAN을 통해 온-프레미스와 Azure VMware 솔루션 간에 전송 연결을 설정할 수 있나요?
+Azure 가상 WAN은 연결 된 두 Express 경로 회로와 비가상 WAN Express 경로 게이트웨이 간의 전이적 라우팅을 제공 하지 않습니다. Express 경로 Global Reach를 사용 하 여 온-프레미스와 Azure VMware 솔루션 간의 연결을 허용 하지만 가상 WAN 허브 대신 Microsoft의 글로벌 네트워크를 통해 이동 합니다.
 
 
 ## <a name="accounts-and-privileges"></a>계정 및 권한

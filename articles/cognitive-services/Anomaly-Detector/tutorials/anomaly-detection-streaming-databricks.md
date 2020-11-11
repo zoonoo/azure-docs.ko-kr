@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017661"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368715"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -47,7 +47,7 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [Azure Event Hubs 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) 및 이벤트 허브
+- [Azure Event Hubs 네임스페이스](../../../event-hubs/event-hubs-create.md) 및 이벤트 허브
 
 - Event Hubs 네임스페이스에 액세스하기 위한 [연결 문자열](../../../event-hubs/event-hubs-get-connection-string.md). 연결 문자열은 다음과 비슷한 형식이어야 합니다.
 
@@ -61,7 +61,7 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
 
 이 섹션에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks** 를 차례로 선택합니다.
 
     ![포털의 Azure Databricks](../media/tutorials/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
@@ -74,17 +74,17 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/management/overview.md)를 참조하세요. |
     |**위치**     | **미국 동부 2** 또는 사용 가능한 다른 지역 중 하나를 선택합니다. 지역 가용성은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
-    |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. **평가판**은 선택하지 마세요. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
+    |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. **평가판** 은 선택하지 마세요. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
-    **만들기**를 선택합니다.
+    **만들기** 를 선택합니다.
 
 4. 작업 영역 생성에는 몇 분 정도가 소요됩니다.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
-1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음, **작업 영역 시작**을 선택합니다.
+1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음, **작업 영역 시작** 을 선택합니다.
 
-2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **새 클러스터**를 선택합니다.
+2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **새 클러스터** 를 선택합니다.
 
     ![Azure의 Databricks](../media/tutorials/databricks-on-azure.png "Azure의 Databricks")
 
@@ -98,22 +98,22 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
    * 이 문서에서는 **5.2** 런타임을 사용하여 클러스터를 만듭니다. **5.3** 런타임은 선택하지 마세요.
    * **비활성 \_\_분 후 종료** 확인란이 선택되어 있는지 확인합니다. 클러스터가 사용되지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-     **클러스터 만들기**를 선택합니다.
+     **클러스터 만들기** 를 선택합니다.
 4. 클러스터를 만드는 데 몇 분 정도 걸립니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
 트윗 스트림을 받으려면 Twitter에 애플리케이션을 만들어야 합니다. 다음 단계에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기** 를 선택합니다.
 
     ![Twitter 애플리케이션 만들기](../media/tutorials/databricks-create-twitter-app.png "Twitter 애플리케이션 만들기")
 
-2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
+2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기** 를 선택합니다.
 
     ![Twitter 애플리케이션 세부 정보](../media/tutorials/databricks-provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
-3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
+3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀** 에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기** 를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀** 에 대한 값을 복사합니다.
 
     ![Twitter 애플리케이션 세부 정보 2](../media/tutorials/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
 
@@ -123,25 +123,25 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 이 자습서에서는 Twitter API를 사용하여 트윗을 Event Hubs에 보냅니다. 또한 [Apache Spark Event Hubs 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs에 데이터를 읽고 씁니다. 이러한 API를 클러스터의 일부로 사용하려면 Azure Databricks에 라이브러리로 추가한 다음, 이를 Spark 클러스터와 연결합니다. 다음 지침에서는 라이브러리를 작업 영역의 **공유** 폴더에 추가하는 방법을 보여 줍니다.
 
-1. Azure Databricks 작업 영역에서 **작업 영역**을 선택한 다음, **공유**를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **만들기** > **라이브러리**를 차례로 선택합니다.
+1. Azure Databricks 작업 영역에서 **작업 영역** 을 선택한 다음, **공유** 를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **만들기** > **라이브러리** 를 차례로 선택합니다.
 
    ![라이브러리 추가 대화 상자](../media/tutorials/databricks-add-library-option.png "라이브러리 추가 대화 상자")
 
-2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven**을 선택합니다. **좌표**에 대해 추가하려는 패키지에 대한 좌표를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
+2. [새 라이브러리] 페이지에서 **원본** 에 대해 **Maven** 을 선택합니다. **좌표** 에 대해 추가하려는 패키지에 대한 좌표를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
      ![Maven 좌표 제공](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Maven 좌표 제공")
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
 4. 라이브러리를 추가한 폴더를 선택한 다음, 라이브러리 이름을 선택합니다.
 
     ![추가할 라이브러리 선택](../media/tutorials/select-library.png "추가할 라이브러리 선택")
 
-5. 라이브러리 페이지에 클러스터가 없으면 **클러스터**를 선택하고 만든 클러스터를 실행합니다. 상태가 '실행 중'으로 표시될 때까지 기다린 다음, 라이브러리 페이지로 돌아갑니다.
-라이브러리 페이지에서 해당 라이브러리를 사용할 클러스터를 선택한 다음, **설치**를 선택합니다. 라이브러리가 클러스터와 성공적으로 연결되는 즉시 상태가 **설치됨**으로 변경됩니다.
+5. 라이브러리 페이지에 클러스터가 없으면 **클러스터** 를 선택하고 만든 클러스터를 실행합니다. 상태가 '실행 중'으로 표시될 때까지 기다린 다음, 라이브러리 페이지로 돌아갑니다.
+라이브러리 페이지에서 해당 라이브러리를 사용할 클러스터를 선택한 다음, **설치** 를 선택합니다. 라이브러리가 클러스터와 성공적으로 연결되는 즉시 상태가 **설치됨** 으로 변경됩니다.
 
     ![클러스터에 라이브러리 설치](../media/tutorials/databricks-library-attached.png "클러스터에 라이브러리 설치")
 
@@ -153,9 +153,9 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **+ 리소스 만들기**를 선택합니다.
+2. **+ 리소스 만들기** 를 선택합니다.
 
-3. Azure Marketplace 아래에서 **AI + 기계 학습** > **모두 보기** > **Cognitive Services - 자세히** > **Anomaly Detector**를 차례로 선택합니다. 또는 [이 링크](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)를 사용하여 **만들기** 대화 상자로 직접 이동할 수 있습니다.
+3. Azure Marketplace 아래에서 **AI + 기계 학습** > **모두 보기** > **Cognitive Services - 자세히** > **Anomaly Detector** 를 차례로 선택합니다. 또는 [이 링크](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)를 사용하여 **만들기** 대화 상자로 직접 이동할 수 있습니다.
 
     ![Anomaly Detector 리소스 만들기](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Anomaly Detector 리소스 만들기")
 
@@ -170,9 +170,9 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
     |Resource group     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 선택할지 여부를 지정합니다.        |
 
 
-     **만들기**를 선택합니다.
+     **만들기** 를 선택합니다.
 
-5. 리소스가 만들어지면 **개요** 탭에서 스크린샷과 같이 **엔드포인트** URL을 복사하여 저장합니다. 그런 다음, **액세스 키 표시**를 선택합니다.
+5. 리소스가 만들어지면 **개요** 탭에서 스크린샷과 같이 **엔드포인트** URL을 복사하여 저장합니다. 그런 다음, **액세스 키 표시** 를 선택합니다.
 
     ![액세스 키 표시](../media/tutorials/cognitive-services-get-access-keys.png "액세스 키 표시")
 
@@ -187,15 +187,15 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 - **SendTweetsToEventHub** - Twitter에서 트윗을 가져와서 Event Hubs로 스트리밍하는 데 사용하는 생산자 노트북입니다.
 - **AnalyzeTweetsFromEventHub** - Event Hubs에서 트윗을 읽고 변칙 검색을 실행하는 데 사용하는 소비자 Notebook입니다.
 
-1. Azure Databricks 작업 영역의 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기**, **Notebook**을 차례로 선택합니다.
+1. Azure Databricks 작업 영역의 왼쪽 창에서 **작업 영역** 을 선택합니다. **작업 영역** 드롭다운에서 **만들기** , **Notebook** 을 차례로 선택합니다.
 
     ![Databricks에서 Notebook 만들기](../media/tutorials/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
-2. **Notebook 만들기** 대화 상자에서 이름으로 **SendTweetsToEventHub**를 입력하고, 언어로 **Scala**를 선택하고, 이전에 만든 Spark 클러스터를 선택합니다.
+2. **Notebook 만들기** 대화 상자에서 이름으로 **SendTweetsToEventHub** 를 입력하고, 언어로 **Scala** 를 선택하고, 이전에 만든 Spark 클러스터를 선택합니다.
 
     ![Notebook 세부 정보](../media/tutorials/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
 
-    **만들기**를 선택합니다.
+    **만들기** 를 선택합니다.
 
 3. 단계를 반복하여 **AnalyzeTweetsFromEventHub** 노트북을 만듭니다.
 
@@ -298,7 +298,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-노트북을 실행하려면 **Shift+Enter**를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 타임스탬프와 Event Hubs에 수집된 "좋아요"의 횟수를 조합한 것입니다.
+노트북을 실행하려면 **Shift+Enter** 를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 타임스탬프와 Event Hubs에 수집된 "좋아요"의 횟수를 조합한 것입니다.
 
 ```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
@@ -423,7 +423,7 @@ object AnomalyDetector extends Serializable {
 }
 ```
 
-노트북을 실행하려면 **Shift+Enter**를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다.
+노트북을 실행하려면 **Shift+Enter** 를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다.
 
 ```scala
 import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
@@ -497,7 +497,7 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 ```
 
-노트북을 실행하려면 **Shift+Enter**를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다.
+노트북을 실행하려면 **Shift+Enter** 를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다.
 
 ```scala
 import org.apache.spark.sql.Row
@@ -684,7 +684,7 @@ adResult.show()
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-자습서 실행이 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면 Azure Databricks 작업 영역의 왼쪽 창에서 **클러스터**를 선택합니다. 종료하려는 클러스터에서는 커서를 **작업** 열 아래의 줄임표 위로 이동하고, **종료** 아이콘을 선택한 다음, **확인**을 선택합니다.
+자습서 실행이 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면 Azure Databricks 작업 영역의 왼쪽 창에서 **클러스터** 를 선택합니다. 종료하려는 클러스터에서는 커서를 **작업** 열 아래의 줄임표 위로 이동하고, **종료** 아이콘을 선택한 다음, **확인** 을 선택합니다.
 
 ![Databricks 클러스터 중지](../media/tutorials/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 

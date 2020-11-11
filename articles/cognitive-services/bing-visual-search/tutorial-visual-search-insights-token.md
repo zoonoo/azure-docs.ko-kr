@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102182"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366080"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>자습서: 이미지 인사이트 토큰을 사용하여 이전 검색에서 유사한 이미지 찾기
 
@@ -44,7 +44,7 @@ Visual Search 클라이언트 라이브러리를 통해 `ImageInsightsToken`을 
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Bing Image Search 클라이언트 라이브러리에서 ImageInsightsToken 가져오기
 
-이 애플리케이션은 [Bing Image Search 클라이언트 라이브러리](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 가져온 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
+이 애플리케이션은 [Bing Image Search 클라이언트 라이브러리](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)를 통해 가져온 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ if (visualSearchResults.Tags.Count > 0)
     }
 ```
 
-이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
 
 ## <a name="returned-urls"></a>반환된 URL
 

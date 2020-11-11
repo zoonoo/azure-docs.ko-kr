@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346437"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489508"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
 
@@ -209,6 +209,10 @@ POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>관리 Id 제거
+
+Stream Analytics 작업에 대해 생성 된 관리 Id는 작업이 삭제 된 경우에만 삭제 됩니다. 작업을 삭제 하지 않고 관리 되는 Id를 삭제할 수 있는 방법은 없습니다. 관리 Id를 더 이상 사용 하지 않으려는 경우에는 출력에 대 한 인증 방법을 변경할 수 있습니다. 관리 Id는 작업이 삭제 될 때까지 계속 존재 하며 관리 되는 Id 인증을 다시 사용 하기로 결정 한 경우에 사용 됩니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능의 제한 사항은 다음과 같습니다.
