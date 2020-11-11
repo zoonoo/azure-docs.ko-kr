@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507486"
+ms.locfileid: "94517770"
 ---
 # <a name="identity-model"></a>Id 모델
 
@@ -47,7 +47,7 @@ Azure 통신 서비스는 IMS의 기능을 복제 하지 않습니다. 고객이
 
 액세스 토큰의 속성은 *id, 만료* 및 *범위* 입니다. 액세스 토큰은 항상 24 시간 동안 유효 합니다. 이 시간 후에는 액세스 토큰이 무효화 되 고 기본 형식에 액세스 하는 데 사용할 수 없습니다. Id에는 서버 쪽 서비스에서 새 액세스 토큰을 요청 하는 방법이 있어야 합니다. 매개 변수 *범위* 는 사용할 수 있는 비어 있지 않은 기본 형식 집합을 정의 합니다. Azure 통신 서비스는 액세스 토큰에 대해 다음과 같은 범위를 지원 합니다.
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |채팅|  채팅에 참여할 수 있는 기능 부여|
 |VoIP|  Id와 전화 번호를 호출 하는 기능을 부여 합니다.|
@@ -59,3 +59,9 @@ Azure 통신 서비스의 액세스 키를 회전 하면 이전 액세스 키로
 클라이언트의 응용 프로그램이 아닌 서버 쪽 서비스에서 액세스 토큰을 발급 하는 것이 좋습니다. 이에 대 한 이유는를 발급 하는 데 액세스 키 또는 관리 id가 필요 하다는 것입니다. 클라이언트의 응용 프로그램에 액세스 키를 공유 하는 것은 보안상의 이유로 권장 되지 않습니다. 클라이언트 응용 프로그램은 클라이언트를 인증할 수 있는 신뢰할 수 있는 서비스 끝점을 사용 하 고 사용자 대신 액세스 토큰을 발급 해야 합니다. 아키텍처에 대 한 자세한 내용은 [여기](./client-and-server-architecture.md)를 참조 하세요.
 
 백업 저장소에 액세스 토큰을 캐시 하는 경우 암호화를 사용 하는 것이 좋습니다. 액세스 토큰은 중요 한 데이터 이며 보호 되지 않는 경우 악의적인 활동에 사용할 수 있습니다. 액세스 토큰이 있으면 SDK를 초기화 하 고 API에 대 한 액세스 권한을 얻을 수 있습니다. 액세스 가능 API는 액세스 토큰에 포함 된 범위에 따라 제한 됩니다. 필요한 범위 에서만 액세스 토큰을 발급 하는 것이 좋습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* 액세스 토큰 관리에 대 한 소개는 [액세스 토큰 만들기 및 관리](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens) 를 참조 하세요.
+* 인증에 대 한 소개는 [Azure 통신 서비스에 인증](https://docs.microsoft.com/azure/communication-services/concepts/authentication) 을 참조 하세요.
+* 데이터 상주 및 개인 정보에 대 한 소개는 [지역 가용성 및 데이터 상주](https://docs.microsoft.com/azure/communication-services/concepts/privacy) 를 참조 하세요.

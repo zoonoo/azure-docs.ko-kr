@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539954"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517447"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **웹 애플리케이션** | <ul><li>[승인 된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 안 함](#stream-ciphers)</li><li>[승인 된 MAC/HMAC/키 지정 해시 알고리즘 사용](#mac-hash)</li><li>[승인 된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
-| **Database** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
+| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
 | **IoT 디바이스** | <ul><li>[IoT 장치에 안전 하 게 암호화 키 저장](#keys-iot)</li></ul> | 
 | **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 대 한 인증에 충분 한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
 | **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요 하 고 원격 지우기를 허용 하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
@@ -119,7 +119,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [암호화 알고리즘 선택](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **참조**              | [암호화 알고리즘 선택](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **단계** | 암호화 알고리즘은 권한이 없는 사용자가 쉽게 바꿀 수 없는 데이터 변환을 정의합니다. SQL Server를 사용하면 관리자와 개발자가 DES, 3중 DES, TRIPLE_DES_3KEY, RC2, RC4, 128비트 RC4, DESX, 128비트 AES, 192비트 AES 및 256비트 AES를 포함한 여러 알고리즘 중에서 선택할 수 있습니다. |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>암호화되고 디지털 서명되어야 하는 SSIS 패키지
@@ -130,7 +130,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [디지털 서명을 사용하여 패키지 원본 확인](https://msdn.microsoft.com/library/ms141174.aspx), [위협 요소 및 취약성 완화(Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **참조**              | [디지털 서명을 사용하여 패키지 원본 확인](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [위협 요소 및 취약성 완화(Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **단계** | 패키지 원본은 해당 패키지를 만든 개인이나 조직입니다. 알 수 없거나 신뢰할 수 없는 원본의 패키지를 실행하는 것은 위험할 수 있습니다. SSIS 패키지의 무단 변조를 방지하려면 디지털 서명을 사용해야 합니다. 또한 스토리지/전송 중에 패키지의 기밀성을 보장하려면 SSIS 패키지를 암호화해야 합니다. |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>중요한 데이터베이스 보안 개체에 디지털 서명 추가
@@ -141,7 +141,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [ADD SIGNATURE(Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **참조**              | [ADD SIGNATURE(Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **단계** | 중요한 데이터베이스 보안 개체의 무결성을 확인해야 하는 경우 디지털 서명을 사용해야 합니다. 저장 프로시저, 함수, 어셈블리 또는 트리거와 같은 데이터베이스 보안 개체는 디지털로 서명할 수 있습니다. 이러한 디지털 서명이 유용할 수 있는 경우의 예로, ISV(Independent Software Vendor)에서 고객 중 한 사람에게 전달되는 소프트웨어에 대한 지원을 제공한다고 가정해 보겠습니다. ISV는 지원을 제공하기 전에 소프트웨어의 데이터베이스 보안 개체가 실수로 또는 악의적으로 변조되지 않았는지 확인하려고 합니다. 보안 개체가 디지털 서명된 경우 ISV는 해당 디지털 서명을 확인하고 무결성의 유효성을 검사할 수 있습니다.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>SQL 서버 EKM을 사용하여 암호화 키 보호
@@ -152,7 +152,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [SQL Server EKM(확장 가능 키 관리)](https://msdn.microsoft.com/library/bb895340), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://msdn.microsoft.com/library/dn198405) |
+| **참조**              | [SQL Server EKM(확장 가능 키 관리)](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **단계** | SQL Server EKM(확장 가능 키 관리)을 사용하면 데이터베이스 파일을 보호하는 암호화 키를 스마트 카드, USB 디바이스 또는 EKM/HSM 모듈과 같은 외부 디바이스에 저장할 수 있습니다. 데이터베이스 관리자(sysadmin 그룹의 멤버 제외)로부터 데이터를 보호할 수도 있습니다. 즉, 외부 EKM/HSM 모듈에서 데이터베이스 사용자만 액세스할 수 있는 암호화 키를 사용하여 데이터를 암호화할 수 있습니다. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용
@@ -163,7 +163,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | SQL 버전 - V12, MsSQL2016 |
-| **참조**              | [Always Encrypted(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865) |
+| **참조**              | [Always Encrypted(데이터베이스 엔진)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **단계** | 상시 암호화는 Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호하기 위해 고안된 기능입니다. 상시 암호화를 사용하면 클라이언트에서 클라이언트 애플리케이션 내의 중요한 데이터를 암호화하고 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키를 공개하지 않을 수 있습니다. 따라서 상시 암호화는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스 권한이 없는 사용자를 구별합니다. |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>IoT 디바이스에 안전하게 암호화 키 저장
@@ -174,10 +174,10 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
-| **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
+| **참조**              | [Windows IoT Core의 TPM](/windows/iot-core/secure-your-device/TPM)(영문), [Windows IoT Core에서 TPM 설정](/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
 | **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```
 TpmDevice myDevice = new TpmDevice(0);
 // Use logical device 0 on the TPM 

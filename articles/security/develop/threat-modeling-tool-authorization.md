@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300003"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517566"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[적절 한 Acl이 장치의 데이터에 대 한 무단 액세스를 제한 하도록 구성 되어 있는지 확인 합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포 된 응용 프로그램이 최소 권한으로 실행 되는지 확인](#deployed-privileges)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
+| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
 | **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |
@@ -120,7 +120,7 @@ ms.locfileid: "89300003"
 | **참조**              | 해당 없음  |
 | **단계** | 사용자가 특정 데이터를 검토하도록 제한되는지 확인할 때마다 액세스 제한이 서버 쪽에서 처리되어야 합니다. userID는 로그인에 대한 세션 변수 안에 저장해야 하며, 데이터베이스에서 사용자 데이터를 검색하는 데 사용해야 합니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```SQL
 SELECT data 
 FROM personaldata 
@@ -147,7 +147,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Sql 사용 권한 계층](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **참조**              | [Sql 사용 권한 계층](/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](/sql/relational-databases/security/securables) |
 | **단계** | 최소 권한이 부여된 계정을 사용하여 데이터베이스에 연결해야 합니다. 애플리케이션 로그인은 데이터베이스에서 제한되어야 하며 선택된 저장 프로시저만 실행해야 합니다. 애플리케이션애플리케이션의 로그인에는 직접적인 테이블 액세스가 없어야 합니다. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>테넌트에서 다른 테넌트의 데이터에 액세스하지 못하도록 방지하는 RLS(행 수준 보안) 구현
@@ -158,7 +158,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | SQL 버전 - V12, SQL 버전 - MsSQL2016 |
-| **참조**              | [SQL Server RLS(행 수준 보안)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **참조**              | [SQL Server RLS(행 수준 보안)](/sql/relational-databases/security/row-level-security) |
 | **단계** | <p>행 수준 보안을 통해 고객은 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다.</p><p>행 수준 보안(RLS)은 애플리케이션의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 자신의 부서와 관련된 데이터 행에만 액세스하거나 고객의 데이터 액세스를 회사와 관련된 데이터만으로 제한할 수 있습니다.</p><p>액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스 시스템은 모든 계층에서 데이터 액세스를 시도할 때마다 액세스를 제한합니다. 이렇게 하면 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다.</p><p>|
 
 기본적으로 사용할 수 있는 데이터베이스 기능으로는 SQL Server 2016, Azure SQL Database 및 SQL Managed Instance를 시작 하는 데에만 적용 됩니다. 기본적인 RLS 기능이 구현되지 않는 경우 뷰와 프로시저를 사용하여 데이터 액세스를 제한해야 합니다.
@@ -171,7 +171,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Sql 사용 권한 계층](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **참조**              | [Sql 사용 권한 계층](/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](/sql/relational-databases/security/securables) |
 | **단계** | SysAdmin 고정 서버 역할의 멤버는 매우 제한적이어야 하며 애플리케이션에서 사용하는 계정을 포함해서는 안됩니다.  역할에 포함된 사용자 목록을 검토하고 불필요한 계정을 제거합니다.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결
@@ -182,7 +182,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | [Iot Hub Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **참조**              | [Iot Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
 | **단계** | 클라우드 게이트웨이(IoT Hub)에 연결하는 다양한 구성 요소에 대한 최소 권한을 제공합니다. 일반적인 예로 디바이스 관리/프로비전 구성 요소는 레지스트리 읽기/쓰기를 사용하고, 이벤트 프로세서(ASA)는 서비스 연결을 사용합니다. 개별 디바이스는 디바이스 자격 증명을 사용하여 연결합니다.|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성
@@ -193,7 +193,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | SAS 키는 개별 디바이스 토큰을 생성하는 데 사용됩니다. 지정된 게시자의 디바이스 토큰을 생성하는 동안 송신 전용 권한 SAS 키를 사용합니다.|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>이벤트 허브에 직접 액세스할 수 있는 액세스 토큰 사용 금지
@@ -204,7 +204,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에 대 한 액세스 권한만 부여 하는 장치에 대 한 최소 권한 있는 토큰을 사용 하면 rogue 또는 손상 된 장치로 검색 된 경우 해당 토큰을 식별 하 고 허용 하지 않을 수 있습니다.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결
@@ -215,7 +215,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | 이벤트 허브에 연결하는 다양한 백 엔드 애플리케이션에 최소 권한을 제공합니다. 백 엔드 애플리케이션마다 별도의 SAS 키를 생성하고 필요한 권한(송신, 수신 또는 관리)만 제공합니다.|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>가능한 경우 리소스 토큰을 사용하여 Cosmos DB에 연결
@@ -237,7 +237,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
+| **참조**              | [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)  |
 | **단계** | Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한
@@ -248,7 +248,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure |
-| **참조**              | [서비스 패브릭 클라이언트용 역할 기반 액세스 제어](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
+| **참조**              | [서비스 패브릭 클라이언트용 역할 기반 액세스 제어](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **단계** | <p>Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클라이언트 즉, 관리자 및 사용자에 대한 액세스 제어 형식을 지원합니다. 액세스 제어를 사용하면 클러스터 관리자가 사용자 그룹마다 특정 클러스터 작업에 대한 액세스를 제한하여 클러스터의 보안을 강화할 수 있습니다.</p><p>관리자는 관리 기능(읽기/쓰기 기능만 포함)에 대한 모든 권한을 가집니다. 사용자는 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 애플리케이션과 서비스를 확인하는 기능만 갖습니다.</p><p>클러스터 생성 시 각각에 대해 개별 인증서를 제공하여 두 개의 클라이언트 역할(관리자 및 클라이언트)을 지정합니다.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용
@@ -281,7 +281,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 테이블 |
-| **참조**              | [SAS를 사용하여 Azure Storage 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **참조**              | [SAS를 사용하여 Azure Storage 계정의 개체에 대한 액세스 권한을 위임하는 방법](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 다양 한 국가/지역과 관련 된 중요 한 데이터입니다. 이러한 경우, 사용자가 특정 국가/지역과 관련 된 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정 하 여 SAS 서명을 생성할 수 있습니다.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
@@ -292,7 +292,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지하는 방법](../../storage/blobs/security-recommendations.md) |
 | **단계** | <p>새 스토리지 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 스토리지 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 스토리지 계정을 추가하고 해당 특정 스토리지 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 스토리지 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 스토리지 계정에 대한 정보는 볼 수 있지만 스토리지 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>암시적 무단 해제 또는 루팅 검색 구현
@@ -314,10 +314,10 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **단계** | <p>공격자가 시스템에서 약한 클래스 참조를 사용하여 권한이 없는 코드를 실행할 수 있습니다. 프로그램은 고유하게 식별되지 않은 사용자 정의 클래스를 참조합니다. .NET에서 이처럼 약하게 식별된 클래스를 로드하면 CLR 형식 로더는 지정된 순서대로 다음 위치에 있는 클래스를 검색합니다.</p><ol><li>형식의 어셈블리를 알고 있는 경우 로더는 구성 파일의 리디렉션 위치, GAC, 구성 정보를 사용 중인 현재 어셈블리 및 애플리케이션 기본 디렉터리를 검색합니다.</li><li>어셈블리를 알고 있지 않은 경우 로더는 현재 어셈블리, mscorlib 및 TypeResolve 이벤트 처리기에서 반환한 위치를 검색합니다.</li><li>이 CLR 검색 순서는 형식 전달 메커니즘 및 AppDomain.TypeResolve 이벤트와 같은 후크를 사용하여 수정할 수 있습니다.</li></ol><p>공격자가 CLR 검색 순서를 악용하여 동일한 이름의 대체 클래스를 만들어 CLR에서 먼저 로드할 대체 위치에 배치하는 경우 CLR에서 의도한 것은 아니지만 공격자가 제공한 코드를 실행하게 됩니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<behaviorExtensions/>` 요소는 특정 WCF 확장에 사용자 지정 동작 클래스를 추가하도록 WCF에 지시합니다.
 ```
 <system.serviceModel>
@@ -330,7 +330,7 @@ WHERE userID=:id < - session var
 ```
 정규화된(강력한) 이름을 사용하면 형식을 고유하게 식별하고 시스템 보안을 더욱 강화할 수 있습니다. machine.config 및 app.config 파일에 형식을 등록할 때 정규화된 어셈블리 이름을 사용합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래 WCF 구성 파일의 `<behaviorExtensions/>` 요소는 특정 WCF 확장에 강력하게 참조되는 사용자 지정 동작 클래스를 추가하도록 WCF에 지시합니다.
 ```
 <system.serviceModel>
@@ -351,10 +351,10 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **단계** | <p>이 서비스는 권한 부여 제어를 사용하지 않습니다. 클라이언트에서 특정 WCF 서비스를 호출하면 WCF는 호출자에게 서버에서 서비스 메서드를 실행할 수 있는 권한이 있는지 확인하는 다양한 권한 부여 체계를 제공합니다. WCF 서비스에 대해 권한 부여 제어를 사용할 수 없으면 인증된 사용자가 권한 에스컬레이션을 수행할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성에서는 서비스를 실행할 때 클라이언트의 권한 수준을 확인하지 않도록 WCF에 지시합니다.
 ```
 <behaviors>
@@ -368,7 +368,7 @@ WHERE userID=:id < - session var
 ```
 서비스 권한 부여 체계를 사용하여 서비스 메서드의 호출자가 이렇게 수행할 수 있는 권한을 부여받았는지 확인합니다. WCF는 두 가지 모드를 제공하며 사용자 지정 권한 부여 체계를 정의할 수 있습니다. UseWindowsGroups 모드에서는 Windows 역할 및 사용자를 사용하며, UseAspNetRoles 모드에서는 SQL Server와 같은 ASP.NET 역할 공급자를 사용하여 인증합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 구성에서는 추가 서비스를 실행하기 전에 클라이언트가 관리자 그룹에 속하는지 확인하도록 WCF에 지시합니다.
 ```
 <behaviors>
@@ -402,7 +402,7 @@ return result;
 | **참조**              | [ASP.NET Web API의 인증 및 권한 부여](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)(영문) |
 | **단계** | <p>애플리케이션 사용자의 역할 정보는 애플리케이션을 ID 공급자로 사용하거나 애플리케이션 자체에서 제공하는 경우 Azure AD 또는 ADFS 클레임에서 파생될 수 있습니다. 이러한 경우에는 사용자 지정 권한 부여 구현에서 사용자 역할 정보의 유효성을 검사해야 합니다.</p><p>애플리케이션 사용자의 역할 정보는 애플리케이션을 ID 공급자로 사용하거나 애플리케이션 자체에서 제공하는 경우 Azure AD 또는 ADFS 클레임에서 파생될 수 있습니다. 이러한 경우에는 사용자 지정 권한 부여 구현에서 사용자 역할 정보의 유효성을 검사해야 합니다.</p>
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute

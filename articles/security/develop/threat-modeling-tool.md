@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
-ms.openlocfilehash: dcf782a41dbb09135f7a4cd767a94ff90578b6ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a637dc431b0f9cd8c40cfa1c048559a56a6b97f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87169364"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518059"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
@@ -49,7 +49,7 @@ ms.locfileid: "87169364"
 
 위협 모델링에 여전히 관련이 있는 몇 가지 이전 문서는 다음과 같습니다.
 
-* [위협 모델링의 중요성에 대한 문서](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
+* [위협 모델링의 중요성에 대한 문서](/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [신뢰할 수 있는 컴퓨팅으로 게시된 학습](https://www.microsoft.com/download/details.aspx?id=16420)
 
 몇 가지 위협 모델링 도구 전문가가 수행한 작업을 확인해 보세요.

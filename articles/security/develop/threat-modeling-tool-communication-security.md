@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004565"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517532"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
@@ -32,7 +32,7 @@ ms.locfileid: "89004565"
 | **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버에 대 한 모든 트래픽이 HTTPS 연결을 초과 하는지 확인 합니다.](#identity-https)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대 한 TLS/SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
-| **Database** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
+| **데이터베이스** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용 하도록 설정할 수 없는 경우 blob을 다운로드 한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용 하 여 Azure 파일 공유에 대 한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
@@ -49,7 +49,7 @@ ms.locfileid: "89004565"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | SSL/TLS를 사용하여 이벤트 허브에 대한 AMQP 또는 HTTP 연결 보안을 유지합니다. |
 
 ## <a name="check-service-account-privileges-and-check-that-the-custom-services-or-aspnet-pages-respect-crms-security"></a><a id="priv-aspnet"></a>서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "89004565"
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 연결 된 서비스 유형-Azure 및 온-프레미스 |
-| **참조**              |[온-프레미스와 Azure Data Factory 간에 데이터 이동](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [데이터 관리 게이트웨이](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **참조**              |[온-프레미스와 Azure Data Factory 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-gateway), [데이터 관리 게이트웨이](../../data-factory/v1/data-factory-data-management-gateway.md) |
 | **단계** | <p>DMG(데이터 관리 게이트웨이) 도구는 회사 네트워크 또는 방화벽 뒤에서 보호되는 데이터 원본에 연결해야 합니다.</p><ol><li>컴퓨터를 잠그면 DMG 도구가 격리되고 오작동하는 프로그램이 데이터 원본 컴퓨터를 손상시키거나 스누핑하지 않게 됩니다. (예: 최신 업데이트를 설치해야 하고, 필요한 최소 포트를 사용하고, 계정 프로비저닝을 제어하고, 감사를 사용하고, 디스크 암호화를 사용해야 합니다.)</li><li>데이터 게이트웨이 키는 빈번한 간격으로 또는 DMG 서비스 계정 암호가 갱신될 때마다 회전해야 합니다.</li><li>연결 서비스를 통한 데이터 전송은 암호화되어야 합니다.</li></ol> |
 
 ## <a name="ensure-that-all-traffic-to-identity-server-is-over-https-connection"></a><a id="identity-https"></a>Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인
@@ -116,7 +116,7 @@ ms.locfileid: "89004565"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
 | **참조**              | [Azure App Service에서 HTTPS 적용](../../app-service/configure-ssl-bindings.md#enforce-https) |
-| **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 애플리케이션에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 애플리케이션으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 애플리케이션 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
+| **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 애플리케이션에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](/dotnet/api/system.web.mvc.requirehttpsattribute)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 애플리케이션으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 애플리케이션 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
 
 ### <a name="example"></a>예
 다음 예제에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
@@ -170,7 +170,7 @@ ms.locfileid: "89004565"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | OnPrem |
 | **특성**              | SQL 버전 - MsSQL2016, SQL 버전 - MsSQL2012, SQL 버전 - MsSQL2014 |
-| **참조**              | [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192)  |
+| **참조**              | [데이터베이스 엔진에 암호화된 연결 사용](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)  |
 | **단계** | TLS 암호화를 사용 하도록 설정 하면 SQL Server와 응용 프로그램 인스턴스 간에 네트워크를 통해 전송 되는 데이터의 보안이 강화 됩니다. |
 
 ## <a name="ensure-that-communication-to-azure-storage-is-over-https"></a><a id="comm-storage"></a>Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인
@@ -181,7 +181,7 @@ ms.locfileid: "89004565"
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
+| **참조**              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](../../storage/blobs/security-recommendations.md#networking) |
 | **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 스토리지의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
 
 ## <a name="validate-md5-hash-after-downloading-blob-if-https-cannot-be-enabled"></a><a id="md5-https"></a>HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사
@@ -203,7 +203,7 @@ ms.locfileid: "89004565"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 파일 |
-| **참조**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Windows 클라이언트에 대한 Azure File Storage SMB 지원](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
+| **참조**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Windows 클라이언트에 대한 Azure File Storage SMB 지원](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
 | **단계** | Azure File Storage는 REST API를 사용하는 경우 HTTPS를 지원하지만, VM에 연결된 SMB 파일 공유로 사용되는 경우가 더 일반적입니다. SMB 2.1은 암호화를 지원하지 않으므로 Azure의 동일한 지역 내에서만 연결이 허용됩니다. 그러나 SMB 3.0은 암호화를 지원하고, Windows Server 2012 R2, Windows 8, Windows 8.1 및 Windows 10에서 사용할 수 있으며 지역 간 액세스 및 데스크톱에 대한 액세스도 허용합니다. |
 
 ## <a name="implement-certificate-pinning"></a><a id="cert-pinning"></a>인증서 고정 구현
@@ -291,7 +291,7 @@ namespace CertificatePinningExample
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **단계** | 애플리케이션 구성에서 중요한 정보에 대한 모든 액세스에 HTTPS가 사용되는지 확인해야 합니다.<ul><li>**설명:** 애플리케이션이 중요한 정보를 처리하고 메시지 수준 암호화를 사용하지 않으면 암호화된 전송 채널을 통해서만 통신할 수 있어야 합니다.</li><li>**권장 사항:** HTTP 전송을 사용하지 않는 대신 HTTPS 전송을 사용하도록 설정합니다. 예를 들어 `<httpTransport/>`를 `<httpsTransport/>` 태그로 바꿉니다. 보안 채널을 통해서만 애플리케이션에 액세스할 수 있도록 하려면 네트워크 구성(방화벽)을 사용하면 안됩니다. 철학적 관점에서 애플리케이션은 보안을 위해 네트워크를 신뢰하지 않아야 합니다.</li></ul><p>실용적 관점에서 네트워크 보안 책임자는 진화하는 애플리케이션의 보안 요구 사항을 항상 추적하지는 않습니다.</p>|
 
 ## <a name="wcf-set-message-security-protection-level-to-encryptandsign"></a><a id="message-protection"></a>WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정
@@ -302,7 +302,7 @@ namespace CertificatePinningExample
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff650862(v=pandp.10)) |
 | **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**관련**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때 메시지에 개인 데이터가 포함 되지 않도록 주의 해야 합니다.</p>|
 
 ### <a name="example"></a>예
@@ -331,7 +331,7 @@ string GetData(int value);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
+| **참조**              | [MSDN](/previous-versions/msp-n-p/ff648826(v=pandp.10)) |
 | **단계** | <ul><li>**설명:** 관리자 또는 권한이 높은 계정으로 WCF 서비스를 실행하면 안됩니다. 서비스가 손상된 경우 중대한 영향을 미칩니다.</li><li>**권장 사항:** 최소 권한 계정을 사용하여 WCF 서비스를 호스팅하면 애플리케이션의 공격 취약 영역이 줄어들고 공격을 받을 때의 잠재적 손상을 줄일 수 있습니다. 서비스 계정에 MSMQ, 이벤트 로그, 성능 카운터 및 파일 시스템과 같은 인프라 리소스에 대한 추가 액세스 권한이 필요한 경우 WCF 서비스가 성공적으로 실행될 수 있도록 이러한 리소스에 적절한 권한을 부여해야 합니다.</li></ul><p>서비스가 원래 호출자를 대신하여 특정 리소스에 액세스해야 하는 경우 가장 및 위임을 사용하여 다운스트림 권한 부여 확인을 위해 호출자의 ID를 전달합니다. 개발 시나리오에서는 권한이 제한된 특별한 기본 제공 계정인 로컬 네트워크 서비스 계정을 사용합니다. 프로덕션 시나리오에서는 최소 권한의 사용자 지정 도메인 서비스 계정을 만듭니다.</p>|
 
 ## <a name="force-all-traffic-to-web-apis-over-https-connection"></a><a id="webapi-https"></a>Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용
@@ -383,7 +383,7 @@ public class ValuesController : ApiController
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure Redis TLS 지원](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
+| **참조**              | [Azure Redis TLS 지원](../../azure-cache-for-redis/cache-faq.md) |
 | **단계** | Redis 서버는 기본적으로 TLS를 지원 하지 않지만 Redis 용 Azure Cache는 지원 합니다. Azure Cache for Redis에 연결하고 클라이언트에서 StackExchange.Redis와 같은 TLS를 지원하는 경우 TLS를 사용해야 합니다. 기본적으로 Redis 인스턴스에 대 한 새 Azure Cache에는 TLS 이외의 포트를 사용할 수 없습니다. Redis client에 대 한 TLS 지원에 대 한 종속성이 없으면 보안 기본값이 변경 되지 않도록 합니다. |
 
 Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언트가 액세스할 수 있도록 설계되었습니다. 즉 일반적으로 Redis 인스턴스를 인터넷에 직접 노출하거나 일반적으로 신뢰할 수 없는 클라이언트를 Redis TCP 포트 또는 UNIX 소켓에 직접 액세스할 수 있는 환경에 직접 노출하지 않는 것이 좋습니다. 
@@ -407,5 +407,5 @@ Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [통신 프로토콜 선택](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
+| **참조**              | [통신 프로토콜 선택](../../iot-hub/iot-hub-devguide.md) |
 | **단계** | SSL/TLS를 사용하여 HTTP/AMQP 또는 MQTT 프로토콜 보안을 유지합니다. |

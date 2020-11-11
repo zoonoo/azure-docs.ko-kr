@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f598ed3e2aef2f53b90b213d0bd1b002f56bd30c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068239"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517753"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 사용 권한 구성
 
@@ -22,7 +22,7 @@ Azure 이미지 작성기 서비스를 사용 하려면 이미지를 빌드하�
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="register-the-features"></a>기능 등록
 
@@ -110,7 +110,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 다음 예제에서는 이전 섹션에서 설명한 작업에서 Azure 역할 정의를 만듭니다. 예제는 리소스 그룹 수준에서 적용 됩니다. 사용자 요구 사항에 따라 예가 충분 한지 평가 하 고 테스트 합니다. 시나리오의 경우 특정 공유 이미지 갤러리에 구체화 해야 할 수 있습니다.
 
-이미지 작업은 읽기 및 쓰기를 허용 합니다. 사용자 환경에 적합 한 항목을 결정 합니다. 예를 들어 Azure 이미지 작성기가 리소스 그룹 *예제-rg-1* 에서 이미지를 읽고 리소스 그룹에 이미지를 쓰도록 허용 하는 역할을 만듭니다 (예: *rg-2*).
+이미지 작업은 읽기 및 쓰기를 허용 합니다. 사용자 환경에 적합 한 항목을 결정 합니다. 예를 들어 Azure 이미지 작성기가 리소스 그룹 *예제-rg-1* 에서 이미지를 읽고 리소스 그룹에 이미지를 쓰도록 허용 하는 역할을 만듭니다 (예: *rg-2* ).
 
 ### <a name="custom-image-azure-role-example"></a>사용자 지정 이미지 Azure 역할 예제
 

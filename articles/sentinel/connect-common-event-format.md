@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347610"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517974"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -27,7 +27,7 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 
 1 단계: [Syslog/cef 전달자를 배포 하 여 Cef 연결](connect-cef-agent.md) 2 단계: [솔루션 관련 단계 수행](connect-cef-solution-config.md) 3 단계: [연결 확인](connect-cef-verify.md)
 
-이 문서에서는 연결이 작동 하는 방법을 설명 하 고, 필수 구성 요소를 제공 하며, Syslog 위에 CEF (일반 이벤트 형식) 메시지를 보내는 보안 솔루션에 에이전트를 배포 하는 단계를 제공 합니다. 
+이 문서에서는 연결이 작동 하는 방법을 설명 하 고, 필수 구성 요소를 나열 하 고, 보안 솔루션에 대 한 메커니즘을 배포 하 여 Syslog 위에 CEF (Common Event Format) 메시지를 보내는 단계를 보여 줍니다. 
 
 > [!NOTE] 
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
@@ -48,23 +48,23 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 
 Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에서 통신 하도록 Syslog 데몬 (rsyslog 또는 syslog 기능)을 구성 해야 합니다. tls [-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), tls를 [사용 하 여 로그 메시지 암호화 – syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 사용 합니다.
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 전달자로 사용할 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
 - 64비트
-  - CentOS 7 및 8 (하위 버전 포함) (6 아님)
+  - CentOS 7 및 8 (부 버전 포함 (6 아님)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - 하위 버전 (6 아님)을 포함 하 여 Red Hat Enterprise Linux (RHEL) 서버 7 및 8
+  - Red Hat Enterprise Linux (RHEL) Server 7 및 8 (부 버전 포함 (6 아님)
   - Debian GNU/Linux 8 및 9
-  - Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
+  - Ubuntu Linux 14.04 LTS, 16.04 LTS, 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32비트
-  - CentOS 7 및 8 (하위 버전 포함) (6 아님)
+  - CentOS 7 및 8 (부 버전 포함 (6 아님)
   - Oracle Linux 7
-  - 하위 버전 (6 아님)을 포함 하 여 Red Hat Enterprise Linux (RHEL) 서버 7 및 8
+  - Red Hat Enterprise Linux (RHEL) Server 7 및 8 (부 버전 포함 (6 아님)
   - Debian GNU/Linux 8 및 9
   - Ubuntu Linux 14.04 LTS 및 16.04 LTS
  
@@ -78,11 +78,11 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
 
-- 사용 권한
+- 권한
   - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
 
 - 소프트웨어 요구 사항
-  - 컴퓨터에서 python 2.7이 실행 되 고 있는지 확인 합니다.
+  - 컴퓨터에서 python 2.7 또는 3이 실행 되 고 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
