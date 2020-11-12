@@ -2,25 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: glenga
-ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af009a3f04f17d9d7e518d2dd02343a8ed54e342
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408588"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93424820"
 ---
-1. Visual Studio Code에서 <kbd>F1</kbd>을 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Open in portal`을 검색하여 선택합니다.
+## <a name="clean-up-resources"></a>리소스 정리
 
-1. 함수 앱을 선택하고 <kbd>Enter</kbd>를 누릅니다. 함수 앱 페이지가 Azure Portal에서 열립니다.
+[다음 단계](#next-steps)를 계속하고 함수에 Azure Storage 큐 바인딩을 추가하는 경우 이미 수행한 작업을 기반으로 모든 리소스를 제자리에 유지해야 합니다.
 
-1. **개요** 탭에서 **리소스 그룹** 옆에 있는 명명된 링크를 선택합니다.
+그렇지 않으면 다음 단계를 수행하여 추가 비용이 발생하지 않도록 함수 앱 및 관련 리소스를 삭제할 수 있습니다.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="함수 앱 페이지에서 삭제할 리소스 그룹을 선택합니다.":::
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
-1. **리소스 그룹** 페이지에서 포함된 리소스 목록을 검토하고 삭제하려는 항목인지 확인합니다.
- 
-1. **리소스 그룹 삭제**를 선택하고 지시를 따릅니다.
-
-   삭제는 몇 분 정도 소요됩니다. 완료되면 알림이 잠시 표시됩니다. 페이지 위쪽의 종 모양 아이콘을 선택해도 알림을 확인할 수 있습니다.
+함수 비용에 대한 자세한 내용은 [소비 계획 비용 예측](../articles/azure-functions/functions-consumption-costs.md)을 참조하세요.

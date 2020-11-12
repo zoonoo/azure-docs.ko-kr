@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: Azure AD B2C란?
           href: ../../active-directory-b2c/overview.md
+        - name: Docs의 새로운 기능
+          href: whats-new-docs.md
     - name: 빠른 시작
       items:
         - name: 포털에서 게스트 사용자 추가

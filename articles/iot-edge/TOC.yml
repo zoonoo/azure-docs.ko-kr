@@ -1,5 +1,7 @@
 - name: Azure IoT Edge 설명서
   href: index.yml
+- name: Azure IoT Edge 버전
+  href: version-history.md
 - name: 개요
   items:
     - name: About Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: 자습서
   items:
-    - name: 1. 개발 환경 설정
+    - name: 개발 환경 설정
       items:
         - name: Linux 디바이스용 제품 개발
           href: tutorial-develop-for-linux.md
         - name: Windows 디바이스용 제품 개발
           href: tutorial-develop-for-windows.md
-    - name: 2. 사용자 지정 코드 모듈 개발
+    - name: 사용자 지정 코드 모듈 개발
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Azure 서비스를 모듈로 배포
+    - name: Azure 서비스를 모듈로 배포
       items:
         - name: Azure Functions를 사용하여 데이터 필터링
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: SQL을 사용하여 데이터 로컬에 저장
           href: tutorial-store-data-sql-server.md
-    - name: 4. 에지에 기계 학습 엔드투엔드 예제
+    - name: IoT Edge를 게이트웨이로 사용
+      items:
+        - name: IoT Edge 디바이스의 계층 구조 만들기
+          href: tutorial-nested-iot-edge.md
+    - name: 에지에 기계 학습 엔드투엔드 예제
       items:
         - name: 소개
           href: tutorial-machine-learning-edge-01-intro.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
-        - name: 투명 게이트웨이 구성
-          href: how-to-create-transparent-gateway.md
-        - name: 다운스트림 디바이스 인증
-          href: how-to-authenticate-downstream-device.md
-        - name: 다운스트림 디바이스 연결
-          href: how-to-connect-downstream-device.md
-        - name: Modbus 프로토콜 게이트웨이
-          href: deploy-modbus-gateway.md
+        - name: IoT 디바이스용 게이트웨이
+          items:
+            - name: 투명 게이트웨이 구성
+              href: how-to-create-transparent-gateway.md
+            - name: 다운스트림 디바이스 인증
+              href: how-to-authenticate-downstream-device.md
+            - name: 다운스트림 디바이스 연결
+              href: how-to-connect-downstream-device.md
+            - name: Modbus 프로토콜 게이트웨이
+              href: deploy-modbus-gateway.md
+        - name: IoT Edge 디바이스용 게이트웨이
+          items:
+            - name: IoT Edge 디바이스용 게이트웨이 구성
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: API 프록시 모듈 구성
+              href: how-to-configure-api-proxy-module.md
     - name: 프록시 지원 구성
       href: how-to-configure-proxy-support.md
+    - name: IoT Edge를 사용한 게시 및 구독
+      href: how-to-publish-subscribe.md
     - name: IoT Edge의 Azure Blob Storage
       items:
         - name: 에지에 있는 Blob 스토리지 이해

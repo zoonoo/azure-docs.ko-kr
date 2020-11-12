@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: 빠른 시작
   items:
-    - name: 시작하기
+    - name: 시작
       href: get-started-manage-labs.md
 - name: 자습서
   items:
@@ -58,6 +58,8 @@
               href: class-type-matlab.md
             - name: SolidWorks CAD(computer-aided design)
               href: class-type-solidworks.md
+            - name: Project Lead the Way
+              href: class-type-pltw.md
         - name: 팀 내에서 Azure Lab Services 사용
           items:
             - name: 개요

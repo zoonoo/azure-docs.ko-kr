@@ -287,8 +287,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: 평점 및 리뷰 대시보드
       href: partner-center-portal/ratings-reviews.md
-    - name: 파트너 센터 분석 용어
-      href: partner-center-portal/faq-terminology.md
+    - name: 분석 일반적인 질문
+      href: analytics-faq.md
 - name: 정책 및 용어
   items:
     - name: 정책 및 사용 약관 정보

@@ -7,6 +7,8 @@
       href: overview.md
     - name: 기술 및 기능 개요
       href: technical-overview.md
+    - name: Docs의 새로운 기능
+      href: whats-new-docs.md
 - name: 빠른 시작
   expanded: true
   items:

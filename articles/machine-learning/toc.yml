@@ -160,6 +160,8 @@
         - name: 엔터프라이즈 보안 개요
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: 데이터 암호화
+          href: concept-data-encryption.md
         - name: 보안 기준
           href: security-baseline.md
     - name: Responsible ML
@@ -182,14 +184,17 @@
       items:
         - name: ID 및 액세스 관리
           items:
-            - name: 인증 설정
+            - name: 작업 영역 인증
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: 사용자 및 역할 관리
+            - name: 웹 서비스 인증
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: 액세스 관리(권한 부여)
               href: how-to-assign-roles.md
-            - name: 액세스 제어에 대한 관리 ID 사용
+            - name: 액세스 제어에 대한 관리 ID
               href: how-to-use-managed-identities.md
-            - name: AKS 배포에서 Azure AD ID 사용
+            - name: AKS 배포에서 Azure AD ID
               href: how-to-use-azure-ad-identity.md
         - name: 네트워크 보안
           items:

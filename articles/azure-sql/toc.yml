@@ -1,7 +1,11 @@
 - name: Azure SQL 설명서
   href: index.yml
-- name: Azure SQL란?
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: Azure SQL란?
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: Azure SQL로 마이그레이션
+      href: migration-guides/index.yml
 - name: 공유 SQL DB & SQL MI 문서
   items:
     - name: 구매 모델
@@ -301,6 +305,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: 서버리스로 SQLite 마이그레이션
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: 마이그레이션 가이드
+      items:
+        - name: DB2에서
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: SQL Server에서
+          items:
+            - name: 개요
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrate
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: 개념
       items:
         - name: 연결 아키텍처
@@ -696,6 +710,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: 'MI 게시, MI 배포, SQL 구독'
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: 마이그레이션 가이드
+      items:
+        - name: DB2에서
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: SQL Server에서
+          items:
+            - name: 개요
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrate
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: 성능 기준선
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: 개념
       items:
         - name: 리소스 한계
@@ -1171,6 +1197,14 @@
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: 마이그레이션 가이드
+      items:
+        - name: 개요
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+        - name: SQL Server에서
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: DB2에서
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: 참조
   items:
     - name: T-SQL 언어 참조
@@ -1192,7 +1226,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools(SSDT)
+    - name: SSDT(SQL Server Data Tools)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility

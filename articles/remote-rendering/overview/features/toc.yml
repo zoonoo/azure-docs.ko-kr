@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: 윤곽 렌더링
   href: outlines.md
+- name: 셸 렌더링
+  href: shell-effect.md
 - name: 단일 면 렌더링
   href: single-sided-rendering.md
 - name: 공간 쿼리

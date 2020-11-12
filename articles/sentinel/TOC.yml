@@ -178,6 +178,8 @@
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
+        - name: 데이터 커넥터 상태 모니터링
+          href: monitor-data-connector-health.md
     - name: 사용자 및 엔터티 동작 분석 사용
       href: enable-entity-behavior-analytics.md
     - name: 다중 테넌트 관리(MSSP)

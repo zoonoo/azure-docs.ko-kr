@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: 리소스 사용 모델
           href: sql/resource-consumption-models.md
-        - name: 처리된 데이터
+        - name: 서버리스 SQL 풀에 대한 비용 관리
           href: sql/data-processed.md
         - name: 모범 사례 서버리스 SQL 풀
           href: sql/best-practices-sql-on-demand.md
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: REST API
       href: /rest/api/synapse/
+    - name: Microsoft Spark 유틸리티
+      href: ./spark/microsoft-spark-utilities.md
     - name: 샘플
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: 시스템 뷰

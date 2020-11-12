@@ -90,8 +90,10 @@
           href: multiclass-logistic-regression.md
         - name: 다중 클래스 인공신경망
           href: multiclass-neural-network.md
-        - name: 일대다 다중 클래스
+        - name: 하나와 모든 다중 클래스 비교
           href: one-vs-all-multiclass.md
+        - name: 하나와 하나의 다중 클래스 비교
+          href: one-vs-one-multiclass.md
         - name: 2클래스 평균 퍼셉트론
           href: two-class-averaged-perceptron.md
         - name: 2클래스 향상된 의사 결정 트리

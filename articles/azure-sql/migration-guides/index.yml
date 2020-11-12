@@ -1,0 +1,73 @@
+### YamlMime:Landing
+title: Azure SQL로 마이그레이션
+summary: '클라우드에서 SQL Server 데이터베이스 엔진 제품의 Azure SQL 제품군으로 마이그레이션하는 방법에 대한 설명서를 찾습니다. Azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server. '
+metadata:
+  title: Azure SQL로 마이그레이션
+  description: Azure SQL Database의 완전 관리형 데이터베이스, Azure SQL Managed Instance의 완전 관리형 인스턴스 또는 Azure의 가상 머신에 설치된 SQL Server 등 클라우드의 SQL Server 데이터베이스 엔진 제품군인 Azure SQL로 마이그레이션하는 데 도움이 되는 설명서를 찾습니다.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: service
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: sstein
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 940f28fa76a8f735318010eab4b55d464295c25a
+  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94495283"
+landingContent:
+- title: Azure SQL Database
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 개요
+      url: database/sql-server-to-sql-database-overview.md
+    - text: SQL Server에서
+      url: database/sql-server-to-sql-database-guide.md
+    - text: DB2에서
+      url: database/db2-to-sql-database-guide.md
+- title: Azure SQL Managed Instance
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 개요
+      url: managed-instance/sql-server-to-managed-instance-overview.md
+    - text: SQL Server에서
+      url: managed-instance/sql-server-to-managed-instance-guide.md
+    - text: DB2에서
+      url: managed-instance/db2-to-managed-instance-guide.md
+- title: Azure VM의 SQL Server
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 개요
+      url: virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+    - text: SQL Server에서
+      url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+    - text: DB2에서
+      url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
+- title: 마이그레이션 도구
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure Migrate
+      url: /azure/migrate/migrate-services-overview
+    - text: Azure Database Migration Service (DMS)
+      url: /azure/dms/dms-overview
+    - text: Data Migration Assistant(DMA)
+      url: /sql/dma/dma-migrateonpremsqltosqldb
+    - text: 트랜잭션 복제
+      url: /sql/relational-databases/replication/transactional/transactional-replication
+    - text: 가져오기 및 내보내기 서비스 / BACPAC
+      url: ../database/database-import.md
+    - text: 대량 복사
+      url: /sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server
+    - text: Azure 데이터 팩터리
+      url: /azure/data-factory/connector-azure-sql-database
+    - text: SQL 데이터 동기화
+      url: ../database/sql-data-sync-data-sql-server-sql-database.md

@@ -36,6 +36,20 @@
       href: quickstart-multi-container.md
 - name: 자습서
   items:
+    - name: 보안 앱이 스토리지 및 Microsoft Graph에 액세스
+      items:
+        - name: 개요
+          href: scenario-secure-app-overview.md
+        - name: App Service 인증 설정
+          href: scenario-secure-app-authentication-app-service.md
+        - name: 보안 앱이 스토리지에 액세스
+          href: scenario-secure-app-access-storage.md
+        - name: 보안 앱이 사용자로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: 보안 앱이 앱으로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: 리소스 정리
+          href: scenario-secure-app-clean-up-resources.md
     - name: DB를 사용한 앱
       items:
         - name: SQL DB를 사용한 .NET Core
