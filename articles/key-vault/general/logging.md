@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286704"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488539"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -93,12 +93,14 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | **VaultDelete** |[키 자격 증명 모음 삭제](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[키 자격 증명 모음 업데이트](/rest/api/keyvault/vaults) |
 | **VaultList** |[리소스 그룹의 모든 키 자격 증명 모음 목록](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[삭제된 자격 증명 모음 제거](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |삭제된 자격 증명 모음 복구|
+| **VaultGetDeleted** |[삭제된 자격 증명 모음 가져오기](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[삭제된 자격 증명 모음 나열](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[키 만들기](/rest/api/keyvault/createkey) |
 | **KeyGet** |[키에 대한 정보 가져오기](/rest/api/keyvault/getkey) |
 | **KeyImport** |[자격 증명 모음으로 키 가져오기](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[키 백업](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[키 삭제](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[키 복원](/rest/api/keyvault/restorekey) |
 | **KeySign** |[키로 서명](/rest/api/keyvault/sign) |
 | **KeyVerify** |[키로 확인](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[키 래핑](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | **KeyEncrypt** |[키로 암호화](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[키로 암호 해독](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[키 업데이트](/rest/api/keyvault/updatekey) |
-| **KeyList** |[자격 증명 모음에 키 나열](/rest/api/keyvault/vaults) |
+| **KeyList** |[자격 증명 모음에 키 나열](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[키 버전 나열](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[키 제거](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[키 백업](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[키 복원](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[키 복구](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[삭제된 키 가져오기](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[자격 증명 모음에서 삭제된 키 나열](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[인증서 정보 가져오기](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[인증서 만들기](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[자격 증명 모음으로 인증서 가져오기](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[인증서 업데이트](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[자격 증명 모음에서 인증서 나열](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[인증서 버전 나열](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[인증서 삭제](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[인증서 제거](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[인증서 백업](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[인증서 복원](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[인증서 복구](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[삭제된 인증서 가져오기](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[자격 증명 모음에서 삭제된 인증서 나열](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[인증서 정책 가져오기](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[인증서 정책 업데이트](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[인증서 정책 만들기](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[인증서 연락처 가져오기](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[인증서 연락처 설정](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[인증서 연락처 삭제](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[인증서 발급자 가져오기](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[인증서 발급자 설정](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[인증서 발급자 업데이트](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[인증서 발급자 삭제](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[인증서 발급자 나열](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |인증서 등록 |
+| **CertificateRenew** |인증서 갱신 |
+| **CertificatePendingGet** |보류 중인 인증서 검색 |
+| **CertificatePendingMerge** |인증서 병합 보류 중 |
+| **CertificatePendingUpdate** |인증서 업데이트 보류 중 |
+| **CertificatePendingDelete** |보류 중인 인증서 삭제 |
 | **SecretSet** |[암호 만들기](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[비밀 가져오기](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[암호 업데이트](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[암호 삭제](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[자격 증명 모음에 암호 나열](/rest/api/keyvault/vaults) |
+| **SecretList** |[자격 증명 모음에 암호 나열](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[암호 버전 나열](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[비밀 제거](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[비밀 백업](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[비밀 복원](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[비밀 복구](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[삭제된 비밀 가져오기](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[자격 증명 모음에서 삭제된 비밀 나열](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | 자격 증명 모음 액세스 정책 변경 이벤트가 게시됨 |
 | **SecretNearExpiryEventGridNotification** |비밀이 곧 만료되는 이벤트가 게시됨 |
 | **SecretExpiredEventGridNotification** |비밀이 만료된 이벤트가 게시됨 |
