@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371853"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523709"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -42,10 +42,10 @@ ms.locfileid: "94371853"
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
 
 * 전역 피어 링 연결에서 리소스에 연결할 수 없습니다.
-* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 Azure App Service 배율 단위 에서만 사용할 수 있습니다. *PremiumV2 가격 책정 계층에서 실행 해야* 하는 것은 아닙니다. PremiumV2 옵션을 사용할 수 있는 App Service 계획에서 실행 되어야 한다는 것을 의미 하는 것은 아닙니다. 즉,이 VNet 통합 기능을 사용할 수 있는 최신 배율 단위 이기도 합니다.
+* 이 기능은 Premium V2 및 Premium V3의 모든 App Service 배율 단위에서 사용할 수 있습니다. Standard에서 사용할 수도 있지만 최신 App Service 배율 단위 에서만 사용할 수 있습니다. 이전 배율 단위를 사용 하는 경우 Premium V2 App Service 계획의 기능만 사용할 수 있습니다. 표준 App Service 계획에서이 기능을 사용할 수 있도록 하려면 Premium V3 App Service 계획에서 앱을 만듭니다. 이러한 계획은 최신 배율 단위 에서만 지원 됩니다. 그런 다음 원하는 경우 규모를 축소할 수 있습니다.  
 * 통합 서브넷은 하나의 App Service 계획 에서만 사용할 수 있습니다.
 * 이 기능은 App Service Environment에 있는 격리 된 계획 앱에서 사용할 수 없습니다.
-* 이 기능을 사용 하려면 Azure Resource Manager VNet에서 32 주소 이상의/27 인 사용 하지 않는 서브넷이 필요 합니다.
+* 이 기능을 사용 하려면 Azure Resource Manager VNet에서 a/28 이상의 사용 하지 않는 서브넷이 필요 합니다.
 * 앱과 VNet은 동일한 지역에 있어야 합니다.
 * 통합 된 앱이 있는 VNet은 삭제할 수 없습니다. VNet을 삭제 하기 전에 통합을 제거 합니다.
 * 앱과 동일한 구독에 있는 Vnet와만 통합할 수 있습니다.
@@ -53,7 +53,21 @@ ms.locfileid: "94371853"
 * 지역 VNet 통합을 사용 하는 앱이 있는 경우에는 앱 또는 계획의 구독을 변경할 수 없습니다.
 * 앱이 구성 변경 없이 Azure DNS Private Zones의 주소를 확인할 수 없습니다.
 
-각 계획 인스턴스에는 하나의 주소가 사용 됩니다. 앱을 5 개의 인스턴스로 크기를 조정 하면 5 개의 주소가 사용 됩니다. 할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 만큼 큰 서브넷을 사용 해야 합니다. 64 주소를 포함 하는/26은 권장 크기입니다. /26 64 주소는 30 개의 인스턴스가 있는 프리미엄 요금제를 수용 합니다. 계획의 크기를 조정 하거나 축소 하는 경우 짧은 시간 동안 두 번의 주소가 필요 합니다.
+VNet 통합은 전용 서브넷을 사용 하는 방법에 따라 달라 집니다.  서브넷을 프로 비전 할 때 Azure 서브넷은 처음부터 5 개의 Ip를 손실 합니다. 각 계획 인스턴스의 통합 서브넷에서 하나의 주소를 사용 합니다. 앱을 네 개의 인스턴스로 크기를 조정 하는 경우 4 개의 주소가 사용 됩니다. 서브넷 크기에서 5 개의 주소를 사용 하는 경우 CIDR 블록 당 사용 가능한 최대 주소는 다음과 같습니다.
+
+- /28에 11 개의 주소가 있습니다.
+- /27에는 27 개의 주소가 있습니다.
+- /26 59 주소
+
+크기를 확장 또는 축소 하는 경우 짧은 시간 동안 필요에 따라 주소가 필요 합니다. 크기 제한은 서브넷이 인 경우 서브넷 크기에 따라 사용 가능한 실제 사용 가능한 인스턴스를 나타냅니다.
+
+- /28, 최대 가로 배율은 5 개의 인스턴스입니다.
+- /27, 최대 가로 배율은 13 개 인스턴스
+- /26, 최대 가로 배율은 29 개 인스턴스
+
+최대 가로 눈금에 명시 된 한도는 어느 시점에서 든 크기 또는 SKU에서 규모를 확장 하거나 축소 해야 한다고 가정 합니다. 
+
+할당 후 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 만큼 큰 서브넷을 사용 합니다. 서브넷 용량 관련 문제를 방지 하기 위해 64 주소를 포함 하는/26은 권장 되는 크기입니다.  
 
 다른 계획의 앱이 다른 계획의 앱에 이미 연결 되어 있는 VNet에 도달 하 게 하려면 기존 VNet 통합에서 사용 중인 것과 다른 서브넷을 선택 합니다.
 
@@ -82,21 +96,15 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones를 사용 하려면 다음 앱 설정을 추가 해야 합니다.
-
-1. WEBSITE_DNS_SERVER 값 168.63.129.16
-1. 값 1로 WEBSITE_VNET_ROUTE_ALL
-
-이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보냅니다. 또한 작업자 수준에서 사설 DNS 영역을 쿼리하여 앱이 Azure DNS를 사용할 수 있도록 합니다. 이 기능은 실행 중인 응용 프로그램이 사설 DNS 영역에 액세스할 때 사용 됩니다.
-
-> [!NOTE]
->VNET 통합 사설 DNS 영역을 사용 하 여 웹 앱에 사용자 지정 도메인을 추가 하려는 시도는 불가능 합니다. 사용자 지정 도메인 유효성 검사는 작업자 수준이 아니라 컨트롤러 수준에서 수행 되며,이로 인해 DNS 레코드가 표시 되지 않습니다. 사설 DNS 영역에서 사용자 지정 도메인을 사용 하려면 Application Gateway 또는 ILB App Service Environment를 사용 하 여 유효성 검사를 무시 해야 합니다.
-
-
+앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 원하는 DNS 서버의 주소를 사용 하 여 앱 설정을 WEBSITE_DNS_SERVER 구성 하 여 앱에서이 동작을 재정의할 수 있습니다. VNet을 사용 하 여 구성 된 사용자 지정 DNS 서버가 있지만 앱에서 전용 영역 Azure DNS 사용 하 게 하려는 경우에는 168.63.129.16 값을 사용 하 여 WEBSITE_DNS_SERVER를 설정 해야 합니다. 
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
-[전용 끝점][privateendpoints]에 대 한 호출을 수행 하려면 Azure DNS Private Zones와 통합 하거나 앱에서 사용 하는 DNS 서버에서 개인 끝점을 관리 해야 합니다. 
+[개인 끝점][privateendpoints]을 호출 하려는 경우 DNS 조회가 개인 끝점으로 확인 되는지 확인 해야 합니다. 앱에서 DNS 조회가 개인 끝점을 가리키도록 하려면 다음을 수행할 수 있습니다.
+
+* Azure DNS Private Zones와 통합 합니다. VNet에 사용자 지정 DNS 서버가 없는 경우이는 자동으로 발생 합니다.
+* 앱에서 사용 하는 DNS 서버에서 개인 끝점을 관리 합니다. 이렇게 하려면 개인 끝점 주소를 알고 있어야 하며, A 레코드를 사용 하 여 해당 주소에 도달 하려는 끝점을 가리켜야 합니다.
+* 자체 DNS 서버를 Azure DNS 개인 영역으로 전달 하도록 구성
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
