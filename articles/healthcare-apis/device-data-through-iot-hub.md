@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee286540d4fd740c5e7c1f8bd693fddd625eeae2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308228"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398150"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>자습서: Azure IoT Hub를 통해 디바이스 데이터 수신
 
@@ -23,7 +23,7 @@ Azure IoT Connector for FHIR*은 데이터를 IoMT(의료 사물 인터넷) 디�
 
 - 활성 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 하나 이상의 Azure IoT Connector for FHIR이 있는 Azure API for FHIR 리소스 - [Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포](iot-fhir-portal-quickstart.md)
-- 실제 또는 시뮬레이션된 디바이스와 연결된 Azure IoT Hub 리소스 - [Azure Portal을 사용하여 IoT 허브 만들기](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+- 실제 또는 시뮬레이션된 디바이스와 연결된 Azure IoT Hub 리소스 - [Azure Portal을 사용하여 IoT 허브 만들기](../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
 > Azure IoT Hub 시뮬레이션된 디바이스 애플리케이션을 사용하는 경우 지원되는 다양한 언어 및 시스템 중에서 원하는 애플리케이션을 자유롭게 선택할 수 있습니다.
@@ -36,15 +36,15 @@ Azure IoT Connector for FHIR은 내부적으로 Azure Event Hub 인스턴스를 
 
 ## <a name="connect-azure-iot-hub-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 Azure IoT Hub 연결
 
-Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Service Bus와 같은 다양한 Azure 서비스로 보내는 기능을 제공하는 [메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)이라는 기능을 지원합니다. Azure IoT Connector for FHIR은 이 기능을 활용하여 디바이스 데이터를 Azure IoT Hub에서 해당 Event Hub 엔드포인트로 연결하고 보냅니다.
+Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Service Bus와 같은 다양한 Azure 서비스로 보내는 기능을 제공하는 [메시지 라우팅](../iot-hub/iot-hub-devguide-messages-d2c.md)이라는 기능을 지원합니다. Azure IoT Connector for FHIR은 이 기능을 활용하여 디바이스 데이터를 Azure IoT Hub에서 해당 Event Hub 엔드포인트로 연결하고 보냅니다.
 
 > [!NOTE] 
-> Azure IoT Connector for FHIR의 Event Hub가 고객 구독에서 호스팅되지 않으므로 지금은 PowerShell 또는 CLI 명령만 사용하여 [메시지 라우팅을 만들](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) 수 있습니다. 따라서 이 메시지 라우팅은 Azure Portal을 통해 표시되지 않습니다. 그러나 PowerShell 또는 CLI를 사용하여 메시지 경로 개체를 추가하면 Azure Portal에서 해당 개체가 표시되고 여기서 관리할 수 있습니다.
+> Azure IoT Connector for FHIR의 Event Hub가 고객 구독에서 호스팅되지 않으므로 지금은 PowerShell 또는 CLI 명령만 사용하여 [메시지 라우팅을 만들](../iot-hub/tutorial-routing.md) 수 있습니다. 따라서 이 메시지 라우팅은 Azure Portal을 통해 표시되지 않습니다. 그러나 PowerShell 또는 CLI를 사용하여 메시지 경로 개체를 추가하면 Azure Portal에서 해당 개체가 표시되고 여기서 관리할 수 있습니다.
 
 메시지 라우팅을 설정하는 작업은 두 단계로 구성됩니다.
 
 ### <a name="add-an-endpoint"></a>엔드포인트 추가
-이 단계에서는 IoT Hub에서 데이터를 라우팅하는 엔드포인트를 정의합니다. 이 엔드포인트는 기본 설정에 따라 [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell 명령 또는 [az iot hub routing-endpoint create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?#az-iot-hub-routing-endpoint-create) CLI 명령을 사용하여 만듭니다.
+이 단계에서는 IoT Hub에서 데이터를 라우팅하는 엔드포인트를 정의합니다. 이 엔드포인트는 기본 설정에 따라 [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell 명령 또는 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) CLI 명령을 사용하여 만듭니다.
 
 다음은 엔드포인트를 만드는 명령과 함께 사용할 매개 변수의 목록입니다.
 
@@ -59,7 +59,7 @@ Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Se
 |ConnectionString|connection-string|Azure IoT Connector for FHIR에 대한 연결 문자열입니다. 이전 단계에서 얻은 값을 사용합니다.|
 
 ### <a name="add-a-message-route"></a>메시지 경로 추가
-이 단계에서는 위에서 만든 엔드포인트를 사용하여 메시지 경로를 정의합니다. 이 경로는 기본 설정에 따라 [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell 명령 또는 [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI 명령을 사용하여 만듭니다.
+이 단계에서는 위에서 만든 엔드포인트를 사용하여 메시지 경로를 정의합니다. 이 경로는 기본 설정에 따라 [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell 명령 또는 [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI 명령을 사용하여 만듭니다.
 
 다음은 메시지 경로를 추가하는 명령과 함께 사용할 매개 변수의 목록입니다.
 

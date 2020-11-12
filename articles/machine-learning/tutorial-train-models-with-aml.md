@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321281"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 
 
-이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
+이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부** 입니다.  
 
 이 자습서에서는 Azure Machine Learning과 함께 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀 분석을 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91535072"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 버전 1.13.0에서 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 버전 1.13.0에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -55,7 +55,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 > 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
 >
 > 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다. 
-> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
+> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행** 을 선택하여 전체 Notebook을 실행합니다.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>개발 환경 설정
 
@@ -159,7 +159,7 @@ else:
 
 ### <a name="download-the-mnist-dataset"></a>MNIST 데이터 세트 다운로드
 
-Azure Open Datasets를 사용하여 원시 MNIST 데이터 파일을 가져옵니다. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 각 데이터 세트에는 여러 다른 방식으로 데이터를 검색하기 위한 해당 클래스(이 경우에는 `MNIST`)가 있습니다.
+Azure Open Datasets를 사용하여 원시 MNIST 데이터 파일을 가져옵니다. [Azure Open Datasets](../open-datasets/overview-what-are-open-datasets.md)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 각 데이터 세트에는 여러 다른 방식으로 데이터를 검색하기 위한 해당 클래스(이 경우에는 `MNIST`)가 있습니다.
 
 이 코드는 `Dataset`의 하위 클래스인 `FileDataset` 개체로 데이터를 검색합니다. `FileDataset`는 데이터 저장소 또는 퍼블릭 URL 형식의 단일 또는 여러 파일을 참조합니다. 이 클래스는 데이터 원본 위치에 대한 참조를 만들어 컴퓨팅에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. 또한 학습 중에 쉽게 검색할 수 있도록 작업 영역에 데이터 세트를 등록합니다.
 
@@ -298,7 +298,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 + 학습 스크립트에서 인수를 읽어 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```).
 
-+ 학습 스크립트는 **outputs**라는 디렉터리에 모델을 저장합니다. 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서의 뒷부분에서는 이 디렉터리의 모델에 액세스합니다. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
++ 학습 스크립트는 **outputs** 라는 디렉터리에 모델을 저장합니다. 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서의 뒷부분에서는 이 디렉터리의 모델에 액세스합니다. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
 + 학습 스크립트가 데이터 세트를 올바르게 로드하려면 `utils.py` 파일이 필요합니다. 다음 코드는 `utils.py`를 `script_folder`에 복사합니다. 그러면 원격 리소스의 학습 스크립트와 함께 이 파일에 액세스할 수 있습니다.
 
@@ -309,15 +309,15 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 ### <a name="configure-the-training-job"></a>학습 작업 구성
 
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 다음을 지정하여 ScriptRunConfig를 구성합니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 다음을 지정하여 ScriptRunConfig를 구성합니다.
 
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
-* 학습 스크립트 이름(**train.py**)
+* 학습 스크립트 이름( **train.py** )
 * 스크립트를 실행하는 데 필요한 라이브러리가 포함된 환경입니다.
 * 학습 스크립트에 필요한 인수
 
-이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **--data_folder**는 데이터 세트를 사용하도록 설정되었습니다.
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **--data_folder** 는 데이터 세트를 사용하도록 설정되었습니다.
 
 먼저 scikit-learn 라이브러리, 데이터 세트에 액세스하는 데 필요한 azureml-dataset-runtime 및 azureml-defaults가 포함된 환경을 만듭니다. 여기에는 로깅 메트릭에 대한 종속성이 포함됩니다. azureml-defaults에는 자습서 2부 뒤부분에 나오는 웹 서비스로 모델을 배포하는 데 필요한 종속성도 포함되어 있습니다.
 
@@ -364,25 +364,25 @@ run
 
 ## <a name="monitor-a-remote-run"></a>원격 실행 모니터링
 
-전체적으로 첫 번째 실행은 **약 10분**이 걸립니다. 그러나 스크립트 종속성이 변경되지 않는 한 후속 실행에서도 동일한 이미지가 다시 사용됩니다. 따라서 컨테이너 시작 시간이 훨씬 더 빠릅니다.
+전체적으로 첫 번째 실행은 **약 10분** 이 걸립니다. 그러나 스크립트 종속성이 변경되지 않는 한 후속 실행에서도 동일한 이미지가 다시 사용됩니다. 따라서 컨테이너 시작 시간이 훨씬 더 빠릅니다.
 
 기다리는 동안 수행되는 작업은 다음과 같습니다.
 
-- **이미지 만들기**: Azure ML 환경에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분**이 걸립니다.
+- **이미지 만들기** : Azure ML 환경에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분** 이 걸립니다.
 
   컨테이너가 후속 실행을 위해 캐시되므로 이 단계는 각 Python 환경에 대해 한 번만 수행됩니다. 이미지 생성 중에 로그가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 이미지 만들기 진행 상황을 모니터링할 수 있습니다.
 
-- **크기 조정**: 원격 클러스터에서 현재 사용 가능한 것보다 더 많은 노드를 실행해야 하는 경우 추가 노드가 자동으로 추가됩니다. 크기 조정에는 일반적으로 **약 5분**이 걸립니다.
+- **크기 조정** : 원격 클러스터에서 현재 사용 가능한 것보다 더 많은 노드를 실행해야 하는 경우 추가 노드가 자동으로 추가됩니다. 크기 조정에는 일반적으로 **약 5분** 이 걸립니다.
 
-- **실행**: 이 단계에서는 필요한 스크립트와 파일이 컴퓨팅 대상으로 보내집니다. 다음으로, 데이터 저장소가 탑재되거나 복사됩니다. 그런 다음, **entry_script**가 실행됩니다. 작업이 실행되는 동안 **stdout** 및 **./logs** 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상황을 모니터링할 수 있습니다.
+- **실행** : 이 단계에서는 필요한 스크립트와 파일이 컴퓨팅 대상으로 보내집니다. 다음으로, 데이터 저장소가 탑재되거나 복사됩니다. 그런 다음, **entry_script** 가 실행됩니다. 작업이 실행되는 동안 **stdout** 및 **./logs** 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상황을 모니터링할 수 있습니다.
 
-- **후 처리 중**: 실행의 **./outputs** 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
+- **후 처리 중** : 실행의 **./outputs** 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
 
 실행 중인 작업의 진행 상황은 여러 가지 방법으로 확인할 수 있습니다. 이 자습서에서는 Jupyter 위젯과 `wait_for_completion` 메서드를 사용합니다.
 
 ### <a name="jupyter-widget"></a>Jupyter 위젯
 
-[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
+[Jupyter 위젯](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ RunDetails(run).show()
 
 ![Notebook 위젯](./media/tutorial-train-models-with-aml/widget.png)
 
-실행을 취소해야 하는 경우 [다음 지침](https://aka.ms/aml-docs-cancel-run)을 따릅니다.
+실행을 취소해야 하는 경우 [다음 지침](./how-to-manage-runs.md)을 따릅니다.
 
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 

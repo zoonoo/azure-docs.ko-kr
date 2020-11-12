@@ -9,21 +9,21 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325811"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio(클래식)
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부** 입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
@@ -48,7 +48,7 @@ ms.locfileid: "91338417"
 
 
 > [!TIP] 
-> 이 자습서에서 개발한 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[자습서 - 신용 위험 예측](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** 으로 이동하고, **Studio에서 열기**를 클릭하여 실험의 복사본을 Machine Learning Studio(클래식) 작업 영역으로 다운로드합니다.
+> 이 자습서에서 개발한 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[자습서 - 신용 위험 예측](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** 으로 이동하고, **Studio에서 열기** 를 클릭하여 실험의 복사본을 Machine Learning Studio(클래식) 작업 영역으로 다운로드합니다.
 > 
 
 
@@ -65,7 +65,7 @@ Machine Learning Studio(클래식)를 사용하려면 Microsoft Azure Machine Le
 > [!TIP]
 > 작업 영역의 소유자인 경우 다른 사용자를 작업 영역에 초대하여 작업 중인 실험을 공유할 수 있습니다. Machine Learning Studio(클래식)의 **설정** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
 > 
-> **설정** 페이지에서 **사용자**를 클릭한 다음 창의 아래쪽에 있는 **더 많은 사용자 초대**를 클릭합니다.
+> **설정** 페이지에서 **사용자** 를 클릭한 다음 창의 아래쪽에 있는 **더 많은 사용자 초대** 를 클릭합니다.
 > 
 
 ## <a name="upload-existing-data"></a><a name="upload"></a>기존 데이터 업로드
@@ -73,9 +73,9 @@ Machine Learning Studio(클래식)를 사용하려면 Microsoft Azure Machine Le
 신용 위험에 대한 예측 모델을 개발하려면 모델을 학습하고 테스트하는 데 사용할 수 있는 데이터가 필요합니다. 이 자습서에서는 UC Irvine Machine Learning 리포지토리의 "UCI Statlog(독일 신용 데이터) 데이터 세트"를 사용합니다. 이 데이터 집합은  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
-**german.data**라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
+**german.data** 라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
 
-**german.data** 데이터 세트에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트(*기능 벡터*)를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
+**german.data** 데이터 세트에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트( *기능 벡터* )를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
 
 UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 설명합니다. 이 데이터에는 재무 정보, 신용 기록, 고용 상태 및 개인 정보가 포함됩니다. 각 지원자에 대해 신용 위험이 낮은지 아니면 높은지 여부를 나타내는 이진 등급이 제공되었습니다. 
 
@@ -111,7 +111,7 @@ cat german.data | %{$_ -replace " ",","} | sc german.csv
 sed 's/ /,/g' german.data > german.csv
 ```
 
-두 경우 모두 쉼표로 구분된 데이터 버전을 실험에 사용할 수 있는 **german.csv**라는 파일에 만들었습니다.
+두 경우 모두 쉼표로 구분된 데이터 버전을 실험에 사용할 수 있는 **german.csv** 라는 파일에 만들었습니다.
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에 데이터 세트 업로드
 
@@ -119,13 +119,13 @@ sed 's/ /,/g' german.data > german.csv
 
 1. Machine Learning Studio(클래식) 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 
 
-2. 창의 왼쪽 상단 모서리에 있는 ![메뉴](./media/tutorial-part1-credit-risk/menu.png)를 클릭하고 **Azure Machine Learning**을 클릭하고 **Studio**를 선택한 다음 로그인합니다.
+2. 창의 왼쪽 상단 모서리에 있는 ![메뉴](./media/tutorial-part1-credit-risk/menu.png)를 클릭하고 **Azure Machine Learning** 을 클릭하고 **Studio** 를 선택한 다음 로그인합니다.
 
 3. 창 아래쪽에서 **+새로 만들기** 를 클릭합니다.
 
-4. **데이터 세트**를 선택합니다.
+4. **데이터 세트** 를 선택합니다.
 
-5. **로컬 파일에서**를 선택합니다.
+5. **로컬 파일에서** 를 선택합니다.
 
     ![로컬 파일에서 데이터 세트 추가](./media/tutorial-part1-credit-risk/add-dataset.png)
 
@@ -153,8 +153,8 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 이 자습서의 다음 단계는 업로드한 데이터 세트를 사용하는 Machine Learning Studio(클래식)에서 실험을 만드는 것입니다.  
 
-1. Studio(클래식)의 창 하단에 있는 **+새로 만들기**를 클릭합니다.
-1. **실험**을 선택하고 "빈 실험"을 선택합니다. 
+1. Studio(클래식)의 창 하단에 있는 **+새로 만들기** 를 클릭합니다.
+1. **실험** 을 선택하고 "빈 실험"을 선택합니다. 
 
     ![새로운 실험 만들기](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -164,12 +164,12 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
     ![실험 이름 바꾸기](./media/tutorial-part1-credit-risk/rename-experiment.png)
 
    > [!TIP]
-   > **속성** 창에 실험에 대한 **요약** 및 **설명**을 입력하는 것이 좋습니다. 이러한 속성을 사용하면 실험을 문서화할 수 있어 나중에 실험을 참조하는 모든 사용자가 실험의 목표와 방법론을 이해할 수 있습니다.
+   > **속성** 창에 실험에 대한 **요약** 및 **설명** 을 입력하는 것이 좋습니다. 이러한 속성을 사용하면 실험을 문서화할 수 있어 나중에 실험을 참조하는 모든 사용자가 실험의 목표와 방법론을 이해할 수 있습니다.
    > 
    > ![실험 속성](./media/tutorial-part1-credit-risk/experiment-properties.png)
    > 
 
-1. 실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 세트**를 확장합니다.
+1. 실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 세트** 를 확장합니다.
 1. **내 데이터 세트** 아래에서 만든 데이터 세트를 찾고 캔버스로 끌어 옵니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 세트를 찾을 수도 있습니다.  
 
     ![실험에 데이터 세트 추가](./media/tutorial-part1-credit-risk/add-dataset-to-experiment.png)
@@ -177,9 +177,9 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 ### <a name="prepare-the-data"></a>데이터 준비
 
-데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
+데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화** 를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
 
-데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2 *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
+데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2 *등* )을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
 열 제목은 [메타데이터 편집][edit-metadata] 모듈을 사용하여 추가할 수 있습니다.
 
@@ -205,9 +205,9 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
     > ![주석이 추가된 메타데이터 모듈 편집](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
     > 
 
-1. [메타데이터 편집][edit-metadata]을 선택한 다음 캔버스 오른쪽의 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
+1. [메타데이터 편집][edit-metadata]을 선택한 다음 캔버스 오른쪽의 **속성** 창에서 **열 선택기 시작** 을 클릭합니다.
 
-1. **열 선택** 대화 상자의 **사용 가능한 열**에서 모든 행을 선택하고 >를 클릭하여 **선택한 열**로 이동시킵니다.
+1. **열 선택** 대화 상자의 **사용 가능한 열** 에서 모든 행을 선택하고 >를 클릭하여 **선택한 열** 로 이동시킵니다.
    대화 상자는 다음과 같습니다.
 
    ![모든 열이 선택된 열 선택기](./media/tutorial-part1-credit-risk/select-columns.png)
@@ -226,7 +226,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
    ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
+   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면( [메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화** 를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
    > 
    > 
 
@@ -274,13 +274,13 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 학습 및 테스트 데이터에 동일한 비용 조정이 포함되도록 [데이터 분할][split] 모듈의 각 출력에 대해 이와 같은 동일한 복제 작업을 수행해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 방금 만든 [R 스크립트 실행][execute-r-script] 모듈을 복제하고 [데이터 분할][split] 모듈의 다른 출력 포트에 연결하는 것입니다.
 
-1. [R 스크립트 실행][execute-r-script] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사**를 선택합니다.
+1. [R 스크립트 실행][execute-r-script] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사** 를 선택합니다.
 
-1. 실험 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+1. 실험 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
 1. 새 모듈을 해당 위치로 끌어 놓은 다음 [데이터 분할][split] 모듈의 오른쪽 출력 포트를 이 새로운 [R 스크립트 실행][execute-r-script] 모듈의 첫 번째 입력 포트에 연결합니다. 
 
-1. 캔버스 맨 아래에서 **실행**을 클릭합니다. 
+1. 캔버스 맨 아래에서 **실행** 을 클릭합니다. 
 
 > [!TIP]
 > R 스크립트 실행 모듈의 복사본에는 원래 모듈과 같은 스크립트가 포함됩니다. 캔버스에서 모듈을 복사하고 붙여넣으면 복사본에서 원본의 모든 속성이 유지됩니다.  
@@ -313,6 +313,6 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 > [자습서 2 - 모델 학습 및 평가](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

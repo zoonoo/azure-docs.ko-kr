@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637363"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318244"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -346,8 +346,6 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
 
     ![데이터 세트 sql 추가](media/lab-data-flow-data-share/add-dataset-sql.png)
 
-> [!NOTE]
-> SQL Data Warehouse는 현재 Azure Synapse Analytics로 바뀌었습니다.
 
 1. 계속 진행할 수 있도록 실행할 스크립트가 제공됩니다. 제공된 스크립트는 Azure 데이터 공유 MSI가 대신 인증할 수 있도록 SQL 데이터베이스에 사용자를 만듭니다. 
 

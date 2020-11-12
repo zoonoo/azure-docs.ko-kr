@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929436"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395294"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Kubernetes에 Azure SQL Edge 컨테이너 배포
 
@@ -48,7 +48,7 @@ Kubernetes 1.6 이상에서는 [스토리지 클래스](https://kubernetes.io/do
 * **Kubernetes 클러스터**
    - 이 자습서를 완료하려면 Kubernetes 클러스터가 필요합니다. 이 단계에서는 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)을 사용하여 클러스터를 관리합니다. 
 
-   - 이 자습서에서는 목적을 달성하기 위해 Azure Kubernetes Service를 사용하여 Azure SQL Edge를 배포합니다. `kubectl`을 사용하여 AKS에서 단일 노드 Kubernetes 클러스터를 만들고 연결하려면 [AKS(Azure Kubernetes Service) 클러스터 배포](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster)를 참조하세요. 
+   - 이 자습서에서는 목적을 달성하기 위해 Azure Kubernetes Service를 사용하여 Azure SQL Edge를 배포합니다. `kubectl`을 사용하여 AKS에서 단일 노드 Kubernetes 클러스터를 만들고 연결하려면 [AKS(Azure Kubernetes Service) 클러스터 배포](../aks/tutorial-kubernetes-deploy-cluster.md)를 참조하세요. 
 
    >[!NOTE]
    >노드 오류로부터 보호하려면 Kubernetes 클러스터에 두 개 이상의 노드가 필요합니다.
@@ -108,7 +108,7 @@ Kubernetes 클러스터에서 [영구적 볼륨](https://kubernetes.io/docs/conc
          storage: 8Gi
    ```
 
-   파일(예: **pvc.yaml**)을 저장합니다.
+   파일(예: **pvc.yaml** )을 저장합니다.
 
 2. Kubernetes에서 영구적 볼륨 클레임을 만듭니다.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >`LoadBalancer` 서비스 유형을 사용하면 1433 포트에서 인터넷을 통해 원격으로 Azure SQL Edge 인스턴스에 액세스할 수 있습니다.
 
-   파일(예: **sqledgedeploy.yaml**)을 저장합니다.
+   파일(예: **sqledgedeploy.yaml** )을 저장합니다.
 
 2. 배포를 만듭니다.
 
@@ -318,8 +318,7 @@ Kubernetes는 Pod를 자동으로 다시 만들어 Azure SQL Edge 인스턴스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Kubernetes 소개](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Kubernetes 소개](../aks/intro-kubernetes.md)
 - [SQL Edge에 ONNX를 사용하는 Machine Learning 및 AI](onnx-overview.md)
 - [IoT Edge를 사용하여 SQL Edge로 엔드투엔드 IoT 솔루션 빌드](tutorial-deploy-azure-resources.md).
 - [Azure SQL Edge에서 데이터 스트리밍](stream-data.md)
-

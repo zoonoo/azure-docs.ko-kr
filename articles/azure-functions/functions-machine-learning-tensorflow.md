@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069615"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422929"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 
@@ -49,10 +49,10 @@ ms.locfileid: "89069615"
     cd functions-python-tensorflow-tutorial
     ```
 
-    - *start*는 자습서의 작업 폴더입니다.
-    - *end*는 참조에 대한 최종 결과 및 전체 구현입니다.
-    - *resources*는 기계 학습 모델 및 도우미 라이브러리를 포함하고 있습니다.
-    - *frontend*는 함수 앱을 호출하는 웹 사이트입니다.
+    - *start* 는 자습서의 작업 폴더입니다.
+    - *end* 는 참조에 대한 최종 결과 및 전체 구현입니다.
+    - *resources* 는 기계 학습 모델 및 도우미 라이브러리를 포함하고 있습니다.
+    - *frontend* 는 함수 앱을 호출하는 웹 사이트입니다.
     
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Python 가상 환경 만들기 및 활성화
 
@@ -122,18 +122,18 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     func init --worker-runtime python
     ```
 
-    초기화 후 *start* 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json*은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
+    초기화 후 *start* 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
 
     > [!TIP]
     > 함수 프로젝트는 특정 런타임에 연결되므로 프로젝트의 모든 함수는 동일한 언어로 작성해야 합니다.
 
-1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
+1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json* 이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py*와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json*의 두 파일이 있습니다. 이러한 파일의 콘텐츠에 대한 자세한 내용은 Python 빠른 시작에서 [파일 콘텐츠 검토](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents)를 참조하세요.
+    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py* 와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json* 의 두 파일이 있습니다. 이러한 파일의 콘텐츠에 대한 자세한 내용은 Python 빠른 시작에서 [파일 콘텐츠 검토](./create-first-function-cli-python.md#optional-examine-the-file-contents)를 참조하세요.
 
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
@@ -146,7 +146,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     
 1. 출력에 `classify` 엔드포인트가 표시되면 ```http://localhost:7071/api/classify?name=Azure``` URL로 이동합니다. 출력에 "Hello Azure!"라는 메시지가 표시됩니다.
 
-1. **Ctrl**-**C**를 사용하여 호스트를 중지합니다.
+1. **Ctrl**-**C** 를 사용하여 호스트를 중지합니다.
 
 
 ## <a name="import-the-tensorflow-model-and-add-helper-code"></a>TensorFlow 모델 가져오기 및 도우미 코드 추가
@@ -180,7 +180,7 @@ Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모�
     
     ---
     
-1. *classify* 폴더에 *model.pb* 및 *labels.txt*라는 파일이 포함되어 있는지 확인합니다. 그렇지 않으면 *start* 폴더에서 명령을 실행했는지 확인합니다.
+1. *classify* 폴더에 *model.pb* 및 *labels.txt* 라는 파일이 포함되어 있는지 확인합니다. 그렇지 않으면 *start* 폴더에서 명령을 실행했는지 확인합니다.
 
 1. *start* 폴더에서 다음 명령을 실행하여 도우미 코드가 있는 파일을 *classify* 폴더에 복사합니다.
 
@@ -204,9 +204,9 @@ Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모�
     
     ---
 
-1. 이제 *classify* 폴더에 *predict.py*라는 파일이 포함되어 있는지 확인합니다.
+1. 이제 *classify* 폴더에 *predict.py* 라는 파일이 포함되어 있는지 확인합니다.
 
-1. 텍스트 편집기에서 *start/requirements.txt*를 열고, 도우미 코드에 필요한 다음 종속성을 추가합니다.
+1. 텍스트 편집기에서 *start/requirements.txt* 를 열고, 도우미 코드에 필요한 다음 종속성을 추가합니다.
 
     ```txt
     tensorflow==1.14
@@ -214,7 +214,7 @@ Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모�
     requests
     ```
     
-1. *requirements.txt*를 저장합니다.
+1. *requirements.txt* 를 저장합니다.
 
 1. *start* 폴더에서 다음 명령을 실행하여 종속성을 설치합니다. 설치하는 데 몇 분 정도 걸릴 수 있으며, 이 기간 동안 다음 섹션의 함수를 계속 수정할 수 있습니다.
 
@@ -222,14 +222,14 @@ Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모�
     pip install --no-cache-dir -r requirements.txt
     ```
     
-    Windows에서 "EnvironmentError: [Errno 2] 해당 파일 또는 디렉터리가 없음으로 인해 패키지를 설치할 수 없습니다."라는 오류가 발생한 후에 *sharded_mutable_dense_hashtable.cpython-37.pyc*와 같이 파일에 대한 긴 경로 이름이 나타날 수 있습니다. 일반적으로 폴더 경로의 깊이가 너무 길어서 이 오류가 발생합니다. 이 경우 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` 레지스트리 키를 `1`로 설정하여 긴 경로를 사용하도록 설정합니다. 또는 Python 인터프리터가 설치된 위치를 확인합니다. 해당 위치의 경로가 긴 경우 경로가 짧은 폴더에 다시 설치해 보세요.
+    Windows에서 "EnvironmentError: [Errno 2] 해당 파일 또는 디렉터리가 없음으로 인해 패키지를 설치할 수 없습니다."라는 오류가 발생한 후에 *sharded_mutable_dense_hashtable.cpython-37.pyc* 와 같이 파일에 대한 긴 경로 이름이 나타날 수 있습니다. 일반적으로 폴더 경로의 깊이가 너무 길어서 이 오류가 발생합니다. 이 경우 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` 레지스트리 키를 `1`로 설정하여 긴 경로를 사용하도록 설정합니다. 또는 Python 인터프리터가 설치된 위치를 확인합니다. 해당 위치의 경로가 긴 경우 경로가 짧은 폴더에 다시 설치해 보세요.
 
 > [!TIP]
-> 첫 번째 예측을 수행하기 위해 *predict.py*를 호출하는 경우 `_initialize`라는 함수가 디스크에서 TensorFlow 모델을 로드하고 글로벌 변수에 캐시합니다. 이렇게 캐시하면 이후의 예측 속도가 향상됩니다. 글로벌 변수를 사용하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md#global-variables)를 참조하세요.
+> 첫 번째 예측을 수행하기 위해 *predict.py* 를 호출하는 경우 `_initialize`라는 함수가 디스크에서 TensorFlow 모델을 로드하고 글로벌 변수에 캐시합니다. 이렇게 캐시하면 이후의 예측 속도가 향상됩니다. 글로벌 변수를 사용하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md#global-variables)를 참조하세요.
 
 ## <a name="update-the-function-to-run-predictions"></a>예측을 실행하도록 함수 업데이트
 
-1. 텍스트 편집기에서 *classify/\_\_init\_\_.py*를 열고, 기존 `import` 문 뒤에 다음 줄을 추가하여 표준 JSON 라이브러리 및 *predict* 도우미를 가져옵니다.
+1. 텍스트 편집기에서 *classify/\_\_init\_\_.py* 를 열고, 기존 `import` 문 뒤에 다음 줄을 추가하여 표준 JSON 라이브러리 및 *predict* 도우미를 가져옵니다.
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
@@ -293,7 +293,7 @@ Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모�
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
     
-1. **제출**을 선택하여 이미지를 분류할 함수 엔드포인트를 호출합니다.
+1. **제출** 을 선택하여 이미지를 분류할 함수 엔드포인트를 호출합니다.
 
     ![완성된 프로젝트의 스크린샷](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
 

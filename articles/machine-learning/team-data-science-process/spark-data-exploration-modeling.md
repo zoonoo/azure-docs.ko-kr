@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314848"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark로 데이터 탐색 및 모델링
 
 Spark MLlib를 사용하여 택시 요금 예측을 위한 기계 학습 모델을 학습하는 데 HDInsight Spark를 사용하는 방법을 알아봅니다.
 
-이 샘플은 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 다양한 단계를 소개합니다. NYC 택시 여행 및 요금 2013 데이터 세트의 하위 집합은 데이터를 로드, 탐색 및 준비하는 데 사용됩니다. 그런 다음, Spark MLlib를 사용하여 여행에 팁이 지불되는지 여부를 예측하고 팁 금액을 추정하기 위해 이진 분류 및 회귀 모델을 학습합니다.
+이 샘플은 [팀 데이터 과학 프로세스](./index.yml)의 다양한 단계를 소개합니다. NYC 택시 여행 및 요금 2013 데이터 세트의 하위 집합은 데이터를 로드, 탐색 및 준비하는 데 사용됩니다. 그런 다음, Spark MLlib를 사용하여 여행에 팁이 지불되는지 여부를 예측하고 팁 금액을 추정하기 위해 이진 분류 및 회귀 모델을 학습합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -340,8 +340,8 @@ taxi_df_train_with_newFeatures.count()
 
 이 섹션에는 모델링 기능에 입력에 대한 범주 기능을 인덱싱하거나 인코딩하는 방법을 보여줍니다. MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이터로 기능을 인덱싱 또는 인코딩해야 합니다. 모델에 따라 다양한 방식에서 인덱싱하거나 인코딩해야 합니다.  
 
-* **트리 기반 모델링**은 범주를 숫자 값(예: 3개 범주가 있는 기능은 0, 1, 2로 인코딩 가능)으로 인코딩해야 합니다. 이 알고리즘은 MLlib의 [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 함수에서 제공됩니다. 이 함수는 레이블의 문자열 열을 레이블 주파수에서 정렬한 레이블 인덱스의 열로 인코딩합니다. 입력 및 데이터 처리를 위해 숫자 값으로 인덱스되더라도 범주로 처리되도록 트리 기반 알고리즘을 적절히 지정할 수 있습니다. 
-* **로지스틱 및 선형 회귀 모델**은 원 핫 인코딩(one-hot encoding)이 필요하며 이런 경우, 예를 들어 3개의 범주가 있는 기능이 관찰 범주에 따라 각각 0 또는 1을 포함하는 3개의 기능 열로 확장될 수 있습니다. MLlib는 원 핫 인코딩 작업을 수행하는 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 함수를 제공합니다. 이 인코더는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 분석 등과 같은 숫자 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
+* **트리 기반 모델링** 은 범주를 숫자 값(예: 3개 범주가 있는 기능은 0, 1, 2로 인코딩 가능)으로 인코딩해야 합니다. 이 알고리즘은 MLlib의 [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 함수에서 제공됩니다. 이 함수는 레이블의 문자열 열을 레이블 주파수에서 정렬한 레이블 인덱스의 열로 인코딩합니다. 입력 및 데이터 처리를 위해 숫자 값으로 인덱스되더라도 범주로 처리되도록 트리 기반 알고리즘을 적절히 지정할 수 있습니다. 
+* **로지스틱 및 선형 회귀 모델** 은 원 핫 인코딩(one-hot encoding)이 필요하며 이런 경우, 예를 들어 3개의 범주가 있는 기능이 관찰 범주에 따라 각각 0 또는 1을 포함하는 3개의 기능 열로 확장될 수 있습니다. MLlib는 원 핫 인코딩 작업을 수행하는 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 함수를 제공합니다. 이 인코더는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 분석 등과 같은 숫자 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
 
 다음은 범주 기능을 인덱스 및 인코딩하는 코드입니다.
 
@@ -697,7 +697,7 @@ F1 Score = 0.984304060189
 
 **ROC 곡선을 그립니다.**
 
-*predictionAndLabelsDF*는 이전 셀에서 테이블 *tmp_results*로 등록되었습니다. *tmp_results*를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
+*predictionAndLabelsDF* 는 이전 셀에서 테이블 *tmp_results* 로 등록되었습니다. *tmp_results* 를 사용하면 쿼리를 수행하고 결과를 sqlResults 데이터 프레임으로 출력하여 그래프에 표시할 수 있습니다. 코드는 다음과 같습니다.
 
 ```python
 # QUERY RESULTS                              
@@ -1026,7 +1026,7 @@ R-sqr = 0.753835096681
 
 **그림**
 
-*tmp_results*는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
+*tmp_results* 는 이전 셀에서 Hive 테이블로 등록되어 있습니다. 테이블의 결과는 그래프로 나타내기 위해 *sqlResults* 데이터 프레임에 출력됩니다. 코드는 다음과 같습니다.
 
 ```python
 # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
@@ -1119,4 +1119,4 @@ Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점�
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
 
-**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md)을 참조하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수 비우기** : 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md)을 참조하세요.

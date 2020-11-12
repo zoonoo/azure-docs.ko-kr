@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530071"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423031"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
@@ -53,9 +53,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **리소스 만들기** 단추를 선택합니다.
 
-1. 검색 필드에 **Windows Server**를 입력하고 검색 결과에서 **Windows Server**를 선택합니다.
+1. 검색 필드에 **Windows Server** 를 입력하고 검색 결과에서 **Windows Server** 를 선택합니다.
 
-1. Windows Server 옵션 목록에서 **Windows Server 2019 Datacenter**를 선택하고, **만들기** 단추를 누릅니다.
+1. Windows Server 옵션 목록에서 **Windows Server 2019 Datacenter** 를 선택하고, **만들기** 단추를 누릅니다.
 
 1. _기본 사항_ 탭에서 VM 설정을 이미지 아래의 표에서 지정한 대로 사용합니다.
 
@@ -68,14 +68,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | [_리소스 그룹_](../azure-resource-manager/management/overview.md) | myResourceGroup | 이 자습서의 모든 리소스를 포함할 리소스 그룹을 선택합니다.  동일한 리소스 그룹을 사용하면 이 자습서를 완료할 때 리소스를 더 쉽게 정리할 수 있습니다. |
     | _가상 머신 이름_ | myVM | VM 이름은 리소스 그룹에서 고유해야 합니다. |
     | [_지역_](https://azure.microsoft.com/regions/) | (미국) 미국 중북부 | 사용자 또는 액세스할 함수 근처의 지역을 선택합니다. |
-    | _퍼블릭 인바운드 포트_ | None | 인터넷에서 VM으로의 인바운드 연결을 사용하지 못하도록 하려면 **없음**을 선택합니다. VM에 대한 원격 액세스는 Azure Bastion 서비스를 통해 구성됩니다. |
+    | _퍼블릭 인바운드 포트_ | None | 인터넷에서 VM으로의 인바운드 연결을 사용하지 못하도록 하려면 **없음** 을 선택합니다. VM에 대한 원격 액세스는 Azure Bastion 서비스를 통해 구성됩니다. |
 
-1. _네트워킹_ 탭을 선택하고, **새로 만들기**를 선택하여 새 가상 네트워크를 구성합니다.
+1. _네트워킹_ 탭을 선택하고, **새로 만들기** 를 선택하여 새 가상 네트워크를 구성합니다.
 
     >[!div class="mx-imgBorder"]
     >!["가상 네트워크" 섹션에 "새로 만들기" 작업이 강조 표시된 "네트워킹" 탭을 보여주는 스크린샷.](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. _가상 네트워크 만들기_에서 이미지 아래의 표에서 설명하는 설정을 사용합니다.
+1. _가상 네트워크 만들기_ 에서 이미지 아래의 표에서 설명하는 설정을 사용합니다.
 
     >[!div class="mx-imgBorder"]
     >![새 VM에 대한 새 가상 네트워크 만들기](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -85,22 +85,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | _이름_ | myResourceGroup-vnet | 가상 네트워크에 대해 생성된 기본 이름을 사용할 수 있습니다. |
     | _주소 범위_ | 10.10.0.0/16 | 가상 네트워크에 단일 주소 범위를 사용합니다. |
     | _서브넷 이름_ | 자습서 | 서브넷 이름입니다. |
-    | _주소 범위_(서브넷) | 10.10.1.0/24 | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 VM에서 사용합니다. /24 서브넷은 254개의 호스트 주소를 제공합니다. |
+    | _주소 범위_ (서브넷) | 10.10.1.0/24 | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 VM에서 사용합니다. /24 서브넷은 254개의 호스트 주소를 제공합니다. |
 
-1. **확인**을 선택하여 가상 네트워크를 만듭니다.
-1. _네트워킹_ 탭으로 돌아가서 _공용 IP_에 대해 **없음**이 선택되어 있는지 확인합니다.
-1. _관리_ 탭을 선택한 다음, _진단 스토리지 계정_에서 **새로 만들기**를 선택하여 새 스토리지 계정을 만듭니다.
-1. _ID_, _자동 종료_ 및 _백업_ 섹션의 기본값을 그대로 둡니다.
-1. _검토 + 만들기_를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다.
+1. **확인** 을 선택하여 가상 네트워크를 만듭니다.
+1. _네트워킹_ 탭으로 돌아가서 _공용 IP_ 에 대해 **없음** 이 선택되어 있는지 확인합니다.
+1. _관리_ 탭을 선택한 다음, _진단 스토리지 계정_ 에서 **새로 만들기** 를 선택하여 새 스토리지 계정을 만듭니다.
+1. _ID_ , _자동 종료_ 및 _백업_ 섹션의 기본값을 그대로 둡니다.
+1. _검토 + 만들기_ 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다.
 
 ## <a name="configure-azure-bastion"></a>Azure Bastion 구성
 
 [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/)은 Azure Portal에서 직접 가상 머신에 대한 보안 RDP 및 SSH 액세스를 제공하는 완전 관리형 Azure 서비스입니다. Azure Bastion 서비스를 사용하면 RDP 액세스와 관련된 네트워크 설정을 구성할 필요가 없습니다.
 
-1. 포털에서 리소스 그룹 보기의 위쪽에 있는 **추가**를 선택합니다.
-1. 검색 필드에 **Bastion**을 입력합니다.
-1. 검색 결과에서 **Bastion**을 선택합니다.
-1. **만들기**를 선택하여 새 Azure Bastion 리소스 만들기 프로세스를 시작합니다. 아직 AzureBastionSubnet 서브넷이 없으므로 _가상 네트워크_ 섹션에 오류 메시지가 표시됩니다. 서브넷은 다음 단계에서 만들어집니다. 이미지 아래의 표에서 설명하는 설정을 사용합니다.
+1. 포털에서 리소스 그룹 보기의 위쪽에 있는 **추가** 를 선택합니다.
+1. 검색 필드에 **Bastion** 을 입력합니다.
+1. 검색 결과에서 **Bastion** 을 선택합니다.
+1. **만들기** 를 선택하여 새 Azure Bastion 리소스 만들기 프로세스를 시작합니다. 아직 AzureBastionSubnet 서브넷이 없으므로 _가상 네트워크_ 섹션에 오류 메시지가 표시됩니다. 서브넷은 다음 단계에서 만들어집니다. 이미지 아래의 표에서 설명하는 설정을 사용합니다.
 
     >[!div class="mx-imgBorder"]
     >![Azure Bastion 만들기 시작](./media/functions-create-private-site-access/create-bastion-basics-1.png)
@@ -115,25 +115,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     > [!NOTE]
     > Azure Bastion 리소스를 만드는 방법에 대한 자세한 단계별 가이드는 [Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md) 자습서를 참조하세요.
 
-1. Azure에서 Azure Bastion 호스트를 프로비저닝할 수 있는 서브넷을 만듭니다. **서브넷 구성 관리**를 선택하면 새 서브넷을 정의할 수 있는 새 창이 열립니다.  **+ 서브넷**을 선택하여 새 서브넷을 만듭니다.
-1. 서브넷 이름은 **AzureBastionSubnet**이고, 서브넷 접두사는 **/27** 이상이어야 합니다.  **확인**을 선택하여 서브넷을 만듭니다.
+1. Azure에서 Azure Bastion 호스트를 프로비저닝할 수 있는 서브넷을 만듭니다. **서브넷 구성 관리** 를 선택하면 새 서브넷을 정의할 수 있는 새 창이 열립니다.  **+ 서브넷** 을 선택하여 새 서브넷을 만듭니다.
+1. 서브넷 이름은 **AzureBastionSubnet** 이고, 서브넷 접두사는 **/27** 이상이어야 합니다.  **확인** 을 선택하여 서브넷을 만듭니다.
 
     >[!div class="mx-imgBorder"]
     >![Azure Bastion 호스트에 대한 서브넷 만들기](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-1. _Bastion 만들기_ 페이지의 사용 가능한 서브넷 목록에서 새로 만든 **AzureBastionSubnet**을 선택합니다.
+1. _Bastion 만들기_ 페이지의 사용 가능한 서브넷 목록에서 새로 만든 **AzureBastionSubnet** 을 선택합니다.
 
     >[!div class="mx-imgBorder"]
     >![특정 서브넷을 사용하여 Azure Bastion 호스트 만들기](./media/functions-create-private-site-access/create-bastion-basics-2.png)
 
-1. **검토 및 만들기**를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택합니다. Azure Bastion 리소스를 만드는 데 몇 분 정도 걸립니다.
+1. **검토 및 만들기** 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다. Azure Bastion 리소스를 만드는 데 몇 분 정도 걸립니다.
 
 ## <a name="create-an-azure-functions-app"></a>Azure Functions 앱 만들기
 
 다음 단계는 [사용 계획](functions-scale.md#consumption-plan)을 사용하여 Azure에서 함수 앱을 만드는 것입니다. 자습서의 뒷부분에서 함수 코드를 이 리소스에 배포합니다.
 
-1. 포털에서 리소스 그룹 보기의 위쪽에 있는 **추가**를 선택합니다.
-1. **컴퓨팅 > 함수 앱**을 차례로 선택합니다.
+1. 포털에서 리소스 그룹 보기의 위쪽에 있는 **추가** 를 선택합니다.
+1. **컴퓨팅 > 함수 앱** 을 차례로 선택합니다.
 1. _기본 사항_ 섹션에서 함수 앱 설정을 아래 표에서 지정한 대로 사용합니다.
 
     | 설정      | 제안 값  | Description      |
@@ -145,15 +145,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | _지역_ | 미국 중북부 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
     페이지 맨 아래에서 **다음: 호스팅 >** 단추를 선택합니다.
-1. _호스팅_ 섹션에서 다음 표에 설명된 대로 적절한 _스토리지 계정_, _운영 체제_  및 _계획_을 선택합니다.
+1. _호스팅_ 섹션에서 다음 표에 설명된 대로 적절한 _스토리지 계정_ , _운영 체제_  및 _계획_ 을 선택합니다.
 
     | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | _스토리지 계정_ | 전역적으로 고유한 이름 | 함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](./functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
     | _운영 체제_ | 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
     | _계획_ | Consumption | [호스팅 계획](./functions-scale.md)은 함수 앱의 크기를 조정하는 방법과 각 인스턴스에서 사용할 수 있는 리소스를 지정합니다. |
-1. **검토 + 만들기**를 선택하여 앱 구성 선택을 검토합니다.
-1. **만들기**를 선택하여 함수 앱을 프로비전하고 배포합니다.
+1. **검토 + 만들기** 를 선택하여 앱 구성 선택을 검토합니다.
+1. **만들기** 를 선택하여 함수 앱을 프로비전하고 배포합니다.
 
 ## <a name="configure-access-restrictions"></a>액세스 제한 구성
 
@@ -163,13 +163,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 함수 앱 내에서 _설정_ 섹션 헤더 아래의 **네트워킹** 링크를 선택합니다.
 1. _네트워킹_ 페이지는 Azure Front Door, Azure CDN 및 액세스 제한을 구성하기 위한 시작 지점입니다.
-1. **액세스 제한 구성**을 선택하여 프라이빗 사이트 액세스를 구성합니다.
-1. _액세스 제한_ 페이지에서 기본 제한만 표시됩니다. 기본값은 함수 앱에 대한 액세스를 제한하지 않습니다.  **규칙 추가**를 선택하여 프라이빗 사이트 액세스 제한 구성을 만듭니다.
-1. _액세스 제한 추가_ 창에서 새 규칙에 대한 _이름_, _우선 순위_ 및 _설명_을 제공합니다.
-1. _형식_ 드롭다운 상자에서 **Virtual Network**를 선택한 후, 이전에 만든 가상 네트워크를 선택한 다음, **자습서** 서브넷을 선택합니다. 
+1. **액세스 제한 구성** 을 선택하여 프라이빗 사이트 액세스를 구성합니다.
+1. _액세스 제한_ 페이지에서 기본 제한만 표시됩니다. 기본값은 함수 앱에 대한 액세스를 제한하지 않습니다.  **규칙 추가** 를 선택하여 프라이빗 사이트 액세스 제한 구성을 만듭니다.
+1. _액세스 제한 추가_ 창에서 새 규칙에 대한 _이름_ , _우선 순위_ 및 _설명_ 을 제공합니다.
+1. _형식_ 드롭다운 상자에서 **Virtual Network** 를 선택한 후, 이전에 만든 가상 네트워크를 선택한 다음, **자습서** 서브넷을 선택합니다. 
     > [!NOTE]
     > 서비스 엔드포인트를 활성화하는 데 몇 분 정도 걸릴 수 있습니다.
-1. _액세스 제한_ 페이지에서 이제 새 제한이 있음을 보여 줍니다. _엔드포인트 상태_가 프로비저닝을 통해 비활성화에서 활성화로 변경되는 데 몇 초 정도 걸릴 수 있습니다.
+1. _액세스 제한_ 페이지에서 이제 새 제한이 있음을 보여 줍니다. _엔드포인트 상태_ 가 프로비저닝을 통해 비활성화에서 활성화로 변경되는 데 몇 초 정도 걸릴 수 있습니다.
 
     >[!IMPORTANT]
     > 각 함수 앱에는 함수 앱 배포를 관리하는 데 사용되는 [고급 도구(Kudu) 사이트](../app-service/app-service-ip-restrictions.md#scm-site)가 있습니다. 이 사이트는 `<FUNCTION_APP_NAME>.scm.azurewebsites.net`과 같은 URL에서 액세스합니다. Kudu 사이트에서 액세스 제한을 사용하도록 설정하면 로컬 개발자 워크스테이션에서 프로젝트 코드를 배포할 수 없으므로 가상 네트워크 내에서 배포를 수행하는 에이전트가 필요합니다.
@@ -183,9 +183,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     지금 가상 네트워크 외부의 컴퓨터에서 함수 앱에 액세스하려고 하면 해당 액세스가 금지되었음을 나타내는 HTTP 403 페이지가 표시됩니다.
 1. 리소스 그룹으로 돌아가서 이전에 만든 가상 머신을 선택합니다. VM에서 사이트에 액세스하려면 Azure Bastion 서비스를 통해 VM에 연결해야 합니다.
-1. **연결**을 선택한 다음, **Bastion**을 선택합니다.
+1. **연결** 을 선택한 다음, **Bastion** 을 선택합니다.
 1. 가상 머신에 로그인하는 데 필요한 사용자 이름과 암호를 제공합니다.
-1. **연결**을 선택합니다. 가상 머신과 상호 작용할 수 있는 새 브라우저 창이 표시됩니다.
+1. **연결** 을 선택합니다. 가상 머신과 상호 작용할 수 있는 새 브라우저 창이 표시됩니다.
 VM이 가상 네트워크를 통해 사이트에 액세스하므로 VM의 웹 브라우저에서 사이트에 액세스할 수 있습니다.  사이트는 지정된 가상 네트워크 내에서만 액세스할 수 있지만 공용 DNS 항목은 그대로 유지됩니다.
 
 ## <a name="create-a-function"></a>함수 만들기
@@ -197,7 +197,7 @@ VM이 가상 네트워크를 통해 사이트에 액세스하므로 VM의 웹 �
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [명령줄](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven(Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven(Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Azure Functions 프로젝트를 게시하는 경우 이 자습서의 앞부분에서 만든 함수 앱 리소스를 선택합니다.
 1. 함수가 배포되었는지 확인합니다.
@@ -207,7 +207,7 @@ VM이 가상 네트워크를 통해 사이트에 액세스하므로 VM의 웹 �
 
 ## <a name="invoke-the-function-directly"></a>직접 함수 호출
 
-1. 함수에 대한 액세스를 테스트하려면 함수 URL을 복사해야 합니다. 배포된 함수를 선택한 다음, **함수 URL 가져오기**를 선택합니다. 그런 다음, **복사** 단추를 클릭하여 URL을 클립보드에 복사합니다.
+1. 함수에 대한 액세스를 테스트하려면 함수 URL을 복사해야 합니다. 배포된 함수를 선택한 다음, **함수 URL 가져오기** 를 선택합니다. 그런 다음, **복사** 단추를 클릭하여 URL을 클립보드에 복사합니다.
 
     >[!div class="mx-imgBorder"]
     >![함수 URL 복사](./media/functions-create-private-site-access/get-function-url.png)

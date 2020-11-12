@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 3f131e1f8d5604e566c8d7b41fa9d45cb7d2a7a2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054885"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309460"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -63,7 +63,7 @@ ws = Workspace.from_config()
 
 `pipelinedata` 계정의 `sampledata` 퍼블릭 Blob 컨테이너에서 ImageNet 평가 퍼블릭 데이터 샘플을 가져옵니다. `images_datastore`라는 이름의 작업 영역에서 데이터를 사용할 수 있도록 `register_azure_blob_container()`를 호출합니다. 그런 다음, 작업 영역 기본 데이터 저장소를 출력 데이터 저장소로 설정합니다. 출력 데이터 저장소를 사용하여 파이프라인의 출력을 채점합니다.
 
-데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 액세스하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk)을 참조하세요.
+데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 액세스하는 방법](./how-to-access-data.md)을 참조하세요.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -84,9 +84,9 @@ def_data_store = ws.get_default_datastore()
 > [!Important]
 > 이 자습서의 일괄 처리 채점 예제에서는 하나의 파이프라인 단계만 사용합니다. 여러 단계가 있는 사용 사례의 일반적인 흐름에 포함되는 단계는 다음과 같습니다.
 >
-> 1. `Dataset` 개체를 *입력*으로 사용하여 원시 데이터를 가져오고, 일부 변환을 수행한 다음, `PipelineData` 개체를 *출력*합니다.
+> 1. `Dataset` 개체를 *입력* 으로 사용하여 원시 데이터를 가져오고, 일부 변환을 수행한 다음, `PipelineData` 개체를 *출력* 합니다.
 >
-> 2. 이전 단계의 `PipelineData` *출력 개체*를 *입력 개체*로 사용합니다. 이후 단계에서 이 작업을 반복합니다.
+> 2. 이전 단계의 `PipelineData` *출력 개체* 를 *입력 개체* 로 사용합니다. 이후 단계에서 이 작업을 반복합니다.
 
 이 시나리오에서는 입력 이미지와 분류 레이블(y-test 값) 모두에 대한 데이터 저장소 디렉터리에 해당하는 `Dataset` 개체를 만듭니다. 일괄 처리 채점 출력 데이터에 대한 `PipelineData` 개체도 만듭니다.
 
@@ -140,9 +140,9 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 ## <a name="create-and-attach-the-remote-compute-target"></a>원격 컴퓨팅 대상 만들기 및 연결
 
-기계 학습 파이프라인은 로컬로 실행할 수 없으므로 클라우드 리소스 또는 *원격 컴퓨팅 대상*에서 실행합니다. 원격 컴퓨팅 대상은 실험 및 기계 학습 워크플로를 실행하는 재사용 가능한 가상 컴퓨팅 환경입니다. 
+기계 학습 파이프라인은 로컬로 실행할 수 없으므로 클라우드 리소스 또는 *원격 컴퓨팅 대상* 에서 실행합니다. 원격 컴퓨팅 대상은 실험 및 기계 학습 워크플로를 실행하는 재사용 가능한 가상 컴퓨팅 환경입니다. 
 
-다음 코드를 실행하여 GPU 사용 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조하세요.
+다음 코드를 실행하여 GPU 사용 [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](./concept-compute-target.md)를 참조하세요.
 
 
 ```python
@@ -305,9 +305,9 @@ parallel_run_config = ParallelRunConfig(
 * 입력 및 출력 데이터와 모든 사용자 지정 매개 변수
 * 단계 중에 실행할 스크립트 또는 SDK 논리에 대한 참조
 
-여러 클래스가 [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 다음 예제에서는 사용자 지정 Python 스크립트를 사용하여 단계 논리를 정의하는 `ParallelRunStep` 클래스를 사용합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 `arguments` 배열 *및*`input` 또는 `output` 매개 변수에 *모두* 정의되어야 합니다. 
+여러 클래스가 [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 다음 예제에서는 사용자 지정 Python 스크립트를 사용하여 단계 논리를 정의하는 `ParallelRunStep` 클래스를 사용합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 `arguments` 배열 *및*`input` 또는 `output` 매개 변수에 *모두* 정의되어야 합니다. 
 
-둘 이상의 단계가 있는 시나리오에서는 `outputs` 배열의 개체 참조는 이후 파이프라인 단계에 대한 *입력*으로 사용할 수 있게 됩니다.
+둘 이상의 단계가 있는 시나리오에서는 `outputs` 배열의 개체 참조는 이후 파이프라인 단계에 대한 *입력* 으로 사용할 수 있게 됩니다.
 
 ```python
 from azureml.pipeline.steps import ParallelRunStep
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-다른 단계 유형에 사용할 수 있는 모든 클래스의 목록은 [steps 패키지](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)를 참조하세요.
+다른 단계 유형에 사용할 수 있는 모든 클래스의 목록은 [steps 패키지](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py)를 참조하세요.
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
@@ -338,7 +338,7 @@ batch_score_step = ParallelRunStep(
 다음으로, `Experiment.submit()` 함수를 사용하여 실행할 파이프라인을 제출합니다. `wait_for_completion` 함수는 파이프라인 빌드 프로세스 중에 로그를 출력합니다. 로그를 사용하여 현재 진행 상황을 파악할 수 있습니다.
 
 > [!IMPORTANT]
-> 첫 번째 파이프라인 실행에는 약 *15분*이 걸립니다. 모든 종속성을 다운로드해야 하고, Docker 이미지를 만들고, Python 환경을 프로비저닝하고 만듭니다. 파이프라인을 다시 실행하면 해당 리소스를 만드는 대신 다시 사용하므로 이 실행에 걸리는 시간이 크게 줄어듭니다. 그러나 파이프라인의 총 실행 시간은 스크립트의 워크로드 및 각 파이프라인 단계에서 실행되는 프로세스에 따라 달라집니다.
+> 첫 번째 파이프라인 실행에는 약 *15분* 이 걸립니다. 모든 종속성을 다운로드해야 하고, Docker 이미지를 만들고, Python 환경을 프로비저닝하고 만듭니다. 파이프라인을 다시 실행하면 해당 리소스를 만드는 대신 다시 사용하므로 이 실행에 걸리는 시간이 크게 줄어듭니다. 그러나 파이프라인의 총 실행 시간은 스크립트의 워크로드 및 각 파이프라인 단계에서 실행되는 프로세스에 따라 달라집니다.
 
 ```python
 from azureml.core import Experiment
@@ -386,9 +386,9 @@ published_pipeline
 
 REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 유형의 인증 헤더가 필요합니다. 다음 예제에서는 설명을 위해 대화형 인증을 사용하지만, 자동화된 인증 또는 헤드리스 인증이 필요한 대부분의 프로덕션 시나리오에서는 [이 문서에서 설명한 대로](how-to-setup-authentication.md) 서비스 주체 인증을 사용합니다.
 
-서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) 클래스를 사용하여 관리합니다. 
+서비스 주체 인증에는 *앱 등록* 을 *Azure Active Directory* 에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) 클래스를 사용하여 관리합니다. 
 
-[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
+[`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -438,12 +438,12 @@ RunDetails(published_pipeline_run).show()
 
 자신이 만든 리소스를 사용하지 않으려는 경우 요금이 발생하지 않도록 삭제하세요.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 리소스 그룹 목록에서 만든 리소스 그룹을 선택합니다.
-1. **리소스 그룹 삭제**를 선택합니다.
-1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택합니다.
+1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제** 를 선택합니다.
 
-또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시한 다음, **삭제**를 선택합니다.
+또한 리소스 그룹을 유지하면서 단일 작업 영역을 삭제할 수도 있습니다. 작업 영역 속성을 표시한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

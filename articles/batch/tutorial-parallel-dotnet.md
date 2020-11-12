@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537585"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335658"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "91537585"
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-* [Windows 64비트 버전의 ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
+* [Windows 64비트 버전의 ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -45,9 +45,9 @@ ms.locfileid: "91537585"
 
 Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [애플리케이션 패키지](batch-application-packages.md)로 추가합니다. 애플리케이션 패키지를 사용하면 풀의 컴퓨팅 노드에 태스크 애플리케이션 및 해당 배포를 간편하게 관리할 수 있습니다. 
 
-1. Azure Portal에서 **추가 서비스** > **Batch 계정**을 클릭하고 Batch 계정의 이름을 클릭합니다.
-3. **애플리케이션** > **추가**를 클릭합니다.
-4. **애플리케이션 ID**에 *ffmpeg*와 패키지 버전 *4.3.1*을 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
+1. Azure Portal에서 **추가 서비스** > **Batch 계정** 을 클릭하고 Batch 계정의 이름을 클릭합니다.
+3. **애플리케이션** > **추가** 를 클릭합니다.
+4. **애플리케이션 ID** 에 *ffmpeg* 와 패키지 버전 *4.3.1* 을 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인** 을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
 
 ![애플리케이션 패키지 추가](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -91,7 +91,7 @@ const string appPackageVersion = "4.3.1";
 
 Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 애플리케이션을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
-* 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
+* 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드** 를 클릭합니다. 
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
@@ -118,13 +118,13 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 컴퓨팅 노드에 대한 열 지도를 보려면 **풀** > *WinFFmpegPool*을 클릭합니다.
+Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 컴퓨팅 노드에 대한 열 지도를 보려면 **풀** > *WinFFmpegPool* 을 클릭합니다.
 
 태스크가 실행 중일 때 열 지도는 다음과 유사합니다.
 
 ![풀 열 지도](./media/tutorial-parallel-dotnet/pool.png)
 
-기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 10분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다.
+기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 10분** 입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다.
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -313,7 +313,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 앱은 태스크를 실행한 후 생성된 입력 스토리지 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 출력 파일은 스토리지 계정에 남아 있습니다.
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

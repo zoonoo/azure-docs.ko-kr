@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913282"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321521"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>웹 서비스로 배포
 
-이 모델을 사용하여 충돌에 따른 사망 위험을 예측할 수 있습니다. Azure ML을 사용하여 모델을 예측 서비스로 배포합니다. 이 자습서에서는 ACI([Azure Container Instances](https://docs.microsoft.com/azure/container-instances/))에서 웹 서비스를 배포합니다.
+이 모델을 사용하여 충돌에 따른 사망 위험을 예측할 수 있습니다. Azure ML을 사용하여 모델을 예측 서비스로 배포합니다. 이 자습서에서는 ACI([Azure Container Instances](../container-instances/index.yml))에서 웹 서비스를 배포합니다.
 
 ### <a name="register-the-model"></a>모델 등록
 

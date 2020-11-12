@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321557"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 
@@ -52,16 +52,16 @@ TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 
 Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저 작업 영역을 만들어야 합니다. 작업 영역에는 학습된 모델 자체뿐만 아니라 모델을 학습시킬 수 있는 리소스도 포함됩니다. 자세한 내용은 [작업 영역이란?](./concept-workspace.md)을 참조하세요. 
 
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택하여 Azure Machine Learning 보기를 엽니다.
-1. Azure 구독을 마우스 오른쪽 단추로 클릭하고 **작업 영역 만들기**를 선택합니다. 
+1. Azure 구독을 마우스 오른쪽 단추로 클릭하고 **작업 영역 만들기** 를 선택합니다. 
     
     > [!div class="mx-imgBorder"]
     > ![작업 영역 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
 
 1. 기본적으로 만든 날짜와 시간이 포함된 이름이 생성됩니다. 텍스트 입력 상자에서 이름을 "TeamWorkspace"로 변경하고, **Enter** 키를 누릅니다.
-1. **새 리소스 그룹 만들기**를 선택합니다. 
+1. **새 리소스 그룹 만들기** 를 선택합니다. 
 1. 리소스 그룹 이름을 "TeamWorkspace-rg"로 지정하고, **Enter** 키를 누릅니다. 
 1. 작업 영역에 대한 위치를 선택합니다. 모델을 배포하려는 위치와 가장 가까운 위치를 선택하는 것이 좋습니다. 예를 들어 "미국 서부 2"입니다.
-1. 작업 영역 유형을 선택하라는 메시지가 표시되면 **기본**을 선택합니다.
+1. 작업 영역 유형을 선택하라는 메시지가 표시되면 **기본** 을 선택합니다.
 
 이 시점에서 새 작업 영역을 계정에 만들도록 요구하는 요청을 Azure에 보냅니다. 몇 분 후에 새 작업 영역이 구독 노드에 표시됩니다. 
 
@@ -73,7 +73,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. 구독 노드를 펼칩니다.
 1. **TeamWorkspace** 노드를 펼칩니다. 
 1. 마우스 오른쪽 단추로 **실험** 노드를 클릭합니다.
-1. 상황에 맞는 메뉴에서 **실험 만들기**를 선택합니다.
+1. 상황에 맞는 메뉴에서 **실험 만들기** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![실험 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
@@ -91,13 +91,13 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace** 노드를 펼칩니다. 
-1. 작업 영역 노드에서 **컴퓨팅 클러스터** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기**를 선택합니다. 
+1. 작업 영역 노드에서 **컴퓨팅 클러스터** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기** 를 선택합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![컴퓨팅 대상 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. **Azure Machine Learning 컴퓨팅(AmlCompute)** 을 선택합니다. Azure Machine Learning 컴퓨팅은 사용자가 작업 영역에서 다른 사용자와 함께 사용할 수 있는 단일 또는 다중 노드 컴퓨팅을 쉽게 만들 수 있는 관리형 컴퓨팅 인프라입니다.
-1. VM 크기를 선택합니다. 옵션 목록에서 **Standard_F2s_v2**를 선택합니다. VM 크기는 모델을 학습시키는 데 걸리는 시간에 영향을 줍니다. VM 크기에 대한 자세한 내용은 [Azure에서 Linux 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
+1. VM 크기를 선택합니다. 옵션 목록에서 **Standard_F2s_v2** 를 선택합니다. VM 크기는 모델을 학습시키는 데 걸리는 시간에 영향을 줍니다. VM 크기에 대한 자세한 내용은 [Azure에서 Linux 가상 머신에 대한 크기](../virtual-machines/sizes.md)를 참조하세요.
 1. 컴퓨팅 이름을 "TeamWkspc-com"으로 지정하고, **Enter** 키를 눌러 컴퓨팅을 만듭니다.
 
     파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
@@ -122,7 +122,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     }
     ```
 
-1. 구성에 만족하는 경우 **보기 > 명령 팔레트**를 차례로 선택하여 명령 팔레트를 엽니다.
+1. 구성에 만족하는 경우 **보기 > 명령 팔레트** 를 차례로 선택하여 명령 팔레트를 엽니다.
 1. 명령 팔레트에서 다음 명령을 입력하여 실행 구성 파일을 저장합니다.
 
     ```text
@@ -140,16 +140,16 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace > 컴퓨팅 클러스터** 노드를 확장합니다. 
-1. 컴퓨팅 노드 아래에서 마우스 오른쪽 단추로 **TeamWkspc-com** 컴퓨팅 노드를 클릭하고 **실행 구성 만들기**를 선택합니다.
+1. 컴퓨팅 노드 아래에서 마우스 오른쪽 단추로 **TeamWkspc-com** 컴퓨팅 노드를 클릭하고 **실행 구성 만들기** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![실행 구성 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
 
 1. 실행 구성 이름을 "MNIST-rc"로 지정하고, **Enter** 키를 눌러 실행 구성을 만듭니다.
-1. 그런 다음, **새 Azure ML 환경 만들기**를 선택합니다. 환경에서는 스크립트를 실행하는 데 필요한 종속성을 정의합니다.
-1. 사용자 환경 이름을 "MNIST-env"로 지정하고 **Enter**를 누릅니다.
-1. 목록에서 **Conda 종속성 파일**을 선택합니다.
-1. **Enter**를 눌러 Conda 종속성 파일을 찾아봅니다. 이 경우 종속성 파일은 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `env.yml` 파일입니다.
+1. 그런 다음, **새 Azure ML 환경 만들기** 를 선택합니다. 환경에서는 스크립트를 실행하는 데 필요한 종속성을 정의합니다.
+1. 사용자 환경 이름을 "MNIST-env"로 지정하고 **Enter** 를 누릅니다.
+1. 목록에서 **Conda 종속성 파일** 을 선택합니다.
+1. **Enter** 를 눌러 Conda 종속성 파일을 찾아봅니다. 이 경우 종속성 파일은 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `env.yml` 파일입니다.
 
     파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
 
@@ -205,7 +205,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     Azure ML: Save and Continue
     ```
 
-1. 이 샘플에서는 Azure Machine Learning에 등록된 데이터 세트를 사용하지 않습니다. 대신 *train.py*가 실행될 때 로드됩니다. 학습 실행에 대한 데이터 참조를 만들라는 메시지가 표시되면 프롬프트에 "n"을 입력하고 **Enter**를 누릅니다.
+1. 이 샘플에서는 Azure Machine Learning에 등록된 데이터 세트를 사용하지 않습니다. 대신 *train.py* 가 실행될 때 로드됩니다. 학습 실행에 대한 데이터 참조를 만들라는 메시지가 표시되면 프롬프트에 "n"을 입력하고 **Enter** 를 누릅니다.
 1. **Enter** 키를 눌러 컴퓨팅에서 실행할 스크립트 파일을 찾습니다. 이 경우 모델을 학습시키는 스크립트는 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `train.py` 파일입니다.
 
     `MNIST-rc.runconfig`라는 파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
@@ -288,15 +288,15 @@ Azure Machine Learning 실험을 실행하려면 다음을 수행합니다.
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace > 실험** 노드를 차례로 펼칩니다. 
 1. 마우스 오른쪽 단추로 **MNIST** 실험을 클릭합니다.
-1. **실험 실행**을 선택합니다.
+1. **실험 실행** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![실험 실행](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
 
 1. 컴퓨팅 대상 옵션 목록에서 **TeamWkspc-com** 컴퓨팅 대상을 선택합니다.
 1. 그런 다음, **MNIST-rc** 실행 구성을 선택합니다.
-1. 이 시점에서 선택한 작업 영역의 컴퓨팅 대상에서 실험을 실행하도록 요구하는 요청을 Azure에 보냅니다. 이 프로세스는 몇 분 정도 걸립니다. 학습 작업을 실행하는 시간은 컴퓨팅 형식 및 학습 데이터 크기와 같은 몇 가지 요인의 영향을 받습니다. 실험 진행률을 추적하려면 마우스 오른쪽 단추로 현재 실행 노드를 클릭하고 **Azure Portal에서 실행 보기**를 선택합니다.
-1. 외부 웹 사이트를 열도록 요청하는 대화 상자가 표시되면 **열기**를 선택합니다.
+1. 이 시점에서 선택한 작업 영역의 컴퓨팅 대상에서 실험을 실행하도록 요구하는 요청을 Azure에 보냅니다. 이 프로세스는 몇 분 정도 걸립니다. 학습 작업을 실행하는 시간은 컴퓨팅 형식 및 학습 데이터 크기와 같은 몇 가지 요인의 영향을 받습니다. 실험 진행률을 추적하려면 마우스 오른쪽 단추로 현재 실행 노드를 클릭하고 **Azure Portal에서 실행 보기** 를 선택합니다.
+1. 외부 웹 사이트를 열도록 요청하는 대화 상자가 표시되면 **열기** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![실험 진행률 추적](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
@@ -312,19 +312,19 @@ Azure Machine Learning 실험을 실행하려면 다음을 수행합니다.
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다.
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace > 실험 > MNIST** 노드를 차례로 펼칩니다.
-1. 모델 학습에서 생성된 모델 출력을 가져옵니다. 마우스 오른쪽 단추로 **실행 1** 실행 노드를 클릭하고, **출력 다운로드**를 선택합니다. 
+1. 모델 학습에서 생성된 모델 출력을 가져옵니다. 마우스 오른쪽 단추로 **실행 1** 실행 노드를 클릭하고, **출력 다운로드** 를 선택합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![모델 출력 다운로드](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
 
 1. 다운로드한 출력을 저장할 디렉터리를 선택합니다. 출력은 기본적으로 Visual Studio Code에서 현재 열려 있는 디렉터리에 배치됩니다.
-1. 마우스 오른쪽 단추로 **모델** 노드를 클릭하고, **모델 등록**을 선택합니다.
+1. 마우스 오른쪽 단추로 **모델** 노드를 클릭하고, **모델 등록** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![모델 등록](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
 
 1. 모델 이름을 "MNIST-TensorFlow-model"로 지정하고, **Enter** 키를 누릅니다.
-1. TensorFlow 모델은 여러 개의 파일로 구성됩니다. 옵션 목록에서 모델 경로 형식으로 **모델 폴더**를 선택합니다. 
+1. TensorFlow 모델은 여러 개의 파일로 구성됩니다. 옵션 목록에서 모델 경로 형식으로 **모델 폴더** 를 선택합니다. 
 1. `azureml_outputs/Run_1/outputs/outputs/model` 디렉터리를 선택합니다.
 
     모델 구성이 포함된 파일은 Visual Studio Code에서 다음과 비슷한 내용으로 표시됩니다.
@@ -362,12 +362,12 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다.
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace > 모델** 노드를 차례로 펼칩니다. 
-1. 마우스 오른쪽 단추로 **MNIST-TensorFlow-model**을 클릭하고, **등록된 모델에서 서비스 배포**를 선택합니다.
+1. 마우스 오른쪽 단추로 **MNIST-TensorFlow-model** 을 클릭하고, **등록된 모델에서 서비스 배포** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![모델 배포](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
 
-1. **Azure Container Instances**를 선택합니다.
+1. **Azure Container Instances** 를 선택합니다.
 1. 서비스 이름을 "mnist-tensorflow-svc"로 지정하고, **Enter** 키를 누릅니다.
 1. 입력 상자에서 **Enter** 키를 누르고 `mnist-vscode-docs-sample` 디렉터리에서 `score.py` 파일을 찾아서 컨테이너에서 실행할 스크립트를 선택합니다.
 1. 입력 상자에서 **Enter** 키를 누르고 `mnist-vscode-docs-sample` 디렉터리에서 `env.yml` 파일을 찾아서 스크립트를 실행하는 데 필요한 종속성을 제공합니다.
@@ -414,4 +414,3 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
 
 * Visual Studio Code 외부에서 Azure Machine Learning을 사용하여 학습하는 방법을 연습하려면 [자습서: Azure Machine Learning을 사용하여 모델 학습](tutorial-train-models-with-aml.md)을 참조하세요.
 * 코드를 로컬로 편집, 실행 및 디버그하는 방법을 연습하려면 [Python hello-world 자습서](https://code.visualstudio.com/docs/Python/Python-tutorial)를 참조하세요.
-

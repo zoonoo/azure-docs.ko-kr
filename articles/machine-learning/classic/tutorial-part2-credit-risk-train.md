@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c2782d15d8be82d07f14f7ada5732b1dbef699c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338386"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325689"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio(클래식)
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부** 입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
@@ -82,9 +82,9 @@ Azure Machine Learning Studio(클래식)를 사용하여 기계 학습 모델을
 
 이제 모델을 통해 신용 위험 값을 예측할 것임을 [모델 학습][train-model] 모듈에 전달해야 합니다.
 
-1. [모델 학습][train-model] 모듈을 선택합니다. **속성** 창에서 **열 선택기 시작**을 클릭합니다.
+1. [모델 학습][train-model] 모듈을 선택합니다. **속성** 창에서 **열 선택기 시작** 을 클릭합니다.
 
-1. **단일 열 선택** 대화 상자에서 **사용 가능한 열** 아래의 검색 필드에 "신용 위험"을 입력하고 오른쪽 화살표 단추( **>** )를 클릭하여 "신용 위험"을 **선택한 열**로 이동합니다. 
+1. **단일 열 선택** 대화 상자에서 **사용 가능한 열** 아래의 검색 필드에 "신용 위험"을 입력하고 오른쪽 화살표 단추( **>** )를 클릭하여 "신용 위험"을 **선택한 열** 로 이동합니다. 
 
     ![모델 학습 모듈에 대한 신용 위험 열 선택](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -100,7 +100,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 1. 모듈 팔레트에서 [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈을 찾고 캔버스로 끌어서 놓습니다.
 
-1. [모델 학습][train-model] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사**를 선택하고 나서 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다. [모델 학습][train-model] 모듈의 복사본에는 원래 모듈과 같은 열이 선택되어 있습니다.
+1. [모델 학습][train-model] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사** 를 선택하고 나서 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다. [모델 학습][train-model] 모듈의 복사본에는 원래 모듈과 같은 열이 선택되어 있습니다.
 
 1. [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈의 출력을 두 번째 [모델 학습][train-model] 모듈의 왼쪽 입력 포트에 연결합니다.
 
@@ -116,11 +116,11 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 이제 [데이터 정규화][normalize-data] 모듈을 구성합니다.
 
-1. [데이터 정규화][normalize-data] 모듈을 클릭하여 선택합니다. **속성** 창에서 **변환 메서드** 매개 변수에 대해 **Tanh**를 선택합니다.
+1. [데이터 정규화][normalize-data] 모듈을 클릭하여 선택합니다. **속성** 창에서 **변환 메서드** 매개 변수에 대해 **Tanh** 를 선택합니다.
 
-1. **열 선택기 시작**을 클릭하고 **시작 문자**에 대해 "열 없음"을 선택한 후, 첫 번째 드롭다운에서 **포함**을, 두 번째 드롭다운에서 **열 형식**을, 세 번째 드롭다운에서 **숫자**를 선택합니다. 이렇게 하면 모든 숫자 열(및 숫자만)이 변환되도록 지정됩니다.
+1. **열 선택기 시작** 을 클릭하고 **시작 문자** 에 대해 "열 없음"을 선택한 후, 첫 번째 드롭다운에서 **포함** 을, 두 번째 드롭다운에서 **열 형식** 을, 세 번째 드롭다운에서 **숫자** 를 선택합니다. 이렇게 하면 모든 숫자 열(및 숫자만)이 변환되도록 지정됩니다.
 
-1. 이 행 오른쪽에 있는 더하기 기호(+)를 클릭하면 새 드롭다운 행이 만들어집니다. 첫 번째 드롭다운에서 **제외**를 선택하고, 두 번째 드롭다운에서 **열 이름**을 선택하고, 텍스트 필드에 "신용 위험"을 입력합니다. 이렇게 하면 신용 위험 열이 무시됩니다. 이 열은 숫자이므로 제외하지 않을 경우 변환되기 때문에 이 작업이 필요합니다.
+1. 이 행 오른쪽에 있는 더하기 기호(+)를 클릭하면 새 드롭다운 행이 만들어집니다. 첫 번째 드롭다운에서 **제외** 를 선택하고, 두 번째 드롭다운에서 **열 이름** 을 선택하고, 텍스트 필드에 "신용 위험"을 입력합니다. 이렇게 하면 신용 위험 열이 무시됩니다. 이 열은 숫자이므로 제외하지 않을 경우 변환되기 때문에 이 작업이 필요합니다.
 
 1. **확인** 확인 표시를 클릭합니다.  
 
@@ -179,11 +179,11 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 ![두 모델 모두 평가](./media/tutorial-part2-credit-risk-train/final-experiment.png)
 
 
-결과를 확인하려면 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다.  
+결과를 확인하려면 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 **시각화** 를 선택합니다.  
 
 [모델 평가][evaluate-model] 모듈에서는 점수를 매긴 모델 두 개의 결과를 비교할 수 있는 곡선 및 메트릭 쌍을 생성합니다. 결과를 ROC(Receiver Operator Characteristic) 곡선, 정밀도/리콜 곡선 또는 리프트 곡선으로 볼 수 있습니다. 표시된 추가 데이터에는 혼동 행렬, AUC(Area Under the Curve)에 대한 누적 값 및 기타 메트릭이 포함됩니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 임계값을 변경하고 메트릭 집합에 어떤 영향을 미치는 확인할 수 있습니다.  
 
-그래프 오른쪽에 있는 **점수를 매긴 데이터 세트** 또는 **비교할 점수를 매긴 데이터 세트**를 클릭하여 관련 곡선을 강조 표시하고 아래에 관련 메트릭을 표시합니다. 곡선 범례에서 "점수를 매긴 데이터 세트"는 [모델 평가][evaluate-model] 모듈의 왼쪽 입력 포트(이 경우 향상된 의사 결정 트리 모델)에 해당합니다. "비교할 점수를 매긴 데이터 세트"는 오른쪽 입력 포트(이 경우 SVM 모델)에 해당합니다. 이러한 레이블 중 하나를 클릭하면 다음 그래픽에 표시된 것처럼 해당 모델의 곡선이 강조 표시되고 해당 메트릭이 표시됩니다.  
+그래프 오른쪽에 있는 **점수를 매긴 데이터 세트** 또는 **비교할 점수를 매긴 데이터 세트** 를 클릭하여 관련 곡선을 강조 표시하고 아래에 관련 메트릭을 표시합니다. 곡선 범례에서 "점수를 매긴 데이터 세트"는 [모델 평가][evaluate-model] 모듈의 왼쪽 입력 포트(이 경우 향상된 의사 결정 트리 모델)에 해당합니다. "비교할 점수를 매긴 데이터 세트"는 오른쪽 입력 포트(이 경우 SVM 모델)에 해당합니다. 이러한 레이블 중 하나를 클릭하면 다음 그래픽에 표시된 것처럼 해당 모델의 곡선이 강조 표시되고 해당 메트릭이 표시됩니다.  
 
 ![모델에 대한 ROC 곡선](./media/tutorial-part2-credit-risk-train/roc-curves.png)
 
@@ -195,9 +195,9 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 - [Azure Machine Learning Studio(클래식)에서 모델 결과 해석](interpret-model-results.md)
 
 > [!TIP]
-> 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
+> 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기** 를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행** 을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
 > 
-> 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 
+> 캔버스 아래에서 **다른 이름으로 저장** 을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 
 > 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
 > 
 > 자세한 내용은 [Azure Machine Learning Studio(클래식)에서 반복 실험 관리](manage-experiment-iterations.md)를 참조하세요.  
@@ -224,14 +224,14 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

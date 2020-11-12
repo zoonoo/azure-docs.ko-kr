@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fa81765367eb194161aec4da44a8bbac3398d405
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39750465008be586c58d9da309ffe435b2030c59
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397014"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 트래픽 제한
 
@@ -45,18 +45,18 @@ az group delete --name myResourceGroupAG --yes
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | 가상 네트워크를 만듭니다. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | 가상 네트워크에 서브넷을 만듭니다. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | 애플리케이션 게이트웨이의 공용 IP 주소를 만듭니다. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | 애플리케이션 게이트웨이를 만듭니다. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | 가상 머신 확장 집합을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
-| [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | 스토리지 계정을 만듭니다. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show) | 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | 가상 네트워크에 서브넷을 만듭니다. |
+| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | 애플리케이션 게이트웨이의 공용 IP 주소를 만듭니다. |
+| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | 애플리케이션 게이트웨이를 만듭니다. |
+| [az vmss create](/cli/azure/vmss#az-vmss-create) | 가상 머신 확장 집합을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
+| [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | 스토리지 계정을 만듭니다. |
+| [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) | 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
 
 추가 애플리케이션 게이트웨이 CLI 스크립트 샘플은 [Azure Application Gateway 설명서](../cli-samples.md)에서 찾을 수 있습니다.

@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5659ce5fa6f99463f58a33662563d768248fd8cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904117"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394903"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>자습서: SQL 데이터 동기화를 사용하여 SQL Edge에서 Azure SQL Database로 데이터 동기화
 
-이 자습서에서는 Azure SQL 데이터 동기화 *동기화 그룹*을 사용하여 Azure SQL Edge에서 Azure SQL Database로 데이터를 증분 방식으로 동기화하는 방법에 대해 설명합니다. SQL 데이터 동기화는 Azure SQL Database의 여러 데이터베이스 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다. SQL 데이터 동기화에 대한 자세한 내용은 [Azure SQL 데이터 동기화](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
+이 자습서에서는 Azure SQL 데이터 동기화 *동기화 그룹* 을 사용하여 Azure SQL Edge에서 Azure SQL Database로 데이터를 증분 방식으로 동기화하는 방법에 대해 설명합니다. SQL 데이터 동기화는 Azure SQL Database의 여러 데이터베이스 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다. SQL 데이터 동기화에 대한 자세한 내용은 [Azure SQL 데이터 동기화](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
 SQL Edge는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation/)에서 빌드되므로 SQL Server 인스턴스에 적용 가능한 모든 데이터 동기화 메커니즘을 사용하여 에지 디바이스에서 실행되는 SQL Edge 인스턴스와 데이터를 서로 동기화할 수도 있습니다.
 
@@ -55,7 +55,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 문서를 참조하
 
 * [모범 사례](../azure-sql/database/sql-data-sync-best-practices.md) 및 [Azure SQL 데이터 동기화 관련 문제를 해결하는 방법](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../azure-sql/database/monitor-tune-overview.md)
 
 * [Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) 또는 [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)을 사용하여 동기화 스키마 업데이트
 

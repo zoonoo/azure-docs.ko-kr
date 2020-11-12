@@ -4,18 +4,20 @@ description: 데이터 가져오기에 필요한 프로비저닝된 처리량(RU
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981937"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341246"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 자습서에서는 Azure Cosmos DB으로 데이터를 가져오는 데 필요한 프로비저닝된 처리량(RU/초)을 최적화하는 .NET 콘솔 애플리케이션을 빌드하는 방법을 설명합니다. 이 문서에서는 샘플 데이터 원본에서 데이터를 읽고 Azure Cosmos 컨테이너로 가져옵니다.
 이 자습서에서는 .NET Framework 또는 .NET Core를 대상으로 하는 [버전 3.0 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) Azure Cosmos DB .NET SDK를 사용합니다.
@@ -44,7 +46,7 @@ Azure Portal에서 [Azure Cosmos DB SQL API 계정을 만들거나](create-cosmo
 
 ## <a name="step-2-set-up-your-net-project"></a>2단계: .NET 프로젝트 설정
 
-로컬 컴퓨터에서 Windows 명령 프롬프트 또는 터미널 창을 엽니다. 명령 프롬프트 또는 터미널에서 다음 섹션의 명령을 모두 실행합니다. 다음 dotnet new 명령을 실행하여 이름이 *bulk-import-demo*인 새 앱을 만듭니다. `--langVersion` 매개 변수는 생성된 프로젝트 파일의 *LangVersion* 속성을 설정합니다.
+로컬 컴퓨터에서 Windows 명령 프롬프트 또는 터미널 창을 엽니다. 명령 프롬프트 또는 터미널에서 다음 섹션의 명령을 모두 실행합니다. 다음 dotnet new 명령을 실행하여 이름이 *bulk-import-demo* 인 새 앱을 만듭니다. `--langVersion` 매개 변수는 생성된 프로젝트 파일의 *LangVersion* 속성을 설정합니다.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo
@@ -84,7 +86,7 @@ Azure Portal에서 [Azure Cosmos DB SQL API 계정을 만들거나](create-cosmo
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1.  Azure Cosmos 계정으로 이동합니다.
-1.  **키** 창을 열고 계정의 **URI** 및 **기본 키**를 복사합니다.
+1.  **키** 창을 열고 계정의 **URI** 및 **기본 키** 를 복사합니다.
 
 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬레이터 자격 증명](local-emulator.md#authenticate-requests)을 가져옵니다.
 
