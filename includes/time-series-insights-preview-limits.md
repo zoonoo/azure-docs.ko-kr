@@ -4,25 +4,25 @@ description: 포함 파일
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 11/11/2020
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287419"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553153"
 ---
 ### <a name="property-limits"></a>속성 제한
 
-Azure Time Series Insights 속성 제한은 Gen1에서 800의 최대 캡에서 1000로 증가 했습니다. 제공 된 이벤트 속성에는 해당 JSON, CSV 및 [Azure Time Series Insights Gen2 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)내에서 볼 수 있는 차트 열이 있습니다.
+Azure Time Series Insights 속성 제한은 웜 저장소에 대해 1000로 증가 되었으며 콜드 저장소에 대 한 속성 제한은 없습니다. 제공 된 이벤트 속성에는 해당 JSON, CSV 및 [Azure Time Series Insights Gen2 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)내에서 볼 수 있는 차트 열이 있습니다.
 
 | SKU | 최대 속성 |
 | --- | --- |
-| Gen2 (L1) | 1000 속성 (열) |
+| Gen2 (L1) | 1000 웜 저장소에 대 한 속성 (열) 및 콜드 저장소에 무제한|
 | Gen1 (S1) | 600 속성 (열) |
 | Gen1 (S2) | 800 속성 (열) |
 
