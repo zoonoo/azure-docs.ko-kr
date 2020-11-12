@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097365"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -71,7 +72,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. **새 프로젝트 만들기** 에서 C#용 **ASP.NET Core 웹 애플리케이션** 을 찾아서 선택합니다. **다음** 을 선택하여 계속합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="새 ASP.NET Core 웹 애플리케이션 프로젝트 만들기":::
 
 1. **새 프로젝트 구성** 에서 프로젝트 이름을 *todo* 로 지정하고, **만들기** 를 선택합니다.
 
@@ -89,7 +90,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. **NuGet 패키지 관리자** 에서 **Microsoft.Azure.Cosmos** 를 검색하여 선택합니다. **설치** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="NuGet 패키지 설치":::
 
    Visual Studio에서 Azure Cosmos DB 패키지 및 해당 종속성을 다운로드하여 설치합니다.
 
@@ -139,7 +140,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
    * **레이아웃 페이지 사용** 을 선택하고, *~/Views/Shared/_Layout.cshtml* 을 입력합니다.
    * **추가** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="MVC 보기 추가 대화 상자를 보여 주는 스크린샷":::
 
 1. 다음으로, **추가** 를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
 
@@ -262,7 +263,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. **스캐폴드 추가** 에서 **MVC 컨트롤러 - 비어 있음** 을 선택하고, **추가** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="스캐폴드 추가에서 MVC 컨트롤러 - 비어 있음 선택":::
 
 1. 새 컨트롤러의 이름을 *ItemController* 로 지정합니다.
 
@@ -280,7 +281,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. 디버그 모드에서 애플리케이션을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 애플리케이션이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="이 자습서에서 만든 할 일 목록 웹 애플리케이션의 스크린샷":::
    
    애플리케이션이 대신 홈 페이지에 열리면 url에 `/Item`을 추가합니다.
 
@@ -288,11 +289,11 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. **만들기** 를 선택합니다. 앱에서 **인덱스** 보기로 다시 보내고, 항목이 목록에 표시됩니다. 몇 가지 항목을 **To-Do** 목록에 더 추가할 수 있습니다.
 
-    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="인덱스 뷰의 스크린샷":::
   
 1. 목록의 **항목** 옆에 있는 **편집** 을 선택합니다. 앱에서 **완료됨** 플래그를 포함하여 개체의 속성을 업데이트할 수 있는 **편집** 보기를 엽니다. **완료됨** 을 선택하고 **저장** 을 선택하면 앱의 목록에 **항목** 이 완료됨 상태로 표시됩니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="완료 상자가 선택된 인덱스 뷰의 스크린샷":::
 
 1. [Cosmos Explorer](https://cosmos.azure.com) 또는 Azure Cosmos DB Emulator의 데이터 탐색기를 사용하여 Azure Cosmos DB 서비스에서 데이터의 상태를 확인합니다.
 
@@ -312,7 +313,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. 프로필을 찾은 다음, **확인** 을 선택합니다. 그런 다음, 필요한 Azure App Service를 검색하고 **확인** 을 선택합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Visual Studio의 App Service 대화 상자":::
 
 또 다른 옵션은 새 프로필을 만드는 것입니다.
 
@@ -324,7 +325,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. **App Service** 에서 웹앱 이름과 적절한 구독, 리소스 그룹 및 호스팅 계획을 입력한 다음, **만들기** 를 선택합니다.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET Core MVC 단계별 자습서":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Visual Studio의 App Service 만들기 대화 상자":::
 
 몇 초 후에 Visual Studio에서 웹 애플리케이션을 게시하고, Azure에서 실행되는 프로젝트를 볼 수 있는 브라우저가 시작됩니다.
 

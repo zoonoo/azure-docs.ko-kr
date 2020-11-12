@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c2497a1fe5bfd3618246c9590685d08894e897f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f06fbe482327d01917f648ccdec34baa15c46e80
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476521"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073913"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포 설정
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 

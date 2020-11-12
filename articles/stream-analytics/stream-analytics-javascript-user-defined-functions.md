@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124784"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JavaScript 사용자 정의 함수
  
-Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
+Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합( **String** , **RegExp** , **Math** , **Array** , **Date** )을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
 
 ## <a name="overview"></a>개요
 
@@ -41,11 +41,11 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 > [!NOTE]
 > 이러한 단계는 클라우드에서 실행하도록 구성된 Stream Analytics 작업에서 작동합니다. Stream Analytics 작업을 Azure IoT Edge에서 실행되도록 구성한 경우, Visual Studio를 대신 사용하고 [C#을 사용하여 사용자 정의 함수를 작성](stream-analytics-edge-csharp-udf.md)합니다.
 
-Stream Analytics 작업에 JavaScript 사용자 정의 함수를 추가하려면 **작업 토폴로지**에서 **함수**를 선택합니다. 그런 다음, **+추가** 드롭다운 메뉴에서 **JavaScript UDF**를 선택합니다. 
+Stream Analytics 작업에 JavaScript 사용자 정의 함수를 추가하려면 **작업 토폴로지** 에서 **함수** 를 선택합니다. 그런 다음, **+추가** 드롭다운 메뉴에서 **JavaScript UDF** 를 선택합니다. 
 
 ![JavaScript UDF 추가](./media/javascript/stream-analytics-jsudf-add.png)
 
-그런 다음 속성을 제공하고 **저장**을 선택해야 합니다.
+그런 다음 속성을 제공하고 **저장** 을 선택해야 합니다.
 
 |속성|Description|
 |--------|-----------|
@@ -55,9 +55,9 @@ Stream Analytics 작업에 JavaScript 사용자 정의 함수를 추가하려면
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>JavaScript UDF 테스트 및 문제 해결 
 
-모든 브라우저에서 JavaScript UDF 논리를 테스트하고 디버깅할 수 있습니다. 이러한 사용자 정의 함수의 논리 디버깅 및 테스트는 현재 Stream Analytics 포털에서 지원되지 않습니다. 이 함수가 예상대로 작동하면 위에서 설명한 대로 Stream Analytics 작업에 추가한 다음, 쿼리에서 직접 호출할 수 있습니다. [Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하여 JavaScript UDF로 쿼리 논리를 테스트할 수 있습니다.
+모든 브라우저에서 JavaScript UDF 논리를 테스트하고 디버깅할 수 있습니다. 이러한 사용자 정의 함수의 논리 디버깅 및 테스트는 현재 Stream Analytics 포털에서 지원되지 않습니다. 이 함수가 예상대로 작동하면 위에서 설명한 대로 Stream Analytics 작업에 추가한 다음, 쿼리에서 직접 호출할 수 있습니다. [Stream Analytics Tools for Visual Studio](./stream-analytics-tools-for-visual-studio-install.md)를 사용하여 JavaScript UDF로 쿼리 논리를 테스트할 수 있습니다.
 
-JavaScript 런타임 오류는 치명적인 것으로 간주되고 활동 로그를 통해 표시됩니다. Azure Portal에서 로그를 검색하려면 작업으로 이동하고 **활동 로그**를 선택합니다.
+JavaScript 런타임 오류는 치명적인 것으로 간주되고 활동 로그를 통해 표시됩니다. Azure Portal에서 로그를 검색하려면 작업으로 이동하고 **활동 로그** 를 선택합니다.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>쿼리에서 JavaScript 사용자 정의 함수 호출
 
@@ -188,5 +188,5 @@ FROM
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Machine Learning UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [C# UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [Machine Learning UDF](./machine-learning-udf.md)
+* [C# UDF](./stream-analytics-edge-csharp-udf-methods.md)

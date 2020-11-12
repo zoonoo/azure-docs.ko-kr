@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: b1a361b2c1b1010c6593defa37ef92a3c36b0693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89015614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130496"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>자습서: Azure Stream Analytics 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
@@ -36,23 +36,23 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Azure Storage 계정에 컨테이너 만들기
 
-만드는 컨테이너는 컴파일된 C# 패키지를 저장하는 데 사용됩니다. Edge 작업을 만드는 경우 이 스토리지 계정은 IoT Edge 디바이스에 패키지를 배포하는 데에도 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 스토리지 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
+만드는 컨테이너는 컴파일된 C# 패키지를 저장하는 데 사용됩니다. Edge 작업을 만드는 경우 이 스토리지 계정은 IoT Edge 디바이스에 패키지를 배포하는 데에도 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 스토리지 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](../storage/blobs/storage-quickstart-blobs-portal.md). 
 
 ## <a name="create-a-stream-analytics-project-in-visual-studio"></a>Visual Studio에서 Stream Analytics 프로젝트 만들기
 
 1. Visual Studio를 시작합니다.
 
-2. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
+2. **파일 > 새로 만들기 > 프로젝트** 를 선택합니다.
 
-3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음, **Azure Stream Analytics Edge 애플리케이션** 또는 **Azure Stream Analytics 애플리케이션**을 선택합니다.
+3. 왼쪽의 템플릿 목록에서 **Stream Analytics** 를 선택한 다음, **Azure Stream Analytics Edge 애플리케이션** 또는 **Azure Stream Analytics 애플리케이션** 을 선택합니다.
 
-4.  프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
+4.  프로젝트 **이름** , **위치** 및 **솔루션 이름** 을 입력하고, **확인** 을 선택합니다.
 
     ![Visual Studio에서 Azure Stream Analytics Edge 프로젝트 만들기](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
 ## <a name="configure-assembly-package-path"></a>어셈블리 패키지 경로 구성
 
-1. Visual Studio를 열고 **솔루션 탐색기**로 이동합니다.
+1. Visual Studio를 열고 **솔루션 탐색기** 로 이동합니다.
 
 2. 작업 구성 파일 `EdgeJobConfig.json`을 두 번 클릭합니다.
 
@@ -69,9 +69,9 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 
 ## <a name="write-a-c-udf-with-codebehind"></a>CodeBehind를 사용하여 C# UDF 작성
-CodeBehind 파일은 ASA 쿼리 스크립트 하나와 연결된 C# 파일입니다. 제출하는 CodeBehind 파일은 Visual Studio에서 자동 압축되어 Azure Storage 계정에 업로드됩니다. 모든 클래스는 *public*으로, 모든 개체는 *static public*으로 정의해야 합니다.
+CodeBehind 파일은 ASA 쿼리 스크립트 하나와 연결된 C# 파일입니다. 제출하는 CodeBehind 파일은 Visual Studio에서 자동 압축되어 Azure Storage 계정에 업로드됩니다. 모든 클래스는 *public* 으로, 모든 개체는 *static public* 으로 정의해야 합니다.
 
-1. **솔루션 탐색기**에서 **Script.asql**를 확장하여 **Script.asaql.cs** CodeBehind 파일을 찾습니다.
+1. **솔루션 탐색기** 에서 **Script.asql** 를 확장하여 **Script.asaql.cs** CodeBehind 파일을 찾습니다.
 
 2. 코드를 다음 샘플로 바꿉니다.
 
@@ -97,7 +97,7 @@ CodeBehind 파일은 ASA 쿼리 스크립트 하나와 연결된 C# 파일입니
 
 ## <a name="implement-the-udf"></a>UDF 구현
 
-1. **솔루션 탐색기**에서 **Script.asaql** 파일을 엽니다.
+1. **솔루션 탐색기** 에서 **Script.asaql** 파일을 엽니다.
 
 2. 기존 쿼리를 다음으로 바꿉니다.
 
@@ -111,19 +111,19 @@ CodeBehind 파일은 ASA 쿼리 스크립트 하나와 연결된 C# 파일입니
 
 1. [온도 시뮬레이터 샘플 데이터 파일](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json)을 다운로드합니다.
 
-2. **솔루션 탐색기**에서 **입력**을 확장하고 **Input.json**을 마우스 오른쪽 단추로 클릭한 후에 **로컬 입력 추가**를 선택합니다.
+2. **솔루션 탐색기** 에서 **입력** 을 확장하고 **Input.json** 을 마우스 오른쪽 단추로 클릭한 후에 **로컬 입력 추가** 를 선택합니다.
 
    ![Visual Studio에서 Stream Analytics 작업에 로컬 입력 추가](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
-3. 다운로드한 샘플 데이터의 로컬 입력 파일 경로를 지정하고 파일을 **저장**합니다.
+3. 다운로드한 샘플 데이터의 로컬 입력 파일 경로를 지정하고 파일을 **저장** 합니다.
 
     ![Visual Studio에서 Stream Analytics 작업에 대한 로컬 입력 구성](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
-4. 스크립트 편집기에서 **로컬에서 실행**을 클릭합니다. 로컬 실행에서 출력 결과가 정상적으로 저장되면 아무 키나 눌러 표 형식으로 결과를 확인합니다. 
+4. 스크립트 편집기에서 **로컬에서 실행** 을 클릭합니다. 로컬 실행에서 출력 결과가 정상적으로 저장되면 아무 키나 눌러 표 형식으로 결과를 확인합니다. 
 
     ![Visual Studio를 사용하여 로컬에서 Azure Stream Analytics 작업 실행](./media/stream-analytics-edge-csharp-udf/stream-analytics-run-locally.png)
 
-5. **결과 폴더 열기**를 선택하여 JSON 및 CSV 형식의 원시 파일을 확인할 수도 있습니다.
+5. **결과 폴더 열기** 를 선택하여 JSON 및 CSV 형식의 원시 파일을 확인할 수도 있습니다.
 
     ![Visual Studio를 사용하여 로컬 Azure Stream Analytics 작업의 결과 확인](./media/stream-analytics-edge-csharp-udf/stream-analytics-view-local-results.png)
 
@@ -139,12 +139,12 @@ CodeBehind 파일은 ASA 쿼리 스크립트 하나와 연결된 C# 파일입니
     ![Stream Analytics 사용자 정의 함수에 대한 디버깅 결과 보기](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>Azure에 작업 게시
-쿼리를 로컬로 테스트한 다음 스크립트 편집기에서 **Azure에 제출**을 선택하여 작업을 Azure에 게시합니다.
+쿼리를 로컬로 테스트한 다음 스크립트 편집기에서 **Azure에 제출** 을 선택하여 작업을 Azure에 게시합니다.
 
 ![Visual Studio에서 Azure에 Stream Analytics Edge 작업 제출](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>IoT Edge 디바이스에 배포
-Stream Analytics Edge 작업을 빌드하도록 선택한 경우 이제 IoT Edge 모듈로 배포될 수 있습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 디바이스를 등록하고, 디바이스에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
+Stream Analytics Edge 작업을 빌드하도록 선택한 경우 이제 IoT Edge 모듈로 배포될 수 있습니다. [IoT Edge 빠른 시작](../iot-edge/quickstart.md)의 설명에 따라 IoT Hub를 만들고, IoT Edge 디바이스를 등록하고, 디바이스에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](../iot-edge/tutorial-deploy-stream-analytics.md#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

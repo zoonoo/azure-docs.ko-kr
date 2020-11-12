@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b450d8463c09647b8f87547afe9d714c4b8659c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2d27addb6860e49ac12eb36d8b625b8bf92001
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82858567"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100408"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 개발자는 온-프레미스 또는 클라우드에서 실행되는 기존 Cassandra 워크로드를 가질 수 있으며 Azure로 마이그레이션할 수 있습니다. 이러한 워크로드를 Azure Cosmos DB의 Cassandra API 계정으로 마이그레이션할 수 있습니다. 이 자습서는 Apache Cassandra 데이터를 Azure Cosmos DB의 Cassandra API 계정으로 마이그레이션할 수 있는 다양한 옵션에 대한 지침을 제공합니다.
 
@@ -105,7 +106,7 @@ Azure 가상 머신이나 다른 클라우드의 기존 클러스터에 데이�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 경우 리소스 그룹, Azure Cosmos 계정 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고, **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
+더 이상 필요 없는 경우 리소스 그룹, Azure Cosmos 계정 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고, **삭제** 를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

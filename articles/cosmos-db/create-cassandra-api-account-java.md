@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb057637ff546356cde6e0ef107fe784fed2e610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099881"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 개발자는 키/값 쌍을 사용하는 애플리케이션을 가질 수도 있습니다. Azure Cosmos DB의 Cassandra API 계정을 사용하여 키/값 데이터를 저장할 수 있습니다. 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정을 만들고, 데이터베이스(키스페이스라고도 함)를 추가하고, 테이블을 추가하는 방법에 대해 설명합니다. Java 애플리케이션에서 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하여 사용자 ID, 사용자 이름 및 사용자 도시와 같은 세부 정보를 포함하는 사용자 데이터베이스를 만듭니다.  
 
@@ -42,21 +43,21 @@ ms.locfileid: "91570046"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
-2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다. 
+2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB** 를 선택합니다. 
 
 3. **새 계정** 창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
 
    |설정   |제안 값  |Description  |
    |---------|---------|---------|
    |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
-   |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra**를 선택합니다.  |
+   |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra** 를 선택합니다.  |
    |Subscription    |  사용자의 구독        |  이 Azure Cosmos 계정에 사용하려는 Azure 구독을 선택합니다.        |
-   |리소스 그룹   | 이름 입력    |  **새로 만들기**를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
+   |리소스 그룹   | 이름 입력    |  **새로 만들기** 를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
    |위치    |  사용자와 가장 가까운 지역 선택    |  Azure Cosmos 계정을 호스팅할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="포털을 사용하여 계정 만들기":::
 
-4. **만들기**를 선택합니다. <br/>계정 생성에는 몇 분 정도가 소요됩니다. 리소스가 만들어지면 포털의 오른쪽에 **배포 성공** 알림이 표시됩니다.
+4. **만들기** 를 선택합니다. <br/>계정 생성에는 몇 분 정도가 소요됩니다. 리소스가 만들어지면 포털의 오른쪽에 **배포 성공** 알림이 표시됩니다.
 
 ## <a name="get-the-connection-details-of-your-account"></a>계정의 연결 세부 정보 가져오기  
 
@@ -66,7 +67,7 @@ Azure Portal에서 연결 문자열 정보를 가져오고, Java 구성 파일�
 
 2. **연결 문자열** 창을 엽니다.  
 
-3. 다음 단계에서 사용할 **CONTACT POINT**, **PORT**, **USERNAME** 및 **PRIMARY PASSWORD** 값을 복사합니다.
+3. 다음 단계에서 사용할 **CONTACT POINT** , **PORT** , **USERNAME** 및 **PRIMARY PASSWORD** 값을 복사합니다.
 
 ## <a name="create-the-project-and-the-dependencies"></a>프로젝트 및 종속성 만들기 
 
@@ -219,7 +220,7 @@ cassandra_password=<FILLME_with_PRIMARY PASSWORD>
 
    터미널 창에 키스페이스와 테이블이 작성되었다는 알림이 표시됩니다. 
    
-2. 이제 Azure Portal에서 **데이터 탐색기**를 열어 키스페이스 및 테이블이 생성되었는지 확인합니다.
+2. 이제 Azure Portal에서 **데이터 탐색기** 를 열어 키스페이스 및 테이블이 생성되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
