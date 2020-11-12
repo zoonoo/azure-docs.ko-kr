@@ -1,19 +1,19 @@
 ---
 title: 저속 쿼리 로그 액세스-Azure CLI-Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용 하 여 Azure Database for MariaDB에서 저속 로그에 액세스 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd74feaebe5a89667668c05e332ed9d3c7cdad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490254"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539875"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database의 저속 쿼리 로그를 구성 하 고 액세스 합니다.
 
@@ -27,8 +27,8 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for M
 ## <a name="configure-logging"></a>로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
 1. **저속 \_ 쿼리 \_ 로그** 매개 변수를 켜기로 설정 하 여 쿼리 로깅 속도를 설정 합니다.
-2. **로그 \_ 출력**을 사용 하 여 로그를 출력할 위치를 선택 합니다. 로컬 저장소 및 Azure Monitor 진단 로그 모두에 로그를 전송 하려면 **파일**을 선택 합니다. 로그를 Azure Monitor 로그에만 보내려면 **없음** 을 선택 합니다.
-3. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
+2. **로그 \_ 출력** 을 사용 하 여 로그를 출력할 위치를 선택 합니다. 로컬 저장소 및 Azure Monitor 진단 로그 모두에 로그를 전송 하려면 **파일** 을 선택 합니다. 로그를 Azure Monitor 로그에만 보내려면 **없음** 을 선택 합니다.
+3. **long\_query\_time** 및 **log\_slow\_admin\_statements** 와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-cli.md)을 참조하세요.
 
@@ -44,7 +44,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에 대한 로그 나열
 **Log_output** "File"로 구성 된 경우 서버의 로컬 저장소에서 직접 로그에 액세스할 수 있습니다. 서버에 사용할 수 있는 저속 쿼리 로그 파일을 나열 하려면 [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) 명령을 실행 합니다.
 
-**myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버에 대한 로그 파일을 나열할 수 있습니다. 그런 다음, **log\_files\_list.txt**라는 텍스트 파일에 로그 파일 목록을 전송합니다.
+**myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버에 대한 로그 파일을 나열할 수 있습니다. 그런 다음, **log\_files\_list.txt** 라는 텍스트 파일에 로그 파일 목록을 전송합니다.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```

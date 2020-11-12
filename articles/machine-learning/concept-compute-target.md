@@ -1,7 +1,7 @@
 ---
 title: 계산 대상 이란?
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포할 위치를 정의 합니다.
+description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포 하기 위해 계산 리소스 또는 환경을 지정 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322294"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540049"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 

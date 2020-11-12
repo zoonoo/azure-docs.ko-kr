@@ -12,12 +12,12 @@ ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
-ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677212"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539014"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>읽기 OCR Docker 컨테이너 (미리 보기) 설치 
 
@@ -50,7 +50,7 @@ ms.locfileid: "92677212"
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
@@ -411,6 +411,6 @@ Cognitive Services 컨테이너는 Azure 계정의 해당 리소스를 사용 �
 
 * [컨테이너 구성](computer-vision-resource-container-config.md)에서 구성 설정을 검토합니다.
 * [Computer Vision 개요](overview.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
-* [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
+* [Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
 * [FAQ(질문과 대답)](FAQ.md)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

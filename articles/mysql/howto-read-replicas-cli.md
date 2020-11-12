@@ -1,18 +1,18 @@
 ---
 title: 읽기 복제본 관리-Azure CLI, REST API Azure Database for MySQL
 description: Azure CLI 또는 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a5bc9638e2e6eeff8f2176247f579b64beede90
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546316"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540215"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "92546316"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 원본 서버로 사용 되는 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md) 입니다. 

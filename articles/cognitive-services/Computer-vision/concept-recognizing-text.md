@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489151"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538753"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -61,7 +61,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -186,7 +186,7 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 
 ## <a name="ocr-api"></a>OCR API
 
-[OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 는 이전 인식 모델을 사용 하 고 이미지만 지원 하며 동기적으로 실행 되어 검색 된 텍스트로 즉시 반환 됩니다. [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 를 확인 한 후 API를 읽습니다.
+[OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) 는 이전 인식 모델을 사용 하 고 이미지만 지원 하며 동기적으로 실행 되어 검색 된 텍스트로 즉시 반환 됩니다. [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 를 확인 한 후 API를 읽습니다.
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 

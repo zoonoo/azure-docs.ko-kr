@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537665"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -53,15 +53,15 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 1. 내 액세스에서 **승인** 탭으로 이동 합니다.
 
-1. 승인 하려는 요청으로 이동 하 고 **세부 정보**를 클릭 합니다. 결정을 내릴 준비가 되었으면 **승인** 또는 **거부** 를 클릭할 수도 있습니다.
+1. 승인 하려는 요청으로 이동 하 고 **세부 정보** 를 클릭 합니다. 결정을 내릴 준비가 되었으면 **승인** 또는 **거부** 를 클릭할 수도 있습니다.
 
-1. **요청 정보**를 클릭 합니다.
+1. **요청 정보** 를 클릭 합니다.
 
      ![내 액세스 포털-액세스 요청-클릭 요청 세부 정보](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. 요청자에 의해 제공 되는 정보는 패널의 맨 아래에 있습니다.
 
-     ![내 액세스 포털 - 액세스 요청](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+     ![요청에 대 한 세부 정보를 보여 주는 스크린샷](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. 요청자는 제공 된 정보에 따라 요청을 승인 하거나 거부할 수 있습니다. 지침은 요청 승인 또는 거부의 단계를 참조 하세요.
 
@@ -77,13 +77,13 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
     세부 정보에는 사용자 이름, 조직, 액세스 시작 날짜 및 종료 날짜, 제공 된 경우 요청 제출 시, 요청이 만료 되는 시간 등이 포함 됩니다.
 
-1. **승인** 또는 **거부**를 클릭 합니다.
+1. **승인** 또는 **거부** 를 클릭 합니다.
 
 1. 필요한 경우 이유를 입력 합니다.
 
-    ![내 액세스 포털 - 액세스 요청](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![요청을 수락 하거나 거부 하는 페이지가 스크린샷 화면에 표시 됩니다.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
-1. **제출**을 클릭하여 결정을 제출합니다.
+1. **제출** 을 클릭하여 결정을 제출합니다.
 
     정책이 여러 승인자를 사용 하 여 구성 된 경우 하나의 승인자만 보류 중인 승인에 대해 결정을 내려야 합니다. 승인자가 액세스 요청에 대 한 결정을 제출한 후 요청이 완료 되 고 다른 승인자가 요청을 승인 하거나 거부 하는 데 더 이상 사용할 수 없습니다. 다른 승인자는 내 액세스 포털에서 요청 결정 및 의사 결정자를 볼 수 있습니다. 이번에는 단일 단계 승인만 지원 됩니다.
 

@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 연결 문자열 생성 - Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB에 연결하는 연결 문자열을 생성하는 Azure PowerShell 예제를 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: b08a1c60b1225b2786ea869f96ac40cc651c82f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dee109c701d3760c93f39e639dcfd7cae07b595
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185607"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538056"
 ---
 # <a name="how-to-generate-an-azure-database-for-mariadb-connection-string-with-powershell"></a>PowerShell을 사용하여 Azure Database for MariaDB 연결 문자열을 생성하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "88185607"
 
 ## <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
-`Get-AzMariaDbConnectionString` cmdlet은 Azure Database for MariaDB에 애플리케이션을 연결하기 위한 연결 문자열을 생성하는 데 사용됩니다. 다음 예제에서는 **mydemoserver**의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
+`Get-AzMariaDbConnectionString` cmdlet은 Azure Database for MariaDB에 애플리케이션을 연결하기 위한 연결 문자열을 생성하는 데 사용됩니다. 다음 예제에서는 **mydemoserver** 의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzMariaDbConnectionString -Client PHP -Name mydemoserver -ResourceGroupName myresourcegroup

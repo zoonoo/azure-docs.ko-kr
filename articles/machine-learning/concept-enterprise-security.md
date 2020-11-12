@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441786"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539654"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -123,14 +123,15 @@ Azure Machine Learning은 다양 한 계산 리소스 및 데이터 저장소를
 
 역할 및 모니터링 대상에 따라 Azure Machine Learning를 사용 하는 몇 가지 모니터링 시나리오가 있습니다.
 
-| 역할 | 사용할 모니터링 |
-| ---- | ----- |
-| 관리자, DevOps, MLOps | [Azure Monitor 메트릭](#azure-monitor), [활동 로그](#activity-log), [취약성 검색](#vulnerability-scanning) |
-| 데이터 과학자, MLOps | [실행 모니터링](#monitor-runs) |
+| 역할 | 사용할 모니터링 | Description |
+| ---- | ----- | ----- |
+| 관리자, DevOps, MLOps | [Azure Monitor 메트릭](#azure-monitor), [활동 로그](#activity-log), [취약성 검색](#vulnerability-scanning) | 서비스 수준 정보 |
+| 데이터 과학자, MLOps | [실행 모니터링](#monitor-runs) | 학습 실행 중에 기록 되는 정보 |
+| MLOps | [모델 데이터 수집](how-to-enable-data-collection.md), [Application Insights로 모니터링](how-to-enable-app-insights.md) | 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈에 의해 기록 된 정보|
 
 ### <a name="monitor-runs"></a>실행 모니터링
 
-학습 스크립트 내의 로깅 정보를 포함 하 여 Azure Machine Learning 실험 실행을 모니터링할 수 있습니다. 이 정보는 SDK, Azure CLI 및 studio를 통해 볼 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+학습 스크립트 내의 로깅 정보를 포함 하 여 Azure Machine Learning 실험 실행을 모니터링할 수 있습니다. 이 정보는 SDK, Azure CLI 및 studio를 통해 볼 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
 * [로그 사용 설정](how-to-track-experiments.md)

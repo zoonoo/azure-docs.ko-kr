@@ -8,20 +8,23 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdc17f84ed7d91d130faf0049b8f2730a13ce35b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac8dcad9c8057f833327ffcde1bc1f42331ddb98
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242163"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540351"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
-- [Azure CLI](/cli/azure/install-azure-cli)를 설치하거나 브라우저에서 Azure Cloud Shell을 사용합니다.
-- [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-cli.md)입니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- [Azure Database for MySQL 서버와 데이터베이스가](quickstart-create-mysql-server-database-using-azure-cli.md)필요 합니다.
+ 
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 > [!NOTE]
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
@@ -30,18 +33,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Vnet 서비스 엔드포인트 구성
 가상 네트워크를 구성하는 데 [az network vnet](/cli/azure/network/vnet) 명령이 사용됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
-
-CLI를 로컬로 실행 중인 경우 [az login](/cli/azure/authenticate-azure-cli) 명령을 사용하여 사용자 계정에 로그인해야 합니다. 해당 구독 이름에 대한 명령 출력에서 **id** 속성을 참고합니다.
-```azurecli-interactive
-az login
-```
-
-구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대한 **az login** 출력의 **id** 속성을 구독 ID 자리 표시자로 바꿉니다.
+구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대 한 **az login** output의 **id** 속성을 구독 id 자리 표시자로 대체 합니다.
 
 - 계정에는 가상 네트워크 및 서비스 엔드포인트를 만드는 데 필요한 사용 권한이 있어야 합니다.
 

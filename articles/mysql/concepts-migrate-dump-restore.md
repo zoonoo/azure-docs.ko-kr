@@ -1,17 +1,17 @@
 ---
 title: 덤프 및 복원을 사용하여 마이그레이션 - Azure Database for MySQL
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128966"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537920"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 
@@ -73,7 +73,7 @@ ms.locfileid: "93128966"
 
 MySQL Workbench에 연결 정보를 추가합니다.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Azure Portal에서 연결 정보 찾기":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="MySQL Workbench 연결 문자열":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>빠른 데이터 로드를 위해 대상 Azure Database for MySQL 서버 준비
 더 빠른 데이터 로드를 위해 대상 Azure Database for MySQL 서버를 준비하려면 다음 서버 매개 변수 및 구성을 변경해야 합니다.

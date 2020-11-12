@@ -1,17 +1,17 @@
 ---
 title: 서버 관리-Azure Portal-Azure Database for MariaDB
 description: Azure Portal에서 Azure Database for MariaDB 서버를 관리 하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537988"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB 서버 관리
 이 문서에서는 Azure Database for MariaDB 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
@@ -30,9 +30,9 @@ Azure Database for MariaDB 서버를 만들고 시작 하는 방법을 알아보
 
 범용에서 메모리 액세스에 최적화 된 메모리 또는 그 반대로 확장할 수 있습니다. 서버를 만든 후 기본 계층에서로의 변경은 지원 되지 않습니다. 
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
-2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화**를 선택 합니다. 
+2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화** 를 선택 합니다. 
 
     ![가격 책정 계층을 선택 하 고 메모리 최적화 된 값을 선택 하 여 Azure Portal을 보여 주는 스크린샷](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
@@ -44,7 +44,7 @@ Azure Database for MariaDB 서버를 만들고 시작 하는 방법을 알아보
 
 ### <a name="scale-vcores-up-or-down"></a>VCores 확장 또는 축소
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
 2. 슬라이더를 원하는 값으로 이동하여 **vCore** 설정을 변경합니다.
 
@@ -58,7 +58,7 @@ Azure Database for MariaDB 서버를 만들고 시작 하는 방법을 알아보
 
 ### <a name="scale-storage-up"></a>저장소 크기 조정
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
 2. 슬라이더를 원하는 값으로 이동 하 여 **저장소** 설정을 변경 합니다.
 
@@ -73,7 +73,7 @@ Azure Database for MariaDB 서버를 만들고 시작 하는 방법을 알아보
 ## <a name="update-admin-password"></a>관리자 암호 업데이트
 Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정** 을 선택 합니다.
 
    ![개요](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
@@ -88,9 +88,9 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 서버를 더 이상 필요 하지 않은 경우 삭제할 수 있습니다. 
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제**를 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제** 를 선택 합니다.
 
-    ![삭제](./media/howto-create-manage-server-portal/overview-delete.png)
+    ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. 입력 상자에 서버 이름을 입력 하 여 삭제 하려는 서버 인지 확인 합니다.
 
@@ -99,7 +99,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
     > [!NOTE]
     > 서버 삭제는 취소할 수 없습니다.
 
-3. **삭제**를 선택합니다.
+3. **삭제** 를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

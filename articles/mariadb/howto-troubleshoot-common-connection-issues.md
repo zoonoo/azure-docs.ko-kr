@@ -1,17 +1,17 @@
 ---
 title: 연결 문제 해결-Azure Database for MariaDB
 description: 다시 시도 해야 하는 일시적인 오류, 방화벽 문제 및 중단을 포함 하 여 Azure Database for MariaDB에 대 한 연결 문제를 해결 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82101453"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539382"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
 
@@ -47,7 +47,7 @@ ms.locfileid: "82101453"
 
 * 방화벽 구성: Azure Database for MariaDB 서버 또는 클라이언트 쪽 방화벽에서 연결을 차단하고 있습니다.
 * 클라이언트 쪽 네트워크 재구성: 새 IP 주소 또는 프록시 서버가 추가되었습니다.
-* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 * \@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
+* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 *\@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

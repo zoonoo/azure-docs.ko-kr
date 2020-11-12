@@ -1,17 +1,17 @@
 ---
 title: 성능 권장 사항 - Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL의 성능 권장 사항을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1445ad3d6be020326c34d60c555c24c435548fd0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485238"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537648"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 성능 권장 사항
 
@@ -21,21 +21,21 @@ ms.locfileid: "84485238"
 
 ## <a name="permissions"></a>사용 권한
 
-성능 권장 사항 기능을 사용하여 분석을 실행하는 데 필요한**소유자** 또는 **참가자** 권한입니다.
+성능 권장 사항 기능을 사용하여 분석을 실행하는 데 필요한 **소유자** 또는 **참가자** 권한입니다.
 
 ## <a name="performance-recommendations"></a>성능 권장 사항
 
 [성능 권장 사항](concepts-performance-recommendations.md) 기능은 서버 전체의 워크로드를 분석하여 성능 향상 가능성이 있는 인덱스를 식별합니다.
 
-MySQL 서버에 대한 Azure Portal 페이지의 메뉴 표시줄에 있는 **지능형 성능** 섹션에서 **성능 권장 사항**을 엽니다.
+MySQL 서버에 대한 Azure Portal 페이지의 메뉴 표시줄에 있는 **지능형 성능** 섹션에서 **성능 권장 사항** 을 엽니다.
 
 :::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="성능 권장 사항 방문 페이지":::
 
-**분석**을 선택하고 분석을 시작할 데이터베이스를 선택합니다. 워크로드에 따라 분석을 완료하는 데 몇 분이 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대한 심층 검사를 수행합니다. 사용량이 적은 기간에 분석을 수행하는 것이 좋습니다.
+**분석** 을 선택하고 분석을 시작할 데이터베이스를 선택합니다. 워크로드에 따라 분석을 완료하는 데 몇 분이 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대한 심층 검사를 수행합니다. 사용량이 적은 기간에 분석을 수행하는 것이 좋습니다.
 
 **권장 사항** 창에는 권장 사항이 있는 경우 그 목록과 해당 권장 사항을 생성한 관련 쿼리 ID가 표시됩니다. 쿼리 ID를 사용하여 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 보기를 사용하여 쿼리에 대한 자세한 내용을 확인할 수 있습니다.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="성능 권장 사항 방문 페이지":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="성능 권장 사항 새 페이지":::
 
 이러한 권장 사항은 자동으로 적용되지 않습니다. 권장 사항을 적용하려면 쿼리 텍스트를 복사하고 선택한 클라이언트에서 실행합니다. 테스트 및 모니터링을 통해 권장 사항을 평가해야 합니다.
 

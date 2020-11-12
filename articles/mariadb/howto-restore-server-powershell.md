@@ -1,19 +1,19 @@
 ---
 title: 백업 및 복원-Azure PowerShell-Azure Database for MariaDB
 description: Azure PowerShell를 사용 하 여 Azure Database for MariaDB에서 서버를 백업 및 복원 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424500"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539637"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MariaDB 서버를 백업 및 복원하는 방법
 
@@ -41,7 +41,7 @@ PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/power
 > [!NOTE]
 > 서버를 만든 후에는 지리적으로 중복 되거나 로컬에서 중복 된 중복성 종류를 변경할 수 없습니다.
 
-명령을 통해 서버를 만드는 동안 `New-AzMariaDbServer` **GeoRedundantBackup** 매개 변수는 백업 중복성 옵션을 결정 합니다. **사용 하도록 설정**하면 지역 중복 백업이 수행 됩니다. 또는 **사용 하지 않도록 설정**된 경우 로컬 중복 백업이 수행 됩니다.
+명령을 통해 서버를 만드는 동안 `New-AzMariaDbServer` **GeoRedundantBackup** 매개 변수는 백업 중복성 옵션을 결정 합니다. **사용 하도록 설정** 하면 지역 중복 백업이 수행 됩니다. 또는 **사용 하지 않도록 설정** 된 경우 로컬 중복 백업이 수행 됩니다.
 
 백업 보존 기간은 **backup보존** 기간 매개 변수를 통해 설정 됩니다.
 
@@ -79,7 +79,7 @@ Cmdlet의 **PointInTimeRestore** 매개 변수 집합에는 `Restore-AzMariaDbSe
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
 | Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
-| RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
+| RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00** 과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z** ). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
 서버를 이전 특정 시점으로 복원하는 경우 새 서버가 만들어집니다. 지정된 특정 시점의 원본 서버 및 해당 데이터베이스가 새 서버에 복사됩니다.
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-이 예에서는 **myresourcegroup**에 속하는 미국 동부 지역에 **mydemoserver-georestored** 라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버는 **mydemoserver**의 지역 중복 백업 ( **myresourcegroup**리소스 그룹에도)에서 만들어집니다.
+이 예에서는 **myresourcegroup** 에 속하는 미국 동부 지역에 **mydemoserver-georestored** 라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버는 **mydemoserver** 의 지역 중복 백업 ( **myresourcegroup** 리소스 그룹에도)에서 만들어집니다.
 
 기존 서버와 다른 리소스 그룹에 새 서버를 만들려면 다음 예제와 같이 **ResourceGroupName** 매개 변수를 사용 하 여 새 리소스 그룹 이름을 지정 합니다.
 

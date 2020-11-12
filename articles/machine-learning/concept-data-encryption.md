@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447832"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540011"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 데이터 암호화
 
@@ -53,7 +53,7 @@ Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법�
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데이터를 저장합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
+Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타 데이터를 저장 합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
 
 자체(고객 관리형) 키를 사용하여 Azure Cosmos DB 인스턴스를 암호화하려면 작업 영역에서 사용할 전용 Cosmos DB 인스턴스를 만들면 됩니다. 실행 기록 정보와 같은 데이터를 Microsoft 구독에서 호스트되는 다중 테넌트 Cosmos DB 인스턴스 외부에 저장하려는 경우에는 이 방법을 사용하는 것이 좋습니다. 
 

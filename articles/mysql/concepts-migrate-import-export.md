@@ -1,17 +1,17 @@
 ---
 title: 가져오기 및 내보내기-Azure Database for MySQL
 description: 이 문서에서는 MySQL Workbench와 같은 도구를 사용하여 Azure Database for MySQL에서 데이터베이스를 가져오고 내보내는 일반적인 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: af9f0f65e01a786d478fac0adde6174b8f03b2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128932"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537903"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
@@ -33,7 +33,7 @@ MySQL 워크 벤치, Toad 또는 Navicat를 사용 하 여 데이터베이스를
 
 MySQL Workbench에 연결 정보를 추가합니다.
 
-:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Azure Portal에서 연결 정보 찾기":::
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="MySQL 워크 벤치 연결 문자열":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>가져오기 및 내보내기 기술을 사용할 시기 결정
 
@@ -70,7 +70,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 > - MySQL 유연한 서버에서는 ' '를 사용 하 여 연결 하는 경우 ' 사용자 이름 '을 사용할 수 있습니다 username@servername . 연결에 실패 합니다.
 
 ### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>개체 브라우저의 바로 가기 메뉴에서 테이블 데이터 내보내기 및 가져오기 마법사
-:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Azure Portal에서 연결 정보 찾기":::
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="개체 브라우저 바로 가기 메뉴의 MySQL Workbench 마법사":::
 
 테이블 데이터에 대한 마법사는 CSV 및 JSON 파일을 사용하여 가져오기 및 내보내기 작업을 지원합니다. 구분 기호, 열 선택 및 인코딩 선택과 같은 여러 가지 구성 옵션을 포함합니다. 로컬 또는 원격으로 연결된 MySQL 서버에 대해 각 마법사를 수행할 수 있습니다. 가져오기 작업은 테이블, 열 및 형식 매핑을 포함합니다.
 
@@ -96,7 +96,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 마법사를 사용하여 MySQL Workbench 또는 mysqldump 명령에서 생성된 SQL을 내보내거나 가져옵니다. **탐색기** 창에서 또는 주 메뉴에서 **서버** 를 선택하여 이러한 마법사에 액세스합니다. 그런 다음 **데이터 내보내기** 또는 **데이터 가져오기** 를 선택합니다.
 
 #### <a name="data-export"></a>데이터 내보내기
-:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Azure Portal에서 연결 정보 찾기":::
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="탐색기 창을 사용하여 MySQL Workbench 데이터 내보내기":::
 
 **데이터 내보내기** 탭을 사용하여 MySQL 데이터를 내보낼 수 있습니다.
 1. 내보내려는 각 스키마를 선택하고, 필요에 따라 각 스키마에서 특정 스키마 개체/테이블을 선택하고, 내보내기를 생성합니다. 구성 옵션에는 프로젝트 폴더 또는 자체 포함된 SQL 파일로 내보내기가 포함되고, 저장된 루틴 및 이벤트를 덤프하거나 테이블 데이터를 건너뛰는 작업도 포함됩니다.
@@ -109,7 +109,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 
 
 #### <a name="data-import"></a>데이터 가져오기
-:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Azure Portal에서 연결 정보 찾기":::
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="관리 탐색 창을 사용하여 MySQL Workbench 데이터 가져오기":::
 
 **데이터 가져오기** 탭을 사용하여 데이터 내보내기 작업에서 또는 mysqldump 명령에서 내보낸 데이터를 가져오거나 복원할 수 있습니다.
 1. 프로젝트 폴더 또는 자체 포함된 SQL 파일을 선택하거나, 가져올 스키마를 선택하거나, **새로 만들기** 를 선택하여 새 스키마를 정의합니다.

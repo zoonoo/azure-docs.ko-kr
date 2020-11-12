@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244704"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538277"
 ---
 # <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
@@ -113,7 +113,7 @@ Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 �
 
 ## <a name="use-the-api"></a>API 사용
 
-얼굴 감지 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Faces` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"faces"` .
+얼굴 감지 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Faces` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"faces"` .
 
 * [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

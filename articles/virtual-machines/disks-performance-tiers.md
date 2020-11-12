@@ -1,23 +1,23 @@
 ---
 title: Azure managed disks의 성능 변경
-description: 관리 디스크의 성능 계층에 대해 알아보고 기존 managed disks의 성능 계층을 변경 하는 방법을 알아봅니다.
+description: 관리 디스크의 성능 계층에 대해 알아보고 Azure PowerShell 모듈이 나 Azure CLI를 사용 하 여 기존 관리 디스크의 성능 계층을 변경 하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 11/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 923c5970183bd192ac1a2f20fb775d96dcc06865
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348698"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540640"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
-Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하 여 단기 예기치 않은 트래픽을 처리할 수 있는 더 높은 성능을 제공 합니다. Premium Ssd는 실제 디스크 크기를 늘리지 않고 디스크 성능을 향상 시킬 수 있는 유연성을 갖습니다. 이 기능을 사용 하면 워크 로드 성능 요구를 충족 하 고 비용을 절감할 수 있습니다. 
+Azure 디스크 저장소은 단기 예기치 않은 트래픽을 처리할 수 있는 더 높은 성능을 제공 하는 기본 버스트 기능을 제공 합니다. Premium Ssd는 실제 디스크 크기를 늘리지 않고 디스크 성능을 향상 시킬 수 있는 유연성을 갖습니다. 이 기능을 사용 하면 워크 로드 성능 요구를 충족 하 고 비용을 절감할 수 있습니다. 
 
 > [!NOTE]
 > 이 기능은 현재 미리 보기로 제공됩니다. 
@@ -42,10 +42,10 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | None |
+| 4TiB | P50 | 없음 |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | None |
+| 32TiB | P80 | 없음 |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
@@ -57,6 +57,8 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 - 디스크의 성능 계층은 24 시간 마다 한 번만 다운 그레이드할 수 있습니다.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>계층을 기준 계층 보다 높은 빈 데이터 디스크를 만듭니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 subscriptionId=<yourSubscriptionIDHere>
@@ -83,8 +85,30 @@ image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
-     
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$subscriptionId='yourSubscriptionID'
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$diskSizeInGiB=4
+$performanceTier='P50'
+$sku='Premium_LRS'
+$region='westcentralus'
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
+New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+```
+---
+
 ## <a name="update-the-tier-of-a-disk"></a>디스크의 계층 업데이트
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
@@ -93,11 +117,36 @@ performanceTier=<yourDesiredPerformanceTier>
 
 az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$performanceTier='P1'
+
+$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+```
+---
+
 ## <a name="show-the-tier-of-a-disk"></a>디스크의 계층 표시
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
+
+$disk.Tier
+```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

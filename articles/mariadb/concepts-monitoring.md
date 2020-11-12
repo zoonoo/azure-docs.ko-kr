@@ -1,18 +1,18 @@
 ---
 title: 모니터링-Azure Database for MariaDB
 description: 이 문서에서는 CPU, 스토리지, 연결 통계를 포함하여 Azure Database for MariaDB에 대해 모니터링 및 경고를 제공하기 위한 메트릭을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425207"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540419"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MariaDB는 서버의 동작에 대한 인사이트를 제공하는 다양한 메트릭을 제공합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "92425207"
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|설명|
+|메트릭|메트릭 표시 이름|단위|Description|
 |---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|

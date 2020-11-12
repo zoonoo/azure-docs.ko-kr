@@ -1,19 +1,19 @@
 ---
 title: 서버 매개 변수 구성-Azure PowerShell-Azure Database for MariaDB
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for MariaDB에서 서비스 매개 변수를 구성 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d116bdec2974fa2c39c6a56364e54ca7d776b682
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8ace6306bec4c79cbce0a1572360db1acd2cea97
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426041"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538243"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB에서 서버 매개 변수 구성
 
@@ -41,7 +41,7 @@ PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/power
 
 서버에 있는 수정 가능한 모든 매개 변수와 해당 값을 나열 하려면 cmdlet을 실행 `Get-AzMariaDbConfiguration` 합니다.
 
-다음 예에서는 **myresourcegroup**리소스 그룹의 **mydemoserver** 서버에 대 한 서버 구성 매개 변수를 나열 합니다.
+다음 예에서는 **myresourcegroup** 리소스 그룹의 **mydemoserver** 서버에 대 한 서버 구성 매개 변수를 나열 합니다.
 
 ```azurepowershell-interactive
 Get-AzMariaDbConfiguration -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -53,7 +53,7 @@ Get-AzMariaDbConfiguration -ResourceGroupName myresourcegroup -ServerName mydemo
 
 서버에 대 한 특정 구성 매개 변수에 대 한 세부 정보를 표시 하려면 cmdlet을 실행 하 `Get-AzMariaDbConfiguration` 고 **Name** 매개 변수를 지정 합니다.
 
-이 예에서는 리소스 그룹 **myresourcegroup**에서 서버 **mydemoserver** 에 대 한 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수의 세부 정보를 보여 줍니다.
+이 예에서는 리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver** 에 대 한 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수의 세부 정보를 보여 줍니다.
 
 ```azurepowershell-interactive
 Get-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -63,7 +63,7 @@ Get-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegro
 
 또한 특정 서버 구성 매개 변수의 값을 수정할 수 있습니다. 그러면 MariaDB 서버 엔진에 대한 기본 구성 값이 업데이트됩니다. 구성을 업데이트 하려면 cmdlet을 사용 `Update-AzMariaDbConfiguration` 합니다.
 
-리소스 그룹 **myresourcegroup**에서 서버 **mydemoserver** 의 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수를 업데이트 합니다.
+리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver** 의 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수를 업데이트 합니다.
 
 ```azurepowershell-interactive
 Update-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

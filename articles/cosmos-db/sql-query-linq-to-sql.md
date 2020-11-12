@@ -5,19 +5,19 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332375"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538651"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다.
+Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다. LINQ 외에도 Azure Cosmos DB는 SQL API와 작동 하는 [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) 지원 합니다.
 
 쿼리 공급자 유형 시스템은 JSON 기본 유형인 numeric, Boolean, string 및 null만 지원 합니다.
 
@@ -25,7 +25,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들어:
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다. 
   
   ```
     family.Id;
@@ -95,7 +95,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 - **사용자 정의 함수 확장 함수** : 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 [사용자 정의 함수로](sql-query-udfs.md)의 변환을 지원 합니다.
 - **기타** : `Coalesce` 및 조건부 [연산자](sql-query-operators.md)의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라 STRING CONTAINS, ARRAY_CONTAINS 또는 IN으로 변환할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예에서는 표준 LINQ 쿼리 연산자 중 일부가 Azure Cosmos DB의 쿼리로 변환 되는 방법을 보여 줍니다.
 

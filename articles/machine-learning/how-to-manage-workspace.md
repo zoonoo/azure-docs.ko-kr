@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445628"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540130"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
@@ -23,7 +23,7 @@ ms.locfileid: "94445628"
 
 변경 사항이 나 automation 증가에 대 한 요구 사항에 따라 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md)작업 영역을 만들고 삭제할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다.
@@ -191,7 +191,7 @@ Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보
 
 ### <a name="advanced"></a>고급
 
-기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
+기본적으로 작업 영역에 대 한 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
 
 Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 포털에서 __높은 비즈니스 영향 작업 영역__ 을 선택 하거나 `hbi_workspace=true ` Python에서 설정 합니다. 이 설정에 대 한 자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
@@ -200,7 +200,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
 
 #### <a name="use-your-own-key"></a>사용자 고유의 키 사용
 
-데이터 암호화를 위해 고유한 키를 제공할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다.
+데이터 암호화를 위해 고유한 키를 제공할 수 있습니다. 이렇게 하면 Azure 구독에 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -376,7 +376,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 작업 영역을 만드는 예는 다음과 같습니다.
 * Azure Portal를 사용 하 여 [작업 영역 및 계산 인스턴스 만들기](tutorial-1st-experiment-sdk-setup.md)
