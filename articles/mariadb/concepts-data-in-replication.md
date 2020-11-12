@@ -1,17 +1,17 @@
 ---
 title: 데이터 인 복제-Azure Database for MariaDB
 description: 데이터에서 복제를 사용 하 여 외부 서버에서 Azure Database for MariaDB 서비스로 동기화 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 331e064bcf11af31a778cb8dd06c463712421b7c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425572"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533432"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -37,7 +37,7 @@ ms.locfileid: "92425572"
 - 원본 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mariadb.az_replication_change_master` . 다음 [예제](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
 - 원본 서버의 IP 주소가 Azure Database for MariaDB 복제 서버의 방화벽 규칙에 추가 되었는지 확인 합니다. [Azure Portal](howto-manage-firewall-portal.md) 또는 [Azure CLI](howto-manage-firewall-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
 - 원본 서버를 호스트 하는 컴퓨터에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 둘 다 허용 하는지 확인 합니다.
-- 원본 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
+- 원본 서버에 **공용 IP 주소가** 있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.

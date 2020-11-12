@@ -4,19 +4,19 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208114"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533738"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
 현재 Azure Functions는 세 가지 버전의 런타임 호스트 (1.x, 2.x 및 3.x)를 지원 합니다. 세 버전 모두 프로덕션 시나리오에서 지원 됩니다.  
 
 > [!IMPORTANT]
-> 버전 1.x는 유지 관리 모드 이며 Azure Portal 또는 Windows 컴퓨터에서 로컬로 개발을 지원 합니다. 향상 된 기능은 이후 버전 에서만 제공 됩니다. 
+> 버전 1.x는 유지 관리 모드 이며 Azure Portal, Azure Stack 허브 포털 또는 Windows 컴퓨터의 로컬 에서만 개발을 지원 합니다. 향상 된 기능은 이후 버전 에서만 제공 됩니다. 
 
 이 문서에서는 다양 한 버전 간의 차이점, 각 버전을 만드는 방법 및 버전을 변경 하는 방법에 대해 자세히 설명 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "88208114"
 
 2.x 버전부터 앱의 함수에 사용 되는 특정 트리거 및 바인딩에 대 한 확장을 설치 해야 합니다. 유일한 예외는 확장이 필요 없는 이 HTTP 및 타이머 트리거입니다.  자세한 내용은 [바인딩 확장 등록 및 설치](./functions-bindings-register.md)를 참조하세요.
 
-또한 버전 간에 함수의function.js또는 특성에 * 대* 한 몇 가지 변경 내용이 있습니다. 예를 들어, 이벤트 허브 `path` 속성은 이제 `eventHubName`입니다. 각 바인딩의 설명서에 대한 링크는 [기존 바인딩 테이블](#bindings)을 참조하세요.
+또한 버전 간에 함수의function.js또는 특성에 *대* 한 몇 가지 변경 내용이 있습니다. 예를 들어, 이벤트 허브 `path` 속성은 이제 `eventHubName`입니다. 각 바인딩의 설명서에 대한 링크는 [기존 바인딩 테이블](#bindings)을 참조하세요.
 
 ### <a name="changes-in-features-and-functionality-after-version-1x"></a>버전 1.x 이후의 기능 변경 내용
 

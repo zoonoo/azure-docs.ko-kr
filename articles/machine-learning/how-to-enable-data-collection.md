@@ -1,7 +1,7 @@
 ---
 title: 프로덕션 모델에서 데이터 수집
 titleSuffix: Azure Machine Learning
-description: 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법 알아보기
+description: AKS (Azure Kubernetes Service) 클러스터에 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357646"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532820"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
-
-
 
 이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법을 보여 줍니다. 수집 된 데이터는 Azure Blob 저장소에 저장 됩니다.
 
@@ -57,7 +55,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!NOTE]
 > 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 됩니다 `identifier` . 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 

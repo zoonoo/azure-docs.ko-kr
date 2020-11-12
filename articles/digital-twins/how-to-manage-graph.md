@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359581"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533881"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -22,10 +22,16 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>그래프를 관리 하는 방법
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+또한 Azure Digital 쌍 (ADT) 탐색기 샘플을 사용 하 여 그래프를 변경할 수 있습니다 .이 샘플을 사용 하면 쌍과 그래프를 시각화 하 고, 백그라운드에서 SDK를 사용할 수 있습니다. 다음 섹션에서는이 샘플에 대해 자세히 설명 합니다.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>관계 만들기
@@ -219,7 +225,8 @@ private static async Task DeleteRelationship(DigitalTwinsClient client, string s
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>쌍 그래프 만들기 
+
+## <a name="runnable-twin-graph-sample"></a>실행 가능한 쌍의 쌍 그래프 샘플
 
 다음 실행 가능한 코드 조각은이 문서의 관계 작업을 사용 하 여 디지털 쌍 및 관계에서 쌍으로 된 쌍의 그래프를 만듭니다.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>CLI를 사용 하 여 관계 관리
-
-또한 Azure Digital Twins CLI를 사용 하 여 쌍 및 해당 관계를 관리할 수 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

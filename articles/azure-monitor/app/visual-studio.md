@@ -4,12 +4,12 @@ description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단�
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932212"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532905"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](./app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
@@ -53,12 +53,12 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
-![예외 스택 추적](./media/visual-studio/17.png)
+![스택 추적의 About 개체를 보여 주는 스크린샷](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>코드의 요청 및 예외 요약 보기
 각 처리기 메서드 위의 코드 렌즈 줄에서는 지난 24시간 동안 Application Insights에 의해 기록된 요청 및 예외 수를 표시합니다.
 
-![예외 스택 추적](./media/visual-studio/21.png)
+![스크린 샷에서는 상황에 맞는 대화 상자에서 예외를 표시 합니다.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > [Application Insights 포털에 원격 분석을 전송하도록 앱을 구성](./asp-net.md)한 경우 코드 렌즈에서는 Application Insights 데이터를 표시합니다.
@@ -69,7 +69,7 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 ## <a name="trends"></a>추세
 추세는 시간이 지남에 따라 앱의 동작 방식을 시각화하는 도구입니다. 
 
-Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 세트를 분석할 수 있습니다. 
+Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색** 을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 세트를 분석할 수 있습니다. 
 
 데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
 

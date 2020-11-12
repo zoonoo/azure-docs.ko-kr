@@ -1,19 +1,19 @@
 ---
 title: '자습서: 서버 디자인 - Azure CLI - Azure Database for MySQL'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543953"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533602"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
@@ -27,6 +27,8 @@ Azure Database for MySQL은 MySQL Community Edition 데이터베이스 엔진을
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -174,7 +176,7 @@ SELECT * FROM inventory;
 
 복원에는 다음 정보가 필요합니다.
 
-- 복원 지점: 서버를 변경하기 전 발생한 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
+- 복원 지점: 데이터베이스를 변경하기 전의 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
 - 대상 서버: 복원해 두려는 새 서버의 이름을 제공합니다.
 - 원본 서버: 복원해 오려는 서버의 이름을 제공합니다.
 - 위치: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
@@ -196,12 +198,25 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 명령은 동기화되고 서버가 복원된 후에 반환됩니다. 복원이 완료되면 생성된 새 서버를 찾습니다. 데이터가 예상대로 복원되었는지 확인합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+다른 빠른 시작/자습서에서 이러한 리소스가 필요하지 않으면 다음 명령을 수행하여 삭제할 수 있습니다. 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+새로 만든 서버 하나만 삭제하려면 [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) 명령을 실행합니다.
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * Azure Database for MySQL 서버 만들기
 > * 서버 방화벽 구성
-> * [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
+> * mysql 명령줄 도구를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트

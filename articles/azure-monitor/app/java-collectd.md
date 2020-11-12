@@ -3,17 +3,17 @@ title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
 description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a4ce1ad6a8248680b8bdeec8a98195c3dbfe31a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532871"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭 [사용 되지 않음]
 
 > [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> Java 응용 프로그램 모니터링에 권장 되는 **방법은** 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 에 대 한 지침을 따르세요.
 
 Linux 시스템 성능 메트릭을[Application Insights](./app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 

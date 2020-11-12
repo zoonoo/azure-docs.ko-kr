@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961360"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532378"
 ---
 # <a name="display-controls"></a>표시 컨트롤
 
@@ -28,11 +28,9 @@ ms.locfileid: "91961360"
 
 ![렌더링 된 디스플레이 컨트롤 예제](media/display-controls/display-control-email.png)
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
- [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 예를 들면 다음과 같습니다.
+ [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 다음은 그 예입니다. 
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -57,7 +55,7 @@ ms.locfileid: "91961360"
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **Inputclaims** 은 사용자 로부터 수집할 클레임 값을 미리 채우는 데 사용 됩니다. 자세한 내용은 [Inputclaims](technicalprofiles.md#inputclaims) 요소를 참조 하세요. |
 | DisplayClaims | 0:1 | **DisplayClaims** 는 사용자 로부터 수집할 클레임을 나타내는 데 사용 됩니다. 자세한 내용은 [DisplayClaim](technicalprofiles.md#displayclaim) 요소를 참조 하세요.|
-| OutputClaims | 0:1 | **Outputclaims** 은이 **DisplayControl**에 대해 일시적으로 저장 되는 클레임을 나타내는 데 사용 됩니다. 자세한 내용은 [Outputclaims](technicalprofiles.md#outputclaims) 요소를 참조 하세요.|
+| OutputClaims | 0:1 | **Outputclaims** 은이 **DisplayControl** 에 대해 일시적으로 저장 되는 클레임을 나타내는 데 사용 됩니다. 자세한 내용은 [Outputclaims](technicalprofiles.md#outputclaims) 요소를 참조 하세요.|
 | 동작 | 0:1 | **작업** 은 프런트 엔드에서 발생 하는 사용자 작업에 대해 호출할 유효성 검사 기술 프로필을 나열 하는 데 사용 됩니다. |
 
 ### <a name="input-claims"></a>입력 클레임
@@ -78,9 +76,9 @@ ms.locfileid: "91961360"
 
 표시 컨트롤의 각 형식에는 다른 표시 클레임, [출력 클레임](#output-claims)및 수행할 [작업](#display-control-actions) 집합이 필요 합니다.
 
-[자체 어설션된 기술 프로필](self-asserted-technical-profile.md#display-claims)에 정의 된 **표시 클레임** 과 마찬가지로 표시 클레임은 표시 컨트롤 내에서 사용자 로부터 수집할 클레임을 나타냅니다. 참조 된 **ClaimType** 요소는 또는와 같은 Azure AD B2C에서 지 원하는 사용자 입력 형식에 대해 **userinputtype** 요소를 지정 해야 합니다 `TextBox` `DropdownSingleSelect` . **작업**에 표시 클레임 값이 필요한 경우에는 **필수** 특성을로 설정 하 여 `true` 사용자가 특정 표시 클레임에 대 한 값을 제공 하도록 합니다.
+[자체 어설션된 기술 프로필](self-asserted-technical-profile.md#display-claims)에 정의 된 **표시 클레임** 과 마찬가지로 표시 클레임은 표시 컨트롤 내에서 사용자 로부터 수집할 클레임을 나타냅니다. 참조 된 **ClaimType** 요소는 또는와 같은 Azure AD B2C에서 지 원하는 사용자 입력 형식에 대해 **userinputtype** 요소를 지정 해야 합니다 `TextBox` `DropdownSingleSelect` . **작업** 에 표시 클레임 값이 필요한 경우에는 **필수** 특성을로 설정 하 여 `true` 사용자가 특정 표시 클레임에 대 한 값을 제공 하도록 합니다.
 
-특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl**형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 예를 들면 다음과 같습니다.
+특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl** 형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 다음은 그 예입니다. 
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -96,7 +94,7 @@ ms.locfileid: "91961360"
 
 표시 컨트롤의 **작업** 은 사용자가 클라이언트 쪽 (브라우저)에서 특정 작업을 수행할 때 Azure AD B2C 백 엔드에서 발생 하는 프로시저입니다. 예를 들어 사용자가 페이지에서 단추를 선택할 때 수행할 유효성 검사입니다.
 
-작업은 **유효성 검사 기술 프로필**의 목록을 정의 합니다. 표시 컨트롤의 일부 또는 모든 표시 클레임의 유효성을 검사 하는 데 사용 됩니다. 유효성 검사 기술 프로필은 사용자 입력의 유효성을 검사 하 고 사용자에 게 오류를 반환할 수 있습니다. 자체 어설션된 기술 프로필의 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 사용 되는 것과 유사한 컨트롤 표시 작업에서 **ContinueOnError**, **ContinueOnSuccess**및 **사전 조건을** 사용할 수 있습니다.
+작업은 **유효성 검사 기술 프로필** 의 목록을 정의 합니다. 표시 컨트롤의 일부 또는 모든 표시 클레임의 유효성을 검사 하는 데 사용 됩니다. 유효성 검사 기술 프로필은 사용자 입력의 유효성을 검사 하 고 사용자에 게 오류를 반환할 수 있습니다. 자체 어설션된 기술 프로필의 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 사용 되는 것과 유사한 컨트롤 표시 작업에서 **ContinueOnError** , **ContinueOnSuccess** 및 **사전 조건을** 사용할 수 있습니다.
 
 #### <a name="actions"></a>동작
 

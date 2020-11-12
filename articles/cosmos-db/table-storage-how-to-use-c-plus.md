@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477337"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489882"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>C++로 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -94,7 +95,7 @@ Azure Cosmos DB 계정의 이름을 `<your_cosmos_db_account>`에 사용합니�
 로컬 Windows 기반 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure Storage Emulator를 사용하면 됩니다. Storage Emulator는 로컬 개발 머신에서 사용할 수 있는 Azure Blob, 큐 및 Table services를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 대한 연결 문자열을 보관할 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 

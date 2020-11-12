@@ -1,7 +1,7 @@
 ---
 title: '이미지 분류 자습서: 모델 배포'
 titleSuffix: Azure Machine Learning
-description: 두 부분으로 구성된 시리즈의 두 번째인 이 자습서에서는 Azure Machine Learning을 사용하여 Python Jupyter Notebook에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다.
+description: 이 자습서에서는 Azure Machine Learning을 사용하여 Python Jupyter Notebook에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896580"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532786"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
 
-이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. [이전 자습서에서는](tutorial-train-models-with-aml.md), 기계 학습 모델을 학습한 후 클라우드에서 작업 영역에 모델을 등록합니다.  이제 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로, 이 경우 Docker 이미지입니다. 점수 매기기 논리와 모델 자체를 캡슐화합니다. 
+이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부** 입니다. [이전 자습서에서는](tutorial-train-models-with-aml.md), 기계 학습 모델을 학습한 후 클라우드에서 작업 영역에 모델을 등록합니다.  이제 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로, 이 경우 Docker 이미지입니다. 점수 매기기 논리와 모델 자체를 캡슐화합니다. 
 
 자습서의 이 부분에서는 Azure Machine Learning을 사용하여 다음 작업을 수행합니다.
 
@@ -45,7 +45,7 @@ Notebook을 실행하려면 먼저 [자습서(1부): 이미지 분류 모델 학
 > 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
 >
 > 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다.
-> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
+> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행** 을 선택하여 전체 Notebook을 실행합니다.
 
 ## <a name="set-up-the-environment"></a><a name="start"></a>환경 설정
 
@@ -358,6 +358,6 @@ service.delete()
 
 + [Azure Machine Learning에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다.
 + [웹 서비스에 대한 클라이언트를 만드는 방법](how-to-consume-web-service.md)에 대해 알아봅니다.
-+  [많은 양의 데이터에 대해 비동기적으로 예측](how-to-use-parallel-run-step.md)합니다.
++  [많은 양의 데이터에 대해 비동기적으로 예측](./tutorial-pipeline-batch-scoring-classification.md)합니다.
 + [Application Insights](how-to-enable-app-insights.md)를 사용하여 Azure Machine Learning 모델을 모니터링합니다.
-+ [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 사용해보세요. 
++ [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 사용해보세요.

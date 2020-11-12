@@ -3,17 +3,19 @@ title: '자습서: Azure Cosmos DB용 데이터베이스 마이그레이션 도�
 description: '자습서: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 스토리지, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.'
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7823c63cf618808cb1ab4400c39f4bc64b7af338
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490648"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427554"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>자습서: 데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 자습서에서는 다양한 원본에서 Azure Cosmos 컨테이너 및 테이블로 데이터를 가져올 수 있는 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하는 지침을 제공합니다. JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션에서도 데이터를 가져올 수 있습니다. Azure Cosmos DB에서 사용할 수 있도록 해당 데이터를 컬렉션 및 테이블로 마이그레이션할 수도 있습니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 SQL API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
 
@@ -340,7 +342,7 @@ dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;Ac
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
 #Export an Azure Cosmos container to a JSON file
-dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
+dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite
 ```
 
 > [!TIP]

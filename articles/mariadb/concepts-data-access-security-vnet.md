@@ -1,21 +1,21 @@
 ---
 title: VNet 서비스 끝점-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버에서 VNet 서비스 엔드포인트가 작동하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 15bfeb3860c3a7dd5f9dc11f7fb18473116f5ff4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425602"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533466"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
-*가상 네트워크 규칙*은 가상 네트워크의 특정 서브넷에서 보낸 통신을 Azure Database for MariaDB 서버에서 허용할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for MariaDB 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유에 대해 설명합니다.
+*가상 네트워크 규칙* 은 가상 네트워크의 특정 서브넷에서 보낸 통신을 Azure Database for MariaDB 서버에서 허용할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for MariaDB 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유에 대해 설명합니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 VNet([가상 네트워크 서비스 끝점][vm-virtual-network-overview]) 및 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다. 다음 그림에서는 Virtual Network 서비스 엔드포인트가 Azure Database for MariaDB에서 작동하는 방법을 보여 줍니다.
 
@@ -32,9 +32,9 @@ ms.locfileid: "92425602"
 
 **가상 네트워크:** Azure 구독과 연결된 가상 네트워크가 있을 수 있습니다.
 
-**서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 컴퓨팅 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
+**서브넷:** 가상 네트워크에 **서브넷** 이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 컴퓨팅 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MariaDB, MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷의 모든 Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다.
+**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql** 의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MariaDB, MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷의 모든 Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다.
 
 **가상 네트워크 규칙:** Azure Database for MariaDB 서버에 대한 가상 네트워크 규칙은 Azure Database for MariaDB 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. Azure Database for MariaDB 서버에 대한 ACL에 있으려면 서브넷에 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "92425602"
 
 ### <a name="a-allow-access-to-azure-services"></a>A. Azure 서비스에 대한 액세스 허용
 
-연결 보안 창에는 **Azure 서비스에 대한 액세스 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for MariaDB 데이터베이스에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
+연결 보안 창에는 **Azure 서비스에 대한 액세스 허용** 이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for MariaDB 데이터베이스에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
 
 ### <a name="b-ip-rules"></a>B. IP 규칙
 

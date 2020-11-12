@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL 비디오
 description: 이 페이지에는 Microsoft의 Azure 내 관리되는 MySQL 제품인 Azure Database for MySQL을 알아보는 것과 관련된 비디오 콘텐츠가 나열되어 있습니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 2c2fbb3352b159ce9f5231c56399638a1d393366
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e264ddba0feb6597d71006f6544f0dd3745705b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513862"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532412"
 ---
 # <a name="azure-database-for-mysql-videos"></a>MySQL용 Azure Database 비디오
 

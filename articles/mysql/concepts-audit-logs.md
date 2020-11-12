@@ -1,17 +1,17 @@
 ---
 title: 감사 로그-Azure Database for MySQL
 description: Azure Database for MySQL에서 사용할 수 있는 감사 로그와 로깅 수준을 사용 하도록 설정 하는 데 사용할 수 있는 매개 변수를 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac8e6e04b8bac7a1d27fefc780fb9fadb3122dc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534180"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
 

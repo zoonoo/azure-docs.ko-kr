@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214909"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532480"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -108,16 +108,6 @@ ms.locfileid: "92214909"
 | [표시 컨트롤](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>페이지 레이아웃 버전
-
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript 지원](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>App-IEF 통합
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
@@ -127,6 +117,7 @@ ms.locfileid: "92214909"
 | `client_assertion`을 통해 사용자 경험에 JSON 삽입 | X |  |  | 지원 중단 예정 |
 | 사용자 경험에 `id_token_hint`로 JSON 삽입 |  | X |  | JSON을 전달하는 진행 방법 |
 | [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-custom.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
+
 
 ### <a name="session-management"></a>세션 관리
 
