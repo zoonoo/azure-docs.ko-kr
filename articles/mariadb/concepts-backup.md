@@ -1,17 +1,17 @@
 ---
 title: 백업 및 복원-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378961"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541745"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 백업 및 복원
 

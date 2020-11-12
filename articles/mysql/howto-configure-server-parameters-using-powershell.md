@@ -1,26 +1,26 @@
 ---
 title: 서버 매개 변수 구성-Azure PowerShell-Azure Database for MySQL
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for MySQL에서 서비스 매개 변수를 구성 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3888e83738d8617d6ec1433a3b760a2c518b874c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 973025dfd8c0141ed0884539fe5207cc64ec822c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541864"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL에서 서버 매개 변수 구성
 
 PowerShell을 사용 하 여 Azure Database for MySQL 서버에 대 한 구성 매개 변수를 나열 하 고, 표시 하 고, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다.
 
 >[!Note]
-> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트할 수 있으며 [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)또는 [Azure Portal](./howto-server-parameters.md)를 사용할 수 있습니다.
+> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트될 수 있으며 [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) 또는 [Azure Portal](./howto-server-parameters.md)을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,7 +41,7 @@ PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/power
 
 서버에 있는 수정 가능한 모든 매개 변수와 해당 값을 나열 하려면 cmdlet을 실행 `Get-AzMySqlConfiguration` 합니다.
 
-다음 예에서는 **myresourcegroup**리소스 그룹의 **mydemoserver** 서버에 대 한 서버 구성 매개 변수를 나열 합니다.
+다음 예에서는 **myresourcegroup** 리소스 그룹의 **mydemoserver** 서버에 대 한 서버 구성 매개 변수를 나열 합니다.
 
 ```azurepowershell-interactive
 Get-AzMySqlConfiguration -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -53,7 +53,7 @@ Get-AzMySqlConfiguration -ResourceGroupName myresourcegroup -ServerName mydemose
 
 서버에 대 한 특정 구성 매개 변수에 대 한 세부 정보를 표시 하려면 cmdlet을 실행 하 `Get-AzMySqlConfiguration` 고 **Name** 매개 변수를 지정 합니다.
 
-이 예에서는 리소스 그룹 **myresourcegroup**에서 서버 **mydemoserver** 에 대 한 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수의 세부 정보를 보여 줍니다.
+이 예에서는 리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver** 에 대 한 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수의 세부 정보를 보여 줍니다.
 
 ```azurepowershell-interactive
 Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -63,7 +63,7 @@ Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup
 
 특정 서버 구성 매개 변수의 값을 수정할 수 있습니다. 그러면 MySQL 서버 엔진에 대한 기본 구성 값이 업데이트됩니다. 구성을 업데이트 하려면 cmdlet을 사용 `Update-AzMySqlConfiguration` 합니다.
 
-리소스 그룹 **myresourcegroup**에서 서버 **mydemoserver** 의 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수를 업데이트 합니다.
+리소스 그룹 **myresourcegroup** 에서 서버 **mydemoserver** 의 **저속 \_ 쿼리 \_ 로그** 서버 구성 매개 변수를 업데이트 합니다.
 
 ```azurepowershell-interactive
 Update-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

@@ -1,7 +1,7 @@
 ---
 title: 학습 실행 구성
 titleSuffix: Azure Machine Learning
-description: 다양 한 교육 환경 (계산 대상)에서 machine learning 모델을 학습 합니다. 학습 환경을 쉽게 전환할 수 있습니다. 로컬로 학습을 시작합니다. 규모 확장이 필요한 경우 클라우드 기반 컴퓨팅 대상으로 전환합니다.
+description: 다양 한 교육 환경 (계산 대상)에서 machine learning 모델을 학습 합니다. 학습 환경을 쉽게 전환할 수 있습니다.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324715"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541303"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 

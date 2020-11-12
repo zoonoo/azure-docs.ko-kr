@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning 데이터 참조 모니터링 | Microsoft Docs
-description: Azure Machine Learning를 모니터링할 때 필요한 중요 한 참조 자료입니다. Azure Machine Learning에 대해 수집 되 고 Azure Monitor에서 사용할 수 있는 데이터 및 리소스에 대해 알아봅니다. Azure Monitor은 Azure Machine Learning 작업 영역에 대 한 데이터를 수집 및 표시 하 고, 메트릭을 보고, 경고를 설정 하 고, 기록 데이터를 분석할 수 있도록 합니다.
+description: Azure Machine Learning 모니터링에 대 한 참조 설명서입니다. 수집 되 고 Azure Monitor에서 사용할 수 있는 데이터 & 리소스에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540793"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -24,9 +24,9 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)입니다.
 
-**모델링**
+**모델**
 
-| 메트릭 | 단위 | 설명 |
+| 메트릭 | 단위 | Description |
 | ----- | ----- | ----- |
 | 모델 배포 실패 | 개수 | 실패 한 모델 배포의 수입니다. |
 | 모델 배포가 시작 됨 | 개수 | 시작 된 모델 배포의 수입니다. |
@@ -38,7 +38,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 할당량 정보는 Azure Machine Learning 계산 전용입니다.
 
-| 메트릭 | 단위 | 설명 |
+| 메트릭 | 단위 | Description |
 | ----- | ----- | ----- |
 | 활성 코어 | 개수 | 활성 계산 코어의 수입니다. |
 | 활성 노드 | 개수 | 활성 노드 수입니다. |
@@ -56,16 +56,16 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 **리소스**
 
-| 메트릭 | 단위 | 설명 |
+| 메트릭 | 단위 | Description |
 | ----- | ----- | ----- |
 | CpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 CPU의 양 (%)입니다. 이 메트릭은 노드에서 작업을 실행 하는 경우에만 게시 됩니다. 한 작업에서 하나 이상의 노드를 사용할 수 있습니다. 이 메트릭은 노드당 게시 됩니다. |
 | GpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 GPU의 비율입니다. 한 노드에 하나 이상의 Gpu가 있을 수 있습니다. 이 메트릭은 노드당 GPU 당 게시 됩니다. |
 
-**실행**
+**Run**
 
 학습 실행에 대 한 정보입니다.
 
-| 메트릭 | 단위 | 설명 |
+| 메트릭 | 단위 | Description |
 | ----- | ----- | ----- |
 | 완료 된 실행 | 개수 | 완료 된 실행 수입니다. |
 | 실패 한 실행 | 개수 | 실패 한 실행 수입니다. |
@@ -77,7 +77,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차원이 있습니다.
 
-| 차원 | 설명 |
+| 차원 | Description |
 | ---- | ---- |
 | 클러스터 이름 | 계산 인스턴스의 이름입니다. 모든 할당량 메트릭에 사용할 수 있습니다. |
 | Vm 제품군 이름 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. 할당량 사용률에 사용할 수 있습니다. |
@@ -93,7 +93,7 @@ Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차
 
 RunType 차원의 유효한 값은 다음과 같습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ----- | ----- |
 | 실험 | 비 파이프라인 실행 |
 | PipelineRun | 단계별 실행의 부모인 파이프라인 실행입니다. |
@@ -178,7 +178,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | MinimumNodeCount | 클러스터의 최소 노드 수 |
 | MaximumNodeCount | 클러스터의 최대 노드 수 |
 | NodeDeallocationOption | 노드의 할당을 취소 하는 방법 |
-| 게시자 | 클러스터 유형 게시자 |
+| Publisher | 클러스터 유형 게시자 |
 | 제안 | 클러스터가 생성 되는 제품 |
 | SKU | 클러스터 내에서 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
@@ -214,7 +214,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | VmSize | 노드의 Vm 크기 |
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
-| 게시자 | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
+| Publisher | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
 | 제안 | VM 만들기와 관련 된 제안 |
 | SKU | 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |

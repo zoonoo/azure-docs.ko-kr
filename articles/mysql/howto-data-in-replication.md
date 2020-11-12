@@ -1,17 +1,17 @@
 ---
 title: 데이터에서 복제 구성-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 대해 데이터 내부 복제를 설정하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544038"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541405"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -75,7 +75,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
       ```bash
       ping <output of step 2b>
       ``` 
-      예를 들면 다음과 같습니다. 
+      다음은 그 예입니다.  
       ```bash      
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
@@ -140,11 +140,11 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
 
    **로그인 이름** 필드에 사용자 이름을 입력합니다. 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="사용자 및 권한":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="사용자 동기화":::
  
    **관리 역할** 패널을 클릭하고 **전역 권한** 목록에서 **복제 슬레이브** 를 선택합니다. 그런 다음, **적용** 을 클릭하여 복제 역할을 만듭니다.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="사용자 및 권한":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="복제 슬레이브":::
 
 1. 원본 서버를 읽기 전용 모드로 설정
 
@@ -164,7 +164,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
    ```
    결과는 다음과 같아야 합니다. 이후 단계에서 사용되므로 이진 파일 이름을 적어 두세요.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="사용자 및 권한":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="마스터 상태 결과":::
  
 ## <a name="dump-and-restore-source-server"></a>원본 서버 덤프 및 복원
 

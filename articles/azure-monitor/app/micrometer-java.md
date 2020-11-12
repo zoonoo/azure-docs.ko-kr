@@ -6,17 +6,17 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 434d978f6a228bad9b142738767500d639017032
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 534452d57884045f90c1d8d3ff44aadc3578cd4f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378876"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542537"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 
 > [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. Application Insights Java 3.0 에이전트를 사용 하 여 마이크로 측정기 원격 분석이 자동으로 수집 됩니다. [Application Insights java 3.0 agent](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
 > [!NOTE]
 > Application Insights Java SDK는 스프링 Webflux를 지원 하지 않습니다. 대신 [Application Insights java 3.0 agent](./java-in-process-agent.md) 를 사용 하십시오. 

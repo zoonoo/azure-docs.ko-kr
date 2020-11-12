@@ -1,19 +1,19 @@
 ---
 title: '자습서: 서버 디자인 - Azure PowerShell - Azure Database for MariaDB'
 description: 이 자습서에서는 PowerShell을 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8087da173c8d1df225456aea6efbdbe5ed8c48be
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424937"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542476"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for MariaDB 디자인
 

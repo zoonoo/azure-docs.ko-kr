@@ -1,17 +1,17 @@
 ---
 title: 덤프 및 복원을 사용 하 여 마이그레이션-Azure Database for MariaDB
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c23b027b428ef58ae51a6ba1d2603e94b1eaaf8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118854"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540861"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
@@ -83,7 +83,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ## <a name="create-a-database-on-the-target-server"></a>대상 서버에서 데이터베이스 만들기
 데이터를 마이그레이션하려는 대상 Azure Database for MariaDB 서버에서 빈 데이터베이스를 만듭니다. MySQL Workbench와 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
-연결하려면 Azure Database for MariaDB의 **개요**에서 연결 정보를 찾습니다.
+연결하려면 Azure Database for MariaDB의 **개요** 에서 연결 정보를 찾습니다.
 
 ![Azure Portal에서 연결 정보 찾기](./media/howto-migrate-dump-restore/1_server-overview-name-login.png)
 
@@ -113,8 +113,8 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 ## <a name="import-using-phpmyadmin"></a>PHPMyAdmin을 사용하여 가져오기
 데이터베이스 가져오기는 내보내기와 비슷합니다. 다음 작업을 수행합니다.
 1. phpMyAdmin을 엽니다. 
-2. phpMyAdmin 설치 페이지에서 **추가**를 클릭하여 Azure Database for MariaDB 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
-3. 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제**를 선택하여 기존 테이블을 삭제합니다. 
+2. phpMyAdmin 설치 페이지에서 **추가** 를 클릭하여 Azure Database for MariaDB 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
+3. 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제** 를 선택하여 기존 테이블을 삭제합니다. 
 4. **SQL** 링크를 클릭하여 SQL 명령을 입력하거나 SQL 파일을 업로드할 수 있는 페이지를 표시합니다. 
 5. **찾아보기** 단추를 사용하여 데이터베이스 파일을 찾습니다. 
 6. **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.

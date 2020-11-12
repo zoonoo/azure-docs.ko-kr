@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653616"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540929"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 저장소 유형이 있습니다. 일부 저장소 유형은 또는 SAP 시나리오에 사용할 수 있는 제한 되지 않습니다. 반면, 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양 한 유형의 저장소를 살펴보고 SAP 워크 로드 및 SAP 구성 요소에 대 한 기능 및 유용성을 설명 합니다.
@@ -273,7 +273,7 @@ ANF 저장소의 추가 기본 제공 기능:
 - 스냅숏에서 ANF 볼륨 복제
 - 스냅숏에서 볼륨 복원 (맞춤 되돌리기)
 
-**요약**: AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
+**요약** : AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
 
 
 
@@ -352,11 +352,10 @@ SAP 시스템의 수명 주기에서 Azure Vm의 크기를 조정 하는 경우 
 
 
 ## <a name="striping-or-not-striping"></a>스트라이핑 또는 스트라이핑 안 함
-여러 Azure 디스크에서 하나의 큰 볼륨으로 스트라이프 세트를 만들면 개별 디스크의 IOPS 및 처리량을 하나의 볼륨에 누적 시킬 수 있습니다. Azure standard storage 및 Azure premium storage에만 사용 됩니다. 디스크 용량에 독립적으로 처리량 및 IOPS를 구성할 수 있는 Azure Ultra disk는 스트라이프 세트를 사용 하지 않아도 됩니다. NFS 또는 SMB 기반 공유 볼륨은 스트라이프 할 수 없습니다. Azure premium storage 처리량 및 IOPS의 비선형 특성으로 인해 대용량 단일 Azure premium storage 디스크와 동일한 IOPS 및 처리량을 사용 하 여 더 작은 용량을 프로 비전 할 수 있습니다. Azure premium storage를 사용 하 여 저렴 한 비용으로 높은 처리량 또는 IOPS를 달성할 수 있는 방법입니다. 예를 들면 다음과 같습니다.
+여러 Azure 디스크에서 하나의 큰 볼륨으로 스트라이프 세트를 만들면 개별 디스크의 IOPS 및 처리량을 하나의 볼륨에 누적 시킬 수 있습니다. Azure standard storage 및 Azure premium storage에만 사용 됩니다. 디스크 용량에 독립적으로 처리량 및 IOPS를 구성할 수 있는 Azure Ultra disk는 스트라이프 세트를 사용 하지 않아도 됩니다. NFS 또는 SMB 기반 공유 볼륨은 스트라이프 할 수 없습니다. Azure premium storage 처리량 및 IOPS의 비선형 특성으로 인해 대용량 단일 Azure premium storage 디스크와 동일한 IOPS 및 처리량을 사용 하 여 더 작은 용량을 프로 비전 할 수 있습니다. Azure premium storage를 사용 하 여 저렴 한 비용으로 높은 처리량 또는 IOPS를 달성할 수 있는 방법입니다. 예를 들어 두 P15 premium storage 디스크에 대 한 스트라이프를 통해 다음의 처리량을 얻습니다. 
 
-- 두 P15 premium storage 디스크에 대 한 스트라이프를 통해 다음의 처리량을 얻습니다. 
 - 250 MiB/초. 이러한 볼륨에는 512 GiB 용량이 있습니다. 초당 250 MiB 처리량을 제공 하는 단일 디스크를 사용 하려면 2 개의 TiB 용량으로 P40 디스크를 선택 해야 합니다. 
-- 또는 스트라이프를 사용 하 여 512 GiB의 전체 용량으로 4 개의 P10 premium storage 디스크를 스트라이프 하 여 400 MiB/sec의 처리량을 달성할 수 있습니다. 초당 최소 500 MiB 처리량을 포함 하는 단일 디스크를 사용 하려면 P60 premium storage 디스크를 8 TiB으로 선택 해야 합니다. 비용 절감 또는 프리미엄 저장소는 용량과 함께 선형 이므로 스트라이프를 사용 하 여 비용을 절감할 수 있습니다.
+- 512 GiB의 전체 용량을 사용 하 여 P10 premium storage 디스크 4 개를 스트라이프 한 400 MiB/sec. 초당 최소 500 MiB 처리량을 포함 하는 단일 디스크를 사용 하려면 P60 premium storage 디스크를 8 TiB으로 선택 해야 합니다. Premium storage 비용은 용량과 거의 동일 하므로 스트라이프를 사용 하 여 비용을 절감할 수 있습니다.
 
 일부 규칙은 다음에 스트라이핑 해야 합니다.
 

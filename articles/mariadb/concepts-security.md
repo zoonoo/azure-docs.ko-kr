@@ -1,17 +1,17 @@
 ---
 title: 보안-Azure Database for MariaDB
 description: Azure Database for MariaDB의 보안 기능에 대 한 개요입니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a46f70e3089a8610fa8ca6362bcba6f624e2b1a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527829"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541150"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 보안
 

@@ -1,17 +1,17 @@
 ---
 title: 데이터베이스 및 사용자 만들기-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL 서버와 상호 작용 하는 새 사용자 계정을 만드는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766875"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541422"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 데이터베이스 및 사용자 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "91766875"
 > [!NOTE]
 > **바이어스 없는 통신**
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word *슬레이브*에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해이 문서에서 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 *slave(슬레이브)* 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해이 문서에서 사용 됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 Azure Database for MySQL 서버를 처음 만들 때 서버 관리자 사용자 이름과 암호를 제공 했습니다. 자세한 내용은이 [빠른](quickstart-create-mysql-server-database-using-azure-portal.md)시작을 참조 하세요. Azure Portal에서 서버 관리자 사용자 이름을 확인할 수 있습니다.
@@ -94,7 +94,7 @@ Azure Database for MySQL 서버를 만든 후에는 첫 번째 서버 관리자 
    
    연결 방법을 잘 모르겠으면 [MySQL 워크 벤치를 사용 하 여 데이터 연결 및 쿼리](./connect-workbench.md)를 참조 하세요.
 
-3. 다음 SQL 코드를 편집하고 실행합니다. 자리 표시자 값을 `new_master_user` 새 사용자 이름으로 바꿉니다. 이 구문은 모든 데이터베이스 스키마 (*.*)에 대해 나열 된 권한을 사용자에 게 부여 합니다 ( `new_master_user` 이 예제에서는).
+3. 다음 SQL 코드를 편집하고 실행합니다. 자리 표시자 값을 `new_master_user` 새 사용자 이름으로 바꿉니다. 이 구문은 모든 데이터베이스 스키마 ( *.* )에 대해 나열 된 권한을 사용자에 게 부여 합니다 ( `new_master_user` 이 예제에서는).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

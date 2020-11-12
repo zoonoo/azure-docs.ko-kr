@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394223"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540946"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
@@ -68,7 +68,7 @@ ms.locfileid: "93394223"
 |계정이 없습니다.|API|FHIR 용 Azure IoT 커넥터 및 FHIR 리소스에 대 한 Azure API 추가 시도는 존재 하지 않습니다.|FHIR 리소스에 대 한 Azure API를 만든 후 작업을 다시 시도 합니다.|
 |IoT 커넥터에 대 한 Azure API fhir 리소스 FHIR 버전은 지원 되지 않습니다.|API|FHIR 리소스에 대해 호환 되지 않는 버전의 Azure API를 사용 하 여 FHIR 용 Azure IoT 커넥터를 사용 하려고 합니다.|FHIR 리소스에 대 한 새 Azure API (버전 4)를 만들거나 기존 Azure API (버전 4-4)를 사용 합니다.
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Fhir (미리 보기) 데이터를 위한 Azure IoT 커넥터가 FHIR 용 Azure API에 표시 되지 않는 이유는 무엇 인가요?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Fhir (미리 보기) 데이터를 위한 Azure IoT 커넥터가 FHIR 용 Azure API에 표시 되지 않는 이유는 무엇 인가요?
 
 |잠재적 이슈|수정 프로그램|
 |----------------|-----|
@@ -82,7 +82,74 @@ ms.locfileid: "93394223"
 
 * 참조 빠른 시작: azure iot 커넥터 [(미리 보기)를 배포 하 Azure Portal 여 azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) iot 커넥터에 대 한 azure iot 커넥터 (예: 조회 또는 만들기)의 기능 설명을 제공 합니다.
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Azure IoT 커넥터에서 메트릭을 사용 하 여 FHIR (미리 보기)에 대 한 문제 해결
+
+FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐름 프로세스에 대 한 정보를 제공 합니다. 지원 되는 메트릭 중 하나를 *전체 오류* 라고 하며,이는 FHIR 용 Azure IoT 커넥터의 인스턴스 내에서 발생 하는 모든 오류에 대 한 개수를 제공 합니다.
+
+각 오류는 여러 연결 된 속성으로 기록 됩니다. 모든 속성은 오류를 식별 하 고 문제를 해결 하는 데 도움이 되는 오류에 대 한 다양 한 측면을 제공 합니다. 이 섹션에는 *총* 오류 메트릭의 각 오류에 대해 캡처된 여러 속성과 이러한 속성의 가능한 값이 나열 되어 있습니다.
+
+> [!NOTE]
+> [Fhir (미리 보기) 메트릭 페이지에 대 한 Azure Iot 커넥터](iot-metrics-display.md)에 설명 된 대로 fhir 용 Azure iot 커넥터 (미리 보기)의 인스턴스에 대 한 *총 오류* 메트릭으로 이동할 수 있습니다.
+
+*총 오류* 그래프를 클릭 한 다음 *필터 추가* 단추를 클릭 하 여 아래 설명 된 속성 중 하나를 사용 하 여 오류 메트릭을 조각화 및 분석 합니다.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT 커넥터에서 수행 하는 작업 (미리 보기)
+
+이 속성은 오류가 발생 했을 때 IoT 커넥터에서 수행 하는 작업을 나타냅니다. 작업은 일반적으로 장치 메시지를 처리 하는 동안 데이터 흐름 단계를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
+
+> [!NOTE]
+> [여기](iot-data-flow.md)에서 FHIR (미리 보기)에 대 한 Azure IoT 커넥터에서 데이터 흐름의 여러 단계에 대해 자세히 알아볼 수 있습니다.
+
+|데이터 흐름 단계|Description|
+|---------------|-----------|
+|설치|IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
+|표준화|장치 데이터를 정규화 하는 데이터 흐름 단계|
+|그룹화|정규화 된 데이터가 그룹화 되는 데이터 흐름 단계|
+|FHIRConversion|그룹화 된 정규화 된 데이터를 FHIR 리소스로 변환 하는 데이터 흐름 단계|
+|알 수 없음|오류가 발생 했을 때 작업 유형을 알 수 없습니다.|
+
+### <a name="the-severity-of-the-error"></a>오류의 심각도입니다.
+
+이 속성은 발생 한 오류의 심각도를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
+
+|심각도|설명|
+|---------------|-----------|
+|Warning|데이터 흐름 프로세스에 약간의 사소한 문제가 있지만 장치 메시지 처리가 중지 되지 않습니다.|
+|Error|특정 장치 메시지를 처리 하는 동안 오류가 발생 하 고 다른 메시지가 계속 해 서 정상적으로 실행 될 수 있습니다.|
+|위험|IoT 커넥터에 일부 시스템 수준 문제가 있으며 처리할 메시지가 없습니다.|
+
+### <a name="the-type-of-the-error"></a>오류의 유형입니다.
+
+이 속성은 지정 된 오류에 대 한 범주를 나타냅니다 .이는 기본적으로 유사한 오류 유형에 대 한 논리적 그룹화를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
+
+|오류 유형|Description|
+|----------|-----------|
+|DeviceTemplateError|장치 매핑 템플릿과 관련 된 오류|
+|DeviceMessageError|특정 장치 메시지를 처리 하는 동안 오류가 발생 했습니다.|
+|Fanr템플릿 오류|FHIR 매핑 템플릿과 관련 된 오류|
+|FHIRConversionError|메시지를 FHIR 리소스로 변환 하는 동안 오류가 발생 했습니다.|
+|FHIRResourceError|IoT 커넥터에서 참조 하는 FHIR 서버의 기존 리소스와 관련 된 오류|
+|FHIRServerError|FHIR 서버와 통신할 때 발생 하는 오류|
+|GeneralError|다른 모든 오류 유형|
+
+### <a name="the-name-of-the-error"></a>오류의 이름입니다.
+
+이 속성은 특정 오류에 대 한 이름을 제공 합니다. 다음은 설명 및 관련 오류 유형, 심각도 및 데이터 흐름 단계를 포함 하는 모든 오류 이름 목록입니다.
+
+|오류 이름|Description|오류 유형|오류 심각도|데이터 흐름 단계|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|장치 메시지에 있는 각 식별자에 대해 FHIR 서버에서 여러 환자 또는 장치 리소스를 발견 하는 동안 오류가 발생 했습니다.|FHIRResourceError|Error|FHIRConversion|
+|TemplateNotFoundException|IoT 커넥터의 인스턴스를 사용 하 여 장치 또는 FHIR 매핑 템플릿이 구성 되지 않았습니다.|DeviceTemplateError, Fanr템플릿 오류|위험|정규화, FHIRConversion|
+|CorrelationIdNotDefinedException|상관 관계 ID가 장치 매핑 템플릿에서 지정 되지 않았습니다. CorrelationIdNotDefinedException는 FHIR 관찰에서 상관 관계 ID를 사용 하 여 장치 측정을 그룹화 해야 하지만 올바르게 구성 되지 않은 경우에만 발생 하는 조건부 오류입니다.|DeviceMessageError|Error|표준화|
+|PatientDeviceMismatchException|이 오류는 FHIR 서버의 장치 리소스에 환자 리소스에 대 한 참조가 있을 때 발생 합니다 .이 리소스는 메시지에 있는 환자 식별자와 일치 하지 않습니다.|FHIRResourceError|Error|FHIRConversionError|
+|PatientNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 장치 FHIR 리소스에서 참조 하는 환자 FHIR 리소스가 없습니다. 참고이 오류는 IoT 커넥터 인스턴스가 *조회* 확인 유형으로 구성 된 경우에만 발생 합니다.|FHIRConversionError|Error|FHIRConversion|
+|DeviceNotFoundException|장치 메시지에 있는 장치 식별자와 연결 된 FHIR 서버에 장치 리소스가 없습니다.|DeviceMessageError|Error|표준화|
+|PatientIdentityNotDefinedException|이 오류는 장치 메시지에서 환자 식별자를 구문 분석 하는 식이 장치 매핑 템플릿에서 구성 되지 않았거나 환자 식별자가 장치 메시지에 없는 경우에 발생 합니다. 참고이 오류는 IoT 커넥터의 해상도 유형이 *Create* 로 설정 된 경우에만 발생 합니다.|DeviceTemplateError|위험|표준화|
+|DeviceIdentityNotDefinedException|이 오류는 장치 메시지에서 장치 식별자를 구문 분석 하는 식이 장치 매핑 템플릿에서 구성 되지 않았거나 장치 식별자가 장치 메시지에 없는 경우에 발생 합니다.|DeviceTemplateError|위험|표준화|
+|NotSupportedException|지원 되지 않는 형식의 장치 메시지를 받는 동안 오류가 발생 했습니다.|DeviceMessageError|Error|표준화|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>FHIR (미리 보기) 변환에 대 한 Azure IoT 커넥터의 복사본 만들기 JSON 매핑
+
 FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 웹 사이트 외부에서 편집 및 보관 하는 데 유용할 수 있습니다.
 
 문제 해결을 지원 하기 위해 지원 티켓을 열 때 매핑 파일 복사본을 Azure 기술 지원 서비스에 제공 해야 합니다.

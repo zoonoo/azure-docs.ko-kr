@@ -1,7 +1,7 @@
 ---
 title: 리소스 및 할당량 관리
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 리소스에 대 한 할당량 및 할당량 향상을 요청 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에 대 한 리소스에 대 한 할당량 및 제한 및 할당량 향상을 요청 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309080"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542119"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -102,7 +102,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 자세한 내용은 [Container Instances 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)을 참조 하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 Azure Storage은 구독 당 지역 당 저장소 계정 250 개로 제한 됩니다. 이 제한에는 표준 및 프리미엄 저장소 계정이 모두 포함 됩니다.
 
 제한을 늘리려면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)을 통해 요청을 수행 합니다. Azure Storage 팀은 해당 사례를 검토 하 고 지역에 대해 최대 250 개의 저장소 계정을 승인할 수 있습니다.
@@ -174,7 +174,7 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 
 1. [Azure 지원 요청을 만들고](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
 
-    | 필드 | 선택 |
+    | 필드 | 선택 영역 |
     | ----- | ----- |
     | 문제 유형 | **기술** |
     | 서비스 | **내 서비스**. 그런 다음 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |

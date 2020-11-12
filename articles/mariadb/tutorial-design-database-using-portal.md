@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Database for MariaDB 디자인 - Azure Portal'
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e6cac09ff304e02e24b482dc834d8199329c1c0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424880"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542442"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
 

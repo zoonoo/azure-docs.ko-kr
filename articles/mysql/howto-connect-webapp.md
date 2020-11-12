@@ -1,17 +1,17 @@
 ---
 title: Azure App Service에 연결-Azure Database for MySQL
 description: 기존 Azure App Service를 Azure Database for MySQL에 적절하게 연결하는 방법에 대한 지침
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905855"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541507"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
@@ -24,25 +24,25 @@ ms.locfileid: "90905855"
 ## <a name="solution-1---allow-azure-services"></a>해결 방법 1 - Azure 서비스 허용
 Azure Database for MySQL은 데이터를 보호하는 방화벽을 사용하여 액세스 보안을 제공합니다. Azure App Service에서 Azure Database for MySQL 서버로 연결할 때 App Service의 아웃바운드 IP는 기본적으로 동적이라는 것을 염두에 두어야 합니다. "Azure 서비스에 대한 액세스 허용" 옵션을 선택하면 App Service가 MySQL 서버에 연결할 수 있습니다.
 
-1. MySQL 서버 블레이드의 설정 머리글에서 **연결 보안**을 클릭하여 MySQL용 Azure Database에 대한 연결 보안 블레이드를 엽니다.
+1. MySQL 서버 블레이드의 설정 머리글에서 **연결 보안** 을 클릭하여 MySQL용 Azure Database에 대한 연결 보안 블레이드를 엽니다.
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
-2. **Azure 서비스에 대한 액세스 허용**에서 **설정**, **저장**을 차례로 선택합니다.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - 보안 연결 클릭":::
+2. **Azure 서비스에 대한 액세스 허용** 에서 **설정** , **저장** 을 차례로 선택합니다.
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - Azure 액세스 허용":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>솔루션 2 - 아웃바운드 IP를 명시적으로 허용하는 방화벽 규칙 만들기
 Azure App Service의 모든 아웃바운드 IP를 명시적으로 추가할 수 있습니다.
 
-1. App Service 속성 블레이드에서 **아웃바운드 IP 주소**를 확인합니다.
+1. App Service 속성 블레이드에서 **아웃바운드 IP 주소** 를 확인합니다.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal - 보안 연결 클릭":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal - 아웃바운드 IP 확인":::
 
 2. MySQL 연결 보안 블레이드에서 아웃바운드 IP를 하나씩 추가합니다.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal - 보안 연결 클릭":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal - 명시적 IP 추가":::
 
-3. 잊지 말고 방화벽 규칙을 **저장**하세요.
+3. 잊지 말고 방화벽 규칙을 **저장** 하세요.
 
 Azure App Service에서는 시간이 지나도 IP 주소를 동일하게 유지하려고 하지만 경우에 따라 IP 주소가 변경될 수도 있습니다. 예를 들어 수용 작업량을 늘리기 위해 앱 재활용 또는 크기 조정 작업이 발생하거나 Azure 지역 데이터 센터에 새 컴퓨터가 추가되는 경우에 발생할 수 있습니다. IP 주소가 변경되면 앱에서 더 이상 MySQL 서버에 연결할 수 없는 경우 가동 중지가 발생할 수 있습니다. 이전 솔루션 중 하나를 선택할 때 이 고려 사항을 염두에 둡니다.
 

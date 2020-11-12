@@ -1,17 +1,17 @@
 ---
 title: 서버 관리-Azure CLI-Azure Database for MySQL
 description: Azure CLI에서 Azure Database for MySQL 서버를 관리 하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd068f0cf76a8edefca854d72d5240c0becaf8fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546860"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542068"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 단일 서버 관리
 
@@ -58,7 +58,7 @@ storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바
 ## <a name="manage-mysql-databases-on-a-server"></a>서버에서 MySQL 데이터베이스 관리
 이러한 명령 중 하나를 사용 하 여 서버에 있는 데이터베이스의 데이터베이스 속성을 만들고, 삭제 하 고, 나열 하 고, 볼 수 있습니다.
 
-| cmdlet | 사용| Description |
+| Cmdlet | 사용| Description |
 | --- | ---| --- |
 |[az mysql db create](/cli/azure/sql/db#az-mysql-db-create)|```az mysql db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |데이터베이스 만들기|
 |[az mysql db delete](/cli/azure/sql/db#az-mysql-db-delete)|```az mysql db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|서버에서 데이터베이스를 삭제 합니다. 이 명령은 서버를 삭제 하지 않습니다. |

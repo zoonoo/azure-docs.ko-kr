@@ -1,7 +1,7 @@
 ---
 title: 비용 계획 및 관리
 titleSuffix: Azure Machine Learning
-description: Azure Portal에서 비용 분석을 사용 하 여 Azure Machine Learning에 대 한 비용을 계획 하 고 관리 합니다. 기계 학습 모델을 빌드하는 경우 비용을 낮추기 위한 추가 비용 절감 팁을 알아보세요.
+description: Azure Portal에서 비용 분석을 사용 하 여 Azure Machine Learning에 대 한 비용을 계획 하 고 관리 합니다. ML 모델을 작성할 때 비용을 낮출 수 있도록 추가 비용 절감 팁을 알아보세요.
 author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322987"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541711"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 

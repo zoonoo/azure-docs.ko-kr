@@ -1,17 +1,17 @@
 ---
 title: 드라이버 및 도구 호환성-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB와 호환 되는 Aadb 드라이버 및 관리 도구에 대해 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49fd2c8da3ba0a44f4901bc6c7a2241e9e20df4d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86107209"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541694"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환 되는 MariaDB 드라이버 및 관리 도구
 
@@ -23,7 +23,7 @@ Azure Database for MariaDB은 community edition의 Aadb 서버를 사용 합니�
 
 목표는 세 가지 최신 버전의 MariaDB 드라이버를 지 원하는 것이 고, 오픈 소스 커뮤니티의 작성자가 지속적으로 기능을 개선 하 고, 계속 해 서 Aadb 드라이버의 유용성을 개선 하는 것입니다. 다음 표에는 테스트를 거쳐 Azure Database for MariaDB 10.2와 호환 되는 것으로 확인 된 드라이버 목록이 나와 있습니다.
 
-**드라이버** | **연결** | **호환 되는 버전** | **호환되지 않는 버전** | **참고**
+**Driver** | **연결** | **호환 되는 버전** | **호환되지 않는 버전** | **참고**
 ---|---|---|---|---
 PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0과 SSL MySQLi 연결의 경우 연결 문자열에 MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT를 추가합니다. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO 집합: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` 옵션을 false로 설정합니다.
 .NET | [GitHub의 MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 |

@@ -1,7 +1,7 @@
 ---
 title: 계산 인스턴스 만들기 및 관리
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 작업 영역에서 계산 인스턴스를 만들고 관리 하는 방법에 대해 알아봅니다. 계산 인스턴스를 개발 환경으로 사용 하거나 학습 및 유추 개발/테스트 목적으로 사용 합니다.
+description: Azure Machine Learning 계산 인스턴스를 만들고 관리 하는 방법에 대해 알아봅니다. 개발 환경으로 사용 하거나 개발/테스트 목적으로 계산 대상으로 사용 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318030"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543105"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -40,7 +40,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>생성
+## <a name="create"></a>만들기
 
 **예상 시간** : 약 5 분.
 
@@ -161,7 +161,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* DELETE
+* 삭제
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* DELETE
+* 삭제
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

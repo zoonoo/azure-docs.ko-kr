@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489134"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542136"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -43,7 +43,7 @@ ms.locfileid: "94489134"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세히 알아보기](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [자세한 정보](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 Id를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
@@ -107,6 +107,16 @@ ms.locfileid: "94489134"
   + **azureml-train-automl-client**
     + Get_output XGBoostError를 발생 시킬 수 있는 문제를 해결 했습니다.
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Azure Machine Learning Studio 노트북 환경 (10 월 업데이트)
++ **새로운 기능**
+  + [전체 가상 네트워크 지원](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [포커스 모드](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + 전자 필기장 저장 Ctrl-S
+  + 줄 번호
+
++ **버그 수정 및 향상 된 기능**
+  + 속도 및 커널 안정성 개선
+  + Jupyter 위젯 UI 업데이트
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -140,7 +150,7 @@ ms.locfileid: "94489134"
     + Azureml에서 이동 하는 라임 설명-설명에서 해석-커뮤니티 패키지 및 이미지 제거 합니다.
     + azureml에서 제거 된 시각화 대시보드-적용-패키지 해석, 설명 클라이언트가 azureml로 이동 됨-azureml에서 패키지를 해석 하 고 사용 되지 않음-azureml
     + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml에 대 한 pypi 패키지 설명 수정
-  + **azureml-전자 필기장**
+  + **azureml-contrib-notebook**
     + Nbcovert 종속성을 < 6에 고정 하 여 용지 밀링 1.x가 계속 작동 하도록 합니다.
   + **azureml-core**
     + TensorflowConfiguration 및 MpiConfiguration 생성자에 매개 변수를 추가 하 여 사용자가 각 개별 특성을 설정 하지 않고도 클래스 특성을 보다 효율적으로 초기화할 수 있도록 합니다. ScriptRunConfig에서 distributed PyTorch 작업을 구성 하기 위한 PyTorchConfiguration 클래스를 추가 했습니다.
@@ -425,7 +435,7 @@ ms.locfileid: "94489134"
     + 사용 중단 _with_auth 매개 변수 ws.get_mlflow_tracking_uri ()
   + **azureml-opendatasets**
     + 최근 게시 된 Covid-19 추적 데이터 집합을 이제 SDK와 함께 사용할 수 있습니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + "Azureml-기본값"이 pip 종속성의 일부로 포함 되지 않은 경우 로그 아웃 경고
     + 메모 렌더링을 개선 합니다.
     + 구분 된 파일을 PipelineOutputFileDataset로 구문 분석할 때 따옴표로 묶인 줄 바꿈에 대 한 지원이 추가 되었습니다.
@@ -787,7 +797,7 @@ ms.locfileid: "94489134"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  |
+| 웹 기반 도구  |     Description  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1080,7 +1090,7 @@ ms.locfileid: "94489134"
     + 이제 사용자가 webservices에 대 한 키를 다시 생성할 때 auth 키에 대 한 값을 지정할 수 있습니다.
   + **azureml-interpret**
     + 업데이트 된 azureml-해석-커뮤니티 0.5.0에 종속 된 것으로 해석
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 인수 목록을 변경 하는 경우에도 PythonScriptStep 결과가 잘못 재사용 될 수 있는 버그를 수정 했습니다.
   + **azureml-pipeline-steps**
     + 데이터 집합에 대 한 문서 예제를 PythonScriptStep 입력으로 추가 했습니다.
@@ -1166,7 +1176,7 @@ ms.locfileid: "94489134"
     + `TabularDataset.to_pandas_dataframe`가 대체 판독기로 잘못 대체 되 고 경고를 출력 하는 버그를 수정 했습니다.
   + **azureml-explain-model**
     + shap 종속성을 해석 하 여 azureml의 community-해석
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + `NotebookRunnerStep`파이프라인의 한 단계로 로컬 노트북을 실행 하는 새 파이프라인 단계가 추가 되었습니다.
     + PublishedPipelines, 일정 및 PipelineEndpoints에 대해 사용 되지 않는 get_all 함수를 제거 했습니다.
   + **azureml-train-automl-client**
@@ -1299,7 +1309,7 @@ ms.locfileid: "94489134"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 
+| 웹 기반 도구 | Description | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
@@ -1411,7 +1421,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 데이터 집합 모니터의 일별 뿐만 아니라 주별 및 월별 모니터 일정을 지원 합니다.
     + 데이터 집합 모니터의 기록 데이터를 분석 하는 데이터 모니터 메트릭의 백필을 지원 합니다.
     + 다양한 버그 수정
-  + [**azureml 파이프라인-코어**](/python/api/azureml-pipeline-core)
+  + [**azureml-pipeline-core**](/python/api/azureml-pipeline-core)
     + azureml-dataprep는 파이프라인 파일에서 Azure Machine Learning 파이프라인 실행을 전송 하는 데 더 이상 필요 하지 않습니다 `yaml` .
   + [**azureml-학습-automl**](/python/api/azureml-train-automl-runtime/)
     + Azureml 추가-모델 배포 오류를 해결 하기 위해 자동 생성 된 conda env에 기본값을 추가 합니다.
@@ -1482,7 +1492,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + Azureml-설명 모델의 이름을 AzureML로 해석 하 여 이전 패키지를 현재 이전 버전과의 호환성을 유지 합니다.
     + `automl`ExplanationClient에서 다운로드 시 기본적으로 회귀 대신 분류 태스크로 설정 된 원시 설명이 포함 된 버그가 수정 되었습니다.
     + 를 `ScoringExplainer` 사용 하 여 직접 만들 수 있도록에 대 한 지원 추가 `MimicWrapper`
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 대량 파이프라인 생성을 위한 향상 된 성능
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
@@ -1604,7 +1614,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-학습-automl**
     + 데이터 입력 형식으로 지원 되는 training_data, validation_data, label_column_name, weight_column_name
     + Explain_model () 및 retrieve_model_explanations에 대 한 사용 중단 메시지 추가 ()
-  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
+  + **[azureml 파이프라인-코어](/python/api/azureml-pipeline-core)**
     + [모듈](/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion 및 [modulestep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
   + **[azureml-pipeline-steps](/python/api/azureml-pipeline-steps)**
     + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 [Rscriptstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) 을 추가 했습니다.
@@ -1802,7 +1812,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-opendatasets**
     + 자동 테스트 환경 검색 및 로깅을 지원 합니다.
     + 국가 및 zip을 기준으로 인구를 가져오도록 클래스를 추가 했습니다.
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 입력 및 출력 포트 정의에 레이블 속성을 추가 했습니다.
   + **azureml-telemetry**
     + 잘못 된 원격 분석 구성을 수정 했습니다.
@@ -1826,7 +1836,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + `read_parquet`Spark에서 실행 하는 경우의 성능이 개선 되었습니다.
   + `column_type_builder`모호한 날짜 형식의 단일 열에 대해 실패 한 경우 문제가 해결 되었습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 + **미리 보기 기능**
   + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
   + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
@@ -2105,7 +2115,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
   + 이제 기존 원격 계산 클러스터에서 기존 스크립트 실행을 다시 제출할 수 있습니다.
   + 이제 파이프라인 탭에서 새 매개 변수를 사용 하 여 게시 된 파이프라인을 실행할 수 있습니다.
   + 이제 실행 세부 정보에서 새로운 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 전송 된 노트북을 다운로드 하 여 실행을 시작할 수도 있습니다.
@@ -2163,7 +2173,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 + **버그 수정 및 향상 된 기능**
   + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 + **새로운 기능**
   + 새 보고서 끌어서 놓기 테이블 편집기 환경 사용자는 테이블의 미리 보기가 표시 되는 테이블 영역에서 열을 끌 수 있습니다. 열을 다시 정렬할 수 있습니다.

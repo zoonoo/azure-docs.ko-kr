@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43359c47b4d2c1b8895938271c74dab03f7731f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244753"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541779"
 ---
 # <a name="categorize-images-by-subject-matter"></a>주제별 이미지 분류
 
@@ -53,7 +53,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 다음 표에서는 각 이미지에 대해 Computer Vision에서 반환된 일반적인 이미지 집합 및 범주를 보여줍니다.
 
-| 이미지 | Category |
+| 이미지 | 범주 |
 |-------|----------|
 | ![가족으로 함께 포즈를 취한 4명의 사람](./Images/family_photo.png) | people_group |
 | ![잔디밭에 앉아 있는 강아지](./Images/cute_dog.png) | animal_dog |
@@ -62,7 +62,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 ## <a name="use-the-api"></a>API 사용
 
-분류 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"categories"` .
+분류 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"categories"` .
 
 * [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

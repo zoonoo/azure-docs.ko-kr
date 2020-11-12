@@ -1,17 +1,17 @@
 ---
 title: 백업 및 복원-Azure Database for MySQL
 description: Azure Database for MySQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376819"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542340"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 

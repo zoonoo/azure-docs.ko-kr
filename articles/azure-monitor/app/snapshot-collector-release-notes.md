@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: faacb78ca7f055bb8e9a469afb894bc30ee87501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507494"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542731"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.applicationinsights.snapshotcollector에 대 한 릴리스 정보입니다.
 
@@ -70,7 +70,7 @@ Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는
 - _실험적 기능_ : Snappoint 수집 계획: "snapshotOnFirstOccurence"를 추가 합니다. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- SnapshotUploader.exe 중단 되 고 .NET Core 앱에 대 한 스냅숏을 업로드 하지 않는 버그가 수정 되었습니다.
+- SnapshotUploader.exe 응답을 중지 하 고 .NET Core 앱에 대 한 스냅숏을 업로드 하지 않는 버그가 수정 되었습니다.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _실험적 기능_ : Snappoint collection 계획. 자세한 내용은 [여기](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe)를 참조하세요.

@@ -1,17 +1,17 @@
 ---
 title: 방화벽 규칙-Azure Database for MySQL
 description: Azure Database for MySQL 서버에 대 한 연결을 설정 하는 데 방화벽 규칙을 사용 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882662"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541609"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -37,13 +37,13 @@ Azure Database for MySQL 서버에 대한 모든 데이터베이스 액세스는
 ## <a name="connecting-from-azure"></a>Azure에서 연결
 응용 프로그램 또는 서비스의 나가는 IP 주소를 찾고 이러한 개별 IP 주소 또는 범위에 대 한 액세스를 명시적으로 허용 하는 것이 좋습니다. 예를 들어 Azure App Service의 나가는 IP 주소를 찾거나 가상 컴퓨터 또는 다른 리소스에 연결 된 공용 IP를 사용할 수 있습니다. 서비스 끝점을 통해 가상 컴퓨터의 개인 IP와 연결 하는 방법에 대 한 정보는 아래를 참조 하세요. 
 
-Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장**을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
+Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장** 을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
 
 > [!IMPORTANT]
 > **Azure 서비스에 대 한 액세스 허용** 옵션은 다른 고객의 구독에서 연결을 포함 하 여 azure에서 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="방화벽 작동 방식을 보여 주는 예제 흐름":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="포털에서 Azure 서비스 방문 허용 구성":::
 
 ### <a name="connecting-from-a-vnet"></a>VNet에서 연결
 VNet에서 Azure Database for MySQL 서버에 안전 하 게 연결 하려면 [vnet 서비스 끝점](./concepts-data-access-and-security-vnet.md)을 사용 하는 것이 좋습니다. 

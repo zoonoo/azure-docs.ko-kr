@@ -1,18 +1,18 @@
 ---
 title: 감사 로그에 액세스-Azure CLI-Azure Database for MySQL
 description: 이 문서에서는 Azure CLI에서 Azure Database for MySQL의 감사 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542000"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Azure CLI에서 감사 로그 구성 및 액세스
 
@@ -20,14 +20,13 @@ Azure CLI에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+이 방법 가이드를 단계별로 실행 하려면 다음을 수행 합니다.
 
-- [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure Database for MySQL 서버가](quickstart-create-mysql-server-database-using-azure-portal.md)필요 합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 

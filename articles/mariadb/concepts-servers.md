@@ -1,17 +1,17 @@
 ---
 title: 서버-Azure Database for MariaDB
 description: 이 항목에서는 Azure Database for MariaDB 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f519ac30468d197c14fcf53d386168ebde5cf8ac
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4d8293258083ea3e8d0172f510e5b41e91328736
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504359"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541065"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 서버 개념
 이 문서에서는 Azure Database for MariaDB 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.

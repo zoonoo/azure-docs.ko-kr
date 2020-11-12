@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-Azure Portal-Azure Database for MySQL
 description: 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 하도록 Advanced Threat Protection을 구성 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541439"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
 
@@ -42,15 +42,15 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
  
 1. 이메일에서 **최근 경고 보기** 링크를 클릭하여 Azure Portal을 시작하고, SQL 데이터베이스에서 검색된 활성 SQL 위협을 대략적으로 보여주는 Azure Security Center 경고 페이지를 표시합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="위협 감지 설정":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="비정상적인 활동 보고서":::
 
     활성 위협 보기:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="위협 감지 설정":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="활성 위협":::
 
 2. 특정 경고를 클릭하여 이 위협을 조사하고 향후 위협을 수정하기 위한 추가 세부 정보 및 조치를 확인합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="위협 감지 설정":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="특정 경고":::
 
 ## <a name="explore-threat-detection-alerts"></a>위협 검색 경고 살펴보기
 
@@ -58,7 +58,7 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 **보안 위협 경고** 를 클릭하면 Azure Security Center 경고 페이지가 열리고 데이터베이스에서 감지된 활성 SQL 위협에 대한 개요가 제공됩니다.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 감지 설정":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 감지 경고":::
    
 
 ## <a name="next-steps"></a>다음 단계
