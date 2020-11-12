@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408212"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536534"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -155,7 +155,7 @@ RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안
 
 -   클라이언트 쪽 암호화 - 데이터를 스토리지로 전송하기 전에 암호화하고, 스토리지에서 전송한 후에 암호를 해독합니다.
 
-### <a name="encryption-at-rest"></a>미사용 암호화
+### <a name="encryption-at-rest"></a>저장 데이터 암호화
 많은 조직에서 미사용 데이터 암호화는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. &quot;미사용&quot; 데이터 암호화를 제공하는 세 가지 Azure Storage 보안 기능이 있습니다.
 
 -   [Storage 서비스 암호화](../../storage/common/storage-service-encryption.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
@@ -221,7 +221,7 @@ Azure Virtual Network와 온-프레미스 사이트 간에 네트워크 트래�
 ### <a name="express-route"></a>Express 경로
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md)는 연결 공급자로 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있는 전용 WAN 링크입니다.
 
-![Express 경로](./media/overview/azure-security-fig1.png)
+![Express 경로](./media/overview/azure-security-figure-1.png)
 
 Express 경로를 사용 하 여 Microsoft Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
@@ -231,7 +231,7 @@ ExpressRoute 연결은 공용 인터넷을 거치지 않으므로 VPN 기반 솔
 ### <a name="application-gateway"></a>Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 [ADC(Application Delivery Controller)](https://en.wikipedia.org/wiki/Application_delivery_controller)를 서비스로 제공하여 애플리케이션에 다양한 계층 7 부하 분산 기능을 제공합니다.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 이를 통해 CPU 집약적 TLS 종료를 Application Gateway ("TLS 오프 로드" 또는 "TLS 브리징"이 라고도 함)에 오프 로드 하 여 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스팅할 수 있는 기능을 포함한 다른 계층 7 라우팅 기능도 제공합니다. Azure Application Gateway는 계층 7 부하 분산 장치입니다.
 
@@ -242,7 +242,7 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 웹 애플리케이션 방화벽은 표준 ADC 기능을 위해 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../application-gateway/overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다.
 
-![웹 애플리케이션 방화벽](./media/overview/azure-security-fig1.png)
+![웹 애플리케이션 방화벽](./media/overview/azure-security-figure-3.png)
 
 -   SQL 삽입 공격 보호
 

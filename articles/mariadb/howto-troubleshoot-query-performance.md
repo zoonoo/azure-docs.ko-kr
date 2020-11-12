@@ -1,20 +1,20 @@
 ---
 title: 쿼리 성능 문제 해결 - Azure Database for MariaDB
 description: EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법을 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424412"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537240"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
-**EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
+**EXPLAIN** 은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-이 예제에서 볼 수 있듯이 *key*의 값은 NULL입니다. 이 출력은 MariaDB가 쿼리에 최적화된 인덱스를 찾을 수 없어서 전체 테이블 검색을 수행한다는 의미입니다. **ID** 열에 인덱스를 추가하여 쿼리를 최적화해 보겠습니다.
+이 예제에서 볼 수 있듯이 *key* 의 값은 NULL입니다. 이 출력은 MariaDB가 쿼리에 최적화된 인덱스를 찾을 수 없어서 전체 테이블 검색을 수행한다는 의미입니다. **ID** 열에 인덱스를 추가하여 쿼리를 최적화해 보겠습니다.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-출력에서 볼 수 있듯이 적절한 인덱스가 없기 때문에 MariaDB에 인덱스가 사용되지 않았습니다. 또한 *Using temporary; Using file sort*를 볼 수 있습니다. 이것은 MariaDB에서 **GROUP BY** 절을 충족시키기 위해 임시 테이블을 만든다는 의미입니다.
+출력에서 볼 수 있듯이 적절한 인덱스가 없기 때문에 MariaDB에 인덱스가 사용되지 않았습니다. 또한 *Using temporary; Using file sort* 를 볼 수 있습니다. 이것은 MariaDB에서 **GROUP BY** 절을 충족시키기 위해 임시 테이블을 만든다는 의미입니다.
  
 **c2** 열에만 인덱스를 만들면 아무런 차이가 없어서 MariaDB에서 임시 테이블을 여전히 만들어야 합니다.
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-이런 경우 **c1**과 **c2** 모두에 **covered 인덱스**를 만들고 나중에 데이터 조회가 필요 없도록 **c2**"의 값을 인덱스에 바로 추가할 수 있습니다.
+이런 경우 **c1** 과 **c2** 모두에 **covered 인덱스** 를 만들고 나중에 데이터 조회가 필요 없도록 **c2** "의 값을 인덱스에 바로 추가할 수 있습니다.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

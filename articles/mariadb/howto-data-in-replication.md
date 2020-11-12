@@ -1,17 +1,17 @@
 ---
 title: 데이터에서 복제 구성-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB에서 입력 데이터 복제를 설정 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426005"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535370"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -54,7 +54,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 1. 계속 하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토 하십시오. 
 
-2. 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS가 공개적으로 액세스할**수 있거나 FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다. 
+2. 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS가 공개적으로 액세스할** 수 있거나 FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다. 
    
    다른 컴퓨터에서 호스트 되는 MySQL 명령줄 또는 Azure Portal에서 사용할 수 있는 [Azure Cloud Shell](../cloud-shell/overview.md) 와 같은 도구에서 연결을 시도 하 여 원본 서버에 대 한 연결을 테스트 합니다.
 
@@ -78,7 +78,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
       ```bash
       ping <output of step 2b>
       ``` 
-      예를 들면 다음과 같습니다. 
+      다음은 그 예입니다.  
       ```bash      
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
@@ -141,7 +141,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
    **MySQL Workbench**
 
-   MySQL 워크 벤치에서 복제 역할을 만들려면 **관리** 창에서 **사용자 및 권한**을 선택 합니다. 그런 다음 **계정 추가**를 선택 합니다.
+   MySQL 워크 벤치에서 복제 역할을 만들려면 **관리** 창에서 **사용자 및 권한** 을 선택 합니다. 그런 다음 **계정 추가** 를 선택 합니다.
  
    ![사용자 및 권한](./media/howto-data-in-replication/users_privileges.png)
 
@@ -149,7 +149,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
    ![사용자 동기화](./media/howto-data-in-replication/syncuser.png)
  
-   **관리 역할** 패널을 선택한 다음 **글로벌 권한**목록에서 **복제 슬레이브**를 선택 합니다. **적용** 을 선택 하 여 복제 역할을 만듭니다.
+   **관리 역할** 패널을 선택한 다음 **글로벌 권한** 목록에서 **복제 슬레이브** 를 선택 합니다. **적용** 을 선택 하 여 복제 역할을 만듭니다.
 
    ![복제 슬레이브](./media/howto-data-in-replication/replicationslave.png)
 

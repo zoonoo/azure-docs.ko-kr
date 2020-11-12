@@ -1,18 +1,18 @@
 ---
 title: 읽기 복제본 관리-Azure CLI, REST API Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 및 REST API를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 설정 하 고 관리 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8bb8ad4baec4c59a78afd6a92d69e94240c056a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 70da1e9c70bf80737065362c68781652dd9ab6e5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542627"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537512"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "92542627"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 원본 서버로 사용 되는 [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md) 입니다. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: ae3d35bea1c75c797447100316ceab9a27fcbe48
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424237"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536237"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>로컬 세션 관리자를 기다리는 동안 VM이 응답 하지 않습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "93424237"
 
 ## <a name="solution"></a>해결 방법
 
-경우에 따라 프로세스가 완료 되는 데 충분 한 시간 동안 대기 하면 문제가 해결 됩니다. VM이 대기 화면에서 한 시간 이상 멈춘 경우 메모리 덤프를 수집 하 고 Microsoft 지원에 문의 해야 합니다.
+경우에 따라 프로세스가 완료 되는 데 충분 한 시간 동안 대기 하면 문제가 해결 됩니다. VM이 응답 하지 않으며 대기 화면에서 한 시간 이상 지속 되는 경우 메모리 덤프를 수집 하 고 Microsoft 지원에 문의 해야 합니다.
 
 ### <a name="collect-the-memory-dump-file"></a>메모리 덤프 파일 수집
 

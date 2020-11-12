@@ -1,7 +1,7 @@
 ---
 title: Machine Learning 웹 서비스 끝점에서 데이터 모니터링 및 수집
 titleSuffix: Azure Machine Learning
-description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine Learning 배포 된 웹 서비스 모니터링
+description: AKS (Azure Kubernetes Service) 또는 ACI (Azure Container Instances)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357674"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536594"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 
@@ -32,7 +32,7 @@ ms.locfileid: "93357674"
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독- [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 

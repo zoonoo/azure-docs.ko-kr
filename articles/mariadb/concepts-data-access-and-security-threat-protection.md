@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-Azure Database for MariaDB
 description: Advanced Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425661"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536197"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB Advanced Threat Protection
 
@@ -34,11 +34,11 @@ Azure Database for MariaDB에 대 한 Advanced Threat Protection은 비정상적
 
 ## <a name="advanced-threat-protection-alerts"></a>Advanced Threat Protection 경고 
 Azure Database for MariaDB에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 하 고 다음 경고를 트리거할 수 있습니다.
-- **비정상적인 위치에서 액세스**:이 경고는 다른 사람이 비정상적인 지리적 위치에서 Azure Database for MariaDB 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
-- **비정상적인 azure 데이터 센터에서 액세스**:이 경고는 사용자가 최근 기간 동안이 서버에 표시 된 비정상적인 Azure 데이터 센터에서 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 경우에 따라 경고는 합법적인 작업 (Azure에서 새 응용 프로그램, Power BI)을 검색 합니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
-- **익숙하지 않은 사용자의 액세스**:이 경고는 사용자가 비정상적인 보안 주체 (Azure Database for MariaDB 사용자)를 사용 하 여 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
-- **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하여 공격을 검색합니다.
-- **무차별 암호 대입 Azure Database for MariaDB 자격 증명**:이 경고는 다른 자격 증명을 사용 하 여 실패 한 로그인 수가 비정상적으로 많은 경우에 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
+- **비정상적인 위치에서 액세스** :이 경고는 다른 사람이 비정상적인 지리적 위치에서 Azure Database for MariaDB 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **비정상적인 azure 데이터 센터에서 액세스** :이 경고는 사용자가 최근 기간 동안이 서버에 표시 된 비정상적인 Azure 데이터 센터에서 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 경우에 따라 경고는 합법적인 작업 (Azure에서 새 응용 프로그램, Power BI)을 검색 합니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **익숙하지 않은 사용자의 액세스** :이 경고는 사용자가 비정상적인 보안 주체 (Azure Database for MariaDB 사용자)를 사용 하 여 서버에 로그온 한 Azure Database for MariaDB 서버에 대 한 액세스 패턴이 변경 된 경우에 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **잠재적으로 위험한 애플리케이션에서 액세스** : 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하여 공격을 검색합니다.
+- **무차별 암호 대입 Azure Database for MariaDB 자격 증명** :이 경고는 다른 자격 증명을 사용 하 여 실패 한 로그인 수가 비정상적으로 많은 경우에 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

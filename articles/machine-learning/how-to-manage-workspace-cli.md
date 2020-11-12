@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442143"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534741"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -156,9 +156,12 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리 키 및 높은 비즈니스 영향 작업 영역
 
-기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다. 
+기본적으로 작업 영역에 대 한 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
 
-Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+> [!NOTE]
+> Azure Cosmos DB은 모델 성능, 실험에서 기록한 정보 또는 모델 배포에서 기록 된 정보와 같은 정보를 저장 하는 데 사용 __되지 않습니다__ . 이러한 항목을 모니터링 하는 방법에 대 한 자세한 내용은 아키텍처 및 개념 문서의 [모니터링 및 로깅](concept-azure-machine-learning-architecture.md) 섹션을 참조 하세요.
+
+Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
 
 `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Compute 및 storage 옵션-Azure Database for MySQL 유연한 서버
 description: 이 문서에서는 Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315165"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534673"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
 
@@ -71,12 +71,12 @@ ms.locfileid: "92315165"
 
 사용 가능한 계산 시리즈에 대 한 자세한 내용은 Azure VM 설명서 ( [B 시리즈)](../../virtual-machines/sizes-b-series-burstable.md), [범용 (Ddsv4 시리즈)](../../virtual-machines/ddv4-ddsv4-series.md)및 [메모리 최적화 (Edsv4 시리즈)](../../virtual-machines/edv4-edsv4-series.md)를 참조 하세요.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로 비전 하는 저장소는 유연한 서버에서 사용할 수 있는 저장소 용량의 양입니다. 저장소는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL server 로그에 사용 됩니다. 모든 계산 계층에서 지원 되는 최소 저장소는 5 GiB이 고 최대값은 16 TiB입니다. 저장소는 1 GiB 증분 단위로 크기 조정 되며 서버를 만든 후에 확장할 수 있습니다.
 
 >[!NOTE]
-> 저장소는 다운 되지 않고 확장만 가능 합니다.
+> 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 저장소 용량 한도, 저장소 비율 및 저장소 사용 메트릭을 사용 하 여 Azure Portal (Azure Monitor)에서 저장소 사용량을 모니터링할 수 있습니다. 메트릭에 대 한 자세한 내용은 [모니터링 문서](./concepts-monitoring.md) 를 참조 하세요. 
 
@@ -132,7 +132,7 @@ ms.locfileid: "92315165"
 
 최대 유효 IOPS는 compute 크기 당 사용 가능한 최대 IOPS에 따라 달라 집니다. 아래의 수식을 참조 하 고 [B 시리즈](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4 시리즈](../../virtual-machines/ddv4-ddsv4-series.md)및 [Edsv4 시리즈](../../virtual-machines/edv4-edsv4-series.md) 설명서에서 *최대 캐시 되지 않은 디스크 처리량: IOPS/MBps* 를 참조 하세요.
 
-**최대 유효 IOPS** = 최소 (*"최대 캐시 되지 않은 디스크 처리량: IOPS/MBps"* 계산 크기, GiB * 3에 프로 비전 된 저장소)
+**최대 유효 IOPS** = 최소 ( *"최대 캐시 되지 않은 디스크 처리량: IOPS/MBps"* 계산 크기, GiB * 3에 프로 비전 된 저장소)
 
 [IO 백분율](./concepts-monitoring.md) 메트릭을 사용 하 여 Azure Portal (Azure Monitor)에서 i/o 사용량을 모니터링할 수 있습니다. 더 많은 IOPS가 필요한 경우 계산 크기나 프로 비전 된 저장소로 제한 되는지 이해 해야 합니다. 적절 하 게 프로 비전 된 서버의 계산 또는 저장소 크기를 조정 합니다.
 
@@ -153,7 +153,7 @@ ms.locfileid: "92315165"
 
 ## <a name="pricing"></a>가격 책정
 
-최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/MySQL/)를 참조하세요. 원하는 구성에 대 한 비용을 확인 하기 위해 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) 는 선택한 옵션에 따라 **계산 + 저장소** 탭의 월별 비용을 보여 줍니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가**를 선택 하 고, **데이터베이스** 범주를 확장 하 고, **Azure Database for MySQL**, **유연한 서버** 를 배포 유형으로 선택 하 여 옵션을 사용자 지정 합니다.
+최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/MySQL/)를 참조하세요. 원하는 구성에 대 한 비용을 확인 하기 위해 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) 는 선택한 옵션에 따라 **계산 + 저장소** 탭의 월별 비용을 보여 줍니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택 하 고, **데이터베이스** 범주를 확장 하 고, **Azure Database for MySQL** , **유연한 서버** 를 배포 유형으로 선택 하 여 옵션을 사용자 지정 합니다.
 
 서버 비용을 최적화 하려면 다음 팁을 고려 하세요.
 

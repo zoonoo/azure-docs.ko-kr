@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536254"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -153,7 +153,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 열| 사용자 지정
 ---|---
-Included | 학습에 포함할 열을 지정 합니다.
+포함 | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
 돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
@@ -162,6 +162,9 @@ Included | 학습에 포함할 열을 지정 합니다.
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
 **마침** 을 선택하여 실험을 실행합니다. 실험 준비 프로세스는 최대 10분 정도 걸릴 수 있습니다. 각 파이프라인에서 실행을 완료하는 데 학습 작업에 2-3분 더 걸릴 수 있습니다.
+
+> [!NOTE]
+> 자동화 된 ML에서 채택 하는 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수를 약간 변형 시킬 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
 
 ### <a name="view-experiment-details"></a>실험 세부 정보 보기
 

@@ -1,17 +1,17 @@
 ---
 title: 지원 되는 버전-Azure Database for MySQL
 description: Azure Database for MySQL 서비스에서 지원 되는 MySQL server 버전을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 0c4836ad48426bc5f2c8c18b888f0c296a90f222
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417693"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535863"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 

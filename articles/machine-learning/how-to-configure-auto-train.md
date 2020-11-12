@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535336"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "94352577"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -346,6 +346,9 @@ Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있
 각 실행에 대해 제공 되는 성능 차트 및 메트릭에 대 한 정의 및 예제는 [자동화 된 기계 학습 실험 결과 평가](how-to-understand-automated-ml.md) 를 참조 하세요. 
 
 기능화 요약을 얻고 특정 모델에 추가 된 기능을 이해 하려면 [기능화 투명도](how-to-configure-auto-features.md#featurization-transparency)를 참조 하세요. 
+
+> [!NOTE]
+> 자동화 된 ML에서 채택 하는 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수를 약간 변형 시킬 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
 
 ## <a name="register-and-deploy-models"></a>모델 등록 및 배포
 
