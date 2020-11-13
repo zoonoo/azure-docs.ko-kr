@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079193"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594269"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -34,15 +34,16 @@ Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure 방호는 특히 ***AzureBastionSubnet***에 배포 됩니다.
+Azure 방호는 특별히 * **AzureBastionSubnet** _에 배포 됩니다.
 
-* **수신 트래픽:**
+**수신 트래픽 (** %):
 
    * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
    * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.
+   * **Azure Loadbalancer의 수신 트래픽:** 상태 프로브의 경우 **Azureloadbalancer** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 azure 부하 분산 장치가 백 엔드에서의 연결 문제를 검색할 수 있습니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 인바운드 보안 규칙을 보여 줍니다.":::
 
 * **송신 트래픽:**
 
@@ -50,7 +51,7 @@ Azure 방호는 특히 ***AzureBastionSubnet***에 배포 됩니다.
    * **Azure의 다른 공용 끝점에 대 한 송신 트래픽:** Azure 방호는 Azure 내에서 다양 한 공용 끝점 (예: 진단 로그 저장 및 계량 로그)에 연결할 수 있어야 합니다. 이러한 이유로 Azure 방호에는 443 ~ **Azurecloud** service 태그의 아웃 바운드가 필요 합니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 아웃 바운드 보안 규칙을 보여 줍니다.":::
 
 ### <a name="target-vm-subnet"></a>대상 VM 서브넷
 이 서브넷은 RDP/SSH 하려는 대상 가상 머신을 포함 하는 서브넷입니다.

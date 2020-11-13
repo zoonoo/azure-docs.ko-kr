@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 55083da596f15409ed460e498438f9eaea10dfa8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633232"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593759"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -39,13 +39,13 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure 구독** . 아직 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다.
+- **Azure 구독**. 아직 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다.
 
-- **서버 또는 SQL Managed Instance Azure SQL Database (선택 사항)** . 데이터베이스 서버 또는 관리 되는 인스턴스가 아직 없는 경우 시작 하기 전에 Azure Portal에서 하나 만듭니다. 그러면 Data Factory에서 SSISDB 인스턴스를 이 데이터베이스 서버에 만듭니다. 
+- **서버 또는 SQL Managed Instance Azure SQL Database (선택 사항)**. 데이터베이스 서버 또는 관리 되는 인스턴스가 아직 없는 경우 시작 하기 전에 Azure Portal에서 하나 만듭니다. 그러면 Data Factory에서 SSISDB 인스턴스를 이 데이터베이스 서버에 만듭니다. 
 
   Integration runtime과 동일한 Azure 지역에 데이터베이스 서버 또는 관리 되는 인스턴스를 만드는 것이 좋습니다. 이 구성을 사용하면 통합 런타임에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다.
 
@@ -63,13 +63,13 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
   - 데이터베이스 서버에 SSISDB 인스턴스가 아직 없는지 확인합니다. Azure-SSIS IR 프로비저닝은 기존 SSISDB 인스턴스 사용을 지원하지 않습니다.
 
-- **Azure Resource Manager 가상 네트워크(선택 사항)** . 다음 조건 중 하나 이상에 해당하는 경우 Azure Resource Manager 가상 네트워크가 있어야 합니다.
+- **Azure Resource Manager 가상 네트워크(선택 사항)**. 다음 조건 중 하나 이상에 해당하는 경우 Azure Resource Manager 가상 네트워크가 있어야 합니다.
 
   - IP 방화벽 규칙/가상 네트워크 서비스 끝점 또는 개인 끝점을 사용 하는 관리 되는 인스턴스를 사용 하 여 Azure SQL Database 서버에서 SSISDB를 호스트 하 고 있습니다.
 
   - 자체 호스팅 IR을 구성 하지 않고 Azure-SSIS IR에서 실행 되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결 하려고 합니다.
 
-- **Azure PowerShell (옵션)** . PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비저닝하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-az-ps)의 지침을 따릅니다.
+- **Azure PowerShell (옵션)**. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비저닝하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-az-ps)의 지침을 따릅니다.
 
 ### <a name="regional-support"></a>지역 지원
 
@@ -85,7 +85,7 @@ Data Factory 및 Azure-SSIS IR을 사용할 수 있는 Azure 지역 목록은 [�
 | **인증** | 데이터 팩터리의 관리 id를 사용 하 여 **db_owner** 역할의 멤버로 Azure AD 그룹을 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다.<br/><br/>[Azure SQL Database server에서 SSISDB를 만들려면 AZURE AD 인증 사용을](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)참조 하세요. | 데이터 팩터리의 관리 되는 id를 나타내는 포함 된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다. <br/><br/>Azure [SQL Managed Instance에서 SSISDB를 만들려면 AZURE AD 인증 사용을](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance)참조 하세요. |
 | **서비스 계층** | Azure SQL Database 서버를 사용 하 여 Azure-SSIS IR를 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | 관리 되는 인스턴스를 사용 하 여 Azure-SSIS IR를 만들 때는 SSISDB의 서비스 계층을 선택할 수 없습니다. 관리 되는 인스턴스의 모든 데이터베이스는 해당 인스턴스에 할당 된 동일한 리소스를 공유 합니다. |
 | **가상 네트워크** | IP 방화벽 규칙/가상 네트워크 서비스 끝점에서 Azure SQL Database 서버를 사용 하는 경우 Azure-SSIS IR Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. | 개인 끝점에서 관리 되는 인스턴스를 사용 하는 경우 Azure-SSIS IR Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. 관리 되는 인스턴스에 대해 공용 끝점을 사용 하지 않는 경우 가상 네트워크가 필요 합니다.<br/><br/>Azure-SSIS IR를 관리 되는 인스턴스와 동일한 가상 네트워크에 조인 하는 경우 Azure-SSIS IR 관리 되는 인스턴스와 다른 서브넷에 있는지 확인 합니다. Azure-SSIS IR를 관리 되는 인스턴스의 다른 가상 네트워크에 조인 하는 경우 가상 네트워크 피어 링 또는 네트워크 간 연결을 권장 합니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결을](../azure-sql/managed-instance/connect-application-instance.md)참조 하세요. |
-| **분산 트랜잭션** | 이 기능은 탄력적 트랜잭션을 통해 지원 됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용 하 여 분산 트랜잭션을 조정 하는 경우 Azure SQL Database에 대해 탄력적 트랜잭션으로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클라우드 데이터베이스 간 분산 트랜잭션](../azure-sql/database/elastic-transactions-overview.md)을 참조 하세요. | 지원되지 않습니다. |
+| **분산 트랜잭션** | 이 기능은 탄력적 트랜잭션을 통해 지원 됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용 하 여 분산 트랜잭션을 조정 하는 경우 Azure SQL Database에 대해 탄력적 트랜잭션으로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클라우드 데이터베이스 간 분산 트랜잭션](../azure-sql/database/elastic-transactions-overview.md)을 참조 하세요. | 지원 안 됨 |
 | | | |
 
 ## <a name="use-the-azure-portal-to-create-an-integration-runtime"></a>Azure Portal를 사용 하 여 통합 런타임 만들기
@@ -166,6 +166,9 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 **연결 테스트** 를 선택하고(해당하는 경우), 테스트가 성공하면 **다음** 을 선택합니다.
 
+> [!NOTE]
+   > Azure SQL Database 서버를 사용 하 여 SSISDB를 호스트 하는 경우 기본적으로 데이터는 백업에 대 한 지역 중복 저장소에 저장 됩니다. 다른 지역에 데이터를 복제 하지 않으려는 경우 [PowerShell을 사용 하 여 백업 저장소 중복성을 구성](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell)하는 지침을 따르세요.
+   
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Azure-SSIS IR 패키지 저장소 만들기
 
 **통합 런타임 설정** 창의 **배포 설정** 페이지에서 Azure-SSIS IR 패키지 저장소를 통해 MSDB, 파일 시스템 또는 Azure Files(패키지 배포 모델)에 배포된 패키지를 관리하려면 **Azure SQL Managed Instance가 호스트하는 파일 시스템/Azure Files/SQL Server 데이터베이스(MSDB)에 배포되는 패키지를 관리할 패키지 저장소 만들기** 확인란을 선택합니다.

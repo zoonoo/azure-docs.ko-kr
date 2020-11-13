@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dff2488094bd9abde44b8d8a8d7a44d4f79a12e0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279025"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592688"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Power Automate](/flow/getting-started)의 워크플로 정의에서, 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 워크플로가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 참조하거나 처리하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에서 제공하는 *함수*를 사용하면 됩니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Power Automate](/flow/getting-started)의 워크플로 정의에서, 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 워크플로가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 참조하거나 처리하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에서 제공하는 *함수* 를 사용하면 됩니다.
 
 > [!NOTE]
 > 이 참조 페이지는 Azure Logic Apps 및 Power Automate에 모두 적용되지만, Azure Logic Apps 설명서에 표시됩니다. 이 페이지는 구체적으로 논리 앱을 참조하지만, 이러한 함수는 흐름과 논리 앱 모두에서 작동합니다. Power Automate의 함수 및 식에 대한 자세한 내용은 [조건에 식 사용](/flow/use-expressions-in-conditions)을 참조하세요.
@@ -24,7 +24,7 @@ ms.locfileid: "92279025"
 
 | Task | 함수 구문 | 결과 |
 | ---- | --------------- | ------ |
-| 문자열을 소문자 형식으로 반환합니다. | toLower('<*text*>') <p>예를 들어: toLower('Hello') | "hello" |
+| 문자열을 소문자 형식으로 반환합니다. | toLower('< *text* >') <p>예를 들어: toLower('Hello') | "hello" |
 | 전역적으로 고유한 식별자(GUID)를 반환합니다. | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
@@ -42,10 +42,10 @@ ms.locfileid: "92279025"
 
 | Task | 식에서 함수 구문 |
 | ---- | -------------------------------- |
-| 함수에 해당 항목을 전달하여 항목으로 작업을 수행합니다. | "\@<*functionName*>(<*item*>)" |
-| 1. 중첩된 `parameters()` 함수를 사용하여 *parameterName* 값을 가져옵니다. </br>2. 해당 값을 *functionName*에 전달하여 결과로 작업을 수행합니다. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
-| 1. 중첩된 내부 함수 *functionName*에서 결과를 가져옵니다. </br>2. 외부 함수 *functionName2*에 결과를 전달합니다. | "\@<*functionName2*>(<*functionName*>(<*item*>))" |
-| 1. *functionName*에서 결과를 가져옵니다. </br>2. 결과가 속성 *propertyName*이 있는 개체인 경우 해당 속성의 값을 가져옵니다. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
+| 함수에 해당 항목을 전달하여 항목으로 작업을 수행합니다. | "\@<*functionName* >(< *item* >)" |
+| 1. 중첩된 `parameters()` 함수를 사용하여 *parameterName* 값을 가져옵니다. </br>2. 해당 값을 *functionName* 에 전달하여 결과로 작업을 수행합니다. | "\@<*functionName* >(parameters('< *parameterName* >'))" |
+| 1. 중첩된 내부 함수 *functionName* 에서 결과를 가져옵니다. </br>2. 외부 함수 *functionName2* 에 결과를 전달합니다. | "\@<*functionName2* >(< *functionName* >(< *item* >))" |
+| 1. *functionName* 에서 결과를 가져옵니다. </br>2. 결과가 속성 *propertyName* 이 있는 개체인 경우 해당 속성의 값을 가져옵니다. | "\@<*functionName* >(< *item* >).< *propertyName* >" |
 |||
 
 예를 들어 `concat()` 함수는 두 개 이상의 문자열 값을 매개 변수로 사용할 수 있습니다. 이 함수는 이러한 문자열을 하나의 문자열로 결합합니다. 문자열 리터럴, 예를 들어 "Sophia" 및 "Owen"을 전달하여 결합된 문자열 "SophiaOwen"을 가져올 수 있습니다.
@@ -106,7 +106,7 @@ ms.locfileid: "92279025"
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 컬렉션에 특정 항목이 있는지 검사합니다. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 컬렉션이 비어 있는지 검사합니다. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 컬렉션에서 첫 번째 항목을 반환합니다. |
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 지정한 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다. |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 지정한 컬렉션에서 공통 항목 *만* 있는 컬렉션을 반환합니다. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 배열에 대해 반복 작업 내에 있을 경우 현재 작업 반복하는 동안 배열에서 현재 항목을 반환합니다. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 지정된 문자로 구분되는 배열에서 *모든* 항목이 들어 있는 문자열을 반환합니다. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 컬렉션에서 마지막 항목을 반환합니다. |
@@ -274,7 +274,7 @@ Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | 런타임 시 작업의 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. [action](../logic-apps/workflow-definition-language-functions-reference.md#action)도 참조합니다.  |
 | [body](#body) | 런타임 시 작업의 `body` 출력을 반환합니다. [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody)도 참조합니다. |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | *form-data* 또는 *form-encoded* 작업 출력에서 키 이름이 일치하는 값으로 배열을 만듭니다. |
-| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 작업의 *form-data* 또는 *form-encoded*에서 키 이름이 일치하는 단일 값을 반환합니다. |
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 작업의 *form-data* 또는 *form-encoded* 에서 키 이름이 일치하는 단일 값을 반환합니다. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 배열에 대해 반복 작업 내에 있을 경우 현재 작업 반복하는 동안 배열에서 현재 항목을 반환합니다. |
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Foreach 또는 Until 내에 있을 때, 지정된 루프의 현재 항목을 반환합니다.|
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Until 루프 내에 있을 때, 현재 반복의 인덱스 값을 반환합니다. 중첩된 Until 루프 내에서 이 함수를 사용할 수 있습니다. |
@@ -353,7 +353,7 @@ action().outputs.body.<property>
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | 예 | String | 해당 값을 원하는 작업 개체의 속성에 대한 이름: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** 및 **clientTrackingId**. Azure Portal에서는 특정 실행 기록을 검토하여 이러한 속성을 찾을 수 있습니다. 자세한 내용은 [REST API - 워크플로 실행 작업](/rest/api/logic/workflowrunactions/get)을 참조하세요. |
+| <*property*> | 예 | String | 해당 값을 원하는 작업 개체의 속성에 대한 이름: **name** , **startTime** , **endTime** , **inputs** , **outputs** , **status** , **code** , **trackingId** 및 **clientTrackingId**. Azure Portal에서는 특정 실행 기록을 검토하여 이러한 속성을 찾을 수 있습니다. 자세한 내용은 [REST API - 워크플로 실행 작업](/rest/api/logic/workflowrunactions/get)을 참조하세요. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -494,7 +494,7 @@ actions('<actionName>').outputs.body.<property>
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | 예 | String | 해당 출력을 원하는 작업 개체의 이름  |
-| <*property*> | 예 | String | 해당 값을 원하는 작업 개체의 속성에 대한 이름: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** 및 **clientTrackingId**. Azure Portal에서는 특정 실행 기록을 검토하여 이러한 속성을 찾을 수 있습니다. 자세한 내용은 [REST API - 워크플로 실행 작업](/rest/api/logic/workflowrunactions/get)을 참조하세요. |
+| <*property*> | 예 | String | 해당 값을 원하는 작업 개체의 속성에 대한 이름: **name** , **startTime** , **endTime** , **inputs** , **outputs** , **status** , **code** , **trackingId** 및 **clientTrackingId**. Azure Portal에서는 특정 실행 기록을 검토하여 이러한 속성을 찾을 수 있습니다. 자세한 내용은 [REST API - 워크플로 실행 작업](/rest/api/logic/workflowrunactions/get)을 참조하세요. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -524,7 +524,7 @@ add(<summand_1>, <summand_2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | 예 | 정수, 부동 소수점 수 또는 혼합 | 더할 값 |
+| <*summand_1* >, < *summand_2*> | 예 | 정수, 부동 소수점 수 또는 혼합 | 더할 값 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -824,7 +824,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*interval*> | 예 | 정수 | 더할 지정한 시간 단위 수 |
-| <*timeUnit*> | 예 | String | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
+| <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -866,7 +866,7 @@ and(<expression1>, <expression2>, ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | 예 | 부울 | 검사할 식 |
+| <*expression1* >, < *expression2* >, ... | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -924,7 +924,7 @@ array('<value>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*value*>] | Array | 단일 지정 입력을 포함하는 배열 |
+| [< *value* >] | Array | 단일 지정 입력을 포함하는 배열 |
 ||||
 
 *예제*
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | Type | 반환 값 |
+| 입력 값 | 형식 | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -1164,7 +1164,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>, ... | 예 | Any, 형식을 혼합할 수 있음 | Null인지 검사할 하나 이상의 항목 |
+| <*object_1* >, < *object_2* >, ... | 예 | Any, 형식을 혼합할 수 있음 | Null인지 검사할 하나 이상의 항목 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1200,7 +1200,7 @@ concat('<text1>', '<text2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | 예 | String | 결합할 적어도 두 개의 문자열 |
+| <*text1* >, < *text2* >, ... | 예 | String | 결합할 적어도 두 개의 문자열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1233,9 +1233,9 @@ contains([<collection>], '<value>')
 
 특히 이 함수는 아래 컬렉션 형식에서 작동합니다.
 
-* *부분 문자열*을 찾기 위한 *문자열*
-* *값*을 찾기 위한 *배열*
-* *키*를 찾기 위한 *사전*
+* *부분 문자열* 을 찾기 위한 *문자열*
+* *값* 을 찾기 위한 *배열*
+* *키* 를 찾기 위한 *사전*
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -1404,12 +1404,12 @@ createArray('<object1>', '<object2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*>, ... | 예 | 모두, 그러나 혼합은 안 됨 | 배열을 만들 적어도 두 개의 항목 |
+| <*object1* >, < *object2* >, ... | 예 | 모두, 그러나 혼합은 안 됨 | 배열을 만들 적어도 두 개의 항목 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>, ...] | Array | 모든 입력 항목에서 만든 배열 |
+| [< *object1* >, < *object2* >, ...] | Array | 모든 입력 항목에서 만든 배열 |
 ||||
 
 *예제*
@@ -1695,13 +1695,13 @@ div(<dividend>, <divisor>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | 예 | 정수 또는 부동 소수점 수 | *제수*로 나눌 숫자 |
-| <*divisor*> | 예 | 정수 또는 부동 소수점 수 | *피제수*를 분할하는 수, 그러나 0이 올 수 없음 |
+| <*dividend*> | 예 | 정수 또는 부동 소수점 수 | *제수* 로 나눌 숫자 |
+| <*divisor*> | 예 | 정수 또는 부동 소수점 수 | *피제수* 를 분할하는 수, 그러나 0이 올 수 없음 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
+| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고** : float 결과를 정수로 변환 하려면 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
 ||||
 
 *예제 1*
@@ -1847,7 +1847,7 @@ equals('<object1>', '<object2>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*> | 예 | 다양 | 비교할 값, 식 또는 개체 |
+| <*object1* >, < *object2*> | 예 | 다양 | 비교할 값, 식 또는 개체 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1984,7 +1984,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Array | 지정한 키와 일치하는 모든 값을 가진 배열 |
+| [< *array-with-key-values* >] | Array | 지정한 키와 일치하는 모든 값을 가진 배열 |
 ||||
 
 *예제*
@@ -2096,7 +2096,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | 예 | 정수 | 더할 지정한 시간 단위 수 |
-| <*timeUnit*> | 예 | String | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
+| <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -2140,7 +2140,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | 예 | 정수 | 뺄 지정한 시간 단위 수 |
-| <*timeUnit*> | 예 | String | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
+| <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -2601,7 +2601,7 @@ json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> 
 
 ### <a name="intersection"></a>교집합
 
-지정한 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다.
+지정한 컬렉션에서 공통 항목 *만* 있는 컬렉션을 반환합니다.
 결과에 나타내려면 항목이 이 함수에 전달된 모든 컬렉션에 나타나야 합니다.
 같은 이름을 가진 항목이 한 개 이상이면 해당 이름의 마지막 항목이 결과에 나타납니다.
 
@@ -2612,7 +2612,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | 공통 항목*만* 원하는 컬렉션 |
+| <*collection1* >, < *collection2* >, ... | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | 공통 항목 *만* 원하는 컬렉션 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2628,13 +2628,13 @@ intersection('<collection1>', '<collection2>', ...)
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-그리고 다음 항목*만* 가진 배열을 반환합니다. `[1, 2]`
+그리고 다음 항목 *만* 가진 배열을 반환합니다. `[1, 2]`
 
 <a name="join"></a>
 
 ### <a name="join"></a>join
 
-배열의 모든 항목을 포함하고 각 문자가 *구분 기호*로 구분된 문자열을 반환합니다.
+배열의 모든 항목을 포함하고 각 문자가 *구분 기호* 로 구분된 문자열을 반환합니다.
 
 ```
 join([<collection>], '<delimiter>')
@@ -2648,7 +2648,7 @@ join([<collection>], '<delimiter>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | 지정한 배열의 모든 항목에서 만든 결과 문자열 |
+| <*char1*><*delimiter*><*char2*><*delimiter* >... | String | 지정한 배열의 모든 항목에서 만든 결과 문자열 |
 ||||
 
 *예제*
@@ -2854,7 +2854,7 @@ lessOrEquals('apply', 'apple')
 ### <a name="listcallbackurl"></a>listCallbackUrl
 
 트리거 또는 작업을 호출하는 "콜백 URL"을 반환합니다.
-이 함수는 **HttpWebhook** 및 **ApiConnectionWebhook** 커넥터 형식에 대해서만 작동하며, **Manual**, **Recurrence**, **HTTP** 및 **APIConnection** 형식에 대해서는 작동하지 않습니다.
+이 함수는 **HttpWebhook** 및 **ApiConnectionWebhook** 커넥터 형식에 대해서만 작동하며, **Manual** , **Recurrence** , **HTTP** 및 **APIConnection** 형식에 대해서는 작동하지 않습니다.
 
 ```
 listCallbackUrl()
@@ -2884,8 +2884,8 @@ max([<number1>, <number2>, ...])
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 집합 |
-| [<*number1*>, <*number2*>, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 배열 |
+| <*number1* >, < *number2* >, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 집합 |
+| [< *number1* >, < *number2* >, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 배열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2917,8 +2917,8 @@ min([<number1>, <number2>, ...])
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 집합 |
-| [<*number1*>, <*number2*>, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 배열 |
+| <*number1* >, < *number2* >, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 집합 |
+| [< *number1* >, < *number2* >, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 배열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2950,8 +2950,8 @@ mod(<dividend>, <divisor>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | 예 | 정수 또는 부동 소수점 수 | *제수*로 나눌 숫자 |
-| <*divisor*> | 예 | 정수 또는 부동 소수점 수 | *피제수*를 분할하는 숫자, 그러나 0이 올 수 없습니다. |
+| <*dividend*> | 예 | 정수 또는 부동 소수점 수 | *제수* 로 나눌 숫자 |
+| <*divisor*> | 예 | 정수 또는 부동 소수점 수 | *피제수* 를 분할하는 숫자, 그러나 0이 올 수 없습니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2981,8 +2981,8 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | 예 | 정수 또는 부동 소수점 수 | *multiplicand2*로 곱할 숫자 |
-| <*multiplicand2*> | 예 | 정수 또는 부동 소수점 수 | *multiplicand1*를 곱하는 숫자 |
+| <*multiplicand1*> | 예 | 정수 또는 부동 소수점 수 | *multiplicand2* 로 곱할 숫자 |
+| <*multiplicand2*> | 예 | 정수 또는 부동 소수점 수 | *multiplicand1* 를 곱하는 숫자 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3087,7 +3087,7 @@ or(<expression1>, <expression2>, ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | 예 | 부울 | 검사할 식 |
+| <*expression1* >, < *expression2* >, ... | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3273,7 +3273,7 @@ range(<startIndex>, <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | Array | 지정한 인덱스에서 시작하는 정수를 포함하는 배열 |
+| [< *range-result* >] | Array | 지정한 인덱스에서 시작하는 정수를 포함하는 배열 |
 ||||
 
 *예제*
@@ -3646,7 +3646,7 @@ skip([<collection>], <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | Array | 지정한 항목을 제거한 후 업데이트된 컬렉션 |
+| [< *updated-collection* >] | Array | 지정한 항목을 제거한 후 업데이트된 컬렉션 |
 ||||
 
 *예제*
@@ -3677,7 +3677,7 @@ split('<text>', '<delimiter>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Array | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
+| [< *substring1* >,< *substring2* >,...] | Array | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
 ||||
 
 *예제*
@@ -3892,8 +3892,8 @@ sub(<minuend>, <subtrahend>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | 예 | 정수 또는 부동 소수점 수 | *감수*를 뺄 수 |
-| <*subtrahend*> | 예 | 정수 또는 부동 소수점 수 | *피감수*에서 뺄 수 |
+| <*minuend*> | 예 | 정수 또는 부동 소수점 수 | *감수* 를 뺄 수 |
+| <*subtrahend*> | 예 | 정수 또는 부동 소수점 수 | *피감수* 에서 뺄 수 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3930,7 +3930,7 @@ substring('<text>', <startIndex>, <length>)
 
 > [!NOTE]
 > *StartIndex* 및 *length* 매개 변수 값을 추가 하는 합계가 *텍스트* 매개 변수에 제공 하는 문자열의 길이 보다 적은지 확인 합니다.
-> 그렇지 않으면 다른 언어의 유사 함수와 달리 오류가 발생 합니다 .이는 결과가 *startIndex* 에서 문자열 끝 까지의 하위 문자열입니다.
+> 그렇지 않으면 다른 언어의 유사 함수와 달리 오류가 발생 합니다 .이는 결과가 *startIndex* 에서 문자열 끝 까지의 하위 문자열입니다. *길이* 매개 변수는 선택 사항이 며, 제공 되지 않은 경우 **substring ()** 함수는 *startIndex* 부터 문자열 끝 까지의 모든 문자를 사용 합니다.
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
@@ -3962,7 +3962,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*interval*> | 예 | 정수 | 뺄 지정한 시간 단위 수 |
-| <*timeUnit*> | 예 | String | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
+| <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -4010,7 +4010,7 @@ take([<collection>], <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*subset*> or [<*subset*>] | 각각 문자열 또는 배열 | 원본 컬렉션의 앞에서 가져온 지정한 수의 항목을 포함하는 문자열 또는 배열 |
+| <*subset* > or [< *subset* >] | 각각 문자열 또는 배열 | 원본 컬렉션의 앞에서 가져온 지정한 수의 항목을 포함하는 문자열 또는 배열 |
 ||||
 
 *예제*
@@ -4163,7 +4163,7 @@ triggerFormDataMultiValues('<key>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Array | 지정한 키와 일치하는 모든 값을 가진 배열 |
+| [< *array-with-key-values* >] | Array | 지정한 키와 일치하는 모든 값을 가진 배열 |
 ||||
 
 *예제*
@@ -4288,7 +4288,7 @@ union([<collection1>], [<collection2>], ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | *모든* 항목을 원하는 컬렉션 |
+| <*collection1* >, < *collection2* >, ...  | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | *모든* 항목을 원하는 컬렉션 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -4593,7 +4593,7 @@ uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 utcNow('<format>')
 ```
 
-선택적으로 <*format*> 매개 변수를 사용하여 다른 형식을 지정할 수 있습니다.
+선택적으로 < *format* > 매개 변수를 사용하여 다른 형식을 지정할 수 있습니다.
 
 
 | 매개 변수 | 필수 | Type | Description |
@@ -4671,7 +4671,7 @@ workflow().<property>
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p>워크플로 개체는 다음 속성을 갖습니다. **name**, **type**, **id**, **location** 및 **run**. **run** 속성 값은 다음 속성을 갖는 개체이기도 합니다. **name**, **type** 및 **id**. |
+| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p>워크플로 개체는 다음 속성을 갖습니다. **name** , **type** , **id** , **location** 및 **run**. **run** 속성 값은 다음 속성을 갖는 개체이기도 합니다. **name** , **type** 및 **id**. |
 |||||
 
 *예제*
@@ -4760,7 +4760,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | 단일 노드만이 지정한 XPath 식과 일치하는 경우 XML 노드 |
 | <*value*> | 모두 | 단일 값만이 지정한 XPath 식과 일치하는 경우 XML 노드의 값 |
-| [<*xml-node1*>, <*xml-node2*>, ...] </br>또는 </br>[<*value1*>, <*value2*>, ...] | Array | 지정한 XPath 식과 일치하는 XML 노드 또는 값을 가진 배열 |
+| [< *xml-node1* >, < *xml-node2* >, ...] </br>또는 </br>[< *value1* >, < *value2* >, ...] | Array | 지정한 XPath 식과 일치하는 XML 노드 또는 값을 가진 배열 |
 ||||
 
 *예제 1*

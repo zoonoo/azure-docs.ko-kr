@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: c54b81ca25602fa77ad66bbb818df3cd8eee39a1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94519975"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593650"
 ---
 #  <a name="session-log-in-copy-activity"></a>복사 활동의 세션 로그
 
@@ -26,7 +26,7 @@ ms.locfileid: "94519975"
 
 복사 작업에서 잘못 된 데이터를 건너뛰는 내결함성 설정을 사용 하도록 설정 하면 건너뛴 파일 및 건너뛴 행도 기록 될 수 있습니다.  [복사 작업에서 내결함성을](copy-activity-fault-tolerance.md)통해 자세한 정보를 얻을 수 있습니다. 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 세션 로그를 사용 하도록 설정 하는 JSON 정의를 제공 합니다. 
 
 ```json
@@ -60,9 +60,10 @@ ms.locfileid: "94519975"
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 }
@@ -71,7 +72,7 @@ ms.locfileid: "94519975"
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 enableCopyActivityLog | True로 설정 하면 복사 된 파일을 기록 하거나, 건너뛴 파일 또는 건너뛴 행을 저장할 수 있습니다.  | True<br/>False(기본값) | 예
-logLevel | "정보"는 복사한 모든 파일, 건너뛴 파일 및 건너뛴 행을 기록 합니다. "경고"는 건너뛴 파일을 기록 하 고 행만 건너뛰었습니다.  | 정보<br/>경고(기본값) | 아니요
+logLevel | "정보"는 복사한 모든 파일, 건너뛴 파일 및 건너뛴 행을 기록 합니다. "경고"는 건너뛴 파일을 기록 하 고 행만 건너뛰었습니다.  | 정보<br/>경고(기본값) | 예
 enableReliableLogging | True 이면 신뢰할 수 있는 모드의 복사 작업에서 각 파일이 대상에 복사 되 면 즉시 로그를 플러시합니다.  복사 작업에서 사용할 수 있는 안정적인 로깅 모드를 사용 하 여 대량의 파일을 복사 하는 경우 각 파일을 복사 하는 데 이중 쓰기 작업이 필요 하므로 복사 처리량은 영향을 받게 됩니다. 한 요청은 대상 저장소에, 다른 요청은 로그 저장소 저장소에 대 한 요청입니다.  최상의 작업 모드의 복사 작업은 일정 기간 내에 레코드 일괄 처리로 로그를 플러시합니다 .이 경우 복사 처리량이 훨씬 더 영향을 받게 됩니다. 복사 작업이 실패 했을 때 로그 이벤트의 마지막 일괄 처리가 로그 파일에 플러시되지 않았을 수 있는 몇 가지 가능성이 있으므로 로깅의 완전성과 적시성는이 모드에서 보장 되지 않습니다. 현재는 대상에 복사 된 몇 개의 파일이 로깅되지 않습니다.  | True<br/>False(기본값) | 예
 logLocationSettings | 세션 로그를 저장할 위치를 지정 하는 데 사용할 수 있는 속성 그룹입니다. | | 예
 linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용되는 인스턴스를 참조하는 `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름입니다. | 예

@@ -8,16 +8,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446388"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594167"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Azure SQL Managed Instance & Azure SQL Database 새 지역으로 리소스 이동
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "91446388"
 
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState**에 대 한 속성을 포함 합니다.
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState** 에 대 한 속성을 포함 합니다.
 
 - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다.
 - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover) 시도가 실패 했음을 나타냅니다.
@@ -122,7 +122,7 @@ ms.locfileid: "91446388"
 
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState**에 대 한 속성을 포함 합니다.
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState** 에 대 한 속성을 포함 합니다.
 
 - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다.
 - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover) 시도가 실패 했음을 나타냅니다.
@@ -170,7 +170,7 @@ ms.locfileid: "91446388"
 
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState**에 대 한 속성을 포함 합니다.
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 출력 개체는 `Get-AzSqlDatabaseFailoverGroup` **ReplicationState** 에 대 한 속성을 포함 합니다.
 
 - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다.
 - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않았으며 장애 조치 (failover) 시도가 실패 했음을 나타냅니다.

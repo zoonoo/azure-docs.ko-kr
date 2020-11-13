@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: af2a58ecb97e4c62f437d0c693ec79a4b5f618b0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579235"
+ms.locfileid: "94591515"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Azure Database for MySQL 버전 관리 정책
 
@@ -30,7 +30,7 @@ Azure Database for MySQL는 다음 데이터베이스 버전을 지원 합니다
 
 
 ## <a name="major-version-support"></a>주 버전 지원
-각 주 버전의 MySQL은 버전 [관리 정책](https://en.wikipedia.org/wiki/mysql)에 제공 된 대로 mysql 커뮤니티에서 버전을 사용 중지할 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for MySQL에서 지원 됩니다.
+각 주 버전의 MySQL은 버전 [관리 정책](https://www.mysql.com/support/eol-notice.html)에 제공 된 대로 mysql 커뮤니티에서 버전을 사용 중지할 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for MySQL에서 지원 됩니다.
 
 ## <a name="minor-version-support"></a>부 버전 지원
 정기적 유지 관리의 일환으로 Azure 기본 설정 MySQL 버전으로 자동으로 부 버전 업그레이드를 수행 Azure Database for MySQL 합니다. 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/25/2020
-ms.openlocfilehash: cf8ce541c069f78adbb138fa38e2efc506e095ea
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/12/2020
+ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675192"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616946"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -196,7 +196,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    | **위치** | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
    | **SKU** | 예 | **프리미엄** 또는 **개발자(SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 SKU 간의 차이점은 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조하세요. <p><p>**중요** : 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에는 변경할 수 없습니다. |
    | **추가 용량** | 프리미엄: <br>예 <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0~10 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위 수입니다. 만든 후 용량을 추가하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조하세요. |
-   | **액세스 엔드포인트** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 엔드포인트의 유형입니다. 이러한 엔드포인트에 따라 ISE의 논리 앱에서 요청 또는 웹후크 트리거가 가상 네트워크 외부의 호출을 받을 수 있을지 여부가 결정됩니다. <p><p>선택한 사항은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. <p><p>**중요** : 액세스 엔드포인트는 ISE를 만드는 동안에만 선택할 수 있고 나중에 이 옵션을 변경할 수 없습니다. |
+   | **액세스 엔드포인트** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 엔드포인트의 유형입니다. 이러한 엔드포인트에 따라 ISE의 논리 앱에서 요청 또는 웹후크 트리거가 가상 네트워크 외부의 호출을 받을 수 있을지 여부가 결정됩니다. <p><p>예를 들어 다음 webhook 기반 트리거를 사용 하려면 **외부** 를 선택 해야 합니다. <p><p>-Azure DevOps <br>-Azure Event Grid <br>-Common Data Service <br>-Office 365 <br>-SAP (ISE 버전) <p><p>선택한 사항은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. <p><p>**중요** : 액세스 엔드포인트는 ISE를 만드는 동안에만 선택할 수 있고 나중에 이 옵션을 변경할 수 없습니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없으면 [먼저 Azure 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요** : ISE를 만들 때 *만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. <p>**중요** : 서브넷을 [만들기 위해 이러한 단계를 계속 하기 전에 서브넷 요구 사항을 검토](#create-subnet)해야 합니다. |
    |||||
@@ -205,7 +205,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    **서브넷 만들기**
 
-   Ise에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. 환경을 만든 후 이러한 서브넷 주소를 변경할 수 없습니다. Azure Portal를 통해 ISE를 만들어 배포 하는 경우 Azure 서비스에 이러한 서브넷을 위임 하지 않아야 합니다. 그러나 REST API, Azure PowerShell 또는 Azure Resource Manager 템플릿을 통해 ISE를 만들어 배포 하는 경우에는 빈 서브넷 하나를에 [위임](../virtual-network/manage-subnet-delegation.md) 해야 `Microsoft.integrationServiceEnvironment` 합니다. 자세한 내용은 [서브넷 위임 추가](../virtual-network/manage-subnet-delegation.md)를 참조 하세요.
+   ISE에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. 환경을 만든 후 이러한 서브넷 주소를 변경할 수 없습니다. Azure Portal를 통해 ISE를 만들어 배포 하는 경우 Azure 서비스에 이러한 서브넷을 위임 하지 않아야 합니다. 그러나 REST API, Azure PowerShell 또는 Azure Resource Manager 템플릿을 통해 ISE를 만들어 배포 하는 경우에는 빈 서브넷 하나를에 [위임](../virtual-network/manage-subnet-delegation.md) 해야 `Microsoft.integrationServiceEnvironment` 합니다. 자세한 내용은 [서브넷 위임 추가](../virtual-network/manage-subnet-delegation.md)를 참조 하세요.
 
    각 서브넷은 다음 요구 사항을 충족해야 합니다.
 
@@ -277,6 +277,21 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    > [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조하세요.
 
 1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동** 을 선택합니다.
+
+1. *외부* 끝점 액세스 권한이 있는 ISE의 경우 네트워크 보안 그룹을 만들고 (아직 없는 경우) 관리 되는 커넥터 아웃 바운드 IP 주소에서 트래픽을 허용 하는 인바운드 보안 규칙을 추가 해야 합니다. 이 규칙을 설정 하려면 다음 단계를 수행 합니다.
+
+   1. ISE 메뉴의 **설정** 에서 **속성** 을 선택 합니다.
+
+   1. **커넥터 나가는 ip 주소** 에서 공용 ip 주소 범위를 복사 합니다 .이 범위는 [제한 및 구성-아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)문서에도 표시 됩니다.
+
+   1. 아직 없는 경우 네트워크 보안 그룹을 만듭니다.
+   
+   1. 다음 정보에 따라 복사한 공용 아웃 바운드 IP 주소에 대 한 인바운드 보안 규칙을 추가 합니다. 자세한 내용은 [자습서: 네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터링 Azure Portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group)를 참조 하세요.
+
+      | 목적 | 원본 서비스 태그 또는 IP 주소 | 원본 포트 | 대상 서비스 태그 또는 IP 주소 | 대상 포트 | 메모 |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | 커넥터 아웃 바운드 IP 주소에서 트래픽 허용 | <*커넥터-공용-아웃 바운드 IP 주소*> | * | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | |
+      |||||||
 
 1. ISE의 네트워크 상태를 확인하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)를 참조하세요.
 

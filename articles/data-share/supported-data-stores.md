@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577224"
+ms.locfileid: "94592433"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
@@ -55,7 +55,7 @@ Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 �
 자세한 내용은 [Azure Blob Storage의 데이터 공유 및 수신 및 Azure Data Lake Storage](how-to-share-from-storage.md) 를 참조 하세요.
 
 ## <a name="share-from-a-sql-based-source"></a>SQL 기반 원본에서 공유
-Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 또는 뷰를 공유 하 고 Azure Synapse Analytics (작업 영역) SQL 풀에서 테이블을 공유할 수 있도록 지원 합니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
+Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 및 뷰를 공유 하 고 Azure Synapse Analytics (작업 영역) 전용 SQL 풀에서 테이블을 공유할 수 있도록 지원 합니다. Azure Synapse Analytics (작업 영역) 서버 리스 SQL 풀에서의 공유는 현재 지원 되지 않습니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
 
 Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하는 경우 전체 스냅숏은 이미 있는 경우 대상 파일의 내용을 덮어씁니다.
 테이블에 데이터를 수신 하 고 대상 테이블이 아직 없는 경우 Azure 데이터 공유는 원본 스키마를 사용 하 여 SQL 테이블을 만듭니다. 동일한 이름을 가진 대상 테이블이 이미 있는 경우 삭제 되 고 최신 전체 스냅숏으로 덮어쓰여집니다. 증분 스냅숏은 현재 지원 되지 않습니다.

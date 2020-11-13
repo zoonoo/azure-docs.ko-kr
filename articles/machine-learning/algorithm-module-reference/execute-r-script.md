@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420821"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592671"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -121,10 +121,10 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
 
-다음 샘플 코드를 참조 하 여 작업 영역에서 [등록 된 데이터 집합에 액세스할](../how-to-create-register-datasets.md) 수 있습니다.
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
 
 ```R
-        azureml_main <- function(dataframe1, dataframe2){
+    azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace

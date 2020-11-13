@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377754"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593079"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -32,7 +32,7 @@ ms.locfileid: "93377754"
 
 ## <a name="mobile-phone-verification"></a>휴대폰 확인
 
-Azure Multi-Factor Authentication 또는 SSPR의 경우 사용자는 로그인 인터페이스에 입력할 확인 코드가 포함된 문자 메시지를 수신하도록 선택하거나, 정의된 PIN 코드를 입력하라는 메시지와 함께 전화를 받을 수 있습니다.
+Azure Multi-Factor Authentication 또는 SSPR의 경우 사용자는 인증 코드를 사용 하 여 로그인 인터페이스에 입력 하거나 전화 통화를 받을 문자 메시지를 받도록 선택할 수 있습니다.
 
 사용자가 자신의 휴대폰 번호를 디렉터리에 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 대신 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 조합된 보안 정보 등록을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
 
@@ -46,11 +46,11 @@ SSPR 또는 Azure Multi-Factor Authentication 중에 문자 메시지를 확인�
 
 ### <a name="phone-call-verification"></a>전화 통화 확인
 
-SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 사용자에게 키패드에서 PIN 번호와 #을 입력하라는 메시지가 안내가 표시됩니다.
+SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
 
 ## <a name="office-phone-verification"></a>사무실 전화 확인
 
-SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 사용자에게 키패드에서 PIN 번호와 #을 입력하라는 메시지가 안내가 표시됩니다.
+SSPR 또는 Azure Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료 하려면 해당 키패드에서 #을 누르라는 메시지가 사용자에 게 표시 됩니다.
 
 ## <a name="troubleshooting-phone-options"></a>전화 옵션 문제 해결
 
@@ -61,7 +61,7 @@ Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결
 * 전화번호 또는 국가/지역 코드가 잘못되었거나 개인 전화번호와 회사 전화번호 간에 혼란이 있습니다.
    * 사용자 개체 및 구성된 인증 방법의 문제를 해결합니다. 올바른 전화번호가 등록되었는지 확인합니다.
 * 잘못된 PIN을 입력했습니다.
-   * 사용자가 자신의 계정에 등록된 대로 올바른 PIN을 사용했는지 확인합니다.
+   * 사용자가 자신의 계정에 대해 등록 된 대로 올바른 PIN을 사용 했는지 확인 합니다 (MFA 서버 사용자에만 해당).
 * 통화가 음성 사서함으로 전달됩니다.
    * 사용자의 전화기가 켜져 있고 사용자의 지역에서 해당 서비스를 사용할 수 있는지 확인하거나 대체 방법을 사용합니다.
 * 사용자가 차단됨

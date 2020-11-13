@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077758"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616215"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 Custom Vision
 
@@ -39,5 +39,5 @@ Azure Custom Vision는 데이터를 클라우드에 보관할 때 자동으로 �
 ## <a name="next-steps"></a>다음 단계
 
 * CMK를 지 원하는 서비스의 전체 목록은 [Cognitive Services의 고객 관리 키](../encryption/cognitive-services-encryption-keys-portal.md) 를 참조 하세요.
-* [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Azure Key Vault란](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)

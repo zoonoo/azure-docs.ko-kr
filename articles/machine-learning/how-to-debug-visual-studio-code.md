@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325586"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616113"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
 
 
-Visual Studio Code (VS Code) 및 [depugpy](https://github.com/microsoft/debugpy/)를 사용 하 여 Azure Machine Learning 실험, 파이프라인 및 배포를 대화형으로 디버깅 하는 방법에 대해 알아봅니다.
+Visual Studio Code (VS Code) 및 [debugpy](https://github.com/microsoft/debugpy/)를 사용 하 여 Azure Machine Learning 실험, 파이프라인 및 배포를 대화형으로 디버깅 하는 방법에 대해 알아봅니다.
 
 ## <a name="run-and-debug-experiments-locally"></a>로컬로 실험 실행 및 디버그
 
@@ -100,7 +100,7 @@ Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 �
 > [!TIP]
 > 가상 네트워크 뒤에 있지 않은 Azure Machine Learning 리소스를 사용할 수 있지만 가상 네트워크를 사용 하는 것이 좋습니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
 

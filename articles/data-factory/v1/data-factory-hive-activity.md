@@ -1,6 +1,6 @@
 ---
 title: Hive 작업을 사용 하 여 데이터 변환-Azure
-description: Azure data factory v1에서 Hive 작업을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행 하는 방법에 대해 알아봅니다.
+description: Azure Data Factory v1에서 Hive 작업을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371684"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616776"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371684"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -72,14 +72,14 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
-| type |HDinsightHive |예 |
-| 입력 |Hive 활동에서 사용된 입력 |아니요 |
+| type |HDinsightHive |Yes |
+| 입력 |Hive 활동에서 사용된 입력 |예 |
 | outputs |Hive 활동에서 생성된 출력 |예 |
-| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
+| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |Yes |
 | 스크립트 |Hive 스크립트 인라인 지정 |예 |
 | scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
@@ -97,7 +97,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 .....
 ```
 
-이 데이터를 처리하는 **Hive 스크립트**는 다음과 같습니다.
+이 데이터를 처리하는 **Hive 스크립트** 는 다음과 같습니다.
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -177,7 +177,7 @@ FROM HiveSampleIn Group by ProfileID
 
 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
-* **defines**에서 매개 변수를 정의합니다.
+* **defines** 에서 매개 변수를 정의합니다.
 
     ```JSON  
     {

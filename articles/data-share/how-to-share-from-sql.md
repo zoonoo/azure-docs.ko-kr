@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575921"
+ms.locfileid: "94593742"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575921"
 
 Azure 데이터 공유는 스냅숏 기반 공유 Azure SQL Database 및 Azure Synapse 분석을 지원 합니다. 이 문서에서는 이러한 원본에서 데이터를 공유 하 고 받는 방법을 설명 합니다.
 
-Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 또는 뷰를 공유 하 고 Azure Synapse Analytics (작업 영역) SQL 풀에서 테이블을 공유할 수 있도록 지원 합니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
+Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 및 뷰를 공유 하 고 Azure Synapse Analytics (작업 영역) 전용 SQL 풀에서 테이블을 공유할 수 있도록 지원 합니다. Azure Synapse Analytics (작업 영역) 서버 리스 SQL 풀에서의 공유는 현재 지원 되지 않습니다. 데이터 소비자는 데이터를 Azure Data Lake Storage Gen2 또는 Azure Blob Storage, csv 또는 parquet 파일, Azure SQL Database 및 Azure Synapse Analytics를 테이블로 수락 하도록 선택할 수 있습니다.
 
 Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하는 경우 전체 스냅숏은 이미 있는 경우 대상 파일의 내용을 덮어씁니다.
 SQL 테이블로 데이터를 수신 하 고 대상 테이블이 아직 없는 경우 Azure 데이터 공유는 원본 스키마를 사용 하 여 SQL 테이블을 만듭니다. 동일한 이름을 가진 대상 테이블이 이미 있는 경우 삭제 되 고 최신 전체 스냅숏으로 덮어쓰여집니다. 증분 스냅숏은 현재 지원 되지 않습니다.
@@ -61,7 +61,7 @@ SQL 테이블로 데이터를 수신 하 고 대상 테이블이 아직 없는 �
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Azure Synapse Analytics (작업 영역) SQL 풀에서 공유 하기 위한 필수 구성 요소
 
-* 공유 하려는 테이블을 포함 하는 Azure Synapse Analytics (작업 영역) SQL 풀 보기 공유는 현재 지원 되지 않습니다.
+* 공유 하려는 테이블을 포함 하는 Azure Synapse Analytics (작업 영역) 전용 SQL 풀입니다. 보기 공유는 현재 지원 되지 않습니다. 서버를 사용 하지 않는 SQL 풀에서 공유 하는 기능은 현재 지원 되지 않습니다.
 * *Synapse/workspaces/sqlpools/write* 에 있는 Synapse 작업 영역에서 SQL 풀에 쓸 수 있는 권한입니다. 이 권한은 **기여자** 역할에 있습니다.
 * Synapse workspace SQL 풀에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 SQL Active Directory admin을 선택 하 고 **Azure Active Directory 관리자로** 설정 합니다.
@@ -132,7 +132,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 
-1. SQL server 또는 Synapse 작업 영역을 선택 하 고 메시지가 표시 되 면 자격 증명을 제공 하 고 **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. 
+1. SQL server 또는 Synapse 작업 영역을 선택 하 고 메시지가 표시 되 면 자격 증명을 제공 하 고 **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 및 뷰를 선택 하거나 Azure Synapse Analytics (작업 영역) 전용 SQL 풀의 테이블을 선택할 수 있습니다. 
 
     ![SelectDatasets](./media/select-datasets-sql.png "데이터 세트 선택")    
 
@@ -201,7 +201,7 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Azure Synapse Analytics (작업 영역) SQL 풀로 데이터를 받기 위한 필수 구성 요소
 
-* Azure Synapse Analytics (작업 영역) SQL 풀.
+* Azure Synapse Analytics (작업 영역) 전용 SQL 풀. 서버를 사용 하지 않는 SQL 풀로 데이터를 받는 것은 현재 지원 되지 않습니다.
 * *Synapse/workspaces/sqlpools/write* 에 있는 Synapse 작업 영역에서 SQL 풀에 쓸 수 있는 권한입니다. 이 권한은 **기여자** 역할에 있습니다.
 * Synapse workspace SQL 풀에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 Synapse workspace로 이동 합니다. 왼쪽 탐색에서 SQL Active Directory admin을 선택 하 고 **Azure Active Directory 관리자로** 설정 합니다.
