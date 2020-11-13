@@ -1,7 +1,7 @@
 ---
 title: Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio를 사용 하 여 디자이너에서 학습 한 모델을 배포 합니다.
+description: Azure Machine Learning studio를 사용 하 여 코드를 한 줄도 작성 하지 않고 Machine Learning 모델을 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927586"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554685"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "92927586"
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
@@ -300,7 +300,7 @@ score_params = dict(
 
 * [디자이너에서 모델 학습](tutorial-designer-automobile-price-train-score.md)
 * [Azure Machine Learning SDK를 사용 하 여 모델 배포](how-to-deploy-and-where.md)
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

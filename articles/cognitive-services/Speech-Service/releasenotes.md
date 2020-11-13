@@ -11,14 +11,28 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356691"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553661"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
+
+## <a name="text-to-speech-2020-october-release"></a>텍스트 음성 변환 2020-10 월 릴리스
+
+**새로운 기능**
+- 의는 새 스타일을 지원 `newscast` 합니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md#adjust-speaking-styles)참조 하세요.
+- **오디오 충실도를 높이고 더 빠른 합성 속도를 사용 하 여 vocoder로 업그레이드 한 신경망** 입니다. 이를 통해 해당 시나리오는 비디오 dubbing, 오디오 서적 또는 온라인 교육 자료를 비롯 한 긴 fi 오디오 또는 긴 상호 작용을 사용 하는 고객에 게 유용 합니다. [기술 커뮤니티 블로그에서 스토리에 대해 자세히 읽고 음성 샘플 듣기](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **17 개 로캘로 지역화 된 [사용자 지정 음성](https://speech.microsoft.com/customvoice)  &  [오디오 콘텐츠 생성 스튜디오](https://speech.microsoft.com/audiocontentcreation)** 입니다. 사용자는 보다 친숙 한 환경을 위해 UI를 로컬 언어로 쉽게 전환할 수 있습니다.   
+- **오디오 콘텐츠 만들기** : XiaoxiaoNeural에 대 한 스타일 수준 제어를 추가 했습니다. 50ms의 증분 나누기를 포함 하도록 사용자 지정 된 중단 기능을 구체화 했습니다. 
+
+**일반 TTS 음성 품질 향상**
+- 에서 향상 된 단어 수준 발음 정확도 `pl-PL` (오류 발생률 감소: 51%) 및 `fi-FI` (오류 발생률 감소: 58%)
+- `ja-JP`사전 시나리오에 대 한 단일 단어 읽기 기능이 향상 되었습니다. 발음 오류가 80% 감소 했습니다.
+- `zh-CN-XiaoxiaoNeural`: 감정/CustomerService/Newscast/Cheerful/화난 스타일의 음성 품질이 향상 되었습니다.
+- `zh-CN`: Intelligibility를 크게 향상 시키는 Erhua 발음 및 밝은 톤과 구체화 된 공간 prosody를 개선 했습니다. 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>Speech SDK 1.14.0:2020-10 월 릴리스
 
@@ -78,10 +92,22 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 - `spx * --http header A=B` – 사용자 지정 헤더를 지원 합니다 (사용자 지정 인증을 위해 Office에 추가 됨). 
 - `spx help` – 향상 된 텍스트 및 배경 텍스트 색 (파란색)
 
+## <a name="text-to-speech-2020-september-release"></a>텍스트 음성 변환 2020-9 월 릴리스
+
+### <a name="new-features"></a>새 기능
+
+* **신경망** 
+    * **18 개의 새로운 언어/로캘을 지원 하도록 확장 되었습니다.** 불가리아어, 체코어, 독일어 (오스트리아), 독일어 (스위스), 그리스어, 영어 (아일랜드), 프랑스어 (스위스), 히브리어, 크로아티아어, 헝가리어, 인도네시아어, 말레이어, 루마니아어, 슬로바키아어, 슬로베니아어, 타밀어, 텔루구어 및 베트남어입니다. 
+    * **14 개의 새 음성을 출시 하 여 기존 언어의 다양 한를 보강 합니다.** [전체 언어 및 음성 목록을](language-support.md#neural-voices)참조 하세요.
+    * **및 음성의 새로운 말하는 스타일 `en-US` `zh-CN` .** 영어 (미국)로 된 새 음성은의 봇, 고객 서비스 및 보조자 스타일을 지원 합니다. 10 개의 새로운 말하는 스타일은 zh-cn 음성, XiaoXiao에서 사용할 수 있습니다. 또한 XiaoXiao 신경망은 조정을 지원 합니다 `StyleDegree` . [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md#adjust-speaking-styles)참조 하세요.
+
+* **컨테이너: 공개 미리 보기에서 릴리스된 신경망은 14 개 언어로 제공 되는 16 개의 음성을 제공 합니다.** [신경망에 대해 음성 컨테이너를 배포 하는 방법](speech-container-howto.md) 에 대 한 자세한 정보  
+
+[Ignite 2020에 대 한 TTS 업데이트에 대 한 전체 공지](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 를 읽으십시오. 
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망: 새 말하기 스타일 `en-US` Aria 음성**. 뉴스는 뉴스를 읽을 때 AriaNeural 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
 
@@ -189,7 +215,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망, 15 개의 새로운 신경망** : 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
 

@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: 데이터 일관성 확인
           href: copy-activity-data-consistency.md
+        - name: 복사 작업 로그
+          href: copy-activity-log.md
         - name: 형식 및 압축 지원(레거시)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 데이터 변환

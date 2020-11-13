@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201531"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555110"
 ---
 # <a name="color-materials"></a>색 재질
 
@@ -22,7 +22,7 @@ ms.locfileid: "92201531"
 
 이러한 속성은 모든 자료에 공통적입니다.
 
-* **Albedocolor:** 이 색을 *Albedomap* 또는 * :::no-loc text="vertex"::: colors*와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
+* **Albedocolor:** 이 색을 *Albedomap* 또는 *:::no-loc text="vertex"::: colors* 와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
 
   > [!NOTE]
   > 색 자료는 환경을 반영 하지 않으므로 완전히 투명 한 색 재질은 보이지 않게 됩니다. 이는 [.pbr 자료](pbr-materials.md)에서 다릅니다.
@@ -33,11 +33,17 @@ ms.locfileid: "92201531"
 
 * **textureCoordinateScale** 및 **textureCoordinateOffset:** 눈금은 UV 질감 좌표에 곱하고이에 오프셋을 추가 합니다. 질감을 늘이거나 이동 하는 데 사용할 수 있습니다. 기본 소수 자릿수는 (1, 1)이 고 offset은 (0, 0)입니다.
 
-* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor*에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
+* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor* 에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
 
 * **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [ :::no-loc text="Single-sided"::: 렌더링](single-sided-rendering.md)도 참조 하세요.
 
 * **TransparencyWritesDepth:** TransparencyWritesDepth 플래그가 재질에 설정 되어 있고 자료가 투명 하면이 자료를 사용 하는 개체는 최종 깊이 버퍼에도 영향을 주지 않습니다. 다음 섹션에서 색 재질 속성 *transparencyMode* 을 참조 하세요. 이 기능을 사용 하는 경우 사용 사례에 완전히 투명 한 장면에 대 한 보다 타당 [늦은 단계 다시 프로젝션이](late-stage-reprojection.md) 필요한 경우에 권장 됩니다. 불투명 투명/투명 한 장면을 혼합 하는 경우이 설정으로 인해 집합 reprojection 동작이 나 reprojection 아티팩트가 발생할 수 있습니다. 이러한 이유로 일반 사용 사례에 대 한 기본 및 권장 설정은이 플래그를 사용 하지 않도록 설정 하는 것입니다. 작성 된 깊이 값은 카메라에 가장 가까운 개체의 픽셀 별 깊이 계층에서 가져옵니다.
+
+* **FresnelEffect:** 이 재질 플래그를 사용 하면 해당 재질에서 가산 [프레스 넬 대칭 효과](../../overview/features/fresnel-effect.md) 를 사용할 수 있습니다. 효과의 모양은 다음에 설명 된 다른 프레스 넬 대칭 매개 변수에 의해 제어 됩니다. 
+
+* **FresnelEffectColor:** 이 재질에 사용 되는 프레스 넬 대칭 색입니다. 이 자료에 프레스 넬 대칭 효과 비트가 설정 된 경우에만 중요 합니다 (위 참조). 이 속성은 프레스 넬 대칭 빛의 기본 색을 제어 합니다 (전체 설명에 대 한 [프레스 넬 대칭 효과](../../overview/features/fresnel-effect.md) 참조). 현재는 rgb 채널 값만 중요 하며 알파 값은 무시 됩니다.
+
+* **FresnelEffectExponent:** 이 재질에 사용 되는 프레스 넬 대칭 지 수입니다. 이 자료에 프레스 넬 대칭 효과 비트가 설정 된 경우에만 중요 합니다 (위 참조). 이 속성은 프레스 넬 대칭 빛의 스프레드를 제어 합니다. 최소값 0.01은 전체 개체에 걸쳐 분산 됩니다. 최 댓 값 10.0은 제한를 가장 gracing 가장자리로 표시 합니다.
 
 ## <a name="color-material-properties"></a>색 재질 속성
 

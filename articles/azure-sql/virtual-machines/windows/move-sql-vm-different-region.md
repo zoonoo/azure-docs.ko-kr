@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 131deabfbd29e4d55a3f34252e3ba68261872ca0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ae89091eb57eade39f8b7581fc5df7ad449e8590
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785496"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553559"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용 하 여 Azure 내의 다른 지역으로 SQL Server VM 이동
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -131,7 +131,7 @@ SQL Server VM을 다른 지역으로 이동하려면 다음 단계를 수행해�
 1. 이전 섹션에서 장애 조치(failover) 테스트를 모니터링할 때 본 동일한 **Site Recovery 작업** 페이지에서 장애 조치(failover) 프로세스를 모니터링할 수 있습니다. 
 1. 작업이 완료되면 SQL Server VM이 예상대로 대상 지역에 표시되는지 확인합니다. 
 1. 자격 증명 모음으로 다시 이동하여 **복제된 항목** 을 선택하고 SQL Server VM을 선택한 다음 **커밋** 을 선택하여 대상 지역으로 이동 프로세스를 마칩니다. 커밋 작업이 완료될 때까지 기다립니다. 
-1. SQL Server VM을 SQL VM 리소스 공급자에 등록하여 리소스 공급자에 연결된 Azure Portal 및 기능에서 **SQL 가상 머신** 관리 효율성을 사용하도록 설정합니다. 자세한 내용은 [SQL VM 리소스 공급자를 사용 하 여 SQL Server VM 등록](sql-vm-resource-provider-register.md)을 참조 하세요. 
+1. SQL IaaS 에이전트 확장에 SQL Server VM를 등록 하 여 확장에 연결 된 Azure Portal 및 기능에서 **sql 가상 컴퓨터** 관리 효율성을 사용 하도록 설정 합니다. 자세한 내용은 [SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 등록](sql-agent-extension-manually-register-single-vm.md)을 참조 하세요. 
 
   > [!WARNING]
   > SQL Server 데이터 일관성은 앱 일치 스냅샷으로만 보장됩니다. 충돌 복구 스냅샷은 SQL Server 데이터 일관성을 보장할 수 없기 때문에 **가장 최근에 처리된** 스냅샷은 SQL Server 장애 조치(failover)에 사용할 수 없습니다. 

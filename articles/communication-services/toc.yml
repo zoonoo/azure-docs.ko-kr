@@ -76,6 +76,8 @@
       href: concepts/pricing.md
     - name: 개인 정보 취급 방침
       href: concepts/privacy.md
+    - name: ID 모델
+      href: concepts/identity-model.md
     - name: 인증
       href: concepts/authentication.md
     - name: 이벤트 처리

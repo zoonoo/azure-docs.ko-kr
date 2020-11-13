@@ -68,7 +68,7 @@
           href: tutorial-migrate-gcp-virtual-machines.md
 - name: 개념
   items:
-    - name: Azure Migrate를 사용하여 마이그레이션 계획 빌드
+    - name: 마이그레이션 계획 세우기
       href: concepts-migration-planning.md
     - name: 지원 매트릭스
       items:

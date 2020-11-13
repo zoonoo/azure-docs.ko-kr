@@ -1,7 +1,7 @@
 ---
 title: 디자이너로 데이터 가져오기
 titleSuffix: Azure Machine Learning
-description: 다양 한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 데이터 집합 및 데이터 가져오기 모듈을 사용 하 여 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985610"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554719"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
@@ -38,11 +38,11 @@ ms.locfileid: "90985610"
 
 1. 등록하려는 데이터를 출력하는 모듈을 선택합니다.
 
-1. 속성 창에서 **출력 + 로그**  >  **레지스터 데이터 집합**을 선택 합니다.
+1. 속성 창에서 **출력 + 로그**  >  **레지스터 데이터 집합** 을 선택 합니다.
 
     ![데이터 세트 등록 옵션으로 이동하는 방법을 보여주는 스크린샷](media/how-to-designer-import-data/register-dataset-designer.png)
 
-모듈 출력 데이터가 테이블 형식인 경우 출력을 **파일 데이터 집합** 또는 **테이블 형식 데이터 집합**으로 등록 하도록 선택 해야 합니다.
+모듈 출력 데이터가 테이블 형식인 경우 출력을 **파일 데이터 집합** 또는 **테이블 형식 데이터 집합** 으로 등록 하도록 선택 해야 합니다.
 
  - **파일 데이터 집합** 은 모듈의 출력 폴더를 파일 데이터 집합으로 등록 합니다. 출력 폴더에는 디자이너에서 내부적으로 사용 하는 데이터 파일 및 메타 파일이 포함 되어 있습니다. 디자이너에서 등록 된 데이터 집합을 계속 사용 하려는 경우이 옵션을 선택 합니다. 
 
@@ -52,7 +52,7 @@ ms.locfileid: "90985610"
 
 ### <a name="use-a-dataset"></a>데이터 세트 사용
 
-등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합**에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
+등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합** 에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
 
 ![디자이너 색상표에서 저장된 데이터 세트의 위치를 보여 주는 스크린샷](media/how-to-designer-import-data/use-datasets-designer.png)
 

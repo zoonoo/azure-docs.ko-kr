@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093071"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553695"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
 
@@ -54,7 +54,7 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 1. 각 슬롯에 대해 새 앱 설정 (예:)을 만듭니다 `DurableManagementStorage` . 해당 값을 다른 저장소 계정의 연결 문자열로 설정 합니다. 이러한 저장소 계정은 [안정적으로 실행](./durable-functions-orchestrations.md)하기 위해 Durable Functions 확장에서 사용 됩니다. 각 슬롯에 별도의 저장소 계정을 사용 합니다. 이 설정을 배포 슬롯 설정으로 표시 하지 마세요.
 
-1. [파일의 microsoft.azure.webjobs.extensions.durabletask 섹션](durable-functions-bindings.md#hostjson-settings)에서 함수 앱의host.js섹션에서을 `azureStorageConnectionStringName` 3 단계에서 만든 앱 설정의 이름으로 지정 합니다.
+1. [파일의 microsoft.azure.webjobs.extensions.durabletask 섹션](durable-functions-bindings.md#hostjson-settings)에서 함수 앱의host.js섹션에서 (지 `connectionStringName` 속성 2.x) 또는 `azureStorageConnectionStringName` (지 속성 1.x)를 3 단계에서 만든 앱 설정의 이름으로 지정 합니다.
 
 다음 다이어그램에서는 배포 슬롯과 저장소 계정의 설명 된 구성을 보여 줍니다. 이 잠재적 배포 전 시나리오에서 함수 앱의 버전 2는 프로덕션 슬롯에서 실행 되는 반면 버전 1은 스테이징 슬롯에 남아 있습니다.
 
@@ -62,7 +62,7 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 ### <a name="hostjson-examples"></a>예 host.js
 
-다음 JSON 조각은 파일 * 의host.js* 에 있는 연결 문자열 설정의 예입니다.
+다음 JSON 조각은 파일 *의host.js* 에 있는 연결 문자열 설정의 예입니다.
 
 #### <a name="functions-20"></a>함수 2.0
 
@@ -71,7 +71,10 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

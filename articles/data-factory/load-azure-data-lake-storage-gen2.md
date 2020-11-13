@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 424d5a7ade04c2b72a0bc8ec379a6fad09216f39
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/09/2020
+ms.openlocfilehash: ca9ca495f2b3449b5aeb933bbd8d312fc9341fd9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042693"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554137"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
 
@@ -42,7 +42,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory** 를 차례로 선택합니다.
+1. 왼쪽 메뉴에서 **리소스**  >  **통합**  >  **Data Factory** 만들기를 선택 합니다.
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -77,16 +77,16 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
    1. **액세스 키 ID** 값을 지정합니다.
    2. **비밀 액세스 키** 값을 지정합니다.
-   3. **연결 테스트** 를 클릭 하 여 설정의 유효성을 검사 한 다음, **만들기** 를 선택 합니다.
+   3. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
 
       ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   4. 새 AmazonS3 연결이 생성 되는 것을 볼 수 있습니다. **새로 만들기** 를 선택합니다. 
+   4. 새 AmazonS3 연결이 생성 되는 것을 볼 수 있습니다. **다음** 을 선택합니다. 
 
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택한 다음 선택을 선택 **합니다.**
 
     ![입력 파일 또는 폴더 선택](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
-6. **재귀적** 및 **이진 복사** 옵션을 선택 하 여 복사 동작을 지정 합니다. **새로 만들기** 를 선택합니다.
+6. **재귀적** 및 **이진 복사** 옵션을 선택 하 여 복사 동작을 지정 합니다. **다음** 을 선택합니다.
 
     ![스크린샷 이진 복사를 선택할 수 있는 입력 파일 또는 폴더를 선택 하는 방법을 보여 줍니다.](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
@@ -97,7 +97,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 8. **새 연결 된 서비스 (Azure Data Lake Storage Gen2)** 페이지에서 다음 단계를 수행 합니다.
 
    1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
-   2. **만들기** 를 선택 하 여 연결을 만듭니다. 그런 후 **다음** 을 선택합니다.   
+   2. **만들기** 를 선택 하 여 연결을 만듭니다. **다음** 을 선택합니다.   
 
         ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
@@ -119,7 +119,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
     ![파이프라인 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-14. 파이프라인 실행과 연결 된 활동 실행을 보려면 파이프라인 이름 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택 합니다. 복사 작업에 대한 자세한 내용을 보려면 활동 이름 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 원본에서 싱크로 복사 되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계 및 사용 된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
+14. 파이프라인 실행과 연결 된 활동 실행을 보려면 파이프라인 이름 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택 합니다. 복사 작업에 대 한 자세한 내용을 보려면 작업 이름 열에서 **세부 정보** 링크 (안경 아이콘)를 선택 합니다. 원본에서 싱크로 복사 되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계 및 사용 된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
  
     ![작업 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
     

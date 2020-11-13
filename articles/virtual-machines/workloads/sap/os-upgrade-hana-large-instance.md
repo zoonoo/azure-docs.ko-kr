@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192419"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553508"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
 이 문서에서는 HANA 대형 인스턴스에서 운영 체제 업그레이드에 대한 세부 정보를 설명합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "82192419"
 HLI 유닛 프로 비전 중에 Microsoft 운영 팀에서 운영 체제를 설치 합니다.
 시간이 지남에 따라 HLI 단위에서 운영 체제를 유지 관리해야 합니다(예: 패치, 튜닝, 업그레이드 등).
 
-운영 체제에 대 한 주요 변경 작업을 수행 하기 전에 (예: s p 1에서 s p 1으로 업그레이드) Microsoft Operations 팀에 문의 하 여 지원 티켓을 열어 문의 해야 합니다.
+운영 체제에 대 한 주요 변경 작업을 수행 하기 전에 (예: s p 1에서 s p 1으로 업그레이드) 지원 티켓을 열어 Microsoft Operations 팀에 문의 하 여 참조 해야 합니다.
 
 티켓에 포함:
 
@@ -38,11 +38,9 @@ HLI 유닛 프로 비전 중에 Microsoft 운영 팀에서 운영 체제를 설�
 * 적용하려는 패치 수준
 * 변경하려는 날짜 
 
-운영 팀이 서버 블레이드에서 펌웨어 업그레이드가 필요한지 확인하기 때문에 원하는 업그레이드 날짜 최소 일주일 전에 이 티켓을 여는 것이 좋습니다.
-
+바람직한 업그레이드 전에이 티켓을 하나 이상 열어 두는 것이 좋습니다. 그러면 적용 팀에서 원하는 펌웨어 버전에 대해 알 수 있습니다.
 
 Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
-
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -55,16 +53,17 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 운영 체제 구성은 패치, 시스템 업그레이드 및 고객이 변경한 내용으로 인해 시간이 지남에 따라 권장 설정에서 드리프트 할 수 있습니다. 또한 Microsoft는 기존 시스템이 최적의 성능 및 복원 력을 위해 최적으로 구성 되었는지 확인 하는 데 필요한 업데이트를 식별 합니다. 다음 지침에서는 네트워크 성능, 시스템 안정성 및 최적의 HANA 성능을 다루는 권장 사항을 간략하게 설명 합니다.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>호환 되는 eNIC/fNIC 드라이버 버전
-  네트워크 성능과 시스템 안정성을 적절 하 게 유지 하려면 다음 호환성 테이블에 표시 된 대로 OS 관련 적절 한 버전의 eNIC 및 fNIC 드라이버가 설치 되어 있는지 확인 하는 것이 좋습니다. 서버는 호환 되는 버전이 있는 고객에 게 배달 됩니다. 일부 경우에 OS/커널 패치를 적용 하는 동안 드라이버는 기본 드라이버 버전으로 롤백할 수 있습니다. 적절 한 드라이버 버전이 post OS/Kernel 패칭 작업을 실행 중인지 확인 합니다.
+  네트워크 성능과 시스템 안정성을 적절 하 게 유지 하려면 다음 호환성 테이블에 표시 된 대로 OS 관련 적절 한 버전의 eNIC 및 fNIC 드라이버가 설치 되어 있는지 확인 하는 것이 좋습니다. 서버는 호환 되는 버전이 있는 고객에 게 배달 됩니다. 경우에 따라 OS/커널 패치 중에 드라이버가 기본 드라이버 버전으로 롤백될 수 있습니다. 적절 한 드라이버 버전이 post OS/Kernel 패칭 작업을 실행 중인지 확인 합니다.
        
       
   |  OS 공급 업체    |  OS 패키지 버전     |  펌웨어 버전  |  eNIC 드라이버 |  fNIC 드라이버 | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>OS를 업그레이드 하는 동안 eNIC/fNIC 드라이버 설치 단계
+
+* OS 버전 업그레이드
+* 이전 rpm 패키지 제거
+* 설치 된 OS 버전 마다 호환 되는 eNIC/fNIC 드라이버를 설치 합니다.
+* 시스템 다시 부팅
+* 다시 부팅 한 후 eNIC/fNIC 버전을 확인 합니다.
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>SuSE HLIs GRUB 업데이트 실패
 Azure HANA Large Instances (유형 I)의 SAP는 업그레이드 후 부팅할 수 없는 상태가 될 수 있습니다. 아래 절차에서는이 문제를 해결 합니다.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 변경 내용을 적용 하려면 다시 부팅 해야 합니다. `lsmod`명령을 실행 하 고 모듈이 출력에 표시 되지 않는지 확인 합니다.
 
-
 ### <a name="kernel-parameters"></a>커널 매개 변수
    ,, 및에 대 한 올바른 설정이 적용 되었는지 확인 `transparent_hugepage` `numa_balancing` `processor.max_cstate` `ignore_ce` `intel_idle.max_cstate` 합니다.
 
@@ -126,7 +133,6 @@ blacklist edac_core
 * transparent_hugepage = 안 함
 * numa_balancing = 사용 안 함
 * mce = ignore_ce
-
 
 #### <a name="execution-steps"></a>실행 단계
 

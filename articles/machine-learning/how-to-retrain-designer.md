@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning 디자이너를 사용 하 여 모델 다시 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning designer에서 게시 된 파이프라인을 사용 하 여 기계 학습 모델을 다시 학습 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905676"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554804"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습
 
@@ -56,20 +56,20 @@ ms.locfileid: "90905676"
 
 1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 데이터 원본을 선택합니다.
 
-1. 데이터에 대한 경로를 입력합니다. **경로 찾아보기**를 선택하여 파일 트리를 찾아볼 수도 있습니다. 
+1. 데이터에 대한 경로를 입력합니다. **경로 찾아보기** 를 선택하여 파일 트리를 찾아볼 수도 있습니다. 
 
 1. **경로** 필드를 마우스로 가리키고 표시되는 **경로** 필드 위에 있는 줄임표를 선택합니다.
 
     ![파이프라인 매개 변수를 만드는 방법을 보여 주는 스크린샷](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
-1. **파이프라인 매개 변수 추가**를 선택합니다.
+1. **파이프라인 매개 변수 추가** 를 선택합니다.
 
 1. 매개 변수 이름 및 기본값을 제공합니다.
 
    > [!NOTE]
    > 파이프라인 초안의 제목 옆에 있는 **설정** 기어 아이콘을 선택하여 파이프라인 매개 변수를 검사하고 편집할 수 있습니다. 
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 1. 파이프라인 실행을 제출합니다.
 
@@ -79,8 +79,8 @@ ms.locfileid: "90905676"
 
 1. 파이프라인이 실행을 마칠 때까지 기다립니다.
 1. **모델 학습** 모듈을 선택합니다.
-1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그**를 선택합니다.
-1. 실행 로그와 함께 **다른 출력**에서 모델을 찾을 수 있습니다.
+1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그** 를 선택합니다.
+1. 실행 로그와 함께 **다른 출력** 에서 모델을 찾을 수 있습니다.
 1. 또는 **출력 보기** 아이콘을 선택합니다. 여기에서 대화 상자의 지침에 따라 데이터 저장소로 직접 이동할 수 있습니다. 
 
 > [!div class="mx-imgBorder"]
@@ -90,13 +90,13 @@ ms.locfileid: "90905676"
 
 파이프라인을 파이프라인 엔드포인트에 게시하여 나중에 파이프라인을 쉽게 다시 사용할 수 있습니다. 파이프라인 엔드포인트는 나중에 파이프라인을 호출하는 REST 엔드포인트를 만듭니다. 이 예에서는 파이프라인 엔드포인트로 파이프라인을 다시 사용하여 다른 데이터에서 모델을 재학습시킬 수 있습니다.
 
-1. 디자이너 캔버스 위의 **게시**를 선택합니다.
+1. 디자이너 캔버스 위의 **게시** 를 선택합니다.
 1. 파이프라인 엔드포인트를 선택하거나 만듭니다.
 
    > [!NOTE]
    > 단일 엔드포인트에 여러 파이프라인을 게시할 수 있습니다. 지정된 엔드포인트의 각 파이프라인에는 파이프라인 엔드포인트를 호출할 때 지정할 수 있는 버전 번호가 제공됩니다.
 
-1. **게시**를 선택합니다.
+1. **게시** 를 선택합니다.
 
 ## <a name="retrain-your-model"></a>모델 재학습
 
@@ -109,7 +109,7 @@ ms.locfileid: "90905676"
 1. 스튜디오 작업 영역에서 **엔드포인트** 페이지로 이동합니다.
 1. **파이프라인 엔드포인트** 탭을 선택합니다. 그런 다음 파이프라인 엔드포인트를 선택합니다.
 1. **게시된 파이프라인** 탭을 선택합니다. 그런 다음 실행하려는 파이프라인 버전을 선택합니다.
-1. **제출**을 선택합니다.
+1. **제출** 을 선택합니다.
 1. 설정 대화 상자에서 실행에 대한 매개 변수 값을 지정할 수 있습니다. 이 예에서는 US가 아닌 데이터 세트를 사용하여 모델을 학습시키도록 데이터 경로를 업데이트합니다.
 
 ![디자이너에서 매개 변수가 있는 파이프라인 실행을 설정하는 방법을 보여 주는 스크린샷](./media/how-to-retrain-designer/published-pipeline-run.png)

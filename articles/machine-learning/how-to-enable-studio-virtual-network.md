@@ -1,7 +1,7 @@
 ---
 title: 가상 네트워크에서 Azure Machine Learning studio 사용
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio를 사용 하 여 가상 네트워크 내부에 저장 된 데이터에 액세스 합니다.
+description: Azure Machine Learning studio를 구성 하 여 가상 네트워크 내부에 저장 된 데이터에 액세스 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392999"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554668"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 

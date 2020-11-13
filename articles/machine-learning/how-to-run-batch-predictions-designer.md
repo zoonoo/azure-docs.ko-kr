@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 titleSuffix: Azure Machine Learning
-description: 디자이너를 사용하여 모델을 학습하고 일괄 처리 예측 파이프라인을 설정하는 방법에 대해 알아봅니다. 파이프라인을 매개 변수가 있는 웹 서비스로 배포합니다. 그러면 HTTP 라이브러리에서 트리거될 수 있습니다.
+description: 일괄 처리 예측 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인을 매개 변수가 있는 웹 서비스로 배포 하 고 모든 HTTP 라이브러리에서 트리거합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553949"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 
