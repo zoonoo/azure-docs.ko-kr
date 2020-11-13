@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460097"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555642"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -253,7 +253,7 @@ Serverless360는 Azure 서버 리스 구성 요소를 운영, 관리 및 모니�
 
 ![SignalFX 로고](./media/partners/signalfx.png)
 
-SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf*, *statsd*및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
+SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf* , *statsd* 및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
 
 [signalfx 설명서](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -301,9 +301,19 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 [Turbonomic 소개](https://turbonomic.com/)
 
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 로고](./media/partners/BMCHelix.png)
+
+BMC Helix는 자치 엔터프라이즈 서비스 및 작업 SaaS 플랫폼입니다. 360 수준 인텔리전스와 통합 되어 있으므로 비즈니스에 대 한 전 세계의 채널 환경을 사전에 변환은 검색, 모니터링, 서비스, 수정, 최적화 및 제공할 수 있습니다.
+또한 ITSM 및 IT 운영 관리 (ITSM)를 원활 하 게 통합 하 여 BMC Helix IT 및 비즈니스 사용자가 IT 사일로를 제거 하 고, 데이터 중심의 비즈니스 의사 결정을 내리고, 업계 최고의 고객 환경을 제공할 수 있습니다.
+고객은 선택 된 클라우드 배포 (공용, 개인 또는 하이브리드)를 사용 하 여 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 업계 최고의 공급자를 활용할 수 있는 AI/ML 솔루션을 선택할 수 있습니다.
+
+[BMC Helix에 대 한 자세한 정보](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor에 대 한 자세한 정보](../overview.md)
+- [Azure Monitor에 관한 자세한 정보](../overview.md)
 - [REST API를 사용하여 메트릭 액세스](rest-api-walkthrough.md)
 - [타사 서비스에 활동 로그 스트림](./activity-log.md#legacy-collection-methods)
 - [Microsoft 이외의 서비스로 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)

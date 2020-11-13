@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127827"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560896"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>서비스 끝점과 Application Gateway 통합
 Azure 애플리케이션 게이트웨이와의 통합에 대해 약간 다른 구성이 필요한 App Service에는 세 가지 변형이 있습니다. 이러한 변형에는 일반 App Service, ILB (내부 Load Balancer) App Service Environment ASE () 및 외부 ASE 라고도 합니다. 이 문서에서는 App Service (다중 테 넌 트)를 사용 하 여 구성 하 고 ILB 및 외부 ASE에 대 한 고려 사항을 설명 하는 방법을 안내 합니다.
@@ -36,7 +36,7 @@ Azure Portal를 사용 하 여 설치를 프로 비전 하 고 구성 하는 네
 1. App Service 설명서의 빠른 시작 중 하나를 사용 하 여 App Service를 만듭니다. 예를 들어 [.NET Core 빠른](../quickstart-dotnetcore.md) 시작
 2. [포털 빠른](../../application-gateway/quick-create-portal.md)시작을 사용 하 여 Application Gateway를 만들지만 백 엔드 대상 추가 섹션을 건너뜁니다.
 3. [Application Gateway에서 App Service을 백 엔드로](../../application-gateway/configure-web-app-portal.md)구성 하지만 액세스 제한 섹션을 건너뜁니다.
-4. 마지막으로 [서비스 끝점을 사용 하 여 액세스 제한을](../../app-service/app-service-ip-restrictions.md#service-endpoints)만듭니다.
+4. 마지막으로 [서비스 끝점을 사용 하 여 액세스 제한을](../../app-service/app-service-ip-restrictions.md#use-service-endpoints)만듭니다.
 
 이제 Application Gateway를 통해 App Service에 액세스할 수 있지만 App Service에 직접 액세스 하려고 하면 웹 사이트가 중지 되었음을 나타내는 403 HTTP 오류가 표시 됩니다.
 

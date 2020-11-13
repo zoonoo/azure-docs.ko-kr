@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9129d0cb44aea9b85c5569d4d939c0904c398c07
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790086"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556525"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>PowerShell 또는 Az CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 �
 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- *동일한* 가용성 집합 또는 [SQL VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)된 *다른* 가용성 영역에서 [SQL Server 2016 이상의 Enterprise edition을 실행 하는 Azure의 도메인에](./create-sql-vm-portal.md) 가입 된 vm 하나 이상  
+- *동일한* 가용성 집합 또는 [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)된 *다른* 가용성 영역에서 [SQL Server 2016 이상 Enterprise edition을 실행 하는 Azure의 도메인에](./create-sql-vm-portal.md) 가입 된 vm 하나 이상  
 - 최신 버전의 [PowerShell](/powershell/scripting/install/installing-powershell) 또는 [Azure CLI](/cli/azure/install-azure-cli)입니다. 
 - 2개의 사용 가능한(엔터티에서 사용하지 않음) IP 주소. 하나는 내부 부하 분산 장치용입니다. 다른 하나는 가용성 그룹과 동일한 서브넷 내의 가용성 그룹 수신기용입니다. 기존 부하 분산 장치를 사용 하는 경우 가용성 그룹 수신기에 대해 사용 가능한 IP 주소가 하나만 필요 합니다. 
 
@@ -202,7 +202,7 @@ Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러
 [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) 또는 [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)을 사용하여 일반적인 방법으로 가용성 그룹을 직접 만듭니다. 
 
 >[!IMPORTANT]
-> 수신기는 다음 섹션에서 Azure CLI를 통해 만들어지므로 만들지 *않습니다* .  
+> 수신기는 다음 섹션에서 Azure CLI를 통해 만들어지므로 만들지 *않습니다*.  
 
 ## <a name="create-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -423,9 +423,9 @@ Azure에서 호스팅되는 SQL Server VM에 가용성 그룹을 배포하면 �
 ---
 
 ## <a name="remove-listener"></a>수신기 제거
-나중에 Azure CLI로 구성된 가용성 그룹 수신기를 제거해야 하는 경우 SQL VM 리소스 공급자를 이용해야 합니다. 수신기가 SQL VM 리소스 공급자를 통해 등록되었으므로 SQL Server Management Studio를 통해 수신기를 삭제하는 것만으로는 충분하지 않습니다. 
+나중에 Azure CLI를 사용 하 여 구성 된 가용성 그룹 수신기를 제거 해야 하는 경우 SQL IaaS 에이전트 확장을 사용 해야 합니다. 수신기는 SQL IaaS 에이전트 확장을 통해 등록 되기 때문에 SQL Server Management Studio를 통해 삭제 하는 것 만으로는 충분 하지 않습니다. 
 
-가장 좋은 방법은 Azure CLI에서 다음 코드 조각을 사용하여 SQL VM 리소스 공급자를 통해 삭제하는 것입니다. 이렇게 하면 SQL VM 리소스 공급자에서 가용성 그룹 수신기 메타데이터가 제거됩니다. 또한 가용성 그룹에서 수신기가 물리적으로 삭제됩니다. 
+가장 좋은 방법은 Azure CLI에서 다음 코드 조각을 사용 하 여 SQL IaaS 에이전트 확장을 통해 삭제 하는 것입니다. 이렇게 하면 SQL IaaS 에이전트 확장에서 가용성 그룹 수신기 메타 데이터가 제거 됩니다. 또한 가용성 그룹에서 수신기가 물리적으로 삭제됩니다. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -451,7 +451,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## <a name="remove-cluster"></a>클러스터 제거
 
-클러스터에서 모든 노드를 제거 하 여 삭제 한 다음 SQL VM 리소스 공급자에서 클러스터 메타 데이터를 제거 합니다. Azure CLI 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. 
+클러스터에서 모든 노드를 제거 하 여 삭제 한 다음 SQL IaaS 에이전트 확장에서 클러스터 메타 데이터를 제거 합니다. Azure CLI 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. 
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -468,7 +468,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 클러스터의 유일한 Vm 인 경우 클러스터가 제거 됩니다. 클러스터의 다른 Vm이 제거 된 SQL Server Vm과 분리 되어 있으면 다른 Vm은 제거 되지 않고 클러스터가 제거 되지 않습니다. 
 
-다음으로 SQL VM 리소스 공급자에서 클러스터 메타 데이터를 제거 합니다. 
+다음으로 SQL IaaS 에이전트 확장에서 클러스터 메타 데이터를 제거 합니다. 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -497,7 +497,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 클러스터의 유일한 Vm 인 경우 클러스터가 제거 됩니다. 클러스터의 다른 Vm이 제거 된 SQL Server Vm과 분리 되어 있으면 다른 Vm은 제거 되지 않고 클러스터가 제거 되지 않습니다. 
 
-다음으로 SQL VM 리소스 공급자에서 클러스터 메타 데이터를 제거 합니다. 
+다음으로 SQL IaaS 에이전트 확장에서 클러스터 메타 데이터를 제거 합니다. 
 
 ```powershell-interactive
 # Remove the cluster metadata

@@ -1059,11 +1059,11 @@
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: 자동 등록
-                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
+                      href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
                     - name: 단일 VM
-                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: 여러 VM 대량 등록
-                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
             - name: 마이그레이션
               items:
                 - name: SQL Server 데이터베이스를 VM으로 마이그레이션

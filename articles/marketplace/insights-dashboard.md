@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 479e42c2ea48ea56c0b2dd70752a3b1a330f7969
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 8f85e9c77cc6fed7e2763f694664332b124d0780
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415227"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561797"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -86,7 +86,7 @@ Marketplace Insights **방문자** 차트에는 선택한 계산 기간에 대 �
 
 :::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Marketplace Insights 대시보드의 지리적 스프레드 차트를 보여 줍니다.":::
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.

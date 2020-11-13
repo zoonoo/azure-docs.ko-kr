@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312046"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556032"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호 
 
@@ -31,7 +31,7 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
   - Azure Synapse Analytics용 Apache Spark 관리자
 - ADLSGEN2(Azure Data Lake Storage Gen 2)의 데이터 액세스 제어
 - Synapse SQL 및 Spark 데이터베이스에 대한 액세스 제어
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Synapse 작업 영역을 보호하는 단계
 
 이 문서에서는 지침을 단순화하기 위해 표준 이름을 사용합니다. 표준 이름을 원하는 이름으로 바꾸세요.
@@ -115,7 +115,7 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 | --- | --- | --- | --- | --- |
 | 1 | CNT1에 parquet 파일 업로드 | YES | YES | YES |
 | 2 | 서버를 사용 하지 않는 SQL 풀을 사용 하 여 parquet 파일 읽기 | YES | 아니요 | YES |
-| 3 | 서버를 사용 하지 않는 Apache Spark 풀 만들기 | 예 [1] | 예 [1] | 아니요  |
+| 3 | 서버리스 Apache Spark 풀 만들기 | 예 [1] | 예 [1] | 아니요  |
 | 4 | Notebook으로 parquet 파일 읽기 | YES | YES | 아니요 |
 | 5 | Notebook에서 파이프라인을 만들고 파이프라인을 트리거하여 지금 실행 | YES | 아니요 | 아니요 |
 | 6 | 전용 SQL 풀을 만들고 SELECT 1과 같은 SQL 스크립트를 실행 합니다. &quot;&quot; | 예 [1] | 아니요 | 예[1] |

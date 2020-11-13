@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7a7d96c13b47bee9c092be926dc54555979e6c6f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556583"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "92790120"
 **데이터베이스 구성** :
 
 - 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))을 참조하세요. 
-- SQL Server VM는 [전체 관리 모드로](sql-vm-resource-provider-register.md#upgrade-to-full)SQL VM 리소스 공급자에 등록 되었습니다. 
+- SQL Server VM는 SQL IaaS 에이전트 확장을 사용 하 여 [전체 관리 모드로](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)등록 되었습니다. 
 -  자동화 된 백업은 전체 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 의존 합니다. 따라서 자동화 된 백업은 기본 인스턴스의 대상 데이터베이스나 단일 명명 된 인스턴스로만 지원 됩니다. 기본 인스턴스 및 여러 개의 명명 된 인스턴스가 없는 경우 SQL IaaS 확장이 실패 하 고 자동화 된 백업이 작동 하지 않습니다. 
 
 ## <a name="settings"></a>설정

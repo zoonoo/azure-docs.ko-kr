@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 일시 중지, 다시 시작, 크기 조정
-description: REST API를 통해 Synapse Analytics 데이터 웨어하우스 컴퓨팅 성능을 관리합니다.
+description: REST Api를 통해 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산 능력을 관리 합니다.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213281"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556015"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>Azure Synapse Analytics 데이터 웨어하우스용 REST API
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 용 REST Api (이전의 SQL DW)
 
-Azure Synapse Analytics 데이터 웨어하우스의 컴퓨팅 관리를 위한 REST API.
+Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산을 관리 하기 위한 REST Api입니다.
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>유지 관리 일정 가져오기
 
-데이터 웨어하우스에 설정된 유지 관리 일정을 확인합니다.
+전용 SQL 풀에 대해 설정 된 유지 관리 일정 (이전의 SQL DW)을 확인 합니다.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>유지 관리 일정 설정
 
-기존 데이터 웨어하우스에서 유지 관리 일정을 설정하고 업데이트합니다.
+기존 전용 SQL 풀 (이전의 SQL DW)에서 유지 관리 일정을 설정 하 고 업데이트 합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

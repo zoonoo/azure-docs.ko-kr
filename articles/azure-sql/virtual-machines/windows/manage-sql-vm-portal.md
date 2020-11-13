@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316973"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556292"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure에서 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,17 +30,17 @@ ms.locfileid: "91316973"
 ## <a name="remarks"></a>설명
 
 - [**SQL 가상 컴퓨터**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스를 사용 하 여 Azure에서 SQL Server vm을 보고 관리 하는 것이 좋습니다. 그러나 현재 **SQL 가상 머신** 리소스는 [지원 종료](sql-server-2008-extend-end-of-support.md) SQL Server VM의 관리를 지원하지 않습니다. 지원 종료 SQL Server VM에 대한 설정을 관리하려면 사용되지 않는 [SQL Server 구성 탭](#access-the-sql-server-configuration-tab)을 대신 사용합니다. 
-- **SQL 가상 머신** 리소스는 [SQL VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)된 SQL Server VM에만 사용할 수 있습니다. 
+- Sql **가상 컴퓨터** 리소스는 [sql IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)된 SQL Server vm에만 사용할 수 있습니다. 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>SQL 가상 머신 리소스 액세스
 **SQL 가상 머신** 리소스에 액세스하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 
-1. **모든 서비스**를 선택합니다. 
-1. 검색 상자에 **SQL 가상 머신**을 입력합니다.
+1. **모든 서비스** 를 선택합니다. 
+1. 검색 상자에 **SQL 가상 머신** 을 입력합니다.
 1. (선택 사항): **SQL 가상 머신** 옆의 별표를 선택하여 **즐겨찾기** 메뉴에 이 옵션을 추가합니다. 
-1. **SQL 가상 머신**을 선택합니다. 
+1. **SQL 가상 머신** 을 선택합니다. 
 
    ![모든 서비스에서 SQL Server 가상 머신 찾기](./media/manage-sql-vm-portal/sql-vm-search.png)
 
@@ -57,20 +57,20 @@ ms.locfileid: "91316973"
 > **SQL 가상 머신** 리소스는 SQL Server 전용 설정을 관리하기 위한 것입니다. **가상 머신** 상자에서 VM 이름을 선택하면 VM과 관련되지만 SQL Server 전용이 아닌 설정을 열 수 있습니다. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>SQL Server 구성 탭 액세스
-**SQL Server 구성** 탭은 더 이상 사용되지 않습니다. 지금은 이 탭이 [지원 종료](sql-server-2008-extend-end-of-support.md) SQL Server VM과 [SQL VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)되지 않은 SQL Server VM을 관리하는 유일한 방법입니다.
+**SQL Server 구성** 탭은 더 이상 사용되지 않습니다. 지금은 [지원 종료](sql-server-2008-extend-end-of-support.md) SQL Server VM 및 [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)되지 않은 SQL Server vm을 관리 하는 유일한 방법입니다.
 
 더 이상 사용되지 않는 **SQL Server 구성** 탭에 액세스하려면 **가상 머신** 리소스로 이동합니다. 다음 단계를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 
-1. **모든 서비스**를 선택합니다. 
-1. 검색 상자에 **가상 머신**을 입력합니다.
+1. **모든 서비스** 를 선택합니다. 
+1. 검색 상자에 **가상 머신** 을 입력합니다.
 1. (선택 사항): **가상 머신** 옆의 별표를 선택하여 **즐겨찾기** 메뉴에 이 옵션을 추가합니다. 
-1. **가상 머신**을 선택합니다. 
+1. **가상 머신** 을 선택합니다. 
 
    ![가상 머신 검색](./media/manage-sql-vm-portal/vm-search.png)
 
 1. 포털은 구독의 모든 가상 머신을 나열합니다. 관리하려는 VM을 선택하여 **가상 머신** 리소스를 엽니다. SQL Server VM이 표시되지 않는 경우 검색 상자를 사용합니다. 
-1. **설정** 창에서 **SQL Server 구성**를 선택하여 SQL Server VM을 관리합니다. 
+1. **설정** 창에서 **SQL Server 구성** 를 선택하여 SQL Server VM을 관리합니다. 
 
    ![SQL Server 구성](./media/manage-sql-vm-portal/sql-vm-configuration.png)
 

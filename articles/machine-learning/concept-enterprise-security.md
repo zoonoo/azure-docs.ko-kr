@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539654"
+ms.locfileid: "94561321"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
 
@@ -105,7 +105,13 @@ Azure Machine Learning은 모든 작업 영역 지역에 대한 구독에서 기
 
 Azure Machine Learning 리소스에 대 한 물리적 액세스를 제한 하기 위해 Azure Virtual Network (VNet)를 사용할 수 있습니다. Vnet를 사용 하면 공용 인터넷에서 부분적으로 또는 완전히 격리 된 네트워크 환경을 만들 수 있습니다. 이렇게 하면 솔루션에 대 한 공격 노출 영역 뿐만 아니라 데이터 exfiltration의 기회가 줄어듭니다.
 
-자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
+
+* [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
+* [보안 작업 영역](how-to-secure-workspace-vnet.md)
+* [보안 교육 환경](how-to-secure-training-vnet.md)
+* [보안 유추 환경](how-to-secure-inferencing-vnet.md)
+* [보안 가상 네트워크에서 studio 사용](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -131,7 +137,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 데이터 저장소를
 
 ### <a name="monitor-runs"></a>실행 모니터링
 
-학습 스크립트 내의 로깅 정보를 포함 하 여 Azure Machine Learning 실험 실행을 모니터링할 수 있습니다. 이 정보는 SDK, Azure CLI 및 studio를 통해 볼 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+학습 스크립트 내의 로깅 정보를 포함 하 여 Azure Machine Learning 실험 실행을 모니터링할 수 있습니다. 이 정보는 SDK, Azure CLI 및 studio를 통해 볼 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
 * [로그 사용 설정](how-to-track-experiments.md)

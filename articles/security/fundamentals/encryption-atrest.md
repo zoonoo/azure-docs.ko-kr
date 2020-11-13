@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 미사용 데이터 암호화 | Microsoft Docs
-description: 이 문서에서는 Microsoft Azure 미사용 데이터 암호화 개요, 전체 기능 및 일반적인 고려 사항을 제공합니다.
+title: Azure 데이터 암호화-미사용-Azure 보안
+description: 이 문서에서는 Azure 미사용 데이터 암호화, 전체 기능 및 일반적인 고려 사항에 대 한 개요를 제공 합니다.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412785"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556627"
 ---
 # <a name="azure-data-encryption-at-rest"></a>휴지 상태의 Azure 데이터 암호화
 
@@ -128,7 +128,7 @@ Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 
 
 Azure SQL Database는 현재 Microsoft 관리 서비스 쪽 및 클라이언트 쪽 암호화 시나리오에 대한 저장 데이터 암호화를 지원합니다.
 
-서버 암호화 지원은 현재 투명한 데이터 암호화라는 SQL 기능을 통해 제공됩니다. Azure SQL Database 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정되어 있습니다. Azure SQL Database는 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure SQL Database 및 데이터 웨어하우스에 대한 BYOK(Bring Your Own Key) 지원을 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current)를 참조하세요.
+서버 암호화 지원은 현재 투명한 데이터 암호화라는 SQL 기능을 통해 제공됩니다. Azure SQL Database 고객이 TDE 키를 사용하도록 설정하면 해당 키가 자동으로 만들어지고 관리됩니다. 데이터베이스 및 서버 수준에서 미사용 데이터 암호화를 사용하도록 설정할 수 있습니다. 2017년 6월 현재 [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 새로 만든 데이터베이스에서 기본적으로 사용하도록 설정되어 있습니다. Azure SQL Database는 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure SQL Database 및 데이터 웨어하우스에 대한 BYOK(Bring Your Own Key) 지원을 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql)를 참조하세요.
 
 Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능을 통해 지원됩니다. Always Encrypted는 클라이언트에서 만들고 저장한 키를 사용합니다. 고객은 Windows 인증서 저장소, Azure Key Vault 또는 로컬 HSM(하드웨어 보안 모듈)에 마스터 키를 저장할 수 있습니다. SQL 사용자는 SQL Server Management Studio를 사용 하 여 어떤 열을 암호화 하는 데 사용할 키를 선택 합니다.
 
@@ -140,3 +140,4 @@ Azure 서비스에 저장된 고객 데이터의 보호는 Microsoft에 매우 �
 
 - 서비스 관리 키 및 고객 관리 키에 대 한 자세한 내용은 [데이터 암호화 모델](encryption-models.md) 을 참조 하세요.
 - Azure에서 [이중 암호화](double-encryption.md) 를 사용 하 여 데이터 암호화와 함께 제공 되는 위협을 완화 하는 방법에 대해 알아봅니다.
+- 하드웨어 및 펌웨어 빌드, 통합, 운영 화 및 복구 파이프라인을 통과 하는 호스트의 [플랫폼 무결성 및 보안](platform.md) 을 보장 하기 위해 Microsoft에서 수행 하는 작업에 대해 알아봅니다.

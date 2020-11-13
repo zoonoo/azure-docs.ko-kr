@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357474"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555824"
 ---
 # <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
@@ -37,7 +37,7 @@ GitHub 및 Azure DevOps와 같은 git 서버는 병합, 끌어오기 요청 등�
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>데이터 업데이트 테스트를 위한 CI 워크플로
 
-CI/CD 워크플로의 주요 목적은 학습 데이터를 사용 하 여 새 모델을 작성 하 고 테스트 데이터를 사용 하 여 해당 모델을 테스트 하 여 이전 최적 모델 ("벤치 마크 모델")과 비교 하 여 WER ( [단어 오류 요금](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) )가 향상 되었는지 여부를 설정 하는 것입니다. 새 모델을 더 잘 수행 하는 경우 향후 모델을 비교할 새 벤치 마크 모델이 됩니다.
+CI/CD 워크플로의 주요 목적은 학습 데이터를 사용 하 여 새 모델을 작성 하 고 테스트 데이터를 사용 하 여 해당 모델을 테스트 하 여 이전 최적 모델 ("벤치 마크 모델")과 비교 하 여 WER ( [단어 오류 요금](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) )가 향상 되었는지 여부를 설정 하는 것입니다. 새 모델을 더 잘 수행 하는 경우 향후 모델을 비교할 새 벤치 마크 모델이 됩니다.
 
 데이터 업데이트 테스트를 위한 CI 워크플로는 수정 된 WER를 계산 하기 위해 업데이트 된 테스트 데이터로 현재 벤치 마크 모델을 다시 테스트 해야 합니다. 이렇게 하면 새 모델의 WER를 벤치 마크의 WER과 비교할 때 두 모델 모두 동일한 테스트 데이터에 대해 테스트 되 고 like와 like를 비교 하 게 됩니다.
 
@@ -84,8 +84,8 @@ Custom Speech에 대해 이미 구현 된 DevOps 솔루션의 경우 [음성 dev
 
 - 템플릿 리포지토리를 GitHub 계정에 복사한 다음, GitHub 작업 CI/CD 워크플로에 대 한 Azure 리소스 및 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만듭니다.
 - "[Dev inner loop](https://mitchdenny.com/the-inner-loop/)"를 살펴봅니다. 기능 분기에서 학습 및 테스트 데이터를 업데이트 하 고, 임시 개발 모델을 사용 하 여 변경 내용을 테스트 하 고, 변경 내용을 제안 하 고 검토 하는 끌어오기 요청을 발생 시킵니다.
-- *Master*에 대 한 끌어오기 요청에서 학습 데이터를 업데이트 하는 경우 GITHUB 작업 CI 워크플로를 사용 하 여 모델을 학습 합니다.
-- 자동화 된 정확도 테스트를 수행 하 여 모델의 WER ( [오류 요금](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) )를 설정 합니다. Azure Blob에 테스트 결과를 저장 합니다.
+- *Master* 에 대 한 끌어오기 요청에서 학습 데이터를 업데이트 하는 경우 GITHUB 작업 CI 워크플로를 사용 하 여 모델을 학습 합니다.
+- 자동화 된 정확도 테스트를 수행 하 여 모델의 WER ( [오류 요금](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) )를 설정 합니다. Azure Blob에 테스트 결과를 저장 합니다.
 - WER이 개선 되 면 CD 워크플로를 실행 하 여 끝점을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계

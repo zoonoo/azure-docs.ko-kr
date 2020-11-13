@@ -69,7 +69,7 @@
     - name: 기밀 컴퓨팅 컨소시엄
       href: 'https://confidentialcomputing.io/'
     - name: Azure의 Virtual Machines
-      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+      href: ../virtual-machines/index.yml
     - name: 가격 책정
       href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
     - name: 영역

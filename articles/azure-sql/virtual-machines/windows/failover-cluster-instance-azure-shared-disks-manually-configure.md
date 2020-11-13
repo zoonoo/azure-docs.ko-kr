@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285372"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556389"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -197,7 +197,7 @@ FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다.
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록
 
-포털에서 SQL Server VM를 관리 하려면 SQL VM 리소스 공급자 (RP)를 [경량 관리 모드로](sql-vm-resource-provider-register.md#lightweight-management-mode)등록 합니다. 현재는 fci에서 지원 되는 유일한 모드 이며 Azure vm의 SQL Server입니다. 
+포털에서 SQL Server VM를 관리 하려면 [경량 관리 모드로](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)SQL IaaS 에이전트 확장 (RP)을 사용 하 여 등록 합니다. 현재는 fci SQL Server와 Azure vm에서 지원 되는 유일한 모드입니다. 
 
 
 PowerShell을 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.  
@@ -217,7 +217,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="limitations"></a>제한 사항
 
-- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다.
+- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

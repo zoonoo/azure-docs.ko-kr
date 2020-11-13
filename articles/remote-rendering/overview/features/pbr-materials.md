@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207209"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555569"
 ---
 # <a name="pbr-materials"></a>PBR 재질
 
 Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materials.md) 중 하나는 *.pbr 자료* 입니다. 실제 조명을 받아야 하는 [메시](../../concepts/meshes.md) 에 사용 됩니다.
 
-.PBR는 **P**hysically **B**기반 **R**endering을 의미 하 고, 모든 조명 조건에서 실제 결과를 사용할 수 있도록 실제로 타당 방식으로 표면의 시각적 속성을 설명 합니다. 대부분의 최신 게임 엔진 및 콘텐츠 생성 도구는 실시간 렌더링을 위한 실제 시나리오의 가장 근접 한 것으로 간주 되기 때문에, 대부분의 경우에는 .PBR 자료를 지원 합니다.
+.PBR는 **P** hysically **B** 기반 **R** endering을 의미 하 고, 모든 조명 조건에서 실제 결과를 사용할 수 있도록 실제로 타당 방식으로 표면의 시각적 속성을 설명 합니다. 대부분의 최신 게임 엔진 및 콘텐츠 생성 도구는 실시간 렌더링을 위한 실제 시나리오의 가장 근접 한 것으로 간주 되기 때문에, 대부분의 경우에는 .PBR 자료를 지원 합니다.
 
 ![ARR에서 렌더링 하는 투구의 샘플 모델](media/helmet.png)
 
@@ -26,7 +26,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 이러한 속성은 모든 자료에 공통적입니다.
 
-* **Albedocolor:** 이 색을 *Albedomap* 또는 * :::no-loc text="vertex "::: colors*와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
+* **Albedocolor:** 이 색을 *Albedomap* 또는 *:::no-loc text="vertex "::: colors* 와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
 
   > [!NOTE]
   > 완벽 하 게 깨끗 한 투명 한 부분과 같이, .PBR 재질은 완전히 투명 한 경우에도 환경을 반영 합니다. Sun과 같은 밝은 스폿은 여전히 반사에서 볼 수 있습니다. 이는 [색 재질](color-materials.md)마다 다릅니다.
@@ -37,17 +37,23 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 * **textureCoordinateScale** 및 **textureCoordinateOffset:** 눈금은 UV 질감 좌표에 곱하고이에 오프셋을 추가 합니다. 질감을 늘이거나 이동 하는 데 사용할 수 있습니다. 기본 소수 자릿수는 (1, 1)이 고 offset은 (0, 0)입니다.
 
-* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor*에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
+* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor* 에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
 
 * **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 또한의 경우에는 뒷면의 경우에도 해당 재질 조명이 적절 하 게 계산 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [ :::no-loc text="Single-sided"::: 렌더링](single-sided-rendering.md)도 참조 하세요.
 
 * **TransparencyWritesDepth:** TransparencyWritesDepth 플래그가 재질에 설정 되어 있고 자료가 투명 하면이 자료를 사용 하는 개체는 최종 깊이 버퍼에도 영향을 주지 않습니다. 다음 섹션에서는 .PBR 재질 플래그를 *투명* 하 게 표시 합니다. 이 기능을 사용 하는 경우 사용 사례에 완전히 투명 한 장면에 대 한 보다 타당 [늦은 단계 다시 프로젝션이](late-stage-reprojection.md) 필요한 경우에 권장 됩니다. 불투명 투명/투명 한 장면을 혼합 하는 경우이 설정으로 인해 집합 reprojection 동작이 나 reprojection 아티팩트가 발생할 수 있습니다. 이러한 이유로 일반 사용 사례에 대 한 기본 및 권장 설정은이 플래그를 사용 하지 않도록 설정 하는 것입니다. 작성 된 깊이 값은 카메라에 가장 가까운 개체의 픽셀 별 깊이 계층에서 가져옵니다.
 
+* **FresnelEffect:** 이 재질 플래그를 사용 하면 해당 재질에서 가산 [프레스 넬 대칭 효과](../../overview/features/fresnel-effect.md) 를 사용할 수 있습니다. 효과의 모양은 다음에 설명 된 다른 프레스 넬 대칭 매개 변수에 의해 제어 됩니다. 
+
+* **FresnelEffectColor:** 이 재질에 사용 되는 프레스 넬 대칭 색입니다. 이 자료에 프레스 넬 대칭 효과 비트가 설정 된 경우에만 중요 합니다 (위 참조). 이 속성은 프레스 넬 대칭 빛의 기본 색을 제어 합니다 (전체 설명에 대 한 [프레스 넬 대칭 효과](../../overview/features/fresnel-effect.md) 참조). 현재는 rgb 채널 값만 중요 하며 알파 값은 무시 됩니다.
+
+* **FresnelEffectExponent:** 이 재질에 사용 되는 프레스 넬 대칭 지 수입니다. 이 자료에 프레스 넬 대칭 효과 비트가 설정 된 경우에만 중요 합니다 (위 참조). 이 속성은 프레스 넬 대칭 빛의 스프레드를 제어 합니다. 최소값 0.01은 전체 개체에 걸쳐 분산 됩니다. 최 댓 값 10.0은 제한를 가장 gracing 가장자리로 표시 합니다.
+
 ## <a name="pbr-material-properties"></a>.PBR 재질 속성
 
-실제로 기반 렌더링의 핵심 개념은 *BaseColor*, *Metalness*및 *황삭* 속성을 사용 하 여 광범위 한 실제 자료를 에뮬레이트하는 것입니다. 이 문서의 범위를 벗어나는 경우에 대 한 자세한 설명은이 문서의 범위를 벗어나는 것입니다. .PBR에 대 한 자세한 내용은 [다른 원본](http://www.pbr-book.org)을 참조 하세요. 다음 속성은 .PBR 자료에만 적용 됩니다.
+실제로 기반 렌더링의 핵심 개념은 *BaseColor* , *Metalness* 및 *황삭* 속성을 사용 하 여 광범위 한 실제 자료를 에뮬레이트하는 것입니다. 이 문서의 범위를 벗어나는 경우에 대 한 자세한 설명은이 문서의 범위를 벗어나는 것입니다. .PBR에 대 한 자세한 내용은 [다른 원본](http://www.pbr-book.org)을 참조 하세요. 다음 속성은 .PBR 자료에만 적용 됩니다.
 
-* **baseColor:** .PBR 재질에서 *albedo 색* 을 *기본 색*이라고 합니다. Azure 원격 렌더링에서 *albedo color* 속성은 이미 공통 재질 속성을 통해 제공 되므로 추가 기본 색 속성은 없습니다.
+* **baseColor:** .PBR 재질에서 *albedo 색* 을 *기본 색* 이라고 합니다. Azure 원격 렌더링에서 *albedo color* 속성은 이미 공통 재질 속성을 통해 제공 되므로 추가 기본 색 속성은 없습니다.
 
 * **황삭** 및 **roughnessMap:** 황삭는 표면의 황삭 또는 부드러운 정도를 정의 합니다. 황삭 표면에서는 부드러운 표면 보다 더 많은 방향으로 조명을 분산 하 여 반사를 선명 하 게 만듭니다. 값 범위는에서 사이 `0.0` 입니다 `1.0` . 가 `roughness` 와 같으면 `0.0` 리플렉션이 선명 하 게 됩니다. 가 `roughness` 와 같으면 `0.5` 리플렉션이 흐릿하게 됩니다.
 

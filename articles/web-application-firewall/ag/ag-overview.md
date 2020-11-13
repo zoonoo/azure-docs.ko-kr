@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785224"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560794"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -160,7 +160,7 @@ Application Gateway 로그는 [Azure Monitor](../../azure-monitor/overview.md)�
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Security Center](../../security-center/security-center-intro.md)를 통해 위협을 예방하고, 탐지하고, 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway는 [Security Center와 통합됩니다](../../application-gateway/application-gateway-integration-security-center.md). Security Center는 사용자 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Security Center에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Security Center와 통합됩니다. WAF 인스턴스는 경고와 상태 정보를 Security Center로 보내서 보고합니다.
+[Security Center](../../security-center/security-center-introduction.md)를 통해 위협을 예방하고, 탐지하고, 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway는 [Security Center와 통합됩니다](../../application-gateway/application-gateway-integration-security-center.md). Security Center는 사용자 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Security Center에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Security Center와 통합됩니다. WAF 인스턴스는 경고와 상태 정보를 Security Center로 보내서 보고합니다.
 
 ![Security Center 개요 창](../media/ag-overview/figure1.png)
 

@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789814"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556440"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Azure PowerShell를 사용 하 여 Azure Virtual Machines에서 SQL Server를 프로 비전 하는 방법
 
@@ -367,12 +367,17 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL Iaas 에이전트 설치
 
-SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 자동화된 관리 기능을 지원합니다. 새 VM에 에이전트를 설치 하 고 리소스 공급자에 등록 하려면 가상 머신을 만든 후 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선스 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
+SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 자동화된 관리 기능을 지원합니다. 확장을 사용 하 여 SQL Server를 등록 하려면 가상 머신을 만든 후 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선스 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+확장에 등록 하는 방법에는 다음 세 가지가 있습니다. 
+- [구독에서 모든 현재 및 미래의 Vm에 대해 자동으로](sql-agent-extension-automatic-registration-all-vms.md)
+- [단일 VM에 대해 수동으로](sql-agent-extension-manually-register-single-vm.md)
+- [대량으로 여러 Vm에 대 한 수동](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>VM 중지 또는 제거
