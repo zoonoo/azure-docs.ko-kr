@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565639"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자** 를 **보다 작음** 으로 설정합니다.
 
-    c. **임계값** 을 **20** 으로 설정합니다.
+    다. **임계값** 을 **20** 으로 설정합니다.
 
     d. **작업** 을 **다음을 기준으로 개수 줄이기** 로 설정합니다.
 
@@ -127,7 +127,7 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 
 #### <a name="security"></a>보안 
 
-대기업의 개발 팀은 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 하는 경우가 많습니다. Healthcheck 끝점을 보호 하려면 먼저 [IP 제한](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [클라이언트 인증서](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램에 대 한 액세스를 제한 해야 합니다. 들어오는 요청의가와 일치 하도록 요구 하 여 healthcheck 끝점 자체의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능에서 요청을 이미 보호 했으므로 User-Agent는 스푸핑 될 수 없습니다.
+대기업의 개발 팀은 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 하는 경우가 많습니다. Healthcheck 끝점을 보호 하려면 먼저 [IP 제한](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램에 대 한 액세스를 제한 해야 합니다. 들어오는 요청의가와 일치 하도록 요구 하 여 healthcheck 끝점 자체의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능에서 요청을 이미 보호 했으므로 User-Agent는 스푸핑 될 수 없습니다.
 
 ### <a name="behavior"></a>동작
 

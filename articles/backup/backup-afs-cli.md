@@ -3,14 +3,14 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 백업
 description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293291"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565894"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>CLI를 사용 하 여 Azure 파일 공유 백업
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure 파일 공유 백업
 
 Azure CLI (명령줄 인터페이스)는 Azure 리소스를 관리 하기 위한 명령줄 환경을 제공 합니다. Azure 리소스를 사용 하는 사용자 지정 자동화를 빌드하기 위한 좋은 도구입니다. 이 문서에서는 Azure CLI를 사용 하 여 Azure 파일 공유를 백업 하는 방법을 자세히 설명 합니다. [Azure PowerShell](./backup-azure-afs-automation.md)을 사용하거나 [Azure Portal](backup-afs.md)에서 이 단계를 수행할 수도 있습니다.
 
@@ -20,9 +20,9 @@ Azure CLI (명령줄 인터페이스)는 Azure 리소스를 관리 하기 위한
 * Azure 파일 공유에 대 한 백업 사용
 * 파일 공유에 대 한 주문형 백업 트리거
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이상을 사용해야 합니다. CLI 버전을 찾으려면를 검색 `run az --version` 합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+ - 이 자습서에는 버전 2.0.18 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -86,7 +86,7 @@ Name                                  ResourceGroup
 * **--name** 은 요청 시 백업을 트리거할 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
 * **--유지-** 복구 지점을 보존할 시점까지 날짜를 지정 합니다. 값은 UTC 시간 형식 (dd-mm-yyyy)으로 설정 해야 합니다.
 
-다음 예에서는 보관이 포함 된 *afsaccount* 저장소 계정에서 *azurefiles 파일* 공유에 대 한 요청 시 백업을 트리거하고 *20-01-2020*까지 트리거합니다.
+다음 예에서는 보관이 포함 된 *afsaccount* 저장소 계정에서 *azurefiles 파일* 공유에 대 한 요청 시 백업을 트리거하고 *20-01-2020* 까지 트리거합니다.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table

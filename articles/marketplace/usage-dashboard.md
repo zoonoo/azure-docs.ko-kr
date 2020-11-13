@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565541"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -74,7 +74,7 @@ ms.locfileid: "94490120"
 
 ### <a name="orders-by-offers-and-skus"></a>제품 및 Sku 별 주문
 
-제품 **별 주문 및 SKU** 차트에는 모든 제품의 측정값과 추세가 표시 됩니다. 다음 사항에 유의하십시오.
+제품 **별 주문 및 SKU** 차트에는 모든 제품의 측정값과 추세가 표시 됩니다. 다음 사항에 유의하세요.
 
 - 최상위 제품이 그래프에 표시 되 고 나머지 제품은 **나머지 모두** 로 그룹화 됩니다.
 - 범례에서 특정 제품을 선택하여 그래프에 해당 제품만 표시할 수 있습니다.
@@ -99,7 +99,7 @@ ms.locfileid: "94490120"
 
 :::image type="content" source="./media/usage-dashboard/normalized-usage-country.png" alt-text="사용량 대시보드의 정규화 된 사용 현황 국가 차트를 보여 줍니다.":::
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
@@ -108,7 +108,7 @@ ms.locfileid: "94490120"
 
 ### <a name="usage-details-table"></a>사용 정보 테이블
 
-**사용량 정보** 테이블에는 사용을 기준으로 정렬 된 상위 1000 사용 레코드 목록이 표시 됩니다. 다음 사항에 유의하십시오.
+**사용량 정보** 테이블에는 사용을 기준으로 정렬 된 상위 1000 사용 레코드 목록이 표시 됩니다. 다음 사항에 유의하세요.
 
 - 그리드의 각 열을 정렬할 수 있습니다.
 - 데이터를로 추출할 수 있습니다. TSV 또는입니다. 레코드 수가 1000 보다 작은 경우 CSV 파일입니다.

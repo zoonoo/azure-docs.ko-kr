@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415251"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564874"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 고객 대시보드
 
@@ -82,7 +82,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 :::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="고객 페이지의 주문 및 사용 현황 위젯의 고객의 주문 탭을 보여 줍니다.":::
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 리더 보드는 주문 수로 순위가 매겨진 고객의 세부 정보를 표시 합니다. 고객을 선택한 후에는 인접 한 "세부 정보", "Sku 별 주문" 및 "좌석 별 Sku" 섹션에 고객 세부 정보가 표시 됩니다.
 - 게시자가 소유자 역할을 사용 하 여 로그인 할 때 고객 프로필 세부 정보는이 공간에 표시 됩니다. 게시자가 참가자 역할을 사용 하 여 로그인 한 경우에는이 섹션의 세부 정보를 사용할 수 없습니다.
@@ -119,7 +119,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 [![고객 페이지에서 지리 위젯의 주문 탭을 보여 줍니다.](./media/customer-dashboard/customers-by-geography.png)](./media/customer-dashboard/customers-by-geography.png#lightbox)
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
@@ -130,7 +130,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 **고객 세부 정보** 테이블에는 제품 중 하나를 처음 획득 한 날짜를 기준으로 정렬 된 상위 1000 고객의 번호가 매겨진 목록이 표시 됩니다. 세부 정보 리본에서 확장 아이콘을 선택 하 여 섹션을 확장할 수 있습니다.
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 고객의 개인 정보는 고객이 동의한 경우에만 사용할 수 있습니다. 소유자 역할 수준의 사용 권한으로 로그인 한 경우에만이 정보를 볼 수 있습니다.
 - 그리드의 각 열을 정렬할 수 있습니다.

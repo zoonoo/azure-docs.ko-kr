@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075429"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565877"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -44,22 +44,11 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal.md) 또는 [Azure PowerShell](deploy-ps.md)를 사용 하 여이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-### <a name="azure-cli"></a>Azure CLI
-
-로컬로 CLI를 설치하여 사용하기로 선택하는 경우 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az--version**을 실행 합니다. 설치 또는 업그레이드에 대한 자세한 내용은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-
-Azure 방화벽 확장을 설치 합니다.
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- 이 문서에는 Azure CLI 버전 2.0.4 이상을 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="set-up-the-network"></a>네트워크 설정
 
@@ -264,7 +253,7 @@ az network firewall network-rule create \
 
 1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 **Srv-Work** 개인 IP 주소에 대 한 원격 데스크톱 연결을 열고 로그인 합니다.
 
-3. **SRV 작업**에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
+3. **SRV 작업** 에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
 
    ```
    nslookup www.google.com

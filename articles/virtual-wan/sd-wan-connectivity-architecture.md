@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828081"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564704"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Azure Virtual WAN을 사용한 SD-WAN 연결 아키텍처
 
@@ -44,9 +44,9 @@ SD-WAN CPE는 트래픽 최적화 및 경로 선택이 구현되고 적용되는
 
 ## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>NVA-VWAN-허브와 직접 상호 연결 모델
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="직접 상호 연결 모델":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="NVA-VWAN-허브와 직접 상호 연결 모델":::
 
-이 아키텍처 모델은 타사 [네트워크 가상 어플라이언스 (NVA)를 가상 허브에 직접](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub)배포할 수 있도록 지원 합니다. 이렇게 하면 Azure 워크 로드에 연결할 때 독점 종단 간 SD WAN 기능을 활용할 수 있도록 분기 CPE를 가상 허브의 동일한 브랜드 NVA에 연결 하려는 고객이 사용할 수 있습니다. 
+이 아키텍처 모델은 타사 [네트워크 가상 어플라이언스 (NVA)를 가상 허브에 직접](./about-nva-hub.md)배포할 수 있도록 지원 합니다. 이렇게 하면 Azure 워크 로드에 연결할 때 독점 종단 간 SD WAN 기능을 활용할 수 있도록 분기 CPE를 가상 허브의 동일한 브랜드 NVA에 연결 하려는 고객이 사용할 수 있습니다. 
 
 몇 가지 가상 WAN 파트너는 배포 프로세스의 일부로 NVA를 자동으로 구성 하는 환경을 제공 하기 위해 노력 했습니다. NVA가 가상 허브로 프로 비전 되 면 nva에 필요할 수 있는 추가 구성은 NVA 파트너 포털 또는 관리 응용 프로그램을 통해 수행 해야 합니다. NVA에 대 한 직접 액세스를 사용할 수 없습니다. Azure 가상 WAN 허브에 직접 배포할 수 있는 Nva는 가상 허브에서 사용 하도록 설계 되었습니다. VWAN 허브에서 NVA를 지 원하는 파트너 및 해당 배포 가이드는 [가상 Wan 파트너](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) 문서를 참조 하세요.
 
@@ -55,7 +55,7 @@ SD-WAN CPE는 트래픽 최적화 및 경로 선택이 구현되고 적용되는
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>간접 상호 연결 모델
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="직접 상호 연결 모델":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="간접 상호 연결 모델":::
 
 이 아키텍처 모델에서 SD-WAN 분기 CPE는 가상 WAN 허브에 간접적으로 연결됩니다. 그림에 표시된 것처럼 SD-WAN 가상 CPE는 엔터프라이즈 VNet에 배포됩니다. 이 가상 CPE는 IPsec을 사용하여 가상 WAN 허브에 연결됩니다. 가상 CPE는 Azure에 대해 SD-WAN 게이트웨이 역할을 합니다. Azure에서 워크로드에 액세스해야 하는 분기는 v-CPE 게이트웨이를 통해 액세스할 수 있습니다.
 
@@ -63,7 +63,7 @@ v-CPE 게이트웨이(NVA)를 통해 Azure에 연결되므로 Azure 워크로드
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>관리되는 하이브리드 WAN 모델
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="직접 상호 연결 모델":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="관리되는 하이브리드 WAN 모델":::
 
 이 아키텍처 모델에서 엔터프라이즈는 MSP(관리 서비스 공급자) 파트너에서 제공하는 관리형 SD-WAN 서비스를 활용할 수 있습니다. 이 모델은 위에서 설명한 직접 또는 간접 모델과 유사합니다. 그러나 이 모델에서는 SD-WAN 디자인, 오케스트레이션 및 작업이 SD-WAN 공급자에 의해 전달됩니다.
 

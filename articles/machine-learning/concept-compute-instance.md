@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323070"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563820"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -32,7 +32,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 계산 인스턴스는 machine learning 개발 환경에 최적화 된 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 다음과 같은 이점을 제공합니다.
 
-|주요 이점|설명|
+|주요 이점|Description|
 |----|----|
 |생산성|Azure Machine Learning studio에서 통합 된 노트북 및 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (미리 보기)<br/>계산 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합 됩니다. 작업 영역의 다른 데이터 과학자와 전자 필기장 및 데이터를 공유할 수 있습니다.<br/> 계산 인스턴스와 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 를 사용할 수도 있습니다.
 |관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>-리소스 관리자 템플릿 또는 Azure Machine Learning SDK에서 autoprovisioning 비전<br/>- [Azure 역할 기반 access control (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [가상 네트워크 지원](./how-to-secure-training-vnet.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
@@ -110,7 +110,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 * [계산 인스턴스를 만듭니다](#create). 
 * 계산 인스턴스 탭을 새로 고칩니다.
-* 계산 인스턴스를 시작, 중지 및 다시 시작 합니다.  인스턴스가 실행 될 때마다 해당 인스턴스에 대 한 비용을 지불 합니다. 계산 인스턴스를 사용 하 여 비용을 줄일 수 없는 경우 중지 합니다. 계산 인스턴스를 중지 하면 할당을 취소 합니다. 그런 다음, 필요할 때 다시 시작합니다.
+* 계산 인스턴스를 시작, 중지 및 다시 시작 합니다.  인스턴스가 실행 될 때마다 해당 인스턴스에 대 한 비용을 지불 합니다. 계산 인스턴스를 사용 하 여 비용을 줄일 수 없는 경우 중지 합니다. 계산 인스턴스를 중지 하면 할당을 취소 합니다. 그런 다음, 필요할 때 다시 시작합니다. 계산 인스턴스를 중지 하면 계산 시간에 대 한 청구를 중지 하지만 디스크, 공용 IP 및 표준 부하 분산 장치에 대 한 요금이 계속 청구 됩니다.
 * 계산 인스턴스를 삭제 합니다.
 * 생성 한 계산만 표시 되도록 인스턴스 생성 목록을 필터링 합니다.
 

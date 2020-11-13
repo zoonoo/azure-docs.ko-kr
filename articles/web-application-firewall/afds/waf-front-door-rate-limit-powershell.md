@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506416"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563480"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 요금 제한 규칙 구성
 Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit 규칙은 1 분 동안 클라이언트에서 허용 되는 요청 수를 제어 합니다.
@@ -26,9 +26,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 구성 요소
 속도 제한 정책 설정을 시작 하기 전에 PowerShell 환경을 설정 하 고 전면 도어 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
-Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 
+Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 모델을 사용하는 cmdlet 집합을 제공합니다. 
 
-로컬 머신에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명을 사용 하 여 로그인 하 고 Az PowerShell module을 설치 합니다.
+로컬 머신에 [Azure PowerShell](/powershell/azure/) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명을 사용 하 여 로그인 하 고 Az PowerShell module을 설치 합니다.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>로그인용 대화형 대화 상자를 사용하여 Azure에 연결
 ```
@@ -105,6 +105,4 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="next-steps"></a>다음 단계
 
-- [전면 도어](../../frontdoor/front-door-overview.md)에 대해 자세히 알아보세요. 
-
-
+- [전면 도어](../../frontdoor/front-door-overview.md)에 대해 자세히 알아보세요.

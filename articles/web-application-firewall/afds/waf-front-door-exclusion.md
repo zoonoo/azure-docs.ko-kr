@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 943124982fe1f2ccf142bb9161ec8ada07e63df5
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444982"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563463"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>프런트 도어 서비스 제외 목록이 포함 된 WAF (웹 응용 프로그램 방화벽) 
 
-경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [AZURE CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
+경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Azure Portal를 사용 하 여 제외 목록 구성
 **관리 되는 규칙** 의 waf 포털에서 **제외 관리** 에 액세스할 수 있습니다.
 

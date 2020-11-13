@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 2682202b68deeeb1dbbe2493ecb9592acd1788b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415092"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563786"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -94,7 +94,7 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 
 [![주문 대시보드의 지리적 스프레드 차트를 보여 줍니다.](./media/orders-dashboard/geographical-spread.png)](./media/orders-dashboard/geographical-spread.png#lightbox)
 
-다음 사항에 유의하십시오.
+다음 사항에 유의하세요.
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.

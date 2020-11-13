@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413074"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563650"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure Front 도어 서비스의 Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -55,7 +55,7 @@ WAF 정책을 전역적으로 배포 하는 작업은 일반적으로 약 5 분 
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>어떤 Azure WAF 옵션을 선택 해야 하나요?
 
-Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure 전면 도어를 사용 하는 WAF는 전역적으로 분산 된에 지 보안 솔루션입니다. Application Gateway 포함 된 WAF는 지역 전용 솔루션입니다. 전반적인 성능 및 보안 요구 사항에 따라 솔루션을 선택 하는 것이 좋습니다. 자세한 내용은 [Azure의 응용 프로그램 배달 도구 모음을 사용한 부하 분산](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite)을 참조 하세요.
+Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure 전면 도어를 사용 하는 WAF는 전역적으로 분산 된에 지 보안 솔루션입니다. Application Gateway 포함 된 WAF는 지역 전용 솔루션입니다. 전반적인 성능 및 보안 요구 사항에 따라 솔루션을 선택 하는 것이 좋습니다. 자세한 내용은 [Azure의 응용 프로그램 배달 도구 모음을 사용한 부하 분산](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md)을 참조 하세요.
 
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>모든 통합 플랫폼에서 동일한 WAF 기능을 지원 하나요?

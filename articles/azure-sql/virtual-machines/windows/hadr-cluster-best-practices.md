@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564568"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ ms.locfileid: "92786431"
 ## <a name="networking"></a>네트워킹
 
 서버당 단일 NIC (클러스터 노드) 및 단일 서브넷을 사용 합니다. Azure 네트워킹은 물리적 중복성을 가지 며, Azure 가상 머신 게스트 클러스터에서 추가 Nic 및 서브넷을 불필요 하 게 만듭니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 컴퓨터 게스트 장애 조치 (failover) 클러스터에서이 경고를 무시할 수 있습니다.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>장애 조치 (Failover) 클러스터 네트워크 임계값 조정
+
+AlwaysOn SQL Server를 사용 하 여 Azure Vm에서 Windows 장애 조치 (Failover) 클러스터 노드를 실행 하는 경우 클러스터 설정을 보다 낮은 모니터링 상태로 변경 하는 것이 좋습니다.  이렇게 하면 클러스터를 훨씬 안정적으로 안정적으로 만들 수 있습니다.  이에 대 한 자세한 내용은 [SQL AlwaysOn을 사용한 IaaS-장애 조치 (Failover) 클러스터 네트워크 임계값 조정](/windows-server/troubleshoot/iaas-sql-failover-cluser)을 참조 하세요.
 
 ## <a name="quorum"></a>Quorum
 

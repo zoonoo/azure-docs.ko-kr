@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556338"
+ms.locfileid: "94564483"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ ms.locfileid: "94556338"
 
 VM 가용성을 구성한 후에는 가상 머신을 만들 준비가 되었습니다. 이미 설치 되어 SQL Server 있거나 설치 되어 있지 않은 Azure Marketplace 이미지를 사용 하도록 선택할 수 있습니다. 그러나 Azure Vm에서 SQL Server 이미지를 선택 하는 경우 장애 조치 (failover) 클러스터 인스턴스를 구성 하기 전에 가상 머신에서 SQL Server을 제거 해야 합니다. 
 
+### <a name="considerations"></a>고려 사항
+Azure IaaS VM 게스트 장애 조치 클러스터의 경우 서버(클러스터 노드)당 하나의 NIC 및 단일 서브넷을 사용하는 것이 좋습니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다.
 
 두 가상 머신을 다음에 배치합니다.
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262987b5d5cdccec967193d855b17c5c74e16575
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84753595"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563395"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 리소스 로그
 
@@ -24,10 +24,10 @@ ms.locfileid: "84753595"
 
 Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 관리하고 문제를 해결할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. Azure Blob Storage에서 모든 로그를 추출하여 다양한 도구(예: [Azure Monitor 로그](../../azure-monitor/insights/azure-networking-analytics.md),Excel 및 Power BI)에서 볼 수 있습니다. 다음 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
-* **활동 로그**: [azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md) 를 사용 하 여 azure 구독에 제출 된 모든 작업 및 해당 상태를 볼 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
-* **액세스 리소스 로그**:이 로그를 사용 하 여 Application Gateway 액세스 패턴을 보고 중요 한 정보를 분석할 수 있습니다. 여기에는 호출자의 IP, 요청 된 URL, 응답 대기 시간, 반환 코드 및 바이트 (in/out)가 포함 됩니다. 액세스 로그는 300 초 마다 수집 됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 instanceId 속성으로 식별됩니다.
-* **성능 리소스 로그**:이 로그를 사용 하 여 Application Gateway 인스턴스를 수행 하는 방법을 볼 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다. 성능 로그는 v1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](../../application-gateway/application-gateway-metrics.md) 사용 합니다.
-* **방화벽 리소스 로그**:이 로그를 사용 하 여 웹 응용 프로그램 방화벽으로 구성 된 응용 프로그램 게이트웨이의 검색 또는 방지 모드를 통해 기록 된 요청을 볼 수 있습니다.
+* **활동 로그** : [azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md) 를 사용 하 여 azure 구독에 제출 된 모든 작업 및 해당 상태를 볼 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
+* **액세스 리소스 로그** :이 로그를 사용 하 여 Application Gateway 액세스 패턴을 보고 중요 한 정보를 분석할 수 있습니다. 여기에는 호출자의 IP, 요청 된 URL, 응답 대기 시간, 반환 코드 및 바이트 (in/out)가 포함 됩니다. 액세스 로그는 300 초 마다 수집 됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 instanceId 속성으로 식별됩니다.
+* **성능 리소스 로그** :이 로그를 사용 하 여 Application Gateway 인스턴스를 수행 하는 방법을 볼 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다. 성능 로그는 v1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](../../application-gateway/application-gateway-metrics.md) 사용 합니다.
+* **방화벽 리소스 로그** :이 로그를 사용 하 여 웹 응용 프로그램 방화벽으로 구성 된 응용 프로그램 게이트웨이의 검색 또는 방지 모드를 통해 기록 된 요청을 볼 수 있습니다.
 
 > [!NOTE]
 > 로그는 Azure Resource Manager 배포 모델에 배포된 리소스에만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 두 모델에 대해 더 잘 이해하려면 [리소스 관리자 배포 및 클래식 배포 이해](../../azure-resource-manager/management/deployment-models.md) 문서를 참조하세요.
@@ -35,8 +35,8 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 로그 저장에는 세 가지 옵션이 있습니다.
 
 * **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **Event hubs**: event hubs는 다른 siem (보안 정보 및 이벤트 관리) 도구와 통합 하 여 리소스에 대 한 경고를 얻는 데 유용한 옵션입니다.
-* **Azure Monitor 로그**: Azure Monitor 로그는 응용 프로그램의 일반적인 실시간 모니터링 또는 추세를 확인 하는 데 가장 적합 합니다.
+* **Event hubs** : event hubs는 다른 siem (보안 정보 및 이벤트 관리) 도구와 통합 하 여 리소스에 대 한 경고를 얻는 데 유용한 옵션입니다.
+* **Azure Monitor 로그** : Azure Monitor 로그는 응용 프로그램의 일반적인 실시간 모니터링 또는 추세를 확인 하는 데 가장 적합 합니다.
 
 ### <a name="enable-logging-through-powershell"></a>PowerShell을 통한 로깅 사용
 
@@ -61,7 +61,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Azure Portal을 통한 로깅 사용
 
-1. Azure Portal에서 리소스를 찾고 **진단 설정**을 선택 합니다.
+1. Azure Portal에서 리소스를 찾고 **진단 설정** 을 선택 합니다.
 
    Application Gateway의 경우 다음 세 가지 로그를 사용할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
    * 성능 로그
    * 방화벽 로그
 
-2. 데이터 수집을 시작 하려면 **진단 켜기**를 선택 합니다.
+2. 데이터 수집을 시작 하려면 **진단 켜기** 를 선택 합니다.
 
    ![진단 켜기][1]
 
@@ -77,7 +77,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
    ![구성 프로세스 시작][2]
 
-5. 설정의 이름을 입력 하 고, 설정을 확인 하 고, **저장**을 선택 합니다.
+5. 설정의 이름을 입력 하 고, 설정을 확인 하 고, **저장** 을 선택 합니다.
 
 ### <a name="activity-log"></a>활동 로그
 
@@ -87,14 +87,14 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. Application Gateway에 대 한 각 액세스는 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
 |clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
 |requestUri     | 받은 요청의 URI        |
-|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드       |
+|RequestQuery     | **Server-Routed** : 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID** : 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS** : Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드       |
 |UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
 |httpStatus     | Application Gateway에서 클라이언트로 반환한 HTTP 상태 코드       |
 |httpVersion     | 요청의 HTTP 버전        |
@@ -131,7 +131,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 ```
 Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 표시 됩니다.
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -185,7 +185,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. V1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](../../application-gateway/application-gateway-metrics.md) 사용 합니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -222,7 +222,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |
@@ -285,7 +285,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
 * **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
-* **Power BI**: 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI 템플릿 앱](https://docs.microsoft.com/power-bi/service-template-apps-overview)을 사용 하 여 데이터를 분석할 수 있습니다.
+* **Power BI** : 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI 템플릿 앱](/power-bi/service-template-apps-overview)을 사용 하 여 데이터를 분석할 수 있습니다.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>액세스, 성능 및 방화벽 로그 보기 및 분석
 
