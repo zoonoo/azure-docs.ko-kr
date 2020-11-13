@@ -4,12 +4,12 @@ description: 개인 끝점을 사용 하 여 Azure Batch 계정에 비공개로 
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669020"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579558"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
 
@@ -35,7 +35,7 @@ Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단�
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="개인 끝점 연결":::
 5. **기본 사항** 창에서 구독, 리소스 그룹, 개인 끝점 리소스 이름 및 지역 세부 정보를 입력 하거나 선택 하 고 **다음: 리소스** 를 선택 합니다.
 6. **리소스** 창에서 **리소스 종류** 를 **ch/batchaccountsMicrosoft.Bat** 로 설정 합니다. 액세스 하려는 개인 Batch 계정을 선택 하 고 **다음: 구성** 을 선택 합니다.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="개인 끝점 연결":::
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="개인 끝점 만들기-리소스 창":::
 7. **구성** 창에서 다음 정보를 입력 하거나 선택 합니다.
    - **가상 네트워크** : 가상 네트워크를 선택 합니다.
    - **서브넷** : 서브넷을 선택 합니다.
@@ -44,13 +44,18 @@ Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단�
 8. **검토 + 만들기** 를 선택한 다음 Azure에서 구성의 유효성을 검사할 때까지 기다립니다.
 9. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
-개인 끝점이 프로 비전 되 면 개인 끝점을 사용 하 여 동일한 가상 네트워크의 Vm에서 Batch 계정에 액세스할 수 있습니다. Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
+개인 끝점이 프로 비전 되 면 개인 끝점을 사용 하 여 동일한 가상 네트워크의 Vm에서 Batch 계정에 액세스할 수 있습니다.
+
+> [!IMPORTANT]
+> 개인 끝점이 프로 비전 되는 가상 네트워크 외부에서 작업을 수행 하면 Azure Portal에서 "AuthorizationFailure" 메시지가 생성 됩니다.
+
+Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
 
 1. **모든 리소스** 를 선택합니다.
 2. 이전에 만든 프라이빗 엔드포인트를 검색합니다.
 3. **개요** 탭을 선택하여 DNS 설정 및 IP 주소를 확인합니다.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="개인 끝점 연결":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="개인 끝점 DNS 설정 및 IP 주소":::
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 

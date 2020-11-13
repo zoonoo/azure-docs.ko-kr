@@ -1,20 +1,20 @@
 ---
 title: Azure 파일 공유 성능 문제 해결 가이드
-description: Azure Files의 알려진 성능 문제를 해결 합니다. 이러한 문제가 발생할 경우 잠재적 원인과 관련 해결 방법을 검색 합니다.
+description: Azure 파일 공유의 알려진 성능 문제를 해결 합니다. 이러한 문제가 발생할 경우 잠재적 원인과 관련 해결 방법을 검색 합니다.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52376cabfd837ad7435c8e9c992fe000e0521247
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561117"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577975"
 ---
-# <a name="troubleshoot-azure-file-share-performance-issues"></a>Azure 파일 공유 성능 문제 해결
+# <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
 이 문서에서는 Azure 파일 공유와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우에 대 한 잠재적 원인과 해결 방법을 제공 합니다.
 

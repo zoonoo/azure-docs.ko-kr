@@ -3,16 +3,16 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포를 통합 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490817"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577722"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
-이 문서에서는 azure에서 기존 또는 새 [허브 및 스포크 아키텍처](/azure/architecture/reference-architectures/hybrid-networking/shared-services) 에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항을 제공 합니다. 
+이 문서에서는 azure에서 기존 또는 새 [허브 및 스포크 아키텍처](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) 에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항을 제공 합니다. 
 
 
 허브 및 스포크 시나리오에서는 하이브리드 클라우드 환경에서 워크 로드를 사용 한다고 가정 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "94490817"
 * Azure VMware 솔루션 
 * 온-프레미스의 vSphere
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 *허브* 는 온-프레미스 및 Azure VMware 솔루션 사설 클라우드에 대 한 중앙 연결의 역할을 하는 azure Virtual Network입니다. *스포크* 는 가상 네트워크를 허브와 피어 링 하 여 가상 네트워크 간 통신을 가능 하 게 합니다.
 

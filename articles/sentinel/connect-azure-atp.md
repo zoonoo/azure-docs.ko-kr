@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657809"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579524"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Microsoft Defender에서 Id에 대 한 데이터 연결 (이전의 Azure Advanced Threat Protection)
 
@@ -29,10 +29,10 @@ ms.locfileid: "89657809"
 
 한 번의 클릭으로 [Microsoft Defender에서 id에 대 한](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 로그를 Azure 센티널로 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
-- Id에 대 한 microsoft defender의 미리 보기 고객이 고 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender를 통합할 수 있도록 설정 해야 합니다. 자세한 내용은 [Id 통합을 위한 Microsoft Defender](https://docs.microsoft.com/cloud-app-security/aatp-integration)를 참조 하세요.
+- Id에 대 한 microsoft defender의 미리 보기 고객이 고 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender를 통합할 수 있도록 설정 해야 합니다. 자세한 내용은 [Id 통합을 위한 Microsoft Defender](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection)를 참조 하세요.
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Id에 대해 Microsoft Defender에 연결
 
@@ -40,15 +40,15 @@ Microsoft Defender for Identity preview 버전이 [네트워크에서 사용 하
 Microsoft Defender for Identity가 배포 되 고 데이터를 수집 의심 스러운 경고를 Azure 센티널로 쉽게 스트리밍할 수 있습니다. 경고가 Azure 센티널로 스트리밍을 시작 하는 데 최대 24 시간이 걸릴 수 있습니다.
 
 
-1. Microsoft Defender for Identity를 Azure 센티널에 연결 하려면 먼저 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender 간 통합을 사용 하도록 설정 해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Microsoft Defender For Identity integration](https://docs.microsoft.com/cloud-app-security/aatp-integration)을 참조 하세요.
+1. Microsoft Defender for Identity를 Azure 센티널에 연결 하려면 먼저 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender 간 통합을 사용 하도록 설정 해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Microsoft Defender For Identity integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection)을 참조 하세요.
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Id 용 Microsoft Defender (미리 보기)** 타일을 클릭 합니다.
 
-1. Microsoft Defender에서 Id에 대 한 경고를 자동으로 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기**에서 **사용**을 선택하여 연결된 보안 서비스에서 생성된 경고에서 인시던트가 자동으로 생성되는 기본 분석 규칙을 사용하도록 설정합니다. 그런 다음, **Analytics** 및 **활성 규칙**에서 이 규칙을 편집할 수 있습니다.
+1. Microsoft Defender에서 Id에 대 한 경고를 자동으로 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기** 에서 **사용** 을 선택하여 연결된 보안 서비스에서 생성된 경고에서 인시던트가 자동으로 생성되는 기본 분석 규칙을 사용하도록 설정합니다. 그런 다음, **Analytics** 및 **활성 규칙** 에서 이 규칙을 편집할 수 있습니다.
 
-1. **연결**을 클릭합니다.
+1. **연결** 을 클릭합니다.
 
-1. Id 경고에 대해 Microsoft Defender에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
+1. Id 경고에 대해 Microsoft Defender에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert** 를 검색 합니다.
 
 > [!NOTE]
 > 경고가 30KB 보다 큰 경우 Azure 센티널은 경고에서 엔터티 필드를 표시 하는 것을 중지 합니다.

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d94ee3145fb073dae982019fd4096cc2ceb7cd86
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392513"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578334"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 Synapse Studio 작업 영역 리소스에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "93392513"
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>1 단계: 제한 된 네트워크에 네트워크 아웃 바운드 보안 규칙 추가
 
-4 개의 서비스 태그를 사용 하 여 4 개의 네트워크 아웃 바운드 보안 규칙을 추가 해야 합니다. [서비스 태그 개요](/azure/virtual-network/service-tags-overview.md) 에 대 한 자세한 정보 
+4 개의 서비스 태그를 사용 하 여 4 개의 네트워크 아웃 바운드 보안 규칙을 추가 해야 합니다. [서비스 태그 개요](/azure/virtual-network/service-tags-overview) 에 대 한 자세한 정보 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory

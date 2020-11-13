@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601251"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577646"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합 하는 5 단계
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD)에는 쉽게 시작할 수 있는 수천 개�
 
 그런 다음 직원이 자주 사용 하는 응용 프로그램을 검색 하 고 Azure AD와 통합 하기 위한 작업의 우선 순위를 지정 합니다.
 
-Microsoft Cloud App Security&#39;s [클라우드 검색 도구](/cloud-app-security/tutorial-shadow-it) 를 사용 하 여 네트워크에서 섀도 it를 검색 하 고 관리할 수 있습니다 &quot; &quot; (즉, IT 부서에서 관리 하지 않는 앱). [Microsoft DEFENDER ATP (Advanced Threat Protection)를 사용](/cloud-app-security/wdatp-integration) 하 여 검색 프로세스를 간소화 하 고 확장할 수 있습니다.
+Microsoft Cloud App Security&#39;s [클라우드 검색 도구](/cloud-app-security/tutorial-shadow-it) 를 사용 하 여 네트워크에서 섀도 it를 검색 하 고 관리할 수 있습니다 &quot; &quot; (즉, IT 부서에서 관리 하지 않는 앱). [Microsoft DEFENDER ATP (Advanced Threat Protection)를 사용](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 하 여 검색 프로세스를 간소화 하 고 확장할 수 있습니다.
 
 또한 Azure Portal의 [AD FS 응용 프로그램 작업 보고서](../manage-apps/migrate-adfs-application-activity.md) 를 사용 하 여 조직의 모든 AD FS 앱을 검색 하 고, 해당 앱에 로그인 한 고유 사용자 수를 검색 하 고, Azure AD와 통합 하는 데 필요한 호환성을 확인할 수 있습니다.
 

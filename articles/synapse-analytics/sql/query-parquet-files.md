@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306851"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579354"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 (미리 보기)을 사용 하 여 Parquet 파일 쿼리
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 Azure id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
+
+> [!IMPORTANT]
+> `Latin1_General_100_CI_AS_SC_UTF8`PARQUET 파일의 문자열 값이 utf-8 인코딩을 사용 하 여 인코딩 되므로 utf-8 데이터베이스 데이터 정렬 (예:)을 사용 하 고 있는지 확인 합니다.
+> PARQUET 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> 절의 모든 문자열 열에 대해 일부 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_CI_AS_SC_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 합니다.
+> 파일의 텍스트 인코딩과 문자열 열 데이터 정렬의 불일치 때문에 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 다음 섹션에서는 다양 한 유형의 PARQUET 파일을 쿼리 하는 방법을 볼 수 있습니다.
 

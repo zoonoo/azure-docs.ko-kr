@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413091"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578818"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -30,18 +30,36 @@ ms.locfileid: "94413091"
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
+## <a name="inbound-access-restrictions"></a>인바운드 액세스 제한
 
-IP 제한을 사용하여 앱 액세스가 허용 또는 거부되는 IP 주소의 목록을 우선 순위대로 정의할 수 있습니다. 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
+액세스 제한을 사용 하 여 앱에 대 한 액세스를 허용 하거나 거부 하는 우선 순위가 지정 된 IP 주소 목록을 정의할 수 있습니다. 이 목록에는 IPv4 및 IPv6 주소 또는 [서비스 끝점](#use-service-endpoints)을 사용 하는 특정 가상 네트워크 서브넷이 포함 될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
+
+액세스 제한은 [프리미엄](functions-premium-plan.md), [소비](functions-scale.md#consumption-plan)및 [App Service](functions-scale.md#app-service-plan)에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 네트워크 제한을 사용하는 경우 가상 네트워크 내에서만 포털 편집기를 사용하거나, 사용 중인 컴퓨터의 IP 주소를 안전 수신자 목록의 Azure Portal에 액세스하는 데 사용할 수 있습니다. 하지만 모든 컴퓨터에서 **플랫폼 기능** 탭에 있는 기능에 액세스할 수 있습니다.
+> 네트워크 제한이 적용 된 상태에서, 가상 네트워크 내 에서만 배포 하거나, 사용 중인 컴퓨터의 IP 주소를 안전 받는 사람 목록에 Azure Portal 액세스 하는 데 사용 하는 컴퓨터의 IP 주소를 배치할 수 있습니다. 그러나 포털을 사용 하 여 함수를 관리할 수는 있습니다.
 
 자세히 알아보려면 [Azure App Service 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)을 참조하세요.
 
-## <a name="private-site-access"></a>프라이빗 사이트 액세스
+### <a name="use-service-endpoints"></a>서비스 엔드포인트 사용
+
+서비스 끝점을 사용 하 여 선택한 Azure virtual network 서브넷에 대 한 액세스를 제한할 수 있습니다. 특정 서브넷에 대 한 액세스를 제한 하려면 **Virtual Network** 유형을 사용 하 여 제한 규칙을 만듭니다. 그런 다음 액세스를 허용 하거나 거부할 구독, 가상 네트워크 및 서브넷을 선택할 수 있습니다. 
+
+선택한 서브넷에 대해 서비스 끝점이 아직 Microsoft 웹에서 사용 하도록 설정 되지 않은 경우 **누락 된 microsoft. 웹 서비스 끝점 무시** 확인란을 선택 하지 않으면 자동으로 사용 하도록 설정 됩니다. 앱에서 서비스 끝점을 사용 하도록 설정 하 고 서브넷은 사용 하지 않을 수 있는 시나리오는 주로 서브넷에서 사용 하도록 설정할 수 있는 권한이 있는지 여부에 따라 달라 집니다. 
+
+다른 사용자가 서브넷에서 서비스 끝점을 사용 하도록 설정 해야 하는 경우 **누락 된 Microsoft 웹 서비스 끝점 무시** 확인란을 선택 합니다. 앱은 나중에 서브넷에서 사용 하도록 설정 하는 것을 예측 하 여 서비스 끝점에 대해 구성 됩니다. 
+
+![Virtual Network 유형이 선택 된 "IP 제한 추가" 창의 스크린샷](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+서비스 끝점을 사용 하 여 App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 적용 하 여 해당 앱에 대 한 액세스를 제어할 수 있습니다. 
+
+서비스 끝점을 설정 하는 방법을 알아보려면 [Azure Functions 개인 사이트 액세스](functions-create-private-site-access.md)설정을 참조 하세요.
+
+## <a name="private-endpoint-connections"></a>개인 끝점 연결
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+저장소 또는 service bus와 같은 개인 끝점 연결이 있는 다른 서비스를 호출 하려면 [전용 끝점에 대 한 아웃 바운드 호출](#private-endpoints)을 수행 하도록 앱을 구성 해야 합니다.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
@@ -80,7 +98,7 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 1. 보안 저장소 계정에서 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share) .
 1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
     * 서비스 끝점을 사용 하는 경우 함수 앱 전용 서브넷을 사용 하도록 설정 해야 합니다.
-    * 개인 끝점을 사용 하는 경우 DNS 레코드를 만들고 [개인 끝점 끝점과 함께 작동](#azure-dns-private-zones) 하도록 앱을 구성 해야 합니다.  저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 `file` `blob` 합니다.  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 필요 하 고 액세스할 수도 있습니다.
+    * 개인 끝점을 사용 하는 경우 DNS 레코드를 만들고 [개인 끝점 끝점과 함께 작동](#azure-dns-private-zones) 하도록 앱을 구성 해야 합니다.  저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
 1. 필드 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
 1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
 1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
@@ -159,7 +177,7 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 ## <a name="automation"></a>Automation
 다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
-+ **Azure CLI** : [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
++ **Azure CLI** : 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  
 + **ARM 템플릿** : 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결

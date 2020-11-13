@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220461"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579150"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -28,11 +28,11 @@ ms.locfileid: "92220461"
 
 * **Azure Data Share 서비스가 Azure 테넌트의 Azure 구독에 대한 리소스 공급자로 등록되어 있지 않습니다.** Azure 테넌트에 Data Share 리소스가 없는 경우 이 문제가 발생합니다. Azure Data Share 리소스를 만들면 Azure 구독에 리소스 공급자가 자동으로 등록됩니다. 다음 단계를 수행하여 Data Share 서비스를 수동으로 등록할 수도 있습니다. 이 단계를 완료하려면 Azure 기여자 역할이 필요합니다.
 
-    1. Azure Portal에서 **구독**으로 이동합니다.
+    1. Azure Portal에서 **구독** 으로 이동합니다.
     1. Azure Data Share 리소스를 만드는 데 사용할 구독을 선택합니다.
-    1. **리소스 공급자**를 클릭합니다.
-    1. **Microsoft.DataShare**를 검색합니다.
-    1. **등록**을 클릭합니다. 
+    1. **리소스 공급자** 를 클릭합니다.
+    1. **Microsoft.DataShare** 를 검색합니다.
+    1. **등록** 을 클릭합니다. 
 
     이러한 단계를 완료 하려면 Azure 구독에 대 한 [Azure 참가자 역할이](../role-based-access-control/built-in-roles.md#contributor) 있어야 합니다. 
 
@@ -52,11 +52,11 @@ ms.locfileid: "92220461"
 
 "Azure 데이터 공유 계정에 대 한 쓰기 권한을 하나 이상의 선택한 리소스에 추가할 수 없습니다."
 
-새 공유 또는 매핑 데이터 집합을 만들 때 위의 오류가 발생 하면 Azure 데이터 저장소에 대 한 권한이 부족 하기 때문일 수 있습니다. 필요한 권한에 대 한 [역할 및 요구 사항](concepts-roles-permissions.md) 을 참조 하세요. 
+새 공유를 만들 때 위의 오류가 발생 하 고 데이터 집합 또는 매핑 데이터 집합을 추가 하는 경우 Azure 데이터 저장소에 대 한 권한이 부족 하기 때문일 수 있습니다. 필요한 권한에 대 한 [역할 및 요구 사항](concepts-roles-permissions.md) 을 참조 하세요. 
 
-일반적으로 참가자 역할에 존재 하는 Azure 데이터 저장소에서 데이터를 공유 하거나 수신 하려면 쓰기 권한이 있어야 합니다. 
+일반적으로 **참가자** 역할에 존재 하는 Azure 데이터 저장소에서 데이터를 공유 하거나 수신 하려면 쓰기 권한이 있어야 합니다. 
 
-Azure 데이터 저장소에서 데이터를 처음 공유 하거나 수신 하는 경우에는 일반적으로 소유자 역할에 존재 하는 *Microsoft 권한 부여/역할 할당/쓰기* 권한이 필요 합니다. Azure 데이터 저장소 리소스를 만든 경우에도 리소스 소유자를 자동으로 만들지 않습니다. 적절 한 권한이 있는 Azure 데이터 공유 서비스는 데이터 공유 리소스의 관리 id에 데이터 저장소에 대 한 액세스 권한을 자동으로 부여 합니다. 이 프로세스를 적용 하는 데 몇 분 정도 걸릴 수 있습니다. 이러한 지연으로 인해 오류가 발생 하는 경우 몇 분 후에 다시 시도 하세요.
+Azure 데이터 저장소에서 데이터를 처음 공유 하거나 수신 하는 경우에는 일반적으로 **소유자** 역할에 존재 하는 *Microsoft 권한 부여/역할 할당/쓰기* 권한이 필요 합니다. Azure 데이터 저장소 리소스를 만든 경우에도 리소스 소유자를 자동으로 만들지 않습니다. 적절 한 권한이 있는 Azure 데이터 공유 서비스는 데이터 공유 리소스의 관리 id에 데이터 저장소에 대 한 액세스 권한을 자동으로 부여 합니다. 이 프로세스를 적용 하는 데 몇 분 정도 걸릴 수 있습니다. 이러한 지연으로 인해 오류가 발생 하는 경우 몇 분 후에 다시 시도 하세요.
 
 SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구성 요소 목록은 [SQL 원본의 공유](how-to-share-from-sql.md) 를 참조 하세요.
 
@@ -69,7 +69,7 @@ SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구�
 
 SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다. 
 
-* 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않거나 인증 Azure Active Directory 아닌 SQL 인증을 사용 하 여 실행 됩니다.  
+* 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않습니다. 또는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)의 경우 Azure Active Directory 인증 대신 SQL 인증을 사용 하 여 실행 됩니다.  
 * 원본 또는 대상 SQL 데이터 저장소가 일시 중지 되었습니다.
 * 스냅숏 프로세스나 대상 데이터 저장소에서 SQL 데이터 형식을 지원 하지 않습니다. 자세한 내용은 [SQL 원본에서 공유](how-to-share-from-sql.md#supported-data-types) 를 참조 하세요.
 * 원본 또는 대상 SQL 데이터 저장소가 다른 프로세스에 의해 잠겨 있습니다. Azure 데이터 공유는 원본 및 대상 SQL 데이터 저장소에 잠금을 적용 하지 않습니다. 그러나 원본 및 대상 SQL 데이터 저장소에 대 한 기존 잠금을 설정 하면 스냅숏 오류가 발생 합니다.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370319"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579490"
 ---
 # <a name="configure-a-managed-application-plan"></a>관리 되는 응용 프로그램 계획 구성
 
@@ -114,7 +114,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 ### <a name="assign-a-version-number-for-the-package"></a>패키지에 대 한 버전 번호를 할당 합니다.
 
-**버전** 상자에서 기술 구성의 현재 버전을 제공 합니다. 이 페이지에 변경 내용을 게시할 때마다 이 버전을 증분합니다. 버전 번호는 integer 형식 이어야 합니다. 정수. 정수. 예를 들어 `1.0.2`.
+**버전** 상자에서 기술 구성의 현재 버전을 제공 합니다. 이 페이지에 변경 내용을 게시할 때마다 이 버전을 증분합니다. 버전 번호는 integer 형식 이어야 합니다. 정수. 정수. 예들 들어 `1.0.2`입니다.
 
 ### <a name="upload-a-package-file"></a>패키지 파일 업로드
 
@@ -138,7 +138,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 - **완료** 모드에서 고객이 응용 프로그램을 다시 배포 하면 리소스가의 [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)에 정의 되어 있지 않은 경우 관리 되는 리소스 그룹의 리소스가 제거 됩니다.
 - **증분** 모드에서 응용 프로그램을 다시 배포 하면 기존 리소스는 변경 되지 않습니다.
 
-배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](/azure/azure-resource-manager/deployment-modes.md)를 참조하세요.
+배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](/azure/azure-resource-manager/deployment-modes)를 참조하세요.
 
 ### <a name="provide-a-notification-endpoint-url"></a>알림 끝점 URL 제공
 

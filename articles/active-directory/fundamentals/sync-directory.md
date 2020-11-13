@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory와 디렉터리 동기화
-description: 이 동기화 패턴을 달성 하기 위한 아키텍처 지침
+description: Azure Active Directory와의 디렉터리 동기화를 달성 하기 위한 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862d17948cb09c18f9372f8b8b981e5efa6be71b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114321"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578912"
 ---
 # <a name="directory-synchronization"></a>디렉터리 동기화
 
@@ -40,17 +40,17 @@ ms.locfileid: "92114321"
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자**: Azure AD를 사용 하 여 응용 프로그램에 액세스 합니다.
+* **사용자** : Azure AD를 사용 하 여 응용 프로그램에 액세스 합니다.
 
-* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
+* **웹 브라우저** : 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
 
-* **응용 프로그램**: 인증 및 권한 부여를 위해 Azure AD 사용에 의존 하는 웹 앱입니다.
+* **응용 프로그램** : 인증 및 권한 부여를 위해 Azure AD 사용에 의존 하는 웹 앱입니다.
 
-* **AZURE AD**: Azure AD Connect을 통해 조직의 온-프레미스 디렉터리에서 id 정보를 동기화 합니다. 
+* **AZURE AD** : Azure AD Connect을 통해 조직의 온-프레미스 디렉터리에서 id 정보를 동기화 합니다. 
 
-* **Azure AD Connect**: 온-프레미스 id 인프라를 Microsoft Azure AD에 연결 하기 위한 도구입니다. 마법사 및 단계별 경험을 통해 Active Directory에서 Azure AD로 동기화 및 로그인을 포함 하 여 연결에 필요한 필수 구성 요소 및 구성 요소를 배포 하 고 구성할 수 있습니다. 
+* **Azure AD Connect** : 온-프레미스 id 인프라를 Microsoft Azure AD에 연결 하기 위한 도구입니다. 마법사 및 단계별 경험을 통해 Active Directory에서 Azure AD로 동기화 및 로그인을 포함 하 여 연결에 필요한 필수 구성 요소 및 구성 요소를 배포 하 고 구성할 수 있습니다. 
 
-* **Active Directory**: Active Directory는 대부분의 Windows Server 운영 체제에 포함 된 디렉터리 서비스입니다. Active Directory Domain Services (AD DS)을 실행 하는 서버를 도메인 컨트롤러 라고 합니다. 도메인의 모든 사용자 및 컴퓨터를 인증 하 고 권한을 부여 합니다.
+* **Active Directory** : Active Directory는 대부분의 Windows Server 운영 체제에 포함 된 디렉터리 서비스입니다. Active Directory Domain Services (AD DS)을 실행 하는 서버를 도메인 컨트롤러 라고 합니다. 도메인의 모든 사용자 및 컴퓨터를 인증 하 고 권한을 부여 합니다.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Azure AD를 사용 하 여 디렉터리 동기화 구현
 

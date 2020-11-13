@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554719"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591991"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
@@ -53,6 +53,8 @@ ms.locfileid: "94554719"
 ### <a name="use-a-dataset"></a>데이터 세트 사용
 
 등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합** 에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
+
+파일 데이터 집합을 등록 하는 경우 데이터 집합의 출력 포트 형식은 **Anydirectory** 입니다. 테이블 형식 데이터 집합을 등록 하는 경우 **DataFrameDirectory** 인 경우 데이터 집합의 출력 포트 형식입니다. 데이터 집합의 출력 포트를 디자이너의 다른 모듈에 연결 하는 경우 데이터 집합 및 모듈의 포트 유형을 정렬 해야 합니다.
 
 ![디자이너 색상표에서 저장된 데이터 세트의 위치를 보여 주는 스크린샷](media/how-to-designer-import-data/use-datasets-designer.png)
 

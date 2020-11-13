@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963519"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591651"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -37,7 +37,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 * [Active Directory 연결에 대 한 요구 사항을](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
-* NFS 클라이언트가 최신 상태 이며 운영 체제에 대 한 최신 업데이트를 실행 중인지 확인 합니다.
+* NFS 클라이언트가 최신 상태이며 운영 체제에 대한 최신 업데이트를 실행 중인지 확인합니다.
 * Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.
 * Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 * 이중 프로토콜 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다.  
@@ -54,11 +54,11 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기
 
-1.  용량 풀 블레이드에서 **볼륨** 블레이드를 클릭합니다. **+ 볼륨 추가**를 클릭하여 볼륨을 만듭니다. 
+1.  용량 풀 블레이드에서 **볼륨** 블레이드를 클릭합니다. **+ 볼륨 추가** 를 클릭하여 볼륨을 만듭니다. 
 
     ![볼륨으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  볼륨 만들기 창에서 **만들기**를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
+2.  볼륨 만들기 창에서 **만들기** 를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
@@ -88,7 +88,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
+        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기** 를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes** 를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
  
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -100,7 +100,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. **프로토콜**을 클릭한 후, 다음 작업을 완료합니다.  
+3. **프로토콜** 을 클릭한 후, 다음 작업을 완료합니다.  
     * 볼륨에 대 한 프로토콜 유형으로 **이중 프로토콜 (NFSv3 및 SMB)** 을 선택 합니다.   
 
     * 드롭다운 목록에서 **Active Directory** 연결을 선택 합니다.  
@@ -115,7 +115,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
     ![이중 프로토콜 지정](../media/azure-netapp-files/create-volume-protocol-dual.png)
 
-4. **검토 + 만들기**를 클릭하여 볼륨 정보를 검토합니다. 그런 다음 **만들기** 를 클릭 하 여 볼륨을 만듭니다.
+4. **검토 + 만들기** 를 클릭하여 볼륨 정보를 검토합니다. 그런 다음 **만들기** 를 클릭 하 여 볼륨을 만듭니다.
 
     만든 볼륨이 볼륨 페이지에 표시됩니다. 
  
@@ -135,7 +135,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
     ![인증서 내보내기 마법사](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. 이중 프로토콜 볼륨의 NetApp 계정으로 이동 하 고, **연결 Active Directory**을 클릭 하 고, **조인 Active Directory** 창을 사용 하 여 루트 CA 인증서를 업로드 합니다.  
+4. 이중 프로토콜 볼륨의 NetApp 계정으로 이동 하 고, **연결 Active Directory** 을 클릭 하 고, **조인 Active Directory** 창을 사용 하 여 루트 CA 인증서를 업로드 합니다.  
 
     ![서버 루트 CA 인증서](../media/azure-netapp-files/server-root-ca-certificate.png)
 
@@ -161,5 +161,5 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [이중 프로토콜 Faq](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md)
+* [이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md)

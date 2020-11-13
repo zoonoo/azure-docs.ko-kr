@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491650"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591754"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -144,6 +144,17 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
     ![스냅숏 정책 삭제 확인](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>스냅숏 경로 숨기기 옵션을 편집 합니다.
+스냅숏 경로 숨기기 옵션은 볼륨의 스냅숏 경로를 표시할지 여부를 제어 합니다. [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) 또는 [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 볼륨을 만드는 동안 스냅숏 경로를 숨길지 여부를 지정 하는 옵션이 있습니다. 나중에 필요에 따라 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
+
+> [!NOTE]
+> 지역 간 복제의 [대상 볼륨](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) 에서 스냅숏 경로 숨기기 옵션은 기본적으로 사용 하도록 설정 되어 있으며 설정은 수정할 수 없습니다. 
+
+1. 볼륨의 스냅숏 경로 숨기기 옵션 설정을 보려면 볼륨을 선택 합니다. **스냅숏 경로 숨기기** 필드는 옵션의 설정 여부를 표시 합니다.   
+    ![스냅숏 경로 숨기기 필드를 설명 하는 스크린샷](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. 스냅숏 경로 숨기기 옵션을 편집 하려면 볼륨 페이지에서 **편집** 을 클릭 하 고 필요에 따라 **스냅숏 경로 숨기기** 옵션을 수정 합니다.   
+    ![볼륨 스냅숏 편집 옵션을 설명 하는 스크린샷](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>새 볼륨으로 스냅샷 복원
 
 현재 새 볼륨으로만 스냅샷을 복원할 수 있습니다. 
@@ -173,11 +184,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 탑재 된 볼륨에는  `.snapshot` (NFS 클라이언트에서) 또는 `~snapshot` 클라이언트에서 액세스할 수 있는 (SMB 클라이언트) 라는 스냅숏 디렉터리가 포함 되어 있습니다. 스냅숏 디렉터리는 볼륨의 스냅숏에 해당 하는 하위 디렉터리를 포함 합니다. 각 하위 디렉터리에는 스냅숏의 파일이 포함 되어 있습니다. 실수로 파일을 삭제 하거나 덮어쓴 경우 snapshot 하위 디렉터리에서 읽기/쓰기 디렉터리로 파일을 복사 하 여 부모 읽기/쓰기 디렉터리에 파일을 복원할 수 있습니다. 
 
-볼륨을 만들 때 스냅숏 경로 숨기기 확인란을 선택한 경우 스냅숏 디렉터리는 숨겨집니다. 볼륨을 선택 하 여 볼륨의 스냅숏 경로 숨기기 상태를 볼 수 있습니다. 볼륨 페이지에서 **편집** 을 클릭 하 여 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
-
-지역 간 복제의 대상 볼륨에서 스냅숏 경로 숨기기는 기본적으로 사용 하도록 설정 되어 있으며 설정은 수정할 수 없습니다.
-
-![볼륨 스냅숏 옵션 편집](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+스냅숏 디렉터리가 표시 되지 않으면 스냅숏 경로 숨기기 옵션을 현재 사용할 수 있기 때문에이 디렉터리가 숨겨져 있을 수 있습니다. [스냅숏 경로 숨기기 옵션을 편집](#edit-the-hide-snapshot-path-option) 하 여 사용 하지 않도록 설정할 수 있습니다.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Linux NFS 클라이언트를 사용 하 여 파일 복원 
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321454"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579405"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 옵션 `firstrow` 은이 경우 헤더를 나타내는 CSV 파일의 첫 번째 행을 건너뛰는 데 사용 됩니다. 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
+
+> [!IMPORTANT]
+> CSV 파일에 UTF-8 문자가 포함 된 경우 일부 UTF-8 데이터베이스 데이터 정렬을 사용 하 고 있는지 확인 합니다 (예: `Latin1_General_100_CI_AS_SC_UTF8` ).
+> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
@@ -91,9 +96,15 @@ from openrowset(
 
 절에서 데이터 형식 뒤의 숫자는 `WITH` CSV 파일의 열 인덱스를 나타냅니다.
 
+> [!IMPORTANT]
+> CSV 파일에 UTF-8 문자가 포함 된 경우 절에 있는 모든 열에 대 한 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_CI_AS_SC_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 확인 합니다.
+> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
+
 다음 섹션에서는 다양 한 유형의 CSV 파일을 쿼리 하는 방법을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것** 입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
 

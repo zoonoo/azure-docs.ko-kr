@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9163868848f2fdbd535a6b601077be570b0b01bf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20050cb373456296ef573368e6b289ec4b7d946d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076727"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591889"
 ---
 # <a name="get-trending-images-from-the-web"></a>웹에서 유행하는 이미지 가져오기
 
 > [!WARNING]
-> Bing Search API Cognitive Services에서 Bing Search 서비스로 이동 합니다. **2020 년 10 월 30 일부 터** [여기](https://aka.ms/cogsvcs/bingmove)에 설명 된 프로세스에 따라 Bing Search의 새 인스턴스를 프로 비전 해야 합니다.
-> Cognitive Services를 사용 하 여 프로 비전 된 Bing Search API는 향후 3 년 동안 또는 기업계약 종료 될 때까지 먼저 발생 합니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조 하십시오.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
 
 현재 유행하는 최신 이미지를 가져오려면 다음 GET 요청을 보냅니다.  
 
@@ -44,7 +44,7 @@ Host: api.cognitive.microsoft.com
 - en-AU(영어, 오스트레일리아)  
 - zh-CN(중국어, 중국)
 
-응답에는 이미지를 범주별로 나열하는 [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) 개체가 포함됩니다. 범주의 `title`을 사용하여 사용자 경험의 이미지를 그룹화합니다. 범주는 매일 변경될 수 있습니다.  
+응답에는 이미지를 범주별로 나열하는 [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) 개체가 포함됩니다. 범주의 `title`을 사용하여 사용자 경험의 이미지를 그룹화합니다. 범주는 매일 변경될 수 있습니다.  
 
 ```json
 {
@@ -93,9 +93,9 @@ Host: api.cognitive.microsoft.com
 }  
 ```  
 
-각 타일에는 이미지 및 관련 이미지를 가져오기 위한 옵션이 포함되어 있습니다. 관련 이미지를 가져오기 위해 `text` 쿼리를 사용하여 [Image Search API](./search-the-web.md)를 호출하고 관련 이미지를 직접 표시할 수 있습니다. 또는 `webSearchUrl`의 URL을 사용하여 사용자를 관련 이미지가 포함된 Bing의 이미지 검색 결과 페이지로 이동할 수 있습니다.
+각 타일에는 이미지 및 관련 이미지를 가져오기 위한 옵션이 포함되어 있습니다. 관련 이미지를 가져오기 위해 `text` 쿼리를 사용하여 [Image Search API](./overview.md)를 호출하고 관련 이미지를 직접 표시할 수 있습니다. 또는 `webSearchUrl`의 URL을 사용하여 사용자를 관련 이미지가 포함된 Bing의 이미지 검색 결과 페이지로 이동할 수 있습니다.
 
-Image Search API를 호출하여 관련 이미지를 가져오는 경우 [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) 쿼리 매개 변수를 `id` 필드의 ID로 설정하세요. ID를 지정하면 응답에 이미지(응답의 첫 번째 이미지) 및 관련 이미지가 포함됩니다. 또한 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 쿼리 매개 변수를 `text` 필드의 `query` 개체에 있는 텍스트로 설정하세요.
+Image Search API를 호출하여 관련 이미지를 가져오는 경우 [id](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) 쿼리 매개 변수를 `id` 필드의 ID로 설정하세요. ID를 지정하면 응답에 이미지(응답의 첫 번째 이미지) 및 관련 이미지가 포함됩니다. 또한 [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 쿼리 매개 변수를 `text` 필드의 `query` 개체에 있는 텍스트로 설정하세요.
 
 다음 예제는 이미지 ID를 사용하여 이전 Trending Images API 응답의 Mr. Smith 관련 이미지를 가져오는 방법을 보여줍니다.
 
@@ -106,4 +106,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

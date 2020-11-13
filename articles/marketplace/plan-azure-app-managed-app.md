@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: fbb78148418206a9a6e17b29ce17de0a23491839
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2f32fc9ffb8be5b71bfe84a4f0e946e68e8fcd03
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370214"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577824"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 Azure 관리 응용 프로그램 계획
 
@@ -32,7 +32,7 @@ Azure _관리 되는 응용 프로그램_ 계획은 Azure Marketplace에 azure �
 | ------------ | ------------- |
 | Azure 구독 | 관리 되는 응용 프로그램은 고객의 구독에 배포 되어야 하지만 타사에서 관리할 수 있습니다. |
 | 청구 및 계량 | 리소스는 고객의 Azure 구독에서 제공 됩니다. 종 량 제 지불 모델을 사용 하는 Vm은 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다. <br><br> 사용자 라이선스 Vm의 경우 Microsoft는 고객 구독에서 발생 하는 모든 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다. |
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요.<br> • [AZURE VM 기술 자산](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (Windows vhd의 경우)을 만듭니다.<br> • Linux  [배포판 보증 On Azure](/azure/virtual-machines/linux/endorsed-distros.md) (linux vhd의 경우). |
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요.<br> • [AZURE VM 기술 자산](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (Windows vhd의 경우)을 만듭니다.<br> • Linux  [배포판 보증 On Azure](/azure/virtual-machines/linux/endorsed-distros) (linux vhd의 경우). |
 | 고객 사용량 특성 | 모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여](azure-partner-customer-usage-attribution.md) GUID도 포함해야 합니다. 고객 사용 특성 및이를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure 파트너 고객 사용 특성](azure-partner-customer-usage-attribution.md)을 참조 하세요. |
 | 배포 패키지 | 고객이 요금제를 배포할 수 있도록 하는 배포 패키지가 필요 합니다. 동일한 기술 구성이 필요한 여러 계획을 만드는 경우 동일한 패키지를 사용할 수 있습니다. 자세한 내용은 다음 섹션인 배포 패키지를 참조 하세요. |
 |||
@@ -47,7 +47,7 @@ Azure _관리 되는 응용 프로그램_ 계획은 Azure Marketplace에 azure �
 모든 Azure 응용 프로그램은 .zip 보관 파일의 루트 폴더에 다음 두 개의 파일을 포함 해야 합니다.
 
 - [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)이라는 Resource Manager 템플릿 파일. 이 템플릿은 고객의 Azure 구독에 배포할 리소스를 정의합니다. 리소스 관리자 템플릿의 예는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/) 또는 해당 [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 리포지토리를 참조 하세요.
-- [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
+- [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
 
 지원되는 최대 파일 크기는 다음과 같습니다.
 
@@ -58,7 +58,7 @@ Azure _관리 되는 응용 프로그램_ 계획은 Azure Marketplace에 azure �
 
 ## <a name="azure-regions"></a>Azure 지역
 
-Azure 공용 지역, Azure Government 지역 또는 둘 다에 계획을 게시할 수 있습니다. [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners.md)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
+Azure 공용 지역, Azure Government 지역 또는 둘 다에 계획을 게시할 수 있습니다. [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
 
 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다.
 
@@ -87,14 +87,14 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ## <a name="just-in-time-jit-access"></a>JIT (just-in-time) 액세스
 
-JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다. 자세한 내용은 [Azure Managed Applications의 JIT(Just-In-Time) 액세스 사용 및 요청](/azure/managed-applications/request-just-in-time-access.md)을 참조하세요.
+JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다. 자세한 내용은 [Azure Managed Applications의 JIT(Just-In-Time) 액세스 사용 및 요청](/azure/managed-applications/request-just-in-time-access)을 참조하세요.
 
 > [!NOTE]
 > 이 기능을 지원 하기 위해 skimmingBe에서 파일을 업데이트 해야 하는 경우에도 사용자에 게 알리는 정보 `createUiDefinition.json` 입니다.
 
 ## <a name="deployment-mode"></a>배포 모드
 
-**전체** 또는 **증분** 배포 모드를 사용 하도록 관리 되는 응용 프로그램 계획을 구성할 수 있습니다. 완료 모드에서는 고객이의 [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)에 리소스가 정의 되어 있지 않은 경우 고객이 응용 프로그램을 다시 배포 하 여 관리 되는 리소스 그룹의 리소스를 제거 합니다. 증분 모드에서 애플리케이션을 다시 배포하면 기존 리소스가 변경되지 않습니다. 자세히 알아보려면 [Azure Resource Manager 배포 모드](/azure/azure-resource-manager/templates/deployment-modes.md?WT.mc_id=pc_52)를 참조 하세요.
+**전체** 또는 **증분** 배포 모드를 사용 하도록 관리 되는 응용 프로그램 계획을 구성할 수 있습니다. 완료 모드에서는 고객이의 [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)에 리소스가 정의 되어 있지 않은 경우 고객이 응용 프로그램을 다시 배포 하 여 관리 되는 리소스 그룹의 리소스를 제거 합니다. 증분 모드에서 애플리케이션을 다시 배포하면 기존 리소스가 변경되지 않습니다. 자세히 알아보려면 [Azure Resource Manager 배포 모드](/azure/azure-resource-manager/templates/deployment-modes)를 참조 하세요.
 
 ## <a name="notification-endpoint-url"></a>알림 엔드포인트 URL
 
@@ -104,7 +104,7 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 
 필요에 따라 `*/read` 기본적으로 사용 가능한 작업 외에도 고객이 관리 되는 리소스에 대해 수행할 수 있는 작업을 지정할 수 있습니다.
 
-이 옵션을 선택 하는 경우 제어 작업 또는 허용 되는 데이터 작업 중 하나 또는 둘 모두를 제공 해야 합니다. 자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](/azure/role-based-access-control/deny-assignments.md)를 참조하세요. 사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
+이 옵션을 선택 하는 경우 제어 작업 또는 허용 되는 데이터 작업 중 하나 또는 둘 모두를 제공 해야 합니다. 자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](/azure/role-based-access-control/deny-assignments)를 참조하세요. 사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
 
 ## <a name="choose-who-can-manage-the-application"></a>응용 프로그램을 관리할 수 있는 사용자 선택
 
@@ -113,23 +113,23 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 - **Azure Active Directory 테 넌 트 id** – 사용 권한을 부여 하려는 사용자, 그룹 또는 응용 프로그램의 id를 포함 하는 Azure AD 테 넌 트 id (디렉터리 ID 라고도 함)입니다. Azure Portal에서 [Azure Active Directory 속성](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)의 Azure AD 테 넌 트 ID를 찾을 수 있습니다.
 - **권한 부여 – 관리** 되는 리소스 그룹에 권한을 부여 하려는 각 사용자, 그룹 또는 응용 프로그램의 AZURE ACTIVE DIRECTORY 개체 ID를 추가 합니다. 사용자를 해당 보안 주체 ID로 식별하며, 이 ID는 [Azure Portal의 Azure Active Directory 사용자 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)에서 찾을 수 있습니다.
 
-각 보안 주체 ID에 대해 Azure AD 기본 제공 역할 (소유자 또는 참가자) 중 하나를 연결 합니다. 선택한 역할은 사용자가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명 합니다. 자세한 정보는 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles.md)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](/azure/role-based-access-control/overview.md)을 참조하세요.
+각 보안 주체 ID에 대해 Azure AD 기본 제공 역할 (소유자 또는 참가자) 중 하나를 연결 합니다. 선택한 역할은 사용자가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명 합니다. 자세한 정보는 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](/azure/role-based-access-control/overview)을 참조하세요.
 
 > [!NOTE]
 > Azure 지역 당 최대 100 권한 부여를 추가할 수 있지만, 일반적으로 Active Directory 사용자 그룹을 만들고 "보안 주체 ID"에 해당 ID를 지정 하는 것이 더 쉽습니다. 이렇게 하면 계획이 배포 된 후 관리 그룹에 더 많은 사용자를 추가할 수 있으며, 더 많은 권한 부여를 추가 하기 위해 계획을 업데이트할 필요성이 줄어듭니다.
 
 ## <a name="policy-settings"></a>정책 설정
 
-[Azure 정책을](/azure/governance/policy.md) 관리 되는 응용 프로그램에 적용 하 여 배포 된 솔루션에 대 한 규정 준수 요구 사항을 지정할 수 있습니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](/azure/governance/policy/samples.md)을 참조하세요.
+[Azure 정책을](/azure/governance/policy) 관리 되는 응용 프로그램에 적용 하 여 배포 된 솔루션에 대 한 규정 준수 요구 사항을 지정할 수 있습니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](/azure/governance/policy/samples)을 참조하세요.
 
 최대 5 개의 정책 및 각 정책 형식의 인스턴스를 하나만 구성할 수 있습니다. 일부 정책 형식에는 추가 매개 변수가 필요 합니다.
 
 | 정책 유형 | 정책 매개 변수가 필요 합니다. |
 | ------------ | ------------- |
 | 암호화 Azure SQL Database | 예 |
-| Azure SQL Server 감사 설정 | yes |
+| Azure SQL Server 감사 설정 | Yes |
 | 암호화 Azure Data Lake Store | 예 |
-| 진단 설정 감사 | yes |
+| 진단 설정 감사 | Yes |
 | 감사 리소스 위치 준수 | 예 |
 |||
 

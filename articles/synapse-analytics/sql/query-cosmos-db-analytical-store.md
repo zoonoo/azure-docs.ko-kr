@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310306"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579388"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 Azure Cosmos DB 연결 문자열은 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키 및 작동 하는 선택적 영역 이름을 지정 합니다 `OPENROWSET` . 
 
 > [!IMPORTANT]
-> 뒤에 별칭을 사용 하는지 확인 `OPENROWSET` 합니다. 함수 뒤에 별칭을 지정 하지 않으면 서버를 사용 하지 않는 SQL 끝점에 대 한 연결 문제를 야기 하는 [알려진 문제가](#known-issues) Synapse `OPENROWSET` .
+> `Latin1_General_100_CI_AS_SC_UTF8`Cosmos DB 분석 저장소의 문자열 값이 utf-8 텍스트로 인코딩되어 있으므로 일부 utf-8 데이터베이스 데이터 정렬 (예:)을 사용 하 고 있는지 확인 합니다.
+> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 텍스트 변환 오류가 발생할 수 있습니다.
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 연결 문자열의 형식은 다음과 같습니다.
 ```sql
@@ -338,12 +340,12 @@ GROUP BY geo_id
 
 ## <a name="known-issues"></a>알려진 문제
 
-- 함수 뒤에 별칭을 지정 **해야** 합니다 `OPENROWSET` (예: `OPENROWSET (...) AS function_alias` ). 별칭을 생략 하면 연결 문제가 발생할 수 있으며 서버를 사용 하지 않는 SQL 끝점은 일시적으로 사용할 수 없습니다 Synapse. 이 문제는 11 월 2020에 해결 될 예정입니다.
 - 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 잘 정의 된 스키마를 사용 하 여 쿼리 환경을 정렬할 수 있으므로, 절이 없는 함수는 공개 미리 보기 중에 제공 하는 스키마를 사용 하지 마세요. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
+- 열 데이터 정렬에 UTF-8 인코딩이 없으면 서버를 사용 하지 않는 SQL 풀에서 컴파일 시간 오류가 반환 되지 않습니다 `OPENROSET` . `OPENROWSET`다음 t-sql 문을 사용 하 여 현재 데이터베이스에서 실행 되는 모든 함수에 대 한 기본 데이터 정렬을 쉽게 변경할 수 있습니다.`alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| Error | 근본 원인 |
+| 오류 | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -' Openrowset ' 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인<br/> -' CosmosDB '를 첫 번째 매개 변수로 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스, 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에 옵션이 있습니다.<br/> -세미콜론 `;` 은 연결 문자열의 끝에 배치 됩니다. |

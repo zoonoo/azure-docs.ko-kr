@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605093"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578317"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드에서는 Azure Active Directory (AD)에 대 한 LoB (기간 업무) 응용 프로그램 개발에 대 한 개요를 제공 합니다. 대상 사용자는 전역 관리자 Active Directory/Microsoft 365 합니다.
@@ -27,7 +27,7 @@ Azure AD와 통합 된 응용 프로그램을 빌드하면 조직의 사용자�
 
 Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야 합니다. 애플리케이션을 등록하면 개발자가 Azure AD를 사용하여 사용자를 인증하고 이메일, 일정, 문서 등과 같은 사용자 리소스에 대한 액세스를 요청할 수 있습니다.
 
-디렉터리(게스트 아님)의 멤버는 애플리케이션을 등록할 수 있습니다.( *애플리케이션 개체 만들기*라고 함)
+디렉터리(게스트 아님)의 멤버는 애플리케이션을 등록할 수 있습니다.( *애플리케이션 개체 만들기* 라고 함) 응용 프로그램을 등록할 수 없는 경우에는 디렉터리의 전역 관리자가이 기능을 제한 하 고, 응용 프로그램을 등록할 수 있도록 적절 한 [권한을 얻으려면](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) 해당 사용자에 게 문의 해야 할 수 있습니다. 사용자를 제한 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에서 앱 등록 권한 위임](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications)을 참조 하세요.
 
 애플리케이션을 등록하면 사용자가 다음을 수행할 수 있습니다.
 

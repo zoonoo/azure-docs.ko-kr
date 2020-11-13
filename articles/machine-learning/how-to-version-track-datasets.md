@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358340"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579575"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
-
 
 이 문서에서는 재현 가능성에 대 한 Azure Machine Learning 데이터 집합을 버전 및 추적 하는 방법을 알아봅니다. 데이터 집합 버전 관리는 이후 실험을 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>파이프라인 출력 데이터 집합 버전
+## <a name="version-an-ml-pipeline-output-dataset"></a>ML 파이프라인 출력 데이터 집합 버전
 
-데이터 집합을 각 Machine Learning 파이프라인 단계의 입력 및 출력으로 사용할 수 있습니다. 파이프라인을 다시 실행 하면 각 파이프라인 단계의 출력이 새 데이터 집합 버전으로 등록 됩니다.
+각 [ML 파이프라인](concept-ml-pipelines.md) 단계의 입력 및 출력으로 데이터 집합을 사용할 수 있습니다. 파이프라인을 다시 실행 하면 각 파이프라인 단계의 출력이 새 데이터 집합 버전으로 등록 됩니다.
 
-파이프라인이 다시 실행 될 때마다 Machine Learning 파이프라인이 각 단계의 출력을 새 폴더로 채우지 때문에 버전이 있는 출력 데이터 집합을 재현할 수 있습니다. [파이프라인의 데이터 집합](how-to-create-your-first-pipeline.md#steps)에 대해 자세히 알아보세요.
+ML 파이프라인은 파이프라인이 다시 실행 될 때마다 각 단계의 출력을 새 폴더로 채웁니다. 이 동작으로 버전이 지정 된 출력 데이터 집합을 재현할 수 있습니다. [파이프라인의 데이터 집합](how-to-create-your-first-pipeline.md#steps)에 대해 자세히 알아보세요.
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>실험에서 데이터 집합 추적
+## <a name="track-datas-in-your-experiments"></a>실험에서 데이터 추적
 
-각 Machine Learning 실험의 경우 실험 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
+Azure Machine Learning는 전체 실험에서 데이터를 입력 및 출력 데이터 집합으로 추적 합니다.  
+
+데이터를 **입력 데이터 집합** 으로 추적 하는 시나리오는 다음과 같습니다. 
+
+* `DatasetConsumptionConfig` `inputs` `arguments` `ScriptRunConfig` 실험 실행을 제출할 때 개체의 또는 매개 변수를 통해 개체로 사용할 수도 있습니다. 
+
+* 과 같은 메서드가 get_by_name () 또는 get_by_id ()가 스크립트에서 호출 됩니다. 이 시나리오의 경우 작업 영역에 등록할 때 데이터 집합에 할당 되는 이름이 표시 됩니다. 
+
+데이터를 **출력 데이터 집합** 으로 추적 하는 시나리오는 다음과 같습니다.  
+
+* `OutputFileDatasetConfig` `outputs` `arguments` 실험 실행을 제출할 때 또는 매개 변수를 통해 개체를 전달 합니다. `OutputFileDatasetConfig` 개체를 사용 하 여 파이프라인 단계 간에 데이터를 유지할 수도 있습니다. [ML 파이프라인 간 데이터 이동 단계를](how-to-move-data-in-out-of-pipelines.md) 참조 하세요.
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 는 언제 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) 미리 보기 기능을 포함 하는 공개 미리 보기 클래스입니다.
+
+* 스크립트에 데이터 집합을 등록 합니다. 이 시나리오의 경우 작업 영역에 등록할 때 데이터 집합에 할당 되는 이름이 표시 됩니다. 다음 예제에서 `training_ds` 는 표시 되는 이름입니다.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* 스크립트에서 등록 되지 않은 데이터 집합을 사용 하 여 자식 실행을 제출 합니다. 그러면 익명으로 저장 된 데이터 집합이 생성 됩니다.
+
+### <a name="trace-datasets-in-experiment-runs"></a>실험 실행의 데이터 집합 추적
+
+각 Machine Learning 실험에 대해 실험 개체에서 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
 다음 코드에서는 메서드를 사용 하 여 [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-을 `input_datasets` 사용 하 여 실험에서을 찾을 수도 있습니다 https://ml.azure.com/ . 
+`input_datasets` [Azure Machine Learning studio]()를 사용 하 여 실험에서을 찾을 수도 있습니다. 
 
 다음 이미지는 Azure Machine Learning studio에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 여 실험의 특정 실행에 대 한 **속성** 탭을 엽니다 `keras-mnist` .
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델의 목록을 확인 하거나로 이동할 수 있습니다 https://ml.azure.com/ .
+등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델 목록을 확인 하거나 [스튜디오](https://ml.azure.com/)로 이동할 수 있습니다.
 
 다음 뷰는 **자산** 아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 

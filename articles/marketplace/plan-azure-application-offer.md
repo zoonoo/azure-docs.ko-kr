@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370177"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577790"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 Azure 애플리케이션 제품 계획
 
@@ -33,7 +33,7 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
 
 상업적 marketplace에 대 한 Azure 응용 프로그램 제품을 계획할 때 다음 리소스를 검토 합니다.
 
-- [Azure Resource Manager 템플릿 이해](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Azure Resource Manager 템플릿 이해](/azure/azure-resource-manager/templates/template-syntax)
 - 빠른 시작:
     - [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
     - [Azure 템플릿 모범 사례 가이드](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -121,7 +121,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. 설명
+8. Description
 9. 스크린샷/비디오
 
 다음 스크린샷은 Azure Portal에서 제공 정보를 표시 하는 방법을 보여 줍니다.
@@ -131,7 +131,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -145,7 +145,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 - **간단한 설명** : 일반 텍스트를 최대 256 자까지 제공 합니다. 이 요약은 제품의 세부 정보 페이지에 표시 됩니다.
 - **설명** :이 설명은 Azure Marketplace 목록 개요에 표시 됩니다. 가치 제안, 주요 이점, 의도 된 사용자 기반, 범주 또는 업계 연결, 앱 내 구매 기회, 고객이 요구 하거나 제품에 대 한 요구 사항, 필요한 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
 
-    이 텍스트 상자에는 설명이 더 유용 하 게 만드는 데 사용할 수 있는 다양 한 텍스트 편집기 컨트롤이 있습니다. HTML 태그를 사용 하 여 설명 서식을 지정할 수도 있습니다. 이 상자에는 HTML 태그와 공백을 포함 하 여 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁 [은 상용 marketplace 제품 설명에서 지원 되](supported-html-tags.md) [는 멋진 앱 설명](/windows/uwp/publish/write-a-great-app-description.md) 및 HTML 태그 작성을 참조 하세요.
+    이 텍스트 상자에는 설명이 더 유용 하 게 만드는 데 사용할 수 있는 다양 한 텍스트 편집기 컨트롤이 있습니다. HTML 태그를 사용 하 여 설명 서식을 지정할 수도 있습니다. 이 상자에는 HTML 태그와 공백을 포함 하 여 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁 [은 상용 marketplace 제품 설명에서 지원 되](supported-html-tags.md) [는 멋진 앱 설명](/windows/uwp/publish/write-a-great-app-description) 및 HTML 태그 작성을 참조 하세요.
 
 - **검색 키워드** (선택 사항): 고객이 온라인 스토어에서 제품을 찾는 데 사용할 수 있는 검색 키워드를 최대 3 개까지 제공 합니다. 최상의 결과를 얻기 위해 이 키워드를 설명에도 사용합니다. 제품 **이름** 및 **설명을** 포함할 필요가 없습니다. 이 텍스트는 검색에 자동으로 포함 됩니다.
 - **개인 정보 취급 방침 링크** : 회사의 개인 정보 취급 방침에 대 한 URL입니다. 유효한 개인 정보 취급 방침을 제공 해야 하며, 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 해야 합니다.
@@ -197,9 +197,9 @@ Azure 구독 Id를 사용 하 여 미리 보기 대상 그룹을 정의 하 고 
 
 [Marketplace 계량 서비스 api](partner-center-portal/marketplace-metering-service-apis.md)를 사용 하 여 계량 이벤트를 내보내는 관리 되는 응용 프로그램의 경우 계량 이벤트를 내보낼 때 서비스에서 사용할 id를 제공 해야 합니다.
 
-이 구성은 [일괄 처리 사용량 이벤트](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event)를 사용하려는 경우에 필요합니다. [사용 이벤트](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)를 제출 하려는 경우 [인스턴스 메타 데이터 서비스](/azure/active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 [JWT (JSON web token) 전달자 토큰](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)을 가져올 수도 있습니다.
+이 구성은 [일괄 처리 사용량 이벤트](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event)를 사용하려는 경우에 필요합니다. [사용 이벤트](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)를 제출 하려는 경우 [인스턴스 메타 데이터 서비스](/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 [JWT (JSON web token) 전달자 토큰](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)을 가져올 수도 있습니다.
 
-- **Azure Active Directory 테 넌 트 ID** (필수): Azure Portal 내에서 두 서비스 간의 연결이 인증 된 통신 뒤에 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](/azure/active-directory/develop/howto-create-service-principal-portal.md) 합니다. Azure Active Directory (Azure AD) 앱에 대 한 [테 넌 트 ID](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드에 있습니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 **속성** 을 찾아 **디렉터리 (테 넌 트) ID** (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
+- **Azure Active Directory 테 넌 트 ID** (필수): Azure Portal 내에서 두 서비스 간의 연결이 인증 된 통신 뒤에 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. Azure Active Directory (Azure AD) 앱에 대 한 [테 넌 트 ID](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) 를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드에 있습니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 **속성** 을 찾아 **디렉터리 (테 넌 트) ID** (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 - **Azure Active Directory 응용 프로그램 id** (필수): [응용 프로그램 id](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) 및 인증 키도 필요 합니다. 응용 프로그램 ID를 찾으려면 Azure Active Directory [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 하 고 **응용 프로그램 (클라이언트) ID** (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` . 인증 키를 찾으려면 **설정** 으로 이동하고 **키** 를 선택합니다. 설명 및 기간을 입력해야 숫자 값이 제공됩니다.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Azure 구독 Id를 사용 하 여 미리 보기 대상 그룹을 정의 하 고 
 
 Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 하도록 선택할 수 있습니다. 파트너 센터에서 제품을 만들 때 프로세스의 끝에 두 개의 탭이 표시 됩니다.
 
-- **Csp를 통한 재판매** :이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](/azure/marketplace/cloud-solution-providers.md) 을 참조 하세요.
+- **Csp를 통한 재판매** :이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](/azure/marketplace/cloud-solution-providers) 을 참조 하세요.
 - **Microsoft와 공동 판매** :이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](partner-center-portal/commercial-marketplace-co-sell.md) 을 참조 하세요. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조 하세요.
 
 자세히 알아보려면 [Azure Marketplace를 사용 하 여 클라우드 비즈니스 성장](https://azuremarketplace.microsoft.com/sell)을 참조 하세요.
@@ -224,12 +224,12 @@ Azure 애플리케이션 제품에는 하나 이상의 계획이 필요 합니�
 
 Azure 응용 프로그램 계획에는 _솔루션 템플릿_ 및 _관리 되는 응용_ 프로그램의 두 가지 종류가 있습니다. 두 계획 유형 모두 단일 VM (가상 머신) 이외의 솔루션 배포 및 구성을 자동화 하는 기능을 지원 합니다. Vm, 네트워킹 및 저장소 리소스를 비롯 한 여러 리소스를 제공 하 여 IaaS 솔루션과 같은 복잡 한 솔루션을 제공 하는 프로세스를 자동화할 수 있습니다. 두 계획 유형 모두 Vm에 대 한 제한 없이 여러 종류의 Azure 리소스를 사용할 수 있습니다.
 
-- **솔루션 템플릿** 계획은 상용 marketplace에 솔루션을 게시 하는 주요 방법 중 하나입니다. 솔루션 템플릿 요금제는 상업적 marketplace에서 불가능 되지 않지만 상업적 marketplace를 통해 청구 되는 유료 VM 제품을 배포 하는 데 사용할 수 있습니다. 고객이 솔루션을 관리 하 고 트랜잭션이 다른 계획을 통해 청구 되는 경우 솔루션 템플릿 계획 유형을 사용 합니다. 솔루션 템플릿을 빌드하는 방법에 대 한 자세한 내용은 [Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md) 을 참조 하세요.
+- **솔루션 템플릿** 계획은 상용 marketplace에 솔루션을 게시 하는 주요 방법 중 하나입니다. 솔루션 템플릿 요금제는 상업적 marketplace에서 불가능 되지 않지만 상업적 marketplace를 통해 청구 되는 유료 VM 제품을 배포 하는 데 사용할 수 있습니다. 고객이 솔루션을 관리 하 고 트랜잭션이 다른 계획을 통해 청구 되는 경우 솔루션 템플릿 계획 유형을 사용 합니다. 솔루션 템플릿을 빌드하는 방법에 대 한 자세한 내용은 [Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview) 을 참조 하세요.
 - **관리 되는 응용 프로그램** 계획을 통해 고객에 게 완전히 관리 되는 턴키 응용 프로그램을 쉽게 빌드하고 제공할 수 있습니다. 몇 가지 주요 차이점을 포함 하 여 솔루션 템플릿 계획과 동일한 기능을 제공 합니다.
     - 리소스는 리소스 그룹에 배포 되 고 앱 게시자가 관리 합니다. 리소스 그룹은 소비자의 구독에 있지만, 게시자 테넌트의 ID는 해당 리소스 그룹에 액세스할 수 있습니다. 
     - 게시자로 서 솔루션의 지속적인 지원 비용을 지정 하 고 상업적 marketplace를 통해 트랜잭션을 지원 합니다.
  
-    사용자 또는 고객이 솔루션을 파트너에서 관리 하거나 구독 기반 솔루션을 배포 해야 하는 경우 관리 되는 응용 프로그램 계획 유형을 사용 합니다. 관리 되는 응용 프로그램의 장점 및 유형에 대 한 자세한 내용은 [Azure 관리 되는 응용 프로그램 개요](/azure/managed-applications/overview.md)를 참조 하세요.
+    사용자 또는 고객이 솔루션을 파트너에서 관리 하거나 구독 기반 솔루션을 배포 해야 하는 경우 관리 되는 응용 프로그램 계획 유형을 사용 합니다. 관리 되는 응용 프로그램의 장점 및 유형에 대 한 자세한 내용은 [Azure 관리 되는 응용 프로그램 개요](/azure/managed-applications/overview)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

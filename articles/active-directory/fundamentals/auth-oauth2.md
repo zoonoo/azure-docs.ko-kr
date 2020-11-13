@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory로 OAUTH 2.0 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 OAUTH 2.0 인증을 구현 하는 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114370"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577909"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Azure Active Directory로 OAuth 2.0 인증
 
@@ -34,13 +34,13 @@ OAuth 2.0은 OIDC (Openid connect Connect)와 직접적으로 관련이 있습�
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **User**: 웹 응용 프로그램 (앱)에서 서비스를 요청 합니다. 일반적으로 사용자는 데이터를 소유 하 고 클라이언트가 데이터 또는 리소스에 액세스할 수 있도록 하는 기능을 보유 하 고 있는 리소스 소유자입니다. 
+* **User** : 웹 응용 프로그램 (앱)에서 서비스를 요청 합니다. 일반적으로 사용자는 데이터를 소유 하 고 클라이언트가 데이터 또는 리소스에 액세스할 수 있도록 하는 기능을 보유 하 고 있는 리소스 소유자입니다. 
 
-* **웹 브라우저**: 사용자가 상호 작용 하는 웹 브라우저는 OAuth 클라이언트입니다. 
+* **웹 브라우저** : 사용자가 상호 작용 하는 웹 브라우저는 OAuth 클라이언트입니다. 
 
-* **웹 앱**: 웹 앱 또는 리소스 서버는 리소스 또는 데이터가 있는 곳입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 
+* **웹 앱** : 웹 앱 또는 리소스 서버는 리소스 또는 데이터가 있는 곳입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 
 
-* **AZURE ad**: azure Ad는 IdP (id 공급자) 라고도 하는 권한 부여 서버입니다. 사용자 정보, 해당 액세스 및 트러스트 관계를 사용 하 여 수행할 작업을 안전 하 게 처리 합니다. 리소스에 대 한 액세스 권한을 부여 하 고 취소 하는 토큰을 발급 해야 합니다.
+* **AZURE ad** : azure Ad는 IdP (id 공급자) 라고도 하는 권한 부여 서버입니다. 사용자 정보, 해당 액세스 및 트러스트 관계를 사용 하 여 수행할 작업을 안전 하 게 처리 합니다. 리소스에 대 한 액세스 권한을 부여 하 고 취소 하는 토큰을 발급 해야 합니다.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Azure AD를 사용 하 여 OAuth 2.0 구현
 

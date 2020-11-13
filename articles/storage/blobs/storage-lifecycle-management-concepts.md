@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100072"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579314"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Azure Blob Storage 액세스 계층을 자동화 하 여 비용 최적화
 
@@ -80,7 +80,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 1. **기본 blob** 을 선택 하 여 규칙에 대 한 조건을 설정 합니다. 다음 예에서는 30 일 동안 수정 되지 않은 경우 blob을 쿨 저장소로 이동 합니다.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="수명 주기 관리 Azure Portal에서 규칙 세부 정보 페이지 추가":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Azure Portal의 수명 주기 관리 기본 blob 페이지":::
 
    **마지막으로 액세스** 한 옵션은 다음 지역에서 미리 보기로 제공 됩니다.
 
@@ -95,7 +95,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 1. **자세히** 페이지에서 필터 **를 사용 하 여 blob 제한** 을 선택한 경우 **필터 설정** 을 선택 하 여 선택적 필터를 추가 합니다. 다음 예제에서는 "log"로 시작 하는 *mylifecyclecontainer* 컨테이너의 blob을 필터링 합니다.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="수명 주기 관리 Azure Portal에서 규칙 세부 정보 페이지 추가":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Azure Portal의 수명 주기 관리 필터 설정 페이지":::
 
 1. **추가** 를 선택 하 여 새 정책을 추가 합니다.
 
@@ -247,10 +247,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 | 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | 참 |
-| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
-| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | 참 |
-| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | 참 |
+| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | True |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
+| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | True |
+| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
 
 ## <a name="rules"></a>규칙
 
@@ -318,8 +318,8 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 | 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 및를 지원 합니다 `blockBlob` `appendBlob` . 에는 delete만 지원 되며 `appendBlob` 집합 계층은 지원 되지 않습니다. | Yes |
-| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
-| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
 
 > [!NOTE]
 > Blob 인덱스는 공개 미리 보기 상태 이며 **캐나다 중부** , **캐나다 동부** , **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
@@ -333,7 +333,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 | 작업                      | 기본 Blob                                  | 스냅샷      | 버전
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | `blockBlob`에 지원됨                  | 지원됨     | 지원됨     |
-| enableAutoTierToHotFromCool | `blockBlob`에 지원됨                  | 지원 안 함 | 지원 안 함 |
+| enableAutoTierToHotFromCool | `blockBlob`에 지원됨                  | 지원되지 않음 | 지원되지 않음 |
 | tierToArchive               | `blockBlob`에 지원됨                  | 지원됨     | 지원됨     |
 | delete                      | 및에 대해 지원 됩니다. `blockBlob``appendBlob` | 지원됨     | 지원됨     |
 
@@ -342,7 +342,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 실행 조건은 age를 기준으로 합니다. 기본 blob는 마지막으로 수정 된 시간을 사용 하 고 blob 버전은 버전 만든 시간을 사용 하며 blob 스냅숏은 스냅숏 생성 시간을 사용 하 여 사용 기간을 추적 합니다.
 
-| 작업 실행 조건               | 조건 값                          | 설명                                                                      |
+| 작업 실행 조건               | 조건 값                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 blob 동작의 조건입니다.                                              |
 | daysAfterCreationGreaterThan       | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 버전 및 blob 스냅숏 작업에 대 한 조건                         |
@@ -439,7 +439,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 저장소 계정이 범용 v1 계정인 경우 Azure Portal를 사용 하 여 범용 v2 계정으로 업그레이드 합니다.
 
-Azure Data Lake Storage Gen2에서 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정은 아직 지원 되지 않습니다.
+Azure Data Lake Storage Gen2에서 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정이 이제 지원 됩니다.
 
 #### <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

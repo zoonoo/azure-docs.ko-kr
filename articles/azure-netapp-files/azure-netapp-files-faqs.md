@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089318"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591549"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -150,7 +150,7 @@ Azure NetApp Files smb 2.1 및 smb 3.1 (SMB 3.0에 대 한 지원 포함)을 지
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>지원 되는 Active Directory 연결은 몇 개입니까?
 
-AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역*에서 여러 ad (Active Directory) 연결을 지원 하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 한 단일 *구독*에서 여러 ad 연결을 사용할 수 있습니다. 단일 지역에 여러 AD 연결이 필요한 경우 별도의 구독을 사용 하 여이 작업을 수행할 수 있습니다. 
+AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역* 에서 여러 ad (Active Directory) 연결을 지원 하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 한 단일 *구독* 에서 여러 ad 연결을 사용할 수 있습니다. 단일 지역에 여러 AD 연결이 필요한 경우 별도의 구독을 사용 하 여이 작업을 수행할 수 있습니다. 
 
 AD 연결은 NetApp 계정에 따라 구성 됩니다. AD 연결은 생성 된 NetApp 계정을 통해서만 볼 수 있습니다.
 
@@ -174,16 +174,6 @@ SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼�
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
 
-## <a name="dual-protocol-faqs"></a>이중 프로토콜 Faq
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>' Root ' 및 로컬 사용자를 사용 하 여 UNIX 시스템의 NTFS 보안 스타일로 이중 프로토콜 볼륨에 액세스 하려고 했습니다. "사용 권한이 거부 되었습니다." 오류가 발생 하는 이유는 무엇 인가요?   
-
-해상도에 대 한 [이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md) 을 참조 하세요.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>이중 프로토콜 볼륨을 만들려고 할 때 "LDAP 구성의 유효성을 검사 하지 못했습니다." 라는 오류와 함께 만들기 프로세스가 실패 하는 이유는 무엇 인가요?  
-
-해상도에 대 한 [이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md) 을 참조 하세요.
-
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>용량 풀 및 Azure NetApp Files 볼륨에 대 한 사용량을 모니터링 어떻게 할까요?? 
@@ -200,7 +190,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

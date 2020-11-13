@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 4dfe284a00052cbd1915d62355e1d7772f3712ab
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376335"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591872"
 ---
 # <a name="one-vs-all-multiclass"></a>OVA(One-vs-All)  다중 클래스
 
@@ -31,6 +31,8 @@ ms.locfileid: "94376335"
 기본적으로이 모듈은 개별 모델의 앙상블을 만든 다음 결과를 병합 하 여 모든 클래스를 예측 하는 단일 모델을 만듭니다. 모든 이진 분류자는 하나 이상의 모델에 대 한 기준으로 사용할 수 있습니다.  
 
 예를 들어 [2 클래스 지원 벡터 컴퓨터](two-class-support-vector-machine.md) 모델을 구성 하 고이를 일대다 다중 클래스 모듈에 대 한 입력으로 제공 한다고 가정해 보겠습니다. 모듈은 출력 클래스의 모든 멤버에 대해 2 클래스 지원 벡터 컴퓨터 모델을 만듭니다. 그런 다음, 하나 이상의 메서드를 적용 하 여 모든 클래스에 대 한 결과를 결합 합니다.  
+
+이 모듈은 OneVsRestClassifier를 사용 하 여 [자세한 내용을 볼 수 있습니다.](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html)
 
 ## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>일대다 다중 클래스 분류자를 구성 하는 방법  
 
